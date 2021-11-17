@@ -1,4 +1,4 @@
-This article demonstrates how to conceptualize, architect, build, and deploy an application that uses projects from the [Cloud Native Computing Foundation](https://www.cncf.io/projects) (CNCF) after deployment of Azure Kubernetes Service. The architecture describes the [CNCF Projects App](https://github.com/Azure/cloud-native-app) on GitHub. The repo provides for steps for deploying the architecture.
+This article shows how to conceptualize, architect, build, and deploy an application that uses projects from the [Cloud Native Computing Foundation](https://www.cncf.io/projects) (CNCF) after deployment of Azure Kubernetes Service. The architecture describes the [CNCF Projects App](https://github.com/Azure/cloud-native-app) on GitHub. The repo provides for steps for deploying the architecture.
 
  This is just one type of reference architecture. You can deploy it on any Kubernetes cluster, not just Azure Kubernetes Service (AKS). This architecture provides one example of the flexibility of the AKS platform. AKS makes it simple to deploy a managed Kubernetes cluster in Azure.
  
@@ -25,7 +25,7 @@ The workload is a simple web application that allows employees to submit and vie
 
 **3.** The web app pushes a message generated to create the expense report to a NATS queue.
 
-**4.** The expense report is saved in MySOL.
+**4.** The expense report is saved in MySQL.
 
 **5.** NATS Connector invokes the Email Dispatcher OpenFaaS function with the expense message as the payload.
 
@@ -63,7 +63,7 @@ The workload is a simple web application that allows employees to submit and vie
 
 ### Cluster operations components
 
-It's often beneficial to manage clusters and cluster bootstrapping by using GitOps management. [Flux](https://fluxcd.io) is a popular GitOps operator and is often paired with GitHub Actions to perform validation on updated manifests and Helm charts.
+It's often beneficial to manage clusters and cluster bootstrapping by using GitOps management. [Flux](https://fluxcd.io) is a popular GitOps operator. It's often paired with GitHub Actions to enable validation on updated manifests and Helm charts.
 
 ### Open-source software (OSS) components
 
@@ -89,7 +89,7 @@ It's often beneficial to manage clusters and cluster bootstrapping by using GitO
 ### Alternatives
 This project uses CNCF graduated and incubated projects. There could be multiple alternatives for the services used. See the [CNCF](https://www.cncf.io) website for alternatives. Here are some resources that describe some of them:
 
-* [Coparison of service mesh options](https://www.cncf.io/blog/2021/07/15/networking-with-a-service-mesh-use-cases-best-practices-and-comparison-of-top-mesh-options)
+* [Comparison of service mesh options](https://www.cncf.io/blog/2021/07/15/networking-with-a-service-mesh-use-cases-best-practices-and-comparison-of-top-mesh-options)
 * [Function as a service (serverless) alternatives](https://landscape.cncf.io/serverless)
 * [Vitess: sharded MySQL on Kubernetes](https://www.cncf.io/online-programs/vitess-sharded-mysql-on-kubernetes)
 * [Monitoring your microservices by using Zipkin and OpenTracing](https://www.cncf.io/blog/2018/03/19/trace-your-microservices-application-with-zipkin-and-opentracing)
@@ -116,17 +116,17 @@ This repo is a community project. It accepts and approves pull requests (PRs) fo
 You can use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator) to estimate costs. Following are some pricing considerations for running this project in
 Azure. There is a negligible bandwidth cost.
 
-### Virtual Macnine Scale Sets
-* A cost is associated with VMs used in Azure Virtual Machine Scale Sets for the AKS cluster. See [Virtual Machine Scale Sets pricing](https://azure.microsoft.com/pricing/details/virtual-machine-scale-sets/linux) for more information.
+### Virtual Machine Scale Sets
+* A cost is associated with VMs used in Azure Virtual Machine Scale Sets for the AKS cluster. For more information, see [Virtual Machine Scale Sets pricing](https://azure.microsoft.com/pricing/details/virtual-machine-scale-sets/linux).
 
 ### Storage
-* Storage costs are associated with each data disk required by the Rook installation. For this 3-node AKS cluster, the Rook configuration uses two data disks per node, 1 GB and 200 GB. See [Storage cost pricing](https://azure.microsoft.com/pricing/details/managed-disks) for more information.
+* Storage costs are associated with each data disk required by the Rook installation. For this 3-node AKS cluster, the Rook configuration uses two data disks per node, 1 GB and 200 GB. For more information, see [Storage cost pricing](https://azure.microsoft.com/pricing/details/managed-disks).
 
 ### Load balancer
-* A cost is incurred for the load balancer associated with this AKS cluster. See [Load Balancer pricing](https://azure.microsoft.com/pricing/details/load-balancer/) for more information.
+* A cost is incurred for the load balancer associated with this AKS cluster. For more information, see [Load Balancer pricing](https://azure.microsoft.com/pricing/details/load-balancer/).
 
 ### Virtual network
-* A charge is incurred for the virtual network used by the AKS cluster. See [Virtual Network pricing](https://azure.microsoft.com/pricing/details/virtual-network) for more information. 
+* A charge is incurred for the virtual network used by the AKS cluster. For more information, see [Virtual Network pricing](https://azure.microsoft.com/pricing/details/virtual-network). 
 
 ## Next steps
 
