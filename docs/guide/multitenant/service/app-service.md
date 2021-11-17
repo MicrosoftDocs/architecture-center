@@ -79,7 +79,7 @@ You can also choose to share your plan between multiple tenants, but deploy sepa
 - **Separation of configuration:** Each tenant's app can have its own domain name, TLS certificate, access restrictions, and token authorization policies applied.
 - **Separation of upgrades:** Each tenant's app can be upgraded independently of other apps on the same plan.
 
-However, because the plan's compute resources are shared, the apps may be subject to the [Noisy Neighbor problem](../../patterns/noisy-neigbhor.md). Additionally, there are [limits to how many apps can be put onto a single plan](/azure/azure-resource-manager/management/azure-subscription-service-limits#app-service-limits).
+However, because the plan's compute resources are shared, the apps may be subject to the [Noisy Neighbor problem](../../../antipatterns/noisy-neighbor/index.md). Additionally, there are [limits to how many apps can be put onto a single plan](/azure/azure-resource-manager/management/azure-subscription-service-limits#app-service-limits).
 
 ### Shared apps
 
@@ -104,7 +104,7 @@ If you don't need a static IP address, but instead need to occasionally check th
 
 ### Quotas
 
-Because App Service is itself a multitenant service, you need to take care about how you use shared resources. Networking is an area that you need to pay particular attention to, because there are [limits](h/azure/azure-resource-manager/management/azure-subscription-service-limits#app-service-limits) that affect how your application can work with both inbound and outbound network connections, including IP addressing, source network address translation (SNAT), and TCP port limits.
+Because App Service is itself a multitenant service, you need to take care about how you use shared resources. Networking is an area that you need to pay particular attention to, because there are [limits](/azure/azure-resource-manager/management/azure-subscription-service-limits#app-service-limits) that affect how your application can work with both inbound and outbound network connections, including IP addressing, source network address translation (SNAT), and TCP port limits.
 
 If your application connects to large numbers of databases or external services, it might be at risk of [SNAT port exhaustion](/azure/app-service/troubleshoot-intermittent-outbound-connection-errors). In general, SNAT port exhaustion indicates that your code isn't correctly reusing TCP connections, and even in a multitenant solution you should ensure you follow recommended practices for reusing connections.
 
