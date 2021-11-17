@@ -26,6 +26,8 @@ The solution consists of two processes:
 
 :::image type="content" source="./media/virtual-machine-compliance-golden-image-publishing-architecture.svg" alt-text="Architecture diagram showing how the solution takes Azure Marketplace images and then customizes, tracks, tests, and publishes them." border="false":::
 
+*Download a [Visio file][Visio version of golden image publishing process architecture diagram] of this architecture.*
+
 The golden image publishing process runs monthly and contains these steps:
 
 1. The process captures a base image from Azure Marketplace.
@@ -37,6 +39,8 @@ The golden image publishing process runs monthly and contains these steps:
 1. Compute Gallery makes the image available to DevOps teams.
 
 :::image type="content" source="./media/virtual-machine-compliance-track-compliance-architecture.svg" alt-text="Architecture diagram showing how the solution manages compliance by assigning policy definitions, evaluating machines, and displaying data in a dashboard." border="false":::
+
+*Download a [Visio file][Visio version of VM compliance architecture diagram] of this architecture.*
 
 The process of tracking VM compliance contains these steps:
 
@@ -227,4 +231,6 @@ Unless you use a third-party service such as Ansible or Terraform, this approach
 [Scaling for Azure Compute Gallery]: /azure/virtual-machines/shared-image-galleries#scaling
 [Store and share images in an Azure Compute Gallery]: /azure/virtual-machines/shared-image-galleries
 [Store and share images in an Azure Compute Gallery - Limits]: /azure/virtual-machines/shared-image-galleries#limits
+[Visio version of golden image publishing process architecture diagram]: https://arch-center.azureedge.net/US-1891283-virtual-machine-compliance-golden-image-publishing-architecture.vsdx
+[Visio version of VM compliance architecture diagram]: https://arch-center.azureedge.net/US-1891283-virtual-machine-compliance-track-compliance-architecture.vsdx
 [What is an Azure landing zone?]: /azure/cloud-adoption-framework/ready/landing-zone
