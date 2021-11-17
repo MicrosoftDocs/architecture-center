@@ -64,4 +64,4 @@ Azure Databricks source artifacts include the Databricks blog: [Best practices t
 ## Next step
 
 > [!div class="nextstepaction"]
-> [Azure Database for MySQL](../azure-db-mysql/cost-optimization.md)
+> [Azure Database for MySQL and cost optimization](../azure-db-mysql/cost-optimization.md)
