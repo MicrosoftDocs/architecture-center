@@ -1,6 +1,6 @@
-This article shows how to conceptualize, architect, build, and deploy an application that uses projects from the [Cloud Native Computing Foundation](https://www.cncf.io/projects) (CNCF) after deployment of Azure Kubernetes Service. The architecture describes the [CNCF Projects App](https://github.com/Azure/cloud-native-app) on GitHub. The setup instructions in the repo provide steps for deploying the architecture.
+This article shows how to conceptualize, architect, build, and deploy an application that uses projects from the [Cloud Native Computing Foundation](https://www.cncf.io/projects) (CNCF) after you deploy Azure Kubernetes Service. The architecture describes the [CNCF Projects App](https://github.com/Azure/cloud-native-app) on GitHub. The setup instructions in the repo provide steps for deploying the architecture.
 
- This is just one type of reference architecture. You can deploy it on any Kubernetes cluster, not just Azure Kubernetes Service (AKS). This architecture provides one example of the flexibility of the AKS platform. AKS makes it simple to deploy a managed Kubernetes cluster in Azure.
+You can deploy it on any Kubernetes cluster, not just Azure Kubernetes Service (AKS). This architecture provides one example of the flexibility of the AKS platform. AKS makes it simple to deploy a managed Kubernetes cluster in Azure.
  
 After you review this article, you'll have a good understanding of how to deploy a typical application that's made up mostly of CNCF projects.
 
@@ -10,8 +10,7 @@ These other uses cases have similar design patterns:
 - Using GitOps for Azure Kubernetes Service
 
 ## Architecture
-
-![Diagram that shows the reference architecture for building a CNCF project.](./media/cncf-architecture.png)
+:::image type="content" source="./media/cncf-architecture.png" alt-text="Diagram that shows the reference architecture for building a CNCF project." lightbox="./media/cncf-architecture.png":::
 
 Download a [Visio](https://arch-center.azureedge.net/cncf-architecture.vsdx) file of this architecture.
 
