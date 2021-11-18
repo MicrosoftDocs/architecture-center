@@ -1,14 +1,14 @@
-This article describes an alternative aproach to data warehouse projects to reduce the challenges of ETL. 
+This article describes an alternative aproach to data warehouse projects to reduce the challenges of extract, transform, load (ETL) operations. 
 
-Traditionally, data warehouse projects are risky with a high fail-rate.  Why?  Anecdotally, we spend too much time doing:
+Here's the traditional approach to data warehouse projects:
 
-- requirements gathering.  We spend time documenting what we want to do with data and we never actually _look_ at the data and experiment with it.  
+- Requirements gathering. Document what you'll do with the data.  
 
-- data modeling.  We spend hours (or days) trying to determine how to model the numeric and attribute data into fact and dimension tables.  Data modeling is done before we have even acquired the new data.
+- Data modeling. Determine how to model the numeric and attribute data into fact and dimension tables. Traditionally, we do this before we even acquire the new data.
 
-- ETL.  We then spend time trying to acquire the data and massage it into our data warehouse's data model.  
+- ETL. Acquire the data and massage it into the data warehouse's data model.  
 
-When these steps are completed, which could take weeks to months, we can begin to query the data and solve our business problem.  The end-user only sees value after the reports are created.  The final solution architecture usually looks something like this:  
+These steps can take weeks or even months. Only then can we begin to query the data and solve the business problem. The user sees value only after the reports are created. The solution architecture usually looks something like this:  
 
 ![Legacy Data Warehouse Architecture](media/EDA/legacy.png)
 
