@@ -11,7 +11,7 @@ This orchestration functionality can be integrated to classical applications in 
   * The quantum components are developed by the same team.
   * Quantum components share the same lifecycle as the classical components.
   * Use of the quantum components is limited to a single application.
-* **Integration via loose coupling** - logic for the orchestration is exposed as an API that can be called by various classical software components. For more information about this integration approach, see [Loosely coupled quantum computing job](loosely-coupled-quantum-computing-job-content.md). Use the approach in following scenarios:
+* **Integration via loose coupling** - logic for the orchestration is exposed as an API that can be called by various classical software components. For more information about this integration approach, see [Loosely coupled quantum computing job](loosely-coupled-quantum-computing-job). Use the approach in following scenarios:
   * The quantum components are developed independently from any classical client application.
   * Quantum components should be reused by various applications.
 
@@ -70,7 +70,7 @@ The application performance is dependent on the availability and performance of 
 
 ### Security
 
-Unlike in the [loosely coupled alternative](loosely-coupled-quantum-computing-job-content.md), the architecture presented here assumes only one client is accessing the quantum workspace. This scenario leads to following requirements:
+Unlike in the [loosely coupled alternative](loosely-coupled-quantum-computing-job), the architecture presented here assumes only one client is accessing the quantum workspace. This scenario leads to following requirements:
 
 * As the client is known, authentication can be implemented via [Managed Identity](/azure/active-directory/managed-identities-azure-resources/overview) associated to the application.
 * Throttling of requests and caching of results can be implemented in the client itself.
@@ -83,7 +83,7 @@ Always respect that quantum target environments are limited resources. At some p
 
 ### DevOps
 
-For a description of how a CI/CD-approach for this architecture could look like, see [CI/CD for Quantum Computing Jobs](../../solution-ideas/articles/cicd-for-quantum-computing-jobs-content.md).
+For a description of how a CI/CD-approach for this architecture could look like, see [CI/CD for Quantum Computing Jobs](../../solution-ideas/articles/cicd-for-quantum-computing-jobs).
 
 ## Pricing
 
