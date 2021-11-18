@@ -15,6 +15,6 @@ products:
   - azure-quantum
 name: Tightly coupled quantum computing job
 summary: Submit and monitor quantum computing jobs running in an Azure Quantum Workspace directly from your classic application.
-thumbnailUrl: /azure/architecture/browse/thumbs/<browse-png-filename>.png
+thumbnailUrl: /azure/architecture/browse/thumbs/tightly-coupled-quantum-computing-job.png
 content: |
   [!include[](tightly-coupled-quantum-computing-job-content.md)]

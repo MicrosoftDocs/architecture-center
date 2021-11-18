@@ -17,6 +17,6 @@ products:
   - azure-functions
 name: Loosely coupled quantum computing job
 summary: Submit and monitor quantum computing jobs running in an Azure Quantum Workspace from your classic application via RESTful API implemented via Azure Functions.
-thumbnailUrl: /azure/architecture/browse/thumbs/<browse-png-filename>.png
+thumbnailUrl: /azure/architecture/browse/thumbs/loosely-coupled-quantum-computing-job.png
 content: |
-  [!include[](tightly-coupled-quantum-computing-job-content.md)]
+  [!include[](loosely-coupled-quantum-computing-job-content.md)]
