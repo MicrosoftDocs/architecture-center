@@ -3287,6 +3287,8 @@ items:
                 href: solution-ideas/articles/homomorphic-encryption-seal.yml
               - name: Hybrid security monitoring
                 href: hybrid/hybrid-security-monitoring.yml
+              - name: Improved-security access to multitenant web apps from on-premises 
+                href: example-scenario/security/access-multitenant-web-app-from-on-premises.yml
               - name: Long-term security logs in Azure Data Explorer
                 href: example-scenario/security/security-log-retention-azure-data-explorer.yml
               - name: MCAS and Azure Sentinel security for AWS
