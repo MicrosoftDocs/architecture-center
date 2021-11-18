@@ -16,7 +16,7 @@ The AMT Framework supports several options to move client workloads to Azure:
 
 - A second methodology is to move applications from the mainframe to Azure gradually, with complete transition as the ultimate goal. This tactic provides savings per application, and lessons learned to convert each application can help with subsequent conversions. Modernizing each application on its own schedule can be more relaxed than converting everything at once.
 
-  This stepped method can also provide more processing cycles on the mainframe as applications convert to Azure. Eventually, starvation of the mainframe as applications convert to Azure can highlight the need to retire the mainframe.
+This stepped method can also provide more processing cycles on the mainframe as applications convert to Azure. Eventually, starvation of the mainframe as applications convert to Azure can highlight the need to retire the mainframe.
 
 ## Architecture
 
@@ -112,10 +112,16 @@ You can scale out the server sets to provide more throughput. For more informati
 
 - This architecture works best with Premium SSDs or Ultra Disk SSDs. For more information, see [Managed Disks pricing](https://azure.microsoft.com/pricing/details/managed-disks/).
 
-## Next steps
+## Next Steps
+- [Cloud Adoption Framework](https://docs.microsoft.com/azure/cloud-adoption-framework/overview)
+- [Azure Setup Guide](https://docs.microsoft.com/azure/cloud-adoption-framework/ready/azure-setup-guide/)
+- [Migration Best Practices](https://docs.microsoft.com/azure/cloud-adoption-framework/migrate/azure-best-practices/)
 
-Explore related architectures:
+## Related Reources
 
+Explore related resources:
+
+- [Asysco](https://asysco.com)
 - [Unisys Dorado mainframe migration to Azure with Astadia & Micro Focus](../../example-scenario/mainframe/migrate-unisys-dorado-mainframe-apps-with-astadia-micro-focus.yml)
 - [High-volume batch transaction processing](../../example-scenario/mainframe/process-batch-transactions.yml)
 - [Mainframe file replication and sync on Azure](../../solution-ideas/articles/mainframe-azure-file-replication.yml)
