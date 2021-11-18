@@ -1,3 +1,5 @@
+This article describes an alternative aproach to data warehouse projects to reduce the challenges of ETL. 
+
 Traditionally, data warehouse projects are risky with a high fail-rate.  Why?  Anecdotally, we spend too much time doing:
 
 - requirements gathering.  We spend time documenting what we want to do with data and we never actually _look_ at the data and experiment with it.  
