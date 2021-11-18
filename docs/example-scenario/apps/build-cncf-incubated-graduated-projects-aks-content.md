@@ -1,6 +1,6 @@
 This article shows how to conceptualize, architect, build, and deploy an application that uses projects from the [Cloud Native Computing Foundation](https://www.cncf.io/projects) (CNCF) after you deploy Azure Kubernetes Service (AKS). The architecture describes the [CNCF Projects App](https://github.com/Azure/cloud-native-app) on GitHub. The setup instructions in the repo provide steps for deploying the architecture.
 
-You can deploy it on any Kubernetes cluster, not just AKS. This architecture provides one example of the flexibility of the AKS platform. AKS makes it simple to deploy a managed Kubernetes cluster in Azure.
+You can deploy this architecture on any Kubernetes cluster, not just AKS. It provides one example of the flexibility of the AKS platform. AKS makes it simple to deploy a managed Kubernetes cluster in Azure.
  
 After you review this article, you'll have a good understanding of how to deploy a typical application that's made up mostly of CNCF projects.
 
