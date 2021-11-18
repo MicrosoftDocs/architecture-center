@@ -11,7 +11,7 @@ items:
     items:
       - name: Introduction
         href: guide/index.md
-      - name: Architecture styles 
+      - name: Architecture styles
         items:
           - name: Overview
             href: guide/architecture-styles/index.md
