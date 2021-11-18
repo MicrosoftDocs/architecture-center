@@ -120,7 +120,10 @@ Once the classical component submitted a quantum job, it must [monitor the statu
 
 ## Next steps
 
-%%%missing%%%
+* To get an overview of Microsoft Quantum, the world's first full-stack, open cloud quantum computing ecosystem, see [Microsoft Quantum](https://azure.microsoft.com/solutions/quantum-computing/).
+* For more information about the Azure Quantum service, see [Azure Quantum](https://azure.microsoft.com/services/quantum/).
+* For general aspects of Azure Quantum job management, see [Work with Azure Quantum jobs](/azure/quantum/how-to-work-with-jobs).
+* For more information about Azure DevOps, see the official [Azure DevOps documentation](/azure/devops/).
 
 ## Related resources
 

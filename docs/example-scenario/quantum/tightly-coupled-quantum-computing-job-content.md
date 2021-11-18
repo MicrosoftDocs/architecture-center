@@ -36,7 +36,7 @@ Following scenarios promise to benefit from quantum computing in near-term:
 1. Client application monitors job execution by polling job status.
 1. As soon as the quantum job finishes, the client application gets the compute result from Azure Storage.
 
-This workflow implements the steps defined for the [Azure Quantum Job lifecycle](/azure/quantum/how-to-work-with-jobs#job-lifecycle).
+This workflow implements the * [Asynchronous Request-Reply pattern](../../patterns/async-request-reply.md) and the steps defined for the [Azure Quantum Job lifecycle](/azure/quantum/how-to-work-with-jobs#job-lifecycle).
 
 ### Components
 
@@ -97,10 +97,11 @@ For the Azure Quantum service following points should be considered:
 
 ## Next steps
 
-%%%missing%%%
-
-## Related resources
-
 * To get an overview of Microsoft Quantum, the world's first full-stack, open cloud quantum computing ecosystem, see [Microsoft Quantum](https://azure.microsoft.com/solutions/quantum-computing/).
 * For more information about the Azure Quantum service, see [Azure Quantum](https://azure.microsoft.com/services/quantum/).
 * For general aspects of Azure Quantum job management, see [Work with Azure Quantum jobs](/azure/quantum/how-to-work-with-jobs).
+
+## Related resources
+
+* [Operational excellence principles](../../framework/devops/principles.md)
+* [Asynchronous Request-Reply pattern](../../patterns/async-request-reply.md)

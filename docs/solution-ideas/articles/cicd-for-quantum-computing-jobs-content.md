@@ -35,16 +35,19 @@ The application components used:
 * [Azure Active Directory](https://azure.microsoft.com/services/active-directory) coordinates user authentication and protects access to the Azure Quantum Workspace.
 * [Azure Key Vault](https://azure.microsoft.com/services/key-vault) safeguards and maintains control of keys and other secrets like Quantum Workspace name.
 * [Azure Quantum](https://azure.microsoft.com/services/quantum) provides functionality for running quantum computing jobs on various target quantum environments.
-* [Azure Storage](https://azure.microsoft.com/services/storage)
+* [Azure Storage](https://azure.microsoft.com/services/storage) holds input and output data of the quantum job.
 
 The [Azure Quantum Workspace](/azure/quantum/how-to-create-workspace) is a collection of assets associated with running quantum or optimization applications. Depending on provisioned providers the jobs are executed on quantum simulators, quantum hardware, or optimization solvers.
 
 ## Next steps
 
-%%%missing%%%
-
-## Related resources
-
 * To get an overview of Microsoft Quantum, the world's first full-stack, open cloud quantum computing ecosystem, see [Microsoft Quantum](https://azure.microsoft.com/solutions/quantum-computing/).
 * For more information about the Azure Quantum service, see [Azure Quantum](https://azure.microsoft.com/services/quantum/).
 * For general aspects of Azure Quantum job management, see [Work with Azure Quantum jobs](/azure/quantum/how-to-work-with-jobs).
+* For more information about Azure DevOps, see the official [Azure DevOps documentation](/azure/devops/).
+
+## Related resources
+
+* [The operational excellence pillar](../../framework/devops/overview.md) of the [Microsoft Azure Well-Architected Framework](../../framework/)
+* [DevOps Checklist](../../checklist/dev-ops.md)
+* [Choose an Azure compute service for your application](../../guide/technology-choices/compute-decision-tree.md)
