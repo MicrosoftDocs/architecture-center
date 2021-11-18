@@ -11,7 +11,7 @@ This orchestration functionality can be integrated to classical applications in 
   * The quantum components are developed independently from any classical client application.
   * Quantum components should be reused by various applications.
 
-* **Integration via tight coupling** - logic for the orchestration is integrated into the classical component. For more information about this integration approach, see [Tightly coupled quantum computing job](tightly-coupled-quantum-computing-job-content.md). Use this approach in following scenarios:
+* **Integration via tight coupling** - logic for the orchestration is integrated into the classical component. For more information about this integration approach, see [Tightly coupled quantum computing job](tightly-coupled-quantum-computing-job). Use this approach in following scenarios:
   * The quantum components are developed by the same team.
   * Quantum components share the same lifecycle as the classical components.
   * Use of the quantum components is limited to a single application.
@@ -78,7 +78,7 @@ The application performance is dependent on the availability and performance of 
 
 ### Security
 
-Unlike in the [tightly coupled alternative](tightly-coupled-quantum-computing-job.md), the architecture presented here assumes multiple clients are accessing the quantum workspace via the API. This scenario leads to following requirements:
+Unlike in the [tightly coupled alternative](tightly-coupled-quantum-computing-job), the architecture presented here assumes multiple clients are accessing the quantum workspace via the API. This scenario leads to following requirements:
 
 * Clients must authenticate to the API, which can be implemented via [Authentication policies](/azure/api-management/api-management-authentication-policies).
 * Authentication of the Azure Functions can be implemented via [Managed Identity](/azure/active-directory/managed-identities-azure-resources/overview) associated to the functions. These identities can be used to authenticate to the Quantum workspace.
@@ -93,7 +93,7 @@ Always respect that quantum target environments are limited resources. At some p
 
 ### DevOps
 
-For a description of how a CI/CD-approach for this architecture could look like, see [CI/CD for Quantum Computing Jobs](../../solution-ideas/articles/cicd-for-quantum-computing-jobs-content.md).
+For a description of how a CI/CD-approach for this architecture could look like, see [CI/CD for Quantum Computing Jobs](../../solution-ideas/articles/cicd-for-quantum-computing-jobs).
 
 ## Pricing
 
