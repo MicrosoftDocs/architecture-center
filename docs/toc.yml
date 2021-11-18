@@ -1512,6 +1512,8 @@ items:
             items:
               - name: Building a telehealth system
                 href: example-scenario/apps/telehealth-system.yml
+              - name: Building CNCF projects by using AKS
+                href: example-scenario/apps/build-cncf-incubated-graduated-projects-aks.yml  
               - name: GitOps for AKS
                 href: example-scenario/gitops-aks/gitops-blueprint-aks.yml
               - name: Magento e-commerce in AKS

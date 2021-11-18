@@ -1,6 +1,6 @@
 ### YamlMime:Architecture
 metadata:
-  title: Build CNCF incubated and graduated projects by using Azure Kubernetes Service
+  title: Build CNCF projects by using Azure Kubernetes Service
   titleSuffix: Azure Example Scenarios
   description: This article demonstrates how to conceptualize, architect, build, and deploy an application that uses projects from the CNCF after deployment of AKS. 
   author: ssarwa

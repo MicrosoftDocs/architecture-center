@@ -1,4 +1,4 @@
-This article shows how to conceptualize, architect, build, and deploy an application that uses projects from the [Cloud Native Computing Foundation](https://www.cncf.io/projects) (CNCF) after deployment of Azure Kubernetes Service. The architecture describes the [CNCF Projects App](https://github.com/Azure/cloud-native-app) on GitHub. The repo provides for steps for deploying the architecture.
+This article shows how to conceptualize, architect, build, and deploy an application that uses projects from the [Cloud Native Computing Foundation](https://www.cncf.io/projects) (CNCF) after deployment of Azure Kubernetes Service. The architecture describes the [CNCF Projects App](https://github.com/Azure/cloud-native-app) on GitHub. The the setup instructions in the repo provide steps for deploying the architecture.
 
  This is just one type of reference architecture. You can deploy it on any Kubernetes cluster, not just Azure Kubernetes Service (AKS). This architecture provides one example of the flexibility of the AKS platform. AKS makes it simple to deploy a managed Kubernetes cluster in Azure.
  
@@ -15,7 +15,7 @@ These other uses cases have similar design patterns:
 
 Download a [Visio](https://arch-center.azureedge.net/cncf-architecture.vsdx) file of this architecture.
 
-The workload is a simple web application that allows employees to submit and view expense reports. When an expense report is submitted, an email is sent to the employee's manager. 
+The workload is a simple web application that allows employees to submit and view expense reports. When an employee submits an expense report, the employee's manager receives an email. 
 
 ### Application flow
 
@@ -23,7 +23,7 @@ The workload is a simple web application that allows employees to submit and vie
 
 **2.** The web app calls an API app to retrieve the employee's manager.
 
-**3.** The web app pushes a message generated to create the expense report to a NATS queue.
+**3.** The web app pushes a message generated for the creation of the expense report to a NATS queue.
 
 **4.** The expense report is saved in MySQL.
 
@@ -41,13 +41,13 @@ The workload is a simple web application that allows employees to submit and vie
 
 **c.** Tekton pipelines use the GitHub code.
 
-**d.** Pipelines push and a pull container image from a Harbor registry.
+**d.** Pipelines push and pull a container image from a Harbor registry.
 
 **e.** Tekton deploys the web app, API app, and Email Dispatcher applications.
 
 **f.** Prometheus captures application metrics.
 
-**g.** Metrics can be viewed on a Grafana Dashboard.
+**g.** Engineers monitor metrics on a Grafana Dashboard.
 
 **h.** DevOps engineers monitor the Grafana Dashboard.
 
@@ -63,15 +63,15 @@ The workload is a simple web application that allows employees to submit and vie
 
 ### Cluster operations components
 
-It's often beneficial to manage clusters and cluster bootstrapping by using GitOps management. [Flux](https://fluxcd.io) is a popular GitOps operator. It's often paired with GitHub Actions to enable validation on updated manifests and Helm charts.
+You might find it beneficial to manage clusters and cluster bootstrapping by using GitOps management. [Flux](https://fluxcd.io) is a popular GitOps operator. It's often paired with GitHub Actions to enable validation on updated manifests and Helm charts.
 
 ### Open-source software (OSS) components
 
 #### CNCF components
-- [Kubernetes](https://kubernetes.io). Used to automate deployment, scaling, and management of containerized applications.
+- [Kubernetes](https://kubernetes.io). Automates deployment, scaling, and management of containerized applications.
 - [Rook](https://rook.io). Provides storage management for the clusters. 
 - [Harbor](https://goharbor.io). Container registry for the images.
-- [NATS](https://nats.io). Provides publish/subscribe messaging for messages generated to create the expense report. 
+- [NATS](https://nats.io). Provides publish/subscribe messaging for messages that are generated to create the expense report. 
 - [Linkerd](https://linkerd.io). Service mesh that integrates with OpenFaaS, NGINX, Prometheus, and Jaeger. 
 - [Prometheus](https://prometheus.io). Captures application metrics.
 - [Jaeger](https://www.jaegertracing.io). Provides overall application tracking on the Kubernetes cluster. 
@@ -103,8 +103,8 @@ Microsoft also supports OSS projects, including Open Service Mesh.
 
 * For the Kubernetes cluster, you need at least a 3-node user-node pool with virtual machine (VM) SKU DS2_v2 or larger.
 * Volumes that use Azure managed disks can't be attached across zones. They must be located in the same zone.
-* Rook installation could take between 20 and 25 minutes. Be sure that the Ceph cluster is completely provisioned before you move on to the next step.
-* The Jaeger setup could take about minutes. 
+* Rook installation can take between 20 and 25 minutes. Be sure the Ceph cluster is completely provisioned before you move on to the next step.
+* The Jaeger setup could take about 5 minutes. 
 * It takes about 12 minutes for Linkerd to appear in the dashboard.
 
 ## Deploy this scenario
@@ -114,19 +114,19 @@ This repo is a community project. It accepts and approves pull requests (PRs) fo
 
 ## Pricing
 You can use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator) to estimate costs. Following are some pricing considerations for running this project in
-Azure. There is a negligible bandwidth cost.
+Azure. A negligible bandwidth cost applies.
 
 ### Virtual Machine Scale Sets
-* A cost is associated with VMs used in Azure Virtual Machine Scale Sets for the AKS cluster. For more information, see [Virtual Machine Scale Sets pricing](https://azure.microsoft.com/pricing/details/virtual-machine-scale-sets/linux).
+* You are charged for VMs used in Azure Virtual Machine Scale Sets for the AKS cluster. For more information, see [Virtual Machine Scale Sets pricing](https://azure.microsoft.com/pricing/details/virtual-machine-scale-sets/linux).
 
 ### Storage
-* Storage costs are associated with each data disk required by the Rook installation. For this 3-node AKS cluster, the Rook configuration uses two data disks per node, 1 GB and 200 GB. For more information, see [Storage cost pricing](https://azure.microsoft.com/pricing/details/managed-disks).
+* Storage costs apply for each data disk required by the Rook installation. For this 3-node AKS cluster, the Rook configuration uses two data disks per node: a 1-GB disk and a 200-GB disk. For more information, see [Storage cost pricing](https://azure.microsoft.com/pricing/details/managed-disks).
 
 ### Load balancer
-* A cost is incurred for the load balancer associated with this AKS cluster. For more information, see [Load Balancer pricing](https://azure.microsoft.com/pricing/details/load-balancer/).
+* You are charged for the load balancer associated with this AKS cluster. For more information, see [Load Balancer pricing](https://azure.microsoft.com/pricing/details/load-balancer/).
 
 ### Virtual network
-* A charge is incurred for the virtual network used by the AKS cluster. For more information, see [Virtual Network pricing](https://azure.microsoft.com/pricing/details/virtual-network). 
+* You are charged for the virtual network used by the AKS cluster. For more information, see [Virtual Network pricing](https://azure.microsoft.com/pricing/details/virtual-network). 
 
 ## Next steps
 
