@@ -128,7 +128,7 @@ A failed test should interrupt the process. Repeat the test after addressing the
 
 Publish final images on Compute Gallery as a managed image or as a virtual hard disk (VHD) that DevOps teams can use. Mark any earlier images as aged. If you haven't set an end-of-life date for an image version in Compute Gallery, you might prefer to discontinue the oldest image. This decision depends on your company's policies.
 
-For information on limits that apply when you use Azure Compute Galleries, see [Store and share images in an Azure Compute Gallery][Store and share images in an Azure Compute Gallery - Limits].
+For information on limits that apply when you use Compute Gallery, see [Store and share images in an Azure Compute Gallery][Store and share images in an Azure Compute Gallery - Limits].
 
 Another good practice is to publish the latest images across different regions. With Compute Gallery, you can manage the lifecycle and replication of your images across different Azure regions.
 
@@ -138,7 +138,7 @@ For more information on Compute Gallery, see [Store and share images in an Azure
 
 When an image is used for an application, it can be hard to update the underlying operating system image with recent compliance changes. Strict business requirements can complicate the process of refreshing the underlying VM. Refreshing is also complex when the VM is critical to the business.
 
-Since cattle servers are dispensable, you can coordinate with DevOps teams to refresh these servers in a planned maintenance window as a business-as-usual activity.
+Because cattle servers are dispensable, you can coordinate with DevOps teams to refresh these servers in a planned maintenance window as a business-as-usual activity.
 
 It's more challenging to refresh pet servers. Discontinuing an image can put applications at risk. In scale-out scenarios, Azure can't find the respective images, resulting in failures.
 
@@ -151,7 +151,7 @@ Consider these guidelines when refreshing pet servers:
   - [Geode pattern][Geode pattern]
   - [Bulkhead pattern][Bulkhead pattern]
 
-- Tag each pet server with a label that marks the server as a pet. Configure a policy in Azure Policy to take this tag into account during refreshes.
+- Tag each pet server as a pet. Configure a policy in Azure Policy to take this tag into account during refreshes.
 
 ### Improve visibility
 
@@ -190,7 +190,7 @@ Unless you use a third-party service such as Ansible or Terraform, this approach
 
 - Azure Policy and [Azure Policy guest configuration][Azure Policy guest configuration] are free of charge for Azure resources. If your company uses a hybrid approach, there are extra charges for Azure Arc resources.
 - During the public preview period, [VM Image Builder][Azure VM Image Builder - pricing] is using a single compute instance type with 1 vCPU and 3.5 GB of RAM. Charges might apply for data storage and transfer.
-- [Azure Shared Image Galleries][Azure Shared Image Galleries] has no charges except for:
+- [Compute Gallery][Azure Shared Image Galleries] has no charges except for:
 
   - The cost of storing replicas.
   - Network egress charges for replicating images.
