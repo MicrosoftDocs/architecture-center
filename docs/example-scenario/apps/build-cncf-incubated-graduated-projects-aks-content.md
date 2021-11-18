@@ -1,4 +1,4 @@
-This article shows how to conceptualize, architect, build, and deploy an application that uses projects from the [Cloud Native Computing Foundation](https://www.cncf.io/projects) (CNCF) after deployment of Azure Kubernetes Service. The architecture describes the [CNCF Projects App](https://github.com/Azure/cloud-native-app) on GitHub. The the setup instructions in the repo provide steps for deploying the architecture.
+This article shows how to conceptualize, architect, build, and deploy an application that uses projects from the [Cloud Native Computing Foundation](https://www.cncf.io/projects) (CNCF) after deployment of Azure Kubernetes Service. The architecture describes the [CNCF Projects App](https://github.com/Azure/cloud-native-app) on GitHub. The setup instructions in the repo provide steps for deploying the architecture.
 
  This is just one type of reference architecture. You can deploy it on any Kubernetes cluster, not just Azure Kubernetes Service (AKS). This architecture provides one example of the flexibility of the AKS platform. AKS makes it simple to deploy a managed Kubernetes cluster in Azure.
  
@@ -117,16 +117,16 @@ You can use the [Azure pricing calculator](https://azure.microsoft.com/pricing/c
 Azure. A negligible bandwidth cost applies.
 
 ### Virtual Machine Scale Sets
-* You are charged for VMs used in Azure Virtual Machine Scale Sets for the AKS cluster. For more information, see [Virtual Machine Scale Sets pricing](https://azure.microsoft.com/pricing/details/virtual-machine-scale-sets/linux).
+* VMs used in Azure Virtual Machine Scale Sets for the AKS cluster incur a charge. For more information, see [Virtual Machine Scale Sets pricing](https://azure.microsoft.com/pricing/details/virtual-machine-scale-sets/linux).
 
 ### Storage
 * Storage costs apply for each data disk required by the Rook installation. For this 3-node AKS cluster, the Rook configuration uses two data disks per node: a 1-GB disk and a 200-GB disk. For more information, see [Storage cost pricing](https://azure.microsoft.com/pricing/details/managed-disks).
 
 ### Load balancer
-* You are charged for the load balancer associated with this AKS cluster. For more information, see [Load Balancer pricing](https://azure.microsoft.com/pricing/details/load-balancer/).
+* The load balancer associated with this AKS cluster incurs a charge. For more information, see [Load Balancer pricing](https://azure.microsoft.com/pricing/details/load-balancer/).
 
 ### Virtual network
-* You are charged for the virtual network used by the AKS cluster. For more information, see [Virtual Network pricing](https://azure.microsoft.com/pricing/details/virtual-network). 
+* The virtual network used by the AKS cluster incurs a charge. For more information, see [Virtual Network pricing](https://azure.microsoft.com/pricing/details/virtual-network). 
 
 ## Next steps
 
