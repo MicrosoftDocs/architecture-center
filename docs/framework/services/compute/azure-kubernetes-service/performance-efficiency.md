@@ -2,7 +2,7 @@
 title: Azure Kubernetes Service (AKS) and performance efficiency
 description: Focuses on the Azure Kubernetes Service (AKS) used in the Compute solution to provide best-practice and configuration recommendations related to performance efficiency.
 author: v-stacywray
-ms.date: 11/15/2021
+ms.date: 11/17/2021
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: well-architected
@@ -45,4 +45,4 @@ The following table reflects scalability recommendations and descriptions relate
 ## Next step
 
 > [!div class="nextstepaction"]
-> [Azure Functions and security](/framework/services/compute/functions/security.md)
+> [Azure Functions and security](../functions/security.md)
