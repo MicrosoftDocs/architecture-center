@@ -31,7 +31,7 @@ DevOps can be defined as ["the union of people, process, and products to enable 
 
 * **People** - Designing, developing, and operating quantum algorithms requires skills that are different from those skills required for classical components. Designers and developers typically include quantum information scientists and similar roles. Operations staff must be familiar with specialized target systems (optimization solvers, quantum hardware).
 * **Process** - The clear separation of classical and quantum components on one side, and need for integration of these components on the other requires an alignment of the quantum and the classical DevOps activities.
-* **Products** - Lifecycle of the different execution environments must be considered as well. Specialized quantum computers are scarce resources, in general operated as central resources and accessed by various classical clients.
+* **Products** - Lifecycle of the different execution environments must be considered as well. Specialized quantum computers are scarce resources, in general operated as central resources, and accessed by various classical clients.
 
 These pillars must be brought together to form a unified approach that allows designing, developing, operating, and managing hybrid quantum software systems in a repeatable, reliable way. DevOps influences the application lifecycle throughout its plan, develop, deliver, and operate phases of quantum components.
 
@@ -56,7 +56,7 @@ The outer loop involves activities typically associated with a full DevOps-cycle
 
 The inner loop is the iterative process a (quantum or classical) developer performs when writing, building, testing code. The inner loop mostly takes place on IT systems that an individual developer owns or holds responsibility for (for example the developer machine).
 
-For quantum components, the inner loop involves following [activities enabled by the Quantum Development Kit](/azure/quantum/overview-azure-quantum#workflow-of-the-quantum-software-development). They are typically performed by team members specialized for quantum computing algorithm development (quantum engineers, architects etc.):
+For quantum components, the inner loop involves following [activities enabled by the Quantum Development Kit](/azure/quantum/overview-azure-quantum#workflow-of-the-quantum-software-development). These activities are typically performed by team members specialized for quantum computing algorithm development (quantum engineers, quantum architects, and similar roles):
 
 1. Write quantum code
 1. Use libraries to keep code high level
@@ -78,41 +78,43 @@ Like any other Azure environment, quantum workspaces and the classical environme
 
 :::image type="content" source="media/iac-in-quantum-devops.png" alt-text="Infrastructure as code in DevOps for quantum applications":::
 
-If the [loosely coupled integration model](../../example-scenario/quantum/loosely-coupled-quantum-computing-job-content.md) is chosen, the classical environment comprises all resources needed for exposing the quantum functionality via API. If the [tightly coupled approach](../../example-scenario/quantum/tightly-coupled-quantum-computing-job-content.md) is chosen, its components depend on the chosen [compute model](../technology-choices/compute-decision-tree.md).
+If the [loosely coupled integration model](../../example-scenario/quantum/loosely-coupled-quantum-computing-job-content.md) is chosen, the classical environment includes all resources needed for exposing the quantum functionality via API. If the [tightly coupled approach](../../example-scenario/quantum/tightly-coupled-quantum-computing-job-content.md) is chosen, its components depend on the chosen [compute model](../technology-choices/compute-decision-tree.md).
 
 ## Continuous Integration (CI) and Automated Testing
 
 Continuous Integration remains an important part of DevOps with hybrid quantum applications. As soon as code is ready and committed to the repository, it needs to be automatically tested and integrated into other parts of the software. For the pure classical parts of the application, [best practices for testing](../../checklist/dev-ops.md#testing) remain in place. The Microsoft Azure Well-Architected Framework also gives some [guidance on CI best practices](../../framework/devops/release-engineering-ci.md).
 
-The quantum components require special treatment. On the one hand the components themselves, on the other hand the integration point where these quantum components are used by classical components for orchestration purposes.
+The quantum components require special treatment. The components themselves require special execution environments. In addition, the integration point where these quantum components are used by classical components for orchestration purposes.
 
 Testing of quantum components includes following activities:
 
 * Unit tests implemented via [test projects](/azure/quantum/user-guide/testing-debugging) and executed on a quantum simulator.
 * [Estimation of required resources](/azure/quantum/user-guide/machines/resources-estimator) on quantum hardware.
 * Tests being executed on quantum hardware - potentially the target production environment.
+* For testing purposes, the quantum jobs can either be submitted by the classical components used in production, or by components (for example CLI scripts) specially written for automated testing.
 
 Because of its probabilistic nature, testing of the quantum components has some special requirements:
 
 * All tests must be run multiple times to make sure that a successful test will stay successful on subsequent runs.
 * Results must be validated. For example, in optimization scenarios, it must be validated, if results violate any restrictions defined for valid solutions.
 
-During integration step the quantum component is bundled with the classical components. The classical components represent the deployment artifact that gets installed on the classical environment during subsequent steps.
+During integration step, the quantum component is bundled with the classical components. The classical components represent the deployment artifact that gets installed on the classical environment during subsequent steps.
 
 ## Continuous Delivery (CD)
 
-Continuous Delivery involves [building, testing, configuring, and deploying the application](/devops/deliver/what-is-continuous-delivery). If your organization has a DevOps culture that supports this, you can automate this up to the deployment in production environments.
+Continuous Delivery involves [building, testing, configuring, and deploying the application](/devops/deliver/what-is-continuous-delivery). If your organization has a DevOps culture that supports it, you can automate these steps up to the deployment in production environments.
 
 The build and test steps were already covered in the CI-phase. Configuring and deployment of the application involves following steps:
 
 * **Provisioning of target environments**
+  * Environment provisioning can be automated by deploying the ARM templates stored in the repository.
   * It is not necessary to reprovision the quantum components every time the code changes. As the quantum code doesn't persist on these components (the jobs are submitted on demand by the classical components) these components should be reprovisioned only on special occasions (for example a full, clean deployment).
   * The classical components can be reprovisioned with every code change. To minimize disruption during deployment, you can implement a [staged approach](../../framework/devops/release-engineering-cd.md#stage-your-workloads), and use features offered by many Azure compute services for [high availability](../../framework/devops/release-engineering-cd.md#high-availability-considerations).
 * **Configure target environments**
-  * As the classical components need to have permissions to submit quantum jobs, you should define [managed identities](/azure/active-directory/managed-identities-azure-resources/overview) for the classical components (for example the job orchestrating Azure Function). This way, you can properly restrict access to the quantum resources to only those components that need to access them for job orchestration purpose.
+  * As the classical components need to have permissions to submit quantum jobs, you should define [managed identities](/azure/active-directory/managed-identities-azure-resources/overview) for the classical components (for example the job orchestrating Azure Function). With managed identities, you can properly restrict access to the quantum resources to only those components that need to access them for job orchestration purpose.
   * Grant the classical components access to the quantum workspace, so that they can submit and monitor quantum jobs. Add a contributor role assignment to the quantum workspace for the managed identity.
 * **Ship the application artifacts to the target environments**
-  * This involves a deploying the classical application package (that includes the quantum job artifacts) to the chosen compute service.
+  * Shipping involves deploying the classical application package (that includes the quantum job artifacts) to the chosen compute service.
 
 ## Application Monitoring
 
