@@ -1730,6 +1730,8 @@ items:
               - name: Authenticate Confidential Ledger nodes
                 href: /azure/confidential-ledger/authenticate-ledger-nodes
                 maintainContext: true
+              - name: Multiparty computing
+                href: guide/blockchain/multiparty-compute.yml
           - name: Architectures
             items:
               - name: Azure SQL Database ledger
