@@ -1,25 +1,3 @@
----
-title: Multiparty computing with Azure services
-description: Learn about Azure services can help you build a multiparty computing solution, which can include cloud-based and on-premises resources.
-author: saffiali
-ms.author: safali
-ms.date: 11/19/2021
-ms.topic: conceptual
-ms.service: architecture-center
-ms.subservice: azure-guide
-products:
-  - azure-blob-storage
-  - azure-blockchain-service
-  - azure-kubernetes-service
-  - azure-sql-database
-categories:
-  - blockchain
-ms.custom: fcp
----
-
-
-# Multiparty computing with Azure services
-
 Multiparty computing or privacy-preserving computation allows parties in a business relationship to share data, do computations, and arrive at a mutual result without divulging their private data. Azure services can help you build a multiparty computing solution. The solution can include cloud-based and on-premises resources.
 
 Multiparty computing has the following attributes:
