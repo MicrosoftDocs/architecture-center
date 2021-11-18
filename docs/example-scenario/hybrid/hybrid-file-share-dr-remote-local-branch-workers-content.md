@@ -78,7 +78,7 @@ Azure Files supports Azure Backup, and its use is highly recommended. This workl
 
 Azure Files has a fully-integrated API that can be deployed through Bicep, Terraform, and Powershell, and therefore can be managed through Azure Devops and Azure Pipelines.
 
-### Pricing
+## Pricing
 
 - This solution reduces on-premises maintenance and server costs. Servers provide caches, and redundancy is no longer required.
 - Review a [pricing sample](https://azure.microsoft.com/pricing/calculator/?shared-estimate=2dcc42209bcd46e9aa66fa972de6441e) for an Azure File Sync workload by using the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator). Adjust the values to see how your requirements affect your costs.
