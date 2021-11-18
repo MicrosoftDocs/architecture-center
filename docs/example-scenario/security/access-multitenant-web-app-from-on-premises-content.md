@@ -151,7 +151,7 @@ To explore the cost of running this scenario, see the [Azure pricing calculator 
 
 ## Related resources
 
-- [Web app private connectivity to Azure SQL Database](/azure/architecture/example-scenario/private-web-app/private-web-app).
-- [Tutorial: Integrate Azure Functions with an Azure virtual network by using private endpoints](/azure/azure-functions/functions-create-vnet).
-- [Tutorial: Establish Azure Functions private site access](/azure/azure-functions/functions-create-private-site-access).
-- [Use Key Vault references for App Service and Azure Functions](/azure/app-service/app-service-key-vault-references).
+- [Web app private connectivity to Azure SQL Database](/azure/architecture/example-scenario/private-web-app/private-web-app)
+- [Tutorial: Integrate Azure Functions with an Azure virtual network by using private endpoints](/azure/azure-functions/functions-create-vnet)
+- [Tutorial: Establish Azure Functions private site access](/azure/azure-functions/functions-create-private-site-access)
+- [Use Key Vault references for App Service and Azure Functions](/azure/app-service/app-service-key-vault-references)
