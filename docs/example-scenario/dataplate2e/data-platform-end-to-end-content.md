@@ -17,6 +17,8 @@ This approach can also be used to:
 
 [![Architecture for a modern data platform using Azure data services](./media/azure-analytics-end-to-end.png)](./media/azure-analytics-end-to-end.png#lightbox)
 
+*Download a [Visio file](https://arch-center.azureedge.net/Analytics-with-AzureSynapse.vsdx) of this architecture*.
+
 > [!NOTE]
 >
 > - The services covered by this architecture are only a subset of a much larger family of Azure services. Similar outcomes can be achieved by using other services or features that are not covered by this design.
