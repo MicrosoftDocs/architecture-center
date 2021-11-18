@@ -2,7 +2,7 @@
 title: Azure Database for PostgreSQL and cost optimization
 description: Focuses on the Azure Database for PostgreSQL service used in the Data solution to provide best-practice, configuration recommendations, and design considerations related to Cost Optimization.
 author: v-stacywray
-ms.date: 11/15/2021
+ms.date: 11/17/2021
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: well-architected
@@ -74,5 +74,7 @@ Explore the following table of recommendations to optimize your Azure Database f
 |Choose the appropriate server size for your workload.|Configuration options: [Single Server](/azure/postgresql/concepts-pricing-tiers), [Flexible Server](/azure/postgresql/flexible-server/concepts-compute-storage), [Hyperscale (Citus)](/azure/postgresql/concepts-hyperscale-configuration-options).|
 |Consider Reserved Capacity for Azure Database for PostgreSQL Single Server and Hyperscale (Citus).|Compute costs associated with Azure Database For PostgreSQL [Single Server Reservation Discount](/azure/postgresql/concept-reserved-pricing) and [Hyperscale (Citus) Reservation Discount](/azure/postgresql/concepts-hyperscale-reserved-pricing). Once the total compute capacity and performance tier for Azure Database for PostgreSQL in a region is determined, this information can be used to reserve the capacity. The reservation can span one or three years. You can realize significant cost optimization with this commitment.|
 
+## Next step
+
 > [!div class="nextstepaction"]
-> [Azure SQL Database and reliability](/framework/services/data/azure-db-mysql/cost-optimization.md)
+> [Azure SQL Database and reliability](../azure-sql-database/reliability.md)

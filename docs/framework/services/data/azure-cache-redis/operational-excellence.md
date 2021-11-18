@@ -2,7 +2,7 @@
 title: Azure Cache for Redis and operational excellence
 description: Focuses on the Azure Cache for Redis service used in the Data solution to provide best-practice, configuration recommendations, and design considerations related to Operational Excellence.
 author: v-stacywray
-ms.date: 11/15/2021
+ms.date: 11/17/2021
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: well-architected
@@ -93,4 +93,4 @@ Resources
 ## Next step
 
 > [!div class="nextstepaction"]
-> [Azure Databricks and security](/framework/services/data/azure-databricks/security.md)
+> [Azure Databricks and security](../azure-databricks/security.md)

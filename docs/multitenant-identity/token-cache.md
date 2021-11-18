@@ -2,6 +2,7 @@
 title: Cache access tokens in a multitenant app
 description: Learn how to implement a custom token cache that derives from the Azure AD Authentication Library TokenCache class suitable for web apps.
 author: EdPrice-MSFT
+ms.author: pnp
 ms.date: 10/06/2021
 ms.topic: conceptual
 ms.service: architecture-center
@@ -99,6 +100,16 @@ public class SurveyService : ISurveyService
 Another way is to inject an `ITokenAcquisition` service in the controller. For more information, see [Acquire and cache tokens using the Microsoft Authentication Library (MSAL)](/azure/active-directory/develop/scenario-web-app-call-api-acquire-token?tabs=aspnetcore)
 
 [**Next**][client-certificate]
+
+## Next steps
+
+- [Token cache serialization in MSAL.NET](/azure/active-directory/develop/msal-net-token-cache-serialization)
+- [Acquire and cache tokens using the Microsoft Authentication Library (MSAL)](/azure/active-directory/develop/msal-acquire-cache-tokens)
+
+## Related resources
+
+- [Identity management in multitenant applications](/azure/architecture/multitenant-identity)
+- [Secure a backend web API for multitenant applications](/azure/architecture/multitenant-identity/web-api)
 
 <!-- links -->
 
