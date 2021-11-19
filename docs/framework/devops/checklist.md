@@ -50,7 +50,7 @@ Follow these questions to assess the workload at a deeper level.
 |[**Do you use the Azure platform notifications and updates?**](monitor-data-sources.md#infrastructure-metrics)| Consider the underlying infrastructure such as virtual machines, networks, and storage services to collect important platform-level diagnostic data.|
 |[**Do you monitor and measure application health?**](health-monitoring.md)|Health monitoring generates a snapshot of the current health of the system so that you can verify all components are functioning as expected.|
 |[**Do you monitor and track resource usage?**](usage.md)|Usage monitoring tracks how the features and components of an application are used.|
-|[**Do you collect data from the reported issues**](issue-tracking.md)||Analyzing data, for unexpected events, can provide insight about the application health.|
+|[**Do you collect data from the reported issues**](issue-tracking.md)|Analyzing data, for unexpected events, can provide insight about the application health.|
 |[**Do you collect audit logs for regulatory requirements?**](auditing.md)| Auditing can provide evidence useful for compliance attestations. |
 
 ## Azure offering
