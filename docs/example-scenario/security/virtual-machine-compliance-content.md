@@ -122,7 +122,7 @@ Common test scenarios include:
 - Validating the VM boot time.
 - Confirming any customization of the image, such as operating system configuration settings or agent deployments.
 
-A failed test should interrupt the process. Repeat the test after addressing the root cause of the problem. If the tests usually run without problem, automating the testing process reduces the effort that goes into maintaining an evergreen state.
+A failed test should interrupt the process. Repeat the test after addressing the root cause of the problem. If the tests run without problem, automating the testing process reduces the effort that goes into maintaining an evergreen state.
 
 ### Publish golden images
 
