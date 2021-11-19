@@ -620,7 +620,7 @@ items:
                     href: framework/devops/monitor-visualize-data.md
                   - name: Alerting
                     href: framework/devops/monitor-alerts.md
-              - name: Common monitoring use cases
+              - name: Common use cases
                 items:
                   - name: Health monitoring
                     href: framework/devops/health-monitoring.md
