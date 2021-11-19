@@ -2,19 +2,19 @@ This article describes an alternative aproach to data warehouse projects to redu
 
 Here's the traditional approach to data warehouse projects:
 
-- Requirements gathering. Document what you'll do with the data.  
+- **Requirements gathering**. Document what you'll do with the data.  
 
-- Data modeling. Determine how to model the numeric and attribute data into fact and dimension tables. Traditionally, we do this before we even acquire the new data.
+- **Data modeling**. Determine how to model the numeric and attribute data into fact and dimension tables. Traditionally, we do this before we even acquire the new data.
 
-- ETL. Acquire the data and massage it into the data warehouse's data model.  
+- **ETL**. Acquire the data and massage it into the data warehouse's data model.  
 
 These steps can take weeks or even months. Only then can we begin to query the data and solve the business problem. The user sees value only after the reports are created. The solution architecture usually looks something like this:  
 
-![Legacy Data Warehouse Architecture](media/EDA/legacy.png)
+![Diagram that shows the traditional data warehouse architecture.](media/EDA/legacy.png)
 
-There is another way we can do this that focuses first on generating business insights, then worries about solving the modeling and ETL tasks.  The process looks something like this and is very data science-like:
+You can do this in another way that focuses first on generating business insights and then turns to solving the modeling and ETL tasks. The process is similar to data science processes. It looks something like this:
 
-![Data Sandboxing](media/EDA/sandboxing.png)
+![Diagram that describes data sandboxing.](media/EDA/sandboxing.png)
 
 The industry calls this EDA, or _Exploratory Data Analytics_.  
 
