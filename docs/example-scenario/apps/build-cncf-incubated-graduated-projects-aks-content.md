@@ -131,6 +131,12 @@ The virtual network that's used by the AKS cluster incurs a charge. For more inf
 
 ## Next steps
 
+- [Quickstart: Deploy an AKS cluster by using the Azure portal](/azure/aks/kubernetes-walkthrough-portal)
+
+- [Introduction to AKS](/learn/modules/intro-to-azure-kubernetes-service)
+
+## Related resources 
+
 - [AKS architecture design](../../reference-architectures/containers/aks-start-here.md)
 
 - [Baseline architecture for an AKS cluster](../../reference-architectures/containers/aks/secure-baseline-aks.yml)
@@ -138,10 +144,3 @@ The virtual network that's used by the AKS cluster incurs a charge. For more inf
 - [CI/CD pipeline for container-based workloads](../../example-scenario/apps/devops-with-aks.yml) 
 
 - [Basic web application](../../reference-architectures/app-service-web-app/basic-web-app.yml)
-
-
-## Related resources 
-
-- [Quickstart: Deploy an AKS cluster by using the Azure portal](/azure/aks/kubernetes-walkthrough-portal)
-
-- [Introduction to AKS](/learn/modules/intro-to-azure-kubernetes-service)
