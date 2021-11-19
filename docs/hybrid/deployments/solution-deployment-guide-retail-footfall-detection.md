@@ -53,7 +53,7 @@ Before getting started with this deployment guide, make sure you:
 - Create two service principals in your directory:
   - One set up for use with Azure resources, with access at the Azure subscription scope.
   - One set up for use with Azure Stack Hub resources, with access at the Azure Stack Hub subscription scope.
-  - To learn more about creating service principals and authorizing access, see [Use an app identity to access resources](/azure-stack/operator/azure-stack-create-service-principals). If you prefer to use Azure CLI, see [Create an Azure service principal with Azure CLI](/cli/azure/create-an-azure-service-principal-azure-cli&preserve-view=true).
+  - To learn more about creating service principals and authorizing access, see [Use an app identity to access resources](/azure-stack/operator/azure-stack-create-service-principals). If you prefer to use Azure CLI, see [Create an Azure service principal with Azure CLI](/cli/azure/create-an-azure-service-principal-azure-cli).
 - Deploy Azure Cognitive Services in Azure or Azure Stack Hub.
   - First, [learn more about Cognitive Services](https://azure.microsoft.com/services/cognitive-services/).
   - Then visit [Deploy Azure Cognitive Services to Azure Stack Hub](/azure-stack/user/azure-stack-solution-template-cognitive-services) to deploy Cognitive Services on Azure Stack Hub. You first need to sign up for access to the preview.

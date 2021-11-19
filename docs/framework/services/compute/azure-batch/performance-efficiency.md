@@ -2,7 +2,7 @@
 title: Azure Batch and performance efficiency
 description: Focuses on the Azure Batch service used in the Compute solution to provide best-practice, configuration recommendations, and design considerations related to Service Performance.
 author: v-stacywray
-ms.date: 10/11/2021
+ms.date: 11/17/2021
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: well-architected
@@ -44,4 +44,4 @@ Consider the following recommendation to optimize your workload design and Azure
 ## Next step
 
 > [!div class="nextstepaction"]
-> [AKS and reliability](/framework/services/compute/azure-kubernetes-service/reliability.md)
+> [AKS and reliability](../azure-kubernetes-service/reliability.md)

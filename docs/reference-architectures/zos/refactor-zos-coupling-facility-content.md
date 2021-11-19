@@ -131,7 +131,7 @@ You can scale out the server sets to provide more throughput. For more informati
 ## Related resources
 
 - [Azure mainframe and midrange architecture concepts and patterns](/azure/architecture/mainframe/mainframe-midrange-architecture)
-- [Mainframe migration overview](https://docs.microsoft.com/azure/cloud-adoption-framework/infrastructure/mainframe-migration/?toc=https%3A%2F%2Fdocs.microsoft.com%2Fen-us%2Fazure%2Farchitecture%2Ftoc.json&bc=https%3A%2F%2Fdocs.microsoft.com%2Fen-us%2Fazure%2Farchitecture%2Fbread%2Ftoc.json)
-- [Mainframe rehosting on Azure virtual machines](https://docs.microsoft.com/azure/virtual-machines/workloads/mainframe-rehosting/overview?toc=https%3A%2F%2Fdocs.microsoft.com%2Fen-us%2Fazure%2Farchitecture%2Ftoc.json&bc=https%3A%2F%2Fdocs.microsoft.com%2Fen-us%2Fazure%2Farchitecture%2Fbread%2Ftoc.json)
+- [Mainframe migration overview](/azure/cloud-adoption-framework/infrastructure/mainframe-migration/?bc=https%3a%2f%2fdocs.microsoft.com%2fen-us%2fazure%2farchitecture%2fbread%2ftoc.json&toc=https%3a%2f%2fdocs.microsoft.com%2fen-us%2fazure%2farchitecture%2ftoc.json)
+- [Mainframe rehosting on Azure virtual machines](/azure/virtual-machines/workloads/mainframe-rehosting/overview?bc=https%3a%2f%2fdocs.microsoft.com%2fen-us%2fazure%2farchitecture%2fbread%2ftoc.json&toc=https%3a%2f%2fdocs.microsoft.com%2fen-us%2fazure%2farchitecture%2ftoc.json)
 - [IBM z/OS online transaction processing on Azure](/azure/architecture/example-scenario/mainframe/ibm-zos-online-transaction-processing-azure)
 - [Integrate IBM mainframe and midrange message queues with Azure](/azure/architecture/example-scenario/mainframe/integrate-ibm-message-queues-azure)

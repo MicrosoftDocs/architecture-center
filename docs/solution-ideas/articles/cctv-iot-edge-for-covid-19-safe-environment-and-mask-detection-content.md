@@ -21,7 +21,7 @@ This article showcases a COVID-19 safe solution that is being implemented in wor
 
 ![Architecture diagram: Bosch COVID-19 Safe Solution for monitoring and alerting with Azure IoT Edge.](../media/bosch-cctv-iot-edge-covid-19-safe-environment-mask-detection.png)
 
-*Download the [PNG file][visio-download] of this architecture.*
+*Download the [Visio file][visio-download] of this architecture.*
 
 1. CCTVs send video data to Internet of Things (IoT) edge servers. Edge computing handles device registration, provisioning, and data ingestion.
 2. The Bosch Algorithm Engineering and Model Training Environment uses custom vision analytics to continually retrain machine learning (ML) models, and directly updates edge servers.
@@ -64,4 +64,4 @@ Microsoft Learn paths:
 - [Build the intelligent edge with Azure IoT Edge](/learn/paths/build-intelligent-edge-with-azure-iot-edge)
 - [Implement a data streaming solution with Azure Streaming Analytics](/learn/paths/implement-data-streaming-with-asa)
 
-[visio-download]: ../media/bosch-cctv-iot-edge-covid-19-safe-environment-mask-detection.png
+[visio-download]: https://arch-center.azureedge.net/bosch-cctv-mask-detection.vsdx

@@ -4,7 +4,7 @@ Extract, transform, and load your big data clusters on demand with Hadoop MapRed
 
 ## Potential use cases
 
-Azure HDInsight can be used for a variety of scenarios in big data processing. It can be historical data (data that's already collected and stored) or real-time data (data that's directly streamed from the source). The scenarios for processing such data can be summarized in the following doc, [Scenarios for using HDInsight](https://docs.microsoft.com/azure/hdinsight/hdinsight-overview#scenarios-for-using-hdinsight). This solution idea covers the data flow for an ETL use case.
+Azure HDInsight can be used for a variety of scenarios in big data processing. It can be historical data (data that's already collected and stored) or real-time data (data that's directly streamed from the source). The scenarios for processing such data can be summarized in the following doc, [Scenarios for using HDInsight](/azure/hdinsight/hdinsight-overview#scenarios-for-using-hdinsight). This solution idea covers the data flow for an ETL use case.
 
 ## Architecture
 
@@ -14,11 +14,11 @@ Azure HDInsight can be used for a variety of scenarios in big data processing. I
 
 The data flows through the architecture as follows:
 
-1) Using Azure Data Factory, establish [Linked Services](https://docs.microsoft.com/azure/data-factory/concepts-linked-services) to source systems and data stores. Azure Data Factory Pipelines support 90+ connectors that also include generic protocols for data sources where a native connector is not available.
+1) Using Azure Data Factory, establish [Linked Services](/azure/data-factory/concepts-linked-services) to source systems and data stores. Azure Data Factory Pipelines support 90+ connectors that also include generic protocols for data sources where a native connector is not available.
 
-2) Load data from source systems into Azure data lake with the [Copy Data tool](https://docs.microsoft.com/azure/data-factory/quickstart-create-data-factory-copy-data-tool#start-the-copy-data-tool).
+2) Load data from source systems into Azure data lake with the [Copy Data tool](/azure/data-factory/quickstart-create-data-factory-copy-data-tool#start-the-copy-data-tool).
 
-3) Azure Data Factory is able to create an on-demand HDInsight cluster. Start by creating an [On-Demand HDInsight Linked Service](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-create-linux-clusters-adf#create-an-on-demand-hdinsight-linked-service). Next, [create a pipeline](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-create-linux-clusters-adf#create-a-pipeline) and use the appropriate HDInsight activity depending on the Hadoop framework being used (i.e. Hive, MapReduce, Spark, etc.).
+3) Azure Data Factory is able to create an on-demand HDInsight cluster. Start by creating an [On-Demand HDInsight Linked Service](/azure/hdinsight/hdinsight-hadoop-create-linux-clusters-adf#create-an-on-demand-hdinsight-linked-service). Next, [create a pipeline](/azure/hdinsight/hdinsight-hadoop-create-linux-clusters-adf#create-a-pipeline) and use the appropriate HDInsight activity depending on the Hadoop framework being used (i.e. Hive, MapReduce, Spark, etc.).
 
 4) Trigger the pipeline in Azure Data Factory. The architecture assumes Azure Data Lake store is being used as the file system in the Hadoop script being executed by the HDInsight activity created in Step 3. The script will be executed by an on-demand HDInsight cluster that will write data to a curated area of the data lake.
 
@@ -34,7 +34,7 @@ The data flows through the architecture as follows:
 
 Learn more about the component technologies:
 
-- [Tutorial: Create on-demand Apache Hadoop clusters in HDInsight using Azure Data Factory](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-create-linux-clusters-adf)
+- [Tutorial: Create on-demand Apache Hadoop clusters in HDInsight using Azure Data Factory](/azure/hdinsight/hdinsight-hadoop-create-linux-clusters-adf)
 - [Introduction to Azure Data Factory](/azure/data-factory/v1/data-factory-introduction)
 - [Introduction to Azure Data Lake Storage Gen2](/azure/storage/blobs/data-lake-storage-introduction)
 - [Load data into Azure Data Lake Storage Gen2 with Azure Data Factory](/azure/data-factory/load-azure-data-lake-storage-gen2)

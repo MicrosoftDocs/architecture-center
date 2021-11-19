@@ -121,7 +121,7 @@ landingContent:
           - text: Understand application and platform monitoring
             url: monitoring.md
           - text: Analyze alerts
-            url: alerts.md
+            url: monitor-alerts.md
           - text: Monitor best practices
             url: monitoring.md#monitoring-best-practices
       - linkListType: video

@@ -156,19 +156,19 @@ items:
                 href: antipatterns/retry-storm/index.md
               - name: Synchronous I/O
                 href: antipatterns/synchronous-io/index.md
-      - name: Responsible Innovation
+      - name: Responsible innovation
         items:
           - name: Overview
             href: guide/responsible-innovation/index.md
-          - name: Judgment Call
+          - name: Judgment call
             href: guide/responsible-innovation/judgmentcall.md
-          - name: Harms Modeling
+          - name: Harms modeling
             items:
-              - name: Understand Harm
+              - name: Understand harm
                 href: guide/responsible-innovation/harms-modeling/index.md
-              - name: Assess Types of Harm
+              - name: Assess types of harm
                 href: guide/responsible-innovation/harms-modeling/type-of-harm.md
-          - name: Community Jury
+          - name: Community jury
             href: guide/responsible-innovation/community-jury/index.md
       - name: Architecture for startups
         items:
@@ -347,6 +347,8 @@ items:
         items:
               - name: About
                 href: framework/resiliency/index.yml
+              - name: Overview
+                href: framework/resiliency/overview.md
               - name: Principles
                 href: framework/resiliency/principles.md
               - name: Design
@@ -368,7 +370,11 @@ items:
                   - name: Resiliency testing
                     href: framework/resiliency/testing.md
                   - name: Backup & recovery
-                    href: framework/resiliency/backup-and-recovery.md
+                    items:
+                      - name: Backup and recovery
+                        href: framework/resiliency/backup-and-recovery.md
+                      - name: Automatic retry of failed backup jobs
+                        href: framework/resiliency/auto-retry.md
                   - name: Error handling
                     href: framework/resiliency/app-design-error-handling.md
                   - name: Chaos engineering
@@ -666,17 +672,17 @@ items:
                 items:
                   - name: Reliability
                     href: framework/services/compute/azure-app-service/reliability.md
-                  - name: Cost Optimization
+                  - name: Cost optimization
                     href: framework/services/compute/azure-app-service/cost-optimization.md
-                  - name: Operational Excellence
+                  - name: Operational excellence
                     href: framework/services/compute/azure-app-service/operational-excellence.md                  
               - name: Azure Batch
                 items:
                   - name: Reliability
                     href: framework/services/compute/azure-batch/reliability.md
-                  - name: Operational Excellence
+                  - name: Operational excellence
                     href: framework/services/compute/azure-batch/operational-excellence.md
-                  - name: Performance Efficiency
+                  - name: Performance efficiency
                     href: framework/services/compute/azure-batch/performance-efficiency.md
               - name: Azure Kubernetes Service
                 items: 
@@ -684,11 +690,11 @@ items:
                     href: framework/services/compute/azure-kubernetes-service/reliability.md
                   - name: Security
                     href: framework/services/compute/azure-kubernetes-service/security.md
-                  - name: Cost Optimization
+                  - name: Cost optimization
                     href: framework/services/compute/azure-kubernetes-service/cost-optimization.md
-                  - name: Operational Excellence
+                  - name: Operational excellence
                     href: framework/services/compute/azure-kubernetes-service/operational-excellence.md
-                  - name: Performance Efficiency
+                  - name: Performance efficiency
                     href: framework/services/compute/azure-kubernetes-service/performance-efficiency.md
               - name: Functions
                 items:
@@ -700,17 +706,17 @@ items:
                     href: framework/services/compute/service-fabric/reliability.md 
                   - name: Security
                     href: framework/services/compute/service-fabric/security.md
-                  - name: Operational Excellence
+                  - name: Operational excellence
                     href: framework/services/compute/service-fabric/operational-excellence.md
-                  - name: Performance Efficiency
+                  - name: Performance efficiency
                     href: framework/services/compute/service-fabric/performance-efficiency.md
               - name: Virtual Machines
                 items:
                   - name: Reliability
                     href: framework/services/compute/virtual-machines/reliability.md
-                  - name: Cost Optimization
+                  - name: Cost optimization
                     href: framework/services/compute/virtual-machines/cost-optimization.md
-                  - name: Operational Excellence
+                  - name: Operational excellence
                     href: framework/services/compute/virtual-machines/operational-excellence.md
           - name: Data
             items:
@@ -718,7 +724,7 @@ items:
                 items:
                   - name: Reliability
                     href: framework/services/data/azure-cache-redis/reliability.md
-                  - name: Operational Excellence
+                  - name: Operational excellence
                     href: framework/services/data/azure-cache-redis/operational-excellence.md
               - name: Azure Databricks
                 items:
@@ -726,19 +732,19 @@ items:
                     href: framework/services/data/azure-databricks/security.md
               - name: Azure Database for MySQL
                 items:
-                  - name: Cost Optimization
+                  - name: Cost optimization
                     href: framework/services/data/azure-db-mysql/cost-optimization.md
               - name: Azure Database for PostgreSQL
                 items:
-                  - name: Cost Optimization
+                  - name: Cost optimization
                     href: framework/services/data/azure-db-postgresql/cost-optimization.md
               - name: Azure SQL Database
                 items:
                   - name: Reliability
                     href: framework/services/data/azure-sql-database/reliability.md
-                  - name: Cost Optimization
+                  - name: Cost optimization
                     href: framework/services/data/azure-sql-database/cost-optimization.md
-                  - name: Operational Excellence
+                  - name: Operational excellence
                     href: framework/services/data/azure-sql-database/operational-excellence.md
               - name: Azure SQL Managed Instance
                 items:
@@ -746,6 +752,12 @@ items:
                     href: framework/services/data/azure-sql-managed-instance/reliability.md
                   - name: Operational excellence
                     href: framework/services/data/azure-sql-managed-instance/operational-excellence.md
+              - name: Cosmos DB
+                items:
+                  - name: Reliability
+                    href: framework/services/data/cosmos-db/reliability.md
+                  - name: Operational excellence
+                    href: framework/services/data/cosmos-db/operational-excellence.md  
   - name: Industry solutions with Azure
     expanded: true
     items:
@@ -1708,7 +1720,7 @@ items:
                 href: solution-ideas/articles/real-time-analytics.yml
               - name: Tiering applications & data for analytics
                 href: solution-ideas/articles/tiered-data-for-analytics.yml
-      - name: Blockchain
+      - name: Blockchain + Multiparty Compute
         items:
           - name: Guides
             items:
@@ -1718,6 +1730,8 @@ items:
               - name: Authenticate Confidential Ledger nodes
                 href: /azure/confidential-ledger/authenticate-ledger-nodes
                 maintainContext: true
+              - name: Multiparty computing
+                href: guide/blockchain/multiparty-compute.yml
           - name: Architectures
             items:
               - name: Azure SQL Database ledger
@@ -1993,6 +2007,8 @@ items:
                     href: data-guide/technology-choices/stream-processing.md
               - name: Data management patterns
                 href: patterns/category/data-management.md
+              - name: Use the Transactional Outbox pattern
+                href: best-practices/transactional-outbox-cosmos.yml
               - name: Industry guidance
                 items:
                   - name: Data management in banking
@@ -2507,6 +2523,8 @@ items:
                 href: hybrid/hybrid-perf-monitoring.yml
               - name: Hybrid file services
                 href: hybrid/hybrid-file-services.yml
+              - name: Hybrid file share with disaster recovery for remote and local branch workers
+                href: example-scenario/hybrid/hybrid-file-share-dr-remote-local-branch-workers.yml
               - name: Hybrid security monitoring
                 href: hybrid/hybrid-security-monitoring.yml
               - name: Manage hybrid workloads with WAC
@@ -3287,6 +3305,8 @@ items:
                 href: solution-ideas/articles/homomorphic-encryption-seal.yml
               - name: Hybrid security monitoring
                 href: hybrid/hybrid-security-monitoring.yml
+              - name: Improved-security access to multitenant web apps from on-premises 
+                href: example-scenario/security/access-multitenant-web-app-from-on-premises.yml
               - name: Long-term security logs in Azure Data Explorer
                 href: example-scenario/security/security-log-retention-azure-data-explorer.yml
               - name: MCAS and Azure Sentinel security for AWS
@@ -3426,6 +3446,8 @@ items:
                     href: reference-architectures/enterprise-integration/ase-high-availability-deployment.yml
               - name: E-commerce front end
                 href: example-scenario/apps/ecommerce-scenario.yml
+              - name: Improved-security access to multitenant web apps from on-premises 
+                href: example-scenario/security/access-multitenant-web-app-from-on-premises.yml
               - name: Intelligent search engine for e-commerce
                 href: example-scenario/apps/ecommerce-search.yml
               - name: Migrate a web app using Azure APIM
