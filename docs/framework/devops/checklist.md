@@ -41,7 +41,7 @@ Follow these questions to assess the workload at a deeper level.
 
 |Assessment|Description|
 |---|---|
-|[**Do are you monitoring your resources?**](monitor-data-sources.md)||Have an overall view of the workload resources. The information can come from application code, frameworks, external sources with which the application communicates, and the underlying infrastructure.
+|[**Do are you monitoring your resources?**](monitor-data-sources.md)|Have an overall view of the workload resources. The information can come from application code, frameworks, external sources with which the application communicates, and the underlying infrastructure.
 |[**Do you have detailed instrumentation in the application code?**](monitor-instrument.md)|Instrumentation lets you gather performance data, diagnose problems, and make decisions.|
 |[**Do you correlate application events across all application components?**](monitor-collection-data-storage.md)|Collect data from various sources, consolidate and clean various formats, and store in reliable storage.|
 |[**Do you interpret the collected data to spot issues and trends in application health?**](monitor-analysis.md)|Analyze the data collected from various data sources to assess the overall well-being of the workload.|
