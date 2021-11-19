@@ -7,7 +7,7 @@ A many models solution requires a different dataset for every model during train
 > [!Note]
 > Use Spark versions 3.0 and later for many models applications. The data transformation capabilities and support for Python and pandas are much better than in earlier versions.
 
- A companion article, [Many models machine learning (ML) at scale with Azure Machine Learning](many-models-machine-learning-azure-aml.yml), uses Machine Learning and compute clusters.
+A companion article, [Many models machine learning (ML) at scale with Azure Machine Learning](many-models-machine-learning-azure-machine-learning.yml), uses Machine Learning and compute clusters.
 
 ## Potential use cases
 
