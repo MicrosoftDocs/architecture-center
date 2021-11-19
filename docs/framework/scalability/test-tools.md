@@ -6,6 +6,8 @@ ms.date: 12/02/2020
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: well-architected
+products:
+  - devops
 categories:
   - management-and-governance
 ms.custom:

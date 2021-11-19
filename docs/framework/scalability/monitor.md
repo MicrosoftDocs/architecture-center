@@ -1,6 +1,6 @@
 ---
 title: Monitoring for performance efficiency
-description: Review a checklist about using monitoring for performance efficiency. Consider scalability, app and infrastructure performance, and resiliency.
+description: Consider scalability, app and infrastructure performance, and resiliency.
 author: v-aangie
 ms.date: 01/28/2021
 ms.topic: conceptual

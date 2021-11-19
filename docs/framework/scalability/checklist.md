@@ -1,5 +1,5 @@
 ---
-title: Performance monitoring checklist
+title: Monitor the performance of a cloud application
 description: Review a checklist about using monitoring for performance efficiency. Consider scalability, app and infrastructure performance, and resiliency.
 author: v-aangie
 ms.date: 10/19/2021
@@ -16,7 +16,7 @@ ms.custom:
   - article
 ---
 
-# Monitoring for performance efficiency
+# Monitor the performance of a cloud application
 Troubleshooting an application's performance requires monitoring and reliable investigation. Issues in performance can arise from database queries, connectivity between services, under-provisioned resources, or memory leaks in code.
 
 Continuously monitoring services and checking the health state of current workloads is key in maintaining the overall performance of the workload. An overall monitoring strategy consider these factors:
