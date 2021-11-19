@@ -1655,7 +1655,7 @@ items:
               - name: Many models ML with Spark
                 href: example-scenario/ai/many-models-machine-learning-azure-spark.yml
               - name: Many models with Azure Machine Learning
-                href: example-scenario/ai/many-models-machine-learning-azure-aml.yml
+                href: example-scenario/ai/many-models-machine-learning-azure-machine-learning.yml
               - name: Partitioning in Event Hubs and Kafka
                 href: reference-architectures/event-hubs/partitioning-in-event-hubs-and-kafka.yml
               - name: Precision medicine pipeline with genomics
