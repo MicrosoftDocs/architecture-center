@@ -29,7 +29,7 @@ Learn more about the component technologies:
 - [Tutorial: Design an Azure Database for MySQL database using the Azure portal](/azure/mysql/tutorial-design-database-using-portal)
 - [Power BI MySQL Database Connector](/power-query/connectors/mysqldatabase)
 
-## Related Resources
+## Related resources
 
 Explore related architectures:
 
