@@ -6,6 +6,10 @@ ms.date: 12/02/2020
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: well-architected
+products:
+  - devops
+categories:
+  - management-and-governance
 ms.custom:
   - How are you handling user load?
   - article
@@ -21,7 +25,7 @@ Testing can be automated or manual. Automating tests is the best way to make sur
 
 Knowing where you are (baseline) and where you want to be (goal) makes it easier to plan how to get there. Established baselines and goals will help you to stay on track and measure progress. Testing may also uncover a need to perform additional testing on areas that you may not have planned.
 
-Baselines can vary based on connections or platforms that a user may leverage for accessing the application. It may be important to establish baselines that address the different connections, platforms, and elements such as time of day, or weekday versus weekend.
+Baselines can vary based on connections or platforms used to accessing the application. It may be important to establish baselines that address the different connections, platforms, and elements such as time of day, or weekday versus weekend.
 
 There are many types of goals when determining baselines for application performance. Some examples are, the time it takes to render a page, or a desired number of transactions if your site conducts e-commerce. The following list shows some examples of questions that may help you to determine goals.
 
@@ -74,4 +78,4 @@ For a list of Azure metrics, see [Supported metrics with Azure Monitor](/azure/a
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Performance monitoring](./monitor.md)
+> [Performance monitoring](./checklist.md)
