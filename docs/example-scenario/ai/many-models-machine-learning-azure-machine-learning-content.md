@@ -14,7 +14,7 @@ A many models solution requires a different dataset for every model during train
 
 ## Architecture
 
-:::image type="content" source="media/many-models-machine-learning-azure-aml.png" alt-text="Architecture for many models machine learning at scale on Azure with Azure Machine Learning" lightbox="media/many-models-machine-learning-azure-aml.png":::
+:::image type="content" source="media/many-models-machine-learning-azure-aml.png" alt-text="Architecture diagram for many models machine learning at scale on Azure with Azure Machine Learning." lightbox="media/many-models-machine-learning-azure-aml.png":::
 
 *Download a [Visio file](https://arch-center.azureedge.net/US-1884393-many-models-machine-learning-azure-aml.vsdx) of this architecture.*
 
