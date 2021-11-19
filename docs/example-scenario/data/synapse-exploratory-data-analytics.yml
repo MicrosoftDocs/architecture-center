@@ -23,4 +23,4 @@ name: Querying a data lake or lakehouse using Synapse Serverless
 summary: Synapse Serverless is a fast, inexpensive way to perform EDA over a data lake or lakehouse. Self-service analytics is easy for business analysts that understand a little SQL.
 thumbnailUrl: /azure/architecture/browse/thumbs/EDA.png
 content: |
-  [!include[](synapse-exploratory-data-analytics.md)]
+  [!include[](synapse-exploratory-data-analytics-content.md)]
