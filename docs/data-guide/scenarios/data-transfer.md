@@ -1,7 +1,8 @@
 ---
-title: Choosing a data transfer technology
+title: Choose a data transfer technology
 description: Learn about Azure data transfer options like Import/Export, Data Box, Data Factory, and command line and graphical interface tools.
-author: zoinerTejada
+author: EdPrice-MSFT
+ms.author: pnp
 ms.date: 11/20/2019
 ms.topic: conceptual
 ms.service: architecture-center
@@ -12,7 +13,7 @@ ms.custom:
 
 <!-- cSpell:ignore SATA HDDs SDDs Distcp WASB Sqoop -->
 
-# Transferring data to and from Azure
+# Transfer data to and from Azure
 
 There are several options for transferring data to and from Azure, depending on your needs.
 
