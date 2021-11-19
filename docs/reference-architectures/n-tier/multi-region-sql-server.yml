@@ -2,8 +2,8 @@
 metadata:
   title: Multi-region N-tier application
   description: Deploy an application on Azure virtual machines in multiple regions for high availability and resiliency.
-  author: doodlemania2
-  ms.author: pnp
+  author: EdPrice-MSFT
+  ms.author: laclama
   ms.date: 06/18/2019
   ms.topic: conceptual
   ms.service: architecture-center

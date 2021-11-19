@@ -1,6 +1,6 @@
 ### YamlMime:Architecture
 metadata:
-  title: High availability and disaster recovery scenarios for IaaS apps
+  title: High availability and disaster recovery for IaaS apps
   titleSuffix: Azure Example Scenarios
   description: Learn about high-availability (HA) and disaster recovery (DR) options when deploying multitier infrastructure-as-a-service (IaaS) apps to Azure.
   author: shcrouch

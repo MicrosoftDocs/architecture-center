@@ -1,5 +1,5 @@
 ---
-title: Azure identity and access management considerations
+title: Identity and access management checklist
 description: Use Azure Active Directory (Azure AD) to grant access based on identity authentication and authorization.
 author: PageWriter-MSFT
 ms.date: 07/09/2019
@@ -37,17 +37,6 @@ Provide security assurance through _identity management_: the process of authent
 > - Preferably use passwordless methods or opt for modern password methods.
 > - Block legacy protocols and authentication methods.
 
-## In this section
-
-Follow these questions to assess the workload at a deeper level. The recommendations in this section are based on using Azure AD.
-
-|Assessment|Description|
-|---|---|
-|[**Does the application team have a clear view on responsibilities and individual/group access levels?**](design-identity-role-definitions.md)|Designate groups (or individual roles) that will be responsible for central functions, such as network, policy management and so on.|
-|[**Is the workload infrastructure protected with Azure role-based access control (Azure RBAC)?**](design-identity-control-plane.md)|Azure Resource Manager handles all control plane requests and applies restrictions that you specify through Azure role-based access control (Azure RBAC), Azure Policy, locks.|
-|[**Has role-based and/or resource-based authorization been configured within Azure AD?**](design-identity-authorization.md)|Use a mix of role-based and resource-based authorization. Start with the principle of least privilege and add more actions based your needs.|
-|[**How is the workload authenticated when communicating with Azure platform services?**](design-identity-authentication.md)|Authenticate using Managed Identities, use passwordless protections, and keep all (except critical accounts) identities at a central location.|
-
 ## Azure security benchmark
 
 The Azure Security Benchmark includes a collection of high-impact security recommendations you can use to help secure the services you use in Azure:
@@ -70,12 +59,12 @@ Here are some reference architectures related to identity and access management:
 
 [Integrate on-premises AD with Azure](../../reference-architectures/identity/index.yml)
 
-## Next
+## Next steps
 
-We recommend applying as many as of the best practices as early as possible, and then working to retrofit any gaps over time as you mature your security program.
+Monitor the communication between segments. Use data to identify anomalies, set alerts, or block traffic to mitigate the risk of attackers crossing segmentation boundaries.
 
 > [!div class="nextstepaction"]
-> [Monitor identity, network, data risks](./monitor-resources.md)
+> [Network-related risks](./design-network.md)
 
 ## Related links
 

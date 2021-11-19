@@ -4,8 +4,8 @@ metadata:
   titleSuffix: Azure Example Scenarios
   description: This article describes an example workload of creating multiple Active Directory forests with Azure Virtual Desktop.
   author: nehalineogi
-  ms.author: pnp
-  ms.date: 08/31/2020
+  ms.author: tmaher
+  ms.date: 03/24/2021
   ms.topic: conceptual
   ms.service: architecture-center
   ms.subservice: example-scenario

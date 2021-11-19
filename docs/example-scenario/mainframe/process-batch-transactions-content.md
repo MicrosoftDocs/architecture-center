@@ -1,6 +1,5 @@
 On Azure, you can implement batch transaction processing—such as posting payments to accounts—by using an architecture based on Microsoft Azure Kubernetes Service (AKS) and Azure Service Bus. This type of architecture provides the transaction processing speed, scaling, and reliability required for high-volume batch processing.
 
-
 The architecture uses AKS to implement compute clusters of the applications that process the transactions. The applications receive the transactions in messages from Service Bus topics or queues. The topics and queues can be at Azure datacenters in different geographic regions, and multiple AKS clusters can read input from them.
 
 Typically, a message remains queued until its transaction completes, allowing for recovery if there's a failure. Also, you can replicate topics and queues to other regions, to share workloads and to continue processing even if a region fails.
@@ -15,7 +14,6 @@ This architecture is for high-volume processing of batches of transactions, espe
 
 > [!Note]
 > This architecture suits a type of batch transaction processing that, on IBM mainframes, is often implemented by using the IBM MQ family of message-oriented middleware.
-
 
 ## Architecture
 
@@ -100,7 +98,7 @@ The autoscale features of AKS clusters—and other Azure Platform as a Service (
 Here are pricing considerations for specific components:
 
 - Most enterprises already have a Microsoft Active Directory implementation. If not, [Azure Active Directory Premium](https://azure.microsoft.com/services/active-directory/) is low cost.
-- [Windows VM pricing](https://azure.microsoft.com/pricing/details/virtual-machines/windows/) and [Linux VM pricing](https://azure.microsoft.com/pricing/details/virtual-machines/linux/) depend on your compute capacity. 
+- [Windows VM pricing](https://azure.microsoft.com/pricing/details/virtual-machines/windows/) and [Linux VM pricing](https://azure.microsoft.com/pricing/details/virtual-machines/linux/) depend on your compute capacity.
 - For Premium SSD or Ultra managed storage disks pricing, see [Managed Disks pricing](https://azure.microsoft.com/pricing/details/managed-disks/).
 - There are no upfront costs for [Azure SQL Database](https://azure.microsoft.com/pricing/details/sql-database/single/); you pay for resources as used.
 - For [ExpressRoute](https://azure.microsoft.com/pricing/details/expressroute/), you pay a monthly port fee and outbound data transfer charges.

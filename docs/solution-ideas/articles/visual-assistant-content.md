@@ -7,7 +7,7 @@ Visual assistant provides rich information based on content of the image with ca
 ![Architecture diagram](../media/visual-assistant.png)
 *Download an [SVG](../media/visual-assistant.svg) of this architecture.*
 
-## Data flow
+### Data flow
 
 1. Users interact with Bot through mobile app or web app.
 1. Bot understands user intent and conversational context by using LUIS, which is built into the application.
@@ -17,7 +17,7 @@ Visual assistant provides rich information based on content of the image with ca
 1. Optionally, Bot gets more information on barcodes/queries exclusively from your domain through the Bing Custom Search API.
 1. Visual Assistant renders similar products/destinations from your domain or provides more information around celebrity/place/monuments/artworks.
 
-## Components
+### Components
 
 * [Azure App Service](/azure/app-service/): A fully managed HTTP-based service for hosting web apps, REST APIs, and mobile backends
 * [Azure Bot Service](/azure/bot-service/): Develop intelligent, enterprise-grade bots that enrich your customer experience, all while maintaining control of your data

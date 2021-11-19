@@ -1,6 +1,6 @@
 ### YamlMime:Architecture
 metadata:
-  title: Unified logging for microservices applications
+  title: Unified logging for microservices apps
   titleSuffix: Azure Example Scenarios
   description: Learn about logging, tracing, and monitoring for microservices apps and learn how to run synthetic logging for testing and create structured logs for analysis.
   author: lanallai
@@ -23,8 +23,6 @@ products:
   - azure-event-hubs
   - azure-logic-apps
   - azure-monitor
-  - azure-sentinel
-  - azure-virtual-machines
 thumbnailUrl: /azure/architecture/browse/thumbs/paas-tracing-logging.png
 content: |
    [!include[](unified-logging-content.md)]

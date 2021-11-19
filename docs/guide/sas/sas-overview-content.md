@@ -172,7 +172,7 @@ SAS has specific fully qualified domain name (FQDN) requirements for VMs. Set ma
 
 > [!NOTE]
 > Turn on accelerated networking on all nodes in the SAS deployment. When you turn this feature off, performance suffers significantly.
->  
+>
 > To turn on accelerated networking on a VM, follow these steps:
 >
 > 1. Run this command in the Azure CLI to deallocate the VM:

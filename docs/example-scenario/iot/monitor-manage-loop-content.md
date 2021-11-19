@@ -1,6 +1,5 @@
 
 
-
 An Internet-of-Things (IoT) *monitor and manage loop* is a supervisory system that continually monitors a physical system controlled by a set of networked IoT devices. The monitor and manage loop makes sure the system is within the tolerable range of the desired state setpoint, and issues commands to control the system.
 
 This article provides an overview of monitor and manage process loop architecture, characteristics, and components.

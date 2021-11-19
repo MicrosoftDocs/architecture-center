@@ -94,7 +94,7 @@ For more information on using the Ethereum Proof-of-Authority solution template 
 [small-pricing]: https://azure.com/e/4e429d721eb54adc9a1558fae3e67990
 [medium-pricing]: https://azure.com/e/bb42cd77437744be8ed7064403bfe2ef
 [large-pricing]: https://azure.com/e/e205b443de3e4adfadf4e09ffee30c56
-[guide]: /azure/blockchain-workbench/ethereum-poa-deployment
+[guide]: https://azure.microsoft.com/blog/ethereum-proof-of-authority-on-azure/
 [deploy]: https://portal.azure.com/?pub_source=email&pub_status=success#create/microsoft-azure-blockchain.azure-blockchain-ethereumethereum-poa-consortium
 [source]: https://github.com/vitoc/creditscoreblockchain
 [monitor]: /azure/monitoring-and-diagnostics/monitoring-overview-azure-monitor

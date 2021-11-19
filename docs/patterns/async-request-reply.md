@@ -39,8 +39,8 @@ Decouple backend processing from a frontend host, where backend processing needs
 
 ## Context and problem
 
-In modern application development, it's normal for client applications &mdash; often code running in a web-client (browser) &mdash; to depend on remote APIs to provide business logic and compose functionality. These APIs may be directly related to the application or may be shared services provided by a third party. Commonly these API calls take place over the HTTP(S) protocol and follow REST semantics.  
-  
+In modern application development, it's normal for client applications &mdash; often code running in a web-client (browser) &mdash; to depend on remote APIs to provide business logic and compose functionality. These APIs may be directly related to the application or may be shared services provided by a third party. Commonly these API calls take place over the HTTP(S) protocol and follow REST semantics.
+
 In most cases, APIs for a client application are designed to respond quickly, on the order of 100 ms or less. Many factors can affect the response latency, including:
 
 - An application's hosting stack.
@@ -126,7 +126,7 @@ This pattern might not be suitable when:
 - You can use a service built for asynchronous notifications instead, such as Azure Event Grid.
 - Responses must stream in real time to the client.
 - The client needs to collect many results, and received latency of those results is important. Consider a service bus pattern instead.
-- You can use server-side persistent network connections such as WebSockets or SignalR. These services can be used to notify the caller of the result.  
+- You can use server-side persistent network connections such as WebSockets or SignalR. These services can be used to notify the caller of the result.
 - The network design allows you to open up ports to receive asynchronous callbacks or webhooks.
 
 ## Example
@@ -172,7 +172,7 @@ public static class AsyncProcessingWorkAcceptor
         m.UserProperties["RequestSubmittedAt"] = DateTime.Now;
         m.UserProperties["RequestStatusURL"] = rqs;
 
-        await OutMessage.AddAsync(m);  
+        await OutMessage.AddAsync(m);
 
         return (ActionResult) new AcceptedResult(rqs, $"Request Accepted for Processing{Environment.NewLine}ProxyStatus: {rqs}");
     }
@@ -322,7 +322,6 @@ The following information may be relevant when implementing this pattern:
 
 - [Azure Logic Apps - Perform long-running tasks with the polling action pattern](/azure/logic-apps/logic-apps-create-api-app#perform-long-running-tasks-with-the-polling-action-pattern).
 - For general best practices when designing a web API, see [Web API design](../best-practices/api-design.md).
-
 
 ## Related guidance
 

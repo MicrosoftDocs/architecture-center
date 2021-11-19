@@ -45,7 +45,7 @@ HTTP Host headers usually don't contain IP addresses. Instead, the headers conta
 
 > [!NOTE]
 > Application Gateway doesn't support port numbers in HTTP Host headers. As a result:
-> 
+>
 > - Azure Firewall Premium assumes a default HTTPS TCP port of 443.
 > - The connection between Application Gateway and the web server only supports TCP port 443, not non-standard ports.
 
@@ -189,7 +189,6 @@ As with Virtual WAN, you might need to modify the routing when you use Route Ser
 - [Implement a secure hybrid network][Implement a secure hybrid network]
 - [Hub-spoke network topology in Azure][Hub-spoke network topology in Azure]
 - [Hub-spoke network topology with Azure Virtual WAN][Hub-spoke network topology with Azure Virtual WAN]
-
 
 [Application Gateway limits]: /azure/azure-resource-manager/management/azure-subscription-service-limits#application-gateway-limits
 [Azure Firewall DNS settings]: /azure/firewall/dns-settings

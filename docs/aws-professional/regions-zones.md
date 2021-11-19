@@ -1,7 +1,7 @@
 ---
 title: Comparing AWS and Azure regions and zones
 description: Review a comparison of the regions and zones between Azure and AWS. Explore availability sets, availability zones, and paired regions in Azure.
-author: doodlemania2
+author: EdPrice-MSFT
 ms.date: 08/12/2020
 ms.topic: reference
 ms.service: architecture-center
@@ -62,6 +62,5 @@ Azure [geo-redundant storage](/azure/storage/common/storage-redundancy-grs) is a
 - [Failure and disaster recovery for Azure applications](../framework/resiliency/backup-and-recovery.md)
 
 - [Planned maintenance for Linux virtual machines in Azure](/azure/virtual-machines/linux/maintenance-and-updates)
-
 
 [paired-regions]: /azure/best-practices-availability-paired-regions

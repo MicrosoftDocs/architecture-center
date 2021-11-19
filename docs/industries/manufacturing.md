@@ -6,8 +6,9 @@ author: dsk-2015
 ms.date: 06/04/2021
 ms.topic: article
 ms.service: architecture-center
-ms.subservice: 
-keywords: Azure
+ms.subservice: azure-guide
+keywords:
+  - Azure
 products:
   - azure
 categories:
@@ -34,7 +35,11 @@ To learn how you can modernize your manufacturing business using Azure, visit [A
 
 <br>
 
+<!-- markdownlint-disable MD034 -->
+
 > [!VIDEO https://www.youtube.com/embed/xn32a320sv4]
+
+<!-- markdownlint-enable MD034 -->
 
 <br>
 
@@ -47,7 +52,6 @@ The following articles provide detailed analysis of architectures developed and 
 | [Azure Industrial IoT Analytics Guidance](../guide/iiot-guidance/iiot-architecture.md) | Build an architecture for an Industrial IoT (IIoT) analytics solution on Azure using PaaS (Platform as a service) components. | IoT |
 | [Upscale machine learning lifecycle with MLOps framework](../example-scenario/mlops/mlops-technical-paper.yml) | Learn how a Fortune 500 food company improved its demand forecasting and optimized the product stocks in different stores across several regions in US with the help of customized machine learning models. | AI/ML |
 | [Speech-to-text transcription pipeline with Azure Cognitive Services](../reference-architectures/ai/speech-to-text-transcription-pipeline.yml) | Improve the efficiency of your customer care centers and transform your business by analyzing high volumes of recorded calls and building a speech-to-text transcription pipeline with Azure Cognitive Services. | AI/ML |
-
 
 ## Solution ideas for manufacturing
 

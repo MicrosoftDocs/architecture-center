@@ -1,7 +1,5 @@
 <!-- cSpell:ignore CNAME -->
 
-
-
 This reference architecture shows how to run an Azure App Service application in multiple regions to achieve high availability.
 
 ![Reference architecture for a web application with high availability](./images/multi-region-web-app-diagram.png)
@@ -125,15 +123,13 @@ There are two factors that determine Azure Cosmos DB pricing:
 
     There are two types of throughput that can be provisioned in Cosmos DB, standard and autoscale. Standard throughput allocates the resources required to guarantee the RU/s that you specify. For autoscale, you provision the maximum throughput, and Cosmos DB instantly scales up or down depending on the load, with a minimum of 10% of the maximum autoscale throughput. Standard throughput is billed for the throughput provisioned hourly. Autoscale throughput is billed for the maximum throughput consumed hourly.
 
-- Consumed storage.
-    You are billed a flat rate for the total amount of storage (GBs) consumed for data and the indexes for a given hour.
+- Consumed storage. You are billed a flat rate for the total amount of storage (GBs) consumed for data and the indexes for a given hour.
 
 For more information, see the cost section in [Microsoft Azure Well-Architected Framework](../../framework/cost/overview.md).
 
 ## Manageability considerations
 
 If the primary database fails, perform a manual failover to the secondary database. See [Restore an Azure SQL Database or failover to a secondary][sql-failover]. The secondary database remains read-only until you fail over.
-
 
 ## DevOps considerations
 

@@ -5,7 +5,7 @@ This solution idea shows how you can deploy Azure Virtual Desktop (AVD) rapidly 
 This solution idea also applies to mergers and acquisitions, organization rebranding, and multiple on-premises identities requirements.
 
 ## Architecture
-:::image type="content" source="images/wvd-multi-forest-aadds.png" alt-text="Azure Virtual Desktop with Azure AD Domain Services" lightbox="images/wvd-multi-forest-aadds.png":::
+:::image type="content" source="images/wvd-multi-forest-aadds-edited.png" alt-text="Azure Virtual Desktop with Azure AD Domain Services" lightbox="images/wvd-multi-forest-aadds-edited.png":::
 
 ## Data flow
 
@@ -26,7 +26,7 @@ The following steps show how the data flows in this architecture in the form of 
 > [!NOTE]
 >
 > 1. For Group Policy requirements in Azure AD DS, you can [install Group Policy Management tools](/azure/active-directory-domain-services/manage-group-policy#before-you-begin) on a Windows Server virtual machine that is joined to Azure AD DS.
-> 2. To extend GPO infrastructure for AVD from the on-premises domain controllers, manual export and import to Azure AD DS is required.  
+> 2. To extend GPO infrastructure for AVD from the on-premises domain controllers, manual export and import to Azure AD DS is required.
 
 >
 
@@ -39,4 +39,3 @@ For more information, see these articles:
 - [Azure AD Connect Topology](/azure/active-directory/hybrid/plan-connect-topologies)
 - [Compare different Identity options: Self-managed Active Directory Domain Services (AD DS), Azure Active Directory (Azure AD), and Azure Active Directory Domain Services (Azure AD DS)](/azure/active-directory-domain-services/compare-identity-solutions)
 - [Azure Virtual Desktop Documentation](/azure/virtual-desktop/)
-

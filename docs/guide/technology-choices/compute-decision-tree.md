@@ -1,12 +1,12 @@
 ---
-title: Choosing an Azure compute service
+title: Choose an Azure compute service
 description: Use this chart and other information to decide which compute service, or hosting model for computing resources, best suits your application.
 author: EdPrice-MSFT
 ms.author: pnp
 ms.date: 03/29/2021
 ms.topic: conceptual
 ms.service: architecture-center
-ms.subservice: guide
+ms.subservice: azure-guide
 categories:
   - compute
 products:
@@ -34,7 +34,7 @@ Definitions:
 - **"Lift and shift"** is a strategy for migrating a workload to the cloud without redesigning the application or making code changes. Also called *rehosting*. For more information, see [Azure migration and modernization center](https://azure.microsoft.com/migration).
 - **Cloud optimized** is a strategy for migrating to the cloud by refactoring an application to take advantage of cloud-native features and capabilities.
 
-The output from this flowchart is a **starting point** for consideration. Next, perform a more detailed evaluation of the service to see if it meets your needs. 
+The output from this flowchart is a **starting point** for consideration. Next, perform a more detailed evaluation of the service to see if it meets your needs.
 
 This article includes several tables which may help you to make these tradeoff decisions. Based on this analysis, you may find that the initial candidate isn't suitable for your particular application or workload. In that case, expand your analysis to include other compute services.
 
@@ -67,11 +67,9 @@ Cloud services, including Azure services, generally fall into three categories: 
 > [!NOTE]
 > Azure Functions is an [Azure serverless](https://azure.microsoft.com/solutions/serverless/#solutions) compute offering. You may read [Choose the right integration and automation services in Azure](/azure/azure-functions/functions-compare-logic-apps-ms-flow-webjobs) to know how this service compares with other Azure serverless offerings, such as Logic Apps which provides serverless workflows.
 
-There is a spectrum from IaaS to pure PaaS. For example, Azure VMs can autoscale by using virtual machine scale sets. This automatic scaling capability isn't strictly PaaS, but it's the type of management feature found in PaaS services. 
+There is a spectrum from IaaS to pure PaaS. For example, Azure VMs can autoscale by using virtual machine scale sets. This automatic scaling capability isn't strictly PaaS, but it's the type of management feature found in PaaS services.
 
 In general, there is a tradeoff between control and ease of management. IaaS gives the most control, flexibility, and portability, but you have to provision, configure and manage the VMs and network components you create. FaaS services automatically manage nearly all aspects of running an application. PaaS services fall somewhere in between.
-
-<!-- markdownlint-disable MD033 -->
 
 | Criteria | Virtual Machines | App Service | Azure Spring Cloud| Service Fabric | Azure Functions | Azure Kubernetes Service | Container Instances | Azure Batch |
 |----------|-----------------|-------------|-------------|----------------|-----------------|-------------------------|----------------|-------------|
@@ -151,7 +149,7 @@ Review and understand the available security controls and visibility for each se
 | Cost | [Windows][cost-windows-vm], [Linux][cost-linux-vm] | [App Service pricing][cost-app-service] | [Azure Spring Cloud pricing][cost-azure-spring-cloud] | [Service Fabric pricing][cost-service-fabric] | [Azure Functions pricing][cost-functions] | [AKS pricing][cost-acs] | [Container Instances pricing](https://azure.microsoft.com/pricing/details/container-instances/) | [Azure Batch pricing][cost-batch]
 | Suitable architecture styles | [N-Tier][n-tier], [Big compute][big-compute] (HPC) | [Web-Queue-Worker][w-q-w], [N-Tier][n-tier] | Spring Boot, [Microservices][microservices] | [Microservices][microservices], [Event-driven architecture][event-driven] | [Microservices][microservices], [Event-driven architecture][event-driven] | [Microservices][microservices], [Event-driven architecture][event-driven] | [Microservices][microservices], task automation, batch jobs  | [Big compute][big-compute] (HPC) |
 
-The output from this flowchart is a **starting point** for consideration. Next, perform a more detailed evaluation of the service to see if it meets your needs. 
+The output from this flowchart is a **starting point** for consideration. Next, perform a more detailed evaluation of the service to see if it meets your needs.
 
 ## Consider limits and cost
 
@@ -165,7 +163,7 @@ Perform a more detailed evaluation looking at the following aspects of the servi
 
 ## Next steps
 
-- [Core Cloud Services - Azure compute options](/learn/modules/intro-to-azure-compute/). This Microsoft Learn module explores how compute services can solve common business needs. 
+- [Core Cloud Services - Azure compute options](/learn/modules/intro-to-azure-compute/). This Microsoft Learn module explores how compute services can solve common business needs.
 
 [cost-linux-vm]: https://azure.microsoft.com/pricing/details/virtual-machines/linux
 [cost-windows-vm]: https://azure.microsoft.com/pricing/details/virtual-machines/windows

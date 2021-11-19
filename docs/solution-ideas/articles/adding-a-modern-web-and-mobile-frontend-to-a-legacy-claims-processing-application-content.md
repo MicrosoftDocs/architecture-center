@@ -1,6 +1,6 @@
 [!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
-This line-of-business application solution consolidates data from multiple business systems and surfaces the data through web and mobile front ends-helping to improve employee productivity and speed decision making.
+This line-of-business application solution consolidates data from multiple business systems and surfaces the data through web and mobile front ends - helping to improve employee productivity and speed decision making.
 
 ## Architecture
 

@@ -8,10 +8,8 @@ ms.date: 11/05/2019
 ms.author: bryanla
 ms.reviewer: anajod
 ms.lastreviewed: 11/05/2019
-
 # Intent: As an Azure Stack Hub operator, I want to deploy an app that uses on-premises data and scales cross-cloud using Azure and Azure Stack Hub so I can combine the benefits of private cloud with the scalability of the public cloud.
 # Keyword: cross-cloud hybrid on-premises app azure stack hub
-
 ---
 
 # Deploy hybrid app with on-premises data that scales cross-cloud
@@ -36,10 +34,10 @@ This tutorial covers the following tasks:
 > - Set up Application Insights monitoring and alerting for increased traffic.
 > - Configure automatic traffic switching between global Azure and Azure Stack Hub.
 
-> [!Tip]  
-> ![Hybrid pillars diagram](media/solution-deployment-guide-cross-cloud-scaling/hybrid-pillars.png)  
-> Microsoft Azure Stack Hub is an extension of Azure. Azure Stack Hub brings the agility and innovation of cloud computing to your on-premises environment, enabling the only hybrid cloud that allows you to build and deploy hybrid apps anywhere.  
-> 
+> [!Tip]
+> ![Hybrid pillars diagram](media/solution-deployment-guide-cross-cloud-scaling/hybrid-pillars.png)
+> Microsoft Azure Stack Hub is an extension of Azure. Azure Stack Hub brings the agility and innovation of cloud computing to your on-premises environment, enabling the only hybrid cloud that allows you to build and deploy hybrid apps anywhere.
+>
 > The article [Hybrid app design considerations](/hybrid/app-solutions/overview-app-design-considerations) reviews pillars of software quality (placement, scalability, availability, resiliency, manageability, and security) for designing, deploying, and operating hybrid apps. The design considerations assist in optimizing hybrid app design, minimizing challenges in production environments.
 
 ### Assumptions
@@ -93,7 +91,7 @@ Before you start this solution, make sure you meet the following requirements:
    - **Storage account**: Create a new account if you need one.
    - **Virtual network**:
 
-     > [!Important]  
+     > [!Important]
      > Make sure your SQL Server VM is deployed on the same  virtual network as the VPN gateways.
 
    - **Public IP address**: Use the default settings.
@@ -110,7 +108,7 @@ Before you start this solution, make sure you meet the following requirements:
    - For **Port**, keep the default, **1433**.
    - For **SQL authentication**, select **Enable**.
 
-     > [!Note]  
+     > [!Note]
      > When you enable SQL authentication, it should auto-populate with the "SQLAdmin" information that you configured in **Basics**.
 
    - For the rest of the settings, keep the defaults. Select **OK**.
@@ -163,7 +161,7 @@ The virtual network gateway in the Azure side of the hybrid network must allow p
 
 3. On the **Point-to-site** configuration page, enter the private IP address range that you want to use in **Address pool**.
 
-   > [!Note]  
+   > [!Note]
    > Make sure that the range you specify doesn't overlap with any of the address ranges already used by subnets in the global Azure or Azure Stack Hub components of the hybrid network.
 
    Under **Tunnel Type**, uncheck the **IKEv2 VPN**. Select **Save** to finish configuring point-to-site.
@@ -260,7 +258,7 @@ You'll configure the app code to report telemetry to the correct Application Ins
 
 Each instance of the web app will use a different method to connect to the SQL database. The app in Azure uses the private IP address of the SQL Server VM and the app in Azure Stack Hub uses the public IP address of the SQL Server VM.
 
-> [!Note]  
+> [!Note]
 > On an Azure Stack Hub integrated system, the public IP address shouldn't be internet-routable. On an ASDK, the public IP address isn't routable outside the ASDK.
 
 You can use App Service environment variables to pass a different connection string to each instance of the app.
@@ -269,14 +267,14 @@ You can use App Service environment variables to pass a different connection str
 
 2. Open Startup.cs and find the following code block:
 
-    ```C#
+    ```c#
     services.AddDbContext<MyDatabaseContext>(options =>
         options.UseSqlite("Data Source=localdatabase.db"));
     ```
 
 3. Replace the previous code block with the following code, which uses a connection string defined in the *appsettings.json* file:
 
-    ```C#
+    ```c#
     services.AddDbContext<MyDatabaseContext>(options =>
         options.UseSqlServer(Configuration.GetConnectionString("MyDbConnection")));
      // Automatically perform database migration
@@ -295,7 +293,7 @@ You can use App Service environment variables to pass a different connection str
 
 When you create your web app in an App Service environment, it starts with one instance. You can automatically scale out to add instances to provide more compute resources for your app. Similarly, you can automatically scale in and reduce the number of instances your app needs.
 
-> [!Note]  
+> [!Note]
 > You need to have an App Service plan to configure scale out and scale in. If you don't have a plan, create one before starting the next steps.
 
 ### Enable automatic scale-out
@@ -341,7 +339,7 @@ When you create your web app in an App Service environment, it starts with one i
 
 6. In **Metric Source**, select **Current Resource.**
 
-   > [!Note]  
+   > [!Note]
    > The current resource will contain your App Service plan's name/GUID and the **Resource Type** and **Resource** drop-down lists will be unavailable.
 
 ### Enable automatic scale in

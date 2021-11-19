@@ -1,7 +1,5 @@
 <!-- cSpell:ignore newsfeeds njray Redlock -->
 
-
-
 This example scenario describes a pipeline for mass ingestion and near real-time analysis of documents coming from public RSS news feeds.  It uses [Azure Cognitive Services](/azure/cognitive-services/what-are-cognitive-services) to provide useful insights based on text translation, facial recognition, and sentiment detection. Specifically, image and natural language processing steps are connected together in a messaging pipeline based on [Azure Service Bus](/azure/service-bus-messaging/service-bus-messaging-overview). The output of the pipeline is a notification containing the insight or analysis.
 
 This scenario contains examples for [English][english], [Russian][russian], and [German][german] news feeds, but you can easily extend it to other RSS feeds and other languages. For ease of deployment, the data collection, processing, and analysis are based entirely on Azure services.
@@ -125,7 +123,6 @@ Additional analytics architectures:
 * [Stream processing with Azure Databricks](../../reference-architectures/data/stream-processing-databricks.yml)
 * [Stream processing with Azure Stream Analytics](../../reference-architectures/data/stream-processing-stream-analytics.yml)
 
-
 [architecture]: ./media/mass-ingestion-newsfeeds-architecture.png
 [aai]: /azure/azure-monitor/app/app-insights-overview
 [aas]: https://azure.microsoft.com/try/app-service
@@ -146,7 +143,7 @@ Additional analytics architectures:
 [language]: /azure/cognitive-services/translator/reference/v3-0-languages
 [logic-app]: /azure/logic-apps/logic-apps-overview
 [queues-topics]: /azure/service-bus-messaging/service-bus-queues-topics-subscriptions
-[partial]: https://feedback.azure.com/forums/263030-azure-cosmos-db/suggestions/6693091-be-able-to-do-partial-updates-on-document
+[partial]: https://feedback.azure.com/d365community/idea/eebcd50e-0e25-ec11-b6e6-000d3a4f0858
 [plan]: /azure/azure-functions/functions-scale
 [plan-c]: /azure/azure-functions/consumption-plan
 [plan-ded]: /azure/azure-functions/dedicated-plan

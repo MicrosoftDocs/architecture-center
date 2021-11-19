@@ -1,11 +1,10 @@
-
-
-
 [!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
 Social sites, forums, and other text-heavy Q&A services rely heavily on content tagging, which enables good indexing and user search. Often, however, content tagging is left to users' discretion. Because users don't have lists of commonly searched terms or a deep understanding of the site structure, they frequently mislabel content. Mislabeled content is difficult or impossible to find when it's needed later.
 
-By combining deep learning and natural language processing (NLP) with data on site-specific search terms, this solution helps greatly improve content tagging accuracy on a site. As users type content, this solution offers highly used terms as suggested content tags, making it easier for others to find the information.
+## Potential use cases
+
+By combining deep learning and natural language processing (NLP) with data on site-specific search terms, this solution helps greatly improve content tagging accuracy on a site. As users type content, this solution offers highly used terms as suggested content tags, which makes it easier for others to find the information.
 
 ## Architecture
 
@@ -13,7 +12,7 @@ By combining deep learning and natural language processing (NLP) with data on si
 
 *Download an [SVG](../media/website-content-tag-suggestion-with-deep-learning-and-nlp.svg) of this architecture.*
 
-## Components
+### Components
 
 * [Microsoft SQL Server](/sql/): Data is stored, structured, and indexed using Microsoft SQL Server.
 * [Azure Machine Learning](https://azure.microsoft.com/en-us/services/machine-learning/): Model training, including hyperparameter tuning, and deployment of the final model, including scaling out to a Kubernetes-managed Azure cluster.

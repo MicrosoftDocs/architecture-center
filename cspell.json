@@ -1,0 +1,9 @@
+{
+    "version": "0.2",
+    "language": "en",
+    "enabled": true,
+    "import": [
+        ".\\docs\\cspell.json"
+    ],
+    "words": []
+}

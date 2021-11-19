@@ -10,18 +10,18 @@ products:
   - azure-security-center
   - azure-sentinel
   - m365-security-center
-categories: 
-  - management-and-governance  
-subject: 
+categories:
+  - management-and-governance
+subject:
   - security
-  - monitor
+  - monitoring
 ms.custom:
   - article
 ---
 
 # Azure security monitoring tools
 
-The _leverage native control_ security principle tells us to use native controls built into cloud services over external controls through third-party solutions. Native reduce the effort required to integrate external security tooling and update those integrations over time.
+The *leverage native control* security principle tells us to use native controls built into cloud services over external controls through third-party solutions. Native reduce the effort required to integrate external security tooling and update those integrations over time.
 
 Azure provides several monitoring tools that observe the operations and detect anomalous behavior. These tools can detect threats at different levels and report issues. Addressing the issues early in the operational lifecycle will strengthen your overall security posture.
 
@@ -29,24 +29,24 @@ Azure provides several monitoring tools that observe the operations and detect a
 
 |Service|Use case|
 |---|---|
-|[**Azure Security Center**](/azure/security-center/security-center-intro)| Strengthens the security posture of your data centers, and provides advanced threat protection across your workloads in the cloud (whether they're in Azure or not) and on-premises. Get a unified view into the infrastructure and resources provisioned for the workload. |
-|[**Azure Sentinel**](/azure/sentinel/overview)|Use the native security information event management (SIEM) and security orchestration automated response (SOAR) solution on Azure. Receive intelligent security analytics and threat intelligence across the enterprise.|
+|[**Microsoft Defender for Cloud**](/azure/security-center/security-center-intro)| Strengthens the security posture of your data centers, and provides advanced threat protection across your workloads in the cloud (whether they're in Azure or not) and on-premises. Get a unified view into the infrastructure and resources provisioned for the workload. |
+|[**Microsoft Sentinel**](/azure/sentinel/overview)|Use the native security information event management (SIEM) and security orchestration automated response (SOAR) solution on Azure. Receive intelligent security analytics and threat intelligence across the enterprise.|
 |[**Azure DDoS Protection**](/azure/virtual-network/ddos-protection-overview)| Defend against distributed denial of service (DDoS) attacks.|
 |[**Azure Rights Management (RMS)**](/azure/information-protection/what-is-azure-rms)| Protect files and emails across multiple devices.|
 |[**Microsoft Information Protection (MIP)**](/information-protection/develop/overview)| Secure email, documents, and sensitive data that you share outside your company.|
+|[**Azure Governance Visualizer**](https://github.com/microsoft/CloudAdoptionFramework/tree/master/govern/AzureGovernanceVisualizer)|Gain granular insight into policies, Azure role-based access control (Azure RBAC), Azure Blueprints, subscriptions, and more.|
 
-## Azure Security Center
+## Microsoft Defender for Cloud
 
-Enable Azure Security Center at the subscription level to monitor all resource provisioned in that scope. At no additional cost, it provides continuous observability into resources, reports issues, and recommends fixes. By regularly reviewing and fixing issues, you can improve the security posture, detect threats early, prevent breaches.
+Enable Microsoft Defender for Cloud at the subscription level to monitor all resource provisioned in that scope. At no additional cost, it provides continuous observability into resources, reports issues, and recommends fixes. By regularly reviewing and fixing issues, you can improve the security posture, detect threats early, prevent breaches.
 
-Beyond just observability, Security Center offers an advanced mode through its integration with **Azure Defender**. When these plans are enabled, built-in policies, custom policies, and initiatives protect resources and block malicious actors. You can also monitor compliance with regulatory standards - such as NIST, Azure CIS, Azure Security Benchmark. For pricing details, see [Security Center pricing](https://azure.microsoft.com/pricing/details/azure-defender/).
+Beyond just observability, Defender for Cloud offers an advanced mode through its integration with **Microsoft Defender for Cloud**. When these plans are enabled, built-in policies, custom policies, and initiatives protect resources and block malicious actors. You can also monitor compliance with regulatory standards - such as NIST, Azure CIS, Azure Security Benchmark. For pricing details, see [Defender for Cloud pricing](https://azure.microsoft.com/pricing/details/azure-defender/).
 
-
-## Azure Sentinel
+## Microsoft Sentinel
 
 Your organization might run workloads on multiple cloud platforms, and, or across cloud and on-premises, or managed by various teams within the organization. Having a centralized view of all data is recommended. To get that view you need security information event management (SIEM) and security orchestration automated response (SOAR) solutions. These solutions connect to all security sources, monitor them, and analyze the correlated data.
 
-Azure Sentinel and is a native control that combines SIEM and SOAR capabilities. It analyzes events and logs from various connected sources. Based on the data sources and their alerts, Sentinel creates incidents, performs threat analysis for early detection. Through intelligent analytics and queries, you can be proactive with hunting activities. In case of incidents, you can automate workflows. Also, with workbook templates you can quickly gain insights through visualization.
+Microsoft Sentinel and is a native control that combines SIEM and SOAR capabilities. It analyzes events and logs from various connected sources. Based on the data sources and their alerts, Sentinel creates incidents, performs threat analysis for early detection. Through intelligent analytics and queries, you can be proactive with hunting activities. In case of incidents, you can automate workflows. Also, with workbook templates you can quickly gain insights through visualization.
 
 ## Azure DDoS Protection
 
@@ -72,21 +72,25 @@ The *data classification* process categorizes data by sensitivity and business i
 
 With proper *file protection*, you can analyze data flows to gain insight into your business, detect risky behaviors and take corrective measures, track access to documents, and more. The protection technology in AIP uses encryption, identity, and authorization policies. Protection stays with the documents and emails, independently of the location, regardless of whether they are inside or outside your organization, networks, file servers, and applications
 
-[Azure Information Protection (AIP)](/azure/information-protection/what-is-information-protection) is part of Microsoft Information Protection (MIP) solution, and extends the labeling and classification functionality provided by Microsoft 365. For more information, see   
-[this article about classification](/microsoft-365/compliance/data-classification-overview).
+[Azure Information Protection (AIP)](/azure/information-protection/what-is-information-protection) is part of Microsoft Information Protection (MIP) solution, and extends the labeling and classification functionality provided by Microsoft 365. For more information, see [this article about classification](/microsoft-365/compliance/data-classification-overview).
 
+## Azure Governance Visualizer
+
+Azure Governance Visualizer is a PowerShell script that iterates through an Azure tenant's management group hierarchy down to the subscription level. You can run the script either for your Tenant Root Group or any other Management Group. It captures data from the most relevant Azure governance capabilities such as Azure Policy, Azure role-based access control (Azure RBAC), and Azure Blueprints. From the collected data, the visualizer shows your hierarchy map, creates a tenant summary, and builds granular scope insights about your management groups and subscriptions.
+
+The visualizer provides a holistic overview of your technical Azure Governance implementation by connecting the dots.
 
 ## Next
+
 > [!div class="nextstepaction"]
-> [Monitor workload resources in Azure Security Center](monitor-resources.md)
+> [Monitor workload resources in Microsoft Defender for Cloud](monitor-resources.md)
 
 ## Related links
 
-For information on the Azure Security Center tools, see [Strengthen security posture](/azure/security-center/security-center-intro#strengthen-security-posture).
+For information on the Microsoft Defender for Cloud tools, see [Strengthen security posture](/azure/security-center/security-center-intro#strengthen-security-posture).
 
-For frequently asked questions on Azure Security Center, see [FAQ - General Questions](/azure/security-center/faq-general).
+For frequently asked questions on Microsoft Defender for Cloud, see [FAQ - General Questions](/azure/security-center/faq-general).
 
-For information on the Azure Sentinel tools that will help to meet these requirements, see [What is Azure Sentinel?](/azure/sentinel/overview#analytics)
+For information on the Microsoft Sentinel tools that will help to meet these requirements, see [What is Microsoft Sentinel?](/azure/sentinel/overview#analytics)
 
 For types of DDoS attacks that DDoS Protection Standard mitigates as well as more features, see [Azure DDoS Protection Standard overview](/azure/virtual-network/ddos-protection-overview).
-

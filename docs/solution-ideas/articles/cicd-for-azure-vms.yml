@@ -3,7 +3,7 @@ metadata:
   title: CI/CD for Azure VMs
   titleSuffix: Azure Solution Ideas
   description: Whether you use ASP.NET, Java, Node.js, or PHP to develop applications, you'll need a CI/CD pipeline to automatically push changes to these virtual machines.
-  author: doodlemania2
+  author: EdPrice-MSFT
   ms.author: pnp
   ms.date: 12/16/2019
   ms.topic: conceptual

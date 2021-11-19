@@ -19,7 +19,6 @@ products:
   - azure-kubernetes-service
   - azure-firewall
   - azure-application-gateway
-  - azure-active-directory
   - azure-security-center
   - azure-monitor
 thumbnailUrl: /azure/architecture/browse/thumbs/aks-pci.png

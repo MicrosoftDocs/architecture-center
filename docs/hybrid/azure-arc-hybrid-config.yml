@@ -1,10 +1,10 @@
 ### YamlMime:Architecture
 metadata:
-  title: Manage configurations for Azure Arc enabled servers
+  title: Azure Arc-enabled server configurations
   description: Use Azure Arc to extend Azure Resource Manager capabilities to Windows and Linux machines on any infrastructure.
-  author: doodlemania2
-  ms.author: pnp
-  ms.date: 07/28/2020
+  author: pdebruin
+  ms.author: pidebrui
+  ms.date: 04/23/2021
   ms.topic: conceptual
   ms.service: architecture-center
   ms.subservice: reference-architecture

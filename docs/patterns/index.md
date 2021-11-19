@@ -21,7 +21,6 @@ Each pattern describes the problem that the pattern addresses, considerations fo
 
 ## Challenges in cloud development
 
-<!-- markdownlint-disable MD033 -->
 <table>
 <tr>
     <td style="width: 64px; vertical-align: middle;"><a href="./category/data-management.md"><img src="_images/category/data-management.svg" alt="Data management" /></a></td>
@@ -45,7 +44,6 @@ Each pattern describes the problem that the pattern addresses, considerations fo
     </td>
 </tr>
 </table>
-<!-- markdownlint-disable MD033 -->
 
 ## Catalog of patterns
 
