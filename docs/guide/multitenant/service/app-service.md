@@ -35,7 +35,7 @@ When you use [tenant-specific custom domain names](../considerations/domain-name
 
 You can instead consider deploying a reverse proxy, like [Azure Front Door](/azure/frontdoor/front-door-overview), to act as the internet-facing component of your solution. Azure Front Door enables you to add a web application firewall (WAF) and edge caching, and provides other performance optimizations. You can easily reconfigure your traffic flows to direct traffic to different backends based on changing business or technical requirements. When you use Azure Front Door, you can use it to manage your custom domain names and to terminate your TLS connections. Your App Service application is then configured with a single hostname, and all traffic flows through to that, avoiding you managing custom domain names in multiple places:
 
-![Diagram showing requests coming into Front Door using a variety of host names, and being passed to the App Service app using a single host name.](media/app-service/front-door.png)
+![Diagram showing requests coming into Front Door using a variety of host names, and being passed to the App Service app using a single host name.](media/app-service/host-front-door.png)
 
 > [!TIP]
 > If your application sends cookies or redirection responses, you need to take special care. Changes in the request's `Host` headers might invalidate these responses.
