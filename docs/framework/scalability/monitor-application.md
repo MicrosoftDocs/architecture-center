@@ -2,7 +2,7 @@
 title: Application profiling considerations for performance monitoring
 description: Collect instrumentation data from the application and correlated events across the entire stack.
 author: PageWriter-MSFT
-ms.date: 04/28/2021
+ms.date: 11/01/2021
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: well-architected
@@ -40,7 +40,6 @@ Collect application logs and events across all application environments. Use a s
 Structured format in a well-known schema can help expediate parsing and analyzing logs. Structured data can be indexed, queried, and reported without complexity.
 
 Also, application events should be captured as a structured data type with machine-readable data points rather than unstructured string types.
-
 
 ## Application instrumentation
 
@@ -81,9 +80,8 @@ If you are using Application Insights to collect instrumentation data, there are
 > [!div class="nextstepaction"]
 > [Monitor infrastructure](monitor-infrastructure.md)
 
-
 ## Related links
 - [Distributed tracing](../../microservices/logging-monitoring.md#distributed-tracing)
 - [Application Insights](/azure/azure-monitor/app/app-insights-overview)
 - [Azure Monitor](/azure/azure-monitor/overview)
-> [Back to the main article](monitor.md)
+> [Back to the main article](checklist.md)

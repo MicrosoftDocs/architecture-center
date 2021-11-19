@@ -24,11 +24,7 @@ In a microservices architecture, a client might interact with more than one fron
 
 ![Diagram of an API gateway](../images/gateway.png)
 
-<!-- markdownlint-disable MD026 -->
-
 ## What is an API gateway?
-
-<!-- markdownlint-enable MD026 -->
 
 An API gateway sits between clients and services. It acts as a reverse proxy, routing requests from clients to services. It may also perform various cross-cutting tasks such as authentication, SSL termination, and rate limiting. If you don't deploy a gateway, clients must send requests directly to front-end services. However, there are some potential problems with exposing services directly to clients:
 

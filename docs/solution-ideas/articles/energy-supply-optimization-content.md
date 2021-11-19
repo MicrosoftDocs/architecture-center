@@ -4,7 +4,7 @@ An energy grid consists of energy consumers, and various types of energy supplyi
 
 ## Potential use cases
 
-This solution provides an Azure-based smart solution, applying external open-source tools, to determine the optimal energy unit commitments from various energy resources for an energy grid. The goal is to minimize the overall cost incurred by these commitments while satisfying the energy demand. 
+This solution provides an Azure-based smart solution, applying external open-source tools, to determine the optimal energy unit commitments from various energy resources for an energy grid. The goal is to minimize the overall cost incurred by these commitments while satisfying the energy demand.
 
 This solution demonstrates the ability of Azure to accommodate external tools, such as Pyomo and CBC, to solve large-scale numerical optimization problems such as mixed integer-linear programming, parallelizing multiple optimization tasks over an Azure Batch of Azure Virtual Machines. (Other involved products include Azure Blob Storage, Azure Queue Storage, Azure Web App, Azure SQL Database, and Power BI.)
 

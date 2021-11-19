@@ -18,7 +18,7 @@ Some questions to ask to help understand the challenges are:
 
 -   *What are the desired business outcomes?*
 
-With [**59% of consumers**](https://retailwire.com/discussion/is-curbside-pickup-just-getting-started/) polled saying they\'re likely to continue choosing curbside pickup even after the pandemic, Contoso wants to improve the efficiency of their curbside operations. For curbside pickups, Contoso needs information on how far away each customer is and when the customer arrives at the parking lot.
+With [**59% of consumers**](https://retailwire.com/discussion/is-curbside-pickup-just-getting-started/) polled saying they\'re likely to continue choosing curbside pickup even after the pandemic, Contoso wants to improve the efficiency of their curbside operations. For curbside pickups, Contoso needs information on how far away each customer is and when the customer arrives at the parking lot.
 
 -   *What should the solution do for the business?*
 
@@ -47,7 +47,6 @@ The following table provides a summary of common use cases and corresponding IoT
 
 ![Architecture diagram showing the data flow for the Buy online pick up in store IoT solution](media/bopis.png)
 
-
 1.  Video feed is obtained as cars come into the parking area. The IP camera hosting a Real-Time Streaming Protocol (RTSP) server sends the feed to Live View Analytics (LVA) module. The LVA module processes the frame rate and sends the image to Azure Cognitive Services running on the gateway. Azure Cognitive Services extracts only the license plate details and sends it to the cloud application.
 
 2.  Azure IoT Central is used because it is a fully managed application platform. It allows Contoso to extend it easily and focus on features that directly impacts business.
@@ -75,7 +74,6 @@ Azure IoT Edge is selected as it's a runtime that allows the use and orchestrati
 The application uses Azure Maps, which allows Contoso to create geofence rules.  These rules provide another data point to confirm a customer's location. The geofence triggers provides additional accuracy on the estimated time of arrival.
 
 ## Components
-
 
 -   [Azure IoT Edge](https://azure.microsoft.com/services/iot-edge/) runs analytics, applications on-premise to ensure low latency, lower bandwidth usage, and privacy (that is, extract only the license plate details).
 

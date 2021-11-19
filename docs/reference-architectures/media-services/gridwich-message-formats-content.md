@@ -1,6 +1,5 @@
 
 
-
 This article details the specific Event Grid events that form the request-response sequence for different Gridwich operations.
 
 ## Gridwich events

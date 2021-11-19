@@ -154,9 +154,9 @@ Similarly, the maximum DTU utilization of the log database only reaches about 70
 [data-store-overview]: ../../guide/technology-choices/data-store-overview.md
 [data-store-comparison]: ../../guide/technology-choices/data-store-considerations.md
 
-[MonolithicScenarioLoadTest]: _images/MonolithicScenarioLoadTest.jpg
-[MonolithicDatabaseUtilization]: _images/MonolithicDatabaseUtilization.jpg
-[MonolithicDataAccessStats]: _images/MonolithicDataAccessStats.jpg
-[PolyglotScenarioLoadTest]: _images/PolyglotScenarioLoadTest.jpg
-[PolyglotDatabaseUtilization]: _images/PolyglotDatabaseUtilization.jpg
-[LogDatabaseUtilization]: _images/LogDatabaseUtilization.jpg
+[MonolithicScenarioLoadTest]: ./_images/MonolithicScenarioLoadTest.jpg
+[MonolithicDatabaseUtilization]: ./_images/MonolithicDatabaseUtilization.jpg
+[MonolithicDataAccessStats]: ./_images/MonolithicDataAccessStats.jpg
+[PolyglotScenarioLoadTest]: ./_images/PolyglotScenarioLoadTest.jpg
+[PolyglotDatabaseUtilization]: ./_images/PolyglotDatabaseUtilization.jpg
+[LogDatabaseUtilization]: ./_images/LogDatabaseUtilization.jpg

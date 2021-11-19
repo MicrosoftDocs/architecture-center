@@ -46,7 +46,6 @@ Resiliency is the ability of a system to recover from failures and continue to f
 
 **Monitor performance.** Use a performance monitoring service such as [New Relic](https://newrelic.com) or [Application Insights](/azure/application-insights/app-insights-overview) to monitor application performance and behavior under load.  Performance monitoring gives you real-time insight into the application. It enables you to diagnose issues and perform root-cause analysis of failures.
 
-
 ## Azure Load Balancer
 
 **Select Standard SKU** Standard Load Balancer provides a dimension of reliability that Basic does not - that of availability zones and zone resiliency. This means when a zone goes down, your zone-redundant Standard Load Balancer will not be impacted. This ensures your deployments can withstand zone failures within a region. In addition, Standard Load Balancer supports global load balancing ensuring your application is not impacted by region failures either.

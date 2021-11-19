@@ -60,16 +60,16 @@ Cloud platforms evolve rapidly with new features, which can make maintaining det
 
 Because many organizations may use multiple cloud platforms and need a unified view across the enterprise, you should ensure these native detections and controls feed a centralize SIEM or other tool. We don&apos;t recommend trying to substitute generalized log analysis tools and queries instead of native detections and controls. These tools can offer numerous values for proactive hunting activities, but getting to a high-quality alert with these tools requires application of deep expertise and time that could be better spent on hunting and other activities.
 
-To complement the broad visibility of a centralized SIEM (like Azure Sentinel, Splunk, or QRadar), you should use native detections and controls, as follows:
+To complement the broad visibility of a centralized SIEM (like Microsoft Sentinel, Splunk, or QRadar), you should use native detections and controls, as follows:
 
-- Organizations using Azure should use Azure Security Center for alert generation on the Azure platform.
+- Organizations using Azure should use Microsoft Defender for Cloud for alert generation on the Azure platform.
 
 - Organizations should use native logging capabilities like Azure Monitor and AWS CloudTrail for pulling logs into a central view.
 
 - Organizations using Azure should use Network Security Group (NSG)
     capabilities for visibility into network activities on the Azure platform.
 
-- Investigation practices should use native tools with deep knowledge of the asset type, such as an Endpoint Detection and Response (EDR) solution, Identity tools, and Azure Sentinel.
+- Investigation practices should use native tools with deep knowledge of the asset type, such as an Endpoint Detection and Response (EDR) solution, Identity tools, and Microsoft Sentinel.
 
 ## Prioritize alert and log integration
 

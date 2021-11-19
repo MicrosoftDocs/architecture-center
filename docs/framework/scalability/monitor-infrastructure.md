@@ -2,7 +2,7 @@
 title: Infrastructure metrics and logs
 description: View platform metrics and logs to get visibility into the health and performance of services that are part of the architecture.
 author: PageWriter-MSFT
-ms.date: 04/28/2021
+ms.date: 10/19/2021
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: well-architected
@@ -79,7 +79,6 @@ For information about usage and estimated costs, see [Monitoring usage and estim
 
 You can also use the [Pricing Calculator](https://azure.microsoft.com/pricing/calculator/) to determine your pricing. The Pricing Calculator will help you estimate your likely costs based on your expected utilization.
 
-
 ## Next
 > [!div class="nextstepaction"]
 > [Data analysis considerations](monitor-analyze.md)
@@ -88,4 +87,4 @@ You can also use the [Pricing Calculator](https://azure.microsoft.com/pricing/ca
 - [Supported metrics with Azure Monitor](/azure/azure-monitor/essentials/metrics-supported)
 - [Network performance monitor](/azure/azure-monitor/insights/network-performance-monitor)
 - [Azure Network Watcher](/azure/network-watcher/network-watcher-monitoring-overview)
-> [Back to the main article](monitor.md)
+> [Back to the main article](checklist.md)

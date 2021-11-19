@@ -115,7 +115,7 @@ Choose level of admin workstation security based on the options available at
 
 Carefully choose the on-premises security dependencies for critical impact accounts and their workstations
 
-To contain the risk from a major incident on-premises spilling over to become a major compromise of cloud assets, you must eliminate or minimize the means of control that on premises resources have to critical impact accounts in the cloud. As an example, attackers who compromise the on premises Active Directory can access and compromise cloud-based assets that rely on those accounts like resources in Azure, Amazon Web Services (AWS), ServiceNow, and so on. Attackers can also use workstations joined to those on premises domains to gain access to accounts and services managed from them.
+To contain the risk from a major incident on-premises spilling over to become a major compromise of cloud assets, you must eliminate or minimize the means of control that on premises resources have to critical impact accounts in the cloud. As an example, attackers who compromise the on-premises Active Directory can access and compromise cloud-based assets that rely on those accounts like resources in Azure, Amazon Web Services (AWS), ServiceNow, and so on. Attackers can also use workstations joined to those on premises domains to gain access to accounts and services managed from them.
 
 Choose the level of isolation from on premises means of control also known as security dependencies for critical impact accounts
 
@@ -124,15 +124,14 @@ Choose the level of isolation from on premises means of control also known as se
     -   Native Azure AD Accounts -*Create Native Azure AD Accounts that are not synchronized with on-premises active directory
 
     -   Synchronize from On Premises Active Directory
-    - Use existing accounts hosted in the on premises active directory.
+    - Use existing accounts hosted in the on-premises active directory.
 
 - **Workstations:** Choose how you will manage and secure the workstations used by critical admin accounts:
 
     -  Native Cloud Management and Security (Recommended): Join workstations to Azure AD & Manage/Patch them with Intune or other cloud services.
-        Protect and Monitor with Windows Microsoft Defender for Endpoints or another cloud service not managed by on premises based accounts.
+        Protect and Monitor with Windows Microsoft Defender for Endpoint or another cloud service not managed by on premises based accounts.
 
     -   Manage with Existing Systems: Join existing AD domain and use existing management/security.
-
 
 ## Passwordless or multifactor authentication for admins
 
@@ -162,7 +161,7 @@ that meets your organization's risk appetite and operational needs.
 
 - Require Multifactor Authentication and/or connection from designated work network
 
-- Require Device **integrity with Microsoft Defender for Endpoints** (Strong Assurance)
+- Require Device **integrity with Microsoft Defender for Endpoint** (Strong Assurance)
 
 ## Avoid granular and custom permissions
 

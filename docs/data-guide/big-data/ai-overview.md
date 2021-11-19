@@ -1,5 +1,5 @@
 ---
-title: Artificial intelligence (AI)
+title: Artificial intelligence (AI) architecture
 description: Get started with artificial intelligence (AI). Use high-level architectural types, see Azure AI platform offerings, and find customer success stories.
 author: EdPrice-MSFT
 ms.author: pnp
@@ -17,7 +17,7 @@ categories:
 
 <!-- cSpell:ignore maggsl scikit -->
 
-# Artificial intelligence (AI)
+# Artificial intelligence architecture
 
 *Artificial intelligence* (AI) is the capability of a computer to imitate intelligent human behavior. Through AI, machines can analyze images, comprehend speech, interact in natural ways, and make predictions using data.
 
@@ -187,7 +187,7 @@ The process of training and hyperparameter tuning produces numerous candidate mo
 
 ##### Automated machine learning (AutoML)
 
-*Automated machine learning*, also known as AutoML, is the process of automating the time-consuming, iterative tasks of machine learning model development. It can significantly reduce the time it takes to get production-ready ML models. Automated ML can assist with model selection, hyperparameter tuning, model training, and other tasks, without requiring extensive programming or domain knowledge.
+*Automated machine learning*, also known as AutoML, is the process of automating the time-consuming, iterative tasks of machine learning model development. It can significantly reduce the time it takes to get production-ready ML models. Automated ML can assist with model selection, hyperparameter tuning, model training, and other tasks, without requiring extensive programming or domain knowledge.
 
 - [What is automated machine learning?](/azure/machine-learning/concept-automated-ml)
 
@@ -325,9 +325,9 @@ This is a purpose-built bot development environment with out-of-the-box template
 
 Apache Spark is a parallel processing framework that supports in-memory processing to boost the performance of big data analytic applications. Spark provides primitives for in-memory cluster computing. A Spark job can load and cache data into memory and query it repeatedly, which is much faster than disk-based applications, such as Hadoop.
 
-[Apache Spark in Azure HDInsight](/azure/hdinsight/spark/apache-spark-overview) is the Microsoft implementation of Apache Spark in the cloud. Spark clusters in HDInsight are compatible with Azure Storage and Azure Data Lake Storage, so you can use HDInsight Spark clusters to process your data stored in Azure.
+[Apache Spark in Azure HDInsight](/azure/hdinsight/spark/apache-spark-overview) is the Microsoft implementation of Apache Spark in the cloud. Spark clusters in HDInsight are compatible with Azure Storage and Azure Data Lake Storage, so you can use HDInsight Spark clusters to process your data stored in Azure.
 
-The Microsoft Machine Learning library for Apache Spark is [MMLSpark](https://github.com/Azure/mmlspark) (Microsoft ML for Apache Spark). It is an open-source library that adds many deep learning and data science tools, networking capabilities, and production-grade performance to the Spark ecosystem. [Learn more about MMLSpark features and capabilities.](../../data-guide/technology-choices/data-science-and-machine-learning.md#mmlspark)
+The Microsoft Machine Learning library for Apache Spark is [MMLSpark](https://github.com/Azure/mmlspark) (Microsoft ML for Apache Spark). It is an open-source library that adds many deep learning and data science tools, networking capabilities, and production-grade performance to the Spark ecosystem. [Learn more about MMLSpark features and capabilities.](../../data-guide/technology-choices/data-science-and-machine-learning.md#mmlspark)
 
 - [Azure HDInsight overview.](/azure/hdinsight/hdinsight-overview) Basic information about features, cluster architecture, and use cases, with pointers to quickstarts and tutorials.
 
@@ -347,7 +347,7 @@ The Microsoft Machine Learning library for Apache Spark is [MMLSpark](https://g
 
 [Azure Databricks](https://azure.microsoft.com/services/databricks/) is an Apache Spark–based analytics platform with one-click setup, streamlined workflows, and an interactive workspace for collaboration between data scientists, engineers, and business analysts.
 
-[Databricks Runtime for Machine Learning (Databricks Runtime ML)](/azure/databricks/runtime/mlruntime) lets you start a Databricks cluster with all of the libraries required for distributed training. It provides a ready-to-go environment for machine learning and data science. Plus, it contains multiple popular libraries, including TensorFlow, PyTorch, Keras, and XGBoost. It also supports distributed training using Horovod.
+[Databricks Runtime for Machine Learning (Databricks Runtime ML)](/azure/databricks/runtime/mlruntime) lets you start a Databricks cluster with all of the libraries required for distributed training. It provides a ready-to-go environment for machine learning and data science. Plus, it contains multiple popular libraries, including TensorFlow, PyTorch, Keras, and XGBoost. It also supports distributed training using Horovod.
 
 - [Azure Databricks product home page](https://azure.microsoft.com/services/databricks/)
 
@@ -391,8 +391,8 @@ Different industries are applying AI in innovative and inspiring ways. Following
 
 ## Next steps
 
-- To learn about the artificial intelligence development products available from Microsoft, refer to the [Microsoft AI platform](https://www.microsoft.com/ai) page.
+- To learn about the artificial intelligence development products available from Microsoft, refer to the [Microsoft AI platform](https://www.microsoft.com/ai) page.
 
-- For training in how to develop AI solutions, refer to [Microsoft AI School](https://aischool.microsoft.com/learning-paths).
+- For training in how to develop AI solutions, refer to [Microsoft AI School](https://aischool.microsoft.com/learning-paths).
 
 - [Microsoft AI on GitHub: Samples, reference architectures, and best practices](https://github.com/microsoft/AI) organizes the Microsoft open source AI-based repositories, providing tutorials and learning materials.

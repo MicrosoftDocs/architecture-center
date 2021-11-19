@@ -1,6 +1,5 @@
 
 
-
 Follow the procedures in this article to set up an Azure DevOps project, repo, and pipelines for Gridwich. These DevOps procedures and settings use a placeholder Azure DevOps organization called `myorganization`, a new Azure DevOps project called `gridwich-clone`, service connection name `gridwich-connection`, and application name `cl1grw`. Replace these placeholders with your own values as appropriate.
 
 ## How to set up the Azure DevOps project and repo
@@ -219,7 +218,7 @@ Use this pipeline to create a new single cloud developer environment with a cust
 
 1. Under **Path**, select **/infrastructure/azure-pipelines/ci_cd_ext_release.yml**, and then select **Continue**.
 
-1. Select **Save** from the dropdown next to the **Run** button. 
+1. Select **Save** from the dropdown next to the **Run** button.
 
 1. Under **Pipelines**, select the pipeline and then select **Edit**. In the editor, add the following variables to the pipeline. For each variable, select **Let users override this value when running this pipeline**.
 
@@ -261,10 +260,9 @@ Use this pipeline to delete an environment, like one that the `ci_cd_ext_release
 
 1. Under **Path**, select **/infrastructure/azure-pipelines/tf_destroy_env.yml**, and then select **Continue**.
 
-1. Select **Save** from the dropdown next to the **Run** button. 
+1. Select **Save** from the dropdown next to the **Run** button.
 
 1. Under **Pipelines**, select the pipeline and then select **Edit**. In the editor, add the following variables to the pipeline. For each variable, select **Let users override this value when running this pipeline**.
-
 
    ```text
    environment

@@ -242,7 +242,7 @@ The following patterns and guidance are useful when implementing this pattern:
 
 Martin Fowler's blog posts:
 
-- [What do you mean by “Event-Driven”?](https://martinfowler.com/articles/201701-event-driven.html)
+- [What do you mean by "Event-Driven"?](https://martinfowler.com/articles/201701-event-driven.html)
 - [CQRS](https://martinfowler.com/bliki/CQRS.html)
 
 ## Related guidance

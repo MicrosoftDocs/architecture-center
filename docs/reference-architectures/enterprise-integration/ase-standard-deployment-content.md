@@ -1,6 +1,5 @@
 
 
-
 [Azure App Service](/azure/app-service/overview) is a PaaS service used to host a variety of apps on Azure: web apps, API apps, functions, and mobile apps. [App Service Environment or ASE](/azure/app-service/environment/intro) allows enterprises to deploy their App Service apps in a subnet in their own Azure Virtual Network, providing an isolated, highly scalable, and dedicated environment for their cloud workloads.
 
 This reference architecture demonstrates a common enterprise workload using ASE, and best practices to tighten security of this workload.
@@ -354,7 +353,7 @@ Here are some points to consider for some of the key services used in this archi
 
 ### App Service Environment
 
-There are various [pricing options available for App Service](https://azure.microsoft.com/pricing/details/app-service/windows/). An App Service environment is deployed using the [Isolated Service Plan](/azure/cost-management-billing/reservations/prepay-app-service-isolated-stamp). Within this plan, there are three options for CPU sizes - I1, I2, and I3. This reference implementation is using three I1's per instance.  
+There are various [pricing options available for App Service](https://azure.microsoft.com/pricing/details/app-service/windows/). An App Service environment is deployed using the [Isolated Service Plan](/azure/cost-management-billing/reservations/prepay-app-service-isolated-stamp). Within this plan, there are three options for CPU sizes - I1, I2, and I3. This reference implementation is using three I1's per instance.
 
 ### Application Gateway
 

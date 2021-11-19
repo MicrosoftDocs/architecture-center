@@ -181,7 +181,6 @@ Azure DevOps Services provide a highly configurable and manageable pipeline for 
 
     ![Add new artifact for Azure Stack Hub app in Azure DevOps Services](media/solution-deployment-guide-geo-distributed/image15.png)
 
-
 11. Add one more environment by applying the Azure App Service Deployment.
 
     ![Add environment to Azure App Service Deployment in Azure DevOps Services](media/solution-deployment-guide-geo-distributed/image16.png)
@@ -422,7 +421,7 @@ Merge multiple certificates in the chain.
 
 2. Create a file for the merged certificate called *mergedcertificate.crt*. In a text editor, copy the content of each certificate into this file. The order of your certificates should follow the order in the certificate chain, beginning with your certificate and ending with the root certificate. It looks like the following example:
 
-    ```Text
+    ```text
 
     -----BEGIN CERTIFICATE-----
 

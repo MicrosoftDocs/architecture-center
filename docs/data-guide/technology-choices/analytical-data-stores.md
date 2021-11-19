@@ -66,7 +66,6 @@ The following tables summarize the key differences in capabilities.
 | SQL language support | Yes | Yes | Yes | Yes | Yes (using [Phoenix](https://phoenix.apache.org/) JDBC driver) | Yes | No | Yes |
 | Optimized for speed serving layer | Yes <sup>2</sup> | Yes <sup>3</sup> |Yes | Yes | Yes | Yes | No | Yes |
 
-
 [1] With manual configuration and scaling.
 
 [2] Using memory-optimized tables and hash or nonclustered indexes.

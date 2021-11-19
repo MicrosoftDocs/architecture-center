@@ -1,5 +1,5 @@
 ---
-title: Identify scenarios for Azure Machine Learning - Team Data Science Process
+title: Identify scenarios for Azure Machine Learning
 description: Select the appropriate scenarios for doing advanced predictive analytics with the Team Data Science Process.
 services: machine-learning
 author: marktab
@@ -253,7 +253,6 @@ For end-to-end Azure Machine Learning walkthroughs that employ the Advanced Anal
 [7]: ./media/plan-sample-scenarios/dsp-plan-attach-db.png
 [8]: ./media/plan-sample-scenarios/dsp-plan-sample-scenarios.png
 [9]: ./media/plan-sample-scenarios/dsp-plan-local-to-hive.png
-
 
 <!-- Module References -->
 [import-data]: /azure/machine-learning/studio-module-reference/import-data

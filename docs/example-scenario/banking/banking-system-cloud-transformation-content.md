@@ -1,6 +1,5 @@
 
 
-
 This article summarizes the process and components the Microsoft Commercial Software Engineering (CSE) team used to build a solution for a banking customer. For the sake of anonymity, the article refers to the customer as Contoso Bank. It's a major international Financial Services Industry (FSI) organization that wanted to modernize one of its financial transaction systems.
 
 Contoso Bank wanted to use simulated and actual applications and existing workloads to monitor the reaction of the solution infrastructure for scalability and performance. The solution had to be compatible with the requirements of the existing payment system.

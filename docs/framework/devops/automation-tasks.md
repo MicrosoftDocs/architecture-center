@@ -59,7 +59,6 @@ Both PowerShell and Python are common languages for automating everyday operatio
 - [Documentation: Azure Functions PowerShell developer guide](/azure/azure-functions/functions-reference-powershell)
 - [Documentation: Azure Functions Python developer guide](/azure/azure-functions/functions-reference-python)
 
-
 ## Azure Automation
 
 PowerShell and Python are popular programming languages for automating operational tasks. Using these languages, performing operations like restarting services, moving logs between data stores, and scaling infrastructure to meet demand can be expressed in code and executed on demand. Alone, these languages do not offer a platform for centralized management, version control, or execution history. The languages also lack a native mechanism for responding to events like monitoring driven alerts. To provide these capabilities, an automation platform is needed.

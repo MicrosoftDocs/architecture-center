@@ -293,8 +293,8 @@ Time series data is a set of values organized by time. Time series databases  ty
 
 ### Data type
 
- - A timestamp is used as the primary key and sorting mechanism.
- - Tags may define additional information about the type, origin, and other information about the entry.
+- A timestamp is used as the primary key and sorting mechanism.
+- Tags may define additional information about the type, origin, and other information about the entry.
 
 ### Examples
 
@@ -352,8 +352,6 @@ Sometimes, using simple flat files can be the most effective means of storing an
 - Shared content accessible among a number of VMs or app instances
 
 Aided with this understanding of different data storage models, the next step is to evaluate your workload and application, and decide which data store will meet your specific needs. Use the [data storage decision tree](./data-store-decision-tree.md) to help with this process.
-
-<!-- markdownlint-enable MD033 -->
 
 <!-- links -->
 

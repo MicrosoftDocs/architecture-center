@@ -244,8 +244,6 @@ The following sections apply these steps to the sample application described ear
 
 The following graph shows the results of running a load test against the sample application, using a step load of up to 50 concurrent users. The volume of requests quickly reaches a limit and stays at that level, while the average response time steadily increases. A logarithmic scale is used for those two metrics.
 
-<!-- markdownlint-disable MD033 -->
-
 <img src="./_images/ProcessingInDatabaseLoadTest.jpg" alt="Load-test results for performing processing in the database" aria-describedby="description-1">
 <p id="description-1" class="visually-hidden">This line graph shows user load, requests per second, and average response time. The graph shows that response time increases as load increases.</p>
 
@@ -253,8 +251,6 @@ The next graph shows CPU utilization and DTUs as a percentage of service quota. 
 
 <img src="./_images/processingindatabasemonitor.jpg" alt="Azure SQL Database monitor showing the performance of the database while performing processing" aria-describedby="description-2">
 <p id="description-2" class="visually-hidden">This line graph shows CPU percentage and DTU percentage over time. The graph shows that both quickly reach 100%.</p>
-
-<!-- markdownlint-enable MD033 -->
 
 ### Examine the work performed by the database
 
@@ -266,8 +262,6 @@ If the database operations are purely data access operations, without a lot of p
 
 The following graph shows a load test using the updated code. Throughput is significantly higher, over 400 requests per second versus 12 earlier. The average response time is also much lower, just above 0.1 seconds compared to over 4 seconds.
 
-<!-- markdownlint-disable MD033 -->
-
 <img src="./_images/processinginclientapplicationloadtest.jpg" alt="Graph showing load-test results for performing processing in the client application." aria-describedby="description-3">
 <p id="description-3" class="visually-hidden">This line graph shows user load, requests per second, and average response time. The graph shows that response time remains roughly constant throughout the load test.</p>
 
@@ -275,8 +269,6 @@ CPU and DTU utilization shows that the system took longer to reach saturation, d
 
 <img src="./_images/processinginclientapplicationmonitor.jpg" alt="Azure SQL Database monitor showing the performance of the database while performing processing in the client application" aria-describedby="description-4">
 <p id="description-4" class="visually-hidden">This line graph shows CPU percentage and DTU percentage over time. The graph shows that CPU and DTU take longer to reach 100% than previously.</p>
-
-<!-- markdownlint-enable MD033 -->
 
 ## Related resources
 

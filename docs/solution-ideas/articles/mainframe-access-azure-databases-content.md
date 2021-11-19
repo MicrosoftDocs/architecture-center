@@ -1,6 +1,6 @@
 [!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
-This solution outlines a way for IBM mainframe and midrange applications to access remote Azure databases. The approach requires zero or minimal changes in application code. 
+This solution outlines a way for IBM mainframe and midrange applications to access remote Azure databases. The approach requires zero or minimal changes in application code.
 
 IBM Db2 clients and servers use the Distributed Relational Database Architecture (DRDA) protocol to communicate. In this solution, Microsoft Service for DRDA connects Db2 clients to SQL Server–based databases by supporting this protocol.
 

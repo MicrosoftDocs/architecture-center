@@ -1,7 +1,5 @@
 <!-- cSpell:ignore CNAME -->
 
-
-
 This reference architecture shows how to run an Azure App Service application in multiple regions to achieve high availability.
 
 ![Reference architecture for a web application with high availability](./images/multi-region-web-app-diagram.png)
@@ -132,7 +130,6 @@ For more information, see the cost section in [Microsoft Azure Well-Architected 
 ## Manageability considerations
 
 If the primary database fails, perform a manual failover to the secondary database. See [Restore an Azure SQL Database or failover to a secondary][sql-failover]. The secondary database remains read-only until you fail over.
-
 
 ## DevOps considerations
 

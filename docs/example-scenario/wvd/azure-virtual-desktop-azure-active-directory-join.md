@@ -90,7 +90,7 @@ On the local client, the Azure AD registration logs are in Event Viewer at **App
 
 > [!NOTE]
 > With the previous, AD DS scenario, you could manually deploy session host VMs in a separate subscription connected to a different Azure AD if necessary. The VMs had no dependency on Azure AD. The VMs only needed network line of sight to an AD DS domain controller in a domain that synchronized user objects to the Azure Virtual Desktops' Azure AD.
-> 
+>
 > Azure AD join doesn't support this scenario. The host VMs automatically join to the Azure AD of the subscription that deploys the VMs. The deployment inherits that Azure AD as an identity provider, and uses the user identities that the Azure AD holds. There's no way to specify a different Azure AD for the host VMs. So be sure to create the VMs in the same subscription as all the other Azure Virtual Desktop objects. The VMs also automatically enroll into the Intune tenant associated with the Azure AD.
 
 ## Step 2: Enable user access

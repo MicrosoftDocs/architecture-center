@@ -2,7 +2,7 @@
 title: Performance data integration
 description: Analyze performance data holistically to detect fault types, bottlenecks regressions, and health states.
 author: PageWriter-MSFT
-ms.date: 04/28/2021
+ms.date: 11/01/2021
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: well-architected
@@ -13,7 +13,6 @@ categories:
 ms.custom:
   - fasttrack-edit
 ---
-
 
 # Performance data integration
 
@@ -27,7 +26,6 @@ This article describes some considerations and tools you can use to aggregate da
 > - Use log aggregation technologies to consolidate data into a single workspace and analyze using a sophisticated query language.
 > - Retain data in a time-series database to predict performance issues before they occur.
 > - Balance the retention policy and service pricing plans with the cost expectation of the organization.
-
 
 ## Data interpretation
 
@@ -77,4 +75,4 @@ If you are using Application Insights to collect instrumentation data, there are
 - [Azure Data Explorer cluster](https://azure.microsoft.com/services/data-explorer/)
 - [Manage usage and costs with Azure Monitor Logs](/azure/azure-monitor//logs/manage-cost-storage)
 - [Manage usage and costs for Application Insights](/azure/azure-monitor//app/pricing)
-> [Back to the main article](monitor.md)
+> [Back to the main article](checklist.md)

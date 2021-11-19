@@ -12,7 +12,6 @@ ms.custom:
 
 # Security design principles
 
-
 These principles support these three key strategies and describe a securely architected system hosted on cloud or on-premises datacenters (or a combination of both). Application of these principles will dramatically increase the likelihood your security architecture will maintain assurances of confidentiality, integrity, and availability.
 
 Each recommendation in this document includes a description of why it is recommended, which maps to one of more of these principles:
@@ -41,7 +40,7 @@ Each recommendation in this document includes a description of why it is recomme
 
   - **Balanced investment:** Invest across core functions spanning the full [NIST Cybersecurity Framework lifecycle](https://www.nist.gov/cyberframework) (identify, protect, detect, respond, and recover) to ensure that attackers who successfully evade preventive controls lose access from detection, response, and recovery capabilities.
 
-  - **Ongoing maintenance:** Maintain security controls and assurances to ensure that they don’t decay over time with changes to the environment or neglect.
+  - **Ongoing maintenance:** Maintain security controls and assurances to ensure that they don't decay over time with changes to the environment or neglect.
 
   - **Ongoing vigilance:** Ensure that anomalies and potential threats that could pose risks to the organizations are addressed in a timely manner.
 
@@ -53,6 +52,6 @@ Each recommendation in this document includes a description of why it is recomme
 
 - **Drive continuous improvement:** Systems and existing practices should be regularly evaluated and improved to ensure they are and remain effective against attackers who continuously improve and the continuous digital transformation of the enterprise. This should include processes that proactively integrate learnings from real world attacks, realistic penetration testing and red team activities, and other sources as available.
 
-- **Assume zero trust:** When evaluating access requests, all requesting users, devices, and applications should be considered untrusted until their integrity can be sufficiently validated. Access requests should be granted conditionally based on the requestor's trust level and the target resource’s sensitivity. Reasonable attempts should be made to offer means to increase trust validation (for example, request multifactor authentication) and remediate known risks (change known-leaked password, remediate malware infection) to support productivity goals.
+- **Assume zero trust:** When evaluating access requests, all requesting users, devices, and applications should be considered untrusted until their integrity can be sufficiently validated. Access requests should be granted conditionally based on the requestor's trust level and the target resource's sensitivity. Reasonable attempts should be made to offer means to increase trust validation (for example, request multifactor authentication) and remediate known risks (change known-leaked password, remediate malware infection) to support productivity goals.
 
 - **Educate and incentivize security:** The humans that are designing and operating the cloud workloads are part of the whole system. It is critical to ensure that these people are educated, informed, and incentivized to support the security assurance goals of the system. This is particularly important for people with accounts granted broad administrative privileges.

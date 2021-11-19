@@ -47,6 +47,6 @@ Scale the AKS cluster to meet your performance and throughput requirements. Take
 
 * [Basic Web App Azure Reference Architecture](../../reference-architectures/app-service-web-app/basic-web-app.yml?tabs=cli)
 
-* [Common Azure Cosmos DB Use Cases](/azure/cosmos-db/use-cases) 
+* [Common Azure Cosmos DB Use Cases](/azure/cosmos-db/use-cases)
 
 * [Stream Processing with Azure DataBricks](../../reference-architectures/data/stream-processing-databricks.yml)

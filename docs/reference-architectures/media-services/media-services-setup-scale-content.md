@@ -1,6 +1,5 @@
 
 
-
 Gridwich uses the Azure Media Services Platform as a Service (PaaS) for media processing. Depending on the type of operation, the Gridwich application uses one of two methods to access Azure Media Services.
 
 ## Azure Media Services V2
@@ -200,4 +199,3 @@ To set the Media Services *streaming endpoint* infrastructure scale, run:
 ## Next steps
 
 The current solution only supports the commercial Azure cloud. For government or other scopes, check the [Azure Media Services documentation](/azure/media-services/), and update the code to use an app setting for the token scope.
-

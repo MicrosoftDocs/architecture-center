@@ -33,7 +33,6 @@ TDSP has the following key components:
 - **Infrastructure and resources** recommended for data science projects
 - **Tools and utilities** recommended for project execution
 
-
 ## Data science lifecycle
 
 The Team Data Science Process (TDSP) provides a lifecycle to structure the development of your data science projects. The lifecycle outlines the full steps that successful projects follow.
@@ -77,7 +76,6 @@ We provide templates for the folder structure and required documents in standard
 - model reports to document the derived features
 - model performance metrics such as ROC curves or MSE
 
-
 [![TDSP-directories](./media/overview/tdsp-dir-structure.png)](./media/overview/tdsp-dir-structure.png#lightbox)
 
 The directory structure can be cloned from [GitHub](https://github.com/Azure/Azure-TDSP-ProjectTemplate).
@@ -97,11 +95,9 @@ Here is an example of a team working on multiple projects and sharing various cl
 
 [![TDSP-infrastructure](./media/overview/tdsp-analytics-infra.png)](./media/overview/tdsp-analytics-infra.png#lightbox)
 
-
 ## Tools and utilities for project execution
 
 Introducing processes in most organizations is challenging. Tools provided to implement the data science process and lifecycle help lower the barriers to and increase the consistency of their adoption. TDSP provides an initial set of tools and scripts to jump-start adoption of TDSP within a team. It also helps automate some of the common tasks in the data science lifecycle such as data exploration and baseline modeling. There is a well-defined structure provided for individuals to contribute shared tools and utilities into their team's shared code repository. These resources can then be leveraged by other projects within the team or the organization.  Microsoft provides extensive tooling inside [Azure Machine Learning](/azure/machine-learning/) supporting both open-source (Python, R, ONNX, and common deep-learning frameworks) and also Microsoft's own tooling (AutoML).
-
 
 ## Next steps
 
