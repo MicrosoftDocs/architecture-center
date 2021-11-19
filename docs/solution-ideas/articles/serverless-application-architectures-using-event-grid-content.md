@@ -1,8 +1,8 @@
 [!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
-This solution idea shows how to publish events in Azure blob storage using Event Grid, then use the build-in support in Azure Functions to process the event.  By using it, developers only need to focus on implementing the business logic in Azure Functions, and Event Grid will provide a reliable near-real-time notifications system for the event integration. 
+This solution idea shows publishing  Azure Blob storage events using Event Grid. Then Azure Functions receives the event with the build-in Event Grid support and processes the data in blob storage.  Using the solution idea, developers only need to focus on implementing the business logic in Azure Functions. Event Grid will provide a reliable near-real-time notifications system for the event-driven integration between Blob storage and Azure Functions. 
 
-The core design concept is using Event Grid to connect data sources and event handlers. For example, using Event Grid instantly triggers a serverless function to run image process (e.g., shrink image) whenever someone adds a new photo to a blob storage container.
+The core design concept is using Event Grid to connect data sources and event handlers. Event Grid decouples event publishers from event subscribers using a pub/sub model and simple HTTP-based event delivery, allowing the system to build scalable serverless applications. For example, Event Grid instantly triggers a serverless function to run an image process (e.g., shrink image) whenever someone adds a new photo to a blob storage container.
 
 
 ## Architecture
