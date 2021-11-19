@@ -57,7 +57,7 @@ Various file moving, integration, and storage scenarios use different components
 
 #### Networking
 
-- An [on-premises data gateway](/data-integration/gateway/service-gateway-onprem) is bridge software that connects on-premises data to cloud services. The gateway typically [installs on a dedicated on-premises VM](/azure/logic-apps/).
+- An [on-premises data gateway](/data-integration/gateway/service-gateway-onprem) is bridge software that connects on-premises data to cloud services. The gateway typically [installs on a dedicated on-premises VM](/azure/logic-apps/).
 
 #### Data integration and transformation
 

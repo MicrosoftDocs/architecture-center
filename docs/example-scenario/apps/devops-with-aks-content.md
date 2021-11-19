@@ -146,7 +146,7 @@ This scenario used Azure Container Registry and Azure Kubernetes Service to stor
 [azure-pipelines]: /azure/devops/pipelines
 [kubernetes]: https://kubernetes.io
 [service-fabric]: /azure/service-fabric
-[get-aks-versions]: /cli/azure/aks?view=azure-cli-latest#az-aks-get-versions
+[get-aks-versions]: /cli/azure/aks#az-aks-get-versions
 [aks-default-version]: /azure/aks/supported-kubernetes-versions
 
 [small-pricing]: https://azure.com/e/841f0a75b1ea4802ba1ac8f7918a71e7

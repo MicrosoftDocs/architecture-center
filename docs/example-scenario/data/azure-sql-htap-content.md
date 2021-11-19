@@ -116,8 +116,6 @@ The following table lists sample cost profiles for varying amounts of 1-kilobyte
 - [Optimized storage – time based with Data Lake][Optimized storage – time based with Data Lake]
 - [Analytics end-to-end with Azure Synapse][Analytics end-to-end with Azure Synapse]
 
-
-
 [Azure Blob Storage]: https://azure.microsoft.com/services/storage/blobs
 [Azure Cosmos DB]: https://azure.microsoft.com/services/cosmos-db
 [Azure Databricks]: https://azure.microsoft.com/services/databricks

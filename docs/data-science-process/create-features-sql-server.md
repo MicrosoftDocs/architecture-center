@@ -1,5 +1,5 @@
 ---
-title: Create features in SQL Server using SQL and Python - Team Data Science Process
+title: Create features in SQL Server using SQL and Python
 description: Generate features for data stored in a SQL Server VM on Azure using SQL and Python - part of the Team Data Science Process.
 services: machine-learning
 author: marktab
@@ -62,7 +62,6 @@ The following example shows how to generate binned features by binning (using fi
 ```sql
 SELECT <column_name>, NTILE(5) OVER (ORDER BY <column_name>) AS BinNumber from <tablename>
 ```
-
 
 ### <a name="sql-featurerollout"></a>Rolling out the features from a single column
 In this section, we demonstrate how to roll out a single column in a table to generate additional features. The example assumes that there is a latitude or longitude column in the table from which you are trying to generate features.

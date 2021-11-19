@@ -4,8 +4,8 @@ Azure VMware Solution can be deployed as part of either a new landing zone or an
 
 This article covers considerations for deploying and running Azure VMware Solution as part of a landing zone environment.
 
-> [!Note]
-> [Enterprise-scale for Microsoft Azure VMware Solution](https://docs.microsoft.com/azure/cloud-adoption-framework/scenarios/azure-vmware/enterprise-scale-landing-zone) provides further details. We recommend that you use the latest landing zone guidance available in it.
+> [!NOTE]
+> [Enterprise-scale for Microsoft Azure VMware Solution](/azure/cloud-adoption-framework/scenarios/azure-vmware/enterprise-scale-landing-zone) provides further details. We recommend that you use the latest landing zone guidance available in it.
 
 ## Potential use cases
 
@@ -29,7 +29,7 @@ Azure Enterprise Scale Landing Zone (ESLZ) provides prescriptive deployment guid
 
 ### Identity and access management (B)
 
-Azure VMware Solution Resource Provider (RP) exposes multiple [operations](/cli/azure/ext/VMware/VMware?view=azure-cli-latest#commands). Customers and partners want to control access to these operations, to specific roles. [Identity and access management](/azure/cloud-adoption-framework/ready/enterprise-scale/identity-and-access-management) can help you create such roles. Additional operations (such as just-in-time (JIT) access, access reviews, and so on) can also be configured on these roles. For Azure VMware Solution workloads that might need Windows Authentication, services such as Azure AD Domain Services (AAD DS) or Active Directory Domain Services (AD DS) can be configured as part of identity and access management.
+Azure VMware Solution Resource Provider (RP) exposes multiple [operations](/cli/azure/ext/VMware/VMware#commands). Customers and partners want to control access to these operations, to specific roles. [Identity and access management](/azure/cloud-adoption-framework/ready/enterprise-scale/identity-and-access-management) can help you create such roles. Additional operations (such as just-in-time (JIT) access, access reviews, and so on) can also be configured on these roles. For Azure VMware Solution workloads that might need Windows Authentication, services such as Azure AD Domain Services (AAD DS) or Active Directory Domain Services (AD DS) can be configured as part of identity and access management.
 
 ### Management group and subscription management (C)
 
@@ -53,23 +53,23 @@ Sandbox subscriptions are deployed under [Sandbox Management Group](/azure/cloud
 
 ### Components
 
- - [Azure VMware Solution](https://azure.microsoft.com/services/azure-vmware)
- - [Azure Active Directory](https://azure.microsoft.com/services/active-directory)
- - [Azure ExpressRoute](https://azure.microsoft.com/services/expressroute)
- - [Azure Policy](https://azure.microsoft.com/services/azure-policy)
+- [Azure VMware Solution](https://azure.microsoft.com/services/azure-vmware)
+- [Azure Active Directory](https://azure.microsoft.com/services/active-directory)
+- [Azure ExpressRoute](https://azure.microsoft.com/services/expressroute)
+- [Azure Policy](https://azure.microsoft.com/services/azure-policy)
 
 ## Next steps
 
 Use the following guidance about other Azure VMware Solution ideas:
 
-* [Network topology and connectivity for Azure VMware Solution](/azure/cloud-adoption-framework/scenarios/azure-vmware/eslz-network-topology-connectivity)
-* [Azure VMware Solution Foundation - Networking](/azure/architecture/solution-ideas/articles/azure-vmware-solution-foundation-networking)
-* [Azure VMware Solution Foundation - Capacity Planning](/azure/architecture/solution-ideas/articles/azure-vmware-solution-foundation-capacity)
- 
+- [Network topology and connectivity for Azure VMware Solution](/azure/cloud-adoption-framework/scenarios/azure-vmware/eslz-network-topology-connectivity)
+- [Azure VMware Solution Foundation - Networking](/azure/architecture/solution-ideas/articles/azure-vmware-solution-foundation-networking)
+- [Azure VMware Solution Foundation - Capacity Planning](/azure/architecture/solution-ideas/articles/azure-vmware-solution-foundation-capacity)
+
 ## Related resources
 
 Refer to following additional resources to learn more about Azure VMware Solution:
 
-* [Enterprise-scale for Microsoft Azure VMware Solution](/azure/cloud-adoption-framework/scenarios/azure-vmware/enterprise-scale-landing-zone)
-* [Azure VMware Solution](/azure/azure-vmware)
-* [Enterprise-scale landing zone architecture](/azure/cloud-adoption-framework/ready/enterprise-scale/architecture)
+- [Enterprise-scale for Microsoft Azure VMware Solution](/azure/cloud-adoption-framework/scenarios/azure-vmware/enterprise-scale-landing-zone)
+- [Azure VMware Solution](/azure/azure-vmware)
+- [Enterprise-scale landing zone architecture](/azure/cloud-adoption-framework/ready/enterprise-scale/architecture)

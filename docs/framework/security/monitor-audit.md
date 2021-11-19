@@ -20,13 +20,12 @@ ms.custom:
 
 # Security audits
 
-
 To make sure that the security posture doesn't degrade over time, have regular auditing that checks compliance with organizational standards. Enable, acquire, and store audit logs for Azure services.
 
-
 ## Key points
+
 > [!div class="checklist"]
-> - Improve secure score in Azure Security Center.
+> - Improve secure score in Microsoft Defender for Cloud.
 > - Use an industry standard benchmark to evaluate your organizations current security posture.
 > - Perform regular internal and external compliance audits, including regulatory compliance attestations.
 > - Review the policy requirements.
@@ -52,20 +51,20 @@ As people in the organization and on the project change, it is crucial to make s
 Make sure that the security team is auditing the environment to report on compliance with the security policy of the organization. Security teams may also enforce compliance with these policies.
 
 ## Audit regulatory compliance
+
 Compliance is important for several reasons. Aside from signifying levels of standards, like `ISO 27001` and others, noncompliance with regulatory guidelines may bring sanctions and penalties. Regularly review roles that have high privileges. Set up a recurring review pattern to ensure that accounts are removed from permissions as roles change. Consider auditing at least twice a year.
 
 ### Suggested action
 
-Use Azure Defender (Azure Security Center) to continuously assess and monitor your compliance score.
+Use Microsoft Defender for Cloud to continuously assess and monitor your compliance score.
 
 ### Learn more
 
 [Assess your regulatory compliance](/azure/security-center/security-center-compliance-dashboard#assess-your-regulatory-compliance)
 
-
 **Have you established a monitoring and assessment solution for compliance?**
 ***
-Continuously assess and monitor the compliance status of your workload. Azure Security Center provides a regulatory compliance dashboard that shows the current security state of workload against controls mandated by the standard governments or industry organizations and Azure Security Benchmark. Keep your resources in compliance with those standards. Security Center tracks many standards. You can set the standards by management groups in a subscription.
+Continuously assess and monitor the compliance status of your workload. Microsoft Defender for Cloud provides a regulatory compliance dashboard that shows the current security state of workload against controls mandated by the standard governments or industry organizations and Azure Security Benchmark. Keep your resources in compliance with those standards. Defender for Cloud tracks many standards. You can set the standards by management groups in a subscription.
 
 Consider using [Azure Access Reviews](/azure/active-directory/governance/access-reviews-overview) or [Entitlement Management](/azure/active-directory/governance/entitlement-management-overview) to periodically review access to the workload.
 
@@ -101,8 +100,6 @@ As people in the organization and on the project change, make sure that only the
 
 Azure control plane depends on Azure AD. You can conduct the review manually or through an automated process by using tools such as [Azure AD access reviews](/azure/active-directory/governance/create-access-review). These reviews are often centrally performed often as part of internal or external audit activities.
 
-
-
 ## Check policy compliance
 
 Make sure that the security team is auditing the environment to report on compliance with the security policy of the organization. Security teams may also enforce compliance with these policies.
@@ -115,13 +112,13 @@ For Azure, use Azure Policy to create and manage policies that enforce complianc
 
 [Azure Governance Visualizer](https://github.com/microsoft/CloudAdoptionFramework/tree/master/govern/AzureGovernanceVisualizer) captures data from the most relevant Azure governance capabilities such as Azure Policy, Azure role-based access control (Azure RBAC), and Azure Blueprints. The visualizer PowerShell script iterates through an Azure tenant's management group hierarchy down to the subscription level. From the collected data, the visualizer shows your hierarchy map, creates a tenant summary, and builds granular scope insights about your management groups and subscriptions.
 
-
 ## Next steps
+
 > [!div class="nextstepaction"]
-> [Remediate security risks in Azure Security Center](monitor-logs-alerts.md)
+> [Remediate security risks in Microsoft Defender for Cloud](monitor-logs-alerts.md)
 
 ## Related links
 
-- [Secure score in Azure Security Center](/azure/security-center/secure-score-security-controls) allows you view all the security vulnerabilities into a single score.
+- [Secure score in Microsoft Defender for Cloud](/azure/security-center/secure-score-security-controls) allows you view all the security vulnerabilities into a single score.
 
-- [Tutorial: Improve your regulatory compliance](/azure/security-center/security-center-compliance-dashboard) describes a step-by-step process to evaluate regulatory requirements in Azure Security Center.
+- [Tutorial: Improve your regulatory compliance](/azure/security-center/security-center-compliance-dashboard) describes a step-by-step process to evaluate regulatory requirements in Microsoft Defender for Cloud.

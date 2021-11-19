@@ -253,7 +253,7 @@ documentation.
 In general, use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator) to estimate costs,
 and use the [AKS calculator](https://azure.microsoft.com/pricing/calculator/?service=kubernetes-service)
 to estimate the costs for running AKS in Azure. To learn about other
-considerations, see the “Cost optimization” section in [Microsoft Azure Well-Architected Framework](/azure/architecture/framework/).
+considerations, see the "Cost optimization" section in [Microsoft Azure Well-Architected Framework](/azure/architecture/framework/).
 
 ## Next steps
 

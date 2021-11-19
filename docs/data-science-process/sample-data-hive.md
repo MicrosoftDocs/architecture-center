@@ -1,5 +1,5 @@
 ---
-title: Sample data in Azure HDInsight Hive tables - Team Data Science Process
+title: Sample data in Azure HDInsight Hive tables
 description: Down-sample data stored in Azure HDInsight Hive tables using Hive queries to reduce the data to a size more manageable for analysis.
 services: machine-learning
 author: marktab

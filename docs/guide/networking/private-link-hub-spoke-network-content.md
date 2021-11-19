@@ -165,8 +165,6 @@ For more information, see [Bandwidth pricing][Bandwidth pricing].
 - [Web app private connectivity to Azure SQL database][Web app private connectivity to Azure SQL database]
 - [Multi-region web app with private connectivity to database][Multi-region web app with private connectivity to database]
 
-
-
 [Azure Private Link availability]: /azure/private-link/availability
 [Bandwidth pricing]: https://azure.microsoft.com/pricing/details/bandwidth
 [Diagnose a virtual machine routing problem - Diagnose using Azure portal]: /azure/virtual-network/diagnose-network-routing-problem#diagnose-using-azure-portal

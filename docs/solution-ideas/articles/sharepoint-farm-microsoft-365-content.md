@@ -1,6 +1,6 @@
 [!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
-This solution provides a highly available deployment of SharePoint, by using a load balanced Azure Active Directory (Azure AD), a highly available SQL always-on instance, and highly available SharePoint resources. 
+This solution provides a highly available deployment of SharePoint, by using a load balanced Azure Active Directory (Azure AD), a highly available SQL always-on instance, and highly available SharePoint resources.
 
 ## Potential use cases
 

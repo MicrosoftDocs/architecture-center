@@ -100,9 +100,11 @@ The following considerations apply to this architecture:
 This architecture uses [Azure Site Recovery](https://azure.microsoft.com/services/site-recovery/) to mirror Azure VMs to a secondary Azure region for quick failover and DR if an Azure datacenter fails.
 
 ### Resiliency
+
 Resiliency is built into this solution because of the Load Balancers. If one presentation or transaction server fails, other servers behind the Load Balancer can run the workloads.
 
 ### Scalability
+
 You can scale out the server sets to provide more throughput. For more information, see [Virtual machine scale sets](/azure/virtual-machine-scale-sets/overview).
 
 ### Security
@@ -114,10 +116,22 @@ You can scale out the server sets to provide more throughput. For more informati
 - [Azure Bastion](/azure/bastion/bastion-overview) maximizes admin access security by minimizing open ports. Bastion provides secure and seamless RDP/SSH connectivity to virtual network VMs directly from the Azure portal over TLS.
 
 ### Pricing
+
 - Azure SQL Database should use [Hyperscale or Business Critical](/azure/azure-sql/database/service-tiers-general-purpose-business-critical) SQL Database tiers for high input/output operations per second (IOPS) and high uptime SLA.
 
 - This architecture works best with Premium SSDs or Ultra Disk SSDs. For more information, see [Managed Disks pricing](https://azure.microsoft.com/pricing/details/managed-disks/).
 
 ## Next steps
 
-For more information, please contact [legacy2azure@microsoft.com](mailto:legacy2azure@microsoft.com).
+- For more information, please contact [legacy2azure@microsoft.com](mailto:legacy2azure@microsoft.com).
+- [Azure ExpressRoute](/azure/expressroute/expressroute-introduction)
+- [Azure Bastion](/azure/bastion/bastion-overview)
+- [Azure Load Balancer](/azure/load-balancer/load-balancer-overview) 
+
+## Related resources
+
+- [Azure mainframe and midrange architecture concepts and patterns](/azure/architecture/mainframe/mainframe-midrange-architecture)
+- [Mainframe migration overview](/azure/cloud-adoption-framework/infrastructure/mainframe-migration/?bc=https%3a%2f%2fdocs.microsoft.com%2fen-us%2fazure%2farchitecture%2fbread%2ftoc.json&toc=https%3a%2f%2fdocs.microsoft.com%2fen-us%2fazure%2farchitecture%2ftoc.json)
+- [Mainframe rehosting on Azure virtual machines](/azure/virtual-machines/workloads/mainframe-rehosting/overview?bc=https%3a%2f%2fdocs.microsoft.com%2fen-us%2fazure%2farchitecture%2fbread%2ftoc.json&toc=https%3a%2f%2fdocs.microsoft.com%2fen-us%2fazure%2farchitecture%2ftoc.json)
+- [IBM z/OS online transaction processing on Azure](/azure/architecture/example-scenario/mainframe/ibm-zos-online-transaction-processing-azure)
+- [Integrate IBM mainframe and midrange message queues with Azure](/azure/architecture/example-scenario/mainframe/integrate-ibm-message-queues-azure)

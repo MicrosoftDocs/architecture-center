@@ -1,6 +1,6 @@
 [!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
-Smart, connected Internet of Things (IoT) devices can make life healthier and safer. For example, research increasingly confirms the importance of high-quality light and natural light cycles for promoting human alertness, health, well-being, and productivity. BrainLit's patented BioCentric Lighting™ (BCL) system is a dynamic, self-learning, IoT-based system that creates high-quality natural lighting for indoor environments. 
+Smart, connected Internet of Things (IoT) devices can make life healthier and safer. For example, research increasingly confirms the importance of high-quality light and natural light cycles for promoting human alertness, health, well-being, and productivity. BrainLit's patented BioCentric Lighting™ (BCL) system is a dynamic, self-learning, IoT-based system that creates high-quality natural lighting for indoor environments.
 
 The BCL system can also deliver radiant energy in the non-visible ultraviolet (UV) spectrum to kill viruses. All UV radiation has antimicrobial capabilities. The shortest wavelength, 200-300 nm UVC radiation, causes DNA inactivation and prevents viral replication. UVC radiation disinfection is an important weapon in the fight against COVID. BrainLit's new UVEN concept combines BCL light control with UVC disinfection to promote health and well-being and help kill viruses.
 

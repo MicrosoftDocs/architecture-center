@@ -1,0 +1,28 @@
+### YamlMime:Architecture
+metadata:
+  title: Build a delta lake to support ad hoc queries in online leisure and travel booking
+  titleSuffix: Azure Architectures
+  description: This architecture provides an example delta lake for travel booking, where large amounts of raw documents are generated at a high frequency.
+  author: EdPrice-MSFT
+  ms.author: pnp
+  ms.date: 11/17/2021
+  ms.topic: conceptual
+  ms.service: architecture-center
+  ms.subservice: example-solution
+  ms.category:
+    - databases
+    - analytics
+  ms.custom:
+    - solution-idea
+name: Build a delta lake to support ad hoc queries in online leisure and travel booking
+azureCategories:
+  - databases
+summary: This architecture provides an example of the Delta Lake architecture for travel booking scenarios, where large amounts of raw documents are generated at a high frequency.
+products:
+  - azure-event-hubs	
+  - azure-data-lake-gen2
+  - azure-databricks
+  - azure-synapse-analytics
+thumbnailUrl: /azure/architecture/browse/thumbs/build-data-lake-support-adhoc-queries-online-01.png
+content: |
+   [!include[](build-data-lake-support-adhoc-queries-online-content.md)]

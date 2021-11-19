@@ -1,6 +1,5 @@
 
 
-
 This reference architecture demonstrates how Azure Arc extends Kubernetes cluster management and configuration across customer data centers, edge locations, and multiple cloud environments. You can use Azure Arc to register Kubernetes clusters hosted outside of Microsoft Azure, and use Azure tools to manage these clusters alongside clusters hosted in Azure Kubernetes Service (AKS).
 ![An Azure Arc for Kubernetes topology diagram.][Architecture diagram]
 

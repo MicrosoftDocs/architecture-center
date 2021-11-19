@@ -1,6 +1,5 @@
 
 
-
 An e-commerce company in the travel industry is modernizing their legacy browser-based software stack. While their existing stack is mostly monolithic, some [SOAP-based HTTP services][soap] exist from a recent project. They are considering the creation of additional revenue streams to monetize some of the internal intellectual property that's been developed.
 
 Goals for the project include addressing technical debt, improving ongoing maintenance, and accelerating feature development with fewer regression bugs. The project will use an iterative process to avoid risk, with some steps performed in parallel:

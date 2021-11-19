@@ -1,7 +1,7 @@
 
 This reference architecture serves web workloads with resilient multitier applications, and deploys across multiple Azure regions to achieve high availability and robust disaster recovery.
 
-Microsoft Azure Traffic Manager balances the traffic across regions, and there is a regional load balancer based on Azure Application Gateway. This combination gets you the benefits of Traffic Manager's flexible routing, and Application Gateway’s many capabilities, including:
+Microsoft Azure Traffic Manager balances the traffic across regions, and there is a regional load balancer based on Azure Application Gateway. This combination gets you the benefits of Traffic Manager's flexible routing, and Application Gateway's many capabilities, including:
 
 - Web Application Firewall (WAF).
 - Transport Layer Security (TLS) termination.
@@ -16,7 +16,7 @@ In this scenario, the application consists of three layers:
 
 :::image type="content" source="images/high-availability-multi-region.png" alt-text="Multi-region load balancing with Application Gateway and Traffic Manager." lightbox="images/high-availability-multi-region.png":::
 
->[!NOTE]
+> [!NOTE]
 > Azure provides a suite of fully managed load-balancing solutions. If you're looking for Transport Layer Security (TLS) protocol termination ("SSL offload") or per-HTTP/HTTPS request, application-layer processing, review [What is Azure Application Gateway?](/azure/application-gateway/overview). If you're looking for regional load balancing, review [Azure Load Balancer](/azure/load-balancer/load-balancer-overview). Your end-to-end scenarios might benefit from combining these solutions as needed.
 >
 > For a comparison of Azure load-balancing options, see [Overview of load-balancing options in Azure](../guide/technology-choices/load-balancing-overview.md).

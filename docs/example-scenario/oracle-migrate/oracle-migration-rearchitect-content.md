@@ -1,6 +1,5 @@
 
 
-
 Are you comfortable working with Microsoft SQL Server? If so, you can use Azure SQL Managed Instance to rearchitect your database. It's a good option because it:
 
 * Provides built-in [business continuity and disaster recovery capabilities](/azure/sql-database/sql-database-business-continuity).
@@ -32,7 +31,6 @@ Are you comfortable working with Microsoft SQL Server? If so, you can use Azure 
 ### Evaluate your Oracle database
 
 Use the [Microsoft Assessment and Planning (MAP) Toolkit](https://go.microsoft.com/fwlink/?LinkID=316883) to evaluate the existing Oracle database and schemas. For more information, refer to the [Oracle to SQL Server: Migration guide](/sql/sql-server/migrate/guides/oracle-to-sql-server).
-
 
 ### Oracle objects conversion results
 

@@ -1,4 +1,3 @@
-
 [!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
 Securely store data and provide high-value analytics over aggregated data, using in-built security and performance.

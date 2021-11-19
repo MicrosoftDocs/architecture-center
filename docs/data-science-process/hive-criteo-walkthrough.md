@@ -1,5 +1,5 @@
 ---
-title: Use Azure HDInsight Hadoop Cluster on 1-TB dataset - Team Data Science Process
+title: Use Azure HDInsight Hadoop Cluster on 1-TB dataset
 description: Using the Team Data Science Process for an end-to-end scenario employing an HDInsight Hadoop cluster to build and deploy a model using a large (1 TB) publicly available dataset
 services: machine-learning
 author: marktab
@@ -18,7 +18,7 @@ products:
 categories:
   - ai-machine-learning
 ---
-# The Team Data Science Process in action - Using an Azure HDInsight Hadoop Cluster on a 1-TB dataset
+# Use an Azure HDInsight Hadoop Cluster on a 1-TB dataset
 
 This walkthrough demonstrates how to use the Team Data Science Process in an end-to-end scenario with an [Azure HDInsight Hadoop cluster](https://azure.microsoft.com/services/hdinsight/) to store, explore, feature engineer, and down sample data from one of the publicly available [Criteo](https://labs.criteo.com/downloads/download-terabyte-click-logs/) datasets. It uses Azure Machine Learning to build a binary classification model on this data. It also shows how to publish one of these models as a Web service.
 
@@ -490,8 +490,8 @@ There is a final important component before moving on to Azure Machine Learning,
 ## <a name="count"></a> A brief discussion on the count table
 As you saw, several categorical variables have a high dimensionality. In the walkthrough, a powerful technique called [Learning With Counts](/archive/blogs/machinelearning/big-learning-made-easy-with-counts) to encode these variables in an efficient, robust manner is presented. More information on this technique is in the link provided.
 
->[!NOTE]
->In this walkthrough, the focus is on using count tables to produce compact representations of high-dimensional categorical features. This is not the only way to encode categorical features; for more information on other techniques, interested users can check out [one-hot-encoding](https://en.wikipedia.org/wiki/One-hot) and [feature hashing](https://en.wikipedia.org/wiki/Feature_hashing).
+> [!NOTE]
+> In this walkthrough, the focus is on using count tables to produce compact representations of high-dimensional categorical features. This is not the only way to encode categorical features; for more information on other techniques, interested users can check out [one-hot-encoding](https://en.wikipedia.org/wiki/One-hot) and [feature hashing](https://en.wikipedia.org/wiki/Feature_hashing).
 >
 
 To build count tables on the count data, use the data in the folder raw/count. In the modeling section, users are shown how to build these count tables for categorical features from scratch, or alternatively to use a pre-built count table for their explorations. In what follows, when "pre-built count tables" are referred to, we mean using the count tables that have been provided. Detailed instructions on how to access these tables are provided in the next section.

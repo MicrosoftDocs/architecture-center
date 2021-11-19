@@ -45,7 +45,6 @@ InfoSec policy commonly requires that all incoming traffic to web apps go throug
 -   [App Service](https://azure.microsoft.com/services/app-service/)
 -   [Azure Private Link](https://azure.microsoft.com/services/private-link/)
 
-
 ### Alternatives
 
 -   [App Service Environment](/azure/app-service/environment/intro) (ASE) can provide a fully isolated and dedicated environment for securely running App Service apps at high scale. This example doesn't make use of ASE to reduce costs, but the sample architecture could support it with modifications.
@@ -119,7 +118,6 @@ You must have an existing Azure account. If you do not have an Azure subscriptio
 
 > ![Screenshot of vnet-SecureBot subnets](media/securing-bot-image-002.png)
 
-
 2.  Using the following CLI commands, deploy an Azure Firewall into the firewall subnet created in step 1.
 
    ```azurecli                                                                                                                                             
@@ -173,7 +171,6 @@ You must have an existing Azure account. If you do not have an Azure subscriptio
     Note that at this point the bot's App Service is still publicly accessible over both the azurewebsites.net URL and over the custom URL you configured. In the next steps, you'll use private endpoints to disable public access. You'll also configure the firewall to only allow the bot service to communicate with Teams clients.
 
 8.  Run the following Azure CLI script to [deploy and configure the private endpoint](/azure/app-service/scripts/cli-deploy-privateendpoint). This step also implements VNet integration for the bot's App Service, connecting it to your virtual network's integration subnet.
-
 
    ```azurecli                                                                                       
    # Disable private endpoint network policies (this step is not required if using the portal)
@@ -230,13 +227,9 @@ You must have an existing Azure account. If you do not have an Azure subscriptio
 
 > ![Screenshot of wapp-securebot Networking options](media/securing-bot-image-005.png)
 
-
 > ![Screenshot of VNet Integration](media/securing-bot-image-006.png)
 
-
 > ![Screenshot of Private Endpoint connections](media/securing-bot-image-007.png)
-
-
 
 9.  Next, you'll create a route table to ensure that traffic to and from each subnet goes through the firewall. You'll need the private IP address of the firewall you created in the previous step.
 
@@ -267,7 +260,6 @@ You must have an existing Azure account. If you do not have an Azure subscriptio
  > On completion of this step, your route table resource should look like this:
 
  > ![Screenshot of rt-SecureBotRouteTable](media/securing-bot-image-009.png)
-
 
 10.  After creating the route table, you'll add rules to your firewall to deliver traffic from the public IP to the bot App Service and to restrict traffic from any endpoint other than Microsoft Teams. In addition, you'll allow traffic between the virtual network and Azure Bot Services or Azure Active Directory using service tags.
 
@@ -333,7 +325,6 @@ You must have an existing Azure account. If you do not have an Azure subscriptio
 
 > ![Screenshot of Edit network rule collection](media/securing-bot-image-011.png)
 
-
 11.  At this point, you can confirm that your bot is only accessible from a channel in Teams, and that all traffic to and from the bot App Service goes through your firewall.
 
 ## Next steps
@@ -355,7 +346,7 @@ You must have an existing Azure account. If you do not have an Azure subscriptio
 -   [Azure Active Directory IDaaS in Security Operations - Azure Example Scenarios \| Microsoft
     Docs](../aadsec/azure-ad-security.yml)
 
--   [Threat indicators for cyber threat intelligence in Azure Sentinel - Azure Example Scenarios \| Microsoft
+-   [Threat indicators for cyber threat intelligence in Microsoft Sentinel - Azure Example Scenarios \| Microsoft
     Docs](../data/sentinel-threat-intelligence.yml)
 
 -   [Confidential computing on a healthcare platform - Azure Example Scenarios

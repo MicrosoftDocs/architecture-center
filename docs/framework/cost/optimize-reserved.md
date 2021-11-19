@@ -1,6 +1,6 @@
 ---
 title: Reserved instances
-description: Use reserved instances through Azure Reservations to lower cost. With reserved instances, there’s a significant discount when compared to pay-as-you-go pricing.
+description: Use reserved instances through Azure Reservations to lower cost. With reserved instances, there's a significant discount when compared to pay-as-you-go pricing.
 author: PageWriter-MSFT
 ms.date: 05/12/2020
 ms.topic: conceptual
@@ -11,7 +11,7 @@ ms.custom:
 ---
 
 # Reserved instances
-[Azure Reservations](/azure/cost-management-billing/reservations/) are offered on many services as a way to lower cost. You reserve a prepaid capacity for a period, generally one or three years. With reserved instances, there’s a significant discount when compared with pay-as-you-go pricing. You can pay up front or monthly, price wise both are same.
+[Azure Reservations](/azure/cost-management-billing/reservations/) are offered on many services as a way to lower cost. You reserve a prepaid capacity for a period, generally one or three years. With reserved instances, there's a significant discount when compared with pay-as-you-go pricing. You can pay up front or monthly, price wise both are same.
 
 ## Usage pattern
 Before opting for reserved instances, analyze the usage data with pay-as-you-go prices over a time duration.

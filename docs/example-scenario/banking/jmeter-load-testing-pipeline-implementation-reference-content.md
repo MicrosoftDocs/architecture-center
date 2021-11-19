@@ -1,6 +1,5 @@
 
 
-
 This article provides an overview of an implementation for a scalable cloud load testing pipeline. The testing pipeline does a lot to carry out stress testing:
 
 * Creates infrastructure on-demand

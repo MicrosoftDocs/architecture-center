@@ -34,7 +34,6 @@ For information about choosing technologies for each workload, see these article
 
 This article provides cost considerations for some of those choices. This is not meant to be an exhaustive list, but a subset of options.
 
-
 ## Azure Synapse Analytics
 The analytics resources are measured in *Data Warehouse Units (DWUs)*, which tracks CPU, memory, and IO. DWU also indicates the required level of performance. If you need higher performance, add more DWU blocks.
 
@@ -43,8 +42,7 @@ You can provision the resources in one of two service levels.
 - **Compute Optimized Gen1** tracks usage in DWUs and is offered in a pay-as-you-go model.
 - **Compute Optimized Gen2** tracks the compute DWUs (cDWUs) which allows you to scale the compute nodes. This level is intended for intensive workloads with higher query performance and compute scalability. You can choose the pay-as-you-go model or save 37% to 65% by using reserved instances if you can commit to one or three years. For more information, see [Reserved instances](./optimize-vm.md#reserved-vms).
 
-
->![Task](../../_images/i-best-practices.svg) Start with smaller DWUs and measure performance for resource intensive operations, such as heavy data loading or transformation. This will help you determine the number of units you need to increase or decrease. Measure usage during the peak business hours so you can assess the number of concurrent queries and accordingly add units to increase the parallelism. Conversely, measure off-peak usage so that you can pause compute when needed.
+> ![Task](../../_images/i-best-practices.svg) Start with smaller DWUs and measure performance for resource intensive operations, such as heavy data loading or transformation. This will help you determine the number of units you need to increase or decrease. Measure usage during the peak business hours so you can assess the number of concurrent queries and accordingly add units to increase the parallelism. Conversely, measure off-peak usage so that you can pause compute when needed.
 
 In Azure Synapse Analytics, you can import or export data from an external data store, such as Azure Blob Storage and Azure Data Lake Store. Storage and analytics resources aren't included in the price. There is additional bandwidth cost for moving data in and out of the data warehouse.
 
@@ -84,9 +82,7 @@ For more information, see [Azure Databricks Pricing](https://azure.microsoft.com
 
 If you can commit to one or three years, opt for reserved instances, which can save 38% - 59%. For more information, see [Reserved instances](./optimize-vm.md#reserved-vms).
 
->![Task](../../_images/i-best-practices.svg) Turning off the Spark cluster when not in use to prevent unnecessary charges.
-
-
+> ![Task](../../_images/i-best-practices.svg) Turning off the Spark cluster when not in use to prevent unnecessary charges.
 
 #### Reference architecture
 - [Stream processing with Azure Databricks](../../reference-architectures/data/stream-processing-databricks.yml)
@@ -98,7 +94,7 @@ Stream analytics uses *streaming units (SUs)* to measure the amount of compute, 
 
 Stream processing with low latency requires a significant amount of memory. This resource is tracked by the SU% utilization metric. Lower utilization indicates that the workload requires more compute resources. You can set an alert on 80% SU Utilization metric to prevent resource exhaustion.
 
->![Task](../../_images/i-best-practices.svg) To evaluate the number of units you need, process an amount of data that is realistic for your production level workload, observe the SU% Utilization metric, and accordingly adjust the SU value.
+> ![Task](../../_images/i-best-practices.svg) To evaluate the number of units you need, process an amount of data that is realistic for your production level workload, observe the SU% Utilization metric, and accordingly adjust the SU value.
 
 You can create stream processing jobs in Azure Stream Analytics and deploy them to devices running Azure IoT Edge through Azure IoT Hub. The number of devices impacts over all cost. Billing starts when a job is deployed to devices, regardless of the job status (running, failed, stopped).
 
@@ -126,7 +122,6 @@ Each tier offers one or more instances. The main cost drivers are the QPUs and m
 - [The right tier when you need it](/azure/analysis-services/analysis-services-overview)
 - [Monitor server metrics](/azure/analysis-services/analysis-services-monitor)
 - [Azure Analysis Services pricing](https://azure.microsoft.com/pricing/details/analysis-services)
-
 
 #### Reference architecture
 - [Enterprise business intelligence - Azure Reference Architectures](../../reference-architectures/data/enterprise-bi-synapse.yml)

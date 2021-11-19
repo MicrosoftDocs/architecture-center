@@ -43,7 +43,7 @@ A customer testifies to the usefulness of the solution: "We deployed an Azure Da
 
 - [Defender for Endpoint][When your team is two steps ahead, security is innovation] protects organizations from threats across devices, identities, apps, email, data, and cloud workloads.
 
-- [Sentinel][What is Azure Sentinel?] is a cloud-native SIEM and SOAR solution. It uses advanced AI and security analytics to detect, hunt, prevent, and respond to threats across enterprises.
+- [Sentinel](/azure/sentinel/overview) is a cloud-native SIEM and SOAR solution. It uses advanced AI and security analytics to detect, hunt, prevent, and respond to threats across enterprises.
 
 - [Monitor][Azure Monitor] is a software as a service (SaaS) solution that collects and analyzes data on environments and Azure resources. This data includes app telemetry, such as performance metrics and activity logs. Monitor also offers alerting functionality.
 
@@ -85,7 +85,7 @@ Azure Data Explorer indexes data during the storage process, making the data ava
 
 ### Full-scale forensic analysis
 
-Azure Data Explorer, Log Analytics, and Sentinel support cross-service queries. As a result, in a single query, you can reference data that's stored in any of these services. SOC analysts can use the Kusto query language (KQL) to run full-range investigations. You can also use Azure Data Explorer queries in Sentinel for hunting purposes. For more information, see [What's New: Sentinel Hunting supports ADX cross-resource queries][What's New: Azure Sentinel Hunting supports ADX cross-resource queries].
+Azure Data Explorer, Log Analytics, and Sentinel support cross-service queries. As a result, in a single query, you can reference data that's stored in any of these services. SOC analysts can use the Kusto query language (KQL) to run full-range investigations. You can also use Azure Data Explorer queries in Sentinel for hunting purposes. For more information, see [What's New: Sentinel Hunting supports ADX cross-resource queries](https://techcommunity.microsoft.com/t5/microsoft-sentinel-blog/what-s-new-azure-sentinel-hunting-supports-adx-cross-resource/ba-p/2530678).
 
 ### On-demand data caching
 
@@ -151,9 +151,9 @@ To explore the cost of running this solution in your environment, use the [Azure
 - [Integrate Azure Data Explorer for long-term log retention][Integrate Azure Data Explorer for long-term log retention]
 - [Move Your Microsoft Sentinel Logs to Long-Term Storage with Ease][Move Your Microsoft Sentinel Logs to Long-Term Storage with Ease]
 - [Cross-resource query Azure Data Explorer by using Azure Monitor][Cross-resource query Azure Data Explorer by using Azure Monitor]
-- [HOW TO: Configure Microsoft Sentinel data export for long-term storage][HOWTO: Configure Azure Sentinel data export for long-term storage]
+- [HOW TO: Configure Microsoft Sentinel data export for long-term storage](https://www.linkedin.com/pulse/howto-configure-azure-sentinel-data-export-long-term-storage-lauren)
 - [Using Azure Data Explorer for long-term retention of Microsoft Sentinel logs][Using Azure Data Explorer for long term retention of Microsoft Sentinel logs]
-- [What's New: Microsoft Sentinel Hunting supports ADX cross-resource queries][What's New: Azure Sentinel Hunting supports ADX cross-resource queries]
+- [What's New: Microsoft Sentinel Hunting supports ADX cross-resource queries](https://techcommunity.microsoft.com/t5/microsoft-sentinel-blog/what-s-new-azure-sentinel-hunting-supports-adx-cross-resource/ba-p/2530678)
 - [How to stream Microsoft Defender ATP hunting logs in Azure Data Explorer][How to stream Microsoft Defender ATP hunting logs in Azure Data Explorer]
 - [Blog Series: Limitless Advanced Hunting with Azure Data Explorer (ADX)][Blog Series: Limitless Advanced Hunting with Azure Data Explorer (ADX)]
 
@@ -177,7 +177,6 @@ To explore the cost of running this solution in your environment, use the [Azure
 [Event Hubs]: https://azure.microsoft.com/services/event-hubs
 [Export data from Log Analytics into Azure Data Explorer]: /azure/sentinel/store-logs-in-azure-data-explorer?tabs=azure-storage-azure-data-factory#export-data-from-log-analytics-into-azure-data-explorer
 [How to stream Microsoft Defender ATP hunting logs in Azure Data Explorer]: https://techcommunity.microsoft.com/t5/azure-data-explorer/how-to-stream-microsoft-defender-atp-hunting-logs-in-azure-data/ba-p/1427888
-[HOWTO: Configure Azure Sentinel data export for long-term storage]: https://www.linkedin.com/pulse/howto-configure-azure-sentinel-data-export-long-term-storage-lauren
 [Ingest blobs into Azure Data Explorer by subscribing to Event Grid notifications]: /azure/data-explorer/ingest-data-event-grid?tabs=portal-1
 [Ingest data from Event Hubs into Azure Data Explorer]: /azure/data-explorer/ingest-data-event-hub
 [Integrate Azure Data Explorer for long-term log retention]: /azure/sentinel/store-logs-in-azure-data-explorer?tabs=adx-event-hub
@@ -192,6 +191,4 @@ To explore the cost of running this solution in your environment, use the [Azure
 [Visualize data with Azure Data Explorer dashboards(Preview)]: /azure/data-explorer/azure-data-explorer-dashboards
 [Visualize data from Azure Data Explorer in Grafana]: /azure/data-explorer/grafana
 [What is Azure Blob storage?]: /azure/storage/blobs/storage-blobs-overview
-[What is Azure Sentinel?]: /azure/sentinel/overview
-[What's New: Azure Sentinel Hunting supports ADX cross-resource queries]: https://techcommunity.microsoft.com/t5/microsoft-sentinel-blog/what-s-new-azure-sentinel-hunting-supports-adx-cross-resource/ba-p/2530678
 [When your team is two steps ahead, security is innovation]: https://www.microsoft.com/security/business/threat-protection

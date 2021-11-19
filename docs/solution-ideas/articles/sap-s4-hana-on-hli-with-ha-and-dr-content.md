@@ -1,6 +1,6 @@
 [!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
-This solution architecture illustrates how a user request flows through an SAP landscape that's built on high-performance Azure Virtual Machines and an in-memory HANA database, which runs on HANA Large Instances for unparalleled scalability and performance. 
+This solution architecture illustrates how a user request flows through an SAP landscape that's built on high-performance Azure Virtual Machines and an in-memory HANA database, which runs on HANA Large Instances for unparalleled scalability and performance.
 
 ## Potential use cases
 

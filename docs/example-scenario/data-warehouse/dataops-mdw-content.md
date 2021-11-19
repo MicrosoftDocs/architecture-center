@@ -1,6 +1,5 @@
 
 
-
 A modern data warehouse (MDW) lets you easily bring all of your data together at any scale. It doesn't matter if it's  structured, unstructured, or semi-structured data. You can gain insights to an MDW through analytical dashboards, operational reports, or advanced analytics for all your users.
 
 Setting up an MDW environment for both development (dev) and production (prod) environments is complex. Automating the process is key. It helps increase productivity while minimizing the risk of errors.
@@ -170,7 +169,6 @@ The following list summarizes key learnings and best practices demonstrated by t
 ## Next steps
 
 If you'd like to deploy the solution, follow the steps in the [How to use the sample](https://github.com/Azure-Samples/modern-data-warehouse-dataops/tree/master/e2e_samples/parking_sensors#how-to-use-the-sample) section of the **DataOps - Parking Sensor Demo** README.
-
 
 ## Related resources
 

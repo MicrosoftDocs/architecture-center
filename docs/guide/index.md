@@ -21,8 +21,6 @@ The cloud is changing how applications are designed and secured. Instead of mono
 
 These trends bring new challenges. Application states are distributed. Operations are done in parallel and asynchronously. Applications must be resilient when failures occur. Malicious actors continuously target applications. Deployments must be automated and predictable. Monitoring and telemetry are critical for gaining insight into the system. This guide is designed to help you navigate these changes.
 
-<!-- markdownlint-disable MD033 -->
-
 <table>
 <thead>
     <tr><th>Traditional on-premises</th><th>Modern cloud</th></tr>
@@ -33,8 +31,6 @@ These trends bring new challenges. Application states are distributed. Operation
 </td>
 </tbody>
 </table>
-
-<!-- markdownlint-enable MD033 -->
 
 ## How this guidance is structured
 

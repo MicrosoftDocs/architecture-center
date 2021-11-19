@@ -32,7 +32,6 @@ Here is a visual representation of the TDSP lifecycle:
 
 ![TDSP lifecycle](./media/lifecycle/tdsp-lifecycle2.png)
 
-
 ## Goals
 * Determine the optimal data features for the machine-learning model.
 * Create an informative machine-learning model that predicts the target most accurately.
@@ -60,7 +59,7 @@ The process for model training includes the following steps:
    * **Split the input data** randomly for modeling into a training data set and a test data set.
    * **Build the models** by using the training data set.
    * **Evaluate** the training and the test data set. Use a series of competing machine-learning algorithms along with the various associated tuning parameters (known as a *parameter sweep*) that are geared toward answering the question of interest with the current data.
-   * **Determine the “best” solution** to answer the question by comparing the success metrics between alternative methods.
+   * **Determine the "best" solution** to answer the question by comparing the success metrics between alternative methods.
 
 > [!NOTE]
 > **Avoid leakage**: You can cause data leakage if you include data from outside the training data set that allows a model or machine-learning algorithm to make unrealistically good predictions. Leakage is a common reason why data scientists get nervous when they get predictive results that seem too good to be true. These dependencies can be hard to detect. To avoid leakage often requires iterating between building an analysis data set, creating a model, and evaluating the accuracy of the results.

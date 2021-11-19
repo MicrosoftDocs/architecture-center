@@ -1,6 +1,6 @@
 [!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
-Smart group spaces can help people get back to work and play As Soon And Safely As Possible (ASASAP) after COVID-19 shutdowns. Insight's [Connected Platform for Detection and Prevention](https://www.insight.com/en_US/what-we-do/digital-innovation/solutions/connected-platform-for-detection-and-prevention.html) rapidly deploys and manages a flexible, scalable [intelligent edge and cloud](https://azure.microsoft.com/overview/future-of-cloud/) ecosystem that helps detect and prevent COVID-19 infection in large group spaces. 
+Smart group spaces can help people get back to work and play As Soon And Safely As Possible (ASASAP) after COVID-19 shutdowns. Insight's [Connected Platform for Detection and Prevention](https://www.insight.com/en_US/what-we-do/digital-innovation/solutions/connected-platform-for-detection-and-prevention.html) rapidly deploys and manages a flexible, scalable [intelligent edge and cloud](https://azure.microsoft.com/overview/future-of-cloud/) ecosystem that helps detect and prevent COVID-19 infection in large group spaces.
 
 This article describes a Connected Platform solution to help provide COVID-19 detection and prevention at a theme park.
 

@@ -59,7 +59,7 @@ Achieve levels of scale and performance needed for your solution by segregating 
 
 ## Next step
 
->[!div class="nextstepaction"]
->[Monitoring](./monitor-checklist.md)
+> [!div class="nextstepaction"]
+> [Monitoring](./monitor-checklist.md)
 
 > Go back to the main article: [Testing](test-checklist.md)
