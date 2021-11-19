@@ -1896,9 +1896,9 @@ items:
                     href: reference-architectures/containers/aks-pci/aks-pci-summary.yml
               - name: Autonomous-driving simulation
                 href: industries/automotive/building-blocks-autonomous-driving-simulation-environments.yml
-              - name: Building a telehealth system
+              - name: Build a telehealth system
                 href: example-scenario/apps/telehealth-system.yml
-              - name: Building CNCF projects by using AKS
+              - name: Build CNCF projects by using AKS
                 href: example-scenario/apps/build-cncf-incubated-graduated-projects-aks.yml  
               - name: CI/CD pipeline for container-based workloads
                 href: example-scenario/apps/devops-with-aks.yml
