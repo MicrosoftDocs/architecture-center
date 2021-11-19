@@ -21,7 +21,7 @@ The architecture shows the flow of data in a common tier-3 application design. T
 - [Azure Database for PostgreSQL](/azure/postgresql/) - Azure Database for PostgreSQL is a relational database service powered by the PostgreSQL community edition.
 - [Power BI](/power-bi/fundamentals/) - Power BI is a collection of software services, apps, and connectors that work together to turn your unrelated sources of data into coherent, visually immersive, and interactive insights.
 
-## Next Steps
+## Next steps
 
 Learn more about the component technologies:
 
