@@ -96,5 +96,5 @@ To see how pricing differs for your use case, change the variables to match your
 - [Analytics architecture design](../../solution-ideas/articles/analytics-start-here.yml)
 - [Choose an analytical data store in Azure](../../data-guide/technology-choices/analytical-data-stores.md)
 - [Choose a data analytics technology in Azure](../../data-guide/technology-choices/analysis-visualizations-reporting.md)
-- [Many models machine learning (ML) at scale with Azure Machine Learning](many-models-machine-learning-azure-aml.yml).
+- [Many models machine learning (ML) at scale with Azure Machine Learning](many-models-machine-learning-azure-aml.yml)
 - [Batch scoring of Spark models on Azure Databricks](../../reference-architectures/ai/batch-scoring-databricks.yml)
