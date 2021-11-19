@@ -32,7 +32,7 @@ A many models solution requires a different dataset for every model during train
 1. **Real-time scoring:** Azure Kubernetes Service (AKS) can do real-time scoring if needed. Because of the large number of models, they should be loaded on demand, not pre-loaded.
 1. **Results:**
    1. **Predictions:** The batch-scoring pipeline saves predictions to Synapse SQL.
-   1. **Metrics:** PowerBI connects to the model predictions to retrieve and aggregate results for presentation.
+   1. **Metrics:** Power BI connects to the model predictions to retrieve and aggregate results for presentation.
 
 ### Components
 
