@@ -16,7 +16,12 @@ In recent years, the demand for business users capability to consume, transform,
 The worldwide COVID-19 pandemic changed all of this as many regulated industries on-premises data platforms were largely unable to cope with the increased workload coming as a direct result of the pandemic. While these companies are now embracing cloud-based data platforms, they are typically doing so in two extreme ways. Either with highly complex and detailed security requirements or with limited knowledge of security capabilities and practices in cloud. This makes rapid deployment of services and solutions challenging as many security options can be disabled, overlooked or simply ignored, leaving these companies open to regulatory action (e.g., financial penalties) if left unchecked.
 
 The Infrastructure Accelerator pattern is designed to ameliorate this issue by tackling data analysis workloads in regulated industries. This pattern is specifically designed to help ensure the detailed security and privacy requirements of different regulated industries are met by leveraging configurable, template based service deployment automation. All build on Azure managed services to reduce management overhead. Specifically, the pattern focuses on high quality security standards, auditing, monitoring key protection, encryption capabilities, and tight integration with security perimeters (when applicable). You can think about this guidance as Enterprise Ready plug-able infrastructure building block for Data Analytics workloads utilizing Microsoft Best Practices for Landing Zones.
+
 Users of this pattern will have the flexibility to choose which data processing services (e.g., Azure Data Factory, Azure Databricks, Azure Synapse Analytics) they want to use with the comfort of knowing the services will be deployed using both Microsoft best practices for Landing Zones as well as any company specific policy requirements. In short, we believe that all customers from regulated industries will benefit from this pattern and infrastructure deployment accelerator tools.
+
+The goal of this pattern is not to automatically implement a regulated solution but instead give the infrastructure/security teams an easily configurable set of tools to implement a configurable, repeatable baseline for regulated systems for an enterprise. This is because most regulations (e.g., HIPAA) are written in such a way that there is a good deal of interpretation of those regulations that comes along with building a system that meets their requirements. For example, one of the components of a HIPAA compliant system is that all data at rest and in motion needs to be encrypted. While this is easy to interpret for data being transmitted or data on disk, what about data sitting in memory as part of an in-memory database? It could be considered to be at rest if it’s a long running database, but encrypting memory is going to impart significant overhead which makes it infeasible for many use cases.
+
+As a result of these ambiguities, companies working with regulated data (e.g., HIPAA) typically have a security team that develops company specific policies for the use and implementation of systems using regulated data. The enforcement of these policies is usually done using services that audit running services (e.g., Azure Policy) and notify product owners of any violations they find. Finding and fixing these violations can be a time consuming process and may require the re-deployment of a service which is problematic when data/code development has already started, leading to longer development cycles.
 
 Some of the key benefits of this pattern are:
 
@@ -32,6 +37,9 @@ Some of the key benefits of this pattern are:
 - Secure protection of keys and credentials.
 - Designed to support easy customer-based customization
 - No Azure landing zone needed but can integrate seamlessly, including hub-and-spoke network topology.
+
+
+
 
 ## Potential use cases
 
