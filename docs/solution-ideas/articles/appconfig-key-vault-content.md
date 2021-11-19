@@ -18,15 +18,8 @@ The following diagrams show how Azure App Configuration and Azure Key Vault can 
 
 ### Development environment
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-In the development environment, the app leverages an identity through Visual Studio or Azure CLI 2.0 to sign in and send an authentication request to Azure Active Directory (Azure AD). 
-=======
-In the development environment, the app leverages an identity through Visual Studio or Azure CLI 2.0 to sign in and send an authentication request to Azure Active Directory (Azure AD).
->>>>>>> master
-=======
 In the development environment, the app uses an identity via Visual Studio or Azure CLI 2.0 to sign in and send an authentication request to Azure Active Directory (Azure AD).
->>>>>>> 50277ae88735110bba4cbf4a36118f010f831471
+
 
 ![Development environment](../media/appconfig-development.png)
 

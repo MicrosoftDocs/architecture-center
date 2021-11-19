@@ -96,11 +96,7 @@ This solution uses the following components:
 
 ## Related resources
 
-<<<<<<< HEAD
-- [Hybrid Security Monitoring using Microsoft Defender for Cloud and Microsoft Sentinel](/azure/defender-for-cloud/defender-for-cloud-introduction)
-=======
 - [Hybrid security monitoring via Microsoft Defender for Cloud and Microsoft Sentinel](../../hybrid/hybrid-security-monitoring.yml)
->>>>>>> 50277ae88735110bba4cbf4a36118f010f831471
 - [Security considerations for highly sensitive IaaS apps in Azure][Security considerations for highly sensitive IaaS apps in Azure]
 - [Azure Active Directory IDaaS in Security Operations][Azure Active Directory IDaaS in Security Operations]
 
