@@ -10,11 +10,11 @@ The core design concept is using Event Grid to connect data sources and event ha
 ![Architecture Diagram](../media/serverless-application-architectures-using-event-grid.png)
 *Download an [SVG](../media/serverless-application-architectures-using-event-grid.svg) of this architecture.*
 
+### Data flow
 1. A user uploads a photo to a blob storage container.
 2. Blob storage publishes storage object events to Event Grid.
 3. Event Grid triggers an Azure Function based  the event criteria the Function subscribed.  
-4. The function retrieves the photo and runs the image process (e.g., shrink image) on it.
-
+4. The function retrieves the photo and runs the image process (e.g., shrink image) on it. Then it saves the new image to another blob storage container.
 
 
 ### Components
