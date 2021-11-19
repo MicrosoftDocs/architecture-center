@@ -4,9 +4,9 @@ This article describes an alternative approach to data warehouse projects that's
 
 Other scenarios that can benefit from this analytics pattern:
 
-- **Prescriptive analytics**. Ask questions of your data, like _Next Best Action_, or _what do we do next?_ Use data to be more _data-driven_ and less _gut-driven_. The data might be unstructured and from many external sources of varying quality. You might want to use this data as fast as possible to evaluate your business strategy without actually loading the data into a data warehouse. The data might be disposable after you've answered your questions.  
+- **Prescriptive analytics**. Ask questions of your data, like _Next Best Action_, or _what do we do next?_ Use data to be more _data-driven_ and less _gut-driven_. The data might be unstructured and from many external sources of varying quality. You might want to use the data as fast as possible to evaluate your business strategy without actually loading the data into a data warehouse. You might dispose of the data after you answer your questions.  
 
-- **Self-service ETL**. Do ETL/ELT when you do your data sandboxing (EDA) activities. *Transform* data and make it valuable. Doing so can improve the scale of your ETL developers.  
+- **Self-service ETL**. Do ETL/ELT when you do your data sandboxing (EDA) activities. Transform data and make it valuable. Doing so can improve the scale of your ETL developers.  
 
 ## Architecture
 
@@ -31,7 +31,7 @@ You can implement the left side of the diagram (data ingestion) by using any ext
 
 - [Azure Synapse Analytics](https://azure.microsoft.com/services/synapse-analytics) combines data integration, enterprise data warehousing, and big data analytics over lakehouse data. In this solution:
 
-  - An [Azure Synapse workspace](/azure/synapse-analytics/quickstart-create-workspace) promotes collaboration between data engineers, data scientists, data analysts, and business intelligence (BI) professionals for EDA tasks.
+  - An [Azure Synapse workspace](/azure/synapse-analytics/quickstart-create-workspace) promotes collaboration among data engineers, data scientists, data analysts, and business intelligence (BI) professionals for EDA tasks.
   - [Azure Synapse serverless SQL pools](/azure/synapse-analytics/get-started-analyze-sql-on-demand) analyze unstructured and semi-structured data in Azure Data Lake Storage by using an on-demand billing model and standard T-SQL.  
   - [Azure Synapse serverless Apache Spark pools](/azure/synapse-analytics/get-started-analyze-spark) do code-first explorations in Data Lake Storage by using Spark languages like Spark SQL, PySpark, and Scala.
 
@@ -64,7 +64,7 @@ You can do this in another way that focuses first on generating business insight
 
 ![Diagram that describes data sandboxing.](media/exploratory-data-analytics/sandboxing.png)
 
-In the industry, this process is called EDA, or _exploratory data analysis_.  
+In the industry, this process is called *EDA*, or _exploratory data analysis_.  
 
 Here are the steps:
 
