@@ -65,7 +65,7 @@ You might find it beneficial to manage clusters and cluster bootstrapping by usi
 
 ### Components
 #### Azure
-- [Azure Kubernetes Service (AKS)](https://azure.microsoft.com/en-us/services/kubernetes-service). Prodives the managed cluster infrastructure. 
+- [Azure Kubernetes Service (AKS)](https://azure.microsoft.com/services/kubernetes-service). Prodives the managed cluster infrastructure. 
 - [Azure App Service](https://azure.microsoft.com/services/app-service). Used to build the web app and API app.
 
 #### Open-source software (OSS) 
