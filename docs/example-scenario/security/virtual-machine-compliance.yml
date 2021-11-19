@@ -3,9 +3,9 @@ metadata:
   title: Manage virtual machine compliance
   titleSuffix: Azure Example Scenarios
   description: Manage virtual machine compliance without impairing DevOps practices. Use Azure VM Image Builder and Azure Compute Gallery to minimize risk from system images.
-  author: JKirsch1
-  ms.author: v-jenkir
-  ms.date: 11/17/2021
+  author: yemrea
+  ms.author: yemrea
+  ms.date: 11/19/2021
   ms.topic: conceptual
   ms.service: architecture-center
   ms.subservice: example-scenario

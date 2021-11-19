@@ -1,4 +1,4 @@
-Each enterprise has its own compliance regulations and standards. Concerning security, each company has its own risk appetite. Security standards can differ from one organization to another and from one region to another.
+Each enterprise has its own compliance regulations and standards. Regarding security, each company has its own risk appetite. Security standards can differ from one organization to another and from one region to another.
 
 Following differing standards can be more challenging in dynamically scaling cloud environments than in on-premises systems. When teams use DevOps practices, there are usually fewer restrictions on who can create Azure resources like virtual machines (VMs). This fact complicates compliance challenges.
 
@@ -12,10 +12,10 @@ This solution applies to organizations with Azure [landing zones][What is an Azu
 
 - Supplying *golden images* to DevOps teams. A golden image is the published version of a marketplace image.
 - Testing and validating images before making them available to DevOps teams.
-- Tracking which image each DevOps team is using.
+- Tracking which image each DevOps team uses.
 - Enforcing company standards without degrading productivity.
 - Ensuring that DevOps teams use the latest image versions.
-- Managing the compliance of *pet* servers, which are maintenance intensive, and *cattle* servers, which are easily replaceable.
+- Managing the compliance of *pet servers*, which are maintenance intensive, and *cattle servers*, which are easily replaceable.
 
 ## Architecture
 
@@ -51,7 +51,7 @@ The process of tracking VM compliance contains these steps:
 
 - [VM Image Builder][Azure VM Image Builder] is a managed service for customizing system images. This service builds and distributes the images that DevOps teams use.
 
-- [Compute Gallery][Azure Compute Gallery] helps you structure and organize custom images. By storing images in repositories, this service provides a way for people within and outside your organization to use the images.
+- [Compute Gallery][Azure Compute Gallery] helps you structure and organize custom images. By storing images in repositories, this service provides controlled access to the images. Users can be within and outside your organization.
 
 - [Azure Policy][Azure Policy and the policy dashboard] offers policy definitions. You can use these definitions to enforce your organization's standards and to assess compliance at scale. The Azure Policy dashboard displays results from Azure Policy evaluations. This data keeps you informed about the compliance status of your resources.
 
@@ -59,9 +59,9 @@ The process of tracking VM compliance contains these steps:
 
 ### Alternatives
 
-- You can use a third-party tool to manage compliance. But with this type of tool, you usually need to install an agent on the target VM. You also may have to pay a licensing fee for the third-party tool.
+- You can use a third-party tool to manage compliance. But with this type of tool, you usually need to install an agent on the target VM. You also may have to pay a licensing fee.
 
-- You can use [custom script extensions][Custom Script Extensions] for installing software on VMs or configuring VMs after deployment. But each VM or virtual machine scale set can only have one custom script extension. And if you use custom script extensions, you prevent DevOps teams from using any customizations that their applications need.
+- You can use [custom script extensions][Custom Script Extensions] for installing software on VMs or configuring VMs after deployment. But each VM or virtual machine scale set can only have one custom script extension. And if you use custom script extensions, you prevent DevOps teams from customizing their applications.
 
 ## Approach
 
@@ -71,17 +71,17 @@ The following sections provide a detailed description of the solution's approach
 
 DevOps teams use an analogy called pets and cattle to define service models. To track a VM's compliance, first determine whether it's a pet or cattle server:
 
-- Pets require significant attention. They're not easy to dispense. To recover a pet server, you have to invest a considerable amount of time and financial resources. For example, a server that runs SAP might be a pet. Besides the software that runs on the server, other considerations can also determine the service model. If you have a low failure tolerance, production servers in real-time and near real-time systems can also be pets.
-- Cattle servers are part of an identical group. You can replace them easily. For example, VMs that run in a virtual machine scale set are cattle. If there are enough VMs in the set, your system keeps running, and you don't need to know each VM's name. Another example of cattle might be servers a testing environment that meets these conditions:
+- Pets require significant attention. They're not easy to dispense. Recovering a pet server requires investing a considerable amount of time and financial resources. For example, a server that runs SAP might be a pet. Besides the software that runs on the server, other considerations can also determine the service model. If you have a low failure tolerance, production servers in real-time and near real-time systems can also be pets.
+- Cattle servers are part of an identical group. You can replace them easily. For example, VMs that run in a virtual machine scale set are cattle. If there are enough VMs in the set, your system keeps running, and you don't need to know each VM's name. Testing environment servers that meet the following conditions provide another example of cattle:
 
   - You use an automated procedure to create the servers from scratch.
   - After you finish running the tests, you decommission the servers.
 
-An environment might only contain pet servers, or it might only contain cattle servers. In contrast, a set of VMs in an environment could be pets. A different set of VMs in that same environment could be cattle.
+An environment might contain only pet servers, or it might contain only cattle servers. In contrast, a set of VMs in an environment could be pets. A different set of VMs in that same environment could be cattle.
 
 To manage compliance:
 
-- Pet compliance can be more challenging to track than cattle compliance. Usually only DevOps teams can track and maintain the compliance of pet environments and servers. But this article's solution increases the visibility of each pet's status, making it easier for everyone in the organization to track compliance.
+- Pet compliance can be more challenging to track than cattle compliance. Usually, only DevOps teams can track and maintain the compliance of pet environments and servers. But this article's solution increases the visibility of each pet's status, making it easier for everyone in the organization to track compliance.
 - For cattle environments, refresh the VMs and rebuild them from scratch regularly. Those steps should be adequate for compliance. You can align this refresh cycle with your DevOps team's regular release cadence.
 
 ### Restrict images
@@ -190,7 +190,7 @@ Unless you use a third-party service such as Ansible or Terraform, this approach
 
 - Azure Policy and [Azure Policy guest configuration][Azure Policy guest configuration] are free of charge for Azure resources. If your company uses a hybrid approach, there are extra charges for Azure Arc resources.
 - During the public preview period, [VM Image Builder][Azure VM Image Builder - pricing] is using a single compute instance type with 1 vCPU and 3.5 GB of RAM. Charges might apply for data storage and transfer.
-- [Compute Gallery][Azure Shared Image Galleries] has no charges except for:
+- [Compute Gallery][Azure Shared Image Galleries] has no charges except:
 
   - The cost of storing replicas.
   - Network egress charges for replicating images.
