@@ -2743,6 +2743,8 @@ items:
                 href: reference-architectures/ai/end-to-end-smart-factory.yml
               - name: Connected factory Hierarchy Service
                 href: solution-ideas/articles/connected-factory-hierarchy-service.yml
+              - name: Connected factory signal pipeline
+                href: example-scenario/iot/connected-factory-signal-pipeline.yml
               - name: Efficient Docker image deployment
                 href: example-scenario/iot/efficient-docker-image-deployment.yml
               - name: IoT and data analytics
