@@ -4,27 +4,27 @@ Here's the traditional approach to data warehouse projects:
 
 - **Requirements gathering**. Document what you'll do with the data.  
 
-- **Data modeling**. Determine how to model the numeric and attribute data into fact and dimension tables. Traditionally, we do this before we even acquire the new data.
+- **Data modeling**. Determine how to model the numeric and attribute data into fact and dimension tables. Traditionally, you do this before you acquire the new data.
 
 - **ETL**. Acquire the data and massage it into the data warehouse's data model.  
 
-These steps can take weeks or even months. Only then can we begin to query the data and solve the business problem. The user sees value only after the reports are created. The solution architecture usually looks something like this:  
+These steps can take weeks or even months. Only then can you begin to query the data and solve the business problem. The user sees value only after the reports are created. The solution architecture usually looks something like this:  
 
-![Diagram that shows the traditional data warehouse architecture.](media/EDA/legacy.png)
+![Diagram that shows the traditional data warehouse architecture.](media/exploratory-data-analytics/legacy.png)
 
 You can do this in another way that focuses first on generating business insights and then turns to solving the modeling and ETL tasks. The process is similar to data science processes. It looks something like this:
 
-![Diagram that describes data sandboxing.](media/EDA/sandboxing.png)
+![Diagram that describes data sandboxing.](media/exploratory-data-analytics/sandboxing.png)
 
-The industry calls this EDA, or _Exploratory Data Analytics_.  
+In the industry, this process is called EDA, or _exploratory data analysis_.  
 
-Conceptually, here are the steps:
+These are the steps:
 
-- Data acquisition.  We need to determine what data sources we need to ingest into our data lake/sandbox and then bring that data into the `landing` area of our lake.  In Azure we have tools like Azure Data Factory and Azure Logic Apps that can do data ingestion quickly.  
+- **Data acquisition**. You need to determine what data sources you need to ingest into your data lake / sandbox and then bring that data into the landing area of your lake.  Azure provides tools like Azure Data Factory and Azure Logic Apps that can ingest data quickly.  
 
-- Data sandboxing.  Initially, we like to do pair-programming with a business analyst and a technical resource that is skilled in Exploratory Data Analytics using Synapse Serverless or basic SQL.  During this phase, we are trying to uncover the _business insight_ using this new data.  EDA is an iterative process that may require ingesting more data, speaking with SMEs, asking more questions, and generating visualizations.  
+- **Data sandboxing**. Initially, a business analyst and an engineer who's skilled in exploratory data analysis via Synapse serverless or basic SQL work together. During this phase, they're trying to uncover the _business insight_ by using the new data. EDA is an iterative process. You might need to ingest more data, talk with SMEs, ask more questions, or generate visualizations.  
 
-- Evaluation Phase.  When we find the _business insight_, we need to evaluate what to do with that data.  Sometimes we will want to persist that data into the data warehouse (so we will move to our "modeling" phase), in other cases we may decide to keep the data in the data lake/lakehouse and use it for predictive analytics (ML algorithms), and in other cases we may decide to backfill our Systems of Record with the new insights.  Based on these decisions we have a better understanding of what we need to do next.  
+- **Evaluation**. After you find the business insight, you need to evaluate what to do with the data. Sometimes you'll want to persist the data into the data warehouse (so you move to the modeling phase). In other cases, you might decide to keep the data in the data lake / lakehouse and use it for predictive analytics (machine learning algorithms). In still other cases, you might decide to backfill your systems of record with the new insights. Based on these decisions, you can gain a better understanding of what you need to do next.  
 
 These methods are the core of true _Self-Service Analytics_.  Using the data lake and a query tool that understands data lake query patterns like Synapse Serverless, we can put our data assets into the hands of business people that understand a modicum of SQL.  We can radically shorten the time-to-value using this method and remove some of the risk associated with corporate data initiatives.  
 
@@ -42,9 +42,9 @@ Other scenarios that can benefit from this analytics pattern:
 
 ## Architecture
 
-Sample architecture for Exploratory Data Analytics:  
+Sample architecture for exploratory data analysis:  
 
-![Sample EDA Architecture](media/EDA/EDA.png)
+![Sample EDA Architecture](media/exploratory-data-analytics/exploratory-data-analytics.png)
 
 For EDA, we are only concerned with the right side of the picture.  We use Synapse SQL Serverless as the compute engine over the data lake files.  EDA is accomplished using:
 
@@ -67,7 +67,7 @@ Synapse SQL Serverless pools are available on-demand, do not require scaling up/
    - Ad-hoc data science explorations in T-SQL format.
    - Early prototyping for data warehouse entities.
    - Defining views that consumers can use, for example in Power BI, for scenarios that can tolerate performance lag.
-   - Exploratory Data Analytics
+   - Exploratory data analysis
 
 
 ### Alternatives
