@@ -156,19 +156,19 @@ items:
                 href: antipatterns/retry-storm/index.md
               - name: Synchronous I/O
                 href: antipatterns/synchronous-io/index.md
-      - name: Responsible Innovation
+      - name: Responsible innovation
         items:
           - name: Overview
             href: guide/responsible-innovation/index.md
-          - name: Judgment Call
+          - name: Judgment call
             href: guide/responsible-innovation/judgmentcall.md
-          - name: Harms Modeling
+          - name: Harms modeling
             items:
-              - name: Understand Harm
+              - name: Understand harm
                 href: guide/responsible-innovation/harms-modeling/index.md
-              - name: Assess Types of Harm
+              - name: Assess types of harm
                 href: guide/responsible-innovation/harms-modeling/type-of-harm.md
-          - name: Community Jury
+          - name: Community jury
             href: guide/responsible-innovation/community-jury/index.md
       - name: Architecture for startups
         items:
@@ -1720,7 +1720,7 @@ items:
                 href: solution-ideas/articles/real-time-analytics.yml
               - name: Tiering applications & data for analytics
                 href: solution-ideas/articles/tiered-data-for-analytics.yml
-      - name: Blockchain
+      - name: Blockchain + Multiparty Compute
         items:
           - name: Guides
             items:
@@ -1730,6 +1730,8 @@ items:
               - name: Authenticate Confidential Ledger nodes
                 href: /azure/confidential-ledger/authenticate-ledger-nodes
                 maintainContext: true
+              - name: Multiparty computing
+                href: guide/blockchain/multiparty-compute.yml
           - name: Architectures
             items:
               - name: Azure SQL Database ledger
