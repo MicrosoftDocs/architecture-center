@@ -29,7 +29,7 @@ Learn more about the component technologies:
 - [Tutorial: Design an Azure Database for PostgreSQL - Single Server using the Azure portal](/azure/postgresql/tutorial-design-database-using-azure-portal)
 - [Power BI PostgreSQL Database Connector](/power-query/connectors/postgresql)
 
-## Related Resources
+## Related resources
 
 Explore related architectures:
 
