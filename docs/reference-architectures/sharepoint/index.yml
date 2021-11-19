@@ -5,7 +5,7 @@ metadata:
   description: This reference architecture shows proven practices for deploying a highly available SharePoint Server 2016 farm on Azure, using MinRole topology and SQL Server Always On availability groups.
   author: EdPrice-MSFT
   ms.author: pnp
-  ms.date: 06/20/2021
+  ms.date: 11/19/2021
   ms.topic: conceptual
   ms.service: architecture-center
   ms.subservice: reference-architecture

@@ -2,7 +2,7 @@
 title: Application profiling considerations for performance monitoring
 description: Collect instrumentation data from the application and correlated events across the entire stack.
 author: PageWriter-MSFT
-ms.date: 04/28/2021
+ms.date: 11/01/2021
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: well-architected
@@ -84,4 +84,4 @@ If you are using Application Insights to collect instrumentation data, there are
 - [Distributed tracing](../../microservices/logging-monitoring.md#distributed-tracing)
 - [Application Insights](/azure/azure-monitor/app/app-insights-overview)
 - [Azure Monitor](/azure/azure-monitor/overview)
-> [Back to the main article](monitor.md)
+> [Back to the main article](checklist.md)

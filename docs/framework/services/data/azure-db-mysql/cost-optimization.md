@@ -2,7 +2,7 @@
 title: Azure Database for MySQL and cost optimization
 description: Focuses on the Azure Database for MySQL service used in the Data solution to provide best-practice, configuration recommendations, and design considerations related to Cost Optimization.
 author: v-stacywray
-ms.date: 11/15/2021
+ms.date: 11/17/2021
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: well-architected
@@ -49,4 +49,4 @@ Explore the following table of recommendations to optimize your Azure Database f
 |Consider Reserved Capacity for Azure Database for MySQL Single Server.|Compute costs associated with Azure Database For MySQL [Single Server Reservation Discount](/azure/mysql/concept-reserved-pricing). Once you've determined the total compute capacity and performance tier for Azure Database for MySQL in a region, this information can be used to reserve the capacity. The reservation can span one or three years. You can realize significant cost optimization with this commitment.|
 
 > [!div class="nextstepaction"]
-> [Azure Database for PostgreSQL and cost optimization](/framework/services/data/azure-db-postgresql/cost-optimization.md)
+> [Azure Database for PostgreSQL and cost optimization](../azure-db-postgresql/cost-optimization.md)
