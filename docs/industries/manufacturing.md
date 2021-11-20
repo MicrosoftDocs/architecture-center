@@ -24,15 +24,15 @@ categories:
 
 Manufacturing sector, a hallmark of the modern industrialized world, encompasses all steps from procuring raw materials to transforming into final product. Starting from household manufacturing in the pre-industrial era, this sector has evolved through stages such as mechanized assembly lines and automation, every new development adding to faster and more efficient manufacturing processes. Cloud computing can bring forth the next revolution for manufacturing companies by transforming their IT infrastructures and processes from error-prone on-premises to highly available, secure, and efficient cloud, as well as providing cutting edge Internet of Things (IoT), AI/ML, and analytics solutions.
 
-Microsoft Azure holds the promise of the [fourth industrial revolution](https://www.weforum.org/agenda/2016/01/the-fourth-industrial-revolution-what-it-means-and-how-to-respond/) by providing manufacturing solutions that can:
+Microsoft Azure holds the promise of the [fourth industrial revolution](https://www.weforum.org/agenda/2016/01/the-fourth-industrial-revolution-what-it-means-and-how-to-respond/) by providing manufacturing solutions that can do the following:
 
-- help build more agile smart factories with industrial IoT,
-- create more resilient and profitable supply chains,
-- transform your work force productivity,
-- unlock innovation and new business models, and
-- engage with customers in new ways.
+- Help build more agile smart factories with industrial IoT.
+- Create more resilient and profitable supply chains.
+- Transform your work force productivity.
+- Unlock innovation and new business models.
+- Engage with customers in new ways.
 
-To learn how you can modernize your manufacturing business using Azure, visit [Azure for manufacturing](https://azure.microsoft.com/industries/discrete-manufacturing/). For additional resources, see [Microsoft Trusted Cloud for Manufacturing](https://www.microsoft.com/trust-center/manufacturing).
+To learn how you can modernize your manufacturing business using Azure, visit [Azure for manufacturing](https://azure.microsoft.com/industries/discrete-manufacturing/). For more resources, see [Microsoft Trusted Cloud for Manufacturing](https://www.microsoft.com/trust-center/manufacturing).
 
 <br>
 
