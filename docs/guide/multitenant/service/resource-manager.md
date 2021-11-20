@@ -1,7 +1,7 @@
 ---
 title: Azure Resource Manager considerations for multitenancy
 titleSuffix: Azure Architecture Center
-description: This article describes the features of Azure Resource Manager that are useful when working with multitenanted systems, and links to guidance and examples for how to use Azure Resource Manager in a multitenant solution.
+description: This article describes the features of Azure Resource Manager that are useful when you work with multitenanted systems, and it provides links to guidance and examples for how to use Azure Resource Manager in a multitenant solution.
 author: johndowns
 ms.author: jodowns
 ms.date: 11/22/2021
@@ -23,13 +23,13 @@ ms.custom:
 
 # Multitenancy and Azure Resource Manager
 
-Azure Resource Manager is the core resource management service for Azure. Every resource in Azure is created, managed, and eventually deleted through Resource Manager. When you build a multitenant solution, you often work with Resource Manager to dynamically provision resources for each tenant. On this page, we describe some of the features of Resource Manager that are relevant to multitenant solutions, and we'll provide links to guidance that can help you when you're planning to use Resource Manager.
+Azure Resource Manager is the core resource management service for Azure. Every resource in Azure is created, managed, and eventually deleted through Resource Manager. When you build a multitenant solution, you often work with Resource Manager to dynamically provision resources for each tenant. On this page, we describe some of the features of Resource Manager that are relevant to multitenant solutions. We'll also provide links to guidance that can help you when you're planning to use Resource Manager.
 
 ## Features of Resource Manager that support multitenancy
 
 ### Infrastructure as code
 
-Resource Manager provides tooling to support infrastructure as code, sometimes referred to as IaC. Infrastructure as code is important for all solutions in the cloud, but when working with multitenant solutions, it becomes particularly important. A multitenant solution often requires you to scale deployments and quickly provision new resources, as you onboard new tenants. If you manually create or configure resources, then you introduce extra risk and time to the process, and it results in a less reliable deployment process overall.
+Resource Manager provides tooling to support infrastructure as code, sometimes referred to as IaC. Infrastructure as code is important for all solutions in the cloud, but when working with multitenant solutions, it becomes particularly important. A multitenant solution often requires you to scale deployments and quickly provision new resources, as you onboard new tenants. If you manually create or configure resources, then you introduce extra risk and time to the process. It results in a less reliable deployment process overall.
 
 When deploying your infrastructure as code from a deployment pipeline, we recommend you use [Bicep](/azure/azure-resource-manager/bicep), which is a language specifically designed to deploy and manage Azure resources in a declarative way. You can also use [JSON Azure Resource Manager templates](/azure/azure-resource-manager/templates) (ARM templates), Terraform, or other third-party products that access the underlying Resource Manager APIs.
 
