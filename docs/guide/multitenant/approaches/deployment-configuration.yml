@@ -11,14 +11,6 @@ metadata:
 azureCategories:
   - management-and-governance
   - security
-categories:
- - management-and-governance
- - security
-ms.category:
-  - fcp
-ms.custom:
-  - guide
-  - fcp
 products:
   - azure
   - azure-sql-database
