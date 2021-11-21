@@ -2,7 +2,8 @@
 title: Bulkhead pattern
 titleSuffix: Cloud Design Patterns
 description: Isolate elements of an application into pools so that if one fails, the others will continue to function.
-author: dragon119
+author: EdPrice-MSFT
+ms.author: pnp
 ms.date: 03/19/2020
 ms.topic: conceptual
 ms.service: architecture-center
@@ -54,7 +55,7 @@ The next diagram shows multiple clients calling a single service. Each client is
 - When partitioning services into bulkheads, consider deploying them into separate virtual machines, containers, or processes. Containers offer a good balance of resource isolation with fairly low overhead.
 - Services that communicate using asynchronous messages can be isolated through different sets of queues. Each queue can have a dedicated set of instances processing messages on the queue, or a single group of instances using an algorithm to dequeue and dispatch processing.
 - Determine the level of granularity for the bulkheads. For example, if you want to distribute tenants across partitions, you could place each tenant into a separate partition, or put several tenants into one partition.
-- Monitor each partition’s performance and SLA.
+- Monitor each partition's performance and SLA.
 
 ## When to use this pattern
 

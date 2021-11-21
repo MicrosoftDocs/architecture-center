@@ -31,7 +31,7 @@ Open Platform components fall into these categories:
 
 - **Fully included:** Azure Services that you deploy once. You expand these components when you add devices to the solution.
 
-- **Included but needing customization:** Services that the solution deploys. You modify these services to suit your use case. See [Project 15 Open Platform Developer Guide][Project 15 Open Platform Developer Guide] for detailed information on these services. For a high-level view of the services, see [Solution details][Solution details] later in this article.  
+- **Included but needing customization:** Services that the solution deploys. You modify these services to suit your use case. See [Project 15 Open Platform Developer Guide][Project 15 Open Platform Developer Guide] for detailed information on these services. For a high-level view of the services, see [Solution details][Solution details] later in this article.
 
 - **Not included and requiring full customization:** The place where intellectual property resides. Once you deploy the solution to your own Azure account, it's yours to build out. Think of how you use a word processor. The word processor is a tool, and the book you write is yours. The story you publish is yours, and the revenue you generate is yours. With Project 15 Open Platform, the same idea applies. This solution is a tool you use to create your own solutions.
 
@@ -66,12 +66,12 @@ Various Azure services and configurations make up the Project 15 Open Platform:
    - Azure Active Directory (Azure AD) manages users.
    - API Apps and Event Grid manage external data.
    - Azure Digital Twins offers modeling capabilities for optimizing operations.
-   - Azure Defender secures the solution by establishing security policies and access controls.
+   - Microsoft Defender for Cloud secures the solution by establishing security policies and access controls.
    - Azure Notification Hubs and Azure Logic Apps handle notifications.
    - Azure Machine Learning provides AI capabilities for forecasting device behavior.
    - Azure Maps tracks geofencing data to provide location-based services.
 
-## Components
+### Components
 
 - [IoT Hub][IoT Hub] connects devices to Azure cloud resources. With this managed service, you can use queries to filter data that you send to the cloud.
 
@@ -101,7 +101,7 @@ Various Azure services and configurations make up the Project 15 Open Platform:
 
 - [Azure Digital Twins][Azure Digital Twins] creates models of IoT devices and environments. You can use these digital representations to develop better products, optimize operations, minimize costs, and improve customer experiences.
 
-- [Azure Defender][Azure Defender] offers extended detection and response (XDR) capabilities that protect hybrid cloud workloads against threats.
+- [Microsoft Defender for Cloud][Azure Defender] offers extended detection and response (XDR) capabilities that protect hybrid cloud workloads against threats.
 
 - [Notification Hubs][Notification Hubs] provides a push engine that you can use to send notifications to any platform from any back end.
 

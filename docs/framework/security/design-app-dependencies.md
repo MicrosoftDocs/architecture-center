@@ -8,7 +8,7 @@ ms.service: architecture-center
 ms.subservice: well-architected
 products:
   - azure-key-vault
-categories: 
+categories:
   - security
 subject:
   - security
@@ -23,13 +23,13 @@ Security of an application that is hosted in Azure is a shared responsibility be
 
 ## Key points
 > [!div class="checklist"]
->- Don't store secrets in source code or configuration files. Instead, keep them in a secure store, such as Azure App Configuration or Azure Key Vault. 
->- Don't expose detailed error information when handling application exceptions.
->- Don't expose platform-specific information.
->- Store application configuration outside of the application code to update it separately and to have tighter access control.
->- Restrict access to Azure resources that don't meet the security requirements.
->- Validate the security of any open-source code added to your application.
->- Update frameworks and libraries as part of the application lifecycle.
+> - Don't store secrets in source code or configuration files. Instead, keep them in a secure store, such as Azure App Configuration or Azure Key Vault.
+> - Don't expose detailed error information when handling application exceptions.
+> - Don't expose platform-specific information.
+> - Store application configuration outside of the application code to update it separately and to have tighter access control.
+> - Restrict access to Azure resources that don't meet the security requirements.
+> - Validate the security of any open-source code added to your application.
+> - Update frameworks and libraries as part of the application lifecycle.
 
 ## Configuration security
 

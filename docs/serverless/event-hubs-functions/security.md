@@ -1,5 +1,5 @@
 ---
-title: Guidance for securing Azure Functions with Event Hubs
+title: Secure Azure Functions with Event Hubs
 description: Learn how to securely develop and deploy efficient and scalable code that runs on Azure Functions and responds to Event Hubs events.
 author: dbarkol
 ms.author: dabarkol
@@ -18,7 +18,7 @@ ms.custom:
   - guide
 ---
 
-# Securing Azure Functions with Event Hubs
+# Secure Azure Functions with Event Hubs
 
 When configuring access to resources in Azure, you should apply fine-grained control over permissions to resources. Access to these resources should be based on *need to know* and *least privilege* security principles to make sure that clients can only perform the limited set of actions assigned to them.
 
@@ -26,7 +26,7 @@ When configuring access to resources in Azure, you should apply fine-grained con
 
 Authorizing access to Azure Event Hubs resources can be done using the following security constructs:
 
-- **Azure Active Directory:** Azure Active Directory (Azure AD) provides role-based access control (RBAC) for granular control over a client’s access to Event Hubs resources. Based on roles and permissions granted, Azure AD will authorize requests using an OAuth 2.0 access token.
+- **Azure Active Directory:** Azure Active Directory (Azure AD) provides role-based access control (RBAC) for granular control over a client's access to Event Hubs resources. Based on roles and permissions granted, Azure AD will authorize requests using an OAuth 2.0 access token.
 
 - **Shared access signature:** A shared access signature (SAS) offers the ability to protect Event Hubs resources based on authorization rules. You define authorization policies by selecting one or more [policy rules](/azure/event-hubs/authorize-access-shared-access-signature#shared-access-authorization-policies), such as the ability to send messages, listen to messages, and manage the entities in the namespace.
 

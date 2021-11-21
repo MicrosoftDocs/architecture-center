@@ -4,9 +4,10 @@ metadata:
   titleSuffix: Azure Reference Architectures
   description: This architecture shows how to use service endpoints to create secure communications between a front-end app and an API app in a multi-tier environment.
   author: DixitArora-MSFT
-  ms.author: dixitaro 
+  ms.author: dixitaro
   ms.date: 10/14/2021
-  ms.custom: fcp
+  ms.custom:
+    - fcp
   ms.topic: conceptual
   ms.service: architecture-center
   ms.subservice: reference-architecture

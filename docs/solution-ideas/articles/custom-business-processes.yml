@@ -20,13 +20,9 @@ summary: This example demonstrates how you can deploy portals that automate manu
 products:
   - azure-api-management
   - azure-bot-service
-  - azure-cosmos-db
-  - azure-data-factory
-  - azure-data-lake-storage
-  - azure-event-hubs
   - azure-functions
-  - azure-sql-database
-  - azure-storage
+  - power-apps
+  - power-bi
 thumbnailUrl: /azure/architecture/browse/thumbs/custom-business-processes.png
 content: |
    [!include[](custom-business-processes-content.md)]

@@ -1,5 +1,5 @@
 ---
-title: Identify scenarios and plan the analytics process - Team Data Science Process | Azure Machine Learning 
+title: Identify scenarios and plan the analytics process
 description: Identify scenarios and plan for advanced analytics data processing by considering a series of key questions.
 services: machine-learning
 author: marktab
@@ -10,14 +10,16 @@ ms.subservice: team-data-science-process
 ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
-ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
+ms.custom:
+  - previous-author=deguhath
+  - previous-ms.author=deguhath
 products:
   - azure-machine-learning
 categories:
   - ai-machine-learning
 ---
 
-# How to identify scenarios and plan for advanced analytics data processing
+# Identify scenarios and plan for advanced analytics data processing
 
 What resources are required for you to create an environment that can perform advanced analytics processing on a dataset? This article suggests a series of questions to ask that can help identify tasks and resources relevant your scenario.
 
@@ -51,7 +53,7 @@ Is your data local or in the cloud? Possible locations include:
 
 ### What is the Azure destination?
 
-Where does your data need to be for processing or modeling? 
+Where does your data need to be for processing or modeling?
 
 * Azure Blob Storage
 * SQL Azure databases
@@ -65,7 +67,7 @@ Where does your data need to be for processing or modeling?
 For procedures and resources to ingest or load data into a variety of different storage and processing environments, see:
 
 * [Load data into storage environments for analytics](ingest-data.md)
-* [Import your training data into Azure Machine Learning Studio (classic) from various data sources](/azure/machine-learning/classic/import-data)
+* [Import your training data into Machine Learning Studio (classic) from various data sources](/azure/machine-learning/classic/import-data)
 
 ### Does the data need to be moved on a regular schedule or modified during migration?
 
@@ -105,9 +107,9 @@ These questions are key to planning your storage and processing environments. Th
 * Medium: Greater than 2 GB and less than 10 GB
 * Large: Greater than 10 GB
 
-Take the Azure Machine Learning Studio (classic) environment for example:
+Take the Machine Learning Studio (classic) environment for example:
 
-* For a list of the data formats and types supported by Azure Machine Learning Studio, see
+* For a list of the data formats and types supported by Machine Learning Studio (classic), see
   [Data formats and data types supported](/azure/machine-learning/classic/import-data#supported-data-formats-and-data-types) section.
 * For information on the limitations of other Azure services used in the analytics process, see [Azure Subscription and Service Limits, Quotas, and Constraints](/azure/azure-resource-manager/management/azure-subscription-service-limits).
 

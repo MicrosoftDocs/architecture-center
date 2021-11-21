@@ -1,6 +1,3 @@
-
-
-
 [!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
 Enable your team and employees to learn new processes and materials faster, with fewer errors, and greater confidence by providing persistent holographic instructions mapped to precise locations in their physical workspace. Jumpstart employee comprehension with head-up, hands-free experiences using HoloLens devices. And with Azure Spatial Anchors, you can place directions on the procedure's most important objects and return to this content over time.
@@ -10,7 +7,7 @@ Enable your team and employees to learn new processes and materials faster, with
 ![Architecture Diagram](../media/training-and-procedural-guidance-powered-by-mixed-reality.png)
 *Download an [SVG](../media/training-and-procedural-guidance-powered-by-mixed-reality.svg) of this architecture.*
 
-## Data Flow
+### Data flow
 
 1. The user creating the training session authenticates using their Azure Active Directory credentials from HoloLens.
 1. The client application connects to its own web service to create a training session. Metadata about that training session is stored in Azure Cosmos DB.
@@ -23,7 +20,7 @@ Enable your team and employees to learn new processes and materials faster, with
 1. The trainee scans the room to find the anchors indicating the real-world location of each step in the procedure. As soon as one is found, all anchors are retrieved and shown in the app.
 1. The trainee can then retrace the exact steps of the expert who recorded the procedure, and view holographic videos of each step at the right location in the lab.
 
-## Components
+### Components
 
 * [Spatial Anchors](https://azure.microsoft.com/services/spatial-anchors): Create multi-user, spatially aware mixed reality experiences
 * [Azure Active Directory](https://azure.microsoft.com/services/active-directory): Synchronize on-premises directories and enable single sign-on

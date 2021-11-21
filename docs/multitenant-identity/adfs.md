@@ -1,7 +1,7 @@
 ---
 title: Federate with a customer&apos;s AD FS
 description: Learn how a multitenant SaaS application can support authentication by using Active Directory Federation Services, in order to federate with a customer AD FS.
-author: doodlemania2
+author: EdPrice-MSFT
 ms.date: 10/06/2021
 ms.topic: conceptual
 ms.service: architecture-center
@@ -39,7 +39,7 @@ There are three main roles in the trust relation:
 * The customer's AD FS is the [account partner], responsible for authenticating users from the customer's AD, and creating security tokens with user claims.
 * The SaaS provider's AD FS is the [resource partner], which trusts the account partner and receives the user claims.
 * The application is configured as a relying party (RP) in the SaaS provider's AD FS.
-  
+
   ![Federation trust](./images/federation-trust.png)
 
 > [!NOTE]
@@ -203,5 +203,5 @@ The customer must do the following:
 [blog post]: https://www.cloudidentity.com/blog/?p=3343
 [Customizing the AD FS Sign-in Pages]: /previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/dn280950(v=ws.11)
 [sample application]: https://github.com/mspnp/multitenant-saas-guidance
-[client assertion]: ./client-assertion.md
+[client assertion]: /azure/architecture/multitenant-identity/client-certificate
 [active-directory-dotnet-webapp-wsfederation]: https://github.com/Azure-Samples/active-directory-dotnet-webapp-wsfederation

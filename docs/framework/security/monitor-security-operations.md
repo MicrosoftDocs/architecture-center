@@ -10,7 +10,7 @@ products:
   - azure-security-center
   - azure-sentinel
   - azure-monitor
-categories: 
+categories:
   - security
 subject:
   - security
@@ -27,10 +27,11 @@ The responsibility of the security operation team (also known as Security Operat
 
 Here are some general best practices for conducting security operations:
 
-- Follow the NIST Cybersecurity Framework functions as part of operations. 
-    - **Detect** the presence of adversaries in the system. 
-    - **Respond** by quickly investigating whether it's an actual attack or a false alarm. 
-    - **Recover**  and restore the confidentiality, integrity, and availability of the workload during and after an attack.
+- Follow the NIST Cybersecurity Framework functions as part of operations.
+
+  - **Detect** the presence of adversaries in the system.
+  - **Respond** by quickly investigating whether it's an actual attack or a false alarm.
+  - **Recover**  and restore the confidentiality, integrity, and availability of the workload during and after an attack.
 
     For information about the framework, see [NIST Cybersecurity Framework](https://www.nist.gov/cyberframework).
 
@@ -47,32 +48,28 @@ Here are some Azure tools that a SOC team can use investigate and remediate inci
 
 |Tool|Purpose|
 |---|---|
-|[**Azure Sentinel**](/azure/sentinel/overview)|Centralized Security Information and Event Management (SIEM)  to get enterprise-wide visibility into logs.|
-|[**Azure Security Center**](/azure/security-center/security-center-intro)|Alert generation. Use security playbook in response to an alert.|
+|[**Microsoft Sentinel**](/azure/sentinel/overview)|Centralized Security Information and Event Management (SIEM)  to get enterprise-wide visibility into logs.|
+|[**Microsoft Defender for Cloud**](/azure/security-center/security-center-intro)|Alert generation. Use security playbook in response to an alert.|
 |[**Azure Monitor**](/azure/azure-monitor/overview)|Event logs from application and Azure services.|
 |[**Azure Network Security Group (NSG)**](/azure/virtual-network/network-security-groups-overview)|Visibility into network activities.|
 |[**Azure Information Protection**](/azure/information-protection/what-is-information-protection)|Secure email, documents, and sensitive data that you share outside your company.|
 
-Investigation practices should use native tools with deep knowledge of the asset type such as an Endpoint detection and response (EDR) solution, Identity tools, and Azure Sentinel.
+Investigation practices should use native tools with deep knowledge of the asset type such as an Endpoint detection and response (EDR) solution, Identity tools, and Microsoft Sentinel.
 
 For more information about monitoring tools, see [Security monitoring tools in Azure](monitor-tools.md).
 
 ## Assign incident notification contact
 
-Security alerts need to reach the right people in your organization. Establish a 
-designated point of contact to receive Azure incident notifications from Microsoft, and, or Azure 
-Security Center. In most cases, such notifications indicate that your resource is compromised or attacking another customer. This enables your security operations team to rapidly respond to potential security risks and remediate them. 
+Security alerts need to reach the right people in your organization. Establish a  designated point of contact to receive Azure incident notifications from Microsoft, and, or Azure  Defender for Cloud. In most cases, such notifications indicate that your resource is compromised or attacking another customer. This enables your security operations team to rapidly respond to potential security risks and remediate them.
 
-This enables your security operations team to rapidly respond to potential
-security risks and remediate them.
+This enables your security operations team to rapidly respond to potential security risks and remediate them.
 
 Ensure administrator contact information in the Azure enrollment portal includes contact information that will notify security operations directly or rapidly through an internal process.
 
 **Learn more**
 
-To learn more about establishing a designated point of contact to receive Azure incident 
-notifications from Microsoft, reference the following articles:
-  
+To learn more about establishing a designated point of contact to receive Azure incident  notifications from Microsoft, reference the following articles:
+
 - [Update notification settings](/azure/cost-management-billing/manage/ea-portal-administration#update-notification-settings)
 - [Configure email notifications for security alerts](/azure/security-center/security-center-provide-security-contact-details)
 
@@ -86,15 +83,15 @@ Actions executed during an incident and response investigation could impact appl
 
 **Are there tools to help incident responders quickly understand the application and components to do an investigation?**
 ***
-Incident responders are part of a central SecOps team and need to understand security insights of an application. Security playbook in Azure Sentinel can help to understand the security concepts and cover the typical investigation activities.
+Incident responders are part of a central SecOps team and need to understand security insights of an application. Security playbook in Microsoft Sentinel can help to understand the security concepts and cover the typical investigation activities.
 
 ### Suggested action
 
-Consider using Azure Defender (Azure Security Center) to monitor security-related events and get alerted automatically.
+Consider using Microsoft Defender for Cloud to monitor security-related events and get alerted automatically.
 
 **Learn more**
 
-[Security alerts and incidents in Azure Security Center](/azure/security-center/security-center-alerts-overview)
+[Security alerts and incidents in Microsoft Defender for Cloud](/azure/security-center/security-center-alerts-overview)
 
 ## Hybrid enterprise view
 
@@ -106,7 +103,7 @@ Use Azure security detections and controls instead of creating custom features f
 
 Integrating logs from the network devices, and even raw network traffic itself, will provide greater visibility into potential security threats flowing over the wire.
 
-To get a unified view across the enterprise, feed the logs collected through native detections (such as Azure Monitor) into a centralized security information and event management (SIEM) solution like Azure Sentinel. Avoid using generalized log analysis tools and queries. Within Azure Monitor, create Log Analytics Workspace to store logs. You can also review logs and perform queries on log data. These tools can offer high-quality alerts.
+To get a unified view across the enterprise, feed the logs collected through native detections (such as Azure Monitor) into a centralized security information and event management (SIEM) solution like Microsoft Sentinel. Avoid using generalized log analysis tools and queries. Within Azure Monitor, create Log Analytics Workspace to store logs. You can also review logs and perform queries on log data. These tools can offer high-quality alerts.
 
 The modern machine learning-based analytics platforms support ingestion of extremely large amounts of information and can analyze large datasets very quickly. In addition, these solutions can be tuned to significantly reduce false positive alerts.
 
@@ -123,7 +120,7 @@ Integrate network device log information in advanced SIEM solutions or other ana
 
 ### Learn more
 
-[Enable enhanced network visibility](./network-security-containment.md#enable-enhanced-network-visibility)
+[Enable enhanced network visibility](/azure/architecture/framework/security/design-network-segmentation#enable-enhanced-network-visibility)
 
 ## Next steps
 

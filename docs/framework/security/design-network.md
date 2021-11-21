@@ -8,7 +8,7 @@ ms.service: architecture-center
 ms.subservice: well-architected
 products:
   - azure-security-center
-categories: 
+categories:
   - security
 subject:
   - security
@@ -19,7 +19,7 @@ ms.custom:
 
 # Network security
 
-Protect assets by placing controls on network traffic originating in Azure, between on-premises and Azure hosted resources, and traffic to and from Azure. If security measures aren't in place attackers can gain access, for instance, by scanning across public IP ranges. Proper network security controls can provide defense-in-depth elements that help detect, contain, and stop attackers who gain entry into your cloud deployments. 
+Protect assets by placing controls on network traffic originating in Azure, between on-premises and Azure hosted resources, and traffic to and from Azure. If security measures aren't in place attackers can gain access, for instance, by scanning across public IP ranges. Proper network security controls can provide defense-in-depth elements that help detect, contain, and stop attackers who gain entry into your cloud deployments.
 
 ## Checklist
 **How have you secured the network of your workload?**
@@ -27,7 +27,7 @@ Protect assets by placing controls on network traffic originating in Azure, betw
 
 > [!div class="checklist"]
 > - Segment your network footprint and create secure communication paths between segments. Align the network segmentation with overall enterprise segmentation strategy.
-> - Design security controls that identify and allow or deny traffic, access requests, and application communication between segments. 
+> - Design security controls that identify and allow or deny traffic, access requests, and application communication between segments.
 > - Protect all public endpoints with Azure Front Door, Application Gateway, Azure Firewall, Azure DDoS Protection.
 > - Mitigate DDoS attacks with DDoS **Standard** protection for critical workloads.
 > - Prevent direct internet access of virtual machines.
@@ -53,7 +53,6 @@ Here are some reference architectures related to network security:
 - [Windows N-tier application on Azure with SQL Server](../../reference-architectures/n-tier/n-tier-sql-server.yml)
 - [Azure Kubernetes Service (AKS) production baseline](../../reference-architectures/containers/aks/secure-baseline-aks.yml)
 
-
 ## Next steps
 
 We recommend applying as many as of the best practices as early as possible, and then working to retrofit any gaps over time as you mature your security program.
@@ -69,6 +68,5 @@ Combine network controls with application, identity, and other technical control
 - [Data protection](design-storage.md)
 
 Ensure that resource grouping and administrative privileges align to the segmentation model. For more information, see [Administrative account security](design-admins.md).
-
 
 > Go back to the main article: [Security](overview.md)

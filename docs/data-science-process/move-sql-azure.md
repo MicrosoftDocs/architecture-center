@@ -1,5 +1,5 @@
 ---
-title: Move data to an Azure SQL Database - Team Data Science Process
+title: Move data to Azure SQL Database
 description: Move data from flat files (CSV or TSV formats) or from data stored in a SQL Server to an Azure SQL Database.
 services: machine-learning
 author: marktab
@@ -10,13 +10,15 @@ ms.subservice: team-data-science-process
 ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
-ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
+ms.custom:
+  - previous-author=deguhath
+  - previous-ms.author=deguhath
 products:
   - azure-machine-learning
 categories:
   - ai-machine-learning
 ---
-# Move data to an Azure SQL Database for Azure Machine Learning
+# Move data to Azure SQL Database for Azure Machine Learning
 
 This article outlines the options for moving data either from flat files (CSV or TSV formats) or from data stored in SQL Server to an Azure SQL Database. These tasks for moving data to the cloud are part of the Team Data Science Process.
 

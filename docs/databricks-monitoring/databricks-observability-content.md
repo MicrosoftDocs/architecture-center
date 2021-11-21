@@ -8,7 +8,7 @@ This scenario offers guidance for performance tuning. Since the scenario present
 
 Azure Databricks can send this monitoring data to different logging services, such as Azure Log Analytics.
 
-This scenario outlines the ingestion of a large set of data that has been grouped by customer and stored in a GZIP archive file. Detailed logs are unavailable from Azure Databricks outside of the real-time Apache Spark™ user interface, so your team needs a way to store all the data for each customer, and then benchmark and compare. With a large data scenario, it’s important to find an optimal combination executor pool and virtual machine (VM) size for the fastest processing time. For this business scenario, the overall application relies on the speed of ingestion and querying requirements, so that system throughput doesn't degrade unexpectedly with increasing work volume. The scenario must guarantee that the system meets service-level agreements (SLAs) that are established with your customers.
+This scenario outlines the ingestion of a large set of data that has been grouped by customer and stored in a GZIP archive file. Detailed logs are unavailable from Azure Databricks outside of the real-time Apache Spark™ user interface, so your team needs a way to store all the data for each customer, and then benchmark and compare. With a large data scenario, it's important to find an optimal combination executor pool and virtual machine (VM) size for the fastest processing time. For this business scenario, the overall application relies on the speed of ingestion and querying requirements, so that system throughput doesn't degrade unexpectedly with increasing work volume. The scenario must guarantee that the system meets service-level agreements (SLAs) that are established with your customers.
 
 ## Potential use cases
 
@@ -155,7 +155,7 @@ SparkLoggingEvent_CL | where logger_name_s contains "com.microsoft.pnp"
 
 ```kusto
 SparkLoggingEvent_CL
-| where TimeGenerated > ago(7d) 
+| where TimeGenerated > ago(7d)
 | project TimeGenerated, clusterName_s, logger_name_s
 | summarize Count=count() by clusterName_s, logger_name_s, bin(TimeGenerated, 1h)
 ```
@@ -286,7 +286,7 @@ For this scenario, these metrics identified the following observations:
 - In the stage latency chart, writing stages take most of the processing time.
 - In the task latency chart, task latency is stable.
 - In the streaming throughput chart, the output rate is lower than the input rate at some points.
-- In the task’s duration table, there's task variance because of imbalance of customer data.
+- In the task's duration table, there's task variance because of imbalance of customer data.
 - To get optimized performance in the partitioning stage, the number of scaling executors should match the number of partitions.
 - There are tracing errors, such as bad files and bad records.
 

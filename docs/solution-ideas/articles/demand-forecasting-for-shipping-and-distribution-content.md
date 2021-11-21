@@ -40,12 +40,14 @@ See product documentation:
 * [Learn more about Data Factory](/azure/data-factory/data-factory-introduction)
 * [Learn more about Power BI](/power-bi/fundamentals/power-bi-overview)
 
-Read related Azure Architecture Center articles:
-
-* [Demand forecasting and price optimization](./demand-forecasting-price-optimization-marketing.yml)
-* [Demand forecasting with Azure Stream Analytics and Machine Learning](./demand-forecasting.yml)
-
 Learn about:
 
 * [Demand forecasting for shipping and distribution solution](https://gallery.azure.ai/Solution/Demand-Forecasting-for-Shipping-and-Distribution-2) in the Azure AI Gallery
 * [Forecasting best practices](https://github.com/microsoft/forecasting) on GitHub
+
+## Related resources
+
+Read related Azure Architecture Center articles:
+
+* [Demand forecasting and price optimization](./demand-forecasting-price-optimization-marketing.yml)
+* [Demand forecasting with Azure Stream Analytics and Machine Learning](./demand-forecasting.yml)

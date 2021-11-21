@@ -59,7 +59,7 @@ For additional security, you can use a client certificate instead of a client se
 ```
 
 > [!NOTE]
-> For more information, see [Using certificates with Microsoft.Identity.Web](https://github.com/AzureAD/microsoft-identity-web/wiki/Using-certificates). 
+> For more information, see [Using certificates with Microsoft.Identity.Web](https://github.com/AzureAD/microsoft-identity-web/wiki/Using-certificates).
 
 [**Next**](./adfs.md)
 

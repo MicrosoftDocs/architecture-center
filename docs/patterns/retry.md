@@ -1,8 +1,9 @@
 ---
 title: Retry pattern
 titleSuffix: Cloud Design Patterns
-description: Learn how to use the Retry pattern to enable an application to handle anticipated, temporary failures when it tries to connect to a service or network resource.
-author: dragon119
+description: Learn how to use the Retry pattern to enable an application to handle anticipated, temporary failures when the app tries to connect to a service or network resource.
+author: EdPrice-MSFT
+ms.author: pnp
 ms.date: 06/23/2017
 ms.topic: conceptual
 ms.service: architecture-center

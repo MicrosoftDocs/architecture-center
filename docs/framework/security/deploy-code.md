@@ -1,6 +1,6 @@
 ---
 title: Code deployment security considerations in Azure
-description: Security strategy for automated deployment pipelines. 
+description: Security strategy for automated deployment pipelines.
 author: PageWriter-MSFT
 ms.date: 03/26/2021
 ms.topic: conceptual
@@ -10,7 +10,7 @@ products:
   - azure-devops
 categories:
   - security
-subject: 
+subject:
   - security
 ---
 
@@ -18,8 +18,7 @@ subject:
 
 The automated build and release pipelines should update a workload to a new version seamlessly without breaking dependencies. Augment the automation with processes that allow high priority fixes to get deployed quickly.
 
-Organizations should leverage existing guidance and automation when securing applications in the cloud, rather than starting from zero.
-Using resources and lessons learned by external organizations that are early adopters of these models can accelerate the improvement of an organizations security posture with less expenditure of effort and resources.
+Organizations should leverage existing guidance and automation when securing applications in the cloud, rather than starting from zero. Using resources and lessons learned by external organizations that are early adopters of these models can accelerate the improvement of an organizations security posture with less expenditure of effort and resources.
 
 ## Key points
 
@@ -37,7 +36,7 @@ If something goes wrong, the pipeline should roll back to a previous working ver
 
 Because security updates are a high priority, design a pipeline that supports regular updates and critical security fixes.
 
-A release is typically associated with approval processes with multiple sign-offs, quality gates, and so on. If the workload deployment is small with minimal approvals, you can usually use the same process and pipeline to release a security fix.  
+A release is typically associated with approval processes with multiple sign-offs, quality gates, and so on. If the workload deployment is small with minimal approvals, you can usually use the same process and pipeline to release a security fix.
 
 An approval process that is complex and takes a significant amount of time can delay a fix. Consider building an emergency process to accelerate high priority fixes. The process might be business and, or communication process between teams. Another way is to build a pipeline that might not include all the gated approvals, but should be able to push out the fix quickly. The pipeline should allow for quick roll-forward and rollback deployments that address security fixes, critical bugs, and code updates outside of the regular deployment life cycle.
 
@@ -62,7 +61,7 @@ Credentials, keys, and certificates grant access to the data or service used by 
 ***
 To prevent credentials from being stored in the source code or configuration files, integrate code scanning tools within the CI/CD pipeline:
 
-- During design time, use code analyzers to prevent credentials from getting pushed to the source code repository. For example, .NET Compiler Platform (Roslyn) Analyzers inspect your C# or Visual Basic code. 
+- During design time, use code analyzers to prevent credentials from getting pushed to the source code repository. For example, .NET Compiler Platform (Roslyn) Analyzers inspect your C# or Visual Basic code.
 - During the build process, use pipeline add-ons to catch credentials in the source code. Some options include [GitHub Advanced Security](https://docs.github.com/en/github/getting-started-with-github/about-github-advanced-security) and [OWASP source code analysis tools](https://owasp.org/www-community/Source_Code_Analysis_Tools).
 - Scan all dependencies, such as third-party libraries and framework components, as part of the CI process. Investigate vulnerable components that are flagged by the tool. Combine this task with other code scanning tasks that inspect code churn, test results, and coverage.
 - Use a combination of dynamic application security testing (DAST) and static application security testing (SAST). DAST tests the application while its in use. SAST scans the source code and detects vulnerabilities based on its design or implementation. Some technology options are provided by OWASP. For more information, see [SAST Tools](https://owasp.org/www-community/Source_Code_Analysis_Tools) and [Vulnerability Scanning Tools](https://owasp.org/www-community/Vulnerability_Scanning_Tools).
@@ -82,6 +81,5 @@ Incorporate Secure DevOps on Azure toolkit and the guidance published by the Org
 - [OWASP source code analysis tools](https://owasp.org/www-community/Source_Code_Analysis_Tools)
 - [GitHub Advanced Security](https://docs.github.com/en/github/getting-started-with-github/about-github-advanced-security)
 - [Vulnerability Scanning Tools](https://owasp.org/www-community/Vulnerability_Scanning_Tools)
-
 
 > Go back to the main article: [Secure deployment and testing in Azure](deploy.md)

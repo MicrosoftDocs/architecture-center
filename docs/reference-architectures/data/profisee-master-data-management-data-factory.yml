@@ -17,15 +17,7 @@ azureCategories:
 products:
   - azure-data-factory
   - azure-databricks
-  - azure-devops-tool-integrations
-  - azure-kubernetes-service
-  - azure-machine-learning
-  - azure-sql-database
-  - azure-sql-managed-instance
-  - azure-synapse-analytics
-  - power-bi
   - azure-data-lake
-  - azure-active-directory
 name: Master data management with Profisee and Azure Data Factory
 summary: Integrate Profisee master data management with Azure Data Factory to deliver high-quality, trusted data for Azure Synapse, and all analytic applications.
 thumbnailUrl: /azure/architecture/browse/thumbs/profisee-master-data-management-data-factory.png

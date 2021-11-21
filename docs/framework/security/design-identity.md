@@ -61,8 +61,7 @@ Here are some reference architectures related to identity and access management:
 
 ## Next steps
 
-Monitor the communication between segments. Use data to identify anomalies, set alerts, or block traffic to mitigate the risk of attackers crossing segmentation boundaries. 
-
+Monitor the communication between segments. Use data to identify anomalies, set alerts, or block traffic to mitigate the risk of attackers crossing segmentation boundaries.
 
 > [!div class="nextstepaction"]
 > [Network-related risks](./design-network.md)

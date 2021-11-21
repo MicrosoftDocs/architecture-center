@@ -14,10 +14,10 @@ ms.custom:
 
 In the cloud, we acknowledge up front that failures will happen. Instead of trying to prevent failures altogether, the goal is to minimize the effects of a single failing component. While historically you may have purchased levels of redundant higher-end hardware to minimize the chance of an entire application platform failing, in the cloud, we acknowledge up front that failures will happen.
 
-For hybrid scenarios, Azure offers an end-to-end backup and disaster recovery solution that’s simple, secure, scalable, and cost-effective, and can be integrated with on-premises data protection solutions. In the case of service disruption or accidental deletion or corruption of data, recover your business services in a timely and orchestrated manner.
+For hybrid scenarios, Azure offers an end-to-end backup and disaster recovery solution that's simple, secure, scalable, and cost-effective, and can be integrated with on-premises data protection solutions. In the case of service disruption or accidental deletion or corruption of data, recover your business services in a timely and orchestrated manner.
 
 Many customers operate a second datacenter, however, Azure can help reduce the costs of deploying, monitoring, patching, and scaling on-premises disaster recovery infrastructure, without the need to manage backup resources or build a secondary datacenter.
- 
+
 Extend your current backup solution to Azure, or easily configure our application-aware replication and application-consistent backup that scales based on your business needs. The centralized management interface for Azure Backup and Azure Site Recovery makes it simple to define policies to natively protect, monitor, and manage enterprise workloads across hybrid and cloud. These include:
 
 - Azure Virtual Machines
@@ -27,7 +27,7 @@ Extend your current backup solution to Azure, or easily configure our applicatio
 
 > [!NOTE]
 > By not having to build on-premises solutions or maintain a costly secondary datacenter, customers can reduce the cost of deploying, monitoring, patching, and scaling disaster recovery infrastructure by backing up their hybrid data and applications with Azure.
- 
+
 ## Backup and Recovery
 
 Together, Azure Backup and Azure Site Recovery use the underlying power and unlimited scale of the cloud to deliver high availability with minimal maintenance or monitoring overhead. These native capabilities are available through a pay-as-you-use model that bills only for the storage that is consumed.
@@ -70,5 +70,5 @@ Azure Stack HCI provides multiple levels of resiliency, but because of its hyper
 
 ## Next steps
 
->[!div class="nextstepaction"]
->[Security](./hybrid-security.md)
+> [!div class="nextstepaction"]
+> [Security](./hybrid-security.md)

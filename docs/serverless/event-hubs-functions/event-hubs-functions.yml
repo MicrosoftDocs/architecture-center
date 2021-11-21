@@ -1,6 +1,6 @@
 ### YamlMime:Architecture
 metadata:
-  title: Event Hubs with Azure Functions guide
+  title: Event Hubs with Azure Functions
   titleSuffix: Azure Example Scenarios
   description: Learn how to architect, develop, and deploy efficient and scalable code that runs on Azure Functions and responds to Event Hubs events.
   author: dbarkol
@@ -10,7 +10,7 @@ metadata:
   ms.service: architecture-center
   ms.subservice: azure-guide
   ms.custom:
-  - guide
+    - guide
 azureCategories:
   - compute
   - integration

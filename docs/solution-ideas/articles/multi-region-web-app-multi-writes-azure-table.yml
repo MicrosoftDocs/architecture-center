@@ -1,8 +1,8 @@
 ### YamlMime:Architecture
 metadata:
   title: Multi-region web application with custom Storage Table replication
-  titleSuffix: Azure Solution Ideas
-  description: Architecture for a high-availability solution that handles massive amounts of data. It uses Azure Table Storage and serves multiple regions. 
+  titleSuffix: Azure Architecture
+  description: Architecture for a high-availability solution that handles massive amounts of data. It uses Azure Table Storage and serves multiple regions.
   author: nabilshams
   ms.author: nasiddi
   ms.date: 09/14/2021

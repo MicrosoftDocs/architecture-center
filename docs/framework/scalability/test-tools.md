@@ -6,6 +6,10 @@ ms.date: 12/02/2020
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: well-architected
+products:
+  - devops
+categories:
+  - management-and-governance
 ms.custom:
   - How are you handling user load?
   - article
@@ -21,7 +25,7 @@ Testing can be automated or manual. Automating tests is the best way to make sur
 
 Knowing where you are (baseline) and where you want to be (goal) makes it easier to plan how to get there. Established baselines and goals will help you to stay on track and measure progress. Testing may also uncover a need to perform additional testing on areas that you may not have planned.
 
-Baselines can vary based on connections or platforms that a user may leverage for accessing the application. It may be important to establish baselines that address the different connections, platforms, and elements such as time of day, or weekday versus weekend.
+Baselines can vary based on connections or platforms used to accessing the application. It may be important to establish baselines that address the different connections, platforms, and elements such as time of day, or weekday versus weekend.
 
 There are many types of goals when determining baselines for application performance. Some examples are, the time it takes to render a page, or a desired number of transactions if your site conducts e-commerce. The following list shows some examples of questions that may help you to determine goals.
 
@@ -43,7 +47,7 @@ To learn more about how to use caching as a solution in testing, see [Caching](.
 
 ### Use Azure Redis to cache data
 
-Azure Cache for Redis is a caching service that can be accessed from any Azure application, whether the application is implemented as a cloud service, a website, or inside an Azure virtual machine. Caches can be shared by client applications that have the appropriate access key. It is a high-performance caching solution that provides availability, scalability, and security. 
+Azure Cache for Redis is a caching service that can be accessed from any Azure application, whether the application is implemented as a cloud service, a website, or inside an Azure virtual machine. Caches can be shared by client applications that have the appropriate access key. It is a high-performance caching solution that provides availability, scalability, and security.
 
 To learn more about using Azure Cache for Redis, see [Considerations for implementing caching in Azure](../../best-practices/caching.md#considerations-for-implementing-caching-in-azure).
 
@@ -57,7 +61,7 @@ To learn more about CDNs, see [Best practices for using content delivery network
 
 ## Benchmark testing
 
-Benchmarking is the process of simulating different workloads on your application and measuring application performance for each workload. It is the best way to figure out what resources you will need to host your application. Use performance indicators to assess whether your application is performing as expected or not. Take into consideration [VM sizes](/azure/virtual-machines/premium-storage-performance#high-scale-vm-sizes) and [disk sizes](/azure/virtual-machines/premium-storage-performance#premium-storage-disk-sizes). 
+Benchmarking is the process of simulating different workloads on your application and measuring application performance for each workload. It is the best way to figure out what resources you will need to host your application. Use performance indicators to assess whether your application is performing as expected or not. Take into consideration [VM sizes](/azure/virtual-machines/premium-storage-performance#high-scale-vm-sizes) and [disk sizes](/azure/virtual-machines/premium-storage-performance#premium-storage-disk-sizes).
 
 See the [Optimize IOPS, throughput, and latency](/azure/virtual-machines/premium-storage-performance#optimize-iops-throughput-and-latency-at-a-glance) table for guidance.
 
@@ -73,5 +77,5 @@ For a list of Azure metrics, see [Supported metrics with Azure Monitor](/azure/a
 
 ## Next steps
 
->[!div class="nextstepaction"]
->[Performance monitoring](./monitor.md)
+> [!div class="nextstepaction"]
+> [Performance monitoring](./checklist.md)

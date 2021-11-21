@@ -46,7 +46,7 @@ A good Azure IP addressing schema provides flexibility, room for growth, and int
 **How do you isolate and protect traffic within the workload VNet?**
 ***
 To secure communication within a VNet, set rules that inspect traffic. Then, *allow* or *deny* traffic to, or from specific sources, and route them to the specified destinations.
->![Task](../../_images/i-best-practices.svg) Review the rule set and confirm that the required services are not unintentionally blocked.
+> ![Task](../../_images/i-best-practices.svg) Review the rule set and confirm that the required services are not unintentionally blocked.
 
 For traffic between subnets, the recommended way is through [Network Security Groups (NSG)](/azure/virtual-network/security-overview). Define rules on each NSG that checks traffic to and from single IP address, multiple IP addresses, or entire subnets.
 
@@ -59,7 +59,7 @@ Another way is to use network virtual appliances (NVAs) that check inbound (ingr
 
 Use User Defined Routes (UDR) to control the next hop for traffic between Azure, on-premises, and internet resources. The routes can be applied to virtual appliance, virtual network gateway, virtual network, or internet.
 
-For example, you need to inspect all ingress traffic from a public load balancer. One way is to host an NVA in a subnet that allows traffic only if certain criteria is met. That traffic is sent to the subnet that hosts an internal load balancer that routes that traffic to the backend services.  
+For example, you need to inspect all ingress traffic from a public load balancer. One way is to host an NVA in a subnet that allows traffic only if certain criteria is met. That traffic is sent to the subnet that hosts an internal load balancer that routes that traffic to the backend services.
 
 You can also use NVAs for egress traffic. For instance, all workload traffic is routed by using UDR to another subnet. That subnet has an internal load balancer that distributes requests to the NVA (or a set of NVAs). These NVAs direct traffic to the internet using their individual public IP addresses.
 
@@ -98,7 +98,7 @@ Use NSG or consider using Azure Firewall to protect and control traffic within t
 ### Learn more
 
 - [Azure firewall documentation](/azure/firewall/)
-- [Design virtual network subnet security](./network-security-containment.md#design-virtual-network-subnet-security)
+- [Design virtual network subnet security](/azure/architecture/framework/security/design-network-segmentation#design-virtual-network-subnet-security)
 - [Design an IP addressing schema for your Azure deployment](/learn/modules/design-ip-addressing-for-azure/)
 - [Network security groups](/azure/virtual-network/network-security-groups-overview)
 
@@ -112,7 +112,7 @@ Internet edge traffic (also called _North-South traffic_) represents network con
 
 Azure provides networking solutions to restrict access to individual services. Use multiple levels of security, such as combination of IP filtering, firewall rules to prevent application services from being accessed by unauthorized actors.
 
-- Network virtual appliances (NVAs). You can use Azure Firewall or third-party solutions available in Azure Marketplace.  
+- Network virtual appliances (NVAs). You can use Azure Firewall or third-party solutions available in Azure Marketplace.
 
 Azure security features are sufficient for common attacks, easy to configure, and scale. Third-party solutions often have advanced features but they can be hard to configure if they don't integrate well with fabric controllers. From a cost perspective, Azure options tend to be cheaper than partner solutions.
 

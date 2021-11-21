@@ -12,7 +12,7 @@ Using [Azure IoT Hub](https://azure.microsoft.com/services/iot-hub/) and other A
 
 ## Architecture
 
-![Diagram that shows an overview of the organization of a Safe Building as described in this article.](../media/safe-building-arch-design.png)
+![Diagram that shows an overview of the organization of a Safe Building as described in this article.](../media/safe-building-arch-design.svg)
 
 1. Different devices collect data: thermal imaging cameras, LIDAR sensors, occupancy sensors, smart watches with hygiene apps, IR sensors, and air quality and temperature sensors. That data flows into the building's IoT Edge server.
 
@@ -23,7 +23,7 @@ Using [Azure IoT Hub](https://azure.microsoft.com/services/iot-hub/) and other A
 1. AKS routes the data so Azure Stream Analytics and Azure Databricks can analyze and enrich it.
 
 1. **Safe Buildings** sends the processed data to various data stores:
- 
+
     * Data Lake - Azure Data Lake Storage
 
     * Time Insight - Azure Cosmos DB and Azure Database for PostgreSQL
@@ -42,7 +42,7 @@ Using [Azure IoT Hub](https://azure.microsoft.com/services/iot-hub/) and other A
 
     * Command and Control - AKS passes the data from the Platform Service to Azure Functions.
 
-## Components
+### Components
 
 * [Azure IoT Edge](https://azure.microsoft.com/services/iot-edge/) allows you to deploy your cloud workloads to run on Internet of Things (IoT) edge devices via standard containers. Workloads like artificial intelligence, Azure and third-party services, or your own business logic.
 
@@ -60,7 +60,7 @@ Using [Azure IoT Hub](https://azure.microsoft.com/services/iot-hub/) and other A
 
 * [Azure Database for PostgreSQL](https://azure.microsoft.com/services/postgresql/) - Focus on application innovation, not database management, with fully managed and intelligent Azure Database for PostgreSQL.
 
-* [Azure SQL Database](https://azure.microsoft.com/services/sql-database/) - The intelligent, scalable, relational database service built for the cloud. It’s evergreen and always up to date, with AI-powered and automated features that optimize performance and durability for you.
+* [Azure SQL Database](https://azure.microsoft.com/services/sql-database/) - The intelligent, scalable, relational database service built for the cloud. It's evergreen and always up to date, with AI-powered and automated features that optimize performance and durability for you.
 
 * [Azure Cache for Redis](https://azure.microsoft.com/services/cache/) - Fully managed, open source–compatible in-memory data store to power fast, scalable applications.
 

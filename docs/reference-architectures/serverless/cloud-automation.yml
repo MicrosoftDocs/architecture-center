@@ -19,7 +19,6 @@ azureCategories:
   - devops
 summary: This article is presents guidance for implementing cloud automation using serverless technologies.
 products:
-  - azure-active-directory
   - azure-event-grid
   - azure-functions
   - azure-logic-apps

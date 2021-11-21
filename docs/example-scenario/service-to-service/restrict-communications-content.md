@@ -28,9 +28,9 @@ Service B uses one of the following methods to ensure that only specifically all
 - **Validate the token appid claim**. Service B can validate the token [appid][accesstokenclaims] claim, which identifies which Azure AD-registered application requested the token. Service B explicitly checks the claim against a known access control caller list.
 - **Check for roles in the token**. Similarly, Service B can check for a certain [roles][accesstokenclaims] claim in the incoming token, to ensure that Service A has explicit access permissions.
 - **Require user assignment**. Alternatively, the Service B owner or admin can configure Azure AD to require *user assignment*, so only applications that have explicit permissions to the Service B application can get a token toward Service B. Service B then doesn't need to check for specific roles, unless business logic requires it.
-   
+
    To set up a user assignment requirement to access Service B:
-   
+
    1. In Azure AD, [enable user assignment][userassignment] on Service B.
    1. [Expose at least one app role][exposeapprole] on Service B that Service A can ask permission for. The **AllowedMemberTypes** for this role must include `Application`.
    1. [Request app permission][configurepermission] for Service A to the exposed Service B role.

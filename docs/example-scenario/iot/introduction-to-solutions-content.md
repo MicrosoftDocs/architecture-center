@@ -1,11 +1,10 @@
 
 
+Connected sensors, devices, and intelligent operations can transform businesses and enable new growth opportunities with [Azure Internet of Things (IoT)](https://azure.microsoft.com/overview/iot/) solutions. This content complements existing [Azure IoT documentation](/azure/iot-fundamentals) with concepts and patterns to consider when designing and developing IoT solutions.
 
-Connected sensors, devices, and intelligent operations can transform businesses and enable new growth opportunities with [Azure Internet of Things (IoT)](https://azure.microsoft.com/overview/iot/) solutions. This content complements existing [Azure IoT documentation](/azure/iot-fundamentals) with concepts and patterns to consider when designing and developing IoT solutions.
+Azure *IoT solutions* involve *events* that generate *insights* to inform *actions* that improve a business or process. IoT solutions use events, insights, and actions to connect devices, or things, to cloud applications and achieve end-to-end scenarios. The terms *thing* and *device* both mean a connected physical device in an IoT solution.
 
-Azure *IoT solutions* involve *events* that generate *insights* to inform *actions* that improve a business or process. IoT solutions use events, insights, and actions to connect devices, or things, to cloud applications and achieve end-to-end scenarios. The terms *thing* and *device* both mean a connected physical device in an IoT solution.
-
-![A diagram showing devices generating events, which inform insights and actions.](media/devices-events-insights.svg) 
+![A diagram showing devices generating events, which inform insights and actions.](media/devices-events-insights.svg)
 
 Events, insights, and actions are functional concepts that exist across the [devices, platform, and applications](devices-platform-application.yml) of an IoT solution. To illustrate, consider an application that monitors cooling system temperatures for food storage, and calls emergency maintenance services if a temperature becomes dangerously low or high:
 
@@ -15,7 +14,7 @@ The cooling system sends operating temperatures as telemetry to a connected appl
 
 The following process occurs in this example:
 
-1. **Devices send events.** Devices send temperature samples from the primary cooling system to the application's IoT Hub, via device-to-cloud events, every 30 seconds. 
+1. **Devices send events.** Devices send temperature samples from the primary cooling system to the application's IoT Hub, via device-to-cloud events, every 30 seconds.
 2. **Events generate insights.** Routing rules in the IoT Hub evaluate events for any immediate contextual insights, such as temperatures at malfunctioning levels.
 3. **Insights inform actions.** If the temperature is at a malfunctioning level, event routing sends the event to a specific handler to take action. The handler invokes an action to another process to dispatch maintenance to the site, and sends a command to the backup system to start while maintenance is enroute to the location.
 

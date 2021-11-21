@@ -1,6 +1,3 @@
-
-
-
 Digital forensics is a science that addresses the recovery and investigation of digital data to support criminal investigations or civil proceedings. Computer forensics is a branch of digital forensics that captures and analyzes data from computers, virtual machines (VMs), and digital storage media.
 
 Companies must guarantee that digital evidence they provide in response to legal requests demonstrates a valid *Chain of Custody* (CoC) throughout the evidence acquisition, preservation, and access process. To ensure a valid CoC, digital evidence storage must demonstrate adequate access control, data protection and integrity, monitoring and alerting, and logging and auditing.
@@ -18,7 +15,7 @@ This standard Azure *hub-spoke* architecture deploys VMs on the **Production** s
 
 The SOC team has exclusive access to a different Azure **SOC** subscription, for resources that must be kept protected, unviolated, and monitored. The [Azure Storage](/azure/storage/common/storage-introduction) account in the SOC subscription hosts copies of disk snapshots in [immutable Blob storage](/azure/storage/blobs/storage-blob-immutable-storage), and keeps the snapshots' SHA-256 hash values and copies of the VMs' BEKs and KEKs in its own SOC key vault.
 
-In response to a request to capture a VM's digital evidence, an SOC team member signs in to the Azure SOC subscription, and uses a [Hybrid Runbook Worker](/azure/automation/automation-hybrid-runbook-worker) VM in [Azure Automation](/azure/automation/automation-intro) to execute the **Copy-VmDigitalEvidence** runbook. The Hybrid Runbook Worker provides control of all mechanisms involved in the capture.
+In response to a request to capture a VM's digital evidence, a SOC team member signs in to the Azure SOC subscription, and uses a [Hybrid Runbook Worker](/azure/automation/automation-hybrid-runbook-worker) VM in [Azure Automation](/azure/automation/automation-intro) to execute the **Copy-VmDigitalEvidence** runbook. The Hybrid Runbook Worker provides control of all mechanisms involved in the capture.
 
 The Copy-VmDigitalEvidence runbook:
 
@@ -34,6 +31,8 @@ The Copy-VmDigitalEvidence runbook:
 The Storage account in the SOC subscription hosts the disk snapshots in a container configured as Azure immutable Blob storage. Immutable Blob storage stores business-critical data objects in a *Write Once, Read Many* (WORM) state, which makes the data non-erasable and non-modifiable for a user-specified interval. [Secure transfer](/azure/storage/common/storage-require-secure-transfer) must be enabled on the Storage account.
 
 The Storage account also hosts an [Azure file share](/azure/storage/files/storage-how-to-create-file-share?tabs=azure-portal) to use as a temporary repository for calculating the snapshot's SHA-256 hash value.
+
+For better [performance](/azure/storage/files/storage-files-scale-targets#azure-file-share-scale-targets) you can choose a Standard Storage Account, with the ["large file share" feature enabled](/azure/storage/files/storage-how-to-create-file-share?tabs=azure-portal#enable-large-files-shares-on-an-existing-account), or a Premium Storage Account.
 
 ### Azure Key Vault
 
@@ -56,6 +55,8 @@ The Hybrid Runbook Worker must have a managed identity or a Service Principal in
 - Access policy to **Get Secret** for the BEK, and **Get Key** for the KEK if present, on the target VM's key vault
 - Access policy to **Set Secret** for the BEK, and **Create Key** for the KEK if present, on the SOC key vault
 
+If the VM is behind a Firewall (Network Virtual Appliance (NVA), Azure Firewall, Network Security Group) or a Proxy, ensure to allow the connectivity between the VM and the Storage Account.
+
 ### Log Analytics
 
 An Azure [Log Analytics workspace](/azure/azure-monitor/platform/resource-logs-collect-workspace) in Azure Monitor stores activity logs to audit all the events on the SOC subscription.
@@ -74,7 +75,7 @@ As an example, the report [Cohasset Assessment - Microsoft Azure WORM Storage](h
 - **Financial Industry Regulatory Authority (FINRA) Rule 4511(c)**, which defers to the format and media requirements of SEC Rule 17a-4(f)
 - **Commodity Futures Trading Commission (CFTC) in regulation 17 CFR § 1.31(c)-(d)**, which regulates commodity futures trading
 
-It is Cohasset’s opinion that Microsoft Azure Storage, with the Immutable Storage for Azure Blobs feature and Policy Lock option, retains time-based Blobs (records) in a non-erasable and non-rewritable format and meets relevant storage requirements of SEC Rule 17a-4(f), FINRA Rule 4511(c), and the principles-based requirements of CFTC Rule 1.31(c)-(d).
+It is Cohasset's opinion that Microsoft Azure Storage, with the Immutable Storage for Azure Blobs feature and Policy Lock option, retains time-based Blobs (records) in a non-erasable and non-rewritable format and meets relevant storage requirements of SEC Rule 17a-4(f), FINRA Rule 4511(c), and the principles-based requirements of CFTC Rule 1.31(c)-(d).
 
 ## Considerations
 
@@ -110,8 +111,8 @@ For example, if a legal team needs a preserved virtual hard drive (VHD) transfer
 
 Azure provides services to all customers to monitor and alert on anomalies involving their subscription and its resources. These services include:
 
-- [Azure Sentinel](https://aka.ms/azure-sentinel)
-- [Azure Security Center (ASC)](https://aka.ms/asc)
+- [Microsoft Sentinel](https://aka.ms/azure-sentinel)
+- [Microsoft Defender for Cloud](https://aka.ms/asc)
 - [Azure Storage Advanced Threat Protection (ATP)](/azure/storage/common/storage-advanced-threat-protection?tabs=azure-portal)
 
 ### Regional store
@@ -126,19 +127,22 @@ You can also deploy a Hybrid Runbook Worker on on-premises or other cloud networ
 
 ## Implementation
 
-The following complete PowerShell code samples of the Copy-VmDigitalEvidence runbook are available in GitHub:
+The following PowerShell code samples of the Copy-VmDigitalEvidence runbook are available in GitHub:
 
 - [Copy‑VmDigitalEvidenceWin](https://github.com/mspnp/solution-architectures/blob/master/forensics/Copy-VmDigitalEvidenceWin.ps1) runbook for [Windows Hybrid RunBook Worker](/azure/automation/automation-windows-hrw-install).
 
-- [Copy‑VmDigitalEvidence](https://github.com/mspnp/solution-architectures/blob/master/forensics/Copy-VmDigitalEvidence.ps1) runbook for [Linux Hybrid RunBook Worker](/azure/automation/automation-linux-hrw-install#installing-a-linux-hybrid-runbook-worker). The Hybrid Runbook Worker must have PowerShell Core installed and the `sha256sum` program available, to calculate the disk snapshots’ SHA-256 hash values.
+- [Copy‑VmDigitalEvidence](https://github.com/mspnp/solution-architectures/blob/master/forensics/Copy-VmDigitalEvidence.ps1) runbook for [Linux Hybrid RunBook Worker](/azure/automation/automation-linux-hrw-install#installing-a-linux-hybrid-runbook-worker). The Hybrid Runbook Worker must have PowerShell Core installed and the `sha256sum` program available, to calculate the disk snapshots' SHA-256 hash values.
 
-The Hybrid Runbook Worker must map the Azure File share containing the disk, used to calculate its hash values. Further details for the mounting procedure are available for both [Windows](/azure/storage/files/storage-how-to-use-files-windows) and [Linux](/azure/storage/files/storage-files-how-to-mount-nfs-shares) systems.
+The Hybrid Runbook Worker must map the Azure File share containing the disk, used to calculate its hash values. Further details for the mounting procedure are available for both [Windows](/azure/storage/files/storage-how-to-use-files-windows) and [Linux](/azure/storage/files/storage-files-how-to-mount-nfs-shares) systems and must be integrated in the PowerShell code.
+
+> [!NOTE]
+> Scripts are provided as a starting point, are not intended to be downloaded a run directly in a customer environment. Be sure to replace placeholders and adapt them to your customer scenario. Before run the script remember to complete the section *Mounting fileshare* with the code to mount the Azure file share. The code is strictly tied to your implementation. To generate the correct code follow the documentation links contained in the scripts.
 
 ### Capture workflow
 
 The SOC team has created the Copy‑VmDigitalEvidence runbook and the dedicated [Hybrid Runbook Worker](/azure/automation/automation-hybrid-runbook-worker) VM in their Azure Automation account.
 
-When the team receives a request to capture digital evidence, an SOC team member follows this workflow:
+When the team receives a request to capture digital evidence, a SOC team member follows this workflow:
 
 1. Sign in to the SOC subscription in the Azure portal, and select their Azure Automation account
 1. Edit the Copy-VmDigitalEvidence runbook to supply the following information:
@@ -253,5 +257,5 @@ For more information about Azure logging and auditing features, see:
 
 For more information about Microsoft Azure Compliance, see:
 
-- [Azure Compliance](https://azure.microsoft.com/overview/trusted-cloud/compliance/)  
+- [Azure Compliance](https://azure.microsoft.com/overview/trusted-cloud/compliance/)
 - [Microsoft Azure Compliance Offerings](https://azure.microsoft.com/resources/microsoft-azure-compliance-offerings/)

@@ -36,16 +36,16 @@ If you're new to Kubernetes or AKS, the best place to learn about the service is
 
 You understand the benefits and trade-offs of Kubernetes, and have decided that AKS is the best Azure compute platform for your workload. Your organizational controls have been put into place; you're ready to learn how to deploy production-ready clusters for your workload.
 
-**Microsoft's AKS Baseline Cluster** is the starting point to help you build production-ready AKS clusters. 
+**Microsoft's AKS Baseline Cluster** is the starting point to help you build production-ready AKS clusters.
 
 > [!div class="nextstepaction"]
 > [Microsoft's AKS Baseline Cluster](../../reference-architectures/containers/aks/secure-baseline-aks.yml)
 
 We recommend you start from the baseline implementation and modify it to align to your workload's specific needs.
 
-## Suite of baseline implementations 
+## Suite of baseline implementations
 
-We've provided a set of more baseline implementations to illustrate how you can adopt and configure components of AKS Baseline Cluster for various scenarios. 
+We've provided a set of more baseline implementations to illustrate how you can adopt and configure components of AKS Baseline Cluster for various scenarios.
 
 ### Microservices
 
@@ -61,9 +61,9 @@ If you need a regulated environment, make the baseline implementation highly sec
 > [!div class="nextstepaction"]
 > [Regulated baseline cluster for PCI-DSS 3.2.1](./aks-pci/aks-pci-intro.yml)
 
-### High availability
+### Business Continuity and Disaster Recovery
 
-A highly available solution needs multiple instances of the baseline cluster across regions in an active/active and highly available configuration.
+A resilient solution needs multiple instances of the baseline cluster across regions in an active/active and highly available configuration.
 
 > [!div class="nextstepaction"]
 > [Baseline for multiregion clusters](./aks-multi-region/aks-multi-cluster.yml)
@@ -96,8 +96,6 @@ Kubernetes and AKS are both moving fast. The platform is evolving and just knowi
 > [AKS product roadmap](https://aka.ms/aks/roadmap)
 
 ---
-
-
 
 ## Additional resources
 

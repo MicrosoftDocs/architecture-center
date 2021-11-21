@@ -7,7 +7,7 @@ This article describes a warehouse management scenario that monitors environment
 ## Potential use cases
 
 - **Fleet management:** This solution can be used where routes need to be optimized for safety based on the evolving conditions of surrounding areas.
-- **Agriculture:** Predicting wildfires that will impact the safety of workers and livestock is critical. By providing ample lead time for danger notifications, people in the affected area can evacuate to safety. Farms can also equip livestock areas with automated gates that can unlock and open in dire situations, allowing animals to escape.  
+- **Agriculture:** Predicting wildfires that will impact the safety of workers and livestock is critical. By providing ample lead time for danger notifications, people in the affected area can evacuate to safety. Farms can also equip livestock areas with automated gates that can unlock and open in dire situations, allowing animals to escape.
 
 ## Architecture
 
@@ -52,7 +52,7 @@ This article describes a warehouse management scenario that monitors environment
 
 For more detailed discussions, see the [Azure IoT reference architecture](../../reference-architectures/iot.yml) to understand and explore the various implementation choices available.
 
-### Challenges faced
+## Challenges faced
 
 There has been a significant [increase in wildfires](https://news.sciencebrief.org/wildfires-sep2020-update/) in recent years, posing a growing danger to humans and the global supply chain. With the number of acres burned increasing by the year, [supply chain resilience to climate change](https://www.thebci.org/uploads/assets/e02a3e5f-82e5-4ff1-b8bc61de9657e9c8/BCI-0007h-Supply-Chain-Resilience-ReportLow-Singles.pdf) is top of mind for many leaders.
 

@@ -1,6 +1,6 @@
 This reference architecture shows how to build a scalable solution for batch scoring an Apache Spark classification model on a schedule using [Azure Databricks][databricks], an Apache Spark-based analytics platform optimized for Azure. Databricks Machine Learning is an integrated end-to-end machine learning environment incorporating managed services for experiment tracking, model training, feature development and management, and feature and model serving. This reference architecture can be used as a template that can be generalized to other scenarios.
 
-A reference implementation for this architecture is available on [GitHub][github].
+A reference implementation for this architecture is available on [GitHub][github].
 
 ![Architecture diagram: batch scoring of Apache Spark classification models on Azure Databricks.](./_images/batch-scoring-spark-models-databricks.png)
 
@@ -20,7 +20,7 @@ This reference architecture is designed for workloads that are triggered by the 
 
 4. Store results on the Databricks data store for post-processing consumption.
 
-Notebooks are provided on [GitHub][github] to perform each of these tasks.
+Notebooks are provided on [GitHub][github] to perform each of these tasks.
 
 ## Architecture
 
@@ -84,7 +84,7 @@ The solution notebooks can run on any Spark-based platform with minimal edits to
 
 ## Deploy the solution
 
-To deploy this reference architecture, follow the steps described in the [GitHub][github] repository to build a scalable solution for scoring Spark models in batch on Azure Databricks.
+To deploy this reference architecture, follow the steps described in the [GitHub][github] repository to build a scalable solution for scoring Spark models in batch on Azure Databricks.
 
 ## Next steps
 

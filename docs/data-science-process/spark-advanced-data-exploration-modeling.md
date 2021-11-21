@@ -1,5 +1,5 @@
 ---
-title: Advanced data exploration and modeling with Spark - Team Data Science Process
+title: Advanced data exploration and modeling with Spark
 description: Use HDInsight Spark to do data exploration and train binary classification and regression models using cross-validation and hyperparameter optimization.
 services: machine-learning
 author: marktab
@@ -10,7 +10,9 @@ ms.subservice: team-data-science-process
 ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
-ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
+ms.custom:
+  - previous-author=deguhath
+  - previous-ms.author=deguhath
 products:
   - azure-machine-learning
 categories:
@@ -59,7 +61,7 @@ Setup steps and code are provided in this walkthrough for using an HDInsight Spa
 
 ### Spark 2.0 notebooks
 
-[Spark2.0-pySpark3-machine-learning-data-science-spark-advanced-data-exploration-modeling.ipynb](https://github.com/Azure-Samples/Azure-MachineLearning-DataScience/blob/master/Misc/Spark/pySpark/Spark2.0/Spark2.0-pySpark3-machine-learning-data-science-spark-advanced-data-exploration-modeling.ipynb)​: This file provides information on how to perform data exploration, modeling, and scoring in Spark 2.0 clusters.
+[Spark2.0-pySpark3-machine-learning-data-science-spark-advanced-data-exploration-modeling.ipynb](https://github.com/Azure-Samples/Azure-MachineLearning-DataScience/blob/master/Misc/Spark/pySpark/Spark2.0/Spark2.0-pySpark3-machine-learning-data-science-spark-advanced-data-exploration-modeling.ipynb): This file provides information on how to perform data exploration, modeling, and scoring in Spark 2.0 clusters.
 
 [!INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
 
@@ -67,7 +69,7 @@ Setup steps and code are provided in this walkthrough for using an HDInsight Spa
 
 Spark is able to read and write to Azure Storage Blob (also known as WASB). So any of your existing data stored there can be processed using Spark and the results stored again in WASB.
 
-To save models or files in WASB, the path needs to be specified properly. The default container attached to the Spark cluster can be referenced using a path beginning with: "wasb:///". Other locations are referenced by “wasb://”.
+To save models or files in WASB, the path needs to be specified properly. The default container attached to the Spark cluster can be referenced using a path beginning with: "wasb:///". Other locations are referenced by "wasb://".
 
 ### Set directory paths for storage locations in WASB
 
@@ -78,7 +80,6 @@ The following code sample specifies the location of the data to be read and the 
 
 # LOCATION OF TRAINING DATA
 taxi_train_file_loc = "wasb://mllibwalkthroughs@cdspsparksamples.blob.core.windows.net/Data/NYCTaxi/JoinedTaxiTripFare.Point1Pct.Train.tsv";
-
 
 # SET THE MODEL STORAGE DIRECTORY PATH
 # NOTE THAT THE FINAL BACKSLASH IN THE PATH IS NEEDED.
@@ -121,7 +122,7 @@ The PySpark kernels that are provided with Jupyter notebooks have a preset conte
 * sc - for Spark
 * sqlContext - for Hive
 
-The PySpark kernel provides some predefined “magics”, which are special commands that you can call with %%. There are two such commands that are used in these code samples.
+The PySpark kernel provides some predefined "magics", which are special commands that you can call with %%. There are two such commands that are used in these code samples.
 
 * **%%local** Specifies that the code in subsequent lines is to be executed locally. Code must be valid Python code.
 * **%%sql -o \<variable name>** Executes a Hive query against the sqlContext. If the -o parameter is passed, the result of the query is persisted in the %%local Python context as a Pandas DataFrame.
@@ -172,7 +173,6 @@ taxi_temp = taxi_train_file.subtract(taxi_header).map(lambda k: k.split("\t"))\
             .map(lambda p: (p[0],p[1],p[2],p[3],p[4],p[5],p[6],int(p[7]),int(p[8]),int(p[9]),int(p[10]),
                         float(p[11]),float(p[12]),p[13],p[14],p[15],p[16],p[17],p[18],float(p[19]),
                         float(p[20]),float(p[21]),float(p[22]),float(p[23]),float(p[24]),int(p[25]),int(p[26])))
-
 
 # CREATE DATA FRAME
 taxi_train_df = sqlContext.createDataFrame(taxi_temp, taxi_schema)
@@ -698,7 +698,6 @@ logitBest = LogisticRegressionWithLBFGS.train(oneHotTRAINbinary, regType=bestPar
                                               regParam=bestParam['regParam'], tolerance = bestParam['tolerance'],
                                               intercept=True)
 
-
 # PRINT COEFFICIENTS AND INTERCEPT OF THE MODEL
 # NOTE: There are 20 coefficient terms for the 10 features,
 #       and the different categories for features: vendorVec (2), rateVec, paymentVec (6), TrafficTimeBinsVec (4)
@@ -895,7 +894,6 @@ trainDataFrame = sqlContext.createDataFrame(oneHotTRAINbinary, ["features", "lab
 
 # TRAIN WITH CROSS-VALIDATION
 cv_model = cv.fit(trainDataFrame)
-
 
 ## PREDICT AND EVALUATE ON TEST DATA-SET
 
@@ -1163,7 +1161,6 @@ from pyspark.mllib.tree import RandomForest, RandomForestModel
 from pyspark.mllib.util import MLUtils
 from pyspark.mllib.evaluation import RegressionMetrics
 
-
 # TRAIN MODEL
 categoricalFeaturesInfo={0:2, 1:2, 2:6, 3:4}
 rfModel = RandomForest.trainRegressor(indexedTRAINreg, categoricalFeaturesInfo=categoricalFeaturesInfo,
@@ -1332,7 +1329,6 @@ trainDataFrame = sqlContext.createDataFrame(oneHotTRAINreg, ["features", "label"
 
 # TRAIN WITH CROSS-VALIDATION
 cv_model = cv.fit(trainDataFrame)
-
 
 # EVALUATE MODEL ON TEST SET
 testDataFrame = sqlContext.createDataFrame(oneHotTESTreg, ["features", "label"])
@@ -1508,8 +1504,7 @@ oneHotTESTregScaled.unpersist()
 
 PythonRDD[122] at RDD at PythonRDD.scala: 43
 
-**Output path to model files to be used in the consumption notebook.**
-To consume and score an independent data-set, you need to copy and paste these file names in the "Consumption notebook".
+**Output path to model files to be used in the consumption notebook.** To consume and score an independent data-set, you need to copy and paste these file names in the "Consumption notebook".
 
 ```python
 # PRINT MODEL FILE LOCATIONS FOR CONSUMPTION

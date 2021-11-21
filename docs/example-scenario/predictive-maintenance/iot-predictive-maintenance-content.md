@@ -1,6 +1,5 @@
 
 
-
 The *Internet-of-things (IoT) Edge* brings data processing and storage close to the data source, enabling fast, consistent responses with reduced dependency on cloud connectivity and resources. Edge computing can incorporate artificial intelligence (AI) and machine learning (ML) models to create *intelligent edge* devices and networks, which can integrate with the cloud for further processing and security.
 
 This article describes a collaboration between the Microsoft Commercial Software Engineering (CSE) team and a major railway company to create an [intelligent cloud and intelligent edge](https://azure.microsoft.com/overview/future-of-cloud/) train maintenance and safety solution. The railway company wants to improve railroad safety and efficiency by proactively identifying defective components, predictively scheduling maintenance and repair, and continuously improving their findings and predictions. The pilot project for the *ML on Edge* solution is a train wheel health analysis system.
@@ -25,7 +24,6 @@ IoT Edge implementations are most relevant when large amounts of data captured i
 5. IoT Edge Hub associates the image URIs with image metadata, and uploads the metadata and alerts to Azure IoT Hub.
 6. IoT Hub sends the metadata via Event Hub and Azure Functions to an Azure Cosmos DB database.
 7. The Cosmos DB database holds the image metadata (Equipment/Car #, Axle, Timestamp, Detector Location, etc.) and points to the location of images in Azure Blob Storage.
-
 
 ### Components
 

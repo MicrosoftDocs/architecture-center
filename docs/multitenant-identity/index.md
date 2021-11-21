@@ -1,7 +1,7 @@
 ---
 title: Multitenancy and identity management
 description: Learn the best practices for multitenant applications, in terms of authentication, authorization, and identity management.
-author: doodlemania2
+author: EdPrice-MSFT
 ms.date: 10/06/2021
 ms.topic: conceptual
 ms.service: architecture-center
@@ -20,7 +20,7 @@ keywords:
   - "multitenant authentication"
   - "multitenant identity management"
 products:
-  - azure-active-directory  
+  - azure-active-directory
 ---
 
 # Identity management in multitenant applications
@@ -56,11 +56,7 @@ Example: Tailspin sells subscriptions to its SaaS application. Contoso and Fabri
 
 This guidance will show you how to manage user identities in a multitenant application, using [Azure Active Directory (Azure AD)](/azure/active-directory) to handle sign-in and authentication.
 
-<!-- markdownlint-disable MD026 -->
-
 ## What is multitenancy?
-
-<!-- markdownlint-enable MD026 -->
 
 A *tenant* is a group of users. In a SaaS application, the tenant is a subscriber or customer of the application. *Multitenancy* is an architecture where multiple tenants share the same physical instance of the app. Although tenants share physical resources (such as VMs or storage), each tenant gets its own logical instance of the app.
 
