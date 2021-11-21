@@ -1,5 +1,5 @@
 ---
-title: Data exploration and modeling with Spark - Team Data Science Process
+title: Data exploration and modeling with Spark
 description: Showcases the data exploration and modeling capabilities of the Spark MLlib toolkit on HDInsight Spark.
 services: machine-learning
 author: marktab
@@ -10,7 +10,10 @@ ms.subservice: team-data-science-process
 ms.topic: sample
 ms.date: 06/03/2020
 ms.author: tdsp
-ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath, contperf-fy20q4
+ms.custom:
+  - previous-author=deguhath
+  - previous-ms.author=deguhath
+  - contperf-fy20q4
 products:
   - azure-machine-learning
 categories:
@@ -24,7 +27,7 @@ This sample showcases the various steps in the [Team Data Science Process](/azur
 
 ## Prerequisites
 
-You need an Azure account and a Spark 1.6 (or Spark 2.0) HDInsight cluster to complete this walkthrough. See the [Overview of Data Science using Spark on Azure HDInsight](spark-overview.md) for instructions on how to satisfy these requirements. That topic also contains a description of the NYC 2013 Taxi data used here and instructions on how to execute code from a Jupyter notebook on the Spark cluster. 
+You need an Azure account and a Spark 1.6 (or Spark 2.0) HDInsight cluster to complete this walkthrough. See the [Overview of Data Science using Spark on Azure HDInsight](spark-overview.md) for instructions on how to satisfy these requirements. That topic also contains a description of the NYC 2013 Taxi data used here and instructions on how to execute code from a Jupyter notebook on the Spark cluster.
 
 ### Spark clusters and notebooks
 
@@ -36,13 +39,13 @@ Setup steps and code are provided in this walkthrough for using an HDInsight Spa
 [!INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
 
 > [!NOTE]
-> The descriptions below are related to using Spark 1.6. For Spark 2.0 versions, please use the notebooks described and linked above. 
+> The descriptions below are related to using Spark 1.6. For Spark 2.0 versions, please use the notebooks described and linked above.
 
 ## Setup
 
 Spark is able to read and write to Azure Storage Blob (also known as WASB). So any of your existing data stored there can be processed using Spark and the results stored again in WASB.
 
-To save models or files in WASB, the path needs to be specified properly. The default container attached to the Spark cluster can be referenced using a path beginning with: "wasb:///". Other locations are referenced by “wasb://”.
+To save models or files in WASB, the path needs to be specified properly. The default container attached to the Spark cluster can be referenced using a path beginning with: "wasb:///". Other locations are referenced by "wasb://".
 
 ### Set directory paths for storage locations in WASB
 
@@ -84,10 +87,10 @@ import datetime
 
 The PySpark kernels that are provided with Jupyter notebooks have a preset context. So you do not need to set the Spark or Hive contexts explicitly before you start working with the application you are developing. These contexts are available for you by default. These contexts are:
 
-* sc - for Spark 
+* sc - for Spark
 * sqlContext - for Hive
 
-The PySpark kernel provides some predefined “magics”, which are special commands that you can call with %%. There are two such commands that are used in these code samples.
+The PySpark kernel provides some predefined "magics", which are special commands that you can call with %%. There are two such commands that are used in these code samples.
 
 * **%%local** Specifies that the code in subsequent lines is to be executed locally. Code must be valid Python code.
 * **%%sql -o \<variable name>** Executes a Hive query against the sqlContext. If the -o parameter is passed, the result of the query is persisted in the %%local Python context as a Pandas DataFrame.
@@ -141,7 +144,6 @@ taxi_temp = taxi_train_file.subtract(taxi_header).map(lambda k: k.split("\t"))\
                         float(p[11]),float(p[12]),p[13],p[14],p[15],p[16],p[17],p[18],float(p[19]),
                         float(p[20]),float(p[21]),float(p[22]),float(p[23]),float(p[24]),int(p[25]),int(p[26])))
 
-
 # CREATE DATA FRAME
 taxi_train_df = sqlContext.createDataFrame(taxi_temp, taxi_schema)
 
@@ -151,7 +153,6 @@ taxi_df_train_cleaned = taxi_train_df.drop('medallion').drop('hack_license').dro
     .drop('dropoff_longitude').drop('tip_class').drop('total_amount').drop('tolls_amount').drop('mta_tax')\
     .drop('direct_distance').drop('surcharge')\
     .filter("passenger_count > 0 and passenger_count < 8 AND payment_type in ('CSH', 'CRD') AND tip_amount >= 0 AND tip_amount < 30 AND fare_amount >= 1 AND fare_amount < 150 AND trip_distance > 0 AND trip_distance < 100 AND trip_time_in_secs > 30 AND trip_time_in_secs < 7200" )
-
 
 # CACHE DATA-FRAME IN MEMORY & MATERIALIZE DF IN MEMORY
 taxi_df_train_cleaned.cache()
@@ -183,7 +184,7 @@ This code and subsequent snippets use SQL magic to query the sample and local ma
 
 The output is automatically visualized after you run the code.
 
-This query retrieves the trips by passenger count. 
+This query retrieves the trips by passenger count.
 
 ```sql
 # PLOT FREQUENCY OF PASSENGER COUNTS IN TAXI TRIPS
@@ -196,7 +197,7 @@ WHERE passenger_count > 0 and passenger_count < 7
 GROUP BY passenger_count 
 ```
 
-This code creates a local data-frame from the query output and plots the data. The `%%local` magic creates a local data-frame, `sqlResults`, which can be used for plotting with matplotlib. 
+This code creates a local data-frame from the query output and plots the data. The `%%local` magic creates a local data-frame, `sqlResults`, which can be used for plotting with matplotlib.
 
 > [!NOTE]
 > This PySpark magic is used multiple times in this walkthrough. If the amount of data is large, you should sample to create a data-frame that can fit in local memory.
@@ -286,7 +287,7 @@ plt.axis([-2, 100, -2, 20])
 plt.show()
 ```
 
-**OUTPUT:** 
+**OUTPUT:**
 
 ![Tip amount distribution](./media/spark-data-exploration-modeling/tip-amount-distribution.png)
 
@@ -307,7 +308,7 @@ This section describes and provides the code for procedures used to prepare data
 
 ### Create a new feature by binning hours into traffic time buckets
 
-This code shows how to create a new feature by binning hours into traffic time buckets and then how to cache the resulting data frame in memory. Where Resilient Distributed Datasets (RDDs) and data-frames are used repeatedly, caching leads to improved execution times. Accordingly, we cache RDDs and data-frames at several stages in the walkthrough. 
+This code shows how to create a new feature by binning hours into traffic time buckets and then how to cache the resulting data frame in memory. Where Resilient Distributed Datasets (RDDs) and data-frames are used repeatedly, caching leads to improved execution times. Accordingly, we cache RDDs and data-frames at several stages in the walkthrough.
 
 ```python
 # CREATE FOUR BUCKETS FOR TRAFFIC TIMES
@@ -336,9 +337,9 @@ taxi_df_train_with_newFeatures.count()
 
 ### Index and encode categorical features for input into modeling functions
 
-This section shows how to index or encode categorical features for input into the modeling functions. The modeling and predict functions of MLlib require features with categorical input data to be indexed or encoded prior to use. Depending on the model, you need to index or encode them in different ways:  
+This section shows how to index or encode categorical features for input into the modeling functions. The modeling and predict functions of MLlib require features with categorical input data to be indexed or encoded prior to use. Depending on the model, you need to index or encode them in different ways:
 
-* **Tree-based modeling** requires categories to be encoded as numerical values (for example, a feature with three categories may be encoded with 0, 1, 2). This algorithm is provided by MLlib’s [StringIndexer](https://spark.apache.org/docs/latest/ml-features.html#stringindexer) function. This function encodes a string column of labels to a column of label indices that are ordered by label frequencies. Although indexed with numerical values for input and data handling, the tree-based algorithms can be specified to treat them appropriately as categories. 
+* **Tree-based modeling** requires categories to be encoded as numerical values (for example, a feature with three categories may be encoded with 0, 1, 2). This algorithm is provided by MLlib's [StringIndexer](https://spark.apache.org/docs/latest/ml-features.html#stringindexer) function. This function encodes a string column of labels to a column of label indices that are ordered by label frequencies. Although indexed with numerical values for input and data handling, the tree-based algorithms can be specified to treat them appropriately as categories.
 * **Logistic and Linear Regression models** require one-hot encoding, where, for example, a feature with three categories can be expanded into three feature columns, with each containing 0 or 1 depending on the category of an observation. MLlib provides [OneHotEncoder](https://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.OneHotEncoder.html#sklearn.preprocessing.OneHotEncoder) function to do one-hot encoding. This encoder maps a column of label indices to a column of binary vectors, with at most a single one-value. This encoding allows algorithms that expect numerical valued features, such as logistic regression, to be applied to categorical features.
 
 Here is the code to index and encode categorical features:
@@ -392,7 +393,7 @@ Time taken to execute above cell: 1.28 seconds
 
 ### Create labeled point objects for input into ML functions
 
-This section contains code that shows how to index categorical text data as a labeled point data type and encode it so that it can be used to train and test MLlib logistic regression and other classification models. Labeled point objects are Resilient Distributed Datasets (RDD) formatted in a way that is needed as input data by most of ML algorithms in MLlib. A [labeled point](https://spark.apache.org/docs/latest/mllib-data-types.html#labeled-point) is a local vector, either dense or sparse, associated with a label/response.  
+This section contains code that shows how to index categorical text data as a labeled point data type and encode it so that it can be used to train and test MLlib logistic regression and other classification models. Labeled point objects are Resilient Distributed Datasets (RDD) formatted in a way that is needed as input data by most of ML algorithms in MLlib. A [labeled point](https://spark.apache.org/docs/latest/mllib-data-types.html#labeled-point) is a local vector, either dense or sparse, associated with a label/response.
 
 This section contains code that shows how to index categorical text data as a [labeled point](https://spark.apache.org/docs/latest/mllib-data-types.html#labeled-point) data type and encode it so that it can be used to train and test MLlib logistic regression and other classification models. Labeled point objects are Resilient Distributed Datasets (RDD) consisting of a label (target/response variable) and feature vector. This format is needed as input by many ML algorithms in MLlib.
 
@@ -566,7 +567,7 @@ timedelta = round((timeend-timestart).total_seconds(), 2)
 print "Time taken to execute above cell: " + str(timedelta) + " seconds"; 
 ```
 
-**OUTPUT:** 
+**OUTPUT:**
 
 Time taken to execute above cell: 0.15 second
 
@@ -574,11 +575,11 @@ Time taken to execute above cell: 0.15 second
 
 This section shows how use three models for the binary classification task of predicting whether or not a tip is paid for a taxi trip. The models presented are:
 
-* Regularized logistic regression 
+* Regularized logistic regression
 * Random forest model
 * Gradient Boosting Trees
 
-Each model building code section is split into steps: 
+Each model building code section is split into steps:
 
 1. **Model training** data with one parameter set
 2. **Model evaluation** on a test data set with metrics
@@ -604,7 +605,6 @@ from sklearn.metrics import roc_curve,auc
 from pyspark.mllib.evaluation import BinaryClassificationMetrics
 from pyspark.mllib.evaluation import MulticlassMetrics
 
-
 # CREATE MODEL WITH ONE SET OF PARAMETERS
 logitModel = LogisticRegressionWithLBFGS.train(oneHotTRAINbinary, iterations=20, initialWeights=None, 
                                                regParam=0.01, regType='l2', intercept=True, corrections=10, 
@@ -622,7 +622,7 @@ timedelta = round((timeend-timestart).total_seconds(), 2)
 print "Time taken to execute above cell: " + str(timedelta) + " seconds"; 
 ```
 
-**OUTPUT:** 
+**OUTPUT:**
 
 Coefficients: [0.0082065285375, -0.0223675576104, -0.0183812028036, -3.48124578069e-05, -0.00247646947233, -0.00165897881503, 0.0675394837328, -0.111823113101, -0.324609912762, -0.204549780032, -1.36499216354, 0.591088507921, -0.664263411392, -1.00439726852, 3.46567827545, -3.51025855172, -0.0471341112232, -0.043521833294, 0.000243375810385, 0.054518719222]
 
@@ -660,7 +660,6 @@ print("Precision = %s" % precision)
 print("Recall = %s" % recall)
 print("F1 Score = %s" % f1Score)
 
-
 ## SAVE MODEL WITH DATE-STAMP
 datestamp = unicode(datetime.datetime.now()).replace(' ','').replace(':','_');
 logisticregressionfilename = "LogisticRegressionWithLBFGS_" + datestamp;
@@ -678,7 +677,7 @@ timedelta = round((timeend-timestart).total_seconds(), 2)
 print "Time taken to execute above cell: " + str(timedelta) + " seconds";
 ```
 
-**OUTPUT:** 
+**OUTPUT:**
 
 Area under PR = 0.985297691373
 
@@ -848,7 +847,7 @@ This section shows how use three models for the regression task of predicting th
 * Random forest
 * Gradient Boosting Trees
 
-These models were described in the introduction. Each model building code section is split into steps: 
+These models were described in the introduction. Each model building code section is split into steps:
 
 1. **Model training** data with one parameter set
 2. **Model evaluation** on a test data set with metrics
@@ -928,7 +927,6 @@ timestart= datetime.datetime.now()
 from pyspark.mllib.tree import RandomForest, RandomForestModel
 from pyspark.mllib.util import MLUtils
 from pyspark.mllib.evaluation import RegressionMetrics
-
 
 ## TRAIN MODEL
 categoricalFeaturesInfo={0:2, 1:2, 2:6, 3:4}
@@ -1114,7 +1112,7 @@ BoostedTreeRegressionFileLoc = modelDir + "GradientBoostingTreeRegression_2016-0
 
 ## What's next?
 
-Now that you have created regression and classification models with the Spark MlLib, you are ready to learn how to score and evaluate these models. The advanced data exploration and modeling notebook dives deeper into including cross-validation, hyper-parameter sweeping, and model evaluation. 
+Now that you have created regression and classification models with the Spark MlLib, you are ready to learn how to score and evaluate these models. The advanced data exploration and modeling notebook dives deeper into including cross-validation, hyper-parameter sweeping, and model evaluation.
 
 **Model consumption:** To learn how to score and evaluate the classification and regression models created in this topic, see [Score and evaluate Spark-built machine learning models](spark-model-consumption.md).
 

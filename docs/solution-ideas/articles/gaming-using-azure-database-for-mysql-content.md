@@ -1,20 +1,24 @@
 [!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
-This gaming solution idea elastically scales your database to accommodate unpredictable bursts of traffic and deliver low-latency multi-player experiences on a global scale. This specific scenario is based on a gaming scenario, but the design patterns are relevant for many industries that are required to process high-traffic web calls and API requests, such as e-commerce and retail applications.
+This gaming solution idea elastically scales your database to accommodate unpredictable bursts of traffic and deliver low-latency multi-player experiences on a global scale.
+
+## Potential use cases
+
+This solution is based on a gaming scenario. However, the design patterns are relevant for many industries that are required to process high-traffic web calls and API requests, such as e-commerce and retail applications.
 
 ## Architecture
 
 ![Architecture Diagram](../media/gaming-using-azure-database-for-mysql.png)
 *Download an [SVG](../media/gaming-using-azure-database-for-mysql.svg) of this architecture.*
 
-## Data flow
-1. Azure Traffic Manager routes a user's game traffic to the apps hosted in Azure App Service, Functions or Containers and APIs published via Azure API Gateway. 
+### Data flow
+1. Azure Traffic Manager routes a user's game traffic to the apps hosted in Azure App Service, Functions or Containers and APIs published via Azure API Gateway.
 2. Azure CDN serves static images and game content to the user that are stored in Azure Blob Storage.
 3. Azure Database for MySQL stores user's game  data in a transactional database hosted.
 4. The data from Azure Database for MySQL are processed using Azure Databricks and stored in the analytics platform.
 5. (Optional) Use Power BI to interpret this data and create new visualizations
 
-## Components
+### Components
 
 This architecture includes the following components:
 
@@ -35,14 +39,15 @@ This architecture includes the following components:
 
 - [Azure Database for MySQL](/azure/mysql/overview) is a fully managed relational database service based on the community edition of the open-source MySQL database engine.
 
-- [Azure HDInsight](/azure/hdinsight/hdinsight-overview) is a managed, full-spectrum, open-source analytics service in the cloud for enterprises. You can use open-source frameworks such as Hadoop, Apache Spark, Apache Hive, LLAP, Apache Kafka, Apache Storm, R, and more.
+- [Azure HDInsight](/azure/hdinsight/hdinsight-overview) is a managed, full-spectrum, open-source analytics service in the cloud for enterprises. You can use open-source frameworks, such as Hadoop, Apache Spark, Apache Hive, LLAP, Apache Kafka, Apache Storm, R, and so on.
 
 - (Optional) [Power BI](https://powerbi.microsoft.com/) provides an interactive dashboard with visualization that uses data stored in SQL Server to drive decisions on the predictions.
-
 
 ## Next steps
 
 - [Understand data store models](../../guide/technology-choices/data-store-overview.md)
+
+## Related resources
 
 The following solution ideas feature Azure Database for MySQL:
 

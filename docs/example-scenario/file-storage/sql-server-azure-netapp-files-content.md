@@ -27,7 +27,7 @@ The components interact in these ways:
 
 - This architecture uses SQL Server on Azure Virtual Machines. With this Azure service, SQL Server runs on Azure VMs within the SQL subnet.
 - In the Azure NetApp Files subnet, Azure NetApp Files provides SMB 3 access to the database and log files.
-- Azure NetApp Files has the [SMB continuous availability shares option][SMB Continuous Availability (CA) shares (Preview)] turned on. This feature makes SMB Transparent Failover possible, so you can do non-disruptive maintenance on Azure NetApp Files.
+- Azure NetApp Files has the [SMB continuous availability shares option][SMB Continuous Availability (CA) shares (Preview)] turned on. This feature makes SMB Transparent Failover possible, so you can observe service maintenance events on Azure NetApp Files non-disruptively for your SQL server deployment.
 
 ### Components
 
@@ -103,7 +103,6 @@ For SQL Server on Azure Virtual Machines, implement a solution for HA and DR to 
 
   - Set up the two databases to replicate between two different regions.
   - Configure [Always On availability groups][Always On availability group on SQL Server on Azure VMs].
-
 
 :::image type="complex" source="./media/sql-server-azure-netapp-files-availability.png" alt-text="Architecture diagram showing how SQL Server Always On Failover Cluster Instances protects data in a virtual network that includes Azure NetApp Files." border="false":::
    A large rectangle labeled SQL resource group fills most of the diagram. Inside it, another rectangle is labeled SQL virtual network. It contains two smaller rectangles, one for a SQL subnet and one for an Azure NetApp Files subnet. The SQL subnet rectangle contains icons for SQL Server on Azure Virtual Machines and SQL Server Always On Failover Cluster Instances. The Azure NetApp Files subnet rectangle contains icons for Azure NetApp Files and database files. An arrow labeled S M B 3 connects the two subnet rectangles. A colored key indicates that SQL data in the database file system requires high performance. The database log files have a medium performance requirement.

@@ -30,7 +30,7 @@ You'll learn:
 
 Azure and Google Cloud built their capabilities independently over time so that each has important implementation and design differences.
 
-## Overview
+## Azure for Google Cloud overview
 
 Like Google Cloud, Microsoft Azure is built around a core set of compute, storage, database, and networking services. In many cases, both platforms offer a basic equivalence between the products and services they offer. Both Google Cloud and Azure allow you to build highly available solutions based on Linux or Windows hosts. So, if you're used to development using Linux and OSS technology, both platforms can do the job.
 
@@ -95,7 +95,7 @@ Azure offers several ways to manage your resources:
 - [Command Line](/azure/azure-resource-manager/cli-azure-resource-manager). The Azure CLI provides a command-line interface capable of creating and managing Azure resources. The Azure CLI is available for [Windows, Linux, and macOS](/cli/azure).
 - [PowerShell](/azure/azure-resource-manager/powershell-azure-resource-manager). The Azure modules for PowerShell allow you to execute automated management tasks using a script. PowerShell is available for [Windows, Linux, and macOS](https://github.com/PowerShell/PowerShell).
 - [Templates](/azure/azure-resource-manager/resource-group-authoring-templates). Azure Resource Manager templates provide JSON template-based resource management capabilities.
-- [SDK](/downloads). The SDKs are collection of libraries that allows users to programmatically manage and interact with Azure services.
+- [SDK](https://azure.microsoft.com/downloads). The SDKs are a collection of libraries that allows users to programmatically manage and interact with Azure services.
 
 In each of these interfaces, the resource group is central to how Azure resources get created, deployed, or modified.
 

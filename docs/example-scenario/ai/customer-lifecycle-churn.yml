@@ -1,0 +1,31 @@
+### YamlMime:Architecture
+metadata:
+  title: Customer lifetime value and churn prediction with Azure AI services
+  titleSuffix: Azure Example Scenarios
+  description: Learn how to create a solution for predicting customer lifetime value and churn using Azure Machine Learning.
+  author: gallogiulia
+  ms.author: giuliagallo
+  ms.date: 10/29/2021
+  ms.topic: conceptual
+  ms.service: architecture-center
+  ms.subservice: example-scenario
+  ms.category:
+    - ai-machine-learning
+  ms.custom:
+    - example-scenario
+    - ai-machine-learning
+    - fcp
+  social_image_url: /azure/architecture/example-scenario/ai/media/architecture-customer-lifetime-churn.png
+name: Determine customer lifetime and churn with Azure AI services
+azureCategories:
+- ai-machine-learning
+summary: Learn how to create an Azure solution for predicting customer lifetime value and churn in Azure.
+products:
+- azure-data-lake-storage
+- azure-databricks
+- azure-machine-learning
+- azure-analysis-services
+
+thumbnailUrl: /azure/architecture/browse/thumbs/architecture-customer-lifetime-churn.png
+content: |
+  [!include[](customer-lifecycle-churn-content.md)]

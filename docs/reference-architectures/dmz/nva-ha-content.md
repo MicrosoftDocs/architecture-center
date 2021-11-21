@@ -1,6 +1,5 @@
 
 
-
 This article shows several options for how to deploy a set of network virtual appliances (NVAs) for high availability in Azure. An NVA is typically used to control the flow of network traffic from a perimeter network, also known as a DMZ, to other networks or subnets. To learn about implementing a DMZ in Azure, see [Microsoft cloud services and network security][cloud-security]. The article includes example architectures for ingress only, egress only, and both ingress and egress.
 
 **Prerequisites:** This article assumes a basic understanding of Azure networking, [Azure load balancers][lb-overview], and [user-defined routes][udr-overview] (UDRs).
@@ -19,17 +18,14 @@ A single NVA can have have higher availability if you use Premium SSD or Ultra D
 
 The following architectures describe the resources and configuration necessary for highly available NVAs:
 
-<!-- markdownlint-disable MD033 -->
-
 | Solution | Benefits | Considerations | Deployment |
 | --- | --- | --- | --- |
 | [Load Balancer Standard and HA ports][load-balancer-standard-ha-ports] |Balances all TCP and UDP flows |Confirm with NVA providers how to best use HA ports and to learn which scenarios are supported <br/> HA ports feature is available in all the global Azure regions <br/> Fast failover to healthy instances, with per-instance health probes <br/> Review [limitations](/azure/load-balancer/load-balancer-ha-ports-overview#limitations)| [Click for Deployment Details](#deploy-the-ha-ports-architecture)|
 | [Ingress with layer 7 NVAs][ingress-with-layer-7] |All NVA nodes are active |Requires an NVA that can terminate connections and use SNAT<br/> Requires a separate set of NVAs for traffic coming from the Internet and from Azure <br/> Can only be used for traffic originating outside Azure | [Deploy the Layer 7 Ingress architecture](#deploy-the-layer-7-ingress-architecture)
-| [Egress with layer 7 NVAs][egress-with-layer-7] |All NVA nodes are active | Requires an NVA that can terminate connections and implements source network address translation (SNAT) | [Deploy the Layer 7 Egress architecture](#deploy-the-layer-7-egress-architecture)
-| [Ingress-Egress with layer 7 NVAs][ingress-egress-with-layer-7] |All nodes are active<br/>Able to handle traffic originated in Azure |Requires an NVA that can terminate connections and use SNAT<br/>Requires a separate set of NVAs for traffic coming from the Internet and from Azure | [Deploy the Layer 7 Ingress/Egress architecture](#deploy-the-layer-7-ingressegress-architecture)
-| [PIP-UDR without SNAT][pip-udr-without-snat] | Single set of NVAs for all traffic<br/>Can handle all traffic (no limit on port rules)<br/>Does not require configuring SNAT for inbound requests |Active-passive<br/>Requires a failover process<br/>Probing and failover logic run outside the virtual network | [Deploy the PIP-UDR switch with layer 4 NVAs without SNAT architecture](#deploy-the-pip-udr-switch-with-layer-4-nvas-without-snat-architecture)
+| [Egress with layer 7 NVAs][egress-with-layer-7] |All NVA nodes are active | Requires an NVA that can terminate connections and implements source network address translation (SNAT)<br/>Review [using SNAT for outbound connections](https://docs.microsoft.com/en-us/azure/load-balancer/load-balancer-outbound-connections) | [Deploy the Layer 7 Egress architecture](#deploy-the-layer-7-egress-architecture)
+| [Ingress-Egress with layer 7 NVAs][ingress-egress-with-layer-7] |All nodes are active<br/>Able to handle traffic originated in Azure |Requires an NVA that can terminate connections and use SNAT<br/>Requires a separate set of NVAs for traffic coming from the Internet and from Azure<br/>Review [using SNAT for outbound connections](https://docs.microsoft.com/en-us/azure/load-balancer/load-balancer-outbound-connections) | [Deploy the Layer 7 Ingress/Egress architecture](#deploy-the-layer-7-ingressegress-architecture)
+| [PIP-UDR without SNAT][pip-udr-without-snat] | Single set of NVAs for all traffic<br/>Can handle all traffic (no limit on port rules)<br/>Does not require configuring SNAT for inbound requests |Active-passive<br/>Requires a failover process<br/>Probing and failover logic run outside the virtual network</br>Review [Public IP addresses](https://docs.microsoft.com/en-us/azure/virtual-network/ip-services/public-ip-addresses) | [Deploy the PIP-UDR switch with layer 4 NVAs without SNAT architecture](#deploy-the-pip-udr-switch-with-layer-4-nvas-without-snat-architecture)
 
-<!-- markdown-enable MD033 -->
 ## Load Balancer Standard and HA ports
 
 You can use an Azure Standard Load Balancer with HA ports for applications that require load balancing of large numbers of ports. A single load-balancing rule replaces multiple individual load-balancing rules, one for each port.

@@ -1,5 +1,5 @@
 ---
-title: Azure Machine Learning data pipeline cheat sheet - Team Data Science Process
+title: Azure Machine Learning data pipeline cheat sheet
 description: A printable cheat sheet that shows you how to set up an automated data pipeline to your Azure Machine Learning web service whether your data is on-premises, streaming, in Azure, or in a third-party cloud service.
 services: machine-learning
 author: marktab
@@ -10,8 +10,12 @@ ms.subservice: azure-guide
 ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
-ms.category: ai-machine-learning
-ms.custom: seodec18, previous-author=garyericson, previous-ms.author=garye, fcp
+ms.category:
+  - ai-machine-learning
+ms.custom:
+  - previous-author=garyericson
+  - previous-ms.author=garye
+  - fcp
 products:
   - azure
   - azure-machine-learning
@@ -20,11 +24,9 @@ categories:
 ---
 # Cheat sheet for an automated data pipeline for Azure Machine Learning predictions
 
-The **Microsoft Azure Machine Learning automated data pipeline cheat sheet** helps you navigate through the
-technology you can use to get your data to your Machine Learning web service where it can be scored by your predictive analytics model.
+The **Microsoft Azure Machine Learning automated data pipeline cheat sheet** helps you navigate through the technology you can use to get your data to your Machine Learning web service where it can be scored by your predictive analytics model.
 
-Depending on whether your data is on-premises, in the cloud, or real-time streaming, there are different mechanisms available to move the data to your web service endpoint for scoring.
-This cheat sheet walks you through the decisions you need to make, and it offers links to articles that can help you develop your solution.
+Depending on whether your data is on-premises, in the cloud, or real-time streaming, there are different mechanisms available to move the data to your web service endpoint for scoring. This cheat sheet walks you through the decisions you need to make, and it offers links to articles that can help you develop your solution.
 
 ## Download the Machine Learning automated data pipeline cheat sheet
 

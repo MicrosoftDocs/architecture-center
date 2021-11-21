@@ -7,7 +7,7 @@ ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: well-architected
 categories:
-  - management-and-governance   
+  - management-and-governance
 ms.custom:
   - How are you handling user load?
   - article
@@ -22,30 +22,29 @@ To avoid experiencing poor performance, commit time and resources to testing sys
 A best practice is to plan for a load buffer to accommodate random spikes without overloading the infrastructure. For example, if a normal system load is 100,000 requests per second, the infrastructure should support 100,000 requests at 80% of total capacity (i.e., 125,000 requests per second). If you anticipate that the application will continue to sustain 100,000 requests per second, and the current SKU (Stock Keeping Unit) introduces latency at 65,000 requests per second, you'll most likely need to upgrade your product to the next higher SKU. If there is a secondary region, you'll need to ensure that it also supports the higher SKU.
 
 ## Establish baselines
-First, establish performance baselines for your application. Then, establish a regular cadence for running the tests. Run the test as part of a scheduled event or part of a continuous integration (CI) build pipeline. 
+First, establish performance baselines for your application. Then, establish a regular cadence for running the tests. Run the test as part of a scheduled event or part of a continuous integration (CI) build pipeline.
 
 Baselines help to determine the current efficiency state of your application and its supporting infrastructure. Baselines can provide good insights for improvements and determine if the application is meeting business goals. Baselines can be created for any application regardless of its maturity. No matter when you establish the baseline, measure performance against that baseline during continued development. When code and, or infrastructure changes, the effect on performance can be actively measured.
 
 ## Load testing
 
-Load testing measures system performance as the workload increases. It identifies where and when your application breaks, so you can fix the issue before shipping to production. It does this by testing system behavior under typical and heavy loads. 
+Load testing measures system performance as the workload increases. It identifies where and when your application breaks, so you can fix the issue before shipping to production. It does this by testing system behavior under typical and heavy loads.
 
 Load testing takes places in stages of load. These stages are usually measured by virtual users (VUs) or simulated requests, and the stages happen over given intervals. Load testing provides insights into how and when your application needs to scale in order to continue to meet your SLA to your customers (whether internal or external). Load testing can also be useful for determining latency across distributed applications and microservices.
 
-
 The following are key points to consider for load testing:
 
-- **Know the Azure service limits** - Different Azure services have *soft* and *hard* limits associated with them. The terms soft limit and hard limit describe the current, adjustable service limit (soft limit) and the maximum limit (hard limit). Understand the limits for the services you consume so that you are not blocked if you need to exceed them. For a list of the most common Azure limits, see [Azure subscription and service limits, quotas, and constraints](/azure/azure-resource-manager/management/azure-subscription-service-limits).
+- **Know the Azure service limits:** Different Azure services have *soft* and *hard* limits associated with them. The terms soft limit and hard limit describe the current, adjustable service limit (soft limit) and the maximum limit (hard limit). Understand the limits for the services you consume so that you are not blocked if you need to exceed them. For a list of the most common Azure limits, see [Azure subscription and service limits, quotas, and constraints](/azure/azure-resource-manager/management/azure-subscription-service-limits).
 
   :::image type="icon" source="../../_images/github.png" border="false"::: The [ResourceLimits](https://github.com/mspnp/samples/tree/master/OperationalExcellence/ResourceLimits) sample shows how to query the limits and quotas for commonly used resources.
 
-- **Measure typical loads** - Knowing the typical and maximum loads on your system helps you understand when something is operating outside of its designed limits.  Monitor traffic to understand application behavior.
+- **Measure typical loads:** Knowing the typical and maximum loads on your system helps you understand when something is operating outside of its designed limits.  Monitor traffic to understand application behavior.
 
-- **Understand application behavior under various scales** - Load test your application to understand how it performs at various scales. First, test to see how the application performs under a typical load. Then, test to see how it performs under load using different scaling operations. To get additional insight into how to evaluate your application as the amount of traffic sent to it increases, see [Autoscale best practices](/azure/azure-monitor/platform/autoscale-best-practices).
+- **Understand application behavior under various scales:** Load test your application to understand how it performs at various scales. First, test to see how the application performs under a typical load. Then, test to see how it performs under load using different scaling operations. To get additional insight into how to evaluate your application as the amount of traffic sent to it increases, see [Autoscale best practices](/azure/azure-monitor/platform/autoscale-best-practices).
 
 ## Stress testing
 
-Unlike load testing, which ensures that a system can handle what it’s designed to handle, stress testing focuses on overloading the system until it breaks. A stress test determines how stable a system is and its ability to withstand extreme increases in load. It does this by testing the maximum number requests from another service (for example) that a system can handle at a given time before performance is compromised and fails. Find this maximum to understand what kind of load the current environment can adequately support.
+Unlike load testing, which ensures that a system can handle what it's designed to handle, stress testing focuses on overloading the system until it breaks. A stress test determines how stable a system is and its ability to withstand extreme increases in load. It does this by testing the maximum number requests from another service (for example) that a system can handle at a given time before performance is compromised and fails. Find this maximum to understand what kind of load the current environment can adequately support.
 
 Determine the maximum demand you want to place on memory, CPU, and disk IOPS. Once a stress test has been performed, you will know the maximum supported load and an operational margin. It is best to choose an operational threshold so that scaling can be performed before the threshold has been reached.
 
@@ -70,5 +69,5 @@ For more information on autoscaling, see [Design for scaling](./design-scale.md)
 
 ## Next steps
 
->[!div class="nextstepaction"]
->[Testing tools](./test-tools.md)
+> [!div class="nextstepaction"]
+> [Testing tools](./test-tools.md)

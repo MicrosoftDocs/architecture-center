@@ -58,7 +58,7 @@ This pricing analytics solution idea shows you how you can develop a pricing mod
 
 Interaction with the pricing model is via Excel where you can easily paste your sales data and analyze your prices without the need to integrate the data into the solution database first. In the spreadsheet, you can simulate promotions and plot demand curves (showing demand response to price), and access dashboard data in numerical form. The rich functionality of the pricing model can also be accessed from web services, integrating price analytics directly into your business applications.
 
-[Azure Machine Learning](/azure/machine-learning/overview-what-is-azure-ml) is the core logic in this solution from which elasticity models are created. Machine learning models can be set up with to avoid two common pitfalls of price modeling from historical data: confounding effects and data sparsity. 
+[Azure Machine Learning](/azure/machine-learning/overview-what-is-azure-ml) is the core logic in this solution from which elasticity models are created. Machine learning models can be set up with to avoid two common pitfalls of price modeling from historical data: confounding effects and data sparsity.
 
 The solution provides the following advantages:
 
@@ -69,7 +69,7 @@ The solution provides the following advantages:
 
 ## Deploy this scenario
 
-The AI Gallery solution, which is an implementation of this solution architecture, has two key roles: technical resources and end users (such as pricing managers). 
+The AI Gallery solution, which is an implementation of this solution architecture, has two key roles: technical resources and end users (such as pricing managers).
 
 Technical resources deploy the solution and connect it to a business data warehouse. For more information, read the [Technical Guide](https://github.com/Azure/cortana-intelligence-price-analytics/blob/master/Technical%20Deployment%20Guide/TechnicalDeploymentGuide.md). End users using the model via a spreadsheet (or integrated into a business application), should read the [User Guide](https://github.com/Azure/cortana-intelligence-price-analytics/blob/master/User%20Guide/UserGuide.md).
 

@@ -1,5 +1,5 @@
 ---
-title: Scalable Data Science with Azure Data Lake - Team Data Science Process
+title: Scalable data science with Azure Data Lake
 description: How to use Azure Data Lake to do data exploration and binary classification tasks on a dataset.
 services: machine-learning
 author: marktab
@@ -10,13 +10,15 @@ ms.subservice: team-data-science-process
 ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
-ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
+ms.custom:
+  - previous-author=deguhath
+  - previous-ms.author=deguhath
 products:
   - azure-machine-learning
 categories:
   - ai-machine-learning
 ---
-# Scalable Data Science with Azure Data Lake: An end-to-end Walkthrough
+# Scalable data science with Azure Data Lake
 
 This walkthrough shows how to use Azure Data Lake to do data exploration and binary classification tasks on a sample of the NYC taxi trip and fare dataset to predict whether or not a tip is paid by a fare. It walks you through the steps of the [Team Data Science Process](/azure/machine-learning/team-data-science-process/), end-to-end, from data acquisition to model training, and then to the deployment of a web service that publishes the model.
 
@@ -29,7 +31,6 @@ These technologies are used in this walkthrough.
 * Python
 * Azure Machine Learning
 * Scripts
-
 
 ### Azure Data Lake Analytics
 
@@ -67,7 +68,6 @@ Before you begin these topics, you must have the following:
 >
 >
 
-
 ## Prepare data science environment for Azure Data Lake
 
 To prepare the data science environment for this walkthrough, create the following resources:
@@ -80,14 +80,12 @@ To prepare the data science environment for this walkthrough, create the followi
 
 This section provides instructions on how to create each of these resources. If you choose to use Hive tables with Azure Machine Learning, instead of Python, to build a model, you also need to provision an HDInsight (Hadoop) cluster. This alternative procedure in described in the Option 2 section.
 
-
 > [!NOTE]
 > The **Azure Data Lake Store** can be created either separately or when you create the **Azure Data Lake Analytics** as the default storage. Instructions are referenced for creating each of these resources separately, but the Data Lake storage account need not be created separately.
 >
 >
 
 ### Create an Azure Data Lake Storage
-
 
 Create an ADLS from the [Azure portal](https://portal.azure.com). For details, see [Create an HDInsight cluster with Data Lake Store using Azure portal](/azure/data-lake-store/data-lake-store-hdinsight-hadoop-use-portal). Be sure to set up the Cluster AAD Identity in the **DataSource** blade of the **Optional Configuration** blade described there.
 
@@ -671,7 +669,7 @@ You want to operationalize the machine learning model after it has been built. T
     ![c4](./media/data-lake-walkthrough/c4-call-api.png)
 
 ## Option 2: Create and deploy models directly in Azure Machine Learning
-Azure Machine Learning Studio (classic) can read data directly from Azure Data Lake Storage and then be used to create and deploy models. This approach uses a Hive table that points at the Azure Data Lake Storage. A separate Azure HDInsight cluster needs to be provisioned for the Hive table. 
+Azure Machine Learning Studio (classic) can read data directly from Azure Data Lake Storage and then be used to create and deploy models. This approach uses a Hive table that points at the Azure Data Lake Storage. A separate Azure HDInsight cluster needs to be provisioned for the Hive table.
 
 ### Create an HDInsight Linux Cluster
 Create an HDInsight Cluster (Linux) from the [Azure portal](https://portal.azure.com). For details, see the **Create an HDInsight cluster with access to Azure Data Lake Storage** section in [Create an HDInsight cluster with Data Lake Store using Azure portal](/azure/data-lake-store/data-lake-store-hdinsight-hadoop-use-portal).

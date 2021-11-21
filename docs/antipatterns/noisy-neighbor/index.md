@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: anti-pattern
 products:
- - azure
+  - azure
 categories:
- - management-and-governance
- - security
+  - management-and-governance
+  - security
 ms.custom:
   - article
 ---
@@ -23,7 +23,7 @@ Multitenant systems share resources between tenants. This means that the activit
 
 ## Problem description
 
-A benefit of multitenant systems is that resources can be pooled and shared among tenants. This often results in lower costs and improved efficiency. However, if a single tenant uses a disproportionate amount of the resources available in the system, the overall performance of the system can suffer. The _noisy neighbor_ problem occurs when one tenant's performance is degraded because of the activities of another tenant.
+When you build a service to be shared by multiple customers or tenants, you can build it to be *multitenanted*. A benefit of multitenant systems is that resources can be pooled and shared among tenants. This often results in lower costs and improved efficiency. However, if a single tenant uses a disproportionate amount of the resources available in the system, the overall performance of the system can suffer. The _noisy neighbor_ problem occurs when one tenant's performance is degraded because of the activities of another tenant.
 
 Consider an example multitenant system with two tenants. Tenant A's usage patterns and tenant B's usage patterns coincide, which means that at peak times, the total resource usage is higher than the capacity of the system:
 

@@ -8,10 +8,8 @@ ms.date: 11/05/2019
 ms.author: bryanla
 ms.reviewer: anajod
 ms.lastreviewed: 11/05/2019
-
 # Intent: As an Azure Stack Hub operator, I want to deploy an app that scales cross-cloud using Azure and Azure Stack Hub so I can combine the benefits of private cloud with the scalability of the public cloud.
 # Keyword: cross-cloud app azure stack hub
-
 ---
 
 # Deploy an app that scales cross-cloud using Azure and Azure Stack Hub
@@ -29,10 +27,10 @@ In this solution, you'll build a sample environment to:
 > - Create a release.
 > - Learn to monitor and track your deployments.
 
-> [!Tip]  
-> ![hybrid pillars diagram](media/solution-deployment-guide-cross-cloud-scaling/hybrid-pillars.png)  
-> Microsoft Azure Stack Hub is an extension of Azure. Azure Stack Hub brings the agility and innovation of cloud computing to your on-premises environment, enabling the only hybrid cloud that lets you build and deploy hybrid apps anywhere.  
-> 
+> [!Tip]
+> ![hybrid pillars diagram](media/solution-deployment-guide-cross-cloud-scaling/hybrid-pillars.png)
+> Microsoft Azure Stack Hub is an extension of Azure. Azure Stack Hub brings the agility and innovation of cloud computing to your on-premises environment, enabling the only hybrid cloud that lets you build and deploy hybrid apps anywhere.
+>
 > The article [Hybrid app design considerations](/hybrid/app-solutions/overview-app-design-considerations) reviews pillars of software quality (placement, scalability, availability, resiliency, manageability, and security) for designing, deploying, and operating hybrid apps. The design considerations assist in optimizing hybrid app design, minimizing challenges in production environments.
 
 ## Prerequisites
@@ -78,7 +76,7 @@ Update the DNS zone file for the domain. Azure AD will verify ownership of the c
 
 Set up hybrid continuous integration and continuous deployment (CI/CD) to deploy web apps to Azure and Azure Stack Hub and to autopush changes to both clouds.
 
-> [!Note]  
+> [!Note]
 > Azure Stack Hub with proper images syndicated to run (Windows Server and SQL) and App Service deployment are required. For more information, review the App Service documentation [Prerequisites for deploying App Service on Azure Stack Hub](/azure-stack/operator/azure-stack-app-service-before-you-get-started).
 
 ### Add Code to Azure Repos
@@ -154,7 +152,7 @@ Azure Pipelines and Azure DevOps Services provide a highly configurable and mana
       ![Set Agent queue for Azure cloud hosted environment](media/solution-deployment-guide-cross-cloud-scaling/image11.png)
 
 8. In Deploy Azure App Service menu, select the valid **Package or Folder** for the environment. Select **OK** to **folder location**.
-  
+
       ![Select package or folder for Azure App Service environment](media/solution-deployment-guide-cross-cloud-scaling/image12.png)
 
       ![Folder picker dialog 1](media/solution-deployment-guide-cross-cloud-scaling/image13.png)
@@ -210,7 +208,7 @@ Azure Pipelines and Azure DevOps Services provide a highly configurable and mana
 
 21. Save all changes.
 
-> [!Note]  
+> [!Note]
 > Some settings for the tasks may have been automatically defined as [environment variables](/azure/devops/pipelines/release/variables?tabs=batch#custom-variables) when creating a release definition from a template. These settings can't be modified in the task settings; instead, the parent environment item must be selected to edit these settings.
 
 ## Publish to Azure Stack Hub via Visual Studio
@@ -241,7 +239,7 @@ Now that the endpoint information exists, the Azure Pipelines to Azure Stack Hub
 
 ## Develop the app build
 
-> [!Note]  
+> [!Note]
 > Azure Stack Hub with proper images syndicated to run (Windows Server and SQL) and App Service deployment are required. For more information, see [Prerequisites for deploying App Service on Azure Stack Hub](/azure-stack/operator/azure-stack-app-service-before-you-get-started).
 
 Use [Azure Resource Manager templates](https://azure.microsoft.com/resources/templates/) like web app code from Azure Repos to deploy to both clouds.
@@ -328,7 +326,7 @@ Creating a release definition is the final step in the app build process. This r
 
 23. Save all changes.
 
-> [!Note]  
+> [!Note]
 > Some settings for release tasks are automatically defined as [environment variables](/azure/devops/pipelines/release/variables?tabs=batch#custom-variables) when creating a release definition from a template. These settings can't be modified in the task settings but can be modified in the parent environment items.
 
 ## Create a release

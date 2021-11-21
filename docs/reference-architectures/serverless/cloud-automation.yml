@@ -2,10 +2,10 @@
 metadata:
   title: Event-based cloud automation
   titleSuffix: Azure Reference Architectures
-  description: This article is presents the recommended architecture for implementing cloud automation using serverless technologies.
-  author: dsk-2015
-  ms.author: dkshir
-  ms.date: 1/14/2020
+  description: This article is presents guidance for implementing cloud automation using serverless technologies.
+  author: ckittel
+  ms.author: chkittel
+  ms.date: 9/29/2021
   ms.topic: conceptual
   ms.service: architecture-center
   ms.subservice: reference-architecture
@@ -16,13 +16,14 @@ metadata:
 name: Event-based cloud automation
 azureCategories:
   - developer-tools
-summary: This article is presents the recommended architecture for implementing cloud automation using serverless technologies.
+  - devops
+summary: This article is presents guidance for implementing cloud automation using serverless technologies.
 products:
-  - azure-active-directory
   - azure-event-grid
   - azure-functions
   - azure-logic-apps
   - azure-monitor
+  - azure-cosmos-db
 thumbnailUrl: /azure/architecture/browse/thumbs/cloud-automation.png
 content: |
    [!include[](cloud-automation-content.md)]

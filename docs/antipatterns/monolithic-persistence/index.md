@@ -1,8 +1,8 @@
 ---
 title: Monolithic Persistence antipattern
 titleSuffix: Azure Architecture Center
-description: Understand the Monolithic Persistence antipattern, which can hurt performance by putting all of an application's data into a single data store.
-author: dragon119
+description: Understand the Monolithic Persistence antipattern, which can hurt performance by putting all of an application&apos;s data into a single data store.
+author: EdPrice-MSFT
 ms.date: 06/05/2017
 ms.topic: conceptual
 ms.service: architecture-center
@@ -154,9 +154,9 @@ Similarly, the maximum DTU utilization of the log database only reaches about 70
 [data-store-overview]: ../../guide/technology-choices/data-store-overview.md
 [data-store-comparison]: ../../guide/technology-choices/data-store-considerations.md
 
-[MonolithicScenarioLoadTest]: _images/MonolithicScenarioLoadTest.jpg
-[MonolithicDatabaseUtilization]: _images/MonolithicDatabaseUtilization.jpg
-[MonolithicDataAccessStats]: _images/MonolithicDataAccessStats.jpg
-[PolyglotScenarioLoadTest]: _images/PolyglotScenarioLoadTest.jpg
-[PolyglotDatabaseUtilization]: _images/PolyglotDatabaseUtilization.jpg
-[LogDatabaseUtilization]: _images/LogDatabaseUtilization.jpg
+[MonolithicScenarioLoadTest]: ./_images/MonolithicScenarioLoadTest.jpg
+[MonolithicDatabaseUtilization]: ./_images/MonolithicDatabaseUtilization.jpg
+[MonolithicDataAccessStats]: ./_images/MonolithicDataAccessStats.jpg
+[PolyglotScenarioLoadTest]: ./_images/PolyglotScenarioLoadTest.jpg
+[PolyglotDatabaseUtilization]: ./_images/PolyglotDatabaseUtilization.jpg
+[LogDatabaseUtilization]: ./_images/LogDatabaseUtilization.jpg

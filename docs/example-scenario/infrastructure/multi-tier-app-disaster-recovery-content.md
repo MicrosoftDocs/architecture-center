@@ -1,8 +1,6 @@
 
 <!-- cSpell:ignore sujayt -->
 
-
-
 This example scenario is applicable to any industry that needs to deploy resilient multitier applications built for high availability and disaster recovery. In this scenario, the application consists of three layers.
 
 - Web tier: The top layer including the user interface. This layer parses user interactions and passes the actions to next layer for processing.
@@ -23,24 +21,24 @@ Other relevant use cases include:
 
 This scenario demonstrates a multitier application that uses ASP.NET and Microsoft SQL Server. In [Azure regions that support availability zones](/azure/availability-zones/az-overview#services-support-by-region), you can deploy your virtual machines (VMs) in a source region across availability zones and replicate the VMs to the target region used for disaster recovery. In Azure regions that don't support availability zones, you can deploy your VMs within an [availability set](/azure/virtual-machines/availability-set-overview) and replicate the VMs to the target region.
 
-To route traffic between regions, you need a global load balancer. There are two main Azure offerings: 
+To route traffic between regions, you need a global load balancer. There are two main Azure offerings:
 
 - Azure Front Door
 - Azure Traffic Manager
 
 When choosing a load balancer, consider your requirements and the feature set of the two offerings. How quickly do you want to failover? Can you take on the overhead of TLS management? Are there any organizational cost constraints?
 
-Front Door has Layer 7 capabilities: SSL offload, path-based routing, fast failover, caching, and others to improve performance and high-availability of your applications. You might experience faster packet travel times because the infrastructure is onboarded on Azure network sooner. 
+Front Door has Layer 7 capabilities: SSL offload, path-based routing, fast failover, caching, and others to improve performance and high-availability of your applications. You might experience faster packet travel times because the infrastructure is onboarded on Azure network sooner.
 
-Because Front Door adds a new hop, there are added security operations. If the architecture complies to regulatory requirements, there might be restrictions about the additional traffic TLS termination point. The TLS cipher suites selected by Front Door must meet your organization's security bar. Also, Front Door expects the backend services to use [certificates used by Microsoft](https://ccadb-public.secure.force.com/microsoft/IncludedCACertificateReportForMSFT). 
+Because Front Door adds a new hop, there are added security operations. If the architecture complies to regulatory requirements, there might be restrictions about the additional traffic TLS termination point. The TLS cipher suites selected by Front Door must meet your organization's security bar. Also, Front Door expects the backend services to use [certificates used by Microsoft](https://ccadb-public.secure.force.com/microsoft/IncludedCACertificateReportForMSFT).
 
-Another consideration is cost. The architecture should take advantage of the extensive feature set (not just failover) to justify the added cost. 
+Another consideration is cost. The architecture should take advantage of the extensive feature set (not just failover) to justify the added cost.
 
 Traffic Manager is a DNS-based load-balancing service. It balances and fails over only at the DNS level. For that reason, it can't fail over as quickly as Front Door, because of common challenges around DNS caching and systems not honoring DNS TTLs.
 
 You can combine both load balancers, if needed. For example, you want the DNS-based failover but you want to add a POP experience in front of that traffic-managed infrastructure.
 
-This architecture uses Traffic Manager because it's light weight. The failover timing is sufficient for illustrative purposes. 
+This architecture uses Traffic Manager because it's light weight. The failover timing is sufficient for illustrative purposes.
 
 ![Architecture overview of a highly resilient multitier web application][architecture]
 

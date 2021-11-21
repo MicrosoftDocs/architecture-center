@@ -1,5 +1,5 @@
 ---
-title: Operational excellence in a hybrid workload
+title: Operational excellence in hybrid workload
 description: Includes guidance and recommendations that apply to the Operational Excellence pillar in a hybrid and multi-cloud workload.
 author: v-aangie
 ms.date: 02/19/2021
@@ -14,12 +14,11 @@ ms.custom:
 
 Operational excellence consists of the operations processes that keep a system running in production. Applications must be designed with DevOps principles in mind, and deployments must be reliable and predictable. Use monitoring tools to verify that your application is running correctly and to gather custom business telemetry that will tell you whether your application is being used as intended.
 
-Use _Azure Arc enabled infrastructure_ to add support for cloud [Operational Excellence](../devops/overview.md) practices and tools to any environment. Be sure to utilize reference architectures and other resources from this section that illustrate applying these principles in hybrid and multicloud scenarios. The architectures referenced here can also be found in the Azure Architecture Center, [Hybrid and Multicloud](../../browse/index.yml?azure_categories=hybrid) category.
+Use *Azure Arc enabled infrastructure* to add support for cloud [Operational Excellence](../devops/overview.md) practices and tools to any environment. Be sure to utilize reference architectures and other resources from this section that illustrate applying these principles in hybrid and multicloud scenarios. The architectures referenced here can also be found in the Azure Architecture Center, [Hybrid and Multicloud](../../browse/index.yml?azure_categories=hybrid) category.
 
 ## Build cloud native apps anywhere, at scale
 
-To keep your systems running, many workload teams have architected and designed applications where components are distributed across public cloud services, private clouds, data centers, and edge locations. With Azure Arc enabled Kubernetes, you can accelerate development by using best in class application services with standardized deployment, configuration, security, and observability.
-One of the primary benefits of Azure Arc is facilitating implementation of DevOps principles that apply established development practices to operations. This results in improved agility, without jeopardizing the stability of IT environment.
+To keep your systems running, many workload teams have architected and designed applications where components are distributed across public cloud services, private clouds, data centers, and edge locations. With Azure Arc enabled Kubernetes, you can accelerate development by using best in class application services with standardized deployment, configuration, security, and observability. One of the primary benefits of Azure Arc is facilitating implementation of DevOps principles that apply established development practices to operations. This results in improved agility, without jeopardizing the stability of IT environment.
 
 - Centrally code and deploy applications confidently to any Kubernetes distribution in any location.
 - Centrally manage and delegate access for DevOps roles and responsibilities.
@@ -27,7 +26,7 @@ One of the primary benefits of Azure Arc is facilitating implementation of DevOp
 - Delegate access for DevOps roles and responsibilities through Azure RBAC.
 - Reduce errors with consistent policy driven deployment and operations through GitHub and Azure Policy.
 
-## Connect Kubernetes clusters to Azure and start deploying using a GitOps model  
+## Connect Kubernetes clusters to Azure and start deploying using a GitOps model
 
 GitOps relies on a Git repository to host files that contain the configuration representing the expected state of a resource. An agent running on the cluster monitors the state of the repository and, when there is a change on the repository, the agent pulls the changed files to the cluster and applies the new configuration.
 
@@ -41,7 +40,7 @@ Each association between an Azure Arc enabled Kubernetes cluster configuration a
 
 If you are looking for a fully managed Kubernetes solution on-premises in your datacenters and/or edge locations, AKS on Azure Stack HCI is a great option. Azure Kubernetes Service on Azure Stack HCI is an on-premises implementation of Azure Kubernetes Service (AKS), which automates running containerized applications at scale. Azure Kubernetes Service is now in preview on Azure Stack HCI and Windows Server 2019 Datacenter, making it quicker to get started hosting Linux and Windows containers in your datacenter.
 
-AKS clusters on Azure Stack HCI can be connected to Azure Arc for centralized management. Once connected, you can deploy your applications and Azure data services to these clusters and extend Azure services such as Azure Monitor, Azure Policy and Azure Defender.
+AKS clusters on Azure Stack HCI can be connected to Azure Arc for centralized management. Once connected, you can deploy your applications and Azure data services to these clusters and extend Azure services such as Azure Monitor, Azure Policy and Microsoft Defender for Cloud.
 
 ### Azure Stack HCI use cases
 
@@ -54,7 +53,7 @@ AKS clusters on Azure Stack HCI can be connected to Azure Arc for centralized ma
 
   - Use Azure Stack HCI to deploy your container-built edge workloads, and essential business applications in highly available virtual machines (VMs).
   - Bring efficient application development and deployment to remote locations at the right price by leveraging switchless deployment and 2 node clusters.
-  - Get a global view of your system’s health using Azure Monitor.
+  - Get a global view of your system's health using Azure Monitor.
 
 - **Upgrade your infrastructure for remote work using VDI**
 
@@ -62,7 +61,7 @@ AKS clusters on Azure Stack HCI can be connected to Azure Arc for centralized ma
 
 ## Resources and architectures related to Operational Excellence
 
-The introduction of cloud computing had a significant impact on how software is developed, delivered, and run. With _Azure Arc enabled infrastructure_ and Azure Arc components like [Azure Arc enabled Kubernetes](/azure/azure-arc/kubernetes/overview) and [Azure Arc enabled data services](/azure/azure-arc/data/overview) it becomes possible to design cloud native applications with a consistent set of principles and tooling across public cloud, private cloud, and the edge.
+The introduction of cloud computing had a significant impact on how software is developed, delivered, and run. With *Azure Arc enabled infrastructure* and Azure Arc components like [Azure Arc enabled Kubernetes](/azure/azure-arc/kubernetes/overview) and [Azure Arc enabled data services](/azure/azure-arc/data/overview) it becomes possible to design cloud native applications with a consistent set of principles and tooling across public cloud, private cloud, and the edge.
 
 Click the following links for architecture details and diagrams that enable application design and DevOps practices consistent with [Operational excellence principles](../devops/principles.md).
 
@@ -88,8 +87,8 @@ Click the following links for architecture details and diagrams that enable appl
 ## Manage data anywhere
 
 ![Management capabilities comparison by deployment model](../_images/hybrid-deployment.png)
-  
+
 ## Next steps
 
->[!div class="nextstepaction"]
->[Performance Efficiency](./hybrid-performance-efficiency.md)
+> [!div class="nextstepaction"]
+> [Performance Efficiency](./hybrid-performance-efficiency.md)

@@ -1,5 +1,5 @@
 ---
-title: Azure Industrial IoT - data analysis
+title: Azure Industrial IoT data analysis
 titleSuffix: Azure Application Architecture Guide
 description: Understand data analysis in an Azure Industrial IoT (IIoT) analytics solution. Use visualization, data trends, dashboards, schematic views, and notebooks.
 author: khilscher
@@ -34,7 +34,7 @@ There are many options for visualizing your industrial data. Your IIoT analytics
 
 The Azure Time Series Insights explorer is a web application that provides powerful data trending and visualization capabilities that make it simple to explore and analyze billions of IIoT events simultaneously.
 
-Time Series Insights Explorer is ideally suited to personas, such as a Process Engineer or Operations Manager, who want to explore, analyze and visualize the raw data coming from your industrial systems. The insights gained from exploring the raw data can help build Azure Stream Analytics jobs, which look for conditions in the data or perform calculations over the data.  
+Time Series Insights Explorer is ideally suited to personas, such as a Process Engineer or Operations Manager, who want to explore, analyze and visualize the raw data coming from your industrial systems. The insights gained from exploring the raw data can help build Azure Stream Analytics jobs, which look for conditions in the data or perform calculations over the data.
 
 The Azure Time Series Insights explorer allows you to seamlessly explore both warm and cold data, or your historical data, as demonstrated in the following figure.
 
@@ -46,13 +46,13 @@ Azure Time Series Insights explorer has a powerful yet intuitive user interface,
 
 Key features of Azure Time Series Insights explorer:
 
-1. **Environment panel** - Displays all your Azure Time Series Insights environments.
-1. **Navigation bar** - Lets you switch between the Analyze and Model pages.
-1. **Hierarchy tree and search panel** - Lets you select and search for specific data elements to be charted.
-1. **Time series well** - Shows all your currently selected data elements.
-1. **Chart panel** - Displays your current working chart.
-1. **Timeline** - Lets you modify your working time span.
-1. **App bar** - Contains your user management options (such as current tenant), and allows you to change them and language settings.
+1. **Environment panel:** Displays all your Azure Time Series Insights environments.
+1. **Navigation bar:** Lets you switch between the Analyze and Model pages.
+1. **Hierarchy tree and search panel:** Lets you select and search for specific data elements to be charted.
+1. **Time series well:** Shows all your currently selected data elements.
+1. **Chart panel:** Displays your current working chart.
+1. **Timeline:** Lets you modify your working time span.
+1. **App bar:** Contains your user management options (such as current tenant), and allows you to change them and language settings.
 
 ## Dashboards
 

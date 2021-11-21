@@ -1,4 +1,4 @@
-[!INCLUDE [header_file](../../../includes/sol-idea-header.md)]![image](https://user-images.githubusercontent.com/13895622/130743752-1df6b2c0-a9f5-4b3e-bbd3-3d5bad013a9e.png)
+[!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
 Azure Cognitive Services offers many possibilities for Artificial Intelligence (AI) solutions. One of them is [Azure Custom Vision](/azure/cognitive-services/custom-vision-service/), which allows you to build, deploy, and improve your image classifiers. This architecture uses Custom Vision to classify images taken by a simulated drone. It provides a way to combine AI and the Internet of Things (IoT). Azure Custom Vision can also be used for object detection purpose.
 

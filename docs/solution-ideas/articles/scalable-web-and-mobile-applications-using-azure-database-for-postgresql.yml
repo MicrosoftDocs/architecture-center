@@ -1,9 +1,9 @@
 ### YamlMime:Architecture
 metadata:
-  title: Scalable web and mobile applications using Azure Database for PostgreSQL
+  title: Scalable apps using Azure DB for PostgreSQL
   titleSuffix: Azure Solution Ideas
   description: Use Azure Database for PostgreSQL to rapidly build engaging, performant, and scalable cross-platform and native apps for iOS, Android, Windows, or Mac.
-  author: doodlemania2
+  author: EdPrice-MSFT
   ms.author: pnp
   ms.date: 12/16/2019
   ms.topic: conceptual

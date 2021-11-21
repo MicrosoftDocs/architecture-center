@@ -1,8 +1,8 @@
 ### YamlMime:Architecture
 metadata:
-  title: Hybrid Security Monitoring using Azure Security Center and Azure Sentinel
-  description: Use Azure Security Center and Azure Sentinel to monitor the security configuration and telemetry of on-premises and Azure operating system workloads.
-  author: doodlemania2
+  title: Hybrid security monitoring with Sentinel
+  description: Use Microsoft Defender for Cloud and Microsoft Sentinel to monitor the security configuration and telemetry of on-premises and Azure operating system workloads.
+  author: EdPrice-MSFT
   ms.author: pnp
   ms.date: 08/19/2020
   ms.topic: conceptual
@@ -17,11 +17,11 @@ metadata:
     - reference-architecture
     - e2e-hybrid
     - internal-intro
-name: Hybrid Security Monitoring using Azure Security Center and Azure Sentinel
+name: Hybrid Security Monitoring using Microsoft Defender for Cloud and Microsoft Sentinel
 azureCategories:
   - hybrid
   - security
-summary: Use Azure Security Center and Azure Sentinel to monitor the security configuration and telemetry of on-premises and Azure operating system workloads.
+summary: Use Microsoft Defender for Cloud and Microsoft Sentinel to monitor the security configuration and telemetry of on-premises and Azure operating system workloads.
 products:
   - azure-log-analytics
   - azure-monitor
@@ -31,4 +31,4 @@ products:
 
 thumbnailUrl: /azure/architecture/browse/thumbs/hybrid-security-monitoring.png
 content: |
-   [!include[](hybrid-security-monitoring-content.md)]
+   [!INCLUDE[](hybrid-security-monitoring-content.md)]

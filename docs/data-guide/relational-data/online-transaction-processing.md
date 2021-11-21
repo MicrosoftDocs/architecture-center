@@ -1,7 +1,8 @@
 ---
 title: Online transaction processing (OLTP)
 description: Learn about atomicity, consistency, and other features of online transaction processing (OLTP), which manages transactional data while supporting querying.
-author: zoinerTejada
+author: EdPrice-MSFT
+ms.author: pnp
 ms.date: 07/27/2019
 ms.topic: conceptual
 ms.service: architecture-center
@@ -99,15 +100,11 @@ The following tables summarize the key differences in capabilities.
 
 ### General capabilities
 
-<!-- markdownlint-disable MD033 -->
-
 | Capability  | Azure SQL Database | SQL Server in an Azure virtual machine | Azure Database for MySQL | Azure Database for PostgreSQL |
 |------------------------------|--------------------|----------------------------------------|--------------------------|-------------------------------|
 |      Is Managed Service      |        Yes         |                   No                   |           Yes            |              Yes              |
 |       Runs on Platform       |        N/A         |         Windows, Linux, Docker         |           N/A            |              N/A              |
 | Programmability <sup>1</sup> |   T-SQL, .NET, R   |         T-SQL, .NET, R, Python         |           SQL            |              SQL, PL/pgSQL              |
-
-<!-- markdownlint-enable MD033 -->
 
 [1] Not including client driver support, which allows many programming languages to connect to and use the OLTP data store.
 
