@@ -22,7 +22,7 @@ ms.custom:
 
 # Considerations when using domain names in a multitenant solution
 
-In many multitenant web applications, a domain name can be used as a way to identify a tenant, to help with routing requests, and to provide a branded experience to your customers. Two common approaches are to use subdomains and custom domain names.
+In many multitenant web applications, a domain name can be used as a way to identify a tenant, to help with routing requests, and to provide a branded experience to your customers. Two common approaches are to use subdomains and custom domain names. On this page, we provide guidance for technical decision-makers about the approaches you can consider and their tradeoffs.
 
 ## Subdomains
 
