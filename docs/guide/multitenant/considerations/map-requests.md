@@ -25,6 +25,8 @@ Whenever a request arrives into your application, you need to determine the tena
 
 ![Diagram showing mapping a request from a logical tenant to physical tenant infrastructure.](media/map-requests/map-logical-physical.png)
 
+On this page, we provide guidance for technical decision-makers about the approaches you can consider to map requests to the appropriate tenant, and the tradeoffs involved in the approaches.
+
 > [!NOTE]
 > This page mostly discusses HTTP-based applications, like websites and APIs. However, many of same underlying principles apply to multitenant applications that use other communication protocols.
 

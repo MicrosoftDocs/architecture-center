@@ -169,3 +169,4 @@ Ongoing database schema updates are initiated by their application tier.
 
 - Review the [considerations for updating a multitenant solution](../considerations/updates.md).
 - Consider [architectural approaches for storage and data](storage-data.md).
+- Consider [how to use Azure Resource Manager in a multitenant solution](../service/resource-manager.md).

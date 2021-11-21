@@ -94,4 +94,4 @@ In general, it's not advisable to create multiple Azure AD tenants. This approac
 
 ## Next steps
 
-Review [Resources for architects and developers of multitenant solutions](../related-resources.md).
+Review [deployment and configuration approaches for multitenancy](../approaches/deployment-configuration.yml).
