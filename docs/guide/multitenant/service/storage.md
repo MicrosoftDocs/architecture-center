@@ -175,4 +175,4 @@ When you dynamically create queues for each tenant, consider how your applicatio
 
 ## Next steps
 
-Review [Resources for architects and developers of multitenant solutions](../related-resources.md).
+Review [storage and data approaches for multitenancy](../approaches/storage-data.md).
