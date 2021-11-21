@@ -85,7 +85,7 @@ In Azure, these metrics are often captured by [Application Insights](/azure/azur
 
 However, Application Insights and other logging and monitoring solutions are not appropriate for precise cost measurement or for metering purposes. Application Insights is designed to [sample data](/azure/azure-monitor/app/sampling), especially when your application has a high volume of requests. Sampling is designed to reduce the cost of monitoring your solution, because capturing every piece of telemetry can often become expensive.
 
-If you need to track precise details about consumption or usage for billing purposes, you should instead build a custom pipeline to log the necessary data. You should then aggregate the data, based on your requirements. Azure services that can be helpful for this purpose include [Event Hubs](https://azure.microsoft.com/services/event-hubs), to capture large volumes of telemetry, and [Stream Analytics](https://azure.microsoft.com/services/stream-analytics), to process it in real-time.
+If you need to track precise details about consumption or usage for billing purposes, you should instead build a custom pipeline to log the necessary data. You should then aggregate the data, based on your requirements. Azure services that can be helpful for this purpose include [Event Hubs](https://azure.microsoft.com/services/event-hubs), to capture large volumes of telemetry, and [Stream Analytics](https://azure.microsoft.com/services/stream-analytics), to process it in real time.
 
 ### Use Azure Reservations to reduce costs
 
