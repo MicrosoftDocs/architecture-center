@@ -198,6 +198,8 @@ items:
                 href: guide/multitenant/considerations/domain-names.md
           - name: Approaches
             items:
+              - name: Deployment and configuration
+                href: guide/multitenant/approaches/deployment-configuration.yml
               - name: Storage and data
                 href: guide/multitenant/approaches/storage-data.md
           - name: Service-specific guidance
