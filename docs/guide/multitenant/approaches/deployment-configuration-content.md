@@ -2,7 +2,7 @@ Regardless of your architecture and the components you use to implement it, you 
 
 ## Key considerations and requirements
 
-It's important to have a clear idea of your requirements, before you plan your deployment strategy. Specific considerations includethe following:
+It's important to have a clear idea of your requirements, before you plan your deployment strategy. Specific considerations include the following:
 
 - **Expected scale:** Do you expect to support a small number of tenants (such as five or less), or will you grow to a large number of tenants?
 - **Automated or supported onboarding:** When a tenant is ready to be onboarded, will they be able to complete the process themselves by following an automated procedure? Or, do new tenants initiate a request, and you manually onboard them after you receive the request? Are there manual approval steps required from your team, such as to prevent the abuse of your service?
