@@ -4,7 +4,7 @@ titleSuffix: Azure Architecture Center
 description: This article describes approaches to consider for cost management and cost allocation in a multitenant solution.
 author: johndowns
 ms.author: jodowns
-ms.date: 10/06/2021
+ms.date: 11/22/2021
 ms.topic: conceptual
 ms.service: architecture-center
 products:
@@ -30,12 +30,12 @@ Consider the requirements you have for measuring the consumption for your soluti
 
 ### Purpose of measurement
 
-It's important to decide whether your goal is to:
+It's important to decide what your goal is. The following are examples of goals:
 
 - **Calculate an approximate cost of goods sold for each tenant.** For example, if you deploy a significant number of shared resources, you might only be interested in a rough approximation of the cost incurred for each tenant.
 - **Calculate the exact cost incurred by each tenant.** For example, if you charge your tenants for the exact amount of consumption they incur, you need to have precise information about how much each tenant's resources cost.
-- **Identify outlier tenants that cost significantly more than others.** For example, if you provide a [flat-rate pricing model](../considerations/pricing-models.md#flat-rate-pricing), you might need to determine whether any tenants are consuming a disproportionate amount of your provisioned capacity so that you can apply fair-use policies. In many situations, this use case doesn't require precise measurement of costs.
-- **Reduce the overall Azure cost for your solution.** For example, you might want to look at the cost of every component and determine whether you have over-provisioned for the workload.
+- **Identify outlier tenants that cost significantly more than others.** For example, if you provide a [flat-rate pricing model](../considerations/pricing-models.md#flat-rate-pricing), you might need to determine whether any tenants are consuming a disproportionate amount of your provisioned capacity, so that you can apply fair-use policies. In many situations, this use case doesn't require precise measurement of costs.
+- **Reduce the overall Azure cost for your solution.** For example, you might want to look at the cost of every component, and then determine whether you have over-provisioned for the workload.
 
 By understanding the goal of measuring the consumption by a tenant, you can determine whether the cost allocations need to be approximate or highly precise, which affects the specific tools you can use and the practices you can follow.
 
