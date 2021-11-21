@@ -202,6 +202,10 @@ items:
                 href: guide/multitenant/approaches/storage-data.md
           - name: Service-specific guidance
             items:
+              - name: Deployment and configuration
+                items:
+                  - name: Azure Resource Manager
+                    href: guide/multitenant/service/resource-manager.md
               - name: Storage and data
                 items:
                   - name: Azure Storage
