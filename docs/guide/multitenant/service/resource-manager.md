@@ -41,6 +41,10 @@ In some solutions, you might choose to write custom code to dynamically provisio
 
 [Role-based access control](/azure/role-based-access-control) (Azure RBAC) provides you with a fine-grained approach to manage access to your Azure resources. In a multitenant solution, consider whether you have resources that should have specific Azure RBAC policies applied. For example, you might have some tenants with particularly sensitive data, and you might need to apply RBAC to grant access to those individuals, without including other people in your organization. Similarly, tenants might ask to access their Azure resources directly, such as during an audit. Should you choose to allow this, finely scoped RBAC permissions can enable you to grant access to a tenant's data, without providing access to another tenants' data.
 
+### Tags
+
+[Tags](/azure/azure-resource-manager/management/tag-resources) enable you to add custom metadata to your Azure resources, resource groups, and subscriptions. Consider tagging your tenant-specific resources with the tenant's identifier so that you can easily [track and allocate your Azure costs](../approaches/cost-management-allocation.md), and to simplify your resource management.
+
 ### Azure resource quotas
 
 Resource Manager is one of the points in Azure that enforces [limits and quotas](/azure/azure-resource-manager/management/azure-subscription-service-limits). These quotas are important to consider throughout your design process. All Azure resources have limits that need to be adhered to, and these limits include the number of requests that can be made against Resource Manager, within a certain time period. If you exceed this limit, [Resource Manager throttles the requests](/azure/azure-resource-manager/management/request-limits-and-throttling).
