@@ -72,7 +72,7 @@ The application performance is dependent on the availability and performance of 
 
 Unlike in the [loosely coupled alternative](loosely-coupled-quantum-computing-job), the architecture presented here assumes only one client is accessing the quantum workspace. This scenario leads to following requirements:
 
-* As the client is known, authentication can be implemented via [Managed Identity](/azure/active-directory/managed-identities-azure-resources/overview) associated to the application.
+* As the client is known, authentication can be implemented via [managed identity](/azure/active-directory/managed-identities-azure-resources/overview) associated to the application.
 * Throttling of requests and caching of results can be implemented in the client itself.
 
 For general security aspects, consider applying the [typical design patterns for security](/azure/architecture/framework/security/security-patterns) where appropriate.
@@ -91,9 +91,9 @@ Overall cost of this solution depends on the quantum computing target selected f
 
 For the Azure Quantum service following points should be considered:
 
-* Microsoft QIO Solvers are billed via the Azure subscription bill. Cost depends on selected SKU and usage pattern. For details refer to the [Azure Quantum pricing](https://azure.microsoft.com/pricing/details/azure-quantum/) page.
-* Other Optimization providers are available on Azure Marketplace. For cost details have a look at respective reference page listed on [Optimization providers on Azure Quantum](https://docs.microsoft.com/azure/quantum/qio-target-list)
-* Quantum Computing providers can be consumed via Azure Marketplace offering. Cost depends on type of resource (simulator or hardware), SKU, and usage. For details see the reference page for the provider needed for your scenario referenced on [Quantum computing providers on Azure Quantum](https://docs.microsoft.com/azure/quantum/qc-target-list).
+* Microsoft QIO solvers are billed via the Azure subscription bill. Cost depends on selected SKU and usage pattern. For details refer to the [Azure Quantum pricing](https://azure.microsoft.com/pricing/details/azure-quantum/) page.
+* Other optimization providers are available on Azure Marketplace. For cost details have a look at respective reference page listed on [Optimization providers on Azure Quantum](https://docs.microsoft.com/azure/quantum/qio-target-list)
+* Quantum computing providers can be consumed via Azure Marketplace offering. Cost depends on type of resource (simulator or hardware), SKU, and usage. For details see the reference page for the provider needed for your scenario referenced on [Quantum computing providers on Azure Quantum](https://docs.microsoft.com/azure/quantum/qc-target-list).
 
 ## Next steps
 

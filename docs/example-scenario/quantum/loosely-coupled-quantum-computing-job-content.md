@@ -80,8 +80,8 @@ The application performance is dependent on the availability and performance of 
 
 Unlike in the [tightly coupled alternative](tightly-coupled-quantum-computing-job), the architecture presented here assumes multiple clients are accessing the quantum workspace via the API. This scenario leads to following requirements:
 
-* Clients must authenticate to the API, which can be implemented via [Authentication policies](/azure/api-management/api-management-authentication-policies).
-* Authentication of the Azure Functions can be implemented via [Managed Identity](/azure/active-directory/managed-identities-azure-resources/overview) associated to the functions. These identities can be used to authenticate to the Quantum workspace.
+* Clients must authenticate to the API, which can be implemented via [authentication policies](/azure/api-management/api-management-authentication-policies).
+* Authentication of the Azure Functions can be implemented via [managed mdentity](/azure/active-directory/managed-identities-azure-resources/overview) associated to the functions. These identities can be used to authenticate to the Quantum workspace.
 * There can be multiple clients accessing the API. Request throttling could be implemented using [API Management request throttling functionality](/azure/api-management/api-management-sample-flexible-throttling) to protect the quantum backend and limit the use of the quantum resources.
 * Depending on request pattern, caching of quantum computing results can be implemented via [API Management caching policies](/azure/api-management/api-management-caching-policies).
 
@@ -89,7 +89,7 @@ For general security aspects, consider applying the [typical design patterns for
 
 ### Resiliency
 
-Always respect that quantum target environments are limited resources. At some providers submitted jobs are first added to a queue before being processed. It is important to monitor job execution to give feedback to the user about the current status. For cases where job execution fails because of a transient error, a [retry pattern](/azure/architecture/patterns/retry) should be implemented for job submission. Submission should not happen via synchronous call but asynchronously instead with polling for the result.
+Always respect that quantum target environments are limited resources. With some providers, submitted jobs are first added to a queue before being processed. It is important to monitor job execution to give feedback to the user about the current status. For cases where job execution fails because of a transient error, a [retry pattern](/azure/architecture/patterns/retry) should be implemented for job submission. Submission should not happen via synchronous call but asynchronously instead with polling for the result.
 
 ### DevOps
 
@@ -101,9 +101,9 @@ Overall cost of this solution depends on the quantum computing target selected f
 
 For the Azure Quantum service following points should be considered:
 
-* Microsoft QIO Solvers are billed via the Azure subscription bill. Cost depends on selected SKU and usage pattern. For details refer to the [Azure Quantum pricing](https://azure.microsoft.com/pricing/details/azure-quantum/) page.
-* Other Optimization providers are available on Azure Marketplace. For cost details have a look at respective reference page listed on [Optimization providers on Azure Quantum](https://docs.microsoft.com/azure/quantum/qio-target-list)
-* Quantum Computing providers can be consumed via Azure Marketplace offering. Cost depends on type of resource (simulator or hardware), SKU, and usage. For details see the reference page for the quantum computing provider needed for your scenario referenced on [Quantum computing providers on Azure Quantum](https://docs.microsoft.com/azure/quantum/qc-target-list).
+* Microsoft QIO solvers are billed via the Azure subscription bill. Cost depends on selected SKU and usage pattern. For details refer to the [Azure Quantum pricing](https://azure.microsoft.com/pricing/details/azure-quantum/) page.
+* Other optimization providers are available on Azure Marketplace. For cost details have a look at respective reference page listed on [Optimization providers on Azure Quantum](https://docs.microsoft.com/azure/quantum/qio-target-list)
+* Quantum computing providers can be consumed via Azure Marketplace offering. Cost depends on type of resource (simulator or hardware), SKU, and usage. For details see the reference page for the quantum computing provider needed for your scenario referenced on [Quantum computing providers on Azure Quantum](https://docs.microsoft.com/azure/quantum/qc-target-list).
 
 ## Next steps
 
