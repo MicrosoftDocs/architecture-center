@@ -1,4 +1,4 @@
-Strategically create data using an upsert to allow systems to synchronize data. Guarantee that the consuming application will be able to accept requests when the data is awaiting synchronization or when it is missing. This scenario builds eventual consistency in Power Platform, to support Azure Web Apps and other similar scenarios.
+Strategically create data using an upsert to allow systems to synchronize data. Guarantee that the consuming application will be able to accept requests when the data is awaiting synchronization or when it is missing. This scenario builds eventual consistency in Power Apps, to support Azure Web Apps and other similar scenarios. In addition, you can use various Azure services to replicate data.
 
 ## Potential use cases
 
@@ -73,6 +73,7 @@ This pattern may not be suitable in the following scenario:
 ## Next steps
 
 - [Power Platform](/power-platform)
+- [What is Power Apps?](/powerapps/powerapps-overview)
 - [App Service overview](/rest/api/appservice/web-apps)
 - [What is Azure Logic Apps?](/azure/logic-apps)
 - [Get started with Power Automate](/power-automate/getting-started)
@@ -87,7 +88,7 @@ Related architectures:
 
 Guidance for Web development:
 
-- [Ten design principles for Azure applications](/azure/architecture/guide/design-principles/)
+- [Ten design principles for Azure applications](/azure/architecture/guide/design-principles)
 - [Design and implementation patterns](/azure/architecture/patterns/category/design-implementation)
 - [App Service deployment best practices](https://docs.microsoft.com/azure/app-service/deploy-best-practices?toc=https%3A%2F%2Fdocs.microsoft.com%2Fen-us%2Fazure%2Farchitecture%2Ftoc.json&bc=https%3A%2F%2Fdocs.microsoft.com%2Fen-us%2Fazure%2Farchitecture%2Fbread%2Ftoc.json) 
-- [Microsoft Azure Well-Architected Framework](/azure/architecture/framework/)
+- [Microsoft Azure Well-Architected Framework](/azure/architecture/framework)
