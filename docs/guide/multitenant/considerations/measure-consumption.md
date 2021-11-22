@@ -20,7 +20,7 @@ ms.custom:
 
 # Measure the consumption of each tenant
 
-As a solution provider, it's important to measure the consumption of each tenant in your multitenant solution. By measuring the consumption of each tenant, you can ensure that the cost of goods sold (COGS), for delivering the service to each tenant, is profitable.
+As a solution provider, it's important to measure the consumption of each tenant in your multitenant solution. By measuring the consumption of each tenant, you can ensure that the cost of goods sold (COGS), for delivering the service to each tenant, is profitable. On this page, we provide guidance for technical decision-makers about the importance of measuring consumption, and the approaches you can consider to measure a tenant's consumption, as well as the tradeoffs involved.
 
 There are two primary concerns driving the need for measuring each tenant's consumption:
 
