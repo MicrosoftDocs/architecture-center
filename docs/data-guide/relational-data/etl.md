@@ -1,9 +1,9 @@
 ---
 title: Extract, transform, and load (ETL)
 description: Learn about extract-transform-load (ETL) and extract-load-transform (ELT) data transformation pipelines, and how to use control flows and data flows.
-author: EdPrice-MSFT
-ms.author: pnp
-ms.date: 11/20/2019
+author: raunakjhawar
+ms.author: rajhawar
+ms.date: 11/22/2021
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: azure-guide
@@ -59,6 +59,25 @@ Relevant Azure service:
 - [SQL dedicated pools on Azure Synapse Analytics](/azure/sql-data-warehouse/sql-data-warehouse-overview-what-is)
 - [SQL Serverless pools on Azure Synapse Analytics](https://docs.microsoft.com/azure/synapse-analytics/get-started-analyze-sql-on-demand)
 - [HDInsight with Hive](/azure/hdinsight/hadoop/hdinsight-use-hive)
+- [Azure Data Factory](https://azure.microsoft.com/services/data-factory)
+
+Other tools:
+
+- [SQL Server Integration Services (SSIS)](/sql/integration-services/sql-server-integration-services)
+
+
+## Data flow and control flow
+
+In the context of data pipelines, the control flow ensures the orderly processing of a set of tasks. To enforce the correct processing order of these tasks, precedence constraints are used. You can think of these constraints as connectors in a workflow diagram, as shown in the image below. Each task has an outcome, such as success, failure, or completion. Any subsequent task does not initiate processing until its predecessor has completed with one of these outcomes.
+
+Control flows execute data flows as a task. In a data flow task, data is extracted from a source, transformed, or loaded into a data store. The output of one data flow task can be the input to the next data flow task, and data flows can run in parallel. Unlike control flows, you cannot add constraints between tasks in a data flow. You can, however, add a data viewer to observe the data as it is processed by each task.
+
+![Diagram of a data flow being executed as a task within a control flow.](../images/control-flow-data-flow.png)
+
+In the diagram above, there are several tasks within the control flow, one of which is a data flow task. One of the tasks is nested within a container. Containers can be used to provide structure to tasks, providing a unit of work. One such example is for repeating elements within a collection, such as files in a folder or database statements.
+
+Relevant Azure service:
+
 - [Azure Data Factory](https://azure.microsoft.com/services/data-factory)
 
 Other tools:
