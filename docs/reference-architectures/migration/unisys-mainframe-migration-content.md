@@ -16,7 +16,7 @@ The AMT Framework supports several options to move client workloads to Azure:
 
 - A second methodology is to move applications from the mainframe to Azure gradually, with complete transition as the ultimate goal. This tactic provides savings per application, and lessons learned to convert each application can help with subsequent conversions. Modernizing each application on its own schedule can be more relaxed than converting everything at once.
 
-  This stepped method can also provide more processing cycles on the mainframe as applications convert to Azure. Eventually, starvation of the mainframe as applications convert to Azure can highlight the need to retire the mainframe.
+This stepped method can also provide more processing cycles on the mainframe as applications convert to Azure. Eventually, starvation of the mainframe as applications convert to Azure can highlight the need to retire the mainframe.
 
 ## Architecture
 
@@ -89,14 +89,17 @@ The second diagram shows how the Unisys mainframe components can map and migrate
 The following considerations apply to this architecture:
 
 ### Availability
+
 - This architecture uses [Azure Site Recovery](https://azure.microsoft.com/services/site-recovery/) to mirror the Azure VMs to a secondary Azure region for quick failover and DR if there's Azure datacenter failure.
 
 - [Azure autofailover group replication](/azure/azure-sql/database/auto-failover-group-overview) provides data protection by managing database replication and failover to another region.
 
 ### Resiliency
+
 Resiliency is built into this solution because of the Load Balancers. If one presentation or transaction server fails, the other server behind the Load Balancer shoulders the workload.
 
 ### Scalability
+
 You can scale out the server sets to provide more throughput. For more information, see [Virtual machine scale sets](/azure/virtual-machine-scale-sets/overview).
 
 ### Security
@@ -108,13 +111,23 @@ You can scale out the server sets to provide more throughput. For more informati
 [Azure Bastion](/azure/bastion/bastion-overview) maximizes admin access security by minimizing open ports. Bastion provides secure and seamless secure RDP and SSH connectivity over TLS from the Azure portal to VMs in the virtual network.
 
 ### Pricing
+
 - Azure SQL Database should use [Hyperscale or Business Critical](/azure/azure-sql/database/service-tiers-general-purpose-business-critical) SQL Database tiers for high input/output operations per second (IOPS) and high uptime SLA.
 
 - This architecture works best with Premium SSDs or Ultra Disk SSDs. For more information, see [Managed Disks pricing](https://azure.microsoft.com/pricing/details/managed-disks/).
 
-## Next steps
+## Next Steps
 
-Explore related architectures:
+- [Cloud Adoption Framework](/azure/cloud-adoption-framework/overview)
+- [Azure Setup Guide](/azure/cloud-adoption-framework/ready/azure-setup-guide/)
+- [Migration Best Practices](/azure/cloud-adoption-framework/migrate/azure-best-practices)
+- [Asysco](https://asysco.com)
+
+For more information, please contact [legacy2azure@microsoft.com](mailto:legacy2azure@microsoft.com).
+
+## Related reources
+
+Explore related resources:
 
 - [Unisys Dorado mainframe migration to Azure with Astadia & Micro Focus](../../example-scenario/mainframe/migrate-unisys-dorado-mainframe-apps-with-astadia-micro-focus.yml)
 - [High-volume batch transaction processing](../../example-scenario/mainframe/process-batch-transactions.yml)
@@ -123,5 +136,3 @@ Explore related architectures:
 - [Replicate and sync mainframe data in Azure](./sync-mainframe-data-with-azure.yml)
 - [Unlock legacy data with Azure Stack](../../solution-ideas/articles/unlock-legacy-data.yml)
 - [Modernize mainframe & midrange data](./modernize-mainframe-data-to-azure.yml)
-
-For more information, please contact [legacy2azure@microsoft.com](mailto:legacy2azure@microsoft.com).

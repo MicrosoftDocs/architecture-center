@@ -157,6 +157,6 @@ Azure avoids unnecessary costs by identifying the correct number of resource typ
 
 ## Related resources
 
-- [Azure mainframe and midrange architecture concepts and patterns](http://aka.ms/MainframeArchitecture)
+- [Azure mainframe and midrange architecture concepts and patterns](/azure/architecture/mainframe/mainframe-midrange-architecture)
 - [IBM z/OS mainframe migration with Asysco AMT](../../example-scenario/mainframe/asysco-zos-migration.yml)
 - [Refactor mainframe applications to Azure with Raincode compilers](../../reference-architectures/app-modernization/raincode-reference-architecture.yml)
