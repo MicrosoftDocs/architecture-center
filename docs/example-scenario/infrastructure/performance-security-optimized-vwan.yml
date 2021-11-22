@@ -1,6 +1,6 @@
 ### YamlMime:Architecture
 metadata:
-  title: <Article title, which becomes the title metadata>
+  title: Virtual WAN architecture optimized for performance and security
   titleSuffix: Azure Example Scenarios
   description: <Write a 100-160 character description that ends with a period and ideally starts with a call to action. This becomes the browse card description.>
   author: <contributor's GitHub username. If no GitHub account, use EdPrice-MSFT>
@@ -10,13 +10,13 @@ metadata:
   ms.service: architecture-center
   ms.subservice: example-scenario
 azureCategories:
-  - <choose at least one category from the list at https://review.docs.microsoft.com/en-us/help/contribute/architecture-center/aac-browser-authoring?branch=master#azure-categories>
-  - <there can be more than one category>
+  - "networking"
+  - "security"
 products:
-  - <choose 1-5 products from the list at https://review.docs.microsoft.com/en-us/help/contribute/architecture-center/aac-browser-authoring?branch=master#products>
-  - <1-5 products>
-  - <1-5 products>
-name: title 
+  - "azure-virtual-wan"
+  - "azure-expressroute"
+  - "azure-virtual-network"
+name: Virtual WAN architecture optimized for performance and security 
 summary: <Write a summary. Can be same as description.>
 thumbnailUrl: /azure/architecture/browse/thumbs/<browse-png-filename>.png
 content: |
