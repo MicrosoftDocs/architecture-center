@@ -20,9 +20,10 @@ azureCategories:
 summary: Learn about proven approaches for data sync when multiple instances are present.
 products:
   - power-platform
+  - power-apps
   - common-data-service
-  - logic-apps
-  - web-apps
+  - azure-logic-apps
+  - azure-web-apps
 thumbnailUrl: /azure/architecture/browse/thumbs/powerapps-eventual-consistency-issue.png
 content: |
    [!include[](eventually-consistent-content.md)]
