@@ -5,7 +5,7 @@ metadata:
   description: Learn how to deploy an Azure Kubernetes Service (AKS) cluster in an hub-and-spoke network topology using Terraform and Azure DevOps, and how to protect the inbound and outbound traffic using Azure Firewall.
   author: paolosalvatori
   ms.author: paolos
-  ms.date: 11/27/2021
+  ms.date: 11/22/2021
   ms.topic: conceptual
   ms.service: architecture-center
   ms.subservice: example-scenario
