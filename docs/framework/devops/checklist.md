@@ -1,9 +1,9 @@
 ---
-title: Monitoring for operational excellence
+title: Monitoring operations of cloud applications
 description: Provides a monitoring checklist to monitor your workload for operational excellence.
 author: v-stacywray
 manager: david-stanford
-ms.date: 11/16/2021
+ms.date: 11/19/2021
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: well-architected
@@ -16,13 +16,13 @@ categories:
   - management-and-governance
 ---
 
-# Monitoring for operational excellence
+# Monitoring operations of cloud applications
 
 Distributed applications and services running in the cloud are, by nature, complex pieces of software that include many moving parts. In a production environment, it's important to track the way customers use your system and monitor the health, and performance of your system. Use the following checklist as a diagnostic aid to detect, correct, and prevent issues from occurring.
 
 ## Checklist
 
-**[How are you monitoring your resources?](/assessments/?mode=questionnaire&question=resource-monitoring&category=Operational&session=82dede39-6b48-4bc5-b93b-4354fc5af197)**
+**[How are you monitoring your workload?](monitor-pipeline.md)**
 ***
 > [!div class="checklist"]
 > - Ensure that the system remains healthy.
@@ -41,17 +41,17 @@ Follow these questions to assess the workload at a deeper level.
 
 |Assessment|Description|
 |---|---|
-|[Are application events correlated across all application components?](monitoring.md#event-correlation)|Correlate events for later interpretation. This correlation will give you visibility into end-to-end transaction flows.|
-|[How is security monitored in this workload?](/azure/architecture/framework/security/monitor-security-operations)|Monitor the security posture across workloads. Ensure the SecOps team monitors security-related telemetry data and investigates security breaches.|
-|[Are log levels used to capture different types of application events?](/aspnet/core/fundamentals/logging/?view=aspnetcore-5.0&preserve-view=true)|Pre-configure and apply log levels within relevant environments to support operational scenarios where it's necessary to raise log levels.|
-|[Can you evaluate critical application performance targets and non-functional requirements (NFRs)?](monitoring.md)|Correlate application log events across critical system flows to fully assess the health of performance targets and NFRs.|
-|[Are log messages captured in a structured format?](/azure/architecture/best-practices/monitoring#information-to-include-in-the-instrumentation-data)|Capture application events in a structured format to help parse and analyze logs. Structured data can be easily indexed, searched, and reported.|
-|[Is sensitive information detected and removed automatically for this workload?](/azure/architecture/framework/security/design-app-dependencies#secrets)|Don't store secrets and sensitive information in application logs. Ensure you apply protective measure such as obfuscation.|
-|[Do you have detailed instrumentation in the application code?](/azure/architecture/best-practices/monitoring#instrumenting-an-application)|Code instrumentation allows you to precisely detect underperforming workloads during load or stress tests.|
-|[Are application logs collected from different application environments?](monitoring.md#application-monitoring)|Collect application logs to better understand how your application operates in various environments, events, and conditions.|
-|[Does your organization have a central SecOps team to monitor security-related telemetry data and to investigate security breaches?](/azure/architecture/framework/security/monitor-security-operations#incident-response)|Establish a SecOps team and monitor security-related events.|
-|[Do you use an Application Performance Management (APM) tool to collect application-level logs?](monitoring.md#application-monitoring)|Use an APM tool to manage the performance and availability of the application, aggregate logs, and events for later interpretation.|
-|[Does the organization actively monitor identity-related risk events potentially connected to compromised identities of this workload?](monitor-alerts.md)|Establish a detection and response strategy for identity risks.|
+|[**Do are you monitoring your resources?**](monitor-data-sources.md)|Have an overall view of the workload resources. The information can come from application code, frameworks, external sources with which the application communicates, and the underlying infrastructure.
+|[**Do you have detailed instrumentation in the application code?**](monitor-instrument.md)|Instrumentation lets you gather performance data, diagnose problems, and make decisions.|
+|[**Do you correlate application events across all application components?**](monitor-collection-data-storage.md)|Collect data from various sources, consolidate and clean various formats, and store in reliable storage.|
+|[**Do you interpret the collected data to spot issues and trends in application health?**](monitor-analysis.md)|Analyze the data collected from various data sources to assess the overall well-being of the workload.|
+|[**Do you visualize monitoring data?**](monitor-visualize-data.md)| Present the analyzed data in a way that an operator can quickly spot any trends or problems.|
+|[**Do you have alerts and response plans ready for the relevant teams when issues occur?**](monitor-alerts.md)| Present the analyzed data in a way that an operator can quickly spot any trends or problems.|
+|[**Do you use the Azure platform notifications and updates?**](monitor-data-sources.md#infrastructure-metrics)| Consider the underlying infrastructure such as virtual machines, networks, and storage services to collect important platform-level diagnostic data.|
+|[**Do you monitor and measure application health?**](health-monitoring.md)|Health monitoring generates a snapshot of the current health of the system so that you can verify all components are functioning as expected.|
+|[**Do you monitor and track resource usage?**](usage.md)|Usage monitoring tracks how the features and components of an application are used.|
+|[**Do you collect data from the reported issues**](issue-tracking.md)|Analyzing data, for unexpected events, can provide insight about the application health.|
+|[**Do you collect audit logs for regulatory requirements?**](auditing.md)| Auditing can provide evidence useful for compliance attestations. |
 
 ## Azure offering
 

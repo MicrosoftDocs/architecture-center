@@ -11,7 +11,7 @@ items:
     items:
       - name: Introduction
         href: guide/index.md
-      - name: Architecture styles
+      - name: Architecture styles 
         items:
           - name: Overview
             href: guide/architecture-styles/index.md
@@ -198,10 +198,22 @@ items:
                 href: guide/multitenant/considerations/domain-names.md
           - name: Approaches
             items:
+              - name: Overview
+                href: guide/multitenant/approaches/overview.md
+              - name: Cost management and allocation
+                href: guide/multitenant/approaches/cost-management-allocation.md
+              - name: Deployment and configuration
+                href: guide/multitenant/approaches/deployment-configuration.yml
+              - name: Compute
+                href: guide/multitenant/approaches/compute.md
               - name: Storage and data
                 href: guide/multitenant/approaches/storage-data.md
           - name: Service-specific guidance
             items:
+              - name: Deployment and configuration
+                items:
+                  - name: Azure Resource Manager
+                    href: guide/multitenant/service/resource-manager.md
               - name: Storage and data
                 items:
                   - name: Azure Storage
@@ -600,12 +612,38 @@ items:
                 href: framework/devops/release-engineering-cd.md
               - name: Rollback
                 href: framework/devops/release-engineering-rollback.md
-          - name: Monitor and alerts
+          - name: Monitor
             items:
-              - name: Monitoring
-                href: framework/devops/monitoring.md
-              - name: Alerting
-                href: framework/devops/alerts.md
+              - name: Checklist
+                href: framework/devops/checklist.md
+              - name: Monitor cloud applications
+                items:
+                  - name: Monitoring stages
+                    href: framework/devops/monitor-pipeline.md
+                  - name: Data sources
+                    href: framework/devops/monitor-data-sources.md                  
+                  - name: Instrumentation
+                    href: framework/devops/monitor-instrument.md
+                  - name: Collection and storage
+                    href: framework/devops/monitor-collection-data-storage.md
+                  - name: Analysis
+                    href: framework/devops/monitor-analysis.md
+                  - name: Visualization
+                    href: framework/devops/monitor-visualize-data.md
+                  - name: Alerting
+                    href: framework/devops/monitor-alerts.md
+              - name: Common use cases
+                items:
+                  - name: Health monitoring
+                    href: framework/devops/health-monitoring.md
+                  - name: Usage monitoring
+                    href: framework/devops/usage.md
+                  - name: Issue tracking
+                    href: framework/devops/issue-tracking.md
+                  - name: Tracing and debugging
+                    href: framework/devops/tracing.md
+                  - name: Auditing
+                    href: framework/devops/auditing.md
           - name: Checklist
             href: checklist/dev-ops.md
           - name: Operational Excellence patterns
@@ -641,7 +679,15 @@ items:
               - name: Testing tools
                 href: framework/scalability/test-tools.md
           - name: Monitoring
-            href: framework/scalability/monitor.md
+            items:
+              - name: Checklist
+                href: framework/scalability/checklist.md
+              - name: Application profiling
+                href: framework/scalability/monitor-application.md
+              - name: Analyze infrastructure
+                href: framework/scalability/monitor-infrastructure.md
+              - name: Performance data
+                href: framework/scalability/monitor-analyze.md
           - name: Performance Efficiency patterns
             href: framework/scalability/performance-efficiency-patterns.md
           - name: Checklist
@@ -1063,8 +1109,12 @@ items:
                 href: reference-architectures/ai/speech-to-text-transcription-pipeline.yml
               - name: Computer vision on the edge
                 href: reference-architectures/ai/end-to-end-smart-factory.yml
+              - name: Connected factory hierarchy service
+                href: solution-ideas/articles/connected-factory-hierarchy-service.yml
               - name: Predictive maintenance with IoT
                 href: example-scenario/predictive-maintenance/iot-predictive-maintenance.yml
+              - name: Quality assurance
+                href: solution-ideas/articles/quality-assurance.yml
               - name: Supply chain track and trace
                 href: solution-ideas/articles/supply-chain-track-and-trace.yml
       - name: Media and entertainment
@@ -1148,7 +1198,7 @@ items:
                     href: /gaming/azure/reference-architectures/multiplayer-asynchronous-serverless
                     maintainContext: true
           - name: Game analytics
-            items: 
+            items:
               - name: Non-real-time dashboard
                 href: /gaming/azure/reference-architectures/analytics-non-real-time-dashboard
                 maintainContext: true
@@ -1237,7 +1287,7 @@ items:
                 maintainContext: true
               - name: Machine learning at scale
                 href: data-guide/big-data/machine-learning-at-scale.md
-              - name: Security baseline for Azure Machine Learning
+              - name: Security baseline for AML
                 href: /security/benchmark/azure/baselines/machine-learning-security-baseline
                 maintainContext: true
               - name: Natural language processing
@@ -1660,6 +1710,10 @@ items:
                 href: example-scenario/data/big-data-with-iot.yml
               - name: Long-term security logs in Azure Data Explorer
                 href: example-scenario/security/security-log-retention-azure-data-explorer.yml
+              - name: Many models ML with Spark
+                href: example-scenario/ai/many-models-machine-learning-azure-spark.yml
+              - name: Many models with Azure Machine Learning
+                href: example-scenario/ai/many-models-machine-learning-azure-machine-learning.yml
               - name: Partitioning in Event Hubs and Kafka
                 href: reference-architectures/event-hubs/partitioning-in-event-hubs-and-kafka.yml
               - name: Precision medicine pipeline with genomics
@@ -1716,7 +1770,7 @@ items:
                 href: solution-ideas/articles/predicting-length-of-stay-in-hospitals.yml
               - name: Predictive aircraft engine monitoring
                 href: solution-ideas/articles/aircraft-engine-monitoring-for-predictive-maintenance-in-aerospace.yml
-              - name: Real Time analytics on big data
+              - name: Real-time analytics on big data
                 href: solution-ideas/articles/real-time-analytics.yml
               - name: Tiering applications & data for analytics
                 href: solution-ideas/articles/tiered-data-for-analytics.yml
@@ -1797,6 +1851,8 @@ items:
                 href: example-scenario/infrastructure/image-modeling.yml
               - name: Linux virtual desktops with Citrix
                 href: example-scenario/infrastructure/linux-vdi-citrix.yml
+              - name: Manage virtual machine compliance
+                href: example-scenario/security/virtual-machine-compliance.yml
               - name: Move Azure resources across regions
                 href: solution-ideas/articles/move-azure-resources-across-regions.yml
               - name: Run a Linux VM on Azure
@@ -1900,8 +1956,10 @@ items:
                     href: reference-architectures/containers/aks-pci/aks-pci-summary.yml
               - name: Autonomous-driving simulation
                 href: industries/automotive/building-blocks-autonomous-driving-simulation-environments.yml
-              - name: Building a telehealth system
+              - name: Build a telehealth system
                 href: example-scenario/apps/telehealth-system.yml
+              - name: Build CNCF projects by using AKS
+                href: example-scenario/apps/build-cncf-incubated-graduated-projects-aks.yml  
               - name: CI/CD pipeline for container-based workloads
                 href: example-scenario/apps/devops-with-aks.yml
               - name: GitOps for AKS
@@ -1975,7 +2033,7 @@ items:
                     href: data-guide/big-data/index.md
                   - name: Batch processing
                     href: data-guide/big-data/batch-processing.md
-                  - name: Real time processing
+                  - name: Real-time processing
                     href: data-guide/big-data/real-time-processing.md
               - name: Technology choices
                 items:
@@ -2741,6 +2799,8 @@ items:
                 href: reference-architectures/ai/end-to-end-smart-factory.yml
               - name: Connected factory Hierarchy Service
                 href: solution-ideas/articles/connected-factory-hierarchy-service.yml
+              - name: Connected factory signal pipeline
+                href: example-scenario/iot/connected-factory-signal-pipeline.yml
               - name: Efficient Docker image deployment
                 href: example-scenario/iot/efficient-docker-image-deployment.yml
               - name: IoT and data analytics
@@ -3422,6 +3482,8 @@ items:
                   - name: Networking features for App Service
                     href: /azure/app-service/networking-features
                     maintainContext: true
+              - name: Eventual consistency in Power Platform
+                href: reference-architectures/power-platform/eventual-consistency.yml
           - name: Architectures
             items:
               - name: Basic web application
