@@ -28,7 +28,7 @@ Extract, transform, and load (ETL) is a data pipeline used to collect data from 
 
 The data transformation that takes place usually involves various operations, such as filtering, sorting, aggregating, joining data, cleaning data, deduplicating, and validating data.
 
-![Extract-transform-load (ETL) process](../images/etl.png)
+![Diagram of the extract-transform-load (ETL) process.](../images/etl.png)
 
 Often, the three ETL phases are run in parallel to save time. For example, while data is being extracted, a transformation process could be working on data already received and prepare it for loading, and a loading process can begin working on the prepared data, rather than waiting for the entire extraction process to complete.
 
@@ -44,7 +44,7 @@ Other tools:
 
 Extract, load, and transform (ELT) differs from ETL solely in where the transformation takes place. In the ELT pipeline, the transformation occurs in the target data store. Instead of using a separate transformation engine, the processing capabilities of the target data store are used to transform data. This simplifies the architecture by removing the transformation engine from the pipeline. Another benefit to this approach is that scaling the target data store also scales the ELT pipeline performance. However, ELT only works well when the target system is powerful enough to transform the data efficiently.
 
-![Extract-Load-Transform (ELT) process](../images/elt.png)
+![Diagram of the extract-load-transform (ELT) process.](../images/elt.png)
 
 Typical use cases for ELT fall within the big data realm. For example, you might start by extracting all of the source data to flat files in scalable storage such as Hadoop distributed file system such as Azure blob store and/or Azure data lake gen 2. Technologies such as Spark, Hive, or Polybase can then be used to query the source data. The key point with ELT is that the data store used to perform the transformation is the same data store where the data is ultimately consumed. This data store reads directly from the scalable storage, instead of loading the data into its own proprietary storage. This approach skips the data copy step present in ETL, which often can be a time consuming operation for large data sets.
 
