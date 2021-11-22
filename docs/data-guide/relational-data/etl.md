@@ -7,6 +7,9 @@ ms.date: 11/22/2021
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: azure-guide
+categories:
+  - databases
+  - integration
 products:
   - azure-synapse-analytics
   - azure-data-factory
@@ -34,7 +37,7 @@ Often, the three ETL phases are run in parallel to save time. For example, while
 
 Relevant Azure service:
 
-- [Azure Data Factory & Azure Synapse Pipelines](https://docs.microsoft.com/azure/data-factory/concepts-pipelines-activities)
+- [Azure Data Factory & Azure Synapse Pipelines](/azure/data-factory/concepts-pipelines-activities)
 
 Other tools:
 
@@ -57,7 +60,7 @@ The final phase of the ELT pipeline is typically to transform the source data in
 Relevant Azure service:
 
 - [SQL dedicated pools on Azure Synapse Analytics](/azure/sql-data-warehouse/sql-data-warehouse-overview-what-is)
-- [SQL Serverless pools on Azure Synapse Analytics](https://docs.microsoft.com/azure/synapse-analytics/get-started-analyze-sql-on-demand)
+- [SQL Serverless pools on Azure Synapse Analytics](/azure/synapse-analytics/get-started-analyze-sql-on-demand)
 - [HDInsight with Hive](/azure/hdinsight/hadoop/hdinsight-use-hive)
 - [Azure Data Factory](https://azure.microsoft.com/services/data-factory)
 
