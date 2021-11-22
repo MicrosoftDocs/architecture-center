@@ -1,13 +1,14 @@
 ---
-title: Solutions for media and entertainment industry
+title: Solutions for the media and entertainment industry
 titleSuffix: Azure Architecture Center
 description: Architectures and ideas to use Azure services for building efficient, scalable, and reliable media and entertainment solutions.
 author: dsk-2015
 ms.date: 06/04/2021
 ms.topic: article
 ms.service: architecture-center
-ms.subservice: 
-keywords: Azure
+ms.subservice: azure-guide
+keywords:
+  - Azure
 products:
   - azure
   - dynamics-365
@@ -21,7 +22,7 @@ categories:
   - web
 ---
 
-# Solutions for media and entertainment industry
+# Solutions for the media and entertainment industry
 
 The media and entertainment industry captures one of the largest market shares. It is comprised of businesses that produce and distribute content, such as motion pictures, television programs and commercials, streaming content, music and audio recordings, radio, book publishing, video games, and so on. With the COVID-19 pandemic greatly impacting and accelerating shifts in consumer behaviors, this industry is seeing trends such as creating more virtual, streamed, and personal content. It is all the more important for media businesses to harness the power of cloud computing and reach their customers in more personalized and innovative ways.
 
@@ -31,12 +32,16 @@ Microsoft's Azure and other offerings are committed to empower media and enterta
 - provide cost-effective content management platforms,
 - optimize and personalize content delivery,
 - modernize collaboration.
- 
+
 To learn how Azure can provide an intelligent cloud backbone to content owners and creators, visit [Azure for media and entertainment](https://azure.microsoft.com/industries/media/). Microsoft offerings are transforming and empowering media businesses; see some case studies at [Intelligent Media and Entertainment](https://www.microsoft.com/industry/media-entertainment).
 
 <br>
 
+<!-- markdownlint-disable MD034 -->
+
 > [!VIDEO https://www.youtube.com/embed/n3fRYmbqkEc]
+
+<!-- markdownlint-enable MD034 -->
 
 <br>
 

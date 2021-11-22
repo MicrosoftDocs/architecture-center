@@ -10,7 +10,9 @@ ms.subservice: team-data-science-process
 ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
-ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
+ms.custom:
+  - previous-author=deguhath
+  - previous-ms.author=deguhath
 products:
   - azure-machine-learning
 categories:
@@ -34,15 +36,15 @@ Feature selection may be used for classification or regression tasks. The goal i
 * First, feature selection often increases classification accuracy by eliminating irrelevant, redundant, or highly correlated features.
 * Second, it decreases the number of features, which makes the model training process more efficient. Efficiency is important for learners that are expensive to train such as support vector machines.
 
-Although feature selection does seek to reduce the number of features in the dataset used to train the model, it is not referred to by the term "dimensionality reduction". Feature selection methods extract a subset of original features in the data without changing them.  Dimensionality reduction methods employ engineered features that can transform the original features and thus modify them. Examples of dimensionality reduction methods include Principal Component Analysis, canonical correlation analysis, and Singular Value Decomposition.
+Although feature selection does seek to reduce the number of features in the dataset used to train the model, it is not referred to by the term "dimensionality reduction". Feature selection methods extract a subset of original features in the data without changing them.  Dimensionality reduction methods employ engineered features that can transform the original features and thus modify them. Examples of dimensionality reduction methods include principal component analysis (PCA), canonical correlation analysis, and singular value decomposition (SVD).
 
-Among others, one widely applied category of feature selection methods in a supervised context is called "filter-based feature selection". By evaluating the correlation between each feature and the target attribute, these methods apply a statistical measure to assign a score to each feature. The features are then ranked by the score, which may be used to help set the threshold for keeping or eliminating a specific feature. Examples of the statistical measures used in these methods include Person correlation, mutual information, and the Chi squared test.
+Among others, one widely applied category of feature selection methods in a supervised context is called "filter-based feature selection". By evaluating the correlation between each feature and the target attribute, these methods apply a statistical measure to assign a score to each feature. The features are then ranked by the score, which may be used to help set the threshold for keeping or eliminating a specific feature. Examples of statistical measures used in these methods include Pearson correlation coefficient (PCC), mutual information (MI), and the chi-squared test.
 
 In Azure Machine Learning Studio, there are modules provided for feature selection. As shown in the following figure, these modules include [Filter-Based Feature Selection][filter-based-feature-selection] and [Fisher Linear Discriminant Analysis][fisher-linear-discriminant-analysis].
 
 ![Feature Selection modules](./media/select-features/feature-Selection.png)
 
-Consider, for example, the use of the [Filter-Based Feature Selection][filter-based-feature-selection] module. For convenience, continue using the text mining example. Assume that you want to build a regression model after a set of 256 features are created through the [Feature Hashing][feature-hashing] module, and that the response variable is the "Col1" that contains book review ratings ranging from 1 to 5. By setting "Feature scoring method" to be "Pearson Correlation", the "Target column" to be "Col1", and the "Number of desired features" to 50. Then the module [Filter-Based Feature Selection][filter-based-feature-selection] produces a dataset containing 50 features together with the target attribute "Col1". The following figure shows the flow of this experiment and the input parameters:
+Consider, for example, the use of the [Filter-Based Feature Selection][filter-based-feature-selection] module. For convenience, continue using the text mining example. Assume that one wants to build a regression model after a set of 256 features are created through the [Feature Hashing][feature-hashing] module, and that the response variable is the "Col1" that contains book review ratings ranging from 1 to 5. By setting "Feature scoring method" to be "Pearson Correlation", the "Target column" to be "Col1", and the "Number of desired features" to 50. Then the module [Filter-Based Feature Selection][filter-based-feature-selection] produces a dataset containing 50 features together with the target attribute "Col1". The following figure shows the flow of this experiment and the input parameters:
 
 ![Filter-Based Feature Selection module properties](./media/select-features/feature-selection-1.png)
 
@@ -50,7 +52,7 @@ The following figure shows the resulting datasets:
 
 ![Resulting dataset for Filter Based Feature Selection module](./media/select-features/feature-selection-2.png)
 
-Each feature is scored based on the Pearson Correlation between itself and the target attribute "Col1". The features with top scores are kept.
+Each feature is scored based on the Pearson correlation coefficient between itself and the target attribute "Col1". The features with top scores are kept.
 
 The corresponding scores of the selected features are shown in the following figure:
 
@@ -60,7 +62,7 @@ By applying this [Filter-Based Feature Selection][filter-based-feature-selection
 
 ## Conclusion
 
-Feature engineering and feature selection are two commonly Engineered and selected features increase the efficiency of the training process that attempts to extract the key information contained in the data. They also improve the power of these models to classify the input data accurately and to predict outcomes of interest more robustly. Feature engineering and selection can also combine to make the learning more computationally tractable. It does so by enhancing and then reducing the number of features needed to calibrate or train a model. Mathematically speaking, the features selected to train the model are a minimal set of independent variables that explain the patterns in the data and then predict outcomes successfully.
+Feature engineering and feature selection are two commonly engineering techniques to increase training efficiency. These techniques also improve the model's power to classify the input data accurately and to predict outcomes of interest more robustly. Feature engineering and selection can also combine to make the learning more computationally efficient by enhancing and then reducing the number of features needed to calibrate or train a model. Mathematically speaking, the features selected to train the model are a minimal set of independent variables that explain the maximum variance in the data to predict the outcome feature.
 
 It is not always necessarily to perform feature engineering or feature selection. Whether it is needed or not depends on the data collected, the algorithm selected, and the objective of the experiment.
 

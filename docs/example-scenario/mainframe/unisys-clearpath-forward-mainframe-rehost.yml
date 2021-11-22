@@ -2,14 +2,15 @@
 metadata:
   title: Unisys ClearPath Forward mainframe rehost to Azure using Unisys virtualization
   titleSuffix: Azure Example Scenarios
-  description: <Write a 100-160 character description that ends with a period and ideally starts with a call to action. This becomes the browse card description.>
+  description: Use virtualization technologies from Unisys and Microsoft Azure to migrate from an Unisys ClearPath Forward Libra (legacy Burroughs A Series/MCP) mainframe.
   author: jjfrost
   ms.author: jfrost
   ms.date: 06/28/2021
   ms.topic: conceptual
   ms.service: architecture-center
   ms.subservice: example-scenario
-  ms.custom: fcp
+  ms.custom:
+    - fcp
 azureCategories:
   - compute
   - hybrid
@@ -20,7 +21,7 @@ products:
   - azure-virtual-machines
   - azure-virtual-network
 name: Unisys ClearPath Forward mainframe rehost to Azure using Unisys virtualization
-summary: <Write a summary. Can be same as description.>
-thumbnailUrl: /azure/architecture/browse/thumbs/<browse-png-filename>.png
+summary: Use virtualization technologies from Unisys and Microsoft Azure to migrate from an Unisys ClearPath Forward Libra (legacy Burroughs A Series/MCP) mainframe.
+thumbnailUrl: /azure/architecture/browse/thumbs/unisys-clearpath-forward-mainframe-rehost.png
 content: |
   [!include[](unisys-clearpath-forward-mainframe-rehost-content.md)]

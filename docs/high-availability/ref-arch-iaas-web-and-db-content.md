@@ -8,7 +8,7 @@ The zone-redundant Azure Application Gateway and zone-redundant load balancer di
 
 :::image type="content" source="images/ref-arch-iaas.png" alt-text="Infographic of Availability Zones architecture." lightbox="images/ref-arch-iaas.png":::
 
-[*Download a Visio file of this architecture.*](https://arch-center.azureedge.net/ref-arch-iaas.vsdx)
+*Download a [Visio file](https://arch-center.azureedge.net/ref-arch-iaas.vsdx) of this architecture.*
 
 ## Architecture
 
@@ -19,6 +19,8 @@ If the active SQL Server becomes unavailable, either due to a zone failure or lo
 The following illustrates a failure of Zone 1.
 
 ![Infographic of a Zone 1 failure](./images/ref-arch-iaas-zone-one-failure.png)
+
+*Download a [Visio file](https://arch-center.azureedge.net/US-1838039-PR-2986-ref-arch-iaas-zone-one-failure.vsdx) of this architecture.*
 
 The Application Gateway is zone-redundant. It isn't affected by the failure of Zone 1, and uses health probes to determine the available VMs. With Zone 1 unavailable, it routes traffic only to the remaining two zones. The zone-redundant load balancer is also unaffected by the failure of Zone 1, and uses health probes to determine the location of the active SQL Server. In this example, the load balancer detects that the active SQL Server is in Zone 3 and routes traffic to it.
 
@@ -166,8 +168,7 @@ Encrypt sensitive data at rest and use [Azure Key Vault](https://azure.microsoft
 
 ### DDoS protection
 
-The Azure platform provides basic DDoS protection by default. This basic protection is targeted at protecting the Azure infrastructure. Although basic DDoS protection is automatically enabled, we recommend using [Azure DDoS Protection Standard](/azure/virtual-network/ddos-protection-overview).
-Standard protection uses adaptive tuning, based on your application's network traffic patterns, to detect threats. This allows it to apply mitigations against DDoS attacks that might go unnoticed by the infrastructure-wide DDoS policies. Standard protection also provides alerting, telemetry, and analytics through Azure Monitor. For more information, see [Azure DDoS Protection: Best practices and reference architectures](/azure/security/fundamentals/ddos-best-practices).
+The Azure platform provides basic DDoS protection by default. This basic protection is targeted at protecting the Azure infrastructure. Although basic DDoS protection is automatically enabled, we recommend using [Azure DDoS Protection Standard](/azure/virtual-network/ddos-protection-overview). Standard protection uses adaptive tuning, based on your application's network traffic patterns, to detect threats. This allows it to apply mitigations against DDoS attacks that might go unnoticed by the infrastructure-wide DDoS policies. Standard protection also provides alerting, telemetry, and analytics through Azure Monitor. For more information, see [Azure DDoS Protection: Best practices and reference architectures](/azure/security/fundamentals/ddos-best-practices).
 
 ## Next steps
 

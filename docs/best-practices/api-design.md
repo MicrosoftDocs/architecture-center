@@ -2,7 +2,8 @@
 title: Web API design best practices
 titleSuffix: Azure Architecture Center
 description: Learn the best practices for designing web APIs that support platform independence and service evolution.
-author: dragon119
+author: EdPrice-MSFT
+ms.author: pnp
 ms.date: 01/12/2018
 ms.topic: conceptual
 ms.service: architecture-center
@@ -238,7 +239,7 @@ Here are some typical error conditions that might be encountered when processing
 
 ### DELETE methods
 
-If the delete operation is successful, the web server should respond with HTTP status code 204, indicating that the process has been successfully handled, but that the response body contains no further information. If the resource doesn't exist, the web server can return HTTP 404 (Not Found).
+If the delete operation is successful, the web server should respond with HTTP status code 204 (No Content), indicating that the process has been successfully handled, but that the response body contains no further information. If the resource doesn't exist, the web server can return HTTP 404 (Not Found).
 
 ### Asynchronous operations
 
@@ -488,7 +489,9 @@ As with the previous two approaches, implementing HATEOAS requires including the
 
 ### Media type versioning
 
-When a client application sends an HTTP GET request to a web server it should stipulate the format of the content that it can handle by using an Accept header, as described earlier in this guidance. Frequently the purpose of the *Accept* header is to allow the client application to specify whether the body of the response should be XML, JSON, or some other common format that the client can parse. However, it is possible to define custom media types that include information enabling the client application to indicate which version of a resource it is expecting. The following example shows a request that specifies an *Accept* header with the value *application/vnd.adventure-works.v1+json*. The *vnd.adventure-works.v1* element indicates to the web server that it should return version 1 of the resource, while the *json* element specifies that the format of the response body should be JSON:
+When a client application sends an HTTP GET request to a web server it should stipulate the format of the content that it can handle by using an Accept header, as described earlier in this guidance. Frequently the purpose of the *Accept* header is to allow the client application to specify whether the body of the response should be XML, JSON, or some other common format that the client can parse. However, it is possible to define custom media types that include information enabling the client application to indicate which version of a resource it is expecting.
+
+The following example shows a request that specifies an *Accept* header with the value *application/vnd.adventure-works.v1+json*. The *vnd.adventure-works.v1* element indicates to the web server that it should return version 1 of the resource, while the *json* element specifies that the format of the response body should be JSON:
 
 ```http
 GET https://adventure-works.com/customers/3 HTTP/1.1

@@ -1,6 +1,5 @@
 
 
-
 This article provides an overview of an implementation for a scalable cloud load testing pipeline. The testing pipeline does a lot to carry out stress testing:
 
 * Creates infrastructure on-demand
@@ -115,6 +114,6 @@ Visit the project page on GitHub: [Load testing pipeline with JMeter, ACI, and T
 
 * [Azure Container Instances (ACI)](/azure/container-instances/) – additional documentation and resources on ACI
 
-* [A Guide to Getting Started with Successful Load Testing (PDF file)](https://www.proxy-sniffer.com/en/doc/LoadTestKnowHowEN.pdf) – Guide from [Apica](https://www.apicasystems.com/)
+* [An introduction to load testing basics and practices](https://apica-kb.atlassian.net/wiki/spaces/ALTTUTS/pages/5538048/LoadTesting+101) – Guide from [Apica](https://www.apica.io)
 
 * [Multilayered Cloud Applications Autoscaling Performance Estimation](https://www.researchgate.net/publication/323791761_Multilayered_Cloud_Applications_Autoscaling_Performance_Estimation) – Conference paper available from ResearchGate

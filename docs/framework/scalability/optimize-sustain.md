@@ -1,13 +1,13 @@
 ---
 title: Sustain performance efficiency over time
-description: Considerations for sustaining performance optimization over time
+description: Learn to sustain performance efficiency over time. Optimize autoscaling, separate out critical workload, right-size your resources, and remote antipatterns.
 author: v-aangie
 ms.date: 01/11/2021
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: well-architected
 categories:
-  - management-and-governance   
+  - management-and-governance
 ---
 
 # Sustain performance efficiency over time

@@ -1,6 +1,6 @@
 ---
 title: Plan for capacity
-description: Describes the capacity design options for performance efficiency
+description: Plan to meet capacity design requirements for performance efficiency. Understand options to reduce cost.
 author: v-aangie
 ms.date: 12/01/2020
 ms.topic: conceptual
@@ -61,9 +61,7 @@ To learn more, see [Use Azure Monitor autoscale](../../best-practices/auto-scali
 
 ## Next steps
 
->[!div class="nextstepaction"]
->[Performance testing](./performance-test.md)
+> [!div class="nextstepaction"]
+> [Performance testing](./performance-test.md)
 
-
-**Capacity planning** - When performance testing, the business must communicate any fluctuation in expected load. Load can be impacted by world events, such as political, economic, or weather changes; by marketing initiatives, such as sales or promotions; or, by seasonal events, such as holidays. You should test variations of load prior to events, including unexpected ones, to ensure that your application can scale. Additionally, you should ensure that all regions can adequately scale to support total load, should one region fail.
-
+**Capacity planning:** When performance testing, the business must communicate any fluctuation in expected load. Load can be impacted by world events, such as political, economic, or weather changes; by marketing initiatives, such as sales or promotions; or, by seasonal events, such as holidays. You should test variations of load prior to events, including unexpected ones, to ensure that your application can scale. Additionally, you should ensure that all regions can adequately scale to support total load, should one region fail.

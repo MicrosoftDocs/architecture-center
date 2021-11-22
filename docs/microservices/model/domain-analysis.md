@@ -1,7 +1,7 @@
 ---
 title: Domain analysis for microservices
 description: This article shows a domain-driven approach to designing microservices so that each service follows the general rule of doing just one thing.
-author: doodlemania2
+author: EdPrice-MSFT
 ms.date: 02/25/2019
 ms.topic: conceptual
 ms.service: architecture-center
@@ -45,7 +45,7 @@ In this article, we cover the first three steps, which are primarily concerned w
 
 ## Scenario: Drone delivery
 
-​Fabrikam, Inc. is starting a drone delivery service. The company manages a fleet of drone aircraft. Businesses register with the service, and users can request a drone to pick up goods for delivery. When a customer schedules a pickup, a backend system assigns a drone and notifies the user with an estimated delivery time. While the delivery is in progress, the customer can track the location of the drone, with a continuously updated ETA.
+Fabrikam, Inc. is starting a drone delivery service. The company manages a fleet of drone aircraft. Businesses register with the service, and users can request a drone to pick up goods for delivery. When a customer schedules a pickup, a backend system assigns a drone and notifies the user with an estimated delivery time. While the delivery is in progress, the customer can track the location of the drone, with a continuously updated ETA.
 
 This scenario involves a fairly complicated domain. Some of the business concerns include scheduling drones, tracking packages, managing user accounts, and storing and analyzing historical data. Moreover, Fabrikam wants to get to market quickly and then iterate quickly, adding new functionality and capabilities. The application needs to operate at cloud scale, with a high service level objective (SLO). Fabrikam also expects that different parts of the system will have very different requirements for data storage and querying. All of these considerations lead Fabrikam to choose a microservices architecture for the Drone Delivery application.
 

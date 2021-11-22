@@ -1,11 +1,8 @@
-
-
-
 This reference architecture illustrates how to use [Azure Stack Edge][azure-stack-edge] to extend rapid machine learning inference from the cloud to on-premises or edge scenarios. Azure Stack Hub delivers Azure capabilities such as compute, storage, networking, and hardware-accelerated machine learning to any edge location.
 
 Typical uses for extending inference include when you need to:
 
-- Run local, rapid machine learning inference against data as it’s ingested and you have a significant on-premises hardware footprint.
+- Run local, rapid machine learning inference against data as it's ingested and you have a significant on-premises hardware footprint.
 - Create long-term research solutions where existing on-premises data is cleaned and used to generate a model. The model is then used both on-premises and in the cloud; it's retrained regularly as new data arrives.
 - Build software applications that need to make inferences about users, both at a physical location and online.
 
@@ -85,9 +82,9 @@ Additionally, Azure Stack Edge continues to transfer data to Machine Learning fo
 
 ## Next steps
 
- - [Distributed training of deep learning models on Azure](/azure/architecture/reference-architectures/ai/training-deep-learning)
- - [Build an enterprise-grade conversational bot](/azure/architecture/reference-architectures/ai/conversational-bot)
- - [Image classification on Azure](/azure/architecture/example-scenario/ai/intelligent-apps-image-processing)
+ - [Distributed training of deep learning models on Azure](../reference-architectures/ai/training-deep-learning.yml)
+ - [Build an enterprise-grade conversational bot](../reference-architectures/ai/conversational-bot.yml)
+ - [Image classification on Azure](../example-scenario/ai/intelligent-apps-image-processing.yml)
 
 [architectural-diagram]: ./images/deploy-ai-ml-azure-stack-edge.png
 [architectural-diagram-visio-source]: https://arch-center.azureedge.net/deploy-ai-ml-azure-stack-edge.vsdx

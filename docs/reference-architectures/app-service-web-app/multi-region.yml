@@ -1,8 +1,8 @@
 ### YamlMime:Architecture
 metadata:
-  title: Highly available multi-region web application
-  description: Learn how to run an Azure App Service application in multiple regions to achieve high availability.
-  author: doodlemania2
+  title: Highly available multi-region web app
+  description: Learn how to run an Azure App Service application in multiple regions to achieve high availability, by following this reference architecture.
+  author: EdPrice-MSFT
   ms.author: pnp
   ms.date: 08/14/2019
   ms.topic: conceptual

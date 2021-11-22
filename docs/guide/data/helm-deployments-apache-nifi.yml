@@ -1,0 +1,24 @@
+### YamlMime:Architecture
+metadata:
+  title: Helm-based deployments for Apache NiFi
+  titleSuffix: Azure Architecture Center
+  description: Use Helm charts when you deploy NiFi on Azure Kubernetes Service (AKS). Helm streamlines the process of installing and managing Kubernetes applications.
+  author: MuazmaZ
+  ms.author: muzahid
+  ms.date: 10/29/2021
+  ms.topic: conceptual
+  ms.service: architecture-center
+  ms.subservice: azure-guide
+  ms.custom:
+    - fcp
+    - guide
+azureCategories:
+  - containers
+  - management-and-governance
+products:
+  - azure-kubernetes-service
+name: Helm-based deployments for Apache NiFi
+summary: Use Helm charts when you deploy NiFi on Azure Kubernetes Service (AKS). Helm streamlines the process of installing and managing Kubernetes applications.
+thumbnailUrl: /azure/architecture/browse/thumbs/helm-deployments-apache-nifi-architecture-thumbnail.png
+content: |
+  [!include[](helm-deployments-apache-nifi-content.md)]

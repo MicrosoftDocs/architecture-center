@@ -1,7 +1,7 @@
 ---
 title: Configure infrastructure
-description: Configure infrastructure
-author: neilpeterson
+description: Get information about configuring Azure infrastructure programmatically using bootstrap automation or configuration management tools.
+author: david-stanford
 ms.date: 10/15/2020
 ms.topic: conceptual
 ms.service: architecture-center
@@ -14,7 +14,7 @@ ms.custom:
 
 When working with Azure, many services can be created and configured programmatically using automation or infrastructure as code tooling. These tools access Azure through the exposed REST APIs or what we refer to as the [Azure control plane](/azure/azure-resource-manager/management/control-plane-and-data-plane#control-plane). For example, an Azure Network Security Group can be deployed, and security group rules created using an Azure Resource Manager template. The Network Security Group and its configuration are exposed through the Azure control plane and natively accessible.
 
-Other configurations, such as installing software on a virtual machine, adding data to a database, or starting pods in an Azure Kubernetes Service cluster cannot be accessed through the Azure control plane. These actions require a different set of configuration tools. We consider these configurations as being on the [Azure data plane](/azure/azure-resource-manager/management/control-plane-and-data-plane#data-plane) side, or not exposed through Azure REST APIs. These data plane enables tools to use agents, networking, or other access methods to provide resource-specific configuration options. 
+Other configurations, such as installing software on a virtual machine, adding data to a database, or starting pods in an Azure Kubernetes Service cluster cannot be accessed through the Azure control plane. These actions require a different set of configuration tools. We consider these configurations as being on the [Azure data plane](/azure/azure-resource-manager/management/control-plane-and-data-plane#data-plane) side, or not exposed through Azure REST APIs. These data plane enables tools to use agents, networking, or other access methods to provide resource-specific configuration options.
 
 For example, when deploying a set of virtual machined to Azure, you may also want to install and configure a web server, stage content, and then make the content available on the internet. Furthermore, if the virtual machine configuration changes and no longer aligns with the configuration definition, you may want a configuration management system to remediate the configuration. Many options are available for these data plane configurations. This document details several and provides links for in-depth information.
 
@@ -76,7 +76,7 @@ az vm create \
     --custom-data cloud-init.txt
 ```
 
- On boot, cloud-init will use the systems native package management tool to install Nginx. 
+ On boot, cloud-init will use the systems native package management tool to install Nginx.
 
 **Learn more**
 
@@ -86,7 +86,7 @@ az vm create \
 
 When performing Azure deployments, you may need to run arbitrary code for bootstrapping things like managing user accounts, Kubernetes pods, or querying data from a non-Azure system. Because none of these operations are accessible through the Azure control plane, some other mechanism is required for performing this automation. To run arbitrary code with an Azure deployment, check out the `Microsoft.Resources/deploymentScripts` Azure resource.
 
-The deployment script resource behaves similar to any other Azure resource: 
+The deployment script resource behaves similar to any other Azure resource:
 
 - Can be used in an ARM template.
 - Contain ARM template dependencies on other resources.

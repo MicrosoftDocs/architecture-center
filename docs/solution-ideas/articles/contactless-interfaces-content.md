@@ -22,7 +22,7 @@ IoT Edge devices can quickly recognize and respond to speech, image, gesture, or
 5. Azure Machine Learning uses the data to retrain its AI models.
 6. IoT Hub pushes updated machine learning models to the edge devices.
 
-## Components
+### Components
 
 - [Azure IoT Edge](https://azure.microsoft.com/services/iot-edge/) service deploys cloud workloads to run on IoT Edge devices via standard containers. Modules can run AI, other Azure and third-party services, or your own business logic. IoT Edge intelligent devices can respond quickly and offline, and limit costs by preprocessing and sending only necessary data to the cloud.
 - [Azure IoT Hub](https://azure.microsoft.com/services/iot-hub/) provides a cloud-hosted backend to connect virtually any IoT device with Azure cloud services. IoT Hub enables highly secure and reliable bi-directional communication, management, and provisioning for IoT Edge devices.

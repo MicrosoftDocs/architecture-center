@@ -57,11 +57,11 @@ This table lists various best practices. The **Related pillars or patterns** col
 - [Microsoft Azure Well-Architected Framework][Microsoft Azure Well-Architected Framework]
 
 [About Azure Cache for Redis]: /azure/azure-cache-for-redis/cache-overview
-[Autoscaling]: ./auto-scaling.md
+[Autoscaling]: ./auto-scaling.md
 [Background jobs]: ./background-jobs.md
 [Best practices for monitoring cloud applications]: ./monitoring.md
 [Best practices for using content delivery networks (CDNs)]: ./cdn.md
-[Caching]: ./caching.md
+[Caching]: ./caching.md
 [Cloud Design Patterns]: ../patterns/index.md
 [Data Management patterns]: ../patterns/category/data-management.md
 [Data partitioning strategies]: ./data-partitioning-strategies.md
@@ -77,7 +77,7 @@ This table lists various best practices. The **Related pillars or patterns** col
 [Overview of the performance efficiency pillar]: ../framework/scalability/overview.md
 [Overview of the security pillar]: ../framework/security/overview.md
 [Principles of cost optimization]: ../framework/cost/overview.md
-[Principles of the reliability pillar]: ../framework/resiliency/overview.md
+[Principles of the reliability pillar]: ../framework/resiliency/principles.md
 [Retry guidance for Azure services]: ./retry-service-specific.md
 [Transient fault handling]: ./transient-faults.md
 [Web API design]: ./api-design.md

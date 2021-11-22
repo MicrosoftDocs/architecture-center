@@ -4,6 +4,7 @@ metadata:
   titleSuffix: Azure Solution Ideas
   description: Learn how to use Azure IoT for environment monitoring and supply chain optimization.
   author: falloutxAY
+  ms.author: ansyeo
   ms.date: 05/03/2021
   ms.topic: conceptual
   ms.service: architecture-center

@@ -27,7 +27,7 @@ There are four ways to connect machines:
 1. Connect machines at scale using service principal
 1. Installation using Windows PowerShell DSC
 
-After connecting the machines, you can then manage the VM extensions all from Azure, which provides consistent extension management between Azure and non-Azure VMs. In Azure you can use Azure Automation State Configuration to centrally store configurations and maintain the desired state of Arc enabled servers through the DSC VM extension. You can also collect log data for analysis with Azure Monitor Logs enabled through the Log Analytics agent VM extension. Wit Azure Monitor, you can analyze the performance of your Windows and Linux VMs and monitor their processes and dependencies on other resources and external processes.
+After connecting the machines, you can then manage the VM extensions all from Azure, which provides consistent extension management between Azure and non-Azure VMs. In Azure you can use Azure Automation State Configuration to centrally store configurations and maintain the desired state of Arc enabled servers through the DSC VM extension. You can also collect log data for analysis with Azure Monitor Logs enabled through the Log Analytics agent VM extension. With Azure Monitor, you can analyze the performance of your Windows and Linux VMs and monitor their processes and dependencies on other resources and external processes.
 
 ## Azure Arc enabled Kubernetes
 
@@ -40,7 +40,7 @@ When planning for deployment of Azure Arc enabled SQL Managed Instance, you shou
 You have the flexibility to extend the capacity of the underlying Kubernetes or AKS cluster over time by adding additional compute nodes or storage. Kubernetes or AKS offers an abstraction layer over the underlying virtualization stack and hardware. Storage classes implement such abstraction for storage.
 
 > [!NOTE]
-> When provisioning a pod, you need to decide which storage class to use for its volumes. Your decision is important from a performance standpoint because an incorrect choice could result in suboptimal performance. 
+> When provisioning a pod, you need to decide which storage class to use for its volumes. Your decision is important from a performance standpoint because an incorrect choice could result in suboptimal performance.
 
 When planning for deployment of Azure Arc enabled SQL Managed Instance, you should consider a range of factors affecting storage configuration [kubernetes-storage-class-factors](/azure/azure-arc/data/storage-configuration#factors-to-consider-when-choosing-your-storage-configuration) for both [data controller](/azure/azure-arc/data/storage-configuration#data-controller-storage-configuration) and [database instances](/azure/azure-arc/data/storage-configuration#database-instance-storage-configuration).
 
@@ -56,8 +56,8 @@ To learn more, see [Use Azure Stack HCI switchless interconnect and lightweight 
 
 Monitoring in a hybrid environment can be a challenge. However, with tools like Azure Arc as you bring Azure services on-premises, you can easily enroll in additional Azure services such as monitoring, security, and update by simply turning them on.
 
-- Across products: Integrate with Azure Sentinel, Azure Defender
-- Bring Azure Security Center to your on-prem data and servers with Arc
+- Across products: Integrate with Microsoft Sentinel, Microsoft Defender for Cloud
+- Bring Microsoft Defender for Cloud to your on-prem data and servers with Arc
 - Set security policies, resource boundaries, and RBAC for workloads across the hybrid infra
 - Proper admin roles for read, modify, re-onboard, and delete a machine
 
@@ -69,13 +69,13 @@ Configure Azure Monitor for containers to monitor Azure Arc enabled Kubernetes c
 
 Azure Monitor for containers can provide you with performance visibility by collecting memory and processor metrics from controllers, nodes, and containers available in Kubernetes through the Metrics application programming interface (API). Container logs are also collected. After you enable monitoring from Kubernetes clusters, metrics and logs are automatically collected for you through a containerized version of the Log Analytics agent. Metrics are written to the metrics store and log data is written to the logs store associated with your Log Analytics workspace. For more information about Azure Monitor for containers, refer to Azure Monitor for containers overview.
 
-Enable Azure Monitor for containers for one or more existing deployments of Kubernetes by using either a PowerShell or a Bash script. To enable monitoring for Arc enabled Kubernetes clusters, refer to Enable monitoring of Azure Arc enabled Kubernetes cluster.
+Enable Azure Monitor for containers for one or more existing deployments of Kubernetes by using either a PowerShell or a Bash script. To enable monitoring for Arc enabled Kubernetes clusters, refer to [Enable monitoring of Azure Arc enabled Kubernetes cluster](/azure/azure-monitor/containers/container-insights-enable-arc-enabled-clusters).
 
 Automatically enroll in additional Azure Arc enabled resources and services. Simply turn them on when needed:
 
-- Strengthen your security posture and protect against threats by turning on Azure Defender.
+- Strengthen your security posture and protect against threats by turning on Microsoft Defender for Cloud.
 - Get actionable alerts from Azure Monitor.
-- Detect, investigate, and mitigate security incidents with the power of a cloud-native SIEM, by turning on Azure Sentinel
+- Detect, investigate, and mitigate security incidents with the power of a cloud-native SIEM, by turning on Microsoft Sentinel.
 
 ## Deploy and manage containerized applications
 
@@ -83,5 +83,5 @@ Deploy and manage containerized applications with GitHub and Azure Policy. Ensur
 
 ## Next steps
 
->[!div class="nextstepaction"]
->[Reliability](./hybrid-reliability.md)
+> [!div class="nextstepaction"]
+> [Reliability](./hybrid-reliability.md)

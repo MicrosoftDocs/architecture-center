@@ -1,7 +1,7 @@
 ---
-title: Checklist - Design for performance efficiency
+title: Performance efficiency checklist
 titleSuffix: Azure Design Review Framework
-description: Checklist guidance for design concerns for Azure performance efficiency.
+description: Review checklist guidance for design concerns for Azure performance efficiency. Examine application design, data management, and implementation.
 author: v-aangie
 ms.date: 01/08/2021
 ms.topic: conceptual
@@ -86,7 +86,7 @@ Application design is critical to handling scale as load increases. Design is pa
 - **Minimize the time that connections and resources are in use**. Maintain connections and resources only for as long as you need to use them. For example, open connections as late as possible, and allow them to be returned to the connection pool as soon as possible. Acquire resources as late as possible, and dispose of them as soon as possible.
 
 - **Minimize the number of connections required**. Service connections absorb resources. Limit the number that are required and ensure that existing connections are reused whenever possible. For example, after performing authentication, use impersonation where appropriate to run code as a specific identity. This can help to make best use of the connection pool by reusing connections.
-  
+
    > [!NOTE]
    > APIs for some services automatically reuse connections, provided service-specific guidelines are followed. It's important that you understand the conditions that enable connection reuse for each service that your application uses.
 

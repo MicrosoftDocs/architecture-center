@@ -1,6 +1,6 @@
 ---
 title: Caching data for performance optimization
-description: Caching considerations for performance optimization
+description: Examine caching considerations for performance optimization. Caching is a strategy where you store a copy of the data in front of the main data store.
 author: v-aangie
 ms.date: 01/11/2021
 ms.topic: conceptual
@@ -9,7 +9,7 @@ ms.subservice: well-architected
 products:
   - azure-cache-redis
 categories:
-  - management-and-governance   
+  - management-and-governance
 ---
 
 # Caching data for performance optimization
@@ -46,8 +46,8 @@ Azure CDN offers the following key features:
 - [**HTTPS custom domain support**](/azure/cdn/cdn-custom-ssl?tabs=option-1-default-enable-https-with-a-cdn-managed-certificate) - Deliver your sensitive data securely when it is sent across the internet and protect your web applications from attacks.
 - [**Azure diagnostics logs**](/azure/cdn/cdn-azure-diagnostic-logs) - Export basic usage metrics from your CDN endpoint to different kinds sources so that you can consume them in a customized way.
 - [**File compression**](/azure/cdn/cdn-improve-performance) - Improve file transfer speed and increase page-load performance by reducing a file's size before it is sent from the server.
-- [**Geo-filtering**](/azure/cdn/cdn-restrict-access-by-country) - Restrict access to your content by country/region by creating rules on specific paths on your CDN endpoint.
+- [**Geo-filtering**](/azure/cdn/cdn-restrict-access-by-country-region) - Restrict access to your content by country/region by creating rules on specific paths on your CDN endpoint.
 
-## Next 
+## Next
 > [!div class="nextstepaction"]
 > [Partition](./optimize-partition.md)

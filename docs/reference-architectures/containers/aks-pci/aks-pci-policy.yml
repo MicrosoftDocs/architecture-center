@@ -1,0 +1,22 @@
+### YamlMime:Architecture
+metadata:
+  title: AKS regulated cluster for PCI-DSS 3.2.1 - Policy management
+  description: Guidance for documenting security policies as per Requirement 12 of PCI-DSS 3.2.1.
+  author: PageWriter-MSFT
+  ms.author: pnp
+  ms.date: 07/06/2021
+  ms.topic: conceptual
+  ms.service: architecture-center
+  ms.subservice: reference-architecture
+name: Governance, risk, and compliance of for a PCI-DSS 3.2.1 infrastructure  (Part 8 of 9)
+azureCategories:
+  - containers
+  - management-and-governance
+summary: Guidance for documenting security policies for a PCI-DSS 3.2.1 infrastructure.
+products:
+  - azure-kubernetes-service
+  - azure-active-directory
+  - azure-security-center
+thumbnailUrl: /azure/architecture/browse/thumbs/aks-pci.png
+content: |
+   [!include[](aks-pci-policy-content.md)]

@@ -1,8 +1,8 @@
 ### YamlMime:Architecture
 metadata:
   title: SAP S/4HANA in Linux on Azure
-  description: Proven practices for running SAP S/4HANA in a Linux environment on Azure with high availability.
-  author: lbrader
+  description: Review proven practices for running SAP S/4HANA in a Linux environment on Azure, with high availability.
+  author: EdPrice-MSFT
   ms.author: pnp
   ms.date: 02/19/2020
   ms.topic: conceptual
@@ -12,7 +12,6 @@ metadata:
     - databases
     - management-and-governance
   ms.custom:
-    - seodec18
     - SAP
     - Linux
     - fcp
@@ -22,15 +21,13 @@ name: SAP S/4HANA in Linux on Azure
 azureCategories:
   - databases
   - management-and-governance
-summary: Proven practices for running SAP S/4HANA in a Linux environment on Azure with high availability.
+summary: Proven practices for running SAP S/4HANA in a Linux environment on Azure, with high availability.
 products:
-  - azure-bastion
   - azure-expressroute
-  - azure-load-balancer
   - azure-sap
-  - azure-storage
   - azure-virtual-machines
   - azure-virtual-network
+  - azure-netapp-files
 thumbnailUrl: /azure/architecture/browse/thumbs/sap-s4hana.png
 content: |
    [!include[](sap-s4hana-content.md)]

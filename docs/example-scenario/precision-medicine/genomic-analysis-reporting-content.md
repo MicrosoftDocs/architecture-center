@@ -26,6 +26,8 @@ This solution applies to many areas:
    The diagram contains two boxes. The first, on the left, has the label Azure Data Factory for orchestration. The second box has the label Clinician views. The first box contains several smaller boxes that represent data or various Azure components. Arrows connect the boxes, and numbered labels on the arrows correspond with the numbered steps in the document text. Two arrows flow between the boxes, ending in the Clinician views box. One arrow points to a clinician icon. The other points to a Power BI icon.
 :::image-end:::
 
+*Download a [Visio file][Visio version of architecture diagram] of this architecture.*
+
 Azure Data Factory orchestrates the workflow:
 
 1. Data Factory transfers the initial sample file to Azure Blob Storage. The file is in FASTQ format.
@@ -181,11 +183,11 @@ Fully deployable architectures:
 [30x genome definition]: https://sequencing.com/blog/post/what-30x-and-04x-whole-genome-sequencing#what-is-30x-whole-genome-sequencing
 [Access control lists (ACLs) in Azure Data Lake Storage Gen2]: /azure/storage/blobs/data-lake-storage-access-control
 [Access control in Azure Databricks]: /azure/databricks/security/access-control
-[Automated enterprise BI]: /azure/architecture/reference-architectures/data/enterprise-bi-adf
+[Automated enterprise BI]: ../../reference-architectures/data/enterprise-bi-adf.yml
 [Azure Data Factory FAQ]: /azure/data-factory/frequently-asked-questions#data-flows
 [Azure Databricks]: https://azure.microsoft.com/services/databricks
 [Azure Databricks clusters resize as needed]: https://databricks.com/blog/2018/05/02/introducing-databricks-optimized-auto-scaling.html
-[Azure Databricks general pricing information]: /azure/architecture/reference-architectures/data/stream-processing-databricks#azure-databricks
+[Azure Databricks general pricing information]: ../../reference-architectures/data/stream-processing-databricks.yml#azure-databricks
 [Azure Databricks security guide]: /azure/databricks/security
 [Azure Databricks service page]: https://azure.microsoft.com/services/databricks
 [Azure Healthcare APIs]: /azure/healthcare-apis/fhir/overview
@@ -193,27 +195,27 @@ Fully deployable architectures:
 [Azure Storage encryption for data at rest]: /azure/storage/common/storage-service-encryption
 [Blob Storage]: https://azure.microsoft.com/services/storage/blobs
 [Burrows-Wheeler Aligner]: http://bio-bwa.sourceforge.net
-[Clinical insights with Microsoft Cloud for Healthcare]: /azure/architecture/example-scenario/mch-health/medical-data-insights
+[Clinical insights with Microsoft Cloud for Healthcare]: ../mch-health/medical-data-insights.yml
 [Security in the Microsoft Cloud Adoption Framework for Azure]: /azure/cloud-adoption-framework/secure/
 [Data Factory]: https://azure.microsoft.com/services/data-factory
 [Data Factory pipelines]: /azure/data-factory/concepts-pipelines-activities
 [Data Factory pricing]: https://azure.microsoft.com/pricing/details/data-factory
 [Data Lake Storage]: https://azure.microsoft.com/services/storage/data-lake-storage
 [Data Lake Storage pricing]: https://azure.microsoft.com/pricing/details/storage/data-lake
-[Data warehousing and analytics]: /azure/architecture/example-scenario/data/data-warehouse
+[Data warehousing and analytics]: ../data/data-warehouse.yml
 [Enterprise Scale Landing Zones]: /azure/cloud-adoption-framework/ready/enterprise-scale
 [Genome Analysis Toolkit]: https://gatk.broadinstitute.org/hc
 [Genomics Quickstart Starter Kit]: https://github.com/microsoft/Genomics-Quickstart
-[Geospatial data processing and analytics]: /azure/architecture/example-scenario/data/geospatial-data-processing-analytics-azure
+[Geospatial data processing and analytics]: ../data/geospatial-data-processing-analytics-azure.yml
 [Health Architectures]: https://github.com/microsoft/health-architectures
-[Health data consortium on Azure]: /azure/architecture/example-scenario/data/azure-health-data-consortium
+[Health data consortium on Azure]: ../data/azure-health-data-consortium.yml
 [Health Insurance Portability and Accountability Act (HIPAA) & Health Information Technology for Economic and Clinical Health (HITECH) Act]: /compliance/regulatory/offering-hipaa-hitech
 [HIPAA - Azure Compliance]: /azure/compliance/offerings/offering-hipaa-us
-[Hybrid ETL with Azure Data Factory]: /azure/architecture/example-scenario/data/hybrid-etl-with-adf
+[Hybrid ETL with Azure Data Factory]: ../data/hybrid-etl-with-adf.yml
 [Introduction to Azure Data Lake Storage Gen2]: /azure/storage/blobs/data-lake-storage-introduction#scalability
 [Azure Storage redundancy]: /azure/storage/common/storage-redundancy
 [Microsoft Azure Compliance Offerings]: https://azure.microsoft.com/mediahandler/files/resourcefiles/microsoft-azure-compliance-offerings/Microsoft%20Azure%20Compliance%20Offerings.pdf
-[Microsoft Azure Well-Architected Framework]: /azure/architecture/framework
+[Microsoft Azure Well-Architected Framework]: ../../framework/index.md
 [Microsoft Genomics]: https://azure.microsoft.com/services/genomics
 [Microsoft Genomics - Documentation]: /azure/genomics
 [Microsoft Genomics - Common questions]: /azure/genomics/frequently-asked-questions-genomics
@@ -221,15 +223,16 @@ Fully deployable architectures:
 [Microsoft Genomics - pricing]: https://azure.microsoft.com/pricing/details/genomics
 [Microsoft Genomics - Support your most demanding sequencing needs]: /azure/genomics/overview-what-is-genomics#support-your-most-demanding-sequencing-needs
 [Performance and scalability checklist for Blob Storage]: /azure/storage/blobs/storage-performance-checklist
-[Population health management for healthcare]: /azure/architecture/solution-ideas/articles/population-health-management-for-healthcare
+[Population health management for healthcare]: ../../solution-ideas/articles/population-health-management-for-healthcare.yml
 [Power BI]: /power-bi/fundamentals/power-bi-overview
 [Practical guide to designing secure health solutions using Microsoft Azure]: https://aka.ms/azureindustrysecurity
 [Precision medicine definition]: https://wikipedia.org/wiki/Precision_medicine
-[Replicate and sync mainframe data in Azure]: /azure/architecture/reference-architectures/migration/sync-mainframe-data-with-azure
+[Replicate and sync mainframe data in Azure]: ../../reference-architectures/migration/sync-mainframe-data-with-azure.yml
 [Secure cluster connectivity (No Public IP / NPIP)]: /azure/databricks/security/secure-cluster-connectivity
 [Secret management in Azure Databricks]: /azure/databricks/security/secrets
 [Security considerations for data movement in Azure Data Factory]: /azure/data-factory/data-movement-security-considerations
 [Security recommendations for Blob Storage]: /azure/storage/blobs/security-recommendations
 [SLA for Azure Data Factory]: https://azure.microsoft.com/support/legal/sla/data-factory/v1_2
-[Stream processing with Azure Databricks]: /azure/architecture/reference-architectures/data/stream-processing-databricks
+[Stream processing with Azure Databricks]: ../../reference-architectures/data/stream-processing-databricks.yml
 [Tiering functionality]: /azure/storage/blobs/storage-blob-storage-tiers
+[Visio version of architecture diagram]: https://arch-center.azureedge.net/US-1848830-PR-3162-genomic-analysis-reporting-architecture.vsdx

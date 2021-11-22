@@ -1,7 +1,7 @@
 ---
 title: Types of harm
 titleSuffix: Azure Application Architecture Guide
-description: Understand the different types of harms, and learn steps to mitigate them.
+description: Know the different types of harms and how to mitigate them. Categories include risk of injury, denial of consequential services, and human rights infringement.
 author: dcass
 ms.date: 05/18/2020
 ms.topic: conceptual
@@ -150,7 +150,7 @@ Use the Harms Model you developed to guide your product development work:
 
 - Seek more information from stakeholders that you identified as potentially experiencing harm.
 - Develop and validate hypothesis for addressing the areas you identified as having the highest potential for harm.
-- Integrate the insights into your decisions throughout the technology development process: data collection and model training, system architecture, user experience design, product documentation, feedback loops, and communication capabilities and limitations of the technology.
+- Integrate the insights into your decisions throughout the technology development process: data collection and model training, system architecture, user experience design, product documentation, feedback loops, and communication capabilities and limitations of the technology.
 - Explore [Community Jury](../community-jury/index.md).
 - Assess and mitigate unfairness using Azure Machine Learning and the open-source [FairLearn package](/azure/machine-learning/concept-fairness-ml).
 

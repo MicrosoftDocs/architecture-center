@@ -1,6 +1,6 @@
 ---
 title: Design Azure applications for efficiency
-description: Describes the design options for application efficiency
+description: Review design options for application efficiency in Azure, such as asynchronous programming, queued and batched requests, data compression, and session affinity.
 author: v-aangie
 ms.date: 12/01/2020
 ms.topic: conceptual
@@ -27,7 +27,7 @@ There are many ways to inject asynchronous programming into an application desig
 
 Similar to asynchronous programming, queuing services has long been used as a scalable mechanism to hand off processing work to a service. Highly scalable queuing services are natively supported in Azure. The queue is a storage buffer located between the caller and the processing service. It takes requests, stores them in a buffer, and queues the requests to provide services around the reliable delivery and management of the queued data.
 
-Using a queue is often the best way to hand off work to a processor service. The processor service receives work by listening on a queue and dequeuing messages. If items to be processed enter too quickly, the queuing service will keep them in the queue until the processing service has available resources and asks for a new work item (message). By leveraging the dynamic nature of [Azure Functions](/azure/azure-functions/functions-overview), the processor service can easily autoscale on demand as the queue builds up to meet the intake pressure. Developing processor logic with Azure Functions to run task logic from a queue is a common, scalable, and cost effective way to using queuing between a client and a processor.  
+Using a queue is often the best way to hand off work to a processor service. The processor service receives work by listening on a queue and dequeuing messages. If items to be processed enter too quickly, the queuing service will keep them in the queue until the processing service has available resources and asks for a new work item (message). By leveraging the dynamic nature of [Azure Functions](/azure/azure-functions/functions-overview), the processor service can easily autoscale on demand as the queue builds up to meet the intake pressure. Developing processor logic with Azure Functions to run task logic from a queue is a common, scalable, and cost effective way to using queuing between a client and a processor.
 
 Azure provides some native first-party queueing services with Azure Storage Queues (simple queuing service based on Azure Storage) and Azure Service Bus (message broker service supporting transactions and reduced latency). Many other third-party options are also available through [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace).
 
@@ -56,5 +56,5 @@ Like all serverless services, Logic Apps doesn't require VM instances to be purc
 
 ## Next steps
 
->[!div class="nextstepaction"]
->[Design for scaling](./design-scale.md)
+> [!div class="nextstepaction"]
+> [Design for scaling](./design-scale.md)

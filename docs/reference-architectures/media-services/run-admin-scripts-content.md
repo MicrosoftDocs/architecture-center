@@ -1,6 +1,5 @@
 
 
-
 The Azure Pipelines continuous integration and delivery (CI/CD) pipelines deploy the Gridwich application into Azure, but they don't set up any identity principals or their access rights to Azure resources. The pipelines use Terraform to generate and publish admin scripts, and a user with elevated permissions must run the scripts manually to create and configure Azure resources. This article describes the admin scripts and how to run them.
 
 ## Grant admin privileges
@@ -8,7 +7,7 @@ The Azure Pipelines continuous integration and delivery (CI/CD) pipelines deploy
 A user with elevated privileges must execute the pipeline-generated admin scripts. To grant users elevated privileges:
 
 1. In Azure Active Directory (Azure AD), create a named group such as *Gridwich Admins*, and add the authorized admins to it.
-   
+
 1. In the Azure Subscription, select **Access Control (IAM)** in the left navigation, select **Add role assignments**, and then assign the **User Access Administrator** role for **Gridwich Admins**.
 
 ## Run the admin scripts
@@ -49,7 +48,7 @@ To run the script:
 
 1. Download the *ams_sp.sh* file that the pipeline published as an artifact in the *bash_scripts_\** folder.
 1. Run the following command:
-   
+
    ```bash
    chmod +x ams_sp.sh && ./ams_sp.sh
    ```
@@ -72,7 +71,7 @@ To run the script:
 
 1. Download the published *egv_app_registration.sh* and *egv_app_registration_manifest.json* files into the same directory.
 1. Run the following command:
-   
+
    ```bash
    chmod +x egv_app_registration.sh && ./egv_app_registration.sh
    ```
@@ -95,7 +94,7 @@ To run the script:
 
 1. Download the published *fxn_to_storage_sp.sh* file.
 1. Run the following command:
-   
+
    ```bash
    chmod +x fxn_to_storage_sp.sh && ./fxn_to_storage_sp.sh
    ```
@@ -120,7 +119,7 @@ To run the script:
 
 1. Download the published *logic_app_sp.sh* file.
 1. Run the following command:
-   
+
    ```bash
    chmod +x logic_app_sp.sh && ./logic_app_sp.sh
    ```

@@ -29,7 +29,7 @@ Continue to monitor and optimize the workload by using the right resources and s
   - Recommendations in [Azure Advisor](https://portal.azure.com/#blade/Microsoft_Azure_Expert/AdvisorMenuBlade/overview)
   - Recommendations using [Reservation REST APIs](/rest/api/consumption/reservationrecommendations/list)
 
-- **Use reserved instances on long running workloads**. Reserve a prepaid capacity for a period, generally one or three years. With reserved instances, there’s a significant discount when compared with pay-as-you-go pricing.
+- **Use reserved instances on long running workloads**. Reserve a prepaid capacity for a period, generally one or three years. With reserved instances, there's a significant discount when compared with pay-as-you-go pricing.
 
   - [Reserved instances](./optimize-reserved.md)
 

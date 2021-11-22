@@ -138,7 +138,7 @@ We have provided three sample cost profiles based on amount of traffic you expec
 [multi-region-web-app]: ../../reference-architectures/app-service-web-app/multi-region.yml
 [pci-dss-blueprint]: /azure/security/blueprints/payment-processing-blueprint
 [resiliency-app-service]: ../../checklist/resiliency-per-service.md#app-service
-[resiliency]: ../../framework/resiliency/overview.md
+[resiliency]: ../../framework/resiliency/principles.md
 [scalability]: ../../framework/scalability/performance-efficiency.md
 [secure-development]: https://www.microsoft.com/SDL/process/design.aspx
 [service-bus]: /azure/service-bus-messaging

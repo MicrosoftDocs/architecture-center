@@ -1,6 +1,4 @@
-<!-- cSpell:ignore UDRs sysvol AZBB jumpbox -->
-
-
+<!-- cSpell:ignore UDRs sysvol jumpbox -->
 
 This architecture shows how to extend an on-premises Active Directory domain to Azure to provide distributed authentication services.
 
@@ -121,7 +119,7 @@ Consider having Active Directory Domain Services as a shared service that is con
 
 The main component of this architecture is the VPN gateway service. You are charged based on the amount of time that the gateway is provisioned and available.
 
-All inbound traffic is free, all outbound traffic is charged. Internet bandwidth costs are applied to VPN outbound traffic.  
+All inbound traffic is free, all outbound traffic is charged. Internet bandwidth costs are applied to VPN outbound traffic.
 
 For more information, see [VPN Gateway Pricing][azure-gateway-charges].
 

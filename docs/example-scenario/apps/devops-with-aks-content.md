@@ -84,7 +84,7 @@ For general guidance on designing resilient solutions, see [Designing reliable A
 - You need an Azure Active Directory (AD) service principal for the authentication of service and resources. If needed, you can create a service principal with [az ad sp create-for-rbac][createsp]
 
     ```azurecli-interactive
-    az ad sp create-for-rbac --name myDevOpsScenario
+    az ad sp create-for-rbac --name myDevOpsScenario --role Contributor
     ```
 
     Make a note of the *appId* and *password* in the output from this command. You provide these values to the template when you deploy the scenario.
@@ -146,7 +146,7 @@ This scenario used Azure Container Registry and Azure Kubernetes Service to stor
 [azure-pipelines]: /azure/devops/pipelines
 [kubernetes]: https://kubernetes.io
 [service-fabric]: /azure/service-fabric
-[get-aks-versions]: /cli/azure/aks?view=azure-cli-latest#az-aks-get-versions
+[get-aks-versions]: /cli/azure/aks#az-aks-get-versions
 [aks-default-version]: /azure/aks/supported-kubernetes-versions
 
 [small-pricing]: https://azure.com/e/841f0a75b1ea4802ba1ac8f7918a71e7

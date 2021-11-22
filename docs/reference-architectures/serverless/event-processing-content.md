@@ -38,9 +38,9 @@ Function Apps are suitable for processing individual records from Event Hubs. Fo
 
 The deployment shown here resides in a single Azure region. For a more resilient approach to disaster-recovery, take advantage of geo-distribution features in the various services:
 
-- **Event Hubs.** Create two Event Hubs namespaces, a primary (active) namespace and a secondary (passive) namespace. Messages are automatically routed to the active namespace unless you fail over to the secondary namespace. For more information, see [Azure Event Hubs Geo-disaster recovery](https://docs.microsoft.com/azure/event-hubs/event-hubs-geo-dr).
+- **Event Hubs.** Create two Event Hubs namespaces, a primary (active) namespace and a secondary (passive) namespace. Messages are automatically routed to the active namespace unless you fail over to the secondary namespace. For more information, see [Azure Event Hubs Geo-disaster recovery](/azure/event-hubs/event-hubs-geo-dr).
 - **Function App.** Deploy a second function app that is waiting to read from the secondary Event Hubs namespace. This function writes to a secondary storage account for a dead-letter queue.
-- **Cosmos DB.** Cosmos DB supports [multiple write regions][cosmosdb-geo], which enables writes to any region that you add to your Cosmos DB account. If you don’t enable multi-write, you can still fail over the primary write region. The Cosmos DB client SDKs and the Azure Function bindings automatically handle the failover, so you don't need to update any application configuration settings.
+- **Cosmos DB.** Cosmos DB supports [multiple write regions][cosmosdb-geo], which enables writes to any region that you add to your Cosmos DB account. If you don't enable multi-write, you can still fail over the primary write region. The Cosmos DB client SDKs and the Azure Function bindings automatically handle the failover, so you don't need to update any application configuration settings.
 - **Azure Storage.** Use [RA-GRS storage][ra-grs] for the dead-letter queue. This creates a read-only replica in another region. If the primary region becomes unavailable, you can read the items currently in the queue. In addition, provision another storage account in the secondary region that the function can write to after a fail-over.
 
 ### Scalability
@@ -65,7 +65,7 @@ To make sure your workload is scalable, it is important to choose an appropriate
 - The maximum data stored for any single key value won't exceed the maximum physical partition size (20 GB).
 - The partition key for a document won't change. You can't update the partition key on an existing document.
 
-In the scenario for this reference architecture, the function stores exactly one document per device that is sending data. The function continually updates the documents with the latest device status using an [upsert operation](https://docs.microsoft.com/powerapps/developer/data-platform/use-upsert-insert-update-record). Device ID is a good partition key for this scenario because writes will be evenly distributed across the keys, and the size of each partition will be strictly bounded because there is a single document for each key value. For more information about partition keys, see [Partition and scale in Azure Cosmos DB][cosmosdb-scale].
+In the scenario for this reference architecture, the function stores exactly one document per device that is sending data. The function continually updates the documents with the latest device status using an [upsert operation](/powerapps/developer/data-platform/use-upsert-insert-update-record). Device ID is a good partition key for this scenario because writes will be evenly distributed across the keys, and the size of each partition will be strictly bounded because there is a single document for each key value. For more information about partition keys, see [Partition and scale in Azure Cosmos DB][cosmosdb-scale].
 
 ### Resiliency
 
@@ -145,7 +145,7 @@ The deployment shown here resides in a single Azure region. For a more resilient
 
 - **Function App**. Deploy a second function app that is waiting to read from the secondary Event Hubs namespace. This function writes to a secondary storage account for dead-letter queue.
 
-- **Cosmos DB**. Cosmos DB supports [multiple write regions][cosmosdb-geo], which enables writes to any region that you add to your Cosmos DB account. If you don’t enable multi-write, you can still fail over the primary write region. The Cosmos DB client SDKs and the Azure Function bindings automatically handle the failover, so you don’t need to update any application configuration settings.
+- **Cosmos DB**. Cosmos DB supports [multiple write regions][cosmosdb-geo], which enables writes to any region that you add to your Cosmos DB account. If you don't enable multi-write, you can still fail over the primary write region. The Cosmos DB client SDKs and the Azure Function bindings automatically handle the failover, so you don't need to update any application configuration settings.
 
 - **Azure Storage**. Use [RA-GRS][ra-grs] storage for the dead-letter queue. This creates a read-only replica in another region. If the primary region becomes unavailable, you can read the items currently in the queue. In addition, provision another storage account in the secondary region that the function can write to after a fail-over.
 
@@ -188,12 +188,11 @@ Use the [Cosmos DB capacity calculator][Cosmos-Calculator] to get a quick estima
 - [Azure Kubernetes in event stream processing](../../solution-ideas/articles/serverless-event-processing-aks.yml)
 
 <!-- links -->
- 
 
 [AAF-cost]: ../../framework/cost/overview.md
 [AAF-devops]: ../../framework/devops/overview.md
 [AWAF-overview]: ../../framework/
-[AWAF-devops-checklist]: /azure/architecture/checklist/dev-ops
+[AWAF-devops-checklist]: ../../checklist/dev-ops.md
 [app-insights]: /azure/azure-monitor/app/app-insights-overview
 [arm-template]: /azure/azure-resource-manager/resource-group-overview#resource-groups
 [azure-pricing-calculator]: https://azure.microsoft.com/pricing/calculator

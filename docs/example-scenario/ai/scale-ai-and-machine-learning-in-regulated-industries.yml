@@ -1,0 +1,24 @@
+### YamlMime:Architecture
+metadata:
+  title: Scale AI and machine learning initiatives in regulated industries
+  titleSuffix: Azure Example Scenarios
+  description: Learn about scaling Azure AI and machine learning environments that must comply with extensive security policies. 
+  author: EranAI
+  ms.author: ersagi
+  ms.date: 11/10/2021
+  ms.custom: fcp
+  ms.topic: conceptual
+  ms.service: architecture-center
+  ms.subservice: example-scenario
+azureCategories:
+- ai-machine-learning
+- analytics
+products:
+ - azure-machine-learning
+ - azure-synapse-analytics
+ - azure-databricks
+name: Scale AI and machine learning initiatives in regulated industries
+summary: Learn about scaling Azure AI and machine learning environments that must comply with extensive security policies.
+thumbnailUrl: /azure/architecture/browse/thumbs/scale-ai-and-machine-learning-in-regulated-industries.png
+content: |
+  [!include[](scale-ai-and-machine-learning-in-regulated-industries-content.md)]

@@ -8,7 +8,7 @@ The benefits of using a hub and spoke configuration include cost savings, overco
 
 This deployment includes one hub virtual network and two peered spokes. An Azure Firewall and Azure Bastion host are also deployed. Optionally, the deployment can include virtual machines in the first spoke network and a VPN gateway.
 
-#### [Azure CLI](#tab/cli)
+# [Azure CLI](#tab/cli)
 
 Use the following command to create a resource group for the deployment. Click the **Try it** button to use an embedded shell.
 
@@ -55,7 +55,7 @@ curl https://raw.githubusercontent.com/mspnp/samples/master/solutions/azure-hub-
 Run the following command to deploy the hub and spoke network configuration, VNet peerings between the hub and spoke, and a Bastion host. When prompted, enter a user name and password. These values can be used to access the virtual machine located in the spoke network.
 
 ```azurecli-interactive
-az deployment group create --resource-group hub-spoke-three --template-file main.bicep
+az deployment group create --resource-group hub-spoke --template-file main.bicep
 ```
 
 #### [Azure portal](#tab/portal)
@@ -64,7 +64,7 @@ Use the following button to deploy the reference using the Azure portal.
 
 [![Deploy to Azure](../../_images/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fmspnp%2Fsamples%2Fmaster%2Fsolutions%2Fazure-hub-spoke%2Fazuredeploy.json)
 
---- 
+---
 
 For detailed information and extra deployment options, see the Azure Resource Manager (ARM) templates used to deploy this solution.
 
@@ -164,7 +164,7 @@ An Azure Firewall is deployed in the hub network in this architecture. When used
 
 You can use virtual network peering to route traffic between virtual networks by using private IP addresses. Here are some points:
 
-- Ingress and egress traffic is charged at both ends of the peered networks. 
+- Ingress and egress traffic is charged at both ends of the peered networks.
 - Different zones have different transfer rates.
 
 For instance, data transfer from a virtual network in zone 1 to another virtual network in zone 2, will incur outbound transfer rate for zone 1 and inbound rate for zone 2. For more information, see [Virtual network pricing](https://azure.microsoft.com/pricing/details/virtual-network).
@@ -181,11 +181,11 @@ Learn more about the component technologies:
 
 Explore related architectures:
 
-- [Azure firewall architecture guide](/azure/architecture/example-scenario/firewalls/)
-- [Firewall and Application Gateway for virtual networks](/azure/architecture/example-scenario/gateway/firewall-application-gateway)
-- [Extend an on-premises network using VPN](/azure/architecture/reference-architectures/hybrid-networking/vpn)
-- [Troubleshoot a hybrid VPN connection](/azure/architecture/reference-architectures/hybrid-networking/troubleshoot-vpn)
-- [Hybrid connection](/azure/architecture/solution-ideas/articles/hybrid-connectivity)
-- [Connect standalone servers by using Azure Network Adapter](/azure/architecture/hybrid/azure-network-adapter)
-- [Secure and govern workloads with network level segmentation](/azure/architecture/reference-architectures/hybrid-networking/network-level-segmentation)
-- [Baseline architecture for an Azure Kubernetes Service (AKS) cluster](/azure/architecture/reference-architectures/containers/aks/secure-baseline-aks)
+- [Azure firewall architecture guide](../../example-scenario/firewalls/index.yml)
+- [Firewall and Application Gateway for virtual networks](../../example-scenario/gateway/firewall-application-gateway.yml)
+- [Extend an on-premises network using VPN](./vpn.yml)
+- [Troubleshoot a hybrid VPN connection](./troubleshoot-vpn.yml)
+- [Hybrid connection](../../solution-ideas/articles/hybrid-connectivity.yml)
+- [Connect standalone servers by using Azure Network Adapter](../../hybrid/azure-network-adapter.yml)
+- [Secure and govern workloads with network level segmentation](./network-level-segmentation.yml)
+- [Baseline architecture for an Azure Kubernetes Service (AKS) cluster](../containers/aks/secure-baseline-aks.yml)

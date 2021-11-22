@@ -1,19 +1,16 @@
-
-
-
 The cloud is changing the way infrastructure is designed, including the design of firewalls, because the network isn't physical or in virtual LANs anymore. Not all features of a physical network are available in a virtual network (VNet). This includes the use of floating IP addresses or broadcast traffic and that influences the implementation of HA architectures. Load balancers for *Network Virtual Appliances (NVAs)* can/must be implemented in a certain way to achieve a highly available (HA) architecture within a virtual network. This guide presents a structured approach for designing HA firewalls (FWs) in Azure using third-party virtual appliances.
 
 ## Options for designing highly available NVAs
 
 When deploying HA architectures, there are a few options to provide failover:
 
-* **Azure API-managed route tables** - This option uses two route tables, one active, one passive to switch the active gateway IP for all services running on a VNet/subnet.
-* **Azure API-managed floating IP** - This option uses a secondary IP address on the FWs that can be moved between an active and a stand-by FW.
-* **Load Balancer managed** - This option uses an Azure Load Balancer to act as the gateway IP for the subnet, which then forwards the traffic to the active FW. It may even forward the traffic active-active to provide true load balancing.
+* **Azure API-managed route tables:** This option uses two route tables, one active, one passive to switch the active gateway IP for all services running on a VNet/subnet.
+* **Azure API-managed floating IP:** This option uses a secondary IP address on the FWs that can be moved between an active and a stand-by FW.
+* **Load Balancer managed:** This option uses an Azure Load Balancer to act as the gateway IP for the subnet, which then forwards the traffic to the active FW. It may even forward the traffic active-active to provide true load balancing.
 
-The problem with the first two options is that failover itself is slow. The FW must instruct the failover, which is essentially a “reconfiguration” of Azure services through a new deployment. Depending on how fast that deployment is completed, the traffic flows will be down for several minutes. Furthermore, it doesn’t allow for an active-active configuration where both firewalls are operating at the same time.
+The problem with the first two options is that failover itself is slow. The FW must instruct the failover, which is essentially a "reconfiguration" of Azure services through a new deployment. Depending on how fast that deployment is completed, the traffic flows will be down for several minutes. Furthermore, it doesn't allow for an active-active configuration where both firewalls are operating at the same time.
 
-That's why the third option is most preferred. The downtime is minimized as the load balancer can fail over almost instantly to the stand-by firewall (in active-passive) or just remove the load from the failed firewall (in active-active). But you can't just use load balancers as "default gateways" as they affect the traffic flow and TCP packets need to be stateful. 
+That's why the third option is most preferred. The downtime is minimized as the load balancer can fail over almost instantly to the stand-by firewall (in active-passive) or just remove the load from the failed firewall (in active-active). But you can't just use load balancers as "default gateways" as they affect the traffic flow and TCP packets need to be stateful.
 
 ## Two-legged firewalls
 
@@ -35,7 +32,7 @@ The L3 routing between the internal zones (Subnet-B and Subnet-C) will both be l
 
 ![Detailed traffic flows with 3-legged FWs with Load Balancers](./images/three-legged-fw-details.png)
 
-With L3 traffic (without NAT), S2 will see the S1 IP address as the source address. S2 will then send the return traffic for subnet B (to which S1-IP belongs) to the iLB in Subnet-C. As iLB in Subnet-B and iLB in Subnet-C don't synchronize their session states, depending on the load-balancing algorithm traffic could end-up on FW-2. FW-2 by default doesn’t know anything about the initial (green) packet, so it will drop the connection.
+With L3 traffic (without NAT), S2 will see the S1 IP address as the source address. S2 will then send the return traffic for subnet B (to which S1-IP belongs) to the iLB in Subnet-C. As iLB in Subnet-B and iLB in Subnet-C don't synchronize their session states, depending on the load-balancing algorithm traffic could end-up on FW-2. FW-2 by default doesn't know anything about the initial (green) packet, so it will drop the connection.
 
 Some firewall vendors try to keep a connection state between the firewalls, but they would need almost instant synchronization to be up to date on the connection states. Check with your firewall vendor if they recommend this setup.
 
@@ -73,11 +70,11 @@ Azure provides BGP-enabled/highly-available VPN/ER services through the Azure Vi
 
 ![Diagram showing reverse proxy service supporting BGP-enabled/highly-available VPN/ER services through Azure Virtual Network Gateway.](./images/two-legged-revproxy-gw.png)
 
-In this architecture, traffic hitting the FW from, for example Subnet-B to Subnet-X would be sent to the iLB, which in turn sends it to either firewall. The internal route inside the FW will send the traffic back to the Subnet-GW (first available IP in Subnet-D). You don’t have to send the traffic straight to the Gateway appliance itself, as another route on Subnet-D will have a route for Subnet-X pointing it to the *Virtual Network Gateway*. Azure Networking will take care of the actual routing.
+In this architecture, traffic hitting the FW from, for example Subnet-B to Subnet-X would be sent to the iLB, which in turn sends it to either firewall. The internal route inside the FW will send the traffic back to the Subnet-GW (first available IP in Subnet-D). You don't have to send the traffic straight to the Gateway appliance itself, as another route on Subnet-D will have a route for Subnet-X pointing it to the *Virtual Network Gateway*. Azure Networking will take care of the actual routing.
 
 Return traffic coming from Subnet-X will be forwarded to the iLB in Subnet-D. The GatewaySubnet will also have a custom route that points Subnet-B-C to the iLB. Subnet-D isn't via the iLB. This will be treated as *regular* inter-VNET routing.
 
-While not in the drawing, it would make sense for Subnet-B/C/D/Gateway to also include a route for Subnet-A pointing it to the iLB. This arrangement avoids the “regular” VNET routing to bypass the FWs. This as Subnet-A is just another subnet in the VNET according to the Azure networking stack. It won't treat Subnet-A different, although you treat it as DMZ/Internet/etc.
+While not in the drawing, it would make sense for Subnet-B/C/D/Gateway to also include a route for Subnet-A pointing it to the iLB. This arrangement avoids the "regular" VNET routing to bypass the FWs. This as Subnet-A is just another subnet in the VNET according to the Azure networking stack. It won't treat Subnet-A different, although you treat it as DMZ/Internet/etc.
 
 ## Summary
 
@@ -95,12 +92,12 @@ Learn more about the component technologies:
 
 Explore related architectures:
 
-- [Implement a secure hybrid network](/azure/architecture/reference-architectures/dmz/secure-vnet-dmz)
-- [Hybrid connection](/azure/architecture/solution-ideas/articles/hybrid-connectivity)
-- [Extend an on-premises network using VPN](/azure/architecture/reference-architectures/hybrid-networking/vpn)
-- [Choose between virtual network peering and VPN gateways](/azure/architecture/reference-architectures/hybrid-networking/vnet-peering)
-- [Troubleshoot a hybrid VPN connection](/azure/architecture/reference-architectures/hybrid-networking/troubleshoot-vpn)
-- [Hub-spoke network topology in Azure](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke)
-- [Connect standalone servers by using Azure Network Adapter](/azure/architecture/hybrid/azure-network-adapter)
-- [Custom data sovereignty & data gravity requirements](/azure/architecture/solution-ideas/articles/data-sovereignty-and-gravity)
-- [SQL Server 2008 R2 failover cluster in Azure](/azure/architecture/example-scenario/sql-failover/sql-failover-2008r2)
+- [Implement a secure hybrid network](../../reference-architectures/dmz/secure-vnet-dmz.yml)
+- [Hybrid connection](../../solution-ideas/articles/hybrid-connectivity.yml)
+- [Extend an on-premises network using VPN](../../reference-architectures/hybrid-networking/vpn.yml)
+- [Choose between virtual network peering and VPN gateways](../../reference-architectures/hybrid-networking/vnet-peering.yml)
+- [Troubleshoot a hybrid VPN connection](../../reference-architectures/hybrid-networking/troubleshoot-vpn.yml)
+- [Hub-spoke network topology in Azure](../../reference-architectures/hybrid-networking/hub-spoke.yml)
+- [Connect standalone servers by using Azure Network Adapter](../../hybrid/azure-network-adapter.yml)
+- [Custom data sovereignty & data gravity requirements](../../solution-ideas/articles/data-sovereignty-and-gravity.yml)
+- [SQL Server 2008 R2 failover cluster in Azure](../sql-failover/sql-failover-2008r2.yml)

@@ -1,5 +1,5 @@
 ---
-title: Build and deploy a model using Azure Synapse Analytics - Team Data Science Process
+title: Build and deploy a model using Azure Synapse Analytics
 description: Build and deploy a machine learning model using Azure Synapse Analytics with a publicly available dataset.
 services: machine-learning
 author: marktab
@@ -10,13 +10,16 @@ ms.subservice: team-data-science-process
 ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
-ms.custom: seodec18, devx-track-python, previous-author=deguhath, previous-ms.author=deguhath
+ms.custom:
+  - devx-track-python
+  - previous-author=deguhath
+  - previous-ms.author=deguhath
 products:
   - azure-machine-learning
 categories:
   - ai-machine-learning
 ---
-# The Team Data Science Process in action: using Azure Synapse Analytics
+# Build and deploy a model using Azure Synapse Analytics
 
 In this tutorial, we walk you through building and deploying a machine learning model using Azure Synapse Analytics for a publicly available dataset -- the [NYC Taxi Trips](https://www.andresmh.com/nyctaxitrips/) dataset. The binary classification model constructed predicts whether or not a tip is paid for a trip.  Models include multiclass classification (whether or not there is a tip) and regression (the distribution for the tip amounts paid).
 
@@ -92,8 +95,7 @@ To set up your Azure Data Science environment, follow these steps.
   * **Storage Account Key**
   * **Container Name** (which you want the data to be stored in the Azure blob storage)
 
-**Provision your Azure Synapse Analytics instance.**
-Follow the documentation at [Create and query an Azure Synapse Analytics in the Azure portal](/azure/synapse-analytics/sql-data-warehouse/create-data-warehouse-portal) to provision a Azure Synapse Analytics instance. Make sure that you make notations on the following Azure Synapse Analytics credentials that will be used in later steps.
+**Provision your Azure Synapse Analytics instance.** Follow the documentation at [Create and query an Azure Synapse Analytics in the Azure portal](/azure/synapse-analytics/sql-data-warehouse/create-data-warehouse-portal) to provision a Azure Synapse Analytics instance. Make sure that you make notations on the following Azure Synapse Analytics credentials that will be used in later steps.
 
 * **Server Name**: \<server Name>.database.windows.net
 * **SQLDW (Database) Name**
@@ -603,13 +605,7 @@ Here is an example to call this function to generate features in your SQL query:
 -- Sample query to call the function to create features
 
    ```sql
-SELECT pickup_latitude, pickup_longitude, dropoff_latitude, dropoff_longitude,
-dbo.fnCalculateDistance(pickup_latitude, pickup_longitude, dropoff_latitude, dropoff_longitude) AS DirectDistance
-FROM <schemaname>.<nyctaxi_trip>
-WHERE datepart("mi",pickup_datetime)=1
-AND CAST(pickup_latitude AS float) BETWEEN -90 AND 90
-AND CAST(dropoff_latitude AS float) BETWEEN -90 AND 90
-AND pickup_longitude != '0' AND dropoff_longitude != '0'
+SELECT pickup_latitude, pickup_longitude, dropoff_latitude, dropoff_longitude, dbo.fnCalculateDistance(pickup_latitude, pickup_longitude, dropoff_latitude, dropoff_longitude) AS DirectDistance FROM <schemaname>.<nyctaxi_trip> WHERE datepart("mi",pickup_datetime)=1 AND CAST(pickup_latitude AS float) BETWEEN -90 AND 90 AND CAST(dropoff_latitude AS float) BETWEEN -90 AND 90 AND pickup_longitude != '0' AND dropoff_longitude != '0'
    ```
 
 **Output:** This query generates a table (with 2,803,538 rows) with pickup and dropoff latitudes and longitudes and the corresponding direct distances in miles. Here are the results for first three rows:
@@ -648,8 +644,7 @@ When you are ready to proceed to Azure Machine Learning, you may either:
 
 ## <a name="ipnb"></a>Data exploration and feature engineering in IPython notebook
 
-In this section, we will perform data exploration and feature generation
-using both Python and SQL queries against the Azure Synapse Analytics created earlier. A sample IPython notebook named **SQLDW_Explorations.ipynb** and a Python script file **SQLDW_Explorations_Scripts.py** have been downloaded to your local directory. They are also available on [GitHub](https://github.com/Azure/Azure-MachineLearning-DataScience/tree/master/Misc/SQLDW). These two files are identical in Python scripts. The Python script file is provided to you in case you do not have an IPython Notebook server. These two sample Python files are designed under **Python 2.7**.
+In this section, we will perform data exploration and feature generation using both Python and SQL queries against the Azure Synapse Analytics created earlier. A sample IPython notebook named **SQLDW_Explorations.ipynb** and a Python script file **SQLDW_Explorations_Scripts.py** have been downloaded to your local directory. They are also available on [GitHub](https://github.com/Azure/Azure-MachineLearning-DataScience/tree/master/Misc/SQLDW). These two files are identical in Python scripts. The Python script file is provided to you in case you do not have an IPython Notebook server. These two sample Python files are designed under **Python 2.7**.
 
 The needed Azure Synapse Analytics information in the sample IPython Notebook and the Python script file downloaded to your local machine has been plugged in by the PowerShell script previously. They are executable without any modification.
 
@@ -771,13 +766,11 @@ print 'Time to read the sample table is %f seconds' % (t1-t0)
 print 'Number of rows and columns retrieved = (%d, %d)' % (df1.shape[0], df1.shape[1])
 ```
 
-Time to read the sample table is 14.096495 seconds.
-Number of rows and columns retrieved = (1000, 21).
+Time to read the sample table is 14.096495 seconds. Number of rows and columns retrieved = (1000, 21).
 
 ### Descriptive statistics
 
-Now you are ready to explore the sampled data. We start with
-looking at some descriptive statistics for the **trip\_distance** (or any other fields you choose to specify).
+Now you are ready to explore the sampled data. We start with looking at some descriptive statistics for the **trip\_distance** (or any other fields you choose to specify).
 
 ```sql
 df1['trip_distance'].describe()
@@ -836,8 +829,7 @@ pd.Series(trip_dist_bin_id).value_counts().plot(kind='line')
 
 ### Visualization: Scatterplot examples
 
-We show scatter plot between **trip\_time\_in\_secs** and **trip\_distance** to see if there
-is any correlation
+We show scatter plot between **trip\_time\_in\_secs** and **trip\_distance** to see if there is any correlation
 
 ```sql
 plt.scatter(df1['trip_time_in_secs'], df1['trip_distance'])
@@ -1072,7 +1064,6 @@ This sample walkthrough and its accompanying scripts and IPython notebook(s) are
 [24]: ./media/sqldw-walkthrough/ipnb-service-aml-3.png
 [25]: ./media/sqldw-walkthrough/ipnb-service-aml-4.png
 [26]: ./media/sqldw-walkthrough/tip-class-hist-1.png
-
 
 <!-- Module References -->
 [edit-metadata]: /azure/machine-learning/studio-module-reference/edit-metadata

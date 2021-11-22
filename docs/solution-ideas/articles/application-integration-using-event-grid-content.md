@@ -1,6 +1,5 @@
 
 
-
 [!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
 Event Grid connects your app with other services. For example, create an application topic to send your app's event data to Event Grid and take advantage of its reliable delivery, advanced routing, and direct integration with Azure. Alternatively, you can use Event Grid with Logic Apps to process data anywhere, without writing code.
@@ -14,7 +13,7 @@ Event Grid connects your app with other services. For example, create an applica
 ### Data flow
 
 1. Configure different event sources (Blob Storage, Azure Cache for Redis, App Configuration, Event Hubs, Key Vault, Service Bus) to subscribe to an event grid topic.
-1. Triggers event sources from various scenarios, including different actions performed on the event sources.  
+1. Triggers event sources from various scenarios, including different actions performed on the event sources.
 1. Use Event Grid to support the events coming from different Azure services.
 1. Leverages different event handlers (Azure Functions, Event Hubs, Logic Apps, Blob Storage, Web Hook, Power Automate) to handle different use cases.
 1. Use different types of actions to handle the result of the event handlers, like Blob Storage and email for alerts.

@@ -1,6 +1,6 @@
 ---
-title: Monitoring best practices for reliability in Azure applications
-description: Best practices for reliability monitoring in Azure applications
+title: Best practices for reliability in apps
+description: Review best practices for reliability monitoring in Azure applications within the Azure Well-Architected Framework.
 author: v-aangie
 ms.date: 02/17/2021
 ms.topic: conceptual
@@ -30,7 +30,7 @@ Catching issues early can minimize the need to roll back the entire workflow or 
 
 ## Measure remote call statistics
 
-Measure remote call statistics, and share the data with the application team to give your operations team an instantaneous view into application health, summarize remote call metrics, such as latency, throughput, and errors in the 99 and 95 percentiles. Perform statistical analysis on the metrics to uncover errors that occur within each percentile.
+Measure remote call statistics, and share the data with the application team to give your operations team an instantaneous view into application health, summarize remote call metrics, such as latency, throughput, and errors in the 99 and 95 percentiles. Perform statistical analysis on the metrics to uncover errors that occur within each percentile.
 
 ## Track transient exceptions and retries
 
