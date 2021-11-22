@@ -1109,8 +1109,12 @@ items:
                 href: reference-architectures/ai/speech-to-text-transcription-pipeline.yml
               - name: Computer vision on the edge
                 href: reference-architectures/ai/end-to-end-smart-factory.yml
+              - name: Connected factory hierarchy service
+                href: solution-ideas/articles/connected-factory-hierarchy-service.yml
               - name: Predictive maintenance with IoT
                 href: example-scenario/predictive-maintenance/iot-predictive-maintenance.yml
+              - name: Quality assurance
+                href: solution-ideas/articles/quality-assurance.yml
               - name: Supply chain track and trace
                 href: solution-ideas/articles/supply-chain-track-and-trace.yml
       - name: Media and entertainment
@@ -1283,7 +1287,7 @@ items:
                 maintainContext: true
               - name: Machine learning at scale
                 href: data-guide/big-data/machine-learning-at-scale.md
-              - name: Security baseline for Azure Machine Learning
+              - name: Security baseline for AML
                 href: /security/benchmark/azure/baselines/machine-learning-security-baseline
                 maintainContext: true
               - name: Natural language processing
