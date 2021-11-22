@@ -7,7 +7,7 @@ Use [Terraform](https://www.terraform.io/intro/index.html) and [Azure DevOps](/a
 
 ## Architecture
 
-![Architecture Diagram](/media/aks-firewall.png)
+![Architecture Diagram](media/aks-firewall.png)
 
 Companion Terraform modules deploy a new virtual network with four subnets:
 
