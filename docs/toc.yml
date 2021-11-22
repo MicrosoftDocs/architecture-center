@@ -2263,6 +2263,8 @@ items:
             items: 
               - name: Design principles
                 href: guide/design-principles/index.md
+              - name: Eventual consistency in Power Platform
+                href: reference-architectures/power-platform/eventual-consistency.yml
           - name: Architectures
             items:
               - name: Basic web application
@@ -2297,8 +2299,6 @@ items:
                 href: example-scenario/mch-health/virtual-health-mch.yml 
               - name: Web app monitoring on Azure
                 href: reference-architectures/app-service-web-app/app-monitoring.yml
-              - name: Eventual consistency in Power Platform
-                href: reference-architectures/power-platform/eventual-consistency.yml
           - name: Solution ideas
             items:
               - name: Dynamics Business Central as a Service on Azure
