@@ -1,7 +1,7 @@
 ### YamlMime:Architecture
 metadata:
   title: Eventual consistency between multiple Power Apps instances
-  titleSuffix: Azure Reference Architectures
+  titleSuffix: Azure Architecture Center
   description: Handle dependent data in a resilient way in Power Apps.
   author: EdPrice-MSFT
   ms.author: pnp
