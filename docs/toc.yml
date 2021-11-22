@@ -1766,7 +1766,7 @@ items:
                 href: solution-ideas/articles/predicting-length-of-stay-in-hospitals.yml
               - name: Predictive aircraft engine monitoring
                 href: solution-ideas/articles/aircraft-engine-monitoring-for-predictive-maintenance-in-aerospace.yml
-              - name: Real Time analytics on big data
+              - name: Real-time analytics on big data
                 href: solution-ideas/articles/real-time-analytics.yml
               - name: Tiering applications & data for analytics
                 href: solution-ideas/articles/tiered-data-for-analytics.yml
@@ -2029,7 +2029,7 @@ items:
                     href: data-guide/big-data/index.md
                   - name: Batch processing
                     href: data-guide/big-data/batch-processing.md
-                  - name: Real time processing
+                  - name: Real-time processing
                     href: data-guide/big-data/real-time-processing.md
               - name: Technology choices
                 items:
@@ -3478,6 +3478,8 @@ items:
                   - name: Networking features for App Service
                     href: /azure/app-service/networking-features
                     maintainContext: true
+              - name: Eventual consistency in Power Platform
+                href: reference-architectures/power-platform/eventual-consistency.yml
           - name: Architectures
             items:
               - name: Basic web application
