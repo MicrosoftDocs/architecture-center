@@ -1,12 +1,32 @@
 <!-- cSpell:ignore CNAME -->
 
-
-
 This reference architecture shows how to run an Azure App Service application in multiple regions to achieve high availability.
+
+There are several general approaches to achieve high availability across regions:
+
+- Active/Passive with hot standby: traffic goes to one region, while the other waits on hot standby. Hot standby means the VMs in the secondary region are allocated and running at all times.
+
+- Active/Passive with cold standby: traffic goes to one region, while the other waits on cold standby. Cold standby means the VMs in the secondary region are not allocated until needed for failover. This approach costs less to run, but will generally take longer to come online during a failure.
+
+- Active/Active: both regions are active, and requests are load balanced between them. If one region becomes unavailable, it is taken out of rotation.
 
 ![Reference architecture for a web application with high availability](./images/multi-region-web-app-diagram.png)
 
 *Download a [Visio file][visio-download] of this architecture.*
+
+This reference focuses on active/passive with hot standby. It extends the single region design for a scalable web application. See [Improve scalability in a web application][guidance-web-apps-scalability] for information on the base architecture.
+
+### Relevent use cases
+
+These use cases can benefit from a multi-region deployment:
+
+- Design a business continuity and disaster recovery plan for LoB applications
+
+- Deploy mission-critical applications running on Windows or Linux
+
+- Improve user experience by keeping applications available
+
+
 
 ## Architecture
 
@@ -18,13 +38,21 @@ This architecture builds on the one shown in [Improve scalability in a web appli
 
 A multi-region architecture can provide higher availability than deploying to a single region. If a regional outage affects the primary region, you can use [Front Door](/azure/frontdoor) to fail over to the secondary region. This architecture can also help if an individual subsystem of the application fails.
 
-There are several general approaches to achieving high availability across regions:
+## Components
 
-- Active/passive with hot standby. Traffic goes to one region, while the other waits on hot standby. Hot standby means the VMs in the secondary region are allocated and running at all times.
-- Active/passive with cold standby. Traffic goes to one region, while the other waits on cold standby. Cold standby means the VMs in the secondary region are not allocated until needed for failover. This approach costs less to run, but will generally take longer to come online during a failure.
-- Active/active. Both regions are active, and requests are load balanced between them. If one region becomes unavailable, it is taken out of rotation.
+Key technologies used to implement this architecture:
 
-This reference architecture focuses on active/passive with hot standby, using Front Door for failover.
+- [Azure Active Directory][Azure-Active-Directory]
+- [Azure DNS][Azure-DNS]
+- [Azure Content Delivery Network][Azure-Content-Delivery-Network]
+- [Azure Front Door][Azure-Front-Door]
+- [Azure AppService][Azure-AppService]
+- [Azure Function][Azure-Function]
+- [Azure Storage][Azure-Storage]
+- [Azure Redis Cache][Azure-Redis-Cache]
+- [Azure SQL Database][Azure-SQL-Database]
+- [Azure Cosmos DB][Azure-Cosmos-DB]
+- [Azure Search][Azure-Search]
 
 ## Recommendations
 
@@ -140,6 +168,23 @@ This architecture follows the multi region deployment recommendation, described 
 
 This architecture builds on the one shown in [Improve scalability in a web application][guidance-web-apps-scalability], see [DevOps considerations section][guidance-web-apps-scalability-devops].
 
+## Next Steps
+
+- Deep dive on [Azure Front Door - traffic routing methods][front-door-routing]
+
+- Create health probes that report the overall health of the application based on [endpoint monitoring patterns][endpoint-monitoring]
+
+- Enable [Azure SQL auto-failover groups][sql-failover]
+
+## Related Content
+
+- [Multi-region N-tier application](../n-tier/multi-region-sql-server.yml) is a similar scenario. It shows an N-tier application running in multiple Azure regions
+
+- [Design principles for Azure Application][Design-principles-for-Azure-Application] summarize design principles for Azure applications
+
+- [Ensure business continuity & disaster recovery using Azure Paired Regions](/azure/best-practices-availability-paired-regions)
+
+
 <!-- links -->
 
 [AFD-pricing]: https://azure.microsoft.com/pricing/details/frontdoor
@@ -158,3 +203,17 @@ This architecture builds on the one shown in [Improve scalability in a web appli
 [sql-rpo]: /azure/sql-database/sql-database-business-continuity#sql-database-features-that-you-can-use-to-provide-business-continuity
 [storage-outage]: /azure/storage/storage-disaster-recovery-guidance
 [visio-download]: https://arch-center.azureedge.net/app-service-reference-architectures.vsdx
+[Azure-Active-Directory]: https://azure.microsoft.com/en-in/services/active-directory/#overview
+[Azure-DNS]: https://azure.microsoft.com/en-in/services/dns/#overview
+[Azure-Content-Delivery-Network]: https://azure.microsoft.com/en-in/services/cdn/#overview
+[Azure-Front-Door]: https://azure.microsoft.com/en-us/services/frontdoor/#overview
+[Azure-AppService]: https://azure.microsoft.com/en-in/services/app-service/#overview 
+[Azure-Function]: https://azure.microsoft.com/en-in/services/functions/#overview
+[Azure-Storage]: https://azure.microsoft.com/en-in/product-categories/storage/
+[Azure-Redis-Cache]: https://azure.microsoft.com/en-in/services/cache/#overview
+[Azure-SQL-Database]: https://azure.microsoft.com/en-us/products/azure-sql/database/#overview
+[Azure-Cosmos-DB]: https://azure.microsoft.com/en-us/services/cosmos-db/#overview
+[Azure-Search]: https://azure.microsoft.com/en-in/services/search/#overview
+[front-door-routing]: /azure/frontdoor/front-door-routing-methods
+[endpoint-monitoring]: (../../patterns/health-endpoint-monitoring.md)
+[Design-principles-for-Azure-Application]: https://docs.microsoft.com/en-us/azure/architecture/guide/design-principles/

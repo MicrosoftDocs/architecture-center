@@ -94,6 +94,22 @@ Configuring disaster recovery for Azure VMs using Azure Site Recovery will incur
 
 We have provided a [sample cost calculator][calculator] for configuring disaster recovery for a three-tier application using six virtual machines. All of the services are pre-configured in the cost calculator. To see how the pricing would change for your particular use case, change the appropriate variables to estimate the cost.
 
+## Next Steps
+
+- [Deploy Traffic Manager in Azure][Deploy-Traffic-Manager-in-Azure]
+- [Set up disaster recovery for Azure VMs][Set-up-disaster-recovery-for-Azure-VMs]
+
+
+## Related resources
+
+For additional high availabilty and disaster recovery reference architectures, see:
+
+- [Multi-region N-tier application][Multi-region-N-tier-application]
+- [Multi-region load balancing][Multi-region-load-balancing]
+- [Multi-region app with private database][Multi-region-app-with-private-database]
+- [Enterprise-scale disaster recovery][Enterprise-scale-disaster-recovery]
+
+
 <!-- links -->
 
 [architecture]: ./media/architecture-disaster-recovery-multi-tier-app.png
@@ -108,3 +124,9 @@ We have provided a [sample cost calculator][calculator] for configuring disaster
 [docs-azure-site-recovery]: /azure/site-recovery/azure-to-azure-quickstart
 [docs-availability-sets]: /azure/virtual-machines/windows/manage-availability
 [calculator]: https://azure.com/e/6835332265044d6d931d68c917979e6d
+[Multi-region-N-tier-application]: https://docs.microsoft.com/en-us/azure/architecture/reference-architectures/n-tier/multi-region-sql-server
+[Multi-region-load-balancing]: https://docs.microsoft.com/en-us/azure/architecture/high-availability/reference-architecture-traffic-manager-application-gateway
+[Multi-region-app-with-private-database]: https://docs.microsoft.com/en-us/azure/architecture/example-scenario/sql-failover/app-service-private-sql-multi-region
+[Enterprise-scale-disaster-recovery]: https://docs.microsoft.com/en-us/azure/architecture/solution-ideas/articles/disaster-recovery-enterprise-scale-dr
+[Set-up-disaster-recovery-for-Azure-VMs]: https://docs.microsoft.com/en-us/azure/site-recovery/azure-to-azure-tutorial-enable-replication
+[Deploy-Traffic-Manager-in-Azure]: https://docs.microsoft.com/en-us/azure/traffic-manager/quickstart-create-traffic-manager-profile
