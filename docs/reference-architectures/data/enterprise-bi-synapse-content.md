@@ -6,6 +6,8 @@ This reference architecture implements an [extract, load, and transform (ELT)](.
 
 ![GitHub logo](../../_images/github.png) A reference implementation for this architecture is available on [GitHub][github-folder].
 
+![Architecture diagram for Enterprise BI in Azure with Azure Synapse](./images/Analytics-with-AzureSynapse-PBi.png)
+
 ![Architecture diagram for Enterprise BI in Azure with Azure Synapse](./images/enterprise-bi-synapse.png)
 
 **Scenario**: An organization has a large OLTP data set stored in a SQL Server database on premises. The organization wants to use Azure Synapse to perform analysis using Power BI.
