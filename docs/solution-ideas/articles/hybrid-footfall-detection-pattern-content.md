@@ -12,8 +12,8 @@ Contoso would like to find an unobtrusive, privacy-friendly way to determine the
 
 ## Architecture
 
-![Architecture diagram](../media/hybrid-footfall-detection-pattern.png)
-_Download an [SVG](../media/hybrid-connectivity.svg) of this architecture._
+![Architecture diagram](../media/hybrid-footfall-detection-pattern.png)  
+_Download an [SVG](../media/hybrid-footfall-detection-pattern.svg) of this architecture._
 
 ### Data flow
 
@@ -50,3 +50,6 @@ To learn more about the topics introduced in this article:
 - See the [Azure Storage](https://docs.microsoft.com/azure/storage/) and [Azure Functions](https://docs.microsoft.com/azure/azure-functions/) documentation. This pattern makes heavy use of Azure Storage accounts and Azure Functions on both Azure and Azure Stack Hub.
 - See [Hybrid application design considerations](https://docs.microsoft.com/hybrid/app-solutions/overview-app-design-considerations) to learn more about best practices and to get answers to additional questions.
 - See the [Azure Stack family of products and solutions](https://docs.microsoft.com/azure-stack) to learn more about the entire portfolio of products and solutions.
+- See the [Azure Stack Development Kit](https://docs.microsoft.com/azure-stack/asdk). The ASDK is a single-node deployment of Azure Stack Hub that you can download and use for free. All ASDK components are installed in virtual machines (VMs) running on a single host computer that must meet or exceed the minimum hardware requirements. The ASDK is meant to provide an environment in which you can evaluate Azure Stack Hub and develop modern apps using APIs and tooling consistent with Azure in a non-production environment.
+
+When you're ready to test the solution example, continue with the [Footfall detection deployment guide](/azure/architecture/hybrid/deployments/solution-deployment-guide-retail-footfall-detection). The deployment guide provides step-by-step instructions for deploying and testing its components.
