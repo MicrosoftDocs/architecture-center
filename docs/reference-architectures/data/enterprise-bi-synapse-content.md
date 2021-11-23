@@ -30,11 +30,12 @@ The architecture consists of the following components.
 **Blob Storage**. Blob storage is used as a staging area to copy the data before loading it into Azure Synapse.
 
 **Azure Synapse**. [Azure Synapse](/azure/sql-data-warehouse/) is a distributed system designed to perform analytics on large data. It supports massive parallel processing (MPP), which makes it suitable for running high-performance analytics.
-<!--
+
 ### Analysis and reporting
 
-**Power BI**. Power BI is a suite of business analytics tools to analyze data for business insights. In this architecture, it queries the semantic model stored in Analysis Services.
+Data modelling approach in this usecase is presented by composition of Enterprise model and BI Semantic model. [Enterprise model][enterprise-model] is stored in [Synapse Dedicated SQL Pool][synapse-dedicated-pool] and [BI Semantic model][bi-model] is stored in [Power BI Premium Capacities][pbi-premium-capacities]. 
 
+<!--
 ### Authentication
 
 **Azure Active Directory (Azure AD)** authenticates users who connect to the Analysis Services server through Power BI.
@@ -272,4 +273,7 @@ You may want to review the following [Azure example scenarios](/azure/architectu
 [az-as-pricing]: https://azure.microsoft.com/pricing/details/analysis-services
 [az-storage-reserved]: /azure/storage/blobs/storage-blob-reserved-capacity
 [aaf-cost]: ../../framework/cost/overview.md
-
+[enterprise-model]: https://docs.microsoft.com/en-us/power-bi/guidance/center-of-excellence-business-intelligence-solution-architecture#enterprise-models
+[bi-model]: https://docs.microsoft.com/en-us/power-bi/guidance/center-of-excellence-business-intelligence-solution-architecture#bi-semantic-models
+[pbi-premium-capacities]: https://docs.microsoft.com/en-us/power-bi/admin/service-premium-what-is#reserved-capacities
+[synapse-dedicated-pool]: https://docs.microsoft.com/en-us/azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is#synapse-sql-pool-in-azure-synapse
