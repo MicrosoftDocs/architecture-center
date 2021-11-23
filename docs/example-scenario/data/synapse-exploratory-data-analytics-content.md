@@ -1,4 +1,4 @@
-This article describes an alternative approach to data warehouse projects that's called *exploratory data analysis (EDA)*. This approach can reduce the challenges of extract, transform, load (ETL) operations. 
+This article describes an alternative approach to data warehouse projects that's called *exploratory data analysis (EDA)*. This approach can reduce the challenges of extract, transform, load (ETL) operations. It focuses first on generating business insights and then turns to solving the modeling and ETL tasks.
 
 ## Potential use cases
 
@@ -30,17 +30,12 @@ You can implement the left side of the diagram (data ingestion) by using any ext
 - [Azure Synapse Analytics](https://azure.microsoft.com/services/synapse-analytics) combines data integration, enterprise data warehousing, and big data analytics over lakehouse data. In this solution:
 
   - An [Azure Synapse workspace](/azure/synapse-analytics/quickstart-create-workspace) promotes collaboration among data engineers, data scientists, data analysts, and business intelligence (BI) professionals for EDA tasks.
-  - [Azure Synapse serverless SQL pools](/azure/synapse-analytics/get-started-analyze-sql-on-demand) analyze unstructured and semi-structured data in Azure Data Lake Storage by using an on-demand billing model and standard T-SQL.  
+  - [Azure Synapse serverless SQL pools](/azure/synapse-analytics/get-started-analyze-sql-on-demand) analyze unstructured and semi-structured data in Azure Data Lake Storage by using standard T-SQL.  
   - [Azure Synapse serverless Apache Spark pools](/azure/synapse-analytics/get-started-analyze-spark) do code-first explorations in Data Lake Storage by using Spark languages like Spark SQL, PySpark, and Scala.
-- [Azure Data Lake Storage](https://azure.microsoft.com/services/storage/data-lake-storage)
-- [Azure Machine Learning](https://azure.microsoft.com/services/machine-learning/)
-- [Power BI](https://azure.microsoft.com/services/power-bi-embedded). Used to query data to accomplish EDA. 
+- [Azure Data Lake Storage](https://azure.microsoft.com/services/storage/data-lake-storage) provides storage for data that is then analyzed by Azure Synapse severless SQL pools. 
+- [Azure Machine Learning](https://azure.microsoft.com/services/machine-learning/) provides data to Azure Synapse Spark.  
+- [Power BI](https://azure.microsoft.com/services/power-bi-embedded) is used in this solution to query data to accomplish EDA. 
 
-Azure Synapse SQL serverless pools are available on-demand. They don't require scaling up, down, in, or out or administration of any kind. They use a pay-per-query model, so there's no unused capacity at any time. Serverless pools are ideal for:
-   - Ad-hoc data-science explorations in T-SQL.
-   - Early prototyping for data warehouse entities.
-   - Defining views that consumers can use, for example in Power BI, for scenarios that can tolerate performance lag.
-   - Exploratory data analysis.
 
 ### Alternatives
 
@@ -49,9 +44,9 @@ Azure Synapse SQL serverless pools are available on-demand. They don't require s
 - Instead of using a lakehouse model with Synapse SQL serverless pools, you can use [Azure Synapse dedicated SQL pools](/azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is) to store enterprise data. Review the use cases and considerations in this article and related resources to decide which technology to use.
 
 ## About exploratory data analysis 
-Here's the traditional approach to data warehouse projects:
+Before we look more closely at how EDA works, it's worth summarizing the traditional approach to data warehouse projects. The traditional approach looks like this:
 
-- **Requirements gathering**. Document what you'll do with the data.  
+- **Requirements gathering**. Document what to do with the data.  
 
 - **Data modeling**. Determine how to model the numeric and attribute data into fact and dimension tables. Traditionally, you do this step before you acquire the new data.
 
@@ -73,7 +68,7 @@ Here are the steps:
 
 - **Data sandboxing**. Initially, a business analyst and an engineer who's skilled in exploratory data analysis via Azure Synapse Analytics serverless or basic SQL work together. During this phase, they're trying to uncover the _business insight_ by using the new data. EDA is an iterative process. You might need to ingest more data, talk with SMEs, ask more questions, or generate visualizations.  
 
-- **Evaluation**. After you find the business insight, you need to evaluate what to do with the data. Sometimes you'll want to persist the data into the data warehouse (so you move to the modeling phase). In other cases, you might decide to keep the data in the data lake / lakehouse and use it for predictive analytics (machine learning algorithms). In still other cases, you might decide to backfill your systems of record with the new insights. Based on these decisions, you can gain a better understanding of what you need to do next.  
+- **Evaluation**. After you find the business insight, you need to evaluate what to do with the data. You might want to persist the data into the data warehouse (so you move to the modeling phase). In other cases, you might decide to keep the data in the data lake / lakehouse and use it for predictive analytics (machine learning algorithms). In still other cases, you might decide to backfill your systems of record with the new insights. Based on these decisions, you can gain a better understanding of what you need to do next. You might not need to do ETL. 
 
 These methods are the core of true _self-service analytics_. By using the data lake and a query tool like Azure Synapse serverless that understands data lake query patterns, you can put your data assets into the hands of business people who understand a modicum of SQL. You can radically shorten the time-to-value by using this method and remove some of the risk associated with corporate data initiatives.
 
@@ -83,7 +78,13 @@ The following considerations apply to this scenario.
 
 ### Availability
 
-Synapse SQL serverless pools is a platform as a service (PaaS) feature that can meet your high availability (HA) and disaster recovery (DR) requirements. 
+Azure Synapse SQL serverless pools is a platform as a service (PaaS) feature that can meet your high availability (HA) and disaster recovery (DR) requirements. 
+
+Serverless pools are available on-demand. They don't require scaling up, down, in, or out or administration of any kind. They use a pay-per-query model, so there's no unused capacity at any time. Serverless pools are ideal for:
+   - Ad-hoc data-science explorations in T-SQL.
+   - Early prototyping for data warehouse entities.
+   - Defining views that consumers can use, for example in Power BI, for scenarios that can tolerate performance lag.
+   - Exploratory data analysis.
 
 ### Operations
 
@@ -102,6 +103,7 @@ Synapse SQL serverless uses standard T-SQL for querying and operations. You coul
 - Microsoft Learn [Data Engineer learning paths](/learn/roles/data-engineer)
 - [Tutorial: Get started with Azure Synapse Analytics](/azure/synapse-analytics/get-started)
 - [Create a single database - Azure SQL Database](/azure/azure-sql/database/single-database-create-quickstart)
+- [Azure Synapse SQL architecture](/azure/synapse-analytics/sql/overview-architecture)
 - [Create a storage account for Azure Data Lake Storage](/azure/storage/blobs/create-data-lake-storage-account)
 - [Azure Event Hubs Quickstart - Create an event hub by using the Azure portal](/azure/event-hubs/event-hubs-create)
 - [Quickstart - Create a Stream Analytics job by using the Azure portal](/azure/stream-analytics/stream-analytics-quick-create-portal)
