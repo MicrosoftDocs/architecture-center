@@ -2,12 +2,14 @@
 title: Principles of the performance efficiency
 description: Describes the performance efficiency guiding principles
 author: a11smiles
-ms.date: 04/23/2021
+ms.date: 10/19/2021
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: well-architected
 categories:
   - management-and-governance
+products:
+  - azure-monitor
 ms.custom:
   - overview
 ---
@@ -29,7 +31,7 @@ Any development effort must go through continuous performance testing. The tests
 
 - **Identify bottlenecks**&mdash;Bottlenecks is an area within your application that can hinder performance. These spots can be the result of shortages in code or misconfiguration of a service. Typically, a bottleneck worsens as load increases.
 
-[**Continuously monitor the application and the supporting infrastructure**](monitor.md)
+[**Continuously monitor the application and the supporting infrastructure**](checklist.md)
 
 - **Have a data-driven approach**&mdash;Base your decisions on the data captured from repeatable processes. Archive data to monitor performance changes  _over time_, not just compared to the last measurement taken.
 - **Monitor the health of current workloads**&mdash;In monitoring strategy, consider scalability _and_ resiliency of the infrastructure, application, and dependent services. For scalability, look at the metrics that would allow you to provision resources dynamically and scale with demand. For reliability, look for early warning signs that might require proactive intervention.

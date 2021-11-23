@@ -1,8 +1,8 @@
 ---
-title: Monitoring for DevOps
+title: Monitoring for Workloads
 description: Understand how to monitor your workload to make sure your DevOps infrastructure is working as intended.
 author: david-stanford
-ms.date: 11/01/2019
+ms.date: 10/15/2021
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: well-architected
@@ -11,17 +11,23 @@ products:
 ms.custom:
   - fasttrack-edit
   - article
+categories:
+  - management-and-governance
 ---
 
-# Monitoring for DevOps
+# Monitoring for workloads
 
-What you cannot see, you cannot measure. What you cannot measure, you cannot improve. This classic management axiom is true in the cloud as well. Traditional application and infrastructure monitoring is based on whether the application is running or not, or what response time it is giving. However, cloud-based monitoring offer many more opportunities that you should be leveraging in order to give your users the best experience.
+Traditional application and infrastructure monitoring is based on the application running successfully and its response time. However, cloud-based monitoring offers many more opportunities you can leverage to give users the best experience. In a production environment, it's important to track the way customers use your system, trace resource utilization, and generally monitor the health and performance of your system. You can use this information as a diagnostic aid to detect and correct issues, and also to help spot potential problems, and prevent them from occurring.
 
-## Application Monitoring
+## Application monitoring
 
-Application Insights is the Azure Service that allows not only to verify that your application is running correctly, but it makes application troubleshooting easier, and can be used for custom business telemetry that will tell you whether your application is being used as intended.
+Application Insights is the Azure Service that allows you to:
 
-Make sure you leverage all the rich information that Application Insights can provide about your application. This list is not exhaustive, but here you can find some of the visibility that Application Insights can give you:
+- Verify that your application is running correctly.
+- Makes application troubleshooting easier.
+- Provides custom business telemetry to indicate whether your application is being used as intended.
+
+Make sure you leverage all the rich information that Application Insights can provide about your application. This list is not exhaustive, but the following items provide visibility into what Application Insights can offer:
 
 - Application Insights offers you a default dashboard with an educated guess of the most important metrics you will be interested in. You can then modify it and customize it to your own needs.
 - By instrumenting your application correctly, Application Insights will give you performance statistics both from a client and a server perspective
@@ -32,17 +38,20 @@ Make sure you leverage all the rich information that Application Insights can pr
 - Cross-component transaction diagnostics allow you to follow failed transactions to find the point in the architecture where the fault was originated.
 - Snapshot Debugger, to automatically collect a snapshot of a live application in case of an exception, to analyze it at a later stage.
 
-To use Application Insights you have two options: you can use **codeless monitoring**, where onboarding your app to Application Insights does not require any code change, or **code-based monitoring**, where you instrument your code to send telemetry to Application Insights using the Software Development Kit for your programming language of choice.
+To use Application Insights you have two options:
+
+- Use **codeless monitoring**, where onboarding your app to Application Insights doesn't require any code change.
+- Use **code-based monitoring**, where you instrument your code to send telemetry to Application Insights using the Software Development Kit for your programming language of choice.
 
 You can certainly use other Application Performance Management tools to monitor your application on Azure, such as NewRelic or AppDynamics, but Application Insights will give you the most seamless and integrated experience.
 
-## Platform Monitoring
+## Platform monitoring
 
 Application Insights is actually one of the components of Azure Monitor, which gives you rich metrics and logs to verify the state of your complete Azure landscape. No matter whether your application is running on Virtual Machines, App Services, or Kubernetes, Azure Monitor will help you to follow the state of your infrastructure, and to react promptly if there are any issues.
 
 Make sure not only to monitor your compute elements supporting your application code, but your data platform as well: databases, storage accounts, or data lakes should be closely monitored, since a low performance of the data tier of an application could have serious consequences.
 
-### Container Insights
+### Container insights
 
 Should your application run on Azure Kubernetes Service, Azure Monitor allows you to easily monitor the state of your cluster, nodes, and pods. Easy to configure for AKS clusters, Container Insights delivers quick, visual, and actionable information: from the CPU and memory pressure of your nodes to the logs of individual Kubernetes pods.
 
@@ -109,4 +118,4 @@ You can use any monitoring platform to manage your Azure resources. Microsoft's 
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Alerting](./alerts.md)
+> [Monitoring checklist](./checklist.md)

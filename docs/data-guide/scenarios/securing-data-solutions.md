@@ -1,7 +1,8 @@
 ---
-title: Securing data solutions
+title: Secure data solutions
 description: Learn about data protection, access control, auditing, and Azure services and tools that help you secure data assets.
-author: zoinerTejada
+author: EdPrice-MSFT
+ms.author: pnp
 ms.date: 11/20/2019
 ms.topic: conceptual
 ms.service: architecture-center
@@ -10,7 +11,7 @@ ms.custom:
   - guide
 ---
 
-# Securing data solutions
+# Secure data solutions
 
 For many, making data accessible in the cloud, particularly when transitioning from working exclusively in on-premises data stores, can cause some concern around increased accessibility to that data and new ways in which to secure it.
 
@@ -20,35 +21,35 @@ For many, making data accessible in the cloud, particularly when transitioning f
 - Implementing encryption and authorization management across your applications and services.
 - Ensuring that centralized identity management works across all of your solution components, whether on-premises or in the cloud.
 
-## Data Protection
+## Data protection
 
 The first step to protecting information is identifying what to protect. Develop clear, simple, and well-communicated guidelines to identify, protect, and monitor the most important data assets anywhere they reside. Establish the strongest protection for assets that have a disproportionate impact on the organization's mission or profitability. These are known as high value assets, or HVAs. Perform stringent analysis of HVA lifecycle and security dependencies, and establish appropriate security controls and conditions. Similarly, identify and classify sensitive assets, and define the technologies and processes to automatically apply security controls.
 
 Once the data you need to protect has been identified, consider how you will protect the data *at rest* and data *in transit*.
 
 - **Data at rest**: Data that exists statically on physical media, whether magnetic or optical disk, on premises or in the cloud.
-- **Data in transit**: Data while it is being transferred between components, locations or programs, such as over the network, across a service bus (from on-premises to cloud and vice-versa), or during an input/output process.
+- **Data in transit**: Data while it is being transferred between components, locations, or programs, such as over the network, across a service bus (from on-premises to cloud and vice-versa), or during an input/output process.
 
 To learn more about protecting your data at rest or in transit, see [Azure Data Security and Encryption Best Practices](/azure/security/azure-security-data-encryption-best-practices).
 
-## Access Control
+## Access control
 
 Central to protecting your data in the cloud is a combination of identity management and access control. Given the variety and type of cloud services, as well as the rising popularity of [hybrid cloud](../scenarios/hybrid-on-premises-and-cloud.md), there are several key practices you should follow when it comes to identity and access control:
 
 - Centralize your identity management.
 - Enable Single Sign-On (SSO).
 - Deploy password management.
-- Enforce multi-factor authentication for users.
+- Enforce multifactor authentication for users.
 - Use Azure role-based access control (Azure RBAC).
 - Conditional Access Policies should be configured, which enhances the classic concept of user identity with additional properties related to user location, device type, patch level, and so on.
-- Control locations where resources are created using resource manager.
+- Control locations where resources are created using Resource Manager.
 - Actively monitor for suspicious activities
 
 For more information, see [Azure Identity Management and access control security best practices](/azure/security/azure-security-identity-management-best-practices).
 
 ## Auditing
 
-Beyond the identity and access monitoring previously mentioned, the services and applications that you use in the cloud should be generating security-related events that you can monitor. The primary challenge to monitoring these events is handling the quantities of logs , in order to avoid potential problems or troubleshoot past ones. Cloud-based applications tend to contain many moving parts, most of which generate some level of logging and telemetry. Use centralized monitoring and analysis to help you manage and make sense of the large amount of information.
+Beyond the identity and access monitoring previously mentioned, the services and applications that you use in the cloud should be generating security-related events that you can monitor. The primary challenge to monitoring these events is handling the quantities of logs, in order to avoid potential problems or troubleshoot past ones. Cloud-based applications tend to contain many moving parts, most of which generate some level of logging and telemetry. Use centralized monitoring and analysis to help you manage and make sense of the large amount of information.
 
 For more information, see [Azure Logging and Auditing](/azure/security/azure-log-audit).
 
@@ -64,7 +65,7 @@ For more information, see [Azure Logging and Auditing](/azure/security/azure-log
 
 ### Rights management
 
-[Azure Rights Management](/information-protection/understand-explore/what-is-azure-rms) is a cloud-based service that uses encryption, identity, and authorization policies to secure files and email. It works across multiple devices &mdash; phones, tablets, and PCs. Information can be protected both within your organization and outside your organization because that protection remains with the data, even when it leaves your organization's boundaries.
+[Azure Rights Management](/information-protection/understand-explore/what-is-azure-rms) is a cloud-based service that uses encryption, identity, and authorization policies to secure files and email. It works across multiple devices, such as phones, tablets, and PCs. Information can be protected both within your organization and outside your organization because that protection remains with the data, even when it leaves your organization's boundaries.
 
 ### Access control
 
