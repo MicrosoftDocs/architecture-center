@@ -3900,6 +3900,8 @@ items:
                  - name: Blueprint - PaaS web application for PCI DSS
                    href: /previous-versions/azure/security/blueprints/pcidss-paaswa-overview
                    maintainContext: true
+              - name: Scalable cloud applications and SRE
+                href: example-scenario/apps/scalable-apps-performance-modeling-site-reliability.yml
               - name: Clinical insights with Microsoft Cloud for Healthcare
                 href: example-scenario/mch-health/medical-data-insights.yml
               - name: Common web app architectures
