@@ -3359,6 +3359,8 @@ items:
             items:
               - name: Hybrid file services
                 href: hybrid/hybrid-file-services.yml
+              - name: Moodle deployment with Azure NetApp Files
+                href: example-scenario/file-storage/moodle-azure-netapp-files.yml
               - name: Oracle Database with Azure NetApp Files
                 href: example-scenario/file-storage/oracle-azure-netapp-files.yml
               - name: SQL Server on Azure Virtual Machines with Azure NetApp Files
