@@ -6,9 +6,11 @@ This reference architecture implements the [Analytics end-to-end with Azure Syna
 <!-- Requires update
 ![GitHub logo](../../_images/github.png) A reference implementation for this architecture is available on [GitHub][github-folder].
 -->
-
+### Enterprise Architecture
+![Architecture diagram for Enterprise BI in Azure with Azure Synapse](./images/Analytics-with-AzureSynapse-PBi.png)
+<!--
 ![Architecture diagram for Enterprise BI in Azure with Azure Synapse](./images/enterprise-bi-synapse.png)
-
+-->
 **Scenario**: An organization has a large on-premises Data Warehouse. The organization wants to use Azure Synapse to perform analysis using Power BI.
 
 This reference architecture is designed for one-time, on-demand, or scheduled jobs. 
