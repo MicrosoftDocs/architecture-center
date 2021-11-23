@@ -269,3 +269,5 @@ You may want to review the following [Azure example scenarios](/azure/architectu
 [az-as-pricing]: https://azure.microsoft.com/pricing/details/analysis-services
 [az-storage-reserved]: /azure/storage/blobs/storage-blob-reserved-capacity
 [aaf-cost]: ../../framework/cost/overview.md
+
+Testing commit 
