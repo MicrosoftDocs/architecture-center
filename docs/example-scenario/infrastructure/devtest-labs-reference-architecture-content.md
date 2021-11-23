@@ -13,8 +13,8 @@ Enterprises migrating DevTest workloads at large scale can benefit from setting 
 
 This architecture is useful for organizations who require:
 
-- A fully integrated operations control plane for DevTest workloads from the start
-- A clear separation of concerns between platform and application workloads
+- A fully integrated operations control plane for DevTest workloads from the start.
+- A clear separation of concerns between platform and application workloads.
 
 Traditionally, this architecture would serve as a starting point for large-scale deployments of DevTest workloads across subscriptions.
 
@@ -28,7 +28,7 @@ Although DTL alone doesn't have built-in limits, other Azure resources used in t
 
 [![Diagram of the reference architecture for DevTest Labs in an enterprise.](media/devtest-labs-reference-architecture-enterprise.png)](media/devtest-labs-reference-architecture-enterprise.png#lightbox)
 
-[Download a copy of this Visio.](https://arch-center.azureedge.net/devtest-labs-reference-architecture-enterprise.vsdx)
+[Download a Visio file of this architecture.](https://arch-center.azureedge.net/devtest-labs-reference-architecture-enterprise.vsdx)
 
 1. **The Network Administrator** creates a spoke VNet and other network resources like NSG, UDR in the network resource group that is peered with the hub VNet. The peering is created by Azure policies assigned to the Corp management group per the ESLZ automation. This peering lets corporate users access the lab VMs over VPN/ExpressRoute with a private IP.
 1. **The Lab Owner** configures built-in Lab policies per project requirements. You can review all available policies at [Manage all policies for a lab in Azure DevTest Labs](/azure/devtest-labs/devtest-lab-set-lab-policy). Here are a few policies relevant to this article:
