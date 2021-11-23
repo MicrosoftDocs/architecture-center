@@ -4,7 +4,8 @@ metadata:
   titleSuffix: Azure Example Scenarios
   description: Learn about the reference architecture that can help you deploy a solution based on Azure DevTest Labs in your enterprise. 
   author: magrande
-  ms.date: 11/22/2021
+  ms.author: vinara
+  ms.date: 11/24/2021
   ms.topic: conceptual
   ms.service: architecture-center
   ms.subservice: example-scenario
