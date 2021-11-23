@@ -2146,7 +2146,7 @@ items:
           - name: Architectures
             items:
               - name: Azure DevTest Labs for enterprises
-                href: /azure/devtest-labs/devtest-lab-reference-architecture
+                href: example-scenario/infrastructure/devtest-labs-reference-architecture.yml
                 maintainContext: true
               - name: CI/CD pipeline for chatbots with ARM
                 href: example-scenario/apps/devops-cicd-chatbot.yml
