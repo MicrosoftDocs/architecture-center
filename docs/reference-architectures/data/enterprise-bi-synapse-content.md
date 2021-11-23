@@ -1,16 +1,17 @@
 
 
-This reference architecture implements an [extract, load, and transform (ELT)](../../data-guide/relational-data/etl.md#extract-load-and-transform-elt) pipeline that moves data from an on-premises SQL Server database into Azure Synapse and transforms the data for analysis.
+This reference architecture implements the [Analytics end-to-end with Azure Synapse][e2e-analytics] pattern, implementing a Synapse Pipeline to ingest data from an on-premises SQL Server database into Synapse SQL Pools before transforming the data for analysis.
 
-> Add end to end analytics
 
+<!-- Requires update
 ![GitHub logo](../../_images/github.png) A reference implementation for this architecture is available on [GitHub][github-folder].
+-->
 
 ![Architecture diagram for Enterprise BI in Azure with Azure Synapse](./images/enterprise-bi-synapse.png)
 
-**Scenario**: An organization has a large OLTP data set stored in a SQL Server database on premises. The organization wants to use Azure Synapse to perform analysis using Power BI.
+**Scenario**: An organization has a large on-premises Data Warehouse. The organization wants to use Azure Synapse to perform analysis using Power BI.
 
-This reference architecture is designed for one-time or on-demand jobs. If you need to move data on a continuing basis (hourly or daily), we recommend using Azure Data Factory to define an automated workflow. For a reference architecture that uses Data Factory, see [Automated enterprise BI with Azure Synapse and Azure Data Factory][adf-ra].
+This reference architecture is designed for one-time, on-demand, or scheduled jobs. 
 
 
 ## Architecture
@@ -252,13 +253,13 @@ You may want to review the following [Azure example scenarios](/azure/architectu
 <!-- links -->
 
 [AAF-devops]: ../../framework/devops/overview.md
-[adf-ra]: ./enterprise-bi-adf.yml
 [arm-template]: /azure/azure-resource-manager/resource-group-overview#resource-groups
 [az-devops]: /azure/virtual-machines/windows/infrastructure-automation#azure-devops-services
 [azbb]: https://github.com/mspnp/template-building-blocks/wiki
 [azure-monitor]: https://azure.microsoft.com/services/monitor
 [blue-green-dep]: https://martinfowler.com/bliki/BlueGreenDeployment.html
 [cannary-releases]: https://martinfowler.com/bliki/CanaryRelease.html
+[e2e-analytics]: ../../example-scenario/dataplate2e/data-platform-end-to-end-content.md
 [github-folder]: https://github.com/mspnp/azure-sqldw-enterprise-bi
 [synapse-analytics]: /azure/sql-data-warehouse/sql-data-warehouse-concept-resource-utilization-query-activity
 [wwi]: /sql/sample/world-wide-importers/wide-world-importers-oltp-database
@@ -270,5 +271,3 @@ You may want to review the following [Azure example scenarios](/azure/architectu
 [az-storage-reserved]: /azure/storage/blobs/storage-blob-reserved-capacity
 [aaf-cost]: ../../framework/cost/overview.md
 
-Testing commit 
--->
