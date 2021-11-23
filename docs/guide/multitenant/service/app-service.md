@@ -37,6 +37,8 @@ You can instead consider deploying a reverse proxy, like [Azure Front Door](/azu
 
 ![Diagram showing requests coming into Front Door using a variety of host names, and being passed to the App Service app using a single host name.](media/app-service/host-front-door.png)
 
+When a client makes a request to an App Service application, the application's DNS name is used to route the request to the correct App Service deployment that hosts your application. Then, the App Service front-end servers inspect the `Host` header from the request. In the example illustrated above, the `Host` header would have a value of `contoso.azurewebsites.net`. Your own app might use a custom domain name instead. App Service looks up a global database of `Host` header values to direct the request to your specific application.
+
 > [!TIP]
 > If your application sends cookies or redirection responses, you need to take special care. Changes in the request's `Host` headers might invalidate these responses.
 
@@ -51,6 +53,7 @@ You can also integrate Azure App Service with Azure AD B2C for authentication of
 More information:
 - [App Service authorization](/azure/app-service/overview-authentication-authorization)
 - [Configure authentication in a sample web app by using Azure AD B2C](/azure/active-directory-b2c/configure-authentication-sample-web-app)
+- [Working with multitenant Azure AD identities](../../../multitenant-identity/index.md)
 
 ### Access restrictions
 
@@ -63,7 +66,7 @@ When you work with a multitenant solution, be aware of the maximum number of acc
 When working with a multitenant system using Azure App Service or Azure Functions, you need to make a decision about the level of isolation you want to use.
 
 - In Azure App Service, a [plan](/azure/app-service/overview-hosting-plans) represents your hosting infrastructure. An app represents a single application running on that infrastructure. You can deploy multiple apps to a single plan.
-- In Azure Functions, your hosting and application are also separated, but you have additional hosting options available for *elastic hosting*, where Azure Functions manages scaling for you. For simplicity, we refer to the hosting infrastructure as a *plan* throughout this section, because the principles described here apply to both App Service and Azure Functions regardless of the hosting model you use.
+- In Azure Functions, your hosting and application are also separated, but you have [additional hosting options available](/azure/azure-functions/functions-scale) for *elastic hosting*, where Azure Functions manages scaling for you. For simplicity, we refer to the hosting infrastructure as a *plan* throughout this section, because the principles described here apply to both App Service and Azure Functions regardless of the hosting model you use.
 
 ### Plans per tenant
 
@@ -79,7 +82,7 @@ You can also choose to share your plan between multiple tenants, but deploy sepa
 - **Separation of configuration:** Each tenant's app can have its own domain name, TLS certificate, access restrictions, and token authorization policies applied.
 - **Separation of upgrades:** Each tenant's application binaries can be upgraded independently of other apps on the same plan.
 
-However, because the plan's compute resources are shared, the apps may be subject to the [Noisy Neighbor problem](../../../antipatterns/noisy-neighbor/index.md). Additionally, there are [limits to how many apps can be deployed to a single plan](/azure/azure-resource-manager/management/azure-subscription-service-limits#app-service-limits).
+However, because the plan's compute resources are shared, the apps might be subject to the [Noisy Neighbor problem](../../../antipatterns/noisy-neighbor/index.md). Additionally, there are [limits to how many apps can be deployed to a single plan](/azure/azure-resource-manager/management/azure-subscription-service-limits#app-service-limits).
 
 ### Shared apps
 
@@ -91,6 +94,15 @@ To be able to use this model, your application code must be multitenancy-aware.
 
 > [!NOTE]
 > Don't use [deployment slots](/azure/app-service/deploy-staging-slots) for different tenants. Slots don't provide resource isolation. They are designed for deployment scenarios when you need to have multiple versions of your app running for a short time, such as blue-green deployments and a canary rollout strategy.
+
+## Host APIs
+
+You can host APIs on both Azure App Service and Azure Functions. Your choice of platform will depend on the specific feature set and scaling options you need.
+
+Whichever platform you use to host your API, consider using [Azure API Management](/azure/api-management/) in front of your API application. API Management provides many features that can be helpful for multitenant solutions, including:
+
+- A centralized point for all [authentication](/azure/api-management/api-management-access-restriction-policies). This might include determining the tenant identifier from a token claim or other request metadata.
+- [Routing requests to different API backends](/azure/api-management/api-management-transformation-policies#SetBackendService), which might be based on the request's tenant identifier. This can be helpful when you host multiple [deployment stamps](../../../patterns/deployment-stamp.md) with their own independent API applications, but you need to have a single API URL for all requests.
 
 ## Networking and multitenancy
 
@@ -106,9 +118,9 @@ If you don't need a static IP address, but instead need to occasionally check th
 
 Because App Service is itself a multitenant service, you need to take care about how you use shared resources. Networking is an area that you need to pay particular attention to, because there are [limits](/azure/azure-resource-manager/management/azure-subscription-service-limits#app-service-limits) that affect how your application can work with both inbound and outbound network connections, including source network address translation (SNAT) and TCP port limits.
 
-If your application connects to large numbers of databases or external services, it might be at risk of [SNAT por e/app-service/troubleshoot-intermittent-outbound-connection-errors). In general, SNAT port exhaustion indicates that your code isn't correctly reusing TCP connections, and even in a multitenant solution you should ensure you follow recommended practices for reusing connections.
+If your application connects to large numbers of databases or external services, it might be at risk of [SNAT port exhaustion](/app-service/troubleshoot-intermittent-outbound-connection-errors). In general, SNAT port exhaustion indicates that your code isn't correctly reusing TCP connections, and even in a multitenant solution you should ensure you follow recommended practices for reusing connections.
 
-However, in some multitenant solutions, the number of outbound connections to distinct IP addresses can result in SNAT port exhaustion even when you follow good coding practices. In these scenarios, [consider deploying NAT Gateway](/azure/app-service/networking/nat-gateway-integration) to increase the number of SNAT ports available for your application to use, or use [service endpoints](/azure/virtual-network/virtual-network-service-endpoints-overview) when connecting to Azure services to bypass load balancer limits. Even with these controls in place, you may approach limits with a large number of tenants, so you should plan to scale to additional App Service plans or [deployment stamps](../../../patterns/deployment-stamp.md).
+However, in some multitenant solutions, the number of outbound connections to distinct IP addresses can result in SNAT port exhaustion even when you follow good coding practices. In these scenarios, [consider deploying NAT Gateway](/azure/app-service/networking/nat-gateway-integration) to increase the number of SNAT ports available for your application to use, or use [service endpoints](/azure/virtual-network/virtual-network-service-endpoints-overview) when connecting to Azure services to bypass load balancer limits. Even with these controls in place, you might approach limits with a large number of tenants, so you should plan to scale to additional App Service plans or [deployment stamps](../../../patterns/deployment-stamp.md).
 
 ## Next steps
 
