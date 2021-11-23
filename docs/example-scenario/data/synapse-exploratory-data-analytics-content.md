@@ -10,8 +10,6 @@ Other scenarios that can benefit from this analytics pattern:
 
 ## Architecture
 
-Here's a sample architecture for EDA:  
-
 ![Diagram that shows a sample EDA architecture.](media/exploratory-data-analytics/exploratory-data-analytics.png)
 
 *Download a [Visio file](https://arch-center.azureedge.net/EDA.vsdx) of this architecture.*
@@ -34,6 +32,9 @@ You can implement the left side of the diagram (data ingestion) by using any ext
   - An [Azure Synapse workspace](/azure/synapse-analytics/quickstart-create-workspace) promotes collaboration among data engineers, data scientists, data analysts, and business intelligence (BI) professionals for EDA tasks.
   - [Azure Synapse serverless SQL pools](/azure/synapse-analytics/get-started-analyze-sql-on-demand) analyze unstructured and semi-structured data in Azure Data Lake Storage by using an on-demand billing model and standard T-SQL.  
   - [Azure Synapse serverless Apache Spark pools](/azure/synapse-analytics/get-started-analyze-spark) do code-first explorations in Data Lake Storage by using Spark languages like Spark SQL, PySpark, and Scala.
+- [Azure Data Lake Storage](https://azure.microsoft.com/services/storage/data-lake-storage)
+- [Azure Machine Learning](https://azure.microsoft.com/services/machine-learning/)
+- [Power BI](https://azure.microsoft.com/services/power-bi-embedded). Used to query data to accomplish EDA. 
 
 Azure Synapse SQL serverless pools are available on-demand. They don't require scaling up, down, in, or out or administration of any kind. They use a pay-per-query model, so there's no unused capacity at any time. Serverless pools are ideal for:
    - Ad-hoc data-science explorations in T-SQL.
