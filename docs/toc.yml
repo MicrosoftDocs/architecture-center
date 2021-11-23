@@ -1302,9 +1302,13 @@ items:
           - name: COVID-19 IoT safe environments
             href: solution-ideas/articles/cctv-iot-edge-for-covid-19-safe-environment-and-mask-detection.yml
           - name: Facilities management with mixed reality
+            href: solution-ideas/articles/facilities-management-powered-by-mixed-reality-and-iot.yml
           - name: IoT connectivity for healthcare facilities
+            href: solution-ideas/articles/healthcare-network.yml
           - name: Lighting and disinfection system
+            href: solution-ideas/articles/uven-disinfection.yml
           - name: Smart places with Azure Digital Twins
+            href: example-scenario/iot/smart-places.yml
   - name: Azure categories
     expanded: true
     items:
