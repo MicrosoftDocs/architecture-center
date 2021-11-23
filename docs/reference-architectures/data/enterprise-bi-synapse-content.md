@@ -6,15 +6,12 @@ This reference architecture implements an [extract, load, and transform (ELT)](.
 
 ![GitHub logo](../../_images/github.png) A reference implementation for this architecture is available on [GitHub][github-folder].
 
-### Enterprise architecture
-![Architecture diagram for Enterprise BI in Azure with Azure Synapse](./images/Analytics-with-AzureSynapse-PBi.png)
-
-### Ingestion reference architecture
 ![Architecture diagram for Enterprise BI in Azure with Azure Synapse](./images/enterprise-bi-synapse.png)
 
 **Scenario**: An organization has a large OLTP data set stored in a SQL Server database on premises. The organization wants to use Azure Synapse to perform analysis using Power BI.
 
 This reference architecture is designed for one-time or on-demand jobs. If you need to move data on a continuing basis (hourly or daily), we recommend using Azure Data Factory to define an automated workflow. For a reference architecture that uses Data Factory, see [Automated enterprise BI with Azure Synapse and Azure Data Factory][adf-ra].
+
 
 ## Architecture
 
@@ -22,19 +19,16 @@ The architecture consists of the following components.
 
 ### Data source
 
-**SQL Server**. The source data is located in a SQL Server database on premises. To simulate the on-premises environment, the deployment scripts for this architecture provision a VM in Azure with SQL Server installed. The [Wide World Importers OLTP sample database][wwi] is used as the source data.
+**SQL Server**. The source data is located in a SQL Server database on premises. To simulate the on-premises environment, the deployment scripts for this architecture provision a VM in Azure with SQL Server installed. The [Adventure Works DW][adventureworks-sample-link] is used as the source data.
+//TODO - import the back and change variable
 
 ### Ingestion and data storage
 
 **Blob Storage**. Blob storage is used as a staging area to copy the data before loading it into Azure Synapse.
 
 **Azure Synapse**. [Azure Synapse](/azure/sql-data-warehouse/) is a distributed system designed to perform analytics on large data. It supports massive parallel processing (MPP), which makes it suitable for running high-performance analytics.
-
+<!--
 ### Analysis and reporting
-
-**Azure Analysis Services**. [Analysis Services](/azure/analysis-services/) is a fully managed service that provides data modeling capabilities. Use Analysis Services to create a semantic model that users can query. Analysis Services is especially useful in a BI dashboard scenario. In this architecture, Analysis Services reads data from the data warehouse to process the semantic model, and efficiently serves dashboard queries. It also supports elastic concurrency, by scaling out replicas for faster query processing.
-
-Currently, Azure Analysis Services supports tabular models but not multidimensional models. Tabular models use relational modeling constructs (tables and columns), whereas multidimensional models use OLAP modeling constructs (cubes, dimensions, and measures). If you require multidimensional models, use SQL Server Analysis Services (SSAS). For more information, see [Comparing tabular and multidimensional solutions](/sql/analysis-services/comparing-tabular-and-multidimensional-solutions-ssas).
 
 **Power BI**. Power BI is a suite of business analytics tools to analyze data for business insights. In this architecture, it queries the semantic model stored in Analysis Services.
 
@@ -270,10 +264,11 @@ You may want to review the following [Azure example scenarios](/azure/architectu
 [wwi]: /sql/sample/world-wide-importers/wide-world-importers-oltp-database
 [powerbi-embedded-pricing]: https://azure.microsoft.com/pricing/details/power-bi-embedded
 [powerbi-pro-purchase]: /power-bi/service-admin-purchasing-power-bi-pro
-[wwi]: /sql/sample/world-wide-importers/wide-world-importers-oltp-database
+[adventureworks-sample-link]: https://docs.microsoft.com/en-us/sql/samples/adventureworks-install-configure?view=sql-server-ver15&tabs=ssms
 [az-synapse-pricing]: https://azure.microsoft.com/pricing/details/synapse-analytics
 [az-as-pricing]: https://azure.microsoft.com/pricing/details/analysis-services
 [az-storage-reserved]: /azure/storage/blobs/storage-blob-reserved-capacity
 [aaf-cost]: ../../framework/cost/overview.md
 
 Testing commit 
+-->
