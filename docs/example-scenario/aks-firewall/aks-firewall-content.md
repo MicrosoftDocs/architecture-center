@@ -16,7 +16,7 @@ Companion Terraform modules deploy a new virtual network with four subnets:
 - AppGatewaySubnet: Hosts Application Gateway WAF2
 - AzureBastionSubnet: Azure Bastion
 
-The Azure Kubernetes Service (AKS) cluster uses a user-defined managed identity to create additional resources, like load balancers and managed disks in Azure. The Terraform modules allow you to deploy an AKS cluster with the following features:
+The Azure Kubernetes Service (AKS) cluster uses a user-defined managed identity to create additional resources, like load balancers and managed disks in Azure. The Terraform modules allow you to optionally deploy an AKS cluster with the following features:
 
 - [Container Storage Interface (CSI) drivers for Azure disks and Azure Files](/azure/aks/csi-storage-drivers)
 - [AKS-managed AAD integration](/azure/aks/managed-aad)
@@ -24,6 +24,7 @@ The Azure Kubernetes Service (AKS) cluster uses a user-defined managed identity 
 - [Managed identity in place of a service principal](/azure/aks/use-managed-identity)
 - [Azure Network Policies](/azure/aks/use-network-policies)
 - [Azure Monitor for containers add-on](/azure/azure-monitor/containers/container-insights-enable-new-cluster)
+- [Application Gateway Ingress Controller add-on](https://azure.github.io/application-gateway-kubernetes-ingress/)
 - [Dynamic allocation of IPs and enhanced subnet support](/azure/aks/configure-azure-cni#dynamic-allocation-of-ips-and-enhanced-subnet-support-preview)
 
 The AKS cluster is composed of the following:
