@@ -1316,7 +1316,7 @@ items:
               - name: Overview
                 href: /azure/industry/agriculture/overview-azure-farmbeats
                 maintainContext: true
-              - name: Generate soild moisture heatmap
+              - name: Generate soil moisture heatmap
                 href: /azure/industry/agriculture/generate-soil-moisture-map-in-azure-farmbeats
                 maintainContext: true
               - name: Sensor partner integration
@@ -1515,7 +1515,7 @@ items:
                                 href: data-science-process/move-hive-tables.md
                               - name: Move to SQL partitioned tables
                                 href: data-science-process/parallel-load-sql-partitioned-tables.md
-                              - name: Move from on-prem SQL
+                              - name: Move from on-premises SQL
                                 href: data-science-process/move-sql-azure-adf.md
                           - name: Explore and visualize data
                             items:
@@ -2572,7 +2572,7 @@ items:
                   href: hybrid/deployments/solution-deployment-guide-highly-available-kubernetes.md
                 - name: Deploy highly available MongoDB
                   href: hybrid/deployments/solution-deployment-guide-mongodb-ha.md
-                - name: Deploy a hybrid app with on-prem data
+                - name: Deploy hybrid app with on-premises data
                   href: hybrid/deployments/solution-deployment-guide-cross-cloud-scaling-onprem-data.md
                 - name: Deploy a SQL Server 2016 AG
                   href: hybrid/deployments/solution-deployment-guide-sql-ha.md
