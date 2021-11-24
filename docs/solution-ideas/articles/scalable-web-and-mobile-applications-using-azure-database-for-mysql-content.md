@@ -9,8 +9,6 @@ _Download an [SVG](../media/scalable-web-and-mobile-applications-using-azure-dat
 
 ### Dataflow
 
-### Dataflow
-
 1.  A browser or mobile app makes requests for resources from the API.
 1.  The requests are transmitted using HTTPS with [TLS termination](/azure/app-service/configure-ssl-certificate), which is handled by Azure App Services.
 1.  Azure App Services handles API requests, and it can be [scaled up](/azure/app-service/manage-scale-up) or [scaled out](/azure/azure-monitor/autoscale/autoscale-get-started) to handle the changing demand.
