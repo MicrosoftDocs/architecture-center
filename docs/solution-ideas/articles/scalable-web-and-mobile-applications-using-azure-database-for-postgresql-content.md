@@ -9,15 +9,15 @@ _Download an [SVG](../media/scalable-web-and-mobile-applications-using-azure-dat
 
 ### Dataflow
 
-1. Browser or mobile app makes requests for resources from the API.
-1. Requests transmitted using HTTPS with [TLS termination](/azure/app-service/configure-ssl-certificate) handled by Azure App Services.
-1. Azure App Services handles API requests, and can be [scaled up](/azure/app-service/manage-scale-up) or [scaled out](/azure/azure-monitor/autoscale/autoscale-get-started) to handle changing demand.
-1. Azure Database for PostgreSQL provides a relational database service based on the open-source Postgres database engine. Using [Hyperscale (Citus)](/azure/postgresql/hyperscale-overview) or [Flexible Server (Preview)](/azure/postgresql/flexible-server/overview) deployment modes allows for highly scalable databases.
+1. A browser or mobile app makes requests for resources from the API.
+1. The requests are transmitted using HTTPS with [TLS termination](/azure/app-service/configure-ssl-certificate), which is handled by Azure App Services.
+1. Azure App Services handles API requests, and it can be [scaled up](/azure/app-service/manage-scale-up) or [scaled out](/azure/azure-monitor/autoscale/autoscale-get-started) to handle the changing demand.
+1. Azure Database for PostgreSQL provides a relational database service that's based on the open-source Postgres database engine. Use [Hyperscale (Citus)](/azure/postgresql/hyperscale-overview) or [Flexible Server (Preview)](/azure/postgresql/flexible-server/overview) deployment modes for highly scalable databases.
 
 ### Components
 
-- [Azure App Services](https://azure.microsoft.com/services/app-service/)
-- [Azure Database for PostgreSQL](https://azure.microsoft.com/en-us/services/postgresql/)
+- [Azure App Services](https://azure.microsoft.com/services/app-service)
+- [Azure Database for PostgreSQL](https://azure.microsoft.com/en-us/services/postgresql)
 
 ## Next steps
 
