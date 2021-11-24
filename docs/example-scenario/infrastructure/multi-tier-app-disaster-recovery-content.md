@@ -1,4 +1,3 @@
-
 <!-- cSpell:ignore sujayt -->
 
 This example scenario is applicable to any industry that needs to deploy resilient multitier applications built for high availability and disaster recovery. In this scenario, the application consists of three layers.
@@ -9,7 +8,7 @@ This example scenario is applicable to any industry that needs to deploy resilie
 
 Common application scenarios include any mission-critical application running on Windows or Linux. This can be an off-the-shelf application such as SAP and SharePoint or a custom line-of-business application.
 
-## Relevant use cases
+## Potential use cases
 
 Other relevant use cases include:
 
@@ -40,7 +39,7 @@ You can combine both load balancers, if needed. For example, you want the DNS-ba
 
 This architecture uses Traffic Manager because it's light weight. The failover timing is sufficient for illustrative purposes.
 
-![Architecture overview of a highly resilient multitier web application][architecture]
+![Diagram showing the architecture overview of a highly resilient multitier web application.][architecture]
 
 - Distribute the VMs in each tier across two availability zones in regions that support zones. In other regions, deploy the VMs in each tier within one availability set.
 - The database tier can be configured to use Always On availability groups. With this SQL Server configuration, one primary database within a cluster is configured with up to eight secondary databases. If an issue occurs with the primary database, the cluster fails over to one of the secondary databases, allowing the application to remain available. For more information, see [Overview of Always On availability groups for SQL Server][docs-sql-always-on].
@@ -97,7 +96,6 @@ We have provided a [sample cost calculator][calculator] for configuring disaster
 - [Deploy Traffic Manager in Azure][Deploy-Traffic-Manager-in-Azure]
 - [Set up disaster recovery for Azure VMs][Set-up-disaster-recovery-for-Azure-VMs]
 
-
 ## Related resources
 
 For additional high availabilty and disaster recovery reference architectures, see:
@@ -106,7 +104,6 @@ For additional high availabilty and disaster recovery reference architectures, s
 - [Multi-region load balancing][Multi-region-load-balancing]
 - [Multi-region app with private database][Multi-region-app-with-private-database]
 - [Enterprise-scale disaster recovery][Enterprise-scale-disaster-recovery]
-
 
 <!-- links -->
 
