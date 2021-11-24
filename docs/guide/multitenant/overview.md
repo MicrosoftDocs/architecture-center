@@ -8,6 +8,11 @@ ms.date: 11/24/2021
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: azure-guide
+products:
+  - azure
+categories:
+  - management-and-governance
+  - security
 ms.category:
   - fcp
 ms.custom:
