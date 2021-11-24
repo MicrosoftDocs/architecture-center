@@ -183,6 +183,8 @@ items:
             href: example-scenario/startups/core-startup-stack.yml
       - name: Multitenant applications
         items:
+          - name: Overview
+            href: guide/multitenant/overview.md
           - name: Considerations
             items:
               - name: Overview
@@ -215,6 +217,8 @@ items:
                 href: guide/multitenant/approaches/storage-data.md
           - name: Service-specific guidance
             items:
+            - name: Overview
+              href: guide/multitenant/service/overview.md
               - name: Deployment and configuration
                 items:
                   - name: Azure Resource Manager
