@@ -1,6 +1,6 @@
 This article describes how to set up an [Azure web app](https://azure.microsoft.com/en-us/services/app-service/web) in a network environment that enforces strict policies regarding inbound and outbound network flows. In such cases, the web app can't be directly exposed to the internet. Instead, all traffic needs to go through an [Azure firewall](/azure/firewall) or third-party network virtual appliance.
 
-The example shows a scenario in which a web app is protected with [Azure Front Door](/azure/frontdoor) and an Azure firewall and connects securely to an [Azure SQL database](/azure/azure-sql).
+The example shows a scenario in which a web app is protected with [Azure Front Door](/azure/frontdoor) and an Azure firewall and connects with improved security to an [Azure SQL database](/azure/azure-sql).
 
 ## Potential use cases
 
@@ -21,7 +21,7 @@ Download a [Visio file](https://arch-center.azureedge.net/hardened-webapp-archit
 3. The Azure firewall or third-party network virtual appliance is deployed in a virtual network (*Hub Virtual Network* in the example) and configured to perform destination NAT (DNAT) of incoming requests to the private IP address of the private endpoint associated with the web app.
 4. The wep app is assigned the custom FQDN through the [domain verification ID property of the web app](/Azure/app-service/manage-custom-dns-migrate-domain#bind-the-domain-name-preemptively). This allows the custom FQDN already mapped to the public IP of the Azure firewall or third-party network virtual appliance to be reused with the web app without altering DNS name resolution and network flows.
 5. The web app connects to a virtual network subnet (*subnet-webapp* in the example) through regional VNet integration. The **Route All** flag is enabled, which forces all outbound traffic from the web app into the virtual network and allows the web app to inherit the virtual network's DNS resolution configuration, including custom DNS servers and integration with [private DNS zones](/azure/dns) used for private endpoint name resolution.
-7. A custom [route table](/azure/virtual-network/virtual-networks-udr-overview#custom-routes) is attached to the web app subnet (*subnet-webapp* in the example) to force all outbound traffic that's coming from the web app to go to the Azure firewall or third-party network virtual appliance.
+7. A custom [route table](/azure/virtual-network/virtual-networks-udr-overview#custom-routes) that's attached to the web app subnet (*subnet-webapp* in the example) forces all outbound traffic that's coming from the web app to go to the Azure firewall or third-party network virtual appliance.
 8. One or more private DNS zones link to the virtual network that contains the web app (*Spoke Virtual Network* in the example) to allow DNS resolution of PaaS resources deployed with private endpoints.
 9. A private endpoint for Azure SQL is created in a virtual network subnet (*subnet-privatelink* in the example) and a corresponding DNS record is created on the matching private DNS zone.
 10. The web app can now be accessed only through Azure Front Door and Azure Firewall. It can also establish a connection to the Azure SQL instance through private endpoint, securing the communication over private IP only.
@@ -38,37 +38,37 @@ You can do this in several ways, depending on the network virtual appliance you'
 
 For more information, see [How do I lock down the access to my backend to only Azure Front Door?](/azure/frontdoor/front-door-faq#how-do-i-lock-down-the-access-to-my-backend-to-only-azure-front-door-?). 
 
-The solution also deploys an Azure SQL Server that accepts traffic only through a private endpoint, locking down completely traffic coming from external sources. The Web App deployed with the solution is configured to ensure proper DNS resolution of private endpoints and allow secure communication with the SQL Server. 
+The solution also uses an Azure SQL server that accepts traffic only through a private endpoint, locking down traffic that comes from external sources. The web app used in the solution is configured to ensure proper DNS resolution of private endpoints and allow secure communication with the SQL Server instance. 
 
-When deploying resources with private endpoints in your environments, it is important to properly configure your DNS infrastructure. For more information, see [Azure Private Endpoint DNS configuration](/azure/private-link/private-endpoint-dns).
+When you deploy resources that use private endpoints in your environments, it's important to configure your DNS infrastructure properly. For more information, see [Azure Private Endpoint DNS configuration](/azure/private-link/private-endpoint-dns).
 
 ### Components
 
-- [Azure Front Door](https://azure.microsoft.com/services/frontdoor)
-- [Azure Firewall](https://azure.microsoft.com/services/azure-firewall)
-- [Azure App Service](https://azure.microsoft.com/services/app-service)
-- [Azure Private Link Service private endpoints](https://docs.microsoft.com/azure/private-link/private-endpoint-overview)
-- [Route Tables](https://docs.microsoft.com/azure/virtual-network/virtual-networks-udr-overview#custom-routes)
-- [Azure DNS Private Zones](https://docs.microsoft.com/azure/dns)
-- [Azure SQL](https://azure.microsoft.com/en-us/products/azure-sql)
+- [Azure Front Door](https://azure.microsoft.com/services/frontdoor) provides Azure Web Application Firewall features and terminates SSL connections from clients.
+- [Azure Firewall](https://azure.microsoft.com/services/azure-firewall) provides security to the web app. 
+- [Azure App Service](https://azure.microsoft.com/services/app-service) allows you to create web apps and deploy them on a cloud infrastructure. 
+- [Azure Private Link private endpoints](/azure/private-link/private-endpoint-overview) allow you to connect privately and with improved security to Azure services.
+- A [Route table](/azure/virtual-network/virtual-networks-udr-overview#custom-routes) forces all outbound traffic that's coming from the web app to go to the firewall. 
+- [Private Azure DNS zones](/azure/dns) link to the virtual network that contains the web app to allow DNS resolution of PaaS resources deployed with private endpoints.
+- [Azure SQL](https://azure.microsoft.com/products/azure-sql) connects to the web app via a private endpoint. 
 
 
 ### Alternatives
 
-- The Wep App can be deployed to an internal [Azure App Service Environment](/azure/app-service/environment/overview) to provide isolation from the public internet. This example uses a Web App within an App Service to lower operating costs.
-- Azure Front Door can be replaced with a [Azure Application Gateway](/azure/application-gateway) if the Web Application Firewall component of the solution must also be deployed behind a firewall or within a Virtual Network.
+- You can deploy the wep app to an internal [App Service Environment](/azure/app-service/environment/overview) to provide isolation from the public internet. This example uses a web app within App Service to reduce operating costs.
+- You can replace Azure Front Door with an [Azure application gateway](/azure/application-gateway) if the Web Application Firewall component of the solution also needs to be deployed behind a firewall or within a virtual network.
 
 ### Availability
 
-Front Door is a global service with built-in availability and reduncdancy and an [SLA of 99.99%](https://azure.microsoft.com/support/legal/sla/frontdoor/v1_0)
+Azure Front Door is a global service with built-in availability and redundancy and a high [SLA](https://azure.microsoft.com/support/legal/sla/frontdoor/v1_0).
 
-Azure Firewall features [built-in availability with a standard SLA of 99.95%](/azure/firewall/features#built-in-high-availability). It and can also be deployed to span multiple [Availability Zones](https://azure.microsoft.com/global-infrastructure/availability-zones/#overview), [increasing the SLA to 99.99%](/azure/firewall/features#availability-zones). If using a third-party or custom network virtual appliance, you can achieve the same SLA targets configuring your deployment to leverage Availability Sets or Availability Zones.
+Azure Firewall features [built-in availability and a high SLA](/azure/firewall/features#built-in-high-availability). You can deploy it to span multiple [availability zones](https://azure.microsoft.com/global-infrastructure/availability-zones/#overview) to [increase the SLA](/azure/firewall/features#availability-zones). If you use a third-party or custom network virtual appliance, you can achieve the same SLA targets by configuring your deployment to use availability sets or availability zones.
 
-Azuew Web Apps support built-in availability and can be deployed across [multiple Availability Zones](/azure/app-service/how-to-zone-redundancy)
+Azure web apps support built-in availability. You can deploy them across [multiple availability zones](/azure/app-service/how-to-zone-redundancy).
 
-You can further increase the availability of the solution to spread it across multiple [Azure Regions](https://azure.microsoft.com/global-infrastructure/geographies/#overview). This can be accomplished by deploying new instances of all components (except Front Door) to other Azure Regions and then by configuring the original Front Door instance with [multiple backend targets](/azure/frontdoor/front-door-backend-pool). If you are using Azure SQL as datastore, multiple servers can then be [joined to an auto-failover group to enable transparent and coordinated failover of multiple databases](/azure/azure-sql/database/auto-failover-group-overview?tabs=azure-powershell).
+You can further increase the availability of the solution by spreading it across multiple [Azure regions](https://azure.microsoft.com/global-infrastructure/geographies/#overview). You can accomplish this by deploying new instances of all components (except Azure Front Door) to other Azure regions and then configuring the original Azure Front Door instance with [multiple back-end targets](/azure/frontdoor/front-door-backend-pool). If you use Azure SQL as your data store, you can then [join multiple servers to an auto-failover group to enable transparent and coordinated failover of multiple databases](/azure/azure-sql/database/auto-failover-group-overview).
 
-You can refer to the following reference architectures to see how multi-available web applications can be deployed in Azure and how multi-region SQL Servers can be setup to work with private endpoints:
+Refer to the following reference architectures to see how multi-available web applications can be deployed in Azure and how multi-region SQL Servers can be setup to work with private endpoints:
 
 [Azure Architecture Center | Highly available multi-region web application](/azure/architecture/reference-architectures/app-service-web-app/multi-region)  
 [Azure Architecture Center | Multi-region web app with private connectivity to database](/azure/architecture/example-scenario/sql-failover/app-service-private-sql-multi-region)
