@@ -10,10 +10,6 @@ There are several general approaches to achieve high availability across regions
 
 - Active/Active: both regions are active, and requests are load balanced between them. If one region becomes unavailable, it is taken out of rotation.
 
-![Diagram showing the reference architecture for a web application with high availability.](./images/multi-region-web-app-diagram.png)
-
-*Download a [Visio file][visio-download] of this architecture.*
-
 This reference focuses on active/passive with hot standby. It extends the single region design for a scalable web application. See [Improve scalability in a web application][guidance-web-apps-scalability] for information on the base architecture.
 
 ### Potential use cases
@@ -27,6 +23,10 @@ These use cases can benefit from a multi-region deployment:
 - Improve user experience by keeping applications available
 
 ## Architecture
+
+![Diagram showing the reference architecture for a web application with high availability.](./images/multi-region-web-app-diagram.png)
+
+*Download a [Visio file][visio-download] of this architecture.*
 
 This architecture builds on the one shown in [Improve scalability in a web application][guidance-web-apps-scalability]. The main differences are:
 
