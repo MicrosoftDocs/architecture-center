@@ -3262,7 +3262,7 @@ items:
               - name: Implement a secure hybrid network
                 href: reference-architectures/dmz/secure-vnet-dmz.yml
               - name: Virtual WAN optimized for performance and security
-                href:
+                href: example-scenario/infrastructure/performance-security-optimized-vwan.yml
           - name: Solution ideas
             items:
               - name: Low-latency network for industry

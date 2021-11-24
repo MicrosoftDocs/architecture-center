@@ -28,8 +28,8 @@ The architecture consists of:
 The company has multiple regions and continues to deploy regions to the model. The company deploys a security-optimized or performance-optimized environment only when needed. The environments route the following traffic through the network virtual appliance (NVA):
 
 ### Traffic pathways
-| |||         |        | Destinations|      |        |           |
-|--|--|--|--|--|--|--|--|--|
+| |  |   |         |        | Destinations|      |        |          
+|--|--|--|--|--|--|--|--|
 | ||**VNet1**        |**VNet2**   |**VNet3**   |**VNet4**   |**Branch**   |**Internet**   |
 |**Security-optimized source**|**VNet1**|Intra VNet|NVA1-VNet2 |NVA1-hub-VNet3|NVA1-hub-VNet4|NVA1-hub-branch|NVA1-internet|
 **Performance-optimized source**|	**VNet3**|	hub-NVA1-VNet1	|hub-NVA1-VNet2|Intra VNet|	NVA2-VNet4	|hub-branch|	NVA2-internet|
@@ -120,18 +120,13 @@ For information about resiliency, see [Availability](#availability), earlier in 
 Pricing for this architecture depends heavily on the NVAs that you deploy. For a 2-Gbps ER connection and a Virtual WAN hub processing 10 TB per month, see this [pricing estimate](https://azure.com/e/0bf78de2bf3b45aa961e0dc2f57eb2fe).
 
 ## Next steps
-[What is Azure Virtual WAN?](/azure/virtual-wan/virtual-wan-about)
-
-[What is Azure ExpressRoute?](/azure/expressroute/expressroute-introduction)
-
-[How to configure virtual hub routing - Azure Virtual WAN](/azure/virtual-wan/how-to-virtual-hub-routing)
-
-[Firewall and Application Gateway for virtual networks](/azure/architecture/example-scenario/gateway/firewall-application-gateway)
-[Azure Virtual WAN and supporting remote work](/azure/virtual-wan/work-remotely-support)
+- [What is Azure Virtual WAN?](/azure/virtual-wan/virtual-wan-about)
+- [What is Azure ExpressRoute?](/azure/expressroute/expressroute-introduction)
+- [How to configure virtual hub routing - Azure Virtual WAN](/azure/virtual-wan/how-to-virtual-hub-routing)
+- [Firewall and Application Gateway for virtual networks](/azure/architecture/example-scenario/gateway/firewall-application-gateway)
+- [Azure Virtual WAN and supporting remote work](/azure/virtual-wan/work-remotely-support)
 
 ## Related resources
-[Hybrid file share with disaster recovery for remote and local branch workers](/azure/architecture/example-scenario/hybrid/hybrid-file-share-dr-remote-local-branch-workers) 
-
-[Choose between virtual network peering and VPN gateways](/azure/architecture/reference-architectures/hybrid-networking/vnet-peering)
-
-[Low-latency network connections for industry](/azure/architecture/solution-ideas/articles/low-latency-network)
+- [Hybrid file share with disaster recovery for remote and local branch workers](/azure/architecture/example-scenario/hybrid/hybrid-file-share-dr-remote-local-branch-workers) 
+- [Choose between virtual network peering and VPN gateways](/azure/architecture/reference-architectures/hybrid-networking/vnet-peering)
+- [Low-latency network connections for industry](/azure/architecture/solution-ideas/articles/low-latency-network)
