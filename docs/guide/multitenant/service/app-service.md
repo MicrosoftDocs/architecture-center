@@ -63,7 +63,9 @@ When you work with a multitenant solution, be aware of the maximum number of acc
 
 ## Isolation models
 
-When working with a multitenant system using Azure App Service or Azure Functions, you need to make a decision about the level of isolation you want to use.
+When working with a multitenant system using Azure App Service or Azure Functions, you need to make a decision about the level of isolation you want to use. Refer to the [tenancy models to consider for a multitenant solution](../considerations/tenancy-models.md), and to the guidance provided in the [architectural approaches for compute in multitenant solutions](../approaches/compute.md), to help you select the best isolation model for your scenario.
+
+When you work with Azure App Service and Azure Functions, there are some key concepts to be aware of:
 
 - In Azure App Service, a [plan](/azure/app-service/overview-hosting-plans) represents your hosting infrastructure. An app represents a single application running on that infrastructure. You can deploy multiple apps to a single plan.
 - In Azure Functions, your hosting and application are also separated, but you have [additional hosting options available](/azure/azure-functions/functions-scale) for *elastic hosting*, where Azure Functions manages scaling for you. For simplicity, we refer to the hosting infrastructure as a *plan* throughout this section, because the principles described here apply to both App Service and Azure Functions regardless of the hosting model you use.
@@ -110,9 +112,9 @@ Whichever platform you use to host your API, consider using [Azure API Managemen
 
 Many multitenant applications need to connect to tenants' on-premises networks to send data.
 
-If you need to send outbound traffic from a known static IP address, consider using [NAT Gateway](/azure/app-service/overview-inbound-outbound-ips#get-a-static-outbound-ip). App Service provides [guidance on how to integrate with a NAT Gateway](/azure/app-service/networking/nat-gateway-integration).
+If you need to send outbound traffic from a known static IP address or set of known static IP addresses, consider using [NAT Gateway](/azure/app-service/overview-inbound-outbound-ips#get-a-static-outbound-ip). App Service provides [guidance on how to integrate with a NAT Gateway](/azure/app-service/networking/nat-gateway-integration).
 
-If you don't need a static IP address, but instead need to occasionally check the IP address that your application uses, you can [query the current IP addresses of the App Service deployment](/azure/app-service/troubleshoot-intermittent-outbound-connection-errors).
+If you don't need a static outbound IP address, but instead need to occasionally check the IP address that your application uses for outbound traffic, you can [query the current IP addresses of the App Service deployment](/azure/app-service/troubleshoot-intermittent-outbound-connection-errors).
 
 ### Quotas
 
