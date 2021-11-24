@@ -1,5 +1,5 @@
 This architecture shows how the Raincode COBOL compiler modernizes mainframe
-legacy applications by seamlessly migrating and integrating them with a modern, Azure-based technology stack without changing a single line of code. With Raincode's compiler technology, you can keep current optimized mainframe applications and deploy them on the cloud, allowing you to preserve decades of development while greatly enhancing performance and flexibility. Raincode's solution is aimed at transforming the mainframe to an Azure-native architecture by preserving the business logic while transforming the entire architecture. Raincode supports application flexibility across Linux and Windows with containerized or virtual machine (VM) deployments on Azure.
+legacy applications by seamlessly migrating and integrating them with a modern, Azure-based technology stack without changing a single line of code. With Raincode's compiler technology, you can keep current optimized mainframe applications and deploy them on the cloud, allowing you to preserve decades of development while greatly enhancing performance and flexibility. Raincode's solution is aimed at transforming the mainframe to an Azure-native architecture by preserving the business logic while transforming the entire architecture. Raincode supports application flexibility across Linux and Windows with containerized or virtual machine (VM) deployments on Azure.
 
 This architecture illustrates how the Raincode solution runs on Azure. Raincode on Azure supports the following features:
 
@@ -101,7 +101,7 @@ This diagram shows how the legacy architecture can be migrated to Azure, taking 
 
     Unlike virtual machines, containers can scale out and scale in rapidly. Since the unit of scaling shifts to containers, infrastructure utilization is    optimized.
 
-5. Data services use a combination of high-performance storage on Ultra or Premium solid-state disks (SSDs), file storage on NetApp or Azure Files, and standard blob, archive, and backup storage that can be locally redundant or geo-redundant.
+5. Data services use a combination of high-performance storage on Ultra or Premium solid-state disks (SSDs), file storage on Azure NetApp Files or Azure Files, and standard blob, archive, and backup storage that can be locally redundant or geo-redundant.
 
 6. Azure SQL Database using either Hyperscale or Business Critical tiers for both high IOPS and high uptime SLA. Further, Private Link for Azure SQL Database is used to provide a private, direct connection isolated to the Azure Networking Backbone from the Azure VM to the Azure SQL Database. Raincode data migration tools can convert DMS/RDMS schemas to SQL.
 
@@ -111,7 +111,7 @@ This diagram shows how the legacy architecture can be migrated to Azure, taking 
 
 ### Components
 
--   [Azure Kubernetes Service (AKS)](https://azure.microsoft.com/services/kubernetes-service/) is a fully managed Kubernetes service for deploying and managing containerized applications in container-based compute clusters.
+-   [Azure Kubernetes Service (AKS)](https://azure.microsoft.com/services/kubernetes-service/) is a fully managed Kubernetes service for deploying and managing containerized applications in container-based compute clusters.
 
 -   [Azure Virtual Network (VNet)](/azure/virtual-network/virtual-networks-overview) is the fundamental building block for your private network in Azure. VNet enables many types of Azure resources, such as Azure Virtual Machines (VM), to securely communicate with each other, the internet, and on-premises networks. VNet is similar to a traditional network that you'd operate in your own datacenter, but it brings more benefits of Azure's infrastructure, such as scale, availability, and isolation.
 
@@ -121,12 +121,12 @@ This diagram shows how the legacy architecture can be migrated to Azure, taking 
 
 -   [Azure Load Balancer](/azure/load-balancer/load-balancer-overview) operates at layer four of the Open Systems Interconnection (OSI) model. It's the single point of contact for clients. Load Balancer distributes inbound flows that arrive at the load balancer's front end to back-end pool instances. These flows are according to configured load balancing rules and health probes. The back-end pool instances can be Azure Virtual Machines or instances in a virtual machine scale set.
 
--   [Azure SQL Database](/azure/azure-sql/database/sql-database-paas-overview) is a fully managed platform as a service (PaaS) database engine that always runs the latest stable version of SQL Server and patched OS, with
+-   [Azure SQL Database](/azure/azure-sql/database/sql-database-paas-overview) is a fully managed platform as a service (PaaS) database engine that always runs the latest stable version of SQL Server and patched OS, with
     99.99-percent availability. SQL Database handles upgrading, patching, backups, monitoring, and most other database management functions without user involvement. These PaaS capabilities let you focus on business-critical, domain-specific database administration and optimization.
 
--   [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) is an Azure PaaS service for NoSQL databases.
+-   [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) is an Azure PaaS service for NoSQL databases.
 
--   [Azure Database for PostgreSQL](https://azure.microsoft.com/services/postgresql/) is an Azure PaaS service for PostgreSQL databases.
+-   [Azure Database for PostgreSQL](https://azure.microsoft.com/services/postgresql/) is an Azure PaaS service for PostgreSQL databases.
 
 ## Considerations
 
@@ -134,7 +134,7 @@ The following considerations apply to this solution.
 
 ### Availability
 
--   Raincode architecture uses [Azure Site Recovery](https://azure.microsoft.com/services/site-recovery/) to mirror Azure VMs to a secondary Azure region for quick failover and disaster recovery (DR) if an Azure datacenter fails.
+-   Raincode architecture uses [Azure Site Recovery](https://azure.microsoft.com/services/site-recovery/) to mirror Azure VMs to a secondary Azure region for quick failover and disaster recovery (DR) if an Azure datacenter fails.
 
 ### Operations
 
@@ -154,7 +154,7 @@ The following considerations apply to this solution.
 
 -   This solution uses an [Azure network security group (NSG)](/azure/virtual-network/network-security-groups-overview) to manage traffic between Azure resources.
 
--   [Private Link for Azure SQL Database](/azure/azure-sql/database/private-endpoint-overview) provides a private, direct connection that is isolated to the Azure networking backbone, from the Azure VMs to Azure SQL Database.
+-   [Private Link for Azure SQL Database](/azure/azure-sql/database/private-endpoint-overview) provides a private, direct connection that is isolated to the Azure networking backbone, from the Azure VMs to Azure SQL Database.
 
 ## Pricing
 

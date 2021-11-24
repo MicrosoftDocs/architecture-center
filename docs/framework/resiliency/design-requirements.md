@@ -154,8 +154,8 @@ Consider these guidelines to ensure connection availability and improve reliabil
 
 ## Next step
 
->[!div class="nextstepaction"]
->[Application design](./app-design.md)
+> [!div class="nextstepaction"]
+> [Application design](./app-design.md)
 
 ## Related links
 

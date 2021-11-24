@@ -83,7 +83,7 @@ The following assets and technologies were used to craft the Baseball Machine Le
 
 This solution uses the prediction engine functionality in ML.NET to scale the model response times. Object pooling allows the ML.NET models to be accessed by multiple requests in a thread-safe manner. Learn more about ML.NET object pooling in [Deploy a model in an ASP.NET Core Web API](/dotnet/machine-learning/how-to-guides/serve-model-web-api-ml-net).
 
-Azure App Service is used for hosting the workbench in the cloud. With App Service you can automatically scale the number of instances that run your app, letting you keep up with customer demand. For more information on autoscale, refer to [Autoscaling best practices](../../best-practices/auto-scaling.md) in the Azure Architecture Center.
+Azure App Service is used for hosting the workbench in the cloud. With App Service you can automatically scale the number of instances that run your app, letting you keep up with customer demand. For more information on autoscale, refer to [Autoscaling best practices](../../best-practices/auto-scaling.md) in the Azure Architecture Center.
 
 In Blazor Server, the state of many components might be maintained concurrently by the server. Because of this, memory exhaustion is a concern that must be addressed. For guidance on how to author a Blazor Server app to help ensure the best use of server memory, consult [Threat mitigation guidance for ASP.NET Core Blazor Server](/aspnet/core/security/blazor/server/threat-mitigation). Applying these best practices allows a server-side Blazor application to scale to thousands of concurrent users—even on relatively small server hosts.
 
@@ -131,7 +131,7 @@ The container can be run locally (offline) in your own environment. It can also 
 
 - View a [live demo of this solution](https://aka.ms/BaseballMLWorkbench)
 
-- [Baseball HOF prediction using R mlr and DALEX packages](https://github.com/bartczernicki/BaseballHOFPredictionWithMlrAndDALEX) is a GitHub repo using R and cutting edge “black box” model techniques to explain ML.NET models related to this workload
+- [Baseball HOF prediction using R mlr and DALEX packages](https://github.com/bartczernicki/BaseballHOFPredictionWithMlrAndDALEX) is a GitHub repo using R and cutting edge "black box" model techniques to explain ML.NET models related to this workload
 
 - [Blazor documentation](/aspnet/core/blazor)
 

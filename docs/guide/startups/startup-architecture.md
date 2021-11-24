@@ -18,11 +18,6 @@ categories:
   - web
 products:
   - azure-app-service
-  - azure-blob-storage
-  - azure-cdn
-  - azure-database-postgresql
-  - azure-monitor
-  - azure-virtual-network
 ---
 
 # Architecture for startups
@@ -87,7 +82,7 @@ Resist the temptation to optimize prematurely. Make sure to take growth and matu
 
 ## Next steps
 
-- See and deploy an example [Core startup stack architecture](core-startup-stack.yml).
+- See and deploy an example [Core startup stack architecture](/azure/architecture/example-scenario/startups/core-startup-stack).
 
 ## Related resources
 

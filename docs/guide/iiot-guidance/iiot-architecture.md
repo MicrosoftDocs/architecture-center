@@ -1,7 +1,7 @@
 ---
-title: Azure Industrial IoT guidance
+title: Azure industrial IoT guidance
 titleSuffix: Azure Application Architecture Guide
-description: Examine architectural guidance on Azure Industrial IoT (IIoT) analytics using platform as a service (PaaS) components.
+description: Examine architectural guidance on Azure industrial IoT (IIoT) analytics using platform as a service (PaaS) components.
 author: khilscher
 ms.author: kehilsch
 ms.date: 07/17/2020
@@ -16,7 +16,7 @@ ms.custom:
   - guide
 ---
 
-# Azure Industrial IoT analytics guidance
+# Azure industrial IoT analytics guidance
 
 This article series shows a recommended architecture for an Industrial IoT (IIoT) *analytics solution* on Azure using [PaaS (Platform as a service)](https://azure.microsoft.com/overview/what-is-paas/) components. [Industrial IoT or IIoT](/azure/industrial-iot/overview-what-is-industrial-iot) is the application of *Internet of Things* in the manufacturing industry.
 

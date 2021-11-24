@@ -71,15 +71,15 @@ CluedIn provides processed, governed data to many analytics apps and services, i
 
 ### Building a single view of data
 
- - Due to CluedIn's semantic modelling, it makes building a Single View of your Master Data a much easier thing to achieve compared to traditional approaches. CluedIn's customers are using CluedIn to build a connected, historical and high quality view of their most critical business data. CluedIn not only supports mastering of classic Master domains like People, Companies, Vendors and Products - it supports and endless number of different domains as well as unstructured domains like files, mail, events and more. If you require a centralised repository of master data that is clean, enriched, governed, quality-controlled and cataloged, then CluedIn is a good fit for your use cases. 
+ - Due to CluedIn's semantic modelling, it makes building a Single View of your Master Data a much easier thing to achieve compared to traditional approaches. CluedIn's customers are using CluedIn to build a connected, historical and high quality view of their most critical business data. CluedIn not only supports mastering of classic Master domains like People, Companies, Vendors and Products - it supports and endless number of different domains as well as unstructured domains like files, mail, events and more. If you require a centralised repository of master data that is clean, enriched, governed, quality-controlled and cataloged, then CluedIn is a good fit for your use cases.
 
 ### A data fabric
 
- - CluedIn is a Gartner Cool Vendor in 2020, due to its ability to orchestrate data from across 10's, 100's and 1000's of different and complex datasources into a unified data hub. If you need to wrangle data from a lot of different datasources with ease, then CluedIn can be used as a data fabric to achieve this. This can provide a streaming infrastructure for your data that can also proactively clean and master the data as it flows onto downstream consumers. 
+ - CluedIn is a Gartner Cool Vendor in 2020, due to its ability to orchestrate data from across 10's, 100's and 1000's of different and complex datasources into a unified data hub. If you need to wrangle data from a lot of different datasources with ease, then CluedIn can be used as a data fabric to achieve this. This can provide a streaming infrastructure for your data that can also proactively clean and master the data as it flows onto downstream consumers.
 
 ### Sophisticated merging and linking of master data
 
- - CluedIn's unique data modelling approach utilizes a graph database, which allows for complex data to be merged and linked with simplicity. Unlike traditional approaches, to solve this challenge, CluedIn adds additional machine learning and graph analytics to merge, match, and link records with a very high precision. 
+ - CluedIn's unique data modelling approach utilizes a graph database, which allows for complex data to be merged and linked with simplicity. Unlike traditional approaches, to solve this challenge, CluedIn adds additional machine learning and graph analytics to merge, match, and link records with a very high precision.
 
 ## Considerations
 

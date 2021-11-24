@@ -1,6 +1,5 @@
 
 
-
 Gridwich is a .NET Core solution composed of multiple projects. It's important for code projects to have a naming convention to help understand application structure, find relevant code quickly, and reduce [bike-shedding](https://en.wiktionary.org/wiki/bikeshedding) in project naming.
 
 The Gridwich system has three major components, `Core`, `Host.FunctionApp`, and `SagaParticipants`.
@@ -88,6 +87,6 @@ Besides the `Gridwich.SagaParticipants.Encode` packaging that shares code across
 
 ### Package names and other namespaces
 
-To keep `using` statements to a minimum, Gridwich doesn't restrict package contents to the namespace that the package name indicates. Some packages contribute entities to other namespaces. For example, the package `Gridwich.Core.Tests` contributes the `Gridwich.Core.Helpers.TestHelpers` class. 
+To keep `using` statements to a minimum, Gridwich doesn't restrict package contents to the namespace that the package name indicates. Some packages contribute entities to other namespaces. For example, the package `Gridwich.Core.Tests` contributes the `Gridwich.Core.Helpers.TestHelpers` class.
 
 However, each package builds a DLL that matches the package name for the production code in `src`, and a DLL of unit tests, if any, in `tests`. The test DLL name is the same as the package name, but with a `Tests` suffix.

@@ -13,12 +13,15 @@ ms.category:
   - compute
 products:
   - azure-load-balancer
+  - azure-front-door
+  - azure-application-gateeway
+  - azure-traffic-manager
 ms.custom:
   - guide
   - internal-intro
 ---
 
-# Understand Azure Load Balancing
+# Understand Azure load balancing
 
 The term *load balancing* refers to the distribution of workloads across multiple computing resources. Load balancing aims to optimize resource use, maximize throughput, minimize response time, and avoid overloading any single resource. It can also improve availability by sharing a workload across redundant computing resources.
 
@@ -57,7 +60,7 @@ Here are the main load-balancing services currently available in Azure:
 
 [Front Door](/azure/frontdoor/front-door-overview) is an application delivery network that provides global load balancing and site acceleration service for web applications. It offers Layer 7 capabilities for your application like SSL offload, path-based routing, fast failover, caching, etc. to improve performance and high-availability of your applications.
 
->[!NOTE]
+> [!NOTE]
 > At this time, Azure Front Door does not support Web Sockets.
 
 [Traffic Manager](/azure/traffic-manager/traffic-manager-overview) is a DNS-based traffic load balancer that enables you to distribute traffic optimally to services across global Azure regions, while providing high availability and responsiveness. Because Traffic Manager is a DNS-based load-balancing service, it load balances only at the domain level. For that reason, it can't fail over as quickly as Front Door, because of common challenges around DNS caching and systems not honoring DNS TTLs.

@@ -56,5 +56,5 @@ Like all serverless services, Logic Apps doesn't require VM instances to be purc
 
 ## Next steps
 
->[!div class="nextstepaction"]
->[Design for scaling](./design-scale.md)
+> [!div class="nextstepaction"]
+> [Design for scaling](./design-scale.md)

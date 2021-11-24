@@ -1,5 +1,5 @@
 ---
-title: Analytics on Azure Synapse Analytics with T-SQL, Python - Team Data Science Process
+title: Analytics on Azure Synapse Analytics with T-SQL, Python
 description: Examples that walk through the use of Azure Synapse Analytics to do predictive analytics.
 services: machine-learning
 author: marktab
@@ -25,11 +25,9 @@ These walkthroughs use of Azure Synapse Analytics to do predictive analytics. Th
 
 Additional data science walkthroughs that execute the Team Data Science Process are grouped by the **platform** that they use. See [Walkthroughs executing the Team Data Science Process](walkthroughs.md) for an itemization of these examples.
 
-
 ## Predict taxi tips using T-SQL and IPython notebooks with Azure Synapse Analytics
 
 The [Use Azure Synapse Analytics walkthrough](sqldw-walkthrough.md) shows you how to build and deploy machine learning classification and regression models using Azure Synapse Analytics.  The data are a publicly available NYC taxi trip and fare dataset.
-
 
 ## Next steps
 

@@ -10,13 +10,13 @@ There are several general approaches to achieve high availability across regions
 
 - Active/Active: both regions are active, and requests are load balanced between them. If one region becomes unavailable, it is taken out of rotation.
 
-![Reference architecture for a web application with high availability](./images/multi-region-web-app-diagram.png)
+![Diagram showing the reference architecture for a web application with high availability.](./images/multi-region-web-app-diagram.png)
 
 *Download a [Visio file][visio-download] of this architecture.*
 
 This reference focuses on active/passive with hot standby. It extends the single region design for a scalable web application. See [Improve scalability in a web application][guidance-web-apps-scalability] for information on the base architecture.
 
-### Relevent use cases
+### Potential use cases
 
 These use cases can benefit from a multi-region deployment:
 
@@ -25,8 +25,6 @@ These use cases can benefit from a multi-region deployment:
 - Deploy mission-critical applications running on Windows or Linux
 
 - Improve user experience by keeping applications available
-
-
 
 ## Architecture
 
@@ -38,7 +36,7 @@ This architecture builds on the one shown in [Improve scalability in a web appli
 
 A multi-region architecture can provide higher availability than deploying to a single region. If a regional outage affects the primary region, you can use [Front Door](/azure/frontdoor) to fail over to the secondary region. This architecture can also help if an individual subsystem of the application fails.
 
-## Components
+### Components
 
 Key technologies used to implement this architecture:
 
@@ -160,7 +158,6 @@ For more information, see the cost section in [Microsoft Azure Well-Architected 
 ## Manageability considerations
 
 If the primary database fails, perform a manual failover to the secondary database. See [Restore an Azure SQL Database or failover to a secondary][sql-failover]. The secondary database remains read-only until you fail over.
-
 
 ## DevOps considerations
 

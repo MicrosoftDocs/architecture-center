@@ -51,7 +51,7 @@ In Kubernetes, the functionality of an API gateway is primarily handled by an **
 
 ### Data storage
 
-In a microservices architecture, services should not share data storage solutions. Each service should manage its own data set to avoid hidden dependencies among services. Data separation helps avoid unintentional coupling between services, which can happen when services share the same underlying data schemas. Also, when services manage their own data stores, they can use the right data store for their particular requirements. 
+In a microservices architecture, services should not share data storage solutions. Each service should manage its own data set to avoid hidden dependencies among services. Data separation helps avoid unintentional coupling between services, which can happen when services share the same underlying data schemas. Also, when services manage their own data stores, they can use the right data store for their particular requirements.
 
 For more information, see [Designing microservices: Data considerations](../../../microservices/design/data-considerations.md).
 
@@ -59,8 +59,8 @@ Avoid storing persistent data in local cluster storage because that ties the dat
 
 For more information, see [Storage options for application in Azure Kubernetes Service](/azure/aks/concepts-storage).
 
-
 ## Service object
+
 The Kubernetes **Service** object provides a set of capabilities that match the microservices requirements for service discoverability:
 
 - IP address. The Service object provides a static internal IP address for a group of pods (ReplicaSet). As pods are created or moved around, the service is always reachable at this internal IP address.
@@ -214,9 +214,9 @@ Using a system like HashiCorp Vault or Azure Key Vault provides several advantag
 
 These are recommended practices for securing your pods and containers:
 
-- **Threat monitoring:** Monitor for threats using [Azure Defender for container registries](/azure/security-center/defender-for-container-registries-introduction) and [Azure Defender for Kubernetes](/azure/security-center/defender-for-kubernetes-introduction) (or 3rd party capabilities). If you are hosting containers on a VM, use [Azure Defender for servers](/azure/security-center/defender-for-servers-introduction) or a 3rd party capability. Additionally, you can integrate logs from [Container Monitoring solution in Azure Monitor](/azure/azure-monitor/insights/containers) to [Azure Sentinel](/azure/sentinel/) or an existing SIEM solution.
+- **Threat monitoring:** Monitor for threats using [Microsoft Defender for container registries](/azure/security-center/defender-for-container-registries-introduction) and [Microsoft Defender for Kubernetes](/azure/security-center/defender-for-kubernetes-introduction) (or 3rd party capabilities). If you are hosting containers on a VM, use [Microsoft Defender for servers](/azure/security-center/defender-for-servers-introduction) or a 3rd party capability. Additionally, you can integrate logs from [Container Monitoring solution in Azure Monitor](/azure/azure-monitor/insights/containers) to [Microsoft Sentinel](/azure/sentinel/) or an existing SIEM solution.
 
-- **Vulnerability monitoring:** Continuously monitor images and running containers for known vulnerabilities using [Azure Security Center](/azure/security-center/container-security) or a 3rd party solution available through the Azure Marketplace.
+- **Vulnerability monitoring:** Continuously monitor images and running containers for known vulnerabilities using [Microsoft Defender for Cloud](/azure/security-center/container-security) or a 3rd party solution available through the Azure Marketplace.
 - **Automate image patching** using [ACR Tasks](/azure/container-registry/container-registry-tasks-overview), a feature of Azure Container Registry. A container image is built up from layers. The base layers include the OS image and application framework images, such as ASP.NET Core or Node.js. The base images are typically created upstream from the application developers, and are maintained by other project maintainers. When these images are patched upstream, it's important to update, test, and redeploy your own images, so that you don't leave any known security vulnerabilities. ACR Tasks can help to automate this process.
 - **Store images in a trusted private registry** such as Azure Container Registry or Docker Trusted Registry. Use a validating admission webhook in Kubernetes to ensure that pods can only pull images from the trusted registry.
 - **Apply Least Privilege** principle

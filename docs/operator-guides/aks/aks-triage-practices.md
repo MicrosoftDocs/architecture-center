@@ -13,7 +13,6 @@ ms.custom:
   - e2e-aks
 ---
 
-
 # Triage practices
 
 It's often challenging to do root-cause analysis given the different aspects of an AKS cluster. When triaging issues, consider a top-down approach on the cluster hierarchy. Start at the cluster level and drill down if necessary.

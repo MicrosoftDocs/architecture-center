@@ -30,7 +30,11 @@ With digital transformation, financial institutions can leverage the speed and s
 
 <br>
 
+<!-- markdownlint-disable MD034 -->
+
 > [!VIDEO https://www.youtube.com/embed/MqESP4OIC00]
+
+<!-- markdownlint-enable MD034 -->
 
 <br>
 

@@ -22,11 +22,11 @@ The solution described in this article demonstrates how to combine these technol
 
 This example solution makes use of several Azure services and features:
 
--   [Azure Synapse Analytics](/azure/synapse-analytics/overview-what-is) is the core service used in this example solution to provide data ingestion, processing, and analytics.
+-   [Azure Synapse Analytics](/azure/synapse-analytics/overview-what-is) is the core service used in this example solution to provide data ingestion, processing, and analytics.
 
 -   [Azure Data Lake Storage (Gen2)](/azure/storage/blobs/data-lake-storage-introduction)  is built on top of [Azure Storage](/azure/storage/common/storage-introduction) services and provides data lake capabilities that other services in this example solution use when storing and processing data.
 
--   [Synapse pipelines](/azure/synapse-analytics/get-started-pipelines) copies data from original sources into the data lake storage locations.
+-   [Synapse pipelines](/azure/synapse-analytics/get-started-pipelines) copies data from original sources into the data lake storage locations.
 
 -   [Apache Spark in Azure Synapse Analytics](/azure/synapse-analytics/spark/apache-spark-overview) cleanses, normalizes, and performs other processing tasks on data ingested from source locations.
 
@@ -42,7 +42,7 @@ This example solution makes use of several Azure services and features:
 
 -   [Azure Private Endpoint](/azure/private-link/private-endpoint-overview) provides a private IP address from the solution's VNet to Azure managed services, effectively connecting a service to the VNet. This allows secure networking between the Azure Synapse workspace and other Azure services such as Azure Storage, Azure Cosmos DB, Azure SQL Database, or your own [Azure Private Link service](/azure/private-link/private-link-service-overview).
 
--   [Power BI](/power-bi) allows users to perform advanced analysis and share insights using the solution's processed data.
+-   [Power BI](/power-bi) allows users to perform advanced analysis and share insights using the solution's processed data.
 
 ### Data flow
 
@@ -54,7 +54,7 @@ The data flows through the solution as follows:
 
     -   Using a firewall to limit Storage Account access to trusted Azure services is recommended to limit external attack vulnerability.
 
-    -   [Private endpoints](/azure/private-link/private-endpoint-overview) for your Azure Storage accounts allow clients on the virtual network (VNet) to securely access data over a [Private Link](/azure/private-link/private-link-overview). The private endpoint uses an IP address from the VNet address space for the storage account service. Network traffic between the clients on the VNet and the storage account traverses over the VNet and a private link on the Microsoft backbone network, eliminating exposure to the public internet.
+    -   [Private endpoints](/azure/private-link/private-endpoint-overview) for your Azure Storage accounts allow clients on the virtual network (VNet) to securely access data over a [Private Link](/azure/private-link/private-link-overview). The private endpoint uses an IP address from the VNet address space for the storage account service. Network traffic between the clients on the VNet and the storage account traverses over the VNet and a private link on the Microsoft backbone network, eliminating exposure to the public internet.
 
 3.  Data is encrypted at rest once it's ingested into the data lake. Using your own customer-managed keys can further protect your encryption keys and add more flexibility when managing access controls.
 
@@ -94,7 +94,7 @@ The Azure Resource Manager templates, which you'll need to deploy the components
 
 It is up to the user to create the data lake folder structure and the Azure Synapse Analytics integration pipelines that are necessary to connect to the data sources.
 
-Deploy the ARM template directly by clicking this button:  
+Deploy the ARM template directly by clicking this button:
 
 [![Deploy to Azure](https://aka.ms/deploytoazurebutton)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fvsuopys%2FSecureSynapse%2Fmaster%2FSecureSynapseARM%2Fazuredeploy.json)
 

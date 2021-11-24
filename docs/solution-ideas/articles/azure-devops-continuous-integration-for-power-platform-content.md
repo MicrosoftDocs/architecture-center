@@ -24,7 +24,7 @@ Learn how to create a CI/CD pipeline to manage your Power Platform Application l
 * [Power Apps](https://powerapps.microsoft.com): Microsoft Power Apps is a low-code app-building platform.
 * [Azure DevOps](https://azure.microsoft.com/services/devops): Azure DevOps can build, test, and deploy a solution in any language, to any cloud or on-premises.
 * [Azure Repos](https://azure.microsoft.com/services/devops/repos): Azure Repos provides cloud-hosted private Git repos.
-* [Azure Application Insights](/azure/azure-monitor/app/app-insights-overview): Application Insights is a feature of Azure Monitor, which you can use to monitor your live applications. 
+* [Azure Application Insights](/azure/azure-monitor/app/app-insights-overview): Application Insights is a feature of Azure Monitor, which you can use to monitor your live applications.
 
 ## Pricing
 
@@ -32,7 +32,7 @@ Learn how to create a CI/CD pipeline to manage your Power Platform Application l
 
 ## Next steps
 
-* [Application lifecycle management with Microsoft Power Platform](/power-platform/alm) 
+* [Application lifecycle management with Microsoft Power Platform](/power-platform/alm)
 * [Microsoft Power Platform Build Tools for Azure DevOps](/power-platform/alm/devops-build-tools)
 * [Microsoft Power Platform Build Tools tasks](/power-platform/alm/devops-build-tool-tasks)
 * [Azure DevOps](https://azure.microsoft.com/services/devops)

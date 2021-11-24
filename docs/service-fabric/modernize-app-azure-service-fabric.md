@@ -1,5 +1,5 @@
 ---
-title: Modernize enterprise applications - Azure Service Fabric
+title: Modernize enterprise applications with Azure Service Fabric
 description: Best practices about moving Windows applications to an Azure compute platform without rewriting. This migration uses container support in Azure Service Fabric.
 author: colincole
 ms.author: pnp
@@ -85,7 +85,7 @@ From an application development perspective, determine the workstation requireme
 
 Service Fabric orchestration provides a platform for hosting, deploying, scaling, and operating applications at enterprise scale. Most large enterprises that use Azure:
 
-- Extend their corporate network with a private address space to an Azure subscription. use either [ExpressRoute](https://azure.microsoft.com/services/expressroute/) or a [Site-to-Site VPN](/azure/vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal) to provide secure on-premises connectivity.
+- Extend their corporate network with a private address space to an Azure subscription. Use either [ExpressRoute](https://azure.microsoft.com/services/expressroute/) or a [Site-to-Site VPN](/azure/vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal) to provide secure on-premises connectivity.
 - Want to control inbound and outbound network traffic through third-party firewall appliances and/or [Azure Network Security Group rules](/azure/virtual-network/security-overview).
 - Want tight control over the address space requirements and subnets.
 
@@ -418,7 +418,7 @@ These Service Fabric virtual machine scale set extensions are installed on a typ
 
 If your containerized application runs in a shared cluster, you can get logs such as IIS and custom logs from the container into Log Analytics. This option is recommended because of speed, scalability, and the ability to handle large amounts of unstructured data.
 
-Set up log rotation through Docker to keep the logs size manageable. For more information, see [Rotating Docker Logs - Keeping your overlay folder small](https://medium.com/@Quigley_Ja/rotating-docker-logs-keeping-your-overlay-folder-small-40cfa2155412).
+Set up log rotation through Docker to keep the logs size manageable. For more information, see [Rotating Docker Logs - Keeping your overlay folder small](https://medium.com/@Quigley_Ja/rotating-docker-logs-keeping-your-overlay-folder-small-40cfa2155412).
 
 Here are two approaches for getting application logs into Log Analytics.
 

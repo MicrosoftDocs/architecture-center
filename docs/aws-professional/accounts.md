@@ -15,14 +15,10 @@ Azure services can be purchased using several pricing options, depending on your
 
 [Azure subscriptions](/azure/virtual-machines/linux/infrastructure-example) are a grouping of resources with an assigned owner responsible for billing and permissions management. Unlike AWS, where any resources created under the AWS account are tied to that account, subscriptions exist independently of their owner accounts, and can be reassigned to new owners as needed.
 
-<!-- markdownlint-disable MD033 -->
-
 ![Comparison of structure and ownership of AWS accounts and Azure subscriptions](./images/azure-aws-account-compare.png "Comparison of structure and ownership of AWS accounts and Azure subscriptions")
 
 <br/>*Comparison of structure and ownership of AWS accounts and Azure subscriptions*
 <br/><br/>
-
-<!-- markdownlint-enable MD033 -->
 
 An Azure account represents a billing relationship and Azure subscriptions help you organize access to Azure resources. Account Administrator, Service Administrator, and Co-Administrator are the three classic subscription administrator roles in Azure:
 

@@ -18,7 +18,7 @@ Here are examples of how you can use edge networks in Azure solutions.
 ### Healthcare
 
 - **Obtain a complete view of patients:** Consolidate and analyze data from medical and patient devices to provide a unified and complete picture of each patient's condition.
-- **Monitor surgeries and procedures:** Consolidate and analyze data from surgeries and other procedures to gain insight and improve outcomes.  
+- **Monitor surgeries and procedures:** Consolidate and analyze data from surgeries and other procedures to gain insight and improve outcomes.
 
 ### Energy
 

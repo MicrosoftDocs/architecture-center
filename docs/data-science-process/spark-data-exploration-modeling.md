@@ -1,5 +1,5 @@
 ---
-title: Data exploration and modeling with Spark - Team Data Science Process
+title: Data exploration and modeling with Spark
 description: Showcases the data exploration and modeling capabilities of the Spark MLlib toolkit on HDInsight Spark.
 services: machine-learning
 author: marktab
@@ -45,7 +45,7 @@ Setup steps and code are provided in this walkthrough for using an HDInsight Spa
 
 Spark is able to read and write to Azure Storage Blob (also known as WASB). So any of your existing data stored there can be processed using Spark and the results stored again in WASB.
 
-To save models or files in WASB, the path needs to be specified properly. The default container attached to the Spark cluster can be referenced using a path beginning with: "wasb:///". Other locations are referenced by “wasb://”.
+To save models or files in WASB, the path needs to be specified properly. The default container attached to the Spark cluster can be referenced using a path beginning with: "wasb:///". Other locations are referenced by "wasb://".
 
 ### Set directory paths for storage locations in WASB
 
@@ -90,7 +90,7 @@ The PySpark kernels that are provided with Jupyter notebooks have a preset conte
 * sc - for Spark
 * sqlContext - for Hive
 
-The PySpark kernel provides some predefined “magics”, which are special commands that you can call with %%. There are two such commands that are used in these code samples.
+The PySpark kernel provides some predefined "magics", which are special commands that you can call with %%. There are two such commands that are used in these code samples.
 
 * **%%local** Specifies that the code in subsequent lines is to be executed locally. Code must be valid Python code.
 * **%%sql -o \<variable name>** Executes a Hive query against the sqlContext. If the -o parameter is passed, the result of the query is persisted in the %%local Python context as a Pandas DataFrame.
@@ -144,7 +144,6 @@ taxi_temp = taxi_train_file.subtract(taxi_header).map(lambda k: k.split("\t"))\
                         float(p[11]),float(p[12]),p[13],p[14],p[15],p[16],p[17],p[18],float(p[19]),
                         float(p[20]),float(p[21]),float(p[22]),float(p[23]),float(p[24]),int(p[25]),int(p[26])))
 
-
 # CREATE DATA FRAME
 taxi_train_df = sqlContext.createDataFrame(taxi_temp, taxi_schema)
 
@@ -154,7 +153,6 @@ taxi_df_train_cleaned = taxi_train_df.drop('medallion').drop('hack_license').dro
     .drop('dropoff_longitude').drop('tip_class').drop('total_amount').drop('tolls_amount').drop('mta_tax')\
     .drop('direct_distance').drop('surcharge')\
     .filter("passenger_count > 0 and passenger_count < 8 AND payment_type in ('CSH', 'CRD') AND tip_amount >= 0 AND tip_amount < 30 AND fare_amount >= 1 AND fare_amount < 150 AND trip_distance > 0 AND trip_distance < 100 AND trip_time_in_secs > 30 AND trip_time_in_secs < 7200" )
-
 
 # CACHE DATA-FRAME IN MEMORY & MATERIALIZE DF IN MEMORY
 taxi_df_train_cleaned.cache()
@@ -341,7 +339,7 @@ taxi_df_train_with_newFeatures.count()
 
 This section shows how to index or encode categorical features for input into the modeling functions. The modeling and predict functions of MLlib require features with categorical input data to be indexed or encoded prior to use. Depending on the model, you need to index or encode them in different ways:
 
-* **Tree-based modeling** requires categories to be encoded as numerical values (for example, a feature with three categories may be encoded with 0, 1, 2). This algorithm is provided by MLlib’s [StringIndexer](https://spark.apache.org/docs/latest/ml-features.html#stringindexer) function. This function encodes a string column of labels to a column of label indices that are ordered by label frequencies. Although indexed with numerical values for input and data handling, the tree-based algorithms can be specified to treat them appropriately as categories.
+* **Tree-based modeling** requires categories to be encoded as numerical values (for example, a feature with three categories may be encoded with 0, 1, 2). This algorithm is provided by MLlib's [StringIndexer](https://spark.apache.org/docs/latest/ml-features.html#stringindexer) function. This function encodes a string column of labels to a column of label indices that are ordered by label frequencies. Although indexed with numerical values for input and data handling, the tree-based algorithms can be specified to treat them appropriately as categories.
 * **Logistic and Linear Regression models** require one-hot encoding, where, for example, a feature with three categories can be expanded into three feature columns, with each containing 0 or 1 depending on the category of an observation. MLlib provides [OneHotEncoder](https://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.OneHotEncoder.html#sklearn.preprocessing.OneHotEncoder) function to do one-hot encoding. This encoder maps a column of label indices to a column of binary vectors, with at most a single one-value. This encoding allows algorithms that expect numerical valued features, such as logistic regression, to be applied to categorical features.
 
 Here is the code to index and encode categorical features:
@@ -607,7 +605,6 @@ from sklearn.metrics import roc_curve,auc
 from pyspark.mllib.evaluation import BinaryClassificationMetrics
 from pyspark.mllib.evaluation import MulticlassMetrics
 
-
 # CREATE MODEL WITH ONE SET OF PARAMETERS
 logitModel = LogisticRegressionWithLBFGS.train(oneHotTRAINbinary, iterations=20, initialWeights=None, 
                                                regParam=0.01, regType='l2', intercept=True, corrections=10, 
@@ -662,7 +659,6 @@ print("Summary Stats")
 print("Precision = %s" % precision)
 print("Recall = %s" % recall)
 print("F1 Score = %s" % f1Score)
-
 
 ## SAVE MODEL WITH DATE-STAMP
 datestamp = unicode(datetime.datetime.now()).replace(' ','').replace(':','_');
@@ -931,7 +927,6 @@ timestart= datetime.datetime.now()
 from pyspark.mllib.tree import RandomForest, RandomForestModel
 from pyspark.mllib.util import MLUtils
 from pyspark.mllib.evaluation import RegressionMetrics
-
 
 ## TRAIN MODEL
 categoricalFeaturesInfo={0:2, 1:2, 2:6, 3:4}

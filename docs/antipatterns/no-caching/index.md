@@ -224,7 +224,7 @@ The volume of successful tests still reaches a plateau, but at a higher user loa
 [circuit-breaker]: ../../patterns/circuit-breaker.md
 [api-implementation]: ../../best-practices/api-implementation.md#optimizing-client-side-data-access
 [NewRelic]: https://newrelic.com/partner/azure
-[NewRelic-server-requests]: _images/New-Relic.jpg
-[Performance-Load-Test-Results-Uncached]:_images/InitialLoadTestResults.jpg
-[Dynamic-Management-Views]: _images/SQLServerManagementStudio.jpg
-[Performance-Load-Test-Results-Cached]: _images/CachedLoadTestResults.jpg
+[NewRelic-server-requests]: ./_images/New-Relic.jpg
+[Performance-Load-Test-Results-Uncached]: ./_images/InitialLoadTestResults.jpg
+[Dynamic-Management-Views]: ./_images/SQLServerManagementStudio.jpg
+[Performance-Load-Test-Results-Cached]: ./_images/CachedLoadTestResults.jpg

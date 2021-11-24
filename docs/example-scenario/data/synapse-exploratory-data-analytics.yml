@@ -1,0 +1,27 @@
+### YamlMime:Architecture
+metadata:
+  title: Exploratory data analysis with Azure Synapse serverless and a lakehouse
+  titleSuffix: Azure Example Scenarios
+  description: Synapse serverless is a fast way to do EDA over a data lake or lakehouse. Self-service analytics is easy for business analysts who understand some SQL.
+  author: davew-msft
+  ms.author: davew
+  ms.date: 11/24/2021
+  ms.topic: conceptual
+  ms.service: architecture-center
+  ms.subservice: example-scenario
+  ms.custom: fcp 
+azureCategories:
+  - analytics
+  - databases
+  - storage
+products:
+  - azure-data-lake
+  - azure-data-lake-storage
+  - azure-data-lake-gen2
+  - azure-synapse-analytics
+  - azure-blob-storage
+name: Query a data lake or lakehouse by using Azure Synapse serverless
+summary: Azure Synapse serverless is a fast, inexpensive way to perform EDA over a data lake or lakehouse. Self-service analytics is easy for business analysts who understand a little SQL.
+thumbnailUrl: /azure/architecture/browse/thumbs/exploratory-data-analytics.png
+content: |
+  [!include[](synapse-exploratory-data-analytics-content.md)]

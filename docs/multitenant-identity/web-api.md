@@ -120,7 +120,6 @@ services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
         });
 ```
 
-
 **Events** is a class that derives from **JwtBearerEvents**.
 
 ### Issuer validation
