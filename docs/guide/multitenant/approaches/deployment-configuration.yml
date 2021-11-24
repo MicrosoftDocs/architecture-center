@@ -1,0 +1,22 @@
+### YamlMime:Architecture
+metadata:
+  title: Architectural approaches for the deployment and configuration of multitenant solutions
+  description: This article describes approaches to consider when deploying and configuring a multitenant solution.
+  author: johndowns
+  ms.author: jodowns
+  ms.date: 11/22/2021
+  ms.topic: conceptual
+  ms.service: architecture-center
+  ms.subservice: azure-guide
+azureCategories:
+  - management-and-governance
+  - security
+products:
+  - azure
+  - azure-sql-database
+  - azure-marketplace
+name: Architectural approaches for the deployment and configuration of multitenant solutions
+summary: This article describes approaches to consider when deploying and configuring a multitenant solution.
+thumbnailUrl: /azure/architecture/browse/thumbs/example-data-pipeline.png
+content: |
+  [!include[](deployment-configuration-content.md)]

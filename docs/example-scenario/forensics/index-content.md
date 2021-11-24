@@ -1,5 +1,3 @@
-
-
 Digital forensics is a science that addresses the recovery and investigation of digital data to support criminal investigations or civil proceedings. Computer forensics is a branch of digital forensics that captures and analyzes data from computers, virtual machines (VMs), and digital storage media.
 
 Companies must guarantee that digital evidence they provide in response to legal requests demonstrates a valid *Chain of Custody* (CoC) throughout the evidence acquisition, preservation, and access process. To ensure a valid CoC, digital evidence storage must demonstrate adequate access control, data protection and integrity, monitoring and alerting, and logging and auditing.
@@ -34,7 +32,7 @@ The Storage account in the SOC subscription hosts the disk snapshots in a contai
 
 The Storage account also hosts an [Azure file share](/azure/storage/files/storage-how-to-create-file-share?tabs=azure-portal) to use as a temporary repository for calculating the snapshot's SHA-256 hash value.
 
-For better [performance](https://docs.microsoft.com/azure/storage/files/storage-files-scale-targets#azure-file-share-scale-targets) you can choose a Standard Storage Account, with the ["large file share" feature enabled](https://docs.microsoft.com/azure/storage/files/storage-how-to-create-file-share?tabs=azure-portal#enable-large-files-shares-on-an-existing-account), or a Premium Storage Account.
+For better [performance](/azure/storage/files/storage-files-scale-targets#azure-file-share-scale-targets) you can choose a Standard Storage Account, with the ["large file share" feature enabled](/azure/storage/files/storage-how-to-create-file-share?tabs=azure-portal#enable-large-files-shares-on-an-existing-account), or a Premium Storage Account.
 
 ### Azure Key Vault
 
