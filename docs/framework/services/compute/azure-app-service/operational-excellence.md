@@ -2,7 +2,7 @@
 title: Azure App Service and operational excellence
 description: Focuses on the Azure App Service used in the Compute solution to provide best-practice, configuration recommendations, and design considerations related to Service Operational Excellence.
 author: v-stacywray
-ms.date: 11/17/2021
+ms.date: 11/24/2021
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: well-architected
@@ -50,10 +50,10 @@ For more information, reference the [SLA for App Service](https://azure.microsof
 > - Evaluate the use of [TCP and SNAT ports](/azure/app-service/troubleshoot-intermittent-outbound-connection-errors#cause) to avoid outbound connection errors.
 > - Enable [Health check](/azure/app-service/monitor-instances-health-check#enable-health-check) to identify non-responsive workers.
 > - Enable [Autoscale](/azure/azure-monitor/autoscale/autoscale-get-started) to ensure adequate resources are available to service requests.
-> - Enable [Local Cache](/en-us/azure/app-service/overview-local-cache) to reduce dependencies on cluster file servers.
-> - Enable [Diagnostic Logging](/Azure/app-service/troubleshoot-diagnostic-logs) to provide insight into application behavior.
-> - Enable [Application Insights Alerts](/Azure/azure-monitor/app/azure-web-apps) to signal fault conditions.
-> - Review [Azure App Service diagnostics](/app-service/overview-diagnostics) to ensure common problems are addressed.
+> - Enable [Local Cache](/azure/app-service/overview-local-cache) to reduce dependencies on cluster file servers.
+> - Enable [Diagnostic Logging](/azure/app-service/troubleshoot-diagnostic-logs) to provide insight into application behavior.
+> - Enable [Application Insights Alerts](/azure/azure-monitor/app/azure-web-apps) to signal fault conditions.
+> - Review [Azure App Service diagnostics](/azure/app-service/overview-diagnostics) to ensure common problems are addressed.
 > - Evaluate [per-app scaling](/azure/app-service/manage-scale-per-app) for high density hosting on Azure App Service.
 
 |ASE Recommendation|Description|
