@@ -1,11 +1,11 @@
 ### YamlMime:Architecture
 metadata:
-  title: Virtual WAN architecture optimized for performance and security
+  title: Virtual WAN architecture optimized for both performance and security
   titleSuffix: Azure Example Scenarios
-  description: <Write a 100-160 character description that ends with a period and ideally starts with a call to action. This becomes the browse card description.>
-  author: <contributor's GitHub username. If no GitHub account, use EdPrice-MSFT>
-  ms.author: <contributor's Microsoft alias. If no alias, leave out this metadata as it will be automatically set to pnp by the docfx.json.>
-  ms.date: <publish or major update date - mm/dd/yyyy>
+  description: This article describes how to design a single network that has varying security and performance requirements.
+  author: EdPrice-MSFT
+  ms.author: jopoetzi 
+  ms.date: 11/29/2021
   ms.topic: conceptual
   ms.service: architecture-center
   ms.subservice: example-scenario
@@ -16,8 +16,8 @@ products:
   - "azure-virtual-wan"
   - "azure-expressroute"
   - "azure-virtual-network"
-name: Virtual WAN architecture optimized for performance and security 
-summary: <Write a summary. Can be same as description.>
-thumbnailUrl: /azure/architecture/browse/thumbs/<browse-png-filename>.png
+name: Virtual WAN architecture optimized for both performance and security 
+summary: This article describes how to design a single network that has varying security and performance requirements.
+thumbnailUrl: /azure/architecture/browse/thumbs/performance-security-optimized-vwan-architecture-main.png
 content: |
   [!include[](performance-security-optimized-vwan-content.md)]

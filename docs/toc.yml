@@ -3261,6 +3261,8 @@ items:
                     href: hybrid/hybrid-perf-monitoring.yml
               - name: Implement a secure hybrid network
                 href: reference-architectures/dmz/secure-vnet-dmz.yml
+              - name: Virtual WAN optimized for performance and security
+                href:
           - name: Solution ideas
             items:
               - name: Low-latency network for industry
