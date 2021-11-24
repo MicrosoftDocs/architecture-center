@@ -32,7 +32,7 @@ The company has multiple regions and continues to deploy regions to the model. T
 |--|--|--|--|--|--|--|--|
 | ||**VNet1**        |**VNet2**   |**VNet3**   |**VNet4**   |**Branch**   |**Internet**   |
 |**Security-optimized source**|**VNet1**|Intra VNet|NVA1-VNet2 |NVA1-hub-VNet3|NVA1-hub-VNet4|NVA1-hub-branch|NVA1-internet|
-**Performance-optimized source**|	**VNet3**|	hub-NVA1-VNet1	|hub-NVA1-VNet2|Intra VNet|	NVA2-VNet4	|hub-branch|	NVA2-internet|
+|**Performance-optimized source**|	**VNet3**|	hub-NVA1-VNet1	|hub-NVA1-VNet2|Intra VNet|	NVA2-VNet4	|hub-branch|	NVA2-internet|
 |**Branch source**|**Branch**|	hub-NVA1-VNet1|	hub-NVA1-VNet2|	hub-VNet3	|hub-VNet4|	Not applicable	|Not applicable|
 
 ![Diagram that shows traffic pathways.](./media/performance-security-optimized-vwan-azure.png)

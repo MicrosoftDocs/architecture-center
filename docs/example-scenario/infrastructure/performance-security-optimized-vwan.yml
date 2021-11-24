@@ -1,6 +1,6 @@
 ### YamlMime:Architecture
 metadata:
-  title: Virtual WAN architecture optimized for both performance and security
+  title: Virtual WAN architecture optimized for department-specific requirements
   titleSuffix: Azure Example Scenarios
   description: This article describes how to design a single network that has varying security and performance requirements.
   author: EdPrice-MSFT
@@ -16,7 +16,7 @@ products:
   - "azure-virtual-wan"
   - "azure-expressroute"
   - "azure-virtual-network"
-name: Virtual WAN architecture optimized for both performance and security 
+name: Virtual WAN architecture optimized for department-specific requirements
 summary: This article describes how to design a single network that has varying security and performance requirements.
 thumbnailUrl: /azure/architecture/browse/thumbs/performance-security-optimized-vwan-architecture-main.png
 content: |
