@@ -1,40 +1,42 @@
 This article describes how to set up an [Azure web app](https://azure.microsoft.com/en-us/services/app-service/web) in a network environment that enforces strict policies regarding inbound and outbound network flows. In such cases, the web app can't be directly exposed to the internet. Instead, all traffic needs to go through an [Azure firewall](/azure/firewall) or third-party network virtual appliance.
 
-The example shows a scenario in which a web application is protected with [Azure Front Door](/azure/frontdoor), an Azure Firewall and connects securely to an [Azure SQL Databases](/azure/azure-sql).
+The example shows a scenario in which a web app is protected with [Azure Front Door](/azure/frontdoor) and an Azure firewall and connects securely to an [Azure SQL database](/azure/azure-sql).
 
 ## Potential use cases
 
 These uses cases have similar design patterns:
 
-- Connect from a Web App or an [Azure Function](/azure/azure-functions) to any PaaS service that supports [Azure Private Link private endpoints](/azure/private-link/private-endpoint-overview) for inbound network flows, such as Azure Storage, Azure Cosmos Db other Web Apps.
-- Connect from a Web App or an Azure Function to a [Virtual Machine](/azure/virtual-machines) on the cloud or on premises through VPNs or [Azure ExpressRoute](/azure/expressroute).
+- Connect from a web app or an [Azure function](/azure/azure-functions) to any platform as a service (PaaS) offering that supports [Azure Private Link private endpoints](/azure/private-link/private-endpoint-overview) for inbound network flows. Examples include Azure Storage, Azure Cosmos DB, and other web apps.
+- Connect from a web app or an Azure function to a [virtual machine](/azure/virtual-machines) on the cloud or on-premises by using virtual private networks or [Azure ExpressRoute](/azure/expressroute).
 
 ## Architecture
 
-![Hardened Web App](./media/hardened-web-app.png)
+![Diagram that shows an architecture for setting up a web app in a high-security environment.](./media/hardened-web-app.png)
 
-1. An Azure Front Door instance is deployed to provide [Azure Web Application Firewall](/azure/web-application-firewall/afds/afds-overview) features and terminate SSL connections from clients.
-2. A custom FQDN is chosen to represent the back-end Web App and it is mapped through CNAME or A DNS records to the public IP address of an Azure Firewall or third-party network virtual appliance.
-3. A private endpoint for the Web App is created in a Virtual Network subnet (**subnet-privatelink** in the example).
-3. The Azure Firewall or third-party network virtual appliance is deployed in a Virtual Network (**Hub Virtual Network** in the example) and configured to perform destination NAT (DNAT) of incoming requests to the private IP address of the private endpoint associated to the Web App.
-4. The Wep App is assigned the custom FQDN through the [Domain Verification ID property of the Web App](https://docs.microsoft.com/Azure/app-service/manage-custom-dns-migrate-domain#bind-the-domain-name-preemptively). This allows the custom FQDN already mapped to the public IP of the Azure Firewall or third-party network virtual appliance to be reused with the Web App without altering DNS name resolution and network flows.
-5. The Web App is connected to a Virtual Network subnet (**subnet-webapp** in the example) through regional VNet integration. The flag **Route All** is enabled, which forces all outbound traffic from the Web App into the Virtual Network and allows the Web App to inherit the Virtual Network's DNS resolution configuration, such as custom DNS servers and integration with [Private DNS Zones](/azure/dns) used for private endpoints name resolution.
-7. A custom [Route Table](/azure/virtual-network/virtual-networks-udr-overview#custom-routes) is attached to the Web App subnet (**subnet-webapp** in the example) to force all outbound traffic coming from the Web App to go to the Azure Firewall or third-party network virtual appliance.
-8. One or more Private DNS Zones are linked to the Virtual Network containing the Web App (**Spoke Virtual Network** in the example) to allow DNS resolution of PaaS resources deployed with private endpoints.
-9. A private endpoint for Azure SQL is created in a Virtual Network subnet (**subnet-privatelink** in the example) and a corresponding DNS record is created on the matching Private DNS zone.
-10. The Web App can now only be accessed through Azure Front Door and the Azure Firewall. It can also establish a connection to the Azure SQL instance through private endpoint, securing the communication over private IP only.
+Download a [Visio file](https://arch-center.azureedge.net/hardened-webapp-architecture.vsdx) of this architecture.
+
+1. An Azure Front Door instance provides [Azure Web Application Firewall](/azure/web-application-firewall/afds/afds-overview) features and terminates SSL connections from clients.
+2. A custom fully qualified domain name (FQDN) is chosen to represent the back-end web app and is mapped through CNAME or A DNS records to the public IP address of an Azure firewall or third-party network virtual appliance.
+3. A private endpoint for the web app is created in a virtual network subnet (*subnet-privatelink* in the example).
+3. The Azure firewall or third-party network virtual appliance is deployed in a virtual network (*Hub Virtual Network* in the example) and configured to perform destination NAT (DNAT) of incoming requests to the private IP address of the private endpoint associated with the web app.
+4. The wep app is assigned the custom FQDN through the [domain verification ID property of the web app](/Azure/app-service/manage-custom-dns-migrate-domain#bind-the-domain-name-preemptively). This allows the custom FQDN already mapped to the public IP of the Azure firewall or third-party network virtual appliance to be reused with the web app without altering DNS name resolution and network flows.
+5. The web app connects to a virtual network subnet (*subnet-webapp* in the example) through regional VNet integration. The **Route All** flag is enabled, which forces all outbound traffic from the web app into the virtual network and allows the web app to inherit the virtual network's DNS resolution configuration, including custom DNS servers and integration with [private DNS zones](/azure/dns) used for private endpoint name resolution.
+7. A custom [route table](/azure/virtual-network/virtual-networks-udr-overview#custom-routes) is attached to the web app subnet (*subnet-webapp* in the example) to force all outbound traffic that's coming from the web app to go to the Azure firewall or third-party network virtual appliance.
+8. One or more private DNS zones link to the virtual network that contains the web app (*Spoke Virtual Network* in the example) to allow DNS resolution of PaaS resources deployed with private endpoints.
+9. A private endpoint for Azure SQL is created in a virtual network subnet (*subnet-privatelink* in the example) and a corresponding DNS record is created on the matching private DNS zone.
+10. The web app can now be accessed only through Azure Front Door and Azure Firewall. It can also establish a connection to the Azure SQL instance through private endpoint, securing the communication over private IP only.
 
 ### Considerations
 
-The solution deploys an Azure Front Door instance which is used for terminating SSL connections from clients and to provide a rich set of Web Application Firewall configurations. It is recommended to further lock down your applications to accept traffic coming only from your Front Door instance.
+The solution deploys an Azure Front Door instance, which terminates SSL connections from clients and provides a rich set of Web Application Firewall configurations. We recommend that you further lock down your applications to accept traffic coming only from your Front Door instance.
 
-This can be done in several ways depending on your network virtual appliance of choice and application configuration. Some options include:
+You can do this in several ways, depending on the network virtual appliance you're using and application configuration. Some options include:
 
-- Configuring your Azure Firewall or network virtual appliance to accept traffic only from the __AzureFrontDoor.Backend__ [Azure IP Ranges](https://www.microsoft.com/download/details.aspx?id=56519)
-- Configuring your network virtual appliance to integrate with [Azure Service Tags](/azure/virtual-network/service-tags-overview)
-- Configuring your application to accept traffic only from your Front Door instance by validating request headers
+- Configuring your Azure firewall or network virtual appliance to accept traffic only from the **AzureFrontDoor.Backend** [Azure IP ranges](https://www.microsoft.com/download/details.aspx?id=56519).
+- Configuring your network virtual appliance to integrate with [Azure service tags](/azure/virtual-network/service-tags-overview).
+- Configuring your application to accept traffic only from your Front Door instance by validating request headers.
 
-For more information, see [How do I lock down the access to my backend to only Azure Front Door?](/azure/frontdoor/front-door-faq#how-do-i-lock-down-the-access-to-my-backend-to-only-azure-front-door). 
+For more information, see [How do I lock down the access to my backend to only Azure Front Door?](/azure/frontdoor/front-door-faq#how-do-i-lock-down-the-access-to-my-backend-to-only-azure-front-door-?). 
 
 The solution also deploys an Azure SQL Server that accepts traffic only through a private endpoint, locking down completely traffic coming from external sources. The Web App deployed with the solution is configured to ensure proper DNS resolution of private endpoints and allow secure communication with the SQL Server. 
 
@@ -192,8 +194,8 @@ Use the [Azure Pricing calculator](https://azure.microsoft.com/pricing/calculato
 
 ## Next steps
 
-- Visit the [Azure Architecture Center](../../browse.yml) to view other architectures and workloads.
-- Head over to the [Microsoft Azure Well-Architecture Framework](../../framework.yml) documentation to learn the guiding principles that can be used to improve the quality of your Azure workloads.
+- Visit the [Azure Architecture Center](../../browse) to view other architectures and workloads.
+- Head over to the [Microsoft Azure Well-Architecture Framework](../../framework) documentation to learn the guiding principles that can be used to improve the quality of your Azure workloads.
 
 ## Related resources
 
