@@ -2,7 +2,6 @@
 
 This reference architecture implements the [Analytics end-to-end with Azure Synapse][e2e-analytics] pattern, using a Synapse Pipeline to ingest data from an on-premises Data Warehouse into Synapse SQL Pools, before transforming the data for analysis.
 
-
 <!-- Requires update
 ![GitHub logo](../../_images/github.png) A reference implementation for this architecture is available on [GitHub][github-folder].
 -->
@@ -25,19 +24,19 @@ The architecture consists of the following components.
 ### Data source
 
 **SQL Server**. The source data is located in a SQL Server database on premises. To simulate the on-premises environment, the deployment scripts for this architecture provision a VM in Azure with SQL Server installed. The [Adventure Works DW][adventureworks-sample-link] is used as the source data.
-//TODO - import the back and change variable
+<!-- Galina - TODO - import the back and change variable -->
 
 ### Ingestion and data storage
 
-**Blob Storage**. Blob storage is used as a staging area to copy the data before loading it into Azure Synapse.
+**Azure Data Lake Gen2 (ADLS)**. [ADLS](/azure/databricks/data/data-sources/azure/adls-gen2/) is used as a staging area to copy the data before loading it into Azure Synapse Dedicated SQL Pool.
 
 **Azure Synapse**. [Azure Synapse](/azure/sql-data-warehouse/) is a distributed system designed to perform analytics on large data. It supports massive parallel processing (MPP), which makes it suitable for running high-performance analytics.
 
-**Azure Synapse Pipelines**. Details.
+**Azure Synapse Pipelines**. [Synapse Pipelines](/azure/data-factory/concepts-pipelines-activities) are used as a tool to orchestrate data ingestion and transformation within your Azure Synapse workspace.
 
 ### Analysis and reporting
 
-Data modelling approach in this usecase is presented by composition of Enterprise model and BI Semantic model. [Enterprise model][enterprise-model] is stored in [Synapse Dedicated SQL Pool][synapse-dedicated-pool] and [BI Semantic model][bi-model] is stored in [Power BI Premium Capacities][pbi-premium-capacities]. 
+Data modelling approach in this usecase is presented by composition of Enterprise model and BI Semantic model. [Enterprise model][enterprise-model] is stored in [Synapse Dedicated SQL Pool][synapse-dedicated-pool] and [BI Semantic model][bi-model] is stored in [Power BI Premium Capacities][pbi-premium-capacities].
 
 <!--
 ### Authentication
@@ -197,9 +196,9 @@ For more information, see [Manage database roles and users](/azure/analysis-serv
     - The data warehouse server, Analysis Services, and related resources.
     - Azure Data Factory.
     - An on-premises to cloud simulated scenario.
-
+    
     Each workload has its own deployment template.
-
+    
     The data warehouse server is set up and configured by using Azure CLI commands which follows the imperative approach of the IaC practice. Consider using deployment scripts and integrate them in the automation process.
 
 - Consider staging your workloads. Deploy to various stages and run validation checks at each stage before moving to the next stage. That way you can push updates to your production environments in a highly controlled way and minimize unanticipated deployment issues. Use [Blue-green deployment][blue-green-dep] and [Canary releases][cannary-releases]  strategies for updating live production environments.
@@ -273,7 +272,7 @@ You may want to review the following [Azure example scenarios](/azure/architectu
 [wwi]: /sql/sample/world-wide-importers/wide-world-importers-oltp-database
 [powerbi-embedded-pricing]: https://azure.microsoft.com/pricing/details/power-bi-embedded
 [powerbi-pro-purchase]: /power-bi/service-admin-purchasing-power-bi-pro
-[adventureworks-sample-link]: https://docs.microsoft.com/en-us/sql/samples/adventureworks-install-configure?view=sql-server-ver15&tabs=ssms
+[adventureworks-sample-link]: /sql/samples/adventureworks-install-configure?view=sql-server-ver15&tabs=ssms
 [az-synapse-pricing]: https://azure.microsoft.com/pricing/details/synapse-analytics
 [az-as-pricing]: https://azure.microsoft.com/pricing/details/analysis-services
 [az-storage-reserved]: /azure/storage/blobs/storage-blob-reserved-capacity
