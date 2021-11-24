@@ -45,7 +45,7 @@ The content throughout this series is designed to be useful for technical decisi
 
 ## What's in this series?
 
-The content in this series is comprised of three main sections:
+The content in this series is composed of three main sections:
 
 * [**Architectural considerations for a multitenant solution:**](considerations/overview.md) This section provides an overview of the key requirements and considerations you need to be aware of when planning and designing a multitenant solution.
 
