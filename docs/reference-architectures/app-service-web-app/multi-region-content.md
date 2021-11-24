@@ -165,7 +165,7 @@ This architecture follows the multi region deployment recommendation, described 
 
 This architecture builds on the one shown in [Improve scalability in a web application][guidance-web-apps-scalability], see [DevOps considerations section][guidance-web-apps-scalability-devops].
 
-## Next Steps
+## Next steps
 
 - Deep dive on [Azure Front Door - traffic routing methods][front-door-routing]
 
@@ -173,7 +173,7 @@ This architecture builds on the one shown in [Improve scalability in a web appli
 
 - Enable [Azure SQL auto-failover groups][sql-failover]
 
-## Related Content
+## Related resources
 
 - [Multi-region N-tier application](../n-tier/multi-region-sql-server.yml) is a similar scenario. It shows an N-tier application running in multiple Azure regions
 
