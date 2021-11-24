@@ -1,20 +1,22 @@
 
 
-This reference architecture implements the [Analytics end-to-end with Azure Synapse][e2e-analytics] pattern, implementing a Synapse Pipeline to ingest data from an on-premises SQL Server database into Synapse SQL Pools before transforming the data for analysis.
+This reference architecture implements the [Analytics end-to-end with Azure Synapse][e2e-analytics] pattern, using a Synapse Pipeline to ingest data from an on-premises Data Warehouse into Synapse SQL Pools, before transforming the data for analysis.
 
 
 <!-- Requires update
 ![GitHub logo](../../_images/github.png) A reference implementation for this architecture is available on [GitHub][github-folder].
 -->
+
 ### Enterprise Architecture
-![Architecture diagram for Enterprise BI in Azure with Azure Synapse](./images/Analytics-with-AzureSynapse-PBi.png)
+
+![Architecture diagram for Enterprise BI in Azure with Azure Synapse](./images/enterprise-bi-synapse-pipelines.png)
 <!--
 ![Architecture diagram for Enterprise BI in Azure with Azure Synapse](./images/enterprise-bi-synapse.png)
 -->
-**Scenario**: An organization has a large on-premises Data Warehouse. The organization wants to use Azure Synapse to perform analysis using Power BI.
 
-This reference architecture is designed for one-time, on-demand, or scheduled jobs. 
+**Scenario**: An organization has a large on-premises Data Warehouse stored in Azure SQL DB. The organization wants to use Azure Synapse to perform analysis using Power BI.
 
+This reference architecture is designed for ongoing ingestion and processing.
 
 ## Architecture
 
@@ -30,6 +32,8 @@ The architecture consists of the following components.
 **Blob Storage**. Blob storage is used as a staging area to copy the data before loading it into Azure Synapse.
 
 **Azure Synapse**. [Azure Synapse](/azure/sql-data-warehouse/) is a distributed system designed to perform analytics on large data. It supports massive parallel processing (MPP), which makes it suitable for running high-performance analytics.
+
+**Azure Synapse Pipelines**. Details.
 
 ### Analysis and reporting
 
@@ -50,6 +54,7 @@ This reference architecture uses the [WorldWideImporters](/sql/sample/world-wide
 4. Transform the data into a star schema (T-SQL).
 5. Load a semantic model into Analysis Services (SQL Server Data Tools).
 
+<!-- synapse data mapping flows, added by eng team TODO: how mapping data flows transform the data-->
 ![Diagram of the enterprise BI pipeline](./images/enterprise-bi-sqldw-pipeline.png)
 
 > [!NOTE]
@@ -273,7 +278,7 @@ You may want to review the following [Azure example scenarios](/azure/architectu
 [az-as-pricing]: https://azure.microsoft.com/pricing/details/analysis-services
 [az-storage-reserved]: /azure/storage/blobs/storage-blob-reserved-capacity
 [aaf-cost]: ../../framework/cost/overview.md
-[enterprise-model]: https://docs.microsoft.com/en-us/power-bi/guidance/center-of-excellence-business-intelligence-solution-architecture#enterprise-models
-[bi-model]: https://docs.microsoft.com/en-us/power-bi/guidance/center-of-excellence-business-intelligence-solution-architecture#bi-semantic-models
-[pbi-premium-capacities]: https://docs.microsoft.com/en-us/power-bi/admin/service-premium-what-is#reserved-capacities
-[synapse-dedicated-pool]: https://docs.microsoft.com/en-us/azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is#synapse-sql-pool-in-azure-synapse
+[enterprise-model]: powerbi-docs/guidance/center-of-excellence-business-intelligence-solution-architecture.md#enterprise-models
+[bi-model]:powerbi-docs/guidance/center-of-excellence-business-intelligence-solution-architecture.md#bi-semantic-models
+[pbi-premium-capacities]: powerbi-docs/admin/service-premium-what-is.md#reserved-capacities
+[synapse-dedicated-pool]:azure/articles/synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md#synapse-sql-pool-in-azure-synapse
