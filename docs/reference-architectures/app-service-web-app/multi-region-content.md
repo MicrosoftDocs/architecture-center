@@ -76,7 +76,7 @@ Consider placing the primary region, secondary region, and Traffic Manager into 
 
 **Health probe**. Front Door uses an HTTP (or HTTPS) probe to monitor the availability of each back end. The probe gives Front Door a pass/fail test for failing over to the secondary region. It works by sending a request to a specified URL path. If it gets a non-200 response within a timeout period, the probe fails. You can configure the health probe frequency, number of samples required for evaluation, and the number of successful samples required for the backend to be marked as healthy. If Front Door marks the backend as degraded, it fails over to the other backend. For details, see [Health Probes](/azure/frontdoor/front-door-health-probes).
 
-As a best practice, create a health probe path in your application backend that reports the overall health of the application. This health probe should check critical dependencies such as the App Service apps, storage queue, and SQL Database. Otherwise, the probe might report a healthy backend when critical parts of the application are actually failing. On the other hand, don't use the health probe to check lower priority services. For example, if an email service goes down the application can switch to a second provider or just send emails later. For further discussion of this design pattern, see [Health Endpoint Monitoring Pattern](../../patterns/health-endpoint-monitoring.md).
+As a best practice, create a health probe path in your application backend that reports the overall health of the application. This health probe should check critical dependencies such as the App Service apps, storage queue, and SQL Database. Otherwise, the probe might report a healthy backend when critical parts of the application are actually failing. On the other hand, don't use the health probe to check lower priority services. For example, if an email service goes down the application can switch to a second provider or just send emails later. For further discussion of this design pattern, see [Health Endpoint Monitoring Pattern](/azure/architecture/patterns/health-endpoint-monitoring).
 
 ### SQL Database
 
@@ -212,5 +212,5 @@ This architecture builds on the one shown in [Improve scalability in a web appli
 [Azure-Cosmos-DB]: https://azure.microsoft.com/services/cosmos-db/#overview
 [Azure-Search]: https://azure.microsoft.com/services/search/#overview
 [front-door-routing]: /azure/frontdoor/front-door-routing-methods
-[endpoint-monitoring]: (../../patterns/health-endpoint-monitoring.md)
-[Design-principles-for-Azure-Application]: https://docs.microsoft.com/azure/architecture/guide/design-principles/
+[endpoint-monitoring]: /azure/architecture/patterns/health-endpoint-monitoring
+[Design-principles-for-Azure-Application]: /azure/architecture/guide/design-principles
