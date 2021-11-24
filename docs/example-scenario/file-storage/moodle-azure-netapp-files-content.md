@@ -16,17 +16,17 @@ This article outlines a solution that meets Moodle's needs. At the core of the s
 
 By providing a high-bandwidth, low-latency solution for workloads, Azure NetApp Files meets Moodle's performance requirements. This solution is also flexible. Deployments can grow or shrink on demand to make your configuration cost effective.
 
-Apache®, Apache NiFi®, and NiFi® are either registered trademarks or trademarks of the Apache Software Foundation in the United States and/or other countries. No endorsement by The Apache Software Foundation is implied by the use of these marks.
+Apache® is either a registered trademark or trademark of the Apache Software Foundation in the United States and/or other countries. No endorsement by The Apache Software Foundation is implied by the use of this mark.
 
 ## Potential use cases
 
-This solution applies to Moodle customers. Organizations that use Moodle span many industries, including education, business, IT, and finance.
+This solution applies to Moodle deployments. Organizations that use Moodle span many industries, including education, business, IT, and finance.
 
 ## Architecture
 
-In a single region, this solution provides highly available access to the Moodle app and other components. For detailed information on availability, see [SLA for Azure NetApp Files][SLA for Azure NetApp Files].
+In a single region, this solution provides highly available access to the Moodle app and other components. For detailed information on availability, see [Availability][Availability section of this article], later in this article.
 
-For disaster recovery, consider using a second region. If you'd like protection against an unlikely Azure region failure, you can replicate the data volumes to the second region. Only the Azure NetApp Files volumes need to be present in that region.
+You can also use two regions to implement this solution. With two regions, the solution provides disaster recovery. To protect against an unlikely Azure region failure, you replicate the data volumes to the second region. Only the Azure NetApp Files volumes need to be present in that region.
 
 ### Single-region highly available setup
 
@@ -34,14 +34,14 @@ For disaster recovery, consider using a second region. If you'd like protection 
 
 *Download a [PowerPoint file][PowerPoint version of architecture diagram] of this architecture.*
 
-1. Students access Moodle application data through an Azure Application Gateway.
-1. Moodle is written in PHP. Moodle runs in a [virtual machine scale set][What are virtual machine scale sets?] on a web server such as Apache HTTP Server or nginx.
+1. Students access Moodle application data through Azure Application Gateway.
+1. Moodle is written in PHP. Moodle runs in a [virtual machine scale set][What are virtual machine scale sets?] on a web server such as Apache HTTP Server or NGINX.
 1. Azure NetApp Files makes the content data available to Moodle.
 1. The solution uses Azure Cache for Redis for user session caching, locking, and key awareness.
 1. An Azure Database for MySQL database stores the learning content, student progress data, and internal data.
 1. Learning content enters the system through a secure virtual private network (VPN) gateway directly from the customer datacenter.
 
-### Disaster recovery dual-region setup
+### Dual-region disaster recovery setup
 
 :::image type="content" source="./media/moodle-azure-netapp-files-multiple-regions-architecture.png" alt-text="Architecture diagram showing how students access dual-region Moodle, and how cross-region replication copies data volumes from one region to another." border="false":::
 
@@ -49,8 +49,8 @@ For disaster recovery, consider using a second region. If you'd like protection 
 
 1. [Cross-region replication][Cross-region replication of Azure NetApp Files volumes] provides replication for the Azure NetApp Files volumes. This storage-based replication engine is built into Azure NetApp Files.
 1. When you use cross-region replication, you don't have to turn on some components during normal operation. So those components don't incur any cost. When a failover occurs, you can start those components and use them with the replicated data volumes.
-1. After you've recovered the primary region, the replication direction reverses. The primary region is updated with any changes that were applied during the failover. You can then fail the service back.
-1. [Azure Traffic Manager][What is Traffic Manager?] directs users to the region that's currently active.
+1. After you recover the primary region, the replication direction reverses. The primary region is updated with any changes that were applied during the failover. You can then fail the service back.
+1. Azure Traffic Manager directs users to the region that's currently active.
 
 ### Components
 
@@ -60,7 +60,7 @@ For disaster recovery, consider using a second region. If you'd like protection 
 
 - [Azure Cache for Redis][Azure Redis Cache] is a fully managed, in-memory data store that's based on the open-source software Redis.
 
-- [Azure Virtual Machine Scale Sets][Virtual Machine Scale Sets] provides a way to manage a group of load-balanced virtual machines (VMs). The number of VM instances in a set automatically increases or decreases in response to demand or a defined schedule.
+- [Azure Virtual Machine Scale Sets][Virtual Machine Scale Sets] provides a way to manage a group of load-balanced virtual machines (VMs). The number of VMs in a set automatically increases or decreases in response to demand or a defined schedule.
 
 - [Azure NetApp Files][Cost model for Azure NetApp Files] makes it easy to migrate and run file-based applications with no code changes. This shared file-storage service is a joint development from Microsoft and NetApp, a Microsoft partner.
 
@@ -78,29 +78,29 @@ To deploy Moodle, you can use any NFS-based shared file service that meets requi
 
 Keep the following points in mind when you implement this solution.
 
-### Scalability considerations
+### Scalability
 
 This solution scales up or down as needed:
 
-- Virtual Machine Scale Sets provides automatic scaling of resources. For more information, see [Overview of autoscale with Azure virtual machine scale sets][Overview of autoscale with Azure virtual machine scale sets].
+- Virtual Machine Scale Sets provides automatic scaling of resources. For more information, see [Overview of autoscale with Azure Virtual Machine Scale Sets][Overview of autoscale with Azure virtual machine scale sets].
 - You can easily and non-intrusively scale the Azure NetApp Files capacity pools and volumes up and down to meet demand. For more information, see [Resize a capacity pool or a volume][Resize a capacity pool or a volume].
 - You can adjust the Azure NetApp Files volume service level, which can be either Standard, Premium, or Ultra. The level that you select affects the throughput limit of volumes with automatic quality of service (QoS). For more information, see [Performance considerations for Azure NetApp Files][Performance considerations for Azure NetApp Files].
 
-### Availability considerations
+### Availability
 
 For the Azure NetApp Files availability guarantee, see [SLA for Azure NetApp Files][SLA for Azure NetApp Files].
 
-### Security considerations
+### Security
 
-For all deployment options, you need to provide a valid Secure Shell (SSH) protocol 2 (SSH-2) RSA public-private key pair. The length should be at least 2048 bits. Azure doesn't support other key formats such as ED25519 and ECDSA. For information about Azure NetApp Files security, see [Security FAQs for Azure NetApp Files][Security FAQs for Azure NetApp Files].
+For all deployment options, you need to provide a valid Secure Shell (SSH) protocol 2 (SSH-2) RSA public–private key pair. The length should be at least 2048 bits. Azure doesn't support other key formats such as ED25519 and ECDSA. For information about Azure NetApp Files security, see [Security FAQs for Azure NetApp Files][Security FAQs for Azure NetApp Files].
 
-### Resiliency considerations
+### Resiliency
 
 Azure NetApp Files is built on a bare-metal fleet of redundant, solid-state hardware. The service operates without interruption, even during maintenance operations. For more information about resiliency, see [Fault Tolerance, High Availability, and Resiliency in Azure NetApp Files][Fault Tolerance, High Availability, and Resiliency in Azure NetApp Files].
 
-### Disaster recovery considerations
+### Disaster recovery
 
-You can make the solution more resilient by adding a secondary region and using Azure NetApp Files cross-region replication. For more information, see [Architecture][Architecture section of this article], earlier in this article. This functionality efficiently replicates the NFS volumes to a secondary passive region. During the unlikely event of a complete region failure, the application can run in that secondary region.
+As [Architecture][Architecture section of this article] explains earlier in this article, you can make the solution more resilient. You can provide disaster recovery by adding a secondary region and using Azure NetApp Files cross-region replication. This functionality efficiently replicates the NFS volumes to a secondary passive region. During the unlikely event of a complete region failure, the application runs in that secondary region.
 
 ## Deploy the solution
 
@@ -133,6 +133,7 @@ For a calculator that computes the Azure NetApp Files performance and total cost
 - [SAS on Azure architecture][SAS on Azure architecture]
 
 [Architecture section of this article]: #architecture
+[Availability section of this article]: #availability
 [Azure NetApp Files for NFS storage with Moodle]: https://techcommunity.microsoft.com/t5/azure-architecture-blog/azure-netapp-files-for-nfs-storage-with-moodle/ba-p/2300630
 [Azure NetApp Files Performance Calculator]: https://cloud.netapp.com/azure-netapp-files/tco
 [Azure Redis Cache]: /rest/api/redis
