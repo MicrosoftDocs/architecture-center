@@ -54,7 +54,7 @@ The **outer loop** involves activities typically associated with a full DevOps-c
 * Monitoring the running application.
 * Results might lead to new work items in the backlog. These steps will be discussed in more detail in later sections.
 
-The **inner loop** is the iterative process a (quantum or classical) developer performs when writing, building, testing code. The inner loop mostly takes place on IT systems that an individual developer owns or holds responsibility for (for example the developer machine).
+The **inner loop** is the iterative process a (quantum or classical) developer performs when writing, building, testing code. The inner loop mostly takes place on IT systems that an individual developer owns or holds responsibility for (for example the developer machine with programming tools, debugger, etc.).
 
 The **inner loop for quantum components** involves following [activities enabled by the Quantum Development Kit](/azure/quantum/overview-azure-quantum#workflow-of-the-quantum-software-development). These activities are typically performed by team members specialized for quantum computing algorithm development (quantum engineers, quantum architects, and similar roles):
 
@@ -84,7 +84,7 @@ If the [loosely coupled integration model](../../example-scenario/quantum/loosel
 
 Continuous Integration remains an important part of DevOps with hybrid quantum applications. As soon as code is ready and committed to the repository, it needs to be automatically tested and integrated into other parts of the software. For the pure classical parts of the application, [best practices for testing](../../checklist/dev-ops.md#testing) remain in place. The Microsoft Azure Well-Architected Framework also gives some [guidance on CI best practices](../../framework/devops/release-engineering-ci.md).
 
-The quantum components require special treatment. The components themselves require special execution environments. In addition, the integration point where these quantum components are used by classical components for orchestration purposes.
+The quantum components require special treatment. The components themselves require special execution environments. In addition, the classical code where quantum components are managed (i.e., submitted and monitored at the quantum workspace) needs to be tested.
 
 Testing of quantum components includes following activities:
 
