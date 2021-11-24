@@ -3,8 +3,8 @@ metadata:
   title: Scalable apps using Azure DB for PostgreSQL
   titleSuffix: Azure Solution Ideas
   description: Use Azure Database for PostgreSQL to rapidly build engaging, performant, and scalable cross-platform and native apps for iOS, Android, Windows, or Mac.
-  author: EdPrice-MSFT
-  ms.author: pnp
+  author: mootpointer
+  ms.author: anharvey
   ms.date: 11/24/2021
   ms.topic: conceptual
   ms.service: architecture-center
