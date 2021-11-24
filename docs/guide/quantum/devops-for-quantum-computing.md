@@ -46,7 +46,7 @@ In DevOps, we typically distinguish between the inner and outer loop.
 
 :::image type="content" source="media/inner-and-outer-loop-in-quantum-devops.png" alt-text="The inner and outer loops in DevOps for quantum applications":::
 
-The outer loop involves activities typically associated with a full DevOps-cycle:
+The **outer loop** involves activities typically associated with a full DevOps-cycle:
 
 * Managing work items in a product backlog.
 * Developing and testing software artifacts (via inner loops).
@@ -54,9 +54,9 @@ The outer loop involves activities typically associated with a full DevOps-cycle
 * Monitoring the running application.
 * Results might lead to new work items in the backlog. These steps will be discussed in more detail in later sections.
 
-The inner loop is the iterative process a (quantum or classical) developer performs when writing, building, testing code. The inner loop mostly takes place on IT systems that an individual developer owns or holds responsibility for (for example the developer machine).
+The **inner loop** is the iterative process a (quantum or classical) developer performs when writing, building, testing code. The inner loop mostly takes place on IT systems that an individual developer owns or holds responsibility for (for example the developer machine).
 
-For quantum components, the inner loop involves following [activities enabled by the Quantum Development Kit](/azure/quantum/overview-azure-quantum#workflow-of-the-quantum-software-development). These activities are typically performed by team members specialized for quantum computing algorithm development (quantum engineers, quantum architects, and similar roles):
+The **inner loop for quantum components** involves following [activities enabled by the Quantum Development Kit](/azure/quantum/overview-azure-quantum#workflow-of-the-quantum-software-development). These activities are typically performed by team members specialized for quantum computing algorithm development (quantum engineers, quantum architects, and similar roles):
 
 1. Write quantum code
 1. Use libraries to keep code high level
@@ -67,7 +67,7 @@ For quantum components, the inner loop involves following [activities enabled by
 
 The last step is a specialty of quantum computing. Because quantum hardware is a scarce resource, developers typically don't own their own hardware or have exclusive access. Instead, they use centrally operated hardware - in most cases they access production hardware to test their development artifacts.  
 
-The inner loop for classical components includes typical development steps for building, running, and debugging code in a development environment. In context of hybrid quantum applications, there is an extra step of integrating the quantum components into the classical components. Complexity of this step depends on whether the quantum components are [tightly coupled](../../example-scenario/quantum/tightly-coupled-quantum-computing-job) or [loosely coupled](../../example-scenario/quantum/loosely-coupled-quantum-computing-job) with the classical ones. Developers don't need special quantum computing skills. The integration can typically be implemented with classical programming skills.
+The **inner loop for classical components** includes typical development steps for building, running, and debugging code in a development environment. In context of hybrid quantum applications, there is an extra step of integrating the quantum components into the classical components. Complexity of this step depends on whether the quantum components are [tightly coupled](../../example-scenario/quantum/tightly-coupled-quantum-computing-job) or [loosely coupled](../../example-scenario/quantum/loosely-coupled-quantum-computing-job) with the classical ones. Developers don't need special quantum computing skills. The integration can typically be implemented with classical programming skills.
 
 ## Infrastructure as Code (IaC)
 
