@@ -23,4 +23,4 @@ name: Network-hardened web application with private connectivity to PaaS datasto
 summary: Architecture for integrating a WAF-enabled Web App into a hardened network environment that forces all inbound and outbound network flows through a Firewall appliance, with private connnectivity to PaaS datastores.
 thumbnailUrl: /azure/architecture/browse/thumbs/<browse-png-filename>.png
 content: |
-  [!include[](hardened-web-app-private-datastore-content.md)]
+  [!include[](hardened-web-app-content.md)]
