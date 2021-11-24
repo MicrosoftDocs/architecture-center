@@ -33,7 +33,7 @@ The company has multiple regions and continues to deploy regions to the model. T
 | ||**VNet1**        |**VNet2**   |**VNet3**   |**VNet4**   |**Branch**   |**Internet**   |
 |**Security-optimized source**|**VNet1**|Intra VNet|NVA1-VNet2 |NVA1-hub-VNet3|NVA1-hub-VNet4|NVA1-hub-branch|NVA1-internet|
 **Performance-optimized source**|	**VNet3**|	hub-NVA1-VNet1	|hub-NVA1-VNet2|Intra VNet|	NVA2-VNet4	|hub-branch|	NVA2-internet|
-**Branch source**	|**Branch**|	hub-NVA1-VNet1|	hub-NVA1-VNet2|	hub-VNet3	|hub-VNet4|	Not applicable	|Not applicable|
+|**Branch source**|**Branch**|	hub-NVA1-VNet1|	hub-NVA1-VNet2|	hub-VNet3	|hub-VNet4|	Not applicable	|Not applicable|
 
 ![Diagram that shows traffic pathways.](./media/performance-security-optimized-vwan-azure.png)
 
@@ -121,12 +121,17 @@ Pricing for this architecture depends heavily on the NVAs that you deploy. For a
 
 ## Next steps
 [What is Azure Virtual WAN?](/azure/virtual-wan/virtual-wan-about)
+
 [What is Azure ExpressRoute?](/azure/expressroute/expressroute-introduction)
+
 [How to configure virtual hub routing - Azure Virtual WAN](/azure/virtual-wan/how-to-virtual-hub-routing)
+
 [Firewall and Application Gateway for virtual networks](/azure/architecture/example-scenario/gateway/firewall-application-gateway)
 [Azure Virtual WAN and supporting remote work](/azure/virtual-wan/work-remotely-support)
 
 ## Related resources
 [Hybrid file share with disaster recovery for remote and local branch workers](/azure/architecture/example-scenario/hybrid/hybrid-file-share-dr-remote-local-branch-workers) 
+
 [Choose between virtual network peering and VPN gateways](/azure/architecture/reference-architectures/hybrid-networking/vnet-peering)
+
 [Low-latency network connections for industry](/azure/architecture/solution-ideas/articles/low-latency-network)
