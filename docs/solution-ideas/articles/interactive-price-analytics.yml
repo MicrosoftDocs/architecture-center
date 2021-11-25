@@ -1,7 +1,7 @@
 ### YamlMime:Architecture
 metadata:
   title: Interactive price analytics
-  titleSuffix: Azure Solution Ideas
+  titleSuffix: Azure Architecture Center
   description: Use transaction history data to develop a pricing strategy with a machine learning model accounting for confounding and data sparsity.
   author: EdPrice-MSFT
   ms.author: pnp

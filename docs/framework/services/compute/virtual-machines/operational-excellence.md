@@ -2,7 +2,7 @@
 title: Virtual Machines and operational excellence
 description: Focuses on the Virtual Machine service used in the Compute solution to provide best-practice, configuration recommendations, and design considerations related to operational excellence.
 author: v-stacywray
-ms.date: 11/17/2021
+ms.date: 11/24/2021
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: well-architected
@@ -23,7 +23,7 @@ The following sections cover design considerations and configuration recommendat
 
 ## Design considerations
 
-Microsoft provides the following [SLAs for virtual machines](/support/legal/sla/virtual-machines/v1_9/):
+Microsoft provides the following [SLAs for virtual machines](https://azure.microsoft.com/support/legal/sla/virtual-machines/v1_9/):
 
 - `95%` SLA for single instance virtual machines using Standard HDD-Managed Disks for OS and Data disks.
 - `99.5%` SLA for single instance virtual machines using Standard SSD-Managed Disks for OS and Data disks.
