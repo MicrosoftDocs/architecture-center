@@ -1309,6 +1309,30 @@ items:
             href: solution-ideas/articles/uven-disinfection.yml
           - name: Smart places with Azure Digital Twins
             href: example-scenario/iot/smart-places.yml
+      - name: Education
+        items:
+          - name: Identity for education
+            items:
+              - name: Azure Active Directory for education
+                href: /microsoft-365/education/deploy/intro-azure-active-directory
+                maintainContext: true
+              - name: Multi-tenant for large academic institutions
+                href: /microsoft-365/education/deploy/design-multi-tenant-architecture
+                maintainContext: true
+              - name: Design a tenant configuration
+                href: /microsoft-365/education/deploy/design-tenant-configurations
+                maintainContext: true
+              - name: Design authentication and credentials
+                href: /microsoft-365/education/deploy/design-credential-authentication-strategies
+                maintainContext: true
+              - name: Design an account strategy
+                href: /microsoft-365/education/deploy/design-account-strategy
+                maintainContext: true
+              - name: Design identity governance 
+                href: /microsoft-365/education/deploy/design-identity-governance
+                maintainContext: true
+          - name: Secure research for regulated data
+            href: example-scenario/ai/secure-compute-for-research.yml
       - name: Agriculture
         items:
           - name: Azure FarmBeats guidance
@@ -1341,10 +1365,6 @@ items:
             maintainContext: true
           - name: Predictive maintenance for aerospace
             href: data-science-process/predictive-maintenance-technical-guide.md
-      - name: Education
-        items:
-          - name: Secure research for regulated data
-            href: example-scenario/ai/secure-compute-for-research.yml
   - name: Azure categories
     expanded: true
     items:
@@ -2234,6 +2254,8 @@ items:
                 href: solution-ideas/articles/minimal-storage-change-feed-replicate-data.yml
               - name: N-tier app with Cassandra
                 href: reference-architectures/n-tier/n-tier-cassandra.yml
+              - name: Optimize SQL Server with Azure Arc
+                href: hybrid/azure-arc-sql-server.yml
               - name: Optimized storage – time based - multi writes
                 href: solution-ideas/articles/optimized-storage-time-based-multi-writes.yml
               - name: Optimized storage – time based with Data Lake
@@ -2365,6 +2387,20 @@ items:
                         href: service-fabric/modernize-app-azure-service-fabric.md
                       - name: Migrate from Cloud Services to ASF
                         href: service-fabric/migrate-from-cloud-services.md
+                  - name: .NET microservices
+                    items:
+                      - name: Design a microservice-oriented app
+                        href: /dotnet/architecture/microservices/multi-container-microservice-net-applications/microservice-application-design
+                        maintainContext: true
+                      - name: Create a  CRUD microservice
+                        href: /dotnet/architecture/microservices/multi-container-microservice-net-applications/data-driven-crud-microservice
+                        maintainContext: true
+                      - name: Event-based communication
+                        href: /dotnet/architecture/microservices/multi-container-microservice-net-applications/integration-event-based-microservice-communications
+                        maintainContext: true
+                      - name: Implement API Gateways with Ocelot
+                        href: /dotnet/architecture/microservices/multi-container-microservice-net-applications/implement-api-gateways-with-ocelot
+                        maintainContext: true
               - name: Architectures
                 items:
                    - name: Decompose apps with Service Fabric
@@ -2547,8 +2583,6 @@ items:
                 maintainContext: true
           - name: Architectures
             items:
-              - name: AKS baseline for multi-region clusters
-                href: reference-architectures/containers/aks-multi-region/aks-multi-cluster.yml
               - name: Highly available multi-region web app
                 href: reference-architectures/app-service-web-app/multi-region.yml
               - name: "IaaS: Web app with relational database"
@@ -2648,6 +2682,10 @@ items:
                   href: hybrid/arc-hybrid-kubernetes.yml
                 - name: Manage configurations for Azure Arc
                   href: hybrid/azure-arc-hybrid-config.yml
+                - name: Optimize SQL Server with Azure Arc
+                  href: hybrid/azure-arc-sql-server.yml
+                - name: Run containers in a hybrid environment
+                  href: hybrid/hybrid-containers.yml
               - name: Azure Automation solutions
                 items:                
                   - name: Azure Automation in a hybrid environment
@@ -2748,6 +2786,17 @@ items:
                     href: multitenant-identity/adfs.md
               - name: Integrate on-premises AD with Azure
                 href: reference-architectures/identity/index.yml
+              - name: Deployment guidance
+                items:
+                  - name: Azure AD deployment checklist
+                    href: /azure/active-directory/fundamentals/active-directory-deployment-checklist-p2
+                    maintainContext: true
+                  - name: Azure AD deployment plans
+                    href: /azure/active-directory/fundamentals/active-directory-deployment-plans
+                    maintainContext: true
+                  - name: Azure AD B2C deployment plans
+                    href: /azure/active-directory/fundamentals/azure-active-directory-b2c-deployment-plans
+                    maintainContext: true
               - name: Migrate applications to Azure AD
                 items:
                   - name: Migrate an AD FS app to Azure
@@ -2764,6 +2813,43 @@ items:
                     maintainContext: true
               - name: Secure development with SPAs
                 href: guide/resilience/azure-ad-secure-single-page-application.md
+              - name: Security baseline for Azure AD
+                hef: /security/benchmark/azure/baselines/aad-security-baseline
+                maintainContext: true
+              - name: Hybrid identity
+                items:
+                  - name: Choose a hybrid identity method
+                    href: /azure/active-directory/hybrid/choose-ad-authn
+                    maintainContext: true
+                  - name: Cloud governed management for on-premises
+                    href: /azure/active-directory/hybrid/cloud-governed-management-for-on-premises
+                    maintainContext: true
+                  - name: Hybrid identity foundation with Azure AD
+                    href: /azure/active-directory/hybrid/four-steps
+                    maintainContext: true
+                  - name: Azure AD Connect for on-premises
+                    href: /azure/active-directory/hybrid/whatis-azure-ad-connect
+                    maintainContext: true
+              - name: Identity for education
+                items:
+                  - name: Azure Active Directory for education
+                    href: /microsoft-365/education/deploy/intro-azure-active-directory
+                    maintainContext: true
+                  - name: Multi-tenant for large academic institutions
+                    href: /microsoft-365/education/deploy/design-multi-tenant-architecture
+                    maintainContext: true
+                  - name: Design a tenant configuration
+                    href: /microsoft-365/education/deploy/design-tenant-configurations
+                    maintainContext: true
+                  - name: Design authentication and credentials
+                    href: /microsoft-365/education/deploy/design-credential-authentication-strategies
+                    maintainContext: true
+                  - name: Design an account strategy
+                    href: /microsoft-365/education/deploy/design-account-strategy
+                    maintainContext: true
+                  - name: Design identity governance 
+                    href: /microsoft-365/education/deploy/design-identity-governance
+                    maintainContext: true
           - name: Architectures
             items:
               - name: AD DS resource forests in Azure
