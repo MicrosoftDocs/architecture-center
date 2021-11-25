@@ -1,5 +1,14 @@
-In a production environment, communications with a Kubernetes cluster should be protected using a firewall that monitors and controls the incoming and outgoing network traffic based on a predetermined set of security rules. A firewall typically establishes a barrier between a trusted network and an untrusted network, such as the Internet. The [Azure Firewall](/azure/firewall/overview) can be deployed and used in a hub virtual network and used to inspect, allow, or block the ingress and egress traffic to and from one or more [Azure Kubernetes Services](/azure/aks/) clusters hosted by one or more spoke virtual networks peered to the hub virtual network. By default, AKS clusters have unrestricted outbound internet access. This level of network access allows nodes and services running in the AKS cluster to access external resources as needed. If you wish to restrict egress traffic, a limited number of ports and addresses must be accessible to maintain healthy cluster maintenance tasks. The simplest solution to securing the outbound traffic from a Kubernetes cluster such as AKS lies in using a software firewall that can control outbound traffic based on domain names. Azure Firewall, for example, can restrict outbound HTTP and HTTPS traffic based on the FQDN of the destination. You can also configure your preferred firewall and security rules to allow these required ports and addresses. For more information, see [Control egress traffic for cluster nodes in Azure Kubernetes Service (AKS)](/azure/aks/limit-egress-traffic). In ingress, you should enable [Threat intelligence-based filtering](/azure/firewall/threat-intel) on the Azure Firewall in the perimeter network to alert and deny traffic from/to known malicious IP addresses and domains. Azure Firewall is fully integrated with Azure Monitor for logging incoming and outgoing traffic processed by the firewall. For more information, see [Azure Firewall threat intelligence-based filtering](/azure/firewall/threat-intel).
-A web application firewall (WAF) should be used to protect any AKS-hosted web applications and services from common threats such as SQL injection, cross-site scripting, and other web exploits using Open Web Application Security Project (OWASP) rules and custom rules. An Azure WAF policy can be applied to web applications fronted by [Azure Application Gateway](/azure/web-application-firewall/ag/ag-overview) or [Azure Front Door](/azure/web-application-firewall/afds/afds-overview). In addition, you should enable [Azure DDOS Protection Standard](/azure/ddos-protection/ddos-protection-overview) on the virtual networks where Azure Kubernetes Service (AKS) clusters are deployed for protection against DDoS attacks.
+In a production environment, communications with a Kubernetes cluster should be protected using a firewall that monitors and controls the incoming and outgoing network traffic based on a predetermined set of security rules. A firewall typically establishes a barrier between a trusted network and an untrusted network, such as the Internet. The [Azure Firewall](/azure/firewall/overview) can be deployed and used in a hub virtual network to inspect, allow, or block the ingress and egress traffic to and from one or more [Azure Kubernetes Services](/azure/aks/) clusters hosted by one or more spoke virtual networks peered to the hub virtual network.
+
+By default, AKS clusters have unrestricted outbound internet access. This level of network access allows nodes and services running in the AKS cluster to access external resources as needed. If you wish to restrict egress traffic, a limited number of ports and addresses must be accessible to maintain healthy cluster maintenance tasks. The simplest solution to securing the outbound traffic from a Kubernetes cluster such as AKS lies in using a software firewall that can control outbound traffic based on domain names. Azure Firewall, for example, can restrict outbound HTTP and HTTPS traffic based on the FQDN of the destination. You can also configure your preferred firewall and security rules to allow these required ports and addresses. For more information, see [Control egress traffic for cluster nodes in Azure Kubernetes Service (AKS)](/azure/aks/limit-egress-traffic). 
+
+Likewise, you can control and secure the ingress traffic by enabling [Threat intelligence-based filtering](/azure/firewall/threat-intel) on an Azure Firewall deployed to a shared perimeter network to alert and deny traffic from/to known malicious IP addresses and domains. Azure Firewall is fully integrated with Azure Monitor for logging incoming and outgoing traffic processed by the firewall. For more information, see [Azure Firewall threat intelligence-based filtering](/azure/firewall/threat-intel).
+
+The Azure platform provides protections against various threats, such as network intrusion and DDoS attacks. A web application firewall (WAF) should be used to protect any AKS-hosted web applications and services that expose a public HTTPS endpoint from common threats such as SQL injection, cross-site scripting, and other web exploits using Open Web Application Security Project (OWASP) rules and custom rules. [Azure Web Application Firewall (WAF)](/azure/web-application-firewall/overview) provides centralized protection of your web applications from common exploits and vulnerabilities. Azure WAF can be deployed with [Azure Application Gateway](/azure/web-application-firewall/ag/ag-overview), [Azure Front Door](/azure/web-application-firewall/afds/afds-overview), and [Azure Content Delivery Network (CDN)](/azure/web-application-firewall/cdn/cdn-overview) service from Microsoft.
+
+Distributed denial of service (DDoS) attacks are some of the largest availability and security concerns facing customers that are moving their applications to the cloud. A DDoS attack attempts to exhaust an application's resources, making the application unavailable to legitimate users. DDoS attacks can be targeted at any endpoint that is publicly reachable through the internet. Every property in Azure is protected by Azure's infrastructure DDoS (Basic) Protection at no additional cost. The scale and capacity of the globally deployed Azure network provides defense against common network-layer attacks through always-on traffic monitoring and real-time mitigation. DDoS Protection Basic requires no user configuration or application changes. DDoS Protection Basic helps protect all Azure services, including PaaS services like Azure DNS.
+
+[Azure DDoS Protection Standard](azure/ddos-protection/ddos-protection-overview), combined with application design best practices, provides enhanced DDoS mitigation features to defend against DDoS attacks. [Azure DDOS Protection Standard](/azure/ddos-protection/ddos-protection-overview) should be enabled on the virtual network hosting any Azure Kubernetes Service (AKS) cluster in a production environment for better protection against DDoS attacks.
 
 ## Potential use cases
 
@@ -88,11 +97,11 @@ A Virtual Network Link exists between the hub and spoke virtual networks hosting
 
 ### Alternatives
 
-You can use a third-party firewall from the Azure marketplace In place of the [Azure Firewall](/azure/firewall/overview). In this case, it's your responsibility to properly configure the firewall to inspect, allow, or deny the inbound and outbound traffic from the AKS cluster.
+You can use a third-party firewall from the Azure marketplace instead of the [Azure Firewall](/azure/firewall/overview). In this case, it's your responsibility to properly configure the firewall to inspect, allow, or deny the inbound and outbound traffic from the AKS cluster.
 
 ## Considerations
 
-Although some of the following considerations are not fully pertaining to multitenancy in Azure Kubernetes Service (AKS), we believe they are essential requirements when deploying this solution. This includes our security, performance, availability and reliability, storage, scheduler, service mesh, and monitoring considerations.
+Although some of the following considerations are general recommendations that do not pertain to how to protect an Azure Kubernetes Service (AKS) cluster using Azure Firewall, we believe they are essential requirements when deploying this solution. This includes our security, performance, availability and reliability, storage, scheduler, service mesh, and monitoring considerations.
 
 ### Security considerations
 
@@ -269,7 +278,7 @@ For online deployments, you must have an existing Azure account. If you need one
 
 3. Follow the instructions provided in the [README.md file](https://github.com/paolosalvatori/private-aks-cluster-terraform-devops/blob/master/README.md).
 
-### Fix the routing issue
+### Avoid asymmetric routing when using Azure Firewall in front of a public load balancer
 
 When you deploy an Azure Firewall into a hub virtual network and your private AKS cluster in a spoke virtual network, and you want to use the Azure Firewall to control the egress traffic using network and application rule collections, you need to make sure to properly configure the ingress traffic to any public endpoint exposed by any service running on AKS to enter the system via one of the public IP addresses used by the Azure Firewall. In order to route the traffic of your AKS workloads to the Azure Firewall in the hub virtual network, you need to create and associate a route table to each subnet hosting the worker nodes of your cluster and create a user-defined route to forward the traffic for `0.0.0.0/32` CIDR to the private IP address of the Azure firewall and specify `Virtual appliance` as `next hop type`. For more information, see [Tutorial: Deploy and configure Azure Firewall using the Azure portal](/azure/firewall/tutorial-firewall-deploy-portal#create-a-default-route).
 
@@ -282,15 +291,19 @@ For more information, see:
 - [Restrict egress traffic from an AKS cluster using Azure firewall](/azure/aks/limit-egress-traffic#restrict-egress-traffic-using-azure-firewall)
 - [Integrate Azure Firewall with Azure Standard Load Balancer](/azure/firewall/integrate-lb)
 
-### Azure DevOps Self-Hosted Agent
+### Use an Azure DevOps Self-Hosted Agent to deploy workloads to a private Azure Kubernetes Service (AKS) cluster
 
-If you plan to use [Azure DevOps](/azure/devops/?view=azure-devops), you can't use [Azure DevOps Microsoft-hosted agents](/azure/devops/pipelines/agents/agents?view=azure-devops&tabs=browser#microsoft-hosted-agents) to deploy your workloads to a private AKS cluster as they don't have access to its API server. In order to deploy workloads to your private SAKS cluster you need to provision and use an [Azure DevOps self-hosted agent](/azure/devops/pipelines/agents/agents?view=azure-devops&tabs=browser#install) in the same virtual network of your private AKS cluster or in peered virtual network. In this latter case, make sure to the create a virtual network link between the Private DNS Zone of the AKS cluster in the node resource group and the virtual network that hosts the Azure DevOps self-hosted agent. You can deploy a single [Windows](/azure/devops/pipelines/agents/v2-windows?view=azure-devops) or [Linux](/azure/devops/pipelines/agents/v2-linux?view=azure-devops) Azure DevOps agent using a virtual machine, or use a virtual machine scale set (VMWSS). Azure virtual machine scale set agents are a form of self-hosted agents that can be auto-scaled to meet your demands. This elasticity reduces your need to run dedicated agents all the time. Unlike Microsoft-hosted agents, you have flexibility over the size and the image of machines on which agents run. You specify a virtual machine scale set, a number of agents to keep on standby, a maximum number of virtual machines in the scale set, and Azure Pipelines manages the scaling of your agents for you. For more information, see [Azure virtual machine scale set agents](/azure/devops/pipelines/agents/scale-set-agents?view=azure-devops). As an alternative, you can set up a self-hosted agent in Azure Pipelines to run inside a Windows Server Core (for Windows hosts), or Ubuntu container (for Linux hosts) with Docker and deploy it as a pod with one or multiple replicas in your private AKS cluster.
+If you plan to use [Azure DevOps](/azure/devops/?view=azure-devops), you can't use [Azure DevOps Microsoft-hosted agents](/azure/devops/pipelines/agents/agents?view=azure-devops&tabs=browser#microsoft-hosted-agents) to deploy your workloads to a private AKS cluster as they don't have access to its API server. In order to deploy workloads to your private AKS cluster you need to provision and use an [Azure DevOps self-hosted agent](/azure/devops/pipelines/agents/agents?view=azure-devops&tabs=browser#install) in the same virtual network of your private AKS cluster or in peered virtual network. In this latter case, make sure to the create a virtual network link between the Private DNS Zone of the AKS cluster in the node resource group and the virtual network that hosts the Azure DevOps self-hosted agent. You can deploy a single [Windows](/azure/devops/pipelines/agents/v2-windows?view=azure-devops) or [Linux](/azure/devops/pipelines/agents/v2-linux?view=azure-devops) Azure DevOps agent using a virtual machine, or use a virtual machine scale set (VMSS). For more information, see [Azure virtual machine scale set agents](/azure/devops/pipelines/agents/scale-set-agents?view=azure-devops). As an alternative, you can set up a self-hosted agent in Azure Pipelines to run inside a Windows Server Core (for Windows hosts), or Ubuntu container (for Linux hosts) with Docker and deploy it as a pod with one or multiple replicas in your private AKS cluster. For more information, see:
+
+- [Self-hosted Windows agents](/azure/devops/pipelines/agents/v2-windows?view=azure-devops)
+- [Self-hosted Linux agents](/azure/devops/pipelines/agents/v2-linux?view=azure-devops)
+- [Run a self-hosted agent in Docker](/azure/devops/pipelines/agents/docker?view=azure-devops)
 
 ![Architecture](media/self-hosted-agent.png)
 
 ### Use Azure Firewall in front of the Public Standard Load Balancer of the AKS cluster
 
-The resource definiton in the Terraform modules make use of the [lifecycle](https://www.terraform.io/docs/language/meta-arguments/lifecycle.html) meta-argument to customize the actions when Azure resources get changed changes outside of Terraform control. The [ignore_changes](https://www.terraform.io/docs/language/meta-arguments/lifecycle.html#ignore_changes) argument is used to instruct Terraform to ignore updates to given resource properties such as tags. The Azure Firewall Policy resource definition contains a lifecycle block to prevent Terraform to fix the resource when a rule collection or a single rule gets created, updated, or deleted. Likewise, the Azure Route Table contains a a lifecycle block to prevent Terraform to fix the resource when a user-defined route gets created, deleted, or updated. This allows to manage the DNAT, Application, and Network rules of an Azure Firewall Policy and the user-defined routes of an Azure Route Table outside of Terraform control.
+Resource definitions in the Terraform modules make use of the [lifecycle](https://www.terraform.io/docs/language/meta-arguments/lifecycle.html) meta-argument to customize the actions when Azure resources are changed outside of Terraform control. The [ignore_changes](https://www.terraform.io/docs/language/meta-arguments/lifecycle.html#ignore_changes) argument is used to instruct Terraform to ignore updates to given resource properties such as tags. The Azure Firewall Policy resource definition contains a lifecycle block to prevent Terraform from fixing the resource when a rule collection or a single rule gets created, updated, or deleted. Likewise, the Azure Route Table contains a lifecycle block to prevent Terraform from fixing the resource when a user-defined route gets created, deleted, or updated. This allows to manage the DNAT, Application, and Network rules of an Azure Firewall Policy and the user-defined routes of an Azure Route Table outside of Terraform control.
 
 The sample contains an Azure DevOps CD pipeline that shows how you can deploy a workload to a private AKS cluster using an [Azure DevOps Pipelines](/azure/devops/pipelines/get-started/what-is-azure-pipelines?view=azure-devops) that runs on a [Self-hosted Agent](/azure/devops/pipelines/agents/agents?tabs=browser). The sample deploys the Bitnami [redmine](https://artifacthub.io/packages/helm/bitnami/redmine) project management web application using a public [Helm](https://helm.sh/) chart. The following diagram shows the network topology of the sample:
 
@@ -335,6 +348,14 @@ After you assess these aspects, go to the [Azure pricing calculator](https://azu
 
 ## Next steps
 
+Review the recommendations and best practices for AKS under the [Microsoft Azure Well-Architected Framework](/azure/architecture/framework/):
+
+- [Reliability](/azure/architecture/framework/services/compute/azure-kubernetes-service/reliability)
+- [Security](/azure/architecture/framework/services/compute/azure-kubernetes-service/security)
+- [Cost optimization](/azure/architecture/framework/services/compute/azure-kubernetes-service/cost-optimization)
+- [Operational excellence](/azure/architecture/framework/services/compute/azure-kubernetes-service/operational-excellence)
+- [Performance efficiency](/azure/architecture/framework/services/compute/azure-kubernetes-service/performance-efficiency)
+ 
 ### Azure Firewall
 
 - [What is Azure Firewall?](/azure/firewall/overview)
@@ -357,35 +378,6 @@ After you assess these aspects, go to the [Azure pricing calculator](https://azu
 - [Best practices for storage and backups in Azure Kubernetes Service (AKS)](/azure/aks/operator-best-practices-storage)
 - [Best practices for business continuity and disaster recovery in Azure Kubernetes Service (AKS)](/azure/aks/operator-best-practices-multi-region)
 - [Azure Kubernetes Services (AKS) day-2 operations guide](../../operator-guides/aks/day-2-operations-guide.md)
-
-### Azure Application Gateway
-
-- [Overview of WebSocket support in Application Gateway](/azure/application-gateway/application-gateway-websocket#websocket-enabled-backend)
-- [Configure end to end TLS by using Application Gateway with PowerShell](/azure/application-gateway/application-gateway-end-to-end-ssl-powershell)
-- [How an Application Gateway works](/azure/application-gateway/how-application-gateway-works)
-
-### Azure Application Gateway Ingress Controller
-
-- [What is Application Gateway Ingress Controller?](/azure/application-gateway/ingress-controller-overview)
-- [Documentation for Application Gateway Ingress Controller](https://azure.github.io/application-gateway-kubernetes-ingress/)
-- [Annotations for Application Gateway Ingress Controller](/azure/application-gateway/ingress-controller-annotations)
-- [Certificate issuance with LetsEncrypt.org](https://azure.github.io/application-gateway-kubernetes-ingress/how-tos/lets-encrypt/)
-- [Tutorial: Enable the Ingress Controller add-on (preview) for a new AKS cluster with a new Application Gateway instance](/azure/application-gateway/tutorial-ingress-controller-add-on-new)
-- [Tutorial: Enable Application Gateway Ingress Controller add-on for an existing AKS cluster with an existing Application Gateway through Azure CLI (Preview)](/azure/application-gateway/tutorial-ingress-controller-add-on-existing)
-- [Difference between Helm deployment and AKS Add-On](/azure/application-gateway/ingress-controller-overview#difference-between-helm-deployment-and-aks-add-on)
-
-### Azure Application Gateway WAF
-
-- [What is Azure Web Application Firewall on Azure Application Gateway?](/azure/web-application-firewall/ag/ag-overview)
-- [Web Application Firewall CRS rule groups and rules](/azure/web-application-firewall/ag/application-gateway-crs-rulegroups-rules?tabs=owasp31)
-- [Custom rules for Web Application Firewall v2 on Azure Application Gateway](/azure/web-application-firewall/ag/custom-waf-rules-overview)
-- [Quickstart: Create an Azure WAF v2 on Application Gateway using an ARM template](/azure/web-application-firewall/ag/quick-create-template)
-- [Microsoft.Network/ApplicationGatewayWebApplicationFirewallPolicies Resource Type](/azure/templates/microsoft.network/applicationgatewaywebapplicationfirewallpolicies)
-- [Create and use Web Application Firewall v2 custom rules on Application Gateway](/azure/web-application-firewall/ag/create-custom-waf-rules)
-- [az network application-gateway waf-policy Azure CLI commands](/cli/azure/network/application-gateway/waf-policy)
-- [Enable Web Application Firewall using the Azure CLI](/azure/web-application-firewall/ag/tutorial-restrict-web-traffic-cli)
-- [Configure per-site WAF policies using Azure PowerShell](/azure/web-application-firewall/ag/per-site-policies)
-- [Create Web Application Firewall policies for Application Gateway](/azure/web-application-firewall/ag/create-waf-policy-ag#migrate-to-waf-policy)
 
 ## Related resources
 
