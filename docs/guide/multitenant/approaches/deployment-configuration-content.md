@@ -58,6 +58,10 @@ Each of these models requires you to deploy and manage resources in different wa
 
 Further discussion of these approaches is provided below.
 
+### Testing
+
+Plan to thoroughly test your solution during and after every deployment. Automated testing can be used to verify the functional and non-functional behavior of your solution. Ensure you test your tenant isolation model, and consider using tools like [Azure Chaos Studio](/azure/chaos-studio/chaos-studio-overview) to verify that your solution functions even when a component is unavailable or malfunctioning.
+
 ## Approaches and patterns to consider
 
 Several design patterns from the Azure Architecture Center, and the wider community, are of relevance to the deployment and configuration of multitenant solutions.

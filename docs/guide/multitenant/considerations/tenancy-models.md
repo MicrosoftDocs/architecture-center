@@ -4,7 +4,7 @@ titleSuffix: Azure Architecture Center
 description: This article describes the considerations you need to give to different models of multitenancy.
 author: johndowns
 ms.author: jodowns
-ms.date: 07/14/2021
+ms.date: 11/24/2021
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: azure-guide
@@ -154,6 +154,10 @@ You can also consider horizontally partitioning your deployments. This means you
 **Benefits:** Horizontally partitioned deployments can help you mitigate a noisy-neighbor problem, if you've identified that most of the load on your system is due to specific components that you can deploy separately for each tenant. For example, your databases might absorb most of your system's load, because the query load is high. If a single tenant sends a large number of requests to your solution, the performance of a database might be negatively affected, but other tenants' databases (and shared components, like the application tier) remain unaffected.
 
 **Risks:** With a horizontally partitioned deployment, you still need to consider the automated deployment and management of your components, especially the components used by a single tenant.
+
+## Test your isolation model
+
+Whichever isolation model you select, ensure you test your solution to verify that one tenant's data isn't accidentally leaked to another. Consider using [Azure Chaos Studio](/azure/chaos-studio/chaos-studio-overview) to verify the resiliency of your solution even when components are malfunctioning.
 
 ## Next steps
 
