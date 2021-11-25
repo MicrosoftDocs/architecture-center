@@ -357,7 +357,9 @@ Review the recommendations and best practices for AKS under the [Microsoft Azure
 - [Cost optimization](/azure/architecture/framework/services/compute/azure-kubernetes-service/cost-optimization)
 - [Operational excellence](/azure/architecture/framework/services/compute/azure-kubernetes-service/operational-excellence)
 - [Performance efficiency](/azure/architecture/framework/services/compute/azure-kubernetes-service/performance-efficiency)
- 
+
+## Related resources
+
 ### Azure Firewall
 
 - [What is Azure Firewall?](/azure/firewall/overview)
@@ -380,8 +382,6 @@ Review the recommendations and best practices for AKS under the [Microsoft Azure
 - [Best practices for storage and backups in Azure Kubernetes Service (AKS)](/azure/aks/operator-best-practices-storage)
 - [Best practices for business continuity and disaster recovery in Azure Kubernetes Service (AKS)](/azure/aks/operator-best-practices-multi-region)
 - [Azure Kubernetes Services (AKS) day-2 operations guide](../../operator-guides/aks/day-2-operations-guide.md)
-
-## Related resources
 
 ### Architectural guidance
 
