@@ -13,6 +13,7 @@ ms.custom:
   - fcp
   - guide
 ---
+
 # Application development and deployment
 
 To develop and deploy serverless applications with Azure Functions, examine patterns and practices, configure DevOps pipelines, and implement site reliability engineering (SRE) best practices.
