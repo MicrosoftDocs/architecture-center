@@ -299,6 +299,8 @@ If you plan to use [Azure DevOps](/azure/devops/?view=azure-devops), you can't u
 - [Self-hosted Linux agents](/azure/devops/pipelines/agents/v2-linux?view=azure-devops)
 - [Run a self-hosted agent in Docker](/azure/devops/pipelines/agents/docker?view=azure-devops)
 
+As an alternative, you can set up a self-hosted agent in Azure Pipelines to run inside a Windows Server Core (for Windows hosts), or Ubuntu container (for Linux hosts) with Docker and deploy it as a pod with one or multiple replicas in your private AKS cluster. If the subnets hosting the node pools of your private AKS cluster are configured to route the egress traffic to an Azure Firewall via a route table and user-defined route, make sure to create the proper application and network rules to allow the agent to access external sites to download and install tools like [Docker](https://www.docker.com/), [kubectl](https://kubectl.docs.kubernetes.io/guides/introduction/kubectl/), [Azure CLI](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli), and [Helm](https://helm.sh/) to the agent virtual machine. For more informations, see [Run a self-hosted agent in Docker](https://docs.microsoft.com/en-us/azure/devops/pipelines/agents/docker?view=azure-devops) and [Build and deploy Azure DevOps Pipeline Agent on AKS](https://github.com/ganrad/Az-DevOps-Agent-On-AKS).
+
 ![Architecture](media/self-hosted-agent.png)
 
 ### Use Azure Firewall in front of a public Standard Load Balancer
