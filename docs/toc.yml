@@ -2201,6 +2201,8 @@ items:
             items:
               - name: Azure health data consortium
                 href: example-scenario/data/azure-health-data-consortium.yml
+              - name: Build a delta lake for ad hoc queries
+                href: solution-ideas/articles/build-data-lake-support-adhoc-queries-online.yml
               - name: Blueprint architectures
                 items:
                   - name: Blueprint - Data warehouse for FedRAMP
@@ -2218,6 +2220,8 @@ items:
                 href: reference-architectures/data/profisee-master-data-management-purview.yml
               - name: DataOps for modern data warehouse
                 href: example-scenario/data-warehouse/dataops-mdw.yml
+              - name: Globally distributed apps using Cosmos DB
+                href: solution-ideas/articles/globally-distributed-mission-critical-applications-using-cosmos-db.yml
               - name: Hybrid ETL with Azure Data Factory
                 href: example-scenario/data/hybrid-etl-with-adf.yml
               - name: Master data management with CluedIn
@@ -2226,19 +2230,33 @@ items:
                 href: reference-architectures/data/profisee-master-data-management-data-factory.yml
               - name: Migrate master data services with CluedIn
                 href: reference-architectures/data/migrate-master-data-services-with-cluedin.yml
+              - name: Minimal storage – change feed to replicate data
+                href: solution-ideas/articles/minimal-storage-change-feed-replicate-data.yml
               - name: N-tier app with Cassandra
                 href: reference-architectures/n-tier/n-tier-cassandra.yml
+              - name: Optimized storage – time based - multi writes
+                href: solution-ideas/articles/optimized-storage-time-based-multi-writes.yml
+              - name: Optimized storage – time based with Data Lake
+                href: solution-ideas/articles/optimized-storage-time-based-data-lake.yml
+              - name: Optimized storage with logical data classification
+                href: solution-ideas/articles/optimized-storage-logical-data-classification.yml
+              - name: Oracle migration to Azure
+                href: solution-ideas/articles/reference-architecture-for-oracle-database-migration-to-azure.yml
               - name: SQL 2008 R2 failover cluster in Azure
                 href: example-scenario/sql-failover/sql-failover-2008r2.yml
               - name: SQL Database and Synapse Analytics connectivity
                 href: /azure/azure-sql/database/connectivity-architecture
                 maintainContext: true
+              - name: Web app private database connectivity
+                href: example-scenario/private-web-app/private-web-app.yml
               - name: Windows N-tier applications
                 href: reference-architectures/n-tier/n-tier-sql-server.yml
           - name: Solution ideas
             items:
               - name: Big data analytics with Azure Data Explorer
                 href: solution-ideas/articles/big-data-azure-data-explorer.yml
+              - name: Build cloud native applications
+                href: solution-ideas/articles/cloud-native-apps.yml
               - name: Campaign optimization with HDInsight Spark
                 href: solution-ideas/articles/campaign-optimization-with-azure-hdinsight-spark-clusters.yml
               - name: Campaign optimization with SQL Server
@@ -2261,8 +2279,6 @@ items:
                 href: solution-ideas/articles/gaming-using-azure-database-for-mysql.yml
               - name: Gaming using Cosmos DB
                 href: solution-ideas/articles/gaming-using-cosmos-db.yml
-              - name: Globally distributed apps using Cosmos DB
-                href: solution-ideas/articles/globally-distributed-mission-critical-applications-using-cosmos-db.yml
               - name: Intelligent apps using Azure MySQL
                 href: solution-ideas/articles/intelligent-apps-using-azure-database-for-mysql.yml
               - name: Intelligent apps using Azure PostgreSQL
@@ -2279,22 +2295,12 @@ items:
                 href: solution-ideas/articles/loan-credit-risk-with-sql-server.yml
               - name: Messaging
                 href: solution-ideas/articles/messaging.yml
-              - name: Minimal storage – change feed to replicate data
-                href: solution-ideas/articles/minimal-storage-change-feed-replicate-data.yml
               - name: Mining equipment monitoring
                 href: solution-ideas/articles/monitor-mining-equipment.yml
               - name: Multi-region web app with Cosmos DB replication
                 href: solution-ideas/articles/multi-region-web-app-cosmos-db-replication.yml
               - name: Ops automation using Event Grid
                 href: solution-ideas/articles/ops-automation-using-event-grid.yml
-              - name: Optimized storage with logical data classification
-                href: solution-ideas/articles/optimized-storage-logical-data-classification.yml
-              - name: Optimized storage – time based - multi writes
-                href: solution-ideas/articles/optimized-storage-time-based-multi-writes.yml
-              - name: Optimized storage – time based with Data Lake
-                href: solution-ideas/articles/optimized-storage-time-based-data-lake.yml
-              - name: Oracle migration to Azure
-                href: solution-ideas/articles/reference-architecture-for-oracle-database-migration-to-azure.yml
               - name: Personalization using Cosmos DB
                 href: solution-ideas/articles/personalization-using-cosmos-db.yml
               - name: Retail and e-commerce using Azure MySQL
@@ -3628,6 +3634,8 @@ items:
                 href: example-scenario/mch-health/virtual-health-mch.yml
               - name: Web app monitoring on Azure
                 href: reference-architectures/app-service-web-app/app-monitoring.yml
+              - name: Web app private database connectivity
+                href: example-scenario/private-web-app/private-web-app.yml
           - name: Solution ideas
             items:
               - name: Dynamics Business Central as a Service on Azure
