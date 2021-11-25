@@ -278,7 +278,7 @@ For online deployments, you must have an existing Azure account. If you need one
 
 3. Follow the instructions provided in the [README.md file](https://github.com/paolosalvatori/private-aks-cluster-terraform-devops/blob/master/README.md).
 
-### Avoid asymmetric routing when using Azure Firewall in front of a public load balancer
+### Avoid asymmetric routing
 
 When you deploy an Azure Firewall into a hub virtual network and your private AKS cluster in a spoke virtual network, and you want to use the Azure Firewall to control the egress traffic using network and application rule collections, you need to make sure to properly configure the ingress traffic to any public endpoint exposed by any service running on AKS to enter the system via one of the public IP addresses used by the Azure Firewall. In order to route the traffic of your AKS workloads to the Azure Firewall in the hub virtual network, you need to create and associate a route table to each subnet hosting the worker nodes of your cluster and create a user-defined route to forward the traffic for `0.0.0.0/32` CIDR to the private IP address of the Azure firewall and specify `Virtual appliance` as `next hop type`. For more information, see [Tutorial: Deploy and configure Azure Firewall using the Azure portal](/azure/firewall/tutorial-firewall-deploy-portal#create-a-default-route).
 
@@ -291,7 +291,7 @@ For more information, see:
 - [Restrict egress traffic from an AKS cluster using Azure firewall](/azure/aks/limit-egress-traffic#restrict-egress-traffic-using-azure-firewall)
 - [Integrate Azure Firewall with Azure Standard Load Balancer](/azure/firewall/integrate-lb)
 
-### Use an Azure DevOps Self-Hosted Agent to deploy workloads to a private Azure Kubernetes Service (AKS) cluster
+### Deploy workloads to a private AKS cluster using Azure DevOps
 
 If you plan to use [Azure DevOps](/azure/devops/?view=azure-devops), you can't use [Azure DevOps Microsoft-hosted agents](/azure/devops/pipelines/agents/agents?view=azure-devops&tabs=browser#microsoft-hosted-agents) to deploy your workloads to a private AKS cluster as they don't have access to its API server. In order to deploy workloads to your private AKS cluster you need to provision and use an [Azure DevOps self-hosted agent](/azure/devops/pipelines/agents/agents?view=azure-devops&tabs=browser#install) in the same virtual network of your private AKS cluster or in peered virtual network. In this latter case, make sure to the create a virtual network link between the Private DNS Zone of the AKS cluster in the node resource group and the virtual network that hosts the Azure DevOps self-hosted agent. You can deploy a single [Windows](/azure/devops/pipelines/agents/v2-windows?view=azure-devops) or [Linux](/azure/devops/pipelines/agents/v2-linux?view=azure-devops) Azure DevOps agent using a virtual machine, or use a virtual machine scale set (VMSS). For more information, see [Azure virtual machine scale set agents](/azure/devops/pipelines/agents/scale-set-agents?view=azure-devops). As an alternative, you can set up a self-hosted agent in Azure Pipelines to run inside a Windows Server Core (for Windows hosts), or Ubuntu container (for Linux hosts) with Docker and deploy it as a pod with one or multiple replicas in your private AKS cluster. For more information, see:
 
@@ -301,7 +301,7 @@ If you plan to use [Azure DevOps](/azure/devops/?view=azure-devops), you can't u
 
 ![Architecture](media/self-hosted-agent.png)
 
-### Use Azure Firewall in front of the Public Standard Load Balancer of the AKS cluster
+### Use Azure Firewall in front of a public Standard Load Balancer
 
 Resource definitions in the Terraform modules make use of the [lifecycle](https://www.terraform.io/docs/language/meta-arguments/lifecycle.html) meta-argument to customize the actions when Azure resources are changed outside of Terraform control. The [ignore_changes](https://www.terraform.io/docs/language/meta-arguments/lifecycle.html#ignore_changes) argument is used to instruct Terraform to ignore updates to given resource properties such as tags. The Azure Firewall Policy resource definition contains a lifecycle block to prevent Terraform from fixing the resource when a rule collection or a single rule gets created, updated, or deleted. Likewise, the Azure Route Table contains a lifecycle block to prevent Terraform from fixing the resource when a user-defined route gets created, deleted, or updated. This allows to manage the DNAT, Application, and Network rules of an Azure Firewall Policy and the user-defined routes of an Azure Route Table outside of Terraform control.
 
