@@ -261,7 +261,7 @@ To estimate the cost of implementing this solution, use the [Azure pricing calcu
 [Azure Hybrid Benefit]: https://azure.microsoft.com/pricing/hybrid-benefit/
 [Azure Hybrid Benefit FAQ]: https://azure.microsoft.com/pricing/hybrid-benefit/faq/
 [Azure Monitor overview]: /azure/azure-monitor/overview
-[Azure is the new mainframe]: https://channel9.msdn.com/Shows/Azure-Friday/Azure-is-the-new-mainframe/
+[Azure is the new mainframe]: /shows/Azure-Friday/Azure-is-the-new-mainframe
 [Azure Private Link pricing]: https://azure.microsoft.com/pricing/details/private-link/
 [Azure Site Recovery pricing]: https://azure.microsoft.com/pricing/details/site-recovery/
 [Azure SQL Database pricing]: https://azure.microsoft.com/pricing/details/sql-database/single/
