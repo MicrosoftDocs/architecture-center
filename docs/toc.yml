@@ -1190,6 +1190,9 @@ items:
                   - name: Custom game server scaling
                     href: /gaming/azure/reference-architectures/multiplayer-custom-server-scaling
                     maintainContext: true
+                  - name: Multiplayer hosting with Service Fabric
+                    href: /gaming/azure/reference-architectures/multiplayer-synchronous-sf
+                    maintainContext: true
                   - name: Multiplayer server hosting with ACI
                     href: /gaming/azure/reference-architectures/multiplayer-synchronous-aci
                     maintainContext: true
@@ -1198,9 +1201,6 @@ items:
                     maintainContext: true
                   - name: Multiplayer server hosting with Batch
                     href: /gaming/azure/reference-architectures/multiplayer-synchronous-batch
-                    maintainContext: true
-                  - name: Multiplayer hosting with Service Fabric
-                    href: /gaming/azure/reference-architectures/multiplayer-synchronous-sf
                     maintainContext: true
               - name: Turn-based multiplayer
                 items:
