@@ -2252,6 +2252,8 @@ items:
                 href: reference-architectures/data/migrate-master-data-services-with-cluedin.yml
               - name: Minimal storage – change feed to replicate data
                 href: solution-ideas/articles/minimal-storage-change-feed-replicate-data.yml
+              - name: Multi-region web app with private database
+                href: example-scenario/sql-failover/app-service-private-sql-multi-region.yml
               - name: N-tier app with Cassandra
                 href: reference-architectures/n-tier/n-tier-cassandra.yml
               - name: Optimize SQL Server with Azure Arc
@@ -2585,18 +2587,12 @@ items:
             items:
               - name: Highly available multi-region web app
                 href: reference-architectures/app-service-web-app/multi-region.yml
-              - name: "IaaS: Web app with relational database"
+              - name: IaaS: Web app with relational database
                 href: high-availability/ref-arch-iaas-web-and-db.yml
               - name: Multi-region app with private database
                 href: example-scenario/sql-failover/app-service-private-sql-multi-region.yml
-              - name: Multi-region load balancing
-                href: high-availability/reference-architecture-traffic-manager-application-gateway.yml
-              - name: Multi-region N-tier application
-                href: reference-architectures/n-tier/multi-region-sql-server.yml
               - name: Multitenant SaaS
                 href: example-scenario/multi-saas/multitenant-saas.yml
-              - name: Multi-tier web application built for HA/DR
-                href: example-scenario/infrastructure/multi-tier-app-disaster-recovery.yml
       - name: Hybrid + Multicloud
         items:
           - name: Get started
@@ -3465,6 +3461,12 @@ items:
                     href: hybrid/hybrid-perf-monitoring.yml
               - name: Implement a secure hybrid network
                 href: reference-architectures/dmz/secure-vnet-dmz.yml
+              - name: Multi-region N-tier application
+                href: reference-architectures/n-tier/multi-region-sql-server.yml
+              - name: Multi-region load balancing with Traffic Manager
+                href: high-availability/reference-architecture-traffic-manager-application-gateway.yml
+              - name: Multi-tier web application built for HA/DR
+                href: example-scenario/infrastructure/multi-tier-app-disaster-recovery.yml
           - name: Solution ideas
             items:
               - name: Low-latency network for industry
@@ -3674,6 +3676,8 @@ items:
                 href: reference-architectures/power-platform/eventual-consistency.yml
           - name: Architectures
             items:
+              - name: Multitenant SaaS
+                href: example-scenario/multi-saas/multitenant-saas.yml
               - name: Basic web application
                 href: reference-architectures/app-service-web-app/basic-web-app.yml
               - name: Blueprint architectures
@@ -3696,14 +3700,22 @@ items:
                     href: reference-architectures/enterprise-integration/ase-high-availability-deployment.yml
               - name: E-commerce front end
                 href: example-scenario/apps/ecommerce-scenario.yml
+              - name: Highly available multi-region web app
+                href: reference-architectures/app-service-web-app/multi-region.yml
+              - name: IaaS: Web app with relational database
+                href: high-availability/ref-arch-iaas-web-and-db.yml
               - name: Improved-security access to multitenant web apps from on-premises 
                 href: example-scenario/security/access-multitenant-web-app-from-on-premises.yml
               - name: Intelligent search engine for e-commerce
                 href: example-scenario/apps/ecommerce-search.yml
               - name: Migrate a web app using Azure APIM
                 href: example-scenario/apps/apim-api-scenario.yml
+              - name: Multi-region web app with private database
+                href: example-scenario/sql-failover/app-service-private-sql-multi-region.yml
               - name: Multi-tier app service with service endpoint
                 href: reference-architectures/app-service-web-app/multi-tier-app-service-service-endpoint.yml
+              - name: Multi-tier web app built for HA/DR
+                href: example-scenario/infrastructure/multi-tier-app-disaster-recovery.yml
               - name: Protect APIs with Application Gateway
                 href: reference-architectures/apis/protect-apis.yml
               - name: Real-time location sharing
