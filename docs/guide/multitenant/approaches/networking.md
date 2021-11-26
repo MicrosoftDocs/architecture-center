@@ -67,15 +67,17 @@ Consider whether your tenants will access your services through the internet or 
 
 ### Access to on-premises or external networks
 
-* Consider whether you need to send data to tenants' networks.
-    * For example, will you need to call a webhook provided by a customer, or send real-time messages to a tenant?
-* If so, will this be through the internet or privately?
-* If through the internet, do you need a static IP address for your outbound traffic?
-* Can you use an agent in the tenant's network to initiate an outbound connection to an endpoint that you control? This is often the simplest approach.
+Consider whether you need to send data to tenants' networks, either within or outside of Azure. For example, will you need to invoke a webhook provided by a customer, or send real-time messages to a tenant?
+
+If you do need to send data to tenants' networks, you need to decide whether connections will be made through the internet or privately. For internet-based connections from your solution to tenants' networks, consider whether the connections must originate from a static IP address. Depending on the Azure services you use, you might need to deploy a [NAT Gateway](/azure/virtual-network/nat-gateway/nat-overview), firewall, or load balancer.
+
+You can also consider deploying an [on-premises gateway](#on-premises-gateways) to enable connectivity between your Azure-hosted services and your customers' networks, regardless of where they are located.
 
 ## Approaches and patterns to consider
 
-Starts at lower layers and moves to higher layers.
+In this section, we describe some of the key networking approaches you can consider in a multitenant solution. We begin by describing the lower-level approaches for core networking components, and then follow with the approaches you can consider for HTTP and other application-layer concerns.
+
+<!-- TODO here down -->
 
 ### Tenant-specific VNets
 
@@ -98,6 +100,10 @@ Starts at lower layers and moves to higher layers.
 
 * Outbound load balancer, firewall, or NAT Gateway
  * When working with PaaS services, you might be able to request the current set of IP addresses for outbound traffic (e.g. [App Service](/azure/app-service/troubleshoot-intermittent-outbound-connection-errors)).
+
+### On-premises gateways
+
+For some solutions, consider tenants can deploy an agent within their own network. The agent initiates an outbound connection to an endpoint that you control. This can simplify the security model of your solution and helps your tenants avoid opening inbound ports.
 
 ### Azure Private Link Service
 
