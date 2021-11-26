@@ -2793,11 +2793,27 @@ items:
                   - name: Resources for migrating to Azure AD
                     href: /azure/active-directory/manage-apps/migration-resources
                     maintainContext: true
-              - name: Secure development with SPAs
-                href: guide/resilience/azure-ad-secure-single-page-application.md
-              - name: Security baseline for Azure AD
-                hef: /security/benchmark/azure/baselines/aad-security-baseline
-                maintainContext: true
+              - name: Secure identity
+                items:
+                  - name: Secure development with SPAs
+                    href: guide/resilience/azure-ad-secure-single-page-application.md
+                  - name: Security baseline for Azure AD
+                    hef: /security/benchmark/azure/baselines/aad-security-baseline
+                    maintainContext: true
+              - name: Identity management
+                items:
+                  - name: Enterprise enrollment and AAD tenants
+                    href: /azure/cloud-adoption-framework/ready/enterprise-scale/enterprise-enrollment-and-azure-ad-tenants
+                    maintainContext: true
+                  - name: Identity and access management
+                    href: /azure/cloud-adoption-framework/ready/enterprise-scale/identity-and-access-management
+                    maintainContext: true
+                  - name: Limit cross-tenant private endpoints
+                    href: /azure/cloud-adoption-framework/ready/azure-best-practices/limit-cross-tenant-private-endpoint-connections
+                    maintainContext: true
+                  - name: Management groups and subscriptions
+                    href: /azure/cloud-adoption-framework/ready/enterprise-scale/management-group-and-subscription-organization
+                    maintainContext: true
               - name: Hybrid identity
                 items:
                   - name: Choose a hybrid identity method
@@ -3431,6 +3447,8 @@ items:
             items:
               - name: Deploy highly available NVAs
                 href: reference-architectures/dmz/nva-ha.yml
+              - name: Enterprise-scale landing zone
+                href: /azure/cloud-adoption-framework/ready/enterprise-scale/architecture
               - name: High availability for IaaS apps
                 href: example-scenario/infrastructure/iaas-high-availability-disaster-recovery.yml
               - name: Hub-spoke network topology in Azure
