@@ -12,7 +12,7 @@ By combining deep learning and natural language processing (NLP) with data on si
 
 *Download an [SVG](../media/website-content-tag-suggestion-with-deep-learning-and-nlp.svg) of this architecture.*
 
-### Data flow
+### Workflow
 
 * Data is stored, structured, and indexed using Microsoft SQL Server.
 * Model training, including hyperparameter tuning, and deployment of the final model, including scaling out to a Kubernetes-managed Azure cluster.
