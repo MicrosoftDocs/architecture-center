@@ -45,21 +45,25 @@ If you need to isolate your platform services from the internet, you will need t
 
 The decision of whether to use VNets for platform services is based on many factors, including:
 
-- Compliance requirements: You might need to meet a specific compliance standard. Some standards require your Azure environment to be configured in specific ways.
-- Your tenants' requirements: Even if your own organization doesn't have specific requirements to require network-layer isolation or controls, your tenants might. Ensure you have a clear understanding of how your tenants will access your solution and whether they have any assumptions about its network design.
-- Complexity: It can be more complex to understand and work with virtual networks. Ensure your team has a clear understanding of the principles involved, or you're likely to deploy an insecure environment.
+- **Compliance requirements:** You might need to meet a specific compliance standard. Some standards require your Azure environment to be configured in specific ways.
+- **Your tenants' requirements:** Even if your own organization doesn't have specific requirements to require network-layer isolation or controls, your tenants might. Ensure you have a clear understanding of how your tenants will access your solution and whether they have any assumptions about its network design.
+- **Complexity:** It can be more complex to understand and work with virtual networks. Ensure your team has a clear understanding of the principles involved, or you're likely to deploy an insecure environment.
 
 Ensure that you understand the [implications of using private networking](#antipatterns-to-avoid).
 
 ### Sizing subnets
 
-* If you need to deploy tenant-specific resources (e.g. compute, database servers, anything that could be VNet-integrated) into a shared VNet, plan your subnet sizing. [Review subnet segmentation guidance.](/azure/security/fundamentals/network-best-practices#logically-segment-subnets)
-* Sizing is particularly important when using services like AKS with Azure CNI that utilize many IPs (one per node) and scale out horizontally or do blue/green deployments.
-* Also important when you work with PaaS services (e.g. App Service, API Management) in a VNet-integrated way - ensure you understand how many IP addresses they need to consume for the level of scale you'll get to.
+When you need to deploy a VNet, it's important to carefully consider the sizing and address space of the entire VNet and of the subnets within the VNet.
+
+Ensure you have a clear understanding of how you will deploy your Azure resources into VNets, and the number of IP addresses each resource consumes. If you deploy tenant-specific compute nodes, database servers, or other resources, ensure you create subnets that are large enough for your expected tenant growth.
+
+Similarly, when you work with managed services, it's important that you understand how IP addresses are consumed. For example, when you use Azure Kubernetes Service in conjunction with [Azure Container Networking Interface (Azure CNI)](/azure/aks/configure-azure-cni), the number of IP addresses consumed from a subnet will be based on factors including the number of nodes, how you scale horizontally, and the service deployment process you use. When you use Azure App Service and Azure Functions with VNet integration, [the number of IP addresses consumed is based on the number of plan instances](/azure/app-service/overview-vnet-integration#subnet-requirements).
+
+[Review the subnet segmentation guidance](/azure/security/fundamentals/network-best-practices#logically-segment-subnets) when planning your subnets.
 
 ### Public or private access
 
-* Consider whether your tenants access your services through the internet or privately.
+Consider whether your tenants will access your services through the internet or through private IP addresses. You can use services like [Azure Private Link Service](#azure-private-link-service), Azure ExpressRoute, and Azure VPN Gateway to enable private access to your solution.
 
 ### Access to on-premises or external networks
 
