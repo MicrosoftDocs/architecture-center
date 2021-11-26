@@ -7,7 +7,7 @@ This reference architecture implements the [Analytics end-to-end with Azure Syna
 ![GitHub logo](../../_images/github.png) A reference implementation for this architecture is available on [GitHub][github-folder].
 -->
 ### Enterprise Architecture
-![Architecture diagram for Enterprise BI in Azure with Azure Synapse](./images/analytics-with-azure-synapse-pbi.png)
+![Architecture diagram for Enterprise BI in Azure with Azure Synapse](./images/Analytics-with-AzureSynapse-update.png)
 
 <!--
 ![Architecture diagram for Enterprise BI in Azure with Azure Synapse](./images/enterprise-bi-synapse.png)
