@@ -2203,6 +2203,9 @@ items:
                 href: data-guide/scenarios/securing-data-solutions.md
               - name: Tenancy models for SaaS databases
                 href: isv/application-tenancy.md
+              - name: High availability for SQL DB and SQL MI
+                href: /azure/azure-sql/database/high-availability-sla
+                maintainContext: true
               - name: Monitor Azure Databricks jobs
                 items:
                   - name: Overview
@@ -2244,6 +2247,8 @@ items:
                 href: solution-ideas/articles/globally-distributed-mission-critical-applications-using-cosmos-db.yml
               - name: Hybrid ETL with Azure Data Factory
                 href: example-scenario/data/hybrid-etl-with-adf.yml
+              - name: IaaS: Web app with relational database
+                href: high-availability/ref-arch-iaas-web-and-db.yml
               - name: Master data management with CluedIn
                 href: reference-architectures/data/cluedin.yml
               - name: Master data management with Profisee
@@ -2574,25 +2579,6 @@ items:
                 href: solution-ideas/articles/java-cicd-using-jenkins-and-azure-web-apps.yml
               - name: SharePoint for development testing
                 href: solution-ideas/articles/sharepoint-farm-devtest.yml
-      - name: High Availability + Disaster Recovery
-        items:
-          - name: Guides
-            items:
-              - name: Build solutions with Availability Zones
-                href: high-availability/building-solutions-for-high-availability.md
-              - name: High availability for SQL DB and SQL MI
-                href: /azure/azure-sql/database/high-availability-sla
-                maintainContext: true
-          - name: Architectures
-            items:
-              - name: Highly available multi-region web app
-                href: reference-architectures/app-service-web-app/multi-region.yml
-              - name: IaaS: Web app with relational database
-                href: high-availability/ref-arch-iaas-web-and-db.yml
-              - name: Multi-region app with private database
-                href: example-scenario/sql-failover/app-service-private-sql-multi-region.yml
-              - name: Multitenant SaaS
-                href: example-scenario/multi-saas/multitenant-saas.yml
       - name: Hybrid + Multicloud
         items:
           - name: Get started
@@ -3406,11 +3392,13 @@ items:
               - name: Azure Firewall framework review
                 href: networking/guide/well-architected-framework-azure-firewall.md
               - name: NAT gateway framework review
-                href: networking/guide/well-architected-network-address-translation-gateway.md
+                href: networking/guide/well-architected-network-address-translation-gateway.md                
               - name: Private Link in hub-and-spoke network
                 href: guide/networking/private-link-hub-spoke-network.yml
               - name: Segment Virtual Networks
                 href: reference-architectures/hybrid-networking/network-level-segmentation.yml
+              - name: Build solutions with Availability Zones
+                href: high-availability/building-solutions-for-high-availability.md
               - name: Use ExpressRoute with Power Platform
                 items:
                   - name: Overview
@@ -3467,6 +3455,8 @@ items:
                 href: high-availability/reference-architecture-traffic-manager-application-gateway.yml
               - name: Multi-tier web application built for HA/DR
                 href: example-scenario/infrastructure/multi-tier-app-disaster-recovery.yml
+              - name: Multitenant SaaS
+                href: example-scenario/multi-saas/multitenant-saas.yml
           - name: Solution ideas
             items:
               - name: Low-latency network for industry
@@ -3561,8 +3551,6 @@ items:
                 href: example-scenario/security/security-log-retention-azure-data-explorer.yml
               - name: MCAS and Azure Sentinel security for AWS
                 href: reference-architectures/aws/aws-azure-security-solutions.yml
-              - name: Multi-region app with private database
-                href: example-scenario/sql-failover/app-service-private-sql-multi-region.yml
               - name: Multilayered protection for Azure VMs
                 href: solution-ideas/articles/multilayered-protection-azure-vm.yml
               - name: Real-time fraud detection
