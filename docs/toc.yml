@@ -2649,7 +2649,7 @@ items:
                     maintainContext: true
                   - name: Security and governance for AVS
                     href: /azure/cloud-adoption-framework/scenarios/azure-vmware/eslz-security-governance-and-compliance
-                    maintainContext: true   
+                    maintainContext: true                       
               - name: Connect an on-premises network to Azure
                 href: reference-architectures/hybrid-networking/index.yml
               - name: FSLogix for the enterprise
@@ -3151,6 +3151,12 @@ items:
                   - name: ExpressRoute with Azure VM DR
                     href: /azure/site-recovery/azure-vm-disaster-recovery-with-expressroute
                     maintainContext: true
+                  - name: Move Azure VMs to another Azure region
+                    href: /azure/site-recovery/azure-to-azure-move-overview
+                    maintainContext: true
+                  - name: BCDR for Azure VMware Solution
+                    href: /azure/cloud-adoption-framework/scenarios/azure-vmware/eslz-business-continuity-and-disaster-recovery
+                    maintainContext: true
               - name: Management and monitoring
                 href: /azure/cloud-adoption-framework/ready/enterprise-scale/management-and-monitoring
                 maintainContext: true
@@ -3168,11 +3174,9 @@ items:
                 href: example-scenario/governance/end-to-end-governance-in-azure.yml
               - name: Highly available SharePoint Server 2016
                 href: reference-architectures/sharepoint/index.yml
-              - name: Updating Windows VMs in Azure
-                href: example-scenario/wsus/index.yml
               - name: Hybrid management
                 items:
-                  - name: Arc hybrid management and deployment for AKS
+                  - name: Azure Arc hybrid management with AKS
                     href: hybrid/arc-hybrid-kubernetes.yml
                   - name: Azure Automation in a hybrid environment
                     href: hybrid/azure-automation-hybrid.yml
@@ -3188,6 +3192,8 @@ items:
                     href: hybrid/azure-arc-hybrid-config.yml
                   - name: Manage hybrid workloads with WAC
                     href: hybrid/hybrid-server-os-mgmt.yml
+              - name: Updating Windows VMs in Azure
+                href: example-scenario/wsus/index.yml   
           - name: Solution ideas
             items:
               - name: Archive on-premises data to cloud
@@ -3357,6 +3363,41 @@ items:
               - name: Shared experiences in mixed reality
                 href: /windows/mixed-reality/design/shared-experiences-in-mixed-reality
                 maintainContext: true
+              - name: Interaction models
+                items:
+                  - name: Instinctual interactions
+                    href: /windows/mixed-reality/design/interaction-fundamentals
+                    maintainContext: true
+                  - name: Hands and motion controllers
+                    items:
+                      - name: Direct manipulation with hands
+                        href: /windows/mixed-reality/design/direct-manipulation
+                        maintainContext: true
+                      - name: Motion controllers
+                        href: /windows/mixed-reality/design/motion-controllers
+                        maintainContext: true
+                      - name: Point and commit with hands
+                        href: /windows/mixed-reality/design/point-and-commit
+                        maintainContext: true
+                  - name: Hands-free model
+                    items:
+                      - name: Hands-free
+                        href: /windows/mixed-reality/design/hands-free
+                        maintainContext: true
+                      - name: Voice input
+                        href: /windows/mixed-reality/design/voice-input
+                        maintainContext: true
+                      - name: Eye-gaze and dwell
+                        href: /windows/mixed-reality/design/gaze-and-dwell-eyes
+                        maintainContext: true
+                      - name: Head-gaze and dwell
+                        href: /windows/mixed-reality/design/gaze-and-dwell-head
+                        maintainContext: true
+                      - name: Eye-gaze-based interaction
+                        href: /windows/mixed-reality/design/eye-gaze-interaction
+                        maintainContext: true
+                  - name: Game and commit
+                    items:
           - name: Solution ideas
             items:
               - name: Design review with mixed reality
