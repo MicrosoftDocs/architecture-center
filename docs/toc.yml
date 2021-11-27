@@ -3879,7 +3879,7 @@ items:
                 href: example-scenario/apps/ecommerce-scenario.yml
               - name: Highly available multi-region web app
                 href: reference-architectures/app-service-web-app/multi-region.yml
-              - name: IaaS: Web app with relational database
+              - name: "IaaS: Web app with relational database"
                 href: high-availability/ref-arch-iaas-web-and-db.yml
               - name: Improved-security access to multitenant web apps from on-premises 
                 href: example-scenario/security/access-multitenant-web-app-from-on-premises.yml
