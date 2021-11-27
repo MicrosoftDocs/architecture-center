@@ -891,7 +891,7 @@ items:
                 href: reference-architectures/migration/sync-mainframe-data-with-azure.yml
               - name: Scale regulated AI and ML in finance
                 href: example-scenario/ai/scale-ai-and-machine-learning-in-regulated-industries.yml                
-          - name: Compliance architecture
+          - name: Compliance solutions
             items:
               - name: AKS regulated cluster for PCI
                 href: /azure/architecture/reference-architectures/containers/aks-pci/aks-pci-ra-code-assets
@@ -972,7 +972,7 @@ items:
                 href: example-scenario/precision-medicine/genomic-analysis-reporting.yml
               - name: Virtual visits with Cloud for Healthcare
                 href: example-scenario/mch-health/virtual-health-mch.yml
-          - name: Compliance architecture
+          - name: Compliance solutions
             items:
               - name: Blueprint - HIPAA/HITRUST data and AI
                 href: /previous-versions/azure/security/blueprints/azure-health
@@ -1063,7 +1063,7 @@ items:
                 href: hybrid/hybrid-security-monitoring.yml
               - name: Web app private database connectivity
                 href: example-scenario/private-web-app/private-web-app.yml
-          - name: Compliance architecture
+          - name: Compliance solutions
             items:
               - name: Azure FedRAMP compliance
                 href: /azure/compliance/offerings/offering-fedramp
@@ -3313,8 +3313,17 @@ items:
         items:
           - name: Guides
             items:
+              - name: Azure mixed reality cloud services
+                href: /windows/mixed-reality/develop/mixed-reality-cloud-services
+                maintainContext: true
+              - name: Choose a mixed reality engine
+                href: /windows/mixed-reality/develop/choosing-an-engine
+                maintainContext: true
               - name: Design and prototype for mixed reality
                 href: /windows/mixed-reality/design/design
+                maintainContext: true
+              - name: Integrate Spatial Anchors into a shared experience
+                href: /windows/mixed-reality/develop/unity/tutorials/mr-learning-sharing-05
                 maintainContext: true
               - name: MR core concepts
                 items:
@@ -3396,8 +3405,76 @@ items:
                       - name: Eye-gaze-based interaction
                         href: /windows/mixed-reality/design/eye-gaze-interaction
                         maintainContext: true
-                  - name: Game and commit
+                  - name: Gaze and commit model
                     items:
+                      - name: Gaze and commit
+                        href: /windows/mixed-reality/design/gaze-and-commit
+                        maintainContext: true
+                      - name: Head-gaze and commit
+                        href: /windows/mixed-reality/design/gaze-and-commit-head
+                        maintainContext: true
+              - name: UI controls and behaviors
+                items:
+                  - name: Cursors
+                    href: /windows/mixed-reality/design/cursors
+                    maintainContext: true
+                  - name: Point and commit with hands
+                    href: /windows/mixed-reality/design/point-and-commit
+                    maintainContext: true
+                  - name: Button
+                    href: /windows/mixed-reality/design/button
+                    maintainContext: true
+                  - name: Interactable object
+                    href: /windows/mixed-reality/design/interactable-object
+                    maintainContext: true
+                  - name: Bounding box and App bar
+                    href: /windows/mixed-reality/design/app-bar-and-bounding-box
+                    maintainContext: true
+                  - name: Direct manipulation with hands
+                    href: /windows/mixed-reality/design/direct-manipulation
+                    maintainContext: true
+                  - name: Hand menu
+                    href: /windows/mixed-reality/design/hand-menu
+                    maintainContext: true
+                  - name: Near menu
+                    href: /windows/mixed-reality/design/near-menu
+                    maintainContext: true
+                  - name: Object collection
+                    href: /windows/mixed-reality/design/object-collection
+                    maintainContext: true
+                  - name: Keyboard
+                    href: /windows/mixed-reality/design/keyboard
+                    maintainContext: true
+                  - name: Tooltip
+                    href: /windows/mixed-reality/design/tooltip
+                    maintainContext: true
+                  - name: Slate
+                    href: /windows/mixed-reality/design/slate
+                    maintainContext: true
+                  - name: Slider
+                    href: /windows/mixed-reality/design/slider
+                    maintainContext: true
+                  - name: Shader
+                    href: /windows/mixed-reality/design/shader
+                    maintainContext: true
+                  - name: Dialog
+                    href: /windows/mixed-reality/design/dialog-ui
+                    maintainContext: true
+                  - name: Hand coach
+                    href: /windows/mixed-reality/design/hand-coach
+                    maintainContext: true
+                  - name: Spatial mesh
+                    href: /windows/mixed-reality/design/spatial-mesh-ux
+                    maintainContext: true
+                  - name: Billboarding and tag-along
+                    href: /windows/mixed-reality/design/billboarding-and-tag-along
+                    maintainContext: true
+                  - name: Progress indicator
+                    href: /windows/mixed-reality/design/progress
+                    maintainContext: true
+                  - name: Surface magnetism
+                    href: /windows/mixed-reality/design/surface-magnetism
+                    maintainContext: true
           - name: Solution ideas
             items:
               - name: Design review with mixed reality
@@ -3490,6 +3567,10 @@ items:
                 href: reference-architectures/dmz/nva-ha.yml
               - name: Enterprise-scale landing zone
                 href: /azure/cloud-adoption-framework/ready/enterprise-scale/architecture
+                maintainContext: true
+              - name: Global transit network and Virtual WAN
+                href: /azure/virtual-wan/virtual-wan-global-transit-network-architecture
+                maintainContext: true
               - name: High availability for IaaS apps
                 href: example-scenario/infrastructure/iaas-high-availability-disaster-recovery.yml
               - name: Hub-spoke network topology in Azure
@@ -3508,6 +3589,12 @@ items:
                     href: hybrid/hybrid-perf-monitoring.yml
               - name: Implement a secure hybrid network
                 href: reference-architectures/dmz/secure-vnet-dmz.yml
+              - name: Interconnect with China using Virtual WAN
+                href: /azure/virtual-wan/interconnect-china
+                maintainContext: true
+              - name: Migrate to Azure Virtual WAN
+                href: /azure/virtual-wan/migrate-from-hub-spoke-topology
+                maintainContext: true
               - name: Multi-region N-tier application
                 href: reference-architectures/n-tier/multi-region-sql-server.yml
               - name: Multi-region load balancing with Traffic Manager
@@ -3516,6 +3603,21 @@ items:
                 href: example-scenario/infrastructure/multi-tier-app-disaster-recovery.yml
               - name: Multitenant SaaS
                 href: example-scenario/multi-saas/multitenant-saas.yml
+              - name: Network topology and connectivity with AVS
+                href: /azure/cloud-adoption-framework/scenarios/azure-vmware/eslz-network-topology-connectivity
+                maintainContext: true
+              - name: Private Link and DNS integration at scale
+                href: /azure/cloud-adoption-framework/ready/azure-best-practices/private-link-and-dns-integration-at-scale
+                maintainContext: true
+              - name: SD-WAN connectivity with Azure Virtual WAN
+                href: /azure/virtual-wan/sd-wan-connectivity-architecture
+                maintainContext: true
+              - name: Traditional Azure networking topology
+                href: /azure/cloud-adoption-framework/ready/azure-best-practices/traditional-azure-networking-topology
+                maintainContext: true
+              - name: Virtual WAN network topology
+                href: /azure/cloud-adoption-framework/ready/azure-best-practices/virtual-wan-network-topology
+                maintainContext: true
           - name: Solution ideas
             items:
               - name: Low-latency network for industry
@@ -3564,6 +3666,9 @@ items:
                 maintainContext: true
               - name: SAP HANA on HLI with HA and DR
                 href: reference-architectures/sap/hana-large-instances.yml
+              - name: SAP HANA scale-out with standby node
+                href: /azure/virtual-machines/workloads/sap/sap-hana-scale-out-standby-netapp-files-rhel
+                maintainContext: true
               - name: SAP HANA scale-up on Linux
                 href: reference-architectures/sap/run-sap-hana-for-linux-virtual-machines.yml
               - name: SAP NetWeaver on Windows on Azure
@@ -3604,7 +3709,7 @@ items:
                 href: solution-ideas/articles/homomorphic-encryption-seal.yml
               - name: Hybrid security monitoring
                 href: hybrid/hybrid-security-monitoring.yml
-              - name: Improved-security access to multitenant web apps from on-premises 
+              - name: Improved-security access to multitenant web apps 
                 href: example-scenario/security/access-multitenant-web-app-from-on-premises.yml
               - name: Long-term security logs in Azure Data Explorer
                 href: example-scenario/security/security-log-retention-azure-data-explorer.yml
@@ -3644,14 +3749,20 @@ items:
                 maintainContext: true
           - name: Architectures
             items:
+              - name: Azure file shares in a hybrid environment
+                href: hybrid/azure-file-share.yml
               - name: Hybrid file services
                 href: hybrid/hybrid-file-services.yml
+              - name: Minimal storage – change feed to replicate data
+                href: solution-ideas/articles/minimal-storage-change-feed-replicate-data.yml
+              - name: Multi-region web app with replication
+                href: solution-ideas/articles/multi-region-web-app-multi-writes-azure-table.yml
+              - name: Optimized storage with logical data classification
+                href: solution-ideas/articles/optimized-storage-logical-data-classification.yml
               - name: Oracle Database with Azure NetApp Files
                 href: example-scenario/file-storage/oracle-azure-netapp-files.yml
-              - name: SQL Server on Azure Virtual Machines with Azure NetApp Files
+              - name: SQL Server on VMs with Azure NetApp Files
                 href: example-scenario/file-storage/sql-server-azure-netapp-files.yml
-              - name: Azure file shares in hybrid environment
-                href: hybrid/azure-file-share.yml
           - name: Solution ideas
             items:
               - name: HIPAA/HITRUST Health Data and AI
@@ -3660,8 +3771,6 @@ items:
                 href: solution-ideas/articles/azure-batch-rendering.yml
               - name: Medical data storage
                 href: solution-ideas/articles/medical-data-storage.yml
-              - name: Multi-region web app with replication
-                href: solution-ideas/articles/multi-region-web-app-multi-writes-azure-table.yml
               - name: Two-region app with Table storage failover
                 href: solution-ideas/articles/multi-region-web-app-azure-table-failover.yml
       - name: Virtual Desktop
@@ -3719,12 +3828,30 @@ items:
                   - name: Networking features for App Service
                     href: /azure/app-service/networking-features
                     maintainContext: true
+              - name: Modernize web apps
+                items:
+                  - name: Characteristics of modern web apps
+                    href: /dotnet/architecture/modern-web-apps-azure/modern-web-applications-characteristics
+                    maintainContext: true
+                  - name: Choose between web apps and SPAs
+                    href: /dotnet/architecture/modern-web-apps-azure/choose-between-traditional-web-and-single-page-apps
+                    maintainContext: true
+                  - name: ASP.NET architectural principles
+                    href: /dotnet/architecture/modern-web-apps-azure/architectural-principles
+                    maintainContext: true
+                  - name: Common client-side web technologies
+                    href: /dotnet/architecture/modern-web-apps-azure/common-client-side-web-technologies
+                    maintainContext: true
+                  - name: Development process for Azure
+                    href: /dotnet/architecture/modern-web-apps-azure/development-process-for-azure
+                    maintainContext: true
+                  - name: Azure hosting for ASP.NET web apps
+                    href: /dotnet/architecture/modern-web-apps-azure/azure-hosting-recommendations-for-asp-net-web-apps
+                    maintainContext: true
               - name: Eventual consistency in Power Platform
                 href: reference-architectures/power-platform/eventual-consistency.yml
           - name: Architectures
             items:
-              - name: Multitenant SaaS
-                href: example-scenario/multi-saas/multitenant-saas.yml
               - name: Basic web application
                 href: reference-architectures/app-service-web-app/basic-web-app.yml
               - name: Blueprint architectures
@@ -3737,6 +3864,9 @@ items:
                    maintainContext: true
               - name: Clinical insights with Microsoft Cloud for Healthcare
                 href: example-scenario/mch-health/medical-data-insights.yml
+              - name: Common web app architectures
+                href: /dotnet/architecture/modern-web-apps-azure/common-web-application-architectures
+                maintainContext: true
               - name: Consumer health portal
                 href: example-scenario/digital-health/health-portal.yml
               - name: Deployment in App Service Environments
