@@ -127,32 +127,40 @@ If you need to enable your tenants to receive data from your solution by using t
 
 Gateways typically simplify the security configuration for your tenants. It can be complex and risky to open inbound ports, especially in an on-premises environment. A data gateway avoids the need for tenants to take this risk.
 
-<!-- TODO here down -->
+### Azure Private Link service
 
-### Azure Private Link Service
+[Azure Private Link Service](/azure/private-link/private-link-service-overview) provides private inbound connectivity from an end customer's Azure environment to your solution.
 
-* [Azure Private Link Service](/azure/private-link/private-link-service-overview) provides private inbound connectivity from an end customer's Azure environment to a multitenant solution of the provider.
-* Enables SaaS providers to expose their service on a private endpoint within the end customer's Azure subscription.
-  * e.g. [Snowflake](/shows/Azure-Videos/Azure-Private-Link--Snowflake)
-* Your customers can deploy a private endpoint and point it to your Private Link Service resource.
-* Cross-subscription endpoints need approval, but you can automate this within your solution by using an ARM API call
+Tenants can deploy a private endpoint within their VNet and configure it to your Private Link service instance. Azure securely routes the traffic to the service. Azure Private Link service is used by many large SaaS providers, including [Snowflake](/shows/Azure-Videos/Azure-Private-Link--Snowflake).
+
+[Private endpoints typically require approval](/azure/private-link/private-endpoint-overview#access-to-a-private-link-resource-using-approval-workflow) when the source and destination subscriptions are different. You can [automate the approval process](/azure/private-link/manage-private-endpoint#manage-private-endpoint-connections-on-a-customerpartner-owned-private-link-service) within your solution by using Azure Powershell, the Azure CLI, and the Azure Resource Manager API.
 
 ### Domain names, subdomains, and TLS
 
-* [Link to considerations](../considerations/domain-names.md)
-* [Global DNS load balancing approach with shared Traffic Manager](/azure/traffic-manager/traffic-manager-faqs#how-can-i-assign-http-headers-to-the-traffic-manager-health-checks-to-my-endpoints)
+When you work with domain names and transport-layer security (TLS) in a multitenant solution, there are a number of considerations. [Review the considerations for multitenancy and domain names](../considerations/domain-names.md).
 
 ### Gateway Routing and Gateway Offloading patterns
-* [See pattern](/patterns/gateway-routing). [See pattern](/patterns/gateway-offloading).
-* Layer 7 reverse proxy.
-* Front Door, AppGW, APIM, or build your own (e.g. nginx or HAProxy cluster)
-* Useful for TLS termination, handlign custom domain names, WAF, caching, routing (implements Gateway Routing pattern)
-* Prototype everything and plan how you will scale
+
+The [Gateway Routing pattern](../../../patterns/gateway-routing.md) and the [Gateway Offloading pattern](../../../patterns/gateway-offloading.md) involve deploying a layer 7 reverse proxy. Gateways are useful to provide core services for a multitenant application, including:
+
+- Routing requests to tenant-specific backends or deployment stamps.
+- Handling tenant-specific domain names and TLS certificates.
+- Inspecting requests for security threats by using a web application firewall (WAF).
+- Caching responses to improve performance.
+
+Azure provides several services that can be used to achieve some or all of these goals, including Azure Front Door, Azure Application Gateway, and Azure API Management. You can also deploy your own custom solution by using software like NGINX or HAProxy.
+
+If you plan to deploy a gateway for your solution, it's a good practice to build a complete prototype that includes all of the features you need. You should also understand how the gateway component will scale to support your traffic and tenant growth.
 
 ### Static Content Hosting pattern
-* [See pattern](/patterns/static-content-hosting).
-* If your solution is architected to enable it, you can use Front Door or another CDN for the static components - e.g. SPAs - and for static content like image files, documents, etc.
-* If CDN is used for a multitenant solution, consider how to do purging so that it's scoped to the things you want to purge - e.g. URLs/query strings with tenant IDs in them. Then you can control whether you purge everything or just a specific tenant's files.
+
+The [Static Content Hosting pattern](../../../patterns/static-content-hosting.md) involves serving web content from a cloud-native storage service, and using a content delivery network (CDN) to cache the content.
+
+You can use Front Door or another CDN for your solution's static components, such as single-page JavaScript applications, and for static content like image files and documents.
+
+Depending on how your solution is designed, you might also be able to cache tenant-specific files or data within a CDN, such as JSON API responses. This can help to improve the performance and scalability of your solution, but it's important to consider whether tenant-specific data is isolated sufficiently to avoid leaking data across tenants. You should also consider how you plan to purge tenant-specific content from your cache, such as when data is updated or a new application version is deployed. By including the tenant identifier in the URL path, you can control whether you purge a specific file, all files that relate to a specific tenant, or all files for all tenants.
+
+<!-- TODO here down -->
 
 ## Antipatterns to avoid
 
