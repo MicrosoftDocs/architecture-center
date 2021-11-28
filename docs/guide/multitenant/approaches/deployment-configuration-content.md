@@ -60,7 +60,7 @@ Further discussion of these approaches is provided below.
 
 ### Testing
 
-Plan to thoroughly test your solution during and after every deployment. Automated testing can be used to verify the functional and non-functional behavior of your solution. Ensure you test your tenant isolation model, and consider using tools like [Azure Chaos Studio](/azure/chaos-studio/chaos-studio-overview) to verify that your solution functions even when a component is unavailable or malfunctioning.
+Plan to thoroughly test your solution during and after every deployment. Automated testing can be used to verify the functional and non-functional behavior of your solution. Ensure you test your tenant isolation model, and consider using tools like [Azure Chaos Studio](/azure/chaos-studio/chaos-studio-overview) to deliberately introduce faults that simulate real-world outages and verify that your solution functions even when a component is unavailable or malfunctioning.
 
 ## Approaches and patterns to consider
 
