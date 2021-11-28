@@ -69,7 +69,7 @@ Consider whether your tenants will access your services through the internet or 
 
 Consider whether you need to send data to tenants' networks, either within or outside of Azure. For example, will you need to invoke a webhook provided by a customer, or send real-time messages to a tenant?
 
-If you do need to send data to tenants' networks, you need to decide whether connections will be made through the internet or privately. For internet-based connections from your solution to tenants' networks, consider whether the connections must originate from a static IP address. Depending on the Azure services you use, you might need to deploy a [NAT Gateway](/azure/virtual-network/nat-gateway/nat-overview), firewall, or load balancer.
+If you do need to send data to tenants' networks, you need to decide whether connections will be made through the internet or privately. For internet-based connections from your solution to tenants' networks, consider whether the connections must originate from a [static IP address](#static-ip-addresses). Depending on the Azure services you use, you might need to deploy a [NAT Gateway](/azure/virtual-network/nat-gateway/nat-overview), firewall, or load balancer.
 
 You can also consider deploying an [on-premises gateway](#on-premises-gateways) to enable connectivity between your Azure-hosted services and your customers' networks, regardless of where they are located.
 
@@ -77,33 +77,57 @@ You can also consider deploying an [on-premises gateway](#on-premises-gateways) 
 
 In this section, we describe some of the key networking approaches you can consider in a multitenant solution. We begin by describing the lower-level approaches for core networking components, and then follow with the approaches you can consider for HTTP and other application-layer concerns.
 
-<!-- TODO here down -->
-
 ### Tenant-specific VNets
 
-* Situation: You need to run dedicated resources in Azure on a tenant's behalf, and the tenant needs to be able to access those resources directly (e.g. from their own Azure VNet, or on-prem via a VPN).
-* Consider deploying a VNet for each tenant, using an IP address space that the tenant chooses.
-* The tenant can then peer their own network(s) with that VNet.
-* However, because you'll have overlapping IP addresses, you can't peer the networks together.
+In some situations, you need to run dedicated resources in Azure on a tenant's behalf. Those resources might need to be VNet-connected because the resources requires network connectivity. For example, you might run a virtual machine for each tenant, or you might need to use private endpoints to access tenant-specific databases.
+
+Consider deploying a VNet for each tenant, using an IP address space that you control. This enables you to peer the VNets together, such as if you need to establish a [hub and spoke topology](#hub-and-spoke-topology).
+
+If you allow tenants to connect their own Azure VNets or on-premises environments to the VNet you host on their behalf, this provides a level of isolation to ensure they can't access other tenants' data. You can deploy virtual network gateways to enable connectivity and perform network address translation (NAT).
+
+However, this isn't a good model if tenants need peer their own Azure VNets with the VNet you created. It's likely that the address space you select will be incompatible with their own address spaces.
+
+### Tenant-specific VNets and tenant-selected IP addresses
+
+If tenants need to peer their own VNets with the VNet you manage on their behalf, consider deploying tenant-specific VNets with an IP address space that the tenant selects. This enables each tenant to ensure that the IP address ranges are compatible for peering.
+
+However, this approach means it's unlikely that you can peer your tenants' VNets together or adopt a [hub and spoke topology](#hub-and-spoke-topology), because there are likely to be overlapping IP address ranges.
 
 ### Hub and spoke topology
 
-* When you need to use tenant-specific VNets, or deploy lots of VNets to scale your shared components out (e.g. for global distribution, multiple solutions that need to talk to each other, or high scale)
-* Can deploy a spoke VNet per tenant and then peer to a central hub VNet.
-* This topology provides the service provider the ability to control ingress and egress traffic in a centralized manner.
-  * But watch for maximum VNet peerings (/azure/virtual-network/virtual-network-peering-overview)
-  * And watch for overlapping address spaces.
-* https://docs.microsoft.com/en-us/azure/architecture/reference-architectures/hybrid-networking/hub-spoke?tabs=cli
-* By using a Hub and Spoke topology, you can share components like Azure Firewall and DDoS Protection rather than deploying them for every customer.
+The [hub and spoke VNet topology](../../../reference-architectures/hybrid-networking/hub-spoke.yml) enables you to peer a centralized *hub* VNet with multiple *spoke* VNets. You can centrally control the traffic ingress and egress for your VNets, and control whether the resources in each spoke's VNet can communicate with each other. Each spoke VNet can also access shared components like Azure Firewall and might be able to use services like Azure DDoS Protection.
 
-### Static IP addressing
+When you use a hub and spoke topology, ensure you plan around [limits such as the maximum number of peered VNets](/azure/virtual-network/virtual-network-peering-overview), and ensure that you don't use overlapping address spaces for each tenant's VNet.
 
-* Outbound load balancer, firewall, or NAT Gateway
- * When working with PaaS services, you might be able to request the current set of IP addresses for outbound traffic (e.g. [App Service](/azure/app-service/troubleshoot-intermittent-outbound-connection-errors)).
+The hub and spoke topology can be useful in several types of multitenant solutions, as illustrated in the following examples.
+
+#### Example 1: Tenant-specific spoke VNets
+
+When every tenant needs their own VNet, you can consider configuring each tenant-specific VNet as a spoke. You can create a single hub VNet for network resources that every tenant should share.
+
+TODO diagram
+
+#### Example 2: Large numbers of shared spoke VNets
+
+When you create shared components to enable high levels of scale, such as when you use the [Deployment Stamps pattern](../../../patterns/deployment-stamp.md), or need to scale out to support high levels of traffic, you can create separate spoke VNets for each set of resources. Your central hub VNet can then contain resources that should be accessible throughout your entire environment.
+
+TODO diagram
+
+### Static IP addresses
+
+Consider whether your tenants need your service to use static public IP addresses for inbound traffic, outbound traffic, or both. Different Azure services enable static IP addresses in different ways.
+
+When you work with virtual machines and other infrastructure components, consider using a load balancer or firewall for both inbound and outbound static IP addressing. You can also consider using NAT Gateway to control the IP address of outbound traffic.
+
+When you work with platform services, the specific service you use determines whether and how you can control IP addresses. You might need to configure the resource in a specific way, such as by deploying the resource into a VNet and using a NAT Gateway or firewall, or by requesting the current set of IP addresses that the service uses for outbound traffic (for example, [App Service provides such an API](/azure/app-service/troubleshoot-intermittent-outbound-connection-errors)).
 
 ### On-premises gateways
 
-For some solutions, consider tenants can deploy an agent within their own network. The agent initiates an outbound connection to an endpoint that you control. This can simplify the security model of your solution and helps your tenants avoid opening inbound ports.
+If you need to enable your tenants to receive data from your solution by using the internet, or if you need to access data that exists in tenants' on networks, then consider providing an on-premises gateway or agent that they can deploy within their network. The agent initiates an outbound connection to an endpoint that you specify and control, and either keeps long-running connections alive or polls intermittently. When the agent establishes the connection, it authenticates and includes some information about the tenant identifier so that your service can map the connection to the correct tenant.
+
+Gateways typically simplify the security configuration for your tenants. It can be complex and risky to open inbound ports, especially in an on-premises environment. A data gateway avoids the need for tenants to take this risk.
+
+<!-- TODO here down -->
 
 ### Azure Private Link Service
 
