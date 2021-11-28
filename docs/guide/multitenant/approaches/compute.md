@@ -66,7 +66,7 @@ When you design a multitenant compute tier, you often have many options to consi
 
 You might be concerned with the logical isolation of tenants, and how to separate the management responsibilities or policies that are applied to each tenant. Alternatively, you might need to deploy distinct resource configurations for specific tenants, such as deploying a specific virtual machine SKU to suit a tenant's workload.
 
-Whichever isolation model you select, ensure you verify your tenant data remains appropriately isolated even when components are unavailable or malfunctioning. Consider using [Azure Chaos Studio](/azure/chaos-studio/chaos-studio-overview) as part of your regular automated testing process to verify that your solution doesn't leak data between tenants even under pressure.
+Whichever isolation model you select, ensure you verify your tenant data remains appropriately isolated even when components are unavailable or malfunctioning. Consider using [Azure Chaos Studio](/azure/chaos-studio/chaos-studio-overview) as part of your regular automated testing process to deliberately introduce faults that simulate real-world outages and verify that your solution doesn't leak data between tenants and is functioning properly even under pressure.
 
 ## Approaches and patterns to consider
 
