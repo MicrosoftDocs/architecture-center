@@ -68,49 +68,49 @@ Azure web apps support built-in availability. You can deploy them across [multip
 
 You can further increase the availability of the solution by spreading it across multiple [Azure regions](https://azure.microsoft.com/global-infrastructure/geographies/#overview). You can accomplish this by deploying new instances of all components (except Azure Front Door) to other Azure regions and then configuring the original Azure Front Door instance with [multiple back-end targets](/azure/frontdoor/front-door-backend-pool). If you use Azure SQL as your data store, you can then [join multiple servers to an auto-failover group to enable transparent and coordinated failover of multiple databases](/azure/azure-sql/database/auto-failover-group-overview).
 
-Refer to the following reference architectures to see how multi-available web applications can be deployed in Azure and how multi-region SQL Servers can be setup to work with private endpoints:
+Refer to these reference architectures to learn about deploying highly available web applications in Azure and setting up multi-region SQL Server instances to work with private endpoints:
 
-[Azure Architecture Center | Highly available multi-region web application](/azure/architecture/reference-architectures/app-service-web-app/multi-region)  
-[Azure Architecture Center | Multi-region web app with private connectivity to database](/azure/architecture/example-scenario/sql-failover/app-service-private-sql-multi-region)
+[Highly available multi-region web application](/azure/architecture/reference-architectures/app-service-web-app/multi-region)  
+[Multi-region web app with private connectivity to a database](/azure/architecture/example-scenario/sql-failover/app-service-private-sql-multi-region)
 
-All components of the example solution can be monitored using [Azure Monitor](https://docs.microsoft.com/azure/azure-monitor) services.
-[Azure Monitor Log Analytics](/azure/azure-monitor/logs/log-analytics-overview) can be used to monitor logs related to web application firewall and network inspection rules of Azure Front Door and Azure Firewall, [Azure Monitor Application Insights](/azure/azure-monitor/azure-monitor-app-hub) can be used to monitor performance, availability and gain insights into usage of web applications.
+You can use [Azure Monitor](/azure/azure-monitor) to monitor all components of this solution.
+You can use [Azure Monitor Log Analytics](/azure/azure-monitor/logs/log-analytics-overview) to monitor logs related to the web application firewall and network inspection rules of Azure Front Door and Azure Firewall. You can use [Azure Monitor Application Insights](/azure/azure-monitor/azure-monitor-app-hub) to monitor performance and availability and gain insights into your use of web applications.
 
 ### Scalability
 
-All components of the solution provide either transparent built-in scalability or expose a rich set of features to scale the number of available instances such as [Azure Web App autoscale](/azure/azure-monitor/autoscale/autoscale-best-practices#manual-scaling-is-reset-by-autoscale-min-and-max)
+All components of the solution either provide transparent built-in scalability or expose a rich set of features, like [Azure web app autoscale](/azure/azure-monitor/autoscale/autoscale-best-practices#manual-scaling-is-reset-by-autoscale-min-and-max), to scale the number of available instances.
 
 ## Deploy this scenario
 
 ### Prerequisites
 
-- You must have an existing Azure account. If you do not have an Azure subscription, [create a free account](https://azure.microsoft.com/free) before you begin.
-- You must own a publicly routable domain and have permissions to create two DNS records in your public DNS zone.
-- You must own a valid SSL certificate to be used for your Web App.
+- An Azure account. If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free) before you start.
+- A publicly routable domain. Additionally, you must have permissions to create two DNS records in your public DNS zone.
+- A valid SSL certificate to use for your web app.
 
-### Walk-through
+### Walkthrough
 
-The solution is comprised of several [Bicep](/azure/azure-resource-manager/bicep) files that deploy the required infrastucture.
+The solution is made up of several [Bicep](/azure/azure-resource-manager/bicep) files that deploy the required infrastructure.
 
-The ```main.bicep``` deploys the base infrastructure using Bicep modules from the following files
-- ```network.bicep```
-- ```webapp.bicep```
-- ```firewall.bicep```
-- ```sql.bicep```
-- ```frontdoor.bicep```
-- ```routetable.bicep```
+The `main.bicep` file deploys the base infrastructure by using Bicep modules from these files:
+- `network.bicep`
+- `webapp.bicep`
+- `firewall.bicep`
+- `sql.bicep`
+- `frontdoor.bicep`
+- `routetable.bicep`
 
-1. [Install Bicep](/azure/azure-resource-manager/bicep/install) and deploy main.bicep using either [Azure PowerShell](/azure/azure-resource-manager/bicep/install#azure-powershell) or [Azure CLI](/azure/azure-resource-manager/bicep/install#azure-cli). The bicep file has pre-configured parameters for deploying all resources.
+1. [Install Bicep](/azure/azure-resource-manager/bicep/install) and deploy `main.bicep` by using either [Azure PowerShell](/azure/azure-resource-manager/bicep/install#azure-powershell) or [Azure CLI](/azure/azure-resource-manager/bicep/install#azure-cli). The Bicep file has preconfigured parameters for deploying all resources.
 
-   For example, using Azure PowerShell:
+   For example, if you're using Azure PowerShell:
 
    ```powershell
    New-AzResourceGroupDeployment -ResourceGroupName [resourceGroupName] -Name [frontDoorDeployment] -TemplateFile .\frontdoor.bicep
    ```
 
-   You will be asked to provide the parameters ```customBackendFqdn``` and ```sqladministratorLoginPassword``` upon deployment.
+   You'll be asked to provide the `customBackendFqdn` and `sqladministratorLoginPassword` parameters upon deployment.
 
-2. Take note of the Public IP Address assigned to the Azure Firewall after creation. The IP is also provided as output of the deployment of main.bicep.
+2. Copy and save the public IP address that's assigned to the Azure firewall after deployment. You'll need it in a later step. The IP is also provided as output of the deployment of `main.bicep`.
 
    ![Public IP](./media/public-ip.png)
 
