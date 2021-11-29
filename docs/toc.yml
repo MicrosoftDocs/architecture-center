@@ -3755,6 +3755,8 @@ items:
                 href: hybrid/hybrid-file-services.yml
               - name: Minimal storage – change feed to replicate data
                 href: solution-ideas/articles/minimal-storage-change-feed-replicate-data.yml
+              - name: Moodle deployment with Azure NetApp Files
+                href: example-scenario/file-storage/moodle-azure-netapp-files.yml
               - name: Multi-region web app with replication
                 href: solution-ideas/articles/multi-region-web-app-multi-writes-azure-table.yml
               - name: Optimized storage with logical data classification
