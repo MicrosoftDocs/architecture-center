@@ -1,5 +1,3 @@
-
-
 The code in this project is organized as a clean-architecture [monolith](/dotnet/architecture/containerized-lifecycle/design-develop-containerized-apps/monolithic-applications), with the following typical conceptual components:
 
 - API adapters
@@ -14,7 +12,7 @@ The solution is stateless, so it doesn't contain any gateways to persistence lay
 
 The software component composition uses the [GridwichConfigureServices](https://github.com/mspnp/gridwich/blob/main/src/Gridwich.Host.FunctionApp/src/GridwichConfigureServices.cs) class to define which concrete classes are available in the IoC container for the Azure Functions App.
 
-## Gridwich architecture
+## Architecture
 
 ![Diagram showing components of the Gridwich monolith architecture.](media/solution-components.png)
 
@@ -66,12 +64,12 @@ The drawback of microservices is that any shared models require synchronized rol
 
 ## Next steps
 
-- [Understand Gridwich cloud media system](gridwich-architecture.yml)
-- [Explore Gridwich project naming](gridwich-project-names.yml)
-- [Set up Gridwich CI/CD pipeline](gridwich-cicd.yml)
+- [What are microservices?](/devops/deliver/what-are-microservices): Explore microservice architecture.
+- [Introduction to Azure Functions](/azure/azure-functions/functions-overview): Learn more about Azure Functions.
+- [Azure Media Services as an Event Grid source](/azure/event-grid/event-schema-media-services?tabs=event-grid-event-schema): Familiarize yorself with the schemas and properties for Media Services events.
 
 ## Related resources
 
-- [What are microservices?](https://docs.microsoft.com/devops/deliver/what-are-microservices): Explore microservice architecture.
-- [Introduction to Azure Functions](/azure/azure-functions/functions-overview): Learn more about Azure Functions.
-- [Azure Media Services as an Event Grid source](/azure/event-grid/event-schema-media-services?tabs=event-grid-event-schema): Familiarize yorself with the schemas and properties for Media Services events.
+- [Understand Gridwich cloud media system](gridwich-architecture.yml)
+- [Explore Gridwich project naming](gridwich-project-names.yml)
+- [Set up Gridwich CI/CD pipeline](gridwich-cicd.yml)
