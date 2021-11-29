@@ -77,16 +77,16 @@ Configure routes for the Virtual WAN hub as follows:
    \* You can replace NVA IP addresses with load balancer IP addresses in the routing if you're deploying a high-availability architecture with multiple NVAs behind the load balancer.
 
 ### Components
-- [Azure Virtual WAN](https://azure.microsoft.com/services/virtual-wan) is a networking service that brings many networking, security, and routing functionalities together to provide a single operational interface. In this case, it simplifies and scales routing to the attached virtual networks and branches.
-- [Azure ExpressRoute](https://azure.microsoft.com/services/expressroute) extends the on-premises networks into the Microsoft cloud over a private connection.
-- [Azure Virtual Network](https://azure.microsoft.com/services/virtual-network) is the fundamental building block for your private network in Azure. Virtual Network enables many types of Azure resources, like Azure virtual machines (VMs), to communicate with improved security with each other, the internet, and on-premises networks. 
+- [Azure Virtual WAN](https://azure.microsoft.com/services/virtual-wan). Virtual WAN is a networking service that brings many networking, security, and routing functionalities together to provide a single operational interface. In this case, it simplifies and scales routing to the attached virtual networks and branches.
+- [Azure ExpressRoute](https://azure.microsoft.com/services/expressroute). ExpressRoute extends on-premises networks into the Microsoft cloud over a private connection.
+- [Azure Virtual Network](https://azure.microsoft.com/services/virtual-network). Virtual Network is the fundamental building block for your private network in Azure. Virtual Network enables many types of Azure resources, like Azure virtual machines (VMs), to communicate with improved security with each other, the internet, and on-premises networks. 
 - [Virtual WAN hub](/azure/virtual-wan/about-virtual-hub-routing). A virtual hub is a virtual network that Microsoft manages. The hub contains various service endpoints to enable connectivity.
 - [Hub virtual network connections](/rest/api/virtualwan/hub-virtual-network-connections/create-or-update#hubvirtualnetworkconnection). The hub virtual network connection resource connects the hub seamlessly to your virtual networks.
 - [Static routes](/azure/virtual-wan/about-virtual-hub-routing#static). Static routes provide a mechanism for steering traffic through a next hop IP.
 - [Hub route tables](/azure/virtual-wan/about-virtual-hub-routing#hub-route). You can create a virtual hub route and apply the route to the virtual hub route table. 
-- [Virtual network peering](/azure/virtual-network/virtual-network-peering-overview). By using Virtual network peering, you can seamlessly connect two or more [virtual networks](/azure/virtual-network/virtual-networks-overview) in Azure.
-- [User-defined routes](/azure/virtual-network/virtual-networks-udr-overview#user-defined) are static routes that override the default Azure system routes or add more routes to a subnet's route table. They're used here to force traffic to the NVAs when necessary.
-- [Network virtual appliances](https://azure.microsoft.com/solutions/network-appliances) are marketplace-offered network appliances. In this case, the company deployed Palo Alto's NVA, but any NVA firewall would work here. 
+- [Virtual network peering](/azure/virtual-network/virtual-network-peering-overview). By using virtual network peering, you can seamlessly connect two or more [virtual networks](/azure/virtual-network/virtual-networks-overview) in Azure.
+- [User-defined routes](/azure/virtual-network/virtual-networks-udr-overview#user-defined). User-defined routes are static routes that override the default Azure system routes or add more routes to a subnet's route table. They're used here to force traffic to the NVAs when necessary.
+- [Network virtual appliances](https://azure.microsoft.com/solutions/network-appliances). Network virtual appliances are marketplace-offered network appliances. In this case, the company deployed Palo Alto's NVA, but any NVA firewall would work here. 
 
 ### Alternatives
 To deploy only a high-security NVA environment, you can follow this model: [Route traffic through an NVA](/azure/virtual-wan/scenario-route-through-nva).
