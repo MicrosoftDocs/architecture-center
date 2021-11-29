@@ -41,7 +41,7 @@ Azure Stack Hub includes the following design considerations:
 - Azure Stack Hub only supports a single Scale Unit (SU) within a single region, which consists of between four and 16 servers that use Hyper-V failover clustering. Each region serves as an independent Azure Stack Hub *stamp* with separate portal and API endpoints.
 - Azure Stack Hub doesn't support Availability Zones because it consists of a single *region* or a single physical location. High availability to cope with outages of a single location should be implemented by using two Azure Stack Hub instances deployed in different physical locations.
 - Azure Stack Hub supports premium storage to ensure compatibility. However, provisioning premium storage accounts or disks doesn't guarantee that storage objects will be allocated onto SSD or NVMe drives.
-- Azure Stack Hub supports only a subset of [VPN Gateway SKUs](/azure-stack/user/azure-stack-vpn-gateway-about-vpn-gateways?view=azs-2102#estimated-aggregate-throughput-by-sku) available in Azure with a limited bandwidth of `100` or `200` `Mbps`.
+- Azure Stack Hub supports only a subset of [VPN Gateway SKUs](/azure-stack/user/azure-stack-vpn-gateway-about-vpn-gateways?view=azs-2102#estimated-aggregate-throughput-by-sku&preserve-view=true) available in Azure with a limited bandwidth of `100` or `200` `Mbps`.
 - Only one site-to-site (S2S) VPN connection can be created between two Azure Stack Hub deployments. This connection limit is because of a platform limitation that allows only a single VPN connection to the same IP address. Multiple S2S VPN connections with higher throughput can be established using third-party NVAs.
 - Apply general Azure configuration recommendations for all Azure Stack Hub services.
 
@@ -63,4 +63,4 @@ Consider the following recommendation table to optimize your Azure Stack Hub con
 ## Next step
 
 > [!div class="nextstepaction"]
-> [Azure Stack Hub and operational excellence](operational-excellence.md)
+> [Azure Stack Hub and operational excellence](operational-excellence.md
