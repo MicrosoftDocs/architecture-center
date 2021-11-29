@@ -27,7 +27,7 @@ For more information, reference [Azure Stack Hub overview](/azure-stack/operator
 
 To understand how Azure Stack Hub supports resiliency for your application workload, reference the following articles:
 
-- [Capacity planning for Azure Stack Hub overview](/azure-stack/operator/azure-stack-capacity-planning-overview?view=azs-210&preserve-view=true2)
+- [Capacity planning for Azure Stack Hub overview](/azure-stack/operator/azure-stack-capacity-planning-overview?view=azs-2102&preserve-view=true)
 - [Storage Spaces Direct cache and capacity tiers](/azure-stack/operator/azure-stack-capacity-planning-storage?view=azs-2102#storage-spaces-direct-cache-and-capacity-tiers&preserve-view=true)
 - [Datacenter integration planning considerations for Azure Stack Hub integrated systems](/azure-stack/operator/azure-stack-datacenter-integration?view=azs-2102&preserve-view=true)
 
