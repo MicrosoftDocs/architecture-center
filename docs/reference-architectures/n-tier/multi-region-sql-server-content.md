@@ -201,8 +201,8 @@ For more information, see the Operational Excellence section in [Microsoft Azure
 
 ## Next Steps
 
-- [Deploy Traffic Manager in Azure](azure/traffic-manager/quickstart-create-traffic-manager-profile)
-- [Deploy Azure Load Balancer](azure/load-balancer/load-balancer-overview)
+- [Deploy Traffic Manager in Azure](/azure/traffic-manager/quickstart-create-traffic-manager-profile)
+- [Deploy Azure Load Balancer](/azure/load-balancer/load-balancer-overview)
 
 
 ## Related resources
