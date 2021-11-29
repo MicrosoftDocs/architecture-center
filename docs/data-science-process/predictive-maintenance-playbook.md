@@ -463,7 +463,7 @@ Microsoft Azure offers learning paths for the foundational concepts behind PdM t
 | [Microsoft AI School](https://www.microsoft.com/ai/ai-school) | Public |
 | [LinkedIn Learning](https://www.linkedin.com/learning) | Public |
 | [Microsoft: Playlists on YouTube for Artificial Intelligence and Analytics](https://www.youtube.com/c/MicrosoftAzure/playlists?view=50&sort=dd&shelf_id=7) | Public |
-| [Microsoft AI Show](https://channel9.msdn.com/Shows/AI-Show) | Public |
+| [Microsoft AI Show](/shows/AI-Show/) | Public |
 | [AI Platform Overview](https://azure.microsoft.com/overview/ai-platform/) | Public |
 | [AI Lab](https://www.microsoft.com/ai/ai-lab) | Public |
 | [Microsoft AI](https://www.microsoft.com/AI) | Public |
