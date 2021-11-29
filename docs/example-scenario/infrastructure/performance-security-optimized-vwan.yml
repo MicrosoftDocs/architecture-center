@@ -5,7 +5,7 @@ metadata:
   description: This article describes how to design a single network that has varying security and performance requirements.
   author: EdPrice-MSFT
   ms.author: jopoetzi 
-  ms.date: 11/29/2021
+  ms.date: 11/30/2021
   ms.topic: conceptual
   ms.service: architecture-center
   ms.subservice: example-scenario
