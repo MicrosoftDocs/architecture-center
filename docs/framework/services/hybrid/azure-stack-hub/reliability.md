@@ -63,4 +63,4 @@ Consider the following recommendation table to optimize your Azure Stack Hub con
 ## Next step
 
 > [!div class="nextstepaction"]
-> [Azure Stack Hub and operational excellence](operational-excellence.md
+> [Azure Stack Hub and operational excellence](operational-excellence.md)
