@@ -73,7 +73,7 @@ More information:
 
 ## Next steps
 
-See [Resources for architects and developers of multitenant solutions](/azure/architecture/guide/multitenant/related-resources).
+Review [storage and data approaches for multitenancy](../approaches/storage-data.md).
 
 ## Related resources
 
