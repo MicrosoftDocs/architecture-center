@@ -58,7 +58,7 @@ Consider the following recommendation table to optimize your Azure Stack Hub con
 
 |Recommendation|Description|
 |--------------|-----------|
-|Treat Azure Stack Hub as a scale unit.|Deploy workloads in either an active-active or active-passive configuration across Azure Stack Hub stamps or Azure.|
+|Treat Azure Stack Hub as a scale unit and deploy multiple instances to remove Azure Stack Hub as a single point of failure for encompassed workloads.|Deploy workloads in either an active-active or active-passive configuration across Azure Stack Hub stamps or Azure.|
 
 ## Next step
 
