@@ -1,4 +1,4 @@
-This architecture was provided by a global manufacturing company. The company's operational technology and information technology departments are highly integrated, demanding a single internal network. But the environments have drastically different security and performance requirements. Because of the sensitive nature of the company's operations, all traffic needs to be firewall protected, and an Intrusion Detection and Protection System (IDPS) solution needs to be in place. The information technology department has less demanding security requirements for the network, but that department wants to optimize for performance so users have low-latency access to IT applications. 
+A global manufacturing company provided the architecture that this article describes. The company's operational technology and information technology departments are highly integrated, demanding a single internal network. But the environments have drastically different security and performance requirements. Because of the sensitive nature of the company's operations, all traffic needs to be firewall protected, and an Intrusion Detection and Protection System (IDPS) solution needs to be in place. The information technology department has less demanding security requirements for the network, but that department wants to optimize for performance so users have low-latency access to IT applications. 
 
 Decision makers at the company turned to Azure Virtual WAN to meet global needs for a single network with varying security and performance requirements. They also got a solution that's easy to manage, deploy, and scale. As they add regions, they can continue to grow seamlessly with a network that's highly optimized for their needs. 
 
@@ -14,16 +14,13 @@ Typical use cases for this architecture include:
 
 Download a [Visio file](https://arch-center.azureedge.net/Performance-security-optimized-VWAN-architecture-azure.vsdx) of this architecture.
 
-The architecture consists of:
-- **Azure ExpressRoute**. ExpressRoute extends the on-premises networks into the Microsoft cloud over a private connection, with the help of a connectivity provider.
-- **Virtual WAN**. Virtual WAN is a networking service that brings networking, security, and routing functionalities together to provide a single operational interface. 
-- **Virtual WAN hub**. A virtual hub is a virtual network that's managed by Microsoft. The hub contains various service endpoints to enable connectivity.
-- **Hub virtual network connections**. The hub virtual network connection resource connects the hub seamlessly to your virtual networks.
-- **Static routes**. Static routes provide a mechanism for steering traffic through a next hop IP.
-- **Hub route tables**. You can create a virtual hub route and apply the route to the virtual hub route table. 
-- **Virtual network peering**. By using Virtual network peering, you can seamlessly connect two or more [virtual networks](/azure/virtual-network/virtual-networks-overview) in Azure.
-- **Virtual networks**. Azure Virtual Network is the fundamental building block for your private network in Azure. Virtual Network enables many types of Azure resources, like Azure virtual machines (VMs), to communicate with each other, the internet, and on-premises networks with improved security. 
-- **User-defined routes**. User-defined routes override the default Azure system routes or add more routes to a subnet's route table.
+Here’s a summary of the architecture: 
+- Users access virtual networks from a branch.
+- Azure ExpressRoute extends the on-premises networks into the Microsoft cloud over a private connection, with the help of a connectivity provider.
+-	A Virtual WAN hub routes traffic appropriately for security or performance. The hub contains various service endpoints to enable connectivity.
+-	User-defined routes force traffic to the NVAs when necessary.
+-	Each NVA inspects traffic that's flowing into a virtual network.
+-	Virtual network peering provides VNet-to-VNet inspection in the performance-optimized environment. 
 
 The company has multiple regions and continues to deploy regions to the model. The company deploys a security-optimized or performance-optimized environment only when needed. The environments route the following traffic through the network virtual appliance (NVA):
 
@@ -35,11 +32,11 @@ The company has multiple regions and continues to deploy regions to the model. T
 |**Performance-optimized source**|	**VNet3**|	hub-NVA1-VNet1	|hub-NVA1-VNet2|Intra VNet|	NVA2-VNet4	|hub-branch|	NVA2-internet|
 |**Branch source**|**Branch**|	hub-NVA1-VNet1|	hub-NVA1-VNet2|	hub-VNet3	|hub-VNet4|	Not applicable	|Not applicable|
 
-![Diagram that shows traffic pathways.](./media/performance-security-optimized-vwan-azure.png)
+![Diagram that shows traffic pathways for the architecture.](./media/performance-security-optimized-vwan-azure.png)
 
-As the preceding diagram shows, the company has provisioned an NVA and routing architecture that forces all traffic pathways in the security-optimized environment to use the NVA between the virtual networks and the hub in a common layered architecture. 
+As the preceding diagram shows, an NVA and routing architecture force all traffic pathways in the security-optimized environment to use the NVA between the virtual networks and the hub in a common layered architecture. 
 
-The performance-optimized environment has a more customized routing schema. This schema provides a firewall and traffic inspection where it's needed. It doesn't provide a firewall where it's not needed. VNet-to-VNet traffic in the performance-optimized space is forced through NVA2, but branch-to-VNet traffic can go directly across the hub. Likewise, anything headed to the secure environment doesn't need to go to NVA VNet2 because it's inspected at the edge of the secure environment by the NVA in NVA VNet1. The result is high-speed access to the branch. It's also worth noting that this still provides VNet-to-VNet inspection in the performance-optimized environment. This isn't necessary for all customers but can be accomplished through the peerings that you can see in the architecture. 
+The performance-optimized environment has a more customized routing schema. This schema provides a firewall and traffic inspection where they're needed. It doesn't provide a firewall where it's not needed. VNet-to-VNet traffic in the performance-optimized space is forced through NVA2, but branch-to-VNet traffic can go directly across the hub. Likewise, anything headed to the secure environment doesn't need to go to NVA VNet2 because it's inspected at the edge of the secure environment by the NVA in NVA VNet1. The result is high-speed access to the branch. The architecture still provides VNet-to-VNet inspection in the performance-optimized environment. This isn't necessary for all customers but can be accomplished through the peerings that you can see in the architecture. 
 
 ### Associations and propagations of the Virtual WAN hub
 Configure routes for the Virtual WAN hub as follows:
@@ -64,13 +61,13 @@ Configure routes for the Virtual WAN hub as follows:
    |-|-|-|-|
    |rt-to-secOptimized	|10.1.0.0/16	|Virtual appliance|	\<IP address of NVA1>|
 
-- A custom route table on the Virtual WAN hub that's named perfOptimizedRouteTable. This table is used to ensure the performance-optimized virtual networks can't communicate to each other over the hub and must use the peering to NVA VNet2.
-- A UDR associated to all subnets in VNet1 and VNet2 to route all traffic back to NVA1.
+- A custom route table on the Virtual WAN hub that's named perfOptimizedRouteTable. This table is used to ensure the performance-optimized virtual networks can't communicate with each other over the hub and must use the peering to NVA VNet2.
+- A UDR associated with all subnets in VNet1 and VNet2 to route all traffic back to NVA1.
 
    |Name|	Address prefix|	Next hop type|	Next hop IP address|
    |-|-|-|-|
    rt-all	|0.0.0.0/0|	Virtual appliance|	\<IP address of NVA1>|
-- A UDR associated to all subnets in VNet3 and VNet4 to route VNet-to-VNet traffic and internet traffic to NVA2.
+- A UDR associated with all subnets in VNet3 and VNet4 to route VNet-to-VNet traffic and internet traffic to NVA2.
 
    Name	|Address prefix|	Next hop type|	Next hop IP address
    |-|-|-|-|
@@ -82,7 +79,13 @@ Configure routes for the Virtual WAN hub as follows:
 ### Components
 - [Azure Virtual WAN](https://azure.microsoft.com/services/virtual-wan) is a networking service that brings many networking, security, and routing functionalities together to provide a single operational interface. In this case, it simplifies and scales routing to the attached virtual networks and branches.
 - [Azure ExpressRoute](https://azure.microsoft.com/services/expressroute) extends the on-premises networks into the Microsoft cloud over a private connection.
-- [User-defined routes](/azure/virtual-network/virtual-networks-udr-overview#user-defined) are static routes that override the default Azure system routes. They're used here to force traffic to the NVAs when necessary.
+- [Azure Virtual Network](https://azure.microsoft.com/services/virtual-network) is the fundamental building block for your private network in Azure. Virtual Network enables many types of Azure resources, like Azure virtual machines (VMs), to communicate with improved security with each other, the internet, and on-premises networks. 
+- [Virtual WAN hub](/azure/virtual-wan/about-virtual-hub-routing). A virtual hub is a virtual network that Microsoft manages. The hub contains various service endpoints to enable connectivity.
+- [Hub virtual network connections](/rest/api/virtualwan/hub-virtual-network-connections/create-or-update#hubvirtualnetworkconnection). The hub virtual network connection resource connects the hub seamlessly to your virtual networks.
+- [Static routes](/azure/virtual-wan/about-virtual-hub-routing#static). Static routes provide a mechanism for steering traffic through a next hop IP.
+- [Hub route tables](/azure/virtual-wan/about-virtual-hub-routing#hub-route). You can create a virtual hub route and apply the route to the virtual hub route table. 
+- [Virtual network peering](/azure/virtual-network/virtual-network-peering-overview). By using Virtual network peering, you can seamlessly connect two or more [virtual networks](/azure/virtual-network/virtual-networks-overview) in Azure.
+- [User-defined routes](/azure/virtual-network/virtual-networks-udr-overview#user-defined) are static routes that override the default Azure system routes or add more routes to a subnet's route table. They're used here to force traffic to the NVAs when necessary.
 - [Network virtual appliances](https://azure.microsoft.com/solutions/network-appliances) are marketplace-offered network appliances. In this case, the company deployed Palo Alto's NVA, but any NVA firewall would work here. 
 
 ### Alternatives
@@ -90,7 +93,7 @@ To deploy only a high-security NVA environment, you can follow this model: [Rout
 
 To deploy a custom NVA model that supports both routing traffic to a dedicated firewall for the internet and routing branch traffic over an NVA, see [Route traffic through NVAs by using custom settings](/azure/virtual-wan/scenario-route-through-nvas-custom). 
 
- The previous alternative deploys a high-security environment behind an NVA and some capability to deploy a custom environment. But it differs from the use case described in this article in two ways. First, it shows the two models in isolation instead of in combination. Second, it doesn't support VNet-to-VNet traffic in the custom environment (what we call the *Performance-optimized environment* here).
+ The previous alternative deploys a high-security environment behind an NVA and offers some capability to deploy a custom environment. But it differs from the use case described in this article in two ways. First, it shows the two models in isolation instead of in combination. Second, it doesn't support VNet-to-VNet traffic in the custom environment (what we call the *Performance-optimized environment* here).
 
 ## Considerations 
 In this deployment, routes that cross the Virtual WAN hub to a performance-optimized environment don't pass through the NVA in that environment. This presents a potential problem with cross-regional traffic that's illustrated here: 
@@ -100,15 +103,15 @@ In this deployment, routes that cross the Virtual WAN hub to a performance-optim
 Traffic across regions between performance-optimized environments doesn't cross the NVA. This is a limitation of directly routing hub traffic to the virtual networks. 
 
 ### Availability
-Azure Virtual WAN is a highly available networking service. You can set up more connectivity or paths from the branch to get multiple pathways to the Virtual WAN service. But you don't need anything additional within the VWAN service. 
+Virtual WAN is a highly available networking service. You can set up more connectivity or paths from the branch to get multiple pathways to the Virtual WAN service. But you don't need anything additional within the VWAN service. 
 
 You should set up NVAs in a highly available architecture similar to the one described here: [Deploy highly available NVAs](../../reference-architectures/dmz/nva-ha.yml).
 
 ### Performance
-This solution optimizes performance of the network where necessary. You can modify the routing per your own requirements, enabling the traffic to the branch to cross the NVA and the traffic between virtual networks to flow freely or to use a single firewall for internet egress.
+This solution optimizes performance of the network where necessary. You can modify the routing according to your own requirements, enabling the traffic to the branch to cross the NVA and the traffic between virtual networks to flow freely or to use a single firewall for internet egress.
 
 ### Scalability
-This architecture is scalable across regions. You'll need to consider your requirements when you set up routing labels for grouping routes and branch traffic forwarding between the virtual hubs. 
+This architecture is scalable across regions. Consider your requirements when you set up routing labels for grouping routes and branch traffic forwarding between the virtual hubs. 
 
 ### Security
 With NVAs, you can use features like IDPS with Virtual WAN.
@@ -117,7 +120,7 @@ With NVAs, you can use features like IDPS with Virtual WAN.
 For information about resiliency, see [Availability](#availability), earlier in this article.
 
 ## Pricing
-Pricing for this architecture depends heavily on the NVAs that you deploy. For a 2-Gbps ER connection and a Virtual WAN hub processing 10 TB per month, see this [pricing estimate](https://azure.com/e/0bf78de2bf3b45aa961e0dc2f57eb2fe).
+Pricing for this architecture depends heavily on the NVAs that you deploy. For a 2-Gbps ER connection and a Virtual WAN hub that processes 10 TB per month, see this [pricing estimate](https://azure.com/e/0bf78de2bf3b45aa961e0dc2f57eb2fe).
 
 ## Next steps
 - [What is Azure Virtual WAN?](/azure/virtual-wan/virtual-wan-about)
@@ -127,6 +130,6 @@ Pricing for this architecture depends heavily on the NVAs that you deploy. For a
 - [Azure Virtual WAN and supporting remote work](/azure/virtual-wan/work-remotely-support)
 
 ## Related resources
-- [Hybrid file share with disaster recovery for remote and local branch workers](/azure/architecture/example-scenario/hybrid/hybrid-file-share-dr-remote-local-branch-workers) 
+- [Hub-spoke network topology with Azure Virtual WAN](/azure/architecture/networking/hub-spoke-vwan-architecture)
 - [Choose between virtual network peering and VPN gateways](/azure/architecture/reference-architectures/hybrid-networking/vnet-peering)
 - [Low-latency network connections for industry](/azure/architecture/solution-ideas/articles/low-latency-network)
