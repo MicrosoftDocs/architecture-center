@@ -26,14 +26,13 @@ This architecture builds on the one shown in [N-tier application with SQL Server
 
 - **Virtual network peering**. Peer the two virtual networks to allow data replication from the primary region to the secondary region. For more information, see [Virtual network peering](/azure/virtual-network/virtual-network-peering-overview).
 
-## Components
+### Components
 
-- [Availability sets](https://docs.microsoft.com/azure/virtual-machines/windows/manage-availability) ensure that the VMs you deploy on Azure are distributed across multiple isolated hardware nodes in a cluster. If a hardware or software failure occurs within Azure, only a subset of your VMs are affected and your entire solution remains available and operational.
-- [Availability zones](https://docs.microsoft.com/azure/availability-zones/az-overview) protect your applications and data from datacenter failures. Availability zones are separate physical locations within an Azure region. Each zone consists of one or more datacenters equipped with independent power, cooling, and networking.
-- [Azure Traffic Manager](https://docs.microsoft.com/azure/traffic-manager) is a DNS-based traffic load balancer that distributes traffic optimally to services across global Azure regions while providing high availability and responsiveness.
-- [Azure Load Balancer](https://docs.microsoft.com/azure/load-balancer/load-balancer-overview) distributes inbound traffic according to defined rules and health probes. A load balancer provides low latency and high throughput, scaling up to millions of flows for all TCP and UDP applications. A public load balancer is used in this scenario to distribute incoming client traffic to the web tier. An internal load balancer is used in this scenario to distribute traffic from the business tier to the back-end SQL Server cluster.
-- [Azure Bastion](https://docs.microsoft.com/azure/bastion/bastion-overview) provides secure RDP and SSH connectivity to all of the VMs in the virtual network in which it is provisioned. Using Azure Bastion protects your virtual machines from exposing RDP/SSH ports to the outside world, while still providing secure access using RDP/SSH.
-
+- [Availability sets](/azure/virtual-machines/windows/manage-availability) ensure that the VMs you deploy on Azure are distributed across multiple isolated hardware nodes in a cluster. If a hardware or software failure occurs within Azure, only a subset of your VMs are affected and your entire solution remains available and operational.
+- [Availability zones](/azure/availability-zones/az-overview) protect your applications and data from datacenter failures. Availability zones are separate physical locations within an Azure region. Each zone consists of one or more datacenters equipped with independent power, cooling, and networking.
+- [Azure Traffic Manager](/azure/traffic-manager) is a DNS-based traffic load balancer that distributes traffic optimally, to services across global Azure regions, while providing high availability and responsiveness.
+- [Azure Load Balancer](/azure/load-balancer/load-balancer-overview) distributes inbound traffic, according to defined rules and health probes. A load balancer provides low latency and high throughput, scaling up to millions of flows for all TCP and UDP applications. A public load balancer is used in this scenario, to distribute incoming client traffic to the web tier. An internal load balancer is used in this scenario, to distribute traffic from the business tier to the back-end SQL Server cluster.
+- [Azure Bastion](/azure/bastion/bastion-overview) provides secure RDP and SSH connectivity to all of the VMs, in the virtual network in which it is provisioned. Use Azure Bastion to protect your virtual machines from exposing RDP/SSH ports to the outside world, while still providing secure access using RDP/SSH.
 
 ## Recommendations
 
