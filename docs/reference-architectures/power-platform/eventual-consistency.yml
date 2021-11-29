@@ -26,4 +26,4 @@ products:
   - azure-web-apps
 thumbnailUrl: /azure/architecture/browse/thumbs/powerapps-eventual-consistency-issue.png
 content: |
-   [!include[](eventually-consistent-content.md)]
+   [!include[](eventual-consistency-content.md)]

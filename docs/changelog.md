@@ -2,7 +2,7 @@
 title: What's New in Azure Architecture Center
 description: New and updated articles in Azure Architecture Center
 author: doodlemania2
-ms.date: 11/15/2021
+ms.date: 11/29/2021
 ms.topic: article
 ms.service: architecture-center
 ---
@@ -27,6 +27,57 @@ New and updated articles in Azure Architecture Center.
 
 ### New Articles
 
+- [Azure DevTest Labs reference architecture for enterprises](./example-scenario/infrastructure/devtest-labs-reference-architecture.yml)
+- [Exploratory data analysis with Azure Synapse serverless and a lakehouse](./example-scenario/data/synapse-exploratory-data-analytics.yml)
+- [Architectural approaches for cost management and allocation in a multitenant solution](./guide/multitenant/approaches/cost-management-allocation.md)
+- [Architectural approaches for compute in multitenant solutions](./guide/multitenant/approaches/compute.md)
+- [Architectural approaches for a multitenant solution](./guide/multitenant/approaches/overview.md)
+- [Architectural approaches for the deployment and configuration of multitenant solutions](./guide/multitenant/approaches/deployment-configuration.yml)
+- [Azure Resource Manager considerations for multitenancy](./guide/multitenant/service/resource-manager.md)
+- [Manage virtual machine compliance](./example-scenario/security/virtual-machine-compliance.yml)
+- [Many models ML with Azure Machine Learning](./example-scenario/ai/many-models-machine-learning-azure-machine-learning.yml)
+- [Many models machine learning with Spark](./example-scenario/ai/many-models-machine-learning-azure-spark.yml)
+- [Connected factory signal pipeline](./example-scenario/iot/connected-factory-signal-pipeline.yml)
+- [Build CNCF projects by using Azure Kubernetes Service](./example-scenario/apps/build-cncf-incubated-graduated-projects-aks.yml)
+- [Multiparty computing with Azure services](./guide/blockchain/multiparty-compute.yml)
+- [Monitor the performance of a cloud application](./framework/scalability/checklist.md)
+- [Auditing](./framework/devops/auditing.md)
+- [Monitoring operations of cloud applications](./framework/devops/checklist.md)
+- [Health monitoring](./framework/devops/health-monitoring.md)
+- [Issue tracking](./framework/devops/issue-tracking.md)
+- [Tracing and debugging](./framework/devops/tracing.md)
+- [Usage monitoring](./framework/devops/usage.md)
+- [Alerting for operations](./framework/devops/monitor-alerts.md)
+- [Analyze monitoring data for cloud applications](./framework/devops/monitor-analysis.md)
+- [Collect, aggregate, and store monitoring data for cloud applications](./framework/devops/monitor-collection-data-storage.md)
+- [Data sources for diagnostic data](./framework/devops/monitor-data-sources.md)
+- [Instrument an application](./framework/devops/monitor-instrument.md)
+- [Monitoring workloads](./framework/devops/monitor-pipeline.md)
+- [Visualize data and raise alerts](./framework/devops/monitor-visualize-data.md)
+- [Hybrid file share with disaster recovery for remote and local branch workers](./example-scenario/hybrid/hybrid-file-share-dr-remote-local-branch-workers.yml)
+- [Improved-security access to multitenant web apps from an on-premises network](./example-scenario/security/access-multitenant-web-app-from-on-premises.yml)
+- [Cosmos DB and operational excellence](./framework/services/data/cosmos-db/operational-excellence.md)
+- [Cosmos DB and reliability](./framework/services/data/cosmos-db/reliability.md)
+- [Automatic retry of failed backup jobs](./framework/resiliency/auto-retry.md)
+- [Build a delta lake to support ad hoc queries in online leisure and travel booking](./solution-ideas/articles/build-data-lake-support-adhoc-queries-online.yml)
+- [Azure SQL Managed Instance and operational excellence](./framework/services/data/azure-sql-managed-instance/operational-excellence.md)
+- [Azure SQL Managed Instance and reliability](./framework/services/data/azure-sql-managed-instance/reliability.md)
+- [Azure SQL Database and cost optimization](./framework/services/data/azure-sql-database/cost-optimization.md)
+- [Azure SQL Database and operational excellence](./framework/services/data/azure-sql-database/operational-excellence.md)
+- [Azure SQL Database and reliability](./framework/services/data/azure-sql-database/reliability.md)
+- [Azure Database for PostgreSQL and cost optimization](./framework/services/data/azure-db-postgresql/cost-optimization.md)
+- [Azure Database for MySQL and cost optimization](./framework/services/data/azure-db-mysql/cost-optimization.md)
+- [Azure Databricks and security](./framework/services/data/azure-databricks/security.md)
+- [Azure Cache for Redis and operational excellence](./framework/services/data/azure-cache-redis/operational-excellence.md)
+- [Azure Cache for Redis and reliability](./framework/services/data/azure-cache-redis/reliability.md)
+- [Virtual Machines and cost optimization](./framework/services/compute/virtual-machines/cost-optimization.md)
+- [Virtual Machines and operational excellence](./framework/services/compute/virtual-machines/operational-excellence.md)
+- [Virtual Machines and reliability](./framework/services/compute/virtual-machines/reliability.md)
+- [Azure Service Fabric and operational excellence](./framework/services/compute/service-fabric/operational-excellence.md)
+- [Azure Service Fabric and performance efficiency](./framework/services/compute/service-fabric/performance-efficiency.md)
+- [Azure Service Fabric and reliability](./framework/services/compute/service-fabric/reliability.md)
+- [Azure Service Fabric and security](./framework/services/compute/service-fabric/security.md)
+- [Azure Functions and security](./framework/services/compute/functions/security.md)
 - [Azure Kubernetes Service (AKS) and operational excellence](./framework/services/compute/azure-kubernetes-service/operational-excellence.md)
 - [Azure Kubernetes Service (AKS) and performance efficiency](./framework/services/compute/azure-kubernetes-service/performance-efficiency.md)
 - [Automate IP rotation with Azure Container Instances container groups](./example-scenario/serverless/automation-application-gateway.yml)
@@ -53,7 +104,20 @@ New and updated articles in Azure Architecture Center.
 
 ### Updated Articles
 
-- [Data cache](./solution-ideas/articles/data-cache-with-redis-cache.yml)  ([#2df1e66db](https://github.com/MicrosoftDocs/architecture-center/commit/2df1e66db))
+- [Monitoring for Workloads](./framework/devops/monitoring.md)  ([#92d85aa6d](https://github.com/MicrosoftDocs/architecture-center/commit/92d85aa6d))
+- [Multi-tier web application built for HA/DR](./example-scenario/infrastructure/multi-tier-app-disaster-recovery.yml)  ([#f57f293c4](https://github.com/MicrosoftDocs/architecture-center/commit/f57f293c4))
+- [Highly available multi-region web app](./reference-architectures/app-service-web-app/multi-region.yml)  ([#f57f293c4](https://github.com/MicrosoftDocs/architecture-center/commit/f57f293c4))
+- [Serverless application architectures using Event Grid](./solution-ideas/articles/serverless-application-architectures-using-event-grid.yml)  ([#4d13dd5ac](https://github.com/MicrosoftDocs/architecture-center/commit/4d13dd5ac))
+- [Gridwich saga orchestration](./reference-architectures/media-services/gridwich-saga-orchestration.yml)  ([#dab91267e](https://github.com/MicrosoftDocs/architecture-center/commit/dab91267e))
+- [Solutions for the manufacturing industry](./industries/manufacturing.md)  ([#67520d515](https://github.com/MicrosoftDocs/architecture-center/commit/67520d515))
+- [Finance management apps with Azure DB for MySQL](./solution-ideas/articles/finance-management-apps-using-azure-database-for-mysql.yml)  ([#21a0ff780](https://github.com/MicrosoftDocs/architecture-center/commit/21a0ff780))
+- [Finance management apps using Azure Database for PostgreSQL](./solution-ideas/articles/finance-management-apps-using-azure-database-for-postgresql.yml)  ([#21a0ff780](https://github.com/MicrosoftDocs/architecture-center/commit/21a0ff780))
+- [Unisys mainframe migration with Asysco](./reference-architectures/migration/unisys-mainframe-migration.yml)  ([#b17b2ba53](https://github.com/MicrosoftDocs/architecture-center/commit/b17b2ba53))
+- [Run a highly available SharePoint Server 2016 farm in Azure](./reference-architectures/sharepoint/index.yml)  ([#b0e188310](https://github.com/MicrosoftDocs/architecture-center/commit/b0e188310))
+- [Cache access tokens in a multitenant app](./multitenant-identity/token-cache.md)  ([#3412f987b](https://github.com/MicrosoftDocs/architecture-center/commit/3412f987b))
+- [Dynamics Business Central as a service on Azure](./solution-ideas/articles/business-central.yml)  ([#8861a9535](https://github.com/MicrosoftDocs/architecture-center/commit/8861a9535))
+- [Data cache](./solution-ideas/articles/data-cache-with-redis-cache.yml)  ([#c8c7b09ab](https://github.com/MicrosoftDocs/architecture-center/commit/c8c7b09ab))
+- [Refactor IBM z/OS coupling facility](./reference-architectures/zos/refactor-zos-coupling-facility.yml)  ([#08b9cc5e9](https://github.com/MicrosoftDocs/architecture-center/commit/08b9cc5e9))
 - [Security alerts in Azure](./framework/security/monitor-logs-alerts.md)  ([#36456d4f5](https://github.com/MicrosoftDocs/architecture-center/commit/36456d4f5))
 - [AKS regulated cluster for PCI-DSS 3.2.1 - Data protection](./reference-architectures/containers/aks-pci/aks-pci-data.yml)  ([#36456d4f5](https://github.com/MicrosoftDocs/architecture-center/commit/36456d4f5))
 - [AKS regulated cluster for PCI-DSS 3.2.1 - Network segmentation](./reference-architectures/containers/aks-pci/aks-pci-network.yml)  ([#36456d4f5](https://github.com/MicrosoftDocs/architecture-center/commit/36456d4f5))
