@@ -808,7 +808,15 @@ items:
                   - name: Reliability
                     href: framework/services/data/cosmos-db/reliability.md
                   - name: Operational excellence
-                    href: framework/services/data/cosmos-db/operational-excellence.md  
+                    href: framework/services/data/cosmos-db/operational-excellence.md
+          - name: Hybrid  
+            items:
+              - name: Azure Stack Hub
+                items:
+                  - name: Reliability
+                    href: framework/services/hybrid/azure-stack-hub/reliability.md
+                  - name: Operational excellence
+                    href: framework/services/hybrid/azure-stack-hub/operational-excellence.md
   - name: Industry solutions with Azure
     expanded: true
     items:
