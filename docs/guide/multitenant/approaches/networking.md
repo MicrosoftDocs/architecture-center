@@ -1,7 +1,7 @@
 ---
 title: Architectural approaches for networking
 titleSuffix: Azure Architecture Center
-description: TODO
+description: This article describes approaches to consider for networking in a multitenant solution.
 author: johndowns
 ms.author: jodowns
 ms.date: 11/25/2021
@@ -107,7 +107,7 @@ When every tenant needs their own VNet, you can consider configuring each tenant
 
 TODO diagram
 
-#### Example 2: Large numbers of shared spoke VNets
+#### Example 2: Shared resource spoke VNets
 
 When you create shared components to enable high levels of scale, such as when you use the [Deployment Stamps pattern](../../../patterns/deployment-stamp.md), or need to scale out to support high levels of traffic, you can create separate spoke VNets for each set of resources. Your central hub VNet can then contain resources that should be accessible throughout your entire environment.
 
@@ -119,7 +119,7 @@ Consider whether your tenants need your service to use static public IP addresse
 
 When you work with virtual machines and other infrastructure components, consider using a load balancer or firewall for both inbound and outbound static IP addressing. You can also consider using NAT Gateway to control the IP address of outbound traffic.
 
-When you work with platform services, the specific service you use determines whether and how you can control IP addresses. You might need to configure the resource in a specific way, such as by deploying the resource into a VNet and using a NAT Gateway or firewall, or by requesting the current set of IP addresses that the service uses for outbound traffic (for example, [App Service provides such an API](/azure/app-service/troubleshoot-intermittent-outbound-connection-errors)).
+When you work with platform services, the specific service you use determines whether and how you can control IP addresses. You might need to configure the resource in a specific way, such as by deploying the resource into a VNet and using a NAT Gateway or firewall, or by requesting the current set of IP addresses that the service uses for outbound traffic (for example, [App Service provides an API and web interface to obtain the current outbound IP addresses for your application](/azure/app-service/troubleshoot-intermittent-outbound-connection-errors)).
 
 ### On-premises gateways
 
@@ -160,32 +160,19 @@ You can use Front Door or another CDN for your solution's static components, suc
 
 Depending on how your solution is designed, you might also be able to cache tenant-specific files or data within a CDN, such as JSON API responses. This can help to improve the performance and scalability of your solution, but it's important to consider whether tenant-specific data is isolated sufficiently to avoid leaking data across tenants. You should also consider how you plan to purge tenant-specific content from your cache, such as when data is updated or a new application version is deployed. By including the tenant identifier in the URL path, you can control whether you purge a specific file, all files that relate to a specific tenant, or all files for all tenants.
 
-<!-- TODO here down -->
-
 ## Antipatterns to avoid
 
-* Deploying everything as VNet-integrated without understanding the implications
-  * Limits, complexity, cost
-* Not being aware of limits, or planning for them
-  * Subnet sizes - consider how you [segment your subnets](/azure/security/fundamentals/network-best-practices#logically-segment-subnets).
-  * SNAT port, TCP connection limits
-    * For more detail see these links: For VM and Load Balancer https://docs.microsoft.com/en-us/azure/load-balancer/outbound-rules or this https://docs.microsoft.com/en-us/azure/load-balancer/load-balancer-outbound-connections or this for web apps (since it can happen frequently with multiple separate tenant system connecting to different endpoints) https://docs.microsoft.com/en-us/azure/app-service/troubleshoot-intermittent-outbound-connection-errors
-  * Azure resource quotas and limits
-* Not segmenting networks properly, if required
-  * Consider how you segment your network and control east-west traffic
-  * e.g. do tenants need their own isolated VNets? Or will you use a shared VNet with separate subnets for each role and have tenants share the subnets?
-  * Generally not a good idea to deploy subnets per tenant because you'll run into limits quickly. Scale within a subnet or across VNets.
-* Relying only on network segmentation.
-  * Use identity-based controls/zero trust models too.
-  * In AKS, use Network Policies as a way to control east-west traffic on the network layer and Service Mesh for mTLS.
-* Using L7 reverse proxy to rewrite HTTP Host header when backend isn't aware
-  * Causes problems with redirects and cookies
-  * This is an issue with App Service, Azure Functions, Spring Cloud, among others
+* **Deploying everything as VNet-integrated without understanding the implications.** Deploying resources into VNets provides you with a great deal of control over how traffic flows through your solution. However, VNet integration also introduces additional complexity, cost, and other factors that you need to consider. It's important to test and plan your network strategy so that you uncover any issues before you implement it in a production environment.
+* **Not planning for limits.** Azure enforces a number of limits that affect networking resources. These include [Azure resource limits](/azure/azure-resource-manager/management/azure-subscription-service-limits#networking-limits) as well as fundamental protocol and platform limits. For example, when you build a high-scale multitenant solution on platform services like Azure App Service and Azure Functions, you might need to consider the [number of TCP connections and SNAT ports](/azure/app-service/troubleshoot-intermittent-outbound-connection-errors). When you work with virtual machines and load balancers, you also need to consider limitations for [outbound rules](/azure/load-balancer/outbound-rules) and for [SNAT ports](/azure/load-balancer/load-balancer-outbound-connections).
+* **Not sizing subnets correctly.** It's important to consider the size of each subnet to allow for the number of resources or instances of resources that you will deploy. It's also important to consider how you [logically segment](/azure/security/fundamentals/network-best-practices#logically-segment-subnets) your subnets.
+* **Not segmenting networks correctly.** If your solution requires virtual networks, consider how you configure network segmentation to enable you to control inbound and outbound (north-south) traffic flows as well as flows within your solution (east-west). Decide whether tenants should have their own VNets, or if you will deploy shared resources in shared VNets. It can be difficult to change the approach, so ensure you consider all of your requirements and select an approach that will work for your future growth targets.
+* **Relying only on network-layer security controls.** In modern networks, it's important to combine network-layer security with other security controls, and not rely on firewalls or network segmentation. This is sometimes called *zero-trust networking*. Use identity-based controls to verify the client, caller, or user at every layer of your solution. Consider using services that enable you to add additional layers of protection. The options you have available depend on the Azure services you use. In AKS, consider using a service mesh for mutual TLS authentication, and [network policies](/azure/aks/use-network-policies) to control east-west traffic. In App Service, consider using the [built-in support for authentication and authorization](/azure/app-service/overview-authentication-authorization) and [access restrictions](/azure/app-service/app-service-ip-restrictions).
+* **Using a reverse proxy to rewrite the HTTP `Host` header when the backend isn't aware.** When you use the [Gateway Offloading pattern](TODO), you might consider rewriting the `Host` header of HTTP requests. This can simplify the configuration of your backend web application service by offloading the custom domain and TLS management to the gateway. However, `Host` header rewrites can cause problems for some backend services. If your application issues HTTP redirects or cookies, the mismatch in host names can break application functionality. This is a particular issue when you work with services like Azure App Service, Azure Functions, and Azure Spring Cloud. Ensure you test your application's behavior with the gateway configuration you plan to use.
 
 ## Next steps
 
-Links to other relevant pages within our section.
+Review [considerations when using domain names in a multitenant solution](../considerations/domain-names.md).
 
 ## Related resources
 
-- https://github.com/Azure/SaaS-Private-Connectivity
+- [SaaS Private Connectivity Pattern](https://github.com/Azure/SaaS-Private-Connectivity)
