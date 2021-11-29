@@ -10,7 +10,7 @@ Typical use cases for this architecture include:
 
 ## Architecture 
 
-:::image type="content" source="./media/performance-security-optimized-vwan-architecture-azure-main.png" alt-text="Diagram that shows an architecture optimized for either security or performance, depending the on department." lightbox="./media/performance-security-optimized-vwan-architecture-main.png":::
+:::image type="content" source="./media/performance-security-optimized-vwan-architecture-azure-main.png" alt-text="Diagram that shows an architecture optimized for either security or performance, depending the on department." lightbox="./media/performance-security-optimized-vwan-architecture-azure-main.png":::
 
 Download a [Visio file](https://arch-center.azureedge.net/Performance-security-optimized-VWAN-architecture-azure.vsdx) of this architecture.
 
