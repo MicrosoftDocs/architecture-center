@@ -3589,8 +3589,6 @@ items:
                     href: hybrid/hybrid-perf-monitoring.yml
               - name: Implement a secure hybrid network
                 href: reference-architectures/dmz/secure-vnet-dmz.yml
-              - name: Virtual WAN optimized for varying requirements
-                href: example-scenario/infrastructure/performance-security-optimized-vwan.yml
               - name: Interconnect with China using Virtual WAN
                 href: /azure/virtual-wan/interconnect-china
                 maintainContext: true
@@ -3620,6 +3618,8 @@ items:
               - name: Virtual WAN network topology
                 href: /azure/cloud-adoption-framework/ready/azure-best-practices/virtual-wan-network-topology
                 maintainContext: true
+              - name: Virtual WAN optimized for varying requirements
+                href: example-scenario/infrastructure/performance-security-optimized-vwan.yml
           - name: Solution ideas
             items:
               - name: Low-latency network for industry
