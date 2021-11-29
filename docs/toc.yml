@@ -1847,7 +1847,7 @@ items:
                 href: example-scenario/infrastructure/image-modeling.yml
               - name: Linux virtual desktops with Citrix
                 href: example-scenario/infrastructure/linux-vdi-citrix.yml
-              - name: Loosely coupled Quantum Computing Jobs on Azure
+              - name: Loosely coupled quantum computing jobs on Azure
                 href: example-scenario/quantum/loosely-coupled-quantum-computing-job.yml
               - name: Manage virtual machine compliance
                 href: example-scenario/security/virtual-machine-compliance.yml
@@ -1861,7 +1861,7 @@ items:
                 href: example-scenario/infrastructure/hpc-cfd.yml
               - name: Run reservoir simulations
                 href: example-scenario/infrastructure/reservoir-simulation.yml
-              - name: Tightly coupled Quantum Computing Jobs on Azure
+              - name: Tightly coupled quantum computing jobs on Azure
                 href: example-scenario/quantum/tightly-coupled-quantum-computing-job.yml
           - name: Solution ideas
             items:
@@ -2384,11 +2384,11 @@ items:
               - name: Continuous integration for Synapse Analytics
                 href: /azure/synapse-analytics/cicd/continuous-integration-delivery
                 maintainContext: true
+              - name: DevOps for quantum computing
+                href: guide/quantum/devops-for-quantum-computing.md
               - name: Platform automation for VMware Solution
                 href: /azure/cloud-adoption-framework/scenarios/azure-vmware/eslz-platform-automation-and-devops
                 maintainContext: true
-              - name: DevOps for Quantum Computing
-                href: guide/quantum/devops-for-quantum-computing.md
           - name: Architectures
             items:
               - name: Azure DevTest Labs for enterprises
@@ -2416,7 +2416,7 @@ items:
                 href: solution-ideas/articles/cicd-for-containers.yml
               - name: CI/CD for Microsoft Power Platform
                 href: solution-ideas/articles/azure-devops-continuous-integration-for-power-platform.yml
-              - name: CI/CD for Quantum Computing Jobs
+              - name: CI/CD for quantum computing jobs
                 href: solution-ideas/articles/cicd-for-quantum-computing-jobs.yml
               - name: CI/CD using Jenkins and AKS
                 href: solution-ideas/articles/container-cicd-using-jenkins-and-kubernetes-on-azure-container-service.yml
