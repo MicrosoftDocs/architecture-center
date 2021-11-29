@@ -66,7 +66,7 @@ The drawback of microservices is that any shared models require synchronized rol
 
 - [What are microservices?](/devops/deliver/what-are-microservices): Explore microservice architecture.
 - [Introduction to Azure Functions](/azure/azure-functions/functions-overview): Learn more about Azure Functions.
-- [Azure Media Services as an Event Grid source](/azure/event-grid/event-schema-media-services?tabs=event-grid-event-schema): Familiarize yorself with the schemas and properties for Media Services events.
+- [Azure Media Services as an Event Grid source](/azure/event-grid/event-schema-media-services?tabs=event-grid-event-schema): Familiarize yourself with the schemas and properties for Media Services events.
 
 ## Related resources
 
