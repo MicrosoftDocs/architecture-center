@@ -99,19 +99,10 @@ The [hub and spoke VNet topology](../../../reference-architectures/hybrid-networ
 
 When you use a hub and spoke topology, ensure you plan around [limits such as the maximum number of peered VNets](/azure/virtual-network/virtual-network-peering-overview), and ensure that you don't use overlapping address spaces for each tenant's VNet.
 
-The hub and spoke topology can be useful in several types of multitenant solutions, as illustrated in the following examples.
+The hub and spoke topology can be useful when you deploy tenant-specific VNets. Each tenant's VNet becomes a spoke, and can share your common resources in the hub VNet. You can also use the hub and spoke topology when you scale shared resources across multiple VNets for scale purposes, or when you use the [Deployment Stamps pattern](../../../patterns/deployment-stamp.md).
 
-#### Example 1: Tenant-specific spoke VNets
-
-When every tenant needs their own VNet, you can consider configuring each tenant-specific VNet as a spoke. You can create a single hub VNet for network resources that every tenant should share.
-
-TODO diagram
-
-#### Example 2: Shared resource spoke VNets
-
-When you create shared components to enable high levels of scale, such as when you use the [Deployment Stamps pattern](../../../patterns/deployment-stamp.md), or need to scale out to support high levels of traffic, you can create separate spoke VNets for each set of resources. Your central hub VNet can then contain resources that should be accessible throughout your entire environment.
-
-TODO diagram
+> [!TIP]
+> If your solution runs across multiple geographic regions, it's usually a good practice to deploy separate hubs and hub resources in each region. While this incurs a higher resource cost, it avoids traffic going through multiple Azure regions unnecessarily, which can increase the latency of requests and incur global peering charges.
 
 ### Static IP addresses
 
@@ -167,7 +158,7 @@ Depending on how your solution is designed, you might also be able to cache tena
 * **Not sizing subnets correctly.** It's important to consider the size of each subnet to allow for the number of resources or instances of resources that you will deploy. It's also important to consider how you [logically segment](/azure/security/fundamentals/network-best-practices#logically-segment-subnets) your subnets.
 * **Not segmenting networks correctly.** If your solution requires virtual networks, consider how you configure network segmentation to enable you to control inbound and outbound (north-south) traffic flows as well as flows within your solution (east-west). Decide whether tenants should have their own VNets, or if you will deploy shared resources in shared VNets. It can be difficult to change the approach, so ensure you consider all of your requirements and select an approach that will work for your future growth targets.
 * **Relying only on network-layer security controls.** In modern networks, it's important to combine network-layer security with other security controls, and not rely on firewalls or network segmentation. This is sometimes called *zero-trust networking*. Use identity-based controls to verify the client, caller, or user at every layer of your solution. Consider using services that enable you to add additional layers of protection. The options you have available depend on the Azure services you use. In AKS, consider using a service mesh for mutual TLS authentication, and [network policies](/azure/aks/use-network-policies) to control east-west traffic. In App Service, consider using the [built-in support for authentication and authorization](/azure/app-service/overview-authentication-authorization) and [access restrictions](/azure/app-service/app-service-ip-restrictions).
-* **Using a reverse proxy to rewrite the HTTP `Host` header when the backend isn't aware.** When you use the [Gateway Offloading pattern](TODO), you might consider rewriting the `Host` header of HTTP requests. This can simplify the configuration of your backend web application service by offloading the custom domain and TLS management to the gateway. However, `Host` header rewrites can cause problems for some backend services. If your application issues HTTP redirects or cookies, the mismatch in host names can break application functionality. This is a particular issue when you work with services like Azure App Service, Azure Functions, and Azure Spring Cloud. Ensure you test your application's behavior with the gateway configuration you plan to use.
+* **Using a reverse proxy to rewrite the HTTP `Host` header when the backend isn't aware.** When you use the [Gateway Offloading pattern](../../../patterns/gateway-offloading.md), you might consider rewriting the `Host` header of HTTP requests. This can simplify the configuration of your backend web application service by offloading the custom domain and TLS management to the gateway. However, `Host` header rewrites can cause problems for some backend services. If your application issues HTTP redirects or cookies, the mismatch in host names can break application functionality. This is a particular issue when you work with services like Azure App Service, Azure Functions, and Azure Spring Cloud. Ensure you test your application's behavior with the gateway configuration you plan to use.
 
 ## Next steps
 
