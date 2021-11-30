@@ -15,7 +15,7 @@ categories:
 
 # Storage Accounts and reliability
 
-[Azure Storage Accounts](/azure/storage/common/storage-account-overview?toc=/azure/storage/blobs/toc.json) contain all of your Azure Storage data objects, which include:
+[Azure Storage Accounts](/azure/storage/common/storage-account-overview?toc=/azure/storage/blobs/toc.json) contain all your Azure Storage data objects, which include:
 
 - Blobs
 - File shares
