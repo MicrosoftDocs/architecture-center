@@ -74,7 +74,8 @@ Configure routes for the Virtual WAN hub as follows:
    rt-to-internet	|0.0.0.0/0	|Virtual appliance	|\<IP of address NVA2>
    vnet-to-vnet	|10.2.0.0/16	|Virtual appliance	|\<IP address of NVA2>
 
-   \* You can replace NVA IP addresses with load balancer IP addresses in the routing if you're deploying a high-availability architecture with multiple NVAs behind the load balancer.
+ > [!NOTE] 
+ > You can replace NVA IP addresses with load balancer IP addresses in the routing if you're deploying a high-availability architecture with multiple NVAs behind the load balancer.
 
 ### Components
 - [Azure Virtual WAN](https://azure.microsoft.com/services/virtual-wan). Virtual WAN is a networking service that brings many networking, security, and routing functionalities together to provide a single operational interface. In this case, it simplifies and scales routing to the attached virtual networks and branches.
