@@ -808,7 +808,15 @@ items:
                   - name: Reliability
                     href: framework/services/data/cosmos-db/reliability.md
                   - name: Operational excellence
-                    href: framework/services/data/cosmos-db/operational-excellence.md  
+                    href: framework/services/data/cosmos-db/operational-excellence.md
+          - name: Hybrid  
+            items:
+              - name: Azure Stack Hub
+                items:
+                  - name: Reliability
+                    href: framework/services/hybrid/azure-stack-hub/reliability.md
+                  - name: Operational excellence
+                    href: framework/services/hybrid/azure-stack-hub/operational-excellence.md
   - name: Industry solutions with Azure
     expanded: true
     items:
@@ -3618,6 +3626,8 @@ items:
               - name: Virtual WAN network topology
                 href: /azure/cloud-adoption-framework/ready/azure-best-practices/virtual-wan-network-topology
                 maintainContext: true
+              - name: Virtual WAN optimized for varying requirements
+                href: example-scenario/infrastructure/performance-security-optimized-vwan.yml
           - name: Solution ideas
             items:
               - name: Low-latency network for industry
@@ -3755,6 +3765,8 @@ items:
                 href: hybrid/hybrid-file-services.yml
               - name: Minimal storage – change feed to replicate data
                 href: solution-ideas/articles/minimal-storage-change-feed-replicate-data.yml
+              - name: Moodle deployment with Azure NetApp Files
+                href: example-scenario/file-storage/moodle-azure-netapp-files.yml
               - name: Multi-region web app with replication
                 href: solution-ideas/articles/multi-region-web-app-multi-writes-azure-table.yml
               - name: Optimized storage with logical data classification

@@ -21,6 +21,8 @@ To avoid experiencing poor performance, commit time and resources to testing sys
 
 A best practice is to plan for a load buffer to accommodate random spikes without overloading the infrastructure. For example, if a normal system load is 100,000 requests per second, the infrastructure should support 100,000 requests at 80% of total capacity (i.e., 125,000 requests per second). If you anticipate that the application will continue to sustain 100,000 requests per second, and the current SKU (Stock Keeping Unit) introduces latency at 65,000 requests per second, you'll most likely need to upgrade your product to the next higher SKU. If there is a secondary region, you'll need to ensure that it also supports the higher SKU.
 
+Depending on the scale of your performance test, you need to plan for and maintain a testing infrastructure. You can use a cloud-based tool, such as [Azure Load Testing Preview](/azure/load-testing/overview-what-is-azure-load-testing), to abstract the infrastructure needed to run your performance tests.
+
 ## Establish baselines
 First, establish performance baselines for your application. Then, establish a regular cadence for running the tests. Run the test as part of a scheduled event or part of a continuous integration (CI) build pipeline.
 
