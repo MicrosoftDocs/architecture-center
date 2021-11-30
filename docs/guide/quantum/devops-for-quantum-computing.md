@@ -46,13 +46,18 @@ In DevOps, we typically distinguish between the inner and outer loop.
 
 :::image type="content" source="media/inner-and-outer-loop-in-quantum-devops.png" alt-text="The inner and outer loops in DevOps for quantum applications":::
 
+### The outer loop
+
 The **outer loop** involves activities typically associated with a full DevOps-cycle:
 
 * Managing work items in a product backlog.
 * Developing and testing software artifacts (via inner loops).
 * Centrally building and deployment of these artifacts, which includes provisioning of the target environment.
-* Monitoring the running application.
-* Results might lead to new work items in the backlog. These steps will be discussed in more detail in later sections.
+* Monitoring the running application. Results might lead to new work items in the backlog.
+
+These steps will be discussed in more detail in later sections.
+
+### The inner loop
 
 The **inner loop** is the iterative process a (quantum or classical) developer performs when writing, building, testing code. The inner loop mostly takes place on IT systems that an individual developer owns or holds responsibility for (for example the developer machine with programming tools, debugger, etc.).
 
@@ -91,7 +96,8 @@ Testing of quantum components includes following activities:
 * Unit tests implemented via [test projects](/azure/quantum/user-guide/testing-debugging) and executed on a quantum simulator.
 * [Estimation of required resources](/azure/quantum/user-guide/machines/resources-estimator) on quantum hardware.
 * Tests being executed on quantum hardware - potentially the target production environment.
-* For testing purposes, the quantum jobs can either be submitted by the classical components used in production, or by components (for example CLI scripts) specially written for automated testing.
+
+For testing purposes, the quantum jobs can either be submitted by the classical components used in production, or by components (for example CLI scripts) specially written for automated testing.
 
 Because of its probabilistic nature, testing of the quantum components has some special requirements:
 
@@ -110,10 +116,10 @@ The build and test steps were already covered in the CI-phase. Configuring and d
   * Environment provisioning can be automated by deploying the ARM templates stored in the repository.
   * It is not necessary to reprovision the quantum components every time the code changes. As the quantum code doesn't persist on these components (the jobs are submitted on demand by the classical components) these components should be reprovisioned only on special occasions (for example a full, clean deployment).
   * The classical components can be reprovisioned with every code change. To minimize disruption during deployment, you can implement a [staged approach](../../framework/devops/release-engineering-cd.md#stage-your-workloads), and use features offered by many Azure compute services for [high availability](../../framework/devops/release-engineering-cd.md#high-availability-considerations).
-* **Configure target environments**
+* **Configuration of target environments**
   * As the classical components need to have permissions to submit quantum jobs, you should define [managed identities](/azure/active-directory/managed-identities-azure-resources/overview) for the classical components (for example the job orchestrating Azure Function). With managed identities, you can properly restrict access to the quantum resources to only those components that need to access them for job orchestration purpose.
   * Grant the classical components access to the quantum workspace, so that they can submit and monitor quantum jobs. Add a contributor role assignment to the quantum workspace for the managed identity.
-* **Ship the application artifacts to the target environments**
+* **Shipping of application artifacts to the target environments**
   * Shipping involves deploying the classical application package (that includes the quantum job artifacts) to the chosen compute service.
 
 ## Application Monitoring
