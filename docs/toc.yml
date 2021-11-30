@@ -1534,6 +1534,8 @@ items:
                 href: example-scenario/ai/customer-lifecycle-churn.yml
               - name: Distributed deep learning training
                 href: reference-architectures/ai/training-deep-learning.yml
+              - name: Extract object from text
+                href: example-scenario/ai/extract-object-text.yml
               - name: Enterprise-grade conversational bot
                 href: reference-architectures/ai/conversational-bot.yml
               - name: Image classification
