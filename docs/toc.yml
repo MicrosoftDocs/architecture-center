@@ -3626,6 +3626,8 @@ items:
               - name: Virtual WAN network topology
                 href: /azure/cloud-adoption-framework/ready/azure-best-practices/virtual-wan-network-topology
                 maintainContext: true
+              - name: Virtual WAN optimized for varying requirements
+                href: example-scenario/infrastructure/performance-security-optimized-vwan.yml
           - name: Solution ideas
             items:
               - name: Low-latency network for industry
