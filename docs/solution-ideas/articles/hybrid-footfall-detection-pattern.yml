@@ -1,6 +1,6 @@
 ### YamlMime:Architecture
 metadata:
-  title: Footfall detection
+  title: AI-based footfall detection 
   titleSuffix: Azure Solution Ideas
   description: The article provides an overview for implementing an AI-based footfall detection solution for analyzing visitor traffic in retail stores. The solution generates insights from real world actions, using Azure, Azure Stack Hub, and the Custom Vision AI Dev Kit.
   author: EdPrice-MSFT
@@ -36,7 +36,7 @@ products:
   - azure-virtual-machines
   - azure-virtual-network
   - azure-vpn-gateway
-name: Footfall detection
+name: AI-based footfall detection 
 summary: The article provides an overview for implementing an AI-based footfall detection solution for analyzing visitor traffic in retail stores. The solution generates insights from real world actions, using Azure, Azure Stack Hub, and the Custom Vision AI Dev Kit.
 thumbnailUrl: /azure/architecture/browse/thumbs/hybrid-footfall-detection-pattern.png
 content: |
