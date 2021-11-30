@@ -74,7 +74,7 @@ For more information, reference the [Storage account overview](/azure/storage/co
 
 ## Configuration recommendations
 
-Consider the following recommendations to optimize your Azure Storage Account configuration for reliability:
+Consider the following recommendations to optimize reliability when configuring your Azure Storage Account:
 
 |Recommendation|Description|
 |--------------|-----------|

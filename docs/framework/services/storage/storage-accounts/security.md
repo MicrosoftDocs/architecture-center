@@ -37,6 +37,8 @@ The following sections include design considerations, a configuration checklist,
 
 ## Design considerations
 
+Azure storage accounts include the following design considerations:
+
 - Storage account names must be between three and 24 characters and may contain numbers, and lowercase letters only.
 - For current SLA specifications, reference [SLA for Storage Accounts](https://azure.microsoft.com/support/legal/sla/storage/v1_5/).
 - Go to [Azure Storage redundancy](/azure/storage/common/storage-redundancy) to determine which redundancy option is best for a specific scenario.
@@ -66,7 +68,7 @@ The following sections include design considerations, a configuration checklist,
 
 ## Configuration recommendations
 
-Consider the following recommendations to optimize your Azure Storage Account configuration for reliability:
+Consider the following recommendations to optimize security when configuring your Azure Storage Account:
 
 |Recommendation|Description|
 |--------------|-----------|
