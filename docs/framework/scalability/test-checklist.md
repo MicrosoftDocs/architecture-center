@@ -50,7 +50,7 @@ Use the following checklist to review your application architecture from a perfo
 
 ## Testing tools
 
-- **Choose testing tools based on the type of performance testing you are attempting to execute**. There are various performance testing tools available for DevOps. Some tools like `JMeter` only perform testing against endpoints and tests HTTP statuses. Other tools such as K6 and Selenium can perform tests that also check data quality and variations. Application Insights, while not necessarily designed to test server load, can test the performance of an application within the user's browser.
+- **Choose testing tools based on the type of performance testing you are attempting to execute**. There are various performance testing tools available for DevOps. Some tools like `JMeter` only perform testing against endpoints and tests HTTP statuses. Other tools such as K6 and Selenium can perform tests that also check data quality and variations. [Azure Load Testing Preview](/azure/load-testing/overview-what-is-azure-load-testing) allows you to create a load test by using an existing JMeter script, and monitor client-side and server-side metrics to identify performance bottlenecks. Application Insights, while not necessarily designed to test server load, can test the performance of an application within the user's browser.
 
 - **Carry out performance profiling and load testing** during development, as part of test routines, and before final release to ensure the application performs and scales as required. This testing should occur on the same type of hardware as the production platform, and with the same types, and quantities of data, and user load as it will encounter in production.
 

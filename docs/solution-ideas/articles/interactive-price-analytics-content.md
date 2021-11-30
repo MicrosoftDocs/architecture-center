@@ -1,7 +1,5 @@
 <!-- cSpell:ignore xlink -->
 
-[!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
-
 The Price Analytics solution uses your transactional history data to show you how the demand for your products responds to the prices you offer. It recommends pricing changes and allows you to simulate how changes in price would affect your demand, at a fine granularity.
 
 The solution provides a dashboard where you can see the following:

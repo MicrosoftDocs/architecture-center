@@ -13,6 +13,7 @@ ms.custom:
   - fcp
   - guide
 ---
+
 # Application development and deployment
 
 To develop and deploy serverless applications with Azure Functions, examine patterns and practices, configure DevOps pipelines, and implement site reliability engineering (SRE) best practices.
@@ -32,7 +33,7 @@ To plan app development and deployment:
 ### Understand event-driven architecture
 A different event triggers every function in a serverless Functions project. For more information about event-driven architectures, see:
 - [Event-driven architecture style](../guide/architecture-styles/event-driven.md).
-- [Event-driven design patterns to enhance existing applications using Azure Functions](https://channel9.msdn.com/Events/Build/2020/BOD124)
+- [Event-driven design patterns to enhance existing applications using Azure Functions](/events/build-2020/bod124)
 
 ### Prepare development environment
 Set up your development workflow and environment with the tools to create Functions. For details about development tools and Functions code project structure, see:

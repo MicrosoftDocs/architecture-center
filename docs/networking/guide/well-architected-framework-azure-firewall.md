@@ -110,7 +110,7 @@ Azure Firewall exposes a few other logs and metrics for troubleshooting that can
 
 ### Auto scale and performance
 
-- Azure Firewall uses auto scale. It can go up to 20 instances that provide up to 20 Gbps.
+- Azure Firewall uses auto scale. It can go up to 30 Gbps.
 - Azure Firewall always starts with 2 instances. It scales up and down, based on CPU and the network throughput. After an auto scale, Azure Firewall ends up with either n-1 or n+1 instances.
 - Scaling up happens if the threshold for CPU or throughput are greater than 60%, for more than five minutes.
 - Scaling down happens if the threshold for CPU or throughput are under 60%, for more than 30 minutes. The scale-down process happens gracefully (deleting instances). The active connections on the deprovisioned instances are disconnected and switched over to other instances. For the majority of applications, this process does not cause any downtime, but applications should have some type of auto-reconnect capability. (The majority already has this capability.)

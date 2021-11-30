@@ -43,13 +43,13 @@ Here are few ways you can achieve faster builds.
 
 ## Human intervention
 
-It's important to select different builds for different purpose.
+It's important to select different builds for different purposes.
 
 * **CI builds:** Purpose of this build is to ensure it compiles and unit tests run. This build gets triggered at each commit or set of commits over a period of time. It serves as the heartbeat of the project, provides quality feedback to the team immediately. For more info see, [CI triggers or Batching CI builds](/azure/devops/pipelines/build/triggers?tabs=yaml&view=azure-devops&preserve-view=true).
 
-* **Nightly build:** Purpose of this build is not only to compile but also ensure necessary integration/regression tests are run. This build can take up some more time, because we need to do some extra steps to get additional information about the product. For example, metrics about the state of the software using SonarQube. It may also contain a set of regression tests and integration tests and it may also deploy the solution to a temporary machine to verify the solution is continuing to work. For more info see, [scheduling builds using cron syntax](/azure/devops/pipelines/process/scheduled-triggers)
+* **Nightly build:** Purpose of this build is not only to compile, but also ensure necessary integration/regression tests are run. This build can take up more time because we need to do extra steps to get additional information about the product. For example, metrics about the state of the software using SonarQube. It may also contain a set of regression tests and integration tests and it may also deploy the solution to a temporary machine to verify the solution is continuing to work. For more info see, [scheduling builds using cron syntax](/azure/devops/pipelines/process/scheduled-triggers)
 
-* **Release build:** Besides compiling, running test this build additionally compiles the API documentation, compliance reports, code signing, and other steps which are not required every time the code is built. Finally this build provide the golden copy that will be pushed to the release pipeline to finally deploy in the production environment. Generally release build is gets triggered manually instead of a CI trigger.
+* **Release build:** In addition to compiling and running tests, this build also compiles the API documentation, compliance reports, code signing, and other steps which are not required every time the code is built. This build provides the golden copy that will be pushed to the release pipeline to finally deploy in the production environment. Generally, release builds are triggered manually instead of by a CI trigger.
 
 ## Next steps
 

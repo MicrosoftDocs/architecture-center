@@ -2,7 +2,7 @@
 title: Azure App Service and reliability
 description: Focuses on the Azure App Service used in the Compute solution to provide best-practice, configuration recommendations, and design considerations related to Service Reliability.
 author: v-stacywray
-ms.date: 11/11/2021
+ms.date: 11/24/2021
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: well-architected
@@ -56,10 +56,10 @@ For more information, reference the [SLA for App Service](https://azure.microsof
 > - Evaluate the use of [TCP and SNAT ports](/azure/app-service/troubleshoot-intermittent-outbound-connection-errors#cause) to avoid outbound connection errors.
 > - Enable [Health check](/azure/app-service/monitor-instances-health-check#enable-health-check) to identify non-responsive workers.
 > - Enable [Autoscale](/azure/azure-monitor/autoscale/autoscale-get-started) to ensure adequate resources are available to service requests.
-> - Enable [Local Cache](/en-us/azure/app-service/overview-local-cache) to reduce dependencies on cluster file servers.
-> - Enable [Diagnostic Logging](/Azure/app-service/troubleshoot-diagnostic-logs) to provide insight into application behavior.
-> - Enable [Application Insights Alerts](/Azure/azure-monitor/app/azure-web-apps) to signal fault conditions.
-> - Review [Azure App Service diagnostics](/app-service/overview-diagnostics) to ensure common problems are addressed.
+> - Enable [Local Cache](/azure/app-service/overview-local-cache) to reduce dependencies on cluster file servers.
+> - Enable [Diagnostic Logging](/azure/app-service/troubleshoot-diagnostic-logs) to provide insight into application behavior.
+> - Enable [Application Insights Alerts](/azure/azure-monitor/app/azure-web-apps) to signal fault conditions.
+> - Review [Azure App Service diagnostics](/azure/app-service/overview-diagnostics) to ensure common problems are addressed.
 > - Evaluate [per-app scaling](/azure/app-service/manage-scale-per-app) for high density hosting on Azure App Service.
 
 ## Configuration recommendations
@@ -78,7 +78,7 @@ Explore the following table of recommendations to optimize your App Service conf
 |Configure ASE Network correctly.|A common ASE pitfall occurs when ASE is deployed into a subnet with an IP address space that is too small to support future expansion. In such cases, ASE can be left unable to scale without redeploying the entire environment into a larger subnet. We highly recommend that adequate IP addresses be used to support either the maximum number of workers or the largest number considered workloads will need. A single ASE cluster can scale to `201` instances, which would require a `/24` subnet.|
 |Configure **Upgrade preference** if multiple environments are used.|If lower environments are used for staging or testing, consider configuring these environments to receive updates sooner than the production environment. This will help to identify any conflicts or problems with an update, and provides a window to mitigate issues before they reach the production environment. If multiple load balanced (zonal) production deployments are used, *Upgrade preference* can be used to protect the broader environment against issues from platform upgrades.|
 |Scale out the ASE cluster.|Scaling ASE instances vertically or horizontally takes `30` to `60` minutes as new private instances need to be provisioned. We highly recommend investing in up-front planning for scaling during spikes in load or transient failure scenarios.|
-|Use **Deployment slots** for resilient code deployments.|*Deployment slots* allow for code to be deployed to instances that are *warmed-up* before serving production traffic. For more information, reference [Testing in production with Azure App Service](https://channel9.msdn.com/Shows/Azure-Friday/Testing-in-production-with-Azure-App-Service?term=Testing%20in%20production%20with%20Azure%20App%20Service&lang-en=true).|
+|Use **Deployment slots** for resilient code deployments.|*Deployment slots* allow for code to be deployed to instances that are *warmed-up* before serving production traffic. For more information, reference [Testing in production with Azure App Service](/shows/Azure-Friday/Testing-in-production-with-Azure-App-Service?term=Testing%20in%20production%20with%20Azure%20App%20Service&lang-en=true).|
 |Avoid unnecessary worker restarts.|Many events can lead App Service workers to restart, such as content deployment, App Settings changes, and VNet integration configuration changes. A best practice is to make changes in a deployment slot other than the slot currently configured to accept production traffic. After workers are recycled and warmed up, a *swap* can be performed without unnecessary down time.|
 |`Run From Package` to avoid deployment conflicts|`Run from Package` provides several advantages:<br>- Eliminates file lock conflicts between deployment and runtime.<br> - Ensures only fully deployed apps are running at any time. <br> - May reduce *cold-start* times, particularly for JavaScript functions with large `npm` package trees.|
 |Use Basic or higher plans with two or more worker instances for high availability.|Azure App Service provides many configuration options that aren't enabled by default.|

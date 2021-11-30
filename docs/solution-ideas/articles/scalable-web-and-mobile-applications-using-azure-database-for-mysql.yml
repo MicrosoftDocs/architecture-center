@@ -3,9 +3,9 @@ metadata:
   title: Scalable apps using Azure DB for MySQL
   titleSuffix: Azure Solution Ideas
   description: Use Azure Database for MySQL to rapidly build engaging, performant, and scalable cross-platform and native apps for iOS, Android, Windows, or Mac.
-  author: EdPrice-MSFT
-  ms.author: pnp
-  ms.date: 12/16/2019
+  author: mootpointer
+  ms.author: anharvey
+  ms.date: 11/25/2021
   ms.topic: conceptual
   ms.service: architecture-center
   ms.subservice: solution-idea
@@ -32,7 +32,6 @@ summary: Use Azure Database for MySQL to rapidly build engaging, performant, and
 products:
   - azure-app-service
   - azure-database-mysql
-  - azure-traffic-manager
 thumbnailUrl: /azure/architecture/browse/thumbs/scalable-web-and-mobile-applications-using-azure-database-for-mysql.png
 content: |
    [!include[](scalable-web-and-mobile-applications-using-azure-database-for-mysql-content.md)]

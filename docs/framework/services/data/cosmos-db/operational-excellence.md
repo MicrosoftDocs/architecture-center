@@ -2,7 +2,7 @@
 title: Cosmos DB and operational excellence
 description: Focuses on the Cosmos DB service used in the Data solution to provide best-practice, configuration recommendations, and design considerations related to Operational Excellence.
 author: v-stacywray
-ms.date: 11/17/2021
+ms.date: 11/29/2021
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: well-architected
@@ -128,4 +128,4 @@ Resources
 ## Next step
 
 > [!div class="nextstepaction"]
-> [Azure Stack Hub and reliability](reliability.md)
+> [Azure Stack Hub and reliability](../../hybrid/azure-stack-hub/reliability.md)
