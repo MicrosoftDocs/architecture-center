@@ -39,7 +39,7 @@ Automated deployments are always advisable for cloud-hosted solutions. When work
 
 When you deploy to a multitenant environment, you should use deployment pipelines, and use infrastructure as code (IaC) technologies, such as [Bicep](/azure/azure-resource-manager/bicep/overview), JSON ARM templates, Terraform, or the Azure SDKs.
 
-If you plan to offer your solution through the Azure Marketplace, you should provide a fully automated onboarding process for new tenants. This process is described in the [SaaS fulfillment APIs documentation](/azure/marketplace/partner-center-portal/pc-saas-fulfillment-api-v2).
+If you plan to offer your solution through the Azure Marketplace, you should provide a fully automated onboarding process for new tenants. This process is described in the [SaaS fulfillment APIs documentation](/azure/marketplace/partner-center-portal/pc-saas-fulfillment-operations-api).
 
 ### Maximum resource capacity
 
