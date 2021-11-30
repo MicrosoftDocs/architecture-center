@@ -1,14 +1,15 @@
 ### YamlMime:Architecture
 metadata:
-  title: Network-hardened Web App with private connectivity to PaaS datastores
+  title: Network-hardened web app with private connectivity to PaaS datastores
   titleSuffix: Azure Example Scenarios
-  description: Architecture for integrating a WAF-enabled Web App into a hardened network environment that forces all inbound and outbound network flows through a Firewall appliance, with private connnectivity to PaaS datastores.
-  author: MacCarron
+  description: Architecture for integrating a WAF-enabled web app into a hardened network environment that forces all inbound and outbound flows through a firewall appliance.
+  author: damaccar
   ms.author: damaccar
-  ms.date: 09/24/2021
+  ms.date: 12/02/2021
   ms.topic: conceptual
   ms.service: architecture-center
   ms.subservice: example-scenario
+  ms.custom: fcp 
 azureCategories:
   - "networking"
   - "security"
@@ -20,7 +21,7 @@ products:
   - "azure-sql-database"
   - "azure-firewall"
 name: Network-hardened web application with private connectivity to PaaS datastores
-summary: Architecture for integrating a WAF-enabled Web App into a hardened network environment that forces all inbound and outbound network flows through a Firewall appliance, with private connnectivity to PaaS datastores.
-thumbnailUrl: /azure/architecture/browse/thumbs/<browse-png-filename>.png
+summary: Architecture for integrating a WAF-enabled web app into a hardened network environment that forces all inbound and outbound network flows through a firewall appliance. The architecture includes private connectivity to PaaS datastores.
+thumbnailUrl: /azure/architecture/browse/thumbs/hardened-web-app.png
 content: |
   [!include[](hardened-web-app-content.md)]

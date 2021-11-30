@@ -3357,6 +3357,8 @@ items:
                     href: hybrid/hybrid-perf-monitoring.yml
               - name: Implement a secure hybrid network
                 href: reference-architectures/dmz/secure-vnet-dmz.yml
+              - name: Network-hardened web app
+                href: example-scenario/security/hardened-web-app.yml
           - name: Solution ideas
             items:
               - name: Low-latency network for industry
