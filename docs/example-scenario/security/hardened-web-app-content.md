@@ -19,7 +19,7 @@ Download a [Visio file](https://arch-center.azureedge.net/hardened-webapp-archit
 2. A custom fully qualified domain name (FQDN) is chosen to represent the back-end web app and is mapped through CNAME or A DNS records to the public IP address of an Azure firewall or third-party network virtual appliance.
 3. A private endpoint for the web app is created in a virtual network subnet (*subnet-privatelink* in the example).
 3. The Azure firewall or third-party network virtual appliance is deployed in a virtual network (*Hub Virtual Network* in the example) and configured to perform destination NAT (DNAT) of incoming requests to the private IP address of the private endpoint associated with the web app.
-4. The wep app is assigned the custom FQDN through the [domain verification ID property of the web app](/Azure/app-service/manage-custom-dns-migrate-domain#bind-the-domain-name-preemptively). This allows the custom FQDN already mapped to the public IP of the Azure firewall or third-party network virtual appliance to be reused with the web app without altering DNS name resolution and network flows.
+4. The wep app is assigned the custom FQDN through the [domain verification ID property of the web app](/Azure/app-service/manage-custom-dns-migrate-domain#bind-the-domain-name-preemptively). This allows the custom FQDN already mapped to the public IP of the Azure firewall or third-party network virtual appliance to be reused with the web app without altering Domain Name System (DNS) name resolution and network flows.
 5. The web app connects to a virtual network subnet (*subnet-webapp* in the example) through regional VNet integration. The **Route All** flag is enabled, which forces all outbound traffic from the web app into the virtual network and allows the web app to inherit the virtual network's DNS resolution configuration, including custom DNS servers and integration with [private DNS zones](/azure/dns) used for private endpoint name resolution.
 7. A custom [route table](/azure/virtual-network/virtual-networks-udr-overview#custom-routes) that's attached to the web app subnet (*subnet-webapp* in the example) forces all outbound traffic that's coming from the web app to go to the Azure firewall or third-party network virtual appliance.
 8. One or more private DNS zones link to the virtual network that contains the web app (*Spoke Virtual Network* in the example) to allow DNS resolution of PaaS resources deployed with private endpoints.
@@ -112,32 +112,32 @@ The `main.bicep` file deploys the base infrastructure by using Bicep modules fro
 
 2. Copy and save the public IP address that's assigned to the Azure firewall after deployment. You'll need it in a later step. The IP is also provided as output of the deployment of `main.bicep`.
 
-   ![Public IP](./media/public-ip.png)
+   ![Screenshot that shows the public IP address.](./media/public-ip.png)
 
-3. Take note of the Custom Domain Verification ID of the Web App you just created. The Custom Domain Verification ID is also provided as output of the deployment of main.bicep.
+3. Copy and save the custom domain verification ID of the web app you just created. The custom domain verification ID is also provided as output of the deployment of `main.bicep`.
 
-   ![Custom Domain Verification ID](./media/domain-id.png)
+   ![Screenshot that shows the custom domain verification ID.](./media/domain-id.png)
 
-4. Take note of the Azure SQL Server name you just created. The FQDN of the Azure SQL Server is also provided as output of the deployment of main.bicep.
+4. Copy and save the name of the Azure SQL Server instance you just created. The FQDN of the server name is also provided as output of the deployment of `main.bicep`.
 
-   ![SQL Server name](./media/sql.png)
+   ![Screenshot that shows the name of the Azure SQL Server instance.](./media/sql.png)
 
 5. Sign in to the website of your domain provider.
 
    > [!NOTE]
-   > Every domain provider has its own DNS records interface, so consult the provider's documentation. Look for areas of the site labeled Domain Name, DNS, or Name Server Management.
+   > Every domain provider has its own DNS records interface, so consult the provider's documentation. Look for areas of the site labeled *Domain Name*, *DNS*, or *Name Server Management*.
    >
-   > Often, you can find the DNS records page by viewing your account information and then looking for a link such as My domains. Go to that page, and then look for a link that's named something like Zone file, DNS Records, or Advanced configuration.
+   > You can often find the DNS records page by viewing your account information and then looking for a link such as *My domains*. Go to that page and look for a link that's named something like *Zone file*, *DNS records*, or *Advanced configuration*.
 
 
-6. Create an A record with the Public IP you just obtained
+6. Create an A record with the public IP you just obtained.
 
-   The following screenshot is an example of a DNS records page with the A record created:
+   Here's an example of a DNS records page after the A record is created:
 
-   ![DNS records page](./media/dns-records-1.png)
+   ![Screenshot that shows a DNS records page.](./media/dns-records-1.png)
 
    > [!NOTE]
-   > If you like, you can use Azure DNS to manage DNS records for your domain and configure a custom DNS name for Azure App Service. For more information, see [Tutorial: Host your domain in Azure DNS](/azure/dns/dns-delegate-domain-azure-dns).
+   > If you want, you can use Azure DNS to manage DNS records for your domain and configure a custom DNS name for App Service. For more information, see [Tutorial: Host your domain in Azure DNS](/azure/dns/dns-delegate-domain-azure-dns).
 
 7. Create a TXT record with the Custom Domain Verification ID of the Web App you just deployed. This will allow you to reuse the custom FQDN record you just created an A record for and add it to the Web App in the following steps.
 
