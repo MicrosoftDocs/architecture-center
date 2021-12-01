@@ -13,7 +13,7 @@ Contoso would like to find an unobtrusive, privacy-friendly way to determine the
 ## Architecture
 
 ![Architecture diagram](../media/hybrid-footfall-detection-pattern.png)  
-_Download an [SVG](../media/hybrid-footfall-detection-pattern.svg) of this architecture._
+_Download an [Visio](../media/hybrid-footfall-detection-pattern.vsdx) of this architecture._
 
 ### Data flow
 
