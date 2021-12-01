@@ -29,7 +29,7 @@ Because it supports features like automatic updates, MSIX, together with Azure D
 5. Continuous deployment is triggered by another stage of the pipeline. The MSIX package deploys on your distribution platform.
 6. The MSIX package is signed with a trusted certificate, and the certificate is stored in Azure Key Vault. An MSIX package must be signed with a trusted certificate, otherwise Windows won't be able to install the application. Signing should be done during package deployment. Key Vault protects your code-signing certificate by helping to ensure malicious developers can't steal it and use it to sign other applications. 
 7. The signed MSIX package is deployed to a static website, hosted on Azure Storage, together with an App Installer file. This file describes the application and the update options.
-8. Every time the developer commits new updates to the repository, a new MSIX package is generated and pushed to the same Azure Storage location. Because of the App Installer technology, this new deployment will trigger the automatic update process, so your customers always have the latest version of your application.
+8. Every time a developer commits new updates to the repository, a new MSIX package is generated and pushed to the same Azure Storage location. Because of the App Installer technology, this new deployment triggers the automatic update process, so your customers always have the latest version of your application.
 
 ### Components
 
@@ -38,10 +38,10 @@ Because it supports features like automatic updates, MSIX, together with Azure D
 - [Azure Pipelines](https://azure.microsoft.com/services/devops/pipelines) is the Azure DevOps platform for creating pipelines that enable CI/CD scenarios.
 - [GitHub Actions](https://github.com/features/actions) is an alternative to Azure Pipelines. You can use it to manage your CI/CD flows.
 - [MSIX Packaging Extension](/windows/msix/desktop/msix-packaging-extension?tabs=yaml) is a series of Azure DevOps extensions. They make it easier to integrate MSIX-related tasks, like packaging and signing, in your CI/CD pipelines.
-- [Nerdbank.GitVersioning](https://github.com/dotnet/Nerdbank.GitVersioning) is an open-source tool that makes it easier to generate a version number every time a CI/CD pipeline is executed. By using this tool, you can easily increment the version number of each MSIX package that your pipeline generates, ensuring that it's recognized as a valid update.
+- [Nerdbank.GitVersioning](https://github.com/dotnet/Nerdbank.GitVersioning) is an open-source tool that makes it easier to generate a version number every time a CI/CD pipeline runs. By using this tool, you can easily increment the version number of each MSIX package that your pipeline generates, ensuring that it's recognized as a valid update.
 - [Azure Key Vault](https://azure.microsoft.com/services/key-vault) helps you safely store sensitive data, like passwords, connection strings, and certificates.
 - [Azure Sign Tool](https://github.com/vcsjones/AzureSignTool) is an open-source tool. You can use it to sign any type of binary, including MSIX packages, with a certificate that's stored in Key Vault. Because it's a command-line tool, you can easily integrate it into a CI/CD pipeline.
-- [Azure Storage](https://azure.microsoft.com/product-categories/storage) provides an easy way [to host static websites](/azure/storage/blobs/storage-blob-static-website). Azure Storage is an inexpensive, easy way to host your MSIX packages.
+- [Azure Storage](https://azure.microsoft.com/product-categories/storage) provides an easy way [to host static websites](/azure/storage/blobs/storage-blob-static-website). Azure Storage is an inexpensive way to host your MSIX packages.
 - [App Installer](/windows/msix/app-installer/app-installer-root) enables automatic updates even when you're using an unmanaged deployment technology, like a website or a network share. When you use App Installer, your customers have to install your application from the deployment location only once. Every time the CD pipeline deploys an updated package in that location, Windows automatically downloads the update.
 
 ## Related resources
