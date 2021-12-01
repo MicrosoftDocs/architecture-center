@@ -6,7 +6,7 @@ This article describes the dataflow, product integrations, and configurations th
 
 The following table shows an example of golden customer records produced by the Customer Insights data unification process, which takes customer data from multiple source systems to clean and merge it. Customer Insights can also enrich customer records with attributes like churn scores and brand affinities. Here are some fictional examples of this type of record:
 
-:::image type="content" source="customer-dimension-example.png" alt-text="Example customer records in a database table." lightbox="customer-dimension-example.png":::
+:::image type="content" source="../media/customer-dimension-example.png" alt-text="Example customer records in a database table." lightbox="../media/customer-dimension-example.png":::
 
 :::image type="content" source="customer-brand-affinity-example.png" alt-text="Example of customer records with brand affinity attributes in a database table." lightbox="customer-brand-affinity-example.png":::
 
