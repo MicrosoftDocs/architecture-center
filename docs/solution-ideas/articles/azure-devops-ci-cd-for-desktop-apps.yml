@@ -1,0 +1,24 @@
+### YamlMime:Architecture
+metadata:
+  title: CI/CD for Windows desktop apps
+  titleSuffix: Azure Solution Ideas
+  description: Using CI/CD to build, deploy and update Windows desktop applications
+  author: qmatteoq
+  ms.author: mpagani
+  ms.date: 10/18/2021
+  ms.topic: conceptual
+  ms.service: architecture-center
+  ms.subservice: solution-idea
+azureCategories:
+  - devops
+products:
+  - windows-uwp
+  - windows-forms
+  - windows-wpf
+  - azure-devops
+  - github
+name: CI/CD for Windows Desktop Apps
+summary: Using CI/CD to build, deploy and update Windows desktop applications
+thumbnailUrl: /azure/architecture/browse/thumbs/<browse-png-filename>.png
+content: |
+  [!include[](azure-devops-continuous-integration-and-continuous-deployment-for-desktop-apps-content.md)]
