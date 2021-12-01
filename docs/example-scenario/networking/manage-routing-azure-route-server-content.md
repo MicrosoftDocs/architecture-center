@@ -1,8 +1,11 @@
-This article presents a solution for simplifying the dynamic routing between network virtual appliances (NVAs) and virtual networks. Network routing determines the path that traffic takes across networks to reach a destination. Azure automatically creates a route table for each subnet within an Azure virtual network. Azure then adds default system routes to those route tables. You can't create or remove system routes. But you can override some system routes with custom routes. By using certain features, you can configure Azure to add optional default routes to specific subnets.
+Network routing is the process of determining the path that traffic takes across networks to reach a destination. Routing tables list network topology information that's useful for determining routing paths.
 
-Examples of intro sentences from other articles:
-This article presents a solution for managing the compliance of VMs that run on Azure
-This article outlines a solution that meets Moodle's needs. At the core of the solution is Azure NetApp Files, a first-party Azure file storage service. 
+Azure automatically creates a routing table for each subnet within an Azure virtual network. Azure then adds default system routes to each routing table. You can't create or remove system routes. But you have some options for adjusting these routes:
+
+- You can override some system routes with [custom routes][Virtual network traffic routing - Custom routes].
+- By using certain features, you can configure Azure to add [optional default routes][Virtual network traffic routing - Optional default routes] to specific subnets.
+
+This article presents a solution for simplifying the dynamic routing between network virtual appliances (NVAs) and virtual networks. At the core of the solution is Azure Route Server. This service/product does something useful like reduces maintenance or automates something or makes it easier to manage routes.
 
 ## Potential use cases
 
@@ -55,3 +58,5 @@ For the Azure NetApp Files availability guarantee, see [SLA for Azure NetApp Fil
 ## Related resources
 
 
+[Virtual network traffic routing - Custom routes]: https://docs.microsoft.com/en-us/azure/virtual-network/virtual-networks-udr-overview#custom-routes
+[Virtual network traffic routing - Optional default routes]: https://docs.microsoft.com/en-us/azure/virtual-network/virtual-networks-udr-overview#optional-default-routes
