@@ -2,13 +2,14 @@
 metadata:
   title: CI/CD for Windows desktop apps
   titleSuffix: Azure Solution Ideas
-  description: Using CI/CD to build, deploy and update Windows desktop applications
+  description: This article describes how to use MSIX to enable CI/CD for building, deploying, and updating Windows desktop applications.
   author: qmatteoq
   ms.author: mpagani
-  ms.date: 10/18/2021
+  ms.date: 12/3/2021
   ms.topic: conceptual
   ms.service: architecture-center
   ms.subservice: solution-idea
+  ms.custom: fcp
 azureCategories:
   - devops
 products:
@@ -17,8 +18,8 @@ products:
   - windows-wpf
   - azure-devops
   - github
-name: CI/CD for Windows Desktop Apps
-summary: Using CI/CD to build, deploy and update Windows desktop applications
-thumbnailUrl: /azure/architecture/browse/thumbs/<browse-png-filename>.png
+name: CI/CD for Windows desktop apps
+summary: This article describes how to use MSIX to enable CI/CD for building, deploying, and updating Windows desktop applications.
+thumbnailUrl: /azure/architecture/browse/thumbs/devops-windows-architecture.png
 content: |
   [!include[](azure-devops-ci-cd-for-desktop-apps-content.md)]
