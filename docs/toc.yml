@@ -2568,7 +2568,7 @@ items:
               - name: CI/CD for Microsoft Power Platform
                 href: solution-ideas/articles/azure-devops-continuous-integration-for-power-platform.yml
               - name: CI/CD for Windows desktop apps
-                href: /solution-ideas/articles/azure-devops-ci-cd-for-desktop-apps.yml
+                href: solution-ideas/articles/azure-devops-ci-cd-for-desktop-apps.yml
               - name: CI/CD using Jenkins and AKS
                 href: solution-ideas/articles/container-cicd-using-jenkins-and-kubernetes-on-azure-container-service.yml
               - name: CI/CD using Jenkins and Terraform
