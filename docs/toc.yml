@@ -829,6 +829,10 @@ items:
                     href: framework/services/storage/storage-accounts/cost-optimization.md
                   - name: Operational excellence
                     href: framework/services/storage/storage-accounts/operational-excellence.md
+              - name: Disks
+                items:
+                  - name: Cost optimization
+                    href: framework/services/storage/disks/cost-optimization.md
   - name: Industry solutions with Azure
     expanded: true
     items:
