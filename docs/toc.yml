@@ -817,6 +817,18 @@ items:
                     href: framework/services/hybrid/azure-stack-hub/reliability.md
                   - name: Operational excellence
                     href: framework/services/hybrid/azure-stack-hub/operational-excellence.md
+          - name: Storage
+            items:
+              - name: Storage Accounts
+                items:
+                  - name: Reliability
+                    href: framework/services/storage/storage-accounts/reliability.md
+                  - name: Security
+                    href: framework/services/storage/storage-accounts/security.md
+                  - name: Cost optimization
+                    href: framework/services/storage/storage-accounts/cost-optimization.md
+                  - name: Operational excellence
+                    href: framework/services/storage/storage-accounts/operational-excellence.md
   - name: Industry solutions with Azure
     expanded: true
     items:
