@@ -21,4 +21,4 @@ name: CI/CD for Windows Desktop Apps
 summary: Using CI/CD to build, deploy and update Windows desktop applications
 thumbnailUrl: /azure/architecture/browse/thumbs/<browse-png-filename>.png
 content: |
-  [!include[](azure-devops-continuous-integration-and-continuous-deployment-for-desktop-apps-content.md)]
+  [!include[](azure-devops-ci-cd-for-desktop-apps-content.md)]
