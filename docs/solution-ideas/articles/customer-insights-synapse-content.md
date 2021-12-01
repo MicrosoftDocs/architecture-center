@@ -1,14 +1,14 @@
 Dynamics 365 Customer Insights can create a 360-degree customer view by unifying data from transactional, behavioral, and observational sources. You can then make this 360-degree customer view available in enterprise data lakes and/or data warehouses as a golden customer dimension. 
 
-This article discuss the dataflow, product integrations, and configurations available to build an enhanced customer dimension that can be consumed by analytics platforms external to Dynamics and CI. [Audience Insights](https://dynamics.microsoft.com/ai/customer-insights/audience-insights-capability/) is the feature of CI that offers the capabilities for unifying customer data sources and enhancing customer profiles. Please review these [Audience Insights main benefits](https://docs.microsoft.com/dynamics365/customer-insights/audience-insights/overview#main-benefits) for more information.
+This article describes the dataflow, product integrations, and configurations that are available for building an enhanced customer dimension that can be consumed by analytics platforms external to Dynamics and Customer Insights. [Audience insights](https://dynamics.microsoft.com/ai/customer-insights/audience-insights-capability) is the feature of Customer Insights that provides the capabilities for unifying customer data sources and enhancing customer profiles. Review these [benefits](/dynamics365/customer-insights/audience-insights/overview#main-benefits) for more information.
 
 ## Potential use cases
 
-Below you can see an example of gold customer records produced by CI's data unification process that takes customer data from multiple source systems to clean and merge them. In addition to core customer attributes, CI can also enrich the customer records with attributes like churn scores and brand affinities to name a few. Below are fictional examples of such records.
+The following table shows an example of golden customer records produced by the Customer Insights data unification process, which takes customer data from multiple source systems to clean and merge it. Customer Insights can also enrich customer records with attributes like churn scores and brand affinities. Here are some fictional examples of this type of record:
 
-![Customer Records in a database table](customerdimensionexample.png?raw=true "Example of customer records in a database table")
+:::image type="content" source="customer-dimension-example.png" alt-text="Example customer records in a database table." lightbox="customer-dimension-example.png":::
 
-![Customer records in a database table with affinity scores](customerbrandaffinityexample.png?raw=true "Example of customer records with brand affinity attributes in a database table")
+:::image type="content" source="customer-brand-affinity-example.png" alt-text="Example of customer records with brand affinity attributes in a database table." lightbox="customer-brand-affinity-example.png":::
 
 ## Architecture
 
