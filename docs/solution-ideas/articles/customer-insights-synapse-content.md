@@ -1,6 +1,8 @@
+[!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
+
 Dynamics 365 Customer Insights can create a 360-degree customer view by unifying data from transactional, behavioral, and observational sources. You can then make this 360-degree customer view available in enterprise data lakes and/or data warehouses as a golden customer dimension. 
 
-This article describes the dataflow, product integrations, and configurations that are available for building an enhanced customer dimension that can be consumed by analytics platforms external to Dynamics and Customer Insights. [Audience insights](https://dynamics.microsoft.com/ai/customer-insights/audience-insights-capability) is the feature of Customer Insights that provides the capabilities for unifying customer data sources and enhancing customer profiles. Review these [benefits](/dynamics365/customer-insights/audience-insights/overview#main-benefits) for more information.
+This article describes the dataflow, product integrations, and configurations that are available for building an enhanced customer dimension that can be consumed by analytics platforms external to Dynamics 365 and Customer Insights. [Audience insights](https://dynamics.microsoft.com/ai/customer-insights/audience-insights-capability) is the feature of Customer Insights that provides the capabilities for unifying customer data sources and enhancing customer profiles. Review these [benefits](/dynamics365/customer-insights/audience-insights/overview#main-benefits) for more information.
 
 ## Potential use cases
 
@@ -8,15 +10,19 @@ The following table shows an example of golden customer records produced by the 
 
 :::image type="content" source="../media/customer-dimension-example.png" alt-text="Example customer records in a database table." lightbox="../media/customer-dimension-example.png":::
 
-:::image type="content" source="customer-brand-affinity-example.png" alt-text="Example of customer records with brand affinity attributes in a database table." lightbox="customer-brand-affinity-example.png":::
+:::image type="content" source="../media/customer-brand-affinity-example.png" alt-text="Example of customer records with brand affinity attributes in a database table." lightbox="../media/customer-brand-affinity-example.png":::
 
-## Architecture
+## Architecture 
 
-This high-level architecture depicts the flow of data from an organizations source systems (ERP, CRM, PoS, etc.) into a data lake on Azure. This same Azure data lake can be configured as the backend for Dynamics Customer Insights (CI). With a data lake backend, CI is able to load clean enhanced customer data into the data lake for consumption as a dimension by downstream data warehouses and apps.
+:::image type="complex" source="../media/customer-insights-synapse.png" alt-text="Diagram that shows a reference architecture for building an enhanced customer dimension.":::
+   Architecture diagram that depicts the flow of data from the source system on the left to Power BI on the right. The architecture uses Azure Data Factory, Azure Data Lake, Customer Insights, and Azure Synapse Analytics Serverless SQL to build an enhanced customer dimension.
+:::image-end:::
+
+This high-level architecture depicts the flow of data from an organization's source systems (ERP, CRM, POS, and so on) into a data lake on Azure. This same Azure data lake can be configured as the back end for Dynamics 365 Customer Insights. When it has a data lake back end, Customer Insights can load clean enhanced customer data into the data lake for consumption as a dimension by downstream data warehouses and apps.
 
 Azure Synapse SQL Serverless is specifically called out for consumption of the enhanced CI customer data. Azure Synapse SQL Serverless introduces a cost-effective  design pattern known as the Logical Data Warehouse (LDW). The LDW pattern introduces an abstraction layer on top of external data stores, like data lakes, to provide familiar relation database constructs like tables and views. These tables and views can then be consumed by tools that support SQL Server endpoints. In the context of this example, Power BI can now source the enhanced CI customer data as a dimension table from a database using Azure Synapse SQL Serverless pools.
 
-![Architecture Diagram](ci-synapse.png?raw=true "Architecture diagram depicting flow data from source system on the left to Power BI on the right, using Azure Data Factory, Azure Data Lake, Customer Insights, and Azure Synapse SQL Serverless to build an enhanced customer dimension.")
+
 
 ### Data Flow
 
