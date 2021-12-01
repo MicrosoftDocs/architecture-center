@@ -13,7 +13,7 @@ These use cases have similar design patterns:
 
 :::image type="content" source="./media/hardened-web-app.png" alt-text="Diagram that shows an architecture for setting up a web app in a high-security environment." lightbox="./media/hardened-web-app.png":::
 
-Download a [Visio file](https://arch-center.azureedge.net/hardened-webapp-architecture.vsdx) of this architecture.
+*Download a [Visio file](https://arch-center.azureedge.net/hardened-webapp-architecture.vsdx) of this architecture.*
 
 1. An Azure Front Door instance provides [Azure Web Application Firewall](/azure/web-application-firewall/afds/afds-overview) features and terminates SSL connections from clients.
 2. A custom fully qualified domain name (FQDN) is chosen to represent the back-end web app and is mapped through CNAME or A DNS records to the public IP address of an Azure firewall or third-party network virtual appliance.
@@ -92,7 +92,7 @@ All components of the solution either provide transparent built-in scalability o
 
 ### Walkthrough
 
-The solution is made up of several [Bicep](/azure/azure-resource-manager/bicep) files that deploy the required infrastructure.
+The solution is made up of several [Bicep](/azure/azure-resource-manager/bicep) files that deploy the required infrastructure. You can download the files from [GitHub](https://github.com/Azure/hardened-webapp/tree/main/deploy). 
 
 The `main.bicep` file deploys the base infrastructure by using Bicep modules from these files:
 - `network.bicep`
