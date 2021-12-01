@@ -28,62 +28,51 @@ _Download an [SVG](../media/hybrid-footfall-detection-pattern.svg) of this archi
 ### Components
 
 #### In-store hardware
-
-- [Custom Vision AI Dev Kit](https://azure.github.io/Vision-AI-DevKit-Pages/) Provides in-store filtering using a local ML model that only captures images of people for analysis. Securely provisioned and updated through IoT Hub.
-
+* [Custom Vision AI Dev Kit](https://azure.github.io/Vision-AI-DevKit-Pages/) Provides in-store filtering using a local ML model that only captures images of people for analysis. Securely provisioned and updated through IoT Hub.
 #### Azure
-
-- [Azure Event Hubs](https://docs.microsoft.com/azure/event-hubs/) provides a scalable platform for ingesting anonymized data that integrates neatly with Azure Stream .
-- [Azure Stream Analytics](https://docs.microsoft.com/azure/stream-analytics/). An Azure Stream Analytics job aggregates the anonymized data and groups it into 15-second windows for visualization.
-- [Microsoft Power BI](https://powerbi.microsoft.com/). Power BI provides an easy-to-use dashboard interface for viewing the output from Azure Stream Analytics.
-
+* [Azure Event Hubs](https://docs.microsoft.com/azure/event-hubs/) provides a scalable platform for ingesting anonymized data that integrates neatly with Azure Stream .
+* [Azure Stream Analytics](https://docs.microsoft.com/azure/stream-analytics/). An Azure Stream Analytics job aggregates the anonymized data and groups it into 15-second windows for visualization.
+*  [Microsoft Power BI](https://powerbi.microsoft.com/). Power BI provides an easy-to-use dashboard interface for viewing the output from Azure Stream Analytics.
 #### [Azure Stack Hub](https://docs.microsoft.com/azure-stack/operator/azure-stack-overview)
-
-- [App Service](/azure-stack/operator/azure-stack-app-service-overview). The App Service resource provider (RP) provides a base for edge components, including hosting and management features for web apps/APIs and Functions.
-- Azure Kubernetes Service [(AKS) Engine](https://github.com/Azure/aks-engine) cluster. The AKS RP with AKS-Engine cluster deployed into Azure Stack Hub provides a scalable, resilient engine to run the Face API container.
-- [Face API containers](https://docs.microsoft.com/azure/cognitive-services/face/face-how-to-install-containers). The Azure Cognitive Services RP with Face API containers provides demographic, emotion, and unique visitor detection on Contoso's private network.
-- [Blob Storage](https://docs.microsoft.com/azure-stack/user/azure-stack-storage-overview). Images captured from the AI Dev Kit are uploaded to Azure Stack Hub's blob storage
-- [Azure Functions](https://docs.microsoft.com/azure-stack/operator/azure-stack-app-service-overview). An Azure Function running on Azure Stack Hub receives input from blob storage and manages the interactions with the Face API. It emits anonymized data to an Event Hubs cluster located in Azure.
+* [App Service](/azure-stack/operator/azure-stack-app-service-overview).  The App Service resource provider (RP) provides a base for edge components, including hosting and management features for web apps/APIs and Functions. 
+* Azure Kubernetes Service  [(AKS) Engine](https://github.com/Azure/aks-engine) cluster. The AKS RP with AKS-Engine cluster deployed into Azure Stack Hub provides a scalable, resilient engine to run the Face API container.  
+* [Face API containers](https://docs.microsoft.com/azure/cognitive-services/face/face-how-to-install-containers). The Azure Cognitive Services RP with Face API containers provides demographic, emotion, and unique visitor detection on Contoso's private network.
+* [Blob Storage](https://docs.microsoft.com/azure-stack/user/azure-stack-storage-overview). Images captured from the AI Dev Kit are uploaded to Azure Stack Hub's blob storage
+*  [Azure Functions](https://docs.microsoft.com/azure-stack/operator/azure-stack-app-service-overview). An Azure Function running on Azure Stack Hub receives input from blob storage and manages the interactions with the Face API. It emits anonymized data to an Event Hubs cluster located in Azure.
 
 ### Considerations
 
-#### Reliability
+#### Reliability 
+Since this solution is tiered, it's important to think about how to deal with networking or power failures. Leverage the [Resiliency and Dependencies](https://docs.microsoft.com/en-us/azure/architecture/framework/resiliency/design-resiliency), [Best Practices](https://docs.microsoft.com/en-us/azure/architecture/framework/resiliency/design-best-practices), and other [reliability guidance](https://docs.microsoft.com/en-us/azure/architecture/framework/resiliency/) from the Microsoft Azure Well Architected Framework (WAF) to improve the solution resiliency.
 
-Since this solution is tiered, it's important to think about how to deal with networking or power failures. Depending on business needs, you might want to implement a mechanism to cache images locally, then forward to Azure Stack Hub when connectivity returns. If the location is large enough, deploying a Data Box Edge with the Face API container to that location might be a better option.
+Depending on business needs, you might want to implement a mechanism to cache images locally, then forward to Azure Stack Hub when connectivity returns. If the location is large enough, deploying a Data Box Edge with the Face API container to that location might be a better option.
 
 #### Security
 
-This solution captures customer images, making security a paramount consideration. Make sure all storage accounts are secured with the proper access policies and rotate keys regularly. Ensure storage accounts and Event Hubs have retention policies that meet corporate and government privacy regulations. Also make sure to tier the user access levels. Tiering ensures that users only have access to the data they need for their role.
+This solution captures customer images, making security a paramount consideration. Leverage the WAF [Data Protection](https://docs.microsoft.com/en-us/azure/architecture/framework/security/design-storage) guidance to secure the storage accounts, including configuring proper access policies and rotating keys regularly. Ensure storage accounts and Event Hubs have retention policies that meet corporate and government privacy regulations. 
+
+Provide security through [identity and access management](https://docs.microsoft.com/en-us/azure/architecture/framework/security/design-identity), making sure to tier the user access levels. Tiering ensures that users only have access to the data they need for their role.
 
 #### Operational excellence
-
-Monitoring and diagnostics are crucial. Cloud applications run in a remote data-center where you don't have full control of the infrastructure or, in some cases, the operating system. In a large application, it's not practical to log into virtual machines (VMs) to troubleshoot an issue or sift through log files. Use [Azure Monitor on Azure Stack Hub](https://docs.microsoft.com/azure-stack/user/azure-stack-metrics-azure-data) lets you visualize, query, route, archive, and take other actions on metrics and logs
+Monitoring and diagnostics are crucial. Cloud applications run in a remote data-center where you don't have full control of the infrastructure or, in some cases, the operating system. In a large application, it's not practical to log into virtual machines (VMs) to troubleshoot an issue or sift through log files. Use [Azure Monitor on Azure Stack Hub](https://docs.microsoft.com/azure-stack/user/azure-stack-metrics-azure-data) lets you visualize, query, route, archive, and take other actions on metrics and logs 
 
 #### Performance efficiency
-
 To enable this solution to scale across multiple cameras and locations, you'll need to make sure that all of the components can handle the increased load. You may need to take actions like:
 
 Increase the number of Stream Analytics streaming units.
-
-- Scale out the Face API deployment.
-- Increase the Event Hubs cluster throughput.
-- For extreme cases, migrate from Azure Functions to a virtual machine may be necessary.
+* Scale out the Face API deployment.
+* Increase the Event Hubs cluster throughput.
+* For extreme cases, migrate from Azure Functions to a virtual machine may be necessary.
 
 This solution can span many devices and locations, which could get unwieldy. [Azure's IoT services](https://docs.microsoft.com/azure/iot-fundamentals/) can be used to automatically bring new locations and devices online and keep them up to date.
 
 ### Alternatives
+  An [Azure Functions](https://docs.microsoft.com/azure-stack/operator/azure-stack-app-service-overview)  running on Azure Stack Hub is a great compute option. However, there are others compute options which are possible, for example, an custom app on [Azure App Service](https://docs.microsoft.com/azure-stack/operator/azure-stack-app-service-deploy) or on top of Azure Kubernetes Service [(AKS) Engine](https://github.com/Azure/aks-engine)
 
-An [Azure Functions](https://docs.microsoft.com/azure-stack/operator/azure-stack-app-service-overview) running on Azure Stack Hub is a great compute option. However, there are others compute options which are possible, for example, an custom app on [Azure App Service](https://docs.microsoft.com/azure-stack/operator/azure-stack-app-service-deploy) or on top of Azure Kubernetes Service [(AKS) Engine](https://github.com/Azure/aks-engine)
-
-## Next steps
+### Next Steps
 
 To learn more about the topics introduced in this article:
 
-- See the [Tiered Data pattern](https://docs.microsoft.com/hybrid/app-solutions/pattern-tiered-data-analytics), which is leveraged by the footfall detection pattern.
-- See the [Custom Vision AI Dev Kit](https://azure.github.io/Vision-AI-DevKit-Pages/) to learn more about using custom vision.
-- See the [Azure Storage](https://docs.microsoft.com/azure/storage/) and [Azure Functions](https://docs.microsoft.com/azure/azure-functions/) documentation. This pattern makes heavy use of Azure Storage accounts and Azure Functions on both Azure and Azure Stack Hub.
-- See [Hybrid application design considerations](https://docs.microsoft.com/hybrid/app-solutions/overview-app-design-considerations) to learn more about best practices and to get answers to additional questions.
-- See the [Azure Stack family of products and solutions](https://docs.microsoft.com/azure-stack) to learn more about the entire portfolio of products and solutions.
-- See the [Azure Stack Development Kit](https://docs.microsoft.com/azure-stack/asdk). The ASDK is a single-node deployment of Azure Stack Hub that you can download and use for free. All ASDK components are installed in virtual machines (VMs) running on a single host computer that must meet or exceed the minimum hardware requirements. The ASDK is meant to provide an environment in which you can evaluate Azure Stack Hub and develop modern apps using APIs and tooling consistent with Azure in a non-production environment.
-
-When you're ready to test the solution example, continue with the [Footfall detection deployment guide](/azure/architecture/hybrid/deployments/solution-deployment-guide-retail-footfall-detection). The deployment guide provides step-by-step instructions for deploying and testing its components.
+- See the [Tiered Data pattern](https://aka.ms/tiereddatadeploy), which is leveraged by the footfall detection pattern.
+- See the [Custom Vision AI Dev Kit](https://azure.github.io/Vision-AI-DevKit-Pages/) to learn more about using custom vision. 
+- See the [Analytics end-to-end with Azure Synapse](https://docs.microsoft.com/en-us/azure/architecture/example-scenario/dataplate2e/data-platform-end-to-end) architecture for a more comprehensive scenario that illustrates other additional mechanisms to enrich and serve data. 
