@@ -13,11 +13,11 @@ metadata:
 azureCategories:
   - devops
 products:
-  - windows-uwp
-  - windows-forms
-  - windows-wpf
-  - azure-devops
-  - github
+  - "azure-pipelines"
+  - "azure-storage"
+  - "azure-key-vault"
+  - "azure-devops"
+  - "github"
 name: CI/CD for Windows desktop apps
 summary: This article describes how to use MSIX to enable CI/CD for building, deploying, and updating Windows desktop applications.
 thumbnailUrl: /azure/architecture/browse/thumbs/devops-windows-architecture.png
