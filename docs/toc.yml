@@ -833,6 +833,14 @@ items:
                 items:
                   - name: Cost optimization
                     href: framework/services/storage/disks/cost-optimization.md
+          - name: Messaging
+            items:
+              - name: Event Grid
+                items:
+                  - name: Reliability
+                    href: framework/services/messaging/event-grid/reliability.md
+                  - name: Operational excellence
+                    href: framework/services/messaging/event-grid/operational-excellence.md
   - name: Industry solutions with Azure
     expanded: true
     items:
