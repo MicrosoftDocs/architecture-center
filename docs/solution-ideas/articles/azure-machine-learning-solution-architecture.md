@@ -4,9 +4,10 @@ Build, deploy, and manage high-quality models with Azure Machine Learning, a ser
 
 ## Architecture
 
-:::image type="content" source="../media/azure-machine-learning-solution-architecture.svg" alt-text="Diagram of a machine learning solution architecture using Azure Machine Learning with Azure services for storage, data analysis, monitoring, authenticating, and secure deployment.  border="false":::
+![Diagram of a machine learning solution architecture using Azure Machine Learning with Azure services for storage, data analysis, monitoring, authenticating, and secure deployment.](../media/azure-machine-learning-solution-architecture.png)
 
-*Download an [SVG](../media/advanced-analytics-on-big-data.svg) of this architecture.*
+
+*Download an [SVG](../media/azure-machine-learning-solution-architecture.svg) of this architecture.*
 
 ### Workflow
 

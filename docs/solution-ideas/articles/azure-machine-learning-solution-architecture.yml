@@ -2,7 +2,7 @@
 metadata:
   title: Azure Machine Learning architecture
   titleSuffix: Azure Solution Ideas
-  description: This architecture allows you to build, deploy, and manage high-quality models with Azure Machine Learning, a service for the end-to-end ML lifecycle.
+  description: Learn how to build, deploy, and manage high-quality models with Azure Machine Learning, a service for the end-to-end ML lifecycle.
   author: cjgronlund
   ms.author: cgronlun
   ms.date: 12/06/2021
@@ -10,7 +10,7 @@ metadata:
   ms.service: architecture-center
   ms.subservice: solution-idea
   ms.category:
-    - machine-learning
+    - ai-machine-learning
     - analytics
     - databases
   ms.custom:
@@ -20,13 +20,13 @@ metadata:
     - pricing-calculator
     - "https://docs.microsoft.com/en-us/azure/architecture/solution-ideas/articles/azure-machine-learning-solution-architecture"
     - internal-intro
-  social_image_url: /azure/architecture/solution-ideas/articles/media/aazure-machine-learning-solution-architecture.svg  
+  social_image_url: /azure/architecture/solution-ideas/articles/media/aazure-machine-learning-solution-architecture.png  
 name: Azure Machine Learning architecture
 azureCategories:
-  - machine-learning 
+  - ai-machine-learning 
   - analytics
   - databases
-summary: This architecture allows you to build, deploy, and manage high-quality models with Azure Machine Learning, a service for the end-to-end ML lifecycle.
+summary: Learn how to build, deploy, and manage high-quality models with Azure Machine Learning, a service for the end-to-end ML lifecycle.
 products:
   - azure-machine-learning
   - azure-synapse-analytics
