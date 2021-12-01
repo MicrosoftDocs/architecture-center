@@ -103,7 +103,7 @@ Resources
 
 To retrieve the **Resource ID** of existing private endpoints for Event Grid topics, use the following query:
 
-```sqlic
+```sql
 Resources 
 | where type == 'microsoft.eventgrid/topics' and notnull(properties['privateEndpointConnections']) 
 | mvexpand properties['privateEndpointConnections'] 
