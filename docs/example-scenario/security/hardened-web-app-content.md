@@ -196,6 +196,6 @@ Use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculato
 - [Azure Web Application Firewall on Azure Front Door](/azure/web-application-firewall/afds/afds-overview)
 
 ## Related resources
-- [Azure Architecture Center](../../browse) 
-- [Microsoft Azure Well-Architected Framework](../../framework) 
+- [Azure Architecture Center](../../browse/index.yml) 
+- [Microsoft Azure Well-Architected Framework](../../framework/index.yml) 
 - [Azure Firewall architecture overview](/azure/architecture/example-scenario/firewalls)
