@@ -55,16 +55,11 @@ Data Factory and Azure Synapse both provide data integration pipelines. See the 
 ## Next steps
 
 - [Microsoft Learn: Unlock customer intent with Dynamics 365 Audience insights](/learn/paths/build-customer-insights)
-
 - [Tutorial: Explore and analyze data lakes with serverless SQL pool](/azure/synapse-analytics/sql/tutorial-data-analyst)
-
 - [Tutorial: Create a Logical Data Warehouse with serverless SQL pool](/azure/synapse-analytics/sql/tutorial-logical-data-warehouse)
 - [Get started with Azure Synapse Analytics](/azure/synapse-analytics/get-started)
-
 - [Customer Insights overview](/dynamics365/customer-insights/overview)
-
 - [Analyze data in a storage account](/azure/synapse-analytics/get-started-analyze-storage)
-
 - [Integrate activities by using pipelines](/azure/synapse-analytics/get-started-pipelines)
 
 ## Related resources
