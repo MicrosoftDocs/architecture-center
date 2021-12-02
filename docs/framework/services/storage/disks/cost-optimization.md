@@ -67,4 +67,4 @@ Consider the following recommendations to optimize costs when configuring your A
 ## Next step
 
 > [!div class="nextstepaction"]
-> [Event Grid and reliability](cost-optimization.md)
+> [Event Grid and reliability](../../messaging/event-grid/reliability.md)

@@ -13,7 +13,7 @@ metadata:
     - compute
     - storage
     - iot
-name: Connected Factory – Hierarchy Service
+name: Connected factory hierarchy service
 azureCategories:
   - compute
   - storage
