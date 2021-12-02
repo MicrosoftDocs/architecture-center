@@ -20,13 +20,9 @@ The following table shows an example of golden customer records produced by the 
 
 This high-level architecture depicts the flow of data from an organization's source systems (ERP, CRM, POS, and so on) into a data lake on Azure. This same Azure data lake can be configured as the back end for Dynamics 365 Customer Insights. When it has a data lake back end, Customer Insights can load clean enhanced customer data into the data lake for consumption as a dimension by downstream data warehouses and apps.
 
-Azure Synapse SQL Serverless is specifically called out for consumption of the enhanced CI customer data. Azure Synapse SQL Serverless introduces a cost-effective  design pattern known as the Logical Data Warehouse (LDW). The LDW pattern introduces an abstraction layer on top of external data stores, like data lakes, to provide familiar relation database constructs like tables and views. These tables and views can then be consumed by tools that support SQL Server endpoints. In the context of this example, Power BI can now source the enhanced CI customer data as a dimension table from a database using Azure Synapse SQL Serverless pools.
+Azure Synapse Serverless SQL is used to consume the enhanced Customer Insights data. Azure Synapse Serverless SQL introduces a cost-effective design pattern known as Logical Data Warehouse (LDW). The LDW pattern introduces an abstraction layer on top of external data stores, like data lakes, to provide familiar relational database constructs like tables and views. These tables and views can then be consumed by tools that support SQL Server endpoints. In the context of this example, Power BI can source the enhanced Customer Insights data as a dimension table from a database by using Synapse Serverless SQL pools.
 
-
-
-### Data Flow
-
-The data flows through the solution as follows:
+The data flows through the solution like this:
 
 1. Using Azure Data Factory or Azure Synapse Pipelines, establish [Linked Services](/azure/data-factory/concepts-linked-services) to source systems and data stores. Azure Data Factory and Azure Synapse Pipelines support [90+ connectors](/azure/data-factory/copy-activity-overview#supported-data-stores-and-formats) that also include generic protocols for data sources where a native connector is not available.  
   
