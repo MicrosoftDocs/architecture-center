@@ -3256,6 +3256,8 @@ items:
                 href: solution-ideas/articles/business-central.yml
               - name: E-commerce website running in ASE
                 href: solution-ideas/articles/ecommerce-website-running-in-secured-ase.yml
+              - name: Enhanced customer dimension with Customer Insights
+                href: solution-ideas/articles/customer-insights-synapse.yml
               - name: Highly available SharePoint farm
                 href: solution-ideas/articles/highly-available-sharepoint-farm.yml
               - name: Hybrid SharePoint farm with Microsoft 365
