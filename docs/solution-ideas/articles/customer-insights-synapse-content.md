@@ -22,12 +22,11 @@ The following table shows an example of enhanced customer records that are produ
 
 This high-level architecture shows the flow of data from an organization's source systems (ERP, CRM, POS, and so on) into a data lake on Azure. This same Azure data lake can be configured as the back end for Dynamics 365 Customer Insights. When it has a data lake back end, Customer Insights can load clean enhanced customer data into the data lake for consumption as a dimension by downstream data warehouses and apps.
 
-Azure Synapse serverless SQL is used to consume the enhanced Customer Insights data. Azure Synapse serverless SQL introduces a cost-effective design pattern known as Logical Data Warehouse (LDW). The LDW pattern introduces an abstraction layer on top of external data stores, like data lakes, to provide familiar relational database constructs like tables and views. These tables and views can then be consumed by tools that support SQL Server endpoints. In the context of this example, Power BI can source the enhanced Customer Insights data as a dimension table from a database by using Synapse serverless SQL pools.
+Azure Synapse serverless SQL consumes the enhanced Customer Insights data. Azure Synapse serverless SQL introduces a cost-effective design pattern known as Logical Data Warehouse (LDW). The LDW pattern introduces an abstraction layer on top of external data stores, like data lakes, to provide familiar relational database constructs like tables and views. Tools that support SQL Server endpoints can then consume these tables and views. In the context of this example, Power BI can source the enhanced Customer Insights data as a dimension table from a database by using Azure Synapse serverless SQL pools.
 
 ### Data flow
-The data flows through the solution like this:
 
-1. By using Data Factory or Synapse pipelines, establish [linked services](/azure/data-factory/concepts-linked-services) to source systems and data stores. Data Factory and Synapse pipelines support [more than 90 connectors](/azure/data-factory/copy-activity-overview#supported-data-stores-and-formats), including generic protocols for data sources when a native connector isn't available.  
+1. By using Data Factory or Azure Synapse pipelines, establish [linked services](/azure/data-factory/concepts-linked-services) to source systems and data stores. Data Factory and Azure Synapse pipelines support [more than 90 connectors](/azure/data-factory/copy-activity-overview#supported-data-stores-and-formats), including generic protocols for data sources when a native connector isn't available.  
   
 2. Load data from the source systems into Data Lake by using the [Copy Data tool](/azure/data-factory/quickstart-create-data-factory-copy-data-tool#start-the-copy-data-tool). You then need to transform data in the data lake to fit a Common Data Model schema. Data Factory mapping data flows support sinking data in the Common Data Model format. For more information, see [Common Data Model format in Azure Data Factory and Synapse Analytics](/azure/data-factory/format-common-data-model).
   
@@ -54,8 +53,6 @@ This solution uses the Logical Data Warehouse (LDW) pattern to consume the enhan
 Data Factory and Azure Synapse both provide data integration pipelines. See the [breakdown of feature parity](/azure/synapse-analytics/data-integration/concepts-data-factory-differences) for a comparison.
 
 ## Next steps
-
-Learn how to further develop this approach:
 
 - [Microsoft Learn: Unlock customer intent with Dynamics 365 Audience insights](/learn/paths/build-customer-insights)
 
