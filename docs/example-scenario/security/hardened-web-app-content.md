@@ -21,7 +21,7 @@ These use cases have similar design patterns:
 3. The Azure firewall or third-party network virtual appliance is deployed in a virtual network (*Hub Virtual Network* in the example) and configured to perform destination NAT (DNAT) of incoming requests to the private IP address of the private endpoint associated with the web app.
 4. The wep app is assigned the custom FQDN through the [domain verification ID property of the web app](/Azure/app-service/manage-custom-dns-migrate-domain#bind-the-domain-name-preemptively). This allows the custom FQDN already mapped to the public IP of the Azure firewall or third-party network virtual appliance to be reused with the web app without altering Domain Name System (DNS) name resolution and network flows.
 5. The web app connects to a virtual network subnet (*subnet-webapp* in the example) through regional VNet integration. The **Route All** flag is enabled, which forces all outbound traffic from the web app into the virtual network and allows the web app to inherit the virtual network's DNS resolution configuration, including custom DNS servers and integration with [private DNS zones](/azure/dns) used for private endpoint name resolution.
-7. A custom [route table](/azure/virtual-network/virtual-networks-udr-overview#custom-routes) that's attached to the web app subnet (*subnet-webapp* in the example) forces all outbound traffic that's coming from the web app to go to the Azure firewall or third-party network virtual appliance.
+7. A custom [route table](/azure/virtual-network/virtual-networks-udr-overview#custom-routes) that's attached to the web app subnet (*subnet-webapp* in the example) forces all outbound traffic that comes from the web app to go to the Azure firewall or third-party network virtual appliance.
 8. One or more private DNS zones link to the virtual network that contains the web app (*Spoke Virtual Network* in the example) to allow DNS resolution of PaaS resources deployed with private endpoints.
 9. A private endpoint for Azure SQL is created in a virtual network subnet (*subnet-privatelink* in the example). A corresponding DNS record is created on the matching private DNS zone.
 10. The web app can now be accessed only through Azure Front Door and Azure Firewall. It can also establish a connection to the Azure SQL instance through private endpoint, securing the communication over private IP only.
@@ -34,8 +34,6 @@ These use cases have similar design patterns:
 - [Azure Firewall](https://azure.microsoft.com/services/azure-firewall) provides security to the web app. 
 - [Azure App Service](https://azure.microsoft.com/services/app-service) allows you to create web apps and deploy them in a cloud infrastructure. 
 - [Azure Private Link private endpoints](/azure/private-link/private-endpoint-overview) allow you to connect privately and with improved security to Azure services.
-- A [Route table](/azure/virtual-network/virtual-networks-udr-overview#custom-routes) forces all outbound traffic that's coming from the web app to go to the firewall. 
-- [Private Azure DNS zones](/azure/dns) link to the virtual network that contains the web app to allow DNS resolution of PaaS resources deployed with private endpoints.
 - [Azure SQL](https://azure.microsoft.com/products/azure-sql) connects to the web app via a private endpoint. 
 
 
@@ -46,9 +44,7 @@ These use cases have similar design patterns:
 
 ## Considerations
 
-The solution deploys an Azure Front Door instance, which terminates SSL connections from clients and provides a rich set of Web Application Firewall configurations. We recommend that you further lock down your applications to accept traffic coming only from your Azure Front Door instance.
-
-You can do this in several ways, depending on the network virtual appliance you're using and your application configuration. Some options include:
+The solution deploys an Azure Front Door instance, which terminates SSL connections from clients and provides a rich set of Web Application Firewall configurations. We recommend that you further lock down your applications to accept traffic coming only from your Azure Front Door instance. You can do this in several ways, depending on the network virtual appliance you're using and your application configuration. Some options include:
 
 - Configuring your Azure firewall or network virtual appliance to accept traffic only from the **AzureFrontDoor.Backend** [Azure IP ranges](https://www.microsoft.com/download/details.aspx?id=56519).
 - Configuring your network virtual appliance to integrate with [Azure service tags](/azure/virtual-network/service-tags-overview).
@@ -80,7 +76,7 @@ You can use [Monitor Log Analytics](/azure/azure-monitor/logs/log-analytics-over
 
 ### Scalability
 
-All components of the solution either provide transparent built-in scalability or expose a rich set of features, like [Azure web app autoscale](/azure/azure-monitor/autoscale/autoscale-best-practices#manual-scaling-is-reset-by-autoscale-min-and-max), to scale the number of available instances.
+All components of the solution either provide transparent built-in scalability or expose a rich set of features, like [Azure web app autoscale](/azure/azure-monitor/autoscale/autoscale-best-practices#manual-scaling-is-reset-by-autoscale-min-and-max), for scaling the number of available instances.
 
 ## Deploy this scenario
 
@@ -116,7 +112,7 @@ The `main.bicep` file deploys the base infrastructure by using Bicep modules fro
    
    :::image type="content" source="./media/public-ip.png" alt-text="Screenshot that shows the public IP address." lightbox="./media/public-ip.png":::
 
-3. Copy and save the custom domain verification ID of the web app you just created. The custom domain verification ID is also provided as output of the deployment of `main.bicep`.
+3. Copy and save the custom domain verification ID of the web app that you just created. The custom domain verification ID is also provided as output of the deployment of `main.bicep`.
 
     :::image type="content" source="./media/domain-id.png" alt-text="Screenshot that shows the custom domain verification ID." lightbox="./media/domain-id.png":::
 
@@ -132,7 +128,7 @@ The `main.bicep` file deploys the base infrastructure by using Bicep modules fro
    > You can often find the DNS records page by viewing your account information and then looking for a link such as *My domains*. Go to that page and look for a link that's named something like *Zone file*, *DNS records*, or *Advanced configuration*.
 
 
-6. Create an A record with the public IP you just obtained.
+6. Create an A record with the public IP that you just obtained.
 
    Here's an example of a DNS records page after the A record is created:
    
@@ -143,7 +139,7 @@ The `main.bicep` file deploys the base infrastructure by using Bicep modules fro
 
 7. Create a TXT record with the custom domain verification ID of the web app you just deployed. Doing so allows you to reuse the custom FQDN record for which you just created an A record and add it to the web app in the following steps.
 
-   Create the TXT record in the format `asuid.<subdomain>`. For example, if your custom FQDN is `backend.contoso.com`, you would create this record:
+   Create the TXT record in the format `asuid.<subdomain>`. For example, if your custom FQDN is `backend.contoso.com`, you'd create this record:
 
    `asuid.backend.contoso.com TXT [DOMAIN VERIFICATION ID]`
 
@@ -153,7 +149,7 @@ The `main.bicep` file deploys the base infrastructure by using Bicep modules fro
    
    :::image type="content" source="./media/dns-records-2.png" alt-text="Screenshot that shows the DNS records page after the TXT record is created." lightbox="./media/dns-records-2.png":::
 
-8. Map the custom domain to the web app you just created. For more information, see [Tutorial: Map an existing custom DNS name to Azure App Service - Get a domain verification ID](/Azure/app-service/app-service-web-tutorial-custom-domain?tabs=cname#3-get-a-domain-verification-id).
+8. Map the custom domain to the web app that you just created. For more information, see [Tutorial: Map an existing custom DNS name to Azure App Service - Get a domain verification ID](/Azure/app-service/app-service-web-tutorial-custom-domain?tabs=cname#3-get-a-domain-verification-id).
 
 9. Upload an SSL certificate that matches your custom FQDN to your web app. For more information, see [Tutorial: Secure a custom DNS name with a TLS/SSL binding in Azure App Service](/Azure/app-service/configure-ssl-bindings).
 
@@ -164,7 +160,7 @@ The `main.bicep` file deploys the base infrastructure by using Bicep modules fro
 If you want, you can also [bind a custom FQDN domain to Azure Front Door](/azure/frontdoor/front-door-custom-domain) and [configure HTTPS for the custom domain](/azure/frontdoor/front-door-custom-domain-https).
 
 1. You can verify that connectivity from the web app to the Azure SQL Server instance is happening over a private channel by creating a [virtual machine](/azure/virtual-machines) in the same virtual network that you used earlier in this procedure. 
-    1. Sign in to the virtual machine and go to `https://<web-app-name>.scm.azurewebsites.net`. You'll access the [Kudu diagnostic console](/azure/app-service/resources-kudu) from here. 
+    1. Sign in to the virtual machine and go to `https://<web-app-name>.scm.azurewebsites.net`. You access the [Kudu diagnostic console](/azure/app-service/resources-kudu) from here. 
     1. Sign in. In the menu bar, select **Debug console --> CMD**.
     1. Enter the command `nameresolver <sql-name>.database.windows.net`. Use the Azure SQL Server name you obtained in step 4 of this walkthrough.
 
@@ -174,7 +170,7 @@ If you want, you can also [bind a custom FQDN domain to Azure Front Door](/azure
 
     :::image type="content" source="./media/kudu.png" alt-text="Screenshot that shows DNS resolution in the Kudu console." lightbox="./media/kudu.png":::
 
-13. You can also verify that outbound traffic from the web app is going through the Azure firewall. Enter this command in the Kudu console:
+13. You can also verify that outbound traffic from the web app goes through the Azure firewall. Enter this command in the Kudu console:
     - `curl -s ifconfig.co`
 
     The output should match the public IP address of the Azure firewall that you obtained in step 2.
