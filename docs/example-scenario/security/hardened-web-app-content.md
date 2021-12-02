@@ -197,5 +197,5 @@ Use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculato
 
 ## Related resources
 - [Azure Architecture Center](../../browse/index.yml) 
-- [Microsoft Azure Well-Architected Framework](../../framework/index.yml) 
+- [Microsoft Azure Well-Architected Framework](../../framework/index.md) 
 - [Azure Firewall architecture overview](/azure/architecture/example-scenario/firewalls)
