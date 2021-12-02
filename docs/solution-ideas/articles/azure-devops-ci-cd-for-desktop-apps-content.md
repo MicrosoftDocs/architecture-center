@@ -2,6 +2,8 @@
 
 This article describes how to use MSIX to enable continuous integration and continuous deployment (CI/CD) for building, deploying, and updating Windows desktop applications.
 
+## Potential use cases
+
 MSIX is a powerful packaging technology for deploying Windows applications. You can use it to distribute desktop applications that:
 - Are easy to install, maintain, and automatically keep up to date. 
 - Are respectful of the operating system because they provide a clean install and uninstall.
@@ -57,5 +59,3 @@ Because it supports features like automatic updates, MSIX, together with Azure D
 * [Design a CI/CD pipeline by using Azure DevOps](/azure/architecture/example-scenario/apps/devops-dotnet-webapp)
 * [DevOps checklist](/azure/architecture/checklist/dev-ops)
 * [Advanced Azure Resource Manager template functionality](/azure/architecture/guide/azure-resource-manager/advanced-templates)
-
-
