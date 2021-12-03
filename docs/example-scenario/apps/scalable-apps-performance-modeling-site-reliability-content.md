@@ -197,7 +197,7 @@ This data produces the following initial SLIs:
 
 Assume that, during planning, the aspirational latency SLO target is that 90 percent of the requests are processed within 500 ms with a success rate of 99 percent over a period of one week. With the log data, you can easily identify whether the SLO target was met. If you do this type of analysis for a few weeks, you can start seeing the trends around SLO compliance.
 
-## Guidance for technical risk mitigation
+### Guidance for technical risk mitigation
 
 Use the following checklist of recommended practices to mitigate scalability and performance risks:
 
