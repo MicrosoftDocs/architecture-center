@@ -1879,6 +1879,8 @@ items:
                 href: solution-ideas/articles/demand-forecasting.yml
               - name: Discovery Hub for analytics
                 href: solution-ideas/articles/cloud-scale-analytics-with-discovery-hub.yml
+              - name: Enhanced customer dimension with Customer Insights
+                href: solution-ideas/articles/customer-insights-synapse.yml
               - name: ETL using HDInsight
                 href: solution-ideas/articles/extract-transform-and-load-using-hdinsight.yml
               - name: Highly scalable customer service and ERP
