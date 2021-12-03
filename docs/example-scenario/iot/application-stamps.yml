@@ -4,7 +4,7 @@ metadata:
   titleSuffix: Azure Example Scenarios
   description: Learn about scaling up IoT device populations with deployment stamps and strategies for moving devices and applications between stamps.
   author: wamachine
-  ms.date: 08/10/2020
+  ms.date: 04/22/2021
   ms.topic: conceptual
   ms.service: architecture-center
   ms.subservice: example-scenario
