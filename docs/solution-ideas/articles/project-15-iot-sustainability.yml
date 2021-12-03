@@ -4,7 +4,7 @@ metadata:
   titleSuffix: Azure Solution Ideas
   description: Use Internet of Things technologies with the Project 15 Open Platform to accelerate innovation in species tracking, ecosystem monitoring, and other areas.
   author: AltaOhms
-  ms.author: pnp
+  ms.author: pacorte
   ms.date: 11/09/2020
   ms.topic: conceptual
   ms.service: architecture-center
