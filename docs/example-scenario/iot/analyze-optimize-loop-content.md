@@ -1,10 +1,8 @@
-
-
 The Internet-of-Things (IoT) *analyze and optimize loop* enables the generation and application of business optimization insights to one or more deployments of physical systems controlled by software, based on the entire enterprise business context. The analyze and optimize loop sources telemetry, typically from [monitor and manage loop](monitor-manage-loop.yml) processes, refines it, and combines it with enterprise data sources to generate insights.
 
 This article provides an overview of analyze and optimize process loop architecture, characteristics, and components.
 
-## Use cases
+## Potential use cases
 
 Some example scenarios for analyze and optimize loops include:
 
@@ -37,6 +35,6 @@ The important components of business optimization control are:
 - **Enterprise data** produced by enterprise systems like product lifecycle management, supply chain, finance, sales, manufacturing and distribution, and customer relationship management. Enterprise data combined with external data sets like weather can contextualize IoT telemetry at business scope for generating compatible insights.
 - **Offline analytics** to process big data in batch mode. Spark jobs and Hadoop map-reduce processing are a couple of examples. Monitor and manage loop and measure and control loop processes then apply the insights obtained from analyze and optimize loops to IoT devices.
 
-## See also
+## Next steps
 - [Monitor and manage loops](monitor-manage-loop.yml)
 - [Measure and control loops](measure-control-loop.yml)
