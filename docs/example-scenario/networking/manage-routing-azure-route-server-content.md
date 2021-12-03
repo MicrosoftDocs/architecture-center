@@ -50,14 +50,22 @@ This solution applies to scenarios that:
 
 ### Components
 
-- Route Server is an Azure service that enables third-party network appliances to exchange routes (information) with Azure Virtual Networks dynamically.
+- [Azure Route Server][Azure Route Server] simplifies dynamic routing between NVAs that support BGP and virtual networks. This service eliminates the administrative overhead of maintaining routing tables.
+
+- [Virtual network peering][Virtual network peering] connects two or more Azure virtual networks. Peerings provide low-latency, high-bandwidth connections between resources in different virtual networks. Traffic between VMs in peered virtual networks only uses the Microsoft private network.
+
+- [Azure VPN Gateway][VPN Gateway] is a specific type of virtual network gateway. You can use VPN Gateway to send encrypted traffic:
+
+  - Between an Azure virtual network and an on-premises location over the public internet.
+  - Between Azure virtual networks over the Microsoft network.
+
+- [ExpressRoute][What is Azure ExpressRoute?] extends on-premises networks into the Microsoft cloud. By using a connectivity provider, ExpressRoute establishes private connections to cloud components like Azure services and Microsoft 365.
+
+- [Service endpoints][Virtual Network service endpoints] provide secure and direct connectivity to Azure resources from private IP addresses in virtual networks. The connections use optimized routes over the Azure backbone network. An endpoint protects Azure resources by only allowing traffic from a specified virtual network.
 
 
-Peering
 
-VPN gateway
 
-ExpressRoute
 
 Service endpoints
 See https://docs.microsoft.com/en-us/azure/virtual-network/virtual-network-service-endpoints-overview
@@ -115,5 +123,10 @@ For the Azure NetApp Files availability guarantee, see [SLA for Azure NetApp Fil
 
 [About Azure Route Server support for ExpressRoute and Azure VPN]: https://docs.microsoft.com/en-us/azure/route-server/expressroute-vpn-support
 [About dual-homed network with Azure Route Server]: https://docs.microsoft.com/azure/route-server/about-dual-homed-network
+[Azure Route Server]: https://azure.microsoft.com/en-us/services/route-server/
+[Virtual network peering]: https://docs.microsoft.com/en-us/azure/virtual-network/virtual-network-peering-overview
+[Virtual Network service endpoints]: https://docs.microsoft.com/en-us/azure/virtual-network/virtual-network-service-endpoints-overview
 [Virtual network traffic routing - Custom routes]: https://docs.microsoft.com/en-us/azure/virtual-network/virtual-networks-udr-overview#custom-routes
 [Virtual network traffic routing - Optional default routes]: https://docs.microsoft.com/en-us/azure/virtual-network/virtual-networks-udr-overview#optional-default-routes
+[VPN Gateway]: https://azure.microsoft.com/en-us/services/vpn-gateway/
+[What is Azure ExpressRoute?]: https://docs.microsoft.com/en-us/azure/expressroute/expressroute-introduction
