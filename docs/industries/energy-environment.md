@@ -38,3 +38,16 @@ The following articles provide detailed analysis of architectures developed and 
 |[Scale AI and machine learning initiatives in regulated industries](/azure/architecture/example-scenario/ai/scale-ai-and-machine-learning-in-regulated-industries)|||
 
 ## Solution ideas for energy and the environment
+-	[Data science and machine learning with Azure Databricks](/azure/architecture/solution-ideas/articles/azure-databricks-data-science-machine-learning)
+-	[Demand forecasting](/azure/architecture/solution-ideas/articles/demand-forecasting)
+-	[Energy supply optimization](/azure/architecture/solution-ideas/articles/energy-supply-optimization) 
+-	[Forecast energy and power demand](/azure/architecture/solution-ideas/articles/forecast-energy-power-demand)
+-	[IoT analyze and optimize loops](/azure/architecture/example-scenario/iot/analyze-optimize-loop)
+-	[IoT connected light, power, and internet for emerging markets](/azure/architecture/solution-ideas/articles/low-latency-network)
+-	[IoT device connectivity for healthcare facilities](/azure/architecture/solution-ideas/articles/healthcare-network)
+-	[IoT Edge data storage and processing](/azure/architecture/solution-ideas/articles/data-storage-edge)
+-	[IoT monitor and manage loops](/azure/architecture/example-scenario/iot/monitor-manage-loop)
+-	[Low-latency network connections for industry](/azure/architecture/solution-ideas/articles/low-latency-network)
+-	[Modern analytics architecture with Azure Databricks](/azure/architecture/solution-ideas/articles/azure-databricks-modern-analytics-architecture)
+-	[Oil and gas tank level forecasting](/azure/architecture/solution-ideas/articles/oil-and-gas-tank-level-forecasting)
+-	[Stromasys Charon-SSP Solaris emulator on Azure VMs](/azure/architecture/solution-ideas/articles/solaris-azure)
