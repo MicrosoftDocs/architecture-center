@@ -1,3 +1,5 @@
+[!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
+
 Contoso is a European retailer operating mid-sized supermarkets. They have grown through the years and are now one of the largest retailers, with more than 1000 stores located in both cities and suburbs.
 
 ## Challenges faced
