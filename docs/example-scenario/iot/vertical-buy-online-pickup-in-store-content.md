@@ -20,7 +20,7 @@ With [**59% of consumers**](https://retailwire.com/discussion/is-curbside-pickup
 
 -   *What should the solution do for the business?*
 
-The solution should provide alerts to the store associates and trigger a work order to start packing the fresh produce for customers that are near the outlet. This decreases customer waiting time, improving a key aspect of the curbside pickup experience.
+The solution should provide alerts to the store associates and trigger a work order to start packing the fresh produce for customers that are near the outlet. This decreases customer-waiting time, improving a key aspect of the curbside pickup experience.
 
 ### Requirements
 
@@ -47,9 +47,9 @@ The following table provides a summary of common use cases and corresponding IoT
 
 1.  Video feed is obtained as cars come into the parking area. The IP camera hosting a Real-Time Streaming Protocol (RTSP) server sends the feed to Live View Analytics (LVA) module. The LVA module processes the frame rate and sends the image to Azure Cognitive Services running on the gateway. Azure Cognitive Services extracts only the license plate details and sends it to the cloud application.
 
-2.  Azure IoT Central is used because it is a fully managed application platform. It allows Contoso to extend it easily and focus on features that directly impacts business.
+2.  Azure IoT Central is used because it is a fully managed application platform. It allows Contoso to extend it easily and focus on features that directly impact the business.
 
-3.  License plate details are queued in Event hub which routes it to an Azure Storage for long-term storage and allows other services to use it.
+3.  License plate details are queued via Event Hubs, which routes it to Azure Storage for long-term storage, which allows other services to use it.
 
 4.  The license plate details are sent to the curbside pickup application via Azure Functions. The serverless design allows Contoso to lower their infrastructure management and cost.
 
@@ -71,11 +71,11 @@ The following table provides a summary of common use cases and corresponding IoT
 
 -   [Azure IoT Central](https://azure.microsoft.com/services/iot-central) is a fully managed application platform that reduces the burden and cost of developing, managing, and maintaining enterprise-grade IoT solutions.
 
--   [Event Hubs](https://azure.microsoft.com/services/event-hubs) are used to queue the events sent to the curbside pickup application. Event Hubs creates decoupling for consumption in a distributed application.
+-   [Event Hubs](https://azure.microsoft.com/services/event-hubs) is used to queue the events sent to the curbside pickup application. Event Hubs creates decoupling for consumption in a distributed application.
 
 -   [Azure Storage](https://azure.microsoft.com/services/storage) is used to store raw data for analysis. Contoso has decided to use this service as they are storing the objects in a flat namespace.
 
--   [Azure Functions](https://azure.microsoft.com/services/functions/) is a serverless service used to process the events received. Without having to maintain the infrastructure, Contoso can write single function programs to send data from Event Hubs to the curbside pickup application API. It is also used to read the changefeed in Cosmos DB to write data into Azure Storage.
+-   [Azure Functions](https://azure.microsoft.com/services/functions/) is a serverless service used to process the events received. Without having to maintain the infrastructure, Contoso can write single function programs to send data from Event Hubs to the curbside pickup application API. It is also used to read the change feed in Cosmos DB to write data into Azure Storage.
 
 -   [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) provides a low-latency database with guaranteed availability and automatic scalability. Contoso requires low latency reads and write for seamless user experience. The curbside pickup application uses NoSQL document to store the data because of the variety in order SKU. As the application is available throughout Europe, Contoso wants a turn key database that provides multi-master read and write.
 
@@ -95,7 +95,7 @@ Azure IoT Edge is selected as it's a runtime that allows the use and orchestrati
 
 **Geofence**
 
-The application uses Azure Maps, which allows Contoso to create geofence rules.  These rules provide another data point to confirm a customer's location. The geofence triggers provides additional accuracy on the estimated time of arrival.
+The application uses Azure Maps, which allows Contoso to create geofence rules.  These rules provide another data point to confirm a customer's location. The geofence triggers provide additional accuracy on the estimated time of arrival.
 
 ## Next steps
 
