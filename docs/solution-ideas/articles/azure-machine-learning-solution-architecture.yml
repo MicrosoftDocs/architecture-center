@@ -37,4 +37,4 @@ products:
 
 thumbnailUrl: /azure/architecture/browse/thumbs/azure-machine-learning-solution-architecture.png
 content: |
-   [!include[](azure-machine-learning-solution-architecture.md)]
+   [!include[](azure-machine-learning-solution-architecture-content.md)]
