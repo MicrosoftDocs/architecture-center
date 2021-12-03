@@ -9,8 +9,11 @@ ms.service: architecture-center
 ms.subservice: design-pattern
 products:
   - azure-front-door
+  - azure
+categories:
+  - management-and-governance
+  - security
 ms.custom:
-  - fasttrack-new
   - fcp
   - design-pattern
 ---
@@ -41,11 +44,11 @@ To avoid these issues, consider grouping resources in *scale units* and provisio
 
 Deployment stamps can apply whether your solution uses infrastructure as a service (IaaS) or platform as a service (PaaS) components, or a mixture of both. Typically IaaS workloads require more intervention to scale, so the pattern might be useful for IaaS-heavy workloads to allow for scaling out.
 
-Stamps can be used to implement [deployment rings](/azure/devops/migrate/phase-rollout-with-rings?view=azure-devops). If different customers want to receive service updates at different frequencies, they can be grouped onto different stamps, and each stamp could have updates deployed at different cadences.
+Stamps can be used to implement [deployment rings](/azure/devops/migrate/phase-rollout-with-rings). If different customers want to receive service updates at different frequencies, they can be grouped onto different stamps, and each stamp could have updates deployed at different cadences.
 
 Because stamps run independently from each other, data is implicitly *sharded*. Furthermore, a single stamp can make use of further sharding to internally allow for scalability and elasticity within the stamp.
 
-The deployment stamp pattern is used internally by many Azure services, including [App Service](/archive/msdn-magazine/2017/february/azure-inside-the-azure-app-service-architecture), [Azure Stack](/azure-stack/operator/azure-stack-capacity-planning-overview?view=azs-1910), and [Azure Storage](/azure/storage/common/storage-redundancy-zrs).
+The deployment stamp pattern is used internally by many Azure services, including [App Service](/archive/msdn-magazine/2017/february/azure-inside-the-azure-app-service-architecture), [Azure Stack](/azure-stack/operator/azure-stack-capacity-planning-overview), and [Azure Storage](/azure/storage/common/storage-redundancy-zrs).
 
 Deployment stamps are related to, but distinct from, [geodes](geodes.md). In a deployment stamp architecture, multiple independent instances of your system are deployed and contain a subset of your customers and users. In geodes, all instances can serve requests from any users, but this architecture is often more complex to design and build. You might also consider mixing the two patterns within one solution; the [traffic routing approach](#traffic-routing) described below is an example of such a hybrid scenario.
 
