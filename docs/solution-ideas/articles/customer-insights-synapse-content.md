@@ -4,13 +4,15 @@
 
 This article describes the dataflow, product integrations, and configurations that are available for building an enhanced customer dimension that can be consumed by analytics platforms external to Dynamics 365 and Customer Insights. [Audience insights](https://dynamics.microsoft.com/ai/customer-insights/audience-insights-capability) is the feature of Customer Insights that provides the ability to unify customer data sources and enhance customer profiles. For more information, see [the audience insights overview](/dynamics365/customer-insights/audience-insights/overview?branch=master#main-benefits).
 
-## Potential use cases
 
 The following table shows an example of enhanced customer records that are produced by the Customer Insights data unification process. This process takes customer data from multiple source systems and cleans and merges it. Customer Insights can also enrich customer records with attributes like churn scores and brand affinities. Here are some fictional examples of this type of record:
 
 :::image type="content" source="../media/customer-dimension-example.png" alt-text="Example customer records in a database table." lightbox="../media/customer-dimension-example.png":::
 
 :::image type="content" source="../media/customer-brand-affinity-example.png" alt-text="Example of customer records with brand affinity attributes in a database table." :::
+
+## Potential use cases
+This architecture is applicable to any organization that needs to create records that draw data from multiple sources.
 
 ## Architecture 
 
@@ -20,7 +22,7 @@ The following table shows an example of enhanced customer records that are produ
 
 *Download a [PowerPoint file](https://arch-center.azureedge.net/CI+Synapse.pptx) of this architecture.*
 
-This high-level architecture shows the flow of data from an organization's source systems (ERP, CRM, POS, and so on) into a data lake on Azure. This same Azure data lake can be configured as the back end for Dynamics 365 Customer Insights. When it has a data lake back end, Customer Insights can load clean enhanced customer data into the data lake for consumption as a dimension by downstream data warehouses and apps.
+This high-level architecture shows the flow of data from an organization's source systems (ERP, CRM, POS, and so on) into a data lake on Azure. This same data lake can be configured as the back end for Dynamics 365 Customer Insights. When it has a data lake back end, Customer Insights can load clean enhanced customer data into the data lake for consumption as a dimension by downstream data warehouses and apps.
 
 Azure Synapse serverless SQL consumes the enhanced Customer Insights data. Azure Synapse serverless SQL introduces a cost-effective design pattern known as Logical Data Warehouse (LDW). The LDW pattern introduces an abstraction layer on top of external data stores, like data lakes, to provide familiar relational database constructs like tables and views. Tools that support SQL Server endpoints can then consume these tables and views. In the context of this example, Power BI can source the enhanced Customer Insights data as a dimension table from a database by using Azure Synapse serverless SQL pools.
 
@@ -32,7 +34,7 @@ Azure Synapse serverless SQL consumes the enhanced Customer Insights data. Azure
   
 3. To import data into Customer Insights, you need to configure a [connection to a Common Data Model folder by using a Data Lake account](/dynamics365/customer-insights/audience-insights/connect-common-data-model). After you import data into Customer Insights, the Customer Insights [data unification process (map, match, and merge)](/dynamics365/customer-insights/audience-insights/data-unification) can process the disparate customer data. You can then further enrich unified data in Customer Insights by using [data enrichment](/dynamics365/customer-insights/audience-insights/enrichment-hub), [data segments](/dynamics365/customer-insights/audience-insights/segments), and [AI predictions](/dynamics365/customer-insights/audience-insights/predictions-overview). 
   
-4. In Customer Insights, you need to configure an export of data that will load data back to the data lake. For more information, see [Set up the connection to Azure Data Lake Storage Gen2](/dynamics365/customer-insights/audience-insights/export-azure-data-lake-storage-gen2).
+4. In Customer Insights, you need to configure an export of data back to the data lake. For more information, see [Set up the connection to Azure Data Lake Storage Gen2](/dynamics365/customer-insights/audience-insights/export-azure-data-lake-storage-gen2).
   
 5. [Create a Logical Data Warehouse](/azure/synapse-analytics/sql/tutorial-logical-data-warehouse) in the Azure Synapse workspace. See the [Azure Synapse serverless SQL pool best practices](/azure/synapse-analytics/sql/best-practices-serverless-sql-pool) to determine whether you need to do additional transformations on the exported Customer Insights data and whether views are better suited than tables.
   
@@ -42,9 +44,8 @@ Azure Synapse serverless SQL consumes the enhanced Customer Insights data. Azure
 
 - [Azure Data Lake Storage](https://azure.microsoft.com/services/storage/data-lake-storage). Scalable and cost-effective cloud storage that Customer Insights supports as a target for exporting data.
 - [Azure Data Factory](https://azure.microsoft.com/en-us/services/data-factory). Cloud-scale data integration service for orchestrating data flow.
-- [Audience insights](/dynamics365/customer-insights/audience-insights/overview). The Customer Insights module that provides unification of customer data sources. It also provides enrichments like segmentation, customer total lifetime value (CTLV), and customer churn score.
-- [Azure Synapse serverless SQL pools](/azure/synapse-analytics/sql/on-demand-workspace-overview). Used to query customer data in a data lake via a familiar T-SQL language and SQL Server endpoint.
-- [Common Data Model](/common-data-model/data-lake). The data model that Customer Insights uses to produce the customer entity.
+- [Audience insights](/dynamics365/customer-insights/audience-insights/overview). The Customer Insights module that unifies customer data sources. It also provides enrichments like segmentation, customer total lifetime value (CTLV), and customer churn score.
+- [Azure Synapse serverless SQL pools](/azure/synapse-analytics/sql/on-demand-workspace-overview). Used to query customer data in a data lake via T-SQL and SQL Server endpoint.
 
 ### Alternatives
 
