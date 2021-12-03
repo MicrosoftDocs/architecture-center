@@ -10,7 +10,7 @@ Bringing ML and business logic closer to the data sources lets devices react fas
 
 The wheel health analysis system provides early identification of potential equipment failure, helping prevent catastrophic failures that could lead to train derailment. The company can use stored data to spot trends and inform prescriptive maintenance and overhaul schedules.
 
-## Use cases
+## Potential use cases
 
 IoT Edge implementations are most relevant when large amounts of data captured in real time need action or decisions with little or no latency. The example system had to maintain 99.999% uptime, process data from up to 24 trains and 35 million readings per day, and guarantee one-hour delivery of alerts and notifications.
 

@@ -52,7 +52,7 @@ landingContent:
       - linkListType: video
         links:
           - text: "Cloud Security Posture Management (CSPM) with Microsoft Defender for Cloud"
-            url: https://channel9.msdn.com/Shows/Azure-Friday/Cloud-Security-Posture-Management-CSPM-with-Azure-Security-Center?term=Security%20overview&pubDate=3years&lang-en=true
+            url: /shows/Azure-Friday/Cloud-Security-Posture-Management-CSPM-with-Azure-Security-Center?term=Security%20overview&pubDate=3years&lang-en=true
 
   # Card
   - title: Design for security
@@ -92,7 +92,7 @@ landingContent:
       - linkListType: whats-new
         links:
           - text: What's new in Azure Network Security?
-            url: https://channel9.msdn.com/Shows/The-Launch-Space/Whats-new-in-Azure-Network-Security?term=Security&pubDate=3years&lang-en=true
+            url: /shows/The-Launch-Space/Whats-new-in-Azure-Network-Security?term=Security&pubDate=3years&lang-en=true
 
  # Card
   - title: Secure build and deploy
@@ -118,7 +118,7 @@ landingContent:
       - linkListType: video
         links:
           - text: Ask the right questions about secure application development on Azure
-            url: https://channel9.msdn.com/Shows/Azure-Enablement/Ask-the-right-questions-about-secure-application-development-on-Azure?term=Secure%20deploy&pubDate=3years&lang-en=true
+            url: /shows/Azure-Enablement/Ask-the-right-questions-about-secure-application-development-on-Azure?term=Secure%20deploy&pubDate=3years&lang-en=true
 
  # Card
   - title: Security monitoring
@@ -150,7 +150,7 @@ landingContent:
       - linkListType: video
         links:
           - text: Improving app security with Application Security Groups
-            url: https://channel9.msdn.com/Shows/Azure-Enablement/Improving-app-security-with-Application-Security-Groups?term=Validate%20and%20test%20security&pubDate=3years&lang-en=true
+            url: /shows/Azure-Enablement/Improving-app-security-with-Application-Security-Groups?term=Validate%20and%20test%20security&pubDate=3years&lang-en=true
 
  # Card
   - title: Optimize security
@@ -168,7 +168,7 @@ landingContent:
       - linkListType: video
         links:
           - text: Enabling secure remote work with using Windows Virtual Desktop
-            url: https://channel9.msdn.com/Shows/Azure-Friday/Enabling-secure-remote-work-using-Windows-Virtual-Desktop?term=Azure%20Secure%20Score&pubDate=3years&lang-en=true
+            url: /shows/Azure-Friday/Enabling-secure-remote-work-using-Windows-Virtual-Desktop?term=Azure%20Secure%20Score&pubDate=3years&lang-en=true
 
  # Card
   - title: Security tools and services

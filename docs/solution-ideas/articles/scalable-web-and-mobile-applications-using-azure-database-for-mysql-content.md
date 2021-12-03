@@ -5,11 +5,17 @@ Rapidly build engaging, performant, and scalable cross-platform and native apps 
 ## Architecture
 
 ![Architecture Diagram](../media/scalable-web-and-mobile-applications-using-azure-database-for-mysql.png)
-*Download an [SVG](../media/scalable-web-and-mobile-applications-using-azure-database-for-mysql.svg) of this architecture.*
+_Download an [SVG](../media/scalable-web-and-mobile-applications-using-azure-database-for-mysql.svg) of this architecture._
+
+### Dataflow
+
+1.  A browser or mobile app makes requests for resources from the API.
+1.  The requests are transmitted using HTTPS with [TLS termination](/azure/app-service/configure-ssl-certificate), which is handled by Azure App Services.
+1.  Azure App Services handles API requests, and it can be [scaled up](/azure/app-service/manage-scale-up) or [scaled out](/azure/azure-monitor/autoscale/autoscale-get-started) to handle the changing demand.
+1.  Azure Database for MySQL provides a relational database service that's powered by the MySQL community edition. Use the [flexible server](/azure/mysql/flexible-server/overview) deployment mode to enable scaling your database within seconds.
 
 ### Components
 
-- [Azure Traffic Manager](https://azure.microsoft.com/services/traffic-manager)
 - [Azure App Services](https://azure.microsoft.com/services/app-service)
 - [Azure Database for MySQL](https://azure.microsoft.com/services/mysql)
 
@@ -17,7 +23,6 @@ Rapidly build engaging, performant, and scalable cross-platform and native apps 
 
 Learn more about the component technologies:
 
-- [What is Traffic Manager?](/azure/traffic-manager/traffic-manager-overview)
 - [App Service overview](/azure/app-service/overview)
 - [What is Azure Database for MySQL?](/azure/mysql/overview)
 

@@ -4,7 +4,7 @@ metadata:
   titleSuffix: Azure Example Scenarios
   description: Learn about using rules to allow for fine-grained routing of events in an IoT solution.
   author: falloutxAY
-  ms.date: 10/23/2020
+  ms.date: 04/08/2021
   ms.topic: conceptual
   ms.service: architecture-center
   ms.subservice: example-scenario

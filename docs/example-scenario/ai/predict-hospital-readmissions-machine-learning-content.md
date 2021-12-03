@@ -140,7 +140,7 @@ You can estimate costs by using the [Azure pricing calculator](https://azure.mic
 - [Azure for healthcare](https://azure.microsoft.com/industries/healthcare)
 - [Azure API for FHIR](https://azure.microsoft.com/services/azure-api-for-fhir/?WT.mc_id=iot-c9-niner)
 - [IoMT FHIR Connector for Azure](https://azure.microsoft.com/blog/accelerate-iomt-on-fhir-with-new-microsoft-oss-connector)
-- [Remote Patient Monitoring with Internet of Medical Things (IoMT)](https://channel9.msdn.com/Shows/Internet-of-Things-Show/Remote-Patient-Monitoring-with-Internet-of-Medical-Things-IoMT)
+- [Remote Patient Monitoring with Internet of Medical Things (IoMT)](/shows/Internet-of-Things-Show/Remote-Patient-Monitoring-with-Internet-of-Medical-Things-IoMT)
 
 ## Related resources
 

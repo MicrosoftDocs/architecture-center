@@ -1,7 +1,7 @@
 ## Motivations
 In an Internet of Things (IoT) solution, IoT devices send [events](./introduction-to-solutions.yml#events) (notifications, acknowledgments, telemetry) to application to gain insights. Applications may require specific subsets of events for processing or storage at different end points. These events may also need to be routed to different services for further processing. As the IoT solution scales out, the number of devices, volume of events, variety of events and different services also varies. A flexible, scalable, consistent, and reliable method to route events is necessary to serve this pattern.
 
-## Use cases
+## Potential use cases
 A retail outlet is monitoring the fridges for their frozen food section.
 -   An alert is sent when the temperature of the fridges goes past a pre-determined threshold. A routing rule can be created with the threshold rule to send these specific events to an alert system.
 -   The data science team is building an anomaly detection model to identify issues with the fridges before any of them breaks down. A message routing rule can send all the raw telemetry data to a storage account specifically for the data science team to use for training and modeling.
@@ -33,5 +33,6 @@ When to use this pattern:
 This pattern is not recommended for:
 -   Routing based on complex real-time data analysis of time series data. For example, when comparing the 15-minute average telemetry data. If real-time data analysis is required, use a real-time analytics service for the hot path data.
 
-## See also
+## Next steps
+
 [Azure IoT Hub message routing](/azure/iot-hub/iot-hub-devguide-messages-d2c)

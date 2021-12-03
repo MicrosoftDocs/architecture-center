@@ -808,7 +808,39 @@ items:
                   - name: Reliability
                     href: framework/services/data/cosmos-db/reliability.md
                   - name: Operational excellence
-                    href: framework/services/data/cosmos-db/operational-excellence.md  
+                    href: framework/services/data/cosmos-db/operational-excellence.md
+          - name: Hybrid  
+            items:
+              - name: Azure Stack Hub
+                items:
+                  - name: Reliability
+                    href: framework/services/hybrid/azure-stack-hub/reliability.md
+                  - name: Operational excellence
+                    href: framework/services/hybrid/azure-stack-hub/operational-excellence.md
+          - name: Storage
+            items:
+              - name: Storage Accounts
+                items:
+                  - name: Reliability
+                    href: framework/services/storage/storage-accounts/reliability.md
+                  - name: Security
+                    href: framework/services/storage/storage-accounts/security.md
+                  - name: Cost optimization
+                    href: framework/services/storage/storage-accounts/cost-optimization.md
+                  - name: Operational excellence
+                    href: framework/services/storage/storage-accounts/operational-excellence.md
+              - name: Disks
+                items:
+                  - name: Cost optimization
+                    href: framework/services/storage/disks/cost-optimization.md
+          - name: Messaging
+            items:
+              - name: Event Grid
+                items:
+                  - name: Reliability
+                    href: framework/services/messaging/event-grid/reliability.md
+                  - name: Operational excellence
+                    href: framework/services/messaging/event-grid/operational-excellence.md
   - name: Industry solutions with Azure
     expanded: true
     items:
@@ -1847,6 +1879,8 @@ items:
                 href: solution-ideas/articles/demand-forecasting.yml
               - name: Discovery Hub for analytics
                 href: solution-ideas/articles/cloud-scale-analytics-with-discovery-hub.yml
+              - name: Enhanced customer dimension with Customer Insights
+                href: solution-ideas/articles/customer-insights-synapse.yml
               - name: ETL using HDInsight
                 href: solution-ideas/articles/extract-transform-and-load-using-hdinsight.yml
               - name: Highly scalable customer service and ERP
@@ -2559,6 +2593,8 @@ items:
                 href: solution-ideas/articles/cicd-for-containers.yml
               - name: CI/CD for Microsoft Power Platform
                 href: solution-ideas/articles/azure-devops-continuous-integration-for-power-platform.yml
+              - name: CI/CD for Windows desktop apps
+                href: solution-ideas/articles/azure-devops-ci-cd-for-desktop-apps.yml
               - name: CI/CD using Jenkins and AKS
                 href: solution-ideas/articles/container-cicd-using-jenkins-and-kubernetes-on-azure-container-service.yml
               - name: CI/CD using Jenkins and Terraform
@@ -3603,6 +3639,8 @@ items:
                 href: example-scenario/infrastructure/multi-tier-app-disaster-recovery.yml
               - name: Multitenant SaaS
                 href: example-scenario/multi-saas/multitenant-saas.yml
+              - name: Network-hardened web app
+                href: example-scenario/security/hardened-web-app.yml
               - name: Network topology and connectivity with AVS
                 href: /azure/cloud-adoption-framework/scenarios/azure-vmware/eslz-network-topology-connectivity
                 maintainContext: true
@@ -3618,6 +3656,8 @@ items:
               - name: Virtual WAN network topology
                 href: /azure/cloud-adoption-framework/ready/azure-best-practices/virtual-wan-network-topology
                 maintainContext: true
+              - name: Virtual WAN optimized for varying requirements
+                href: example-scenario/infrastructure/performance-security-optimized-vwan.yml
           - name: Solution ideas
             items:
               - name: Low-latency network for industry
@@ -3755,6 +3795,8 @@ items:
                 href: hybrid/hybrid-file-services.yml
               - name: Minimal storage – change feed to replicate data
                 href: solution-ideas/articles/minimal-storage-change-feed-replicate-data.yml
+              - name: Moodle deployment with Azure NetApp Files
+                href: example-scenario/file-storage/moodle-azure-netapp-files.yml
               - name: Multi-region web app with replication
                 href: solution-ideas/articles/multi-region-web-app-multi-writes-azure-table.yml
               - name: Optimized storage with logical data classification
@@ -3899,6 +3941,8 @@ items:
                 href: example-scenario/signalr/index.yml
               - name: Scalable and secure WordPress on Azure
                 href: example-scenario/infrastructure/wordpress.yml
+              - name: Scalable cloud applications and SRE
+                href: example-scenario/apps/scalable-apps-performance-modeling-site-reliability.yml
               - name: Scalable order processing
                 href: example-scenario/data/ecommerce-order-processing.yml
               - name: Scalable web app
