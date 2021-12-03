@@ -11,7 +11,7 @@ This architecture is a simple example of a 3-tier application design on Azure wi
 ![Architecture Diagram](../media/finance-management-apps-using-azure-database-for-postgresql.png)
 *Download an [SVG](../media/finance-management-apps-using-azure-database-for-postgresql.svg) of this architecture.*
 
-## Dataflow
+### Dataflow
 
 The architecture shows the flow of data in a common tier-3 application design: 
 
@@ -20,7 +20,7 @@ The architecture shows the flow of data in a common tier-3 application design:
 * Azure Database for PostgreSQL offers a fully managed OSS database for the data layer tier-3.
 * Power BI supports native connectivity with PostgreSQL to ingest data for analytics.
 
-## Components
+### Components
 
 - [Azure App Service](/azure/app-service) - Azure App Service enables you to build and host web apps, mobile back ends, and RESTful APIs in the programming language of your choice without managing infrastructure.
 - [Azure Database for PostgreSQL](/azure/postgresql) - Azure Database for PostgreSQL is a relational database service powered by the PostgreSQL community edition.
