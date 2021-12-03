@@ -31,8 +31,8 @@ The following articles provide detailed analysis of architectures developed and 
 |[Geospatial data processing and analytics](/azure/architecture/example-scenario/data/geospatial-data-processing-analytics-azure)|||
 |[Mining equipment monitoring](/azure/architecture/solution-ideas/articles/monitor-mining-equipment) |||
 |[Project 15 Open Platform IoT sustainability](/azure/architecture/solution-ideas/articles/project-15-iot-sustainability)|||
-|[Run CFD simulations](/azure/architecture/example-scenario/infrastructure/hpc-cfd)||||
-|[Run reservoir simulation software on Azure](/azure/architecture/example-scenario/infrastructure/reservoir-simulation)||||
+|[Run CFD simulations](/azure/architecture/example-scenario/infrastructure/hpc-cfd)|||
+|[Run reservoir simulation software on Azure](/azure/architecture/example-scenario/infrastructure/reservoir-simulation)|||
 |[Scale AI and machine learning initiatives in regulated industries](/azure/architecture/example-scenario/ai/scale-ai-and-machine-learning-in-regulated-industries)|||
 
 ## Solution ideas for energy and the environment
