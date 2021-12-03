@@ -5,7 +5,7 @@ metadata:
   description: This example demonstrates how manufacturers can connect their assets to the cloud using OPC UA and the Industrial Components.
   author: EdPrice-MSFT
   ms.author: losampai
-  ms.date: 08/05/2020
+  ms.date: 10/04/2021
   ms.topic: conceptual
   ms.service: architecture-center
   ms.subservice: solution-idea
