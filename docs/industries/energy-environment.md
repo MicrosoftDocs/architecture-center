@@ -25,7 +25,7 @@ categories:
 The following articles provide detailed analysis of architectures developed and recommended for the energy and environment industry.
 | Architecture | Summary | Technology focus |
 | ------- | ------- | ------- |
-|[Cost savings through HTAP with Azure SQL](/azure/architecture/example-scenario/data/azure-sql-htap)||||
+|[Cost savings through HTAP with Azure SQL](/azure/architecture/example-scenario/data/azure-sql-htap)|||||
 |[Create smart places by using Azure Digital Twins](/azure/architecture/example-scenario/iot/smart-places)|||||
 |[Environment monitoring and supply chain optimization with IoT](/azure/architecture/solution-ideas/articles/environment-monitoring-and-supply-chain-optimization) |||||
 |[Geospatial data processing and analytics](/azure/architecture/example-scenario/data/geospatial-data-processing-analytics-azure)|||||
