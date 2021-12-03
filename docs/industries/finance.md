@@ -23,7 +23,7 @@ keywords:
 ---
 
 # Solutions for the finance industry
-
+ 
 The finance industry includes a broad spectrum of entities such as banks, investment companies, insurance companies, and real estate firms, engaged in the funding and money management for individuals, businesses, and governments. Besides data security concerns, financial institutions face unique issues such as, heavy reliance on traditional mainframe systems, cyber and technology risks, compliance issues, increasing competition, and customer expectations. By modernizing and digitally transforming financial systems to move to cloud platforms such as Microsoft Azure, financial institutes can mitigate these issues and provide more value to their customers.
 
 With digital transformation, financial institutions can leverage the speed and security of the cloud and use its capabilities to offer differentiated customer experiences, manage risks, and fight fraud. To learn more, visit [Azure for financial services](https://azure.microsoft.com/industries/financial/). Banking and capital market institutions can drive innovative cloud solutions with Azure; learn from relevant use cases and documentation at [Azure for banking and capital markets](https://azure.microsoft.com/industries/financial/banking/). Microsoft also provides a complete set of capabilities across various platforms in the form of [Microsoft Cloud for Financial Services](https://www.microsoft.com/industry/financial-services/microsoft-cloud-for-financial-services).
