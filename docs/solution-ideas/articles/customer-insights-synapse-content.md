@@ -1,8 +1,8 @@
 [!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
-Dynamics 365 Customer Insights can create a 360-degree customer view by unifying data from transactional, behavioral, and observational sources. You can then make this 360-degree customer view available in enterprise data lakes and/or data warehouses as an enhanced customer dimension. 
+[Dynamics 365 Customer Insights](/dynamics365/customer-insights/overview) can create a 360-degree customer view by unifying data from transactional, behavioral, and observational sources. You can then make this 360-degree customer view available in enterprise data lakes and/or data warehouses as an enhanced customer [dimension](/azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-tables-overview#determine-table-category). 
 
-This article describes the dataflow, product integrations, and configurations that are available for building an enhanced customer dimension that can be consumed by analytics platforms external to Dynamics 365 and Customer Insights. [Audience insights](https://dynamics.microsoft.com/ai/customer-insights/audience-insights-capability) is the feature of Customer Insights that provides the ability to unify customer data sources and enhance customer profiles. Review these [benefits](/dynamics365/customer-insights/audience-insights/overview#main-benefits) for more information.
+This article describes the dataflow, product integrations, and configurations that are available for building an enhanced customer dimension that can be consumed by analytics platforms external to Dynamics 365 and Customer Insights. [Audience insights](https://dynamics.microsoft.com/ai/customer-insights/audience-insights-capability) is the feature of Customer Insights that provides the ability to unify customer data sources and enhance customer profiles. For more information, see [the audience insights overview](/dynamics365/customer-insights/audience-insights/overview?branch=master#main-benefits).
 
 ## Potential use cases
 
@@ -54,7 +54,7 @@ Data Factory and Azure Synapse both provide data integration pipelines. See the 
 
 ## Next steps
 
-- [Microsoft Learn: Unlock customer intent with Dynamics 365 Audience insights](/learn/paths/build-customer-insights)
+- [Microsoft Learn: Unlock customer intent with Dynamics 365 audience insights](/learn/paths/build-customer-insights)
 - [Tutorial: Explore and analyze data lakes with serverless SQL pool](/azure/synapse-analytics/sql/tutorial-data-analyst)
 - [Tutorial: Create a Logical Data Warehouse with serverless SQL pool](/azure/synapse-analytics/sql/tutorial-logical-data-warehouse)
 - [Get started with Azure Synapse Analytics](/azure/synapse-analytics/get-started)
