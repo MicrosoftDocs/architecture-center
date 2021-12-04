@@ -3015,8 +3015,6 @@ items:
                 href: reference-architectures/iot.yml
               - name: Automated guided vehicles fleet control
                 href: example-scenario/iot/automated-guided-vehicles-fleet-control.yml
-              - name: Buy online, pick up in store
-                href: example-scenario/iot/vertical-buy-online-pickup-in-store.yml
               - name: Computer vision on the edge
                 href: reference-architectures/ai/end-to-end-smart-factory.yml
               - name: Connected factory hierarchy service
@@ -3031,12 +3029,12 @@ items:
                 href: solution-ideas/articles/iot-using-cosmos-db.yml
               - name: Predictive maintenance with IoT
                 href: example-scenario/predictive-maintenance/iot-predictive-maintenance.yml
-              - name: Project 15 IoT sustainability
-                href: solution-ideas/articles/project-15-iot-sustainability.yml
               - name: Smart places with Azure Digital Twins
                 href: example-scenario/iot/smart-places.yml
           - name: Solution ideas
             items:
+              - name: Buy online, pick up in store
+                href: example-scenario/iot/vertical-buy-online-pickup-in-store.yml
               - name: Condition monitoring
                 href: solution-ideas/articles/condition-monitoring.yml
               - name: COVID-19 solutions
@@ -3061,6 +3059,8 @@ items:
                 href: solution-ideas/articles/iot-power-management.yml
               - name: Process real-time vehicle data using IoT
                 href: example-scenario/data/realtime-analytics-vehicle-iot.yml
+              - name: Project 15 IoT sustainability
+                href: solution-ideas/articles/project-15-iot-sustainability.yml
               - name: Real-time asset tracking and management
                 href: solution-ideas/articles/real-time-asset-tracking-mgmt-iot-central.yml
               - name: Voice assistants and IoT devices
@@ -3526,6 +3526,18 @@ items:
               - name: Choose a mobile development framework
                 href: /azure/developer/mobile-apps/choose-mobile-framework
                 maintainContext: true
+              - name: Build a serverless mobile back-end
+                href: /azure/developer/mobile-apps/serverless-compute
+                maintainContext: true
+              - name: Cloud-hosted source control for mobile
+                href: /azure/developer/mobile-apps/code-hosting-services
+                maintainContext: true
+              - name: Continuous build and integration for mobile
+                href: /azure/developer/mobile-apps/continuous-integration
+                maintainContext: true
+              - name: Continuous delivery for mobile apps
+                href: /azure/developer/mobile-apps/continuous-delivery
+                maintainContext: true
               - name: Add authentication in mobile apps
                 href: /azure/developer/mobile-apps/authentication
                 maintainContext: true
@@ -3534,6 +3546,9 @@ items:
                 maintainContext: true
               - name: Cloud storage for mobile apps
                 href: /azure/developer/mobile-apps/azure-storage
+                maintainContext: true
+              - name: Analyze mobile app use
+                href: /azure/developer/mobile-apps/analytics
                 maintainContext: true
           - name: Solution ideas
             items:
