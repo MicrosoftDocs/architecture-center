@@ -1,24 +1,20 @@
-When you run applications in the cloud, availability is important. Depending on the type of application some downtime in the application can be acceptable, however, for certain applications keeping the uptime for the application as high as possible can be primordial. When the application becomes unavailable this would mean loss of business, loss of money or loss of face. This is something many companies would like to avoid. 
+For some cloud applications, keeping uptime as high as possible is critical. One solution is to use a high availability setup, which could double your cost. Another solution is a disaster recovery plan, which will bring up the application again in another region. The cost for the latter might be lower, but bringing up the entire application again takes time. 
 
-There are many events that can result in a cloud application not to be available. This might be from a glitch in the network, over a failure of an underlying system, or as simple as the deployment of a new version of the application. 
+This article describes a process for ensuring high availability during the deployment of a new version of an application. In a normal setup, the new bits of the application are deployed to the service that's hosting the application. This often leads to a reload and a restart of the application, during which time the application is unavailable. 
 
-There are also many ways to design for higher availability. Typically this results in a design that makes use of either a high available setup, which will double run cost. Or it will result in a disaster recovery plan, which will bring up the application again in another region. The run cost for the latter might be lower, however, bringing up the entire application again will take time, which is a factor not all applications can take. 
+This article focuses on the blue-green deployment pattern. In this pattern, the new version of the application is deployed next to the existing version. This allows for restarting, warming up, and testing the new version independently. After the new version is running, you can switch to it, redirecting any new incoming traffic to it. For the user of the application, the deployment of the new version happens without any visible downtime.
 
-This article describes ensuring high availability during the deployment of a new version of an application. In a normal setup, the new bits of the application will be deployed to the service that is hosting the application. This will often also lead to a reload and a restart of the application, during which time the application itself will be unavailable. This is often not preferable.
+Another advantage to blue-green deployment: if a new deployment doesn't work as expected, you can easily abandon it without affecting the live version. 
 
-In this article, we will focus on the blue-green deployment pattern for an application. This entails that the new version of the application will be deployed next to the existing version. This allows for restarting, warming up and testing this new version independent of the existing version. Once the new version is properly up and running, a simple switch can be made to this new version, redirecting any new incoming traffic to it. For the end user of the application the deployment of the new version will be done without any visible downtime of the application, making for much higher overall availability.
-
-An other advantage of using blue-green deployments will be that if a deployment is not as expected, you can easily abandon the new version without affecting the live version of the application. This is then a rollback of the changes. 
-
-In the article, we will focus on Azure Spring Cloud as a service for making blue-green deployments possible. We will also focus on automating the deployment of applications so they can be done in a repeatable way over and over again. 
+This solution uses Azure Spring Cloud to implement blue-green deployment. It also focuses on automating the deployment of applications. 
 
 ## Potential use cases
 
-This solution benefits any organizations for whom application availability is an important factor. They can improve their availability by utilizing zero downtime deployments. The solution is especially suitable for industries like e-commerce and gaming where downtime can lead to loss of experience and revenue. Although the general principles apply to industries overall, where a constant availability of an application for the end-user is important.
+This solution can benefit any organization that prioritizes availability. You can improve your availability by using zero downtime deployments. The solution is especially suitable for industries like e-commerce and gaming, where downtime can lead to a loss of business and revenue. 
 
 ## Architecture
 
-![Diagram of blue-green deployment for Azure Spring Cloud, with GitHub source control, GitHub Action Workflow, and Azure Spring Cloud with a blue and a green slot.](media/bluegreen-spring.png)
+![Diagram that shows an architecture for blue-green deployment. It uses GitHub, GitHub Actions, and Azure Spring Cloud with a blue and a green slot.](media/bluegreen-spring.png)
 
 1. The **GitHub repository** holds the application code of which a new version needs to be deployed to Azure Spring Cloud. Every change to the application code happens under source control. GitHub functionality: 
 
