@@ -21,9 +21,9 @@ ms.custom:
 
 # Architectural considerations for a multitenant solution
 
-When you're considering a multitenant architecture, there are a number of decisions you need to make and elements you need to consider.
+When you're considering a multitenant architecture, there are several decisions you need to make and elements you need to consider.
 
-In a multitenant architecture, you share some or all of your resources between tenants. This means that a multitenant architecture can give you cost and operational efficiency. However, multitenancy introduces complexities, including the following:
+In a multitenant architecture, you share some or all of your resources between tenants. This process means that a multitenant architecture can give you cost and operational efficiency. However, multitenancy introduces complexities, including the following:
 
 - How do you define what a _tenant_ is, for your specific solution? Does a tenant correspond to a customer, a user, or a group of users (like a team)?
 - How will you deploy your infrastructure to support multitenancy, and how much isolation will you have between tenants?
