@@ -1,4 +1,4 @@
-When running applications in cloud, availability of the application is an important factor. Depending on the type of application some downtime in the application can be acceptable, however, for certain applications keeping the uptime for the application as high as possible can be primordial. When the application becomes unavailable this would mean loss of business, loss of money or loss of face. This is something many companies would like to avoid. 
+When you run applications in the cloud, availability is important. Depending on the type of application some downtime in the application can be acceptable, however, for certain applications keeping the uptime for the application as high as possible can be primordial. When the application becomes unavailable this would mean loss of business, loss of money or loss of face. This is something many companies would like to avoid. 
 
 There are many events that can result in a cloud application not to be available. This might be from a glitch in the network, over a failure of an underlying system, or as simple as the deployment of a new version of the application. 
 
