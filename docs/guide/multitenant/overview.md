@@ -27,7 +27,7 @@ A multitenant solution is one used by multiple customers, or *tenants*. Tenants 
 * Business-to-consumer (B2C) solutions, such as music streaming, photo sharing, and social network services.
 * Enterprise-wide platform solutions, such as a shared Kubernetes cluster that's used by multiple business units within an organization.
 
-When you build your own multitenant solution in Azure, there are a number of elements you need to consider that factor into your architecture.
+When you build your own multitenant solution in Azure, there are several elements you need to consider that factor into your architecture.
 
 In this series, we provide guidance about how to design, build, and operate your own multitenant solutions in Azure.
 
