@@ -3568,20 +3568,32 @@ items:
         items:
           - name: Guides
             items:
-              - name: Add IP spaces to peered virtual networks
-                href: networking/prefixes/add-ip-space-peered-vnet.md
               - name: Application Gateway framework review
                 href: networking/guide/waf-application-gateway.md
-              - name: Azure Firewall architecture overview
-                href: example-scenario/firewalls/index.yml
-              - name: Azure Firewall framework review
-                href: networking/guide/well-architected-framework-azure-firewall.md
+              - name: Azure Firewall guidance
+                items:
+                  - name: Azure Firewall architecture overview
+                    href: example-scenario/firewalls/index.yml
+                  - name: Azure Firewall framework review
+                    href: networking/guide/well-architected-framework-azure-firewall.md
+                  - name: Security baseline for Azure Firewall
+                    href: /security/benchmark/azure/baselines/firewall-security-baseline
+                    maintainContext: true
               - name: NAT gateway framework review
                 href: networking/guide/well-architected-network-address-translation-gateway.md                
               - name: Private Link in hub-and-spoke network
                 href: guide/networking/private-link-hub-spoke-network.yml
-              - name: Segment Virtual Networks
-                href: reference-architectures/hybrid-networking/network-level-segmentation.yml
+              - name: Virtual Network guidance
+                items:
+                  - name: Add IP spaces to peered virtual networks
+                    href: networking/prefixes/add-ip-space-peered-vnet.md
+                  - name: Segment virtual networks
+                    href: reference-architectures/hybrid-networking/network-level-segmentation.yml
+                  - name: Virtual network peering and VPN gateways
+                    href: reference-architectures/hybrid-networking/vnet-peering.yml
+                  - name: Limit cross-tenant private endpoint connections
+                    href: /azure/cloud-adoption-framework/ready/azure-best-practices/limit-cross-tenant-private-endpoint-connections
+                    maintainContext: true
               - name: Build solutions with Availability Zones
                 href: high-availability/building-solutions-for-high-availability.md
               - name: Use ExpressRoute with Power Platform
@@ -3610,8 +3622,15 @@ items:
                   - name: ExpressRoute readiness checklist
                     href: /power-platform/guidance/expressroute/checklist
                     maintainContext: true
-              - name: Virtual network peering and VPN gateways
-                href: reference-architectures/hybrid-networking/vnet-peering.yml
+              - name: ExpressRoute for Office 365
+                href: /microsoft-365/enterprise/azure-expressroute
+                maintainContext: true
+              - name: Connectivity to other cloud providers
+                href: /azure/cloud-adoption-framework/ready/azure-best-practices/connectivity-to-other-providers
+                maintainContext: true
+              - name: Connectivity to Oracle Cloud Infrastructure
+                href: /azure/cloud-adoption-framework/ready/azure-best-practices/connectivity-to-other-providers-oci
+                maintainContext: true
           - name: Architectures
             items:
               - name: Deploy highly available NVAs
