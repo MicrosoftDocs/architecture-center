@@ -20,10 +20,10 @@ The following architectures describe the resources and configuration necessary f
 
 | Solution | Benefits | Considerations |
 | --- | --- | --- |
-| [Azure Load Balancer](load-balancer-design) | Supports scale out NVAs. Very good convergence time | The NVA needs to provide a port for the health probes, especially for active/standby deployments. Doesn't guarantee symmetric flows for flows to/from Internet |
-| [Changing PIP/UDR](changing-pip-udr) | No special feature required by the NVA. Guarantees symmetric traffic | Only for active/passive designs. High convergence time, of 1-2 minutes |
-| [Azure Route Server](azure-route-server) | The NVA needs to support BGP. Supports active/active and active/passive | No traffic symmetry guaranteed |
-| [Gateway Load Balancer](gateway-load-balancer) | Traffic symmetry guaranteed. NVAs can be shared across tenants. Very good convergence time | Only supports inbound flows from the Internet |
+| [Azure Load Balancer](#load-balancer-design) | Supports scale out NVAs. Very good convergence time | The NVA needs to provide a port for the health probes, especially for active/standby deployments. Doesn't guarantee symmetric flows for flows to/from Internet |
+| [Changing PIP/UDR](#changing-pip-udr) | No special feature required by the NVA. Guarantees symmetric traffic | Only for active/passive designs. High convergence time, of 1-2 minutes |
+| [Azure Route Server](#azure-route-server) | The NVA needs to support BGP. Supports active/active and active/passive | No traffic symmetry guaranteed |
+| [Gateway Load Balancer](#gateway-load-balancer) | Traffic symmetry guaranteed. NVAs can be shared across tenants. Very good convergence time | Only supports inbound flows from the Internet |
 
 ## Load Balancer design
 
