@@ -1,30 +1,26 @@
 
 
-This article shows several options for how to deploy a set of network virtual appliances (NVAs) for high availability in Azure. An NVA is typically used to control the flow of network traffic from a perimeter network, also known as a DMZ, to other networks or subnets. To learn about implementing a DMZ in Azure, see [Microsoft cloud services and network security][cloud-security]. The article includes example architectures for ingress only, egress only, and both ingress and egress.
+This article shows several options for how to deploy a set of network virtual appliances (NVAs) for high availability in Azure. An NVA is typically used to control the flow of traffic between network segments classified with different security levels, for example in a De-Militarized Zone (DMZ) Virtual Network where virtual machines need to communicate with other systems through the public Internet. To learn about implementing a DMZ in Azure, see [Microsoft cloud services and network security][cloud-security].
+
+There are a number of design patterns where NVAs are used to inspect traffic between different security zones, for example:
+
+- To inspect egress traffic from virtual machines to the Internet and prevent data exfiltration
+- To inspect ingress traffic from the Internet to virtual machines and prevent malicious attacks
+- To filter traffic between virtual machines in Azure, to prevent lateral moves of compromised systems
+- To filter traffic between on-premises systems and Azure virtual machines, if they are considered to belong to different security levels (for example if Azure hosts the DMZ, and onprem the internal applications).
 
 **Prerequisites:** This article assumes a basic understanding of Azure networking, [Azure load balancers][lb-overview], and [user-defined routes][udr-overview] (UDRs).
 
-## NVA conceptual overview
-
-The following figure illustrates the use of a [single NVA][nva-scenario] for ingress and egress of network traffic.
-
-![[0]][0]
-
-In this architecture, the NVA provides a secure network boundary by checking all inbound and outbound network traffic and passing only the traffic that meets network security rules. However, the fact that all network traffic must pass through the NVA means that the NVA is a single point of failure in the network. If the NVA fails, there is no other path for network traffic and all the back-end subnets are unavailable.
-
-A single NVA can have have higher availability if you use Premium SSD or Ultra Disk for all Operating System Disks and Data Disks. To achieve even greater availability targets deploy more than one NVA into an Availability Set or into multiple Availability Zones. To understand the service level agreement for individual and multiple VMs, see [SLA for Virtual Machines](https://azure.microsoft.com/support/legal/sla/virtual-machines/).  The highest level of uptime is achieved with multiple NVA VMs deployed across multiple Availability Zones
+The first question to be answered is why High Availability for Network Virtual Appliances is required. The reason is because these devices control the communication between network segments, so if they are not available, network traffic cannot flow and applications will stop working. Scheduled and unscheduled outages can and will occasionally bring down NVA instances (as any other virtual machine in Azure or any other cloud), even if those NVAs are configured with Premium Managed Disks to provide single-instance SLA in Azure. Hence, highly available applications will require at least a second NVA that can ensure connectivity.
 
 ## HA architectures overview
 
 The following architectures describe the resources and configuration necessary for highly available NVAs:
 
-| Solution | Benefits | Considerations | Deployment |
+| Solution | Benefits | Considerations |
 | --- | --- | --- | --- |
-| [Load Balancer Standard and HA ports][load-balancer-standard-ha-ports] |Balances all TCP and UDP flows |Confirm with NVA providers how to best use HA ports and to learn which scenarios are supported <br/> HA ports feature is available in all the global Azure regions <br/> Fast failover to healthy instances, with per-instance health probes <br/> Review [limitations](/azure/load-balancer/load-balancer-ha-ports-overview#limitations)| [Click for Deployment Details](#deploy-the-ha-ports-architecture)|
-| [Ingress with layer 7 NVAs][ingress-with-layer-7] |All NVA nodes are active |Requires an NVA that can terminate connections and use SNAT<br/> Requires a separate set of NVAs for traffic coming from the Internet and from Azure <br/> Can only be used for traffic originating outside Azure | [Deploy the Layer 7 Ingress architecture](#deploy-the-layer-7-ingress-architecture)
-| [Egress with layer 7 NVAs][egress-with-layer-7] |All NVA nodes are active | Requires an NVA that can terminate connections and implements source network address translation (SNAT)<br/>Review [using SNAT for outbound connections](https://docs.microsoft.com/en-us/azure/load-balancer/load-balancer-outbound-connections) | [Deploy the Layer 7 Egress architecture](#deploy-the-layer-7-egress-architecture)
-| [Ingress-Egress with layer 7 NVAs][ingress-egress-with-layer-7] |All nodes are active<br/>Able to handle traffic originated in Azure |Requires an NVA that can terminate connections and use SNAT<br/>Requires a separate set of NVAs for traffic coming from the Internet and from Azure<br/>Review [using SNAT for outbound connections](https://docs.microsoft.com/en-us/azure/load-balancer/load-balancer-outbound-connections) | [Deploy the Layer 7 Ingress/Egress architecture](#deploy-the-layer-7-ingressegress-architecture)
-| [PIP-UDR without SNAT][pip-udr-without-snat] | Single set of NVAs for all traffic<br/>Can handle all traffic (no limit on port rules)<br/>Does not require configuring SNAT for inbound requests |Active-passive<br/>Requires a failover process<br/>Probing and failover logic run outside the virtual network</br>Review [Public IP addresses](https://docs.microsoft.com/en-us/azure/virtual-network/ip-services/public-ip-addresses) | [Deploy the PIP-UDR switch with layer 4 NVAs without SNAT architecture](#deploy-the-pip-udr-switch-with-layer-4-nvas-without-snat-architecture)
+| [Load Balancer][load-balancer] | Supports scale out NVAs. Best failover time | The NVA needs to provide a port for the health probes, especially for active/standby deployments. Doesn't guarantee symmetric flows for flows to/from Internet |
+| [Changing PIP/UDR][pip-udr] | No special feature required by the NVA. Guarantees symmetric traffic | Only for active/passive designs. Convergence time of 1-2 minutes |
 
 ## Load Balancer Standard and HA ports
 
