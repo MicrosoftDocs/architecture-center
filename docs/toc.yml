@@ -3819,16 +3819,78 @@ items:
             items:
               - name: Storage accounts
                 href: /azure/storage/common/storage-account-overview
-                maintainContext: true
-              - name: Data protection
-                href: /azure/storage/blobs/data-protection-overview
-                maintainContext: true
+                maintainContext: true                
               - name: Storage encryption for data at rest
                 href: /azure/storage/common/storage-service-encryption
                 maintainContext: true
               - name: Azure Policy controls for Storage
                 href: /azure/storage/common/security-controls-policy
                 maintainContext: true
+              - name: Use private endpoints
+                href: /azure/storage/common/storage-private-endpoints
+                maintainContext: true
+              - name: Security baseline for Azure Storage
+                href: /security/benchmark/azure/baselines/storage-security-baselinen
+                maintainContext: true
+              - name: Data redundancy
+                href: /azure/storage/common/storage-redundancy
+                maintainContext: true
+              - name: Disaster recovery and storage account failover
+                href: /azure/storage/common/storage-disaster-recovery-guidance
+                maintainContext: true
+              - name: Azure Storage migration guidance
+                href: /azure/storage/common/storage-migration-overview
+                maintainContext: true
+              - name: Blob storage guidance
+                items: 
+                  - name: Authorize access to blobs with AAD
+                    href: /azure/storage/blobs/authorize-access-azure-active-directory
+                    maintainContext: true
+                  - name: Authorize access with role conditions
+                    href: /azure/storage/common/storage-auth-abac
+                    maintainContext: true
+                  - name: Data protection
+                    href: /azure/storage/blobs/data-protection-overview
+                    maintainContext: true
+                  - name: Security recommendations
+                    href: /azure/storage/blobs/security-recommendations
+                    maintainContext: true
+                  - name: Performance and scalability checklist
+                    href: /azure/storage/blobs/storage-performance-checklist
+                    maintainContext: true
+              - name: Data Lake Storage guidance
+                items: 
+                  - name: Best practices
+                    href: /azure/storage/blobs/data-lake-storage-best-practices
+                    maintainContext: true
+                  - name: Security controls by Azure Policy
+                    href: /azure/data-lake-store/security-controls-policy
+                    maintainContext: true
+              - name: File storage guidance
+                items: 
+                  - name: Planning for deployment
+                    href: /azure/storage/files/storage-files-planning
+                    maintainContext: true
+                  - name: Identity-based authentication
+                    href: /azure/storage/files/storage-files-active-directory-overview
+                    maintainContext: true
+                  - name: Networking considerations
+                    href: /azure/storage/files/storage-files-networking-overview
+                    maintainContext: true
+                  - name: Disaster recovery and failover
+                    href: /azure/storage/common/storage-disaster-recovery-guidance
+                    maintainContext: true
+                  - name: File share backup
+                    href: /azure/backup/azure-file-share-backup-overview
+                    maintainContext: true
+              - name: Queue storage guidance
+                items: 
+                  - name: Authorize access with AAD
+                    href: /azure/storage/queues/authorize-access-azure-active-directory
+                    maintainContext: true
+                  - name: Performance and scalability checklist
+                    href: /azure/storage/queues/storage-performance-checklist
+                    maintainContext: true
           - name: Architectures
             items:
               - name: Azure file shares in a hybrid environment
