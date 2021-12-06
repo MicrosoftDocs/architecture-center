@@ -1,8 +1,8 @@
-For some cloud applications, keeping uptime as high as possible is critical. One solution is to use a high availability setup, which could double your cost. Another solution is a disaster recovery plan, which will bring up the application again in another region. The cost for the latter might be lower, but bringing up the entire application again takes time. 
+For some cloud applications, keeping uptime as high as possible is critical. One solution is to use a high availability configuration, which could double your cost. Another solution is a disaster recovery plan, which will bring up the application again in another region. The cost for the latter might be lower, but bringing up the entire application again takes time.
 
-This article describes a process for ensuring high availability during the deployment of a new version of an application. In a traditional setup, the new bits of the application are deployed to the service that's hosting the application. This often leads to a reload and a restart of the application, during which time the application is unavailable. 
+This article describes a process for ensuring high availability during the deployment of a new version of an application. In a traditional configuration, the new bits of the application are deployed to the service that's hosting the application. This configuration often leads to a reload and restart of the application. During that process, the application is unavailable. 
 
-This article focuses on the blue/green deployment pattern. In this pattern, the new version of the application is deployed next to the existing version. This allows for restarting, warming up, and testing the new version independently. After the new version is running, you can switch to it, redirecting any new incoming traffic to it. For the user of the application, the deployment of the new version happens without any visible downtime.
+This article focuses on the blue/green deployment pattern. In this pattern, the new version of the application is deployed next to the existing version. This deployment allows you to restart, warm up, and test the new version independently. After the new version is running, you can switch to it, redirecting any new incoming traffic to it. For the user of the application, the deployment of the new version happens without any visible downtime.
 
 Another advantage to blue/green deployment: if a new deployment doesn't work as expected, you can easily abandon it without affecting the live version. 
 
@@ -10,7 +10,7 @@ This solution uses Azure Spring Cloud to implement blue/green deployment. It als
 
 ## Potential use cases
 
-This solution can benefit any organization that prioritizes availability. You can improve your availability by using zero downtime deployments. The solution is especially suitable for industries like e-commerce and gaming, where downtime can lead to a loss of business and revenue. 
+This solution can benefit any organization that requires high availability. You can improve your availability by using zero downtime deployments. The solution is especially suitable for industries like e-commerce and gaming, where downtime can lead to a loss of business and revenue. 
 
 ## Architecture
 
@@ -47,7 +47,7 @@ This solution uses GitHub Actions to automate deployment. You can use [Azure Pip
 
 This architecture uses Azure Spring Cloud with Deployments as a target service. You can use Azure App Service staging slots as an alternative. A slot would contain the new version of the application, which could be reloaded, warmed up, and tested before a slot swap is done. The slot swap puts the new version in production. This process is built into the service, so the setup is easy.
 
-As another alternative, you can place any Azure service that hosts web endpoints behind a load-balancing solution. If you use this alternative, you can spin up a second instance of the Azure service, where you can deploy a new version of your application. As a next step to create a zero-downtime deployment, you can switch the traffic at the load-balancing solution to the Azure service that holds the new version of the app. This solution to blue/green deployment does require much more management overhead.
+As another alternative, you can place any Azure service that hosts web endpoints behind a load-balancing solution. If you use this alternative, you can spin up a second instance of the Azure service, where you can deploy a new version of your application. As a next step, you can create a zero-downtime deployment. To do that, you can switch the traffic at the load-balancing solution to the Azure service that holds the new version of the app. This solution to blue/green deployment does require much more management overhead.
 
 ## Considerations
 
@@ -96,7 +96,7 @@ Use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculato
 
 Azure Spring Cloud has a Basic tier and a Standard tier. See to the [pricing info](https://azure.microsoft.com/pricing/details/spring-cloud/) for details. When you use the blue/green deployment strategy, you pay for extra virtual SPU for only a short time, while your deployment runs.
 
-GitHub offers a free service, but to use advanced security-related features like code owners or required reviewers, you need the Team plan. For more information, see the [GitHub pricing page](https://github.com/pricing).
+GitHub offers a free service. But to use advanced security-related features like code owners or required reviewers, you need the Team plan. For more information, see the [GitHub pricing page](https://github.com/pricing).
 
 ## Next steps
 
