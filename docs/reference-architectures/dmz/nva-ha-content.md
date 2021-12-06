@@ -89,11 +89,9 @@ One benefit of this design is that no Source Network Address Translation (SNAT) 
 
 In the diagram above each NVA instance is peered over BGP with the Azure Route Server. Note that no route table is required in the spoke subnets, since Azure Route Server will program the routes advertised by the NVAs. If two or more routes are programmed in the Azure virtual machines, they will use Equal Cost MultiPathing (ECMP) to choose one of the NVA instances for every traffic flow. As a consequence, SNAT is a must in this design if traffic symmetry is a requirement.
 
-This insertion method supports both active/active (all NVAs advertise the same routes to the Azure Route Server), as well as active/standby (one NVA advertises routes with a shorter AS path than the other).
+This insertion method supports both active/active (all NVAs advertise the same routes to the Azure Route Server), as well as active/standby (one NVA advertises routes with a shorter AS path than the other). The Azure Route Server supports a maximum of 8 BGP adjacencies. Hence, if using a scale out cluster of active NVAs, this design will support a maximum of 8 NVA instances.
 
 Convergence time is pretty fast in this setup, and will be influenced by the keepalive and holdtime timers of the BGP adjacency. While the Azure Route Server has default keepalive and holdtime timers (60 seconds and 180 seconds respectively), the NVAs can negotiate lower timers during the BGP adjacency establishment. Note that setting these timers too low could lead to BGP instabilities.
-
-The Azure Route Server supports a maximum of 8 BGP adjacencies. Hence, if using a scale out cluster of NVAs, this design will support a maximum of 8 NVA instances.
 
 ## Gateway Load Balancer
 
