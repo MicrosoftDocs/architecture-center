@@ -26,7 +26,7 @@ This solution can benefit any organization that prioritizes availability. You ca
 
     - Checks what is currently the active production deployment.
     - Deploys the code to the non-production deployment. If this deployment doesn't exist, it's created. At this point, the old version in the production deployment still gets all production traffic.
-    - Waits for the deployment to be reviewed and approved. This step is included so the newly deployed application has time to start. Before approval, you can use the non-production URL of the application to verify the new version and ensure that it's ready.
+    - Waits for the deployment to be reviewed and approved. This step is included so the newly deployed application has time to start. Before approval, you can use the non-production URL of the application to verify  the new version and ensure that it's ready.
     - If the deployment is approved, the production deployment and the non-production deployment are switched. All production traffic is now routed to the new version of the application.
     - After the approval and switch-over of the traffic, the old production deployment is deleted. Cleaning up the old production deployment will lead to a more cost-effective setup. 
     - If the new deployment is rejected, no switch takes place. The previous version continues to receive production traffic. 
