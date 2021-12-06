@@ -137,7 +137,7 @@ Choose the level of isolation from on premises means of control also known as se
 
 Require all critical impact admins to use passwordless authentication or multifactor authentication (MFA).
 
-Attack methods have evolved to the point where passwords alone cannot reliably protect an account. This is well documented in a [Microsoft Ignite Session](https://channel9.msdn.com/events/Ignite/Microsoft-Ignite-Orlando-2017/BRK3016).
+Attack methods have evolved to the point where passwords alone cannot reliably protect an account. This is well documented in a Microsoft Ignite Session.
 
 Administrative accounts and all critical accounts should use one of the following methods of authentication. These capabilities are listed in preference order by highest cost/difficulty to attack (strongest/preferred options) to lowest cost/difficult to attack:
 
