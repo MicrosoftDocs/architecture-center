@@ -43,7 +43,7 @@ _Download an [Visio](../media/hybrid-footfall-detection-pattern.vsdx) of this ar
 ### Considerations
 
 #### Reliability 
-Since this solution is tiered, it's important to think about how to deal with networking or power failures. Leverage the [Resiliency and Dependencies](https://docs.microsoft.com/en-us/azure/architecture/framework/resiliency/design-resiliency), [Best Practices](https://docs.microsoft.com/en-us/azure/architecture/framework/resiliency/design-best-practices), and other [reliability guidance](https://docs.microsoft.com/en-us/azure/architecture/framework/resiliency/) from the Microsoft Azure Well Architected Framework (WAF) to improve the solution resiliency.
+Since this solution is tiered, it's important to think about how to deal with networking or power failures. Leverage the [Resiliency and Dependencies](https://docs.microsoft.com/en-us/azure/architecture/framework/resiliency/design-resiliency), general [Best Practices](https://docs.microsoft.com/en-us/azure/architecture/framework/resiliency/design-best-practices), and other [Azure Stack Hub reliability](https://docs.microsoft.com/en-us/azure/architecture/framework/services/hybrid/azure-stack-hub/reliability) guidance from the Microsoft Azure Well Architected Framework (WAF) to improve the solution resiliency.
 
 Depending on business needs, you might want to implement a mechanism to cache images locally, then forward to Azure Stack Hub when connectivity returns. If the location is large enough, deploying a Data Box Edge with the Face API container to that location might be a better option.
 
@@ -54,7 +54,9 @@ This solution captures customer images, making security a paramount consideratio
 Provide security through [identity and access management](https://docs.microsoft.com/en-us/azure/architecture/framework/security/design-identity), making sure to tier the user access levels. Tiering ensures that users only have access to the data they need for their role.
 
 #### Operational excellence
-Monitoring and diagnostics are crucial. Cloud applications run in a remote data-center where you don't have full control of the infrastructure or, in some cases, the operating system. In a large application, it's not practical to log into virtual machines (VMs) to troubleshoot an issue or sift through log files. Use [Azure Monitor on Azure Stack Hub](https://docs.microsoft.com/azure-stack/user/azure-stack-metrics-azure-data) lets you visualize, query, route, archive, and take other actions on metrics and logs 
+Monitoring and diagnostics are crucial. Cloud applications run in a remote data-center where you don't have full control of the infrastructure or, in some cases, the operating system. Use [Azure Monitor on Azure Stack Hub](https://docs.microsoft.com/azure-stack/user/azure-stack-metrics-azure-data) lets you visualize, query, route, archive, and take other actions on metrics and logs. Follow the [Monitoring operations of cloud applications] checklist to implement a comprehensive monitoring strategy for the solution.
+
+This solution can span many devices and locations, which could get unwieldy. [Azure's IoT services](https://docs.microsoft.com/azure/iot-fundamentals/) can be used to automatically bring new locations and devices online and keep them up to date.
 
 #### Performance efficiency
 To enable this solution to scale across multiple cameras and locations, you'll need to make sure that all of the components can handle the increased load. You may need to take actions like:
@@ -64,7 +66,7 @@ Increase the number of Stream Analytics streaming units.
 * Increase the Event Hubs cluster throughput.
 * For extreme cases, migrate from Azure Functions to a virtual machine may be necessary.
 
-This solution can span many devices and locations, which could get unwieldy. [Azure's IoT services](https://docs.microsoft.com/azure/iot-fundamentals/) can be used to automatically bring new locations and devices online and keep them up to date.
+Use the [Performance efficiency checklist](https://docs.microsoft.com/en-us/azure/architecture/framework/scalability/performance-efficiency) to review your design from a scalability standpoint.
 
 ### Alternatives
   An [Azure Functions](https://docs.microsoft.com/azure-stack/operator/azure-stack-app-service-overview)  running on Azure Stack Hub is a great compute option. However, there are others compute options which are possible, for example, an custom app on [Azure App Service](https://docs.microsoft.com/azure-stack/operator/azure-stack-app-service-deploy) or on top of Azure Kubernetes Service [(AKS) Engine](https://github.com/Azure/aks-engine)
