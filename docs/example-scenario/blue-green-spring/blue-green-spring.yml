@@ -23,4 +23,4 @@ name: Zero downtime blue-green deployment
 summary: See a blue-green deployment solution for an Azure Spring Cloud application. This solution provides zero downtime deployment for applications in a Spring Cloud cluster.
 thumbnailUrl: /azure/architecture/browse/thumbs/blue-green-spring.png
 content: |
-  [!include[](bluegreen-spring-content.md)]
+  [!include[](blue-green-spring-content.md)]
