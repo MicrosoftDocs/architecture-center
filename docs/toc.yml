@@ -71,6 +71,9 @@ items:
               - name: Hybrid identity authentication methods
                 href: /azure/active-directory/hybrid/choose-ad-authn
                 maintainContext: true
+          - name: Choose a managed disk type
+            href: /azure/virtual-machines/disks-types
+            maintainContext: true
           - name: Choose a data store
             items:
               - name: Understand data store models
@@ -3890,6 +3893,46 @@ items:
                     maintainContext: true
                   - name: Performance and scalability checklist
                     href: /azure/storage/queues/storage-performance-checklist
+                    maintainContext: true
+              - name: Table storage guidance
+                items: 
+                  - name: Authorize access with AAD
+                    href: /azure/storage/tables/authorize-access-azure-active-directory
+                    maintainContext: true
+                  - name: Performance and scalability checklist
+                    href: /azure/storage/tables/storage-performance-checklist
+                    maintainContext: true
+                  - name: Design scalable and performant tables
+                    href: /azure/storage/tables/table-storage-design
+                    maintainContext: true
+                  - name: Design for querying
+                    href: /azure/storage/tables/table-storage-design-for-query
+                    maintainContext: true
+                  - name: Table design patterns
+                    href: /azure/storage/tables/table-storage-design-patterns
+                    maintainContext: true
+              - name: Disk storage guidance
+                items:
+                  - name: Choose a managed disk type
+                    href: /azure/virtual-machines/disks-types
+                    maintainContext: true
+                  - name: Server-side encryption
+                    href: /azure/virtual-machines/disk-encryption
+                    maintainContext: true
+                  - name: Disk Encryption for Linux VMs
+                    href: /azure/virtual-machines/linux/disk-encryption-overview
+                    maintainContext: true
+                  - name: Disk Encryption for Windows VMs
+                    href: /azure/virtual-machines/windows/disk-encryption-overview
+                    maintainContext: true
+                  - name: Design for high performance
+                    href: /azure/virtual-machines/premium-storage-performance
+                    maintainContext: true
+                  - name: Scalability and performance targets
+                    href: /azure/virtual-machines/disks-scalability-targets
+                    maintainContext: true
+                  - name: Create an incremental snapshot
+                    href: /azure/virtual-machines/disks-incremental-snapshots
                     maintainContext: true
           - name: Architectures
             items:
