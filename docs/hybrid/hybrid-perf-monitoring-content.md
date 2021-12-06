@@ -1,4 +1,4 @@
-This reference architecture illustrates how to design Azure Monitor to monitor performance and availability for operating system (OS) workloads running in virtual machines (VMs) in Microsoft Azure, in on-premises environments, and with third-party cloud providers.
+This reference architecture illustrates how to design Azure Monitor to monitor performance and availability for operating system (OS) workloads running in virtual machines (VMs) in Microsoft Azure, in on-premises environments, and with the third-party cloud providers. 
 
 ![Diagram illustrating monitoring and availability functions of Azure Monitor for OS workloads in Azure, in on-premises environments, and with third-party cloud providers. Data is being sent into a Log Analytics workspace. The data is used by Application Insights, Analysis, Visualization, Alerts, and Autoscale services as part of Azure Monitor][architectural-diagram]
 
