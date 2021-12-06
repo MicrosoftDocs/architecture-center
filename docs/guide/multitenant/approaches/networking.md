@@ -117,7 +117,7 @@ When you work with platform services, the specific service you use determines wh
 
 ### Agents
 
-If you need to enable your tenants to receive messages initiated by your solution, or if you need to access data that exists in tenants' on networks, then consider providing an agent (sometimes called an _on-premises gateway_) that they can deploy within their network.
+If you need to enable your tenants to receive messages initiated by your solution, or if you need to access data that exists in tenants' own networks, then consider providing an agent (sometimes called an _on-premises gateway_) that they can deploy within their network.
 
 The agent initiates an outbound connection to an endpoint that you specify and control, and either keeps long-running connections alive or polls intermittently. Consider using [Azure Relay](/azure/azure-relay/relay-what-is-it) to establish and manage connections from your agent to your service. When the agent establishes the connection, it authenticates and includes some information about the tenant identifier so that your service can map the connection to the correct tenant.
 
@@ -130,9 +130,9 @@ Examples of Microsoft services that provide agents for connectivity to tenants' 
 
 ### Azure Private Link service
 
-[Azure Private Link Service](/azure/private-link/private-link-service-overview) provides private connectivity from a tenant's Azure environment to your solution. Tenants can also use Private Link service in conjunction with their own VNet to access your service from an on-premises environmen.
+[Azure Private Link Service](/azure/private-link/private-link-service-overview) provides private connectivity from a tenant's Azure environment to your solution. Tenants can also use Private Link service in conjunction with their own VNet to access your service from an on-premises environment.
 
-Tenants can deploy a private endpoint within their VNet and configure it to your Private Link service instance. Azure securely routes the traffic to the service. Azure Private Link service is used by many large SaaS providers, including [Snowflake](/shows/Azure-Videos/Azure-Private-Link--Snowflake).
+Tenants can deploy a private endpoint within their VNet and configure it to your Private Link service instance. Azure securely routes the traffic to the service. Azure Private Link service is used by many large SaaS providers, including [Snowflake](/shows/Azure-Videos/Azure-Private-Link--Snowflake), [Confluent Cloud](https://www.confluent.io/blog/how-to-set-up-secure-networking-in-confluent-with-azure-private-link/), and [MongoDB Atlas](https://www.mongodb.com/blog/post/announcing-azure-private-link-integration-for-mongo-db-atlas).
 
 [Private endpoints typically require approval](/azure/private-link/private-endpoint-overview#access-to-a-private-link-resource-using-approval-workflow) when the source and destination subscriptions are different. You can [automate the approval process](/azure/private-link/manage-private-endpoint#manage-private-endpoint-connections-on-a-customerpartner-owned-private-link-service) within your solution by using Azure Powershell, the Azure CLI, and the Azure Resource Manager API.
 
