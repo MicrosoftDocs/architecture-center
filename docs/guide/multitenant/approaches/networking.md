@@ -1,5 +1,5 @@
 ---
-title: Architectural approaches for networking
+title: Architectural approaches for networking in multitenant solutions
 titleSuffix: Azure Architecture Center
 description: This article describes approaches to consider for networking in a multitenant solution.
 author: johndowns
@@ -20,7 +20,7 @@ ms.custom:
   - fcp
 ---
 
-# Architectural approaches for networking
+# Architectural approaches for networking in multitenant solutions
 
 All solutions deployed to Azure require networking of some kind. Depending on your solution design and the workload, the ways in which you interact with Azure's networking services might be very different. On this page, we provide considerations and guidance for the networking aspects of multitenant solutions on Azure. We include information about the lower-level networking components, like virtual networks, through to higher-level and application-tier approaches.
 
