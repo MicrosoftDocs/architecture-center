@@ -1,5 +1,5 @@
 ---
-title: Azure AI guide for predictive maintenance solutions - Team Data Science Process
+title: Azure AI for predictive maintenance solutions
 description: A comprehensive description of the data science that powers predictive maintenance solutions in multiple vertical industries.
 services: machine-learning
 author: marktab
@@ -18,7 +18,7 @@ products:
 categories:
   - ai-machine-learning
 ---
-# Azure AI guide for predictive maintenance solutions
+# Azure AI for predictive maintenance solutions
 
 ## Summary
 
@@ -463,7 +463,7 @@ Microsoft Azure offers learning paths for the foundational concepts behind PdM t
 | [Microsoft AI School](https://www.microsoft.com/ai/ai-school) | Public |
 | [LinkedIn Learning](https://www.linkedin.com/learning) | Public |
 | [Microsoft: Playlists on YouTube for Artificial Intelligence and Analytics](https://www.youtube.com/c/MicrosoftAzure/playlists?view=50&sort=dd&shelf_id=7) | Public |
-| [Microsoft AI Show](https://channel9.msdn.com/Shows/AI-Show) | Public |
+| [Microsoft AI Show](/shows/AI-Show/) | Public |
 | [AI Platform Overview](https://azure.microsoft.com/overview/ai-platform/) | Public |
 | [AI Lab](https://www.microsoft.com/ai/ai-lab) | Public |
 | [Microsoft AI](https://www.microsoft.com/AI) | Public |

@@ -19,7 +19,7 @@ ms.custom:
 
 # Azure mainframe and midrange architecture concepts and patterns
 
-Mainframe and midrange  hardware is composed of a family of systems from various vendors (all with a history and goal of high performance, high throughput, and sometimes high availability). These systems were often _scale-up_ and monolithic, meaning they were a single, large frame with multiple processing units, shared memory, and shared storage.
+Mainframe and midrange  hardware is composed of a family of systems from various vendors (all with a history and goal of high performance, high throughput, and sometimes high availability). These systems were often *scale-up* and monolithic, meaning they were a single, large frame with multiple processing units, shared memory, and shared storage.
 
 On the application side, programs were often written in one of two flavors: either transactional or batch. In both cases, there were a variety of programming languages that were used, including COBOL, PL/I, Natural, Fortran, REXX, and so on.  Despite the age and complexity of these systems, there are many migration pathways to Azure.
 
@@ -37,15 +37,16 @@ In our mainframe architectures, we use the following terms.
 
 ### Mainframes
 
-_Mainframes_ were designed as scale-up servers to run high-volume online transactions and batch processing in the late 1950s. As such, mainframes have software for online transaction forms (sometimes called green screens) and high-performance I/0 systems, for processing the batch runs. Mainframes have a reputation for high reliability and availability, in addition to their ability to run online and batch jobs.
+*Mainframes* were designed as scale-up servers to run high-volume online transactions and batch processing in the late 1950s. As such, mainframes have software for online transaction forms (sometimes called green screens) and high-performance I/O systems, for processing the batch runs. Mainframes have a reputation for high reliability and availability, in addition to their ability to run online and batch jobs.
 
 #### Mainframe storage
 
 Part of demystifying mainframes involves decoding various overlapping terms. For example, central storage, real memory, real storage, and main storage generally all refer to storage that is attached directly to the mainframe processor.  Mainframe hardware includes processors and many other devices, such as direct-access storage devices (DASDs), magnetic tape drives, and several types of user consoles. Tapes and DASDs are used for system functions and by user programs.
 
-_Types of physical storage:_
-* **Central storage**. Located directly on the mainframe processor, it's also known as _processor storage_ or _real storage_.
-* **Auxiliary storage**. Located separately from the mainframe, it includes storage on DASDs, which is also known as _paging storage_.
+*Types of physical storage:*
+
+- **Central storage**. Located directly on the mainframe processor, it's also known as *processor storage* or *real storage*.
+- **Auxiliary storage**. Located separately from the mainframe, it includes storage on DASDs, which is also known as *paging storage*.
 
 #### MIPS
 
@@ -67,7 +68,7 @@ Mainframe data is stored and organized in a variety of ways, from relational and
 |---------------|------------------------|
 |z/OS Db2 & Db2 LUW |Azure SQL DB, SQL Server on Azure VMs, Db2 LUW on Azure VMs, Oracle on Azure VMs, Azure Database for PostgreSQL|
 |IMS DB	            |Azure SQL DB, SQL Server on Azure VMs, Db2 LUW on Azure VMs, Oracle on Azure VMs, Azure Cosmos DB|
-|Virtual Storage Access Method (VSAM), Indexed Sequential Access Method (ISAM), other flat files |	Azure SQL DB, SQL Server on Azure VMs, Db2 LUW on Azure VMs, Oracle on Azure VMs, Azure Cosmos DB|
+|Virtual Storage Access Method (VSAM), Indexed Sequential Access Method (ISAM), other flat files | Azure SQL DB, SQL Server on Azure VMs, Db2 LUW on Azure VMs, Oracle on Azure VMs, Azure Cosmos DB|
 |Generation Date Groups (GDGs)	|Files on Azure using extensions in the naming conventions to provide similar functionality to GDGs|
 
 ### Midrange systems, Unix variants, and other legacy systems
@@ -97,9 +98,9 @@ Midrange data is stored and organized in variety of ways, from relational and hi
 
 Consider the following details about endianness:
 
-- RISC and x86 processors differ in _endianness_, a term used to describe how a system stores bytes in computer memory.
-- RISC-based computers are known as big endian systems, because they store the most significant (“big”) value first—that is, in the lowest storage address.
-- Most Linux computers are based on the x86 processor, which are little endian systems, meaning they store the least significant (“little”) value) first.
+- RISC and x86 processors differ in *endianness*, a term used to describe how a system stores bytes in computer memory.
+- RISC-based computers are known as big endian systems, because they store the most significant ("big") value first—that is, in the lowest storage address.
+- Most Linux computers are based on the x86 processor, which are little endian systems, meaning they store the least significant ("little") value) first.
 
 The following figure visually shows you the difference between big endian and little endian.
 
@@ -173,7 +174,7 @@ Re-engineering for migration focuses on modifying and extending application func
 
 ### Dedicated hardware
 
-Another pattern for migrations into Azure (for legacy systems) is what is known as _dedicated hardware_. This pattern is where legacy hardware (such as IBM Power Systems) runs inside the Azure datacenter, with an Azure managed-service wrapping around the hardware, which enables easy cloud management and automation. Further, this hardware is available to connect to and use with other Azure IaaS and PaaS services.
+Another pattern for migrations into Azure (for legacy systems) is what is known as *dedicated hardware*. This pattern is where legacy hardware (such as IBM Power Systems) runs inside the Azure datacenter, with an Azure managed-service wrapping around the hardware, which enables easy cloud management and automation. Further, this hardware is available to connect to and use with other Azure IaaS and PaaS services.
 
 #### Dedicated hardware architectures
 
@@ -252,6 +253,7 @@ The white papers, blogs, webinars, and other resources are available to help you
 - [Set up IBM Z Development and Test Environment 12.0 in Azure](https://techcommunity.microsoft.com/t5/azure-global/set-up-ibm-z-development-and-test-environment-12-0-in-azure/ba-p/306506)
 
 ### Customer stories
+
 Different industries are migrating from legacy mainframe and midrange systems in innovative and inspiring ways. Following are a number of customer case studies and success stories:
 
 - [Mainframe to Azure: A Real World Modernization Case Study (GEICO and AIS)](https://www.ais.com/mainframe-to-azure-a-real-world-modernization-case-study)

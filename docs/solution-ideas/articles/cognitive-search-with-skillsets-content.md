@@ -64,14 +64,14 @@ This example solution also builds a standalone web app in [Azure App Service](/a
 
 ## Deploy this scenario
 
-This example solution uses Azure Cognitive Search AI enrichment to extract meaning from the original complex, unstructured JFK Files dataset. You can [work through the project](https://github.com/microsoft/AzureSearch_JFK_Files), watch the process in action in an [online video](https://channel9.msdn.com/Shows/AI-Show/Using-Cognitive-Search-to-Understand-the-JFK-Documents), or explore the JFK Files with an [online demo](https://aka.ms/jfkfiles-demo).
+This example solution uses Azure Cognitive Search AI enrichment to extract meaning from the original complex, unstructured JFK Files dataset. You can [work through the project](https://github.com/microsoft/AzureSearch_JFK_Files), watch the process in action in an [online video](/shows/AI-Show/Using-Cognitive-Search-to-Understand-the-JFK-Documents), or explore the JFK Files with an [online demo](https://aka.ms/jfkfiles-demo).
 
 ## Next steps
 
 Explore the JFK dataset:
 
 - Explore the [JFK Files project](https://github.com/microsoft/AzureSearch_JFK_Files) on GitHub.
-- Watch the process in action in an [online video](https://channel9.msdn.com/Shows/AI-Show/Using-Cognitive-Search-to-Understand-the-JFK-Documents).
+- Watch the process in action in an [online video](/shows/AI-Show/Using-Cognitive-Search-to-Understand-the-JFK-Documents).
 - Explore the JFK Files [online demo](https://aka.ms/jfkfiles-demo).
 
 Read product documentation:

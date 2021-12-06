@@ -36,9 +36,6 @@ products:
   - azure-kubernetes-service
   - azure-machine-learning
   - azure-stack-hub
-  - azure-storage
-  - azure-functions
-  - azure-app-service
 thumbnailUrl: /azure/architecture/browse/thumbs/ai-at-the-edge.png
 content: |
   [!include[](ai-at-the-edge-content.md)]

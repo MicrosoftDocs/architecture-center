@@ -1,8 +1,9 @@
 ---
-title: Monitoring and diagnostics guide
+title: Monitoring and diagnostics guidance
 titleSuffix: Best practices for cloud applications
 description: Learn how to track how users use your distributed applications and services, trace resource utilization, and monitor the health and performance.
-author: dragon119
+author: EdPrice-MSFT
+ms.author: pnp
 ms.date: 07/13/2016
 ms.topic: conceptual
 ms.service: architecture-center
@@ -95,7 +96,7 @@ An operator should also be able to view the historical availability of each syst
 
 A monitoring solution should provide an immediate and historical view of the availability or unavailability of each subsystem. It should also be capable of quickly alerting an operator when one or more services fail or when users can't connect to services. This is a matter of not only monitoring each service, but also examining the actions that each user performs if these actions fail when they attempt to communicate with a service. To some extent, a degree of connectivity failure is normal and might be due to transient errors. But it might be useful to allow the system to raise an alert for the number of connectivity failures to a specified subsystem that occur during a specific period.
 
-<!-- markdownlint-disable MD024 MD033 -->
+<!-- markdownlint-disable MD024 -->
 
 ### Data sources, instrumentation, and data-collection requirements
 

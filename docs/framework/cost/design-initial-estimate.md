@@ -14,7 +14,7 @@ ms.custom:
 
 # Estimate the initial cost
 
-It’s difficult to attribute costs before deploying a workload to the cloud. If you use methods for on-premises estimation or directly map on-premises assets to cloud resources, estimate will be inaccurate. For example, if you build your own datacenter your costs may appear comparable to cloud. Most on-premises estimates don't account for costs like cooling, electricity, IT and facilities labor, security, and disaster recovery.
+It's difficult to attribute costs before deploying a workload to the cloud. If you use methods for on-premises estimation or directly map on-premises assets to cloud resources, estimate will be inaccurate. For example, if you build your own datacenter your costs may appear comparable to cloud. Most on-premises estimates don't account for costs like cooling, electricity, IT and facilities labor, security, and disaster recovery.
 
 Here are some best practices:
 
@@ -27,11 +27,11 @@ Here are some best practices:
 
 Quantify the cost of running your business in Azure by calculating Total Cost Ownership (TCO) and the Return on Investment (ROI). Compare those metrics to existing on-premises equivalents.
 
-It’s difficult to attribute costs before migrating to the cloud.
+It's difficult to attribute costs before migrating to the cloud.
 
 Using on-premises calculation may not accurately reflect the cost of cloud resources. Here are some challenges:
 - On-premises TCO may not accurately account for hidden expenses. These expenses include under-utilization of purchased hardware or network maintenance costs including labor and equipment failure.
-- Cloud TCO may not accurately account for a drop in the organization’s operational labor hours. Cloud provider’s infrastructure, platform management services, and additional operational efficiencies are included in the cloud service pricing. Especially true at a smaller scale, the cloud provider’s services don't result in reduction of IT labor head count.
+- Cloud TCO may not accurately account for a drop in the organization's operational labor hours. Cloud provider's infrastructure, platform management services, and additional operational efficiencies are included in the cloud service pricing. Especially true at a smaller scale, the cloud provider's services don't result in reduction of IT labor head count.
 - ROI may not accurately account for new organizational benefits because of cloud capabilities. It's hard to quantify improved collaboration, reduced time to service customers, and fast scaling with minimal or no downtime.
 - ROI may not accurately account for business process re-engineering needed to fully adopt cloud benefits. In some cases, this re-engineering may not occur at all, leaving an organization in a state where new technology is used inefficiently.
 
@@ -40,7 +40,6 @@ Azure provides these tools to determine cost.
     > For migration projects, the TCO Calculator may assist, as it pre-populates some common cost but allows you to modify the cost assumptions.
 - [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator) to assess cost of the services you plan to use in your solution.
 - [Azure Migrate](/azure/migrate/migrate-services-overview) to evaluate your organization's current workloads in on-premises datacenters. It suggests Azure replacement solution, such virtual machine sizes based on your workload. It also provides a cost estimate.
-
 
 ## Example estimate for a microservices workload
 

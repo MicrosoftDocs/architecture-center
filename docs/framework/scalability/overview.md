@@ -2,7 +2,7 @@
 title: Performance efficiency pillar overview
 description: Explore an overview of the performance efficiency pillar in the Azure Well-Architected Framework. Learn about the importance of scalability.
 author: v-aangie
-ms.date: 10/01/2021
+ms.date: 10/19/2021
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: well-architected
@@ -24,7 +24,11 @@ To assess your workload using the tenets found in the [Microsoft Azure Well-Arch
 
 To boost performance efficiency, we recommend the following video about optimizing for quick and reliable VM deployments:
 
-> [!VIDEO https://channel9.msdn.com/Events/All-Around-Azure/Well-Architected-The-Backstage-Tour/Performance-Efficiency/player]
+<!-- markdownlint-disable MD034 -->
+
+> [!VIDEO https://docs.microsoft.com/en-us/events/all-around-azure-well-architected-the-backstage-tour/performance-efficiency/player]
+
+<!-- markdownlint-enable MD034 -->
 
 ## Topics
 
@@ -37,7 +41,7 @@ The performance efficiency pillar covers the following topics to help you effect
 |[Design for performance](design-checklist.md)| Review your application architecture from a performance design standpoint.|
 |[Consider scalability](design-scale.md)|Plan for growth by understanding your current workloads.|
 |[Plan for capacity](design-capacity.md)|Plan to scale your application tier by adding extra infrastructure to meet demand.|
-|[Monitor for performance](monitor.md)|Monitor services and check the health state of current workloads to maintain overall workload performance.|
+|[Performance monitoring checklist](checklist.md)|Monitor services and check the health state of current workloads to maintain overall workload performance.|
 |[Performance patterns](performance-efficiency-patterns.md)|Implement design patterns to build more performant workloads.|
 |[Tradeoffs](tradeoffs.md)|Consider tradeoffs between performance optimization and other aspects of the design, such as reliability, security, cost efficiency, and operability.|
 

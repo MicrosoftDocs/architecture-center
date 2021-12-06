@@ -55,7 +55,7 @@ Examples of manufacturers of embedded smart cameras are [Basler](https://www.bas
 
 ### Sensor size
 
-This is one of the most important factors to evaluate in any vision workload. A sensor is the hardware within a camera that captures the light and converts into signals, which then produce an image. The sensor contains millions of semiconducting photodetectors called photosites. A higher megapixel count does not always result in a better image. For example, let’s look at two different sensor sizes for a 12-megapixel camera. Camera A has a ½ inch sensor with 12 million photosites and camera B has a 1-inch sensor with 12 million photosites. In the same lighting conditions, the camera that has the 1-inch sensor will be cleaner and sharper. Many cameras typically used in vision workloads have a sensor sized between ¼ inch to 1 inch. In some cases, much larger sensors might be required.
+This is one of the most important factors to evaluate in any vision workload. A sensor is the hardware within a camera that captures the light and converts into signals, which then produce an image. The sensor contains millions of semiconducting photodetectors called photosites. A higher megapixel count does not always result in a better image. For example, let's look at two different sensor sizes for a 12-megapixel camera. Camera A has a ½ inch sensor with 12 million photosites and camera B has a 1-inch sensor with 12 million photosites. In the same lighting conditions, the camera that has the 1-inch sensor will be cleaner and sharper. Many cameras typically used in vision workloads have a sensor sized between ¼ inch to 1 inch. In some cases, much larger sensors might be required.
 
 If a camera has a choice between a larger sensor or a smaller sensor, some factors deciding why you might choose the larger sensor are:
 - need for precision measurements,
@@ -101,15 +101,14 @@ In a computer vision workload, lighting is a critical component to camera placem
 
 The figure below shows the angular placement of light:
 
-
 ![Angular placement of light - IoT Edge Vision](./images/lighting-chart.png)
 
 ### Field of view
 
 In a vision workload, you need to know the distance to the object that you are trying to evaluate. This also will play a part in the camera selection, sensor selection, and lens configuration. Some of the components that make up the field of view are:
 
-* **Distance to object(s):** For example, is the object being monitored with computer vision on a conveyor belt and the camera is two feet above it, or is the object across a parking lot? As the distance changes, so does the camera’s sensors and lens configurations.
-* **Area of coverage:** Is the area that the computer vision is trying to monitor small or large? This has direct correlation to the camera’s resolution, lens, and sensor type.
+* **Distance to object(s):** For example, is the object being monitored with computer vision on a conveyor belt and the camera is two feet above it, or is the object across a parking lot? As the distance changes, so does the camera's sensors and lens configurations.
+* **Area of coverage:** Is the area that the computer vision is trying to monitor small or large? This has direct correlation to the camera's resolution, lens, and sensor type.
 * **Direction of the sun:** If the computer vision workload is outside, such as monitoring a job construction site for worker safety, will the camera be pointed in the sun at any time? Keep in mind that if the sun is casting a shadow over the object that the vision workload is monitoring, items might be a bit obscured. Also, if the camera is getting direct sunlight in the lens, the camera might be *blinded* until the angle of the sun changes.
 * **Camera angle to the object(s):** Angle of the camera to the object that the vision workload is monitoring is also a critical component to think about. If the camera is too high, it might miss the details that the vision workload is trying to capture, and the same may be true if it is too low.
 

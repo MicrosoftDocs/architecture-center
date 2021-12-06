@@ -1,6 +1,5 @@
 
 
-
 This article describes how to set up a local Gridwich development environment in either Visual Studio 2019 or above, or Visual Studio Code.
 
 ## Prerequisites

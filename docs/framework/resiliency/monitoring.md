@@ -21,7 +21,7 @@ Monitoring and diagnostics are crucial for availability and resiliency. If somet
 ## Key points
 
 - Define alerts that are actionable and effectively prioritized.
-- Create alerts that poll for services nearing their limits and quotas.
+- Create alerts that poll for services nearing their limits and quotas.
 - Use application instrumentation to detect and resolve performance anomalies.
 - Track the progress of long-running processes.
 - Troubleshoot issues to gain an overall view of application health.
@@ -52,7 +52,7 @@ To learn more, reference [Azure Resource Health](/azure/service-health/resource-
 
 ### Dashboards
 
-You can also get a full-stack view of application state by using [Azure dashboards](/azure/azure-portal/azure-portal-dashboards) to create a combined view of monitoring graphs from the following:
+You can also get a full-stack view of application state by using [Azure dashboards](/azure/azure-portal/azure-portal-dashboards) to create a combined view of monitoring graphs from the following:
 
 - Application Insights
 - Log Analytics
@@ -68,7 +68,7 @@ You can also get a full-stack view of application state by using [Azure dashboa
 
 ## Azure subscription and service limits
 
-Azure subscriptions have limits on certain resource types, such as number of resource groups, cores, and storage accounts. To ensure your application doesn't run up against Azure subscription limits, create alerts that poll for services nearing their limits and quotas.
+Azure subscriptions have limits on certain resource types, such as number of resource groups, cores, and storage accounts. To ensure your application doesn't run up against Azure subscription limits, create alerts that poll for services nearing their limits and quotas.
 
 Address the following subscription limits with alerts.
 
@@ -126,12 +126,12 @@ Long-running workflows often include multiple steps, each of which should be ind
 
 Track the progress of long-running processes to minimize the likelihood that the entire workflow will need to be rolled back or that multiple compensating transactions will need to be executed.
 
->[!TIP]
+> [!TIP]
 > Monitor and manage the progress of long-running workflows by implementing a pattern such as [Scheduler Agent Supervisor](../../patterns/scheduler-agent-supervisor.md).
 
 ## Analysis and diagnosis
 
-Analyze data combined in these data stores to troubleshoot issues and gain an overall view of application health. Generally, you can search for and analyze the data in [Application Insights](/azure/azure-monitor/app/app-insights-overview), and [Log Analytics](/azure/azure-monitor/logs/log-analytics-overview) using Kusto queries, or view preconfigured graphs using management solutions. Use [Azure Advisor](/azure/advisor/advisor-overview) to view recommendations with a focus on resiliency and performance.
+Analyze data combined in these data stores to troubleshoot issues and gain an overall view of application health. Generally, you can search for and analyze the data in [Application Insights](/azure/azure-monitor/app/app-insights-overview), and [Log Analytics](/azure/azure-monitor/logs/log-analytics-overview) using Kusto queries, or view preconfigured graphs using management solutions. Use [Azure Advisor](/azure/advisor/advisor-overview) to view recommendations with a focus on resiliency and performance.
 
 ## Related links
 
@@ -143,5 +143,5 @@ Go back to the main article: [Monitoring](monitor-checklist.md)
 
 ## Next step
 
->[!div class="nextstepaction"]
->[Health modeling](./monitor-model.md)
+> [!div class="nextstepaction"]
+> [Health modeling](./monitor-model.md)

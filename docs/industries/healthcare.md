@@ -6,7 +6,7 @@ author: dsk-2015
 ms.date: 04/19/2021
 ms.topic: article
 ms.service: architecture-center
-ms.subservice: 
+ms.subservice: azure-guide
 products:
   - azure
   - dynamics-365
@@ -30,7 +30,11 @@ Modernization and digital transformation of healthcare facilities is all the mor
 
 <br>
 
+<!-- markdownlint-disable MD034 -->
+
 > [!VIDEO https://www.youtube.com/embed/ehv6UL-_MoE]
+
+<!-- markdownlint-enable MD034 -->
 
 <br>
 

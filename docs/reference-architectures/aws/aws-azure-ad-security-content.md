@@ -2,7 +2,7 @@ Amazon Web Services (AWS) accounts that support critical workloads and highly se
 
 Many organizations that use AWS already rely on Azure AD for Microsoft 365 or hybrid cloud identity management and access protection. These organizations can quickly and easily deploy Azure AD for their AWS accounts, often without additional cost. Other, [advanced Azure AD features](./aws-azure-ad-security.yml#advanced-azure-ad-identity-management-with-aws-accounts) like Privileged Identity Management (PIM) and Advanced Identity Protection can help protect the most sensitive AWS accounts.
 
-Azure AD easily integrates with other Microsoft security solutions like Microsoft Cloud App Security (MCAS) and Azure Sentinel. For more information, see [MCAS and Azure Sentinel for AWS](aws-azure-security-solutions.yml). Microsoft security solutions are extensible and have multiple levels of protection. Organizations can implement one or more of these solutions along with other types of protection for a full security architecture that protects current and future AWS deployments.
+Azure AD easily integrates with other Microsoft security solutions like Microsoft Defender for Cloud Apps and Microsoft Sentinel. For more information, see [Defender for Cloud Apps and Microsoft Sentinel for AWS](aws-azure-security-solutions.yml). Microsoft security solutions are extensible and have multiple levels of protection. Organizations can implement one or more of these solutions along with other types of protection for a full security architecture that protects current and future AWS deployments.
 
 This article provides AWS identity architects, administrators, and security analysts with immediate insights and detailed guidance for deploying Azure AD identity and access solutions for AWS. You can configure and test these Microsoft security solutions without impacting your existing identity providers and AWS account users until you're ready to switch over.
 
@@ -169,7 +169,7 @@ The following diagram shows an example of the configuration steps and final poli
 
 ![Diagram showing configuration steps and final role mapping from AWS IAM to Azure AD.](media/role-mapping.png)
 
-## Deploy Azure AD for single sign-on to an individual AWS account 
+## Deploy Azure AD for single sign-on to an individual AWS account
 
 Azure AD supports single sign-on integration with AWS SSO. With AWS SSO you can connect Azure AD to AWS in one place and centrally govern access across hundreds of accounts and AWS SSO integrated applications. This enables seamless Azure AD sign-in experience for users to use the AWS CLI.
 
@@ -179,8 +179,8 @@ This procedure covers the following steps:
 
 1. Create a new Azure AD enterprise application.
 2. Configure Azure AD SSO for AWS.
-4. Update role mapping.
-5. Test Azure AD SSO into AWS Management Console.
+3. Update role mapping.
+4. Test Azure AD SSO into AWS Management Console.
 
 The following links provide full detailed implementation steps and troubleshooting:
 
@@ -222,22 +222,26 @@ On **AWS Console**, follow the steps below to create additional roles.
        1. Under **Choose a SAML 2.0 Provider**, select the SAML provider you created in the previous step.
        1. Select **Allow programmatic and AWS Management Console access**.
        1. Select **Next: Permissions**.
+
    1. On the **Attach permissions policies** dialog box, select **AdministratorAccess**. Then select **Next: Tags**.
-   1.	In the **Add Tags** dialog box, leave it blank and select **Next: Review**.
-   1.	In the **Review** dialog box, perform the following steps:
+   1. In the **Add Tags** dialog box, leave it blank and select **Next: Review**.
+   1. In the **Review** dialog box, perform the following steps:
        - In **Role Name**, enter your role name **(Administrator)**.
        - In **Role Description**, enter the description.
        - Select **Create Role**.
+
    1. Create an additional role, by following the steps listed above. Name the role **Developer** and give it a few selected permissions of your choice (such as **AmazonS3FullAccess**).
-   - You  have successfully created an **Administrator** and a **Developer** role in **AWS**. 
+
+      You have successfully created an **Administrator** and a **Developer** role in **AWS**.
 
    1. Create the following users and groups in **Azure AD**:
-      -	**User 1**: Test-AWSAdmin
-      -	**User 2**: Test-AWSDeveloper
-      -	**Group 1**: AWS-Account1-Administrators
-      -	**Group 2**: AWS-Account1-Developers
-      -	**Add** Test-AWSAdmin as a member of **AWS-Account1-Administrators**
-      -	**Add** Test-AWSDeveloper as a member of **AWS-Account1-Developers**
+      - **User 1**: Test-AWSAdmin
+      - **User 2**: Test-AWSDeveloper
+      - **Group 1**: AWS-Account1-Administrators
+      - **Group 2**: AWS-Account1-Developers
+      - **Add** Test-AWSAdmin as a member of **AWS-Account1-Administrators**
+      - **Add** Test-AWSDeveloper as a member of **AWS-Account1-Developers**
+
    1. Follow the steps on [How to configure role provisioning in AWS Single-Account Access](/azure/active-directory/saas-apps/amazon-web-service-tutorial#how-to-configure-role-provisioning-in-aws-single-account-access) to configure automated role provisioning. It may take up to one hour to complete the first provisioning cycle.
 
 ### How to update role mapping
@@ -282,7 +286,7 @@ Test signing-in as each of the test users to confirm that the SSO works.
 
    **ROLE / UPN / AWS Account Number**
 
-   You can use this user sign-in session information for tracking user sign-in activity in MCAS or Azure Sentinel.
+   You can use this user sign-in session information for tracking user sign-in activity in Defender for Cloud Apps or Microsoft Sentinel.
 
    :::image type="content" source="media/sign-in-session.png" alt-text="Screenshot of sign-in session information.":::
 
@@ -322,7 +326,7 @@ You might need to create several Conditional Access policies to meet business ne
 
 Once you enable Conditional Access, you can impose additional controls such as PAM and just-in-time (JIT) provisioning. For more information, see [What is automated SaaS app user provisioning in Azure AD](/azure/active-directory/app-provisioning/user-provisioning).
 
-If you have MCAS, you can use Conditional Access to configure MCAS session policies. For more information, see [Configure Azure AD session policies for AWS activities](aws-azure-security-solutions.yml#configure-mcas-monitoring-policies-for-aws-activities).
+If you have Defender for Cloud Apps, you can use Conditional Access to configure Defender for Cloud Apps session policies. For more information, see [Configure Azure AD session policies for AWS activities](aws-azure-security-solutions.yml#configure-defender-for-cloud-apps-monitoring-policies-for-aws-activities).
 
 ## See also
 
@@ -336,5 +340,5 @@ If you have MCAS, you can use Conditional Access to configure MCAS session polic
 - [PIM deployment plan](/azure/active-directory/privileged-identity-management/pim-deployment-plan).
 - [Identity protection security overview](/azure/active-directory/identity-protection/concept-identity-protection-security-overview).
 - [What is Microsoft Defender for Identity?](/defender-for-identity/what-is)
-- [Connect AWS to Microsoft Cloud App Security](/cloud-app-security/connect-aws-to-microsoft-cloud-app-security).
-- [How Cloud App Security helps protect your Amazon Web Services (AWS) environment](/cloud-app-security/protect-aws).
+- [Connect AWS to Microsoft Defender for Cloud Apps](/cloud-app-security/connect-aws-to-microsoft-cloud-app-security).
+- [How Defender for Cloud Apps helps protect your Amazon Web Services (AWS) environment](/cloud-app-security/protect-aws).

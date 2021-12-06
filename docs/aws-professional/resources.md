@@ -40,8 +40,6 @@ In each of these interfaces, the resource group is central to how Azure resource
 
 The syntax and structure of these interfaces are different from their AWS equivalents, but they provide comparable capabilities. In addition, many third-party management tools used on AWS, like [Hashicorp's Terraform](https://www.terraform.io/docs/providers/azurerm) and [Netflix Spinnaker](https://www.spinnaker.io), are also available on Azure.
 
-<!-- markdownlint-disable MD024 -->
-
 ## See also
 
 - [Azure resource group guidelines](/azure/azure-resource-manager/resource-group-overview#resource-groups)

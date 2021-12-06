@@ -3,14 +3,17 @@ title: Deployment Stamps pattern
 titleSuffix: Cloud Design Patterns
 description: Learn about the Deployment Stamps pattern, which deploys many independent copies (known as stamps, service units, or scale units) of application components.
 author: johndowns
-ms.date: 08/04/2021
+ms.date: 12/03/2021
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: design-pattern
 products:
   - azure-front-door
+  - azure
+categories:
+  - management-and-governance
+  - security
 ms.custom:
-  - fasttrack-new
   - fcp
   - design-pattern
 ---
@@ -25,47 +28,47 @@ The deployment stamp pattern involves provisioning, managing, and monitoring a h
 
 When hosting an application in the cloud there are certain considerations to be made. One key thing to keep in mind is the performance and reliability of your application. If you host a single instance of your solution, you might be subject to the following limitations:
 
-- **Scale limits.** Deploying a single instance of your application may result in natural scaling limits. For example, you may use services that have limits on the number of inbound connections, host names, TCP sockets, or other resources.
-- **Non-linear scaling or cost.** Some of your solution's components may not scale linearly with the number of requests or the amount of data. Instead, there can be a sudden decrease in performance or increase in cost once a threshold has been met. For example, you may use a database and discover that the marginal cost of adding more capacity (scaling up) becomes prohibitive, and that scaling out is a more cost-effective strategy. Similarly, [Azure Front Door](https://azure.microsoft.com/pricing/details/frontdoor/) has higher per-domain pricing when a high number of custom domains are deployed, and it may be better to spread the custom domains across multiple Front Door instances.
-- **Separation of customers.** You may need to keep certain customers' data isolated from other customers' data. Similarly, you may have some customers that require more system resources to service than others, and consider grouping them on different sets of infrastructure.
-- **Handling single- and multi-tenant instances.** You may have some large customers who need their own independent instances of your solution. You may also have a pool of smaller customers who can share a multi-tenant deployment.
-- **Complex deployment requirements.** You may need to deploy updates to your service in a controlled manner, and to deploy to different subsets of your customer base at different times.
-- **Update frequency.** You may have some customers who are tolerant of having frequent updates to your system, while others may be risk-averse and want infrequent updates to the system that services their requests. It may make sense to have these customers deployed to isolated environments.
-- **Geographical or geopolitical restrictions.** To architect for low latency, or to comply with data sovereignty requirements, you may deploy some of your customers into specific regions.
+- **Scale limits.** Deploying a single instance of your application might result in natural scaling limits. For example, you might use services that have limits on the number of inbound connections, host names, TCP sockets, or other resources.
+- **Non-linear scaling or cost.** Some of your solution's components might not scale linearly with the number of requests or the amount of data. Instead, there can be a sudden decrease in performance or increase in cost once a threshold has been met. For example, you might use a database and discover that the marginal cost of adding more capacity (scaling up) becomes prohibitive, and that scaling out is a more cost-effective strategy. Similarly, [Azure Front Door](https://azure.microsoft.com/pricing/details/frontdoor/) has higher per-domain pricing when a high number of custom domains are deployed, and it might be better to spread the custom domains across multiple Front Door instances.
+- **Separation of customers.** You might need to keep certain customers' data isolated from other customers' data. Similarly, you might have some customers that require more system resources to service than others, and consider grouping them on different sets of infrastructure.
+- **Handling single- and multi-tenant instances.** You might have some large customers who need their own independent instances of your solution. You might also have a pool of smaller customers who can share a multi-tenant deployment.
+- **Complex deployment requirements.** You might need to deploy updates to your service in a controlled manner, and to deploy to different subsets of your customer base at different times.
+- **Update frequency.** You might have some customers who are tolerant of having frequent updates to your system, while others might be risk-averse and want infrequent updates to the system that services their requests. It might make sense to have these customers deployed to isolated environments.
+- **Geographical or geopolitical restrictions.** To architect for low latency, or to comply with data sovereignty requirements, you might deploy some of your customers into specific regions.
 
 ## Solution
 
-To avoid these issues, consider grouping resources in *scale units* and provisioning multiple copies of your *stamps*. Each *scale unit* will host and serve a subset of your tenants. Stamps operate independently of each other and can be deployed and updated independently. A single geographical region may contain a single stamp, or may contain multiple stamps to allow for horizontal scale-out within the region. Stamps contain a subset of your customers.
+To avoid these issues, consider grouping resources in *scale units* and provisioning multiple copies of your *stamps*. Each *scale unit* will host and serve a subset of your tenants. Stamps operate independently of each other and can be deployed and updated independently. A single geographical region might contain a single stamp, or might contain multiple stamps to allow for horizontal scale-out within the region. Stamps contain a subset of your customers.
 
 ![An example set of deployment stamps](./_images/deployment-stamp/deployment-stamp.png)
 
-Deployment stamps can apply whether your solution uses infrastructure as a service (IaaS) or platform as a service (PaaS) components, or a mixture of both. Typically IaaS workloads require more intervention to scale, so the pattern may be useful for IaaS-heavy workloads to allow for scaling out.
+Deployment stamps can apply whether your solution uses infrastructure as a service (IaaS) or platform as a service (PaaS) components, or a mixture of both. Typically IaaS workloads require more intervention to scale, so the pattern might be useful for IaaS-heavy workloads to allow for scaling out.
 
-Stamps can be used to implement [deployment rings](/azure/devops/migrate/phase-rollout-with-rings?view=azure-devops). If different customers want to receive service updates at different frequencies, they can be grouped onto different stamps, and each stamp could have updates deployed at different cadences.
+Stamps can be used to implement [deployment rings](/azure/devops/migrate/phase-rollout-with-rings). If different customers want to receive service updates at different frequencies, they can be grouped onto different stamps, and each stamp could have updates deployed at different cadences.
 
 Because stamps run independently from each other, data is implicitly *sharded*. Furthermore, a single stamp can make use of further sharding to internally allow for scalability and elasticity within the stamp.
 
-The deployment stamp pattern is used internally by many Azure services, including [App Service](/archive/msdn-magazine/2017/february/azure-inside-the-azure-app-service-architecture), [Azure Stack](/azure-stack/operator/azure-stack-capacity-planning-overview?view=azs-1910), and [Azure Storage](/azure/storage/common/storage-redundancy-zrs).
+The deployment stamp pattern is used internally by many Azure services, including [App Service](/archive/msdn-magazine/2017/february/azure-inside-the-azure-app-service-architecture), [Azure Stack](/azure-stack/operator/azure-stack-capacity-planning-overview), and [Azure Storage](/azure/storage/common/storage-redundancy-zrs).
 
-Deployment stamps are related to, but distinct from, [geodes](geodes.md). In a deployment stamp architecture, multiple independent instances of your system are deployed and contain a subset of your customers and users. In geodes, all instances can serve requests from any users, but this architecture is often more complex to design and build. You may also consider mixing the two patterns within one solution; the [traffic routing approach](#traffic-routing) described below is an example of such a hybrid scenario.
+Deployment stamps are related to, but distinct from, [geodes](geodes.md). In a deployment stamp architecture, multiple independent instances of your system are deployed and contain a subset of your customers and users. In geodes, all instances can serve requests from any users, but this architecture is often more complex to design and build. You might also consider mixing the two patterns within one solution; the [traffic routing approach](#traffic-routing) described below is an example of such a hybrid scenario.
 
 ### Deployment
 
 Because of the complexity that is involved in deploying identical copies of the same components, good DevOps practices are critical to ensure success when implementing this pattern. Consider describing your infrastructure as code, such as by using [Bicep](/azure/azure-resource-manager/bicep/overview), [JSON Azure Resource Manager templates (ARM templates)](/azure/azure-resource-manager/template-deployment-overview), [Terraform](/azure/developer/terraform/overview), and scripts. With this approach, you can ensure that the deployment of each stamp is predictable and repeatable. It also reduces the likelihood of human errors such as accidental mismatches in configuration between stamps.
 
-You can deploy updates automatically to all stamps in parallel, in which case you might consider technologies like Resource Manager templates or [Azure Deployment Manager](/azure/azure-resource-manager/deployment-manager-overview) to coordinate the deployment of your infrastructure and applications. Alternatively, you may decide to gradually roll out updates to some stamps first, and then progressively to others. Azure Deployment Manager can also manage this type of staged rollout, or you could consider using a release management tool like [Azure Pipelines](https://azure.microsoft.com/services/devops/pipelines/) to orchestrate deployments to each stamp. For more information, see:
+You can deploy updates automatically to all stamps in parallel, in which case you might consider technologies like [Bicep](/azure/azure-resource-manager/bicep/overview) or Resource Manager templates to coordinate the deployment of your infrastructure and applications. Alternatively, you might decide to gradually roll out updates to some stamps first, and then progressively to others. Consider using a release management tool like [Azure Pipelines](https://azure.microsoft.com/services/devops/pipelines/) or [GitHub Actions](https://docs.github.com/actions) to orchestrate deployments to each stamp. For more information, see:
 
 - [Integrate Bicep with Azure Pipelines](/azure/azure-resource-manager/bicep/add-template-to-azure-pipelines)
 - [Integrate JSON ARM templates with Azure Pipelines](/azure/azure-resource-manager/templates/add-template-to-azure-pipelines)
 
 Carefully consider the topology of the Azure subscriptions and resource groups for your deployments:
 
-- Typically a subscription will contain all resources for a single solution, so in general consider using a single subscription for all stamps. However, [some Azure services impose subscription-wide quotas](/azure/azure-subscription-service-limits), so if you are using this pattern to allow for a high degree of scale-out, you may need to consider deploying stamps across different subscriptions.
+- Typically a subscription will contain all resources for a single solution, so in general consider using a single subscription for all stamps. However, [some Azure services impose subscription-wide quotas](/azure/azure-subscription-service-limits), so if you are using this pattern to allow for a high degree of scale-out, you might need to consider deploying stamps across different subscriptions.
 - Resource groups are generally used to deploy components with the same lifecycle. If you plan to deploy updates to all of your stamps at once, consider using a single resource group to contain all of the components for all of your stamps, and use resource naming conventions and tags to identify the components that belong to each stamp. Alternatively, if you plan to deploy updates to each stamp independently, consider deploying each stamp into its own resource group.
 
 ### Capacity planning
 
-Use load and performance testing to determine the approximate load that a given stamp can accommodate. Load metrics may be based on the number of customers/tenants that a single stamp can accommodate, or metrics from the services that the components within the stamp emit. Ensure that you have sufficient instrumentation to measure when a given stamp is approaching its capacity, and the ability to deploy new stamps quickly to respond to demand.
+Use load and performance testing to determine the approximate load that a given stamp can accommodate. Load metrics might be based on the number of customers/tenants that a single stamp can accommodate, or metrics from the services that the components within the stamp emit. Ensure that you have sufficient instrumentation to measure when a given stamp is approaching its capacity, and the ability to deploy new stamps quickly to respond to demand.
 
 ### Traffic routing
 
@@ -77,9 +80,9 @@ The Deployment Stamp pattern works well if each stamp is addressed independently
 
 Clients are then responsible for connecting to the correct stamp.
 
-If a single ingress point for all traffic is required, a traffic routing service may be used to resolve the stamp for a given request, customer, or tenant. The traffic routing service either directs the client to the relevant URL for the stamp (for example, using an HTTP 302 response status code), or may act as a reverse proxy and forward the traffic to the relevant stamp without the client being aware.
+If a single ingress point for all traffic is required, a traffic routing service can be used to resolve the stamp for a given request, customer, or tenant. The traffic routing service either directs the client to the relevant URL for the stamp (for example, using an HTTP 302 response status code), or might act as a reverse proxy and forward the traffic to the relevant stamp without the client being aware.
 
-A centralized traffic routing service can be a complex component to design, especially when a solution runs across multiple regions. Consider deploying the traffic routing service into multiple regions (potentially including every region that stamps are deployed into), and then ensuring the data store (mapping tenants to stamps) is synchronized. The traffic routing component may itself by an instance of the [geode pattern](geodes.md).
+A centralized traffic routing service can be a complex component to design, especially when a solution runs across multiple regions. Consider deploying the traffic routing service into multiple regions (potentially including every region that stamps are deployed into), and then ensuring the data store (mapping tenants to stamps) is synchronized. The traffic routing component might itself by an instance of the [geode pattern](geodes.md).
 
 For example, [Azure API Management](/azure/api-management/) could be deployed to act in the traffic routing service role. It can determine the appropriate stamp for a request by looking up data in a [Cosmos DB](/azure/cosmos-db) collection storing the mapping between tenants and stamps. API Management can then [dynamically set the back-end URL](/azure/api-management/api-management-transformation-policies#SetBackendService) to the relevant stamp's API service.
 
@@ -94,12 +97,12 @@ If a traffic routing service is included in your solution, consider whether it a
 You should consider the following points when deciding how to implement this pattern:
 
 - **Deployment process.** When deploying multiple stamps, it is highly advisable to have automated and fully repeatable deployment processes. Consider using [Bicep](/azure/azure-resource-manager/bicep/overview), [JSON ARM templates](/azure/azure-resource-manager/templates/overview), or [Terraform](/azure/developer/terraform/overview) modules to declaratively define the stamp.
-- **Cross-stamp operations.** When your solution is deployed independently across multiple stamps, questions like "how many customers do we have across all of our stamps?" can become more complex to answer. Queries may need to be executed against each stamp and the results aggregated. Alternatively, consider having all of the stamps publish data into a centralized data warehouse for consolidated reporting.
+- **Cross-stamp operations.** When your solution is deployed independently across multiple stamps, questions like "how many customers do we have across all of our stamps?" can become more complex to answer. Queries might need to be executed against each stamp and the results aggregated. Alternatively, consider having all of the stamps publish data into a centralized data warehouse for consolidated reporting.
 - **Determining scale-out policies.** Stamps have a finite capacity, which might be defined using a proxy metric such as the number of tenants that can be deployed to the stamp. It is important to monitor the available capacity and used capacity for each stamp, and to proactively deploy additional stamps to allow for new tenants to be directed to them.
 - **Cost.** The Deployment Stamp pattern involves deploying multiple copies of your infrastructure component, which will likely involve a substantial increase in the cost of operating your solution.
-- **Moving between stamps.** As each stamp is deployed and operated independently, moving tenants between stamps can be difficult. Your application would need custom logic to transmit the information about a given customer to a different stamp, and then to remove the tenant's information from the original stamp. This process may require a backplane for communication between stamps, further increasing the complexity of the overall solution.
-- **Traffic routing.** As described above, routing traffic to the correct stamp for a given request can require an additional component to resolve tenants to stamps. This component, in turn, may need to be made highly available.
-- **Shared components.** You may have some components that can be shared across stamps. For example, if you have a shared single-page app for all tenants, consider deploying that into one region and using [Azure CDN](/azure/storage/blobs/storage-blob-static-website) to replicate it globally.
+- **Moving between stamps.** As each stamp is deployed and operated independently, moving tenants between stamps can be difficult. Your application would need custom logic to transmit the information about a given customer to a different stamp, and then to remove the tenant's information from the original stamp. This process might require a backplane for communication between stamps, further increasing the complexity of the overall solution.
+- **Traffic routing.** As described above, routing traffic to the correct stamp for a given request can require an additional component to resolve tenants to stamps. This component, in turn, might need to be made highly available.
+- **Shared components.** You might have some components that can be shared across stamps. For example, if you have a shared single-page app for all tenants, consider deploying that into one region and using [Azure CDN](/azure/storage/blobs/storage-blob-static-website) to replicate it globally.
 
 ## When to use this pattern
 
@@ -121,8 +124,7 @@ This pattern is not suitable for:
 
 ## Supporting technologies
 
-- Infrastructure as code. For example, Resource Manager templates, Azure CLI, Terraform, PowerShell, Bash.
-- [Deployment Manager](/azure/azure-resource-manager/deployment-manager-overview), which can orchestrate deployments of a solution across multiple stamps.
+- Infrastructure as code. For example, Bicep, Resource Manager templates, Azure CLI, Terraform, PowerShell, Bash.
 - [Azure Front Door](/azure/frontdoor/), which can route traffic to a specific stamp or to a traffic routing service.
 
 ## Example

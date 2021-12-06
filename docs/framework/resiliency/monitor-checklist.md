@@ -43,8 +43,8 @@ Monitoring and diagnostics are crucial for resiliency. If something fails, you n
 
 ## Next step
 
->[!div class="nextstepaction"]
->[Application health](./monitoring.md)
+> [!div class="nextstepaction"]
+> [Application health](./monitoring.md)
 
 ## Related links
 

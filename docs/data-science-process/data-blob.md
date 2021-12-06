@@ -1,5 +1,5 @@
 ---
-title: Process Azure blob data with advanced analytics - Team Data Science Process
+title: Process Azure blob data with advanced analytics
 description: Explore data and generate features from data stored in Azure Blob storage using advanced analytics.
 services: machine-learning
 author: marktab
@@ -18,7 +18,7 @@ products:
 categories:
   - ai-machine-learning
 ---
-# <a name="heading"></a>Process Azure blob data with advanced analytics
+# Process Azure blob data with advanced analytics
 
 This document covers exploring data and generating features from data stored in Azure Blob storage.
 
@@ -106,7 +106,7 @@ Here are a few examples of ways to explore data using Pandas:
     dataframe_blobdata_noNA.shape
     ```
 
-   Another way to replace missing values is with the mode function:
+    Another way to replace missing values is with the mode function:
 
     ```python
     dataframe_blobdata_mode = dataframe_blobdata.fillna({'<column_name>':dataframe_blobdata['<column_name>'].mode()[0]})  

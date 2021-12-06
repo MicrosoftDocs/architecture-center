@@ -2,7 +2,8 @@
 title: Competing Consumers pattern
 titleSuffix: Cloud Design Patterns
 description: Explore the Competing Consumers pattern. This pattern enables many concurrent consumers to process messages that are received on the same messaging channel.
-author: dragon119
+author: EdPrice-MSFT
+ms.author: pnp
 ms.date: 06/23/2017
 ms.topic: conceptual
 ms.service: architecture-center
@@ -45,7 +46,7 @@ This solution has the following benefits:
 
 Consider the following points when deciding how to implement this pattern:
 
-- **Message ordering**. The order in which consumer service instances receive messages isn't guaranteed, and doesn't necessarily reflect the order in which the messages were created. Design the system to ensure that message processing is idempotent because this will help to eliminate any dependency on the order in which messages are handled. For more information, see [Idempotency Patterns](https://blog.jonathanoliver.com/idempotency-patterns/) on Jonathon Oliver’s blog.
+- **Message ordering**. The order in which consumer service instances receive messages isn't guaranteed, and doesn't necessarily reflect the order in which the messages were created. Design the system to ensure that message processing is idempotent because this will help to eliminate any dependency on the order in which messages are handled. For more information, see [Idempotency Patterns](https://blog.jonathanoliver.com/idempotency-patterns/) on Jonathon Oliver's blog.
 
     > Microsoft Azure Service Bus Queues can implement guaranteed first-in-first-out ordering of messages by using message sessions. For more information, see [Messaging Patterns Using Sessions](/archive/msdn-magazine/2012/december/azure-insider-microsoft-azure-service-bus-messaging-patterns-using-sessions).
 

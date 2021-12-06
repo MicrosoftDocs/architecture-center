@@ -44,7 +44,7 @@ landingContent:
       - linkListType: video
         links:
           - text: Getting Started with DevOps
-            url: https://channel9.msdn.com/events/All-Around-Azure/All-Around-Azure-DevOps-with-GitHub/Session-1-Getting-started-with-DevOps?term=Operational%20Excellence%20devops&pubDate=year&lang-en=true&pageSize=15&skip=45
+            url: /events/all-around-azure-all-around-azure-devops-with-github/session-1-getting-started-with-devops?term=Operational%20Excellence%20devops&pubDate=year&lang-en=true&pageSize=15&skip=45
   # Card
   - title: Automate business solutions
     linkLists:
@@ -75,7 +75,7 @@ landingContent:
       - linkListType: video
         links:
           - text: Azure DevOps with ARM templates
-            url: https://channel9.msdn.com/Shows/DevOps-Lab/ARM-Series-12-Azure-DevOps-With-ARM-Templates?term=DevOps%20automation&pubDate=year&lang-en=true       
+            url: /shows/DevOps-Lab/ARM-Series-12-Azure-DevOps-With-ARM-Templates?term=DevOps%20automation&pubDate=year&lang-en=true       
  # Card
   - title: Engineer modern release management strategies
     linkLists:
@@ -112,7 +112,7 @@ landingContent:
       - linkListType: video
         links:
           - text: "Continuous Delivery and Release Management | DevOps for Mobile"
-            url: https://channel9.msdn.com/Shows/On-NET/Continuous-Delivery--Release-Management--DevOps-for-Mobile?term=Release%20management&pubDate=3years&lang-en=true&pageSize=15                                      
+            url: /shows/On-NET/Continuous-Delivery--Release-Management--DevOps-for-Mobile?term=Release%20management&pubDate=3years&lang-en=true&pageSize=15                                      
  # Card
   - title: Monitor for DevOps
     linkLists:
@@ -121,15 +121,15 @@ landingContent:
           - text: Understand application and platform monitoring
             url: monitoring.md
           - text: Analyze alerts
-            url: alerts.md
+            url: monitor-alerts.md
           - text: Monitor best practices
             url: monitoring.md#monitoring-best-practices
       - linkListType: video
         links:
           - text: Continuous Monitoring for Web Perf and Accessibility
-            url: https://channel9.msdn.com/Shows/DevOps-Lab/Continuous-Monitoring-for-Web-Perf-and-Accessibility?term=devops%20monitoring&pubDate=3years&lang-en=true
+            url: /shows/DevOps-Lab/Continuous-Monitoring-for-Web-Perf-and-Accessibility?term=devops%20monitoring&pubDate=3years&lang-en=true
           - text: Monitoring AKS with Azure 
-            url: https://channel9.msdn.com/Shows/DevOps-Lab/Monitoring-AKS-with-Azure-Sentinel?term=DevOps%20Monitoring&pubDate=3years&lang-en=true
+            url: /shows/DevOps-Lab/Monitoring-AKS-with-Azure-Sentinel?term=DevOps%20Monitoring&pubDate=3years&lang-en=true
  # Card
   - title: DevOps tools and services
     linkLists:

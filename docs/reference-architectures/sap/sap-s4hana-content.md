@@ -35,7 +35,7 @@ The following components are required.
 
 **Zone-redundant gateway.** Azure ExpressRoute or virtual private network (VPN) gateways can be deployed across zones to guard against zone failures. This architecture uses [zone-redundant](/azure/vpn-gateway/about-zone-redundant-vnet-gateways) VNet gateways for resiliency rather than a zonal deployment based on the same Availability Zone.
 
-**Proximity placement group.** This logical group places a constraint on VMs deployed in an availability set or a Virtual Machine Scale Set. A [proximity placement group](https://azure.microsoft.com/blog/introducing-proximity-placement-groups/) favors colocation, meaning that virtual machines reside in the same datacenter to minimize application latency.  
+**Proximity placement group.** This logical group places a constraint on VMs deployed in an availability set or a Virtual Machine Scale Set. A [proximity placement group](https://azure.microsoft.com/blog/introducing-proximity-placement-groups/) favors colocation, meaning that virtual machines reside in the same datacenter to minimize application latency.
 
 **Network security groups.** To restrict incoming, outgoing, and intra-subnet traffic in the virtual network, you can create [network security groups](/azure/virtual-network/security-overview) (NSGs).
 
@@ -70,7 +70,6 @@ This architecture addresses broad base requirements and assumes that the Embedde
 
 If you use the FES hub deployment, the FES is an add-on component to the classic SAP NetWeaver ABAP stack. Set up high availability in the same way you protect a three-tier ABAP application stack with clustered or multi-host capability-with a standby server database layer, clustered ASCS layer with high availability NFS for shared storage, and at least two application servers. Traffic is load-balanced via a pair of either clustered or parallel Web Dispatchers. For internet facing Fiori apps a [FES hub deployment](https://blogs.sap.com/2017/12/15/considerations-and-recommendations-for-internet-facing-fiori-apps/) in DMZ would be recommended. Use [Azure Application Gateway/WAF](/azure/application-gateway/) as a critical component to defense traffic with [AAD with SAML](/azure/active-directory/saas-apps/sap-netweaver-tutorial) for user authentication and SSO for [SAP Fiori](/azure/active-directory/saas-apps/sap-fiori-tutorial).
 ![Reference architecture for SAP Fiori](./images/fiori.png)
-
 
 ### Application servers pool
 
@@ -142,9 +141,9 @@ Some customers use standard storage for their application servers. Because stand
 Because application servers do not host any business data, you can also use the smaller P4 and P6 Premium disks to help minimize cost and benefit from the
 [single instance VM SLA](https://azure.microsoft.com/support/legal/sla/virtual-machines/v1_6/) in case of a central SAP stack installation.
 
-For High-Availability scenarios [Azure Shared Disks](/azure/virtual-machines/disks-shared) are available on Premium SSD and Ultra SSD [Azure Managed Disks](/azure/storage/storage-managed-disks-overview). Azure Shared Disks can be used with Windows Server, SUSE Enterprise Linux 15 SP 1 and above, or SUSE Enterprise Linux For SAP. 
+For High-Availability scenarios [Azure Shared Disks](/azure/virtual-machines/disks-shared) are available on Premium SSD and Ultra SSD [Azure Managed Disks](/azure/storage/storage-managed-disks-overview). Azure Shared Disks can be used with Windows Server, SUSE Enterprise Linux 15 SP 1 and above, or SUSE Enterprise Linux For SAP.
 
-For NFS Share scenarios, [Azure NetApp Files](/azure/virtual-machines/workloads/sap/hana-vm-operations-netapp) provides native NFS shares that can be used for /hana/shared, /hana/data, and /hana/log volumes. Using ANF-based NFS shares for the /hana/data and /hana/log volumes requires the usage of the v4.1 NFS protocol. For the /hana/shared volume the NFS protocol v3 is supported. 
+For NFS Share scenarios, [Azure NetApp Files](/azure/virtual-machines/workloads/sap/hana-vm-operations-netapp) provides native NFS shares that can be used for /hana/shared, /hana/data, and /hana/log volumes. Using ANF-based NFS shares for the /hana/data and /hana/log volumes requires the usage of the v4.1 NFS protocol. For the /hana/shared volume the NFS protocol v3 is supported.
 
 Azure Storage is also used by [Cloud Witness](/windows-server/failover-clustering/deploy-cloud-witness) to maintain quorum with a device in a remote Azure region, away from the primary region where the cluster resides.
 
@@ -331,7 +330,6 @@ You are charged only for the number of configured load-balancing and outbound ru
 In this architecture, Azure ExpressRoute is the networking service used for creating private connections between an on-premises network and Azure virtual networks.
 
 All inbound data transfer is free. All outbound data transfer is charged based on a pre-determined rate. See [Azure ExpressRoute pricing][expressroute-pricing] For more info.
-
 
 ## Management and operations considerations
 

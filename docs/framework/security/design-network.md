@@ -37,7 +37,7 @@ Protect assets by placing controls on network traffic originating in Azure, betw
 ## Azure security benchmark
 The Azure Security Benchmark includes a collection of high-impact security recommendations you can use to help secure the services you use in Azure:
 
-> ![Security Benchmark](../../_images/benchmark-security.svg) The questions in this section are aligned to the [Azure Security Benchmarks Network Security](/azure/security/benchmarks/security-controls-v2-network-security).
+> ![Security Benchmark](../../_images/benchmark-security.svg) The questions in this section are aligned to the [Azure Security Benchmarks Network Security](/azure/security/benchmarks/security-controls-v3-network-security).
 
 ## Azure services
 - [Azure Virtual Network](/azure/virtual-network/virtual-networks-overview)
@@ -52,7 +52,6 @@ Here are some reference architectures related to network security:
 - [Deploy highly available NVAs](../../reference-architectures/dmz/nva-ha.yml)
 - [Windows N-tier application on Azure with SQL Server](../../reference-architectures/n-tier/n-tier-sql-server.yml)
 - [Azure Kubernetes Service (AKS) production baseline](../../reference-architectures/containers/aks/secure-baseline-aks.yml)
-
 
 ## Next steps
 
@@ -69,6 +68,5 @@ Combine network controls with application, identity, and other technical control
 - [Data protection](design-storage.md)
 
 Ensure that resource grouping and administrative privileges align to the segmentation model. For more information, see [Administrative account security](design-admins.md).
-
 
 > Go back to the main article: [Security](overview.md)

@@ -78,5 +78,3 @@ Keep the following considerations in mind when making your selection.
 - **Skill set**. Are there particular programming languages, operating systems, or other technology that your team is particularly adept at using? Are there others that would be difficult for your team to work with?
 
 - **Clients** Is there good client support for your development languages?
-
-<!-- markdownlint-enable MD033 -->

@@ -90,8 +90,8 @@ Load testing is crucial for identifying failures that only happen under load, su
 
 ## Next step
 
->[!div class="nextstepaction"]
->[Backup and recovery](./backup-and-recovery.md)
+> [!div class="nextstepaction"]
+> [Backup and recovery](./backup-and-recovery.md)
 
 ## Related links
 

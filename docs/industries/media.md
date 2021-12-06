@@ -6,7 +6,7 @@ author: dsk-2015
 ms.date: 06/04/2021
 ms.topic: article
 ms.service: architecture-center
-ms.subservice: 
+ms.subservice: azure-guide
 keywords:
   - Azure
 products:
@@ -37,7 +37,11 @@ To learn how Azure can provide an intelligent cloud backbone to content owners a
 
 <br>
 
+<!-- markdownlint-disable MD034 -->
+
 > [!VIDEO https://www.youtube.com/embed/n3fRYmbqkEc]
+
+<!-- markdownlint-enable MD034 -->
 
 <br>
 

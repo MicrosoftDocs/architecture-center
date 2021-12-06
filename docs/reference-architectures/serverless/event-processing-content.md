@@ -189,7 +189,6 @@ Use the [Cosmos DB capacity calculator][Cosmos-Calculator] to get a quick estima
 
 <!-- links -->
 
-
 [AAF-cost]: ../../framework/cost/overview.md
 [AAF-devops]: ../../framework/devops/overview.md
 [AWAF-overview]: ../../framework/

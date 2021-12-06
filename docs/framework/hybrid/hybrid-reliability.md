@@ -14,7 +14,7 @@ ms.custom:
 
 In the cloud, we acknowledge up front that failures will happen. Instead of trying to prevent failures altogether, the goal is to minimize the effects of a single failing component. While historically you may have purchased levels of redundant higher-end hardware to minimize the chance of an entire application platform failing, in the cloud, we acknowledge up front that failures will happen.
 
-For hybrid scenarios, Azure offers an end-to-end backup and disaster recovery solution that’s simple, secure, scalable, and cost-effective, and can be integrated with on-premises data protection solutions. In the case of service disruption or accidental deletion or corruption of data, recover your business services in a timely and orchestrated manner.
+For hybrid scenarios, Azure offers an end-to-end backup and disaster recovery solution that's simple, secure, scalable, and cost-effective, and can be integrated with on-premises data protection solutions. In the case of service disruption or accidental deletion or corruption of data, recover your business services in a timely and orchestrated manner.
 
 Many customers operate a second datacenter, however, Azure can help reduce the costs of deploying, monitoring, patching, and scaling on-premises disaster recovery infrastructure, without the need to manage backup resources or build a secondary datacenter.
 
@@ -70,5 +70,5 @@ Azure Stack HCI provides multiple levels of resiliency, but because of its hyper
 
 ## Next steps
 
->[!div class="nextstepaction"]
->[Security](./hybrid-security.md)
+> [!div class="nextstepaction"]
+> [Security](./hybrid-security.md)

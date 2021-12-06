@@ -4,7 +4,7 @@ titleSuffix: Azure Architecture Center
 description: This article describes the considerations you need to give to different models of multitenancy.
 author: johndowns
 ms.author: jodowns
-ms.date: 07/14/2021
+ms.date: 11/24/2021
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: azure-guide
@@ -24,7 +24,7 @@ ms.custom:
 
 There are many different ways that you can design a solution to be multitenanted. Mostly this decision hinges on whether and how you share resources between your tenants. Intuitively, you might want to avoid sharing *any* resources, but this quickly becomes expensive, as your business scales and as you onboard more and more tenants.
 
-It's helpful to think about the different models of multitenancy, by first understanding how you define tenants for your specific organization, what business drivers you have, and how you plan to scale your solution.
+It's helpful to think about the different models of multitenancy, by first understanding how you define tenants for your specific organization, what business drivers you have, and how you plan to scale your solution. On this page, we provide guidance for technical decision-makers about the tenancy models you can consider and their tradeoffs.
 
 ## Define a tenant
 
@@ -154,6 +154,10 @@ You can also consider horizontally partitioning your deployments. This means you
 **Benefits:** Horizontally partitioned deployments can help you mitigate a noisy-neighbor problem, if you've identified that most of the load on your system is due to specific components that you can deploy separately for each tenant. For example, your databases might absorb most of your system's load, because the query load is high. If a single tenant sends a large number of requests to your solution, the performance of a database might be negatively affected, but other tenants' databases (and shared components, like the application tier) remain unaffected.
 
 **Risks:** With a horizontally partitioned deployment, you still need to consider the automated deployment and management of your components, especially the components used by a single tenant.
+
+## Test your isolation model
+
+Whichever isolation model you select, ensure you test your solution to verify that one tenant's data isn't accidentally leaked to another and that any [noisy neighbor](../../../antipatterns/noisy-neighbor/index.md) effects are acceptable. Consider using [Azure Chaos Studio](/azure/chaos-studio/chaos-studio-overview) to deliberately introduce faults that simulate real-world outages and verify the resiliency of your solution even when components are malfunctioning.
 
 ## Next steps
 

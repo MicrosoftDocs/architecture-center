@@ -30,12 +30,12 @@ As an example, Microsoft makes significant investments in protection and trainin
 
 Microsoft's recommended core strategy for administrative privileges is to use the available controls to reduce risk
 
-**Reduce risk exposure (scope and time) –** The principle of least privilege is best accomplished with modern controls that provide privileges on demand.
+**Reduce risk exposure (scope and time):** The principle of least privilege is best accomplished with modern controls that provide privileges on demand.
     This help to limit risk by limiting administrative privileges exposure by:
 
-- **Scope:** *Just Enough Access (JEA)* provides only the required privileges for the administrative operation required (vs. having direct and immediate privileges to many or all systems at a time, which is almost never required).
+- **Scope:** *Just enough access (JEA)* provides only the required privileges for the administrative operation required (vs. having direct and immediate privileges to many or all systems at a time, which is almost never required).
 
-- **Time:** *Just in Time (JIT)* approaches provided the required privileged as they are needed.
+- **Time:** *Just in time (JIT)* approaches provided the required privileged as they are needed.
 
 - **Mitigate the remaining risks:** Use a combination of preventive and detective controls to reduce risks such as isolating administrator accounts from the most common risks phishing and general web browsing, simplifying and optimizing their workflow, increasing assurance of authentication decisions, and identifying anomalies from normal baseline behavior that can be blocked or investigated.
 
@@ -74,7 +74,7 @@ Phishing and web browser attacks represent the most common attack vectors to com
 
 Create a separate administrative account for all users that have a role requiring critical privileges. For these administrative accounts, block productivity tools like Office 365 email (remove license). If possible, block arbitrary web browsing (with proxy and/or application controls) while allowing exceptions for browsing to the Azure portal and other sites required for administrative tasks.
 
-## No standing access / Just in Time privileges
+## No standing access / just in time privileges
 
 Avoid providing permanent "standing" access for any critical impact accounts
 
@@ -82,9 +82,9 @@ Permanent privileges increase business risk by increasing the time an attacker c
 
 Grant privileges required only as required using one of these methods:
 
-- **Just in Time -** Enable Azure AD Privileged Identity Management (PIM) or a third party solution to require following an approval workflow to obtain privileges for critical impact accounts
+- **Just in time:** Enable Azure AD Privileged Identity Management (PIM) or a third party solution to require following an approval workflow to obtain privileges for critical impact accounts
 
-- **Break glass –** For rarely used accounts, follow an emergency access process to gain access to the accounts. This is preferred for privileges that have little need for regular operational usage like members of global admin accounts.
+- **Break glass:** For rarely used accounts, follow an emergency access process to gain access to the accounts. This is preferred for privileges that have little need for regular operational usage like members of global admin accounts.
 
 ## Emergency access or 'Break Glass' accounts
 
@@ -115,7 +115,7 @@ Choose level of admin workstation security based on the options available at
 
 Carefully choose the on-premises security dependencies for critical impact accounts and their workstations
 
-To contain the risk from a major incident on-premises spilling over to become a major compromise of cloud assets, you must eliminate or minimize the means of control that on premises resources have to critical impact accounts in the cloud. As an example, attackers who compromise the on premises Active Directory can access and compromise cloud-based assets that rely on those accounts like resources in Azure, Amazon Web Services (AWS), ServiceNow, and so on. Attackers can also use workstations joined to those on premises domains to gain access to accounts and services managed from them.
+To contain the risk from a major incident on-premises spilling over to become a major compromise of cloud assets, you must eliminate or minimize the means of control that on premises resources have to critical impact accounts in the cloud. As an example, attackers who compromise the on-premises Active Directory can access and compromise cloud-based assets that rely on those accounts like resources in Azure, Amazon Web Services (AWS), ServiceNow, and so on. Attackers can also use workstations joined to those on premises domains to gain access to accounts and services managed from them.
 
 Choose the level of isolation from on premises means of control also known as security dependencies for critical impact accounts
 
@@ -124,21 +124,20 @@ Choose the level of isolation from on premises means of control also known as se
     -   Native Azure AD Accounts -*Create Native Azure AD Accounts that are not synchronized with on-premises active directory
 
     -   Synchronize from On Premises Active Directory
-    - Use existing accounts hosted in the on premises active directory.
+    - Use existing accounts hosted in the on-premises active directory.
 
 - **Workstations:** Choose how you will manage and secure the workstations used by critical admin accounts:
 
     -  Native Cloud Management and Security (Recommended): Join workstations to Azure AD & Manage/Patch them with Intune or other cloud services.
-        Protect and Monitor with Windows Microsoft Defender for Endpoints or another cloud service not managed by on premises based accounts.
+        Protect and Monitor with Windows Microsoft Defender for Endpoint or another cloud service not managed by on premises based accounts.
 
     -   Manage with Existing Systems: Join existing AD domain and use existing management/security.
 
+## Passwordless or multifactor authentication for admins
 
-## Passwordless or multi-factor authentication for admins
+Require all critical impact admins to use passwordless authentication or multifactor authentication (MFA).
 
-Require all critical impact admins to use passwordless authentication or multi-factor authentication (MFA).
-
-Attack methods have evolved to the point where passwords alone cannot reliably protect an account. This is well documented in a [Microsoft Ignite Session](https://channel9.msdn.com/events/Ignite/Microsoft-Ignite-Orlando-2017/BRK3016).
+Attack methods have evolved to the point where passwords alone cannot reliably protect an account. This is well documented in a Microsoft Ignite Session.
 
 Administrative accounts and all critical accounts should use one of the following methods of authentication. These capabilities are listed in preference order by highest cost/difficulty to attack (strongest/preferred options) to lowest cost/difficult to attack:
 
@@ -162,7 +161,7 @@ that meets your organization's risk appetite and operational needs.
 
 - Require Multifactor Authentication and/or connection from designated work network
 
-- Require Device **integrity with Microsoft Defender for Endpoints** (Strong Assurance)
+- Require Device **integrity with Microsoft Defender for Endpoint** (Strong Assurance)
 
 ## Avoid granular and custom permissions
 

@@ -19,12 +19,12 @@ This architecture may suit these use cases:
 
 *Download a [Visio file](https://arch-center.azureedge.net/US-1874703-PR-3830-multi-tier-app-service-service-endpoint.vsdx) of this architecture.*
 
-Here’s the traffic flow and basic configuration of the architecture:
+Here's the traffic flow and basic configuration of the architecture:
 
 1. Requests route from the internet to a front-end app.
 1. The virtual network integration feature of App Service routes all outbound communications from the front-end apps to the integration subnet. For more information about virtual network integration, see [Integrate your app with an Azure virtual network](/azure/app-service/web-sites-integrate-with-vnet).
 1. The API app has service endpoints that restrict inbound communications— they only allow communications from front-end apps on the integration subnet. For more information on service endpoints, see [Virtual Network service endpoints](/azure/virtual-network/virtual-network-service-endpoints-overview).
-1. The API app can’t be accessed from the public internet. Only internal components, or components connected to the virtual network, can reach the API app.
+1. The API app can't be accessed from the public internet. Only internal components, or components connected to the virtual network, can reach the API app.
 1. A resource group is a container that holds related resources for an Azure solution. The resources can include virtual machines, virtual networks, storage accounts, web apps, databases, and database servers. It can be convenient to group resources that have the same lifecycle, so that you can easily deploy, update, and delete them as a group. For more information, see [What is a resource group](/azure/azure-resource-manager/management/manage-resource-groups-portal#what-is-a-resource-group).
 
 ### Components
@@ -50,7 +50,6 @@ Here’s the traffic flow and basic configuration of the architecture:
 - Service endpoints are more affordable, faster, and easier to set up when compared to App Service Environments. There's no way for an App Service web app to join a virtual network without the App Service Environment, which is expensive.
 - Service endpoints work well at smaller scale, because you can easily enable service endpoints for the API app on the front-end integration subnet.
 - Using Private Link adds complexity because there are two subnets. Also, the private connection is a top-level resource that adds management overhead.
-
 
 ## Considerations
 

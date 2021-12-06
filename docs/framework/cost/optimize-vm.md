@@ -18,7 +18,7 @@ For example, look at a VM running the SAP on Azure project can show you how init
 
 ![Run cost optimization](../_images/run-cost-optimization.png)
 
-It is easy to handle cost comparison when you are well equipped and for this Microsoft provides the set of specific services and tools that help you to understand and plan costs. These include the TCO Calculator, Azure Pricing Calculator, Azure Cost Management (Cloudyn), Azure Migrate, Cosmos DB Sizing Calculator, and the Azure Site Recovery Deployment Planner.
+It is easy to handle cost comparison when you are well equipped and for this Microsoft provides the set of specific services and tools that help you to understand and plan costs. These include the TCO Calculator, Azure Pricing Calculator, Azure Cost Management (Cloudyn), Azure Migrate, Cosmos DB Sizing Calculator, and the Azure Site Recovery Deployment Planner.
 
 Here are some strategies that you can use to lower cost for virtual machines.
 
@@ -36,7 +36,6 @@ Resizing a virtual machine does require the machine to be shut down and restarte
 Use the **Start/stop VMs during off-hours** feature of virtual machines to minimize waste. There are many configuration options to schedule start the stop times. The feature is suitable as a low-cost automation option. For information, see [Start/stop VMs during off-hours solution in Azure Automation](/azure/automation/automation-solution-vm-management).
 
 [Azure Advisor](https://portal.azure.com/#blade/Microsoft_Azure_Reservations/CreateBlade/referrer/docs) evaluates virtual machines based on CPU and network utilization over a time period. Then, the recommended actions are shut down or resize instances and cost saving with both actions.
-
 
 ## Spot VMs
 Some workloads don't have a business requirement to complete a job within a period.

@@ -28,6 +28,7 @@ Data can be categorized by its state:
 In a cloud solution, a single business transaction can lead to multiple data operations where data moves from one storage medium to another. To provide complete data protection, it must be encrypted on storage volumes and while it's transferred from one point to another.
 
 ## Key points
+
 - Use identity-based storage access controls.
 - Use standard and recommended encryption algorithms.
 - Use only secure hash algorithms (SHA-2 family).
@@ -139,7 +140,7 @@ Use an additional key encryption key (KEK) to protect your data encryption key (
 
 **Suggested actions**
 
-Identify unencrypted virtual machines via Azure Security Center or script, and encrypt via Azure Disk Encryption.  Ensure all new virtual machines are encrypted by default and regularly monitor for unprotected disks.
+Identify unencrypted virtual machines via Microsoft Defender for Cloud or script, and encrypt via Azure Disk Encryption.  Ensure all new virtual machines are encrypted by default and regularly monitor for unprotected disks.
 
 **Learn more**
 
@@ -172,7 +173,7 @@ Using the latest version of TLS is preferred. All Azure services support TLS 1.2
 
 When traffic from clients using older versions of TLS is minimal, or it's acceptable to fail requests made with an older version of TLS, consider enforcing a minimum TLS version. For information about TLS support in Azure Storage, see [Remediate security risks with a minimum version of TLS](/azure/storage/common/transport-layer-security-configure-minimum-version?tabs=portal#remediate-security-risks-with-a-minimum-version-of-tls).
 
-Sometimes you need to isolate your entire communication channel between your on-premises and the cloud infrastructure by using either a virtual private network (VPN) or [ExpressRoute](/azure/expressroute/). For more information, see  these articles:
+Sometimes you need to isolate your entire communication channel between your on-premises and the cloud infrastructure by using either a virtual private network (VPN) or [ExpressRoute](/azure/expressroute/). For more information, see  these articles:
 
 - [Extending on-premises data solutions to the cloud](../../data-guide/scenarios/hybrid-on-premises-and-cloud.md)
 - [Configure a Point-to-Site VPN connection to a VNet using native Azure certificate authentication: Azure portal](/azure/vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal#architecture)

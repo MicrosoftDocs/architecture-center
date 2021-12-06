@@ -105,7 +105,7 @@ The [Microsoft Azure Well-Architected Framework][azure-well-architected-framewor
 
 - **Encryption at rest.** Azure Stack HCI supports BitLocker Drive Encryption for its data volumes, thus facilitating compliance with standards such as FIPS 140-2 and HIPAA.
 
-- **Integration with a range of Azure services that provide additional security advantages.** You can integrate virtualized workloads running on Azure Stack HCI clusters with such Azure services as [Azure Security Center][azure-security-center]
+- **Integration with a range of Azure services that provide additional security advantages.** You can integrate virtualized workloads running on Azure Stack HCI clusters with such Azure services as [Microsoft Defender for Cloud][azure-security-center]
 
 - **Firewall-friendly configuration.** Storage Replica traffic requires [a limited number of open ports between the replicating nodes][sr-firewall-reqs].
 

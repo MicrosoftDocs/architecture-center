@@ -5,7 +5,7 @@ This example architecture shows an end-to-end approach to computer vision from t
 
 -   **MLOps**. This architecture reflects a best practice to productionize machine learning called
     [MLOps](/azure/machine-learning/concept-model-management-and-deployment), a life cycle management approach based on DevOps techniques. MLOps automates the process of using ML models for complex decision-making (that is,
-    “productionizing” the model) and is a top benefit for a smart factory. The key to MLOps is tight coordination among the teams who build, train, evaluate, and deploy the machine learning models.
+    "productionizing" the model) and is a top benefit for a smart factory. The key to MLOps is tight coordination among the teams who build, train, evaluate, and deploy the machine learning models.
 
 -   **IoT**. Real-time images from [connected cameras](../../example-scenario/iot/introduction-to-solutions.yml) are used to run the ML model to inference video frames. Cached video streams are also used for auditing purposes and to retrain the models.
 

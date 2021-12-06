@@ -1,0 +1,26 @@
+### YamlMime:Architecture
+metadata:
+  title: Automated guided vehicles fleet control
+  titleSuffix: Azure Example Scenarios
+  description: This example architecture shows an end-to-end approach for an automotive original equipment manufacturer (OEM) and includes a reference architecture and several published supporting open-source libraries that can be reused.
+  author: EdPrice-MSFT
+  ms.author: gurcan.gulesir
+  ms.date: 11/01/2021
+  ms.topic: conceptual
+  ms.service: architecture-center
+  ms.subservice: solution-idea
+  ms.category:
+    - iot
+name: Automated guided vehicles fleet control
+azureCategories:
+  - iot
+summary: This example architecture shows an end-to-end approach for an automotive original equipment manufacturer (OEM) and includes a reference architecture and several published supporting open-source libraries that can be reused.
+products:
+  - azure-app-service
+  - azure-container-instances
+  - azure-container-registry
+  - azure-iot-hub
+  - azure-virtual-network
+thumbnailUrl: /azure/architecture/browse/thumbs/automated-guided-vehicles-fleet-control-01.png
+content: |
+   [!include[](automated-guided-vehicles-fleet-control-content.md)]

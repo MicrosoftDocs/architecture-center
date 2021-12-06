@@ -1,6 +1,5 @@
 
 
-
 This reference architecture shows how to build a scalable solution for batch scoring many models in parallel using [Azure Machine Learning][amls]. The solution can be used as a template and can generalize to different problems.
 
 A reference implementation for this architecture is available on [GitHub][github].

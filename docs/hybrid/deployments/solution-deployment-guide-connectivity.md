@@ -42,8 +42,8 @@ A few components are required to build a hybrid connectivity deployment. Some of
 An Azure OEM/hardware partner can deploy a production Azure Stack Hub, and all users can deploy an Azure Stack Development Kit (ASDK).
 
 - Use your production Azure Stack Hub or deploy the ASDK.
-   >[!Note]
-   >Deploying the ASDK can take up to 7 hours, so plan accordingly.
+   > [!Note]
+   > Deploying the ASDK can take up to 7 hours, so plan accordingly.
 
 - Deploy [App Service](/azure-stack/operator/azure-stack-app-service-deploy) PaaS services to Azure Stack Hub.
 - [Create plans and offers](/azure-stack/operator/service-plan-offer-subscription-overview) in the Azure Stack Hub environment.
@@ -150,8 +150,8 @@ Use the following steps to create a virtual network gateway in Azure.
 5. Verify your gateway settings.
 6. Select **Create** to create the VPN gateway. The gateway settings are validated and the "Deploying Virtual network gateway" tile is shown on your dashboard.
 
-   >[!Note]
-   >Creating a gateway can take up to 45 minutes. You may need to refresh your portal page to see the completed status.
+   > [!Note]
+   > Creating a gateway can take up to 45 minutes. You may need to refresh your portal page to see the completed status.
 
     After the gateway is created, you can see the IP address assigned to it by looking at the virtual network in the portal. The gateway appears as a connected device. To see more information about the gateway, select the device.
 
@@ -164,8 +164,8 @@ The local network gateway typically refers to your on-premises location. You giv
 - The IP address of the on-premises VPN device that you're creating a connection for.
 - The IP address prefixes that will be routed through the VPN gateway to the VPN device. The address prefixes you specify are the prefixes located on your on-premises network.
 
-  >[!Note]
-  >If your on-premises network changes or you need to change the public IP address for the VPN device, you can update these values later.
+  > [!Note]
+  > If your on-premises network changes or you need to change the public IP address for the VPN device, you can update these values later.
 
 1. In the portal, select **+Create a resource**.
 2. In the search box, enter **Local network gateway**, then select **Enter** to search. A list of results will display.

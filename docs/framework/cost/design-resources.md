@@ -18,7 +18,6 @@ Most services are priced based on units of size, amount of data, or operations. 
 
 For example, you provision a virtual machine in Azure. Some meters that track its usage include: Compute Hours, IP Address Hours, Data Transfer In, Data Transfer Out, Standard Managed Disk, Standard Managed Disk Operations, Standard IO-Disk, Standard IO-Block Blob Read, Standard IO-Block Blob Write, Standard IO-Block Blob Delete.
 
-
 **How is the usage tracked for each resource in the workload?**  
 ***
 
@@ -44,7 +43,7 @@ Here are some considerations:
 Here are some examples:
 
 ### Azure Disk
-Start with a small size in GB for a managed disk instead of pay-per-GB model. It’s cost effective because cost is incurred on the allocated storage. 
+Start with a small size in GB for a managed disk instead of pay-per-GB model. It's cost effective because cost is incurred on the allocated storage. 
 ### ExpressRoute
 Start with a smaller bandwidth circuit and scale up as needed. 
 ### Compute infrastructure
@@ -53,7 +52,6 @@ Deploy an additional smaller instance of compute alongside a smaller unit in par
 For details about how billing works, see [Azure Cost Management + Billing documentation](/azure/cost-management-billing/).
 
 ## Subscription and offer type
-
 
 **What is the subscription and offer type in which resources are created?**  
 ***
@@ -64,10 +62,7 @@ For information about the subscription offers, see [Microsoft Azure Offer Detail
 
 As you decide the offer type, consider the types that support [Azure Reservations](/azure/cost-management-billing/reservations/). With reservations, you prepay for reserved capacity at a discount. Reservations are suitable for workloads that have a long-term usage pattern. Combining the offer type with reservations can significantly lower the cost. For information about subscription and offer types that are eligible for reservations, see [Discounted subscription and offer types](/azure/cost-management-billing/reservations/prepare-buy-reservation#scope-reservations).
 
-
-
 ## Billing structure for services in Azure Marketplace
-
 
 **Are you considering third-party services through Azure Marketplace?**  
 ***

@@ -38,7 +38,6 @@ Here is a visual representation of the TDSP lifecycle:
 
 ![TDSP lifecycle](./media/lifecycle/tdsp-lifecycle2.png)
 
-
 The TDSP lifecycle is modeled as a sequence of iterated steps that provide guidance on the tasks needed to use predictive models. You deploy the predictive models in the production environment that you plan to use to build the intelligent applications. The goal of this process lifecycle is to continue to move a data-science project toward a clear engagement end point. Data science is an exercise in research and discovery. The ability to communicate tasks to your team and your customers by using a well-defined set of artifacts that employ standardized templates helps to avoid misunderstandings. Using these templates also increases the chance of the successful completion of a complex data-science project.
 
 For each stage, we provide the following information:

@@ -13,7 +13,7 @@ ms.custom:
 
 # Design scalable Azure applications
 
-Application design is critical to handling scale as load increases. This article will give you insight on the most important topics. For more topics related to handling scale, see the [Design Azure applications for efficiency](https://review.docs.microsoft.com/azure/architecture/framework/scalability/design-efficiency) article in the Performance efficiency pillar.
+Application design is critical to handling scale as load increases. This article will give you insight on the most important topics. For more topics related to handling scale, see the [Design Azure applications for efficiency](/azure/architecture/framework/scalability/design-efficiency) article in the Performance efficiency pillar.
 
 ## Choose the right data storage
 
@@ -115,5 +115,5 @@ Measure your business' security requirements against the advantages and disadvan
 
 ## Next steps
 
->[!div class="nextstepaction"]
->[Application efficiency](./design-efficiency.md)
+> [!div class="nextstepaction"]
+> [Application efficiency](./design-efficiency.md)

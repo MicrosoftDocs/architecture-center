@@ -12,14 +12,23 @@ By combining deep learning and natural language processing (NLP) with data on si
 
 *Download an [SVG](../media/website-content-tag-suggestion-with-deep-learning-and-nlp.svg) of this architecture.*
 
+### Workflow
+
+* Data is stored, structured, and indexed using Microsoft SQL Server.
+* Model training, including hyperparameter tuning, and deployment of the final model, including scaling out to a Kubernetes-managed Azure cluster.
+* The core development environment for this solution is a customized VM image on the Azure cloud platform built specifically for doing data science.
+* Jupyter Notebooks can be used as the base integrated development environment (IDE) for the model.
+* Stores real-time web services as Docker containers. These containers are uploaded and registered via Azure Container Registry.
+* Deployment for this solution uses Azure Kubernetes Service running a Kubernetes-managed cluster. The containers are deployed from images stored in Azure Container Registry.
+
 ### Components
 
-* [Microsoft SQL Server](/sql/): Data is stored, structured, and indexed using Microsoft SQL Server.
-* [Azure Machine Learning](https://azure.microsoft.com/en-us/services/machine-learning/): Model training, including hyperparameter tuning, and deployment of the final model, including scaling out to a Kubernetes-managed Azure cluster.
-* [Azure Data Science Virtual Machine](/azure/machine-learning/data-science-virtual-machine/): The core development environment for this solution is a customized VM image on the Azure cloud platform built specifically for doing data science.
-* [Jupyter Notebooks on Azure Data Science VM](/azure/machine-learning/data-science-virtual-machine/reference-ubuntu-vm): Jupyter Notebooks can be used as the base integrated development environment (IDE) for the model.
-* [Azure Container Registry](/azure/container-registry/): Stores real-time web services as Docker containers. These containers are uploaded and registered via Azure Container Registry.
-* [Azure Kubernetes Service (AKS)](https://azure.microsoft.com/services/kubernetes-service): Deployment for this solution uses Azure Kubernetes Service running a Kubernetes-managed cluster. The containers are deployed from images stored in Azure Container Registry.
+* [Microsoft SQL Server](/sql/)
+* [Azure Machine Learning](https://azure.microsoft.com/en-us/services/machine-learning/)
+* [Azure Data Science Virtual Machine](/azure/machine-learning/data-science-virtual-machine/)
+* [Jupyter Notebooks on Azure Data Science VM](/azure/machine-learning/data-science-virtual-machine/reference-ubuntu-vm)
+* [Azure Container Registry](/azure/container-registry/)
+* [Azure Kubernetes Service (AKS)](https://azure.microsoft.com/services/kubernetes-service)
 
 ## Next steps
 

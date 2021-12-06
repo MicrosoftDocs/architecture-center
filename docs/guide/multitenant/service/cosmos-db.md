@@ -7,6 +7,7 @@ ms.author: jodowns
 ms.date: 09/28/2021
 ms.topic: conceptual
 ms.service: architecture-center
+ms.subservice: azure-guide
 products:
   - azure
 categories:
@@ -112,7 +113,7 @@ You can consider a combination of the above approaches to suit different tenants
 
 ## Next steps
 
-Review [Resources for architects and developers of multitenant solutions](../related-resources.md).
+Review [storage and data approaches for multitenancy](../approaches/storage-data.md).
 
 ## Related resources
 

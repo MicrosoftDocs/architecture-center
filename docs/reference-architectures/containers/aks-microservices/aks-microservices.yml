@@ -14,7 +14,7 @@ metadata:
     - microservices
     - reference-architecture
     - e2e-aks
-name: Microservices architecture on Azure Kubernetes Service (AKS)
+name: Microservices architecture on Azure Kubernetes Service
 azureCategories:
   - containers
 summary: Learn how to deploy a microservices architecture on Azure Kubernetes Service (AKS).
@@ -23,7 +23,6 @@ products:
   - azure-container-registry
   - azure-kubernetes-service
   - azure-load-balancer
-  - azure-monitor
   - azure-pipelines
 thumbnailUrl: /azure/architecture/browse/thumbs/aks.png
 content: |

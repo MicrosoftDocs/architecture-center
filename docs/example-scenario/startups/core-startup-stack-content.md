@@ -72,4 +72,3 @@ You can see a sample core startup stack implementation [on GitHub](https://githu
 - [Best practices in cloud applications](../../best-practices/index-best-practices.md)
 - [Best practices for using content delivery networks (CDNs)](../../best-practices/cdn.md)
 - [Ten design principles for Azure applications](../../guide/design-principles/index.md)
-

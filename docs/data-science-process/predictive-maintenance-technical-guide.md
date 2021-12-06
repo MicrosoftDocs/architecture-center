@@ -1,5 +1,5 @@
 ---
-title: Guide to predictive maintenance for aerospace - Team Data Science Process
+title: Predictive maintenance for aerospace 
 description: A technical guide to the Solution Template for predictive maintenance in aerospace, utilities, and transportation.
 services: machine-learning
 author: marktab
@@ -18,11 +18,10 @@ products:
 categories:
   - ai-machine-learning
 ---
-# Technical guide to the Solution Template for predictive maintenance in aerospace
+# Solution template for predictive maintenance in aerospace
 
 > [!Important]
 > This article has been deprecated. The discussion about Predictive Maintenance in Aerospace is still relevant, but for current information, refer to [Solution Overview for Business Audiences](https://github.com/Azure/cortana-intelligence-predictive-maintenance-aerospace).
-
 
 Solution templates are designed to accelerate the process of building an E2E demo. A deployed template provisions your subscription with necessary components and then builds the relationships between them. It also seeds the data pipeline with sample data from a data generator application,  which you download and install on your local machine after you deploy the solution template. The data from the generator hydrates the data pipeline and start generating machine learning predictions, which can then be visualized on the Power BI dashboard.
 

@@ -2,7 +2,7 @@
 title: Autoscaling guidance
 titleSuffix: Best practices for cloud applications
 description: Review autoscaling guidance. Autoscaling is the process of dynamically allocating resources to match performance requirements.
-author: dragon119
+author: EdPrice-MSFT
 ms.date: 05/17/2017
 ms.topic: conceptual
 ms.service: architecture-center
@@ -90,7 +90,7 @@ Consider the following points when using Azure autoscale:
 
 - Autoscaling rules that use a detection mechanism based on a measured trigger attribute (such as CPU usage or queue length) use an aggregated value over time, rather than instantaneous values, to trigger an autoscaling action. By default, the aggregate is an average of the values. This prevents the system from reacting too quickly, or causing rapid oscillation. It also allows time for new instances that are automatically started to settle into running mode, preventing additional autoscaling actions from occurring while the new instances are starting up. For Azure Cloud Services and Azure Virtual Machines, the default period for the aggregation is 45 minutes, so it can take up to this period of time for the metric to trigger autoscaling in response to spikes in demand. You can change the aggregation period by using the SDK, but periods of less than 25 minutes may cause unpredictable results. For Web Apps, the averaging period is much shorter, allowing new instances to be available in about five minutes after a change to the average trigger measure.
 
--	Avoid _flapping_ where scale-in and scale-out actions continually go back and forth. Suppose there are two instances, and upper limit is 80% CPU, lower limit is 60%. When the load is at 85%, another instance is added. After some time, the load decreases to 60%. Before scaling in, the autoscale service calculates the distribution of total load (of three instances) when an instance is removed, taking it to 90%. This means it would have to scale out again immediately. So, it skips scaling-in and you might never see the expected scaling results.
+- Avoid *flapping* where scale-in and scale-out actions continually go back and forth. Suppose there are two instances, and upper limit is 80% CPU, lower limit is 60%. When the load is at 85%, another instance is added. After some time, the load decreases to 60%. Before scaling in, the autoscale service calculates the distribution of total load (of three instances) when an instance is removed, taking it to 90%. This means it would have to scale out again immediately. So, it skips scaling-in and you might never see the expected scaling results.
 
     The flapping situation can be controlled by choosing an adequate margin between the scale-out and scale-in thresholds.
 
