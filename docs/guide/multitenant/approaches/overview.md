@@ -41,6 +41,64 @@ Single-tenant stamps often work well when you have a small number of tenants. As
 
 To implement the Deployment Stamps pattern, it's important to use automated deployment approaches. Depending on your deployment strategy, you might consider managing your stamps within your deployment pipelines, by using declarative infrastructure as code, such as Bicep, ARM templates, or Terraform templates. Alternatively, you might consider building custom code to deploy and manage each stamp, such as by using [Azure SDKs](https://azure.microsoft.com/downloads).
 
+## Resource isolation
+<!-- TODO -->
+
+* There is a "spectrum" of resource organization from "shared" to completely isolated. All are valid approaches depending on needs and costs.
+* There is a spectrum of partners going “we want all bazillion customers in 1 subscription” (which is not feasible for high scale environments today due to limits) to “we understand we need to partition customers/resources across subscriptions but that’s a lot of work” to “we want thousands of subscriptions with 1 customer per subscription because we want full isolation and don’t want to worry about limits” (which is applicable only when ISV’s pricing model is such that they can pass on the cost of the service to the customer since otherwise these deployments will have high COGS for the ISVs).
+
+### Isolation within a shared resource
+* See the guidance on the specific services for options and considerations.
+* This often has upper limits (like number of nodes in AKS, transactions per second or storage in Azure Storage account) but the limits are usually going up.
+* Still need to consider scale needs today and plan for partitioning if needed.
+
+For example, suppose you are building a multitenant solution for Contoso. They could deploy shared resources for all of their customers to use:
+
+![TODO](media/overview/isolation-within-resource.png)
+
+### Separate resources in a resource group
+* How will you identify them?
+* Limits of same resource type in one RG.
+
+For example, suppose Contoso has three customers. They might deploy dedicated resources for each customer, but place them in a single resource group:
+
+![TODO](media/overview/isolation-resource.png)
+
+They could also deploy shared components (e.g. application server and storage account and dedicated databases for tenants).
+
+### Separate resource groups in a subscription
+* Limits of RGs per subscription.
+
+For example, Contoso might deploy individual RGs for each customer.
+
+![TODO](media/overview/isolation-resource-group.png)
+
+Might also use one resource group (or a set of RGs) for all shared resources, and tenant-specific RGs for tenant-specific resources.
+
+### Separate subscriptions in a single Azure AD tenant
+
+* Can organise through management groups
+* Benefits: complete isolation, mitigating some of the Azure subscription limits, ease of thinking through what is a tenant, separate quota for each tenant so if one tenant needs to be scaled to 1000s of VMs it wouldn't negatively impact another tenant by "eating" into the same quota on the subscription.
+* Challenges that maybe encountered are: quota management across subscriptions (consider using Quota API https://docs.microsoft.com/en-us/rest/api/reserved-vm-instances/quotaapi), support contract management across many subscriptions.
+
+For example, suppose Contoso decided to create separate Azure subscriptions for each customer/tenant:
+
+![TODO](media/overview/isolation-subscription.png)
+
+They use a management group to simplify the management of their subscriptions. Also they use a single AAD tenant, which means their identities can be used for IAM throughout all of their Azure estate.
+
+### Separate subscriptions in separate Azure AD tenants
+* Complex to manage and makes it very difficult to share anything at all
+* Role assignments, policies, etc are all separate
+* Generally best avoided
+* If you need to do it, use Lighthouse 
+
+For example, Contoso could deploy separate AAD tenants for each of their tenants:
+
+![TODO](media/overview/isolation-tenant.png)
+
+They use Lighthouse to enable cross-tenant management.
+
 ## Intended audience
 
 The pages in this section are intended to be useful for solution architects and lead developers. Much of the guidance in this section is generic and applies to multiple Azure services within a category.
