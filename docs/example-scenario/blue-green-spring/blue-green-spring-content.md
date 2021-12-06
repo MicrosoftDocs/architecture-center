@@ -2,7 +2,7 @@ For some cloud applications, keeping uptime as high as possible is critical. One
 
 This article describes a process for ensuring high availability during the deployment of a new version of an application. In a traditional configuration, the new bits of the application are deployed to the service that's hosting the application. This configuration often leads to a reload and restart of the application. During that process, the application is unavailable. 
 
-This article focuses on the blue/green deployment pattern. In this pattern, the new version of the application is deployed next to the existing version. This deployment allows you to restart, warm up, and test the new version independently. After the new version is running, you can switch to it, redirecting any new incoming traffic to it. For the user of the application, the deployment of the new version happens without any visible downtime.
+This article describes the blue/green deployment pattern. In this pattern, the new version of the application is deployed next to the existing version. This deployment allows you to restart, warm up, and test the new version independently. After the new version is running, you can switch to it, redirecting any new incoming traffic to it. For the user of the application, the deployment of the new version happens without any visible downtime.
 
 Another advantage to blue/green deployment: if a new deployment doesn't work as expected, you can easily abandon it without affecting the live version. 
 
@@ -16,6 +16,7 @@ This solution can benefit any organization that requires high availability. You 
 
 ![Diagram that shows an architecture for blue/green deployment. It uses GitHub, GitHub Actions, and Spring Cloud.](media/blue-green-deployment.png)
 
+Download a [Visio file](https://arch-center.azureedge.net/blue-green-deployment.vsdx) of this architecture.
 1. A developer makes a change to an application. The GitHub repository holds the application code, which needs to be deployed to Spring Cloud. Every change to the application code happens under source control. GitHub functionality: 
 
     - Ensures that changes are reviewed.
@@ -27,9 +28,12 @@ This solution can benefit any organization that requires high availability. You 
     - Determines the current active production environment.
     - Deploys the code to a non-production environment. If this environment doesn't exist, it's created. At this point, the old version in the production deployment still gets all production traffic.
     - Waits for the deployment to be reviewed and approved. This step gives the newly deployed application time to start and warm up. Before approval, you can use the non-production URL of the application to verify the new version and ensure that it's ready.
-    - If the deployment is approved, the production deployment and the non-production deployment are switched. All production traffic is now routed to the new version of the application.
-    - After the approval and switch-over of the traffic, the old production deployment is deleted. Cleaning up the old production deployment leads to a more cost-effective setup. 
-    - If the new deployment is rejected, no switch takes place. The previous version continues to receive production traffic. 
+    - Switches the production deployment and the non-production deployment, if you approve the new deployment. All production traffic is now routed to the new version of the application.
+    
+       If you reject the new deployment, GitHub doesn't switch the environments. The previous version continues to receive production traffic. 
+    - Deletes the old production deployment, after the approval and switch-over of the traffic. This cleanup step leads to a more cost-effective setup. 
+
+      
 
 ### Components
 
