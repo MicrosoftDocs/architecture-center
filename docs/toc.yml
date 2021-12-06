@@ -71,6 +71,9 @@ items:
               - name: Hybrid identity authentication methods
                 href: /azure/active-directory/hybrid/choose-ad-authn
                 maintainContext: true
+          - name: Choose a managed disk type
+            href: /azure/virtual-machines/disks-types
+            maintainContext: true
           - name: Choose a data store
             items:
               - name: Understand data store models
@@ -183,6 +186,8 @@ items:
             href: example-scenario/startups/core-startup-stack.yml
       - name: Multitenant applications
         items:
+          - name: Overview
+            href: guide/multitenant/overview.md
           - name: Considerations
             items:
               - name: Overview
@@ -215,6 +220,8 @@ items:
                 href: guide/multitenant/approaches/storage-data.md
           - name: Service-specific guidance
             items:
+              - name: Overview
+                href: guide/multitenant/service/overview.md
               - name: Deployment and configuration
                 items:
                   - name: Azure Resource Manager
@@ -1154,6 +1161,8 @@ items:
                 href: reference-architectures/ai/end-to-end-smart-factory.yml
               - name: Connected factory hierarchy service
                 href: solution-ideas/articles/connected-factory-hierarchy-service.yml
+              - name: Connected factory signal pipeline
+                href: example-scenario/iot/connected-factory-signal-pipeline.yml
               - name: Predictive maintenance with IoT
                 href: example-scenario/predictive-maintenance/iot-predictive-maintenance.yml
               - name: Quality assurance
@@ -1329,8 +1338,6 @@ items:
         items: 
           - name: Cognizant Safe Buildings with IoT
             href: solution-ideas/articles/safe-buildings.yml
-          - name: Connected factory signal pipeline
-            href: example-scenario/iot/connected-factory-signal-pipeline.yml
           - name: COVID-19 IoT safe environments
             href: solution-ideas/articles/cctv-iot-edge-for-covid-19-safe-environment-and-mask-detection.yml
           - name: Facilities management with mixed reality
@@ -2626,7 +2633,7 @@ items:
               - name: Hybrid workload in Azure
                 href: ./framework/hybrid/hybrid-overview.md
               - name: Azure Arc guidance
-                list:
+                items:
                   - name: Administer SQL Server anywhere with Azure Arc
                     href: hybrid/azure-arc-sql-server.yml
                   - name: App Service on Azure Arc
@@ -2637,28 +2644,30 @@ items:
                     maintainContext: true
               - name: Hybrid deployments
                 items:
-                - name: Configure hybrid cloud connectivity
-                  href: hybrid/deployments/solution-deployment-guide-connectivity.md
-                - name: Configure hybrid cloud identity
-                  href: hybrid/deployments/solution-deployment-guide-identity.md
-                - name: Deploy AI-based footfall detection
-                  href: hybrid/deployments/solution-deployment-guide-retail-footfall-detection.md
-                - name: Deploy an app that scales cross-cloud
-                  href: hybrid/deployments/solution-deployment-guide-cross-cloud-scaling.md
-                - name: Deploy Kubernetes on Azure Stack Hub
-                  href: hybrid/deployments/solution-deployment-guide-highly-available-kubernetes.md
-                - name: Deploy highly available MongoDB
-                  href: hybrid/deployments/solution-deployment-guide-mongodb-ha.md
-                - name: Deploy hybrid app with on-premises data
-                  href: hybrid/deployments/solution-deployment-guide-cross-cloud-scaling-onprem-data.md
-                - name: Deploy a SQL Server 2016 AG
-                  href: hybrid/deployments/solution-deployment-guide-sql-ha.md
-                - name: Direct traffic with a geo-distributed app
-                  href: hybrid/deployments/solution-deployment-guide-geo-distributed.md
-              - name: Azure Stack stretched clusters for DR
-                href: hybrid/azure-stack-hci-dr.yml
-              - name: Azure Stack for remote offices and branches
-                href: hybrid/azure-stack-robo.yml
+                  - name: Configure hybrid cloud connectivity
+                    href: hybrid/deployments/solution-deployment-guide-connectivity.md
+                  - name: Configure hybrid cloud identity
+                    href: hybrid/deployments/solution-deployment-guide-identity.md
+                  - name: Deploy AI-based footfall detection
+                    href: hybrid/deployments/solution-deployment-guide-retail-footfall-detection.md
+                  - name: Deploy an app that scales cross-cloud
+                    href: hybrid/deployments/solution-deployment-guide-cross-cloud-scaling.md
+                  - name: Deploy Kubernetes on Azure Stack Hub
+                    href: hybrid/deployments/solution-deployment-guide-highly-available-kubernetes.md
+                  - name: Deploy highly available MongoDB
+                    href: hybrid/deployments/solution-deployment-guide-mongodb-ha.md
+                  - name: Deploy hybrid app with on-premises data
+                    href: hybrid/deployments/solution-deployment-guide-cross-cloud-scaling-onprem-data.md
+                  - name: Deploy a SQL Server 2016 AG
+                    href: hybrid/deployments/solution-deployment-guide-sql-ha.md
+                  - name: Direct traffic with a geo-distributed app
+                    href: hybrid/deployments/solution-deployment-guide-geo-distributed.md
+              - name: Azure Stack guidance
+                items:
+                  - name: Azure Stack stretched clusters for DR
+                    href: hybrid/azure-stack-hci-dr.yml
+                  - name: Azure Stack HCI switchless interconnect
+                    href: hybrid/azure-stack-robo.yml
               - name: Azure VMware Solution guidance
                 items:
                   - name: API Management for AVS
@@ -3017,8 +3026,6 @@ items:
                 href: reference-architectures/iot.yml
               - name: Automated guided vehicles fleet control
                 href: example-scenario/iot/automated-guided-vehicles-fleet-control.yml
-              - name: Buy online, pick up in store
-                href: example-scenario/iot/vertical-buy-online-pickup-in-store.yml
               - name: Computer vision on the edge
                 href: reference-architectures/ai/end-to-end-smart-factory.yml
               - name: Connected factory hierarchy service
@@ -3033,12 +3040,12 @@ items:
                 href: solution-ideas/articles/iot-using-cosmos-db.yml
               - name: Predictive maintenance with IoT
                 href: example-scenario/predictive-maintenance/iot-predictive-maintenance.yml
-              - name: Project 15 IoT sustainability
-                href: solution-ideas/articles/project-15-iot-sustainability.yml
               - name: Smart places with Azure Digital Twins
                 href: example-scenario/iot/smart-places.yml
           - name: Solution ideas
             items:
+              - name: Buy online, pick up in store
+                href: example-scenario/iot/vertical-buy-online-pickup-in-store.yml
               - name: Condition monitoring
                 href: solution-ideas/articles/condition-monitoring.yml
               - name: COVID-19 solutions
@@ -3063,6 +3070,8 @@ items:
                 href: solution-ideas/articles/iot-power-management.yml
               - name: Process real-time vehicle data using IoT
                 href: example-scenario/data/realtime-analytics-vehicle-iot.yml
+              - name: Project 15 IoT sustainability
+                href: solution-ideas/articles/project-15-iot-sustainability.yml
               - name: Real-time asset tracking and management
                 href: solution-ideas/articles/real-time-asset-tracking-mgmt-iot-central.yml
               - name: Voice assistants and IoT devices
@@ -3528,6 +3537,18 @@ items:
               - name: Choose a mobile development framework
                 href: /azure/developer/mobile-apps/choose-mobile-framework
                 maintainContext: true
+              - name: Build a serverless mobile back-end
+                href: /azure/developer/mobile-apps/serverless-compute
+                maintainContext: true
+              - name: Cloud-hosted source control for mobile
+                href: /azure/developer/mobile-apps/code-hosting-services
+                maintainContext: true
+              - name: Continuous build and integration for mobile
+                href: /azure/developer/mobile-apps/continuous-integration
+                maintainContext: true
+              - name: Continuous delivery for mobile apps
+                href: /azure/developer/mobile-apps/continuous-delivery
+                maintainContext: true
               - name: Add authentication in mobile apps
                 href: /azure/developer/mobile-apps/authentication
                 maintainContext: true
@@ -3536,6 +3557,9 @@ items:
                 maintainContext: true
               - name: Cloud storage for mobile apps
                 href: /azure/developer/mobile-apps/azure-storage
+                maintainContext: true
+              - name: Analyze mobile app use
+                href: /azure/developer/mobile-apps/analytics
                 maintainContext: true
           - name: Solution ideas
             items:
@@ -3555,20 +3579,32 @@ items:
         items:
           - name: Guides
             items:
-              - name: Add IP spaces to peered virtual networks
-                href: networking/prefixes/add-ip-space-peered-vnet.md
               - name: Application Gateway framework review
                 href: networking/guide/waf-application-gateway.md
-              - name: Azure Firewall architecture overview
-                href: example-scenario/firewalls/index.yml
-              - name: Azure Firewall framework review
-                href: networking/guide/well-architected-framework-azure-firewall.md
+              - name: Azure Firewall guidance
+                items:
+                  - name: Azure Firewall architecture overview
+                    href: example-scenario/firewalls/index.yml
+                  - name: Azure Firewall framework review
+                    href: networking/guide/well-architected-framework-azure-firewall.md
+                  - name: Security baseline for Azure Firewall
+                    href: /security/benchmark/azure/baselines/firewall-security-baseline
+                    maintainContext: true
               - name: NAT gateway framework review
                 href: networking/guide/well-architected-network-address-translation-gateway.md                
               - name: Private Link in hub-and-spoke network
                 href: guide/networking/private-link-hub-spoke-network.yml
-              - name: Segment Virtual Networks
-                href: reference-architectures/hybrid-networking/network-level-segmentation.yml
+              - name: Virtual Network guidance
+                items:
+                  - name: Add IP spaces to peered virtual networks
+                    href: networking/prefixes/add-ip-space-peered-vnet.md
+                  - name: Segment virtual networks
+                    href: reference-architectures/hybrid-networking/network-level-segmentation.yml
+                  - name: Virtual network peering and VPN gateways
+                    href: reference-architectures/hybrid-networking/vnet-peering.yml
+                  - name: Limit cross-tenant private endpoint connections
+                    href: /azure/cloud-adoption-framework/ready/azure-best-practices/limit-cross-tenant-private-endpoint-connections
+                    maintainContext: true
               - name: Build solutions with Availability Zones
                 href: high-availability/building-solutions-for-high-availability.md
               - name: Use ExpressRoute with Power Platform
@@ -3597,8 +3633,15 @@ items:
                   - name: ExpressRoute readiness checklist
                     href: /power-platform/guidance/expressroute/checklist
                     maintainContext: true
-              - name: Virtual network peering and VPN gateways
-                href: reference-architectures/hybrid-networking/vnet-peering.yml
+              - name: ExpressRoute for Office 365
+                href: /microsoft-365/enterprise/azure-expressroute
+                maintainContext: true
+              - name: Connectivity to other cloud providers
+                href: /azure/cloud-adoption-framework/ready/azure-best-practices/connectivity-to-other-providers
+                maintainContext: true
+              - name: Connectivity to Oracle Cloud Infrastructure
+                href: /azure/cloud-adoption-framework/ready/azure-best-practices/connectivity-to-other-providers-oci
+                maintainContext: true
           - name: Architectures
             items:
               - name: Deploy highly available NVAs
@@ -3739,6 +3782,12 @@ items:
                 href: example-scenario/gateway/firewall-application-gateway.yml
               - name: Zero-trust network for web applications
                 href: example-scenario/gateway/application-gateway-before-azure-firewall.yml
+              - name: Enterprise-scale security and governance
+                href: /azure/cloud-adoption-framework/ready/enterprise-scale/security-governance-and-compliance
+                maintainContext: true
+              - name: Integrate Data Explorer with Sentinel
+                href: /azure/sentinel/store-logs-in-azure-data-explorer?tabs=adx-event-hub
+                maintainContext: true
           - name: Architectures
             items:
               - name: Azure AD in Security Operations
@@ -3779,16 +3828,118 @@ items:
             items:
               - name: Storage accounts
                 href: /azure/storage/common/storage-account-overview
-                maintainContext: true
-              - name: Data protection
-                href: /azure/storage/blobs/data-protection-overview
-                maintainContext: true
+                maintainContext: true                
               - name: Storage encryption for data at rest
                 href: /azure/storage/common/storage-service-encryption
                 maintainContext: true
               - name: Azure Policy controls for Storage
                 href: /azure/storage/common/security-controls-policy
                 maintainContext: true
+              - name: Use private endpoints
+                href: /azure/storage/common/storage-private-endpoints
+                maintainContext: true
+              - name: Security baseline for Azure Storage
+                href: /security/benchmark/azure/baselines/storage-security-baselinen
+                maintainContext: true
+              - name: Data redundancy
+                href: /azure/storage/common/storage-redundancy
+                maintainContext: true
+              - name: Disaster recovery and storage account failover
+                href: /azure/storage/common/storage-disaster-recovery-guidance
+                maintainContext: true
+              - name: Azure Storage migration guidance
+                href: /azure/storage/common/storage-migration-overview
+                maintainContext: true
+              - name: Blob storage guidance
+                items: 
+                  - name: Authorize access to blobs with AAD
+                    href: /azure/storage/blobs/authorize-access-azure-active-directory
+                    maintainContext: true
+                  - name: Authorize access with role conditions
+                    href: /azure/storage/common/storage-auth-abac
+                    maintainContext: true
+                  - name: Data protection
+                    href: /azure/storage/blobs/data-protection-overview
+                    maintainContext: true
+                  - name: Security recommendations
+                    href: /azure/storage/blobs/security-recommendations
+                    maintainContext: true
+                  - name: Performance and scalability checklist
+                    href: /azure/storage/blobs/storage-performance-checklist
+                    maintainContext: true
+              - name: Data Lake Storage guidance
+                items: 
+                  - name: Best practices
+                    href: /azure/storage/blobs/data-lake-storage-best-practices
+                    maintainContext: true
+                  - name: Security controls by Azure Policy
+                    href: /azure/data-lake-store/security-controls-policy
+                    maintainContext: true
+              - name: File storage guidance
+                items: 
+                  - name: Planning for deployment
+                    href: /azure/storage/files/storage-files-planning
+                    maintainContext: true
+                  - name: Identity-based authentication
+                    href: /azure/storage/files/storage-files-active-directory-overview
+                    maintainContext: true
+                  - name: Networking considerations
+                    href: /azure/storage/files/storage-files-networking-overview
+                    maintainContext: true
+                  - name: Disaster recovery and failover
+                    href: /azure/storage/common/storage-disaster-recovery-guidance
+                    maintainContext: true
+                  - name: File share backup
+                    href: /azure/backup/azure-file-share-backup-overview
+                    maintainContext: true
+              - name: Queue storage guidance
+                items: 
+                  - name: Authorize access with AAD
+                    href: /azure/storage/queues/authorize-access-azure-active-directory
+                    maintainContext: true
+                  - name: Performance and scalability checklist
+                    href: /azure/storage/queues/storage-performance-checklist
+                    maintainContext: true
+              - name: Table storage guidance
+                items: 
+                  - name: Authorize access with AAD
+                    href: /azure/storage/tables/authorize-access-azure-active-directory
+                    maintainContext: true
+                  - name: Performance and scalability checklist
+                    href: /azure/storage/tables/storage-performance-checklist
+                    maintainContext: true
+                  - name: Design scalable and performant tables
+                    href: /azure/storage/tables/table-storage-design
+                    maintainContext: true
+                  - name: Design for querying
+                    href: /azure/storage/tables/table-storage-design-for-query
+                    maintainContext: true
+                  - name: Table design patterns
+                    href: /azure/storage/tables/table-storage-design-patterns
+                    maintainContext: true
+              - name: Disk storage guidance
+                items:
+                  - name: Choose a managed disk type
+                    href: /azure/virtual-machines/disks-types
+                    maintainContext: true
+                  - name: Server-side encryption
+                    href: /azure/virtual-machines/disk-encryption
+                    maintainContext: true
+                  - name: Disk Encryption for Linux VMs
+                    href: /azure/virtual-machines/linux/disk-encryption-overview
+                    maintainContext: true
+                  - name: Disk Encryption for Windows VMs
+                    href: /azure/virtual-machines/windows/disk-encryption-overview
+                    maintainContext: true
+                  - name: Design for high performance
+                    href: /azure/virtual-machines/premium-storage-performance
+                    maintainContext: true
+                  - name: Scalability and performance targets
+                    href: /azure/virtual-machines/disks-scalability-targets
+                    maintainContext: true
+                  - name: Create an incremental snapshot
+                    href: /azure/virtual-machines/disks-incremental-snapshots
+                    maintainContext: true
           - name: Architectures
             items:
               - name: Azure file shares in a hybrid environment
