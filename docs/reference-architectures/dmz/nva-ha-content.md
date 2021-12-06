@@ -8,11 +8,22 @@ There are a number of design patterns where NVAs are used to inspect traffic bet
 - To filter traffic between virtual machines in Azure, to prevent lateral moves of compromised systems
 - To filter traffic between on-premises systems and Azure virtual machines, if they are considered to belong to different security levels (for example if Azure hosts the DMZ, and onprem the internal applications).
 
-There are many examples of NVAs, such as network firewalls, Layer-4 reverse-proxies, web-based reverse-proxies with web application firewall funnctionality, Internet proxies to restrict which Internet pages can be accessed from Azure, Layer-7 load balancers, and many others. All of them can be inserted in an Azure design with the patterns described in this article. Even Azure first-party Network Virtual Appliances such as [Azure Firewall][azfw] and [Azure Application Gateway][appgw] use the designs explained below. Understanding these options is critical both from a design perspective as well as when troubleshooting network issues.
+There are many examples of NVAs, such as network firewalls, Layer-4 reverse-proxies, IPsec VPN endpoints, web-based reverse-proxies with web application firewall funnctionality, Internet proxies to restrict which Internet pages can be accessed from Azure, Layer-7 load balancers, and many others. All of them can be inserted in an Azure design with the patterns described in this article. Even Azure first-party Network Virtual Appliances such as [Azure Firewall][azfw] and [Azure Application Gateway][appgw] use the designs explained below. Understanding these options is critical both from a design perspective as well as when troubleshooting network issues.
 
 The first question to be answered is why High Availability for Network Virtual Appliances is required. The reason is because these devices control the communication between network segments, so if they are not available, network traffic cannot flow and applications will stop working. Scheduled and unscheduled outages can and will occasionally bring down NVA instances (as any other virtual machine in Azure or any other cloud), even if those NVAs are configured with Premium Managed Disks to provide single-instance SLA in Azure. Hence, highly available applications will require at least a second NVA that can ensure connectivity.
 
 **Prerequisites:** This article assumes a basic understanding of Azure networking, [Azure load balancers][lb-overview], and [user-defined routes][udr-overview] (UDRs).
+
+When choosing the best option to deploy a Network Virtual Appliance into an Azure VNet, the most important aspect to consider is whether the NVA vendor has vetted and validated that specific design, and provided the required NVA configuration that is needed to integrate the NVA in Azure. If the NVA vendor offers different alternatives as supported design options for an NVA, these factors can influence the decision:
+
+* Convergence time: how long does it take the design to steer the traffic away from a failed NVA instance?
+* Topology support: what NVA configurations does the design option support? Active/active, active/standby, scale out NVA clusters with n+1 redundancy?
+* Traffic symmetry: does the design force the NVA to perform Source Network Address Translation (SNAT) on the packets to avoid asymmetric routing? Or is traffic symmetry enforced by other means?
+
+The following sections in the document will describe the most common architectures used to integrate NVAs into a Hub and Spoke network.
+
+>[!NOTE]
+> This article is focused on [Hub & Spoke designs][caf_hns]. [Virtual WAN][vwam] is not covered, since Virtual WAN is much more prescriptive on how NVAs are deployed, depending on whether an NVA is supported to be deployed in a virtual hub.
 
 ## HA architectures overview
 
@@ -29,10 +40,10 @@ The following architectures describe the resources and configuration necessary f
 
 This design uses two Azure Load Balancers to expose a cluster of NVAs to the rest of the network:
 
-- A public Load Balancer exposes the NVAs to the Internet
-- An internal Load Balancer is used to redirect internal traffic from Azure and on-premises to the NVAs
+- An internal Load Balancer is used to redirect internal traffic from Azure and on-premises to the NVAs. This internal load balancer is configured with [HA Ports rules][alb_haports], so that every TCP/UDP port is redirected to the NVA instances. 
+- A public Load Balancer exposes the NVAs to the Internet. Since [HA Ports][alb_haport] is not supported in public Azure Load Balancers, every individual TCP/UDP port needs to be opened in a dedicated load balancing rule.
 
-The following diagram describes the sequence of hops that packets from the Internet to an application server in a spoke VNet follow:
+The following diagram describes the sequence of hops that packets from the Internet to an application server in a spoke VNet would follow:
 
 ![ALB Internet][alb_internet]
 
@@ -40,7 +51,7 @@ This design can be used as well to inspect traffic between Azure and on-premises
 
 ![ALB Onpremises][alb_onprem]
 
-The setup to send traffic between spokes through the NVAs is exactly the same, so no additional diagram is provided. In the example diagrams above, since spoke1 doesn't know about spoke2's range, the `0.0.0.0/0` UDR will send traffic addressed to spoke2 to the NVA's internal Azure Load Balancer. 
+The mechanism to send traffic between spokes through the NVAs is exactly the same, so no additional diagram is provided. In the example diagrams above, since spoke1 doesn't know about spoke2's range, the `0.0.0.0/0` UDR will send traffic addressed to spoke2 to the NVA's internal Azure Load Balancer. 
 
 For traffic between onprem and Azure or between Azure virtual machines, traffic symmetry is guaranteed by the internal Azure Load Balancer: when both directions of a traffic flow traverse the same Azure Load Balancer, the same NVA instance will be chosen. However, for traffic between Azure and the public Internet, each direction of the traffic flow will cross a different Azure Load Balancer (the ingress packet through the public ALB, and the egress packet through the internal ALB). As a consequence, if traffic symmetry is required, Source Network Address Translation (SNAT) needs to be performed by the NVA instances to attract the return traffic and eovid traffic asymmetry.
 
@@ -90,8 +101,9 @@ Service injection with the Gateway Load Balancer can be used for inbound flows h
 
 ## Next steps
 
-- Learn how to [implement a DMZ between Azure and your on-premises datacenter][dmz-on-premises] using Azure Firewall.
-- [Troubleshoot network virtual appliance issues in Azure](/azure/virtual-network/virtual-network-troubleshoot-nva)
+- Learn how to [implement a secure hubrid network][secure_hybrid] using Azure Firewall.
+- [Perimeter Networks - Cloud Adoption Framework][caf_perimeter]
+- [Cloud DMZ - Cloud Adoption Framework][caf_dmz]
 
 <!-- links -->
 
@@ -99,8 +111,13 @@ Service injection with the Gateway Load Balancer can be used for inbound flows h
 [appgw]: /azure/application-gateway/overview
 [ars]: /azure/route-server/overview
 [gwlb]: /azure/load-balancer/gateway-overview
+[vwan]: /azure/virtual-wan/virtual-wan-about
 [alb_probes]: /azure/load-balancer/load-balancer-custom-probe-overview
 [alb_haports]: /azure/load-balancer/load-balancer-ha-ports-overview
+[caf_dmz]: /azure/cloud-adoption-framework/decision-guides/software-defined-network/cloud-dmz
+[caf_perimeter]: /azure/cloud-adoption-framework/ready/azure-best-practices/perimeter-networks
+[hub_hns]: /azure/cloud-adoption-framework/ready/azure-best-practices/hub-spoke-network-topology
+[secure_hybrid]: /azure/architecture/reference-architectures/dmz/secure-vnet-dmz
 
 <!-- images -->
 
