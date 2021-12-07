@@ -77,46 +77,32 @@ There are several options for updating Azure Virtual Desktop instances. Deployin
 
 The relationships between host pools, workspaces and other key logical components vary. The following diagram summarises these relationships.
 
-[image]
+![Relationships between key logical components](../images/Azure-Virtual-Desktop-component-relationships.png)
 
-1. An application group that contains a published desktop cannot contain any other published resources and is called a desktop application group.
-2. Application groups assigned to the same host pool must be members of the same workspace.
-3. A user account can be assigned to an application group either directly or via an Azure AD group. It's possible to assign no users to an application group but then it cannot service any.
-4. It's possible to have an empty workspace but it cannot service users.
-5. It's possible to have an empty host pool but it cannot service users.
-6. It's possible for a host pool not to have any application groups assigned to it but it cannot service users.
-7. AAD is required for AVD. This is because AAD user accounts and groups must always be used to assign users to AVD application groups. AAD is also used to authenticate users into the AVD service. AVD session hosts can also be members of an AAD domain and in this situation the AVD published applications and desktop sessions will also be launched and run (not just assigned) using AAD accounts. 
-  - Alternatively AVD session hosts can be members of an AD DS (Active Directory Domain Services) domain and in this situation the AVD published applications and desktop sessions will be launched and run (but not assigned) using AD DS accounts. To reduce user and administrative overhead AD DS can be synchronized with AAD using Azure AD Connect.
-  - Finally AVD session hosts can, instead, be members of an AAD DS (Azure Active Directory Domain Services) domain and in this situation the AVD published applications and desktop sessions will be launched and run (but not assigned) using AAD DS accounts. AAD is automatically synchronized with AAD DS, one way from AAD to AAD DS only.
+*The bracketed numbers relate to the diagram above.*
 
-| Resource                                            | Purpose                                                                                              | Logical Relationships                            |
-|-----------------------------------------------------|------------------------------------------------------------------------------------------------------|--------------------------------------------------|
+- (1) An application group that contains a published desktop cannot contain any other published resources and is called a desktop application group.
+- (2) Application groups assigned to the same host pool must be members of the same workspace.
+- (3) A user account can be assigned to an application group either directly or via an Azure AD group. It's possible to assign no users to an application group but then it cannot service any.
+- (4) It's possible to have an empty workspace but it cannot service users.
+- (5) It's possible to have an empty host pool but it cannot service users.
+- (6) It's possible for a host pool not to have any application groups assigned to it but it cannot service users.
+- (7) AAD is required for AVD. This is because AAD user accounts and groups must always be used to assign users to AVD application groups. AAD is also used to authenticate users into the AVD service. AVD session hosts can also be members of an AAD domain and in this situation the AVD published applications and desktop sessions will also be launched and run (not just assigned) using AAD accounts. 
+    - (7) Alternatively AVD session hosts can be members of an AD DS (Active Directory Domain Services) domain and in this situation the AVD published applications and desktop sessions will be launched and run (but not assigned) using AD DS accounts. To reduce user and administrative overhead AD DS can be synchronized with AAD using Azure AD Connect.
+    - (7) Finally AVD session hosts can, instead, be members of an AAD DS (Azure Active Directory Domain Services) domain and in this situation the AVD published applications and desktop sessions will be launched and run (but not assigned) using AAD DS accounts. AAD is automatically synchronized with AAD DS, one way from AAD to AAD DS only.
+
+| Resource                                            | Purpose                                         | Logical Relationships   |
+|-----------------------------------------------------|-------------------------------------------------|--------------------------------------------------|
 | Published desktop                                   | A Windows desktop environment running on AVD session host(s) and delivered to users over the network | Member of one and only one application group (1) |
 | Published application                               | A Windows application running on AVD session host(s) and delivered to users over the network         | Member of one and only one application group     |
-| Application group                                   | A logical grouping of published applications or a published desktop                                  |  • Contains a published desktop (1) or one or more published applications
-• Assigned to one and only one host pool (2)
-• Member of one and only one workspace (2)
-• One or more Azure AD user accounts and/or groups are assigned to it (3)                                                |
-| Azure AD user account/group                         | Identifies the users who are permitted to launch published desktops and/or applications              | • Member of one and only one Azure Active Directory
-• Assigned to one or more application groups (3)
-                                                  |
-| AAD (7)                                             | Identity provider                                                                                    | • Contains one or more user accounts/groups that must be used to assign users to application groups and may also be used to log onto the session hosts
-• Can hold the memberships of the session hosts
-• Can be synchronized with AD DS or AAD DS
-                                                 |
-| AD DS (Active Directory Domain Services) (7)        | Identity and directory services provider                                                             | • Contains one or more user accounts/groups that may be used to log onto the session hosts
-• Can hold the memberships of the session hosts
-• Can be synchronized with AAD
-                                                 |
-| AAD DS (Azure Active Directory Domain Services) (7) | PaaS-based identity and directory services provider                                                  |  • Contains one or more user accounts/groups that may be used to log onto the session hosts
-• Can hold the memberships of the session hosts
-• Synchronized with AAD
-                                                |
-| Workspace                                           | A logical grouping of application groups                                                             | Contains one or more application groups (4)      |
-| Host pool                                           | A group of identical session hosts that serve a common purpose                                       |  • Contains one or more session hosts (5)
-• One or more application groups are assigned to it (6)
-                                                |
-| Session host | A virtual machine that hosts published desktops and/or applications | Member of one and only one host pool
+| Application group                                   | A logical grouping of published applications or a published desktop                                  |  * Contains a published desktop (1) or one or more published applications; * Assigned to one and only one host pool (2); * Member of one and only one workspace (2); * One or more Azure AD user accounts and/or groups are assigned to it (3)    |
+| Azure AD user account/group                         | Identifies the users who are permitted to launch published desktops and/or applications              | * Member of one and only one Azure Active Directory; * Assigned to one or more application groups (3) |
+| AAD (7)                                             | Identity provider                                                                                    | * Contains one or more user accounts/groups that must be used to assign users to application groups and may also be used to log onto the session hosts; * Can hold the memberships of the session hosts; * Can be synchronized with AD DS or AAD DS |
+| AD DS (Active Directory Domain Services) (7)        | Identity and directory services provider                                                             | * Contains one or more user accounts/groups that may be used to log onto the session hosts; * Can hold the memberships of the session hosts; * Can be synchronized with AAD |
+| AAD DS (Azure Active Directory Domain Services) (7) | PaaS-based identity and directory services provider                                                  | * Contains one or more user accounts/groups that may be used to log onto the session hosts; * Can hold the memberships of the session hosts; * Synchronized with AAD |
+| Workspace                                           | A logical grouping of application groups                                                             | Contains one or more application groups (4) |
+| Host pool                                           | A group of identical session hosts that serve a common purpose                                       | * Contains one or more session hosts (5); * One or more application groups are assigned to it (6) |  
+| Session host | A virtual machine that hosts published desktops and/or applications | Member of one and only one host pool |
 
 ## Considerations
 
