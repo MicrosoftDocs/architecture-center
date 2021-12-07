@@ -21,6 +21,6 @@ products:
   - azure-devops
 name: Blue/green deployments for applications on Azure Spring Cloud 
 summary: This article describes a high-availability blue/green deployment solution for applications on Azure Spring Cloud.
-thumbnailUrl: /azure/architecture/browse/thumbs/blue-green-spring.png
+thumbnailUrl: /azure/architecture/browse/thumbs/blue-green-deployment.png
 content: |
   [!include[](blue-green-spring-content.md)]
