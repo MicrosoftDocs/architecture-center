@@ -4,7 +4,7 @@ titleSuffix: Azure Architecture Center
 description: Architectures and ideas for using Azure services to build efficient, scalable, and reliable solutions in the energy and environment industries.
 author: EdPrice-MSFT
 ms.author: edprice 
-ms.date: 12/07/2021
+ms.date: 12/08/2021
 ms.topic: article
 ms.service: architecture-center
 ms.subservice: azure-guide
@@ -24,6 +24,7 @@ categories:
 - "containers"
 - "iot"
 ---
+
 # Solutions for the energy and environment industries
 
 Rising energy needs and sustainability targets are pushing companies to explore innovative solutions and architectures. Innovations like IoT, AI, and machine learning can help address these critical needs. 
@@ -37,6 +38,7 @@ Learn how you can join the global community committed to reducing energy use, tr
 > [!VIDEO https://www.youtube.com/embed/oGvd5349BH0]
 
 ## Architectures for energy and the environment
+
 The following articles provide detailed analysis of architectures developed and recommended for the energy and environment industries.
 
 | Architecture | Summary | Technology focus |
@@ -53,7 +55,9 @@ The following articles provide detailed analysis of architectures developed and 
 |[Scale AI and machine learning initiatives in regulated industries](/azure/architecture/example-scenario/ai/scale-ai-and-machine-learning-in-regulated-industries)|Learn about scaling Azure AI and machine learning environments that need to comply with extensive security policies, like those used in the oil and gas industries.|AI / Machine learning|
 
 ## Solution ideas for energy and the environment
+
 The following are other ideas that you can use as a starting point for your energy or environment solution.
+-	[Azure IoT Edge data storage and processing](/azure/architecture/solution-ideas/articles/data-storage-edge)
 -	[Data science and machine learning with Azure Databricks](/azure/architecture/solution-ideas/articles/azure-databricks-data-science-machine-learning)
 -	[Demand forecasting](/azure/architecture/solution-ideas/articles/demand-forecasting)
 -	[Energy supply optimization](/azure/architecture/solution-ideas/articles/energy-supply-optimization) 
@@ -61,7 +65,6 @@ The following are other ideas that you can use as a starting point for your ener
 -	[IoT analyze and optimize loops](/azure/architecture/example-scenario/iot/analyze-optimize-loop)
 -	[IoT-connected light, power, and internet for emerging markets](/azure/architecture/solution-ideas/articles/iot-power-management)
 -	[IoT device connectivity for healthcare facilities](/azure/architecture/solution-ideas/articles/healthcare-network)
--	[Azure IoT Edge data storage and processing](/azure/architecture/solution-ideas/articles/data-storage-edge)
 -	[IoT monitor and manage loops](/azure/architecture/example-scenario/iot/monitor-manage-loop)
 -	[Low-latency network connections for industry](/azure/architecture/solution-ideas/articles/low-latency-network)
 -	[Modern analytics architecture with Azure Databricks](/azure/architecture/solution-ideas/articles/azure-databricks-modern-analytics-architecture)
