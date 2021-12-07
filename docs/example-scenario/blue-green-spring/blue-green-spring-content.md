@@ -4,9 +4,9 @@ This article describes a process for ensuring high availability during the deplo
 
 This article describes the blue/green deployment pattern. In this pattern, the new version of the application is deployed next to the existing version. This deployment allows you to restart, warm up, and test the new version independently. After the new version is running, you can switch to it, redirecting any new incoming traffic to it. For the user of the application, the deployment of the new version happens without any visible downtime.
 
-Another advantage to blue/green deployment: if a new deployment doesn't work as expected, you can easily abandon it without affecting the live version. 
+There's another advantage to blue/green deployment: if a new deployment doesn't work as expected, you can easily abandon it without affecting the live version. 
 
-This solution uses Azure Spring Cloud to implement blue/green deployment. It also focuses on automating the deployment of applications. 
+This solution uses Azure Spring Cloud to implement blue/green deployment. It also discusses automating the deployment of applications. 
 
 ## Potential use cases
 
@@ -28,7 +28,7 @@ Download a [Visio file](https://arch-center.azureedge.net/blue-green-deployment.
 1. The GitHub repository also holds a GitHub Actions workflow to build the code changes and perform the necessary quality checks. After the code is compiled, the GitHub Actions workflow deploys the latest version to Azure Spring Cloud. For this deployment, the GitHub Actions workflow: 
 
     - Determines the current active production environment.
-    - Deploys the code to a non-production environment. If this environment doesn't exist, it's created. At this point, the old version in the production deployment still gets all production traffic.
+    - Deploys the code to a non-production environment. If this environment doesn't exist, GitHub creates it. At this point, the old version in the production deployment still gets all production traffic.
     - Waits for the deployment to be reviewed and approved. This step gives the newly deployed application time to start and warm up. Before approval, you can use the non-production URL of the application to verify the new version and ensure that it's ready.
     - Switches the production deployment and the non-production deployment, if you approve the new deployment. All production traffic is now routed to the new version of the application.
     
@@ -41,17 +41,17 @@ Download a [Visio file](https://arch-center.azureedge.net/blue-green-deployment.
 
 This solution uses the following components: 
 
-- [Azure Spring Cloud](https://azure.microsoft.com/services/spring-cloud) is a modern microservices platform for running Java Spring Boot and Steeltoe .NET Core apps. It eliminates boilerplate code for running microservices and helps you quickly develop robust apps in the cloud. Azure Spring Cloud also allows you to deploy code on a per-application basis.
+- [Azure Spring Cloud](https://azure.microsoft.com/services/spring-cloud) is a modern microservices platform for running Java Spring Boot and Steeltoe .NET Core apps. It eliminates boilerplate code for running microservices and helps you quickly develop robust apps in the cloud. You can also use Azure Spring Cloud to deploy code on a per-application basis.
 
 - [GitHub](https://github.com) is a code-hosting platform that provides version control and collaboration. GitHub provides Git distributed version control, source code management, and other features.
 
-- [GitHub Actions](https://docs.github.com/actions) helps you automate software development and deployment workflows from within a repository. They enable a fully automated continuous integration and continuous delivery (CI/CD) setup. You can also use GitHub Actions to create environments for which you can configure rules, like requiring reviewers. 
+- [GitHub Actions](https://docs.github.com/actions) helps you automate software development and deployment workflows from within a repository. You can use it to create a fully automated continuous integration and continuous delivery (CI/CD) setup. You can also use GitHub Actions to create environments for which you can configure rules, like requiring reviewers. 
 
 ### Alternatives
 
-This solution uses GitHub Actions to automate deployment. You can use [Azure Pipelines](https://dev.azure.com) or any other CI/CD automation system as an alternative. The sample described in the deployment section of this document uses Azure CLI statements as much as possible, so this setup can easily be translated to another automation tool. You'll need to use a CI/CD tool to set up an environment and create an approval flow on it. 
+This solution uses GitHub Actions to automate deployment. You can use [Azure Pipelines](https://dev.azure.com) or any other CI/CD automation system as an alternative. The sample described in the deployment section of this document uses Azure CLI statements as much as possible, so you can easily translate this setup to another automation tool. Use a CI/CD tool to set up an environment and create an approval flow on it. 
 
-This architecture uses Azure Spring Cloud with Deployments as a target service. You can use Azure App Service staging slots as an alternative. A slot would contain the new version of the application, which could be reloaded, warmed up, and tested before a slot swap is done. The slot swap puts the new version in production. This process is built into the service, so the setup is easy.
+This architecture uses Azure Spring Cloud with Deployments as a target service. You can use Azure App Service staging slots as an alternative. A slot contains the new version of the application, which can be reloaded, warmed up, and tested before a slot swap is done. The slot swap puts the new version in production. This process is built into the service, so the setup is easy.
 
 As another alternative, you can place any Azure service that hosts web endpoints behind a load-balancing solution. If you use this alternative, you can spin up a second instance of the Azure service, where you can deploy a new version of your application. As a next step, you can create a zero-downtime deployment. To do that, you can switch the traffic at the load-balancing solution to the Azure service that holds the new version of the app. This solution to blue/green deployment does require much more management overhead.
 
@@ -69,13 +69,13 @@ If you want a solution to increase the overall SLA of your configuration, look i
 
 This solution works on a per-application basis, so it's well suited for microservices applications. It also allows application teams to work independently of other application teams without influencing the uptime of the overall solution. 
 
-This solution also works best on a per-application basis, where each application has its own blue/green deployment workflow. If you combine applications in the same workflow, this configuration will become complex quickly, so we don't recommend that approach. 
+This solution also works best on a per-application basis, where each application has its own blue/green deployment workflow. If you combine applications in the same workflow, this configuration becomes complex quickly, so we don't recommend that approach. 
 
 ### Security
 
 Apart from setting up repository permissions, consider implementing the following security measures in Git repositories that hold code that you want to deploy to Azure Spring Cloud: 
 
-- **Branch protection.** Protect the branches that represent the production state of your application from having changes pushed to them directly. Require that every change is proposed by a pull request (PR). Use PRs to do automatic checks. For example, build all code and run unit tests on the code that a PR creates or modifies.
+- **Branch protection.** Protect the branches that represent the production state of your application from having changes pushed to them directly. Require that every change is proposed by a pull request (PR). Use PRs to do automatic checks. For example, those checks might build all code and run unit tests on the code that a PR creates or modifies.
 
 - **PR review.** To enforce the four-eyes principle, require that PRs have at least one reviewer. You can also use the GitHub [code owners](https://docs.github.com/en/github/creating-cloning-and-archiving-repositories/creating-a-repository-on-github/about-code-owners) feature to define individuals or teams that are responsible for reviewing specific files in a repository.
 
@@ -85,7 +85,7 @@ Apart from setting up repository permissions, consider implementing the followin
 
 We also recommend that you deploy to only one Azure Spring Cloud service. In a production setup, you should first test your code on other environments before you deploy it to production. Your production environment should preferably be in a different environment from your development and test environment. 
 
-For information about getting extra security on your Azure Spring Cloud service, see [Deploy Azure Spring Cloud in a virtual network](/azure/spring-cloud/how-to-deploy-in-azure-virtual-network?tabs=azure-CLI). If you implement the deployment suggested there, you won't be able to use GitHub-hosted runners. You'll need to use your own runner for the deployment workflow. 
+For information about getting extra security on your Azure Spring Cloud service, see [Deploy Azure Spring Cloud in a virtual network](/azure/spring-cloud/how-to-deploy-in-azure-virtual-network?tabs=azure-CLI). If you implement the deployment suggested there, you can't use GitHub-hosted runners. You need to use your own runner for the deployment workflow. 
 
 ### DevOps
 
@@ -95,12 +95,12 @@ Teams often manage multiple environments for the same application. It's typical 
 
 ## Deploy this scenario
 
-You can get a sample for this configuration [in this GitHub repo](https://github.com/Azure-Samples/azure-spring-cloud-blue-green). The repo also includes the steps for setting up your Azure Spring Cloud service by using a Bicep template. 
+For a sample of this configuration, see the [Automated blue/green deployment for Azure Spring Cloud applications](https://github.com/Azure-Samples/azure-spring-cloud-blue-green) GitHub repo. The repo also includes the steps for setting up your Azure Spring Cloud service by using a Bicep template. 
 
 ## Pricing
 Use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator) to estimate costs.
 
-Azure Spring Cloud has a Basic tier and a Standard tier. See to the [pricing info](https://azure.microsoft.com/pricing/details/spring-cloud/) for details. When you use the blue/green deployment strategy, you pay for extra virtual SPU for only a short time, while your deployment runs.
+Azure Spring Cloud has a Basic tier and a Standard tier. For details, see [Azure Spring Cloud pricing](https://azure.microsoft.com/pricing/details/spring-cloud/). When you use the blue/green deployment strategy, you pay for extra virtual SPU for only a short time, while your deployment runs.
 
 GitHub offers a free service. But to use advanced security-related features like code owners or required reviewers, you need the Team plan. For more information, see the [GitHub pricing page](https://github.com/pricing).
 
