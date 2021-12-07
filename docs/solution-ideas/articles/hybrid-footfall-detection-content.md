@@ -9,7 +9,7 @@ Gain insights on how customers are receiving their current products in relation 
 ## Architecture
 
 ![Architecture diagram](../media/hybrid-footfall-detection.png)  
-_Download an [Visio](../media/hybrid-footfall-detection.vsdx) of this architecture._
+_Download an [Visio](https://arch-center.azureedge.net/hybrid-footfall-detection.vsdx) of this architecture._
 
 ### Data flow
 
