@@ -2,11 +2,31 @@
 
 This reference architecture shows how to run an Azure App Service application in multiple regions to achieve high availability.
 
-![Reference architecture for a web application with high availability](./images/multi-region-web-app-diagram.png)
+There are several general approaches to achieve high availability across regions:
 
-*Download a [Visio file][visio-download] of this architecture.*
+- Active/Passive with hot standby: traffic goes to one region, while the other waits on hot standby. Hot standby means the VMs in the secondary region are allocated and running at all times.
+
+- Active/Passive with cold standby: traffic goes to one region, while the other waits on cold standby. Cold standby means the VMs in the secondary region are not allocated until needed for failover. This approach costs less to run, but will generally take longer to come online during a failure.
+
+- Active/Active: both regions are active, and requests are load balanced between them. If one region becomes unavailable, it is taken out of rotation.
+
+This reference focuses on active/passive with hot standby. It extends the single region design for a scalable web application. See [Improve scalability in a web application][guidance-web-apps-scalability] for information on the base architecture.
+
+### Potential use cases
+
+These use cases can benefit from a multi-region deployment:
+
+- Design a business continuity and disaster recovery plan for LoB applications
+
+- Deploy mission-critical applications running on Windows or Linux
+
+- Improve user experience by keeping applications available
 
 ## Architecture
+
+![Diagram showing the reference architecture for a web application with high availability.](./images/multi-region-web-app-diagram.png)
+
+*Download a [Visio file][visio-download] of this architecture.*
 
 This architecture builds on the one shown in [Improve scalability in a web application][guidance-web-apps-scalability]. The main differences are:
 
@@ -16,13 +36,21 @@ This architecture builds on the one shown in [Improve scalability in a web appli
 
 A multi-region architecture can provide higher availability than deploying to a single region. If a regional outage affects the primary region, you can use [Front Door](/azure/frontdoor) to fail over to the secondary region. This architecture can also help if an individual subsystem of the application fails.
 
-There are several general approaches to achieving high availability across regions:
+### Components
 
-- Active/passive with hot standby. Traffic goes to one region, while the other waits on hot standby. Hot standby means the VMs in the secondary region are allocated and running at all times.
-- Active/passive with cold standby. Traffic goes to one region, while the other waits on cold standby. Cold standby means the VMs in the secondary region are not allocated until needed for failover. This approach costs less to run, but will generally take longer to come online during a failure.
-- Active/active. Both regions are active, and requests are load balanced between them. If one region becomes unavailable, it is taken out of rotation.
+Key technologies used to implement this architecture:
 
-This reference architecture focuses on active/passive with hot standby, using Front Door for failover.
+- [Azure Active Directory][Azure-Active-Directory]
+- [Azure DNS][Azure-DNS]
+- [Azure Content Delivery Network][Azure-Content-Delivery-Network]
+- [Azure Front Door][Azure-Front-Door]
+- [Azure AppService][Azure-AppService]
+- [Azure Function][Azure-Function]
+- [Azure Storage][Azure-Storage]
+- [Azure Redis Cache][Azure-Redis-Cache]
+- [Azure SQL Database][Azure-SQL-Database]
+- [Azure Cosmos DB][Azure-Cosmos-DB]
+- [Azure Search][Azure-Search]
 
 ## Recommendations
 
@@ -48,7 +76,7 @@ Consider placing the primary region, secondary region, and Traffic Manager into 
 
 **Health probe**. Front Door uses an HTTP (or HTTPS) probe to monitor the availability of each back end. The probe gives Front Door a pass/fail test for failing over to the secondary region. It works by sending a request to a specified URL path. If it gets a non-200 response within a timeout period, the probe fails. You can configure the health probe frequency, number of samples required for evaluation, and the number of successful samples required for the backend to be marked as healthy. If Front Door marks the backend as degraded, it fails over to the other backend. For details, see [Health Probes](/azure/frontdoor/front-door-health-probes).
 
-As a best practice, create a health probe path in your application backend that reports the overall health of the application. This health probe should check critical dependencies such as the App Service apps, storage queue, and SQL Database. Otherwise, the probe might report a healthy backend when critical parts of the application are actually failing. On the other hand, don't use the health probe to check lower priority services. For example, if an email service goes down the application can switch to a second provider or just send emails later. For further discussion of this design pattern, see [Health Endpoint Monitoring Pattern](../../patterns/health-endpoint-monitoring.md).
+As a best practice, create a health probe path in your application backend that reports the overall health of the application. This health probe should check critical dependencies such as the App Service apps, storage queue, and SQL Database. Otherwise, the probe might report a healthy backend when critical parts of the application are actually failing. On the other hand, don't use the health probe to check lower priority services. For example, if an email service goes down the application can switch to a second provider or just send emails later. For further discussion of this design pattern, see [Health Endpoint Monitoring Pattern](/azure/architecture/patterns/health-endpoint-monitoring).
 
 ### SQL Database
 
@@ -137,6 +165,23 @@ This architecture follows the multi region deployment recommendation, described 
 
 This architecture builds on the one shown in [Improve scalability in a web application][guidance-web-apps-scalability], see [DevOps considerations section][guidance-web-apps-scalability-devops].
 
+## Next steps
+
+- Deep dive on [Azure Front Door - traffic routing methods][front-door-routing]
+
+- Create health probes that report the overall health of the application based on [endpoint monitoring patterns][endpoint-monitoring]
+
+- Enable [Azure SQL auto-failover groups][sql-failover]
+
+## Related resources
+
+- [Multi-region N-tier application](../n-tier/multi-region-sql-server.yml) is a similar scenario. It shows an N-tier application running in multiple Azure regions
+
+- [Design principles for Azure Application][Design-principles-for-Azure-Application] summarize design principles for Azure applications
+
+- [Ensure business continuity & disaster recovery using Azure Paired Regions](/azure/best-practices-availability-paired-regions)
+
+
 <!-- links -->
 
 [AFD-pricing]: https://azure.microsoft.com/pricing/details/frontdoor
@@ -155,3 +200,17 @@ This architecture builds on the one shown in [Improve scalability in a web appli
 [sql-rpo]: /azure/sql-database/sql-database-business-continuity#sql-database-features-that-you-can-use-to-provide-business-continuity
 [storage-outage]: /azure/storage/storage-disaster-recovery-guidance
 [visio-download]: https://arch-center.azureedge.net/app-service-reference-architectures.vsdx
+[Azure-Active-Directory]: https://azure.microsoft.com/services/active-directory/
+[Azure-DNS]: https://azure.microsoft.com/services/dns/#overview
+[Azure-Content-Delivery-Network]: https://azure.microsoft.com/services/cdn/#overview
+[Azure-Front-Door]: https://azure.microsoft.com/services/frontdoor/#overview
+[Azure-AppService]: https://azure.microsoft.com/services/app-service/#overview 
+[Azure-Function]: https://azure.microsoft.com/services/functions/#overview
+[Azure-Storage]: https://azure.microsoft.com/product-categories/storage/
+[Azure-Redis-Cache]: https://azure.microsoft.com/services/cache/#overview
+[Azure-SQL-Database]: https://azure.microsoft.com/products/azure-sql/database/#overview
+[Azure-Cosmos-DB]: https://azure.microsoft.com/services/cosmos-db/#overview
+[Azure-Search]: https://azure.microsoft.com/services/search/#overview
+[front-door-routing]: /azure/frontdoor/front-door-routing-methods
+[endpoint-monitoring]: /azure/architecture/patterns/health-endpoint-monitoring
+[Design-principles-for-Azure-Application]: /azure/architecture/guide/design-principles

@@ -4,7 +4,7 @@ titleSuffix: Azure Architecture Center
 description: This article describes the considerations for mapping requests to tenants in a multitenant solution.
 author: PlagueHO
 ms.author: dascottr
-ms.date: 07/16/2021
+ms.date: 11/24/2021
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: azure-guide
@@ -36,7 +36,9 @@ There are multiple ways you can identify the tenant for an incoming request.
 
 ### Domain names
 
-If you use [tenant-specific domain or subdomain names](./domain-names.md), it's likely that requests can be easily mapped to tenants. However, consider the following questions:
+If you use [tenant-specific domain or subdomain names](./domain-names.md), it's likely that requests can be easily mapped to tenants by using the `Host` header, or another HTTP header that includes the original hostname for each request.
+
+However, consider the following questions:
 
 - How will users know which domain name to use to access the service?
 - Do you have a central entry point, like a landing page or login page, that all the tenants use? If you do, how will users identify the tenant that they need to access?

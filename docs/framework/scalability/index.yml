@@ -46,7 +46,7 @@ landingContent:
       - linkListType: video
         links:
           - text: "Azure SQL Capacity Planning: Overview"
-            url: https://channel9.msdn.com/Shows/Data-Exposed/Azure-SQL-Capacity-Planning-Overview?term=Capacity&pubDate=3years&lang-en=true
+            url: /shows/Data-Exposed/Azure-SQL-Capacity-Planning-Overview?term=Capacity&pubDate=3years&lang-en=true
   # Card
   - title: Design for performance efficiency
     linkLists:
@@ -81,7 +81,7 @@ landingContent:
       - linkListType: video
         links:
           - text: "Autoscale applications on Kubernetes with Kubernetes Event-Driven Autoscaling (KEDA)"
-            url: https://channel9.msdn.com/Shows/Azure-Friday/Autoscale-applications-on-Kubernetes-with-Kubernetes-Event-Driven-Autoscaling-KEDA?term=Autoscaling&pubDate=3years&lang-en=true
+            url: /shows/Azure-Friday/Autoscale-applications-on-Kubernetes-with-Kubernetes-Event-Driven-Autoscaling-KEDA?term=Autoscaling&pubDate=3years&lang-en=true
  # Card
   - title: Test for performance efficiency
     linkLists:
@@ -107,10 +107,16 @@ landingContent:
             url: test-tools.md#caching-data
           - text: Use a content delivery network
             url: test-tools.md#content-delivery-network
+      - linkListType: learn
+        links:
+          - text: Identify performance bottlenecks with Azure Load Testing Preview
+            url: /azure/load-testing/tutorial-identify-bottlenecks-azure-portal
+          - text: Identify performance regressions through automated load testing
+            url: /azure/load-testing/tutorial-cicd-azure-pipelines
       - linkListType: video
         links:
           - text: Scale your cloud app with Azure Cache for Redis
-            url: https://channel9.msdn.com/Shows/Azure-Friday/Scale-Your-Cloud-App-with-Azure-Cache-for-Redis?term=Azure%20Redis%20to%20cache%20data&pubDate=3years&lang-en=true                                    
+            url: /shows/Azure-Friday/Scale-Your-Cloud-App-with-Azure-Cache-for-Redis?term=Azure%20Redis%20to%20cache%20data&pubDate=3years&lang-en=true                                    
  # Card
   - title: Monitor for performance efficiency
     linkLists:
@@ -137,7 +143,7 @@ landingContent:
       - linkListType: video
         links:
           - text: Azure Application Insights Profiler
-            url: https://channel9.msdn.com/Shows/Visual-Studio-Toolbox/Azure-Application-Insights-Profiler?term=Collect%20data%20with%20Azure%20Application%20Insights&pubDate=3years&lang-en=true
+            url: /shows/Visual-Studio-Toolbox/Azure-Application-Insights-Profiler?term=Collect%20data%20with%20Azure%20Application%20Insights&pubDate=3years&lang-en=true
  # Card
   - title: Optimize for performance efficiency
     linkLists:
@@ -162,7 +168,7 @@ landingContent:
       - linkListType: video
         links:
           - text: Optimize costs of your backups with Azure Backup
-            url: https://channel9.msdn.com/Shows/Inside-Azure-for-IT/Optimize-costs-of-your-backups-with-Azure-Backup?term=Optimize%20for%20performance&pubDate=3years&lang-en=true&pageSize=15
+            url: /shows/Inside-Azure-for-IT/Optimize-costs-of-your-backups-with-Azure-Backup?term=Optimize%20for%20performance&pubDate=3years&lang-en=true&pageSize=15
  # Card
   - title: Performance tools and services
     linkLists:
@@ -180,10 +186,10 @@ landingContent:
             url: https://azure.microsoft.com/en-us/services/cosmos-db/
           - text: Azure Front Door 
             url: /azure/frontdoor/front-door-caching#file-compression
+          - text: Azure Load Testing Preview
+            url: /azure/load-testing/overview-what-is-azure-load-testing
           - text: Azure Monitor
             url: /azure/azure-monitor/overview
-          - text: Azure SQL Database
-            url: https://azure.microsoft.com/en-us/products/azure-sql/database/
           - text: B-series virtual machines
             url: /azure/virtual-machines/sizes-b-series-burstable
           - text: Microsoft Well-Architected Review

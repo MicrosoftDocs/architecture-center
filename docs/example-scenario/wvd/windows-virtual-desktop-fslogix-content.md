@@ -162,8 +162,7 @@ You can use this PowerShell script to add the exclusions for Microsoft Defender 
 ```powershell
   # Defender Exclusions for FSLogix
   $Cloudcache = $false             # Set for true if using cloud cache
-  $StorageAcct = "
-  storageacct"  # Storage Account Name
+  $StorageAcct = "storageacct"     # Storage Account Name
 
   $filelist = `
   "%ProgramFiles%\FSLogix\Apps\frxdrv.sys", `

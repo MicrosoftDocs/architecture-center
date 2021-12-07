@@ -5,7 +5,7 @@ metadata:
   description: Control smart devices by using Azure Speech Service, Language Understanding Service (LUIS), and Azure Bot Service to create natural conversational interfaces.
   author: khilscher
   ms.author: pnp
-  ms.date: 03/23/2020
+  ms.date: 02/04/2021
   ms.topic: conceptual
   ms.service: architecture-center
   ms.subservice: solution-idea

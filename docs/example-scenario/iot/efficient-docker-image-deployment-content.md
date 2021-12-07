@@ -1,7 +1,7 @@
 As the Internet of Things (IoT) becomes more ubiquitous, moving processing to
 the edge serves as a key model to address needs such as low-latency connectivity and conservation of bandwidth. This is especially true in scenarios involving mobility, which are commonly characterized by intermittent and low-bandwidth connectivity. Since you'll typically provision edge devices by deploying software container images, interruptions to deployment processes can result in failures in mobile scenarios. As a result, you may need a reliable and resilient deployment capability for situations when you have limited, intermittent, or low bandwidth.
 
-This article summarizes the process and components the Microsoft Commercial Software Engineering (CSE) team used to build a solution to address this scenario. This solution enabled the deployment of Docker containers to heterogenous remote IoT devices across intermittent low-bandwidth internet connections, such as over satellite, from the customer's IoT edge platform. The CSE team accomplished this by minimizing the size of the deployment to each device and by enabling reliable monitoring of these deployments.
+This solution enabled the deployment of Docker containers to heterogenous remote IoT devices across intermittent low-bandwidth internet connections, such as over satellite, from the customer's IoT edge platform. The CSE team accomplished this by minimizing the size of the deployment to each device and by enabling reliable monitoring of these deployments.
 
 ## Potential use cases
 

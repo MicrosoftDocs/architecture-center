@@ -88,7 +88,7 @@ Other related resources include:
 [architecture]: ./media/architecture-ecommerce-order-processing.png
 [product-category]: https://azure.microsoft.com/product-categories/databases
 [source-document]: https://customers.microsoft.com/story/jet-com-powers-innovative-e-commerce-engine-on-azure-in-less-than-12-months
-[source-presentation]: https://channel9.msdn.com/events/Build/2018/BRK3602
+[source-presentation]: /events/build-2018/brk3602
 [small-pricing]: https://azure.com/e/3d43949ffbb945a88cc0a126dc3a0e6e
 [medium-pricing]: https://azure.com/e/1f1e7bf2a6ad4f7799581211f4369b9b
 [large-pricing]: https://azure.com/e/75207172ece94cf6b5fb354a2252b333

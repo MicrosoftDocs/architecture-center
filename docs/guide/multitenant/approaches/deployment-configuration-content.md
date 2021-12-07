@@ -39,7 +39,7 @@ Automated deployments are always advisable for cloud-hosted solutions. When work
 
 When you deploy to a multitenant environment, you should use deployment pipelines, and use infrastructure as code (IaC) technologies, such as [Bicep](/azure/azure-resource-manager/bicep/overview), JSON ARM templates, Terraform, or the Azure SDKs.
 
-If you plan to offer your solution through the Azure Marketplace, you should provide a fully automated onboarding process for new tenants. This process is described in the [SaaS fulfillment APIs documentation](/azure/marketplace/partner-center-portal/pc-saas-fulfillment-api-v2).
+If you plan to offer your solution through the Azure Marketplace, you should provide a fully automated onboarding process for new tenants. This process is described in the [SaaS fulfillment APIs documentation](/azure/marketplace/partner-center-portal/pc-saas-fulfillment-operations-api).
 
 ### Maximum resource capacity
 
@@ -57,6 +57,10 @@ Each of these models requires you to deploy and manage resources in different wa
 - To treat tenants as *data*, and have your application tier provision and configure infrastructure for your tenants.
 
 Further discussion of these approaches is provided below.
+
+### Testing
+
+Plan to thoroughly test your solution during and after every deployment. Automated testing can be used to verify the functional and non-functional behavior of your solution. Ensure you test your tenant isolation model, and consider using tools like [Azure Chaos Studio](/azure/chaos-studio/chaos-studio-overview) to deliberately introduce faults that simulate real-world outages and verify that your solution functions even when a component is unavailable or malfunctioning.
 
 ## Approaches and patterns to consider
 

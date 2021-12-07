@@ -94,7 +94,7 @@ Make you are aware of the number of subscriptions that you can create. The maxim
 
 It's also possible to create separate Azure AD tenants, such as to manage each of your own tenants in their own Azure AD tenant. Additionally, in some situations, it might make sense to keep your own organization's Azure AD tenant separate from the Azure AD tenant that you use to provision your own tenants' Azure resources.
 
-In general, it's not advisable to create multiple Azure AD tenants. This approach requires additional management effort, and it introduces a significant amount of complexity to your deployment processes. Additionally, it's generally redundant because a single Azure AD tenant can be used by multiple separate subscriptions and Azure resources. Before you make an effort to deploy multiple Azure AD tenants, [consider whether there are other approaches that could achieve your purposes](/resources/securing-azure-environments-with-azure-active-directory/).
+In general, it's not advisable to create multiple Azure AD tenants. This approach requires additional management effort, and it introduces a significant amount of complexity to your deployment processes. Additionally, it's generally redundant because a single Azure AD tenant can be used by multiple separate subscriptions and Azure resources. Before you make an effort to deploy multiple Azure AD tenants, [consider whether there are other approaches that could achieve your purposes](https://azure.microsoft.com/resources/securing-azure-environments-with-azure-active-directory).
 
 ## Next steps
 
