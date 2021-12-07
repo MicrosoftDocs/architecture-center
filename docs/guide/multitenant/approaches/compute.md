@@ -41,6 +41,8 @@ If you deploy dedicated resources for each tenant, you have the flexibility to s
 
 When you build cloud solutions, you can choose whether to [scale horizontally or vertically](../../../framework/scalability/design-scale.md). In a multitenant solution with a growing number of tenants, scaling horizontally typically provides you with greater flexibility and a higher overall scale ceiling.
 
+Performance problems often remain undetected until an application is under load. You can use a fully managed service, such as [Azure Load Testing Preview](/azure/load-testing/overview-what-is-azure-load-testing), to learn how your application behaves under stress.
+
 #### Scale triggers
 
 Whichever approach you use to scale, you typically need to plan the triggers that cause your components to scale. When you have shared components, consider the workload patterns of every tenant who uses the resources, in order to ensure you provision capacity can meet the total required capacity, and to minimize the chance of a tenant experiencing the [Noisy Neighbor problem](../../../antipatterns/noisy-neighbor/index.md). You might also be able to plan your scaling capacity, based on the number of tenants. For example, if you measure the resources that you use to service 100 tenants, then as you onboard more tenants, you can plan to scale such that your resources double for every additional 100 tenants.
@@ -65,6 +67,8 @@ It's also possible to store data in external caches, such as Azure Cache for Red
 When you design a multitenant compute tier, you often have many options to consider for the level of isolation between tenants, including deploying [shared compute resources](#compute-resource-consolidation-pattern), to be used by all tenants, [dedicated compute resources](#dedicated-compute-resources-per-tenant) for each tenant, or [something in between these extremes](#semi-isolated-compute-resources). Each option comes with tradeoffs. To help you decide which option suits your solution best, consider your requirements for isolation.
 
 You might be concerned with the logical isolation of tenants, and how to separate the management responsibilities or policies that are applied to each tenant. Alternatively, you might need to deploy distinct resource configurations for specific tenants, such as deploying a specific virtual machine SKU to suit a tenant's workload.
+
+Whichever isolation model you select, ensure you verify your tenant data remains appropriately isolated even when components are unavailable or malfunctioning. Consider using [Azure Chaos Studio](/azure/chaos-studio/chaos-studio-overview) as part of your regular automated testing process to deliberately introduce faults that simulate real-world outages and verify that your solution doesn't leak data between tenants and is functioning properly even under pressure.
 
 ## Approaches and patterns to consider
 
@@ -144,7 +148,7 @@ Instead, consider using asynchronous processing by making use of queues or other
 
 Multitenant solutions are often subject to bursty scale patterns. Shared components are particularly susceptible to this issue, because the scope for burst is higher, and the impact is greater when you have more tenants with distinct usage patterns.
 
-Ensure you make good use of the elasticity and scale of the cloud. Consider whether you should use [horizontal or vertical scaling](../../../framework/scalability/design-scale.md), and use autoscaling to automatically handle spikes in load. Test your solution to understand how it behaves under different levels of load. Ensure you include the volumes that are expected in production, and your expected growth.
+Ensure you make good use of the elasticity and scale of the cloud. Consider whether you should use [horizontal or vertical scaling](../../../framework/scalability/design-scale.md), and use autoscaling to automatically handle spikes in load. Test your solution to understand how it behaves under different levels of load. Ensure you include the load volumes that are expected in production, and your expected growth. You can use a fully managed service, such as [Azure Load Testing Preview](/azure/load-testing/overview-what-is-azure-load-testing), to learn how your application behaves under stress.
 
 ### No Caching antipattern
 

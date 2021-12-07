@@ -60,7 +60,7 @@ Another important source is the operating system where the application runs. It 
 
 - **Data tier monitoring**&mdash;Include metrics the databases, storage accounts, and other data sources that interact with the application. A low performance of the data tier of an application could have serious consequences.
 
-- **Container monitoring**&mdash;If your application run on Azure Kubernetes Service (AKS), you will need to monitor the state of your cluster, nodes, and pods. One option is to the [container insights](/azure-monitor/containers/container-insights-overview) feature in Azure Monitor. This feature delivers quick, visual, and actionable information: from the CPU and memory pressure of your nodes to the logs of individual Kubernetes pods.
+- **Container monitoring**&mdash;If your application run on Azure Kubernetes Service (AKS), you will need to monitor the state of your cluster, nodes, and pods. One option is to the [container insights](/azure/azure-monitor/containers/container-insights-overview) feature in Azure Monitor. This feature delivers quick, visual, and actionable information: from the CPU and memory pressure of your nodes to the logs of individual Kubernetes pods.
 
   Operators who prefer using the open-source Kubernetes monitoring tool Prometheus can take advantage of its integration with container insights.
 
