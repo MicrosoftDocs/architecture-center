@@ -61,20 +61,11 @@ This solution applies to scenarios that:
 
 - [ExpressRoute][What is Azure ExpressRoute?] extends on-premises networks into the Microsoft cloud. By using a connectivity provider, ExpressRoute establishes private connections to cloud components like Azure services and Microsoft 365.
 
-- [Service endpoints][Virtual Network service endpoints] provide secure and direct connectivity to Azure resources from private IP addresses in virtual networks. The connections use optimized routes over the Azure backbone network. An endpoint protects Azure resources by only allowing traffic from a specified virtual network.
+- A [service endpoint][Virtual Network service endpoints] provides secure and direct connectivity to an Azure service from private IP addresses in a virtual network. The service endpoint provides the identity of the virtual network to the Azure service. So the virtual network resources don't need public IP addresses to access the service, and the endpoint protects the service by only allowing traffic from the specified virtual network. The connections use optimized routes over the Azure backbone network.
 
+- An NVA is a virtual appliance that offers networking capabilities. Examples include firewall security, WAN optimization, routing, load balancing, proxy services, and application delivery control functionality.
 
-
-
-
-Service endpoints
-See https://docs.microsoft.com/en-us/azure/virtual-network/virtual-network-service-endpoints-overview
-Service Endpoints enables private IP addresses in the VNet to reach the endpoint of an Azure service without needing a public IP address on the VNet.
-
-
-NVA
-
-Azure Storage
+- Azure Storage is a cloud storage solution that includes object, file, disk, queue, and table storage. Services include hybrid storage solutions and tools for transferring, sharing, and backing up data.
 
 
 ### Alternatives
