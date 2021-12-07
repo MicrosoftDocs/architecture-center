@@ -67,7 +67,7 @@ This setup supports both active/active and active/standby configurations. Howeve
 
 A particular case of this design is replacing the public Azure Load Balancer with a Layer-7 load balancer such as the [Azure Application Gateway][appgw] (which can be considered as an NVA on its own). In this case, the NVAs will only require an internal Load Balancer in front of them, since traffic from the Application Gateway will be sourced from inside the VNet, and traffic asymmetry is not a concern.
 
-Note that your NVA should be taking inbound traffic for protocols not supported by your Layer-7 load balancer, plus potentially all egress traffic. For further details about this configuration when using Azure Firewall as NVA and Azure Application Gateway as Layer-7 web reverse-proxy, see [Firewall and Application Gateway for virtual networks][azfw_appgw].
+The NVA should be taking inbound traffic for protocols not supported by your Layer-7 load balancer, plus potentially all egress traffic. For further details about this configuration when using Azure Firewall as NVA and Azure Application Gateway as Layer-7 web reverse-proxy, see [Firewall and Application Gateway for virtual networks][azfw_appgw].
 
 ## Changing PIP-UDR
 
@@ -87,11 +87,11 @@ One benefit of this design is that no Source Network Address Translation (SNAT) 
 
 ![ARS Internet][ars_internet]
 
-In the diagram above each NVA instance is peered over BGP with the Azure Route Server. Note that no route table is required in the spoke subnets, since Azure Route Server will program the routes advertised by the NVAs. If two or more routes are programmed in the Azure virtual machines, they will use Equal Cost MultiPathing (ECMP) to choose one of the NVA instances for every traffic flow. As a consequence, SNAT is a must in this design if traffic symmetry is a requirement.
+In the diagram above each NVA instance is peered over BGP with the Azure Route Server. No route table is required in the spoke subnets, since Azure Route Server will program the routes advertised by the NVAs. If two or more routes are programmed in the Azure virtual machines, they will use Equal Cost MultiPathing (ECMP) to choose one of the NVA instances for every traffic flow. As a consequence, SNAT is a must in this design if traffic symmetry is a requirement.
 
 This insertion method supports both active/active (all NVAs advertise the same routes to the Azure Route Server), as well as active/standby (one NVA advertises routes with a shorter AS path than the other). The Azure Route Server supports a maximum of 8 BGP adjacencies. Hence, if using a scale out cluster of active NVAs, this design will support a maximum of 8 NVA instances.
 
-Convergence time is pretty fast in this setup, and will be influenced by the keepalive and holdtime timers of the BGP adjacency. While the Azure Route Server has default keepalive and holdtime timers (60 seconds and 180 seconds respectively), the NVAs can negotiate lower timers during the BGP adjacency establishment. Note that setting these timers too low could lead to BGP instabilities.
+Convergence time is pretty fast in this setup, and will be influenced by the keepalive and holdtime timers of the BGP adjacency. While the Azure Route Server has default keepalive and holdtime timers (60 seconds and 180 seconds respectively), the NVAs can negotiate lower timers during the BGP adjacency establishment. Setting these timers too low could lead to BGP instabilities.
 
 ## Gateway Load Balancer
 
@@ -99,7 +99,7 @@ Convergence time is pretty fast in this setup, and will be influenced by the kee
 
 ![GWLB Internet][gwlb_internet]
 
-The main advantage of this method is that the same NVAs can be used to inspect traffic to different VNets, thus achieving multitenancy. Note that no VNet peering is required between the NVA VNet and the workload VNet(s), which simplifies the configuration in case of overlapping IP addresses across different tenants.
+The main advantage of this method is that the same NVAs can be used to inspect traffic to different VNets, thus achieving multitenancy. No VNet peering is required between the NVA VNet and the workload VNet(s), which simplifies the configuration in case of overlapping IP addresses across different tenants.
 
 Service injection with the Gateway Load Balancer can be used for inbound flows hitting a public Azure Load Balancers (and their return traffic). Outbound flows originating in Azure, or East-West traffic between Azure virtual machines cannot leverage the Gateway Load Balancer for NVA injection.
 
