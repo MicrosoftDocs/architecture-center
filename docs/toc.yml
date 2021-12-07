@@ -2971,6 +2971,8 @@ items:
                     href: example-scenario/state-configuration/state-configuration.yml
               - name: Azure enterprise cloud file share
                 href: hybrid/azure-files-private.yml
+              - name: Azure files secured by AD DS
+                href: example-scenario/hybrid/azure-files-on-premises-authentication.yml
               - name: Azure Functions in a hybrid environment
                 href: hybrid/azure-functions-hybrid.yml
               - name: Azure VMware Solution in hub-and-spoke
@@ -4262,6 +4264,8 @@ items:
             items:
               - name: Azure file shares in a hybrid environment
                 href: hybrid/azure-file-share.yml
+              - name: Azure files secured by AD DS
+                href: example-scenario/hybrid/azure-files-on-premises-authentication.yml
               - name: Enterprise file shares with disaster recovery
                 href: example-scenario/file-storage/enterprise-file-shares-disaster-recovery.yml
               - name: Hybrid file services
