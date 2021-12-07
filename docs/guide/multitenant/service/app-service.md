@@ -4,7 +4,7 @@ titleSuffix: Azure Architecture Center
 description: This article describes the features of Azure App Service and Azure Functions that are useful when working with multitenanted systems, and links to guidance and examples for how to use Azure App Service and Azure Functions in a multitenant solution.
 author: johndowns
 ms.author: jodowns
-ms.date: 11/16/2021
+ms.date: 12/06/2021
 ms.topic: conceptual
 ms.service: architecture-center
 products:
@@ -19,7 +19,7 @@ ms.custom:
   - fcp
 ---
 
-# Multitenancy and Azure App Service and Azure Functions
+# Multitenancy for Azure App Service and Azure Functions
 
 Azure App Service is a powerful web application hosting platform. Azure Functions, built on top of the App Service infrastructure, enables you to easily build serverless and event-driven compute workloads. Both services are frequently used in multitenant solutions.
 
@@ -29,17 +29,17 @@ Azure App Service and Azure Functions include many features that support multite
 
 ### Custom domain names
 
-Azure App Service enables you to use [wildcard DNS](/azure/app-service/app-service-web-tutorial-custom-domain?tabs=wildcard) and to add your own [wildcard TLS certificates](/azure/app-service/configure-ssl-certificate). When you use [tenant-specific subdomains](../considerations/domain-names.md#subdomains), wildcard DNS and TLS certificates enable you to easily scale your solution to large numbers of tenants without manual reconfiguration for each new tenant.
+Azure App Service enables you to use [wildcard DNS](/azure/app-service/app-service-web-tutorial-custom-domain?tabs=wildcard) and to add your own [wildcard TLS certificates](/azure/app-service/configure-ssl-certificate). When you use [tenant-specific subdomains](../considerations/domain-names.md#subdomains), wildcard DNS and TLS certificates enable you to easily scale your solution to a large number of tenants, without requiring a manual reconfiguration for each new tenant.
 
-When you use [tenant-specific custom domain names](../considerations/domain-names.md#custom-domain-names), you might have large numbers of custom domain names that need to be added to your app. It can become cumbersome to manage large numbers of custom domain names, especially when they require individual TLS certificates. App Service provides [managed TLS certificates](/azure/app-service/configure-ssl-certificate), which reduces the work you need to do to work with custom domains. However, there are [limits to consider](/azure/azure-resource-manager/management/azure-subscription-service-limits#app-service-limits), such as how many custom domains can be applied to a single app.
+When you use [tenant-specific custom domain names](../considerations/domain-names.md#custom-domain-names), you might have a large number of custom domain names that need to be added to your app. It can become cumbersome to manage a lot of custom domain names, especially when they require individual TLS certificates. App Service provides [managed TLS certificates](/azure/app-service/configure-ssl-certificate), which reduces the work required when you work with custom domains. However, there are [limits to consider](/azure/azure-resource-manager/management/azure-subscription-service-limits#app-service-limits), such as how many custom domains can be applied to a single app.
 
 ### Integration with Azure Front Door
 
-App Service and Azure Functions integrates with [Azure Front Door](/azure/frontdoor/front-door-overview) to act as the internet-facing component of your solution.
+App Service and Azure Functions integrate with [Azure Front Door](/azure/frontdoor/front-door-overview), to act as the internet-facing component of your solution.
 
-Azure Front Door enables you to add a web application firewall (WAF) and edge caching, and provides other performance optimizations. You can easily reconfigure your traffic flows to direct traffic to different backends based on changing business or technical requirements. When you use Azure Front Door with a multitenant app, you can use it to manage your custom domain names and to terminate your TLS connections. Your App Service application is then configured with a single hostname, and all traffic flows through to that, avoiding you managing custom domain names in multiple places:
+Azure Front Door enables you to add a web application firewall (WAF) and edge caching, and it provides other performance optimizations. You can easily reconfigure your traffic flows to direct traffic to different backends, based on changing business or technical requirements. When you use Azure Front Door with a multitenant app, you can use it to manage your custom domain names and to terminate your TLS connections. Your App Service application is then configured with a single hostname, and all traffic flows through to that application, which helps you avoid managing custom domain names in multiple places.
 
-![Diagram showing requests coming into Front Door using a variety of host names, and being passed to the App Service app using a single host name.](media/app-service/host-front-door.png)
+![Diagram showing requests coming into Front Door using a variety of host names. The requests are passed to the App Service app using a single host name.](media/app-service/host-front-door.png)
 
 As in the above example, [Azure Front Door can be configured to modify the request's `Host` header](/azure/frontdoor/front-door-backend-pool#backend-host-header). The original `Host` header sent by the client is propagated through the `X-Forwarded-Host` header, and your application code can use this header to [map the request to the correct tenant](../considerations/map-requests.md).
 
@@ -50,7 +50,7 @@ You can use [private endpoints](/azure/frontdoor/standard-premium/concept-privat
 
 ### Authentication and authorization
 
-Azure App Service can [validate authentication tokens on behalf of your app](/azure/app-service/overview-authentication-authorization). If a request doesn't contain a token, the token is invalid, or the request isn't authorized, App Service can be configured to block the request or redirect to your identity provider so the user can sign in.
+Azure App Service can [validate authentication tokens on behalf of your app](/azure/app-service/overview-authentication-authorization). If a request doesn't contain a token, the token is invalid, or the request isn't authorized. App Service can be configured to block the request or to redirect to your identity provider, so that the user can sign in.
 
 If your tenants use Azure Active Directory (Azure AD) as their identity system, you can configure Azure App Service to use [the /common endpoint](/azure/active-directory/develop/howto-convert-app-to-be-multi-tenant) to validate user tokens. This ensures that, regardless of the user's Azure AD tenant, their tokens are validated and accepted.
 
@@ -63,13 +63,13 @@ More information:
 
 ### Access restrictions
 
-You can restrict the traffic to your app by using [access restrictions](/azure/app-service/app-service-ip-restrictions). These can be used to specify the IP address ranges or virtual networks that are allowed to connect to the app.
+You can restrict the traffic to your app by using [access restrictions](/azure/app-service/app-service-ip-restrictions). These can be used to specify the IP address ranges or the virtual networks that are allowed to connect to the app.
 
-When you work with a multitenant solution, be aware of the maximum number of access restriction rules. For example, if you need to create an access restriction rule for every tenant, you might exceed the maximum allowed number of rules. If you need a larger number of rules, consider deploying a reverse proxy like [Azure Front Door](/azure/frontdoor/front-door-overview).
+When you work with a multitenant solution, be aware of the maximum number of access restriction rules. For example, if you need to create an access restriction rule for every tenant, you might exceed the maximum number of rules that are allowed. If you need a larger number of rules, consider deploying a reverse proxy like [Azure Front Door](/azure/frontdoor/front-door-overview).
 
 ## Isolation models
 
-When working with a multitenant system using Azure App Service or Azure Functions, you need to make a decision about the level of isolation you want to use. Refer to the [tenancy models to consider for a multitenant solution](../considerations/tenancy-models.md), and to the guidance provided in the [architectural approaches for compute in multitenant solutions](../approaches/compute.md), to help you select the best isolation model for your scenario.
+When working with a multitenant system using Azure App Service or Azure Functions, you need to make a decision about the level of isolation that you want to use. Refer to the [tenancy models to consider for a multitenant solution](../considerations/tenancy-models.md) and to the guidance provided in the [architectural approaches for compute in multitenant solutions](../approaches/compute.md), to help you select the best isolation model for your scenario.
 
 When you work with Azure App Service and Azure Functions, there are some key concepts to be aware of:
 
