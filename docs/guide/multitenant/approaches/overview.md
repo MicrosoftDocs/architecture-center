@@ -99,6 +99,14 @@ For example, Contoso could deploy separate AAD tenants for each of their tenants
 
 They use Lighthouse to enable cross-tenant management.
 
+## Scale resources around limits
+
+* Regardless of how you choose to isolate your resources, you might need to deploy multiple instances for scale purposes
+* Might also need to scale across multiple subscriptions if limits become a problem
+* Bin packing
+* Plan to spill over even if you don't need to do it on day one
+* Need to understand your expected and possible growth - if you are absolutely sure you won't outgrow the limits of a single subscription then don't worry, but if there's any chance you could, make sure you plan for it upfront
+
 ## Intended audience
 
 The pages in this section are intended to be useful for solution architects and lead developers. Much of the guidance in this section is generic and applies to multiple Azure services within a category.
