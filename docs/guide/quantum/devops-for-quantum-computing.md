@@ -72,7 +72,7 @@ The **inner loop for quantum components** involves following [activities enabled
 
 The last step is a specialty of quantum computing. Because quantum hardware is a scarce resource, developers typically don't own their own hardware or have exclusive access. Instead, they use centrally operated hardware - in most cases they access production hardware to test their development artifacts.  
 
-The **inner loop for classical components** includes typical development steps for building, running, and debugging code in a development environment. In context of hybrid quantum applications, there is an extra step of integrating the quantum components into the classical components. Complexity of this step depends on whether the quantum components are [tightly coupled](../../example-scenario/quantum/tightly-coupled-quantum-computing-job) or [loosely coupled](../../example-scenario/quantum/loosely-coupled-quantum-computing-job) with the classical ones. Developers don't need special quantum computing skills. The integration can typically be implemented with classical programming skills.
+The **inner loop for classical components** includes typical development steps for building, running, and debugging code in a development environment. In context of hybrid quantum applications, there is an extra step of integrating the quantum components into the classical components. Complexity of this step depends on whether the quantum components are [tightly coupled](../../example-scenario/quantum/tightly-coupled-quantum-computing-job.md) or [loosely coupled](../../example-scenario/quantum/loosely-coupled-quantum-computing-job.md) with the classical ones. Developers don't need special quantum computing skills. The integration can typically be implemented with classical programming skills.
 
 ## Infrastructure as Code (IaC)
 
@@ -83,7 +83,7 @@ Like any other Azure environment, quantum workspaces and the classical environme
 
 :::image type="content" source="media/iac-in-quantum-devops.png" alt-text="Infrastructure as code in DevOps for quantum applications":::
 
-If the [loosely coupled integration model](../../example-scenario/quantum/loosely-coupled-quantum-computing-job) is chosen, the classical environment includes all resources needed for exposing the quantum functionality via API. If the [tightly coupled approach](../../example-scenario/quantum/tightly-coupled-quantum-computing-job) is chosen, its components depend on the chosen [compute model](../technology-choices/compute-decision-tree.md).
+If the [loosely coupled integration model](../../example-scenario/quantum/loosely-coupled-quantum-computing-job.md) is chosen, the classical environment includes all resources needed for exposing the quantum functionality via API. If the [tightly coupled approach](../../example-scenario/quantum/tightly-coupled-quantum-computing-job.md) is chosen, its components depend on the chosen [compute model](../technology-choices/compute-decision-tree.md).
 
 ## Continuous Integration (CI) and Automated Testing
 
@@ -136,6 +136,6 @@ Once the classical component submitted a quantum job, it must [monitor the statu
 ## Related resources
 
 * [DevOps Checklist](/azure/architecture/checklist/dev-ops)
-* [CI/CD for Quantum Computing jobs](../../solution-ideas/articles/cicd-for-quantum-computing-jobs).
-* [Tightly coupled quantum computing job](../../example-scenario/quantum/tightly-coupled-quantum-computing-job).
-* [Loosely coupled quantum computing job](../../example-scenario/quantum/loosely-coupled-quantum-computing-job).
+* [CI/CD for Quantum Computing jobs](../../solution-ideas/articles/cicd-for-quantum-computing-jobs.md).
+* [Tightly coupled quantum computing job](../../example-scenario/quantum/tightly-coupled-quantum-computing-job.md).
+* [Loosely coupled quantum computing job](../../example-scenario/quantum/loosely-coupled-quantum-computing-job.md).
