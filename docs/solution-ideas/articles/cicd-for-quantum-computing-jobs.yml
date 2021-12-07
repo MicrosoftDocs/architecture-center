@@ -15,6 +15,6 @@ products:
   - azure-quantum
 name: CI/CD for quantum computing jobs
 summary: Learn how to orchestrate CI/CD of quantum computing components as part of your classic applications, so you can achieve replicable, manageable hybrid solutions.
-thumbnailUrl: /azure/architecture/browse/thumbs/<browse-png-filename>.png
+thumbnailUrl: /azure/architecture/browse/thumbs/cicd-for-quantum-computing-jobs.png
 content: |
-  [!include[](<solution-idea>-content.md)]
+  [!include[](cicd-for-quantum-computing-jobs-content.md)]
