@@ -111,14 +111,14 @@ Service injection with the Gateway Load Balancer can be used for inbound flows h
 
 <!-- links -->
 
-[udr]: /azure/virtual-network/virtual-networks-udr-overview
-[azfw]: /azure/firewall/overview
-[appgw]: /azure/application-gateway/overview
-[ars]: /azure/route-server/overview
-[gwlb]: /azure/load-balancer/gateway-overview
-[vwan]: /azure/virtual-wan/virtual-wan-about
-[alb_probes]: /azure/load-balancer/load-balancer-custom-probe-overview
-[alb_haports]: /azure/load-balancer/load-balancer-ha-ports-overview
+[udr]: https://docs.microsoft.com/azure/virtual-network/virtual-networks-udr-overview
+[azfw]: https://docs.microsoft.com/azure/firewall/overview
+[appgw]: https://docs.microsoft.com/azure/application-gateway/overview
+[ars]: https://docs.microsoft.com/azure/route-server/overview
+[gwlb]: https://docs.microsoft.com/azure/load-balancer/gateway-overview
+[vwan]: https://docs.microsoft.com/azure/virtual-wan/virtual-wan-about
+[alb_probes]: https://docs.microsoft.com/azure/load-balancer/load-balancer-custom-probe-overview
+[alb_haports]: https://docs.microsoft.com/azure/load-balancer/load-balancer-ha-ports-overview
 [caf_dmz]: https://docs.microsoft.com/azure/cloud-adoption-framework/decision-guides/software-defined-network/cloud-dmz
 [caf_perimeter]: https://docs.microsoft.com/azure/cloud-adoption-framework/ready/azure-best-practices/perimeter-networks
 [hub_hns]: https://docs.microsoft.com/azure/cloud-adoption-framework/ready/azure-best-practices/hub-spoke-network-topology
