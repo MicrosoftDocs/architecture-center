@@ -11,7 +11,7 @@ This orchestration functionality can be integrated to classical applications in 
   * The quantum components are developed independently from any classical client application.
   * Quantum components should be reused by various applications.
 
-* **Integration via tight coupling** - logic for the orchestration is integrated into the classical component. For more information about this integration approach, see [Tightly coupled quantum computing job](tightly-coupled-quantum-computing-job-content.md). Use this approach in following scenarios:
+* **Integration via tight coupling** - logic for the orchestration is integrated into the classical component. For more information about this integration approach, see [Tightly coupled quantum computing job](tightly-coupled-quantum-computing-job). Use this approach in following scenarios:
   * The quantum components are developed by the same team.
   * Quantum components share the same lifecycle as the classical components.
   * Use of the quantum components is limited to a single application.
