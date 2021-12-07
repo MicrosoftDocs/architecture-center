@@ -2,7 +2,7 @@
 
 Quantum computing harnesses the unique behavior of quantum physics and applies it to computing. This approach promises massive speedup in compute time compared to classical computing especially in areas like optimization, simulation, or machine learning. However, quantum computing components have a different development and operating model compared to pure classical software. Typically, one or more classical compute component orchestrates the [execution of quantum jobs](/azure/quantum/how-to-work-with-jobs) at runtime.
 
-This combination of classical and quantum components must be reflected in the build process. This is true for both the [loosely](../../example-scenario/quantum/loosely-coupled-quantum-computing-job-content.md) and the [tightly coupled](../../example-scenario/quantum/tightly-coupled-quantum-computing-job-content.md) integration approach. The quantum components have special requirements for their [software development lifecycle](/azure/quantum/overview-what-is-qsharp-and-qdk#what-can-i-do-with-the-qdk). For quality assurance, quantum jobs should be run on simulators, sized on resource estimators and in some cases run on quantum hardware. After successful tests, the job artifacts can be integrated into the classical components that submit the job to quantum targets at runtime.
+This combination of classical and quantum components must be reflected in the build process. This is true for both the [loosely](../../example-scenario/quantum/loosely-coupled-quantum-computing-job) and the [tightly coupled](../../example-scenario/quantum/tightly-coupled-quantum-computing-job) integration approach. The quantum components have special requirements for their [software development lifecycle](/azure/quantum/overview-what-is-qsharp-and-qdk#what-can-i-do-with-the-qdk). For quality assurance, quantum jobs should be run on simulators, sized on resource estimators and in some cases run on quantum hardware. After successful tests, the job artifacts can be integrated into the classical components that submit the job to quantum targets at runtime.
 
 ## Architecture
 
@@ -31,7 +31,7 @@ The CI/CD-processes can be implemented using GitHub repositories and GitHub acti
 
 The application components used:
 
-* A client application that orchestrates the quantum job. Integration can be implemented in a [tightly coupled](../../example-scenario/quantum/tightly-coupled-quantum-computing-job-content.md) or a [loosely coupled](../../example-scenario/quantum/loosely-coupled-quantum-computing-job-content.md) approach.
+* A client application that orchestrates the quantum job. Integration can be implemented in a [tightly coupled](../../example-scenario/quantum/tightly-coupled-quantum-computing-job) or a [loosely coupled](../../example-scenario/quantum/loosely-coupled-quantum-computing-job) approach.
 * [Azure Active Directory](https://azure.microsoft.com/services/active-directory) coordinates user authentication and protects access to the Azure Quantum Workspace.
 * [Azure Key Vault](https://azure.microsoft.com/services/key-vault) safeguards and maintains control of keys and other secrets like Quantum Workspace name.
 * [Azure Quantum](https://azure.microsoft.com/services/quantum) provides functionality for running quantum computing jobs on various target quantum environments.
@@ -48,6 +48,6 @@ The [Azure Quantum Workspace](/azure/quantum/how-to-create-workspace) is a colle
 
 ## Related resources
 
-* [The operational excellence pillar](../../framework/devops/overview.md) of the [Microsoft Azure Well-Architected Framework](../../framework/)
+* [The operational excellence pillar](../../framework/devops/overview.md) of the Microsoft Azure Well-Architected Framework
 * [DevOps Checklist](../../checklist/dev-ops.md)
 * [Choose an Azure compute service for your application](../../guide/technology-choices/compute-decision-tree.md)
