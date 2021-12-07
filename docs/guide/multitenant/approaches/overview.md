@@ -85,13 +85,18 @@ For example, suppose Contoso decided to create separate Azure subscriptions for 
 
 ![TODO](media/overview/isolation-subscription.png)
 
-They use a management group to simplify the management of their subscriptions. Also they use a single AAD tenant, which means their identities can be used for IAM throughout all of their Azure estate.
+They use a management group to simplify the management of their subscriptions. All prod tenants are in a single MG, and they could keep any pre-prod tenants in a separate MG with different role assignments, policies, etc.
+
+Also they use a single AAD tenant, which means their identities can be used for IAM throughout all of their Azure estate.
 
 ### Separate subscriptions in separate Azure AD tenants
 * Complex to manage and makes it very difficult to share anything at all
 * Role assignments, policies, etc are all separate
 * Generally best avoided
 * If you need to do it, use Lighthouse 
+
+> [!WARNING]
+> We don't generally recommend deploying multiple Azure Active Directory tenants for most multitenant solutions. It introduces extra complexity and reduces your ability to scale and manage your resources. Typically this approach is only used by managed service providers (MSPs), who run Azure environments on behalf of their customers.
 
 For example, Contoso could deploy separate AAD tenants for each of their tenants:
 
