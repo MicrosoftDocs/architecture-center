@@ -105,7 +105,7 @@ Service injection with the Gateway Load Balancer can be used for inbound flows h
 
 ## Next steps
 
-- Learn how to [implement a secure hubrid network][secure_hybrid] using Azure Firewall.
+- Learn how to [implement a secure hybrid network][secure_hybrid] using Azure Firewall.
 - [Perimeter Networks - Cloud Adoption Framework][caf_perimeter]
 - [Cloud DMZ - Cloud Adoption Framework][caf_dmz]
 
@@ -121,8 +121,8 @@ Service injection with the Gateway Load Balancer can be used for inbound flows h
 [alb_haports]: /azure/load-balancer/load-balancer-ha-ports-overview
 [caf_dmz]: https://docs.microsoft.com/azure/cloud-adoption-framework/decision-guides/software-defined-network/cloud-dmz
 [caf_perimeter]: https://docs.microsoft.com/azure/cloud-adoption-framework/ready/azure-best-practices/perimeter-networks
-[hub_hns]: /azure/cloud-adoption-framework/ready/azure-best-practices/hub-spoke-network-topology
-[secure_hybrid]: /azure/architecture/reference-architectures/dmz/secure-vnet-dmz
+[hub_hns]: https://docs.microsoft.com/azure/cloud-adoption-framework/ready/azure-best-practices/hub-spoke-network-topology
+[secure_hybrid]: https://docs.microsoft.com/azure/architecture/reference-architectures/dmz/secure-vnet-dmz
 [azfw_appgw]: https://docs.microsoft.com/azure/architecture/example-scenario/gateway/firewall-application-gateway
 
 <!-- images -->
