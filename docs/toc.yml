@@ -226,6 +226,10 @@ items:
                 items:
                   - name: Azure Resource Manager
                     href: guide/multitenant/service/resource-manager.md
+              - name: Compute
+                items:
+                  - name: App Service and Functions
+                    href: guide/multitenant/service/app-service.md
               - name: Storage and data
                 items:
                   - name: Azure Storage
