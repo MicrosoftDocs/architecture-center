@@ -54,7 +54,7 @@ To implement the Deployment Stamps pattern, it's important to use automated depl
 
 For example, suppose you are building a multitenant solution for Contoso. They could deploy shared resources for all of their customers to use:
 
-![TODO](media/overview/isolation-within-resource.svg)
+![TODO](media/overview/isolation-within-resource.png)
 
 ### Separate resources in a resource group
 * How will you identify them?
@@ -62,7 +62,7 @@ For example, suppose you are building a multitenant solution for Contoso. They c
 
 For example, suppose Contoso has three customers. They might deploy dedicated resources for each customer, but place them in a single resource group:
 
-![TODO](media/overview/isolation-resource.svg)
+![TODO](media/overview/isolation-resource.png)
 
 They could also deploy shared components (e.g. application server and storage account and dedicated databases for tenants).
 
@@ -71,7 +71,7 @@ They could also deploy shared components (e.g. application server and storage ac
 
 For example, Contoso might deploy individual RGs for each customer.
 
-![TODO](media/overview/isolation-resource-group.svg)
+![TODO](media/overview/isolation-resource-group.png)
 
 Might also use one resource group (or a set of RGs) for all shared resources, and tenant-specific RGs for tenant-specific resources.
 
@@ -83,7 +83,7 @@ Might also use one resource group (or a set of RGs) for all shared resources, an
 
 For example, suppose Contoso decided to create separate Azure subscriptions for each customer/tenant:
 
-![TODO](media/overview/isolation-subscription.svg)
+![TODO](media/overview/isolation-subscription.png)
 
 They use a management group to simplify the management of their subscriptions. Also they use a single AAD tenant, which means their identities can be used for IAM throughout all of their Azure estate.
 
@@ -95,7 +95,7 @@ They use a management group to simplify the management of their subscriptions. A
 
 For example, Contoso could deploy separate AAD tenants for each of their tenants:
 
-![TODO](media/overview/isolation-tenant.svg)
+![TODO](media/overview/isolation-tenant.png)
 
 They use Lighthouse to enable cross-tenant management.
 
