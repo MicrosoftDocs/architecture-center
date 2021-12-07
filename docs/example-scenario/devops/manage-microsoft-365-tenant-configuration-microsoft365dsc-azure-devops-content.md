@@ -9,10 +9,10 @@ You can use the solution described in this article to automate changes to Micros
 
 ## Potential use cases
 
-Managing Microsoft 365 tenant configuration in a controlled and automated way, using DevOps tools and practices, across:
+This solution can help you manage Microsoft 365 tenant configuration in a controlled and automated way, using DevOps tools and practices, across:
 
 - Development, test, acceptance, and production environments.
-- Multiple customer tenants, like in a managed service provider scenario.
+- Multiple customer tenants, as in a managed-service provider scenario.
 
 ## Architecture
 
