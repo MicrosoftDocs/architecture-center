@@ -71,20 +71,20 @@ When you work with a multitenant solution, be aware of the maximum number of acc
 
 When working with a multitenant system using Azure App Service or Azure Functions, you need to make a decision about the level of isolation that you want to use. Refer to the [tenancy models to consider for a multitenant solution](../considerations/tenancy-models.md) and to the guidance provided in the [architectural approaches for compute in multitenant solutions](../approaches/compute.md), to help you select the best isolation model for your scenario.
 
-When you work with Azure App Service and Azure Functions, there are some key concepts to be aware of:
+When you work with Azure App Service and Azure Functions, you should be aware of the following key concepts:
 
 - In Azure App Service, a [plan](/azure/app-service/overview-hosting-plans) represents your hosting infrastructure. An app represents a single application running on that infrastructure. You can deploy multiple apps to a single plan.
-- In Azure Functions, your hosting and application are also separated, but you have [additional hosting options available](/azure/azure-functions/functions-scale) for *elastic hosting*, where Azure Functions manages scaling for you. For simplicity, we refer to the hosting infrastructure as a *plan* throughout this section, because the principles described here apply to both App Service and Azure Functions regardless of the hosting model you use.
+- In Azure Functions, your hosting and application are also separated, but you have [additional hosting options available](/azure/azure-functions/functions-scale) for *elastic hosting*, where Azure Functions manages scaling for you. For simplicity, we refer to the hosting infrastructure as a *plan* throughout this article, because the principles described here apply to both App Service and Azure Functions, regardless of the hosting model you use.
 
 ### Plans per tenant
 
-The strongest level of isolation is to deploy a dedicated plan for a tenant. This ensures that the tenant has full use of all of the server resources allocated to that plan.
+The strongest level of isolation is to deploy a dedicated plan for a tenant. This dedicated plan ensures that the tenant has full use of all of the server resources that are allocated to that plan.
 
-This approach enables you to scale your solution to provide performance isolation for each tenant and to avoid the [Noisy Neighbor problem](../../../antipatterns/noisy-neighbor/index.md). However, it also has a higher cost because the resources aren't shared with multiple tenants. Also, you need to consider the [maximum number of plans](/azure/azure-resource-manager/management/azure-subscription-service-limits#app-service-limits) that can be deployed into a single Azure resource group.
+This approach enables you to scale your solution to provide performance isolation for each tenant, and to avoid the [Noisy Neighbor problem](../../../antipatterns/noisy-neighbor/index.md). However, it also has a higher cost because the resources aren't shared with multiple tenants. Also, you need to consider the [maximum number of plans](/azure/azure-resource-manager/management/azure-subscription-service-limits#app-service-limits) that can be deployed into a single Azure resource group.
 
 ### Apps per tenant with shared plans
 
-You can also choose to share your plan between multiple tenants, but deploy separate apps for each tenant. This provides you with logical isolation between each tenant, and gives you several advantages including:
+You can also choose to share your plan between multiple tenants, but deploy separate apps for each tenant. This provides you with logical isolation between each tenant, and this approach gives you the following advantages:
 
 - **Cost efficiency:** By sharing your hosting infrastructure, you can generally reduce your overall costs per tenant.
 - **Separation of configuration:** Each tenant's app can have its own domain name, TLS certificate, access restrictions, and token authorization policies applied.
@@ -107,10 +107,10 @@ To be able to use this model, your application code must be multitenancy-aware.
 
 You can host APIs on both Azure App Service and Azure Functions. Your choice of platform will depend on the specific feature set and scaling options you need.
 
-Whichever platform you use to host your API, consider using [Azure API Management](/azure/api-management/) in front of your API application. API Management provides many features that can be helpful for multitenant solutions, including:
+Whichever platform you use to host your API, consider using [Azure API Management](/azure/api-management) in front of your API application. API Management provides many features that can be helpful for multitenant solutions, including the following:
 
 - A centralized point for all [authentication](/azure/api-management/api-management-access-restriction-policies). This might include determining the tenant identifier from a token claim or other request metadata.
-- [Routing requests to different API backends](/azure/api-management/api-management-transformation-policies#SetBackendService), which might be based on the request's tenant identifier. This can be helpful when you host multiple [deployment stamps](../../../patterns/deployment-stamp.md) with their own independent API applications, but you need to have a single API URL for all requests.
+- [Routing requests to different API backends](/azure/api-management/api-management-transformation-policies#SetBackendService), which might be based on the request's tenant identifier. This can be helpful when you host multiple [deployment stamps](../../../patterns/deployment-stamp.md), with their own independent API applications, but you need to have a single API URL for all requests.
 
 ## Networking and multitenancy
 
@@ -118,17 +118,17 @@ Whichever platform you use to host your API, consider using [Azure API Managemen
 
 Many multitenant applications need to connect to tenants' on-premises networks to send data.
 
-If you need to send outbound traffic from a known static IP address or set of known static IP addresses, consider using [NAT Gateway](/azure/app-service/overview-inbound-outbound-ips#get-a-static-outbound-ip). App Service provides [guidance on how to integrate with a NAT Gateway](/azure/app-service/networking/nat-gateway-integration).
+If you need to send outbound traffic from a known static IP address or from a set of known static IP addresses, consider using a [NAT Gateway](/azure/app-service/overview-inbound-outbound-ips#get-a-static-outbound-ip). App Service provides [guidance on how to integrate with a NAT Gateway](/azure/app-service/networking/nat-gateway-integration).
 
-If you don't need a static outbound IP address, but instead need to occasionally check the IP address that your application uses for outbound traffic, you can [query the current IP addresses of the App Service deployment](/azure/app-service/troubleshoot-intermittent-outbound-connection-errors).
+If you don't need a static outbound IP address, but instead you need to occasionally check the IP address that your application uses for outbound traffic, you can [query the current IP addresses of the App Service deployment](/azure/app-service/troubleshoot-intermittent-outbound-connection-errors).
 
 ### Quotas
 
 Because App Service is itself a multitenant service, you need to take care about how you use shared resources. Networking is an area that you need to pay particular attention to, because there are [limits](/azure/azure-resource-manager/management/azure-subscription-service-limits#app-service-limits) that affect how your application can work with both inbound and outbound network connections, including source network address translation (SNAT) and TCP port limits.
 
-If your application connects to large numbers of databases or external services, it might be at risk of [SNAT port exhaustion](/app-service/troubleshoot-intermittent-outbound-connection-errors). In general, SNAT port exhaustion indicates that your code isn't correctly reusing TCP connections, and even in a multitenant solution you should ensure you follow recommended practices for reusing connections.
+If your application connects to a large number of databases or external services, then your app might be at risk of [SNAT port exhaustion](/app-service/troubleshoot-intermittent-outbound-connection-errors). In general, SNAT port exhaustion indicates that your code isn't correctly reusing TCP connections, and even in a multitenant solution, you should ensure you follow the recommended practices for reusing connections.
 
-However, in some multitenant solutions, the number of outbound connections to distinct IP addresses can result in SNAT port exhaustion even when you follow good coding practices. In these scenarios, [consider deploying NAT Gateway](/azure/app-service/networking/nat-gateway-integration) to increase the number of SNAT ports available for your application to use, or use [service endpoints](/azure/virtual-network/virtual-network-service-endpoints-overview) when connecting to Azure services to bypass load balancer limits. Even with these controls in place, you might approach limits with a large number of tenants, so you should plan to scale to additional App Service plans or [deployment stamps](../../../patterns/deployment-stamp.md).
+However, in some multitenant solutions, the number of outbound connections to distinct IP addresses can result in SNAT port exhaustion, even when you follow good coding practices. In these scenarios, [consider deploying NAT Gateway](/azure/app-service/networking/nat-gateway-integration) to increase the number of SNAT ports that are available for your application to use, or use [service endpoints](/azure/virtual-network/virtual-network-service-endpoints-overview) when you connect to Azure services, to bypass load balancer limits. Even with these controls in place, you might approach limits with a large number of tenants, so you should plan to scale to additional App Service plans or [deployment stamps](../../../patterns/deployment-stamp.md).
 
 ## Next steps
 
