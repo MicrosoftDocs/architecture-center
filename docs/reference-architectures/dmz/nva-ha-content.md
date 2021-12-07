@@ -6,13 +6,13 @@ There are a number of design patterns where NVAs are used to inspect traffic bet
 - To inspect egress traffic from virtual machines to the Internet and prevent data exfiltration
 - To inspect ingress traffic from the Internet to virtual machines and prevent attacks
 - To filter traffic between virtual machines in Azure, to prevent lateral moves of compromised systems
-- To filter traffic between on-premises systems and Azure virtual machines, if they are considered to belong to different security levels (for example if Azure hosts the DMZ, and onprem the internal applications).
+- To filter traffic between on-premises systems and Azure virtual machines, if they are considered to belong to different security levels (for example if Azure hosts the DMZ, and on-premises the internal applications).
 
 There are many examples of NVAs, such as network firewalls, Layer-4 reverse-proxies, IPsec VPN endpoints, web-based reverse-proxies with web application firewall funnctionality, Internet proxies to restrict which Internet pages can be accessed from Azure, Layer-7 load balancers, and many others. All of them can be inserted in an Azure design with the patterns described in this article. Even Azure first-party Network Virtual Appliances such as [Azure Firewall][azfw] and [Azure Application Gateway][appgw] use the designs explained below. Understanding these options is critical both from a design perspective as well as when troubleshooting network issues.
 
 The first question to be answered is why High Availability for Network Virtual Appliances is required. The reason is because these devices control the communication between network segments, so if they are not available, network traffic cannot flow and applications will stop working. Scheduled and unscheduled outages can and will occasionally bring down NVA instances (as any other virtual machine in Azure or any other cloud), even if those NVAs are configured with Premium Managed Disks to provide single-instance SLA in Azure. Hence, highly available applications will require at least a second NVA that can ensure connectivity.
 
-**Prerequisites:** This article assumes a basic understanding of Azure networking, [Azure load balancers][lb-overview], and [user-defined routes][udr-overview] (UDRs).
+**Prerequisites:** This article assumes a basic understanding of Azure networking, [Azure Load Balancers][alb], and [Virtual Network Traffic Routing][udr] (UDRs).
 
 When choosing the best option to deploy a Network Virtual Appliance into an Azure VNet, the most important aspect to consider is whether the NVA vendor has vetted and validated that specific design, and provided the required NVA configuration that is needed to integrate the NVA in Azure. If the NVA vendor offers different alternatives as supported design options for an NVA, these factors can influence the decision:
 
@@ -111,6 +111,7 @@ Service injection with the Gateway Load Balancer can be used for inbound flows h
 
 <!-- links -->
 
+[udr]: /azure/virtual-network/virtual-networks-udr-overview
 [azfw]: /azure/firewall/overview
 [appgw]: /azure/application-gateway/overview
 [ars]: /azure/route-server/overview
@@ -118,16 +119,16 @@ Service injection with the Gateway Load Balancer can be used for inbound flows h
 [vwan]: /azure/virtual-wan/virtual-wan-about
 [alb_probes]: /azure/load-balancer/load-balancer-custom-probe-overview
 [alb_haports]: /azure/load-balancer/load-balancer-ha-ports-overview
-[caf_dmz]: /azure/cloud-adoption-framework/decision-guides/software-defined-network/cloud-dmz
-[caf_perimeter]: /azure/cloud-adoption-framework/ready/azure-best-practices/perimeter-networks
+[caf_dmz]: https://docs.microsoft.com/azure/cloud-adoption-framework/decision-guides/software-defined-network/cloud-dmz
+[caf_perimeter]: https://docs.microsoft.com/azure/cloud-adoption-framework/ready/azure-best-practices/perimeter-networks
 [hub_hns]: /azure/cloud-adoption-framework/ready/azure-best-practices/hub-spoke-network-topology
 [secure_hybrid]: /azure/architecture/reference-architectures/dmz/secure-vnet-dmz
-[azfw_appgw]: /azure/architecture/example-scenario/gateway/firewall-application-gateway
+[azfw_appgw]: https://docs.microsoft.com/azure/architecture/example-scenario/gateway/firewall-application-gateway
 
 <!-- images -->
 
-[alb_internet]: ./images/nva-ha/nvaha_alb_internet.png "Internet traffic with ALB integration"
-[alb_onprem]: ./images/nva-ha/nvaha_alb_onprem.png "On-premises traffic with ALB integration"
-[ars_internet]: ./images/nva-ha/nvaha_ars_internet.png "Internet traffic with ARS integration"
-[gwlb_internet]: ./images/nva-ha/nvaha_gwlb_internet.png "Internet traffic with GWLB integration"
-[pipudr_internet]: ./images/nva-ha/nvaha_pipudr_internet.png "Internet traffic with moving PIP/UDR"
+[alb_internet]: ./images/nva-ha/nvaha-alb-internet.png "Internet traffic with ALB integration"
+[alb_onprem]: ./images/nva-ha/nvaha-alb-onprem.png "On-premises traffic with ALB integration"
+[ars_internet]: ./images/nva-ha/nvaha-ars-internet.png "Internet traffic with ARS integration"
+[gwlb_internet]: ./images/nva-ha/nvaha-gwlb-internet.png "Internet traffic with GWLB integration"
+[pipudr_internet]: ./images/nva-ha/nvaha-pipudr-internet.png "Internet traffic with moving PIP/UDR"
