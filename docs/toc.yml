@@ -1189,6 +1189,8 @@ items:
             href: example-scenario/ai/movie-recommendations-with-machine-learning.yml
       - name: Energy and environment
         items:
+          - name: Overview
+            href: industries/energy-environment.md
           - name: Environmental monitoring
             href: solution-ideas/articles/environment-monitoring-and-supply-chain-optimization.yml
           - name: Geospatial data processing and analytics
