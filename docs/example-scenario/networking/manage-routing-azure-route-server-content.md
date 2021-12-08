@@ -151,17 +151,26 @@ NVAs are charged based on the appliance that you use. You're also charged for th
 
 ## Related resources
 
-
+- [What is Azure Route Server?][What is Azure Route Server?]
+- [Azure Firewall architecture overview][Azure Firewall architecture overview]
+- [Choose between virtual network peering and VPN gateways][Choose between virtual network peering and VPN gateways]
+- [Build solutions for high availability using availability zones][Build solutions for high availability using availability zones]
+- [Deploy highly available NVAs][Deploy highly available NVAs]
+- [Zero-trust network for web applications with Azure Firewall and Application Gateway][Zero-trust network for web applications with Azure Firewall and Application Gateway]
 
 [About Azure Route Server support for ExpressRoute and Azure VPN]: https://docs.microsoft.com/en-us/azure/route-server/expressroute-vpn-support
 [About dual-homed network with Azure Route Server]: https://docs.microsoft.com/azure/route-server/about-dual-homed-network
 [Azure ExpressRoute pricing]: https://azure.microsoft.com/en-in/pricing/details/expressroute/
+[Azure Firewall architecture overview]: https://docs.microsoft.com/en-us/azure/architecture/example-scenario/firewalls/
 [Azure road map]: https://azure.microsoft.com/en-us/updates/?category=networking
 [Azure Route Server]: https://azure.microsoft.com/en-us/services/route-server/
 [Azure Route Server FAQ]: https://docs.microsoft.com/en-us/azure/route-server/route-server-faq
 [Azure Route Server pricing]: https://azure.microsoft.com/pricing/details/route-server/
 [Azure security baseline for Virtual Network]: https://docs.microsoft.com/en-us/security/benchmark/azure/baselines/virtual-network-security-baseline
+[Build solutions for high availability using availability zones]: https://docs.microsoft.com/en-us/azure/architecture/high-availability/building-solutions-for-high-availability
+[Choose between virtual network peering and VPN gateways]: https://docs.microsoft.com/en-us/azure/architecture/reference-architectures/hybrid-networking/vnet-peering
 [Configure ExpressRoute and Site-to-Site coexisting connections using PowerShell - Limits and limitations]: https://docs.microsoft.com/en-us/azure/expressroute/expressroute-howto-coexist-resource-manager#limits-and-limitations
+[Deploy highly available NVAs]: https://docs.microsoft.com/en-us/azure/architecture/reference-architectures/dmz/nva-ha?view=o365-worldwide&tabs=cli
 [Introduction to the core Azure Storage services]: https://docs.microsoft.com/en-us/azure/storage/common/storage-introduction?toc=/azure/storage/blobs/toc.json
 [Linux Virtual Machines Pricing]: https://azure.microsoft.com/en-us/pricing/details/virtual-machines/linux/
 [Networking blog]: https://azure.microsoft.com/en-us/blog/topics/networking/
@@ -181,3 +190,5 @@ NVAs are charged based on the appliance that you use. You're also charged for th
 [VPN Gateway]: https://azure.microsoft.com/en-us/services/vpn-gateway/
 [VPN Gateway pricing]: https://azure.microsoft.com/en-us/pricing/details/vpn-gateway/
 [What is Azure ExpressRoute?]: https://docs.microsoft.com/en-us/azure/expressroute/expressroute-introduction
+[What is Azure Route Server?]: https://docs.microsoft.com/en-us/azure/route-server/overview
+[Zero-trust network for web applications with Azure Firewall and Application Gateway]: https://docs.microsoft.com/en-us/azure/architecture/example-scenario/gateway/application-gateway-before-azure-firewall
