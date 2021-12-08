@@ -18,7 +18,6 @@ products:
   - azure-key-vault
   - azure-virtual-machines-windows
   - m365
-  - ms-graph
 name: Manage Microsoft 365 tenant configuration by using Microsoft365DSC and Azure DevOps
 summary: Manage Microsoft 365 tenant configuration by using Microsoft365DSC and Azure DevOps.
 thumbnailUrl: /azure/architecture/browse/thumbs/manage-microsoft-365-tenant-configuration-microsoft365dsc-azure-devops.png

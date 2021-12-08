@@ -47,16 +47,14 @@ This architecture uses Key Vault to store Azure App Service certificates or user
 
 ## Considerations
 
-Most people starting out with PowerShell DSC experience a steep learning curve. It helps if you have a solid understanding of PowerShell and experience with creating scripts.
+Most people starting out with PowerShell DSC find that it takes a while to learn it. It helps if you have a solid understanding of PowerShell and experience with creating scripts.
 
 ### Operations
 
-Some operations teams consider Azure DevOps to be a tool for developers. But operations teams can benefit from using Azure DevOps. Operations teams can:
+Some operations teams consider Azure DevOps to be a tool for developers. But these teams can benefit from using Azure DevOps. Operations teams can:
 - Store their scripts in a repository and add source control and versioning. 
 - Automate deployments of scripts.
 - Use boards to track tasks, projects, and more. 
-
-You might want to spend some time investigating what Azure DevOps can offer operations teams.
 
 Using a configuration-as-code model isn't a one-time task. It's a shift in your way of working and a fundamental change for all team members. You no longer make changes manually. Instead, everything is implemented in scripts and deployed automatically. All team members need to have the skills to make this change.
 
@@ -64,7 +62,7 @@ Using a configuration-as-code model isn't a one-time task. It's a shift in your 
 
 You can use this solution when you're working with multiple environments, multiple workloads, and/or multiple teams. You can configure the validation process so that experts need to approve each workload. You can also extend the solution to deploy to multiple tenants, for a dev/test/acceptance/production scenario and/or for multiple organizations.
 
-To increase scalability even further, consider an aggregated-configuration data solution like [Datum](https://github.com/gaelcolas/datum/). 
+To increase scalability even further, you can use an aggregated-configuration data solution like [Datum](https://github.com/gaelcolas/datum/). 
 
 ### Security
 
