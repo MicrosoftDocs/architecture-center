@@ -99,7 +99,7 @@ Convergence time is pretty fast in this setup, and will be influenced by the kee
 
 ![GWLB Internet][gwlb_internet]
 
-The main advantage of this method is that the same NVAs can be used to inspect traffic to different VNets, thus achieving multitenancy. No VNet peering is required between the NVA VNet and the workload VNet(s), and no User-Defined Routes are required in the workload VNet, which simplifies the configuration in case of overlapping IP addresses across different tenants.
+The main advantage of this method is that the same NVAs can be used to inspect traffic to different VNets, thus achieving multitenancy. No VNet peering is required between the NVA VNet and the workload VNet(s), and no User-Defined Routes are required in the workload VNet, which dramatically simplifies the design.
 
 Additionally, traffic symmetry is provided without the need for SNAT, thus granting visibility into the original client IP for web applications, even in the case of scale-out NVA clusters. Note that the NVA needs to support certain functionality such as VXLAN tunnel termination.
 
