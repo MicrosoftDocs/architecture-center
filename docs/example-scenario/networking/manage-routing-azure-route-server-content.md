@@ -52,6 +52,8 @@ This solution applies to scenarios that:
 
 - [Azure Route Server][Azure Route Server] simplifies dynamic routing between NVAs that support BGP and virtual networks. This service eliminates the administrative overhead of maintaining routing tables.
 
+- [Azure Virtual Network][Virtual Network] is the fundamental building block for private networks in Azure. Azure resources like VMs can securely communicate with each other, the internet, and on-premises networks through Virtual Network.
+
 - [Virtual network peering][Virtual network peering] connects two or more Azure virtual networks. Peerings provide low-latency, high-bandwidth connections between resources in different virtual networks. Traffic between VMs in peered virtual networks only uses the Microsoft private network.
 
 - [Azure VPN Gateway][VPN Gateway] is a specific type of virtual network gateway. You can use VPN Gateway to send encrypted traffic:
@@ -65,59 +67,117 @@ This solution applies to scenarios that:
 
 - An NVA is a virtual appliance that offers networking capabilities. Examples include firewall security, WAN optimization, routing, load balancing, proxy services, and application delivery control functionality.
 
-- Azure Storage is a cloud storage solution that includes object, file, disk, queue, and table storage. Services include hybrid storage solutions and tools for transferring, sharing, and backing up data.
-
+- [Azure Storage][Introduction to the core Azure Storage services] is a cloud storage solution that includes object, file, disk, queue, and table storage. Services include hybrid storage solutions and tools for transferring, sharing, and backing up data.
 
 ### Alternatives
 
+- In this solution, you don't have to use a service endpoint with Azure Storage. You can use other Azure services instead. For a list of services that you can secure with service endpoints, see [Virtual Network service endpoints][Virtual Network service endpoints].
 
+- Instead of using Route Server, you can add user-defined routes to each subnet's routing table. For more information about user-defined routes, see [User-defined][Virtual network traffic routing - User-defined]
 
 ## Considerations
 
+Consider these points when implementing this solution:
+
 - (Maybe move this point to Pricing). Route Server only establishes connections and exchanges routes. It doesn't transfer data packets. As a result, the VMs that it runs in its backend don't require significant CPU power or computational power.
 
-- For this solution to work, create a subnet called `Route Sever Subnet` that uses an IPv4 subnet mask of `/27`. Place Route Server in that subnet.
+- Create a subnet called `Route Sever Subnet` that uses an IPv4 subnet mask of `/27`. Place Route Server in that subnet.
 
-- Express Route-VPN Gateway coexist configuration are not supported on the basic SKU. For other limitation for such configuration, visit https://docs.microsoft.com/azure/expressroute/expressroute-howto-coexist-resource-manager#limits-and-limitations
+- In Azure gateways, the Basic pricing tier doesn't support coexisting ExpressRoute and VPN gateway connections. For other limitations with coexisting configurations, see [Limits and limitations][Configure ExpressRoute and Site-to-Site coexisting connections using PowerShell - Limits and limitations].
 
-When you implement this solution, also keep in mind the points in the following sections.
+- There's no limit on the number of service endpoints that you can use in a virtual network. But some Azure services, such as Azure Storage, enforce limits on the number of subnets that you can use to secure the resource. For more information, see [Next steps in Virtual Network service endpoints][Next steps in Virtual Network service endpoints].
 
-### Scalability
 
-This solution scales up or down as needed:
-
+When considering this solution, also keep in mind the points in the following sections.
 
 ### Availability
 
-For the Azure NetApp Files availability guarantee, see [SLA for Azure NetApp Files][SLA for Azure NetApp Files].
+Azure Route Server is a fully managed service that offers high availability. For this service's availability guarantee, see [SLA for Azure Route Server][SLA for Azure Route Server].
+
+### Scalability
+
+Most components that this solution uses are managed services that automatically scale. But there are a few exceptions:
+
+- Route Server can advertise at most 200 routes to ExpressRoute or a VPN gateway.
+- Route Server can support at most 2000 VMs per virtual network, including peered virtual networks.
 
 ### Security
 
+- For guidance on improving the security of your applications and data on Azure, see [Overview of the Azure Security Benchmark (v1)][Overview of the Azure Security Benchmark (v1)].
+- For guidance from Azure Security Benchmark version 1.0 that's specific to Azure Virtual Network, see [Azure security baseline for Virtual Network][Azure security baseline for Virtual Network].
 
 ### Resiliency
 
-## Deploy the solution
+This solution uses only managed components. At a regional level, they are all automatically resilient. Route Server offers high availability. When you deploy Route Server in an Azure region that supports availability zones, your implementation has zone-level redundancy. For more information about availability zones, see [Regions and availability zones][Regions and availability zones].
 
 ## Pricing
 
+To estimate the cost of implementing this solution, see [Pricing calculator][Pricing calculator]. For general information about reducing unnecessary expenses, see [Overview of the cost optimization pillar][Overview of the cost optimization pillar].
 
+The following sections discuss pricing information for the solution's components.
+
+### Route Server
+
+Currently, there's no upfront cost or termination fee for Route Server. For pricing information, see [Azure Route Server pricing][Azure Route Server pricing].
+
+### Virtual Network
+
+You can use Virtual Network free of charge. With an Azure subscription, you can create up to 50 virtual networks across all regions. Traffic that's within a virtual network's boundaries is free. As a result, there's no charge for communication between two VMs in the same virtual network.
+
+### Azure VPN Gateway
+
+When you use Azure VPN Gateway, all inbound traffic is free. You're only charged for outbound traffic. Internet bandwidth costs apply with VPN outbound traffic. For more information, see [VPN Gateway pricing][VPN Gateway pricing].
+
+### ExpressRoute
+
+Data transfers that are inbound are free of charge. For outbound data transfer, you're charged a predetermined rate. A fixed monthly port fee also applies. For more information, see [Azure ExpressRoute pricing][Azure ExpressRoute pricing].
+
+### Service endpoints
+
+There's no charge for using service endpoints.
+
+### NVAs
+
+NVAs are charged based on the appliance that you use. You're also charged for the Azure VMs that you deploy and the underlying infrastructure resources that you consume, such as storage and networking. For more information, see [Linux Virtual Machines Pricing][Linux Virtual Machines Pricing].
 
 ## Next steps
 
-
+- [Quickstart: Create and configure Route Server using the Azure portal][Quickstart: Create and configure Route Server using the Azure portal]
+- [About Azure Route Server support for ExpressRoute and Azure VPN][About Azure Route Server support for ExpressRoute and Azure VPN]
+- [Azure Route Server FAQ][Azure Route Server FAQ]
+- [Azure road map][Azure road map]
+- [Networking blog][Networking blog]
+- [SLA for Azure Route Server][SLA for Azure Route Server]
 
 ## Related resources
 
 
 
-
-
 [About Azure Route Server support for ExpressRoute and Azure VPN]: https://docs.microsoft.com/en-us/azure/route-server/expressroute-vpn-support
 [About dual-homed network with Azure Route Server]: https://docs.microsoft.com/azure/route-server/about-dual-homed-network
+[Azure ExpressRoute pricing]: https://azure.microsoft.com/en-in/pricing/details/expressroute/
+[Azure road map]: https://azure.microsoft.com/en-us/updates/?category=networking
 [Azure Route Server]: https://azure.microsoft.com/en-us/services/route-server/
+[Azure Route Server FAQ]: https://docs.microsoft.com/en-us/azure/route-server/route-server-faq
+[Azure Route Server pricing]: https://azure.microsoft.com/pricing/details/route-server/
+[Azure security baseline for Virtual Network]: https://docs.microsoft.com/en-us/security/benchmark/azure/baselines/virtual-network-security-baseline
+[Configure ExpressRoute and Site-to-Site coexisting connections using PowerShell - Limits and limitations]: https://docs.microsoft.com/en-us/azure/expressroute/expressroute-howto-coexist-resource-manager#limits-and-limitations
+[Introduction to the core Azure Storage services]: https://docs.microsoft.com/en-us/azure/storage/common/storage-introduction?toc=/azure/storage/blobs/toc.json
+[Linux Virtual Machines Pricing]: https://azure.microsoft.com/en-us/pricing/details/virtual-machines/linux/
+[Networking blog]: https://azure.microsoft.com/en-us/blog/topics/networking/
+[Next steps in Virtual Network service endpoints]: https://docs.microsoft.com/en-us/azure/virtual-network/virtual-network-service-endpoints-overview#next-steps
+[Overview of the Azure Security Benchmark (v1)]: https://docs.microsoft.com/en-us/security/benchmark/azure/overview-v1
+[Overview of the cost optimization pillar]: https://docs.microsoft.com/en-us/azure/architecture/framework/cost/overview
+[Pricing calculator]: https://azure.microsoft.com/en-us/pricing/calculator/
+[Quickstart: Create and configure Route Server using the Azure portal]: https://docs.microsoft.com/en-us/azure/route-server/quickstart-configure-route-server-portal
+[Regions and availability zones]: https://docs.microsoft.com/en-us/azure/availability-zones/az-overview
+[SLA for Azure Route Server]: https://azure.microsoft.com/en-us/support/legal/sla/route-server/v1_0/
+[Virtual Network]: https://azure.microsoft.com/en-us/services/virtual-network/
 [Virtual network peering]: https://docs.microsoft.com/en-us/azure/virtual-network/virtual-network-peering-overview
 [Virtual Network service endpoints]: https://docs.microsoft.com/en-us/azure/virtual-network/virtual-network-service-endpoints-overview
 [Virtual network traffic routing - Custom routes]: https://docs.microsoft.com/en-us/azure/virtual-network/virtual-networks-udr-overview#custom-routes
 [Virtual network traffic routing - Optional default routes]: https://docs.microsoft.com/en-us/azure/virtual-network/virtual-networks-udr-overview#optional-default-routes
+[Virtual network traffic routing - User-defined]: https://docs.microsoft.com/en-us/azure/virtual-network/virtual-networks-udr-overview#user-defined
 [VPN Gateway]: https://azure.microsoft.com/en-us/services/vpn-gateway/
+[VPN Gateway pricing]: https://azure.microsoft.com/en-us/pricing/details/vpn-gateway/
 [What is Azure ExpressRoute?]: https://docs.microsoft.com/en-us/azure/expressroute/expressroute-introduction
