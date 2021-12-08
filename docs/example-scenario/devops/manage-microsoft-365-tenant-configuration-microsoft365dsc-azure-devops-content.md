@@ -5,7 +5,7 @@ Many companies are adopting DevOps practices and want to apply these practices t
 - Challenges with tracking configuration changes
 - No approval process for tenant modifications 
 
-You can use the solution described in this article to automate changes to Microsoft 365 tenant configurations by using [Azure DevOps](/azure/devops/user-guide/what-is-azure-devops) and [Microsoft365DSC](https://microsoft365dsc.com). Microsoft365DSC is a [PowerShell Desired State Configuration (DSC)](https://docs.microsoft.com/en-us/powershell/scripting/dsc/overview/overview) module. You can use it to configure and manage Microsoft 365 tenants in a true DevOps style: configuration as code. You can use the solution to track changes made by service administrators and put an approval process around deployments to Microsoft 365 tenants. The solution helps you prevent untracked changes into Microsoft 365 tenants. It also helps to prevent configuration drift between multiple Microsoft 365 tenants.
+You can use the solution described in this article to automate changes to Microsoft 365 tenant configurations by using [Azure DevOps](/azure/devops/user-guide/what-is-azure-devops) and [Microsoft365DSC](https://microsoft365dsc.com). Microsoft365DSC is a [PowerShell Desired State Configuration (DSC)](/powershell/scripting/dsc/overview/overview) module. You can use it to configure and manage Microsoft 365 tenants in a true DevOps style: configuration as code. You can use the solution to track changes made by service administrators and put an approval process around deployments to Microsoft 365 tenants. The solution helps you prevent untracked changes into Microsoft 365 tenants. It also helps to prevent configuration drift between multiple Microsoft 365 tenants.
 
 ## Potential use cases
 
@@ -16,47 +16,51 @@ This solution can help you manage Microsoft 365 tenant configuration in a contro
 
 ## Architecture
 
-![Architecture Diagram](./media/Manage-Microsoft365-tenant-configuration-with-Microsoft365DSC-and-Azure-DevOps-content.png)
-*Download an [SVG](./media/Manage-Microsoft365-tenant-configuration-with-Microsoft365DSC-and-Azure-DevOps-content.svg) of this architecture.*
+:::image type="content" border="false" source="./media/manage-microsoft-365-tenant-configuration-microsoft365dsc-azure-devops.png" alt-text="Diagram that shows the architecture for automating changes to Microsoft 365 tenant configurations." lightbox="./media/manage-microsoft-365-tenant-configuration-microsoft365dsc-azure-devops.png":::
 
-1. Admin 1 adds/updates/deletes entry in user's fork of Microsoft 365 Config file
-2. Admin 1 commits and syncs changes to user's forked repository
-3. Admin 1 creates pull request back to main repository
-4. Build pipeline runs on pull request
-5. Admins review code and perform merge on PR
-6. Merged PR triggers pipeline to compile MOFs calling Azure Key Vault to retrieve credentials used in MOFs
-7. Azure PowerShell task in multi stage pipeline deploys configuration changes via Microsoft365DSC using compiled MOF files
-8. Admins validate changes in staging Microsoft 365 tenant
-9. Admins get notification from approval process in Azure DevOps for production Microsoft 365 tenant
+*Download a [Visio file](https://arch-center.azureedge.net/M365DevOps.vsdx) of this architecture.*
+
+1. Admin 1 adds, updates, or deletes an entry in Admin 1's fork of the Microsoft 365 config file.
+2. Admin 1 commits and syncs changes to Admin 1's forked repository.
+3. Admin 1 creates a pull request (PR) to merge changes to the main repository.
+4. The build pipeline runs on the PR.
+5. Admins review code and merge the PR.
+6. The merged PR triggers a pipeline to compile Managed Object Format (MOF) files. The pipeline calls Azure Key Vault to retrieve credentials that are used in the MOFs.
+7. An Azure PowerShell task in a multistage pipeline uses the compiled MOF files to deploy configuration changes via Microsoft365DSC.
+8. Admins validate changes in a staged Microsoft 365 tenant.
+9. Admins get notification from the approval process in Azure DevOps for the production Microsoft 365 tenant. Admins approve or reject the change.
 
 ### Components
 
-The following assets and components were used to build the Microsoft365DSC DevOps solution.
-
-- [Azure Pipeline](https://docs.microsoft.com/azure/devops/pipelines/) allows continuous integration (CI) and continuous delivery (CD) to test and build your code and ship it to any target
-- [Microsoft365DSC](https://microsoft365dsc.com) allows organizations to automate the deployment, configuration, and monitoring of Microsoft 365 Tenants via PowerShell Desired State Configuration
-- [Azure KeyVault](https://docs.microsoft.com/azure/key-vault/) lets you securely store and tightly control access to tokens, passwords, certificates, API keys, and other secrets
-- [Windows Desired State Configuration](https://docs.microsoft.com/powershell/scripting/dsc/overview/overview) is a management platform in PowerShell for development infrastructure with configuration as code
+- [Azure Pipelines](https://azure.microsoft.com/services/devops/pipelines) enables continuous integration (CI) and continuous delivery (CD) to test and build your code and ship it to any target.
+- [Azure Key Vault](https://azure.microsoft.com/services/key-vault) improves the security of storage for tokens, passwords, certificates, API keys, and other secrets. It also provides tightly controlled access to these secrets. 
+- [Microsoft365DSC](https://microsoft365dsc.com) provides automation for the deployment, configuration, and monitoring of Microsoft 365 tenants via PowerShell Desired State Configuration.
+- [Windows PowerShell DSC](/powershell/scripting/dsc/overview/overview) is a management platform in PowerShell. You can use it to manage your development infrastructure by using a configuration-as-code model.
 
 ### Alternatives
 
-As a next step, you can use Desired State Configuration in [Azure Automation](https://docs.microsoft.com/en-us/azure/automation/automation-dsc-overview) to store configurations in a central location and add reporting of compliance with the desired state.
+As a next step, you can use DSC in [Azure Automation](/azure/automation/automation-dsc-overview) to store configurations in a central location and add reporting of compliance with the desired state.
 
-We chose to use Azure KeyVault to store Azure App certificates or user credentials used for authentication to Microsoft 365 tenant, since that offers scalability. You can also consider using pipeline variables to reduce the complexity of the solution.
+This architecture uses Key Vault to store Azure App Service certificates or user credentials that are used for authentication to the Microsoft 365 tenant. Key Vault provides scalability. As an alternative, you can use pipeline variables to reduce the complexity of the solution.
 
 ## Considerations
 
-Most people starting out with PowerShell Desired State Configuration experience a steep learning curve. To smoothen this learning curve, make sure you have a solid understanding of PowerShell and have experience with creating scripts.
-
-When talking to Operations teams, they usually consider Azure DevOps "a tool that developers use" and which is not for Operations. However those teams can greatly benefit from using Azure DevOps by storing their scripts in a repository (and adding source control/versioning), automated deployments of those scripts and using boards to track tasks, projects, etc. Invest some time in investigating what Azure DevOps can offer Operations teams.
+Most people starting out with PowerShell DSC experience a steep learning curve. It helps if you have a solid understanding of PowerShell and experience with creating scripts.
 
 ### Operations
 
-Using "Configuration as Code" isn't a one time deal, it is a shift in the way of working. This means the way Operations teams work is changing fundamentally and all have to be on board. Changes are no longer performed manually, but everything is implemented in scripts and deployed automatically. This requires that all team members have the skills to change to this new way of working.
+Some operations teams consider Azure DevOps to be a tool for developers. But operations teams can benefit from using Azure DevOps. Operations teams can:
+- Store their scripts in a repository and add source control and versioning. 
+- Automate deployments of scripts.
+- Use boards to track tasks, projects, and more. 
+
+You might want to spend some time investigating what Azure DevOps can offer operations teams.
+
+Using a configuration-as-code model isn't a one-time task. It's a shift in your way of working. It's a fundamental change for all team members. You no longer make changes manually. Instead, everything is implemented in scripts and deployed automatically. This requires that all team members have the skills to make the change.
 
 ### Scalability
 
-This solution is suitable when working with multiple environments, multiple workloads and/or multiple teams. The validation process can be configured in such a way approval has to be given by experts from each workload. The solution is also able to be extended to deploy to multiple tenants, both for a Dev, Test, Acceptance, Production use and/or for multiple organizations.
+You can use this solution when you're working with multiple environments, multiple workloads, and multiple teams. The validation process can be configured in such a way approval has to be given by experts from each workload. The solution is also able to be extended to deploy to multiple tenants, both for a Dev, Test, Acceptance, Production use and/or for multiple organizations.
 
 To increase scalability even further, an aggregated configuration data solution like [Datum](https://github.com/gaelcolas/datum/) can be considered. Datum is outside the scope of this scenario.
 

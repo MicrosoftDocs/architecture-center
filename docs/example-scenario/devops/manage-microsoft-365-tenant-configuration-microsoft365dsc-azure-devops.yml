@@ -22,4 +22,4 @@ name: Manage Microsoft365 tenant configuration with Microsoft365DSC and Azure De
 summary: Manage Microsoft365 tenant configuration with Microsoft365DSC and Azure DevOps.
 thumbnailUrl: /azure/architecture/browse/thumbs/Manage-Microsoft365-with-Microsoft365DSC-and-Azure-DevOps.png
 content: |
-  [!include[](Manage-Microsoft365-tenant-configuration-with-Microsoft365DSC-and-Azure-DevOps-content.md)]
+  [!include[](manage-microsoft-365-tenant-configuration-microsoft365dsc-azure-devops-content.md)]
