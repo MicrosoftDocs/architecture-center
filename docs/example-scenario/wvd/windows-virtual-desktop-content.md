@@ -11,7 +11,7 @@ Most demand for enterprise virtual desktop solutions comes from:
 
 ## Architecture
 
-![Diagram of an Azure Virtual Desktop service architecture.](images/windows-virtual-desktop.png)
+![Diagram of an Azure Virtual Desktop service architecture](images/windows-virtual-desktop.png)
 Download a [Visio file](https://arch-center.azureedge.net/wvdatscale.vsdx) of this architecture.
 
 This diagram shows a typical architectural setup for Azure Virtual Desktop.
@@ -77,7 +77,7 @@ There are several options for updating Azure Virtual Desktop instances. Deployin
 
 The relationships between host pools, workspaces and other key logical components vary. The following diagram summarises these relationships.
 
-![Relationships between key logical components](../images/Azure-Virtual-Desktop-component-relationships.png)
+![Relationships between key logical components](images/azure-virtual-Desktop-component-relationships.png)
 
 *The bracketed numbers relate to the diagram above.*
 
@@ -95,7 +95,7 @@ The relationships between host pools, workspaces and other key logical component
 |-----------------------------------------------------|-------------------------------------------------|--------------------------------------------------|
 | Published desktop                                   | A Windows desktop environment running on AVD session host(s) and delivered to users over the network | Member of one and only one application group (1) |
 | Published application                               | A Windows application running on AVD session host(s) and delivered to users over the network         | Member of one and only one application group     |
-| Application group                                   | A logical grouping of published applications or a published desktop                                  |  * Contains a published desktop (1) or one or more published applications; * Assigned to one and only one host pool (2); * Member of one and only one workspace (2); * One or more Azure AD user accounts and/or groups are assigned to it (3)    |
+| Application group                                   | A logical grouping of published applications or a published desktop                                  |  * Contains a published desktop (1) or one or more published applications<br> * Assigned to one and only one host pool (2)<br> * Member of one and only one workspace (2)<br> * One or more Azure AD user accounts and/or groups are assigned to it (3)    |
 | Azure AD user account/group                         | Identifies the users who are permitted to launch published desktops and/or applications              | * Member of one and only one Azure Active Directory; * Assigned to one or more application groups (3) |
 | AAD (7)                                             | Identity provider                                                                                    | * Contains one or more user accounts/groups that must be used to assign users to application groups and may also be used to log onto the session hosts; * Can hold the memberships of the session hosts; * Can be synchronized with AD DS or AAD DS |
 | AD DS (Active Directory Domain Services) (7)        | Identity and directory services provider                                                             | * Contains one or more user accounts/groups that may be used to log onto the session hosts; * Can hold the memberships of the session hosts; * Can be synchronized with AAD |
@@ -152,9 +152,6 @@ Architect your Azure Virtual Desktop solution to realize cost savings. Here are 
 
 ## Additional resources
 
-- [Deploy Azure AD-joined virtual machines in Azure Virtual Desktop](https://docs.microsoft.com/azure/virtual-desktop/deploy-azure-ad-joined-vm)
-- [Active Directory Domain Services](https://docs.microsoft.com/en-us/windows-server/identity/ad-ds/active-directory-domain-services)
-- [What is Azure AD Connect?](https://docs.microsoft.com/en-us/azure/active-directory/hybrid/whatis-azure-ad-connect)
-
-
-
+- [Deploy Azure AD-joined virtual machines in Azure Virtual Desktop](/virtual-desktop/deploy-azure-ad-joined-vm)
+- [Active Directory Domain Services](/windows-server/identity/ad-ds/active-directory-domain-services)
+- [What is Azure AD Connect?](/active-directory/hybrid/whatis-azure-ad-connect)
