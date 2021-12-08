@@ -34,7 +34,7 @@ The following architectures describe the resources and configuration necessary f
 | [Azure Load Balancer](#load-balancer-design) | Supports active/active, active/standby and scale-out NVAs. Very good convergence time | The NVA needs to provide a port for the health probes, especially for active/standby deployments. Flows to/from Internet require SNAT for symmetry |
 | [Changing PIP/UDR](#changing-pip-udr) | No special feature required by the NVA. Guarantees symmetric traffic | Only for active/passive designs. High convergence time, of 1-2 minutes |
 | [Azure Route Server](#azure-route-server) | The NVA needs to support BGP. Supports active/active, active/standby and scale-out NVAs. | Traffic symmetry requires SNAT |
-| [Gateway Load Balancer](#gateway-load-balancer) | Traffic symmetry guaranteed. NVAs can be shared across tenants. Very good convergence time. Supports active/active, active/standby and scale-out NVAs. | Only supports inbound flows from the Internet |
+| [Gateway Load Balancer](#gateway-load-balancer) | Traffic symmetry guaranteed without SNAT. NVAs can be shared across tenants. Very good convergence time. Supports active/active, active/standby and scale-out NVAs. | Supports flows to/from the Internet, no East-West flows |
 
 ## Load Balancer design
 
@@ -99,9 +99,11 @@ Convergence time is pretty fast in this setup, and will be influenced by the kee
 
 ![GWLB Internet][gwlb_internet]
 
-The main advantage of this method is that the same NVAs can be used to inspect traffic to different VNets, thus achieving multitenancy. No VNet peering is required between the NVA VNet and the workload VNet(s), which simplifies the configuration in case of overlapping IP addresses across different tenants.
+The main advantage of this method is that the same NVAs can be used to inspect traffic to different VNets, thus achieving multitenancy. No VNet peering is required between the NVA VNet and the workload VNet(s), and no User-Defined Routes are required in the workload VNet, which simplifies the configuration in case of overlapping IP addresses across different tenants.
 
-Service injection with the Gateway Load Balancer can be used for inbound flows hitting a public Azure Load Balancers (and their return traffic). Outbound flows originating in Azure, or East-West traffic between Azure virtual machines cannot leverage the Gateway Load Balancer for NVA injection.
+Additionally, traffic symmetry is provided without the need for SNAT, thus granting visibility into the original client IP for web applications, even in the case of scale-out NVA clusters. Note that the NVA needs to support certain functionality such as VXLAN tunnel termination.
+
+Service injection with the Gateway Load Balancer can be used for inbound flows hitting a public Azure Load Balancers (and their return traffic), as well as for outbound flows originating in Azure. East-West traffic between Azure virtual machines cannot leverage the Gateway Load Balancer for NVA injection.
 
 ## Next steps
 
