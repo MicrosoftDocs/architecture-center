@@ -19,7 +19,7 @@ _Download an [Visio](https://arch-center.azureedge.net/hybrid-footfall-detection
 4. The Azure Function calls a container with the Face API to get demographic and emotion data from the image.
 5. The data is anonymized and sent to an Azure Event Hubs cluster.
 6. The Event Hubs cluster pushes the data to Stream Analytics.
-7. Stream Analytics aggregates the data and pushes it to Power BI.
+7. Stream Analytics aggregates the data and pushes it to Power BI. Power BI provides an easy-to-use dashboard interface for viewing the output from Azure Stream Analytics
 
 ### Components
 
@@ -29,17 +29,17 @@ _Download an [Visio](https://arch-center.azureedge.net/hybrid-footfall-detection
 
 #### Azure
 
-* [Azure Event Hubs](https://docs.microsoft.com/azure/event-hubs/) provides a scalable platform for ingesting anonymized data that integrates neatly with Azure Stream.
-* [Azure Stream Analytics](https://docs.microsoft.com/azure/stream-analytics/). An Azure Stream Analytics job aggregates the anonymized data and groups it into 15-second windows for visualization.
-* [Microsoft Power BI](https://powerbi.microsoft.com/). Power BI provides an easy-to-use dashboard interface for viewing the output from Azure Stream Analytics.
+* [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs) is a fully managed, real-time data ingestion service that’s simple, trusted, and scalable. Stream millions of events per second from any source to build dynamic data pipelines and immediately respond to business challenges.
+* [Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics) is an easy-to-use, real-time analytics service that is designed for mission-critical workloads. Go from zero to production in minutes using SQL—easily extensible with custom code and built-in machine learning capabilities for more advanced scenarios.
+* [Microsoft Power BI](https://powerbi.microsoft.com/) is a suite of business analytics tools that deliver insights throughout your organization. Connect to hundreds of data sources, simplify data prep, and drive improvised analysis. Produce beautiful reports, then publish them for your organization to consume on the web and across mobile devices.
 
-#### [Azure Stack Hub](https://docs.microsoft.com/azure-stack/operator/azure-stack-overview)
+#### [Azure Stack Hub](https://azure.microsoft.com/products/azure-stack/hub/)
 
-* [App Service](/azure-stack/operator/azure-stack-app-service-overview).  The App Service resource provider (RP) provides a base for edge components, including hosting and management features for web apps/APIs and Functions.
-* Azure Kubernetes Service  [(AKS) Engine](https://github.com/Azure/aks-engine) cluster. The AKS RP with AKS-Engine cluster deployed into Azure Stack Hub provides a scalable, resilient engine to run the Face API container.
-* [Face API containers](https://docs.microsoft.com/azure/cognitive-services/face/face-how-to-install-containers). The Azure Cognitive Services RP with Face API containers provides demographic, emotion, and unique visitor detection on Contoso's private network.
-* [Blob Storage](https://docs.microsoft.com/azure-stack/user/azure-stack-storage-overview). Images captured from the AI Dev Kit are uploaded to Azure Stack Hub's blob storage.
-* [Azure Functions](https://docs.microsoft.com/azure-stack/operator/azure-stack-app-service-overview). An Azure Function running on Azure Stack Hub receives input from blob storage and manages the interactions with the Face API. It emits anonymized data to an Event Hubs cluster located in Azure.
+* [App Service](https://azure.microsoft.com/services/app-service/). The App Service resource provider (RP) provides a base for edge components, including hosting and management features for web apps/APIs and Functions.
+* Azure Kubernetes Service  [(AKS) Engine](https://azure.microsoft.com/services/kubernetes-service/). The AKS RP with AKS-Engine cluster deployed into Azure Stack Hub provides a scalable, resilient engine to run the Face API container.
+* [Face API containers](https://azure.microsoft.com/services/cognitive-services/face/). The Azure Cognitive Services RP with Face API containers provides demographic, emotion, and unique visitor detection.
+* [Blob Storage](https://azure.microsoft.com/services/storage/blobs/). Images captured from the AI Dev Kit are uploaded to Azure Stack Hub's blob storage.
+* [Azure Functions](https://azure.microsoft.com/services/functions/). An Azure Function running on Azure Stack Hub receives input from blob storage and manages the interactions with the Face API. It emits anonymized data to an Event Hubs cluster located in Azure.
 
 ### Considerations
 
@@ -76,10 +76,19 @@ Use the [Performance efficiency checklist](https://docs.microsoft.com/azure/arch
 
   An [Azure Functions](https://docs.microsoft.com/azure-stack/operator/azure-stack-app-service-overview)  running on Azure Stack Hub is a great compute option. However, there are others compute options like a custom app running on [Azure App Service](https://docs.microsoft.com/azure-stack/operator/azure-stack-app-service-deploy) or [Azure Kubernetes Service (AKS) Engine](https://github.com/Azure/aks-engine)
 
-### Next Steps
+### Next steps
 
 To learn more about the topics introduced in this article:
 
 * See the [Tiered Data pattern](https://aka.ms/tiereddatadeploy), which is implemented by the footfall detection pattern.
 * See the [Custom Vision AI Dev Kit](https://azure.github.io/Vision-AI-DevKit-Pages/) to learn more about using custom vision.
-* See the [Analytics end-to-end with Azure Synapse](https://docs.microsoft.com/azure/architecture/example-scenario/dataplate2e/data-platform-end-to-end) architecture for a more comprehensive scenario that illustrates other additional mechanisms to enrich and serve data.
+* [Analytics end-to-end with Azure Synapse](https://docs.microsoft.com/azure/architecture/example-scenario/dataplate2e/data-platform-end-to-end) architecture for a more comprehensive scenario that illustrates additional mechanisms to enrich and serve data.
+* [Azure Stack Hub Operator Documentation](https://docs.microsoft.com/azure-stack/operator)
+* [Azure App Service on Azure Stack Hub](https://docs.microsoft.com/azure-stack/operator/azure-stack-app-service-overview)
+* [Azure Kubernetes Service on Azure Stack Hub](https://docs.microsoft.com/azure-stack/operator/aks-add-on)
+
+### Related resources
+
+* [AI at the edge with Azure Stack Hub](./ai-at-the-edge.yml)
+* [Deploy AI and ML computing on-premises and to the edge](../../hybrid/deploy-ai-ml-azure-stack-edge.yml)
+* [Azure hybrid and multicloud documentation](https://docs.microsoft.com/hybrid)
