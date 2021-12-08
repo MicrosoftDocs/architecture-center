@@ -23,7 +23,7 @@ When choosing the best option to deploy a Network Virtual Appliance into an Azur
 The following sections in the document will describe the most common architectures used to integrate NVAs into a Hub and Spoke network.
 
 >[!NOTE]
-> This article is focused on [Hub & Spoke designs][caf_hns]. [Virtual WAN][vwam] is not covered, since Virtual WAN is much more prescriptive on how NVAs are deployed, depending on whether an NVA is supported to be deployed in a virtual hub.
+> This article is focused on [Hub & Spoke designs][caf_hns]. [Virtual WAN][vwan] is not covered, since Virtual WAN is much more prescriptive on how NVAs are deployed, depending on whether an NVA is supported to be deployed in a virtual hub.
 
 ## HA architectures overview
 
@@ -41,7 +41,7 @@ The following architectures describe the resources and configuration necessary f
 This design uses two Azure Load Balancers to expose a cluster of NVAs to the rest of the network:
 
 - An internal Load Balancer is used to redirect internal traffic from Azure and on-premises to the NVAs. This internal load balancer is configured with [HA Ports rules][alb_haports], so that every TCP/UDP port is redirected to the NVA instances. 
-- A public Load Balancer exposes the NVAs to the Internet. Since [HA Ports][alb_haport] for inbound traffic every individual TCP/UDP port needs to be opened in a dedicated load balancing rule.
+- A public Load Balancer exposes the NVAs to the Internet. Since [HA Ports][alb_haports] for inbound traffic every individual TCP/UDP port needs to be opened in a dedicated load balancing rule.
 
 The following diagram describes the sequence of hops that packets from the Internet to an application server in a spoke VNet would follow:
 
@@ -116,12 +116,13 @@ Service injection with the Gateway Load Balancer can be used for inbound flows h
 [appgw]: https://docs.microsoft.com/azure/application-gateway/overview
 [ars]: https://docs.microsoft.com/azure/route-server/overview
 [gwlb]: https://docs.microsoft.com/azure/load-balancer/gateway-overview
+[alb]: https://docs.microsoft.com/azure/load-balancer/load-balancer-overview
 [vwan]: https://docs.microsoft.com/azure/virtual-wan/virtual-wan-about
 [alb_probes]: https://docs.microsoft.com/azure/load-balancer/load-balancer-custom-probe-overview
 [alb_haports]: https://docs.microsoft.com/azure/load-balancer/load-balancer-ha-ports-overview
 [caf_dmz]: https://docs.microsoft.com/azure/cloud-adoption-framework/decision-guides/software-defined-network/cloud-dmz
 [caf_perimeter]: https://docs.microsoft.com/azure/cloud-adoption-framework/ready/azure-best-practices/perimeter-networks
-[hub_hns]: https://docs.microsoft.com/azure/cloud-adoption-framework/ready/azure-best-practices/hub-spoke-network-topology
+[caf_hns]: https://docs.microsoft.com/azure/cloud-adoption-framework/ready/azure-best-practices/hub-spoke-network-topology
 [secure_hybrid]: https://docs.microsoft.com/azure/architecture/reference-architectures/dmz/secure-vnet-dmz
 [azfw_appgw]: https://docs.microsoft.com/azure/architecture/example-scenario/gateway/firewall-application-gateway
 
