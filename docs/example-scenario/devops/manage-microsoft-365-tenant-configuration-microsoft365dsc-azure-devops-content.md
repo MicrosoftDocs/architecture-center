@@ -5,7 +5,9 @@ Many companies are adopting DevOps practices and want to apply these practices t
 - Challenges with tracking configuration changes
 - No approval process for tenant modifications 
 
-You can use the solution described in this article to automate changes to Microsoft 365 tenant configurations by using [Azure DevOps](/azure/devops/user-guide/what-is-azure-devops) and [Microsoft365DSC](https://microsoft365dsc.com). Microsoft365DSC is a [PowerShell Desired State Configuration (DSC)](/powershell/scripting/dsc/overview/overview) module. You can use it to configure and manage Microsoft 365 tenants in a true DevOps style: configuration as code. You can use the solution to track changes made by service administrators and put an approval process around deployments to Microsoft 365 tenants. The solution helps you prevent untracked changes into Microsoft 365 tenants. It also helps to prevent configuration drift between multiple Microsoft 365 tenants.
+You can use the solution described in this article to automate changes to Microsoft 365 tenant configurations by using [Azure DevOps](/azure/devops/user-guide/what-is-azure-devops) and [Microsoft365DSC](https://microsoft365dsc.com). Microsoft365DSC is a [PowerShell Desired State Configuration (DSC)](/powershell/scripting/dsc/overview/overview) module. You can use it to configure and manage Microsoft 365 tenants in a true DevOps style: configuration as code. 
+
+The solution described here tracks changes made by service administrators and adds an approval process to deployments to Microsoft 365 tenants. It can help you prevent untracked changes to Microsoft 365 tenants. It also helps to prevent configuration drift between multiple Microsoft 365 tenants.
 
 ## Potential use cases
 
@@ -21,20 +23,20 @@ This solution can help you manage Microsoft 365 tenant configuration in a contro
 *Download a [Visio file](https://arch-center.azureedge.net/M365DevOps.vsdx) of this architecture.*
 
 1. Admin 1 adds, updates, or deletes an entry in Admin 1's fork of the Microsoft 365 config file.
-2. Admin 1 commits and syncs changes to Admin 1's forked repository.
-3. Admin 1 creates a pull request (PR) to merge changes to the main repository.
+2. Admin 1 commits and syncs the changes to Admin 1's forked repository.
+3. Admin 1 creates a pull request (PR) to merge the changes to the main repository.
 4. The build pipeline runs on the PR.
 5. Admins review code and merge the PR.
 6. The merged PR triggers a pipeline to compile Managed Object Format (MOF) files. The pipeline calls Azure Key Vault to retrieve credentials that are used in the MOFs.
 7. An Azure PowerShell task in a multistage pipeline uses the compiled MOF files to deploy configuration changes via Microsoft365DSC.
 8. Admins validate changes in a staged Microsoft 365 tenant.
-9. Admins get notification from the approval process in Azure DevOps for the production Microsoft 365 tenant. Admins approve or reject the change.
+9. Admins get notification from the approval process in Azure DevOps for the production Microsoft 365 tenant. Admins approve or reject the changes.
 
 ### Components
 
 - [Azure Pipelines](https://azure.microsoft.com/services/devops/pipelines) enables continuous integration (CI) and continuous delivery (CD) to test and build your code and ship it to any target.
 - [Azure Key Vault](https://azure.microsoft.com/services/key-vault) improves the security of storage for tokens, passwords, certificates, API keys, and other secrets. It also provides tightly controlled access to these secrets. 
-- [Microsoft365DSC](https://microsoft365dsc.com) provides automation for the deployment, configuration, and monitoring of Microsoft 365 tenants via PowerShell Desired State Configuration.
+- [Microsoft365DSC](https://microsoft365dsc.com) provides automation for the deployment, configuration, and monitoring of Microsoft 365 tenants via PowerShell DSC.
 - [Windows PowerShell DSC](/powershell/scripting/dsc/overview/overview) is a management platform in PowerShell. You can use it to manage your development infrastructure by using a configuration-as-code model.
 
 ### Alternatives
@@ -66,7 +68,7 @@ To increase scalability even further, consider an aggregated-configuration data 
 
 ### Security
 
-Most Microsoft365DSC resources support authentication via user name and password. But we don't recommend that type of authentication because Microsoft best practices recommend multifactor authentication. Application credentials is the preferred method, where supported by the Microsoft 365 resources. For example, SharePoint Online, Azure Active Directory (Azure AD), and others support application credentials. 
+Most Microsoft365DSC resources support authentication via user name and password. But we don't recommend that type of authentication because Microsoft best practices recommend multifactor authentication. Application credentials is the preferred method, where supported by the Microsoft 365 resources. For example, SharePoint Online, Azure Active Directory (Azure AD), and other resources support application credentials. 
 
 If you build a Microsoft365DSC solution on Azure DevOps, you can also take advantage of the security in [Azure Pipelines](/azure/devops/pipelines/security/overview?view=azure-devops) and an [approval process](/azure/devops/pipelines/release/approvals/approvals?view=azure-devops) to safeguard deployment to your production tenant.
 
