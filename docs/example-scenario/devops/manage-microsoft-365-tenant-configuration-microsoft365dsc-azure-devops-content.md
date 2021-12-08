@@ -56,35 +56,39 @@ Some operations teams consider Azure DevOps to be a tool for developers. But ope
 
 You might want to spend some time investigating what Azure DevOps can offer operations teams.
 
-Using a configuration-as-code model isn't a one-time task. It's a shift in your way of working. It's a fundamental change for all team members. You no longer make changes manually. Instead, everything is implemented in scripts and deployed automatically. This requires that all team members have the skills to make the change.
+Using a configuration-as-code model isn't a one-time task. It's a shift in your way of working and a fundamental change for all team members. You no longer make changes manually. Instead, everything is implemented in scripts and deployed automatically. All team members need to have the skills to make this change.
 
 ### Scalability
 
-You can use this solution when you're working with multiple environments, multiple workloads, and multiple teams. The validation process can be configured in such a way approval has to be given by experts from each workload. The solution is also able to be extended to deploy to multiple tenants, both for a Dev, Test, Acceptance, Production use and/or for multiple organizations.
+You can use this solution when you're working with multiple environments, multiple workloads, and/or multiple teams. You can configure the validation process so that experts need to approve each workload. You can also extend the solution to deploy to multiple tenants, for a dev/test/acceptance/production scenario and/or for multiple organizations.
 
-To increase scalability even further, an aggregated configuration data solution like [Datum](https://github.com/gaelcolas/datum/) can be considered. Datum is outside the scope of this scenario.
+To increase scalability even further, consider an aggregated-configuration data solution like [Datum](https://github.com/gaelcolas/datum/). 
 
 ### Security
 
-Most Microsoft365DSC resources support authentication via username/password, but since Microsoft best practices state that multifactor authentication (MFA) is recommended using this type of authentication is not recommended. Instead using application credentials is the way to go, where supported by the Microsoft 365 resources. For example currently Security and Compliance only supports username/password but SharePoint Online, AzureAD and others support application credentials. Building M365DSC solution upon Azure DevOps you can also take advantage security within [Azure Pipelines](https://docs.microsoft.com/en-us/azure/devops/pipelines/security/overview?view=azure-devops) as well as an [approval process](https://docs.microsoft.com/en-us/azure/devops/pipelines/release/approvals/approvals?view=azure-devops) to safeguard deployment to production tenant.
+Most Microsoft365DSC resources support authentication via user name and password. But we don't recommend that type of authentication because Microsoft best practices recommend multifactor authentication. Application credentials is the preferred method, where supported by the Microsoft 365 resources. For example, SharePoint Online, Azure Active Directory (Azure AD), and others support application credentials. 
+
+If you build a Microsoft365DSC solution on Azure DevOps, you can also take advantage of the security in [Azure Pipelines](/azure/devops/pipelines/security/overview?view=azure-devops) and an [approval process](/azure/devops/pipelines/release/approvals/approvals?view=azure-devops) to safeguard deployment to your production tenant.
 
 ### DevOps
 
-This solution can run in Azure DevOps server and a similar solution can be created in GitHub using GitHub actions.  
-
-## Next steps
-
-- The whitepaper [Microsoft365Dsc and Azure DevOps](https://microsoft365dsc.com/Pages/Resources/Whitepapers/Managing%20Microsoft%20365%20with%20Microsoft365Dsc%20and%20Azure%20DevOps.pdf) details creating a solution with Azure DevOps and Microsoft365DSC.
-
-## Related resources
-
-- [Microsoft365DSC source code](https://github.com/microsoft/Microsoft365DSC)
-- [Microsoft365DSC YouTube channel](https://www.youtube.com/channel/UCveScabVT6pxzqYgGRu17iw)
-- [Microsoft365DSC site](https://microsoft365dsc.com/)
-- [Microsoft365DSC export generator tool](https://export.microsoft365dsc.com/)
+You can run this solution in Azure DevOps Server. You could create a similar solution in GitHub by using GitHub Actions.  
 
 ## Pricing
 
-This solution utilizes Azure DevOps and for pricing information please visit [page](https://azure.microsoft.com/pricing/details/devops/azure-devops-services/). If you choose to incorporate Azure Key Vault into solution, you can find its pricing [here](https://azure.microsoft.com/pricing/details/key-vault/).
+For Azure DevOps pricing information, see [Pricing for Azure DevOps](https://azure.microsoft.com/pricing/details/devops/azure-devops-services/). If you incorporate Key Vault into your solution, you can find [pricing information here](https://azure.microsoft.com/pricing/details/key-vault/).
 
-[calculator]: https://azure.com/e/
+You can also use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator) to estimate costs. 
+
+## Next steps
+
+- [Managing Microsoft 365 in true DevOps style with Microsoft365DSC and Azure DevOps](https://office365dsc.azurewebsites.net/Pages/Resources/Whitepapers/Managing%20Microsoft%20365%20with%20Microsoft365Dsc%20and%20Azure%20DevOps.pdf)
+- [Microsoft365DSC source code](https://github.com/microsoft/Microsoft365DSC)
+- [Microsoft365DSC YouTube channel](https://www.youtube.com/channel/UCveScabVT6pxzqYgGRu17iw)
+- [Microsoft365DSC site](https://microsoft365dsc.com)
+- [Microsoft365DSC export generator tool](https://export.microsoft365dsc.com)
+
+## Related resources
+- [End-to-end governance in Azure when using CI/CD](../../example-scenario/governance/end-to-end-governance-in-azure.yml)
+- [CI/CD for Windows desktop apps](/azure/architecture/solution-ideas/articles/azure-devops-ci-cd-for-desktop-apps)
+- [DevOps Checklist](/azure/architecture/checklist/dev-ops)

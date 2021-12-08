@@ -1874,6 +1874,8 @@ items:
                 href: solution-ideas/articles/devsecops-in-github.yml
               - name: Jenkins on Azure
                 href: example-scenario/apps/jenkins.yml
+              - name:  Microsoft 365 tenant configuration
+                href: example-scenario/devops/manage-microsoft-365-tenant-configuration-microsoft365dsc-azure-devops.yml
               - name: Real time location sharing
                 href: example-scenario/signalr/index.yml
               - name: Run containers in a hybrid environment
