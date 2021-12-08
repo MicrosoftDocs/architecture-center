@@ -129,7 +129,7 @@ Service injection with the Gateway Load Balancer can be used for inbound flows h
 <!-- images -->
 
 [alb_internet]: ./images/nva-ha/nvaha-alb-internet.png "Internet traffic with ALB integration"
-[alb_onprem]: ./images/nva-ha/nvaha-alb-onprem.png "On-premises traffic with ALB integration"
+[alb_onprem]: ./images/nva-ha/nvaha-alb-on-premises.png "On-premises traffic with ALB integration"
 [ars_internet]: ./images/nva-ha/nvaha-ars-internet.png "Internet traffic with ARS integration"
 [gwlb_internet]: ./images/nva-ha/nvaha-gwlb-internet.png "Internet traffic with GWLB integration"
 [pipudr_internet]: ./images/nva-ha/nvaha-pipudr-internet.png "Internet traffic with moving PIP/UDR"
