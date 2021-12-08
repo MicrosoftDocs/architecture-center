@@ -1,6 +1,6 @@
 This reference architecture illustrates how to design infrastructure for highly available virtualized and containerized workloads in Remote Office/Branch Office (ROBO) scenarios.
 
-![Diagram illustrating an Azure Stack HCI ROBO scenario, with a two-node Azure Stack HCI cluster using a switchless interconnect and a USB-based quorum. The cluster leverages a number of Azure services, including Azure Arc that provides the ability to implement Azure Policy, Azure Automation that includes Azure update management functionality, Azure Monitor, as well as Azure File Sync, Azure Network Adapter, Azure Security Center, Azure Backup, Azure Site Recovery, and Storage Replica.][architectural-diagram]
+![Diagram illustrating an Azure Stack HCI ROBO scenario, with a two-node Azure Stack HCI cluster using a switchless interconnect and a USB-based quorum. The cluster leverages a number of Azure services, including Azure Arc that provides the ability to implement Azure Policy, Azure Automation that includes Azure update management functionality, Azure Monitor, as well as Azure File Sync, Azure Network Adapter, Microsoft Defender for Cloud, Azure Backup, Azure Site Recovery, and Storage Replica.][architectural-diagram]
 
 *Download a [Visio file][architectural-diagram-visio-source] of this architecture.*
 
@@ -18,7 +18,7 @@ The architecture incorporates the following components and capabilities:
 - **[Azure Arc][azure-arc]**. A cloud-based service that extend the Azure Resource Manager&ndash;based management model to non-Azure resources including virtual machines (VMs), Kubernetes clusters, and containerized databases.
 - **[Azure Policy][azure-policy]**. A cloud-based service that evaluates Azure and on-premises resources through integration with Azure Arc by comparing properties to customizable business rules.
 - **[Azure Monitor][azure-monitor]**. A cloud-based service that maximizes the availability and performance of your applications and services by delivering a comprehensive solution for collecting, analyzing, and acting on telemetry from your cloud and on-premises environments.
-- **[Azure Security Center][azure-security-center]**. Azure Security Center is a unified infrastructure security management system that strengthens the security posture of your data centers, and provides advanced threat protection across your hybrid workloads in the cloud - whether they're in Azure or not - as well as on premises.
+- **[Microsoft Defender for Cloud][azure-security-center]**. Microsoft Defender for Cloud is a unified infrastructure security management system that strengthens the security posture of your data centers, and provides advanced threat protection across your hybrid workloads in the cloud - whether they're in Azure or not - as well as on premises.
 - **[Azure Automation][azure-automation]**. Azure Automation delivers a cloud-based automation and configuration service that supports consistent management across your Azure and non-Azure environments.
 - **[Change Tracking and Inventory][azure-change-tracking-and-inventory]**. A feature of Azure Automation that tracks changes in Windows Server and Linux servers hosted in Azure, on-premises, and other cloud environments to help you pinpoint operational and environmental issues with software managed by the Distribution Package Manager.
 - **[Update Management][azure-update-management]**. A feature of Azure Automation that streamlines management of OS updates for Windows Server and Linux machines in Azure, in on-premises environments, and in other cloud environments.
@@ -69,7 +69,7 @@ ROBO scenarios present unique challenges with security and compliance. With no&m
 
 Azure Stack HCI&ndash;certified hardware ensures built-in Secure Boot, Unified Extensible Firmware Interface (UEFI), and Trusted Platform Module (TPM) support. These technologies, combined with [virtualization-based security (VBS)][azs-hci-vbs], help protect security-sensitive workloads. BitLocker Drive Encryption allows you to encrypt Storage Spaces Direct volumes at rest while SMB encryption provides automatic encryption in transit, facilitating compliance with standards such as Federal Information Processing Standard 140-2 (FIPS 140-2) and Health Insurance Portability and Accountability Act (HIPAA).
 
-In addition, you can onboard Azure Stack HCI VMs in [Azure Security Center][az-security-center] to activate cloud-based behavioral analytics, threat detection and remediation, alerting, and reporting. Similarly, by onboarding Azure Stack HCI VMs in Azure Arc, you gain the ability to use [Azure Policy][arc-azure-policy] to evaluate their compliance with industry regulations and corporate standards.
+In addition, you can onboard Azure Stack HCI VMs in [Microsoft Defender for Cloud][az-security-center] to activate cloud-based behavioral analytics, threat detection and remediation, alerting, and reporting. Similarly, by onboarding Azure Stack HCI VMs in Azure Arc, you gain the ability to use [Azure Policy][arc-azure-policy] to evaluate their compliance with industry regulations and corporate standards.
 
 ## Architectural excellence
 

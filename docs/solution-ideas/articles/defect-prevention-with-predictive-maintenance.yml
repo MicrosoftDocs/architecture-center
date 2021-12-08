@@ -3,7 +3,7 @@ metadata:
   title: Defect prevention with predictive maintenance
   titleSuffix: Azure Solution Ideas
   description: Predict failures before they happen with real-time assembly line data and Azure Machine Learning and Azure Synapse Analytics.
-  author: doodlemania2
+  author: EdPrice-MSFT
   ms.author: pnp
   ms.date: 12/16/2019
   ms.topic: conceptual

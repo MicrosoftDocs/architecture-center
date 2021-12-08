@@ -7,7 +7,7 @@ ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: well-architected
 categories:
-  - management-and-governance   
+  - management-and-governance
 ---
 
 # Partitioning data for performance optimization
@@ -38,7 +38,7 @@ Different strategies are used to partition data in various Azure data stores to 
 
 - [Partitioning Azure SQL Databases](../../best-practices/data-partitioning-strategies.md#partitioning-azure-sql-database)
 - [Partitioning Azure table storage](../../best-practices/data-partitioning-strategies.md#partitioning-azure-table-storage)
-- [Partitioning Azure blob storage](../../best-practices/data-partitioning-strategies.md#partitioning-azure-blob-storage) 
+- [Partitioning Azure blob storage](../../best-practices/data-partitioning-strategies.md#partitioning-azure-blob-storage)
 - [Partitioning Azure storage queues](../../best-practices/data-partitioning-strategies.md#partitioning-azure-storage-queues)
 - [Partitioning Azure Service Bus](../../best-practices/data-partitioning-strategies.md#partitioning-azure-service-bus)
 - [Partitioning Cosmos DB](../../best-practices/data-partitioning-strategies.md#partitioning-cosmos-db)

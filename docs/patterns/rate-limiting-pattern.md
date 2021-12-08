@@ -20,7 +20,7 @@ categories:
 
 # Rate Limiting pattern
 
-Many services use a [throttling pattern](./throttling.md) to control the resources they consume, imposing limits on the rate at which other applications or services can access them. You can use a rate limiting pattern to help you avoid or minimize throttling errors related to these throttling limits and to help you more accurately predict throughput.
+Many services use a [throttling pattern](./throttling.md) to control the resources they consume, imposing limits on the rate at which other applications or services can access them. You can use a rate limiting pattern to help you avoid or minimize throttling errors related to these throttling limits and to help you more accurately predict throughput.
 
 A rate limiting pattern is appropriate in many scenarios, but it is particularly helpful for large-scale repetitive automated tasks such as [batch processing](../data-guide/big-data/batch-processing.md).
 
@@ -79,8 +79,7 @@ In addition, it's sometimes necessary for multiple uncoordinated processes to sh
 
 For example, if the throttled system allows 500 requests per second, you might create 20 partitions worth 25 requests per second each. If a process needed to issue 100 requests, it might ask the distributed mutual exclusion system for four partitions. The system might grant two partitions for 10 seconds. The process would then rate limit to 50 requests per second, complete the task in two seconds, and then release the lock.
 
-One way to implement this pattern would be to use Azure Storage. In this scenario, you create one 0-byte blob per logical partition in a container. Your applications can then obtain [exclusive
-leases](/rest/api/storageservices/lease-blob) directly against those blobs for a short period of time (for example, 15 seconds). For every lease an application is granted, it will be able to use that partition's worth of capacity. The application then needs to track the lease time so that, when it expires, it can stop using the capacity it was granted. When implementing this pattern, you'll often want each process to attempt to lease a random partition when it needs capacity.
+One way to implement this pattern would be to use Azure Storage. In this scenario, you create one 0-byte blob per logical partition in a container. Your applications can then obtain [exclusive leases](/rest/api/storageservices/lease-blob) directly against those blobs for a short period of time (for example, 15 seconds). For every lease an application is granted, it will be able to use that partition's worth of capacity. The application then needs to track the lease time so that, when it expires, it can stop using the capacity it was granted. When implementing this pattern, you'll often want each process to attempt to lease a random partition when it needs capacity.
 
 To further reduce latency, you might allocate a small amount of exclusive capacity for each process. A process would then only seek to obtain a lease on shared capacity if it needed to exceed its reserved capacity.
 
@@ -154,7 +153,7 @@ The following patterns and guidance might also be relevant when implementing thi
 - [Throttling](./throttling.md). The rate limiting pattern discussed here is typically implemented in response to a service that is throttled.
 - [Retry](./retry.md). When requests to throttled service result in throttling errors, it's generally appropriate to retry those after an appropriate interval.
 
-[Queue-Based Load Leveling](./queue-based-load-leveling.md) is similar but differs from the Rate Limiting pattern in several key ways:
+[Queue-Based Load Leveling](./queue-based-load-leveling.md) is similar but differs from the Rate Limiting pattern in several key ways:
 
 1. Rate limiting doesn't necessarily need to use queues to manage load, but it does need to make use of a durable messaging service. For example, a rate limiting pattern can make use of services like Apache Kafka or Azure Event Hubs.
 1. The rate limiting pattern introduces the concept of a distributed mutual exclusion system on partitions, which allows you to manage capacity for multiple uncoordinated processes that communicate with the same throttled service.

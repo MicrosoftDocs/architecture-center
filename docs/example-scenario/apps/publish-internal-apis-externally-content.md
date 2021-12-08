@@ -1,6 +1,5 @@
 
 
-
 In this scenario, an organization has hosted multiple APIs using [Application Service Environments][ase](ILB ASE) and would like to consolidate these APIs internally using [Azure API Management (APIM)][apim] deployed inside a Virtual Network. The internal API Management instance could also be exposed to external users to allow for utilization of the full potential of the APIs. This external exposure could be achieved using an [Application Gateways][appgtwy] forwarding requests to the internal API Management service, which in turn consumes the APIs deployed in the ASE.
 
 ## Architecture
@@ -65,7 +64,7 @@ Azure Application Gateway auto scaling is available as a part of the Zone redund
 
 ### Security
 
-Since the above example scenario is hosted completely on an internal network, API Management and ASE are already deployed on [secured infrastructure (Azure VNet)][vnet-security]. Application Gateways can be [integrated with Azure Security Center][appgtwy-asc] to provide a seamless way to prevent, detect, and respond to threats to the environment.  For general guidance on designing secure solutions, see the [Azure Security Documentation][security].
+Since the above example scenario is hosted completely on an internal network, API Management and ASE are already deployed on [secured infrastructure (Azure VNet)][vnet-security]. Application Gateways can be [integrated with Microsoft Defender for Cloud][appgtwy-asc] to provide a seamless way to prevent, detect, and respond to threats to the environment.  For general guidance on designing secure solutions, see the [Azure Security Documentation][security].
 
 ### Resiliency
 

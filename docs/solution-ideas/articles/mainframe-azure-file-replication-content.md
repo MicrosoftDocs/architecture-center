@@ -19,35 +19,35 @@ The following diagram shows some of the options for replicating and syncing on-p
 ![Diagram showing the three steps of migrating on-premises files to Azure: moving, conversion and transformation, and storing in persistent storage.](../media/mainframe-azure-file-replication.svg)
 
 1. Move files to Azure:
-   
+
    - The easiest way to move files on-premises or to Azure is by using [File Transfer Protocol (FTP)](https://en.wikipedia.org/wiki/File_Transfer_Protocol). You can host an FTP server on an Azure virtual machine (VM). A simple FTP job control language (JCL) sends files to Azure in binary format, which is essential to preserving mainframe and midrange computation and binary data types. You can store transmitted files in on-premises disks, Azure VM file storage, or Azure Blob Storage.
-   
+
    - An on-premises data gateway and firewall provide secure connections to cloud services for on-premises data.
 
    - You can also upload on-premises files to Blob Storage by using tools like [AzCopy](/azure/storage/common/storage-use-azcopy-v10).
-   
+
    - Azure Data Factory also hosts various data source connectors for migrating file data into Azure.
-   
+
    - There are also third-party solutions that can help move files from mainframes to Azure. You can find some of them in the [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/).
-   
+
 2. Orchestrate, convert, and transform data:
-   
+
    - Azure can't read IBM Extended Binary Coded Decimal Interchange Code (EBCDIC) code page files in Azure VM disks or Blob Storage. To make these files compatible with the Azure character set, Host Integration server (HIS) converts them from EBCDIC to American Standard Code for Information Interchange (ASCII) format.
-     
+
      Copybooks define the data structure of COBOL, PL/I, and assembly language files. HIS converts these files to ASCII based on the copybook layouts.
-   
+
    - Before moving data to Azure data stores, you might need to transform the data or use it for analytics. Azure Data Factory can manage these *extract-transform-load (ETL)* and *extract-load-transform (ELT)* activities, and store the data directly in Azure Data Lake Storage.
-   
+
    - For big data integrations, Azure Databricks can perform all transformation activities fast and effectively by using the Apache Spark engine to do in-memory computations.
 
 3. Store data:
-   
+
    You can store moved data in one of several available persistent Azure storage modes, depending on your requirements.
 
    - If there's no need for analytics, Azure Data Factory can store data directly in a wide range of storage options, such as Data Lake Storage and Blob Storage.
-   
+
    - Azure hosts various databases, which address different needs:
-     
+
      - Relational databases include the SQL Server family, and open-source databases like PostgreSQL, MariaDB, and MySQL.
      - Non-relational databases include Azure Cosmos DB, a fast, multi-model, globally distributed NoSQL database.
 
@@ -57,7 +57,7 @@ Various file moving, integration, and storage scenarios use different components
 
 #### Networking
 
-- An [on-premises data gateway](/data-integration/gateway/service-gateway-onprem) is bridge software that connects on-premises data to cloud services. The gateway typically [installs on a dedicated on-premises VM](/azure/logic-apps/).
+- An [on-premises data gateway](/data-integration/gateway/service-gateway-onprem) is bridge software that connects on-premises data to cloud services. The gateway typically [installs on a dedicated on-premises VM](/azure/logic-apps/).
 
 #### Data integration and transformation
 

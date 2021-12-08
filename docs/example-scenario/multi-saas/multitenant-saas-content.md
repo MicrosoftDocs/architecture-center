@@ -1,6 +1,5 @@
 
 
-
 When you identify a portion of your business's software solution that can be unbranded and marketed to other businesses, it adds an entire new revenue stream for a company. However, configuring the solution to account for the load that a slew of tenants brings is often a challenging obstacle to tackle. Azure offers a range of services for managing a software solution that:
 
 * Flexibly maintains databases for all clients.

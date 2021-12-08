@@ -22,7 +22,6 @@ With private connectivity to a SQL database and high availability, this solution
    The diagram contains two vertically aligned boxes, one for a primary region and one for a secondary region. Each box contains a web app icon, a box for a virtual network, and a database icon. Outside the boxes on the left, a cloud represents the internet. Arrows point from that cloud through a Traffic Manager and then into the web app in each box. The arrow leading into the secondary region box is dashed. Inside each box, arrows connect the web app, the virtual network, and the database. More arrows cross from the virtual network in each region into the database in the other region. All arrows that end in the secondary database are dashed. Outside each box on the right, a cloud represents the internet. A red arrow that is marked with a letter x points from each cloud to the database in its region. An arrow with points on both ends that is labeled Database Geo-replication connects the two databases. Icons for private DNS zones are located at the top and the bottom of the diagram.
 :::image-end:::
 
-
 ### General case
 
 In the general case, the traffic flow and basic configuration look like the [single-region version][Web app private connectivity to Azure SQL database].
@@ -200,7 +199,7 @@ Follow these steps to deploy this scenario:
 
      - The Azure resource that represents a private DNS zone uses the actual DNS zone name, such as `privatelink.database.windows.net`.
      - You can't have different private DNS zones with the same name within a single resource group.
-  
+
      It's best to deploy all resources that you host in the same Azure region into the same resource group.
 
    - To avoid confusion, choose non-overlapping IP address ranges for the virtual networks in both regions. This approach isn't required but is best if you plan on peering the networks for other reasons later on.

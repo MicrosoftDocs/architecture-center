@@ -69,7 +69,7 @@ This approach is secure because Azure handles the management of the underlying c
 **What kind of authentication is required by application APIs?**
 ***
 
-Don't assume that API URLs used by a workload are hidden and can't get exposed to attackers. For example, JavaScript code on a website can be viewed. A mobile application can be decompiled and inspected. Even for internal APIs used only on the backend, a requirement of  authentication can increase the difficulty of lateral movement if an attacker gets network access. Typical mechanisms include API keys, authorization tokens, IP restrictions. 
+Don't assume that API URLs used by a workload are hidden and can't get exposed to attackers. For example, JavaScript code on a website can be viewed. A mobile application can be decompiled and inspected. Even for internal APIs used only on the backend, a requirement of  authentication can increase the difficulty of lateral movement if an attacker gets network access. Typical mechanisms include API keys, authorization tokens, IP restrictions.
 
 Managed Identity can help an API be more secure because it replaces the use of human-managed service principals and can request authorization tokens.
 
@@ -79,7 +79,7 @@ Don't use custom implementations to manage user credentials. Instead, use Azure 
 
 **Are authentication tokens cached securely and encrypted when sharing across web servers?**
 ***
-Application code should first try to get OAuth access tokens silently from a cache before attempting to acquire a token from the identity provider, to optimize performance and maximize availability. Tokens should be stored securely and handled as any other credentials. When there's a need to share tokens across application servers (instead of each server acquiring and caching their own) encryption should be used. 
+Application code should first try to get OAuth access tokens silently from a cache before attempting to acquire a token from the identity provider, to optimize performance and maximize availability. Tokens should be stored securely and handled as any other credentials. When there's a need to share tokens across application servers (instead of each server acquiring and caching their own) encryption should be used.
 
 For information, see [Acquire and cache tokens](/azure/active-directory/develop/msal-acquire-cache-tokens).
 
@@ -87,7 +87,7 @@ For information, see [Acquire and cache tokens](/azure/active-directory/develop/
 
 Use a single identity provider for authentication on all platforms (operating systems, cloud providers, and third-party services.
 
-Azure AD can be used to authenticate Windows, Linux, Azure, Office 365, other cloud providers, and third-party services as service providers. 
+Azure AD can be used to authenticate Windows, Linux, Azure, Office 365, other cloud providers, and third-party services as service providers.
 
 For example, improve the security of Linux virtual machines (VMs) in Azure with Azure AD integration. For details, see [Log in to a Linux virtual machine in Azure using Azure Active Directory authentication](/azure/virtual-machines/linux/login-using-aad).
 
@@ -104,7 +104,7 @@ Start by evaluating the organization's on-premises identity solution and user re
 Consider using [Azure AD Connect](/azure/active-directory/connect/active-directory-aadconnect) for synchronizing Azure AD with your existing on-premises directory. For migration projects, have a requirement to complete this task before an Azure migration and development projects begin.
 
 > [!IMPORTANT]
-> Don't synchronize high-privilege accounts to an on-premises directory. If an attacker gets full control of on-premises assets, they can compromise a cloud account.  This strategy will limit the scope of an incident. For more information, see [Critical impact account dependencies](./critical-impact-accounts.md#critical-impact-admin-dependencies--accountworkstation).
+> Don't synchronize high-privilege accounts to an on-premises directory. If an attacker gets full control of on-premises assets, they can compromise a cloud account.  This strategy will limit the scope of an incident. For more information, see [Critical impact account dependencies](/azure/architecture/framework/security/design-admins#critical-impact-admin-dependencies--accountworkstation).
 >
 >
 > Synchronization is blocked by default in the default Azure AD Connect configuration. Make sure that you haven't customized this configuration. For information about filtering in Azure AD, see [Azure AD Connect sync: Configure filtering](/azure/active-directory/hybrid/how-to-connect-sync-configure-filtering).
@@ -159,7 +159,7 @@ An implementation of this strategy is enabling single sign-on (SSO) to devices, 
 **Learn more**
 
 - [Passwordless Strategy](/windows/security/identity-protection/hello-for-business/passwordless-strategy)
-- [Remove Virtual Machine (VM) direct internet connectivity](./governance.md#remove-virtual-machine-vm-direct-internet-connectivity)
+- [Remove Virtual Machine (VM) direct internet connectivity](/azure/architecture/framework/security/design-governance#remove-virtual-machine-vm-direct-internet-connectivity)
 
 ## Use modern password protection
 
@@ -179,14 +179,13 @@ For Azure, enable protections in Azure AD:
 
 1.    Configure Azure AD Connect to synchronize password hashes. For information, see [Implement password hash synchronization with Azure AD Connect sync](/azure/active-directory/connect/active-directory-aadconnectsync-implement-password-hash-synchronization).
 
-2.    Choose whether to automatically or manually remediate issues found in a report. For more information, see [Monitor identity risks](monitor-remediate.md). 
-    
+2.    Choose whether to automatically or manually remediate issues found in a report. For more information, see [Monitor identity risks](monitor-remediate.md).
 
 For more information about supporting modern passwords in Azure AD, see the following articles:
 
 - [What is Identity Protection?](/azure/active-directory/identity-protection/overview)
 - [Enforce on-premises Azure AD Password Protection for Active Directory Domain Services](/azure/active-directory/authentication/concept-password-ban-bad-on-premises)
-- [Users at risk security report](/azure/active-directory/reports-monitoring/concept-user-at-risk) 
+- [Users at risk security report](/azure/active-directory/reports-monitoring/concept-user-at-risk)
 - [Risky sign-ins security report](/azure/active-directory/reports-monitoring/concept-risky-sign-ins)
 
 For more information about supporting modern passwords in Office 365, see the following article:
@@ -220,7 +219,6 @@ Grant or deny access to a system by verifying the accessor's identity.
 
 > [!div class="nextstepaction"]
 > [Authorization](design-identity-authorization.md)
-
 
 ## Related links
 

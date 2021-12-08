@@ -1,6 +1,6 @@
 ### YamlMime:Architecture
 metadata:
-  title: Monitoring Azure Functions and Event Hubs
+  title: Monitor Azure Functions and Event Hubs
   titleSuffix: Azure Example Scenarios
   description: Learn how to monitor an Azure Functions topology that uses Event Hubs.
   author: dbarkol
@@ -10,7 +10,7 @@ metadata:
   ms.service: architecture-center
   ms.subservice: azure-guide
   ms.custom:
-  - guide
+    - guide
 azureCategories:
   - compute
   - integration
@@ -19,7 +19,7 @@ products:
   - azure-functions
   - azure-application-insights
   - azure-monitor
-name: Monitoring Azure Functions and Event Hubs 
+name: Monitor Azure Functions and Event Hubs 
 summary: Learn how to monitor an Azure Functions topology that uses Event Hubs.
 thumbnailUrl:  /azure/architecture/browse/thumbs/observability-application-map.png
 content: |

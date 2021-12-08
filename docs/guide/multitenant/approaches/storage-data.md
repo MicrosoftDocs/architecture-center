@@ -4,15 +4,15 @@ titleSuffix: Azure Architecture Center
 description: This article describes approaches to support multitenancy for the storage and data components of your solution.
 author: johndowns
 ms.author: jodowns
-ms.date: 09/28/2021
+ms.date: 11/03/2021
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: azure-guide
 products:
- - azure
+  - azure
 categories:
- - management-and-governance
- - security
+  - management-and-governance
+  - security
 ms.category:
   - fcp
 ms.custom:
@@ -22,7 +22,7 @@ ms.custom:
 
 # Architectural approaches for storage and data in multitenant solutions
 
-When planning multitenant storage or data components, you need to decide on an approach for sharing or isolating your tenants' data. Data is often considered the most valuable part of a solution, since it represents your or your customers' valuable business information. So, it's important to carefully plan the approach you use to manage data in a multitenant environment. On this page, we provide guidance about the key considerations and requirements to consider when deciding on an approach to store data in a multitenant system. We then suggest some common patterns for applying multitenancy to storage and data services, and some antipatterns to avoid. Finally, we provide targeted guidance for some specific situations.
+When planning multitenant storage or data components, you need to decide on an approach for sharing or isolating your tenants' data. Data is often considered the most valuable part of a solution, since it represents your or your customers' valuable business information. So, it's important to carefully plan the approach you use to manage data in a multitenant environment. On this page, we provide guidance about the key considerations and requirements that are essential for solution architects when deciding on an approach to store data in a multitenant system. We then suggest some common patterns for applying multitenancy to storage and data services, and some antipatterns to avoid. Finally, we provide targeted guidance for some specific situations.
 
 ## Key considerations and requirements
 
@@ -80,19 +80,7 @@ Several design patterns from the Azure Architecture Center are of relevance to m
 
 ### Deployment Stamps pattern
 
-The [Deployment Stamps pattern](../../../patterns/deployment-stamp.md) involves deploying dedicated infrastructure for a tenant or group of tenants. A single stamp might contain multiple tenants or might be dedicated to a single tenant.
-
-![Diagram showing the Deployment Stamps pattern. Each tenant has their own stamp containing a database.](media/storage-data/deployment-stamps.png)
-
-When using single-tenant stamps, the Deployment Stamps pattern tends to be straightforward to implement, because each stamp is likely to be unaware of any other, so no multitenancy logic or capabilities need to be built into the application layer. When each tenant has their own dedicated stamp, this pattern provides the highest degree of isolation, and it mitigates the [Noisy Neighbor problem](../../../antipatterns/noisy-neighbor/index.md). It also provides the option for tenants to be configured or customized according to their own requirements, such as to be located in a specific geopolitical region or to have specific high availability requirements.
-
-When using multitenant stamps, other patterns need to be considered to manage multitenancy within the stamp, and the Noisy Neighbor problem still might apply. However, by using the Deployment Stamps pattern, you can ensure that you can continue to scale as your solution grows.
-
-The biggest problem with the Deployment Stamps pattern, when being used to serve a single tenant, tends to be the cost of the infrastructure. When using single-tenant stamps, each stamp needs to have its own separate set of infrastructure, which isn't shared with other tenants. You also need to ensure that the resources deployed for a stamp are sufficient to meet the peak load for that tenant's workload. Ensure that your [pricing model](../considerations/pricing-models.md) offsets the cost of deployment for the tenant's infrastructure.
-
-Single-tenant stamps often work well when you have a small number of tenants. As your number of tenants grows, it's possible but increasingly difficult to manage a fleet of stamps ([see this case study as an example](https://devblogs.microsoft.com/azure-sql/running-1m-databases-on-azure-sql-for-a-large-saas-provider-microsoft-dynamics-365-and-power-platform)). You can also apply the Deployment Stamps pattern to create a fleet of multitenant stamps, which can provide benefits for resource and cost sharing.
-
-To implement the Deployment Stamps pattern, it's important to use automated deployment approaches. Depending on your deployment strategy, you might consider managing your stamps within your deployment pipelines, by using declarative infrastructure as code, such as Bicep, ARM templates, or Terraform templates. Alternatively, you might consider building custom code to deploy and manage each stamp, such as by using the [Azure SDKs](https://azure.microsoft.com/downloads).
+For more information about how the [Deployment Stamps pattern](../../../patterns/deployment-stamp.md) can be used to support a multitenant solution, see [Overview](overview.md#deployment-stamps-pattern).
 
 ### Shared multitenant databases and file stores
 
@@ -182,5 +170,6 @@ In general, cloud-native services, like Azure Cosmos DB and Azure Blob Storage, 
 
 For more information about multitenancy and specific Azure services, see:
 
+* [Multitenancy and Azure Storage](../service/storage.md)
 * [Multitenancy and Azure SQL Database](../service/sql-database.md)
 * [Multitenancy and Azure Cosmos DB](../service/cosmos-db.md)

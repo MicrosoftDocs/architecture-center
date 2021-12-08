@@ -53,11 +53,11 @@ Strong dependencies play a critical role in application function and availabilit
 
 ## Design for scalability
 
-A cloud application must be able to scale to accommodate changes in usage. Begin with discrete components, and design the application to respond automatically to load changes whenever possible. Keep scaling limits in mind during design so you can expand easily in the future. 
+A cloud application must be able to scale to accommodate changes in usage. Begin with discrete components, and design the application to respond automatically to load changes whenever possible. Keep scaling limits in mind during design so you can expand easily in the future.
 
 ## Next step
 
->[!div class="nextstepaction"]
->[Testing](./test-checklist.md)
+> [!div class="nextstepaction"]
+> [Testing](./test-checklist.md)
 
 > Go back to the main article: [Design](design-checklist.md)

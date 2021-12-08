@@ -8,27 +8,28 @@ ms.date: 11/05/2019
 ms.author: bryanla
 ms.reviewer: anajod
 ms.lastreviewed: 11/05/2019
-
-# Intent: As an Azure Stack Hub operator, I want to deploy a SQL Server 2016 availability group across two Azure Stack Hub environments so I can have a highly available solution with a disaster recovery site. 
+# Intent: As an Azure Stack Hub operator, I want to deploy a SQL Server 2016 availability group across two Azure Stack Hub environments so I can have a highly available solution with a disaster recovery site.
 # Keyword: sql server 2016 availability group azure stack hub
-
 ---
 
 # Deploy a SQL Server 2016 availability group across two Azure Stack Hub environments
 
-This article will step you through an automated deployment of a basic highly available (HA) SQL Server 2016 Enterprise cluster with an asynchronous disaster recovery (DR) site across two Azure Stack Hub environments. To learn more about SQL Server 2016 and high availability, see [Always On availability groups: a high-availability and disaster-recovery solution](/sql/database-engine/availability-groups/windows/always-on-availability-groups-sql-server?view=sql-server-2016).
+This article will step you through an automated deployment of a basic highly available (HA) SQL Server 2016 Enterprise cluster with an asynchronous disaster recovery (DR) site across two Azure Stack Hub environments. To learn more about SQL Server 2016 and high availability, see [Always On availability groups: a high-availability and disaster-recovery solution](/sql/database-engine/availability-groups/windows/always-on-availability-groups-sql-server?view=sql-server-2016&preserve-view=true).
 
 In this solution, you'll build a sample environment to:
 
 > [!div class="checklist"]
+>
 > - Orchestrate a deployment across two Azure Stack Hubs.
 > - Use Docker to minimize dependency issues with Azure API profiles.
 > - Deploy a basic highly available SQL Server 2016 Enterprise cluster with a disaster recovery site.
 
-> [!Tip]  
-> ![hybrid-pillars.png](media/solution-deployment-guide-cross-cloud-scaling/hybrid-pillars.png)  
-> Microsoft Azure Stack Hub is an extension of Azure. Azure Stack Hub brings the agility and innovation of cloud computing to your on-premises environment, enabling the only hybrid cloud that lets you build and deploy hybrid apps anywhere.  
-> 
+<!-- -->
+
+> [!TIP]
+> ![Icon for hybrid pillars.](media/solution-deployment-guide-cross-cloud-scaling/hybrid-pillars.png)
+> Microsoft Azure Stack Hub is an extension of Azure. Azure Stack Hub brings the agility and innovation of cloud computing to your on-premises environment, enabling the only hybrid cloud that lets you build and deploy hybrid apps anywhere.
+>
 > The article [Hybrid app design considerations](/hybrid/app-solutions/overview-app-design-considerations) reviews pillars of software quality (placement, scalability, availability, resiliency, manageability, and security) for designing, deploying, and operating hybrid apps. The design considerations assist in optimizing hybrid app design, minimizing challenges in production environments.
 
 ## Architecture for SQL Server 2016
@@ -48,8 +49,7 @@ In this solution, you'll build a sample environment to:
 
 ## Get the Docker image
 
-Docker images for each deployment eliminate dependency issues between
-different versions of Azure PowerShell.
+Docker images for each deployment eliminate dependency issues between different versions of Azure PowerShell.
 
 1. Make sure that Docker for Windows is using Windows containers.
 2. Run the following script in an elevated command prompt to get the Docker container with the deployment scripts.
@@ -106,6 +106,6 @@ different versions of Azure PowerShell.
 
 ## Next steps
 
-- Use SQL Server Management Studio to manually fail over the cluster. See [Perform a Forced Manual Failover of an Always On Availability Group (SQL Server)](/sql/database-engine/availability-groups/windows/perform-a-forced-manual-failover-of-an-availability-group-sql-server?view=sql-server-2017)
-- Learn more about hybrid cloud apps. See [Hybrid Cloud Solutions.](/azure-stack/user/)
+- Use SQL Server Management Studio to manually fail over the cluster. See [Perform a Forced Manual Failover of an Always On Availability Group (SQL Server)](/sql/database-engine/availability-groups/windows/perform-a-forced-manual-failover-of-an-availability-group-sql-server?view=sql-server-2017&preserve-view=true).
+- Learn more about hybrid cloud apps. See [Hybrid Cloud Solutions](/azure-stack/user/).
 - Use your own data or modify the code to this sample on [GitHub](https://github.com/Azure-Samples/azure-intelligent-edge-patterns).

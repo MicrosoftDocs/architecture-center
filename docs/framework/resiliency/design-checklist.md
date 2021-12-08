@@ -27,7 +27,7 @@ Reliable applications should maintain a pre-defined percentage of uptime (*avail
 > - Know what happens if the requirements of Service Level Agreements are not met.
 > - Identify possible failure points in the system to build resiliency.
 > - Ensure that applications can operate in the absence of their dependencies.
-  
+
 ## Azure services
 
 - [Azure Front Door](/azure/frontdoor/front-door-overview)
@@ -45,12 +45,12 @@ Reliable applications should maintain a pre-defined percentage of uptime (*avail
 
 ## Next step
 
->[!div class="nextstepaction"]
->[Target & non-functional requirements](./design-requirements.md)
+> [!div class="nextstepaction"]
+> [Target & non-functional requirements](./design-requirements.md)
 
 ## Related links
 
-- [Use platform as a service (PaaS) options](../../guide/design-principles/managed-services.md)  
+- [Use platform as a service (PaaS) options](../../guide/design-principles/managed-services.md)
 - [Design to scale out](../../guide/design-principles/scale-out.md)
 - [Workload availability targets](./business-metrics.md).
 - [Building solutions for high availability using Availability Zones](../../high-availability/building-solutions-for-high-availability.md)

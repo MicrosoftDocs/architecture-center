@@ -225,7 +225,6 @@ You also can use the [Azure Connectivity Toolkit (AzureCT)][azurect] to monitor 
 
 For more information, see the DevOps section in [Microsoft Azure Well-Architected Framework][AAF-devops]. For information specific to monitoring, see [Monitoring For DevOps][devops-monitoring].
 
-
 ## Cost considerations
 
 Use the [Azure pricing calculator][azure-pricing-calculator] to estimate costs. For general considerations, see the Cost section in [Microsoft Azure Well-Architected Framework][aaf-cost].

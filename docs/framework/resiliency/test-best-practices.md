@@ -55,11 +55,11 @@ Configure and test health probes for your load balancers and traffic managers. E
 
 ## Segregate read and write interfaces
 
-Achieve levels of scale and performance needed for your solution by segregating read and write interfaces by implementing the Command and Query Responsibility Segregation (CQRS) pattern. 
+Achieve levels of scale and performance needed for your solution by segregating read and write interfaces by implementing the Command and Query Responsibility Segregation (CQRS) pattern.
 
 ## Next step
 
->[!div class="nextstepaction"]
->[Monitoring](./monitor-checklist.md)
+> [!div class="nextstepaction"]
+> [Monitoring](./monitor-checklist.md)
 
 > Go back to the main article: [Testing](test-checklist.md)

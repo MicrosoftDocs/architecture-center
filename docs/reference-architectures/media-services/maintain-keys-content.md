@@ -1,6 +1,5 @@
 
 
-
 Gridwich uses two types of Azure Key Vault keys, storage keys and third-party keys, which are controlled by two Azure Logic Apps. The Key Roller Logic App rotates the Azure Storage Account keys, and the Secret Changed Handler Logic App rotates or adds third-party keys.
 
 ## Run admin scripts
@@ -68,11 +67,11 @@ The Azure Key Vault itself is configured to send events to a Logic App web hook:
 1. Key Vault sends off a key changed event.
 1. The Logic App picks up the key changed event.
 1. The Logic App checks to see if the key is in its `keysToWatch`.
-   
+
    ![Screenshot showing the Logic App keys.](media/logic-app-keys.png)
-   
+
 1. If the changed key is in `keysToWatch`, the Logic App triggers a soft restart of the function app.
-   
+
    ![Screenshot showing the Trigger soft restart message.](media/soft-restart-app.png)
 
 ### Add a key
@@ -80,20 +79,20 @@ The Azure Key Vault itself is configured to send events to a Logic App web hook:
 To add or change a key:
 
 1. Add the key to the [Gridwich.Host.FunctionApp/sample.local.settings.json](https://github.com/mspnp/gridwich/blob/main/src/Gridwich.Host.FunctionApp/src/sample.local.settings.json) file.
-   
+
 1. Add the key to [infrastructure/terraform/shared/main.tf](https://github.com/mspnp/gridwich/blob/main/infrastructure/terraform/shared/main.tf):
-   
+
    ```terraform
    #############################
    # Secrets
    #############################
-   
+
    resource "azurerm_key_vault_secret" "grw_key_secret" {
      name         = "grw-topic-key"
      value        = azurerm_eventgrid_topic.grw_topic.primary_access_key
      key_vault_id = azurerm_key_vault.shared_key_vault.id
    }
-   
+
    # These are the values watched by the Secret Changed Handler; keep these up to date with what is put in Key Vault,
    # so if one of the values for these secrets changes, the Function App using them will be updated to
    # use the new value
@@ -103,7 +102,7 @@ To add or change a key:
    ##################################################################################
    # Functions KeyVault References Terraform file
    ##################################################################################
-   
+
    locals {
      functions_appsetting_keyvault_refs = [
        {
@@ -112,8 +111,7 @@ To add or change a key:
          slotSetting = false
        },
    ```
-   
-1. Add the secret to the environment library at **Pipelines** > **Library** > **Variable groups**> **gridwich-cicd-variables.\<environment>**, in Secured mode.
-   
-   ![Screenshot of the environment Library.](media/environment-library.png)
 
+1. Add the secret to the environment library at **Pipelines** > **Library** > **Variable groups**> **gridwich-cicd-variables.\<environment>**, in Secured mode.
+
+   ![Screenshot of the environment Library.](media/environment-library.png)

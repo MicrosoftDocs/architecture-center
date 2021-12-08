@@ -2,14 +2,16 @@
 title: Microsoft Azure Well-Architected Framework
 titleSuffix: Azure Architecture Center
 description: Learn about the five pillars of the Azure Well-Architected Framework and how they can produce a high quality, stable, and efficient cloud architecture.
-author: david-stanford 
+author: david-stanford
 ms.author: v-stacywray
 ms.date: 09/09/2021
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: well-architected
-products: azure
-categories: management-and-governance
+products:
+  - azure
+categories:
+  - management-and-governance
 ms.custom:
   - seojan19
   - guide
@@ -43,7 +45,7 @@ Incorporating these pillars helps produce a high quality, stable, and efficient 
 
 Reference the following video about how to architect successful workloads on Azure with the Well-Architected Framework:
 <p>
-<iframe src="https://channel9.msdn.com/Shows/Azure-Enablement/Architect-successful-workloads-on-Azure--Introduction-Ep-1-Well-Architected-series/player" width="760" height="340" allowFullScreen frameBorder="0" title="Architect successful workloads on Azure - Microsoft Channel 9 Video"></iframe></p>
+<iframe src="/shows/Azure-Enablement/Architect-successful-workloads-on-Azure--Introduction-Ep-1-Well-Architected-series/player" width="760" height="340" allowFullScreen frameBorder="0" title="Architect successful workloads on Azure - Microsoft Channel 9 Video"></iframe></p>
 
 ## Overview
 
@@ -68,9 +70,9 @@ To assess your workload using the tenets found in the Microsoft Azure Well-Archi
 
 We also recommend you use Azure Advisor and Advisor Score to identify and prioritize opportunities to improve the posture of your workloads. Both services are free to all Azure users and align to the five pillars of the Well-Architected Framework:
 
-- __[Azure Advisor](/azure/advisor/)__ is a personalized cloud consultant that helps you follow best practices to optimize your Azure deployments. It analyzes your resource configuration and usage telemetry. It recommends solutions that can help you improve the reliability, security, cost effectiveness, performance, and operational excellence of your Azure resources. Learn more about [Azure Advisor](/azure/advisor/).
+- **[Azure Advisor](/azure/advisor/)** is a personalized cloud consultant that helps you follow best practices to optimize your Azure deployments. It analyzes your resource configuration and usage telemetry. It recommends solutions that can help you improve the reliability, security, cost effectiveness, performance, and operational excellence of your Azure resources. Learn more about [Azure Advisor](/azure/advisor/).
 
-- __[Advisor Score](/azure/advisor/azure-advisor-score)__ is a core feature of Azure Advisor that aggregates Advisor recommendations into a simple, actionable score. This score enables you to tell at a glance if you're taking the necessary steps to build reliable, secure, and cost-efficient solutions, and to prioritize the actions that will yield the biggest improvement to the posture of your workloads. The Advisor score consists of an overall score, which can be further broken down into five category scores corresponding to each of the Well-Architected pillars. Learn more about [Advisor Score](/azure/advisor/azure-advisor-score).
+- **[Advisor Score](/azure/advisor/azure-advisor-score)** is a core feature of Azure Advisor that aggregates Advisor recommendations into a simple, actionable score. This score enables you to tell at a glance if you're taking the necessary steps to build reliable, secure, and cost-efficient solutions, and to prioritize the actions that will yield the biggest improvement to the posture of your workloads. The Advisor score consists of an overall score, which can be further broken down into five category scores corresponding to each of the Well-Architected pillars. Learn more about [Advisor Score](/azure/advisor/azure-advisor-score).
 
 ## Reliability
 
@@ -78,7 +80,7 @@ A reliable workload is one that is both resilient and available. [Resiliency](./
 
 For more information about resiliency, reference the following video that will show you how to start improving the reliability of your Azure workloads:
 <p>
-<iframe src="https://channel9.msdn.com/Shows/Azure-Enablement/Start-improving-the-reliability-of-your-Azure-workloads--Reliability-Ep-1--Well-Architected-series/player" width="760" height="340" allowFullScreen frameBorder="0" title="Start improving the reliability of your Azure workloads - Microsoft Channel 9 Video"></iframe></p>
+<iframe src="/shows/Azure-Enablement/Start-improving-the-reliability-of-your-Azure-workloads--Reliability-Ep-1--Well-Architected-series/player" width="760" height="340" allowFullScreen frameBorder="0" title="Start improving the reliability of your Azure workloads - Microsoft Channel 9 Video"></iframe></p>
 
 ### Reliability guidance
 
@@ -99,7 +101,7 @@ Think about [security](./security/index.yml) throughout the entire lifecycle of 
 Ask the right questions about secure application development on Azure by referencing the following video:
 <p>
 
-<iframe src="https://channel9.msdn.com/Shows/Azure-Enablement/Ask-the-right-questions-about-secure-application-development-on-Azure/player" width="760" height="340" allowFullScreen frameBorder="0" title="Ask the right questions about secure application development on Azure - Microsoft Channel 9 Video"></iframe></p>
+<iframe src="/shows/Azure-Enablement/Ask-the-right-questions-about-secure-application-development-on-Azure/player" width="760" height="340" allowFullScreen frameBorder="0" title="Ask the right questions about secure application development on Azure - Microsoft Channel 9 Video"></iframe></p>
 
 ### Security guidance
 
@@ -119,7 +121,7 @@ When you're designing a cloud solution, focus on generating incremental value ea
 
 For more information, reference [Cost optimization](./cost/index.yml) and the following video on how to start optimizing your Azure costs:
 <p>
-<iframe src="https://channel9.msdn.com/Shows/Azure-Enablement/Start-optimizing-your-Azure-costs--Cost-Optimization-Ep-1--Well-Architected-series/player" width="760" height="340" allowFullScreen frameBorder="0" title="Start optimizing your Azure costs - Microsoft Channel 9 Video"></iframe></p>
+<iframe src="/shows/Azure-Enablement/Start-optimizing-your-Azure-costs--Cost-Optimization-Ep-1--Well-Architected-series/player" width="760" height="340" allowFullScreen frameBorder="0" title="Start optimizing your Azure costs - Microsoft Channel 9 Video"></iframe></p>
 
 ### Cost guidance
 
@@ -138,7 +140,7 @@ For a high-level overview, reference [Overview of the cost optimization pillar](
 
 For more information, reference the following video about bringing security into your DevOps practice on Azure:
 <p>
-<iframe src="https://channel9.msdn.com/Shows/Azure-Enablement/DevSecOps-bringing-security-into-your-DevOps-practice-on-Azure/player" width="760" height="340" allowFullScreen frameBorder="0" title="DevSecOps: bringing security into your DevOps practice on Azure - Microsoft Channel 9 Video"></iframe></p>
+<iframe src="/shows/Azure-Enablement/DevSecOps-bringing-security-into-your-DevOps-practice-on-Azure/player" width="760" height="340" allowFullScreen frameBorder="0" title="DevSecOps: bringing security into your DevOps practice on Azure - Microsoft Channel 9 Video"></iframe></p>
 
 ### Operational excellence guidance
 
@@ -153,7 +155,7 @@ For a high-level summary, reference [Overview of the operational excellence pill
 
 [Performance efficiency](./scalability/index.yml) is the ability of your workload to scale to meet the demands placed on it by users in an efficient manner. The main ways to achieve performance efficiency include using scaling appropriately and implementing PaaS offerings that have scaling built in.
 
-For more information, tune in to [Performance Efficiency: Fast & Furious: Optimizing for Quick & Reliable VM Deployments](https://channel9.msdn.com/events/All-Around-Azure/Well-Architected-The-Backstage-Tour/Performance-Efficiency?term=Performance&pubDate=3years&lang-en=true):
+For more information, tune in to [Performance Efficiency: Fast & Furious: Optimizing for Quick & Reliable VM Deployments](/events/all-around-azure-well-architected-the-backstage-tour/performance-efficiency?term=Performance&pubDate=3years&lang-en=true):
 
 :::image type="content" source="./_images/performance-channel-9.png" alt-text="Screenshot of Performance Efficiency thumbnail for upcoming video.":::
 
@@ -176,9 +178,9 @@ For a high-level synopsis, reference [Overview of the performance efficiency pil
 Learn more about:
 
 - [Azure Well-Architected Review](/assessments/?id=azure-architecture-review&mode=pre-assessment)
-- [Well-Architected Series](https://channel9.msdn.com/Tags/well-architected-series)
+- Well-Architected Series
 - [Introduction to the Microsoft Azure Well-Architected Framework](/learn/modules/azure-well-architected-introduction/)
-- [Azure Security Center](/azure/security-center/)
+- [Microsoft Defender for Cloud](/azure/security-center/)
 - [Cloud Adoption Framework](/azure/cloud-adoption-framework/)
 
 <!-- links -->

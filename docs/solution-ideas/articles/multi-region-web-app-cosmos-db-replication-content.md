@@ -1,14 +1,13 @@
 [!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
-The architecture described in this article increases availability compared to single region deployment. It provides two active regions, and a standby region that can become active if one of the two active regions fails. Each region has its own Azure Cosmos DB database. The replication capabilities of Azure Cosmos DB assure that any changes to a database in one region are also made to the corresponding databases in other regions.  Because Azure Cosmos DB does the replication, application developers don’t have to do it in their code, greatly simplifying implementation.
-
+The architecture described in this article increases availability compared to single region deployment. It provides two active regions, and a standby region that can become active if one of the two active regions fails. Each region has its own Azure Cosmos DB database. The replication capabilities of Azure Cosmos DB assure that any changes to a database in one region are also made to the corresponding databases in other regions.  Because Azure Cosmos DB does the replication, application developers don't have to do it in their code, greatly simplifying implementation.
 
 In addition to replicating databases to other regions configured in an Azure Storage account, Azure Cosmos DB further increases availability by maintaining four replicas of databases within each region.
 
 Azure Cosmos DB supports limitless throughput and latency below 10 ms to help your applications provide predictable response and avoid failures due to latency issues. There is a cache for each database to reduce access load and improve application response.
 
-> [!Note] 
-> Replication provides five consistency levels. For more information, see [Consistency levels in Azure Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/consistency-levels).
+> [!Note]
+> Replication provides five consistency levels. For more information, see [Consistency levels in Azure Cosmos DB](/azure/cosmos-db/consistency-levels).
 
 ## Potential use cases
 
@@ -77,4 +76,4 @@ The architecture may be appropriate for any application that uses massive amount
 
 - [Build scalable database solutions with Azure services](../../data-guide/scenarios/build-scalable-database-solutions-azure-services.md)
 - [RESTful web API design](../../best-practices/api-design.md)
-- [Consistency levels in Azure Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/consistency-levels)
+- [Consistency levels in Azure Cosmos DB](/azure/cosmos-db/consistency-levels)

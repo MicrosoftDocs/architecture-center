@@ -41,7 +41,7 @@ Provide security assurance through _identity management_: the process of authent
 
 The Azure Security Benchmark includes a collection of high-impact security recommendations you can use to help secure the services you use in Azure:
 
-> ![Security Benchmark](../../_images/benchmark-security.svg) The questions in this section are aligned to the [Azure Security Benchmarks Identity and Access Control](/azure/security/benchmarks/security-controls-v2-identity-management).
+> ![Security Benchmark](../../_images/benchmark-security.svg) The questions in this section are aligned to the [Azure Security Benchmarks Identity and Access Control](/azure/security/benchmarks/security-controls-v3-identity-management).
 
 ## Azure services for identity
 
@@ -61,8 +61,7 @@ Here are some reference architectures related to identity and access management:
 
 ## Next steps
 
-Monitor the communication between segments. Use data to identify anomalies, set alerts, or block traffic to mitigate the risk of attackers crossing segmentation boundaries. 
-
+Monitor the communication between segments. Use data to identify anomalies, set alerts, or block traffic to mitigate the risk of attackers crossing segmentation boundaries.
 
 > [!div class="nextstepaction"]
 > [Network-related risks](./design-network.md)

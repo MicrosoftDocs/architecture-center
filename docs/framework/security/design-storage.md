@@ -8,7 +8,7 @@ ms.service: architecture-center
 ms.subservice: well-architected
 products:
   - azure-storage
-categories: 
+categories:
   - management-and-governance
   - security
 ms.custom:
@@ -17,7 +17,7 @@ ms.custom:
 
 # Data protection considerations
 
-Classify, protect, and monitor sensitive data assets using access control, encryption, and logging in Azure. Provide controls on data at rest and in transit.  
+Classify, protect, and monitor sensitive data assets using access control, encryption, and logging in Azure. Provide controls on data at rest and in transit.
 
 ## Checklist
 **How are you managing encryption for this workload?**
@@ -29,12 +29,12 @@ Classify, protect, and monitor sensitive data assets using access control, encry
 > - Protect data moving over a network through encryption at all points so that it's not accessed unauthorized users.
 > - Store keys in managed key vault service with identity-based access control and audit policies.
 > - Rotate keys and other secrets frequently.
- 
+
 ## Azure security benchmark
 
 The Azure Security Benchmark includes a collection of high-impact security recommendations you can use to help secure the services you use in Azure:
 
-> ![GitHub logo](../../_images/benchmark-security.svg) The questions in this section are aligned to the Azure Security Benchmarks [Data Protection](/azure/security/benchmarks/security-controls-v2-data-protection).
+> ![GitHub logo](../../_images/benchmark-security.svg) The questions in this section are aligned to the Azure Security Benchmarks [Data Protection](/azure/security/benchmarks/security-controls-v3-data-protection).
 
 ## Reference architecture
 Here are some reference architectures related to secure storage:

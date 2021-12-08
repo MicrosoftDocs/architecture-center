@@ -23,8 +23,6 @@ products:
   - azure-event-hubs
   - azure-logic-apps
   - azure-monitor
-  - azure-sentinel
-  - azure-virtual-machines
 thumbnailUrl: /azure/architecture/browse/thumbs/paas-tracing-logging.png
 content: |
    [!include[](unified-logging-content.md)]

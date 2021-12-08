@@ -1,7 +1,5 @@
 <!-- cSpell:ignore fabraga -->
 
-
-
 This example scenario demonstrates how to use the extensive family of Azure Data Services to build a modern data platform capable of handling the most common data challenges in an organization.
 
 The solution described in this article combines a range of Azure services that will ingest, store, process, enrich, and serve data and insights from different sources (structured, semi-structured, unstructured, and streaming).
@@ -19,10 +17,12 @@ This approach can also be used to:
 
 [![Architecture for a modern data platform using Azure data services](./media/azure-analytics-end-to-end.png)](./media/azure-analytics-end-to-end.png#lightbox)
 
+*Download a [Visio file](https://arch-center.azureedge.net/Analytics-with-AzureSynapse.vsdx) of this architecture*.
+
 > [!NOTE]
 >
->- The services covered by this architecture are only a subset of a much larger family of Azure services. Similar outcomes can be achieved by using other services or features that are not covered by this design.
->- Specific business requirements for your analytics use case may also ask for the use of different services or features that are not considered in this design.
+> - The services covered by this architecture are only a subset of a much larger family of Azure services. Similar outcomes can be achieved by using other services or features that are not covered by this design.
+> - Specific business requirements for your analytics use case may also ask for the use of different services or features that are not considered in this design.
 
 ## Analytics Use Cases
 
@@ -64,8 +64,8 @@ The analytics use cases covered by the architecture are illustrated by the diffe
 
 1. Use [Azure Synapse pipelines](/azure/data-factory/concepts-pipelines-activities) to pull data from a wide variety of semi-structured data sources, both on-premises and in the cloud. For example:
 
-    - Ingest data from file-based sources containing CSV or JSON files. 
-    - Connect to No-SQL databases such as Cosmos DB or Mongo DB. 
+    - Ingest data from file-based sources containing CSV or JSON files.
+    - Connect to No-SQL databases such as Cosmos DB or Mongo DB.
     - Call REST APIs provided by SaaS applications that will function as your data source for the pipeline.
 
 1. From the Azure Synapse pipeline, use a [Copy Data activity](/azure/data-factory/copy-activity-overview) to stage the data copied from the semi-structured data sources into the [Raw zone](https://techcommunity.microsoft.com/t5/data-architecture-blog/how-to-organize-your-data-lake/ba-p/1182562) of your [Azure Data Lake Store Gen 2](/azure/storage/blobs/data-lake-storage-introduction) data lake. You should save data preserving the original format as acquired from the data sources.
@@ -86,7 +86,7 @@ The analytics use cases covered by the architecture are illustrated by the diffe
 
 1. Use [Azure Synapse pipelines](/azure/data-factory/concepts-pipelines-activities) to pull data from a wide variety of non-structured data sources, both on-premises and in the cloud. For example:
 
-    - Ingest video, image, audio, or free text from file-based sources containing the source files. 
+    - Ingest video, image, audio, or free text from file-based sources containing the source files.
     - Call REST APIs provided by SaaS applications that will function as your data source for the pipeline.
 
 1. From the Azure Synapse pipeline, use a [Copy Data activity](/azure/data-factory/copy-activity-overview) to stage the data copied from the non-structured data sources into the [Raw zone](https://techcommunity.microsoft.com/t5/data-architecture-blog/how-to-organize-your-data-lake/ba-p/1182562) of your [Azure Data Lake Store Gen 2](/azure/storage/blobs/data-lake-storage-introduction) data lake. You should save data preserving the original format as acquired from the data sources.
@@ -117,7 +117,7 @@ The analytics use cases covered by the architecture are illustrated by the diffe
 
 ## Discover and Govern
 
-Data governance is a common challenge in large enterprise environments. On one hand, business analysts need to be able to discover and understand data assets that can help them solve business problems. On the other hand, Chief Data Officers want insights on privacy and security of business data. 
+Data governance is a common challenge in large enterprise environments. On one hand, business analysts need to be able to discover and understand data assets that can help them solve business problems. On the other hand, Chief Data Officers want insights on privacy and security of business data.
 
 ### Azure Purview
 
@@ -141,7 +141,7 @@ Following these recommendations, the services below should be considered as part
 1. [Azure Cost Management](https://azure.microsoft.com/services/cost-management/): financial governance over your Azure workloads.
 1. [Azure Key Vault](https://azure.microsoft.com/services/key-vault/): secure credential and certificate management. For example, [Azure Synapse Pipelines](/azure/data-factory/how-to-use-azure-key-vault-secrets-pipeline-activities), [Azure Synapse Spark Pools](/azure/synapse-analytics/spark/apache-spark-secure-credentials-with-tokenlibrary) and [Azure ML](/azure/machine-learning/how-to-use-secrets-in-runs) can retrieve credentials and certificates from Azure Key Vault used to securely access data stores.
 1. [Azure Monitor](https://azure.microsoft.com/services/monitor/): collect, analyze, and act on telemetry information of your Azure resources to proactively identify problems and maximize performance and reliability.
-1. [Azure Security Center](https://azure.microsoft.com/services/security-center/): strengthen and monitor the security posture of your Azure workloads.  
+1. [Microsoft Defender for Cloud](https://azure.microsoft.com/services/security-center/): strengthen and monitor the security posture of your Azure workloads.
 1. [Azure DevOps](https://azure.microsoft.com/solutions/devops/) & [GitHub](https://azure.microsoft.com/products/github/): implement DevOps practices to enforce automation and compliance to your workload development and deployment pipelines for Azure Synapse and Azure ML.
 1. [Azure Policy](/azure/governance/policy/): implement organizational standards and governance for resource consistency, regulatory compliance, security, cost, and management.
 
@@ -164,7 +164,7 @@ The following Azure services have been used in the architecture:
 - Azure Cost Management
 - Azure Key Vault
 - Azure Monitor
-- Azure Security Center
+- Microsoft Defender for Cloud
 - Azure DevOps
 - Azure Policy
 - GitHub
@@ -191,8 +191,7 @@ The following Azure services have been used in the architecture:
 
 ## Considerations
 
-The technologies in this architecture were chosen because each of them provides the necessary functionality to handle the most common data challenges in an organization. These services meet the requirements for scalability and availability, while helping them control costs.
-The services covered by this architecture are only a subset of a much larger family of Azure services. Similar outcomes can be achieved by using other services or features not covered by this design.
+The technologies in this architecture were chosen because each of them provides the necessary functionality to handle the most common data challenges in an organization. These services meet the requirements for scalability and availability, while helping them control costs. The services covered by this architecture are only a subset of a much larger family of Azure services. Similar outcomes can be achieved by using other services or features not covered by this design.
 
 Specific business requirements for your analytics use cases may also ask for the use of different services or features not considered in this design.
 
@@ -216,8 +215,7 @@ In general, use the [Azure pricing calculator](https://azure.microsoft.com/prici
 
 - [Azure Stream Analytics](https://azure.microsoft.com/pricing/details/stream-analytics/) is charged based on the amount of compute power required to process your stream queries.
 
-- [Power BI](https://powerbi.microsoft.com/pricing) has different product options for different requirements. [Power BI Embedded](https://azure.microsoft.com/pricing/details/power-bi-embedded) provides an Azure-based option for embedding Power BI functionality inside your applications. A Power BI Embedded instance is included in the pricing sample 
-above.
+- [Power BI](https://powerbi.microsoft.com/pricing) has different product options for different requirements. [Power BI Embedded](https://azure.microsoft.com/pricing/details/power-bi-embedded) provides an Azure-based option for embedding Power BI functionality inside your applications. A Power BI Embedded instance is included in the pricing sample  above.
 
 - [Azure CosmosDB](https://azure.microsoft.com/pricing/details/cosmos-db/) is priced based on the amount of storage and compute resources required by your databases.
 

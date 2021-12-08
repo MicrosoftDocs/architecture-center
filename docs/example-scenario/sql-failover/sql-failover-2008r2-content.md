@@ -1,6 +1,3 @@
-
-
-
 Many businesses rely on SQL Server 2008 R2 failover clusters to manage their data. However, [support for SQL Server 2008 R2][Microsoft SQL Server 2008 R2 lifecycle] and [for Windows Server 2008 R2][Windows Server 2008 R2 lifecycle] has ended. Regular security updates are no longer available.
 
 Customers who would like to migrate to Azure often can't change their infrastructure. The [Azure shared disks][Azure shared disks] feature makes migration possible in this situation. With this feature and a Windows Server 2008 R2 failover cluster, users can replicate their on-premises deployment in Azure. There's no need for third-party software to manage shared storage.
@@ -105,8 +102,6 @@ Follow these steps to set up the cluster.
 
 2. Configure an [availability set][Configure multiple virtual machines in an availability set for redundancy] to guarantee VM redundancy and availability.
 
-
-
 #### Configure the VMs
 
 1. Check that the correct [name resolution for resources in Azure virtual networks][Name resolution that uses your own DNS server] is in place.
@@ -171,7 +166,7 @@ In each VM, sign in as a domain administrator, open a command line as an adminis
 
    1. SQL Server: **1433**
    1. Load Balancer Health Probe: **59999**
-  
+
   For complete guidelines, refer to [Configure the Windows Firewall to Allow SQL Server Access][Configure the Windows Firewall to Allow SQL Server Access].
 
 ##### Use the management console
@@ -184,11 +179,11 @@ In each VM, sign in as a domain administrator, open a command line as an adminis
 
       - SQL Server: **1433**
       - Load Balancer Health Probe: **59999**
-  
+
       For complete guidelines, refer to [Configure the Windows Firewall to Allow SQL Server Access][Configure the Windows Firewall to Allow SQL Server Access].
 
 1. Sign in to one VM and use the **Create Cluster** wizard to create a cluster.
-  
+
    - This operation creates a [Cluster Name Object (CNO)][Cluster Name Object] and adds it to the domain.
    - By default, the operation uses [Dynamic Host Configuration Protocol (DHCP)][Dynamic Host Configuration Protocol] to set the cluster IP address.
 
@@ -342,4 +337,4 @@ To transfer data from your on-premises database to the newly created cluster, co
 [Visio version of architecture diagram]: https://arch-center.azureedge.net/US-1778662-PR-1852-windows-server-2008-r2-failover-cluster-with-azure-shared-disk.vsdx
 [What is Azure SQL?]: /azure/azure-sql/azure-sql-iaas-vs-paas-what-is-overview
 [What is Azure Virtual Network?]: /azure/virtual-network/virtual-networks-overview
-[Windows Server 2008 R2 lifecycle]: https://docs.microsoft.com/lifecycle/products/windows-server-2008-r2
+[Windows Server 2008 R2 lifecycle]: /lifecycle/products/windows-server-2008-r2

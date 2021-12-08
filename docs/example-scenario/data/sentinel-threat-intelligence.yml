@@ -1,9 +1,10 @@
 ### YamlMime:Architecture
 metadata:
-  title: Cyber threat intelligence in Azure Sentinel
+  title: Cyber threat intelligence in Microsoft Sentinel
   titleSuffix: Azure Example Scenarios
-  description: Import threat indicators, view logs, create rules to generate security alerts and incidents, and visualize threat intelligence data with Azure Sentinel.
-  author: v-thepet
+  description: Import threat indicators, view logs, create rules to generate security alerts and incidents, and visualize threat intelligence data with Microsoft Sentinel.
+  author: EdPrice-MSFT
+  ms.author: pnp
   ms.date: 04/13/2020
   ms.topic: conceptual
   ms.service: architecture-center
@@ -14,10 +15,10 @@ metadata:
     - fcp
     - example-scenario
     - internal-intro
-name: Threat indicators for cyber threat intelligence in Azure Sentinel
+name: Threat indicators for cyber threat intelligence in Microsoft Sentinel
 azureCategories:
   - security
-summary: Import threat indicators, view logs, create rules to generate security alerts and incidents, and visualize threat intelligence data with Azure Sentinel.
+summary: Import threat indicators, view logs, create rules to generate security alerts and incidents, and visualize threat intelligence data with Microsoft Sentinel.
 products:
   - azure-active-directory
   - azure-logic-apps

@@ -8,10 +8,8 @@ ms.date: 11/05/2019
 ms.author: bryanla
 ms.reviewer: anajod
 ms.lastreviewed: 11/05/2019
-
 # Intent: As an Azure Stack Hub operator, I want to direct traffic to specific endpoints with a geo-distributed app solution using Azure and Azure Stack Hub so I can ensure information is routed to endpoints based on regional requirements.
 # Keyword: geo-distributed traffic app azure stack hub
-
 ---
 
 # Direct traffic with a geo-distributed app using Azure and Azure Stack Hub
@@ -60,10 +58,10 @@ Before building out a distributed app footprint, it helps to know the following 
 
 - **Naming convention for the apps:** Since multiple instances of the app will be deployed, a name is needed for each instance of the deployed app. With App Service Environment for Power Apps, the same app name can be used across multiple environments. Since each App Service environment has a unique domain suffix, developers can choose to reuse the exact same app name in each environment. For example, a developer could have apps named as follows: *myapp.foo1.p.azurewebsites.net*, *myapp.foo2.p.azurewebsites.net*, *myapp.foo3.p.azurewebsites.net*, and so on. For the app used here, each app instance has a unique name. The app instance names used are *webfrontend1*, *webfrontend2*, and *webfrontend3*.
 
-> [!Tip]  
-> ![Hybrid pillars diagram](media/solution-deployment-guide-cross-cloud-scaling/hybrid-pillars.png)  
-> Microsoft Azure Stack Hub is an extension of Azure. Azure Stack Hub brings the agility and innovation of cloud computing to your on-premises environment, enabling the only hybrid cloud that allows you to build and deploy hybrid apps anywhere.  
-> 
+> [!Tip]
+> ![Hybrid pillars diagram](media/solution-deployment-guide-cross-cloud-scaling/hybrid-pillars.png)
+> Microsoft Azure Stack Hub is an extension of Azure. Azure Stack Hub brings the agility and innovation of cloud computing to your on-premises environment, enabling the only hybrid cloud that allows you to build and deploy hybrid apps anywhere.
+>
 > The article [Hybrid app design considerations](/hybrid/app-solutions/overview-app-design-considerations) reviews pillars of software quality (placement, scalability, availability, resiliency, manageability, and security) for designing, deploying, and operating hybrid apps. The design considerations assist in optimizing hybrid app design, minimizing challenges in production environments.
 
 ## Part 1: Create a geo-distributed app
@@ -96,7 +94,7 @@ Update the DNS zone file for the domain. Azure AD can then verify ownership of t
 
 Set up Hybrid Continuous Integration/Continuous Delivery (CI/CD) to deploy Web App to Azure and Azure Stack Hub, and auto push changes to both clouds.
 
-> [!Note]  
+> [!Note]
 > Azure Stack Hub with proper images syndicated to run (Windows Server and SQL) and App Service deployment are required. For more information, see [Prerequisites for deploying App Service on Azure Stack Hub](/azure-stack/operator/azure-stack-app-service-before-you-get-started).
 
 #### Add Code to Azure Repos
@@ -170,7 +168,7 @@ Azure DevOps Services provide a highly configurable and manageable pipeline for 
       ![Set Agent queue for Azure cloud hosted environment in Azure DevOps Services](media/solution-deployment-guide-geo-distributed/image11.png)
 
 8. In Deploy Azure App Service menu, select the valid **Package or Folder** for the environment. Select **OK** to **folder location**.
-  
+
       ![Select package or folder for Azure App Service environment in Azure DevOps Services](media/solution-deployment-guide-geo-distributed/image12.png)
 
       ![Folder picker dialog 1](media/solution-deployment-guide-geo-distributed/image13.png)
@@ -182,7 +180,6 @@ Azure DevOps Services provide a highly configurable and manageable pipeline for 
 10. Add a new artifact selecting the build for the Azure Stack Hub app.
 
     ![Add new artifact for Azure Stack Hub app in Azure DevOps Services](media/solution-deployment-guide-geo-distributed/image15.png)
-
 
 11. Add one more environment by applying the Azure App Service Deployment.
 
@@ -228,7 +225,7 @@ Azure DevOps Services provide a highly configurable and manageable pipeline for 
 
 21. Save all changes.
 
-> [!Note]  
+> [!Note]
 > Some settings for the tasks may have been automatically defined as [environment variables](/azure/devops/pipelines/release/variables?tabs=batch#custom-variables) when creating a release definition from a template. These settings can't be modified in the task settings; instead, the parent environment item must be selected to edit these settings.
 
 ## Part 2: Update web app options
@@ -243,7 +240,7 @@ Azure DevOps Services provide a highly configurable and manageable pipeline for 
 
 ### Map an existing custom DNS name to Azure Web Apps
 
-> [!Note]  
+> [!Note]
 > Use a CNAME for all custom DNS names except a root domain (for example, northwind.com).
 
 To migrate a live site and its DNS domain name to App Service, see [Migrate an active DNS name to Azure App Service](/azure/app-service/manage-custom-dns-migrate-domain).
@@ -266,14 +263,14 @@ Update the DNS zone file for the domain. Azure AD will verify ownership of the c
 
 For example, to add DNS entries for northwindcloud.com and www\.northwindcloud.com, configure DNS settings for the northwindcloud.com root domain.
 
-> [!Note]  
+> [!Note]
 > A domain name may be purchased using the [Azure portal](/azure/app-service/manage-custom-dns-buy-domain). To map a custom DNS name to a web app, the web app's [App Service plan](https://azure.microsoft.com/pricing/details/app-service/) must be a paid tier (**Shared**, **Basic**, **Standard**, or **Premium**).
 
 ### Create and map CNAME and A records
 
 #### Access DNS records with domain provider
 
-> [!Note]  
+> [!Note]
 >  Use Azure DNS to configure a custom DNS name for Azure Web Apps. For more information, see [Use Azure DNS to provide custom domain settings for an Azure service](/azure/dns/dns-custom-domain).
 
 1. Sign in to the website of the main provider.
@@ -333,12 +330,12 @@ After adding the CNAME, the DNS records page looks like the following example:
 15. **Add hostname**.
 
     It might take some time for the new hostnames to be reflected in the app's **Custom domains** page. Try refreshing the browser to update the data.
-  
-    ![Custom domains](media/solution-deployment-guide-geo-distributed/image31.png) 
-  
+
+    ![Custom domains](media/solution-deployment-guide-geo-distributed/image31.png)
+
     If there's an error, a verification error notification will appear at the bottom of the page. ![Domain verification error](media/solution-deployment-guide-geo-distributed/image32.png)
 
-> [!Note]  
+> [!Note]
 >  The above steps may be repeated to map a wildcard domain (\*.northwindcloud.com). This allows the addition of any additional subdomains to this app service without having to create a separate CNAME record for each one. Follow the registrar instructions to configure this setting.
 
 #### Test in a browser
@@ -354,7 +351,7 @@ In this part, we will:
 > - Enforce HTTPS for the app.
 > - Automate SSL certificate binding with scripts.
 
-> [!Note]  
+> [!Note]
 > If needed, obtain a customer SSL certificate in the Azure portal and bind it to the web app. For more information, see the [App Service Certificates tutorial](/azure/app-service/web-sites-purchase-ssl-web-site).
 
 ### Prerequisites
@@ -377,7 +374,7 @@ To use a certificate in App Service, the certificate must meet all the following
 
 - Contains all intermediate certificates in the certificate chain.
 
-> [!Note]  
+> [!Note]
 > **Elliptic Curve Cryptography (ECC) certificates** work with App Service but aren't included in this guide. Consult a certificate authority for assistance in creating ECC certificates.
 
 #### Prepare the web app
@@ -424,7 +421,7 @@ Merge multiple certificates in the chain.
 
 2. Create a file for the merged certificate called *mergedcertificate.crt*. In a text editor, copy the content of each certificate into this file. The order of your certificates should follow the order in the certificate chain, beginning with your certificate and ending with the root certificate. It looks like the following example:
 
-    ```Text
+    ```text
 
     -----BEGIN CERTIFICATE-----
 
@@ -487,7 +484,7 @@ When App Service finishes uploading the certificate, it appears in the **SSL set
 
 1. In the **SSL bindings** section, select **Add binding**.
 
-    > [!Note]  
+    > [!Note]
     >  If the certificate has been uploaded, but doesn't appear in domain name(s) in the **Hostname** dropdown, try refreshing the browser page.
 
 2. In the **Add SSL Binding** page, use the drop downs to select the domain name to secure and the certificate to use.
@@ -522,7 +519,7 @@ In different browsers, go to `https://<your.custom.domain>` to ensure the web ap
 
 ![browse to web app](media/solution-deployment-guide-geo-distributed/image42.png)
 
-> [!Note]  
+> [!Note]
 > If certificate validation errors occur, a self-signed certificate may be the cause, or intermediate certificates may have been left off when exporting to the PFX file.
 
 #### Enforce HTTPS
@@ -613,7 +610,7 @@ The app allows [TLS](https://wikipedia.org/wiki/Transport_Layer_Security) 1.0 by
 
 16. Select **OK**.
 
-    > [!Note]  
+    > [!Note]
     >  Create at least one endpoint with a geographic scope of All (World) to serve as the default endpoint for the resource.
 
 17. When the addition of both endpoints is complete, they're displayed in **Traffic Manager profile** along with their monitoring status as **Online**.

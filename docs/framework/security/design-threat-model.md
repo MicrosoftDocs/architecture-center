@@ -14,7 +14,7 @@ ms.custom:
 
 # Application threat analysis
 
-Do a comprehensive analysis to identify threats, attacks, vulnerabilities, and counter measures. Having this information can protect the application and threats it might pose to the system. Start with simple questions to gain insight into potential risks. Then, progress to advanced techniques using threat modeling.  
+Do a comprehensive analysis to identify threats, attacks, vulnerabilities, and counter measures. Having this information can protect the application and threats it might pose to the system. Start with simple questions to gain insight into potential risks. Then, progress to advanced techniques using threat modeling.
 
 ## 1- Gather information about the basic security controls
 
@@ -42,9 +42,9 @@ Assign tasks to the individual people who are responsible for a particular risk 
 [Threat modeling](https://www.microsoft.com/en-us/securityengineering/sdl/threatmodeling)
 
 ## 2- Evaluate the application design progressively
-Analyze application components and connections and their relationships. Threat modeling is a crucial engineering exercise that includes defining security requirements, identifying and mitigating threats, and validating those mitigations. This technique can be used at any stage of application development or production, but it's most effective during the design stages of a new functionality. 
+Analyze application components and connections and their relationships. Threat modeling is a crucial engineering exercise that includes defining security requirements, identifying and mitigating threats, and validating those mitigations. This technique can be used at any stage of application development or production, but it's most effective during the design stages of a new functionality.
 
-Popular methodologies include: 
+Popular methodologies include:
 
 - [STRIDE](/azure/security/develop/threat-modeling-tool-threats):
     - Spoofing
@@ -54,11 +54,11 @@ Popular methodologies include:
     - Denial of Service
     - Elevation of Privilege
 
-Microsoft Security Development Lifecycle uses STRIDE and provides a tool to assist with this process. This tool is available at no additional cost. For more information, see [Microsoft Threat Modeling Tool](https://www.microsoft.com/en-us/securityengineering/sdl/threatmodeling). 
-- [Open Web Application Security Project (OWASP)](https://owasp.org/www-community/Threat_Modeling_Process) has documented a threat modeling approach for applications. 
->![Best practice](../../_images/i-best-practices.svg) Integrate threat modeling through automation using secure operations. Here are some resources:
+Microsoft Security Development Lifecycle uses STRIDE and provides a tool to assist with this process. This tool is available at no additional cost. For more information, see [Microsoft Threat Modeling Tool](https://www.microsoft.com/en-us/securityengineering/sdl/threatmodeling).
+- [Open Web Application Security Project (OWASP)](https://owasp.org/www-community/Threat_Modeling_Process) has documented a threat modeling approach for applications.
+> ![Best practice](../../_images/i-best-practices.svg) Integrate threat modeling through automation using secure operations. Here are some resources:
 >
-> - Toolkit for [Secure DevOps on Azure](https://azsk.azurewebsites.net/).  
+> - Toolkit for [Secure DevOps on Azure](https://azsk.azurewebsites.net/).
 > - [Guidance on DevOps pipeline security](https://www.owasp.org/index.php/OWASP_AppSec_Pipeline#tab=Main) by OWASP.
 
 ## 3- Mitigate the identified threats
@@ -83,7 +83,7 @@ For information about mitigation strategies, see [RapidAttack](/security/compass
 
 **How long does it typically take to deploy a security fix into production?**
 ***
-If a security vulnerability is discovered, update the software with the fix as soon as possible. Have processes, tools, and approvals in place to roll out the fix quickly. 
+If a security vulnerability is discovered, update the software with the fix as soon as possible. Have processes, tools, and approvals in place to roll out the fix quickly.
 
 ### Learn more
 
