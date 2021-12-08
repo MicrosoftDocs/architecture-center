@@ -1189,6 +1189,8 @@ items:
             href: example-scenario/ai/movie-recommendations-with-machine-learning.yml
       - name: Energy and environment
         items:
+          - name: Overview
+            href: industries/energy-environment.md
           - name: Environmental monitoring
             href: solution-ideas/articles/environment-monitoring-and-supply-chain-optimization.yml
           - name: Geospatial data processing and analytics
@@ -1714,6 +1716,8 @@ items:
                 href: solution-ideas/articles/auditing-and-risk-compliance.yml
               - name: Autonomous systems
                 href: solution-ideas/articles/autonomous-systems.yml
+              - name: Azure Machine Learning architecture
+                href: solution-ideas/articles/azure-machine-learning-solution-architecture.yml
               - name: Business process management
                 href: solution-ideas/articles/business-process-management.yml
               - name: Content research
@@ -1876,8 +1880,6 @@ items:
                 href: solution-ideas/articles/advanced-analytics-on-big-data.yml
               - name: App integration using Event Grid
                 href: solution-ideas/articles/application-integration-using-event-grid.yml
-              - name: Azure Machine Learning architecture
-                href: solution-ideas/articles/azure-machine-learning-solution-architecture.yml
               - name: Big data analytics with Azure Data Explorer
                 href: solution-ideas/articles/big-data-azure-data-explorer.yml
               - name: Big data analytics with enterprise security

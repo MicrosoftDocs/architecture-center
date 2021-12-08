@@ -32,12 +32,12 @@ Build, deploy, and manage high-quality models with Azure Machine Learning, a ser
 * [Azure Load Balancer](https://azure.microsoft.com/services/load-balancer/) load-balances internet and private network traffic with high performance and low latency. Load Balancer works across virtual machines, virtual machine scale sets, and IP addresses.
 * [Power BI](https://powerbi.microsoft.com) is a suite of business analytics tools that deliver insights throughout your organization. Connect to hundreds of data sources, simplify data prep, and drive unplanned analysis. Produce beautiful reports, then publish them for your organization to consume on the web and across mobile devices.
 
-
 ## Pricing
 
 * [Get pricing estimates](https://azure.microsoft.com/pricing/details/machine-learning/)
 
 ## Next steps
+
 See documentation for the key services in this solution:
 
 * [Azure Machine Learning documentation](/azure/machine-learning/)
@@ -49,3 +49,17 @@ See documentation for the key services in this solution:
 * [Azure Key Vault documentation](/azure/key-vault/general/basic-concepts)
 * [Azure Load Balancer documentation](/azure/load-balancer/)
 * [Power BI documentation](/power-bi)
+
+## Related resources
+
+See related guidance on the Azure Architecture Center:
+
+* [Compare the machine learning products and technologies from Microsoft](/azure/architecture/data-guide/technology-choices/data-science-and-machine-learning)
+* [Machine learning at scale](/azure/architecture/data-guide/big-data/machine-learning-at-scale)
+* [Machine learning operations (MLOps) framework to upscale machine learning lifecycle with Azure Machine Learning](/azure/architecture/example-scenario/mlops/mlops-technical-paper)
+* [Azure Machine Learning decision guide for optimal tool selection](/architecture/example-scenario/mlops/aml-decision-tree)
+* [Deploy AI and ML computing on-premises and to the edge](/azure/architecture/hybrid/deploy-ai-ml-azure-stack-edge)
+* [Many models machine learning (ML) at scale with Azure Machine Learning](/azure/architecture/example-scenario/ai/many-models-machine-learning-azure-machine-learning)
+* [Scale AI and machine learning initiatives in regulated industries](/azure/architecture/example-scenario/ai/scale-ai-and-machine-learning-in-regulated-industries)
+* [Predict hospital readmissions by using traditional and automated machine learning techniques](/azure/architecture/example-scenario/ai/predict-hospital-readmissions-machine-learning)
+* [Secure research environment for regulated data](/azure/architecture/example-scenario/ai/secure-compute-for-research)
