@@ -65,7 +65,7 @@ For example, suppose Contoso is building a multitenant SaaS application that inc
 
 You can also deploy dedicated resources for each tenant. You might deploy an entire copy of your solution for a single tenant, as in the [Deployment Stamps pattern](#deployment-stamps-pattern), or you might deploy some components that are shared between tenants and other components that are dedicated to a specific tenants.
 
-It's important that you consider how you deploy and manage these resources, including [whether the deployment of tenant-specific resources is initiated by your deployment pipeline or an application component](deployment-configuration-content.md#resource-management-responsibility). You also need to determine how you'll clearly identify that specific resources relate to specific tenants, which might include naming conventions, tags, and a tenant catalog database.
+It's important that you consider how you deploy and manage these resources, including [whether the deployment of tenant-specific resources is initiated by your deployment pipeline or an application component](deployment-configuration.yml#resource-management-responsibility). You also need to determine how you'll clearly identify that specific resources relate to specific tenants, which might include naming conventions, tags, and a tenant catalog database.
 
 It's often a good practice to use separate resource groups for the resources you share between multiple tenants and those that you deploy for individual tenants. However, Azure limits the number of resources of a single type that can be deployed into a resource group, so you also need to consider [scaling across multiple resource groups](#resource-group-and-subscription-limits) as you grow.
 
