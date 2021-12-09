@@ -70,7 +70,9 @@ The **inner loop for quantum components** involves following [activities enabled
 1. Estimate resources
 1. Run (test) code on quantum hardware
 
-The last step is a specialty of quantum computing. Because quantum hardware is a scarce resource, developers typically don't own their own hardware or have exclusive access. Instead, they use centrally operated hardware - in most cases they access production hardware to test their development artifacts.  
+The last three steps are specific to quantum computing. For running and testing your code, there are two alternative execution environments available: [quantum simulators and quantum hardware](/azure/quantum/overview-understanding-quantum-computing#quantum-computers-vs-quantum-simulators). [Simulators](/azure/quantum/user-guide/machines/) are software programs that run on classical computers and can act as the target machine for a Q# program. They make it possible to run and test quantum programs in an environment that predicts how qubits will react to different operations as they offer access to the full state vector of qubit registers. These insights are a great tool for analyzing runtime behavior of quantum algorithms.
+
+For verifying the simulation results and especially for those tests that exhibit the probabilistic behavior of quantum systems, you should execute your code on [quantum hardware](/azure/quantum/qc-target-list), which gives you real-time performance insights in your job's runtime behavior. Because quantum hardware is a scarce resource, developers typically don't own their own or have exclusive access. Instead, they use centrally operated environments - in most cases they access production hardware to test their development artifacts. There, the jobs are queued until jobs submitted before complete, which might delay the testing cycle a bit.
 
 The **inner loop for classical components** includes typical development steps for building, running, and debugging code in a development environment. In context of hybrid quantum applications, there is an extra step of integrating the quantum components into the classical components. Complexity of this step depends on whether the quantum components are [tightly coupled](../../example-scenario/quantum/tightly-coupled-quantum-computing-job.yml) or [loosely coupled](../../example-scenario/quantum/loosely-coupled-quantum-computing-job.yml) with the classical ones. Developers don't need special quantum computing skills. The integration can typically be implemented with classical programming skills.
 
@@ -89,7 +91,7 @@ If the [loosely coupled integration model](../../example-scenario/quantum/loosel
 
 Continuous Integration remains an important part of DevOps with hybrid quantum applications. As soon as code is ready and committed to the repository, it needs to be automatically tested and integrated into other parts of the software. For the pure classical parts of the application, [best practices for testing](../../checklist/dev-ops.md#testing) remain in place. The Microsoft Azure Well-Architected Framework also gives some [guidance on CI best practices](../../framework/devops/release-engineering-ci.md).
 
-The quantum components require special treatment. The components themselves require special execution environments. In addition, the classical code where quantum components are managed (i.e., submitted and monitored at the quantum workspace) needs to be tested.
+The quantum components require special treatment. The components themselves require special execution environments. In addition, the classical code where quantum components are managed (that is, submitted and monitored at the quantum workspace) needs to be tested.
 
 Testing of quantum components includes following activities:
 
@@ -101,10 +103,11 @@ For testing purposes, the quantum jobs can either be submitted by the classical 
 
 Because of its probabilistic nature, testing of the quantum components has some special requirements:
 
-* All tests must be run multiple times to make sure that a successful test will stay successful on subsequent runs.
-* Results must be validated. For example, in optimization scenarios, it must be validated, if results violate any restrictions defined for valid solutions.
+* Choose the execution environment for tests carefully. You can efficiently execute many tests on a quantum simulator (where there is access to the full state vector of qubit registers). However, you need quantum hardware for those tests that exhibit the probabilistic behavior.
+* Run tests that cover these probabilistic portions of algorithms multiple times to make sure that a successful test will stay successful on subsequent runs.
+* Results of program execution must be validated based on its nature, often using quantum-specific tools and tricks (some described in [part 1](https://devblogs.microsoft.com/qsharp/inside-the-quantum-katas-part-1/) and [part 2](https://devblogs.microsoft.com/qsharp/inside-the-quantum-katas-part-2-testing-quantum-programs/) of previous blogs titled "Inside the Quantum Katas"). Tests must validate, if results represent valid solutions and honor existing constraints.
 
-During integration step, the quantum component is bundled with the classical components. The classical components represent the deployment artifact that gets installed on the classical environment during subsequent steps.
+During integration, the quantum components are bundled with the classical components. The result represents the deployment artifact that gets installed on the classical environment during subsequent steps.
 
 ## Continuous Delivery (CD)
 
@@ -128,7 +131,7 @@ Once the classical component submitted a quantum job, it must [monitor the statu
 
 ## Next steps
 
-* To get an overview of Microsoft Quantum, the world's first full-stack, open cloud quantum computing ecosystem, see [Microsoft Quantum](https://azure.microsoft.com/solutions/quantum-computing/).
+* To get an overview of Microsoft Quantum, the world's first full-stack, open cloud quantum computing ecosystem, see [Microsoft Quantum](https://azure.microsoft.com/solutions/quantum-computing/) and work through the [Quantum Computing Foundations](/learn/paths/quantum-computing-fundamentals/) learning path.
 * For more information about the Azure Quantum service, see [Azure Quantum](https://azure.microsoft.com/services/quantum/).
 * For general aspects of Azure Quantum job management, see [Work with Azure Quantum jobs](/azure/quantum/how-to-work-with-jobs).
 * For more information about Azure DevOps, see the official [Azure DevOps documentation](/azure/devops/).

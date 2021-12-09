@@ -18,13 +18,16 @@ This orchestration functionality can be integrated to classical applications in 
 
 ## Potential use cases
 
-Use this architecture where quantum computing jobs must be executed as part of a classical application. The loosely coupled approach allows reusing the quantum functionality in multiple applications that can submit quantum computing jobs via API-calls.
-
-Following scenarios promise to benefit from quantum computing in near-term:
+Use this architecture where quantum computing jobs must be executed as part of a classical application. In general, independent from the coupling approach, following scenarios promise to benefit from quantum computing in near-term:
 
 * Optimization challenges
 * Simulation tasks
 * Machine Learning
+
+The loosely coupled approach should be preferred in following cases:
+
+* There is a dedicated team of quantum specialists who want to centrally provide quantum functionality to other teams.
+* The quantum job represents a generic solution (for example, job scheduling) that is required in multiple applications.
 
 ## Architecture
 
@@ -89,7 +92,7 @@ For general security aspects, consider applying the [typical design patterns for
 
 ### Resiliency
 
-Always respect that quantum target environments are limited resources. With some providers, submitted jobs are first added to a queue before being processed. It is important to monitor job execution to give feedback to the user about the current status. For cases where job execution fails because of a transient error, a [retry pattern](/azure/architecture/patterns/retry) should be implemented for job submission. Submission should not happen via synchronous call but asynchronously instead with polling for the result.
+Always respect that quantum target environments are shared resources. Providers typically put submitted jobs to a queue where they have to wait until previously submitted jobs complete. It is important to monitor job execution to inform the user about the current job status. For cases where job execution fails because of a transient error, you should implement a [retry pattern](/azure/architecture/patterns/retry). Furthermore, you should submit the jobs via asynchronous calls with polling for the result to avoid unnecessary blocking of the calling client.
 
 ### DevOps
 
@@ -107,9 +110,10 @@ For the Azure Quantum service following points should be considered:
 
 ## Next steps
 
-* To get an overview of Microsoft Quantum, the world's first full-stack, open cloud quantum computing ecosystem, see [Microsoft Quantum](https://azure.microsoft.com/solutions/quantum-computing/).
+* To get an overview of Microsoft Quantum, the world's first full-stack, open cloud quantum computing ecosystem, see [Microsoft Quantum](https://azure.microsoft.com/solutions/quantum-computing/) and work through the [Quantum Computing Foundations](/learn/paths/quantum-computing-fundamentals/) learning path.
 * For more information about the Azure Quantum service, see [Azure Quantum](https://azure.microsoft.com/services/quantum/).
 * For general aspects of Azure Quantum job management, see [Work with Azure Quantum jobs](/azure/quantum/how-to-work-with-jobs).
+* For learning about [running algorithms on quantum hardware](/learn/modules/run-algorithms-quantum-hardware-azure-quantum/), see the corresponding learning module on MS learn.
 
 ## Related resources
 

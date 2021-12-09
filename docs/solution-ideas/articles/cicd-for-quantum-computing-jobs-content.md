@@ -19,6 +19,7 @@ This combination of classical and quantum components must be reflected in the bu
 1. Compiled app classic artifacts are deployed to Azure. The quantum jobs are submitted to a quantum workspace during runtime.
 1. Runtime behavior, health, performance, and usage information are monitored via Application Insights.
 1. Backlog items are updated depending on monitoring results.
+1. Application Developer leverages Application Insights for application feedback and optimization.
 
 ### Components
 
@@ -36,12 +37,13 @@ The application components used:
 * [Azure Key Vault](https://azure.microsoft.com/services/key-vault) safeguards and maintains control of keys and other secrets like Quantum Workspace name.
 * [Azure Quantum](https://azure.microsoft.com/services/quantum) provides functionality for running quantum computing jobs on various target quantum environments.
 * [Azure Storage](https://azure.microsoft.com/services/storage) holds input and output data of the quantum job.
+* [Application Insights](/azure/azure-monitor/app/app-insights-overview) monitors the application, detects application anomalies such as poor performance and failures, and sends telemetry to the Azure portal.
 
 The [Azure Quantum Workspace](/azure/quantum/how-to-create-workspace) is a collection of assets associated with running quantum or optimization applications. Depending on provisioned providers the jobs are executed on quantum simulators, quantum hardware, or optimization solvers.
 
 ## Next steps
 
-* To get an overview of Microsoft Quantum, the world's first full-stack, open cloud quantum computing ecosystem, see [Microsoft Quantum](https://azure.microsoft.com/solutions/quantum-computing/).
+* To get an overview of Microsoft Quantum, the world's first full-stack, open cloud quantum computing ecosystem, see [Microsoft Quantum](https://azure.microsoft.com/solutions/quantum-computing/) and work through the [Quantum Computing Foundations](/learn/paths/quantum-computing-fundamentals/) learning path.
 * For more information about the Azure Quantum service, see [Azure Quantum](https://azure.microsoft.com/services/quantum/).
 * For general aspects of Azure Quantum job management, see [Work with Azure Quantum jobs](/azure/quantum/how-to-work-with-jobs).
 * For more information about Azure DevOps, see the official [Azure DevOps documentation](/azure/devops/).
