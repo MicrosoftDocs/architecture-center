@@ -35,7 +35,7 @@ This solution applies to scenarios that:
 
 - A subnet in the hub virtual network uses a service endpoint for Azure Storage. Azure adds a public IP address for Storage to that subnet's route table.
 
-- The hub virtual network contains two NVAs. The NVAs can be gateways, software-defined wide-area networks (SD-WANs), or security appliance firewalls. Route Server exchanges the NVA, network application, and gateway routes by:
+- The hub virtual network contains two NVAs. The NVAs might be gateways, software-defined wide-area networks (SD-WANs), or security appliance firewalls. Route Server exchanges the NVA, network application, and gateway routes by:
 
   - Creating an instance of Azure Virtual Machine Scale Sets. Each VM in the scale set has an IP address. As with gateway IP addresses, Route Server has access to the VM IP addresses.
   - Establishing BGP peers between each NVA and a VM in the scale set.
@@ -176,7 +176,7 @@ NVAs are charged based on the appliance that you use. You're also charged for th
 [Networking blog]: https://azure.microsoft.com/blog/topics/networking
 [Next steps in Virtual Network service endpoints]: /azure/virtual-network/virtual-network-service-endpoints-overview#next-steps
 [Overview of the Azure Security Benchmark (v1)]: /security/benchmark/azure/overview-v1
-[Overview of the cost optimization pillar]: ../../framework/cost/overview.md
+[Overview of the cost optimization pillar]: ../../framework/cost/overview
 [Pricing calculator]: https://azure.microsoft.com/pricing/calculator
 [Quickstart: Create and configure Route Server using the Azure portal]: /azure/route-server/quickstart-configure-route-server-portal
 [Regions and availability zones]: /azure/availability-zones/az-overview
