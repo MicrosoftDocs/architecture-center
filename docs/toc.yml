@@ -1536,7 +1536,7 @@ items:
                 href: reference-architectures/ai/training-deep-learning.yml
               - name: Enterprise-grade conversational bot
                 href: reference-architectures/ai/conversational-bot.yml
-              - name: Extract object from text
+              - name: Cognitive Services can get text from objects using AI Builder in Power Automate
                 href: example-scenario/ai/extract-object-text.yml
               - name: Image classification
                 href: example-scenario/ai/intelligent-apps-image-processing.yml
