@@ -3,7 +3,7 @@
 
 
 
-This example scenario demonstrates how to use the extensive family of Azure Data Services to build a modern data platform capable of handling the most common data challenges in an organization.
+This example scenario demonstrates how to use Azure Synapse Analytics with extensive family of Azure Data Services to build a modern data platform capable of handling the most common data challenges in an organization.
 
 The solution described in this article combines a range of Azure services that will ingest, store, process, enrich, and serve data and insights from different sources (structured, semi-structured, unstructured, and streaming).
 
@@ -11,10 +11,11 @@ The solution described in this article combines a range of Azure services that w
 
 This approach can also be used to:
 
-- Establish an enterprise-wide data hub, consisting of a data warehouse for structured data and a data lake for semi-structured and unstructured data. This data hub becomes the single source of truth for your reporting data.
+- Establish a [Data Product](https://docs.microsoft.com/azure/cloud-adoption-framework/scenarios/data-management/architectures/data-landing-zone-data-products) architecture, consisting of a data warehouse for structured data and a data lake for semi-structured and unstructured data. This data hub becomes the single source of truth for your reporting data.
 - Integrate relational data sources with other unstructured datasets, with the use of big data processing technologies.
 - Use semantic modeling and powerful visualization tools for simpler data analysis.
 - Share datasets within the organization or with trusted external partners.
+- Implement knowledge mining solutions to extract valuable business information hidden in images, PDFs, documents, etc.
 
 ## Architecture
 
@@ -23,31 +24,47 @@ This approach can also be used to:
 > [!NOTE]
 >
 >- The services covered by this architecture are only a subset of a much larger family of Azure services. Similar outcomes can be achieved by using other services or features that are not covered by this design.
->- Specific business requirements for your analytics use case may also ask for the use of different services or features that are not considered in this design.
+>- Specific business requirements for your analytics use case could require the use of different services or features that are not considered in this design.
 
 ## Analytics Use Cases
 
 The analytics use cases covered by the architecture are illustrated by the different data sources on the left-hand side of the diagram. Data flows through the solution from the bottom up as follows:
 
-### Azure Data Services, cloud native HTAP with Cosmos DB
+### Azure Data Services, cloud native HTAP with Cosmos DB and Dataverse
 
-1. [Azure Synapse Link for Azure Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/synapse-link) enables you to run near real-time analytics over operational data in Azure Cosmos DB, by using the two analytics engines available from your Azure Synapse workspace: [SQL Serverless](https://docs.microsoft.com/azure/synapse-analytics/sql/on-demand-workspace-overview) and [Spark Pools](https://docs.microsoft.com/azure/synapse-analytics/spark/apache-spark-overview).
+#### Process
 
-1. Using either a [SQL Serverless query](https://docs.microsoft.com/azure/synapse-analytics/sql/query-cosmos-db-analytical-store?tabs=openrowset-key) or a [Spark Pool notebook](https://docs.microsoft.com/azure/synapse-analytics/synapse-link/how-to-query-analytical-store-spark), you can access the [Cosmos DB analytical store](https://docs.microsoft.com/azure/cosmos-db/analytical-store-introduction) and then combine datasets from your near real-time operational data with data from your data lake or from your data warehouse.
+1. [Azure Synapse Link for Azure Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/synapse-link) and [Azure Synapse Link for Dataverse](https://docs.microsoft.com/powerapps/maker/data-platform/export-to-data-lake) enable you to run near real-time analytics over operational and business application data using the analytics engines available from your Azure Synapse workspace: [SQL Serverless](https://docs.microsoft.com/azure/synapse-analytics/sql/on-demand-workspace-overview) and [Spark Pools](https://docs.microsoft.com/azure/synapse-analytics/spark/apache-spark-overview).
 
-1. The resulting datasets from your [SQL Serverless queries](https://docs.microsoft.com/azure/synapse-analytics/sql/create-external-table-as-select) can be persisted in your data lake.  If you are using [Spark notebooks](https://docs.microsoft.com/azure/synapse-analytics/spark/synapse-spark-sql-pool-import-export), the resulting datasets can be persisted in your data lake or data warehouse (SQL pool).
+1. When using Azure Synapse Link for Cosmos DB, use either a [SQL Serverless query](https://docs.microsoft.com/azure/synapse-analytics/sql/query-cosmos-db-analytical-store?tabs=openrowset-key) or a [Spark Pool notebook](https://docs.microsoft.com/azure/synapse-analytics/synapse-link/how-to-query-analytical-store-spark), you can access the [Cosmos DB analytical store](https://docs.microsoft.com/azure/cosmos-db/analytical-store-introduction) and then combine datasets from your near real-time operational data with data from your data lake or from your data warehouse.
 
-1. Load relevant data from the Azure Synapse SQL pool or data lake into [Power BI datasets](https://techcommunity.microsoft.com/t5/azure-synapse-analytics/integrate-power-bi-with-azure-synapse-analytics/ba-p/2003057) for data visualization. [Power BI models](https://docs.microsoft.com/learn/modules/design-model-power-bi/) implement a semantic model to simplify the analysis of business data and relationships.
+1. When using Azure Synapse Link for Dataverse, use either a [SQL Serverless query](https://docs.microsoft.com/powerapps/maker/data-platform/azure-synapse-link-serverless) or a [Spark Pool notebook](https://docs.microsoft.com/powerapps/maker/data-platform/azure-synapse-link-spark), you can access the selected Dataverse tables and then combine datasets from your near real-time business applications data with data from your data lake or from your data warehouse.
 
-1. Business analysts use [Power BI](https://docs.microsoft.com/power-bi/admin/service-premium-what-is) reports and dashboards to analyze data and derive business insights.
+#### Store
 
-1. Data can also be securely shared to other business units or external trusted partners using [Azure Data Share](https://docs.microsoft.com/azure/data-share/share-your-data).
+1. The resulting datasets from your [SQL Serverless queries](https://docs.microsoft.com/azure/synapse-analytics/sql/create-external-table-as-select) can be persisted in your data lake.  If you are using [Spark notebooks](https://docs.microsoft.com/azure/synapse-analytics/spark/synapse-spark-sql-pool-import-export), the resulting datasets can be persisted either in your data lake or data warehouse (SQL pool).
+
+#### Serve
+
+1. Load relevant data from the Azure Synapse SQL pool or data lake into [Power BI datasets](https://techcommunity.microsoft.com/t5/azure-synapse-analytics/integrate-power-bi-with-azure-synapse-analytics/ba-p/2003057) for data visualization and exploration. [Power BI models](https://docs.microsoft.com/learn/modules/design-model-power-bi/) implement a semantic model to simplify the analysis of business data and relationships. Business analysts use [Power BI](https://docs.microsoft.com/power-bi/admin/service-premium-what-is) reports and dashboards to analyze data and derive business insights.
+
+1. Data can also be securely shared to other business units or external trusted partners using [Azure Data Share](https://docs.microsoft.com/azure/data-share/share-your-data). Data consumers have the freedom to choose what data format they want to use and also what compute engine is best to process the shared datasets.
+
+1. Structured and unstructured data stored in your Synapse workspace can also be used to build [knowledge mining solutions](https://azure.microsoft.com/solutions/knowledge-mining) and use AI to uncover valuable business insights across different document types and formats including from Office documents, PDFs, images, audio, forms and web pages.
 
 ### Relational databases
 
+#### Ingest
+
 1. Use [Azure Synapse pipelines](https://docs.microsoft.com/azure/data-factory/concepts-pipelines-activities) to pull data from a wide variety of databases, both on-premises and in the cloud. Pipelines can be triggered based on a pre-defined schedule, in response to an event, or can be explicitly called via REST APIs.
 
+#### Store
+
+1. [Organize your data lake](https://docs.microsoft.com/azure/cloud-adoption-framework/scenarios/data-management/best-practices/data-lake-services) following the best practices around which zones to create, what folder structures to use in each zone and what files format to use for each analytics scenario.
+
 1. From the Azure Synapse pipeline, use a [Copy Data activity](https://docs.microsoft.com/azure/data-factory/copy-activity-overview) to stage the data copied from the relational databases into the [Raw zone](https://techcommunity.microsoft.com/t5/data-architecture-blog/how-to-organize-your-data-lake/ba-p/1182562) of your [Azure Data Lake Store Gen 2](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-introduction) data lake. You can save the data in delimited text format or compressed as Parquet files.
+
+#### Process and Enrich
 
 1. Use either [Data Flows](https://docs.microsoft.com/azure/data-factory/concepts-data-flow-overview), [SQL Serverless queries](https://docs.microsoft.com/learn/modules/use-azure-synapse-serverless-sql-pools-for-transforming-data-lake/), or [Spark notebooks](https://docs.microsoft.com/learn/modules/transform-data-with-dataframes-apache-spark-pools-azure-synapse-analytics/) to validate, transform, and move the datasets into your Curated zone in your data lake.
 
@@ -55,13 +72,17 @@ The analytics use cases covered by the architecture are illustrated by the diffe
 
 1. You can serve your final dataset directly from the data lake Curated zone or you can use Copy Data activity to ingest the final dataset into your SQL pool tables using the [COPY command](https://docs.microsoft.com/sql/t-sql/statements/copy-into-transact-sql) for fast ingestion.
 
-1. Load relevant data from the Azure Synapse SQL pool or data lake into [Power BI datasets](https://techcommunity.microsoft.com/t5/azure-synapse-analytics/integrate-power-bi-with-azure-synapse-analytics/ba-p/2003057) for data visualization. [Power BI models](https://docs.microsoft.com/learn/modules/design-model-power-bi/) implement a semantic model to simplify the analysis of business data and relationships.
+#### Serve
 
-1. Business analysts use [Power BI](https://docs.microsoft.com/power-bi/admin/service-premium-what-is) reports and dashboards to analyze data and derive business insights.
+1. Load relevant data from the Azure Synapse SQL pool or data lake into [Power BI datasets](https://techcommunity.microsoft.com/t5/azure-synapse-analytics/integrate-power-bi-with-azure-synapse-analytics/ba-p/2003057) for data visualization. [Power BI models](https://docs.microsoft.com/learn/modules/design-model-power-bi/) implement a semantic model to simplify the analysis of business data and relationships. Business analysts use [Power BI](https://docs.microsoft.com/power-bi/admin/service-premium-what-is) reports and dashboards to analyze data and derive business insights.
 
-1. Data can also be securely shared to other business units or external trusted partners using [Azure Data Share](https://docs.microsoft.com/azure/data-share/share-your-data).
+1. Data can also be securely shared to other business units or external trusted partners using [Azure Data Share](https://docs.microsoft.com/azure/data-share/share-your-data). Data consumers have the freedom to choose what data format they want to use and also what compute engine is best to process the shared datasets.
+
+1. Structured and unstructured data stored in your Synapse workspace can also be used to build [knowledge mining solutions](https://azure.microsoft.com/solutions/knowledge-mining) and use AI to uncover valuable business insights across different document types and formats including from Office documents, PDFs, images, audio, forms and web pages.
 
 ### Semi-structured data sources
+
+#### Ingest
 
 1. Use [Azure Synapse pipelines](https://docs.microsoft.com/azure/data-factory/concepts-pipelines-activities) to pull data from a wide variety of semi-structured data sources, both on-premises and in the cloud. For example:
 
@@ -69,28 +90,46 @@ The analytics use cases covered by the architecture are illustrated by the diffe
     - Connect to No-SQL databases such as Cosmos DB or Mongo DB. 
     - Call REST APIs provided by SaaS applications that will function as your data source for the pipeline.
 
+#### Store
+
+1. [Organize your data lake](https://docs.microsoft.com/azure/cloud-adoption-framework/scenarios/data-management/best-practices/data-lake-services) following the best practices around which zones to create, what folder structures to use in each zone and what files format to use for each analytics scenario.
+
 1. From the Azure Synapse pipeline, use a [Copy Data activity](https://docs.microsoft.com/azure/data-factory/copy-activity-overview) to stage the data copied from the semi-structured data sources into the [Raw zone](https://techcommunity.microsoft.com/t5/data-architecture-blog/how-to-organize-your-data-lake/ba-p/1182562) of your [Azure Data Lake Store Gen 2](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-introduction) data lake. You should save data preserving the original format as acquired from the data sources.
 
-1. Use either [Data Flows](https://docs.microsoft.com/azure/data-factory/concepts-data-flow-overview), [SQL Serverless queries](https://docs.microsoft.com/learn/modules/use-azure-synapse-serverless-sql-pools-for-transforming-data-lake/) or [Spark notebooks](https://docs.microsoft.com/learn/modules/transform-data-with-dataframes-apache-spark-pools-azure-synapse-analytics/) to validate, transform and move the your datasets into your Curated zone in your data lake. SQL Serverless queries expose underlying [CSV](https://docs.microsoft.com/azure/synapse-analytics/sql/query-single-csv-file), [Parquet](https://docs.microsoft.com/azure/synapse-analytics/sql/query-parquet-files) or [JSON](https://docs.microsoft.com/azure/synapse-analytics/sql/query-json-files) files as external tables so they can be queried using T-SQL.
+#### Process and Enrich
+
+1. For batch/micro-batch pipelines, use either [Data Flows](https://docs.microsoft.com/azure/data-factory/concepts-data-flow-overview), [SQL Serverless queries](https://docs.microsoft.com/learn/modules/use-azure-synapse-serverless-sql-pools-for-transforming-data-lake/) or [Spark notebooks](https://docs.microsoft.com/learn/modules/transform-data-with-dataframes-apache-spark-pools-azure-synapse-analytics/) to validate, transform and move the your datasets into your Curated zone in your data lake. SQL Serverless queries expose underlying [CSV](https://docs.microsoft.com/azure/synapse-analytics/sql/query-single-csv-file), [Parquet](https://docs.microsoft.com/azure/synapse-analytics/sql/query-parquet-files) or [JSON](https://docs.microsoft.com/azure/synapse-analytics/sql/query-json-files) files as external tables so they can be queried using T-SQL.
 
     1. As part of your data transformations, you can invoke machine learning models from your [SQL pools using standard T-SQL](https://docs.microsoft.com/azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-predict) or Spark notebooks. These ML models can be used to enrich your datasets and generate further business insights. These machine learning models can be consumed from [Azure Cognitive Services](https://docs.microsoft.com/azure/synapse-analytics/machine-learning/tutorial-cognitive-services-sentiment) or [custom ML models from Azure ML](https://docs.microsoft.com/azure/synapse-analytics/machine-learning/tutorial-sql-pool-model-scoring-wizard).
 
 1. You can serve your final dataset directly from the data lake Curated zone or you can use Copy Data activity to ingest the final dataset into your SQL pool tables using the [COPY command](https://docs.microsoft.com/sql/t-sql/statements/copy-into-transact-sql) for fast ingestion.
 
-1. Load relevant data from the Azure Synapse SQL pool or data lake into [Power BI datasets](https://techcommunity.microsoft.com/t5/azure-synapse-analytics/integrate-power-bi-with-azure-synapse-analytics/ba-p/2003057) for data visualization. [Power BI models](https://docs.microsoft.com/learn/modules/design-model-power-bi/) implement a semantic model to simplify the analysis of business data and relationships.
+1. For near real-time telemetry and time-series analytics scenarios, use [Data Explorer pools](https://docs.microsoft.com/azure/synapse-analytics/data-explorer/data-explorer-overview) to easily [ingest](https://docs.microsoft.com/azure/synapse-analytics/data-explorer/ingest-data/data-explorer-ingest-data-overview), consolidate and correlate logs and IoT events data across multiple data sources. With Data Explorer pools you can use [Kusto queries (KQL)](https://docs.microsoft.com/azure/data-explorer/kusto/query/tutorial?pivots=azuredataexplorer) to perform [time-series analysis](https://docs.microsoft.com/azure/data-explorer/kusto/query/machine-learning-and-tsa), [geo-spacial clustering](https://docs.microsoft.com/azure/data-explorer/kusto/query/geospatial-grid-systems) and machine learning enrichment.
 
-1. Business analysts use [Power BI](https://docs.microsoft.com/power-bi/admin/service-premium-what-is) reports and dashboards to analyze data and derive business insights.
+#### Serve
 
-1. Data can also be securely shared to other business units or external trusted partners using [Azure Data Share](https://docs.microsoft.com/azure/data-share/share-your-data).
+1. Load relevant data from the Azure Synapse [SQL pools](https://docs.microsoft.com/azure/synapse-analytics/get-started-visualize-power-bi), [Data Explorer pools](https://docs.microsoft.com/azure/data-explorer/visualize-power-bi) or [data lake](https://docs.microsoft.com/power-query/connectors/datalakestorage) into [Power BI datasets](https://techcommunity.microsoft.com/t5/azure-synapse-analytics/integrate-power-bi-with-azure-synapse-analytics/ba-p/2003057) for data visualization. [Power BI models](https://docs.microsoft.com/learn/modules/design-model-power-bi/) implement a semantic model to simplify the analysis of business data and relationships. Business analysts use [Power BI](https://docs.microsoft.com/power-bi/admin/service-premium-what-is) reports and dashboards to analyze data and derive business insights.
+
+1. Data can also be securely shared to other business units or external trusted partners using [Azure Data Share](https://docs.microsoft.com/azure/data-share/share-your-data). Data consumers have the freedom to choose what data format they want to use and also what compute engine is best to process the shared datasets.
+
+1. Structured and unstructured data stored in your Synapse workspace can also be used to build [knowledge mining solutions](https://azure.microsoft.com/solutions/knowledge-mining) and use AI to uncover valuable business insights across different document types and formats including from Office documents, PDFs, images, audio, forms and web pages.
 
 ### Non-structured data sources
 
+#### Ingest
+
 1. Use [Azure Synapse pipelines](https://docs.microsoft.com/azure/data-factory/concepts-pipelines-activities) to pull data from a wide variety of non-structured  data sources, both on-premises and in the cloud. For example:
 
-    - Ingest video, image, audio, or free text from file-based sources containing the source files. 
+    - Ingest video, image, audio, or free text from file-based sources containing the source files.
     - Call REST APIs provided by SaaS applications that will function as your data source for the pipeline.
 
+#### Store
+
+1. [Organize your data lake](https://docs.microsoft.com/azure/cloud-adoption-framework/scenarios/data-management/best-practices/data-lake-services) following the best practices around which zones to create, what folder structures to use in each zone and what files format to use for each analytics scenario.
+
 1. From the Azure Synapse pipeline, use a [Copy Data activity](https://docs.microsoft.com/azure/data-factory/copy-activity-overview) to stage the data copied from the non-structured data sources into the [Raw zone](https://techcommunity.microsoft.com/t5/data-architecture-blog/how-to-organize-your-data-lake/ba-p/1182562) of your [Azure Data Lake Store Gen 2](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-introduction) data lake. You should save data preserving the original format as acquired from the data sources.
+
+#### Process and Enrich
 
 1. Use [Spark notebooks](https://docs.microsoft.com/learn/modules/transform-data-with-dataframes-apache-spark-pools-azure-synapse-analytics/) to validate, transform, enrich and move the your datasets into your Curated zone in your data lake.
 
@@ -98,27 +137,45 @@ The analytics use cases covered by the architecture are illustrated by the diffe
 
 1. You can serve your final dataset directly from the data lake Curated zone or you can use Copy Data activity to ingest the final dataset into your data warehouse tables using the [COPY command](https://docs.microsoft.com/sql/t-sql/statements/copy-into-transact-sql) for fast ingestion.
 
+#### Serve
+
 1. Load relevant data from the Azure Synapse SQL pool or data lake into [Power BI datasets](https://techcommunity.microsoft.com/t5/azure-synapse-analytics/integrate-power-bi-with-azure-synapse-analytics/ba-p/2003057) for data visualization. [Power BI models](https://docs.microsoft.com/learn/modules/design-model-power-bi/) implement a semantic model to simplify the analysis of business data and relationships.
 
 1. Business analysts use [Power BI](https://docs.microsoft.com/power-bi/admin/service-premium-what-is) reports and dashboards to analyze data and derive business insights.
 
-1. Data can also be securely shared to other business units or external trusted partners using [Azure Data Share](https://docs.microsoft.com/azure/data-share/share-your-data).
+1. Data can also be securely shared to other business units or external trusted partners using [Azure Data Share](https://docs.microsoft.com/azure/data-share/share-your-data). Data consumers have the freedom to choose what data format they want to use and also what compute engine is best to process the shared datasets.
+
+1. Structured and unstructured data stored in your Synapse workspace can also be used to build [knowledge mining solutions](https://azure.microsoft.com/solutions/knowledge-mining) and use AI to uncover valuable business insights across different document types and formats including from Office documents, PDFs, images, audio, forms and web pages.
 
 ### Streaming
 
+#### Ingest
+
 1. Use [Azure Event Hubs or Azure IoT Hubs](https://docs.microsoft.com/azure/iot-hub/iot-hub-compare-event-hubs) to ingest data streams generated by client applications or IoT devices. Event Hub or IoT Hub will then ingest and store streaming data preserving the sequence of events received. Consumers can then connect to Event Hub or IoT Hub endpoints and retrieve messages for processing.
+
+#### Store
+
+1. [Organize your data lake](https://docs.microsoft.com/azure/cloud-adoption-framework/scenarios/data-management/best-practices/data-lake-services) following the best practices around which zones to create, what folder structures to use in each zone and what files format to use for each analytics scenario.
 
 1. Configure [Event Hub Capture](https://docs.microsoft.com/azure/event-hubs/event-hubs-capture-overview) or [IoT Hub Storage Endpoints](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messages-d2c#azure-blob-storage) to save a copy of the events into the [Raw zone](https://techcommunity.microsoft.com/t5/data-architecture-blog/how-to-organize-your-data-lake/ba-p/1182562) of your [Azure Data Lake Store Gen 2](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-introduction) data lake. This feature implements the "Cold Path" of the [Lambda architecture pattern](https://docs.microsoft.com/azure/architecture/data-guide/big-data/#lambda-architecture) and allows you to perform historical and trend analysis on the stream data saved in your data lake using [SQL Serverless queries](https://docs.microsoft.com/azure/synapse-analytics/sql/on-demand-workspace-overview) or [Spark notebooks](https://docs.microsoft.com/azure/synapse-analytics/spark/apache-spark-development-using-notebooks?tabs=classical) following the pattern for semi-structured data sources described above.
 
-1. Use a [Stream Analytics job](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-introduction) to implement the "Hot Path" of the [Lambda architecture pattern](https://docs.microsoft.com/azure/architecture/data-guide/big-data/#lambda-architecture) and derive insights from the stream data in transit. Define at least one input for the data stream coming from your Event Hub or IoT Hub, one query to process the input data stream and one Power BI output to where the query results will be sent to.
+#### Process and Enrich
+
+1. For real-time insights, use a [Stream Analytics job](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-introduction) to implement the "Hot Path" of the [Lambda architecture pattern](https://docs.microsoft.com/azure/architecture/data-guide/big-data/#lambda-architecture) and derive insights from the stream data in transit. Define at least one input for the data stream coming from your [Event Hub](https://docs.microsoft.com/azure/event-hubs/process-data-azure-stream-analytics) or [IoT Hub](https://docs.microsoft.com/azure/iot-hub/iot-hub-live-data-visualization-in-power-bi), one query to process the input data stream and one Power BI output to where the query results will be sent to.
 
     1. As part of your data processing with Stream Analytics, you can invoke machine learning models to enrich your stream datasets and drive business decisions based on the predictions generated. These machine learning models can be consumed from Azure Cognitive Services or from [custom ML models in Azure Machine learning](https://docs.microsoft.com/azure/stream-analytics/machine-learning-udf).
+
+1. Use other Stream Analytics job outputs to send processed events to Azure Synapse [SQL pools](https://docs.microsoft.com/azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-integrate-azure-stream-analytics) or [Data Explorer pools](https://techcommunity.microsoft.com/t5/azure-data-explorer-blog/adx-is-now-supported-as-output-for-azure-stream-analytics-job/ba-p/2923654) for further analytics use cases.
+
+1. For near real-time telemetry and time-series analytics scenarios, use [Data Explorer pools](https://docs.microsoft.com/azure/synapse-analytics/data-explorer/data-explorer-overview) to easily ingest IoT events directly from [Event Hubs](https://docs.microsoft.com/azure/data-explorer/ingest-data-event-hub) or [IoT Hubs](https://docs.microsoft.com/azure/data-explorer/ingest-data-iot-hub). With Data Explorer pools you can use [Kusto queries (KQL)](https://docs.microsoft.com/azure/data-explorer/kusto/query/tutorial?pivots=azuredataexplorer) to perform [time-series analysis](https://docs.microsoft.com/azure/data-explorer/kusto/query/machine-learning-and-tsa), [geo-spacial clustering](https://docs.microsoft.com/azure/data-explorer/kusto/query/geospatial-grid-systems) and machine learning enrichment.
+
+#### Serve
 
 1. Business analysts then use [Power BI real-time datasets and dashboard](https://docs.microsoft.com/power-bi/connect-data/service-real-time-streaming) capabilities for to visualize the fast changing insights generated by your Stream Analytics query.
 
 ## Discover and Govern
 
-Data governance is a common challenge in large enterprise environments. On one hand, business analysts need to be able to discover and understand data assets that can help them solve business problems. On the other hand, Chief Data Officers want insights on privacy and security of business data. 
+Data governance is a common challenge in large enterprise environments. On one hand, business analysts need to be able to discover and understand data assets that can help them solve business problems. On the other hand, Chief Data Officers want insights on privacy and security of business data.
 
 ### Azure Purview
 
@@ -126,11 +183,13 @@ Data governance is a common challenge in large enterprise environments. On one h
 
 1. Azure Purview can help you maintain a [business glossary](https://docs.microsoft.com/azure/purview/concept-business-glossary) with the specific business terminology required for users to understand the semantics of what datasets mean and how they are meant to be used across the organization.
 
-1. You can [register all your data sources](https://docs.microsoft.com/azure/purview/manage-data-sources) and setup [regular scans](https://docs.microsoft.com/azure/purview/create-a-scan-rule-set) to automatically catalog and update relevant metadata about data assets in the organization. Azure Purview can also automatically add [data lineage](https://docs.microsoft.com/azure/purview/catalog-lineage-user-guide) information based on information from Azure Data Factory or Azure Synapse pipelines.
+1. You can [register all your data sources](https://docs.microsoft.com/azure/purview/manage-data-sources) and organize them into [Collections](https://docs.microsoft.com/azure/purview/concept-best-practices-collections), which also serves as a security boundary for your metadata.
+
+1. Setup [regular scans](https://docs.microsoft.com/azure/purview/create-a-scan-rule-set) to automatically catalog and update relevant metadata about data assets in the organization. Azure Purview can also automatically add [data lineage](https://docs.microsoft.com/azure/purview/catalog-lineage-user-guide) information based on information from Azure Data Factory or Azure Synapse pipelines.
 
 1. [Data Classification](https://docs.microsoft.com/azure/purview/apply-classifications) and [Data Sensitivity](https://docs.microsoft.com/azure/purview/create-sensitivity-label) labels can be added automatically to your data assets based on pre-configured or customs rules applied during the regular scans.
 
-1. Data governance professionals can use the reports and insights generated by Azure Purview to keep control over the entire data landscape and protect the organization against any security and privacy issues.
+1. Data governance professionals can use the reports and [insights](https://docs.microsoft.com/azure/purview/concept-insights) generated by Azure Purview to keep control over the entire data landscape and protect the organization against any security and privacy issues.
 
 ## Platform Services
 
