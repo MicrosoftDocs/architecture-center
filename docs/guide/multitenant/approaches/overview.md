@@ -104,16 +104,51 @@ For example, Contoso could deploy separate AAD tenants for each of their tenants
 
 They use Lighthouse to enable cross-tenant management.
 
-## Scale resources around limits
+## Plan to scale out
 
-* Regardless of how you choose to isolate your resources, you might need to deploy multiple instances for scale purposes
-* Might also need to scale across multiple subscriptions if limits become a problem
-* Bin packing
-* Plan to spill over even if you don't need to do it on day one
-* Need to understand your expected and possible growth - if you are absolutely sure you won't outgrow the limits of a single subscription then don't worry, but if there's any chance you could, make sure you plan for it upfront
+Regardless of your resource isolation model, it's important to consider when and how your solution will scale out across multiple resources. This might need to happen as the load on your system increases, or as the number of tenants grows.
+
+### Resource limits
+
+Azure resources have [limits and quotas](TODO) that must be considered in your solution planning. For example, resources might support a maximum number of concurrent requests or tenant-specific configuration settings.
+
+Additionally, the way you configure and use each resource affects the scalability supported by that resource. For example, for a given set of compute resources, your application will be able to successfully respond to a defined number of transactions per second. Beyond this point, you might need to scale out. Performance testing helps you to identify the point at which your resources no longer meet your requirements.
+
+> [!NOTE]
+> The principle of scaling to multiple resources applies even when you work with services that support multiple instances.
+> 
+> For example, Azure App Service supports scaling out the number of instances of your plan, but there are limits about how far you can scale. If you exceed these limits, you need to scale by deploying additional App Service resources.
+
+When you share resources between tenants, consider *bin packing*. Determine the number of tenants that are supported by the resource when it's configured according to your requirements. Then, deploy as many resources as you need to serve your total number of tenants.
+
+For example, suppose you deploy an Azure Application Gateway as part of a multitenant SaaS solution. After reviewing your application design, testing the application gateway's performance under load, and reviewing its configuration, you might determine that a single application gateway can be shared among 1000 customers. According to your organization's growth plan, you expect to onboard 1500 tenants in your first year. This means that you need to plan to deploy multiple application gateways to service your expected load:
+
+TODO diagram
+
+### Resource group and subscription limits
+
+Whether you work with shared or dedicated resources, it's important to account for the limits to the number of resources that can be [deployed into a resource group](TODO) and [into an Azure subscription](TODO). As you approach these limits, you need to plan to scale across multiple resource groups or subscriptions.
+
+For example, suppose you deploy a dedicated Azure App Service plan and application for each of your tenants. You deploy them into a shared resource group. Azure supports deploying 800 resources of the same type into a single resource group, so when you reach this number, you need to deploy into another resource group:
+
+TODO diagram
+
+### Consider how to scale
+
+<!-- TODO below -->
+
+Need to plan how you will achieve this.
+
+If you expect to only have a small number of tenants, maybe you can ignore it. But if you think you'll grow, plan how this will work. You might choose not to implement it immediately, but at least keep it in mind as you design and build your solution.
+
+If you have an automated deployment process, consider you'll deploy and assign tenants to multiple resources. How will you detect that you need to deploy more resources? Will you spin them up AOT of JIT?
+
+Ensure you don't bake in assumptions that there's only one resource, or set of resources, if there's any possibilty you can scale - use things like configuration or databases
 
 <!-- TODO Arsen's comments:
-I just thought of one more point for this description of the "spectrum" of "isolation" options: It is not just "isolation" but also "scale" that comes into picture on this spectrum. In other words, even if for isolation purposes they can keep everything shared for "scale" purposes it may make sense to partition using the above deployment pattern. So in essence even for fully multitenant aware applications that are sharing resources like AKS cluster there are cases (for large scale) when need to move to N AKS clusters in Y resource groups across N subscriptions. Do you think we could somehow make this point come across in a short-way? If yes, this could be the page to send folks to about how to think about resource organization holistically (almost like the ISV landing zone explanation itself - you know I have ulterior motives here :))
+In other words, even if for isolation purposes they can keep everything shared for "scale" purposes it may make sense to partition using the above deployment pattern.
+
+So in essence even for fully multitenant aware applications that are sharing resources like AKS cluster there are cases (for large scale) when need to move to N AKS clusters in Y resource groups across N subscriptions.
 -->
 
 ## Intended audience
