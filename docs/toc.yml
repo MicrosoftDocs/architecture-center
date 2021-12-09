@@ -2461,13 +2461,15 @@ items:
                 items:
                    - name: Decompose apps with Service Fabric
                      href: example-scenario/infrastructure/service-fabric-microservices.yml
+                   - name: High-availability blue/green deployment
+                     href: example-scenario/blue-green-spring/blue-green-spring.yml
                    - name: Microservices on Azure Service Fabric
                      href: reference-architectures/microservices/service-fabric.yml
                    - name: Microservices with Azure Spring Cloud
                      href: /azure/spring-cloud/reference-architecture
                      maintainContext: true
                    - name: Unified logging for microservices apps
-                     href: example-scenario/logging/unified-logging.yml
+                     href: example-scenario/logging/unified-logging.yml     
           - name: Serverless applications
             items:
               - name: Get started
@@ -2594,6 +2596,8 @@ items:
                 href: solution-ideas/articles/devsecops-in-github.yml
               - name: Enterprise monitoring with Azure Monitor
                 href: example-scenario/monitoring/enterprise-monitoring.yml
+              - name: High-availability blue/green deployment
+                href: example-scenario/blue-green-spring/blue-green-spring.yml
               - name: Jenkins on Azure
                 href: example-scenario/apps/jenkins.yml
               - name: Run containers in a hybrid environment
@@ -3950,6 +3954,8 @@ items:
             items:
               - name: Azure file shares in a hybrid environment
                 href: hybrid/azure-file-share.yml
+              - name: Enterprise file shares with disaster recovery
+                href: example-scenario/file-storage/enterprise-file-shares-disaster-recovery.yml
               - name: Hybrid file services
                 href: hybrid/hybrid-file-services.yml
               - name: Minimal storage – change feed to replicate data
