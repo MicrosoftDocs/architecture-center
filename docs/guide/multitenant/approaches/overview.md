@@ -110,28 +110,28 @@ Regardless of your resource isolation model, it's important to consider when and
 
 ### Resource limits
 
-Azure resources have [limits and quotas](TODO) that must be considered in your solution planning. For example, resources might support a maximum number of concurrent requests or tenant-specific configuration settings.
+Azure resources have [limits and quotas](/azure/azure-resource-manager/management/azure-subscription-service-limits) that must be considered in your solution planning. For example, resources might support a maximum number of concurrent requests or tenant-specific configuration settings.
 
 Additionally, the way you configure and use each resource affects the scalability supported by that resource. For example, for a given set of compute resources, your application will be able to successfully respond to a defined number of transactions per second. Beyond this point, you might need to scale out. Performance testing helps you to identify the point at which your resources no longer meet your requirements.
 
 > [!NOTE]
 > The principle of scaling to multiple resources applies even when you work with services that support multiple instances.
 > 
-> For example, Azure App Service supports scaling out the number of instances of your plan, but there are limits about how far you can scale. If you exceed these limits, you need to scale by deploying additional App Service resources.
+> For example, Azure App Service supports scaling out the number of instances of your plan, but there are limits about how far you can scale. In a high-scale multitenant app, you might exceed these limits and need deploy additional App Service resources to match your growth.
 
 When you share resources between tenants, consider *bin packing*. Determine the number of tenants that are supported by the resource when it's configured according to your requirements. Then, deploy as many resources as you need to serve your total number of tenants.
 
-For example, suppose you deploy an Azure Application Gateway as part of a multitenant SaaS solution. After reviewing your application design, testing the application gateway's performance under load, and reviewing its configuration, you might determine that a single application gateway can be shared among 1000 customers. According to your organization's growth plan, you expect to onboard 1500 tenants in your first year. This means that you need to plan to deploy multiple application gateways to service your expected load:
+For example, suppose you deploy an Azure Application Gateway as part of a multitenant SaaS solution. After reviewing your application design, testing the application gateway's performance under load, and reviewing its configuration, you might determine that a single application gateway can be shared among 100 customers. According to your organization's growth plan, you expect to onboard 150 tenants in your first year. This means that you need to plan to deploy multiple application gateways to service your expected load:
 
-TODO diagram
+![TODO](media/overview/bin-pack-resource.png)
 
 ### Resource group and subscription limits
 
-Whether you work with shared or dedicated resources, it's important to account for the limits to the number of resources that can be [deployed into a resource group](TODO) and [into an Azure subscription](TODO). As you approach these limits, you need to plan to scale across multiple resource groups or subscriptions.
+Whether you work with shared or dedicated resources, it's important to account for the limits to the number of resources that can be [deployed into a resource group](/azure/azure-resource-manager/management/azure-subscription-service-limits#resource-group-limits) and [into an Azure subscription](/azure/azure-resource-manager/management/azure-subscription-service-limits#subscription-limits). As you approach these limits, you need to plan to scale across multiple resource groups or subscriptions.
 
-For example, suppose you deploy a dedicated Azure App Service plan and application for each of your tenants. You deploy them into a shared resource group. Azure supports deploying 800 resources of the same type into a single resource group, so when you reach this number, you need to deploy into another resource group:
+For example, suppose you deploy a dedicated virtual machine for each of your tenants. You deploy them into a shared resource group. Azure supports deploying 800 resources of the same type into a single resource group, so when you reach this number, you need to deploy any new virtual machines into another resource group:
 
-TODO diagram
+![TODO](media/overview/bin-pack-resource-group.png)
 
 ### Consider how to scale
 
