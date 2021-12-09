@@ -18,9 +18,9 @@ In this discussion, we divide the solution into two areas, describing security f
 
 This article describes a web access scenario to help you protect your messaging service (Outlook on the web / Exchange Control Panel) when mailboxes are hosted in Exchange Online or Exchange on-premises.
 
-For information about other scenarios, see these articles:
-- []
-- []
+For information about applying multifactor authentication in other hybrid messaging scenarios, see these articles:
+- [Protecting hybrid messaging infrastructure with multifactor authentication – Desktop Client Access]
+- [Protecting Hybrid Messaging Infrastructure with Azure MFA – Mobile Access]
 
 We do not touch any other protocols (like IMAP/POP and other), as we do not recommend them to be used for user access.
 
