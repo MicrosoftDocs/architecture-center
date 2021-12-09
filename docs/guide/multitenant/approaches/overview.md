@@ -112,6 +112,10 @@ They use Lighthouse to enable cross-tenant management.
 * Plan to spill over even if you don't need to do it on day one
 * Need to understand your expected and possible growth - if you are absolutely sure you won't outgrow the limits of a single subscription then don't worry, but if there's any chance you could, make sure you plan for it upfront
 
+<!-- TODO Arsen's comments:
+I just thought of one more point for this description of the "spectrum" of "isolation" options: It is not just "isolation" but also "scale" that comes into picture on this spectrum. In other words, even if for isolation purposes they can keep everything shared for "scale" purposes it may make sense to partition using the above deployment pattern. So in essence even for fully multitenant aware applications that are sharing resources like AKS cluster there are cases (for large scale) when need to move to N AKS clusters in Y resource groups across N subscriptions. Do you think we could somehow make this point come across in a short-way? If yes, this could be the page to send folks to about how to think about resource organization holistically (almost like the ISV landing zone explanation itself - you know I have ulterior motives here :))
+-->
+
 ## Intended audience
 
 The pages in this section are intended to be useful for solution architects and lead developers of multitenant applications, including independent software vendors (ISVs) and startups who develop SaaS solutions. Much of the guidance in this section is generic and applies to multiple Azure services within a category.
