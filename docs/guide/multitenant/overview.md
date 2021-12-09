@@ -4,7 +4,7 @@ titleSuffix: Azure Architecture Center
 description: This article introduces how to build multitenant solutions on Azure and the guidance we provide throughout this series.
 author: johndowns
 ms.author: jodowns
-ms.date: 12/06/2021
+ms.date: 12/09/2021
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: azure-guide
@@ -39,9 +39,14 @@ Additionally, when you design a solution, there are many areas you need to consi
 
 ## Intended audience
 
-The guidance provided in this series is applicable to anyone building a multitenant solution in Azure. These include independent software vendors (ISVs) who are building SaaS products, whether they are targeted for businesses or consumers. It also includes anyone building a product or platform that's intended to be used by multiple customers or tenants.
+The guidance provided in this series is applicable to anyone building a multitenant application in Azure. These include independent software vendors (ISVs) and startups who are building SaaS products, whether they are targeted for businesses or consumers. It also includes anyone building a product or platform that's intended to be used by multiple customers or tenants.
 
 The content throughout this series is designed to be useful for technical decision-makers, like chief technology officers (CTOs) and architects, and anyone designing or implementing a multitenant solution on Microsoft Azure.
+
+> [!NOTE]
+> *Managed service providers* (MSPs) manage and operate Azure environments on behalf of their customers, and work with multiple Azure Active Directory tenants in the process. This is another form of multitenancy, but is focused on managing Azure reosurces across multiple Azure Active Directory tenants. This series isn't intended to provide guidance on these matters.
+>
+> However, the series is likely to be helpful for ISVs who build software for MSPs, or for anyone else who builds and deploys multitenant software to be deployed into multiple customers' Azure Active Directory tenants.
 
 ## What's in this series?
 

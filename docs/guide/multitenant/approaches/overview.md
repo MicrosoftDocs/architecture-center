@@ -4,7 +4,7 @@ titleSuffix: Azure Architecture Center
 description: This article introduces the approaches you can consider when planning a multitenant architecture.
 author: johndowns
 ms.author: jodowns
-ms.date: 12/06/2021
+ms.date: 12/09/2021
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: azure-guide
@@ -114,7 +114,7 @@ They use Lighthouse to enable cross-tenant management.
 
 ## Intended audience
 
-The pages in this section are intended to be useful for solution architects and lead developers. Much of the guidance in this section is generic and applies to multiple Azure services within a category.
+The pages in this section are intended to be useful for solution architects and lead developers of multitenant applications, including independent software vendors (ISVs) and startups who develop SaaS solutions. Much of the guidance in this section is generic and applies to multiple Azure services within a category.
 
 ## Next steps
 
