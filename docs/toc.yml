@@ -2597,7 +2597,7 @@ items:
               - name: Jenkins on Azure
                 href: example-scenario/apps/jenkins.yml
               - name: Microsoft 365 tenant configuration
-                href: example-scenario/devops/manage-microsoft-365-tenant-configuration-microsoft365dsc-azure-devops.yml
+                href: example-scenario/devops/manage-microsoft-365-tenant-configuration-microsoft365dsc-devops.yml
               - name: Run containers in a hybrid environment
                 href: hybrid/hybrid-containers.yml
           - name: Solution ideas
