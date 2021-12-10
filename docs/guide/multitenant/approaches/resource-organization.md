@@ -129,6 +129,8 @@ For example, suppose you deploy a dedicated application gateway for each of your
 
 ![Diagram showing two resource groups, each containing 800 application gateways.](media/overview/bin-pack-resource-group.png)
 
+### Bin pack tenants across resource groups and subscriptions
+
 You can also apply the bin packing concept across resources, resource groups, and subscriptions. For example, when you have a small number of tenants you might be able to use a single resource for all of your tenants:
 
 ![Diagram showing bin packing into a single resource.](media/overview/bin-pack-resources-1.png)
