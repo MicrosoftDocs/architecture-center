@@ -10,6 +10,17 @@ This solution demonstrates how to build and deploy a machine learning model with
 ![Architecture Diagram](../media/campaign-optimization-with-sql-server.png)
 *Download an [SVG](../media/campaign-optimization-with-sql-server.svg) of this architecture.*
 
+## Components
+
+This architecture includes the following components:
+
+* [**SQL Server Machine**](/sql/machine-learning/r/sql-server-r-services?view=sql-server-2016&viewFallbackFrom=sql-server-ver15) will be used for compute. Solutions are deployed to SQL Server 2016 by embedding calls to R in stored procedures.
+ 
+* [**SQL Server Integration Services**](sql/integration-services/sql-server-integration-services?view=sql-server-ver15) and [**SQL Server Agent**](sql/ssms/agent/sql-server-agent?view=sql-server-ver15) can be leveraged to automate these solutions.
+
+* [**Power BI**](/what-is-power-bi) helps drive better decision making with data visualization. Visualizations help gain deeper data insight.
+
+
 ## Overview
 
 When a business launches a marketing campaign to interest customers in new or existing product(s), they often use a set of business rules to select leads for their campaign to target. Machine learning can be used to help increase the response rate from these leads. This solution demonstrates how to use a model to predict actions that are expected to maximize the purchase rate of leads targeted by the campaign. These predictions serve as the basis for recommendations to be used by a renewed campaign on how to contact (for example, e-mail, SMS, or cold call) and when to contact (day of week and time of day) the targeted leads. The solution presented here uses simulated data from the insurance industry to model responses of the leads to the campaign. The model predictors include demographic details of the leads, historical campaign performance, and product-specific details. The model predicts the probability that each lead in the database makes a purchase from a channel, on each day of the week at various times of day. Recommendations on which channel, day of week and time of day to use when targeting users are based then on the channel and timing combination that the model predicts will have the highest probability a purchase being made.
@@ -49,3 +60,17 @@ Your Azure subscription used for the deployment will incur consumption charges o
 Please ensure that you stop your VM instance when not actively using the solution. Running the VM will incur higher costs.
 
 Please delete the solution if you are not using it.
+
+## Related Resources
+
+* [**SQL Server 2016 R Services**](/sql/machine-learning/r/sql-server-r-services?view=sql-server-2016)
+
+* [**SQL Server Machine Learning Services with R**](/sql/machine-learning/sql-server-machine-learning-services?view=sql-server-ver15)
+
+* [**R tutorials for SQL machine learning**](/sql/machine-learning/tutorials/r-tutorials?view=sql-server-ver15)
+
+* [**Install on Windows - SQL Server Machine Learning Services**](/sql/machine-learning/install/sql-machine-learning-services-windows-install?view=sql-server-ver15)
+
+* [**MicrosoftML**](/machine-learning-server/r/concept-what-is-the-microsoftml-package)
+
+
