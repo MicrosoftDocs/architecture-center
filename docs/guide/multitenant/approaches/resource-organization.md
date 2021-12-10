@@ -46,7 +46,7 @@ As an illustration of the shared resource approach, suppose Contoso is building 
 
 ### Separate resources in a resource group
 
-You can also deploy dedicated resources for each tenant. You might deploy an entire copy of your solution for a single tenant, as in the [Deployment Stamps pattern](#deployment-stamps-pattern), or you might deploy some components that are shared between tenants and other components that are dedicated to a specific tenants.
+You can also deploy dedicated resources for each tenant. You might deploy an entire copy of your solution for a single tenant, as in the [Deployment Stamps pattern](overview.md#deployment-stamps-pattern), or you might deploy some components that are shared between tenants and other components that are dedicated to a specific tenants.
 
 It's important that you consider how you deploy and manage these resources, including [whether the deployment of tenant-specific resources is initiated by your deployment pipeline or an application component](deployment-configuration.yml#resource-management-responsibility). You also need to determine how you'll [clearly identify that specific resources relate to specific tenants](cost-management-allocation.md), which might include naming conventions, tags, and a tenant catalog database.
 
@@ -58,7 +58,7 @@ Suppose Contoso has three customers: Adventure Works, Fabrikam, and Tailwind. Th
 
 ### Separate resource groups in a subscription
 
-When you deploy a set of resources for each tenant, consider using dedicated tenant-specific resource groups. For example, when you follow the [Deployment Stamps pattern](#deployment-stamps-pattern), each stamp should be deployed into its own resource group. You can consider deploying multiple tenant-specific resource groups into a shared Azure subscription. This enables you to easily configure policies and access control rules.
+When you deploy a set of resources for each tenant, consider using dedicated tenant-specific resource groups. For example, when you follow the [Deployment Stamps pattern](overview.md#deployment-stamps-pattern), each stamp should be deployed into its own resource group. You can consider deploying multiple tenant-specific resource groups into a shared Azure subscription. This enables you to easily configure policies and access control rules.
 
 You might choose to create a set of resource groups for each tenant, and also shared resource groups for any shared resources.
 
@@ -102,7 +102,7 @@ For example, Contoso could create separate Azure AD tenants and separate subscri
 Regardless of your resource isolation model, it's important to consider when and how your solution will scale out across multiple resources. This might need to happen as the load on your system increases, or as the number of tenants grows.
 
 > [!TIP]
-> In many solutions, it's easier to scale your entire set of resources together instead of scaling resources individually. Consider following the [Deployment Stamps pattern](#deployment-stamps-pattern).
+> In many solutions, it's easier to scale your entire set of resources together instead of scaling resources individually. Consider following the [Deployment Stamps pattern](overview.md#deployment-stamps-pattern).
 
 ### Resource limits
 
@@ -131,19 +131,19 @@ For example, suppose you deploy a dedicated application gateway for each of your
 
 You can also apply the bin packing concept across resources, resource groups, and subscriptions. For example, when you have a small number of tenants you might be able to use a single resource for all of your tenants:
 
-![TODO](media/overview/bin-pack-resources-1.png)
+![Diagram showing bin packing into a single resource.](media/overview/bin-pack-resources-1.png)
 
 As you grow, you might approach the capacity limit for a single resource, and scale to multiple resources:
 
-![TODO](media/overview/bin-pack-resources-2.png)
+![Diagram showing bin packing across multiple resources.](media/overview/bin-pack-resources-2.png)
 
 Over time, you might reach the limit of the number of resources in a single resource group, and deploy resources into multiple resource groups:
 
-![TODO](media/overview/bin-pack-resources-3.png)
+![Diagram showing bin packing across multiple resources in multiple resource groups.](media/overview/bin-pack-resources-3.png)
 
 And as you grow even larger you can deploy across multiple subscriptions:
 
-![TODO](media/overview/bin-pack-resources-4.png)
+![Diagram showing bin packing across multiple resources in multiple resource groups and subscriptions.](media/overview/bin-pack-resources-4.png)
 
 By planning your scale-out strategy, you can scale to extremely large numbers of tenants with high load.
 
