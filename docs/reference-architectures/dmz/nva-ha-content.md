@@ -34,7 +34,7 @@ The following architectures describe the resources and configuration necessary f
 | [Azure Load Balancer](#load-balancer-design) | Supports active/active, active/standby and scale-out NVAs. Very good convergence time | The NVA needs to provide a port for the health probes, especially for active/standby deployments. Flows to/from Internet require SNAT for symmetry |
 | [Changing PIP/UDR](#changing-pip-udr) | No special feature required by the NVA. Guarantees symmetric traffic | Only for active/passive designs. High convergence time, of 1-2 minutes |
 | [Azure Route Server](#azure-route-server) | The NVA needs to support BGP. Supports active/active, active/standby and scale-out NVAs. | Traffic symmetry requires SNAT |
-| [Gateway Load Balancer](#gateway-load-balancer) | Traffic symmetry guaranteed without SNAT. NVAs can be shared across tenants. Very good convergence time. Supports active/active, active/standby and scale-out NVAs. | Supports flows to/from the Internet, no East-West flows |
+| [Gateway Load Balancer](#gateway-load-balancer) | Traffic symmetry guaranteed without SNAT. NVAs can be shared across tenants. Very good convergence time. Supports active/active, active/standby and scale-out NVAs. | Supports flows to/from the Internet, no East-West flows. VMs need to be associated to an Azure Load Balancer |
 
 ## Load Balancer design
 
@@ -93,17 +93,19 @@ This insertion method supports both active/active (all NVAs advertise the same r
 
 Convergence time is pretty fast in this setup, and will be influenced by the keepalive and holdtime timers of the BGP adjacency. While the Azure Route Server has default keepalive and holdtime timers (60 seconds and 180 seconds respectively), the NVAs can negotiate lower timers during the BGP adjacency establishment. Setting these timers too low could lead to BGP instabilities.
 
+This design is the most common option for NVAs that need to interact with Azure routing, for example VPN termination NVAs that need to learn the prefixes configured in Azure VNets, or advertise certain routes over ExpressRoute private peerings.
+
 ## Gateway Load Balancer
 
-[Azure Gateway Load Balancer][gwlb] is a new way of inserting NVAs in the data path without the need to steer traffic with User-Defined Routes. It is a redirection that public Azure Load Balancers can do, so that traffic is transparently sent through an NVA before being finally delivered to the destination workload. The following diagram describes the path that packets follow for inbound traffic from the public Internet:
+[Azure Gateway Load Balancer][gwlb] is a new way of inserting NVAs in the data path without the need to steer traffic with User-Defined Routes. For Virtual Machines that expose their workloads via an Azure Load Balancer, this Load Balancer can redirect transparently inbound and outbound traffic to a cluster of NVAs located in a different VNet. The following diagram describes the path that packets follow for inbound traffic from the public Internet:
 
 ![GWLB Internet][gwlb_internet]
 
-The main advantage of this method is that the same NVAs can be used to inspect traffic to different VNets, thus achieving multitenancy. No VNet peering is required between the NVA VNet and the workload VNet(s), and no User-Defined Routes are required in the workload VNet, which dramatically simplifies the design.
-
-Additionally, traffic symmetry is provided without the need for SNAT, thus granting visibility into the original client IP for web applications, even in the case of scale-out NVA clusters. Note that the NVA needs to support certain functionality such as VXLAN tunnel termination.
+One of the main advantages of this NVA injection method is that Source Network Address Translation (SNAT) is not required to guarantee traffic symmetry. Another benefit of this design option is that the same NVAs can be used to inspect traffic to/from different VNets, thus achieving multitenancy from the NVA perspective. No VNet peering is required between the NVA VNet and the workload VNet(s), and no User-Defined Routes are required in the workload VNet, which dramatically simplifies the configuration.
 
 Service injection with the Gateway Load Balancer can be used for inbound flows hitting a public Azure Load Balancers (and their return traffic), as well as for outbound flows originating in Azure. East-West traffic between Azure virtual machines cannot leverage the Gateway Load Balancer for NVA injection.
+
+In the NVA cluster, Azure Load Balancer healthcheck probes will be used to detect individual NVA instance failures, achieving a very quick convergence time (10-15 seconds).
 
 ## Next steps
 
