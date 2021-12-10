@@ -14,7 +14,7 @@ This solution applies to scenarios that:
 
 ## Architecture
 
-:::image type="content" source="./media/manage-routing-azure-route-server-architecture.jpg" alt-text="Architecture diagram showing how data flows between local networks, a hub virtual network, a spoke virtual network, and various gateways." border="false" lightbox="./media/manage-routing-azure-route-server-architecture.svg":::
+:::image type="content" source="./media/manage-routing-azure-route-server-architecture.png" alt-text="Architecture diagram that shows how data flows between local networks, a hub virtual network, a spoke virtual network, and various gateways." border="false" lightbox="./media/manage-routing-azure-route-server-architecture.svg":::
 
 *Download a [Visio file][Visio version of architecture diagram] of this architecture.*
 
@@ -29,7 +29,7 @@ This solution applies to scenarios that:
 
 - Local networks use Azure VPN Gateway and an ExpressRoute gateway to connect to the hub virtual network in a coexisting configuration. When you add the VPN gateway, routes with the gateway as the next route get added to the route tables. When you add ExpressRoute, the route tables are also updated. These routes propagate to all subnets.
 
-- The border gateway protocol (BGP) makes the exchange of IP addresses between on-premises and Azure components possible. This protocol directs packets between autonomous systems. Such systems are small-sized networks or huge pools of routers that a single organization runs.
+- The border gateway protocol (BGP) makes the exchange of IP addresses between on-premises and Azure components possible. This protocol directs packets between autonomous systems. Such systems are small networks or huge pools of routers that a single organization runs.
 
 - A virtual network peering exists between the hub virtual network and the spoke virtual network. When you create the peering, Azure updates the route table. Specifically, Azure adds a route for each address range that's in the hub address space or the spoke address space. These routes propagate to all subnets.
 
@@ -63,7 +63,7 @@ This solution applies to scenarios that:
 
 - [ExpressRoute][What is Azure ExpressRoute?] extends on-premises networks into the Microsoft cloud. By using a connectivity provider, ExpressRoute establishes private connections to cloud components like Azure services and Microsoft 365.
 
-- A [service endpoint][Virtual Network service endpoints] provides secure and direct connectivity to an Azure service from private IP addresses in a virtual network. The service endpoint provides the identity of the virtual network to the Azure service. So the virtual network resources don't need public IP addresses to access the service, and the endpoint protects the service by only allowing traffic from the specified virtual network. The connections use optimized routes over the Azure backbone network.
+- A [service endpoint][Virtual Network service endpoints] provides secure and direct connectivity to an Azure service from private IP addresses in a virtual network. The service endpoint provides the identity of the virtual network to the Azure service. So the virtual network resources don't need public IP addresses to access the service, and the endpoint protects the service by allowing only traffic from the specified virtual network. The connections use optimized routes over the Azure backbone network.
 
 - An NVA is a virtual appliance that offers networking capabilities such as firewall security and load balancing.
 
@@ -79,7 +79,7 @@ This solution applies to scenarios that:
 
 Consider these points when implementing this solution:
 
-- Route Server establishes connections and exchanges routes. It doesn't transfer data packets. As a result, the VMs that Route Server runs in its backend don't require significant CPU power or computational power.
+- Route Server establishes connections and exchanges routes. It doesn't transfer data packets. As a result, the VMs that Route Server runs in its back end don't require significant CPU power or computational power.
 
 - When you deploy Route Server, create a subnet called `Route Server Subnet` that uses an IPv4 subnet mask of `/27`. Place Route Server in that subnet.
 
@@ -99,7 +99,7 @@ Route Server is a fully managed service that offers high availability. For this 
 Most components in this solution are managed services that automatically scale. But there are a few exceptions:
 
 - Route Server can advertise at most 200 routes to ExpressRoute or a VPN gateway.
-- Route Server can support at most 2000 VMs per virtual network, including peered virtual networks.
+- Route Server can support at most 2,000 VMs per virtual network, including peered virtual networks.
 
 ### Security
 
@@ -126,7 +126,7 @@ You can use Virtual Network free of charge. With an Azure subscription, you can 
 
 ### VPN Gateway
 
-When you use VPN Gateway, all inbound traffic is free. You're only charged for outbound traffic. Internet bandwidth costs apply with VPN outbound traffic. For more information, see [VPN Gateway pricing][VPN Gateway pricing].
+When you use VPN Gateway, all inbound traffic is free. You're charged only for outbound traffic. Internet bandwidth costs apply with VPN outbound traffic. For more information, see [VPN Gateway pricing][VPN Gateway pricing].
 
 ### ExpressRoute
 
@@ -160,7 +160,7 @@ NVAs are charged based on the appliance that you use. You're also charged for th
 
 [About Azure Route Server support for ExpressRoute and Azure VPN]: /azure/route-server/expressroute-vpn-support
 [About dual-homed network with Azure Route Server]: /azure/route-server/about-dual-homed-network
-[Azure ExpressRoute pricing]: https://azure.microsoft.com/en-in/pricing/details/expressroute
+[Azure ExpressRoute pricing]: https://azure.microsoft.com/pricing/details/expressroute
 [Azure Firewall architecture overview]: ../firewalls/index.yml
 [Azure road map]: https://azure.microsoft.com/updates/?category=networking
 [Azure Route Server]: https://azure.microsoft.com/services/route-server
