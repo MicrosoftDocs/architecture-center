@@ -41,27 +41,31 @@ _Download an [Visio](https://arch-center.azureedge.net/hybrid-footfall-detection
 * [Blob Storage](https://azure.microsoft.com/services/storage/blobs/). Images captured from the AI Dev Kit are uploaded to Azure Stack Hub's blob storage.
 * [Azure Functions](https://azure.microsoft.com/services/functions/). An Azure Function running on Azure Stack Hub receives input from blob storage and manages the interactions with the Face API. It emits anonymized data to an Event Hubs cluster located in Azure.
 
-### Considerations
+### Alternatives
 
-#### Reliability
+  An [Azure Functions](https://docs.microsoft.com/azure-stack/operator/azure-stack-app-service-overview)  running on Azure Stack Hub is a great compute option. However, there are others compute options like a custom app running on [Azure App Service](https://docs.microsoft.com/azure-stack/operator/azure-stack-app-service-deploy) or [Azure Kubernetes Service (AKS) Engine](https://github.com/Azure/aks-engine)
+
+## Considerations
+
+### Reliability
 
 Since this solution is tiered, it's important to think about how to deal with networking or power failures. Refer to the [Resiliency and Dependencies](https://docs.microsoft.com/azure/architecture/framework/resiliency/design-resiliency), [Resiliency Best Practices](https://docs.microsoft.com/azure/architecture/framework/resiliency/design-best-practices), and [Azure Stack Hub reliability](https://docs.microsoft.com/azure/architecture/framework/services/hybrid/azure-stack-hub/reliability) guidance from the Microsoft Azure Well Architected Framework (WAF) to improve the solution resiliency.
 
 Depending on business needs, you might want to implement a mechanism to cache images locally, then forward to Azure Stack Hub when connectivity returns. If the location is large enough, deploying a Data Box Edge with the Face API container to that location might be a better option.
 
-#### Security
+### Security
 
 This solution captures customer images, making security a paramount consideration. Refer to the WAF [Data Protection](https://docs.microsoft.com/azure/architecture/framework/security/design-storage) guidance to secure the storage accounts, including configuring proper access policies and rotating keys regularly. Ensure storage accounts and Event Hubs have retention policies that meet corporate and government privacy regulations.
 
 Provide security through [identity and access management](https://docs.microsoft.com/azure/architecture/framework/security/design-identity), making sure to tier the user access levels. Tiering ensures that users only have access to the data they need for their role.
 
-#### Operational excellence
+### Operational excellence
 
 Monitoring and diagnostics are crucial. Cloud applications run in a remote data-center where you don't have full control of the infrastructure or, in some cases, the operating system. Use [Azure Monitor on Azure Stack Hub](https://docs.microsoft.com/azure-stack/user/azure-stack-metrics-azure-data) lets you visualize, query, route, archive, and take other actions on metrics and logs. Follow the [Monitoring operations of cloud applications] checklist to implement a comprehensive monitoring strategy for the solution.
 
 This solution can span many devices and locations, which could get unwieldy. [Azure's IoT services](https://docs.microsoft.com/azure/iot-fundamentals/) can be used to automatically bring new locations and devices online and keep them up to date.
 
-#### Performance efficiency
+### Performance efficiency
 
 To enable this solution to scale across multiple cameras and locations, you'll need to make sure that all of the components can handle the increased load. You may need to take actions like:
 
@@ -72,11 +76,7 @@ To enable this solution to scale across multiple cameras and locations, you'll n
 
 Use the [Performance efficiency checklist](https://docs.microsoft.com/azure/architecture/framework/scalability/performance-efficiency) to review your design from a scalability standpoint.
 
-### Alternatives
-
-  An [Azure Functions](https://docs.microsoft.com/azure-stack/operator/azure-stack-app-service-overview)  running on Azure Stack Hub is a great compute option. However, there are others compute options like a custom app running on [Azure App Service](https://docs.microsoft.com/azure-stack/operator/azure-stack-app-service-deploy) or [Azure Kubernetes Service (AKS) Engine](https://github.com/Azure/aks-engine)
-
-### Next steps
+## Next steps
 
 To learn more about the topics introduced in this article:
 
@@ -87,7 +87,7 @@ To learn more about the topics introduced in this article:
 * [Azure App Service on Azure Stack Hub](https://docs.microsoft.com/azure-stack/operator/azure-stack-app-service-overview)
 * [Azure Kubernetes Service on Azure Stack Hub](https://docs.microsoft.com/azure-stack/operator/aks-add-on)
 
-### Related resources
+## Related resources
 
 * [AI at the edge with Azure Stack Hub](./ai-at-the-edge.yml)
 * [Deploy AI and ML computing on-premises and to the edge](../../hybrid/deploy-ai-ml-azure-stack-edge.yml)
