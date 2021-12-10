@@ -2752,6 +2752,8 @@ items:
                 href: hybrid/hybrid-dns-infra.yml
               - name: Disaster recovery for Stack Hub VMs
                 href: hybrid/azure-stack-vm-dr.yml
+              - name: Enhanced-security hybrid messaging - web
+                href: example-scenario/secure-hybrid-messaging-web.yml
               - name: Extend on-premises using ExpressRoute
                 href: reference-architectures/hybrid-networking/expressroute.yml
               - name: Extend an on-premises network using VPN
