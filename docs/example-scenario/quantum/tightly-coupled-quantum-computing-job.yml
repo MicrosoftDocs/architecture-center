@@ -2,7 +2,7 @@
 metadata:
   title: Tightly coupled quantum computing job
   titleSuffix: Azure Example Scenarios
-  description: Submit and monitor quantum computing jobs running in an Azure Quantum Workspace directly from your classic application.
+  description: Submit and monitor quantum computing jobs running in an Azure Quantum workspace directly from your classic application.
   author: hsirtl
   ms.author: hsirtl
   ms.date: 11/04/2021
@@ -14,7 +14,7 @@ azureCategories:
 products:
   - azure-quantum
 name: Tightly coupled quantum computing job
-summary: Submit and monitor quantum computing jobs running in an Azure Quantum Workspace directly from your classic application.
+summary: Submit and monitor quantum computing jobs running in an Azure Quantum workspace directly from your classic application.
 thumbnailUrl: /azure/architecture/browse/thumbs/tightly-coupled-quantum-computing-job.png
 content: |
   [!include[](tightly-coupled-quantum-computing-job-content.md)]

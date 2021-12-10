@@ -39,11 +39,11 @@ The application components used:
 * [Azure Storage](https://azure.microsoft.com/services/storage) holds input and output data of the quantum job.
 * [Application Insights](/azure/azure-monitor/app/app-insights-overview) monitors the application, detects application anomalies such as poor performance and failures, and sends telemetry to the Azure portal.
 
-The [Azure Quantum Workspace](/azure/quantum/how-to-create-workspace) is a collection of assets associated with running quantum or optimization applications. Depending on provisioned providers the jobs are executed on quantum simulators, quantum hardware, or optimization solvers.
+The [Azure Quantum workspace](/azure/quantum/how-to-create-workspace) is a collection of assets associated with running quantum computing or optimization applications. Depending on provisioned providers, the jobs are executed on quantum simulators, quantum hardware, or optimization solvers.
 
 ## Next steps
 
-* To get an overview of Microsoft Quantum, the world's first full-stack, open cloud quantum computing ecosystem, see [Microsoft Quantum](https://azure.microsoft.com/solutions/quantum-computing/) and work through the [Quantum Computing Foundations](/learn/paths/quantum-computing-fundamentals/) learning path.
+* To get an overview of Azure Quantum, the world's first full-stack, open cloud quantum computing ecosystem, see [Microsoft Quantum](https://azure.microsoft.com/solutions/quantum-computing/) and work through the [Quantum Computing Foundations](/learn/paths/quantum-computing-fundamentals/) learning path.
 * For more information about the Azure Quantum service, see [Azure Quantum](https://azure.microsoft.com/services/quantum/).
 * For general aspects of Azure Quantum job management, see [Work with Azure Quantum jobs](/azure/quantum/how-to-work-with-jobs).
 * For more information about Azure DevOps, see the official [Azure DevOps documentation](/azure/devops/).
