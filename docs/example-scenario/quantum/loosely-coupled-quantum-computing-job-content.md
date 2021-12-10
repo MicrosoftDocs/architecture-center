@@ -10,6 +10,7 @@ Independent from either coupling approach, the following scenarios promise to be
 * Optimization challenges
 * Simulation tasks
 * Machine Learning
+
 This orchestration functionality can be integrated with classical applications in one of two ways:
 
 * **Integration via loose coupling** - logic for the orchestration is exposed as an API that can be called by various classical software components. Use the approach described in this article in following scenarios:
@@ -27,7 +28,6 @@ Use this architecture where quantum computing jobs must be executed as part of a
 
 The loosely coupled approach should be preferred in following cases:
 
-
 * There is a dedicated team of quantum specialists who want to centrally provide quantum functionality to other teams.
 * The quantum job represents a generic solution (for example, job scheduling) that is required in multiple applications.
 
@@ -43,7 +43,7 @@ The loosely coupled approach should be preferred in following cases:
 1. A quantum provider executes the job on a target environment.
 1. The client application monitors job execution by polling job status via API calls.
 1. The API Gateway monitors job execution by polling job status from the quantum provider.
-1. As soon as the job finishes, the client application gets the compute result from the API that is implemented via the Azure Function.
+1. When the job finishes, the compute results are stored in Azure Storage. The client application gets the results using an API that is implemented via the Azure Function.
 
 This workflow implements the [Asynchronous Request-Reply pattern](../../patterns/async-request-reply.md) and the steps defined for the [Azure Quantum Job lifecycle](/azure/quantum/how-to-work-with-jobs#job-lifecycle).
 

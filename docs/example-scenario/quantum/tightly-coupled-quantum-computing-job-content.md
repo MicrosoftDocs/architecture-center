@@ -20,6 +20,7 @@ Independent from either coupling approach, following scenarios promise to benefi
 * Optimization challenges
 * Simulation tasks
 * Machine Learning
+
 ## Potential use cases
 
 Use this architecture where quantum computing jobs must be executed as part of a classical application. 
