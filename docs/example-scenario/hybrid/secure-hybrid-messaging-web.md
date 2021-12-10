@@ -12,11 +12,11 @@ This architecture is relevant for the following scenarios and industries:
 
 ## Architecture 
 
-In this discussion, we divide the solution into two areas, describing security for:
-- Exchange Online. 
-- Exchange on-premises in a hybrid or non-hybrid scenario. 
+In this architecture, we divide the solution into two areas, describing security for:
+- Exchange Online, on the right side of the diagram. 
+- Exchange on-premises in a hybrid or non-hybrid scenario, on the left side of the diagram. 
 
-This article describes a web access scenario to help you protect your messaging service (Outlook on the web / Exchange Control Panel) when mailboxes are hosted in Exchange Online or Exchange on-premises.
+This article describes a web access scenario to help you protect your messaging service (Outlook on the web or Exchange Control Panel) when mailboxes are hosted in Exchange Online or Exchange on-premises.
 
 For information about applying multifactor authentication in other hybrid messaging scenarios, see these articles:
 - [Protecting a hybrid messaging infrastructure in a desktop-client access scenario](secure-hybrid-messaging-client.yml)
@@ -24,31 +24,36 @@ For information about applying multifactor authentication in other hybrid messag
 
 This article doesn't discuss other protocols, like IMAP or POP, because we don't recommend that you use them to provide user access.
 
-**General suggestions:**
+:::image type="complex" border="false" source="./media/hybrid-messaging-web.png" alt-text="Screenshot that shows an architecture for enhanced security in a web access scenario.":::
+   Diagram that shows two flows of web access. On the right side, a user with a mailbox hosted in Exchange Online. On the left side, a user with mailbox a hosted in Exchange on-premises. 
+:::image-end:::
+
+**General notes**
 - This architecture uses the [federated](/microsoft-365/enterprise/plan-for-directory-synchronization?view=o365-worldwide#federated-authentication) Azure Active Directory (Azure AD) Identity model. For the password hash syncronization and Pass-through Authentication models, the logic and the flow is the same. The only difference is related to the fact that Azure AD won't redirect the authentication request to on-premises Active Directory Federation Services (AD FS).
-- Basic interactions between local Active Directory, Azure AD Connect, Azure AD, AD FS, and Web Application Proxy components are as described in [Hybrid identity required ports and protocols](/azure/active-directory/hybrid/reference-connect-ports).
-- By *Exchange on-premises*, we mean Exchange 2019 with the latest updates, Mailbox role. 
-- You can use Edge Transport server in these scenarios. It's not involved in the work with client protocols that's discussed here.
+- The diagram shows access to the Outlook on the web service that corresponds to an …/owa path. Exchange admin center (or Exchange Control Panel) user access that corresponds to an …/ecp path follows the same flow.
+- In the diagram, dashed arrows show basic interactions between local Active Directory, Azure AD Connect, Azure AD, AD FS, and Web Application Proxy components. You can learn more about these interactions in [Hybrid identity required ports and protocols](/azure/active-directory/hybrid/reference-connect-ports).
+- By *Exchange on-premises*, we mean Exchange 2019 with the latest updates, Mailbox role. By *Exchange Edge on-premises*, we mean Exchange 2019 with the latest updates, Edge Transport role. We include Edge server in the diagram to highlight that you can use it in these scenarios. It's not involved in the work with client protocols that's discussed here.
 - In a real environment, you won't have just one server. You'll have a load-balanced array of Exchange servers for high availability. The scenarios described here are suited for that configuration.
 
-**Exchange Online user's flow:**
+**Exchange Online user's flow**
 1.	A user tries to access Outlook on the web service via https:\//outlook.office.com/owa. 
 2.	Exchange Online redirects the user to Azure AD for authentication. 
     
-    If the domain is federated, Azure AD redirects the user to the local AD FS instance for authentication. If authentication succeeds, the user is redirected back to Azure AD.
+    If the domain is federated, Azure AD redirects the user to the local AD FS instance for authentication. If authentication succeeds, the user is redirected back to Azure AD. (To keep the diagram simple, we left out this federated scenario.)
 3.	To enforce multifactor authentication, Azure AD applies an Azure Conditional Access policy with a multifactor authentication requirement for the browser client application. See the [deployment section](#set-up-conditional-access-policy) of this article for information about setting up that policy.  
 1. The Conditional Access policy calls Azure AD Multi-Factor Authentication. The user gets a request to complete multifactor authentication.
 1.	The user completes multifactor authentication.
 1.	Azure AD redirects the authenticated web session to Exchange Online, and the user can access Outlook.
 
-**Exchange on-premises user's flow:**
+**Exchange on-premises user's flow**
 
 1.	A user tries to access Outlook on the web service via a https:\//mail.contoso.com/owa URL that points to an Exchange server internally or a Web Application Proxy server externally. 
 1.	Exchange on-premises (for internal access) or Web Application Proxy (for external access) redirects the user to AD FS for authentication.
 1.	AD FS uses Integrated Windows authentication for internal access or provides a web form where the user can enter credentials for external access.
 1.	Responding to an AF DS Access Control policy, AD FS calls Azure AD Multi-Factor Authentication to complete authentication. The user gets a request to complete multifactor authentication. Here's an example of that type of AD FS Access Control policy:
 
-    ![Screenshot that shows an example of an AD FS Access Control policy.](./media/access-control-policy.png) 
+    :::image type="content" source="./media/access-control-policy.png" alt-text="Screenshot that shows an example of an AD FS Access Control policy.":::
+    
 
 1.	The user completes multifactor authentication. AD FS redirects the authenticated web session to Exchange on-premises.
 1.	The user can access Outlook. 
@@ -59,62 +64,54 @@ You also need to enable integration of AD FS and Azure AD Multi-Factor Authentic
 
 ### Components
 
-[Azure Active Directory]. Azure Active Directory (Azure AD) is Microsoft’s cloud-based identity and access management service. Modern authentication essentially based on EvoSTS (a Security Token Service used by Azure AD) and used as Auth Server for Skype for Business and Exchange server on-premises.
+[Azure AD](https://azure.microsoft.com/services/active-directory/). Azure AD is the Microsoft cloud-based identity and access management service. It provides modern authentication that's essentially based on EvoSTS (a Security Token Service used by Azure AD). 
 
-[Azure AD Multi-Factor Authentication]. Multi-factor authentication is a process where a user is prompted during the sign-in process for an additional form of identification, such as to enter a code on their cellphone or to provide a fingerprint scan.
+[Azure AD Multi-Factor Authentication](/azure/active-directory/authentication/howto-mfa-getstarted). Multifactor authentication is a process in which users are prompted during the sign-in process for an additional form of identification, like a code on their cellphone or a fingerprint scan.
 
-[Azure Active Directory Conditional Access Conditional Access] is the tool used by Azure Active Directory to bring signals together, to make decisions, and enforce organizational policies such as MFA.
+[Azure AD Conditional Access](/azure/active-directory/conditional-access/concept-conditional-access-conditions). Conditional Access is the feature that Azure AD uses to enforce organizational policies like multifactor authentication.
 
-[Active Directory Federation Services]  Active Directory Federation Service (AD FS) enables Federated Identity and Access Management by securely sharing digital identity and entitlements rights across security and enterprise boundaries. In this architecture it is used to facilitate logon for users with federated identity. 
+[AD FS](/windows-server/identity/active-directory-federation-services). AD FS enables federated identity and access management by sharing digital identity and entitlements rights across security and enterprise boundaries with improved security. In this architecture, it's used to facilitate sign-in for users with federated identity. 
 
-[Web Application Proxy] Web Application Proxy pre-authenticates access to web applications by using Active Directory Federation Services (AD FS), and also functions as an AD FS proxy.
+[Web Application Proxy](/windows-server/remote/remote-access/web-application-proxy/web-application-proxy-in-windows-server). Web Application Proxy pre-authenticates access to web applications by using AD FS. It also functions as an AD FS proxy.
 
-[Microsoft Exchange Server]. Microsoft Exchange server hosts user mailboxes on premises. In this architecture, it will use tokens issued to the user by Azure Active Directory to authorize access to the mailbox.
+[Exchange Server](https://www.microsoft.com/microsoft-365/exchange/email). Exchange Server hosts user mailboxes on-premises. In this architecture, it uses tokens issued to the user by Azure AD to authorize access to the mailbox.
 
-[Active Directory services]. Active directory services stores information about members of the domain, including devices and users. In this architecture, user accounts belong to Active Directory Services and synchronized to Azure Active Directory.
+[Active Directory services](/windows-server/identity/ad-ds/get-started/virtual-dc/active-directory-domain-services-overview). Active directory services stores information about members of a domain, including devices and users. In this architecture, user accounts belong to Active Directory services and are synchronized to Azure AD.
 
 ### Alternatives
 
-Azure Web Application Proxy [Application Proxy documentation] can be used as an alternative for ADFS and Web Application Proxy for Exchange On-premises web access services publishing, but there are following disadvantages:
+You can use [Azure AD Application Proxy](/azure/active-directory/app-proxy) as an alternative to AD FS and Web Application Proxy for publishing the Exchange on-premises web access service. There are some disadvantages to this alternative approach:
 - Lack of documentation for publishing Exchange
-- Lack of Exchange specific scalability figures
-- Uncomfortable naming (owa-company.msappproxy.net)
+- Lack of Exchange-specific scalability figures
+- Vanity URL (owa-company.msappproxy.net)
 
 ## Considerations
 
 ### Availability
 
-Availability in each scenario will depend on the availability of the components involved.
+Overall availability depends on the availability of the components involved. For information about availability, see these resources:
+- [Advancing Azure Active Directory availability](https://azure.microsoft.com/blog/advancing-azure-active-directory-availability)
+- [Cloud services you can trust: Office 365 availability](https://www.microsoft.com/microsoft-365/blog/2013/08/08/cloud-services-you-can-trust-office-365-availability)
+- [What is the Azure Active Directory architecture?](/azure/active-directory/fundamentals/active-directory-architecture)
 
-For [Azure Active Directory Advancing Azure Active Directory availability | Azure Blog and Updates | Microsoft Azure]
-
-For O365 availability [Cloud services you can trust: Office 365 availability].
-
-For Azure Active Directory services [Architecture overview - Azure Active Directory | Microsoft Docs]
-
-Availability of on-premises solution components will depend on implemented design, hardware availability and operations/maintenance routines performed by IT. 
-
-ADFS availability is described [Setting up an AD FS Deployment with AlwaysOn Availability Groups | Microsoft Docs]
-
-For Exchange server availability [Deploying high availability and site resilience in Exchange Server].
-
-Web Application proxy  [Web Application Proxy in Windows Server | Microsoft Docs] 
+Availability of on-premises solution components depends on the implemented design, hardware availability, and your internal operations and maintenance routines. For availability information about some of these components, see the following resources: 
+-[Setting up an AD FS deployment with Always On availability groups](/windows-server/identity/ad-fs/operations/ad-fs-always-on)
+- [Deploying high availability and site resilience in Exchange Server](/exchange/high-availability/deploy-ha?view=exchserver-2019)
+-[Web Application Proxy in Windows Server](/windows-server/remote/remote-access/web-application-proxy/web-application-proxy-in-windows-server) 
 
 ### Performance
 
-Performance will depend on the performance of the components involved and the company’s network performance. [Office 365 performance tuning using baselines and performance history - Microsoft 365 Enterprise | Microsoft Docs]
+Performance depends on the performance of the components involved and your company's network performance. For more information, see [Office 365 performance tuning using baselines and performance history]().
 
-For on-premises factors influencing performance for scenarios including ADFS services
-
-[Configure Performance Monitoring | Microsoft Docs]
-
-[Fine Tuning SQL and Addressing Latency Issues with AD FS | Microsoft Docs]
+For information about on-premises factors that influence performance for scenarios that include AD FS services, see these resources:
+-[Configure performance monitoring](/windows-server/identity/ad-fs/deployment/configure-performance-monitoring)
+-[Fine tuning SQL and addressing latency issues with AD FS](/windows-server/identity/ad-fs/operations/adfs-sql-latency)
 
 ### Scalability
 
-For scenarios using AFDS addressing sizing and scalability [Planning for AD FS Server Capacity | Microsoft Docs].
+For information about AD FS scalability, see [Planning for AD FS server capacity](/windows-server/identity/ad-fs/design/planning-for-ad-fs-server-capacity).
 
-Exchange on premises server scalability see [Exchange 2019 preferred architecture | Microsoft Docs]
+For information about Exchange Server on-premises scalability, see [Exchange 2019 preferred architecture](/exchange/plan-and-deploy/deployment-ref/preferred-architecture-2019)
 
 ### Security
 
@@ -144,13 +141,16 @@ Here are the high-level steps:
 To set up an Azure AD Conditional Access policy that enforces multifactor authentication, as described in step 3 of the online user's flow earlier in this article:
 1.	Put “Office 365 Exchange Online” or “Office 365” as Cloud application:
     
-    ![Screenshot that shows how to set Office as a cloud application.](./media/set-as-cloud-app.png)
-1. Use “Browser” as a client application:
-       
-    ![Screenshot that shows applying policy to the browser.](./media/apply-policy-to-browser.png)
-1. Apply MFA requirement in “Grant” control:
+    :::image type="content" source="./media/set-as-cloud-app.png" alt-text="Screenshot that shows how to set Office as a cloud application.":::
     
-     ![Screenshot that shows applying multifactor authentication.](./media/apply-multifactor-authentication.png) 
+1. Use “Browser” as a client application:
+
+    :::image type="content" source="./media/apply-policy-to-browser.png" alt-text="Screenshot that shows applying policy to the browser.":::
+    
+1. Apply MFA requirement in “Grant” control:
+
+    :::image type="content" source="./media/apply-multifactor-authentication.png" alt-text="Screenshot that shows applying multifactor authentication.":::
+
 
 ## Pricing
 
