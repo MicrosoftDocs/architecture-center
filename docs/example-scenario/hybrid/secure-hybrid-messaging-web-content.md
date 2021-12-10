@@ -53,6 +53,7 @@ This article doesn't discuss other protocols, like IMAP or POP. We don't recomme
 1.	Responding to an AF DS Access Control policy, AD FS calls Azure AD Multi-Factor Authentication to complete authentication. Here's an example of that type of AD FS Access Control policy:
 
     :::image type="content" source="./media/access-control-policy.png" alt-text="Screenshot that shows an example of an AD FS Access Control policy.":::
+
     The user gets a request to complete multifactor authentication.
 
 1.	The user completes multifactor authentication. AD FS redirects the authenticated web session to Exchange on-premises.
