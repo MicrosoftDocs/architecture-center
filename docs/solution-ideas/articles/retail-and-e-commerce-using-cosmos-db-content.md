@@ -7,6 +7,13 @@ This solution idea shows how to deploy an e-commerce web site on Azure. The e-co
 ![Architecture Diagram](../media/retail-and-e-commerce-using-cosmos-db.png)
 *Download an [SVG](../media/retail-and-e-commerce-using-cosmos-db.svg) of this architecture.*
 
+## Data flow
+
+1.	Web Application is hosted in Azure Web App.
+2.	Data (Products and Session state) gets stored in Azure Cosmos DB.
+3.	Static Content and product images are stored in Axure Storage Account.
+4.	For searching all products Azure Cognitive Search is used.
+
 ## Components
 
 This architecture includes the following components:
