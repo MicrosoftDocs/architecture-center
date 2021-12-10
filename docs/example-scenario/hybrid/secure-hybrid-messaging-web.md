@@ -19,48 +19,43 @@ In this discussion, we divide the solution into two areas, describing security f
 This article describes a web access scenario to help you protect your messaging service (Outlook on the web / Exchange Control Panel) when mailboxes are hosted in Exchange Online or Exchange on-premises.
 
 For information about applying multifactor authentication in other hybrid messaging scenarios, see these articles:
-- [Protecting hybrid messaging infrastructure with multifactor authentication – Desktop Client Access]
-- [Protecting Hybrid Messaging Infrastructure with Azure MFA – Mobile Access]
+- [Protecting a hybrid messaging infrastructure in a desktop-client access scenario](secure-hybrid-messaging-client.yml)
+- [Protecting a hybrid messaging infrastructure in a mobile access scenario](secure-hybrid-messaging-mobile.yml)
 
-We do not touch any other protocols (like IMAP/POP and other), as we do not recommend them to be used for user access.
+This article doesn't discuss other protocols, like IMAP or POP, because we don't recommend that you use them to provide user access.
 
-General suggestions:
-- We will describe the options for [federated](/microsoft-365/enterprise/plan-for-directory-synchronization?view=o365-worldwide#federated-authentication) Azure AD Identity model. In case of Password Hash Sync (PHS) or Pass-through Authentication (PTA) models, the logic and the flow will be the same, the only difference will be related to the fact that Azure AD will not redirect the authentication request to On-premises Active Directory Federation Services (ADFS).
-- basic interactions between local Active Directory, Azure AD Connect, Azure Active Directory, ADFS and Web Application Proxy (WAP) components are as described in [Hybrid Identity Required Ports and Protocols](/azure/active-directory/hybrid/reference-connect-ports) document.
-- By "Exchange On-premises" we mean Exchange 2019 version with the latest updates, Mailbox role. By "Exchange Edge On-premises" we mean Exchange 2019 version with the latest updates, Edge Transport role. We show Edge server for illustrative purposes, to highlight that you may use/not use it in these scenarios as it is not involved in work with client protocols we will discuss here.
-- In a real environment, you will have not one server, but a load-balanced array of Exchange servers for high availability, all described scenarios are suitable for such configuration as well.
+**General suggestions:**
+- This architecture uses the [federated](/microsoft-365/enterprise/plan-for-directory-synchronization?view=o365-worldwide#federated-authentication) Azure Active Directory (Azure AD) Identity model. For the password hash syncronization and Pass-through Authentication models, the logic and the flow is the same. The only difference is related to the fact that Azure AD won't redirect the authentication request to on-premises Active Directory Federation Services (AD FS).
+- Basic interactions between local Active Directory, Azure AD Connect, Azure AD, AD FS, and Web Application Proxy components are as described in [Hybrid identity required ports and protocols](/azure/active-directory/hybrid/reference-connect-ports).
+- By *Exchange on-premises*, we mean Exchange 2019 with the latest updates, Mailbox role. 
+- You can use Edge Transport server in these scenarios. It's not involved in the work with client protocols that's discussed here.
+- In a real environment, you won't have just one server. You'll have a load-balanced array of Exchange servers for high availability. The scenarios described here are suited for that configuration.
 
-Exchange Online User’s flow:
-1.	User is trying to access OotW service via https://outlook.office.com/owa url. 
-2.	Exchange Online will redirect user to Azure Active directory for authentication. In case the domain is federated, Azure AD will redirect user to local ADFS for authentication and in case of success user will be redirected back to Azure AD (this is not shown in schema for simplicity).
-3.	To enforce MFA requirement Azure AD will apply Azure Conditional Access Policy (CAP) with MFA requirement for “Browser Client”. Example of such policy configuration:
-    1.	Put “Office 365 Exchange Online” or “Office 365” as Cloud application:
+**Exchange Online user's flow:**
+1.	A user tries to access Outlook on the web service via https:\//outlook.office.com/owa. 
+2.	Exchange Online redirects the user to Azure AD for authentication. 
     
-        ![Screenshot that shows how to set Office as a cloud application.](./media/set-as-cloud-app.png)
-    1. Use “Browser” as a client application:
-       
-       ![Screenshot that shows applying policy to the browser.](./media/apply-policy-to-browser.png)
-    1. Apply MFA requirement in “Grant” control:
-    
-       ![Screenshot that shows applying multifactor authentication.](./media/apply-multifactor-authentication.png) 
+    If the domain is federated, Azure AD redirects the user to the local AD FS instance for authentication. If authentication succeeds, the user is redirected back to Azure AD.
+3.	To enforce multifactor authentication, Azure AD applies an Azure Conditional Access policy with a multifactor authentication requirement for the browser client application. See the [deployment section](#set-up-conditional-access-policy) of this article for information about setting up that policy.  
+1. The Conditional Access policy calls Azure AD Multi-Factor Authentication. The user gets a request to complete multifactor authentication.
+1.	The user completes multifactor authentication.
+1.	Azure AD redirects the authenticated web session to Exchange Online, and the user can access Outlook.
 
-1. CAP will call for Azure MFA service to complete authentication. User will get MFA request and go through that.
-1.	User will successfully complete MFA request.
-1.	Azure AD will redirect authenticated web session to Exchange Online and user will access the content.
+**Exchange on-premises user's flow:**
 
-Exchange On-premises User’s flow:
+1.	A user tries to access Outlook on the web service via a https:\//mail.contoso.com/owa URL that points to an Exchange server internally or a Web Application Proxy server externally. 
+1.	Exchange on-premises (for internal access) or Web Application Proxy (for external access) redirects the user to AD FS for authentication.
+1.	AD FS uses Integrated Windows authentication for internal access or provides a web form where the user can enter credentials for external access.
+1.	Responding to an AF DS Access Control policy, AD FS calls Azure AD Multi-Factor Authentication to complete authentication. The user gets a request to complete multifactor authentication. Here's an example of that type of AD FS Access Control policy:
 
-1.	User is trying to access OotW service via https://mail.contoso.com/owa url pointing to Exchange server internally or WAP server externally. 
-1.	Exchange On-premises (in case of internal access) or WAP (in case of external access) will redirect user to ADFS for authentication.
-1.	ADFS will use Windows Integrated Authentication (in case of internal access) or provide a web-form to enter credentials (in case of external access).
-1.	Based on the AFDS Access Control policy, ADFS will call for Azure MFA service to complete authentication. User will get MFA request and go through that. Example of such ADFS Access Control policy:
+    ![Screenshot that shows an example of an AD FS Access Control policy.](./media/access-control-policy.png) 
 
-    ![Screenshot that shows an example ADFS access control policy.](./media/access-control-policy.png) 
+1.	The user completes multifactor authentication. AD FS redirects the authenticated web session to Exchange on-premises.
+1.	The user can access Outlook. 
 
-1.	User will successfully complete MFA request and ADFS will redirect authenticated web session to Exchange On-premises.
-1.	User will access the content. 
+To implement this scenario for an on-premises user, you need to complete some additional configuration on Exchange and AD FS to configure AD FS usage for pre-authentication of web access requests. For more information, see [Use AD FS claims-based authentication with Outlook on the web](/exchange/clients/outlook-on-the-web/ad-fs-claims-based-auth?view=exchserver-2019). 
 
-To implement this scenario for On-premises user, additional configuration required on Exchange and ADFS level according to the [Use AD FS claims-based authentication with Outlook on the web] document to configure ADFS usage for pre-authentication of web access requests. Besides that, integration of ADFS and Azure MFA should be enabled according to the guidance here (applicable for ADFS 2016/2019) and user should be synchronized to Azure AD and assigned with a license for Azure MFA usage.
+You also need to enable integration of AD FS and Azure AD Multi-Factor Authentication. For more information, see [Configure Azure MFA as authentication provider with AD FS](/windows-server/identity/ad-fs/operations/configure-ad-fs-and-azure-mfa). (This integration requires AD FS 2016 or 2019.) Finally, you need to synchronize users to Azure AD and assign them licenses for Azure AD Multi-Factor Authentication.
 
 ### Components
 
@@ -80,7 +75,7 @@ To implement this scenario for On-premises user, additional configuration requir
 
 ### Alternatives
 
-Azure Web Application Proxy [Application Proxy documentation] can be used as an alternative for ADFS and WAP for Exchange On-premises web access services publishing, but there are following disadvantages:
+Azure Web Application Proxy [Application Proxy documentation] can be used as an alternative for ADFS and Web Application Proxy for Exchange On-premises web access services publishing, but there are following disadvantages:
 - Lack of documentation for publishing Exchange
 - Lack of Exchange specific scalability figures
 - Uncomfortable naming (owa-company.msappproxy.net)
@@ -144,6 +139,18 @@ For Exchange on-premises solution [Exchange high availability].
 Here are the high-level steps:
 1.	Start from web access service and protect it with Azure Conditional Access policy for Exchange Online as described [here].
 2.	Protect web access for On-premises EMI using ADFS claim-based authentication as described [here].
+
+### Set up Conditional Access policy
+To set up an Azure AD Conditional Access policy that enforces multifactor authentication, as described in step 3 of the online user's flow earlier in this article:
+1.	Put “Office 365 Exchange Online” or “Office 365” as Cloud application:
+    
+    ![Screenshot that shows how to set Office as a cloud application.](./media/set-as-cloud-app.png)
+1. Use “Browser” as a client application:
+       
+    ![Screenshot that shows applying policy to the browser.](./media/apply-policy-to-browser.png)
+1. Apply MFA requirement in “Grant” control:
+    
+     ![Screenshot that shows applying multifactor authentication.](./media/apply-multifactor-authentication.png) 
 
 ## Pricing
 
