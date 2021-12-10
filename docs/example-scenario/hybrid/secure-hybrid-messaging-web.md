@@ -95,7 +95,7 @@ Overall availability depends on the availability of the components involved. For
 - [What is the Azure Active Directory architecture?](/azure/active-directory/fundamentals/active-directory-architecture)
 
 Availability of on-premises solution components depends on the implemented design, hardware availability, and your internal operations and maintenance routines. For availability information about some of these components, see the following resources: 
--[Setting up an AD FS deployment with Always On availability groups](/windows-server/identity/ad-fs/operations/ad-fs-always-on)
+- [Setting up an AD FS deployment with Always On availability groups](/windows-server/identity/ad-fs/operations/ad-fs-always-on)
 - [Deploying high availability and site resilience in Exchange Server](/exchange/high-availability/deploy-ha?view=exchserver-2019)
 -[Web Application Proxy in Windows Server](/windows-server/remote/remote-access/web-application-proxy/web-application-proxy-in-windows-server) 
 
@@ -111,67 +111,58 @@ For information about on-premises factors that influence performance for scenari
 
 For information about AD FS scalability, see [Planning for AD FS server capacity](/windows-server/identity/ad-fs/design/planning-for-ad-fs-server-capacity).
 
-For information about Exchange Server on-premises scalability, see [Exchange 2019 preferred architecture](/exchange/plan-and-deploy/deployment-ref/preferred-architecture-2019)
+For information about Exchange Server on-premises scalability, see [Exchange 2019 preferred architecture](/exchange/plan-and-deploy/deployment-ref/preferred-architecture-2019).
 
 ### Security
 
-Azure Active Directory Security [Azure Active Directory security operations guide | Microsoft Docs]
-
-For scenarios using ADFS security the following topics should be addressed:
-
-[Best Practices for securing AD FS and Web Application Proxy | Microsoft Docs]
-
-[Configure AD FS Extranet Smart Lockout Protection | Microsoft Docs]
+For information about the security of the components in this architecture, see these resources:
+- [Azure AD security operations guide](/azure/active-directory/fundamentals/security-operations-introduction)
+- [Best practices for securing AD FS and Web Application Proxy](/windows-server/identity/ad-fs/deployment/best-practices-securing-ad-fs)
+- [Configure AD FS Extranet Smart Lockout Protection](/windows-server/identity/ad-fs/operations/configure-ad-fs-extranet-smart-lockout-protection)
 
 ### Resiliency
 
-For Azure Active Directory [Advancing Azure Active Directory availability | Azure Blog and Updates | Microsoft Azure]
-
-For scenarios using ADFS [High availability cross-geographic AD FS deployment in Azure with Azure Traffic Manager | Microsoft Docs]
-
-For Exchange on-premises solution [Exchange high availability].
+For information about the resiliency of the components in this architecture, see the following resources.
+- For Azure AD: [Advancing Azure AD availability](https://azure.microsoft.com/blog/advancing-azure-active-directory-availability)
+- For scenarios that use AD FS: [High availability cross-geographic AD FS deployment in Azure with Azure Traffic Manager](/windows-server/identity/ad-fs/deployment/active-directory-adfs-in-azure-with-azure-traffic-manager)
+- For the Exchange on-premises solution: [Exchange high availability](/exchange/high-availability/deploy-ha?view=exchserver-2019)
 
 ## Deploy this scenario
 
-Here are the high-level steps:
-1.	Start from web access service and protect it with Azure Conditional Access policy for Exchange Online as described [here].
-2.	Protect web access for On-premises EMI using ADFS claim-based authentication as described [here].
+These are the high-level steps:
+1. Start with the web access service. Improve its security by using an [Azure Conditional Access policy for Exchange Online](/azure/active-directory/conditional-access/howto-conditional-access-policy-all-users-mfa).
+1. Improve the security of web access for on-premises EMI [by using AD FS claim-based authentication](/exchange/clients/outlook-on-the-web/ad-fs-claims-based-auth?view=exchserver-2019).
 
-### Set up Conditional Access policy
+### Set up a Conditional Access policy
 To set up an Azure AD Conditional Access policy that enforces multifactor authentication, as described in step 3 of the online user's flow earlier in this article:
-1.	Put “Office 365 Exchange Online” or “Office 365” as Cloud application:
+1.	Configure **Office 365 Exchange Online** or **Office 365** as a **Cloud app**:
     
-    :::image type="content" source="./media/set-as-cloud-app.png" alt-text="Screenshot that shows how to set Office as a cloud application.":::
+    :::image type="content" source="./media/set-as-cloud-app.png" alt-text="Screenshot that shows how to configure Office as a cloud application.":::
     
-1. Use “Browser” as a client application:
+1. Configure the browser as a client app:
 
-    :::image type="content" source="./media/apply-policy-to-browser.png" alt-text="Screenshot that shows applying policy to the browser.":::
+    :::image type="content" source="./media/apply-policy-to-browser.png" alt-text="Screenshot that shows applying the policy to the browser.":::
     
-1. Apply MFA requirement in “Grant” control:
+1. Apply the multifactor authentication requirement in the **Grant** window:
 
-    :::image type="content" source="./media/apply-multifactor-authentication.png" alt-text="Screenshot that shows applying multifactor authentication.":::
-
+    :::image type="content" source="./media/apply-multifactor-authentication.png" alt-text="Screenshot that shows applying the multifactor authentication requirement.":::
 
 ## Pricing
 
-The cost of implementation will depend on Azure Active Directory Identity Management and Microsoft M365 license cost. Total implementation cost will also include software/hardware costs for on premises components, IT operations costs for the company, training and user education costs, and implementation project cost.
+The cost of your implementation depends on your Azure AD and Microsoft 365 license costs. Total cost also includes costs for software and hardware for on-premises components, IT operations, training and education, and project implementation.
 
-The solution will require at least Azure Active Directory Premium P1 
+The solution requires at least Azure AD Premium P1. For pricing details, see [Azure AD pricing](https://www.microsoft.com/security/business/identity-access-management/azure-ad-pricing).
 
-[Azure Active Directory Identity Management Pricing]
+For information about Exchange, see [Exchange Server pricing](https://www.microsoft.com/microsoft-365/exchange/microsoft-exchange-licensing-faq-email-for-business). 
 
- [Exchange server pricing] 
-
-For features ADFS and WAP see more on Windows Server pricing 
-
-[Pricing and licensing for Windows Server 2022]
+For information about AD FS and Web Application Proxy, see [Pricing and licensing for Windows Server 2022](https://www.microsoft.com/windows-server/pricing).
 
 ## Next steps
 
 ## Related resources
 
-- Announcing Hybrid Modern Authentication for Exchange On-Premises - Microsoft Tech Community
-- Hybrid Modern Authentication overview and prerequisites for use with on-premises Skype for Business and Exchange servers - Microsoft 365 Enterprise | Microsoft Docs
-- Use AD FS claims-based authentication with Outlook on the web
-- Exchange 2019 preferred architecture | Microsoft Docs
-- High availability cross-geographic AD FS deployment in Azure with Azure Traffic Manager | Microsoft Docs
+- [Announcing Hybrid Modern Authentication for Exchange On-Premises](https://techcommunity.microsoft.com/t5/exchange-team-blog/announcing-hybrid-modern-authentication-for-exchange-on-premises/ba-p/607476)
+- [Hybrid modern authentication overview and prerequisites for use with on-premises Skype for Business and Exchange servers](/microsoft-365/enterprise/hybrid-modern-auth-overview?view=o365-worldwide)
+- [Use AD FS claims-based authentication with Outlook on the web](/exchange/clients/outlook-on-the-web/ad-fs-claims-based-auth?view=exchserver-2019)
+- [Exchange 2019 preferred architecture](https://docs.microsoft.com/en-us/exchange/plan-and-deploy/deployment-ref/preferred-architecture-2019)
+- [High availability cross-geographic AD FS deployment in Azure with Azure Traffic Manager]
