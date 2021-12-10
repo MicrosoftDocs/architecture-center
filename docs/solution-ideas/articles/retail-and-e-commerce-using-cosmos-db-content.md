@@ -11,7 +11,7 @@ This solution idea shows how to deploy an e-commerce web site on Azure. The e-co
 
 1.	Web Application is hosted in Azure Web App.
 2.	Data (Products and Session state) gets stored in Azure Cosmos DB.
-3.	Static Content and product images are stored in Axure Storage Account.
+3.	Static Content and product images are stored in Azure Storage Account.
 4.	For searching all products Azure Cognitive Search is used.
 
 ## Components
