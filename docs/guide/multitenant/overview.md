@@ -44,9 +44,9 @@ The guidance provided in this series is applicable to anyone building a multiten
 The content throughout this series is designed to be useful for technical decision-makers, like chief technology officers (CTOs) and architects, and anyone designing or implementing a multitenant solution on Microsoft Azure.
 
 > [!NOTE]
-> *Managed service providers* (MSPs) manage and operate Azure environments on behalf of their customers, and work with multiple Azure Active Directory tenants in the process. This is another form of multitenancy, but is focused on managing Azure reosurces across multiple Azure Active Directory tenants. This series isn't intended to provide guidance on these matters.
+> *Managed service providers* (MSPs) manage and operate Azure environments on behalf of their customers, and work with multiple Azure Active Directory tenants in the process. This is another form of multitenancy, but it's focused on managing Azure resoures across multiple Azure Active Directory tenants. This series isn't intended to provide guidance on these matters.
 >
-> However, the series is likely to be helpful for ISVs who build software for MSPs, or for anyone else who builds and deploys multitenant software to be deployed into multiple customers' Azure Active Directory tenants.
+> However, the series is likely to be helpful for ISVs who build software for MSPs, or for anyone else who builds and deploys multitenant software.
 
 ## What's in this series?
 

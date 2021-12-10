@@ -1,7 +1,7 @@
 ---
 title: Azure resource organization in multitenant solutions
 titleSuffix: Azure Architecture Center
-description: This article describes how how organize your Azure resources in a multitenant solution.
+description: This article describes how to organize your Azure resources in a multitenant solution.
 author: johndowns
 ms.author: jodowns
 ms.date: 12/10/2021
@@ -22,7 +22,7 @@ ms.custom:
 
 # Azure resource organization in multitenant solutions
 
-Azure provides a number of options for organizing your resources. In a multitenant solution, there are specific tradeoffs to consider when you plan your resource organization strategy. On this page, we review two core elements of your resource organization approach: tennat isolation and scale-out across multiple resources.
+Azure provides a number of options for organizing your resources. In a multitenant solution, there are specific tradeoffs to consider when you plan your resource organization strategy. On this page, we review two core elements of your resource organization approach: tenant isolation and scale-out across multiple resources.
 
 ## Tenant isolation
 
@@ -70,7 +70,7 @@ In our example, Contoso might choose to deploy a stamp for each of their custome
 
 ### Separate subscriptions
 
-By deploying tenant-specific subscriptions, you can completely isolate tenant-specific resources. Additionally, most quotas and limits apply within a subscription, using a separate subscription per tenant ensures that each tenant has full use of any applicable quotas. For some Azure billing account types, [you can programmatically create subscriptions](/azure/cost-management-billing/manage/programmatically-create-subscription). You can also make use of [Azure reservations](/azure/cost-management-billing/reservations/save-compute-costs-reservations) across subscriptions.
+By deploying tenant-specific subscriptions, you can completely isolate tenant-specific resources. Additionally, because most quotas and limits apply within a subscription, using a separate subscription per tenant ensures that each tenant has full use of any applicable quotas. For some Azure billing account types, [you can programmatically create subscriptions](/azure/cost-management-billing/manage/programmatically-create-subscription). You can also make use of [Azure reservations](/azure/cost-management-billing/reservations/save-compute-costs-reservations) across subscriptions.
 
 However, it can be more difficult to request quota increases when you work across a large number of subscriptions. The [Quota API](/rest/api/reserved-vm-instances/quotaapi) provides a programmatic interface for certain resource types, but for many resource types, quota increases must be requested by [initiating a support case](/azure/azure-resource-manager/management/azure-subscription-service-limits#managing-limits). It can also be challenging to work with support contracts and support cases when you work with many subscriptions.
 
@@ -100,6 +100,9 @@ For example, Contoso could create separate Azure AD tenants and separate subscri
 ## Plan to scale out
 
 Regardless of your resource isolation model, it's important to consider when and how your solution will scale out across multiple resources. This might need to happen as the load on your system increases, or as the number of tenants grows.
+
+> [!NOTE]
+> If you know with certainty that you won't grow to large numbers of tenants or large levels of load, you don't need to overengineer your scale-out plan, and likely don't need to follow the guidance in this section. But if you plan for your solution to grow, we advise you to consider your scale-out plan carefully.
 
 > [!TIP]
 > In many solutions, it's easier to scale your entire set of resources together instead of scaling resources individually. Consider following the [Deployment Stamps pattern](overview.md#deployment-stamps-pattern).
@@ -151,7 +154,7 @@ By planning your scale-out strategy, you can scale to extremely large numbers of
 
 ### Consider how to scale
 
-If you expect to only have a small number of tenants with a small load, it might be possible to avoid scaling across multiple resources. But, if you expect to grow the number of tenants or the amount of overall usage, It's important to consider how you will work with resources as you scale.
+If you expect to only have a small number of tenants with a small load, it might be possible to avoid scaling across multiple resources. But, if you expect to grow the number of tenants or the amount of overall usage, it's important to consider how you will work with resources as you scale.
 
 If you have an automated deployment process, consider how you'll deploy and assign tenants across multiple resource instances. For example, how will you detect that you're approaching the number of tenants that can be assigned to a specific resource? Will you plan to deploy additional resources as you need them (*just in time*), or will you deploy a pool of resources *ahead of time* so they're ready for you to use when you need them?
 
