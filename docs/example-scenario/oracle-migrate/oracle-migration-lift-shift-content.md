@@ -12,7 +12,7 @@ See [Oracle and Microsoft Strategic Partnership FAQ](https://www.oracle.com/clou
 
 1. Migrate your Oracle database to the Azure VMs.
 
-## Components
+### Components
 
 * [Azure Virtual Machines](https://azure.microsoft.com/services/virtual-machines/) lets you migrate your business and important workloads to Azure to increase operational efficiencies.
 
