@@ -226,6 +226,10 @@ items:
                 items:
                   - name: Azure Resource Manager
                     href: guide/multitenant/service/resource-manager.md
+              - name: Compute
+                items:
+                  - name: App Service and Functions
+                    href: guide/multitenant/service/app-service.md
               - name: Storage and data
                 items:
                   - name: Azure Storage
@@ -1185,6 +1189,8 @@ items:
             href: example-scenario/ai/movie-recommendations-with-machine-learning.yml
       - name: Energy and environment
         items:
+          - name: Overview
+            href: industries/energy-environment.md
           - name: Environmental monitoring
             href: solution-ideas/articles/environment-monitoring-and-supply-chain-optimization.yml
           - name: Geospatial data processing and analytics
@@ -1710,6 +1716,8 @@ items:
                 href: solution-ideas/articles/auditing-and-risk-compliance.yml
               - name: Autonomous systems
                 href: solution-ideas/articles/autonomous-systems.yml
+              - name: Azure Machine Learning architecture
+                href: solution-ideas/articles/azure-machine-learning-solution-architecture.yml
               - name: Business process management
                 href: solution-ideas/articles/business-process-management.yml
               - name: Content research
@@ -1872,8 +1880,6 @@ items:
                 href: solution-ideas/articles/advanced-analytics-on-big-data.yml
               - name: App integration using Event Grid
                 href: solution-ideas/articles/application-integration-using-event-grid.yml
-              - name: Azure Machine Learning architecture
-                href: solution-ideas/articles/azure-machine-learning-solution-architecture.yml
               - name: Big data analytics with Azure Data Explorer
                 href: solution-ideas/articles/big-data-azure-data-explorer.yml
               - name: Big data analytics with enterprise security
@@ -2459,13 +2465,15 @@ items:
                 items:
                    - name: Decompose apps with Service Fabric
                      href: example-scenario/infrastructure/service-fabric-microservices.yml
+                   - name: High-availability blue/green deployment
+                     href: example-scenario/blue-green-spring/blue-green-spring.yml
                    - name: Microservices on Azure Service Fabric
                      href: reference-architectures/microservices/service-fabric.yml
                    - name: Microservices with Azure Spring Cloud
                      href: /azure/spring-cloud/reference-architecture
                      maintainContext: true
                    - name: Unified logging for microservices apps
-                     href: example-scenario/logging/unified-logging.yml
+                     href: example-scenario/logging/unified-logging.yml     
           - name: Serverless applications
             items:
               - name: Get started
@@ -2594,8 +2602,12 @@ items:
                 href: solution-ideas/articles/devsecops-in-github.yml
               - name: Enterprise monitoring with Azure Monitor
                 href: example-scenario/monitoring/enterprise-monitoring.yml
+              - name: High-availability blue/green deployment
+                href: example-scenario/blue-green-spring/blue-green-spring.yml
               - name: Jenkins on Azure
                 href: example-scenario/apps/jenkins.yml
+              - name: Microsoft 365 tenant configuration
+                href: example-scenario/devops/manage-microsoft-365-tenant-configuration-microsoft365dsc-devops.yml
               - name: Run containers in a hybrid environment
                 href: hybrid/hybrid-containers.yml
           - name: Solution ideas
@@ -3952,6 +3964,8 @@ items:
             items:
               - name: Azure file shares in a hybrid environment
                 href: hybrid/azure-file-share.yml
+              - name: Enterprise file shares with disaster recovery
+                href: example-scenario/file-storage/enterprise-file-shares-disaster-recovery.yml
               - name: Hybrid file services
                 href: hybrid/hybrid-file-services.yml
               - name: Minimal storage – change feed to replicate data
