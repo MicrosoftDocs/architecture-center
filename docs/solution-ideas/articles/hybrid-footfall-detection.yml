@@ -5,7 +5,7 @@ metadata:
   description: The article provides an overview for implementing an AI-based footfall detection solution, which analyzes visitor traffic in retail stores. The solution generates insights from real-world actions, by using Azure, Azure Stack Hub, and the Custom Vision AI Dev Kit.
   author: EdPrice-MSFT
   ms.author: pnp
-  ms.date: 23/11/2021
+  ms.date: 12/13/2021
   ms.topic: conceptual
   ms.service: architecture-center
   ms.subservice: solution-idea
