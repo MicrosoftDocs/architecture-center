@@ -51,38 +51,38 @@ An [Azure Function that's running on Azure Stack Hub](/azure-stack/operator/azur
 
 ### Reliability
 
-Since this solution is tiered, it's important to think about how to deal with networking or power failures. Refer to the [Resiliency and Dependencies](/azure/architecture/framework/resiliency/design-resiliency), [Resiliency Best Practices](/azure/architecture/framework/resiliency/design-best-practices), and [Azure Stack Hub reliability](/azure/architecture/framework/services/hybrid/azure-stack-hub/reliability) guidance from the Microsoft Azure Well Architected Framework (WAF) to improve the solution resiliency.
+Since this solution is tiered, it's important to think about how to deal with networking or power failures. Refer to [Resiliency and dependencies](/azure/architecture/framework/resiliency/design-resiliency), [Best practices for designing reliability in Azure applications](/azure/architecture/framework/resiliency/design-best-practices), and [Azure Stack Hub reliability](/azure/architecture/framework/services/hybrid/azure-stack-hub/reliability), from the Microsoft Azure Well Architected Framework (WAF), to improve the solution's resiliency.
 
-Depending on business needs, you might want to implement a mechanism to cache images locally, then forward to Azure Stack Hub when connectivity returns. If the location is large enough, deploying a Data Box Edge with the Face API container to that location might be a better option.
+Depending on your business needs, you might want to implement a mechanism to cache images locally, and then forward them to Azure Stack Hub when connectivity returns. If the location is large enough, deploy a Data Box Edge with the Face API container to that location.
 
 ### Security
 
-This solution captures customer images, making security a paramount consideration. Refer to the WAF [Data Protection](/azure/architecture/framework/security/design-storage) guidance to secure the storage accounts, including configuring proper access policies and rotating keys regularly. Ensure storage accounts and Event Hubs have retention policies that meet corporate and government privacy regulations.
+This solution captures customer images, which makes security a paramount consideration. Refer to the WAF [Data protection](/azure/architecture/framework/security/design-storage) guidance to secure the storage accounts, including configuring proper access policies and rotating keys regularly. Ensure storage accounts and Event Hubs have retention policies that meet your corporate and government privacy regulations.
 
-Provide security through [identity and access management](/azure/architecture/framework/security/design-identity), making sure to tier the user access levels. Tiering ensures that users only have access to the data they need for their role.
+Provide security through [identity and access management](/azure/architecture/framework/security/design-identity), making sure to tier the user access levels. Tiering ensures that users only have access to the data that they need for their roles.
 
 ### Operational excellence
 
-Monitoring and diagnostics are crucial. Cloud applications run in a remote data-center where you don't have full control of the infrastructure or, in some cases, the operating system. Use [Azure Monitor on Azure Stack Hub](/azure-stack/user/azure-stack-metrics-azure-data) lets you visualize, query, route, archive, and take other actions on metrics and logs. Follow the [Monitoring operations of cloud applications](/azure/architecture/framework/devops/checklist) checklist to implement a comprehensive monitoring strategy for the solution.
+Monitoring and diagnostics are crucial. Cloud applications run in a remote datacenter, where you don't have full control of the infrastructure or, in some cases, the operating system. Use [Azure Monitor on Azure Stack Hub](/azure-stack/user/azure-stack-metrics-azure-data) to visualize, query, route, archive, and take other actions on metrics and logs. Follow the [Monitoring operations of cloud applications](/azure/architecture/framework/devops/checklist) checklist to implement a comprehensive monitoring strategy for the solution.
 
-This solution can span many devices and locations, which could get unwieldy. [Azure's IoT services](/azure/iot-fundamentals) can be used to automatically bring new locations and devices online and keep them up to date.
+This solution can span many devices and locations, which could get unwieldy. [Azure's IoT services](/azure/iot-fundamentals) can automatically bring new locations and devices online and keep them up to date.
 
 ### Performance efficiency
 
-To enable this solution to scale across multiple cameras and locations, you'll need to make sure that all of the components can handle the increased load. You may need to take actions like:
+To enable this solution to scale across multiple cameras and locations, you'll need to make sure that all of the components can handle the increased load. You might need to take the following actions:
 
 * Increase the number of Stream Analytics streaming units.
 * Scale out the Face API deployment.
 * Increase the Event Hubs cluster throughput.
-* For extreme cases, migrate from Azure Functions to a virtual machine may be necessary.
+* In extreme cases, you might need to migrate from Azure Functions to a virtual machine.
 
 Use the [Performance efficiency checklist](/azure/architecture/framework/scalability/performance-efficiency) to review your design from a scalability standpoint.
 
 ## Next steps
 
-To learn more about the topics introduced in this article:
+See the following articles, to learn more about the topics introduced in this architecture:
 
-* See the [Tiered Data pattern](https://aka.ms/tiereddatadeploy), which is implemented by the footfall detection pattern.
+* See the [Deploy a Staged Data Analytics Solution](https://aka.ms/tiereddatadeploy) sample, which is implemented by the footfall detection solution.
 * See the [Custom Vision AI Dev Kit](https://azure.github.io/Vision-AI-DevKit-Pages) to learn more about using custom vision.
 * [Azure Stack Hub Operator Documentation](/azure-stack/operator)
 * [Azure App Service on Azure Stack Hub](/azure-stack/operator/azure-stack-app-service-overview)
@@ -91,6 +91,6 @@ To learn more about the topics introduced in this article:
 
 ## Related resources
 
-* [Analytics end-to-end with Azure Synapse](/azure/architecture/example-scenario/dataplate2e/data-platform-end-to-end) architecture for a more comprehensive scenario that illustrates additional mechanisms to enrich and serve data.
+* See the [Analytics end-to-end with Azure Synapse](/azure/architecture/example-scenario/dataplate2e/data-platform-end-to-end) architecture for a more comprehensive scenario that illustrates additional mechanisms to enrich and serve data.
 * [AI at the edge with Azure Stack Hub](./ai-at-the-edge.yml)
 * [Deploy AI and ML computing on-premises and to the edge](../../hybrid/deploy-ai-ml-azure-stack-edge.yml)
