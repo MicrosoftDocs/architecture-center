@@ -20,7 +20,7 @@ _Download a [Visio file](https://arch-center.azureedge.net/hybrid-footfall-detec
 4. The Azure Function calls a container with the Face API, to get demographic and emotion data from the image.
 5. The data is anonymized and sent to an Azure Event Hubs cluster.
 6. The Event Hubs cluster pushes the data to Stream Analytics.
-7. Stream Analytics aggregates the data and pushes it to Power BI. Power BI provides an easy-to-use dashboard interface for viewing the output from Azure Stream Analytics
+7. Stream Analytics aggregates the data and pushes it to Power BI. Power BI provides an easy-to-use dashboard interface for viewing the output from Azure Stream Analytics.
 
 ### Components
 
