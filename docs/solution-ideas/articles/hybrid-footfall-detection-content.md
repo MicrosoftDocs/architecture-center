@@ -1,22 +1,23 @@
 [!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
-This solution outlines an AI-based footfall detection architecture for analyzing visitor traffic in retail stores. The solution generates insights from real world actions, using Azure, Azure Stack Hub, and the Custom Vision AI Dev Kit.
+This solution outlines an AI-based footfall detection architecture for analyzing visitor traffic in retail stores. The solution generates insights from real world actions, by using Azure, Azure Stack Hub, and the Custom Vision AI Dev Kit.
 
 ## Potential use cases
 
-Gain insights on how customers are receiving their current products in relation to store layout, without having to place staff in every section, and without needing a team of analysts to review all of a store's camera footage. The solution also doesn't require stores to have enough bandwidth to stream video from all their cameras, to the cloud for analysis. The solution provides an unobtrusive, privacy-friendly way to determine customer demographics, loyalty, and reactions to store displays and products.
+Gain insights on how customers receive their current products, in relation to store layout. With this scenario, you don't have to place staff in every section, and you don't need a team of analysts to review all of a store's camera footage. The solution also doesn't require stores to have enough bandwidth to stream video from all their cameras, to the cloud for analysis. The solution provides an unobtrusive, privacy-friendly way to determine customer demographics, loyalty, and reactions to store displays and products.
 
 ## Architecture
 
-![Architecture diagram](../media/hybrid-footfall-detection.png)  
-_Download an [Visio](https://arch-center.azureedge.net/hybrid-footfall-detection.vsdx) of this architecture._
+![A diagram that displays the hybrid footfall detection architecture.](../media/hybrid-footfall-detection.png)
 
-### Data flow
+_Download a [Visio file](https://arch-center.azureedge.net/hybrid-footfall-detection.vsdx) of this architecture._
+
+### Dataflow
 
 1. The Custom Vision AI Dev Kit gets a configuration from IoT Hub, which installs the IoT Edge Runtime and an ML model.
 2. If the model sees a person, it takes a picture and uploads it to Azure Stack Hub blob storage.
 3. The blob service triggers an Azure Function on Azure Stack Hub.
-4. The Azure Function calls a container with the Face API to get demographic and emotion data from the image.
+4. The Azure Function calls a container with the Face API, to get demographic and emotion data from the image.
 5. The data is anonymized and sent to an Azure Event Hubs cluster.
 6. The Event Hubs cluster pushes the data to Stream Analytics.
 7. Stream Analytics aggregates the data and pushes it to Power BI. Power BI provides an easy-to-use dashboard interface for viewing the output from Azure Stream Analytics
