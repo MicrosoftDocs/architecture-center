@@ -2,7 +2,7 @@
 metadata:
   title: AI-based footfall detection 
   titleSuffix: Azure Solution Ideas
-  description: The article provides an overview for implementing an AI-based footfall detection solution for analyzing visitor traffic in retail stores. The solution generates insights from real world actions, using Azure, Azure Stack Hub, and the Custom Vision AI Dev Kit.
+  description: The article provides an overview for implementing an AI-based footfall detection solution, which analyzes visitor traffic in retail stores. The solution generates insights from real-world actions, by using Azure, Azure Stack Hub, and the Custom Vision AI Dev Kit.
   author: EdPrice-MSFT
   ms.author: pnp
   ms.date: 23/11/2021
@@ -36,7 +36,7 @@ products:
   - azure-virtual-network
   - azure-vpn-gateway
 name: AI-based footfall detection 
-summary: The article provides an overview for implementing an AI-based footfall detection solution for analyzing visitor traffic in retail stores. The solution generates insights from real world actions, using Azure, Azure Stack Hub, and the Custom Vision AI Dev Kit.
+summary: The article provides an overview for implementing an AI-based footfall detection solution, which analyzes visitor traffic in retail stores. The solution generates insights from real world actions, by using Azure, Azure Stack Hub, and the Custom Vision AI Dev Kit.
 thumbnailUrl: /azure/architecture/browse/thumbs/hybrid-footfall-detection-pattern.png
 content: |
   [!include[](hybrid-footfall-detection-content.md)]
