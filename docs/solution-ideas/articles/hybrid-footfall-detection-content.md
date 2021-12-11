@@ -26,25 +26,26 @@ _Download a [Visio file](https://arch-center.azureedge.net/hybrid-footfall-detec
 
 #### In-store hardware
 
-* [Custom Vision AI Dev Kit](https://azure.github.io/Vision-AI-DevKit-Pages/) Provides in-store filtering using a local ML model that only captures images of people for analysis. Securely provisioned and updated through IoT Hub.
+* [Custom Vision AI Dev Kit](https://azure.github.io/Vision-AI-DevKit-Pages) provides in-store filtering, by using a local ML model that only captures images of people for analysis. It is securely provisioned and updated through IoT Hub.
 
 #### Azure
 
-* [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs) is a fully managed, real-time data ingestion service that’s simple, trusted, and scalable. Stream millions of events per second from any source to build dynamic data pipelines and immediately respond to business challenges.
-* [Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics) is an easy-to-use, real-time analytics service that is designed for mission-critical workloads. Go from zero to production in minutes using SQL—easily extensible with custom code and built-in machine-learning capabilities for more advanced scenarios.
-* [Microsoft Power BI](https://powerbi.microsoft.com/) is a suite of business analytics tools that deliver insights throughout your organization. Connect to hundreds of data sources, simplify data prep, and drive improvised analysis. Produce beautiful reports, then publish them for your organization to consume on the web and across mobile devices.
+* [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs) is a fully managed, real-time data ingestion service that’s simple, trusted, and scalable. Stream millions of events per second, from any source, to build dynamic data pipelines and to immediately respond to business challenges.
+* [Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics) is an easy-to-use, real-time analytics service that is designed for mission-critical workloads. Go from zero to production in minutes. It is SQL—easily extensible, with custom code and built-in machine-learning capabilities, for more advanced scenarios.
+* [Microsoft Power BI](https://powerbi.microsoft.com) is a suite of business analytics tools that deliver insights throughout your organization. Connect to hundreds of data sources, simplify data prep, and drive improvised analysis. Produce beautiful reports, and then publish them for your organization, to consume on the web and across mobile devices.
 
-#### [Azure Stack Hub](https://azure.microsoft.com/products/azure-stack/hub)
+#### Azure Stack Hub
 
-* [App Service](https://azure.microsoft.com/services/app-service/). The App Service resource provider (RP) provides a base for edge components, including hosting and management features for web apps/APIs and Functions.
-* Azure Kubernetes Service  [(AKS) Engine](https://azure.microsoft.com/services/kubernetes-service). The AKS RP with AKS-Engine cluster deployed into Azure Stack Hub provides a scalable, resilient engine to run the Face API container.
-* [Face API containers](https://azure.microsoft.com/services/cognitive-services/face). The Azure Cognitive Services RP with Face API containers provides demographic, emotion, and unique visitor detection.
-* [Blob Storage](https://azure.microsoft.com/services/storage/blobs/). Images captured from the AI Dev Kit are uploaded to Azure Stack Hub's blob storage.
-* [Azure Functions](https://azure.microsoft.com/services/functions/). An Azure Function running on Azure Stack Hub receives input from blob storage and manages the interactions with the Face API. It emits anonymized data to an Event Hubs cluster located in Azure.
+* [Azure Stack Hub](https://azure.microsoft.com/products/azure-stack/hub) broadens Azure, to let you run apps in an on-premises environment and to deliver Azure services in your datacenter.
+* The [App Service](https://azure.microsoft.com/services/app-service) resource provider (RP) provides a base for edge components, including hosting and management features for web apps, APIs, and Functions.
+* The [Azure Kubernetes Service](https://azure.microsoft.com/services/kubernetes-service) (AKS) engine. The AKS RP with an AKS-engine cluster is deployed into Azure Stack Hub, to provide a scalable, resilient engine that runs the Face API container.
+* [Face API containers](https://azure.microsoft.com/services/cognitive-services/face). The Azure Cognitive Services RP, with Face API containers, provides demographic, emotion, and unique visitor detection.
+* [Blob storage](https://azure.microsoft.com/services/storage/blobs). Images captured from the AI Dev Kit are uploaded to Azure Stack Hub's Blob storage.
+* [Azure Functions](https://azure.microsoft.com/services/functions). An Azure Function running on Azure Stack Hub receives input from Blob storage and manages the interactions with the Face API. It emits anonymized data to an Event Hubs cluster that's located in Azure.
 
 ### Alternatives
 
-An [Azure Functions](/azure-stack/operator/azure-stack-app-service-overview) that's running on Azure Stack Hub is a great compute option. However, there are others compute options like a custom app running on [Azure App Service](/azure-stack/operator/azure-stack-app-service-deploy) or [Azure Kubernetes Service (AKS) Engine](https://github.com/Azure/aks-engine)
+An [Azure Function that's running on Azure Stack Hub](/azure-stack/operator/azure-stack-app-service-overview) is a great compute option. However, there are other compute options, such as a custom app that runs on [Azure App Service](/azure-stack/operator/azure-stack-app-service-deploy) or [Azure Kubernetes Service (AKS) Engine](https://github.com/Azure/aks-engine).
 
 ## Considerations
 
@@ -64,7 +65,7 @@ Provide security through [identity and access management](/azure/architecture/fr
 
 Monitoring and diagnostics are crucial. Cloud applications run in a remote data-center where you don't have full control of the infrastructure or, in some cases, the operating system. Use [Azure Monitor on Azure Stack Hub](/azure-stack/user/azure-stack-metrics-azure-data) lets you visualize, query, route, archive, and take other actions on metrics and logs. Follow the [Monitoring operations of cloud applications](/azure/architecture/framework/devops/checklist) checklist to implement a comprehensive monitoring strategy for the solution.
 
-This solution can span many devices and locations, which could get unwieldy. [Azure's IoT services](/azure/iot-fundamentals/) can be used to automatically bring new locations and devices online and keep them up to date.
+This solution can span many devices and locations, which could get unwieldy. [Azure's IoT services](/azure/iot-fundamentals) can be used to automatically bring new locations and devices online and keep them up to date.
 
 ### Performance efficiency
 
@@ -82,7 +83,7 @@ Use the [Performance efficiency checklist](/azure/architecture/framework/scalabi
 To learn more about the topics introduced in this article:
 
 * See the [Tiered Data pattern](https://aka.ms/tiereddatadeploy), which is implemented by the footfall detection pattern.
-* See the [Custom Vision AI Dev Kit](https://azure.github.io/Vision-AI-DevKit-Pages/) to learn more about using custom vision.
+* See the [Custom Vision AI Dev Kit](https://azure.github.io/Vision-AI-DevKit-Pages) to learn more about using custom vision.
 * [Azure Stack Hub Operator Documentation](/azure-stack/operator)
 * [Azure App Service on Azure Stack Hub](/azure-stack/operator/azure-stack-app-service-overview)
 * [Azure Kubernetes Service on Azure Stack Hub](/azure-stack/operator/aks-add-on)
