@@ -26,15 +26,26 @@ Azure provides a number of options for organizing your resources. In a multitena
 
 ## Key considerations and requirements
 
-<!-- TODO -->
-- Isolation requirements
-- Scale
+### Tenant isolation requirements
+
+When you deploy a multitenant solution in Azure, you need to determine whether you dedicate resources to each tenant or if you share resources between multiple tenants. Throughout the multitenancy approaches and service-specific guidance sections of this series, we describe the options and their trade-offs for many categories of resources. In general, though, there are a range of options for *tenant isolation*. Review [Tenancy models to consider for a multitenant solution](../considerations/tenancy-models.md) for more information on the factors that influence the isolation model decision.
+
+### Scale
+
+Most Azure resources, as well as resource groups and subscriptions, impose limits that can affect your ability to scale. You might need to consider *scaling out* or *bin packing* to ensure you can meet the number of tenants you plan to grow to, or the level of load you expect to receive.
+
+If you know with certainty that you won't grow to large numbers of tenants or large levels of load, you don't need to overengineer your scale-out plan, and likely don't need to follow the guidance in this section. But if you plan for your solution to grow, carefully consider your scale-out plan and ensure you architect for scale by following the guidance on this page.
+
+> [!TIP]
+> In the early stages of design and development, you might not choose to implement an automated scale-out process. You should still consider and clearly document the processes required to scale as you grow.
+
+If you have an automated deployment process and need to scale across resources, you need to determine how you'll deploy and assign tenants across multiple resource instances. For example, how will you detect that you're approaching the number of tenants that can be assigned to a specific resource? Will you plan to deploy additional resources as you need them (*just in time*), or will you deploy a pool of resources *ahead of time* so they're ready for you to use when you need them?
+
+It's also important to avoid making assumptions in your code and configuration that can limit your ability to scale. For example, if you plan to scale out to multiple storage accounts, ensure your application tier doesn't assume that it only connects to a single storage account for all tenants.
 
 ## Approaches and patterns to consider
 
 ### Tenant isolation
-
-When you deploy a multitenant solution in Azure, you need to determine whether you dedicate resources to each tenant or if you share resources between multiple tenants. Throughout the multitenancy approaches and service-specific guidance sections of this series, we describe the options and their trade-offs for many categories of resources. In general, though, there are a range of options for *tenant isolation*.
 
 Azure resources are deployed and managed through a hierarchy: most *resources* are deployed into [*resource groups*](/azure/azure-resource-manager/management/manage-resource-groups-portal), which are contained in *subscriptions*. [*Management groups*](/azure/governance/management-groups/overview) logically group subscriptions together. All of these hierarchical layers exist within an [*Azure Active Directory tenant*](/azure/active-directory/fundamentals/active-directory-how-subscriptions-associated-directory).
 
@@ -44,7 +55,7 @@ When you determine how to deploy resources for each tenant, you might choose to 
 
 You might choose to share an Azure resource among multiple tenants, and run all of their workloads on a single instance. Ensure you review the [service-specific guidance](../service/overview.md) for the resources you use to understand any specific considerations or options that might be important.
 
-When you run single instances of a component, you need to consider any service limits that might become a problem as you scale. For example, there is a maximimum number of nodes in an Azure Kubernetes Service (AKS) cluster, and an upper limit on the number of transactions per second supported by a storage account. Consider how you'll [scale to multiple shared resources](#plan-to-scale-out) as you approach these limits.
+When you run single instances of a component, you need to consider any service limits that might become a problem as you scale. For example, there is a maximimum number of nodes in an Azure Kubernetes Service (AKS) cluster, and an upper limit on the number of transactions per second supported by a storage account. Consider how you'll [scale to multiple shared resources](#bin-packing) as you approach these limits.
 
 You also need to ensure your application code is fully aware of multitenancy, and that it restricts access to the data for a specific tenant.
 
@@ -92,7 +103,7 @@ They use a management group to simplify the management of their subscriptions. T
 
 All of their subscriptions are tied to a single Azure Active Directory tenant. This means that the Contoso team's identities, including users and service principals, can be used throughout their entire Azure estate.
 
-### Separate subscriptions in separate Azure AD tenants
+#### Separate subscriptions in separate Azure AD tenants
 
 It's also possible to manually create individual Azure Active Directory (Azure AD) tenants for each of your tenants, or to deploy your resources into subscriptions within your customers' Azure AD tenants. However, this introduces complexity and makes it more difficult to authenticate, to manage role assignments, to apply global policies, and perform many other management operations.
 
@@ -107,10 +118,7 @@ For example, Contoso could create separate Azure AD tenants and separate subscri
 
 ### Bin packing
 
-Regardless of your resource isolation model, it's important to consider when and how your solution will scale out across multiple resources. This might need to happen as the load on your system increases, or as the number of tenants grows.
-
-> [!NOTE]
-> If you know with certainty that you won't grow to large numbers of tenants or large levels of load, you don't need to overengineer your scale-out plan, and likely don't need to follow the guidance in this section. But if you plan for your solution to grow, we advise you to consider your scale-out plan carefully.
+Regardless of your resource isolation model, it's important to consider when and how your solution will scale out across multiple resources. This might need to happen as the load on your system increases, or as the number of tenants grows. Consider *bin packing* to deploy an optimal number of resources for your requirements.
 
 > [!TIP]
 > In many solutions, it's easier to scale your entire set of resources together instead of scaling resources individually. Consider following the [Deployment Stamps pattern](overview.md#deployment-stamps-pattern).
@@ -126,7 +134,7 @@ Additionally, the way you configure and use each resource affects the scalabilit
 > 
 > For example, Azure App Service supports scaling out the number of instances of your plan, but there are limits for how far you can scale a single plan. In a high-scale multitenant app, you might exceed these limits and need deploy additional App Service resources to match your growth.
 
-When you share some of your resources between tenants, consider *bin packing*. Determine the number of tenants that are supported by the resource when it's configured according to your requirements. Then, deploy as many resources as you need to serve your total number of tenants.
+When you share some of your resources between tenants, you should first determine the number of tenants that are supported by the resource when it's configured according to your requirements. Then, deploy as many resources as you need to serve your total number of tenants.
 
 For example, suppose you deploy an Azure Application Gateway as part of a multitenant SaaS solution. After reviewing your application design, testing the application gateway's performance under load, and reviewing its configuration, you might determine that a single application gateway can be shared among 100 customers. According to your organization's growth plan, you expect to onboard 150 tenants in your first year. This means that you need to plan to deploy multiple application gateways to service your expected load:
 
@@ -159,17 +167,6 @@ And as you grow even larger you can deploy across multiple subscriptions:
 ![Diagram showing bin packing across multiple resources in multiple resource groups and subscriptions.](media/overview/bin-pack-resources-4.png)
 
 By planning your scale-out strategy, you can scale to extremely large numbers of tenants with high load.
-
-#### Consider how to scale
-
-If you expect to only have a small number of tenants with a small load, it might be possible to avoid scaling across multiple resources. But, if you expect to grow the number of tenants or the amount of overall usage, it's important to consider how you will work with resources as you scale.
-
-If you have an automated deployment process, consider how you'll deploy and assign tenants across multiple resource instances. For example, how will you detect that you're approaching the number of tenants that can be assigned to a specific resource? Will you plan to deploy additional resources as you need them (*just in time*), or will you deploy a pool of resources *ahead of time* so they're ready for you to use when you need them?
-
-It's also important to avoid making assumptions in your code and configuration that can limit your ability to scale. For example, if you plan to scale out to multiple storage accounts, ensure your application tier doesn't assume that it only connects to a single storage account for all tenants.
-
-> [!TIP]
-> In the early stages of design and development, you might not choose to implement an automated scale-out process. You should still consider and clearly document the processes required to scale as you grow.
 
 ## Next steps
 
