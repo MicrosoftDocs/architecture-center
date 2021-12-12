@@ -116,7 +116,7 @@ Additionally, the way you configure and use each resource affects the scalabilit
 > [!NOTE]
 > The principle of scaling to multiple resources applies even when you work with services that support multiple instances.
 > 
-> For example, Azure App Service supports scaling out the number of instances of your plan, but there are limits for how far you can scale. In a high-scale multitenant app, you might exceed these limits and need deploy additional App Service resources to match your growth.
+> For example, Azure App Service supports scaling out the number of instances of your plan, but there are limits for how far you can scale a single plan. In a high-scale multitenant app, you might exceed these limits and need deploy additional App Service resources to match your growth.
 
 When you share some of your resources between tenants, consider *bin packing*. Determine the number of tenants that are supported by the resource when it's configured according to your requirements. Then, deploy as many resources as you need to serve your total number of tenants.
 
