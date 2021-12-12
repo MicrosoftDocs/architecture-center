@@ -4,7 +4,7 @@ titleSuffix: Azure Architecture Center
 description: This article describes approaches to consider for networking in a multitenant solution.
 author: johndowns
 ms.author: jodowns
-ms.date: 12/06/2021
+ms.date: 12/13/2021
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: azure-guide
@@ -73,10 +73,11 @@ If you need to enable connectivity to your service by using private IP addresses
 
 Consider whether you need to send data to endpoints within tenants' networks, either within or outside of Azure. For example, will you need to invoke a webhook provided by a customer, or send real-time messages to a tenant?
 
-If you do need to send data to tenants' endpoints, two common approaches are:
+If you do need to send data to tenants' endpoints, common approaches are:
 
 - Initiate connections from your solution to tenants' endpoints through the internet. Consider whether the connections must originate from a [static IP address](#static-ip-addresses). Depending on the Azure services you use, you might need to deploy a [NAT Gateway](/azure/virtual-network/nat-gateway/nat-overview), firewall, or load balancer.
 - Deploy an [agent](#agents) to enable connectivity between your Azure-hosted services and your customers' networks, regardless of where they are located.
+- For one-way messaging, considering using a service like [Azure Event Grid](/azure/event-grid/overview), with or without [event domains](/azure/event-grid/event-domains).
 
 ## Approaches and patterns to consider
 
@@ -113,11 +114,11 @@ Consider whether your tenants need your service to use static public IP addresse
 
 When you work with virtual machines and other infrastructure components, consider using a load balancer or firewall for both inbound and outbound static IP addressing. You can also consider using NAT Gateway to control the IP address of outbound traffic.
 
-When you work with platform services, the specific service you use determines whether and how you can control IP addresses. You might need to configure the resource in a specific way, such as by deploying the resource into a VNet and using a NAT Gateway or firewall, or by requesting the current set of IP addresses that the service uses for outbound traffic (for example, [App Service provides an API and web interface to obtain the current outbound IP addresses for your application](/azure/app-service/troubleshoot-intermittent-outbound-connection-errors)).
+When you work with platform services, the specific service you use determines whether and how you can control IP addresses. You might need to configure the resource in a specific way, such as by deploying the resource into a VNet and using a NAT Gateway or firewall, or by requesting the current set of IP addresses that the service uses for outbound traffic. For example, [App Service provides an API and web interface to obtain the current outbound IP addresses for your application](/azure/app-service/troubleshoot-intermittent-outbound-connection-errors).
 
 ### Agents
 
-If you need to enable your tenants to receive messages initiated by your solution, or if you need to access data that exists in tenants' own networks, then consider providing an agent (sometimes called an _on-premises gateway_) that they can deploy within their network.
+If you need to enable your tenants to receive messages initiated by your solution, or if you need to access data that exists in tenants' own networks, then consider providing an agent (sometimes called an _on-premises gateway_) that they can deploy within their network. This approach can work whether your tenants' networks are in Azure, in another cloud provider, or on premises.
 
 The agent initiates an outbound connection to an endpoint that you specify and control, and either keeps long-running connections alive or polls intermittently. Consider using [Azure Relay](/azure/azure-relay/relay-what-is-it) to establish and manage connections from your agent to your service. When the agent establishes the connection, it authenticates and includes some information about the tenant identifier so that your service can map the connection to the correct tenant.
 
@@ -134,7 +135,7 @@ Examples of Microsoft services that provide agents for connectivity to tenants' 
 
 Tenants can deploy a private endpoint within their VNet and configure it to your Private Link service instance. Azure securely routes the traffic to the service. Azure Private Link service is used by many large SaaS providers, including [Snowflake](/shows/Azure-Videos/Azure-Private-Link--Snowflake), [Confluent Cloud](https://www.confluent.io/blog/how-to-set-up-secure-networking-in-confluent-with-azure-private-link/), and [MongoDB Atlas](https://www.mongodb.com/blog/post/announcing-azure-private-link-integration-for-mongo-db-atlas).
 
-[Private endpoints typically require approval](/azure/private-link/private-endpoint-overview#access-to-a-private-link-resource-using-approval-workflow) when the source and destination subscriptions are different. You can [automate the approval process](/azure/private-link/manage-private-endpoint#manage-private-endpoint-connections-on-a-customerpartner-owned-private-link-service) within your solution by using Azure Powershell, the Azure CLI, and the Azure Resource Manager API.
+[Private endpoints typically require approval](/azure/private-link/private-endpoint-overview#access-to-a-private-link-resource-using-approval-workflow) when the destination resource is in a different Azure subscription to the resource. You can [automate the approval process](/azure/private-link/manage-private-endpoint#manage-private-endpoint-connections-on-a-customerpartner-owned-private-link-service) within your solution by using Azure Powershell, the Azure CLI, and the Azure Resource Manager API.
 
 ### Domain names, subdomains, and TLS
 
@@ -142,24 +143,24 @@ When you work with domain names and transport-layer security (TLS) in a multiten
 
 ### Gateway Routing and Gateway Offloading patterns
 
-The [Gateway Routing pattern](../../../patterns/gateway-routing.md) and the [Gateway Offloading pattern](../../../patterns/gateway-offloading.md) involve deploying a layer 7 reverse proxy. Gateways are useful to provide core services for a multitenant application, including:
+The [Gateway Routing pattern](../../../patterns/gateway-routing.md) and the [Gateway Offloading pattern](../../../patterns/gateway-offloading.md) involve deploying a layer 7 reverse proxy or *gateway*. Gateways are useful to provide core services for a multitenant application, including:
 
 - Routing requests to tenant-specific backends or deployment stamps.
 - Handling tenant-specific domain names and TLS certificates.
-- Inspecting requests for security threats by using a web application firewall (WAF).
+- Inspecting requests for security threats by using a [web application firewall (WAF)](https://azure.microsoft.com/services/web-application-firewall/).
 - Caching responses to improve performance.
 
 Azure provides several services that can be used to achieve some or all of these goals, including Azure Front Door, Azure Application Gateway, and Azure API Management. You can also deploy your own custom solution by using software like NGINX or HAProxy.
 
-If you plan to deploy a gateway for your solution, it's a good practice to build a complete prototype that includes all of the features you need. You should also understand how the gateway component will scale to support your traffic and tenant growth.
+If you plan to deploy a gateway for your solution, it's a good practice to first build a complete prototype that includes all of the features you need, and verify that your application components continue to function as you expect. You should also understand how the gateway component will scale to support your traffic and tenant growth.
 
 ### Static Content Hosting pattern
 
 The [Static Content Hosting pattern](../../../patterns/static-content-hosting.md) involves serving web content from a cloud-native storage service, and using a content delivery network (CDN) to cache the content.
 
-You can use Front Door or another CDN for your solution's static components, such as single-page JavaScript applications, and for static content like image files and documents.
+You can use [Azure Front Door](/azure/frontdoor/front-door-caching) or another CDN for your solution's static components, such as single-page JavaScript applications, and for static content like image files and documents.
 
-Depending on how your solution is designed, you might also be able to cache tenant-specific files or data within a CDN, such as JSON API responses. This can help to improve the performance and scalability of your solution, but it's important to consider whether tenant-specific data is isolated sufficiently to avoid leaking data across tenants. You should also consider how you plan to purge tenant-specific content from your cache, such as when data is updated or a new application version is deployed. By including the tenant identifier in the URL path, you can control whether you purge a specific file, all files that relate to a specific tenant, or all files for all tenants.
+Depending on how your solution is designed, you might also be able to cache tenant-specific files or data within a CDN, such as JSON-formatted API responses. This can help to improve the performance and scalability of your solution, but it's important to consider whether tenant-specific data is isolated sufficiently to avoid leaking data across tenants. You should also consider how you plan to purge tenant-specific content from your cache, such as when data is updated or a new application version is deployed. By including the tenant identifier in the URL path, you can control whether you purge a specific file, all files that relate to a specific tenant, or all files for all tenants.
 
 ## Antipatterns to avoid
 
@@ -175,11 +176,11 @@ Azure enforces a number of limits that affect networking resources. These includ
 
 ### Small subnets
 
-It's important to consider the size of each subnet to allow for the number of resources or instances of resources that you will deploy. It's also important to consider how you [logically segment](/azure/security/fundamentals/network-best-practices#logically-segment-subnets) your subnets.
+It's important to consider the size of each subnet to allow for the number of resources or instances of resources that you will deploy. When you work with platform as a service (PaaS) resources, ensure you understand how your resource's configuration and scale will affect the number of IP addresses required in its subnet.
 
 ### Improper network segmentation
 
-If your solution requires virtual networks, consider how you configure network segmentation to enable you to control inbound and outbound (north-south) traffic flows as well as flows within your solution (east-west). Decide whether tenants should have their own VNets, or if you will deploy shared resources in shared VNets. It can be difficult to change the approach, so ensure you consider all of your requirements and select an approach that will work for your future growth targets.
+If your solution requires virtual networks, consider how you configure [network segmentation](/azure/security/fundamentals/network-best-practices#logically-segment-subnets) to enable you to control inbound and outbound (north-south) traffic flows as well as flows within your solution (east-west). Decide whether tenants should have their own VNets, or if you will deploy shared resources in shared VNets. It can be difficult to change the approach, so ensure you consider all of your requirements and select an approach that will work for your future growth targets.
 
 ### Relying only on network-layer security controls
 
@@ -189,7 +190,7 @@ In modern networks, it's important to combine network-layer security with other 
 
 When you use the [Gateway Offloading pattern](../../../patterns/gateway-offloading.md), you might consider rewriting the `Host` header of HTTP requests. This can simplify the configuration of your backend web application service by offloading the custom domain and TLS management to the gateway.
 
-However, `Host` header rewrites can cause problems for some backend services. If your application issues HTTP redirects or cookies, the mismatch in host names can break application functionality. This is a particular issue when you work with services like Azure App Service, Azure Functions, and Azure Spring Cloud.
+However, `Host` header rewrites can cause problems for some backend services. If your application issues HTTP redirects or cookies, the mismatch in host names can break application functionality. In particular, this issue can arise when you use backend services that are themselves multitenant, like Azure App Service, Azure Functions, and Azure Spring Cloud.
 
 Ensure you test your application's behavior with the gateway configuration you plan to use.
 
