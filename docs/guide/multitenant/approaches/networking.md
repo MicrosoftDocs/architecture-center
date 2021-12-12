@@ -22,7 +22,7 @@ ms.custom:
 
 # Architectural approaches for networking in multitenant solutions
 
-All solutions deployed to Azure require networking of some kind. Depending on your solution design and the workload, the ways in which you interact with Azure's networking services might be very different. On this page, we provide considerations and guidance for the networking aspects of multitenant solutions on Azure. We include information about the lower-level networking components, like virtual networks, through to higher-level and application-tier approaches.
+All solutions deployed to Azure require networking of some kind. Depending on your solution design and the workload, the ways in which you interact with Azure's networking services might be different. On this page, we provide considerations and guidance for the networking aspects of multitenant solutions on Azure. We include information about the lower-level networking components, like virtual networks, through to higher-level and application-tier approaches.
 
 > [!NOTE]
 > Azure itself is a multitenant environment, and Azure's network components are designed for multitenancy. Although it's not required to understand the details in order to design your own solution, you can [learn more about how Azure isolates your virtual network traffic from other customers' traffic.](/azure/security/fundamentals/isolation-choices#networking-isolation)
@@ -35,7 +35,7 @@ The concerns you have for your networking components will differ depending on th
 
 #### Infrastructure services
 
-Whenever you use infrastructure services, like virtual machines or Azure Kubernetes Service, you need to be consider and design the virtual networks, or VNets, underpinning your services' connectivity. You also need to consider the other layers of security and isolation that you need to incorporate in your design. [Avoid relying exclusively on network-layer controls.](#relying-only-on-network-layer-security-controls)
+Whenever you use infrastructure services, like virtual machines or Azure Kubernetes Service, you need to consider and design the virtual networks, or VNets, underpinning your services' connectivity. You also need to consider the other layers of security and isolation that you need to incorporate in your design. [Avoid relying exclusively on network-layer controls.](#relying-only-on-network-layer-security-controls)
 
 #### Platform services
 
@@ -57,7 +57,7 @@ When you need to deploy a VNet, it's important to carefully consider the sizing 
 
 Ensure you have a clear understanding of how you will deploy your Azure resources into VNets, and the number of IP addresses each resource consumes. If you deploy tenant-specific compute nodes, database servers, or other resources, ensure you create subnets that are large enough for your expected tenant growth and [horizontal autoscaling of resources](../../../framework/scalability/design-scale.md).
 
-Similarly, when you work with managed services, it's important that you understand how IP addresses are consumed. For example, when you use Azure Kubernetes Service in conjunction with [Azure Container Networking Interface (Azure CNI)](/azure/aks/configure-azure-cni), the number of IP addresses consumed from a subnet will be based on factors including the number of nodes, how you scale horizontally, and the service deployment process you use. When you use Azure App Service and Azure Functions with VNet integration, [the number of IP addresses consumed is based on the number of plan instances](/azure/app-service/overview-vnet-integration#subnet-requirements).
+Similarly, when you work with managed services, it's important that you understand how IP addresses are consumed. For example, when you use Azure Kubernetes Service with [Azure Container Networking Interface (Azure CNI)](/azure/aks/configure-azure-cni), the number of IP addresses consumed from a subnet will be based on factors including the number of nodes, how you scale horizontally, and the service deployment process you use. When you use Azure App Service and Azure Functions with VNet integration, [the number of IP addresses consumed is based on the number of plan instances](/azure/app-service/overview-vnet-integration#subnet-requirements).
 
 [Review the subnet segmentation guidance](/azure/security/fundamentals/network-best-practices#logically-segment-subnets) when planning your subnets.
 
@@ -67,7 +67,7 @@ Consider whether your tenants will access your services through the internet or 
 
 For internet-based (public) access, you can use firewall rules, IP address allowlisting and denylisting, shared secrets and keys, and identity-based controls to secure your service.
 
-If you need to enable connectivity to your service by using private IP addresses, consider using [Azure Private Link Service](#azure-private-link-service) or [cross-tenant virtual network peering](/azure/virtual-network/create-peering-different-subscriptions). For some limited scenarios, you might also consider using Azure ExpressRoute or Azure VPN Gateway to enable private access to your solution. This is only advisable when you have dedicated networks for each tenant, and a small number of tenants.
+If you need to enable connectivity to your service by using private IP addresses, consider using [Azure Private Link Service](#azure-private-link-service) or [cross-tenant virtual network peering](/azure/virtual-network/create-peering-different-subscriptions). For some limited scenarios, you might also consider using Azure ExpressRoute or Azure VPN Gateway to enable private access to your solution. This approach is only advisable when you have dedicated networks for each tenant, and a small number of tenants.
 
 ### Access to tenants' endpoints
 
@@ -87,9 +87,9 @@ In this section, we describe some of the key networking approaches you can consi
 
 In some situations, you need to run dedicated VNet-connected resources in Azure on a tenant's behalf. For example, you might run a virtual machine for each tenant, or you might need to use private endpoints to access tenant-specific databases.
 
-Consider deploying a VNet for each tenant, using an IP address space that you control. This enables you to peer the VNets together for your own purposes, such as if you need to establish a [hub and spoke topology](#hub-and-spoke-topology) to centrally control traffic ingress and egress.
+Consider deploying a VNet for each tenant, using an IP address space that you control. This approach enables you to peer the VNets together for your own purposes, such as if you need to establish a [hub and spoke topology](#hub-and-spoke-topology) to centrally control traffic ingress and egress.
 
-However, this isn't a good model if tenants need to connect directly to the VNet you created, such as by using VNet peering. It's likely that the address space you select will be incompatible with their own address spaces.
+However, provider-selected IP addresses aren't appropriate if tenants need to connect directly to the VNet you created, such as by using VNet peering. It's likely that the address space you select will be incompatible with their own address spaces.
 
 ### Tenant-specific VNets with tenant-selected IP addresses
 
@@ -131,11 +131,11 @@ Examples of Microsoft services that provide agents for connectivity to tenants' 
 
 ### Azure Private Link service
 
-[Azure Private Link Service](/azure/private-link/private-link-service-overview) provides private connectivity from a tenant's Azure environment to your solution. Tenants can also use Private Link service in conjunction with their own VNet to access your service from an on-premises environment.
+[Azure Private Link Service](/azure/private-link/private-link-service-overview) provides private connectivity from a tenant's Azure environment to your solution. Tenants can also use Private Link service with their own VNet to access your service from an on-premises environment.
 
 Tenants can deploy a private endpoint within their VNet and configure it to your Private Link service instance. Azure securely routes the traffic to the service. Azure Private Link service is used by many large SaaS providers, including [Snowflake](/shows/Azure-Videos/Azure-Private-Link--Snowflake), [Confluent Cloud](https://www.confluent.io/blog/how-to-set-up-secure-networking-in-confluent-with-azure-private-link/), and [MongoDB Atlas](https://www.mongodb.com/blog/post/announcing-azure-private-link-integration-for-mongo-db-atlas).
 
-[Private endpoints typically require approval](/azure/private-link/private-endpoint-overview#access-to-a-private-link-resource-using-approval-workflow) when the destination resource is in a different Azure subscription to the resource. You can [automate the approval process](/azure/private-link/manage-private-endpoint#manage-private-endpoint-connections-on-a-customerpartner-owned-private-link-service) within your solution by using Azure Powershell, the Azure CLI, and the Azure Resource Manager API.
+[Private endpoints typically require approval](/azure/private-link/private-endpoint-overview#access-to-a-private-link-resource-using-approval-workflow) when the destination resource is in a different Azure subscription to the resource. You can [automate the approval process](/azure/private-link/manage-private-endpoint#manage-private-endpoint-connections-on-a-customerpartner-owned-private-link-service) within your solution by using Azure PowerShell, the Azure CLI, and the Azure Resource Manager API.
 
 ### Domain names, subdomains, and TLS
 
@@ -172,7 +172,7 @@ It's important to test and plan your network strategy so that you uncover any is
 
 ### Not planning for limits
 
-Azure enforces a number of limits that affect networking resources. These include [Azure resource limits](/azure/azure-resource-manager/management/azure-subscription-service-limits#networking-limits) as well as fundamental protocol and platform limits. For example, when you build a high-scale multitenant solution on platform services like Azure App Service and Azure Functions, you might need to consider the [number of TCP connections and SNAT ports](/azure/app-service/troubleshoot-intermittent-outbound-connection-errors). When you work with virtual machines and load balancers, you also need to consider limitations for [outbound rules](/azure/load-balancer/outbound-rules) and for [SNAT ports](/azure/load-balancer/load-balancer-outbound-connections).
+Azure enforces a number of limits that affect networking resources. These include [Azure resource limits](/azure/azure-resource-manager/management/azure-subscription-service-limits#networking-limits) and fundamental protocol and platform limits. For example, when you build a high-scale multitenant solution on platform services like Azure App Service and Azure Functions, you might need to consider the [number of TCP connections and SNAT ports](/azure/app-service/troubleshoot-intermittent-outbound-connection-errors). When you work with virtual machines and load balancers, you also need to consider limitations for [outbound rules](/azure/load-balancer/outbound-rules) and for [SNAT ports](/azure/load-balancer/load-balancer-outbound-connections).
 
 ### Small subnets
 
@@ -180,7 +180,7 @@ It's important to consider the size of each subnet to allow for the number of re
 
 ### Improper network segmentation
 
-If your solution requires virtual networks, consider how you configure [network segmentation](/azure/security/fundamentals/network-best-practices#logically-segment-subnets) to enable you to control inbound and outbound (north-south) traffic flows as well as flows within your solution (east-west). Decide whether tenants should have their own VNets, or if you will deploy shared resources in shared VNets. It can be difficult to change the approach, so ensure you consider all of your requirements and select an approach that will work for your future growth targets.
+If your solution requires virtual networks, consider how you configure [network segmentation](/azure/security/fundamentals/network-best-practices#logically-segment-subnets) to enable you to control inbound and outbound (north-south) traffic flows and flows within your solution (east-west). Decide whether tenants should have their own VNets, or if you will deploy shared resources in shared VNets. It can be difficult to change the approach, so ensure you consider all of your requirements and select an approach that will work for your future growth targets.
 
 ### Relying only on network-layer security controls
 
