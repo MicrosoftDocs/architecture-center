@@ -46,7 +46,7 @@ As an illustration of the shared resource approach, suppose Contoso is building 
 
 ### Separate resources in a resource group
 
-You can also deploy dedicated resources for each tenant. You might deploy an entire copy of your solution for a single tenant, as in the [Deployment Stamps pattern](overview.md#deployment-stamps-pattern), or you might deploy some components that are shared between tenants and other components that are dedicated to a specific tenants.
+You can also deploy dedicated resources for each tenant. You might deploy an entire copy of your solution for a single tenant, or you might deploy some components that are shared between tenants and other components that are dedicated to a specific tenant.
 
 It's important that you consider how you deploy and manage these resources, including [whether the deployment of tenant-specific resources is initiated by your deployment pipeline or an application component](deployment-configuration.yml#resource-management-responsibility). You also need to determine how you'll [clearly identify that specific resources relate to specific tenants](cost-management-allocation.md), which might include naming conventions, tags, and a tenant catalog database.
 
