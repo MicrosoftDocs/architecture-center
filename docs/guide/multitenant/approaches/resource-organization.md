@@ -24,7 +24,15 @@ ms.custom:
 
 Azure provides a number of options for organizing your resources. In a multitenant solution, there are specific tradeoffs to consider when you plan your resource organization strategy. On this page, we review two core elements of your resource organization approach: tenant isolation and scale-out across multiple resources.
 
-## Tenant isolation
+## Key considerations and requirements
+
+<!-- TODO -->
+- Isolation requirements
+- Scale
+
+## Approaches and patterns to consider
+
+### Tenant isolation
 
 When you deploy a multitenant solution in Azure, you need to determine whether you dedicate resources to each tenant or if you share resources between multiple tenants. Throughout the multitenancy approaches and service-specific guidance sections of this series, we describe the options and their trade-offs for many categories of resources. In general, though, there are a range of options for *tenant isolation*.
 
@@ -32,7 +40,7 @@ Azure resources are deployed and managed through a hierarchy: most *resources* a
 
 When you determine how to deploy resources for each tenant, you might choose to isolate at any of these levels in the hierarchy. Each option is valid for certain types of multitenant solutions, and comes with benefits and costs. It's also common to combine approaches, using different isolation models for different components of a solution.
 
-### Isolation within a shared resource
+#### Isolation within a shared resource
 
 You might choose to share an Azure resource among multiple tenants, and run all of their workloads on a single instance. Ensure you review the [service-specific guidance](../service/overview.md) for the resources you use to understand any specific considerations or options that might be important.
 
@@ -44,7 +52,7 @@ As an illustration of the shared resource approach, suppose Contoso is building 
 
 ![Diagram showing a single set of resources that are shared by all customers.](media/overview/isolation-within-resource.png)
 
-### Separate resources in a resource group
+#### Separate resources in a resource group
 
 You can also deploy dedicated resources for each tenant. You might deploy an entire copy of your solution for a single tenant, or you might deploy some components that are shared between tenants and other components that are dedicated to a specific tenant.
 
@@ -56,7 +64,7 @@ Suppose Contoso has three customers: Adventure Works, Fabrikam, and Tailwind. Th
 
 ![Diagram showing a resource group containing shared resources, and another resource group containing a database for each customer.](media/overview/isolation-resource.png)
 
-### Separate resource groups in a subscription
+#### Separate resource groups in a subscription
 
 When you deploy a set of resources for each tenant, consider using dedicated tenant-specific resource groups. For example, when you follow the [Deployment Stamps pattern](overview.md#deployment-stamps-pattern), each stamp should be deployed into its own resource group. You can consider deploying multiple tenant-specific resource groups into a shared Azure subscription. This enables you to easily configure policies and access control rules.
 
@@ -68,7 +76,7 @@ In our example, Contoso might choose to deploy a stamp for each of their custome
 
 ![Diagram showing a subscription containing three resource groups, each of which is a complete set of resources for a specific customer.](media/overview/isolation-resource-group.png)
 
-### Separate subscriptions
+#### Separate subscriptions
 
 By deploying tenant-specific subscriptions, you can completely isolate tenant-specific resources. Additionally, because most quotas and limits apply within a subscription, using a separate subscription per tenant ensures that each tenant has full use of any applicable quotas. For some Azure billing account types, [you can programmatically create subscriptions](/azure/cost-management-billing/manage/programmatically-create-subscription). You can also make use of [Azure reservations](/azure/cost-management-billing/reservations/save-compute-costs-reservations) across subscriptions.
 
@@ -97,7 +105,7 @@ For example, Contoso could create separate Azure AD tenants and separate subscri
 
 ![Diagram showing an Azure A D tenant for each of Contoso's tenants, containing a subscription and the resources required. Azure Lighthouse is connected to each Azure A D tenant.](media/overview/isolation-tenant.png)
 
-## Plan to scale out
+### Bin packing
 
 Regardless of your resource isolation model, it's important to consider when and how your solution will scale out across multiple resources. This might need to happen as the load on your system increases, or as the number of tenants grows.
 
@@ -107,7 +115,7 @@ Regardless of your resource isolation model, it's important to consider when and
 > [!TIP]
 > In many solutions, it's easier to scale your entire set of resources together instead of scaling resources individually. Consider following the [Deployment Stamps pattern](overview.md#deployment-stamps-pattern).
 
-### Resource limits
+#### Resource limits
 
 Azure resources have [limits and quotas](/azure/azure-resource-manager/management/azure-subscription-service-limits) that must be considered in your solution planning. For example, resources might support a maximum number of concurrent requests or tenant-specific configuration settings.
 
@@ -124,7 +132,7 @@ For example, suppose you deploy an Azure Application Gateway as part of a multit
 
 ![Diagram showing two application gateways, with the first dedicated to customers 1 through 100, and the second dedicated to customers 101 through 200.](media/overview/bin-pack-resource.png)
 
-### Resource group and subscription limits
+#### Resource group and subscription limits
 
 Whether you work with shared or dedicated resources, it's important to account for the limits to the number of resources that can be [deployed into a resource group](/azure/azure-resource-manager/management/azure-subscription-service-limits#resource-group-limits) and [into an Azure subscription](/azure/azure-resource-manager/management/azure-subscription-service-limits#subscription-limits). As you approach these limits, you need to plan to scale across multiple resource groups or subscriptions.
 
@@ -132,7 +140,7 @@ For example, suppose you deploy a dedicated application gateway for each of your
 
 ![Diagram showing two resource groups, each containing 800 application gateways.](media/overview/bin-pack-resource-group.png)
 
-### Bin pack tenants across resource groups and subscriptions
+#### Bin pack tenants across resource groups and subscriptions
 
 You can also apply the bin packing concept across resources, resource groups, and subscriptions. For example, when you have a small number of tenants you might be able to use a single resource for all of your tenants:
 
@@ -152,7 +160,7 @@ And as you grow even larger you can deploy across multiple subscriptions:
 
 By planning your scale-out strategy, you can scale to extremely large numbers of tenants with high load.
 
-### Consider how to scale
+#### Consider how to scale
 
 If you expect to only have a small number of tenants with a small load, it might be possible to avoid scaling across multiple resources. But, if you expect to grow the number of tenants or the amount of overall usage, it's important to consider how you will work with resources as you scale.
 
