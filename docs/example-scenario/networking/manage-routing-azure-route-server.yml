@@ -1,0 +1,25 @@
+### YamlMime:Architecture
+metadata:
+  title: Update route tables by using Azure Route Server
+  titleSuffix: Azure Example Scenarios
+  description: Use Azure Route Server to manage the dynamic routing between NVAs and virtual networks. Simplify NVA maintenance, and avoid manually updating route tables.
+  author: priyshar
+  ms.author: edprice
+  ms.date: 12/10/2021
+  ms.topic: conceptual
+  ms.service: architecture-center
+  ms.subservice: example-scenario
+  ms.custom:
+    - fcp
+azureCategories:
+  - networking
+products:
+  - azure-expressroute
+  - azure-storage
+  - azure-virtual-network
+  - azure-vpn-gateway
+name: Update route tables by using Azure Route Server
+summary: Use Azure Route Server to manage the dynamic routing between NVAs and virtual networks. Simplify NVA maintenance, and avoid manually updating route tables.
+thumbnailUrl: /azure/architecture/browse/thumbs/manage-routing-azure-route-server-architecture-thumbnail.png
+content: |
+  [!include[](manage-routing-azure-route-server-content.md)]
