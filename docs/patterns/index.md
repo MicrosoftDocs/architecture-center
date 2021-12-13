@@ -11,6 +11,10 @@ ms.custom:
   - design-pattern
 keywords:
   - Azure
+products:
+  - azure
+categories:
+  - management-and-governance
 ---
 
 # Cloud Design Patterns

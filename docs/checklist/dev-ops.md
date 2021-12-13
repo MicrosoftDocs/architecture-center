@@ -11,6 +11,8 @@ ms.custom:
   - checklist
 products:
   - azure
+categories:
+  - devops
 checklist:
   - devops
   - management-and-governance
