@@ -53,7 +53,7 @@ When you determine how to deploy resources for each tenant, you might choose to 
 
 #### Isolation within a shared resource
 
-You might choose to share an Azure resource among multiple tenants, and run all of their workloads on a single instance. Ensure you review the [service-specific guidance](../service/overview.md) for the resources you use to understand any specific considerations or options that might be important.
+You might choose to share an Azure resource among multiple tenants, and run all of their workloads on a single instance. Review the [service-specific guidance](../service/overview.md) for the Azure services you use to understand any specific considerations or options that might be important.
 
 When you run single instances of a component, you need to consider any service limits that might become a problem as you scale. For example, there is a maximimum number of nodes in an Azure Kubernetes Service (AKS) cluster, and an upper limit on the number of transactions per second supported by a storage account. Consider how you'll [scale to multiple shared resources](#bin-packing) as you approach these limits.
 
@@ -67,7 +67,7 @@ As an illustration of the shared resource approach, suppose Contoso is building 
 
 You can also deploy dedicated resources for each tenant. You might deploy an entire copy of your solution for a single tenant, or you might deploy some components that are shared between tenants and other components that are dedicated to a specific tenant.
 
-It's important that you consider how you deploy and manage these resources, including [whether the deployment of tenant-specific resources is initiated by your deployment pipeline or an application component](deployment-configuration.yml#resource-management-responsibility). You also need to determine how you'll [clearly identify that specific resources relate to specific tenants](cost-management-allocation.md), which might include naming conventions, tags, and a tenant catalog database.
+It's important that you consider how you deploy and manage these resources, including [whether the deployment of tenant-specific resources is initiated by your deployment pipeline or an application component](deployment-configuration.yml#resource-management-responsibility). You also need to determine how you'll [clearly identify that specific resources relate to specific tenants](cost-management-allocation.md), which might include naming conventions, [resource tags](cost-management-allocation.md#allocate-costs-by-using-resource-tags), and a tenant catalog database.
 
 It's often a good practice to use separate resource groups for the resources you share between multiple tenants and those that you deploy for individual tenants. However, for some resources, [Azure limits the number of resources of a single type that can be deployed into a resource group](/azure/azure-resource-manager/management/resources-without-resource-group-limit), so you also need to consider [scaling across multiple resource groups](#resource-group-and-subscription-limits) as you grow.
 
@@ -99,7 +99,7 @@ For example, suppose Contoso decided to create separate Azure subscriptions for 
 
 ![Diagram showing three customer-specific subscriptions, each containing a resource group with the complete set of resources for that customer.](media/overview/isolation-subscription.png)
 
-They use a management group to simplify the management of their subscriptions. They include *Production* in the name of the management group to clearly distinguish any production tenants from non-production or test tenants, which might have different access control rules and policies applies.
+They use a management group to simplify the management of their subscriptions. They include *Production* in the name of the management group to clearly distinguish any production tenants from non-production or test tenants, which might have different access control rules and policies applied.
 
 All of their subscriptions are tied to a single Azure Active Directory tenant. This means that the Contoso team's identities, including users and service principals, can be used throughout their entire Azure estate.
 
