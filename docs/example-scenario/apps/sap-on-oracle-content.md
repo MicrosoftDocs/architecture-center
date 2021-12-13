@@ -1,17 +1,17 @@
-SAP system on Oracle Database is one of the popular deployment patterns in the SAP world. This article describes a typical architecture of SAP on Oracle on Azure, that aligns with the pillars of the [Azure Well Architected Framework](../../framework/index.md).
+SAP system on Oracle Database is one of the popular deployment patterns in the SAP world. This article describes a typical architecture of SAP on Oracle on Azure, which aligns with the pillars of the [Azure Well Architected Framework](../../framework/index.md).
 
 ## Architecture
 
-![Architecture overview of a production SAP system on Oracle on Azure](./media/sap-on-oracle-architecture.png)
+![Diagram showing an architecture overview of a production SAP system on Oracle on Azure.](./media/sap-on-oracle-architecture.png)
 *Figure – Architecture Diagram of SAP on Oracle Database on Azure*
 
 ## Components
 
 The reference architecture describes a typical SAP production system running on Oracle database on Azure. The key components of the architecture are mentioned below. The architecture and its components can be customized based on the requirements (For example, RPO/RTO, System Role etc.). The considerations associated with each of the components highlight some of customizing options and the recommendations are based on the best practices for running SAP on Oracle database on Azure.
 
-### SAP Presentation Layer
+### SAP presentation layer
 
-The presentation layer (SAPGUI, SAP NetWeaver Business Client, Browser etc.) of the reference architecture reside in the user workstation (laptop, desktop etc.), which connects to Azure via on-premises datacenter. Below are the considerations and recommendations around presentation layer of the architecture.
+The presentation layer (SAPGUI, SAP NetWeaver Business Client, Browser, and so on) of the reference architecture reside in the user workstation (laptop, desktop etc.), which connects to Azure via on-premises datacenter. Below are the considerations and recommendations around presentation layer of the architecture.
 
 #### Considerations
 
@@ -48,7 +48,7 @@ Below are the considerations and recommendations around networking component of 
 - Restrict the database access using [Network Security Group (NSG)](/azure/virtual-network/network-security-groups-overview) and [Application Security Group (ASG)](/azure/virtual-network/application-security-groups) policies.
 - Enable [Accelerated Networking](/azure/virtual-network/create-vm-accelerated-networking-cli) for supported Azure VM and Operating System.
 
-### Virtual Machine
+### Virtual machine
 
 In the reference architecture, SAP Application servers are deployed in the availability set together with Oracle Database and Central Services within an Azure zone. The identical deployment pattern is replicated in the other zone of the primary region for high availability.
 
@@ -149,7 +149,7 @@ The considerations and recommendations around scalability are:
 
 - With the increase of capacity requirement, prefer scaling-out the application server and scaling-up the Database Server.
 
-### High Availability & Disaster Recovery
+### High availability and disaster recovery
 
 SAP application servers in availability set behind standard load balancer and SAP central services in cluster construct the high availability solution of SAP application layer.
 
@@ -210,7 +210,7 @@ Below are the considerations and recommendations related to monitoring aspects o
 
 - Please include [service](/azure/service-health/service-health-overview) and [resource](/azure/service-health/resource-health-overview) health events as part of the platform monitoring solution.
 
-### Cost Optimization
+### Cost optimization
 
 Here are some of the cost optimization measures that can be adopted to achieve cost efficiencies in the solution.
 
@@ -229,7 +229,7 @@ Here are some of the cost optimization measures that can be adopted to achieve c
 
 - For temporary increase (i.e., for finite duration) in storage performance without increasing the storage capacity, consider using [Performance tiering of Premium SSD](/azure/virtual-machines/disks-performance-tiers-portal) and Azure NetApp Files.
 
-## Related Resources
+## Related resources
 
 For other information about running SAP workloads on Oracle on Azure, review the following reference documentations:
 

@@ -5,7 +5,7 @@ metadata:
   description: This example builds a real-time data ingestion/processing pipeline to ingest and process messages from IoT devices into a big data analytic platform in Azure.
   author: khilscher
   ms.author: kehilsch
-  ms.date: 11/17/2020
+  ms.date: 07/16/2021
   ms.topic: conceptual
   ms.service: architecture-center
   ms.subservice: example-scenario

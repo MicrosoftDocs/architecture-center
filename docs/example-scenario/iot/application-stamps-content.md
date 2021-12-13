@@ -78,7 +78,8 @@ In this model, the gateway uses a cache to map devices to IoT Hubs, defaulting t
 - While caching in a shared lookup avoids re-negotiating endpoints on every call, it's possible for the cache endpoint to fail. A secondary cache or fallback plan of renegotiating with DPS can improve solution reliability.
 - In the device-only case, devices are disconnected when moved from one IoT Hub to another, either through a disconnect or an error on the next attempted call. In the application-to-device case, the error occurs as the result of attempting to reach the device through the IoT Hub.
 
-## See also
+## Next steps
+
 - [IoT devices, platform, and applications](devices-platform-application.yml)
 - [IoT application-to-device commands](cloud-to-device.yml)
 - [Deployment Stamps design pattern](../../patterns/deployment-stamp.md)
