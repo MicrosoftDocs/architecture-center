@@ -1328,18 +1328,22 @@ items:
             href: example-scenario/apps/apim-api-scenario.yml
           - name: Predictive aircraft engine monitoring
             href: solution-ideas/articles/aircraft-engine-monitoring-for-predictive-maintenance-in-aerospace.yml
-      - name: Automotive and mobility services
+      - name: Automotive, mobility, and transportation
         items:
-          - name: Automated guided vehicles fleet control
-            href: example-scenario/iot/automated-guided-vehicles-fleet-control.yml
-          - name: Building blocks for autonomous driving
-            href: industries/automotive/building-blocks-autonomous-driving-simulation-environments.yml
-          - name: Predictive insights with vehicle telematics
-            href: solution-ideas/articles/predictive-insights-with-vehicle-telematics.yml
-          - name: Process vehicle data using IoT
-            href: example-scenario/data/realtime-analytics-vehicle-iot.yml
-          - name: Run CFD simulations
-            href: example-scenario/infrastructure/hpc-cfd.yml
+          - name: Dynamics 365 automotive accelerator for Azure
+            href: /dynamics365/industry/accelerators/automotive
+          - name: Architectures
+            items:
+              - name: Automated guided vehicles fleet control
+                href: example-scenario/iot/automated-guided-vehicles-fleet-control.yml
+              - name: Building blocks for autonomous driving
+                href: industries/automotive/building-blocks-autonomous-driving-simulation-environments.yml
+              - name: Predictive insights with vehicle telematics
+                href: solution-ideas/articles/predictive-insights-with-vehicle-telematics.yml
+              - name: Process vehicle data using IoT
+                href: example-scenario/data/realtime-analytics-vehicle-iot.yml
+              - name: Run CFD simulations
+                href: example-scenario/infrastructure/hpc-cfd.yml
       - name: Facilities and real-estate
         items: 
           - name: Cognizant Safe Buildings with IoT
@@ -1419,9 +1423,6 @@ items:
             href: data-guide/big-data/ai-overview.md
           - name: Guides
             items:
-              - name: Architecture and key concepts
-                href: /azure/machine-learning/concept-azure-machine-learning-architecture
-                maintainContext: true
               - name: Cognitive services
                 href: data-guide/technology-choices/cognitive-services.md
               - name: Machine learning
@@ -1668,6 +1669,8 @@ items:
                   - name: Implement the healthcare blueprint for AI
                     href: /previous-versions/azure/industry-marketing/health/sg-healthcare-ai-blueprint
                     maintainContext: true
+              - name: Build content-based recommendations
+                href: example-scenario/ai/scalable-personalization-with-content-based-recommendation-system.yml
               - name: Chatbot for hotel booking
                 href: example-scenario/ai/commerce-chatbot.yml
               - name: Citizen AI with the Power Platform
@@ -1684,6 +1687,10 @@ items:
                 href: reference-architectures/ai/conversational-bot.yml
               - name: Image classification
                 href: example-scenario/ai/intelligent-apps-image-processing.yml
+              - name: Many models ML with Spark
+                href: example-scenario/ai/many-models-machine-learning-azure-spark.yml
+              - name: Many models with Azure Machine Learning
+                href: example-scenario/ai/many-models-machine-learning-azure-machine-learning.yml
               - name: MLOps for Python models
                 href: reference-architectures/ai/mlops-python.yml
               - name: Movie recommendations
@@ -1700,8 +1707,6 @@ items:
                 href: reference-architectures/ai/real-time-scoring-machine-learning-models.yml
               - name: Real-time scoring R models
                 href: reference-architectures/ai/realtime-scoring-r.yml
-              - name: Scalable personalization
-                href: example-scenario/ai/scalable-personalization-with-content-based-recommendation-system.yml
               - name: Scale AI and ML in regulated industries
                 href: example-scenario/ai/scale-ai-and-machine-learning-in-regulated-industries.yml
               - name: Speech to text conversion
@@ -1798,12 +1803,14 @@ items:
             items:
               - name: Technology choices
                 items:
-                - name: Analytical data stores
-                  href: data-guide/technology-choices/analytical-data-stores.md
-                - name: Analytics and reporting
-                  href: data-guide/technology-choices/analysis-visualizations-reporting.md
-                - name: Batch processing
-                  href: data-guide/technology-choices/batch-processing.md
+                  - name: Analytical data stores
+                    href: data-guide/technology-choices/analytical-data-stores.md
+                  - name: Analytics and reporting
+                    href: data-guide/technology-choices/analysis-visualizations-reporting.md
+                  - name: Batch processing
+                    href: data-guide/technology-choices/batch-processing.md
+                  - name: Stream processing
+                    href: /azure/architecture/data-guide/technology-choices/stream-processing
               - name: Actuarial risk analysis
                 href: /previous-versions/azure/industry-marketing/financial/actuarial-risk-analysis-and-financial-modeling-solution-guide
                 maintainContext: true
@@ -1860,10 +1867,6 @@ items:
                 href: example-scenario/data/big-data-with-iot.yml
               - name: Long-term security logs in Azure Data Explorer
                 href: example-scenario/security/security-log-retention-azure-data-explorer.yml
-              - name: Many models ML with Spark
-                href: example-scenario/ai/many-models-machine-learning-azure-spark.yml
-              - name: Many models with Azure Machine Learning
-                href: example-scenario/ai/many-models-machine-learning-azure-machine-learning.yml
               - name: Partitioning in Event Hubs and Kafka
                 href: reference-architectures/event-hubs/partitioning-in-event-hubs-and-kafka.yml
               - name: Precision medicine pipeline with genomics
@@ -2387,8 +2390,6 @@ items:
                 href: solution-ideas/articles/retail-and-ecommerce-using-azure-database-for-postgresql.yml
               - name: Retail and e-commerce using Cosmos DB
                 href: solution-ideas/articles/retail-and-e-commerce-using-cosmos-db.yml
-              - name: Running Oracle Databases on Azure
-                href: solution-ideas/articles/reference-architecture-for-oracle-database-on-azure.yml
               - name: Serverless apps using Cosmos DB
                 href: solution-ideas/articles/serverless-apps-using-cosmos-db.yml
               - name: Streaming using HDInsight
@@ -2565,7 +2566,7 @@ items:
                   - name: Property transformer and collector
                     href: guide/azure-resource-manager/advanced-templates/collector.md
               - name: DevTest Labs guidance
-                list:
+                items:
                   - name: Deliver a proof of concept with DevTest Labs
                     href: /azure/devtest-labs/deliver-proof-concept
                     maintainContext: true
@@ -2857,7 +2858,7 @@ items:
                   - name: Secure development with SPAs
                     href: guide/resilience/azure-ad-secure-single-page-application.md
                   - name: Security baseline for Azure AD
-                    hef: /security/benchmark/azure/baselines/aad-security-baseline
+                    href: /security/benchmark/azure/baselines/aad-security-baseline
                     maintainContext: true
               - name: Identity management
                 items:
@@ -3710,6 +3711,8 @@ items:
               - name: Traditional Azure networking topology
                 href: /azure/cloud-adoption-framework/ready/azure-best-practices/traditional-azure-networking-topology
                 maintainContext: true
+              - name: Update route tables by using Azure Route Server
+                href: example-scenario/networking/manage-routing-azure-route-server.yml
               - name: Virtual WAN network topology
                 href: /azure/cloud-adoption-framework/ready/azure-best-practices/virtual-wan-network-topology
                 maintainContext: true
@@ -3723,6 +3726,72 @@ items:
                 href: solution-ideas/articles/video-analytics.yml
               - name: IoT network for healthcare facilities
                 href: solution-ideas/articles/healthcare-network.yml
+      - name: Oracle
+        items:
+          - name: Guides
+            items:
+              - name: Connectivity to Oracle Cloud Infrastructure
+                href: /azure/cloud-adoption-framework/ready/azure-best-practices/connectivity-to-other-providers-oci
+                maintainContext: true
+              - name: Oracle solutions on Azure VMs
+                href: /azure/virtual-machines/workloads/oracle/oracle-vm-solutions
+                maintainContext: true
+              - name: Design an Oracle database in Azure
+                href: /azure/virtual-machines/workloads/oracle/oracle-design
+                maintainContext: true
+              - name: Oracle Database backup
+                items:
+                  - name: Oracle Database backup strategies
+                    href: /azure/virtual-machines/workloads/oracle/oracle-database-backup-strategies
+                    maintainContext: true
+                  - name: Oracle Database backup using Azure Storage
+                    href: /azure/virtual-machines/workloads/oracle/oracle-database-backup-azure-storage
+                    maintainContext: true
+                  - name: Oracle Database backup using Azure Backup
+                    href: /azure/virtual-machines/workloads/oracle/oracle-database-backup-azure-backup
+                    maintainContext: true
+              - name: Oracle disaster recovery options
+                href: /azure/virtual-machines/workloads/oracle/oracle-disaster-recovery
+                maintainContext: true
+              - name: Oracle WebLogic Server
+                items: 
+                  - name: Oracle WebLogic Server on Azure VMs
+                    href: /azure/virtual-machines/workloads/oracle/oracle-weblogic
+                    maintainContext: true
+                  - name: Oracle WebLogic Server on AKS
+                    href: /azure/virtual-machines/workloads/oracle/weblogic-aks
+                    maintainContext: true
+          - name: Architectures
+            items:
+              - name: Oracle application architectures
+                href: /azure/virtual-machines/workloads/oracle/oracle-oci-applications
+                maintainContext: true
+              - name: Oracle Cloud Infrastructure solutions
+                href: /azure/virtual-machines/workloads/oracle/oracle-oci-overview
+                maintainContext: true
+              - name: Oracle database architectures
+                href: /azure/virtual-machines/workloads/oracle/oracle-reference-architecture
+                maintainContext: true
+              - name: Oracle database migration
+                items:
+                  - name: Migration decision process
+                    href: example-scenario/oracle-migrate/oracle-migration-overview.yml
+                  - name: Cross-cloud connectivity
+                    href: example-scenario/oracle-migrate/oracle-migration-cross-cloud.yml
+                  - name: Lift and shift to Azure VMs
+                    href: example-scenario/oracle-migrate/oracle-migration-lift-shift.yml
+                  - name: Refactor
+                    href: example-scenario/oracle-migrate/oracle-migration-refactor.yml
+                  - name: Rearchitect
+                    href: example-scenario/oracle-migrate/oracle-migration-rearchitect.yml
+              - name: Oracle Database with Azure NetApp Files
+                href: example-scenario/file-storage/oracle-azure-netapp-files.yml
+              - name: Run Oracle databases on Azure
+                href: solution-ideas/articles/reference-architecture-for-oracle-database-on-azure.yml
+              - name: SAP deployment using an Oracle database
+                href: example-scenario/apps/sap-production.yml
+              - name: SAP system on Oracle Database
+                href: example-scenario/apps/sap-on-oracle.yml
       - name: SAP
         items:
           - name: Get started
@@ -3772,7 +3841,7 @@ items:
                 href: reference-architectures/sap/sap-netweaver.yml
               - name: SAP S/4HANA in Linux on Azure
                 href: reference-architectures/sap/sap-s4hana.yml
-              - name: SAP System on Oracle Database on Azure
+              - name: SAP system on Oracle Database on Azure
                 href: example-scenario/apps/sap-on-oracle.yml
           - name: Solution ideas
             items:
