@@ -61,7 +61,7 @@ You also need to ensure your application code is fully aware of multitenancy, an
 
 As an illustration of the shared resource approach, suppose Contoso is building a multitenant SaaS application that includes a web application, a database, and a storage account. They might decide to deploy shared resources, and use these resources to service all of their customers:
 
-![Diagram showing a single set of resources that are shared by all customers.](media/overview/isolation-within-resource.png)
+![Diagram showing a single set of resources that are shared by all customers.](media/resource-organization/isolation-within-resource.png)
 
 #### Separate resources in a resource group
 
@@ -73,7 +73,7 @@ It's often a good practice to use separate resource groups for the resources you
 
 Suppose Contoso has three customers: Adventure Works, Fabrikam, and Tailwind. They might choose to share the web application and storage account between the three customers, and deploy individual databases for each tenant:
 
-![Diagram showing a resource group containing shared resources, and another resource group containing a database for each customer.](media/overview/isolation-resource.png)
+![Diagram showing a resource group containing shared resources, and another resource group containing a database for each customer.](media/resource-organization/isolation-resource.png)
 
 #### Separate resource groups in a subscription
 
@@ -85,7 +85,7 @@ When you deploy tenant-specific resource groups into shared subscriptions, be aw
 
 In our example, Contoso might choose to deploy a stamp for each of their customers and place the stamps in dedicated resource groups within a single subscription:
 
-![Diagram showing a subscription containing three resource groups, each of which is a complete set of resources for a specific customer.](media/overview/isolation-resource-group.png)
+![Diagram showing a subscription containing three resource groups, each of which is a complete set of resources for a specific customer.](media/resource-organization/isolation-resource-group.png)
 
 #### Separate subscriptions
 
@@ -97,7 +97,7 @@ Consider grouping your tenant-specific subscriptions into a [management group](/
 
 For example, suppose Contoso decided to create separate Azure subscriptions for each of their three customers:
 
-![Diagram showing three customer-specific subscriptions, each containing a resource group with the complete set of resources for that customer.](media/overview/isolation-subscription.png)
+![Diagram showing three customer-specific subscriptions, each containing a resource group with the complete set of resources for that customer.](media/resource-organization/isolation-subscription.png)
 
 They use a management group to simplify the management of their subscriptions. They include *Production* in the name of the management group to clearly distinguish any production tenants from non-production or test tenants, which might have different access control rules and policies applied.
 
@@ -114,7 +114,7 @@ In situations where you need to manage Azure resources in subscriptions tied to 
 
 For example, Contoso could create separate Azure AD tenants and separate subscriptions for each of their tenants:
 
-![Diagram showing an Azure A D tenant for each of Contoso's tenants, containing a subscription and the resources required. Azure Lighthouse is connected to each Azure A D tenant.](media/overview/isolation-tenant.png)
+![Diagram showing an Azure A D tenant for each of Contoso's tenants, containing a subscription and the resources required. Azure Lighthouse is connected to each Azure A D tenant.](media/resource-organization/isolation-tenant.png)
 
 ### Bin packing
 
@@ -138,7 +138,7 @@ When you share some of your resources between tenants, you should first determin
 
 For example, suppose you deploy an Azure Application Gateway as part of a multitenant SaaS solution. After reviewing your application design, testing the application gateway's performance under load, and reviewing its configuration, you might determine that a single application gateway can be shared among 100 customers. According to your organization's growth plan, you expect to onboard 150 tenants in your first year. This means that you need to plan to deploy multiple application gateways to service your expected load:
 
-![Diagram showing two application gateways, with the first dedicated to customers 1 through 100, and the second dedicated to customers 101 through 200.](media/overview/bin-pack-resource.png)
+![Diagram showing two application gateways, with the first dedicated to customers 1 through 100, and the second dedicated to customers 101 through 200.](media/resource-organization/bin-pack-resource.png)
 
 #### Resource group and subscription limits
 
@@ -146,25 +146,25 @@ Whether you work with shared or dedicated resources, it's important to account f
 
 For example, suppose you deploy a dedicated application gateway for each of your tenants. You deploy them into a shared resource group. Azure supports deploying 800 resources of the same type into a single resource group, so when you reach this number, you need to deploy any new application gateways into another resource group:
 
-![Diagram showing two resource groups, each containing 800 application gateways.](media/overview/bin-pack-resource-group.png)
+![Diagram showing two resource groups, each containing 800 application gateways.](media/resource-organization/bin-pack-resource-group.png)
 
 #### Bin pack tenants across resource groups and subscriptions
 
 You can also apply the bin packing concept across resources, resource groups, and subscriptions. For example, when you have a small number of tenants you might be able to use a single resource for all of your tenants:
 
-![Diagram showing bin packing into a single resource.](media/overview/bin-pack-resources-1.png)
+![Diagram showing bin packing into a single resource.](media/resource-organization/bin-pack-resources-1.png)
 
 As you grow, you might approach the capacity limit for a single resource, and scale to multiple resources:
 
-![Diagram showing bin packing across multiple resources.](media/overview/bin-pack-resources-2.png)
+![Diagram showing bin packing across multiple resources.](media/resource-organization/bin-pack-resources-2.png)
 
 Over time, you might reach the limit of the number of resources in a single resource group, and deploy resources into multiple resource groups:
 
-![Diagram showing bin packing across multiple resources in multiple resource groups.](media/overview/bin-pack-resources-3.png)
+![Diagram showing bin packing across multiple resources in multiple resource groups.](media/resource-organization/bin-pack-resources-3.png)
 
 And as you grow even larger you can deploy across multiple subscriptions:
 
-![Diagram showing bin packing across multiple resources in multiple resource groups and subscriptions.](media/overview/bin-pack-resources-4.png)
+![Diagram showing bin packing across multiple resources in multiple resource groups and subscriptions.](media/resource-organization/bin-pack-resources-4.png)
 
 By planning your scale-out strategy, you can scale to extremely large numbers of tenants with high load.
 
