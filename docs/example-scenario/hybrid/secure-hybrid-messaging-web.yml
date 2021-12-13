@@ -1,10 +1,10 @@
 ### YamlMime:Architecture
 metadata:
-  title: Enhanced-security hybrid messaging infrastructure - web access
+  title: Enhanced-security hybrid messaging - web access
   titleSuffix: Azure Example Scenarios
   description: This article describes an architecture to help you enhance your security in a web access scenario by using Azure AD Multi-Factor Authentication.
-  author: desmay
-  ms.author: desmay
+  author: pakondra
+  ms.author: pakondra
   ms.date: 12/17/2021
   ms.topic: conceptual
   ms.service: architecture-center

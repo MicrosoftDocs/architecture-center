@@ -1,10 +1,16 @@
 Enterprise messaging infrastructure (EMI) is a key service for organizations. Moving from older, less secure methods of authentication and authorization to modern authentication is a critical challenge in a world where remote work is common. Implementing multifactor authentication requirements for messaging service access is one of the most effective ways to meet that challenge. 
 
-This article describes an architecture to help you enhance your security in a web access scenario by using Azure AD Multi-Factor Authentication.
+This article describes an architecture to enhance your security in a web access scenario by using Azure AD Multi-Factor Authentication.
+
+The architectures here describe scenarios to help you protect your messaging service (Outlook on the web or Exchange Control Panel) when mailboxes are hosted in Exchange Online or Exchange on-premises.
+
+For information about applying multifactor authentication in other hybrid messaging scenarios, see these articles:
+- [Protecting a hybrid messaging infrastructure in a desktop-client access scenario](secure-hybrid-messaging-client.yml)
+- [Protecting a hybrid messaging infrastructure in a mobile access scenario](secure-hybrid-messaging-mobile.yml)
 
 ## Potential use cases
 
-This architecture is relevant for the following scenarios and industries:
+This architecture is relevant for the following scenarios:
 - Enhance EMI security.
 - Adopt a [Zero Trust](https://www.microsoft.com/security/business/zero-trust) security strategy.
 - Apply your standard high level of protection for your on-premises messaging service during transition to or coexistence with Exchange Online.
@@ -16,26 +22,20 @@ In this architecture, we divide the solution into two areas, describing security
 - Exchange Online, on the right side of the diagram. 
 - Exchange on-premises in a hybrid or non-hybrid scenario, on the left side of the diagram. 
 
-This article describes a web access scenario to help you protect your messaging service (Outlook on the web or Exchange Control Panel) when mailboxes are hosted in Exchange Online or Exchange on-premises.
-
-For information about applying multifactor authentication in other hybrid messaging scenarios, see these articles:
-- [Protecting a hybrid messaging infrastructure in a desktop-client access scenario](secure-hybrid-messaging-client.yml)
-- [Protecting a hybrid messaging infrastructure in a mobile access scenario](secure-hybrid-messaging-mobile.yml)
-
 This article doesn't discuss other protocols, like IMAP or POP. We don't recommend that you use them to provide user access.
 
 :::image type="complex" border="false" source="./media/hybrid-messaging-web.png" alt-text="Screenshot that shows an architecture for enhanced security in a web access scenario." lightbox="./media/hybrid-messaging-web.png":::
-   Diagram that shows two flows of web access. On the right side, a user with a mailbox hosted in Exchange Online. On the left side, a user with mailbox a hosted in Exchange on-premises. 
+   Diagram that shows two flows of web access. On the right side, a user with a mailbox hosted in Exchange Online. On the left side, a user with a mailbox hosted in Exchange on-premises. 
 :::image-end:::
 
-**General notes**
-- This architecture uses the [federated](/microsoft-365/enterprise/plan-for-directory-synchronization?view=o365-worldwide#federated-authentication) Azure Active Directory (Azure AD) Identity model. For the password hash synchronization and Pass-through Authentication models, the logic and the flow are the same. The only difference is related to the fact that Azure AD won't redirect the authentication request to on-premises Active Directory Federation Services (AD FS).
+### General notes
+- This architecture uses the [federated](/microsoft-365/enterprise/plan-for-directory-synchronization?view=o365-worldwide#federated-authentication) Azure Active Directory (Azure AD) identity model. For the password hash synchronization and Pass-through Authentication models, the logic and the flow are the same. The only difference is related to the fact that Azure AD won't redirect the authentication request to on-premises Active Directory Federation Services (AD FS).
 - The diagram shows access to the Outlook on the web service that corresponds to an …/owa path. Exchange admin center (or Exchange Control Panel) user access that corresponds to an …/ecp path follows the same flow.
 - In the diagram, dashed arrows show basic interactions between local Active Directory, Azure AD Connect, Azure AD, AD FS, and Web Application Proxy components. You can learn more about these interactions in [Hybrid identity required ports and protocols](/azure/active-directory/hybrid/reference-connect-ports).
 - By *Exchange on-premises*, we mean Exchange 2019 with the latest updates, Mailbox role. By *Exchange Edge on-premises*, we mean Exchange 2019 with the latest updates, Edge Transport role. We include Edge server in the diagram to highlight that you can use it in these scenarios. It's not involved in the work with client protocols that's discussed here.
 - In a real environment, you won't have just one server. You'll have a load-balanced array of Exchange servers for high availability. The scenarios described here are suited for that configuration.
 
-**Exchange Online user's flow**
+### Exchange Online user's flow
 1.	A user tries to access Outlook on the web service via https:\//outlook.office.com/owa. 
 2.	Exchange Online redirects the user to Azure AD for authentication. 
     
@@ -45,7 +45,7 @@ This article doesn't discuss other protocols, like IMAP or POP. We don't recomme
 1.	The user completes multifactor authentication.
 1.	Azure AD redirects the authenticated web session to Exchange Online, and the user can access Outlook.
 
-**Exchange on-premises user's flow**
+### Exchange on-premises user's flow
 
 1.	A user tries to access the Outlook on the web service via a https:\//mail.contoso.com/owa URL that points to an Exchange server for internal access or to a Web Application Proxy server for external access. 
 1.	Exchange on-premises (for internal access) or Web Application Proxy (for external access) redirects the user to AD FS for authentication.
