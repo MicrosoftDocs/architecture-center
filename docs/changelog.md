@@ -31,6 +31,13 @@ New and updated articles in Azure Architecture Center.
 
 ### New Articles
 
+- [Update route tables by using Azure Route Server](./example-scenario/networking/manage-routing-azure-route-server.yml)
+- [Manage Microsoft 365 tenant configuration with Azure DevOps](./example-scenario/devops/manage-microsoft-365-tenant-configuration-microsoft365dsc-devops.yml)
+- [Enterprise file shares with disaster recovery](./example-scenario/file-storage/enterprise-file-shares-disaster-recovery.yml)
+- [Blue/green app deployments](./example-scenario/blue-green-spring/blue-green-spring.yml)
+- [Solutions for the energy and environment industries](./industries/energy-environment.md)
+- [Azure App Service and Azure Functions considerations for multitenancy](./guide/multitenant/service/app-service.md)
+- [Azure Machine Learning architecture](./solution-ideas/articles/azure-machine-learning-solution-architecture.yml)
 - [Architecting multitenant solutions on Azure](./guide/multitenant/overview.md)
 - [Service-specific guidance for a multitenant solution](./guide/multitenant/service/overview.md)
 - [Enhanced customer dimension with Dynamics 365 Customer Insights](./solution-ideas/articles/customer-insights-synapse.yml)
