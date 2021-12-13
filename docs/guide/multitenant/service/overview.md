@@ -32,6 +32,10 @@ In this section, we provide guidance about the features of each service that are
 
 The content in this section is designed for architects, lead developers, and anyone building or implementing Azure components for a multitenant solution. This includes independent software vendors (ISVs) and startups who develop SaaS solutions.
 
+## What's covered in this section?
+
+The pages in this section describe some Azure services commonly used in multitenant solutions, including [Azure Resource Manager](resource-manager.md), [Azure SQL Database](sql-database.md), [App Service, and Azure Functions](app-service.md). We are adding new pages with guidance for additional services on a regular basis. You are also welcome to [submit suggestions for additional pages](https://aka.ms/multitenancy/feedback).
+
 ## Next steps
 
 Review the guidance for [Azure Resource Manager](resource-manager.md).
