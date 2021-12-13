@@ -2161,7 +2161,7 @@ items:
           - name: Guides
             items:
               - name: Hybrid workload in Azure
-                href: ./framework/hybrid/hybrid-overview.md
+                href: /azure/architecture/framework/hybrid/hybrid-overview.md
               - name: Azure Arc guidance
                 items:
                   - name: Administer SQL Server anywhere with Azure Arc

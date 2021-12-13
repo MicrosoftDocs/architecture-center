@@ -283,7 +283,7 @@ To start implementing this solution, see this information:
 [Introduction to Azure Functions]: /azure/azure-functions/functions-overview
 [Machine learning operations (MLOps) framework to upscale machine learning Lifecycle with Azure Machine Learning]: ../mlops/mlops-technical-paper.yml
 [Mapbox Vector Tile specification]: https://github.com/mapbox/vector-tile-spec
-[Microsoft Azure Well-Architected Framework]: ../../framework/index.md
+[Microsoft Azure Well-Architected Framework]: /azure/architecture/framework/index.md
 [Monitoring Azure Databricks]: ../../databricks-monitoring/index.md
 [Open Geospatial Consortium]: https://www.osgeo.org/partners/ogc/
 [Overview of autoscale in Microsoft Azure]: /azure/azure-monitor/autoscale/autoscale-overview

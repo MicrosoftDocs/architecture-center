@@ -87,7 +87,7 @@ Azure App Service is used for hosting the workbench in the cloud. With App Servi
 
 In Blazor Server, the state of many components might be maintained concurrently by the server. Because of this, memory exhaustion is a concern that must be addressed. For guidance on how to author a Blazor Server app to help ensure the best use of server memory, consult [Threat mitigation guidance for ASP.NET Core Blazor Server](/aspnet/core/security/blazor/server/threat-mitigation). Applying these best practices allows a server-side Blazor application to scale to thousands of concurrent users—even on relatively small server hosts.
 
-General guidance on designing scalable solutions is provided in the Azure Architecture Center's [Performance efficiency checklist](../../framework/scalability/performance-efficiency.md).
+General guidance on designing scalable solutions is provided in the Azure Architecture Center's [Performance efficiency checklist](/azure/architecture/framework/scalability/performance-efficiency.md).
 
 ### Resiliency and support
 

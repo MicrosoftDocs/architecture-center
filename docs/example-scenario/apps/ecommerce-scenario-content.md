@@ -61,19 +61,19 @@ Other options for the data tier include:
 
 ### Availability
 
-- Consider leveraging the [typical design patterns for availability](../../framework/resiliency/reliability-patterns.md) when building your cloud application. azure/architecture/framework/scalability/performance-efficiency
+- Consider leveraging the [typical design patterns for availability](/azure/architecture/framework/resiliency/reliability-patterns.md) when building your cloud application. azure/architecture/framework/scalability/performance-efficiency
 - Review the availability considerations in the appropriate [App Service web application reference architecture][app-service-reference-architecture]
 - For additional considerations concerning availability, see the [availability checklist][availability] in the Azure Architecture Center.
 
 ### Scalability
 
-- When building a cloud application be aware of the [typical design patterns for scalability](../../framework/scalability/performance-efficiency-patterns.md).
+- When building a cloud application be aware of the [typical design patterns for scalability](/azure/architecture/framework/scalability/performance-efficiency-patterns.md).
 - Review the scalability considerations in the appropriate [App Service web application reference architecture][app-service-reference-architecture]
-- For other scalability topics, see the [performance efficiency checklist](../../framework/scalability/performance-efficiency.md) available in the Azure Architecture Center.
+- For other scalability topics, see the [performance efficiency checklist](/azure/architecture/framework/scalability/performance-efficiency.md) available in the Azure Architecture Center.
 
 ### Security
 
-- Consider leveraging the [typical design patterns for security](../../framework/security/security-patterns.md) where appropriate.
+- Consider leveraging the [typical design patterns for security](/azure/architecture/framework/security/security-patterns.md) where appropriate.
 - Review the security considerations in the appropriate [App Service web application reference architecture][app-service-reference-architecture].
 - Consider following a [secure development lifecycle][secure-development] process to help developers build more secure software and address security compliance requirements while reducing development cost.
 - Review the blueprint architecture for [Azure PCI DSS compliance][pci-dss-blueprint].
@@ -81,7 +81,7 @@ Other options for the data tier include:
 ### Resiliency
 
 - Consider leveraging the [circuit breaker pattern][circuit-breaker] to provide graceful error handling should one part of the application not be available.
-- Review the [typical design patterns for resiliency](../../framework/resiliency/reliability-patterns.md) and consider implementing these where appropriate.
+- Review the [typical design patterns for resiliency](/azure/architecture/framework/resiliency/reliability-patterns.md) and consider implementing these where appropriate.
 - You can find a number of [recommended practices for App Service][resiliency-app-service] in the Azure Architecture Center.
 - Consider using active [geo-replication][sql-geo-replication] for the data tier and [geo-redundant][storage-geo-redundancy] storage for images and queues.
 - For a deeper discussion on [resiliency][resiliency], see the relevant article in the Azure Architecture Center.
@@ -112,12 +112,12 @@ We have provided three sample cost profiles based on amount of traffic you expec
 [medium-pricing]: https://azure.com/e/38d5d387e3234537b6859660db1c9973
 [large-pricing]: https://azure.com/e/f07f99b6c3134803a14c9b43fcba3e2f
 [app-service-reference-architecture]: ../../reference-architectures/app-service-web-app/basic-web-app.yml
-[availability]: ../../framework/resiliency/reliability-patterns.md
+[availability]: /azure/architecture/framework/resiliency/reliability-patterns.md
 [circuit-breaker]: ../../patterns/circuit-breaker.md
-[design-patterns-availability]: ../../framework/resiliency/reliability-patterns.md
-[design-patterns-resiliency]: ../../framework/resiliency/reliability-patterns.md
-[design-patterns-performance efficiency]: ../../framework/scalability/performance-efficiency-patterns.md
-[design-patterns-security]: ../../framework/security/security-patterns.md
+[design-patterns-availability]: /azure/architecture/framework/resiliency/reliability-patterns.md
+[design-patterns-resiliency]: /azure/architecture/framework/resiliency/reliability-patterns.md
+[design-patterns-performance efficiency]: /azure/architecture/framework/scalability/performance-efficiency-patterns.md
+[design-patterns-security]: /azure/architecture/framework/security/security-patterns.md
 [docs-application-insights]: https://www.microsoft.com/azure/application-insights/app-insights-overview
 [docs-b2c]: https://www.microsoft.com/azure/active-directory-b2c/active-directory-b2c-overview
 [docs-cdn]: https://www.microsoft.com/azure/cdn/cdn-overview
@@ -138,8 +138,8 @@ We have provided three sample cost profiles based on amount of traffic you expec
 [multi-region-web-app]: ../../reference-architectures/app-service-web-app/multi-region.yml
 [pci-dss-blueprint]: /azure/security/blueprints/payment-processing-blueprint
 [resiliency-app-service]: ../../checklist/resiliency-per-service.md#app-service
-[resiliency]: ../../framework/resiliency/principles.md
-[scalability]: ../../framework/scalability/performance-efficiency.md
+[resiliency]: /azure/architecture/framework/resiliency/principles.md
+[scalability]: /azure/architecture/framework/scalability/performance-efficiency.md
 [secure-development]: https://www.microsoft.com/SDL/process/design.aspx
 [service-bus]: /azure/service-bus-messaging
 [sql-geo-replication]: /azure/sql-database/sql-database-geo-replication-overview

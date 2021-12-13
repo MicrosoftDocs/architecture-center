@@ -1,4 +1,4 @@
-SAP system on Oracle Database is one of the popular deployment patterns in the SAP world. This article describes a typical architecture of SAP on Oracle on Azure, which aligns with the pillars of the [Azure Well Architected Framework](../../framework/index.md).
+SAP system on Oracle Database is one of the popular deployment patterns in the SAP world. This article describes a typical architecture of SAP on Oracle on Azure, which aligns with the pillars of the [Azure Well Architected Framework](/azure/architecture/framework/index.md).
 
 ## Architecture
 

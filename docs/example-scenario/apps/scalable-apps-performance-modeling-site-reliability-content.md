@@ -221,7 +221,7 @@ Reliability, performance efficiency, and cost optimization go hand in hand. The 
 
 For AKS, you can initially start with standard-sized VMs for the node pool. You can then monitor resource requirements during development or production use, and adjust accordingly.
 
-Cost optimization is a pillar of the [Microsoft Azure Well-Architected Framework](../../framework/index.md). For more information, see [Overview of the cost optimization pillar](../../framework/cost/overview.md). To estimate the cost of Azure products and configurations, use the [Pricing calculator](https://azure.microsoft.com/pricing/calculator).
+Cost optimization is a pillar of the [Microsoft Azure Well-Architected Framework](/azure/architecture/framework/index.md). For more information, see [Overview of the cost optimization pillar](/azure/architecture/framework/cost/overview.md). To estimate the cost of Azure products and configurations, use the [Pricing calculator](https://azure.microsoft.com/pricing/calculator).
 
 ## Next steps
 

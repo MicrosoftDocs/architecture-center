@@ -26,7 +26,7 @@ When planning multitenant storage or data components, you need to decide on an a
 
 ## Key considerations and requirements
 
-It's important to consider the approaches you use for storage and data services from a number of perspectives, which approximately align to the pillars of the [Azure Well-Architected Framework](../../../framework/index.md).
+It's important to consider the approaches you use for storage and data services from a number of perspectives, which approximately align to the pillars of the [Azure Well-Architected Framework](..//azure/architecture/framework/index.md).
 
 ### Scale
 

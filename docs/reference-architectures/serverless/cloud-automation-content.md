@@ -235,8 +235,8 @@ Learn more about the [serverless implementations](../../serverless/code.md).
 
 <!-- links -->
 
-[AAF-cost]: ../../framework/cost/overview.md
-[AAF-devops]: ../../framework/devops/overview.md
+[AAF-cost]: /azure/architecture/framework/cost/overview.md
+[AAF-devops]: /azure/architecture/framework/devops/overview.md
 [app-insights]: /azure/azure-monitor/app/app-insights-overview
 [az-logic-apps-ISE]: /azure/logic-apps/connect-virtual-network-vnet-isolated-environment-overview
 [cosmos-calculator]: https://cosmos.azure.com/capacitycalculator

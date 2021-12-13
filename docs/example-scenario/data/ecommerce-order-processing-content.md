@@ -58,7 +58,7 @@ For general guidance on designing secure solutions, see the [Azure Security Docu
 
 ### Resiliency
 
-The event sourcing architecture and associated technologies in this example scenario make this scenario highly resilient when failures occur. For general guidance on designing resilient solutions, see [Designing resilient applications for Azure](../../framework/resiliency/reliability-patterns.md).
+The event sourcing architecture and associated technologies in this example scenario make this scenario highly resilient when failures occur. For general guidance on designing resilient solutions, see [Designing resilient applications for Azure](/azure/architecture/framework/resiliency/reliability-patterns.md).
 
 ## Pricing
 
@@ -97,7 +97,7 @@ Other related resources include:
 [docs-cosmos-db-guarantees]: /azure/cosmos-db/high-availability#slas-for-availability
 [docs-cosmos-db-use-cases]: /azure/cosmos-db/use-cases
 [docs-kafka-high-availability]: /azure/hdinsight/kafka/apache-kafka-high-availability
-[availability]: ../../framework/resiliency/principles.md
-[scalability]: ../../framework/scalability/performance-efficiency.md
-[resiliency]: ../../framework/resiliency/reliability-patterns.md
+[availability]: /azure/architecture/framework/resiliency/principles.md
+[scalability]: /azure/architecture/framework/scalability/performance-efficiency.md
+[resiliency]: /azure/architecture/framework/resiliency/reliability-patterns.md
 [security]: /azure/security
