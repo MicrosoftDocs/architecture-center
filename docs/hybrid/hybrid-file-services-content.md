@@ -152,7 +152,7 @@ For more information on how to configure Azure File Sync with a proxy server, re
 [Azure File Sync agent update policy]: /azure/storage/files/storage-sync-files-planning#azure-file-sync-agent-update-policy
 [Cloud Tiering Overview]: /azure/storage/files/storage-sync-cloud-tiering
 [Self-service restore through Previous Versions and VSS (Volume Shadow Copy Service)]: /azure/storage/files/storage-sync-files-deployment-guide?tabs=azure-portal#self-service-restore-through-previous-versions-and-vss-volume-shadow-copy-service
-[Principles of cost optimization]: ../framework/cost/overview.md
+[Principles of cost optimization]: /azure/architecture/framework/cost/overview
 [Azure Storage Overview pricing]: https://azure.microsoft.com/pricing/details/storage/
 [Bandwidth Pricing Details]: https://azure.microsoft.com/pricing/details/data-transfers/
 [Pricing calculator]: https://azure.microsoft.com/pricing/calculator/?scenario=data-management

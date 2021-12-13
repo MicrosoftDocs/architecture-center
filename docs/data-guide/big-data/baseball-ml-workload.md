@@ -3,13 +3,15 @@ title: Baseball decision analysis with ML.NET and Blazor
 description: This scenario describes a web application providing an interface for on-technical users to use artificial intelligence (AI) and machine learning (ML) to perform decision analysis techniques in order to rapidly gain insights and make informed predictions.
 author: EdPrice-MSFT
 ms.author: pnp
-ms.date: 06/10/2020
+ms.date: 12/13/2021
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: azure-guide
 products:
   - azure-machine-learning
   - mlnet
+categories:
+  - analysis
 ms.custom:
   - fcp
   - guide
@@ -137,7 +139,7 @@ The container can be run locally (offline) in your own environment. It can also 
 
 - [ML.NET documentation](/dotnet/machine-learning)
 
-- [ASP.NET Core Blazor hosting models](/aspnet/core/blazor/hosting-models?view=aspnetcore-3.1)
+- [ASP.NET Core Blazor hosting models](/aspnet/core/blazor/hosting-models?view=aspnetcore-3.1&preserve-view=true)
 
 - [MLOps (DevOps for Machine Learning)](https://azure.microsoft.com/services/machine-learning/mlops/) helps data science teams deliver innovation faster, increasing the pace of ML model development
 

@@ -4,7 +4,7 @@ titleSuffix: Azure Architecture Center
 description: An overview of Microsoft's Azure mainframe and midrange architectural concepts and guidance offerings.
 author: jjfrost
 ms.author: jfrost
-ms.date: 08/30/2021
+ms.date: 12/13/2021
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: reference-architecture
@@ -12,6 +12,8 @@ ms.category:
   - hybrid
 products:
   - azure
+categories:
+  - management-and-governance
 ms.custom:
   - overview
   - fcp
@@ -64,12 +66,12 @@ The table below shows typical MIPS thresholds across small, medium, and large en
 
 Mainframe data is stored and organized in a variety of ways, from relational and hierarchical databases to high throughput file systems. Some of the common data systems are z/OS Db2 for relational data and IMS DB for hierarchical data. For high throughput file storage, you might see VSAM (IBM Virtual Storage Access Method). The following table provides a mapping of some of the more common mainframe data systems, and their possible migration targets into Azure.
 
-| Data source	|Target platform in Azure|
+| Data source    |Target platform in Azure|
 |---------------|------------------------|
 |z/OS Db2 & Db2 LUW |Azure SQL DB, SQL Server on Azure VMs, Db2 LUW on Azure VMs, Oracle on Azure VMs, Azure Database for PostgreSQL|
-|IMS DB	            |Azure SQL DB, SQL Server on Azure VMs, Db2 LUW on Azure VMs, Oracle on Azure VMs, Azure Cosmos DB|
+|IMS DB                |Azure SQL DB, SQL Server on Azure VMs, Db2 LUW on Azure VMs, Oracle on Azure VMs, Azure Cosmos DB|
 |Virtual Storage Access Method (VSAM), Indexed Sequential Access Method (ISAM), other flat files | Azure SQL DB, SQL Server on Azure VMs, Db2 LUW on Azure VMs, Oracle on Azure VMs, Azure Cosmos DB|
-|Generation Date Groups (GDGs)	|Files on Azure using extensions in the naming conventions to provide similar functionality to GDGs|
+|Generation Date Groups (GDGs)    |Files on Azure using extensions in the naming conventions to provide similar functionality to GDGs|
 
 ### Midrange systems, Unix variants, and other legacy systems
 
@@ -208,7 +210,7 @@ A key part of legacy migrations and transformations to Azure is consideration fo
 ## Next steps
 
 - For more information, please contact [legacy2azure@microsoft.com](mailto:legacy2azure@microsoft.com).
-- See the [Microsoft Azure Well-Architected Framework](../framework/index.md).
+- See the [Microsoft Azure Well-Architected Framework](/azure/architecture/framework/).
 
 ## Related resources
 

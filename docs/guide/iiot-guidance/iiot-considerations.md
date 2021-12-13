@@ -4,7 +4,7 @@ titleSuffix: Azure Application Architecture Guide
 description: Read about architectural considerations in an IIoT analytics solution. View discussions about performance, availability, and networking.
 author: khilscher
 ms.author: kehilsch
-ms.date: 07/17/2020
+ms.date: 12/13/2021
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: azure-guide
@@ -12,6 +12,8 @@ ms.category:
   - fcp
 products:
   - azure-iot-edge
+categories:
+  - iot
 ms.custom:
   - guide
 ---

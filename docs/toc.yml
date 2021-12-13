@@ -3375,7 +3375,7 @@ items:
               - name: Highly-secure IaaS apps
                 href: reference-architectures/n-tier/high-security-iaas.yml
               - name: Security design principles
-                href: framework/security/security-principles.md
+                href: /azure/architecture/framework/security/security-principles
               - name: Virtual Network security options
                 href: example-scenario/gateway/firewall-application-gateway.yml
               - name: Zero-trust network for web applications

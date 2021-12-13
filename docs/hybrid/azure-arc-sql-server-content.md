@@ -144,7 +144,7 @@ The [Microsoft Azure Well-Architected Framework][azure-well-architected-framerwo
 
 [architectural-diagram]: images/azure_arc_sql_srvr.png
 [architectural-diagram-visio-source]: https://arch-center.azureedge.net/azure_arc_sql_srvr.vsdx
-[azure-well-architected-framerwork]: ../framework/index.md
+[azure-well-architected-framerwork]: /azure/architecture/framework/
 [sql-server]: /sql/sql-server/
 [azure-arc]: /azure/azure-arc/overview
 [azure-arc-enabled-servers]: /azure/azure-arc/servers/overview

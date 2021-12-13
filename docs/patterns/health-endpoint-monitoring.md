@@ -3,7 +3,7 @@ title: Health Endpoint Monitoring pattern
 titleSuffix: Cloud Design Patterns
 description: Implement functional checks in an application that external tools can access through exposed endpoints at regular intervals.
 author: magrande
-ms.date: 09/28/2021
+ms.date: 12/13/2021
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: design-pattern
@@ -136,7 +136,7 @@ However, Traffic Manager will only wait for a [certain amount of time](/azure/tr
 The following guidance can be useful when implementing this pattern:
 
 - [Health monitoring Guidance in microservices-based applications](/dotnet/architecture/microservices/implement-resilient-applications/monitor-app-health)
-- Well-Architected Framework's [Monitoring application health for reliability](../framework/resiliency/monitoring.md)
+- Well-Architected Framework's [Monitoring application health for reliability](/azure/architecture/framework/resiliency/monitoring)
 - [Receiving alert notifications][portal-alerts]
 
 [portal-alerts]: /azure/azure-monitor/alerts/alerts-metric

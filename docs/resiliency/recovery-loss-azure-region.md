@@ -2,13 +2,17 @@
 title: Recover from loss of an Azure region
 description: Design resilient, highly available, fault-tolerant applications and plan for disaster recovery.
 author: adamglick
-ms.date: 08/18/2016
+ms.date: 12/13/2021
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: well-architected
 ms.custom:
   - resiliency
   - article
+products: 
+  - azure
+categories:
+  - management-and-governance
 ---
 
 # Recover from a region-wide service disruption
@@ -42,7 +46,7 @@ Many alternative strategies are available for implementing distributed compute a
 
 - **Hot Spare (Active/Active)**: The application is designed to receive production load in multiple regions. The cloud services in each region might be configured for higher capacity than required for disaster recovery purposes. Alternatively, the cloud services might scale out as necessary at the time of a disaster and fail over. This approach requires substantial investment in application design, but it has significant benefits. These include low and guaranteed recovery time, continuous testing of all recovery locations, and efficient usage of capacity.
 
-A complete discussion of distributed design is outside the scope of this document. For more information, see [Disaster Recovery and High Availability for Azure Applications](../framework/resiliency/backup-and-recovery.md).
+A complete discussion of distributed design is outside the scope of this document. For more information, see [Disaster Recovery and High Availability for Azure Applications](/azure/architecture/framework/resiliency/backup-and-recovery).
 
 ## Virtual machines
 
