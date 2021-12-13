@@ -83,13 +83,13 @@ If you do need to send data to tenants' endpoints, common approaches are:
 
 In this section, we describe some of the key networking approaches you can consider in a multitenant solution. We begin by describing the lower-level approaches for core networking components, and then follow with the approaches you can consider for HTTP and other application-layer concerns.
 
-### Tenant-specific VNets with provider-selected IP addresses
+### Tenant-specific VNets with service provider-selected IP addresses
 
 In some situations, you need to run dedicated VNet-connected resources in Azure on a tenant's behalf. For example, you might run a virtual machine for each tenant, or you might need to use private endpoints to access tenant-specific databases.
 
 Consider deploying a VNet for each tenant, using an IP address space that you control. This approach enables you to peer the VNets together for your own purposes, such as if you need to establish a [hub and spoke topology](#hub-and-spoke-topology) to centrally control traffic ingress and egress.
 
-However, provider-selected IP addresses aren't appropriate if tenants need to connect directly to the VNet you created, such as by using VNet peering. It's likely that the address space you select will be incompatible with their own address spaces.
+However, service provider-selected IP addresses aren't appropriate if tenants need to connect directly to the VNet you created, such as by using VNet peering. It's likely that the address space you select will be incompatible with their own address spaces.
 
 ### Tenant-specific VNets with tenant-selected IP addresses
 
