@@ -1,0 +1,26 @@
+### YamlMime:Architecture
+metadata:
+  title: Multi-cloud blockchain distributed ledger technology (DLT)
+  titleSuffix: Azure Example Scenarios
+  description: See how the open-source Blockchain Automation Framework (BAF) and Azure Arc-enabled Kubernetes work with multi-party DLTs to build a cross-cloud blockchain solution.
+  author: saffiali
+  ms.author: safali
+  ms.date: 04/21/2021
+  ms.topic: conceptual
+  ms.service: architecture-center
+  ms.subservice: example-scenario
+  ms.custom:
+    - fcp
+azureCategories:
+  - blockchain
+  - hybrid
+  - networking
+products:
+  - azure-arc
+  - azure-devops
+  - azure-kubernetes-service
+name: Multi-cloud blockchain DLT
+summary: See how the open-source Blockchain Automation Framework (BAF) and Azure Arc-enabled Kubernetes work with multi-party DLTs to build a cross-cloud blockchain solution.
+thumbnailUrl: /azure/architecture/browse/thumbs/multi-cloud-blockchain-network.png
+content: |
+  [!include[](multi-cloud-blockchain-content.md)]

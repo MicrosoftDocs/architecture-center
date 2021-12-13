@@ -1,7 +1,7 @@
 ---
 title: API gateways
 description: An API gateway sits between clients and services and acts as a reverse proxy. Learn how to choose an API gateway technology for a microservice.
-author: doodlemania2
+author: EdPrice-MSFT
 ms.date: 10/23/2018
 ms.topic: conceptual
 ms.service: architecture-center
@@ -24,11 +24,7 @@ In a microservices architecture, a client might interact with more than one fron
 
 ![Diagram of an API gateway](../images/gateway.png)
 
-<!-- markdownlint-disable MD026 -->
-
 ## What is an API gateway?
-
-<!-- markdownlint-enable MD026 -->
 
 An API gateway sits between clients and services. It acts as a reverse proxy, routing requests from clients to services. It may also perform various cross-cutting tasks such as authentication, SSL termination, and rate limiting. If you don't deploy a gateway, clients must send requests directly to front-end services. However, there are some potential problems with exposing services directly to clients:
 
@@ -63,7 +59,7 @@ Here are some examples of functionality that could be offloaded to a gateway:
 
 Here are some options for implementing an API gateway in your application.
 
-- **Reverse proxy server**. Nginx and HAProxy are popular reverse proxy servers that support features such as load balancing, SSL, and layer 7 routing. They are both free, open-source products, with paid editions that provide additional features and support options. Nginx and HAProxy are both mature products with rich feature sets and high performance. You can extend them with third-party modules or by writing custom scripts in Lua. Nginx also supports a JavaScript-based scripting module referred to as '[NGINX JavaScript](https://www.nginx.com/blog/introduction-nginscript/)'. This module was formally named nginScript.
+- **Reverse proxy server**. Nginx and HAProxy are popular reverse proxy servers that support features such as load balancing, SSL, and layer 7 routing. They are both free, open-source products, with paid editions that provide additional features and support options. Nginx and HAProxy are both mature products with rich feature sets and high performance. You can extend them with third-party modules or by writing custom scripts in Lua. Nginx also supports a JavaScript-based scripting module referred to as [NGINX JavaScript](https://www.nginx.com/blog/introduction-nginscript/). This module was formally named nginScript.
 
 - **Service mesh ingress controller**. If you are using a service mesh such as linkerd or Istio, consider the features that are provided by the ingress controller for that service mesh. For example, the Istio ingress controller supports layer 7 routing, HTTP redirects, retries, and other features.
 

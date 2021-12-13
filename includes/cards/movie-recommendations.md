@@ -6,11 +6,11 @@
 <article class="card">
     <div class="card-header has-margin-bottom-none" aria-hidden="true">
         <figure class="image diagram has-height-175 has-overflow-hidden level">
-            <a href="/azure/architecture/example-scenario/ai/movie-recommendations"><img src="/azure/architecture/browse/thumbs/movie-recommendations.png" class="diagram" alt="Thumbnail of Movie recommendations on Azure Architectural Diagram." data-linktype="relative-path"></a>
+            <a href="/azure/architecture/example-scenario/ai/movie-recommendations-with-machine-learning"><img src="/azure/architecture/browse/thumbs/movie-recommendations.png" class="diagram" alt="Thumbnail of Movie recommendations on Azure Architectural Diagram." data-linktype="relative-path"></a>
         </figure>
     </div>
     <div class="card-content">
-        <a class="card-content-title has-margin-top-none" href="/azure/architecture/example-scenario/ai/movie-recommendations">
+        <a class="card-content-title has-margin-top-none" href="/azure/architecture/example-scenario/ai/movie-recommendations-with-machine-learning">
             <p>Movie recommendations on Azure</p>
         </a>
         <ul class="card-content-metadata">

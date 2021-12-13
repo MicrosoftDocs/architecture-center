@@ -6,7 +6,7 @@
 <article class="card">
     <div class="card-header has-margin-bottom-none" aria-hidden="true">
         <figure class="image diagram has-height-175 has-overflow-hidden level">
-            <a href="/azure/architecture/solution-ideas/articles/contract-management"><img src="/azure/architecture/browse/thumbs/contract-management.png" class="diagram" alt="Thumbnail of Contract Management Architectural Diagram." data-linktype="relative-path"></a>
+            <a href="/azure/architecture/solution-ideas/articles/contract-management"><img src="/azure/architecture/browse/thumbs/knowledge-mining-contract-management.png" class="diagram" alt="Thumbnail of Contract Management Architectural Diagram." data-linktype="relative-path"></a>
         </figure>
     </div>
     <div class="card-content">
@@ -17,7 +17,7 @@
             <li>12/16/2019</li>
             <li>2 min read</li>
         </ul>
-        <p class="card-content-description">Knowledge mining can help organizations to scour thousands of pages of sources to create an accurate bid.</p>
+        <p class="card-content-description">Knowledge mining can help organizations scour thousands of pages of sources to create competitive bids.</p>
         <div class="bottom-to-top-fade is-hidden-mobile"></div>
     </div>
 </article>

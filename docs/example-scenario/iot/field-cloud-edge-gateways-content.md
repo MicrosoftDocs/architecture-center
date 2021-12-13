@@ -5,7 +5,7 @@ IoT devices can connect to the IoT platform directly, or through *IoT Edge gatew
 
 There are two types of edge gateways, *field* or [IoT Edge](/azure/iot-edge/iot-edge-as-gateway), and *cloud* or [protocol](/azure/iot-hub/iot-hub-protocol-gateway) gateways.
 
-![A diagram illustrating the flow of events, commands, and protocols as they are routed through a field or cloud edge gateway to the Azure IoT Platform.](media/field-edge-gateways.svg) 
+![A diagram illustrating the flow of events, commands, and protocols as they are routed through a field or cloud edge gateway to the Azure IoT Platform.](media/field-edge-gateways.svg)
 
 - IoT Edge *field gateways* are located close to devices on-premises, and connect to the IoT platform to extend cloud capabilities into devices. IoT Edge devices can act as communication enablers, local device control systems, and data processors for the IoT platform. IoT Edge devices can run cloud workflows on-premises by using [Edge modules](/azure/iot-edge/iot-edge-modules), and can communicate with devices even in offline scenarios.
 

@@ -13,8 +13,8 @@
       tocHref: /azure/architecture/aws-professional/
       topicHref: /azure/architecture/aws-professional
     - name: Design for Resiliency
-      tocHref: /azure/architecture/resiliency/
-      topicHref: /azure/architecture/resiliency
+      tocHref: /azure/architecture/framework/resiliency/design-resiliency
+      topicHref: /azure/architecture/framework/resiliency/design-resiliency
     - name: Design Review Checklists
       tocHref: /azure/architecture/checklist/
       topicHref: /azure/architecture/checklist/resiliency-per-service
@@ -67,3 +67,6 @@
     - name: Performance Antipatterns
       tocHref: /azure/architecture/antipatterns/
       topicHref: /azure/architecture/antipatterns
+    - name: Team Data Science Process
+      tocHref: /azure/architecture/data-science-process/
+      topicHref: /azure/architecture/data-science-process/overview

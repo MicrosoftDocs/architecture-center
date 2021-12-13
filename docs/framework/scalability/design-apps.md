@@ -1,6 +1,6 @@
 ---
 title: Design scalable Azure applications
-description: Describes the design considerations for scalable applications
+description: Review design considerations for scalable applications. Choose the right data storage and VM size, build with microservices, establish connection pooling, and more.
 author: v-aangie
 ms.date: 12/01/2020
 ms.topic: conceptual
@@ -13,7 +13,7 @@ ms.custom:
 
 # Design scalable Azure applications
 
-Application design is critical to handling scale as load increases. This article will give you insight on the most important topics. For more topics related to handling scale, see the [Design Azure applications for efficiency](https://review.docs.microsoft.com/azure/architecture/framework/scalability/design-efficiency) article in the Performance efficiency pillar.
+Application design is critical to handling scale as load increases. This article will give you insight on the most important topics. For more topics related to handling scale, see the [Design Azure applications for efficiency](/azure/architecture/framework/scalability/design-efficiency) article in the Performance efficiency pillar.
 
 ## Choose the right data storage
 
@@ -41,7 +41,7 @@ To help you choose a database type, determine if the application's storage requi
 
 Use a relational database when strong consistency guarantees are important — where all changes are atomic, and transactions always leave the data in a consistent state. However, a relational database generally can't scale out horizontally without sharding the data in some way. Implementing manual sharding can be a time consuming task. Also, the data in relational database must be normalized, which isn't appropriate for every data set.
 
-If a relational database is considered optimal, Azure offers several PaaS options that fully manage hosting and operations of the database. Azure SQL Database can host single databases or multiple databases (Azure SQL Database Managed Instance). The suite of offerings spans requirements that cross performance, scale, size, resiliency, disaster recovery, and migration compatibility. Azure offers the following PaaS relational database services:  
+If a relational database is considered optimal, Azure offers several PaaS options that fully manage hosting and operations of the database. Azure SQL Database can host single databases or multiple databases (Azure SQL Database Managed Instance). The suite of offerings spans requirements that cross performance, scale, size, resiliency, disaster recovery, and migration compatibility. Azure offers the following PaaS relational database services:
 
 - [Azure SQL Database](https://azure.microsoft.com/services/sql-database)
 - [Azure Database for MySQL](https://azure.microsoft.com/services/mysql)
@@ -89,7 +89,7 @@ When there are many separate services or instances of services in play, they wil
 
 When combined with an orchestration platform designed to execute and manage microservices such as Kubernetes or Service Fabric, individual services can be right sized, scaled up, scaled down, and dynamically configured to match user demand. Using an orchestrator such as Kubernetes or Service Fabric, you can pack a higher density of services onto a single host, which allows for more efficient utilization of resources. Both of these platforms provide built-in services for executing, scaling, and operating a microservices architecture; and one of those key services is discovery and finding where a particular service is running.
 
-Kubernetes supports pod autoscaling and cluster autoscaling. To learn more, see [Autoscaling](../../reference-architectures/containers/aks-microservices/aks-microservices.yml#autoscaling). A Service Fabric architecture takes a different approach to scaling for stateless and stateful services. To learn more, see [Scaling considerations](../../reference-architectures/microservices/service-fabric.yml#scaling-services).
+Kubernetes supports pod autoscaling and cluster autoscaling. To learn more, see [Autoscaling](../../reference-architectures/containers/aks-microservices/aks-microservices-advanced.yml#autoscaling). A Service Fabric architecture takes a different approach to scaling for stateless and stateful services. To learn more, see [Scaling considerations](../../reference-architectures/microservices/service-fabric.yml#scaling-services).
 
 > [!TIP]
 > When appropriate, decomposing an application into microservices is a level of decoupling that is an architectural best practice. A microservices architecture can also bring some challenges. The design patterns in [Design patterns for microservices](../../microservices/design/patterns.md) can help mitigate these challenges.
@@ -115,5 +115,5 @@ Measure your business' security requirements against the advantages and disadvan
 
 ## Next steps
 
->[!div class="nextstepaction"]
->[Application efficiency](./design-efficiency.md)
+> [!div class="nextstepaction"]
+> [Application efficiency](./design-efficiency.md)

@@ -1,7 +1,7 @@
 ---
 title: Introduction to microservices
 description: Introduction to microservices.
-author: doodlemania2
+author: EdPrice-MSFT
 ms.author: pnp
 ms.date: 10/30/2019
 ms.topic: include
@@ -49,7 +49,7 @@ Advantages of using an API gateway include:
 
 - **Small, focused teams**. A microservice should be small enough that a single feature team can build, test, and deploy it. Small team sizes promote greater agility. Large teams tend be less productive, because communication is slower, management overhead goes up, and agility diminishes.
 
-- **Small code base**. In a monolithic application, there is a tendency over time for code dependencies to become tangled Adding a new feature requires touching code in a lot of places. By not sharing code or data stores, a microservices architecture minimizes dependencies, and that makes it easier to add new features.
+- **Small code base**. In a monolithic application, there is a tendency over time for code dependencies to become tangled. Adding a new feature requires touching code in a lot of places. By not sharing code or data stores, a microservices architecture minimizes dependencies, and that makes it easier to add new features.
 
 - **Mix of technologies**. Teams can pick the technology that best fits their service, using a mix of technology stacks as appropriate.
 

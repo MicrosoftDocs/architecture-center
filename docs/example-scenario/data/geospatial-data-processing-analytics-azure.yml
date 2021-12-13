@@ -1,0 +1,29 @@
+### YamlMime:Architecture
+metadata:
+  title: Geospatial data processing and analytics
+  titleSuffix: Azure Example Scenarios
+  description: Collect, process, and store geospatial data by using managed Azure services. Make the data available through web apps. Visualize, explore, and analyze the data.
+  author: ribumann
+  ms.author: ribumann
+  ms.date: 05/28/2021
+  ms.topic: conceptual
+  ms.service: architecture-center
+  ms.subservice: example-scenario
+  ms.custom:
+    - fcp
+azureCategories:
+  - analytics
+  - databases
+  - integration
+  - iot
+products:
+  - azure-data-factory
+  - azure-data-lake-storage
+  - azure-database-postgresql
+  - azure-databricks
+  - azure-event-hubs
+name: Geospatial data processing and analytics
+summary: Collect, process, and store geospatial data by using managed Azure services. Make the data available through web apps. Visualize, explore, and analyze the data.
+thumbnailUrl: /azure/architecture/browse/thumbs/geospatial-data-processing-analytics-azure-architecture-thumbnail.png
+content: |
+  [!include[](geospatial-data-processing-analytics-azure-content.md)]

@@ -1,7 +1,8 @@
 ---
-title: Choosing a stream processing technology
+title: Choose a stream processing technology
 description: Compare options for real-time message stream processing in Azure, with key selection criteria and a capability matrix.
-author: zoinerTejada
+author: EdPrice-MSFT
+ms.author: pnp
 ms.date: 02/12/2018
 ms.topic: conceptual
 ms.service: architecture-center
@@ -15,17 +16,13 @@ ms.custom:
 
 <!-- cSpell:ignore HDFS -->
 
-# Choosing a stream processing technology in Azure
+# Choose a stream processing technology in Azure
 
 This article compares technology choices for real-time stream processing in Azure.
 
-Real-time stream processing consumes messages from either queue or file-based storage, process the messages, and forward the result to another message queue, file store, or database. Processing may include querying, filtering, and aggregating messages. Stream processing engines must be able to consume an endless streams of data and produce results with minimal latency. For more information, see [Real time processing](../big-data/real-time-processing.md).
-
-<!-- markdownlint-disable MD026 -->
+Real-time stream processing consumes messages from either queue or file-based storage, processes the messages, and forwards the result to another message queue, file store, or database. Processing may include querying, filtering, and aggregating messages. Stream processing engines must be able to consume endless streams of data and produce results with minimal latency. For more information, see [Real time processing](../big-data/real-time-processing.md).
 
 ## What are your options when choosing a technology for real-time processing?
-
-<!-- markdownlint-enable MD026 -->
 
 In Azure, all of the following data stores will meet the core requirements supporting real-time processing:
 
@@ -59,7 +56,7 @@ The following tables summarize the key differences in capabilities.
 | --- | --- | --- | --- | --- | --- | --- |
 | Programmability | Stream analytics query language, JavaScript | [C#/F#][dotnet-spark], Java, Python, Scala | [C#/F#][dotnet-spark], Java, Python, R, Scala | C#, Java | C#, F#, Java, Node.js, Python | C#, Java, Node.js, PHP, Python |
 | Programming paradigm | Declarative | Mixture of declarative and imperative | Mixture of declarative and imperative | Imperative | Imperative | Imperative |
-| Pricing model | [Streaming units](https://azure.microsoft.com/pricing/details/stream-analytics/) | Per cluster hour | [Databricks units](https://azure.microsoft.com/pricing/details/databricks/) | Per cluster hour | Per function execution and resource consumption | Per app service plan hour |  
+| Pricing model | [Streaming units](https://azure.microsoft.com/pricing/details/stream-analytics/) | Per cluster hour | [Databricks units](https://azure.microsoft.com/pricing/details/databricks/) | Per cluster hour | Per function execution and resource consumption | Per app service plan hour |
 
 ### Integration capabilities
 

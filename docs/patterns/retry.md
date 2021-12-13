@@ -1,8 +1,9 @@
 ---
 title: Retry pattern
 titleSuffix: Cloud Design Patterns
-description: Enable an application to handle anticipated, temporary failures when it tries to connect to a service or network resource by transparently retrying an operation that''s previously failed.
-author: dragon119
+description: Learn how to use the Retry pattern to enable an application to handle anticipated, temporary failures when the app tries to connect to a service or network resource.
+author: EdPrice-MSFT
+ms.author: pnp
 ms.date: 06/23/2017
 ms.topic: conceptual
 ms.service: architecture-center
@@ -55,7 +56,7 @@ If a service is frequently unavailable or busy, it's often because the service h
 
 You should consider the following points when deciding how to implement this pattern.
 
-The retry policy should be tuned to match the business requirements of the application and the nature of the failure. For some noncritical operations, it's better to fail fast rather than retry several times and impact the throughput of the application. For example, in an interactive web application accessing a remote service, it's better to fail after a smaller number of retries with only a short delay between retry attempts, and display a suitable message to the user (for example, “please try again later”). For a batch application, it might be more appropriate to increase the number of retry attempts with an exponentially increasing delay between attempts.
+The retry policy should be tuned to match the business requirements of the application and the nature of the failure. For some noncritical operations, it's better to fail fast rather than retry several times and impact the throughput of the application. For example, in an interactive web application accessing a remote service, it's better to fail after a smaller number of retries with only a short delay between retry attempts, and display a suitable message to the user (for example, &quot;please try again later&quot;). For a batch application, it might be more appropriate to increase the number of retry attempts with an exponentially increasing delay between attempts.
 
 An aggressive retry policy with minimal delay between attempts, and a large number of retries, could further degrade a busy service that's running close to or at capacity. This retry policy could also affect the responsiveness of the application if it's continually trying to perform a failing operation.
 
@@ -170,12 +171,14 @@ private bool IsTransient(Exception ex)
 }
 ```
 
-## Related patterns and guidance
-
-- [Circuit Breaker pattern](./circuit-breaker.md). If a failure is expected to be more long lasting, it might be more appropriate to implement the Circuit Breaker pattern. Combining the Retry and Circuit Breaker patterns provides a comprehensive approach to handling faults.
+## Next steps
 
 - For most Azure services, the client SDKs include built-in retry logic. For more information, see [Retry guidance for Azure services](../best-practices/retry-service-specific.md).
 
 - Before writing custom retry logic, consider using a general framework such as [Polly](https://github.com/App-vNext/Polly) for .NET or [Resilience4j](https://github.com/resilience4j/resilience4j) for Java.
+
+## Related guidance
+
+- [Circuit Breaker pattern](./circuit-breaker.md). If a failure is expected to be more long lasting, it might be more appropriate to implement the Circuit Breaker pattern. Combining the Retry and Circuit Breaker patterns provides a comprehensive approach to handling faults.
 
 - When processing commands that change business data, be aware that retries can result in the action being performed twice, which could be problematic if that action is something like charging a customer's credit card. Using the Idempotence pattern described in [this blog post](https://particular.net/blog/what-does-idempotent-mean) can help deal with these situations.

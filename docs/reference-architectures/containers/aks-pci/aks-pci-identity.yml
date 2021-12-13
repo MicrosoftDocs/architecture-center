@@ -1,0 +1,21 @@
+### YamlMime:Architecture
+metadata:
+  title: AKS baseline cluster for a PCI-DSS 3.2.1 workload - Access controls
+  description: Best practices for implementing access controls as per Requirement 7, 8, and 9 of PCI-DSS 3.2.1.
+  author: PageWriter-MSFT
+  ms.author: pnp
+  ms.date: 07/06/2021
+  ms.topic: conceptual
+  ms.service: architecture-center
+  ms.subservice: reference-architecture
+name: Access management of an AKS baseline cluster for a PCI-DSS 3.2.1 (Part 6 of 9)
+azureCategories:
+  - containers
+  - identity
+summary: Best practices for implementing access controls for a PCI-DSS 3.2.1 infrastructure. 
+products:
+  - azure-kubernetes-service
+  - azure-active-directory
+thumbnailUrl: /azure/architecture/browse/thumbs/aks-pci.png
+content: |
+   [!include[](aks-pci-identity-content.md)]

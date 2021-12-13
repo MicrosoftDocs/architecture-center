@@ -1,0 +1,40 @@
+### YamlMime:Architecture
+metadata:
+  title: Suggest content tags with deep learning and NLP
+  titleSuffix: Azure Solution Ideas
+  description: Use Microsoft AI to improve website content tagging accuracy by combining deep learning and natural language processing (NLP) with data on site-specific search terms.
+  author: dhangerkapil
+  ms.author: kapildhanger
+  ms.date: 11/30/2021
+  ms.topic: conceptual
+  ms.service: architecture-center
+  ms.subservice: solution-idea
+  ms.category:
+    - ai-machine-learning
+  ms.custom:
+    - acom-architecture
+    - convolutional neural network
+    - discrete manufacturing
+    - decision tree algorithm
+    - ai-ml
+    - image classification
+    - gradient boosting decision tree
+    - failure detection
+    - automated manufacturing solutions
+    - "https://azure.microsoft.com/solutions/architecture/website-content-tag-suggestion-with-deep-learning-and-nlp/"
+    - ai-machine-learning
+    - aml-project-improvement
+  social_image_url: /azure/architecture/solution-ideas/articles/media/website-content-tag=suggestion-with-deep-learning-and-nlp.png
+name: Suggest content tags with deep learning and NLP
+azureCategories:
+  - ai-machine-learning
+summary: Use Microsoft AI to improve website content tagging accuracy by combining deep learning and natural language processing (NLP) with data on site-specific search terms.
+products:
+  - azure-container-registry
+  - azure-data-science-vm
+  - azure-kubernetes-service
+  - azure-machine-learning
+  - sql-server
+thumbnailUrl: /azure/architecture/browse/thumbs/website-content-tag-suggestion-with-deep-learning-and-nlp.png
+content: |
+  [!include[](website-content-tag-suggestion-with-deep-learning-and-nlp-content.md)]

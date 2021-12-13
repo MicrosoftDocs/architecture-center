@@ -2,9 +2,10 @@
 metadata:
   title: Multiple forests with AD DS and Azure AD
   titleSuffix: Azure Example Scenarios
-  description: This article describes an example workload of creating multiple Active Directory forests with Windows Virtual Desktop.
+  description: This article describes an example workload of creating multiple Active Directory forests with Azure Virtual Desktop.
   author: nehalineogi
-  ms.date: 08/31/2020
+  ms.author: tmaher
+  ms.date: 03/24/2021
   ms.topic: conceptual
   ms.service: architecture-center
   ms.subservice: example-scenario
@@ -12,7 +13,9 @@ metadata:
     - fcp
     - example-scenario
 name: Multiple forests with AD DS and Azure AD
-summary: This article describes an example workload of creating multiple Active Directory forests with Windows Virtual Desktop.
+azureCategories:
+  - windows-virtual-desktop
+summary: This article describes an example workload of creating multiple Active Directory forests with Azure Virtual Desktop.
 products:
   - azure-active-directory
   - azure-active-directory-domain

@@ -1,20 +1,19 @@
+[!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
-
-
-This example scenario demonstrates how end manufacturers can connect their assets to the cloud using OPC UA (Open Platform Communication Unified Architecture) and the Industrial Components. They can monitor their equipment's key parameters to discover anomalies before they become critical issues. OPC UA is a platform-independent and service-oriented interoperability standard for a secure and reliable data exchange. OPC UA is used by various industrial systems and devices such as industry PCs, PLCs, and sensors. It's a standard that is driven by the OPC Foundation.
+This solution idea demonstrates how end manufacturers can connect their assets to the cloud using OPC UA (Open Platform Communication Unified Architecture) and the Industrial Components. They can monitor their equipment's key parameters to discover anomalies before they become critical issues. OPC UA is a platform-independent and service-oriented interoperability standard for a secure and reliable data exchange. OPC UA is used by various industrial systems and devices such as industry PCs, PLCs, and sensors. It's a standard that is driven by the OPC Foundation.
 
 ## Architecture
 
-![Architecture Diagram](../media/condition-monitoring.png)
+[ ![Architecture Diagram](../media/condition-monitoring.svg) ](../media/condition-monitoring.svg#lightbox)
 
-## Data Flow
+### Data flow
 
 The data flows through the solution as follows:
 
-1. Industrial devices that can natively communicate OPC UA can directly connect to IoT Edge. IoT Edge is the compute power that sits on your on-premises network. It’s the runtime environment of the Industrial Modules (OPC Publisher, OPC Twin, and Discovery Module). Modules are containers that run Azure services, 3rd party services, or your own code. The OPC Publisher module connects to OPC UA servers and publishes OPC UA telemetry data to Azure IoT Hub. OPC Twin creates a digital twin of an OPC UA server in the cloud and provides OPC UA browse/read/write/method call capabilities via a cloud-based REST (Representational State Transfer) interface. The Discovery module provides discovery services on the edge, which include OPC UA server discovery.
-1. Industrial devices that can’t communicate through OPC UA need a 3rd party PLC adapter to connect to IoT Edge. Adapters are obtainable as modules in the [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/).
+1. Industrial devices that can natively communicate OPC UA can directly connect to IoT Edge. IoT Edge is the compute power that sits on your on-premises network. It's the runtime environment of the Industrial Modules (OPC Publisher, OPC Twin, and Discovery Module). Modules are containers that run Azure services, 3rd party services, or your own code. The OPC Publisher module connects to OPC UA servers and publishes OPC UA telemetry data to Azure IoT Hub. OPC Twin creates a digital twin of an OPC UA server in the cloud and provides OPC UA browse/read/write/method call capabilities via a cloud-based REST (Representational State Transfer) interface. The Discovery module provides discovery services on the edge, which include OPC UA server discovery.
+1. Industrial devices that can't communicate through OPC UA need a 3rd party PLC adapter to connect to IoT Edge. Adapters are obtainable as modules in the [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/).
 1. The 3rd party PLC adapters enable a connectivity between the devices and IoT Edge.
-1. For analytical capabilities closer to where the data originates, there are modules like Machine Learning on Edge or Functions obtainable from the Azure Marketplace, allowing low latency and operation in disconnected state.
+1. For analytical capabilities closer to where the data originates, you can obtain modules like Machine Learning on Edge or Functions, from the Azure Marketplace. These modules provide low latency and operation in a disconnected state.
 1. Azure IoT Hub connects the devices virtually to the cloud for further data processing. It enables a security-enhanced bidirectional communication between IoT applications and devices.
 1. The Industrial Services are made up of several microservices exposing a REST API. All Industrial Services are deployed to an Azure Kubernetes Service cluster. They implement business logic and functionality for discovery, registration, remote control, and post-processing telemetry of industrial devices. The REST APIs can be used in any programming language and framework that can call an HTTP endpoint.
 1. Azure Event Hubs transforms and stores the data. It provides a distributed stream processing platform with low latency and seamless integration.
@@ -23,13 +22,13 @@ There are three predominant use cases in which the data provided by the Industri
 
 8. _Alternative 1:_ Store and analyze the data using Azure Time Series Insights (TSI). The telemetry processor in the Industrial IoT platform forwards contextualized samples to TSI and other consumers.
 1. The Time Series Insights Explorer is a web application you can use to visualize the telemetry.
-1. _Alternative 2:_ After the Industrial Services process the data, Azure Data Lake stores and further analyzes the data. Azure Data Lake is a massively scalable data lake with enterprise-grade security and auditing, which allows batch, stream and interactive analytic programs to run with simplicity. Azure Data Lake solves many of the productivity and scalability challenges that prevent you from maximizing the value of your data assets.
+1. _Alternative 2:_ After the Industrial Services process the data, Azure Data Lake stores and further analyzes the data. Azure Data Lake is a massively scalable data lake with enterprise-grade security and auditing, which allows batch, stream, and interactive analytic programs to run with simplicity. Azure Data Lake solves many of the productivity and scalability challenges that prevent you from maximizing the value of your data assets.
 1. Explore your data with visual reports and collaborate, publish and share them with others. Power BI integrates with other tools, including Microsoft Excel, so you can get up to speed quickly and work seamlessly with your existing solutions.
-1. _Alternative 3:_ Azure Stream Analytics is a real time analytics service. It’s easily extensible with custom code and built-in machine learning capabilities for more advanced scenarios.
+1. _Alternative 3:_ Azure Stream Analytics is a real time analytics service. It's easily extensible with custom code and built-in machine learning capabilities for more advanced scenarios.
 1. Azure Functions is a serverless compute service, which allows you to run small pieces of code (called "functions") without worrying about application infrastructure. With Azure Functions, the cloud infrastructure provides all the up-to-date servers you need to keep your application running at scale.
 1. Azure Notification Hubs allow you to send notifications to a wide range of mobile platforms and can allow notification of operators and administrators on certain events or alerts which require immediate attention.
 
-## Components
+### Components
 
 Data is loaded from these different data sources using several Azure components:
 
@@ -45,7 +44,7 @@ Data is loaded from these different data sources using several Azure components:
 - [Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics/) is a real-time analytics and complex event-processing engine that is designed to analyze and process high volumes of fast streaming data from multiple sources simultaneously. Patterns and relationships can be identified in information extracted from a number of input sources including devices, sensors, clickstreams, social media feeds, and applications.
 - [Azure Functions](/azure/azure-functions/) allows you to run small pieces of code (called "functions") without worrying about application infrastructure. Azure Function is a great solution for processing bulk data, integrating systems, working with the internet-of-things (IoT), and building simple APIs and micro-services.
 
-## Next Steps
+## Next steps
 
-- For a detailed view of the Industrial Modules and Services, see the Azure Industrial IoT Platform [architecture](https://github.com/Azure/Industrial-IoT/blob/master/docs/architecture.md) and a detailed view of all the individual Microservices and Agent processes is shown [here](https://github.com/Azure/Industrial-IoT/blob/master/docs/architecture-details.md).
+- For a detailed view of the Industrial Modules and Services, see the Azure Industrial IoT Platform [architecture](https://github.com/Azure/Industrial-IoT/blob/master/docs/architecture.md), and a detailed view of all the individual Microservices and Agent processes is shown [here](https://github.com/Azure/Industrial-IoT/blob/master/docs/architecture-details.md).
 - You can find more information on how to get started with the Azure Industrial IoT Platform in the [Industrial IoT GitHub repository](https://github.com/Azure/Industrial-IoT/blob/master/docs/architecture-details.md).

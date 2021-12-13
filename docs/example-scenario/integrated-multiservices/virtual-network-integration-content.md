@@ -1,6 +1,5 @@
 
 
-
 This article describes an integrated solution for patient records management. A health organization needs to digitally store large amounts of highly sensitive patient medical test data in the cloud. Internal and third-party systems must be able to securely read and write the data through an application programming interface (API). All interactions with the data must be recorded in an audit register.
 
 In this Azure solution, [Azure API Management (APIM)](https://azure.microsoft.com/services/api-management/) controls access to the API through a single managed endpoint. The application backend consists of two interdependent [Azure Functions](https://azure.microsoft.com/services/functions/) microservice apps that create and manage patient records and audit records. APIM and the two function apps access each other through a locked-down [virtual network](https://azure.microsoft.com/services/virtual-network/).
@@ -18,7 +17,7 @@ This article and the [associated code project](https://github.com/mspnp/vnet-int
 
 ## Architecture
 
-APIM controls internal and third-party access to a set of API microservices built on Azure Functions. The **Patient API** provides *create, read, update, and delete (CRUD)* operations for patients and their test results. The **Audit API** function app provides operations to create auditing entries. 
+APIM controls internal and third-party access to a set of API microservices built on Azure Functions. The **Patient API** provides *create, read, update, and delete (CRUD)* operations for patients and their test results. The **Audit API** function app provides operations to create auditing entries.
 
 Each function app stores its data in an independent [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) database. [Azure Key Vault](https://azure.microsoft.com/services/key-vault/) securely holds all keys, secrets, and connection strings associated with the apps and databases. Application Insights telemetry and Azure Monitor centralize logging across the system.
 
@@ -48,11 +47,11 @@ The solution uses the following components:
 - [Azure Cosmos DB](/azure/cosmos-db/mongodb-introduction) is a fully managed serverless database with instant, automatic scaling. In the current solution, both microservices store data in Azure Cosmos DB, using the [MongoDB Node.js driver](https://mongodb.github.io/node-mongodb-native/). The services don't share data, and you can deploy each service to its own independent database.
 
 - [Application Insights](/azure/azure-monitor/app/app-insights-overview), a feature of [Azure Monitor](/azure/azure-monitor/overview), reports on application performance, usage, availability, and behavior to detect and help diagnose anomalies.
-  
+
   Failures in microservices-based architecture are often distributed over a variety of components, and can't be diagnosed by looking at the services in isolation. The ability to correlate telemetry across components is vital to diagnosing these issues. Application Insights telemetry centralizes logging along the whole request pipeline to detect performance anomalies. The telemetry shares a common operation ID, allowing correlation across components.
-  
+
   APIM and the Azure Functions runtime have built-in support for Application Insights to generate and correlate a wide variety of telemetry, including standard application output. The function apps use the Application Insights Node.js SDK to manually track dependencies and other custom telemetry.
-  
+
   For more information about the distributed telemetry tracing in this solution, see [Distributed telemetry](https://github.com/mspnp/vnet-integrated-serverless-microservices/blob/main/docs/distributed_telemetry.md).
 
 ## Alternatives

@@ -1,6 +1,11 @@
 {
   "redirections": [
     {
+      "source_path": "docs/framework/scalability/data-management.md",
+      "redirect_url": "/azure/architecture/framework/Scalability/overview",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "docs/blueprints/hybrid-networking/index.md",
       "redirect_url": "/azure/architecture/reference-architectures/hybrid-networking/",
       "redirect_document_id": true
@@ -16,7 +21,7 @@
     },
     {
       "source_path": "docs/reference-architectures/managed-web-app/index.md",
-      "redirect_url": "/azure/architecture/reference-architectures/app-service-web-app",
+      "redirect_url": "/azure/architecture/reference-architectures/app-service-web-app/basic-web-app",
       "redirect_document_id": false
     },
     {
@@ -349,7 +354,7 @@
     {
       "source_path": "docs/security/overview.md",
       "redirect_url": "/azure/architecture/framework/security/overview",
-      "redirect_document_id": true
+      "redirect_document_id": false
     },
     {
       "source_path": "docs/security/applications-services.md",
@@ -369,7 +374,7 @@
     {
       "source_path": "docs/reliability/index.md",
       "redirect_url": "/azure/architecture/framework/resiliency/overview",
-      "redirect_document_id": true
+      "redirect_document_id": false
     },
     {
       "source_path": "docs/reliability/requirements.md",
@@ -408,7 +413,7 @@
     },
     {
       "source_path": "docs/security/law-authority.md",
-      "redirect_url": "/azure/architecture/framework/security/law-authority",
+      "redirect_url": "/azure/architecture/framework/security/design-regulatory-compliance",
       "redirect_document_id": true
     },
     {
@@ -1759,8 +1764,48 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "docs/patterns/index-patterns.md",
+      "redirect_url": "/azure/architecture/patterns",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "docs/reference-architectures/ai/index.md",
       "redirect_url": "/azure/architecture/reference-architectures/ai/batch-scoring-deep-learning",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/reference-architectures/ai/predictive-maintenance.md",
+      "redirect_url": "/azure/architecture/data-guide/big-data/ai-overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/reference-architectures/ai/defect-prevention-with-predictive-maintenance.md",
+      "redirect_url": "/azure/architecture/solution-ideas/articles/defect-prevention-with-predictive-maintenance",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/reference-architectures/ai/movie-recommendations.md",
+      "redirect_url": "/azure/architecture/example-scenario/ai/movie-recommendations",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/reference-architectures/ai/product-recommendations.md",
+      "redirect_url": "/azure/architecture/reference-architectures/ai/real-time-recommendation",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/reference-architectures/ai/visual-assistant.md",
+      "redirect_url": "/azure/architecture/solution-ideas/articles/visual-assistant",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/reference-architectures/ai/commerce-chatbot.md",
+      "redirect_url": "/azure/architecture/reference-architectures/ai/conversational-bot",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/solution-ideas/articles/example-scenario/ai/intelligent-apps-image-processing.md",
+      "redirect_url": "/azure/architecture/example-scenario/ai/intelligent-apps-image-processing",
       "redirect_document_id": false
     },
     {
@@ -1924,6 +1969,13 @@
       "redirect_url": "/azure/architecture/solution-ideas/articles/devops-in-a-hybrid-environment",
       "redirect_document_id": false
     },
+
+
+    {
+      "source_path": "docs/solution-ideas/articles/modern-data-warehouse.md",
+      "redirect_url": "/azure/architecture/solution-ideas/articles/enterprise-data-warehouse",
+      "redirect_document_id": false
+    },
     {
       "source_path": "docs/framework/cost/optimizing.md",
       "redirect_url": "/azure/architecture/framework/cost/optimize-checklist"
@@ -2081,6 +2133,11 @@
       "redirect_document_id": false
      },
      {
+      "source_path": "docs/guide/azure-resource-manager/advanced-templates/conditional-deploy.md",
+      "redirect_url": "/azure/azure-resource-manager/templates/template-tutorial-use-conditions",
+      "redirect_document_id": false
+     },
+     {
       "source_path": "docs/example-scenario/iot-aad/iot-aad.yml",
       "redirect_url": "/azure/architecture/reference-architectures/iot",
       "redirect_document_id": false
@@ -2089,6 +2146,103 @@
       "source_path": "docs/solution-ideas/articles/ai-for-earth.yml",
       "redirect_url": "https://aka.ms/AIArchitecture",
       "redirect_document_id": false
-     } 
-   ]
+     },
+     {
+      "source_path": "docs/solution-ideas/articles/cctv-mask-detection.yml",
+      "redirect_url": "/azure/architecture/solution-ideas/articles/cctv-iot-edge-for-covid-19-safe-environment-and-mask-detection",
+      "redirect_document_id": true
+     },
+     {
+       "source_path": "docs/example-scenario/ai/newsfeed-ingestion.yml",
+       "redirect_url": "/azure/architecture/example-scenario/ai/news-feed-ingestion-and-near-real-time-analysis",
+       "redirect_document_id": true
+     }, 
+     {
+      "source_path": "docs/solution-ideas/articles/demand-forecasting-and-price-optimization.yml",
+      "redirect_url": "/azure/architecture/solution-ideas/articles/demand-forecasting-price-optimization-marketing",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/solution-ideas/articles/information-discovery-with-deep-learning-and-nlp.yml",
+      "redirect_url": "/azure/architecture/solution-ideas/articles/website-content-tag-suggestion-with-deep-learning-and-nlp",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "docs/example-scenario/ai/movie-recommendations.yml",
+      "redirect_url": "/azure/architecture/example-scenario/ai/movie-recommendations-with-machine-learning",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "docs/example-scenario/ai/scalable-personalization.yml",
+      "redirect_url": "/azure/architecture/example-scenario/ai/scalable-personalization-with-content-based-recommendation-system",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "docs/solution-ideas/articles/machine-learning-with-aks.yml",
+      "redirect_url": "/azure/architecture/solution-ideas/articles/machine-learning-model-deployment-aks",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "docs/reference-architectures/ai/speech-ai-ingestion.yml",
+      "redirect_url": "/azure/architecture/reference-architectures/ai/speech-to-text-transcription-pipeline",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "docs/reference-architectures/ai/realtime-scoring-python.yml",
+      "redirect_url": "/azure/architecture/reference-architectures/ai/real-time-scoring-machine-learning-models",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "docs/framework/security/law-authority.md",
+      "redirect_url": "/azure/architecture/framework/security/design-regulatory-compliance",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/framework/security/monitor-identity-network.md",
+      "redirect_url": "/azure/architecture/framework/security/monitor-resources",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "docs/framework/security/governance.md",
+      "redirect_url": "/azure/architecture/framework/security/design-governance",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "docs/framework/security/network-security-containment.md",
+      "redirect_url": "/azure/architecture/framework/security/design-network-segmentation",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "docs/framework/security/critical-impact-accounts.md",
+      "redirect_url": "/azure/architecture/framework/security/design-admins",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "docs/framework/security/role-of-security.md",
+      "redirect_url": "/azure/architecture/framework/security/overview",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "docs/multitenant-identity/client-assertion.md",
+      "redirect_url": "/azure/architecture/multitenant-identity/client-certificate",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "docs/guide/devops/release-packaging-deploying-disconnected-azure-stack-hub.md",
+      "redirect_url": "/azure/architecture/",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/guide/startups/core-startup-stack.yml",
+      "redirect_url": "/azure/architecture/example-scenario/startups/core-startup-stack",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "docs/reference-architectures/containers/deploy-keda-aksacr-disconnected-azure-stack-hub.yml",
+      "redirect_url": "/azure/architecture/",
+      "redirect_document_id": false
+    }            
+
+
+  ]
 }

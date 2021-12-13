@@ -1,9 +1,6 @@
-
 <!-- cSpell:ignore fabraga -->
 
-
-
-This example scenario demonstrates how to use Azure Synapse Analytics with extensive family of Azure Data Services to build a modern data platform capable of handling the most common data challenges in an organization.
+This example scenario demonstrates how to use Azure Synapse Analytics with the extensive family of Azure Data Services to build a modern data platform capable of handling the most common data challenges in an organization.
 
 The solution described in this article combines a range of Azure services that will ingest, store, process, enrich, and serve data and insights from different sources (structured, semi-structured, unstructured, and streaming).
 
@@ -20,6 +17,8 @@ This approach can also be used to:
 ## Architecture
 
 [![Architecture for a modern data platform using Azure data services](./media/azure-analytics-end-to-end.png)](./media/azure-analytics-end-to-end.png#lightbox)
+
+*Download a [Visio file](https://arch-center.azureedge.net/Analytics-with-AzureSynapse.vsdx) of this architecture*.
 
 > [!NOTE]
 >
@@ -68,9 +67,10 @@ The analytics use cases covered by the architecture are illustrated by the diffe
 
 1. Use either [Data Flows](https://docs.microsoft.com/azure/data-factory/concepts-data-flow-overview), [SQL Serverless queries](https://docs.microsoft.com/learn/modules/use-azure-synapse-serverless-sql-pools-for-transforming-data-lake/), or [Spark notebooks](https://docs.microsoft.com/learn/modules/transform-data-with-dataframes-apache-spark-pools-azure-synapse-analytics/) to validate, transform, and move the datasets into your Curated zone in your data lake.
 
-    1. As part of your data transformations, you can invoke machine learning models from your [SQL pools using standard T-SQL](https://docs.microsoft.com/azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-predict) or Spark notebooks. These ML models can be used to enrich your datasets and generate further business insights. These machine learning models can be consumed from [Azure Cognitive Services](https://docs.microsoft.com/azure/synapse-analytics/machine-learning/tutorial-cognitive-services-sentiment) or [custom ML models from Azure ML](https://docs.microsoft.com/azure/synapse-analytics/machine-learning/tutorial-sql-pool-model-scoring-wizard).
 
-1. You can serve your final dataset directly from the data lake Curated zone or you can use Copy Data activity to ingest the final dataset into your SQL pool tables using the [COPY command](https://docs.microsoft.com/sql/t-sql/statements/copy-into-transact-sql) for fast ingestion.
+    1. As part of your data transformations, you can invoke machine learning models from your [SQL pools using standard T-SQL](/azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-predict) or Spark notebooks. These ML models can be used to enrich your datasets and generate further business insights. These machine learning models can be consumed from [Azure Cognitive Services](/azure/synapse-analytics/machine-learning/tutorial-cognitive-services-sentiment) or [custom ML models from Azure ML](/azure/synapse-analytics/machine-learning/tutorial-sql-pool-model-scoring-wizard).
+
+1. You can serve your final dataset directly from the data lake Curated zone or you can use Copy Data activity to ingest the final dataset into your SQL pool tables using the [COPY command](/sql/t-sql/statements/copy-into-transact-sql) for fast ingestion.
 
 #### Serve
 
@@ -86,8 +86,9 @@ The analytics use cases covered by the architecture are illustrated by the diffe
 
 1. Use [Azure Synapse pipelines](https://docs.microsoft.com/azure/data-factory/concepts-pipelines-activities) to pull data from a wide variety of semi-structured data sources, both on-premises and in the cloud. For example:
 
-    - Ingest data from file-based sources containing CSV or JSON files. 
-    - Connect to No-SQL databases such as Cosmos DB or Mongo DB. 
+
+    - Ingest data from file-based sources containing CSV or JSON files.
+    - Connect to No-SQL databases such as Cosmos DB or Mongo DB.
     - Call REST APIs provided by SaaS applications that will function as your data source for the pipeline.
 
 #### Store
@@ -100,9 +101,9 @@ The analytics use cases covered by the architecture are illustrated by the diffe
 
 1. For batch/micro-batch pipelines, use either [Data Flows](https://docs.microsoft.com/azure/data-factory/concepts-data-flow-overview), [SQL Serverless queries](https://docs.microsoft.com/learn/modules/use-azure-synapse-serverless-sql-pools-for-transforming-data-lake/) or [Spark notebooks](https://docs.microsoft.com/learn/modules/transform-data-with-dataframes-apache-spark-pools-azure-synapse-analytics/) to validate, transform and move the your datasets into your Curated zone in your data lake. SQL Serverless queries expose underlying [CSV](https://docs.microsoft.com/azure/synapse-analytics/sql/query-single-csv-file), [Parquet](https://docs.microsoft.com/azure/synapse-analytics/sql/query-parquet-files) or [JSON](https://docs.microsoft.com/azure/synapse-analytics/sql/query-json-files) files as external tables so they can be queried using T-SQL.
 
-    1. As part of your data transformations, you can invoke machine learning models from your [SQL pools using standard T-SQL](https://docs.microsoft.com/azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-predict) or Spark notebooks. These ML models can be used to enrich your datasets and generate further business insights. These machine learning models can be consumed from [Azure Cognitive Services](https://docs.microsoft.com/azure/synapse-analytics/machine-learning/tutorial-cognitive-services-sentiment) or [custom ML models from Azure ML](https://docs.microsoft.com/azure/synapse-analytics/machine-learning/tutorial-sql-pool-model-scoring-wizard).
+    1. As part of your data transformations, you can invoke machine learning models from your [SQL pools using standard T-SQL](/azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-predict) or Spark notebooks. These ML models can be used to enrich your datasets and generate further business insights. These machine learning models can be consumed from [Azure Cognitive Services](/azure/synapse-analytics/machine-learning/tutorial-cognitive-services-sentiment) or [custom ML models from Azure ML](/azure/synapse-analytics/machine-learning/tutorial-sql-pool-model-scoring-wizard).
 
-1. You can serve your final dataset directly from the data lake Curated zone or you can use Copy Data activity to ingest the final dataset into your SQL pool tables using the [COPY command](https://docs.microsoft.com/sql/t-sql/statements/copy-into-transact-sql) for fast ingestion.
+1. You can serve your final dataset directly from the data lake Curated zone or you can use Copy Data activity to ingest the final dataset into your SQL pool tables using the [COPY command](/sql/t-sql/statements/copy-into-transact-sql) for fast ingestion.
 
 1. For near real-time telemetry and time-series analytics scenarios, use [Data Explorer pools](https://docs.microsoft.com/azure/synapse-analytics/data-explorer/data-explorer-overview) to easily [ingest](https://docs.microsoft.com/azure/synapse-analytics/data-explorer/ingest-data/data-explorer-ingest-data-overview), consolidate and correlate logs and IoT events data across multiple data sources. With Data Explorer pools you can use [Kusto queries (KQL)](https://docs.microsoft.com/azure/data-explorer/kusto/query/tutorial?pivots=azuredataexplorer) to perform [time-series analysis](https://docs.microsoft.com/azure/data-explorer/kusto/query/machine-learning-and-tsa), [geo-spacial clustering](https://docs.microsoft.com/azure/data-explorer/kusto/query/geospatial-grid-systems) and machine learning enrichment.
 
@@ -133,15 +134,15 @@ The analytics use cases covered by the architecture are illustrated by the diffe
 
 1. Use [Spark notebooks](https://docs.microsoft.com/learn/modules/transform-data-with-dataframes-apache-spark-pools-azure-synapse-analytics/) to validate, transform, enrich and move the your datasets into your Curated zone in your data lake.
 
-    1. As part of your data transformations, you can invoke machine learning models from your [SQL pools using standard T-SQL](https://docs.microsoft.com/azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-predict) or Spark notebooks. These ML models can be used to enrich your datasets and generate further business insights. These machine learning models can be consumed from [Azure Cognitive Services](https://docs.microsoft.com/azure/synapse-analytics/machine-learning/tutorial-cognitive-services-sentiment) or [custom ML models from Azure ML](https://docs.microsoft.com/azure/synapse-analytics/machine-learning/tutorial-sql-pool-model-scoring-wizard).
+    1. As part of your data transformations, you can invoke machine learning models from your [SQL pools using standard T-SQL](/azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-predict) or Spark notebooks. These ML models can be used to enrich your datasets and generate further business insights. These machine learning models can be consumed from [Azure Cognitive Services](/azure/synapse-analytics/machine-learning/tutorial-cognitive-services-sentiment) or [custom ML models from Azure ML](/azure/synapse-analytics/machine-learning/tutorial-sql-pool-model-scoring-wizard).
 
-1. You can serve your final dataset directly from the data lake Curated zone or you can use Copy Data activity to ingest the final dataset into your data warehouse tables using the [COPY command](https://docs.microsoft.com/sql/t-sql/statements/copy-into-transact-sql) for fast ingestion.
+1. You can serve your final dataset directly from the data lake Curated zone or you can use Copy Data activity to ingest the final dataset into your data warehouse tables using the [COPY command](/sql/t-sql/statements/copy-into-transact-sql) for fast ingestion.
 
 #### Serve
 
 1. Load relevant data from the Azure Synapse SQL pool or data lake into [Power BI datasets](https://techcommunity.microsoft.com/t5/azure-synapse-analytics/integrate-power-bi-with-azure-synapse-analytics/ba-p/2003057) for data visualization. [Power BI models](https://docs.microsoft.com/learn/modules/design-model-power-bi/) implement a semantic model to simplify the analysis of business data and relationships.
 
-1. Business analysts use [Power BI](https://docs.microsoft.com/power-bi/admin/service-premium-what-is) reports and dashboards to analyze data and derive business insights.
+1. Business analysts use [Power BI](/power-bi/admin/service-premium-what-is) reports and dashboards to analyze data and derive business insights.
 
 1. Data can also be securely shared to other business units or external trusted partners using [Azure Data Share](https://docs.microsoft.com/azure/data-share/share-your-data). Data consumers have the freedom to choose what data format they want to use and also what compute engine is best to process the shared datasets.
 
@@ -163,7 +164,7 @@ The analytics use cases covered by the architecture are illustrated by the diffe
 
 1. For real-time insights, use a [Stream Analytics job](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-introduction) to implement the "Hot Path" of the [Lambda architecture pattern](https://docs.microsoft.com/azure/architecture/data-guide/big-data/#lambda-architecture) and derive insights from the stream data in transit. Define at least one input for the data stream coming from your [Event Hub](https://docs.microsoft.com/azure/event-hubs/process-data-azure-stream-analytics) or [IoT Hub](https://docs.microsoft.com/azure/iot-hub/iot-hub-live-data-visualization-in-power-bi), one query to process the input data stream and one Power BI output to where the query results will be sent to.
 
-    1. As part of your data processing with Stream Analytics, you can invoke machine learning models to enrich your stream datasets and drive business decisions based on the predictions generated. These machine learning models can be consumed from Azure Cognitive Services or from [custom ML models in Azure Machine learning](https://docs.microsoft.com/azure/stream-analytics/machine-learning-udf).
+    1. As part of your data processing with Stream Analytics, you can invoke machine learning models to enrich your stream datasets and drive business decisions based on the predictions generated. These machine learning models can be consumed from Azure Cognitive Services or from [custom ML models in Azure Machine learning](/azure/stream-analytics/machine-learning-udf).
 
 1. Use other Stream Analytics job outputs to send processed events to Azure Synapse [SQL pools](https://docs.microsoft.com/azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-integrate-azure-stream-analytics) or [Data Explorer pools](https://techcommunity.microsoft.com/t5/azure-data-explorer-blog/adx-is-now-supported-as-output-for-azure-stream-analytics-job/ba-p/2923654) for further analytics use cases.
 
@@ -179,31 +180,31 @@ Data governance is a common challenge in large enterprise environments. On one h
 
 ### Azure Purview
 
-1. Use [Azure Purview](https://docs.microsoft.com/azure/purview/overview) for [data discovery](https://docs.microsoft.com/azure/purview/how-to-browse-catalog) and governance insights on your [data assets](https://docs.microsoft.com/azure/purview/asset-insights), [data classification](https://docs.microsoft.com/azure/purview/classification-insights) and [sensitivity](https://docs.microsoft.com/azure/purview/sensitivity-insights) covering the entire organizational data landscape.
+1. Use [Azure Purview](/azure/purview/overview) for [data discovery](/azure/purview/how-to-browse-catalog) and governance insights on your [data assets](/azure/purview/asset-insights), [data classification](/azure/purview/classification-insights) and [sensitivity](/azure/purview/sensitivity-insights) covering the entire organizational data landscape.
 
-1. Azure Purview can help you maintain a [business glossary](https://docs.microsoft.com/azure/purview/concept-business-glossary) with the specific business terminology required for users to understand the semantics of what datasets mean and how they are meant to be used across the organization.
+1. Azure Purview can help you maintain a [business glossary](/azure/purview/concept-business-glossary) with the specific business terminology required for users to understand the semantics of what datasets mean and how they are meant to be used across the organization.
 
 1. You can [register all your data sources](https://docs.microsoft.com/azure/purview/manage-data-sources) and organize them into [Collections](https://docs.microsoft.com/azure/purview/concept-best-practices-collections), which also serves as a security boundary for your metadata.
 
 1. Setup [regular scans](https://docs.microsoft.com/azure/purview/create-a-scan-rule-set) to automatically catalog and update relevant metadata about data assets in the organization. Azure Purview can also automatically add [data lineage](https://docs.microsoft.com/azure/purview/catalog-lineage-user-guide) information based on information from Azure Data Factory or Azure Synapse pipelines.
 
-1. [Data Classification](https://docs.microsoft.com/azure/purview/apply-classifications) and [Data Sensitivity](https://docs.microsoft.com/azure/purview/create-sensitivity-label) labels can be added automatically to your data assets based on pre-configured or customs rules applied during the regular scans.
+1. [Data Classification](/azure/purview/apply-classifications) and [Data Sensitivity](/azure/purview/create-sensitivity-label) labels can be added automatically to your data assets based on pre-configured or customs rules applied during the regular scans.
 
 1. Data governance professionals can use the reports and [insights](https://docs.microsoft.com/azure/purview/concept-insights) generated by Azure Purview to keep control over the entire data landscape and protect the organization against any security and privacy issues.
 
 ## Platform Services
 
-In order to improve the quality of your Azure solutions, follow the recommendations and guidelines defined in the [Azure Well-Architected Framework](https://docs.microsoft.com/azure/architecture/framework/) five pillars of architecture excellence: Cost Optimization, Operational Excellence, Performance Efficiency, Reliability, and Security.
+In order to improve the quality of your Azure solutions, follow the recommendations and guidelines defined in the [Azure Well-Architected Framework](../../framework/index.md) five pillars of architecture excellence: Cost Optimization, Operational Excellence, Performance Efficiency, Reliability, and Security.
 
 Following these recommendations, the services below should be considered as part of the design:
 
 1. [Azure Active Directory](https://azure.microsoft.com/services/active-directory/): identity services, single sign-on and multi-factor authentication across Azure workloads.
 1. [Azure Cost Management](https://azure.microsoft.com/services/cost-management/): financial governance over your Azure workloads.
-1. [Azure Key Vault](https://azure.microsoft.com/services/key-vault/): secure credential and certificate management. For example, [Azure Synapse Pipelines](https://docs.microsoft.com/azure/data-factory/how-to-use-azure-key-vault-secrets-pipeline-activities), [Azure Synapse Spark Pools](https://docs.microsoft.com/azure/synapse-analytics/spark/apache-spark-secure-credentials-with-tokenlibrary) and [Azure ML](https://docs.microsoft.com/azure/machine-learning/how-to-use-secrets-in-runs) can retrieve credentials and certificates from Azure Key Vault used to securely access data stores.
+1. [Azure Key Vault](https://azure.microsoft.com/services/key-vault/): secure credential and certificate management. For example, [Azure Synapse Pipelines](/azure/data-factory/how-to-use-azure-key-vault-secrets-pipeline-activities), [Azure Synapse Spark Pools](/azure/synapse-analytics/spark/apache-spark-secure-credentials-with-tokenlibrary) and [Azure ML](/azure/machine-learning/how-to-use-secrets-in-runs) can retrieve credentials and certificates from Azure Key Vault used to securely access data stores.
 1. [Azure Monitor](https://azure.microsoft.com/services/monitor/): collect, analyze, and act on telemetry information of your Azure resources to proactively identify problems and maximize performance and reliability.
-1. [Azure Security Center](https://azure.microsoft.com/services/security-center/): strengthen and monitor the security posture of your Azure workloads.  
+1. [Microsoft Defender for Cloud](https://azure.microsoft.com/services/security-center/): strengthen and monitor the security posture of your Azure workloads.
 1. [Azure DevOps](https://azure.microsoft.com/solutions/devops/) & [GitHub](https://azure.microsoft.com/products/github/): implement DevOps practices to enforce automation and compliance to your workload development and deployment pipelines for Azure Synapse and Azure ML.
-1. [Azure Policy](https://docs.microsoft.com/azure/governance/policy/): implement organizational standards and governance for resource consistency, regulatory compliance, security, cost, and management.
+1. [Azure Policy](/azure/governance/policy/): implement organizational standards and governance for resource consistency, regulatory compliance, security, cost, and management.
 
 ## Architecture components
 
@@ -224,7 +225,7 @@ The following Azure services have been used in the architecture:
 - Azure Cost Management
 - Azure Key Vault
 - Azure Monitor
-- Azure Security Center
+- Microsoft Defender for Cloud
 - Azure DevOps
 - Azure Policy
 - GitHub
@@ -251,8 +252,7 @@ The following Azure services have been used in the architecture:
 
 ## Considerations
 
-The technologies in this architecture were chosen because each of them provides the necessary functionality to handle the most common data challenges in an organization. These services meet the requirements for scalability and availability, while helping them control costs.
-The services covered by this architecture are only a subset of a much larger family of Azure services. Similar outcomes can be achieved by using other services or features not covered by this design.
+The technologies in this architecture were chosen because each of them provides the necessary functionality to handle the most common data challenges in an organization. These services meet the requirements for scalability and availability, while helping them control costs. The services covered by this architecture are only a subset of a much larger family of Azure services. Similar outcomes can be achieved by using other services or features not covered by this design.
 
 Specific business requirements for your analytics use cases may also ask for the use of different services or features not considered in this design.
 
@@ -276,8 +276,7 @@ In general, use the [Azure pricing calculator](https://azure.microsoft.com/prici
 
 - [Azure Stream Analytics](https://azure.microsoft.com/pricing/details/stream-analytics/) is charged based on the amount of compute power required to process your stream queries.
 
-- [Power BI](https://powerbi.microsoft.com/pricing) has different product options for different requirements. [Power BI Embedded](https://azure.microsoft.com/pricing/details/power-bi-embedded) provides an Azure-based option for embedding Power BI functionality inside your applications. A Power BI Embedded instance is included in the pricing sample 
-above.
+- [Power BI](https://powerbi.microsoft.com/pricing) has different product options for different requirements. [Power BI Embedded](https://azure.microsoft.com/pricing/details/power-bi-embedded) provides an Azure-based option for embedding Power BI functionality inside your applications. A Power BI Embedded instance is included in the pricing sample  above.
 
 - [Azure CosmosDB](https://azure.microsoft.com/pricing/details/cosmos-db/) is priced based on the amount of storage and compute resources required by your databases.
 
@@ -285,4 +284,4 @@ above.
 
 - Find comprehensive architectural guidance on data pipelines, data warehousing, online analytical processing (OLAP), and big data in the [Azure Data Architecture Guide](../../data-guide/index.md).
 
-- Explore the [Data Engineer Learning Paths at Microsoft learn](https://docs.microsoft.com/learn/roles/data-engineer) for further training content and labs on the services involved in this reference architecture.
+- Explore the [Data Engineer Learning Paths at Microsoft learn](/learn/roles/data-engineer) for further training content and labs on the services involved in this reference architecture.

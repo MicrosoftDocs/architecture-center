@@ -1,6 +1,3 @@
-
-
-
 This article covers the patterns and implementations the commercial software engineer (CSE) team used when they created the [Banking system cloud transformation on Azure](banking-system-cloud-transformation.yml).
 
 ## Saga pattern
@@ -78,3 +75,17 @@ The CSE team structured the load testing framework into two Azure Pipelines:
 1. A pipeline that validates the JMeter test definition (.jmx file), dynamically provisions the load testing infrastructure, runs the load test, publishes the test results and artifacts to Azure Pipelines, and destroys the infrastructure.
 
 For more information about the load testing pipeline solution, see [Implementation reference for JMeter load testing pipeline solution](jmeter-load-testing-pipeline-implementation-reference.yml).
+
+## Next steps
+
+Learn more about the component technologies:
+
+* [Introduction to Azure Functions](/azure/azure-functions/functions-overview)
+* [What are Durable Functions?](/azure/azure-functions/durable/durable-functions-overview)
+* [Azure Event Hubs — A big data streaming platform and event ingestion service](/azure/event-hubs/event-hubs-about)
+* [Welcome to Azure Cosmos DB](/azure/cosmos-db/introduction)
+
+Explore related architectures:
+
+* [Saga distributed transactions](../../reference-architectures/saga/saga.yml)
+* [Gridwich saga orchestration](../../reference-architectures/media-services/gridwich-saga-orchestration.yml)

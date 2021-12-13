@@ -1,7 +1,5 @@
 <!-- cSpell:ignore iainfoulds botservice -->
 
-
-
 This example scenario applies generally to businesses that want to integrate a conversational chatbot into applications. Specifically, this scenario shows a C# chatbot for a hotel to allow customers to check availability and book accommodation through a web or mobile application.
 
 Beyond hotel booking, this chatbot could be used in a wide range of commerce settings. For example, the chatbot can enable customers to review the take-out menu of restaurant and place an order. Or, the chatbot can enable customers of a photography studio to search for and order prints. Traditionally, businesses hire and train customer service agents to respond to these types of customer requests. As a result, customers wait until a representative is available to provide assistance.
@@ -83,7 +81,7 @@ This scenario is divided into three components for easier exploration:
 
         It takes a few minutes for the deployment to complete.
 
-- **Web app chatbot**: To use Azure CLI to deploy a bot with the Bot Service, see [Deploy your bot](/azure/bot-service/bot-builder-deploy-az-cli). To add Language Understanding and Intelligent Services (LUIS) to the bot, see [Deploy LUIS resources using the Bot Framework LUIS CLI commands](/azure/bot-service/bot-builder-howto-bf-cli-deploy-luis).
+- **Web app chatbot**: To use Azure CLI to deploy a bot with the Bot Service, see [Deploy your bot](/azure/bot-service/bot-builder-deploy-az-cli). To add Language Understanding and Intelligent Services (LUIS) to the bot.
 
 - **Sample C# chatbot application**: Use Visual Studio to review the [sample C# application](https://github.com/Microsoft/AzureBotServices-scenarios/tree/master/CSharp/Commerce/src) on GitHub. The sample application includes the Azure Active Directory authentication components and integration with the Language Understanding and Intelligent Services (LUIS) component of Cognitive Services. The application requires Visual Studio to build and deploy the scenario. Additional information on configuring Azure AD B2C and the LUIS app can be found in the GitHub repo documentation.
 
@@ -101,7 +99,7 @@ Azure Architecture Center articles describing chatbot architectures:
 
 - [Commerce chatbot for customer service](../../solution-ideas/articles/commerce-chatbot.yml)
 - [Build an enterprise-grade conversational bot](../../reference-architectures/ai/conversational-bot.yml)
-- [Speech-to-text conversion](../../reference-architectures/ai/speech-ai-ingestion.yml)
+- [Speech-to-text conversion](../../reference-architectures/ai/speech-to-text-transcription-pipeline.yml)
 
 Azure Bot Service product documentation:
 

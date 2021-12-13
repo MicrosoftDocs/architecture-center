@@ -1,5 +1,4 @@
-
-
+[!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
 Globally, over 1 billion people lack access to electricity, and over 3 billion people have no internet access. Veriown is an energy provider working with Azure Internet-of-Things (IoT) cloud services to provide life-changing, low-cost electricity and connectivity to remote and rural customers. Veriown's IoT devices combine solar power with internet communications to deliver monumental improvements to users' quality of life.
 
@@ -16,6 +15,7 @@ Azure supports two major workstreams in Veriown's IoT solution:
 Since bandwidth is limited and expensive in emerging markets, analyzing usage patterns and incidents can help content and service owners target customers with only the content and services they currently need.
 
 ## Potential use cases
+
 A solar-powered Connect device in a customer's home or business can provide:
 - LED light to replace kerosene lanterns
 - USB device charging
@@ -35,7 +35,7 @@ The basic Connect device provides light, electricity, internet connectivity, and
 1. Field sales and service agents use a mobile platform to interact with the cloud application via Azure Application Gateway. End users use a built-in device or mobile interface to access and control their devices and interact with content.
 1. Application Gateway uses messaging protocols to interact with users and operators.
 1. The cloud app consists of containerized microservices that provide functions and interfaces like identity and access management, device upgrades, notifications, and commerce services.
-   
+
    The app uses Azure services and resources like [Azure Blob Storage](/azure/storage/blobs/storage-blobs-introduction) for unstructured data storage, [Azure Cosmos DB](/azure/cosmos-db/introduction) for large structured databases, and [Azure Media Services](https://azure.microsoft.com/services/media-services/) to store and deliver entertainment content.
 
 The Connect devices also send streaming telemetry and user data to the cloud via Azure IoT Hub. In the business intelligence part of the process:
@@ -58,7 +58,7 @@ The system includes the following data analysis and control loop:
 1. Azure ML combines current data with stored external data, like historical weather and forecasts, and uses the results to retrain the power management ML models.
 1. IoT Hub sends the retrained models to the Connect devices, which adjust their behavior and schedules accordingly.
 
-## Components
+### Components
 - [Azure Application Gateway](/azure/application-gateway/overview) manages and load balances traffic to and from cloud web apps.
 - [Azure Kubernetes Service (AKS)](/azure/aks/intro-kubernetes) hosts and simplifies [Kubernetes](https://kubernetes.io/) orchestration of [Docker](https://www.docker.com/) containerized apps.
 - [Azure Container Registry (ACR)](/azure/container-registry/container-registry-intro) is a managed, private registry service that supports AKS applications at scale.
@@ -68,7 +68,7 @@ The system includes the following data analysis and control loop:
 - [Power BI](/power-bi/fundamentals/power-bi-overview) is a collection of software services, apps, and connectors that turn data into coherent, immersive, interactive visualizations and reports.
 - [Azure Machine Learning](/azure/machine-learning/overview-what-is-azure-ml) is a cloud-based ML environment that uses existing data to forecast future behaviors, outcomes, and trends.
 
-## See also
+## Next steps
 - [Azure IoT documentation](/azure/iot-fundamentals/)
 - [A solar-powered device will bring online entertainment, education to villages](https://www.thehindubusinessline.com/info-tech/soon-a-solar-powered-device-will-bring-online-entertainment-education-to-villages/article26945331.ece)
 - [Veriown website](https://veriown.com)

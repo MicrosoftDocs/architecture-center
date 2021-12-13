@@ -1,6 +1,5 @@
 
 
-
 This reference architecture demonstrates how Azure Arc extends Kubernetes cluster management and configuration across customer data centers, edge locations, and multiple cloud environments. You can use Azure Arc to register Kubernetes clusters hosted outside of Microsoft Azure, and use Azure tools to manage these clusters alongside clusters hosted in Azure Kubernetes Service (AKS).
 ![An Azure Arc for Kubernetes topology diagram.][Architecture diagram]
 
@@ -29,8 +28,7 @@ The following sections are recommendations that apply for most scenarios. Follow
 
 ### Cluster registration
 
-You can register any CNCF Kubernetes cluster that is running. You'll need a **kubeconfig** file to access the cluster and cluster-admin role on the cluster for deploying Arc-enabled Kubernetes agents.
-You'll use Azure Command-Line Interface (Azure CLI) to perform cluster registration tasks. The user or service principal used with the **az login** and **az connectedk8s connect** commands must have the Read and Write permissions on the Microsoft.Kubernetes/connectedClusters resource type. The Kubernetes Cluster - Azure Arc Onboarding role has these permissions and can be used for role assignments on either the user principal or the service principal. Helm 3 is required for onboarding the cluster using the connectedk8s extension. Azure CLI version 2.3 or later is required to install the Azure Arc-enabled Kubernetes command-line interface extensions.
+You can register any CNCF Kubernetes cluster that is running. You'll need a **kubeconfig** file to access the cluster and cluster-admin role on the cluster for deploying Arc-enabled Kubernetes agents. You'll use Azure Command-Line Interface (Azure CLI) to perform cluster registration tasks. The user or service principal used with the **az login** and **az connectedk8s connect** commands must have the Read and Write permissions on the Microsoft.Kubernetes/connectedClusters resource type. The Kubernetes Cluster - Azure Arc Onboarding role has these permissions and can be used for role assignments on either the user principal or the service principal. Helm 3 is required for onboarding the cluster using the connectedk8s extension. Azure CLI version 2.3 or later is required to install the Azure Arc-enabled Kubernetes command-line interface extensions.
 
 #### Azure Arc agents for Kubernetes
 
@@ -133,7 +131,7 @@ Azure Arc agents require the following protocols/ports/outbound URLs to function
 [Azure Monitor]: /azure/azure-monitor/
 [Connect an Azure Arc-enabled Kubernetes cluster]: /azure/azure-arc/kubernetes/connect-cluster
 [Use Azure RBAC for Kubernetes Authorization]: /azure/aks/manage-azure-rbac
-[Create an Azure Arc-enabled onboarding Service Principal]: /azure/azure-arc/kubernetes/create-onboarding-service-principal
+[Create an Azure Arc-enabled onboarding Service Principal]: /azure/azure-arc/servers/onboard-service-principal
 [Azure Monitor for containers overview]: /azure/azure-monitor/insights/container-insights-overview
 [Enable monitoring of Azure Arc enabled Kubernetes cluster]: /azure/azure-monitor/insights/container-insights-enable-arc-enabled-clusters?toc=%252fazure%252fazure-arc%252ftoc.json
 [Azure Policy built-in definitions for Azure Arc enabled Kubernetes]: /azure/azure-arc/kubernetes/policy-samples

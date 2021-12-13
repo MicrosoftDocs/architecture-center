@@ -1,15 +1,15 @@
 ### YamlMime:ContentBrowser
-title: Browse Azure Architecture
+title: Browse Azure Architectures
 browseType: architecture
 summary: Find architecture diagrams and technology descriptions for reference architectures, real world examples of cloud architectures, and solution ideas for common workloads on Azure.
 metadata:
   ms.topic: hub-page
-  keywords: 
+  keywords:
     - "azure architecture"
     - "architecture diagrams"
     - "cloud architecture"
     - "reference architecture"
     - "example scenarios"
     - "solution ideas"
-  ms.custom: seo-aac-fy21q3
-    
+  ms.custom:
+    - seo-aac-fy21q3

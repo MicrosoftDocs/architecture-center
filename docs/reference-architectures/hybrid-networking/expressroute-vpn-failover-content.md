@@ -1,7 +1,4 @@
-
 <!-- cSpell:ignore RRAS -->
-
-
 
 This reference architecture shows how to connect an on-premises network to an Azure virtual network (VNet) using ExpressRoute, with a site-to-site virtual private network (VPN) as a failover connection. Traffic flows between the on-premises network and the Azure VNet through an ExpressRoute connection. If there is a loss of connectivity in the ExpressRoute circuit, traffic is routed through an IPSec VPN tunnel. [**Deploy this solution**](#deploy-the-solution).
 
@@ -124,6 +121,13 @@ To deploy the solution, perform the following steps.
    - Do not edit the **Template Root Uri** or the **Parameter Root Uri** text boxes.
    - Review the terms and conditions, then click the **I agree to the terms and conditions stated above** checkbox.
    - Click the **Purchase** button.
+
+## Next Steps
+
+* [ExpressRoute Documentation](/azure/expressroute/)
+* [Azure Security baseline for ExpressRoute](/security/benchmark/azure/baselines/expressroute-security-baseline?toc=%2fazure%2fexpressroute%2fTOC.json)
+* [How to create an ExpressRoute circuit](https://azure.microsoft.com/resources/videos/azure-expressroute-how-to-create-an-expressroute-circuit/)
+* [Azure Networking Blog](https://azure.microsoft.com/en-us/blog/topics/networking/)
 
 <!-- links -->
 

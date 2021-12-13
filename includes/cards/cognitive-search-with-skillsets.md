@@ -6,7 +6,7 @@
 <article class="card">
     <div class="card-header has-margin-bottom-none" aria-hidden="true">
         <figure class="image diagram has-height-175 has-overflow-hidden level">
-            <a href="/azure/architecture/solution-ideas/articles/cognitive-search-with-skillsets"><img src="/azure/architecture/browse/thumbs/cognitive-search-with-skillsets.png" class="diagram" alt="Thumbnail of AI enrichment with Azure Cognitive Search Architectural Diagram." data-linktype="relative-path"></a>
+            <a href="/azure/architecture/solution-ideas/articles/cognitive-search-with-skillsets"><img src="/azure/architecture/browse/thumbs/cognitive-search-ai-enrichment.png" class="diagram" alt="Thumbnail of AI enrichment with Azure Cognitive Search Architectural Diagram." data-linktype="relative-path"></a>
         </figure>
     </div>
     <div class="card-content">

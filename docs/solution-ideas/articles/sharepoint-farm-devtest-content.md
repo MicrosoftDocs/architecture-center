@@ -1,16 +1,17 @@
-
-
-
 [!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
-This solution provides a small scale deployment of SharePoint using a single Azure Active Directory (Azure AD), SQL, and SharePoint resources. It address the capability to deliver agile development architecture to teams within your business using the latest and greatest support platforms.
+This solution provides a small scale deployment of SharePoint, by using a single Azure Active Directory (Azure AD), SQL, and SharePoint resources.
+
+## Potential use cases
+
+This solution address the capability to deliver agile development architecture to teams within your business, by using the latest and greatest support platforms.
 
 ## Architecture
 
 ![Architecture diagram](../media/sharepoint-farm-devtest.png)
 *Download an [SVG](../media/sharepoint-farm-devtest.svg) of this architecture.*
 
-## Data Flow
+### Data flow
 
 1. Create resource group for the storage, network, and virtual machine, plus other dependent elements.
 1. Create Virtual Network to host the Virtual Machines and Load Balancers for the deployment. Ensure the network has appropriate Network Security Groups implement to protect network traffic flow.
@@ -24,7 +25,7 @@ This solution provides a small scale deployment of SharePoint using a single Azu
 1. On Premises users can access the SharePoint sites via the internet or ExpressRoute or VPN Gateway.
 1. External users can be granted access as required to the SharePoint sites for testing.
 
-## Components
+### Components
 
 * [Azure Resource Group](https://azure.microsoft.com/features/resource-manager): Container that holds related resources for an Azure solution
 * [Virtual Network](https://azure.microsoft.com/services/virtual-network): Provision private networks, optionally connect to on-premises datacenters

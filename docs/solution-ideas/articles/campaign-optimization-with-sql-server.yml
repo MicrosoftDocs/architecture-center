@@ -1,9 +1,9 @@
 ### YamlMime:Architecture
 metadata:
-  title: Campaign Optimization with SQL Server
+  title: Campaign optimization with SQL Server
   titleSuffix: Azure Solution Ideas
-  description: This solution demonstrates how to build and deploy a machine learning model with SQL Server 2016 with R Services to recommend actions to maximize the purchase rate of leads targeted by a campaign.
-  author: doodlemania2
+  description: Optimize when and how to contact potential customers to improve marketing campaign success rates with machine learning and SQL Server 2016 with R Services.
+  author: EdPrice-MSFT
   ms.author: pnp
   ms.date: 12/16/2019
   ms.topic: conceptual
@@ -21,15 +21,17 @@ metadata:
     - ai gallery
     - "https://azure.microsoft.com/solutions/architecture/campaign-optimization-with-sql-server/"
     - ai-machine-learning
+    - aml-project-improvement
   social_image_url: /azure/architecture/solution-ideas/articles/media/campaign-optimization-with-sql-server.png
-name: Campaign Optimization with SQL Server
+name: Campaign optimization with SQL Server and machine learning
 azureCategories:
   - databases
   - ai-machine-learning
-summary: This solution demonstrates how to build and deploy a machine learning model with SQL Server 2016 with R Services to recommend actions to maximize the purchase rate of leads targeted by a campaign.
+summary: Optimize when and how to contact potential customers to improve marketing campaign success rates with machine learning and SQL Server 2016 with R Services.
 products:
   - azure-data-science-vm
   - azure-virtual-machines
+  - power-bi
 thumbnailUrl: /azure/architecture/browse/thumbs/campaign-optimization-with-sql-server.png
 content: |
   [!include[](campaign-optimization-with-sql-server-content.md)]

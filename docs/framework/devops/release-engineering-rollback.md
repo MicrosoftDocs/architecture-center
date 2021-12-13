@@ -1,7 +1,7 @@
 ---
 title: Release Engineering Rollback
-description: Release Engineering Rollback
-author: neilpeterson
+description: Review deployment rollback options in Azure release engineering, such as with Azure App Service, Azure Kubernetes Service (AKS), or Azure Resource Manager.
+author: david-stanford
 ms.date: 09/28/2020
 ms.topic: conceptual
 ms.service: architecture-center
@@ -17,7 +17,7 @@ In some cases, a new software deployment can harm or degrade the functionality o
 
 ## Azure App Service
 
-When deploying an application to Azure App Service, consider utilizing deployment slots. Deployment slots are running instances of the application, each with a separate host name. Slots can be used to stage and test applications before promoting to a production slot. A deployment slot can be created to hold the last known good instance of your application. In the event of an issue or problematic deployment, the production slot can be swapped with the known good slot to bring the application back to a known good state. 
+When deploying an application to Azure App Service, consider utilizing deployment slots. Deployment slots are running instances of the application, each with a separate host name. Slots can be used to stage and test applications before promoting to a production slot. A deployment slot can be created to hold the last known good instance of your application. In the event of an issue or problematic deployment, the production slot can be swapped with the known good slot to bring the application back to a known good state.
 
 ![Image of Azure DevOps pipeline tests in the Azure DevOps portal.](../_images/devops/app-service-slots.png)
 

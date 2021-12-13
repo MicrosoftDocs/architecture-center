@@ -1,0 +1,24 @@
+### YamlMime:Architecture
+metadata:
+  title: Azure VMware Solution networking
+  titleSuffix: Azure Solution Ideas
+  description: Get started with Azure VMware Solution foundation block networking. Understand what networking solution options exists and how to choose between them.
+  author: Mahesh-MSFT
+  ms.author: maksh
+  ms.date: 11/01/2021
+  ms.topic: conceptual
+  ms.service: architecture-center
+  ms.subservice: solution-idea
+azureCategories:
+  - hybrid
+  - networking
+products:
+  - azure-vmware-solution
+  - azure-expressroute
+  - azure-traffic-manager
+  - azure-application-gateway
+name: Networking considerations for Azure VMware Solution
+summary: Get started with Azure VMware Solution Foundation Block - Networking. Understand what solution options exists and how to choose between them.
+thumbnailUrl: /azure/architecture/browse/thumbs/azure-vmware-solution-networking.png
+content: |
+  [!include[](azure-vmware-solution-foundation-networking-content.md)]

@@ -1,9 +1,9 @@
 ### YamlMime:Architecture
 metadata:
-  title: Contract Management
+  title: Knowledge mining in contract management
   titleSuffix: Azure Solution Ideas
-  description: Knowledge mining can help organizations to scour thousands of pages of sources to create an accurate bid.
-  author: doodlemania2
+  description: Learn how to use knowledge mining in contract management to help your organization scour thousands of pages to create an accurate bid.
+  author: EdPrice-MSFT
   ms.author: pracjain
   ms.date: 12/16/2019
   ms.topic: conceptual
@@ -14,13 +14,16 @@ metadata:
   ms.custom:
     - acom-architecture
     - ai-machine-learning
-  social_image_url: /azure/architecture/solution-ideas/articles/media/contract-management.png
-name: Contract Management
+    - aml-project-improvement
+  social_image_url: /azure/architecture/solution-ideas/articles/media/knowledge-mining-contract-management.png
+name: Knowledge mining in contract management
 azureCategories:
   - ai-machine-learning
-summary: Knowledge mining can help organizations to scour thousands of pages of sources to create an accurate bid.
+summary: Learn how to use knowledge mining in contract management to help your organization scour thousands of pages to create an accurate bid.
 products:
   - azure-cognitive-search
-thumbnailUrl: /azure/architecture/browse/thumbs/contract-management.png
+  - azure-form-recognizer
+  - azure-text-analytics
+thumbnailUrl: /azure/architecture/browse/thumbs/knowledge-mining-contract-management.png
 content: |
   [!include[](contract-management-content.md)]

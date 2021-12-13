@@ -1,18 +1,15 @@
-
-
-
 [!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
 With the Azure AI tools, edge, and cloud platform, edge intelligence is possible. AI-enabled hybrid applications can run where your data lives, on-premises. With [Azure Stack Hub](/azure-stack/operator/azure-stack-overview), bring a trained AI model to the edge and integrate it with your applications for low-latency intelligence, with no tool or process changes for local applications. With Azure Stack Hub, you can ensure that your cloud solutions work even when disconnected from the internet.
 
 This solution idea shows a disconnected Stack Hub scenario. Issues of latency, intermittent connectivity, or regulations may not always allow for connectivity to Azure. In the disconnected scenario, data is processed locally and later aggregated in Azure for further analytics. For the connected version of this scenario, see the article [AI at the edge](./ai-at-the-edge.yml).
 
-## Architecture of AI at the edge with hybrid connectivity
+## Architecture
 
 ![Architecture diagram: AI-enabled application running at the edge with Azure Stack Hub and hybrid connectivity).](../media/ai-at-the-edge-disconnected.png)
 *Download an [SVG](../media/ai-at-the-edge-disconnected.svg) of this architecture.*
 
-## Data flow
+### Data flow
 
 1. Data scientists train a model using Azure Machine Learning and an HDInsight cluster. The model is containerized and put into an Azure Container Registry.
 1. The model is deployed to a Kubernetes cluster on Azure Stack Hub.
@@ -21,12 +18,12 @@ This solution idea shows a disconnected Stack Hub scenario. Issues of latency, i
 1. Globally relevant and compliant insights are available in the global app.
 1. Data scientists use scoring from the edge to improve the model.
 
-## Components
+### Components
 
 Key technologies used to implement this architecture:
 
 * [Azure Machine Learning](https://azure.microsoft.com/services/machine-learning): Build, deploy, and manage predictive analytics solutions
-* [HDInsight](https://azure.microsoft.com/services/hdinsight): Provision cloud Hadoop, Spark, R Server, HBase, and Storm clusters
+* [HDInsight](https://azure.microsoft.com/services/hdinsight): Provision cloud Hadoop, Spark, HBase, and Storm clusters
 * [Container Registry](https://azure.microsoft.com/services/container-registry): Store and manage container images across all types of Azure deployments
 * [Azure Kubernetes Service (AKS)](https://azure.microsoft.com/services/kubernetes-service): Simplify the deployment, management, and operations of Kubernetes
 * [Virtual Machines](https://azure.microsoft.com/services/virtual-machines): Provision Windows and Linux virtual machines in seconds

@@ -3,7 +3,7 @@ metadata:
   title: Move Azure resources across regions
   titleSuffix: Azure Solution Ideas
   description: Move Azure resources across regions efficiently, securely, and seamlessly. See key steps, considerations, and strategies for planning and carrying out a move.
-  author: doodlemania2
+  author: EdPrice-MSFT
   ms.author: pnp
   ms.date: 09/15/2020
   ms.topic: conceptual

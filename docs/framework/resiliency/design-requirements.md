@@ -1,6 +1,6 @@
 ---
 title: Target and non-functional requirements
-description: Describes reliability targets for availability, recovery, and non-functional requirements.
+description: Meet reliability targets for availability, recovery, and non-functional requirements, which involve application and data platforms, networking, and connectivity.
 author: v-aangie
 ms.date: 02/17/2021
 ms.topic: conceptual
@@ -31,7 +31,7 @@ Understanding your availability expectations is vital to reviewing overall opera
 Monitoring and measuring application availability is vital to qualifying overall application health and progress towards defined targets. Make sure you measure and monitor key targets such as:
 
 - Mean Time Between Failures (MTBF) &mdash; The average time between failures of a particular component.
-- Mean Time Between Failures (MTBF) &mdash; The average time between failures of a particular component.
+- Mean Time To Recover (MTTR) &mdash; The average time it takes to restore a component after a failure.
 
 ### Considerations for availability targets
 
@@ -62,8 +62,7 @@ Are there any penalties, such as financial charges, associated with failing to m
 
 Recovery targets identify how long the workload can be unavailable and how much data is acceptable to lose during a disaster. Define target reports for the application and key scenarios. Target reports needed are Recovery Time Objective (RTO) &mdash; the maximum acceptable time an application is unavailable after an incident, and Recovery Point Objective (RPO) &mdash; the maximum duration of data loss that is acceptable during a disaster.
 
-Recovery targets are nonfunctional requirements of a system and should be dictated by business requirements.
- Recovery targets should be defined in accordance to the required RTO and RPO targets for the workloads.
+Recovery targets are nonfunctional requirements of a system and should be dictated by business requirements. Recovery targets should be defined in accordance to the required RTO and RPO targets for the workloads.
 
 ## Meet application platform requirements
 
@@ -90,7 +89,7 @@ An Availability Set (AS) is a logical construct to inform Azure that it should d
 **Is the application hosted across 2 or more application platform nodes?**
 ***
 
-To ensure application platform reliability, it is vital that the application be hosted across at least two nodes to ensure there are no single points of failure. Ideally An n+1 model should be applied for compute availability where n is the number of instances required to support application availability and performance requirements. 
+To ensure application platform reliability, it is vital that the application be hosted across at least two nodes to ensure there are no single points of failure. Ideally An n+1 model should be applied for compute availability where n is the number of instances required to support application availability and performance requirements.
 
 > [!NOTE]
 > Higher SLAs provided for virtual machines and associated related platform services, require at least two replica nodes deployed to either an Availability Set or across two or more Availability Zones. To learn more, see [SLA for Virtual Machines](https://azure.microsoft.com/support/legal/sla/virtual-machines/v1_9/).
@@ -110,9 +109,9 @@ Data types should be categorized by data consistency requirements. Data consiste
 
 CAP theorem proves that it is impossible for a distributed data store to simultaneously provide more than two guarantees across:
 
-- **Consistency -** Every read receives the most recent write or an error.
-- **Availability -** Very request receives a non-error response, without the guarantee that it contains the most recent write.
-- **Partition tolerance -** A system continues to operate despite an arbitrary number of transactions being dropped or delayed by the network between nodes.
+- **Consistency:** Every read receives the most recent write or an error.
+- **Availability:** Every request receives a non-error response, without the guarantee that it contains the most recent write.
+- **Partition tolerance:** A system continues to operate despite an arbitrary number of transactions being dropped or delayed by the network between nodes.
 
 Determining which of these guarantees are most important in the context of application requirements is critical.
 
@@ -155,14 +154,14 @@ Consider these guidelines to ensure connection availability and improve reliabil
 
 ## Next step
 
->[!div class="nextstepaction"]
->[Application design](./app-design.md)
+> [!div class="nextstepaction"]
+> [Application design](./app-design.md)
 
 ## Related links
 
 - To understand business metrics to design resilient Azure applications, see [Workload availability targets](./business-metrics.md).
 - For information on Availability Zones, see [Building solutions for high availability using Availability Zones](../../high-availability/building-solutions-for-high-availability.md).
 - For information on health probes, see [Load Balancer health probes](/azure/load-balancer/load-balancer-custom-probe-overview) and [Health Endpoint Monitoring Pattern](../../patterns/health-endpoint-monitoring.md).
-- To learn about connectivity risk, see [Deploy highly available network virtual appliances](../../reference-architectures/dmz/nva-ha.yml). 
+- To learn about connectivity risk, see [Deploy highly available network virtual appliances](../../reference-architectures/dmz/nva-ha.yml).
 
 > Go back to the main article: [Design](design-checklist.md)

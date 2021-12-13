@@ -1,6 +1,3 @@
-
-
-
 This reference architecture implements a secure hybrid network that extends your on-premises network to Azure and uses [Active Directory Federation Services (AD FS)][active-directory-federation-services] to perform federated authentication and authorization for components running in Azure.
 
 ![Secure hybrid network architecture with Active Directory](./images/adfs.png)
@@ -195,10 +192,10 @@ For information about the editions offered by Azure Active Directory, see [Azure
 
 ## Next Steps
 
-* [Azure Activity Directory Documentation](https://docs.microsoft.com/azure/active-directory)
-* [Manage Identity in multitenant applications](/azure/architecture/multitenant-identity)
-* [Identity Management Security](https://docs.microsoft.com/azure/security/fundamentals/identity-management-overview)
-* [Azure Firewall](https://docs.microsoft.com/azure/firewall/overview)
+* [Azure Activity Directory Documentation](/azure/active-directory)
+* [Manage Identity in multitenant applications](../../multitenant-identity/index.md)
+* [Identity Management Security](/azure/security/fundamentals/identity-management-overview)
+* [Azure Firewall](/azure/firewall/overview)
 
 <!-- links -->
 

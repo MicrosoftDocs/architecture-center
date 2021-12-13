@@ -1,7 +1,7 @@
 ---
 title: Automated Tasks
-description: Automated Tasks
-author: neilpeterson
+description: Automate operational tasks, which can include any action or activity you may perform while managing systems, system access, and processes in Azure.
+author: david-stanford
 ms.date: 10/15/2020
 ms.topic: conceptual
 ms.service: architecture-center
@@ -25,7 +25,7 @@ Many of these operational tasks can and should be automated. Using scripting tec
 
 When working in Azure, you have many options for automating operational tasks. This document details some of the more popular.
 
-## Azure Functions 
+## Azure Functions
 
 Azure Functions allows you to run code without managing the underlying infrastructure on where the code is run. Functions provide a cost-effective, scalable, and event-driven platform for building applications and running operational tasks. Functions support running code written in C#, Java, JavaScript, Python, and PowerShell.
 
@@ -33,18 +33,18 @@ When creating a Function, a hosting plan is selected. Hosting plans controls how
 
 Functions hosting plans:
 
-- **Consumption** - Default hosting plan, pay only for Function execution time, configurable timeout period, automatic scale.
-- **Premium** - Faster start, VNet connectivity, unlimited execution duration, premium instance sizes, more predictable pricing.
-- **App Service Plan** - Functions run on dedicated virtual machines and can use custom images.
+- **Consumption:** Default hosting plan, pay only for Function execution time, configurable timeout period, automatic scale.
+- **Premium:** Faster start, VNet connectivity, unlimited execution duration, premium instance sizes, more predictable pricing.
+- **App Service Plan:** Functions run on dedicated virtual machines and can use custom images.
 
 For full details on consumption plans, see [Azure Functions scale and hosting](/azure/azure-functions/functions-scale).
 
 Functions provide event-driven automation; each function has a trigger associated with it. These triggers are what run the functions. Common triggers include:
 
-- **HTTP / Webhook** - Function is run when an HTTP request is received.
-- **Queue** - Function is run when a new message arrives in a message queue.
-- **Blob storage** - Function is run when a new blob is created in a storage container.
-- **Timer** - Function is run on a schedule.
+- **HTTP / Webhook:** Function is run when an HTTP request is received.
+- **Queue:** Function is run when a new message arrives in a message queue.
+- **Blob storage:** Function is run when a new blob is created in a storage container.
+- **Timer:** Function is run on a schedule.
 
 Below are example triggers seen in the Azure portal when creating a new function
 
@@ -58,7 +58,6 @@ Both PowerShell and Python are common languages for automating everyday operatio
 
 - [Documentation: Azure Functions PowerShell developer guide](/azure/azure-functions/functions-reference-powershell)
 - [Documentation: Azure Functions Python developer guide](/azure/azure-functions/functions-reference-python)
-
 
 ## Azure Automation
 
@@ -85,10 +84,10 @@ So far, this document has detailed options for scripting operational tasks; howe
 
 In cloud computing, scale activities are classified into two buckets:
 
-- **Scale-up** - Adding additional resources to an existing system to meet demand.
-- **Scale-out** - Adding additional infrastructure to meet demand.
+- **Scale-up:** Adding additional resources to an existing system to meet demand.
+- **Scale-out:** Adding additional infrastructure to meet demand.
 
-Many Azure services can be scaled up by changing the pricing tier of that service. Generally, this operation would need to be performed manually or using detection logic and custom automation. 
+Many Azure services can be scaled up by changing the pricing tier of that service. Generally, this operation would need to be performed manually or using detection logic and custom automation.
 
 Some Azure services support automatic scale-out, which is the focus of this section.
 
@@ -110,8 +109,8 @@ When creating the autoscale rules, configure minimum and maximum instance counts
 
 Azure Kubernetes Service (AKS) offers an Azure managed Kubernetes cluster. When considering scale operations in Kubernetes, there are two components:
 
-- **Pod scaling** - Increase or decrease the number of load balanced pods to meet application demand.
-- **Node scaling** - Increase or decrease the number of cluster nodes to meet cluster demand.
+- **Pod scaling:** Increase or decrease the number of load balanced pods to meet application demand.
+- **Node scaling:** Increase or decrease the number of cluster nodes to meet cluster demand.
 
 Azure Kubernetes Service includes automation to facilitate both of these scale operation types.
 

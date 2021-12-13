@@ -37,10 +37,10 @@ For more information, see [Toil automation](https://www.coursera.org/lecture/dev
 
 ## Automation best practices
 
-- **Ensure consistency** – The more manual processes are involved, the more prone to human error. This can lead to mistakes, oversights, reduction of data quality, and reliability problems.
-- **Centralize mistakes** – Choose a platform to allow you to fix bugs in one place in order to fix them everywhere. This eliminates the need for communicating with other humans which increases chance of error and the possibility of the bug being re-introduced.
-- **Identify issues quickly** – Complex issue may not always be able to be identified in a timely manner. However, with good automation, detection of these issues should occur quickly.
-- **Maximize employee productivity** – Automation leads to more innovative solutions, additional automation, and in general provide more value to the business. This in turn raises morale and job satisfaction. Automation does not replace jobs with technology. For example, once a process is automated, training and maintenance can be greatly reduced or eliminated. This frees engineers to spend less time on manual processes and more time on automating business solutions.
+- **Ensure consistency:** The more manual processes are involved, the more prone to human error. This can lead to mistakes, oversights, reduction of data quality, and reliability problems.
+- **Centralize mistakes:** Choose a platform to allow you to fix bugs in one place in order to fix them everywhere. This eliminates the need for communicating with other humans which increases chance of error and the possibility of the bug being re-introduced.
+- **Identify issues quickly:** Complex issue may not always be able to be identified in a timely manner. However, with good automation, detection of these issues should occur quickly.
+- **Maximize employee productivity:** Automation leads to more innovative solutions, additional automation, and in general provide more value to the business. This in turn raises morale and job satisfaction. Automation does not replace jobs with technology. For example, once a process is automated, training and maintenance can be greatly reduced or eliminated. This frees engineers to spend less time on manual processes and more time on automating business solutions.
 
 ## Types of automation
 
@@ -56,7 +56,7 @@ Although there are many deployment technologies you can use with Azure, this art
 - [Terraform](./automation-infrastructure.md#automate-deployments-with-terraform)
 
 These technologies use a *declarative* approach. This lets you state what you intend to deploy without having to write the sequence of programming commands to create it. You can deploy not only virtual machines, but also the network infrastructure, storage systems, and any other resources you may need.
- 
+
 ### Infrastructure configuration
 
 If you don't manage configuration carefully, your business could encounter disruptions such as systems outages and security issues. Optimal configuration can enable you to quickly detect and correct configurations that could interrupt or slow performance.
@@ -67,7 +67,7 @@ For example, when deploying to Azure, you may need to run post-deployment virtua
 
 ### Operational tasks
 
-As the demand for speed in performing operational tasks increases over time, you are expected to deliver things faster and faster. The old way of manually performing operational tasks won't scale to that type of demand now. This is where automation can help. To meet on-demand delivery using an automation platform, you need to develop automation components (such runbooks and configurations), create integrations to systems that are already in place efficiently, and operate and troubleshoot.
+As the demand for speed in performing operational tasks increases over time, you are expected to deliver things faster and faster. The old way of manually performing operational tasks won't scale to that type of demand now. This is where automation can help. To meet on-demand delivery using an automation platform, you need to develop automation components (such as runbooks and configurations), create integrations to systems that are already in place efficiently, and operate and troubleshoot.
 
 Advantages of automating operational tasks include:
 

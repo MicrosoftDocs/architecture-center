@@ -1,7 +1,4 @@
-
-<!-- cSpell:ignore UDRs sysvol AZBB jumpbox -->
-
-
+<!-- cSpell:ignore UDRs sysvol jumpbox -->
 
 This architecture shows how to extend an on-premises Active Directory domain to Azure to provide distributed authentication services.
 
@@ -82,9 +79,9 @@ It is not recommended to shut down a domain controller VM using the Azure portal
 
 The first issue is relatively benign. Repeated resetting of the `invocationID` will cause minor additional bandwidth usage during replication, but this is usually not significant.
 
-The second issue can contribute to RID pool exhaustion in the domain, especially if the RID pool size has been configured to be larger than the default. Consider that if the domain has been around for a very long time, or is used for workflows requiring repetitive creation and deletion of accounts, the domain may already be nearing RID pool exhaustion. It is a good practice to monitor the domain for RID pool exhaustion warning events – see the [Managing RID Issuance](https://docs.microsoft.com/windows-server/identity/ad-ds/manage/managing-rid-issuance) article.
+The second issue can contribute to RID pool exhaustion in the domain, especially if the RID pool size has been configured to be larger than the default. Consider that if the domain has been around for a very long time, or is used for workflows requiring repetitive creation and deletion of accounts, the domain may already be nearing RID pool exhaustion. It is a good practice to monitor the domain for RID pool exhaustion warning events – see the [Managing RID Issuance](/windows-server/identity/ad-ds/manage/managing-rid-issuance) article.
 
-The third issue is relatively benign as long as an authoritative domain controller is available when a domain controller VM in Azure is restarted. If all domain controllers in a domain are running in Azure, and they are all simultaneously shutdown and deallocated, on restart each DC will fail to find an authoritative replica. Fixing this condition requires manual intervention – see the [How to force authoritative and non-authoritative synchronization for DFSR-replicated sysvol replication](https://docs.microsoft.com/troubleshoot/windows-server/group-policy/force-authoritative-non-authoritative-synchronization) article.
+The third issue is relatively benign as long as an authoritative domain controller is available when a domain controller VM in Azure is restarted. If all domain controllers in a domain are running in Azure, and they are all simultaneously shutdown and deallocated, on restart each DC will fail to find an authoritative replica. Fixing this condition requires manual intervention – see the [How to force authoritative and non-authoritative synchronization for DFSR-replicated sysvol replication](/troubleshoot/windows-server/group-policy/force-authoritative-non-authoritative-synchronization) article.
 
 ## Security considerations
 
@@ -122,7 +119,7 @@ Consider having Active Directory Domain Services as a shared service that is con
 
 The main component of this architecture is the VPN gateway service. You are charged based on the amount of time that the gateway is provisioned and available.
 
-All inbound traffic is free, all outbound traffic is charged. Internet bandwidth costs are applied to VPN outbound traffic.  
+All inbound traffic is free, all outbound traffic is charged. Internet bandwidth costs are applied to VPN outbound traffic.
 
 For more information, see [VPN Gateway Pricing][azure-gateway-charges].
 

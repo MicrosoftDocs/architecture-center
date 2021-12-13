@@ -1,6 +1,4 @@
-
 On Azure, you can implement batch transaction processing—such as posting payments to accounts—by using an architecture based on Microsoft Azure Kubernetes Service (AKS) and Azure Service Bus. This type of architecture provides the transaction processing speed, scaling, and reliability required for high-volume batch processing.
-
 
 The architecture uses AKS to implement compute clusters of the applications that process the transactions. The applications receive the transactions in messages from Service Bus topics or queues. The topics and queues can be at Azure datacenters in different geographic regions, and multiple AKS clusters can read input from them.
 
@@ -17,10 +15,11 @@ This architecture is for high-volume processing of batches of transactions, espe
 > [!Note]
 > This architecture suits a type of batch transaction processing that, on IBM mainframes, is often implemented by using the IBM MQ family of message-oriented middleware.
 
-
 ## Architecture
 
 :::image type="content" source="media/process-batch-transactions.png" alt-text="Diagram of an architecture implemented by using AKS and Service Bus":::
+
+*Download a [Visio file](https://arch-center.azureedge.net/US-1813862-PR-2603-process-batch-transactions.vsdx) of this architecture.*
 
 ### Architectural annotations
 
@@ -44,8 +43,8 @@ The architecture uses these components:
 - [Azure ExpressRoute](https://azure.microsoft.com/services/expressroute/) provides private connections between Azure datacenters and on-premises infrastructure.
 - [Azure Bastion](https://azure.microsoft.com/services/azure-bastion/) provides private and fully managed RDP and SSH access to VMs.
 - [Azure Virtual Machines](https://azure.microsoft.com/services/virtual-machines/) provides the flexibility of virtualization without having to provide and maintain the hardware that hosts it. The operating system choices include Windows and Linux.
-- A VM created with accelerated networking uses single root I/O virtualization (SR-IOV), greatly improving its networking performance. For more information, see [Create a Windows VM with accelerated networking using Azure PowerShell](https://docs.microsoft.com/azure/virtual-network/create-vm-accelerated-networking-powershell) and [Overview of Single Root I/O Virtualization (SR-IOV)](https://docs.microsoft.com/windows-hardware/drivers/network/overview-of-single-root-i-o-virtualization--sr-iov-).
-- An Azure network interface connects a VM to the internet, and to Azure and on-premises resources. As shown in this architecture, you can give each child VM its own network interface and IP address. For more information on network interfaces, see [Create, change, or delete a network interface](https://docs.microsoft.com/azure/virtual-network/virtual-network-network-interface).
+- A VM created with accelerated networking uses single root I/O virtualization (SR-IOV), greatly improving its networking performance. For more information, see [Create a Windows VM with accelerated networking using Azure PowerShell](/azure/virtual-network/create-vm-accelerated-networking-powershell) and [Overview of Single Root I/O Virtualization (SR-IOV)](/windows-hardware/drivers/network/overview-of-single-root-i-o-virtualization--sr-iov-).
+- An Azure network interface connects a VM to the internet, and to Azure and on-premises resources. As shown in this architecture, you can give each child VM its own network interface and IP address. For more information on network interfaces, see [Create, change, or delete a network interface](/azure/virtual-network/virtual-network-network-interface).
 - [Azure Managed Disks](https://azure.microsoft.com/pricing/details/managed-disks/) are high-performance, highly durable block storage for VMs. There are four disk storage options for the cloud: Ultra Disk Storage, Premium SSD, Standard SSD, and Standard HDD.
 - [Azure Kubernetes Service (AKS)](https://azure.microsoft.com/services/kubernetes-service/) is a fully managed Kubernetes service for deploying and managing containerized applications.
 - [Service Bus](https://azure.microsoft.com/services/service-bus/) provides reliable cloud messaging as a service (MaaS) and simple hybrid integration.
@@ -57,9 +56,9 @@ The architecture uses these components:
 - [Azure SQL](https://azure.microsoft.com/services/azure-sql/) is a family of SQL cloud databases that provides a unified experience for your entire SQL portfolio, and a wide range of deployment options from edge to cloud.
 - [Azure SQL Managed Instance](https://azure.microsoft.com/services/azure-sql/sql-managed-instance/), part of the Azure SQL service portfolio, is a  managed, secure, and always up-to-date SQL instance in the cloud.
 - [Data Factory](https://azure.microsoft.com/services/data-factory/) is a fully managed and serverless data integration solution for preparing, and transforming all your data at scale.
-- Data Factory supports the Parquet file data format. For more information, see [Parquet format in Azure Data Factory](https://docs.microsoft.com/azure/data-factory/format-parquet).
-- Log Analytics is a tool in the Azure portal used to edit and run log queries on [Azure Monitor](https://azure.microsoft.com/services/monitor/) logs. For more information, see [Overview of Log Analytics in Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/logs/log-analytics-overview).
-- The geo-redundant storage (GRS) option of [Azure Storage](https://azure.microsoft.com/services/storage/) copies your data synchronously three times within a single physical location in the primary region, then copies it asynchronously to a single physical location in the secondary region. For more information, see [Azure Storage redundancy](https://docs.microsoft.com/azure/storage/common/storage-redundancy).
+- Data Factory supports the Parquet file data format. For more information, see [Parquet format in Azure Data Factory](/azure/data-factory/format-parquet).
+- Log Analytics is a tool in the Azure portal used to edit and run log queries on [Azure Monitor](https://azure.microsoft.com/services/monitor/) logs. For more information, see [Overview of Log Analytics in Azure Monitor](/azure/azure-monitor/logs/log-analytics-overview).
+- The geo-redundant storage (GRS) option of [Azure Storage](https://azure.microsoft.com/services/storage/) copies your data synchronously three times within a single physical location in the primary region, then copies it asynchronously to a single physical location in the secondary region. For more information, see [Azure Storage redundancy](/azure/storage/common/storage-redundancy).
 - [Azure Blob Storage](https://azure.microsoft.com/services/storage/blobs/) is massively scalable and secure REST-based object storage for cloud-native workloads, archives, data lakes, high-performance computing, and machine learning.
 - [Azure Files](https://azure.microsoft.com/services/storage/files/) provides simple, secure, and serverless enterprise-grade file shares in the cloud. You use the industry-standard Server Message Block (SMB) and Network File System (NFS) protocols to access the shares.
 
@@ -99,7 +98,7 @@ The autoscale features of AKS clusters—and other Azure Platform as a Service (
 Here are pricing considerations for specific components:
 
 - Most enterprises already have a Microsoft Active Directory implementation. If not, [Azure Active Directory Premium](https://azure.microsoft.com/services/active-directory/) is low cost.
-- [Windows VM pricing](https://azure.microsoft.com/pricing/details/virtual-machines/windows/) and [Linux VM pricing](https://azure.microsoft.com/pricing/details/virtual-machines/linux/) depend on your compute capacity. 
+- [Windows VM pricing](https://azure.microsoft.com/pricing/details/virtual-machines/windows/) and [Linux VM pricing](https://azure.microsoft.com/pricing/details/virtual-machines/linux/) depend on your compute capacity.
 - For Premium SSD or Ultra managed storage disks pricing, see [Managed Disks pricing](https://azure.microsoft.com/pricing/details/managed-disks/).
 - There are no upfront costs for [Azure SQL Database](https://azure.microsoft.com/pricing/details/sql-database/single/); you pay for resources as used.
 - For [ExpressRoute](https://azure.microsoft.com/pricing/details/expressroute/), you pay a monthly port fee and outbound data transfer charges.
@@ -115,18 +114,17 @@ Here are pricing considerations for specific components:
 
 ## Next steps
 
-- To learn more about AKS, read: [Azure Kubernetes Service solution journey](https://docs.microsoft.com/azure/architecture/reference-architectures/containers/aks-start-here).
+- To learn more about AKS, read: [Azure Kubernetes Service solution journey](../../reference-architectures/containers/aks-start-here.md).
 - To learn more about Service Bus, read: [Service Bus queues, topics, and subscriptions]( https://docs.microsoft.com/azure/service-bus-messaging/service-bus-queues-topics-subscriptions).
 
 ## Related resources
 
 - Techniques used in this architecture:
-  - [Azure Service Bus Geo-disaster recovery](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-geo-dr).
-  - [Use geo-redundancy to design highly available applications](https://docs.microsoft.com/azure/storage/common/geo-redundant-design?tabs=current).
-  - [What are ARM templates?](https://docs.microsoft.com/azure/azure-resource-manager/templates/overview)
+  - [Azure Service Bus Geo-disaster recovery](/azure/service-bus-messaging/service-bus-geo-dr).
+  - [Use geo-redundancy to design highly available applications](/azure/storage/common/geo-redundant-design?tabs=current).
+  - [What are ARM templates?](/azure/azure-resource-manager/templates/overview)
 - Azure reference architectures:
-  - [Migrate IBM mainframe applications to Azure with TmaxSoft OpenFrame](https://docs.microsoft.com/azure/architecture/solution-ideas/articles/migrate-mainframe-apps-with-tmaxsoft-openframe).
-  - [Refactor IBM z/OS mainframe Coupling Facility (CF) to Azure](https://docs.microsoft.com/azure/architecture/reference-architectures/zos/refactor-zos-coupling-facility).
-  - [Micro Focus Enterprise Server on Azure VMs](https://docs.microsoft.com/azure/architecture/example-scenario/mainframe/micro-focus-server).
-  - [Unisys mainframe migration](https://docs.microsoft.com/azure/architecture/reference-architectures/migration/unisys-mainframe-migration).
-                                          
+  - [Migrate IBM mainframe applications to Azure with TmaxSoft OpenFrame](../../solution-ideas/articles/migrate-mainframe-apps-with-tmaxsoft-openframe.yml).
+  - [Refactor IBM z/OS mainframe Coupling Facility (CF) to Azure](../../reference-architectures/zos/refactor-zos-coupling-facility.yml).
+  - [Micro Focus Enterprise Server on Azure VMs](./micro-focus-server.yml).
+  - [Unisys mainframe migration](../../reference-architectures/migration/unisys-mainframe-migration.yml).
