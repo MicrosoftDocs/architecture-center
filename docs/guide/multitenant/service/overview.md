@@ -34,7 +34,13 @@ The content in this section is designed for architects, lead developers, and any
 
 ## What's covered in this section?
 
-The pages in this section describe some Azure services commonly used in multitenant solutions, including [Azure Resource Manager](resource-manager.md), [App Service, and Azure Functions](app-service.md), and [Azure SQL Database](sql-database.md). We add new pages with guidance for additional services on a regular basis. You are also welcome to [submit suggestions for additional service-specific guidance](https://aka.ms/multitenancy/feedback).
+The pages in this section describe some Azure services commonly used in multitenant solutions. Azure services that are covered so far include:
+
+- Deployment and configuration: [Azure Resource Manager](resource-manager.md)
+- Compute: [App Service and Azure Functions](app-service.md)
+- Storage and data: [Azure Storage](storage.md), [Azure SQL Database](sql-database.md), and [Azure Cosmos DB](cosmos-db.md)
+
+We add new pages with guidance for additional services on a regular basis. You are also welcome to [submit suggestions for additional service-specific guidance](https://aka.ms/multitenancy/feedback).
 
 ## Next steps
 
