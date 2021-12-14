@@ -1,4 +1,16 @@
-# DataOps Checklist
+---
+title: DataOps checklist
+titleSuffix: Azure Design Review Framework
+description: DataOps is a life-cycle approach to data analytics that uses agile practices to deliver high-quality data. Use this checklist as a starting point to assess your DataOps process. 
+author: Katie-Novotny
+ms.date: 12/10/2021
+ms.topic: conceptual
+ms.service: architecture-center
+ms.subservice: well-architected
+ms.custom:
+  - checklist
+---# DataOps Checklist
+
 DataOps is a life-cycle approach to data analytics that uses agile practices to orchestrate tools, code, and infrastructure in order to quickly and securely deliver high-quality data.  As DataOps processes are implemented and streamlined, businesses can more easily and cost effectively deliver analytical insights; this allows business to adopt advanced data techniques which can uncover insights and find new opportunities.  Use this checklist as a starting point to assess your DataOps process. 
 
 ## Data Governance and People
@@ -39,6 +51,6 @@ DataOps is a life-cycle approach to data analytics that uses agile practices to 
 
 ## Related resources
 
-  - [Organize Data Operations Team Members](https://docs.microsoft.com/en-us/azure/cloud-adoption-framework/scenarios/data-management/organize)
-  - [DataOps for the Modern Data Warehouse](https://docs.microsoft.com/en-us/azure/architecture/example-scenario/data-warehouse/dataops-mdw)
-  - [Team Data Science Process for DevOps](https://docs.microsoft.com/en-us/azure/architecture/data-science-process/team-data-science-process-for-devops)
+  - [Organize Data Operations Team Members](/azure/cloud-adoption-framework/scenarios/data-management/organize)
+  - [DataOps for the Modern Data Warehouse](/azure/architecture/example-scenario/data-warehouse/dataops-mdw)
+  - [Team Data Science Process for DevOps](/azure/architecture/data-science-process/team-data-science-process-for-devops)
