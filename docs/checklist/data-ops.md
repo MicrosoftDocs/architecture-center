@@ -23,7 +23,7 @@ DataOps is a life-cycle approach to data analytics that uses agile practices to 
 
 **Data Tools**: Data tools needed to make data easier to access, share, analyze, and secure have been identified or developed.
 
-**Security and Compliance**: All reosurces, data in transit, and data at rest have been audited and meet company security standards.
+**Security and Compliance**: All resources, data in transit, and data at rest have been audited and meet company security standards.
 
 ## Development
 **Pipeline Design Patterns**: Data pipelines have been designed for reuse and make use of parameterization.  Pipelines solve common ETL problems. 
