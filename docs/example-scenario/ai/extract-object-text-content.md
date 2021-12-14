@@ -1,4 +1,4 @@
-Schematic and industrial diagrams often have objects that contain text. AI Builder retrieves this information for you. A Power Automate workflow uses a trained model to extract text from an image. Azure Form Recognizer analyzes and extracts key-value pairs. By using this solution, your organization can index this information and easily retrieve the data.
+Schematic and industrial diagrams often have objects that contain text. AI Builder retrieves this information for you. A Power Automate workflow uses a trained model to extract text from an image. Azure Form Recognizer analyzes and extracts text from diagrams in the form of key-value pairs. By using this solution, your organization can index this information and easily retrieve the data.
 
 Once you've configured a workflow, you can search documents for meaningful text that's imbedded in shapes and objects. Manually scanning an entire document for relevant text can be laborious and time consuming.
 
@@ -14,6 +14,8 @@ Use cases include:
 ![Architecture diagram for using AI Builder to extract text from objects using AI.](./media/architecture-extract-object-text.png)
 
 *Download a [Visio file](https://arch-center.azureedge.net/architecture-extract-object-text.vsdx) of this architecture.*
+
+In this section, we explain the workflow and how each component plays a role:
 
 1. An object detection model is trained in AI Builder to recognize objects that a user specifies.
 1. A new document enters a SharePoint document library, OneDrive, or Teams.
@@ -73,7 +75,7 @@ For more information on deploying this scenario, see the [Power Automate Communi
 
 - For Power Automate, make sure the licenses that you've purchased and assigned are adequate for the volume of documents that you process. Include a HTTP premium connector to call the Forms Recognizer and the Azure function.
 - Purchase AI Builder credits based on the expected model utilization.
-- Azure Cognitive Services consumption for Form Recognizer module should be estimated and planned for. The [Azure calculator](https://azure.microsoft.com/pricing/calculator) can assist with estimating usage.
+- To estimate the cost of Azure products and configurations, visit the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator).
 
 ## Next steps
 
