@@ -38,7 +38,7 @@ The Azure Kubernetes Service (AKS) cluster uses a user-defined managed identity 
 
 The AKS cluster is composed of the following:
 
-- System node pool that hosts only critical system pods and services. The worker nodes have node taint that prevents application pods from beings scheduled on this node pool.
+- System node pool that hosts only critical system pods and services.
 - User node pool that hosts user workloads and artifacts.
 
 A virtual machine (VM) is deployed in the same virtual network that is hosting the AKS cluster. When you deploy Azure Kubernetes Service as a private cluster, this VM can be used by system administrators to manage the cluster via the [Kubernetes command-line tool](https://kubernetes.io/docs/tasks/tools/). The boot diagnostics logs of the virtual machine are stored in an Azure Storage account.
