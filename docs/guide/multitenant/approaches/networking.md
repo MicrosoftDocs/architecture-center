@@ -93,7 +93,7 @@ However, service provider-selected IP addresses aren't appropriate if tenants ne
 
 ### Tenant-specific VNets with tenant-selected IP addresses
 
-If tenants need to peer their own VNets with the VNet you manage on their behalf, consider deploying tenant-specific VNets with an IP address space that the tenant selects. This enables each tenant to ensure that the IP address ranges in the VNet you control do not overlap with their own VNets and are compatible for peering.
+If tenants need to peer their own VNets with the VNet you manage on their behalf, consider deploying tenant-specific VNets with an IP address space that the tenant selects. This system enables each tenant to ensure that the IP address ranges in the VNet you control do not overlap with their own VNets and are compatible for peering.
 
 However, this approach means it's unlikely that you can peer your tenants' VNets together or adopt a [hub and spoke topology](#hub-and-spoke-topology), because there are likely to be overlapping IP address ranges among VNets of different tenants.
 
@@ -112,7 +112,7 @@ The hub and spoke topology can be useful when you deploy tenant-specific VNets w
 
 Consider whether your tenants need your service to use static public IP addresses for inbound traffic, outbound traffic, or both. Different Azure services enable static IP addresses in different ways.
 
-When you work with virtual machines and other infrastructure components, consider using a load balancer or firewall for both inbound and outbound static IP addressing. You should also consider using NAT Gateway to control the IP address of outbound traffic.
+When you work with virtual machines and other infrastructure components, consider using a load balancer or firewall for both inbound and outbound static IP addressing. Consider using NAT Gateway to control the IP address of outbound traffic.
 
 When you work with platform services, the specific service you use determines whether and how you can control IP addresses. You might need to configure the resource in a specific way, such as by deploying the resource into a VNet and by using a NAT Gateway or firewall. Or, you can request the current set of IP addresses that the service uses for outbound traffic. For example, [App Service provides an API and web interface to obtain the current outbound IP addresses for your application](/azure/app-service/troubleshoot-intermittent-outbound-connection-errors).
 
@@ -160,13 +160,13 @@ The [Static Content Hosting pattern](../../../patterns/static-content-hosting.md
 
 You can use [Azure Front Door](/azure/frontdoor/front-door-caching) or another CDN for your solution's static components, such as single-page JavaScript applications, and for static content like image files and documents.
 
-Depending on how your solution is designed, you might also be able to cache tenant-specific files or data within a CDN, such as JSON-formatted API responses. This practice can help you improve the performance and scalability of your solution, but it's important to consider whether tenant-specific data is isolated sufficiently to avoid leaking data across tenants. You should also consider how you plan to purge tenant-specific content from your cache, such as when data is updated or a new application version is deployed. By including the tenant identifier in the URL path, you can control whether you purge a specific file, all the files that relate to a specific tenant, or all the files for all the tenants.
+Depending on how your solution is designed, you might also be able to cache tenant-specific files or data within a CDN, such as JSON-formatted API responses. This practice can help you improve the performance and scalability of your solution, but it's important to consider whether tenant-specific data is isolated sufficiently to avoid leaking data across tenants. Consider how you plan to purge tenant-specific content from your cache, such as when data is updated or a new application version is deployed. By including the tenant identifier in the URL path, you can control whether you purge a specific file, all the files that relate to a specific tenant, or all the files for all the tenants.
 
 ## Antipatterns to avoid
 
 ### Failing to plan for VNet connectivity
 
-By deploying resources into VNets, you have a great deal of control over how traffic flows through your solution's components. However, VNet integration also introduces additional complexity, cost, and other factors that you need to consider. This is especially true with platform at a service (PaaS) components.
+By deploying resources into VNets, you have a great deal of control over how traffic flows through your solution's components. However, VNet integration also introduces additional complexity, cost, and other factors that you need to consider. This effect is especially true with platform at a service (PaaS) components.
 
 It's important to test and plan your network strategy, so that you uncover any issues before you implement it in a production environment.
 
@@ -188,7 +188,7 @@ In modern networks, it's important to combine network-layer security with other 
 
 ### Rewriting host headers without testing
 
-When you use the [Gateway Offloading pattern](../../../patterns/gateway-offloading.md), you might consider rewriting the `Host` header of HTTP requests. This can simplify the configuration of your backend web application service by offloading the custom domain and TLS management to the gateway.
+When you use the [Gateway Offloading pattern](../../../patterns/gateway-offloading.md), you might consider rewriting the `Host` header of HTTP requests. This practice can simplify the configuration of your backend web application service by offloading the custom domain and TLS management to the gateway.
 
 However, `Host` header rewrites can cause problems for some backend services. If your application issues HTTP redirects or cookies, the mismatch in host names can break the application's functionality. In particular, this issue can arise when you use backend services that are themselves multitenant, like Azure App Service, Azure Functions, and Azure Spring Cloud.
 
