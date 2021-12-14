@@ -65,7 +65,7 @@ You also need to enable integration of AD FS and Azure AD Multi-Factor Authentic
 
 ### Components
 
-[Azure AD](https://azure.microsoft.com/services/active-directory/). Azure AD is a Microsoft cloud-based identity and access management service. It provides modern authentication that's essentially based on EvoSTS (a Security Token Service used by Azure AD). 
+[Azure AD](https://azure.microsoft.com/services/active-directory). Azure AD is a Microsoft cloud-based identity and access management service. It provides modern authentication that's essentially based on EvoSTS (a Security Token Service used by Azure AD). 
 
 [Azure AD Multi-Factor Authentication](/azure/active-directory/authentication/howto-mfa-getstarted). Multifactor authentication is a process in which users are prompted during the sign-in process for another form of identification, like a code on their cellphone or a fingerprint scan.
 
