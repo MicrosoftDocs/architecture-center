@@ -9,7 +9,8 @@ ms.service: architecture-center
 ms.subservice: well-architected
 ms.custom:
   - checklist
----# DataOps Checklist
+---
+# DataOps Checklist
 
 DataOps is a life-cycle approach to data analytics that uses agile practices to orchestrate tools, code, and infrastructure in order to quickly and securely deliver high-quality data.  As DataOps processes are implemented and streamlined, businesses can more easily and cost effectively deliver analytical insights; this allows business to adopt advanced data techniques which can uncover insights and find new opportunities.  Use this checklist as a starting point to assess your DataOps process. 
 
