@@ -54,9 +54,13 @@ items:
       - name: Technology choices
         items:
           - name: Choose a compute service
-            href: guide/technology-choices/compute-decision-tree.md
-          - name: Choose a microservices compute option
-            href: /azure/architecture/microservices/design/compute-options
+            items:
+              - name: Azure compute services
+                href: guide/technology-choices/compute-decision-tree.md
+              - name: Microservices compute options
+                href: /azure/architecture/microservices/design/compute-options
+              - name: Multiparty computing
+                href: guide/blockchain/multiparty-compute.yml
           - name: Choose a Kubernetes edge option
             items:
               - name: Kubernetes at the edge
@@ -82,6 +86,22 @@ items:
                 href: guide/technology-choices/data-store-decision-tree.md
               - name: Criteria for choosing a data store
                 href: guide/technology-choices/data-store-considerations.md
+              - name: Compare data storage
+                href: data-guide/technology-choices/data-storage.md
+              - name: Database scenarios
+                items:
+                  - name: OLAP solutions
+                    href: data-guide/relational-data/online-analytical-processing.md
+                  - name: OLTP solutions
+                    href: data-guide/relational-data/online-transaction-processing.md
+                  - name: Data warehousing
+                    href: data-guide/relational-data/data-warehousing.md
+                  - name: Non-relational data store
+                    href: data-guide/big-data/non-relational-data.md
+                  - name: Pipeline orchestration
+                    href: data-guide/technology-choices/pipeline-orchestration-data-movement.md
+                  - name: Search data store
+                    href: data-guide/technology-choices/search-options.md
           - name: Choose an analytics solution
             items:
               - name: Analytical data stores
