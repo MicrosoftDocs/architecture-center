@@ -1,6 +1,6 @@
 <!-- cSpell:ignore MariaVrabie appservice botservice cicdbots azurewebsites -->
 
-This article presents a DevOps approach to setting up a continuous integration and continuous deployment (CI/CD) pipeline that deploys a chatbot app and its [*infrastructure as code*](/azure/architecture/framework/devops/automation-infrastructure.md).
+This article presents a DevOps approach to setting up a continuous integration and continuous deployment (CI/CD) pipeline that deploys a chatbot app and its [*infrastructure as code*](/azure/architecture/framework/devops/automation-infrastructure).
 
 DevOps is a common development strategy for building custom applications like bots. [Azure Pipelines](/azure/devops/pipelines/) uses modern CI/CD processes to manage software builds, deployments, testing, and monitoring. Azure Pipelines can help you accelerate your software delivery and focus on your code, rather than the supporting infrastructure and operations.
 
