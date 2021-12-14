@@ -56,7 +56,9 @@ The sample topology includes the following private endpoints and Private DNS zon
 - Azure Key Vault
 - If you opt for a private AKS cluster, a private endpoint to the API server of the Kubernetes cluster
 
-A Virtual Network Link exists between the hub and spoke virtual networks hosting the AKS cluster and the above Private DNS Zones. A Log Analytics workspace is used to collect the diagnostics logs and metrics from the following sources:
+A Virtual Network Link exists between the hub and spoke virtual networks hosting the AKS cluster and the above Private DNS Zones. 
+
+A Log Analytics workspace is used to collect the diagnostics logs and metrics from the following sources:
 
 - Azure Kubernetes Service cluster
 - Jump-box virtual machine
