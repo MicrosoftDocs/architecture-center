@@ -216,6 +216,8 @@ items:
                 href: guide/multitenant/approaches/deployment-configuration.yml
               - name: Compute
                 href: guide/multitenant/approaches/compute.md
+              - name: Networking
+                href: guide/multitenant/approaches/networking.md
               - name: Storage and data
                 href: guide/multitenant/approaches/storage-data.md
           - name: Service-specific guidance
