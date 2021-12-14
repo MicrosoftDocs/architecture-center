@@ -18,6 +18,7 @@ Driving security and identity consistency across clouds should include:
 - Multi-cloud identity integration
 - Strong authentication and explicit trust validation
 - Cloud Platform Security (multi-cloud)
+- Microsoft Defender for Cloud 
 - Privilege Identity Management (Azure)
 - Consistent end-to-end identity management
 
@@ -41,7 +42,13 @@ Once a common identity has been established in your multi-cloud environment, the
 
 CPS also provides for the ability to assess the cloud platforms connected for misconfigurations and compliance using vendor specific recommended security and configuration controls. This design enables organizations to maintain a single consolidated view of all cloud platform services and their compliance status.
 
-Additionally, CPS provides access and session control policies to prevent and protect your environment from risky endpoints or users when data exfiltration or malicious files are introduced into those platforms.
+CPS also provides access and session control policies to prevent and protect your environment from risky endpoints or users when data exfiltration or malicious files are introduced into those platforms.
+
+## Microsoft Defender for Cloud 
+
+[Microsoft Defender for Cloud](/azure/defender-for-cloud/) provides unified security management and threat protection across your hybrid and multi-cloud workloads, including workloads in Azure, Amazon Web Services (AWS), and Google Cloud Platform (GCP). Defender for Cloud helps you find and fix security vulnerabilities, apply access and application controls to block malicious activity, detect threats using analytics and intelligence, and respond quickly when under attack. 
+
+To [protect your AWS-based resources on Microsoft Defender for Cloud](/azure/defender-for-cloud/quickstart-onboard-aws?pivots=env-settings), you can connect an account with either Classic cloud connectors experience or Environment settings page (in preview) (recommended).
 
 ## Privileged Identity Management (Azure)
 
