@@ -283,7 +283,6 @@ To learn more about Microsoft Sentinel, refer to the following articles:
 - [Microsoft Defender for Cloud Security Alerts][azure-security-center-security-alerts]
 - [Microsoft Defender for Cloud Security Policies][azure-security-center-security-policies]
 - [Microsoft Defender for Cloud Security Recommendations][azure-security-center-security-recommendations]
-- [Microsoft Defender for Cloud Security Recommendations][azure-security-center-security-recommendations]
 - [Microsoft Defender for Cloud Supported Platforms][azure-security-center-supported-platforms]
 - [Microsoft Defender for Cloud Threat Protection][azure-security-center-threat-protection]
 - [Microsoft Defender for Cloud Tutorial][azure-security-center-tutorial]
