@@ -936,6 +936,17 @@ items:
             href: industries/finance.md
           - name: Guides
             items:
+              - name: Microsoft Cloud for Financial Services
+                items:
+                  - name: Overview
+                    href: /industry/financial-services/overview
+                    maintainContext: true
+                  - name: Security in Cloud for Financial Services
+                    href: /industry/financial-services/security-overview
+                    maintainContext: true
+                  - name: Compliance in Cloud for Financial Services
+                    href: /industry/financial-services/compliance-overview
+                    maintainContext: true
               - name: Risk grid computing in banking
                 href: /previous-versions/azure/industry-marketing/financial/risk-grid-banking-overview
                 maintainContext: true
@@ -1005,6 +1016,9 @@ items:
                     maintainContext: true
                   - name: Security in Cloud for Healthcare
                     href: /industry/healthcare/security-overview
+                    maintainContext: true
+                  - name: Compliance in Cloud for Healthcare
+                    href: /industry/healthcare/compliance-overview
                     maintainContext: true
               - name: Healthcare APIs
                 items:
@@ -1210,34 +1224,61 @@ items:
         items:
           - name: Overview
             href: industries/media.md
-          - name: 3D video rendering
-            href: example-scenario/infrastructure/video-rendering.yml
-          - name: Content-based recommendation
-            href: example-scenario/ai/scalable-personalization-with-content-based-recommendation-system.yml
-          - name: Digital image-based modeling on Azure
-            href: example-scenario/infrastructure/image-modeling.yml
-          - name: Image classification on Azure
-            href: example-scenario/ai/intelligent-apps-image-processing.yml
-          - name: Movie recommendations on Azure
-            href: example-scenario/ai/movie-recommendations-with-machine-learning.yml
+          - name: Guides
+            items:
+              - name: Dynamics 365 media and entertainment accelerator
+                href: /dynamics365/industry/accelerators/media
+                maintainContext: true
+              - name: Content Production solution
+                href: /dynamics365/industry/accelerators/content-production
+                maintainContext: true
+              - name: Configure the accelerator with Azure AD
+                href: /dynamics365/industry/accelerators/configure-media
+                maintainContext: true
+          - name: Architectures
+            items:
+              - name: 3D video rendering
+                href: example-scenario/infrastructure/video-rendering.yml
+              - name: Content-based recommendation
+                href: example-scenario/ai/scalable-personalization-with-content-based-recommendation-system.yml
+              - name: Digital image-based modeling on Azure
+                href: example-scenario/infrastructure/image-modeling.yml
+              - name: Gridwich cloud media system
+                href: reference-architectures/media-services/gridwich-architecture.yml
+              - name: Image classification on Azure
+                href: example-scenario/ai/intelligent-apps-image-processing.yml
+              - name: Live streaming digital media
+                href: solution-ideas/articles/digital-media-live-stream.yml
+              - name: Movie recommendations on Azure
+                href: example-scenario/ai/movie-recommendations-with-machine-learning.yml
       - name: Energy and environment
         items:
           - name: Overview
             href: industries/energy-environment.md
-          - name: Environmental monitoring
-            href: solution-ideas/articles/environment-monitoring-and-supply-chain-optimization.yml
-          - name: Geospatial data processing and analytics
-            href: example-scenario/data/geospatial-data-processing-analytics-azure.yml
-          - name: Mining equipment monitoring
-            href: solution-ideas/articles/monitor-mining-equipment.yml
-          - name: Oil and gas tank level forecasting
-            href: solution-ideas/articles/oil-and-gas-tank-level-forecasting.yml
-          - name: Project 15 sustainability
-            href: solution-ideas/articles/project-15-iot-sustainability.yml
-          - name: Run CFD simulations
-            href: example-scenario/infrastructure/hpc-cfd.yml
-          - name: Run reservoir simulations
-            href: example-scenario/infrastructure/reservoir-simulation.yml
+          - name: Guides
+            items:
+              - name: Microsoft Cloud for Sustainability
+                href: /industry/sustainability/overview
+                maintainContext: true
+              - name: Sustainability outcomes and benefits
+                href: /azure/cloud-adoption-framework/strategy/business-outcomes/sustainability
+                maintainContext: true
+          - name: Architectures
+            items:
+              - name: Environmental monitoring
+                href: solution-ideas/articles/environment-monitoring-and-supply-chain-optimization.yml
+              - name: Geospatial data processing and analytics
+                href: example-scenario/data/geospatial-data-processing-analytics-azure.yml
+              - name: Mining equipment monitoring
+                href: solution-ideas/articles/monitor-mining-equipment.yml
+              - name: Oil and gas tank level forecasting
+                href: solution-ideas/articles/oil-and-gas-tank-level-forecasting.yml
+              - name: Project 15 sustainability
+                href: solution-ideas/articles/project-15-iot-sustainability.yml
+              - name: Run CFD simulations
+                href: example-scenario/infrastructure/hpc-cfd.yml
+              - name: Run reservoir simulations
+                href: example-scenario/infrastructure/reservoir-simulation.yml
       - name: Game development
         items:
           - name: Rendering
@@ -1365,6 +1406,7 @@ items:
         items:
           - name: Dynamics 365 automotive accelerator for Azure
             href: /dynamics365/industry/accelerators/automotive
+            maintainContext: true
           - name: Architectures
             items:
               - name: Automated guided vehicles fleet control
@@ -1385,6 +1427,8 @@ items:
             href: solution-ideas/articles/cctv-iot-edge-for-covid-19-safe-environment-and-mask-detection.yml
           - name: Facilities management with mixed reality
             href: solution-ideas/articles/facilities-management-powered-by-mixed-reality-and-iot.yml
+          - name: IoT connected light, power, and internet
+            href: solution-ideas/articles/iot-power-management.yml
           - name: IoT connectivity for healthcare facilities
             href: solution-ideas/articles/healthcare-network.yml
           - name: Lighting and disinfection system
@@ -1393,26 +1437,31 @@ items:
             href: example-scenario/iot/smart-places.yml
       - name: Education
         items:
-          - name: Identity for education
+          - name: Guides
             items:
-              - name: Azure Active Directory for education
-                href: /microsoft-365/education/deploy/intro-azure-active-directory
+              - name: Dynamics 365 education accelerator for Azure
+                href: /dynamics365/industry/accelerators/edu-overview 
                 maintainContext: true
-              - name: Multi-tenant for large academic institutions
-                href: /microsoft-365/education/deploy/design-multi-tenant-architecture
-                maintainContext: true
-              - name: Design a tenant configuration
-                href: /microsoft-365/education/deploy/design-tenant-configurations
-                maintainContext: true
-              - name: Design authentication and credentials
-                href: /microsoft-365/education/deploy/design-credential-authentication-strategies
-                maintainContext: true
-              - name: Design an account strategy
-                href: /microsoft-365/education/deploy/design-account-strategy
-                maintainContext: true
-              - name: Design identity governance 
-                href: /microsoft-365/education/deploy/design-identity-governance
-                maintainContext: true
+              - name: Identity for education
+                items:
+                  - name: Azure Active Directory for education
+                    href: /microsoft-365/education/deploy/intro-azure-active-directory
+                    maintainContext: true
+                  - name: Multi-tenant for large academic institutions
+                    href: /microsoft-365/education/deploy/design-multi-tenant-architecture
+                    maintainContext: true
+                  - name: Design a tenant configuration
+                    href: /microsoft-365/education/deploy/design-tenant-configurations
+                    maintainContext: true
+                  - name: Design authentication and credentials
+                    href: /microsoft-365/education/deploy/design-credential-authentication-strategies
+                    maintainContext: true
+                  - name: Design an account strategy
+                    href: /microsoft-365/education/deploy/design-account-strategy
+                    maintainContext: true
+                  - name: Design identity governance 
+                    href: /microsoft-365/education/deploy/design-identity-governance
+                    maintainContext: true
           - name: Secure research for regulated data
             href: example-scenario/ai/secure-compute-for-research.yml
       - name: Agriculture
@@ -1440,6 +1489,28 @@ items:
                 href: solution-ideas/articles/environment-monitoring-and-supply-chain-optimization.yml
               - name: Low-latency network for farming
                 href: solution-ideas/articles/low-latency-network.yml
+      - name: Nonprofit
+        items:
+          - name: Microsoft Cloud for Nonprofit
+            href: /industry/nonprofit/overview
+            maintainContext: true
+          - name: Set up Microsoft Cloud for Nonprofit
+            href: /industry/nonprofit/configure-cloud-for-nonprofit
+            maintainContext: true
+          - name: Fundraising and Engagement
+            items:
+              - name: Fundraising and Engagement for Dynamics 365
+                href: /dynamics365/industry/nonprofit/fundraising-engagement-get-started-overview
+                maintainContext: true
+              - name: Configure Fundraising and Engagement with Azure
+                href: /dynamics365/industry/nonprofit/fundraising-engagement-configure
+                maintainContext: true
+              - name: Deploy Fundraising and Engagement with Azure
+                href: /dynamics365/industry/nonprofit/fundraising-engagement-deploy
+                maintainContext: true
+          - name: Dynamics 365 nonprofit accelerator for Azure
+            href: /dynamics365/industry/accelerators/nfp
+            maintainContext: true
       - name: Space
         items:
           - name: Azure Orbital for space communication
@@ -1447,6 +1518,13 @@ items:
             maintainContext: true
           - name: Predictive maintenance for aerospace
             href: data-science-process/predictive-maintenance-technical-guide.md
+      - name: Sports
+        items:
+          - name: Analyze Olympic sports with sensors and vision
+            href: /archive/msdn-magazine/2018/november/machine-learning-analyzing-olympic-sports-combining-sensors-and-vision-ai
+            maintainContext: true
+          - name: Baseball decision analysis with ML.NET
+            href: data-guide/big-data/baseball-ml-workload.yml
   - name: Azure categories
     expanded: true
     items:
