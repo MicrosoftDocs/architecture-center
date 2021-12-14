@@ -4047,6 +4047,8 @@ items:
                 href: example-scenario/file-storage/oracle-azure-netapp-files.yml
               - name: SQL Server on VMs with Azure NetApp Files
                 href: example-scenario/file-storage/sql-server-azure-netapp-files.yml
+              - name: Data protection for Azure Kubernetes Services on Azure NetApp Files
+                href: data-protection-kubernetes-astra-azure-netapp-files.md
           - name: Solution ideas
             items:
               - name: HIPAA/HITRUST Health Data and AI
