@@ -1,4 +1,4 @@
-Enterprise messaging infrastructure (EMI) is a key service for organizations. Moving from older, less secure methods of authentication and authorization to modern authentication is a critical challenge in a world where remote work is common. Implementing multifactor authentication requirements for messaging service access is one of the most effective ways to meet that challenge.
+Enterprise messaging infrastructure (EMI) is a key service for organizations. Moving from older, less secure methods of authentication and authorization to modern authentication is a critical challenge in a world where remote work is common. Implementing multi-factor authentication requirements for messaging service access is one of the most effective ways to meet that challenge.
 
 This article describes four architectures to enhance your security in an Outlook desktop-client access scenario by using Azure AD Multi-Factor Authentication.
 
@@ -8,7 +8,7 @@ These four scenarios are described in this article:
 - Outlook client access when the user's mailbox is in Exchange on-premises
 - Outlook client access when the user's mailbox is in Exchange on-premises, AD FS
 
-For information about applying multifactor authentication in other hybrid messaging scenarios, see these articles:
+For information about applying multi-factor authentication in other hybrid messaging scenarios, see these articles:
 - [Protecting a hybrid messaging infrastructure in a web access scenario](secure-hybrid-messaging-web.yml)
 - [Protecting a hybrid messaging infrastructure in a mobile access scenario](secure-hybrid-messaging-mobile.yml)
 
@@ -50,9 +50,9 @@ This architecture covers both Outlook for Windows and Outlook for MAC.
 1.	As soon as the domain is federated, Azure AD redirects the request to on-premises AD FS.
 1.	The user enters credentials on an AD FS sign-in page.
 1.	AD FS redirects the session back to Azure AD. 
-1.	Azure AD applies an Azure Conditional Access policy with a multifactor authentication requirement for mobile apps and desktop clients. See the [deployment section](#deploy-this-scenario)  of this article for information about setting up that policy.
-1.	The Conditional Access policy calls Azure AD Multi-Factor Authentication. The user gets a request to complete multifactor authentication.
-1.	The user completes multifactor authentication.
+1.	Azure AD applies an Azure Conditional Access policy with a multi-factor authentication requirement for mobile apps and desktop clients. See the [deployment section](#deploy-this-scenario)  of this article for information about setting up that policy.
+1.	The Conditional Access policy calls Azure AD Multi-Factor Authentication. The user gets a request to complete multi-factor authentication.
+1.	The user completes multi-factor authentication.
 1.	Azure AD issues access and refresh tokens and returns them to the client.
 1.	By using the access token, the client connects to Exchange Online and retrieves the content.
 
@@ -84,7 +84,7 @@ After you create the authentication policy, you can first assign it to a pilot g
 :::image type="content" border="false" source="./media/desktop-online-option-2.png" alt-text="Diagram that shows an alternative architecture for enhanced security in an Outlook client access scenario." lightbox="./media/desktop-online-option-2.png":::
 :::image-end:::
 
-This scenario is the same as the previous one, except that it uses a different trigger for multifactor authentication. In the previous scenario, we used local AD FS for authentication. We then redirected information about successful authentication to Azure AD, where a Conditional Access policy enforced multifactor authentication. It this scenario, instead of using Conditional Access to enforce multifactor authentication, we create an access control policy on the AD FS level and enforce multifactor authentication there. The rest of the architecture is the same as the previous one. 
+This scenario is the same as the previous one, except that it uses a different trigger for multi-factor authentication. In the previous scenario, we used local AD FS for authentication. We then redirected information about successful authentication to Azure AD, where a Conditional Access policy enforced multi-factor authentication. In this scenario, instead of using Conditional Access to enforce multi-factor authentication, we create an access control policy on the AD FS level and enforce multi-factor authentication there. The rest of the architecture is the same as the previous one. 
 
 > [!NOTE]
 > 
@@ -102,8 +102,8 @@ In this scenario, users need to use the version of Outlook client that supports 
 6.	Responding to an AF DS access control policy, AD FS calls Azure AD Multi-Factor Authentication to complete authentication. Here's an example of that type of AD FS access control policy:
 
     :::image type="content" source="./media/access-control-policy.png" alt-text="Screenshot that shows an example of an AD FS access control policy."::: 
-    The user gets a request to complete multifactor authentication.
-7.	The user completes multifactor authentication. 
+    The user gets a request to complete multi-factor authentication.
+7.	The user completes multi-factor authentication. 
 8.	AD FS redirects the session back to Azure AD. 
 9.	Azure AD issues access and refresh tokens and returns them to the client.
 10.	By using the access token, the client connects to Exchange Online and retrieves the content.
@@ -142,9 +142,9 @@ This architecture covers both Outlook for Windows and Outlook for MAC.
 4. Azure identifies that the user's domain is federated, so it sends requests to AD FS (via Web Application Proxy).
 5. The user enters credentials on an AD FS sign-in page.
 6. AD FS redirects the session back to Azure AD.
-7. Azure AD applies an Azure Conditional Access policy with a multifactor authentication requirement for mobile apps and desktop clients. See the [deployment section](#deploy-this-scenario)  of this article for information about setting up that policy.
-8.	The Conditional Access policy calls Azure AD Multi-Factor Authentication. The user gets a request to complete multifactor authentication.
-9.	The user completes multifactor authentication.
+7. Azure AD applies an Azure Conditional Access policy with a multi-factor authentication requirement for mobile apps and desktop clients. See the [deployment section](#deploy-this-scenario)  of this article for information about setting up that policy.
+8.	The Conditional Access policy calls Azure AD Multi-Factor Authentication. The user gets a request to complete multi-factor authentication.
+9.	The user completes multi-factor authentication.
 10.	Azure AD issues access and refresh tokens and returns them to the client.
 11.	The user presents the access token to Exchange Server, and Exchange authorizes access to the mailbox.
 
@@ -173,7 +173,7 @@ After you create the authentication policy, you can first assign it to a pilot g
 :::image type="content" border="false" source="./media/desktop-on-premises-option-2.png" alt-text="Diagram that shows an alternative enhanced security architecture in an on-premises Outlook Access scenario." lightbox="./media/desktop-on-premises-option-2.png":::
 :::image-end:::
 
-This scenario is similar to the previous one. However, in this scenario, multifactor authentication is triggered by AD FS. This architecture covers both Outlook for Windows and Outlook for MAC.
+This scenario is similar to the previous one. However, in this scenario, multi-factor authentication is triggered by AD FS. This architecture covers both Outlook for Windows and Outlook for MAC.
 
 > [!NOTE]
 > 
@@ -184,12 +184,12 @@ This scenario is similar to the previous one. However, in this scenario, multifa
 3.	The client uses the URL to access Azure AD. 
 4.	In this scenario, the domain is federated. Azure AD redirects the client to AD FS via Web Application Proxy.
 5.	The user enters credentials on an AD FS sign-in page.
-6.	AD FS triggers multifactor authentication. Here's an example of that type of AD FS access control policy:
+6.	AD FS triggers multi-factor authentication. Here's an example of that type of AD FS access control policy:
 
     :::image type="content" source="./media/access-control-policy.png" alt-text="Screenshot that shows an AD FS access control policy."::: 
-    The user gets a request to complete multifactor authentication.
+    The user gets a request to complete multi-factor authentication.
 
-7.	The user completes multifactor authentication. 
+7.	The user completes multi-factor authentication. 
 8.	AD FS redirects the session back to Azure AD.
 9.	Azure AD issues access and refresh tokens to the user. 
 10.	The client presents the access token to the Exchange on-premises server. Exchange authorizes access to the user's mailbox.
@@ -219,23 +219,23 @@ After you create the authentication policy, you can first assign it to a pilot g
 
 ### Components
 
-[Azure AD](https://azure.microsoft.com/services/active-directory). Azure AD is a Microsoft cloud-based identity and access management service. It provides modern authentication that's essentially based on EvoSTS (a Security Token Service used by Azure AD). 
+- [Azure AD](https://azure.microsoft.com/services/active-directory). Azure AD is a Microsoft cloud-based identity and access management service. It provides modern authentication that's essentially based on EvoSTS (a Security Token Service used by Azure AD). 
 
-[Azure AD Multi-Factor Authentication](/azure/active-directory/authentication/howto-mfa-getstarted). Multifactor authentication is a process in which users are prompted during the sign-in process for another form of identification, like a code on their cellphone or a fingerprint scan.
+- [Azure AD Multi-Factor Authentication](/azure/active-directory/authentication/howto-mfa-getstarted). Multi-factor authentication is a process in which users are prompted during the sign-in process for another form of identification, like a code on their cellphone or a fingerprint scan.
 
-[Azure AD Conditional Access](/azure/active-directory/conditional-access/concept-conditional-access-conditions). Conditional Access is the feature that Azure AD uses to enforce organizational policies like multifactor authentication.
+- [Azure AD Conditional Access](/azure/active-directory/conditional-access/concept-conditional-access-conditions). Conditional Access is the feature that Azure AD uses to enforce organizational policies like multi-factor authentication.
 
-[AD FS](/windows-server/identity/active-directory-federation-services). AD FS enables federated identity and access management by sharing digital identity and entitlements rights across security and enterprise boundaries with improved security. In these architectures, it's used to facilitate sign-in for users with federated identity. 
+- [AD FS](/windows-server/identity/active-directory-federation-services). AD FS enables federated identity and access management by sharing digital identity and entitlements rights across security and enterprise boundaries with improved security. In these architectures, it's used to facilitate sign-in for users with federated identity. 
 
-[Web Application Proxy](/windows-server/remote/remote-access/web-application-proxy/web-application-proxy-in-windows-server). Web Application Proxy pre-authenticates access to web applications by using AD FS. It also functions as an AD FS proxy.
+- [Web Application Proxy](/windows-server/remote/remote-access/web-application-proxy/web-application-proxy-in-windows-server). Web Application Proxy pre-authenticates access to web applications by using AD FS. It also functions as an AD FS proxy.
 
-[Endpoint Manager](https://www.microsoft.com/security/business/microsoft-endpoint-manager). Intune is part of Endpoint Manager and is a 100% cloud-based mobile device management (MDM) and mobile application management tool. When you enable hybrid modern authentication, all on-premises mobile users can use Outlook for iOS and Android via the architecture that's based on Microsoft 365 or Office 365. That's why it's important to protect corporate data with an Intune app protection policy.
+- [Endpoint Manager](https://www.microsoft.com/security/business/microsoft-endpoint-manager). Intune is part of Endpoint Manager and is a 100% cloud-based mobile device management (MDM) and mobile application management tool. When you enable hybrid modern authentication, all on-premises mobile users can use Outlook for iOS and Android via the architecture that's based on Microsoft 365 or Office 365. That's why it's important to protect corporate data with an Intune app protection policy.
 
-[Exchange Server](https://www.microsoft.com/microsoft-365/exchange/email). Exchange Server hosts user mailboxes on-premises. In these architectures, it uses tokens issued to the user by Azure AD to authorize access to mailboxes.
+- [Exchange Server](https://www.microsoft.com/microsoft-365/exchange/email). Exchange Server hosts user mailboxes on-premises. In these architectures, it uses tokens issued to the user by Azure AD to authorize access to mailboxes.
 
-[Active Directory services](/windows-server/identity/ad-ds/get-started/virtual-dc/active-directory-domain-services-overview). Active Directory services stores information about members of a domain, including devices and users. In these architectures, user accounts belong to Active Directory services and are synchronized to Azure AD.
+- [Active Directory services](/windows-server/identity/ad-ds/get-started/virtual-dc/active-directory-domain-services-overview). Active Directory services stores information about members of a domain, including devices and users. In these architectures, user accounts belong to Active Directory services and are synchronized to Azure AD.
 
-[Outlook for business](https://www.microsoft.com/microsoft-365/outlook/outlook-for-business). Outlook is a client application that supports modern authentication. 
+- [Outlook for business](https://www.microsoft.com/microsoft-365/outlook/outlook-for-business). Outlook is a client application that supports modern authentication. 
 
 ## Considerations
 
@@ -297,13 +297,13 @@ Here are the high-level steps:
 2.	Block all legacy authentication attempts at the [Azure AD level](/azure/active-directory/conditional-access/block-legacy-authentication). Block legacy authentication attempts on a messaging-services level by using [authentication policy](/exchange/clients-and-mobile-in-exchange-online/disable-basic-authentication-in-exchange-online). 
 
 ### Set up a Conditional Access policy 
-To set up an Azure AD Conditional Access policy that enforces multifactor authentication, as described in some of the architectures in this article:
+To set up an Azure AD Conditional Access policy that enforces multi-factor authentication, as described in some of the architectures in this article:
 
  1. In the **Clients apps** window, select **Mobile apps and desktop clients**:
     
     :::image type="content" source="./media/client-apps-desktop.png" alt-text="Screenshot that shows the Client apps window.":::
 
-1. Apply the multifactor authentication requirement in the **Grant** window:
+1. Apply the multi-factor authentication requirement in the **Grant** window:
        
     :::image type="content" source="./media/grant-control-desktop.png"
        alt-text="Screenshot that shows the Grant window.":::
@@ -327,9 +327,9 @@ For more pricing information, see these resources:
 - [Use AD FS claims-based authentication with Outlook on the web](/exchange/clients/outlook-on-the-web/ad-fs-claims-based-auth?view=exchserver-2019)
 - [How to configure Exchange Server on-premises to use Hybrid Modern Authentication](/microsoft-365/enterprise/configure-exchange-server-for-hybrid-modern-authentication?view=o365-worldwide)
 - [Exchange 2019 preferred architecture](/exchange/plan-and-deploy/deployment-ref/preferred-architecture-2019)
-- High availability cross-geographic AD FS deployment in Azure with Azure Traffic Manager | Microsoft Docs
-- Using hybrid Modern Authentication with Outlook for iOS and Android | Microsoft Docs
-- Account setup with modern authentication in Exchange Online | Microsoft Docs
+- [High availability cross-geographic AD FS deployment in Azure with Azure Traffic Manager](/windows-server/identity/ad-fs/deployment/active-directory-adfs-in-azure-with-azure-traffic-manager)
+- [Using hybrid Modern Authentication with Outlook for iOS and Android](/exchange/clients/outlook-for-ios-and-android/use-hybrid-modern-auth?view=exchserver-2019)
+- [Account setup with modern authentication in Exchange Online](/exchange/clients-and-mobile-in-exchange-online/outlook-for-ios-and-android/setup-with-modern-authentication)
 
 ## Related resources
 - [Protecting a hybrid messaging infrastructure in a web access scenario](secure-hybrid-messaging-web.yml)

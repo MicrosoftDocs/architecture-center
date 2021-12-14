@@ -5,7 +5,7 @@ metadata:
   description: This article describes an architecture to help you enhance your security in a web access scenario by using Azure AD Multi-Factor Authentication.
   author: pakondra
   ms.author: pakondra
-  ms.date: 12/17/2021
+  ms.date: 12/20/2021
   ms.topic: conceptual
   ms.service: architecture-center
   ms.subservice: example-scenario

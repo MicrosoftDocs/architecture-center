@@ -1,10 +1,10 @@
-Enterprise messaging infrastructure (EMI) is a key service for organizations. Moving from older, less secure methods of authentication and authorization to modern authentication is a critical challenge in a world where remote work is common. Implementing multifactor authentication requirements for messaging service access is one of the most effective ways to meet that challenge. 
+Enterprise messaging infrastructure (EMI) is a key service for organizations. Moving from older, less secure methods of authentication and authorization to modern authentication is a critical challenge in a world where remote work is common. Implementing multi-factor authentication requirements for messaging service access is one of the most effective ways to meet that challenge. 
 
 This article describes an architecture to enhance your security in a web access scenario by using Azure AD Multi-Factor Authentication.
 
 The architectures here describe scenarios to help you protect your messaging service (Outlook on the web or Exchange Control Panel) when mailboxes are hosted in Exchange Online or Exchange on-premises.
 
-For information about applying multifactor authentication in other hybrid messaging scenarios, see these articles:
+For information about applying multi-factor authentication in other hybrid messaging scenarios, see these articles:
 - [Protecting a hybrid messaging infrastructure in a desktop-client access scenario](secure-hybrid-messaging-client.yml)
 - [Protecting a hybrid messaging infrastructure in a mobile access scenario](secure-hybrid-messaging-mobile.yml)
 
@@ -40,9 +40,9 @@ In this architecture, we divide the solution into two areas, describing security
 2.	Exchange Online redirects the user to Azure AD for authentication. 
     
     If the domain is federated, Azure AD redirects the user to the local AD FS instance for authentication. If authentication succeeds, the user is redirected back to Azure AD. (To keep the diagram simple, we left out this federated scenario.)
-3.	To enforce multifactor authentication, Azure AD applies an Azure Conditional Access policy with a multifactor authentication requirement for the browser client application. See the [deployment section](#set-up-a-conditional-access-policy) of this article for information about setting up that policy.  
-1. The Conditional Access policy calls Azure AD Multi-Factor Authentication. The user gets a request to complete multifactor authentication.
-1.	The user completes multifactor authentication.
+3.	To enforce multi-factor authentication, Azure AD applies an Azure Conditional Access policy with a multi-factor authentication requirement for the browser client application. See the [deployment section](#set-up-a-conditional-access-policy) of this article for information about setting up that policy.  
+1. The Conditional Access policy calls Azure AD Multi-Factor Authentication. The user gets a request to complete multi-factor authentication.
+1.	The user completes multi-factor authentication.
 1.	Azure AD redirects the authenticated web session to Exchange Online, and the user can access Outlook.
 
 ### Exchange on-premises user's flow
@@ -54,9 +54,9 @@ In this architecture, we divide the solution into two areas, describing security
 
     :::image type="content" source="./media/access-control-policy.png" alt-text="Screenshot that shows an example of an AD FS access control policy.":::
 
-    The user gets a request to complete multifactor authentication.
+    The user gets a request to complete multi-factor authentication.
 
-1.	The user completes multifactor authentication. AD FS redirects the authenticated web session to Exchange on-premises.
+1.	The user completes multi-factor authentication. AD FS redirects the authenticated web session to Exchange on-premises.
 1.	The user can access Outlook. 
 
 To implement this scenario for an on-premises user, you need to complete some additional configuration on Exchange and AD FS to configure AD FS use for pre-authentication of web access requests. For more information, see [Use AD FS claims-based authentication with Outlook on the web](/exchange/clients/outlook-on-the-web/ad-fs-claims-based-auth?view=exchserver-2019). 
@@ -65,19 +65,19 @@ You also need to enable integration of AD FS and Azure AD Multi-Factor Authentic
 
 ### Components
 
-[Azure AD](https://azure.microsoft.com/services/active-directory). Azure AD is a Microsoft cloud-based identity and access management service. It provides modern authentication that's essentially based on EvoSTS (a Security Token Service used by Azure AD). 
+- [Azure AD](https://azure.microsoft.com/services/active-directory). Azure AD is a Microsoft cloud-based identity and access management service. It provides modern authentication that's essentially based on EvoSTS (a Security Token Service used by Azure AD). 
 
-[Azure AD Multi-Factor Authentication](/azure/active-directory/authentication/howto-mfa-getstarted). Multifactor authentication is a process in which users are prompted during the sign-in process for another form of identification, like a code on their cellphone or a fingerprint scan.
+- [Azure AD Multi-Factor Authentication](/azure/active-directory/authentication/howto-mfa-getstarted). Multi-factor authentication is a process in which users are prompted during the sign-in process for another form of identification, like a code on their cellphone or a fingerprint scan.
 
-[Azure AD Conditional Access](/azure/active-directory/conditional-access/concept-conditional-access-conditions). Conditional Access is the feature that Azure AD uses to enforce organizational policies like multifactor authentication.
+- [Azure AD Conditional Access](/azure/active-directory/conditional-access/concept-conditional-access-conditions). Conditional Access is the feature that Azure AD uses to enforce organizational policies like multi-factor authentication.
 
-[AD FS](/windows-server/identity/active-directory-federation-services). AD FS enables federated identity and access management by sharing digital identity and entitlements rights across security and enterprise boundaries with improved security. In this architecture, it's used to facilitate sign-in for users with federated identity. 
+- [AD FS](/windows-server/identity/active-directory-federation-services). AD FS enables federated identity and access management by sharing digital identity and entitlements rights across security and enterprise boundaries with improved security. In this architecture, it's used to facilitate sign-in for users with federated identity. 
 
-[Web Application Proxy](/windows-server/remote/remote-access/web-application-proxy/web-application-proxy-in-windows-server). Web Application Proxy pre-authenticates access to web applications by using AD FS. It also functions as an AD FS proxy.
+- [Web Application Proxy](/windows-server/remote/remote-access/web-application-proxy/web-application-proxy-in-windows-server). Web Application Proxy pre-authenticates access to web applications by using AD FS. It also functions as an AD FS proxy.
 
-[Exchange Server](https://www.microsoft.com/microsoft-365/exchange/email). Exchange Server hosts user mailboxes on-premises. In this architecture, it uses tokens issued to the user by Azure AD to authorize access to mailboxes.
+- [Exchange Server](https://www.microsoft.com/microsoft-365/exchange/email). Exchange Server hosts user mailboxes on-premises. In this architecture, it uses tokens issued to the user by Azure AD to authorize access to mailboxes.
 
-[Active Directory services](/windows-server/identity/ad-ds/get-started/virtual-dc/active-directory-domain-services-overview). Active Directory services stores information about members of a domain, including devices and users. In this architecture, user accounts belong to Active Directory services and are synchronized to Azure AD.
+- [Active Directory services](/windows-server/identity/ad-ds/get-started/virtual-dc/active-directory-domain-services-overview). Active Directory services stores information about members of a domain, including devices and users. In this architecture, user accounts belong to Active Directory services and are synchronized to Azure AD.
 
 ### Alternatives
 
@@ -135,7 +135,7 @@ To deploy this scenario, complete these high-level steps:
 1. Improve the security of web access for on-premises EMI [by using AD FS claim-based authentication](/exchange/clients/outlook-on-the-web/ad-fs-claims-based-auth?view=exchserver-2019).
 
 ### Set up a Conditional Access policy
-To set up an Azure AD Conditional Access policy that enforces multifactor authentication, as described in step 3 of the online user's flow earlier in this article:
+To set up an Azure AD Conditional Access policy that enforces multi-factor authentication, as described in step 3 of the online user's flow earlier in this article:
 1.	Configure **Office 365 Exchange Online** or **Office 365** as a cloud app:
     
     :::image type="content" source="./media/set-as-cloud-app.png" alt-text="Screenshot that shows how to configure Office as a cloud application.":::
@@ -144,9 +144,9 @@ To set up an Azure AD Conditional Access policy that enforces multifactor authen
 
     :::image type="content" source="./media/apply-policy-to-browser.png" alt-text="Screenshot that shows applying the policy to the browser.":::
     
-1. Apply the multifactor authentication requirement in the **Grant** window:
+1. Apply the multi-factor authentication requirement in the **Grant** window:
 
-    :::image type="content" source="./media/apply-multifactor-authentication.png" alt-text="Screenshot that shows applying the multifactor authentication requirement.":::
+    :::image type="content" source="./media/apply-multifactor-authentication.png" alt-text="Screenshot that shows applying the multi-factor authentication requirement.":::
 
 ## Pricing
 
