@@ -7,7 +7,7 @@ editor: marktab
 ms.service: machine-learning
 ms.subservice: team-data-science-process
 ms.topic: article
-ms.date: 01/10/2020
+ms.date: 12/14/2021
 ms.author: tdsp
 ms.custom:
   - previous-author=deguhath
@@ -22,7 +22,7 @@ categories:
 
 Microsoft provides a full spectrum of analytics resources for both cloud or on-premises platforms. They can be deployed to make the execution of your data science projects efficient and scalable. Guidance for teams implementing data science projects in a trackable, version controlled, and collaborative way is provided by the [Team Data Science Process](overview.md) (TDSP).  For an outline of the personnel roles, and their associated tasks that are handled by a data science team standardizing on this process, see [Team Data Science Process roles and tasks](roles-tasks.md).
 
-The analytics resources available to data science teams using the TDSP include:
+The main recommended Azure resource for TDSP is [Azure Machine Learning](/azure/machine-learning).  Examples in this Azure Architecture Center may show Azure Machine Learning used with other Azure resources.  These other analytics resources available to data science teams using the TDSP include:
 
 - Data Science Virtual Machines (both Windows and Linux CentOS)
 - HDInsight Spark Clusters
