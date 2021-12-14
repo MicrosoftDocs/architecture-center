@@ -49,19 +49,12 @@ The architecture includes an [Azure Firewall](/azure/firewall/overview) that is 
 
 A Key Vault is used as a secret store by workloads that run on Azure Kubernetes Service (AKS) to retrieve keys, certificates, and secrets via a client library, [Secrets Store CSI Driver](/azure/aks/csi-secrets-store-driver), or [Dapr](https://docs.dapr.io/developing-applications/building-blocks/secrets/secrets-overview/). [Azure Private Link](/azure/private-link/private-link-overview) enables AKS workloads to access Azure PaaS Services, such as Key Vault, over a private endpoint in the virtual network.
 
-The sample topology includes the following private endpoints:
+The sample topology includes the following private endpoints and Private DNS zones for the following services:
 
-- A private endpoint to the Blob Storage account
-- A private endpoint to Azure Container Registry (ACR)
-- A private endpoint to Key Vault
+- Azure Blob Storage account
+- Azure Container Registry (ACR)
+- Azure Key Vault
 - If you opt for a private AKS cluster, a private endpoint to the API server of the Kubernetes cluster
-
-The architecture also includes the following Private DNS Zones for the name resolution of the FQDN of a PaaS service to the private IP address of the associated private endpoint:
-
-- A Private DNS Zone for the name resolution of the private endpoint to the Azure Blob Storage account
-- A Private DNS Zone for the name resolution of the private endpoint to Azure Container Registry (ACR)
-- A Private DNS Zone for the name resolution of the private endpoint to Azure Key Vault
-- If you deploy the cluster as private, a Private DNS Zone for the name resolution of the private endpoint to the Kubernetes Server API
 
 A Virtual Network Link exists between the hub and spoke virtual networks hosting the AKS cluster and the above Private DNS Zones. A Log Analytics workspace is used to collect the diagnostics logs and metrics from the following sources:
 
