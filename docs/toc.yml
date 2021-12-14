@@ -108,20 +108,33 @@ items:
                 href: data-guide/technology-choices/analytical-data-stores.md
               - name: Analytics and reporting
                 href: data-guide/technology-choices/analysis-visualizations-reporting.md
+              - name: Batch processing
+                href: data-guide/technology-choices/batch-processing.md
+              - name: Stream processing
+                href: data-guide/technology-choices/stream-processing.md
           - name: Choose an AI/ML service
             items:
               - name: Cognitive services
                 href: data-guide/technology-choices/cognitive-services.md
-              - name: Machine learning
-                href: data-guide/technology-choices/data-science-and-machine-learning.md
               - name: Natural language processing
                 href: data-guide/technology-choices/natural-language-processing.md
+              - name: Machine learning
+                href: data-guide/technology-choices/data-science-and-machine-learning.md
+              - name: Machine learning tools
+                href: example-scenario/mlops/aml-decision-tree.yml
           - name: Choose a load balancing service
             href: guide/technology-choices/load-balancing-overview.md
           - name: Choose a messaging service
-            href: guide/technology-choices/messaging.md
+            items:
+              - name: Asynchronous messaging
+                href: guide/technology-choices/messaging.md
+              - name: Real-time message ingestion
+                href: data-guide/technology-choices/real-time-ingestion.md
           - name: Choose an IoT solution
             href: example-scenario/iot/iot-central-iot-hub-cheat-sheet.md
+          - name: Choose a mixed reality engine
+            href: /windows/mixed-reality/develop/choosing-an-engine
+            maintainContext: true
       - name: Best practices for cloud applications
         items:
           - name: Overview
@@ -3753,8 +3766,8 @@ items:
               - name: Connectivity to Oracle Cloud Infrastructure
                 href: /azure/cloud-adoption-framework/ready/azure-best-practices/connectivity-to-other-providers-oci
                 maintainContext: true
-              - name: Oracle solutions on Azure VMs
-                href: /azure/virtual-machines/workloads/oracle/oracle-vm-solutions
+              - name: Oracle solutions on Azure
+                href: /azure/virtual-machines/workloads/oracle/oracle-overview
                 maintainContext: true
               - name: Design an Oracle database in Azure
                 href: /azure/virtual-machines/workloads/oracle/oracle-design
@@ -3940,7 +3953,7 @@ items:
                 href: /azure/storage/common/storage-private-endpoints
                 maintainContext: true
               - name: Security baseline for Azure Storage
-                href: /security/benchmark/azure/baselines/storage-security-baselinen
+                href: /security/benchmark/azure/baselines/storage-security-baseline
                 maintainContext: true
               - name: Data redundancy
                 href: /azure/storage/common/storage-redundancy
