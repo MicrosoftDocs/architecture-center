@@ -305,8 +305,7 @@ To set up an Azure AD Conditional Access policy that enforces multi-factor authe
 
 1. Apply the multi-factor authentication requirement in the **Grant** window:
        
-    :::image type="content" source="./media/grant-control-desktop.png"
-       alt-text="Screenshot that shows the Grant window.":::
+    :::image type="content" source="./media/grant-control-desktop.png" alt-text="Screenshot that shows the Grant window.":::
 
 ## Pricing
 The cost of your implementation depends on your Azure AD and Microsoft 365 license costs. Total cost also includes costs for software and hardware for on-premises components, IT operations, training and education, and project implementation.
