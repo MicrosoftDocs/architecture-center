@@ -8,6 +8,8 @@ For information about applying multifactor authentication in other hybrid messag
 - [Protecting a hybrid messaging infrastructure in a desktop-client access scenario](secure-hybrid-messaging-client.yml)
 - [Protecting a hybrid messaging infrastructure in a mobile access scenario](secure-hybrid-messaging-mobile.yml)
 
+This article doesn't discuss other protocols, like IMAP or POP. We don't recommend that you use them to provide user access.
+
 ## Potential use cases
 
 This architecture is relevant for the following scenarios:
@@ -21,8 +23,6 @@ This architecture is relevant for the following scenarios:
 In this architecture, we divide the solution into two areas, describing security for:
 - Exchange Online, on the right side of the diagram. 
 - Exchange on-premises in a hybrid or non-hybrid scenario, on the left side of the diagram. 
-
-This article doesn't discuss other protocols, like IMAP or POP. We don't recommend that you use them to provide user access.
 
 :::image type="complex" border="false" source="./media/hybrid-messaging-web.png" alt-text="Screenshot that shows an architecture for enhanced security in a web access scenario." lightbox="./media/hybrid-messaging-web.png":::
    Diagram that shows two flows of web access. On the right side, a user with a mailbox hosted in Exchange Online. On the left side, a user with a mailbox hosted in Exchange on-premises. 
@@ -50,9 +50,9 @@ This article doesn't discuss other protocols, like IMAP or POP. We don't recomme
 1.	A user tries to access the Outlook on the web service via a https:\//mail.contoso.com/owa URL that points to an Exchange server for internal access or to a Web Application Proxy server for external access. 
 1.	Exchange on-premises (for internal access) or Web Application Proxy (for external access) redirects the user to AD FS for authentication.
 1.	AD FS uses Integrated Windows authentication for internal access or provides a web form in which the user can enter credentials for external access.
-1.	Responding to an AF DS Access Control policy, AD FS calls Azure AD Multi-Factor Authentication to complete authentication. Here's an example of that type of AD FS Access Control policy:
+1.	Responding to an AF DS access control policy, AD FS calls Azure AD Multi-Factor Authentication to complete authentication. Here's an example of that type of AD FS access control policy:
 
-    :::image type="content" source="./media/access-control-policy.png" alt-text="Screenshot that shows an example of an AD FS Access Control policy.":::
+    :::image type="content" source="./media/access-control-policy.png" alt-text="Screenshot that shows an example of an AD FS access control policy.":::
 
     The user gets a request to complete multifactor authentication.
 
@@ -102,7 +102,7 @@ Availability of on-premises solution components depends on the implemented desig
 
 ### Performance
 
-Performance depends on the performance of the components involved and your company's network performance. For more information, see [Office 365 performance tuning using baselines and performance history]().
+Performance depends on the performance of the components involved and your company's network performance. For more information, see [Office 365 performance tuning using baselines and performance history](/microsoft-365/enterprise/performance-tuning-using-baselines-and-history?view=o365-worldwide).
 
 For information about on-premises factors that influence performance for scenarios that include AD FS services, see these resources:
 - [Configure performance monitoring](/windows-server/identity/ad-fs/deployment/configure-performance-monitoring)
