@@ -260,7 +260,7 @@ items:
                     href: guide/multitenant/service/cosmos-db.md
           - name: Related resources
             href: guide/multitenant/related-resources.md
-      - name: Azure for AWS Professionals
+      - name: Azure for AWS professionals
         items:
           - name: Overview
             href: aws-professional/index.md
@@ -287,7 +287,7 @@ items:
                 href: aws-professional/storage.md
           - name: Service comparison
             href: aws-professional/services.md
-      - name: Azure for GCP Professionals
+      - name: Azure for Google Cloud professionals
         items:
           - name: Overview
             href: gcp-professional/index.md
