@@ -23,16 +23,8 @@ summary: Learn how to deploy an Azure Kubernetes Service (AKS) cluster in an hub
 products:
 - azure-firewall
 - azure-kubernetes-service
-- azure-container-registry
-- azure-storage
-- azure-blob-storage
-- azure-storage-accounts
-- azure-bastion
 - azure-private-link
 - azure-virtual-network
-- azure-key-vault
-- azure-log-analytics
-- azure-virtual-machines
 - azure-devops
 thumbnailUrl: /azure/architecture/browse/thumbs/aks-firewall.png
 content: |
