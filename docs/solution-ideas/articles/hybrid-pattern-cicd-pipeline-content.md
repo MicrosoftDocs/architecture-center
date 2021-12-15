@@ -19,7 +19,7 @@ This solution shows how to do deployments consistently across on-premises, priva
 
 Use this solution if:
 
-- You can develop code in one environment that meets the needs of your developers, and deploy to an environment specific to your solution where it may be difficult to develop new code.
+- You can develop code in one environment that meets the needs of your developers, and deploy to an environment specific to your solution where is difficult to develop new code.
 - You can use the code and tools your developers would like, as long as they're able to follow the continuous integration and continuous delivery process in the DevOps Pattern.
 
 This pattern isn't recommended:
@@ -41,7 +41,7 @@ _Download a [Visio file](https://arch-center.azureedge.net/hybrid-pattern-cicd-p
 
 ### Components
 
-- [Azure Stack Hub](https://azure.microsoft.com/products/azure-stack/hub) extends Azure services and capabilities to your environment of choice—from the datacenter to edge locations and remote offices—with Azure Stack. Build, deploy, and run hybrid and edge computing apps consistently across your IT ecosystem, with flexibility for diverse workloads.
+- [Azure Stack Hub](https://azure.microsoft.com/products/azure-stack/hub) extends Azure services and capabilities to your environment of choice—from the datacenter to edge locations and remote offices—with AzureStack. Build, deploy, and run hybrid and edge computing apps consistently across your IT ecosystem, with flexibility for diverse workloads.
 - [Azure Repos](https://azure.microsoft.com/services/devops/repos) is a set of version control tools that you can use to manage your code.
 - [Azure Pipeline](https://azure.microsoft.com/services/devops/pipelines) automatically builds and tests code projects to make them available to others. Azure Pipelines combines continuous integration (CI) and continuous delivery (CD) to test and build your code and ship it to any target.
 
@@ -59,19 +59,19 @@ Availability in the context of the DevOps solution means being able to recover a
 
 - Recovery Point Objective (RPO) indicates how much data you can afford to lose if a disruption in service affects the system.
 
-In practice, RTO, and RPO imply redundancy and backup. On the global Azure cloud, availability isn't a question of hardware recovery—that's part of Azure—but rather ensuring you maintain the state of your DevOps systems. On Azure Stack Hub, hardware recovery is also a consideration. See [Principles of reliability](../../framework/resiliency/principles) for additional reliability guidance.
+In practice, RTO, and RPO imply redundancy and backup. On the global Azure cloud, availability isn't a question of hardware recovery—that's part of Azure—but rather ensuring you maintain the state of your DevOps systems. On Azure Stack Hub, hardware recovery is also a consideration. See [Principles of reliability](../../framework/resiliency/principles.md) for additional reliability guidance.
 
 ### Security
 
-Another major consideration when designing the system used for deployment automation is the access control and the proper management of the rights needed to deploy services to cloud environments. What rights are needed to create, delete, or modify deployments? For example, one set of rights is typically required to create a resource group in Azure and another to deploy services in the resource group. The pipeline should have access to resources on-premise, private or public cloud, ensure it does with the accordingly access levels to each kind of environment. See [Identity and access management checklist](../../framework/security/design-identity) guidance for help securing the solution through identity management.
+Another major consideration when designing the system used for deployment automation is the access control and the proper management of the rights needed to deploy services to cloud environments. What rights are needed to create, delete, or modify deployments? For example, one set of rights is typically required to create a resource group in Azure and another to deploy services in the resource group. The pipeline should have access to resources on-premise, private or public cloud, ensure it does with the accordingly access levels to each kind of environment. See [Identity and access management checklist](../../framework/security/design-identity.md) guidance for help securing the solution through identity management.
 
 ### Operational excellence
 
-Automated deployments reduce the chance of human error. Fast and routine deployment processes won't slow down the release of new features or bug fixes.The design of any system based on the DevOps solution idea must consider automation, logging, and alerting for each service across the portfolio. 
+Automated deployments reduce the chance of human error. Fast and routine deployment processes won't slow down the release of new features or bug fixes.The design of any system based on the DevOps solution idea must consider automation, logging, and alerting for each service across the portfolio.
 
 ### Performance efficiency
 
-Deployment automation systems are the key control point in a DevOps solution. Implementations can vary. The selection of the correct server size depends on the size of the expected workload. VMs cost more to scale than containers. To use containers for scaling, however, your build process must run with containers. See [Design for scaling](../../framework/scalability/design-scale) for additional scaling guidance.
+Deployment automation systems are the key control point in a DevOps solution. Implementations can vary. The selection of the correct server size depends on the size of the expected workload. VMs cost more to scale than containers. To use containers for scaling, however, your build process must run with containers. See [Design for scaling](../../framework/scalability/design-scale.md) for additional scaling guidance.
 
 ## Next steps
 
@@ -79,9 +79,10 @@ Deployment automation systems are the key control point in a DevOps solution. Im
 - See the [Azure Stack family of products and solutions](https://docs.microsoft.com/azure-stack) to learn more about the entire portfolio of Azure Stack products and solutions.
 - Learn how to [Create your first Azure Pipeline](https://docs.microsoft.com/azure/devops/pipelines/create-first-pipeline). This is a step-by-step guide to using Azure Pipelines to build a sample application.
 - When you're ready to test the solution example, continue with the [DevOps hybrid CI/CD solution deployment guide](https://aka.ms/hybriddevopsdeploy). The deployment guide provides step-by-step instructions for deploying and testing its components.You learn how to deploy an app to Azure and Azure Stack Hub using a hybrid continuous integration/continuous delivery (CI/CD) pipeline.
-- See [Release Engineering](../../framework/devops/release-engineering-app-dev) in the Microsoft Azure Well-Architected Framework.
+- See [Release Engineering](../../framework/devops/release-engineering-app-dev.md) in the Microsoft Azure Well-Architected Framework.
 
 ## Related resources
 
-- [Design a CI/CD pipeline using Azure DevOps](./example-scenario/apps/devops-dotnet-webapp.yml)
-- [CI/CD pipeline for container-based workloads](./example-scenario/apps/devops-with-aks.yml)
+- [Design a CI/CD pipeline using Azure DevOps](../../example-scenario/apps/devops-dotnet-webapp.yml)
+- [CI/CD pipeline for container-based workloads](../../example-scenario/apps/devops-with-aks.yml)
+- [DevOps Checklist](../../checklist/dev-ops.md)
