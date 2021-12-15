@@ -125,7 +125,7 @@ Read more about instrumentation and the OpenTelemetry SDKs in the [OpenTelemetry
 
 ### Application Insights
 
-Application Insights builds on OpenTelemetry, ingesting the rich data provided by instrumented libraries and apps and providing rich visualization and query support. The Application Insights agents for various platforms such as .NET, Java, or Node.js handles the data ingestion.
+Application Insights builds on OpenTelemetry, ingesting the rich data provided by instrumented libraries and apps and providing rich visualization and query support. The [Application Insights OpenTelemetry-based instrumentation](azure/azure-monitor/app/opentelemetry-enable.md) for langauges such as .NET, Java, Node.js, or Python handles the data collection.
 
 If you are using .NET Core, we recommend also using the [Application Insights for Kubernetes](https://github.com/microsoft/ApplicationInsights-Kubernetes) library. This library enriches Application Insights traces with additional information such as the container, node, pod, labels, and replica set. _TODO: Check on the status of this_
 
