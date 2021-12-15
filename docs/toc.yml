@@ -163,7 +163,7 @@ items:
             href: best-practices/retry-service-specific.md
           - name: Transient fault handling
             href: best-practices/transient-faults.md
-      - name: Performance tuning
+      - name: Performance tuning and antipatterns
         items:
           - name: Introduction
             href: performance/index.md
@@ -273,39 +273,42 @@ items:
                     href: guide/multitenant/service/cosmos-db.md
           - name: Related resources
             href: guide/multitenant/related-resources.md
-      - name: Azure for AWS professionals
+      - name: Cloud comparison
         items:
-          - name: Overview
-            href: aws-professional/index.md
-          - name: Component information
-            expanded: true
+          - name: Azure for AWS professionals
             items:
-              - name: Accounts
-                href: aws-professional/accounts.md
-              - name: Compute
-                href: aws-professional/compute.md
-              - name: Databases
-                href: aws-professional/databases.md
-              - name: Messaging
-                href: aws-professional/messaging.md
-              - name: Networking
-                href: aws-professional/networking.md
-              - name: Regions and zones
-                href: aws-professional/regions-zones.md
-              - name: Resources
-                href: aws-professional/resources.md
-              - name: Security and identity
-                href: aws-professional/security-identity.md
-              - name: Storage
-                href: aws-professional/storage.md
+            expanded: true
+              - name: Overview
+                href: aws-professional/index.md
+              - name: Component information
+                items:
+                  - name: Accounts
+                    href: aws-professional/accounts.md
+                  - name: Compute
+                    href: aws-professional/compute.md
+                  - name: Databases
+                    href: aws-professional/databases.md
+                  - name: Messaging
+                    href: aws-professional/messaging.md
+                  - name: Networking
+                    href: aws-professional/networking.md
+                  - name: Regions and zones
+                    href: aws-professional/regions-zones.md
+                  - name: Resources
+                    href: aws-professional/resources.md
+                  - name: Security and identity
+                    href: aws-professional/security-identity.md
+                  - name: Storage
+                    href: aws-professional/storage.md
           - name: Service comparison
             href: aws-professional/services.md
-      - name: Azure for Google Cloud professionals
-        items:
-          - name: Overview
-            href: gcp-professional/index.md
-          - name: Services comparison
-            href: gcp-professional/services.md
+          - name: Azure for Google Cloud professionals
+            items:
+            expanded: true
+              - name: Overview
+                href: gcp-professional/index.md
+              - name: Services comparison
+                href: gcp-professional/services.md
   - name: Design Patterns
     items:
       - name: Overview
