@@ -28,28 +28,28 @@ Azure provides a number of options for organizing your resources. In a multitena
 
 ### Tenant isolation requirements
 
-When you deploy a multitenant solution in Azure, you need to determine whether you dedicate resources to each tenant or if you share resources between multiple tenants. Throughout the multitenancy approaches and service-specific guidance sections of this series, we describe the options and their trade-offs for many categories of resources. In general, though, there are a range of options for *tenant isolation*. Review [Tenancy models to consider for a multitenant solution](../considerations/tenancy-models.md) for more information on the factors that influence the isolation model decision.
+When you deploy a multitenant solution in Azure, you need to determine whether you dedicate resources to each tenant or if you share resources between multiple tenants. Throughout the multitenancy approaches and [service-specific guidance](../service/overview.md) sections of this series, we describe the options and their trade-offs for many categories of resources. In general, though, there are a range of options for *tenant isolation*. Review [Tenancy models to consider for a multitenant solution](../considerations/tenancy-models.md) for more information on the factors that influence the isolation model decision.
 
 ### Scale
 
 Most Azure resources, as well as resource groups and subscriptions, impose limits that can affect your ability to scale. You might need to consider *scaling out* or *bin packing* to ensure you can meet the number of tenants you plan to grow to, or the level of load you expect to receive.
 
-If you know with certainty that you won't grow to large numbers of tenants or large levels of load, you don't need to overengineer your scale-out plan, and likely don't need to follow the guidance in this section. But if you plan for your solution to grow, carefully consider your scale-out plan and ensure you architect for scale by following the guidance on this page.
+If you know with certainty that you won't grow to large numbers of tenants or large levels of load, you don't need to overengineer your scale-out plan, and likely don't need to do anything special. But if you plan for your solution to grow, carefully consider your scale-out plan and ensure you architect for scale by following the guidance on this page.
+
+If you have an automated deployment process and need to scale across resources, you need to determine how you'll deploy and assign tenants across multiple resource instances. For example, how will you detect that you're approaching the number of tenants that can be assigned to a specific resource? Will you plan to deploy additional resources as you need them (*just in time*), or will you deploy a pool of resources *ahead of time* so they're ready for you to use when you need them?
 
 > [!TIP]
 > In the early stages of design and development, you might not choose to implement an automated scale-out process. You should still consider and clearly document the processes required to scale as you grow.
 
-If you have an automated deployment process and need to scale across resources, you need to determine how you'll deploy and assign tenants across multiple resource instances. For example, how will you detect that you're approaching the number of tenants that can be assigned to a specific resource? Will you plan to deploy additional resources as you need them (*just in time*), or will you deploy a pool of resources *ahead of time* so they're ready for you to use when you need them?
-
-It's also important to avoid making assumptions in your code and configuration that can limit your ability to scale. For example, if you plan to scale out to multiple storage accounts, ensure your application tier doesn't assume that it only connects to a single storage account for all tenants.
+It's also important to avoid making assumptions in your code and configuration that can limit your ability to scale. For example, if you might need to scale out to multiple storage accounts, ensure your application tier doesn't assume that it only connects to a single storage account for all tenants.
 
 ## Approaches and patterns to consider
 
 ### Tenant isolation
 
-Azure resources are deployed and managed through a hierarchy: most *resources* are deployed into [*resource groups*](/azure/azure-resource-manager/management/manage-resource-groups-portal), which are contained in *subscriptions*. [*Management groups*](/azure/governance/management-groups/overview) logically group subscriptions together. All of these hierarchical layers exist within an [*Azure Active Directory tenant*](/azure/active-directory/fundamentals/active-directory-how-subscriptions-associated-directory).
+Azure resources are deployed and managed through a hierarchy: most *resources* are deployed into [*resource groups*](/azure/azure-resource-manager/management/manage-resource-groups-portal), which are contained in *subscriptions*. [*Management groups*](/azure/governance/management-groups/overview) logically group subscriptions together. All of these hierarchical layers exist within an [*Azure Active Directory (Azure AD) tenant*](/azure/active-directory/fundamentals/active-directory-how-subscriptions-associated-directory).
 
-When you determine how to deploy resources for each tenant, you might choose to isolate at any of these levels in the hierarchy. Each option is valid for certain types of multitenant solutions, and comes with benefits and costs. It's also common to combine approaches, using different isolation models for different components of a solution.
+When you determine how to deploy resources for each tenant, you might choose to isolate at any of these levels in the hierarchy. Each option is valid for certain types of multitenant solutions, and comes with benefits and tradeoffs. It's also common to combine approaches, using different isolation models for different components of a solution.
 
 #### Isolation within a shared resource
 
@@ -168,7 +168,7 @@ And as you grow even larger you can deploy across multiple (*S*) subscriptions, 
 
 By planning your scale-out strategy, you can scale to extremely large numbers of tenants and sustain a high level of load.
 
-## Tags
+### Tags
 
 Resource tags enable you to add custom metadata to your Azure resources, which can be useful for management and tracking costs. For more detail, see [Allocate costs by using resource tags](cost-management-allocation.md#allocate-costs-by-using-resource-tags).
 
