@@ -121,7 +121,7 @@ An application developer can add manual instrumentation using the OpenTelemetry 
 - Enrich existing Spans with entity keys to enable easier tracing (e.g. add an "OrderID" key/value to the request that processes that order). These are surfaced by the monitoring tools as structured values for querying, filtering and aggregating (without parsing out log message strings or looking for combinations of log message sequences, as was commmon with a logging-first approach.)
 - Access Trace and Span attributes to inject traceIds into responses and payloads to streamline troubleshooting.
 
-Read more about instrumention and the OpenTelemetry SDKs in the [OpenTelemetry documentation](https://opentelemetry.io/docs/concepts/instrumenting/).
+Read more about instrumentation and the OpenTelemetry SDKs in the [OpenTelemetry documentation](https://opentelemetry.io/docs/concepts/instrumenting/).
 
 ### Application Insights
 
