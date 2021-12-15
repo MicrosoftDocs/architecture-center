@@ -30,7 +30,7 @@ In this section, we provide guidance about the features of each service that are
 
 ## Intended audience
 
-The content in this section is designed for architects, lead developers, and anyone building or implementing Azure components for a multitenant solution. This includes independent software vendors (ISVs) and startups who develop SaaS solutions.
+The content in this section is designed for architects, lead developers, and anyone building or implementing Azure components for a multitenant solution. The audience also includes independent software vendors (ISVs) and startups who develop SaaS solutions.
 
 ## What's covered in this section?
 
