@@ -15,7 +15,7 @@ ms.custom:
 
 ## Testing at expected peak load
 
-Load test your application at the expected peak load to ensure there are no challenges around performance or stability when operating at full capacity. Review [Changes to load test functionality in Visual Studio and cloud load testing in Azure DevOps](/azure/devops/test/load-test/overview?view=azure-devops&preserve-view=true) to get an overview of the Microsoft provided load testing tools, along with a comprehensive list of third-party tools you can leverage as well.
+Load test your application at the expected peak load to ensure there are no challenges around performance or stability when operating at full capacity. See the new [Azure Load Testing service](https://azure.microsoft.com/pricing/details/load-testing) released in preview in November 2021. Review [Changes to load test functionality in Visual Studio and cloud load testing in Azure DevOps](/azure/devops/test/load-test/overview?view=azure-devops&preserve-view=true) to get an overview of the Microsoft provided load testing tools, along with a comprehensive list of third-party tools you can leverage as well.
 
 ## Azure service limits
 
@@ -37,7 +37,7 @@ Applications should implement a strategy that helps to ensure that the data in t
 
 ## Availability of SKUs
 
-Certain Azure SKUs are only available in certain regions. Understand which SKUs are available in the regions you operate in so you can plan accordingly. Read about [global infrastructure services](https://azure.microsoft.com/global-infrastructure/services/).
+Certain Azure SKUs are only available in certain regions. Understand which SKUs are available in the regions you operate in so you can plan accordingly. Read about [global infrastructure services](https://azure.microsoft.com/global-infrastructure/services).
 
 ## Related sections
 [Performance tuning scenario: Event streaming with Azure Functions](../../performance/event-streaming.md)
