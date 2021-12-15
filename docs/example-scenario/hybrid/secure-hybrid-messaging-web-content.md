@@ -5,8 +5,8 @@ This article describes an architecture to enhance your security in a web access 
 The architectures here describe scenarios to help you protect your messaging service (Outlook on the web or Exchange Control Panel) when mailboxes are hosted in Exchange Online or Exchange on-premises.
 
 For information about applying multi-factor authentication in other hybrid messaging scenarios, see these articles:
-- [Protecting a hybrid messaging infrastructure in a desktop-client access scenario](secure-hybrid-messaging-client.yml)
-- [Protecting a hybrid messaging infrastructure in a mobile access scenario](secure-hybrid-messaging-mobile.yml)
+- [Enhanced-security hybrid messaging infrastructure in a desktop-client access scenario](secure-hybrid-messaging-client.yml)
+- [Enhanced-security hybrid messaging infrastructure in a mobile access scenario](secure-hybrid-messaging-mobile.yml)
 
 This article doesn't discuss other protocols, like IMAP or POP. We don't recommend that you use them to provide user access.
 
@@ -31,7 +31,7 @@ In this architecture, we divide the solution into two areas, describing security
 ### General notes
 - This architecture uses the [federated](/microsoft-365/enterprise/plan-for-directory-synchronization?view=o365-worldwide#federated-authentication) Azure Active Directory (Azure AD) identity model. For the password hash synchronization and Pass-through Authentication models, the logic and the flow are the same. The only difference is related to the fact that Azure AD won't redirect the authentication request to on-premises Active Directory Federation Services (AD FS).
 - The diagram shows access to the Outlook on the web service that corresponds to an …/owa path. Exchange admin center (or Exchange Control Panel) user access that corresponds to an …/ecp path follows the same flow.
-- In the diagram, dashed arrows show basic interactions between local Active Directory, Azure AD Connect, Azure AD, AD FS, and Web Application Proxy components. You can learn more about these interactions in [Hybrid identity required ports and protocols](/azure/active-directory/hybrid/reference-connect-ports).
+- In the diagram, dashed lines show basic interactions between local Active Directory, Azure AD Connect, Azure AD, AD FS, and Web Application Proxy components. You can learn more about these interactions in [Hybrid identity required ports and protocols](/azure/active-directory/hybrid/reference-connect-ports).
 - By *Exchange on-premises*, we mean Exchange 2019 with the latest updates, Mailbox role. By *Exchange Edge on-premises*, we mean Exchange 2019 with the latest updates, Edge Transport role. We include Edge server in the diagram to highlight that you can use it in these scenarios. It's not involved in the work with client protocols that's discussed here.
 - In a real environment, you won't have just one server. You'll have a load-balanced array of Exchange servers for high availability. The scenarios described here are suited for that configuration.
 
@@ -168,5 +168,5 @@ For information about AD FS and Web Application Proxy, see [Pricing and licensin
 
 ## Related resources
 
-- [Protecting a hybrid messaging infrastructure in a desktop-client access scenario](secure-hybrid-messaging-client.yml)
-- [Protecting a hybrid messaging infrastructure in a mobile access scenario](secure-hybrid-messaging-mobile.yml)
+- [Enhanced-security hybrid messaging infrastructure in a desktop-client access scenario](secure-hybrid-messaging-client.yml)
+- [Enhanced-security hybrid messaging infrastructure in a mobile access scenario](secure-hybrid-messaging-mobile.yml)
