@@ -209,7 +209,7 @@ MDC.put("DeliveryId", deliveryId);
 log.info("In schedule delivery action with delivery request {}", externalDelivery.toString());
 ```
 
-When the goal is to connect a business entity with a set of messages and operations for traceability, enriching OpenTelemetry objects is often a better approach. The OpenTelemetry SDKs for various langauges support adding custom attributes on Spans. For example the above, [using the Java OpenTelemetry SDK](https://github.com/open-telemetry/opentelemetry-java-instrumentation/blob/main/docs/manual-instrumentation.md#adding-attributes-to-the-current-span) ([supported by Application Insights[(https://docs.microsoft.com/en-us/azure/azure-monitor/app/java-in-process-agent#add-span-attributes)])could be rewritten as:
+Many log messages mark the start/end of a unit of work or connect a business entity with a set of messages and operations for traceability. In many cases, enriching OpenTelemetry objects is a better approach than logs. The OpenTelemetry SDKs for various langauges support creating Spans or adding custom attributes on Spans. For example the above, [using the Java OpenTelemetry SDK](https://github.com/open-telemetry/opentelemetry-java-instrumentation/blob/main/docs/manual-instrumentation.md#adding-attributes-to-the-current-span) ([supported by Application Insights[(https://docs.microsoft.com/en-us/azure/azure-monitor/app/java-in-process-agent#add-span-attributes)])could be rewritten as:
 
 ```java
 import io.opentelemetry.api.trace.Span;
@@ -219,7 +219,7 @@ import io.opentelemetry.api.trace.Span;
 Span.current().setAttribute("A1234", deliveryId);
 ```
 
-This sets a key/value on the Span which is connected to any other operations and log mesages that occur under that Span. This appears in the Application Insights Request object:
+This sets a key/value on the current Span, which is connected to operations and log mesages that occur under that Span. This appears in the Application Insights Request object:
 
 ```kusto
 requests
@@ -241,13 +241,11 @@ requests
 
 ## Distributed tracing
 
-A significant challenge of microservices is to understand the flow of events across services. A single transaction may involve calls to multiple services. 
+A significant challenge of microservices is to understand the flow of events across services. A single transaction may involve calls to multiple services.
 
 [TODO: Modern advice assume that the work of creating a correlation/operation/trace ID is done by OpenTelemetry and context propogation are done by libraries; maybe link to resources about how to implement custom context propagation where needed]
 
 ### Example of distributed tracing
-
-[TODO: Revise based on above]
 
 This example follows a distributed transaction through a set of microservices. The example is taken from a reference implementation described [here](./design/index.md#reference-implementation).
 
