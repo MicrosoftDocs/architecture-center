@@ -40,7 +40,7 @@ The pages in this section describe some Azure services commonly used in multiten
 - Compute: [App Service and Azure Functions](app-service.md)
 - Storage and data: [Azure Storage](storage.md), [Azure SQL Database](sql-database.md), and [Azure Cosmos DB](cosmos-db.md)
 
-We add new pages with guidance for additional services on a regular basis. You are also welcome to [submit suggestions for additional service-specific guidance](https://aka.ms/multitenancy/feedback).
+We frequently add new pages with guidance for additional services. You're also welcome to [submit suggestions for additional service-specific guidance](https://aka.ms/multitenancy/feedback).
 
 ## Next steps
 
