@@ -1,33 +1,29 @@
-
-
-
 [!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
 This solution demonstrates how to build and deploy a machine learning model with SQL Server 2016 with R Services to recommend actions to maximize the purchase rate of leads targeted by a campaign.
+
+When a business launches a marketing campaign to interest customers in new or existing product(s), they often use a set of business rules to select leads for their campaign to target. Machine learning can be used to help increase the response rate from these leads. This solution demonstrates how to use a model to predict actions that are expected to maximize the purchase rate of leads targeted by the campaign. These predictions serve as the basis for recommendations to be used by a renewed campaign on how to contact (for example, e-mail, SMS, or cold call) and when to contact (day of week and time of day) the targeted leads. The solution presented here uses simulated data from the insurance industry to model responses of the leads to the campaign. The model predictors include demographic details of the leads, historical campaign performance, and product-specific details. The model predicts the probability that each lead in the database makes a purchase from a channel, on each day of the week at various times of day. Recommendations on which channel, day of week and time of day to use when targeting users are based then on the channel and timing combination that the model predicts will have the highest probability a purchase being made.
+
+## Potential use cases
+
+The Microsoft Marketing Campaign Optimization solution is a combination of a Machine learning prediction model and an interactive visualization tool, PowerBI. The solution is used to increase the response rate to a campaign by recommending the channel to contact (for example, e-mail, SMS, or cold call) as well as when to contact (day of week and time of day) targeted leads for use in a new campaign. The solution uses simulated data, which can easily be configured to use your own organization's data, to model the acquisition campaign response. The model uses predictors such as demographics, historical campaign performance and product details. The solution predicts the probability of a lead conversion from each channel, at various times of the day and days of the week, for every lead in the database. The final recommendation for targeting each lead is decided based upon the combination of channel, day of week and time of day with the highest probability of conversion. The solution has been modeled after a standardized data science process, where the data preparation, model training and evaluation can be easily done by a data scientist and the insights visualized and correlated to KPIs by marketing via Power BI visualization.
 
 ## Architecture
 
 ![Architecture Diagram](../media/campaign-optimization-with-sql-server.png)
 *Download an [SVG](../media/campaign-optimization-with-sql-server.svg) of this architecture.*
 
-## Components
+### Components
 
 This architecture includes the following components:
 
 * [**SQL Server Machine**](/sql/machine-learning/r/sql-server-r-services?view=sql-server-2016&viewFallbackFrom=sql-server-ver15) will be used for compute. Solutions are deployed to SQL Server 2016 by embedding calls to R in stored procedures.
  
-* [**SQL Server Integration Services**](sql/integration-services/sql-server-integration-services?view=sql-server-ver15) and [**SQL Server Agent**](sql/ssms/agent/sql-server-agent?view=sql-server-ver15) can be leveraged to automate these solutions.
+* [**SQL Server Integration Services**](/sql/integration-services/sql-server-integration-services?view=sql-server-ver15) and [**SQL Server Agent**](sql/ssms/agent/sql-server-agent?view=sql-server-ver15) can be leveraged to automate these solutions.
 
-* [**Power BI**](/what-is-power-bi) helps drive better decision making with data visualization. Visualizations help gain deeper data insight.
+* [**Power BI**](https://powerbi.microsoft.com) helps drive better decision making with data visualization. Visualizations help gain deeper data insight.
 
-
-## Overview
-
-When a business launches a marketing campaign to interest customers in new or existing product(s), they often use a set of business rules to select leads for their campaign to target. Machine learning can be used to help increase the response rate from these leads. This solution demonstrates how to use a model to predict actions that are expected to maximize the purchase rate of leads targeted by the campaign. These predictions serve as the basis for recommendations to be used by a renewed campaign on how to contact (for example, e-mail, SMS, or cold call) and when to contact (day of week and time of day) the targeted leads. The solution presented here uses simulated data from the insurance industry to model responses of the leads to the campaign. The model predictors include demographic details of the leads, historical campaign performance, and product-specific details. The model predicts the probability that each lead in the database makes a purchase from a channel, on each day of the week at various times of day. Recommendations on which channel, day of week and time of day to use when targeting users are based then on the channel and timing combination that the model predicts will have the highest probability a purchase being made.
-
-The Microsoft Marketing Campaign Optimization solution is a combination of a Machine learning prediction model and an interactive visualization tool, PowerBI. The solution is used to increase the response rate to a campaign by recommending the channel to contact (for example, e-mail, SMS, or cold call) as well as when to contact (day of week and time of day) targeted leads for use in a new campaign. The solution uses simulated data, which can easily be configured to use your own organization's data, to model the acquisition campaign response. The model uses predictors such as demographics, historical campaign performance and product details. The solution predicts the probability of a lead conversion from each channel, at various times of the day and days of the week, for every lead in the database. The final recommendation for targeting each lead is decided based upon the combination of channel, day of week and time of day with the highest probability of conversion. The solution has been modeled after a standardized data science process, where the data preparation, model training and evaluation can be easily done by a data scientist and the insights visualized and correlated to KPIs by marketing via Power BI visualization.
-
-## Business Manager Perspective
+## Business manager perspective
 
 This solution template uses (simulated) historical data to predict how and when to contact leads for your campaign. The recommendations include the best channel to contact a lead (in our example, email, SMS, or cold call), the best day of the week and the best time of day in which to make the contact.
 
@@ -43,7 +39,7 @@ Also on the Recommendations tab are various summaries of recommendations and dem
 
 The Campaign Summary tab of the dashboard shows summaries of the historical data used to create the predicted recommendations. While this tab also shows values of Day of Week, Time of Day, and Channel, these values are actual past observations, not to be confused with the recommendations shown on the Recommendations tab.
 
-## Data Scientist Perspective
+## Data scientist perspective
 
 SQL Server R Services brings the compute to the data by running R on the computer that hosts the database. It includes a database service that runs outside the SQL Server process and communicates securely with the R runtime.
 
@@ -61,16 +57,21 @@ Please ensure that you stop your VM instance when not actively using the solutio
 
 Please delete the solution if you are not using it.
 
-## Related Resources
+## Next steps
 
 * [**SQL Server 2016 R Services**](/sql/machine-learning/r/sql-server-r-services?view=sql-server-2016)
-
 * [**SQL Server Machine Learning Services with R**](/sql/machine-learning/sql-server-machine-learning-services?view=sql-server-ver15)
-
 * [**R tutorials for SQL machine learning**](/sql/machine-learning/tutorials/r-tutorials?view=sql-server-ver15)
-
 * [**Install on Windows - SQL Server Machine Learning Services**](/sql/machine-learning/install/sql-machine-learning-services-windows-install?view=sql-server-ver15)
-
 * [**MicrosoftML**](/machine-learning-server/r/concept-what-is-the-microsoftml-package)
+* [**Power BI**](/power-bi/fundamentals/power-bi-overview)
 
+## Related resources
 
+* [Extract, transform, and load (ETL)](data-guide/relational-data/etl.md)
+* [Hybrid ETL with Azure Data Factory](example-scenario/data/hybrid-etl-with-adf.yml)
+* [Enterprise business intelligence](reference-architectures/data/enterprise-bi-synapse.yml)
+* [Modern data warehouse for small and medium business](example-scenario/data/small-medium-data-warehouse.yml)
+* [Migrate master data services to Azure with CluedIn and Azure Purview](reference-architectures/data/migrate-master-data-services-with-cluedin.yml)
+* [Modernize mainframe and midrange data](reference-architectures/migration/modernize-mainframe-data-to-azure.yml)
+* [Replicate and sync mainframe data in Azure](reference-architectures/migration/sync-mainframe-data-with-azure.yml)
