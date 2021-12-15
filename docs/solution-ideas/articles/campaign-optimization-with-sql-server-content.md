@@ -19,7 +19,7 @@ This architecture includes the following components:
 
 * [**SQL Server Machine**](/sql/machine-learning/r/sql-server-r-services?view=sql-server-2016&viewFallbackFrom=sql-server-ver15) will be used for compute. Solutions are deployed to SQL Server 2016 by embedding calls to R in stored procedures.
  
-* [**SQL Server Integration Services**](/sql/integration-services/sql-server-integration-services?view=sql-server-ver15) and [**SQL Server Agent**](sql/ssms/agent/sql-server-agent?view=sql-server-ver15) can be used to automate these solutions.
+* [**SQL Server Integration Services**](/sql/integration-services/sql-server-integration-services?view=sql-server-ver15) and [**SQL Server Agent**](/sql/ssms/agent/sql-server-agent?view=sql-server-ver15) can be used to automate these solutions.
 
 * [**Power BI**](https://powerbi.microsoft.com) helps drive better decision making with data visualization. Visualizations help gain deeper data insight.
 
@@ -68,10 +68,10 @@ Try out some code:
 
 ## Related resources
 
-* [Extract, transform, and load (ETL)](data-guide/relational-data/etl.md)
-* [Hybrid ETL with Azure Data Factory](example-scenario/data/hybrid-etl-with-adf.yml)
-* [Enterprise business intelligence](reference-architectures/data/enterprise-bi-synapse.yml)
-* [Modern data warehouse for small and medium business](example-scenario/data/small-medium-data-warehouse.yml)
-* [Migrate master data services to Azure with CluedIn and Azure Purview](reference-architectures/data/migrate-master-data-services-with-cluedin.yml)
-* [Modernize mainframe and midrange data](reference-architectures/migration/modernize-mainframe-data-to-azure.yml)
-* [Replicate and sync mainframe data in Azure](reference-architectures/migration/sync-mainframe-data-with-azure.yml)
+* [Extract, transform, and load (ETL)](/azure/architecture/data-guide/relational-data/etl)
+* [Hybrid ETL with Azure Data Factory](/azure/architecture/example-scenario/data/hybrid-etl-with-adf)
+* [Enterprise business intelligence](/azure/architecture/reference-architectures/data/enterprise-bi-synapse)
+* [Modern data warehouse for small and medium business](/azure/architecture/example-scenario/data/small-medium-data-warehouse)
+* [Migrate master data services to Azure with CluedIn and Azure Purview](/azure/architecture/reference-architectures/data/migrate-master-data-services-with-cluedin)
+* [Modernize mainframe and midrange data](/azure/architecture/reference-architectures/migration/modernize-mainframe-data-to-azure)
+* [Replicate and sync mainframe data in Azure](/azure/architecture/reference-architectures/migration/sync-mainframe-data-with-azure)
