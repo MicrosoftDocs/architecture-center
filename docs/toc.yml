@@ -276,8 +276,8 @@ items:
       - name: Cloud comparisons
         items:
           - name: Azure for AWS professionals
-            items:
             expanded: true
+            items:            
               - name: Overview
                 href: aws-professional/index.md
               - name: Component information
@@ -303,8 +303,8 @@ items:
           - name: Service comparison
             href: aws-professional/services.md
           - name: Azure for Google Cloud professionals
-            items:
             expanded: true
+            items:            
               - name: Overview
                 href: gcp-professional/index.md
               - name: Services comparison
