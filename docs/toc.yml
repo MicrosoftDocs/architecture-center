@@ -2296,7 +2296,7 @@ items:
                     href: data-guide/relational-data/online-analytical-processing.md
                   - name: Online transaction processing (OLTP)
                     href: data-guide/relational-data/online-transaction-processing.md
-                  - name: Data Warehousing
+                  - name: Data warehousing
                     href: data-guide/relational-data/data-warehousing.md
               - name: Non-relational data
                 items:
@@ -2310,9 +2310,9 @@ items:
                     href: data-guide/scenarios/csv-and-json.md
               - name: Build a scalable system for massive data
                 href: data-guide/scenarios/build-scalable-database-solutions-azure-services.md
-              - name: Big Data
+              - name: Big data
                 items:
-                  - name: Big Data architectures
+                  - name: Big data architectures
                     href: data-guide/big-data/index.md
                   - name: Batch processing
                     href: data-guide/big-data/batch-processing.md
@@ -2372,6 +2372,40 @@ items:
               - name: High availability for SQL DB and SQL MI
                 href: /azure/azure-sql/database/high-availability-sla
                 maintainContext: true
+              - name: Cosmos DB guidance
+                items:
+                  - name: Azure Cosmos DB resource model
+                    href: /azure/cosmos-db/account-databases-containers-items
+                    maintainContext: true
+                  - name: Global dstribution
+                    items:
+                      - name: Distribute data globally with Cosmos DB
+                        href: /azure/cosmos-db/distribute-data-globally
+                        maintainContext: true
+                      - name: Consistency levels in Cosmos DB
+                        href: /azure/cosmos-db/consistency-levels
+                        maintainContext: true
+                      - name: High availability with Cosmos DB
+                        href: /azure/cosmos-db/high-availability
+                        maintainContext: true
+                      - name: Global distribution functional details
+                        href: /azure/cosmos-db/global-dist-under-the-hood
+                        maintainContext: true
+                  - name: Partitioning and horizontal scaling
+                    href: /azure/cosmos-db/partitioning-overview
+                    maintainContext: true
+                  - name:
+                    href: 
+                    maintainContext: true
+                  - name:
+                    href: 
+                    maintainContext: true
+                  - name:
+                    href: 
+                    maintainContext: true
+                  - name:
+                    href: 
+                    maintainContext: true
               - name: Monitor Azure Databricks jobs
                 items:
                   - name: Overview
