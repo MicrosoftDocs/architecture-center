@@ -144,7 +144,7 @@ For example, suppose you deploy an Azure Application Gateway as part of a multit
 
 Whether you work with shared or dedicated resources, it's important to account for the limits to the number of resources that can be [deployed into a resource group](/azure/azure-resource-manager/management/azure-subscription-service-limits#resource-group-limits) and [into an Azure subscription](/azure/azure-resource-manager/management/azure-subscription-service-limits#subscription-limits). As you approach these limits, you need to plan to scale across multiple resource groups or subscriptions.
 
-For example, suppose you deploy a dedicated application gateway for each of your customers. You deploy them into a shared resource group. Azure supports deploying 800 resources of the same type into a single resource group, so when you reach this number, you need to deploy any new application gateways into another resource group:
+For example, suppose you deploy a dedicated application gateway for each of your customers. You deploy them into a shared resource group. For some resources, [Azure supports deploying up to 800 resources of the same type](/azure/azure-resource-manager/management/resources-without-resource-group-limit) into a single resource group, so when you reach this number, you need to deploy any new application gateways into another resource group:
 
 ![Diagram showing two resource groups, each containing 800 application gateways.](media/resource-organization/bin-pack-resource-group.png)
 
