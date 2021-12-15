@@ -116,7 +116,7 @@ Most of the Azure SDKs have been instrumented with OpenTelemetry or are in the p
 
 An application developer can add manual instrumentation using the OpenTelemetry SDKs to:
 
-- Add instrumention where an underlying library does not provide it
+- Add instrumentation where an underlying library does not provide it
 - Enrich the trace context by adding Spans to expose application-specific units of work (e.g. an order loop creating a span for the processing of each order line)
 - Enrich existing Spans with entity keys to enable easier tracing (e.g. add an "OrderID" key/value to the request that processes that order). These are surfaced by the monitoring tools as structured values for querying, filtering and aggregating (without parsing out log message strings or looking for combinations of log message sequences, as was commmon with a logging-first approach.)
 - Access Trace and Span attributes to inject traceIds into responses and payloads to streamline troubleshooting.
