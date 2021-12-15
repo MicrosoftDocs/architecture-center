@@ -110,7 +110,7 @@ OpenTelemetry is a cross-industry effort to improve tracing by standardizing the
 - Exceptions thrown
 - Context propagation (e.g. sending a correlation ID across HTTP call boundaries)
 
-Instead, the base libraries and frameworks that handle these operations that handele these calls create rich interrlated Span and Trace data structures and propagate these across contexts. Before OpenTelemetry, these were usually just injected as special log messages or as proprietary data structures specific to the vendor building the monitoring tools. OpenTelemetry also encourages a richer instrumention data model than a traditional logging-first approach, and the logs are made more useful since log messages are linked to the Traces and Spans where they were generated. This often makes finding logs associated with a specific operation or request very easy.
+Instead, the base libraries and frameworks that handle these operations create rich interrelated Span and Trace data structures and propagate these across contexts. Before OpenTelemetry, these were usually just injected as special log messages or as proprietary data structures specific to the vendor building the monitoring tools. OpenTelemetry also encourages a richer instrumentation data model than a traditional logging-first approach, and the logs are made more useful since log messages are linked to the Traces and Spans where they were generated. This often makes finding logs associated with a specific operation or request very easy.
 
 Most of the Azure SDKs have been instrumented with OpenTelemetry or in the process. _TODO: Is there a doc or link on this status we should add here?_
 
