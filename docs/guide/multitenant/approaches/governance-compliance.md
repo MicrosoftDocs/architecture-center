@@ -101,15 +101,12 @@ Similarly, if a tenant has strict compliance requirements that you can't meet in
 
 ## Antipatterns to avoid
 
-- **Not understanding your tenants' compliance requirements.**
-- **Assuming there are no compliance requirements.**
-- **Using separate Azure Active Directory tenants.** (TODO confirm this one)
-- **Not planning for scale.** e.g. limits, and how you will actually deploy all of the resources
-- **Not planning for management.** e.g. how you will deal with large numbers of resources
-- **Not using management groups.** (moving things around later disrupts RBAC)
-- **Not planning RBAC.** Use groups, proper scopes, and proper roles.
-- **Not planning to scale across subscriptions.** Even if you don't need it today, plan to scale to multiple subscriptions as you grow.
-- **Not using Azure Policy.**
+- **Not understanding your tenants' compliance requirements.** It's important not to make assumptions about the compliance requirements that your tenants might impose. If you plan to grow your solution into new markets, be mindful of the regulatory environment that your tenants are likely to operate within. Follow good practices when you deploy your Azure resources to minimize the impact of following new compliance standards.
+- **Assuming there are no compliance requirements.** When you first launch a multitenant solution, you might not be aware of compliance requirements or you might not need to follow any. As you grow, you're likely to need to provide evidence that you comply with various standards. Use [Azure Defender for Cloud](TODO) to monitor your compliance posture, even before you need to.
+- **Not planning for management.** As you deploy your Azure resources, consider how you plan to manage them. If you need to make bulk updates to resources, ensure you have an understanding of automation tools like Azure PowerShell, the Azure CLI, and the Resource Graph API.
+- **Not using management groups.** Plan your subscription and management group hierarchy, including access control and Azure Policy resources at each scope. It can be challenging to change these elements when your resources are in use.
+- **Not planning your access control effectively.** Azure's role-based access control (RBAC) system provides a high degree of control and flexibility in how you manage access to your resources. Ensure you use Azure AD groups to avoid assigning permissions to individual users. Assign roles at scopes that provide an appropriate balance between security and flexibility. Use built-in role definitions wherever possible, and assign roles that provide the minimum permissions required.
+- **Not using Azure Policy.** It's important to use Azure Policy to govern your Azure environment. After you plan and deploy policies, ensure you monitor the policy compliance and carefully review any violations or exceptions.
 
 ## Next steps
 
