@@ -23,7 +23,7 @@ The integration of WANdisco Fusion with Azure HDInsight presents an enterprise s
 - Local edge router
 - [Azure ExpressRoute](https://azure.microsoft.com/services/expressroute) circuit
 - Microsoft Edge router
-- Data replication (WANdisco's [LiveData Migrator for Azure]() and [LiveData Plane for Azure](https://azuremarketplace.microsoft.com/marketplace/apps/wandisco.ldma?tab=PlansAndPrice))
+- Data replication (WANdisco's [LiveData Migrator for Azure](https://azuremarketplace.microsoft.com/marketplace/apps/wandisco.ldma) and [LiveData Plane for Azure](https://azuremarketplace.microsoft.com/marketplace/apps/wandisco.ldma?tab=PlansAndPrice))
 - [Azure HDInsight](https://azure.microsoft.com/services/hdinsight)
 - [Azure Virtual Network](https://azure.microsoft.com/services/virtual-network)
 
