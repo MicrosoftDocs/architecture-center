@@ -1,6 +1,3 @@
-
-
-
 Do you have legacy Oracle code and prefer using a managed service on Azure? If so, you can use the Azure Database Migration Service to migrate your Oracle database to Azure Database for PostgreSQL. It's the option for you because it:
 
 * Provides built-in [business continuity](/azure/postgresql/concepts-business-continuity) and [disaster recovery](/azure/postgresql/concepts-backup) capacity.
@@ -17,7 +14,7 @@ Do you have legacy Oracle code and prefer using a managed service on Azure? If s
 
 1. Migrate the database to Azure Database for PostgreSQL.
 
-## Components
+### Components
 
 * [Azure Database Migration Service](https://azure.microsoft.com/services/database-migration/) is a tool that helps you simplify, guide, and automate your database migration to Azure.
 
@@ -32,13 +29,11 @@ Do you have legacy Oracle code and prefer using a managed service on Azure? If s
 * Create an [Azure subscription](/azure/cost-management-billing/manage/create-subscription).
 * Create an instance of the [Azure Database Migration Service by using the Azure portal](/azure/dms/quickstart-create-data-migration-service-portal).
 
-### Evaluate your Oracle database
+### Microsoft Assessment and Planning (MAP) Toolkit
 
-To evaluate your Oracle database, run the [Oracle PL\SQL](https://github.com/microsoft/DataMigrationTeam/blob/master/Oracle%20Inventory%20Script%20Artifacts/Oracle%20Inventory%20Script%20Artifacts/Oracle_PreSSMA_Pre_v12.sql) and [Oracle PL\SQL 2](https://github.com/microsoft/DataMigrationTeam/blob/master/Oracle%20Inventory%20Script%20Artifacts/Oracle%20Inventory%20Script%20Artifacts/Oracle_PreSSMA_v12_Plus.sql) tools in your existing Oracle database. See the [Assessment guide](https://github.com/microsoft/DataMigrationTeam/blob/master/Oracle%20Inventory%20Script%20Artifacts/Oracle%20Inventory%20Script%20Artifacts/OraclePre-SSMA%20Query%20Guidance.pptx) for instructions on how to run both of the tools.
+Use the [Microsoft Assessment and Planning (MAP) Toolkit](https://go.microsoft.com/fwlink/?LinkID=316883) to evaluate the existing Oracle database and schemas. For more information, refer to the [Oracle to SQL Server: Migration guide](/sql/sql-server/migrate/guides/oracle-to-sql-server).
 
-Download the [Assessment Calculator Template](https://github.com/microsoft/DataMigrationTeam/blob/master/Oracle%20Inventory%20Script%20Artifacts/Oracle%20Inventory%20Script%20Artifacts/Customer%20Assessment%20CalculatorTemplate2.xlsx) spreadsheet so you can record the results.
-
-### Assess migration complexity
+### Assess the migration complexity
 
 Download [Ora2Pg](http://ora2pg.darold.net/). Run the following command to get the migration complexity assessment:
 

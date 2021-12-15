@@ -1,6 +1,5 @@
 
 
-
 This article describes how to set up a local Gridwich development environment in either Visual Studio 2019 or above, or Visual Studio Code.
 
 ## Prerequisites
@@ -10,7 +9,7 @@ This article describes how to set up a local Gridwich development environment in
 - [.NET Core 3.1](https://dotnet.microsoft.com/download/dotnet-core/3.1)
 - [PowerShell](/powershell/scripting/overview)
 - [Git](https://git-scm.com/downloads) installed, and your organization's Azure DevOps Gridwich repository cloned to your local machine. If you're using Windows [GitHub Desktop](https://desktop.github.com/), avoid cloning into user directories.
-  
+
 Optional:
 - [curl](https://curl.haxx.se/)
 - [Postman](https://www.postman.com/)
@@ -18,19 +17,19 @@ Optional:
 ## Visual Studio Code setup
 
 1. In Visual Studio Code, when prompted which version of Terraform language server to install, select the latest stable version:
-   
+
 1. After installation, run the following command:
-   
+
    ```bash
    dotnet restore ./src --interactive
    ```
-   
+
 1. At the prompt, sign in to Azure so your build can access the artifact feed for installing the necessary NuGet packages.
-   
+
 1. Follow the instructions to [create local.settings.json](#create-localsettingsjson).
-   
+
 1. Press **F5**.
-   
+
 You can now make requests to the two Function endpoints shown in the build output, for example:
 
 - `EventGrid: [POST] http://localhost:7071/api/EventGrid`
@@ -39,13 +38,13 @@ You can now make requests to the two Function endpoints shown in the build outpu
 ## Visual Studio setup
 
 1. In Visual Studio, open the *src\Gridwich.Host.FunctionApp.sln* file in the directory where you cloned the Gridwich repository.
-   
+
 1. In **Solution Explorer**, right-click the **Gridwich.Host.FunctionApp** library and select **Set as Startup Project**.
-   
+
 1. Follow the instructions to [create local.settings.json](#create-localsettingsjson).
-   
+
 1. Press **F5**.
-   
+
 You can now make requests to the two Function endpoints shown in the build output, for example:
 
 - `EventGrid: [POST] http://localhost:7071/api/EventGrid`
@@ -60,14 +59,14 @@ For an example *local.settings.json* file, see [sample.local.settings.json](http
 If you need an Azure PowerShell CLI environment, you can use [Azure Cloud Shell](https://shell.azure.com) and select PowerShell instead of Bash.
 
 1. To create the file, use the following PowerShell script and edit the results. In the script, use your Azure tenant and subscription values, and replace `mygridwichapp` with your application name.
-   
+
    ```azurepowershell
    # Change the $targetEnv if you're not using the 'sb' environment
    $targetEnv = "sb"
    $targetTenant = "00000000-0000-0000-0000-000000000000"
    $targetSub = "00000000-0000-0000-0000-000000000000"
    $appname = "mygridwichapp"
-   
+
    az account set --subscription $targetSub
    $appSettings = az webapp config appsettings list --subscription $targetSub --name $appname-grw-fxn-$targetEnv -g $appname-application-rg-$targetEnv | ConvertFrom-Json
    $settingsList = New-Object System.Collections.ArrayList($null)
@@ -77,9 +76,9 @@ If you need an Azure PowerShell CLI environment, you can use [Azure Cloud Shell]
    echo """AzureWebJobsStorage"": ""UseDevelopmentStorage=true"",""FUNCTIONS_WORKER_RUNTIME"": ""dotnet"",""AZURE_TENANT_ID"": ""$targetTenant"",""AZURE_SUBSCRIPTION_ID"": ""$targetSub""}}" >> local.settings.$targetEnv.json
    type local.settings.$targetEnv.json
    ```
-   
+
 1. Edit the resulting *local.settings.sb.json* file to remove the following lines:
-   
+
    - `AzureWebJobsDashboard`
    - The `AzureWebJobsStorage` pointing to a connection string
    - `WEBSITE_CONTENTAZUREFILECONNECTIONSTRING`
@@ -100,15 +99,15 @@ az keyvault set-policy --name $keyVaultName --secret-permissions list get --upn 
 Or, you can use the following Azure CLI commands:
 
 1. Run the following command:
-   
+
    ```azurecli
    az ad signed-in-user show
    ```
-   
+
 1. In the output, find and copy `userPrincipalName`, which may look like: `<your username_yourdomain>.com#EXT#@<an Azure Active Directory>.onmicrosoft.com`.
-   
+
 1. Run the following command, using the `userPrincipalName` value you copied:
-   
+
    ```azurecli
    az keyvault set-policy --name gridwich-kv-sb --secret-permissions list get --upn "<your username_yourdomain>.com#EXT#@<an Azure Active Directory>.onmicrosoft.com"
    ```
@@ -142,4 +141,4 @@ Manually add the following two values to *local.settings.json*:
 
 ## Next steps
 - [Create or delete a Gridwich cloud sandbox or test environment](create-delete-cloud-environment.yml)
-- [Test a deployed Gridwich app locally](test-encoding.yml#test-locally)
+- [Test a deployed Gridwich app locally](test-encoding.yml#how-to-test-gridwich-projects-locally)

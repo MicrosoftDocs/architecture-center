@@ -1,6 +1,5 @@
 
 
-
 This reference architecture illustrates multiple local branches of an organization that's spread out geographically. Each location is using a Microsoft Azure Function App that's configured with the Premium plan in a nearby cloud region. The developers in this architecture are monitoring all the Azure Function Apps by using Azure Monitor as a single pane of glass.
 
 ![The diagram illustrates multiple local virtual machines (VMs) that are connected to Azure Functions in different regions. Developers are monitoring their function apps by using Azure Monitor.][architectural-diagram]

@@ -1,5 +1,5 @@
 ---
-title: Sequential Convoy
+title: Sequential Convoy pattern
 description: The sequential convoy cloud design pattern allows for first-in-first-out processing of data in a serverless environment.
 author: brandonh-msft
 ms.author: hurlburb
@@ -7,7 +7,13 @@ ms.date: 12/14/2019
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: design-pattern
-keywords: serverless, biztalk, sequential convoy, fifo, functions, messaging
+keywords:
+  - serverless
+  - biztalk
+  - sequential convoy
+  - fifo
+  - functions
+  - messaging
 ---
 
 # Sequential Convoy pattern

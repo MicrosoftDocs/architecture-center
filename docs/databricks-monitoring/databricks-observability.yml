@@ -1,6 +1,6 @@
 ### YamlMime:Architecture 
 metadata:
-  title: Observability patterns and metrics for performance tuning
+  title: Observability patterns and metrics
   titleSuffix: Azure Example Scenarios
   description: Learn how to use observability patterns and metrics to improve the processing performance of a big data system using Azure Databricks.
   author: drmcghee
@@ -9,10 +9,11 @@ metadata:
   ms.topic: conceptual
   ms.service: architecture-center
   ms.subservice: example-scenario
-  ms.custom: fcp
-azureCategories: 
+  ms.custom:
+    - fcp
+azureCategories:
   - analytics
-products: 
+products:
   - azure-databricks
   - azure-log-analytics
   - azure-monitor

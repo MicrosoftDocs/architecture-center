@@ -3,9 +3,9 @@ metadata:
   title: Secure DevOps for AKS
   titleSuffix: Azure Solution Ideas
   description: Implement secure DevOps with Kubernetes on Azure to achieve balance between speed and security and to deliver code faster at scale.
-  author: doodlemania2
-  ms.author: pnp
-  ms.date: 09/10/2020
+  author: uthappa123
+  ms.author: utkatte
+  ms.date: 02/17/2021
   ms.topic: conceptual
   ms.service: architecture-center
   ms.subservice: solution-idea
@@ -18,7 +18,8 @@ metadata:
     - devops
     - signalr service
     - interactive-diagram
-    - 'https://azure.microsoft.com/solutions/architecture/secure-devops-for-kubernetes/'
+    - "https://azure.microsoft.com/solutions/architecture/secure-devops-for-kubernetes/"
+    - e2e-aks
   social_image_url: /azure/architecture/solution-ideas/articles/media/secure-devops-for-kubernetes.png
 name: Secure DevOps for AKS
 azureCategories:

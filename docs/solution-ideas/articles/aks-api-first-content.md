@@ -1,20 +1,17 @@
+[!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
+Adapt, evolve, and allow faster innovation to turn opportunities into strategic advantages. This solution enables you to do the following:
 
-
-## Overview
-
-Adapt, evolve, and allow faster innovation to turn opportunities into strategic advantages.
-
-- Create API gateway and developer portal in minutes and publish APIs easily for internal or external use
-- Handle any data schema and adapt quickly to rapid changes
-- Connect to back-end services anywhere and manage, secure, and optimize all APIs in one place
+- Create an API gateway and developer portal in minutes, and publish APIs easily for internal or external use.
+- Handle any data schema, and adapt quickly to rapid changes.
+- Connect to back-end services anywhere, and manage, secure, and optimize all APIs in one place.
 
 ## Architecture
 
 ![Architecture Diagram](../media/aks-api-first.png)
 *Download an [SVG](../media/aks-api-first.svg)*
 
-## Data Flow
+### Data flow
 
 The data flows through the solution as follows:
 
@@ -24,7 +21,7 @@ The data flows through the solution as follows:
 4. Applications access APIs via the API Gateway
 5. API Gateway, after ensuring the API request meets security and other policies e.g. throttling, forwards the request to service running in Kubernetes
 
-## Components
+### Components
 
 The example scenario uses several Azure components:
 
@@ -35,7 +32,7 @@ The example scenario uses several Azure components:
 - [Azure Storage](https://azure.microsoft.com/services/storage/): Azure Storage offers a durable, highly available, massively scalable cloud storage solution and includes object, file, disk, queue, and table storage.
 - [Azure Functions](https://azure.microsoft.com/services/functions/): An event-driven serverless compute platform that can also solve complex orchestration problems.
 
-## Next Steps
+## Next steps
 
 - [What is Kubernetes?](https://azure.microsoft.com/topic/what-is-kubernetes/)
 - [Learn about Kubernetes on Azure](https://azure.microsoft.com/overview/kubernetes-on-azure/)

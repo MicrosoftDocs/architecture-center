@@ -1,6 +1,4 @@
-## Overview
-
-This reference architecture shows how to implement continuous integration (CI), continuous delivery (CD), and retraining pipeline for an AI application using [Azure DevOps](/azure/devops/user-guide/what-is-azure-devops) and [Azure Machine Learning](/azure/machine-learning/service/overview-what-is-azure-ml). The solution is built on the scikit-learn diabetes dataset but can be easily adapted for any AI scenario and other popular build systems such as Jenkins or Travis.
+This reference architecture shows how to implement continuous integration (CI), continuous delivery (CD), and retraining pipeline for an AI application using [Azure DevOps](/azure/devops/user-guide/what-is-azure-devops) and [Azure Machine Learning](/azure/machine-learning/overview-what-is-azure-machine-learning). The solution is built on the scikit-learn diabetes dataset but can be easily adapted for any AI scenario and other popular build systems such as Jenkins or Travis.
 
 A reference implementation for this architecture is available on [GitHub][repo].
 
@@ -12,7 +10,7 @@ This architecture consists of the following components:
 
 **[Azure Pipelines](/azure/devops/pipelines/get-started/what-is-azure-pipelines)**. This build and test system is based on Azure DevOps and used for the build and release pipelines. Azure Pipelines breaks these pipelines into logical steps called tasks. For example, the [Azure CLI](/cli/azure/) task makes it easier to work with Azure resources.
 
-**[Azure Machine Learning](/azure/machine-learning/service/overview-what-is-azure-ml)** is a cloud service for training, scoring, deploying, and managing machine learning models at scale. This architecture uses the Azure Machine Learning [Python SDK](/azure/machine-learning/service/quickstart-create-workspace-with-python) to create a workspace, compute resources, the machine learning pipeline, and the scoring image. An Azure Machine Learning [workspace](/azure/machine-learning/service/concept-workspace) provides the space in which to experiment, train, and deploy machine learning models.
+**[Azure Machine Learning](/azure/machine-learning/overview-what-is-azure-machine-learning)** is a cloud service for training, scoring, deploying, and managing machine learning models at scale. This architecture uses the Azure Machine Learning [Python SDK](/azure/machine-learning/service/quickstart-create-workspace-with-python) to create a workspace, compute resources, the machine learning pipeline, and the scoring image. An Azure Machine Learning [workspace](/azure/machine-learning/service/concept-workspace) provides the space in which to experiment, train, and deploy machine learning models.
 
 **[Azure Machine Learning Compute](/azure/machine-learning/service/how-to-set-up-training-targets)** is a cluster of virtual machines on-demand with automatic scaling and GPU and CPU node options. The training job is executed on this cluster.
 
@@ -80,7 +78,7 @@ This pipeline shows how to operationalize the scoring image and promote it safel
 
 - **Model Artifact trigger.** Release pipelines get triggered every time a new artifact is available. A new model registered to Azure Machine Learning Model Management is treated as a release artifact. In this case, a pipeline is triggered for each new model is registered.
 
-- **Create a scoring image.** The registered model is packaged together with a scoring script and Python dependencies ([Conda YAML file](https://azure.github.io/azureml-web/docs/cheatsheet/environment/)) into an operationalization Docker image. The image automatically gets versioned through Azure Container Registry.
+- **Create a scoring image.** The registered model is packaged together with a scoring script and Python dependencies ([Conda YAML file](https://docs.conda.io/projects/conda-build/en/latest/resources/define-metadata.html)) into an operationalization Docker image. The image automatically gets versioned through Azure Container Registry.
 
 - **Deploy on Container Instances.** This service is used to create a non-production environment. The scoring image is also deployed here, and this is mostly used for testing. Container Instances provides an easy and quick way to test the Docker image.
 

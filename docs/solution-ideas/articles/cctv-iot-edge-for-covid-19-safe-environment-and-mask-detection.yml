@@ -1,0 +1,33 @@
+### YamlMime:Architecture
+metadata:
+  title: COVID-19 safe solutions with IoT Edge
+  titleSuffix: Azure Solution Ideas
+  description: Create a COVID-19 safe environment that monitors social distance, mask/PPE use, and occupancy requirements with CCTVs and Azure IoT Edge, Stream Analytics, and Machine Learning.
+  author: EdPrice-MSFT
+  ms.author: pnp
+  ms.date: 11/18/2021
+  ms.topic: conceptual
+  ms.service: architecture-center
+  ms.subservice: solution-idea
+  ms.category:
+    - iot
+    - ai-machine-learning
+  ms.custom:
+    - iot
+    - fcp
+    - ai-machine-learning
+    - aml-project-improvement
+name: COVID-19 safe environments with IoT Edge monitoring and alerting
+azureCategories:
+  - iot
+  - ai-machine-learning
+summary: Create a COVID-19 safe environment that monitors social distance, mask/PPE use, and occupancy requirements with CCTVs and Azure IoT Edge, Stream Analytics, and Machine Learning.
+products:
+  - azure-digital-twins
+  - azure-iot-edge
+  - azure-kubernetes-service
+  - azure-service-bus
+  - azure-stream-analytics
+thumbnailUrl: /azure/architecture/browse/thumbs/bosch-cctv-iot-edge-covid-19-safe-environment-mask-detection.png
+content: |
+  [!include[](cctv-iot-edge-for-covid-19-safe-environment-and-mask-detection-content.md)]

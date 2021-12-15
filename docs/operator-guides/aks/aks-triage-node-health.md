@@ -1,15 +1,17 @@
 ---
 title: AKS triage - node health
 titleSuffix: Azure Architecture Center
-description: Triage step to verify the node and pod health.
+description: Learn about the triage step to examine the health of Azure Kubernetes Services (AKS) worker nodes and pods.
 author: kevingbb
 ms.date: 10/12/2020
 ms.topic: conceptual
 ms.service: architecture-center
-ms.subservice: guide
+ms.subservice: azure-guide
 products:
   - azure-kubernetes-service
   - azure-monitor
+ms.custom:
+  - e2e-aks
 ---
 
 # Examine the node and pod health
@@ -30,7 +32,7 @@ You can check node health in one of these ways:
 
     ![Azure Monitor - Containers Health View](images/azuremonitor-containershealth.png)
 
-- **AKS - Nodes view** - In Azure portal, open navigate to the cluster. Select **Insights** under **Monitoring**. View **Nodes** on the right pane.
+- **AKS - Nodes view:** In Azure portal, open navigate to the cluster. Select **Insights** under **Monitoring**. View **Nodes** on the right pane.
 ![AKS - Nodes View](images/aks-nodehealth.png)
 
 - **Prometheus and Grafana Dashboard**. Open the **Node Conditions** dashboard.
@@ -134,7 +136,7 @@ Check the kubelet process running on each worker node and make sure it's not exp
 - **AKS - Kubelet Workbook**
 ![AKS - Kubelet Workbook](images/aks-kubeletworkbook.png)
 
-- **Prometheus and Grafana Dashboard** - Kubelet Dashboard
+- **Prometheus and Grafana Dashboard:** Kubelet Dashboard
 ![Prometheus and Grafana Dashboard - Kubelet](images/kubelet-conditions.png)
 
 The pressure increases when kubelet restarts and causes some sporadic, unpredictable behavior. Make sure that the error count isn't continuously growing. An occasional error is acceptable but a constant growth indicates an underlying issue that needs to be investigated and resolved.
@@ -149,7 +151,7 @@ Check to see that file operations (IOPS) are not getting throttled and impacting
 
     ![Azure Monitor for Containers - Disk IO Workbook](images/aks-diskioworkbook.png)
 
-- **Prometheus and Grafana Dashboard** - Node Disk Dashboard
+- **Prometheus and Grafana Dashboard:** Node Disk Dashboard
     ![Prometheus and Grafana Dashboard - Node Disk](images/node-diskio.png)
 
 Physical storage devices have limitations, bandwidth, and total number of file operations. Azure Disks are used to store the OS running on the AKS nodes. They are subject to the same physical storage limitations.

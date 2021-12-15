@@ -3,7 +3,7 @@ metadata:
   title: SMB disaster recovery with Azure Site Recovery
   titleSuffix: Azure Solution Ideas
   description: Small-sized and medium-sized businesses can inexpensively implement cloud-based disaster recovery solutions by using Azure Site Recovery or Double-Take DR.
-  author: doodlemania2
+  author: EdPrice-MSFT
   ms.author: pnp
   ms.date: 12/16/2019
   ms.topic: conceptual
@@ -16,7 +16,7 @@ metadata:
     - acom-architecture
     - bcdr
     - e2e-hybrid
-    - 'https://azure.microsoft.com/solutions/architecture/disaster-recovery-smb-azure-site-recovery/'
+    - "https://azure.microsoft.com/solutions/architecture/disaster-recovery-smb-azure-site-recovery/"
     - internal-intro
   social_image_url: /azure/architecture/solution-ideas/articles/media/disaster-recovery-smb-azure-site-recovery.png
 name: SMB disaster recovery with Azure Site Recovery

@@ -1,12 +1,11 @@
 ---
-title: Best practices for designing reliability in Azure applications
-description: Describes best practices for designing reliability in Azure applications.
+title: Designing reliability in Azure apps
+description: Learn best practices for designing reliability in Azure applications, such as ensuring connectivity, using zone-aware services, designing for scalability, and more.
 author: v-aangie
 ms.date: 02/17/2021
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: well-architected
-ms.custom:
 ---
 
 # Best practices for designing reliability in Azure applications
@@ -34,15 +33,15 @@ To ensure connection availability and improve reliability with Azure services:
 
 ## Use zone-aware services
 
-Zone-aware services can improve reliability and ensure availability during failure scenarios impacting a datacenter within a region. They can also be used to deploy gateway instances across zones for improved reliability and availability during failure scenarios impacting a datacenter within a region.
+Zone-aware services can improve reliability and ensure availability during failure scenarios affecting a datacenter within a region. They can also be used to deploy gateway instances across zones for improved reliability and availability during failure scenarios affecting a datacenter within a region.
 
 ## Design resilience to respond to outages
 
-Applications should be designed to operate even when impacted by regional, zonal, service or component failures across critical application scenarios and functionality. Application operations may experience reduced functionality or degraded performance during an outage.
+Applications should be designed to operate even when affected by regional, zonal, service or component failures across critical application scenarios and functionality. Application operations may experience reduced functionality or degraded performance during an outage.
 
 ## Perform a failure mode analysis (FMA)
 
-FMA builds resiliency into an application early in the design stage. It helps you identify the types of failures your application might experience, the potential effects of each, and possible recovery strategies. 
+FMA builds resiliency into an application early in the design stage. It helps you identify the types of failures your application might experience, the potential effects of each, and possible recovery strategies.
 
 Have all single points of failure been eliminated? A single point of failure describes a specific fault-point which if it where to fail would bring down the entire application. Single points of failure introduce significant risk since any failure of this component will cause an application outage.
 
@@ -54,11 +53,11 @@ Strong dependencies play a critical role in application function and availabilit
 
 ## Design for scalability
 
-A cloud application must be able to scale to accommodate changes in usage. Begin with discrete components, and design the application to respond automatically to load changes whenever possible. Keep scaling limits in mind during design so you can expand easily in the future. 
+A cloud application must be able to scale to accommodate changes in usage. Begin with discrete components, and design the application to respond automatically to load changes whenever possible. Keep scaling limits in mind during design so you can expand easily in the future.
 
 ## Next step
 
->[!div class="nextstepaction"]
->[Testing](./test-checklist.md)
+> [!div class="nextstepaction"]
+> [Testing](./test-checklist.md)
 
 > Go back to the main article: [Design](design-checklist.md)

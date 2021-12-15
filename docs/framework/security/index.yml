@@ -1,0 +1,213 @@
+### YamlMime:Landing
+
+title: Security documentation
+summary: Apply security principles to your architecture to protect against attacks on your data and systems.
+
+metadata: 
+  title: Security documentation
+  description: Learn how to apply security principles to your architecture to protect against attacks on your data and systems.
+  services: na
+  author: v-stacywray
+  ms.author: v-stacywray
+  manager: david-stanford
+  ms.date: 08/18/2021
+  ms.topic: landing-page
+  ms.service: architecture-center
+  ms.subservice: well-architected
+  ms.collection: na
+
+landingContent:
+
+# Cards and links should be based on top customer tasks or top subjects
+
+# Start card title with a verb
+
+ # Card
+  - title: Key points
+    linkLists:
+      - linkListType: quickstart
+        links:
+          - text: Overview
+            url: overview.md
+          - text: Principles
+            url: security-principles.md
+          - text: Design governance
+            url: design-governance.md
+          - text: Identity checklist
+            url: design-identity.md
+          - text: Network checklist
+            url: design-network.md
+          - text: Data checklist
+            url: design-storage.md
+          - text: Build and deploy checklist
+            url: deploy.md
+          - text: Monitor checklist
+            url: monitor.md
+          - text: Governance, risk, and compliance
+            url: /azure/architecture/framework/security/design-governance
+      - linkListType: learn
+        links:
+          - text: Security 
+            url: /learn/modules/azure-well-architected-introduction/7-security
+      - linkListType: video
+        links:
+          - text: "Cloud Security Posture Management (CSPM) with Microsoft Defender for Cloud"
+            url: /shows/Azure-Friday/Cloud-Security-Posture-Management-CSPM-with-Azure-Security-Center?term=Security%20overview&pubDate=3years&lang-en=true
+
+  # Card
+  - title: Design for security
+    linkLists:
+      - linkListType: get-started
+        links:
+          - text: Plan segmentation
+            url: design-segmentation.md
+          - text: Consider team roles and responsibilities
+            url: design-identity-role-definitions.md
+          - text: Implement network segmentation
+            url: design-network-segmentation.md
+          - text: Encrypt data
+            url: design-storage-encryption.md
+          - text: Understand application security
+            url: design-apps-services.md
+      - linkListType: concept
+        links:
+          - text: Support segmentation with management groups
+            url: design-management-groups.md#support-your-segmentation-strategy-with-management-groups
+          - text: Identity management and access control best practices
+            url: /azure/security/fundamentals/identity-management-best-practices?bc=%2fazure%2farchitecture%2fbread%2ftoc.json&toc=%2fazure%2farchitecture%2ftoc.json
+          - text: Network best practices
+            url: /azure/security/fundamentals/network-best-practices?bc=%2fazure%2farchitecture%2fbread%2ftoc.json&toc=%2fazure%2farchitecture%2ftoc.json
+          - text: Encryption best practices
+            url: /azure/security/fundamentals/encryption-overview?bc=%2fazure%2farchitecture%2fbread%2ftoc.json&toc=%2fazure%2farchitecture%2ftoc.json
+          - text: Analyze application threats
+            url: design-threat-model.md
+          - text: Gather compliance requirements
+            url: design-regulatory-compliance.md
+          - text: Secure application configuration and dependencies
+            url: design-app-dependencies.md
+      - linkListType: learn
+        links:
+          - text: Design and implement network security
+            url: /learn/modules/design-implement-network-security-monitoring/
+      - linkListType: whats-new
+        links:
+          - text: What's new in Azure Network Security?
+            url: /shows/The-Launch-Space/Whats-new-in-Azure-Network-Security?term=Security&pubDate=3years&lang-en=true
+
+ # Card
+  - title: Secure build and deploy
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: Consider secure deployment governance
+            url: deploy-governance.md
+          - text: Understand infrastructure provisioning
+            url: deploy-infrastructure.md
+          - text: Deploy code
+            url: deploy-code.md
+      - linkListType: concept
+        links:
+          - text: Minimize access
+            url: deploy-governance.md#minimize-access
+          - text: "Understand Infrastructure as Code (IaC)"
+            url: deploy-infrastructure.md#infrastructure-as-code-iac
+          - text: Roll back and roll forward
+            url: deploy-code.md#rollback-and-roll-forward
+          - text: Scanning credentials
+            url: deploy-code.md#credential-scanning
+      - linkListType: video
+        links:
+          - text: Ask the right questions about secure application development on Azure
+            url: /shows/Azure-Enablement/Ask-the-right-questions-about-secure-application-development-on-Azure?term=Secure%20deploy&pubDate=3years&lang-en=true
+
+ # Card
+  - title: Security monitoring
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: Security monitoring tools in Azure
+            url: monitor-tools.md
+          - text: Security operations in Azure
+            url: monitor-security-operations.md
+          - text: Validate and test security design
+            url: monitor-test.md
+          - text: Review and audit security posture
+            url: monitor-audit.md
+          - text: Check for identity, network, and data risks
+            url: /azure/architecture/framework/security/monitor-resources
+      - linkListType: concept
+        links:
+          - text: Prevent, detect, and respond to threats
+            url: monitor-remediate.md
+          - text: Security operations best practices
+            url: monitor-security-operations.md
+          - text: "Penetration testing (pentesting)"
+            url: monitor-test.md#penetration-testing-pentesting
+          - text: Review critical access
+            url: monitor-audit.md#review-critical-access
+          - text: Review identity risks
+            url: /azure/architecture/framework/security/monitor-resources#review-identity-risks
+      - linkListType: video
+        links:
+          - text: Improving app security with Application Security Groups
+            url: /shows/Azure-Enablement/Improving-app-security-with-Application-Security-Groups?term=Validate%20and%20test%20security&pubDate=3years&lang-en=true
+
+ # Card
+  - title: Optimize security
+    linkLists:
+      - linkListType: concept
+        links:
+          - text: Prioritize security best practices investments
+            url: /azure/architecture/framework/security/design-governance#prioritize-security-best-practices-investments
+          - text: Use Azure Secure Score
+            url: /azure/architecture/framework/security/design-governance#operationalize-azure-secure-score
+          - text: Manage connected tenants
+            url: /azure/architecture/framework/security/design-governance#manage-connected-tenants
+          - text: Designate clear lines of responsibility
+            url: /azure/architecture/framework/security/design-governance#clear-lines-of-responsibility
+      - linkListType: video
+        links:
+          - text: Enabling secure remote work with using Windows Virtual Desktop
+            url: /shows/Azure-Friday/Enabling-secure-remote-work-using-Windows-Virtual-Desktop?term=Azure%20Secure%20Score&pubDate=3years&lang-en=true
+
+ # Card
+  - title: Security tools and services
+    linkLists:
+      - linkListType: reference
+        links:
+          - text: Azure AD Conditional Access
+            url: /azure/active-directory/conditional-access/overview
+          - text: Azure AD Connect 
+            url: /azure/active-directory/hybrid/whatis-hybrid-identity
+          - text: "Azure AD Privileged Identity Management (PIM)"
+            url: /azure/active-directory/privileged-identity-management/pim-configure
+          - text: Azure Key Vault
+            url: /azure/key-vault/general/overview
+          - text: Azure Resource Manager  
+            url: /azure/azure-resource-manager/management/overview
+          - text: "Azure role-based access control (RBAC)"
+            url: /azure/role-based-access-control/overview
+          - text: Azure Storage Service Encryption
+            url: /azure/storage/common/storage-service-encryption
+          - text: Microsoft Azure Well-Architected Review
+            url: /assessments/?mode=pre-assessment&session=78e17f1e-0a08-40f5-820d-86d848b72048
+          - text: Multifactor Authentication
+            url: /azure/active-directory/authentication/howto-mfa-userstates
+          - text: Passwordless
+            url: /windows/security/identity-protection/hello-for-business/hello-identity-verification
+
+ # Card
+  - title: Security APIs
+    linkLists:
+      - linkListType: reference
+        links:
+          - text: Microsoft Defender for Cloud
+            url: /rest/api/securitycenter/
+          - text: Adaptive Network Hardenings
+            url: /rest/api/securitycenter/adaptive-network-hardenings
+          - text: Alerts
+            url: /rest/api/securitycenter/alerts
+          - text: Iot Security Solution
+            url: /rest/api/securitycenter/iot-security-solution
+          - text: Secure Scores
+            url: /rest/api/securitycenter/secure-scores

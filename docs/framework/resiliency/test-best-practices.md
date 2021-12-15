@@ -1,12 +1,11 @@
 ---
-title: Testing best practices for reliability in Azure applications
-description: Best practices for reliability testing in Azure applications
+title: Testing best practices for app reliability
+description: Use best practices for reliability testing in Azure apps. Implement practices to meet your business requirements, so apps run in a healthy state with little downtime.
 author: v-aangie
 ms.date: 02/17/2021
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: well-architected
-ms.custom:
 ---
 
 # Testing best practices for reliability in Azure applications
@@ -56,11 +55,11 @@ Configure and test health probes for your load balancers and traffic managers. E
 
 ## Segregate read and write interfaces
 
-Achieve levels of scale and performance needed for your solution by segregating read and write interfaces by implementing the Command and Query Responsibility Segregation (CQRS) pattern. 
+Achieve levels of scale and performance needed for your solution by segregating read and write interfaces by implementing the Command and Query Responsibility Segregation (CQRS) pattern.
 
 ## Next step
 
->[!div class="nextstepaction"]
->[Monitoring](./monitor-checklist.md)
+> [!div class="nextstepaction"]
+> [Monitoring](./monitor-checklist.md)
 
 > Go back to the main article: [Testing](test-checklist.md)

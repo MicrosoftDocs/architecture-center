@@ -3,7 +3,7 @@ metadata:
   title: Streaming using HDInsight
   titleSuffix: Azure Solution Ideas
   description: Ingest and process millions of streaming events per second with Apache Kafka, Apache Storm, and Apache Spark Streaming.
-  author: doodlemania2
+  author: EdPrice-MSFT
   ms.author: pnp
   ms.date: 12/16/2019
   ms.topic: conceptual
@@ -17,7 +17,7 @@ metadata:
     - data
     - HDInsight
     - Data Lake Storage
-    - 'https://azure.microsoft.com/solutions/architecture/streaming-using-hdinsight/'
+    - "https://azure.microsoft.com/solutions/architecture/streaming-using-hdinsight/"
   social_image_url: /azure/architecture/solution-ideas/articles/media/streaming-using-hdinsight.png
 name: Streaming using HDInsight
 azureCategories:

@@ -1,0 +1,29 @@
+### YamlMime:Architecture
+metadata:
+  title: Create smart places by using Azure Digital Twins
+  titleSuffix: Azure Example Scenarios
+  description: Use Azure Digital Twins to create models of smart places from IoT device data. View and control products, systems, environments, and experiences.
+  author: markkottke
+  ms.author: mcosner
+  ms.date: 09/24/2021
+  ms.topic: conceptual
+  ms.service: architecture-center
+  ms.subservice: example-scenario
+  ms.category:
+    - iot
+  ms.custom:
+    - fcp
+    - example-scenario
+name: Create smart places by using Azure Digital Twins
+azureCategories:
+  - iot
+summary: Use Azure Digital Twins to create models of smart places from IoT device data. View and control products, systems, environments, and experiences.
+products:
+  - azure-data-explorer
+  - azure-data-factory
+  - azure-digital-twins
+  - azure-functions
+  - azure-iot-hub
+thumbnailUrl: /azure/architecture/browse/thumbs/smart-places-thumbnail.png
+content: |
+   [!include[](smart-places-content.md)]

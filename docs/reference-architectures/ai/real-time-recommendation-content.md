@@ -1,7 +1,4 @@
-
-<!--cSpell:ignore njray precompute --> 
-
-
+<!--cSpell:ignore njray precompute -->
 
 This reference architecture shows how to train a recommendation model using Azure Databricks and deploy it as an API by using Azure Cosmos DB, Azure Machine Learning, and Azure Kubernetes Service (AKS). This architecture can be generalized for most recommendation engine scenarios, including recommendations for products, movies, and news.
 
@@ -37,10 +34,9 @@ This architecture consists of the following components:
 
 [Azure Databricks][databricks]. Databricks is a development environment used to prepare input data and train the recommender model on a Spark cluster. Azure Databricks also provides an interactive workspace to run and collaborate on notebooks for any data processing or machine learning tasks.
 
-[Azure Kubernetes Service][aks] (AKS). AKS is used to deploy and operationalize a machine learning model service API on a Kubernetes cluster. AKS hosts the containerized model, providing scalability that meets your throughput requirements, identity and access management, and
- logging and health monitoring.
+[Azure Kubernetes Service][aks] (AKS). AKS is used to deploy and operationalize a machine learning model service API on a Kubernetes cluster. AKS hosts the containerized model, providing scalability that meets your throughput requirements, identity and access management, and logging and health monitoring.
 
-[Azure Cosmos DB][cosmosdb]. Cosmos DB is a globally distributed database service used to store the top 10 recommended movies for each user. Azure Cosmos DB is well-suited for this scenario, because it provides low latency (10 ms at 99th percentile) to read the top recommended items for a given user.
+[Azure Cosmos DB][cosmosdb]. Cosmos DB is a globally distributed database service used to store the top 10 recommended movies for each user. Azure Cosmos DB is well-suited for this scenario, because it provides low latency (10 ms at 99th percentile) to read the top recommended items for a given user.
 
 [Azure Machine Learning][mls]. This service is used to track and manage machine learning models, and then package and deploy these models to a scalable AKS environment.
 
@@ -123,15 +119,15 @@ We have also built a reference architecture that uses Spark and Azure Databricks
 
 <!-- links -->
 
-[adbauthentication]: https://docs.microsoft.com/azure/databricks/dev-tools/api/latest/authentication
+[adbauthentication]: /azure/databricks/dev-tools/api/latest/authentication
 [aks]: /azure/aks/intro-kubernetes
 [als]: https://spark.apache.org/docs/latest/ml-collaborative-filtering.html
 [als-example]: https://github.com/Microsoft/Recommenders/blob/master/examples/05_operationalize/als_movie_o16n.ipynb
-[autoscaling]: https://docs.microsoft.com/azure/databricks/clusters/configure#autoscaling
+[autoscaling]: /azure/databricks/clusters/configure#autoscaling
 [batch-scoring]: ../../reference-architectures/ai/batch-scoring-databricks.yml
 [blog]: /azure/machine-learning/how-to-deploy-azure-kubernetes-service?tabs=python#autoscaling
 [cosmosdb]: /azure/cosmos-db/introduction
-[data-source]: https://docs.microsoft.com/azure/databricks/data/data-sources/
+[data-source]: /azure/databricks/data/data-sources/
 [databricks]: /azure/azure-databricks/what-is-azure-databricks
 [dsvm]: /azure/machine-learning/data-science-virtual-machine/overview
 [eval-guide]: https://github.com/Microsoft/Recommenders/blob/master/examples/03_evaluate/evaluation.ipynb

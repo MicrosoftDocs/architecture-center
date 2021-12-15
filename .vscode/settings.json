@@ -50,6 +50,9 @@
         "zoiner"
     ],
     "cSpell.words": [
+        "CPUs",
+        "Logix",
+        "aadds",
         "accountabilities",
         "anonymize",
         "ansible",
@@ -97,7 +100,6 @@
         "contoso",
         "contoso's",
         "cortana",
-        "CPUs",
         "cutover",
         "cyberattacks",
         "cybersecurity",
@@ -127,7 +129,6 @@
         "expressroute",
         "extranet",
         "fabrikam",
-        "protobuf",
         "failback",
         "failover",
         "failovers",
@@ -170,6 +171,7 @@
         "kubenet",
         "kubernetes",
         "ldap",
+        "leverage",
         "lifecycle",
         "lightbox",
         "mbps",
@@ -198,9 +200,9 @@
         "multivalue",
         "multivalued",
         "mvps",
+        "newcompany",
         "nextstepaction",
         "nics",
-        "ntlm",
         "noindex",
         "nonblocking",
         "nonintrusive",
@@ -209,6 +211,7 @@
         "nontransactional",
         "nontransient",
         "northstar",
+        "ntlm",
         "olap",
         "oltp",
         "onboarded",
@@ -246,6 +249,7 @@
         "preprovisioned",
         "preprovisioning",
         "prepurchase",
+        "protobuf",
         "quickstart",
         "quickstarts",
         "raci",
@@ -258,6 +262,7 @@
         "rebalance",
         "rebalancing",
         "rebranded",
+        "rebranding",
         "redirections",
         "reengineered",
         "rehost",
@@ -363,5 +368,11 @@
     ],
     "docLog.userName": "adamboeglin",
     "docLog.monthsAgo": 4,
-    "docLog.repoTitle": "the Azure Architecture Center"
+    "docLog.repoTitle": "the Azure Architecture Center",
+    "markdownlint.config": {
+        "MD028": false,
+        "MD025": {
+            "front_matter_title": ""
+        }
+    }
 }

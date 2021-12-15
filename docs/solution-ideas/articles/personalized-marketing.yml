@@ -1,9 +1,9 @@
 ### YamlMime:Architecture
 metadata:
-  title: Personalized marketing solutions
+  title: Create personalized marketing solutions
   titleSuffix: Azure Solution Ideas
-  description: Find essential technology to market products with personalized offers. Individualize marketing for greater customer response by using big-data insights.
-  author: doodlemania2
+  description: Create personalized marketing offers and improve customer response using big-data insights based on Azure Machine Learning and Stream Analytics.
+  author: EdPrice-MSFT
   ms.author: pnp
   ms.date: 12/16/2019
   ms.topic: conceptual
@@ -17,22 +17,20 @@ metadata:
     - ai-ml
     - marketing personalization
     - targeted marketing
-    - 'https://azure.microsoft.com/solutions/architecture/personalized-marketing/'
+    - "https://azure.microsoft.com/solutions/architecture/personalized-marketing/"
     - ai-machine-learning
+    - aml-project-improvement
   social_image_url: /azure/architecture/solution-ideas/articles/media/personalized-marketing.png
-name: Personalized marketing solutions
+name: Create personalized marketing solutions in near real time
 azureCategories:
   - ai-machine-learning
-summary: Find essential technology to market products with personalized offers. Individualize marketing for greater customer response by using big-data insights.
+summary: Create personalized marketing offers and improve customer response using big-data insights based on Azure Machine Learning and Stream Analytics.
 products:
-  - azure-cache-redis
   - azure-cosmos-db
   - azure-event-hubs
   - azure-functions
   - azure-machine-learning
-  - azure-storage-accounts
   - azure-stream-analytics
-  - power-bi
 thumbnailUrl: /azure/architecture/browse/thumbs/personalized-marketing.png
 content: |
   [!include[](personalized-marketing-content.md)]

@@ -1,14 +1,17 @@
 ---
 title: AKS triage - cluster health
 titleSuffix: Azure Architecture Center
-description: Triage step to verify the overall AKS cluster health.
+description: Learn to check the overall health of an Azure Kubernetes Service (AKS) cluster, as part of a triage step for AKS clusters.
 author: kevingbb
+ms.author: pnp
 ms.date: 10/12/2020
 ms.topic: conceptual
 ms.service: architecture-center
-ms.subservice: guide
+ms.subservice: azure-guide
 products:
   - azure-kubernetes-service
+ms.custom:
+  - e2e-aks
 ---
 
 # Check the AKS cluster health
@@ -19,7 +22,7 @@ _This article is part of a series. Read the introduction [here](aks-triage-pract
 
 **Tools:**
 
-**AKS Diagnostics**. In Azure portal, navigate to the AKS cluster resource. Select **Diagnose and solve problems**.  
+**AKS Diagnostics**. In Azure portal, navigate to the AKS cluster resource. Select **Diagnose and solve problems**.
 
 ![AKS Diagnostics](images/aks-diagnostics.png)
 

@@ -1,12 +1,11 @@
 ---
 title: Monitoring for reliability
-description: Describes considerations for reliability in application monitoring.
+description: Review considerations for reliability in application monitoring. See a list of Azure services that you can use for monitoring.
 author: v-aangie
 ms.date: 02/17/2021
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: well-architected
-ms.custom:
 ---
 
 # Monitoring for reliability
@@ -28,13 +27,6 @@ Monitoring and diagnostics are crucial for resiliency. If something fails, you n
 > - Azure Resource Health events are used to alert on resource health events.
 > - Monitor long-running workflows for failures.
 
-## In this section
-
-| Assessment  | Description |
-| ------------- | ------------- |
-| [Do you use monitoring and diagnostics to improve availability and resiliency?](./monitoring.md)  | Get an overall picture of application health. If something fails, you need to know *that* it failed, *when* it failed, and *why*. |
-| [Has a health model been defined based on performance, availability, and recovery targets?](./monitor-model.md) | Define a health model to qualify what “healthy” and “unhealthy” states represent across all application components, in a measurable and observable format.
-
 ## Azure services for monitoring
 
 - [Azure Monitor](/azure/azure-monitor/overview)
@@ -42,7 +34,7 @@ Monitoring and diagnostics are crucial for resiliency. If something fails, you n
 - [Azure Service Health](/azure/service-health/service-health-overview)
 - [Azure Resource Health](/azure/service-health/resource-health-overview)
 - [Azure Resource Manager](/azure/azure-resource-manager/management/overview)
-- [Azure Policy](/azure/governance/policy/overview) 
+- [Azure Policy](/azure/governance/policy/overview)
 
 ## Reference architecture
 
@@ -51,8 +43,8 @@ Monitoring and diagnostics are crucial for resiliency. If something fails, you n
 
 ## Next step
 
->[!div class="nextstepaction"]
->[Application health](./monitoring.md)
+> [!div class="nextstepaction"]
+> [Application health](./monitoring.md)
 
 ## Related links
 

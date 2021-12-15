@@ -1,5 +1,5 @@
 ---
-title: Resiliency checklist for Azure services
+title: Resiliency checklist for services
 titleSuffix: Azure Design Review Framework
 description: Resiliency is the ability to recover from failures and continue to function. Use this checklist to review the resiliency considerations for Azure services.
 author: PeterTaylor9999
@@ -45,7 +45,6 @@ Resiliency is the ability of a system to recover from failures and continue to f
 **Create a separate storage account for logs.** Don't use the same storage account for logs and application data. This helps to prevent logging from reducing application performance.
 
 **Monitor performance.** Use a performance monitoring service such as [New Relic](https://newrelic.com) or [Application Insights](/azure/application-insights/app-insights-overview) to monitor application performance and behavior under load.  Performance monitoring gives you real-time insight into the application. It enables you to diagnose issues and perform root-cause analysis of failures.
-
 
 ## Azure Load Balancer
 

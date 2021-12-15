@@ -1,0 +1,27 @@
+### YamlMime:Architecture
+metadata:
+  title: High-volume batch transaction processing
+  titleSuffix: Azure Example Scenarios
+  description: Use Azure Kubernetes Service (AKS) and Azure Service Bus to implement high-volume batch transaction processing.
+  author: EdPrice-MSFT
+  ms.author: edprice
+  ms.date: 03/22/2021
+  ms.topic: conceptual
+  ms.service: architecture-center
+  ms.subservice: example-scenario
+  ms.custom:
+    - fcp
+    - example-scenario
+azureCategories:
+  - compute
+  - hybrid
+  - migration
+name: High-volume batch transaction processing
+summary: Use Azure Kubernetes Service (AKS) and Azure Service Bus to implement high-volume batch transaction processing.
+products:
+  - azure-kubernetes-service
+  - azure-service-bus
+  - azure-virtual-machines
+thumbnailUrl: /azure/architecture/browse/thumbs/process-batch-transactions.png
+content: |
+   [!include[](process-batch-transactions-content.md)]

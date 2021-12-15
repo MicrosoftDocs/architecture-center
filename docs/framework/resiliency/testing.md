@@ -1,5 +1,5 @@
 ---
-title: Testing applications for availability and resiliency
+title: Test apps for availability and resiliency
 description: Testing is an iterative process. Test the application, measure the outcome, analyze and address any failures that result, and repeat the process.
 author: v-aangie
 ms.date: 02/17/2021
@@ -90,13 +90,13 @@ Load testing is crucial for identifying failures that only happen under load, su
 
 ## Next step
 
->[!div class="nextstepaction"]
->[Backup and recovery](./backup-and-recovery.md)
+> [!div class="nextstepaction"]
+> [Backup and recovery](./backup-and-recovery.md)
 
 ## Related links
 
 - For more test types, see [Test types](../../checklist/dev-ops.md#testing).
 - To learn about load and stress tests, see [Performance testing](../scalability/performance-test.md).
-- To learn about chaos testing, see [Chaos engineering](./chaos-engineering.md). 
+- To learn about chaos testing, see [Chaos engineering](./chaos-engineering.md).
 
  Go back to the main article: [Testing](test-checklist.md)

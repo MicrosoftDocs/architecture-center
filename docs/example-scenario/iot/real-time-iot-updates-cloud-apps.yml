@@ -1,0 +1,27 @@
+### YamlMime:Architecture
+metadata:
+  title: Real-time IoT updates
+  titleSuffix: Azure Architecture Center
+  description: Use Azure SignalR Service to update cloud applications. This service sends real-time IoT data to clients like web pages and mobile apps.
+  author: falloutxAY
+  ms.author: ansyeo
+  ms.date: 06/25/2021
+  ms.topic: conceptual
+  ms.service: architecture-center
+  ms.subservice: azure-guide
+  ms.custom:
+    - fcp
+    - guide
+azureCategories:
+  - iot
+products:
+  - azure-functions
+  - azure-iot-edge
+  - azure-iot-hub
+  - azure-maps
+  - azure-signalr-service
+name: Real-time IoT updates
+summary: Use Azure SignalR Service to update cloud applications. This service sends real-time IoT data to clients like web pages and mobile apps.
+thumbnailUrl: /azure/architecture/browse/thumbs/real-time-iot-updates-cloud-apps-thumbnail.png
+content: |
+  [!include[](real-time-iot-updates-cloud-apps-content.md)]

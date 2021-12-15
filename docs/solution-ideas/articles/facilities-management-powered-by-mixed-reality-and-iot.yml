@@ -3,7 +3,7 @@ metadata:
   title: Facilities management powered by mixed reality and IoT
   titleSuffix: Azure Solution Ideas
   description: Improve uptime and operations in hospitality, manufacturing, and retail. Use mixed reality, IoT, and real-time data to digitally replicate your physical space.
-  author: doodlemania2
+  author: EdPrice-MSFT
   ms.author: pnp
   ms.date: 12/16/2019
   ms.topic: conceptual
@@ -24,7 +24,7 @@ metadata:
     - Web Service
     - Microsoft HoloLens
     - interactive-diagram
-    - 'https://azure.microsoft.com/solutions/architecture/facilities-management-powered-by-mixed-reality-and-iot/'
+    - "https://azure.microsoft.com/solutions/architecture/facilities-management-powered-by-mixed-reality-and-iot/"
   social_image_url: /azure/architecture/solution-ideas/articles/media/facilities-management-powered-by-mixed-reality-and-iot.png
 name: Facilities management powered by mixed reality and IoT
 azureCategories:

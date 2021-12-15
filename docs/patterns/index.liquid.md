@@ -9,7 +9,8 @@ ms.service: architecture-center
 ms.subservice: design-pattern
 ms.custom:
   - design-pattern
-keywords: Azure
+keywords:
+  - Azure
 ---
 
 # Cloud Design Patterns

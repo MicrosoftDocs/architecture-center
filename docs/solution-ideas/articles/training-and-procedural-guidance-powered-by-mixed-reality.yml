@@ -3,7 +3,7 @@ metadata:
   title: Training and procedural guidance powered by mixed reality
   titleSuffix: Azure Solution Ideas
   description: Help employees learn processes and materials effectively by providing persistent holographic instructions mapped to precise locations in physical workspaces.
-  author: doodlemania2
+  author: EdPrice-MSFT
   ms.author: pnp
   ms.date: 12/16/2019
   ms.topic: conceptual
@@ -22,7 +22,7 @@ metadata:
     - Microsoft HoloLens
     - Video Indexer
     - interactive-diagram
-    - 'https://azure.microsoft.com/solutions/architecture/training-and-procedural-guidance-powered-by-mixed-reality/'
+    - "https://azure.microsoft.com/solutions/architecture/training-and-procedural-guidance-powered-by-mixed-reality/"
   social_image_url: /azure/architecture/solution-ideas/articles/media/training-and-procedural-guidance-powered-by-mixed-reality.png
 name: Training and procedural guidance powered by mixed reality
 azureCategories:

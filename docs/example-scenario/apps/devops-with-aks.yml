@@ -17,6 +17,7 @@ metadata:
     - devops
     - microservices
     - example-scenario
+    - e2e-aks
   social_image_url: /azure/architecture/example-scenario/apps/media/architecture-devops-with-aks.png
 name: CI/CD pipeline for container-based workloads
 azureCategories:
@@ -31,7 +32,7 @@ products:
   - azure-kubernetes-service
   - azure-monitor
   - azure-pipelines
-  
+
 thumbnailUrl: /azure/architecture/browse/thumbs/architecture-devops-with-aks.png
 content: |
    [!include[](devops-with-aks-content.md)]

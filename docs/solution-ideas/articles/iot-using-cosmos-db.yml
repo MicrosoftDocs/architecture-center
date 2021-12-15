@@ -5,7 +5,7 @@ metadata:
   description: Azure Cosmos DB scales instantly and elastically to accommodate diverse and unpredictable IoT workloads without sacrificing ingestion or query performance.
   author: khilscher
   ms.author: pnp
-  ms.date: 03/23/2020
+  ms.date: 07/16/2021
   ms.topic: conceptual
   ms.service: architecture-center
   ms.subservice: solution-idea
@@ -16,7 +16,7 @@ metadata:
     - acom-architecture
     - iot
     - Cosmos DB
-    - 'https://azure.microsoft.com/solutions/architecture/iot-using-cosmos-db/'
+    - "https://azure.microsoft.com/solutions/architecture/iot-using-cosmos-db/"
 name: IoT using Cosmos DB
 azureCategories:
   - iot

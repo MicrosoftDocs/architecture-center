@@ -1,8 +1,8 @@
 ---
-title: Microservices architecture style
+title: Microservice architecture style
 titleSuffix: Azure Application Architecture Guide
-description: Describes benefits, challenges, and best practices for microservices architectures on Azure.
-author: doodlemania2
+description: Read about the benefits, challenges, and best practices of the microservices architecture style on Azure.
+author: EdPrice-MSFT
 ms.date: 10/30/2019
 ms.topic: conceptual
 ms.service: architecture-center
@@ -35,7 +35,7 @@ ms.custom:
 
 - Services should have loose coupling and high functional cohesion. Functions that are likely to change together should be packaged and deployed together. If they reside in separate services, those services end up being tightly coupled, because a change in one service will require updating the other service. Overly chatty communication between two services may be a symptom of tight coupling and low cohesion.
 
-- Isolate failures. Use resiliency strategies to prevent failures within a service from cascading. See [Resiliency patterns](../../framework/resiliency/reliability-patterns.md) and [Designing reliable applications](../../framework/resiliency/overview.md).
+- Isolate failures. Use resiliency strategies to prevent failures within a service from cascading. See [Resiliency patterns](../../framework/resiliency/reliability-patterns.md) and [Designing reliable applications](../../framework/resiliency/principles.md).
 
 ## Next steps
 
@@ -43,5 +43,5 @@ For detailed guidance about building a microservices architecture on Azure, see 
 
 <!-- links -->
 
-[resiliency-overview]: ../../framework/resiliency/overview.md
+[resiliency-overview]: ../../framework/resiliency/principles.md
 [resiliency-patterns]: ../../framework/resiliency/reliability-patterns.md

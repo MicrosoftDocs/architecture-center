@@ -1,0 +1,26 @@
+### YamlMime:Architecture
+metadata:
+  title: Mainframe access to Azure databases
+  titleSuffix: Azure Solution Ideas
+  description: Give mainframe applications access to Azure data without changing code. Use Microsoft Service for DRDA to run Db2 SQL statements on a SQL Server database.
+  author: ashish-khandelwal-ms
+  ms.author: askhande
+  ms.date: 05/03/2021
+  ms.topic: conceptual
+  ms.service: architecture-center
+  ms.subservice: solution-idea
+  ms.custom: fcp
+azureCategories:
+  - databases
+  - integration
+  - migration
+products:
+  - azure-sql-database
+  - azure-virtual-machines
+  - sql-server
+name: Mainframe access to Azure databases
+summary: Give mainframe applications access to Azure data without changing code. Use Microsoft Service for DRDA to run Db2 SQL statements on a SQL Server database.
+thumbnailUrl: /azure/architecture/browse/thumbs/mainframe-access-azure-databases-architecture-thumbnail.png
+content: |
+  [!include[](mainframe-access-azure-databases-content.md)]
+  

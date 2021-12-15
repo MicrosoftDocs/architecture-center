@@ -3,7 +3,7 @@ metadata:
   title: Retail and e-commerce using Azure PostgreSQL
   titleSuffix: Azure Solution Ideas
   description: Build secure and scalable e-commerce solutions that meet customer and business demands by using Azure Database for PostgreSQL.
-  author: doodlemania2
+  author: EdPrice-MSFT
   ms.author: pnp
   ms.date: 12/16/2019
   ms.topic: conceptual
@@ -20,7 +20,7 @@ metadata:
     - use cases
     - azure
     - solutions
-    - 'https://azure.microsoft.com/solutions/architecture/retail-and-ecommerce-using-azure-database-for-postgresql/'
+    - "https://azure.microsoft.com/solutions/architecture/retail-and-ecommerce-using-azure-database-for-postgresql/"
   social_image_url: /azure/architecture/solution-ideas/articles/media/retail-and-ecommerce-using-azure-database-for-postgresql.svg
 name: Retail and e-commerce using Azure PostgreSQL
 azureCategories:

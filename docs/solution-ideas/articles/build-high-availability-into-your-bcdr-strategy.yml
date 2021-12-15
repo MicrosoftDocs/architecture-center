@@ -3,7 +3,7 @@ metadata:
   title: Build high availability into your BCDR strategy
   titleSuffix: Azure Solution Ideas
   description: Learn how to build high availability of services into your business continuity and disaster recovery strategy.
-  author: doodlemania2
+  author: EdPrice-MSFT
   ms.author: pnp
   ms.date: 12/16/2019
   ms.topic: conceptual
@@ -20,7 +20,7 @@ metadata:
     - strategy
     - interactive-diagram
     - e2e-hybrid
-    - 'https://azure.microsoft.com/solutions/architecture/build-high-availability-into-your-bcdr-strategy/'
+    - "https://azure.microsoft.com/solutions/architecture/build-high-availability-into-your-bcdr-strategy/"
   social_image_url: /azure/architecture/solution-ideas/articles/media/build-high-availability-into-your-bcdr-strategy.png
 name: Build high availability into your BCDR strategy
 azureCategories:

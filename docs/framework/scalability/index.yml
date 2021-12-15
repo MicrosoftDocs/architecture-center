@@ -1,0 +1,209 @@
+### YamlMime:Landing
+
+title: Performance efficiency documentation
+summary: Apply scalability principles to your architecture to meet users' demands efficiently.
+
+metadata: 
+  title: Performance efficiency documentation
+  description: Learn how to apply scalability principles to your architecture to meet users' demands efficiently.
+  services: na
+  author: v-stacywray
+  ms.author: v-stacywray
+  manager: david-stanford
+  ms.date: 08/17/2021
+  ms.topic: landing-page
+  ms.service: architecture-center
+  ms.subservice: well-architected
+  ms.collection: na
+
+landingContent:
+# Cards and links should be based on top customer tasks or top subjects
+# Start card title with a verb
+
+ # Card
+  - title: Key points
+    linkLists:
+      - linkListType: quickstart
+        links:
+          - text: Overview
+            url: overview.md
+          - text: Principles
+            url: principles.md
+          - text: Design checklist
+            url: design-checklist.md
+          - text: Test checklist
+            url: test-checklist.md
+          - text: Optimize checklist
+            url: optimize.md
+          - text: Performance efficiency patterns
+            url: performance-efficiency-patterns.md
+          - text: Tradeoffs
+            url: tradeoffs.md
+      - linkListType: learn
+        links:
+          - text: Performance efficiency 
+            url: /learn/modules/azure-well-architected-introduction/5-performance-efficiency
+      - linkListType: video
+        links:
+          - text: "Azure SQL Capacity Planning: Overview"
+            url: /shows/Data-Exposed/Azure-SQL-Capacity-Planning-Overview?term=Capacity&pubDate=3years&lang-en=true
+  # Card
+  - title: Design for performance efficiency
+    linkLists:
+      - linkListType: get-started
+        links:
+          - text: Monitoring distributed architectures
+            url: design-distributed.md
+          - text: Design scalable Azure applications
+            url: design-apps.md
+          - text: Design Azure applications for efficiency
+            url: design-efficiency.md
+          - text: Design for scaling
+            url: design-scale.md
+          - text: Plan for capacity
+            url: design-capacity.md
+      - linkListType: concept
+        links:
+          - text: Consider team expertise
+            url: design-distributed.md#team-expertise
+          - text: Choose the right data storage
+            url: design-apps.md#choose-the-right-data-storage
+          - text: Reduce response time with asynchronous programming
+            url: design-efficiency.md#reduce-response-time-with-asynchronous-programming
+          - text: Plan for growth
+            url: design-scale.md#plan-for-growth
+          - text: Scale out rather than scaling up
+            url: design-capacity.md#scale-out-rather-than-scaling-up
+      - linkListType: learn
+        links:
+          - text: Advancing resilience through chaos engineering and fault injection
+            url: https://azure.microsoft.com/en-us/blog/advancing-resilience-through-chaos-engineering-and-fault-injection/
+      - linkListType: video
+        links:
+          - text: "Autoscale applications on Kubernetes with Kubernetes Event-Driven Autoscaling (KEDA)"
+            url: /shows/Azure-Friday/Autoscale-applications-on-Kubernetes-with-Kubernetes-Event-Driven-Autoscaling-KEDA?term=Autoscaling&pubDate=3years&lang-en=true
+ # Card
+  - title: Test for performance efficiency
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: Performance testing
+            url: performance-test.md
+          - text: Load testing
+            url: performance-test.md#load-testing
+          - text: Stress testing
+            url: performance-test.md#stress-testing
+          - text: Multiregion testing
+            url: performance-test.md#multiregion-testing
+          - text: Testing tools
+            url: test-tools.md
+      - linkListType: concept
+        links:
+          - text: Establish baselines
+            url: performance-test.md#establish-baselines
+          - text: Configure the environment based on testing results
+            url: performance-test.md#configure-the-environment-based-on-testing-results
+          - text: Consider caching data
+            url: test-tools.md#caching-data
+          - text: Use a content delivery network
+            url: test-tools.md#content-delivery-network
+      - linkListType: learn
+        links:
+          - text: Identify performance bottlenecks with Azure Load Testing Preview
+            url: /azure/load-testing/tutorial-identify-bottlenecks-azure-portal
+          - text: Identify performance regressions through automated load testing
+            url: /azure/load-testing/tutorial-cicd-azure-pipelines
+      - linkListType: video
+        links:
+          - text: Scale your cloud app with Azure Cache for Redis
+            url: /shows/Azure-Friday/Scale-Your-Cloud-App-with-Azure-Cache-for-Redis?term=Azure%20Redis%20to%20cache%20data&pubDate=3years&lang-en=true                                    
+ # Card
+  - title: Monitor for performance efficiency
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: Consider application profiling
+            url: monitor-application.md
+          - text: Analyze infrastructure metrics and logs
+            url: monitor-infrastructure.md
+          - text: Integrate performance data
+            url: monitor-analyze.md
+          - text: Monitor performance for scalability and reliability
+            url: monitor-scalability-reliability.md
+      - linkListType: concept
+        links:
+          - text: Collect application logs
+            url: monitor-application.md#application-logs
+          - text: View platform metrics
+            url: monitor-infrastructure.md#platform-metrics
+          - text: Correlate and evaluate data
+            url: monitor-analyze.md#data-interpretation
+          - text: Consider cost implications
+            url: monitor-analyze.md#cost-considerations
+      - linkListType: video
+        links:
+          - text: Azure Application Insights Profiler
+            url: /shows/Visual-Studio-Toolbox/Azure-Application-Insights-Profiler?term=Collect%20data%20with%20Azure%20Application%20Insights&pubDate=3years&lang-en=true
+ # Card
+  - title: Optimize for performance efficiency
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: Caching data for performance optimization
+            url: optimize-cache.md
+          - text: Partition data for performance optimization
+            url: optimize-partition.md
+          - text: Sustain performance efficiency over time
+            url: optimize-sustain.md
+      - linkListType: concept
+        links:
+          - text: Consider capacity
+            url: optimize.md#capacity-considerations
+          - text: Determine acceptable performance optimization
+            url: optimize-partition.md#determine-acceptable-performance-optimization
+          - text: Optimize autoscaling
+            url: optimize-sustain.md#optimize-autoscaling
+          - text: Partition critical workload
+            url: optimize-sustain.md#separate-out-critical-workload
+      - linkListType: video
+        links:
+          - text: Optimize costs of your backups with Azure Backup
+            url: /shows/Inside-Azure-for-IT/Optimize-costs-of-your-backups-with-Azure-Backup?term=Optimize%20for%20performance&pubDate=3years&lang-en=true&pageSize=15
+ # Card
+  - title: Performance tools and services
+    linkLists:
+      - linkListType: reference
+        links:
+          - text: Application Insights
+            url: /azure/azure-monitor/app/app-insights-overview
+          - text: Azure Autoscale
+            url: /azure/azure-monitor/autoscale/autoscale-overview
+          - text: Azure Blob storage
+            url: /azure/storage/blobs/storage-blobs-introduction
+          - text: "Azure Content Delivery Network (CDN)"
+            url: /azure/cdn/cdn-overview
+          - text: Azure Cosmos DB 
+            url: https://azure.microsoft.com/en-us/services/cosmos-db/
+          - text: Azure Front Door 
+            url: /azure/frontdoor/front-door-caching#file-compression
+          - text: Azure Load Testing Preview
+            url: /azure/load-testing/overview-what-is-azure-load-testing
+          - text: Azure Monitor
+            url: /azure/azure-monitor/overview
+          - text: B-series virtual machines
+            url: /azure/virtual-machines/sizes-b-series-burstable
+          - text: Microsoft Well-Architected Review
+            url: /assessments/?mode=pre-assessment&session=5c2bcc40-1c41-47b1-8729-1fba49dbe408      
+ # Card
+  - title: Performance APIs
+    linkLists:
+      - linkListType: reference
+        links:
+          - text: Azure CDN REST API
+            url: /rest/api/cdn/
+          - text: Azure Monitor REST API
+            url: /rest/api/monitor/
+          - text: Azure Redis Cache
+            url: /rest/api/redis/
+          - text: Azure Storage REST API
+            url: /rest/api/storageservices/

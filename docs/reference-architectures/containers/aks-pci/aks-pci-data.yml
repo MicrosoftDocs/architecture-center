@@ -1,0 +1,24 @@
+### YamlMime:Architecture
+metadata:
+  title: AKS regulated cluster for PCI-DSS 3.2.1 - Data protection
+  description: Best practices for securing data as per Requirement 3 and 4 of PCI-DSS 3.2.1.
+  author: PageWriter-MSFT
+  ms.author: pnp
+  ms.date: 07/06/2021
+  ms.topic: conceptual
+  ms.service: architecture-center
+  ms.subservice: reference-architecture
+name: Secure data in an AKS regulated cluster for PCI-DSS 3.2.1 (Part 4 of 9)
+azureCategories:
+  - containers
+  - security
+summary: Best practices for securing data handled by a PCI-DSS 3.2.1 infrastructure. 
+products:
+  - azure-kubernetes-service
+  - azure-application-gateway
+  - azure-active-directory
+  - azure-security-center
+  - azure-monitor
+thumbnailUrl: /azure/architecture/browse/thumbs/aks-pci.png
+content: |
+   [!include[](aks-pci-data-content.md)]

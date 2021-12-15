@@ -1,6 +1,3 @@
-
-
-
 [!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
 Azure is a world-class cloud for hosting virtual machines running Windows or Linux. Whether you use ASP.NET, Java, Node.js, or PHP to develop applications, you'll need a continuous integration and continuous deployment (CI/CD) pipeline to push changes to these virtual machines automatically.
@@ -12,7 +9,7 @@ Azure DevOps provides the CI/CD pipeline, starting with a Git repository for man
 ![Architecture diagram](../media/cicd-for-azure-vms.png)
 *Download an [SVG](../media/cicd-for-azure-vms.svg) of this architecture.*
 
-## Data Flow
+### Data flow
 
 1. Change application source code
 1. Commit Application Code and Azure Resource Manager (ARM) Template
@@ -25,7 +22,7 @@ Azure DevOps provides the CI/CD pipeline, starting with a Git repository for man
 1. Review health, performance and usage information
 1. Update backlog item
 
-## Components
+### Components
 
 * [Virtual Machines](https://azure.microsoft.com/services/virtual-machines): Provision Windows and Linux virtual machines in seconds
 * [Azure DevTest Labs](https://azure.microsoft.com/services/devtest-lab): Quickly create environments using reusable templates and artifacts

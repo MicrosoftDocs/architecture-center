@@ -1,8 +1,8 @@
 ### YamlMime:Architecture
 metadata:
-  title: Deploy AI and machine learning at the edge by using Azure Stack Edge
-  description: Learn how to use Microsoft Azure Stack Edge to extend the ability to perform rapid machine learning inference from the cloud to on-premises or edge scenarios.
-  author: doodlemania2
+  title: Deploy AI and machine learning at the edge
+  description: Learn how to extend rapid machine learning inference from the cloud to on-premises and edge locations with Azure Stack Edge.
+  author: EdPrice-MSFT
   ms.author: pnp
   ms.date: 07/16/2020
   ms.topic: conceptual
@@ -17,11 +17,12 @@ metadata:
     - e2e-hybrid
     - internal-intro
     - ai-machine-learning
-name: Deploy AI and machine learning at the edge by using Azure Stack Edge
+    - aml-project-improvement
+name: Deploy AI and ML computing on-premises and to the edge
 azureCategories:
   - hybrid
   - ai-machine-learning
-summary: Learn how to use Microsoft Azure Stack Edge to extend the ability to perform rapid machine learning inference from the cloud to on-premises or edge scenarios.
+summary: Learn how to extend rapid machine learning inference from the cloud to on-premises and edge locations with Azure Stack Edge.
 products:
   - azure-container-registry
   - azure-iot-edge

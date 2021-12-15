@@ -3,7 +3,7 @@ metadata:
   title: Ops automation using Event Grid
   titleSuffix: Azure Solution Ideas
   description: Event Grid can speed up automation and simplify policy enforcement by covering tasks that range from checking service configurations to filing work items.
-  author: doodlemania2
+  author: EdPrice-MSFT
   ms.author: pnp
   ms.date: 12/16/2019
   ms.topic: conceptual
@@ -17,7 +17,7 @@ metadata:
     - ap-dev
     - devops
     - azure
-    - 'https://azure.microsoft.com/solutions/architecture/ops-automation-using-event-grid/'
+    - "https://azure.microsoft.com/solutions/architecture/ops-automation-using-event-grid/"
   social_image_url: /azure/architecture/solution-ideas/articles/media/ops-automation-using-event-grid.png
 name: Ops automation using Event Grid
 azureCategories:

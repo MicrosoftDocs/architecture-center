@@ -1,6 +1,6 @@
 ### YamlMime:Architecture
 metadata:
-  title: Run SAP HANA on Azure (Large Instances)
+  title: Run SAP HANA Large Instances
   titleSuffix: Azure Reference Architectures
   description: Learn proven practices for running SAP HANA in a high availability environment on Azure Large Instances.
   author: bentrin
@@ -15,6 +15,7 @@ metadata:
   ms.custom:
     - SAP
     - reference-architecture
+    - e2e-sap
 name: Run SAP HANA on Azure (Large Instances)
 azureCategories:
   - databases

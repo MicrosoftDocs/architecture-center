@@ -1,8 +1,8 @@
 ### YamlMime:Architecture
 metadata:
-  title: SAP on Azure Architecture Guide
-  description: This article describes a set of guiding tenets that are used to help ensure the quality of SAP workloads running on Azure
-  author: maggsl
+  title: SAP on Azure architecture
+  description: This article describes a set of guiding tenets that are used to help ensure the quality of SAP workloads running on Azure.
+  author: EdPrice-MSFT
   ms.author: pnp
   ms.date: 06/10/2020
   ms.topic: conceptual
@@ -14,7 +14,8 @@ metadata:
   ms.custom:
     - fcp
     - reference-architecture
-name: SAP on Azure Architecture Guide
+    - e2e-sap
+name: SAP on Azure architecture
 azureCategories:
   - databases
   - compute

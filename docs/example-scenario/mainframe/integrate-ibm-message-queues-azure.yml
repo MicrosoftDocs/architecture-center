@@ -1,0 +1,27 @@
+### YamlMime:Architecture
+metadata:
+  title: Integrate IBM mainframe and midrange message queues with Azure
+  titleSuffix: Azure Example Scenarios
+  description: This example describes a data-first approach to middleware integration that enables IBM message queues (MQs).
+  author: EdPrice-MSFT
+  ms.author: askhande
+  ms.date: 06/02/2021
+  ms.topic: conceptual
+  ms.service: architecture-center
+  ms.subservice: example-scenario
+  ms.custom:
+    - fcp
+azureCategories:
+  - hybrid
+  - integration
+products:
+  - azure-logic-apps
+  - azure-sql-database
+  - azure-sql-managed-instance
+  - azure-sql-virtual-machines
+  - azure-database-postgresql
+name: Integrate IBM mainframe and midrange message queues with Azure
+summary: This example describes a data-first approach to middleware integration that enables IBM message queues (MQs).
+thumbnailUrl: /azure/architecture/browse/thumbs/integrate-ibm-message-queues-azure-01.png
+content: |
+  [!include[](integrate-ibm-message-queues-azure-content.md)]

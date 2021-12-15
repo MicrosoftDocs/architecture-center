@@ -3,11 +3,14 @@
 Artificial intelligence (AI) and machine learning (ML) offer unique opportunities and challenges for operations that span the virtual and physical worlds. AI and ML can recognize correlations between real-world input data and outcomes and make decisions that automate complex physical industrial systems. But AI machine learning systems can't perform higher-level cognitive functions like exploration, improvisation, creative thinking, or determination of causation.
 
 *Machine teaching* is a new paradigm for machine learning systems that:
+
 - Infuses *subject matter expertise* into automated AI systems models.
 - Uses [deep reinforcement learning](#reinforcement-learning) to identify patterns in the learning process and adopt positive behaviors in its own methods.
 - Leverages [simulated environments](#simulations) to generate large amounts of synthetic data for domain-specific use cases and scenarios.
 
 Machine learning focuses on developing novel learning algorithms or improving existing algorithms. Machine teaching focuses on the efficacy of the teachers themselves. Abstracting away AI complexity to focus on subject matter expertise and real-world conditions creates powerful AI and ML models that turn automated control systems into *autonomous systems*.
+
+This article discusses historical AI developments and concepts used in machine teaching. A related article discusses [autonomous systems](./autonomous-systems.yml) in detail.
 
 ## History of automation
 
@@ -62,7 +65,7 @@ RL uses reward functions and policies to assess agent actions and provide feedba
 
 RL teaches the agent to complete an objective by rewarding desired behavior and not rewarding undesired behavior. The following diagram illustrates the conceptual flow of RL and how the key components interact:
 
-![Simple diagram of the RL process](../media/machine-teaching-3-2.png)
+![A diagram of the reinforcement learning (RL) process showing key components.](../media/machine-teaching-3-2.png)
 
 1. An *agent*, in this case a robot, takes an *action* in an *environment*, in this case a smart manufacturing line.
 1. The action causes the environment to change *state*, and return its changed state to the agent.
@@ -88,7 +91,7 @@ Depending on the goal and reward function, the agent must balance exploration ve
 
 The following training dashboard shows the exploration versus exploitation trade-off. The chart shows both the smoothed rewards and episode rewards, with the episode rewards on the y-axis and the training iterations on the x-axis. The episode reward density rises to 400 in the first 50,000 iterations, then keeps steady until 400,000 iterations, when it rises to 1,500 and remains steady.
 
-![Chart showing exploration versus exploitation trade-off](../media/machine-teaching-3-4-3.png)
+![Reinforcement learning reward: chart showing exploration versus exploitation trade-off.](../media/machine-teaching-3-4-3.png)
 
 #### Cobra effect
 
@@ -98,19 +101,19 @@ The well-intentioned incentivization had made the situation worse, not better. T
 
 #### Shaped rewards
 
-Creating a reward function with a particular *shape* can allow the agent to learn an appropriate policy more easily and quickly. 
+Creating a reward function with a particular *shape* can allow the agent to learn an appropriate policy more easily and quickly.
 
 A step function is an example of a *sparse reward function* that doesn't tell the agent much about how good its action was. In the following step reward function, only a distance action between 0.0 and 0.1 generates a full reward of 1.0. When distance is greater than 0.1, there is no reward.
 
-![Chart showing a step reward function](../media/machine-teaching-3-4.png)
+![Reinforcement learning reward: chart showing a step reward function.](../media/machine-teaching-3-4.png)
 
 In contrast, a *shaped reward function* gives the agent a sign of how close the action is to the desired response. The following shaped reward function gives a greater reward depending on how close the response is to the desired 0.0 action. The curve of the function is a hyperbola. The reward is 1.0 for distance 0.0 and gradually drops to 0.0 as distance approaches 1.0.
 
-![Chart showing a shaped reward function](../media/machine-teaching-3-4-2.png)
+![Reinforcement learning: chart showing a shaped reward function.](../media/machine-teaching-3-4-2.png)
 
 Shaping might discount the value of a future reward versus a more immediate reward, or encourage exploration by shrinking the size of rewards around the goal.
 
-Sometimes, a reward function might specify temporal as well as spatial considerations, to encourage ordered sequences of actions. However, if a shaped reward function is becoming very large and complex, consider breaking up the problem into smaller stages and using *concept networks*.
+Sometimes, a reward function might specify temporal and spatial considerations, to encourage ordered sequences of actions. However, if a shaped reward function is becoming large and complex, consider breaking up the problem into smaller stages and using *concept networks*.
 
 ### Concept networks
 
@@ -118,13 +121,13 @@ Sometimes, a reward function might specify temporal as well as spatial considera
 
 In the following concept network for grasping and stacking objects, the **Grasp and Stack**' box is the parent of two gray boxes, **Reach** and **Move**, and three green boxes, **Orient**, **Grasp**, and **Stack**.
 
-![Example concept network](../media/machine-teaching-3-4-4.png)
+![Example concept network allowing a reinforcement learning reward function to be more easily defined.](../media/machine-teaching-3-4-4.png)
 
 Concept networks often allow reward functions to be more easily defined. Each concept can use the most appropriate approach for that task. The notion of concept networks helps with decomposability of the solution into constituent pieces. Components can be replaced without retraining the whole system, allowing reuse of pre-trained models and use of existing controllers or other existing ecosystem components. Especially in industrial control systems, incremental piecemeal improvement can be more desirable than complete removal and replacement.
 
 #### Curriculum learning and apprenticeship learning
 
-Dividing the problem into separate sequential tasks with concept networks allows splitting up the problem into stages of difficulty and presenting it to the agent as a *curriculum* of increasing difficulty. This phased approach starts with a simple problem, lets the agent practice, then challenges it more and more as its ability increases. The reward function changes and evolves as the agent becomes more capable at its task. This *curriculum learning* approach helps guide exploration and drastically reduces required training time. 
+Dividing the problem into separate sequential tasks with concept networks allows splitting up the problem into stages of difficulty and presenting it to the agent as a *curriculum* of increasing difficulty. This phased approach starts with a simple problem, lets the agent practice, then challenges it more and more as its ability increases. The reward function changes and evolves as the agent becomes more capable at its task. This *curriculum learning* approach helps guide exploration and drastically reduces required training time.
 
 You can also constrain the policy search space for the agent by instructing it to learn by mimicking the behavior of an external expert. *Apprenticeship learning* uses expert-guided exemplars to constrain the state space the agent explores. Apprenticeship learning trades off learning known solutions more quickly at the expense of not discovering novel solutions.
 
@@ -192,19 +195,19 @@ Machine teaching streamlines the process of building ML solutions by looking at 
 
 Bonsai provides an easily understandable central dashboard that tracks the current state of each project with version control tools. Using this machine-teaching infrastructure ensures that model results can be reproduced, and lets developers easily refresh AI systems with future AI algorithmic breakthroughs.
 
-![Bonsai dashboard](../media/bonsai-ui.png)
+![Project Bonsai dashboard: a low code industrial AI development platform.](../media/bonsai-ui.png)
 
-A perspective shift to a machine teaching methodology promotes ML adoption with a more streamlined and accessible process for generating and deploying ML models. Machine teaching offers a way for domain experts to apply the power of DRL as a tool. Machine teaching moves the technology of AI from a focus on ML algorithms and techniques to the application of these algorithms by domain experts to real-world problems. 
+A perspective shift to a machine teaching methodology promotes ML adoption with a more streamlined and accessible process for generating and deploying ML models. Machine teaching offers a way for domain experts to apply the power of DRL as a tool. Machine teaching moves the technology of AI from a focus on ML algorithms and techniques to the application of these algorithms by domain experts to real-world problems.
 
 ### Machine teaching process
 
 Machine teaching development and deployment has three phases: Build, Train, and Deploy.
 
-![Machine teaching process](../media/machine-teaching-1-2.png)
+![Machine teaching process phases: build, train, and deploy.](../media/machine-teaching-1-2.png)
 
 1. The Build phase consists of writing the machine teaching program and connecting to a domain-specific training simulator. Simulators generate sufficient training data for experiments and machine practice.
-3. In the Train phase, the training engine automates DRL model generation and training by combining high-level domain models with appropriate DRL algorithms and neural networks.
-5. The Deploy phase deploys the trained model to the target application in the cloud, on-premises, or embedded on site. Specific SDKs and deployment APIs deploy trained AI systems to various target applications, perform machine tuning, and control the physical systems.
+1. In the Train phase, the training engine automates DRL model generation and training by combining high-level domain models with appropriate DRL algorithms and neural networks.
+1. The Deploy phase deploys the trained model to the target application in the cloud, on-premises, or embedded on site. Specific SDKs and deployment APIs deploy trained AI systems to various target applications, perform machine tuning, and control the physical systems.
 
 *Simulated environments* generate large amounts of synthetic data covering many use cases and scenarios. Simulations provide safe and cost-effective data generation for model algorithm training, and faster training times with simulation parallelization. Simulations help train the models across different kinds of environmental conditions and scenarios, much faster and safer than is feasible in the real world.
 
@@ -216,7 +219,7 @@ Machine teaching and machine learning are complementary and can evolve independe
 
 The following diagram shows a representative pipeline for building a machine learning model:
 
-![Typical machine learning flow.](../media/machine-teaching-2-3.png)
+![A diagram showing a typical pipeline for building a machine learning model.](../media/machine-teaching-2-3.png)
 
 1. The problem owner collects and labels datasets, or assembles a label guideline so the labeling task can be outsourced.
 2. The problem owner reviews the labels until their quality is satisfactory.
@@ -231,7 +234,7 @@ The role of the teacher is to optimize the transfer of knowledge to the learning
 
 The following image shows the high-level process of machine teaching:
 
-![The machine teaching process](../media/machine-teaching-2-6.png)
+![The machine teaching process at a high level.](../media/machine-teaching-2-6.png)
 
 1. The teacher first questions whether a training set is realizable.
 2. If the training set isn't realizable, the teacher determines whether the issue is due to inadequate labeling or feature deficiencies. After correcting the labeling or adding features, the teacher again assesses whether the training set is realizable.
@@ -247,7 +250,7 @@ The learning capacity of the model increases on demand. There's no need for trad
 
 Machine teaching is a form of programming. The goal of both programming and machine teaching is to create a *function*. The steps to create a stateless target function that returns the value *Y* given an input *X* are similar for both processes:
 
-![Machine teaching vs. programming or traditional software engineering](../media/machine-teaching-2-5.png)
+![Machine teaching vs. programming or traditional software engineering.](../media/machine-teaching-2-5.png)
 
 1. Specify the target function.
 1. Decompose the target function into subfunctions if applicable.
@@ -298,23 +301,23 @@ Defining exact parameters for machine teaching projects requires quite a bit of 
 
 ### Example project
 
-An example of an autonomous systems AI project is the use case of a manufacturing process optimization. The goal is to optimize the thickness tolerance of a steel beam being manufactured on a production line. Rollers provide pressure across a piece of steel to shape it into the designed thickness. 
+An example of an autonomous systems AI project is the use case of a manufacturing process optimization. The goal is to optimize the thickness tolerance of a steel beam being manufactured on a production line. Rollers provide pressure across a piece of steel to shape it into the designed thickness.
 
 The machine state inputs to the AI system are the rolling force, roller error, and roller noise. The control actions from the AI system are actuator commands to control the operation and motion of the rollers, and optimize the thickness tolerance of the steel beam.
 
 First, find or develop a simulator that can simulate agents, sensors, and the environment. The following Matlab simulation model provides an accurate training environment for this AI system:
 
-![Simulink model for steel beam manufacturing process](../media/machine-teaching-4-4-3.png)
+![Simulink model for steel beam manufacturing process.](../media/machine-teaching-4-4-3.png)
 
 Use the [Bonsai](/bonsai/) machine teaching service in the Microsoft Autonomous Systems Platform to build a machine teaching plan into a model, train the model against the simulator, and deploy the trained AI system to the real production facility.
 
 [Inkling](/bonsai/inkling/) is a purpose-specific language to formally describe machine teaching plans. In Bonsai, you can use Inkling to deconstruct the problem into schema:
 
-![Define machine state and control action in Inkling](../media/machine-teaching-4-4-4.png)
+![Define machine state and control action in Inkling code.](../media/machine-teaching-4-4-4.png)
 
 Then, define key *concepts* and create a *curriculum* to teach the AI system, specifying the reward function for the simulation state:
 
-![Define curriculum in Inkling.](../media/machine-teaching-4-4-5.png)
+![Define curriculum in Inkling code.](../media/machine-teaching-4-4-5.png)
 
 The AI system learns by practicing the optimization task in simulation, following the concepts of machine teaching. You can upload the simulation into Bonsai, where it provides visualizations of training progress as it runs.
 
@@ -336,9 +339,10 @@ The example uses [Inkling](/bonsai/inkling/) language to write the machine teach
 
 The following Bonsai screenshot shows a Cartpole training, with **Goal satisfaction** on the y-axis and **Training iterations** on the x-axis. The Bonsai dashboard also shows the percentage of goal satisfaction and the total training time.
 
-![Bonsai dashboard showing the Cartpole training example](../media/bonsai.png)
+![Bonsai dashboard showing the Cartpole training example.](../media/bonsai.png)
 
 For more information about the Cartpole example or to try it yourself, see:
+
 - [Quickstart: Balance a pole with AI (Cartpole)](/bonsai/quickstart/cartpole/)
 - [Learn how you can teach an AI agent to balance a pole](https://blogs.microsoft.com/ai-for-business/cartpole-demo/)
 
@@ -348,7 +352,7 @@ The Horizontal Oil Drilling application is a motion controller to automate oil r
 
 The available sensor information includes the direction of drill bit force, weight of the drill bit, side force, and drilling angle. The supported agent actions are to move the drill bit up, down, left, or right. The program provides a positive reward when the drill is within the tolerance distance of the chamber walls. The model learns to adapt to different well plans, drill starting positions, and sensor inaccuracies.
 
-![Horizontal oil drilling example](../media/oil-drill.png)
+![Horizontal oil drilling example application.](../media/oil-drill.png)
 
 For more information and a demo of this solution, see [Motion control: Horizontal oil drilling](https://aidemos.microsoft.com/machineteaching/motion-control).
 
@@ -363,15 +367,16 @@ For more information and a demo of this solution, see [Motion control: Horizonta
 - [Microsoft The AI Blog](https://blogs.microsoft.com/ai/)
 - [Bonsai documentation](/bonsai/)
 - [Microsoft AirSim on GitHub](https://github.com/Microsoft/AirSim)
-- [Aerial Informatics and Robotics Platform (AirSim)](https://www.microsoft.com/en-us/research/project/aerial-informatics-robotics-platform/)
+- [Aerial Informatics and Robotics Platform (AirSim)](https://www.microsoft.com/research/project/aerial-informatics-robotics-platform/)
 - [Gazebo](http://gazebosim.org/)
 - [Simulink](https://www.mathworks.com/products/simulink.html)
 
 ## Related resources
-* ["Bonsai, AI for Everyone," 2016 March 2]( https://medium.com/@BonsaiAI/ai-for-everyone-4ddd36c89859)
-* ["AI use cases: innovations solving more than just toy problems," 2017 March 2](https://medium.com/@BonsaiAI/ai-use-cases-9d1b70e61396)
-* [Patrice Y. Simard, Saleema Amershi, David M. Chickering, et al., "Machine Teaching: A New Paradigm for Building Machine Learning Systems," 2017](https://arxiv.org/abs/1707.06742v2)
-* [Carlos E. Perez, "Deep Teaching: The Sexiest Job of the Future," 2017 July 29](https://medium.com/intuitionmachine/why-teaching-will-be-the-sexiest-job-of-the-future-a-i-economy-b8e1c2ee413e)
-* [Tambet Matiisen, "Demystifying deep reinforcement learning," 2015 December 19](https://neuro.cs.ut.ee/demystifying-deep-reinforcement-learning/)
-* [Andrej Karpathy, "Deep Reinforcement Learning: Pong from Pixels," 2016 May 31](http://karpathy.github.io/2016/05/31/rl/)
-* [David Kestenbaum, "Pop Quiz: How Do You Stop Sea Captains From Killing Their Passengers?" 2010 September 10](https://www.npr.org/sections/money/2010/09/09/129757852/pop-quiz-how-do-you-stop-sea-captains-from-killing-their-passengers?t=1556642213216)
+
+- ["Bonsai, AI for Everyone," 2016 March 2]( https://medium.com/@BonsaiAI/ai-for-everyone-4ddd36c89859)
+- ["AI use cases: innovations solving more than just toy problems," 2017 March 2](https://medium.com/@BonsaiAI/ai-use-cases-9d1b70e61396)
+- [Patrice Y. Simard, Saleema Amershi, David M. Chickering, et al., "Machine Teaching: A New Paradigm for Building Machine Learning Systems," 2017](https://arxiv.org/abs/1707.06742v2)
+- [Carlos E. Perez, "Deep Teaching: The Sexiest Job of the Future," 2017 July 29](https://medium.com/intuitionmachine/why-teaching-will-be-the-sexiest-job-of-the-future-a-i-economy-b8e1c2ee413e)
+- [Tambet Matiisen, "Demystifying deep reinforcement learning," 2015 December 19](https://neuro.cs.ut.ee/demystifying-deep-reinforcement-learning/)
+- [Andrej Karpathy, "Deep Reinforcement Learning: Pong from Pixels," 2016 May 31](http://karpathy.github.io/2016/05/31/rl/)
+- [David Kestenbaum, "Pop Quiz: How Do You Stop Sea Captains From Killing Their Passengers?" 2010 September 10](https://www.npr.org/sections/money/2010/09/09/129757852/pop-quiz-how-do-you-stop-sea-captains-from-killing-their-passengers?t=1556642213216)

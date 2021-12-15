@@ -1,6 +1,6 @@
 ---
 title: Design scalable Azure applications
-description: Describes the design considerations for scalable applications
+description: Review design considerations for scalable applications. Choose the right data storage and VM size, build with microservices, establish connection pooling, and more.
 author: v-aangie
 ms.date: 12/01/2020
 ms.topic: conceptual
@@ -13,7 +13,7 @@ ms.custom:
 
 # Design scalable Azure applications
 
-Application design is critical to handling scale as load increases. This article will give you insight on the most important topics. For more topics related to handling scale, see the [Design Azure applications for efficiency](https://review.docs.microsoft.com/azure/architecture/framework/scalability/design-efficiency) article in the Performance efficiency pillar.
+Application design is critical to handling scale as load increases. This article will give you insight on the most important topics. For more topics related to handling scale, see the [Design Azure applications for efficiency](/azure/architecture/framework/scalability/design-efficiency) article in the Performance efficiency pillar.
 
 ## Choose the right data storage
 
@@ -33,28 +33,28 @@ Each service is accessed through a storage account. To get started, see [Create 
 
 ## Database considerations
 
-The choice of database can affect an application's performance and scalability. Database reads and writes involve a network call and storage I/O, both of which are expense operations. Choosing the right database service to store and retrieve data is therefore a critical decision and must be considered to ensure application scalability. Azure has many database services that will fit most needs. In addition, there are third-party options that can be considered from [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace).
+The choice of database can affect an application's performance and scalability. Database reads and writes involve a network call and storage I/O, both of which are expensive operations. Choosing the right database service to store and retrieve data is therefore a critical decision and must be considered to ensure application scalability. Azure has many database services that will fit most needs. In addition, there are third-party options that can be considered from [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace).
 
-To help you choose a database type, determine if application storage requirements fit a relational design (SQL) versus a key-value/document/graph design (NO-SQL). Some applications may have both a SQL and a NO-SQL database for different storage needs. Use the [Azure data store decision tree](../../guide/technology-choices/data-store-decision-tree.md) to help you find the appropriate managed data storage solution.
+To help you choose a database type, determine if the application's storage requirements fit a relational design (SQL) versus a key-value/document/graph design (NoSQL). Some applications may have both a SQL and a NoSQL database for different storage needs. Use the [Azure data store decision tree](../../guide/technology-choices/data-store-decision-tree.md) to help you find the appropriate managed data storage solution.
 
 ### Why use a relational database?
 
 Use a relational database when strong consistency guarantees are important — where all changes are atomic, and transactions always leave the data in a consistent state. However, a relational database generally can't scale out horizontally without sharding the data in some way. Implementing manual sharding can be a time consuming task. Also, the data in relational database must be normalized, which isn't appropriate for every data set.
 
-If a relational database is considered optimal, Azure offers several PaaS options that fully manage hosting and operations of the database. Azure SQL Database can host single databases or multiple databases (Azure SQL Database Managed Instance). The suite of offerings spans requirements that cross performance, scale, size, resiliency, disaster recovery, and migration compatibility. Azure offers the following PaaS relational database services:  
+If a relational database is considered optimal, Azure offers several PaaS options that fully manage hosting and operations of the database. Azure SQL Database can host single databases or multiple databases (Azure SQL Database Managed Instance). The suite of offerings spans requirements that cross performance, scale, size, resiliency, disaster recovery, and migration compatibility. Azure offers the following PaaS relational database services:
 
 - [Azure SQL Database](https://azure.microsoft.com/services/sql-database)
 - [Azure Database for MySQL](https://azure.microsoft.com/services/mysql)
 - [Azure Database for PostgreSQL](https://azure.microsoft.com/services/postgresql)
 - [Azure Database for MariaDB](https://azure.microsoft.com/services/mariadb)
 
-### Why use a NO-SQL database?
+### Why use a NoSQL database?
 
-Use a NO-SQL database when application performance and availability are more important than strong consistency. NO-SQL is ideal for handling large, unrelated, indeterminate, or rapidly changing data. NO-SQL databases have trade-offs. For specifics, see [Some challenges with NoSQL databases](/azure/cosmos-db/relational-nosql#some-challenges-with-nosql-databases).
+Use a NoSQL database when application performance and availability are more important than strong consistency. NoSQL databases are ideal for handling large, unrelated, indeterminate, or rapidly changing data. NoSQL databases have trade-offs. For specifics, see [Some challenges with NoSQL databases](/azure/cosmos-db/relational-nosql#some-challenges-with-nosql-databases).
 
-Azure provides two managed services that optimize for NO-SQL solutions: [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db) and [Azure Cache for Redis](https://azure.microsoft.com/services/cache). For document and graph databases, Cosmos DB offers extreme scale and performance.
+Azure provides two managed services that optimize for NoSQL solutions: [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db) and [Azure Cache for Redis](https://azure.microsoft.com/services/cache). For document and graph databases, Cosmos DB offers extreme scale and performance.
 
-For a detailed description of NO-SQL and relational databases, see [Understanding the differences](/azure/cosmos-db/relational-nosql).
+For a detailed description of NoSQL and relational databases, see [Understanding the differences](/azure/cosmos-db/relational-nosql).
 
 ## Choose the right VM size
 
@@ -67,7 +67,7 @@ Azure offers the following categories of VM sizes, each designed to run differen
 - [Compute optimized](/azure/virtual-machines/sizes-compute) - Have a high CPU-to-memory ratio. These sizes are good for medium traffic web servers, network appliances, batch processes, and application servers.
 - [GPU optimized](/azure/virtual-machines/sizes-gpu) - Available with single, multiple, or fractional GPUs. These sizes are designed for compute-intensive, graphics-intensive, and visualization workloads.
 - [High performance compute](/azure/virtual-machines/sizes-hpc) - Designed to deliver leadership-class performance, scalability, and cost efficiency for a variety of real-world HPC workloads.
-- [Storage optimized](/azure/virtual-machines/sizes-storage) - Offer high disk throughput and IO, and are ideal for Big Data, SQL, NO-SQL databases, data warehousing, and large transactional databases. Examples include Cassandra, MongoDB, Cloudera, and Redis.
+- [Storage optimized](/azure/virtual-machines/sizes-storage) - Offer high disk throughput and IO, and are ideal for Big Data, SQL, NoSQL databases, data warehousing, and large transactional databases. Examples include Cassandra, MongoDB, Cloudera, and Redis.
 
 You can change the sizing requirements according to your needs and requirements.
 
@@ -89,7 +89,7 @@ When there are many separate services or instances of services in play, they wil
 
 When combined with an orchestration platform designed to execute and manage microservices such as Kubernetes or Service Fabric, individual services can be right sized, scaled up, scaled down, and dynamically configured to match user demand. Using an orchestrator such as Kubernetes or Service Fabric, you can pack a higher density of services onto a single host, which allows for more efficient utilization of resources. Both of these platforms provide built-in services for executing, scaling, and operating a microservices architecture; and one of those key services is discovery and finding where a particular service is running.
 
-Kubernetes supports pod autoscaling and cluster autoscaling. To learn more, see [Autoscaling](../../reference-architectures/containers/aks-microservices/aks-microservices.yml#autoscaling). A Service Fabric architecture takes a different approach to scaling for stateless and stateful services. To learn more, see [Scaling considerations](../../reference-architectures/microservices/service-fabric.yml#scaling-services).
+Kubernetes supports pod autoscaling and cluster autoscaling. To learn more, see [Autoscaling](../../reference-architectures/containers/aks-microservices/aks-microservices-advanced.yml#autoscaling). A Service Fabric architecture takes a different approach to scaling for stateless and stateful services. To learn more, see [Scaling considerations](../../reference-architectures/microservices/service-fabric.yml#scaling-services).
 
 > [!TIP]
 > When appropriate, decomposing an application into microservices is a level of decoupling that is an architectural best practice. A microservices architecture can also bring some challenges. The design patterns in [Design patterns for microservices](../../microservices/design/patterns.md) can help mitigate these challenges.
@@ -115,5 +115,5 @@ Measure your business' security requirements against the advantages and disadvan
 
 ## Next steps
 
->[!div class="nextstepaction"]
->[Application efficiency](./design-efficiency.md)
+> [!div class="nextstepaction"]
+> [Application efficiency](./design-efficiency.md)

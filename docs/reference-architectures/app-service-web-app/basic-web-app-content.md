@@ -8,7 +8,7 @@ This reference architecture shows proven practices for a web application that us
 
 This architecture includes an Azure App Service plan and an empty application, Azure SQL Database, Azure Key Vault for storing the database connection string, and Azure Monitor for logging, monitoring, and alerting.
 
-#### [Azure CLI](#tab/cli)
+# [Azure CLI](#tab/cli)
 
 Use the following command to create a resource group for the deployment. Click the **Try it** button to use an embedded shell.
 
@@ -38,13 +38,13 @@ New-AzResourceGroupDeployment -ResourceGroupName basic-web-app `
     -TemplateUri https://raw.githubusercontent.com/mspnp/samples/master/solutions/basic-web-app/azuredeploy.json
 ```
 
-#### [Azure portal](#tab/portal)
+# [Azure portal](#tab/portal)
 
 Use the following button to deploy the reference using the Azure portal.
 
 [![Deploy to Azure](../../_images/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fmspnp%2Fsamples%2Fmaster%2Fsolutions%2Fbasic-web-app%2Fazuredeploy.json)
 
---- 
+---
 
 For detailed information and additional deployment options, see the ARM Templates used to deploy this solution.
 

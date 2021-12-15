@@ -1,19 +1,18 @@
 ---
-title: Monitoring best practices for reliability in Azure applications
-description: Best practices for reliability monitoring in Azure applications
+title: Best practices for reliability in apps
+description: Review best practices for reliability monitoring in Azure applications within the Azure Well-Architected Framework.
 author: v-aangie
 ms.date: 02/17/2021
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: well-architected
-ms.custom:
 ---
 
 # Monitoring best practices for reliability in Azure applications
 
 This article lists Azure best practices to enhance monitoring Azure applications for reliability. These best practices are derived from our experience with Azure reliability and the experiences of customers like yourself.
 
-Implement these best practices for monitoring and alerts in your application so you can detect failures and alert an operator to fix them. 
+Implement these best practices for monitoring and alerts in your application so you can detect failures and alert an operator to fix them.
 
 ## Implement health probes and check functions
 
@@ -31,7 +30,7 @@ Catching issues early can minimize the need to roll back the entire workflow or 
 
 ## Measure remote call statistics
 
-Measure remote call statistics, and share the data with the application team to give your operations team an instantaneous view into application health, summarize remote call metrics, such as latency, throughput, and errors in the 99 and 95 percentiles. Perform statistical analysis on the metrics to uncover errors that occur within each percentile.
+Measure remote call statistics, and share the data with the application team to give your operations team an instantaneous view into application health, summarize remote call metrics, such as latency, throughput, and errors in the 99 and 95 percentiles. Perform statistical analysis on the metrics to uncover errors that occur within each percentile.
 
 ## Track transient exceptions and retries
 

@@ -1,7 +1,7 @@
 ### YamlMime:Architecture
 metadata:
-  title: Microservices architecture on Azure Service Fabric
-  description: Learn how to deploy microservices to Azure Service Fabric which can be used as a starting point for most cluster configuration deployments.
+  title: Azure Service Fabric microservices architecture
+  description: Learn how to deploy microservices to Azure Service Fabric, which can be used as a starting point for most cluster configuration deployments.
   author: PageWriter-MSFT
   ms.author: pnp
   ms.date: 06/13/2019
@@ -16,10 +16,9 @@ metadata:
 name: Microservices architecture on Azure Service Fabric
 azureCategories:
   - developer-tools
-summary: Learn how to deploy microservices to Azure Service Fabric which can be used as a starting point for most cluster configuration deployments.
+summary: Learn how to deploy microservices to Azure Service Fabric, which can be used as a starting point for most cluster configuration deployments.
 products:
   - azure-api-management
-  - azure-cosmos-db
   - azure-key-vault
   - azure-monitor
   - azure-pipelines

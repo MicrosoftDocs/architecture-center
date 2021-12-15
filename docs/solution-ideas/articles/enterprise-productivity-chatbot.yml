@@ -1,9 +1,9 @@
 ### YamlMime:Architecture
 metadata:
-  title: Enterprise Productivity Chatbot
+  title: Enterprise bot for employee productivity
   titleSuffix: Azure Solution Ideas
-  description: Use Azure Bot Service and Language Understanding to build powerful enterprise productivity bots. Streamline common tasks by integrating external systems.
-  author: doodlemania2
+  description: Use Azure Bot and Cognitive Services to build enterprise bots for internal productivity. Process natural language requests to streamline common employee tasks.
+  author: EdPrice-MSFT
   ms.author: pnp
   ms.date: 12/16/2019
   ms.topic: conceptual
@@ -16,13 +16,14 @@ metadata:
     - bot service
     - luis
     - interactive-diagram
-    - 'https://azure.microsoft.com/solutions/architecture/enterprise-productivity-chatbot/'
+    - "https://azure.microsoft.com/solutions/architecture/enterprise-productivity-chatbot/"
     - ai-machine-learning
+    - aml-project-improvement
   social_image_url: /azure/architecture/solution-ideas/articles/media/enterprise-productivity-chatbot.png
-name: Enterprise Productivity Chatbot
+name: Enterprise bot for employee productivity
 azureCategories:
   - ai-machine-learning
-summary: Use Azure Bot Service and Language Understanding to build powerful enterprise productivity bots. Streamline common tasks by integrating external systems.
+summary: Use Azure Bot and Cognitive Services to build enterprise bots for internal productivity. Process natural language requests to streamline common employee tasks.
 products:
   - azure-active-directory
   - azure-bot-service

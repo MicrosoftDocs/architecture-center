@@ -1,0 +1,24 @@
+### YamlMime:Architecture
+metadata:
+  title: Analytics architecture design
+  titleSuffix: Azure Architecture Center
+  description: Analytics solutions turn volumes of data into useful business intelligence (BI), such as reports and visualizations, and inventive artificial intelligence (AI), such as forecasts based on machine learning.
+  author: EdPrice-MSFT
+  ms.author: v-nanra
+  ms.date: 06/21/2021
+  ms.topic: conceptual 
+  ms.service: architecture-center
+  ms.subservice: solution-idea
+  ms.category: analytics
+  ms.custom: azure-synapse-analytics
+azureCategories:
+  - analytics
+  - databases
+products:
+  - azure-synapse-analytics
+  - power-bi
+name: Analytics architecture design
+summary: Analytics solutions turn volumes of data into useful business intelligence (BI) and inventive artificial intelligence (AI).
+thumbnailUrl: /azure/architecture/browse/thumbs/advanced-analytics-on-big-data.png
+content: |
+   [!include[](analytics-start-here-content.md)]
