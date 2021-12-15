@@ -1,6 +1,6 @@
 Schematic and industrial diagrams often have objects that contain text. Manually scanning documents for relevant text can be laborious and time consuming.
 
-This article presents a solution for extracting text from images so it can be indexed and retrieved in SharePoint. Using AI Builder and Form Recognizer, you can configure a Power Automate workflow to use a trained model to extract text from an image. Once you've configured a workflow, you can quickly search documents for meaningful text that's imbedded in shapes and objects.
+This article presents a solution for extracting text from images so it can be indexed and retrieved in SharePoint. By using AI Builder and Azure Form Recognizer, you can configure a Power Automate workflow to use a trained model to extract text from an image. Once you've configured a workflow, you can quickly search documents for meaningful text that's imbedded in shapes and objects.
 
 ## Potential use cases
 
@@ -15,8 +15,6 @@ Use cases include:
 
 *Download a [PowerPoint file](https://arch-center.azureedge.net/architecture-extract-object-text.pptx) of this architecture.*
 
-In this section, we explain the workflow and how each component plays a role:
-
 1. An object detection model is trained in AI Builder to recognize objects that a user specifies.
 1. A new document enters a SharePoint document library, OneDrive, or Teams.
 1. The document's arrival triggers a Power Automate event. That event:
@@ -29,11 +27,11 @@ In this section, we explain the workflow and how each component plays a role:
 
 ### Components
 
-- [AI Builder](/ai-builder/overview) is a Power Platform capability. Use AI Builder to train object detection models to recognize specific text in images. AI Builder also offers prebuilt models for text extraction.
+- [AI Builder](/ai-builder/overview) is a Power Platform capability. Use AI Builder to train models to recognize objects in images. AI Builder also offers prebuilt models for object detection.
 - [Form Recognizer](https://azure.microsoft.com/services/form-recognizer) uses machine-learning models to extract and analyze form fields, text, and tables from your documents.
 - [Power Automate](https://azure.microsoft.com/services/developer-tools/power-automate) is a part of Power Platform's no-code or low-code intuitive solutions. Power Automate is an online workflow service that automates actions across apps and services.
 - [Azure Functions](https://azure.microsoft.com/en-us/services/functions) is an event-driven serverless compute platform. Azure Functions runs on demand and at scale in the cloud.
-- [PnP Modern Search](https://microsoft-search.github.io/pnp-modern-search) solution is a set of SharePoint Online modern web parts. You can create highly flexible and personalized search-based experiences.
+- [PnP Modern Search](https://microsoft-search.github.io/pnp-modern-search) solution is a set of SharePoint Online modern web parts. By using these tools, you can create highly flexible and personalized search-based experiences.
 
 ### Alternatives
 
@@ -55,7 +53,7 @@ Azure replicates data to ensure durability and high availability. Data redundanc
 
 ### Scalability
 
-Azure Functions is highly scalable. This platform offers multiple plans that automatically scale on demand when events are triggered. For more information, see [Event driven scaling](/azure/azure-functions/event-driven-scaling).
+Azure Functions is highly scalable. This platform offers multiple plans that automatically scale on demand when events are triggered. For more information, see [Event-driven scaling](/azure/azure-functions/event-driven-scaling).
 
 Azure Functions has a limit of 200 instances. If you need to scale beyond this limit, add multiple regions or app plans.
 
@@ -63,7 +61,7 @@ Azure Functions has a limit of 200 instances. If you need to scale beyond this l
 
 Use standard security practices for the components that you use, and for the SharePoint document library that you store the metadata in.
 
-Form Recognizer is designed with compliance, privacy, and security in mind.  It authenticates access by using an API key, encrypts data during transit and storage, and returns results using the API key. For more information, see [Data, privacy, and security for Form Recognizer](/legal/cognitive-services/form-recognizer/fr-data-privacy-security).
+Form Recognizer is designed with compliance, privacy, and security in mind.  It authenticates access by using an API key, encrypts data during transit and storage, and returns results by using the API key. For more information, see [Data, privacy, and security for Form Recognizer](/legal/cognitive-services/form-recognizer/fr-data-privacy-security).
 
 AI Builder relies on environment security and Dataverse security roles and privileges to grant access to AI features in Power Apps. Privileges are set by default in Dataverse. System administrators can use the default built-in security roles without further actions. For more information, see [Security overview](/power-platform/admin/wp-security).
 
@@ -73,7 +71,7 @@ For more information on deploying this scenario, see the [Power Automate Communi
 
 ## Pricing
 
-- For Power Automate, make sure the licenses that you've purchased and assigned are adequate for the volume of documents that you process. Include an HTTP premium connector to call the Form Recognizer and Azure Functions.
+- For Power Automate, make sure the licenses that you've purchased and assigned are adequate for the volume of documents that you process. Include an HTTP premium connector to call Form Recognizer and Azure Functions.
 - Purchase AI Builder credits based on the expected model usage.
 - To estimate the cost of Azure products and configurations, use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator).
 
