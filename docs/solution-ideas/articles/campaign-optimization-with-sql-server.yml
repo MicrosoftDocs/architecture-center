@@ -3,9 +3,9 @@ metadata:
   title: Campaign optimization with SQL Server
   titleSuffix: Azure Solution Ideas
   description: Optimize when and how to contact potential customers to improve marketing campaign success rates with machine learning and SQL Server 2016 with R Services.
-  author: EdPrice-MSFT
-  ms.author: pnp
-  ms.date: 12/16/2019
+  author: prabhkaur1977
+  ms.author: prkau
+  ms.date: 12/15/2021
   ms.topic: conceptual
   ms.service: architecture-center
   ms.subservice: solution-idea
