@@ -2394,17 +2394,100 @@ items:
                   - name: Partitioning and horizontal scaling
                     href: /azure/cosmos-db/partitioning-overview
                     maintainContext: true
-                  - name:
-                    href: 
+                  - name: Capacity
+                    items:
+                     - name: Request units in Cosmos DB
+                       href: /azure/cosmos-db/request-units
+                       maintainContext: true
+                     - name: Provisioned throughput
+                       href: /azure/cosmos-db/set-throughput
+                       maintainContext: true
+                     - name: Autoscale throughput
+                       href: /azure/cosmos-db/provision-throughput-autoscale
+                       maintainContext: true
+                     - name: Serverless in Cosmos DB
+                       href: /azure/cosmos-db/serverless
+                       maintainContext: true
+                     - name: Autoscale and standard throughput
+                       href: /azure/cosmos-db/how-to-choose-offer
+                       maintainContext: true
+                     - name: Provisioned and serverless throughput
+                       href: /azure/cosmos-db/throughput-serverless
+                       maintainContext: true
+                     - name: Scaling provisioned throughput
+                       href: /azure/cosmos-db/scaling-provisioned-throughput-best-practices
+                       maintainContext: true                    
+                  - name: Security
+                    items:
+                      - name: Security in Cosmos DB
+                        href: /azure/cosmos-db/database-security
+                        maintainContext: true
+                      - name: Data encryption
+                        href: /azure/cosmos-db/database-encryption-at-rest
+                        maintainContext: true
+                      - name: Role-based access control
+                        href: /azure/cosmos-db/role-based-access-control
+                        maintainContext: true
+                      - name: Azure Policy support
+                        href: /azure/cosmos-db/policy
+                        maintainContext: true
+                      - name: Azure Policy Regulatory Compliance controls
+                        href: /azure/cosmos-db/security-controls-policy
+                        maintainContext: true
+                      - name: Security baseline for Cosmos DB
+                        href: /security/benchmark/azure/baselines/cosmos-db-security-baseline
+                        maintainContext: true
+                  - name: Backup
+                    items:
+                      - name: Backup and restore in Cosmos DB
+                        href: /azure/cosmos-db/continuous-backup-restore-introduction
+                        maintainContext: true
+                      - name: Continuous backup in Cosmos DB
+                        href: /azure/cosmos-db/continuous-backup-restore-introduction
+                        maintainContext: true
+                  - name: Cost optimization
+                    items:
+                      - name: Plan and manage costs
+                        href: /azure/cosmos-db/plan-manage-costs
+                        maintainContext: true
+                      - name: Pricing model
+                        href: /azure/cosmos-db/how-pricing-works
+                        maintainContext: true
+                      - name: Total cost of ownership (TCO)
+                        href: /azure/cosmos-db/total-cost-ownership
+                        maintainContext: true
+                      - name: Understand your bill
+                        href: /azure/cosmos-db/understand-your-bill
+                        maintainContext: true
+                      - name: Optimize provisioned throughput cost
+                        href: /azure/cosmos-db/optimize-cost-throughput
+                        maintainContext: true
+                      - name: Optimize request cost
+                        href: /azure/cosmos-db/optimize-cost-reads-writes
+                        maintainContext: true
+                      - name: Optimize storage cost
+                        href: /azure/cosmos-db/optimize-cost-storage
+                        maintainContext: true
+                      - name: Optimize multi-region cost
+                        href: /azure/cosmos-db/optimize-cost-regions
+                        maintainContext: true
+                      - name: Optimize development/testing cost
+                        href: /azure/cosmos-db/optimize-dev-test
+                        maintainContext: true
+                      - name: Optimize cost with reserved capacity
+                        href: /azure/cosmos-db/cosmos-db-reserved-capacity
+                        maintainContext: true
+                      - name: Optimize with rate limiting
+                        href: /azure/cosmos-db/rate-limiting-requests
+                        maintainContext: true
+                  - name: Change feed in Cosmos DB
+                    href: /azure/cosmos-db/change-feed
                     maintainContext: true
-                  - name:
-                    href: 
+                  - name: Built-in Jupyter Notebooks support
+                    href: /azure/cosmos-db/cosmosdb-jupyter-notebooks
                     maintainContext: true
-                  - name:
-                    href: 
-                    maintainContext: true
-                  - name:
-                    href: 
+                  - name: Service quotas
+                    href: /azure/cosmos-db/concepts-limits
                     maintainContext: true
               - name: Monitor Azure Databricks jobs
                 items:
