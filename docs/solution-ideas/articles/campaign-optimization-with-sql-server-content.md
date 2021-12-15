@@ -1,12 +1,12 @@
 [!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
-This solution idea describes how to build and deploy a machine learning model that recommends actions to maximize the purchase rate of leads targeted by a campaign. The ideas discussed can be used in many industries, including retail, services, and finance.
+This solution idea describes how to build and deploy a machine-learning model that recommends actions to maximize the purchase rate of leads targeted by a campaign. The ideas discussed can be used in many industries, including retail, services, and finance.
 
 ## Potential use cases
 
 When businesses launch a marketing campaign to attract customers to new or existing products, they often use a set of business rules to select leads for their campaign to target. Machine learning can be used to help increase the response rate from these leads.
 
-For example, a machine learning model can be used to predict actions that are expected to maximize the purchase rate of leads targeted by the campaign. The predictions then serve as the basis for recommendations to be used by a renewed campaign. Recommendations can be about *how* to contact the targeted leads, for example, with e-mail, SMS, or a cold call. And recommendations can be about *when* to contact targeted leads, for example, day of week and time of day.
+For example, a machine-learning model can be used to predict actions that are expected to maximize the purchase rate of leads that are targeted by the campaign. The predictions then serve as the basis for recommendations to be used by a renewed campaign. Recommendations can be about *how* to contact the targeted leads, for example, with e-mail, SMS, or a cold call. Recommendations can be about *when* to contact targeted leads, for example, day of week and time of day.
 
 ## Architecture
 
@@ -19,13 +19,13 @@ This architecture includes the following components:
 
 * [**SQL Server Machine**](/sql/machine-learning/r/sql-server-r-services?view=sql-server-2016&viewFallbackFrom=sql-server-ver15) will be used for compute. Solutions are deployed to SQL Server 2016 by embedding calls to R in stored procedures.
  
-* [**SQL Server Integration Services**](/sql/integration-services/sql-server-integration-services?view=sql-server-ver15) and [**SQL Server Agent**](sql/ssms/agent/sql-server-agent?view=sql-server-ver15) can be leveraged to automate these solutions.
+* [**SQL Server Integration Services**](/sql/integration-services/sql-server-integration-services?view=sql-server-ver15) and [**SQL Server Agent**](sql/ssms/agent/sql-server-agent?view=sql-server-ver15) can be used to automate these solutions.
 
 * [**Power BI**](https://powerbi.microsoft.com) helps drive better decision making with data visualization. Visualizations help gain deeper data insight.
 
 ## Business manager perspective
 
-This solution template uses (simulated) historical data to predict how and when to contact leads for your campaign. The recommendations include the best channel to contact a lead (in our example, email, SMS, or cold call), the best day of the week and the best time of day in which to make the contact.
+This solution template uses (simulated) historical data to predict how and when to contact leads for your campaign. The recommendations include the best channel to contact a lead (in our example, email, SMS, or cold call), the best day of the week, and the best time of day in which to make the contact.
 
 SQL Server R Services brings the compute to the data by allowing R to run on the same computer as the database. It includes a database service that runs outside'the SQL Server process and communicates securely with the R runtime.
 
@@ -33,7 +33,7 @@ This solution packet shows how to create and refine data, train R models, and pe
 
 Power BI also presents visual summaries of the effectiveness of the campaign recommendations (shown here with simulated data). You can try out this dashboard by clicking the Try it Now link.
 
-The Recommendations tab of this dashboard shows the predicted recommendations. At the top is a table of individual leads for our new deployment. This includes fields for the lead ID, campaign and product, populated with leads on which our business rules are to be applied. This is followed by the model predictions for the leads, giving the optimal channel and time to contact each one, and then the estimated probabilities that the leads will buy our product using these recommendations. These probabilities can be used to increase the efficiency of the campaign by limiting the number of leads contacted to the subset most likely to buy.
+The Recommendations tab of this dashboard shows the predicted recommendations. At the top is a table of individual leads for our new deployment. This table includes fields for the lead ID, campaign, and product, which are populated with leads that are applied to our business rules. This information is followed by the model predictions for the leads, giving the optimal channel and time to contact each one, and then the estimated probabilities that the leads will buy our product, by using these recommendations. These probabilities can be used to increase the efficiency of the campaign by limiting the number of leads contacted to the subset that is most likely to buy.
 
 Also on the Recommendations tab are various summaries of recommendations and demographic information on the leads.
 
@@ -43,7 +43,7 @@ The Campaign Summary tab of the dashboard shows summaries of the historical data
 
 Two roles in this solution idea are:
 
-- **Business manager role**. Power BI can be used to present visual summaries of the effectiveness of the campaign recommendations. Power BI dashboards can be used by business managers or other making decisions based on the predicted recommendations.
+- **Business manager role**. Power BI can be used to present visual summaries of the effectiveness of the campaign recommendations. Power BI dashboards can be used by business managers or others who are making decisions, based on the predicted recommendations.
 
 - **Data scientist role**. Data scientists can test and develop solutions from the convenience of their R IDE on their client machines while [pushing the compute to the SQL Server machine](/sql/advanced-analytics/r/getting-started-with-sql-server-r-services). The completed solutions are deployed to SQL Server 2016 by embedding calls to R in stored procedures. These solutions can then be further automated with SQL Server Integration Services and SQL Server agent.
 
