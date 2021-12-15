@@ -14,7 +14,7 @@ For information about applying multi-factor authentication in other hybrid messa
 - [Enhanced-security hybrid messaging infrastructure in a web access scenario](secure-hybrid-messaging-web.yml)
 - [Enhanced-security hybrid messaging infrastructure in a mobile access scenario](secure-hybrid-messaging-mobile.yml)
 
-This article doesn't discuss other protocols, like IMAP or POP. We don't expect these protocols to be used commonly in these scenarios. 
+This article doesn't discuss other protocols, like IMAP or POP. Typically, these scenarios don't use these protocols. 
 
 ## Potential use cases
 This architecture is relevant for the following scenarios:
@@ -31,7 +31,7 @@ This architecture is relevant for the following scenarios:
 
 - In the diagrams, black dashed lines show basic interactions between local Active Directory, Azure AD Connect, Azure AD, AD FS, and Web Application Proxy components. You can learn about these interactions in [Hybrid identity required ports and protocols](/azure/active-directory/hybrid/reference-connect-ports).
 
-- By *Exchange on-premises*, we mean Exchange 2019 with the latest updates, Mailbox role. 
+- By *Exchange on-premises*, we mean Exchange 2019 with the latest updates and a Mailbox role. 
 
 - In a real environment, you won't have just one server. You'll have a load-balanced array of Exchange servers for high availability. The scenarios described here are suited for that configuration.
 
@@ -61,7 +61,7 @@ AllowBasicAuthOfflineAddressBook   : False
 AllowBasicAuthWebServices          : False
 AllowBasicAuthRpc                  : False
 ```
-Remote procedure call (RPC) protocol is [no longer supported](/exchange/troubleshoot/administration/rpc-over-http-end-of-support) for Office 365, so the last parameter shouldn't affect clients in any way.
+Remote procedure call (RPC) protocol is [no longer supported](/exchange/troubleshoot/administration/rpc-over-http-end-of-support) for Office 365, so the last parameter shouldn't affect clients.
 
 Here's an example of a command for creating this authentication policy: 
 ```powershell
@@ -116,7 +116,7 @@ AllowBasicAuthOfflineAddressBook   : False
 AllowBasicAuthWebServices          : False
 AllowBasicAuthRpc                  : False
 ```
-(RPC protocol is [no longer supported](/exchange/troubleshoot/administration/rpc-over-http-end-of-support) for Office 365, so the last parameter shouldn't affect clients in any way.)
+(RPC protocol is [no longer supported](/exchange/troubleshoot/administration/rpc-over-http-end-of-support) for Office 365, so the last parameter shouldn't affect clients.)
 
 Here's an example of a command for creating this authentication policy: 
 ```powershell
@@ -235,7 +235,7 @@ After you create the authentication policy, you can first assign it to a pilot g
 
 ### Availability
 
-Overall availability depends on the availability of the components involved. For information about availability, see these resources:
+Overall availability depends on the availability of the components that are involved. For information about availability, see these resources:
 - [Advancing Azure Active Directory availability](https://azure.microsoft.com/blog/advancing-azure-active-directory-availability)
 - [Cloud services you can trust: Office 365 availability](https://www.microsoft.com/microsoft-365/blog/2013/08/08/cloud-services-you-can-trust-office-365-availability)
 - [What is the Azure Active Directory architecture?](/azure/active-directory/fundamentals/active-directory-architecture)
@@ -254,7 +254,7 @@ For Office 365 IP ranges and ports, see [Office 365 URLs and IP address ranges](
 For hybrid modern authentication and mobile devices, read about AutoDetect endpoint in [Other endpoints not included in the Office 365 IP Address and URL Web service](/microsoft-365/enterprise/additional-office365-ip-addresses-and-urls?view=o365-worldwide).
 
 ### Performance
-Performance depends on the performance of the components involved and your company's network performance. For more information, see [Office 365 performance tuning using baselines and performance history](/microsoft-365/enterprise/performance-tuning-using-baselines-and-history?view=o365-worldwide).
+Performance depends on the performance of the components that are involved and your company's network performance. For more information, see [Office 365 performance tuning using baselines and performance history](/microsoft-365/enterprise/performance-tuning-using-baselines-and-history?view=o365-worldwide).
 
 For information about on-premises factors that influence performance for scenarios that include AD FS services, see these resources:
 - [Configure performance monitoring](/windows-server/identity/ad-fs/deployment/configure-performance-monitoring)
