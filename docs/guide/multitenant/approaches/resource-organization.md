@@ -67,9 +67,9 @@ As an illustration of the shared resource approach, suppose Contoso is building 
 
 You can also deploy dedicated resources for each tenant. You might deploy an entire copy of your solution for a single tenant, or you might deploy some components that are shared between tenants and other components that are dedicated to a specific tenant.
 
-It's important that you consider how you deploy and manage these resources, including [whether the deployment of tenant-specific resources is initiated by your deployment pipeline or an application component](deployment-configuration.yml#resource-management-responsibility). You also need to determine how you'll [clearly identify that specific resources relate to specific tenants](cost-management-allocation.md), which might include naming conventions, [resource tags](cost-management-allocation.md#allocate-costs-by-using-resource-tags), and a tenant catalog database.
+It's important that you consider how you deploy and manage these resources, including [whether the deployment of tenant-specific resources is initiated by your deployment pipeline or an application component](deployment-configuration.yml#resource-management-responsibility). You also need to determine how you'll [clearly identify that specific resources relate to specific tenants](cost-management-allocation.md). You can consider using naming conventions, [resource tags](cost-management-allocation.md#allocate-costs-by-using-resource-tags), and a tenant catalog database.
 
-It's often a good practice to use separate resource groups for the resources you share between multiple tenants and those that you deploy for individual tenants. However, for some resources, [Azure limits the number of resources of a single type that can be deployed into a resource group](/azure/azure-resource-manager/management/resources-without-resource-group-limit), so you also need to consider [scaling across multiple resource groups](#resource-group-and-subscription-limits) as you grow.
+It's a good practice to use separate resource groups for the resources you share between multiple tenants and those that you deploy for individual tenants. However, for some resources, [Azure limits the number of resources of a single type that can be deployed into a resource group](/azure/azure-resource-manager/management/resources-without-resource-group-limit), so you also need to consider [scaling across multiple resource groups](#resource-group-and-subscription-limits) as you grow.
 
 Suppose Contoso has three customers: Adventure Works, Fabrikam, and Tailwind. They might choose to share the web application and storage account between the three customers, and deploy individual databases for each tenant:
 
@@ -91,7 +91,7 @@ In our example, Contoso might choose to deploy a stamp for each of their custome
 
 By deploying tenant-specific subscriptions, you can completely isolate tenant-specific resources. Additionally, because most quotas and limits apply within a subscription, using a separate subscription per tenant ensures that each tenant has full use of any applicable quotas. For some Azure billing account types, [you can programmatically create subscriptions](/azure/cost-management-billing/manage/programmatically-create-subscription). You can also make use of [Azure reservations](/azure/cost-management-billing/reservations/save-compute-costs-reservations) across subscriptions.
 
-However, it can be more difficult to request quota increases when you work across a large number of subscriptions. The [Quota API](/rest/api/reserved-vm-instances/quotaapi) provides a programmatic interface for certain resource types, but for many resource types, quota increases must be requested by [initiating a support case](/azure/azure-resource-manager/management/azure-subscription-service-limits#managing-limits). It can also be challenging to work with support contracts and support cases when you work with many subscriptions.
+However, it can be more difficult to request quota increases when you work across a large number of subscriptions. The [Quota API](/rest/api/reserved-vm-instances/quotaapi) provides a programmatic interface for some resource types, but for many resource types, quota increases must be requested by [initiating a support case](/azure/azure-resource-manager/management/azure-subscription-service-limits#managing-limits). It can also be challenging to work with Azure support agreements and support cases when you work with many subscriptions.
 
 Consider grouping your tenant-specific subscriptions into a [management group](/azure/governance/management-groups/overview) hierarchy, to enable easy management of access control rules and policies.
 
@@ -99,7 +99,7 @@ For example, suppose Contoso decided to create separate Azure subscriptions for 
 
 ![Diagram showing three customer-specific subscriptions, each containing a resource group with the complete set of resources for that customer.](media/resource-organization/isolation-subscription.png)
 
-They use a management group to simplify the management of their subscriptions. They include *Production* in the name of the management group to clearly distinguish any production tenants from non-production or test tenants, which might have different access control rules and policies applied.
+They use a management group to simplify the management of their subscriptions. They include *Production* in the name of the management group to clearly distinguish any production tenants from non-production or test tenants, which would have different access control rules and policies applied.
 
 All of their subscriptions are tied to a single Azure Active Directory tenant. This means that the Contoso team's identities, including users and service principals, can be used throughout their entire Azure estate.
 
@@ -112,7 +112,7 @@ It's also possible to manually create individual Azure Active Directory (Azure A
 
 In situations where you need to manage Azure resources in subscriptions tied to multiple Azure AD tenants, consider using [Azure Lighthouse](/azure/lighthouse/overview) to help to manage across your Azure AD tenants.
 
-For example, Contoso could create separate Azure AD tenants and separate subscriptions for each of their tenants:
+For example, Contoso could create separate Azure AD tenants and separate Azure subscriptions for each of their customers:
 
 ![Diagram showing an Azure A D tenant for each of Contoso's tenants, containing a subscription and the resources required. Azure Lighthouse is connected to each Azure A D tenant.](media/resource-organization/isolation-tenant.png)
 
@@ -136,7 +136,7 @@ Additionally, the way you configure and use each resource affects the scalabilit
 
 When you share some of your resources between tenants, you should first determine the number of tenants that are supported by the resource when it's configured according to your requirements. Then, deploy as many resources as you need to serve your total number of tenants.
 
-For example, suppose you deploy an Azure Application Gateway as part of a multitenant SaaS solution. After reviewing your application design, testing the application gateway's performance under load, and reviewing its configuration, you might determine that a single application gateway can be shared among 100 customers. According to your organization's growth plan, you expect to onboard 150 tenants in your first year. This means that you need to plan to deploy multiple application gateways to service your expected load:
+For example, suppose you deploy an Azure Application Gateway as part of a multitenant SaaS solution. After reviewing your application design, testing the application gateway's performance under load, and reviewing its configuration, you might determine that a single application gateway can be shared among 100 customers. According to your organization's growth plan, you expect to onboard 150 customers in your first year. This means that you need to plan to deploy multiple application gateways to service your expected load:
 
 ![Diagram showing two application gateways, with the first dedicated to customers 1 through 100, and the second dedicated to customers 101 through 200.](media/resource-organization/bin-pack-resource.png)
 
@@ -144,7 +144,7 @@ For example, suppose you deploy an Azure Application Gateway as part of a multit
 
 Whether you work with shared or dedicated resources, it's important to account for the limits to the number of resources that can be [deployed into a resource group](/azure/azure-resource-manager/management/azure-subscription-service-limits#resource-group-limits) and [into an Azure subscription](/azure/azure-resource-manager/management/azure-subscription-service-limits#subscription-limits). As you approach these limits, you need to plan to scale across multiple resource groups or subscriptions.
 
-For example, suppose you deploy a dedicated application gateway for each of your tenants. You deploy them into a shared resource group. Azure supports deploying 800 resources of the same type into a single resource group, so when you reach this number, you need to deploy any new application gateways into another resource group:
+For example, suppose you deploy a dedicated application gateway for each of your customers. You deploy them into a shared resource group. Azure supports deploying 800 resources of the same type into a single resource group, so when you reach this number, you need to deploy any new application gateways into another resource group:
 
 ![Diagram showing two resource groups, each containing 800 application gateways.](media/resource-organization/bin-pack-resource-group.png)
 
@@ -175,11 +175,11 @@ Resource tags enable you to add custom metadata to your Azure resources, which c
 ## Antipatterns to avoid
 
 - **Not planning for scale.** Ensure you have a clear understanding of the limits of the resources you'll deploy, and which limits might become important as your load or tenant count increases. Plan how you'll deploy additional resources as you scale, and test the plan.
-- **Not planning to bin pack.** Even if you don't need to grow immediately, plan to scale your Azure resources across multiple resources, resource groups, and subscriptions over time. Avoid making assumptions in your application code like there being a single resource, where you might need to scale to multiple resources in future.
+- **Not planning to bin pack.** Even if you don't need to grow immediately, plan to scale your Azure resources across multiple resources, resource groups, and subscriptions over time. Avoid making assumptions in your application code, like there being a single resource when you might need to scale to multiple resources in future.
 - **Scaling many individual resources.** If you have a complex resource topology, it can become difficult to scale individual components one by one. It's often simpler to scale your solution as a unit by following the [Deployment Stamps pattern](overview.md#deployment-stamps-pattern).
 - **Deploying isolated resources for each tenant when not required.** In many solutions, it's more cost effective and efficient to deploy shared resources for multiple tenants.
-- **Using separate Azure AD tenants.** In general, it's inadvisable to provision multiple Azure AD tenants. Managing resources across Azure AD tenants is complex. It's usually simpler to scale across subscriptions linked to a single Azure AD tenant.
-- **Overarchitecting when you don't need to scale.** In some solutions, you know with certainty that you'll never grow beyond a certain level of scale. In these scenarios, there's no need to build complex scaling logic. However, if your organization plans to grow, then you will need to be prepared to scale - potentially at short notice.
+- **Using separate Azure AD tenants.** In general, it's inadvisable to provision multiple Azure AD tenants. Managing resources across Azure AD tenants is complex. It's simpler to scale across subscriptions linked to a single Azure AD tenant.
+- **Overarchitecting when you don't need to scale.** In some solutions, you know with certainty that you'll never grow beyond a certain level of scale. In these scenarios, there's no need to build complex scaling logic. However, if your organization plans to grow, then you will need to be prepared to scale &mdash; potentially at short notice.
 
 ## Next steps
 
