@@ -293,9 +293,9 @@ Although the monitoring considerations are not fully pertaining to multitenancy 
 
 ## Deploy this scenario
 
-The source code for this scenario is available [on GitHub](https://github.com/paolosalvatori/aks-agic). This solution is open source and provided with an [MIT License](https://github.com/paolosalvatori/aks-agic/blob/master/LICENSE). You can also find a demo application, as shown in the following figure, in [this GitHub repository](https://github.com/paolosalvatori/aks-multi-tenant-agic).
+The source code for this scenario is available [on GitHub](https://github.com/Azure-Samples/aks-agic). This solution is open source and provided with an [MIT License](https://github.com/Azure-Samples/aks-agic/blob/main/LICENSE.md). You can also find a demo application, as shown in the following figure, in [this GitHub repository](https://github.com/Azure-Samples/aks-multi-tenant-agic).
 
-![Architecture Diagram](./media/aks-agic-sample.png)
+![The diagram shows the deployment of this AGIC with AKS architecture.](./media/aks-agic-sample.png)
 
 ### Prerequisites
 
@@ -305,13 +305,13 @@ For online deployments, you must have an existing Azure account. If you need one
 
 1. Make sure you have your Azure subscription information handy.
 
-2. Start by cloning the [workbench GitHub repository](https://github.com/paolosalvatori/aks-agic):
+2. Start by cloning the [workbench GitHub repository](https://github.com/Azure-Samples/aks-agic):
 
    ```git
-   git clone https://github.com/paolosalvatori/aks-agic.git
+   git clone https://github.com/Azure-Samples/aks-agic.git
    ```
 
-3. Follow the instructions provided in the [README.md file](https://github.com/paolosalvatori/aks-agic/blob/master/README.md).
+3. Follow the instructions provided in the [README.md file](https://github.com/Azure-Samples/aks-agic/blob/main/README.md).
 
 ## Pricing
 

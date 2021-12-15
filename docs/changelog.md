@@ -2,7 +2,7 @@
 title: What's New in Azure Architecture Center
 description: New and updated articles in Azure Architecture Center
 author: doodlemania2
-ms.date: 11/29/2021
+ms.date: 12/13/2021
 ms.topic: article
 ms.service: architecture-center
 ---
@@ -23,10 +23,44 @@ The Azure Architecture Center (AAC) helps you design, build, and operate solutio
 
 New and updated articles in Azure Architecture Center.
 
+## December 2021
+
+### New Articles
+
+- [Update route tables by using Azure Route Server](./example-scenario/networking/manage-routing-azure-route-server.yml)
+- [Manage Microsoft 365 tenant configuration with Azure DevOps](./example-scenario/devops/manage-microsoft-365-tenant-configuration-microsoft365dsc-devops.yml)
+- [Enterprise file shares with disaster recovery](./example-scenario/file-storage/enterprise-file-shares-disaster-recovery.yml)
+- [Blue/green app deployments](./example-scenario/blue-green-spring/blue-green-spring.yml)
+- [Solutions for the energy and environment industries](./industries/energy-environment.md)
+- [Azure App Service and Azure Functions considerations for multitenancy](./guide/multitenant/service/app-service.md)
+- [Azure Machine Learning architecture](./solution-ideas/articles/azure-machine-learning-solution-architecture.yml)
+- [Architecting multitenant solutions on Azure](./guide/multitenant/overview.md)
+- [Service-specific guidance for a multitenant solution](./guide/multitenant/service/overview.md)
+- [Enhanced customer dimension with Dynamics 365 Customer Insights](./solution-ideas/articles/customer-insights-synapse.yml)
+- [Scalable cloud applications and SRE](./example-scenario/apps/scalable-apps-performance-modeling-site-reliability.yml)
+- [Network-hardened web app](./example-scenario/security/hardened-web-app.yml)
+- [CI/CD for Windows desktop apps](./solution-ideas/articles/azure-devops-ci-cd-for-desktop-apps.yml)
+- [Event Grid and operational excellence](./framework/services/messaging/event-grid/operational-excellence.md)
+- [Event Grid and reliability](./framework/services/messaging/event-grid/reliability.md)
+- [Disks and cost optimization](./framework/services/storage/disks/cost-optimization.md)
+
+### Updated Articles
+
+- [Retail - Buy online, pick-up in store (BOPIS)](./example-scenario/iot/vertical-buy-online-pickup-in-store.yml)  ([#5f755f231](https://github.com/MicrosoftDocs/architecture-center/commit/5f755f231))
+- [Extend your on-premises big data investments with HDInsight](./solution-ideas/articles/extend-your-on-premises-big-data-investments-with-hdinsight.yml)  ([#4cf4dca0c](https://github.com/MicrosoftDocs/architecture-center/commit/4cf4dca0c))
+
 ## November 2021
 
 ### New Articles
 
+- [Storage Accounts and cost optimization](./framework/services/storage/storage-accounts/cost-optimization.md)
+- [Storage Accounts and operational excellence](./framework/services/storage/storage-accounts/operational-excellence.md)
+- [Storage Accounts and reliability](./framework/services/storage/storage-accounts/reliability.md)
+- [Storage Accounts and security](./framework/services/storage/storage-accounts/security.md)
+- [Virtual WAN architecture optimized for department-specific requirements](./example-scenario/infrastructure/performance-security-optimized-vwan.yml)
+- [Azure Stack Hub and operational excellence](./framework/services/hybrid/azure-stack-hub/operational-excellence.md)
+- [Azure Stack Hub and reliability](./framework/services/hybrid/azure-stack-hub/reliability.md)
+- [Moodle deployment with Azure NetApp Files](./example-scenario/file-storage/moodle-azure-netapp-files.yml)
 - [Azure DevTest Labs reference architecture for enterprises](./example-scenario/infrastructure/devtest-labs-reference-architecture.yml)
 - [Exploratory data analysis with Azure Synapse serverless and a lakehouse](./example-scenario/data/synapse-exploratory-data-analytics.yml)
 - [Architectural approaches for cost management and allocation in a multitenant solution](./guide/multitenant/approaches/cost-management-allocation.md)
@@ -105,6 +139,9 @@ New and updated articles in Azure Architecture Center.
 ### Updated Articles
 
 - [Monitoring for Workloads](./framework/devops/monitoring.md)  ([#92d85aa6d](https://github.com/MicrosoftDocs/architecture-center/commit/92d85aa6d))
+- [Multi-region N-tier application](./reference-architectures/n-tier/multi-region-sql-server.yml)  ([#5149847be](https://github.com/MicrosoftDocs/architecture-center/commit/5149847be))
+- [Suggest content tags with deep learning and NLP](./solution-ideas/articles/website-content-tag-suggestion-with-deep-learning-and-nlp.yml)  ([#bc4e6627e](https://github.com/MicrosoftDocs/architecture-center/commit/bc4e6627e))
+- [Gridwich clean monolith architecture](./reference-architectures/media-services/gridwich-clean-monolith.yml)  ([#8c5bfd20b](https://github.com/MicrosoftDocs/architecture-center/commit/8c5bfd20b))
 - [Multi-tier web application built for HA/DR](./example-scenario/infrastructure/multi-tier-app-disaster-recovery.yml)  ([#f57f293c4](https://github.com/MicrosoftDocs/architecture-center/commit/f57f293c4))
 - [Highly available multi-region web app](./reference-architectures/app-service-web-app/multi-region.yml)  ([#f57f293c4](https://github.com/MicrosoftDocs/architecture-center/commit/f57f293c4))
 - [Serverless application architectures using Event Grid](./solution-ideas/articles/serverless-application-architectures-using-event-grid.yml)  ([#4d13dd5ac](https://github.com/MicrosoftDocs/architecture-center/commit/4d13dd5ac))
@@ -243,67 +280,4 @@ New and updated articles in Azure Architecture Center.
 - [Performance efficiency pillar overview](./framework/scalability/overview.md)  ([#515eb84c7](https://github.com/MicrosoftDocs/architecture-center/commit/515eb84c7))
 - [Azure security monitoring tools](./framework/security/monitor-tools.md)  ([#9b144df64](https://github.com/MicrosoftDocs/architecture-center/commit/9b144df64))
 - [Data store decision tree](./guide/technology-choices/data-store-decision-tree.md)  ([#c8c663fca](https://github.com/MicrosoftDocs/architecture-center/commit/c8c663fca))
-
-## August 2021
-
-### New Articles
-
-- [Zero-trust landing zone in Azure](./framework/security/design-governance-landing-zone.md)
-- [Security alerts in Azure](./framework/security/monitor-logs-alerts.md)
-- [Remediate security risks in Microsoft Defender for Cloud](./framework/security/monitor-remediate.md)
-- [Monitor Azure resources in Microsoft Defender for Cloud](./framework/security/monitor-resources.md)
-- [Oracle Database with Azure NetApp Files](./example-scenario/file-storage/oracle-azure-netapp-files.yml)
-- [SQL Server on Azure Virtual Machines with Azure NetApp Files](./example-scenario/file-storage/sql-server-azure-netapp-files.yml)
-- [Hybrid architecture design](./hybrid/hybrid-start-here.md)
-- [Data science and machine learning with Azure Databricks](./solution-ideas/articles/azure-databricks-data-science-machine-learning.yml)
-- [Orchestrate MLOps on Azure Databricks using Databricks Notebook](./reference-architectures/ai/orchestrate-mlops-azure-databricks.yml)
-- [Azure Well-Architected Framework review of Azure Firewall](./networking/guide/well-architected-framework-azure-firewall.md)
-- [Re-engineer IBM z/OS batch applications on Azure](./example-scenario/mainframe/reengineer-mainframe-batch-apps-azure.yml)
-- [Noisy Neighbor antipattern](./antipatterns/noisy-neighbor/index.md)
-- [Getting started with Azure IoT solutions](./reference-architectures/iot/iot-architecture-overview.md)
-- [General mainframe refactor to Azure](./example-scenario/mainframe/general-mainframe-refactor.yml)
-
-### Updated Articles
-
-- [Tradeoffs for performance efficiency](./framework/scalability/tradeoffs.md)  ([#ff65cd168](https://github.com/MicrosoftDocs/architecture-center/commit/ff65cd168))
-- [Secure app configuration and dependencies](./framework/security/design-app-dependencies.md)  ([#ff65cd168](https://github.com/MicrosoftDocs/architecture-center/commit/ff65cd168))
-- [Governance, risk, and compliance](./framework/security/design-governance.md)  ([#ff65cd168](https://github.com/MicrosoftDocs/architecture-center/commit/ff65cd168))
-- [Establish segmentation with management groups](./framework/security/design-management-groups.md)  ([#ff65cd168](https://github.com/MicrosoftDocs/architecture-center/commit/ff65cd168))
-- [Network security strategies on Azure](./framework/security/design-network.md)  ([#ff65cd168](https://github.com/MicrosoftDocs/architecture-center/commit/ff65cd168))
-- [Regulatory compliance](./framework/security/design-regulatory-compliance.md)  ([#ff65cd168](https://github.com/MicrosoftDocs/architecture-center/commit/ff65cd168))
-- [Key and secret management in Azure](./framework/security/design-storage-keys.md)  ([#ff65cd168](https://github.com/MicrosoftDocs/architecture-center/commit/ff65cd168))
-- [Security audits](./framework/security/monitor-audit.md)  ([#ff65cd168](https://github.com/MicrosoftDocs/architecture-center/commit/ff65cd168))
-- [Security Operations Center (SOC or SecOps) monitoring in Azure](./framework/security/monitor-security-operations.md)  ([#ff65cd168](https://github.com/MicrosoftDocs/architecture-center/commit/ff65cd168))
-- [Azure security test practices](./framework/security/monitor-test.md)  ([#ff65cd168](https://github.com/MicrosoftDocs/architecture-center/commit/ff65cd168))
-- [Security monitoring in Azure](./framework/security/monitor.md)  ([#ff65cd168](https://github.com/MicrosoftDocs/architecture-center/commit/ff65cd168))
-- [Authentication in multitenant applications](./multitenant-identity/authenticate.md)  ([#8eac12b0f](https://github.com/MicrosoftDocs/architecture-center/commit/8eac12b0f))
-- [Authorization in multitenant applications](./multitenant-identity/authorize.md)  ([#8eac12b0f](https://github.com/MicrosoftDocs/architecture-center/commit/8eac12b0f))
-- [Sign-up and onboarding in a multi-tenant app](./multitenant-identity/signup.md)  ([#8eac12b0f](https://github.com/MicrosoftDocs/architecture-center/commit/8eac12b0f))
-- [Cache access tokens in a multitenant app](./multitenant-identity/token-cache.md)  ([#8eac12b0f](https://github.com/MicrosoftDocs/architecture-center/commit/8eac12b0f))
-- [Secure a backend web API in a multitenant app](./multitenant-identity/web-api.md)  ([#8eac12b0f](https://github.com/MicrosoftDocs/architecture-center/commit/8eac12b0f))
-- [Performance testing and antipatterns](./antipatterns/index.md)  ([#96c15437c](https://github.com/MicrosoftDocs/architecture-center/commit/96c15437c))
-- [Authentication with Azure AD](./framework/security/design-identity-authentication.md)  ([#8bc71d705](https://github.com/MicrosoftDocs/architecture-center/commit/8bc71d705))
-- [Azure mainframe and midrange architecture concepts and patterns](./mainframe/mainframe-midrange-architecture.md)  ([#76e02bca0](https://github.com/MicrosoftDocs/architecture-center/commit/76e02bca0))
-- [Services for securing network connectivity](./framework/security/design-network-connectivity.md)  ([#6b7484ad8](https://github.com/MicrosoftDocs/architecture-center/commit/6b7484ad8))
-- [Azure control plane security](./framework/security/design-identity-control-plane.md)  ([#8ae89d147](https://github.com/MicrosoftDocs/architecture-center/commit/8ae89d147))
-- [Code deployment security considerations in Azure](./framework/security/deploy-code.md)  ([#af1679df0](https://github.com/MicrosoftDocs/architecture-center/commit/af1679df0))
-- [Applications and services](./framework/security/design-apps-services.md)  ([#56885e80d](https://github.com/MicrosoftDocs/architecture-center/commit/56885e80d))
-- [Data encryption in Azure](./framework/security/design-storage-encryption.md)  ([#ffe24f923](https://github.com/MicrosoftDocs/architecture-center/commit/ffe24f923))
-- [Traffic flow security in Azure](./framework/security/design-network-flow.md)  ([#856070254](https://github.com/MicrosoftDocs/architecture-center/commit/856070254))
-- [Roles, responsibilities, and permissions](./framework/security/design-identity-role-definitions.md)  ([#732955401](https://github.com/MicrosoftDocs/architecture-center/commit/732955401))
-- [Extend an on-premises network using VPN](./reference-architectures/hybrid-networking/vpn.yml)  ([#2bad97abf](https://github.com/MicrosoftDocs/architecture-center/commit/2bad97abf))
-- [Google Cloud to Azure services comparison](./gcp-professional/services.md)  ([#7d2ca66d0](https://github.com/MicrosoftDocs/architecture-center/commit/7d2ca66d0))
-- [Application threat analysis](./framework/security/design-threat-model.md)  ([#982aeaa4c](https://github.com/MicrosoftDocs/architecture-center/commit/982aeaa4c))
-- [Best practices for endpoint security](./framework/security/design-network-endpoints.md)  ([#fc2626dff](https://github.com/MicrosoftDocs/architecture-center/commit/fc2626dff))
-- [Governance considerations for secure deployment in Azure](./framework/security/deploy-governance.md)  ([#d5a4f981b](https://github.com/MicrosoftDocs/architecture-center/commit/d5a4f981b))
-- [Multi-tier web application built for HA/DR](./example-scenario/infrastructure/multi-tier-app-disaster-recovery.yml)  ([#250a84acc](https://github.com/MicrosoftDocs/architecture-center/commit/250a84acc))
-- [Azure Kubernetes Service (AKS) design](./reference-architectures/containers/aks-start-here.md)  ([#784eca7ef](https://github.com/MicrosoftDocs/architecture-center/commit/784eca7ef))
-- [High Performance Computing (HPC) on Azure](./topics/high-performance-computing.md)  ([#fec1f53c4](https://github.com/MicrosoftDocs/architecture-center/commit/fec1f53c4))
-- [AWS to Azure services comparison](./aws-professional/services.md)  ([#bac7c5914](https://github.com/MicrosoftDocs/architecture-center/commit/bac7c5914))
-- [Implement network segmentation patterns](./framework/security/design-network-segmentation.md)  ([#25ecd8538](https://github.com/MicrosoftDocs/architecture-center/commit/25ecd8538))
-- [Unisys Dorado mainframe migration to Azure with Astadia and Micro Focus](./example-scenario/mainframe/migrate-unisys-dorado-mainframe-apps-with-astadia-micro-focus.yml)  ([#c3d7d6875](https://github.com/MicrosoftDocs/architecture-center/commit/c3d7d6875))
-- [Big compute architecture style](./guide/architecture-styles/big-compute.md)  ([#e05914861](https://github.com/MicrosoftDocs/architecture-center/commit/e05914861))
-- [Serverless Functions reference architectures](./serverless-quest/reference-architectures.md)  ([#1ec2c2e0b](https://github.com/MicrosoftDocs/architecture-center/commit/1ec2c2e0b))
-- [Deploy highly available Kubernetes cluster on Azure Stack Hub](./hybrid/deployments/solution-deployment-guide-highly-available-kubernetes.md)  ([#7b1fd4002](https://github.com/MicrosoftDocs/architecture-center/commit/7b1fd4002))
-- [Related resources for multitenancy](./guide/multitenant/related-resources.md)  ([#78c8b0fda](https://github.com/MicrosoftDocs/architecture-center/commit/78c8b0fda))
 
