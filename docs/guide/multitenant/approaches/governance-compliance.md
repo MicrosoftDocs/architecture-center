@@ -28,31 +28,32 @@ Intro paragraph
 
 ### Tenant isolation
 
+Consider whether your tenants have requirements that might affect the level of isolation you can use for their data or resources. For example:
+
 * Will you deploy any dedicated Azure resources for each tenant?
 * If yes, how far do you need to go with isolation? Do your customers/tenants have requirements?
   * Do you need different RBAC role assignments for each tenant? e.g. certain people in your org can only work with certain tenants? Need to plan your role assignments accordingly. Use groups instead of individual users.
-  * In the most extreme case (and we don't generally recommend this), you could create AAD tenants for each of your tenants. This requires special consideration for how you manage them.
 
 ### Compliance requirements
 
-* Do you have compliance requirements that you need to meet?
-* Do your tenants have compliance requirements that they need you to meet? For example, are some of your customers in the healthcare industry and need to follow HIPAA? Are some customers in Europe and subject to GDPR?
+It's important that you understand whether you have any compliance requirements that you need to meet.
+
+When you, or any of your tenants, work within certain industries or in specific geographic regions you might be required to follow compliance standards. For example, if any of your tenants are in the healthcare industry, you might need to comply with the HIPAA standard. If any of your customers are located in Europe, you might need to comply with GDPR.
 
 > [!IMPORTANT]
 > Compliance is a shared responsibility between Microsoft, you, and your tenants.
 >
-> Microsoft ensures that our services meet a specific set of compliance standards, and provides tools like [Microsoft Defender for Cloud](/azure/defender-for-cloud/defender-for-cloud-introduction) that help to verify your resources are configured to be compatible with those standards.
+> Microsoft ensures that our services meet a specific set of compliance standards, and provides tools like [Microsoft Defender for Cloud](/azure/defender-for-cloud/defender-for-cloud-introduction) that help to verify your resources are configured according to those standards.
 > 
-> However, ultimately it is your responsibility to fully understand the compliance requirements that apply to your solution, and how to configure your resources according to those standards. See [Azure compliance offerings](/azure/compliance/offerings/) for more detail.
+> However, ultimately it is your responsibility to fully understand the compliance requirements that apply to your solution, and how to configure your Azure resources according to those standards. See [Azure compliance offerings](/azure/compliance/offerings/) for more detail.
 > 
 > This page doesn't provide specific guidance about how to become compliant with any particular standards. Instead, it provides some general guidance around how to consider compliance and governance in a multitenant solution.
 
-* If you have lots of tenants with different requirements, plan to meet the highest bar or the superset of compliance requirements. It's easier to do this than try to follow different standards for different tenants
+If you have many different tenants that have different requirements, you should plan to comply with the most stringent standard. It's usually more straightforward to follow one strict standard than to follow different standards for different tenants.
 
 ### Data sovereignty
 
-* Do you need to keep your data in (or out of) specific geographic locations?
-* Do any of your tenants require their data be stored in (or not in) specific geographic locations?
+Ensure you understand whether there are any geographical restrictions on where data should be stored or processed. Your tenants might require that their data be stored in specific geographic locations, or might require their data is not stored in other locations. While these requirements are often based on legislation, they can also be based on cultural values.
 
 ### Data management
 
@@ -70,7 +71,7 @@ Intro paragraph
 
 ### Resource organization approaches
 
-* Consider whether you need to isolate resources at different levels. [See overview](overview.md#resource-isolation)
+* Consider whether you need to isolate resources at different levels.
 * Can use IAM to restrict access. Scope your role assignments appropriately. Use groups instead of users.
 * Can use [resource tags](cost-management-allocation.md#allocate-costs-by-using-resource-tags) to track the tenant identifier for tenant-specific resources, or the stamp identifier when you scale using the [Deployment Stamps pattern](#deployment-stamps-pattern).
 
@@ -92,13 +93,11 @@ Intro paragraph
 
 ### Deployment Stamps pattern
 
-* See [overview](overview.md#deployment-stamps-pattern)
-* Can use stamps to comply with data sovereignty requirements
-* e.g. can have stamps in multiple regions, and assign tenants to stamps based on the regions they need to have their data located in
+Consider using the [Deployment Stamps pattern](overview.md#deployment-stamps-pattern) when you need to comply with tenant-specific requirements.
 
-### Cross-tenant Azure Active Directory management
+For example, if you deploy stamps of your solution into multiple Azure regions, you can assign new tenants to stamps based on the regions they need to have their data located in.
 
-* When you work with multiple Azure AD tenants, consider using Azure Lighthouse for cross-tenant management
+Similarly, if a tenant has strict compliance requirements that you can't meet in your existing stamps, you can consider deploying a dedicated stamp for the tenant to use, and configure it according to their requirements.
 
 ## Antipatterns to avoid
 
