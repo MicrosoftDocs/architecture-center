@@ -29,7 +29,7 @@ In any complex application, at some point something will go wrong. In a microser
 
 **Traces**, also called _Operations_ connect the steps of a single request across multiple calls within and across microservices. They can provide structured observability into the interactions of system components. Traces can begin early in the request process like within the UI of an application and propagate through network services and across a network of microservices that handle the request.
 
-- **Spans** are units of work within a trace. Each span is connected with a single trace and can be hested with other spans. They often correspond to individual _requests_ in a cross-service operation but can also define work in individual components within a service. Spans also track outbound calls from one service to another (sometimes these are called _dependency_ records).
+- **Spans** are units of work within a trace. Each span is connected with a single trace and can be nested with other spans. They often correspond to individual _requests_ in a cross-service operation but can also define work in individual components within a service. Spans also track outbound calls from one service to another (sometimes these are called _dependency_ records).
 
 **Metrics** are numerical values that can be analyzed. You can use them to observe the system in real time (or close to real time), or to analyze performance trends over time. To understand the system holistically, you must collect metrics at various levels of the architecture, from the physical infrastructure to the application, including:
 
