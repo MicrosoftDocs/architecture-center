@@ -168,6 +168,10 @@ And as you grow even larger you can deploy across multiple (*S*) subscriptions, 
 
 By planning your scale-out strategy, you can scale to extremely large numbers of tenants and sustain a high level of load.
 
+## Tags
+
+Resource tags enable you to add custom metadata to your Azure resources, which can be useful for management and tracking costs. For more detail, see [Allocate costs by using resource tags](cost-management-allocation.md#allocate-costs-by-using-resource-tags).
+
 ## Antipatterns to avoid
 
 - **Not planning for scale.** Ensure you have a clear understanding of the limits of the resources you'll deploy, and which limits might become important as your load or tenant count increases. Plan how you'll deploy additional resources as you scale, and test the plan.
