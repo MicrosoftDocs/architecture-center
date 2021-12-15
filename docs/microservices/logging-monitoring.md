@@ -29,7 +29,7 @@ In any complex application, at some point something will go wrong. In a microser
 
 **Traces**, also called _Operations_ connect the steps of a single request across multiple calls within and across microservices. They can provide structured observability into the interactions of system components. Traces can begin early in the request process like within the UI of an application and propagate through network services and across a network of microservices that handle the request.
 
-- **Spans** are units of work within a trace. Each span is connected with a single trace and can be hested with other spans. They often correspond to individual _requests_ in a cross-service operation but can also define work in individual components within a service. Spans also track outbound calls from one service to another (sometimes these are called _dependency_ records).
+- **Spans** are units of work within a trace. Each span is connected with a single trace and can be nested with other spans. They often correspond to individual _requests_ in a cross-service operation but can also define work in individual components within a service. Spans also track outbound calls from one service to another (sometimes these are called _dependency_ records).
 
 **Metrics** are numerical values that can be analyzed. You can use them to observe the system in real time (or close to real time), or to analyze performance trends over time. To understand the system holistically, you must collect metrics at various levels of the architecture, from the physical infrastructure to the application, including:
 
@@ -110,22 +110,22 @@ OpenTelemetry is a cross-industry effort to improve tracing by standardizing the
 - Exceptions thrown
 - Context propagation (e.g. sending a correlation ID across HTTP call boundaries)
 
-Instead, the base libraries and frameworks that handle these operations that handele these calls create rich interrlated Span and Trace data structures and propagate these across contexts. Before OpenTelemetry, these were usually just injected as special log messages or as proprietary data structures specific to the vendor building the monitoring tools. OpenTelemetry also encourages a richer instrumention data model than a traditional logging-first approach, and the logs are made more useful since log messages are linked to the Traces and Spans where they were generated. This often makes finding logs associated with a specific operation or request very easy.
+Instead, the base libraries and frameworks that handle these operations create rich interrelated Span and Trace data structures and propagate these across contexts. Before OpenTelemetry, these were usually just injected as special log messages or as proprietary data structures specific to the vendor building the monitoring tools. OpenTelemetry also encourages a richer instrumentation data model than a traditional logging-first approach, and the logs are made more useful since log messages are linked to the Traces and Spans where they were generated. This often makes finding logs associated with a specific operation or request very easy.
 
-Most of the Azure SDKs have been instrumented with OpenTelemetry or in the process. _TODO: Is there a doc or link on this status we should add here?_
+Most of the Azure SDKs have been instrumented with OpenTelemetry or are in the process. _TODO: Is there a doc or link on this status we should add here?_
 
 An application developer can add manual instrumentation using the OpenTelemetry SDKs to:
 
-- Add instrumention where an underlying library does not provide it
+- Add instrumentation where an underlying library does not provide it
 - Enrich the trace context by adding Spans to expose application-specific units of work (e.g. an order loop creating a span for the processing of each order line)
 - Enrich existing Spans with entity keys to enable easier tracing (e.g. add an "OrderID" key/value to the request that processes that order). These are surfaced by the monitoring tools as structured values for querying, filtering and aggregating (without parsing out log message strings or looking for combinations of log message sequences, as was commmon with a logging-first approach.)
 - Access Trace and Span attributes to inject traceIds into responses and payloads to streamline troubleshooting.
 
-Read more about instrumention and the OpenTelemetry SDKs in the [OpenTelemetry documentation](https://opentelemetry.io/docs/concepts/instrumenting/).
+Read more about instrumentation and the OpenTelemetry SDKs in the [OpenTelemetry documentation](https://opentelemetry.io/docs/concepts/instrumenting/).
 
 ### Application Insights
 
-Application Insights builds on OpenTelemetry, ingesting the rich data provided by instrumented libraries and apps and providing rich visualization and query support. The Application Insights agents for various platforms such as .NET, Java, or Node.js handles the data ingestion.
+Application Insights builds on OpenTelemetry, ingesting the rich data provided by instrumented libraries and apps and providing rich visualization and query support. The [Application Insights OpenTelemetry-based instrumentation](azure/azure-monitor/app/opentelemetry-enable.md) for langauges such as .NET, Java, Node.js, or Python handles the data collection.
 
 If you are using .NET Core, we recommend also using the [Application Insights for Kubernetes](https://github.com/microsoft/ApplicationInsights-Kubernetes) library. This library enriches Application Insights traces with additional information such as the container, node, pod, labels, and replica set. _TODO: Check on the status of this_
 
