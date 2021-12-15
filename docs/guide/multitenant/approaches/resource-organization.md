@@ -22,7 +22,7 @@ ms.custom:
 
 # Azure resource organization in multitenant solutions
 
-Azure provides a number of options for organizing your resources. In a multitenant solution, there are specific tradeoffs to consider when you plan your resource organization strategy. On this page, we review two core elements of your resource organization approach: tenant isolation and scale-out across multiple resources.
+Azure provides many options for organizing your resources. In a multitenant solution, there are specific tradeoffs to consider when you plan your resource organization strategy. On this page, we review two core elements of your resource organization approach: tenant isolation and scale-out across multiple resources.
 
 ## Key considerations and requirements
 
@@ -34,9 +34,9 @@ When you deploy a multitenant solution in Azure, you need to determine whether y
 
 Most Azure resources, as well as resource groups and subscriptions, impose limits that can affect your ability to scale. You might need to consider *scaling out* or *bin packing* to ensure you can meet the number of tenants you plan to grow to, or the level of load you expect to receive.
 
-If you know with certainty that you won't grow to large numbers of tenants or large levels of load, you don't need to overengineer your scale-out plan, and likely don't need to do anything special. But if you plan for your solution to grow, carefully consider your scale-out plan and ensure you architect for scale by following the guidance on this page.
+If you know with certainty that you won't grow to large numbers of tenants or large levels of load, you don't need to overengineer your scale-out plan, and likely don't need to do anything special. But if you plan for your solution to grow, carefully consider your scale-out plan and ensure that you architect for scale by following the guidance on this page.
 
-If you have an automated deployment process and need to scale across resources, you need to determine how you'll deploy and assign tenants across multiple resource instances. For example, how will you detect that you're approaching the number of tenants that can be assigned to a specific resource? Will you plan to deploy additional resources as you need them (*just in time*), or will you deploy a pool of resources *ahead of time* so they're ready for you to use when you need them?
+If you have an automated deployment process and need to scale across resources, you need to determine how you'll deploy and assign tenants across multiple resource instances. For example, how will you detect that you're approaching the number of tenants that can be assigned to a specific resource? Will you plan to deploy new resources as you need them (*just in time*), or will you deploy a pool of resources *ahead of time* so they're ready for you to use when you need them?
 
 > [!TIP]
 > In the early stages of design and development, you might not choose to implement an automated scale-out process. You should still consider and clearly document the processes required to scale as you grow.
@@ -55,7 +55,7 @@ When you determine how to deploy resources for each tenant, you might choose to 
 
 You might choose to share an Azure resource among multiple tenants, and run all of their workloads on a single instance. Review the [service-specific guidance](../service/overview.md) for the Azure services you use to understand any specific considerations or options that might be important.
 
-When you run single instances of a component, you need to consider any service limits that might become a problem as you scale. For example, there is a maximimum number of nodes in an Azure Kubernetes Service (AKS) cluster, and an upper limit on the number of transactions per second supported by a storage account. Consider how you'll [scale to multiple shared resources](#bin-packing) as you approach these limits.
+When you run single instances of a component, you need to consider any service limits that might become a problem as you scale. For example, there is a maximum number of nodes in an Azure Kubernetes Service (AKS) cluster, and an upper limit on the number of transactions per second supported by a storage account. Consider how you'll [scale to multiple shared resources](#bin-packing) as you approach these limits.
 
 You also need to ensure your application code is fully aware of multitenancy, and that it restricts access to the data for a specific tenant.
 
@@ -69,7 +69,7 @@ You can also deploy dedicated resources for each tenant. You might deploy an ent
 
 It's important that you consider how you deploy and manage these resources, including [whether the deployment of tenant-specific resources is initiated by your deployment pipeline or an application component](deployment-configuration.yml#resource-management-responsibility). You also need to determine how you'll [clearly identify that specific resources relate to specific tenants](cost-management-allocation.md). You can consider using naming conventions, [resource tags](cost-management-allocation.md#allocate-costs-by-using-resource-tags), and a tenant catalog database.
 
-It's a good practice to use separate resource groups for the resources you share between multiple tenants and those that you deploy for individual tenants. However, for some resources, [Azure limits the number of resources of a single type that can be deployed into a resource group](/azure/azure-resource-manager/management/resources-without-resource-group-limit), so you also need to consider [scaling across multiple resource groups](#resource-group-and-subscription-limits) as you grow.
+It's a good practice to use separate resource groups for the resources you share between multiple tenants and the resources that you deploy for individual tenants. However, for some resources, [Azure limits the number of resources of a single type that can be deployed into a resource group](/azure/azure-resource-manager/management/resources-without-resource-group-limit), so you also need to consider [scaling across multiple resource groups](#resource-group-and-subscription-limits) as you grow.
 
 Suppose Contoso has three customers: Adventure Works, Fabrikam, and Tailwind. They might choose to share the web application and storage account between the three customers, and deploy individual databases for each tenant:
 
