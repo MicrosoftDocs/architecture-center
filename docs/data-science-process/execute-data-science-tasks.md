@@ -22,7 +22,7 @@ categories:
 
 Typical data science tasks include data exploration, modeling, and deployment. This article outlines the tasks to complete several common data science tasks such as interactive data exploration, data analysis, reporting, and model creation. Options for deploying a model into a production environment may include:
 
-- Recommended: [Azure Machine Learning](/azure/machine-learning/)
+- Recommended: [Azure Machine Learning](/azure/machine-learning)
 - Possible: [SQL-Server with ML services](/sql/advanced-analytics/r/r-services)
 
 ## 1. <a name='DataQualityReportUtility-1'></a> Exploration
@@ -45,7 +45,7 @@ After multiple models have been built, you usually need to have a system for reg
 Production deployment enables a model to play an active role in a business. Predictions from a deployed model can be used for business decisions.
 
 ### Production platforms
-There are various approaches and platforms to put models into production.  We recommend [deployment to Azure Machine Learning] (/azure/machine-learning/how-to-deploy-and-where).
+There are various approaches and platforms to put models into production.  We recommend [deployment to Azure Machine Learning](/azure/machine-learning/how-to-deploy-and-where).
 
 > [!NOTE]
 > Prior to deployment, one has to insure the latency of model scoring is low enough to use in production.
@@ -54,7 +54,7 @@ There are various approaches and platforms to put models into production.  We re
 
 
 ### A/B testing
-When multiple models are in production, it can be useful to perform [A/B testing](https://en.wikipedia.org/wiki/A/B_testing) to compare performance of the models.
+When multiple models are in production, it can be useful to perform [A/B testing](https://wikipedia.org/wiki/A/B_testing) to compare performance of the models.
 
 ## Next steps
 
