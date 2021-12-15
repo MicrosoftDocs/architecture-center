@@ -150,23 +150,31 @@ For example, suppose you deploy a dedicated application gateway for each of your
 
 #### Bin pack tenants across resource groups and subscriptions
 
-You can also apply the bin packing concept across resources, resource groups, and subscriptions. For example, when you have a small number of tenants you might be able to use a single resource for all of your tenants:
+You can also apply the bin packing concept across resources, resource groups, and subscriptions. For example, when you have a small number of tenants you might be able to deploy a single resource and share it among all of your tenants:
 
 ![Diagram showing bin packing into a single resource.](media/resource-organization/bin-pack-resources-1.png)
 
-As you grow, you might approach the capacity limit for a single resource, and scale to multiple resources:
+As you grow, you might approach the capacity limit for a single resource, and scale out to multiple (*R*) resources:
 
 ![Diagram showing bin packing across multiple resources.](media/resource-organization/bin-pack-resources-2.png)
 
-Over time, you might reach the limit of the number of resources in a single resource group, and deploy resources into multiple resource groups:
+Over time, you might reach the limit of the number of resources in a single resource group, and deploy multiple (*R*) resources into multiple (*G*) resource groups:
 
 ![Diagram showing bin packing across multiple resources in multiple resource groups.](media/resource-organization/bin-pack-resources-3.png)
 
-And as you grow even larger you can deploy across multiple subscriptions:
+And as you grow even larger you can deploy across multiple (*S*) subscriptions, each containing multiple (*G*) resource groups with multiple (*R*) resources:
 
 ![Diagram showing bin packing across multiple resources in multiple resource groups and subscriptions.](media/resource-organization/bin-pack-resources-4.png)
 
-By planning your scale-out strategy, you can scale to extremely large numbers of tenants with high load.
+By planning your scale-out strategy, you can scale to extremely large numbers of tenants and sustain a high level of load.
+
+## Antipatterns to avoid
+
+- **Not planning for scale.** Ensure you have a clear understanding of the limits of the resources you'll deploy, and which limits might become important as your load or tenant count increases. Plan how you'll deploy additional resources as you scale, and test the plan.
+- **Not planning to bin pack.** Even if you don't need to grow immediately, plan to scale your Azure resources across multiple resources, resource groups, and subscriptions over time. Ensure your applicaton code doesn't make assumptions about working with a single resource where you might need to scale to multiple resources in future.
+- **Scaling many individual resources.** If you have a complex resource topology, it can become difficult to scale individual components one by one. It's often simpler to scale your solution as a unit by following the [Deployment Stamps pattern](overview.md#deployment-stamps-pattern).
+- **Using separate Azure AD tenants.** In general, it's inadvisable to provision multiple Azure AD tenants. Managing resources across Azure AD tenants is complex. It's usually simpler to scale across subscriptions linked to a single Azure AD tenant.
+- **Overarchitecting when you don't need to scale.** In some solutions, you know with certainty that you will never grow beyond a certain level of scale. In these scenarios, there's no need to build complex scaling logic. However, if your organization plans to grow, then you will need to be prepared to scale - potentially at short notice.
 
 ## Next steps
 
