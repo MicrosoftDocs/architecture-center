@@ -41,7 +41,7 @@ In this section, we outline the considerations that you should give, the require
 
 ## Intended audience
 
-The pages in this section are particularly relevant for technical decision-makers, like chief technology officers (CTOs) and architects. This includes independent software vendors (ISVs) and startups who develop SaaS solutions. However, anyone who works with multitenant architectures should have some familiarity with these principles and tradeoffs.
+The pages in this section are particularly relevant for technical decision-makers, like chief technology officers (CTOs) and architects. The audience also includes independent software vendors (ISVs) and startups who develop SaaS solutions. However, anyone who works with multitenant architectures should have some familiarity with these principles and tradeoffs.
 
 ## Next steps
 

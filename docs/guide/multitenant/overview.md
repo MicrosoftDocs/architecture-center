@@ -44,7 +44,7 @@ Additionally, when you design a solution, there are many areas you need to consi
 
 ## Intended audience
 
-The guidance provided in this series is applicable to anyone building a multitenant application in Azure. These include independent software vendors (ISVs) and startups who are building SaaS products, whether they are targeted for businesses or consumers. It also includes anyone building a product or platform that's intended to be used by multiple customers or tenants.
+The guidance provided in this series is applicable to anyone building a multitenant application in Azure. The audience also includes independent software vendors (ISVs) and startups who are building SaaS products, whether they are targeted for businesses or consumers. It also includes anyone building a product or platform that's intended to be used by multiple customers or tenants.
 
 The content throughout this series is designed to be useful for technical decision-makers, like chief technology officers (CTOs) and architects, and anyone designing or implementing a multitenant solution on Microsoft Azure.
 
