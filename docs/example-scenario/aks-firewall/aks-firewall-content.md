@@ -105,9 +105,9 @@ If you plan to use [Azure DevOps](/azure/devops/?view=azure-devops), you can't u
 - [Self-hosted Linux agents](/azure/devops/pipelines/agents/v2-linux?view=azure-devops)
 - [Run a self-hosted agent in Docker](/azure/devops/pipelines/agents/docker?view=azure-devops)
 
-As an alternative, you can set up a self-hosted agent in Azure Pipelines to run inside a Windows Server Core (for Windows hosts), or Ubuntu container (for Linux hosts) with Docker and deploy it as a pod with one or multiple replicas in your private AKS cluster. If the subnets hosting the node pools of your private AKS cluster are configured to route the egress traffic to an Azure Firewall via a route table and user-defined route, make sure to create the proper application and network rules to allow the agent to access external sites to download and install tools like [Docker](https://www.docker.com/), [kubectl](https://kubectl.docs.kubernetes.io/guides/introduction/kubectl/), [Azure CLI](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli), and [Helm](https://helm.sh/) to the agent virtual machine. For more informations, see [Run a self-hosted agent in Docker](https://docs.microsoft.com/en-us/azure/devops/pipelines/agents/docker?view=azure-devops) and [Build and deploy Azure DevOps Pipeline Agent on AKS](https://github.com/ganrad/Az-DevOps-Agent-On-AKS).
+If the subnets hosting the node pools of your private AKS cluster are configured to route the egress traffic to an Azure Firewall via a route table and user-defined route, make sure to create the proper application and network rules to allow the agent to access external sites to download and install tools like [Docker](https://www.docker.com/), [kubectl](https://kubectl.docs.kubernetes.io/guides/introduction/kubectl/), [Azure CLI](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli), and [Helm](https://helm.sh/) to the agent virtual machine. For more informations, see [Run a self-hosted agent in Docker](https://docs.microsoft.com/en-us/azure/devops/pipelines/agents/docker?view=azure-devops) and [Build and deploy Azure DevOps Pipeline Agent on AKS](https://github.com/ganrad/Az-DevOps-Agent-On-AKS).
 
-![Architecture](media/self-hosted-agent.png)
+![Use an hub and spoke network topology with the Azure Firewall in the hub virtual network and AKS cluster in a spoke virtual network peered to the hub virtual network](media/self-hosted-agent.png)
 
 ### Use Azure Firewall in front of a public Standard Load Balancer
 
@@ -115,7 +115,7 @@ Resource definitions in the Terraform modules make use of the [lifecycle](https:
 
 The sample contains an Azure DevOps CD pipeline that shows how you can deploy a workload to a private AKS cluster using an [Azure DevOps Pipelines](/azure/devops/pipelines/get-started/what-is-azure-pipelines?view=azure-devops) that runs on a [Self-hosted Agent](/azure/devops/pipelines/agents/agents?tabs=browser). The sample deploys the Bitnami [redmine](https://artifacthub.io/packages/helm/bitnami/redmine) project management web application using a public [Helm](https://helm.sh/) chart. The following diagram shows the network topology of the sample:
 
-![Public Standard Load Balancer](media/firewall-public-load-balancer.png)
+![Use Azure Firewall in front of a public Standard Load Balancer](media/firewall-public-load-balancer.png)
 
 The message flow can be described as follows:
 
@@ -131,7 +131,7 @@ For more information, see [Use Azure Firewall in front of the Public Standard Lo
 
 In this scenario, an ASP.NET Core application is hosted as a service by an Azure Kubernetes Service cluster and fronted by an [NGINX ingress controller](https://kubernetes.github.io/ingress-nginx/). The [NGINX ingress controller](https://kubernetes.github.io/ingress-nginx/) is exposed via an internal load balancer with a private  IP address in the spoke virtual network that hosts the AKS cluster. For more information, see [Create an ingress controller to an internal virtual network in Azure Kubernetes Service (AKS)](/azure/aks/ingress-internal-ip). When you deploy an NGINX ingress controller or more in general a `LoadBalancer` or `ClusterIP` service with the `service.beta.kubernetes.io/azure-load-balancer-internal: "true"` annotation in the metadata section, an internal standard load balancer called `kubernetes-internal` gets created under the node resource group. For more information, see [Use an internal load balancer with Azure Kubernetes Service (AKS)](/azure/aks/internal-lb). As shown in the picture below, the test web application is exposed via the Azure Firewall using a dedicated Azure public IP.  
 
-![Internal Standard Load Balancer](media/firewall-internal-load-balacer.png)
+![Use Azure Firewall in front of an internal Standard Load Balancer](media/firewall-internal-load-balacer.png)
 
 The message flow can be described as follows:
 
