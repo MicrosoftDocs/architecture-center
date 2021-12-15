@@ -31,6 +31,11 @@ When you build your own multitenant solution in Azure, there are several element
 
 In this series, we provide guidance about how to design, build, and operate your own multitenant solutions in Azure.
 
+> [!NOTE]
+> In this series, we use the term *tenant* to refer to **your** tenants, which might be your customers or groups of users. Our guidance is intended to help you to build your own multitenant software solutions on top of the Azure platform.
+>
+> Azure Active Directory (Azure AD) also includes the concept of a tenant to refer to individual directories, and it uses the term *multitenancy* to refer to interactions between multiple Azure AD tenants. Although the terms are the same, the concepts are not. When we need to refer to the Azure AD concept of a tenant, we disambiguate it by using the full term *Azure AD tenant*.
+
 ## Scope
 
 While Azure is itself a multitenant service, and some of our guidance is based on our experience with running large multitenant solutions, the focus of this series is on helping you build your own multitenant services, while harnessing the power of the Azure platform.

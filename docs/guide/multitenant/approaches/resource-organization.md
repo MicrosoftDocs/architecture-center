@@ -171,10 +171,11 @@ By planning your scale-out strategy, you can scale to extremely large numbers of
 ## Antipatterns to avoid
 
 - **Not planning for scale.** Ensure you have a clear understanding of the limits of the resources you'll deploy, and which limits might become important as your load or tenant count increases. Plan how you'll deploy additional resources as you scale, and test the plan.
-- **Not planning to bin pack.** Even if you don't need to grow immediately, plan to scale your Azure resources across multiple resources, resource groups, and subscriptions over time. Ensure your applicaton code doesn't make assumptions about working with a single resource where you might need to scale to multiple resources in future.
+- **Not planning to bin pack.** Even if you don't need to grow immediately, plan to scale your Azure resources across multiple resources, resource groups, and subscriptions over time. Avoid making assumptions in your application code like there being a single resource, where you might need to scale to multiple resources in future.
 - **Scaling many individual resources.** If you have a complex resource topology, it can become difficult to scale individual components one by one. It's often simpler to scale your solution as a unit by following the [Deployment Stamps pattern](overview.md#deployment-stamps-pattern).
+- **Deploying isolated resources for each tenant when not required.** In many solutions, it's more cost effective and efficient to deploy shared resources for multiple tenants.
 - **Using separate Azure AD tenants.** In general, it's inadvisable to provision multiple Azure AD tenants. Managing resources across Azure AD tenants is complex. It's usually simpler to scale across subscriptions linked to a single Azure AD tenant.
-- **Overarchitecting when you don't need to scale.** In some solutions, you know with certainty that you will never grow beyond a certain level of scale. In these scenarios, there's no need to build complex scaling logic. However, if your organization plans to grow, then you will need to be prepared to scale - potentially at short notice.
+- **Overarchitecting when you don't need to scale.** In some solutions, you know with certainty that you'll never grow beyond a certain level of scale. In these scenarios, there's no need to build complex scaling logic. However, if your organization plans to grow, then you will need to be prepared to scale - potentially at short notice.
 
 ## Next steps
 
