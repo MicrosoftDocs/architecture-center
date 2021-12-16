@@ -2754,6 +2754,8 @@ items:
                 href: hybrid/azure-stack-vm-dr.yml
               - name: Enhanced-security hybrid messaging - client
                 href: example-scenario/hybrid/secure-hybrid-messaging-client.yml
+              - name: Enhanced-security hybrid messaging - mobile
+                href: example-scenario/hybrid/secure-hybrid-messaging-mobile.yml
               - name: Enhanced-security hybrid messaging - web
                 href: example-scenario/hybrid/secure-hybrid-messaging-web.yml
               - name: Extend on-premises using ExpressRoute

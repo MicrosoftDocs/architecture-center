@@ -45,9 +45,9 @@ In this scenario, users need to use a mobile client that supports modern authent
 7. If the domain is federated, the request is redirected to Web Application Proxy.
 8. Web Application Proxy proxies the authentication request to AD FS. The user sees a sign-in page.
 9. The user enters credentials to complete authentication.
-10.	The user is redirected back to Azure AD.
-11.	Azure AD applies an Azure Conditional Access policy.
-12.	The policy can enforce restrictions based on the user's device state if the device is enrolled in Microsoft Endpoint Manager, enforce application protection policies, and/or enforce multi-factor authentication. You can find a detailed example of this type of [policy in the implementation steps described here](/exchange/clients/outlook-for-ios-and-android/use-hybrid-modern-auth?view=exchserver-2019#implementation-steps).
+10. The user is redirected back to Azure AD.
+11. Azure AD applies an Azure Conditional Access policy.
+12. The policy can enforce restrictions based on the user's device state if the device is enrolled in Microsoft Endpoint Manager, enforce application protection policies, and/or enforce multi-factor authentication. You can find a detailed example of this type of [policy in the implementation steps described here](/exchange/clients/outlook-for-ios-and-android/use-hybrid-modern-auth?view=exchserver-2019#implementation-steps).
 13.	The user implements any policy requirements and completes the multi-factor authentication request.
 14.	Azure AD returns access and refresh tokens to the client.
 15. The client uses the access token to connect to Exchange Online and retrieve the mailbox content.
@@ -175,3 +175,54 @@ For information about Exchange Server on-premises scalability, see [Exchange 201
 You can find general guidance for security on mobile devices in [Protect data and devices with Microsoft Intune](/mem/intune/protect/device-protect). 
 
 For information about security and hybrid modern authentication, see [Deep Dive: How Hybrid Authentication Really Works](https://techcommunity.microsoft.com/t5/exchange-team-blog/deep-dive-how-hybrid-authentication-really-works/ba-p/606780).
+
+For closed organizations that have traditional strong perimeter protection, there are security concerns related to Exchange Hybrid Classic configurations. The Exchange Hybrid Modern configuration doesn't support hybrid modern authentication.
+
+For information about Azure AD, see [Azure AD security operations guide](/azure/active-directory/fundamentals/security-operations-introduction).
+
+For information about scenarios that use AD FS security, see these articles:
+
+- [Best practices for securing AD FS and Web Application Proxy](/windows-server/identity/ad-fs/deployment/best-practices-securing-ad-fs)
+- [Configure AD FS Extranet Smart Lockout](/windows-server/identity/ad-fs/operations/configure-ad-fs-extranet-smart-lockout-protection)
+
+### Resiliency
+
+For information about the resiliency of the components in this architecture, see the following resources.
+- For Azure AD: [Advancing Azure AD availability](https://azure.microsoft.com/blog/advancing-azure-active-directory-availability)
+- For scenarios that use AD FS: [High availability cross-geographic AD FS deployment in Azure with Azure Traffic Manager](/windows-server/identity/ad-fs/deployment/active-directory-adfs-in-azure-with-azure-traffic-manager)
+- For the Exchange on-premises solution: [Exchange high availability](/exchange/high-availability/deploy-ha?view=exchserver-2019)
+
+## Deploy this scenario
+To implement this infrastructure, you need to complete the steps outlined in the guidance included here.
+ 
+Here are the high-level steps:
+1.	Secure Outlook mobile access as described in [these modern authentication implementation steps](/exchange/clients/outlook-for-ios-and-android/use-hybrid-modern-auth?view=exchserver-2019#implementation-steps).
+2.	[Block all other legacy authentication attempts at the Azure AD level.](/azure/active-directory/conditional-access/block-legacy-authentication) 
+3. [Block legacy authentication attempts at the messaging services level by using authentication policy.](/exchange/clients-and-mobile-in-exchange-online/disable-basic-authentication-in-exchange-online) 
+
+
+## Pricing 
+The cost of your implementation depends on your Azure AD and Microsoft 365 license costs. Total cost also includes costs for software and hardware for on-premises components, IT operations, training and education, and project implementation.
+
+The solution requires at least Azure AD Premium P1. For pricing details, see [Azure AD pricing](https://www.microsoft.com/security/business/identity-access-management/azure-ad-pricing).
+
+For information about AD FS and Web Application Proxy, see [Pricing and licensing for Windows Server 2022](https://www.microsoft.com/windows-server/pricing).
+
+For more pricing information, see these resources: 
+- [Microsoft Intune pricing](https://docs.microsoft.com/mem/intune/fundamentals/licenses)
+- [Exchange Online plans](https://www.microsoft.com/microsoft-365/exchange/compare-microsoft-exchange-online-plans)
+- [Exchange server pricing](https://www.microsoft.com/microsoft-365/exchange/microsoft-exchange-licensing-faq-email-for-business)
+
+## Next steps
+- [Announcing Hybrid Modern Authentication for Exchange On-Premises](https://techcommunity.microsoft.com/t5/exchange-team-blog/announcing-hybrid-modern-authentication-for-exchange-on-premises/ba-p/607476)
+- [Hybrid modern authentication overview and prerequisites for use with on-premises Exchange servers](/microsoft-365/enterprise/hybrid-modern-auth-overview?view=o365-worldwide)
+- [Use AD FS claims-based authentication with Outlook on the web](/exchange/clients/outlook-on-the-web/ad-fs-claims-based-auth?view=exchserver-2019)
+- [How to configure Exchange Server on-premises to use Hybrid Modern Authentication](/microsoft-365/enterprise/configure-exchange-server-for-hybrid-modern-authentication?view=o365-worldwide)
+- [Exchange 2019 preferred architecture](/exchange/plan-and-deploy/deployment-ref/preferred-architecture-2019)
+- [High availability cross-geographic AD FS deployment in Azure with Azure Traffic Manager](/windows-server/identity/ad-fs/deployment/active-directory-adfs-in-azure-with-azure-traffic-manager)
+- [Using hybrid Modern Authentication with Outlook for iOS and Android](/exchange/clients/outlook-for-ios-and-android/use-hybrid-modern-auth?view=exchserver-2019)
+- [Account setup with modern authentication in Exchange Online](/exchange/clients-and-mobile-in-exchange-online/outlook-for-ios-and-android/setup-with-modern-authentication)
+
+## Related resources
+- [Enhanced-security hybrid messaging infrastructure in a web access scenario](secure-hybrid-messaging-web.yml)
+- [Enhanced-security hybrid messaging infrastructure in a desktop-client access scenario](secure-hybrid-messaging-client.yml)

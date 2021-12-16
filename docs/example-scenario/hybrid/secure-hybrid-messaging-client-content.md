@@ -44,14 +44,14 @@ In this scenario, users need to use the version of Outlook client that supports 
 1. The user tries to access Exchange Online via Outlook. 
 1. Exchange Online provides the URL of an Azure AD endpoint for retrieving the access token to get access to the mailbox.
 1. Outlook connects to Azure AD by using that URL.
-1.	As soon as the domain is federated, Azure AD redirects the request to on-premises AD FS.
-1.	The user enters credentials on an AD FS sign-in page.
-1.	AD FS redirects the session back to Azure AD. 
-1.	Azure AD applies an Azure Conditional Access policy with a multi-factor authentication requirement for mobile apps and desktop clients. See the [deployment section](#set-up-a-conditional-access-policy)  of this article for information about setting up that policy.
-1.	The Conditional Access policy calls Azure AD Multi-Factor Authentication. The user gets a request to complete multi-factor authentication.
-1.	The user completes multi-factor authentication.
-1.	Azure AD issues access and refresh tokens and returns them to the client.
-1.	By using the access token, the client connects to Exchange Online and retrieves the content.
+1. As soon as the domain is federated, Azure AD redirects the request to on-premises AD FS.
+1. The user enters credentials on an AD FS sign-in page.
+1. AD FS redirects the session back to Azure AD. 
+1. Azure AD applies an Azure Conditional Access policy with a multi-factor authentication requirement for mobile apps and desktop clients. See the [deployment section](#set-up-a-conditional-access-policy)  of this article for information about setting up that policy.
+1. The Conditional Access policy calls Azure AD Multi-Factor Authentication. The user gets a request to complete multi-factor authentication.
+1. The user completes multi-factor authentication.
+1. Azure AD issues access and refresh tokens and returns them to the client.
+1. By using the access token, the client connects to Exchange Online and retrieves the content.
 
 To block attempts to access Exchange Online via legacy authentication (the red dashed line in the diagram), you need to create an [authentication policy](/powershell/module/exchange/new-authenticationpolicy?view=exchange-ps) that disables legacy authentication for protocols that the Outlook service uses. These are the specific protocols that you need to disable: Autodiscover, MAPI, Offline Address Books, and EWS. Here's the corresponding configuration:
 ```
@@ -88,19 +88,19 @@ This scenario is the same as the previous one, except that it uses a different t
 
 In this scenario, users need to use the version of Outlook client that supports modern authentication. For more information, see [How modern authentication works for Office 2013, Office 2016, and Office 2019 client apps](/microsoft-365/enterprise/modern-auth-for-office-2013-and-2016?view=o365-worldwide). This architecture covers both Outlook for Windows and Outlook for Mac.
 
-1.	The user tries to access Exchange Online via Outlook. 
-2.	Exchange Online provides the URL of an Azure AD endpoint for retrieving the access token to get access to the mailbox. 
-3.	Outlook connects to Azure AD by using that URL.
-4.	If the domain is federated, Azure AD redirects the request to on-premises AD FS.
-5.	The user enters credentials on an AD FS sign-in page.
-6.	Responding to an AF DS access control policy, AD FS calls Azure AD Multi-Factor Authentication to complete authentication. Here's an example of that type of AD FS access control policy:
+1. The user tries to access Exchange Online via Outlook. 
+2. Exchange Online provides the URL of an Azure AD endpoint for retrieving the access token to get access to the mailbox. 
+3. Outlook connects to Azure AD by using that URL.
+4. If the domain is federated, Azure AD redirects the request to on-premises AD FS.
+5. The user enters credentials on an AD FS sign-in page.
+6. Responding to an AF DS access control policy, AD FS calls Azure AD Multi-Factor Authentication to complete authentication. Here's an example of that type of AD FS access control policy:
 
     :::image type="content" source="./media/access-control-policy.png" alt-text="Screenshot that shows an example of an AD FS access control policy.":::
  
     The user gets a request to complete multi-factor authentication.
-7.	The user completes multi-factor authentication. 
-8.	AD FS redirects the session back to Azure AD. 
-9.	Azure AD issues access and refresh tokens and returns them to the client.
+7. The user completes multi-factor authentication. 
+8. AD FS redirects the session back to Azure AD. 
+9. Azure AD issues access and refresh tokens and returns them to the client.
 10.	By using the access token, the client connects to Exchange Online and retrieves the content.
 
 > [!NOTE]
@@ -137,8 +137,8 @@ This architecture covers both Outlook for Windows and Outlook for Mac.
 5. The user enters credentials on an AD FS sign-in page.
 6. AD FS redirects the session back to Azure AD.
 7. Azure AD applies an Azure Conditional Access policy with a multi-factor authentication requirement for mobile apps and desktop clients. See the [deployment section](#set-up-a-conditional-access-policy) of this article for information about setting up that policy.
-8.	The Conditional Access policy calls Azure AD Multi-Factor Authentication. The user gets a request to complete multi-factor authentication.
-9.	The user completes multi-factor authentication.
+8. The Conditional Access policy calls Azure AD Multi-Factor Authentication. The user gets a request to complete multi-factor authentication.
+9. The user completes multi-factor authentication.
 10.	Azure AD issues access and refresh tokens and returns them to the client.
 11.	The user presents the access token to Exchange Server, and Exchange authorizes access to the mailbox.
 
@@ -172,20 +172,20 @@ This scenario is similar to the previous one. However, in this scenario, multi-f
 > 
 > We recommend this scenario only if you are unable to use the previous one. 
 
-1.	The user starts the Outlook client. The client connects to Exchange Server and specifies that it has modern authentication capabilities.
-2.	Exchange Server sends a response to the client requesting that it get a token from Azure AD. Exchange Server provides the client with a URL to Azure AD. 
-3.	The client uses the URL to access Azure AD. 
-4.	In this scenario, the domain is federated. Azure AD redirects the client to AD FS via Web Application Proxy.
-5.	The user enters credentials on an AD FS sign-in page.
-6.	AD FS triggers multi-factor authentication. Here's an example of that type of AD FS access control policy:
+1. The user starts the Outlook client. The client connects to Exchange Server and specifies that it has modern authentication capabilities.
+2. Exchange Server sends a response to the client requesting that it get a token from Azure AD. Exchange Server provides the client with a URL to Azure AD. 
+3. The client uses the URL to access Azure AD. 
+4. In this scenario, the domain is federated. Azure AD redirects the client to AD FS via Web Application Proxy.
+5. The user enters credentials on an AD FS sign-in page.
+6. AD FS triggers multi-factor authentication. Here's an example of that type of AD FS access control policy:
 
     :::image type="content" source="./media/access-control-policy.png" alt-text="Screenshot that shows an AD FS access control policy."::: 
 
     The user gets a request to complete multi-factor authentication.
 
-7.	The user completes multi-factor authentication. 
-8.	AD FS redirects the session back to Azure AD.
-9.	Azure AD issues access and refresh tokens to the user. 
+7. The user completes multi-factor authentication. 
+8. AD FS redirects the session back to Azure AD.
+9. Azure AD issues access and refresh tokens to the user. 
 10.	The client presents the access token to the Exchange on-premises server. Exchange authorizes access to the user's mailbox.
 
 > [!NOTE]
@@ -325,5 +325,5 @@ For more pricing information, see these resources:
 - [Account setup with modern authentication in Exchange Online](/exchange/clients-and-mobile-in-exchange-online/outlook-for-ios-and-android/setup-with-modern-authentication)
 
 ## Related resources
-- [Enhanced security hybrid messaging infrastructure in a web access scenario](secure-hybrid-messaging-web.yml)
-- [Enhanced security hybrid messaging infrastructure in a mobile access scenario](secure-hybrid-messaging-mobile.yml)
+- [Enhanced-security hybrid messaging infrastructure in a web access scenario](secure-hybrid-messaging-web.yml)
+- [Enhanced-security hybrid messaging infrastructure in a mobile access scenario](secure-hybrid-messaging-mobile.yml)
