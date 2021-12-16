@@ -120,7 +120,7 @@ Many multitenant applications need to connect to tenants' on-premises networks t
 
 If you need to send outbound traffic from a known static IP address or from a set of known static IP addresses, consider using a [NAT Gateway](/azure/app-service/overview-inbound-outbound-ips#get-a-static-outbound-ip). App Service provides [guidance on how to integrate with a NAT Gateway](/azure/app-service/networking/nat-gateway-integration).
 
-If you don't need a static outbound IP address, but instead you need to occasionally check the IP address that your application uses for outbound traffic, you can [query the current IP addresses of the App Service deployment](/azure/azure/app-service/troubleshoot-intermittent-outbound-connection-errors).
+If you don't need a static outbound IP address, but instead you need to occasionally check the IP address that your application uses for outbound traffic, you can [query the current IP addresses of the App Service deployment](/azure/app-service/troubleshoot-intermittent-outbound-connection-errors).
 
 ### Quotas
 
