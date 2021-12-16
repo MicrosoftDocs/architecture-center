@@ -26,7 +26,7 @@ This architecture is relevant for the following scenarios:
 
 ### General notes
 - These architectures use the [federated](/microsoft-365/enterprise/plan-for-directory-synchronization?view=o365-worldwide#federated-authentication) Azure Active Directory (Azure AD) identity model. For the password hash synchronization and Pass-through Authentication models, the logic and flow are the same. The only difference is related to the fact that Azure AD won't redirect the authentication request to on-premises Active Directory Federation Services (AD FS).
-- In the diagrams, black dashed lines show basic interactions between local Active Directory, Azure AD Connect, Azure Active Directory (Azure AD), AD FS, and Web Application Proxy components. You can learn about these interactions in [Hybrid identity required ports and protocols](/azure/active-directory/hybrid/reference-connect-ports).
+- In the diagrams, black dashed lines show basic interactions between local Active Directory, Azure AD Connect, Azure AD, AD FS, and Web Application Proxy components. You can learn about these interactions in [Hybrid identity required ports and protocols](/azure/active-directory/hybrid/reference-connect-ports).
 - By *Exchange on-premises*, we mean Exchange 2019 with the latest updates and a Mailbox role.
 - In a real environment, you won't have just one server. You'll have a load-balanced array of Exchange servers for high availability. The scenarios described here are suited for that configuration.
 
@@ -71,8 +71,8 @@ In this scenario, users need to use a mobile client that supports modern authent
 1. The user starts Outlook profile configuration by entering an email address. Outlook mobile connects to the AutoDetect service.
 2. The AutoDetect service makes an anonymous AutoDiscover V2 request to Exchange Online to get the mailbox. 
 3. After the mailbox is located on-premises, Exchange Online replies with a 302 redirect response that contains an on-premises AutoDiscover URL that AutoDetect can use to retrieve the ActiveSync URL address for the mailbox.
-4. AutoDetect uses the on-premises URL that it received in the previous step to make an anonymous AutoDiscover v2 request to Exchange on-premises to get the mailbox. Exchange on-premises returns an ActiveSync URL address for mailbox, pointing to Exchange on-premises. You can see an [example of this type of request here](/exchange/clients/outlook-for-ios-and-android/use-hybrid-modern-auth?view=exchserver-2019#connection-flow).
-5. Now that the AutoDetect service has information about the endpoint of the mailbox content, it can call the on-premises ActiveSync endpoint without authentication. As described in the [connection flow here](/exchange/clients/outlook-for-ios-and-android/use-hybrid-modern-auth?view=exchserver-2019#connection-flow), Exchange responds with a 401 challenge response. It includes an authorization URL that identifies the Azure AD endpoint that client needs use to get an access token.
+4. AutoDetect uses the on-premises URL that it received in the previous step to make an anonymous AutoDiscover v2 request to Exchange on-premises to get the mailbox. Exchange on-premises returns an ActiveSync URL address for the mailbox, pointing to Exchange on-premises. You can see an [example of this type of request here](/exchange/clients/outlook-for-ios-and-android/use-hybrid-modern-auth?view=exchserver-2019#connection-flow).
+5. Now that the AutoDetect service has information about the endpoint of the mailbox content, it can call the on-premises ActiveSync endpoint without authentication. As described in the [connection flow here](/exchange/clients/outlook-for-ios-and-android/use-hybrid-modern-auth?view=exchserver-2019#connection-flow), Exchange responds with a 401 challenge response. It includes an authorization URL that identifies the Azure AD endpoint that the client needs to use to get an access token.
 6. The AutoDetect service returns the Azure AD authorization endpoint to the client.
 7. The client connects to Azure AD to complete authentication and enter sign-in information (email).
 8. If the domain is federated, the request is redirected to Web Application Proxy.
@@ -80,7 +80,7 @@ In this scenario, users need to use a mobile client that supports modern authent
 10.	The user enters credentials to complete authentication.
 11.	The user is redirected back to Azure AD.
 12.	Azure AD applies an Azure Conditional Access policy.
-13.	The policy can enforce restrictions based on the user's device state if the device is enrolled in Microsoft Endpoint Manager, enforce application protection policies, and/or enforce multi-factor authentication. You can find a detailed example of this type of [policy in the implementation steps described here](/exchange/clients/outlook-for-ios-and-android/use-hybrid-modern-auth?view=exchserver-2019#implementation-steps).
+13.	The policy can enforce restrictions based on the user's device state if the device is enrolled in Microsoft Endpoint Manager, enforce application protection policies, and/or enforce multi-factor authentication. You can find a detailed example of this type of policy in the [implementation steps described here](/exchange/clients/outlook-for-ios-and-android/use-hybrid-modern-auth?view=exchserver-2019#implementation-steps).
 14.	The user implements any policy requirements and completes the multi-factor authentication request.
 15.	Azure AD returns access and refresh tokens to the client.
 16.	The client uses the access token to connect to Exchange Online and retrieve the on-premises mailbox content. The content should be provided from the [cache, as described here](/exchange/clients/outlook-for-ios-and-android/use-hybrid-modern-auth?view=exchserver-2019#microsoft-cloud-architecture-for-hybrid-exchange-server-customers). To achieve that, the client issues a provisioning request that includes the user's access token and the on-premises ActiveSync endpoint.
@@ -157,7 +157,7 @@ For protocol and port requirements for Exchange Server, see "Exchange client and
 
 For Office 365 IP ranges and ports, see [Office 365 URLs and IP address ranges](/microsoft-365/enterprise/urls-and-ip-address-ranges?view=o365-worldwide). 
 
-For hybrid modern authentication and mobile devices, read about AutoDetect endpoint in [Other endpoints not included in the Office 365 IP Address and URL Web service](/microsoft-365/enterprise/additional-office365-ip-addresses-and-urls?view=o365-worldwide).
+For information about hybrid modern authentication and mobile devices, read about AutoDetect endpoint in [Other endpoints not included in the Office 365 IP Address and URL Web service](/microsoft-365/enterprise/additional-office365-ip-addresses-and-urls?view=o365-worldwide).
 
 ### Performance
 Performance depends on the performance of the components that are involved and your company's network performance. For more information, see [Office 365 performance tuning using baselines and performance history](/microsoft-365/enterprise/performance-tuning-using-baselines-and-history?view=o365-worldwide).
@@ -172,7 +172,7 @@ For information about AD FS scalability, see [Planning for AD FS server capacity
 For information about Exchange Server on-premises scalability, see [Exchange 2019 preferred architecture](/exchange/plan-and-deploy/deployment-ref/preferred-architecture-2019).
 
 ### Security
-You can find general guidance for security on mobile devices in [Protect data and devices with Microsoft Intune](/mem/intune/protect/device-protect). 
+For general guidance about security on mobile devices, see [Protect data and devices with Microsoft Intune](/mem/intune/protect/device-protect). 
 
 For information about security and hybrid modern authentication, see [Deep Dive: How Hybrid Authentication Really Works](https://techcommunity.microsoft.com/t5/exchange-team-blog/deep-dive-how-hybrid-authentication-really-works/ba-p/606780).
 
@@ -193,18 +193,18 @@ For information about the resiliency of the components in this architecture, see
 - For the Exchange on-premises solution: [Exchange high availability](/exchange/high-availability/deploy-ha?view=exchserver-2019)
 
 ## Deploy this scenario
-To implement this infrastructure, you need to complete the steps outlined in the guidance included here.
+To implement this infrastructure, you need to complete the steps outlined in the guidance included in the following articles.
  
 Here are the high-level steps:
-1.	Secure Outlook mobile access as described in [these modern authentication implementation steps](/exchange/clients/outlook-for-ios-and-android/use-hybrid-modern-auth?view=exchserver-2019#implementation-steps).
+1.	Secure Outlook mobile access as described in [these implementation steps for modern authentication](/exchange/clients/outlook-for-ios-and-android/use-hybrid-modern-auth?view=exchserver-2019#implementation-steps).
 2.	[Block all other legacy authentication attempts at the Azure AD level.](/azure/active-directory/conditional-access/block-legacy-authentication) 
 3. [Block legacy authentication attempts at the messaging services level by using authentication policy.](/exchange/clients-and-mobile-in-exchange-online/disable-basic-authentication-in-exchange-online) 
 
 
 ## Pricing 
-The cost of your implementation depends on your Azure AD and Microsoft 365 license costs. Total cost also includes costs for software and hardware for on-premises components, IT operations, training and education, and project implementation.
+The cost of your implementation depends on your Azure AD and Microsoft 365 license costs. The total cost also includes costs for software and hardware for on-premises components, IT operations, training and education, and project implementation.
 
-The solution requires at least Azure AD Premium P1. For pricing details, see [Azure AD pricing](https://www.microsoft.com/security/business/identity-access-management/azure-ad-pricing).
+These solutions require at least Azure AD Premium P1. For pricing details, see [Azure AD pricing](https://www.microsoft.com/security/business/identity-access-management/azure-ad-pricing).
 
 For information about AD FS and Web Application Proxy, see [Pricing and licensing for Windows Server 2022](https://www.microsoft.com/windows-server/pricing).
 
