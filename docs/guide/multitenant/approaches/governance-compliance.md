@@ -4,7 +4,7 @@ titleSuffix: Azure Architecture Center
 description: This article describes approaches to consider for governance and compliance in a multitenant solution.
 author: johndowns
 ms.author: jodowns
-ms.date: 12/09/2021
+ms.date: 12/16/2021
 ms.topic: conceptual
 ms.service: architecture-center
 products:
@@ -22,23 +22,20 @@ ms.custom:
 
 # Architectural approaches for governance and compliance in a multitenant solution
 
-Intro paragraph
+<!-- TODO -->
 
 ## Key considerations and requirements
 
-### Tenant isolation
+### Resource isolation
 
-Consider whether your tenants have requirements that might affect the level of isolation you can use for their data or resources. For example:
-
-* Will you deploy any dedicated Azure resources for each tenant?
-* If yes, how far do you need to go with isolation? Do your customers/tenants have requirements?
-  * Do you need different RBAC role assignments for each tenant? e.g. certain people in your org can only work with certain tenants? Need to plan your role assignments accordingly. Use groups instead of individual users.
+Ensure you configure your Azure resources to meet your tenants' isolation requirements. See [Azure resource organization in multitenant solutions](TODO) for guidance on isolating your Azure resources. 
 
 ### Compliance requirements
 
-It's important that you understand whether you have any compliance requirements that you need to meet.
+It's important that you understand whether you need to meet any compliance standards. This might occur in several situations, including:
 
-When you, or any of your tenants, work within certain industries or in specific geographic regions you might be required to follow compliance standards. For example, if any of your tenants are in the healthcare industry, you might need to comply with the HIPAA standard. If any of your customers are located in Europe, you might need to comply with GDPR.
+- You, or any of your tenants, work within certain industries. For example, if any of your tenants work in the healthcare industry, you might need to comply with the HIPAA standard.
+- You, or any of your tenants, are located in geographic or geopolitical regions that require compliance with local laws. For example, if any of your tenants are located in Europe, you might need to comply with GDPR.
 
 > [!IMPORTANT]
 > Compliance is a shared responsibility between Microsoft, you, and your tenants.
@@ -49,23 +46,44 @@ When you, or any of your tenants, work within certain industries or in specific 
 > 
 > This page doesn't provide specific guidance about how to become compliant with any particular standards. Instead, it provides some general guidance around how to consider compliance and governance in a multitenant solution.
 
-If you have many different tenants that have different requirements, you should plan to comply with the most stringent standard. It's usually more straightforward to follow one strict standard than to follow different standards for different tenants.
-
-### Data sovereignty
-
-Ensure you understand whether there are any geographical restrictions on where data should be stored or processed. Your tenants might require that their data be stored in specific geographic locations, or might require their data is not stored in other locations. While these requirements are often based on legislation, they can also be based on cultural values.
+If you have many different tenants that have different requirements, plan to comply with the most stringent standard. It's easier to follow one strict standard than to follow different standards for different tenants.
 
 ### Data management
 
-* Ensure you review the [storage and data approaches](storage-data.md) to understand how to isolate tenants' data based on your isolation requirements, and for other important considerations.
-* Consider tenants' encryption requirements, including [encryption at rest](/azure/security/fundamentals/encryption-atrest), and whether they need to maintain their own encryption keys.
-* What happens if a tenant requests direct access to the data that you store for them? For example, if they want to ingest their data into their own data lake.
-  * Consider whether their data is isolated sufficiently.
-  * Could also offer to export their data in specific formats to mitigate risks of direct access to data.
-* Consider whether you have any tenants concerned about having their data shared.
-  * Remember to include shared systems like identity and data warehouses.
-  * Consider using Purview to classify data.
-* Consider whether you need to aggregate data across tenants, such as for analysis or to train ML models. Ensure you're clear with your tenants about how their data will be used, even in aggregate form.
+When you store data on behalf of your tenants, you might have requirements or obligations that you need to meet.
+
+#### Isolation
+
+Review the [Architectural approaches for storage and data in multitenant solutions](storage-data.md) to understand how to isolate tenants' data. You should also consider whether your tenants have requirements for their own data encryption keys.
+
+Whichever isolation approaches you consider, it's a good practice to document all of the data stores in which tenants' data might be kept. These can include the following locations:
+
+- Databases and storage accounts deployed as part of your solution.
+- Identity systems, which are often shared between tenants.
+- Logs.
+- Data warehouses.
+
+Be prepared for tenants to request an audit of their data. Consider using [Azure Purview](https://azure.microsoft.com/services/purview/) to track and classify the data you store.
+
+#### Sovereignty
+
+Understand whether there are any restrictions on the physical location for your tenants' data to be stored or processed. Your tenants might require that their data be stored in specific geographic locations, or might require their data is not stored in other locations. Although these requirements are commonly based on legislation, they can also be based on cultural values and norms.
+
+#### Tenants' access to data
+
+Tenants sometimes request direct access to the data that you store on their behalf. For example, they might want to ingest their data into their own data lake.
+
+Plan how you'll respond to these requests. Consider whether any of the tenants' data is stored in shared data stores, and if so, how you can avoid tenants accessing other data.
+
+Avoid providing direct access to databases or storage accounts unless you have specifically designed for this requirement, such as by using the [Valet Key pattern](../../../patterns/valet-key.md). Consider creating an API or automated data export process for integration purposes.
+
+#### Aggregation of data
+
+Consider whether you need to combine or aggregate data from multiple tenants. For example, do you need to perform data analysis, or train machine learning models that could be applied to other tenants? Ensure your tenants understand the ways in which you use their data, even if it's in aggregated or anonymized forms.
+
+### Access control
+
+Consider whether your tenants' requirements restrict the personnel who can work with their data or resources. For example, suppose you build a SaaS solution used by many different customers. A government agency might require that only citizens of their country be provided with access to the infrastructure and data used to serve their requests. You could meet this requirement by using separate Azure resource groups, subscriptions, or management groups for sensitive customer workloads. You can apply tightly scoped Azure IAM role assignments for specific groups of users to work with these resources.
 
 ## Approaches and patterns to consider
 
