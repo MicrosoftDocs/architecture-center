@@ -22,7 +22,7 @@ ms.custom:
 
 # Architectural approaches for governance and compliance in multitenant solutions
 
-As your use of Azure matures, it's important to consider the governance of your cloud resources. Governance includes how tenants' data is stored and managed. It also includes how you track and organize your Azure resources. You might also need to comply with regulatory or legal standards. This article provides information about how to consider governance and compliance in a multitenant solution. It also suggests some of the key Azure platform features that support these concerns.
+As your use of Azure matures, it's important to consider the governance of your cloud resources. Governance includes how tenants' data is stored and managed, and how you organize your Azure resources. You might also need to follow regulatory or legal standards. This article provides information about how to consider governance and compliance in a multitenant solution. It also suggests some of the key Azure platform features that support these concerns.
 
 ## Key considerations and requirements
 
@@ -38,7 +38,7 @@ When you store data on behalf of your tenants, you might have requirements or ob
 
 Review the [Architectural approaches for storage and data in multitenant solutions](storage-data.md) to understand how to isolate tenants' data. Consider whether tenants have requirements to use their own data encryption keys.
 
-Whichever isolation approaches you implement, be prepared for tenants to request an audit of their data. It's a good practice to document all of the data stores in which tenants' data might be kept, which might include the following:
+Whichever isolation approaches you implement, be prepared for tenants to request an audit of their data. It's a good practice to document all of the data stores in which tenants' data might be kept. Common data sources include:
 
 - Databases and storage accounts deployed as part of your solution.
 - Identity systems, which are often shared between tenants.
@@ -47,15 +47,15 @@ Whichever isolation approaches you implement, be prepared for tenants to request
 
 #### Sovereignty
 
-Understand whether there are any restrictions on the physical location for your tenants' data to be stored or processed. Your tenants might require that you store their data in specific geographic locations. They might also require that you *don't* store their data in certain locations. Although these requirements are commonly based on legislation, they can also be based on cultural values and norms.
+Understand whether there are any restrictions on the physical location for your tenants' data to be stored or processed. Your tenants might require you store their data in specific geographic locations. They might also require that you *don't* store their data in certain locations. Although these requirements are commonly based on legislation, they can also be based on cultural values and norms.
 
 #### Tenants' access to data
 
-Tenants sometimes request direct access to the data that you store on their behalf. For example, they might want to ingest their data into their own data lake.
+Tenants sometimes request direct access to the data you store on their behalf. For example, they might want to ingest their data into their own data lake.
 
 Plan how you'll respond to these requests. Consider whether any of the tenants' data is kept in shared data stores. If it is, plan how you'll avoid tenants accessing other tenants' data.
 
-Avoid providing direct access to databases or storage accounts unless you have designed based around this requirement, such as by using the [Valet Key pattern](../../../patterns/valet-key.md). Consider creating an API or automated data export process for integration purposes.
+Avoid providing direct access to databases or storage accounts unless you designed for this requirement, such as by using the [Valet Key pattern](../../../patterns/valet-key.md). Consider creating an API or automated data export process for integration purposes.
 
 ### Access to tenants' data
 
@@ -63,7 +63,7 @@ Consider whether your tenants' requirements restrict the personnel who can work 
 
 #### Aggregation of data
 
-Consider whether you need to combine or aggregate data from multiple tenants. For example, do you to analyze the data, or train machine learning models that could be applied to other tenants? Ensure your tenants understand the ways in which you use their data, even if it's in aggregated or anonymized forms.
+Consider whether you need to combine or aggregate data from multiple tenants. For example, do you to analyze the data, or train machine learning models that could be applied to other tenants? Ensure your tenants understand the ways in which you use their data. Include any use of aggregated or anonymized data.
 
 ### Compliance requirements
 
@@ -79,7 +79,7 @@ It's important that you understand whether you need to meet any compliance stand
 > 
 > However, ultimately it is your responsibility to fully understand the compliance requirements that apply to your solution, and how to configure your Azure resources according to those standards. See [Azure compliance offerings](/azure/compliance/offerings/) for more detail.
 > 
-> This page doesn't provide specific guidance about how to become compliant with any particular standards. Instead, it provides some general guidance around how to consider compliance and governance in a multitenant solution.
+> This article doesn't provide specific guidance about how to become compliant with any particular standards. Instead, it provides some general guidance around how to consider compliance and governance in a multitenant solution.
 
 If different tenants need you to follow different compliance standards, plan to comply with the most stringent standard across your entire environment. It's easier to follow one strict standard than to follow different standards for different tenants.
 
@@ -111,7 +111,7 @@ Use tools like [Azure Policy](/azure/governance/policy/overview), [Microsoft Def
 
 Your tenants might require that you demonstrate your compliance with specific standards. Use the [Service Trust Portal](https://servicetrust.microsoft.com/) to generate compliance documentation that you can provide to your tenants or to third-party auditors.
 
-Some services incorporate Microsoft 365 as part of your solution, and use services like Microsoft OneDrive, Microsoft SharePoint, and Microsoft Exchange Online. The [Microsoft 365 Compliance Center](https://compliance.microsoft.com) can help yo understand the compliance posture of these services, such as how they manage personally identifiable information.
+Some multitenant solutions incorporate Microsoft 365, and use services like Microsoft OneDrive, Microsoft SharePoint, and Microsoft Exchange Online. The [Microsoft 365 Compliance Center](https://compliance.microsoft.com) helps you to understand how these services comply with regulatory standards.
 
 ### Deployment Stamps pattern
 
@@ -119,7 +119,7 @@ Consider following the [Deployment Stamps pattern](overview.md#deployment-stamps
 
 For example, you might deploy stamps of your solution into multiple Azure regions. Then, you can assign new tenants to stamps based on the regions they need to have their data located in.
 
-Similarly, a new tenant might introduce strict compliance requirements that you can't meet within your existing solution components. You can consider deploying a dedicated stamp for that, and configure it according to their requirements.
+Similarly, a new tenant might introduce strict compliance requirements that you can't meet within your existing solution components. You can consider deploying a dedicated stamp for that tenant, and configure it according to their requirements.
 
 ## Antipatterns to avoid
 
