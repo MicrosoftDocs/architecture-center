@@ -22,7 +22,7 @@ ms.custom:
 
 # Architectural approaches for governance and compliance in multitenant solutions
 
-As your use of Azure matures, it's important to consider the governance of your cloud resources, including how tenants' data is stored and managed, and how you track and organize your Azure resources. You might also need to comply with regulatory or legal standards. This article provides information about how to consider governance and compliance in a multitenant solution, and suggests some of the key Azure platform features and capabilities that support these concerns.
+As your use of Azure matures, it's important to consider the governance of your cloud resources. Governance includes how tenants' data is stored and managed. It also includes how you track and organize your Azure resources. You might also need to comply with regulatory or legal standards. This article provides information about how to consider governance and compliance in a multitenant solution. It also suggests some of the key Azure platform features that support these concerns.
 
 ## Key considerations and requirements
 
@@ -32,13 +32,13 @@ Ensure you configure your Azure resources to meet your tenants' isolation requir
 
 ### Data management
 
-When you store data on behalf of your tenants, you might have requirements or obligations that you need to meet. From a tenant's perspective, they often expect ownership and control of their data. Consider how you isolate, store, access, and aggregate tenants' data, and uncover requirements that could affect how your solution works.
+When you store data on behalf of your tenants, you might have requirements or obligations that you need to meet. From a tenant's perspective, they often expect ownership and control of their data. Consider how you isolate, store, access, and aggregate tenants' data. Uncover tenants' expectations and requirements that could affect how your solution works.
 
 #### Isolation
 
-Review the [Architectural approaches for storage and data in multitenant solutions](storage-data.md) to understand how to isolate tenants' data. You should also consider whether your tenants have requirements for their own data encryption keys.
+Review the [Architectural approaches for storage and data in multitenant solutions](storage-data.md) to understand how to isolate tenants' data. Consider whether tenants have requirements to use their own data encryption keys.
 
-Whichever isolation approaches you implement, be prpared for tenants to request an audit of their data. It's a good practice to document all of the data stores in which tenants' data might be kept. These can include the following locations:
+Whichever isolation approaches you implement, be prepared for tenants to request an audit of their data. It's a good practice to document all of the data stores in which tenants' data might be kept, which might include the following:
 
 - Databases and storage accounts deployed as part of your solution.
 - Identity systems, which are often shared between tenants.
@@ -47,27 +47,27 @@ Whichever isolation approaches you implement, be prpared for tenants to request 
 
 #### Sovereignty
 
-Understand whether there are any restrictions on the physical location for your tenants' data to be stored or processed. Your tenants might require that their data be stored in specific geographic locations, or might require their data is not stored in other locations. Although these requirements are commonly based on legislation, they can also be based on cultural values and norms.
+Understand whether there are any restrictions on the physical location for your tenants' data to be stored or processed. Your tenants might require that you store their data in specific geographic locations. They might also require that you *don't* store their data in certain locations. Although these requirements are commonly based on legislation, they can also be based on cultural values and norms.
 
 #### Tenants' access to data
 
 Tenants sometimes request direct access to the data that you store on their behalf. For example, they might want to ingest their data into their own data lake.
 
-Plan how you'll respond to these requests. Consider whether any of the tenants' data is stored in shared data stores, and if so, how you can avoid tenants accessing other data.
+Plan how you'll respond to these requests. Consider whether any of the tenants' data is kept in shared data stores. If it is, plan how you'll avoid tenants accessing other tenants' data.
 
-Avoid providing direct access to databases or storage accounts unless you have specifically designed for this requirement, such as by using the [Valet Key pattern](../../../patterns/valet-key.md). Consider creating an API or automated data export process for integration purposes.
+Avoid providing direct access to databases or storage accounts unless you have designed based around this requirement, such as by using the [Valet Key pattern](../../../patterns/valet-key.md). Consider creating an API or automated data export process for integration purposes.
 
 ### Access to tenants' data
 
-Consider whether your tenants' requirements restrict the personnel who can work with their data or resources. For example, suppose you build a SaaS solution used by many different customers. A government agency might require that only citizens of their country be provided with access to the infrastructure and data used to serve their requests. You could meet this requirement by using separate Azure resource groups, subscriptions, or management groups for sensitive customer workloads. You can apply tightly scoped Azure IAM role assignments for specific groups of users to work with these resources.
+Consider whether your tenants' requirements restrict the personnel who can work with their data or resources. For example, suppose you build a SaaS solution used by many different customers. A government agency might require that only citizens of their country are allowed to access the infrastructure and data for their solution. You might meet this requirement by using separate Azure resource groups, subscriptions, or management groups for sensitive customer workloads. You can apply tightly scoped Azure IAM role assignments for specific groups of users to work with these resources.
 
 #### Aggregation of data
 
-Consider whether you need to combine or aggregate data from multiple tenants. For example, do you need to perform data analysis, or train machine learning models that could be applied to other tenants? Ensure your tenants understand the ways in which you use their data, even if it's in aggregated or anonymized forms.
+Consider whether you need to combine or aggregate data from multiple tenants. For example, do you to analyze the data, or train machine learning models that could be applied to other tenants? Ensure your tenants understand the ways in which you use their data, even if it's in aggregated or anonymized forms.
 
 ### Compliance requirements
 
-It's important that you understand whether you need to meet any compliance standards. This might occur in several situations, including:
+It's important that you understand whether you need to meet any compliance standards. Compliance requirements might be introduced in several situations, including:
 
 - You, or any of your tenants, work within certain industries. For example, if any of your tenants work in the healthcare industry, you might need to comply with the HIPAA standard.
 - You, or any of your tenants, are located in geographic or geopolitical regions that require compliance with local laws. For example, if any of your tenants are located in Europe, you might need to comply with GDPR.
@@ -81,7 +81,7 @@ It's important that you understand whether you need to meet any compliance stand
 > 
 > This page doesn't provide specific guidance about how to become compliant with any particular standards. Instead, it provides some general guidance around how to consider compliance and governance in a multitenant solution.
 
-If you have many different tenants that have different requirements, plan to comply with the most stringent standard. It's easier to follow one strict standard than to follow different standards for different tenants.
+If different tenants need you to follow different compliance standards, plan to comply with the most stringent standard across your entire environment. It's easier to follow one strict standard than to follow different standards for different tenants.
 
 ## Approaches and patterns to consider
 
@@ -95,9 +95,9 @@ Use [Azure role-based access control (Azure RBAC)](/azure/role-based-access-cont
 
 ### Azure Resource Graph
 
-[Azure Resource Graph](/azure/governance/resource-graph/overview) enables you to work with Azure resource metadata. By using Resource Graph, you can query across a large number of Azure resources, even if they're spread across multiple subscriptions.
+[Azure Resource Graph](/azure/governance/resource-graph/overview) enables you to work with Azure resource metadata. By using Resource Graph, you can query across a large number of Azure resources, even if they're spread across multiple subscriptions. Resource Graph can query for the resources of a specific type, or to identify resources that have been configured in specific ways. It can also be used to track the history of a resource's configuration.
 
-Resource Graph can be helpful to manage large Azure estates. For example, if you deploy tenant-specific Azure resources, you commonly need to query for the number of resources of a specific type, or to identify resources that have been configured in specific ways. By [applying tags to your resources](#resource-tags), you can also use the Resource Graph API to find resources that are used by specific tenants or deployment stamps.
+Resource Graph can be helpful to manage large Azure estates. For example, suppose you deploy tenant-specific Azure resources across multiple Azure subscriptions. By [applying tags to your resources](#resource-tags), you can use the Resource Graph API to find resources that are used by specific tenants or deployment stamps.
 
 ### Azure Purview
 
@@ -111,7 +111,7 @@ Use tools like [Azure Policy](/azure/governance/policy/overview), [Microsoft Def
 
 Your tenants might require that you demonstrate your compliance with specific standards. Use the [Service Trust Portal](https://servicetrust.microsoft.com/) to generate compliance documentation that you can provide to your tenants or to third-party auditors.
 
-If you incorporate Microsoft 365 as part of your solution, use the [Microsoft 365 Compliance Center](https://compliance.microsoft.com) to understand the compliance posture of these services. For example, the Microsoft 365 Compliance Center describes how personally identifiable is handled by services like Microsoft OneDrive, Microsoft SharePoint, and Microsoft Exchange Online.
+Some services incorporate Microsoft 365 as part of your solution, and use services like Microsoft OneDrive, Microsoft SharePoint, and Microsoft Exchange Online. The [Microsoft 365 Compliance Center](https://compliance.microsoft.com) can help yo understand the compliance posture of these services, such as how they manage personally identifiable information.
 
 ### Deployment Stamps pattern
 
@@ -123,11 +123,11 @@ Similarly, a new tenant might introduce strict compliance requirements that you 
 
 ## Antipatterns to avoid
 
-- **Not understanding your tenants' compliance requirements.** It's important not to make assumptions about the compliance requirements that your tenants might impose. If you plan to grow your solution into new markets, be mindful of the regulatory environment that your tenants are likely to operate within. Follow good practices when you deploy your Azure resources to minimize the impact of following new compliance standards.
+- **Not understanding your tenants' compliance requirements.** It's important not to make assumptions about the compliance requirements that your tenants might impose. If you plan to grow your solution into new markets, be mindful of the regulatory environment that your tenants are likely to operate within. Follow good practices when you deploy your Azure resources to minimize the effect of following new compliance standards.
 - **Assuming there are no compliance requirements.** When you first launch a multitenant solution, you might not be aware of compliance requirements or you might not need to follow any. As you grow, you're likely to need to provide evidence that you comply with various standards. Use [Azure Defender for Cloud](/azure/defender-for-cloud/regulatory-compliance-dashboard) to monitor your compliance posture, even before you have an explicit requirement to do so.
 - **Not planning for management.** As you deploy your Azure resources, consider how you plan to manage them. If you need to make bulk updates to resources, ensure you have an understanding of automation tools like Azure PowerShell, the Azure CLI, and the Resource Graph API.
 - **Not using management groups.** Plan your subscription and management group hierarchy, including access control and Azure Policy resources at each scope. It can be challenging to change these elements when your resources are in use.
-- **Not planning your access control effectively.** Azure's role-based access control (RBAC) system provides a high degree of control and flexibility in how you manage access to your resources. Ensure you use Azure AD groups to avoid assigning permissions to individual users. Assign roles at scopes that provide an appropriate balance between security and flexibility. Use built-in role definitions wherever possible, and assign roles that provide the minimum permissions required.
+- **Not planning your access control effectively.** Azure RBAC provides a high degree of control and flexibility in how you manage access to your resources. Ensure you use Azure AD groups to avoid assigning permissions to individual users. Assign roles at scopes that provide an appropriate balance between security and flexibility. Use built-in role definitions wherever possible, and assign roles that provide the minimum permissions required.
 - **Not using Azure Policy.** It's important to use Azure Policy to govern your Azure environment. After you plan and deploy policies, ensure you monitor the policy compliance and carefully review any violations or exceptions.
 
 ## Next steps
