@@ -15,6 +15,8 @@ Use cases include:
 
 *Download a [PowerPoint file](https://arch-center.azureedge.net/architecture-extract-object-text.pptx) of this architecture.*
 
+### Workflow
+
 1. An object detection model is trained in AI Builder to recognize objects that a user specifies.
 1. A new document enters a SharePoint document library, OneDrive, or Teams.
 1. The document's arrival triggers a Power Automate event. That event:
@@ -39,7 +41,7 @@ Use cases include:
 - SharePoint can run OCR scans on documents and add content output to the index for retrieval. Use search techniques to target key information in documents.
 - If you want to process a high rate of documents, consider using Azure Logic Apps to configure the components. Azure Logic Apps prevents you from hitting consumption limits in your tenant, and is cost-effective.  For more information, see [Azure Logic Apps](/azure/logic-apps/logic-apps-overview).
 
-### Considerations
+## Considerations
 
 Consider these points when you analyze and process documents:
 
