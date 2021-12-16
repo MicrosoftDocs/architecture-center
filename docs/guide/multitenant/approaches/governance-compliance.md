@@ -1,5 +1,5 @@
 ---
-title: Architectural approaches for governance and compliance in a multitenant solution
+title: Architectural approaches for governance and compliance in multitenant solutions
 titleSuffix: Azure Architecture Center
 description: This article describes approaches to consider for governance and compliance in a multitenant solution.
 author: johndowns
@@ -20,7 +20,7 @@ ms.custom:
   - fcp
 ---
 
-# Architectural approaches for governance and compliance in a multitenant solution
+# Architectural approaches for governance and compliance in multitenant solutions
 
 As your use of Azure matures, it's important to consider the governance of your cloud resources, including how tenants' data is stored and managed, and how you track and organize your Azure resources. You might also need to comply with regulatory or legal standards. This article provides information about how to consider governance and compliance in a multitenant solution, and suggests some of the key Azure platform features and capabilities that support these concerns.
 
