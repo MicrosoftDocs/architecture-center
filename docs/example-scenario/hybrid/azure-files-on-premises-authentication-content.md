@@ -20,6 +20,8 @@ In short, if you're in the described situation, you can provide cloud files to y
 
 *Download a [Visio file](https://arch-center.azureedge.net/US-1893117-azure-files-on-premises-authentication.vsdx) of this architecture.*
 
+### Workflow
+
 1. This solution synchronizes the on-premises AD DS and the cloud-based Azure AD. Synchronizing makes users more productive by providing a common identity for accessing both cloud and on-premises resources.
 
    Azure AD Connect is the on-premises Microsoft application that does the synchronizing. For more information about Azure AD Connect, see [What is Azure AD Connect?](/azure/active-directory/hybrid/whatis-azure-ad-connect) and [Azure AD Connect sync: Understand and customize synchronization](/azure/active-directory/hybrid/how-to-connect-sync-whatis).
@@ -76,7 +78,7 @@ These articles have security information for Azure components:
 - [Azure security baseline for Virtual Network](/security/benchmark/azure/baselines/virtual-network-security-baseline)
 - [Azure security baseline for Azure Firewall](/security/benchmark/azure/baselines/firewall-security-baseline)
 
-### Pricing
+## Pricing
 
 To estimate the cost of Azure products and configurations, use the Azure [Pricing calculator](https://azure.microsoft.com/pricing/calculator).
 
