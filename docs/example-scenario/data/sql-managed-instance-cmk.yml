@@ -1,0 +1,24 @@
+### YamlMime:Architecture
+metadata:
+  title: Multi-region private database with customer-managed at-rest data encryption
+  titleSuffix: Azure Example Scenarios
+  description: Create a highly available, SQL Managed Instance design using customer-managed keys stored in Azure Key Vault.
+  author: aarsan
+  ms.author: aharsan
+  ms.date: 11/01/2021
+  ms.topic: conceptual
+  ms.service: architecture-center
+  ms.subservice: example-scenario
+azureCategories:
+  - security
+  - databases
+  - networking
+products:
+  - azure-sql-managed-instance
+  - azure-key-vault
+  - azure-private-link
+name: SQL Managed Instance with Customer-Managed Keys.
+summary: Create a highly available, SQL Managed Instance design using customer-managed keys stored in Azure Key Vault.
+thumbnailUrl: /azure/architecture/browse/thumbs/<browse-png-filename>.png
+content: |
+  [!include[](sql-managed-instance-cmk-content.md)]
