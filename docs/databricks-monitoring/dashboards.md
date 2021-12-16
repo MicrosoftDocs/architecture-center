@@ -43,7 +43,7 @@ To deploy the Azure Log Analytics workspace, follow these steps:
     - **workspaceName** (optional): A name for the workspace. If not specified, the template generates a name.
 
     ```bash
-    az group deployment create --resource-group <resource-group-name> --template-file logAnalyticsDeploy.json --parameters location='East US' serviceTier='Standalone'
+    az deployment group create --resource-group <resource-group-name> --template-file logAnalyticsDeploy.json --parameters location='East US' serviceTier='Standalone'
     ```
 
 This template creates the workspace and also creates a set of predefined queries that are used by dashboard.
@@ -55,7 +55,7 @@ Grafana is an open source project you can deploy to visualize the time series me
 1. Use the Azure CLI to accept the Azure Marketplace image terms for Grafana.
 
     ```bash
-    az vm image accept-terms --publisher bitnami --offer grafana --plan default
+    az vm image terms accept --publisher bitnami --offer grafana --plan default
     ```
 
 1. Navigate to the `/spark-monitoring/perftools/deployment/grafana` directory in your local copy of the GitHub repo.
@@ -63,7 +63,7 @@ Grafana is an open source project you can deploy to visualize the time series me
 
     ```bash
     export DATA_SOURCE="https://raw.githubusercontent.com/mspnp/spark-monitoring/master/perftools/deployment/grafana/AzureDataSource.sh"
-    az group deployment create \
+    az deployment group create \
         --resource-group <resource-group-name> \
         --template-file grafanaDeploy.json \
         --parameters adminPass='<vm password>' dataSource=$DATA_SOURCE
