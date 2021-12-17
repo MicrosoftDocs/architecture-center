@@ -21,7 +21,7 @@ categories:
 
 # Move data to or from Azure Blob Storage using SSIS connectors
 
-The [Azure Feature Pack for Integration Services (SSIS)](/sql/integration-services/azure-feature-pack-for-integration-services-ssis?view=sql-server-ver15) provides components to connect to Azure, transfer data between Azure and on-premises data sources, and process data stored in Azure.
+The [Azure Feature Pack for Integration Services (SSIS)](/sql/integration-services/azure-feature-pack-for-integration-services-ssis) provides components to connect to Azure, transfer data between Azure and on-premises data sources, and process data stored in Azure.
 
 [!INCLUDE [blob-storage-tool-selector](../../includes/machine-learning-blob-storage-tool-selector.md)]
 
@@ -39,7 +39,7 @@ For a discussion of canonical scenarios that use SSIS to accomplish business nee
 ## Prerequisites
 To perform the tasks described in this article, you must have an Azure subscription and an Azure Storage account set up. You need the Azure Storage account name and account key to upload or download data.
 
-* To set up an **Azure subscription**, see [Free one-month trial](https://azure.microsoft.com/en-us/free/).
+* To set up an **Azure subscription**, see [Free one-month trial](https://azure.microsoft.com/free/).
 * For instructions on creating a **storage account** and for getting account and key information, see [About Azure Storage accounts](/azure/storage/common/storage-account-create).
 
 To use the **SSIS connectors**, you must download:
@@ -48,11 +48,11 @@ To use the **SSIS connectors**, you must download:
 * **Microsoft SQL Server 2014 or 2016 Integration Services Feature Pack for Azure**: These connectors can be downloaded, respectively, from the [SQL Server 2014 Integration Services](https://www.microsoft.com/download/details.aspx?id=47366) and [SQL Server 2016 Integration Services](https://www.microsoft.com/download/details.aspx?id=49492) pages.
 
 > [!NOTE]
-> SSIS is installed with SQL Server, but is not included in the Express version. For information on what applications are included in various editions of SQL Server, see [SQL Server Technical Documentation](/sql/sql-server/?view=sql-server-ver15)
+> SSIS is installed with SQL Server, but is not included in the Express version. For information on what applications are included in various editions of SQL Server, see [SQL Server Technical Documentation](/sql/sql-server/)
 >
 >
 
-For installing SSIS, see [Install Integration Services (SSIS)](/sql/integration-services/install-windows/install-integration-services?view=sql-server-ver15)
+For installing SSIS, see [Install Integration Services (SSIS)](/sql/integration-services/install-windows/install-integration-services)
 
 For information on how to get up-and-running using SISS to build simple extraction, transformation, and load (ETL) packages, see [SSIS Tutorial: Creating a Simple ETL Package](/sql/integration-services/ssis-how-to-create-an-etl-package).
 
