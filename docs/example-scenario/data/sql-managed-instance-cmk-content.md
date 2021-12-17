@@ -52,10 +52,10 @@ When you add Key Vault to your architecture, it becomes a critical component. At
 ### Operations
 When you move from service-managed keys to customer-managed keys, your operations will be:
 
-- [Generating the key or importing it to Key Vault](/azure/key-vault/keys/quick-create-portal#add-a-key-to-key-vault)
+- [Generating keys or importing them to Key Vault](/azure/key-vault/keys/quick-create-portal#add-a-key-to-key-vault)
 - [Rotating keys](/azure/azure-sql/database/transparent-data-encryption-byok-key-rotation)
 - [Backing up and restoring keys](/powershell/module/az.keyvault/backup-azkeyvaultkey)
-- [Monitoring the customer-managed TDE](/azure/azure-sql/database/transparent-data-encryption-byok-overview#monitoring-of-the-customer-managed-tde)
+- [Monitoring customer-managed TDE](/azure/azure-sql/database/transparent-data-encryption-byok-overview#monitoring-of-the-customer-managed-tde)
 
 ### Performance
 SQL Managed Instance auto-failover groups [perform significantly better when you use paired regions](/azure/azure-sql/database/auto-failover-group-overview?tabs=azure-powershell#using-geo-paired-regions).
