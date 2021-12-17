@@ -1,4 +1,4 @@
-This article describes how you can manage your own Transparent Data Encryption (TDE) keys for SQL managed instances in a cross-region, auto-failover group by using Azure Key Vault. When you use customer-managed keys (CMK), also referred to as bring your own key (BYOK), you're responsible for the security, availability, and optional rotation of the keys. These responsibilities are critical because if the key is lost, the databases and backups are also permanently lost. This article describes the key management process and provides options so that you have the information you need to make an informed decision about the best process for your business.
+This article describes how you can manage your own Transparent Data Encryption (TDE) keys for SQL managed instances in a cross-region auto-failover group by using Azure Key Vault. When you use customer-managed keys (CMK), also referred to as bring your own key (BYOK), you're responsible for the security, availability, and optional rotation of the keys. These responsibilities are critical because if the key is lost, the databases and backups are also permanently lost. This article describes the key management process and provides options so that you have the information you need to make an informed decision about the best process for your business.
 
 ## Potential use cases
 
@@ -29,7 +29,7 @@ The secondary key vault instance, while in a remote region, has a [private endpo
 ### Alternatives
 -  Instead of using customer-managed TDE keys, you can use service-managed TDE keys. When you use service-managed keys, Microsoft handles securing and rotating the keys. The entire process is abstracted away from you. 
 
-- An alternative to having key vaults in two regions is to just have one in a single region. SQL Managed Instance can access keys from a vault that's in another region. You can still use private endpoint. The traffic to key vault is low and infrequent, so any latency isn't noticeable. SQL Managed Instance only queries the vault to see if the key exists. It doesn't copy the material.
+- An alternative to having key vaults in two regions is to just have one in a single region. SQL Managed Instance can access keys from a vault that's in another region. You can still use private endpoint. The traffic to Key Vault is low and infrequent, so any latency isn't noticeable. SQL Managed Instance only queries the vault to see if the key exists. It doesn't copy the material.
 
 ## Considerations
 
@@ -37,9 +37,9 @@ Your method of key rotation will differ depending on what you're using to create
 
 - Use Key Vault to create the keys. This option ensures that the private key material never leaves Key Vault and can't be seen by any human or system. The private keys aren't exportable, but they can be backed up and restored to another key vault. This point is important. In order to have the same key material in multiple key vaults, as required by this design, you have to use the backup and restore feature. This option has several limitations. Both key vaults must be in the same Azure geography. If they aren't, the restore won't work. The only way around this limitation is to keep the key vaults in separate subscriptions and move one subscription to another region. 
 
-- Generate the asymmetric keys offline by using a utility like OpenSSL and then import the keys into Key Vault. When you import a key into Key Vault, you can [mark it as exportable](/cli/azure/keyvault/key?view=azure-cli-latest#az_keyvault_key_create-optional-parameters). If you do that, you can either throw away the keys after you've imported them into Key Vault or you can store them somewhere else, like on-premises or in another key vault. This option gives you the most flexibility. However, it can be the least secure if you don't properly ensure the keys don't get into the wrong hands. The system generating the keys and the method used to place the keys in Key Vault aren't controlled by Azure. You can automate this process by using [Azure DevOps](/azure/devops), [Azure Automation](/azure/automation), or another orchestration tool.
+- Generate the asymmetric keys offline by using a utility like OpenSSL and then import the keys into Key Vault. When you import a key into Key Vault, you can [mark it as exportable](/cli/azure/keyvault/key?view=azure-cli-latest#az_keyvault_key_create-optional-parameters). If you do that, you can either throw away the keys after you import them into Key Vault or you can store them somewhere else, like on-premises or in another key vault. This option gives you the most flexibility. However, it can be the least secure if you don't properly ensure the keys don't get into the wrong hands. The system generating the keys and the method used to place the keys in Key Vault aren't controlled by Azure. You can automate this process by using [Azure DevOps](/azure/devops), [Azure Automation](/azure/automation), or another orchestration tool.
 
-- Use a [supported on-premises hardware security module (HSM)](/azure/key-vault/keys/hsm-protected-keys#supported-hsms) to generate your keys. By using a supported HSM, you can import keys into Key Vault with improved security. The same-geography limitation described earlier doesn't apply when you use an HSM. This option provides a high level of safety of your keys because the key material is in three separate places (two key vaults in Azure and on-premises). This option also provides the same level of flexibility, if you have a supported HSM.
+- Use a [supported on-premises hardware security module (HSM)](/azure/key-vault/keys/hsm-protected-keys#supported-hsms) to generate your keys. By using a supported HSM, you can import keys into Key Vault with improved security. The same-geography limitation described earlier doesn't apply when you use an HSM. This option provides a high level of safety for your keys because the key material is in three separate places (two key vaults in Azure and on-premises). This option also provides the same level of flexibility, if you use a supported HSM.
 
 ### Availability
 When you add Key Vault to your architecture, it becomes a critical component. At least one of the key vaults in the design must be accessible. Additionally, the keys necessary for TDE must be accessible. Azure Monitor insights provides comprehensive monitoring of Key Vault. For more information, see [Monitoring your key vault service](/azure/azure-monitor/insights/key-vault-insights-overview).
@@ -54,9 +54,9 @@ When you move from service-managed keys to customer-managed keys, your operation
 - [Monitoring keys and key vaults](/azure/azure-monitor/insights/key-vault-insights-overview)
 
 ### Performance
-- SQL Managed Instance auto-failover groups [perform significantly better when you use paired regions](/azure/azure-sql/database/auto-failover-group-overview?tabs=azure-powershell#using-geo-paired-regions).
+SQL Managed Instance auto-failover groups [perform significantly better when you use paired regions](/azure/azure-sql/database/auto-failover-group-overview?tabs=azure-powershell#using-geo-paired-regions).
 
-- SQL Managed Instances only checks to see if the key exists, and it only does that every 10 minutes. Therefore, SQL Managed Instances doesn't require region-affinity with Key Vault. The location of your TDE keys has no bearing on performance.
+SQL Managed Instances only checks to see if the key exists, and it only does that every 10 minutes. Therefore, SQL Managed Instances doesn't require region-affinity with Key Vault. The location of your TDE keys has no effect on performance.
 
 ### Scalability
 When it comes to managing your TDE keys, scaling isn't a concern. The request size and frequency are so small that you won't need to scale.
