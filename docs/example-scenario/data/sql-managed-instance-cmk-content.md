@@ -2,7 +2,7 @@ This article describes how you can manage your own Transparent Data Encryption (
 
 ## Potential use cases
 
-Because of [how TDE works](/sql/relational-databases/security/encryption/transparent-data-encryption?view=azuresqldb-mi-current), losing a key is disastrous. Any database that's critical to your business is a potential use case for securing your customer-managed TDE keys. 
+Many organizations have policies that require that certificates or encryption keys be created and managed internally. If your organization has a similar policy, this architecture might apply to you. If your customers require internal management of these items, the architecture also might apply to you. If neither of those situations apply, consider using system-managed keys. 
 
 ## Architecture
 
@@ -12,13 +12,13 @@ Because of [how TDE works](/sql/relational-databases/security/encryption/transpa
 
 For greater redundancy of the TDE keys, Azure SQL Managed Instance is configured to use the key vault in its own region as the primary and the key vault in the remote region as the secondary.
 
-The secondary key vault instance, while in a remote region, has a [private endpoint](/azure/private-link/private-endpoint-overview) in the same region as the SQL managed instance. So, as far as a SQL managed instance is concerned, requests made to both primary and secondary key vaults are logically within the same virtual network and region. Many organizations use a private endpoint rather than accessing the public endpoint. We recommend that you use a private endpoint.
+The secondary key vault instance, while in a remote region, has a [private endpoint](/azure/private-link/private-endpoint-overview) in the same region as the SQL managed instance. So, as far as a SQL managed instance is concerned, requests made to both primary and secondary key vaults are logically within the same virtual network and region. This design allows for easier firewall or network security group rules. Many organizations use a private endpoint rather than accessing the public endpoint. We recommend that you use a private endpoint.
 
 ### Dataflow
 
 1. Every 10 minutes, SQL Managed Instance checks to make sure it can access the TDE wrapper at the key vault that's defined as primary. 
 
-2. If a key vault becomes unavailable and is set as the primary on a SQL Managed Instance, that instance checks the key vault that's set as secondary. If that key vault is also unavailable, SQL Managed Instance marks the databases as "inaccessible." 
+2. If a key vault becomes unavailable and is set as the primary on a SQL Managed Instance, that instance checks the key vault that's set as secondary. If that key vault is also unavailable, [SQL Managed Instance marks the databases as "inaccessible."](/azure/azure-sql/database/transparent-data-encryption-byok-overview#inaccessible-tde-protector) 
 
 ### Components
 
@@ -32,12 +32,16 @@ The secondary key vault instance, while in a remote region, has a [private endpo
 - An alternative to having key vaults in two regions is to just have one in a single region. SQL Managed Instance can access keys from a vault that's in another region. You can still use private endpoint. The traffic to Key Vault is low and infrequent, so any latency isn't noticeable. SQL Managed Instance only queries the vault to see if the key exists. It doesn't copy the material.
 
 ## Considerations
-
+### General recommendations
+See these articles:
+- [Recommendations for configuring customer-managed TDE](/azure/azure-sql/database/transparent-data-encryption-byok-overview#recommendations-when-configuring-akv)
+- [Recommendations for configuring TDE protector](/azure-sql/database/transparent-data-encryption-byok-overview#recommendations-when-configuring-tde-protector)
+### Key management considerations
 Your method of key rotation will differ depending on what you're using to create your TDE asymmetric keys. When you bring your own TDE wrapper key, you have to decide how you'll create this key. Your options are:
 
-- Use Key Vault to create the keys. This option ensures that the private key material never leaves Key Vault and can't be seen by any human or system. The private keys aren't exportable, but they can be backed up and restored to another key vault. This point is important. In order to have the same key material in multiple key vaults, as required by this design, you have to use the backup and restore feature. This option has several limitations. Both key vaults must be in the same Azure geography. If they aren't, the restore won't work. The only way around this limitation is to keep the key vaults in separate subscriptions and move one subscription to another region. 
+- Use Key Vault to create the keys. This option ensures that the private key material never leaves Key Vault and can't be seen by any human or system. The private keys aren't exportable, but they can be backed up and restored to another key vault. This point is important. In order to have the same key material in multiple key vaults, as required by this design, you have to use the [backup and restore feature](/powershell/module/az.keyvault/backup-azkeyvaultkey). This option has several [limitations](/azure/key-vault/general/backup?tabs=azure-cli#limitations). [Both key vaults must be in the same Azure geography and subscription.](/azure/key-vault/general/overview-security-worlds#backup-and-restore-behavior) If they aren't, the restore won't work. The only way around this limitation is to keep the key vaults in separate subscriptions and move one subscription to another region. 
 
-- Generate the asymmetric keys offline by using a utility like OpenSSL and then import the keys into Key Vault. When you import a key into Key Vault, you can [mark it as exportable](/cli/azure/keyvault/key?view=azure-cli-latest#az_keyvault_key_create-optional-parameters). If you do that, you can either throw away the keys after you import them into Key Vault or you can store them somewhere else, like on-premises or in another key vault. This option gives you the most flexibility. However, it can be the least secure if you don't properly ensure the keys don't get into the wrong hands. The system generating the keys and the method used to place the keys in Key Vault aren't controlled by Azure. You can automate this process by using [Azure DevOps](/azure/devops), [Azure Automation](/azure/automation), or another orchestration tool.
+- Generate the asymmetric keys offline by using a utility like OpenSSL and then import the keys into Key Vault. When you import a key into Key Vault, you can [mark it as exportable](/cli/azure/keyvault/key#az_keyvault_key_create-optional-parameters). If you do that, you can either throw away the keys after you import them into Key Vault or you can store them somewhere else, like on-premises or in another key vault. This option gives you the most flexibility. However, it can be the least secure if you don't properly ensure the keys don't get into the wrong hands. The system generating the keys and the method used to place the keys in Key Vault aren't controlled by Azure. You can automate this process by using [Azure DevOps](/azure/devops), [Azure Automation](/azure/automation), or another orchestration tool.
 
 - Use a [supported on-premises hardware security module (HSM)](/azure/key-vault/keys/hsm-protected-keys#supported-hsms) to generate your keys. By using a supported HSM, you can import keys into Key Vault with improved security. The same-geography limitation described earlier doesn't apply when you use an HSM. This option provides a high level of safety for your keys because the key material is in three separate places (two key vaults in Azure and on-premises). This option also provides the same level of flexibility, if you use a supported HSM.
 
@@ -48,10 +52,10 @@ When you add Key Vault to your architecture, it becomes a critical component. At
 ### Operations
 When you move from service-managed keys to customer-managed keys, your operations will be:
 
-- [Storing keys with enhanced security](/azure/key-vault/general/security-features)
+- [Generating the key or importing it to Key Vault](/azure/key-vault/keys/quick-create-portal#add-a-key-to-key-vault)
 - [Rotating keys](/azure/azure-sql/database/transparent-data-encryption-byok-key-rotation)
-- [Backing up keys](/azure/key-vault/general/backup?tabs=azure-cli#design-considerations)
-- [Monitoring keys and key vaults](/azure/azure-monitor/insights/key-vault-insights-overview)
+- [Backing up and restoring keys](/powershell/module/az.keyvault/backup-azkeyvaultkey)
+- [Monitoring the customer-managed TDE](/azure/azure-sql/database/transparent-data-encryption-byok-overview#monitoring-of-the-customer-managed-tde)
 
 ### Performance
 SQL Managed Instance auto-failover groups [perform significantly better when you use paired regions](/azure/azure-sql/database/auto-failover-group-overview?tabs=azure-powershell#using-geo-paired-regions).
@@ -62,8 +66,7 @@ SQL Managed Instances only checks to see if the key exists, and it only does tha
 When it comes to managing your TDE keys, scaling isn't a concern. The request size and frequency are so small that you won't need to scale.
 
 ### Security
-The biggest security consideration is ensuring you keep your TDE wrapper key safe and always available to SQL Managed Instances. Losing a key is disastrous. Microsoft recommends that you use service-managed keys so that you don't have to worry about losing keys.
-
+The biggest security consideration is ensuring you keep your TDE wrapper key safe and always available to SQL Managed Instances. Any database encrypted via TDE is inaccessible if it can't access the required key in Key Vault. If you use service-managed keys, you don't have to worry about this consideration.
 
 ### Resiliency
 Each SQL managed instance is configured to use two key vaults. If the SQL Managed Instance primary TDE key is unavailable or inaccessible, the instance will attempt to find a key with a matching thumbprint in the secondary key vault.
