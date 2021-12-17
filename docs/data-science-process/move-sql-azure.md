@@ -8,7 +8,7 @@ editor: marktab
 ms.service: machine-learning
 ms.subservice: team-data-science-process
 ms.topic: article
-ms.date: 01/10/2020
+ms.date: 12/16/2021
 ms.author: tdsp
 ms.custom:
   - previous-author=deguhath
@@ -29,7 +29,7 @@ The following table summarizes the options for moving data to an Azure SQL Datab
 | <b>SOURCE</b> | <b>DESTINATION: Azure SQL Database</b> |
 | --- | --- |
 | <b>Flat file (CSV or TSV formatted)</b> |[Bulk Insert SQL Query](#bulk-insert-sql-query) |
-| <b>On-premises SQL Server</b> |1.[Export to Flat File](#export-flat-file)<br> 2. [SQL Database Migration Wizard](#insert-tables-bcp)<br> 3. [Database back up and restore](#db-migration)<br> 4. [Azure Data Factory](#adf) |
+| <b>On-premises SQL Server</b> |1.[Export to Flat File](#export-flat-file)<br> 2. [SQL Server Migration Assistant (SSMA)](#ssma)<br> 3. [Database back up and restore](#db-migration)<br> 4. [Azure Data Factory](#adf) |
 
 ## <a name="prereqs"></a>Prerequisites
 The procedures outlined here require that you have:
@@ -62,8 +62,8 @@ The steps for the first three are similar to those sections in [Move data to SQL
 ### <a name="export-flat-file"></a>Export to Flat File
 The steps for this exporting to a flat file are similar to those directions covered in [Export to Flat File](move-sql-server-virtual-machine.md#export-flat-file).
 
-### <a name="insert-tables-bcp"></a>SQL Database Migration Wizard
-The steps for using the SQL Database Migration Wizard are similar to those directions covered in [SQL Database Migration Wizard](move-sql-server-virtual-machine.md#sql-migration).
+### <a name="ssma"></a>SQL Server Migration Assistant (SSMA)
+The steps for using the SQL Server Migration Assistant (SSMA) are similar to those directions covered in [SQL Server Migration Assistant (SSMA)](move-sql-server-virtual-machine.md#sql-migration).
 
 ### <a name="db-migration"></a>Database back up and restore
 The steps for using database backup and restore are similar to those directions listed in [Database backup and restore](move-sql-server-virtual-machine.md#sql-backup).
