@@ -1801,6 +1801,8 @@ items:
                 href: reference-architectures/ai/training-deep-learning.yml
               - name: Enterprise-grade conversational bot
                 href: reference-architectures/ai/conversational-bot.yml
+              - name: Extract text from objects using Power Automate and AI Builder
+                href: example-scenario/ai/extract-object-text.yml
               - name: Image classification
                 href: example-scenario/ai/intelligent-apps-image-processing.yml
               - name: Many models ML with Spark
