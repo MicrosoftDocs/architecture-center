@@ -58,7 +58,7 @@ IoT solutions solve specific business challenges in unique industries. In this s
 
 ### Sustainability
 
-[Project 15 Open Platform IoT sustainability](../../solution-ideas/articles/project-15-iot-sustainability.yml): The mission of Project 15 from Microsoft is to empower scientists and conservationists around the world.
+* [Project 15 Open Platform IoT sustainability](../../solution-ideas/articles/project-15-iot-sustainability.yml): The mission of Project 15 from Microsoft is to empower scientists and conservationists around the world.
 
 ### Cross industry
 
