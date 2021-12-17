@@ -60,6 +60,10 @@ When a NAT Gateway instance is applied to a subnet, any outbound traffic from th
 > [!NOTE]
 > When you associate multiple public IP addresses with a single NAT Gateway, your outbound traffic could come from any of those IP addresses. If you need to configure firewall rules at the destination, you should either allow each IP address, or use a [public IP address prefix](/azure/virtual-network/ip-services/public-ip-address-prefix) resource to use a set of public IP addresses in the same range.
 
+## Isolation models
+
+If you need to provide different outbound public IP addresses for each tenant, then you need to deploy individual NAT Gateway resources. Each subnet can be associated with a single NAT Gateway instance. You need to deploy multiple subnets, and in turn, you likely need to deploy multiple sets of compute resources.
+
 ## Next steps
 
 - [Learn more about NAT Gateway](/azure/virtual-network/nat-gateway/nat-gateway-resource).
