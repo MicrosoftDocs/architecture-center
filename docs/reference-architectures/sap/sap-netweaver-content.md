@@ -141,7 +141,7 @@ Some organizations use standard storage for their application servers. Standard 
 
 Application servers don't host business data. So you can also use the smaller P4 and P6 premium disks to help minimize cost. Doing so also allows you to benefit from the [single-instance VM SLA](https://azure.microsoft.com/support/legal/sla/virtual-machines/v1_6) if you have a central SAP stack installation.
 
-For high-availability scenarios, [Azure File Shares](/azure/storage/files/storage-files-introduction) and [Azure shared disks](/azure/virtual-machines/disks-shared) can be used. Premium SSD and Ultra SSD [Azure managed disks](/azure/storage/storage-managed-disks-overview) are available for Azure shared disks and Premium SSD for Azure File Shares is now available.
+For high-availability scenarios, you can use [Azure File Shares](/azure/storage/files/storage-files-introduction) and [Azure shared disks](/azure/virtual-machines/disks-shared). Premium SSD and Ultra SSD [Azure managed disks](/azure/storage/storage-managed-disks-overview) are available for Azure shared disks, and Premium SSD is available for Azure File Shares.
 
 Azure Storage is also used by [Cloud Witness](/windows-server/failover-clustering/deploy-cloud-witness) to maintain quorum with a device in a remote Azure region, away from the primary region where the cluster resides.
 
