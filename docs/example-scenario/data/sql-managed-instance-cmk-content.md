@@ -22,9 +22,9 @@ The secondary key vault instance, while in a remote region, has a [private endpo
 
 ### Components
 
-- [Key Vault](https://azure.microsoft.com/services/key-vault/) is a cloud service for storing and accessing secrets with enhanced security. In this architecture, it's used to store keys used by TDE. You can also use it to create keys. 
-- [SQL Managed Instance](https://docs.microsoft.com/azure/azure-sql/managed-instance/) is a managed instance in Azure that's based on the latest stable version of SQL Server. In this architecture, the key management process is applied to data stored in SQL Managed Instance. 
-- [Azure Private Link](/azure/private-link/) enables you to access Azure PaaS services and Azure-hosted services over a private endpoint in your virtual network. 
+- [Key Vault](https://azure.microsoft.com/services/key-vault) is a cloud service for storing and accessing secrets with enhanced security. In this architecture, it's used to store keys used by TDE. You can also use it to create keys. 
+- [SQL Managed Instance](https://azure.microsoft.com/products/azure-sql/managed-instance) is a managed instance in Azure that's based on the latest stable version of SQL Server. In this architecture, the key management process is applied to data stored in SQL Managed Instance. 
+- [Azure Private Link](/azure/private-link) enables you to access Azure PaaS services and Azure-hosted services over a private endpoint in your virtual network. 
 
 ### Alternatives
 -  Instead of using customer-managed TDE keys, you can use service-managed TDE keys. When you use service-managed keys, Microsoft handles securing and rotating the keys. The entire process is abstracted away from you. 
@@ -72,7 +72,7 @@ The biggest security consideration is ensuring you keep your TDE wrapper key saf
 Each SQL managed instance is configured to use two key vaults. If the SQL Managed Instance primary TDE key is unavailable or inaccessible, the instance will attempt to find a key with a matching thumbprint in the secondary key vault.
 
 ### DevOps
-You can use [Azure Pipelines](/azure/devops/pipelines/) in Azure DevOps to automate the [key rotation process](/azure/azure-sql/database/transparent-data-encryption-byok-key-rotation).
+You can use [Azure Pipelines](/azure/devops/pipelines) in Azure DevOps to automate the [key rotation process](/azure/azure-sql/database/transparent-data-encryption-byok-key-rotation).
 
 
 ## Deploy this scenario
@@ -87,8 +87,8 @@ For information about the additional costs of managing your own TDE keys, outsid
 - [Private endpoint pricing](https://azure.microsoft.com/pricing/details/private-link/#pricing)
 
 For information about the optional components, see these resources:
-- [Azure DevOps pricing](https://azure.microsoft.com/en-gb/pricing/details/devops/azure-devops-services/)
-- [Azure Automation pricing](https://azure.microsoft.com/en-us/pricing/details/automation/#pricing)
+- [Azure DevOps pricing](https://azure.microsoft.com/pricing/details/devops/azure-devops-services)
+- [Azure Automation pricing](https://azure.microsoft.com/pricing/details/automation/#pricing)
 
 ## Next steps
 - [Encryption of backup data using customer-managed keys](/azure/backup/encryption-at-rest-with-cmk)
@@ -98,4 +98,4 @@ For information about the optional components, see these resources:
 ## Related resources
 - [Secure data solutions](/azure/architecture/data-guide/scenarios/securing-data-solutions)
 - [High availability for Azure SQL Database and SQL Managed Instance](/azure/azure-sql/database/high-availability-sla)
-- [Web app private connectivity to Azure SQL database](/azure/architecture/example-scenario/private-web-app/private-web-app)
+- [Web app private connectivity to Azure SQL database](../private-web-app/private-web-app.yml)
