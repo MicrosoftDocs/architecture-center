@@ -1,6 +1,6 @@
 ### YamlMime:Architecture
 metadata:
-  title: Enhanced-security hybrid messaging—mobile access
+  title: Enhanced-security hybrid messaging — mobile access
   titleSuffix: Azure Example Scenarios
   description: This article describes an architecture to enhance your security in a mobile access scenario by using Azure AD Multi-Factor Authentication.
   author: pakondra
