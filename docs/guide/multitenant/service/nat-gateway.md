@@ -31,7 +31,7 @@ You might be able to also use an Azure Firewall or another NVA to achieve the be
 
 ## Features of NAT Gateway that support multitenancy
 
-### Scaling SNAT ports
+### High-scale SNAT ports
 
 SNAT ports are allocated when your application makes multiple concurrent outbound connections to the same public IP address, on the same port.
 
@@ -50,10 +50,13 @@ Each NAT Gateway resource can provide up to one million SNAT ports, when configu
 
 ### Outbound IP address control
 
-<!-- TODO -->
+Outbound IP address control can be useful in multitenant applications when you have all of the following requirements:
 
-* When you send your traffic through NAT Gateway, the gateway's public IP address (or addresses) are for the outbound connection.
-* Helpful when you need to connect to your tenants' on-premises networks and they need to perform IP address-based filtering.
+- You use Azure services that don't automatically provide dedicated static IP addresses for outbound traffic. These services include Azure App Service, Azure Functions, API Management (when running in the consumption tier), and Azure Container Instances.
+- You need to connect to your tenants' networks over the internet.
+- Your tenants need to perform IP address-based filtering.
+
+When a NAT Gateway instance is applied to a subnet, any outbound traffic from that subnet uses the public IP address associated with the NAT gateway.
 
 ## Isolation models
 
@@ -68,4 +71,5 @@ Each NAT Gateway resource can provide up to one million SNAT ports, when configu
 ## Next steps
 
 - [Learn more about NAT Gateway](/azure/virtual-network/nat-gateway/nat-gateway-resource).
+- [Learn how to use NAT Gateway with Azure App Service and Azure Functions](/azure/app-service/networking/nat-gateway-integration).
 - (To add: link somewhere else within the multitenancy guidance)
