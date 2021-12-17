@@ -18,7 +18,7 @@ products:
   - "azure-active-directory"
   - "m365"
   - "office-365"
-name: Enhanced-security hybrid messaging infrastructure—desktop-client access
+name: Enhanced-security hybrid messaging infrastructure — desktop-client access
 summary: This article describes an architecture to enhance your security in a desktop-client access scenario by using Azure AD Multi-Factor Authentication.
 thumbnailUrl: /azure/architecture/browse/thumbs/desktop-online-option-1.png
 content: |
