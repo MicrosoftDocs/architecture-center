@@ -8,7 +8,7 @@ editor: marktab
 ms.service: machine-learning
 ms.subservice: team-data-science-process
 ms.topic: article
-ms.date: 01/10/2020
+ms.date: 12/16/2021
 ms.author: tdsp
 ms.custom:
   - previous-author=deguhath
@@ -104,6 +104,4 @@ You can use the following sample code to down-sample the data and use it directl
         print ("Something went wrong with uploading to the blob:"+ BLOBNAME)
     ```
 
-3. Read the data from the Azure blob using Azure Machine Learning [Import Data](/azure/machine-learning/studio-module-reference/import-data) as shown in the image below:
-
-![reader blob](./media/sample-data-blob/reader-blob.png)
+3. Make a datastore in Azure Machine Learning which points to the Azure Blob Storage.  [This link describes the concept of datastores and how to subsequently make a dataset for use with Azure Machine Learning](/azure/machine-learning/concept-data).
