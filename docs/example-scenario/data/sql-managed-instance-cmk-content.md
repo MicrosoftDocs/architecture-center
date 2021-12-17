@@ -48,7 +48,7 @@ When you add Key Vault to your architecture, it becomes a critical component. At
 When you move from service-managed keys to customer-managed keys, your operations will be:
 
 - [Storing keys with enhanced security](/azure/key-vault/general/security-features)
-- [Rotating keys](/azure/azure-sql/database/transparent-data-encryption-byok-key-rotation?tabs=azure-powershell)
+- [Rotating keys](/azure/azure-sql/database/transparent-data-encryption-byok-key-rotation)
 - [Backing up keys](/azure/key-vault/general/backup?tabs=azure-cli#design-considerations)
 - [Monitoring keys and key vaults](/azure/azure-monitor/insights/key-vault-insights-overview)
 
@@ -65,11 +65,11 @@ The biggest security consideration is ensuring you keep your TDE wrapper key saf
 
 
 ### Resiliency
-Each SQL Instance is configured to use two Key Vaults. If SQL Instance's primary TDE key is unavailable or inaccessible, it will attempt to find the key with a matching thumbprint in the secondary Key Vault.
+Each SQL managed instance is configured to use two key vaults. If the SQL Managed Instance primary TDE key is unavailable or inaccessible, the instance will attempt to find a key with a matching thumbprint in the secondary key vault.
 
 
 ### DevOps
-Azure DevOps can be used to automate the process used for [Key Rotation](source) using [Azure Piplines](https://docs.microsoft.com/azure/devops/pipelines/).
+You can use [Azure Piplines](/azure/devops/pipelines/) in Azure DevOps to automate the [key rotation process](/azure/azure-sql/database/transparent-data-encryption-byok-key-rotation) .
 
 
 ## Deploy this scenario
