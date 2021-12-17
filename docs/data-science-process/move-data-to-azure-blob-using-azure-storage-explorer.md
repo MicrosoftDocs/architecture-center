@@ -8,7 +8,7 @@ editor: marktab
 ms.service: machine-learning
 ms.subservice: team-data-science-process
 ms.topic: article
-ms.date: 01/10/2020
+ms.date: 12/16/2021
 ms.author: tdsp
 ms.custom:
   - previous-author=deguhath
@@ -19,7 +19,7 @@ categories:
   - ai-machine-learning
 ---
 # Move data to and from Azure Blob Storage using Azure Storage Explorer
-Azure Storage Explorer is a free tool from Microsoft that allows you to work with Azure Storage data on Windows, macOS, and Linux. This topic describes how to use it to upload and download data from Azure Blob Storage. The tool can be downloaded from [Microsoft Azure Storage Explorer](https://azure.microsoft.com/en-us/features/storage-explorer/).
+Azure Storage Explorer is a free tool from Microsoft that allows you to work with Azure Storage data on Windows, macOS, and Linux. This topic describes how to use it to upload and download data from Azure Blob Storage. The tool can be downloaded from [Microsoft Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/).
 
 [!INCLUDE [blob-storage-tool-selector](../../includes/machine-learning-blob-storage-tool-selector.md)]
 
@@ -34,9 +34,9 @@ Azure Storage Explorer is a free tool from Microsoft that allows you to work wit
 ## Prerequisites
 This document assumes that you have an Azure subscription, a storage account, and the corresponding storage key for that account. Before uploading/downloading data, you must know your Azure Storage account name and account key.
 
-* To set up an Azure subscription, see [Free one-month trial](https://azure.microsoft.com/en-us/free/).
+* To set up an Azure subscription, see [Free one-month trial](https://azure.microsoft.com/free/).
 * For instructions on creating a storage account and for getting account and key information, see [About Azure Storage accounts](/azure/storage/common/storage-account-create). Make a note the access key for your storage account as you need this key to connect to the account with the Azure Storage Explorer tool.
-* The Azure Storage Explorer tool can be downloaded from [Microsoft Azure Storage Explorer](https://azure.microsoft.com/en-us/features/storage-explorer/). Accept the defaults during install.
+* The Azure Storage Explorer tool can be downloaded from [Microsoft Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/). Accept the defaults during install.
 
 <a id="explorer"></a>
 
