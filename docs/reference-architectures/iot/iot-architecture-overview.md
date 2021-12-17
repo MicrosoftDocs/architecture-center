@@ -50,7 +50,7 @@ IoT solutions solve specific business challenges in unique industries. In this s
 
 ### Retail
 
-* Buy online, pickup in store (BOPIS)](../../example-scenario/iot/vertical-buy-online-pickup-in-store.yml): During the COVID-19 pandemic, many customers made fewer trips to the market and many preferred to buy their merchandise online and pick it up in the store (BOPIS) which is also known as curbside pickup.
+* [Buy online, pickup in store (BOPIS)](../../example-scenario/iot/vertical-buy-online-pickup-in-store.yml): During the COVID-19 pandemic, many customers made fewer trips to the market and many preferred to buy their merchandise online and pick it up in the store (BOPIS) which is also known as curbside pickup.
 
 ### Automotive
 
