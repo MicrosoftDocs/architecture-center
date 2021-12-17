@@ -153,7 +153,7 @@ Availability of on-premises solution components depends on the implemented desig
 
 To use hybrid modern authentication, you need to ensure that all clients on your network can access Azure AD. You also need to consistently maintain Office 365 firewall ports and IP-range openings.
 
-For protocol and port requirements for Exchange Server, see "Exchange client and protocol requirements" in [Hybrid modern authentication overview for use with on-premises Skype for Business and Exchange servers](https://docs.microsoft.com/en-us/microsoft-365/enterprise/hybrid-modern-auth-overview?view=o365-worldwide#do-you-meet-modern-authentication-prerequisites). 
+For protocol and port requirements for Exchange Server, see "Exchange client and protocol requirements" in [Hybrid modern authentication overview for use with on-premises Skype for Business and Exchange servers](/microsoft-365/enterprise/hybrid-modern-auth-overview?view=o365-worldwide#do-you-meet-modern-authentication-prerequisites). 
 
 For Office 365 IP ranges and ports, see [Office 365 URLs and IP address ranges](/microsoft-365/enterprise/urls-and-ip-address-ranges?view=o365-worldwide). 
 
