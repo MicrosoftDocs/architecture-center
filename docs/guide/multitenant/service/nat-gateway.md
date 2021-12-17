@@ -23,11 +23,10 @@ ms.custom:
 
 # NAT Gateway considerations for multitenancy
 
-<!-- TODO -->
+NAT Gateway provides control over outbound network connectivity from resources hosted within an Azure virtual network. In this article, we review how NAT Gateway can help to mitigate SNAT port exhaustion, which can sometimes impact multitenant applications. We also review how you can use NAT Gateway to assign static IP addresses to your outbound traffic.
 
-NAT Gateway can be used as an option for controlling outbound NAT, such as to send traffic from a specified IP address or to handle large numbers of SNAT port allocations.
-
-You might be able to also use an Azure Firewall or another NVA to achieve the benefits listed below. Firewalls will also enable you to control and log your outbound traffic. NAT Gateway is cheaper but doesn't give you the security controls.
+> [!NOTE]
+> Firewalls, like [Azure Firewall](/azure/firewall/overview), enable you to control and log your outbound traffic. Azure Firewall also provides similar SNAT port scale and outbound IP address control to NAT Gateway. NAT Gateway is less costly, but also has fewer features and is not a security product.
 
 ## Features of NAT Gateway that support multitenancy
 
@@ -58,18 +57,11 @@ Outbound IP address control can be useful in multitenant applications when you h
 
 When a NAT Gateway instance is applied to a subnet, any outbound traffic from that subnet uses the public IP address associated with the NAT gateway.
 
-## Isolation models
-
-<!-- TODO -->
-
-* A subnet can be associated with a single NAT Gateway.
-* A NAT Gateway can be associated with multiple subnets in the same VNet, but not with multiple VNets.
-* A PIP (or PIP prefix) can be associated with a single NAT Gateway.
-* So if you want to use different public IP addresses for different tenants, you'll need to deploy multiple subnets, NAT Gateway resources, and PIPs for each tenant.
-* This can have cost implications, because each NAT Gateway incurs an hourly fee in addition to data transfer fees.
+> [!NOTE]
+> When you associate multiple public IP addresses with a single NAT Gateway, your outbound traffic could come from any of those IP addresses. If you need to configure firewall rules at the destination, you should either allow each IP address, or use a [public IP address prefix](/azure/virtual-network/ip-services/public-ip-address-prefix) resource to use a set of public IP addresses in the same range.
 
 ## Next steps
 
 - [Learn more about NAT Gateway](/azure/virtual-network/nat-gateway/nat-gateway-resource).
 - [Learn how to use NAT Gateway with Azure App Service and Azure Functions](/azure/app-service/networking/nat-gateway-integration).
-- (To add: link somewhere else within the multitenancy guidance)
+- Review [Architectural approaches for networking in multitenant solutions](../approaches/networking.md).
