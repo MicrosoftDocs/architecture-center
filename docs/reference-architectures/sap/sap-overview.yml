@@ -2,8 +2,8 @@
 metadata:
   title: SAP on Azure architecture
   description: This article describes a set of guiding tenets that are used to help ensure the quality of SAP workloads running on Azure.
-  author: EdPrice-MSFT
-  ms.author: pnp
+  author: bqtrinh
+  ms.author: bentrin
   ms.date: 06/10/2020
   ms.topic: conceptual
   ms.service: architecture-center
