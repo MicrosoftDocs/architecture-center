@@ -53,7 +53,7 @@ The steps for the procedure using the Bulk Insert SQL Query are similar to the d
 If the source data is stored in SQL Server, there are various possibilities for moving the data to an Azure SQL Database:
 
 1. [Export to Flat File](#export-flat-file)
-2. [SQL Database Migration Wizard](#insert-tables-bcp)
+2. [SQL Database Migration Wizard](#ssma)
 3. [Database back up and restore](#db-migration)
 4. [Azure Data Factory](#adf)
 
