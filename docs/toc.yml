@@ -1801,6 +1801,8 @@ items:
                 href: reference-architectures/ai/training-deep-learning.yml
               - name: Enterprise-grade conversational bot
                 href: reference-architectures/ai/conversational-bot.yml
+              - name: Extract text from objects using Power Automate and AI Builder
+                href: example-scenario/ai/extract-object-text.yml
               - name: Image classification
                 href: example-scenario/ai/intelligent-apps-image-processing.yml
               - name: Many models ML with Spark
@@ -2971,6 +2973,8 @@ items:
                     href: example-scenario/state-configuration/state-configuration.yml
               - name: Azure enterprise cloud file share
                 href: hybrid/azure-files-private.yml
+              - name: Azure files secured by AD DS
+                href: example-scenario/hybrid/azure-files-on-premises-authentication.yml
               - name: Azure Functions in a hybrid environment
                 href: hybrid/azure-functions-hybrid.yml
               - name: Azure VMware Solution in hub-and-spoke
@@ -4262,6 +4266,8 @@ items:
             items:
               - name: Azure file shares in a hybrid environment
                 href: hybrid/azure-file-share.yml
+              - name: Azure files secured by AD DS
+                href: example-scenario/hybrid/azure-files-on-premises-authentication.yml
               - name: Enterprise file shares with disaster recovery
                 href: example-scenario/file-storage/enterprise-file-shares-disaster-recovery.yml
               - name: Hybrid file services

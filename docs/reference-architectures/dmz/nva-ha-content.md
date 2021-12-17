@@ -23,7 +23,7 @@ When choosing the best option to deploy a Network Virtual Appliance into an Azur
 The following sections in the document will describe the most common architectures used to integrate NVAs into a Hub and Spoke network.
 
 >[!NOTE]
-> This article is focused on [Hub & Spoke designs][caf_hns]. [Virtual WAN][vwan] is not covered, since Virtual WAN is much more prescriptive on how NVAs are deployed, depending on whether an NVA is supported to be deployed in a virtual hub.
+> This article is focused on [Hub & Spoke designs][caf_hns]. [Virtual WAN][vwan] is not covered, since Virtual WAN is much more prescriptive on how NVAs are deployed, depending on whether a specific NVA is supported in the Virtual WAN hubs. See [Network Virtual Appliances in the Virtual WAN hub][vwan_nva] for more information.
 
 ## HA architectures overview
 
@@ -32,9 +32,9 @@ The following architectures describe the resources and configuration necessary f
 | Solution | Benefits | Considerations |
 | --- | --- | --- |
 | [Azure Load Balancer](#load-balancer-design) | Supports active/active, active/standby and scale-out NVAs. Very good convergence time | The NVA needs to provide a port for the health probes, especially for active/standby deployments. Flows to/from Internet require SNAT for symmetry |
-| [Changing PIP/UDR](#changing-pip-udr) | No special feature required by the NVA. Guarantees symmetric traffic | Only for active/passive designs. High convergence time, of 1-2 minutes |
 | [Azure Route Server](#azure-route-server) | The NVA needs to support BGP. Supports active/active, active/standby and scale-out NVAs. | Traffic symmetry requires SNAT |
-| [Gateway Load Balancer](#gateway-load-balancer) | Traffic symmetry guaranteed without SNAT. NVAs can be shared across tenants. Very good convergence time. Supports active/active, active/standby and scale-out NVAs. | Supports flows to/from the Internet, no East-West flows. VMs need to be associated to an Azure Load Balancer |
+| [Gateway Load Balancer](#gateway-load-balancer) | Traffic symmetry guaranteed without SNAT. NVAs can be shared across tenants. Very good convergence time. Supports active/active, active/standby and scale-out NVAs. | Supports flows to/from the Internet, no East-West flows |
+| [Changing PIP/UDR](#changing-pip-udr) | No special feature required by the NVA. Guarantees symmetric traffic | Only for active/passive designs. High convergence time of 1-2 minutes |
 
 ## Load Balancer design
 
@@ -69,18 +69,6 @@ A particular case of this design is replacing the Azure public Load Balancer wit
 
 The NVA should be taking inbound traffic for protocols not supported by your Layer-7 load balancer, plus potentially all egress traffic. For further details about this configuration when using Azure Firewall as NVA and Azure Application Gateway as Layer-7 web reverse-proxy, see [Firewall and Application Gateway for virtual networks][azfw_appgw].
 
-## Changing PIP-UDR
-
-The idea behind this design is having the setup that would be required without NVA redundancy, and have it modified in case the NVA suffers from downtime. The diagram below shows how an Azure Public IP address is associated to the active NVA (NVA1), and the User-Defined Routes in the spokes have the active NVA's IP address as next hop (`10.0.0.37`).
-
-![PIP/UDR Internet][pipudr_internet]
-
-If the active NVA became unavailable, the standby NVA would call the Azure API to remap the public IP address and the spoke User-Defined Routes to itself. These API calls can take some minutes to be effective, which is why this design offers the worst convergence time of the options in this document.
-
-Another limitation of this design is that only active/standby configurations are supported, which can lead to scalability problems: if you need to increase the bandwidth supported by your NVAs, the only option with this design is scaling up both instances.
-
-One benefit of this design is that no Source Network Address Translation (SNAT) is required to guarantee traffic symmetry, since there is only one NVA active at any given point in time.
-
 ## Azure Route Server
 
 [Azure Route Server][ars] is a service which allows an NVA to interact with Azure SDN via Border Gateway Protocol (BGP). Not only the NVAs will learn which IP prefixes exist in the Azure VNets, but they will be able to inject routes in the effective route tables of the virtual machines in Azure. 
@@ -97,7 +85,7 @@ This design is the most common option for NVAs that need to interact with Azure 
 
 ## Gateway Load Balancer
 
-[Azure Gateway Load Balancer][gwlb] is a new way of inserting NVAs in the data path without the need to steer traffic with User-Defined Routes. For Virtual Machines that expose their workloads via an Azure Load Balancer, this Load Balancer can redirect transparently inbound and outbound traffic to a cluster of NVAs located in a different VNet. The following diagram describes the path that packets follow for inbound traffic from the public Internet:
+[Azure Gateway Load Balancer][gwlb] is a new way of inserting NVAs in the data path without the need to steer traffic with User-Defined Routes. For Virtual Machines that expose their workloads via an Azure Load Balancer or a public IP address, inbound and outbound traffic can be redirected transparently to a cluster of NVAs located in a different VNet. The following diagram describes the path that packets follow for inbound traffic from the public Internet in case the workloads expose the application via an Azure Load Balancer:
 
 ![GWLB Internet][gwlb_internet]
 
@@ -106,6 +94,18 @@ One of the main advantages of this NVA injection method is that Source Network A
 Service injection with the Gateway Load Balancer can be used for inbound flows hitting an Azure public Load Balancer (and their return traffic), as well as for outbound flows originating in Azure. East-West traffic between Azure virtual machines cannot leverage the Gateway Load Balancer for NVA injection.
 
 In the NVA cluster, Azure Load Balancer health check probes will be used to detect individual NVA instance failures, achieving a very quick convergence time (10-15 seconds).
+
+## Changing PIP-UDR
+
+The idea behind this design is having the setup that would be required without NVA redundancy, and have it modified in case the NVA suffers from downtime. The diagram below shows how an Azure Public IP address is associated to the active NVA (NVA1), and the User-Defined Routes in the spokes have the active NVA's IP address as next hop (`10.0.0.37`).
+
+![PIP/UDR Internet][pipudr_internet]
+
+If the active NVA became unavailable, the standby NVA would call the Azure API to remap the public IP address and the spoke User-Defined Routes to itself (or move the private IP address too). These API calls can take some minutes to be effective, which is why this design offers the worst convergence time of all the options in this document.
+
+Another limitation of this design is that only active/standby configurations are supported, which can lead to scalability problems: if you need to increase the bandwidth supported by your NVAs, the only option with this design is scaling up both instances.
+
+One benefit of this design is that no Source Network Address Translation (SNAT) is required to guarantee traffic symmetry, since there is only one NVA active at any given point in time.
 
 ## Next steps
 
@@ -122,6 +122,7 @@ In the NVA cluster, Azure Load Balancer health check probes will be used to dete
 [gwlb]: https://docs.microsoft.com/azure/load-balancer/gateway-overview
 [alb]: https://docs.microsoft.com/azure/load-balancer/load-balancer-overview
 [vwan]: https://docs.microsoft.com/azure/virtual-wan/virtual-wan-about
+[vwan_nva]: https://docs.microsoft.com/azure/virtual-wan/about-nva-hub
 [alb_probes]: https://docs.microsoft.com/azure/load-balancer/load-balancer-custom-probe-overview
 [alb_haports]: https://docs.microsoft.com/azure/load-balancer/load-balancer-ha-ports-overview
 [caf_dmz]: https://docs.microsoft.com/azure/cloud-adoption-framework/decision-guides/software-defined-network/cloud-dmz
