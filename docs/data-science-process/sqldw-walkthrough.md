@@ -639,8 +639,8 @@ AND   pickup_longitude != '0' AND dropoff_longitude != '0'
 
 When you are ready to proceed to Azure Machine Learning, you may either:
 
-1. Save the final SQL query to extract and sample the data and copy-paste the query directly into an Import Data][import-data] module in Azure Machine Learning, or
-2. Persist the sampled and engineered data you plan to use for model building in a new Azure Synapse Analytics table and use the new table in the [Import Data][import-data] module in Azure Machine Learning. The PowerShell script in earlier step has done this task for you. You can read directly from this table in the Import Data module.
+1. Save the final SQL query to extract and sample the data and copy-paste the query directly [into a notebook in Azure Machine Learning](/azure/machine-learning/samples-notebooks), or
+2. Persist the sampled and engineered data you plan to use for model building in a new Azure Synapse Analytics table and access that table [through a datastore in Azure Machine Learning](/azure/machine-learning/concept-data#connect-to-storage-with-datastores).
 
 ## <a name="ipnb"></a>Data exploration and feature engineering in the notebook
 
