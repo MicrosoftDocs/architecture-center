@@ -52,5 +52,5 @@ For more information, see [Create predictive pipelines using Azure Data Factory 
 ## Prerequisites
 This article assumes that you have an Azure subscription, a storage account, and the corresponding storage key for that account. Before uploading/downloading data, you must know your Azure Storage account name and account key.
 
-* To set up an Azure subscription, see [Free one-month trial](https://azure.microsoft.com/en-us/free/).
+* To set up an Azure subscription, see [Free one-month trial](https://azure.microsoft.com/free/).
 * For instructions on creating a storage account and for getting account and key information, see [About Azure Storage accounts](/azure/storage/common/storage-account-create).
