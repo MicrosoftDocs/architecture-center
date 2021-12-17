@@ -1,15 +1,4 @@
-<!---
-Comment: DONE
-#Introductory section - no heading
 
-#> This should be an introduction of the business problem and why this scenario was built to solve it.
-#>> What industry is the customer in?
-#>> What prompted them to solve the problem?
-#>> What services were used in building out this solution?
-#>> What does this example scenario show? What are the customer's goals?
-
-#> What were the benefits of implementing the solution described below?
--->
 
 In recent years, the demand for business users capability to consume, transform, model, and visualize large amounts of complex data from multiple heterogenous sources has increased dramatically. To meet this demand in a cost effective, scalable way many large companies have benefitted from moving to cloud-based data platforms. This move allows companies to leverage the economy of scale the cloud provides to achieve lower total cost of ownership and faster time to value from data. Regulated industries are no exception to this as these companies need to store and process vast amounts of highly sensitive data (e.g., protected health information) every day. However, due to the sensitive nature of this data, there are many regulations (e.g., HIPAA) in place to constrain the methods for storing, transporting, and processing the data. As a result of this, regulated industries have been hesitant to adopt cloud-based data platforms due to the large financial penalties for a regulatory violation as well as the perceived loss of control that comes from moving to a cloud-based platform. 
 
