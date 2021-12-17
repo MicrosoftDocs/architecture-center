@@ -18,7 +18,7 @@ Are you comfortable working with Microsoft SQL Server? If so, you can use Azure 
 
 1. Connect the SQL Managed instance to your Azure SQL database.
 
-## Components
+### Components
 
 * [Azure SQL Managed Instance](https://azure.microsoft.com/services/azure-sql/sql-managed-instance/) is the intelligent, scalable, cloud database service that combines the broadest SQL Server engine compatibility with all the benefits of a fully managed and evergreen platform as a service (PAAS).
 

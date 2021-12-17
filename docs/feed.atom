@@ -2,12 +2,68 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id/>
     <title>Azure Architecture Center</title>
-    <updated>2021-12-06T16:15:32.403Z</updated>
+    <updated>2021-12-13T18:44:47.039Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <subtitle>Updated articles for Azure Architecture Center</subtitle>
     <rights>https://docs.microsoft.com/legal/termsofuse</rights>
     <category term="new"/>
     <category term="updated"/>
+    <entry>
+        <title type="html"><![CDATA[Update route tables by using Azure Route Server]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/example-scenario/networking/manage-routing-azure-route-server</id>
+        <link href="https://docs.microsoft.com/azure/architecture/example-scenario/networking/manage-routing-azure-route-server"/>
+        <updated>2021-12-10T19:44:14.000Z</updated>
+        <summary type="html"><![CDATA[Use Azure Route Server to manage the dynamic routing between NVAs and virtual networks. Simplify NVA maintenance, and avoid manually updating route tables.]]></summary>
+        <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Manage Microsoft 365 tenant configuration with Azure DevOps]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/example-scenario/devops/manage-microsoft-365-tenant-configuration-microsoft365dsc-devops</id>
+        <link href="https://docs.microsoft.com/azure/architecture/example-scenario/devops/manage-microsoft-365-tenant-configuration-microsoft365dsc-devops"/>
+        <updated>2021-12-09T20:54:16.000Z</updated>
+        <summary type="html"><![CDATA[This article describes how to manage Microsoft 365 tenant configuration by using Microsoft365DSC and Azure DevOps.]]></summary>
+        <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Enterprise file shares with disaster recovery]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/example-scenario/file-storage/enterprise-file-shares-disaster-recovery</id>
+        <link href="https://docs.microsoft.com/azure/architecture/example-scenario/file-storage/enterprise-file-shares-disaster-recovery"/>
+        <updated>2021-12-09T00:31:13.000Z</updated>
+        <summary type="html"><![CDATA[Learn how to implement resilient NetApp file shares. Failure of the primary Azure region causes automatic failover to the secondary Azure region.]]></summary>
+        <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Blue/green app deployments]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/example-scenario/blue-green-spring/blue-green-spring</id>
+        <link href="https://docs.microsoft.com/azure/architecture/example-scenario/blue-green-spring/blue-green-spring"/>
+        <updated>2021-12-08T23:00:16.000Z</updated>
+        <summary type="html"><![CDATA[This article describes a high-availability blue/green deployment solution for applications on Azure Spring Cloud.]]></summary>
+        <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Solutions for the energy and environment industries]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/industries/energy-environment</id>
+        <link href="https://docs.microsoft.com/azure/architecture/industries/energy-environment"/>
+        <updated>2021-12-07T20:04:38.000Z</updated>
+        <summary type="html"><![CDATA[Architectures and ideas for using Azure services to build efficient, scalable, and reliable solutions in the energy and environment industries.]]></summary>
+        <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Azure App Service and Azure Functions considerations for multitenancy]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/guide/multitenant/service/app-service</id>
+        <link href="https://docs.microsoft.com/azure/architecture/guide/multitenant/service/app-service"/>
+        <updated>2021-12-07T09:35:55.000Z</updated>
+        <summary type="html"><![CDATA[This article describes the features of Azure App Service and Azure Functions that are useful when working with multitenanted systems, and links to guidance and examples for how to use Azure App Service and Azure Functions in a multitenant solution.]]></summary>
+        <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Azure Machine Learning architecture]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/solution-ideas/articles/azure-machine-learning-solution-architecture</id>
+        <link href="https://docs.microsoft.com/azure/architecture/solution-ideas/articles/azure-machine-learning-solution-architecture"/>
+        <updated>2021-12-06T19:07:37.000Z</updated>
+        <summary type="html"><![CDATA[Learn how to build, deploy, and manage high-quality models with Azure Machine Learning, a service for the end-to-end ML lifecycle.]]></summary>
+        <category label="new" term="new"/>
+    </entry>
     <entry>
         <title type="html"><![CDATA[Architecting multitenant solutions on Azure]]></title>
         <id>https://docs.microsoft.com/azure/architecture/guide/multitenant/overview</id>
