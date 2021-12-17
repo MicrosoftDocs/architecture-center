@@ -39,11 +39,11 @@ In most applications, SNAT port exhaustion indicates that your application is in
 > [!TIP]
 > If you observe SNAT port exhaustion in a multitenant application, you should verify whether your application follows good practices. Ensure you reuse HTTP connections and don't recreate new connections every time you connect to an external service. You might be able to deploy a NAT Gateway to work around the problem, but if your code is buggy, you could encounter the problem again in the future.
 
-The issue is exacerbated when you work with Azure services that share SNAT port allocationss between multiple customers, such as [Azure App Service and Azure Functions](/azure/app-service/troubleshoot-intermittent-outbound-connection-errors).
+The issue is exacerbated when you work with Azure services that share SNAT port allocations between multiple customers, such as [Azure App Service and Azure Functions](/azure/app-service/troubleshoot-intermittent-outbound-connection-errors).
 
 If you determine you're experiencing SNAT exhaustion and are sure your application code correctly handles your outbound connections, consider deploying NAT Gateway. This approach is commonly used by customers deploying multitenant solutions built on [Azure App Service and Azure Functions](/azure/app-service/networking/nat-gateway-integration).
 
-Each NAT Gateway resource can provide up to 1 million SNAT ports, when configured with the maximum number of public IP addresses. You can consider [deploying multiple NAT Gateway instances across multiple subnets](/azure/virtual-network/nat-gateway/nat-gateway-resource#performance) if you need to scale even beyond this limit.
+Each NAT Gateway resource can provide up to 1 million SNAT ports. You can consider [deploying multiple NAT Gateway instances across multiple subnets](/azure/virtual-network/nat-gateway/nat-gateway-resource#performance) if you need to scale even beyond this limit.
 
 ### Outbound IP address control
 
