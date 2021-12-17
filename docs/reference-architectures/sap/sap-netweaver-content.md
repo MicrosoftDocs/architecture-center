@@ -265,7 +265,7 @@ For automatic replication of application servers to a secondary region, we recom
 
 ### Central Services
 
-This component of the SAP application stack doesn't persist business data. For DR protection, either replicate the AFS SMB file share which contains the /sapmnt directory and other content onto another AFS SMB share (also with ZRS or not) in the DR region or use Site Recovery to replicate the Central Services cluster by using SIOS DataKeeper disks.
+This component of the SAP application stack doesn't persist business data. For DR protection, either replicate the AFS SMB file share, which contains the /sapmnt directory and other content, onto another AFS SMB share (also with ZRS or not) in the DR region. Alternatively, you can use Site Recovery to replicate the Central Services cluster by using SIOS DataKeeper disks.
 
 You can build a virtual machine in the DR region to replicate the Central Services role and content. The only content from the primary Central Services node to synchronize is the /sapmnt share. If the configuration changes or kernel updates take place on the primary Central Services servers, you need to repeat the changes on the virtual machine in the DR region. For details about this replication method's build, copy, and test failover process, download [SAP NetWeaver: Building a Hyper-V and Microsoft Azure–based Disaster Recovery Solution](https://download.microsoft.com/download/9/5/6/956FEDC3-702D-4EFB-A7D3-2DB7505566B6/SAP%20NetWeaver%20-%20Building%20an%20Azure%20based%20Disaster%20Recovery%20Solution%20V1_5%20.docx). See "4.3. SAP SPOF layer (ASCS)."
 
