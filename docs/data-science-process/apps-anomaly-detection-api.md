@@ -8,7 +8,7 @@ editor: marktab
 ms.service: architecture-center
 ms.subservice: azure-guide
 ms.topic: article
-ms.date: 01/10/2020
+ms.date: 12/16/2021
 ms.author: tdsp
 ms.category:
   - ai-machine-learning
@@ -26,7 +26,17 @@ categories:
 # Machine Learning Anomaly Detection API
 
 > [!NOTE]
-> This item is under maintenance. We encourage you to use the [Anomaly Detector API service](https://azure.microsoft.com/services/cognitive-services/anomaly-detector/) powered by a gallery of Machine Learning algorithms under Azure Cognitive Services to detect anomalies from business, operational, and IoT metrics.
+> This item is under maintenance. We encourage you to use the [Anomaly Detector AI service](https://azure.microsoft.com/en-us/services/cognitive-services/anomaly-detector/).
+
+> [!IMPORTANT]
+> Support for Machine Learning Studio (classic) will end on 31 August 2024. We recommend you transition to [Azure Machine Learning](https://azure.microsoft.com/services/machine-learning/) by that date.
+>
+> Beginning 1 December 2021, you will not be able to create new Machine Learning Studio (classic) resources. Through 31 August 2024, you can continue to use the existing Machine Learning Studio (classic) resources.  
+> 
+> -	See [information on moving machine learning projects from ML Studio (classic) to Azure Machine Learning](../articles/machine-learning/migrate-overview.md). 
+> -	Learn more about [Azure Machine Learning](../articles/machine-learning/overview-what-is-azure-machine-learning.md)
+> 
+> ML Studio (classic) documentation is being retired and may not be updated in the future.
 
 ## Overview
 
