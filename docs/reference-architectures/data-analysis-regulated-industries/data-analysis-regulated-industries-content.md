@@ -1,54 +1,39 @@
+In recent years, the demand for business users to be able to consume, transform, model, and visualize large amounts of complex data from multiple heterogenous sources has increased dramatically. To meet this demand in a cost effective, scalable way, many large companies have benefitted from moving to cloud-based data platforms. This move allows companies to take advantage of the economy of scale the cloud provides to achieve lower total cost of ownership and faster time to value from data. Regulated industries are no exception to this. These companies need to store and process vast amounts of highly sensitive data (for example, protected health information) every day. However, because of the sensitive nature of this data, there are many regulations (like HIPAA) in place to constrain the methods for storing, transporting, and processing the data. As a result of this, regulated industries are hesitant to adopt cloud-based data platforms because of the large financial penalties for regulatory violations and the perceived loss of control that comes from moving to a cloud-based platform. 
 
+The worldwide COVID-19 pandemic changed all of this as the on-premises data platforms of many regulated industries were largely unable to cope with the increased workload resulting from the pandemic. These companies are now embracing cloud-based data platforms, but they're typically doing so in two extreme ways. Either with highly complex and detailed security requirements or with limited knowledge of cloud security capabilities and practices. This makes rapid deployment of services and solutions challenging because many security options can be disabled, overlooked, or simply ignored, leaving these companies open to regulatory action (like financial penalties) if left unchecked.
 
-In recent years, the demand for business users capability to consume, transform, model, and visualize large amounts of complex data from multiple heterogenous sources has increased dramatically. To meet this demand in a cost effective, scalable way many large companies have benefitted from moving to cloud-based data platforms. This move allows companies to leverage the economy of scale the cloud provides to achieve lower total cost of ownership and faster time to value from data. Regulated industries are no exception to this as these companies need to store and process vast amounts of highly sensitive data (e.g., protected health information) every day. However, due to the sensitive nature of this data, there are many regulations (e.g., HIPAA) in place to constrain the methods for storing, transporting, and processing the data. As a result of this, regulated industries have been hesitant to adopt cloud-based data platforms due to the large financial penalties for a regulatory violation as well as the perceived loss of control that comes from moving to a cloud-based platform. 
+The Infrastructure Accelerator pattern is designed to ameliorate this issue by tackling data analysis workloads in regulated industries. This pattern is specifically designed to help ensure the detailed security and privacy requirements of different regulated industries are met. It uses configurable, template-based service-deployment automation. All build on Azure managed services to reduce management overhead. Specifically, the pattern focuses on high quality security standards, auditing, monitoring key protection, encryption capabilities, and tight integration with security perimeters (when applicable). You can consider this guidance an enterprise-ready, plugable infrastructure building block for data analytics workloads. It incorporates Microsoft best practices for landing zones.
 
-The worldwide COVID-19 pandemic changed all of this as many regulated industries on-premises data platforms were largely unable to cope with the increased workload coming as a direct result of the pandemic. While these companies are now embracing cloud-based data platforms, they are typically doing so in two extreme ways. Either with highly complex and detailed security requirements or with limited knowledge of security capabilities and practices in cloud. This makes rapid deployment of services and solutions challenging as many security options can be disabled, overlooked or simply ignored, leaving these companies open to regulatory action (e.g., financial penalties) if left unchecked.
+In using this pattern, you can choose which data processing services (Azure Data Factory, Azure Databricks, Azure Synapse Analytics) you want to use. You'll know that the services will be deployed using Microsoft best practices for landing zones and any company-specific policy requirements. In short, we believe that all customers from regulated industries can benefit from this pattern and from infrastructure deployment accelerator tools.
 
-The Infrastructure Accelerator pattern is designed to ameliorate this issue by tackling data analysis workloads in regulated industries. This pattern is specifically designed to help ensure the detailed security and privacy requirements of different regulated industries are met by leveraging configurable, template based service deployment automation. All build on Azure managed services to reduce management overhead. Specifically, the pattern focuses on high quality security standards, auditing, monitoring key protection, encryption capabilities, and tight integration with security perimeters (when applicable). You can think about this guidance as Enterprise Ready plug-able infrastructure building block for Data Analytics workloads utilizing Microsoft Best Practices for Landing Zones.
+The goal of this pattern isn't to automatically implement a regulated solution. It's to give the infrastructure and security teams an easily configurable set of tools to implement a configurable, repeatable baseline for regulated enterprise systems. That's because most regulations are written in a way that leaves a good deal of interpretation when it comes to building a system that meets them. For example, one of the components of a HIPAA-compliant system is that all data at rest and in motion needs to be encrypted. This is easy to interpret for data being transmitted or data on disk. But what about data that's sitting in memory as part of an in-memory database? It could be considered to be at rest if the database is a long-running database. But encrypting memory imparts significant overhead, so it's not feasible for many use cases.
 
-Users of this pattern will have the flexibility to choose which data processing services (e.g., Azure Data Factory, Azure Databricks, Azure Synapse Analytics) they want to use with the comfort of knowing the services will be deployed using both Microsoft best practices for Landing Zones as well as any company specific policy requirements. In short, we believe that all customers from regulated industries will benefit from this pattern and infrastructure deployment accelerator tools.
-
-The goal of this pattern is not to automatically implement a regulated solution but instead give the infrastructure/security teams an easily configurable set of tools to implement a configurable, repeatable baseline for regulated systems for an enterprise. This is because most regulations (e.g., HIPAA) are written in such a way that there is a good deal of interpretation of those regulations that comes along with building a system that meets their requirements. For example, one of the components of a HIPAA compliant system is that all data at rest and in motion needs to be encrypted. While this is easy to interpret for data being transmitted or data on disk, what about data sitting in memory as part of an in-memory database? It could be considered to be at rest if it’s a long running database, but encrypting memory is going to impart significant overhead which makes it infeasible for many use cases.
-
-As a result of these ambiguities, companies working with regulated data (e.g., HIPAA) typically have a security team that develops company specific policies for the use and implementation of systems using regulated data. The enforcement of these policies is usually done using services that audit running services (e.g., Azure Policy) and notify product owners of any violations they find. Finding and fixing these violations can be a time consuming process and may require the re-deployment of a service which is problematic when data/code development has already started, leading to longer development cycles.
+Because of these ambiguities, companies working with regulated data typically have a security team that develops company-specific policies for the use and implementation of systems that use regulated data. These policies are usually enforced via services that audit running services (for example, Azure Policy) and notify product owners of any violations they find. Finding and fixing these violations can be a time consuming process and can require the re-deployment of a service. This is problematic when data/code development is already started, and can lead to longer development cycles.
 
 Some of the key benefits of this pattern are:
 
-- Speed of deployment and consistency between projects and environments (DEV/TEST/STG/PROD).
-- Coverage of major data analysis use cases ETL/ELT + PowerBI (Ingestion/Transformation/Storage/Data Lake/SQL/PowerBI).
+- Speed of deployment and consistency among projects and environments (dev, test, staging, production).
+- Coverage of major data analysis use cases ETL/ELT and Power BI (ingestion,transformation, storage, data lake, SQL, Power BI).
 - Focus on automated support of enterprise-grade security standards.
-- Strong support for auditing, monitoring and diagnostics data.
-- Constraint of network communication to network/security perimeters (when applicable).
-- Easy consumption of data sources from inside perimeter along with cloud-based data analysis.
-- Benefit from cloud managed services with reduced management and operation overhead.
-- Seamless integration with cloud native tools (e.g., Power Platform).
-- Automated protection and encryption of storage containing potentially sensitive data.
-- Secure protection of keys and credentials.
-- Designed to support easy customer-based customization
-- No Azure landing zone needed but can integrate seamlessly, including hub-and-spoke network topology.
-
-
-
+- Strong support for auditing, monitoring, and diagnostics data.
+- Constraint of network communication to network or security perimeters (when applicable).
+- Easy consumption of data sources from inside the perimeter, together with cloud-based data analysis.
+- Cloud-managed services with reduced management and operation overhead.
+- Seamless integration with cloud-native tools, like Power Platform.
+- Automated improved protection and encryption of storage that contains potentially sensitive data.
+- Improved security of keys and credentials.
+- Design that supports easy customization.
+- Seamless integration with no Azure landing zone needed, even in hub-and-spoke network topologies.
 
 ## Potential use cases
 
-<!---
-Comment: DONE
-#> Are there any other use cases or industries where this would be a fit?
-#> How similar or different are they to what's in this article?
--->
+This architecture can benefit organizations that require a solution that has these qualities:
+- A platform as a service (PaaS) solution for data and AI workloads 
+- Visualization (ETL/ELT and Power BI)
+- Integration with a network perimeter 
+- A focus on high security, highly protected data, auditing, and monitoring
 
-Any customer looking for PaaS solution for Data and AI workloads plus visualization (ETL/ELT + PowerBI)
-integrated with network perimeter and with focus on high security standards,
-protecting data, Auditing, Monitoring should benefit from this pattern.
-
-<!---
-Comment: DONE
-#These other uses cases have similar design patterns:
-
-#- List of example use cases
--->
-
+Here are some example industries:
 - Regulated industries generally
 - Financial sector
 - Healthcare clinical trials
@@ -58,49 +43,39 @@ Comment: DONE
 
 ## Architecture
 
-<!---
-Comment: DONE
-#_Architecture diagram goes here_
+The following diagram shows a high-level overview of the architecture for the Infrastructure Accelerator for data analysis workloads in regulated industries. This pattern is targeted for use in highly regulated industries, so the primary focus is to provide a high degree of security at all levels, from storage to transport to use. 
 
-#> What does the solution look like at a high level?
-#> Why did we build the solution this way?
-#> What will the customer need to bring to this?  (Software, skills, etc?)
+[![Diagram that shows an example of an Infrastructure Accelerator architecture.](media/data-analysis-architecture-01.png)](media/data-analysis-architecture-01.png#lightbox)
 
-#Under the diagram, include a numbered list that describes the data flow or workflow.
--->
+You can see the capabilities of the pattern in the upper part of the diagram. These capabilities include elements like target data sources (cloud or on-premises), ingestion areas, snapshot data, transformed data, optimized data storage, metadata storage, and front-end consumption capabilities.
 
-The following diagram shows a high level overview of the architecture for the infrastructure accelerator for data analysis workloads in regulated industries. As this pattern is targeted for use in highly regulated industries, our primary focus is to provide a high degree of security at all levels from storage to transport to use. 
+The bottom part shows the responsibilities of the various IT roles that are typically involved with cloud-data analysis workloads.
 
-[![Graphical example of an infrastructure accelerator architecture.](media/data-analysis-architecture-01.png)](media/data-analysis-architecture-01.png#lightbox)
+The architecture provides state-of-the-art data analysis without sacrificing governance or security.
 
-In the upper part you can see the capabilities of the pattern. This includes elements such as target data sources (cloud or on-premise), ingestion areas, snapshot data, transformed data, optimized data storage, metadata storage, and front-end consumption capabilities.
+Implementation of this pattern requires these skills:
 
-The bottom part on the other hand is showing the responsibilities of the different IT roles that are typically involved with cloud-data analysis workloads.
-
-This architecture provides state-of-the-art data analysis capabilities without sacrificing governance or security capabilities.
-
-Implementation of this pattern requires specific skills including:
-
-- An understanding of how to configure, monitor and operate the Azure cloud. This includes governance models, security, policies, landing zones and automation in Azure.
+- An understanding of how to configure, monitor, and operate solutions in the Azure cloud. This includes governance models, security, policies, landing zones, and automation.
 - An understanding of how to configure and monitor cloud networking, private links, DNS, routing, access control lists, firewalls, and VPN integrations.
-- An understanding of how to monitor cloud security, security incidents, and constantly evaluate security threads.
-- An understanding of Azure data tools such as Azure Data Factory, Azure Databricks, Azure Data Lake Storage, and Azure SQL Database. The ability to integrate data components (ETL/ELT), create semantic models, and use different data formats (e.g., parquet, AVRO, CSV).
-- End users familiar with the use of Power BI for self service reporting.
+- An understanding of how to monitor cloud security and security incidents and constantly evaluate security threads.
+- An understanding of Azure data tools like Data Factory, Azure Databricks, Azure Data Lake Storage, and Azure SQL Database. 
+- The ability to integrate data components (ETL/ELT), create semantic models, and use different data formats, like Parquet, Avro, and CSV.
+- For end users, familiarity with using Power BI for self-service reporting.
 
-Description of implementation workflow:
+### Dataflow
 
-- Infrastructure and Governance model:
-  - The cloud ops team provisions in a repeatable and consistent way, the data analysis environment with existing optimized security
-  settings for regulated industries through an automated, parametrized process. Existing scripts with optional modifications based on enterprise specific standards and policies can be used for this task. Once deployed, the team can start to see security compliance reports as well as billing information for the deployed environment.
-  - The network team typically integrates the environment with enterprise network (ideally following the hub-and-spoke model with an enterprise firewall), enables private links for endpoints, and starts network traffic monitoring. Here, the integration of Microsoft Power BI with the virtual network (to use private traffic) is highly recommended.
-  - The cloud security team reviews the infrastructure through either built-in or enterprise-specific Azure policies, reviews the security score of the environment in Azure Advisor/Azure Security Center. The security team can also own and maintain credentials stored in the Azure Key Vault to specific data source systems along with any encryption keys. Finally, the security team can also start to monitor audit information stored in the central Log Analytics Workspace.
-- Usage and Data Analysis Capabilities:
-  - Data administrators/data developers can develop ETL/ELT pipelines and semantic models for self-service BI. This covers the complete data preparation life cycle (i.e., Ingest/Store/Transform/Serve).
-  - Business users can start to consume and present data through business-focused semantic models prepared by data developers. This is typically done through front end applications like Microsoft Power BI or custom applications but third party applications can be used as well.
+- Infrastructure and governance model:
+  - The cloud ops team provisions, in a repeatable and consistent way, the data analysis environment. The team uses existing optimized security
+  settings for regulated industries and an automated, parametrized process. Scripts that have optional modifications for enterprise-specific standards and policies are available for this task. After deploying the environment, the team starts to see security compliance reports and billing information for the environment.
+  - The network team typically integrates the environment with the enterprise network, ideally following the hub-and-spoke model with an enterprise firewall. This team also enables private links for endpoints and starts network traffic monitoring. We highly recommend that you integrate Power BI with the virtual network, to use private traffic.
+  - The cloud security team reviews the infrastructure through built-in or enterprise-specific Azure policies. This team reviews the security score of the environment in Azure Advisor or Azure Security Center. The security team also owns and maintains credentials to specific data source systems that are stored in Azure Key Vault, along with any encryption keys. Finally, the security team can start to monitor audit information that's stored in the central Log Analytics workspace.
+- Usage and data analysis capabilities:
+  - Data administrators and data developers develop ETL/ELT pipelines and semantic models for self-service BI. This step covers the complete data preparation life cycle: ingest, store, transform, serve.
+  - Business users can start to consume and present data through business-focused semantic models prepared by data developers. This consumption is typically done through front-end applications like Power BI or custom applications, but you can use third-party applications as well.
 
-The following diagram shows a component based view along with an example integration with an enterprise environment.
+The following diagram shows a component-based view, along with a sample integration with an enterprise environment:
 
-[![Components view and integration with an enterprise environment.](media/data-analysis-architecture-02.png)](media/data-analysis-architecture-02.png#lightbox)
+[![Diagram that shows a components view and integration with an enterprise environment.](media/data-analysis-architecture-02.png)](media/data-analysis-architecture-02.png#lightbox)
 
 ### Description of Pattern and Architecture in Details
 
