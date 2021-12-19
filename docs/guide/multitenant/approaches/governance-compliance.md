@@ -70,7 +70,7 @@ Consider whether you need to combine or aggregate data from multiple tenants. Fo
 It's important that you understand whether you need to meet any compliance standards. Compliance requirements might be introduced in several situations, including:
 
 - You, or any of your tenants, work within certain industries. For example, if any of your tenants work in the healthcare industry, you might need to comply with the HIPAA standard.
-- You, or any of your tenants, are located in geographic or geopolitical regions that require compliance with local laws. For example, if any of your tenants are located in Europe, you might need to comply with GDPR.
+- You, or any of your tenants, are located in geographic or geopolitical regions that require compliance with local laws. For example, if any of your tenants are located in Europe, you might need to comply with [General Data Protection Regulation (GDPR)](/compliance/regulatory/gdpr).
 
 > [!IMPORTANT]
 > Compliance is a shared responsibility between Microsoft, you, and your tenants.
