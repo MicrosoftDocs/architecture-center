@@ -37,7 +37,7 @@ SNAT ports are allocated when your application makes multiple concurrent outboun
 In most applications, SNAT port exhaustion indicates that your application is incorrectly handling HTTP connections or TCP ports. However, some multitenant applications are at particular risk of exceeding SNAT port limits, even if they reuse connections appropriately. For example, this situation can occur when your application connects to many tenant-specific databases behind the same database gateway.
 
 > [!TIP]
-> If you observe SNAT port exhaustion in a multitenant application, you should verify whether your application follows good practices. Ensure you reuse HTTP connections and don't recreate new connections every time you connect to an external service. You might be able to deploy a NAT Gateway to work around the problem, but if your code is buggy, you could encounter the problem again in the future.
+> If you observe SNAT port exhaustion in a multitenant application, you should verify whether [your application follows good practices](/azure/load-balancer/troubleshoot-outbound-connection#connectionreuse). Ensure you reuse HTTP connections and don't recreate new connections every time you connect to an external service. You might be able to deploy a NAT Gateway to work around the problem, but if your code is not following best practices, you could encounter the problem again in the future.
 
 The issue is exacerbated when you work with Azure services that share SNAT port allocations between multiple customers, such as [Azure App Service and Azure Functions](/azure/app-service/troubleshoot-intermittent-outbound-connection-errors).
 
