@@ -57,7 +57,7 @@ Plan how you'll respond to these requests. Consider whether any of the tenants' 
 
 Avoid providing direct access to databases or storage accounts unless you designed for this requirement, such as by using the [Valet Key pattern](../../../patterns/valet-key.md). Consider creating an API or automated data export process for integration purposes.
 
-### Access to tenants' data
+### Your access to tenants' data
 
 Consider whether your tenants' requirements restrict the personnel who can work with their data or resources. For example, suppose you build a SaaS solution used by many different customers. A government agency might require that only citizens of their country are allowed to access the infrastructure and data for their solution. You might meet this requirement by using separate Azure resource groups, subscriptions, or management groups for sensitive customer workloads. You can apply tightly scoped Azure IAM role assignments for specific groups of users to work with these resources.
 
