@@ -59,11 +59,11 @@ Plan how you'll respond to these requests. Consider whether any of the tenants' 
 
 Avoid providing direct access to databases or storage accounts unless you designed for this requirement, such as by using the [Valet Key pattern](../../../patterns/valet-key.md). Consider creating an API or automated data export process for integration purposes.
 
-### Access to tenants' data
+### Your access to tenants' data
 
 Consider whether your tenants' requirements restrict the personnel who can work with their data or resources. For example, suppose you build a SaaS solution used by many different customers. A government agency might require that only citizens of their country are allowed to access the infrastructure and data for their solution. You might meet this requirement by using separate Azure resource groups, subscriptions, or management groups for sensitive customer workloads. You can apply tightly scoped Azure role-based access controls (RBAC) role assignments for specific groups of users to work with these resources.
 
-#### Aggregation of data
+#### Aggregation of data from multiple tenants
 
 Consider whether you need to combine or aggregate data from multiple tenants. For example, do you to analyze the aggregated data, or train machine learning models that could be applied to other tenants? Ensure your tenants understand the ways in which you use their data. Include any use of aggregated or anonymized data.
 
@@ -72,7 +72,7 @@ Consider whether you need to combine or aggregate data from multiple tenants. Fo
 It's important that you understand whether you need to meet any compliance standards. Compliance requirements might be introduced in several situations, including:
 
 - You, or any of your tenants, work within certain industries. For example, if any of your tenants work in the [healthcare industry](../../../industries/healthcare.md), you might need to comply with the HIPAA standard.
-- You, or any of your tenants, are located in geographic or geopolitical regions that require compliance with local laws. For example, if any of your tenants are located in Europe, you might need to comply with GDPR.
+- You, or any of your tenants, are located in geographic or geopolitical regions that require compliance with local laws. For example, if any of your tenants are located in Europe, you might need to comply with [General Data Protection Regulation (GDPR)](/compliance/regulatory/gdpr).
 
 > [!IMPORTANT]
 > Compliance is a shared responsibility between Microsoft, you, and your tenants.
@@ -107,13 +107,13 @@ Consider using [Azure Purview](https://azure.microsoft.com/services/purview/) to
 
 ### Verify compliance with standards
 
-Use tools like [Azure Policy](/azure/governance/policy/overview), [Microsoft Defender for Cloud's regulatory compliance portal](/azure/defender-for-cloud/regulatory-compliance-dashboard), and [Azure Advisor](https://azure.microsoft.com/services/advisor/). These tools help you to configure your Azure resources to meet compliance requirements and to follow Microsoft's recommended practices.
+Use tools like [Azure Policy](/azure/governance/policy/overview), [Microsoft Defender for Cloud's regulatory compliance portal](/azure/defender-for-cloud/regulatory-compliance-dashboard), and [Azure Advisor](https://azure.microsoft.com/services/advisor/). These tools help you to configure your Azure resources to meet compliance requirements and to follow the recommended best practices.
 
 ### Generate compliance documentation
 
 Your tenants might require that you demonstrate your compliance with specific standards. Use the [Service Trust Portal](https://servicetrust.microsoft.com/) to generate compliance documentation that you can provide to your tenants or to third-party auditors.
 
-Some multitenant solutions incorporate Microsoft 365, and use services like Microsoft OneDrive, Microsoft SharePoint, and Microsoft Exchange Online. The [Microsoft 365 Compliance Center](https://compliance.microsoft.com) helps you to understand how these services comply with regulatory standards.
+Some multitenant solutions incorporate Microsoft 365, and use services like Microsoft OneDrive, Microsoft SharePoint, and Microsoft Exchange Online. The [Microsoft 365 Compliance Center](https://compliance.microsoft.com) helps you understand how these services comply with regulatory standards.
 
 ### Deployment Stamps pattern
 
@@ -127,8 +127,8 @@ Similarly, a new tenant might introduce strict compliance requirements that you 
 
 - **Not understanding your tenants' compliance requirements.** It's important not to make assumptions about the compliance requirements that your tenants might impose. If you plan to grow your solution into new markets, be mindful of the regulatory environment that your tenants are likely to operate within.
 - **Ignoring good practices.** If you don't have any immediate need to adhere to compliance standards, yuo should still follow good practices when you deploy your Azure resources. For example, isolate your resources, apply policies to verify resource configuration, and apply role assignments to groups instead of users. By following good practices, you make it simpler to follow compliance standards when you eventually need to do so.
-- **Assuming there are no compliance requirements.** When you first launch a multitenant solution, you might not be aware of compliance requirements or you might not need to follow any. As you grow, you're likely to need to provide evidence that you comply with various standards. Use [Azure Defender for Cloud](/azure/defender-for-cloud/regulatory-compliance-dashboard) to monitor your compliance posture, even before you have an explicit requirement to do so.
-- **Not planning for management.** As you deploy your Azure resources, consider how you plan to manage them. If you need to make bulk updates to resources, ensure you have an understanding of automation tools like the Azure CLI, Azure PowerShell, Azure Resource Graph, and Azure Resource Manager APIs.
+- **Assuming there are no compliance requirements.** When you first launch a multitenant solution, you might not be aware of compliance requirements, or you might not need to follow any. As you grow, you're likely to need to provide evidence that you comply with various standards. Use [Microsoft Defender for Cloud](/azure/defender-for-cloud/regulatory-compliance-dashboard) to monitor your compliance posture, even before you have an explicit requirement to do so.
+- **Not planning for management.** As you deploy your Azure resources, consider how you plan to manage them. If you need to make bulk updates to resources, ensure you have an understanding of automation tools like the Azure CLI, Azure PowerShell, Azure Resource Graph, and the Azure Resource Manager APIs.
 - **Not using management groups.** Plan your subscription and management group hierarchy, including access control and Azure Policy resources at each scope. It can be difficult and disruptive to introduce or change these elements when your resources are used in a production environment.
 - **Not planning your access control effectively.** Azure RBAC provides a high degree of control and flexibility in how you manage access to your resources. Ensure you use Azure AD groups to avoid assigning permissions to individual users. Assign roles at scopes that provide an appropriate balance between security and flexibility. Use built-in role definitions wherever possible, and assign roles that provide the minimum permissions required.
 - **Not using Azure Policy.** It's important to use Azure Policy to govern your Azure environment. After you plan and deploy policies, ensure you monitor the policy compliance and carefully review any violations or exceptions.
