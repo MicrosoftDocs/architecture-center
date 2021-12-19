@@ -30,6 +30,10 @@ As your use of Azure matures, it's important to consider the governance of your 
 
 Ensure you configure your Azure resources to meet your tenants' isolation requirements. See [Azure resource organization in multitenant solutions](TODO) for guidance on isolating your Azure resources. 
 
+> [!NOTE]
+> **Note to PR reviewers:** The link above won't work until another PR is merged. To see the draft of that page, [open this link in a new tab](https://review.docs.microsoft.com/azure/architecture/guide/multitenant/approaches/resource-organization?branch=pr-en-us-4829).
+<!-- TODO remove above note -->
+
 ### Data management
 
 When you store data on behalf of your tenants, you might have requirements or obligations that you need to meet. From a tenant's perspective, they often expect ownership and control of their data. Consider how you isolate, store, access, and aggregate tenants' data. Uncover tenants' expectations and requirements that could affect how your solution works.
