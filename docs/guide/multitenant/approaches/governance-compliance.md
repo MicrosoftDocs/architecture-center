@@ -105,7 +105,7 @@ Consider using [Azure Purview](https://azure.microsoft.com/services/purview/) to
 
 ### Verify compliance with standards
 
-Use tools like [Azure Policy](/azure/governance/policy/overview), [Microsoft Defender for Cloud's regulatory compliance portal](/azure/defender-for-cloud/regulatory-compliance-dashboard), and [Azure Advisor](https://azure.microsoft.com/services/advisor/). These tools help you to configure your Azure resources to meet compliance requirements and to follow Microsoft's recommended practices.
+Use tools like [Azure Policy](/azure/governance/policy/overview), [Microsoft Defender for Cloud's regulatory compliance portal](/azure/defender-for-cloud/regulatory-compliance-dashboard), and [Azure Advisor](https://azure.microsoft.com/services/advisor/). These tools help you to configure your Azure resources to meet compliance requirements and to follow the recommended best practices.
 
 ### Generate compliance documentation
 
