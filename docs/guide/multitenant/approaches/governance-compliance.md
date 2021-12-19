@@ -49,7 +49,9 @@ Whichever isolation approaches you implement, be prepared for tenants to request
 
 Understand whether there are any restrictions on the physical location for your tenants' data to be stored or processed. Your tenants might require you store their data in specific geographic locations. They might also require that you *don't* store their data in certain locations. Although these requirements are commonly based on legislation, they can also be based on cultural values and norms.
 
-#### Tenants' access to data
+Refer to the whitepaper [Enabling Data Residency and Data Protection in Microsoft Azure Regions](https://azure.microsoft.com/resources/achieving-compliant-data-residency-and-security-with-azure/) for more information about data residency and sovereignty.
+
+#### Tenants' access to data that you store
 
 Tenants sometimes request direct access to the data you store on their behalf. For example, they might want to ingest their data into their own data lake.
 
@@ -59,17 +61,17 @@ Avoid providing direct access to databases or storage accounts unless you design
 
 ### Access to tenants' data
 
-Consider whether your tenants' requirements restrict the personnel who can work with their data or resources. For example, suppose you build a SaaS solution used by many different customers. A government agency might require that only citizens of their country are allowed to access the infrastructure and data for their solution. You might meet this requirement by using separate Azure resource groups, subscriptions, or management groups for sensitive customer workloads. You can apply tightly scoped Azure IAM role assignments for specific groups of users to work with these resources.
+Consider whether your tenants' requirements restrict the personnel who can work with their data or resources. For example, suppose you build a SaaS solution used by many different customers. A government agency might require that only citizens of their country are allowed to access the infrastructure and data for their solution. You might meet this requirement by using separate Azure resource groups, subscriptions, or management groups for sensitive customer workloads. You can apply tightly scoped Azure role-based access controls (RBAC) role assignments for specific groups of users to work with these resources.
 
 #### Aggregation of data
 
-Consider whether you need to combine or aggregate data from multiple tenants. For example, do you to analyze the data, or train machine learning models that could be applied to other tenants? Ensure your tenants understand the ways in which you use their data. Include any use of aggregated or anonymized data.
+Consider whether you need to combine or aggregate data from multiple tenants. For example, do you to analyze the aggregated data, or train machine learning models that could be applied to other tenants? Ensure your tenants understand the ways in which you use their data. Include any use of aggregated or anonymized data.
 
 ### Compliance requirements
 
 It's important that you understand whether you need to meet any compliance standards. Compliance requirements might be introduced in several situations, including:
 
-- You, or any of your tenants, work within certain industries. For example, if any of your tenants work in the healthcare industry, you might need to comply with the HIPAA standard.
+- You, or any of your tenants, work within certain industries. For example, if any of your tenants work in the [healthcare industry](../../../industries/healthcare.md), you might need to comply with the HIPAA standard.
 - You, or any of your tenants, are located in geographic or geopolitical regions that require compliance with local laws. For example, if any of your tenants are located in Europe, you might need to comply with GDPR.
 
 > [!IMPORTANT]
@@ -91,7 +93,7 @@ Can use [resource tags](cost-management-allocation.md#allocate-costs-by-using-re
 
 ### Access control
 
-Use [Azure role-based access control (Azure RBAC)](/azure/role-based-access-control/overview) to restrict access to your Azure resources within your organization. Apply role assignments to groups instead of users. Scope your role assignments so they provide the minimum permissions necessary.
+Use [Azure RBAC](/azure/role-based-access-control/overview) to restrict access to the Azure resources that constitute the multitenant solution. Apply role assignments to groups instead of users. Scope your role assignments so they provide the minimum permissions necessary. Avoid long-standing access to resources by using just-in-time access and features like [Azure Active Directory Privileged Access Management](/azure/active-directory/privileged-identity-management/pim-configure).
 
 ### Azure Resource Graph
 
@@ -123,10 +125,11 @@ Similarly, a new tenant might introduce strict compliance requirements that you 
 
 ## Antipatterns to avoid
 
-- **Not understanding your tenants' compliance requirements.** It's important not to make assumptions about the compliance requirements that your tenants might impose. If you plan to grow your solution into new markets, be mindful of the regulatory environment that your tenants are likely to operate within. Follow good practices when you deploy your Azure resources to minimize the effect of following new compliance standards.
+- **Not understanding your tenants' compliance requirements.** It's important not to make assumptions about the compliance requirements that your tenants might impose. If you plan to grow your solution into new markets, be mindful of the regulatory environment that your tenants are likely to operate within.
+- **Ignoring good practices.** If you don't have any immediate need to adhere to compliance standards, yuo should still follow good practices when you deploy your Azure resources. For example, isolate your resources, apply policies to verify resource configuration, and apply role assignments to groups instead of users. By following good practices, you make it simpler to follow compliance standards when you eventually need to do so.
 - **Assuming there are no compliance requirements.** When you first launch a multitenant solution, you might not be aware of compliance requirements or you might not need to follow any. As you grow, you're likely to need to provide evidence that you comply with various standards. Use [Azure Defender for Cloud](/azure/defender-for-cloud/regulatory-compliance-dashboard) to monitor your compliance posture, even before you have an explicit requirement to do so.
-- **Not planning for management.** As you deploy your Azure resources, consider how you plan to manage them. If you need to make bulk updates to resources, ensure you have an understanding of automation tools like Azure PowerShell, the Azure CLI, and the Resource Graph API.
-- **Not using management groups.** Plan your subscription and management group hierarchy, including access control and Azure Policy resources at each scope. It can be challenging to change these elements when your resources are in use.
+- **Not planning for management.** As you deploy your Azure resources, consider how you plan to manage them. If you need to make bulk updates to resources, ensure you have an understanding of automation tools like the Azure CLI, Azure PowerShell, Azure Resource Graph, and Azure Resource Manager APIs.
+- **Not using management groups.** Plan your subscription and management group hierarchy, including access control and Azure Policy resources at each scope. It can be difficult and disruptive to introduce or change these elements when your resources are used in a production environment.
 - **Not planning your access control effectively.** Azure RBAC provides a high degree of control and flexibility in how you manage access to your resources. Ensure you use Azure AD groups to avoid assigning permissions to individual users. Assign roles at scopes that provide an appropriate balance between security and flexibility. Use built-in role definitions wherever possible, and assign roles that provide the minimum permissions required.
 - **Not using Azure Policy.** It's important to use Azure Policy to govern your Azure environment. After you plan and deploy policies, ensure you monitor the policy compliance and carefully review any violations or exceptions.
 
