@@ -286,6 +286,8 @@ In general, use the [Azure pricing calculator](https://azure.microsoft.com/prici
 
 - Review the guidelines defined in the [Azure data management and analytics scenario](https://docs.microsoft.com/azure/cloud-adoption-framework/scenarios/data-management/) for scalable analytics environment in Azure.
 
+- Explore the [Data Engineer Learning Paths at Microsoft learn](/learn/roles/data-engineer) for further training content and labs on the services involved in this reference architecture.
+
 - Find comprehensive architectural guidance on data pipelines, data warehousing, online analytical processing (OLAP), and big data in the [Azure Data Architecture Guide](../../data-guide/index.md).
 
 ## Related resources
