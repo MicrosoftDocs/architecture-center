@@ -53,7 +53,7 @@ Outbound IP address control can be useful in multitenant applications when you h
 - You need to connect to your tenants' networks over the internet.
 - Your tenants need to filter incoming traffic based on its IP address.
 
-When a NAT Gateway instance is applied to a subnet, any outbound traffic from that subnet uses the public IP address associated with the NAT gateway.
+When a NAT Gateway instance is applied to a subnet, any outbound traffic from that subnet uses the public IP addresses associated with the NAT gateway.
 
 > [!NOTE]
 > When you associate multiple public IP addresses with a single NAT Gateway, your outbound traffic could come from any of those IP addresses. If you need to configure firewall rules at the destination, you should either allow each IP address, or use a [public IP address prefix](/azure/virtual-network/ip-services/public-ip-address-prefix) resource to use a set of public IP addresses in the same range.
