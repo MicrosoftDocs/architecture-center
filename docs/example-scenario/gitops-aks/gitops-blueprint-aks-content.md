@@ -152,7 +152,7 @@ Take the following steps to provision a GitOps setup for AKS:
    kubectl apply -f https://raw.githubusercontent.com/open-policy-agent/gatekeeper/release-3.4/deploy/gatekeeper.yaml
    ```
 
-1. Install Gatekeeper by following the Gatekeeper [Installation guide](https://open-policy-agent.github.io/gatekeeper/website/docs/install/#installation). To configure Gatekeeper correctly, see [Enforcing policies with OPA Gatekeeper](https://securitytower.syncier.com/docs/reference/policies).
+1. Install Gatekeeper by following the Gatekeeper [Installation guide](https://open-policy-agent.github.io/gatekeeper/website/docs/install/#installation). To configure Gatekeeper correctly, see [Enforcing policies with OPA Gatekeeper](https://securitytower.syncier.com/docs/guide/policies).
 
 1. Install Syncier Security Tower to your repository from the [GitHub marketplace](https://github.com/marketplace/security-tower).
 

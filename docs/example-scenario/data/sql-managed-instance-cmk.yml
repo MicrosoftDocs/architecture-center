@@ -1,0 +1,25 @@
+### YamlMime:Architecture
+metadata:
+  title: SQL Managed Instance with CMK
+  titleSuffix: Azure Example Scenarios
+  description: Create a highly available SQL Managed Instance design by using customer-managed keys stored in Azure Key Vault.
+  author: EdPrice-MSFT
+  ms.author: aharsan
+  ms.date: 12/21/2021
+  ms.topic: conceptual
+  ms.service: architecture-center
+  ms.subservice: example-scenario
+  ms.custom: fcp
+azureCategories:
+  - security
+  - databases
+  - networking
+products:
+  - azure-sql-managed-instance
+  - azure-key-vault
+  - azure-private-link
+name: SQL Managed Instance with customer-managed keys
+summary: Create a highly available SQL Managed Instance design by using customer-managed keys stored in Azure Key Vault.
+thumbnailUrl: /azure/architecture/browse/thumbs/sql-managed-instance-cmk.png
+content: |
+  [!include[](sql-managed-instance-cmk-content.md)]
