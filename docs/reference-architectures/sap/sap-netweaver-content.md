@@ -29,7 +29,7 @@ These components are required:
 
 **Virtual machines.** This architecture uses virtual machines for the application tier and database tier, grouped like so:
 
-- **SAP NetWeaver.** The application tier uses Windows virtual machines to run SAP Central Services and SAP application servers. The VMs that run Central Services are configured as a Windows Server failover cluster for high availability. They're supported by either Azure File Shares (AFS) or Azure shared disks.
+- **SAP NetWeaver.** The application tier uses Windows virtual machines to run SAP Central Services and SAP application servers. The VMs that run Central Services are configured as a WSFC for high availability. They're supported by either Azure File Shares (AFS) or Azure shared disks.
 
 - **AnyDB.** The database tier runs AnyDB as the database, such as Microsoft SQL Server, Oracle, or IBM Db2.
 
@@ -197,7 +197,7 @@ For internet-facing communications, we recommend a stand-alone solution in the p
 
 ### Central Services in the application servers tier
 
-High availability of the Central Services is implemented with Windows Server Failover Cluster (WSFC). When the cluster storage for the failover cluster is deployed on Azure, you can configure it in two ways: as a clustered shared volume or as a file share.
+High availability of the Central Services is implemented with WSFC. When the cluster storage for the failover cluster is deployed on Azure, you can configure it in two ways: as a clustered shared volume or as a file share.
 
 We recommend that you use [Azure Files](/azure/storage/files/storage-files-introduction) as fully managed, cloud-native SMB or NFS shares. An alternative to Azure Files is [Azure NetApp Files](/azure/azure-netapp-files/azure-netapp-files-introduction), which provides high-performance, enterprise-class NFS and SMB shares.
 
