@@ -2563,6 +2563,8 @@ items:
               - name: SQL Database and Synapse Analytics connectivity
                 href: /azure/azure-sql/database/connectivity-architecture
                 maintainContext: true
+              - name: SQL Managed Instance with CMK
+                href: example-scenario/data/sql-managed-instance-cmk.yml
               - name: Web app private database connectivity
                 href: example-scenario/private-web-app/private-web-app.yml
               - name: Windows N-tier applications
@@ -4146,6 +4148,8 @@ items:
                 href: example-scenario/apps/fully-managed-secure-apps.yml
               - name: Secure a Microsoft Teams channel bot
                 href: example-scenario/teams/securing-bot-teams-channel.yml
+              - name: SQL Managed Instance with CMK
+                href: example-scenario/data/sql-managed-instance-cmk.yml
               - name: Virtual network integrated microservices
                 href: example-scenario/integrated-multiservices/virtual-network-integration.yml
               - name: Web app private database connectivity
