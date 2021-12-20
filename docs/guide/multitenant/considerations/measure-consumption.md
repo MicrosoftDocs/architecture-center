@@ -10,6 +10,7 @@ ms.service: architecture-center
 ms.subservice: azure-guide
 products:
   - azure
+  - azure-cost-management
 categories:
   - management-and-governance
 ms.category:

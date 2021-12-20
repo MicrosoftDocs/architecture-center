@@ -9,9 +9,11 @@ ms.topic: conceptual
 ms.service: architecture-center
 products:
  - azure
+ - azure-cost-management
+ - azure-resource-manager
+ - azure-monitor
 categories:
  - management-and-governance
- - security
 ms.subservice: azure-guide
 ms.category:
   - fcp
