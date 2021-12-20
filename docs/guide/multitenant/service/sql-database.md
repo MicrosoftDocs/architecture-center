@@ -10,9 +10,9 @@ ms.service: architecture-center
 ms.subservice: azure-guide
 products:
   - azure
+  - azure-sql-database
 categories:
-  - management-and-governance
-  - security
+  - data
 ms.category:
   - fcp
 ms.custom:

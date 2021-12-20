@@ -13,7 +13,7 @@ products:
 categories:
   - management-and-governance
   - networking
-  - security
+  - web
 ms.category:
   - fcp
 ms.custom:
