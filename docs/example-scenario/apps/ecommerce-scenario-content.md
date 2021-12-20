@@ -2,7 +2,7 @@ This example scenario walks you through an implementation of an e-commerce front
 
 This document will help you will learn about various Azure PaaS components and considerations used to bring together to deploy a sample e-commerce application, *Relecloud Concerts*, an online concert-ticketing platform.
 
-## Relevant use cases
+## Potential use cases
 
 Other relevant use cases include:
 
@@ -86,7 +86,7 @@ Other options for the data tier include:
 - Consider using active [geo-replication][sql-geo-replication] for the data tier and [geo-redundant][storage-geo-redundancy] storage for images and queues.
 - For a deeper discussion on [resiliency][resiliency], see the relevant article in the Azure Architecture Center.
 
-## Deploy the scenario
+## Deploy this scenario
 
 To deploy this scenario, you can follow this [step-by-step tutorial][end-to-end-walkthrough] demonstrating how to manually deploy each component. This tutorial also provides a .NET sample application that runs a simple ticket purchasing application. Additionally, there is a Resource Manager template to automate the deployment of most of the Azure resources.
 
@@ -100,10 +100,18 @@ We have provided three sample cost profiles based on amount of traffic you expec
 - [Medium][medium-pricing]: This pricing example represents the components indicative of a moderate size deployment. Here we estimate approximately 100,000 users using the system over the course of a month. The expected traffic is handled in a single app service instance with a moderate standard tier. Additionally, moderate tiers of cognitive and search services are added to the calculator.
 - [Large][large-pricing]: This pricing example represents an application meant for high scale, at the order of millions of users per month, moving terabytes of data. At this level of usage high performance, premium tier web apps deployed in multiple regions fronted by traffic manager is required. Data consists of the following: storage, databases, and CDN, are configured for terabytes of data.
 
+## Next steps
+
+- [Typical design patterns for scalability](../../framework/scalability/performance-efficiency-patterns.md)
+- [Ssecure development lifecycle][secure-development]
+- [Resiliency][resiliency]
+- [Recommended practices for App Service][resiliency-app-service]
+
 ## Related resources
 
-- [Reference Architecture for Multi-Region Web Application][multi-region-web-app]
-- [eShop on Containers Reference Example][microservices-ecommerce]
+- [Reference architecture for a multi-region web application][multi-region-web-app]
+- [eShop on containers reference example][microservices-ecommerce]
+- [Circuit Breaker pattern][circuit-breaker]
 
 <!-- links -->
 
