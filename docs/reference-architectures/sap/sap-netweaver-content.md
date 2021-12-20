@@ -33,7 +33,7 @@ These components are required:
 
 - **AnyDB.** The database tier runs AnyDB as the database, such as Microsoft SQL Server, Oracle, or IBM Db2.
 
-- **Jump box** (also called a _bastion host_). Administrators use this improved-security virtual machine to connect to the other virtual machines. It's typically a part of shared services, like domain controllers and backup services. If Secure Shell Protocol (SSH) and Remote Desktop Protocol (RDP) are the only services used for server administration, an [Azure Bastion](/azure/bastion/bastion-overview) host is an alternative. But if you use other management tools, like SQL Server Management Studio or SAP Front End, use a traditional, self-deployed jump box.
+- **Jumpbox** (also called a _bastion host_). Administrators use this improved-security virtual machine to connect to the other virtual machines. It's typically a part of shared services, like domain controllers and backup services. If Secure Shell Protocol (SSH) and Remote Desktop Protocol (RDP) are the only services used for server administration, an [Azure Bastion](/azure/bastion/bastion-overview) host is an alternative. But if you use other management tools, like SQL Server Management Studio or SAP Front End, use a traditional, self-deployed jump box.
 
 - **Windows Server Active Directory domain controllers.** The domain controllers are used for identity management of all virtual machines and users in the domain.
 
