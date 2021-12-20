@@ -2239,7 +2239,7 @@ items:
                     href: reference-architectures/containers/aks-pci/aks-pci-policy.yml
                   - name: Summary
                     href: reference-architectures/containers/aks-pci/aks-pci-summary.yml
-              - name: AKS data protection and mobility
+              - name: AKS data protection on Azure NetApp Files
                 href: example-scenario/file-storage/data-protection-kubernetes-astra-azure-netapp-files.yml
               - name: Autonomous-driving simulation
                 href: industries/automotive/building-blocks-autonomous-driving-simulation-environments.yml
@@ -4292,8 +4292,6 @@ items:
                 href: example-scenario/file-storage/oracle-azure-netapp-files.yml
               - name: SQL Server on VMs with Azure NetApp Files
                 href: example-scenario/file-storage/sql-server-azure-netapp-files.yml
-              - name: Data protection for Azure Kubernetes Services on Azure NetApp Files
-                href: example-scenario/file-storage/data-protection-kubernetes-astra-azure-netapp-files.md
           - name: Solution ideas
             items:
               - name: HIPAA/HITRUST Health Data and AI
