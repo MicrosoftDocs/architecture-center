@@ -2239,6 +2239,8 @@ items:
                     href: reference-architectures/containers/aks-pci/aks-pci-policy.yml
                   - name: Summary
                     href: reference-architectures/containers/aks-pci/aks-pci-summary.yml
+              - name: AKS data protection and mobility
+                href: example-scenario/file-storage/data-protection-kubernetes-astra-azure-netapp-files.yml
               - name: Autonomous-driving simulation
                 href: industries/automotive/building-blocks-autonomous-driving-simulation-environments.yml
               - name: Build a telehealth system
