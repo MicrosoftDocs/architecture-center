@@ -22,7 +22,7 @@ ms.custom:
 
 # Azure NAT Gateway considerations for multitenancy
 
-Azure NAT Gateway provides control over outbound network connectivity from resources hosted within an Azure virtual network. In this article we review how NAT Gateway can mitigate Source Network Address Translation (SNAT) port exhaustion, which can affect multitenant applications. We also review how you can use NAT Gateway to assign static IP addresses to the outbound access from your multitenant solution.
+Azure NAT Gateway provides control over outbound network connectivity from your resources that are hosted within an Azure virtual network. In this article, we review how NAT Gateway can mitigate Source Network Address Translation (SNAT) port exhaustion, which can affect multitenant applications. We also review how NAT Gateway assigns static IP addresses to the outbound traffic from your multitenant solution.
 
 > [!NOTE]
 > Firewalls, like [Azure Firewall](/azure/firewall/overview), enable you to control and log your outbound traffic. Azure Firewall also provides similar SNAT port scale and outbound IP address control to NAT Gateway. NAT Gateway is less costly, but also has fewer features and is not a security product.
@@ -59,7 +59,7 @@ When a NAT Gateway instance is applied to a subnet, any outbound traffic from th
 
 ## Isolation models
 
-If you need to provide different outbound public IP addresses for each tenant, you must deploy individual NAT Gateway resources. Each subnet can be associated with a single NAT Gateway instance, so to deploy additional NAT gateways, you need to deploy multiple subnets or virtual networks. In turn, you likely need to deploy multiple sets of compute resources.
+If you need to provide different outbound public IP addresses for each tenant, you must deploy individual NAT Gateway resources. Each subnet can be associated with a single NAT Gateway instance, so to deploy more NAT gateways, you need to deploy multiple subnets or virtual networks. In turn, you likely need to deploy multiple sets of compute resources.
 
 Review [Architectural approaches for networking in multitenant solutions](../approaches/networking.md) for more information about how to design a multitenant network topology.
 
