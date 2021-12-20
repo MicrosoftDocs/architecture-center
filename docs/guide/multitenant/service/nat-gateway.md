@@ -1,5 +1,5 @@
 ---
-title: NAT Gateway considerations for multitenancy
+title: Azure NAT Gateway considerations for multitenancy
 titleSuffix: Azure Architecture Center
 description: This article describes the features of NAT Gateway that are useful when you work with multitenanted systems. It also provides links to guidance and examples for how to use NAT Gateway in a multitenant solution.
 author: johndowns
@@ -21,9 +21,9 @@ ms.custom:
   - fcp
 ---
 
-# NAT Gateway considerations for multitenancy
+# Azure NAT Gateway considerations for multitenancy
 
-NAT Gateway provides control over outbound network connectivity from resources hosted within an Azure virtual network. In this article we review how NAT Gateway can mitigate Source Network Address Translation (SNAT) port exhaustion, which can affect multitenant applications. We also review how you can use NAT Gateway to assign static IP addresses to the outbound access from your multitenant solution.
+Azure NAT Gateway provides control over outbound network connectivity from resources hosted within an Azure virtual network. In this article we review how NAT Gateway can mitigate Source Network Address Translation (SNAT) port exhaustion, which can affect multitenant applications. We also review how you can use NAT Gateway to assign static IP addresses to the outbound access from your multitenant solution.
 
 > [!NOTE]
 > Firewalls, like [Azure Firewall](/azure/firewall/overview), enable you to control and log your outbound traffic. Azure Firewall also provides similar SNAT port scale and outbound IP address control to NAT Gateway. NAT Gateway is less costly, but also has fewer features and is not a security product.
