@@ -42,7 +42,7 @@ IoT solutions solve specific business challenges in unique industries. In this s
 
 * [Condition monitoring for industrial IoT](../../solution-ideas/articles/condition-monitoring.yml): OPC UA (Open Platform Communication Unified Architecture) can be used to monitor equipment parameters to discover anomalies before they become critical issues.
 
-* [End-to-end manufacturing using conputer vision on the edge](../../reference-architectures/ai/end-to-end-smart-factory.yml): Fully automated smart factories use artificial intelligence (AI) and machine learning (ML) to analyze data, run systems, and improve processes over time. In manufacturing, computer vision on the edge is an increasingly popular Internet of Things (IoT) application used in safety and quality assurance applications.
+* [End-to-end manufacturing using computer vision on the edge](../../reference-architectures/ai/end-to-end-smart-factory.yml): Fully automated smart factories use artificial intelligence (AI) and machine learning (ML) to analyze data, run systems, and improve processes over time. In manufacturing, computer vision on the edge is an increasingly popular Internet of Things (IoT) application used in safety and quality assurance applications.
 
 ### Smart buildings
 
