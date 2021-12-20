@@ -38,7 +38,7 @@ IoT solutions solve specific business challenges in unique industries. In this s
 
 * [Connected factory signal pipeline](../../example-scenario/iot/connected-factory-signal-pipeline.yml): It can be problematic to interconnect the heterogenous legacy and modern devices that often coexist in a factory. The connected factory signal pipeline solves this problem by introducing a common configuration interface to connect heterogenous devices.
 
-* [Predictive maintenance with IoT Edge](../../example-scenario/predictive-maintenance/iot-predictive-maintenance.yml): The Internet-of-things (IoT) Edge brings data processing and storage close to the data source, enabling fast, consistent responses with reduced dependency on cloud connectivity and resources. Edge computing can incorporate artificial intelligence (AI) and machine learning (ML) models to create intelligent edge devices and networks which can integrate with the cloud.
+* [Predictive maintenance with IoT Edge](../../example-scenario/predictive-maintenance/iot-predictive-maintenance.yml): The Internet-of-things (IoT) Edge brings data processing and storage close to the data source, enabling fast, consistent responses with reduced dependency on cloud connectivity and resources. Edge computing can incorporate artificial intelligence (AI) and machine learning (ML) models to create intelligent edge devices and networks that can integrate with the cloud.
 
 * [Condition monitoring for industrial IoT](../../solution-ideas/articles/condition-monitoring.yml): OPC UA (Open Platform Communication Unified Architecture) can be used to monitor equipment parameters to discover anomalies before they become critical issues.
 
