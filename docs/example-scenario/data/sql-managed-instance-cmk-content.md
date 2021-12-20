@@ -18,24 +18,24 @@ The secondary key vault instance, while in a remote region, has a [private endpo
 
 1. Every 10 minutes, SQL Managed Instance checks to make sure it can access the TDE wrapper at the key vault that's defined as primary. 
 
-2. If a key vault becomes unavailable and is set as the primary on a SQL Managed Instance, that instance checks the key vault that's set as secondary. If that key vault is also unavailable, [SQL Managed Instance marks the databases as "inaccessible."](/azure/azure-sql/database/transparent-data-encryption-byok-overview#inaccessible-tde-protector) 
+2. If the primary key vault of SQL Managed Instance becomes unavailable, that instance checks the key vault that's set as secondary. If that key vault is also unavailable, [SQL Managed Instance marks the databases as "inaccessible."](/azure/azure-sql/database/transparent-data-encryption-byok-overview#inaccessible-tde-protector) 
 
 ### Components
 
-- [Key Vault](https://azure.microsoft.com/services/key-vault) is a cloud service for storing and accessing secrets with enhanced security. In this architecture, it's used to store keys used by TDE. You can also use it to create keys. 
-- [SQL Managed Instance](https://azure.microsoft.com/products/azure-sql/managed-instance) is a managed instance in Azure that's based on the latest stable version of SQL Server. In this architecture, the key management process is applied to data stored in SQL Managed Instance. 
+- [Key Vault](https://azure.microsoft.com/services/key-vault) is a cloud service for storing and accessing secrets with enhanced security. In this architecture, it's used to store keys that are used by TDE. You can also use it to create keys. 
+- [SQL Managed Instance](https://azure.microsoft.com/products/azure-sql/managed-instance) is a managed instance in Azure that's based on the latest stable version of SQL Server. In this architecture, the key management process is applied to data that's stored in SQL Managed Instance. 
 - [Azure Private Link](/azure/private-link) enables you to access Azure PaaS services and Azure-hosted services over a private endpoint in your virtual network. 
 
 ### Alternatives
 -  Instead of using customer-managed TDE keys, you can use service-managed TDE keys. When you use service-managed keys, Microsoft handles securing and rotating the keys. The entire process is abstracted away from you. 
 
-- An alternative to having key vaults in two regions is to just have one in a single region. SQL Managed Instance can access keys from a vault that's in another region. You can still use private endpoint. The traffic to Key Vault is low and infrequent, so any latency isn't noticeable. SQL Managed Instance only queries the vault to see if the key exists. It doesn't copy the material.
+- An alternative to having key vaults in two regions is to just have one in a single region. SQL Managed Instance can access keys from a vault that's in another region. You can still use private endpoint. The traffic to Key Vault is low and infrequent, so any latency isn't noticeable. SQL Managed Instance only queries the vault to see whether the key exists. It doesn't copy the material.
 
 ## Considerations
 ### General recommendations
 See these articles:
 - [Recommendations for configuring customer-managed TDE](/azure/azure-sql/database/transparent-data-encryption-byok-overview#recommendations-when-configuring-akv)
-- [Recommendations for configuring TDE protector](/azure-sql/database/transparent-data-encryption-byok-overview#recommendations-when-configuring-tde-protector)
+- [Recommendations for configuring TDE protector](/azure/azure-sql/database/transparent-data-encryption-byok-overview#recommendations-when-configuring-tde-protector)
 ### Key management considerations
 Your method of key rotation will differ depending on what you're using to create your TDE asymmetric keys. When you bring your own TDE wrapper key, you have to decide how you'll create this key. Your options are:
 
@@ -46,7 +46,7 @@ Your method of key rotation will differ depending on what you're using to create
 - Use a [supported on-premises hardware security module (HSM)](/azure/key-vault/keys/hsm-protected-keys#supported-hsms) to generate your keys. By using a supported HSM, you can import keys into Key Vault with improved security. The same-geography limitation described earlier doesn't apply when you use an HSM. This option provides a high level of safety for your keys because the key material is in three separate places (two key vaults in Azure and on-premises). This option also provides the same level of flexibility, if you use a supported HSM.
 
 ### Availability
-When you add Key Vault to your architecture, it becomes a critical component. At least one of the key vaults in the design must be accessible. Additionally, the keys necessary for TDE must be accessible. Azure Monitor insights provides comprehensive monitoring of Key Vault. For more information, see [Monitoring your key vault service](/azure/azure-monitor/insights/key-vault-insights-overview).
+When you add Key Vault to your architecture, it becomes a critical component. At least one of the key vaults in the design must be accessible. Additionally, the keys that are necessary for TDE must be accessible. Azure Monitor insights provides comprehensive monitoring of Key Vault. For more information, see [Monitoring your key vault service](/azure/azure-monitor/insights/key-vault-insights-overview).
 
 
 ### Operations
@@ -60,16 +60,16 @@ When you move from service-managed keys to customer-managed keys, your operation
 ### Performance
 SQL Managed Instance auto-failover groups [perform significantly better when you use paired regions](/azure/azure-sql/database/auto-failover-group-overview?tabs=azure-powershell#using-geo-paired-regions).
 
-SQL Managed Instances only checks to see if the key exists, and it only does that every 10 minutes. Therefore, SQL Managed Instances doesn't require region-affinity with Key Vault. The location of your TDE keys has no effect on performance.
+SQL Managed Instance only checks to see whether the key exists, and it only does that every 10 minutes. Therefore, SQL Managed Instances doesn't require region-affinity with Key Vault. The location of your TDE keys has no effect on performance.
 
 ### Scalability
 When it comes to managing your TDE keys, scaling isn't a concern. The request size and frequency are so small that you won't need to scale.
 
 ### Security
-The biggest security consideration is ensuring you keep your TDE wrapper key safe and always available to SQL Managed Instances. Any database encrypted via TDE is inaccessible if it can't access the required key in Key Vault. If you use service-managed keys, you don't have to worry about this consideration.
+The biggest security consideration is ensuring that you keep your TDE wrapper key safe and always available to SQL Managed Instances. Any database encrypted via TDE is inaccessible if it can't access the required key in Key Vault. If you use service-managed keys, you don't have to worry about this consideration.
 
 ### Resiliency
-Each SQL managed instance is configured to use two key vaults. If the SQL Managed Instance primary TDE key is unavailable or inaccessible, the instance will attempt to find a key with a matching thumbprint in the secondary key vault.
+Each SQL managed instance is configured to use two key vaults. If the SQL managed instance primary TDE key is unavailable or inaccessible, the instance attempts to find a key with a matching thumbprint in the secondary key vault.
 
 ### DevOps
 You can use [Azure Pipelines](/azure/devops/pipelines) in Azure DevOps to automate the [key rotation process](/azure/azure-sql/database/transparent-data-encryption-byok-key-rotation).
