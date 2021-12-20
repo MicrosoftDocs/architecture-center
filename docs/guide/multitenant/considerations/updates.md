@@ -10,6 +10,9 @@ ms.service: architecture-center
 ms.subservice: azure-guide
 products:
   - azure
+  - azure-devops
+  - azure-pipelines
+  - github
 categories:
   - management-and-governance
   - devops
@@ -90,7 +93,7 @@ Consider how you will deploy updates to your infrastructure. This is heavily inf
 
 In all cases, ensure that you have sufficient reporting/visibility, so that you know what version of infrastructure, software, or feature each tenant is on, what they are eligible to migrate to, and any time-related data associated those states.
 
-### Deployment stamps
+### Deployment Stamps pattern
 
 Some multitenant applications are a good fit for the [Deployment Stamps pattern](../../../patterns/deployment-stamp.md), in which you deploy multiple copies of your application and other components. Depending on your isolation requirements, you might deploy a stamp for each tenant, or shared stamps that run multiple tenants' workloads.
 

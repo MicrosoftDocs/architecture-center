@@ -10,12 +10,12 @@ ms.service: architecture-center
 ms.subservice: azure-guide
 products:
  - azure
- - azure-app=service
+ - azure-app-service
  - azure-functions
  - azure-kubernetes-service
 categories:
- - management-and-governance
- - security
+ - compute
+ - web
 ms.category:
   - fcp
 ms.custom:

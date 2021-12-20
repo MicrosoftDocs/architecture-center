@@ -11,8 +11,9 @@ ms.subservice: azure-guide
 products:
   - azure
 categories:
-  - management-and-governance
-  - security
+  - azure-virtual-network
+  - azure-private-link
+  - azure-front-door
 ms.category:
   - fcp
 ms.custom:

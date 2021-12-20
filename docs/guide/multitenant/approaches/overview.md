@@ -12,7 +12,6 @@ products:
  - azure
 categories:
  - management-and-governance
- - security
 ms.category:
   - fcp
 ms.custom:
