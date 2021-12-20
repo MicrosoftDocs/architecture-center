@@ -1,6 +1,6 @@
 ### YamlMime:Architecture
 metadata:
-  title: Application data protection and mobility for Azure Kubernetes Services (AKS) workloads on Azure NetApp Files
+  title: Application data protection for Azure Kubernetes Service (AKS) workloads on Azure NetApp Files
   titleSuffix: Azure Example Scenarios
   description: Deploy Astra Control Service with Azure NetApp Files for data protection, disaster recovery, and mobility for Azure Kubernetes Service (AKS) applications.
   author: arntdg
@@ -18,7 +18,7 @@ products:
   - azure-netapp-files
   - azure-kubernetes-service
   - azure-virtual-network
-name: Application data protection and mobility for Azure Kubernetes Services (AKS) workloads on Azure NetApp Files
+name: Application data protection for Azure Kubernetes Service (AKS) workloads on Azure NetApp Files
 summary: Deploy Astra Control Service with Azure NetApp Files for data protection, disaster recovery, and mobility for Azure Kubernetes Service (AKS) applications.
 thumbnailUrl: /docs/browse/thumbs/data-protection-kubernetes-astra-azure-netapp-files-thumbnail.png
 content: |
