@@ -44,7 +44,7 @@ IoT solutions solve specific business challenges in unique industries. In this s
 
 * [End-to-end manufacturing using conputer vision on the edge](../../reference-architectures/ai/end-to-end-smart-factory.yml): Fully automated smart factories use artificial intelligence (AI) and machine learning (ML) to analyze data, run systems, and improve processes over time. In manufacturing, computer vision on the edge is an increasingly popular Internet of Things (IoT) application used in safety and quality assurance applications.
 
-### Smart Buildings
+### Smart buildings
 
 * [Create smart places by using Azure Digital Twins](../../example-scenario/iot/smart-places.yml): Smart places are physical environments that bring together connected devices and data sources. They can include buildings, college campuses, corporate campuses, stadiums, and cities. Smart places provide value by helping property owners, facility managers, and occupants operate and maintain sites.
 
