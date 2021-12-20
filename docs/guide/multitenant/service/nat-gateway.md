@@ -13,7 +13,6 @@ products:
  - azure-virtual-network
 categories:
  - networking
- - security
 ms.category:
   - fcp
 ms.custom:
