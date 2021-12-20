@@ -42,7 +42,7 @@ The issue is exacerbated when you work with Azure services that share SNAT port 
 
 If you determine you're experiencing SNAT exhaustion and are sure your application code correctly handles your outbound connections, consider deploying NAT Gateway. This approach is commonly used by customers deploying multitenant solutions built on [Azure App Service and Azure Functions](/azure/app-service/networking/nat-gateway-integration).
 
-Each NAT gateway can provide 64,000 SNAT ports per public IP address and supports up to 16 public IP addresses, which effectively provides up to 1 million SNAT ports. The number of SNAT ports provided by the NAT gateway scales dynamically across the virtual machines in the subnet, which allows the child resource to use any number of available ports. You can consider [deploying multiple NAT Gateway instances across multiple subnets](/azure/virtual-network/nat-gateway/nat-gateway-resource#performance) if you need to scale even beyond this limit.
+Each NAT gateway provides at least 64,000, and up to 1 million, SNAT ports. You can consider [deploying multiple NAT Gateway instances across multiple subnets or VNets](/azure/virtual-network/nat-gateway/nat-gateway-resource#performance) if you need to scale even beyond this limit. Each virtual machine in a subnet can use any of the available SNAT ports, if it needs them.
 
 ### Outbound IP address control
 
@@ -59,7 +59,7 @@ When a NAT Gateway instance is applied to a subnet, any outbound traffic from th
 
 ## Isolation models
 
-If you need to provide different outbound public IP addresses for each tenant, you must deploy individual NAT Gateway resources. Each subnet can be associated with a single NAT Gateway instance. You need to deploy multiple subnets or virtual networks. In turn, you likely need to deploy multiple sets of compute resources.
+If you need to provide different outbound public IP addresses for each tenant, you must deploy individual NAT Gateway resources. Each subnet can be associated with a single NAT Gateway instance, so to deploy additional NAT gateways, you need to deploy multiple subnets or virtual networks. In turn, you likely need to deploy multiple sets of compute resources.
 
 Review [Architectural approaches for networking in multitenant solutions](../approaches/networking.md) for more information about how to design a multitenant network topology.
 
