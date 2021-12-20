@@ -141,7 +141,7 @@ Some organizations use standard storage for their application servers. Standard 
 
 Application servers don't host business data. So you can also use the smaller P4 and P6 premium disks to help minimize cost. Doing so also allows you to benefit from the [single-instance VM SLA](https://azure.microsoft.com/support/legal/sla/virtual-machines/v1_6) if you have a central SAP stack installation.
 
-For high-availability scenarios, [Azure File Shares](/azure/storage/files/storage-files-introduction) and [Azure shared disks](/azure/virtual-machines/disks-shared) can be used. Premium SSD and Ultra SSD [Azure managed disks](/azure/storage/storage-managed-disks-overview) are available for Azure shared disks and Premium SSD for Azure File Shares is now available.
+For high-availability scenarios, you can use [Azure File Shares](/azure/storage/files/storage-files-introduction) and [Azure shared disks](/azure/virtual-machines/disks-shared). Premium SSD and Ultra SSD [Azure managed disks](/azure/storage/storage-managed-disks-overview) are available for Azure shared disks, and Premium SSD is available for Azure File Shares.
 
 Azure Storage is also used by [Cloud Witness](/windows-server/failover-clustering/deploy-cloud-witness) to maintain quorum with a device in a remote Azure region, away from the primary region where the cluster resides.
 
@@ -265,7 +265,7 @@ For automatic replication of application servers to a secondary region, we recom
 
 ### Central Services
 
-This component of the SAP application stack doesn't persist business data. For DR protection, either replicate the AFS SMB file share which contains the /sapmnt directory and other content onto another AFS SMB share (also with ZRS or not) in the DR region or use Site Recovery to replicate the Central Services cluster by using SIOS DataKeeper disks.
+This component of the SAP application stack doesn't persist business data. For DR protection, either replicate the AFS SMB file share, which contains the /sapmnt directory and other content, onto another AFS SMB share (also with ZRS or not) in the DR region. Alternatively, you can use Site Recovery to replicate the Central Services cluster by using SIOS DataKeeper disks.
 
 You can build a virtual machine in the DR region to replicate the Central Services role and content. The only content from the primary Central Services node to synchronize is the /sapmnt share. If the configuration changes or kernel updates take place on the primary Central Services servers, you need to repeat the changes on the virtual machine in the DR region. For details about this replication method's build, copy, and test failover process, download [SAP NetWeaver: Building a Hyper-V and Microsoft Azure–based Disaster Recovery Solution](https://download.microsoft.com/download/9/5/6/956FEDC3-702D-4EFB-A7D3-2DB7505566B6/SAP%20NetWeaver%20-%20Building%20an%20Azure%20based%20Disaster%20Recovery%20Solution%20V1_5%20.docx). See "4.3. SAP SPOF layer (ASCS)."
 
