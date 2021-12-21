@@ -5,7 +5,7 @@ Many companies are adopting DevOps practices and want to apply these practices t
 - Challenges with tracking configuration changes
 - No approval process for tenant modifications 
 
-You can use the solution described in this article to automate changes to Microsoft 365 tenant configurations by using [Azure DevOps](/azure/devops/user-guide/what-is-azure-devops) and [Microsoft365DSC](https://microsoft365dsc.com). Microsoft365DSC is a [PowerShell Desired State Configuration (DSC)](/powershell/scripting/dsc/overview/overview) module. You can use it to configure and manage Microsoft 365 tenants in a true DevOps style: configuration as code. 
+You can use the solution described in this article to automate changes to Microsoft 365 tenant configurations by using [Azure DevOps](/azure/devops/user-guide/what-is-azure-devops) and [Microsoft365DSC](https://microsoft365dsc.com). Microsoft365DSC is a [PowerShell Desired State Configuration (DSC)](/powershell/scripting/dsc/overview) module. You can use it to configure and manage Microsoft 365 tenants in a true DevOps style: configuration as code. 
 
 The solution described here tracks changes made by service administrators and adds an approval process to deployments to Microsoft 365 tenants. It can help you prevent untracked changes to Microsoft 365 tenants. It also helps to prevent configuration drift between multiple Microsoft 365 tenants.
 
@@ -37,7 +37,7 @@ This solution can help you manage Microsoft 365 tenant configuration in a contro
 - [Azure Pipelines](https://azure.microsoft.com/services/devops/pipelines) enables continuous integration (CI) and continuous delivery (CD) to test and build your code and ship it to any target.
 - [Azure Key Vault](https://azure.microsoft.com/services/key-vault) improves the security of storage for tokens, passwords, certificates, API keys, and other secrets. It also provides tightly controlled access to these secrets. 
 - [Microsoft365DSC](https://microsoft365dsc.com) provides automation for the deployment, configuration, and monitoring of Microsoft 365 tenants via PowerShell DSC.
-- [Windows PowerShell DSC](/powershell/scripting/dsc/overview/overview) is a management platform in PowerShell. You can use it to manage your development infrastructure by using a configuration-as-code model.
+- [Windows PowerShell DSC](/powershell/scripting/dsc/overview) is a management platform in PowerShell. You can use it to manage your development infrastructure by using a configuration-as-code model.
 
 ### Alternatives
 
