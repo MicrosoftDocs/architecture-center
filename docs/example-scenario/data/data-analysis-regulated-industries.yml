@@ -29,4 +29,4 @@ name: Data analysis workloads for regulated industries
 summary: This article describes an architecture for data analysis workloads for regulated industries. The architecture includes ETL/ELT and Power BI.
 thumbnailUrl: /azure/architecture/browse/thumbs/data-analysis-architecture-01.png
 content: |
-  [!include[](data-analysis-regulated-industries-content)]
+  [!include[](data-analysis-regulated-industries-content.md)]
