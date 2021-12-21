@@ -105,6 +105,7 @@ For more details on implementations, take a look at some of these retail partner
 
 * [Oneview Commerce](https://www.oneviewcommerce.com)
 * [Ombori](https://ombori.com/)
+* [Avanade intelligent store](https://www.avanade.com/en/industry/retail/intelligent-store-whitepaper)
 
 ## Related resources
 
