@@ -1,7 +1,7 @@
 ### YamlMime:Architecture
 metadata:
   title: Optimized storage – time based - multi writes
-  titleSuffix: Azure Solution Ideas
+  titleSuffix: Azure Architecture
   description: Architecture for a high-availability solution that uses two Azure storage services, one for quick access to high-demand data, the other for low-demand data.
   author: nabilshams
   ms.author: nasiddi

@@ -2,7 +2,7 @@
 
 Medium Umbraco CMS web app configured to scale and optimal for high-traffic sites. It uses two web apps, one for your front-end app and the other for your back-office app, deployed in a single region with autoscaling enabled.
 
-This solution is built on the Azure managed services: [Azure SQL Database](https://azure.microsoft.com/services/sql-database), [Storage Accounts](https://azure.microsoft.com/services/storage), Application Insights and [Azure Cache for Redis](https://azure.microsoft.com/services/cache). These services run in a high-availability environment, patched and supported, allowing you to focus on your solution instead of the environment they run in.
+This solution is built on the Azure managed services: [Azure SQL Database](https://azure.microsoft.com/services/sql-database), [Storage Accounts](https://azure.microsoft.com/services/storage), Application Insights and [Azure Cache for Redis](https://azure.microsoft.com/services/cache). These services run in a high-availability environment, patched and supported, which allows you to focus on your solution instead of the environment it runs in.
 
 ## Architecture
 
@@ -19,11 +19,10 @@ This solution is built on the Azure managed services: [Azure SQL Database](https
 
 ## Deploy this solution
 
-Use the following pre-built template to deploy this architecture to Azure
+Use the following pre-built template to deploy this architecture to Azure:
 
-[Deploy to Azure](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fumbraco-cms-webapp-redis-cache%2Fazuredeploy.json)
-
-[View template source](https://azure.microsoft.com/resources/templates/umbraco-cms-webapp-redis-cache)
+- [Deploy to Azure](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fumbraco-cms-webapp-redis-cache%2Fazuredeploy.json)
+- [View template source](https://azure.microsoft.com/resources/templates/umbraco-cms-webapp-redis-cache)
 
 ## Next steps
 <!-- markdownlint-disable MD024 -->

@@ -1,5 +1,5 @@
 ---
-title: Azure AI guide for predictive maintenance solutions - Team Data Science Process
+title: Azure AI for predictive maintenance solutions
 description: A comprehensive description of the data science that powers predictive maintenance solutions in multiple vertical industries.
 services: machine-learning
 author: marktab
@@ -10,19 +10,21 @@ ms.subservice: team-data-science-process
 ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
-ms.custom: previous-author=fboylu, previous-ms.author=fboylu
+ms.custom:
+  - previous-author=fboylu
+  - previous-ms.author=fboylu
 products:
   - azure-machine-learning
 categories:
   - ai-machine-learning
 ---
-# Azure AI guide for predictive maintenance solutions
+# Azure AI for predictive maintenance solutions
 
 ## Summary
 
 Predictive maintenance (**PdM**) is a popular application of predictive analytics that can help businesses in several industries achieve high asset utilization and savings in operational costs. This guide brings together the business and analytical guidelines and best practices to successfully develop and deploy PdM solutions using the [Microsoft Azure AI platform](https://azure.microsoft.com/overview/ai-platform) technology.
 
-For starters, this guide introduces industry-specific business scenarios and the process of qualifying these scenarios for PdM. The data requirements and modeling techniques to build PdM solutions are also provided. The main content of the guide is on the data science process - including the steps of data preparation, feature engineering, model creation, and model operationalization. To complement these key concepts, this guide lists a set of solution templates to help accelerate PdM application development. The guide also points to useful training resources for the practitioner to learn more about the AI behind the data science. 
+For starters, this guide introduces industry-specific business scenarios and the process of qualifying these scenarios for PdM. The data requirements and modeling techniques to build PdM solutions are also provided. The main content of the guide is on the data science process - including the steps of data preparation, feature engineering, model creation, and model operationalization. To complement these key concepts, this guide lists a set of solution templates to help accelerate PdM application development. The guide also points to useful training resources for the practitioner to learn more about the AI behind the data science.
 
 ### Data Science guide overview and target audience
 The first half of this guide describes typical business problems, the benefits of implementing PdM to address these problems, and lists some common use cases. Business decision makers (BDMs) will benefit from this content. The second half explains the data science behind PdM, and provides a list of PdM solutions built using the principles outlined in this guide. It also provides learning paths and pointers to training material. Technical decision makers (TDMs) will find this content useful.
@@ -106,8 +108,8 @@ This section provides general guidelines of data science principles and practice
 > [!NOTE]
 > This guide is NOT intended to teach the reader Data Science. Several
 > helpful sources are provided for further reading in the section for
-> [training resources for predictive maintenance](#training-resources-for-predictive-maintenance). The 
-> [solution templates](#solution-templates-for-predictive-maintenance) listed in the guide 
+> [training resources for predictive maintenance](#training-resources-for-predictive-maintenance). The
+> [solution templates](#solution-templates-for-predictive-maintenance) listed in the guide
 > demonstrate some of these AI techniques for specific PdM problems.
 
 ## Data requirements for predictive maintenance
@@ -125,9 +127,9 @@ Two questions are commonly asked with regard to failure history data: (1) "How m
 The quality of the data is critical - each predictor attribute value must be _accurate_ in conjunction with the value of the target variable. Data quality is a well-studied area in statistics and data management, and hence out of scope for this guide.
 
 > [!NOTE]
-> There are several resources and enterprise products to deliver quality 
+> There are several resources and enterprise products to deliver quality
 > data. A sample of references is provided below:
-> - Dasu, T, Johnson, T., Exploratory Data Mining and Data Cleaning, 
+> - Dasu, T, Johnson, T., Exploratory Data Mining and Data Cleaning,
 > Wiley, 2003.
 > - [Exploratory Data Analysis, Wikipedia](https://en.wikipedia.org/wiki/Exploratory_data_analysis)
 > - [Hellerstein, J, Quantitative Data Cleaning for Large Databases](http://db.cs.berkeley.edu/jmh/papers/cleaning-unece.pdf)
@@ -193,7 +195,7 @@ Other data preprocessing steps include _handling missing values_ and _normalizat
 With the above preprocessed data sources in place, the final transformation before feature engineering is to join the above tables based on the asset identifier and timestamp. The resulting table would have null values for the failure column when machine is in normal operation. These null values can be imputed by an indicator for normal operation. Use this failure column to create _labels for the predictive model_. For more information, see the section on [modeling techniques for predictive maintenance](#modeling-techniques-for-predictive-maintenance).
 
 ## Feature engineering
-Feature engineering is the first step prior to modeling the data. Its role in the data science process [is described here](./create-features.md). A _feature_ is a predictive attribute for the model - such as temperature, pressure, vibration, and so on. For PdM, feature engineering involves abstracting a machine's health over historical data collected over a sizable duration. In that sense, it is different from its peers such as remote monitoring, anomaly detection, and failure detection. 
+Feature engineering is the first step prior to modeling the data. Its role in the data science process [is described here](./create-features.md). A _feature_ is a predictive attribute for the model - such as temperature, pressure, vibration, and so on. For PdM, feature engineering involves abstracting a machine's health over historical data collected over a sizable duration. In that sense, it is different from its peers such as remote monitoring, anomaly detection, and failure detection.
 
 ### Time windows
 Remote monitoring entails reporting the events that happen as of _points in time_. Anomaly detection models evaluate (score) incoming streams of data to flag anomalies as of points in time. Failure detection classifies failures to be of specific types as they occur points in time. In contrast, PdM involves predicting failures over a _future time period_, based on features that represent machine behavior over _historical time period_. For PdM, feature data from individual points of time are too noisy to be predictive. So the data for each feature needs to be _smoothened_ by aggregating data points over time windows.
@@ -202,9 +204,9 @@ Remote monitoring entails reporting the events that happen as of _points in time
 The business requirements define how far the model has to predict into the future. In turn, this duration helps define 'how far back the model has to look' to make these predictions. This 'looking back' period is called the _lag_, and features engineered over this lag period are called _lag features_. This section discusses lag features that can be constructed from data sources with timestamps, and feature creation from static data sources. Lag features are typically _numerical_ in nature.
 
 > [!IMPORTANT]
-> The window size is determined via experimentation, and should be 
-> finalized with the help of a domain expert. The same caveat holds for 
-> the selection and definition of lag features, their aggregations, and 
+> The window size is determined via experimentation, and should be
+> finalized with the help of a domain expert. The same caveat holds for
+> the selection and definition of lag features, their aggregations, and
 > the type of windows.
 
 #### Rolling aggregates
@@ -214,7 +216,7 @@ For each record of an asset, a rolling window of size "W" is chosen as the numbe
 
 Figure 1. Rolling aggregate features
 
-Examples of rolling aggregates over a time window are count, average, CUMESUM (cumulative sum) measures, min/max values. In addition, variance, standard deviation, and count of outliers beyond N standard deviations are often used. Examples of aggregates that may be applied for the [use cases](#sample-pdm-use-cases) in this guide are listed below. 
+Examples of rolling aggregates over a time window are count, average, CUMESUM (cumulative sum) measures, min/max values. In addition, variance, standard deviation, and count of outliers beyond N standard deviations are often used. Examples of aggregates that may be applied for the [use cases](#sample-pdm-use-cases) in this guide are listed below.
 - _Flight delay_: count of error codes over the last day/week.
 - _Aircraft engine part failure_: rolling means, standard deviation, and sum over the past day, week etc. This metric should be determined along with the business domain expert.
 - _ATM failures_: rolling means, median, range, standard deviations, count of outliers beyond three standard deviations, upper and lower CUMESUM.
@@ -254,14 +256,14 @@ The last step in feature engineering is the **labeling** of the target variable.
 > important as modeling techniques to arrive at successful
 > PdM solutions. The domain expert and the practitioner should
 > invest significant time in arriving at the right features
-> and data for the model. A small sample from many books on 
+> and data for the model. A small sample from many books on
 > feature engineering are listed below:
-> - Pyle, D. Data Preparation for Data Mining (The Morgan Kaufmann Series 
+> - Pyle, D. Data Preparation for Data Mining (The Morgan Kaufmann Series
 > in Data Management Systems), 1999
-> - Zheng, A., Casari, A. Feature Engineering for Machine Learning: 
+> - Zheng, A., Casari, A. Feature Engineering for Machine Learning:
 > Principles and Techniques for Data Scientists, O'Reilly, 2018.
 > - Dong, G. Liu, H. (Editors), Feature Engineering for Machine
-> Learning and Data Analytics (Chapman & Hall/CRC Data Mining and 
+> Learning and Data Analytics (Chapman & Hall/CRC Data Mining and
 > Knowledge Discovery Series), CRC Press, 2018.
 
 ## Modeling techniques for predictive maintenance
@@ -269,7 +271,7 @@ The last step in feature engineering is the **labeling** of the target variable.
 This section discusses the main modeling techniques for PdM problems, along with their specific label construction methods. Notice that a single modeling technique can be used across different industries. The modeling technique is paired to the data science problem, rather than the context of the data at hand.
 
 > [!IMPORTANT]
-> The choice of labels for the failure cases and the labeling strategy  
+> The choice of labels for the failure cases and the labeling strategy
 > should be determined in consultation with the domain expert.
 
 ### Binary classification
@@ -461,7 +463,7 @@ Microsoft Azure offers learning paths for the foundational concepts behind PdM t
 | [Microsoft AI School](https://www.microsoft.com/ai/ai-school) | Public |
 | [LinkedIn Learning](https://www.linkedin.com/learning) | Public |
 | [Microsoft: Playlists on YouTube for Artificial Intelligence and Analytics](https://www.youtube.com/c/MicrosoftAzure/playlists?view=50&sort=dd&shelf_id=7) | Public |
-| [Microsoft AI Show](https://channel9.msdn.com/Shows/AI-Show) | Public |
+| [Microsoft AI Show](/shows/AI-Show/) | Public |
 | [AI Platform Overview](https://azure.microsoft.com/overview/ai-platform/) | Public |
 | [AI Lab](https://www.microsoft.com/ai/ai-lab) | Public |
 | [Microsoft AI](https://www.microsoft.com/AI) | Public |

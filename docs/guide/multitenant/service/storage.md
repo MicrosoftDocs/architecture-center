@@ -7,11 +7,12 @@ ms.author: jodowns
 ms.date: 10/18/2021
 ms.topic: conceptual
 ms.service: architecture-center
+ms.subservice: azure-guide
 products:
- - azure
+  - azure
+  - azure-storage
 categories:
- - management-and-governance
- - security
+  - storage
 ms.category:
   - fcp
 ms.custom:
@@ -51,7 +52,7 @@ Consider using [lifecycle management policies](/azure/storage/blobs/lifecycle-ma
 
 When you configure [immutable blob storage](/azure/storage/blobs/immutable-storage-overview) on storage containers with [time-based retention policies](/azure/storage/blobs/immutable-time-based-retention-policy-overview), Azure Storage prevents deletion or modification of the data before a specified time. The prevention is enforced at the storage account layer and applies to all users. Even your organization's administrators can't delete immutable data.
 
-Immutable storage can be useful when you work with tenants that have legal or compliance requirements to maintain data or records. However, you should consider how this feature is used within the context of your [tenant lifecycle](../considerations/tenant-lifecycle.md). For example, if tenants are offboarded and request the deletion of their data, you might not be able to fulfil their requests. If you use immutable storage for your tenants' data, consider how you address this issue in your terms of service.
+Immutable storage can be useful when you work with tenants that have legal or compliance requirements to maintain data or records. However, you should consider how this feature is used within the context of your [tenant lifecycle](../considerations/tenant-lifecycle.md). For example, if tenants are offboarded and request the deletion of their data, you might not be able to fulfill their requests. If you use immutable storage for your tenants' data, consider how you address this issue in your terms of service.
 
 ### Server-side copy
 
@@ -130,7 +131,7 @@ When working with file shares, you might choose to use a shared file share, and 
 
 When you use an application that can communicate using the Server Message Block (SMB) protocol, and when you use Active Directory Domain Services either on-premises or in Azure, file shares [support authorization](/azure/storage/files/storage-files-active-directory-overview) at both the share and the directory/file levels.
 
-In other scenarios, consider using SAS to grant access to specific file shares or files. When you use SAS, you can't grant access to directories. 
+In other scenarios, consider using SAS to grant access to specific file shares or files. When you use SAS, you can't grant access to directories.
 
 When you work with shared file shares, consider whether you need to track the data and Azure Storage service usage for each tenant, and then plan an approach to do so (as necessary). See [Monitoring](#monitoring) for further information.
 
@@ -174,4 +175,4 @@ When you dynamically create queues for each tenant, consider how your applicatio
 
 ## Next steps
 
-Review [Resources for architects and developers of multitenant solutions](../related-resources.md).
+Review [storage and data approaches for multitenancy](../approaches/storage-data.md).

@@ -46,8 +46,7 @@ This solution applies to many areas:
 
 The following diagram shows the flow of data in this solution:
 
-- The boxes that contain multiple icons represent categories of
-services. Within each category, services work independently or together to provide functionality.
+- The boxes that contain multiple icons represent categories of services. Within each category, services work independently or together to provide functionality.
 - Arrows between boxes represent communication between the corresponding areas.
 
 :::image type="content" source="./media/smart-places-diagram.svg" alt-text="Diagram that illustrates the recommended architecture for a smart space solution." border="false" lightbox="./media/smart-places-diagram.svg":::
@@ -233,7 +232,7 @@ These services provide support for components in all areas of the solution:
 
 - [Azure Monitor][Azure Monitor] collects and analyzes app telemetry, such as performance metrics and activity logs. This service notifies apps and personnel about irregular conditions.
 
-- [Azure Defender for IoT][Azure Defender for IoT] is a unified security service that protects IoT systems by identifying vulnerabilities and threats.
+- [Microsoft Defender for IoT](/azure/defender-for-iot/overview) is a unified security service that protects IoT systems by identifying vulnerabilities and threats.
 
 - [Azure DevOps Services][Azure DevOps] provides services, tools, and environments for managing coding projects and deployments.
 
@@ -304,7 +303,6 @@ Use the [Azure pricing calculator][Azure pricing calculator] to estimate the cos
 - [IoT analytics with Azure Data Explorer][IoT analytics with Azure Data Explorer]
 - [Cognizant Safe Buildings with IoT and Azure][Cognizant Safe Buildings with IoT and Azure]
 
-
 [Adopting an industry ontology]: /azure/digital-twins/concepts-ontologies-adopt
 [API Management - overview]: https://azure.microsoft.com/services/api-management/#overview
 [App Service overview]: /azure/app-service/overview
@@ -314,7 +312,6 @@ Use the [Azure pricing calculator][Azure pricing calculator] to estimate the cos
 [Azure Cosmos DB]: https://azure.microsoft.com/services/cosmos-db
 [Azure Data Explorer]: /azure/data-explorer/data-explorer-overview
 [Azure Data Factory]: /azure/data-factory/introduction
-[Azure Defender for IoT]: /azure/defender-for-iot/overview
 [Azure DevOps]: https://azure.microsoft.com/services/devops
 [Azure Digital Twins]: /azure/digital-twins/overview
 [Azure Digital Twins APIs and SDKs]: /azure/digital-twins/concepts-apis-sdks

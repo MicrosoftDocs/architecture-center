@@ -3,7 +3,7 @@ metadata:
   title: Messaging
   titleSuffix: Azure Solution Ideas
   description: Azure Cache for Redis routes real-time messages in publish and subscribe systems. It also scales up web communication frameworks like Azure SignalR Service.
-  author: doodlemania2
+  author: EdPrice-MSFT
   ms.author: pnp
   ms.date: 12/16/2019
   ms.topic: conceptual

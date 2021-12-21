@@ -1,6 +1,5 @@
 
 
-
 This reference architecture shows how to deploy virtual machines (VMs) and a virtual network configured for an [N-tier](../../guide/architecture-styles/n-tier.md) application, using Apache Cassandra on Linux for the data tier. [**Deploy this solution**](#deploy-the-solution).
 
 [![N-tier architecture using Microsoft Azure](./images/n-tier-cassandra.png)](./images/n-tier-cassandra.png)
@@ -80,7 +79,7 @@ Create rules 2 &ndash; 4 with higher priority than the first rule, so they overr
 
 We recommend [DataStax Enterprise][datastax] for production use, but these recommendations apply to any Cassandra edition. For more information on running DataStax in Azure, see [DataStax Enterprise Deployment Guide for Azure][cassandra-in-azure].
 
-Configure nodes in rack-aware mode. Map fault domains to racks in the `cassandra-rackdc.properties` file. 
+Configure nodes in rack-aware mode. Map fault domains to racks in the `cassandra-rackdc.properties` file.
 
 You don't need a load balancer in front of the cluster. The client connects directly to a node in the cluster.
 
@@ -101,7 +100,7 @@ To secure the jumpbox, add an NSG rule that allows ssh connections only from a s
 
 ### Scale sets
 
-For the web and business tiers, consider using [virtual machine scale sets][vmss], instead of deploying separate VMs into an availability set. A scale set makes it easy to deploy and manage a set of identical VMs, and autoscale the VMs based on performance metrics. As the load on the VMs increases, additional VMs are automatically added to the load balancer. 
+For the web and business tiers, consider using [virtual machine scale sets][vmss], instead of deploying separate VMs into an availability set. A scale set makes it easy to deploy and manage a set of identical VMs, and autoscale the VMs based on performance metrics. As the load on the VMs increases, additional VMs are automatically added to the load balancer.
 
 There are two basic ways to configure VMs deployed in a scale set:
 
@@ -179,13 +178,11 @@ Virtual machine scale sets are available on all Linux VM sizes. You are only cha
 
 For single VMs pricing options See [Linux VMs pricing][Linux-vm-pricing].
 
-
 ### Load balancers
 
 You are charged only for the number of configured load-balancing and outbound rules. Inbound NAT rules are free. There is no hourly charge for the Standard Load Balancer when no rules are configured.
 
 For more information, see the cost section in [Microsoft Azure Well-Architected Framework][WAF-cost].
-
 
 ## Security considerations
 
@@ -236,7 +233,6 @@ Consider using the [Azure Monitor][azure-monitor] to Analyze and optimize the pe
 Make sure not only to monitor your compute elements supporting your application code, but your data platform as well, in particular your databases, since a low performance of the data tier of an application could have serious consequences.
 
 In order to test the Azure environment where the applications are running, it should be version-controlled and deployed through the same mechanisms as application code, then it can be tested and validated using DevOps testing paradigms too.
-
 
 For more information, see the Operational Excellence section in [Microsoft Azure Well-Architecture Framework][WAF-devops].
 

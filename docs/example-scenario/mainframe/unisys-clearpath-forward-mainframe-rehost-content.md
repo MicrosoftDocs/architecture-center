@@ -4,7 +4,7 @@ The Unisys mainframe systems trace their heritage back to the first commercially
 
 The architecture described in this article shows how to use virtualization technologies from Microsoft partner Unisys with a legacy Unisys CPF Libra mainframe. This approach allows an accelerated move into Azure, eliminating the need to rewrite the application code or redesign the database architecture. Legacy code is 100-percent maintained in its original form. The application screens, user interactions, and data structures behind the scenes are unchanged, eliminating the need to retrain your users.
 
-The Unisys replatforming lifts the entire Libra system from today's proprietary hardware and lands the entire virtualized system into Azure as a virtual machine (VM). The Master Control Program (MCP) OS (license required from Unisys) and all processors, libraries, and data appear just as they did on the proprietary environment. Support VMs are added to the architecture to handle functions such as virtual tapes operations, automation and workload management (OpCon), web services, and other support functions.  
+The Unisys replatforming lifts the entire Libra system from today's proprietary hardware and lands the entire virtualized system into Azure as a virtual machine (VM). The Master Control Program (MCP) OS (license required from Unisys) and all processors, libraries, and data appear just as they did on the proprietary environment. Support VMs are added to the architecture to handle functions such as virtual tapes operations, automation and workload management (OpCon), web services, and other support functions.
 
 The chief benefit of this approach is a fairly rapid move to Azure compared to other methodologies, with a quick return on investment (ROI) as hardware maintenance and facility costs are dropped at the time of conversion. Because the MCP environment is unchanged, there is no cost associated with retraining users and programmers for the replatformed system. Depending upon the client's end goal, the transitioned Azure MCP could be the end state or a first step toward modernizing applications within the MCP environment or within Azure. This approach to landing in Azure permits a measured, planned path to updating applications while retaining the investment made in existing application code. Once moved to Azure, other Unisys Cloud Forte and Azure data analytic services can be employed as well.
 
@@ -52,7 +52,7 @@ The following considerations apply to this solution.
 
 ### Availability
 
-Unisys CPF in Azure uses ASR to ensure system availability and consistency.  
+Unisys CPF in Azure uses ASR to ensure system availability and consistency.
 
 ### Operations
 

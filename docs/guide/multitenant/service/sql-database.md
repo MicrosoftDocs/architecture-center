@@ -7,11 +7,12 @@ ms.author: jodowns
 ms.date: 10/08/2021
 ms.topic: conceptual
 ms.service: architecture-center
+ms.subservice: azure-guide
 products:
- - azure
+  - azure
+  - azure-sql-database
 categories:
- - management-and-governance
- - security
+  - data
 ms.category:
   - fcp
 ms.custom:
@@ -72,7 +73,7 @@ More information:
 
 ## Next steps
 
-See [Resources for architects and developers of multitenant solutions](/azure/architecture/guide/multitenant/related-resources).
+Review [storage and data approaches for multitenancy](../approaches/storage-data.md).
 
 ## Related resources
 

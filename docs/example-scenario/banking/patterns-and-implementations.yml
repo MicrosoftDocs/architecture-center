@@ -1,8 +1,8 @@
 ### YamlMime:Architecture
 metadata:
-  title: Patterns and implementations
+  title: Patterns and implementations for a banking cloud transformation
   description: Details about the patterns and implementations used when the commercial software engineer team created the banking system cloud transformation solution.
-  author: doodlemania2
+  author: EdPrice-MSFT
   ms.author: pnp
   ms.date: 8/11/2020
   ms.topic: conceptual
@@ -14,12 +14,11 @@ metadata:
     - fcp
     - cse
     - example-scenario
-name: Patterns and implementations
+name: Patterns and implementations for a banking cloud transformation
 azureCategories:
   - integration
 summary: Details about the patterns and implementations used when the commercial software engineer team created the banking system cloud transformation solution.
 products:
-  - azure-container-registry
   - azure-cosmos-db
   - azure-event-hubs
   - azure-functions

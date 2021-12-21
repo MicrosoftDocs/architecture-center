@@ -8,9 +8,11 @@ editor: marktab
 ms.service: machine-learning
 ms.subservice: team-data-science-process
 ms.topic: article
-ms.date: 01/10/2020
+ms.date: 12/16/2021
 ms.author: tdsp
-ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
+ms.custom:
+  - previous-author=deguhath
+  - previous-ms.author=deguhath
 products:
   - azure-machine-learning
 categories:
@@ -26,4 +28,4 @@ The following articles describe how to explore data in three different storage e
 * Explore [SQL Server](explore-data-sql-server.md) data by using SQL and by using a programming language like Python.
 * Explore [Hive table](explore-data-hive-tables.md) data using Hive queries.
 
-In addition, the video, [Preprocessing Data in Azure Machine Learning Studio](https://azure.microsoft.com/documentation/videos/preprocessing-data-in-azure-ml-studio/), describes the commonly used modules for cleaning and transforming data.
+The [Azure Machine Learning Resources](https://www.aka.ms/AMLservice) provide documentation and videos on getting started with Azure Machine Learning.

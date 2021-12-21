@@ -8,7 +8,8 @@ ms.date: 04/02/2020
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: cloud-fundamentals
-ms.workload: data-services
+ms.workload:
+  - data-services
 ms.devlang: R
 products:
   - azure-machine-learning
@@ -39,7 +40,6 @@ This article covers the following Azure services that support the R language:
 |[ML Services on HDInsight](#ml-services-on-hdinsight)            |cluster-based system for running R analyses on large datasets across many nodes   |
 |[Azure Databricks](#azure-databricks)                            |collaborative Spark environment that supports R and other languages               |
 |[Azure Machine Learning](#azure-machine-learning)                | cloud service that you use to train, deploy, automate, and manage machine learning models
-|[Machine Learning Studio (classic)](#azure-machine-learning-studio)  |run custom R scripts in Azure's machine learning experiments                      |
 |[Azure Batch](#azure-batch)                                      |offers a variety options for economically running R code across many nodes in a cluster|
 |[Azure SQL Managed Instance](#azure-sql-managed-instance)        |run R and Python scripts inside of the SQL Server database engine                  |
 
@@ -90,14 +90,6 @@ The article [What is Azure Databricks?](/azure/azure-databricks/what-is-azure-da
 [Azure Machine Learning](/azure/machine-learning/) can be used for any kind of machine learning, from classical machine learning to deep learning, supervised and unsupervised learning. Whether you prefer to write Python or R code or zero-code/low-code options such as the designer, you can build, train and track highly accurate machine learning and deep-learning models in an Azure Machine Learning Workspace.
 
 Start training on your local machine and then scale out to the cloud. [Train your first model in R](/azure/machine-learning/service/tutorial-1st-r-experiment) with Azure Machine Learning today.
-
-## <a name="azure-machine-learning-studio"></a> Machine Learning Studio (classic)
-
-[Machine Learning Studio (classic)](https://azure.microsoft.com/services/machine-learning-studio/) is a collaborative, drag-and-drop tool you can use to build, test, and deploy predictive analytics solutions in the cloud.  It enables emerging data scientists to create and deploy machine learning models without the need to write much code.
-
-Machine Learning Studio (classic) supports both R and Python.  
-
-Customers currently using or evaluating Machine Learning Studio (classic) are encouraged to try the designer in Azure Machine Learning, which provides drag-n-drop ML modules plus scalability, version control, and enterprise security.
 
 ## Azure Batch
 

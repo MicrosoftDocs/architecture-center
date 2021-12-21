@@ -7,7 +7,7 @@ ms.author: pnp
 ms.date: 10/12/2020
 ms.topic: conceptual
 ms.service: architecture-center
-ms.subservice: guide
+ms.subservice: azure-guide
 products:
   - azure-kubernetes-service
 ms.custom:
@@ -22,7 +22,7 @@ _This article is part of a series. Read the introduction [here](aks-triage-pract
 
 **Tools:**
 
-**AKS Diagnostics**. In Azure portal, navigate to the AKS cluster resource. Select **Diagnose and solve problems**.  
+**AKS Diagnostics**. In Azure portal, navigate to the AKS cluster resource. Select **Diagnose and solve problems**.
 
 ![AKS Diagnostics](images/aks-diagnostics.png)
 

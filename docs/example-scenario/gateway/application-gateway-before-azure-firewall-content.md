@@ -9,7 +9,7 @@ In some situations, you can combine different types of network security applianc
 
 :::image type="content" source="./images/application-gateway-before-azure-firewall-architecture.png" alt-text="Architecture diagram showing the packet flow in a web app network that uses Application Gateway in front of Azure Firewall Premium." border="false":::
 
-This architecture uses the secure sockets layer (SSL) protocol to encrypt traffic at every step.
+This architecture uses the Transport Layer Security (TLS) protocol to encrypt traffic at every step.
 
 - A client sends packets to Application Gateway, a load balancer. It runs with the optional addition [Azure Web Application Firewall][What is Azure Web Application Firewall on Azure Application Gateway?].
 
@@ -45,19 +45,19 @@ HTTP Host headers usually don't contain IP addresses. Instead, the headers conta
 
 > [!NOTE]
 > Application Gateway doesn't support port numbers in HTTP Host headers. As a result:
-> 
+>
 > - Azure Firewall Premium assumes a default HTTPS TCP port of 443.
 > - The connection between Application Gateway and the web server only supports TCP port 443, not non-standard ports.
 
 ## Digital certificates
 
-The following diagram shows the common names (CNs) and certificate authorities (CAs) that the architecture's SSL sessions and certificates use:
+The following diagram shows the common names (CNs) and certificate authorities (CAs) that the architecture's TLS sessions and certificates use:
 
 :::image type="content" source="./images/application-gateway-before-azure-firewall-certificates.png" alt-text="Architecture diagram showing the common names and certificate authorities that a web app network uses when a load balancer is in front of a firewall." border="false":::
 
-### SSL connections
+### TLS connections
 
-This architecture contains three distinct SSL connections. Digital certificates validate each one:
+This architecture contains three distinct TLS connections. Digital certificates validate each one:
 
 #### From clients to Application Gateway
 
@@ -69,14 +69,14 @@ To decrypt and inspect TLS traffic, Azure Firewall Premium dynamically generates
 
 #### From Azure Firewall Premium to the web server
 
-Azure Firewall Premium establishes an SSL session with the destination web server. Azure Firewall Premium verifies that a well-known CA signs the web server SSL packets.
+Azure Firewall Premium establishes an TLS session with the destination web server. Azure Firewall Premium verifies that a well-known CA signs the web server TLS packets.
 
 ### Component roles
 
 Application Gateway and Azure Firewall Premium handle certificates differently from one another because their roles differ:
 
-- Application Gateway is a *reverse web proxy*. It protects web servers from malicious clients by intercepting HTTP and HTTPS requests. You declare each protected server that's in the back-end pool of Application Gateway with its IP address or fully qualified domain name. Legitimate clients should be able to access each application. So you configure Application Gateway with a digital certificate that a public CA has signed. Use a CA that any SSL client will accept.
-- Azure Firewall Premium is a *forward web proxy* or, simply, a web proxy. It protects clients from malicious web servers by intercepting SSL calls from the protected clients. When a protected client makes an HTTP request, the forward proxy impersonates the target web server by generating digital certificates and presenting them to the client. Azure Firewall Premium uses a private CA, which signs the dynamically generated certificates. You configure the protected clients to trust that private CA. In this architecture, Azure Firewall Premium protects requests from Application Gateway to the web server. Application Gateway trusts the private CA that Azure Firewall Premium uses.
+- Application Gateway is a *reverse web proxy*. It protects web servers from malicious clients by intercepting HTTP and HTTPS requests. You declare each protected server that's in the back-end pool of Application Gateway with its IP address or fully qualified domain name. Legitimate clients should be able to access each application. So you configure Application Gateway with a digital certificate that a public CA has signed. Use a CA that any TLS client will accept.
+- Azure Firewall Premium is a *forward web proxy* or, simply, a web proxy. It protects clients from malicious web servers by intercepting TLS calls from the protected clients. When a protected client makes an HTTP request, the forward proxy impersonates the target web server by generating digital certificates and presenting them to the client. Azure Firewall Premium uses a private CA, which signs the dynamically generated certificates. You configure the protected clients to trust that private CA. In this architecture, Azure Firewall Premium protects requests from Application Gateway to the web server. Application Gateway trusts the private CA that Azure Firewall Premium uses.
 
 ## Hub and spoke example
 
@@ -189,7 +189,6 @@ As with Virtual WAN, you might need to modify the routing when you use Route Ser
 - [Implement a secure hybrid network][Implement a secure hybrid network]
 - [Hub-spoke network topology in Azure][Hub-spoke network topology in Azure]
 - [Hub-spoke network topology with Azure Virtual WAN][Hub-spoke network topology with Azure Virtual WAN]
-
 
 [Application Gateway limits]: /azure/azure-resource-manager/management/azure-subscription-service-limits#application-gateway-limits
 [Azure Firewall DNS settings]: /azure/firewall/dns-settings

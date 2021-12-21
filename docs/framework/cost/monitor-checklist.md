@@ -15,7 +15,7 @@ ms.custom:
 # Checklist - Monitor cost
 Use this checklist to monitor the cost of the workload.
 
-- **Gather cost data from diverse sources to create reports**. Start with tools like [Azure Advisor](/azure/advisor/advisor-cost-recommendations), [Advisor Score](/azure/advisor/azure-advisor-score), and [Azure Cost Management](/azure/cost-management-billing/costs/). Build custom reports relevant for the business by using [Consumption APIs](/rest/api/consumption/). 
+- **Gather cost data from diverse sources to create reports**. Start with tools like [Azure Advisor](/azure/advisor/advisor-cost-recommendations), [Advisor Score](/azure/advisor/azure-advisor-score), and [Azure Cost Management](/azure/cost-management-billing/costs/). Build custom reports relevant for the business by using [Consumption APIs](/rest/api/consumption/).
     - [Cost reports](./monitor-reports.md)
     - [Review costs in cost analysis](/azure/cost-management-billing/costs/quick-acm-cost-analysis#review-costs-in-cost-analysis)
 
@@ -35,17 +35,17 @@ Use this checklist to monitor the cost of the workload.
     - [Conduct cost reviews](./monitor-reviews.md)
     - [Participate in central governance cost reviews](/azure/cloud-adoption-framework/govern/cost-management/compliance-processes)
 
-- **Analyze the cost at all scopes** by using Cost analysis. Identify services that are driving the cost through different dimensions, such as location, usage meters, and so on. Review whether certain optimizations are bringing results. For example, analyze costs associated with reserved instances and Spot VMs against business goals. 
+- **Analyze the cost at all scopes** by using Cost analysis. Identify services that are driving the cost through different dimensions, such as location, usage meters, and so on. Review whether certain optimizations are bringing results. For example, analyze costs associated with reserved instances and Spot VMs against business goals.
     - [Quickstart: Explore and analyze costs with cost analysis](/azure/cost-management-billing/costs/quick-acm-cost-analysis)
 
 - **Detect anomalies** and identify changes in business or applications that might have contributed changes in cost. Focus on these factors:
 
-    - Traffic pattern as the application scales. 
-    - Budget for the usage meters on resources. 
-    - Performance bottle necks. 
+    - Traffic pattern as the application scales.
+    - Budget for the usage meters on resources.
+    - Performance bottle necks.
     - CPU utilization and network throughput.
     - Storage footprint for blobs, backups, archiving.
 
-- **Use Visualization tools to analyze cost information.** 
+- **Use Visualization tools to analyze cost information.**
     - [Create visuals and reports with the Azure Cost Management connector in Power BI Desktop](/power-bi/desktop-connect-azure-cost-management)
     - [Cost Management App](https://appsource.microsoft.com/product/power-bi/costmanagement.azurecostmanagementapp)

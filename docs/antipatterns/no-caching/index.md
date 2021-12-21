@@ -2,7 +2,7 @@
 title: No Caching antipattern
 titleSuffix: Performance antipatterns for cloud apps
 description: Learn about ways to mitigate the No Caching antipattern, the common design flaw of repeatedly fetching the same data.
-author: dragon119
+author: EdPrice-MSFT
 ms.date: 06/05/2017
 ms.topic: conceptual
 ms.service: architecture-center
@@ -141,8 +141,7 @@ Notice that the `GetAsync` method now calls the `CacheService` class, rather tha
 
 ## How to detect a no caching antipattern
 
-You can perform the following steps to help identify whether lack of caching is
-causing performance problems:
+You can perform the following steps to help identify whether lack of caching is causing performance problems:
 
 1. Review the application design. Take an inventory of all the data stores that the application uses. For each, determine whether the application is using a cache. If possible, determine how frequently the data changes. Good initial candidates for caching include data that changes slowly, and static reference data that is read frequently.
 
@@ -225,7 +224,7 @@ The volume of successful tests still reaches a plateau, but at a higher user loa
 [circuit-breaker]: ../../patterns/circuit-breaker.md
 [api-implementation]: ../../best-practices/api-implementation.md#optimizing-client-side-data-access
 [NewRelic]: https://newrelic.com/partner/azure
-[NewRelic-server-requests]: _images/New-Relic.jpg
-[Performance-Load-Test-Results-Uncached]:_images/InitialLoadTestResults.jpg
-[Dynamic-Management-Views]: _images/SQLServerManagementStudio.jpg
-[Performance-Load-Test-Results-Cached]: _images/CachedLoadTestResults.jpg
+[NewRelic-server-requests]: ./_images/New-Relic.jpg
+[Performance-Load-Test-Results-Uncached]: ./_images/InitialLoadTestResults.jpg
+[Dynamic-Management-Views]: ./_images/SQLServerManagementStudio.jpg
+[Performance-Load-Test-Results-Cached]: ./_images/CachedLoadTestResults.jpg

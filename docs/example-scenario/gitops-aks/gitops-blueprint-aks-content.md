@@ -23,23 +23,23 @@ This solution benefits any organization that wants the advantages of deploying a
 This solution follows a strong GitOps approach.
 
 1. The single point of truth is the **GitHub repository** that holds the provisioned AKS cluster configurations. The repository stores all AKS application manifests and cluster infrastructure desired states. Every change to the cluster happens under version control. GitHub functionality:
-   
+
    - Ensures review for changes.
    - Prevents unintended or unauthorized changes.
    - Enforces desired quality checks.
-   
+
 1. **Flux** is the GitOps operator and controller, and is the only component that can make changes to the cluster. Flux pulls cluster desired state changes from GitHub, and syncs them into AKS. Flux:
-   
+
    - Pulls desired changes from GitHub.
    - Detects any configuration drift.
    - Reconciles the state in the Kubernetes cluster.
    - Manages Gatekeeper and the applications.
    - Updates itself.
-   
+
 1. **Open Policy Agent (OPA) Gatekeeper** enforces policies with a validating admission webhook. Gatekeeper validates cluster configuration changes against provisioned policies, and applies the changes only if they comply with policies.
-   
+
 1. **Syncier Security Tower** is a GitOps control kit that provides an overview of all AKS clusters and helps manage policies. Syncier Security Tower:
-   
+
    - Assembles all cluster images in an overview that shows which versions are deployed and identifies outdated images.
    - Provides feedback on policy violations via pull request (PR) feedback before changes are applied.
    - Introduces risk acceptance whenever policies can't be applied for good reasons.
@@ -106,26 +106,26 @@ DevOps teams can use advanced Syncier Security Tower features to get insights in
 Take the following steps to provision a GitOps setup for AKS:
 
 1. Create an AKS cluster by following the [quickstart guide](/azure/aks/kubernetes-walkthrough) through **Connect to the cluster.** Stop before **Run the application**, and don't deploy anything in the cluster yet.
-   
+
 1. Install the Flux CLI by following the Flux [installation instructions](https://fluxcd.io/docs/installation).
-   
+
 1. Run the following commands in a Bash shell. Set the variables `GITHUB_TOKEN`, `GITHUB_USER`, and `GITHUB_REPO` according to your environment.
-   
+
    ```bash
    export GITHUB_TOKEN="<your token>"
    export GITHUB_USER="<your username>"
    export GITHUB_REPO="<your repository>"
-   
+
    flux bootstrap github \
       --owner=$GITHUB_USER \
       --repository=$GITHUB_REPO \
       --branch=main \
       --path=./cluster \
       --personal
-   
+
    git clone https://github.com/$GITHUB_USER/$GITHUB_REPO
    cd $GITHUB_REPO
-   
+
    mkdir -p .securitytower
    cat << EOF > .securitytower/cluster.yaml
    apiVersion: securitytower.io/v1alpha1
@@ -136,7 +136,7 @@ Take the following steps to provision a GitOps setup for AKS:
       policies:
          path: /policies
    EOF
-   
+
    flux create kustomization policies \
       --source=flux-system \
       --path="./policies" \
@@ -144,18 +144,18 @@ Take the following steps to provision a GitOps setup for AKS:
       --validation=none \
       --interval=1m \
       --export > ./cluster/policies.yaml
-   
+
    git add .
    git commit -m "Create Syncier Security Tower cluster config and add policy Kustomization"
    git push
-   
+
    kubectl apply -f https://raw.githubusercontent.com/open-policy-agent/gatekeeper/release-3.4/deploy/gatekeeper.yaml
    ```
-   
-1. Install Gatekeeper by following the Gatekeeper [Installation guide](https://open-policy-agent.github.io/gatekeeper/website/docs/install/#installation). To configure Gatekeeper correctly, see [Enforcing policies with OPA Gatekeeper](https://securitytower.syncier.com/docs/reference/policies).
-   
+
+1. Install Gatekeeper by following the Gatekeeper [Installation guide](https://open-policy-agent.github.io/gatekeeper/website/docs/install/#installation). To configure Gatekeeper correctly, see [Enforcing policies with OPA Gatekeeper](https://securitytower.syncier.com/docs/guide/policies).
+
 1. Install Syncier Security Tower to your repository from the [GitHub marketplace](https://github.com/marketplace/security-tower).
-   
+
 1. To set up all needed configuration files, follow the Syncier Security Tower [Getting Started guide](https://securitytower.syncier.com/docs/guide/get-started).
 
 You've now successfully provisioned a running GitOps setup. From here, you can:

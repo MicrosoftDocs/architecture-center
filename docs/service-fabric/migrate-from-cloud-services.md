@@ -1,7 +1,8 @@
 ---
-title: Cloud Services app to Service Fabric
+title: Migrate a Cloud Services app to Service Fabric
 description: Learn about the architectural decisions and recommended practices for migrating an application from Azure Cloud Services to Azure Service Fabric.
-author: doodlemania2
+author: EdPrice-MSFT
+ms.author: pnp
 ms.date: 05/29/2019
 ms.topic: conceptual
 ms.service: architecture-center
@@ -38,8 +39,6 @@ Now Tailspin wants to move the Surveys application to a microservices architectu
 In a real-world project, it's likely that both stages would overlap. While porting to Service Fabric, you would also start to rearchitect the application into micro-services. Later you might refine the architecture further, perhaps dividing coarse-grained services into smaller services.
 
 The application code is available on [GitHub][sample-code]. This repo contains both the Cloud Services application and the Service Fabric version.
-
-<!-- markdownlint-disable MD026 -->
 
 ## Why Service Fabric?
 

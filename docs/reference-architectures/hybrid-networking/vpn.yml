@@ -2,7 +2,7 @@
 metadata:
   title: Extend an on-premises network using VPN
   description: Learn how to extend a network from on premises or from Azure Stack into an Azure virtual network, using a site-to-site virtual private network (VPN).
-  author: doodlemania2
+  author: EdPrice-MSFT
   ms.author: pnp
   ms.date: 01/24/2020
   ms.topic: conceptual

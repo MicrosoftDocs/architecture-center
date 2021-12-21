@@ -67,8 +67,8 @@ Understanding the subscription landscape of the application and how components a
 
 ## Next step
 
->[!div class="nextstepaction"]
->[Resiliency and dependencies](./design-resiliency.md)
+> [!div class="nextstepaction"]
+> [Resiliency and dependencies](./design-resiliency.md)
 
 ## Related links
 

@@ -2,7 +2,7 @@
 title: Business Metrics
 description: Learn to use business metrics to design resilient Azure applications. Review workload availability targets. Understand recovery and availability metrics.
 author: david-stanford
-ms.date: 09/20/2021
+ms.date: 11/11/2021
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: well-architected
@@ -11,7 +11,8 @@ ms.custom:
   - article
 products:
   - azure
-categories: management-and-governance
+categories:
+  - management-and-governance
 ---
 
 # Using business metrics to design resilient Azure applications
@@ -118,7 +119,7 @@ The composite SLA for a multiregion deployment is calculated as follows:
 - *N* is the composite SLA for the application deployed in one region.
 - *R* is the number of regions where the application is deployed.
 
-The expected chance that the application fails in all regions at the same time is (`(1 − N) \^ R`). For example, if the single-region SLA is `99.95%`:
+The expected chance that the application fails in all regions at the same time is (`(1 − N) ^ R`). For example, if the single-region SLA is `99.95%`:
 
 - The combined SLA for two regions = `(1 − (1 − 0.9995) \^ 2) = 99.999975%`
 - The combined SLA for four regions =  `(1 − (1 − 0.9995) \^ 4)  = 99.999999%`

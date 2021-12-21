@@ -30,9 +30,6 @@ summary: Use historical demand data to train a demand forecasting model for ship
 products:
   - azure-blob-storage
   - azure-data-factory
-  - azure-functions
-  - azure-hdinsight
-  - azure-web-apps
   - power-bi
   - azure-stream-analytics
   - azure-event-hubs

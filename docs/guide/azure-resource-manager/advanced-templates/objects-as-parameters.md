@@ -1,7 +1,8 @@
 ---
-title: Use objects as parameters in ARM template
+title: Use objects as parameters in an ARM template
 description: Describes how to extend the functionality of Azure Resource Manager templates to use objects as parameters.
-author: PeterTaylor9999
+author: EdPrice-MSFT
+ms.author: pnp
 ms.date: 09/07/2021
 ms.topic: conceptual
 ms.service: architecture-center
@@ -20,7 +21,7 @@ ms.custom:
 
 <!-- cSpell:ignore subproperties -->
 
-# Using objects as parameters in a copy loop in an Azure Resource Manager template
+# Use objects as parameters in a copy loop in an Azure Resource Manager template
 
 When [using objects as a parameter in Azure Resource Manager templates](/azure/azure-resource-manager/templates/parameters#objects-as-parameters) you may want to include them in a copy loop, so here is an example that uses them in that way:
 

@@ -1,7 +1,7 @@
 ---
 title: Authentication in multitenant applications
 description: Learn about how a multitenant application can authenticate users from Azure Active Directory (Azure AD) and the OpenID Connect (OIDC) protocol.
-author: doodlemania2
+author: EdPrice-MSFT
 ms.date: 10/06/2021
 ms.topic: conceptual
 ms.service: architecture-center
@@ -80,7 +80,6 @@ Here's what the other middleware options mean:
 
 - **SignInScheme**. Set this to `CookieAuthenticationDefaults.AuthenticationScheme`. This setting means that after the user is authenticated, the user claims are stored locally in a cookie. This cookie is how the user stays logged in during the browser session.
 - **Events.** Event callbacks; see [Authentication events](#authentication-events).
-
 
 ## Initiate the authentication flow
 
@@ -176,7 +175,7 @@ When the OIDC middleware redirects to the authorization endpoint, the redirect U
 - response_type  = "code id_token". This specifies hybrid flow.
 - response_mode = "form_post". This specifies form post response.
 
-To specify a different flow, set the **ResponseType** property on the options. 
+To specify a different flow, set the **ResponseType** property on the options.
 
 ```csharp
 app.AddAuthentication().AddOpenIdConnect(options =>

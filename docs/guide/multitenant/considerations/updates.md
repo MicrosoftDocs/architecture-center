@@ -9,10 +9,13 @@ ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: azure-guide
 products:
- - azure
+  - azure
+  - azure-devops
+  - azure-pipelines
+  - github
 categories:
- - management-and-governance
- - devops
+  - management-and-governance
+  - devops
 ms.category:
   - fcp
 ms.custom:
@@ -21,7 +24,7 @@ ms.custom:
 
 # Considerations for updating a multitenant solution
 
-One of the benefits of cloud technology is continuous improvement and evolution. As a service provider, you need to apply updates to your solution: you might need to make changes to your Azure infrastructure, your code/applications, your database schemas, or any other component. It's important to plan how you update your environments. In a multitenant solution, it's particularly important to be clear about your update policy, since some of your tenants may be reluctant to allow changes to their environments, or they might have requirements that limit the times when you can update their service. You need to identify your tenants' requirements, clarify your own requirements to operate your service, find a balance that works for everyone, and then communicate this clearly.
+One of the benefits of cloud technology is continuous improvement and evolution. As a service provider, you need to apply updates to your solution: you might need to make changes to your Azure infrastructure, your code/applications, your database schemas, or any other component. It's important to plan how you update your environments. In a multitenant solution, it's particularly important to be clear about your update policy, since some of your tenants may be reluctant to allow changes to their environments, or they might have requirements that limit the times when you can update their service. You need to identify your tenants' requirements, clarify your own requirements to operate your service, find a balance that works for everyone, and then communicate this clearly. On this page, we provide guidance for technical decision-makers about the approaches you can consider to update your tenants' software, and the tradeoffs involved.
 
 ## Your customers' requirements
 
@@ -90,7 +93,7 @@ Consider how you will deploy updates to your infrastructure. This is heavily inf
 
 In all cases, ensure that you have sufficient reporting/visibility, so that you know what version of infrastructure, software, or feature each tenant is on, what they are eligible to migrate to, and any time-related data associated those states.
 
-### Deployment stamps
+### Deployment Stamps pattern
 
 Some multitenant applications are a good fit for the [Deployment Stamps pattern](../../../patterns/deployment-stamp.md), in which you deploy multiple copies of your application and other components. Depending on your isolation requirements, you might deploy a stamp for each tenant, or shared stamps that run multiple tenants' workloads.
 

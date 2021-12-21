@@ -20,7 +20,7 @@ categories:
 
 # Best practices for endpoint security on Azure
 
-An _endpoint_ is an address exposed by a web application so that external entities can communicate with it. A malicious or an inadvertent interaction with the endpoint can compromise the security of the application and even the entire system. One way to protect the endpoint is by placing filter controls on the network traffic that it receives, such as defining rule sets. A defense-in-depth approach can further mitigate risks. Include supplemental controls that protect the endpoint if the primary traffic controls fail.
+An *endpoint* is an address exposed by a web application so that external entities can communicate with it. A malicious or an inadvertent interaction with the endpoint can compromise the security of the application and even the entire system. One way to protect the endpoint is by placing filter controls on the network traffic that it receives, such as defining rule sets. A defense-in-depth approach can further mitigate risks. Include supplemental controls that protect the endpoint if the primary traffic controls fail.
 
 This article describes way in which you can protect web applications with Azure services and features. For product documentation, see Related links.
 
@@ -97,12 +97,11 @@ Another popular design is when you want Azure Firewall to inspect all traffic an
 
 For more information, see [Firewall and Application Gateway for virtual networks](../../example-scenario/gateway/firewall-application-gateway.yml).
 
-It's challenging to write concise firewall rules for networks where different cloud resources dynamically spin up and down. Use [Azure Security Center](/azure/security-center/) to detect misconfiguration risks.
+It's challenging to write concise firewall rules for networks where different cloud resources dynamically spin up and down. Use [Microsoft Defender for Cloud](/azure/security-center/) to detect misconfiguration risks.
 
 ### Authentication
 
-Disable insecure legacy protocols for internet-facing services.
-Legacy authentication methods are among the top attack vectors for cloud-hosted services. Those methods don't support other factors beyond passwords and are prime targets for password spraying, dictionary, or brute force attacks.
+Disable insecure legacy protocols for internet-facing services. Legacy authentication methods are among the top attack vectors for cloud-hosted services. Those methods don't support other factors beyond passwords and are prime targets for password spraying, dictionary, or brute force attacks.
 
 ## Mitigate DDoS attacks
 
@@ -117,13 +116,13 @@ Here are some considerations:
 
 - DDoS protection at the infrastructure level in which your workload runs. Azure infrastructure has built-in defenses for DDoS attacks.
 - DDoS protection at the network (layer 3) layer. Azure provides additional protection for services provisioned in a virtual network.
-- DDoS protection with caching. Content delivery network (CDN) can add another layer of protection. In a DDoS attack, a CDN intercepts the traffic and stops it from reaching the backend server. Azure CDN is natively protected. Azure also supports popular CDNs that are protected with proprietary DDoS mitigation platform. 
-- Advanced DDoS protection. In your security baseline, consider features with monitoring techniques that use machine learning to detect anomalous traffic and proactively protect your application before service degradation occurs. 
+- DDoS protection with caching. Content delivery network (CDN) can add another layer of protection. In a DDoS attack, a CDN intercepts the traffic and stops it from reaching the backend server. Azure CDN is natively protected. Azure also supports popular CDNs that are protected with proprietary DDoS mitigation platform.
+- Advanced DDoS protection. In your security baseline, consider features with monitoring techniques that use machine learning to detect anomalous traffic and proactively protect your application before service degradation occurs.
 
-For example, the [Windows N-tier application on Azure with SQL Server](../../reference-architectures/n-tier/n-tier-sql-server.yml) reference architecture uses Azure DDoS Protection Standard because this option:	
-- Uses adaptive tuning, based on the application's network traffic patterns, to detect threats. 	
-- Guarantees 100% SLA. 	
-- Can be cost effective. For example, during a DDoS attack, the first set of attacks cause the provisioned resources to scale out. For a resource such as a virtual machine scale set, 10 machines can grow to 100, increasing overall costs. With Standard protection, you don't have to worry about the cost of the scaled resources because Azure will provide a cost credit. 	
+For example, the [Windows N-tier application on Azure with SQL Server](../../reference-architectures/n-tier/n-tier-sql-server.yml) reference architecture uses Azure DDoS Protection Standard because this option:
+- Uses adaptive tuning, based on the application's network traffic patterns, to detect threats.
+- Guarantees 100% SLA.
+- Can be cost effective. For example, during a DDoS attack, the first set of attacks cause the provisioned resources to scale out. For a resource such as a virtual machine scale set, 10 machines can grow to 100, increasing overall costs. With Standard protection, you don't have to worry about the cost of the scaled resources because Azure will provide a cost credit.
 
 For information about Azure DDoS Protection services, see [Azure DDoS Protection Standard documentation](/azure/ddos-protection/).
 

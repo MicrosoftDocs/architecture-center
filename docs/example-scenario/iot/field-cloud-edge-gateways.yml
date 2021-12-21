@@ -4,7 +4,7 @@ metadata:
   titleSuffix: Azure Example Scenarios
   description: In this example scenario, learn about the capabilities of IoT Edge (field) gateways and protocol (cloud) gateways.
   author: wamachine
-  ms.date: 08/21/2020
+  ms.date: 04/07/2021
   ms.topic: conceptual
   ms.service: architecture-center
   ms.subservice: example-scenario

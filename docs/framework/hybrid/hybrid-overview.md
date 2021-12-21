@@ -80,7 +80,7 @@ Use *Azure Arc management* to extend Azure management to all assets in your work
    - Manage and govern resources with a single pane of glass from Azure.
    - Integrate with Azure Lighthouse for managed service provider support.
 
-## Next steps 
+## Next steps
 
->[!div class="nextstepaction"]
->[Cost optimization](./hybrid-cost.md)
+> [!div class="nextstepaction"]
+> [Cost optimization](./hybrid-cost.md)

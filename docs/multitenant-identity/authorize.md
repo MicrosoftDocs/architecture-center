@@ -1,7 +1,7 @@
 ---
 title: Authorization in multitenant applications
 description: "Learn about two general approaches to authorization using APIs provided by ASP.NET Core: role-based authorization and resource-based authorization."
-author: doodlemania2
+author: EdPrice-MSFT
 ms.date: 10/06/2021
 ms.topic: conceptual
 ms.service: architecture-center
@@ -161,8 +161,7 @@ if (await _authorizationService.AuthorizeAsync(User, survey, Operations.Read) ==
 
 Because we pass in a `Survey` object, this call will invoke the `SurveyAuthorizationHandler`.
 
-In your authorization code, a good approach is to aggregate all of the user's role-based and resource-based permissions, then check the aggregate set against the desired operation.
-Here is an example from the Surveys app. The application defines several permission types:
+In your authorization code, a good approach is to aggregate all of the user's role-based and resource-based permissions, then check the aggregate set against the desired operation. Here is an example from the Surveys app. The application defines several permission types:
 
 * Admin
 * Contributor
