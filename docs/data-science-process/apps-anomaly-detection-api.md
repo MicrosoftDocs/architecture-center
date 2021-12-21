@@ -8,7 +8,7 @@ editor: marktab
 ms.service: architecture-center
 ms.subservice: azure-guide
 ms.topic: article
-ms.date: 12/16/2021
+ms.date: 12/21/2021
 ms.author: tdsp
 ms.category:
   - ai-machine-learning
