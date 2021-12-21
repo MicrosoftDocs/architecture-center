@@ -1,24 +1,24 @@
-In recent years, the demand for business users to be able to consume, transform, model, and visualize large amounts of complex data from multiple heterogenous sources has increased dramatically. To meet this demand in a cost effective, scalable way, many large companies have benefitted from moving to cloud-based data platforms. This move allows companies to take advantage of the economy of scale the cloud provides to achieve lower total cost of ownership and faster time to value from data. Regulated industries are no exception to this. These companies need to store and process vast amounts of highly sensitive data (for example, protected health information) every day. However, because of the sensitive nature of this data, there are many regulations (like HIPAA) in place to constrain the methods for storing, transporting, and processing the data. As a result of this, regulated industries are hesitant to adopt cloud-based data platforms because of the large financial penalties for regulatory violations and the perceived loss of control that comes from moving to a cloud-based platform.
+In recent years, the demand for business users to be able to consume, transform, model, and visualize large amounts of complex data from multiple heterogenous sources has increased dramatically. To meet this demand in a cost effective, scalable way, many large companies have benefitted from moving to cloud-based data platforms. This move allows companies to take advantage of the economy of scale the cloud provides to achieve lower total cost of ownership and faster time to value from data. Regulated industries are no exception to this. These companies need to store and process vast amounts of highly sensitive data (for example, protected health information) every day. However, because of the sensitive nature of this data, there are many regulations (like HIPAA) in place that constrain the methods for storing, transporting, and processing the data. As a result of this, regulated industries are hesitant to adopt cloud-based data platforms because of the large financial penalties for regulatory violations and the perceived loss of control that comes from moving to a cloud-based platform.
 
 The worldwide COVID-19 pandemic changed all of this as the on-premises data platforms of many regulated industries were largely unable to cope with the increased workload resulting from the pandemic. These companies are now embracing cloud-based data platforms, but they're typically doing so in two extreme ways. Either with highly complex and detailed security requirements or with limited knowledge of cloud security capabilities and practices. This makes rapid deployment of services and solutions challenging because many security options can be disabled, overlooked, or simply ignored, leaving these companies open to regulatory action (like financial penalties) if left unchecked.
 
-The Infrastructure Accelerator pattern is designed to resolve this issue by tackling data analysis workloads in regulated industries. This pattern is designed to help ensure the detailed security and privacy requirements of different regulated industries are met. It uses configurable, template-based service-deployment automation. All build on Azure managed services to reduce management overhead. Specifically, the pattern focuses on high-quality security standards, auditing, monitoring key protection, encryption capabilities, and tight integration with security perimeters (when applicable). You can consider this guidance an enterprise-ready, pluggable infrastructure building block for data analytics workloads. It incorporates Microsoft best practices for landing zones.
+The Infrastructure Accelerator pattern is designed to resolve this issue by tackling data analysis workloads in regulated industries. This pattern is designed to help ensure that the detailed security and privacy requirements of different regulated industries are met. It uses configurable, template-based service-deployment automation. And it's all built on Azure managed services to reduce management overhead. Specifically, the pattern focuses on high-quality security standards, auditing, monitoring key protection, encryption capabilities, and tight integration with security perimeters (when applicable). You can consider this guidance an enterprise-ready, pluggable infrastructure building block for data analytics workloads. It incorporates Microsoft best practices for landing zones.
 
 In using this pattern, you can choose which data processing services (Azure Data Factory, Azure Databricks, Azure Synapse Analytics) you want to use. You'll know that the services will be deployed using Microsoft best practices for landing zones and any company-specific policy requirements. In short, we believe that all customers from regulated industries can benefit from this pattern and from infrastructure deployment accelerator tools.
 
-The goal of this pattern isn't to automatically implement a regulated solution. It's to give the infrastructure and security teams an easily configurable set of tools to implement a configurable, repeatable baseline for regulated enterprise systems. That's because most regulations are written in a way that leaves a good deal of interpretation when it comes to building a system that meets them. 
+The goal of this pattern isn't to automatically implement a regulated solution. It's to give the infrastructure and security teams an easily configurable set of tools for implementing a repeatable baseline for regulated enterprise systems. That's because most regulations are written in a way that leaves a good deal of interpretation when it comes to building a system that meets them. 
 
 For example, one of the components of a HIPAA-compliant system is that all data at rest and in motion needs to be encrypted. This is easy to interpret for data being transmitted or data on disk. But what about data that's sitting in memory as part of an in-memory database? It could be considered to be at rest if the database is a long-running database. But encrypting memory imparts significant overhead, so it's not feasible for many use cases.
 
-Because of these ambiguities, companies working with regulated data typically have a security team that develops company-specific policies for the use and implementation of systems that use regulated data. These policies are usually enforced via services that audit running services (for example, Azure Policy) and notify product owners of any violations they find. Finding and fixing these violations can be a time consuming process and can require the redeployment of a service. This is problematic when data/code development is already started, and can lead to longer development cycles.
+Because of these ambiguities, companies working with regulated data typically have a security team that develops company-specific policies for the use and implementation of systems that use regulated data. These policies are usually enforced via services that audit running services (for example, Azure Policy) and notify product owners of any violations they find. Finding and fixing these violations can be time consuming and can require the redeployment of a service. This is problematic when data/code development is already started, and can lead to longer development cycles.
 
 Some of the key benefits of this pattern are:
 
 - Speed of deployment and consistency among projects and environments (dev, test, staging, production).
-- Coverage of major data analysis use cases ETL/ELT and Power BI (ingestion, transformation, storage, data lake, SQL, Power BI).
+- Coverage of major data analysis use cases for ETL/ELT and Power BI (ingestion, transformation, storage, data lake, SQL).
 - Focus on automated support of enterprise-grade security standards.
 - Strong support for auditing, monitoring, and diagnostics data.
-- Constraint of network communication to network or security perimeters (when applicable).
+- Constraint of network communication to network or security perimeters when applicable.
 - Easy consumption of data sources from inside the perimeter, together with cloud-based data analysis.
 - Cloud-managed services with reduced management and operation overhead.
 - Seamless integration with cloud-native tools, like Power Platform.
@@ -53,9 +53,9 @@ The following diagram shows a high-level overview of the architecture for the In
 
 *Download a [PowerPoint file](https://arch-center.azureedge.net/data-analysis-regulated-industries.pptx) of this architecture.*
 
-You can see the capabilities of the pattern in the upper part of the diagram. These capabilities include elements like target data sources (cloud or on-premises), ingestion areas, snapshot data, transformed data, optimized data storage, metadata storage, and front-end consumption capabilities.
+You can see the capabilities of the pattern in the upper part of the diagram. These capabilities include elements like target data sources (cloud or on-premises), ingestion areas, snapshot data, transformed data, optimized data storage, metadata storage, and front-end consumption.
 
-The bottom part shows the responsibilities of the various IT roles that are typically involved with cloud-data analysis workloads.
+The bottom section shows the responsibilities of the various IT roles that are typically involved with cloud-data analysis workloads.
 
 The architecture provides state-of-the-art data analysis without sacrificing governance or security.
 
@@ -87,16 +87,16 @@ Implementation of this pattern requires these skills:
 - [Azure Databricks](https://azure.microsoft.com/services/databricks). A data transformation engine. You can use it to spin up clusters and build quickly in a fully managed Apache Spark environment.
 - [Data Factory](https://azure.microsoft.com/services/data-factory). Provides the data integration and transformation ETL/ELT layer.
 - [Azure Blob Storage](https://azure.microsoft.com/services/storage/blobs). Provides storage for diagnostics, infrastructure logs, and audit data. (Business data shouldn't be stored in Blob Storage.)
-- [Azure Key Vault](https://azure.microsoft.com/services/key-vault). Used to store and protect keys and credentials in secure place and monitor operations and access to it.
+- [Azure Key Vault](https://azure.microsoft.com/services/key-vault). Used to store and protect keys and credentials in a secure place and monitor operations and access to it.
 - [Azure Monitor and Log Analytics Workspace](https://azure.microsoft.com/services/monitor). Used to monitor the environment, diagnostics, performance, audit logs, vulnerability scans, and traffic flows and enable the platform to send events for critical issues.
 - [Power BI, or Power BI Premium with VNet integration](/data-integration/vnet/use-data-gateways-sources-power-bi). (Optional.) Allows import or direct query datasets to connect to data services in an Azure virtual network without requiring an on-premises data gateway.
 - [Data Factory self-hosted integration runtime](/azure/data-factory/create-self-hosted-integration-runtime). (Optional.) Used to run activities between a cloud data store and a data store in a private network. It can also dispatch transform activities against compute resources in an on-premises network or an Azure virtual network.
 
 ### Alternatives
 
-The functionality provided by this pattern overlaps with functionality that's available in Azure Synapse Analytics. We recommend that you use Azure Synapse whenever you can. However, in regulated industries in particular, some customers can't use Azure Synapse for various reasons. In those cases, you might want to implement this pattern rather than manually deploying a custom data-analytics stack.
+The functionality provided by this pattern overlaps with functionality that's available in Azure Synapse Analytics. We recommend that you use Azure Synapse whenever you can. However, in regulated industries in particular, some organizations can't use Azure Synapse for various reasons. In those cases, you might want to implement this pattern rather than manually deploying a custom data-analytics stack.
 
-See [Enterprise Data Warehouse Architecture](/azure/architecture/solution-ideas/articles/enterprise-data-warehouse) for an alternative solution to this pattern.
+See [Enterprise data warehouse architecture](/azure/architecture/solution-ideas/articles/enterprise-data-warehouse) for an alternative solution to this pattern.
 
 ## Details for business users
 
@@ -124,7 +124,7 @@ Power BI also supports integration with Azure Active Directory (cloud identity) 
 
 For example, assume users on mobile devices outside the perimeter need to access predefined, optimized reports that access and render sensitive data from data sources hosted inside the perimeter. In this implementation, users first establish VPN connectivity, if necessary. They're then prompted to authenticate to the Power BI service. After they're verified via multi-factor authentication, the Power BI rendering engine passes the user's identity to the target database that's hosted inside the perimeter. The database can then verify the accessing user. It also has information about the user's role / security group, so it can apply query and data filtering as required by the security policy of that user.
 
-_**Need to get high volumes of data in a scalable way from multiple data sources in raw format (typically from on-premises). Need to store it, together with multiple versions and history, in a scalable way, to inexpensive storage**._
+_**Need to get high volumes of data in a scalable way from multiple data sources in raw format (typically from on-premises). Need to store it, together with multiple versions and history, in a scalable way, in inexpensive storage**._
 
 Ideally, Power BI needs to consume optimized data models for a specific data domain to improve the user experience, reduce waiting time, and improve data model maintenance. To produce these models, users typically need to run a process that ingests data from multiple data sources in raw format and store that data for further processing. Although there are many ways to do this processing, this approach uses Data Factory. 
 
@@ -138,7 +138,7 @@ _**Store data in a structured way, with indexing to improve access speed. The da
 
 After the data, along with any snapshots, is available in cost-effective object storage (like Data Lake Storage), you need to transform it to the desired form. Typically, all raw data is stored, as opposed to only the final version and form of the data. This approach differs from earlier older approaches to ETL/ELT. It allows existing data models to be updated quickly as requirements change, without requiring a reload from the initial source system.
 
-This architecture supports transformation of data primarily via Data Factory, Azure Databricks, and Azure Synapse Analytics. Each service is scalable and provides a rich transformational environment complete with features and adapters.
+This architecture supports transformation of data primarily via Data Factory, Azure Databricks, and Azure Synapse Analytics. Each service is scalable and provides a rich transformational environment with adapters.
 
 This solution is designed to read data from Data Lake Storage through a private endpoint in the perimeter and perform these actions on data, at scale: 
 - Clean and normalize 
@@ -151,15 +151,15 @@ You should use the Premium SKU of Azure Databricks to enable advanced security f
 
 Users can access Data Factory and the Azure Databricks workspace (but not the data) through a public endpoint via Azure AD authentication if conditional access is enabled.
 
- SQL Database plays a key role in this solution as a data source consumed by Power BI clients. The model is optimized for the business domain, for Power BI reports, with the correct business terminology and attributes and security trimming done at the database engine level with native capabilities. In addition, Power BI is configured to consume data over private endpoints from SQL Database, point-to-point, and to ingest data from the Azure Databricks / Data Factory self-hosted integration runtime to improve security.
+ SQL Database plays a key role in this solution as a data source consumed by Power BI clients. The model is optimized for the business domain, for Power BI reports, with the correct business terminology and attributes. Security trimming is done at the database-engine level with native capabilities. In addition, Power BI is configured to consume data over private endpoints from SQL Database, point-to-point, and to ingest data from the Azure Databricks / Data Factory self-hosted integration runtime to improve security.
 
 _**Mask data and secure or hide data that shouldn't be seen by users from other geographic regions or departments.**_
 
-Data stored in the business domain database (the SQL database) probably contains sensitive data. It's important to allow users to access only a subset of data based on the user's role. Data typically crosses regions from different units in different geographic locations. 
+Data stored in the business domain database (the SQL database) probably contains sensitive data. It's important to allow users to access only a subset of data based on the user's role. And data typically crosses regions from different units in different geographic locations. 
 
-Manually filtering in code is error prone. Filtering in reports can also be problematic. Instead, you should filter based on security context, on the database level. This method forces all consuming tools, including reporting tools, to receive data that's already filtered. To enable this model, accessing tools need to pass the identity of the viewing user instead of service accounts. This configuration allows the system to stay compliant with auditing and traceability requirements.
+Manually filtering in code is error prone. Filtering in reports can also be problematic. Instead, you should filter based on security context, at the database level. This method forces all consuming tools, including reporting tools, to receive data that's already filtered. For this model to work, accessing tools need to pass the identity of the viewing user instead of service accounts. This configuration allows the system to stay compliant with auditing and traceability requirements.
 
-SQL Database implements row-level security on the database engine level, which makes it easier to implement a centralized security filtering and auditing model. This model requires propagating the security context from the viewing user to the database level. But Power BI can understand and propagate the security context (the user's cloud identity) to the business domain database. That database can use that identity to authenticate, authorize, and filter data for the user based on the identity or roles the user belongs to.
+SQL Database implements row-level security at the database-engine level, which makes it easier to implement a centralized security filtering and auditing model. This model requires propagating the security context from the viewing user to the database level. But Power BI can understand and propagate the security context (the user's cloud identity) to the business domain database. That database can use that identity to authenticate, authorize, and filter data for the user based on the identity or roles the user belongs to.
 
 ## Considerations
 
@@ -201,7 +201,7 @@ This architecture pattern is based on managed Azure services that have built-in 
 
 The solution can work with petabytes of data.
 
-If you perform data ingestion from on-premises data sources (for example, through the Data Factory self-hosted integration runtime), bandwidth might be a limiting factor. The latency of the VPN network and the compute power of the self-host integration runtime machine might also be a limiting factor.
+If you perform data ingestion from on-premises data sources (for example, through the Data Factory self-hosted integration runtime), bandwidth might be a limiting factor. The latency of the VPN network and the compute power of the self-hosted integration runtime machine might also be limiting factors.
 
 The address range or size of the virtual network for the Data Analytical Workspace can limit the number of VMs that Azure Databricks can use.
 
@@ -237,15 +237,15 @@ The cost for SQL Database depends on the SKU, whether you use flat cost or cost 
 
 Log Analytics Workspace can incur significant costs for data collected and stored in the workspace. Consider enabling retention policies for data stored in a workspace to control this cost.
 
-There's a data transfer cost for traffic leaving an Azure datacenter. There's no cost for ingress.
+Traffic leaving an Azure datacenter incurs a cost. There's no cost for ingress.
 
 VPN connectivity, like Azure ExpressRoute or site-to-site connectivity, is typically a shared infrastructure cost.
 
-The Data Factory self-hosted integration runtime is typically hosted in a private data center, so it's separated from Azure cost.
+The Data Factory self-hosted integration runtime is typically hosted in a private datacenter, so it's separate from the Azure costs.
 
 Consider Azure reservations options for compute and storage to optimize the cost of the solution.
 
-The Power BI cost is separate from the Azure cost. Power BI premium has a different pricing model and is also separate from the Azure cost.
+The Power BI cost is separate from the Azure cost. Power BI Premium has a different pricing model and is also separate from the Azure costs.
 
 ## Next steps
 
@@ -253,7 +253,7 @@ To implement this pattern, start at the project page: [Azure/ADAW](https://githu
 That page includes deployment scripts to help you deploy the workspace for data analysis based on Azure services.
 
 Here are some additional resources:
-  - [Enterprise Data Warehouse Architecture](/azure/architecture/solution-ideas/articles/enterprise-data-warehouse)
+  - [Enterprise data warehouse architecture](/azure/architecture/solution-ideas/articles/enterprise-data-warehouse)
   - [Modern data warehouse for small and medium business](/azure/architecture/example-scenario/data/small-medium-data-warehouse)
   - [Data warehousing and analytics](/azure/architecture/example-scenario/data/data-warehouse)
 
