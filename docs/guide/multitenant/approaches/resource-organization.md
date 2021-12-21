@@ -22,7 +22,7 @@ ms.custom:
 
 # Azure resource organization in multitenant solutions
 
-Azure provides many options for organizing your resources. In a multitenant solution, there are specific tradeoffs to consider when you plan your resource organization strategy. In this article, we review two core elements of organizing your Azure resources: tenant isolation and scale-out across multiple resources. We also describe how to work with Azure's resource limits and quotas, and how to scale your solution beyond these limits.
+Azure provides many options for organizing your resources. In a multitenant solution, there are specific tradeoffs to consider, when you plan your resource organization strategy. In this article, we review two core elements of organizing your Azure resources: tenant isolation and scale-out across multiple resources. We also describe how to work with Azure's resource limits and quotas, and how to scale your solution beyond these limits.
 
 ## Key considerations and requirements
 
@@ -32,16 +32,16 @@ When you deploy a multitenant solution in Azure, you need to decide whether you 
 
 ### Scale
 
-Most Azure resources, as well as resource groups and subscriptions, impose limits that can affect your ability to scale. You might need to consider *scaling out* or *bin packing* to meet the your planned number of tenants or system load.
+Most Azure resources, as well as resource groups and subscriptions, impose limits that can affect your ability to scale. You might need to consider *scaling out* or *bin packing* to meet your planned number of tenants or your planned system load.
 
-If you know with certainty that you won't grow to large numbers of tenants or high load, don't overengineer your scale-out plan. But if you plan for your solution to grow, carefully consider your scale-out plan. Ensure that you architect for scale by following the guidance in this article.
+If you know with certainty that you won't grow to large numbers of tenants or to a high load, don't overengineer your scale-out plan. But if you plan for your solution to grow, carefully consider your scale-out plan. Ensure that you architect for scale, by following the guidance in this article.
 
 If you have an automated deployment process and need to scale across resources, determine how you'll deploy and assign tenants across multiple resource instances. For example, how will you detect that you're approaching the number of tenants that can be assigned to a specific resource? Will you plan to deploy new resources *just in time* for when you need them? Or, will you deploy a pool of resources *ahead of time* so they're ready for you to use when you need them?
 
 > [!TIP]
 > In the early stages of design and development, you might not choose to implement an automated scale-out process. You should still consider and clearly document the processes required to scale as you grow.
 
-It's also important to avoid making assumptions in your code and configuration that can limit your ability to scale. For example, you might need to scale out to multiple storage accounts. Ensure your application tier doesn't assume that it only connects to a single storage account for all tenants.
+It's also important to avoid making assumptions in your code and configuration, which can limit your ability to scale. For example, you might need to scale out to multiple storage accounts. Ensure your application tier doesn't assume that it only connects to a single storage account for all tenants.
 
 ## Approaches and patterns to consider
 
@@ -55,13 +55,13 @@ When you determine how to deploy resources for each tenant, you might isolate at
 
 You might choose to share an Azure resource among multiple tenants, and run all of their workloads on a single instance. Review the [service-specific guidance](../service/overview.md) for the Azure services you use to understand any specific considerations or options that might be important.
 
-When you run single instances of a resource, you need to consider any service limits, subscription limits, or quotas that might be reached as you scale. For example, there's a maximum number of nodes supported by an Azure Kubernetes Service (AKS) cluster, and an upper limit on the number of transactions per second supported by a storage account. Consider how you'll [scale to multiple shared resources](#bin-packing) as you approach these limits.
+When you run single instances of a resource, you need to consider any service limits, subscription limits, or quotas that might be reached as you scale. For example, there's a maximum number of nodes that are supported by an Azure Kubernetes Service (AKS) cluster, and there's an upper limit on the number of transactions per second that are supported by a storage account. Consider how you'll [scale to multiple shared resources](#bin-packing) as you approach these limits.
 
 You also need to ensure your application code is fully aware of multitenancy, and that it restricts access to the data for a specific tenant.
 
-As an illustration of the shared resource approach, suppose Contoso is building a multitenant SaaS application that includes a web application, a database, and a storage account. They might decide to deploy shared resources, and use these resources to service all of their customers:
+As an illustration of the shared resource approach, suppose Contoso is building a multitenant SaaS application that includes a web application, a database, and a storage account. They might decide to deploy shared resources, and they'd use these resources to service all of their customers, as shown in the following diagram.
 
-![Diagram showing a single set of resources that are shared by all customers.](media/resource-organization/isolation-within-resource.png)
+![Diagram that shows a single set of resources that are shared by all the customers.](media/resource-organization/isolation-within-resource.png)
 
 #### Separate resources in a resource group
 
@@ -71,9 +71,9 @@ It's important that you consider how you deploy and manage these resources, incl
 
 It's a good practice to use separate resource groups for the resources you share between multiple tenants and the resources that you deploy for individual tenants. However, for some resources, [Azure limits the number of resources of a single type that can be deployed into a resource group](/azure/azure-resource-manager/management/resources-without-resource-group-limit). This limit means you might need to [scale across multiple resource groups](#resource-group-and-subscription-limits) as you grow.
 
-Suppose Contoso has three customers: Adventure Works, Fabrikam, and Tailwind. They might choose to share the web application and storage account between the three customers, and deploy individual databases for each tenant:
+Suppose Contoso has three customers: Adventure Works, Fabrikam, and Tailwind. They might choose to share the web application and storage account between the three customers, and then deploy individual databases for each tenant, as shown in the following diagram.
 
-![Diagram showing a resource group containing shared resources, and another resource group containing a database for each customer.](media/resource-organization/isolation-resource.png)
+![Diagram showing a resource group that contains shared resources, and another resource group that contains a database for each customer.](media/resource-organization/isolation-resource.png)
 
 #### Separate resource groups in a subscription
 
