@@ -9,9 +9,11 @@ ms.topic: conceptual
 ms.service: architecture-center
 products:
  - azure
+ - azure-app-service
+ - azure-functions
 categories:
- - management-and-governance
- - security
+ - web
+ - compute
 ms.category:
   - fcp
 ms.custom:
