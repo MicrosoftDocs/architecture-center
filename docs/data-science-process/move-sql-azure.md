@@ -8,7 +8,7 @@ editor: marktab
 ms.service: machine-learning
 ms.subservice: team-data-science-process
 ms.topic: article
-ms.date: 12/216/2021
+ms.date: 12/21/2021
 ms.author: tdsp
 ms.custom:
   - previous-author=deguhath
@@ -39,7 +39,7 @@ The procedures outlined here require that you have:
 * Access to an **Azure SQL Database**. If you must set up an Azure SQL Database, [Getting Started with Microsoft Azure SQL Database](/azure/azure-sql/database/single-database-create-quickstart) provides information on how to provision a new instance of an Azure SQL Database.
 * Installed and configured **Azure PowerShell** locally. For instructions, see [How to install and configure Azure PowerShell](/powershell/azure/).
 
-**Data**: The migration processes are demonstrated using the [NYC Taxi dataset](https://chriswhong.com/open-data/foil_nyc_taxi/). The NYC Taxi dataset contains information on trip data and fares -- either available through [Azure Open Datasets](/azure/open-datasets/dataset-taxi-yellow?tabs=azureml-opendatasets) or from the source [TLC Trip Record Data](https://www1.nyc.gov/site/tlc/about/tlc-trip-record-data.page). A sample and description of these files are provided in [NYC Taxi Trips Dataset Description](sql-walkthrough.md#dataset).
+**Data**: The migration processes are demonstrated using the [NYC Taxi dataset](https://chriswhong.com/open-data/foil_nyc_taxi/). The NYC Taxi dataset contains information on trip data and fares, which is either available through [Azure Open Datasets](/azure/open-datasets/dataset-taxi-yellow?tabs=azureml-opendatasets) or from the source [TLC Trip Record Data](https://www1.nyc.gov/site/tlc/about/tlc-trip-record-data.page). A sample and description of these files are provided in [NYC Taxi Trips Dataset Description](sql-walkthrough.md#dataset).
 
 You can either adapt the procedures described here to a set of your own data or follow the steps as described by using the NYC Taxi dataset. To upload the NYC Taxi dataset into your SQL Server database, follow the procedure outlined in [Bulk Import Data into SQL Server Database](sql-walkthrough.md#dbload).
 
