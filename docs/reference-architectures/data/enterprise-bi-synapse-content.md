@@ -1,21 +1,22 @@
 
 
-This reference architecture implements the [Analytics end-to-end with Azure Synapse][e2e-analytics] pattern, implementing a Synapse Pipeline to ingest data from an on-premises SQL Server database into Synapse SQL Pools before transforming the data for analysis.
-
+This reference architecture implements the [Analytics end-to-end with Azure Synapse][e2e-analytics] pattern, using a Synapse Pipeline to ingest data from an on-premises Data Warehouse into Synapse SQL Pools, before transforming the data for analysis.
 
 <!-- Requires update
 ![GitHub logo](../../_images/github.png) A reference implementation for this architecture is available on [GitHub][github-folder].
 -->
+
 ### Enterprise Architecture
-![Architecture diagram for Enterprise BI in Azure with Azure Synapse](./images/Analytics-with-AzureSynapse-update.png)
+
+![Architecture diagram for Enterprise BI in Azure with Azure Synapse](./images/analytics-with-azure-synapse-pbi.png)
 
 <!--
-![Architecture diagram for Enterprise BI in Azure with Azure Synapse](./images/enterprise-bi-synapse.png)
+TODO - George: Update this architecture from new guidance
 -->
-**Scenario**: An organization has a large on-premises Data Warehouse. The organization wants to use Azure Synapse to perform analysis using Power BI.
 
-This reference architecture is designed for one-time, on-demand, or scheduled jobs. 
+**Scenario**: An organization has a large on-premises Data Warehouse stored in a SQL Database. The organization wants to use Azure Synapse to perform analysis using Power BI.
 
+This reference architecture is designed for ongoing ingestion and processing.
 
 ## Architecture
 
@@ -24,38 +25,54 @@ The architecture consists of the following components.
 ### Data source
 
 **SQL Server**. The source data is located in a SQL Server database on premises. To simulate the on-premises environment, the deployment scripts for this architecture provision a VM in Azure with SQL Server installed. The [Adventure Works DW][adventureworks-sample-link] is used as the source data.
-//TODO - import the back and change variable
+<!-- Galina - TODO - import the back and change variable -->
 
 ### Ingestion and data storage
 
-**Blob Storage**. Blob storage is used as a staging area to copy the data before loading it into Azure Synapse.
+**Azure Data Lake Gen2 (ADLS)**. [ADLS](/azure/databricks/data/data-sources/azure/adls-gen2/) is used as a staging area to copy the data before loading it into Azure Synapse Dedicated SQL Pool via PolyBase.
 
 **Azure Synapse**. [Azure Synapse](/azure/sql-data-warehouse/) is a distributed system designed to perform analytics on large data. It supports massive parallel processing (MPP), which makes it suitable for running high-performance analytics.
 
+**Azure Synapse Pipelines**. [Synapse Pipelines](/azure/data-factory/concepts-pipelines-activities) are used as a tool to orchestrate data ingestion and transformation within your Azure Synapse workspace.
+
 ### Analysis and reporting
 
-Data modelling approach in this usecase is presented by composition of Enterprise model and BI Semantic model. [Enterprise model][enterprise-model] is stored in [Synapse Dedicated SQL Pool][synapse-dedicated-pool] and [BI Semantic model][bi-model] is stored in [Power BI Premium Capacities][pbi-premium-capacities]. 
+Data modeling approach in this use case is presented by composition of Enterprise model and BI Semantic model. [Enterprise model][enterprise-model] is stored in [Synapse Dedicated SQL Pool][synapse-dedicated-pool] and the [BI Semantic model][bi-model] is stored in [Power BI Premium Capacities][pbi-premium-capacities].
 
-<!--
 ### Authentication
 
 **Azure Active Directory (Azure AD)** authenticates users who connect to the Analysis Services server through Power BI.
 
+### Architecture Diagram
+
+<!-- TODO: find better place for this -->
+![Diagram of the enterprise BI pipeline](./images/enterprise-bi-small-architecture.png)
+
 ## Data pipeline
 
-This reference architecture uses the [WorldWideImporters](/sql/sample/world-wide-importers/wide-world-importers-oltp-database) sample database as a data source. The data pipeline has the following stages:
+This reference architecture uses the [Adventure Works DW][adventureworks-sample-link] sample database as a data source. The data pipeline has the following stages:
 
+<!--
 1. Export the data from SQL Server to flat files (bcp utility).
 2. Copy the flat files to Azure Blob Storage (AzCopy).
 3. Load the data into Azure Synapse (PolyBase).
 4. Transform the data into a star schema (T-SQL).
-5. Load a semantic model into Analysis Services (SQL Server Data Tools).
+5. Load a semantic model into Analysis Services (SQL Server Data Tools). 
+-->
 
-![Diagram of the enterprise BI pipeline](./images/enterprise-bi-sqldw-pipeline.png)
+1. Most recent watermark entry is retrieved from the control table, located in the SQL DB.
+1. For every table in the SQL DB, the pipeline will:
 
-> [!NOTE]
-> For steps 1 &ndash; 3, consider using Redgate Data Platform Studio. Data Platform Studio applies the most appropriate compatibility fixes and optimizations, so it's the quickest way to get started with Azure Synapse. For more information, see [Load data with Redgate Data Platform Studio](/azure/sql-data-warehouse/sql-data-warehouse-load-with-redgate).
->
+    1. Find the most recent entry in the table's watermark column
+    1. Check if a schema for the table exists, and create a schema if one is not found.
+    1. The Copy Data activity in Azure Synapse Pipelines will copy data from the SQL DB into the ADLS staging environment.
+    1. Data from the staging environment is then loaded into the Synapse Provisioned SQL Pool via PolyBase
+    1. We store the new watermark value to update later <!-- TODO - Noah: change if condition to appending variable onto list, update stored proc to simplify-->
+1. A stored procedure to update the watermark stored in the SQL DB is executed.
+
+
+<!-- synapse data mapping flows, added by eng team TODO: how mapping data flows transform the data-->
+![Diagram of the enterprise BI pipeline](./images/enterprise-bi-watermark-pipeline.png)
 
 The next sections describe these stages in more detail.
 
@@ -193,9 +210,9 @@ For more information, see [Manage database roles and users](/azure/analysis-serv
     - The data warehouse server, Analysis Services, and related resources.
     - Azure Data Factory.
     - An on-premises to cloud simulated scenario.
-
+    
     Each workload has its own deployment template.
-
+    
     The data warehouse server is set up and configured by using Azure CLI commands which follows the imperative approach of the IaC practice. Consider using deployment scripts and integrate them in the automation process.
 
 - Consider staging your workloads. Deploy to various stages and run validation checks at each stage before moving to the next stage. That way you can push updates to your production environments in a highly controlled way and minimize unanticipated deployment issues. Use [Blue-green deployment][blue-green-dep] and [Canary releases][cannary-releases]  strategies for updating live production environments.
@@ -205,6 +222,8 @@ For more information, see [Manage database roles and users](/azure/analysis-serv
 - [Azure Monitor][azure-monitor] is the recommended option for analyzing the performance of your data warehouse and the entire Azure analytics platform for an integrated monitoring experience. [Azure Synapse Analytics][synapse-analytics] provides a monitoring experience within the Azure portal to show insights to your data warehouse workload. The Azure portal is the recommended tool when monitoring your data warehouse because it provides configurable retention periods, alerts, recommendations, and customizable charts and dashboards for metrics and logs.
 
 For more information, see the DevOps section in [Microsoft Azure Well-Architected Framework][AAF-devops].
+
+## Cost Considerations
 
 ### Azure Synapse
 
@@ -269,12 +288,12 @@ You may want to review the following [Azure example scenarios](/azure/architectu
 [wwi]: /sql/sample/world-wide-importers/wide-world-importers-oltp-database
 [powerbi-embedded-pricing]: https://azure.microsoft.com/pricing/details/power-bi-embedded
 [powerbi-pro-purchase]: /power-bi/service-admin-purchasing-power-bi-pro
-[adventureworks-sample-link]: https://docs.microsoft.com/en-us/sql/samples/adventureworks-install-configure?view=sql-server-ver15&tabs=ssms
+[adventureworks-sample-link]: /sql/samples/adventureworks-install-configure?view=sql-server-ver15&tabs=ssms
 [az-synapse-pricing]: https://azure.microsoft.com/pricing/details/synapse-analytics
 [az-as-pricing]: https://azure.microsoft.com/pricing/details/analysis-services
 [az-storage-reserved]: /azure/storage/blobs/storage-blob-reserved-capacity
 [aaf-cost]: ../../framework/cost/overview.md
-[enterprise-model]: https://docs.microsoft.com/en-us/power-bi/guidance/center-of-excellence-business-intelligence-solution-architecture#enterprise-models
-[bi-model]: https://docs.microsoft.com/en-us/power-bi/guidance/center-of-excellence-business-intelligence-solution-architecture#bi-semantic-models
-[pbi-premium-capacities]: https://docs.microsoft.com/en-us/power-bi/admin/service-premium-what-is#reserved-capacities
-[synapse-dedicated-pool]: https://docs.microsoft.com/en-us/azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is#synapse-sql-pool-in-azure-synapse
+[enterprise-model]: powerbi-docs/guidance/center-of-excellence-business-intelligence-solution-architecture.md#enterprise-models
+[bi-model]:powerbi-docs/guidance/center-of-excellence-business-intelligence-solution-architecture.md#bi-semantic-models
+[pbi-premium-capacities]: powerbi-docs/admin/service-premium-what-is.md#reserved-capacities
+[synapse-dedicated-pool]:azure/articles/synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md#synapse-sql-pool-in-azure-synapse
