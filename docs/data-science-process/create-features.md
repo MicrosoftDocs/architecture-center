@@ -8,7 +8,7 @@ editor: marktab
 ms.service: machine-learning
 ms.subservice: team-data-science-process
 ms.topic: conceptual
-ms.date: 12/17/2021
+ms.date: 12/21/2021
 ms.author: tdsp
 ms.custom:
   - previous-author=deguhath
@@ -21,11 +21,8 @@ categories:
 ---
 # Feature engineering in machine learning
 
-
-
 > [!NOTE]
 > This item is under maintenance. We encourage you to use the [Azure Machine Learning designer](https://azure.microsoft.com/services/cognitive-services/anomaly-detector/).
-
 
 > [!IMPORTANT]
 > Support for Machine Learning Studio (classic) will end on 31 August 2024. We recommend you transition to [Azure Machine Learning](https://azure.microsoft.com/services/machine-learning/) by that date.
