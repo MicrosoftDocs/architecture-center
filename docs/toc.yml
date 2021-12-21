@@ -3238,7 +3238,7 @@ items:
                     href: example-scenario/iot/cloud-to-device.yml
                   - name: 'Builders, developers, and operators'
                     href: example-scenario/iot/builders-developers-operators.yml
-              - name: Azure IoT Edge Vision
+              - name: Video Analytics on Edge
                 items:
                   - name: Overview
                     href: guide/iot-edge-vision/index.md
