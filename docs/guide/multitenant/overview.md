@@ -4,7 +4,7 @@ titleSuffix: Azure Architecture Center
 description: This article introduces how to build multitenant solutions on Azure and the guidance we provide throughout this series.
 author: johndowns
 ms.author: jodowns
-ms.date: 12/16/2021
+ms.date: 12/21/2021
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: azure-guide
