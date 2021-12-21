@@ -182,7 +182,7 @@ Data governance is a common challenge in large enterprise environments. On one h
 
 ### Azure Purview
 
-1. Use [Azure Purview](/azure/purview/overview) for [data discovery](/azure/purview/how-to-browse-catalog) and asset insights on your [data assets](/azure/purview/asset-insights), [data classification](/azure/purview/classification-insights), and [sensitivity](/azure/purview/sensitivity-insights), which covers the entire organizational data landscape.
+1. Use [Azure Purview](/azure/purview/overview) for [data discovery](/azure/purview/how-to-browse-catalog) and insights on your [data assets](/azure/purview/asset-insights), [data classification](/azure/purview/classification-insights), and [sensitivity](/azure/purview/sensitivity-insights), which covers the entire organizational data landscape.
 
 1. Azure Purview can help you maintain a [business glossary](/azure/purview/concept-business-glossary) with the specific business terminology required for users to understand the semantics of what datasets mean and how they are meant to be used across the organization.
 
