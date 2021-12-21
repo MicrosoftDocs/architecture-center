@@ -8,7 +8,7 @@ editor: marktab
 ms.service: machine-learning
 ms.subservice: team-data-science-process
 ms.topic: article
-ms.date: 01/10/2020
+ms.date: 12/21/2021
 ms.author: tdsp
 ms.custom:
   - previous-author=deguhath
@@ -24,7 +24,7 @@ This document shows how to create features for data stored in an Azure HDInsight
 
 The operations needed to create features can be memory intensive. The performance of Hive queries becomes more critical in such cases and can be improved by tuning certain parameters. The tuning of these parameters is discussed in the final section.
 
-Examples of the queries that are presented are specific to the [NYC Taxi Trip Data](https://chriswhong.com/open-data/foil_nyc_taxi/) scenarios are also provided in [GitHub repository](https://github.com/Azure/Azure-MachineLearning-DataScience/tree/master/Misc/DataScienceProcess/DataScienceScripts). These queries already have data schema specified and are ready to be submitted to run. In the final section, parameters that users can tune so that the performance of Hive queries can be improved are  also discussed.
+Examples of the queries that are presented are specific to the [NYC Taxi Trip Data](https://www1.nyc.gov/site/tlc/about/tlc-trip-record-data.page) scenarios are also provided in [GitHub repository](https://github.com/Azure/Azure-MachineLearning-DataScience/tree/master/Misc/DataScienceProcess/DataScienceScripts). These queries already have data schema specified and are ready to be submitted to run. In the final section, parameters that users can tune so that the performance of Hive queries can be improved are  also discussed.
 
 This task is a step in the [Team Data Science Process (TDSP)](/azure/machine-learning/team-data-science-process/).
 

@@ -2239,6 +2239,8 @@ items:
                     href: reference-architectures/containers/aks-pci/aks-pci-policy.yml
                   - name: Summary
                     href: reference-architectures/containers/aks-pci/aks-pci-summary.yml
+              - name: AKS data protection on Azure NetApp Files
+                href: example-scenario/file-storage/data-protection-kubernetes-astra-azure-netapp-files.yml
               - name: Autonomous-driving simulation
                 href: industries/automotive/building-blocks-autonomous-driving-simulation-environments.yml
               - name: Build a telehealth system
@@ -2563,6 +2565,8 @@ items:
               - name: SQL Database and Synapse Analytics connectivity
                 href: /azure/azure-sql/database/connectivity-architecture
                 maintainContext: true
+              - name: SQL Managed Instance with CMK
+                href: example-scenario/data/sql-managed-instance-cmk.yml
               - name: Web app private database connectivity
                 href: example-scenario/private-web-app/private-web-app.yml
               - name: Windows N-tier applications
@@ -4146,6 +4150,8 @@ items:
                 href: example-scenario/apps/fully-managed-secure-apps.yml
               - name: Secure a Microsoft Teams channel bot
                 href: example-scenario/teams/securing-bot-teams-channel.yml
+              - name: SQL Managed Instance with CMK
+                href: example-scenario/data/sql-managed-instance-cmk.yml
               - name: Virtual network integrated microservices
                 href: example-scenario/integrated-multiservices/virtual-network-integration.yml
               - name: Web app private database connectivity

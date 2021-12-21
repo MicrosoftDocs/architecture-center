@@ -1,4 +1,4 @@
-<!-- cSpell:ignore lbrader netweaver jump-box jump-boxes ACLs HANA SOFS SWDs SMLG ABAP SAPGUI SAPGUIs SPOF WSFC ASCS MSEE Iperf SIOS sapmnt -->
+<!-- cSpell:ignore lbrader netweaver jump-box jump-boxes ACLs HANA SWDs SMLG ABAP SAPGUI SAPGUIs SPOF WSFC ASCS MSEE Iperf SIOS sapmnt -->
 
 This reference architecture shows a set of proven practices for running SAP NetWeaver in a Windows environment, on Azure, with high availability. The database is AnyDB, the SAP term for any supported database management system (DBMS) besides SAP HANA.
 
@@ -29,11 +29,11 @@ These components are required:
 
 **Virtual machines.** This architecture uses virtual machines for the application tier and database tier, grouped like so:
 
-- **SAP NetWeaver.** The application tier uses Windows virtual machines to run SAP Central Services and SAP application servers. The VMs that run Central Services are configured as a Windows Server failover cluster for high availability. They're supported by Windows Scale-Out File Server with Storage Spaces Direct or Azure shared disks.
+- **SAP NetWeaver.** The application tier uses Windows virtual machines to run SAP Central Services and SAP application servers. The VMs that run Central Services are configured as a Windows Server Failover Cluster (WSFC) for high availability. They're supported by either Azure File Shares (AFS) or Azure shared disks.
 
 - **AnyDB.** The database tier runs AnyDB as the database, such as Microsoft SQL Server, Oracle, or IBM Db2.
 
-- **Jump box** (also called a *bastion host*). Administrators use this improved-security virtual machine to connect to the other virtual machines. It's typically a part of shared services, like domain controllers and backup services. If Secure Shell Protocol (SSH) and Remote Desktop Protocol (RDP) are the only services used for server administration, an [Azure Bastion](/azure/bastion/bastion-overview) host is an alternative. But if you use other management tools, like SQL Server Management Studio or SAP Front End, use a traditional, self-deployed jump box.
+- **Jumpbox** (also called a _bastion host_). Administrators use this improved-security virtual machine to connect to the other virtual machines. It's typically a part of shared services, like domain controllers and backup services. If Secure Shell Protocol (SSH) and Remote Desktop Protocol (RDP) are the only services used for server administration, an [Azure Bastion](/azure/bastion/bastion-overview) host is an alternative. But if you use other management tools, like SQL Server Management Studio or SAP Front End, use a traditional, self-deployed jump box.
 
 - **Windows Server Active Directory domain controllers.** The domain controllers are used for identity management of all virtual machines and users in the domain.
 
@@ -75,17 +75,13 @@ The SAP SMLG transaction is commonly used to manage logon groups for ABAP applic
 
 This reference architecture runs Central Services on VMs in the application tier. Central Services is a potential single point of failure (SPOF) when it's deployed to a single VM. To implement a highly available solution, use either a file-share cluster or a shared-disk cluster.
 
-For file-share clusters, there are several options. We recommend that you use [Azure Files](/azure/storage/files/storage-files-introduction) shares as fully managed, cloud-native SMB or NFS shares. An alternative to Azure Files is [Azure NetApp Files](/azure/azure-netapp-files/azure-netapp-files-introduction), which provides high-performance NFS and SMB shares.
+For highly available file-shares, there are several options. We recommend that you use [Azure Files](/azure/storage/files/storage-files-introduction) shares as fully managed, cloud-native SMB or NFS shares. An alternative to Azure Files is [Azure NetApp Files](/azure/azure-netapp-files/azure-netapp-files-introduction), which provides high-performance NFS and SMB shares.
 
-You can also implement the high availability file share on the Central Services instances by using WSFC with [Scale-Out File Server](https://techcommunity.microsoft.com/t5/Running-SAP-Applications-on-the/File-Server-with-SOFS-and-S2D-as-an-Alternative-to-Cluster/ba-p/368111) and the [Storage Spaces Direct](https://blogs.sap.com/2018/03/07/your-sap-on-azure-part-5-ascs-high-availability-with-storage-spaces-direct) feature in Windows Server 2016 and later. This solution also supports [Windows clusters](/azure/virtual-machines/workloads/sap/sap-high-availability-guide-wsfc-file-share) by using a file share served up by Scale-Out File Server as the cluster shared volume (CSV).
-
-If you prefer to use shared disks, we recommend that you use [Azure shared disks](/azure/virtual-machines/disks-shared#linux) to set up a [Windows Server failover cluster for SAP Central Services Cluster](/azure/virtual-machines/workloads/sap/sap-high-availability-infrastructure-wsfc-shared-disk).
+You can also implement the highly available file shares on the Central Service instances by using WSFC with ([Azure Files](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-windows-azure-files-smb)). This solution also supports Windows Cluster with shared disks by using an Azure shared disk as the cluster shared volume (CSV). If you prefer to use shared disks, we recommend that you use [Azure shared disks](/azure/virtual-machines/disks-shared#linux) to set up a [Windows Server failover cluster for SAP Central Services Cluster](/azure/virtual-machines/workloads/sap/sap-high-availability-infrastructure-wsfc-shared-disk).
 
 There are also third-party products like [SIOS DataKeeper Cluster Edition](https://azuremarketplace.microsoft.com/marketplace/apps/sios_datakeeper.sios-datakeeper-8) from SIOS Technology Corp. This add-on replicates contents from independent disks attached to the ASCS cluster nodes and then presents the disks as a CSV to the cluster software.
 
-Microsoft supports multiple ASCS instances with different [system IDs](/azure/virtual-machines/workloads/sap/sap-high-availability-multi-sid) (SIDs) deployed on one Windows cluster over multiple file shares served up by the same [Scale-Out File Server cluster](https://techcommunity.microsoft.com/t5/Running-SAP-Applications-on-the/File-Server-with-SOFS-and-S2D-as-an-Alternative-to-Cluster/ba-p/368111). This configuration can help you reduce infrastructure costs.
-
-In the case of cluster network partitioning, the cluster software uses votes to decide which segment of the network and its associated services will serve as the brain of the now fragmented cluster. Windows offers a number of quorum models. This solution uses Azure [Cloud Witness](/windows-server/failover-clustering/deploy-cloud-witness) because it's simpler and provides more availability than a compute node witness. The [Azure file share witness](/windows-server/failover-clustering/file-share-witness) is another alternative to provide a cluster quorum vote.
+In the case of cluster network partitioning, the cluster software uses quorum votes to decide which segment of the network and its associated services will serve as the brain of the now fragmented cluster. Windows offers a number of quorum models. This solution uses Azure [Cloud Witness](/windows-server/failover-clustering/deploy-cloud-witness) because it's simpler and provides more availability than a compute node witness. The [Azure file share witness](/windows-server/failover-clustering/file-share-witness) is another alternative to provide a cluster quorum vote.
 
 On an Azure deployment, the application servers connect to the highly available Central Services through the virtual host names of the ASCS or ERS services. These host names are assigned to the cluster front-end IP configuration of the load balancer. Azure Load Balancer supports multiple front-end IPs, so both the ASCS and ERS virtual IPs (VIPs) can be bounded to one load balancer.
 
@@ -145,7 +141,7 @@ Some organizations use standard storage for their application servers. Standard 
 
 Application servers don't host business data. So you can also use the smaller P4 and P6 premium disks to help minimize cost. Doing so also allows you to benefit from the [single-instance VM SLA](https://azure.microsoft.com/support/legal/sla/virtual-machines/v1_6) if you have a central SAP stack installation.
 
-For high-availability scenarios, [Azure shared disks](/azure/virtual-machines/disks-shared) are available on Premium SSD and Ultra SSD [Azure managed disks](/azure/storage/storage-managed-disks-overview). You can use Azure shared disks with Windows Server, SUSE Linux Enterprise Server 15 SP1 and later, and SUSE Linux Enterprise Server For SAP.
+For high-availability scenarios, you can use [Azure File Shares](/azure/storage/files/storage-files-introduction) and [Azure shared disks](/azure/virtual-machines/disks-shared). Premium SSD and Ultra SSD [Azure managed disks](/azure/storage/storage-managed-disks-overview) are available for Azure shared disks, and Premium SSD is available for Azure File Shares.
 
 Azure Storage is also used by [Cloud Witness](/windows-server/failover-clustering/deploy-cloud-witness) to maintain quorum with a device in a remote Azure region, away from the primary region where the cluster resides.
 
@@ -195,29 +191,26 @@ In this distributed installation of the SAP application, the base installation i
 
 The Web Dispatcher component is used as a load balancer for SAP traffic among the SAP application servers. To achieve [high availability of the SAP Web Dispatcher](https://help.sap.com/doc/saphelp_nw73ehp1/7.31.19/en-US/48/9a9a6b48c673e8e10000000a42189b/frameset.htm), Azure Load Balancer implements either the failover cluster or the parallel Web Dispatcher setup.
 
-For internet-facing communications, we recommend a stand-alone solution in the perimeter network (also known as *DMZ*) to satisfy security concerns.
+For internet-facing communications, we recommend a stand-alone solution in the perimeter network (also known as _DMZ_) to satisfy security concerns.
 
 [Embedded Web Dispatcher](https://help.sap.com/viewer/00b4e4853ef3494da20ebcaceb181d5e/LATEST/en-US/2e708e2d42134b4baabdfeae953b24c5.html) on ASCS is a special option. You should take into account proper sizing because of additional workload on ASCS.
 
 ### Central Services in the application servers tier
 
-High availability of the Central Services is implemented with Windows Server Failover Cluster (WSFC). When the cluster storage for the failover cluster is deployed on Azure, you can configure it in two ways: as a clustered shared volume or as a file share.
+High availability of the Central Services is implemented with WSFC. When the cluster storage for the failover cluster is deployed on Azure, you can configure it in two ways: as a clustered shared volume or as a file share.
 
 We recommend that you use [Azure Files](/azure/storage/files/storage-files-introduction) as fully managed, cloud-native SMB or NFS shares. An alternative to Azure Files is [Azure NetApp Files](/azure/azure-netapp-files/azure-netapp-files-introduction), which provides high-performance, enterprise-class NFS and SMB shares.
-
-WSFC supports the use of file shares served up by the [Scale-Out File Server](https://techcommunity.microsoft.com/t5/Running-SAP-Applications-on-the/High-Available-ASCS-for-Windows-on-File-Share-8211-Shared-Disk/ba-p/368087?advanced=false&collapse_discussion=true&q=ascs%20sofs&search_type=thread) as cluster storage. Scale-Out File Server provides resilient file shares you can use as a cluster shared volume (CSV) for the Windows cluster. You can share a Scale-Out File Server cluster among multiple SAP Central Services instances.
-
-As of this writing, Scale-Out File Server is used only for high availability design within one Azure zone. (Deployment across zones isn't supported.) For disaster recovery (DR), Azure Site Recovery supports the replication of the entire Scale-Out File Server cluster to a remote region.
 
 There are two ways to set up clusters with shared disks on Azure. First, we recommend that you use [Azure shared disks](/azure/virtual-machines/disks-shared) to set up a [Windows Server Failover Cluster for SAP Central Services Cluster](/azure/virtual-machines/workloads/sap/sap-high-availability-infrastructure-wsfc-shared-disk).
 
 Alternatively, you can use SIOS DataKeeper to:
+
 - Replicate the content of independent disks attached to the cluster nodes.
 - Abstract the drives as a CSV for the cluster manager.
 
 For implementation details, see [Clustering SAP ASCS on Azure](https://techcommunity.microsoft.com/t5/Running-SAP-Applications-on-the/Clustering-SAP-ASCS-Instance-using-Windows-Server-Failover/ba-p/367898).
 
-With the introduction of the Azure Standard Load Balancer, you can now simply enable the [high availability port](/azure/load-balancer/load-balancer-ha-ports-overview). Doing so allows you to avoid configuring load-balancing rules for many SAP ports. Also, when you set up load balancers in general, whether on-premises or on Azure, enable the Direct Server Return feature (also called *Floating IP* or *DSR*). Doing so allows server responses to bypass the load balancer. This direct connection keeps the load balancer from becoming a bottleneck in the path of data transmission. For the SAP ASCS and database clusters, we recommend that you enable DSR.
+With the introduction of the Azure Standard Load Balancer, you can now simply enable the [high availability port](/azure/load-balancer/load-balancer-ha-ports-overview). Doing so allows you to avoid configuring load-balancing rules for many SAP ports. Also, when you set up load balancers in general, whether on-premises or on Azure, enable the Direct Server Return feature (also called _Floating IP_ or _DSR_). Doing so allows server responses to bypass the load balancer. This direct connection keeps the load balancer from becoming a bottleneck in the path of data transmission. For the SAP ASCS and database clusters, we recommend that you enable DSR.
 
 ### Application services in the application servers tier
 
@@ -272,11 +265,9 @@ For automatic replication of application servers to a secondary region, we recom
 
 ### Central Services
 
-This component of the SAP application stack doesn't persist business data. For DR protection, either replicate the /sapmnt content onto a standby virtual machine in the DR region or use Azure Site Recovery to replicate both the Central Services cluster and the Scale-Out File Server cluster. Alternatively, use Site Recovery to replicate the Central Services cluster by using SIOS DataKeeper disks.
+This component of the SAP application stack doesn't persist business data. For DR protection, either replicate the AFS SMB file share, which contains the /sapmnt directory and other content, onto another AFS SMB share (also with ZRS or not) in the DR region. Alternatively, you can use Site Recovery to replicate the Central Services cluster by using SIOS DataKeeper disks.
 
 You can build a virtual machine in the DR region to replicate the Central Services role and content. The only content from the primary Central Services node to synchronize is the /sapmnt share. If the configuration changes or kernel updates take place on the primary Central Services servers, you need to repeat the changes on the virtual machine in the DR region. For details about this replication method's build, copy, and test failover process, download [SAP NetWeaver: Building a Hyper-V and Microsoft Azure–based Disaster Recovery Solution](https://download.microsoft.com/download/9/5/6/956FEDC3-702D-4EFB-A7D3-2DB7505566B6/SAP%20NetWeaver%20-%20Building%20an%20Azure%20based%20Disaster%20Recovery%20Solution%20V1_5%20.docx). See "4.3. SAP SPOF layer (ASCS)."
-
-When implementing high availability for Central Services by using Scale-Out File Server or SIOS, Site Recovery supports the replication and recovery of both the Central Services cluster and the Scale-Out File Server / Storage Space Direct cluster. Alternatively, replicate and recover the Central Services cluster by using SIOS DataKeeper disks.
 
 <!--markdownlint-disable MD024 -->
 
