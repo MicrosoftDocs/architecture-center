@@ -60,7 +60,9 @@ The primary backend data service used in this architecture is Azure Cosmos DB. T
 
 - [Azure IoT Hub](https://azure.microsoft.com/services/iot-hub/) is a service fine-tuned for ingesting device data. If the portal is the front-end for a solution which collects data from a wearable or any other medical device, IoT Hub should be used to ingest this data. For more information, read the *INGEST* process of the [Remote Patient Monitoring Solutions](../../solution-ideas/articles/remote-patient-monitoring.yml) architecture.
 
-## Availability considerations
+## Considerations
+
+### Availability considerations
 
 This solution is currently designed as a single-region deployment. If your scenario requires a multi-region deployment for high-availability, disaster recovery, or even proximity, you may need a [Paired Azure Region](/azure/best-practices-availability-paired-regions) with the following configurations.
 
@@ -74,55 +76,55 @@ This solution is currently designed as a single-region deployment. If your scena
 
 - Multiple layers of [availability and redundancy](/azure/key-vault/general/disaster-recovery-guidance) built in to the Azure Key Vault service are leveraged.
 
-## Security considerations
+### Security considerations
 
 The following sections describe the security best practices for each of the services used in this solution.
 
-### Azure Front Door
+#### Azure Front Door
 
 Azure Front Door's Web Application Firewall (WAF) should be used to mitigate many different common attacks. A good baseline is to start out by using the latest version of the [Open Web Application Security Project (OWASP) core rule sets (CRS)](/azure/web-application-firewall/ag/application-gateway-crs-rulegroups-rules), and then add [custom policies](/azure/web-application-firewall/ag/application-gateway-customize-waf-rules-portal) as needed. Although Azure Front Door is designed to absorb large amounts of traffic, consider using the [caching mechanisms available with this service](/azure/frontdoor/front-door-caching) to reduce the traffic load to the backend systems where possible. For troubleshooting and supporting potential security investigations, [logging should be configured](/azure/web-application-firewall/afds/waf-front-door-monitor) for both Azure Front Door and the Web Application Firewall. You can read more at [Security practices for Azure Front Door](/azure/frontdoor/security-baseline).
 
-### Azure API Management
+#### Azure API Management
 
 All traffic to APIM should be authenticated, either by using [Azure AD B2C APIM authentication](/azure/active-directory-b2c/secure-api-management) or with token-identified sessions. Azure API Management should also be configured to store [resource logs](/azure/api-management/api-management-howto-use-azure-monitor#resource-logs). You can read more at [Security practices for Azure API Management](/azure/api-management/security-baseline).
 
-### Azure App Service
+#### Azure App Service
 
 All traffic to this architecture, including the App service, should be secured end-to-end with [TLS](/azure/app-service/overview-security#https-and-certificates). The App Service should [deny insecure protocols](/azure/app-service/overview-security#insecure-protocols-http-tls-10-ftp) to tighten the attack surface. Additionally, APIM should pass back the client's authentication to the App Service to allow it to validate against its own [client authentication and authorization](/azure/app-service/overview-security#client-authentication-and-authorization). All [secrets used in App Service](/azure/app-service/overview-security#application-secrets) should be stored in Key Vault, using a [managed service identity](/azure/active-directory/managed-identities-azure-resources/overview) where possible. The App Service should also [store diagnostic logs](/azure/app-service/troubleshoot-diagnostic-logs) to support any security diagnostic efforts, and should be integrated with [Microsoft Defender for App Service](/azure/security-center/defender-for-app-service-introduction). You can read more at [Security practices for Azure App Service](/azure/app-service/overview-security)
 
-### Azure Functions
+#### Azure Functions
 
 All requests to the Azure Functions in this solution should [require HTTPS](/azure/azure-functions/security-concepts#require-https), use [Azure API Management to authenticate requests](/azure/azure-functions/security-concepts#use-azure-api-management-apim-to-authenticate-requests), and use [Managed Identities](/azure/azure-functions/security-concepts#managed-identities) where possible. Store all keys in [Azure Key Vault](/azure/azure-functions/security-concepts#key-vault-references) instead of leaving them in the Function code. As with any application, make sure to [validate data](/azure/azure-functions/security-concepts#key-vault-references) at input, and [integrate with Microsoft Defender for Cloud](/azure/security-center/defender-for-app-service-introduction). Lastly, always configure [logging and monitoring for Azure Functions](/azure/azure-functions/security-concepts#log-and-monitor). You can read more at [Security practices for Azure Functions](/azure/azure-functions/security-concepts).
 
-### Azure Blob Storage
+#### Azure Blob Storage
 
 Where possible, restrict access to blob storage by using [Azure Active Directory](/azure/storage/common/storage-auth-aad) to authorize user access, and [Managed Service Identities](/azure/storage/common/storage-auth-aad-msi) for resource access to blob storage. If these authentication types may not work for your application, use a [Shared Access Signature (SAS)](/azure/storage/common/storage-sas-overview) token at the most granular level, instead of an account key. SAS tokens are invalidated after rotating account keys.
 
 Make sure to also use [role-based access control](/azure/storage/common/storage-sas-overview) for the blob storage. Use [Azure Storage Firewalls](/azure/storage/common/storage-network-security) to disallow network traffic other than that from *Trusted Microsoft Services*. Always integrate [Azure Storage with Microsoft Defender for Cloud](/azure/security-center/defender-for-storage-introduction) and configure [monitoring](/azure/storage/blobs/monitor-blob-storage?tabs=azure-portal). You can read more at [Security practices for Azure Blob Storage](/azure/storage/blobs/security-recommendations).
 
-### Azure Cosmos DB
+#### Azure Cosmos DB
 
 [Role-based access controls](/azure/cosmos-db/role-based-access-control) should be enabled for CosmosDB management. Access to the data in CosmosDB should be [appropriately secured](/azure/cosmos-db/secure-access-to-data). Configure CosmosDB to [store diagnostic logs for control plane operations](/azure/cosmos-db/audit-control-plane-logs#enable-diagnostic-logs-for-control-plane-operations) as well as to [store resource logs](/azure/cosmos-db/cosmosdb-monitor-resource-logs). You can read more at [Security practices for Azure Cosmos DB](/azure/cosmos-db/database-security).
 
-### Azure Key Vault
+#### Azure Key Vault
 
 Requests made to the Azure Key Vault should [be authenticated using Azure AD or MSI](/azure/key-vault/general/authentication) in addition to [privileged access controls](/azure/key-vault/general/security-overview#privileged-access). Integrate [Key Vault with Microsoft Defender for Cloud](/azure/security-center/defender-for-key-vault-introduction) in addition to [logging Key Vault actions](/azure/key-vault/general/logging?tabs=Vault) in Azure Monitor. You can read more at [Security practices for Azure Key Vault](/azure/key-vault/general/security-overview).
 
-### Azure AD B2C
+#### Azure AD B2C
 
 Use the built-in features in Azure AD B2C to [protect against threats](/azure/active-directory-b2c/threat-management) such as, denial-of-service and password-based attacks. Configure [Audit Logging](/azure/active-directory-b2c/view-audit-logs) to allow security investigations, and to create [log alerts](/azure/azure-monitor/platform/alerts-log) for any threat management logs generated by B2C. You can read more at [Security practices for Azure AD B2C](/azure/active-directory-b2c/threat-management).
 
-### Azure Log Analytics
+#### Azure Log Analytics
 
 [Role-based access controls](/azure/active-directory-b2c/threat-management) should be in place for Log Analytics to allow only authorized users to access data sent to the workspace. You can read more at [Security practices for Azure Log Analytics](/azure/azure-monitor/platform/data-security).
 
-### Azure Application Insights
+#### Azure Application Insights
 
 Any [personal data](/azure/azure-monitor/platform/personal-data-mgmt) should be obfuscated before being sent to Application Insights. [Role-based access controls for application insights](/azure/azure-monitor/app/resources-roles-access-control) should also be put in place to only allow authorized users to view data sent to Application Insights. You can read more at [Security practices for Azure Application Insights](/azure/azure-monitor/app/data-retention-privacy#how-secure-is-my-data).
 
 Additionally, see the [Security practices for Azure Notification Hub](/azure/notification-hubs/notification-hubs-push-notification-security).
 
-## Cost considerations
+## Pricing
 
 Pricing for this architecture is largely variable based on the tiers of services you end up using, the capacity, throughput, types of queries being done on the data, number of users, as well as business continuity and disaster recovery. It can start from around $2,500/mo and scale from there.
 
@@ -138,3 +140,7 @@ Depending on the scale of your workload and requirements for enterprise function
 ## Related resources
 
 - [HIPPA and HITRUST Compliant Health Data AI](../../solution-ideas/articles/security-compliance-blueprint-hipaa-hitrust-health-data-ai.yml)
+- [Scalable cloud applications and site reliability engineering (SRE)](/azure/architecture/example-scenario/apps/scalable-apps-performance-modeling-site-reliability)
+- [Network-hardened web application with private connectivity to PaaS datastores](/azure/architecture/example-scenario/security/hardened-web-app)
+- [Highly available multi-region web application](/azure/architecture/reference-architectures/app-service-web-app/multi-region)
+- [Scalable web application](/azure/architecture/reference-architectures/app-service-web-app/scalable-web-app)
