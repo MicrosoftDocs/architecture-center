@@ -164,7 +164,7 @@ To run detailed bandwidth and pricing calculations, use the [Azure NetApp Files 
 [AKS baseline for multiregion clusters]: ../../reference-architectures/containers/aks-multi-region/aks-multi-cluster.yml
 [Application-aware data management built for Kubernetes]: https://cloud.netapp.com/astra-control
 [Astra Control Service]: https://azuremarketplace.microsoft.com/marketplace/apps/netapp.astra-info
-[Astra Control Service documentation]: https://docs.netapp.com/astra-control-service
+[Astra Control Service documentation]: https://docs.netapp.com/us-en/astra-control-service/index.html
 [Azure Kubernetes Service (AKS)]: /azure/aks/intro-kubernetes
 [Azure NetApp Files]: /azure/azure-netapp-files/azure-netapp-files-introduction
 [Azure NetApp Files Performance Calculator]: https://cloud.netapp.com/azure-netapp-files/tco
@@ -174,39 +174,39 @@ To run detailed bandwidth and pricing calculations, use the [Azure NetApp Files 
 [Baseline architecture for an Azure Kubernetes Service (AKS) cluster]: ../../reference-architectures/containers/aks/secure-baseline-aks.yml
 [Configurable network features]: /azure/azure-netapp-files/azure-netapp-files-network-topologies#configurable-network-features
 [Create an Azure account for free]: https://azure.microsoft.com/free/?WT.mc_id=A261C142F
-[Create an Azure service principal]: https://docs.netapp.com/astra-control-service/get-started/set-up-microsoft-azure-with-anf.html#create-an-azure-service-principal-2
-[Create a NetApp account]: https://docs.netapp.com/astra-control-service/get-started/set-up-microsoft-azure-with-anf.html#create-a-netapp-account-2
+[Create an Azure service principal]: https://docs.netapp.com/us-en/astra-control-service/get-started/set-up-microsoft-azure-with-anf.html#create-an-azure-service-principal-2
+[Create a NetApp account]: https://cloud.netapp.com/
 [Create volume replication for Azure NetApp Files]: /azure/azure-netapp-files/cross-region-replication-create-peering
 [Cross-region replication in Azure: Business continuity and disaster recovery]: /azure/availability-zones/cross-region-replication-azure
 [Cross-region replication of Azure NetApp Files volumes]: /azure/azure-netapp-files/cross-region-replication-introduction
-[Delegate a subnet to Azure NetApp Files]: https://docs.netapp.com/astra-control-service/get-started/set-up-microsoft-azure-with-anf.html#delegate-a-subnet-to-azure-netapp-files-2
+[Delegate a subnet to Azure NetApp Files]: https://docs.netapp.com/us-en/astra-control-service/get-started/set-up-microsoft-azure-with-anf.html#delegate-a-subnet-to-azure-netapp-files-2
 [Disaster Recovery of AKS workloads with Astra Control Service and Azure NetApp Files]: https://techcommunity.microsoft.com/t5/azure-architecture-blog/disaster-recovery-of-aks-workloads-with-astra-control-service/ba-p/2948089
 [Enterprise file shares with disaster recovery]: ./enterprise-file-shares-disaster-recovery.yml
 [Guidelines for Azure NetApp Files network planning - Subnets]: /azure/azure-netapp-files/azure-netapp-files-network-topologies#subnets
 [How Azure NetApp Files snapshots work]: /azure/azure-netapp-files/snapshots-introduction
 [Magento e-commerce platform in Azure Kubernetes Service]: ../magento/magento-azure.yml
-[Manage apps]: https://docs.netapp.com/astra-control-service/use/manage-apps.html#manage-apps
-[Manage apps by namespace]: https://docs.netapp.com/astra-control-service/use/manage-apps.html#manage-apps-by-namespace
+[Manage apps]: https://docs.netapp.com/us-en/astra-control-service/use/manage-apps.html#manage-apps
+[Manage apps by namespace]: https://docs.netapp.com/us-en/astra-control-service/use/manage-apps.html#manage-apps-by-namespace
 [Manage disaster recovery using cross-region replication]: /azure/azure-netapp-files/cross-region-replication-manage-disaster-recovery
-[Monitor Astra Trident]: https://docs.netapp.com/trident/trident-use/monitor-trident.html
+[Monitor Astra Trident]: https://docs.netapp.com/us-en/trident/trident-use/monitor-trident.html
 [NetApp Astra Control Service]: https://azuremarketplace.microsoft.com/marketplace/apps/netapp.astra-info?tab=overview
 [Pricing calculator]: https://azure.microsoft.com/pricing/calculator
 [Products available by region]: https://azure.microsoft.com/global-infrastructure/services/?products=kubernetes-service%2Cnetapp&regions=all
-[Protect apps with snapshots and backups]: https://docs.netapp.com/astra-control-service/use/protect-apps.html
+[Protect apps with snapshots and backups]: https://docs.netapp.com/us-en/astra-control-service/use/protect-apps.html
 [Quickstart: Set up Azure NetApp Files and create an NFS volume]: /azure/azure-netapp-files/azure-netapp-files-quickstart-set-up-account-create-volumes
 [Region availability]: /azure/aks/quotas-skus-regions#region-availability
-[Register for an Astra Control Service account]: https://docs.netapp.com/astra-control-service/get-started/register.html
+[Register for an Astra Control Service account]: https://docs.netapp.com/us-en/astra-control-service/get-started/register.html
 [Register the resource provider]: /azure/azure-netapp-files/azure-netapp-files-register
-[Requirements for using Astra Control Service with AKS]: https://docs.netapp.com/astra-control-service/get-started/set-up-microsoft-azure-with-anf.html#azure-kubernetes-service-cluster-requirements
+[Requirements for using Astra Control Service with AKS]: https://docs.netapp.com/us-en/astra-control-service/get-started/set-up-microsoft-azure-with-anf.html#azure-kubernetes-service-cluster-requirements
 [Resource limits for Azure NetApp Files]: /azure/azure-netapp-files/azure-netapp-files-resource-limits
 [Restoring (cloning) an online snapshot to a new volume]: /azure/azure-netapp-files/snapshots-introduction#restoring-cloning-an-online-snapshot-to-a-new-volume
 [Service levels for Azure NetApp Files]: /azure/azure-netapp-files/azure-netapp-files-service-levels
-[Set up a capacity pool]: https://docs.netapp.com/astra-control-service/get-started/set-up-microsoft-azure-with-anf.html#set-up-a-capacity-pool
+[Set up a capacity pool]: https://docs.netapp.com/us-en/astra-control-service/get-started/set-up-microsoft-azure-with-anf.html#set-up-a-capacity-pool
 [SLA for Azure NetApp Files]: https://azure.microsoft.com/support/legal/sla/netapp/v1_1
-[Start managing Kubernetes clusters from Astra Control Service]: https://docs.netapp.com/astra-control-service/get-started/add-first-cluster.html
+[Start managing Kubernetes clusters from Astra Control Service]: https://docs.netapp.com/us-en/astra-control-service/get-started/add-first-cluster.html
 [Tutorial: Deploy an Azure Kubernetes Service (AKS) cluster]: /azure/aks/tutorial-kubernetes-deploy-cluster
 [Understand Azure NetApp Files backup]: /azure/azure-netapp-files/backup-introduction
-[View a summary of app and cluster health]: https://docs.netapp.com/astra-control-service/use/view-dashboard.html
+[View a summary of app and cluster health]: https://docs.netapp.com/us-en/astra-control-service/use/view-dashboard.html
 [Visio version of architecture diagram]: https://arch-center.azureedge.net/US-1900555-data-protection-kubernetes-astra-azure-netapp-files.vsdx
 [Visio version of architecture diagram that uses a single virtual network]: https://arch-center.azureedge.net/US-1900555-data-protection-kubernetes-astra-azure-netapp-files-single.vsdx
 [What is Azure NetApp Files]: /azure/azure-netapp-files/azure-netapp-files-introduction
