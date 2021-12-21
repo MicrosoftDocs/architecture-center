@@ -176,13 +176,14 @@ The analytics use cases covered by the architecture are illustrated by the diffe
 
 1. Structured and unstructured data stored in your Synapse workspace can also be used to build [knowledge mining solutions](https://azure.microsoft.com/solutions/knowledge-mining) and use AI to uncover valuable business insights across different document types and formats including from Office documents, PDFs, images, audio, forms and web pages.
 
-## Discover and Govern
+## Discover and govern
 
 Data governance is a common challenge in large enterprise environments. On one hand, business analysts need to be able to discover and understand data assets that can help them solve business problems. On the other hand, Chief Data Officers want insights on privacy and security of business data.
 
 ### Azure Purview
 
-1. Use [Azure Purview](/azure/purview/overview) for [data discovery](/azure/purview/how-to-browse-catalog) and governance insights on your [data assets](/azure/purview/asset-insights), [data classification](/azure/purview/classification-insights), and [sensitivity](/azure/purview/sensitivity-insights), which covers the entire organizational data landscape.
+1. Use [Azure Purview](/azure/purview/overview) for [data discovery](/azure/purview/how-to-browse-catalog) and 
+ance insights on your [data assets](/azure/purview/asset-insights), [data classification](/azure/purview/classification-insights), and [sensitivity](/azure/purview/sensitivity-insights), which covers the entire organizational data landscape.
 
 1. Azure Purview can help you maintain a [business glossary](/azure/purview/concept-business-glossary) with the specific business terminology required for users to understand the semantics of what datasets mean and how they are meant to be used across the organization.
 
