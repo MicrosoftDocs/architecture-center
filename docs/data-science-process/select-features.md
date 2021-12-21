@@ -36,17 +36,17 @@ Feature selection may be used for classification or regression tasks. The goal i
 * First, feature selection often increases classification accuracy by eliminating irrelevant, redundant, or highly correlated features.
 * Second, it decreases the number of features, which makes the model training process more efficient. Efficiency is important for learners that are expensive to train such as support vector machines.
 
-Although feature selection does seek to reduce the number of features in the dataset used to train the model, it is not referred to by the term "dimensionality reduction". Feature selection methods extract a subset of original features in the data without changing them.  Dimensionality reduction methods employ engineered features that can transform the original features and thus modify them. Examples of dimensionality reduction methods include principal component analysis (PCA), canonical correlation analysis, and singular value decomposition (SVD).
+Although feature selection does seek to reduce the number of features in the dataset used to train the model, it is not referred to by the term "dimensionality reduction". Feature selection methods extract a subset of original features in the data without changing them. Dimensionality reduction methods employ engineered features that can transform the original features and thus modify them. Examples of dimensionality reduction methods include principal component analysis (PCA), canonical correlation analysis, and singular value decomposition (SVD).
 
 Among others, one widely applied category of feature selection methods in a supervised context is called "filter-based feature selection". By evaluating the correlation between each feature and the target attribute, these methods apply a statistical measure to assign a score to each feature. The features are then ranked by the score, which may be used to help set the threshold for keeping or eliminating a specific feature. Examples of statistical measures used in these methods include Pearson correlation coefficient (PCC), mutual information (MI), and the chi-squared test.
 
 ## Azure Machine Learning Designer
 
-One tool inside Azure Machine Learning is the [designer](/azure/machine-learning/concept-designer).   Azure Machine Learning designer is a drag-and-drop interface used to train and deploy models in Azure Machine Learning. To manage features, there are [different tools available inside designer](/azure/machine-learning/how-to-select-algorithms#number-of-features).
+One tool inside Azure Machine Learning is the [designer](/azure/machine-learning/concept-designer). Azure Machine Learning designer is a drag-and-drop interface used to train and deploy models in Azure Machine Learning. To manage features, there are [different tools available inside designer](/azure/machine-learning/how-to-select-algorithms#number-of-features).
 
 The [Filter Based Feature Selection component](/azure/machine-learning/component-reference/filter-based-feature-selection) in Azure Machine Learning designer helps you identify the columns in your input dataset that have the greatest predictive power. 
 
-The [Permutation Feature Importance component](/azure/machine-learning/component-reference/permutation-feature-importance) in Azure Machine Learning designer computes a set of feature importance scores for your dataset; you then use these scores to help you determine the best features to use in a model.  
+The [Permutation Feature Importance component](/azure/machine-learning/component-reference/permutation-feature-importance) in Azure Machine Learning designer computes a set of feature importance scores for your dataset; you then use these scores to help you determine the best features to use in a model.
 
 
 ## Conclusion
