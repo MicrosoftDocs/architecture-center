@@ -1414,6 +1414,8 @@ items:
                   - name: Blueprint - Analytics for PCI DSS
                     href: /previous-versions/azure/security/blueprints/pcidss-analytics-overview
                     maintainContext: true
+              - name: Data analysis for regulated industries
+                href: example-scenario/data/data-analysis-regulated-industries.yml
               - name: Data warehouse for small business
                 href: example-scenario/data/small-medium-data-warehouse.yml
               - name: Data warehousing and analytics
