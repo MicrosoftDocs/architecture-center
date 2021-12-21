@@ -206,7 +206,7 @@ Assess if organizational policies and applicable regulatory requirements are fol
 
 The organizations' cloud infrastructure should be well documented, with security team access to all resources required for monitoring and insight. Conduct frequent scans of the cloud-connected assets to ensure no additional subscriptions or tenants have been added outside of organizational controls. Regularly review Microsoft guidance to ensure security team access best practices are consulted and followed.
 
-For information about permissions for this access, see [Assign privileges for managing the environment section](/azure/architecture/framework/security/governance?branch=master#assign-privileges-for-managing-the-environment).
+For information about permissions for this access, see [Assign privileges for managing the environment section](/azure/architecture/framework/security/design-governance).
 
 #### Suggested actions
 

@@ -37,7 +37,7 @@ Protect assets by placing controls on network traffic originating in Azure, betw
 ## Azure security benchmark
 The Azure Security Benchmark includes a collection of high-impact security recommendations you can use to help secure the services you use in Azure:
 
-> ![Security Benchmark](../../_images/benchmark-security.svg) The questions in this section are aligned to the [Azure Security Benchmarks Network Security](/azure/security/benchmarks/security-controls-v3-network-security).
+> ![Security Benchmark](../../_images/benchmark-security.svg) The questions in this section are aligned to the [Azure Security Benchmarks Network Security](/security/benchmark/azure/security-controls-v3-network-security).
 
 ## Azure services
 - [Azure Virtual Network](/azure/virtual-network/virtual-networks-overview)
