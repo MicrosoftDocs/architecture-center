@@ -60,7 +60,7 @@ items:
               - name: Microservices compute options
                 href: /azure/architecture/microservices/design/compute-options
               - name: Multiparty computing
-                href: guide/blockchain/multiparty-compute.yml
+                href: guide/technology-choices/multiparty-computing-service.md 
           - name: Choose a Kubernetes edge option
             items:
               - name: Kubernetes at the edge
