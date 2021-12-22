@@ -1,4 +1,4 @@
-This solution applies to businesses or teams that want to reduce their manual processes in troubleshooting or diagnostics, also known as *toil*. Specifically, this scenario shows how customers can write troubleshooting guides or diagnostics steps in Jupyter Notebooks that are reusable, testable, and automatable.
+This article applies to businesses or teams that want to reduce their manual processes, also known as *toil*, in troubleshooting or diagnostics. Specifically, this solution shows how customers can write troubleshooting guides or diagnostics steps in Jupyter Notebooks that are reusable, testable, and automatable.
 
 Beyond troubleshooting diagnostics, this methodology can be applied to routine solutions that would benefit from automation with manual execution whenever needed. This includes backup and restoring a database, or creating a tutorial on how to diagnose application health issues.
 
