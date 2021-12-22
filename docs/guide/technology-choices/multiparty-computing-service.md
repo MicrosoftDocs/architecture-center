@@ -121,7 +121,7 @@ The immutable storage feature of Azure Blob Storage ensures that data written to
 
 This diagram summarizes options for the multiparty computing with Azure services.
 
-![Diagram summarizes decisions for choosing a multiparty computing option.](./blockchain/images/multiparty-compute-options.png)
+![Diagram summarizes decisions for choosing a multiparty computing option.](../blockchain/images/multiparty-compute-options.png)
 
 ## Next steps
 
