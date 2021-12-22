@@ -4,7 +4,7 @@ titleSuffix: Azure Architecture Center
 description: This article describes how to organize your Azure resources in a multitenant solution.
 author: johndowns
 ms.author: jodowns
-ms.date: 12/21/2021
+ms.date: 12/22/2021
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: azure-guide
