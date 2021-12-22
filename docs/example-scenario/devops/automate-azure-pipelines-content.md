@@ -59,7 +59,7 @@ This architecture reduces labor by automatically provisioning pipelines in Azure
 
 ### Alternatives
 
-An alternative to the proposed architecture is Azure DevOps Starter service. Azure App Service also supports Deployment Center. However, these alternatives require you to provision the infrastructure first. This alternative provides an architecture that is code first, which provisions the infrastructure through code. This gives you the flexibility to use any kind of Azure workload.  For more information, see [DevOps Starter](/azure/devops-project/overview) and [Deployment Center](/azure/app-service/deploy-continuous-deployment).
+An alternative to the proposed architecture is Azure DevOps Starter service. Azure App Service also supports Deployment Center. However, this alternative requires you to provision the infrastructure first. The alternative provides an architecture that is code first, which provisions the infrastructure through code. This gives you the flexibility to use any kind of Azure workload.  For more information, see [DevOps Starter](/azure/devops-project/overview) and [Deployment Center](/azure/app-service/deploy-continuous-deployment).
 
 ## Considerations
 
