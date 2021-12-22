@@ -49,6 +49,8 @@ This solution applies to any situation that requires managing access—for those
 
 *Download a [Visio file](https://arch-center.azureedge.net/US-1897068-governance-teams-guest-users.vsdx) of this architecture.*
 
+### Workflow
+
 1. **Resource directory** - This is the Azure AD directory that contains resources, which are Microsoft 365 groups and teams. For this example, the resource is a project team that is added to the access package, so that users external to the organization can request access to it.
 1. **External directory (Connected organization)** -This is the external Azure AD directory that contains external users from the connected organization. These users can be allowed by a policy to request access to the project team.
 1. **Catalog 1** - A catalog is a container for related resources and access packages. Catalog 1 contains the project team and its access package.
@@ -61,7 +63,7 @@ This solution applies to any situation that requires managing access—for those
 1. **Approver** - An approver approves the access request. This can be an internal or external user.
 1. **Requester** - This is the external user that requests access via the MyAccess Portal. The portal only shows the access packages that the requester is allowed to request.
 
-### Requesting access to a resource for users external to the organization flow
+#### Requesting access to a resource for users external to the organization flow
 
 Here is a high-level workflow that shows how access to the Microsoft 365 group or team is granted to external users. It includes the removal of a guest account when access is no longer required or a time limit is reached.
 
@@ -90,7 +92,7 @@ This alternative doesn't provide the identity and governance controls that the c
 
 Building a custom solution to handle these issues is unlikely to be cost-competitive or feature-competitive with AD entitlement management.
 
-### Considerations
+## Considerations
 
 An important implementation step is configuring tenant settings to allow for external users.
 
@@ -138,3 +140,11 @@ Additional considerations:
 - [Use guest access and external access to collaborate with people external your organization](/microsoftteams/communicate-with-users-from-other-organizations)
 - [Collaborating with people outside your organization](/microsoft-365/solutions/collaborate-with-people-outside-your-organization?view=o365-worldwide)
 - [What is Conditional Access?](/azure/active-directory/conditional-access/overview)
+
+## Related resources
+
+- [Create an AD DS resource forest in Azure](/azure/architecture/reference-architectures/identity/adds-forest)
+- [Deploy AD DS in an Azure virtual network](/azure/architecture/reference-architectures/identity/adds-extend-domain)
+- [Hybrid identity](/azure/architecture/solution-ideas/articles/hybrid-identity)
+- [Integrate on-premises AD domains with Azure AD](/azure/architecture/reference-architectures/identity/azure-ad)
+- [Azure Active Directory identity management and access management for AWS](/azure/architecture/reference-architectures/aws/aws-azure-ad-security)
