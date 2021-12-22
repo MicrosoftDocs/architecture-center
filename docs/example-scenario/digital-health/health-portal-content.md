@@ -70,7 +70,7 @@ This solution is currently designed as a single-region deployment. If your scena
 
 - Azure API Management is [deployed using CI/CD](/azure/api-management/devops-api-development-templates) into a secondary region. You may also apply the [Multi-Region Deployment capability](/azure/cosmos-db/high-availability) of API Management.
 
-- Azure App Service and Functions are deployed separately to mutiple regions. This deployment can be done within your [CI/CD pipeline](https://azure.microsoft.com/solutions/architecture/azure-devops-continuous-integration-and-continuous-deployment-for-azure-web-apps) by creating a parallel deployment. Read the [Highly available multi-region web application](../../reference-architectures/app-service-web-app/multi-region.yml) for further guidance.
+- Azure App Service and Functions are deployed separately to multiple regions. This deployment can be done within your [CI/CD pipeline](https://azure.microsoft.com/solutions/architecture/azure-devops-continuous-integration-and-continuous-deployment-for-azure-web-apps) by creating a parallel deployment. Read the [Highly available multi-region web application](../../reference-architectures/app-service-web-app/multi-region.yml) for further guidance.
 
 - Depending on the requirement for RTO (recovery time objective), Azure Blob Storage can either be configured as geo-redundant storage (GRS), or read-access geo-redundant storage (RA-GRS) that allows reads directly from the alternate region. To learn more, see the [Azure Storage redundancy](/azure/storage/common/storage-redundancy) article.
 
