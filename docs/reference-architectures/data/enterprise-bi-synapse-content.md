@@ -51,7 +51,7 @@ Data modeling approach in this use case is presented by composition of Enterpris
 
 ## Data pipeline
 
-This reference architecture uses the [Adventure Works DW][adventureworks-sample-link] sample database as a data source. The data pipeline has the following stages:
+This reference architecture uses the [Adventure Works DW][adventureworksdw-sample-link] sample database as a data source. The data pipeline has the following stages:
 
 <!--
 1. Export the data from SQL Server to flat files (bcp utility).
@@ -76,34 +76,6 @@ This reference architecture uses the [Adventure Works DW][adventureworks-sample-
 ![Diagram of the enterprise BI pipeline](./images/enterprise-bi-watermark-pipeline.png)
 
 The next sections describe these stages in more detail.
-
-### Export data from SQL Server
-
-The [bcp](/sql/tools/bcp-utility) (bulk copy program) utility is a fast way to create flat text files from SQL tables. In this step, you select the columns that you want to export, but don't transform the data. Any data transformations should happen in Azure Synapse.
-
-**Recommendations:**
-
-If possible, schedule data extraction during off-peak hours, to minimize resource contention in the production environment.
-
-Avoid running bcp on the database server. Instead, run it from another machine. Write the files to a local drive. Ensure that you have sufficient I/O resources to handle the concurrent writes. For best performance, export the files to dedicated fast storage drives.
-
-You can speed up the network transfer by saving the exported data in Gzip compressed format. However, loading compressed files into the warehouse is slower than loading uncompressed files, so there is a tradeoff between faster network transfer versus faster loading. If you decide to use Gzip compression, don't create a single Gzip file. Instead, split the data into multiple compressed files.
-
-### Copy flat files into blob storage
-
-The [AzCopy](/azure/storage/common/storage-use-azcopy) utility is designed for high-performance copying of data into Azure blob storage.
-
-**Recommendations:**
-
-Create the storage account in a region near the location of the source data. Deploy the storage account and the Azure Synapse instance in the same region.
-
-Don't run AzCopy on the same machine that runs your production workloads, because the CPU and I/O consumption can interfere with the production workload.
-
-Test the upload first to see what the upload speed is like. You can use the /NC option in AzCopy to specify the number of concurrent copy operations. Start with the default value, then experiment with this setting to tune the performance. In a low-bandwidth environment, too many concurrent operations can overwhelm the network connection and prevent the operations from completing successfully.
-
-AzCopy moves data to storage over the public internet. If this isn't fast enough, consider setting up an [ExpressRoute](/azure/expressroute/) circuit. ExpressRoute is a service that routes your data through a dedicated private connection to Azure. Another option, if your network connection is too slow, is to physically ship the data on disk to an Azure datacenter. For more information, see [Transferring data to and from Azure](../../data-guide/scenarios/data-transfer.md).
-
-During a copy operation, AzCopy creates a temporary journal file, which enables AzCopy to restart the operation if it gets interrupted (for example, due to a network error). Make sure there is enough disk space to store the journal files. You can use the /Z option to specify where the journal files are written.
 
 ### Load data into Azure Synapse
 
