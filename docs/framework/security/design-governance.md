@@ -77,8 +77,8 @@ The Azure Security Benchmark includes a collection of high-impact security recom
 
 > ![Security Benchmark](../../_images/benchmark-security.svg) The questions in this section are aligned to these controls:
 >
-> - [Governance and Strategy](/azure/security/benchmarks/security-controls-v3-governance-strategy)
-> - [Posture and vulnerability management](/azure/security/benchmarks/security-controls-v3-posture-vulnerability-management)
+> - [Governance and Strategy](/security/benchmark/azure/security-controls-v3-governance-strategy)
+> - [Posture and vulnerability management](/security/benchmark/azure/security-controls-v3-posture-vulnerability-management)
 
 ## Reference architecture
 

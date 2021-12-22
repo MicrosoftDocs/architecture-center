@@ -60,7 +60,7 @@ items:
               - name: Microservices compute options
                 href: /azure/architecture/microservices/design/compute-options
               - name: Multiparty computing
-                href: guide/blockchain/multiparty-compute.yml
+                href: guide/technology-choices/multiparty-computing-service.md 
           - name: Choose a Kubernetes edge option
             items:
               - name: Kubernetes at the edge
@@ -243,6 +243,8 @@ items:
             items:
               - name: Overview
                 href: guide/multitenant/approaches/overview.md
+              - name: Resource organization
+                href: guide/multitenant/approaches/resource-organization.md
               - name: Cost management and allocation
                 href: guide/multitenant/approaches/cost-management-allocation.md
               - name: Deployment and configuration
@@ -3238,7 +3240,7 @@ items:
                     href: example-scenario/iot/cloud-to-device.yml
                   - name: 'Builders, developers, and operators'
                     href: example-scenario/iot/builders-developers-operators.yml
-              - name: Azure IoT Edge Vision
+              - name: Video Analytics on Edge
                 items:
                   - name: Overview
                     href: guide/iot-edge-vision/index.md
