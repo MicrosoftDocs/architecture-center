@@ -78,7 +78,7 @@ Data stored in Confidential Ledger is immutable and tamper-proof in the append-o
 
 Azure SQL Database ledger allows participants to verify the data integrity of centrally-housed data without the network consensus of a blockchain network. For some centralized solutions trust is important, but decentralized infrastructure isn't necessary. This approach avoids complexity and performance implications of such an infrastructure.
 
-![Diagram shows database ledger architecture.](guide/blockchain/images/database-ledger.png)
+![Diagram shows database ledger architecture.](./blockchain/images/database-ledger.png)
 
 > [!NOTE]
 > Azure SQL Database ledger is currently in public preview.
@@ -121,7 +121,7 @@ The immutable storage feature of Azure Blob Storage ensures that data written to
 
 This diagram summarizes options for the multiparty computing with Azure services.
 
-![Diagram summarizes decisions for choosing a multiparty computing option.](images/multiparty-compute-options.png)
+![Diagram summarizes decisions for choosing a multiparty computing option.](./blockchain/images/multiparty-compute-options.png)
 
 ## Next steps
 
