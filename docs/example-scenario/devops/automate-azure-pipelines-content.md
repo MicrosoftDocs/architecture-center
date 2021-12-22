@@ -50,16 +50,16 @@ This architecture reduces labor by automatically provisioning pipelines in Azure
 
 ### Components
 
-- [Application Insights](https://azure.microsoft.com/services/monitor) is a part of the Azure Monitor solution. Application Insights gathers telemetry data from a .NET Angular app.
+- [Application Insights](/azure/azure-monitor/app/app-insights-overview) is a part of the Azure Monitor solution. Application Insights gathers telemetry data from a .NET Angular app.
 - [Azure App Service](https://azure.microsoft.com/services/app-service) deploys .NET Angular workloads.
 - [Azure DevOps REST APIs](/rest/api/azure/devops) automatically provisions Azure pipelines for the repository with Logic Apps.
 - [Azure Logic Apps](https://azure.microsoft.com/services/logic-apps) is a cloud-based platform for creating and running automated workflows that integrate your apps, data, services, and systems.
 - [Azure Monitor](https://azure.microsoft.com/services/monitor) shows the availability, performance, and usage of your web applications.
-- [Azure Pipelines](/azure/devops/pipelines/process/stages) builds multistage pipelines.
+- [Azure Pipelines](https://azure.microsoft.com/en-us/services/devops/pipelines/) builds multistage pipelines.
 
 ### Alternatives
 
-An alternative to the proposed architecture is Azure DevOps Starter service. Azure App Service also supports Deployment Center. However, these alternatives require you to provision the infrastructure first. This article provides an architecture that is code first, which provisions the infrastructure through code. This gives you the flexibility to use any kind of Azure workload.  For more information, see [DevOps Starter](/azure/devops-project/overview) and [Deployment Center](/azure/app-service/deploy-continuous-deployment).
+An alternative to the proposed architecture is Azure DevOps Starter service. Azure App Service also supports Deployment Center. However, these alternatives require you to provision the infrastructure first. This alternative provides an architecture that is code first, which provisions the infrastructure through code. This gives you the flexibility to use any kind of Azure workload.  For more information, see [DevOps Starter](/azure/devops-project/overview) and [Deployment Center](/azure/app-service/deploy-continuous-deployment).
 
 ## Considerations
 
