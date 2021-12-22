@@ -1419,7 +1419,7 @@ items:
             href: example-scenario/apps/apim-api-scenario.yml
           - name: Predictive aircraft engine monitoring
             href: solution-ideas/articles/aircraft-engine-monitoring-for-predictive-maintenance-in-aerospace.yml
-      - name: Automotive, Mobility, and Ttransportation
+      - name: Automotive, Mobility, and Transportation
         items:
           - name: Dynamics 365 automotive accelerator for Azure
             href: /dynamics365/industry/accelerators/automotive
