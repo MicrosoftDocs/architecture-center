@@ -86,7 +86,7 @@ items:
                 href: guide/technology-choices/data-store-decision-tree.md
               - name: Criteria for choosing a data store
                 href: guide/technology-choices/data-store-considerations.md
-              - name: Compare data storage
+              - name: Big data storage
                 href: data-guide/technology-choices/data-storage.md
               - name: Database scenarios
                 items:
@@ -304,8 +304,8 @@ items:
                     href: aws-professional/security-identity.md
                   - name: Storage
                     href: aws-professional/storage.md
-          - name: Service comparison
-            href: aws-professional/services.md
+              - name: Service comparison
+                href: aws-professional/services.md
           - name: Azure for Google Cloud professionals
             expanded: true
             items:            
@@ -918,6 +918,8 @@ items:
                 maintainContext: true
           - name: Architectures
             items:
+              - name: All retail architectures
+                href: /azure/architecture/browse/?terms=retail
               - name: Build a real-time recommendation API
                 href: reference-architectures/ai/real-time-recommendation.yml
               - name: Content-based recommendation
@@ -963,6 +965,9 @@ items:
               - name: Data management in banking
                 href: /previous-versions/azure/industry-marketing/financial/data-mgmt-in-banking-overview
                 maintainContext: true
+              - name: Financial institutions with data mesh
+                href: /azure/cloud-adoption-framework/scenarios/data-management/architectures/reference-architecture-data-mesh
+                maintainContext: true
               - name: Actuarial risk analysis
                 href: /previous-versions/azure/industry-marketing/financial/actuarial-risk-analysis-and-financial-modeling-solution-guide
                 maintainContext: true
@@ -971,6 +976,8 @@ items:
                 maintainContext: true
           - name: Architectures
             items:
+              - name: All finance architectures
+                href: /azure/architecture/browse/?terms=finance
               - name: Banking system cloud transformation
                 href: example-scenario/banking/banking-system-cloud-transformation.yml
               - name: Decentralized trust between banks
@@ -987,6 +994,9 @@ items:
                 href: example-scenario/ai/scale-ai-and-machine-learning-in-regulated-industries.yml                
           - name: Compliance solutions
             items:
+              - name: PCI DSS overview
+                href: /azure/compliance/offerings/offering-pci-dss
+                maintainContext: true
               - name: AKS regulated cluster for PCI
                 href: /azure/architecture/reference-architectures/containers/aks-pci/aks-pci-ra-code-assets
               - name: Blueprint - Analytics for PCI DSS
@@ -1227,7 +1237,7 @@ items:
                 href: solution-ideas/articles/quality-assurance.yml
               - name: Supply chain track and trace
                 href: solution-ideas/articles/supply-chain-track-and-trace.yml
-      - name: Media and entertainment
+      - name: Media and Entertainment
         items:
           - name: Overview
             href: industries/media.md
@@ -1258,7 +1268,7 @@ items:
                 href: solution-ideas/articles/digital-media-live-stream.yml
               - name: Movie recommendations on Azure
                 href: example-scenario/ai/movie-recommendations-with-machine-learning.yml
-      - name: Energy and environment
+      - name: Energy and Environment
         items:
           - name: Overview
             href: industries/energy-environment.md
@@ -1286,7 +1296,7 @@ items:
                 href: example-scenario/infrastructure/hpc-cfd.yml
               - name: Run reservoir simulations
                 href: example-scenario/infrastructure/reservoir-simulation.yml
-      - name: Game development
+      - name: Game Development
         items:
           - name: Rendering
             items:
@@ -1395,7 +1405,7 @@ items:
               - name: Unreal Pixel Streaming at scale
                 href: /gaming/azure/reference-architectures/unreal-pixel-streaming-at-scale
                 maintainContext: true
-      - name: Travel and hospitality
+      - name: Travel and Hospitality
         items:
           - name: Build a chatbot for hotel booking
             href: example-scenario/ai/commerce-chatbot.yml
@@ -1409,7 +1419,7 @@ items:
             href: example-scenario/apps/apim-api-scenario.yml
           - name: Predictive aircraft engine monitoring
             href: solution-ideas/articles/aircraft-engine-monitoring-for-predictive-maintenance-in-aerospace.yml
-      - name: Automotive, mobility, and transportation
+      - name: Automotive, Mobility, and Ttransportation
         items:
           - name: Dynamics 365 automotive accelerator for Azure
             href: /dynamics365/industry/accelerators/automotive
@@ -1426,7 +1436,7 @@ items:
                 href: example-scenario/data/realtime-analytics-vehicle-iot.yml
               - name: Run CFD simulations
                 href: example-scenario/infrastructure/hpc-cfd.yml
-      - name: Facilities and real-estate
+      - name: Facilities and Real-Estate
         items: 
           - name: Cognizant Safe Buildings with IoT
             href: solution-ideas/articles/safe-buildings.yml
@@ -1521,7 +1531,7 @@ items:
       - name: Space
         items:
           - name: Azure Orbital for space communication
-            href: /azure/networking/azure-orbital-overview
+            href: /azure/orbital/overview
             maintainContext: true
           - name: Predictive maintenance for aerospace
             href: data-science-process/predictive-maintenance-technical-guide.md
