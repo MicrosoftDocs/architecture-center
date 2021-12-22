@@ -77,7 +77,17 @@ This reference architecture uses the [Adventure Works DW][adventureworksdw-sampl
 
 The next sections describe these stages in more detail.
 
-### Load data into Azure Synapse
+### Use SQL Database 
+TODO: what to change on source
+**Recommendations:**
+TODO: how to make efficient
+
+### Use Synapse Pipelines 
+TODO: what they are, what modules we are using with links, how to set up recurrence to deliver HWM
+**Recommendations:**
+TODO:IR size selection. pricing? 
+
+### Use Azure Synapse Provisioned Pool
 
 Use [PolyBase](/sql/relational-databases/polybase/polybase-guide) to load the files from blob storage into the data warehouse. PolyBase is designed to leverage the MPP (Massively Parallel Processing) architecture of Azure Synapse, which makes it the fastest way to load data into Azure Synapse.
 
@@ -85,7 +95,8 @@ Loading the data is a two-step process:
 
 1. Create a set of external tables for the data. An external table is a table definition that points to data stored outside of the warehouse &mdash; in this case, the flat files in blob storage. This step does not move any data into the warehouse.
 2. Create staging tables, and load the data into the staging tables. This step copies the data into the warehouse.
-
+**Considerations**
+TODO: target schema needs to exist
 **Recommendations:**
 
 Consider Azure Synapse when you have large amounts of data (more than 1 TB) and are running an analytics workload that will benefit from parallelism. Azure Synapse is not a good fit for OLTP workloads or smaller data sets (less than 250 GB). For data sets less than 250 GB, consider Azure SQL Database or SQL Server. For more information, see [Data warehousing](../../data-guide/relational-data/data-warehousing.md).
@@ -113,23 +124,18 @@ For more information, see the following articles:
 - [Guidance for defining data types for tables in Azure Synapse](/azure/sql-data-warehouse/sql-data-warehouse-tables-data-types)
 
 ### Transform the data
+TODO: No transformation happening here, bringing the model one to one
+Mapping data flow..
+**Recommendataions:**
+TODO: partitioning on MPP if needed
 
-Transform the data and move it into production tables. In this step, the data is transformed into a star schema with dimension tables and fact tables, suitable for semantic modeling.
+// Galina to cover PBI with modelling
+### Use Power BI to access, model and visualize the data
+TODO: connect mode, security, data gateways, authorization
+Power BI premium components 
+links to deployment guides
 
-Create the production tables with clustered columnstore indexes, which offer the best overall query performance. Columnstore indexes are optimized for queries that scan many records. Columnstore indexes don't perform as well for singleton lookups (that is, looking up a single row). If you need to perform frequent singleton lookups, you can add a non-clustered index to a table. Singleton lookups can run significantly faster using a non-clustered index. However, singleton lookups are typically less common in data warehouse scenarios than OLTP workloads. For more information, see [Indexing tables in Azure Synapse](/azure/sql-data-warehouse/sql-data-warehouse-tables-index).
-
-> [!NOTE]
-> Clustered columnstore tables do not support `varchar(max)`, `nvarchar(max)`, or `varbinary(max)` data types. In that case, consider a heap or clustered index. You might put those columns into a separate table.
-
-Because the sample database is not very large, we created replicated tables with no partitions. For production workloads, using distributed tables is likely to improve query performance. See [Guidance for designing distributed tables in Azure Synapse](/azure/sql-data-warehouse/sql-data-warehouse-tables-distribute). Our example scripts run the queries using a static [resource class](/azure/sql-data-warehouse/resource-classes-for-workload-management).
-
-### Load the semantic model
-
-Load the data into a tabular model in Azure Analysis Services. In this step, you create a semantic data model by using SQL Server Data Tools (SSDT). You can also create a model by importing it from a Power BI Desktop file. Because Azure Synapse does not support foreign keys, you must add the relationships to the semantic model, so that you can join across tables.
-
-### Use Power BI to visualize the data
-
-Power BI supports two options for connecting to Azure Analysis Services:
+/*Power BI supports two options for connecting to data sources on Azure
 
 - Import. The data is imported into the Power BI model.
 - Live Connection. Data is pulled directly from Analysis Services.
@@ -141,38 +147,32 @@ We recommend Live Connection because it doesn't require copying data into the Po
 Avoid running BI dashboard queries directly against the data warehouse. BI dashboards require very low response times, which direct queries against the warehouse may be unable to satisfy. Also, refreshing the dashboard will count against the number of concurrent queries, which could impact performance.
 
 Azure Analysis Services is designed to handle the query requirements of a BI dashboard, so the recommended practice is to query Analysis Services from Power BI.
+*/
 
 ## Scalability considerations
-
-### Azure Synapse
-
+TODO: overview
+### synapse Pipelines 
+### Azure Synapse Provisioned Pool
 With Azure Synapse, you can scale out your compute resources on demand. The query engine optimizes queries for parallel processing based on the number of compute nodes, and moves data between nodes as necessary. For more information, see [Manage compute in Azure Synapse](/azure/sql-data-warehouse/sql-data-warehouse-manage-compute-overview).
+### Power BI premium
 
-### Analysis Services
-
-For production workloads, we recommend the Standard Tier for Azure Analysis Services, because it supports partitioning and DirectQuery. Within a tier, the instance size determines the memory and processing power. Processing power is measured in Query Processing Units (QPUs). Monitor your QPU usage to select the appropriate size. For more information, see [Monitor server metrics](/azure/analysis-services/analysis-services-monitor).
-
-Under high load, query performance can become degraded due to query concurrency. You can scale out Analysis Services by creating a pool of replicas to process queries, so that more queries can be performed concurrently. The work of processing the data model always happens on the primary server. By default, the primary server also handles queries. Optionally, you can designate the primary server to run processing exclusively, so that the query pool handles all queries. If you have high processing requirements, you should separate the processing from the query pool. If you have high query loads, and relatively light processing, you can include the primary server in the query pool. For more information, see [Azure Analysis Services scale-out](/azure/analysis-services/analysis-services-scale-out).
-
-To reduce the amount of unnecessary processing, consider using partitions to divide the tabular model into logical parts. Each partition can be processed separately. For more information, see [Partitions](/sql/analysis-services/tabular-models/partitions-ssas-tabular).
 
 ## Security considerations
-
-### IP allow list of Analysis Services clients
-
-Consider using the Analysis Services firewall feature to allow list client IP addresses. If enabled, the firewall blocks all client connections other than those specified in the firewall rules. The default rules allow list the Power BI service, but you can disable this rule if desired. For more information, see [Hardening Azure Analysis Services with the new firewall capability](https://azure.microsoft.com/blog/hardening-azure-analysis-services-with-the-new-firewall-capability/).
+### for all components  - private connectivity
 
 ### Authorization
-
+/*
 Azure Analysis Services uses Azure Active Directory (Azure AD) to authenticate users who connect to an Analysis Services server. You can restrict what data a particular user is able to view, by creating roles and then assigning Azure AD users or groups to those roles. For each role, you can:
 
 - Protect tables or individual columns.
 - Protect individual rows based on filter expressions.
 
 For more information, see [Manage database roles and users](/azure/analysis-services/analysis-services-database-users).
+*/
 
 ## DevOps considerations
-
+TODO: internal info on repo, workspace etc
+/*
 - Create separate resource groups for production, development, and test environments. Separate resource groups make it easier to manage deployments, delete test deployments, and assign access rights.
 
 - Use the [Azure Building blocks][azbb] templates provided in this architecture or create [Azure Resource Manager template][arm-template] to deploy the Azure resources following the infrastructure as Code (IaC) Process. With templates,  automating deployments using [Azure DevOps Services][az-devops], or other CI/CD solutions is easier.
@@ -195,9 +195,9 @@ For more information, see [Manage database roles and users](/azure/analysis-serv
 - [Azure Monitor][azure-monitor] is the recommended option for analyzing the performance of your data warehouse and the entire Azure analytics platform for an integrated monitoring experience. [Azure Synapse Analytics][synapse-analytics] provides a monitoring experience within the Azure portal to show insights to your data warehouse workload. The Azure portal is the recommended tool when monitoring your data warehouse because it provides configurable retention periods, alerts, recommendations, and customizable charts and dashboards for metrics and logs.
 
 For more information, see the DevOps section in [Microsoft Azure Well-Architected Framework][AAF-devops].
-
+*/
 ## Cost Considerations
-
+/*
 ### Azure Synapse
 
 - Choose **Compute Optimized Gen1** for frequent scaling operations. This option is priced as pay-as-you-go, based on Data warehouse units consumption (DWU).
@@ -225,19 +225,18 @@ Consider using the Azure Storage reserved capacity feature to lower cost on stor
 Power BI Embedded is a Platform-as-a-Service (PaaS) solution that offers a set of APIs to enable the integration of Power BI content into custom apps and websites. Users who publish BI content need to be licensed with [Power BI Pro][powerbi-pro-purchase]. For information about pricing, see [Power BI Embedded pricing][powerbi-embedded-pricing].
 
 For more information, see the Cost section in [Microsoft Azure Well-Architected Framework][aaf-cost].
-
+*/
 ## Deploy the solution
-
+/*
 To the deploy and run the reference implementation, follow the steps in the [GitHub readme][github-folder]. It deploys the following resources:
 
 - A Windows VM to simulate an on-premises database server. It includes SQL Server 2017 and related tools, along with Power BI Desktop.
 - An Azure storage account that provides Blob storage to hold data exported from the SQL Server database.
 - An Azure Synapse instance.
 - An Azure Analysis Services instance.
-
+*/
 ## Next steps
-
-- Use Azure Data Factory to automate the ELT pipeline. See [Automated enterprise BI with Azure Synapse and Azure Data Factory][adf-ra].
+TODO: write about scaling up consideration here? 
 
 ## Related resources
 
