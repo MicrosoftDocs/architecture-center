@@ -3171,6 +3171,8 @@ items:
                 href: reference-architectures/identity/adds-extend-domain.yml
               - name: Extend on-premises AD FS to Azure
                 href: reference-architectures/identity/adfs.yml
+              - name: Governance of Teams guest users
+                href: example-scenario/governance/governance-teams-guest-users.yml
               - name: Hybrid identity
                 href: solution-ideas/articles/hybrid-identity.yml
               - name: On-premises AD domains with Azure AD
