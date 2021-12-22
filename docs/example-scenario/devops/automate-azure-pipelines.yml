@@ -11,7 +11,7 @@ metadata:
   ms.subservice: example-scenario
   ms.custom: fcp
 azureCategories:
-  - DevOps
+  - devops
 products:
   - azure-app-service
   - azure-application-insights
