@@ -1,12 +1,12 @@
-Engineering teams experience tedium when they continuously set up DevOps pipelines. The setup process involves build definitions, release definitions, branch policies, control gates, ARM templates, and more. The setup for apps can take days with constant repetition.
+Engineering teams experience challenges when they set up DevOps pipelines for continuous deployment. The setup process involves build definitions, release definitions, branch policies, control gates, ARM templates, and more. Furthermore, the setup for apps can take days with constant repetition. You can automate this part of the development.
 
-You can use the following solution to automate this part of the development. Start off with the first push into the repository. This event sets off a series of steps and constructs the total development path for your repository. Developers can see their changes in minutes. They no longer need to repeatedly set up DevOps pipelines to create developer, test, and production infrastructure in Azure.
+This article shows you how to take advantage of Azure DevOps REST APIs to build continuous integration and continuous deployment (CI/CD) pipelines. Depending on the workload, the build steps in pipelines can vary. Every team has a preferred number of environments within their Azure subscriptions, that depend on their internal systems and business scenarios.
+
+For example, an event like the first push into the repository sets off a series of steps and constructs the total development path for the repository. Developers can see their changes in minutes, and they no longer need to repeatedly set up DevOps pipelines to create developer, test, and production environments in Azure.
 
 By using the solution described in this article, your engineering team can focus on projects that create value for your customers.
 
-This article shows you how to take advantage of Azure DevOps REST APIs to build continuous integration and continuous deployment (CI/CD) pipelines. Depending on the workload, the build steps in pipelines can vary. Every team has a preferred number of environments within their Azure subscriptions, that depend on their internal systems and business scenarios. The approach in this article can be adopted for different environments.
-
-The following services are used to solve this problem:
+The following services are used in this solution:
 
 - Azure DevOps REST APIs
 - Azure Logic Apps
