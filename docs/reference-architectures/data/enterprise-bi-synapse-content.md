@@ -11,12 +11,13 @@ This reference architecture implements the [Analytics end-to-end with Azure Syna
 ![Architecture diagram for Enterprise BI in Azure with Azure Synapse](./images/analytics-with-azure-synapse-pbi.png)
 
 <!--
-TODO - George: Update this architecture from new guidance
+TODO - may be grey out the background more and only circle the Synapse Provisioned Pools without ADLS? 
 -->
 
 **Scenario**: An organization has a large on-premises Data Warehouse stored in a SQL Database. The organization wants to use Azure Synapse to perform analysis using Power BI.
 
-This reference architecture is designed for ongoing ingestion and processing.
+This reference architecture shows on-premises Data Warehouse as a source of ongoing ingestion with cloud based processing and serving of BI Model. 
+This approach could be an end goal or a first step towards full modernization with cloud based components.  
 
 ## Architecture
 
@@ -24,24 +25,24 @@ The architecture consists of the following components.
 
 ### Data source
 
-**SQL Server**. The source data is located in a SQL Server database on premises. To simulate the on-premises environment, the deployment scripts for this architecture provision a VM in Azure with SQL Server installed. The [Adventure Works DW][adventureworks-sample-link] is used as the source data.
-<!-- Galina - TODO - import the back and change variable -->
+**SQL Server**. The source data is located in a SQL Server database on premises. To simulate the on-premises environment, the deployment scripts for this architecture provision a VM in Azure with SQL Server installed. The [Adventure Works DW][adventureworksdw-sample-link] is used as the source data schema and sample data. 
+<! TODO - import the backup, save inside the repo and change variable format? -->
 
 ### Ingestion and data storage
 
-**Azure Data Lake Gen2 (ADLS)**. [ADLS](/azure/databricks/data/data-sources/azure/adls-gen2/) is used as a staging area to copy the data before loading it into Azure Synapse Dedicated SQL Pool via PolyBase.
+**Azure Data Lake Gen2 (ADLS)**. [ADLS](/azure/databricks/data/data-sources/azure/adls-gen2/) is used as a temparary 'stage' area during PolyBase copy into Azure Synapse Dedicated SQL Pool.
 
-**Azure Synapse**. [Azure Synapse](/azure/sql-data-warehouse/) is a distributed system designed to perform analytics on large data. It supports massive parallel processing (MPP), which makes it suitable for running high-performance analytics.
+**Azure Synapse**. [Azure Synapse](/azure/sql-data-warehouse/) is a distributed system designed to perform analytics on large data. It supports massive parallel processing (MPP), which makes it suitable for running high-performance analytics. Azure Synapse Dedicated Pool is a target for ongoing ingestion from on-premises. It is levereged for further processing if required, as well as serving the data for PowerBI over Direct Query mode. 
 
-**Azure Synapse Pipelines**. [Synapse Pipelines](/azure/data-factory/concepts-pipelines-activities) are used as a tool to orchestrate data ingestion and transformation within your Azure Synapse workspace.
+**Azure Synapse Pipelines**. [Synapse Pipelines](/azure/data-factory/concepts-pipelines-activities) are used as a tool to orchestrate data ingestion and transformation within your Azure Synapse workspace. We are using 'High Watermark' approach to deliver ongoing ingestion of data. 
 
 ### Analysis and reporting
 
-Data modeling approach in this use case is presented by composition of Enterprise model and BI Semantic model. [Enterprise model][enterprise-model] is stored in [Synapse Dedicated SQL Pool][synapse-dedicated-pool] and the [BI Semantic model][bi-model] is stored in [Power BI Premium Capacities][pbi-premium-capacities].
+Data modeling approach in this use case is presented by composition of Enterprise model and BI Semantic model. [Enterprise model][enterprise-model] is stored in [Synapse Dedicated SQL Pool][synapse-dedicated-pool] and the [BI Semantic model][bi-model] is stored in [Power BI Premium Capacities][pbi-premium-capacities]. Power BI accesses the data via Direct Query mode. 
 
 ### Authentication
 
-**Azure Active Directory (Azure AD)** authenticates users who connect to the Analysis Services server through Power BI.
+**Azure Active Directory (Azure AD)** authenticates users who connect to Power BI dashboards and apps and we use SSO to connect to the data souce in Azure Synapse Provisioned Pool. Authorization happens on the source.  
 
 ### Architecture Diagram
 
@@ -288,7 +289,7 @@ You may want to review the following [Azure example scenarios](/azure/architectu
 [wwi]: /sql/sample/world-wide-importers/wide-world-importers-oltp-database
 [powerbi-embedded-pricing]: https://azure.microsoft.com/pricing/details/power-bi-embedded
 [powerbi-pro-purchase]: /power-bi/service-admin-purchasing-power-bi-pro
-[adventureworks-sample-link]: /sql/samples/adventureworks-install-configure?view=sql-server-ver15&tabs=ssms
+[adventureworksdw-sample-link]: /sql/samples/adventureworks-install-configure?view=sql-server-ver15&tabs=ssms
 [az-synapse-pricing]: https://azure.microsoft.com/pricing/details/synapse-analytics
 [az-as-pricing]: https://azure.microsoft.com/pricing/details/analysis-services
 [az-storage-reserved]: /azure/storage/blobs/storage-blob-reserved-capacity
