@@ -11,17 +11,17 @@ Throughout the health and life sciences industry, organizations are adopting a *
 
 ![Consumer health portal architecture](./images/consumer_health_portal.png)
 
-This solution leverages the global footprint of Azure Front Door and edge security features of Azure Web Application Firewall (WAF) to authenticate the inbound data. The authenticated data is then routed by Azure API Management (APIM) to either the front-end interface for the users on the Azure App Service, or APIs hosted in Azure Functions.
+This solution uses the global footprint of Azure Front Door and edge security features of Azure Web Application Firewall (WAF) to authenticate the inbound data. The authenticated data is then routed by Azure API Management (APIM) to either the front-end interface for the users on the Azure App Service, or APIs hosted in Azure Functions.
 
-The primary backend data service used in this architecture is Azure Cosmos DB. The multi-model abilities of Cosmos DB, in addition to its scalability and security, allow flexibility for any type of consumer health portal. Any data that is not in a record format is stored in Azure Blob Storage as an object. This could include data such as, medical images, photos taken by the consumer, uploaded documents, archived data, and so on. Blob storage provides an affordable storage for large volumes of unstructured data. Such type of data is not optimized for storage in CosmosDB, and can negatively impact its cost and performance.
+The primary backend data service used in this architecture is Azure Cosmos DB. The multi-model abilities of Cosmos DB, in addition to its scalability and security, allow flexibility for any type of consumer health portal. Any data that is not in a record format is stored in Azure Blob Storage as an object. This data could include medical images, photos taken by the consumer, uploaded documents, archived data, and so on. Blob storage provides an affordable storage for large volumes of unstructured data. Such type of data is not optimized for storage in CosmosDB, and can negatively impact its cost and performance.
 
 ### Components
 
-- [Azure HIPPA HITRUST 9.2 blueprint](/azure/governance/blueprints/samples/hipaa-hitrust-9-2) is an [Azure blueprint](/azure/governance/blueprints/) that uses [Azure Policy](/azure/governance/policy/overview). It helps assess HIPPA HITRUST 9.2 controls and deploy a core set of policies for Azure workloads. While this does not give full compliance coverage for HIPPA HITRUST, it is a great place to start and add additional controls where applicable and necessary. Compliance with the policy initiatives can also be visualized in this blueprint as well as in Microsoft Defender for Cloud.
+- [Azure HIPPA HITRUST 9.2 blueprint](/azure/governance/blueprints/samples/hipaa-hitrust-9-2) is an [Azure blueprint](/azure/governance/blueprints/) that uses [Azure Policy](/azure/governance/policy/overview). It helps assess HIPPA HITRUST 9.2 controls and deploy a core set of policies for Azure workloads. While this does not give full compliance coverage for HIPPA HITRUST, it is a great place to start and add more controls, where applicable and necessary. Compliance with the policy initiatives can also be visualized in this blueprint and in the interface of Microsoft Defender for Cloud.
 
-- [Azure Front Door](https://azure.microsoft.com/services/frontdoor/) is used to manage at-scale edge traffic, and to increase performance for end users by presenting endpoints all around the world. This is a cloud-native technology which doesn't require any licensing; you only pay for what you use. In this workload scenario, Azure Front Door serves as the ingress point for all traffic to the consumer health portal.
+- [Azure Front Door](https://azure.microsoft.com/services/frontdoor/) is used to manage at-scale edge traffic, and to increase performance for end users by presenting endpoints all around the world. This technology is cloud-native, which doesn't require any licensing; you only pay for what you use. In this workload scenario, Azure Front Door serves as the ingress point for all traffic to the consumer health portal.
 
-- [Azure Web Application Firewall](https://azure.microsoft.com/services/web-application-firewall/) protects applications from common web-based attacks such as [OWASP](https://owasp.org) vulnerabilities, SQL injections, cross-site scripting, and others. This is a cloud-native technology which doesn't require any licensing and is pay-as-you-use.
+- [Azure Web Application Firewall](https://azure.microsoft.com/services/web-application-firewall/) protects applications from common web-based attacks such as [OWASP](https://owasp.org) vulnerabilities, SQL injections, cross-site scripting, and others. This technology is cloud-native, which doesn't require any licensing and is pay-as-you-use.
 
 - [Azure API Management](https://azure.microsoft.com/services/api-management/) aids in the publishing, routing, securing, logging, and analytics of APIs. Whether the API is only being used by the end-user or integrated with a third party for external interoperability, API management allows for flexibility in how APIs are extended and presented.
 
@@ -33,7 +33,7 @@ The primary backend data service used in this architecture is Azure Cosmos DB. T
 
 - [Azure Key Vault](/azure/azure-monitor/app/app-insights-overview) is an Azure native service used for securely storing and accessing secrets, keys, and certificates. Key Vault allows for HSM-backed security, and audited access through Azure Active Directory integrated role-based access controls. Applications should never store keys or secrets locally. This architecture uses Azure Key Vault to store all secrets such as API Keys, passwords, cryptographic keys, and certificates.
 
-- [Azure Active Directory B2C](https://azure.microsoft.com/services/active-directory/external-identities/b2c/) provides business-to-consumer identity-as-a-service at massive scale, the cost for which scales along with your active user count. In consumer-facing applications like this solution, instead of creating a new account, users may want to bring their own identity. It can be anything from a social ID, to an email account, or any SAML provider identity service. This provides an easier onboarding experience for the user. The solution provider only needs to reference the user identities, and does not need to host and maintain them.
+- [Azure Active Directory B2C](https://azure.microsoft.com/services/active-directory/external-identities/b2c/) provides business-to-consumer identity-as-a-service at massive scale, the cost for which scales along with your active user count. In consumer-facing applications like this solution, instead of creating a new account, users may want to bring their own identity. It can be anything from a social ID, to an email account, or any SAML provider identity service. This method provides an easier onboarding experience for the user. The solution provider only needs to reference the user identities, and does not need to host and maintain them.
 
 - [Azure Log Analytics](/azure/azure-monitor/log-query/log-analytics-overview), an Azure Monitor Logs tool, can be used for diagnostic or logging information, and for querying this data to sort, filter, or visualize them. This service is priced by consumption, and is perfect for hosting diagnostic and usage logs from all of the services in this solution.
 
@@ -41,9 +41,9 @@ The primary backend data service used in this architecture is Azure Cosmos DB. T
 
 - [Office 365 Email](/microsoft-365/enterprise/azure-integration) is an industry-leading service used for email and communications. Many organizations have already invested in this service. In this solution, it can be used for sending out any emails related to the consumer health portal, such as appointment confirmation or reminder emails.
 
-- [Azure Notification Hub](https://azure.microsoft.com/services/notification-hubs/) is a simple and scalable push notification engine that enables the ability to send notifications to any mobile platform. A consumer health portal leveraging a mobile app, can integrate with Azure Notification Hub for a cost-effective way to push notifications to users who have installed the app on their mobiles. In this architecture, notifications can be sent to remind users of their appointments, to enter information for disconnected devices, to reach certain health goals, and so on.
+- [Azure Notification Hub](https://azure.microsoft.com/services/notification-hubs/) is a simple and scalable push notification engine that enables the ability to send notifications to any mobile platform. A consumer health portal, which uses a mobile app, can integrate with Azure Notification Hub for a cost-effective way to push notifications to users who have installed the app on their mobiles. In this architecture, notifications can be sent to remind users of their appointments, to enter information for disconnected devices, to reach certain health goals, and so on.
 
-- [Microsoft Defender for Cloud](https://azure.microsoft.com/services/security-center/) is the core of security monitoring and posture management for this entire cloud-native solution. Microsoft Defender for Cloud integrates with almost all major services on the Azure platform. Its capabilities include security alerts, anomaly detection, best practice recommendations, regulatory compliance scores, and threat detection. In addition to HIPPA/HITRUST compliance monitoring, and overall Azure Security best practice monitoring, this solution uses the following:
+- [Microsoft Defender for Cloud](https://azure.microsoft.com/services/security-center/) is the core of security monitoring and posture management for this entire cloud-native solution. Microsoft Defender for Cloud integrates with almost all major services on the Azure platform. Its capabilities include security alerts, anomaly detection, best practice recommendations, regulatory compliance scores, and threat detection. In addition to HIPPA/HITRUST compliance monitoring, and overall Azure Security best practice monitoring, this solution uses the following feature sets:
   - [Microsoft Defender for App Service](/azure/security-center/defender-for-app-service-introduction)
   - [Microsoft Defender for Storage](/azure/security-center/defender-for-storage-introduction)
   - [Microsoft Defender for KeyVault](/azure/security-center/defender-for-key-vault-introduction)
@@ -54,11 +54,11 @@ The primary backend data service used in this architecture is Azure Cosmos DB. T
 
 ### Alternatives
 
-- [Twillo's SendGrid](https://azuremarketplace.microsoft.com/marketplace/apps/sendgrid.tsg-saas-offer?tab=Overview) may be used as an alternative for email notifications. SendGrid has direct marketplace integration in Azure, is easy to set up, and has a free tier of email services. However, if customers already have an Office 365 subscription and if they plan on sending a large number of emails, using Office 365 integration could be a more cost effective solution.
+- [Twillo's SendGrid](https://azuremarketplace.microsoft.com/marketplace/apps/sendgrid.tsg-saas-offer?tab=Overview) may be used as an alternative for email notifications. SendGrid has direct marketplace integration in Azure, is easy to set up, and has a free tier of email services. However, if customers already have an Office 365 subscription and if they plan on sending a large number of emails, using Office 365 integration could be a more cost-effective solution.
 
-- [Azure API for FHIR](https://azure.microsoft.com/services/azure-api-for-fhir/) may be used for interoperability of medical records, using HL7 or FHIR communication standards. This service should be used if your application needs to receive or transmit medical records from other systems. For instance, if this were a portal for medical providers, Azure API for FHIR could integrate with the provider's electronic medical records system directly.
+- [Azure API for FHIR](https://azure.microsoft.com/services/azure-api-for-fhir/) may be used for interoperability of medical records, using HL7 or FHIR communication standards. This service should be used if your application needs to receive or transmit medical records from other systems. For example, if this solution were a portal for medical providers, Azure API for FHIR could integrate with the provider's electronic medical records system directly.
 
-- [Azure IoT Hub](https://azure.microsoft.com/services/iot-hub/) is a service fine-tuned for ingesting device data. If the portal is the front-end for a solution which collects data from a wearable or any other medical device, IoT Hub should be used to ingest this data. For more information, read the *INGEST* process of the [Remote Patient Monitoring Solutions](../../solution-ideas/articles/remote-patient-monitoring.yml) architecture.
+- [Azure IoT Hub](https://azure.microsoft.com/services/iot-hub/) is a service fine-tuned for ingesting device data. If the portal is the front end for a solution that collects data from a wearable or any other medical device, IoT Hub should be used to ingest this data. For more information, read the *INGEST* process of the [Remote Patient Monitoring Solutions](../../solution-ideas/articles/remote-patient-monitoring.yml) architecture.
 
 ## Considerations
 
@@ -66,15 +66,15 @@ The primary backend data service used in this architecture is Azure Cosmos DB. T
 
 This solution is currently designed as a single-region deployment. If your scenario requires a multi-region deployment for high-availability, disaster recovery, or even proximity, you may need a [Paired Azure Region](/azure/best-practices-availability-paired-regions) with the following configurations.
 
-- Cosmos DB is extended to leverage a [multi-region configuration](/azure/cosmos-db/high-availability).
+- Cosmos DB is extended to enable a [multi-region configuration](/azure/cosmos-db/high-availability).
 
-- Azure API Management is [deployed using CI/CD](/azure/api-management/devops-api-development-templates) into a secondary region. You may also leverage the [Multi-Region Deployment capability](/azure/cosmos-db/high-availability) of API Management.
+- Azure API Management is [deployed using CI/CD](/azure/api-management/devops-api-development-templates) into a secondary region. You may also apply the [Multi-Region Deployment capability](/azure/cosmos-db/high-availability) of API Management.
 
-- Azure App Service and Functions are deployed separately to additional regions. This can be done within your [CI/CD pipeline](https://azure.microsoft.com/en-in/solutions/architecture/azure-devops-continuous-integration-and-continuous-deployment-for-azure-web-apps/) by creating a parallel deployment. Please read the [Highly available multi-region web application](../../reference-architectures/app-service-web-app/multi-region.yml) for additional reference.
+- Azure App Service and Functions are deployed separately to mutiple regions. This deployment can be done within your [CI/CD pipeline](https://azure.microsoft.com/solutions/architecture/azure-devops-continuous-integration-and-continuous-deployment-for-azure-web-apps) by creating a parallel deployment. Read the [Highly available multi-region web application](../../reference-architectures/app-service-web-app/multi-region.yml) for further guidance.
 
-- Depending on the requirement for RTO (recovery time objective), Azure Blob Storage can either be configured as geo-redundant storage (GRS), or read-access geo-redundant storage (RA-GRS) that allows reads directly from the alternate region. To read more, please read the [Azure Storage redundancy](/azure/storage/common/storage-redundancy) article.
+- Depending on the requirement for RTO (recovery time objective), Azure Blob Storage can either be configured as geo-redundant storage (GRS), or read-access geo-redundant storage (RA-GRS) that allows reads directly from the alternate region. To learn more, see the [Azure Storage redundancy](/azure/storage/common/storage-redundancy) article.
 
-- Multiple layers of [availability and redundancy](/azure/key-vault/general/disaster-recovery-guidance) built in to the Azure Key Vault service are leveraged.
+- Multiple layers of [availability and redundancy](/azure/key-vault/general/disaster-recovery-guidance) are built in to the Azure Key Vault service.
 
 ### Security considerations
 
@@ -86,7 +86,7 @@ Azure Front Door's Web Application Firewall (WAF) should be used to mitigate man
 
 #### Azure API Management
 
-All traffic to APIM should be authenticated, either by using [Azure AD B2C APIM authentication](/azure/active-directory-b2c/secure-api-management) or with token-identified sessions. Azure API Management should also be configured to store [resource logs](/azure/api-management/api-management-howto-use-azure-monitor#resource-logs). You can read more at [Security practices for Azure API Management](/azure/api-management/security-baseline).
+All traffic to APIM should be authenticated, either by using [Azure AD B2C APIM authentication](/azure/active-directory-b2c/secure-api-management) or with token-identified sessions. Configure Azure API Management to store [resource logs](/azure/api-management/api-management-howto-use-azure-monitor#resource-logs). You can read more at [Security practices for Azure API Management](/azure/api-management/security-baseline).
 
 #### Azure App Service
 
@@ -100,11 +100,11 @@ All requests to the Azure Functions in this solution should [require HTTPS](/azu
 
 Where possible, restrict access to blob storage by using [Azure Active Directory](/azure/storage/common/storage-auth-aad) to authorize user access, and [Managed Service Identities](/azure/storage/common/storage-auth-aad-msi) for resource access to blob storage. If these authentication types may not work for your application, use a [Shared Access Signature (SAS)](/azure/storage/common/storage-sas-overview) token at the most granular level, instead of an account key. SAS tokens are invalidated after rotating account keys.
 
-Make sure to also use [role-based access control](/azure/storage/common/storage-sas-overview) for the blob storage. Use [Azure Storage Firewalls](/azure/storage/common/storage-network-security) to disallow network traffic other than that from *Trusted Microsoft Services*. Always integrate [Azure Storage with Microsoft Defender for Cloud](/azure/security-center/defender-for-storage-introduction) and configure [monitoring](/azure/storage/blobs/monitor-blob-storage?tabs=azure-portal). You can read more at [Security practices for Azure Blob Storage](/azure/storage/blobs/security-recommendations).
+Make sure to also use a [role-based access control](/azure/storage/common/storage-sas-overview) for the blob storage. Use [Azure Storage Firewalls](/azure/storage/common/storage-network-security) to disallow network traffic, other than traffic from *Trusted Microsoft Services*. Always integrate [Azure Storage with Microsoft Defender for Cloud](/azure/security-center/defender-for-storage-introduction) and configure the [monitoring](/azure/storage/blobs/monitor-blob-storage?tabs=azure-portal). You can read more at [Security practices for Azure Blob Storage](/azure/storage/blobs/security-recommendations).
 
 #### Azure Cosmos DB
 
-[Role-based access controls](/azure/cosmos-db/role-based-access-control) should be enabled for CosmosDB management. Access to the data in CosmosDB should be [appropriately secured](/azure/cosmos-db/secure-access-to-data). Configure CosmosDB to [store diagnostic logs for control plane operations](/azure/cosmos-db/audit-control-plane-logs#enable-diagnostic-logs-for-control-plane-operations) as well as to [store resource logs](/azure/cosmos-db/cosmosdb-monitor-resource-logs). You can read more at [Security practices for Azure Cosmos DB](/azure/cosmos-db/database-security).
+[Role-based access controls](/azure/cosmos-db/role-based-access-control) should be enabled for CosmosDB management. Access to the data in CosmosDB should be [appropriately secured](/azure/cosmos-db/secure-access-to-data). You can configure CosmosDB to [store diagnostic logs for control plane operations](/azure/cosmos-db/audit-control-plane-logs#enable-diagnostic-logs-for-control-plane-operations) and to [store resource logs](/azure/cosmos-db/cosmosdb-monitor-resource-logs). See further details at [Security practices for Azure Cosmos DB](/azure/cosmos-db/database-security).
 
 #### Azure Key Vault
 
