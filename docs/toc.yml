@@ -1022,6 +1022,9 @@ items:
                   - name: Overview
                     href: /industry/healthcare/overview
                     maintainContext: true
+                  - name: Azure setup
+                    href: /industry/healthcare/configure-cloud-for-healthcare
+                    maintainContext: true
                   - name: Patient engagement
                     href: /industry/healthcare/patient-engagement
                     maintainContext: true
@@ -1061,6 +1064,8 @@ items:
                     maintainContext: true
           - name: Architectures
             items:
+              - name: All healthcare architectures
+                href: /azure/architecture/browse/?terms=healthcare
               - name: Build a telehealth system with Azure
                 href: example-scenario/apps/telehealth-system.yml
               - name: Clinical insights with Cloud for Healthcare
@@ -1081,6 +1086,12 @@ items:
                 href: example-scenario/mch-health/virtual-health-mch.yml
           - name: Compliance solutions
             items:
+              - name: HIPAA (US) overview
+                href: /azure/compliance/offerings/offering-hipaa-us
+                maintainContext: true
+              - name: HITRUST overview
+                href: /azure/compliance/offerings/offering-hitrust
+                maintainContext: true
               - name: Blueprint - HIPAA/HITRUST data and AI
                 href: /previous-versions/azure/security/blueprints/azure-health
                 maintainContext: true
@@ -1130,8 +1141,13 @@ items:
                     href: /azure/azure-government/compliance/secure-azure-computing-architecture
                     maintainContext: true
               - name: Compliance
-                href: /azure/azure-government/documentation-government-plan-compliance
-                maintainContext: true
+                items:
+                  - name: Azure Government compliance
+                    href: /azure/azure-government/documentation-government-plan-compliance
+                    maintainContext: true
+                  - name: Services compliance scope
+                    href: /azure/azure-government/compliance/azure-services-in-fedramp-auditscope
+                    maintainContext: true
               - name: Identity
                 items:
                   - name: Identity for Azure Government
@@ -1158,6 +1174,8 @@ items:
                     maintainContext: true
           - name: Architectures
             items:
+              - name: All government architectures
+                href: /azure/architecture/browse/?terms=government
               - name: Azure Automation in a hybrid environment
                 href: hybrid/azure-automation-hybrid.yml
               - name: Azure Automation update management
@@ -1172,27 +1190,38 @@ items:
                 href: example-scenario/private-web-app/private-web-app.yml
           - name: Compliance solutions
             items:
-              - name: Azure FedRAMP compliance
-                href: /azure/compliance/offerings/offering-fedramp
+              - name: DoD overview
+                href: /azure/azure-government/documentation-government-overview-dod
                 maintainContext: true
-              - name: Blueprint - Analytics for FedRAMP
-                href: /previous-versions/azure/security/blueprints/fedramp-analytics-overview
+              - name: EAR overview
+                href: /azure/compliance/offerings/offering-ear
                 maintainContext: true
-              - name: Blueprint - Data warehouse for FedRAMP
-                href: /previous-versions/azure/security/blueprints/fedramp-datawarehouse-overview
-                maintainContext: true
-              - name: Blueprint - IaaS web app for FedRAMP
-                href: /previous-versions/azure/security/blueprints/fedramp-iaaswa-overview
-                maintainContext: true
-              - name: Blueprint - PaaS web app for FedRAMP
-                href: /previous-versions/azure/security/blueprints/fedramp-paaswa-overview
-                maintainContext: true
-              - name: FedRAMP high compliance
-                href: /azure/governance/policy/samples/fedramp-high
-                maintainContext: true
-              - name: FedRAMP moderate compliance
-                href: /azure/governance/policy/samples/fedramp-moderate
-                maintainContext: true
+              - name: FedRAMP
+                items:                
+                  - name: FedRAMP overview
+                    href: /azure/compliance/offerings/offering-fedramp
+                    maintainContext: true
+                  - name: Azure FedRAMP compliance
+                    href: /azure/compliance/offerings/offering-fedramp
+                    maintainContext: true
+                  - name: Blueprint - Analytics for FedRAMP
+                    href: /previous-versions/azure/security/blueprints/fedramp-analytics-overview
+                    maintainContext: true
+                  - name: Blueprint - Data warehouse for FedRAMP
+                    href: /previous-versions/azure/security/blueprints/fedramp-datawarehouse-overview
+                    maintainContext: true
+                  - name: Blueprint - IaaS web app for FedRAMP
+                    href: /previous-versions/azure/security/blueprints/fedramp-iaaswa-overview
+                    maintainContext: true
+                  - name: Blueprint - PaaS web app for FedRAMP
+                    href: /previous-versions/azure/security/blueprints/fedramp-paaswa-overview
+                    maintainContext: true
+                  - name: FedRAMP high compliance
+                    href: /azure/governance/policy/samples/fedramp-high
+                    maintainContext: true
+                  - name: FedRAMP moderate compliance
+                    href: /azure/governance/policy/samples/fedramp-moderate
+                    maintainContext: true
       - name: Manufacturing
         items:
           - name: Overview
