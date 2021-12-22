@@ -61,7 +61,7 @@ This solution applies to any situation that requires managing access—for those
 1. **Group 1 resource role** - Resource roles are permissions that are associated with, and defined by, a resource. A group has two roles—member and owner. SharePoint sites typically have three roles, but can have additional custom roles. Applications can have custom roles.
 1. **External access policy** - This is the policy that defines the rules for assignment to an access package. A policy is used in this example to ensure that users from connected organizations can request access to the project team. After a request is made, approval is required from approvers as defined in the policy. The policy also specifies time limits and renewal settings.
 1. **Approver** - An approver approves the access request. This can be an internal or external user.
-1. **Requester** - This is the external user that requests access via the MyAccess Portal. The portal only shows the access packages that the requester is allowed to request.
+1. **Requester** - This is the external user that requests access via the My Access portal. The portal only shows the access packages that the requester is allowed to request.
 
 #### Requesting access to a resource for users external to the organization flow
 
@@ -101,7 +101,7 @@ An important implementation step is configuring tenant settings to allow for ext
 1. **Enable catalog for external users** - Make sure the catalog has **Enabled for external users** set to **Yes**. By default, when you create a new catalog in Azure AD entitlement management, it's enabled to allow external users to request access to packages in the catalog.
 1. **Azure AD B2B external collaboration settings** - The Azure B2B external collaboration settings can affect whether you can use Azure AD entitlement management to invite external users to resources. Verify these settings:
    - Check whether guests are allowed to invite other guests to your directory. We recommend setting **Guests can invite** to **No** to only allow governed invitations.
-   - If you're using the Azure AD B2B allow or deny list, make sure that the domains of all the connected organizations are properly specified. They should be included if you use an allow list, and omitted if you use a deny list.
+   - Make sure that you're allowing or blocking invitations appropriately. For more information, see [Allow or block invitations to B2B users from specific organizations](/azure/active-directory/external-identities/allow-deny-list).
 1. **Review your Conditional Access policies** - Verify Conditional Access to make sure guest users are excluded from any Conditional Access policies that they can't satisfy. Otherwise they can't sign in to your directory and won't have access to the resource.
 1. **Review your SharePoint Online external sharing settings** - If you include SharePoint Online sites in an access package for external users, make sure that you configure the organization-level external sharing setting. Set as **Anyone** if sign-in isn't required, or **Existing guests** for invited users. For more information, see [Change the organization-level external sharing setting](/sharepoint/turn-external-sharing-on-or-off#change-the-organization-level-external-sharing-setting).
 1. **Review your Microsoft 365 group sharing settings** - If you include Microsoft 365 groups or teams in an access package for external users, make sure that **Let users add new guests to the organization** is set to **On** to allow guest access.
