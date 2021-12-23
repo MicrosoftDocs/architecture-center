@@ -5,7 +5,7 @@ metadata:
   description: Eliminate tedious tasks by automating your pipeline with Azure DevOps REST APIs, Azure Logic Apps, and Azure Pipelines.
   author: EdPrice-MSFT
   ms.author: Raj.Balakrishnan
-  ms.date: 12/22/2021
+  ms.date: 12/23/2021
   ms.topic: conceptual
   ms.service: architecture-center
   ms.subservice: example-scenario
