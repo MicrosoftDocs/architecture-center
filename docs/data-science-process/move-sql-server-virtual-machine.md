@@ -8,7 +8,7 @@ editor: marktab
 ms.service: machine-learning
 ms.subservice: team-data-science-process
 ms.topic: article
-ms.date: 12/21/2021
+ms.date: 12/24/2021
 ms.author: tdsp
 ms.custom:
   - previous-author=deguhath
@@ -204,7 +204,7 @@ Various methods can be used to bulk export data from an On-Premises SQL Server a
 
 [SQL Server Migration Assistant (SSMA)](https://techcommunity.microsoft.com/t5/microsoft-data-migration/bg-p/MicrosoftDataMigration) provides a user-friendly way to move data between two SQL server instances. It allows the user to map the data schema between sources and destination tables, choose column types and various other functionalities. It uses bulk copy (BCP) under the covers. A screenshot of the welcome screen for SQL Server Migration Assistant (SSMA) is shown below.
 
-![SQL Server Migration Assistant (SSMA)][2]
+![Screenshot of the SQL Server Migration Assistant (SSMA).][2]
 
 ### <a name="sql-backup"></a>Database back up and restore
 
@@ -215,7 +215,7 @@ SQL Server supports:
 
 A screenshot of the Database back up/restore options from SQL Server Management Studio is shown below.
 
-![SQL Server Import Tool][1]
+![Screenshot of the SQL Server Import Tool.][1]
 
 ## Resources
 
