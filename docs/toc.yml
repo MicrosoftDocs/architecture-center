@@ -1222,6 +1222,26 @@ items:
                   - name: FedRAMP moderate compliance
                     href: /azure/governance/policy/samples/fedramp-moderate
                     maintainContext: true
+              - name: IRS 1075 overview
+                href: /azure/compliance/offerings/offering-irs-1075
+                maintainContext: true
+              - name: ITAR overview
+                href: /azure/compliance/offerings/offering-itar
+                maintainContext: true
+              - name: NDAA overview
+                href: /azure/compliance/offerings/offering-ndaa-section-889
+                maintainContext: true
+              - name: NIST
+                items:
+                  - name: NIST 800-63 overview
+                    href: /azure/compliance/offerings/offering-nist-800-63
+                    maintainContext: true
+                  - name: NIST CSF overview
+                    href: /azure/compliance/offerings/offering-nist-csf
+                    maintainContext: true
+              - name: TIC solutions
+                href: /azure/azure-government/compliance/compliance-tic
+                maintainContext: true
       - name: Manufacturing
         items:
           - name: Overview
@@ -1250,6 +1270,8 @@ items:
                 maintainContext: true
           - name: Architectures
             items:
+              - name: All manufacturing architectures
+                href: /azure/architecture/browse/?terms=manufacturing
               - name: Anomaly detector process
                 href: solution-ideas/articles/anomaly-detector-process.yml
               - name: Build a speech-to-text transcription pipeline
