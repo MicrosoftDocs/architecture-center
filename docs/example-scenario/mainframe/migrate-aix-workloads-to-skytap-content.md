@@ -96,7 +96,7 @@ To learn more about how Skytap secures your workloads, you can get more informat
 ## Deploy this scenario
 
 To get started running AIX applications on Azure, check out the [Skytap on Azure](https://azuremarketplace.microsoft.com/marketplace/apps/skytapinc.skytap-on-azure-main1?tab=overview) template in Azure Marketplace.
-Learn more about the different Migration and Deployment options with the [Skytap Well-Architected Framework](link-tba).
+Learn more about the different Migration and Deployment options with the [Skytap Well-Architected Framework](https://github.com/skytap/well-architected-framework).
 
 ## Pricing
 
@@ -114,10 +114,12 @@ To learn more about Skytap on Azure, please contact <legacy2azure@microsoft.com>
 
 -   Explore the [Skytap on Azure](https://azuremarketplace.microsoft.com/marketplace/apps/skytapinc.skytap-on-azure-main1?tab=overview) template on Azure Marketplace.
 
--   Learn about [Skytap Migration options](link-tba)
+-   Learn about [Skytap Migration options](https://github.com/skytap/well-architected-framework)
+
 ## Related resources
 
-- [Skytap Well-Architected Framework](link-tba)
+- [Skytap Well-Architected Framework](https://github.com/skytap/well-architected-framework)
+- 
 - [Skytap documentation](https://help.skytap.com/)
 
 -   [Mainframe file replication and sync on Azure](../../solution-ideas/articles/mainframe-azure-file-replication.yml)
