@@ -1086,20 +1086,25 @@ items:
                 href: example-scenario/mch-health/virtual-health-mch.yml
           - name: Compliance solutions
             items:
-              - name: HIPAA (US) overview
-                href: /azure/compliance/offerings/offering-hipaa-us
+              - name: EPCS (US) overview
+                href: /azure/compliance/offerings/offering-epcs-us
                 maintainContext: true
-              - name: HITRUST overview
-                href: /azure/compliance/offerings/offering-hitrust
-                maintainContext: true
-              - name: Blueprint - HIPAA/HITRUST data and AI
-                href: /previous-versions/azure/security/blueprints/azure-health
-                maintainContext: true
-              - name: Implement the healthcare blueprint for AI
-                href: /previous-versions/azure/industry-marketing/health/sg-healthcare-ai-blueprint
-                maintainContext: true
-              - name: HIPAA and HITRUST compliant health data
-                href: solution-ideas/articles/security-compliance-blueprint-hipaa-hitrust-health-data-ai.yml
+              - name: HIPAA and HITRUST
+                items:
+                  - name: HIPAA (US) overview
+                    href: /azure/compliance/offerings/offering-hipaa-us
+                    maintainContext: true
+                  - name: HITRUST overview
+                    href: /azure/compliance/offerings/offering-hitrust
+                    maintainContext: true
+                  - name: Blueprint - HIPAA/HITRUST data and AI
+                    href: /previous-versions/azure/security/blueprints/azure-health
+                    maintainContext: true
+                  - name: Implement the healthcare blueprint for AI
+                    href: /previous-versions/azure/industry-marketing/health/sg-healthcare-ai-blueprint
+                    maintainContext: true
+                  - name: HIPAA and HITRUST compliant health data
+                    href: solution-ideas/articles/security-compliance-blueprint-hipaa-hitrust-health-data-ai.yml
       - name: Government
         items:
           - name: Overview
@@ -1305,6 +1310,8 @@ items:
                 maintainContext: true
           - name: Architectures
             items:
+              - name: All media and entertainment architectures
+                href: /azure/architecture/browse/?terms=entertainment
               - name: 3D video rendering
                 href: example-scenario/infrastructure/video-rendering.yml
               - name: Content-based recommendation
@@ -1319,6 +1326,14 @@ items:
                 href: solution-ideas/articles/digital-media-live-stream.yml
               - name: Movie recommendations on Azure
                 href: example-scenario/ai/movie-recommendations-with-machine-learning.yml
+          - name: Compliance solutions
+            items:
+              - name: CDSA overview
+                href: /azure/compliance/offerings/offering-cdsa
+                maintainContext: true
+              - name: MPA overview
+                href: /azure/compliance/offerings/offering-mpa
+                maintainContext: true
       - name: Energy and Environment
         items:
           - name: Overview
@@ -1333,6 +1348,8 @@ items:
                 maintainContext: true
           - name: Architectures
             items:
+              - name: All energy and environment architectures
+                href: /azure/architecture/browse/?terms=energy
               - name: Environmental monitoring
                 href: solution-ideas/articles/environment-monitoring-and-supply-chain-optimization.yml
               - name: Geospatial data processing and analytics
@@ -1347,8 +1364,15 @@ items:
                 href: example-scenario/infrastructure/hpc-cfd.yml
               - name: Run reservoir simulations
                 href: example-scenario/infrastructure/reservoir-simulation.yml
+          - name: Compliance solutions
+            items:
+              - name: NERC (US) overview
+                href: /azure/compliance/offerings/offering-nerc
+                maintainContext: true
       - name: Game Development
         items:
+          - name: All game development architectures
+            href: /azure/architecture/browse/?terms=game
           - name: Rendering
             items:
               - name: 3D video rendering
