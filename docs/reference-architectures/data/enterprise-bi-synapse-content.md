@@ -130,24 +130,28 @@ Mapping data flow..
 TODO: partitioning on MPP if needed
 
 // Galina to cover PBI with modelling
-### Use Power BI to access, model and visualize the data
+### Use Power BI Premium to access, model and visualize the data
 TODO: connect mode, security, data gateways, authorization
 Power BI premium components 
 links to deployment guides
 
-/*Power BI supports two options for connecting to data sources on Azure
+Power BI supports several options for connecting to data sources on Azure, in particular Azure Synapse Provisioned Pool:
+- Import. The data is imported into the Power BI model. 
+- Direct Query. Data is pulled directly from relational storage.
+- [Composit model] (https://docs.microsoft.com/en-us/power-bi/transform-model/desktop-composite-models). Importing some tables and Direct Query others. 
 
-- Import. The data is imported into the Power BI model.
-- Live Connection. Data is pulled directly from Analysis Services.
+This usecase is delivered with Direct Query dashboard, because the amount of data we use and model/dashboard complexity is not high, so we can deliver good user experience. Direct Query delegates the query to the powerfull compute engine underneath and utilizes extensive security capabilities on the source. Also, using DirectQuery ensures that results are always consistent with the latest source data. 
 
-We recommend Live Connection because it doesn't require copying data into the Power BI model. Also, using DirectQuery ensures that results are always consistent with the latest source data. For more information, see [Connect with Power BI](/azure/analysis-services/analysis-services-connect-pbi).
+Leveraging [Power BI Premium Gen2] (https://docs.microsoft.com/en-us/power-bi/admin/service-premium-what-is) gives you ability to handle big models, paginated reports, PBI deployment pipelins and built-in Analysis Services endpoint, as well as to have dedicated [capacity] (https://docs.microsoft.com/en-us/power-bi/admin/service-premium-what-is#reserved-capacities) with unique value proposition. 
+When the BI Model grows or dashbord camplexity encreases, you may prefer to swith to composit models and start importing parts of look up tables and some preaggreaged data. Enabling [Query Caching] (https://docs.microsoft.com/en-us/power-bi/connect-data/power-bi-query-caching) within Power BI for imported datasets is an options, as well as leveraging [Dual Tables] (https://docs.microsoft.com/en-us/power-bi/transform-model/desktop-storage-mode) for storage mode property. Within Composite model, datasets act as virtual pass through layer. When the user interacts with visualizations, Power BI generates SQL queries to Synapse SQL Pools Dual Storage: in memory or direct query depending on which one is more efficient, the engine decides when to switch from in-memory to direct query and pushes the logic to the Synapse SQL Pool. Depending on the context of the query tables can act as either cached (imported) or not cached Composite Models: pick and choose which table to cache into memory, combine data from one or more DirectQuery sources, and/or combine data from a mix of DirectQuery sources and imported data. 
 
 **Recommendations:**
+When using PBI Direct Query over Azure Synapse Analytics Provisioned Pool, consider 
+ 1. using Azure Synapse [Result Set Caching] (https://docs.microsoft.com/en-us/azure/synapse-analytics/sql-data-warehouse/performance-tuning-result-set-caching).
+It caches query results in the user database for repetitive use, improves query performance (down to milliseconds), reduces compute resource usage. Queries using cached results set do not use any concurrency slots in Azure Synapse Analytics and thus do not count against existing concurrency limits.
+2. using Azure Synapse [Materialized Views] (https://docs.microsoft.com/en-us/azure/synapse-analytics/sql/develop-materialized-view-performance-tuning)
+The views do pre-compute, store, and maintain data in SQL DW just like a table. Queries that use all or a subset of the data in materialized views can get faster performance and they don't need to make a direct reference to the defined materialized view to use it.
 
-Avoid running BI dashboard queries directly against the data warehouse. BI dashboards require very low response times, which direct queries against the warehouse may be unable to satisfy. Also, refreshing the dashboard will count against the number of concurrent queries, which could impact performance.
-
-Azure Analysis Services is designed to handle the query requirements of a BI dashboard, so the recommended practice is to query Analysis Services from Power BI.
-*/
 
 ## Scalability considerations
 TODO: overview
@@ -159,7 +163,6 @@ With Azure Synapse, you can scale out your compute resources on demand. The quer
 
 ## Security considerations
 ### for all components  - private connectivity
-
 ### Authorization
 /*
 Azure Analysis Services uses Azure Active Directory (Azure AD) to authenticate users who connect to an Analysis Services server. You can restrict what data a particular user is able to view, by creating roles and then assigning Azure AD users or groups to those roles. For each role, you can:
@@ -269,3 +272,4 @@ You may want to review the following [Azure example scenarios](/azure/architectu
 [bi-model]:powerbi-docs/guidance/center-of-excellence-business-intelligence-solution-architecture.md#bi-semantic-models
 [pbi-premium-capacities]: powerbi-docs/admin/service-premium-what-is.md#reserved-capacities
 [synapse-dedicated-pool]:azure/articles/synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md#synapse-sql-pool-in-azure-synapse
+[pbi-what-is-premium] https://docs.microsoft.com/en-us/power-bi/admin/service-premium-what-is#analysis-services-in-power-bi-premium
