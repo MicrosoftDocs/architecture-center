@@ -86,7 +86,7 @@ items:
                 href: guide/technology-choices/data-store-decision-tree.md
               - name: Criteria for choosing a data store
                 href: guide/technology-choices/data-store-considerations.md
-              - name: Compare data storage
+              - name: Big data storage
                 href: data-guide/technology-choices/data-storage.md
               - name: Database scenarios
                 items:
@@ -304,8 +304,8 @@ items:
                     href: aws-professional/security-identity.md
                   - name: Storage
                     href: aws-professional/storage.md
-          - name: Service comparison
-            href: aws-professional/services.md
+              - name: Service comparison
+                href: aws-professional/services.md
           - name: Azure for Google Cloud professionals
             expanded: true
             items:            
@@ -918,6 +918,8 @@ items:
                 maintainContext: true
           - name: Architectures
             items:
+              - name: All retail architectures
+                href: /azure/architecture/browse/?terms=retail
               - name: Build a real-time recommendation API
                 href: reference-architectures/ai/real-time-recommendation.yml
               - name: Content-based recommendation
@@ -963,6 +965,9 @@ items:
               - name: Data management in banking
                 href: /previous-versions/azure/industry-marketing/financial/data-mgmt-in-banking-overview
                 maintainContext: true
+              - name: Financial institutions with data mesh
+                href: /azure/cloud-adoption-framework/scenarios/data-management/architectures/reference-architecture-data-mesh
+                maintainContext: true
               - name: Actuarial risk analysis
                 href: /previous-versions/azure/industry-marketing/financial/actuarial-risk-analysis-and-financial-modeling-solution-guide
                 maintainContext: true
@@ -971,6 +976,8 @@ items:
                 maintainContext: true
           - name: Architectures
             items:
+              - name: All finance architectures
+                href: /azure/architecture/browse/?terms=finance
               - name: Banking system cloud transformation
                 href: example-scenario/banking/banking-system-cloud-transformation.yml
               - name: Decentralized trust between banks
@@ -987,6 +994,9 @@ items:
                 href: example-scenario/ai/scale-ai-and-machine-learning-in-regulated-industries.yml                
           - name: Compliance solutions
             items:
+              - name: PCI DSS overview
+                href: /azure/compliance/offerings/offering-pci-dss
+                maintainContext: true
               - name: AKS regulated cluster for PCI
                 href: /azure/architecture/reference-architectures/containers/aks-pci/aks-pci-ra-code-assets
               - name: Blueprint - Analytics for PCI DSS
@@ -1011,6 +1021,9 @@ items:
                 items:
                   - name: Overview
                     href: /industry/healthcare/overview
+                    maintainContext: true
+                  - name: Azure setup
+                    href: /industry/healthcare/configure-cloud-for-healthcare
                     maintainContext: true
                   - name: Patient engagement
                     href: /industry/healthcare/patient-engagement
@@ -1051,6 +1064,8 @@ items:
                     maintainContext: true
           - name: Architectures
             items:
+              - name: All healthcare architectures
+                href: /azure/architecture/browse/?terms=healthcare
               - name: Build a telehealth system with Azure
                 href: example-scenario/apps/telehealth-system.yml
               - name: Clinical insights with Cloud for Healthcare
@@ -1071,14 +1086,25 @@ items:
                 href: example-scenario/mch-health/virtual-health-mch.yml
           - name: Compliance solutions
             items:
-              - name: Blueprint - HIPAA/HITRUST data and AI
-                href: /previous-versions/azure/security/blueprints/azure-health
+              - name: EPCS (US) overview
+                href: /azure/compliance/offerings/offering-epcs-us
                 maintainContext: true
-              - name: Implement the healthcare blueprint for AI
-                href: /previous-versions/azure/industry-marketing/health/sg-healthcare-ai-blueprint
-                maintainContext: true
-              - name: HIPAA and HITRUST compliant health data
-                href: solution-ideas/articles/security-compliance-blueprint-hipaa-hitrust-health-data-ai.yml
+              - name: HIPAA and HITRUST
+                items:
+                  - name: HIPAA (US) overview
+                    href: /azure/compliance/offerings/offering-hipaa-us
+                    maintainContext: true
+                  - name: HITRUST overview
+                    href: /azure/compliance/offerings/offering-hitrust
+                    maintainContext: true
+                  - name: Blueprint - HIPAA/HITRUST data and AI
+                    href: /previous-versions/azure/security/blueprints/azure-health
+                    maintainContext: true
+                  - name: Implement the healthcare blueprint for AI
+                    href: /previous-versions/azure/industry-marketing/health/sg-healthcare-ai-blueprint
+                    maintainContext: true
+                  - name: HIPAA and HITRUST compliant health data
+                    href: solution-ideas/articles/security-compliance-blueprint-hipaa-hitrust-health-data-ai.yml
       - name: Government
         items:
           - name: Overview
@@ -1120,8 +1146,13 @@ items:
                     href: /azure/azure-government/compliance/secure-azure-computing-architecture
                     maintainContext: true
               - name: Compliance
-                href: /azure/azure-government/documentation-government-plan-compliance
-                maintainContext: true
+                items:
+                  - name: Azure Government compliance
+                    href: /azure/azure-government/documentation-government-plan-compliance
+                    maintainContext: true
+                  - name: Services compliance scope
+                    href: /azure/azure-government/compliance/azure-services-in-fedramp-auditscope
+                    maintainContext: true
               - name: Identity
                 items:
                   - name: Identity for Azure Government
@@ -1148,6 +1179,8 @@ items:
                     maintainContext: true
           - name: Architectures
             items:
+              - name: All government architectures
+                href: /azure/architecture/browse/?terms=government
               - name: Azure Automation in a hybrid environment
                 href: hybrid/azure-automation-hybrid.yml
               - name: Azure Automation update management
@@ -1162,26 +1195,57 @@ items:
                 href: example-scenario/private-web-app/private-web-app.yml
           - name: Compliance solutions
             items:
-              - name: Azure FedRAMP compliance
-                href: /azure/compliance/offerings/offering-fedramp
+              - name: DoD overview
+                href: /azure/azure-government/documentation-government-overview-dod
                 maintainContext: true
-              - name: Blueprint - Analytics for FedRAMP
-                href: /previous-versions/azure/security/blueprints/fedramp-analytics-overview
+              - name: EAR overview
+                href: /azure/compliance/offerings/offering-ear
                 maintainContext: true
-              - name: Blueprint - Data warehouse for FedRAMP
-                href: /previous-versions/azure/security/blueprints/fedramp-datawarehouse-overview
+              - name: FedRAMP
+                items:                
+                  - name: FedRAMP overview
+                    href: /azure/compliance/offerings/offering-fedramp
+                    maintainContext: true
+                  - name: Azure FedRAMP compliance
+                    href: /azure/compliance/offerings/offering-fedramp
+                    maintainContext: true
+                  - name: Blueprint - Analytics for FedRAMP
+                    href: /previous-versions/azure/security/blueprints/fedramp-analytics-overview
+                    maintainContext: true
+                  - name: Blueprint - Data warehouse for FedRAMP
+                    href: /previous-versions/azure/security/blueprints/fedramp-datawarehouse-overview
+                    maintainContext: true
+                  - name: Blueprint - IaaS web app for FedRAMP
+                    href: /previous-versions/azure/security/blueprints/fedramp-iaaswa-overview
+                    maintainContext: true
+                  - name: Blueprint - PaaS web app for FedRAMP
+                    href: /previous-versions/azure/security/blueprints/fedramp-paaswa-overview
+                    maintainContext: true
+                  - name: FedRAMP high compliance
+                    href: /azure/governance/policy/samples/fedramp-high
+                    maintainContext: true
+                  - name: FedRAMP moderate compliance
+                    href: /azure/governance/policy/samples/fedramp-moderate
+                    maintainContext: true
+              - name: IRS 1075 overview
+                href: /azure/compliance/offerings/offering-irs-1075
                 maintainContext: true
-              - name: Blueprint - IaaS web app for FedRAMP
-                href: /previous-versions/azure/security/blueprints/fedramp-iaaswa-overview
+              - name: ITAR overview
+                href: /azure/compliance/offerings/offering-itar
                 maintainContext: true
-              - name: Blueprint - PaaS web app for FedRAMP
-                href: /previous-versions/azure/security/blueprints/fedramp-paaswa-overview
+              - name: NDAA overview
+                href: /azure/compliance/offerings/offering-ndaa-section-889
                 maintainContext: true
-              - name: FedRAMP high compliance
-                href: /azure/governance/policy/samples/fedramp-high
-                maintainContext: true
-              - name: FedRAMP moderate compliance
-                href: /azure/governance/policy/samples/fedramp-moderate
+              - name: NIST
+                items:
+                  - name: NIST 800-63 overview
+                    href: /azure/compliance/offerings/offering-nist-800-63
+                    maintainContext: true
+                  - name: NIST CSF overview
+                    href: /azure/compliance/offerings/offering-nist-csf
+                    maintainContext: true
+              - name: TIC solutions
+                href: /azure/azure-government/compliance/compliance-tic
                 maintainContext: true
       - name: Manufacturing
         items:
@@ -1211,6 +1275,8 @@ items:
                 maintainContext: true
           - name: Architectures
             items:
+              - name: All manufacturing architectures
+                href: /azure/architecture/browse/?terms=manufacturing
               - name: Anomaly detector process
                 href: solution-ideas/articles/anomaly-detector-process.yml
               - name: Build a speech-to-text transcription pipeline
@@ -1227,7 +1293,7 @@ items:
                 href: solution-ideas/articles/quality-assurance.yml
               - name: Supply chain track and trace
                 href: solution-ideas/articles/supply-chain-track-and-trace.yml
-      - name: Media and entertainment
+      - name: Media and Entertainment
         items:
           - name: Overview
             href: industries/media.md
@@ -1244,6 +1310,8 @@ items:
                 maintainContext: true
           - name: Architectures
             items:
+              - name: All media and entertainment architectures
+                href: /azure/architecture/browse/?terms=entertainment
               - name: 3D video rendering
                 href: example-scenario/infrastructure/video-rendering.yml
               - name: Content-based recommendation
@@ -1258,7 +1326,15 @@ items:
                 href: solution-ideas/articles/digital-media-live-stream.yml
               - name: Movie recommendations on Azure
                 href: example-scenario/ai/movie-recommendations-with-machine-learning.yml
-      - name: Energy and environment
+          - name: Compliance solutions
+            items:
+              - name: CDSA overview
+                href: /azure/compliance/offerings/offering-cdsa
+                maintainContext: true
+              - name: MPA overview
+                href: /azure/compliance/offerings/offering-mpa
+                maintainContext: true
+      - name: Energy and Environment
         items:
           - name: Overview
             href: industries/energy-environment.md
@@ -1272,6 +1348,8 @@ items:
                 maintainContext: true
           - name: Architectures
             items:
+              - name: All energy and environment architectures
+                href: /azure/architecture/browse/?terms=energy
               - name: Environmental monitoring
                 href: solution-ideas/articles/environment-monitoring-and-supply-chain-optimization.yml
               - name: Geospatial data processing and analytics
@@ -1286,8 +1364,15 @@ items:
                 href: example-scenario/infrastructure/hpc-cfd.yml
               - name: Run reservoir simulations
                 href: example-scenario/infrastructure/reservoir-simulation.yml
-      - name: Game development
+          - name: Compliance solutions
+            items:
+              - name: NERC (US) overview
+                href: /azure/compliance/offerings/offering-nerc
+                maintainContext: true
+      - name: Game Development
         items:
+          - name: All game development architectures
+            href: /azure/architecture/browse/?terms=game
           - name: Rendering
             items:
               - name: 3D video rendering
@@ -1395,8 +1480,10 @@ items:
               - name: Unreal Pixel Streaming at scale
                 href: /gaming/azure/reference-architectures/unreal-pixel-streaming-at-scale
                 maintainContext: true
-      - name: Travel and hospitality
+      - name: Travel and Hospitality
         items:
+          - name: All travel and hospitality architectures
+            href: /azure/architecture/browse/?terms=travel
           - name: Build a chatbot for hotel booking
             href: example-scenario/ai/commerce-chatbot.yml
           - name: Build a delta lake in leisure and travel booking
@@ -1409,13 +1496,17 @@ items:
             href: example-scenario/apps/apim-api-scenario.yml
           - name: Predictive aircraft engine monitoring
             href: solution-ideas/articles/aircraft-engine-monitoring-for-predictive-maintenance-in-aerospace.yml
-      - name: Automotive, mobility, and transportation
+      - name: Automotive, Mobility, and Transportation
         items:
-          - name: Dynamics 365 automotive accelerator for Azure
-            href: /dynamics365/industry/accelerators/automotive
-            maintainContext: true
+          - name: Guides
+            items:
+              - name: Dynamics 365 automotive accelerator for Azure
+                href: /dynamics365/industry/accelerators/automotive
+                maintainContext: true
           - name: Architectures
             items:
+              - name: All automotive and transportation architectures
+                href: /azure/architecture/browse/?terms=automotive
               - name: Automated guided vehicles fleet control
                 href: example-scenario/iot/automated-guided-vehicles-fleet-control.yml
               - name: Building blocks for autonomous driving
@@ -1426,8 +1517,14 @@ items:
                 href: example-scenario/data/realtime-analytics-vehicle-iot.yml
               - name: Run CFD simulations
                 href: example-scenario/infrastructure/hpc-cfd.yml
-      - name: Facilities and real-estate
+          - name: Compliance solutions
+            items:
+              - name: TISAX overview
+                href: /azure/compliance/offerings/offering-tisax
+      - name: Facilities and Real-Estate
         items: 
+          - name: All facilities and real-estate architectures
+            href: /azure/architecture/browse/?terms=facilities
           - name: Cognizant Safe Buildings with IoT
             href: solution-ideas/articles/safe-buildings.yml
           - name: COVID-19 IoT safe environments
@@ -1469,8 +1566,17 @@ items:
                   - name: Design identity governance 
                     href: /microsoft-365/education/deploy/design-identity-governance
                     maintainContext: true
-          - name: Secure research for regulated data
-            href: example-scenario/ai/secure-compute-for-research.yml
+          - name: Architectures
+            items:
+              - name: All education architectures
+                href: /azure/architecture/browse/?terms=education
+              - name: Secure research for regulated data
+                href: example-scenario/ai/secure-compute-for-research.yml
+          - name: Compliance solutions
+            items:
+              - name: FERPA overview
+                href: /compliance/regulatory/offering-ferpa
+                maintainContext: true
       - name: Agriculture
         items:
           - name: Azure FarmBeats guidance
@@ -1492,6 +1598,8 @@ items:
                 maintainContext: true
           - name: Architectures
             items:
+              - name: All agriculture architectures
+                href: /azure/architecture/browse/?terms=agriculture
               - name: Environment monitoring with IoT
                 href: solution-ideas/articles/environment-monitoring-and-supply-chain-optimization.yml
               - name: Low-latency network for farming
@@ -1499,11 +1607,16 @@ items:
       - name: Nonprofit
         items:
           - name: Microsoft Cloud for Nonprofit
-            href: /industry/nonprofit/overview
-            maintainContext: true
-          - name: Set up Microsoft Cloud for Nonprofit
-            href: /industry/nonprofit/configure-cloud-for-nonprofit
-            maintainContext: true
+            items:
+              - name: Overview
+                href: /industry/nonprofit/overview
+                maintainContext: true
+              - name: Set up Microsoft Cloud for Nonprofit
+                href: /industry/nonprofit/configure-cloud-for-nonprofit
+                maintainContext: true
+              - name: Donors and supporters
+                href: /industry/nonprofit/donors-supporters
+                maintainContext: true
           - name: Fundraising and Engagement
             items:
               - name: Fundraising and Engagement for Dynamics 365
@@ -1521,7 +1634,7 @@ items:
       - name: Space
         items:
           - name: Azure Orbital for space communication
-            href: /azure/networking/azure-orbital-overview
+            href: /azure/orbital/overview
             maintainContext: true
           - name: Predictive maintenance for aerospace
             href: data-science-process/predictive-maintenance-technical-guide.md
@@ -1953,14 +2066,14 @@ items:
                     href: guide/data/helm-deployments-apache-nifi.yml
           - name: Architectures
             items:
+              - name: Analytics end to end
+                href: example-scenario/dataplate2e/data-platform-end-to-end.yml
               - name: Anomaly detector process
                 href: solution-ideas/articles/anomaly-detector-process.yml
               - name: Apache NiFi on Azure
                 href: example-scenario/data/azure-nifi.yml
               - name: Automated enterprise BI
                 href: reference-architectures/data/enterprise-bi-adf.yml
-              - name: Azure analytics end to end
-                href: example-scenario/dataplate2e/data-platform-end-to-end.yml
               - name: Blueprint architectures
                 items:
                   - name: Blueprint - Analytics for FedRAMP
@@ -2366,6 +2479,9 @@ items:
                   - name: Data management in retail
                     href: /previous-versions/azure/industry-marketing/retail/retail-data-management-overview
                     maintainContext: true
+                  - name: Financial institutions with data mesh
+                    href: /azure/cloud-adoption-framework/scenarios/data-management/architectures/reference-architecture-data-mesh
+                    maintainContext: true
                   - name: Visual search for retail
                     href: /previous-versions/azure/industry-marketing/retail/visual-search-use-case-overview
                     maintainContext: true
@@ -2532,6 +2648,17 @@ items:
                 href: example-scenario/data/azure-sql-htap.yml
               - name: Data governance with Profisee
                 href: reference-architectures/data/profisee-master-data-management-purview.yml
+              - name: Data landing zones
+                items:
+                  - name: Single data landing zone
+                    href: /azure/cloud-adoption-framework/scenarios/data-management/architectures/reference-architecture-adatum
+                    maintainContext: true
+                  - name: Multiple data landing zones
+                    href: /azure/cloud-adoption-framework/scenarios/data-management/architectures/reference-architecture-relecloud
+                    maintainContext: true
+                  - name: Highly sensitive data landing zones
+                    href: /azure/cloud-adoption-framework/scenarios/data-management/architectures/reference-architecture-lamna
+                    maintainContext: true
               - name: DataOps for modern data warehouse
                 href: example-scenario/data-warehouse/dataops-mdw.yml
               - name: Globally distributed apps using Cosmos DB
@@ -3171,6 +3298,8 @@ items:
                 href: reference-architectures/identity/adds-extend-domain.yml
               - name: Extend on-premises AD FS to Azure
                 href: reference-architectures/identity/adfs.yml
+              - name: Governance of Teams guest users
+                href: example-scenario/governance/governance-teams-guest-users.yml
               - name: Hybrid identity
                 href: solution-ideas/articles/hybrid-identity.yml
               - name: On-premises AD domains with Azure AD
@@ -4027,6 +4156,8 @@ items:
                 maintainContext: true
               - name: Oracle database migration
                 items:
+                  - name: Oracle database migration to Azure
+                    href: solution-ideas/articles/reference-architecture-for-oracle-database-migration-to-azure.yml
                   - name: Migration decision process
                     href: example-scenario/oracle-migrate/oracle-migration-overview.yml
                   - name: Cross-cloud connectivity

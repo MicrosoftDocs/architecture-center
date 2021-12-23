@@ -107,7 +107,7 @@ They use a management group to simplify the management of their subscriptions. B
 All of their subscriptions are associated with a single Azure Active Directory tenant. Using a single Azure AD tenant means that the Contoso team's identities, including users and service principals, can be used throughout their entire Azure estate.
 
 #### Separate subscriptions in separate Azure AD tenants
-=
+
 It's also possible to manually create individual Azure Active Directory (Azure AD) tenants for each of your tenants, or to deploy your resources into subscriptions within your customers' Azure AD tenants. However, working with multiple Azure AD tenants makes it more difficult to authenticate, to manage role assignments, to apply global policies, and to perform many other management operations.
 
 > [!WARNING]
