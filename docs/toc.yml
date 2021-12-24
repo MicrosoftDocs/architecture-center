@@ -2921,7 +2921,7 @@ items:
         items:
           - name: Guides
             items:
-              - name: DevOps Checklist
+              - name: DevOps checklist
                 href: checklist/dev-ops.md
               - name: Advanced ARM templates
                 items:
@@ -2946,6 +2946,57 @@ items:
                     maintainContext: true
                   - name: Security baseline for Azure DevTest Labs
                     href: /security/benchmark/azure/baselines/devtest-labs-security-baseline
+                    maintainContext: true
+              - name: Azure Monitor guidance
+                items:
+                  - name: Best practices
+                    items:
+                      - name: Plan your monitoring strategy
+                        href: /azure/azure-monitor/best-practices-plan
+                        maintainContext: true
+                      - name: Configure data collection
+                        href: /azure/azure-monitor/best-practices-data-collection
+                        maintainContext: true
+                      - name: Analyze and visualize data
+                        href: /azure/azure-monitor/best-practices-analysis
+                        maintainContext: true
+                      - name: Alerts and automated actions
+                        href: /azure/azure-monitor/best-practices-alerts
+                        maintainContext: true
+                  - name: Continuous monitoring
+                    href: /azure/azure-monitor/continuous-monitoring
+                    maintainContext: true
+                  - name: Data sources
+                    href: /azure/azure-monitor/agents/data-sources
+                    maintainContext: true
+                  - name: Data platform
+                    href: /azure/azure-monitor/data-platform
+                    maintainContext: true
+                  - name: Security
+                    items:
+                      - name: Log data security
+                        href: /azure/azure-monitor/logs/data-security
+                        maintainContext: true
+                      - name: Customer-managed keys
+                        href: /azure/azure-monitor/logs/customer-managed-keys
+                        maintainContext: true
+                      - name: Private Link connection
+                        href: /azure/azure-monitor/logs/private-link-security
+                        maintainContext: true
+                      - name: Private Link design
+                        href: /azure/azure-monitor/logs/private-link-design
+                        maintainContext: true
+                      - name: Personal log data handling
+                        href: /azure/azure-monitor/logs/personal-data-mgmt
+                        maintainContext: true
+                      - name: Data collection, retention, and storage
+                        href: /azure/azure-monitor/app/data-retention-privacy
+                        maintainContext: true
+                      - name: Security baseline
+                        href: /security/benchmark/azure/baselines/monitor-security-baseline
+                        maintainContext: true
+                  - name: Design a logging deployment
+                    href: /azure/azure-monitor/logs/design-logs-deployment
                     maintainContext: true
               - name: CI/CD for Synapse Analytics
                 href: /azure/synapse-analytics/cicd/continuous-integration-delivery
@@ -4317,6 +4368,8 @@ items:
               - name: Azure Storage migration guidance
                 href: /azure/storage/common/storage-migration-overview
                 maintainContext: true
+              - name: FSLogix for the enterprise
+                href: example-scenario/wvd/windows-virtual-desktop-fslogix.yml              
               - name: Blob storage guidance
                 items: 
                   - name: Authorize access to blobs with AAD
@@ -4413,22 +4466,26 @@ items:
                 href: hybrid/azure-file-share.yml
               - name: Azure files secured by AD DS
                 href: example-scenario/hybrid/azure-files-on-premises-authentication.yml
-              - name: Enterprise file shares with disaster recovery
-                href: example-scenario/file-storage/enterprise-file-shares-disaster-recovery.yml
+              - name: Azure NetApp Files solutions
+                items:                    
+                  - name: AKS data protection on Azure NetApp Files
+                    href: example-scenario/file-storage/data-protection-kubernetes-astra-azure-netapp-files.yml
+                  - name: Enterprise file shares with disaster recovery
+                    href: example-scenario/file-storage/enterprise-file-shares-disaster-recovery.yml
+                  - name: Moodle deployment with Azure NetApp Files
+                    href: example-scenario/file-storage/moodle-azure-netapp-files.yml
+                  - name: Oracle Database with Azure NetApp Files
+                    href: example-scenario/file-storage/oracle-azure-netapp-files.yml
+                  - name: SQL Server on VMs with Azure NetApp Files
+                    href: example-scenario/file-storage/sql-server-azure-netapp-files.yml
               - name: Hybrid file services
                 href: hybrid/hybrid-file-services.yml
               - name: Minimal storage – change feed to replicate data
                 href: solution-ideas/articles/minimal-storage-change-feed-replicate-data.yml
-              - name: Moodle deployment with Azure NetApp Files
-                href: example-scenario/file-storage/moodle-azure-netapp-files.yml
               - name: Multi-region web app with replication
-                href: solution-ideas/articles/multi-region-web-app-multi-writes-azure-table.yml
+                href: solution-ideas/articles/multi-region-web-app-multi-writes-azure-table.yml              
               - name: Optimized storage with logical data classification
                 href: solution-ideas/articles/optimized-storage-logical-data-classification.yml
-              - name: Oracle Database with Azure NetApp Files
-                href: example-scenario/file-storage/oracle-azure-netapp-files.yml
-              - name: SQL Server on VMs with Azure NetApp Files
-                href: example-scenario/file-storage/sql-server-azure-netapp-files.yml
           - name: Solution ideas
             items:
               - name: HIPAA/HITRUST Health Data and AI
