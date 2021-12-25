@@ -1,8 +1,6 @@
 This reference architecture illustrates how to design infrastructure for highly available virtualized and containerized workloads in Remote Office/Branch Office (ROBO) scenarios.
 
-![Diagram illustrating an Azure Stack HCI ROBO scenario, with a two-node Azure Stack HCI cluster using a switchless interconnect and a USB-based quorum. The cluster leverages a number of Azure services, including Azure Arc that provides the ability to implement Azure Policy, Azure Automation that includes Azure update management functionality, Azure Monitor, as well as Azure File Sync, Azure Network Adapter, Microsoft Defender for Cloud, Azure Backup, Azure Site Recovery, and Storage Replica.][architectural-diagram]
-
-*Download a [Visio file][architectural-diagram-visio-source] of this architecture.*
+## Potential use cases
 
 Typical uses for this architecture include the following ROBO scenarios:
 
@@ -12,7 +10,14 @@ Typical uses for this architecture include the following ROBO scenarios:
 
 ## Architecture
 
-The architecture incorporates the following components and capabilities:
+![Diagram illustrating an Azure Stack HCI ROBO scenario, with a two-node Azure Stack HCI cluster using a switchless interconnect and a USB-based quorum. The cluster leverages a number of Azure services, including Azure Arc that provides the ability to implement Azure Policy, Azure Automation that includes Azure update management functionality, Azure Monitor, as well as Azure File Sync, Azure Network Adapter, Microsoft Defender for Cloud, Azure Backup, Azure Site Recovery, and Storage Replica.][architectural-diagram]
+
+*Download a [Visio file][architectural-diagram-visio-source] of this architecture.*
+
+### Workflow
+
+The architecture incorporates the following capabilities:
+
 - **[Azure Stack HCI (20H2)][azs-hci]**. Azure Stack HCI is a hyper-converged infrastructure (HCI) cluster solution that hosts virtualized Windows and Linux workloads and their storage in a hybrid on-premises environment. The stretched cluster can consist of between four and 16 physical nodes.
 - **[File share witness][file-share-witness]**. A file share witness is a Server Message Block (SMB) share that Failover Cluster uses as a vote in the cluster quorum. Starting with Windows Server 2019, it's possible to use [a USB drive connected to a router][usb-file-share-witness] for this purpose.
 - **[Azure Arc][azure-arc]**. A cloud-based service that extend the Azure Resource Manager&ndash;based management model to non-Azure resources including virtual machines (VMs), Kubernetes clusters, and containerized databases.
@@ -71,7 +76,7 @@ Azure Stack HCI&ndash;certified hardware ensures built-in Secure Boot, Unified E
 
 In addition, you can onboard Azure Stack HCI VMs in [Microsoft Defender for Cloud][az-security-center] to activate cloud-based behavioral analytics, threat detection and remediation, alerting, and reporting. Similarly, by onboarding Azure Stack HCI VMs in Azure Arc, you gain the ability to use [Azure Policy][arc-azure-policy] to evaluate their compliance with industry regulations and corporate standards.
 
-## Architectural excellence
+## Considerations
 
 The [Microsoft Azure Well-Architected Framework][azure-well-architected-framerwork] is a set of guiding tenets that are followed in this reference architecture. The following considerations are framed in the context of these tenets.
 
