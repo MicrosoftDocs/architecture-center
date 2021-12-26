@@ -84,8 +84,8 @@ For an overview of Azure for AWS users, see [Introduction to Azure for AWS profe
 
 | AWS service | Azure service | Description |
 | ----------- | ------------- | ----------- |
-| [Redshift](https://aws.amazon.com/redshift) | [Synapse Analytics](https://azure.microsoft.com/services/synapse-analytics/) | Cloud-based Enterprise Data Warehouse (EDW) that uses Massively Parallel Processing (MPP) to quickly run complex queries across petabytes of data. |
-| [Lake Formation](https://aws.amazon.com/lake-formation) | [Data Share](https://azure.microsoft.com/services/data-share/) | A simple and safe service for sharing big data|
+| [Redshift](https://aws.amazon.com/redshift) | [Synapse Analytics](https://azure.microsoft.com/services/synapse-analytics/) | Cloud-based enterprise data warehouse (EDW) that uses massively parallel processing (MPP) to quickly run complex queries across petabytes of data. |
+| [Lake Formation](https://aws.amazon.com/lake-formation) | [Data Share](https://azure.microsoft.com/services/data-share/) | A simple and safe service for sharing big data.|
 
 ### Data warehouse architectures
 
