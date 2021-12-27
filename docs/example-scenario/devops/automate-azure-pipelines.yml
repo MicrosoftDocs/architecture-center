@@ -1,6 +1,6 @@
 ### YamlMime:Architecture
 metadata:
-  title: Automate multistage Azure Pipelines
+  title: Automate multistage DevOps pipelines with Azure Pipelines
   titleSuffix: Azure Example Scenarios
   description: Eliminate tedious tasks by automating your pipeline with Azure DevOps REST APIs, Azure Logic Apps, and Azure Pipelines.
   author: EdPrice-MSFT
