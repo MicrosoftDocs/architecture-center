@@ -11,7 +11,7 @@ metadata:
   ms.subservice: example-scenario
   ms.custom: fcp
 azureCategories:
-  - automation
+  - developer-tools
 products:
   - azure-logic-apps
   - azure-automation
