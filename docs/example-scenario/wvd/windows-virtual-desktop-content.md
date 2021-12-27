@@ -14,6 +14,8 @@ Most demand for enterprise virtual desktop solutions comes from:
 ![Diagram of an Azure Virtual Desktop service architecture](images/windows-virtual-desktop.png)
 Download a [Visio file](https://arch-center.azureedge.net/wvdatscale.vsdx) of this architecture.
 
+### Dataflow
+
 This diagram shows a typical architectural setup for Azure Virtual Desktop.
 
 - The application endpoints are in the customer's on-premises network. ExpressRoute extends the on-premises network into the Azure cloud, and Azure AD Connect integrates the customer's Active Directory Domain Services (AD DS) with Azure Active Directory (Azure AD).
@@ -95,13 +97,13 @@ The relationships between host pools, workspaces and other key logical component
 |-----------------------------------------------------|-------------------------------------------------|--------------------------------------------------|
 | Published desktop                                   | A Windows desktop environment running on AVD session host(s) and delivered to users over the network | Member of one and only one application group (1) |
 | Published application                               | A Windows application running on AVD session host(s) and delivered to users over the network         | Member of one and only one application group     |
-| Application group                                   | A logical grouping of published applications or a published desktop                                  |  * Contains a published desktop (1) or one or more published applications<br> * Assigned to one and only one host pool (2)<br> * Member of one and only one workspace (2)<br> * One or more Azure AD user accounts and/or groups are assigned to it (3)    |
-| Azure AD user account/group                         | Identifies the users who are permitted to launch published desktops and/or applications              | * Member of one and only one Azure Active Directory; * Assigned to one or more application groups (3) |
-| AAD (7)                                             | Identity provider                                                                                    | * Contains one or more user accounts/groups that must be used to assign users to application groups and may also be used to log onto the session hosts; * Can hold the memberships of the session hosts; * Can be synchronized with AD DS or AAD DS |
-| AD DS (Active Directory Domain Services) (7)        | Identity and directory services provider                                                             | * Contains one or more user accounts/groups that may be used to log onto the session hosts; * Can hold the memberships of the session hosts; * Can be synchronized with AAD |
-| AAD DS (Azure Active Directory Domain Services) (7) | PaaS-based identity and directory services provider                                                  | * Contains one or more user accounts/groups that may be used to log onto the session hosts; * Can hold the memberships of the session hosts; * Synchronized with AAD |
+| Application group                                   | A logical grouping of published applications or a published desktop                                  |  - Contains a published desktop (1) or one or more published applications<br> - Assigned to one and only one host pool (2)<br> - Member of one and only one workspace (2)<br> - One or more Azure AD user accounts and/or groups are assigned to it (3)    |
+| Azure AD user account/group                         | Identifies the users who are permitted to launch published desktops and/or applications              | - Member of one and only one Azure Active Directory <br> - Assigned to one or more application groups (3) |
+| AAD (7)                                             | Identity provider                                                                                    | - Contains one or more user accounts/groups that must be used to assign users to application groups and may also be used to log onto the session hosts<br> - Can hold the memberships of the session hosts <br> - Can be synchronized with AD DS or AAD DS |
+| AD DS (Active Directory Domain Services) (7)        | Identity and directory services provider                                                             | - Contains one or more user accounts/groups that may be used to log onto the session hosts <br> - Can hold the memberships of the session hosts<br> - Can be synchronized with AAD |
+| AAD DS (Azure Active Directory Domain Services) (7) | PaaS-based identity and directory services provider                                                  | - Contains one or more user accounts/groups that may be used to log onto the session hosts<br> - Can hold the memberships of the session hosts<br> - Synchronized with AAD |
 | Workspace                                           | A logical grouping of application groups                                                             | Contains one or more application groups (4) |
-| Host pool                                           | A group of identical session hosts that serve a common purpose                                       | * Contains one or more session hosts (5); * One or more application groups are assigned to it (6) |  
+| Host pool                                           | A group of identical session hosts that serve a common purpose                                       | - Contains one or more session hosts (5)<br> - One or more application groups are assigned to it (6) |  
 | Session host | A virtual machine that hosts published desktops and/or applications | Member of one and only one host pool |
 
 ## Considerations
@@ -117,7 +119,7 @@ Also, note that:
 
 The Azure Virtual Desktop service is scalable to more than 10,000 session hosts per workspace. You can address some Azure platform and Azure Virtual Desktop control plane limitations in the design phase to avoid changes in the scaling phase.
 
-- We recommend to deploy not more than 5,000 VMs per Azure subscription per region, this recommendation applies to both personal and pooled host pools based on Windows 10 Enterprise single and multi-session. Most customers use Windows 10 Enterprise multi-session, which allows multiple users to log on to each VM. You can increase the resources of individual session host VMs to accommodate more user sessions.
+- We recommend deploying not more than 5,000 VMs per Azure subscription per region, this recommendation applies to both personal and pooled host pools based on Windows 10 Enterprise single and multi-session. Most customers use Windows 10 Enterprise multi-session, which allows multiple users to log on to each VM. You can increase the resources of individual session host VMs to accommodate more user sessions.
 - For automated session host scaling tools, the limits are around 2,500 VMs per Azure subscription per region, because VM status interaction consumes more resources.
 - To manage enterprise environments with more than 5,000 VMs per Azure subscription in the same region, you can create multiple Azure subscriptions in a hub-spoke architecture and connect them via virtual network peering, as in the preceding example architecture. You could also deploy VMs in a different region in the same subscription to increase the number of VMs.
 - Azure Resource Manager (ARM) subscription API throttling limits don't allow more than 600 Azure VM reboots per hour via the Azure portal. You can reboot all your machines at once via the operating system, which doesn't consume any Azure Resource Manager subscription API calls. For more information about counting and troubleshooting throttling limits based on your Azure subscription, see [Troubleshoot API throttling errors](/azure/virtual-machines/troubleshooting/troubleshooting-throttling-errors).
@@ -144,7 +146,7 @@ Architect your Azure Virtual Desktop solution to realize cost savings. Here are 
 
 ## Next steps
 
-- FSLogix for the enterprise - best practices [documentation](./windows-virtual-desktop-fslogix.yml)
+- [FSLogix for the enterprise - best practices documentation](./windows-virtual-desktop-fslogix.yml)
 - Use the new [ARM templates](https://github.com/Azure/RDS-Templates/tree/master/ARM-wvd-templates) to automate the deployment of your Azure Virtual Desktop environment. These ARM templates support only Azure Resource Manager's Azure Virtual Desktop objects. These ARM templates don't support Azure Virtual Desktop (classic).
 - For multiple AD forests architecture, read [Multiple AD Forests Architecture in Azure Virtual Desktop](./multi-forest.yml).
 - [Azure Virtual Desktop partner integrations](/azure/virtual-desktop/partners) lists approved Azure Virtual Desktop partner providers and independent software vendors.
@@ -152,6 +154,6 @@ Architect your Azure Virtual Desktop solution to realize cost savings. Here are 
 
 ## Additional resources
 
-- [Deploy Azure AD-joined virtual machines in Azure Virtual Desktop](/virtual-desktop/deploy-azure-ad-joined-vm)
+- [Deploy Azure AD-joined virtual machines in Azure Virtual Desktop](azure/virtual-desktop/deploy-azure-ad-joined-vm)
 - [Active Directory Domain Services](/windows-server/identity/ad-ds/active-directory-domain-services)
-- [What is Azure AD Connect?](/active-directory/hybrid/whatis-azure-ad-connect)
+- [What is Azure AD Connect?](azure/active-directory/hybrid/whatis-azure-ad-connect)
