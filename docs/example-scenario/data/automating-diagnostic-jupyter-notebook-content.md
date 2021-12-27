@@ -11,8 +11,10 @@ You can use Azure Logic Apps and Azure Automation to automate the troubleshootin
 
 ## Architecture
 
-![Diagram that shows how to automate diagnostic notebooks by using an Azure serverless architecture.](media/automating-diagnostic-jupyter-notebook.png)
+![Diagram that shows how to automate diagnostic notebooks by using an Azure serverless architecture.](media/automate-diagnostic-jupyter-notebook.png)
 
+*Download a [PowerPoint file](https://arch-center.azureedge.net/automate-diagnostic-jupyter-notebook.pptx) of this architecture.*
+### Workflow
 This scenario covers a diagnostic/troubleshooting development and operations flow at a high level. 
 - Team members use Azure Data Studio to write, view, and run the diagnostic notebooks in Jupyter Notebook format. The diagnostic notebooks include code for troubleshooting issues and descriptions that explain the troubleshooting steps. The notebook author can write the code in languages like Python, PowerShell, or .NET interactive (C# and other .NET languages). .NET interactive Jupyter Notebooks in Visual Studio Code support polyglot, which allows you to use  more than one language in a single notebook.  
 - GitHub or Azure DevOps is used as source control for the reusable notebooks. You can use GitHub Actions or Azure DevOps Actions to complete additional checks to meet organizational policies, like credential scans.  
@@ -25,7 +27,7 @@ This scenario covers a diagnostic/troubleshooting development and operations flo
   - Use the [Invoke-ExecuteNotebook](https://github.com/dfinke/PowerShellNotebook#executing-a-notebook) cmdlet in the [PowerShellNotebook](https://github.com/dfinke/PowerShellNotebook) module to run notebooks by using the .NET Interactive PowerShell kernel or the PowerShell kernel.
   - Use the [Invoke-SqlNotebook](/powershell/module/sqlserver/invoke-sqlnotebook?view=sqlserver-ps) cmdlet in the [SqlServer](/powershell/module/sqlserver/?view=sqlserver-ps) module to run notebooks by using the SQL kernel.
 - The runbook stores the output notebooks in Azure Blob Storage, retrieves the URI to be posted back to the task description in Planner, and sends an email with the notebook URI to the assigned person. 
-- The assigned person uses the link posted in the task in Planner or included in the email to review the executed notebook in Azure Data Studio . 
+- The assigned person uses the link posted in the task in Planner or included in the email to review the executed notebook in Azure Data Studio. 
 
 
 ### Components
@@ -41,7 +43,7 @@ This scenario covers a diagnostic/troubleshooting development and operations flo
 ### Alternatives
 
 You can use [Azure Functions](https://azure.microsoft.com/services/functions) instead of Automation to run the notebooks. 
-  - To run a PowerShell-based Jupyter Notebook, you can use PowerShell in an Azure function to call the [Invoke-ExecuteNotebook](https://github.com/dfinke/PowerShellNotebook#executing-a-notebook) cmndlet. This is similar to the technique described above for Automation jobs. For more information, see [Azure Functions PowerShell developer guide](/azure/azure-functions/functions-reference-powershell).
+  - To run a PowerShell-based Jupyter Notebook, you can use PowerShell in an Azure function to call the [Invoke-ExecuteNotebook](https://github.com/dfinke/PowerShellNotebook#executing-a-notebook) cmdlet. This is similar to the technique described above for Automation jobs. For more information, see [Azure Functions PowerShell developer guide](/azure/azure-functions/functions-reference-powershell).
   -  To run a SQL-based Jupyter Notebook, you can use PowerShell in an Azure function to call the [Invoke-SqlNotebook](/powershell/module/sqlserver/invoke-sqlnotebook?view=sqlserver-ps) cmdlet. For more information, see [Azure Functions PowerShell developer guide](/azure/azure-functions/functions-reference-powershell).
   - To run a Python-based Jupyter Notebook, you can use Python in an Azure function to call papermill. For more information, see [Azure Functions Python developer guide](/azure/azure-functions/functions-reference-python).
 
