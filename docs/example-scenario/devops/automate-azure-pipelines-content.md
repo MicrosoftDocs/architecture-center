@@ -52,10 +52,10 @@ This architecture reduces labor by automatically provisioning pipelines in Azure
 
 - [Application Insights](/azure/azure-monitor/app/app-insights-overview) is a part of the Azure Monitor solution. Application Insights gathers telemetry data from a .NET Angular app.
 - [Azure App Service](https://azure.microsoft.com/services/app-service) deploys .NET Angular workloads.
-- [Azure DevOps REST APIs](/rest/api/azure/devops) automatically provisions Azure pipelines for the repository with Logic Apps.
+- [Azure DevOps REST APIs](/rest/api/azure/devops) automatically provisions Azure Pipelines for the repository with Logic Apps.
 - [Azure Logic Apps](https://azure.microsoft.com/services/logic-apps) is a cloud-based platform for creating and running automated workflows that integrate your apps, data, services, and systems.
 - [Azure Monitor](https://azure.microsoft.com/services/monitor) shows the availability, performance, and usage of your web applications.
-- [Azure Pipelines](https://azure.microsoft.com/en-us/services/devops/pipelines/) builds multistage pipelines.
+- [Azure Pipelines](https://azure.microsoft.com/services/devops/pipelines) builds multistage pipelines.
 
 ### Alternatives
 
@@ -63,11 +63,11 @@ An alternative to the proposed architecture is Azure DevOps Starter service. Azu
 
 ## Considerations
 
-This section covers the considerations when automating multistage Azure pipelines.
+This section covers the considerations when automating multistage pipelines with Azure Pipelines.
 
 ### Availability
 
-This architecture uses Logic Apps and Azure DevOps REST API, which makes these Azure services compliant with Service Level Agreement (SLA) guarantees.
+This architecture uses Logic Apps and Azure DevOps REST API, which makes these Azure services compliant with most solution requirements.
 
 ### Security
 
