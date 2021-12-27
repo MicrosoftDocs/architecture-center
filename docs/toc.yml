@@ -2824,7 +2824,7 @@ items:
               - name: Platform automation for VMware Solution
                 href: /azure/cloud-adoption-framework/scenarios/azure-vmware/eslz-platform-automation-and-devops
                 maintainContext: true
-              - name: Automate multistage Azure pipelines
+              - name: Automate multistage Azure Pipelines
                 href: example-scenario/devops/automate-azure-pipelines.yml       
           - name: Architectures
             items:

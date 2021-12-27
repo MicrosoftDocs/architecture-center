@@ -1,8 +1,8 @@
-Engineering teams experience challenges when they set up DevOps pipelines for continuous deployment. The setup process involves build definitions, release definitions, branch policies, control gates, ARM templates, and more. Furthermore, the setup for apps can take days with constant repetition. You can automate this part of the development.
+Engineering teams experience challenges when they set up Azure Pipelines for continuous deployment. The setup process involves build definitions, release definitions, branch policies, control gates, Azure Resource Manager (ARM) templates, and more. Furthermore, the setup for apps can take days with constant repetition. You can automate this part of the development.
 
 This article shows you how to take advantage of Azure DevOps REST APIs to build continuous integration and continuous deployment (CI/CD) pipelines. Depending on the workload, the build steps in pipelines can vary. Every team has a preferred number of environments within their Azure subscriptions, that depend on their internal systems and business scenarios.
 
-For example, an event like the first push into the repository sets off a series of steps and constructs the total development path for the repository. Developers can see their changes in minutes, and they no longer need to repeatedly set up DevOps pipelines to create developer, test, and production environments in Azure.
+For example, an event like the first push into the repository sets off a series of steps and constructs the total development path for the repository. Developers can see their changes in minutes, and they no longer need to repeatedly set up Azure Pipelines to create developer, test, and production environments in Azure.
 
 By using the solution described in this article, your engineering team can focus on projects that create value for your customers.
 
@@ -52,10 +52,10 @@ This architecture reduces labor by automatically provisioning pipelines in Azure
 
 - [Application Insights](/azure/azure-monitor/app/app-insights-overview) is a part of the Azure Monitor solution. Application Insights gathers telemetry data from a .NET Angular app.
 - [Azure App Service](https://azure.microsoft.com/services/app-service) deploys .NET Angular workloads.
-- [Azure DevOps REST APIs](/rest/api/azure/devops) automatically provisions Azure pipelines for the repository with Logic Apps.
+- [Azure DevOps REST APIs](/rest/api/azure/devops) automatically provisions Azure Pipelines for the repository with Logic Apps.
 - [Azure Logic Apps](https://azure.microsoft.com/services/logic-apps) is a cloud-based platform for creating and running automated workflows that integrate your apps, data, services, and systems.
 - [Azure Monitor](https://azure.microsoft.com/services/monitor) shows the availability, performance, and usage of your web applications.
-- [Azure Pipelines](https://azure.microsoft.com/en-us/services/devops/pipelines/) builds multistage pipelines.
+- [Azure Pipelines](https://azure.microsoft.com/services/devops/pipelines) builds multistage pipelines.
 
 ### Alternatives
 
@@ -63,11 +63,11 @@ An alternative to the proposed architecture is Azure DevOps Starter service. Azu
 
 ## Considerations
 
-This section covers the considerations when automating multistage Azure pipelines.
+This section covers the considerations when automating multistage Azure Pipelines.
 
 ### Availability
 
-This architecture uses Logic Apps and Azure DevOps REST API, which makes these Azure services compliant with Service Level Agreement (SLA) guarantees.
+This architecture uses Logic Apps and Azure DevOps REST API, which are a part of Azure services. For more information about Service Level Agreements (SLA) for Azure services, see [Azure SLAs](https://azure.microsoft.com/support/legal/sla).
 
 ### Security
 
