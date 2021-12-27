@@ -154,6 +154,6 @@ Architect your Azure Virtual Desktop solution to realize cost savings. Here are 
 
 ## Additional resources
 
-- [Deploy Azure AD-joined virtual machines in Azure Virtual Desktop](azure/virtual-desktop/deploy-azure-ad-joined-vm)
+- [Deploy Azure AD-joined virtual machines in Azure Virtual Desktop](/azure/virtual-desktop/deploy-azure-ad-joined-vm)
 - [Active Directory Domain Services](/windows-server/identity/ad-ds/active-directory-domain-services)
-- [What is Azure AD Connect?](azure/active-directory/hybrid/whatis-azure-ad-connect)
+- [What is Azure AD Connect?](/azure/active-directory/hybrid/whatis-azure-ad-connect)
