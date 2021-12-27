@@ -79,7 +79,7 @@ There are several options for updating Azure Virtual Desktop instances. Deployin
 
 The relationships between host pools, workspaces and other key logical components vary. The following diagram summarises these relationships.
 
-![Relationships between key logical components](images/azure-virtual-Desktop-component-relationships.png)
+![Relationships between key logical components](images/azure-virtual-desktop-component-relationships.png)
 
 *The bracketed numbers relate to the diagram above.*
 
