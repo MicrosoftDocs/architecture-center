@@ -2826,7 +2826,7 @@ items:
                 maintainContext: true
           - name: Architectures
             items:
-              - name: Automate multistage DevOps pipelines with Azure Pipelines
+              - name: Automate multistage DevOps pipelines
                 href: example-scenario/devops/automate-azure-pipelines.yml
               - name: Azure DevTest Labs for enterprises
                 href: example-scenario/infrastructure/devtest-labs-reference-architecture.yml
