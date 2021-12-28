@@ -2,12 +2,12 @@ This article applies to businesses or teams that want to reduce their manual pro
 
 Beyond troubleshooting and diagnostics, you can apply this methodology to routine scenarios that benefit from automation but that sometimes require manual execution. Examples include backing up and restoring a database or creating a tutorial on how to diagnose application health issues.
 
-You can use Azure Logic Apps and Azure Automation to automate the troubleshooting guides or other tasks that you have in Jupyter Notebooks. You can create, edit, and test Jupyter Notebooks manually by using your favorite client tools, like Visual Studio Code and Azure Data Studio. 
+You can use Azure Logic Apps and Azure Automation to automate the troubleshooting guides, diagnostic steps, or other tasks that you have in Jupyter Notebooks. You can create, edit, and test Jupyter Notebooks manually by using your favorite client tools, like Visual Studio Code and Azure Data Studio. 
 
 ## Potential use cases
 
 - Automate routine tasks like data extraction, transformation, or loading.
-- Trigger mitigation steps for common issues.
+- Trigger mitigation steps for common problems.
 
 ## Architecture
 
