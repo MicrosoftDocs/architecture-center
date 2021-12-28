@@ -2082,6 +2082,8 @@ items:
                   - name: Blueprint - Analytics for PCI DSS
                     href: /previous-versions/azure/security/blueprints/pcidss-analytics-overview
                     maintainContext: true
+              - name: Data analysis for regulated industries
+                href: example-scenario/data/data-analysis-regulated-industries.yml
               - name: Data lake queries via Synapse serverless
                 href: example-scenario/data/synapse-exploratory-data-analytics.yml
               - name: Data warehouse for small business
