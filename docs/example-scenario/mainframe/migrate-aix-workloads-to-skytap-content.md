@@ -91,7 +91,7 @@ To scale up on Azure, choose a [larger VM size](https://azure.microsoft.com/serv
 ### Security
 
 Skytap on Azure meets industry cloud security requirements, including System and Organization Controls for Service Organizations 2 (SOC 2) and SOC 3 attestations and compliance with ISO 27001 and PCI DSS 3.2.
-To learn more about how Skytap secures your workloads, you can get more information in the (https://github.com/skytap/well-architected-framework/blob/master/security/README.md)[Skytap Well-Architected Framework Security Pillar](https://github.com/skytap/well-architected-framework/blob/master/security/README.md).
+To learn more about how Skytap secures your workloads, you can get more information in the [Skytap Well-Architected Framework Security Pillar](https://github.com/skytap/well-architected-framework/blob/master/security/README.md).
 
 ## Deploy this scenario
 
@@ -119,9 +119,6 @@ To learn more about Skytap on Azure, please contact <legacy2azure@microsoft.com>
 ## Related resources
 
 - [Skytap Well-Architected Framework](https://github.com/skytap/well-architected-framework)
-- 
 - [Skytap documentation](https://help.skytap.com/)
-
--   [Mainframe file replication and sync on Azure](../../solution-ideas/articles/mainframe-azure-file-replication.yml)
-
--   [Modernize mainframe & midrange data](../../reference-architectures/migration/modernize-mainframe-data-to-azure.yml)
+- [Mainframe file replication and sync on Azure](../../solution-ideas/articles/mainframe-azure-file-replication.yml)
+- [Modernize mainframe & midrange data](../../reference-architectures/migration/modernize-mainframe-data-to-azure.yml)
