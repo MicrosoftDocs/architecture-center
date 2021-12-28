@@ -80,7 +80,7 @@ After training, the data scientist focuses next on model evaluation.
       * Upload explanations to Azure Machine Learning Run History.
       * Use a visualization dashboard to interact with your model explanations, both in a Jupyter notebook and in the Azure Machine Learning workspace.
       * Deploy a scoring explainer alongside your model to observe explanations during inferencing.
-   * **Assessing Fairness**:  [the Fairlearn open-source Python package with Azure Machine Learning](/azure/machine-learning/how-to-machine-learning-fairness-aml) performs the following tasks:
+   * **Assessing Fairness**: The [Fairlearn open-source Python package with Azure Machine Learning](/azure/machine-learning/how-to-machine-learning-fairness-aml) performs the following tasks:
       * Assess the fairness of your model predictions. To learn more about fairness in machine learning.
       * Upload, list and download fairness assessment insights to/from Azure Machine Learning studio.  
       * See a fairness assessment dashboard in Azure Machine Learning studio to interact with your model(s)' fairness insights. 
