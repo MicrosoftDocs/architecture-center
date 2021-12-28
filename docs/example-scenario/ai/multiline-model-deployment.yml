@@ -1,0 +1,23 @@
+### YamlMime:Architecture
+metadata:
+  title: Deploying machine learning models to multiple lines 
+  titleSuffix: Azure Example Scenarios
+  description: <Write a 100-160 character description that ends with a period and ideally starts with a call to action. This becomes the browse card description.>
+  author: <contributor's GitHub username. If no GitHub account, use EdPrice-MSFT>
+  ms.author: <contributor's Microsoft alias. If no alias, leave out this metadata as it will be automatically set to pnp by the docfx.json.>
+  ms.date: <publish or major update date - mm/dd/yyyy>
+  ms.topic: conceptual
+  ms.service: architecture-center
+  ms.subservice: example-scenario
+azureCategories:
+  - <choose at least one category from the list at https://review.docs.microsoft.com/en-us/help/contribute/architecture-center/aac-browser-authoring?branch=master#azure-categories>
+  - <there can be more than one category>
+products:
+  - <choose 1-5 products from the list at https://review.docs.microsoft.com/en-us/help/contribute/architecture-center/aac-browser-authoring?branch=master#products>
+  - <1-5 products>
+  - <1-5 products--no more than 5!>
+name: <The H1 title is a noun phrase that describes the scenario. Avoid naming the scenario after the Azure technologies that are used. Example: "Insurance claim image classification on Azure">
+summary: <Write a summary. Can be same as description.>
+thumbnailUrl: /azure/architecture/browse/thumbs/<browse-png-filename>.png
+content: |
+  [!include[](multiline-model-deployment-content.md)]
