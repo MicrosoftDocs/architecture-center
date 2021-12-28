@@ -72,7 +72,7 @@ A [pricing estimate is available here](https://azure.com/e/bffff468f99641009bae1
 Watch [From Oops to Ops: Incident Response with Jupyter Notebooks](https://youtu.be/eVVyWNSxtco?t=10096) to learn more about how to put this solution together and the motivation behind it.
 
 See these resources: 
-- [Use Jupyter Notebooks in Azure Data Studio](sql/azure-data-studio/notebooks/notebooks-guidance)
+- [Use Jupyter Notebooks in Azure Data Studio](/sql/azure-data-studio/notebooks/notebooks-guidance)
 - [Jupyter notebooks in Visual Studio Code](https://code.visualstudio.com/docs/datascience/jupyter-notebooks)
 - [What is Azure Repos in Azure DevOps?](/azure/devops/repos/get-started/what-is-repos?view=azure-devops)
 - [What is Azure Logic Apps?](/azure/logic-apps/logic-apps-overview)
