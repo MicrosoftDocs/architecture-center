@@ -81,9 +81,9 @@ After training, the data scientist focuses next on model evaluation.
       * Use a visualization dashboard to interact with your model explanations, both in a Jupyter notebook and in the Azure Machine Learning workspace.
       * Deploy a scoring explainer alongside your model to observe explanations during inferencing.
    * **Assessing Fairness**: The [Fairlearn open-source Python package with Azure Machine Learning](/azure/machine-learning/how-to-machine-learning-fairness-aml) performs the following tasks:
-      * Assess the fairness of your model predictions. To learn more about fairness in machine learning.
-      * Upload, list and download fairness assessment insights to/from Azure Machine Learning studio.  
-      * See a fairness assessment dashboard in Azure Machine Learning studio to interact with your model(s)' fairness insights. 
+      * Assess the fairness of your model predictions. This process will help you learn more about fairness in machine learning.
+      * Upload, list, and download fairness assessment insights to/from Azure Machine Learning studio.  
+      * See the fairness assessment dashboard in Azure Machine Learning studio to interact with your model(s)' fairness insights. 
 
 ## Next steps
 
@@ -97,4 +97,4 @@ Here are links to each step in the lifecycle of the TDSP:
 
 We provide full end-to-end walkthroughs that demonstrate all the steps in the process for specific scenarios. The [Example walkthroughs](walkthroughs.md) article provides a list of the scenarios with links and thumbnail descriptions. The walkthroughs illustrate how to combine cloud, on-premises tools, and services into a workflow or pipeline to create an intelligent application.
 
-For examples of how to execute steps in TDSPs that use Azure Machine Learning, see [Use the TDSP with Azure Machine Learning](/azure/machine-learning/team-data-science-process/).
+For examples of how to execute steps in TDSPs that use Azure Machine Learning, see [Use the TDSP with Azure Machine Learning](/azure/machine-learning/team-data-science-process).
