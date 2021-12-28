@@ -8,7 +8,7 @@ editor: marktab
 ms.service: machine-learning
 ms.subservice: team-data-science-process
 ms.topic: article
-ms.date: 12/27/2021
+ms.date: 12/29/2021
 ms.author: tdsp
 ms.custom:
   - previous-author=deguhath
@@ -73,7 +73,7 @@ After training, the data scientist focuses next on model evaluation.
      * Does the model answer the question with sufficient confidence given the test data?
      * Should you try any alternative approaches? 
      * Should you collect additional data, do more feature engineering, or experiment with other algorithms?
-   * **Interpreting the Model**: [the Azure Machine Learning Python SDK](/azure/machine-learning/how-to-machine-learning-interpretability-aml) to perform the following tasks:
+   * **Interpreting the Model**: Use [the Azure Machine Learning Python SDK](/azure/machine-learning/how-to-machine-learning-interpretability-aml) to perform the following tasks:
       * Explain the entire model behavior or individual predictions on your personal machine locally.
       * Enable interpretability techniques for engineered features.
       * Explain the behavior for the entire model and individual predictions in Azure.
