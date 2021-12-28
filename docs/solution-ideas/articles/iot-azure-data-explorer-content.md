@@ -41,4 +41,29 @@ This solution is already being used by Microsoft customers for IoT device teleme
 
 ## Next steps
 
-For more information, see [Azure Data Explorer documentation](/azure/data-explorer/).
+Product documentation:
+
+- [Azure Event Hubs](/azure/event-hubs/event-hubs-about)
+- [IoT Concepts and Azure IoT Hub](/azure/iot-hub/iot-concepts-and-iot-hub)
+- [Visualize data with Azure Data Explorer dashboards](/azure/data-explorer/azure-data-explorer-dashboards)
+- [What is Azure Data Explorer?](/azure/data-explorer/data-explorer-overview)
+- [What is Azure Digital Twins?](/azure/digital-twins/overview)
+- [What is Azure HDInsight?](/azure/hdinsight/hdinsight-overview)
+- [What is Azure Synapse Analytics?](/azure/synapse-analytics/overview-what-is)
+- [Welcome to Azure Cosmos DB](/azure/cosmos-db/introduction)
+
+Microsoft Learn modules:
+
+- [Explore Azure Digital Twins implementation](/learn/modules/explore-azure-digital-twins-implementation)
+- [Explore Azure Event Hubs](/learn/modules/azure-event-hubs)
+- [Insert and query data in your Azure Cosmos DB database](/learn/modules/access-data-with-cosmos-db-and-sql-api)
+- [Introduction to Azure IoT Hub](/learn/modules/introduction-to-iot-hub)
+- [Transform data by using Azure Stream Analytics](/learn/modules/transform-data-with-azure-stream-analytics)
+- [Upload, download, and manage data with Azure Storage Explorer](/learn/modules/upload-download-and-manage-data-with-azure-storage-explorer)
+
+## Related resources
+
+- [Artificial intelligence (AI) - Architectural overview](../../data-guide/big-data/ai-overview.md)
+- [Big data analytics with Azure Data Explorer](big-data-azure-data-explorer.md)
+- [IoT and data analytics](../../example-scenario/data/big-data-with-iot.md)
+- [Real-time analytics on big data architecture](real-time-analytics.md)

@@ -64,6 +64,35 @@ Automatic scaling may not be appropriate for batch jobs that happen too close to
 
 To deploy this reference architecture, follow the steps described in the [GitHub repo][github].
 
+## Next steps
+
+Product documentation:
+
+- [What is Azure Blob storage?](/azure/storage/blobs/storage-blobs-overview)
+- [Introduction to private Docker container registries in Azure](/container-registry/container-registry-intro)
+- [Azure Event Hubs](/azure/event-hubs/event-hubs-about)
+- [What is Azure Machine Learning?](/azure/machine-learning/overview-what-is-azure-machine-learning)
+- [What is Azure SQL Database?](/azure/azure-sql/database/sql-database-paas-overview)
+- [Welcome to Azure Stream Analytics](/azure/stream-analytics/stream-analytics-introduction)
+
+Microsoft Learn modules:
+
+- [Deploy Azure SQL Database](learn/modules/deploy-azure-sql-database)
+- [Enable reliable messaging for Big Data applications using Azure Event Hubs](learn/modules/enable-reliable-messaging-for-big-data-apps-using-event-hubs)
+- [Explore Azure Event Hubs](/learn/modules/azure-event-hubs)
+- [Implement a Data Streaming Solution with Azure Streaming Analytics](/learn/paths/implement-data-streaming-with-asa)
+- [Introduction to machine learning](/learn/modules/introduction-to-machine-learning)
+- [Manage container images in Azure Container Registry](/learn/modules/publish-container-image-to-azure-container-registry)
+
+## Related resources
+
+- [Artificial intelligence (AI) - Architectural overview](../../data-guide/big-data/ai-overview.md)
+- [Batch scoring for deep learning models using Azure Machine Learning pipelines](batch-scoring-deep-learning.md)
+- [Batch scoring of Spark models on Azure Databricks](batch-scoring-databricks.md)
+- [MLOps for Python models using Azure Machine Learning](mlops-python.md)
+- [Real-time scoring of machine learning models in Python](real-time-scoring-machine-learning-models.md)
+- [Tune hyperparameters for machine learning models in Python](training-python-models.md)
+
 [acr]: /azure/container-registry/container-registry-intro
 [amls]: /azure/machine-learning/overview-what-is-azure-machine-learning
 [batch-scoring]: /azure/machine-learning/service/how-to-run-batch-predictions
