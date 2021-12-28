@@ -16,7 +16,6 @@ products:
   - azure-logic-apps
   - azure-automation
   - azure-devops
-  - azure-data-studio
   - azure-functions
 name: Automated Jupyter Notebooks for diagnostics
 summary: This article describes an approach for automating diagnostic or routine notebooks by using an Azure serverless architecture.
