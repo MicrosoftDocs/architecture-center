@@ -16,7 +16,7 @@ You can use Azure Logic Apps and Azure Automation to automate the troubleshootin
 *Download a [PowerPoint file](https://arch-center.azureedge.net/automate-diagnostic-jupyter-notebook.pptx) of this architecture.*
 ### Workflow
 This scenario covers a diagnostic/troubleshooting development and operations flow at a high level. 
-- Team members use Azure Data Studio to write, view, and run the diagnostic notebooks in Jupyter Notebook format. The diagnostic notebooks include code for troubleshooting issues and descriptions that explain the troubleshooting steps. The notebook author can write the code in languages like Python, PowerShell, or .NET interactive (C# and other .NET languages). .NET interactive Jupyter Notebooks in Visual Studio Code support polyglot, which allows you to use  more than one language in a single notebook.  
+- Team members use Azure Data Studio to write, view, and run the diagnostic or troubleshooting notebooks in Jupyter Notebook format. The notebooks include code for troubleshooting issues and descriptions that explain the troubleshooting steps. The notebook author can write the code in languages like Python, PowerShell, or .NET Interactive (C# and other .NET languages). .NET Interactive Jupyter Notebooks in Visual Studio Code support polyglot, which allows you to use  more than one language in a single notebook.  
 - GitHub or Azure DevOps is used as source control for the reusable notebooks. You can use GitHub Actions or Azure DevOps Actions to complete additional checks to meet organizational policies, like credential scans.  
 - A task management system or an incident response system is used to log, assign, and resolve issues. You can use any task management system, like Microsoft Planner.
 - When a new issue is created, a specific condition in Logic Apps triggers the next step: running an Automation job. 
@@ -51,7 +51,7 @@ You can use [Azure Functions](https://azure.microsoft.com/services/functions) in
 
 ### Scalability
 
-As a best practice, make each notebook modular to promote reusability. You can store execution logic in Logic Apps. Balancing how much of the logic to manage in Logic Apps and how much to manage in notebooks is something to consider.  
+As a best practice, make each notebook modular to promote reusability. You can store execution logic in Logic Apps. Think about how much of the logic you want to manage in Logic Apps and how much you want to manage in notebooks.  
 
 ### Security
 
