@@ -53,7 +53,7 @@ Learn more information on how Skytap on [Azure connectivity](https://skytap.gith
 
 -   [Azure Blob Storage](/azure/storage/blobs/storage-blobs-introduction) is an object storage solution designed for storing massive amounts of unstructured data, such as text and binary data.
 
--   [Azure ExpressRoute](/azure/expressroute/expressroute-introduction) extends your on-premises networks to Microsoft cloud services, including Azure and Office 365, over a private connection facilitated by a connectivity provider.
+-  [Azure ExpressRoute](/azure/expressroute/expressroute-introduction) extends your on-premises networks to Microsoft cloud services, including Azure and Office 365, over a private connection facilitated by a connectivity provider.
 Learn more information on how Azure ExpressRoute works with Skytap in the [Skytap Getting Started with Azure Networking guide](https://skytap.github.io/well-architected-framework/operations/connectivity/skytaponazureconnectivity/).
 
 -   [Azure Data Box Gateway](/azure/databox-gateway/data-box-gateway-overview) is a virtual device that you install on-premises. You write data to it using the NFS and Server Message Block (SMB) protocols, and Data Box Gateway sends the data to Azure.
@@ -118,7 +118,7 @@ To learn more about Skytap on Azure, please contact <legacy2azure@microsoft.com>
 
 ## Related resources
 
-- [Skytap Well-Architected Framework](https://github.com/skytap/well-architected-framework)
+- [Skytap Well-Architected Framework](https://skytap.github.io/well-architected-framework/)
 - [Skytap documentation](https://help.skytap.com/)
 - [Mainframe file replication and sync on Azure](../../solution-ideas/articles/mainframe-azure-file-replication.yml)
 - [Modernize mainframe & midrange data](../../reference-architectures/migration/modernize-mainframe-data-to-azure.yml)

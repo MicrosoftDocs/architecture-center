@@ -111,7 +111,7 @@ To learn more about Skytap on Azure, please contact <legacy2azure@microsoft.com>
 
 ## Related resources
 
-- [Skytap Well-Architected Framework](https://github.com/skytap/well-architected-framework)
+- [Skytap Well-Architected Framework](https://skytap.github.io/well-architected-framework/)
 - [Skytap documentation](https://help.skytap.com/)
 - [Mainframe file replication and sync on Azure](../../solution-ideas/articles/mainframe-azure-file-replication.yml)
 - [Modernize mainframe & midrange data](../../reference-architectures/migration/modernize-mainframe-data-to-azure.yml)
