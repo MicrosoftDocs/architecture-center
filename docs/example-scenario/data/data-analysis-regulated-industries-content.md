@@ -51,6 +51,8 @@ The following diagram shows a high-level overview of the architecture for the In
 
 [![Diagram that shows an example of an Infrastructure Accelerator architecture.](media/data-analysis-architecture-01.png)](media/data-analysis-architecture-01.png#lightbox)
 
+*Download a [Visio file](https://arch-center.azureedge.net/data-analysis-architecture-2.vsdx) of this architecture.*
+
 You can see the capabilities of the pattern in the upper part of the diagram. These capabilities include elements like target data sources (cloud or on-premises), ingestion areas, snapshot data, transformed data, optimized data storage, metadata storage, and front-end consumption.
 
 The bottom section shows the responsibilities of the various IT roles that are typically involved with cloud-data analysis workloads.
@@ -101,6 +103,8 @@ See [Enterprise data warehouse architecture](/azure/architecture/solution-ideas/
 The following diagram shows a component-based view, along with a sample integration with an enterprise environment:
 
 [![Diagram that shows a components view and integration with an enterprise environment.](media/data-analysis-architecture-02.png)](media/data-analysis-architecture-02.png#lightbox)
+
+*Download a [Visio file](https://arch-center.azureedge.net/data-analysis-architecture.vsdx) of this architecture.*
 
 Business users need to present, consume, and slice and dice data quickly, from multiple places and on multiple devices. Ideally on a data model that's optimized (transformed) for the data domain that the data is aligned to.
 
