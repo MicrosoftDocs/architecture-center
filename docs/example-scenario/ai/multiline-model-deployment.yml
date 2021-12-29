@@ -2,7 +2,7 @@
 metadata:
   title: Deploying machine learning models to multiple lines 
   titleSuffix: Azure Example Scenarios
-  description: This article describes an architecture that you can use to deploy machine learning models to multiple lines. 
+  description: This article describes an architecture that you can use to deploy machine learning models to multiple data sources. 
   author: EdPrice-MSFT
   ms.author: paulbutler 
   ms.date: 12/31/2021
@@ -18,8 +18,8 @@ products:
   - "azure-pipelines"
   - "azure-blob-storage"
   - "azure-container-registry"
-name: Deployment of machine learning models to multiple lines 
-summary: This article describes an architecture that you can use to deploy machine learning models to multiple lines. 
+name: Deployment of machine learning models to multiple data sources 
+summary: This article describes an architecture that you can use to deploy machine learning models to multiple data sources. 
 thumbnailUrl: /azure/architecture/browse/thumbs/multiline-deployment-pipeline.png
 content: |
   [!include[](multiline-model-deployment-content.md)]
