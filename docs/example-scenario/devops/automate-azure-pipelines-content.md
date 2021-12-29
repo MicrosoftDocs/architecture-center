@@ -36,7 +36,7 @@ This architecture is industry agnostic and can be applied to any team-building s
 
 ### Dataflow
 
-- **Step 1** - The developer creates a starter project using one of the preloaded templates in Visual Studio, like a .NET Angular workload. This same Visual Studio solution contains an Azure Resource Manager (ARM) template that can provision an AppService Plan, App Service, and Application Insights.
+- **Step 1** - The developer creates a starter project using one of the preloaded templates in Visual Studio, like a .NET Angular workload. The same Visual Studio solution contains an Azure Resource Manager (ARM) template that can provision an AppService Plan, App Service, and Application Insights.
 - **Step 2** -The repository also contains a multistage YAML pipeline file. The multistage YAML pipeline has precise steps on how the solution needs to be built and published.
 - **Steps 3-5** - Once the developer submits a `git push` into an Azure DevOps repository, a webhook is dispatched from Azure DevOps to a logic app.
 - **Step 6** - When the HTTP trigger of the logic app is invoked, the logic app determines whether the push is made in the main or feature branches. Once the commit is detected in the main branch of the repository, the logic app looks for existing pipelines corresponding to the repository.
@@ -59,7 +59,7 @@ This architecture reduces labor by automatically provisioning pipelines in Azure
 
 ### Alternatives
 
-An alternative to the proposed architecture is Azure DevOps Starter service. Azure App Service also supports Deployment Center. However, this alternative requires you to provision the infrastructure first. The proposed architecture is code first, which provisions the infrastructure through code. This gives you the flexibility to use any kind of Azure workload.  For more information, see [DevOps Starter](/azure/devops-project/overview) and [Deployment Center](/azure/app-service/deploy-continuous-deployment).
+An alternative to the proposed architecture is Azure DevOps Starter service. Azure App Service also supports Deployment Center. However, this alternative requires you to provision the infrastructure first. The proposed solution in this architecture is code first, which provisions the infrastructure through code. This gives you the flexibility to use any kind of Azure workload.  For more information, see [DevOps Starter](/azure/devops-project/overview) and [Deployment Center](/azure/app-service/deploy-continuous-deployment).
 
 ## Considerations
 
