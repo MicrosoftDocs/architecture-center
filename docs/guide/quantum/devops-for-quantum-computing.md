@@ -1,5 +1,5 @@
 ---
-title: DevOps for Quantum Computing
+title: DevOps for quantum computing
 description: Learn about DevOps requirements of Quantum based apps leading to a repeatable, high-quality process for building, deploying, and monitoring software.
 author: hsirtl
 ms.author: hsirtl
