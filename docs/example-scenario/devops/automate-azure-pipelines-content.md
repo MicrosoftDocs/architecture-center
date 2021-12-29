@@ -36,8 +36,8 @@ This architecture is industry agnostic and can be applied to any team-building s
 
 ### Dataflow
 
-- **Step 1** - The developer creates a starter project using one of the preloaded templates in Visual Studio, like a .NET Angular workload. The same Visual Studio solution contains an Azure Resource Manager (ARM) template that can provision an AppService Plan, App Service, and Application Insights.
-- **Step 2** -The repository also contains a multistage YAML pipeline file. The multistage YAML pipeline has precise steps on how the solution needs to be built and published.
+- **Step 1** - The developer creates a starter project using one of the preloaded templates in Visual Studio, like a .NET Angular workload. We recommended you to add an Azure resource group project to the same Visual Studio solution.The Azure Resource Manager (ARM) template will provision an AppService Plan, App Service, and Application Insights.
+- **Step 2** - The repository also contains a multistage YAML pipeline file. The multistage YAML pipeline has precise steps on how the solution needs to be built and published.
 - **Steps 3-5** - Once the developer submits a `git push` into an Azure DevOps repository, a webhook is dispatched from Azure DevOps to a logic app.
 - **Step 6** - When the HTTP trigger of the logic app is invoked, the logic app determines whether the push is made in the main or feature branches. Once the commit is detected in the main branch of the repository, the logic app looks for existing pipelines corresponding to the repository.
 - **Step 7** - If the pipeline meant for this repository already exists in Azure DevOps, the logic app updates the pipeline through Azure DevOps REST APIs. If the pipeline doesn't exist, a new pipeline is provisioned.
