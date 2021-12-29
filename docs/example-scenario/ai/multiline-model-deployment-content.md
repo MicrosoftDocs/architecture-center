@@ -1,6 +1,6 @@
-When you deploy machine learning models to multiple lines, the assumption that a model for one line will work for all other lines isn't likely to be correct. Each line will have its own distribution and will need a model that works best for that distribution. This article is intended to make it easier for you to deploy models for multiple lines.
+When you deploy machine learning models to multiple lines—that is, to multiple data sources—the assumption that a model for one line will work for all other lines isn't likely to be correct. Each line has its own distribution and needs a model that works best for that distribution. This article is intended to make it easier for you to deploy models for multiple lines.
 
-The organization whose architecture is described in this article pushes edge device data to blob storage to validate the results of a machine learning model. These results are used to train future generations of machine learning models, but the distribution of data that comes in from each line is different. The organization needed a process to differentiate between each line's data and each line's model. This differentiation would allow the company to train and validate that each line's model performs the best for each line's distribution as time passes. 
+The organization whose architecture is described in this article pushes edge device data to blob storage to validate the results of a machine learning model. These results are used to train future generations of machine learning models, but the distribution of data that comes in from each line is different. The organization needed a process to differentiate between each line's data and each line's model. This differentiation allows the company to train and validate that each line's model performs the best for each line's distribution as time passes. 
 
 The company resolved this problem by running a multiple-step process to train and compare the newly trained model with the existing best model. This process was wrapped in a continuous deployment (CD) pipeline. It doesn't necessarily need to be attached to a CD pipeline, but it's a good practice to automate the process.
 
@@ -19,7 +19,7 @@ The company resolved this problem by running a multiple-step process to train an
 
 ### Dataflow 
 
-1. The architecture starts with the continuous deployment (CD) pipeline. The CD pipeline orchestrates the computation steps that run. This pipeline is the only interface into training the models, so there are some parameters that the CD pipeline should expect. Assuming that the multiple-line architecture is needed, a line identifier is needed to select the model and get the training data. If more fine-tuning on the data is required, more parameters can also be added as parameters to the CD pipeline. In the scenario described here, the CD pipeline takes in the start and end dates of the data to pull.
+1. The architecture starts with the continuous deployment (CD) pipeline. The CD pipeline orchestrates the computation steps that run. This pipeline is the only interface into training the models, so there are some parameters that the CD pipeline should expect. When you use a multiple-line architecture, you need a line identifier to select the model and get the training data. If you require more fine-tuning on the data, you can also add those parameters to the CD pipeline. In the scenario described here, the CD pipeline takes in the start and end dates of the data to pull.
 
    Before the CD pipeline runs, there's typically a CI pipeline that runs or that has already run. In this scenario, there was a corresponding CI pipeline for the model. After this CI pipeline runs, relevant code from the repo is published to an Azure Artifacts feed. The first step in this CD pipeline downloads the code from the Artifacts feed.
 
@@ -40,8 +40,8 @@ The data resides in blob storage primarily because of the constraints of how and
 
 ### Components 
 - [Azure Pipelines](https://azure.microsoft.com/services/devops/pipelines) is used to create and run the CD pipeline. 
-- [Azure Machine Learning](https://azure.microsoft.com/services/machine-learning-service) is used for the end-to-end machine learning lifecycle. In the scenario represented in this architecture, it's used to train the models.   
-- [Azure Blob Storage](https://azure.microsoft.com/services/storage/blobs) provides massively scalable and secure object storage for cloud-native workloads, archives, data lakes, high-performance computing, and machine learning. Here, it's used to store data from edge devices. 
+- [Azure Machine Learning](https://azure.microsoft.com/services/machine-learning-service) is used for the end-to-end machine learning lifecycle. In the part of the scenario represented in this architecture, it's used to train the models.   
+- [Azure Blob Storage](https://azure.microsoft.com/services/storage/blobs) provides massively scalable and secure object storage for machine learning. Here, it's used to store data from edge devices. 
 - [Azure Container Registry](https://azure.microsoft.com/services/container-registry) is used to store the images that contain the machine learning models.
 
 ### Alternatives
@@ -50,7 +50,7 @@ If your data can arrive in table form, you might want to consider storing it in 
 If your repo is in GitHub, you might consider [GitHub Actions](https://github.com/features/actions) as an alternative to the Azure DevOps pipeline.
 
 ## Considerations
-In the architecture used by the organization described here, the Azure Machine Learning pipeline isn't run remotely. Because the model doesn't take long to train, running remotely isn't needed. If you're running a more complex model or the Azure Machine Learning pipeline takes a long time to complete, it would be advantageous to run the Azure Machine Learning pipeline remotely. Doing so would free up an Azure DevOps agent while the Azure Machine Learning pipeline is running.
+In the architecture used by the organization described here, the Azure Machine Learning pipeline isn't run remotely. Because the model doesn't take long to train, running remotely isn't needed. If you're running a more complex model or the Azure Machine Learning pipeline takes a long time to complete, it would be advantageous to run the Azure Machine Learning pipeline remotely. Doing so would free up an Azure DevOps agent while the Azure Machine Learning pipeline runs.
 
 Scale is an important consideration with this approach. This configuration was a proof of concept. The environment wasn't a production environment where hundreds or thousands of lines constantly needed to be optimized. In a production environment, it might be beneficial to spread the resources out so that all the compute and resources aren't on just a few resources.
 
@@ -69,8 +69,8 @@ To better understand the cost of running this scenario on Azure, use the [Azure 
 
 - The size of the storage account depends on the size and average volume of your data.
 - Azure Machine Learning uses one compute instance of AzureML-sklearn-0.24-ubuntu18.04-py37-cuda11-gpu.
-- The organization described here uses two build agents, but your scenario might require a different number of build agents. 
-- Azure Container Registry is used in this scenario. It's not needed if there's no other purpose for the model other than maintaining the state of the best model in Azure Machine Learning.
+- The organization whose architecture is described here uses two build agents, but your scenario might require a different number of build agents. 
+- Azure Container Registry is used in this scenario. It's not needed if there's no purpose for the model other than maintaining the state of the best model in Azure Machine Learning.
 
 To see how pricing differs for your use case, change the variables to match your expected setup. Set the expected data volume, the Azure Machine Learning compute, and the number of build agents.
 
@@ -85,7 +85,7 @@ To see how pricing differs for your use case, change the variables to match your
 
 ## Related resources 
 
-- [Upscale ML lifecycle with MLOps framework](/azure/architecture/example-scenario/mlops/mlops-technical-paper)
+- [Upscale machine learning lifecycle with MLOps framework](/azure/architecture/example-scenario/mlops/mlops-technical-paper)
 - [Distributed training of deep learning models on Azure](/azure/architecture/reference-architectures/ai/training-deep-learning)
 - [Artificial intelligence architecture](/azure/architecture/data-guide/big-data/ai-overview)
 - [Deploy AI and ML computing on-premises and to the edge](/azure/architecture/hybrid/deploy-ai-ml-azure-stack-edge)
