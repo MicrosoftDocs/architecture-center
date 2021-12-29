@@ -50,16 +50,16 @@ Product documentation:
 
 Microsoft Learn modules:
 
-- [Create and connect to a Data Science Virtual Machine](learn/modules/intro-to-azure-data-science-virtual-machine)
-- [Deploy Azure SQL Database](learn/modules/deploy-azure-sql-database)
-- [Explore Azure Blob storage](learn/modules/explore-azure-blob-storage)
-- [Run parallel tasks in Azure Batch with the Azure CLI](learn/modules/run-parallel-tasks-in-azure-batch-with-the-azure-cli)
+- [Create and connect to a Data Science Virtual Machine](/learn/modules/intro-to-azure-data-science-virtual-machine)
+- [Deploy Azure SQL Database](/learn/modules/deploy-azure-sql-database)
+- [Explore Azure Blob storage](/learn/modules/explore-azure-blob-storage)
+- [Run parallel tasks in Azure Batch with the Azure CLI](/learn/modules/run-parallel-tasks-in-azure-batch-with-the-azure-cli)
 
 ## Related resources
 
 - [Artificial intelligence (AI) - Architectural overview](../../data-guide/big-data/ai-overview.md)
-- [Data science and machine learning with Azure Databricks](azure-databricks-data-science-machine-learning.md)
-- [Defect prevention with predictive maintenance](defect-prevention-with-predictive-maintenance.md)
-- [Forecast energy and power demand with machine learning](forecast-energy-power-demand.md)
-- [Knowledge mining in business process management](business-process-management.md)
-- [Predictive maintenance](predictive-maintenance.md)
+- [Data science and machine learning with Azure Databricks](azure-databricks-data-science-machine-learning.yml)
+- [Defect prevention with predictive maintenance](defect-prevention-with-predictive-maintenance.yml)
+- [Forecast energy and power demand with machine learning](forecast-energy-power-demand.yml)
+- [Knowledge mining in business process management](business-process-management.yml)
+- [Predictive maintenance](predictive-maintenance.yml)

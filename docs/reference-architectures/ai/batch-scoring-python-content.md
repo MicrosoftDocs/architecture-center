@@ -77,8 +77,8 @@ Product documentation:
 
 Microsoft Learn modules:
 
-- [Deploy Azure SQL Database](learn/modules/deploy-azure-sql-database)
-- [Enable reliable messaging for Big Data applications using Azure Event Hubs](learn/modules/enable-reliable-messaging-for-big-data-apps-using-event-hubs)
+- [Deploy Azure SQL Database](/learn/modules/deploy-azure-sql-database)
+- [Enable reliable messaging for Big Data applications using Azure Event Hubs](/learn/modules/enable-reliable-messaging-for-big-data-apps-using-event-hubs)
 - [Explore Azure Event Hubs](/learn/modules/azure-event-hubs)
 - [Implement a Data Streaming Solution with Azure Streaming Analytics](/learn/paths/implement-data-streaming-with-asa)
 - [Introduction to machine learning](/learn/modules/introduction-to-machine-learning)
@@ -87,11 +87,11 @@ Microsoft Learn modules:
 ## Related resources
 
 - [Artificial intelligence (AI) - Architectural overview](../../data-guide/big-data/ai-overview.md)
-- [Batch scoring for deep learning models using Azure Machine Learning pipelines](batch-scoring-deep-learning.md)
-- [Batch scoring of Spark models on Azure Databricks](batch-scoring-databricks.md)
-- [MLOps for Python models using Azure Machine Learning](mlops-python.md)
-- [Real-time scoring of machine learning models in Python](real-time-scoring-machine-learning-models.md)
-- [Tune hyperparameters for machine learning models in Python](training-python-models.md)
+- [Batch scoring for deep learning models using Azure Machine Learning pipelines](batch-scoring-deep-learning.yml)
+- [Batch scoring of Spark models on Azure Databricks](batch-scoring-databricks.yml)
+- [MLOps for Python models using Azure Machine Learning](mlops-python.yml)
+- [Real-time scoring of machine learning models in Python](real-time-scoring-machine-learning-models.yml)
+- [Tune hyperparameters for machine learning models in Python](training-python-models.yml)
 
 [acr]: /azure/container-registry/container-registry-intro
 [amls]: /azure/machine-learning/overview-what-is-azure-machine-learning

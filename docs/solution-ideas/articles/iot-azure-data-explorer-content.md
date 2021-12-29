@@ -64,6 +64,6 @@ Microsoft Learn modules:
 ## Related resources
 
 - [Artificial intelligence (AI) - Architectural overview](../../data-guide/big-data/ai-overview.md)
-- [Big data analytics with Azure Data Explorer](big-data-azure-data-explorer.md)
-- [IoT and data analytics](../../example-scenario/data/big-data-with-iot.md)
-- [Real-time analytics on big data architecture](real-time-analytics.md)
+- [Big data analytics with Azure Data Explorer](big-data-azure-data-explorer.yml)
+- [IoT and data analytics](../../example-scenario/data/big-data-with-iot.yml)
+- [Real-time analytics on big data architecture](real-time-analytics.yml)
