@@ -2,22 +2,24 @@
 metadata:
   title: Deploying machine learning models to multiple lines 
   titleSuffix: Azure Example Scenarios
-  description: <Write a 100-160 character description that ends with a period and ideally starts with a call to action. This becomes the browse card description.>
+  description: This article describes an architecture that you can use to deploy machine learning models to multiple lines. 
   author: EdPrice-MSFT
   ms.author: paulbutler 
-  ms.date: <publish or major update date - mm/dd/yyyy>
+  ms.date: 12/31/2021
   ms.topic: conceptual
   ms.service: architecture-center
   ms.subservice: example-scenario
+  ms.custom: fcp 
 azureCategories:
-  - <choose at least one category from the list at https://review.docs.microsoft.com/en-us/help/contribute/architecture-center/aac-browser-authoring?branch=master#azure-categories>
-  - <there can be more than one category>
+  - "ai-machine-learning"
+  - "iot"
 products:
-  - <choose 1-5 products from the list at https://review.docs.microsoft.com/en-us/help/contribute/architecture-center/aac-browser-authoring?branch=master#products>
-  - <1-5 products>
-  - <1-5 products--no more than 5!>
+  - "azure-machine-learning"
+  - "azure-pipelines"
+  - "azure-blob-storage"
+  - "azure-container-registry"
 name: Deployment of machine learning models to multiple lines 
-summary: <Write a summary. Can be same as description.>
-thumbnailUrl: /azure/architecture/browse/thumbs/<browse-png-filename>.png
+summary: This article describes an architecture that you can use to deploy machine learning models to multiple lines. 
+thumbnailUrl: /azure/architecture/browse/thumbs/multiline-deployment-pipeline.png
 content: |
   [!include[](multiline-model-deployment-content.md)]
