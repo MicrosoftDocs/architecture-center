@@ -2,7 +2,7 @@
 metadata:
   title: Automating diagnostic Jupyter Notebook execution
   titleSuffix: Azure Example Scenarios
-  description: This article describes an approach for automating diagnostic or routine notebooks by using an Azure serverless architecture.
+  description: Learn now to automate diagnostic or routine notebooks by using an Azure serverless architecture.
   author: MsSQLGirl
   ms.author: jukoesma
   ms.date: 12/29/2021

@@ -34,7 +34,7 @@ This scenario covers a diagnostic/troubleshooting development and operations flo
 
 - [Azure Data Studio](https://azure.microsoft.com/services/developer-tools/data-studio) or [Visual Studio Code](https://code.visualstudio.com) is used to create, view, edit, and run Jupyter Notebooks.
 - [Visual Studio Code](https://code.visualstudio.com) can optionally be used to edit the Logic Apps definition.
-- [Azure DevOps](https://azure.microsoft.com/solutions/devops) or [GitHub](http://github.com) is a central repository for the troubleshooting notebooks.
+- [Azure DevOps](https://azure.microsoft.com/services/devops) or [GitHub](http://github.com) is a central repository for the troubleshooting notebooks.
 - [Logic Apps](https://azure.microsoft.com/services/logic-apps) is used to define the workflow logic.
 - [Azure Automation](https://azure.microsoft.com/services/automation) is used to host and run the Python or PowerShell scripts that run the notebooks.
 - [Blob Storage](https://azure.microsoft.com/services/storage/blobs) is used to store the output notebooks.
@@ -55,9 +55,7 @@ As a best practice, make each notebook modular to promote reusability. You can s
 
 ### Security
 
-User-assigned [managed identity](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview) is a good way to grant Automation runbooks  access to the other required Azure resources. 
-
-For example, when the Automation runbook runs [Invoke-SqlNotebook](https://github.com/dfinke/PowerShellNotebook#executing-a-notebook) against an Azure SQL database, the Automation account requires the appropriate access to the database. This authorization is best managed via a user-assigned managed identity that corresponds to a user or a role in Azure SQL.
+User-assigned [managed identity](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview) is a good way to grant Automation runbooks  access to the other required Azure resources. For example, when the Automation runbook runs [Invoke-SqlNotebook](https://github.com/dfinke/PowerShellNotebook#executing-a-notebook) against an Azure SQL database, the Automation account requires the appropriate access to the database. This authorization is best managed via a user-assigned managed identity that corresponds to a user or a role in Azure SQL.
 
 ### DevOps
 
