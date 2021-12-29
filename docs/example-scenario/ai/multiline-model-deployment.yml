@@ -3,8 +3,8 @@ metadata:
   title: Deploying machine learning models to multiple lines 
   titleSuffix: Azure Example Scenarios
   description: <Write a 100-160 character description that ends with a period and ideally starts with a call to action. This becomes the browse card description.>
-  author: <contributor's GitHub username. If no GitHub account, use EdPrice-MSFT>
-  ms.author: <contributor's Microsoft alias. If no alias, leave out this metadata as it will be automatically set to pnp by the docfx.json.>
+  author: EdPrice-MSFT
+  ms.author: paulbutler 
   ms.date: <publish or major update date - mm/dd/yyyy>
   ms.topic: conceptual
   ms.service: architecture-center
