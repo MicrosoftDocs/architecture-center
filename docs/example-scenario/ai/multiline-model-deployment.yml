@@ -16,7 +16,7 @@ products:
   - <choose 1-5 products from the list at https://review.docs.microsoft.com/en-us/help/contribute/architecture-center/aac-browser-authoring?branch=master#products>
   - <1-5 products>
   - <1-5 products--no more than 5!>
-name: <The H1 title is a noun phrase that describes the scenario. Avoid naming the scenario after the Azure technologies that are used. Example: "Insurance claim image classification on Azure">
+name: Deployment of machine learning models to multiple lines 
 summary: <Write a summary. Can be same as description.>
 thumbnailUrl: /azure/architecture/browse/thumbs/<browse-png-filename>.png
 content: |
