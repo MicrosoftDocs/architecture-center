@@ -23,21 +23,21 @@ SWIFT Alliance Gateway (SAG) provides multiple integration points and message co
 
 Key SWIFT AMH technical solution components consist of *AMH node* running user interface, a database, and a messaging system. *AMH node* provides the web front-end running the user interface and the STP messaging processing. *AMH node* runs on [JBoss Enterprise Application Platform (EAP) on Red Hat Enterprise Linux (RHEL)](https://techcommunity.microsoft.com/t5/azure-marketplace/announcing-red-hat-jboss-eap-on-azure-virtual-machines-and-vm/ba-p/2374068).  The database runs on [Oracle](/azure/virtual-machines/workloads/oracle/oracle-overview). The messaging system typically runs on [Websphere MQ](https://azure.microsoft.com/updates/general-availability-enabling-ibm-websphere-application-server-on-azure-virtual-machines), but it can also be any JMS protocol-compliant messaging solution. Azure infrastructure services running these software components are discussed in detail below:
 
-* **Azure Subscription**: An Azure Subscription is needed to deploy SWIFT AMH. It's recommended to use a new Azure Subscription to manage and scale SWIFT AMH.
+* **Azure subscription**: An Azure subscription is needed to deploy SWIFT AMH. It's recommended to use a new Azure subscription to manage and scale SWIFT AMH.
 
-* **Azure Resource Group**: Customers can deploy SWIFT AMH in a specific Azure Region using Azure Resource Group. It's recommended to have SWIFT AMH, SWIFT SAG, and SWIFT SNL in their own separate resource groups.
+* **Azure resource group**: Customers can deploy SWIFT AMH in a specific Azure region using a Azure resource group. It's recommended to have SWIFT AMH, SWIFT SAG, and SWIFT SNL in their own separate resource groups.
 
 * **Azure Virtual Network**: An Azure Virtual Network forms a private network boundary around SWIFT AMH deployment. Customers should choose a network address space that doesn't conflict with the customer's on-premises site (users), customer's on-premises site (HSM), and SWIFT SRX networks.
 
-* **Azure Virtual Network Subnet**: SWIFT AMH Core components (front-end, database, and messaging) should be deployed in separate subnets. This allows traffic control between them via Azure Virtual Network Subnet Network Security Groups.
+* **Azure Virtual Network subnet**: SWIFT AMH Core components (front-end, database, and messaging) should be deployed in separate subnets. This allows traffic control between them via Azure Virtual Network subnet network security groups.
 
-* **Azure Route Table**: Network connectivity between SWIFT AMH and customer's on-premises site (HSM) can be controlled via Azure Route Table. Similarly, connectivity to SWIFTNet is also configured using Azure Route Table.
+* **Azure route table**: Network connectivity between SWIFT AMH and customer's on-premises site (HSM) can be controlled via Azure route table. Similarly, connectivity to SWIFTNet is also configured using Azure route table.
 
 * **Azure Load Balancer**: It acts as a gateway to SWIFT AMH. Business users and applications from an on-premises site can connect to Azure Load Balancer, which then routes requests to a pool of back-end virtual machines (VMs) running AMH front-end.
 
 * **Azure Firewall**: Any outbound connectivity from SWIFT AMH VMs to the internet should be routed via Azure Firewall. Typical examples of such connectivity are time syncs, anti-virus definition updates, and more.
 
-* **Azure Expressroute** / **Azure VPN**: SWIFT AMH components can be connected with the customer's on-premises site (users) and the customer's on-premises site (HSM) using Azure Expressroute / Azure VPN. Customers requiring dedicated and private network connectivity can opt for Azure Expressroute based connectivity. Azure VPN will use internet-based connection.
+* **Azure ExpressRoute** / **Azure VPN**: SWIFT AMH components can be connected with the customer's on-premises site (users) and the customer's on-premises site (HSM) using Azure ExpressRoute / Azure VPN. Customers requiring dedicated and private network connectivity can opt for Azure Expressroute based connectivity. Azure VPN will use internet-based connection.
 
 * **Azure Virtual Machine** : Azure Virtual Machine provides compute services for running SWIFT AMH. Consider using the following guideline to choose the right SKU.
 
@@ -47,7 +47,7 @@ Key SWIFT AMH technical solution components consist of *AMH node* running user i
 
 * **Azure Managed Disk**: Premium SSD managed disks ensure SWIFT AMH components get high throughput and low latency disk performance. They also provide the ability to back up and restore disks attached to VMs.
 
-* **Azure Proximity Placement Group**: To reduce the network latency between SWIFT AMH components, customers should consider using Azure Proximity Groups, which ensures all SWIFT AMH VMs will be placed as close as possible to each other.
+* **Azure proximity placement group**: To reduce the network latency between SWIFT AMH components, customers should consider using Azure proximity placement groups, which ensures all SWIFT AMH VMs will be placed as close as possible to each other.
 
 ### Alternatives
 
