@@ -1,6 +1,6 @@
 ### YamlMime:Architecture
 metadata:
-  title: Deploying machine learning models to multiple lines 
+  title: Deploy machine learning models to multiple lines 
   titleSuffix: Azure Example Scenarios
   description: This article describes an architecture that you can use to deploy machine learning models to multiple data sources. 
   author: EdPrice-MSFT
@@ -18,7 +18,7 @@ products:
   - "azure-pipelines"
   - "azure-blob-storage"
   - "azure-container-registry"
-name: Deployment of machine learning models to multiple data sources 
+name: Deploy machine learning models to multiple data sources 
 summary: This article describes an architecture that you can use to deploy machine learning models to multiple data sources. 
 thumbnailUrl: /azure/architecture/browse/thumbs/multiline-deployment-pipeline.png
 content: |
