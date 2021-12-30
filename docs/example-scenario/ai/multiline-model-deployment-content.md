@@ -23,7 +23,7 @@ This article's solution resolves this problem by running a multiple-step process
 
    Before the CD pipeline runs, there's typically a continuous integration (CI) pipeline that runs or that has already run. In this scenario, there was a corresponding CI pipeline for the model. After this CI pipeline runs, relevant code from the repo is published to an Azure Artifacts feed. The first step in this CD pipeline downloads the code from the Artifacts feed.
 
-2. The second phase of the CD pipeline runs an Azure Machine Learning experiment to train a model by using the applied filters. The Azure Machine Learning experiment is constructed as a pipeline that runs steps. In this case, there are four main steps that need to run (filtering, preprocessing, training, and registering). The filtering occurs only if filter parameters are passed in, but the data is alway pulled from the source. If all the data is located in the same place, some filters, like the line ID, can be passed as well to increase data segregation. 
+2. The second phase of the CD pipeline runs an Azure Machine Learning experiment to train a model by using the applied filters. The Azure Machine Learning experiment is constructed as a pipeline that runs steps. In this case, there are four main steps that need to run (filtering, preprocessing, training, and registering). The filtering occurs only if filter parameters are passed in, but the data is always pulled from the source. If all the data is located in the same place, some filters, like the line ID, can be passed as well to increase data segregation. 
 
 3. The data for all lines is stored in one Azure Blob Storage instance, so the line and location are needed to find the relevant data. 
 
