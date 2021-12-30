@@ -2,7 +2,7 @@ Engineering teams experience challenges when they set up DevOps pipelines for co
 
 This article shows you how to take advantage of Azure DevOps REST APIs to build continuous integration and continuous deployment (CI/CD) pipelines. Depending on the workload, the build steps in pipelines can vary. Every team has a preferred number of environments within their Azure subscriptions, that depend on their internal systems and business scenarios. These decisions will influence the number of stages in the DevOps pipelines.
 
-By using Azure DevOps Service Hooks and REST APIs, an event like the first push into the repository can set off a series of steps and construct the total development path for the repository. Developers can see their changes in minutes, and they no longer need to repeatedly set up DevOps pipelines to create developer, test, and production environments in Azure.
+By using Azure DevOps service hooks and REST APIs, an event like the first push into the repository can set off a series of steps and construct the total development path for the repository. Developers can see their changes in minutes, and they no longer need to repeatedly set up DevOps pipelines to create developer, test, and production environments in Azure.
 
 By using the solution described in this article, your engineering team can focus on projects that create value for your customers.
 
@@ -36,7 +36,7 @@ This architecture is industry agnostic and can be applied to any team-building s
 
 ### Dataflow
 
-- **Step 1** - The developer creates a starter project using one of the preloaded templates in Visual Studio, like a .NET Angular workload. We recommend you to add an Azure resource group project to the same Visual Studio solution.The Azure Resource Manager (ARM) template will provision an AppService Plan, App Service, and Application Insights.
+- **Step 1** - The developer creates a starter project using one of the preloaded templates in Visual Studio, like a .NET Angular workload. We recommend you add an Azure resource group project to the same Visual Studio solution.The Azure Resource Manager (ARM) template will provision an AppService Plan, App Service, and Application Insights.
 - **Step 2** - The repository also contains a multistage YAML pipeline file. The multistage YAML pipeline has precise steps on how the solution needs to be built and published.
 - **Steps 3-5** - Once the developer submits a `git push` into an Azure DevOps repository, a webhook is dispatched from Azure DevOps to a logic app.
 - **Step 6** - When the HTTP trigger of the logic app is invoked, the logic app determines whether the push is made in the main or feature branches. Once the commit is detected in the main branch of the repository, the logic app looks for existing pipelines corresponding to the repository.
