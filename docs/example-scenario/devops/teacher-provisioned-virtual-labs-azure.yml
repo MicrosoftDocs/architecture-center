@@ -1,0 +1,23 @@
+### YamlMime:Architecture
+metadata:
+  title: Teacher-provisioned virtual labs in Azure
+  titleSuffix: Azure Example Scenarios
+  description: Learn how you can use Azure Lab Services to set up identical VMs from templates, for use in training, customer demos, and software development.
+  author: pielgarriga 
+  ms.author: mgarriga 
+  ms.date: 12/09/2021
+  ms.topic: conceptual
+  ms.service: architecture-center
+  ms.subservice: example-scenario
+  ms.custom:
+    - fcp
+azureCategories:
+  - devops
+products:
+  - azure-lab-services
+  - azure-virtual-machines
+name: Teacher-provisioned virtual labs in Azure
+summary: Learn how you can use Azure Lab Services to set up identical VMs from templates, for use in training, customer demos, and software development.
+thumbnailUrl: /azure/architecture/browse/thumbs/teacher-provisioned-virtual-labs-azure.png
+content: |
+  [!include[](teacher-provisioned-virtual-labs-azure-content.md)]
