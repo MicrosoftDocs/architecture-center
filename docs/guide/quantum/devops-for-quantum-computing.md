@@ -3,7 +3,7 @@ title: DevOps for quantum computing
 description: Learn about DevOps requirements for quantum-based apps. DevOps provides a repeatable, high-quality process for building, deploying, and monitoring software.
 author: hsirtl
 ms.author: hsirtl
-ms.date: 1/5/2022
+ms.date: 01/05/2022
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: azure-guide
