@@ -36,7 +36,7 @@ This architecture is industry agnostic and can be applied to any team-building s
 
 ### Dataflow
 
-- **Step 1** - The developer creates a starter project using one of the preloaded templates in Visual Studio, like a .NET Angular workload. We recommend you add an Azure resource group project to the same Visual Studio solution.The Azure Resource Manager (ARM) template will provision an AppService Plan, App Service, and Application Insights.
+- **Step 1** - The developer creates a starter project using one of the preloaded templates in Visual Studio, like a .NET Angular workload. We recommend you add an Azure resource group project to the same Visual Studio solution. The Azure Resource Manager (ARM) template will provision an App Service plan, App Service, and Application Insights.
 - **Step 2** - The repository also contains a multistage YAML pipeline file. The multistage YAML pipeline has precise steps on how the solution needs to be built and published.
 - **Steps 3-5** - Once the developer submits a `git push` into an Azure DevOps repository, a webhook is dispatched from Azure DevOps to a logic app.
 - **Step 6** - When the HTTP trigger of the logic app is invoked, the logic app determines whether the push is made in the main or feature branches. Once the commit is detected in the main branch of the repository, the logic app looks for existing pipelines corresponding to the repository.
@@ -81,10 +81,10 @@ The logic apps that are invoked with `git commit` can run on any of the availabl
 
 ## Deploy this scenario
 
-You can find the source code, deployment files, and instructions to test this scenario on GitHub. 
+You can find the source code, deployment files, and instructions to test this scenario on GitHub: 
 
-- [Deployment of orchestrator Azure Logic App](https://github.com/mspnp/multi-stage-azure-pipeline-automation)
-- [Deployment of dotnet angular workload](https://github.com/mspnp/multi-stage-azure-pipeline-automation-app)
+- [Deploy an orchestrator logic app in Azure](https://github.com/mspnp/multi-stage-azure-pipeline-automation)
+- [Deploy a .NET Angular workload](https://github.com/mspnp/multi-stage-azure-pipeline-automation-app)
 
 
 ## Next steps
