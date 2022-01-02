@@ -528,4 +528,3 @@ Continue learning:
 - [Architecture of an AKS regulated cluster for PCI-DSS 3.2.1 (Part 2 of 9)](/azure/architecture/reference-architectures/containers/aks-pci/aks-pci-ra-code-assets)
 - [Baseline architecture for an Azure Kubernetes Service (AKS) cluster](/azure/architecture/reference-architectures/containers/aks/secure-baseline-aks)
 - [AKS baseline for multiregion clusters](/azure/architecture/reference-architectures/containers/aks-multi-region/aks-multi-cluster)
-- 
