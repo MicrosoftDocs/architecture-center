@@ -1,4 +1,4 @@
-This article describes the considerations for an Azure Kubernetes Service (AKS) cluster that's configured in accordance with the Payment Card Industry Data Security Standard (PCI-DSS 3.2.1).
+This article describes the networking considerations for an Azure Kubernetes Service (AKS) cluster that's configured in accordance with the Payment Card Industry Data Security Standard (PCI-DSS 3.2.1).
 
 > This article is part of a series. Read the [introduction](aks-pci-intro.yml).
 
@@ -514,3 +514,18 @@ Protect stored cardholder data. Encrypt transmission of cardholder data across o
 
 > [!div class="nextstepaction"]
 > [Protect cardholder data](aks-pci-data.yml)
+
+Continue learning:
+- [Azure Kubernetes Service](/azure/aks/intro-kubernetes)
+- [What is Azure Firewall?](/azure/firewall/overview)
+- [What is the Azure CLI?](/cli/azure/what-is-azure-cli)
+- [Project Calico](https://www.tigera.io/project-calico)
+
+## Related resources
+
+- [Azure Kubernetes Service (AKS) architecture design](/azure/architecture/reference-architectures/containers/aks-start-here)
+- [Introduction of an AKS regulated cluster for PCI-DSS 3.2.1 (Part 1 of 9)](/azure/architecture/reference-architectures/containers/aks-pci/aks-pci-intro)
+- [Architecture of an AKS regulated cluster for PCI-DSS 3.2.1 (Part 2 of 9)](/azure/architecture/reference-architectures/containers/aks-pci/aks-pci-ra-code-assets)
+- [Baseline architecture for an Azure Kubernetes Service (AKS) cluster](/azure/architecture/reference-architectures/containers/aks/secure-baseline-aks)
+- [AKS baseline for multiregion clusters](/azure/architecture/reference-architectures/containers/aks-multi-region/aks-multi-cluster)
+- 
