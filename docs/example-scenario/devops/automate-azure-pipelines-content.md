@@ -2,7 +2,7 @@ Engineering teams experience challenges when they set up DevOps pipelines for co
 
 This article shows you how to take advantage of Azure DevOps REST APIs to build continuous integration and continuous deployment (CI/CD) pipelines. Depending on the workload, the build steps in pipelines can vary. Every team has a preferred number of environments within their Azure subscriptions, that depend on their internal systems and business scenarios. These decisions will influence the number of stages in the DevOps pipelines.
 
-By using Azure DevOps service hooks and REST APIs, an event like the first push into the repository can set off a series of steps and construct the total development path for the repository. Developers can see their changes in minutes, and they no longer need to repeatedly set up DevOps pipelines to create developer, test, and production environments in Azure.
+By using Azure DevOps service hooks and REST APIs, an event (such as the first push into the repository) can set off a series of steps and can construct the total development path for the repository. Developers can see their changes in minutes, and they no longer need to repeatedly set up DevOps pipelines to create developer, test, and production environments in Azure.
 
 By using the solution described in this article, your engineering team can focus on projects that create value for your customers.
 
