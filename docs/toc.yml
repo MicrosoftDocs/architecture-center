@@ -1910,6 +1910,8 @@ items:
                 href: reference-architectures/ai/end-to-end-smart-factory.yml
               - name: Deploy AI and ML at the edge
                 href: hybrid/deploy-ai-ml-azure-stack-edge.yml
+              - name: Deploy models to multiple data sources
+                href: example-scenario/ai/multiline-model-deployment.yml
               - name: Determine customer lifetime and churn
                 href: example-scenario/ai/customer-lifecycle-churn.yml
               - name: Distributed deep learning training
