@@ -4,7 +4,7 @@ metadata:
   description: This article provides a reference architecture for deploying and running SWIFT Alliance Messaging Hub (AMH) on Azure.
   author: Mahesh-MSFT
   ms.author: maksh
-  ms.date: 12/30/2021
+  ms.date: 01/04/2022
   ms.topic: conceptual
   ms.service: architecture-center
   ms.subservice: example-scenario
@@ -21,7 +21,6 @@ summary: Use this reference architecture to deploy and run SWIFT Alliance Messag
 products:
   - azure-virtual-machines
   - azure-virtual-network
-  - mscloud-financial
   - azure-managed-disks
   - azure-load-balancer
   - azure-linux-vm
