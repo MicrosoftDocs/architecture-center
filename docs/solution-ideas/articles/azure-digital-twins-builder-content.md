@@ -37,6 +37,8 @@ Real estate portfolio managers can use BIM and DTs to improve their understandin
 
 *Download a [Visio file](https://arch-center.azureedge.net/US-1896838-azure-digital-twins-builder.vsdx) of this architecture.*
 
+### Workflow
+
 1. A web app that was built by using Static Web Apps presents two buttons to the user. One of them initiates sign-in to Azure, the other initiates sign-in to Autodesk BIM 360. The user signs into both accounts.
 1. The web app uses the Autodesk Forge API to build a list of the BIM models that are shared with the BIM 360 account. The user selects a model for the web app to display, which it does by once again making use of the Autodesk Forge API.
 1. The user selects **Parse Model**, which triggers a request to a function that was built by using Azure Functions. The function uses the Autodesk Forge API to extract the metadata of the model that the user selected.
