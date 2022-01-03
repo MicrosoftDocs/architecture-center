@@ -2003,12 +2003,16 @@ items:
                 href: solution-ideas/articles/hpc-cluster.yml
               - name: Linux virtual desktops with Citrix
                 href: example-scenario/infrastructure/linux-vdi-citrix.yml
-              - name: Loosely coupled quantum computing jobs on Azure
-                href: example-scenario/quantum/loosely-coupled-quantum-computing-job.yml
               - name: Manage virtual machine compliance
                 href: example-scenario/security/virtual-machine-compliance.yml
               - name: Move Azure resources across regions
                 href: solution-ideas/articles/move-azure-resources-across-regions.yml
+              - name:  Quantum computing solutions
+                items: 
+                  - name: Loosely coupled quantum computing on Azure
+                    href: example-scenario/quantum/loosely-coupled-quantum-computing-job.yml
+                  - name: Tightly coupled quantum computing on Azure
+                    href: example-scenario/quantum/tightly-coupled-quantum-computing-job.yml
               - name: Run a Linux VM on Azure
                 href: reference-architectures/n-tier/linux-vm.yml
               - name: Run a Windows VM on Azure
@@ -2017,8 +2021,6 @@ items:
                 href: example-scenario/infrastructure/hpc-cfd.yml
               - name: Run reservoir simulations
                 href: example-scenario/infrastructure/reservoir-simulation.yml
-              - name: Tightly coupled quantum computing jobs on Azure
-                href: example-scenario/quantum/tightly-coupled-quantum-computing-job.yml
           - name: Solution ideas
             items:
               - name: HPC risk analysis

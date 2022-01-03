@@ -16,6 +16,8 @@ You can integrate this orchestration with classical applications in one of two w
   * Quantum components share the same lifecycle as the classical components.
   * Use of the quantum components is limited to a single application.
 
+This article describes how to implement quantum applications that use the loosely coupled model. The architecture described here uses Azure Quantum, Azure API Management, and Azure Functions.
+
 ## Potential use cases
 
 Use this architecture when quantum computing jobs must be run as part of a classical application. 
@@ -29,8 +31,8 @@ The loosely coupled approach is preferred in these cases:
 
 :::image type="content" source="media/loosely-coupled-quantum-computing-job-architecture.png" alt-text="Architecture diagram that shows a hybrid app that contains a loosely coupled quantum computing job.":::
 
-Link to visio
-
+*Download a [PowerPoint file](https://arch-center.azureedge.net/loosely-coupled-quantum.pptx) of this architecture.*
+### Dataflow 
 1. A signed-in user triggers quantum job execution via a classical application.
 1. A classical client calls the custom job API to submit the job.
 1. The API gateway triggers an Azure function that passes job input data.
@@ -47,10 +49,9 @@ This workflow implements the [Asynchronous Request-Reply pattern](../../patterns
 
 * [Azure Quantum](https://azure.microsoft.com/services/quantum) provides a [workspace](/azure/quantum/how-to-create-workspace), accessible from the Azure portal, for assets associated with running quantum or optimization jobs on various targets. Jobs are run on quantum simulators, quantum hardware, or optimization solvers, depending on the provider you choose.
 * [Azure Active Directory](https://azure.microsoft.com/services/active-directory) coordinates user authentication and protects access to the Azure Quantum workspace.
-* [Azure API Management](https://azure.microsoft.com/services/api-management) is the API gateway that centrally exposes the API endpoints for quantum job management.
+* [API Management](https://azure.microsoft.com/services/api-management) is the API gateway that centrally exposes the API endpoints for quantum job management.
 * [Azure Functions](https://azure.microsoft.com/services/functions) is used to forward the client requests to appropriate quantum resources.
 * [Azure Key Vault](https://azure.microsoft.com/services/key-vault) safeguards and maintains control of keys and other secrets, such as the Azure Quantum workspace name.
-* [Azure Quantum](https://azure.microsoft.com/services/quantum) provides functionality for running quantum computing jobs on various target quantum environments.
 * [Azure Storage](https://azure.microsoft.com/services/storage) provides storage for input data and results from the quantum provider. 
 
 ### Alternatives
@@ -99,7 +100,7 @@ For a description of a continuous integration and continuous delivery (CI/CD) ap
 
 ## Pricing
 
-The overall cost of this solution depends on the quantum computing target that you select to run the quantum job. Calculating estimated costs for the classical components is straightforward. You can be use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator).
+The overall cost of this solution depends on the quantum computing target that you select to run the quantum job. Calculating estimated costs for the classical components is straightforward. You can use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator).
 
 For the Azure Quantum service, consider these points:
 
@@ -112,9 +113,10 @@ For the Azure Quantum service, consider these points:
 * To get an overview of Microsoft Quantum, a full-stack, open-cloud quantum computing ecosystem, see [Microsoft Quantum](https://azure.microsoft.com/solutions/quantum-computing) and complete the [Quantum computing foundations](/learn/paths/quantum-computing-fundamentals) learning path.
 * For more information about the Azure Quantum service, see [Azure Quantum](https://azure.microsoft.com/services/quantum).
 * For general information about Azure Quantum job management, see [Work with Azure Quantum jobs](/azure/quantum/how-to-work-with-jobs).
-* For information about [running algorithms on quantum hardware](/learn/modules/run-algorithms-quantum-hardware-azure-quantum), see the corresponding learning module on MS learn.
+* For information about running algorithms on quantum hardware, see the Microsoft Learn course [Run algorithms on quantum hardware by using Azure Quantum](/learn/modules/run-algorithms-quantum-hardware-azure-quantum).
 
 ## Related resources
 
 * [Operational excellence principles](../../framework/devops/principles.md)
 * [Asynchronous Request-Reply pattern](../../patterns/async-request-reply.md)
+* [Tightly coupled quantum computing](tightly-coupled-quantum-computing-job.yml)
