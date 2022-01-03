@@ -1,6 +1,6 @@
 [!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
-Quantum computing applies the unique behavior of quantum physics to computing. This approach provides dramatically faster compute time than classical computing, especially in areas like optimization, simulation, and machine learning. However, quantum computing components have a different development and operating model than that of classical software. Typically, one or more classical compute components orchestrates the [execution of quantum jobs](/azure/quantum/how-to-work-with-jobs) at runtime.
+Quantum computing applies the unique behavior of quantum physics to computing. This approach provides dramatically faster compute time than classical computing, especially in areas like optimization, simulation, and machine learning. However, quantum computing components have a different development and operating model from that of classical software. Typically, one or more classical compute components orchestrates the [execution of quantum jobs](/azure/quantum/how-to-work-with-jobs) at runtime.
 
 The resulting combination of classical and quantum components must be reflected in the build process. This is true for both the [loosely coupled](../../example-scenario/quantum/loosely-coupled-quantum-computing-job.yml) and the [tightly coupled](../../example-scenario/quantum/tightly-coupled-quantum-computing-job.yml) integration approaches. The quantum components have special requirements in their [software development lifecycle](/azure/quantum/overview-what-is-qsharp-and-qdk#what-can-i-do-with-the-qdk). For quality assurance, quantum jobs should be run on simulators, sized on resource estimators, and, in some cases, run on quantum hardware. After successful tests, developers can integrate the job artifacts into the classical components that submit the job to quantum targets at runtime.
 
@@ -35,7 +35,7 @@ This solution applies when quantum computing jobs are run as part of a classical
 
 DevOps tools used:
 
-* [Azure Repos](https://azure.microsoft.com/services/devops/repos) provides unlimited, cloud-hosted private Git repos. It's used here to store the quantum and classic code and the Azure Resource Manager templates that are used to provision the environment.
+* [Azure Repos](https://azure.microsoft.com/services/devops/repos) provides unlimited, cloud-hosted private Git repos. It's used here to store the quantum and classical code and the Azure Resource Manager templates that are used to provision the environment.
 * [Azure Pipelines](https://azure.microsoft.com/services/devops/pipelines) enables you to continuously build, test, and deploy to the cloud. Here, it's used to implement CI/CD, including the environment provisioning before code deployment.
 
 As an alternative, you can use GitHub repositories and GitHub actions to implement the CI/CD processes.
@@ -43,7 +43,7 @@ As an alternative, you can use GitHub repositories and GitHub actions to impleme
 Other components used:
 
 * A client application orchestrates the quantum job. You can implement integration by using a [tightly coupled](../../example-scenario/quantum/tightly-coupled-quantum-computing-job.yml) or a [loosely coupled](../../example-scenario/quantum/loosely-coupled-quantum-computing-job.yml) approach.
-* [Azure Quantum](https://azure.microsoft.com/services/quantum) provides a workspace for assets associated with running quantum computing or optimization applications. Jobs are run on quantum simulators, quantum hardware, or optimization solvers, depending on the provider you choose.
+* [Azure Quantum](https://azure.microsoft.com/services/quantum) provides a workspace for assets associated with running quantum computing applications. Jobs are run on quantum simulators, quantum hardware, or optimization solvers, depending on the provider you choose.
 * [Azure Active Directory](https://azure.microsoft.com/services/active-directory) coordinates user authentication and protects access to the Azure Quantum workspace.
 * [Azure Key Vault](https://azure.microsoft.com/services/key-vault) safeguards and maintains control of keys and other secrets, like the quantum workspace name.
 * [Azure Storage](https://azure.microsoft.com/services/storage) holds the input and output data of the quantum job.
