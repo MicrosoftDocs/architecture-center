@@ -7,7 +7,10 @@ ms.date: 10/25/2021
 ms.topic: reference
 ms.service: architecture-center
 ms.subservice: cloud-fundamentals
+categories:
+  - containers
 products:
+  - azure-kubernetes-service
   - azure-machine-learning
 ms.custom:
   - fcp

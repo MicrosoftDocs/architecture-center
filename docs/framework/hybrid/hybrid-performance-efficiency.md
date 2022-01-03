@@ -8,6 +8,10 @@ ms.service: architecture-center
 ms.subservice: well-architected
 ms.custom:
   - e2e-hybrid
+categories:
+  - hybrid
+products:
+  - azure-arc
 ---
 
 # Performance efficiency in a hybrid workload

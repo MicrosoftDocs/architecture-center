@@ -9,6 +9,8 @@ ms.subservice: azure-guide
 ms.category:
   - management-and-governance
   - developer-tools
+categories:
+  - containers
 products:
   - azure-monitor
   - azure-kubernetes-service
