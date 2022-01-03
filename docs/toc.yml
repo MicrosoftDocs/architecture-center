@@ -2503,7 +2503,7 @@ items:
                   - name: Azure Cosmos DB resource model
                     href: /azure/cosmos-db/account-databases-containers-items
                     maintainContext: true
-                  - name: Global dstribution
+                  - name: Global distribution
                     items:
                       - name: Distribute data globally with Cosmos DB
                         href: /azure/cosmos-db/distribute-data-globally
