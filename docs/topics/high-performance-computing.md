@@ -280,7 +280,7 @@ The following are examples of cluster and workload managers that can run in Azur
 - [IBM Spectrum Symphony and Symphony LSF](https://azure.microsoft.com/blog/ibm-and-microsoft-azure-support-spectrum-symphony-and-spectrum-lsf)
 - [Altair PBS Works](https://www.altair.com/pbs-works)
 - [Rescale](https://www.rescale.com/azure)
-- [Univa Grid Engine](https://www.univa.com/products/univa-grid-engine.php)
+- [Univa Grid Engine](https://www.altair.com/grid-engine/)
 - [Microsoft HPC Pack](/powershell/high-performance-computing/overview?view=hpc19-ps&preserve-view=true)
   - [HPC Pack for Windows](/azure/virtual-machines/windows/hpcpack-cluster-options)
   - [HPC Pack for Linux](/azure/virtual-machines/linux/hpcpack-cluster-options)
