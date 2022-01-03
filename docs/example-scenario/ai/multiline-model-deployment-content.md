@@ -33,16 +33,19 @@ This article's solution resolves this problem by running a multiple-step process
 
    The last step depends on where the model is used. The organization in this example needs the model in a container that's installed on edge devices. The best model (either the live model or the newly trained one) is installed in the code base of the container. The image is pushed to Azure Container Registry.
 
-### Why this approach?
+#### Why this approach?
+
 This approach is used mainly because there's one model that's used across all the lines. Other than the dataset that the data was trained on, there's no real differentiating factor. Because the system is consistent for all the lines, the only variable is the dataset. This allowed the use of a repeatable process.  
 
-### Components 
+### Components
+
 - [Azure Pipelines](https://azure.microsoft.com/services/devops/pipelines) is used to create and run the CD pipeline. 
 - [Azure Machine Learning](https://azure.microsoft.com/services/machine-learning-service) is used for the end-to-end machine learning lifecycle. In the part of the scenario represented in this architecture, it's used to train the models.   
 - [Azure Blob Storage](https://azure.microsoft.com/services/storage/blobs) provides massively scalable and secure object storage for machine learning. Here, it's used to store data from edge devices. 
 - [Azure Container Registry](https://azure.microsoft.com/services/container-registry) is used to store the images that contain the machine learning models.
 
 ### Alternatives
+
  You don't necessarily need to use a CD pipeline to implement the process that compares the new model to the existing one, but it's a good practice to automate the process.
 
 In this scenario, the data resides in blob storage primarily because of the constraints of how and how often the data gets to the cloud from the edge devices. This method still works if the data is written to a table. Data filtering might be easier if the data is in a database. If your data can arrive in table form, you might want to consider storing it in [Azure Data Explorer](https://azure.microsoft.com/services/data-explorer) rather than using blob storage.
@@ -50,6 +53,7 @@ In this scenario, the data resides in blob storage primarily because of the cons
 If your repo is in GitHub, you might consider [GitHub Actions](https://github.com/features/actions) as an alternative to the Azure DevOps pipeline.
 
 ## Considerations
+
 In the architecture described here, the Azure Machine Learning pipeline isn't run remotely. If the model doesn't take long to train, running remotely isn't needed. If you're running a more complex model or the Azure Machine Learning pipeline takes a long time to finish, run the Azure Machine Learning pipeline remotely. Doing so frees up an Azure DevOps agent while the Azure Machine Learning pipeline runs.
 
 Scale is an important consideration with this approach. In a production environment with hundreds or thousands of lines that constantly needed to be optimized, it might be beneficial to spread the resources out so that all the compute and resources aren't on just a few resources.
@@ -65,6 +69,7 @@ Optimize the compute that Azure Machine Learning uses for the algorithm. If you 
 Use managed identities to provide access to Azure resources.
  
 ## Pricing
+
 To better understand the cost of running this scenario on Azure, use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator).
 
 - The size of the storage account depends on the size and average volume of your data.
