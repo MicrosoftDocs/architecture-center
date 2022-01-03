@@ -17,7 +17,7 @@ products:
   - azure-quantum
   - azure-api-management
   - azure-functions
-name: Loosely coupled quantum computing job
+name: Loosely coupled quantum computing 
 summary: Learn how to use Azure Quantum to implement hybrid quantum applications that use a loosely coupled model.
 thumbnailUrl: /azure/architecture/browse/thumbs/loosely-coupled-quantum-computing-job.png
 content: |
