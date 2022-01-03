@@ -102,7 +102,7 @@ We have provided three sample cost profiles based on amount of traffic you expec
 
 ## Next steps
 
-- [Typical design patterns for scalability](../../framework/scalability/performance-efficiency-patterns.md)
+- [Typical design patterns for scalability](/azure/architecture/framework/scalability/performance-efficiency-patterns)
 - [Ssecure development lifecycle][secure-development]
 - [Resiliency][resiliency]
 - [Recommended practices for App Service][resiliency-app-service]

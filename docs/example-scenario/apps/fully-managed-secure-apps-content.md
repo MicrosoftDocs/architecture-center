@@ -79,11 +79,7 @@ Another point to consider is regarding DNS. In order to allow applications withi
 
 ### Availability
 
-<<<<<<< HEAD
-- Consider leveraging the [typical design patterns for availability](/azure/architecture/framework/resiliency/reliability-patterns.md) when building your cloud application.
-=======
-- Consider applying the [typical design patterns for availability](../../framework/resiliency/reliability-patterns.md) when building your cloud application.
->>>>>>> 9b98c036e57b6c9b1281a06ff554eaff4ba3236c
+- Consider leveraging the [typical design patterns for availability](/azure/architecture/framework/resiliency/reliability-patterns) when building your cloud application.
 - Review the availability considerations in the appropriate [App Service web application reference architecture][app-service-reference-architecture].
 - For additional considerations concerning availability, see the [availability checklist](../../checklist/resiliency-per-service.md) in the Azure Architecture Center.
 
@@ -97,11 +93,7 @@ Another point to consider is regarding DNS. In order to allow applications withi
 
 ### Security
 
-<<<<<<< HEAD
-- Consider leveraging the [typical design patterns for security](/azure/architecture/framework/security/security-patterns.md) where appropriate.
-=======
-- Consider applying the [typical design patterns for security](../../framework/security/security-patterns.md) where appropriate.
->>>>>>> 9b98c036e57b6c9b1281a06ff554eaff4ba3236c
+- Consider leveraging the [typical design patterns for security](/azure/architecture/framework/security/security-patterns) where appropriate.
 - Review the security considerations in the appropriate [App Service web application reference architecture][app-service-reference-architecture].
 - Consider following a [secure development lifecycle][secure-development] process to help developers build more secure software and address security compliance requirements while reducing development cost.
 - Review the blueprint architecture for [Azure PCI DSS compliance][pci-dss-blueprint].
@@ -109,13 +101,8 @@ Another point to consider is regarding DNS. In order to allow applications withi
 ### Resiliency
 
 - Consider using [Geo Distributed Scale with ASE][design-geo-distributed-ase] for greater resiliency and scalability.
-<<<<<<< HEAD
-- Review the [typical design patterns for resiliency](/azure/architecture/framework/resiliency/reliability-patterns.md) and consider implementing these where appropriate.
+- Review the [typical design patterns for resiliency](/azure/architecture/framework/resiliency/reliability-patterns) and consider implementing these where appropriate.
 - You can find a number of [recommended practices for App Service][resiliency-app-service] in the Azure Architecture Center.
-=======
-- Review the [typical design patterns for resiliency](../../framework/resiliency/reliability-patterns.md) and consider implementing these where appropriate.
-- You can find many [recommended practices for App Service][resiliency-app-service] in the Azure Architecture Center.
->>>>>>> 9b98c036e57b6c9b1281a06ff554eaff4ba3236c
 - Consider using active [geo-replication][sql-geo-replication] for the data tier and [geo-redundant][storage-geo-redudancy] storage for images and queues.
 - For a deeper discussion on [resiliency][resiliency], see the relevant article in the Azure Architecture Center.
 
