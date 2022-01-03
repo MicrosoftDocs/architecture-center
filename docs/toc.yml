@@ -3498,6 +3498,8 @@ items:
                 href: example-scenario/iot/smart-places.yml
           - name: Solution ideas
             items:
+              - name: Azure digital twins builder
+                href: solution-ideas/articles/azure-digital-twins-builder.yml
               - name: Buy online, pick up in store
                 href: example-scenario/iot/vertical-buy-online-pickup-in-store.yml
               - name: Condition monitoring
