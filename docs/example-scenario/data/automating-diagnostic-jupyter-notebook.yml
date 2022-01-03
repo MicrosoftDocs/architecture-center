@@ -12,6 +12,8 @@ metadata:
   ms.custom: fcp
 azureCategories:
   - developer-tools
+  - devops
+  - integration
 products:
   - azure-logic-apps
   - azure-automation
