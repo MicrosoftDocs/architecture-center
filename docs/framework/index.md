@@ -178,7 +178,7 @@ For a high-level synopsis, reference [Overview of the performance efficiency pil
 Learn more about:
 
 - [Azure Well-Architected Review](/assessments/?id=azure-architecture-review&mode=pre-assessment)
-- [Well-Architected Series](https://channel9.msdn.com/Tags/well-architected-series)
+- Well-Architected Series
 - [Introduction to the Microsoft Azure Well-Architected Framework](/learn/modules/azure-well-architected-introduction/)
 - [Microsoft Defender for Cloud](/azure/security-center/)
 - [Cloud Adoption Framework](/azure/cloud-adoption-framework/)

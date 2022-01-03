@@ -80,7 +80,7 @@ The security policies that you enable in Microsoft Defender for Cloud drive secu
 
 ## Deploy the solution
 
-### Create a Log Analytics workspace in Azure Portal
+### Create a Log Analytics workspace in the Azure portal
 
 1. Sign into the Azure portal as a user with Security Admin privileges.
 1. In the Azure portal, select **All services**. In the list of resources, enter **Log Analytics**. As you begin entering, the list filters based on your input. Select **Log Analytics workspaces**.
@@ -119,7 +119,7 @@ To learn more about the specific Defender for Cloud features available in Window
 
 ### Enable Microsoft Defender for Cloud monitoring of on-premises Windows computers
 
-1. In the Azure Portal on the **Defender for Cloud - Overview** blade, select the **Get Started** tab.
+1. In the Azure portal on the **Defender for Cloud - Overview** blade, select the **Get Started** tab.
 1. Select **Configure** under **Add new non-Azure computers**. A list of your Log Analytics workspaces displays, and should include the **Defender for Cloud-SentinelWorkspace**.
 1. Select this workspace. The **Direct Agent** blade opens with a link for downloading a Windows agent and keys for your workspace identification (ID) to use when you configure the agent.
 1. Select the **Download Windows Agent** link applicable to your computer processor type to download the setup file.
@@ -282,7 +282,6 @@ To learn more about Microsoft Sentinel, refer to the following articles:
 - [Microsoft Defender for Cloud Secure Score][azure-security-center-secure-score]
 - [Microsoft Defender for Cloud Security Alerts][azure-security-center-security-alerts]
 - [Microsoft Defender for Cloud Security Policies][azure-security-center-security-policies]
-- [Microsoft Defender for Cloud Security Recommendations][azure-security-center-security-recommendations]
 - [Microsoft Defender for Cloud Security Recommendations][azure-security-center-security-recommendations]
 - [Microsoft Defender for Cloud Supported Platforms][azure-security-center-supported-platforms]
 - [Microsoft Defender for Cloud Threat Protection][azure-security-center-threat-protection]

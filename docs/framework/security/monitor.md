@@ -43,9 +43,9 @@ Regularly monitor resources to maintain the security posture and detect vulnerab
 The Azure Security Benchmark includes a collection of high-impact security recommendations. Use them to secure the services and processes you use to run the workload in Azure:
 
 > ![Security Benchmark](../../_images/benchmark-security.svg) The questions in this section are aligned to these controls:
-> - [Azure Security Benchmarks Logging and threat detection](/azure/security/benchmarks/security-controls-v2-logging-threat-detection).
-> - [Azure Security Benchmarks Incident response](/azure/security/benchmarks/security-controls-v2-incident-response).
-> - [Posture and Vulnerability Management](/azure/security/benchmarks/security-controls-v2-posture-vulnerability-management)
+> - [Azure Security Benchmarks Logging and threat detection](/security/benchmark/azure/security-controls-v3-logging-threat-detection).
+> - [Azure Security Benchmarks Incident response](/security/benchmark/azure/security-controls-v3-incident-response).
+> - [Posture and Vulnerability Management](/security/benchmark/azure/security-controls-v3-posture-vulnerability-management)
 
 ## Reference architecture
 

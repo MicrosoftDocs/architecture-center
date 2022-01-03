@@ -29,7 +29,7 @@ For more information about the different types of storage accounts that support 
 
 To understand how an Azure storage account supports resiliency for your application workload, reference the following articles:
 
-- [Azure storage redundancy](/storage/common/storage-redundancy?toc=/azure/storage/blobs/toc.json)
+- [Azure storage redundancy](/azure/storage/common/storage-redundancy?toc=/azure/storage/blobs/toc.json)
 - [Disaster recovery and storage account failover](/azure/storage/common/storage-disaster-recovery-guidance?toc=/azure/storage/blobs/toc.json)
 
 The following sections include design considerations, a configuration checklist, and recommended configuration options specific to Azure storage accounts and reliability.
