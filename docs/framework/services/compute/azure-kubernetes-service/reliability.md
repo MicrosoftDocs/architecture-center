@@ -33,7 +33,7 @@ The following sections include configuration checklists, recommended configurati
 > - Control pod scheduling using node selectors and affinity.
 > - Use a central monitoring tool, such as [Azure Monitor and App Insights](/azure/azure-monitor/containers/container-insights-overview) to centrally collect metrics, logs, and diagnostics for troubleshooting purposes.
 > - Enable and review [Kubernetes master node logs](/azure/azure-monitor/containers/container-insights-log-query#resource-logs).
-> - Configure scraping of Prometheus metrics with Azure Monitor for containers.
+> - Configure scraping of Prometheus metrics with Azure Monitor container insights.
 > - Use [Azure Network Policies](/azure/aks/use-network-policies) or Calico to control traffic between pods. *Requires CNI Network Plug-in*.
 > - Ensure proper selection of network plugin based on network requirements and cluster sizing.
 > - Use the [AKS Uptime SLA](/azure/aks/uptime-sla) for production grade clusters.
@@ -91,7 +91,7 @@ Explore the following table of recommendations to optimize your AKS configuratio
 |AKS Recommendation|Description|
 |------------------|-----------|
 |Control pod scheduling using node selectors and affinity.|Allows the Kubernetes scheduler to logically isolate workloads by hardware in the node. Unlike tolerations, pods without a matching node selector can be scheduled on labeled nodes, which allows unused resources on the nodes to consume, but gives priority to pods that define the matching node selector. Use node affinity for more flexibility, which allows you to define what happens if the pod can't be matched with a node.|
-|Configure scraping of Prometheus metrics with Azure Monitor for containers.|Azure Monitor for containers provides a seamless onboarding experience to collect Prometheus metrics. Reference [Configure scraping of Prometheus metrics with Azure Monitor for containers](/azure/azure-monitor/containers/container-insights-prometheus-integration) for more information.|
+|Configure scraping of Prometheus metrics with Azure Monitor container insights.|Azure Monitor container insights provides a seamless onboarding experience to collect Prometheus metrics. Reference [Configure scraping of Prometheus metrics with Azure Monitor container insights](/azure/azure-monitor/containers/container-insights-prometheus-integration) for more information.|
 |Ensure proper selection of network plugin based on network requirements and cluster sizing.|Azure CNI is required for specific scenarios, for example, Windows-based node pools, specific networking requirements and Kubernetes Network Policies. Reference [Kubenet vs. Azure CNI](/azure/aks/concepts-network#compare-network-models) for more information.|
 |Use the [AKS Uptime SLA](/azure/aks/uptime-sla) for production grade clusters.|The AKS Uptime SLA guarantees:<br> - `99.95%` availability of the Kubernetes API server endpoint for AKS Clusters that use Azure Availability Zones, or <br> - `99.9%` availability for AKS Clusters that don't use Azure Availability Zones.|
 |Authenticate with Azure AD to Azure Container Registry.|AKS and Azure AD enables authentication with Azure Container Registry without the use of K8s and `imagePullSecrets` secrets. Reference [Authenticate with Azure Container Registry from Azure Kubernetes Service](/azure/aks/cluster-container-registry-integration?tabs=azure-cli) for more information.|

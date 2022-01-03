@@ -63,13 +63,13 @@ Monitoring in a hybrid environment can be a challenge. However, with tools like 
 
 ## Monitoring containers
 
-[Monitoring your containers is critical](../../hybrid/arc-hybrid-kubernetes.yml). Azure Monitor for containers provides a rich monitoring experience for the AKS and AKS engine clusters.
+[Monitoring your containers is critical](../../hybrid/arc-hybrid-kubernetes.yml). Azure Monitor container insights provides a rich monitoring experience for the AKS and AKS engine clusters.
 
-Configure Azure Monitor for containers to monitor Azure Arc-enabled Kubernetes clusters hosted outside of Azure. This helps achieve comprehensive monitoring of your Kubernetes clusters across Azure, on-premises, and third-party cloud environments.
+Configure Azure Monitor container insights to monitor Azure Arc-enabled Kubernetes clusters hosted outside of Azure. This helps achieve comprehensive monitoring of your Kubernetes clusters across Azure, on-premises, and third-party cloud environments.
 
-Azure Monitor for containers can provide you with performance visibility by collecting memory and processor metrics from controllers, nodes, and containers available in Kubernetes through the Metrics application programming interface (API). Container logs are also collected. After you enable monitoring from Kubernetes clusters, metrics and logs are automatically collected for you through a containerized version of the Log Analytics agent. Metrics are written to the metrics store and log data is written to the logs store associated with your Log Analytics workspace. For more information about Azure Monitor for containers, refer to Azure Monitor for containers overview.
+Azure Monitor container insights can provide you with performance visibility by collecting memory and processor metrics from controllers, nodes, and containers available in Kubernetes through the Metrics application programming interface (API). Container logs are also collected. After you enable monitoring from Kubernetes clusters, metrics and logs are automatically collected for you through a containerized version of the Log Analytics agent. Metrics are written to the metrics store and log data is written to the logs store associated with your Log Analytics workspace. For more information about Azure Monitor container insights, refer to Azure Monitor container insights overview.
 
-Enable Azure Monitor for containers for one or more existing deployments of Kubernetes by using either a PowerShell or a Bash script. To enable monitoring for Arc-enabled Kubernetes clusters, refer to [Enable monitoring of Azure Arc-enabled Kubernetes cluster](/azure/azure-monitor/containers/container-insights-enable-arc-enabled-clusters).
+Enable Azure Monitor container insights for one or more existing deployments of Kubernetes by using either a PowerShell or a Bash script. To enable monitoring for Arc-enabled Kubernetes clusters, refer to [Enable monitoring of Azure Arc-enabled Kubernetes cluster](/azure/azure-monitor/containers/container-insights-enable-arc-enabled-clusters).
 
 Automatically enroll in additional Azure Arc enabled resources and services. Simply turn them on when needed:
 

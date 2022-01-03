@@ -30,7 +30,7 @@ The following sections include configuration checklists, recommended configurati
 > - Define [Pod resource requests and limits](/azure/aks/developer-best-practices-resource-management#define-pod-resource-requests-and-limits) in application deployment manifests.
 > - Use a central monitoring tool, such as [Azure Monitor and App Insights](/azure/azure-monitor/containers/container-insights-overview), to centrally collect metrics, logs, and diagnostics for troubleshooting purposes.
 > - Enable and review [Kubernetes master node logs](/azure/azure-monitor/containers/container-insights-log-query#resource-logs).
-> - Configure scraping of Prometheus metrics with Azure Monitor for containers.
+> - Configure scraping of Prometheus metrics with Azure Monitor container insights.
 > - Use [Azure Network Policies](/azure/aks/use-network-policies) or Calico to control traffic between pods. *Requires CNI Network Plug-in*.
 > - Ensure proper selection of network plugin based on network requirements and cluster sizing.
 
@@ -63,7 +63,7 @@ Explore the following table of recommendations to optimize your AKS configuratio
 
 |AKS Recommendation|Description|
 |------------------|-----------|
-|Configure scraping of Prometheus metrics with Azure Monitor for containers.|Azure Monitor for containers provides a seamless onboarding experience to collect Prometheus metrics. Reference [Configure scraping of Prometheus metrics with Azure Monitor for containers](/azure/azure-monitor/containers/container-insights-prometheus-integration) for more information.|
+|Configure scraping of Prometheus metrics with Azure Monitor container insights.|Azure Monitor container insights provides a seamless onboarding experience to collect Prometheus metrics. Reference [Configure scraping of Prometheus metrics with Azure Monitor container insights](/azure/azure-monitor/containers/container-insights-prometheus-integration) for more information.|
 |Ensure proper selection of network plugin based on network requirements and cluster sizing.|Azure CNI is required for specific scenarios, for example, Windows-based node pools, specific networking requirements, and Kubernetes Network Policies. Reference [Kubenet vs. Azure CNI](/azure/aks/concepts-network#compare-network-models) for more information.|
 
 ### Security guideline recommendations

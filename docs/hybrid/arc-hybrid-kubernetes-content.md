@@ -44,13 +44,13 @@ Azure Arc-enabled Kubernetes consists of a few agents (also referred to as *oper
 
 For more information, refer to [Connect an Azure Arc-enabled Kubernetes cluster][Connect an Azure Arc-enabled Kubernetes cluster].
 
-### Monitoring clusters using Azure Monitor for containers
+### Monitoring clusters using Azure Monitor container insights
 
-Monitoring your containers is critical. Azure Monitor for containers provides a rich monitoring experience for the AKS and AKS engine clusters. You can also configure Azure Monitor for containers to monitor Azure Arc-enabled Kubernetes clusters hosted outside of Azure. This provides comprehensive monitoring of your Kubernetes clusters across Azure, on-premises, and third-party cloud environments.
+Monitoring your containers is critical. Azure Monitor container insights provides a rich monitoring experience for the AKS and AKS engine clusters. You can also configure Azure Monitor container insights to monitor Azure Arc-enabled Kubernetes clusters hosted outside of Azure. This provides comprehensive monitoring of your Kubernetes clusters across Azure, on-premises, and third-party cloud environments.
 
-Azure Monitor for containers can provide you with performance visibility by collecting memory and processor metrics from controllers, nodes, and containers available in Kubernetes through the Metrics application programming interface (API). Container logs are also collected. After you enable monitoring from Kubernetes clusters, metrics and logs are automatically collected for you through a containerized version of the Log Analytics agent. Metrics are written to the metrics store and log data is written to the logs store associated with your Log Analytics workspace. For more information about Azure Monitor for containers, refer to  [Azure Monitor for containers overview][Azure Monitor for containers overview].
+Azure Monitor container insights can provide you with performance visibility by collecting memory and processor metrics from controllers, nodes, and containers available in Kubernetes through the Metrics application programming interface (API). Container logs are also collected. After you enable monitoring from Kubernetes clusters, metrics and logs are automatically collected for you through a containerized version of the Log Analytics agent. Metrics are written to the metrics store and log data is written to the logs store associated with your Log Analytics workspace. For more information about Azure Monitor container insights, refer to  [Azure Monitor container insights overview][Azure Monitor container insights overview].
 
-You can enable Azure Monitor for containers for one or more existing deployments of Kubernetes by using either a PowerShell or a Bash script.
+You can enable Azure Monitor container insights for one or more existing deployments of Kubernetes by using either a PowerShell or a Bash script.
 
 To enable monitoring for Arc-enabled Kubernetes clusters, refer to [Enable monitoring of Azure Arc-enabled Kubernetes cluster][Enable monitoring of Azure Arc-enabled Kubernetes cluster]
 
@@ -132,7 +132,7 @@ Azure Arc agents require the following protocols/ports/outbound URLs to function
 [Connect an Azure Arc-enabled Kubernetes cluster]: /azure/azure-arc/kubernetes/connect-cluster
 [Use Azure RBAC for Kubernetes Authorization]: /azure/aks/manage-azure-rbac
 [Create an Azure Arc-enabled onboarding Service Principal]: /azure/azure-arc/servers/onboard-service-principal
-[Azure Monitor for containers overview]: /azure/azure-monitor/insights/container-insights-overview
+[Azure Monitor container insights overview]: /azure/azure-monitor/insights/container-insights-overview
 [Enable monitoring of Azure Arc-enabled Kubernetes cluster]: /azure/azure-monitor/insights/container-insights-enable-arc-enabled-clusters?toc=%252fazure%252fazure-arc%252ftoc.json
 [Azure Policy built-in definitions for Azure Arc-enabled Kubernetes]: /azure/azure-arc/kubernetes/policy-samples
 [Use Azure Policy to apply cluster configurations at scale]: /azure/azure-arc/kubernetes/use-azure-policy
