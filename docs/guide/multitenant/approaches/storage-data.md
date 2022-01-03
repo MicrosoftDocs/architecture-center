@@ -10,9 +10,11 @@ ms.service: architecture-center
 ms.subservice: azure-guide
 products:
   - azure
+  - azure-sql-database
+  - azure-storage
 categories:
-  - management-and-governance
-  - security
+  - storage
+  - databases
 ms.category:
   - fcp
 ms.custom:
@@ -100,9 +102,9 @@ However, when you work with shared infrastructure, there are several caveats to 
 
 ### Sharding pattern
 
-![Diagram showing a sharded database. One database contains the data for tenants A and B, and the other contains the data for tenant C.](media/storage-data/sharding.png)
-
 The [Sharding pattern](../../../patterns/sharding.md) involves deploying multiple separate databases, called *shards*, that contain one or more tenants' data. Unlike deployment stamps, shards don't imply that the entire infrastructure is duplicated. You might shard databases without also duplicating or sharding other infrastructure in your solution.
+
+![Diagram showing a sharded database. One database contains the data for tenants A and B, and the other contains the data for tenant C.](media/storage-data/sharding.png)
 
 Sharding is closely related to *partitioning*, and the terms are often used interchangeably. Consider the [Horizontal, vertical, and functional data partitioning guidance](../../../best-practices/data-partitioning.md).
 
