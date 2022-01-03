@@ -29,9 +29,9 @@ There are four ways to connect machines:
 
 After connecting the machines, you can then manage the VM extensions all from Azure, which provides consistent extension management between Azure and non-Azure VMs. In Azure you can use Azure Automation State Configuration to centrally store configurations and maintain the desired state of Arc enabled servers through the DSC VM extension. You can also collect log data for analysis with Azure Monitor Logs enabled through the Log Analytics agent VM extension. With Azure Monitor, you can analyze the performance of your Windows and Linux VMs and monitor their processes and dependencies on other resources and external processes.
 
-## Azure Arc enabled Kubernetes
+## Azure Arc-enabled Kubernetes
 
-With Azure Arc enabled Kubernetes, you need to register the cluster first. You can register any CNCF Kubernetes cluster that is running. You'll need a kubeconfig file to access the cluster and cluster-admin role on the cluster for deploying Arc-enabled Kubernetes agents. You'll use Azure Command-Line Interface (Azure CLI) to perform cluster registration tasks.
+With Azure Arc-enabled Kubernetes, you need to register the cluster first. You can register any CNCF Kubernetes cluster that is running. You'll need a kubeconfig file to access the cluster and cluster-admin role on the cluster for deploying Arc-enabled Kubernetes agents. You'll use Azure Command-Line Interface (Azure CLI) to perform cluster registration tasks.
 
 ## Azure Arc enabled SQL Managed Instance
 
@@ -65,11 +65,11 @@ Monitoring in a hybrid environment can be a challenge. However, with tools like 
 
 [Monitoring your containers is critical](../../hybrid/arc-hybrid-kubernetes.yml). Azure Monitor for containers provides a rich monitoring experience for the AKS and AKS engine clusters.
 
-Configure Azure Monitor for containers to monitor Azure Arc enabled Kubernetes clusters hosted outside of Azure. This helps achieve comprehensive monitoring of your Kubernetes clusters across Azure, on-premises, and third-party cloud environments.
+Configure Azure Monitor for containers to monitor Azure Arc-enabled Kubernetes clusters hosted outside of Azure. This helps achieve comprehensive monitoring of your Kubernetes clusters across Azure, on-premises, and third-party cloud environments.
 
 Azure Monitor for containers can provide you with performance visibility by collecting memory and processor metrics from controllers, nodes, and containers available in Kubernetes through the Metrics application programming interface (API). Container logs are also collected. After you enable monitoring from Kubernetes clusters, metrics and logs are automatically collected for you through a containerized version of the Log Analytics agent. Metrics are written to the metrics store and log data is written to the logs store associated with your Log Analytics workspace. For more information about Azure Monitor for containers, refer to Azure Monitor for containers overview.
 
-Enable Azure Monitor for containers for one or more existing deployments of Kubernetes by using either a PowerShell or a Bash script. To enable monitoring for Arc enabled Kubernetes clusters, refer to [Enable monitoring of Azure Arc enabled Kubernetes cluster](/azure/azure-monitor/containers/container-insights-enable-arc-enabled-clusters).
+Enable Azure Monitor for containers for one or more existing deployments of Kubernetes by using either a PowerShell or a Bash script. To enable monitoring for Arc-enabled Kubernetes clusters, refer to [Enable monitoring of Azure Arc-enabled Kubernetes cluster](/azure/azure-monitor/containers/container-insights-enable-arc-enabled-clusters).
 
 Automatically enroll in additional Azure Arc enabled resources and services. Simply turn them on when needed:
 

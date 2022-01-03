@@ -18,7 +18,7 @@ Use *Azure Arc enabled infrastructure* to add support for cloud [Operational Exc
 
 ## Build cloud native apps anywhere, at scale
 
-To keep your systems running, many workload teams have architected and designed applications where components are distributed across public cloud services, private clouds, data centers, and edge locations. With Azure Arc enabled Kubernetes, you can accelerate development by using best in class application services with standardized deployment, configuration, security, and observability. One of the primary benefits of Azure Arc is facilitating implementation of DevOps principles that apply established development practices to operations. This results in improved agility, without jeopardizing the stability of IT environment.
+To keep your systems running, many workload teams have architected and designed applications where components are distributed across public cloud services, private clouds, data centers, and edge locations. With Azure Arc-enabled Kubernetes, you can accelerate development by using best in class application services with standardized deployment, configuration, security, and observability. One of the primary benefits of Azure Arc is facilitating implementation of DevOps principles that apply established development practices to operations. This results in improved agility, without jeopardizing the stability of IT environment.
 
 - Centrally code and deploy applications confidently to any Kubernetes distribution in any location.
 - Centrally manage and delegate access for DevOps roles and responsibilities.
@@ -30,11 +30,11 @@ To keep your systems running, many workload teams have architected and designed 
 
 GitOps relies on a Git repository to host files that contain the configuration representing the expected state of a resource. An agent running on the cluster monitors the state of the repository and, when there is a change on the repository, the agent pulls the changed files to the cluster and applies the new configuration.
 
-In the context of Azure Arc enabled Kubernetes clusters, a Git repository hosts a configuration of a Kubernetes cluster, including its resources such as pods and deployments. A pod or a set of pods running on the cluster polls the status of the repository and, once it detects a change, it pulls and applies the new configuration to the cluster.
+In the context of Azure Arc-enabled Kubernetes clusters, a Git repository hosts a configuration of a Kubernetes cluster, including its resources such as pods and deployments. A pod or a set of pods running on the cluster polls the status of the repository and, once it detects a change, it pulls and applies the new configuration to the cluster.
 
-Azure Arc enabled Kubernetes clusters rely on Flux, an open-source GitOps deployment tool to implement the pods responsible for tracking changes to the Git repository you designate and applying them to the local cluster. In addition, the containerized Flux operator also periodically reviews the existing cluster configuration to ensure that it matches the one residing in the Git repository. If there is a configuration drift, the Flux agent remediates it by reapplying the desired configuration.
+Azure Arc-enabled Kubernetes clusters rely on Flux, an open-source GitOps deployment tool to implement the pods responsible for tracking changes to the Git repository you designate and applying them to the local cluster. In addition, the containerized Flux operator also periodically reviews the existing cluster configuration to ensure that it matches the one residing in the Git repository. If there is a configuration drift, the Flux agent remediates it by reapplying the desired configuration.
 
-Each association between an Azure Arc enabled Kubernetes cluster configuration and the corresponding GitOps repository resides in Azure, as part of the Azure Resource Manager resource representing the Azure Arc enabled Kubernetes clusters. You can configure that association via traditional Azure management interfaces, such as the Azure portal or Azure CLI. Alternatively, you can use Azure Policy to automate this process, allowing you to apply it consistently to all resources in an entire subscription or individual resource groups you designate.
+Each association between an Azure Arc-enabled Kubernetes cluster configuration and the corresponding GitOps repository resides in Azure, as part of the Azure Resource Manager resource representing the Azure Arc-enabled Kubernetes clusters. You can configure that association via traditional Azure management interfaces, such as the Azure portal or Azure CLI. Alternatively, you can use Azure Policy to automate this process, allowing you to apply it consistently to all resources in an entire subscription or individual resource groups you designate.
 
 ## Modernize applications anywhere with Azure Kubernetes Service on Azure Stack HCI
 
@@ -61,7 +61,7 @@ AKS clusters on Azure Stack HCI can be connected to Azure Arc for centralized ma
 
 ## Resources and architectures related to Operational Excellence
 
-The introduction of cloud computing had a significant impact on how software is developed, delivered, and run. With *Azure Arc enabled infrastructure* and Azure Arc components like [Azure Arc enabled Kubernetes](/azure/azure-arc/kubernetes/overview) and [Azure Arc enabled data services](/azure/azure-arc/data/overview) it becomes possible to design cloud native applications with a consistent set of principles and tooling across public cloud, private cloud, and the edge.
+The introduction of cloud computing had a significant impact on how software is developed, delivered, and run. With *Azure Arc enabled infrastructure* and Azure Arc components like [Azure Arc-enabled Kubernetes](/azure/azure-arc/kubernetes/overview) and [Azure Arc enabled data services](/azure/azure-arc/data/overview) it becomes possible to design cloud native applications with a consistent set of principles and tooling across public cloud, private cloud, and the edge.
 
 Click the following links for architecture details and diagrams that enable application design and DevOps practices consistent with [Operational excellence principles](../devops/principles.md).
 
@@ -77,7 +77,7 @@ Click the following links for architecture details and diagrams that enable appl
 
 ### Monitoring
 
-- [Enable monitoring of Azure Arc enabled Kubernetes cluster](/azure/azure-monitor/insights/container-insights-enable-arc-enabled-clusters)
+- [Enable monitoring of Azure Arc-enabled Kubernetes cluster](/azure/azure-monitor/insights/container-insights-enable-arc-enabled-clusters)
 - [Azure Monitor for containers overview](/azure/azure-monitor/insights/container-insights-overview)
 
 ### Application performance management
