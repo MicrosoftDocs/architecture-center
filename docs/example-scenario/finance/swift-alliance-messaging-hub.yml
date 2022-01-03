@@ -23,7 +23,6 @@ products:
   - azure-virtual-network
   - azure-managed-disks
   - azure-load-balancer
-  - azure-linux-vm
   - azure-firewall
 thumbnailUrl: /azure/architecture/browse/thumbs/swift-amh-thumbnail.png
 content: |
