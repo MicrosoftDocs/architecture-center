@@ -21,24 +21,24 @@ ms.custom: fcp
 
 # DevOps for quantum computing
 
-Quantum computing applies the unique behavior of quantum mechanics to information processing. This approach provides dramatically faster compute time than classical computing, especially in areas like optimization, simulation, and machine learning. However, quantum computing components have a different development and operating model than that of classical software. They're not installed and run like classical applications (for example, on physical hardware or virtual machines). Instead, quantum applications are developed as *jobs*. A classical software component (running in a classical environment) orchestrates the [execution of quantum jobs](/azure/quantum/how-to-work-with-jobs) in a target environment at runtime.
+Quantum computing applies the unique behavior of quantum mechanics to information processing. This approach provides dramatically faster compute than classical computing, especially in areas like optimization, simulation, and machine learning. However, quantum computing components have a different development and operating model than that of classical software. They're not installed and run like classical applications (for example, on physical hardware or virtual machines). Instead, quantum applications are developed as *jobs*. A classical software component (running in a classical environment) orchestrates the [execution of quantum jobs](/azure/quantum/how-to-work-with-jobs) in a target environment at runtime.
 
 A quantum computing application is in fact always a hybrid application that consists of classical (orchestration) and quantum (quantum algorithm) parts. DevOps has specific requirements for both parts. This article discusses the DevOps requirements for hybrid quantum applications. DevOps provides a repeatable, high-quality process for building, deploying, and monitoring software.
 
-## Introduction
+## DevOps and quantum computing 
 
 DevOps can be defined as ["the union of people, process, and technology to continually provide value to customers"](https://azure.microsoft.com/overview/what-is-devops). This definition provides a great structure for discussing the requirements of hybrid quantum applications.
 
 * **People**. Designing, developing, and operating quantum algorithms requires skills that are different from those required for classical components. Designers and developers typically include quantum information scientists and people in similar roles. Operations team members must be familiar with specialized target systems, including optimization solvers and quantum hardware.
-* **Process**. The clear separation of classical and quantum components on one side, and the need for integration of these components on the other, requires an alignment of the quantum and the classical DevOps activities.
-* **Technology**. The lifecycles of the different execution environments must be considered as well. Specialized quantum computers are scarce resources, typically operated as central resources and accessed by various classical clients.
+* **Process**. The clear separation of classical and quantum components on the one hand, and the need to integrate them on the other, requires an alignment of the quantum and the classical DevOps activities.
+* **Technology**. The lifecycles of the different execution environments must be considered as well. Quantum computers are scarce resources, typically operated as central resources and accessed by various classical clients.
 
 These pillars must come together to form a unified approach for designing, developing, operating, and managing hybrid quantum software systems in a repeatable, reliable way. DevOps influences the application lifecycle throughout the plan, develop, deliver, and operate phases of quantum components.
 
 * **Plan**. [Quantum computing targets](/azure/quantum/qc-target-list) differ in their capabilities. These capabilities are described via [target profiles](/azure/quantum/quantum-computing-target-profiles). Because the choice of target influences what code you can run, you should select a target early in the process.
 * **Develop**. Azure Quantum provides flexibility for your development approach. You can write quantum components in [Q#](/azure/quantum/overview-what-is-qsharp-and-qdk) or [Python](/azure/quantum/install-python-qdk) (by using Qiskit or Cirq). You can use [Visual Studio](https://marketplace.visualstudio.com/items?itemName=quantum.DevKit), [Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=quantum.quantum-devkit-vscode), or [Jupyter Notebooks](/azure/quantum/install-command-line-qdk).
 * **Deliver**. Quantum components are delivered indirectly. Instead of installing them on a quantum target system, you package them with classical software components. The classical parts [orchestrate quantum job submission and monitoring](/azure/quantum/how-to-work-with-jobs) on quantum systems.
-* **Operate**. The operations model of quantum components is aligned with the [quantum job lifecycle](/azure/quantum/how-to-work-with-jobs#job-lifecycle). Monitoring occurs through the classical components that submit the quantum jobs to quantum targets.
+* **Operate**. The operations model of quantum components is aligned with the [quantum job lifecycle](/azure/quantum/how-to-work-with-jobs#job-lifecycle). Monitoring is done by the classical components that submit the quantum jobs to quantum targets.
 
 ## The inner and outer DevOps loops
 
@@ -55,7 +55,7 @@ The *outer loop* includes activities that are typically associated with a full D
 * Centrally building and deploying these artifacts, which includes provisioning of the target environment.
 * Monitoring the running application. Results might lead to new work items in the backlog.
 
-These steps will be discussed in more detail later in this article.
+These steps are discussed in more detail later in this article.
 
 ### The inner loop
 
@@ -70,9 +70,9 @@ The **inner loop for quantum components** involves completing [activities enable
 1. Estimate resources.
 1. Run and test code on quantum hardware.
 
-The last three steps are specific to quantum computing. For running and testing your code, there are two alternative execution environments available: [quantum simulators and quantum hardware](/azure/quantum/overview-understanding-quantum-computing#quantum-computers-vs-quantum-simulators). [Simulators](/azure/quantum/user-guide/machines/) are software programs that run on classical computers and can be the target machine for a Q# program. Because they provide access to the full state vector of qubit registers, you can use them to run and test quantum programs in an environment that predicts how qubits will react to various operations. The resulting insights are great for analyzing the runtime behavior of quantum algorithms.
+The last three steps are specific to quantum computing. For running and testing your code, there are two alternative execution environments available: [quantum simulators and quantum hardware](/azure/quantum/overview-understanding-quantum-computing#quantum-computers-vs-quantum-simulators). [Simulators](/azure/quantum/user-guide/machines/) are software programs that run on classical computers and that can be the target machine for a Q# program. Because they provide access to the full state vector of qubit registers, you can use them to run and test quantum programs in an environment that predicts how qubits will react to various operations. The resulting insights are great for analyzing the runtime behavior of quantum algorithms.
 
-To verify the simulation results, especially for tests that exhibit the probabilistic behavior of quantum systems, run your code on [quantum hardware](/azure/quantum/qc-target-list). Doing so gives you real-time performance insights on your job's runtime behavior. Because quantum hardware is a scarce resource, developers typically don't have their own or don't have exclusive access. Instead, they use centrally operated environments. They usually access production hardware to test their development artifacts. The jobs are queued until previously submitted jobs complete, which might delay the testing cycle.
+To verify the simulation results, especially for tests that exhibit the probabilistic behavior of quantum systems, run your code on [quantum hardware](/azure/quantum/qc-target-list). Doing so gives you real-time performance insights about your job's runtime behavior. Because quantum hardware is a scarce resource, developers typically don't have their own, or don't have exclusive access. Instead, they use centrally operated environments. They usually access production hardware to test their development artifacts. The jobs are queued until previously submitted jobs complete, which might delay the testing cycle.
 
 The **inner loop for classical components** includes typical development steps for building, running, and debugging code in a development environment. In the context of hybrid quantum applications, there's an extra step: integrating the quantum components into the classical components. The complexity of this step depends on whether the quantum components are [tightly coupled](../../example-scenario/quantum/tightly-coupled-quantum-computing-job.yml) or [loosely coupled](../../example-scenario/quantum/loosely-coupled-quantum-computing-job.yml) with the classical ones. Developers don't need special quantum computing skills. The integration can typically be implemented with classical programming skills.
 
@@ -89,7 +89,7 @@ If you use the [loosely coupled integration model](../../example-scenario/quantu
 
 ## Continuous integration (CI) and automated testing
 
-Continuous integration remains an important part of DevOps with hybrid quantum applications. As soon as code is ready and committed to the repository, it needs to be automatically tested and integrated into other parts of the software. For the classical parts of the application, [best practices for testing](../../checklist/dev-ops.md#testing) still apply. The Microsoft Azure Well-Architected Framework provides [guidance on CI best practices](../../framework/devops/release-engineering-ci.md).
+As for other applications, continuous integration is an important part of DevOps for hybrid quantum applications. As soon as code is ready and committed to the repository, it needs to be automatically tested and integrated into other parts of the software. For the classical parts of the application, [best practices for testing](../../checklist/dev-ops.md#testing) still apply. The Microsoft Azure Well-Architected Framework provides [guidance on CI best practices](../../framework/devops/release-engineering-ci.md).
 
 The quantum components require special treatment. The components themselves require special execution environments. And the classical code where quantum components are managed (that is, submitted and monitored at the quantum workspace) needs to be tested.
 
@@ -105,7 +105,7 @@ Because of its probabilistic nature, testing of the quantum components has some 
 
 * Choose the execution environment for tests carefully. You can efficiently run many tests on a quantum simulator, which has access to the full state vector of qubit registers. However, you need quantum hardware for tests that exhibit probabilistic behavior.
 * Run tests that cover the probabilistic portions of algorithms multiple times to make sure that successful tests stay successful on later runs.
-* Validate the results of program execution based on the nature of the program. You'll often need to use quantum-specific tools and techniques. (Some of these tools and techniques are described in [Inside the Quantum Katas, part 1](https://devblogs.microsoft.com/qsharp/inside-the-quantum-katas-part-1) and [part 2](https://devblogs.microsoft.com/qsharp/inside-the-quantum-katas-part-2-testing-quantum-programs).) Tests must verify that results represent valid solutions and honor constraints.
+* Validate the results of program execution based on the nature of the program. You often need to use quantum-specific tools and techniques. (Some of these tools and techniques are described in [Inside the Quantum Katas, part 1](https://devblogs.microsoft.com/qsharp/inside-the-quantum-katas-part-1) and [part 2](https://devblogs.microsoft.com/qsharp/inside-the-quantum-katas-part-2-testing-quantum-programs).) Tests must verify that results represent valid solutions and honor constraints.
 
 During integration, the quantum components are bundled with the classical components. The result represents the deployment artifact that's installed on the classical environment during subsequent steps.
 
