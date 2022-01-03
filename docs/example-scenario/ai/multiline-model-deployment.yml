@@ -12,7 +12,7 @@ metadata:
   ms.custom: fcp 
 azureCategories:
   - "ai-machine-learning"
-  - "iot"
+  - "devops"
 products:
   - "azure-machine-learning"
   - "azure-pipelines"
