@@ -148,9 +148,9 @@ Microsoft Learn modules:
 
 ## Related resources
 
-- [Baseline architecture for an Azure Kubernetes Service (AKS) cluster](../../reference-architectures/containers/aks/secure-baseline-aks.md)
-- [AKS baseline for multiregion clusters](../../reference-architectures/containers/aks-multi-region/aks-multi-cluster.md)
-- [Secure DevOps for AKS](../../solution-ideas/articles/secure-devops-for-kubernetes.md)
+- [Baseline architecture for an Azure Kubernetes Service (AKS) cluster](../../reference-architectures/containers/aks/secure-baseline-aks.yml)
+- [AKS baseline for multiregion clusters](../../reference-architectures/containers/aks-multi-region/aks-multi-cluster.yml)
+- [Secure DevOps for AKS](../../solution-ideas/articles/secure-devops-for-kubernetes.yml)
 
 <!-- links -->
 [architecture]: ./media/architecture-devops-with-aks.png

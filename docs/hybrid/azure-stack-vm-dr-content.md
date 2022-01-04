@@ -428,12 +428,12 @@ Product documentation:
 
 Microsoft Learn modules:
 
-- [Azure Stack Hub](learn/modules/azure-stack-hub)
-- [Configure Azure Active Directory](learn/modules/configure-azure-active-directory)
-- [Configure storage accounts](learn/modules/configure-storage-accounts)
-- [Configure virtual networks](learn/modules/configure-virtual-networks)
-- [Design and implement Azure ExpressRoute](learn/modules/design-implement-azure-expressroute)
-- [Design your site recovery solution in Azure](learn/modules/design-your-site-recovery-solution-in-azure)
+- [Azure Stack Hub](/learn/modules/azure-stack-hub)
+- [Configure Azure Active Directory](/learn/modules/configure-azure-active-directory)
+- [Configure storage accounts](/learn/modules/configure-storage-accounts)
+- [Configure virtual networks](/learn/modules/configure-virtual-networks)
+- [Design and implement Azure ExpressRoute](/learn/modules/design-implement-azure-expressroute)
+- [Design your site recovery solution in Azure](/learn/modules/design-your-site-recovery-solution-in-azure)
 
 ## Related resources
 

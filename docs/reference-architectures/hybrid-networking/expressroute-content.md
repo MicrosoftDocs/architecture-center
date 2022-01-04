@@ -274,7 +274,7 @@ Microsoft Learn modules:
 
 ## Related resources
 
-- [Hybrid architecture design](../../hybrid/hybrid-start-here)
+- [Hybrid architecture design](../../hybrid/hybrid-start-here.md)
 - [Connect an on-premises network to Azure using ExpressRoute](../../reference-architectures/hybrid-networking/expressroute-vpn-failover.yml)
 - [Extend an on-premises network using VPN](../../reference-architectures/hybrid-networking/vpn.yml)
 
