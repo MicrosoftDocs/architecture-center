@@ -4,7 +4,7 @@ titleSuffix: Azure Architecture Center
 description: This article describes the features of NAT Gateway that are useful when you work with multitenanted systems. It also provides links to guidance and examples for how to use NAT Gateway in a multitenant solution.
 author: johndowns
 ms.author: jodowns
-ms.date: 12/17/2021
+ms.date: 1/4/2022
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: azure-guide
