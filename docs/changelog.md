@@ -1,7 +1,8 @@
 ---
 title: What's New in Azure Architecture Center
 description: New and updated articles in Azure Architecture Center
-author: doodlemania2
+author: EdPrice-MSFT
+ms.author: pnp
 ms.date: 12/13/2021
 ms.topic: article
 ms.service: architecture-center
