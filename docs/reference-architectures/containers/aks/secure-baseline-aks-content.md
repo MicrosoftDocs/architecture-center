@@ -211,9 +211,9 @@ Be sure your Azure AD groups used for cluster and namespace access are included 
 
 #### Use Azure RBAC for Kubernetes Authorization
 
-Instead of using Kubernetes RBAC with integrated AAD authentication, another option is to use Azure RBAC and Role assignments to enforce cluster access. The benefit to using Azure RBAC is that you do not need to configure native Kubernetes RBAC roles and role bindings.
+Instead of using Kubernetes native RBAC ([ClusterRoleBindings and RoleBindings](https://kubernetes.io/docs/reference/access-authn-authz/rbac/#rolebinding-and-clusterrolebinding)) for authorization with integrated AAD authentication, another option is to use Azure RBAC and Azure role assignments to enforce authorization checks on the cluster. These role assignments can even be added at the subscription or resource group scopes so that all clusters under the scope inherit a consistent set of role assignments with respect to who has permissions to access the objects on the Kubernetes cluster.
 
-For more information, see [Azure roles](/azure/aks/manage-azure-rbac).
+For more information, see [Azure RBAC for Kubernetes Authorization](/azure/aks/manage-azure-rbac).
 
 #### Local accounts
 
@@ -225,7 +225,7 @@ In this reference implementation, access via local cluster accounts is explicitl
 
 Similar to having Azure Managed Identities for the entire cluster, you can assign managed identities at the pod level. A pod managed identity allows the hosted workload to access resources through Azure Active Directory. For example, the workload stores files in the Azure Storage. When it needs to access those files, the pod will authenticate itself against the resource.
 
-In this reference implementation, managed pod identities is facilitated through [aad-pod-identity](https://github.com/Azure/aad-pod-identity).
+In this reference implementation, managed pod identities is facilitated through [Azure AD pod identity](/azure/aks/use-azure-ad-pod-identity).
 
 ## Deploy Ingress resources
 
@@ -367,7 +367,7 @@ You'll need to use pod managed identities to allow a pod to access secrets from 
 
 To facilitate the retrieval process, use a [Secrets Store CSI driver](https://github.com/kubernetes-sigs/secrets-store-csi-driver). When the pod needs a secret, the driver connects with the specified store, retrieves secret on a volume, and mounts that volume in the cluster. The pod can then get the secret from the volume file system.
 
-The CSI driver has many providers to support various managed stores. In this implementation, we've chosen the [Azure Key Vault with Secrets Store CSI Driver](https://github.com/Azure/secrets-store-csi-driver-provider-azure) to retrieve the TLS certificate from Azure Key Vault and load it in the pod running the ingress controller. It's done during pod creation and the volume stores both public and the private keys.
+The CSI driver has many providers to support various managed stores. In this implementation, we've chosen the [Azure Key Vault with Secrets Store CSI Driver](/azure/aks/csi-secrets-store-driver) to retrieve the TLS certificate from Azure Key Vault and load it in the pod running the ingress controller. It's done during pod creation and the volume stores both public and the private keys.
 
 ## Workload storage
 
@@ -523,7 +523,7 @@ Ensure reliability through forced failover testing with simulated outages such a
 
 ## Monitor and collect metrics
 
-The Azure Monitor for containers feature is the recommended tool for monitoring and logging because you can view events in real time. It captures container logs from the running pods and aggregates them for viewing. It also collects information from Metrics API about memory and CPU utilization to monitor the health of running resources and workloads. You can use it to monitor performance as the pods scale. Another advantage is that you can easily use Azure portal to configure charts and dashboards. It has the capability to create alerts that trigger Automation Runbooks, Azure Functions, and others.
+The Azure Monitor container insights feature is the recommended tool for monitoring and logging because you can view events in real time. It captures container logs from the running pods and aggregates them for viewing. It also collects information from Metrics API about memory and CPU utilization to monitor the health of running resources and workloads. You can use it to monitor performance as the pods scale. Another advantage is that you can easily use Azure portal to configure charts and dashboards. It has the capability to create alerts that trigger Automation Runbooks, Azure Functions, and others.
 
 Most workloads hosted in pods emit Prometheus metrics. Azure Monitor is capable of scraping Prometheus metrics and visualizing them.
 
