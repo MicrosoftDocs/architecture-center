@@ -28,11 +28,7 @@ As your use of Azure matures, it's important to consider the governance of your 
 
 ### Resource isolation
 
-Ensure you configure your Azure resources to meet your tenants' isolation requirements. See [Azure resource organization in multitenant solutions](TODO) for guidance on isolating your Azure resources. 
-
-> [!NOTE]
-> **Note to PR reviewers:** The link above won't work until another PR is merged. To see the draft of that page, [open this link in a new tab](https://review.docs.microsoft.com/azure/architecture/guide/multitenant/approaches/resource-organization?branch=pr-en-us-4829).
-<!-- TODO remove above note -->
+Ensure you configure your Azure resources to meet your tenants' isolation requirements. See [Azure resource organization in multitenant solutions](resource-organization.md) for guidance on isolating your Azure resources. 
 
 ### Data management
 
