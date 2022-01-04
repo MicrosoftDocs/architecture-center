@@ -2116,7 +2116,7 @@ items:
                 href: solution-ideas/articles/interactive-price-analytics.yml
               - name: IoT and data analytics
                 href: example-scenario/data/big-data-with-iot.yml
-              - name: Long-term security logs in Azure Data Explorer
+              - name: Long-term security logs in Data Explorer
                 href: example-scenario/security/security-log-retention-azure-data-explorer.yml
               - name: Partitioning in Event Hubs and Kafka
                 href: reference-architectures/event-hubs/partitioning-in-event-hubs-and-kafka.yml
@@ -2148,7 +2148,7 @@ items:
                 href: solution-ideas/articles/demand-forecasting.yml
               - name: Discovery Hub for analytics
                 href: solution-ideas/articles/cloud-scale-analytics-with-discovery-hub.yml
-              - name: Enhanced customer dimension with Customer Insights
+              - name: Enhanced customer dimension
                 href: solution-ideas/articles/customer-insights-synapse.yml
               - name: ETL using HDInsight
                 href: solution-ideas/articles/extract-transform-and-load-using-hdinsight.yml
