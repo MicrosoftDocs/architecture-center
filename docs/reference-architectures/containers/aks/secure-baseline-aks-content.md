@@ -225,7 +225,7 @@ In this reference implementation, access via local cluster accounts is explicitl
 
 Similar to having Azure Managed Identities for the entire cluster, you can assign managed identities at the pod level. A pod managed identity allows the hosted workload to access resources through Azure Active Directory. For example, the workload stores files in the Azure Storage. When it needs to access those files, the pod will authenticate itself against the resource.
 
-In this reference implementation, managed pod identities is facilitated through [aad-pod-identity](/azure/aks/use-azure-ad-pod-identity).
+In this reference implementation, managed pod identities is facilitated through [Azure AD pod identity](/azure/aks/use-azure-ad-pod-identity).
 
 ## Deploy Ingress resources
 
