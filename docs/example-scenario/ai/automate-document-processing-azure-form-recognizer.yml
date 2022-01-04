@@ -1,25 +1,26 @@
 ### YamlMime:Architecture
 metadata:
-  title: Application data protection for AKS workloads on Azure NetApp Files
+  title: Automate document processing using Azure Form Recognizer
   titleSuffix: Azure Example Scenarios
-  description: Deploy Astra Control Service with Azure NetApp Files for data protection, disaster recovery, and mobility for Azure Kubernetes Service (AKS) applications.
-  author: arntdg
-  ms.author: b-arntdegier
-  ms.date: 12/21/2021
+  description: Build an automated document processing pipeline. Use Azure Form Recognizer to extract data and natural language processing models to enrich the data.
+  author: JKirsch1
+  ms.author: v-jenkir
+  ms.date: 01/04/2021
   ms.topic: conceptual
   ms.service: architecture-center
   ms.subservice: example-scenario
   ms.custom:
     - fcp
 azureCategories:
-  - containers
-  - storage
+  - ai-machine-learning
 products:
-  - azure-netapp-files
-  - azure-kubernetes-service
-  - azure-virtual-network
-name: Application data protection for AKS workloads on Azure NetApp Files
-summary: Deploy Astra Control Service with Azure NetApp Files for data protection, disaster recovery, and mobility for Azure Kubernetes Service (AKS) applications.
+  - azure-cognitive-search
+  - azure-cognitive-services
+  - azure-cosmos-db
+  - azure-form-recognizer
+  - azure-machine-learning
+name: Automate document processing using Azure Form Recognizer
+summary: Build an automated document processing pipeline. Use Azure Form Recognizer to extract data and natural language processing models to enrich the data.
 thumbnailUrl: /docs/browse/thumbs/automate-document-processing-azure-form-recognizer-architecture-thumbnail.png
 content: |
-  [!include[](data-protection-kubernetes-astra-azure-netapp-files-content.md)]
+  [!include[](automate-document-processing-azure-form-recognizer-content.md)]
