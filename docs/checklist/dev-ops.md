@@ -2,8 +2,9 @@
 title: DevOps checklist
 titleSuffix: Azure Design Review Framework
 description: DevOps integrates development, quality assurance, and IT operations and offers processes for delivering software. Assess your DevOps culture and process.
-author: dragon119
-ms.date: 12/13/2021
+author: EdPrice-MSFT
+ms.author: pnp
+ms.date: 01/04/2022
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: well-architected
