@@ -251,7 +251,7 @@ You may want to review the following [Azure example scenarios](/azure/architectu
 
 <!-- links -->
 
-[AAF-devops]: /azure/architecture/framework/devops/overview.md
+[AAF-devops]: /azure/architecture/framework/devops/overview
 [adf-ra]: ./enterprise-bi-adf.yml
 [arm-template]: /azure/azure-resource-manager/resource-group-overview#resource-groups
 [az-devops]: /azure/virtual-machines/windows/infrastructure-automation#azure-devops-services
@@ -268,4 +268,4 @@ You may want to review the following [Azure example scenarios](/azure/architectu
 [az-synapse-pricing]: https://azure.microsoft.com/pricing/details/synapse-analytics
 [az-as-pricing]: https://azure.microsoft.com/pricing/details/analysis-services
 [az-storage-reserved]: /azure/storage/blobs/storage-blob-reserved-capacity
-[aaf-cost]: /azure/architecture/framework/cost/overview.md
+[aaf-cost]: /azure/architecture/framework/cost/overview

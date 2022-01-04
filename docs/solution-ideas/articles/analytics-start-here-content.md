@@ -20,7 +20,7 @@ If you're new to analytics on Azure, the best place to learn more is with
 
 If your organization is new to the cloud, the [Cloud Adoption Framework](/azure/cloud-adoption-framework/) can help you get started. This collection of documentation and best practices offers proven guidance from Microsoft designed to accelerate your cloud adoption journey. It also lists [innovation tools to democratize data in Azure](/azure/cloud-adoption-framework/innovate/best-practices/data).
 
-To help assure the quality of your analytics solution on Azure, we recommend following the [Azure Well-Architected Framework](/azure/architecture/framework/index.md). It provides prescriptive guidance for organizations seeking architectural excellence and discusses how to design, provision, and monitor cost-optimized Azure solutions.
+To help assure the quality of your analytics solution on Azure, we recommend following the [Azure Well-Architected Framework](/azure/architecture/framework/index). It provides prescriptive guidance for organizations seeking architectural excellence and discusses how to design, provision, and monitor cost-optimized Azure solutions.
 
 ## Path to production
 

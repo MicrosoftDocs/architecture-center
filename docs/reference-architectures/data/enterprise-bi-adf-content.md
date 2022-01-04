@@ -265,7 +265,7 @@ You may want to review the following [Azure example scenarios](/azure/architectu
 
 <!-- links -->
 
-[AAF-devops]: /azure/architecture/framework/devops/overview.md
+[AAF-devops]: /azure/architecture/framework/devops/overview
 [adf]: /azure/data-factory
 [arm-template]: /azure/azure-resource-manager/resource-group-overview#resource-groups
 [az-devops]: /azure/virtual-machines/windows/infrastructure-automation#azure-devops-services
@@ -278,7 +278,7 @@ You may want to review the following [Azure example scenarios](/azure/architectu
 [synapse-analytics]: /azure/sql-data-warehouse/sql-data-warehouse-concept-resource-utilization-query-activity
 [wwi]: /sql/sample/world-wide-importers/wide-world-importers-oltp-database
 [azure-pricing-calculator]: https://azure.microsoft.com/pricing/calculator
-[aaf-cost]: /azure/architecture/framework/cost/overview.md
+[aaf-cost]: /azure/architecture/framework/cost/overview
 [adf]: /azure/data-factory
 [adf-calculator]: https://azure.microsoft.com/pricing/calculator/?service=data-factory
 [az-as-pricing]: https://azure.microsoft.com/pricing/details/analysis-services

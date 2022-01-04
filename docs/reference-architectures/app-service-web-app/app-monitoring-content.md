@@ -113,7 +113,7 @@ Check out these resources designed to help you get started with your own monitor
 
 <!-- links -->
 
-[aaf-cost]: /azure/architecture/framework/cost/overview.md
+[aaf-cost]: /azure/architecture/framework/cost/overview
 [availability-tests]: /azure/application-insights/app-insights-monitor-web-app-availability
 [application-insights]: /azure/application-insights/app-insights-overview
 [azure-monitor]: /azure/monitoring-and-diagnostics/monitoring-overview-azure-monitor
@@ -151,4 +151,4 @@ Check out these resources designed to help you get started with your own monitor
 [app-insights-limits]: /azure/azure-subscription-service-limits#application-insights
 [message-filtering]: /azure/application-insights/app-insights-api-filtering-sampling
 [message-sampling]: /azure/application-insights/app-insights-sampling
-[devops-monitoring]: /azure/architecture/framework/devops/monitoring.md
+[devops-monitoring]: /azure/architecture/framework/devops/monitoring

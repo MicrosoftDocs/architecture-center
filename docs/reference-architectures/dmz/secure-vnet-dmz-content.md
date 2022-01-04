@@ -200,7 +200,7 @@ In this architecture, internal load balancers are used to load balance traffic i
 
 <!-- links -->
 
-[aaf-cost]: /azure/architecture/framework/cost/overview.md
+[aaf-cost]: /azure/architecture/framework/cost/overview
 [azure-forced-tunneling]: /azure/vpn-gateway/vpn-gateway-forced-tunneling-rm
 [azurect]: https://github.com/Azure/NetworkMonitoring/tree/master/AzureCT
 [cloud-services-network-security]: /azure/best-practices-network-security

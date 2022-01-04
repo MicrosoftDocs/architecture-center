@@ -151,7 +151,7 @@ Try these Microsoft Learning paths:
 <!-- links -->
 
 [aad-auth]: /azure/aks/managed-aad
-[aaf-cost]: /azure/architecture/framework/cost/overview.md
+[aaf-cost]: /azure/architecture/framework/cost/overview
 [acr]: /azure/container-registry
 [aks]: /azure/aks/intro-kubernetes
 [aks-Calculator]: https://azure.microsoft.com/pricing/calculator/?service=kubernetes-service
