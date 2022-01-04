@@ -130,6 +130,9 @@ items:
                 href: data-guide/technology-choices/data-science-and-machine-learning.md
               - name: Machine learning tools
                 href: example-scenario/mlops/aml-decision-tree.yml
+              - name: Compare MLflow and Azure ML
+                href: /azure/machine-learning/concept-mlflow
+                maintainContext: true
           - name: Choose a networking service
             items:
               - name: Networking options
@@ -210,20 +213,50 @@ items:
                 href: antipatterns/retry-storm/index.md
               - name: Synchronous I/O
                 href: antipatterns/synchronous-io/index.md
-      - name: Responsible innovation
+      - name: Responsible engineering
         items:
-          - name: Overview
-            href: guide/responsible-innovation/index.md
-          - name: Judgment call
-            href: guide/responsible-innovation/judgmentcall.md
-          - name: Harms modeling
+          - name: Responsible innovation
             items:
-              - name: Understand harm
-                href: guide/responsible-innovation/harms-modeling/index.md
-              - name: Assess types of harm
-                href: guide/responsible-innovation/harms-modeling/type-of-harm.md
-          - name: Community jury
-            href: guide/responsible-innovation/community-jury/index.md
+              - name: Overview
+                href: guide/responsible-innovation/index.md
+              - name: Judgment call
+                href: guide/responsible-innovation/judgmentcall.md
+              - name: Harms modeling
+                items:
+                  - name: Understand harm
+                    href: guide/responsible-innovation/harms-modeling/index.md
+                  - name: Assess types of harm
+                    href: guide/responsible-innovation/harms-modeling/type-of-harm.md
+              - name: Community jury
+                href: guide/responsible-innovation/community-jury/index.md
+          - name: Responsible AI
+            items:
+              - name: Overview
+                href: /azure/cloud-adoption-framework/strategy/responsible-ai
+                maintainContext: true
+              - name: Six key principles
+                href: /azure/cloud-adoption-framework/innovate/best-practices/trusted-ai
+                maintainContext: true
+              - name: Guidelines for human-AI interaction
+                href: /ai/guidelines-human-ai-interaction
+                maintainContext: true
+              - name: Responsible AI with Cognitive Services
+                href: /azure/cognitive-services/responsible-use-of-ai-overview
+                maintainContext: true
+          - name: Responsible ML
+            items:
+              - name: Overview
+                href: /azure/machine-learning/concept-responsible-ml
+                maintainContext: true
+              - name: Model interpretability
+                href: /azure/machine-learning/how-to-machine-learning-interpretability
+                maintainContext: true
+              - name: ML fairness
+                href: /azure/machine-learning/concept-fairness-ml
+                maintainContext: true
+              - name: Differential privacy
+                href: /azure/machine-learning/concept-differential-privacy
+                maintainContext: true
       - name: Architecture for startups
         items:
           - name: Overview
@@ -1669,22 +1702,33 @@ items:
             items:
               - name: Cognitive services
                 href: data-guide/technology-choices/cognitive-services.md
-              - name: Machine learning
-                href: data-guide/technology-choices/data-science-and-machine-learning.md
-              - name: ML architecture and key concepts
-                href: /azure/machine-learning/concept-azure-machine-learning-architecture
-                maintainContext: true
-              - name: Machine learning at scale
-                href: data-guide/big-data/machine-learning-at-scale.md
-              - name: Security baseline for AML
-                href: /security/benchmark/azure/baselines/machine-learning-security-baseline
-                maintainContext: true
               - name: Natural language processing
                 href: data-guide/technology-choices/natural-language-processing.md
               - name: R developer's guide to Azure
                 href: data-guide/technology-choices/r-developers-guide.md
-              - name: Machine teaching
-                href: solution-ideas/articles/machine-teaching.yml
+              - name: Machine learning
+                items:
+                  - name: Machine learning options
+                    href: data-guide/technology-choices/data-science-and-machine-learning.md
+                  - name: ML architecture and key concepts
+                    href: /azure/machine-learning/concept-azure-machine-learning-architecture
+                    maintainContext: true
+                  - name: Machine learning at scale
+                    href: data-guide/big-data/machine-learning-at-scale.md
+                  - name: ML pipelines
+                    href: /azure/machine-learning/concept-ml-pipelines
+                    maintainContext: true
+                  - name: Compare MLflow and Azure ML
+                    href: /azure/machine-learning/concept-mlflow
+                    maintainContext: true
+                  - name: Enterprise security and governance
+                    href: /azure/machine-learning/concept-enterprise-security
+                    maintainContext: true
+                  - name: Security baseline for AML
+                    href: /security/benchmark/azure/baselines/machine-learning-security-baseline
+                    maintainContext: true
+                  - name: Machine teaching
+                    href: solution-ideas/articles/machine-teaching.yml
               - name: MLOps framework
                 items:
                   - name: Upscale ML lifecycle with MLOps
@@ -2519,9 +2563,9 @@ items:
                   - name: Azure Cosmos DB resource model
                     href: /azure/cosmos-db/account-databases-containers-items
                     maintainContext: true
-                  - name: Global dstribution
+                  - name: Global distribution
                     items:
-                      - name: Distribute data globally with Cosmos DB
+                      - name: Distribute data globally
                         href: /azure/cosmos-db/distribute-data-globally
                         maintainContext: true
                       - name: Consistency levels in Cosmos DB
@@ -2573,7 +2617,7 @@ items:
                       - name: Azure Policy support
                         href: /azure/cosmos-db/policy
                         maintainContext: true
-                      - name: Azure Policy Regulatory Compliance controls
+                      - name: Azure Policy Regulatory Compliance
                         href: /azure/cosmos-db/security-controls-policy
                         maintainContext: true
                       - name: Security baseline for Cosmos DB
@@ -2635,13 +2679,13 @@ items:
                 items:
                   - name: Overview
                     href: databricks-monitoring/index.md
-                  - name: Send Databricks application logs to Monitor
+                  - name: Send Databricks application logs
                     href: databricks-monitoring/application-logs.md
-                  - name: Use dashboards to visualize Databricks metrics
+                  - name: Use dashboards to visualize Databricks
                     href: databricks-monitoring/dashboards.md
                   - name: Troubleshoot performance bottlenecks
                     href: databricks-monitoring/performance-troubleshooting.md
-                  - name: Observability patterns for performance tuning
+                  - name: Observability patterns and metrics
                     href: databricks-monitoring/databricks-observability.yml
               - name: Run Apache Cassandra
                 href: best-practices/cassandra.md
