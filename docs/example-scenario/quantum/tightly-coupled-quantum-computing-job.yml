@@ -1,20 +1,24 @@
 ### YamlMime:Architecture
 metadata:
-  title: Tightly coupled quantum computing job
+  title: Tightly coupled quantum computing
   titleSuffix: Azure Example Scenarios
-  description: Submit and monitor quantum computing jobs running in an Azure Quantum workspace directly from your classic application.
+  description:  Learn how to use Azure Quantum to implement hybrid quantum applications that use a tightly coupled model.
   author: hsirtl
   ms.author: hsirtl
-  ms.date: 11/04/2021
+  ms.date: 01/06/2022
   ms.topic: conceptual
   ms.service: architecture-center
   ms.subservice: example-scenario
+  ms.custom: fcp 
 azureCategories:
   - compute
+  - hybrid
 products:
   - azure-quantum
-name: Tightly coupled quantum computing job
-summary: Submit and monitor quantum computing jobs running in an Azure Quantum workspace directly from your classic application.
+  - azure-key-vault
+  - azure-active-directory
+name: Tightly coupled quantum computing
+summary: Learn how to use Azure Quantum to implement hybrid quantum applications that use a tightly coupled model.
 thumbnailUrl: /azure/architecture/browse/thumbs/tightly-coupled-quantum-computing-job.png
 content: |
   [!include[](tightly-coupled-quantum-computing-job-content.md)]
