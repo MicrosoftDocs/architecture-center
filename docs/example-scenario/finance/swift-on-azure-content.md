@@ -19,7 +19,7 @@ SWIFT Azure architecture contains various components and the key ones are explai
 
 ### Customer data center or CoLo
 
-This solution area represents the on-premise site from where business users will interact with SWIFT components securely. Any other business processing applications running on-premise can also connect with SWIFT components. There must be network connectivity between this site and Azure where SWIFT components are deployed.
+This solution area represents the on-premises site from where business users will interact with SWIFT components securely. Any other business processing applications running on-premises can also connect with SWIFT components. There must be network connectivity between this site and Azure where SWIFT components are deployed.
 
 #### SWIFT Hardware Security Module (HSM)
 
@@ -45,7 +45,7 @@ Customers with an Alliance Access based configuration will need the following:
 Customers with an Alliance Messaging Hub (AMH) based configuration will the need following:
 
 * Alliance Messaging Hub (AMH), Workbench and SAG (SWIFT Alliance Gateway)/SNL (SWIFTNet Link).
-* On-premise SRX and HSM appliance to secure the message sent via SWIFTNet.
+* On-premises SRX and HSM appliance to secure the message sent via SWIFTNet.
 
 The Azure reference architecture described in this document uses Alliance Access and Alliance Messaging Hub (AMH).
 
@@ -69,17 +69,22 @@ In response to the rapidly increasing cyber threat landscape, SWIFT introduced t
 
 #### Logic Apps
 
-Logic Apps is Microsoft Azure’s [integration platform as a service](https://argonsys.com/microsoft-cloud/glossary/platform-as-a-service) (iPaaS). It's a flexible, containerized, modern cloud-scale workflow engine you can run anywhere. Logic Apps now provides native understanding of SWIFT messaging, enabling customers to accelerate the modernization of their payments infrastructure by using the cloud. With hybrid VNet-connected integration capabilities to on-premises applications, including a wide array of Azure services, Logic Apps provides more than 400 [connectors](/connectors/connector-reference/connector-reference-logicapps-connectors) for intelligent automation, integration, data movement, and more. The SWIFT connectors transform SWIFT flat file messages into XML and vice versa, and validates based on the document schemas.
+Logic Apps is Microsoft Azure’s [integration platform as a service](https://argonsys.com/microsoft-cloud/glossary/platform-as-a-service) (iPaaS). It's a flexible, containerized, modern cloud-scale workflow engine you can run anywhere. Logic Apps now provides native understanding of SWIFT messaging, enabling customers to accelerate the modernization of their payments infrastructure by using the cloud. With hybrid VNet-connected integration capabilities to on-premises applications, including a wide array of Azure services, Logic Apps provides more than 400 [connectors](/connectors/connector-reference/connector-reference-logicapps-connectors) for intelligent automation, integration, data movement, and more. The SWIFT connectors transform SWIFT flat file messages into XML and vice versa, and validates based on the document schemas.
 
 Customers can use a Logic Apps service to process payment transactions quickly, reducing the implementation time from months to weeks. For example, customers can integrate their backend SAP systems via Logic Apps to SWIFT, to process payment transactions and business acknowledgments. As part of this processing, the transactions are validated and checked for duplicates or anomalies using the rich capabilities of Logic Apps.
 
 ## Next steps
 
+* [SWIFT Interfaces and Integration](https://www.swift.com/our-solutions/interfaces-and-integration)
+* [What is Azure Policy](/azure/governance/policy/overview)
+* [What is Azure Logic Apps](/azure/logic-apps/logic-apps-overview)
+* [Azure Monitor overview](/azure/azure-monitor/overview)
+* [What is Azure Active Directory](/azure/active-directory/fundamentals/active-directory-whatis)
+* [About Azure Key Vault](/azure/key-vault/general/overview)
+
+## Related resources
+
 Explore each Azure Architecture for the various SWIFT messaging interfaces in detail as provided below.
 
 * [Alliance Access](swift-alliance-access-on-azure.yml)
 * [Alliance Messaging Hub (AMH)](swift-alliance-messaging-hub.yml)
-
-## Related resources
-
-[SWIFT Interfaces and Integration](https://www.swift.com/our-solutions/interfaces-and-integration)
