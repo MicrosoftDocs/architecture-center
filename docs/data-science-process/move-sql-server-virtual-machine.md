@@ -8,7 +8,7 @@ editor: marktab
 ms.service: machine-learning
 ms.subservice: team-data-science-process
 ms.topic: article
-ms.date: 12/24/2021
+ms.date: 01/04/2022
 ms.author: tdsp
 ms.custom:
   - previous-author=deguhath
@@ -224,4 +224,4 @@ A screenshot of the Database back up/restore options from SQL Server Management 
 [SQL Server on Azure Virtual Machines overview](/azure/azure-sql/virtual-machines/windows/sql-server-on-azure-vm-iaas-what-is-overview)
 
 [1]: ./media/move-sql-server-virtual-machine/sql-server-built-in-utilities.png
-[2]: ./media/move-sql-server-virtual-machine/addsql_aud.png
+[2]: ./media/move-sql-server-virtual-machine/addsql-aud.png
