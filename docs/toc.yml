@@ -59,6 +59,9 @@ items:
                 href: guide/technology-choices/compute-decision-tree.md
               - name: Microservices compute options
                 href: /azure/architecture/microservices/design/compute-options
+              - name: Web apps and single page apps
+                href: /dotnet/architecture/modern-web-apps-azure/choose-between-traditional-web-and-single-page-apps
+                maintainContext: true
               - name: Multiparty computing
                 href: guide/technology-choices/multiparty-computing-service.md 
           - name: Choose a Kubernetes edge option
@@ -75,9 +78,14 @@ items:
               - name: Hybrid identity authentication methods
                 href: /azure/active-directory/hybrid/choose-ad-authn
                 maintainContext: true
-          - name: Choose a managed disk type
-            href: /azure/virtual-machines/disks-types
-            maintainContext: true
+          - name: Choose a storage service
+            items:
+              - name: Storage options
+                href: /azure/cloud-adoption-framework/ready/considerations/storage-options
+                maintainContext: true
+              - name: Managed disk types
+                href: /azure/virtual-machines/disks-types
+                maintainContext: true
           - name: Choose a data store
             items:
               - name: Understand data store models
@@ -122,8 +130,13 @@ items:
                 href: data-guide/technology-choices/data-science-and-machine-learning.md
               - name: Machine learning tools
                 href: example-scenario/mlops/aml-decision-tree.yml
-          - name: Choose a load balancing service
-            href: guide/technology-choices/load-balancing-overview.md
+          - name: Choose a networking service
+            items:
+              - name: Networking options
+                href: /azure/cloud-adoption-framework/ready/considerations/networking-options
+                maintainContext: true
+              - name: Load balancing options
+                href: guide/technology-choices/load-balancing-overview.md
           - name: Choose a messaging service
             items:
               - name: Asynchronous messaging
