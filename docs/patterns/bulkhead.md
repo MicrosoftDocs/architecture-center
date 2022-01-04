@@ -4,7 +4,7 @@ titleSuffix: Cloud Design Patterns
 description: Isolate elements of an application into pools so that if one fails, the others will continue to function.
 author: EdPrice-MSFT
 ms.author: pnp
-ms.date: 12/13/2021
+ms.date: 01/04/2022
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: design-pattern
@@ -16,7 +16,6 @@ products:
   - azure
 categories:
   - management-and-governance
-
 ---
 
 # Bulkhead pattern
