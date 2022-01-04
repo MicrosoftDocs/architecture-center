@@ -239,5 +239,5 @@ The following architecture uses some of the same technologies:
 [visio-download]: https://arch-center.azureedge.net/vm-reference-architectures.vsdx
 [vnet-dns]: /azure/virtual-network/manage-virtual-network#change-dns-servers
 [wsfc]: /sql/sql-server/failover-clusters/windows/windows-server-failover-clustering-wsfc-with-sql-server?view=sql-server-ver15
-[WAF-cost]: /azure/architecture/framework/cost/overview.md
-[WAF-devops]: /azure/architecture/framework/devops/overview.md
+[WAF-cost]: /azure/architecture/framework/cost/overview
+[WAF-devops]: /azure/architecture/framework/devops/overview

@@ -113,5 +113,5 @@ Here are some ways to further enhance the scenario:
 - [What is source control?](/azure/devops/user-guide/source-control)
 - [Understand the structure and syntax of Azure Resource Manager templates](/azure/azure-resource-manager/resource-group-authoring-templates)
 - [ARM template reference guide for Microsoft.Storage resource types](/azure/templates/microsoft.storage/allversions)
-- [Repeatable infrastructure](/azure/architecture/framework/devops/automation-infrastructure.md)
+- [Repeatable infrastructure](/azure/architecture/framework/devops/automation-infrastructure)
 - [Microsoft Learn module: Deploy applications with Azure DevOps](/learn/paths/deploy-applications-with-azure-devops/)

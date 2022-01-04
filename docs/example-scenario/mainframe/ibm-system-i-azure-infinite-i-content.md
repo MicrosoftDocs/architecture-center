@@ -118,9 +118,9 @@ Here are pricing considerations for specific components:
   - [Migrate Legacy Cold Storage AS/400](https://www.infinitecorporation.com/data-migration)
   - [Infinite Cloud: beautiful screens from IBM i / AS400 green screens](https://www.infinitecorporation.com/infinite-cloud)
 - Optimizing costs:
-  - [Microsoft Azure Well-Architected Framework](/azure/architecture/framework/index.md) has information about cost optimization for [VM instances](/azure/architecture/framework/cost/optimize-vm.md).
-  - [Checklist - Optimize cost](/azure/architecture/framework/cost/optimize-checklist.md)
-  - [Virtual machines](/azure/architecture/framework/cost/optimize-vm.md)
+  - [Microsoft Azure Well-Architected Framework](/azure/architecture/framework/index) has information about cost optimization for [VM instances](/azure/architecture/framework/cost/optimize-vm).
+  - [Checklist - Optimize cost](/azure/architecture/framework/cost/optimize-checklist)
+  - [Virtual machines](/azure/architecture/framework/cost/optimize-vm)
   - [Understand data store models](../../guide/technology-choices/data-store-overview.md)
 
 ## Related resources

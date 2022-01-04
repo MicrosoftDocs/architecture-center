@@ -21,7 +21,7 @@ We assume that you have working knowledge of Azure Application Gateway and are w
 
 ## Cost Optimization
 
-Review and apply the [cost principles](/azure/architecture/framework/cost/overview.md) when making design choices. Here are some best practices.
+Review and apply the [cost principles](/azure/architecture/framework/cost/overview) when making design choices. Here are some best practices.
 
 #### Review Application Gateway pricing
 
@@ -73,7 +73,7 @@ These are key metrics for Application Gateway. This information can be used to v
 
 For more information, see [Application Gateway metrics](/azure/application-gateway/application-gateway-metrics#application-gateway-metrics).
 
-Make sure you account for bandwidth costs. For details, see [Traffic across billing zones and regions](/azure/architecture/framework/cost/design-regions.md#traffic-across-billing-zones-and-regions).
+Make sure you account for bandwidth costs. For details, see [Traffic across billing zones and regions](/azure/architecture/framework/cost/design-regions#traffic-across-billing-zones-and-regions).
 
 ## Performance Efficiency
 
@@ -84,7 +84,7 @@ The v2 SKU offers autoscaling to ensure that your Application Gateway can scale 
 If you are running v1 SKU gateways, consider migrating to v2 SKU. See  
 [Migrate Azure Application Gateway and Web Application Firewall from v1 to v2](/azure/application-gateway/migrate-v1-v2).
 
-General best practices related to Performance Efficiency are described in [Performance efficiency principles](/azure/architecture/framework/scalability/principles.md).
+General best practices related to Performance Efficiency are described in [Performance efficiency principles](/azure/architecture/framework/scalability/principles).
 
 #### Estimate the Application Gateway instance count
 
@@ -135,7 +135,7 @@ Use these metrics as indicators of utilization of the provisioned Application Ga
 |Metric|Description|Use case|
 |---|---|---|
 |**Current Compute Units**| CPU utilization of virtual machine running Application Gateway. One Application Gateway instance supports 10 Compute Units.|Helps detect issues when more traffic is sent than what Application Gateway instances can handle.|
-|**Throughput**|Amount of traffic (in Bps) served by Application Gateway.	|This threshold is dependent on the payload size. For smaller payloads but more frequent connections, expect lower throughput limits and adjust alerts accordingly. |
+|**Throughput**|Amount of traffic (in Bps) served by Application Gateway.    |This threshold is dependent on the payload size. For smaller payloads but more frequent connections, expect lower throughput limits and adjust alerts accordingly. |
 |**Current Connections**| Active TCP connections on Application Gateway.| Helps detect issues where the connection count increases beyond the capacity of Application gateway. Look for a drop in capacity unit when the connection count increases, look for a simultaneous drop in capacity unit. This will indicate if Application Gateway is out of capacity.|
 
 #### Troubleshoot using metrics
@@ -174,7 +174,7 @@ Requests per second (RPS) on the Application Gateway will be affected if the SNA
 
 Ensure you have configured the **IdleTimeout** settings to match the listener and traffic characteristics of the backend application. The default value is set to 4 minutes and can be configured to a maximum of 30. For more information, see [Load Balancer TCP Reset and Idle Timeout](/azure/load-balancer/load-balancer-tcp-reset).
 
-For workload considerations, see [Application Monitoring](/azure/architecture/framework/devops/monitoring.md#application-monitoring).
+For workload considerations, see [Application Monitoring](/azure/architecture/framework/devops/monitoring#application-monitoring).
 
 #### Monitoring Key Vault configuration issues through Azure Advisor
 
@@ -184,7 +184,7 @@ Azure Application Gateway checks for the renewed certificate version in the link
 
 Here are some best practices to minimize failed instances.
 
-In addition, we recommend that you review the [Principles of the reliability pillar](/azure/architecture/framework/resiliency/principles.md).
+In addition, we recommend that you review the [Principles of the reliability pillar](/azure/architecture/framework/resiliency/principles).
 
 #### Plan for rule updates
 
@@ -215,7 +215,7 @@ For more information, see these articles:
 
 ## Security
 
-Security is one of the most important aspects of any architecture. Application Gateway provides features to employ both the principle of least privilege and defense-in-defense. We recommend you also review the [Security design principles](/azure/architecture/framework/security/security-principles.md).
+Security is one of the most important aspects of any architecture. Application Gateway provides features to employ both the principle of least privilege and defense-in-defense. We recommend you also review the [Security design principles](/azure/architecture/framework/security/security-principles).
 
 #### Restrictions of Network Security Groups (NSGs)
 
@@ -256,4 +256,4 @@ When WAF is enabled, every request must be buffered by the Application Gateway u
 
 ## Next steps
 
-[Microsoft Azure Well-Architected Framework](/azure/architecture/framework/index.md)
+[Microsoft Azure Well-Architected Framework](/azure/architecture/framework/index)

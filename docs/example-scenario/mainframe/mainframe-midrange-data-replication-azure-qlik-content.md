@@ -79,7 +79,7 @@ The solution uses the components that are listed in the following subsections.
 
 ## Considerations
 
-Incorporate the following pillars of the [Microsoft Azure Well-Architected Framework](/azure/architecture/framework/index.md) for a highly available and secure system:
+Incorporate the following pillars of the [Microsoft Azure Well-Architected Framework](/azure/architecture/framework/index) for a highly available and secure system:
 
 ### Availability
 
@@ -103,7 +103,7 @@ Databricks, Data Lake Storage, and other Azure databases have auto-scaling capab
 ### Resiliency
 
 - You can combine Monitor's Application Insights and Log Analytics features to monitor the health of Azure resources. You can set alerts so that you can manage proactively.
-- For guidance on resiliency in Azure, see [Designing reliable Azure applications](/azure/architecture/framework/resiliency/app-design.md).
+- For guidance on resiliency in Azure, see [Designing reliable Azure applications](/azure/architecture/framework/resiliency/app-design).
 
 ## Pricing
 

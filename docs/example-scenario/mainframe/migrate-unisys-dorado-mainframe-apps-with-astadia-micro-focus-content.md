@@ -281,14 +281,14 @@ To estimate the cost of implementing this solution, use the [Azure pricing calcu
 [Managed Disks pricing]: https://azure.microsoft.com/pricing/details/managed-disks/
 [Micro Focus]: https://www.microfocus.com/home
 [Micro Focus Enterprise Server on Azure VMs]: ./micro-focus-server.yml
-[Microsoft Azure Well-Architected Framework]: /azure/architecture/framework/index.md
+[Microsoft Azure Well-Architected Framework]: /azure/architecture/framework/index
 [Migrate IBM mainframe applications to Azure with TmaxSoft OpenFrame]: ../../solution-ideas/articles/migrate-mainframe-apps-with-tmaxsoft-openframe.yml
 [Modernize mainframe & midrange data]: ../../reference-architectures/migration/modernize-mainframe-data-to-azure.yml
 [Network security groups]: /azure/virtual-network/network-security-groups-overview
-[Overview of the performance efficiency pillar]: /azure/architecture/framework/scalability/overview.md
+[Overview of the performance efficiency pillar]: /azure/architecture/framework/scalability/overview
 [Pricing calculator]: https://azure.microsoft.com/pricing/calculator/
 [Unisys mainframe migration]: ../../reference-architectures/migration/unisys-mainframe-migration.yml
-[Optimize VM costs]: /azure/architecture/framework/cost/optimize-vm.md
+[Optimize VM costs]: /azure/architecture/framework/cost/optimize-vm
 [Use auto-failover groups to enable transparent and coordinated failover of multiple databases]: /azure/azure-sql/database/auto-failover-group-overview
 [Virtual Network pricing]: https://azure.microsoft.com/pricing/details/virtual-network/
 [Visio version of architecture diagram]: https://arch-center.azureedge.net/US-1813846-PR-2593-migrate-unisys-dorado-mainframe-apps-architecture-diagram.vsdx

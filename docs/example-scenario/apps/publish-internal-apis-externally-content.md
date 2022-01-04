@@ -165,7 +165,7 @@ Check out the related scenario on [Migrating legacy web APIs to API Management][
 [ase-pricing]: https://azure.microsoft.com/pricing/details/app-service/windows
 [appgtwy-pricing]: https://azure.microsoft.com/pricing/details/application-gateway
 [security]: /azure/security
-[resiliency]: /azure/architecture/framework/resiliency/principles.md
+[resiliency]: /azure/architecture/framework/resiliency/principles
 [azure-vpn]: /azure/vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal
 [azure-hybrid]: ../../reference-architectures/hybrid-networking/index.yml
 [azure-vm-lift-shift]: https://azure.microsoft.com/resources/azure-virtual-datacenter-lift-and-shift-guide

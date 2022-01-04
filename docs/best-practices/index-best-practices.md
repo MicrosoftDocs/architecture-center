@@ -3,7 +3,7 @@ title: Best practices in cloud applications
 titleSuffix: Azure Architecture Center
 description: Learn best practices for building reliable, scalable, and secure applications in the cloud. See resources on caching, partitioning, monitoring, and other areas.
 author: EdPrice-MSFT
-ms.date: 12/13/2021
+ms.date: 01/04/2022
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: design-pattern
@@ -71,7 +71,7 @@ This table lists various best practices. The **Related pillars or patterns** col
 [Introduction to the core Azure Storage services]: /azure/storage/common/storage-introduction
 [Message encoding considerations]: ./message-encode.md
 [Messaging patterns]: ../patterns/category/messaging.md
-[Microsoft Azure Well-Architected Framework]: /azure/architecture/framework/index.md
+[Microsoft Azure Well-Architected Framework]: /azure/architecture/framework/index
 [Overview of autoscale in Microsoft Azure]: /azure/azure-monitor/autoscale/autoscale-overview
 [Overview of the operational excellence pillar]: /azure/architecture/framework/devops/overview
 [Overview of the performance efficiency pillar]: /azure/architecture/framework/scalability/overview

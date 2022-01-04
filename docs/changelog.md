@@ -3,7 +3,7 @@ title: What's New in Azure Architecture Center
 description: New and updated articles in Azure Architecture Center
 author: EdPrice-MSFT
 ms.author: pnp
-ms.date: 12/13/2021
+ms.date: 01/04/2022
 ms.topic: article
 ms.service: architecture-center
 products:
@@ -100,7 +100,7 @@ New and updated articles in Azure Architecture Center.
 - [Automatic retry of failed backup jobs](/azure/architecture/framework/resiliency/auto-retry)
 - [Build a delta lake to support ad hoc queries in online leisure and travel booking](./solution-ideas/articles/build-data-lake-support-adhoc-queries-online.yml)
 - [Azure SQL Managed Instance and operational excellence](/azure/architecture/framework/services/data/azure-sql-managed-instance/operational-excellence)
-- [Azure SQL Managed Instance and reliability](/azure/architect/framework/services/data/azure-sql-managed-instance/reliability.md)
+- [Azure SQL Managed Instance and reliability](/azure/architecture/framework/services/data/azure-sql-managed-instance/reliability)
 - [Azure SQL Database and cost optimization](/azure/architecture/framework/services/data/azure-sql-database/cost-optimization)
 - [Azure SQL Database and operational excellence](/azure/architecture/framework/services/data/azure-sql-database/operational-excellence)
 - [Azure SQL Database and reliability](/azure/architecture/framework/services/data/azure-sql-database/reliability)

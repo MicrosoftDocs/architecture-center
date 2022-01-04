@@ -87,7 +87,7 @@ Another point to consider is regarding DNS. In order to allow applications withi
 
 - Understand how [scale works][docs-azure-scale-ase] in ASE.
 - Review best practices for [cloud apps autoscale][design-best-practice-cloud-apps-autoscale].
-- When building a cloud application, be aware of the [typical design patterns for scalability](/azure/architecture/framework/resiliency/reliability-patterns.md).
+- When building a cloud application, be aware of the [typical design patterns for scalability](/azure/architecture/framework/resiliency/reliability-patterns).
 - Review the scalability considerations in the appropriate [App Service web application reference architecture][app-service-reference-architecture].
 - For other scalability topics, see the [performance efficiency checklist][scalability] available in the Azure Architecture Center.
 
@@ -152,10 +152,10 @@ We have provided three sample cost profiles based on amount of traffic you expec
 [app-service-reference-architecture]: ../../reference-architectures/app-service-web-app/basic-web-app.yml
 [availability]: ../../checklist/resiliency-per-service.md
 
-[design-patterns-availability]: /azure/architecture/framework/resiliency/reliability-patterns.md
-[design-patterns-resiliency]: /azure/architecture/framework/resiliency/resiliency-patterns.md
-[design-patterns-performance-efficiency]: /azure/architecture/framework/scalability/performance-efficiency-patterns.md
-[design-patterns-security]: /azure/architecture/framework/security/security-patterns.md
+[design-patterns-availability]: /azure/architecture/framework/resiliency/reliability-patterns
+[design-patterns-resiliency]: /azure/architecture/framework/resiliency/resiliency-patterns
+[design-patterns-performance-efficiency]: /azure/architecture/framework/scalability/performance-efficiency-patterns
+[design-patterns-security]: /azure/architecture/framework/security/security-patterns
 [design-geo-distributed-ase]: /azure/app-service/environment/app-service-app-service-environment-geo-distributed-scale
 [design-best-practice-cloud-apps-autoscale]: ../../best-practices/auto-scaling.md
 
@@ -176,8 +176,8 @@ We have provided three sample cost profiles based on amount of traffic you expec
 [integrate-ilb-ase-with-appgw]: /azure/app-service/environment/integrate-with-application-gateway
 [pci-dss-blueprint]: /azure/security/blueprints/payment-processing-blueprint
 [resiliency-app-service]: ../../checklist/resiliency-per-service.md#app-service
-[resiliency]: /azure/architecture/framework/resiliency/principles.md
-[scalability]: /azure/architecture/framework/scalability/performance-efficiency.md
+[resiliency]: /azure/architecture/framework/resiliency/principles
+[scalability]: /azure/architecture/framework/scalability/performance-efficiency
 [secure-development]: https://www.microsoft.com/SDL/process/design.aspx
 [sql-geo-replication]: /azure/sql-database/sql-database-geo-replication-overview
 [storage-geo-redudancy]: /azure/storage/common/storage-redundancy-grs

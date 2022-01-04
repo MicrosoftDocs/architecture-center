@@ -80,7 +80,7 @@ Although this list provides a comprehensive view of all the potential roles that
 
 ## Considerations
 
-Incorporate the following pillars of the [Microsoft Azure Well-Architected Framework](/azure/architecture/framework/index.md) for a highly available and secure system:
+Incorporate the following pillars of the [Microsoft Azure Well-Architected Framework](/azure/architecture/framework/index) for a highly available and secure system:
 
 ### Availability
 

@@ -48,7 +48,7 @@ Typical situations for this architecture include:
 
 ## Considerations
 
-Consider the pillars of the  [Microsoft Azure Well-Architected Framework](/azure/architecture/framework/index.md) when you design your system:
+Consider the pillars of the  [Microsoft Azure Well-Architected Framework](/azure/architecture/framework/index) when you design your system:
 
 ### Availability
 

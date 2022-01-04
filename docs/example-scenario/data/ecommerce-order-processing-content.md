@@ -111,7 +111,7 @@ See the related architectural content:
 [docs-cosmos-db-guarantees]: /azure/cosmos-db/high-availability#slas-for-availability
 [docs-cosmos-db-use-cases]: /azure/cosmos-db/use-cases
 [docs-kafka-high-availability]: /azure/hdinsight/kafka/apache-kafka-high-availability
-[availability]: /azure/architecture/framework/resiliency/principles.md
-[scalability]: /azure/architecture/framework/scalability/performance-efficiency.md
-[resiliency]: /azure/architecture/framework/resiliency/reliability-patterns.md
+[availability]: /azure/architecture/framework/resiliency/principles
+[scalability]: /azure/architecture/framework/scalability/performance-efficiency
+[resiliency]: /azure/architecture/framework/resiliency/reliability-patterns
 [security]: /azure/security

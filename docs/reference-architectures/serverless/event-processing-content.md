@@ -189,8 +189,8 @@ Use the [Cosmos DB capacity calculator][Cosmos-Calculator] to get a quick estima
 
 <!-- links -->
 
-[AAF-cost]: /azure/architecture/framework/cost/overview.md
-[AAF-devops]: /azure/architecture/framework/devops/overview.md
+[AAF-cost]: /azure/architecture/framework/cost/overview
+[AAF-devops]: /azure/architecture/framework/devops/overview
 [AWAF-overview]: /azure/architecture/framework/
 [AWAF-devops-checklist]: ../../checklist/dev-ops.md
 [app-insights]: /azure/azure-monitor/app/app-insights-overview

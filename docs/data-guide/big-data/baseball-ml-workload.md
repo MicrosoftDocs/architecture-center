@@ -3,7 +3,7 @@ title: Baseball decision analysis with ML.NET and Blazor
 description: This scenario describes a web application that provides an interface for on-technical users to use artificial intelligence (AI) and machine learning (ML) to perform decision analysis techniques. These techniques help you rapidly gain insights and make informed predictions.
 author: EdPrice-MSFT
 ms.author: pnp
-ms.date: 12/13/2021
+ms.date: 01/04/2022
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: azure-guide
@@ -89,7 +89,7 @@ Azure App Service is used for hosting the workbench in the cloud. With App Servi
 
 In Blazor Server, the state of many components might be maintained concurrently by the server. Because of this maintenance, memory exhaustion is a concern that must be addressed. For guidance on how to author a Blazor Server app to help ensure the best use of server memory, see [Threat mitigation guidance for ASP.NET Core Blazor Server](/aspnet/core/security/blazor/server/threat-mitigation). Applying these best practices allows a server-side Blazor application to scale to thousands of concurrent users—even on relatively small server hosts.
 
-General guidance on designing scalable solutions is provided in the Azure Architecture Center's [Performance efficiency checklist](/azure/architecture/framework/scalability/performance-efficiency.md).
+General guidance on designing scalable solutions is provided in the Azure Architecture Center's [Performance efficiency checklist](/azure/architecture/framework/scalability/performance-efficiency).
 
 ### Resiliency and support
 

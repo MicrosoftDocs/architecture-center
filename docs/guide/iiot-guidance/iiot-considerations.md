@@ -20,7 +20,7 @@ ms.custom:
 
 # Architectural considerations in an IIoT analytics solution
 
-The [Microsoft Azure Well-Architected Framework](/azure/architecture/framework/index.md) describes some key tenets of a good architectural design. Keeping in line with these tenets, this article describes the considerations in the reference [Azure Industrial IoT analytics solution](./iiot-architecture.md) that improve its performance and resiliency.
+The [Microsoft Azure Well-Architected Framework](/azure/architecture/framework/index) describes some key tenets of a good architectural design. Keeping in line with these tenets, this article describes the considerations in the reference [Azure Industrial IoT analytics solution](./iiot-architecture.md) that improve its performance and resiliency.
 
 ## Performance considerations
 

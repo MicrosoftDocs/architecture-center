@@ -162,7 +162,7 @@ Azure Firewall exposes a few other logs and metrics for troubleshooting that can
 
  ## Next steps
 
- - See the [Microsoft Azure Well-Architected Framework](/azure/architecture/framework/index.md).
+ - See the [Microsoft Azure Well-Architected Framework](/azure/architecture/framework/index).
  - [What is Azure Firewall?](/azure/firewall/overview)
 
  ## Related resources

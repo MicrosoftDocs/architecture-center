@@ -42,15 +42,15 @@ To get started, consider the following example implementations:
 
 ## Best practices
 
-High-quality analytics start with robust, trustworthy data. At the highest level, [information security](/azure/architecture/framework/security/overview.md) practices help ensure that your data is protected in transit and at rest. Access to that data must also be trusted. Trustworthy data implies a design that implements:
+High-quality analytics start with robust, trustworthy data. At the highest level, [information security](/azure/architecture/framework/security/overview) practices help ensure that your data is protected in transit and at rest. Access to that data must also be trusted. Trustworthy data implies a design that implements:
 
--   [Governance policies](/azure/architecture/framework/security/design-governance.md).
+-   [Governance policies](/azure/architecture/framework/security/design-governance).
 
--   [Identity and access management](/azure/architecture/framework/security/design-identity.md).
+-   [Identity and access management](/azure/architecture/framework/security/design-identity).
 
--   [Network security controls](/azure/architecture/framework/security/design-network.md).
+-   [Network security controls](/azure/architecture/framework/security/design-network).
 
--   [Data protection](/azure/architecture/framework/security/design-storage.md).
+-   [Data protection](/azure/architecture/framework/security/design-storage).
 
 At the platform level, the following [big data best practices](../../guide/architecture-styles/big-data.md#best-practices) contribute to trustworthy analytics on Azure:
 

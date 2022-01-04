@@ -161,7 +161,7 @@ For long-running or complex Actions, host your own runners for CI/CD jobs. You c
 [GitHub security advisories]: https://docs.github.com/en/github/managing-security-vulnerabilities/about-github-security-advisories
 [PHP Security Advisories Database]: https://github.com/FriendsOfPHP/security-advisories
 [Vulnerability management in GitHub svg]: ../media/devsecops-in-github-vulnerability-management-data-flow.svg
-[Azure Well-Architected Framework]: /azure/architecture/framework/index.md
+[Azure Well-Architected Framework]: /azure/architecture/framework/index
 [About billing for GitHub actions]: https://docs.github.com/en/github/setting-up-and-managing-billing-and-payments-on-github/about-billing-for-github-actions
 [About self-hosted runners]: https://docs.github.com/en/actions/hosting-your-own-runners/about-self-hosted-runners
 [GitHub Enterprise Server]: https://azuremarketplace.microsoft.com/marketplace/apps/github.githubenterprise

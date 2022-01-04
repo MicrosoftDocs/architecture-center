@@ -195,7 +195,7 @@ You may wish to review the following [Azure example scenarios](/azure/architectu
 
 <!-- links -->
 
-[aaf-cost]: /azure/architecture/framework/cost/overview.md
+[aaf-cost]: /azure/architecture/framework/cost/overview
 [az-spot-vms]: /azure/virtual-machines/windows/spot-vms
 [azure-forum]: https://azure.microsoft.com/support/forums
 [classes]: /azure/virtual-machines/workloads/sap/hana-overview-architecture

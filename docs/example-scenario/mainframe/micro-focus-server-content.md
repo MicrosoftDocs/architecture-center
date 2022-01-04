@@ -78,7 +78,7 @@ This solution uses the following Azure components:
 
 ## Considerations
 
-The following considerations, based on the [Microsoft Azure Well-Architected Framework](/azure/architecture/framework/index.md), apply to this solution:
+The following considerations, based on the [Microsoft Azure Well-Architected Framework](/azure/architecture/framework/index), apply to this solution:
 
 ### Availability considerations
 
@@ -114,7 +114,7 @@ To estimate and calculate costs for your implementation of this solution, use th
 
 - [Refactor IBM z/OS mainframe Coupling Facility (CF) to Azure](../../reference-architectures/zos/refactor-zos-coupling-facility.yml).
 - [Replicate and sync mainframe data in Azure](../../reference-architectures/migration/sync-mainframe-data-with-azure.yml).
-- See the [Microsoft Azure Well-Architected Framework](/azure/architecture/framework/index.md) for more information about cost optimization for [VM instances](/azure/architecture/framework/cost/optimize-vm.md).
+- See the [Microsoft Azure Well-Architected Framework](/azure/architecture/framework/index) for more information about cost optimization for [VM instances](/azure/architecture/framework/cost/optimize-vm).
 - For more information, please contact <legacy2azure@microsoft.com>.
 
 ## Related resources

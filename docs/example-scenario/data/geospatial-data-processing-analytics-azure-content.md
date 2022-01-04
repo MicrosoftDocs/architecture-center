@@ -73,7 +73,7 @@ Throughout the process:
 
 - [Azure Databricks][Azure Databricks Workspace concepts] is a data analytics platform. Its fully managed Spark clusters process large streams of data from multiple sources. Azure Databricks can transform geospatial data at large scale for use in analytics and data visualization.
 
-- [Data Lake Storage][Introduction to Azure Data Lake Storage Gen2] is a scalable and secure data lake for high-performance analytics workloads. This service can manage multiple petabytes of information while sustaining hundreds of gigabits of throughput. The data typically comes from multiple, heterogeneous sources and may be structured, semi-structured, or unstructured.
+- [Data Lake Storage][Introduction to Azure Data Lake Storage Gen2] is a scalable and secure data lake for high-performance analytics workloads. This service can manage multiple petabytes of information while sustaining hundreds of gigabits of throughput. The data typically comes from multiple, heterogeneous sources and can be structured, semi-structured, or unstructured.
 
 - [Azure Database for PostgreSQL][What is Azure Database for PostgreSQL?] is a fully managed relational database service that's based on the community edition of the open-source [PostgreSQL][PostgreSQL] database engine.
 
@@ -143,7 +143,7 @@ The following considerations, based on the [Microsoft Azure Well-Architected Fra
 
 - [App Service diagnostics][Azure App Service diagnostics overview] alerts you to problems in apps, such as downtime. Use this service to identify, troubleshoot, and resolve issues like outages.
 
-- Consider using [App Service to back up application files][Basic web app availability considerations]. But be careful with backed-up files, which include app settings in plain text. Those settings may contain secrets like connection strings.
+- Consider using [App Service to back up application files][Basic web app availability considerations]. But be careful with backed-up files, which include app settings in plain text. Those settings can contain secrets like connection strings.
 
 ### Scalability considerations
 
@@ -283,7 +283,7 @@ To start implementing this solution, see this information:
 [Introduction to Azure Functions]: /azure/azure-functions/functions-overview
 [Machine learning operations (MLOps) framework to upscale machine learning Lifecycle with Azure Machine Learning]: ../mlops/mlops-technical-paper.yml
 [Mapbox Vector Tile specification]: https://github.com/mapbox/vector-tile-spec
-[Microsoft Azure Well-Architected Framework]: /azure/architecture/framework/index.md
+[Microsoft Azure Well-Architected Framework]: /azure/architecture/framework/index
 [Monitoring Azure Databricks]: ../../databricks-monitoring/index.md
 [Open Geospatial Consortium]: https://www.osgeo.org/partners/ogc/
 [Overview of autoscale in Microsoft Azure]: /azure/azure-monitor/autoscale/autoscale-overview

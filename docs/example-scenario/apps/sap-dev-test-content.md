@@ -102,9 +102,9 @@ Explore related architectures:
 
 <!-- links -->
 
-[resiliency]: /azure/architecture/framework/resiliency/principles.md
+[resiliency]: /azure/architecture/framework/resiliency/principles
 [security]: /azure/security
-[scalability]: /azure/architecture/framework/scalability/performance-efficiency.md
+[scalability]: /azure/architecture/framework/scalability/performance-efficiency
 [sap-netweaver]: ../../reference-architectures/sap/sap-netweaver.yml
 [sap-hana]: ../../reference-architectures/sap/sap-s4hana.yml
 [sap-large]: ../../reference-architectures/sap/hana-large-instances.yml

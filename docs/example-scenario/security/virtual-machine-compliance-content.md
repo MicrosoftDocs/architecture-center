@@ -224,13 +224,13 @@ Unless you use a third-party service such as Ansible or Terraform, this approach
 [Control and audit your resources by using Azure Policy]: /learn/modules/build-cloud-governance-strategy-azure/6-control-audit-resources-azure-policy
 [Custom Script Extensions]: /azure/virtual-machines/extensions/custom-script-windows
 [Deployment Stamps pattern]: ../../patterns/deployment-stamp.md
-[Designing resilient applications for Azure]: /azure/architecture/framework/resiliency/principles.md
+[Designing resilient applications for Azure]: /azure/architecture/framework/resiliency/principles
 [DevSecOps in Azure]: ../../solution-ideas/articles/devsecops-in-azure.yml
 [DevTest and DevOps for IaaS solutions]: ../../solution-ideas/articles/dev-test-iaas.yml
 [Geode pattern]: ../../patterns/geodes.md
 [How to find a Marketplace image version]: /azure/virtual-machines/windows/cli-ps-findimage#view-purchase-plan-properties
 [Only allow certain image publishers from the Marketplace]: https://github.com/Azure/azure-policy/tree/master/samples/Compute/allowed-image-publishers
-[Overview of the reliability pillar]: /azure/architecture/framework/resiliency/overview.md
+[Overview of the reliability pillar]: /azure/architecture/framework/resiliency/overview
 [Scaling for Azure Compute Gallery]: /azure/virtual-machines/shared-image-galleries#scaling
 [Store and share images in an Azure Compute Gallery]: /azure/virtual-machines/shared-image-galleries
 [Store and share images in an Azure Compute Gallery - Limits]: /azure/virtual-machines/shared-image-galleries#limits

@@ -59,7 +59,7 @@ Although not implemented in this example scenario, a bot's App Service can utili
 
 The bots used in this scenario are hosted on Azure App Service. As a result, you can use the standard App Service autoscaling features to automatically scale the number of instances running your bot, allowing your bot to keep up with demand. For more information on autoscaling, see [Autoscaling best practices](../../best-practices/auto-scaling.md).
 
-For other scalability topics, see the Azure Architecture Center's [Performance efficiency checklist](/azure/architecture/framework/scalability/performance-efficiency.md).
+For other scalability topics, see the Azure Architecture Center's [Performance efficiency checklist](/azure/architecture/framework/scalability/performance-efficiency).
 
 ### DevOps
 

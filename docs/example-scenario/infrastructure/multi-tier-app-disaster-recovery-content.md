@@ -109,7 +109,7 @@ For additional high availability and disaster recovery reference architectures, 
 
 [architecture]: ./media/architecture-disaster-recovery-multi-tier-app.png
 [security]: /azure/security
-[scalability]: /azure/architecture/framework/scalability/performance-efficiency.md
+[scalability]: /azure/architecture/framework/scalability/performance-efficiency
 [docs-availability-zones]: /azure/availability-zones/az-overview
 [docs-load-balancer]: /azure/load-balancer/load-balancer-overview
 [docs-nsg]: /azure/virtual-network/security-overview

@@ -271,7 +271,7 @@ Although VPNs can be used to connect virtual networks within Azure, it's not alw
 
 <!-- links -->
 
-[aaf-cost]: /azure/architecture/framework/cost/overview.md
+[aaf-cost]: /azure/architecture/framework/cost/overview
 [adds-extend-domain]: ../identity/adds-extend-domain.yml
 [az-vpn]: /azure/azure-stack/azure-stack-connect-vpn
 [azure-gateway-charges]: https://azure.microsoft.com/pricing/details/vpn-gateway

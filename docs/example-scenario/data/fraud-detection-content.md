@@ -57,7 +57,7 @@ For general guidance on designing secure solutions, see the [Azure Security Docu
 
 ### Resiliency
 
-For general guidance on designing resilient solutions, see [Designing reliable Azure applications](/azure/architecture/framework/resiliency/app-design.md).
+For general guidance on designing resilient solutions, see [Designing reliable Azure applications](/azure/architecture/framework/resiliency/app-design).
 
 ## Deploy the scenario
 
@@ -90,5 +90,5 @@ More complex fraud detection scenarios can benefit from a machine learning model
 [docs-r-server-sample-solutions]: /machine-learning-server/r/sample-solutions
 [r-server-fraud-detection]: https://microsoft.github.io/r-server-fraud-detection
 [technet-fraud-detection]: https://beanalytics.wordpress.com/2017/06/28/using-azure-data-lake-and-r-for-fraud-detection/
-[scalability]: /azure/architecture/framework/scalability/performance-efficiency.md
+[scalability]: /azure/architecture/framework/scalability/performance-efficiency
 [security]: /azure/security
