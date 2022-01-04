@@ -160,7 +160,7 @@ Here are a few related GitHub resources you can use:
 
 -   This [Logic App sample](https://github.com/Azure/logicapps/tree/master/azure-devops-sample) is a single-tenant project that includes Azure deployment and pipeline examples.
 
--   This project shows you how to do [object detection on edge devices](https://github.com/liupeirong/MLOpsManufacturing/tree/main/samples/edge-object-detection) and route the detection results to the cloud! The repository includes pipelines that fully automate the Azure resource deployments as well as the deployment of edge modules to do the object detection.
+-   This project shows you how to do [object detection on edge devices](https://github.com/Azure-Samples/MLOpsManufacturing/tree/main/samples/edge-object-detection) and route the detection results to the cloud! The repository includes pipelines that fully automate the Azure resource deployments as well as the deployment of edge modules to do the object detection.
 
 -   [Azure Debugging Relay for Python](https://github.com/vladkol/azure-debug-relay) is a Visual Studio Code extension and a Python package for distributed remote debugging.
 

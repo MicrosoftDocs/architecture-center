@@ -134,7 +134,7 @@ Azure offers a range of sizes that are optimized for both CPU & GPU intensive wo
 #### CPU-based virtual machines
 
 - [Linux VMs](/azure/virtual-machines/linux/sizes-hpc)
-- [Windows VMs](/azure/virtual-machines/windows/sizes-hpc) VMs
+- [Windows VMs](/azure/virtual-machines/windows/sizes-hpc)
 
 #### GPU-enabled virtual machines
 
