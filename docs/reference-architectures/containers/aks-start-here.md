@@ -110,12 +110,12 @@ If you're seeking additional references that use AKS as their foundation, here a
 * [Building a telehealth system](../../example-scenario/apps/telehealth-system.yml)
 * [CI/CD pipeline for container-based workloads](../../example-scenario/apps/devops-with-aks.yml)
 
-### Azure Arc
+### Azure Arc-enabled Kubernetes
 
-Azure Kubernetes Service offers you a managed Kubernetes experience on Azure, however there are workloads or situations that might be best suited for placing your own Kubernetes clusters under [Azure Arc](/azure/azure-arc/) management. This includes your clusters such as RedHat OpenShift, RedHat RKE, and Canonical Charmed Kubernetes. Azure Arc management should also be used for [AKS Engine](https://github.com/Azure/aks-engine) clusters running in your datacenter, in another cloud, or on [Azure Stack Hub](/azure-stack/user/azure-stack-kubernetes-aks-engine-overview).
+Azure Kubernetes Service offers you a managed Kubernetes experience on Azure, however there are workloads or situations that might be best suited for placing your own Kubernetes clusters under [Azure Arc-enabled Kubernetes](/azure/azure-arc/kubernetes) management. This includes your clusters such as RedHat OpenShift, RedHat RKE, and Canonical Charmed Kubernetes. Azure Arc management can also be used with [Cluster API provider Azure](https://github.com/kubernetes-sigs/cluster-api-provider-azure) clusters to benefit from the Azure Resource Manager representation of the cluster and availability of cluster extensions like Azure Monitor container insights and Azure Policy. Azure Arc-enabled Kubernetes can also be used with [AKS on Azure Stack HCI clusters](/azure-stack/aks-hci/connect-to-arc) and with Kubernetes clusters running on other cloud providers.
 
 > [!div class="nextstepaction"]
-> [Azure Arc enabled Kubernetes](/Azure/azure-arc/kubernetes/overview)
+> [Azure Arc-enabled Kubernetes](/Azure/azure-arc/kubernetes/overview)
 
 ### Managed service provider
 
