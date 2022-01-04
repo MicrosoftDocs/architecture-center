@@ -4,7 +4,7 @@ metadata:
   description: This article is a landing page for all SWIFT components that can be deployed on Azure.
   author: Mahesh-MSFT
   ms.author: maksh
-  ms.date: 12/30/2021
+  ms.date: 01/04/2022
   ms.topic: conceptual
   ms.service: architecture-center
   ms.subservice: azure-guide
@@ -19,7 +19,11 @@ azureCategories:
   - migration
 summary: Use this landing page to understand SWIFT components and their architecture in Azure.
 products:
-  - mscloud-financial
+  - azure-resource-manager
+  - azure-policy
+  - azure-logic-apps
+  - azure-monitor
+  - azure-active-directory
 thumbnailUrl: /azure/architecture/browse/thumbs/swift-ref-arch-thumbnail.png
 content: |
    [!include[](swift-on-azure-content.md)]

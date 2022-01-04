@@ -1,5 +1,3 @@
-#
-
 This article provides an overview of deploying SWIFT's Alliance Access on Azure, which is one of the messaging interfaces offered by SWIFT for secure financial messaging.
 
 ## Potential use cases
@@ -20,9 +18,9 @@ The Alliance Access Secure Zone subscription contains resources managed by the c
 
 Once the Alliance Access infrastructure is deployed, the customer follows SWIFT's instructions for installing the Alliance Access software.
 
-### Components
+### Workflow
 
-* **Azure subscription**: An Azure subscription is needed to deploy Alliance Access. We recommended that you use a new Azure subscription to manage and scale Alliance Access.
+* **Azure subscription**: An Azure subscription is needed to deploy Alliance Access. We recommend that you use a new Azure subscription to manage and scale Alliance Access.
 
 * **Azure resource group**: The Alliance Access Secure Zone subscription has three Azure resource groups, one for each of the Alliance Access components.
 
@@ -38,7 +36,7 @@ Once the Alliance Access infrastructure is deployed, the customer follows SWIFT'
 
 * **Azure Firewall**: Any outbound connectivity from Alliance Access VMs to the internet should be routed via Azure Firewall. Typical examples of such connectivity are time sync, anti-virus definition update, and so on.
 
-* **Azure Virtual Machine**: Azure Virtual Machines provides compute services for running Alliance Access. Consider using following general guidelines for choosing the right SKU.
+* **Azure Virtual Machines**: Azure Virtual Machines provides compute services for running Alliance Access. Consider using following general guidelines for choosing the right SKU.
 
     1. Compute optimized SKU for running Alliance Web Platform front-end.
     2. Memory optimized SKU for running Alliance Access with an embedded Oracle database.
@@ -58,6 +56,13 @@ The SWIFT customer will establish a secure connectivity to Alliance Access Secur
 _Download a [PowerPoint file](https://arch-center.azureedge.net/swift-alliance-access-customer-connectivity-2.pptx) that contains this architecture diagram._
 
 The SWIFT customer's business/application systems can connect with Alliance Access VMs as shown above. However, business users can connect to the Alliance Web Platform only. The recommended Azure Firewall and Azure Network Security Group are configured to only allow appropriate traffic to pass to Alliance Web Platform.
+
+### Components
+
+* [Azure Virtual Network](https://azure.microsoft.com/services/virtual-network)
+* [Azure Virtual Machines](https://azure.microsoft.com/services/virtual-machines)
+* [Azure Firewall](https://azure.microsoft.com/services/azure-firewall)
+* [Azure Managed Disk](https://azure.microsoft.com/services/storage/disks)
 
 ### Alternatives
 
@@ -167,7 +172,16 @@ To increase resilience beyond a single Azure region, deploying in multiple Azure
 
 ## Next steps
 
-Explore other SWIFT modules functionality and architecture in detail as provided below.
+* [What is Azure Virtual Network?](/azure/virtual-network/virtual-networks-overview)
+* [Linux virtual machines in Azure](/azure/virtual-machines/linux/overview)
+* [Azure virtual machine extensions](/azure/virtual-machines/extensions/overview)
+* [What is Azure Firewall?](/azure/firewall/overview)
+* [Introduction to Azure managed disks](/azure/virtual-machines/managed-disks-overview)
+* [Availability Zones](/azure/availability-zones/az-overview)
+
+## Related resources
+
+Explore the functionality and architecture of some other SWIFT modules in detail, as provided below.
 
 * [SWIFT on Azure](swift-on-azure.yml)
 * [Alliance Messaging Hub (AMH)](swift-alliance-messaging-hub.yml)
