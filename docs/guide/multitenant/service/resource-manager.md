@@ -13,7 +13,7 @@ products:
  - azure-resource-manager
 categories:
  - management-and-governance
- - security
+ - devops
 ms.category:
   - fcp
 ms.custom:

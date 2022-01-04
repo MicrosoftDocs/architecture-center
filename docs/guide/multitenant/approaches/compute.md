@@ -10,12 +10,12 @@ ms.service: architecture-center
 ms.subservice: azure-guide
 products:
  - azure
- - azure-app=service
+ - azure-app-service
  - azure-functions
  - azure-kubernetes-service
 categories:
- - management-and-governance
- - security
+ - compute
+ - web
 ms.category:
   - fcp
 ms.custom:
@@ -156,7 +156,7 @@ The [No Caching antipattern](../../../antipatterns/no-caching/index.md) is when 
 
 ### Unnecessary statefulness
 
-The corollary to the No Caching antipattern is that you also should avoid storing unnecessary state in your compute tier. Be explicit about where you maintain state and why. Stateful front-end or application tiers can reduce your ability to scale. Stateful compute tiers typically also require session affinity, which can reduce your ability to effictively load balance traffic, across workers or nodes.
+The corollary to the No Caching antipattern is that you also should avoid storing unnecessary state in your compute tier. Be explicit about where you maintain state and why. Stateful front-end or application tiers can reduce your ability to scale. Stateful compute tiers typically also require session affinity, which can reduce your ability to effectively load balance traffic, across workers or nodes.
 
 Consider the tradeoffs for each piece of state you maintain in your compute tier, and whether it impacts your ability to scale or to grow as your tenants' workload patterns change. You can also store state in an external cache, such as Azure Cache for Redis.
 

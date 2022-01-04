@@ -25,7 +25,7 @@ The architecture provides rapid results by using in-memory models and rapid two-
 
 The following article explains the architecture of the Baseball Machine Learning Workbench, where to get the source code for it, and how to deploy it. You can also [view a live demo of this solution](https://aka.ms/BaseballMLWorkbench).
 
-## Relevant use cases
+## Potential use cases
 
 Consider this scenario for the following use cases:
 
@@ -91,9 +91,9 @@ General guidance on designing scalable solutions is provided in the Azure Archit
 
 ### Resiliency and support
 
-Use .NET Core 3.1.x because it is a Long Term Support (LTS) release. Although Blazor Server is also available in .NET Core 3.0, that is not an LTS release and thus continuing compatibility with future component updates is not assured. [Learn more about the .NET Core Support Policy.](https://dotnet.microsoft.com/platform/support/policy/dotnet-core)
+Use .NET Core 3.1.x because it is a Long Term Support (LTS) release. Although Blazor Server is also available in .NET Core 3.0, that is not an LTS release and thus continuing compatibility with future component updates is not assured. [Learn more about the .NET Core Support Policy](https://dotnet.microsoft.com/platform/support/policy/dotnet-core).
 
-## Deploy this solution
+## Deploy this scenario
 
 All of the source code for this scenario is available in the [Baseball Machine Learning Workbench repository](https://github.com/bartczernicki/MachineLearning-BaseballPrediction-BlazorApp). This solution is open source and provided with an [MIT License](https://github.com/bartczernicki/MachineLearning-BaseballPrediction-BlazorApp/blob/master/LICENSE.md).
 
@@ -127,7 +127,7 @@ The container can be run locally (offline) in your own environment. It can also 
 
 - [Publish Docker Container to the Azure Cloud using Azure Container Instances](https://github.com/bartczernicki/MachineLearning-BaseballPrediction-BlazorApp/blob/master/GETSTARTED.md#3-publish-docker-container-to-the-azure-cloud-using-azure-container-instances)
 
-## Related resources
+## Next steps
 
 - View a [live demo of this solution](https://aka.ms/BaseballMLWorkbench)
 
@@ -144,3 +144,9 @@ The container can be run locally (offline) in your own environment. It can also 
 - Learn about the [National Baseball Hall of Fame voting process and rules](https://www.baseball-reference.com/bullpen/Hall_of_Fame)
 
 - [XAI Stories: Case Studies for Explainable Artificial Intelligence](https://pbiecek.github.io/xai_stories/) (Warsaw University of Technology and University of Warsaw, 2020)
+
+## Related resources
+
+- [Build an enterprise-grade conversational bot](/azure/architecture/reference-architectures/ai/conversational-bot)
+- [Scale AI and machine learning initiatives in regulated industries](/azure/architecture/example-scenario/ai/scale-ai-and-machine-learning-in-regulated-industries)
+- [Homomorphic encryption with SEAL](/azure/architecture/solution-ideas/articles/homomorphic-encryption-seal)

@@ -138,7 +138,7 @@ Azure Virtual Network is free. Every subscription is allowed to create up to 50 
 [AAF-devops]: ../../framework/devops/overview.md
 [adds-resource-forest]: ./adds-forest.yml
 [adfs]: ./adfs.yml
-[dsc-overview]: /powershell/scripting/dsc/overview/overview?view=powershell-7
+[dsc-overview]: /powershell/scripting/dsc/overview
 [ad-ds-operations-masters]: /windows-server/identity/ad-ds/plan/planning-operations-master-role-placement
 [ad-ds-ports]: /troubleshoot/windows-server/identity/config-firewall-for-ad-domains-and-trusts  
 [arm-template]: /azure/azure-resource-manager/resource-group-overview#resource-groups

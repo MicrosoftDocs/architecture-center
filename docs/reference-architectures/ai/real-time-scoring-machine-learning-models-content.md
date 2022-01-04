@@ -73,7 +73,7 @@ For deep learning scenarios, using GPU-enabled VMs, resource limits on pods are 
 
 ### AKS monitoring
 
-For visibility into AKS performance, use the [Azure Monitor for containers][monitor-containers] feature. It collects memory and processor metrics from controllers, nodes, and containers that are available in Kubernetes through the Metrics API.
+For visibility into AKS performance, use the [Azure Monitor container insights][monitor-containers] feature. It collects memory and processor metrics from controllers, nodes, and containers that are available in Kubernetes through the Metrics API.
 
 While deploying your application, monitor the AKS cluster to make sure it's working as expected, all the nodes are operational, and all pods are running. Although you can use the [kubectl][kubectl] command-line tool to retrieve pod status, Kubernetes also includes a web dashboard for basic monitoring of the cluster status and management.
 
@@ -85,7 +85,7 @@ To see the overall state of the cluster and nodes, go to the **Nodes** section o
 
 AKS automatically logs all stdout/stderr to the logs of the pods in the cluster. Use kubectl to see these and also node-level events and logs. For details, see the deployment steps.
 
-Use [Azure Monitor for containers][monitor-containers] to collect metrics and logs through a containerized version of the Log Analytics agent for Linux, which is stored in your Log Analytics workspace.
+Use [Azure Monitor container insights][monitor-containers] to collect metrics and logs through a containerized version of the Log Analytics agent for Linux, which is stored in your Log Analytics workspace.
 
 ## Security considerations
 
