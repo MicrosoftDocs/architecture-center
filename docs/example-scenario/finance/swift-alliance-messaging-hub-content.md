@@ -1,5 +1,7 @@
 SWIFT Alliance Messaging Hub (AMH) can be hosted on Azure, and is one of the key messaging solutions in SWIFT's product portfolio. It's customizable and meets the messaging needs of financial institutions. With SWIFT AMH, financial institutions can introduce new services and products in the market quickly and efficiently. SWIFT AMH meets security and compliance requirements around financial messaging.
 
+## Potential use cases
+
 Using this article, customers can start with highly available and disaster resistant deployments of SWIFT AMH on Azure.
 
 ## Architecture
