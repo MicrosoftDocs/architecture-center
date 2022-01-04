@@ -1703,6 +1703,7 @@ items:
                     maintainContext: true
                   - name: Optimize and reuse recommendations
                     href: /previous-versions/azure/industry-marketing/retail/recommendation-engine-optimization
+                    maintainContext: true
                   - name: Predictive maintenance in manufacturing
                     href: /previous-versions/azure/industry-marketing/manufacturing/predictive-maintenance-overview
                     maintainContext: true
@@ -1783,7 +1784,7 @@ items:
                         href: data-science-process/walkthroughs-azure-data-lake.md
                       - name: R, Python and T-SQL with SQL Server
                         href: data-science-process/walkthroughs-sql-server.md
-                      - name: T-SQL and Python with Synapse Analytics
+                      - name: T-SQL and Python with Azure Synapse
                         href: data-science-process/walkthroughs-sql-data-warehouse.md
                   - name: Training
                     items:
@@ -1907,7 +1908,7 @@ items:
                 href: reference-architectures/ai/batch-scoring-databricks.yml
               - name: Blueprint architectures
                 items:
-                  - name: Blueprint - HIPAA/HITRUST health data and AI
+                  - name: Blueprint - HIPAA/HITRUST health for AI
                     href: /previous-versions/azure/security/blueprints/azure-health
                     maintainContext: true
                   - name: Implement the healthcare blueprint for AI
