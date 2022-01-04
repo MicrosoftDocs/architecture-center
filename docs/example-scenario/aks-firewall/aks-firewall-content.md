@@ -1,62 +1,64 @@
-In a production environment, communications with a Kubernetes cluster should be protected via a firewall that monitors and controls the incoming and outgoing network traffic based on a predetermined set of security rules. A firewall typically establishes a barrier between a trusted network and an untrusted network, such as the Internet. The [Azure Firewall](/azure/firewall/overview) can be deployed and used in a hub virtual network to inspect, allow, or block the ingress and egress traffic to and from one or more [Azure Kubernetes Services](/azure/aks/) clusters hosted by one or more spoke virtual networks peered to the hub virtual network.
+In a production environment, communications with a Kubernetes cluster should be protected via a firewall that monitors and controls the incoming and outgoing network traffic based on a predetermined set of security rules. A firewall typically establishes a barrier between a trusted network and an untrusted network, like the internet. You can use [Azure Firewall](/azure/firewall/overview) in a hub virtual network to inspect, allow, or block the traffic to and from one or more [Azure Kubernetes Services (AKS)](/azure/aks) clusters hosted by one or more spoke virtual networks peered to the hub virtual network.
 
-By default, AKS clusters have unrestricted outbound internet access. This level of network access allows nodes and services running in the AKS cluster to access external resources as needed. If you wish to restrict egress traffic, a limited number of ports and addresses must be accessible to maintain healthy cluster maintenance tasks. The simplest solution to securing the outbound traffic from a Kubernetes cluster such as AKS lies in using a software firewall that can control outbound traffic based on domain names. Azure Firewall, for example, can restrict outbound HTTP and HTTPS traffic based on the FQDN of the destination. You can also configure your preferred firewall and security rules to allow these required ports and addresses. For more information, see [Control egress traffic for cluster nodes in Azure Kubernetes Service (AKS)](/azure/aks/limit-egress-traffic). 
+By default, AKS clusters have unrestricted outbound internet access. This level of network access allows nodes and services that run in the AKS cluster to access external resources as needed. If you want to restrict egress traffic, a limited number of ports and addresses must remain accessible to maintain healthy cluster maintenance tasks. The easiest solution for providing security for the outbound traffic from a Kubernetes cluster like AKS is to use a software firewall that can control outbound traffic based on domain names. Azure Firewall, for example, can restrict outbound HTTP and HTTPS traffic based on the fully qualified domain name (FQDN) of the destination. You can also configure your preferred firewall and security rules to allow these required ports and addresses. For more information, see [Control egress traffic for cluster nodes in AKS](/azure/aks/limit-egress-traffic). 
 
-Likewise, you can control and secure the ingress traffic by enabling [Threat intelligence-based filtering](/azure/firewall/threat-intel) on an Azure Firewall deployed to a shared perimeter network to alert and deny traffic from/to known malicious IP addresses and domains. Azure Firewall is fully integrated with Azure Monitor for logging incoming and outgoing traffic processed by the firewall. For more information, see [Azure Firewall threat intelligence-based filtering](/azure/firewall/threat-intel).
+Likewise, you can control ingress traffic and provide security by enabling [threat intelligence-based filtering](/azure/firewall/threat-intel) on an Azure firewall deployed to a shared perimeter network to provide alerts and deny traffic to and from known malicious IP addresses and domains. Azure Firewall is fully integrated with Azure Monitor for logging incoming and outgoing traffic processed by the firewall. For more information, see [Azure Firewall threat intelligence-based filtering](/azure/firewall/threat-intel).
 
-The Azure platform provides protections against various threats, such as network intrusion and DDoS attacks. A web application firewall (WAF) should be used to protect any AKS-hosted web applications and services that expose a public HTTPS endpoint from common threats such as SQL injection, cross-site scripting, and other web exploits using Open Web Application Security Project (OWASP) rules and custom rules. [Azure Web Application Firewall (WAF)](/azure/web-application-firewall/overview) provides centralized protection of your web applications from common exploits and vulnerabilities. Azure WAF can be deployed with [Azure Application Gateway](/azure/web-application-firewall/ag/ag-overview), [Azure Front Door](/azure/web-application-firewall/afds/afds-overview), and [Azure Content Delivery Network (CDN)](/azure/web-application-firewall/cdn/cdn-overview) service from Microsoft.
+The Azure platform provides improved protection against various threats, like network intrusion and distributed denial-of-service (DDoS) attacks. You should use a web application firewall (WAF) to provide protection for any AKS-hosted web applications and services that expose a public HTTPS endpoint from common threats like SQL injection, cross-site scripting, and other web exploits by using Open Web Application Security Project (OWASP) rules and custom rules. [Azure Web Application Firewall (WAF)](/azure/web-application-firewall/overview) provides improved centralized protection of your web applications from common exploits and vulnerabilities. You can deploy Azure WAF with [Azure Application Gateway](/azure/web-application-firewall/ag/ag-overview), [Azure Front Door](/azure/web-application-firewall/afds/afds-overview), and [Azure Content Delivery Network](/azure/web-application-firewall/cdn/cdn-overview).
 
-Distributed denial of service (DDoS) attacks are some of the largest availability and security concerns facing customers that are moving their applications to the cloud. A DDoS attack attempts to exhaust an application's resources, making the application unavailable to legitimate users. DDoS attacks can be targeted at any endpoint that is publicly reachable through the internet. Every property in Azure is protected by Azure's infrastructure DDoS (Basic) Protection at no additional cost. The scale and capacity of the globally deployed Azure network provides defense against common network-layer attacks through always-on traffic monitoring and real-time mitigation. DDoS Protection Basic requires no user configuration or application changes. DDoS Protection Basic helps protect all Azure services, including PaaS services like Azure DNS.
+DDoS attacks are among the biggest availability and security concerns facing organizations that are moving their applications to the cloud. A DDoS attack attempts to exhaust an application's resources, making the application unavailable to legitimate users. DDoS attacks can be targeted at any endpoint that's publicly reachable via the internet. Every property in Azure includes protection via Azure infrastructure DDoS Protection Basic at no additional cost. The scale and capacity of the globally deployed Azure network provides improved defense against common network-layer attacks through always-on traffic monitoring and real-time mitigation. DDoS Protection Basic requires no user configuration or application changes. It helps protect all Azure services, including platform as a service (PaaS) services like Azure DNS.
 
-[Azure DDoS Protection Standard](/azure/ddos-protection/ddos-protection-overview), combined with application design best practices, provides enhanced DDoS mitigation features to defend against DDoS attacks. [Azure DDOS Protection Standard](/azure/ddos-protection/ddos-protection-overview) should be enabled on any perimeter virtual network for better protection.
+[Azure DDoS Protection Standard](/azure/ddos-protection/ddos-protection-overview), combined with application-design best practices, provides enhanced DDoS mitigation features to provide more defense against DDoS attacks. You should enable [Azure DDOS Protection Standard](/azure/ddos-protection/ddos-protection-overview) on any perimeter virtual network.
 
 ## Potential use cases
 
-Use [Terraform](https://www.terraform.io/intro/index.html) and [Azure DevOps](/azure/devops/pipelines/get-started/what-is-azure-pipelines?view=azure-devops) to automate the deployment of a private [Azure Kubernetes Service cluster](/azure/aks/private-clusters) in a hub and spoke network topology where [Azure Firewall](/azure/firewall/overview) is used to control the inbound and outbound traffic using [DNAT rules, network rules, and application rules](/azure/firewall/rule-processing) and protect workloads using [threat intelligence-based filtering](/azure/firewall/threat-intel).
+Use [Terraform](https://www.terraform.io/intro/index.html) and [Azure DevOps](/azure/devops/pipelines/get-started/what-is-azure-pipelines?view=azure-devops) to automate the deployment of a private [AKS cluster](/azure/aks/private-clusters) in a hub-and-spoke network topology. [Azure Firewall](/azure/firewall/overview) is used to control the inbound and outbound traffic via [DNAT rules, network rules, and application rules](/azure/firewall/rule-processing) and to protect workloads by using [threat intelligence-based filtering](/azure/firewall/threat-intel).
 
 ## Architecture
 
-![Architecture Diagram](media/aks-firewall.png)
+![Diagram that shows an architecture that has a private A K S cluster in a hub-and-spoke network topology.](media/aks-firewall.png)
 
-Companion Terraform modules deploy a new virtual network with four subnets:
+link to visio 
+
+Companion Terraform modules deploy a new virtual network that has these four subnets.
 
 - AksSubnet: Hosts the AKS cluster
-- VmSubnet: Hosts a jump-box virtual machine and private endpoints
+- VmSubnet: Hosts a jump-box virtual machine (VM) and private endpoints
 - AppGatewaySubnet: Hosts Application Gateway WAF2
 - AzureBastionSubnet: Azure Bastion
 
-The Azure Kubernetes Service (AKS) cluster uses a user-defined managed identity to create additional resources, like load balancers and managed disks in Azure. The Terraform modules allow you to optionally deploy an AKS cluster with the following features:
+The AKS cluster uses a user-defined managed identity to create additional resources, like load balancers and managed disks in Azure. The Terraform modules allow you to optionally deploy an AKS cluster with these features:
 
 - [Container Storage Interface (CSI) drivers for Azure disks and Azure Files](/azure/aks/csi-storage-drivers)
-- [AKS-managed AAD integration](/azure/aks/managed-aad)
+- [AKS-managed Azure Active Directory integration](/azure/aks/managed-aad)
 - [Azure RBAC for Kubernetes Authorization](/azure/aks/manage-azure-rbac)
 - [Managed identity in place of a service principal](/azure/aks/use-managed-identity)
-- [Azure Network Policies](/azure/aks/use-network-policies)
-- [Azure Monitor for containers add-on](/azure/azure-monitor/containers/container-insights-enable-new-cluster)
-- [Application Gateway Ingress Controller add-on](https://azure.github.io/application-gateway-kubernetes-ingress/)
+- [Azure network policies](/azure/aks/use-network-policies)
+- [Azure Monitor Container insights](/azure/azure-monitor/containers/container-insights-enable-new-cluster)
+- [Application Gateway Ingress Controller](https://azure.github.io/application-gateway-kubernetes-ingress)
 - [Dynamic allocation of IPs and enhanced subnet support](/azure/aks/configure-azure-cni#dynamic-allocation-of-ips-and-enhanced-subnet-support-preview)
 
 The AKS cluster is composed of the following:
 
-- System node pool that hosts only critical system pods and services.
-- User node pool that hosts user workloads and artifacts.
+- A system node pool that hosts only critical system pods and services
+- A user node pool that hosts user workloads and artifacts
 
-A virtual machine (VM) is deployed in the same virtual network that is hosting the AKS cluster. When you deploy Azure Kubernetes Service as a private cluster, this VM can be used by system administrators to manage the cluster via the [Kubernetes command-line tool](https://kubernetes.io/docs/tasks/tools/). The boot diagnostics logs of the virtual machine are stored in an Azure Storage account.
+A VM is deployed in the virtual network that's hosting the AKS cluster. When you deploy AKS as a private cluster, this VM can be used by system administrators to manage the cluster via the [Kubernetes command-line tool](https://kubernetes.io/docs/tasks/tools). The boot diagnostics logs of the VM are stored in an Azure Storage account.
 
-An Azure Bastion host provides secure and seamless SSH connectivity to the jump-box VM, directly in the Azure portal over SSL. Azure Container Registry (ACR) is used to build, store, and manage container images and artifacts (such as Helm charts).
+An Azure Bastion host provides secure and seamless SSH connectivity to the jump-box VM, directly in the Azure portal over SSL. Azure Container Registry is used to build, store, and manage container images and artifacts (like Helm charts).
 
-The architecture includes an [Azure Firewall](/azure/firewall/overview) that is used to control the inbound and outbound traffic using [DNAT rules, network rules, and application rules](/azure/firewall/rule-processing) and protect workloads using [threat intelligence-based filtering](/azure/firewall/threat-intel). The Azure Firewall and Bastion are deployed to a hub virtual network peered with the virtual network that hosts the private AKS cluster. A route table and user-defined routes are used to route the outbound traffic from the private AKS cluster to the Azure Firewall.
+The architecture includes an [Azure firewall](/azure/firewall/overview) that's used to control the inbound and outbound traffic via [DNAT rules, network rules, and application rules](/azure/firewall/rule-processing) and to help protect workloads by using [threat intelligence-based filtering](/azure/firewall/threat-intel). The Azure firewall and Bastion are deployed to a hub virtual network that's peered with the virtual network that hosts the private AKS cluster. A route table and user-defined routes are used to route the outbound traffic from the private AKS cluster to the Azure firewall.
 
-A Key Vault is used as a secret store by workloads that run on Azure Kubernetes Service (AKS) to retrieve keys, certificates, and secrets via a client library, [Secrets Store CSI Driver](/azure/aks/csi-secrets-store-driver), or [Dapr](https://docs.dapr.io/developing-applications/building-blocks/secrets/secrets-overview/). [Azure Private Link](/azure/private-link/private-link-overview) enables AKS workloads to access Azure PaaS Services, such as Key Vault, over a private endpoint in the virtual network.
+A key vault is used as a secret store by workloads that run on AKS to retrieve keys, certificates, and secrets via a client library, [Secrets Store CSI Driver](/azure/aks/csi-secrets-store-driver), or [Dapr](https://docs.dapr.io/developing-applications/building-blocks/secrets/secrets-overview). [Azure Private Link](/azure/private-link/private-link-overview) enables AKS workloads to access Azure PaaS services, like Azure Key Vault, over a private endpoint in the virtual network.
 
-The sample topology includes the following private endpoints and Private DNS zones for the following services:
+The sample topology includes the following private endpoints and private DNS zones for these following services:
 
 - Azure Blob Storage account
-- Azure Container Registry (ACR)
-- Azure Key Vault
-- If you opt for a private AKS cluster, a private endpoint to the API server of the Kubernetes cluster
+- Container Registry 
+- Key Vault
+- If you use a private AKS cluster, a private endpoint to the API server of the Kubernetes cluster
 
-A Virtual Network Link exists between the hub and spoke virtual networks hosting the AKS cluster and the above Private DNS Zones. 
+A Virtual Network link exists between the hub-and-spoke virtual networks that host the AKS cluster and the private DNS zones described earlier. 
 
 A Log Analytics workspace is used to collect the diagnostics logs and metrics from Azure services.
 
