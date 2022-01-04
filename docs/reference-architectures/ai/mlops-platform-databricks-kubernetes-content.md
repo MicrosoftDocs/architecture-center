@@ -10,7 +10,7 @@ This approach is best suited for:
 
 ## Architecture
 
-![design](media/mlops-platform-databricks-kubernetes.png)
+![design](_images/mlops-platform-databricks-kubernetes.png)
 
 At a high-level this solution design addresses each stage of the machine learning lifecycle:
 
