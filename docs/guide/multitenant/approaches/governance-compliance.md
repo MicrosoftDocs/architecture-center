@@ -34,7 +34,7 @@ Ensure you configure your Azure resources to meet your tenants' isolation requir
 
 When you store data on behalf of your tenants, you might have requirements or obligations that you need to meet. From a tenant's perspective, they often expect ownership and control of their data. Consider how you isolate, store, access, and aggregate tenants' data. Uncover tenants' expectations and requirements that could affect how your solution works.
 
-#### Isolation
+### Isolation
 
 Review the [Architectural approaches for storage and data in multitenant solutions](storage-data.md) to understand how to isolate tenants' data. Consider whether tenants have requirements to use their own data encryption keys.
 
@@ -45,13 +45,13 @@ Whichever isolation approaches you implement, be prepared for tenants to request
 - Logs.
 - Data warehouses.
 
-#### Sovereignty
+### Sovereignty
 
 Understand whether there are any restrictions on the physical location for your tenants' data to be stored or processed. Your tenants might require you store their data in specific geographic locations. They might also require that you *don't* store their data in certain locations. Although these requirements are commonly based on legislation, they can also be based on cultural values and norms.
 
-Refer to the whitepaper [Enabling Data Residency and Data Protection in Microsoft Azure Regions](https://azure.microsoft.com/resources/achieving-compliant-data-residency-and-security-with-azure/) for more information about data residency and sovereignty.
+For more information about data residency and sovereignty, see the whitepaper [Enabling Data Residency and Data Protection in Microsoft Azure Regions](https://azure.microsoft.com/resources/achieving-compliant-data-residency-and-security-with-azure/).
 
-#### Tenants' access to data that you store
+### Tenants' access to data that you store
 
 Tenants sometimes request direct access to the data you store on their behalf. For example, they might want to ingest their data into their own data lake.
 
@@ -63,7 +63,7 @@ Avoid providing direct access to databases or storage accounts unless you design
 
 Consider whether your tenants' requirements restrict the personnel who can work with their data or resources. For example, suppose you build a SaaS solution used by many different customers. A government agency might require that only citizens of their country are allowed to access the infrastructure and data for their solution. You might meet this requirement by using separate Azure resource groups, subscriptions, or management groups for sensitive customer workloads. You can apply tightly scoped Azure role-based access controls (RBAC) role assignments for specific groups of users to work with these resources.
 
-#### Aggregation of data from multiple tenants
+### Aggregation of data from multiple tenants
 
 Consider whether you need to combine or aggregate data from multiple tenants. For example, do you to analyze the aggregated data, or train machine learning models that could be applied to other tenants? Ensure your tenants understand the ways in which you use their data. Include any use of aggregated or anonymized data.
 
@@ -103,7 +103,7 @@ Resource Graph can be helpful to manage large Azure estates. For example, suppos
 
 ### Azure Purview
 
-Consider using [Azure Purview](https://azure.microsoft.com/services/purview/) to track and classify the data you store. When tenants request access to their data, you can easily determine the data sources that you should include.
+Consider using [Azure Purview](https://azure.microsoft.com/services/purview/) to track and classify the data that you store. When tenants request access to their data, you can easily determine the data sources that you should include.
 
 ### Verify compliance with standards
 
@@ -126,7 +126,7 @@ Similarly, a new tenant might introduce strict compliance requirements that you 
 ## Antipatterns to avoid
 
 - **Not understanding your tenants' compliance requirements.** It's important not to make assumptions about the compliance requirements that your tenants might impose. If you plan to grow your solution into new markets, be mindful of the regulatory environment that your tenants are likely to operate within.
-- **Ignoring good practices.** If you don't have any immediate need to adhere to compliance standards, yuo should still follow good practices when you deploy your Azure resources. For example, isolate your resources, apply policies to verify resource configuration, and apply role assignments to groups instead of users. By following good practices, you make it simpler to follow compliance standards when you eventually need to do so.
+- **Ignoring good practices.** If you don't have any immediate need to adhere to compliance standards, you should still follow good practices when you deploy your Azure resources. For example, isolate your resources, apply policies to verify resource configuration, and apply role assignments to groups instead of users. By following good practices, you make it simpler to follow compliance standards when you eventually need to do so.
 - **Assuming there are no compliance requirements.** When you first launch a multitenant solution, you might not be aware of compliance requirements, or you might not need to follow any. As you grow, you're likely to need to provide evidence that you comply with various standards. Use [Microsoft Defender for Cloud](/azure/defender-for-cloud/regulatory-compliance-dashboard) to monitor your compliance posture, even before you have an explicit requirement to do so.
 - **Not planning for management.** As you deploy your Azure resources, consider how you plan to manage them. If you need to make bulk updates to resources, ensure you have an understanding of automation tools like the Azure CLI, Azure PowerShell, Azure Resource Graph, and the Azure Resource Manager APIs.
 - **Not using management groups.** Plan your subscription and management group hierarchy, including access control and Azure Policy resources at each scope. It can be difficult and disruptive to introduce or change these elements when your resources are used in a production environment.

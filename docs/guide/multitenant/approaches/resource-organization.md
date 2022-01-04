@@ -175,7 +175,7 @@ Over time, you might reach the limit of the number of resources in a single reso
 
 ![Diagram that shows bin packing across multiple resources, in multiple resource groups.](media/resource-organization/bin-pack-resources-3.png)
 
-And as you grow even larger, you can deploy across multiple (*S*) subscriptions, each containing multiple (*G*) resource groups with multiple (*R*) resources. The following diagram shows bin packing across multiple resources, in multiple resource grouops and subscriptions.
+And as you grow even larger, you can deploy across multiple (*S*) subscriptions, each containing multiple (*G*) resource groups with multiple (*R*) resources. The following diagram shows bin packing across multiple resources, in multiple resource groups and subscriptions.
 
 ![Diagram that shows bin packing across multiple resources, in multiple resource groups and subscriptions.](media/resource-organization/bin-pack-resources-4.png)
 
