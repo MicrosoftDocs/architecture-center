@@ -4,7 +4,7 @@ The open-source [Blockchain Automation Framework (BAF)](https://blockchain-autom
 
 To join forces and build a blockchain network, parties that use different cloud providers and infrastructures need a common management platform. This platform should offer standard visibility, operations, and compliance across a wide range of resources and locations, regardless of hosting infrastructure.
 
-This article explores how the BAF and [Azure Arc-enabled Kubernetes](/azure/azure-arc/kubernetes/overview) can build a cross-cloud blockchain solution focusing on portability and control.
+This article explores how the BAF and [Azure Arc-enabled Kubernetes](/azure/azure-arc/kubernetes/overview) can build a cross-cloud blockchain solution that focuses on portability and control.
 
 ## Potential use cases
 
