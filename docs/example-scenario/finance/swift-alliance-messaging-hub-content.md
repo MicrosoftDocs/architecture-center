@@ -34,7 +34,7 @@ Azure infrastructure services running these software components are discussed in
 
 * **Azure subscription**: An Azure subscription is needed to deploy SWIFT AMH. It's recommended to use a new Azure subscription to manage and scale SWIFT AMH.
 
-* **Azure resource group**: Customers can deploy SWIFT AMH in a specific Azure region using a Azure resource group. It's recommended to have SWIFT AMH, SWIFT SAG, and SWIFT SNL in their own separate resource groups.
+* **Azure resource group**: Customers can deploy SWIFT AMH in a specific Azure region using an Azure resource group. It's recommended to have SWIFT AMH, SWIFT SAG, and SWIFT SNL in their own separate resource groups.
 
 * **Azure Virtual Network**: An Azure Virtual Network forms a private network boundary around SWIFT AMH deployment. Customers should choose a network address space that doesn't conflict with the customer's on-premises site (Users), customer's on-premises site (HSM), and SWIFT SRX networks.
 
@@ -46,7 +46,7 @@ Azure infrastructure services running these software components are discussed in
 
 * **Azure Firewall**: Any outbound connectivity from SWIFT AMH VMs to the internet should be routed via Azure Firewall. Typical examples of such connectivity are time syncs, anti-virus definition updates, and more.
 
-* **Azure ExpressRoute** / **Azure VPN**: SWIFT AMH components can be connected with the customer's on-premises site (Users) and the customer's on-premises site (HSM) using Azure ExpressRoute / Azure VPN. Customers requiring dedicated and private network connectivity can opt for Azure Expressroute based connectivity. Azure VPN will use internet-based connection.
+* **Azure ExpressRoute** / **Azure VPN**: SWIFT AMH components can be connected with the customer's on-premises site (Users) and the customer's on-premises site (HSM) using Azure ExpressRoute / Azure VPN. Customers requiring dedicated and private network connectivity can opt for Azure ExpressRoute based connectivity. Azure VPN will use internet-based connection.
 
 * **Azure Virtual Machines**: Azure Virtual Machines provides compute services for running SWIFT AMH. Consider using the following guideline to choose the right SKU.
 
@@ -84,24 +84,24 @@ The following guidance helps improve the architecture quality for SWIFT AMH on A
 ### Operations
 
 1. Consider using Azure Monitor for monitoring solution infrastructure. Configure alerts and dashboards using Azure Log Analytics to detect and respond to critical events.
-2. Consider using Azure Application Insights for application level monitoring.
+2. Consider using Azure Application Insights for application-level monitoring.
 3. Consider using Azure Policy for enforcing governance and compliance requirements using declarative definitions.  
 
 ### Performance
 
-1. Consider deploying Azure virtual machine scale set running Web server VM instances in a Proximity Placement Group, which colocates VM instances and reduced inter-VM latency.
+1. Consider deploying Azure virtual machine scale set running Web server VM instances in a Proximity Placement Group, which co-locates VM instances and reduced inter-VM latency.
 2. Consider using Azure VMs with Accelerated Networking for up to 30 Gbps of network throughput.
 
 ### Scalability
 
 1. Consider using Azure Managed Disks with premium SSD for getting up to 20,000 IOPS and 900 MB/s of throughput.
-2. Consider configuring Azure Disk host caching as ReadOnly for higher disk throughput.
+2. Consider configuring Azure Disk host caching as *ReadOnly* for higher disk throughput.
 3. Consider configuring Azure Autoscale to scale up the VM instances based on the metrics such as CPU or memory usage.
 
 ### Security
 
 1. Customers can use Azure Policy for assessing the solution against [SWIFT CSP-CSCF](/azure/governance/blueprints/samples/swift-2020) standard.
-2. Consider using Azure Security Center for protection from server and application vulnerabilities. Azure Security Center helps to quickly identify threats, streamline threat investigation, and automate remediation.
+2. Consider using Microsoft Defender for Cloud for protection from server and application vulnerabilities. Defender for Cloud helps to quickly identify threats, streamline threat investigation, and automate remediation.
 3. Consider using Azure Active Directory (AD) for using Azure AD Role-Based Access Control (RBAC) to limit access to application components.
 4. Consider using Azure Sentinel for analyzing security and other events reported by solution components. Deep investigations and hunting exercises will enable a quick response to any anomaly or potential threat.
 
@@ -119,7 +119,7 @@ The following guidance helps improve the architecture quality for SWIFT AMH on A
 
 ## Pricing
 
-For SWIFT AMH deployment, calculated your estimated costs [here](https://azure.com/e/d2e12d232edb49db85cf330f70ffd636).
+For SWIFT AMH deployment, calculate your estimated costs [here](https://azure.com/e/d2e12d232edb49db85cf330f70ffd636).
 
 ## Next steps
 

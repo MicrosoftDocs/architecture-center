@@ -15,7 +15,7 @@ For more information on the SWIFT components, see [SWIFT Glossary](https://devel
 
 *Download a [PowerPoint file](https://arch-center.azureedge.net/swift-ref-arch.pptx) of this architecture.*
 
-SWIFT Azure architecture contains various components and the key ones are explained in the next section.
+SWIFT Azure architecture contains various components, and the key ones are explained in the next section.
 
 ### Customer data center or CoLo
 
@@ -27,7 +27,7 @@ In accordance with SWIFT’s Customer Security Program (CSP) Control Framework (
 
 #### SWIFT VPN (SRX)
 
-SWIFT VPN (SRX) is the connectivity component part of SWIFT's Alliance Connect offering required to connect to SWIFT. According to SWIFT's Customer Security Programme (CSP) Control Framework (CSCF), the SWIFT VPN has to be physically hosted (on-premises or in a co-location data center).
+SWIFT VPN (SRX) is the connectivity component part of SWIFT's Alliance Connect offering required to connect to SWIFT. According to SWIFT's Customer Security Programme (CSP) Control Framework (CSCF), the SWIFT VPN needs to be physically hosted (on-premises or in a co-location data center).
 
 ### SWIFT messaging and connectivity components
 
@@ -69,7 +69,7 @@ In response to the rapidly increasing cyber threat landscape, SWIFT introduced t
 
 #### Logic Apps
 
-Logic Apps is Microsoft Azure’s [integration platform as a service](https://argonsys.com/microsoft-cloud/glossary/platform-as-a-service) (iPaaS). It's a flexible, containerized, modern cloud-scale workflow engine you can run anywhere. Logic Apps now provides native understanding of SWIFT messaging, enabling customers to accelerate the modernization of their payments infrastructure by using the cloud. With hybrid VNet-connected integration capabilities to on-premises applications, including a wide array of Azure services, Logic Apps provides more than 400 [connectors](/connectors/connector-reference/connector-reference-logicapps-connectors) for intelligent automation, integration, data movement, and more. The SWIFT connectors transform SWIFT flat file messages into XML and vice versa, and validates based on the document schemas.
+Logic Apps is Microsoft Azure’s [integration platform as a service](https://argonsys.com/microsoft-cloud/glossary/platform-as-a-service) (iPaaS). It's a flexible, containerized, modern cloud-scale workflow engine you can run anywhere. Logic Apps now provides native understanding of SWIFT messaging, enabling customers to accelerate the modernization of their payments infrastructure by using the cloud. With hybrid VNet-connected integration capabilities to on-premises applications, including a wide array of Azure services, Logic Apps provides more than 400 [connectors](/connectors/connector-reference/connector-reference-logicapps-connectors) for intelligent automation, integration, data movement, and more. The SWIFT connectors transform SWIFT flat file messages into XML and vice versa and validates based on the document schemas.
 
 Customers can use a Logic Apps service to process payment transactions quickly, reducing the implementation time from months to weeks. For example, customers can integrate their backend SAP systems via Logic Apps to SWIFT, to process payment transactions and business acknowledgments. As part of this processing, the transactions are validated and checked for duplicates or anomalies using the rich capabilities of Logic Apps.
 
