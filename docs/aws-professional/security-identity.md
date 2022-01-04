@@ -6,6 +6,9 @@ ms.date: 01/02/2022
 ms.topic: reference
 ms.service: architecture-center
 ms.subservice: cloud-fundamentals
+categories:
+  - security
+  - identity
 products:
   - azure-active-directory
 ---
