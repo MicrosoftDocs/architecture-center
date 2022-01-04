@@ -2,7 +2,8 @@
 title: Compensating Transaction pattern
 titleSuffix: Cloud Design Patterns
 description: Undo the work performed by a series of steps, which together define an eventually consistent operation.
-author: dragon119
+author: EdPrice-MSFT
+ms.author: pnp
 ms.date: 06/23/2017
 ms.topic: conceptual
 ms.service: architecture-center
@@ -88,7 +89,7 @@ Notice that the steps in the compensating transaction might not be the exact opp
 
 In many business solutions, failure of a single step doesn't always necessitate rolling the system back by using a compensating transaction. For example, if&mdash;after having booked flights F1, F2, and F3 in the travel website scenario&mdash;the customer is unable to reserve a room at hotel H1, it's preferable to offer the customer a room at a different hotel in the same city rather than canceling the flights. The customer can still decide to cancel (in which case the compensating transaction runs and undoes the bookings made on flights F1, F2, and F3), but this decision should be made by the customer rather than by the system.
 
-## Related guidance
+## Related resources
 
 The following patterns and guidance might also be relevant when implementing this pattern:
 
