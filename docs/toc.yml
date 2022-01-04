@@ -963,10 +963,10 @@ items:
                   - name: Overview
                     href: /industry/financial-services/overview
                     maintainContext: true
-                  - name: Security in Cloud for Financial Services
+                  - name: Security
                     href: /industry/financial-services/security-overview
                     maintainContext: true
-                  - name: Compliance in Cloud for Financial Services
+                  - name: Compliance
                     href: /industry/financial-services/compliance-overview
                     maintainContext: true
               - name: Risk grid computing in banking
@@ -1012,16 +1012,18 @@ items:
                 maintainContext: true
               - name: AKS regulated cluster for PCI
                 href: /azure/architecture/reference-architectures/containers/aks-pci/aks-pci-ra-code-assets
+              - name: AKS regulated - Protect cardholder data
+                href: /azure/architecture/reference-architectures/containers/aks-pci/aks-pci-data
               - name: Blueprint - Analytics for PCI DSS
                 href: /previous-versions/azure/security/blueprints/pcidss-analytics-overview
                 maintainContext: true
               - name: Blueprint - Data warehouse for PCI DSS
                 href: /previous-versions/azure/security/blueprints/pcidss-dw-overview
                 maintainContext: true
-              - name: Blueprint - IaaS web application for PCI DSS
+              - name: Blueprint - IaaS web app for PCI DSS
                 href: /previous-versions/azure/security/blueprints/pcidss-iaaswa-overview
                 maintainContext: true
-              - name: Blueprint - PaaS web application for PCI DSS
+              - name: Blueprint - PaaS web app for PCI DSS
                 href: /previous-versions/azure/security/blueprints/pcidss-paaswa-overview
                 maintainContext: true
       - name: Healthcare
@@ -1116,7 +1118,7 @@ items:
                   - name: Implement the healthcare blueprint for AI
                     href: /previous-versions/azure/industry-marketing/health/sg-healthcare-ai-blueprint
                     maintainContext: true
-                  - name: HIPAA and HITRUST compliant health data
+                  - name: HIPAA/HITRUST compliant health data
                     href: solution-ideas/articles/security-compliance-blueprint-hipaa-hitrust-health-data-ai.yml
       - name: Government
         items:
@@ -1200,7 +1202,7 @@ items:
                 href: hybrid/azure-update-mgmt.yml
               - name: Azure Virtual Desktop for the enterprise
                 href: example-scenario/wvd/windows-virtual-desktop.yml
-              - name: Computer forensics chain of custody in Azure
+              - name: Computer forensics chain of custody
                 href: example-scenario/forensics/index.yml
               - name: Hybrid security monitoring in Azure
                 href: hybrid/hybrid-security-monitoring.yml
@@ -1217,9 +1219,6 @@ items:
               - name: FedRAMP
                 items:                
                   - name: FedRAMP overview
-                    href: /azure/compliance/offerings/offering-fedramp
-                    maintainContext: true
-                  - name: Azure FedRAMP compliance
                     href: /azure/compliance/offerings/offering-fedramp
                     maintainContext: true
                   - name: Blueprint - Analytics for FedRAMP
@@ -1312,7 +1311,7 @@ items:
             href: industries/media.md
           - name: Guides
             items:
-              - name: Dynamics 365 media and entertainment accelerator
+              - name: Dynamics 365 media accelerator
                 href: /dynamics365/industry/accelerators/media
                 maintainContext: true
               - name: Content Production solution
@@ -1513,12 +1512,12 @@ items:
         items:
           - name: Guides
             items:
-              - name: Dynamics 365 automotive accelerator for Azure
+              - name: Dynamics 365 automotive accelerator
                 href: /dynamics365/industry/accelerators/automotive
                 maintainContext: true
           - name: Architectures
             items:
-              - name: All automotive and transportation architectures
+              - name: All automotive architectures
                 href: /azure/architecture/browse/?terms=automotive
               - name: Automated guided vehicles fleet control
                 href: example-scenario/iot/automated-guided-vehicles-fleet-control.yml
@@ -1534,6 +1533,7 @@ items:
             items:
               - name: TISAX overview
                 href: /azure/compliance/offerings/offering-tisax
+                maintainContext: true
       - name: Facilities and Real-Estate
         items: 
           - name: All facilities and real-estate architectures
@@ -1556,7 +1556,7 @@ items:
         items:
           - name: Guides
             items:
-              - name: Dynamics 365 education accelerator for Azure
+              - name: Dynamics 365 education accelerator
                 href: /dynamics365/industry/accelerators/edu-overview 
                 maintainContext: true
               - name: Identity for education
@@ -1564,7 +1564,7 @@ items:
                   - name: Azure Active Directory for education
                     href: /microsoft-365/education/deploy/intro-azure-active-directory
                     maintainContext: true
-                  - name: Multi-tenant for large academic institutions
+                  - name: Multi-tenant for academic institutions
                     href: /microsoft-365/education/deploy/design-multi-tenant-architecture
                     maintainContext: true
                   - name: Design a tenant configuration
@@ -1592,9 +1592,9 @@ items:
                 maintainContext: true
       - name: Agriculture
         items:
-          - name: Azure FarmBeats guidance
+          - name: Guides
             items:
-              - name: Overview
+              - name: Azure FarmBeats overview
                 href: /azure/industry/agriculture/overview-azure-farmbeats
                 maintainContext: true
               - name: Generate soil moisture heatmap
@@ -1632,13 +1632,13 @@ items:
                 maintainContext: true
           - name: Fundraising and Engagement
             items:
-              - name: Fundraising and Engagement for Dynamics 365
+              - name: Fundraising and Engagement overview
                 href: /dynamics365/industry/nonprofit/fundraising-engagement-get-started-overview
                 maintainContext: true
-              - name: Configure Fundraising and Engagement with Azure
+              - name: Configure Fundraising and Engagement
                 href: /dynamics365/industry/nonprofit/fundraising-engagement-configure
                 maintainContext: true
-              - name: Deploy Fundraising and Engagement with Azure
+              - name: Deploy Fundraising and Engagement
                 href: /dynamics365/industry/nonprofit/fundraising-engagement-deploy
                 maintainContext: true
           - name: Dynamics 365 nonprofit accelerator for Azure
