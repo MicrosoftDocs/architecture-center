@@ -29,7 +29,7 @@ The loosely coupled approach is preferred in these cases:
 
 ## Architecture
 
-:::image type="content" source="media/loosely-coupled-quantum-computing-job-architecture.png" alt-text="Architecture diagram that shows a hybrid app that contains a loosely coupled quantum computing job.":::
+:::image type="content" border="false" source="media/loosely-coupled-quantum-computing-job-architecture.png" alt-text="Architecture diagram that shows a hybrid app that contains a loosely coupled quantum computing job.":::
 
 *Download a [PowerPoint file](https://arch-center.azureedge.net/loosely-coupled-quantum.pptx) of this architecture.*
 ### Dataflow 
