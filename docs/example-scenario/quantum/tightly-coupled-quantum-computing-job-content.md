@@ -11,7 +11,7 @@ You can integrate this orchestration with classical applications in one of two w
   * Quantum components are developed by the team that develops the classical components.
   * Quantum components share the same lifecycle as the classical components.
   * Use of the quantum components is limited to a single application.
-* **Integration via loose coupling.** Logic for the orchestration is exposed as an API that can be called by various classical software components. For more information about this integration approach, see [Loosely coupled quantum computing](loosely-coupled-quantum-computing-job.yml). Use this approach in following scenarios:
+* **Integration via loose coupling.** Logic for the orchestration is exposed as an API that can be called by various classical software components. For more information about this integration approach, see [Loosely coupled quantum computing](loosely-coupled-quantum-computing-job.yml). Use this approach in the following scenarios:
   * Quantum components are developed independently from any classical client application.
   * Quantum components will be reused by various applications.
 
@@ -91,12 +91,12 @@ For a description of a continuous integration and continuous delivery (CI/CD) ap
 
 ## Pricing
 
-The overall cost of this solution depends on the quantum computing target that you select to run the quantum job. Calculating estimated cost for the classic components is straightforward. You can use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator).
+The overall cost of this solution depends on the quantum computing target that you select to run the quantum job. Calculating estimated costs for the classic components is straightforward. You can use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator).
 
 For the Azure Quantum service, consider these points:
 
 * Microsoft QIO solvers are billed via the Azure subscription bill. The cost depends on the SKU and your usage pattern. For details, see [Azure Quantum pricing](https://azure.microsoft.com/pricing/details/azure-quantum).
-* Other optimization providers are available on Azure Marketplace. For pricing details, see the appropriate reference page listed in [Optimization providers on Azure Quantum](/azure/quantum/qio-target-list).
+* Other optimization providers are available on Azure Marketplace. For pricing details, see the applicable reference page listed in [Optimization providers on Azure Quantum](/azure/quantum/qio-target-list).
 * Quantum computing providers can be consumed via an Azure Marketplace offering. Pricing depends on the type of resource (simulator or hardware), the SKU, and your usage. For details, see the reference page for the provider needed for your scenario. These reference pages are listed in [Quantum computing providers on Azure Quantum](/azure/quantum/qc-target-list).
 
 ## Next steps
