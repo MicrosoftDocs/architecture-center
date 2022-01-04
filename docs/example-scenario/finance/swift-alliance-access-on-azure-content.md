@@ -10,7 +10,7 @@ The following examples are intended for both existing and new SWIFT customers, a
 
 ## Architecture
 
-[![Architecture for SWIFT Alliance Access](./media/swift-alliance-access-multi-region.png) ](./media/swift-alliance-access-multi-region.png#lightbox)
+[![Architecture for SWIFT Alliance Access](./media/swift-alliance-access-multi-region.png)](./media/swift-alliance-access-multi-region.png#lightbox)
 
 _Download a [PowerPoint file](https://arch-center.azureedge.net/swift-alliance-access-multi-region.pptx) that contains this architecture diagram._
 
@@ -160,7 +160,7 @@ The Alliance Access component uses an embedded Oracle database. To align with th
 
 Path resilience has all the required SWIFT components combined in one path. You duplicate each path as many times as you need for your resilience and scale needs. On a failure, you would fail over an entire path instead of a single component. The figure shows what this resiliency approach would look like with availability zones (left) or availability sets (right). This architecture is less complex from a SWIFT configuration perspective but does mean a failure in any component in a path requires you to switch to another path. Combining Web Platform and Alliance Access on a single virtual machine reduces the number of infrastructure components that can fail and could be a consideration depending on the usage pattern of the SWIFT components.
 
-[![Conceptual Path Resilience for SWIFT](./media/swift-alliance-access-path-resilience.png) ](./media/swift-alliance-access-path-resilience.png#lightbox)
+[![Conceptual Path Resilience for SWIFT](./media/swift-alliance-access-path-resilience.png)](./media/swift-alliance-access-path-resilience.png#lightbox)
 
 _Download a [PowerPoint file](https://arch-center.azureedge.net/swift-alliance-access-path-resilience.pptx) that contains this architecture diagram._
 

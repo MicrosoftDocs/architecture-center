@@ -60,15 +60,12 @@ Azure infrastructure services running these software components are discussed in
 
 ### Components
 
-[Azure Disk Storage](https://azure.microsoft.com/services/storage/disks)
-
-[Azure Express Route](https://azure.microsoft.com/services/expressroute)
-
-[Azure Firewall](https://azure.microsoft.com/services/azure-firewall)
-
-[Azure Load Balancer](https://azure.microsoft.com/services/load-balancer)
-
-[Azure Virtual Network](https://azure.microsoft.com/services/virtual-network)
+* [Azure Virtual Network](https://azure.microsoft.com/services/virtual-network)
+* [Azure Load Balancer](https://azure.microsoft.com/services/load-balancer)
+* [Azure Firewall](https://azure.microsoft.com/services/azure-firewall)
+* [Azure Express Route](https://azure.microsoft.com/services/expressroute)
+* [Azure Virtual Machines](https://azure.microsoft.com/services/virtual-machines)
+* [Azure Disk Storage](https://azure.microsoft.com/services/storage/disks)
 
 ### Alternatives
 
