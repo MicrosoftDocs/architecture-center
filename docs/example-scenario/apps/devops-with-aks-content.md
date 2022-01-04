@@ -125,9 +125,32 @@ We have provided three sample cost profiles based on the number of container ima
 - [Medium][medium-pricing]: this pricing example correlates to 100,000 container builds per month.
 - [Large][large-pricing]: this pricing example correlates to 1,000,000 container builds per month.
 
-## Related resources
+## Next steps
 
 This scenario used Azure Container Registry and Azure Kubernetes Service to store and run a container-based application. Azure Container Instances can also be used to run container-based applications, without having to provision any orchestration components. For more information, see [Azure Container Instances overview][docs-aci].
+
+Product documentation:
+
+- [Azure Kubernetes Service](/azure/aks/intro-kubernetes)
+- [Azure Monitor overview](/azure/azure-monitor/overview)
+- [Linux virtual machines in Azure](/azure/virtual-machines/linux/overview)
+- [Private Docker container registries in Azure](/azure/container-registry/container-registry-intro)
+- [Welcome to Azure Cosmos DB](/azure/cosmos-db/introduction)
+
+Microsoft Learn modules:
+
+- [Build a containerized web application with Docker](/learn/modules/intro-to-containers)
+- [Create an Azure Cosmos DB database built to scale](/learn/modules/create-cosmos-db-for-scale)
+- [Create a Linux virtual machine in Azure](/learn/modules/create-linux-virtual-machine-in-azure)
+- [Deploy a containerized application on Azure Kubernetes Service](/learn/modules/aks-deploy-container-app)
+- [Implement Azure Kubernetes Service (AKS)](/learn/modules/implement-azure-kubernetes-service)
+- [Monitor the usage, performance, and availability of resources with Azure Monitor](/learn/paths/monitor-usage-performance-availability-resources-azure-monitor)
+
+## Related resources
+
+- [Baseline architecture for an Azure Kubernetes Service (AKS) cluster](../../reference-architectures/containers/aks/secure-baseline-aks.md)
+- [AKS baseline for multiregion clusters](../../reference-architectures/containers/aks-multi-region/aks-multi-cluster.md)
+- [Secure DevOps for AKS](../../solution-ideas/articles/secure-devops-for-kubernetes.md)
 
 <!-- links -->
 [architecture]: ./media/architecture-devops-with-aks.png

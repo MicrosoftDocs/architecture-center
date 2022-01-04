@@ -257,6 +257,27 @@ Virtual machine scale sets are available on all Linux and windows VM sizes. You 
 
 For more information, see [Azure VM pricing][linux-vms-pricing].
 
+## Next steps
+
+Product documentation:
+
+- [Microsoft 365 services](/office365/servicedescriptions/office-365-service-descriptions-technet-library)
+- [What is Azure ExpressRoute?](/azure/expressroute/expressroute-introduction)
+- [What is Azure Virtual Network?](/azure/virtual-network/virtual-networks-overview)
+
+Microsoft Learn modules:
+
+- [Configure ExpressRoute and Virtual WAN](/learn/modules/configure-expressroute-virtual-wan)
+- [Configure virtual network peering](/learn/modules/configure-vnet-peering)
+- [Design and implement Azure ExpressRoute](/learn/modules/design-implement-azure-expressroute)
+- [Explore the Microsoft 365 platform services](/learn/paths/explore-microsoft-365-platform-services)
+
+## Related resources
+
+- [Hybrid architecture design](../../hybrid/hybrid-start-here)
+- [Connect an on-premises network to Azure using ExpressRoute](../../reference-architectures/hybrid-networking/expressroute-vpn-failover.yml)
+- [Extend an on-premises network using VPN](../../reference-architectures/hybrid-networking/vpn.yml)
+
 <!-- links -->
 
 [highly-available-network-architecture]: ./expressroute-vpn-failover.yml

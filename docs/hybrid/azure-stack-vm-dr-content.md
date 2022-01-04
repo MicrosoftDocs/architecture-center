@@ -414,3 +414,30 @@ It's important to note that the disaster recovery solution described here focuse
 
 [architectural-diagram]: ./images/azure-stack-vm-dr.png
 [architectural-diagram-visio-source]: https://arch-center.azureedge.net/azure-stack-vm-dr.vsdx
+
+## Next steps
+
+Product documentation:
+
+- [About Site Recovery](/azure/site-recovery/site-recovery-overview)
+- [Azure Stack Hub overview](/azure-stack/operator/azure-stack-overview)
+- [What is Azure Active Directory?](/azure/active-directory/fundamentals/active-directory-whatis)
+- [What is Azure Blob storage?](/azure/storage/blobs/storage-blobs-overview)
+- [What is Azure ExpressRoute?](/azure/expressroute/expressroute-introduction)
+- [What is Azure Virtual Network?](/azure/virtual-network/virtual-networks-overview)
+
+Microsoft Learn modules:
+
+- [Azure Stack Hub](learn/modules/azure-stack-hub)
+- [Configure Azure Active Directory](learn/modules/configure-azure-active-directory)
+- [Configure storage accounts](learn/modules/configure-storage-accounts)
+- [Configure virtual networks](learn/modules/configure-virtual-networks)
+- [Design and implement Azure ExpressRoute](learn/modules/design-implement-azure-expressroute)
+- [Design your site recovery solution in Azure](learn/modules/design-your-site-recovery-solution-in-azure)
+
+## Related resources
+
+- [Hybrid architecture design](hybrid-start-here.md)
+- [Back up files and applications on Azure Stack Hub](azure-stack-backup.yml)
+- [Hybrid connections](../solution-ideas/articles/hybrid-connectivity.yml)
+- [Hybrid file share with disaster recovery for remote and local branch workers](../example-scenario/hybrid/hybrid-file-share-dr-remote-local-branch-workers.yml)

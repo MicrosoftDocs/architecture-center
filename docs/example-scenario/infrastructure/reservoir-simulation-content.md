@@ -35,6 +35,17 @@ This diagram offers a high-level overview of the architecture used in the exampl
 
 5. OPM ResInsight running on a Standard-NV6 Windows VM displays 3D visualizations of results. Users can access the visualization VM through RDP.
 
+### Components
+
+Key technologies used to implement this architecture:
+
+- [Azure CycleCloud](https://azure.microsoft.com/features/azure-cyclecloud)
+- [Azure NetApp Files](https://azure.microsoft.com/services/netapp)
+- [Azure Virtual Machine Scale Sets](https://azure.microsoft.com/services/virtual-machine-scale-sets)
+- [Key Vault](https://azure.microsoft.com/services/key-vault)
+- [Linux virtual machines in Azure](https://azure.microsoft.com/services/virtual-machines/linux)
+- [Virtual Machines](https://azure.microsoft.com/services/virtual-machines)
+
 ## Considerations
 
 This example uses the HB-series of [high-performance VMs][vm-size]. The HB-series is optimized for applications driven by memory bandwidth, such as computational fluid dynamics (CFD), and the Standard_HB120rs_v2 VM is the latest in the series. For Intel-based hardware, the [Standard_HC44rs][hc-series] VM is an option.
