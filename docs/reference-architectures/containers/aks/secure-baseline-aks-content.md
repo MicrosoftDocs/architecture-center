@@ -523,7 +523,7 @@ Ensure reliability through forced failover testing with simulated outages such a
 
 ## Monitor and collect metrics
 
-The Azure Monitor for containers feature is the recommended tool for monitoring and logging because you can view events in real time. It captures container logs from the running pods and aggregates them for viewing. It also collects information from Metrics API about memory and CPU utilization to monitor the health of running resources and workloads. You can use it to monitor performance as the pods scale. Another advantage is that you can easily use Azure portal to configure charts and dashboards. It has the capability to create alerts that trigger Automation Runbooks, Azure Functions, and others.
+The Azure Monitor container insights feature is the recommended tool for monitoring and logging because you can view events in real time. It captures container logs from the running pods and aggregates them for viewing. It also collects information from Metrics API about memory and CPU utilization to monitor the health of running resources and workloads. You can use it to monitor performance as the pods scale. Another advantage is that you can easily use Azure portal to configure charts and dashboards. It has the capability to create alerts that trigger Automation Runbooks, Azure Functions, and others.
 
 Most workloads hosted in pods emit Prometheus metrics. Azure Monitor is capable of scraping Prometheus metrics and visualizing them.
 
