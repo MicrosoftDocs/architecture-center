@@ -1,7 +1,7 @@
 ### YamlMime:Architecture
 metadata:
-  title: MLOps Platform with Datarbricks and Kubernetes
-  description: Learn how to build a ML platform to develop, deploy and monitor a machine learning models using Databricks and Kubernetes for real-time scoring.
+  title: MLOps Platform with Databricks and Kubernetes
+  description: Learn how to build an ML platform to develop, deploy, and monitor a machine learning models using Databricks and Kubernetes for real-time scoring.
   author: nfmoore
   ms.author: nfmoore
   ms.date: 04/01/2022
@@ -19,8 +19,8 @@ products:
   - azure-container-registry
   - azure-storage
   - azure-monitor
-name: ML Ops Platfrom with Databricks and Kubernetes for Real-Time Scoring
-summary: Learn how to build a ML platform to develop, deploy and monitor a machine learning models using Databricks and Kubernetes for real-time scoring.
+name: ML Ops Platform with Databricks and Kubernetes for real-time scoring
+summary: Learn how to build an ML platform to develop, deploy, and monitor a machine learning models using Databricks and Kubernetes for real-time scoring.
 thumbnailUrl: /azure/architecture/browse/thumbs/mlops-platform-databricks-kubernetes.png
 content: |
   [!include[](mlops-platform-databricks-kubernetes-content.md)]
