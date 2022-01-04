@@ -21,6 +21,6 @@ products:
   - azure-monitor
 name: ML Ops Platfrom with Databricks and Kubernetes for Real-Time Scoring
 summary: Learn how to build a ML platform to develop, deploy and monitor a machine learning models using Databricks and Kubernetes for real-time scoring.
-thumbnailUrl:
+thumbnailUrl: /azure/architecture/browse/thumbs/mlops-platform-databricks-kubernetes.png
 content: |
   [!include[](mlops-platform-databricks-kubernetes-content.md)]
