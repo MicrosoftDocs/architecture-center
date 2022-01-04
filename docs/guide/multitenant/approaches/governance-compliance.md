@@ -4,7 +4,7 @@ titleSuffix: Azure Architecture Center
 description: This article describes approaches to consider for governance and compliance in a multitenant solution.
 author: johndowns
 ms.author: jodowns
-ms.date: 12/16/2021
+ms.date: 1/4/2022
 ms.topic: conceptual
 ms.service: architecture-center
 products:
