@@ -4,7 +4,7 @@ titleSuffix: Azure Architecture Center
 description: This article describes how to organize your Azure resources in a multitenant solution.
 author: johndowns
 ms.author: jodowns
-ms.date: 12/22/2021
+ms.date: 1/4/2022
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: azure-guide
@@ -117,7 +117,7 @@ In situations where you need to manage Azure resources in subscriptions that are
 
 For example, Contoso could create separate Azure AD tenants and separate Azure subscriptions for each of their customers, as shown in the following diagram.
 
-![Diagram showing an Azure AD tenant for each of Contoso's tenants, which contains a subscription and the resources required. Azure Lighthouse is connected to each Azure AD tenant.](media/resource-organization/isolation-tenant.png)
+![Diagram showing an Azure A D tenant for each of Contoso's tenants, which contains a subscription and the resources required. Azure Lighthouse is connected to each Azure A D tenant.](media/resource-organization/isolation-tenant.png)
 
 An Azure AD tenant is configured for each of Contoso's tenants, which contains a subscription and the resources required. Azure Lighthouse is connected to each Azure AD tenant.
 

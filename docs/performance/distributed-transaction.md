@@ -123,7 +123,7 @@ Throughput is more consistent, but the maximum achieved is about the same as the
 
 ![Graph of message throughput showing that the maximum achieved is about the same as the previous test.](./images/workflow/3-throughput.png)
 
-Moreover, looking at [Azure Monitor for containers](/azure/azure-monitor/insights/container-insights-overview), it appears the problem is not caused by resource exhaustion within the cluster. First, the node-level metrics show that CPU utilization remains under 40% even at the 95th percentile, and memory utilization is about 20%.
+Moreover, looking at [Azure Monitor container insights](/azure/azure-monitor/insights/container-insights-overview), it appears the problem is not caused by resource exhaustion within the cluster. First, the node-level metrics show that CPU utilization remains under 40% even at the 95th percentile, and memory utilization is about 20%.
 
 ![Graph of AKS node utilization](./images/workflow/3-node-utilization.png)
 
@@ -245,7 +245,7 @@ To diagnose these issues, the development team relied on the following metrics:
 - Application Map in Application Insights.
 - Errors and exceptions.
 - Custom Log Analytics queries.
-- CPU and memory utilization in Azure Monitor for containers.
+- CPU and memory utilization in Azure Monitor container insights.
 
 ## Next steps
 

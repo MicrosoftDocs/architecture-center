@@ -2,13 +2,21 @@
 title: DevOps checklist
 titleSuffix: Azure Design Review Framework
 description: DevOps integrates development, quality assurance, and IT operations and offers processes for delivering software. Assess your DevOps culture and process.
-author: dragon119
-ms.date: 01/10/2018
+author: EdPrice-MSFT
+ms.author: pnp
+ms.date: 01/04/2022
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: well-architected
 ms.custom:
   - checklist
+products:
+  - azure
+categories:
+  - devops
+checklist:
+  - devops
+  - management-and-governance
 ---
 
 # DevOps Checklist
@@ -113,8 +121,7 @@ After the initial release, you should run performance and capacity tests wheneve
 
 Containers also create an abstraction layer between the application and the underlying operating system, which provides consistency across environments. This abstraction can also isolate a container from other processes or applications running on a host.
 
-**Implement resiliency and self-healing.** Resiliency is the ability of an application to recover from failures. Strategies for resiliency include retrying transient failures, and failing over to a secondary instance or even another region. For more information, see [Designing reliable Azure applications](../framework/resiliency/app-design.md)
-. Instrument your applications so that issues are reported immediately and you can manage outages or other system failures.
+**Implement resiliency and self-healing.** Resiliency is the ability of an application to recover from failures. Strategies for resiliency include retrying transient failures, and failing over to a secondary instance or even another region. For more information, see [Designing reliable Azure applications](/azure/architecture/framework/resiliency/app-design). Instrument your applications so that issues are reported immediately and you can manage outages or other system failures.
 
 **Have an operations manual.** An operations manual or *runbook* documents the procedures and management information needed for operations staff to maintain a system. Also document any operations scenarios and mitigation plans that might come into play during a failure or other disruption to your service. Create this documentation during the development process, and keep it up to date afterwards. This is a living document, and should be reviewed, tested, and improved regularly.
 

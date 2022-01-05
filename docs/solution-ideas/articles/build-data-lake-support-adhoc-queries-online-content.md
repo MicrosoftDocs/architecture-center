@@ -69,7 +69,7 @@ architecture answers this challenge.
 
 [Azure Data Lake Storage Gen2](https://azure.microsoft.com/en-us/services/storage/data-lake-storage/) is a set of capabilities dedicated to big data analytics, built on Azure Blob Storage. Data Lake Storage Gen2 converges the capabilities of Azure Data Lake Storage Gen1 with Azure Blob Storage. For example, Data Lake Storage Gen2 provides file system semantics, file-level security, and scale. Because these capabilities are built on Blob Storage, you also get low-cost, tiered storage, with high availability/disaster recovery capabilities.
 
-[Azure Event Hubs](https://azure.microsoft.com/en-us/services/event-hubs/#overview) is a fully managed, real-time data ingestion service that’s simple, trusted, and scalable. Stream millions of events per second from any source to build dynamic data pipelines and immediately respond to business challenges.
+[Azure Event Hubs](https://azure.microsoft.com/en-us/services/event-hubs/#overview) is a fully managed, real-time data ingestion service that's simple, trusted, and scalable. Stream millions of events per second from any source to build dynamic data pipelines and immediately respond to business challenges.
 
 [Azure Databricks](https://azure.microsoft.com/en-us/services/databricks/) is an Apache Spark–based data analytics platform optimized for Microsoft Azure Cloud Services. Azure Databricks offers three environments for developing data intensive applications: Databricks SQL, Databricks Data Science & Engineering, and Databricks Machine Learning.
 
@@ -85,7 +85,7 @@ Spark is distributed with [Azure Databricks](https://azure.microsoft.com/service
 
 ### Performance
 
-Users will perform a double hop to access data. They’ll query metadata first, and then retrieve the desired set of documents. It might be difficult to reuse existing or packaged client assets.
+Users will perform a double hop to access data. They'll query metadata first, and then retrieve the desired set of documents. It might be difficult to reuse existing or packaged client assets.
 
 Azure Data Lake Storage Gen2 provides three [access tiers](/azure/cloud-adoption-framework/scenarios/data-management/best-practices/data-lake-key-considerations): hot, cool, and archive. In scenarios where documents are occasionally retrieved, the cool performance tier should guarantee similar performance to the hot performance tier but with the advantage of lower costs. In scenarios where the probability of retrieval is higher with newer data, consider blending the cool and hot tiers. Using archive tier storage could also provide an alternative to hard deletion, as well as reduce the size of data by keeping only meaningful information or more aggregated data.
 
@@ -187,7 +187,7 @@ parsed_body_df.jsonBody.documentType)
 ```
 
 The second processing step is to generate a path to Azure Data Lake Storage
-Gen2, where you’ll store raw documents:
+Gen2, where you'll store raw documents:
 
 ```
 # Code tested in Databricks with Delta Lake 1.0

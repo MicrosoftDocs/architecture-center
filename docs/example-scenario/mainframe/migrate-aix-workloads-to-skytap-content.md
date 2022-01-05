@@ -47,14 +47,14 @@ The architecture uses these components:
 
 -   [Azure Virtual Network](/azure/virtual-network/virtual-networks-overview) is the fundamental building block for your private network in Azure. 
 As a software defined network, a virtual network (VNet) provides an isolated environment for VMs and other Azure resources to communicate with each other, the internet, and on-premises networks. 
-For more information on how Skytap on Azure connectivity works, you can learn more [here](https://github.com/skytap/well-architected-framework/blob/master/operations/connectivity/README.md).
+Learn more information on how Skytap on [Azure connectivity](https://skytap.github.io/well-architected-framework/operations/connectivity/skytaponazureconnectivity/) works in the [Skytap Well-Architected Framework](https://skytap.github.io/well-architected-framework/).
 
 -   [Azure Private Link](/azure/private-link/private-link-overview) creates your own private link service in your virtual network so the web client can consume resources from Skytap on Azure.
 
 -   [Azure Blob Storage](/azure/storage/blobs/storage-blobs-introduction) is an object storage solution designed for storing massive amounts of unstructured data, such as text and binary data.
 
--   [Azure ExpressRoute](/azure/expressroute/expressroute-introduction) extends your on-premises networks to Microsoft cloud services, including Azure and Office 365, over a private connection facilitated by a connectivity provider.
-For more information on how Azure ExpressRoute works with Skytap, you can learn more [here](https://github.com/skytap/well-architected-framework/blob/master/operations/connectivity/skytaponazureconnectivity.md).
+-  [Azure ExpressRoute](/azure/expressroute/expressroute-introduction) extends your on-premises networks to Microsoft cloud services, including Azure and Office 365, over a private connection facilitated by a connectivity provider.
+Learn more information on how Azure ExpressRoute works with Skytap in the [Skytap Getting Started with Azure Networking guide](https://skytap.github.io/well-architected-framework/operations/connectivity/skytaponazureconnectivity/).
 
 -   [Azure Data Box Gateway](/azure/databox-gateway/data-box-gateway-overview) is a virtual device that you install on-premises. You write data to it using the NFS and Server Message Block (SMB) protocols, and Data Box Gateway sends the data to Azure.
 
@@ -91,12 +91,12 @@ To scale up on Azure, choose a [larger VM size](https://azure.microsoft.com/serv
 ### Security
 
 Skytap on Azure meets industry cloud security requirements, including System and Organization Controls for Service Organizations 2 (SOC 2) and SOC 3 attestations and compliance with ISO 27001 and PCI DSS 3.2.
-To learn more about how Skytap secures your workloads, you can get more information in the [Skytap Well-Architected Framework Security Pillar](https://github.com/skytap/well-architected-framework/blob/master/security/README.md).
+To learn more about how Skytap secures your workloads, you can get more information in the [Skytap Well-Architected Framework Security Pillar](https://skytap.github.io/well-architected-framework/security/). 
 
 ## Deploy this scenario
 
 To get started running AIX applications on Azure, check out the [Skytap on Azure](https://azuremarketplace.microsoft.com/marketplace/apps/skytapinc.skytap-on-azure-main1?tab=overview) template in Azure Marketplace.
-Learn more about the different Migration and Deployment options with the [Skytap Well-Architected Framework](https://github.com/skytap/well-architected-framework).
+Learn more about the different Migration and Deployment options with the [Skytap Well-Architected Framework](https://skytap.github.io/well-architected-framework/).
 
 ## Pricing
 
@@ -114,11 +114,11 @@ To learn more about Skytap on Azure, please contact <legacy2azure@microsoft.com>
 
 -   Explore the [Skytap on Azure](https://azuremarketplace.microsoft.com/marketplace/apps/skytapinc.skytap-on-azure-main1?tab=overview) template on Azure Marketplace.
 
--   Learn about [Skytap Migration options](https://github.com/skytap/well-architected-framework/blob/master/resiliency/README.md)
+-   Learn about [Skytap Migration options](https://skytap.github.io/well-architected-framework/resiliency/).
 
 ## Related resources
 
-- [Skytap Well-Architected Framework](https://github.com/skytap/well-architected-framework)
+- [Skytap Well-Architected Framework](https://skytap.github.io/well-architected-framework/)
 - [Skytap documentation](https://help.skytap.com/)
 - [Mainframe file replication and sync on Azure](../../solution-ideas/articles/mainframe-azure-file-replication.yml)
 - [Modernize mainframe & midrange data](../../reference-architectures/migration/modernize-mainframe-data-to-azure.yml)

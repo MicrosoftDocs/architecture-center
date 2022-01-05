@@ -1,8 +1,8 @@
 Engineering teams experience challenges when they set up DevOps pipelines for continuous deployment. The setup process involves build definitions, release definitions, branch policies, control gates, Azure Resource Manager (ARM) templates, and more. Furthermore, the setup for apps can take days with constant repetition. You can automate this part of the development.
 
-This article shows you how to take advantage of Azure DevOps REST APIs to build continuous integration and continuous deployment (CI/CD) pipelines. Depending on the workload, the build steps in pipelines can vary. Every team has a preferred number of environments within their Azure subscriptions, that depend on their internal systems and business scenarios.
+This article shows you how to take advantage of Azure DevOps REST APIs to build continuous integration and continuous deployment (CI/CD) pipelines. Depending on the workload, the build steps in pipelines can vary. Every team has a preferred number of environments within their Azure subscriptions, that depend on their internal systems and business scenarios. These decisions will influence the number of stages in the DevOps pipelines.
 
-For example, an event like the first push into the repository sets off a series of steps and constructs the total development path for the repository. Developers can see their changes in minutes, and they no longer need to repeatedly set up DevOps pipelines to create developer, test, and production environments in Azure.
+By using Azure DevOps service hooks and REST APIs, an event (such as the first push into the repository) can set off a series of steps and can construct the total development path for the repository. Developers can see their changes in minutes, and they no longer need to repeatedly set up DevOps pipelines to create developer, test, and production environments in Azure.
 
 By using the solution described in this article, your engineering team can focus on projects that create value for your customers.
 
@@ -36,8 +36,8 @@ This architecture is industry agnostic and can be applied to any team-building s
 
 ### Dataflow
 
-- **Step 1** - The developer creates a starter project using one of the preloaded templates in Visual Studio, like a .NET Angular workload. This example uses an Azure Resource Manager (ARM) template that can provision an AppService Plan, App Service, and Application Insights.
-- **Step 2** -The repository also contains a multistage YAML pipeline file. The multistage YAML pipeline has precise steps on how the solution needs to be built and published. We recommended you add an Azure resource group project to the same Visual Studio solution.
+- **Step 1** - The developer creates a starter project using one of the preloaded templates in Visual Studio, like a .NET Angular workload. We recommend you add an Azure resource group project to the same Visual Studio solution. The Azure Resource Manager (ARM) template will provision an App Service plan, App Service, and Application Insights.
+- **Step 2** - The repository also contains a multistage YAML pipeline file. The multistage YAML pipeline has precise steps on how the solution needs to be built and published.
 - **Steps 3-5** - Once the developer submits a `git push` into an Azure DevOps repository, a webhook is dispatched from Azure DevOps to a logic app.
 - **Step 6** - When the HTTP trigger of the logic app is invoked, the logic app determines whether the push is made in the main or feature branches. Once the commit is detected in the main branch of the repository, the logic app looks for existing pipelines corresponding to the repository.
 - **Step 7** - If the pipeline meant for this repository already exists in Azure DevOps, the logic app updates the pipeline through Azure DevOps REST APIs. If the pipeline doesn't exist, a new pipeline is provisioned.
@@ -59,7 +59,7 @@ This architecture reduces labor by automatically provisioning pipelines in Azure
 
 ### Alternatives
 
-An alternative to the proposed architecture is Azure DevOps Starter service. Azure App Service also supports Deployment Center. However, this alternative requires you to provision the infrastructure first. The alternative provides an architecture that is code first, which provisions the infrastructure through code. This gives you the flexibility to use any kind of Azure workload.  For more information, see [DevOps Starter](/azure/devops-project/overview) and [Deployment Center](/azure/app-service/deploy-continuous-deployment).
+An alternative to the proposed architecture is Azure DevOps Starter service. Azure App Service also supports Deployment Center. However, this alternative requires you to provision the infrastructure first. The proposed solution in this architecture is code first, which provisions the infrastructure through code. This gives you the flexibility to use any kind of Azure workload.  For more information, see [DevOps Starter](/azure/devops-project/overview) and [Deployment Center](/azure/app-service/deploy-continuous-deployment).
 
 ## Considerations
 
@@ -78,6 +78,14 @@ Some features, like approval gates for Azure DevOps environments, cannot be dire
 The core services used in this architecture include Azure DevOps REST APIs and Logic Apps. The Azure DevOps REST API isn't billed separately. These services are included as part of the Azure DevOps platform.
 
 The logic apps that are invoked with `git commit` can run on any of the available plans, and doesn't use a standard HTTP connector. The base pricing of the logic app depends on the type of plan the logic app is provisioned. For this solution, we suggest running the logic app on a standard plan.  For more information on pricing, see [Logic Apps pricing](https://azure.microsoft.com/pricing/details/logic-apps/).
+
+## Deploy this scenario
+
+You can find the source code, deployment files, and instructions to test this scenario on GitHub: 
+
+- [Deploy an orchestrator logic app in Azure](https://github.com/mspnp/multi-stage-azure-pipeline-automation)
+- [Deploy a .NET Angular workload](https://github.com/mspnp/multi-stage-azure-pipeline-automation-app)
+
 
 ## Next steps
 
