@@ -20,7 +20,7 @@ Prioritize requests sent to services so that requests with a higher priority are
 
 ## Context and problem
 
-Applications can delegate specific tasks to other services, for example, to perform background processing or to integrate with other applications or services. In the cloud, a message queue is typically used to delegate tasks to background processing. In many cases the order requests are received in by a service isn't important. In some cases, though, it's necessary to prioritize specific requests. These requests should be processed earlier than lower priority requests that were sent previously by the application.
+Applications can delegate specific tasks to other services, for example, to perform background processing or to integrate with other applications or services. In the cloud, a message queue is typically used to delegate tasks to background processing. In many cases, the order requests are received in by a service isn't important. In some cases, though, it's necessary to prioritize specific requests. These requests should be processed earlier than lower priority requests that were sent previously by the application.
 
 ## Solution
 
@@ -38,7 +38,7 @@ A variation on this strategy is to have a single pool of consumers that check fo
 
 In the single pool approach, higher priority messages are always received and processed before lower priority messages. In theory, messages that have a very low priority could be continually superseded and might never be processed. In the multiple pool approach, lower priority messages will always be processed, just not as quickly as those of a higher priority (depending on the relative size of the pools and the resources that they have available).
 
-Using a priority queuing mechanism can provide the following advantages:
+Using a priority-queuing mechanism can provide the following advantages:
 
 - It allows applications to meet business requirements that require prioritization of availability or performance, such as offering different levels of service to specific groups of customers.
 
@@ -60,9 +60,9 @@ Monitor the processing speed on high and low priority queues to ensure that mess
 
 If you need to guarantee that low priority messages will be processed, it's necessary to implement the multiple message queue approach with multiple pools of consumers. Alternatively, in a queue that supports message prioritization, it's possible to dynamically increase the priority of a queued message as it ages. However, this approach depends on the message queue providing this feature.
 
-Using a separate queue for each message priority works best for systems that have a small number of well-defined priorities.
+Using a separate queue for each message priority works best for systems that have a few well-defined priorities.
 
-Message priorities can be determined logically by the system. For example, rather than having explicit high and low priority messages, they could be designated as "fee paying customer," or "non-fee paying customer." Depending on your business model, your system can allocate more resources to processing messages from fee paying customers than non-fee paying ones.
+Message priorities can be determined logically by the system. For example, rather than having explicit high and low priority messages, they could be designated as "fee-paying customer," or "non-fee paying customer." Depending on your business model, your system can allocate more resources to processing messages from fee-paying customers than non-fee paying ones.
 
 There might be a financial and processing cost associated with checking a queue for a message (some commercial messaging systems charge a small fee each time a message is posted or retrieved, and each time a queue is queried for messages). This cost increases when checking multiple queues.
 
@@ -86,7 +86,7 @@ An Azure solution can implement a Service Bus topic an application can post mess
 
 In the figure above, the application creates several messages and assigns a custom property called `Priority` in each message with a value, either `High` or `Low`. The application posts these messages to a topic. The topic has two associated subscriptions that both filter messages by examining the `Priority` property. One subscription accepts messages where the `Priority` property is set to `High`, and the other accepts messages where the `Priority` property is set to `Low`. A pool of consumers reads messages from each subscription. The high priority subscription has a larger pool, and these consumers might be running on more powerful computers with more resources available than the consumers in the low priority pool.
 
-Note that there's nothing special about the designation of high and low priority messages in this example. They're simply labels specified as properties in each message, and are used to direct messages to a specific subscription. If additional priorities are required, it's relatively easy to create further subscriptions and pools of consumer processes to handle these priorities.
+There's nothing special about the designation of high and low-priority messages in this example. They're simply labels specified as properties in each message, and are used to direct messages to a specific subscription. If additional priorities are required, it's relatively easy to create further subscriptions and pools of consumer processes to handle these priorities.
 
 The PriorityQueue solution available on [GitHub](https://github.com/mspnp/cloud-design-patterns/tree/master/priority-queue) contains an implementation of this approach. This solution contains Azure Function projects named `PriorityQueueConsumerHigh` and `PriorityQueueConsumerLow`. These Azure Functions integrate with Azure Service Bus via triggers and bindings, they connect to different subscriptions defined in the ServiceBusTrigger and react to the incoming messages.
 
@@ -103,7 +103,7 @@ public static class PriorityQueueConsumerHighFn
 }
 ```
 
-An administrator can configure how many instances the functions on the app service consumption can scale out to by configuring the Dynamic Scale out hosting option from the Azure Portal, enforcing a maximum scale out limit for each function. Typically, there'll be more instances of the `PriorityQueueConsumerHigh` function than the `PriorityQueueConsumerLow` function.
+An administrator can configure how many instances the functions on the app service consumption can scale out to by configuring the Dynamic Scale out hosting option from the Azure portal; enforcing a maximum scale-out limit for each function. Typically, there'll be more instances of the `PriorityQueueConsumerHigh` function than the `PriorityQueueConsumerLow` function.
 
 Another project named `PriorityQueueSender` contains a time triggered Azure Function configured to run every 30 seconds; this Azure Function integrates with Azure Service Bus via an output binding and sends batches of low and high priority messages to an `IAsyncCollector`; when the function posts messages to the topic associated with the subscriptions used by the `PriorityQueueConsumerHigh` and `PriorityQueueConsumerLow` functions, it specifies the priority by using the `Priority` custom property, as shown in the following code:
 
@@ -150,5 +150,3 @@ The following patterns might also be relevant when implementing this pattern:
 - [Competing Consumers pattern](./competing-consumers.md). To increase the throughput of the queues, it's possible to have multiple consumers that listen on the same queue, and process the tasks in parallel. These consumers will compete for messages, but only one should be able to process each message. Provides more information on the benefits and tradeoffs of implementing this approach.
 
 - [Throttling pattern](./throttling.md). You can implement throttling by using queues. Priority messaging can be used to ensure that requests from critical applications, or applications being run by high-value customers, are given priority over requests from less important applications.
-
-- [Enterprise Integration patterns with Service Bus](https://abhishekrlal.com/2013/01/11/enterprise-integration-patterns-with-service-bus-part-2/) on Abhishek Lal's blog.
