@@ -55,11 +55,11 @@ The architecture presented here is for business problems that require quantum co
 
 ## Considerations
 
-Some of the quantum targets (especially quantum hardware) will be a limited resource for the foreseeable future. Access to these resources is implemented via a queueing mechanism. This implementation leads to fluctuating runtime behavior of job executions. To calculate the full response time, you need to add the time spent waiting for an available resource to the job execution time.
+Some of the quantum targets (especially quantum hardware) will be a limited resource for the foreseeable future. Access to these resources is implemented via a queueing mechanism. This implementation leads to fluctuating job execution run times. To calculate the full response time, you need to add the time spent waiting for an available resource to the job execution time.
 
 ### Availability
 
-Availability of the quantum compute functionality depends highly on the availability and install base of the [quantum computing provider](/azure/quantum/qc-target-list) and [optimization provider](/azure/quantum/qio-target-list). Depending on the compute target, the classical client application might experience long delays or non-availability of the target.
+Availability of the quantum compute functionality depends highly on the availability and install base of the [quantum computing provider](/azure/quantum/qc-target-list) and [optimization provider](/azure/quantum/qio-target-list). Depending on the compute target, the classical client application might experience long delays or unavailability of the target.
 
 For the surrounding Azure services, the usual availability considerations apply:
 
@@ -95,7 +95,7 @@ The overall cost of this solution depends on the quantum computing target that y
 
 For the Azure Quantum service, consider these points:
 
-* Microsoft QIO solvers are billed via the Azure subscription bill. The cost depends on the SKU and your usage pattern. For details, see [Azure Quantum pricing](https://azure.microsoft.com/pricing/details/azure-quantum).
+* [Microsoft QIO](/azure/quantum/provider-microsoft-qio) solvers are billed via the Azure subscription bill. The cost depends on the SKU and your usage pattern. For details, see [Azure Quantum pricing](https://azure.microsoft.com/pricing/details/azure-quantum).
 * Other optimization providers are available on Azure Marketplace. For pricing details, see the applicable reference page listed in [Optimization providers on Azure Quantum](/azure/quantum/qio-target-list).
 * Quantum computing providers can be consumed via an Azure Marketplace offering. Pricing depends on the type of resource (simulator or hardware), the SKU, and your usage. For details, see the reference page for the provider needed for your scenario. These reference pages are listed in [Quantum computing providers on Azure Quantum](/azure/quantum/qc-target-list).
 
