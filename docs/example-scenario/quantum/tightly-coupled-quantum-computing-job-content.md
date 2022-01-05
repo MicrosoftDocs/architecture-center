@@ -108,6 +108,6 @@ For the Azure Quantum service, consider these points:
 
 ## Related resources
 
-* [Operational excellence principles](../../framework/devops/principles.md)
+* [Operational excellence principles](/azure/architecture/framework/devops/principles)
 * [Asynchronous Request-Reply pattern](../../patterns/async-request-reply.md)
 * [Loosely coupled quantum computing](loosely-coupled-quantum-computing-job.yml)
