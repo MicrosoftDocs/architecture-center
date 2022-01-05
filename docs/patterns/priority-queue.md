@@ -91,13 +91,13 @@ The PriorityQueue solution available on [GitHub](https://github.com/mspnp/cloud-
 
 ```csharp
 public static class PriorityQueueConsumerHighFn
+{
+    [FunctionName("HighPriorityQueueConsumerFunction")]
+    public static void Run([ServiceBusTrigger("messages", "highPriority", Connection = "ServiceBusConnection")]string highPriorityMessage, ILogger log)
     {
-        [FunctionName("HighPriorityQueueConsumerFunction")]
-        public static void Run([ServiceBusTrigger("messages", "highPriority", Connection = "ServiceBusConnection")]string highPriorityMessage, ILogger log)
-        {
-            log.LogInformation($"C# ServiceBus topic trigger function processed message: {highPriorityMessage}");
-        }
+        log.LogInformation($"C# ServiceBus topic trigger function processed message: {highPriorityMessage}");
     }
+}
 ```
 
 An administrator can configure how many instances the functions on the app service consumption can scale out to by setting a value to the [`WEBSITE_MAX_DYNAMIC_APPLICATION_SCALE_OUT`](https://docs.microsoft.com/azure/azure-functions/functions-app-settings#website_max_dynamic_application_scale_out) application setting. Typically, there'll be more instances of the `PriorityQueueConsumerHigh` function than the `PriorityQueueConsumerLow` function.
