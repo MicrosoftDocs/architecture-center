@@ -4,7 +4,7 @@ titleSuffix: Cloud Design Patterns
 description: Prioritize requests sent to services so that requests with a higher priority are received and processed more quickly than those with a lower priority.
 author: EdPrice-MSFT
 ms.author: pnp
-ms.date: 06/23/2017
+ms.date: 01/05/2022
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: design-pattern
@@ -88,74 +88,49 @@ In the figure above, the application creates several messages and assigns a cust
 
 Note that there's nothing special about the designation of high and low priority messages in this example. They're simply labels specified as properties in each message, and are used to direct messages to a specific subscription. If additional priorities are required, it's relatively easy to create further subscriptions and pools of consumer processes to handle these priorities.
 
-The PriorityQueue solution available on [GitHub](https://github.com/mspnp/cloud-design-patterns/tree/master/priority-queue) contains an implementation of this approach. This solution contains two worker role projects named `PriorityQueue.High` and `PriorityQueue.Low`. These worker roles inherit from the `PriorityWorkerRole` class that contains the functionality for connecting to a specified subscription in the `OnStart` method.
-
-The `PriorityQueue.High` and `PriorityQueue.Low` worker roles connect to different subscriptions, defined by their configuration settings. An administrator can configure different numbers of each role to be run. Typically there'll be more instances of the `PriorityQueue.High` worker role than the `PriorityQueue.Low` worker role.
-
-The `Run` method in the `PriorityWorkerRole` class arranges for the virtual `ProcessMessage` method (also defined in the `PriorityWorkerRole` class) to be run for each message received on the queue. The following code shows the `Run` and `ProcessMessage` methods. The `QueueManager` class, defined in the PriorityQueue.Shared project, provides helper methods for using Azure Service Bus queues.
+The PriorityQueue solution available on [GitHub](https://github.com/mspnp/cloud-design-patterns/tree/master/priority-queue) contains an implementation of this approach. This solution contains Azure Function projects named `PriorityQueueConsumerHigh` and `PriorityQueueConsumerLow`. These Azure Functions integrate with Azure Service Bus via triggers and bindings, they connect to different subscriptions defined in the ServiceBusTrigger and react to the incoming messages.
 
 ```csharp
-public class PriorityWorkerRole : RoleEntryPoint
+public static class PriorityQueueConsumerHighFn
 {
-  private QueueManager queueManager;
-  ...
-
-  public override void Run()
-  {
-    // Start listening for messages on the subscription.
-    var subscriptionName = CloudConfigurationManager.GetSetting("SubscriptionName");
-    this.queueManager.ReceiveMessages(subscriptionName, this.ProcessMessage);
-    ...;
-  }
-  ...
-
-  protected virtual async Task ProcessMessage(BrokeredMessage message)
-  {
-    // Simulating processing.
-    await Task.Delay(TimeSpan.FromSeconds(2));
-  }
+    [FunctionName("HighPriorityQueueConsumerFunction")]
+    public static void Run(
+      [ServiceBusTrigger("messages", "highPriority", Connection = "ServiceBusConnection")]string highPriorityMessage,
+      ILogger log)
+    {
+        log.LogInformation($"C# ServiceBus topic trigger function processed message: {highPriorityMessage}");
+    }
 }
 ```
 
-The `PriorityQueue.High` and `PriorityQueue.Low` worker roles both override the default functionality of the `ProcessMessage` method. The code below shows the `ProcessMessage` method for the `PriorityQueue.High` worker role.
+An administrator can configure how many instances the functions on the app service consumption can scale out to by configuring the Dynamic Scale out hosting option from the Azure Portal, enforcing a maximum scale out limit for each function. Typically, there'll be more instances of the `PriorityQueueConsumerHigh` function than the `PriorityQueueConsumerLow` function.
+
+Another project named `PriorityQueueSender` contains a time triggered Azure Function configured to run every 30 seconds; this Azure Function integrates with Azure Service Bus via an output binding and sends batches of low and high priority messages to an `IAsyncCollector`; when the function posts messages to the topic associated with the subscriptions used by the `PriorityQueueConsumerHigh` and `PriorityQueueConsumerLow` functions, it specifies the priority by using the `Priority` custom property, as shown in the following code:
 
 ```csharp
-protected override async Task ProcessMessage(BrokeredMessage message)
+public static class PriorityQueueSenderFn
 {
-  // Simulate message processing for High priority messages.
-  await base.ProcessMessage(message);
-  Trace.TraceInformation("High priority message processed by " +
-    RoleEnvironment.CurrentRoleInstance.Id + " MessageId: " + message.MessageId);
+    [FunctionName("PriorityQueueSenderFunction")]
+    public static async Task Run(
+        [TimerTrigger("0,30 * * * * *")] TimerInfo myTimer,
+        [ServiceBus("messages", Connection = "ServiceBusConnection")] IAsyncCollector<ServiceBusMessage> collector)
+    {
+        for (int i = 0; i < 10; i++)
+        {
+            var messageId = Guid.NewGuid().ToString();
+            var lpMessage = new ServiceBusMessage() { MessageId = messageId };
+            lpMessage.ApplicationProperties["Priority"] = Priority.Low;
+            lpMessage.Body = BinaryData.FromString($"Low priority message with Id: {messageId}");
+            await collector.AddAsync(lpMessage);
+
+            messageId = Guid.NewGuid().ToString();
+            var hpMessage = new ServiceBusMessage() { MessageId = messageId };
+            hpMessage.ApplicationProperties["Priority"] = Priority.High;
+            hpMessage.Body = BinaryData.FromString($"High priority message with Id: {messageId}");
+            await collector.AddAsync(hpMessage);
+        }
+    }
 }
-```
-
-When an application posts messages to the topic associated with the subscriptions used by the `PriorityQueue.High` and `PriorityQueue.Low` worker roles, it specifies the priority by using the `Priority` custom property, as shown in the following code example. This code (implemented in the `WorkerRole` class in the PriorityQueue.Sender project), uses the `SendBatchAsync` helper method of the `QueueManager` class to post messages to a topic in batches.
-
-```csharp
-// Send a low priority batch.
-var lowMessages = new List<BrokeredMessage>();
-
-for (int i = 0; i < 10; i++)
-{
-  var message = new BrokeredMessage() { MessageId = Guid.NewGuid().ToString() };
-  message.Properties["Priority"] = Priority.Low;
-  lowMessages.Add(message);
-}
-
-this.queueManager.SendBatchAsync(lowMessages).Wait();
-...
-
-// Send a high priority batch.
-var highMessages = new List<BrokeredMessage>();
-
-for (int i = 0; i < 10; i++)
-{
-  var message = new BrokeredMessage() { MessageId = Guid.NewGuid().ToString() };
-  message.Properties["Priority"] = Priority.High;
-  highMessages.Add(message);
-}
-
-this.queueManager.SendBatchAsync(highMessages).Wait();
 ```
 
 ## Next steps
