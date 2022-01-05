@@ -58,6 +58,6 @@ The solution uses the following other components:
 
 ## Related resources
 
-* [The operational excellence pillar](../../framework/devops/overview.md) of the Microsoft Azure Well-Architected Framework
+* [The operational excellence pillar](/azure/architecture/framework/devops/overview) of the Microsoft Azure Well-Architected Framework
 * [DevOps Checklist](../../checklist/dev-ops.md)
 * [Choose an Azure compute service for your application](../../guide/technology-choices/compute-decision-tree.md)
