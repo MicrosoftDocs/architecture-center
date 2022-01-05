@@ -95,7 +95,7 @@ The resource group also has a region, which specifies where deployment metadata 
 
 Use the [pricing calculator](https://azure.microsoft.com/pricing/calculator) to estimate costs.
 
-For more information, see the cost section in [Microsoft Azure Well-Architected Framework](../../framework/cost/overview.md).
+For more information, see the cost section in [Microsoft Azure Well-Architected Framework](/azure/architecture/framework/cost/overview).
 
 ## Scalability considerations
 
@@ -200,7 +200,7 @@ Tips for troubleshooting your application:
 - The [Kudu dashboard](https://azure.microsoft.com/blog/windows-azure-websites-online-tools-you-should-know-about) has several tools for monitoring and debugging your application. For more information, see [Azure Websites online tools you should know about](https://azure.microsoft.com/blog/windows-azure-websites-online-tools-you-should-know-about) (blog post). You can reach the Kudu dashboard from the Azure portal. Open the blade for your app and click **Tools**, then click **Kudu**.
 - If you use Visual Studio, see the article [Troubleshoot a web app in Azure App Service using Visual Studio](/azure/app-service-web/web-sites-dotnet-troubleshoot-visual-studio) for debugging and troubleshooting tips.
 
-For more information, see the DevOps section in [Azure Well-Architected Framework](../../framework/devops/overview.md).
+For more information, see the DevOps section in [Azure Well-Architected Framework](/azure/architecture/framework/devops/overview).
 
 ## Security considerations
 

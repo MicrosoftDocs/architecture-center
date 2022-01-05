@@ -4,7 +4,7 @@ titleSuffix: Performance antipatterns for cloud apps
 description: Learn how the activity of one tenant can impact the performance of other tenants in a multitenant system.
 author: johndowns
 ms.author: jodowns
-ms.date: 08/23/2021
+ms.date: 01/04/2022
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: anti-pattern
@@ -19,7 +19,7 @@ ms.custom:
 
 # Noisy Neighbor antipattern
 
-Multitenant systems share resources between tenants. This means that the activity of one tenant can have a negative impact on another tenant's use of the system.
+Multitenant systems share resources between tenants, which means that the activity of one tenant can have a negative impact on another tenant's use of the system.
 
 ## Problem description
 
@@ -49,10 +49,10 @@ Noisy neighbor problems are an inherent risk in multitenant systems, and it's no
 
 ### Actions that service providers can take
 
-- Monitor the resource usage for your system, both overall and for each tenant. Configure alerts to detect spikes in resource usage, and if possible, configure automation to automatically mitigate known issues by [scaling up or out](../../framework/scalability/design-scale.md).
+- Monitor the resource usage for your system, both overall and for each tenant. Configure alerts to detect spikes in resource usage, and if possible, configure automation to automatically mitigate known issues by [scaling up or out](/azure/architecture/framework/scalability/design-scale).
 - Apply resource governance, to avoid a single tenant that's overwhelming the system and reducing the capacity available to others. This step might take the form of quota enforcement, through the [Throttling pattern](../../patterns/throttling.md) or the [Rate Limiting pattern](../../patterns/rate-limiting-pattern.md).
 - Consider provisioning more infrastructure. This process might involve scaling up by upgrading some of your solution components, or it might involve scaling out by provisioning additional shards, if you follow the [Sharding pattern](../../patterns/sharding.md), or stamps, if you follow the [Deployment Stamps pattern](../../patterns/deployment-stamp.md).
-- Consider allowing tenants to purchase pre-provisioned or reserved capacity. This process provides tenants with more certainty that your solution adequately handles their workload.
+- Consider allowing tenants to purchase pre-provisioned or reserved capacity. This capacity provides tenants with more certainty that your solution adequately handles their workload.
 - Consider approaches to smooth out the resource usage:
   - If you host multiple instances of your solution, consider rebalancing tenants across the instances or stamps. For example, consider placing tenants with predictable and similar usage patterns, across multiple stamps, to flatten the peaks in their usage.
   - Consider whether you have background processes or resource-intensive workloads that aren't time-sensitive. Run these asynchronously at off-peak times, to preserve your peak resource capacity for time-sensitive workloads.

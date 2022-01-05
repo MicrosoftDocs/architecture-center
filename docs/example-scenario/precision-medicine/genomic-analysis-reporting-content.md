@@ -215,7 +215,7 @@ Fully deployable architectures:
 [Introduction to Azure Data Lake Storage Gen2]: /azure/storage/blobs/data-lake-storage-introduction#scalability
 [Azure Storage redundancy]: /azure/storage/common/storage-redundancy
 [Microsoft Azure Compliance Offerings]: https://azure.microsoft.com/mediahandler/files/resourcefiles/microsoft-azure-compliance-offerings/Microsoft%20Azure%20Compliance%20Offerings.pdf
-[Microsoft Azure Well-Architected Framework]: ../../framework/index.md
+[Microsoft Azure Well-Architected Framework]: /azure/architecture/framework/index
 [Microsoft Genomics]: https://azure.microsoft.com/services/genomics
 [Microsoft Genomics - Documentation]: /azure/genomics
 [Microsoft Genomics - Common questions]: /azure/genomics/frequently-asked-questions-genomics

@@ -124,7 +124,7 @@ Security considerations include:
 
 [architectural-diagram]: images/azure_stack_robo.png
 [architectural-diagram-visio-source]: https://arch-center.azureedge.net/azure_stack_robo.vsdx
-[azure-well-architected-framerwork]: ../framework/index.md
+[azure-well-architected-framerwork]: /azure/architecture/framework
 [azs-hci]: /azure-stack/hci/overview
 [azure-arc]: /azure/azure-arc/overview
 [azure-monitor]: /azure/azure-monitor/overview

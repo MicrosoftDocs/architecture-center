@@ -71,7 +71,7 @@ For general guidance on designing secure solutions, see the [Azure Security Docu
 
 This scenario uses Azure Kubernetes Service for your application. Built into Kubernetes are resiliency components that monitor and restart the containers (pods) if there is an issue. Combined with running multiple Kubernetes nodes, your application can tolerate a pod or node being unavailable.
 
-For general guidance on designing resilient solutions, see [Designing reliable Azure applications](../../framework/resiliency/app-design.md).
+For general guidance on designing resilient solutions, see [Designing reliable Azure applications](/azure/architecture/framework/resiliency/app-design).
 
 ## Deploy the scenario
 
@@ -141,7 +141,7 @@ This scenario used Azure Container Registry and Azure Kubernetes Service to stor
 [grafana]: https://grafana.com
 [jenkins]: https://jenkins.io
 [security]: /azure/security
-[scalability]: ../../framework/scalability/performance-efficiency.md
+[scalability]: /azure/architecture/framework/scalability/performance-efficiency
 [sshkeydocs]: /azure/virtual-machines/linux/mac-create-ssh-keys
 [azure-pipelines]: /azure/devops/pipelines
 [kubernetes]: https://kubernetes.io
