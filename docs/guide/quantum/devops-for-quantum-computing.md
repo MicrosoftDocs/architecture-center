@@ -3,7 +3,7 @@ title: DevOps for quantum computing
 description: Learn about DevOps requirements for quantum-based apps. DevOps provides a repeatable, high-quality process for building, deploying, and monitoring software.
 author: hsirtl
 ms.author: hsirtl
-ms.date: 01/05/2022
+ms.date: 01/06/2022
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: azure-guide
@@ -89,7 +89,7 @@ If you use the [loosely coupled integration model](../../example-scenario/quantu
 
 ## Continuous integration (CI) and automated testing
 
-As for other applications, continuous integration is an important part of DevOps for hybrid quantum applications. As soon as code is ready and committed to the repository, it needs to be automatically tested and integrated into other parts of the software. For the classical parts of the application, [best practices for testing](../../checklist/dev-ops.md#testing) still apply. The Microsoft Azure Well-Architected Framework provides [guidance on CI best practices](../../framework/devops/release-engineering-ci.md).
+As for other applications, continuous integration is an important part of DevOps for hybrid quantum applications. As soon as code is ready and committed to the repository, it needs to be automatically tested and integrated into other parts of the software. For the classical parts of the application, [best practices for testing](../../checklist/dev-ops.md#testing) still apply. The Microsoft Azure Well-Architected Framework provides [guidance on CI best practices](/azure/architecture/framework/devops/release-engineering-ci). 
 
 The quantum components require special treatment. The components themselves require special execution environments. And the classical code where quantum components are managed (that is, submitted and monitored at the quantum workspace) needs to be tested.
 
@@ -118,7 +118,7 @@ The build and test steps are described earlier in this article, in the CI sectio
 * **Provisioning target environments**
   * You can automate environment provisioning by deploying ARM templates that are stored in the source code repository.
   * You don't need to reprovision the quantum components every time the code changes. The quantum code doesn't persist in these components. The jobs are submitted on demand by the classical components. So the quantum components should be reprovisioned only on special occasions, like, for example, a full, clean deployment.
-  * The classical components can be reprovisioned with every code change. To minimize disruption during deployment, you can implement a [staged approach](../../framework/devops/release-engineering-cd.md#stage-your-workloads) and use features offered by many Azure compute services for [high availability](../../framework/devops/release-engineering-cd.md#high-availability-considerations).
+  * The classical components can be reprovisioned with every code change. To minimize disruption during deployment, you can implement a [staged approach](/azure/architecture/framework/devops/release-engineering-cd#stage-your-workloads) and use features offered by many Azure compute services for [high availability](/azure/architecture/framework/devops/release-engineering-cd#high-availability-considerations).
 * **Configuring target environments**
   * The classical components need to have permissions to submit quantum jobs. (For example, you might use an Azure function to orchestrate the job.) Define [managed identities](/azure/active-directory/managed-identities-azure-resources/overview) for these components. By using managed identities, you can restrict access to the quantum resources to only components that need to access them for job orchestration.
   * Grant the classical components access to the quantum workspace so that they can submit and monitor quantum jobs. Add a contributor role assignment to the quantum workspace for the managed identity.
