@@ -1,6 +1,6 @@
-When you deploy machine learning models to multiple lines—that is, to multiple data sources—you can't assume that one line's model works for all other lines. Each line has its own distribution and needs a model that works best for that distribution. This article is intended to make it easier for you to deploy models for multiple lines.
+When you deploy machine learning models to multiple data sources, you can't assume that one data source's model works for all the other data sources. Each data source has its own distribution and needs a model that works best for that distribution. This article is intended to make it easier for you to deploy models for multiple data sources.
 
-The organization whose architecture is described in this article pushes edge device data to blob storage to validate the results of a machine learning model. These results are used to train future generations of machine learning models, but the distribution of data that comes in from each line is different. A process is needed to differentiate between each line's data and each line's model. By using this differentiation, the organization can train models and verify that each line's model performs the best for its distribution as time passes. 
+The organization whose architecture is described in this article pushes edge device data to blob storage to validate the results of a machine learning model. These results are used to train future generations of machine learning models, but the distribution of data that comes in from each data source is different. A process is needed to differentiate between each data source's data and each data source's model. By using this differentiation, the organization can train models and verify that each data source's model performs the best for its distribution as time passes. 
 
 This article's solution resolves this problem by running a multiple-step process to train and compare the newly trained model with the existing best model. This process is wrapped in a continuous deployment (CD) pipeline.
 
@@ -19,23 +19,23 @@ This article's solution resolves this problem by running a multiple-step process
 
 ### Dataflow 
 
-1. The architecture starts with the CD pipeline. The CD pipeline orchestrates the computation steps that run. This pipeline is the only interface into training the models, so there are some parameters that the CD pipeline needs to take as input. When you use a multiple-line architecture, you need a line identifier to select the model and get the training data. If you require more fine-tuning on the data, you can also add those parameters to the CD pipeline. In this scenario, the start and end dates of the data are input parameters to the CD pipeline.
+1. The architecture starts with the CD pipeline. The CD pipeline orchestrates the computation steps that run. This pipeline is the only interface into training the models, so there are some parameters that the CD pipeline needs to take as input. When you use a multiple data source architecture, you need a data source identifier to select the model and get the training data. If you require more fine-tuning on the data, you can also add those parameters to the CD pipeline. In this scenario, the start and end dates of the data are input parameters to the CD pipeline.
 
    Before the CD pipeline runs, there's typically a continuous integration (CI) pipeline that runs or that has already run. In this scenario, there was a corresponding CI pipeline for the model. After this CI pipeline runs, relevant code from the repo is published to an Azure Artifacts feed. The first step in this CD pipeline downloads the code from the Artifacts feed.
 
-2. The second phase of the CD pipeline runs an Azure Machine Learning experiment to train a model by using the applied filters. The Azure Machine Learning experiment is constructed as a pipeline that runs steps. In this case, there are four main steps that need to run (filtering, preprocessing, training, and registering). The filtering occurs only if filter parameters are passed in, but the data is always pulled from the source. If all the data is located in the same place, some filters, like the line ID, can be passed as well to increase data segregation. 
+2. The second phase of the CD pipeline runs an Azure Machine Learning experiment to train a model by using the applied filters. The Azure Machine Learning experiment is constructed as a pipeline that runs steps. In this case, there are four main steps that need to run (filtering, preprocessing, training, and registering). The filtering occurs only if filter parameters are passed in, but the data is always pulled from the source. If all the data is located in the same place, some filters, like the data source ID, can be passed as well to increase data segregation. 
 
-3. The data for all lines is stored in one Azure Blob Storage instance, so the line and location are needed to find the relevant data. 
+3. The data for all data sources is stored in one Azure Blob Storage instance, so the data source and location are needed to find the relevant data. 
 
 4. After the correct data is retrieved, the data is preprocessed. Essentially, data preprocessing is the process of extracting the data and transforming it into a form that's usable for the model. This transformation process can include one-hot encoding and filling in missing labels. After the data is cleansed, the model trains on the data. When training is complete, the model is registered in Azure Machine Learning.
 
-   After the Azure Machine Learning pipeline runs, the live model and the newly trained model are compared. Because the targets are stored for the live model's predictions, the performance of the model is constantly updated, so the loss of the current model can be compared to the loss of the new model. If the loss of the newly trained model is better than that of the live model, the live model's tag as the best model is removed in Azure Machine Learning. The new model is tagged as the best model for the given line.
+   After the Azure Machine Learning pipeline runs, the live model and the newly trained model are compared. Because the targets are stored for the live model's predictions, the performance of the model is constantly updated, so the loss of the current model can be compared to the loss of the new model. If the loss of the newly trained model is better than that of the live model, the live model's tag as the best model is removed in Azure Machine Learning. The new model is tagged as the best model for the given data source.
 
    The last step depends on where the model is used. The organization in this example needs the model in a container that's installed on edge devices. The best model (either the live model or the newly trained one) is installed in the code base of the container. The image is pushed to Azure Container Registry.
 
 #### Why this approach?
 
-This approach is used mainly because there's one model that's used across all the lines. Other than the dataset that the data was trained on, there's no real differentiating factor. Because the system is consistent for all the lines, the only variable is the dataset. This allowed the use of a repeatable process.  
+This approach is used mainly because there's one model that's used across all the data sources. Other than the dataset that the data was trained on, there's no real differentiating factor. Because the system is consistent for all the data sources, the only variable is the dataset. This allowed the use of a repeatable process.  
 
 ### Components
 
@@ -56,7 +56,7 @@ If your repo is in GitHub, you might consider [GitHub Actions](https://github.co
 
 In the architecture described here, the Azure Machine Learning pipeline isn't run remotely. If the model doesn't take long to train, running remotely isn't needed. If you're running a more complex model or the Azure Machine Learning pipeline takes a long time to finish, run the Azure Machine Learning pipeline remotely. Doing so frees up an Azure DevOps agent while the Azure Machine Learning pipeline runs.
 
-Scale is an important consideration with this approach. In a production environment with hundreds or thousands of lines that constantly needed to be optimized, it might be beneficial to spread the resources out so that all the compute and resources aren't on just a few resources.
+Scale is an important consideration with this approach. In a production environment with hundreds or thousands of data sources that constantly needed to be optimized, it might be beneficial to spread the resources out so that all the compute and resources aren't on just a few resources.
 
 A data drift feature is a key component of this architecture. This feature gives insight into possible changes in the distribution of new data coming in. Over time, it's not uncommon to see the distribution of the data changing. That's because the models are trained on data that might be of a different distribution (as data drift would show). It's important to optimize on the new distribution coming in rather than using the old model.
 
