@@ -100,7 +100,7 @@ public static class PriorityQueueConsumerHighFn
     }
 ```
 
-An administrator can configure how many instances the functions on the app service consumption can scale out to by setting a value to the WEBSITE_MAX_DYNAMIC_APPLICATION_SCALE_OUT application setting. Typically there'll be more instances of the `PriorityQueueConsumerHigh` function than the `PriorityQueueConsumerLow` function.
+An administrator can configure how many instances the functions on the app service consumption can scale out to by setting a value to the [`WEBSITE_MAX_DYNAMIC_APPLICATION_SCALE_OUT`](https://docs.microsoft.com/azure/azure-functions/functions-app-settings#website_max_dynamic_application_scale_out) application setting. Typically, there'll be more instances of the `PriorityQueueConsumerHigh` function than the `PriorityQueueConsumerLow` function.
 
 Another project named `PriorityQueueSender` contains a time triggered Azure Function configured to run every 30 seconds; this Azure Function integrates with Azure Service Bus via an output binding and sends batches of low and high priority messages to an IAsyncCollector Topic; when the function posts messages to the topic associated with the subscriptions used by the `PriorityQueueConsumerHigh` and `PriorityQueueConsumerLow` functions, it specifies the priority by using the `Priority` custom property, as shown in the following code:
 
