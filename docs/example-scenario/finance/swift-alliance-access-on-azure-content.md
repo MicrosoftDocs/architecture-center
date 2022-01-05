@@ -142,17 +142,17 @@ Azure provides different service level agreements (SLAs) on virtual machine (VM)
 
 [Availability zones](/azure/availability-zones/az-overview) (AZs) are different zones within the same Azure region. AZs are physically separated (in a separate facility) and have their own power and network connections. If an availability zone (AZ) goes completely down, resources running in another AZ aren't affected. Maintenance is only done on one AZ at a time, which ensures resources deployed in multiple AZs always have at least one AZ available. Networking works across AZs.
 
-If a customer deploys two (or more) virtual machines in different AZs, connectivity to at least one of these virtual machines is backed by a 99.99% service level agreement (SLA).
+If a customer deploys two (or more) virtual machines in different AZs, connectivity to at least one of these virtual machines is backed by a service level agreement (SLA).
 
 Availability zones are not available in all regions, for more information see [Azure Services that support Availability Zones](/azure/availability-zones/az-region).
 
 ****Availability sets****
 
-Where availability zones aren't available, or as an alternative to Availability Zones, you can use [availability sets](/azure/virtual-machines/availability-set-overview), which are available in every Azure region. An availability set has the concept of a fault domain and an update domain. VMs deployed in different fault domains run in hosts with different power and cooling, ensuring that if there's a hardware failure, only hosts in that fault domain are affected. Update domains are used when maintenance operations happen in Azure. Only one update domain in an availability set is updated at the same time. An availability set can have up to 3 fault domains and 20 update domains depending on how many virtual machines are in the availability set. When multiple virtual machines are deployed in an availability set, connectivity to at least one of the virtual machines is backed by a 99.95% service level agreement (SLA).
+Where availability zones aren't available, or as an alternative to Availability Zones, you can use [availability sets](/azure/virtual-machines/availability-set-overview), which are available in every Azure region. An availability set has the concept of a fault domain and an update domain. VMs deployed in different fault domains run in hosts with different power and cooling, ensuring that if there's a hardware failure, only hosts in that fault domain are affected. Update domains are used when maintenance operations happen in Azure. Only one update domain in an availability set is updated at the same time. An availability set can have up to 3 fault domains and 20 update domains depending on how many virtual machines are in the availability set. When multiple virtual machines are deployed in an availability set, connectivity to at least one of the virtual machines is backed by a SLA.
 
 ****Single virtual machine availability****
 
-When backed by Premium Storage, Azure provides a 99.9% availability SLA for a single virtual machine deployed in Azure.
+When backed by Premium Storage, Azure provides a SLA for a single virtual machine that is deployed in Azure.
 
 ***Single region multi-active resilience***
 

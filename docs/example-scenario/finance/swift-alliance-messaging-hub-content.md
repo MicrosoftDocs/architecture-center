@@ -6,9 +6,9 @@ Using this article, customers can start with highly available and disaster resis
 
 The diagram below shows high-level architecture for SWIFT – AMH.
 
-[![AMH Expanded Architecture](./media/AMHonAzure_SRXHA.png)](./media/AMHonAzure_SRXHA.png#lightbox)
+[![AMH Expanded Architecture](./media/amh-on-azure-srxha.png)](./media/amh-on-azure-srxha.png#lightbox)
 
-*Download a [PowerPoint file](https://arch-center.azureedge.net/AMHonAzure_SRXHA.pptx) that contains this architecture diagram.*
+*Download a [PowerPoint file](https://arch-center.azureedge.net/amh-on-azure-srxha.pptx) that contains this architecture diagram.*
 
 ### Workflow
 
@@ -48,7 +48,7 @@ Azure infrastructure services running these software components are discussed in
 
 * **Azure ExpressRoute** / **Azure VPN**: SWIFT AMH components can be connected with the customer's on-premises site (Users) and the customer's on-premises site (HSM) using Azure ExpressRoute / Azure VPN. Customers requiring dedicated and private network connectivity can opt for Azure ExpressRoute based connectivity. Azure VPN will use internet-based connection.
 
-* **Azure Virtual Machines**: Azure Virtual Machines provides compute services for running SWIFT AMH. Consider using the following guideline to choose the right SKU.
+* **Azure Virtual Machines**: Azure Virtual Machines provides compute services for running SWIFT AMH. Consider using the following guidelines to choose the right SKU.
 
     1. Compute optimized SKU for running *AMH node*.
     2. Memory optimized with larger storage SKU for running the database.
