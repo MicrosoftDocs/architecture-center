@@ -3380,7 +3380,7 @@ items:
                   - name: Choose a hybrid identity method
                     href: /azure/active-directory/hybrid/choose-ad-authn
                     maintainContext: true
-                  - name: Cloud governed management for on-premises
+                  - name: Cloud management for on-premises
                     href: /azure/active-directory/hybrid/cloud-governed-management-for-on-premises
                     maintainContext: true
                   - name: Hybrid identity foundation with Azure AD
@@ -3394,7 +3394,7 @@ items:
                   - name: Azure Active Directory for education
                     href: /microsoft-365/education/deploy/intro-azure-active-directory
                     maintainContext: true
-                  - name: Multi-tenant for large academic institutions
+                  - name: Multi-tenant for large institutions
                     href: /microsoft-365/education/deploy/design-multi-tenant-architecture
                     maintainContext: true
                   - name: Design a tenant configuration
@@ -3482,7 +3482,7 @@ items:
                     href: example-scenario/iot/introduction-to-solutions.yml
                   - name: 'Devices, platform, and applications'
                     href: example-scenario/iot/devices-platform-application.yml
-                  - name: 'Attestation, authentication, and provisioning'
+                  - name: 'Attestation, authentication, provisioning'
                     href: example-scenario/iot/attestation-provisioning.yml
                   - name: Field and cloud edge gateways
                     href: example-scenario/iot/field-cloud-edge-gateways.yml
@@ -3654,7 +3654,7 @@ items:
                     href: example-scenario/mainframe/migrate-ibm-i-series-applications.yml
                   - name: Refactor IBM z/OS mainframe CF
                     href: reference-architectures/zos/refactor-zos-coupling-facility.yml
-                  - name: Refactor Mainframe Applications with Advanced
+                  - name: Refactor mainframe apps with Advanced
                     href: example-scenario/mainframe/refactor-mainframe-applications-advanced.yml
                   - name: Refactor mainframe with Raincode
                     href: reference-architectures/app-modernization/raincode-reference-architecture.yml
@@ -3743,15 +3743,15 @@ items:
                 items:
                   - name: Azure Arc hybrid management with AKS
                     href: hybrid/arc-hybrid-kubernetes.yml
-                  - name: Azure Automation in a hybrid environment
+                  - name: Azure Automation hybrid environment
                     href: hybrid/azure-automation-hybrid.yml
                   - name: Azure Automation Update Management
                     href: hybrid/azure-update-mgmt.yml
-                  - name: Back up files and apps on Azure Stack Hub
+                  - name: Back up files on Azure Stack Hub
                     href: hybrid/azure-stack-backup.yml
-                  - name: Disaster recovery for Azure Stack Hub VMs
+                  - name: Disaster recovery for Azure Stack Hub
                     href: hybrid/azure-stack-vm-dr.yml
-                  - name: Hybrid availability and performance monitoring
+                  - name: Hybrid availability and monitoring
                     href: hybrid/hybrid-perf-monitoring.yml
                   - name: Manage configurations for Azure Arc
                     href: hybrid/azure-arc-hybrid-config.yml
@@ -3887,7 +3887,7 @@ items:
               - name: Design and prototype for mixed reality
                 href: /windows/mixed-reality/design/design
                 maintainContext: true
-              - name: Integrate Spatial Anchors into a shared experience
+              - name: Spatial Anchors in a shared experience
                 href: /windows/mixed-reality/develop/unity/tutorials/mr-learning-sharing-05
                 maintainContext: true
               - name: MR core concepts
@@ -4118,12 +4118,12 @@ items:
                     href: networking/prefixes/add-ip-space-peered-vnet.md
                   - name: Segment virtual networks
                     href: reference-architectures/hybrid-networking/network-level-segmentation.yml
-                  - name: Virtual network peering and VPN gateways
+                  - name: VNet peering and VPN gateways
                     href: reference-architectures/hybrid-networking/vnet-peering.yml
-                  - name: Limit cross-tenant private endpoint connections
+                  - name: Limit cross-tenant private endpoints
                     href: /azure/cloud-adoption-framework/ready/azure-best-practices/limit-cross-tenant-private-endpoint-connections
                     maintainContext: true
-              - name: Build solutions with Availability Zones
+              - name: Build solutions with availability zones
                 href: high-availability/building-solutions-for-high-availability.md
               - name: Use ExpressRoute with Power Platform
                 items:
@@ -4196,7 +4196,7 @@ items:
                 maintainContext: true
               - name: Multi-region N-tier application
                 href: reference-architectures/n-tier/multi-region-sql-server.yml
-              - name: Multi-region load balancing with Traffic Manager
+              - name: Multi-region load balancing
                 href: high-availability/reference-architecture-traffic-manager-application-gateway.yml
               - name: Multi-tier web application built for HA/DR
                 href: example-scenario/infrastructure/multi-tier-app-disaster-recovery.yml
@@ -4210,18 +4210,18 @@ items:
               - name: Private Link and DNS integration at scale
                 href: /azure/cloud-adoption-framework/ready/azure-best-practices/private-link-and-dns-integration-at-scale
                 maintainContext: true
-              - name: SD-WAN connectivity with Azure Virtual WAN
+              - name: SD-WAN connectivity with Virtual WAN
                 href: /azure/virtual-wan/sd-wan-connectivity-architecture
                 maintainContext: true
               - name: Traditional Azure networking topology
                 href: /azure/cloud-adoption-framework/ready/azure-best-practices/traditional-azure-networking-topology
                 maintainContext: true
-              - name: Update route tables by using Azure Route Server
+              - name: Update route tables with Route Server
                 href: example-scenario/networking/manage-routing-azure-route-server.yml
               - name: Virtual WAN network topology
                 href: /azure/cloud-adoption-framework/ready/azure-best-practices/virtual-wan-network-topology
                 maintainContext: true
-              - name: Virtual WAN optimized for varying requirements
+              - name: Virtual WAN optimized for requirements
                 href: example-scenario/infrastructure/performance-security-optimized-vwan.yml
           - name: Solution ideas
             items:
@@ -4249,10 +4249,10 @@ items:
                   - name: Oracle Database backup strategies
                     href: /azure/virtual-machines/workloads/oracle/oracle-database-backup-strategies
                     maintainContext: true
-                  - name: Oracle Database backup using Azure Storage
+                  - name: Oracle backup using Azure Storage
                     href: /azure/virtual-machines/workloads/oracle/oracle-database-backup-azure-storage
                     maintainContext: true
-                  - name: Oracle Database backup using Azure Backup
+                  - name: Oracle backup using Azure Backup
                     href: /azure/virtual-machines/workloads/oracle/oracle-database-backup-azure-backup
                     maintainContext: true
               - name: Oracle disaster recovery options
@@ -4388,9 +4388,9 @@ items:
                 href: solution-ideas/articles/homomorphic-encryption-seal.yml
               - name: Hybrid security monitoring
                 href: hybrid/hybrid-security-monitoring.yml
-              - name: Improved-security access to multitenant web apps 
+              - name: Improved-security access to multitenant
                 href: example-scenario/security/access-multitenant-web-app-from-on-premises.yml
-              - name: Long-term security logs in Azure Data Explorer
+              - name: Long-term security logs in Data Explorer
                 href: example-scenario/security/security-log-retention-azure-data-explorer.yml
               - name: MCAS and Azure Sentinel security for AWS
                 href: reference-architectures/aws/aws-azure-security-solutions.yml
@@ -4434,7 +4434,7 @@ items:
               - name: Data redundancy
                 href: /azure/storage/common/storage-redundancy
                 maintainContext: true
-              - name: Disaster recovery and storage account failover
+              - name: DR and storage account failover
                 href: /azure/storage/common/storage-disaster-recovery-guidance
                 maintainContext: true
               - name: Azure Storage migration guidance
@@ -4540,23 +4540,23 @@ items:
                 href: example-scenario/hybrid/azure-files-on-premises-authentication.yml
               - name: Azure NetApp Files solutions
                 items:                    
-                  - name: AKS data protection on Azure NetApp Files
+                  - name: AKS data protection on ANF
                     href: example-scenario/file-storage/data-protection-kubernetes-astra-azure-netapp-files.yml
-                  - name: Enterprise file shares with disaster recovery
+                  - name: Enterprise file shares with DR
                     href: example-scenario/file-storage/enterprise-file-shares-disaster-recovery.yml
-                  - name: Moodle deployment with Azure NetApp Files
+                  - name: Moodle deployment with ANF
                     href: example-scenario/file-storage/moodle-azure-netapp-files.yml
                   - name: Oracle Database with Azure NetApp Files
                     href: example-scenario/file-storage/oracle-azure-netapp-files.yml
-                  - name: SQL Server on VMs with Azure NetApp Files
+                  - name: SQL Server on VMs with ANF
                     href: example-scenario/file-storage/sql-server-azure-netapp-files.yml
               - name: Hybrid file services
                 href: hybrid/hybrid-file-services.yml
-              - name: Minimal storage – change feed to replicate data
+              - name: Minimal storage – change feed replication
                 href: solution-ideas/articles/minimal-storage-change-feed-replicate-data.yml
               - name: Multi-region web app with replication
                 href: solution-ideas/articles/multi-region-web-app-multi-writes-azure-table.yml              
-              - name: Optimized storage with logical data classification
+              - name: Optimized storage data classification
                 href: solution-ideas/articles/optimized-storage-logical-data-classification.yml
           - name: Solution ideas
             items:
@@ -4651,13 +4651,13 @@ items:
                 href: reference-architectures/app-service-web-app/basic-web-app.yml
               - name: Blueprint architectures
                 items:
-                 - name: Blueprint - PaaS web application for FedRAMP
+                 - name: Blueprint - PaaS web app for FedRAMP
                    href: /previous-versions/azure/security/blueprints/fedramp-paaswa-overview
                    maintainContext: true
-                 - name: Blueprint - PaaS web application for PCI DSS
+                 - name: Blueprint - PaaS web app for PCI DSS
                    href: /previous-versions/azure/security/blueprints/pcidss-paaswa-overview
                    maintainContext: true
-              - name: Clinical insights with Microsoft Cloud for Healthcare
+              - name: Clinical insights with Cloud for Healthcare
                 href: example-scenario/mch-health/medical-data-insights.yml
               - name: Common web app architectures
                 href: /dotnet/architecture/modern-web-apps-azure/common-web-application-architectures
@@ -4702,7 +4702,7 @@ items:
                 href: reference-architectures/app-service-web-app/scalable-web-app.yml
               - name: Serverless web app
                 href: reference-architectures/serverless/web-app.yml
-              - name: Virtual visits with Microsoft Cloud for Healthcare
+              - name: Virtual visits with Cloud for Healthcare
                 href: example-scenario/mch-health/virtual-health-mch.yml
               - name: Web app monitoring on Azure
                 href: reference-architectures/app-service-web-app/app-monitoring.yml
@@ -4710,7 +4710,7 @@ items:
                 href: example-scenario/private-web-app/private-web-app.yml
           - name: Solution ideas
             items:
-              - name: Dynamics Business Central as a Service on Azure
+              - name: Dynamics Business Central as a service
                 href: solution-ideas/articles/business-central.yml
               - name: E-commerce website running in ASE
                 href: solution-ideas/articles/ecommerce-website-running-in-secured-ase.yml
@@ -4732,7 +4732,7 @@ items:
                 href: solution-ideas/articles/simple-branded-website.yml
               - name: Simple digital marketing website
                 href: solution-ideas/articles/digital-marketing-smb.yml
-              - name: Web and mobile apps with MySQL and Redis
+              - name: Web/mobile apps with MySQL and Redis
                 href: solution-ideas/articles/webapps.yml
   - name: Cloud Adoption Framework
     href: /azure/cloud-adoption-framework
