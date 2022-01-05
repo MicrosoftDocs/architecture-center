@@ -92,7 +92,7 @@ The pipeline that's used for data enrichment depends on the use case.
 
 #### Analytics and visualizations
 
-1. Applications use the raw OCR, structured data from Form Recognizer endpoints and the enriched data from NLP:
+1. Applications use the raw OCR, structured data from Form Recognizer endpoints, and the enriched data from NLP:
 
    - Power BI displays the data and presents reports on it.
    - The data functions as a source for Azure Cognitive Search.
