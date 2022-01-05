@@ -125,7 +125,7 @@ Read more about instrumentation and the OpenTelemetry SDKs in the [OpenTelemetry
 
 ### Application Insights
 
-Application Insights builds on OpenTelemetry, ingesting the rich data provided by instrumented libraries and apps and providing rich visualization and query support. The [Application Insights OpenTelemetry-based instrumentation](azure/azure-monitor/app/opentelemetry-enable.md) for langauges such as .NET, Java, Node.js, or Python handles the data collection.
+Application Insights collects rich data from OpenTelemetry and its instrumentation libraries, capturing it in an efficient data store to provide rich visualization and query support. The [Application Insights OpenTelemetry-based instrumentation libraries](azure/azure-monitor/app/opentelemetry-enable.md) for languages such as .NET, Java, Node.js, or Python make it easy to send telemetry data to Application Insights.
 
 If you are using .NET Core, we recommend also using the [Application Insights for Kubernetes](https://github.com/microsoft/ApplicationInsights-Kubernetes) library. This library enriches Application Insights traces with additional information such as the container, node, pod, labels, and replica set. _TODO: Check on the status of this_
 
@@ -199,7 +199,7 @@ Here is the JSON from this example:
 }
 ```
 
-Many log messages mark the start/end of a unit of work or connect a business entity with a set of messages and operations for traceability. In many cases, enriching OpenTelemetry Span and Request objects is a better approach than only logging the start and end of that operation. This adds that context to all connected traces and child operations and puts that information in the scope of the full operation. The OpenTelemetry SDKs for various langauges support creating Spans or adding custom attributes on Spans. [Using the Java OpenTelemetry SDK](https://github.com/open-telemetry/opentelemetry-java-instrumentation/blob/main/docs/manual-instrumentation.md#adding-attributes-to-the-current-span) ([supported by Application Insights](https://docs.microsoft.com/en-us/azure/azure-monitor/app/java-in-process-agent#add-span-attributes)), an existing parent span (for example, a request Span associated with a REST controller call, created by the web framework being used) can be enriched with an entity id associated with it:
+Many log messages mark the start/end of a unit of work or connect a business entity with a set of messages and operations for traceability. In many cases, enriching OpenTelemetry Span and Request objects is a better approach than only logging the start and end of that operation. This adds that context to all connected traces and child operations and puts that information in the scope of the full operation. The OpenTelemetry SDKs for various langauges support creating Spans or adding custom attributes on Spans. [Using the Java OpenTelemetry SDK](https://github.com/open-telemetry/opentelemetry-java-instrumentation/blob/main/docs/manual-instrumentation.md#adding-attributes-to-the-current-span) ([supported by Application Insights](https://docs.microsoft.com/azure/azure-monitor/app/java-in-process-agent#add-span-attributes)), an existing parent span (for example, a request Span associated with a REST controller call, created by the web framework being used) can be enriched with an entity id associated with it:
 
 ```java
 import io.opentelemetry.api.trace.Span;
