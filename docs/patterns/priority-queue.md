@@ -8,6 +8,11 @@ ms.date: 01/05/2022
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: design-pattern
+products:
+  - azure-service-bus
+categories:
+  - compute
+  - web
 ms.custom:
   - design-pattern
 keywords:
