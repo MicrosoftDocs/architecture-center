@@ -2305,6 +2305,12 @@ items:
                 href: example-scenario/security/virtual-machine-compliance.yml
               - name: Move Azure resources across regions
                 href: solution-ideas/articles/move-azure-resources-across-regions.yml
+              - name:  Quantum computing solutions
+                items: 
+                  - name: Loosely coupled quantum computing on Azure
+                    href: example-scenario/quantum/loosely-coupled-quantum-computing-job.yml
+                  - name: Tightly coupled quantum computing on Azure
+                    href: example-scenario/quantum/tightly-coupled-quantum-computing-job.yml
               - name: Run a Linux VM on Azure
                 href: reference-architectures/n-tier/linux-vm.yml
               - name: Run a Windows VM on Azure
@@ -3067,6 +3073,8 @@ items:
               - name: CI/CD for Synapse Analytics
                 href: /azure/synapse-analytics/cicd/continuous-integration-delivery
                 maintainContext: true
+              - name: DevOps for quantum computing
+                href: guide/quantum/devops-for-quantum-computing.md
               - name: Platform automation for VMware Solution
                 href: /azure/cloud-adoption-framework/scenarios/azure-vmware/eslz-platform-automation-and-devops
                 maintainContext: true
@@ -3104,6 +3112,8 @@ items:
                 href: solution-ideas/articles/cicd-for-containers.yml
               - name: CI/CD for Microsoft Power Platform
                 href: solution-ideas/articles/azure-devops-continuous-integration-for-power-platform.yml
+              - name: CI/CD for quantum computing jobs
+                href: solution-ideas/articles/cicd-for-quantum-computing-jobs.yml
               - name: CI/CD for Windows desktop apps
                 href: solution-ideas/articles/azure-devops-ci-cd-for-desktop-apps.yml
               - name: CI/CD using Jenkins and AKS
