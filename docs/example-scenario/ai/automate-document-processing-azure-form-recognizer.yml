@@ -5,7 +5,7 @@ metadata:
   description: Build an automated document processing pipeline. Use Azure Form Recognizer to extract data and natural language processing models to enrich the data.
   author: JKirsch1
   ms.author: v-jenkir
-  ms.date: 01/04/2021
+  ms.date: 01/05/2021
   ms.topic: conceptual
   ms.service: architecture-center
   ms.subservice: example-scenario
