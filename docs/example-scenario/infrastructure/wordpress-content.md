@@ -110,9 +110,9 @@ Microsoft Learn modules:
 
 ## Related resources
 
-- [Ten design principles for Azure applications](../../guide/design-principles)
+- [Ten design principles for Azure applications](../../guide/design-principles/index.md)
 - [Scalable cloud applications and site reliability engineering](../../example-scenario/apps/scalable-apps-performance-modeling-site-reliability.yml)
-- [Scalable web application](scalable-web-app.yml)
+- [Scalable web application](scalable-web-apps.yml)
 
 <!-- links -->
 

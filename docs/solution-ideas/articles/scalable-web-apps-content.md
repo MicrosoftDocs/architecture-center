@@ -30,7 +30,7 @@ Microsoft Learn modules:
 
 ## Related resources
 
-- [Ten design principles for Azure applications](../../guide/design-principles)
+- [Ten design principles for Azure applications](../../guide/design-principles/index.md)
 - [Architect scalable e-commerce web app](../../solution-ideas/articles/scalable-ecommerce-web-app.yml)
 - [Scalable Episerver marketing website](../../solution-ideas/articles/digital-marketing-episerver.yml)
 - [Scalable Sitecore marketing website](../../solution-ideas/articles/digital-marketing-sitecore.yml)
