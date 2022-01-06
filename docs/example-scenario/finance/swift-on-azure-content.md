@@ -53,7 +53,7 @@ The Azure reference architecture described in this document uses Alliance Access
 
 This solution area includes services that compliment all SWIFT components. Shared services can include monitoring, security, compliance, and other key management/operational services. Some of the key services are as shown in following diagram:
 
-![SWIFT Shared Services Architecture](./media/amh-on-azure-shared.png#lightbox)
+[![SWIFT Shared Services Architecture](./media/amh-on-azure-shared.png#lightbox)](./media/amh-on-azure-shared.png#lightbox)
 
 * [Azure Policy](https://azure.microsoft.com/services/azure-policy) – can be used to enforce more security controls and SWIFT CSP requirements.
 * [Azure Logic Apps](https://azure.microsoft.com/services/logic-apps) – supports native SWIFT messaging and can be used to natively process and transform messaging using 400+ connectors.
