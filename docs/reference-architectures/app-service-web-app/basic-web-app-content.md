@@ -243,3 +243,35 @@ Some limitations of App Service authentication:
 - Delegated authorization is restricted to one backend resource per login session.
 - If you use more than one IDP, there is no built-in mechanism for home realm discovery.
 - For multi-tenant scenarios, the application must implement the logic to validate the token issuer.
+
+## Next steps
+
+Product documentation:
+
+- [About Azure Key Vault](/azure/key-vault/general/overview)
+- [App Service overview](/azure/app-service/overview)
+- [Azure Monitor overview](/azure/azure-monitor/overview)
+- [Azure App Service plan overview](/azure/app-service/overview-hosting-plans)
+- [Overview of Log Analytics in Azure Monitor](/azure/azure-monitor/logs/log-analytics-overview)
+- [What is Azure Active Directory?](/azure/active-directory/fundamentals/active-directory-whatis)
+- [What is Azure DNS?](/azure/dns/dns-overview)
+- [What is Azure SQL Database?](/azure/azure-sql/database/sql-database-paas-overview)
+
+Microsoft Learn modules:
+
+- [Configure and manage Azure Monitor](/learn/modules/azure-monitor)
+- [Configure Azure Active Directory](/learn/modules/configure-azure-active-directory)
+- [Configure Azure Monitor](/learn/modules/configure-azure-monitor)
+- [Deploy and configure servers, instances, and databases for Azure SQL](/learn/modules/azure-sql-deploy-configure)
+- [Explore Azure App Service](/learn/modules/introduction-to-azure-app-service)
+- [Host a web application with Azure App Service](/learn/modules/host-a-web-app-with-azure-app-service)
+- [Host your domain on Azure DNS](/learn/modules/host-domain-azure-dns)
+- [Implement Azure Key Vault](/learn/modules/implement-azure-key-vault)
+- [Manage users and groups in Azure Active Directory](/learn/modules/manage-users-and-groups-in-aad)
+
+## Related resources
+
+- [Ten design principles for Azure applications](../../guide/design-principles)
+- [Highly available multi-region web application](multi-region.yml)
+- [Multi-region web app with private connectivity to database](../../example-scenario/sql-failover/app-service-private-sql-multi-region.yml)
+- [Scalable web application](scalable-web-app.yml)

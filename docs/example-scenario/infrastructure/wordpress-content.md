@@ -85,6 +85,35 @@ We have provided a pre-configured [cost profile][pricing] based on the architect
 - How much new data are you going to be writing to your website? New data written to your website correlates with how much data is mirrored across the regions.
 - How much of your content is dynamic? How much is static? The variance around dynamic and static content influences how much data has to be retrieved from the database tier versus how much will be cached in the CDN.
 
+## Next steps
+
+Product documentation:
+
+- [About Azure Key Vault](/azure/key-vault/general/overview)
+- [What are virtual machine scale sets?](/azure/virtual-machine-scale-sets/overview)
+- [What is a content delivery network on Azure?](/azure/cdn/cdn-overview)
+- [What is Azure Active Directory?](/azure/active-directory/fundamentals/active-directory-whatis)
+- [What is Azure Files?](/azure/storage/files/storage-files-introduction)
+- [What is Azure Load Balancer?](/azure/load-balancer/load-balancer-overview)
+- [What is Azure Virtual Network?](/azure/virtual-network/virtual-networks-overview)
+- [What is VPN Gateway?](/azure/vpn-gateway/vpn-gateway-about-vpngateways)
+
+Microsoft Learn modules:
+
+- [Build a scalable application with virtual machine scale sets](/learn/modules/build-app-with-scale-sets)
+- [Configure Azure Active Directory](/learn/modules/configure-azure-active-directory)
+- [Configure Azure Load Balancer](/learn/modules/configure-azure-load-balancer)
+- [Configure Azure files and Azure File Sync](/learn/modules/configure-azure-files-file-sync)
+- [Create a Content Delivery Network for your Website with Azure CDN and Blob Services](/learn/modules/create-cdn-static-resources-blob-storage)
+- [Implement Azure Key Vault](/learn/modules/implement-azure-key-vault)
+- [Introduction to Azure Virtual Networks](/learn/modules/introduction-to-azure-virtual-networks)
+
+## Related resources
+
+- [Ten design principles for Azure applications](../../guide/design-principles)
+- [Scalable cloud applications and site reliability engineering](../../example-scenario/apps/scalable-apps-performance-modeling-site-reliability.yml)
+- [Scalable web application](scalable-web-app.yml)
+
 <!-- links -->
 
 [mariadb-tutorial]: /azure/virtual-machines/linux/classic/mariadb-mysql-cluster
