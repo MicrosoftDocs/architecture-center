@@ -16,7 +16,7 @@ This solution benefits any organization that wants the advantages of deploying A
 
 ## Architecture
 
-![Diagram of the architecture for automated API deployments using APIOps on Azure.](media/automated-api-deployments-architecture-diagram.png)
+:::image type="content" alt-text="Diagram of the architecture for automated API deployments using APIOps on Azure." source="media/automated-api-deployments-architecture-diagram.png":::
 
 1.  API operators run the extractor pipeline to sync the git repo with the APIM instance and generate the git repo with APIM objects in the required format.
 
