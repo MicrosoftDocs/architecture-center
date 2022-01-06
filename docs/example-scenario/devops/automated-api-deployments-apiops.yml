@@ -5,19 +5,20 @@ metadata:
   description: <Write a 100-160 character description that ends with a period and ideally starts with a call to action. This becomes the browse card description.>
   author: garycentric
   ms.author: v-gmoor
-  ms.date: <publish or major update date - mm/dd/yyyy>
+  ms.date: 01/07/2022
   ms.topic: conceptual
   ms.service: architecture-center
   ms.subservice: example-scenario
 azureCategories:
-  - <choose at least one category from the list at https://review.docs.microsoft.com/en-us/help/contribute/architecture-center/aac-browser-authoring?branch=master#azure-categories>
-  - <there can be more than one category>
+  - devops
+  - developer-tools
+  - management-and-governance
 products:
   - <choose 1-5 products from the list at https://review.docs.microsoft.com/en-us/help/contribute/architecture-center/aac-browser-authoring?branch=master#products>
-  - <1-5 products>
-  - <1-5 products--no more than 5!>
+  - azure-api-apps
+  - azure-api-management
 name: Automated API deployments with APIOps
 summary: <Write a summary. Can be same as description.>
-thumbnailUrl: /azure/architecture/browse/thumbs/<browse-png-filename>.png
+thumbnailUrl: /azure/architecture/browse/thumbs/automated-api-deployments-architecture-diagram.png
 content: |
-  [!include[](<sample-solution>-content.md)]
+  [!include[](automated-api-deployments-apiops-content.md]
