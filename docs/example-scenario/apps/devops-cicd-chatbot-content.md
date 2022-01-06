@@ -72,7 +72,7 @@ Organizations embracing GitOps could automate the deployment of the underlaying 
 
 ### App Service Plan and App Service instance
 
-An Azure App Service Plan is the underlying server farm used to deploy an Azure App Service instance. In this example, the ARM templates are being generated using the EchoBot templates. Later you could adapt them to your specific case scenario by modifying the tier, compute, platform, or scale, or break them down into a several linked ARM templates, as presented above.
+An Azure App Service Plan is the underlying server farm used to deploy an Azure App Service instance. In this example, the ARM templates are being generated using the EchoBot templates. Later you could adapt them to your specific case scenario by modifying the tier, compute, platform, or scale, or break them down into several linked ARM templates, as presented above.
 
 ### Bot Services
 
@@ -113,5 +113,5 @@ Here are some ways to further enhance the scenario:
 - [What is source control?](/azure/devops/user-guide/source-control)
 - [Understand the structure and syntax of Azure Resource Manager templates](/azure/azure-resource-manager/resource-group-authoring-templates)
 - [ARM template reference guide for Microsoft.Storage resource types](/azure/templates/microsoft.storage/allversions)
-- [Repeatable infrastructure](../../framework/devops/automation-infrastructure.md)
+- [Repeatable infrastructure](/azure/architecture/framework/devops/automation-infrastructure)
 - [Microsoft Learn module: Deploy applications with Azure DevOps](/learn/paths/deploy-applications-with-azure-devops/)

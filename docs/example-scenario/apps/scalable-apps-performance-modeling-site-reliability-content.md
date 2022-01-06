@@ -51,7 +51,7 @@ The degree of reliability that's required for a solution depends on the business
 
 Reliability is defined and measured using *service level objectives* (SLOs) that define the target level of reliability for a service. Achieving the target level assures that consumers are satisfied. The SLO goals can evolve or change depending on the demands of the business. However, the service owners should constantly measure reliability against the SLOs to detect issues and take corrective actions. SLOs are usually defined as a percentage achievement over a period.
 
-Another important term to note is *service level indicator* (SLI), which is the metric that's used to calculate the SLO. SLIs are based on insights that are derived from data that's captured as the customer consumes the service. SLIs are always measured from a customer’s point of view.
+Another important term to note is *service level indicator* (SLI), which is the metric that's used to calculate the SLO. SLIs are based on insights that are derived from data that's captured as the customer consumes the service. SLIs are always measured from a customer's point of view.
 
 SLOs and SLIs always go hand in hand, and are usually defined in an iterative manner. SLOs are driven by key business objectives, whereas SLIs are driven by what's possible to be measured while implementing the service.
 
@@ -221,7 +221,7 @@ Reliability, performance efficiency, and cost optimization go hand in hand. The 
 
 For AKS, you can initially start with standard-sized VMs for the node pool. You can then monitor resource requirements during development or production use, and adjust accordingly.
 
-Cost optimization is a pillar of the [Microsoft Azure Well-Architected Framework](../../framework/index.md). For more information, see [Overview of the cost optimization pillar](../../framework/cost/overview.md). To estimate the cost of Azure products and configurations, use the [Pricing calculator](https://azure.microsoft.com/pricing/calculator).
+Cost optimization is a pillar of the [Microsoft Azure Well-Architected Framework](/azure/architecture/framework/index). For more information, see [Overview of the cost optimization pillar](/azure/architecture/framework/cost/overview). To estimate the cost of Azure products and configurations, use the [Pricing calculator](https://azure.microsoft.com/pricing/calculator).
 
 ## Next steps
 

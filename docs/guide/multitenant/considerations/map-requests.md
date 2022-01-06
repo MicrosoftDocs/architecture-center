@@ -4,7 +4,7 @@ titleSuffix: Azure Architecture Center
 description: This article describes the considerations for mapping requests to tenants in a multitenant solution.
 author: PlagueHO
 ms.author: dascottr
-ms.date: 11/24/2021
+ms.date: 12/13/2021
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: azure-guide
@@ -119,8 +119,7 @@ The following common reverse proxies are used in Azure:
 It is important that your application validates that any requests that it receives are authorized for the tenant. For example, if your application uses a custom domain name to map requests to the tenant, then your application must still check that each request received by the application is authorized for that tenant. Even though the request includes a domain name or other tenant identifier, it doesn't mean you should automatically grant access. When you use OAuth 2.0, you perform the validation by inspecting the _audience_ and _scope_ claims.
 
 > [!NOTE]
-> This is part of the _assume zero trust_ security design principle in the [Microsoft Azure Well-Architected Framework](../../../framework/security/security-principles.md).
-
+> This is part of the _assume zero trust_ security design principle in the [Microsoft Azure Well-Architected Framework](/azure/architecture/framework/security/security-principles).
 When implementing request validation, you should consider the following:
 
 - How will you authorize all the requests to your application? You need to authorize requests, regardless of the approach you use to map them to physical infrastructure.
