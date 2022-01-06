@@ -1,25 +1,22 @@
 ### YamlMime:Architecture
 metadata:
-  title: Protect an Azure Kubernetes Service (AKS) cluster with Azure Firewall
-  titleSuffix: Azure Solution Ideas
-  description: Learn how to deploy an Azure Kubernetes Service (AKS) cluster in an hub-and-spoke network topology using Terraform and Azure DevOps, and how to protect the inbound and outbound traffic using Azure Firewall.
+  title: Protect an AKS cluster by using Azure Firewall
+  titleSuffix: Azure Example Scenarios
+  description: Deploy an AKS cluster in a hub-and-spoke network topology by using Terraform and Azure DevOps. Protect the inbound and outbound traffic by using Azure Firewall.
   author: paolosalvatori
   ms.author: paolos
-  ms.date: 11/22/2021
+  ms.date: 01/10/2022
   ms.topic: conceptual
   ms.service: architecture-center
   ms.subservice: example-scenario
-  ms.category:
-    - containers
   ms.custom:
     - fcp
-    - example-scenario
-  social_image_url: /Azure/architecture/example-scenario/aks-firewall/media/aks-firewall.png
-name: Protect an Azure Kubernetes Service (AKS) cluster with Azure Firewall
+name: Protect an Azure Kubernetes Service (AKS) cluster by using Azure Firewall
 azureCategories:
   - containers
+  - security
   - networking
-summary: Learn how to deploy an Azure Kubernetes Service (AKS) cluster in an hub-and-spoke network topology using Terraform and Azure DevOps, and how to protect the inbound and outbound traffic using Azure Firewall.
+summary: Learn how to deploy an Azure Kubernetes Service (AKS) cluster in a hub-and-spoke network topology by using Terraform and Azure DevOps. Protect the inbound and outbound traffic by using Azure Firewall.
 products:
 - azure-firewall
 - azure-kubernetes-service
