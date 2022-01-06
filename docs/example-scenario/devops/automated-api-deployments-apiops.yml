@@ -2,7 +2,7 @@
 metadata:
   title: Automated API deployments using APIOps
   titleSuffix: Azure Example Scenarios
-  description: <Write a 100-160 character description that ends with a period and ideally starts with a call to action. This becomes the browse card description.>
+  description: Use APIOps with an APIM instance to build and deploy APIs. This solution provides self-service tools for the entire development lifecycle.
   author: garycentric
   ms.author: v-gmoor
   ms.date: 01/07/2022
@@ -14,11 +14,10 @@ azureCategories:
   - developer-tools
   - management-and-governance
 products:
-  - <choose 1-5 products from the list at https://review.docs.microsoft.com/en-us/help/contribute/architecture-center/aac-browser-authoring?branch=master#products>
   - azure-api-apps
   - azure-api-management
 name: Automated API deployments with APIOps
-summary: <Write a summary. Can be same as description.>
+summary: Use APIOps with an APIM instance to build and deploy APIs. This solution provides self-service tools for the entire development lifecycle.
 thumbnailUrl: /azure/architecture/browse/thumbs/automated-api-deployments-architecture-diagram.png
 content: |
   [!include[](automated-api-deployments-apiops-content.md]
