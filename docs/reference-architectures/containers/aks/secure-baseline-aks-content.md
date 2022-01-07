@@ -586,7 +586,7 @@ The bootstrapping process can be configured using one of the following methods:
 > [!NOTE]
 > Any of these methods will work with any cluster topology, but the GitOps Flux v2 cluster extension is recommended for fleets due to uniformity and easier governance at scale. When running only a few clusters, GitOps might be seen as overly complex, and you might instead opt for integrating that process into one or more deployment pipelines to ensure bootstrapping takes place. Use the method that best aligns with the objectives for your organization and team.
 
-One of the main advantages of using the GitOps Flux v2 cluster extension for AKS, is that there is effectively no gap between a provisioned cluster and a bootstrapped cluster. The extension allows your cluster to start already bootstrapped and sets you up with a solid management foundation going forward. It also supports the inclusion of that bootstrapping as resource templates to align with your IaC strategy. 
+One of the main advantages of using the GitOps Flux v2 cluster extension for AKS is that there is effectively no gap between a provisioned cluster and a bootstrapped cluster. The extension allows your cluster to start already bootstrapped and sets you up with a solid management foundation going forward. It also supports the inclusion of that bootstrapping as resource templates to align with your IaC strategy.
 
 Finally, when using the extension, `kubectl` is not required for any part of the bootstrapping process, and usage of `kubectl`-based access can be reserved for emergency break-fix situations. Between templates for Azure Resource definitions and the bootstrapping of manifests via the GitOps extension, all normal configuration activities can be performed without the need to use `kubectl`.
 
@@ -620,7 +620,11 @@ In this architecture, we've chosen [GitHub Actions](https://github.com/marketpla
 
 ![Workload CI/CD](images/workload-ci-cd.png)
 
-Instead of using an imperative approach like kubectl, use tools that automatically synchronize cluster and repository changes. To manage the workflow, such as release of a new version and validation of that version before deploying to production, consider a GitOps flow. An agent is deployed in the cluster to make sure that the state of the cluster is coordinated with configuration stored in your private Git repo. Kubernetes and AKS do not support that experience natively. A recommended option is [flux](https://docs.fluxcd.io/en/1.19.0/introduction/). It uses one or more operators in the cluster to trigger deployments inside Kubernetes. flux does these tasks:
+Instead of using an imperative approach like kubectl, use tools that automatically synchronize cluster and repository changes. To manage the workflow, such as release of a new version and validation of that version before deploying to production, consider a GitOps flow.
+
+An essential part of the CI/CD flow is the bootstrapping of a newly-provisioned cluster. A GitOps approach is useful towards this end, allowing operators to declaratively define the bootstrapping process as part of the IaC strategy and see the configuration reflected in the cluster automatically.
+
+When using GitOps, an agent is deployed in the cluster to make sure that the state of the cluster is coordinated with configuration stored in your private Git repo. One such agent is [flux](https://docs.fluxcd.io/en/1.19.0/introduction/), which uses one or more operators in the cluster to trigger deployments inside Kubernetes. Flux does these tasks:
 
 - Monitors all configured repositories.
 - Detects new configuration changes.
@@ -629,19 +633,7 @@ Instead of using an imperative approach like kubectl, use tools that automatical
 
 You can also set policies that govern how those changes are deployed.
 
-Here's an example from the reference implementation that shows how to automate cluster configuration with GitOps and Flux.
-
-![GitOps Flow](images/gitops-flow.png)
-
-1.  A developer commits changes to source code, such as configuration YAML files, which are stored in a git repository. The changes are then pushed to a git server.
-
-2.  flux runs in pod in alongside the workload. flux has read-only access to the git repository to make sure that flux is only applying changes as requested by developers.
-
-3.  flux recognizes changes in configuration and applies those changes using kubectl commands.
-
-4.  Developers do not have direct access to the Kubernetes API through kubectl. Have branch policies on your git server. That way, multiple developers can approve a change before it's applied to production.
-
-While GitOps and flux can be configured manually, the [GitOps with Flux v2 cluster extension](/azure/azure-arc/kubernetes/tutorial-use-gitops-flux-2) makes this process easy and minimizes the gap between a provisioned cluster and a bootstrapped cluster.
+While GitOps and flux can be configured manually, the [GitOps with Flux v2 cluster extension](/azure/azure-arc/kubernetes/tutorial-use-gitops-flux-2) makes this process easy and comes with a offers a number of additional advantages, most notably a significant reduction in the gap between a provisioned cluster and a bootstrapped cluster. Its uniformity and ease of maintenance at scale make this the recommended method for teams responsible for a large number of clusters, referred to as a fleet.
 
 ### Workload and cluster deployment strategies
 
