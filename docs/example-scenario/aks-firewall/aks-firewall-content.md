@@ -1,4 +1,4 @@
-In a production environment, communications with a Kubernetes cluster should be protected by a firewall that monitors and controls the incoming and outgoing network traffic based on a predetermined set of security rules. A firewall typically establishes a barrier between a trusted network and an untrusted network like the internet. 
+In a production environment, communications with a Kubernetes cluster should be protected by a firewall that monitors and controls the incoming and outgoing network traffic based on a set of security rules. A firewall typically establishes a barrier between a trusted network and an untrusted network like the internet. 
 
 This article describes how to create a private AKS cluster in a hub-and-spoke network topology by using Terraform and Azure DevOps. [Azure Firewall](/azure/firewall/overview) is used to inspect traffic to and from the [Azure Kubernetes Service (AKS)](/azure/aks) cluster. The cluster is hosted by one or more spoke virtual networks peered to the hub virtual network. 
 
@@ -39,7 +39,7 @@ The AKS cluster is composed of the following pools:
 - A system node pool that hosts only critical system pods and services
 - A user node pool that hosts user workloads and artifacts
 
-A VM is deployed in the virtual network that's hosting the AKS cluster. When you deploy AKS as a private cluster, this VM can be used by system administrators to manage the cluster via the [Kubernetes command-line tool](https://kubernetes.io/docs/tasks/tools). The boot diagnostics logs of the VM are stored in an Azure Storage account.
+A VM is deployed in the virtual network that's hosting the AKS cluster. When you deploy AKS as a private cluster, system administrators can use this VM to manage the cluster via the [Kubernetes command-line tool](https://kubernetes.io/docs/tasks/tools). The boot diagnostics logs of the VM are stored in an Azure Storage account.
 
 An Azure Bastion host provides improved-security SSH connectivity to the jump-box VM over SSL. Azure Container Registry is used to build, store, and manage container images and artifacts (like Helm charts).
 
@@ -47,7 +47,7 @@ The architecture includes an [Azure firewall](/azure/firewall/overview) that's u
 
 A key vault is used as a secret store by workloads that run on AKS to retrieve keys, certificates, and secrets via a client library, [Secrets Store CSI Driver](/azure/aks/csi-secrets-store-driver), or [Dapr](https://docs.dapr.io/developing-applications/building-blocks/secrets/secrets-overview). [Azure Private Link](/azure/private-link/private-link-overview) enables AKS workloads to access Azure PaaS services, like Azure Key Vault, over a private endpoint in the virtual network.
 
-The sample topology includes private endpoints and private DNS zones for these services:
+The topology includes private endpoints and private DNS zones for these services:
 
 - Azure Blob Storage account
 - Container Registry 
@@ -80,17 +80,13 @@ A Log Analytics workspace is used to collect the diagnostics logs and metrics fr
 
 - [Blob Storage](https://azure.microsoft.com/services/storage/blobs) is an object storage solution for the cloud. Blob Storage is optimized for storing massive amounts of unstructured data. 
 
-- [Private Link](https://azure.microsoft.com/services/private-link) enables you to access Azure PaaS services (for example, Blob Storage and Key Vault). You can also use it to access Azure-hosted services that you own or that are provided by a Microsoft partner, over a private endpoint in your virtual network.
+- [Private Link](https://azure.microsoft.com/services/private-link) enables you to access Azure PaaS services (for example, Blob Storage and Key Vault) over a private endpoint in your virtual network. You can also use it to access Azure-hosted services that you own or that are provided by a Microsoft partner.
 
 ### Avoid asymmetric routing
 
-In this solution, Azure Firewall:
-- Is deployed to a hub virtual network and the private AKS cluster is deployed to a spoke virtual network.
-- Uses network and application rule collections to control the egress traffic. 
+In this solution, Azure Firewall is deployed to a hub virtual network, and the private AKS cluster is deployed to a spoke virtual network. Azure Firewall uses network and application rule collections to control the egress traffic. In this situation, you need to configure the ingress traffic to any public endpoint exposed by any service running on AKS to enter the system via one of the public IP addresses used by the Azure Firewall. 
 
- Packets arrive on the firewall's public IP address but return to the firewall via the private IP address (using the default route). To avoid this problem, create another user-defined route for the firewall's public IP address, as shown in the following diagram. Packets going to the firewall's public IP address are routed via the internet. This configuration avoids the default route to the firewall's private IP address.
-
-Configure the ingress traffic to any public endpoint exposed by any service running on AKS to enter the system via one of the public IP addresses used by the Azure firewall in front of the public Standard Load Balancer used by your AKS cluster. 
+ Packets arrive on the firewall's public IP address but return to the firewall via the private IP address (using the default route). This is a problem. To avoid it, create another user-defined route for the firewall's public IP address, as shown in the following diagram. Packets going to the firewall's public IP address are routed via the internet. This configuration avoids the default route to the firewall's private IP address.
 
 To route the traffic of your AKS workloads to the Azure firewall in the hub virtual network, you need to:
 - Create and associate a route table to each subnet that hosts the worker nodes of your cluster. 
@@ -107,7 +103,7 @@ For more information, see:
 
 ### Deploying workloads to a private AKS cluster when using Azure DevOps
 
-If you plan to use [Azure DevOps](/azure/devops), you can't use [Azure DevOps Microsoft-hosted agents](/azure/devops/pipelines/agents/agents?view=azure-devops&tabs=browser#microsoft-hosted-agents) to deploy your workloads to a private AKS cluster because they don't have access to its API server. To deploy workloads to your private AKS cluster, you need to provision and use an [Azure DevOps self-hosted agent](/azure/devops/pipelines/agents/agents?view=azure-devops&tabs=browser#install) in the same virtual network as your private AKS cluster, or in peered virtual network. In the latter case, be sure to create a virtual network link between the private DNS zone of the AKS cluster in the node resource group and the virtual network that hosts the Azure DevOps self-hosted agent. 
+If you plan to use [Azure DevOps](/azure/devops), note that you can't use [Azure DevOps Microsoft-hosted agents](/azure/devops/pipelines/agents/agents?view=azure-devops&tabs=browser#microsoft-hosted-agents) to deploy your workloads to a private AKS cluster. They don't have access to its API server. To deploy workloads to your private AKS cluster, you need to provision and use an [Azure DevOps self-hosted agent](/azure/devops/pipelines/agents/agents?view=azure-devops&tabs=browser#install) in the same virtual network as your private AKS cluster, or in peered virtual network. In the latter case, be sure to create a virtual network link between the private DNS zone of the AKS cluster in the node resource group and the virtual network that hosts the Azure DevOps self-hosted agent. 
 
 You can deploy a single [Windows](/azure/devops/pipelines/agents/v2-windows?view=azure-devops) or [Linux](/azure/devops/pipelines/agents/v2-linux?view=azure-devops) Azure DevOps agent on a virtual machine, or you can use a virtual machine scale set. For more information, see [Azure virtual machine scale set agents](/azure/devops/pipelines/agents/scale-set-agents?view=azure-devops). As an alternative, you can set up a self-hosted agent in Azure Pipelines to run inside a Windows Server Core container (for Windows hosts) or Ubuntu container (for Linux hosts) with Docker. Deploy it as a pod with one or multiple replicas in your private AKS cluster. For more information, see:
 
@@ -115,7 +111,7 @@ You can deploy a single [Windows](/azure/devops/pipelines/agents/v2-windows?view
 - [Self-hosted Linux agents](/azure/devops/pipelines/agents/v2-linux?view=azure-devops)
 - [Run a self-hosted agent in Docker](/azure/devops/pipelines/agents/docker?view=azure-devops)
 
-If the subnets that host the node pools of your private AKS cluster are configured to route the egress traffic to an Azure firewall via a route table and user-defined route, make sure to create the proper application and network rules. These rules need to allow the agent to access external sites to download and install tools like [Docker](https://www.docker.com), [Kubectl](https://kubectl.docs.kubernetes.io/guides/introduction/kubectl), [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli), and [Helm](https://helm.sh) to the agent virtual machine. For more information, see [Run a self-hosted agent in Docker](/azure/devops/pipelines/agents/docker?view=azure-devops) and [Build and deploy Azure DevOps Pipeline Agent on AKS](https://github.com/ganrad/Az-DevOps-Agent-On-AKS).
+If the subnets that host the node pools of your private AKS cluster are configured to route the egress traffic to an Azure firewall via a route table and user-defined route, make sure to create the proper application and network rules. These rules need to allow the agent to access external sites to download and install tools like [Docker](https://www.docker.com), [Kubectl](https://kubectl.docs.kubernetes.io/guides/introduction/kubectl), [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli), and [Helm](https://helm.sh) on the agent virtual machine. For more information, see [Run a self-hosted agent in Docker](/azure/devops/pipelines/agents/docker?view=azure-devops) and [Build and deploy Azure DevOps Pipeline Agent on AKS](https://github.com/ganrad/Az-DevOps-Agent-On-AKS).
 
 ![Diagram that shows deployment of workloads to a private AKS cluster for use with Azure DevOps.](media/self-hosted-agent.png)
 
@@ -125,7 +121,7 @@ If the subnets that host the node pools of your private AKS cluster are configur
 
 Resource definitions in the [Terraform modules](https://github.com/Azure-Samples/private-aks-cluster-terraform-devops/tree/main/terraform/modules) use the [lifecycle](https://www.terraform.io/docs/language/meta-arguments/lifecycle.html) meta-argument to customize actions when Azure resources are changed outside of Terraform control. The [ignore_changes](https://www.terraform.io/docs/language/meta-arguments/lifecycle.html#ignore_changes) argument is used to instruct Terraform to ignore updates to given resource properties, like tags. The Azure Firewall Policy resource definition contains a lifecycle block to prevent Terraform from fixing the resource when a rule collection or a single rule is created, updated, or deleted. Likewise, the Azure Route Table contains a lifecycle block to prevent Terraform from fixing the resource when a user-defined route is created, deleted, or updated. This allows you to manage the DNAT, application, and network rules of an Azure Firewall Policy and the user-defined routes of an Azure Route Table outside of Terraform control.
 
-[This sample](https://github.com/Azure-Samples/private-aks-cluster-terraform-devops) contains an [Azure DevOps CD pipeline](https://github.com/Azure-Samples/private-aks-cluster-terraform-devops/blob/main/pipelines/cd-redmine-via-helm.yml) that shows how to deploy a workload to a private AKS cluster by using an [Azure DevOps pipeline](/azure/devops/pipelines/get-started/what-is-azure-pipelines?view=azure-devops) that runs on a [self-hosted agent](/azure/devops/pipelines/agents/agents?tabs=browser). The sample deploys the Bitnami [redmine](https://artifacthub.io/packages/helm/bitnami/redmine) project management web application by using a public [Helm](https://helm.sh) chart. This diagram shows the network topology of the sample:
+[The sample](https://github.com/Azure-Samples/private-aks-cluster-terraform-devops) associated with this article contains an [Azure DevOps CD pipeline](https://github.com/Azure-Samples/private-aks-cluster-terraform-devops/blob/main/pipelines/cd-redmine-via-helm.yml) that shows how to deploy a workload to a private AKS cluster by using an [Azure DevOps pipeline](/azure/devops/pipelines/get-started/what-is-azure-pipelines?view=azure-devops) that runs on a [self-hosted agent](/azure/devops/pipelines/agents/agents?tabs=browser). The sample deploys the Bitnami [redmine](https://artifacthub.io/packages/helm/bitnami/redmine) project management web application by using a public [Helm](https://helm.sh) chart. This diagram shows the network topology of the sample:
 
 ![Diagram that shows Azure Firewall in front of a public Standard Load Balancer.](media/firewall-public-load-balancer.png)
 
@@ -161,7 +157,7 @@ For more information, see [Use Azure Firewall in front of an internal Standard L
 
 ### Alternatives
 
-You can use a third-party firewall from Azure Marketplace instead of [Azure Firewall](/azure/firewall/overview). If you do, it's your responsibility to properly configure the firewall to inspect, allow, or deny the inbound and outbound traffic from the AKS cluster.
+You can use a third-party firewall from Azure Marketplace instead of [Azure Firewall](/azure/firewall/overview). If you do, it's your responsibility to properly configure the firewall to inspect and allow or deny the inbound and outbound traffic from the AKS cluster.
 
 ## Considerations
 
@@ -180,7 +176,7 @@ Following are some additional security considerations:
 - Create a [private endpoint](https://azure.microsoft.com/services/private-link) for any PaaS service that's used by AKS workloads, like Key Vault, Azure Service Bus, and Azure SQL Database. The traffic between the applications and these services isn't exposed to the public internet. Traffic between the AKS cluster virtual network and an instance of a PaaS service via a private endpoint travels the Microsoft backbone network, but the communication doesn't pass by the Azure firewall. This mechanism provides better security and better protection against data leakage. For more information, see [What is Azure Private Link?](/azure/private-link/private-link-overview).
 - When you use [Application Gateway](/azure/application-gateway/overview) in front of the AKS cluster, use a [Web Application Firewall Policy](/azure/application-gateway/waf-overview) to help protect public-facing workloads that are running on AKS from attacks.
 - Use network policies to segregate and help secure intraservice communications by controlling which components can communicate with each other. By default, all pods in a Kubernetes cluster can send and receive traffic without limitations. To improve security, you can use Azure network policies or Calico network policies to define rules that control the traffic flow between different microservices. For more information, see [network policy](/azure/aks/use-network-policies).
-- Don't expose remote connectivity to your AKS nodes. Create a bastion host, or jump box, in a management virtual network. Use the bastion host to route traffic with improved security into your AKS cluster.
+- Don't expose remote connectivity to your AKS nodes. Create a bastion host, or jump box, in a management virtual network. or Use the bastion host to route traffic into your AKS cluster.
 - Consider using a [private AKS cluster](/azure/aks/private-clusters) in your production environment, or at least secure access to the API server, by using [authorized IP address ranges](/azure/aks/api-server-authorized-ip-ranges) in AKS. When you use authorized IP address ranges on a public cluster, allow all the egress IP addresses in the Azure Firewall network rule collection. In-cluster operations consume the Kubernetes API server.
 - If you enable [DNS proxy](/azure/firewall/dns-settings) in Azure Firewall, Azure Firewall can process and forward DNS queries from one or more virtual networks to a DNS server that you choose. This functionality is crucial and required for reliable FQDN filtering in network rules. You can enable DNS proxy in Azure Firewall and Firewall Policy settings. To learn more about DNS proxy logs, see [Azure Firewall log and metrics](/azure/firewall/logs-and-metrics).
 - When you use [Azure Firewall](/azure/firewall/overview) in front of [Application Gateway](/azure/application-gateway/overview), you can configure your Kubernetes ingress resource to expose workloads via HTTPS, and use a separate subdomain and digital certificate for each tenant. The [Application Gateway Ingress Controller (AGIC)](/azure/application-gateway/ingress-controller-overview) automatically configures the [Application Gateway](/azure/application-gateway/overview) listener for Secure Sockets Layer (SSL) termination.
@@ -198,7 +194,7 @@ The availability and reliability considerations here aren't specific to multiten
 
 #### Intra-region resiliency
 
-- During deployment, you can configure [Azure Firewall](/azure/firewall/overview) to span multiple availability zones for increased availability. For uptime percentages, see the Azure Firewall [SLA](https://azure.microsoft.com/support/legal/sla/azure-firewall/v1_1). You can also associate Azure Firewall to a specific zone for the sake of proximity, although this configuration affects the SLA. There's no extra cost for a firewall deployed in an availability zone. However, there are added costs for inbound and outbound data transfers that are associated with availability zones. For more information, see [Bandwidth pricing details](https://azure.microsoft.com/pricing/details/bandwidth).
+- During deployment, you can configure [Azure Firewall](/azure/firewall/overview) to span multiple availability zones for increased availability. For uptime percentages, see the Azure Firewall [SLA](https://azure.microsoft.com/support/legal/sla/azure-firewall/v1_1). You can also associate Azure Firewall with a specific zone for the sake of proximity, although this configuration affects the SLA. There's no extra cost for a firewall deployed in an availability zone. However, there are added costs for inbound and outbound data transfers that are associated with availability zones. For more information, see [Bandwidth pricing details](https://azure.microsoft.com/pricing/details/bandwidth).
 - Consider deploying the node pools of your AKS cluster across all [availability zones](/azure/aks/availability-zones) in a region. Use an [Azure Standard Load Balancer](/azure/load-balancer/load-balancer-overview) or [Application Gateway](/azure/application-gateway/overview) in front of the node pools. This topology provides better resiliency if there's a single datacenter outage. The cluster nodes are distributed across multiple datacenters, in three separate availability zones within a region.
 - Enable [zone redundancy in Container Registry](/azure/container-registry/zone-redundancy) for intra-region resiliency and high availability.
 - Use [pod topology spread constraints](https://kubernetes.io/docs/concepts/workloads/pods/pod-topology-spread-constraints) to control how pods are spread across your AKS cluster among failure domains like regions, availability zones, and nodes.
@@ -231,7 +227,7 @@ The following monitoring considerations aren't specific to multitenancy in AKS, 
 
 ## Deploy this scenario
 
-The source code for this scenario is available in [GitHub](https://github.com/azure-samples/private-aks-cluster-terraform-devops). This solution is open source and provided with a [MIT License](https://github.com/Azure-Samples/private-aks-cluster-terraform-devops/blob/main/LICENSE.md).
+The source code for this scenario is available in [GitHub](https://github.com/azure-samples/private-aks-cluster-terraform-devops). This solution is open source and provided with an [MIT License](https://github.com/Azure-Samples/private-aks-cluster-terraform-devops/blob/main/LICENSE.md).
 
 ### Prerequisites
 
@@ -239,7 +235,7 @@ For online deployments, you need an Azure account. If you don't have one, create
 
 - Store the Terraform state file in an Azure storage account. For more information about using a storage account to store remote Terraform state, state locking, and encryption at rest, see [Store Terraform state in Azure Storage](/azure/developer/terraform/store-state-in-azure-storage?tabs=azure-cli).
 - Create an Azure DevOps project. For more information, see [Create a project in Azure DevOps](/azure/devops/organizations/projects/create-project?view=azure-devops&tabs=preview-page).
-- Create an [Azure DevOps service connection](/azure/devops/pipelines/library/service-endpoints?view=azure-devops) to your Azure subscription. You can use Service Principal Authentication (SPA) or an Azure Managed Service Identity when you create the service connection. In either case, be sure that the service principal or managed identity used by Azure DevOps to connect to your Azure subscription is assigned the owner role on the entire subscription.
+- Create an [Azure DevOps service connection](/azure/devops/pipelines/library/service-endpoints?view=azure-devops) to your Azure subscription. You can use Service Principal Authentication (SPA) or an Azure managed service identity when you create the service connection. In either case, be sure that the service principal or managed identity used by Azure DevOps to connect to your Azure subscription is assigned the owner role on the entire subscription.
 
 ### Deployment to Azure
 
@@ -262,7 +258,7 @@ The cost of this architecture depends on the following configuration details:
 - Automation scripts
 - Your disaster recovery level
 
-After you assess these configuration details, use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator) to estimate your costs. For more pricing optimization options, see the [principles of cost optimization](../../framework/cost/overview.md) in the Microsoft Azure Well-Architected Framework.
+After you assess these configuration details, use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator) to estimate your costs. For more pricing optimization options, see the [principles of cost optimization](/azure/architecture/framework.md/#cost-optimization) in the Microsoft Azure Well-Architected Framework.
 
 ## Next steps
 
