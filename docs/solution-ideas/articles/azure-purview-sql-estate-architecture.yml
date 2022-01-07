@@ -11,6 +11,7 @@ metadata:
   ms.subservice: solution-idea
 azureCategories:
  - analytics
+ - databases
 products:
 - azure-sql-database
 - azure-purview
