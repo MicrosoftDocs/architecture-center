@@ -20,4 +20,4 @@ name: Automated API deployments with APIOps
 summary: Use APIOps with an APIM instance to build and deploy APIs. This solution provides self-service tools for the entire development lifecycle.
 thumbnailUrl: /azure/architecture/browse/thumbs/automated-api-deployments-architecture-diagram.png
 content: |
-  [!include[](automated-api-deployments-apiops-content.md]
+  [!include[](automated-api-deployments-apiops-content.md)]
