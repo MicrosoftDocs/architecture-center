@@ -82,7 +82,7 @@ The following diagram shows a typical flow:
 ![Request and response flow for asynchronous HTTP requests](./_images/async-request.png)
 
 1. The client sends a request and receives an HTTP 202 (Accepted) response.
-2. The client sends an HTTP GET request to the status endpoint. The work is still pending, so this call also returns HTTP 200.
+2. The client sends an HTTP GET request to the status endpoint. The work is still pending, so this call returns HTTP 200.
 3. At some point, the work is complete and the status endpoint returns 302 (Found) redirecting to the resource.
 4. The client fetches the resource at the specified URL.
 
