@@ -45,7 +45,7 @@ _Download a [Visio file](https://arch-center.azureedge.net/[filename].vsdx) of t
 
 2. Connecting Purview to **Azure SQL**via Managed VNet by Managed Private End point.
 
-3. Connecting Purview to**Azure SQL Managed Instance** via Self-Hosted Integration run time by Private end point.
+3. Connecting Purview to **Azure SQL Managed Instance** via Self-Hosted Integration run time by Private end point.
 
 4. Connecting Purview natively to **Power BI.**
 
@@ -76,26 +76,26 @@ The solution uses the following components:
 
 - [Azure SQL Database](https://azure.microsoft.com/products/azure-sql/database/) is a fully managed SQL database built for the cloud with automatic updates, provisioning, scaling, and backups.
 
-- [Azure SQL Managed Instance](https://azure.microsoft.com/products/azure-sql/managed-instance/) is a cloud database service that provides all the features of SQL server with added protection, connectivity, and automatic updates.
+- [Azure SQL Managed Instance](https://azure.microsoft.com/products/azure-sql/managed-instance) is a cloud database service that provides all the features of SQL server with added protection, connectivity, and automatic updates.
 
-- [Power BI](https://powerbi.microsoft.com/what-is-power-bi/) is a collection of software services and apps. These services create and share reports that connect and visualize sources of data.
+- [Power BI](https://powerbi.microsoft.com/what-is-power-bi) is a collection of software services and apps. These services create and share reports that connect and visualize sources of data.
 Together with Azure, Power BI data can be cataloged, classified, and have granular lineage illustrated end to end.
 
 - [Azure Private Link](https://azure.microsoft.com/services/private-link/) provides private connectivity from a virtual network to Azure Platform as a Service (PaaS), customer-owned or Microsoft partner services.
 
-- [Azure Key Vault](https://azure.microsoft.com/services/key-vault/) stores and controls access to secrets such as tokens, passwords, and API keys. Key Vault also creates and controls encryption keys and manages security certificates.
+- [Azure Key Vault](https://azure.microsoft.com/services/key-vault) stores and controls access to secrets such as tokens, passwords, and API keys. Key Vault also creates and controls encryption keys and manages security certificates.
 
-- [Azure AD](https://azure.microsoft.com/services/active-directory/) offers cloud-based identity and access management services. These features provide a way for users to sign in and access resources.
+- [Azure AD](https://azure.microsoft.com/services/active-directory) offers cloud-based identity and access management services. These features provide a way for users to sign in and access resources.
 
-- [Azure Monitor](https://azure.microsoft.com/services/monitor/) collects and analyzes data on environments and Azure resources. This data includes apps-telemetry, such as performance metrics and activity logs.
+- [Azure Monitor](https://azure.microsoft.com/services/monitor) collects and analyzes data on environments and Azure resources. This data includes apps-telemetry, such as performance metrics and activity logs.
 
 ## Next steps
 
 - [Read some of Azure Purview’s customer case studies](https://customers.microsoft.com/en-us/search?sq=%22Azure%20Purview%22&ff=&p=0&so=story_publish_date%20desc)
 - [Explore Azure Purview’s technical documentation and best practice](https://docs.microsoft.com/azure/purview/concept-best-practices-accounts)
 - [What is Azure Purview?](https://docs.microsoft.com/azure/purview/overview)
-- [What is Power BI?](https://powerbi.microsoft.com/what-is-power-bi/)
-- [Azure Active Directory](https://azure.microsoft.com/services/active-directory/)
-- [Azure Cost Management and Billing](https://azure.microsoft.com/services/cost-management/)
-- [Azure Monitor](https://azure.microsoft.com/services/monitor/)
-- [Key Vault](https://azure.microsoft.com/services/key-vault/)
+- [What is Power BI?](https://powerbi.microsoft.com/what-is-power-bi)
+- [Azure Active Directory](https://azure.microsoft.com/services/active-directory)
+- [Azure Cost Management and Billing](https://azure.microsoft.com/services/cost-management)
+- [Azure Monitor](https://azure.microsoft.com/services/monitor)
+- [Key Vault](https://azure.microsoft.com/services/key-vault)
