@@ -16,6 +16,10 @@ It uses the SignalR Service to implement multi-factor authentication working wit
 
 ### Components
 
+Key technology used to implement this architecture:
+
+[Azure SignalR Service](https://azure.microsoft.com/services/signalr-service)
+
 ## Next steps
 
 Product documentation:

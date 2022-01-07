@@ -35,4 +35,3 @@ Microsoft Learn modules:
 - [Scalable Episerver marketing website](../../solution-ideas/articles/digital-marketing-episerver.yml)
 - [Scalable Sitecore marketing website](../../solution-ideas/articles/digital-marketing-sitecore.yml)
 - [Scalable Umbraco CMS web app](../../solution-ideas/articles/medium-umbraco-web-app.yml)
-- 

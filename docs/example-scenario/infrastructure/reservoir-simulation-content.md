@@ -94,6 +94,12 @@ Get an [example implementation of this OPM Flow architecture][opm-flow] on GitHu
 - Explore an example workload for [computer-aided engineering (CAE) on Azure][cae].
 - Learn about [HPC on Azure][hpc].
 
+## Related resources
+
+[Solutions for the energy and environment industries](../../industries/energy-environment.md)
+[Oil and gas tank level forecasting](../../solution-ideas/articles/oil-and-gas-tank-level-forecasting.yml)
+[Run CFD simulations](hpc-cfd.md)
+
 <!-- links -->
 
 [architecture]: ./media/architecture-hpc-reservoir-simulation.png

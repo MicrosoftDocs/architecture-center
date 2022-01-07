@@ -45,7 +45,7 @@ For more information, see these articles:
 - [Multiple AD forests architecture with Azure Virtual Desktop](./multi-forest.yml)
 - [Azure Virtual Desktop for enterprises](./windows-virtual-desktop.yml)
 - [Azure AD Connect Topology](/azure/active-directory/hybrid/plan-connect-topologies)
-- [Compare different Identity options: Self-managed Active Directory Domain Services (AD DS), Azure Active Directory (Azure AD), and Azure Active Directory Domain Services (Azure AD DS)](/azure/active-directory-domain-services/compare-identity-solutions)
+- [Compare different Identity options](/azure/active-directory-domain-services/compare-identity-solutions)
 - [Azure Virtual Desktop Documentation](/azure/virtual-desktop/)
 
 ## Related resources
