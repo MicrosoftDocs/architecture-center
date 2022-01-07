@@ -1465,6 +1465,8 @@ items:
             items:
               - name: AI enrichment with Cognitive Search
                 href: solution-ideas/articles/cognitive-search-with-skillsets.yml
+              - name: Automate document processing
+                href: example-scenario/ai/automate-document-processing-azure-form-recognizer.yml
               - name: Baseball decision analysis with ML.NET
                 href: data-guide/big-data/baseball-ml-workload.md
               - name: Batch scoring for deep learning
