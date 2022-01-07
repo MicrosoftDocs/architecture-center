@@ -572,6 +572,24 @@ Monitor your container infrastructure for both active threats and potential secu
 
 Here are some considerations. For more information, see the [Operational Excellence](/azure/architecture/framework/devops/release-engineering-cd) pillar.
 
+### Cluster bootstrapping
+
+After provisioning is complete, you have a working cluster, but there may still be steps required before deploying workloads. The process of preparing your cluster is called bootstrapping, and can consist of actions such as deploying prerequisite images onto cluster nodes, creating namespaces, and anything else that satisfies the requirements of your use case or organization.
+
+To decrease the gap between a provisioned cluster and a cluster that's been properly configured, cluster operators should think about what their unique bootstrapping process will look like and prepare relevant assets in advance. For example, if having Kured running on each node before deploying application workloads is important, the cluster operator will want to ensure an ACR containing the target Kured image already exists *before* provisioning the cluster.
+
+The bootstrapping process can be configured using one of the following methods:
+- Self configuration using something like Flux or Argo CD
+- Pipelines
+- [GitOps Flux v2 cluster extension](/azure/azure-arc/kubernetes/tutorial-use-gitops-flux-2)
+
+> [!NOTE]
+> Any of these methods will work with any cluster topology, but the GitOps Flux v2 cluster extension is recommended for fleets due to uniformity and easier governance at scale. When running only a few clusters, GitOps might be seen as overly complex, and you might instead opt for integrating that process into one or more deployment pipelines to ensure bootstrapping takes place. Use the method that best aligns with the objectives for your organization and team.
+
+One of the main advantages of using the GitOps Flux v2 cluster extension for AKS, is that there is effectively no gap between a provisioned cluster and a bootstrapped cluster. The extension allows your cluster to start already bootstrapped and sets you up with a solid management foundation going forward. It also supports the inclusion of that bootstrapping as resource templates to align with your IaC strategy. 
+
+Finally, when using the extension, `kubectl` is not required for any part of the bootstrapping process, and usage of `kubectl`-based access can be reserved for emergency break-fix situations. Between templates for Azure Resource definitions and the bootstrapping of manifests via the GitOps extension, all normal configuration activities can be performed without the need to use `kubectl`.
+
 ### Isolate workload responsibilities
 
 Divide the workload by teams and types of resources to individually manage each portion.
@@ -622,6 +640,8 @@ Here's an example from the reference implementation that shows how to automate c
 3.  flux recognizes changes in configuration and applies those changes using kubectl commands.
 
 4.  Developers do not have direct access to the Kubernetes API through kubectl. Have branch policies on your git server. That way, multiple developers can approve a change before it's applied to production.
+
+While GitOps and flux can be configured manually, the [GitOps with Flux v2 cluster extension](/azure/azure-arc/kubernetes/tutorial-use-gitops-flux-2) makes this process easy and minimizes the gap between a provisioned cluster and a bootstrapped cluster.
 
 ### Workload and cluster deployment strategies
 
