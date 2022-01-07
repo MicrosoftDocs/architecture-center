@@ -1135,6 +1135,8 @@ items:
                 href: /azure/architecture/browse/?terms=education
               - name: Secure research for regulated data
                 href: example-scenario/ai/secure-compute-for-research.yml
+              - name: Teacher-provisioned virtual labs in Azure
+                href: example-scenario/devops/teacher-provisioned-virtual-labs-azure.yml
           - name: Compliance solutions
             items:
               - name: FERPA overview
