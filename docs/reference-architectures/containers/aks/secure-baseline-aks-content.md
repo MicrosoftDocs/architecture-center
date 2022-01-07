@@ -633,6 +633,18 @@ When using GitOps, an agent is deployed in the cluster to make sure that the sta
 
 You can also set policies that govern how those changes are deployed.
 
+Here's an example that shows how to automate cluster configuration with GitOps and flux:
+
+![GitOps Flow](images/gitops-flow.png)
+
+1.  A developer commits changes to source code, such as configuration YAML files, which are stored in a git repository. The changes are then pushed to a git server.
+
+2.  flux runs in pod in alongside the workload. flux has read-only access to the git repository to make sure that flux is only applying changes as requested by developers.
+
+3.  flux recognizes changes in configuration and applies those changes using kubectl commands.
+
+4.  Developers do not have direct access to the Kubernetes API through kubectl. Have branch policies on your git server. That way, multiple developers can approve a change before it's applied to production.
+
 While GitOps and flux can be configured manually, the [GitOps with Flux v2 cluster extension](/azure/azure-arc/kubernetes/tutorial-use-gitops-flux-2) makes this process easy and comes with a offers a number of additional advantages, most notably a significant reduction in the gap between a provisioned cluster and a bootstrapped cluster. Its uniformity and ease of maintenance at scale make this the recommended method for teams responsible for a large number of clusters, referred to as a fleet.
 
 ### Workload and cluster deployment strategies
