@@ -16,7 +16,7 @@ This solution benefits any organization that wants the advantages of deploying A
 
 ## Architecture
 
-:::image type="content" alt-text="Diagram of the architecture for automated API deployments using APIOps on Azure." source="media/automated-api-deployments-architecture-diagram.png":::
+:::image type="content" alt-text="Diagram of the architecture for automated API deployments using APIOps on Azure." source="media/automated-api-deployments-architecture-diagram.png" lightbox="media/automated-api-deployments-architecture-diagram.png":::
 
 ### Workflow
 
@@ -24,7 +24,7 @@ This solution benefits any organization that wants the advantages of deploying A
 
 2.  If APIs already exist in the APIM instance and there are changes, a pull request (PR) is created for operators to review and merge the changes in the git repository.
 
-3.  API developers clone the git repository, create a branch, and create API definitions by using the OpenAPI specification and/or tools of their choice.
+3.  API developers clone the git repository, create a branch, and create API definitions by using the OpenAPI specification or tools of their choice.
 
 4.  API developers push the changes to the repository and create a PR for review.
 
@@ -38,24 +38,21 @@ This solution benefits any organization that wants the advantages of deploying A
 
 9.  After the changes are merged, the publishing pipeline deploys the changes by using the same process that was used for API definitions.
 
-10. For the reference implementation, the git repository is Azure Repos and the Extractor and Publisher pipelines are in Azure Pipelines. Any similar technology could be used to build those.
+10. For the reference implementation, the git repository is [Azure Repos](/azure/devops/repos/?view=azure-devops) and the Extractor and Publisher pipelines are in [Azure Pipelines](/azure/devops/pipelines/get-started/what-is-azure-pipelines?view=azure-devops). Any similar technology could be used to build those.
 
 
 ### Components
 
 The solution has the following components:
 
-- Azure API Management (APIM)
-
-- Azure DevOps
-
+- [Azure API Management (APIM)](/azure/api-management/)
+- [Azure DevOps](/azure/devops/?view=azure-devops)
 - Extractor and Creator (.NET)
-
 - Create Pull Request Script (shell script)
 
 ### Alternatives
 
-We used the APIM devops resource kit, but we didn't use it as is. Instead, we extended it, because it didn't fit well into the GitOps model—for example, the repository structure wasn't ideal, and the API names weren't user-friendly. The APIM resource kit is reliant on Azure Resource Management templates (ARM templates), while this solution is more technology-agnostic. You can now use Terraform, ARM, PowerShell, the REST API, and so on, to easily format and push newly extracted changes back to the portal.
+We used the [APIM devops resource kit](https://github.com/Azure/azure-api-management-devops-resource-kit), but we didn't use it as is. Instead, we extended it, because it didn't fit well into the GitOps model—for example, the repository structure wasn't ideal, and the API names weren't user-friendly. The APIM resource kit is reliant on Azure Resource Management templates (ARM templates), while this solution is more technology-agnostic. You can now use Terraform, ARM, PowerShell, the REST API, and so on, to easily format and push newly extracted changes back to the portal.
 
 The toolkit doesn't deploy any changes. The extractor only generates ARM templates from the portal. The creator only generates ARM templates from the config.yml file.
 
@@ -68,16 +65,14 @@ This solution has the following considerations: scalability, security, and opera
 APIOps has many benefits, but as APIM landscapes grow, so does the complexity of managing them. This solution helps meet challenges like:
 
 - Keeping an overview of all environments and APIM instances.
-
 - Tracking critical changes to APIs and policies.
-
 - Ensuring that all changes that have been deployed also have an audit trail.
 
 ### Security
 
 This solution provides several security-related benefits. With the GitOps approach, individual developers—and even operators—don't directly access the APIM instance to apply changes or updates. Instead, users push changes to a git repository, and the extractor and publishing pipelines reads them and applies them to the APIM instance. This approach follows the security best practice of _least privilege_ by not giving teams write permissions to the APIM service instance. In diagnostic or troubleshooting scenarios, you can grant elevated permissions for a limited time on a case-by-case basis.
 
-To make sure the APIM instances are using security best practices, this solution can be extended to enforce API best practices by using third-party tools and unit testing. Teams can provide early feedback via PR review if proposed changes to an API or policy violates standards.
+To make sure the APIM instances are using best practices for security, this solution can be extended to enforce API best practices by using third-party tools and unit testing. Teams can provide early feedback via PR review if proposed changes to an API or policy violates standards.
 
 Apart from the task of setting up repository permissions, consider implementing the following security measures in git repositories that synchronize to APIM instances:
 
@@ -105,7 +100,7 @@ As the API designer/developer
 
 - If you have made changes in the portal in you can run the extractor to automatically extract all the APIs and other relevant policies, operations, configuration from APIM and synchronize it to the git repository.
 
-- Extractor Workflow
+- Extractor Workflow:
 
     - Run the pipeline named _apim-download-portal-changes_.
 
@@ -113,44 +108,42 @@ As the API designer/developer
 
       :::image type="content" alt-text="Screenshot of 'Run pipeline', where you enter the names of the APIM instance and the resource group." source="media/automated-api-deployments-run-pipeline.png":::
 
-- The pipeline has the following stages
+- The pipeline has the following stages:
 
     - Build extractor
-
     - Create artifacts from portal
-
     - Create template branch PRs
 
-- Build extractor builds the extractor code
+- Build extractor builds the extractor code.
 
-- Create artifacts from portal runs the extractor and creates artifacts that resemble a git repository structure like the below:
+- Create artifacts from portal runs the extractor and creates artifacts that resemble a git repository structure like that shown in the following screenshot:
 
   :::image type="content" alt-text="Screenshot of 'apim-automation' that shows 'apim-instances' and a folder hierarchy." source="media/automated-api-deployment-apim-automation-instances.png":::
 
 - After the artifact is generated the create template branch creates a pull request (PR) with the changes extracted for the APIM Platform team to review.
 
   > [!NOTE]
-  > The first time you run the extractor it pulls down everything and the PR created will have all the apis, policies, artifacts, etc.
+  > The first time you run the extractor, it pulls down everything. The PR that's created will have all the APIs, policies, artifacts, and so on.
 
 - Subsequent extractions will only have changes made before the extraction in the PR. Like in the example below only an API spec changed and the PR shows that.
 
-  :::image type="content" alt-text="Screenshot of an example pull request after an extraction that shows proposed changes to a file named 'specification.yml'." source="media/automated-api-deployment-subsequent-extraction-pr.png":::
+  :::image type="content" alt-text="Screenshot of an example pull request after an extraction that shows proposed changes to a file named 'specification.yml'." source="media/automated-api-deployment-subsequent-extraction-pr.png" lightbox="media/automated-api-deployment-subsequent-extraction-pr.png":::
 
-- You can go Pull Requests and view the Pull Requests to be reviewed. This step can also be auto approved in case the extractor changes should always be pulled in
+- You can go Pull Requests and view the Pull Requests to be reviewed. This step can also be auto approved in case the extractor changes should always be pulled in.
 
-  :::image type="content" alt-text="Screenshot of an example pull request that shows changes to content in 'policy.xml' and changes only to whitespace in other files." source="media/automated-api-deployment-merging-artifacts-pr.png":::
+  :::image type="content" alt-text="Screenshot of an example pull request that shows changes to content in 'policy.xml' and changes only to whitespace in other files." source="media/automated-api-deployment-merging-artifacts-pr.png" lightbox="media/automated-api-deployment-merging-artifacts-pr.png":::
 
-- Once the PR is approved, it triggers another pipeline called apim-publish-to-portal
+- After the PR is approved, it triggers another pipeline called _apim-publish-to-portal_.
 
-- The apim-publish-to-portal has the following stages:
+- The apim-publish-to-portal has the following stages: Build creator, Build terminator, Publish APIM instances.
 
   :::image type="content" alt-text="Screenshot of the stages in APIM-publish-to-portal, a pipeline." source="media/automated-api-deployment-stages-of-apim-publish.png":::
 
-- The build creator stage handles new API creations.
+- The build _creator_ stage handles new API creations.
 
-- The build terminator stage handles any deletions.
+- The build _terminator_ stage handles any deletions.
 
-  :::image type="content" alt-text="Screenshot that shows the jobs in an example run of APIM-publish-to-portal, a pipeline." source="media/automated-api-deployment-jobs-in-apim-publish.png":::
+  :::image type="content" alt-text="Screenshot that shows the jobs in an example run of APIM-publish-to-portal, a pipeline." source="media/automated-api-deployment-jobs-in-apim-publish.png" lightbox="media/automated-api-deployment-jobs-in-apim-publish.png":::
 
 - After this pipeline runs successfully, all the changes are published into the APIM instance.
 
@@ -160,12 +153,15 @@ As the API designer/developer
 
 - APIM offers the following tiers: Consumption, Developer, Basic, Standard, and Premium.
 
-- GitHub offers a free service. However, to use advanced security-related features, such as code owners or required reviewers, you need the Team plan. For more information, see the GitHub pricing page.
+- GitHub offers a free service. However, to use advanced security-related features, such as code owners or required reviewers, you need the Team plan. For more information, see [GitHub pricing](https://github.com/pricing).
 
 ## Next steps
 
-- [Guide To GitOps](https://www.weave.works/technologies/gitops)
-
+- [Guide to GitOps](https://www.weave.works/technologies/gitops)
 - [APIM DevOps Resource Kit](https://github.com/Azure/azure-api-management-devops-resource-kit/)
 
 ## Related resources
+
+- [Migrate a web app using Azure APIM](../apps/apim-api-scenario.yml)
+- [Protect APIs with Application Gateway and API Management](../../reference-architectures/apis/protect-apis.yml)
+- [Publish internal APIs to external users](../apps/publish-internal-apis-externally.yml)
