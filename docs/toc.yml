@@ -313,6 +313,10 @@ items:
                 items:
                   - name: App Service and Functions
                     href: guide/multitenant/service/app-service.md
+              - name: Networking
+                items:
+                  - name: NAT Gateway
+                    href: guide/multitenant/service/nat-gateway.md
               - name: Storage and data
                 items:
                   - name: Azure Storage
