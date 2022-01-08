@@ -4,7 +4,7 @@ Example application scenarios include providing an automated development environ
 
 By using Azure services such as Azure Kubernetes Service, Container Registry, and Cosmos DB, companies can use the latest in application development techniques and tools to simplify the process of implementing high availability.
 
-## Relevant use cases
+## Potential use cases
 
 Other relevant use cases include:
 
@@ -15,6 +15,8 @@ Other relevant use cases include:
 ## Architecture
 
 ![Architecture overview of the Azure components involved in a DevOps scenario using Jenkins, Azure Container Registry, and Azure Kubernetes Service][architecture]
+
+### Dataflow
 
 This scenario covers a DevOps pipeline for a Node.js web application and database back end. The data flows through the scenario as follows:
 
