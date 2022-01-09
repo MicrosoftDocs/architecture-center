@@ -18,6 +18,8 @@ This solution benefits any organization that wants the advantages of deploying A
 
 :::image type="content" alt-text="Diagram of the architecture for automated API deployments using APIOps on Azure." source="media/automated-api-deployments-architecture-diagram.png" lightbox="media/automated-api-deployments-architecture-diagram.png":::
 
+Download a [Visio file](https://arch-center.azureedge.net/automated-api-deployments-apiops-architecture-diagram.vsdx) of this architecture.
+
 ### Workflow
 
 1.  API operators run the extractor pipeline to synchronize the git repository with the APIM instance and generate the git repository with APIM objects in the required format.
@@ -90,15 +92,15 @@ APIOps can increase DevOps productivity for API development and deployments. One
 
 API operators often manage multiple environments for the same set of APIs. It's typical to have several stages of an API deployed to different APIM instances or in a shared APIM instance. The git repository, which is the single source of truth, shows which versions of applications are currently deployed to a cluster.
 
-When someone makes a PR in the git repository, the API operator will know that they have new code to review. For example, when a developer has taken the OpenAPI spec and built the API implementation, they will add this new code to the repository. The operators can review the PR and make sure that the API that's been submitted for review still meets best practices and standards.
+When someone makes a PR in the git repository, the API operator will know that they have new code to review. For example, when a developer has taken the OpenAPI specification and built the API implementation, they will add this new code to the repository. The operators can review the PR and make sure that the API that's been submitted for review still meets best practices and standards.
 
 ## Deploy this scenario
 
-As the API designer/developer
+This scenario provides API designers and developers with the following options and benefits:
 
-- You can develop the API in the portal or make changes to the OpenAPI spec using a tool of your choice.
+- You can develop the API in the portal or make changes to the OpenAPI specification by using a tool of your choice.
 
-- If you have made changes in the portal in you can run the extractor to automatically extract all the APIs and other relevant policies, operations, configuration from APIM and synchronize it to the git repository.
+- If you have made changes in the portal, you can run the extractor to automatically extract all the APIs and other relevant policies, operations, configuration from APIM. You can synchronize it to the git repository.
 
 - Extractor Workflow:
 
@@ -114,34 +116,32 @@ As the API designer/developer
     - Create artifacts from portal
     - Create template branch PRs
 
-- Build extractor builds the extractor code.
+- _Build extractor_ builds the extractor code.
 
-- Create artifacts from portal runs the extractor and creates artifacts that resemble a git repository structure like that shown in the following screenshot:
+- _Create artifacts from portal_ runs the extractor and creates artifacts that resemble a git repository structure like that shown in the following screenshot:
 
   :::image type="content" alt-text="Screenshot of 'apim-automation' that shows 'apim-instances' and a folder hierarchy." source="media/automated-api-deployment-apim-automation-instances.png":::
 
-- After the artifact is generated the create template branch creates a pull request (PR) with the changes extracted for the APIM Platform team to review.
+- After the artifact is generated, _Create template branch_ creates a pull request (PR) with the changes extracted for the APIM Platform team to review.
 
   > [!NOTE]
   > The first time you run the extractor, it pulls down everything. The PR that's created will have all the APIs, policies, artifacts, and so on.
 
-- Subsequent extractions will only have changes made before the extraction in the PR. Like in the example below only an API spec changed and the PR shows that.
+- Subsequent extractions will only have changes made before the extraction in the PR. Like in the example below only an API specification changed and the PR shows that.
 
   :::image type="content" alt-text="Screenshot of an example pull request after an extraction that shows proposed changes to a file named 'specification.yml'." source="media/automated-api-deployment-subsequent-extraction-pr.png" lightbox="media/automated-api-deployment-subsequent-extraction-pr.png":::
 
-- You can go Pull Requests and view the Pull Requests to be reviewed. This step can also be auto approved in case the extractor changes should always be pulled in.
+- You can go Pull Requests and view the Pull Requests to be reviewed. This step can also be automatically approved if the extractor changes should always be pulled in.
 
   :::image type="content" alt-text="Screenshot of an example pull request that shows changes to content in 'policy.xml' and changes only to whitespace in other files." source="media/automated-api-deployment-merging-artifacts-pr.png" lightbox="media/automated-api-deployment-merging-artifacts-pr.png":::
 
-- After the PR is approved, it triggers another pipeline called _apim-publish-to-portal_.
-
-- The apim-publish-to-portal has the following stages: Build creator, Build terminator, Publish APIM instances.
+- After the PR is approved, it triggers another pipeline called _apim-publish-to-portal_. This pipeline has the following stages: Build creator, Build terminator, Publish APIM instances.
 
   :::image type="content" alt-text="Screenshot of the stages in APIM-publish-to-portal, a pipeline." source="media/automated-api-deployment-stages-of-apim-publish.png":::
 
-- The build _creator_ stage handles new API creations.
+- The _build creator_ stage handles new API creations.
 
-- The build _terminator_ stage handles any deletions.
+- The _build terminator_ stage handles any deletions.
 
   :::image type="content" alt-text="Screenshot that shows the jobs in an example run of APIM-publish-to-portal, a pipeline." source="media/automated-api-deployment-jobs-in-apim-publish.png" lightbox="media/automated-api-deployment-jobs-in-apim-publish.png":::
 
