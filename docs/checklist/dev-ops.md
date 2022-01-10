@@ -1,23 +1,28 @@
 ---
 title: DevOps checklist
 titleSuffix: Azure Design Review Framework
-description: DevOps integrates development, quality assurance, and IT operations and offers processes for delivering software. Assess your DevOps culture and process.
+description: Use this checklist to assess your DevOps culture and process. DevOps integrates development, QA, and IT operations into a unified set of processes.
 author: dragon119
-ms.date: 01/10/2018
+ms.date: 01/12/2022
 ms.topic: conceptual
 ms.service: architecture-center
-ms.subservice: well-architected
+ms.subservice: azure-guide
+products:
+  - "azure-devops"
+categories:
+  - "devops"
 ms.custom:
   - checklist
+  - fcp
 ---
 
-# DevOps Checklist
+# DevOps checklist
 
 DevOps is the integration of development, quality assurance, and IT operations into a unified culture and set of processes for delivering software. Use this checklist as a starting point to assess your DevOps culture and process.
 
 ## Culture
 
-**Ensure business alignment across organizations and teams.** Conflicts over resources, purpose, goals, and priorities within an organization can be a risk to successful operations. Ensure that the business, development, and operations teams are all aligned.
+**Ensure business alignment across organizations and teams.** Conflicts over resources, purpose, goals, and priorities within an organization can be a risk to successful operations. Ensure that the business, development, and operations teams are aligned.
 
 **Ensure the entire team understands the software lifecycle.** Your team needs to understand the overall lifecycle of the application, and which part of the lifecycle the application is currently in. This helps all team members know what they should be doing now, and what they should be planning and preparing for in the future.
 
