@@ -6,7 +6,7 @@ Without high-quality data in your Azure data estate, the business value of Azure
 
 Data needs to be managed at scale across on-premise, cloud, and multi-cloud storage to ensure it meets compliance requirements around security, privacy and usage. Well-managed data can also improve self-discovery, data sharing and quality, improving the use of data in applications and analytics.
 
-With Purview organizations can ensure definitions, classifications, and governance processes that will help to apply uniformly across all data.
+With Purview, organizations can ensure definitions, classifications, and governance processes that will help to apply uniformly across all data.
 
 Working together, Microsoft Purview can automatically discover, catalog, classify, and manage data across Microsoft's Azure Data Lake offerings and partner services.
 
@@ -17,11 +17,11 @@ Better together Microsoft services:
 - Azure Synapse Analytics.
 - Power BI.
 
-[Azure Purview](https://docs.microsoft.com/azure/purview/overview) catalogs all the data sources and identifies any sensitive information, also defines the data lineage.
+[Azure Purview](https://docs.microsoft.com/azure/purview/overview) catalogs all data sources, identifies any sensitive information and defines data lineage.
 
 Purview provides a central platform where the organization can apply definition and ownership to data.
 
-Also, with a single view on reports and insight can help you to generate data standards that should be imposed on your data.
+Also, with a single view on reports and insight, Purview can help you to generate data standards that should be imposed on your data.
 
 Purview's focus is on governance to find, classify, define, and enforce policies and standards across data.
 
