@@ -155,8 +155,9 @@ This scenario provides API designers and developers with the following options a
 
 ## Next steps
 
-- [Guide to GitOps](https://www.weave.works/technologies/gitops)
+- [Azure Pipelines](/azure/devops/pipelines/get-started/what-is-azure-pipelines?view=azure-devops)
 - [APIM DevOps Resource Kit](https://github.com/Azure/azure-api-management-devops-resource-kit/)
+- [Guide to GitOps](https://www.weave.works/technologies/gitops)
 
 ## Related resources
 
