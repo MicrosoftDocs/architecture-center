@@ -1,6 +1,6 @@
 <!-- cSpell:ignore MariaVrabie appservice botservice cicdbots azurewebsites -->
 
-This article presents a DevOps approach to setting up a continuous integration and continuous deployment (CI/CD) pipeline that deploys a chatbot app and its [*infrastructure as code*](../../framework/devops/automation-infrastructure.md).
+This article presents a DevOps approach to setting up a continuous integration and continuous deployment (CI/CD) pipeline that deploys a chatbot app and its [*infrastructure as code*](/azure/architecture/framework/devops/automation-infrastructure).
 
 DevOps is a common development strategy for building custom applications like bots. [Azure Pipelines](/azure/devops/pipelines/) uses modern CI/CD processes to manage software builds, deployments, testing, and monitoring. Azure Pipelines can help you accelerate your software delivery and focus on your code, rather than the supporting infrastructure and operations.
 
@@ -14,7 +14,7 @@ In this example:
 
 1. Developers create a new chatbot, ARM templates for infrastructure, and code the multi-stage YAML pipeline, all hosted from a GitHub repository.
 1. As a second step in day-0, they will provision the initial required infrastructure in Azure using the generated ARM templates.
-1. A GitHub webhook notifies Azure Pipelines on top of changes in the repository, which triggers the first stage. It then buiilds the chatbot application, archives it, and publishes a new drop for the build as a new artifact, which enables continuous integration.
+1. A GitHub webhook notifies Azure Pipelines on top of changes in the repository, which triggers the first stage. It then builds the chatbot application, archives it, and publishes a new drop for the build as a new artifact, which enables continuous integration.
 1. Continuous deployment is materialized at the second stage in the multi-stage YAML pipeline. It is the automated deployment of the chatbot application into the Azure infrastructure that was just provisioned.
 1. Azure Bot Service channels messages from the Microsoft Teams chat to the Azure Web App, where the chatbot logic is running.
 1. A Microsoft Teams app package is created, validated, and ultimately published by uploading it as a custom app. Once it gets successfully installed, users can start interacting with the chatbot from its chat window.
@@ -72,7 +72,7 @@ Organizations embracing GitOps could automate the deployment of the underlaying 
 
 ### App Service Plan and App Service instance
 
-An Azure App Service Plan is the underlying server farm used to deploy an Azure App Service instance. In this example, the ARM templates are being generated using the EchoBot templates. Later you could adapt them to your specific case scenario by modifying the tier, compute, platform, or scale, or break them down into a several linked ARM templates, as presented above.
+An Azure App Service Plan is the underlying server farm used to deploy an Azure App Service instance. In this example, the ARM templates are being generated using the EchoBot templates. Later you could adapt them to your specific case scenario by modifying the tier, compute, platform, or scale, or break them down into several linked ARM templates, as presented above.
 
 ### Bot Services
 
@@ -113,5 +113,5 @@ Here are some ways to further enhance the scenario:
 - [What is source control?](/azure/devops/user-guide/source-control)
 - [Understand the structure and syntax of Azure Resource Manager templates](/azure/azure-resource-manager/resource-group-authoring-templates)
 - [ARM template reference guide for Microsoft.Storage resource types](/azure/templates/microsoft.storage/allversions)
-- [Repeatable infrastructure](../../framework/devops/automation-infrastructure.md)
+- [Repeatable infrastructure](/azure/architecture/framework/devops/automation-infrastructure)
 - [Microsoft Learn module: Deploy applications with Azure DevOps](/learn/paths/deploy-applications-with-azure-devops/)

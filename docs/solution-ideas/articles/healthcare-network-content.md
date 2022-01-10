@@ -44,7 +44,7 @@ Other examples of this approach include:
 This solution uses the following Azure components:
 
 - [Azure Stack Edge](https://azure.microsoft.com/products/azure-stack/edge/) is a portfolio of devices that bring compute, storage, and intelligence to the IoT Edge. Azure Stack Edge acts as a cloud storage gateway that enables data transfers to Azure, while retaining local access to files.
-- [Azure Arc enabled Kubernetes](/azure/azure-arc/kubernetes/) connects Kubernetes clusters running inside or outside of Azure.
+- [Azure Arc-enabled Kubernetes](/azure/azure-arc/kubernetes/) connects Kubernetes clusters running inside or outside of Azure.
 - [Azure Sphere](https://azure.microsoft.com/services/azure-sphere) is a comprehensive IoT security solution that includes hardware, OS, and cloud components for IoT device security.
 - [Azure IoT Edge](https://azure.microsoft.com/services/iot-edge) deploys cloud intelligence locally on IoT devices.
 - [Azure IoT Hub](https://azure.microsoft.com/en-us/services/iot-hub/) is a cloud-based managed service for bidirectional communication between IoT devices and Azure.

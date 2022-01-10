@@ -260,17 +260,17 @@ For more information, see [Azure VM pricing][linux-vms-pricing].
 <!-- links -->
 
 [highly-available-network-architecture]: ./expressroute-vpn-failover.yml
-[AAF-devops]: ../../framework/devops/overview.md
+[AAF-devops]: /azure/architecture/framework/devops/overview
 [expressroute-prereqs]: /azure/expressroute/expressroute-prerequisites
 [configure-expressroute-routing]: /azure/expressroute/expressroute-howto-routing-arm
 [sla-for-expressroute]: https://azure.microsoft.com/support/legal/sla/expressroute
 [link-vnet-to-expressroute]: /azure/expressroute/expressroute-howto-linkvnet-arm
-[devops-monitoring]: ../../framework/devops/monitoring.md
+[devops-monitoring]: /azure/architecture/framework/devops/monitoring
 [ExpressRoute-provisioning]: /azure/expressroute/expressroute-workflows
 [expressroute-introduction]: /azure/expressroute/expressroute-introduction
 [expressroute-peering]: /azure/expressroute/expressroute-circuit-peerings
 [expressroute-pricing]: https://azure.microsoft.com/pricing/details/expressroute/
-[aaf-cost]: ../../framework/cost/overview.md
+[aaf-cost]: /azure/architecture/framework/cost/overview
 [azure-pricing-calculator]: https://azure.microsoft.com/pricing/calculator
 [linux-vms-pricing]: https://azure.microsoft.com/pricing/details/virtual-machines/linux
 [azurect]: https://github.com/Azure/NetworkMonitoring/tree/master/AzureCT

@@ -58,7 +58,7 @@ Unisys CPF in Azure uses ASR to ensure system availability and consistency.
 
 Unisys demonstrates operational excellence by presenting a known environment to the staff, while dragging new capabilities like ASR to provide DR failover.
 
-You can optimize your operational efficiency by deploying your solution with ARM templates, and by leveraging Azure Monitor to measure and improve your performance. See the Azure Well-Architected Framework's [Operational excellence principles](../../framework/devops/principles.md) and [Monitoring for DevOps](../../framework/devops/monitoring.md).
+You can optimize your operational efficiency by deploying your solution with ARM templates, and by leveraging Azure Monitor to measure and improve your performance. See the Azure Well-Architected Framework's [Operational excellence principles](/azure/architecture/framework/devops/principles) and [Monitoring for DevOps](/azure/architecture/framework/devops/monitoring).
 
 ### Performance
 
@@ -74,7 +74,7 @@ Unisys Stealth technology effectively hides endpoints while using the additional
 
 Unisys CPF in Azure eliminates hardware maintenance and facility costs upfront. Further savings derive from not having to retrain staff how to operate or use the system. The virtualized machine runs just as it did on the datacenter floor.
 
-You can also optimize your costs by following the process to right-size the capacity of your VMs, from the beginning, along with simplified resizing, as needed. For more information, see the Azure Well-Architected Framework's [Principles of cost optimization](../../framework/cost/overview.md).
+You can also optimize your costs by following the process to right-size the capacity of your VMs, from the beginning, along with simplified resizing, as needed. For more information, see the Azure Well-Architected Framework's [Principles of cost optimization](/azure/architecture/framework/cost/overview).
 
 To estimate the cost of Azure products and configurations, visit the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator/).
 

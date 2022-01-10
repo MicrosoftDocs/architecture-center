@@ -1,0 +1,26 @@
+### YamlMime:Architecture
+metadata:
+  title: Azure digital twins builder
+  titleSuffix: Azure Solution Ideas
+  description: Learn how a web app can use Azure Digital Twins and Autodesk Forge API to accelerate the process of creating digital twins from Build Information Modeling (BIM) models.
+  author: EdPrice-MSFT
+  ms.author: mfarquhar
+  ms.date: 01/04/2022
+  ms.topic: conceptual
+  ms.service: architecture-center
+  ms.subservice: solution-idea
+  ms.custom: fcp
+azureCategories:
+  - integration
+  - iot
+  - web
+  - management-and-governance
+products:
+  - azure-digital-twins
+  - azure-functions
+  - azure-app-service-static
+name: Azure digital twins builder
+summary: Learn how a web app can use Azure Digital Twins and Autodesk Forge API to accelerate the process of creating digital twins from Build Information Modeling (BIM) models.
+thumbnailUrl: /azure/architecture/browse/thumbs/azure-digital-twins-builder.png
+content: |
+  [!include[](azure-digital-twins-builder-content.md)]
