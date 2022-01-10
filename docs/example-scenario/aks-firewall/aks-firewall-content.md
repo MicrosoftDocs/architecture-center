@@ -16,6 +16,8 @@ This architecture applies to scenarios in which you need to improve security of 
 
 *Download a [Visio file](https://arch-center.azureedge.net/main-architecture.vsdx) of this architecture.*
 
+### Workflow
+
 [Terraform modules](https://github.com/Azure-Samples/private-aks-cluster-terraform-devops/tree/main/terraform/modules) are used to deploy a new virtual network that has four subnets that host:
 
 - The AKS cluster (AksSubnet).
@@ -81,6 +83,12 @@ A Log Analytics workspace is used to collect the diagnostics logs and metrics fr
 - [Blob Storage](https://azure.microsoft.com/services/storage/blobs) is an object storage solution for the cloud. Blob Storage is optimized for storing massive amounts of unstructured data. 
 
 - [Private Link](https://azure.microsoft.com/services/private-link) enables you to access Azure PaaS services (for example, Blob Storage and Key Vault) over a private endpoint in your virtual network. You can also use it to access Azure-hosted services that you own or that are provided by a Microsoft partner.
+
+### Alternatives
+
+You can use a third-party firewall from Azure Marketplace instead of [Azure Firewall](/azure/firewall/overview). If you do, it's your responsibility to properly configure the firewall to inspect and allow or deny the inbound and outbound traffic from the AKS cluster.
+
+## Detailed scenarios
 
 ### Avoid asymmetric routing
 
@@ -154,10 +162,6 @@ Here's the message flow:
 5. Any workload-initiated outbound call is routed to the private IP address of the user-defined route.
 
 For more information, see [Use Azure Firewall in front of an internal Standard Load Balancer](https://github.com/Azure-Samples/private-aks-cluster-terraform-devops#Use-Azure-Firewall-in-front-of-an-internal-Standard-Load-Balancer).
-
-### Alternatives
-
-You can use a third-party firewall from Azure Marketplace instead of [Azure Firewall](/azure/firewall/overview). If you do, it's your responsibility to properly configure the firewall to inspect and allow or deny the inbound and outbound traffic from the AKS cluster.
 
 ## Considerations
 
