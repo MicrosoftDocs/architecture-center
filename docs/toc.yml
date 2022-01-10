@@ -313,6 +313,10 @@ items:
                 items:
                   - name: App Service and Functions
                     href: guide/multitenant/service/app-service.md
+              - name: Networking
+                items:
+                  - name: NAT Gateway
+                    href: guide/multitenant/service/nat-gateway.md
               - name: Storage and data
                 items:
                   - name: Azure Storage
@@ -1143,6 +1147,8 @@ items:
                 href: /azure/architecture/browse/?terms=education
               - name: Secure research for regulated data
                 href: example-scenario/ai/secure-compute-for-research.yml
+              - name: Teacher-provisioned virtual labs in Azure
+                href: example-scenario/devops/teacher-provisioned-virtual-labs-azure.yml
           - name: Compliance solutions
             items:
               - name: FERPA overview
@@ -2629,6 +2635,8 @@ items:
                 href: example-scenario/devops/manage-microsoft-365-tenant-configuration-microsoft365dsc-devops.yml
               - name: Run containers in a hybrid environment
                 href: hybrid/hybrid-containers.yml
+              - name: Teacher-provisioned virtual labs in Azure
+                href: example-scenario/devops/teacher-provisioned-virtual-labs-azure.yml
           - name: Solution ideas
             items:
               - name: CI/CD for Azure VMs

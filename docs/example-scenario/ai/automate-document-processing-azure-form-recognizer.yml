@@ -21,6 +21,6 @@ products:
   - azure-machine-learning
 name: Automate document processing by using Azure Form Recognizer
 summary: Build an automated document processing pipeline. Use Azure Form Recognizer to extract data and natural language processing models to enrich the data.
-thumbnailUrl: /docs/browse/thumbs/automate-document-processing-azure-form-recognizer-architecture-thumbnail.png
+thumbnailUrl: /docs/browse/thumbs/automate-document-processing-form-recognizer.png
 content: |
   [!include[](automate-document-processing-azure-form-recognizer-content.md)]
