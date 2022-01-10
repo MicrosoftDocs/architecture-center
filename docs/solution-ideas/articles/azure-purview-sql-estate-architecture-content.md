@@ -44,7 +44,7 @@ The diagram contains several rectangles. Label on the rectangles read the connec
 
 _Download a [Visio file](https://arch-center.azureedge.net/[filename].vsdx) of this architecture._
 
-1. Connecting Purview to **On Premises SQL** via Self-Hosted Integration Run time by Private end point.
+1. Connecting Purview to **On Premises SQL** via Self-Hosted Integration Run time by Private Endpoint.
 
 2. Connecting Purview to **Azure SQL**via Managed VNet by Managed Private End point.
 
