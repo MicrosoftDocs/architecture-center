@@ -48,7 +48,7 @@ _Download a [Visio file](https://arch-center.azureedge.net/[filename].vsdx) of t
 
 2. Connecting Purview to **Azure SQL**via Managed VNet by Managed Private Endpoint.
 
-3. Connecting Purview to **Azure SQL Managed Instance** via Self-Hosted Integration run time by Private end point.
+3. Connecting Purview to **Azure SQL Managed Instance** via Self-Hosted Integration run time by Private Endpoint.
 
 4. Connecting Purview natively to **Power BI.**
 
