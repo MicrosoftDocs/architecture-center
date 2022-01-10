@@ -1,5 +1,3 @@
-# Automated API deployments using APIOps on Azure
-
 This example scenario applies generally to businesses that want to apply the concept of APIOps in their API and application lifecycle. APIOps applies the concept of GitOps and DevOps to API deployments. Specifically, this scenario shows how every persona in the lifecycle of API design, development, and deployment can be empowered with self-service and automated tools to ensure the quality of the specifications and APIs that they're building.
 
 APIOps places the [API Management (APIM)](/azure/api-management/) infrastructure under version control to achieve these goals. Rather than making changes directly in APIM, most operations happen through code changes that can be reviewed and audited. This approach supports the security principle of least-privilege access.
@@ -72,7 +70,7 @@ APIOps has many benefits, but as APIM landscapes grow, so does the complexity of
 
 ### Security
 
-This solution provides several security-related benefits. With the GitOps approach, individual developers—and even operators—don't directly access the APIM instance to apply changes or updates. Instead, users push changes to a git repository, and the extractor and publishing pipelines reads them and applies them to the APIM instance. This approach follows the security best practice of _least privilege_ by not giving teams write permissions to the APIM service instance. In diagnostic or troubleshooting scenarios, you can grant elevated permissions for a limited time on a case-by-case basis.
+This solution provides several security-related benefits. With the GitOps approach, individual developers—and even operators—don't directly access the APIM instance to apply changes or updates. Instead, users push changes to a git repository, and the extractor and publishing pipelines read them and apply them to the APIM instance. This approach follows the security best practice of _least privilege_ by not giving teams write permissions to the APIM service instance. In diagnostic or troubleshooting scenarios, you can grant elevated permissions for a limited time on a case-by-case basis.
 
 To make sure the APIM instances are using best practices for security, you can extend this solution to enforce API best practices by using third-party tools and unit testing. Teams can provide early feedback via PR review if the proposed changes to an API or policy violate standards.
 
@@ -80,7 +78,7 @@ Apart from the task of setting up repository permissions, consider implementing 
 
 - **Branch protection**: Protect the branches that represent the state of the APIM instances from having changes pushed to them directly. Require every change to be proposed by a PR that is reviewed by at least one other person. Also use PRs to do automatic checks.
 
-- **PR review**: Require PRs to have at least one reviewer, to enforce the four-eyes principle. You can also use the GitHub code owners feature to define individuals or teams that are responsible for reviewing specific files in a repository.
+- **PR review**: Require PRs to have at least one reviewer, to enforce the four-eyes principle. You can also use the [GitHub code owners](https://docs.github.com/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-code-owners) feature to define individuals or teams that are responsible for reviewing specific files in a repository.
 
 - **Immutable history**: Only allow new commits on top of existing changes. Immutable history is especially important for auditing purposes.
 
@@ -135,7 +133,7 @@ This scenario provides API designers and developers with the following options a
 
   :::image type="content" alt-text="Screenshot of an example pull request that shows changes to content in 'policy.xml' and changes only to whitespace in other files." source="media/automated-api-deployment-merging-artifacts-pr.png" lightbox="media/automated-api-deployment-merging-artifacts-pr.png":::
 
-- After the PR is approved, it triggers another pipeline called _apim-publish-to-portal_. This pipeline has the following stages: Build creator, Build terminator, Publish APIM instances.
+- After the PR is approved, it triggers another pipeline called _apim-publish-to-portal_. This pipeline has the following stages: Build creator, Build terminator, and Publish APIM instances.
 
   :::image type="content" alt-text="Screenshot of the stages in APIM-publish-to-portal, a pipeline." source="media/automated-api-deployment-stages-of-apim-publish.png":::
 
