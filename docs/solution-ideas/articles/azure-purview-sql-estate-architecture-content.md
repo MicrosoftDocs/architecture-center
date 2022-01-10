@@ -2,7 +2,7 @@
 
 As more data is loaded into Azure, the need to properly govern and manage that data across all your data sources and data consumers also grows.
 
-Without high-quality data in your Azure data estate, the business value of Azure will be undermined. The solution is to build a foundation for data governance and management that can produce and deliver high-quality, trusted data.
+Without high-quality data in your Azure data estate, the business value may be undermined. The solution is to build a foundation for data governance and management that can produce and deliver high-quality, trusted data.
 
 Data needs to be managed at scale across on-premise, cloud, and multi-cloud storage to ensure it meets compliance requirements around security, privacy and usage. Well-managed data can also improve self-discovery, data sharing and quality, improving the use of data in applications and analytics.
 
