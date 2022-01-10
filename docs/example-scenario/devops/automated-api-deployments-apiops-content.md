@@ -1,12 +1,12 @@
 # Automated API deployments using APIOps on Azure
 
-This example scenario applies generally to businesses that want to apply the concept of APIOps in their API and application lifecycle. APIOps applies the concept of GitOps and DevOps to API deployments. Specifically, this scenario shows how every persona in the lifecycle of API design, development, and deployment can be empowered with self-service and automated tools to ensure the quality of the specifications and APIs that they are building.
+This example scenario applies generally to businesses that want to apply the concept of APIOps in their API and application lifecycle. APIOps applies the concept of GitOps and DevOps to API deployments. Specifically, this scenario shows how every persona in the lifecycle of API design, development, and deployment can be empowered with self-service and automated tools to ensure the quality of the specifications and APIs that they're building.
 
 APIOps places the [API Management (APIM)](/azure/api-management/) infrastructure under version control to achieve these goals. Rather than making changes directly in APIM, most operations happen through code changes that can be reviewed and audited. This approach supports the security principle of least-privilege access.
 
 APIOps not only enforces policies within APIM, but also helps support security by providing feedback for proposed policy changes. Early feedback is more convenient for developers and reduces risks and costs.
 
-The earlier in the pipeline that you can identify deviations from your standards, the faster you can resolve them. The greater the number of APIs that you build and deploy following this approach, the greater the consistency between them and the smaller the chance of deploying a service that is of too poor quality to be consumed.
+The earlier in the pipeline that you can identify deviations from your standards, the faster you can resolve them. The greater the number of APIs that you build and deploy following this approach, the greater the consistency between them. This means that there's a smaller chance of deploying a service that is of too poor quality to be consumed.
 
 This article describes a solution for using APIOps with an APIM instance. This solution provides full audit capabilities, policy enforcement, and early feedback.
 
@@ -74,7 +74,7 @@ APIOps has many benefits, but as APIM landscapes grow, so does the complexity of
 
 This solution provides several security-related benefits. With the GitOps approach, individual developers—and even operators—don't directly access the APIM instance to apply changes or updates. Instead, users push changes to a git repository, and the extractor and publishing pipelines reads them and applies them to the APIM instance. This approach follows the security best practice of _least privilege_ by not giving teams write permissions to the APIM service instance. In diagnostic or troubleshooting scenarios, you can grant elevated permissions for a limited time on a case-by-case basis.
 
-To make sure the APIM instances are using best practices for security, this solution can be extended to enforce API best practices by using third-party tools and unit testing. Teams can provide early feedback via PR review if proposed changes to an API or policy violates standards.
+To make sure the APIM instances are using best practices for security, you can extend this solution to enforce API best practices by using third-party tools and unit testing. Teams can provide early feedback via PR review if the proposed changes to an API or policy violate standards.
 
 Apart from the task of setting up repository permissions, consider implementing the following security measures in git repositories that synchronize to APIM instances:
 
@@ -88,11 +88,11 @@ Apart from the task of setting up repository permissions, consider implementing 
 
 ### Operations
 
-APIOps can increase DevOps productivity for API development and deployments. One of the most useful features is the ability to quickly roll back changes that are behaving unexpectedly by simply performing git operations. The commit graph still contains all commits, so it can help with the post-mortem analysis.
+APIOps can increase DevOps productivity for API development and deployments. One of the most useful features is the ability to quickly roll back changes that are behaving unexpectedly by performing git operations. The commit graph still contains all commits, so it can help with the post-mortem analysis.
 
 API operators often manage multiple environments for the same set of APIs. It's typical to have several stages of an API deployed to different APIM instances or in a shared APIM instance. The git repository, which is the single source of truth, shows which versions of applications are currently deployed to a cluster.
 
-When someone makes a PR in the git repository, the API operator will know that they have new code to review. For example, when a developer has taken the OpenAPI specification and built the API implementation, they will add this new code to the repository. The operators can review the PR and make sure that the API that's been submitted for review still meets best practices and standards.
+When someone makes a PR in the git repository, the API operator will know that they have new code to review. For example, when a developer has taken the OpenAPI specification and built the API implementation, they'll add this new code to the repository. The operators can review the PR and make sure that the API that's been submitted for review still meets best practices and standards.
 
 ## Deploy this scenario
 
@@ -106,7 +106,7 @@ This scenario provides API designers and developers with the following options a
 
     - Run the pipeline named _apim-download-portal-changes_.
 
-    - Enter the branch name, APIM instance name and resource group name.
+    - Enter the names of the branch, the APIM instance, and the resource group.
 
       :::image type="content" alt-text="Screenshot of 'Run pipeline', where you enter the names of the APIM instance and the resource group." source="media/automated-api-deployments-run-pipeline.png":::
 
@@ -127,7 +127,7 @@ This scenario provides API designers and developers with the following options a
   > [!NOTE]
   > The first time you run the extractor, it pulls down everything. The PR that's created will have all the APIs, policies, artifacts, and so on.
 
-- Subsequent extractions will only have changes made before the extraction in the PR. Like in the example below only an API specification changed and the PR shows that.
+- Later extractions will have only changes that were made before the extraction in the PR. Like in the following example, only an API specification changed, and the PR shows that.
 
   :::image type="content" alt-text="Screenshot of an example pull request after an extraction that shows proposed changes to a file named 'specification.yml'." source="media/automated-api-deployment-subsequent-extraction-pr.png" lightbox="media/automated-api-deployment-subsequent-extraction-pr.png":::
 
