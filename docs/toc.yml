@@ -1967,6 +1967,8 @@ items:
                 href: example-scenario/apps/build-cncf-incubated-graduated-projects-aks.yml  
               - name: CI/CD pipeline for container workloads
                 href: example-scenario/apps/devops-with-aks.yml
+              - name: Firewall protection for an AKS cluster
+                href: example-scenario/aks-firewall/aks-firewall.yml
               - name: GitOps for AKS
                 href: example-scenario/gitops-aks/gitops-blueprint-aks.yml
               - name: Magento e-commerce in AKS
