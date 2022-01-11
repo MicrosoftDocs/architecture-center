@@ -53,7 +53,7 @@ For general guidance on designing resilient solutions, see [Designing resilient 
 
 ### Data protection and cloning
 
-For general guidance on protecting your application data, see [Azure Application Consistent Snapshot tool](https://docs.microsoft.com/en-us/azure/azure-netapp-files/azacsnap-introduction).
+For general guidance on protecting your application data, see [Azure Application Consistent Snapshot tool](https://docs.microsoft.com/en-us/azure/azure-netapp-files/azacsnap-introduction), which provides application consistent snapshots when used in combination with Azure NetApp Files.
 
 ## Pricing
 
