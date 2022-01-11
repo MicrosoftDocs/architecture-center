@@ -34,17 +34,17 @@ DevOps is the integration of development, quality assurance, and IT operations i
 
 **Review and improve processes.** Your processes and procedures, both automated and manual, are never final. Set up regular reviews of current workflows, procedures, and documentation, with a goal of continual improvement.
 
-**Do proactive planning.** Proactively plan for failure. Have processes in place to quickly identify issues when they occur, escalate to the correct team members to fix, and confirm resolution.
+**Do proactive planning.** Proactively plan for failure. Have processes in place to quickly identify problems when they occur, escalate to the correct team members to fix, and confirm resolution.
 
-**Learn from failures.** Failures are inevitable, but it's important to learn from failures to avoid repeating them. If an operational failure occurs, triage the issue, document the cause and solution, and share any lessons learned. Whenever possible, update your build processes to automatically detect that kind of failure in the future.
+**Learn from failures.** Failures are inevitable, but it's important to learn from failures to avoid repeating them. If an operational failure occurs, triage the problem, document the cause and solution, and share any lessons learned. Whenever possible, update your build processes to automatically detect that kind of failure in the future.
 
 **Optimize for speed and collect data.** Every planned improvement is a hypothesis. Work in the smallest increments possible. Treat new ideas as experiments. Instrument the experiments so that you can collect production data to assess their effectiveness. Be prepared to fail fast if the hypothesis is wrong.
 
-**Allow time for learning.** Both failures and successes provide good opportunities for learning. Before you move on to new projects, allow enough time to gather the important lessons, and make sure those lessons are absorbed by your team. Also give the team the time to build skills, experiment, and learn about new tools and techniques.
+**Allow time for learning.** Both failures and successes provide good opportunities for learning. Before you move on to new projects, allow enough time to gather the important lessons, and make sure those lessons are absorbed by your team. Also give the team time to build skills, experiment, and learn about new tools and techniques.
 
 **Document operations.** Document all tools, processes, and automated tasks with the same level of quality as your product code. Document the current design and architecture of any systems you support, along with recovery processes and other maintenance procedures. Focus on the steps you actually do, not theoretically optimal processes. Regularly review and update the documentation. For code, make sure that meaningful comments are included, especially in public APIs. Use tools to generate code documentation automatically whenever possible.
 
-**Share knowledge.** Documentation is only useful if people know that it exists and can find it. Ensure the documentation is organized and easily discoverable. Be creative: use brown bags (informal presentations), videos, or newsletters to share knowledge.
+**Share knowledge.** Documentation is only useful if people know that it exists and can find it. Ensure documentation is organized and easily discoverable. Be creative: use brown bags (informal presentations), videos, or newsletters to share knowledge.
 
 ## Development
 
@@ -56,7 +56,7 @@ DevOps is the integration of development, quality assurance, and IT operations i
 
 **Instrument the application for insight.** To understand the health of your application, you need to know how it's performing and whether it's experiencing any errors or problems. Always include instrumentation as a design requirement, and build the instrumentation into the application from the start. Instrumentation must include event logging for root cause analysis, but also telemetry and metrics to monitor the overall health and usage of the application.
 
-**Track your technical debt.** In many projects, release schedules can get prioritized over code quality to one degree or another. Always track when this occurs. Document any shortcuts or other suboptimal implementations, and schedule time in the future to revisit these issues.
+**Track your technical debt.** In many projects, release schedules can get prioritized over code quality to one degree or another. Always track when this occurs. Document any shortcuts or other suboptimal implementations, and schedule time to revisit these issues.
 
 **Consider pushing updates directly to production.** To reduce the overall release cycle time, consider pushing properly tested code commits directly to production. Use [feature toggles][feature-toggles] to control which features are enabled. This allows you to move from development to release quickly, using the toggles to enable or disable features. Toggles are also useful when you perform tests like [canary releases][canary-release], where a particular feature is deployed to a subset of the production environment.
 
