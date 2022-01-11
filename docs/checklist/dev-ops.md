@@ -4,7 +4,7 @@ titleSuffix: Azure Design Review Framework
 description: Use this checklist to assess your DevOps culture and process. DevOps integrates development, QA, and IT operations into a unified set of processes.
 author: EdPrice-MSFT
 ms.author: pnp
-ms.date: 01/13/2022
+ms.date: 01/12/2022
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: azure-guide
@@ -138,7 +138,7 @@ Shared documentation is critical. Encourage team members to contribute and share
 
 **Follow least-privilege principles when granting access to resources.** Carefully manage access to resources. Access should be denied by default, unless a user is explicitly given access to a resource. Only grant users access to what they need to complete their tasks. Track user permissions and perform regular security audits.
 
-**Use Azure role-based access control.** Assigning user accounts and access to resources shouldn't be a manual process. Use [Azure role-based access control (Azure RBAC)][rbac] grant access based on [Azure Active Directory][azure-ad] identities and groups.
+**Use Azure role-based access control.** Assigning user accounts and access to resources shouldn't be a manual process. Use [Azure role-based access control (Azure RBAC)][rbac] to grant access based on [Azure Active Directory][azure-ad] identities and groups.
 
 **Use a bug tracking system to track problems.** Without a good way to track problems, it's easy to miss items, duplicate work, or introduce new problems. Don't rely on informal person-to-person communication to track the status of bugs. Use a bug tracking tool to record details about problems, assign resources to address them, and provide an audit trail of progress and status.
 
