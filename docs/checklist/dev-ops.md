@@ -104,7 +104,7 @@ After the initial release, you should run performance and capacity tests wheneve
 
 **Make systems observable.** The operations team should always have clear visibility into the health and status of a system or service. Set up external health endpoints to monitor status, and ensure that applications are coded to instrument the operations metrics. Use a common and consistent schema that helps you correlate events across systems. [Azure Diagnostics][azure-diagnostics] and [Application Insights][app-insights] are the standard method of tracking the health and status of Azure resources. [Azure Monitor][azure-monitor] also provides centralized monitoring and management for cloud or hybrid solutions.
 
-**Aggregate and correlate logs and metrics**. A properly instrumented telemetry system provides a large amount of raw performance data and event logs. Make sure that telemetry and log data is processed and correlated in a short period of time, so that operations staff always have an up-to-date picture of system health. Organize and display data in ways that give a cohesive view of any problems, so that whenever possible it's clear when events are related to one another.
+**Aggregate and correlate logs and metrics**. A properly instrumented telemetry system provides a large amount of raw performance data and event logs. Make sure that telemetry and log data is processed and correlated quickly, so that operations staff always have an up-to-date picture of system health. Organize and display data in ways that give a cohesive view of any problems, so that whenever possible it's clear when events are related to one another.
 
 > Consult your corporate retention policy for requirements on how data is processed and how long it should be stored.
 
@@ -124,7 +124,7 @@ Containers also create an abstraction layer between the application and the unde
 
 **Implement resiliency and self-healing.** Resiliency is the ability of an application to recover from failures. Strategies for resiliency include retrying transient failures, and failing over to a secondary instance or even another region. For more information, see [Designing reliable Azure applications](/azure/architecture/framework/resiliency/app-design). Instrument your applications so that problems are reported immediately and you can manage outages or other system failures.
 
-**Have an operations manual.** An operations manual or *runbook* documents the procedures and management information needed for operations staff to maintain a system. Also document any operations scenarios and mitigation plans that might come into play during a failure or other disruption to your service. Create this documentation during the development process, and keep it up to date afterwards. This is a living document, and should be reviewed, tested, and improved regularly.
+**Have an operations manual.** An operations manual or *runbook* documents the procedures and management information needed for operations staff to maintain a system. Also document any operations scenarios and mitigation plans that might come into play during a failure or other disruption to your service. Create this documentation during the development process, and keep it up-to-date afterwards. This is a living document, and should be reviewed, tested, and improved regularly.
 
 Shared documentation is critical. Encourage team members to contribute and share knowledge. The entire team should have access to documents. Make it easy for anyone on the team to help keep documents updated.
 
