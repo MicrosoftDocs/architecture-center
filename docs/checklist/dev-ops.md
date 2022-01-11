@@ -130,7 +130,7 @@ Shared documentation is critical. Encourage team members to contribute and share
 
 **Document on-call procedures.** Make sure on-call duties, schedules, and procedures are documented and shared to all team members. Keep this information up-to-date at all times.
 
-**Document escalation procedures for external dependencies.** If your application depends on external services that you don't directly control, you must have a plan to deal with outages. Create documentation for your planned mitigation processes. Include support contacts and escalation paths.
+**Document escalation procedures for third-party dependencies.** If your application depends on external third-party services that you don't directly control, you must have a plan to deal with outages. Create documentation for your planned mitigation processes. Include support contacts and escalation paths.
 
 **Use configuration management.** Configuration changes should be planned, visible to operations, and recorded. This could take the form of a configuration management database, or a configuration-as-code approach. Configuration should be audited regularly to ensure that what's expected is actually in place.
 
@@ -160,7 +160,7 @@ Shared documentation is critical. Encourage team members to contribute and share
 
 <!-- links -->
 
-[app-insights]: /azure/application-insights
+[app-insights]: /azure/azure-monitor#application-insights
 [azure-ad]: https://azure.microsoft.com/services/active-directory
 [azure-diagnostics]: /azure/monitoring-and-diagnostics/azure-diagnostics
 [azure-monitor]: /azure/monitoring-and-diagnostics/monitoring-overview
