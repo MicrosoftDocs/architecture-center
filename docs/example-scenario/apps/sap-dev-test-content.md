@@ -53,8 +53,7 @@ For general guidance on designing resilient solutions, see [Designing resilient 
 
 ### Data protection and cloning
 
-If you desire builtin primary data protection for your HANA databases you can use the [snapshot feature](https://docs.microsoft.com/azure/azure-netapp-files/snapshots-introduction) in Azure NetApp Files to create fast and space efficient copies of your live HANA databases automatically or manually. Azure NetApp Files volumes can be restored from snapshots very quickly to effectively undo a data corruption or system error. To create application consistent snapshots of your HANA databases, use [azacsnap](https://docs.microsoft.com/azure/azure-netapp-files/azacsnap-introduction).
-The same snapshot technology can also be utilized to create space efficient clones fast from snapshots, which can serve test and development teams with current data without influencing live data processing.
+For guidance on protecting your application data, see [Azure Application Consistent Snapshot tool][azacsnap](https://docs.microsoft.com/en-us/azure/azure-netapp-files/azacsnap-introduction).
 
 ## Pricing
 
