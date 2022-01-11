@@ -1,6 +1,6 @@
 # Configuring Backups using Velero
 
----
+
 
 ## Introduction
 If you are looking to Backup your AKS resources then Velero can be a good tool to consider. This tool gives users the capability to Backup & resotore the Kubernetes resources & also the Persistent volumes.
@@ -19,4 +19,6 @@ As the implementation / updates continously happen , therefore we are going to r
 If the tool suits you need, then you can refer the below documentation for configuring backup of respective resources in AKS
 
 [Velero Plugin for MS Azure](https://github.com/vmware-tanzu/velero-plugin-for-microsoft-azure)
+
+:bulb: An important point to note that Velero & plugin versions have to be carefully matched to make things work!
 
