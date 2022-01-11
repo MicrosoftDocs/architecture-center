@@ -1,6 +1,6 @@
 [!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
-As more data is loaded into Azure, the need to properly govern and manage that data across all your data sources and data consumers also grows.
+As you load more data into Azure, the need to properly govern and manage that data across all your data sources and data consumers also grows.
 
 Without high-quality data in your Azure data estate, the business value of Azure will be undermined. The solution is to build a foundation for data governance and management that can produce and deliver high-quality, trusted data.
 
