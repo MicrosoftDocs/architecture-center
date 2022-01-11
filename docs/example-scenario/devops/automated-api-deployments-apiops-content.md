@@ -48,7 +48,7 @@ The solution has the following components:
 - [Azure API Management (APIM)](/azure/api-management/)
 - [Azure DevOps](/azure/devops/?view=azure-devops)
 - Extractor and Creator (.NET)
-- Create Pull Request Script (shell script)
+- [Create pull request](/azure/devops/repos/git/pull-requests?view=azure-devops&tabs=azure-devops-cli#create-a-pull-request) script
 
 ### Alternatives
 
@@ -123,13 +123,13 @@ This scenario provides API designers and developers with the following options a
 - After the artifact is generated, _Create template branch_ creates a pull request (PR) with the changes extracted for the APIM Platform team to review.
 
   > [!NOTE]
-  > The first time you run the extractor, it pulls down everything. The PR that's created will have all the APIs, policies, artifacts, and so on.
+  > The first time you run the extractor, it pulls everything from the git repository. The PR that's created will have all the APIs, policies, artifacts, and so on.
 
 - Later extractions will have only changes that were made before the extraction in the PR. Like in the following example, only an API specification changed, and the PR shows that.
 
   :::image type="content" alt-text="Screenshot of an example pull request after an extraction that shows proposed changes to a file named 'specification.yml'." source="media/automated-api-deployment-subsequent-extraction-pr.png" lightbox="media/automated-api-deployment-subsequent-extraction-pr.png":::
 
-- You can go Pull Requests and view the Pull Requests to be reviewed. This step can also be automatically approved if the extractor changes should always be pulled in.
+- You can go to **Pull Requests** and view the pull requests to be reviewed. This step can also be automatically approved if the extractor changes should always be pulled in.
 
   :::image type="content" alt-text="Screenshot of an example pull request that shows changes to content in 'policy.xml' and changes only to whitespace in other files." source="media/automated-api-deployment-merging-artifacts-pr.png" lightbox="media/automated-api-deployment-merging-artifacts-pr.png":::
 
@@ -161,6 +161,7 @@ This scenario provides API designers and developers with the following options a
 
 ## Related resources
 
+- [CI/CD for API Management using Azure Resource Manager templates](/azure/api-management/devops-api-development-templates)
 - [Migrate a web app using Azure APIM](../apps/apim-api-scenario.yml)
 - [Protect APIs with Application Gateway and API Management](../../reference-architectures/apis/protect-apis.yml)
 - [Publish internal APIs to external users](../apps/publish-internal-apis-externally.yml)
