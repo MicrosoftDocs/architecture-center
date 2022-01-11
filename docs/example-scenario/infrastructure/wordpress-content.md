@@ -73,7 +73,7 @@ For general guidance on designing secure scenarios, see the [Azure Security Docu
 
 In combination with the use of multiple regions, data replication and virtual machine scale sets, this scenario uses Azure load balancers. These networking components distribute traffic to the connected VM instances, and include health probes that ensure traffic is only distributed to healthy VMs. All of these networking components are fronted via a CDN. This makes the networking resources and application resilient to issues that would otherwise disrupt traffic and impact end-user access.
 
-For general guidance on designing resilient scenarios, see [Designing reliable Azure applications](../../framework/resiliency/app-design.md).
+For general guidance on designing resilient scenarios, see [Designing reliable Azure applications](/azure/architecture/framework/resiliency/app-design).
 
 ## Pricing
 

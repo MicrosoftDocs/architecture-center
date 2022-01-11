@@ -4,7 +4,7 @@ titleSuffix: Azure Architecture Center
 description: This article describes the considerations you need to give to domain names when building multitenant web applications.
 author: johndowns
 ms.author: jodowns
-ms.date: 07/16/2021
+ms.date: 12/13/2021
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: azure-guide
@@ -136,4 +136,4 @@ Several Azure services support automatic management of certificates for custom d
 
 ## Next steps
 
-Return to the [architectural considerations overview](overview.md). Or, review the [Microsoft Azure Well-Architected Framework](../../../framework/index.md).
+Return to the [architectural considerations overview](overview.md). Or, review the [Microsoft Azure Well-Architected Framework](/azure/architecture/framework).

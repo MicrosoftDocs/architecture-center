@@ -1,4 +1,4 @@
-SAP system on Oracle Database is one of the popular deployment patterns in the SAP world. This article describes a typical architecture of SAP on Oracle on Azure, which aligns with the pillars of the [Azure Well Architected Framework](../../framework/index.md).
+SAP system on Oracle Database is one of the popular deployment patterns in the SAP world. This article describes a typical architecture of SAP on Oracle on Azure, which aligns with the pillars of the [Azure Well Architected Framework](/azure/architecture/framework/index).
 
 ## Architecture
 
@@ -122,7 +122,7 @@ The overall solution is integrated into [Microsoft Defender for Cloud](/azure/se
 
 #### Recommendations
 
-- SAP whitepaper [Security Recommendations: A Practical Guide for Securing SAP® Solutions](https://www.sap.com/documents/2017/03/14cf06b2-af7c-0010-82c7-eda71af511fa.html) describes a good framework for SAP Solution Security.
+- SAP whitepaper [Security Recommendations: A Practical Guide for Securing SAP&reg; Solutions](https://www.sap.com/documents/2017/03/14cf06b2-af7c-0010-82c7-eda71af511fa.html) describes a good framework for SAP Solution Security.
 - Enable Single-Sign-On (SSO) for user authentication from SAPGUI and browser-based SAP access.
 - Use security hardened operating system images for provisioning Azure VMs. See the latest [CIS benchmarks](https://www.cisecurity.org/benchmark/azure/) for the latest recommendations.
 - Implement encryption-at-rest for:

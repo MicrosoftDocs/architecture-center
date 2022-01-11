@@ -79,9 +79,9 @@ We have provided three sample cost profiles based on the amount of traffic (we a
 [example-pricing]: https://azure.com/e/48cc24e76c914ecf8fafec1fed0e0e14
 [serverless]: /learn/paths/create-serverless-applications/
 [cv-categories]: /azure/cognitive-services/computer-vision/category-taxonomy
-[resiliency]: ../../framework/resiliency/principles.md
+[resiliency]: /azure/architecture/framework/resiliency/principles
 [security]: /azure/security
-[scalability]: ../../framework/scalability/performance-efficiency.md
+[scalability]: /azure/architecture/framework/scalability/performance-efficiency
 [functions-best-practices]: /azure/azure-functions/functions-best-practices
 [msi]: /azure/app-service/app-service-managed-service-identity
 [logic-apps]: /azure/logic-apps/logic-apps-overview

@@ -515,12 +515,6 @@ Protect stored cardholder data. Encrypt transmission of cardholder data across o
 > [!div class="nextstepaction"]
 > [Protect cardholder data](aks-pci-data.yml)
 
-Continue learning:
-- [Azure Kubernetes Service](/azure/aks/intro-kubernetes)
-- [What is Azure Firewall?](/azure/firewall/overview)
-- [What is the Azure CLI?](/cli/azure/what-is-azure-cli)
-- [Project Calico](https://www.tigera.io/project-calico)
-
 ## Related resources
 
 - [Azure Kubernetes Service (AKS) architecture design](/azure/architecture/reference-architectures/containers/aks-start-here)
