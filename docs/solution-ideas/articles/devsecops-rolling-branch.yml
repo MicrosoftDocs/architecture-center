@@ -1,14 +1,15 @@
 ### YamlMime:Architecture
 metadata:
-  title: DevSecOps with a rolling master branching strategy
+  title: DevSecOps with a rolling main branching strategy
   titleSuffix: Azure Solution Ideas
   description: Improve developer velocity and security with DevSecOps and GitHub during the entire development process using a shift-left strategy.
   author: EdPrice-MSFT
-  ms.author: fdeliva@microsoft.com
-  ms.date: 01/10/2022
+  ms.author: fdeliva
+  ms.date: 01/11/2022
   ms.topic: conceptual
   ms.service: architecture-center
   ms.subservice: solution-idea
+  ms.custom: fcp
 azureCategories:
   - devops
   - security
@@ -16,8 +17,8 @@ products:
   - azure-boards
   - azure-container-registry
   - github
-name: DevSecOps with a rolling master branching strategy
+name: DevSecOps with a rolling main branching strategy
 summary: Improve developer velocity and security with DevSecOps and GitHub during the entire development process using a shift-left strategy.
-thumbnailUrl: /azure/architecture/browse/thumbs/devsecops-with-rolling-master-branch-thumbnail.png
+thumbnailUrl: /azure/architecture/browse/thumbs/devsecops-with-rolling-branch-thumbnail.png
 content: |
   [!include[](devsecops-rolling-branch-content.md)]
