@@ -160,7 +160,7 @@ Shared documentation is critical. Encourage team members to contribute and share
 
 <!-- links -->
 
-[app-insights]: /azure/azure-monitor#application-insights
+[app-insights]: /azure/application-insights
 [azure-ad]: https://azure.microsoft.com/services/active-directory
 [azure-diagnostics]: /azure/monitoring-and-diagnostics/azure-diagnostics
 [azure-monitor]: /azure/monitoring-and-diagnostics/monitoring-overview
