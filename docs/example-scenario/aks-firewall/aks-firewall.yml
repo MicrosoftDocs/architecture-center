@@ -1,6 +1,6 @@
 ### YamlMime:Architecture
 metadata:
-  title: Monitor an AKS cluster by using Azure Firewall
+  title: Use Azure Firewall to help protect an AKS cluster
   titleSuffix: Azure Example Scenarios
   description: Deploy an AKS cluster in a hub-and-spoke network topology by using Terraform and Azure DevOps. Help protect the inbound and outbound traffic by using Azure Firewall.
   author: paolosalvatori
