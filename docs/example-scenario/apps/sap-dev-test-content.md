@@ -31,7 +31,7 @@ This scenario demonstrates provisioning a single SAP system database and SAP app
 - [ExpressRoute](/azure/expressroute/expressroute-introduction) extends your on-premises networks into the Microsoft cloud over a private connection, which is facilitated by a connectivity provider.
 - [Network security groups](/azure/virtual-network/security-overview) limit network traffic to specific resources in a virtual network. A network security group contains a list of security rules that allow or deny inbound or outbound network traffic. The security rules are based on source or destination IP address, port, and protocol.
 - [Resource groups](/azure/azure-resource-manager/resource-group-overview#resource-groups) act as logical containers for Azure resources.
-- [Storage](https://docs.microsoft.com/en-us/azure/?product=storage) Use [Azure Files](https://docs.microsoft.com/azure/storage/files/storage-files-introduction) or [Azure NetApp Files](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-introduction) to provide the recommended storage for the SAP executables and HANA data and logs.
+- Use [Azure Files](https://docs.microsoft.com/azure/storage/files/storage-files-introduction) or [Azure NetApp Files](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-introduction) to provide the recommended storage for the SAP executables and HANA data and logs.
 
 ## Considerations
 
@@ -53,7 +53,7 @@ For general guidance on designing resilient solutions, see [Designing resilient 
 
 ### Data protection and cloning
 
-For general guidance on protecting your application data, see [Azure Application Consistent Snapshot tool][azacsnap](https://docs.microsoft.com/en-us/azure/azure-netapp-files/azacsnap-introduction).
+For general guidance on protecting your application data, see [Azure Application Consistent Snapshot tool](https://docs.microsoft.com/en-us/azure/azure-netapp-files/azacsnap-introduction).
 
 ## Pricing
 
