@@ -13,7 +13,7 @@ This reference architecture implements the [Analytics end-to-end with Azure Syna
 TODO - George: Update this architecture from new guidance
 -->
 
-**Scenario**: An organization has a large on-premises Data Warehouse stored in a SQL Database. The organization wants to use Azure Synapse to perform analysis using Power BI.
+**Scenario**: An organization has a large on-premises Data Warehouse stored in a SQL Database. The organization wants to use Azure Synapse to perform analysis, using Power BI to serve these insights.
 
 This reference architecture is designed for ongoing ingestion and processing.
 
@@ -49,7 +49,7 @@ Data modeling approach in this use case is presented by composition of Enterpris
 
 ## Data pipeline
 
-This reference architecture uses the [Adventure Works DW][adventureworks-sample-link] sample database as a data source. The data pipeline has the following stages:
+This reference architecture uses the [Adventure Works DW][adventureworks-sample-link] sample database as a data source. We will use an [Incremental Data Load pattern](incremental-load) to ensure we only load data that was modified or added after we last performed this operation. The data pipeline has the following stages:
 
 <!--
 1. Export the data from SQL Server to flat files (bcp utility).
@@ -66,7 +66,7 @@ This reference architecture uses the [Adventure Works DW][adventureworks-sample-
     1. Check if a schema for the table exists, and create a schema if one is not found.
     1. The Copy Data activity in Azure Synapse Pipelines will copy data from the SQL DB into the ADLS staging environment.
     1. Data from the staging environment is then loaded into the Synapse Provisioned SQL Pool via PolyBase
-    1. We store the new watermark value to update later <!-- TODO - Noah: change if condition to appending variable onto list, update stored proc to simplify-->
+    1. Store the new watermark value to update later <!-- TODO - Noah: change if condition to appending variable onto list, update stored proc to simplify-->
 1. A stored procedure to update the watermark stored in the SQL DB is executed.
 
 
@@ -75,6 +75,7 @@ This reference architecture uses the [Adventure Works DW][adventureworks-sample-
 
 The next sections describe these stages in more detail.
 
+<!-- keeping original data for authoring reference - delete before PR merge
 ### Export data from SQL Server
 
 The [bcp](/sql/tools/bcp-utility) (bulk copy program) utility is a fast way to create flat text files from SQL tables. In this step, you select the columns that you want to export, but don't transform the data. Any data transformations should happen in Azure Synapse.
@@ -103,7 +104,41 @@ AzCopy moves data to storage over the public internet. If this isn't fast enough
 
 During a copy operation, AzCopy creates a temporary journal file, which enables AzCopy to restart the operation if it gets interrupted (for example, due to a network error). Make sure there is enough disk space to store the journal files. You can use the /Z option to specify where the journal files are written.
 
-### Load data into Azure Synapse
+
+### Transform the data
+
+Transform the data and move it into production tables. In this step, the data is transformed into a star schema with dimension tables and fact tables, suitable for semantic modeling.
+
+Create the production tables with clustered columnstore indexes, which offer the best overall query performance. Columnstore indexes are optimized for queries that scan many records. Columnstore indexes don't perform as well for singleton lookups (that is, looking up a single row). If you need to perform frequent singleton lookups, you can add a non-clustered index to a table. Singleton lookups can run significantly faster using a non-clustered index. However, singleton lookups are typically less common in data warehouse scenarios than OLTP workloads. For more information, see [Indexing tables in Azure Synapse](/azure/sql-data-warehouse/sql-data-warehouse-tables-index).
+
+> [!NOTE]
+> Clustered columnstore tables do not support `varchar(max)`, `nvarchar(max)`, or `varbinary(max)` data types. In that case, consider a heap or clustered index. You might put those columns into a separate table.
+
+Because the sample database is not very large, we created replicated tables with no partitions. For production workloads, using distributed tables is likely to improve query performance. See [Guidance for designing distributed tables in Azure Synapse](/azure/sql-data-warehouse/sql-data-warehouse-tables-distribute). Our example scripts run the queries using a static [resource class](/azure/sql-data-warehouse/resource-classes-for-workload-management).
+
+### Load the semantic model
+
+Load the data into a tabular model in Azure Analysis Services. In this step, you create a semantic data model by using SQL Server Data Tools (SSDT). You can also create a model by importing it from a Power BI Desktop file. Because Azure Synapse does not support foreign keys, you must add the relationships to the semantic model, so that you can join across tables.
+
+-->
+
+### Look up previous watermark
+
+The Lookup activity is used to query the control table for the most recent watermark value. The control table will contain the watermark value corresponding to the most recent value in the watermark column from the last data load. This value is updated in the last step of our data pipeline, to ensure we only load data changed since our most recent pipeline run.
+
+**Recommendations:**
+
+This technique works best if the data type of the watermark column is the same across all tables in your Data Warehouse.
+
+### ForEach Table
+
+The ForEach activity is configured to iterate over every table in the Data Warehouse, allowing us to check if any data has been modified, and if so, copy that data into our SQL Pool.
+
+**Recommendations:**
+
+Something about setting the items params/ array
+
+### Copy Activity - Loading data into Synapse SQL Pool
 
 Use [PolyBase](/sql/relational-databases/polybase/polybase-guide) to load the files from blob storage into the data warehouse. PolyBase is designed to leverage the MPP (Massively Parallel Processing) architecture of Azure Synapse, which makes it the fastest way to load data into Azure Synapse.
 
@@ -138,20 +173,9 @@ For more information, see the following articles:
 - [Migrate your schemas to Azure Synapse](/azure/sql-data-warehouse/sql-data-warehouse-migrate-schema)
 - [Guidance for defining data types for tables in Azure Synapse](/azure/sql-data-warehouse/sql-data-warehouse-tables-data-types)
 
-### Transform the data
+### Storing the new watermark value
 
-Transform the data and move it into production tables. In this step, the data is transformed into a star schema with dimension tables and fact tables, suitable for semantic modeling.
-
-Create the production tables with clustered columnstore indexes, which offer the best overall query performance. Columnstore indexes are optimized for queries that scan many records. Columnstore indexes don't perform as well for singleton lookups (that is, looking up a single row). If you need to perform frequent singleton lookups, you can add a non-clustered index to a table. Singleton lookups can run significantly faster using a non-clustered index. However, singleton lookups are typically less common in data warehouse scenarios than OLTP workloads. For more information, see [Indexing tables in Azure Synapse](/azure/sql-data-warehouse/sql-data-warehouse-tables-index).
-
-> [!NOTE]
-> Clustered columnstore tables do not support `varchar(max)`, `nvarchar(max)`, or `varbinary(max)` data types. In that case, consider a heap or clustered index. You might put those columns into a separate table.
-
-Because the sample database is not very large, we created replicated tables with no partitions. For production workloads, using distributed tables is likely to improve query performance. See [Guidance for designing distributed tables in Azure Synapse](/azure/sql-data-warehouse/sql-data-warehouse-tables-distribute). Our example scripts run the queries using a static [resource class](/azure/sql-data-warehouse/resource-classes-for-workload-management).
-
-### Load the semantic model
-
-Load the data into a tabular model in Azure Analysis Services. In this step, you create a semantic data model by using SQL Server Data Tools (SSDT). You can also create a model by importing it from a Power BI Desktop file. Because Azure Synapse does not support foreign keys, you must add the relationships to the semantic model, so that you can join across tables.
+After copying new records into our SQL pool, we execute the stored procedure defined in the [incremental load pattern](incremental-load). This will update the value of the high watermark in our control table.
 
 ### Use Power BI to visualize the data
 
@@ -294,5 +318,6 @@ You may want to review the following [Azure example scenarios](/azure/architectu
 [aaf-cost]: ../../framework/cost/overview.md
 [enterprise-model]: powerbi-docs/guidance/center-of-excellence-business-intelligence-solution-architecture.md#enterprise-models
 [bi-model]:powerbi-docs/guidance/center-of-excellence-business-intelligence-solution-architecture.md#bi-semantic-models
+[incremental-load]: azure/data-factory/tutorial-incremental-copy-overview
 [pbi-premium-capacities]: powerbi-docs/admin/service-premium-what-is.md#reserved-capacities
 [synapse-dedicated-pool]:azure/articles/synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md#synapse-sql-pool-in-azure-synapse
