@@ -1,68 +1,142 @@
-> The H1 title is the same as the title metadata. Don't enter it here, but as the **name** value in the corresponding YAML file.
+This article provides an overview of the Azure database solutions described in Azure Architecture Center.
 
-_Brief introduction goes here._ [**Deploy this solution**.](#deploy-the-solution)
+![](./images/architecture-design-types.svg)
 
-![alt text.](./media/folder_name/architecture-diagram.png)
+Azure Database solutions include both traditional Relational Database Management System (RDBMS) and big data solutions.
 
-_Download a [Visio file](https://arch-center.azureedge.net/architecture.vsdx) that contains this architecture diagram. This file must be uploaded to `https://arch-center.azureedge.net/`_
+RDBMS workloads include online transaction processing (OLTP) and online analytical processing (OLAP).
+Data from multiple sources in the organization might be consolidated into a data warehouse. You might use an extract, transform, and load (ETL) process to move and transform the source data.
 
-## Architecture
+A big data architecture is designed to handle the ingestion, processing, and analysis large or complex data.
+Big data solutions typically involve a large amount of non-relational data, which traditional RDBMS systems aren't well suited to store.
+This type of database is referred to as *Not only SQL* or *NoSQL*.
 
-The architecture consists of the following components:
+## Learn about databases on Azure
 
-- **Thing 1**. Description
+If you're new to databases on Azure, the best place to learn more is with Microsoft Learn, a free, online training platform.
+You'll find videos, tutorials, and hands-on learning for specific products and services.
+Microsoft Learn offers learning paths based on your job role, such as developer or data analyst.
 
-- **Thing 2**. Description
+[You can browse Azure data modules](https://docs.microsoft.com/learn/browse/?products=azure&terms=database) or use this Learning Path to understand [Azure SQL fundamentals](https://docs.microsoft.com/learn/paths/azure-sql-fundamentals).
 
-## Recommendations
+Here are some Learn modules you might find useful:
 
-The following recommendations apply for most scenarios. Follow these recommendations unless you have a specific requirement that overrides them.
+- [Choose a data storage approach in Azure](https://docs.microsoft.com/learn/modules/choose-storage-approach-in-azure)
+- [Design your migration to Azure](https://docs.microsoft.com/learn/modules/design-your-migration-to-azure)
+- [Deploy Azure SQL Database](https://docs.microsoft.com/learn/modules/deploy-azure-sql-database)
+- [Explore Azure database and analytics services](https://docs.microsoft.com/learn/modules/azure-database-fundamentals)
+- [Secure your Azure SQL Database](https://docs.microsoft.com/learn/modules/secure-your-azure-sql-database)
 
-_Include considerations for deploying or configuring the elements of this architecture._
+## Path to production
 
-## Scalability considerations
+INTRO TEXT
 
-_Identify and address scalability concerns relevant to the architecture in this scenario._
+To learn about resources for gathering data from multiple sources and how to and apply data transformation within the data pipeline, see [Extract, transform, and load (ETL)](https://docs.microsoft.com/azure/architecture/data-guide/relational-data/etl).
 
-## Availability considerations
+To learn about Online analytical processing (OLAP), which organizes large business databases and supports complex analysis, see [Online analytical processing](https://docs.microsoft.com/azure/architecture/data-guide/relational-data/online-analytical-processing).
 
-_Identify and address availability concerns relevant to the architecture in this scenario._
+A *non-relational database* does not use the tabular schema of rows and columns. For more information, see [Non-relational data and NoSQL](https://docs.microsoft.com/azure/architecture/data-guide/big-data/non-relational-data).
 
-## Manageability considerations
+To learn about designing a system that scales well as data grows, see [Build a scalable system for massive data](https://docs.microsoft.com/azure/architecture/data-guide/scenarios/build-scalable-database-solutions-azure-services).
 
-_Identify and address manageability concerns relevant to the architecture in this scenario._
+A big data architecture can handle ingestion, processing, and analysis of data that is too large or complex for traditional database systems. For more information, see [Big data architectures](https://docs.microsoft.com/azure/architecture/data-guide/big-data).
 
-## Security considerations
+In a big data architecture, you may need an analytical data store that serves processed data in a structured format that can be queried using analytical tools. For more information, see [Choose an analytical data store in Azure](https://docs.microsoft.com/azure/architecture/data-guide/technology-choices/analytical-data-stores).
 
-_Identify and address security concerns relevant to the architecture in this scenario._
+To learn about data lakes, which hold a large amount of data in its native, raw format, see [Data lakes](https://docs.microsoft.com/azure/architecture/data-guide/scenarios/data-lake).
 
-## Deploy the solution
+A hybrid cloud is an IT environment that combines public cloud and on-premises datacenters. For more information, see [Extend on-premises data solutions to the cloud](https://docs.microsoft.com/azure/architecture/data-guide/scenarios/hybrid-on-premises-and-cloud).
 
-_Describe a step-by-step process for implementing the reference architecture solution. Best practices are to add the solution to GitHub, provide a link (use boilerplate text below), and explain how to roll out the solution._
+Azure Cosmos DB is a fully managed NoSQL database service for modern app development. For more information, see [Azure Cosmos DB resource model](https://docs.microsoft.com/azure/cosmos-db/account-databases-containers-items).
 
-A deployment for a reference architecture that implements these recommendations and considerations is available on [GitHub](https://www.github.com/path-to-repo).
+Azure Databricks is a fast, powerful Apache Spark–based analytics service for big data analytics and AI solutions. For more information, see [Monitoring Azure Databricks](https://docs.microsoft.com/azure/architecture/databricks-monitoring).
 
-1. First step
-2. Second step
-3. Third step ...
+To learn about the options for transferring data to and from Azure, see [Transfer data to and from Azure](https://docs.microsoft.com/azure/architecture/data-guide/scenarios/data-transfer).
 
-## Next steps
+## Best practices
 
-Links to articles on the AAC, and other Docs articles. Could also be to appropriate sources outside of Docs, such as GitHub repos or an official technical blog post.
+INTRO TEXT
 
-Examples:
-* [Artificial intelligence (AI) - Architectural overview](/azure/architecture/data-guide/big-data/ai-overview)
-* [Choosing a Microsoft cognitive services technology](/azure/architecture/data-guide/technology-choices/cognitive-services)
-* [What are Azure Cognitive Services?](/azure/cognitive-services/what-are-cognitive-services)
+- [Data management patterns](https://docs.microsoft.com/azure/architecture/patterns/category/data-management)
+  Data management is the key element of cloud applications.
+  It influences most quality attributes.
 
-## Related resources
+- [Transactional Outbox pattern with Azure Cosmos DB](https://docs.microsoft.com/azure/architecture/best-practices/transactional-outbox-cosmos)
+  Learn how to use the Transactional Outbox pattern for reliable messaging and guaranteed delivery of events.
 
-Another optional link list, in bulleted form. If you have several links to other articles in Docs, include those in "Next steps" and use "Related resources" for related architecture guides and architectures.
+- [Distribute your data globally with Azure Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/distribute-data-globally)
+  To achieve low latency and high availability, some applications need to be deployed in datacenters that are close to their users.
 
-Here is an example section:
+- [Use the best data store for the job](https://docs.microsoft.com/azure/architecture/guide/design-principles/use-the-best-data-store)
+  Pick the storage technology that is the best fit for your data and how it will be used.
 
-Fully deployable architectures:
+- [Security in Azure Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/database-security)
+  Security best practices help prevent, detect, and respond to database breaches.
 
-* [Chatbot for hotel reservations](/azure/architecture/example-scenario/ai/commerce-chatbot)
-* [Build an enterprise-grade conversational bot](/azure/architecture/reference-architectures/ai/conversational-bot)
-* [Speech-to-text conversion](/azure/architecture/reference-architectures/ai/speech-ai-ingestion)
+- [Secure data solutions](https://docs.microsoft.com/azure/architecture/data-guide/scenarios/securing-data-solutions)
+  Address concerns around increased accessibility to data in the cloud and how to secure it.
+
+- [Continuous backup with point-in-time restore in Azure Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/continuous-backup-restore-introduction)
+  Learn about Azure Cosmos DB's point-in-time restore feature.
+
+- [Achieve high availability with Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/high-availability)
+  Cosmos DB provides multiple features and configuration options to achieve high availability.
+
+- [High availability for Azure SQL Database and SQL Managed Instance](https://docs.microsoft.com/azure/azure-sql/database/high-availability-sla)
+  The database shouldn't be a single point of failure in your  architecture.
+
+## Azure SQL Database security baselines
+
+- [Azure security baseline for Azure SQL Database](https://docs.microsoft.com/security/benchmark/azure/baselines/sql-database-security-baseline)
+- [Azure security baseline for Azure Database Migration Service](https://docs.microsoft.com/security/benchmark/azure/baselines/database-migration-security-baseline)
+
+## Technology choices
+
+There are many options for technologies to use with Azure Databases.
+These articles help you choose the best technologies for your needs.
+
+- [Choose an analytical data store in Azure](../data-guide/technology-choices/analytical-data-stores)
+- [Choose a data analytics technology in Azure](../data-guide/technology-choices/analysis-visualizations-reporting)
+- [Choose a batch processing technology in Azure](../data-guide/technology-choices/batch-processing)
+- [Choose a big data storage technology in Azure](../data-guide/technology-choices/data-storage)
+- [Choose a data pipeline orchestration technology in Azure](../data-guide/technology-choices/pipeline-orchestration-data-movement)
+- [Choose a real-time message ingestion technology in Azure](../data-guide/technology-choices/real-time-ingestion)
+- [Choose a search data store in Azure](../data-guide/technology-choices/search-options)
+- [Choose a stream processing technology in Azure](../data-guide/technology-choices/stream-processing)
+
+## Stay current with databases
+
+Refer to [Azure updates](https://azure.microsoft.com/updates/?category=databases) to keep current with Azure Databases technology.
+
+## Additional resources
+
+INTRO TEXT
+
+- [Serverless apps using Cosmos DB](../solution-ideas/articles/serverless-apps-using-cosmos-db.yml)
+
+- [Mining equipment monitoring](../solution-ideas/articles/monitor-mining-equipment.yml)
+
+- [Messaging](../solution-ideas/articles/messaging.yml)
+
+- [Loan credit risk and default modeling](../solution-ideas/articles/loan-credit-risk-analyzer-and-default-modeling.yml)
+
+- [Enterprise data warehouse](../solution-ideas/articles/enterprise-data-warehouse.yml)
+
+- [Data cache](../solution-ideas/articles/data-cache-with-redis-cache.yml)
+
+- [SQL Managed Instance with customer-managed keys](../example-scenario/data/sql-managed-instance-cmk.yml)
+
+- [Optimized storage with logical data classification](../solution-ideas/articles/optimized-storage-logical-data-classification.yml)
+
+- [Optimize administration of SQL Server instances](../hybrid/azure-arc-sql-server.yml)
+
+- [Multi-region web app with private connectivity to database](../example-scenario/sql-failover/app-service-private-sql-multi-region.yml)
+
+- [Globally distributed applications using Cosmos DB](../solution-ideas/articles/globally-distributed-mission-critical-applications-using-cosmos-db.yml)
+
+- [Lamna Healthcare scenario for data management and analytics in Azure](/azure/cloud-adoption-framework/scenarios/data-management/architectures/reference-architecture-lamna)
+
+- [Relecloud scenario for data management and analytics in Azure](/azure/cloud-adoption-framework/scenarios/data-management/architectures/reference-architecture-relecloud)
+
+- [Adatum Corporation scenario for data management and analytics in Azure](/azure/cloud-adoption-framework/scenarios/data-management/architectures/reference-architecture-adatum)
+

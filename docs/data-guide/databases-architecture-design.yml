@@ -1,22 +1,21 @@
 ### YamlMime:Architecture
 metadata:
-  title: <H1 title of your article. Maximum recommended length is 60 characters>
+  title: Databases architecture design
   titleSuffix: Azure Reference Architectures
   description: <A brief summary of your article. This is the description that appears in search engine results. Maximum recommended length is 150-160 characters.>
-  author: <github username>
-  ms.author: <Microsoft email alias>
-  ms.date: <publish or major update date - mm/dd/yyyy>
+  author: EdPrice-MSFT
+  ms.author: pnp
+  ms.date: 01/17/2022
   ms.topic: conceptual
   ms.service: architecture-center
   ms.subservice: reference-architecture
 azureCategories:
-  - <choose at least one category from the list at https://review.docs.microsoft.com/en-us/help/contribute/architecture-center/aac-browser-authoring?branch=master#azure-categories>
-  - <there can be more than one category>
+  - databases
 products:
   - <choose 1-5 products from the list at https://review.docs.microsoft.com/en-us/help/contribute/architecture-center/aac-browser-authoring?branch=master#products>
   - <1-5 products>
   - <1-5 products>
-name: <H1 title>
+name: Databases architecture design
 summary: <Write a summary. Can be same as description.>
 thumbnailUrl: /azure/architecture/browse/thumbs/<browse-png-filename>.png
 content: |
