@@ -28,7 +28,7 @@ DevOps is the integration of development, quality assurance, and IT operations i
 
 **Ensure business alignment across organizations and teams.** Conflicts over resources, purpose, goals, and priorities within an organization can be a risk to successful operations. Ensure that the business, development, and operations teams are aligned.
 
-**Ensure that the team understands the software lifecycle.** Your team needs to understand the overall lifecycle of the application, and which part of the lifecycle the application is currently in. This helps all team members know what they should be doing now, and what they should be planning and preparing for in the future.
+**Ensure that the team understands the software lifecycle.** Your team needs to understand the overall lifecycle of the application, and where the application is in that lifecycle. This helps all team members know what they should be doing now, and what they should be planning and preparing for in the future.
 
 **Reduce cycle time.** Aim to minimize the time it takes to move from ideas to usable developed software. Limit the size and scope of individual releases to keep the test burden low. Automate the build, test, configuration, and deployment processes whenever possible. Clear any obstacles to communication among developers, and between developers and operations.
 
@@ -36,15 +36,15 @@ DevOps is the integration of development, quality assurance, and IT operations i
 
 **Do proactive planning.** Proactively plan for failure. Have processes in place to quickly identify problems when they occur, escalate to the correct team members to fix, and confirm resolution.
 
-**Learn from failures.** Failures are inevitable, but it's important to learn from failures to avoid repeating them. If an operational failure occurs, triage the problem, document the cause and solution, and share any lessons learned. Whenever possible, update your build processes to automatically detect that kind of failure in the future.
+**Learn from failures.** Failures are inevitable, but it's important to learn from failures to avoid repeating them. If an operational failure occurs, triage the problem, document the cause and solution, and share any lessons learned. Whenever possible, update your build processes to automatically detect such failures in the future.
 
 **Optimize for speed and collect data.** Every planned improvement is a hypothesis. Work in the smallest increments possible. Treat new ideas as experiments. Instrument the experiments so that you can collect production data to assess their effectiveness. Be prepared to fail fast if the hypothesis is wrong.
 
-**Allow time for learning.** Both failures and successes provide good opportunities for learning. Before you move on to new projects, allow enough time to gather the important lessons, and make sure those lessons are absorbed by your team. Also give the team time to build skills, experiment, and learn about new tools and techniques.
+**Allow time for learning.** Both failures and successes provide opportunities for learning. Before you move on to new projects, allow time to gather the important lessons, and make sure those lessons are absorbed by your team. Also give the team time to build skills, experiment, and learn about new tools and techniques.
 
 **Document operations.** Document all tools, processes, and automated tasks with the same level of quality as your product code. Document the current design and architecture of any systems you support, along with recovery processes and other maintenance procedures. Focus on the steps you actually do, not theoretically optimal processes. Regularly review and update the documentation. For code, make sure that meaningful comments are included, especially in public APIs. Use tools to generate code documentation automatically whenever possible.
 
-**Share knowledge.** Documentation is only useful if people know that it exists and can find it. Ensure documentation is organized and easily discoverable. Be creative: use brown bags (informal presentations), videos, or newsletters to share knowledge.
+**Share knowledge.** Documentation is only useful if people know that it exists and can find it. Ensure that documentation is organized and easily discoverable. Be creative: use brown bags (informal presentations), videos, or newsletters to share knowledge.
 
 ## Development
 
@@ -54,11 +54,11 @@ DevOps is the integration of development, quality assurance, and IT operations i
 
 > This recommendation doesn't imply that anyone can push live updates to the production deployment. It's about reducing friction for the development and QA teams to create production-like environments.
 
-**Instrument the application for insight.** To understand the health of your application, you need to know how it's performing and whether it's experiencing any errors or problems. Always include instrumentation as a design requirement, and build the instrumentation into the application from the start. Instrumentation must include event logging for root cause analysis, but also telemetry and metrics to monitor the overall health and usage of the application.
+**Instrument the application for insight.** To understand the health of your application, you need to know how it's performing and whether it's experiencing any errors or problems. Always include instrumentation as a design requirement, and build the instrumentation into the application from the start. Instrumentation must include event logging for root cause analysis, but also telemetry and metrics to monitor the health and usage of the application.
 
-**Track your technical debt.** In many projects, release schedules can get prioritized over code quality to one degree or another. Always track when this occurs. Document any shortcuts or other suboptimal implementations, and schedule time to revisit these issues.
+**Track your technical debt.** In many projects, release schedules are prioritized over code quality to one degree or another. Always track when this occurs. Document any shortcuts or other suboptimal implementations, and schedule time to revisit these issues.
 
-**Consider pushing updates directly to production.** To reduce the overall release cycle time, consider pushing properly tested code commits directly to production. Use [feature toggles][feature-toggles] to control which features are enabled. This allows you to move from development to release quickly, using the toggles to enable or disable features. Toggles are also useful when you perform tests like [canary releases][canary-release], where a particular feature is deployed to a subset of the production environment.
+**Consider pushing updates directly to production.** To reduce the overall release cycle time, consider pushing properly tested code commits directly to production. Use [feature toggles][feature-toggles] to control which features are enabled. This allows you to move quickly from development to release, using the toggles to enable or disable features. Toggles are also useful when you perform tests like [canary releases][canary-release], where a particular feature is deployed to a subset of the production environment.
 
 ## Testing
 
@@ -84,7 +84,7 @@ After the initial release, you should run performance and capacity tests wheneve
 
 **Use continuous integration.** Continuous integration (CI) is the practice of merging all developer code into a central codebase on a regular schedule, and then automatically performing standard build and test processes. CI ensures that an entire team can work on a codebase at the same time without conflicts. It also ensures that code defects are found as early as possible. Preferably, the CI process should run every time that code is committed or checked in. At the very least, it should run once per day.
 
-> Consider adopting a [trunk based development model][trunk-based]. In this model, developers commit to a single branch (the trunk). There's a requirement that commits never break the build. This model facilitates CI, because all feature work is done in the trunk, and any merge conflicts are resolved when the commit happens.
+> Consider adopting a [trunk-based development model][trunk-based]. In this model, developers commit to a single branch (the trunk). There's a requirement that commits never break the build. This model facilitates CI, because all feature work is done in the trunk, and any merge conflicts are resolved when the commit happens.
 
 **Consider using continuous delivery.** Continuous delivery (CD) is the practice of ensuring that code is always ready to deploy, by automatically building, testing, and deploying code to production-like environments. Adding continuous delivery to create a full CI/CD pipeline will help you detect code defects as soon as possible. It also ensures that properly tested updates can be released in a short time.
 
@@ -104,13 +104,13 @@ After the initial release, you should run performance and capacity tests wheneve
 
 **Make systems observable.** The operations team should always have clear visibility into the health and status of a system or service. Set up external health endpoints to monitor status, and ensure that applications are coded to instrument the operations metrics. Use a common and consistent schema that helps you correlate events across systems. [Azure Diagnostics][azure-diagnostics] and [Application Insights][app-insights] are the standard method of tracking the health and status of Azure resources. [Azure Monitor][azure-monitor] also provides centralized monitoring and management for cloud or hybrid solutions.
 
-**Aggregate and correlate logs and metrics**. A properly instrumented telemetry system provides a large amount of raw performance data and event logs. Make sure that telemetry and log data is processed and correlated quickly, so that operations staff always have an up-to-date picture of system health. Organize and display data in ways that give a cohesive view of any problems, so that whenever possible it's clear when events are related to one another.
+**Aggregate and correlate logs and metrics**. A properly instrumented telemetry system provides a large amount of raw performance data and event logs. Make sure that telemetry and log data is processed and correlated quickly, so that operations staff always has an up-to-date picture of system health. Organize and display data in ways that give a cohesive view of any problems, so that whenever possible it's clear when events are related to one another.
 
 > Consult your corporate retention policy for requirements on how data is processed and how long it should be stored.
 
 **Implement automated alerts and notifications.** Set up monitoring tools like [Azure Monitor][azure-monitor] to detect patterns or conditions that indicate potential or current problems. Send alerts to the team members who can address the problems. Tune the alerts to avoid false positives.
 
-**Monitor assets and resources for expirations.** Some resources and assets, like certificates, expire after a given amount of time. Be sure to track which assets expire, when they expire, and what services or features depend on them. Use automated processes to monitor these assets. Notify the operations team before an asset expires, and escalate if expiration threatens to disrupt the application.
+**Monitor assets and resources for expirations.** Some resources and assets, like certificates. Be sure to track which assets expire, when they expire, and what services or features depend on them. Use automated processes to monitor these assets. Notify the operations team before an asset expires, and escalate if expiration threatens to disrupt the application.
 
 ## Management
 
@@ -122,15 +122,15 @@ After the initial release, you should run performance and capacity tests wheneve
 
 Containers also create an abstraction layer between the application and the underlying operating system, which provides consistency across environments. This abstraction can also isolate a container from other processes or applications that run on a host.
 
-**Implement resiliency and self-healing.** Resiliency is the ability of an application to recover from failures. Strategies for resiliency include retrying transient failures, and failing over to a secondary instance or even another region. For more information, see [Designing reliable Azure applications](/azure/architecture/framework/resiliency/app-design). Instrument your applications so that problems are reported immediately and you can manage outages or other system failures.
+**Implement resiliency and self-healing.** Resiliency is the ability of an application to recover from failures. Strategies for resiliency include retrying transient failures, and failing over to a secondary instance or even to another region. For more information, see [Designing reliable Azure applications](/azure/architecture/framework/resiliency/app-design). Instrument your applications so that problems are reported immediately and you can manage outages or other system failures.
 
-**Have an operations manual.** An operations manual or *runbook* documents the procedures and management information needed for operations staff to maintain a system. Also document any operations scenarios and mitigation plans that might come into play during a failure or other disruption to your service. Create this documentation during the development process, and keep it up-to-date afterwards. This is a living document, and should be reviewed, tested, and improved regularly.
+**Have an operations manual.** An operations manual, or *runbook*, documents the procedures and management information needed for operations staff to maintain a system. Also document any operations scenarios and mitigation plans that might come into play during a failure or other disruption to your service. Create this documentation during the development process and keep it up-to-date afterwards. This is a living document, and should be reviewed, tested, and improved regularly.
 
 Shared documentation is critical. Encourage team members to contribute and share knowledge. The entire team should have access to documents. Make it easy for anyone on the team to help keep documents updated.
 
 **Document on-call procedures.** Make sure on-call duties, schedules, and procedures are documented and shared to all team members. Keep this information up-to-date at all times.
 
-**Document escalation procedures for third-party dependencies.** If your application depends on external third-party services that you don't directly control, you must have a plan to deal with outages. Create documentation for your planned mitigation processes. Include support contacts and escalation paths.
+**Document escalation procedures for third-party dependencies.** If your application depends on external third-party services that you don't directly control, you need a plan to deal with outages. Create documentation for your planned mitigation processes. Include support contacts and escalation paths.
 
 **Use configuration management.** Configuration changes should be planned, visible to operations, and recorded. This could take the form of a configuration management database, or a configuration-as-code approach. Configuration should be audited regularly to ensure that what's expected is actually in place.
 
