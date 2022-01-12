@@ -38,8 +38,8 @@ A developer’s day:
 
 ### Components
 
-* [Azure Boards](https://azure.microsoft.com/en-us/services/devops/boards/). Azure Boards provides software development teams with interactive and customizable tools for software projects.
-* [Azure Container Registry](https://azure.microsoft.com/en-us/services/container-registry/). Azure Container Registry is a managed, private Docker registry service. Create and maintain Azure container registries to store and manage your private Docker container images and related artifacts.
+* [Azure Boards](https://azure.microsoft.com/services/devops/boards). Azure Boards provides software development teams with interactive and customizable tools for software projects.
+* [Azure Container Registry](https://azure.microsoft.com/services/container-registry). Azure Container Registry is a managed, private Docker registry service. Create and maintain Azure container registries to store and manage your private Docker container images and related artifacts.
 * [GitHub packages / release](/azure/architecture/solution-ideas/articles/devsecops-in-github). GitHub is a public (or private) repository for packages, libraries, and applications. GitHub is the key tool to improve reusability and modularity in your software. GitHub is similar to other products like JFrog, npm, or Maven.
 * [GitHub Actions](https://github.com/features/actions). The engine that enables your CI/CD to work, like Jenkins or Azure DevOps.
   * [Workflows Triggers](https://docs.github.com/actions/learn-github-actions/events-that-trigger-workflows): You can configure your workflows to run when a specific activity on GitHub happens, at a scheduled time, or when an event outside of GitHub occurs.
@@ -54,7 +54,7 @@ A developer’s day:
 
 ## Next steps
 
-* [Secure DevOps](https://www.microsoft.com/en-us/securityengineering/devsecops)
+* [Secure DevOps](https://www.microsoft.com/securityengineering/devsecops)
 * [Security strategy essentials](https://lab.github.com/githubtraining/security-strategy-essentials)
 * [CodeQL U-Boot Challenge (C/C++)](https://lab.github.com/githubtraining/codeql-u-boot-challenge-(cc++))
 * [Learn GitHub Actions](https://docs.github.com/actions/learn-github-actions)
