@@ -77,24 +77,24 @@ These scenarios illustrate the options available when you connect to Azure Purvi
 
 - [Power BI](https://powerbi.microsoft.com/what-is-power-bi) is a collection of software services and apps. These services create and share reports that connect and visualize multiple sources of data. When you use Power BI with Azure Purview, it can catalog and classify your data and provide granular lineage that's illustrated from end to end.
 
-- [Azure Private Link](https://azure.microsoft.com/services/private-link) provides private connectivity from a virtual network to Azure Platform as a Service (PaaS), customer-owned or Microsoft partner services.
+- [Azure Private Link](https://azure.microsoft.com/services/private-link) provides private connectivity from a virtual network to Azure platform as a service (PaaS) services, services that you own, or Microsoft partner services.
 
-- [Azure Key Vault](https://azure.microsoft.com/services/key-vault) stores and controls access to secrets such as tokens, passwords, and API keys. Key Vault also creates and controls encryption keys and manages security certificates.
+- [Azure Key Vault](https://azure.microsoft.com/services/key-vault) stores and controls access to secrets like tokens, passwords, and API keys. Key Vault also creates and controls encryption keys and manages security certificates.
 
-- [Azure AD](https://azure.microsoft.com/services/active-directory) offers cloud-based identity and access management services. These features provide a way for users to sign in and access resources.
+- [Azure Active Directory (Azure AD)](https://azure.microsoft.com/services/active-directory) offers cloud-based identity and access management services. These features provide a way for users to sign in and access resources.
 
-- [Azure Monitor](https://azure.microsoft.com/services/monitor) collects and analyzes data on environments and Azure resources. This data includes apps-telemetry, such as performance metrics and activity logs.
+- [Azure Monitor](https://azure.microsoft.com/services/monitor) collects and analyzes data on environments and Azure resources. This data includes app telemetry, like performance metrics and activity logs.
 
 ## Next steps
 
-- [Read some of Azure Purview’s customer case studies](https://customers.microsoft.com/en-us/search?sq=%22Azure%20Purview%22&ff=&p=0&so=story_publish_date%20desc)
-- [Explore Azure Purview’s technical documentation and best practice](https://docs.microsoft.com/azure/purview/concept-best-practices-accounts)
-- [What is Azure Purview?](https://docs.microsoft.com/azure/purview/overview)
+- [Read some Azure Purview customer case studies](https://customers.microsoft.com/en-us/search?sq=%22Azure%20Purview%22&ff=&p=0&so=story_publish_date%20desc)
+- [Explore Azure Purview technical documentation and best practices](/azure/purview/concept-best-practices-accounts)
+- [What is Azure Purview?](/azure/purview/overview)
 - [What is Power BI?](https://powerbi.microsoft.com/what-is-power-bi)
 - [Azure Active Directory](https://azure.microsoft.com/services/active-directory)
-- [Azure Data Factory](https://azure.microsoft.com/services/data-factory)
-- [Azure Data Lake Storage](https://azure.microsoft.com/services/storage/data-lake-storage)
+- [Data Factory](https://azure.microsoft.com/services/data-factory)
+- [Data Lake Storage](https://azure.microsoft.com/services/storage/data-lake-storage)
 - [Azure Databricks](https://azure.microsoft.com/services/databricks)
-- [Azure Monitor](https://azure.microsoft.com/services/monitor)
+- [Monitor](https://azure.microsoft.com/services/monitor)
 - [Azure Synapse Analytics](https://azure.microsoft.com/services/synapse-analytics)
 - [Key Vault](https://azure.microsoft.com/services/key-vault)
