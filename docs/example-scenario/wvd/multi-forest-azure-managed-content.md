@@ -2,12 +2,15 @@
 
 This solution idea shows how you can deploy Azure Virtual Desktop (AVD) rapidly in a *minimum viable product* (MVP) or a *proof of concept* (PoC) environment with the use of Azure Active Directory Domain Services ([Azure AD DS](/azure/active-directory-domain-services/overview)). Use this idea to extend on-premises multi-forest AD DS identities to Azure without private connectivity and also support [legacy authentication](/azure/active-directory-domain-services/concepts-resource-forest).
 
+## Potential use cases
+
 This solution idea also applies to mergers and acquisitions, organization rebranding, and multiple on-premises identities requirements.
 
 ## Architecture
+
 :::image type="content" source="images/wvd-multi-forest-aadds-edited.png" alt-text="Azure Virtual Desktop with Azure AD Domain Services" lightbox="images/wvd-multi-forest-aadds-edited.png":::
 
-### Data flow
+### Dataflow
 
 The following steps show how the data flows in this architecture in the form of identity.
 
