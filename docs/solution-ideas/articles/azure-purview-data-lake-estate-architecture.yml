@@ -9,6 +9,7 @@ metadata:
   ms.topic: conceptual
   ms.service: architecture-center
   ms.subservice: solution-idea
+  ms.custom: fcp
 azureCategories:
  - analytics
  - databases
@@ -18,7 +19,6 @@ products:
 - azure-data-lake-storage
 - azure-synapse-analytics
 - power-bi
-ms.custom: fcp
 name: Data management across Azure Data Lake with Azure Purview
 summary: Use Azure Purview to build a foundation for data governance and management that can produce and deliver high-quality, trusted data. 
 thumbnailUrl: /docs/browse/thumbs/data-lake-purview.png
