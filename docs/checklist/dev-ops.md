@@ -110,7 +110,7 @@ After the initial release, you should run performance and capacity tests wheneve
 
 **Implement automated alerts and notifications.** Set up monitoring tools like [Azure Monitor][azure-monitor] to detect patterns or conditions that indicate potential or current problems. Send alerts to the team members who can address the problems. Tune the alerts to avoid false positives.
 
-**Monitor assets and resources for expirations.** Some resources and assets, like certificates. Be sure to track which assets expire, when they expire, and what services or features depend on them. Use automated processes to monitor these assets. Notify the operations team before an asset expires, and escalate if expiration threatens to disrupt the application.
+**Monitor assets and resources for expirations.** Some resources and assets, like certificates, expire. Be sure to track which assets expire, when they expire, and what services or features depend on them. Use automated processes to monitor these assets. Notify the operations team before an asset expires, and escalate if expiration threatens to disrupt the application.
 
 ## Management
 
