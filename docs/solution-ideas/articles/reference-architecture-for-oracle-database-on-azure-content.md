@@ -7,7 +7,7 @@ This solution architecture illustrates a canonical architecture to achieve high 
 ![Architecture diagram](../media/reference-architecture-for-oracle-database-on-azure.png)
 *Download an [SVG](../media/reference-architecture-for-oracle-database-on-azure.svg) of this architecture.*
 
-### Data flow
+### Dataflow
 
 1. The client system accesses a custom application with Oracle DB backend via the web.
 1. Web front end is configured in a load balancer.
