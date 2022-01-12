@@ -1,10 +1,12 @@
 This reference architecture shows how to connect an on-premises network to virtual networks on Azure, using [Azure ExpressRoute][expressroute-introduction]. ExpressRoute connections use a private, dedicated connection through a third-party connectivity provider. The private connection extends your on-premises network into Azure.
 
+## Architecture
+
 ![[0]][0]
 
 *Download a [Visio file][visio-download] of this architecture.*
 
-## Architecture
+### Workflow
 
 The architecture consists of the following components.
 
@@ -126,7 +128,9 @@ Remove-AzExpressRouteCircuit -Name <<circuit-name>> -ResourceGroupName <<resourc
 
 If your provider had already provisioned the circuit, and the `ProvisioningState` is set to `Failed`, or the `CircuitProvisioningState` is not `Enabled`, contact your provider for further assistance.
 
-## Scalability considerations
+## Considerations
+
+### Scalability
 
 ExpressRoute circuits provide a high bandwidth path between networks. Generally, the higher the bandwidth the greater the cost.
 
@@ -175,7 +179,7 @@ Although some providers allow you to change your bandwidth, make sure you pick a
 
     You can upgrade the SKU without disruption, but you cannot switch from the unlimited pricing plan to metered. When downgrading the SKU, your bandwidth consumption must remain within the default limit of the standard SKU.
 
-## Availability considerations
+### Availability
 
 ExpressRoute does not support router redundancy protocols such as hot standby routing protocol (HSRP) and virtual router redundancy protocol (VRRP) to implement high availability. Instead, it uses a redundant pair of BGP sessions per peering. To facilitate highly-available connections to your network, Azure provisions you with two redundant ports on two routers (part of the Microsoft edge) in an active-active configuration.
 
@@ -195,7 +199,7 @@ You can configure high availability for your Azure connection in different ways,
 
 - Configure a site-to-site VPN as a failover path for ExpressRoute. For more about this option, see [Connect an on-premises network to Azure using ExpressRoute with VPN failover][highly-available-network-architecture]. This option only applies to private peering. For Azure and Microsoft 365 services, the Internet is the only failover path.
 
-## Security considerations
+### Security
 
 You can configure security options for your Azure connection in different ways, depending on your security concerns and compliance needs.
 
@@ -217,7 +221,7 @@ If you must expose management endpoints for VMs to an external network, use NSGs
 > Azure VMs deployed through the Azure portal can include a public IP address that provides login access. However, it is a best practice not to permit this.
 >
 
-### Network monitoring
+#### Network monitoring
 
 Use the Network Watcher to monitor and troubleshoot the network components, tools like Traffic Analytics will show you the systems in your virtual networks that generate most traffic, so that you can visually identify bottlenecks before they degenerate into problems. Network Performance Manager has the ability to monitor information about Microsoft ExpressRoute circuits.
 
@@ -231,7 +235,7 @@ Use the [Azure pricing calculator][azure-pricing-calculator] to estimate costs. 
 
 The services used in this architecture are charged as follows:
 
-### Azure ExpressRoute
+#### Azure ExpressRoute
 
 In this architecture, an ExpressRoute circuit is used to join the on-premises network with Azure through the edge routers.
 
@@ -243,13 +247,13 @@ Calculate your utilization and choose a billing plan accordingly. The **Unlimite
 
 For more information, see [Azure ExpressRoute pricing][expressroute-pricing].
 
-### Azure Virtual Network
+#### Azure Virtual Network
 
 All application tiers are hosted in a single virtual network and are segmented using subnets.
 
 Azure Virtual Network is free. Every subscription is allowed to create up to 50 virtual networks across all regions. All traffic that occurs within the boundaries of a virtual network is free. So, communication between two VMs in the same virtual network is free.
 
-### Virtual machine and internal load balancers
+#### Virtual machine and internal load balancers
 
 In this architecture, internal load balancers are used to load balance traffic inside a virtual network. Basic load balancing between virtual machines that reside in the same virtual network is free.
 
