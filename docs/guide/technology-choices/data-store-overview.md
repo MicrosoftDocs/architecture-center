@@ -4,7 +4,7 @@ titleSuffix: Azure Application Architecture Guide
 description: Learn about the high-level differences between the various data storage models found in Azure data services.
 author: dsk-2015
 ms.author: pnp
-ms.date: 08/08/2020
+ms.date: 01/12/2022
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: guide
@@ -78,7 +78,7 @@ A single key/value store can be extremely scalable, as the data store can easily
 
 ### Azure services
 
-- [Azure Cosmos DB Table API][cosmos-table], and [SQL API][cosmos-sql-key-value] | [(Cosmos DB Security Baseline)](/azure/cosmos-db/security-baseline)
+- [Azure Cosmos DB Table API][cosmos-table] and [SQL API][cosmos-sql-key-value] | [(Cosmos DB Security Baseline)](/azure/cosmos-db/security-baseline)
 - [Azure Cache for Redis][redis] | [(Security Baseline)](/azure/azure-cache-for-redis/security-baseline)
 - [Azure Table Storage][table-storage-classic] | [(Security Baseline)](/azure/storage/common/security-baseline)
 
