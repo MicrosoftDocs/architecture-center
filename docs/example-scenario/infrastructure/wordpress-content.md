@@ -2,7 +2,7 @@
 
 This example scenario is applicable to companies that need a highly scalable and secure installation of WordPress. This scenario is based on a deployment that was used for a large convention and was successfully able to scale to meet the spike traffic that sessions drove to the site.
 
-## Relevant use cases
+## Potential use cases
 
 Other relevant use cases include:
 
@@ -14,6 +14,8 @@ Other relevant use cases include:
 ## Architecture
 
 [![Architecture overview of the Azure components involved in a scalable and secure WordPress deployment](media/secure-scalable-wordpress.png)](media/secure-scalable-wordpress.png#lightbox)
+
+### Dataflow
 
 This scenario covers a scalable and secure installation of WordPress that uses Ubuntu web servers and MariaDB. There are two distinct data flows in this scenario the first is users access the website:
 
