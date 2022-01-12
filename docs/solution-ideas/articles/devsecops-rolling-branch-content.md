@@ -2,6 +2,8 @@
 
 Implement DevSecOps for your organization to help improve developer velocity, introduce the fail-fast culture, and achieve a shift-left in your vulnerability resolution journey.
 
+## Potential use cases
+
 This solution is for organizations that use automation and security tools like [DevSecOps in GitHub](/azure/architecture/solution-ideas/articles/devsecops-in-github). It shows how to integrate and use the DevSecOps capabilities with your branching strategy—by configuring the continuous integration and continuous deployment (CI/CD) pipelines with the right validations, triggers, and schedulers.
 
 ## Architecture
@@ -58,11 +60,11 @@ A developer’s day:
 * [Security strategy essentials](https://lab.github.com/githubtraining/security-strategy-essentials)
 * [CodeQL U-Boot Challenge (C/C++)](https://lab.github.com/githubtraining/codeql-u-boot-challenge-(cc++))
 * [Learn GitHub Actions](https://docs.github.com/actions/learn-github-actions)
+* [Azure Boards documentation](/azure/devops/boards)
+* [Azure Container Registry documentation](/azure/container-registry)
+* [Specify events that trigger pipelines](/azure/devops/pipelines/build/triggers)
 
 ## Related resources
 
-* [Azure Boards documentation](/azure/devops/boards)
-* [Azure Container Registry documentation](/azure/container-registry)
 * [DevSecOps in Azure](/azure/architecture/solution-ideas/articles/devsecops-in-azure)
 * [DevSecOps in GitHub](/azure/architecture/solution-ideas/articles/devsecops-in-github)
-* [Specify events that trigger pipelines](/azure/devops/pipelines/build/triggers)
