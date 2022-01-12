@@ -8,7 +8,7 @@ editor: marktab
 ms.service: architecture-center
 ms.subservice: azure-guide
 ms.topic: article
-ms.date: 01/10/2020
+ms.date: 12/21/2021
 ms.author: tdsp
 ms.category:
   - ai-machine-learning
@@ -26,7 +26,17 @@ categories:
 # Machine Learning Anomaly Detection API
 
 > [!NOTE]
-> This item is under maintenance. We encourage you to use the [Anomaly Detector API service](https://azure.microsoft.com/services/cognitive-services/anomaly-detector/) powered by a gallery of Machine Learning algorithms under Azure Cognitive Services to detect anomalies from business, operational, and IoT metrics.
+> This item is under maintenance. We encourage you to use the [Anomaly Detector AI service](https://azure.microsoft.com/services/cognitive-services/anomaly-detector/).
+
+> [!IMPORTANT]
+> Support for Machine Learning Studio (classic) will end on 31 August 2024. We recommend you transition to [Azure Machine Learning](https://azure.microsoft.com/services/machine-learning/) by that date.
+>
+> Beginning 1 December 2021, you will not be able to create new Machine Learning Studio (classic) resources. Through 31 August 2024, you can continue to use the existing Machine Learning Studio (classic) resources.  
+> 
+> -	See information on [moving machine learning projects from ML Studio (classic) to Azure Machine Learning](/azure/machine-learning/migrate-overview). 
+> -	Learn more about [Azure Machine Learning](/azure/machine-learning/overview-what-is-azure-machine-learning)
+> 
+> ML Studio (classic) documentation is being retired and may not be updated in the future.
 
 ## Overview
 
@@ -53,7 +63,7 @@ The Anomaly Detection offering comes with useful tools to get you started.
 
 ## API Deployment
 
-In order to use the API, you must deploy it to your Azure subscription where it will be hosted as an Azure Machine Learning web service.  You can do this from the [Azure AI Gallery](https://gallery.azure.ai/MachineLearningAPI/Anomaly-Detection-2).  This will deploy two Azure Machine Learning Studio (classic) Web Services (and their related resources) to your Azure subscription - one for anomaly detection with seasonality detection, and one without seasonality detection.  Once the deployment has completed, you will be able to manage your APIs from the [Azure Machine Learning Studio (classic) web services](https://services.azureml.net/webservices/) page.  From this page, you will be able to find your endpoint locations, API keys, as well as sample code for calling the API.  More detailed instructions are available [here](/azure/machine-learning/classic/manage-new-webservice).
+In order to use the API, you must deploy it to your Azure subscription where it will be hosted as an Azure Machine Learning web service.  You can do this action from the [Azure AI Gallery](https://gallery.azure.ai/MachineLearningAPI/Anomaly-Detection-2).  This action will deploy two Azure Machine Learning Studio (classic) Web Services (and their related resources) to your Azure subscription - one for anomaly detection with seasonality detection, and one without seasonality detection.  Once the deployment has completed, you will be able to manage your APIs from the [Azure Machine Learning Studio (classic) web services](https://services.azureml.net/webservices/) page.  From this page, you will be able to find your endpoint locations, API keys, and sample code for calling the API.  More detailed instructions are available [here](/azure/machine-learning/classic/manage-new-webservice).
 
 ## Scaling the API
 
@@ -132,8 +142,8 @@ The anomaly detection API supports detectors in three broad categories. Details 
 | --- | --- | --- | --- | --- |
 | Spike Detectors |TSpike Detector |Detect spikes and dips based on far the values are from first and third quartiles |*tspikedetector.sensitivity:* takes integer value in the range 1-10, default: 3; Higher values will catch more extreme values thus making it less sensitive |TSpike: binary values – '1' if a spike/dip is detected, '0' otherwise |
 | Spike Detectors | ZSpike Detector |Detect spikes and dips based on how far the datapoints are from their mean |*zspikedetector.sensitivity:* take integer value in the range 1-10, default: 3; Higher values will catch more extreme values making it less sensitive |ZSpike: binary values – '1' if a spike/dip is detected, '0' otherwise |
-| Slow Trend Detector |Slow Trend Detector |Detect slow positive trend as per the set sensitivity |*trenddetector.sensitivity:* threshold on detector score (default: 3.25, 3.25 – 5 is a reasonable range to select from; The higher the less sensitive) |tscore: floating number representing anomaly score on trend |
-| Level Change Detectors | Bidirectional Level Change Detector |Detect both upward and downward level change as per the set sensitivity |*bileveldetector.sensitivity:* threshold on detector score (default: 3.25, 3.25 – 5 is a reasonable range to select from; The higher the less sensitive) |rpscore: floating number representing anomaly score on upward and downward level change |
+| Slow Trend Detector |Slow Trend Detector |Detect slow positive trend as per the set sensitivity |*trenddetector.sensitivity:* threshold on detector score (default: 3.25, 3.25 – 5 is a reasonable range to select from; The higher the less sensitive) |tscore: floating number-representing anomaly score on trend |
+| Level Change Detectors | Bidirectional Level Change Detector |Detect both upward and downward level change as per the set sensitivity |*bileveldetector.sensitivity:* threshold on detector score (default: 3.25, 3.25 – 5 is a reasonable range to select from; The higher the less sensitive) |rpscore: floating number-representing anomaly score on upward and downward level change |
 
 ### Parameters
 
@@ -141,13 +151,13 @@ More detailed information on these input parameters is listed in the table below
 
 | Input Parameters | Description | Default Setting | Type | Valid Range | Suggested Range |
 | --- | --- | --- | --- | --- | --- |
-| `detectors.historywindow` |History (in # of data points) used for  anomaly score computation |500 |integer |10-2000 |Time-series dependent |
-| `detectors.spikesdips` | Whether to detect only spikes, only dips, or both |Both |enumerated |Both, Spikes, Dips |Both |
-| `bileveldetector.sensitivity` |Sensitivity for bidirectional level change detector. |3.25 |double |None |3.25-5 (Lesser values mean more sensitive) |
-| `trenddetector.sensitivity` |Sensitivity for positive trend detector. |3.25 |double |None |3.25-5 (Lesser values mean more sensitive) |
-| `tspikedetector.sensitivity` |Sensitivity for TSpike Detector |3 |integer |1-10 |3-5 (Lesser values mean more sensitive) |
-| `zspikedetector.sensitivity` |Sensitivity for ZSpike Detector |3 |integer |1-10 |3-5 (Lesser values mean more sensitive) |
-| `postprocess.tailRows` |Number of the latest data points to be kept in the output results |0 |integer |0 (keep all data points), or specify number of points to keep in results |N/A |
+| `detectors.historywindow` |History (in # of data points) used for  anomaly score computation |500 |Integer |10-2000 |Time-series dependent |
+| `detectors.spikesdips` | Whether to detect only spikes, only dips, or both |Both |Enumerated |Both, Spikes, Dips |Both |
+| `bileveldetector.sensitivity` |Sensitivity for bidirectional level change detector. |3.25 |Double |None |3.25-5 (Lesser values mean more sensitive) |
+| `trenddetector.sensitivity` |Sensitivity for positive trend detector. |3.25 |Double |None |3.25-5 (Lesser values mean more sensitive) |
+| `tspikedetector.sensitivity` |Sensitivity for TSpike Detector |3 |Integer |1-10 |3-5 (Lesser values mean more sensitive) |
+| `zspikedetector.sensitivity` |Sensitivity for ZSpike Detector |3 |Integer |1-10 |3-5 (Lesser values mean more sensitive) |
+| `postprocess.tailRows` |Number of the latest data points to be kept in the output results |0 |Integer |0 (keep all data points), or specify number of points to keep in results |N/A |
 
 ### Output
 
@@ -159,9 +169,9 @@ The API runs all detectors on your time series data and returns anomaly scores a
 | Data |Values from raw data, or aggregated (and/or) imputed data if aggregation (and/or) missing data imputation is applied |
 | TSpike |Binary indicator to indicate whether a spike is detected by TSpike Detector |
 | ZSpike |Binary indicator to indicate whether a spike is detected by ZSpike Detector |
-| rpscore |A floating number representing anomaly score on bidirectional level change |
+| rpscore |A floating number-representing anomaly score on bidirectional level change |
 | rpalert |1/0 value indicating there is a bidirectional level change anomaly based on the input sensitivity |
-| tscore |A floating number representing anomaly score on positive trend |
+| tscore |A floating number-representing anomaly score on positive trend |
 | talert |1/0 value indicating there is a positive trend anomaly based on the input sensitivity |
 
 ## ScoreWithSeasonality API
@@ -179,20 +189,20 @@ More detailed information on these input parameters is listed in the table below
 
 | Input Parameters | Description | Default Setting | Type | Valid Range | Suggested Range |
 | --- | --- | --- | --- | --- | --- |
-| `preprocess.aggregationInterval` |Aggregation interval in seconds for aggregating input time series |0 (no aggregation is performed) |integer |0: skip aggregation, > 0 otherwise |5 minutes to 1 day, time-series dependent |
-| `preprocess.aggregationFunc` |Function used for aggregating data into the specified AggregationInterval |mean |enumerated |mean, sum, length |N/A |
-| `preprocess.replaceMissing` |Values used to impute missing data |lkv (last known value) |enumerated |zero, lkv, mean |N/A |
-| `detectors.historywindow` |History (in # of data points) used for  anomaly score computation |500 |integer |10-2000 |Time-series dependent |
-| `detectors.spikesdips` | Whether to detect only spikes, only dips, or both |Both |enumerated |Both, Spikes, Dips |Both |
-| `bileveldetector.sensitivity` |Sensitivity for bidirectional level change detector. |3.25 |double |None |3.25-5 (Lesser values mean more sensitive) |
-| `postrenddetector.sensitivity` |Sensitivity for positive trend detector. |3.25 |double |None |3.25-5 (Lesser values mean more sensitive) |
-| `negtrenddetector.sensitivity` |Sensitivity for negative trend detector. |3.25 |double |None |3.25-5 (Lesser values mean more sensitive) |
-| `tspikedetector.sensitivity` |Sensitivity for TSpike Detector |3 |integer |1-10 |3-5 (Lesser values mean more sensitive) |
-| `zspikedetector.sensitivity` |Sensitivity for ZSpike Detector |3 |integer |1-10 |3-5 (Lesser values mean more sensitive) |
+| `preprocess.aggregationInterval` |Aggregation interval in seconds for aggregating input time series |0 (no aggregation is performed) |Integer |0: skip aggregation, > 0 otherwise |5 minutes to one day, time-series dependent |
+| `preprocess.aggregationFunc` |Function used for aggregating data into the specified AggregationInterval |mean |Enumerated |mean, sum, length |N/A |
+| `preprocess.replaceMissing` |Values used to impute missing data |lkv (last known value) |Enumerated |zero, lkv, mean |N/A |
+| `detectors.historywindow` |History (in # of data points) used for  anomaly score computation |500 |Integer |10-2000 |Time-series dependent |
+| `detectors.spikesdips` | Whether to detect only spikes, only dips, or both |Both |Enumerated |Both, Spikes, Dips |Both |
+| `bileveldetector.sensitivity` |Sensitivity for bidirectional level change detector. |3.25 |Double |None |3.25-5 (Lesser values mean more sensitive) |
+| `postrenddetector.sensitivity` |Sensitivity for positive trend detector. |3.25 |Double |None |3.25-5 (Lesser values mean more sensitive) |
+| `negtrenddetector.sensitivity` |Sensitivity for negative trend detector. |3.25 |Double |None |3.25-5 (Lesser values mean more sensitive) |
+| `tspikedetector.sensitivity` |Sensitivity for TSpike Detector |3 |Integer |1-10 |3-5 (Lesser values mean more sensitive) |
+| `zspikedetector.sensitivity` |Sensitivity for ZSpike Detector |3 |Integer |1-10 |3-5 (Lesser values mean more sensitive) |
 | `seasonality.enable` |Whether seasonality analysis is to be performed |true |boolean |true, false |Time-series dependent |
-| `seasonality.numSeasonality` |Maximum number of periodic cycles to be detected |1 |integer |1, 2 |1-2 |
-| `seasonality.transform` |Whether seasonal (and) trend components shall be removed before applying anomaly detection |deseason |enumerated |none, deseason, deseasontrend |N/A |
-| `postprocess.tailRows` |Number of the latest data points to be kept in the output results |0 |integer |0 (keep all data points), or specify number of points to keep in results |N/A |
+| `seasonality.numSeasonality` |Maximum number of periodic cycles to be detected |1 |Integer |1, 2 |1-2 |
+| `seasonality.transform` |Whether seasonal (and) trend components shall be removed before applying anomaly detection |deseason |Enumerated |none, deseason, deseasontrend |N/A |
+| `postprocess.tailRows` |Number of the latest data points to be kept in the output results |0 |Integer |0 (keep all data points), or specify number of points to keep in results |N/A |
 
 ### Output
 
@@ -202,14 +212,14 @@ The API runs all detectors on your time series data and returns anomaly scores a
 | --- | --- |
 | Time |Timestamps from raw data, or aggregated (and/or) imputed data if aggregation (and/or) missing data imputation is applied |
 | OriginalData |Values from raw data, or aggregated (and/or) imputed data if aggregation (and/or) missing data imputation is applied |
-| ProcessedData |Either of the following options: <ul><li>Seasonally adjusted time series if significant seasonality has been detected and deseason option selected;</li><li>seasonally adjusted and detrended time series if significant seasonality has been detected and deseasontrend option selected</li><li>otherwise, this option is the same as OriginalData</li> |
+| ProcessedData |Either of the following options: <ul><li>Seasonally adjusted time series if significant seasonality has been detected and deseason option selected;</li><li>seasonally adjusted and detrended time series if significant seasonality has been detected and deseasontrend option selected</li><li>Otherwise, this option is the same as OriginalData</li> |
 | TSpike |Binary indicator to indicate whether a spike is detected by TSpike Detector |
 | ZSpike |Binary indicator to indicate whether a spike is detected by ZSpike Detector |
-| BiLevelChangeScore |A floating number representing anomaly score on level change |
+| BiLevelChangeScore |A floating number-representing anomaly score on level change |
 | BiLevelChangeAlert |1/0 value indicating there is a level change anomaly based on the input sensitivity |
-| PosTrendScore |A floating number representing anomaly score on positive trend |
+| PosTrendScore |A floating number-representing anomaly score on positive trend |
 | PosTrendAlert |1/0 value indicating there is a positive trend anomaly based on the input sensitivity |
-| NegTrendScore |A floating number representing anomaly score on negative trend |
+| NegTrendScore |A floating number-representing anomaly score on negative trend |
 | NegTrendAlert |1/0 value indicating there is a negative trend anomaly based on the input sensitivity |
 
 [1]: ./media/apps-anomaly-detection-api/anomaly-detection-score.png

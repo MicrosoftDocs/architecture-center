@@ -4,7 +4,7 @@ titleSuffix: Azure Architecture Center
 description: This article introduces how to build multitenant solutions on Azure and the guidance we provide throughout this series.
 author: johndowns
 ms.author: jodowns
-ms.date: 12/06/2021
+ms.date: 01/04/2022
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: azure-guide
@@ -31,17 +31,27 @@ When you build your own multitenant solution in Azure, there are several element
 
 In this series, we provide guidance about how to design, build, and operate your own multitenant solutions in Azure.
 
+> [!NOTE]
+> In this series, we use the term *tenant* to refer to **your** tenants, which might be your customers or groups of users. Our guidance is intended to help you to build your own multitenant software solutions on top of the Azure platform.
+>
+> Azure Active Directory (Azure AD) also includes the concept of a tenant to refer to individual directories, and it uses the term *multitenancy* to refer to interactions between multiple Azure AD tenants. Although the terms are the same, the concepts are not. When we need to refer to the Azure AD concept of a tenant, we disambiguate it by using the full term *Azure AD tenant*.
+
 ## Scope
 
 While Azure is itself a multitenant service, and some of our guidance is based on our experience with running large multitenant solutions, the focus of this series is on helping you build your own multitenant services, while harnessing the power of the Azure platform.
 
-Additionally, when you design a solution, there are many areas you need to consider. The content in this section is specific to how you design for multitenancy. We don't cover all of the features of the Azure services, or all of the architectural design considerations for every application. You should read this guide in conjunction with the [Microsoft Azure Well-Architected Framework](../../framework/index.md) and the documentation for each Azure service that you use.
+Additionally, when you design a solution, there are many areas you need to consider. The content in this section is specific to how you design for multitenancy. We don't cover all of the features of the Azure services, or all of the architectural design considerations for every application. You should read this guide in conjunction with the [Microsoft Azure Well-Architected Framework](/azure/architecture/framework/index) and the documentation for each Azure service that you use.
 
 ## Intended audience
 
-The guidance provided in this series is applicable to anyone building a multitenant solution in Azure. These include independent software vendors (ISVs) who are building SaaS products, whether they are targeted for businesses or consumers. It also includes anyone building a product or platform that's intended to be used by multiple customers or tenants.
+The guidance provided in this series is applicable to anyone building a multitenant application in Azure. The audience also includes independent software vendors (ISVs) and startups who are building SaaS products, whether they are targeted for businesses or consumers. It also includes anyone building a product or platform that's intended to be used by multiple customers or tenants.
 
 The content throughout this series is designed to be useful for technical decision-makers, like chief technology officers (CTOs) and architects, and anyone designing or implementing a multitenant solution on Microsoft Azure.
+
+> [!NOTE]
+> *Managed service providers* (MSPs) manage and operate Azure environments on behalf of their customers, and work with multiple Azure Active Directory tenants in the process. This is another form of multitenancy, but it's focused on managing Azure resources across multiple Azure Active Directory tenants. This series isn't intended to provide guidance on these matters.
+>
+> However, the series is likely to be helpful for ISVs who build software for MSPs, or for anyone else who builds and deploys multitenant software.
 
 ## What's in this series?
 

@@ -211,9 +211,9 @@ Be sure your Azure AD groups used for cluster and namespace access are included 
 
 #### Use Azure RBAC for Kubernetes Authorization
 
-Instead of using Kubernetes RBAC with integrated AAD authentication, another option is to use Azure RBAC and Role assignments to enforce cluster access. The benefit to using Azure RBAC is that you do not need to configure native Kubernetes RBAC roles and role bindings.
+Instead of using Kubernetes native RBAC ([ClusterRoleBindings and RoleBindings](https://kubernetes.io/docs/reference/access-authn-authz/rbac/#rolebinding-and-clusterrolebinding)) for authorization with integrated AAD authentication, another option is to use Azure RBAC and Azure role assignments to enforce authorization checks on the cluster. These role assignments can even be added at the subscription or resource group scopes so that all clusters under the scope inherit a consistent set of role assignments with respect to who has permissions to access the objects on the Kubernetes cluster.
 
-For more information, see [Azure roles](/azure/aks/manage-azure-rbac).
+For more information, see [Azure RBAC for Kubernetes Authorization](/azure/aks/manage-azure-rbac).
 
 #### Local accounts
 
@@ -225,7 +225,7 @@ In this reference implementation, access via local cluster accounts is explicitl
 
 Similar to having Azure Managed Identities for the entire cluster, you can assign managed identities at the pod level. A pod managed identity allows the hosted workload to access resources through Azure Active Directory. For example, the workload stores files in the Azure Storage. When it needs to access those files, the pod will authenticate itself against the resource.
 
-In this reference implementation, managed pod identities is facilitated through [aad-pod-identity](https://github.com/Azure/aad-pod-identity).
+In this reference implementation, managed pod identities is facilitated through [Azure AD pod identity](/azure/aks/use-azure-ad-pod-identity).
 
 ## Deploy Ingress resources
 
@@ -367,7 +367,7 @@ You'll need to use pod managed identities to allow a pod to access secrets from 
 
 To facilitate the retrieval process, use a [Secrets Store CSI driver](https://github.com/kubernetes-sigs/secrets-store-csi-driver). When the pod needs a secret, the driver connects with the specified store, retrieves secret on a volume, and mounts that volume in the cluster. The pod can then get the secret from the volume file system.
 
-The CSI driver has many providers to support various managed stores. In this implementation, we've chosen the [Azure Key Vault with Secrets Store CSI Driver](https://github.com/Azure/secrets-store-csi-driver-provider-azure) to retrieve the TLS certificate from Azure Key Vault and load it in the pod running the ingress controller. It's done during pod creation and the volume stores both public and the private keys.
+The CSI driver has many providers to support various managed stores. In this implementation, we've chosen the [Azure Key Vault with Secrets Store CSI Driver](/azure/aks/csi-secrets-store-driver) to retrieve the TLS certificate from Azure Key Vault and load it in the pod running the ingress controller. It's done during pod creation and the volume stores both public and the private keys.
 
 ## Workload storage
 
@@ -523,7 +523,7 @@ Ensure reliability through forced failover testing with simulated outages such a
 
 ## Monitor and collect metrics
 
-The Azure Monitor for containers feature is the recommended tool for monitoring and logging because you can view events in real time. It captures container logs from the running pods and aggregates them for viewing. It also collects information from Metrics API about memory and CPU utilization to monitor the health of running resources and workloads. You can use it to monitor performance as the pods scale. Another advantage is that you can easily use Azure portal to configure charts and dashboards. It has the capability to create alerts that trigger Automation Runbooks, Azure Functions, and others.
+The Azure Monitor container insights feature is the recommended tool for monitoring and logging because you can view events in real time. It captures container logs from the running pods and aggregates them for viewing. It also collects information from Metrics API about memory and CPU utilization to monitor the health of running resources and workloads. You can use it to monitor performance as the pods scale. Another advantage is that you can easily use Azure portal to configure charts and dashboards. It has the capability to create alerts that trigger Automation Runbooks, Azure Functions, and others.
 
 Most workloads hosted in pods emit Prometheus metrics. Azure Monitor is capable of scraping Prometheus metrics and visualizing them.
 
@@ -570,7 +570,25 @@ Monitor your container infrastructure for both active threats and potential secu
 
 ## Cluster and workload operations (DevOps)
 
-Here are some considerations. For more information, see the [Operational Excellence](../../../framework/devops/release-engineering-cd.md) pillar.
+Here are some considerations. For more information, see the [Operational Excellence](/azure/architecture/framework/devops/release-engineering-cd) pillar.
+
+### Cluster bootstrapping
+
+After provisioning is complete, you have a working cluster, but there may still be steps required before deploying workloads. The process of preparing your cluster is called bootstrapping, and can consist of actions such as deploying prerequisite images onto cluster nodes, creating namespaces, and anything else that satisfies the requirements of your use case or organization.
+
+To decrease the gap between a provisioned cluster and a cluster that's been properly configured, cluster operators should think about what their unique bootstrapping process will look like and prepare relevant assets in advance. For example, if having Kured running on each node before deploying application workloads is important, the cluster operator will want to ensure an ACR containing the target Kured image already exists *before* provisioning the cluster.
+
+The bootstrapping process can be configured using one of the following methods:
+- Self configuration using something like Flux or Argo CD
+- Pipelines
+- [GitOps Flux v2 cluster extension](/azure/azure-arc/kubernetes/tutorial-use-gitops-flux-2)
+
+> [!NOTE]
+> Any of these methods will work with any cluster topology, but the GitOps Flux v2 cluster extension is recommended for fleets due to uniformity and easier governance at scale. When running only a few clusters, GitOps might be seen as overly complex, and you might instead opt for integrating that process into one or more deployment pipelines to ensure bootstrapping takes place. Use the method that best aligns with the objectives for your organization and team.
+
+One of the main advantages of using the GitOps Flux v2 cluster extension for AKS is that there is effectively no gap between a provisioned cluster and a bootstrapped cluster. The extension allows your cluster to start already bootstrapped and sets you up with a solid management foundation going forward. It also supports the inclusion of that bootstrapping as resource templates to align with your IaC strategy.
+
+Finally, when using the extension, `kubectl` is not required for any part of the bootstrapping process, and usage of `kubectl`-based access can be reserved for emergency break-fix situations. Between templates for Azure Resource definitions and the bootstrapping of manifests via the GitOps extension, all normal configuration activities can be performed without the need to use `kubectl`.
 
 ### Isolate workload responsibilities
 
@@ -602,7 +620,11 @@ In this architecture, we've chosen [GitHub Actions](https://github.com/marketpla
 
 ![Workload CI/CD](images/workload-ci-cd.png)
 
-Instead of using an imperative approach like kubectl, use tools that automatically synchronize cluster and repository changes. To manage the workflow, such as release of a new version and validation of that version before deploying to production, consider a GitOps flow. An agent is deployed in the cluster to make sure that the state of the cluster is coordinated with configuration stored in your private Git repo. Kubernetes and AKS do not support that experience natively. A recommended option is [flux](https://docs.fluxcd.io/en/1.19.0/introduction/). It uses one or more operators in the cluster to trigger deployments inside Kubernetes. flux does these tasks:
+Instead of using an imperative approach like kubectl, use tools that automatically synchronize cluster and repository changes. To manage the workflow, such as release of a new version and validation of that version before deploying to production, consider a GitOps flow.
+
+An essential part of the CI/CD flow is the bootstrapping of a newly-provisioned cluster. A GitOps approach is useful towards this end, allowing operators to declaratively define the bootstrapping process as part of the IaC strategy and see the configuration reflected in the cluster automatically.
+
+When using GitOps, an agent is deployed in the cluster to make sure that the state of the cluster is coordinated with configuration stored in your private Git repo. One such agent is [flux](https://docs.fluxcd.io/en/1.19.0/introduction/), which uses one or more operators in the cluster to trigger deployments inside Kubernetes. Flux does these tasks:
 
 - Monitors all configured repositories.
 - Detects new configuration changes.
@@ -611,7 +633,7 @@ Instead of using an imperative approach like kubectl, use tools that automatical
 
 You can also set policies that govern how those changes are deployed.
 
-Here's an example from the reference implementation that shows how to automate cluster configuration with GitOps and Flux.
+Here's an example that shows how to automate cluster configuration with GitOps and flux:
 
 ![GitOps Flow](images/gitops-flow.png)
 
@@ -623,6 +645,8 @@ Here's an example from the reference implementation that shows how to automate c
 
 4.  Developers do not have direct access to the Kubernetes API through kubectl. Have branch policies on your git server. That way, multiple developers can approve a change before it's applied to production.
 
+While GitOps and flux can be configured manually, the [GitOps with Flux v2 cluster extension](/azure/azure-arc/kubernetes/tutorial-use-gitops-flux-2) makes this process easy and comes with a offers a number of additional advantages, most notably a significant reduction in the gap between a provisioned cluster and a bootstrapped cluster. Its uniformity and ease of maintenance at scale make this the recommended method for teams responsible for a large number of clusters, referred to as a fleet.
+
 ### Workload and cluster deployment strategies
 
 Deploy *any* change (architecture components, workload, cluster configuration), to at least one pre-production AKS cluster. Doing so will simulate the change might unravel issues before deploying to production.
@@ -633,7 +657,7 @@ Advanced deployment techniques such as [Blue-green deployment](https://martinfow
 
 ## Cost management
 
-Use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator) to estimate costs for the services used in the architecture. Other best practices are described in the [Cost Optimization](../../../framework/cost/overview.md) section in [Microsoft Azure Well-Architected Framework](../../../framework/cost/overview.md).
+Use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator) to estimate costs for the services used in the architecture. Other best practices are described in the [Cost Optimization](/azure/architecture/framework/cost/overview) section in [Microsoft Azure Well-Architected Framework](/azure/architecture/framework/cost/overview).
 
 ### Provision
 
@@ -651,11 +675,11 @@ Use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculato
 
 -   Enabling diagnostics on the cluster can increase the cost.
 
--   If your workload is expected exist for a long period, you can commit to one- or three-year Reserved Virtual Machine Instances to reduce the node costs. For more information, see [Reserved VMs](../../../framework/cost/optimize-vm.md#reserved-vms).
+-   If your workload is expected exist for a long period, you can commit to one- or three-year Reserved Virtual Machine Instances to reduce the node costs. For more information, see [Reserved VMs](/azure/architecture/framework/cost/optimize-vm#reserved-vms).
 
 -   Use tags when you create node pools. Tags are useful in creating custom reports to track the incurred costs. Tags give the ability to track the total of expenses and map any cost to a specific resource or team. Also, if the cluster is shared between teams, build chargeback reports per consumer to identify metered costs for shared cloud services. For more information, see [Specify a taint, label, or tag for a node pool](/azure/aks/use-multiple-node-pools).
 
--   Data transfers within availability zones of a region are not free. If your workload is multi-region or there are transfers across billing zones, then expect additional bandwidth cost. For more information, see [Traffic across billing zones and regions](../../../framework/cost/design-regions.md?branch=master#traffic-across-billing-zones-and-regions).
+-   Data transfers within availability zones of a region are not free. If your workload is multi-region or there are transfers across billing zones, then expect additional bandwidth cost. For more information, see [Traffic across billing zones and regions](/azure/architecture/framework/cost/design-regions?branch=master#traffic-across-billing-zones-and-regions).
 
 -   Create budgets to stay within the cost constraints identified by the organization. One way is to create budgets through Azure Cost Management. You can also create alerts to get notifications when certain thresholds are exceeded. For more information, see [Create a budget using a template](/azure/cost-management-billing/costs/quick-create-budget-template).
 

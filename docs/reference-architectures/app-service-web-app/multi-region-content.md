@@ -153,7 +153,7 @@ There are two factors that determine Azure Cosmos DB pricing:
 
 - Consumed storage. You are billed a flat rate for the total amount of storage (GBs) consumed for data and the indexes for a given hour.
 
-For more information, see the cost section in [Microsoft Azure Well-Architected Framework](../../framework/cost/overview.md).
+For more information, see the cost section in [Microsoft Azure Well-Architected Framework](/azure/architecture/framework/cost/overview).
 
 ## Manageability considerations
 
@@ -185,7 +185,7 @@ This architecture builds on the one shown in [Improve scalability in a web appli
 <!-- links -->
 
 [AFD-pricing]: https://azure.microsoft.com/pricing/details/frontdoor
-[AAF-devops-deployment-multi-region]: ../../framework/devops/release-engineering-cd.md#consider-deploying-across-multiple-regions
+[AAF-devops-deployment-multi-region]: /azure/architecture/framework/devops/release-engineering-cd#consider-deploying-across-multiple-regions
 [bandwidth-pricing]: https://azure.microsoft.com/pricing/details/bandwidth
 [cosmosdb-geo]: /azure/cosmos-db/distribute-data-globally
 [guidance-web-apps-scalability]: ./scalable-web-app.yml

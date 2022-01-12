@@ -2,7 +2,7 @@ This example scenario walks you through an implementation of an e-commerce front
 
 This document will help you will learn about various Azure PaaS components and considerations used to bring together to deploy a sample e-commerce application, *Relecloud Concerts*, an online concert-ticketing platform.
 
-## Relevant use cases
+## Potential use cases
 
 Other relevant use cases include:
 
@@ -61,13 +61,13 @@ Other options for the data tier include:
 
 ### Availability
 
-- Consider ysubg the [typical design patterns for availability](/azure/architecture/framework/resiliency/reliability-patterns) when building your cloud application. azure/architecture/framework/scalability/performance-efficiency
+- Consider using the [typical design patterns for availability](/azure/architecture/framework/resiliency/reliability-patterns) when building your cloud application. 
 - Review the availability considerations in the appropriate [App Service web application reference architecture][app-service-reference-architecture]
 - For additional considerations concerning availability, see the [availability checklist][availability] in the Azure Architecture Center.
 
 ### Scalability
 
-- When building a cloud application be aware of the [typical design patterns for scalability](../../framework/scalability/performance-efficiency-patterns.md).
+- When building a cloud application be aware of the [typical design patterns for scalability](/azure/architecture/framework/scalability/performance-efficiency-patterns).
 - Review the scalability considerations in the appropriate [App Service web application reference architecture][app-service-reference-architecture]
 - For other scalability topics, see the [performance efficiency checklist](/azure/architecture/framework/scalability/performance-efficiency) available in the Azure Architecture Center.
 
@@ -86,7 +86,7 @@ Other options for the data tier include:
 - Consider using active [geo-replication][sql-geo-replication] for the data tier and [geo-redundant][storage-geo-redundancy] storage for images and queues.
 - For a deeper discussion on [resiliency][resiliency], see the relevant article in the Azure Architecture Center.
 
-## Deploy the scenario
+## Deploy this scenario
 
 To deploy this scenario, you can follow this [step-by-step tutorial][end-to-end-walkthrough] demonstrating how to manually deploy each component. This tutorial also provides a .NET sample application that runs a simple ticket purchasing application. Additionally, there is a Resource Manager template to automate the deployment of most of the Azure resources.
 
@@ -100,10 +100,18 @@ We have provided three sample cost profiles based on amount of traffic you expec
 - [Medium][medium-pricing]: This pricing example represents the components indicative of a moderate size deployment. Here we estimate approximately 100,000 users using the system over the course of a month. The expected traffic is handled in a single app service instance with a moderate standard tier. Additionally, moderate tiers of cognitive and search services are added to the calculator.
 - [Large][large-pricing]: This pricing example represents an application meant for high scale, at the order of millions of users per month, moving terabytes of data. At this level of usage high performance, premium tier web apps deployed in multiple regions fronted by traffic manager is required. Data consists of the following: storage, databases, and CDN, are configured for terabytes of data.
 
+## Next steps
+
+- [Typical design patterns for scalability](/azure/architecture/framework/scalability/performance-efficiency-patterns)
+- [Ssecure development lifecycle][secure-development]
+- [Resiliency][resiliency]
+- [Recommended practices for App Service][resiliency-app-service]
+
 ## Related resources
 
-- [Reference Architecture for Multi-Region Web Application][multi-region-web-app]
-- [eShop on Containers Reference Example][microservices-ecommerce]
+- [Reference architecture for a multi-region web application][multi-region-web-app]
+- [eShop on containers reference example][microservices-ecommerce]
+- [Circuit Breaker pattern][circuit-breaker]
 
 <!-- links -->
 
@@ -112,12 +120,12 @@ We have provided three sample cost profiles based on amount of traffic you expec
 [medium-pricing]: https://azure.com/e/38d5d387e3234537b6859660db1c9973
 [large-pricing]: https://azure.com/e/f07f99b6c3134803a14c9b43fcba3e2f
 [app-service-reference-architecture]: ../../reference-architectures/app-service-web-app/basic-web-app.yml
-[availability]: ../../framework/resiliency/reliability-patterns.md
+[availability]: /azure/architecture/framework/resiliency/reliability-patterns
 [circuit-breaker]: ../../patterns/circuit-breaker.md
-[design-patterns-availability]: ../../framework/resiliency/reliability-patterns.md
-[design-patterns-resiliency]: ../../framework/resiliency/reliability-patterns.md
-[design-patterns-performance efficiency]: ../../framework/scalability/performance-efficiency-patterns.md
-[design-patterns-security]: ../../framework/security/security-patterns.md
+[design-patterns-availability]: /azure/architecture/framework/resiliency/reliability-patterns
+[design-patterns-resiliency]: /azure/architecture/framework/resiliency/reliability-patterns
+[design-patterns-performance efficiency]: /azure/architecture/framework/scalability/performance-efficiency-patterns
+[design-patterns-security]: /azure/architecture/framework/security/security-patterns
 [docs-application-insights]: https://www.microsoft.com/azure/application-insights/app-insights-overview
 [docs-b2c]: https://www.microsoft.com/azure/active-directory-b2c/active-directory-b2c-overview
 [docs-cdn]: https://www.microsoft.com/azure/cdn/cdn-overview
@@ -138,8 +146,8 @@ We have provided three sample cost profiles based on amount of traffic you expec
 [multi-region-web-app]: ../../reference-architectures/app-service-web-app/multi-region.yml
 [pci-dss-blueprint]: /azure/security/blueprints/payment-processing-blueprint
 [resiliency-app-service]: ../../checklist/resiliency-per-service.md#app-service
-[resiliency]: ../../framework/resiliency/principles.md
-[scalability]: ../../framework/scalability/performance-efficiency.md
+[resiliency]: /azure/architecture/framework/resiliency/principles
+[scalability]: /azure/architecture/framework/scalability/performance-efficiency
 [secure-development]: https://www.microsoft.com/SDL/process/design.aspx
 [service-bus]: /azure/service-bus-messaging
 [sql-geo-replication]: /azure/sql-database/sql-database-geo-replication-overview

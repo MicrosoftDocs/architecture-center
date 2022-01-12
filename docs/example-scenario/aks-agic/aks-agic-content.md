@@ -39,7 +39,7 @@ The Azure Kubernetes Service (AKS) cluster uses a user-defined managed identity 
 - [Managed identity in place of a service principal](/azure/aks/use-managed-identity)
 - [Azure Active Directory pod-managed identities](/azure/aks/use-azure-ad-pod-identity)
 - [Azure Network Policies](/azure/aks/use-network-policies)
-- [Azure Monitor for containers add-on](/azure/azure-monitor/containers/container-insights-enable-new-cluster)
+- [Azure Monitor container insights add-on](/azure/azure-monitor/containers/container-insights-enable-new-cluster)
 - [Application Gateway Ingress Controller add-on](https://azure.github.io/application-gateway-kubernetes-ingress/)
 - [Dynamic allocation of IPs and enhanced subnet support](/azure/aks/configure-azure-cni#dynamic-allocation-of-ips-and-enhanced-subnet-support-preview)
 
@@ -322,7 +322,7 @@ The cost of this architecture depends on configuration aspects, like the followi
 - Automation scripts
 - Your disaster recovery level
 
-After you assess these aspects, go to the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator) to estimate your costs. Also, for more pricing optimization options, see the [Principles of cost optimization](../../framework/cost/overview.md) in the Microsoft Azure Well-Architected Framework.
+After you assess these aspects, go to the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator) to estimate your costs. Also, for more pricing optimization options, see the [Principles of cost optimization](/azure/architecture/framework/cost/overview) in the Microsoft Azure Well-Architected Framework.
 
 ## Next steps
 

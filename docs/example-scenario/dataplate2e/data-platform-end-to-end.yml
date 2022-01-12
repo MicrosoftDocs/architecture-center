@@ -5,7 +5,7 @@ metadata:
   description: Learn how to use Azure Data Services to build a modern analytics platform capable of handling the most common data challenges in an organization.
   author: fabragaMS
   ms.author: fabraga
-  ms.date: 12/15/2021
+  ms.date: 12/21/2021
   ms.topic: conceptual
   ms.service: architecture-center
   ms.subservice: example-scenario

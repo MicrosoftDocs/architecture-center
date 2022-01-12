@@ -8,7 +8,7 @@ editor: marktab
 ms.service: machine-learning
 ms.subservice: team-data-science-process
 ms.topic: article
-ms.date: 12/16/2021
+ms.date: 12/21/2021
 ms.author: tdsp
 ms.custom:
   - previous-author=deguhath
@@ -22,11 +22,11 @@ categories:
 
 This article outlines the options for moving data either from flat files (CSV or TSV formats) or from data stored in SQL Server to an Azure SQL Database. These tasks for moving data to the cloud are part of the Team Data Science Process.
 
-For a topic that outlines the options for moving data to SQL Server for Machine Learning, see [Move data to SQL Server on an Azure virtual machine](move-sql-server-virtual-machine.md).
+For a topic that outlines the options for migrating data from SQL Server into Azure SQL options, see [Migrate to Azure SQL](/azure/azure-sql/migration-guides).
 
 The following table summarizes the options for moving data to an Azure SQL Database.
 
-| <b>SOURCE</b> | <b>DESTINATION: Azure SQL Database</b> |
+| <b>SOURCE</b> | <b>DESTINATION: Azure SQL</b> |
 | --- | --- |
 | <b>Flat file (CSV or TSV formatted)</b> |[Bulk Insert SQL Query](#bulk-insert-sql-query) |
 | <b>On-premises SQL Server</b> |1.[Export to Flat File](#export-flat-file)<br> 2. [SQL Server Migration Assistant (SSMA)](#ssma)<br> 3. [Database back up and restore](#db-migration)<br> 4. [Azure Data Factory](#adf) |
@@ -39,7 +39,7 @@ The procedures outlined here require that you have:
 * Access to an **Azure SQL Database**. If you must set up an Azure SQL Database, [Getting Started with Microsoft Azure SQL Database](/azure/azure-sql/database/single-database-create-quickstart) provides information on how to provision a new instance of an Azure SQL Database.
 * Installed and configured **Azure PowerShell** locally. For instructions, see [How to install and configure Azure PowerShell](/powershell/azure/).
 
-**Data**: The migration processes are demonstrated using the [NYC Taxi dataset](https://chriswhong.com/open-data/foil_nyc_taxi/). The NYC Taxi dataset contains information on trip data and fairs and is available on Azure blob storage: [NYC Taxi Data](https://www.andresmh.com/nyctaxitrips/). A sample and description of these files are provided in [NYC Taxi Trips Dataset Description](sql-walkthrough.md#dataset).
+**Data**: The migration processes are demonstrated using the [NYC Taxi dataset](https://chriswhong.com/open-data/foil_nyc_taxi/). The NYC Taxi dataset contains information on trip data and fares, which is either available through [Azure Open Datasets](/azure/open-datasets/dataset-taxi-yellow?tabs=azureml-opendatasets) or from the source [TLC Trip Record Data](https://www1.nyc.gov/site/tlc/about/tlc-trip-record-data.page). A sample and description of these files are provided in [NYC Taxi Trips Dataset Description](sql-walkthrough.md#dataset).
 
 You can either adapt the procedures described here to a set of your own data or follow the steps as described by using the NYC Taxi dataset. To upload the NYC Taxi dataset into your SQL Server database, follow the procedure outlined in [Bulk Import Data into SQL Server Database](sql-walkthrough.md#dbload).
 
@@ -53,7 +53,7 @@ The steps for the procedure using the Bulk Insert SQL Query are similar to the d
 If the source data is stored in SQL Server, there are various possibilities for moving the data to an Azure SQL Database:
 
 1. [Export to Flat File](#export-flat-file)
-2. [SQL Database Migration Wizard](#ssma)
+2. [SQL Server Migration Assistant (SSMA)](#ssma)
 3. [Database back up and restore](#db-migration)
 4. [Azure Data Factory](#adf)
 

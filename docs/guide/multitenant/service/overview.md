@@ -4,7 +4,7 @@ titleSuffix: Azure Architecture Center
 description: This article introduces the guidance we provide for using many distinct Azure services in a multitenant solution.
 author: johndowns
 ms.author: jodowns
-ms.date: 12/06/2021
+ms.date: 1/11/2021
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: azure-guide
@@ -29,7 +29,18 @@ In this section, we provide guidance about the features of each service that are
 
 ## Intended audience
 
-The content in this section is designed for architects, lead developers, and anyone building or implementing Azure components for a multitenant solution.
+The content in this section is designed for architects, lead developers, and anyone building or implementing Azure components for a multitenant solution. The audience also includes independent software vendors (ISVs) and startups who develop SaaS solutions.
+
+## What's covered in this section?
+
+The articles in this section describe some Azure services commonly used in multitenant solutions. The following Azure services are covered so far:
+
+- Deployment and configuration: [Azure Resource Manager](resource-manager.md)
+- Compute: [App Service and Azure Functions](app-service.md)
+- Networking: [NAT Gateway](nat-gateway.md)
+- Storage and data: [Azure Storage](storage.md), [Azure SQL Database](sql-database.md), and [Azure Cosmos DB](cosmos-db.md)
+
+We frequently add new articles with guidance for additional services. You're also welcome to [submit suggestions for additional service-specific guidance](https://aka.ms/multitenancy/feedback).
 
 ## Next steps
 

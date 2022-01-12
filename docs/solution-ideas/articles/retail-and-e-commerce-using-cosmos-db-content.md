@@ -9,10 +9,10 @@ This solution idea shows how to deploy an e-commerce web site on Azure. The e-co
 
 ### Dataflow
 
-1.	Web Application is hosted in an Azure Web App.
-2.	Data (Products and Session state) gets stored in Azure Cosmos DB.
-3.	Static Content and product images are stored in Azure Storage Account.
-4.	For searching all products Azure Cognitive Search is used.
+1.	The web application is hosted in an Azure Web App.
+2.	The data (products and session state) gets stored in Azure Cosmos DB.
+3.	Static content and product images are stored in an Azure Storage account.
+4.	Azure Cognitive Search is used to search across all the products. 
 
 ### Components
 

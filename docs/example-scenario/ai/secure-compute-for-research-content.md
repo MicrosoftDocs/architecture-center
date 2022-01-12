@@ -1,5 +1,3 @@
-[!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
-
 This architecture shows a secure research environment intended to allow researchers to access sensitive data under a higher level of control and data protection. This article is applicable for organizations that are bound by regulatory compliance or other strict security requirements.
 
 ## Potential use cases
@@ -16,7 +14,7 @@ By following the guidance you can maintain full control of your research data, h
 
 :::image type="content" source="./media/secure-research-env.svg" alt-text="Diagram of a secure research environment.":::
 
-### Data flow
+### Dataflow
 
 1. Data owners upload datasets into a public blob storage account. The data is encrypted by using Microsoft-managed keys.
 
@@ -79,6 +77,12 @@ These components continuously monitor the posture of the workload and its enviro
 
 - **Azure Policy** helps to enforce organizational standards and to assess compliance at-scale.
 
+### Alternatives
+
+- This solution uses Data Factory to move the data to the public storage account in a separate container, in order to allow external researchers to have access to their exported data and models. Alternately, you can provision another storage account in a lower security environment.
+- This solution uses Azure Virtual Desktop as a jump box to gain access to the resources in the secure environment, with streaming applications and a full desktop. Alternately, you can use Azure Bastion. But, Virtual Desktop has some advantages, which include the ability to stream an app, to limit copy/paste and screen captures, and to support AAC authentication.
+- To secure data at rest, this solution encrypts all Azure Storage with Microsoft-managed keys using strong cryptography. Alternately, you can use customer-managed keys. The keys must be stored in a managed key store.
+
 ## Considerations
 
 ### Security
@@ -132,7 +136,9 @@ Most research solutions are temporary workloads and don't need to be available f
 
 The size and type of the Data Science VMs should be appropriate to the style of work being performed. This architecture is intended to support a single research project and the scalability is achieved by adjusting the size and type of the VMs and the choices made for compute resources available to AML.
 
-The cost of DSVMs depends on the choice of the underlying VM series. Because the workload is temporary,  the consumption plan is recommended for the Logic App resource. Use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator/) to estimate costs based on estimated sizing of resources needed.
+## Pricing
+
+The cost of DSVMs depends on the choice of the underlying VM series. Because the workload is temporary,  the consumption plan is recommended for the Logic App resource. Use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator) to estimate costs based on estimated sizing of resources needed.
 
 ## Next steps
 
@@ -142,8 +148,16 @@ The cost of DSVMs depends on the choice of the underlying VM series. Because the
 - [Azure Blob storage](/azure/storage/blobs/storage-blobs-introduction)
 - [Azure Data Factory](/azure/data-factory/introduction)
 - [Azure Virtual Desktop](/azure/virtual-desktop/overview)
-- [Microsoft Defender for Cloud](/azure/security-center/)
+- [Microsoft Defender for Cloud](/azure/security-center)
 - [Microsoft Sentinel](/azure/sentinel/overview)
 - [Azure Monitor](/azure/azure-monitor/overview)
 - [Azure Policy](/azure/governance/policy/overview)
 - [Azure Policy Guest Configuration](/azure/governance/policy/concepts/guest-configuration)
+
+## Related resources
+
+- [Compare the machine learning products and technologies from Microsoft](/azure/architecture/data-guide/technology-choices/data-science-and-machine-learning)
+- [Machine learning at scale](/azure/architecture/data-guide/big-data/machine-learning-at-scale)
+- [Azure Machine Learning architecture](/azure/architecture/solution-ideas/articles/azure-machine-learning-solution-architecture)
+- [Scale AI and machine learning initiatives in regulated industries](/azure/architecture/example-scenario/ai/scale-ai-and-machine-learning-in-regulated-industries)
+- [Many models machine learning (ML) at scale with Azure Machine Learning](/azure/architecture/example-scenario/ai/many-models-machine-learning-azure-machine-learning)

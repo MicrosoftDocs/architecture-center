@@ -180,5 +180,5 @@ For more information, see the Operational excellence section in [Microsoft Azure
 [virtual-machine-sizes]: /azure/virtual-machines/sizes
 [vm-size-tables]: /azure/virtual-machines/sizes
 [vm-sla]: https://azure.microsoft.com/support/legal/sla/virtual-machines
-[WAF-devops]: ../../framework/devops/overview.md
+[WAF-devops]: /azure/architecture/framework/devops/overview
 [WAF-cost]: /azure/architecture/framework/cost/overview
