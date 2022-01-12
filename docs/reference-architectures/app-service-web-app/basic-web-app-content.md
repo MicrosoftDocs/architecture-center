@@ -14,7 +14,7 @@ The architecture consists of the following components.
 
 **App Service app**: [Azure App Service](/azure/app-service) is a fully managed platform for creating and deploying cloud applications.
 
-**Deployment slots**: A [deployment slot](/azure/app-service-web/web-sites-staged-publishing) lets you stage a deployment and then swap it with the production deployment. That way, you avoid deploying directly into production. See the [Manageability](#manageability-considerations) section for specific recommendations.
+**Deployment slots**: A [deployment slot](/azure/app-service-web/web-sites-staged-publishing) lets you stage a deployment and then swap it with the production deployment. That way, you avoid deploying directly into production. See the [Manageability](#manageability) section for specific recommendations.
 
 **IP address**: The App Service app has a public IP address and a domain name. The domain name is a subdomain of `azurewebsites.net`, such as `contoso.azurewebsites.net`.
 
