@@ -2,13 +2,15 @@
 
 As you load more data into Azure, the need to properly govern and manage that data across all your data sources and data consumers also grows.
 
-If you don't have high-quality data in your Azure data estate, the business value of Azure is undermined. The solution is to build a foundation for data governance and management that can produce and deliver high-quality, trusted data.
+If you don't have high-quality data in your Azure data estate, the business value of Azure is diminished. The solution is to build a foundation for data governance and management that can produce and deliver high-quality, trusted data.
 
-Data needs to be managed at scale across on-premises, cloud, and multi-cloud storage to ensure it meets compliance requirements around security, privacy, and usage. Well-managed data can also improve self-discovery, data sharing, and quality, which improves the use of data in applications and analytics.
+Data needs to be managed at scale across on-premises, cloud, and multi-cloud storage to ensure it meets compliance requirements around security, privacy, and usage. Well-managed data can also improve self-discovery, data sharing, and data quality, which improves the use of data in applications and analytics.
 
-You can use Azure Purview to ensure definitions, classifications, and governance processes that will help to apply uniformly across all data.
+[Azure Purview](/azure/purview/overview) provides governance for finding, classifying, defining, and enforcing policies and standards across data. You can use it to apply definitions, classifications, and governance processes uniformly across data.
 
-By working with other Azure services, Azure Purview can automatically discover, catalog, classify, and manage data across Azure Data Lake offerings and partner services.
+It catalogs all data sources, identifies any sensitive information, and defines data lineage. It provides a central platform where you can apply definitions and ownership to data. With a single view on reports and insight, it can help you generate data standards that should be applied to your data.
+
+Working with other Azure services, Azure Purview can automatically discover, catalog, classify, and manage data across Azure Data Lake offerings and partner services.
 
 This article describes an architecture that uses these Azure services:
 
@@ -17,13 +19,9 @@ This article describes an architecture that uses these Azure services:
 - Azure Synapse Analytics
 - Power BI
 
-[Azure Purview](/azure/purview/overview) catalogs all data sources, identifies any sensitive information, and defines data lineage. It provides a central platform where you can apply definition and ownership to data. Also, with a single view on reports and insight, it can help you generate data standards that should be imposed on your data.
-
-The main purpose of Azure Purview is to provide governance for finding, classifying, defining, and enforcing policies and standards across data.
-
 ## Potential use cases
 
-The requirements for data management differ across industries. For all industries, the need to govern data at scale has increased as the size and complexity of data and data architectures grow. This architecture is appropriate for organizations that would benefit from the following outcomes of well-governed data:
+The requirements for data management differ across industries. For all industries, the need to govern data at scale has increased as the size and complexity of data and data architectures grow. The architecture described here is appropriate for organizations that would benefit from the following outcomes of well-governed data:
 - Automatic discovery of data to accelerate cloud adoption
 - Improved security of data for compliance with data laws and regulations
 - Improved access, discovery, and quality of managed data to enhance analytics
@@ -37,23 +35,20 @@ The requirements for data management differ across industries. For all industrie
 _Download a [Visio file](https://arch-center.azureedge.net/data-lake-purview.vsdx) of this architecture._
 
 ### Dataflow
-Azure Purview is a single, unified data management service across all the data from sources, in the data lake and in end reporting tools.
+Azure Purview provides a single, unified data management service for the data from all sources, in the data lake, and in end reporting tools.
 
 Scenarios for connecting Azure Purview to Data Lake services:
 
-1. Azure Purview provides an improved-security connection to your data lake ingestion, storage, and analytics pipelines to automatically catalog data assets. It also provides lineage across these functions.
-Services include Data Factory, Data Lake Storage, and Azure Synapse Analytics.
+1. Azure Purview provides an improved-security connection to your data lake ingestion, storage, and analytics pipelines to automatically catalog data assets. It also provides lineage across these services. Specific Azure services include Data Factory, Data Lake Storage, and Azure Synapse Analytics.
 
 2. Azure Purview connects natively with Power BI and other reporting and visualization tools. It shows the lineage of data used in end reports. It also shares sensitivity information from the Power BI assets to prevent incorrect data use.
-
-These scenarios illustrate the options available when you connect to Azure Purview with improved security.
 
 > [!IMPORTANT]
 > The information transferred from the sources to Azure Purview is metadata that describes the data within the scanned sources. No actual data is transferred from the sources to Azure Purview.
 
 #### Capabilities
 
-- [Catalog](/azure/purview/overview#data-catalog). The Azure Purview data catalog can automatically capture and describe core characteristics of data at source, including schema, technical properties, and location. The Azure Purview glossary allows a business-friendly definition of data to be layered on top, to improve search and discovery.
+- [Catalog](/azure/purview/overview#data-catalog). The Azure Purview data catalog can automatically capture and describe core characteristics of data at the source, including schema, technical properties, and location. The Azure Purview glossary allows a business-friendly definition of data to be layered on top, to improve search and discovery.
 
 - [Classification](/azure/purview/concept-best-practices-classification). Azure Purview automatically classifies datasets and data elements with 100 predefined sensitive-data classifications. It also allows you to define your own custom classification schemes that you can apply manually and automatically.
 
@@ -63,7 +58,7 @@ These scenarios illustrate the options available when you connect to Azure Purvi
 
 - Ownership. Azure Purview allows you to apply data ownership and stewardship to data assets and glossary items in the catalog.
 
-- [Insight](/azure/purview/concept-insights). Insights in Azure Purview provide multiple predefined reports to help CDOs, data, and data governance professionals understand the data landscape in detail.
+- [Insight](/azure/purview/concept-insights). Insights in Azure Purview provide multiple predefined reports to help CDOs, data professionals, and data governance professionals gain a detailed understanding of the data landscape.
 
 ### Components
 
@@ -87,7 +82,7 @@ These scenarios illustrate the options available when you connect to Azure Purvi
 
 ## Next steps
 
-- [Read some Azure Purview customer case studies](https://customers.microsoft.com/en-us/search?sq=%22Azure%20Purview%22&ff=&p=0&so=story_publish_date%20desc)
+- [Read Azure Purview customer case studies](https://customers.microsoft.com/en-us/search?sq=%22Azure%20Purview%22&ff=&p=0&so=story_publish_date%20desc)
 - [Explore Azure Purview technical documentation and best practices](/azure/purview/concept-best-practices-accounts)
 - [What is Azure Purview?](/azure/purview/overview)
 - [What is Power BI?](https://powerbi.microsoft.com/what-is-power-bi)
@@ -98,3 +93,9 @@ These scenarios illustrate the options available when you connect to Azure Purvi
 - [Monitor](https://azure.microsoft.com/services/monitor)
 - [Azure Synapse Analytics](https://azure.microsoft.com/services/synapse-analytics)
 - [Key Vault](https://azure.microsoft.com/services/key-vault)
+
+## Related resources
+- [Data analysis workloads for regulated industries](/azure/architecture/example-scenario/data/data-analysis-regulated-industries)
+- [Query a data lake or lakehouse by using Azure Synapse serverless](/azure/architecture/example-scenario/data/synapse-exploratory-data-analytics)
+- [Choose an analytical data store in Azure](/azure/architecture/data-guide/technology-choices/analytical-data-stores)
+- [Choose a data analytics technology in Azure](/azure/architecture/data-guide/technology-choices/analysis-visualizations-reporting)
