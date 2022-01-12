@@ -2241,7 +2241,12 @@
       "source_path": "docs/reference-architectures/containers/deploy-keda-aksacr-disconnected-azure-stack-hub.yml",
       "redirect_url": "/azure/architecture/",
       "redirect_document_id": false
-    }            
+    },
+    {
+      "source_path": "docs/data-science-process/hive-criteo-walkthrough.md",
+      "redirect_url": "/azure/architecture/data-science-process/overview",
+      "redirect_document_id": false
+    }              
 
 
   ]
