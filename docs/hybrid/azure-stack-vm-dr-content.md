@@ -319,7 +319,7 @@ To implement Azure Site Recovery on Azure Stack Hub in a small to medium sized s
 
 #### Failover and failback procedures
 
-To simplify the management of failover, consider implementing recovery plans for all protected workloads. For more information, refer to the [Availability considerations](#availability-considerations) section earlier in this reference architecture document. You will also find recommendations for optimizing the management of the failback procedure.
+To simplify the management of failover, consider implementing recovery plans for all protected workloads. For more information, refer to the [Availability](#availability) section earlier in this reference architecture document. You will also find recommendations for optimizing the management of the failback procedure.
 
 #### Delegation of roles and responsibilities
 
