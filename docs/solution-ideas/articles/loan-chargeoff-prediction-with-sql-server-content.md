@@ -1,10 +1,10 @@
 [!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
-This solution demonstrates how to build and deploy a machine learning model with SQL Server 2016 with R Services to predict if a Bank loan will need to be charged off within next three months.
+This solution demonstrates how to build and deploy a machine learning model with SQL Server 2016 with R Services to predict if a bank loan will need to be charged off within next three months.
 
 ## Architecture
 
-![Architecture Diagram](../media/loan-chargeoff-prediction-with-sql-server.png)
+![Architecture diagram of building and deploying an ML model to predict a bank loan.](../media/loan-chargeoff-prediction-with-sql-server.png)
 *Download an [SVG](../media/loan-chargeoff-prediction-with-sql-server.svg) of this architecture.*
 
 ### Components
