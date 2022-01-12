@@ -6,9 +6,9 @@ This solution is already being used by Microsoft customers for IoT device teleme
 
 ## Architecture
 
-:::image type="content" source="../media/iot-azure-data-explorer.png" alt-text="IoT telemetry analytics with Azure Data Explorer" lightbox="../media/iot-azure-data-explorer.png":::
+:::image type="content" source="../media/iot-azure-data-explorer.png" alt-text="Diagram showing IoT telemetry analytics with Azure Data Explorer." lightbox="../media/iot-azure-data-explorer.png":::
 
-### Data flow
+### Dataflow
 
 1. Ingest a wide variety of fast-flowing streaming data such as logs, business events, and user activities from various sources such as Azure Event Hub, Azure IoT Hub, or Kafka.
 1. Process data in real-time using Azure Functions or Azure Stream Analytics.
