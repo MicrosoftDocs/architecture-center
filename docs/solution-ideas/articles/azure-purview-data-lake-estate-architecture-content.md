@@ -6,9 +6,7 @@ If you don't have high-quality data in your Azure data estate, the business valu
 
 Data needs to be managed at scale across on-premises, cloud, and multi-cloud storage to ensure it meets compliance requirements around security, privacy, and usage. Well-managed data can also improve self-discovery, data sharing, and data quality, which improves the use of data in applications and analytics.
 
-[Azure Purview](/azure/purview/overview) provides governance for finding, classifying, defining, and enforcing policies and standards across data. You can use it to apply definitions, classifications, and governance processes uniformly across data.
-
-It catalogs all data sources, identifies any sensitive information, and defines data lineage. It provides a central platform where you can apply definitions and ownership to data. With a single view on reports and insight, it can help you generate data standards that should be applied to your data.
+[Azure Purview](/azure/purview/overview) provides governance for finding, classifying, defining, and enforcing policies and standards across data. You can use it to apply definitions, classifications, and governance processes uniformly across data. It catalogs all data sources, identifies any sensitive information, and defines data lineage. It provides a central platform where you can apply definitions and ownership to data. With a single view on reports and insight, it can help you generate data standards that should be applied to your data.
 
 Working with other Azure services, Azure Purview can automatically discover, catalog, classify, and manage data across Azure Data Lake offerings and partner services.
 
@@ -54,7 +52,7 @@ Scenarios for connecting Azure Purview to Data Lake services:
 
 - [Lineage](/azure/purview/concept-best-practices-lineage-azure-data-factory). Azure Purview diagrammatically visualizes lineage across Data Factory, Azure Synapse Analytics, and Power BI pipelines. These visualizations show the end-to-end flow of data at a granular level.
 
-- [Access control](/azure/purview/how-to-access-policies-storage). The Azure Purview access control policy allows you to define and grant access to data assets from the catalog, directly on the underlying sources.
+- [Access control](/azure/purview/how-to-access-policies-storage). Azure Purview access control policy allows you to define and grant access to data assets from the catalog, directly on the underlying sources.
 
 - Ownership. Azure Purview allows you to apply data ownership and stewardship to data assets and glossary items in the catalog.
 
