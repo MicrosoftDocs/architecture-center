@@ -75,7 +75,7 @@ These scenarios illustrate the options available when you connect to Azure Purvi
 
 - [Azure Synapse Analytics](https://azure.microsoft.com/services/synapse-analytics) is a limitless analytics service that brings together data integration, enterprise data warehousing, and big data analytics.
 
-- [Power BI](https://powerbi.microsoft.com/what-is-power-bi) is a collection of software services and apps. These services create and share reports that connect and visualize multiple sources of data. When you use it with Azure Purview, it can catalog and classify your data and provide granular lineage that's illustrated end to end.
+- [Power BI](https://powerbi.microsoft.com/what-is-power-bi) is a collection of software services and apps. These services create and share reports that connect and visualize multiple sources of data. When you use Power BI with Azure Purview, it can catalog and classify your data and provide granular lineage that's illustrated from end to end.
 
 - [Azure Private Link](https://azure.microsoft.com/services/private-link) provides private connectivity from a virtual network to Azure Platform as a Service (PaaS), customer-owned or Microsoft partner services.
 
