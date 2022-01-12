@@ -49,7 +49,7 @@ The architecture includes an [Azure firewall](/azure/firewall/overview) that's u
 
 > [!NOTE]
 >
-> We highly recommend that you use the Premium SKU of Azure Firewall because it provides [advanced threat protection](/firewall/premium-features). 
+> We highly recommend that you use the Premium SKU of Azure Firewall because it provides [advanced threat protection](/azure/firewall/premium-features). 
 
 A key vault is used as a secret store by workloads that run on AKS to retrieve keys, certificates, and secrets via a client library, [Secrets Store CSI Driver](/azure/aks/csi-secrets-store-driver), or [Dapr](https://docs.dapr.io/developing-applications/building-blocks/secrets/secrets-overview). [Azure Private Link](/azure/private-link/private-link-overview) enables AKS workloads to access Azure PaaS services, like Azure Key Vault, over a private endpoint in the virtual network.
 
