@@ -75,7 +75,7 @@ This scenario uses Azure Kubernetes Service for your application. Built into Kub
 
 For general guidance on designing resilient solutions, see [Designing reliable Azure applications](../../framework/resiliency/app-design.md).
 
-## Deploy the scenario
+## Deploy this scenario
 
 ### Prerequisites
 
