@@ -1,14 +1,13 @@
 [!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
-This document describes the architecture and design considerations for reliable, high-performing chat applications.
-It uses the SignalR Service to implement multi-factor authentication working with Azure App Service.
+This document describes the architecture and design considerations for reliable, high-performing chat applications. It uses the SignalR Service to implement multi-factor authentication working with Azure App Service.
 
 ## Architecture
 
 ![Architecture Diagram](../media/cross-platform-chat.png)
 *Download an [SVG](../media/cross-platform-chat.svg) of this architecture.*
 
-### Data flow
+### Dataflow
 
 1. Web chat app connects to SignalR Service and receives token
 1. User logs into app with multi-factor authentication; if passed, SignalR endpoint and bearer token returned
