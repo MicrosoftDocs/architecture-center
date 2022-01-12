@@ -7,7 +7,7 @@ Use AKS to easily ingest & process a real-time data stream with millions of data
 ![Architecture Diagram](../media/data-streaming-scenario.png)
 *Download an [SVG](../media/data-streaming-scenario.svg) of this architecture.*
 
-### Data flow
+### Dataflow
 
 1. Sensor data is generated and streamed to Azure API Management.
 1. AKS cluster runs microservice that are deployed as containers behind a service mesh. Containers are built using a DevOps process and stored in Azure Container Registry.
