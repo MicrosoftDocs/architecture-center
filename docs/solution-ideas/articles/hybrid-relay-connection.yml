@@ -26,4 +26,4 @@ products:
   - azure-virtual-machines
 thumbnailUrl: /azure/architecture/browse/thumbs/hybrid-pattern-hybrid-relay.png
 content: |
-   [!include[](hybrid-pattern-hybrid-relay-content.md)]
+   [!include[](hybrid-relay-connection-content.md)]
