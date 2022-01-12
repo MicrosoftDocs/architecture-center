@@ -1,4 +1,3 @@
-
 <!-- cSpell:ignore azurehpc Norne LAPACK Slurm -->
 
 *Reservoir simulation* uses data-intensive computer models to predict complex flows of fluids such as oil, water, and gas beneath the earth's surface. This example sets up reservoir simulation software on an Azure high-performance computing (HPC) infrastructure. Azure makes it possible to run this type of workload with maximum performance, scalability, and cost efficiency.
@@ -11,7 +10,7 @@ A Windows Azure VM running OPM ResInsight, an open-source visualization tool, ac
 
 Using an Azure VM spares the expense of a high-end visualization workstation. The OPM applications benefit from HPC hardware and a shared storage location for the input and output files.
 
-## Relevant use cases
+## Potential use cases
 
 - Do 3D reservoir modeling and visualization of seismic data.
 
@@ -22,6 +21,8 @@ Using an Azure VM spares the expense of a high-end visualization workstation. Th
 ## Architecture
 
 ![Architecture diagram][architecture]
+
+### Workflow
 
 This diagram offers a high-level overview of the architecture used in the example. The workflow is as follows:
 
@@ -82,7 +83,7 @@ The following approaches are common in the oil and gas industry. Choose the solu
 
 - **Large-scale workloads:** Use an orchestrated parallel file service, such as Lustre or BeeGFS. This approach works for up to 50,000 cores, with read/write rates up to 50 GiB/s, and 500 TB storage. For even larger clusters, a bare-metal approach may be more cost-effective. For example, Cray ClusterStor is a managed HPC storage solution with the flexibility to support larger elastic clusters on the fly.
 
-## Deployment
+## Deploy this scenario
 
 Get an [example implementation of this OPM Flow architecture][opm-flow] on GitHub.
 
