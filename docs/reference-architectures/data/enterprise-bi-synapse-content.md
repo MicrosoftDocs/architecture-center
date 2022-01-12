@@ -9,9 +9,7 @@ This reference architecture implements the [Analytics end-to-end with Azure Syna
 ### Enterprise Architecture
 
 ![Architecture diagram for Enterprise BI in Azure with Azure Synapse](./images/analytics-with-azure-synapse-pbi.png)
-<!--
-TODO - George: Update this architecture from new guidance
--->
+*Diagram: [Analytics end-to-end with Azure Synapse][e2e-analytics]. Red path denotes the scope of this article.*
 
 **Scenario**: An organization has a large on-premises Data Warehouse stored in a SQL Database. The organization wants to use Azure Synapse to perform analysis, using Power BI to serve these insights.
 
@@ -47,9 +45,29 @@ Data modeling approach in this use case is presented by composition of Enterpris
 <!-- TODO: find better place for this -->
 ![Diagram of the enterprise BI pipeline](./images/enterprise-bi-small-architecture.png)
 
+## Incremental loading
+
+When you run an automated ETL or ELT process, it's most efficient to load only the data that changed since the previous run. This is called an *incremental load*, as opposed to a full load that loads all the data. To perform an incremental load, you need a way to identify which data has changed. The most common approach is to use a *high water mark* value, which means tracking the latest value of some column in the source table, either a datetime column or a unique integer column.
+
+Starting with SQL Server 2016, you can use [temporal tables](/sql/relational-databases/tables/temporal-tables). These are system-versioned tables that keep a full history of data changes. The database engine automatically records the history of every change in a separate history table. You can query the historical data by adding a FOR SYSTEM_TIME clause to a query. Internally, the database engine queries the history table, but this is transparent to the application.
+
+> [!NOTE]
+> For earlier versions of SQL Server, you can use [Change Data Capture](/sql/relational-databases/track-changes/about-change-data-capture-sql-server) (CDC). This approach is less convenient than temporal tables, because you have to query a separate change table, and changes are tracked by a log sequence number, rather than a timestamp.
+>
+
+Temporal tables are useful for dimension data, which can change over time. Fact tables usually represent an immutable transaction such as a sale, in which case keeping the system version history doesn't make sense. Instead, transactions usually have a column that represents the transaction date, which can be used as the watermark value. For example, in the AdventureWorks Data Warehouse, the `SalesLT.*` tables have a `LastModified` field that defaults to `sysdatetime()`. <!-- Check default-->
+
+Here is the general flow for the ELT pipeline:
+
+1. For each table in the source database, track the cutoff time when the last ELT job ran. Store this information in the data warehouse. (On initial setup, all times are set to '1-1-1900'.)
+
+2. During the data export step, the cutoff time is passed as a parameter to a set of stored procedures in the source database. These stored procedures query for any records that were changed or created after the cutoff time. For all tables in our example, we may use the `ModifiedDate` column.
+
+3. When the data migration is complete, update the table that stores the cutoff times.
+
 ## Data pipeline
 
-This reference architecture uses the [Adventure Works DW][adventureworks-sample-link] sample database as a data source. We will use an [Incremental Data Load pattern](incremental-load) to ensure we only load data that was modified or added after we last performed this operation. The data pipeline has the following stages:
+This reference architecture uses the [Adventure Works DW][adventureworks-sample-link] sample database as a data source. The [Incremental Data Load pattern](incremental-load) discussed above is implemented to ensure we only load data that was modified or added after the most recent pipeline run. The data pipeline has the following stages:
 
 <!--
 1. Export the data from SQL Server to flat files (bcp utility).
@@ -62,11 +80,11 @@ This reference architecture uses the [Adventure Works DW][adventureworks-sample-
 1. Most recent watermark entry is retrieved from the control table, located in the SQL DB.
 1. For every table in the SQL DB, the pipeline will:
 
-    1. Find the most recent entry in the table's watermark column
+    1. Find the latest value in the table's watermark column
     1. Check if a schema for the table exists, and create a schema if one is not found.
     1. The Copy Data activity in Azure Synapse Pipelines will copy data from the SQL DB into the ADLS staging environment.
     1. Data from the staging environment is then loaded into the Synapse Provisioned SQL Pool via PolyBase
-    1. Store the new watermark value to update later <!-- TODO - Noah: change if condition to appending variable onto list, update stored proc to simplify-->
+    1. The new watermark value to is saved in the control table by a Stored Procedure, in preparation for the next pipeline run. <!-- TODO - Noah: change if condition to appending variable onto list, update stored proc to simplify-->
 1. A stored procedure to update the watermark stored in the SQL DB is executed.
 
 
@@ -122,6 +140,8 @@ Load the data into a tabular model in Azure Analysis Services. In this step, you
 
 -->
 
+
+
 ### Look up previous watermark
 
 The Lookup activity is used to query the control table for the most recent watermark value. The control table will contain the watermark value corresponding to the most recent value in the watermark column from the last data load. This value is updated in the last step of our data pipeline, to ensure we only load data changed since our most recent pipeline run.
@@ -140,11 +160,13 @@ Something about setting the items params/ array
 
 ### Copy Activity - Loading data into Synapse SQL Pool
 
-Use [PolyBase](/sql/relational-databases/polybase/polybase-guide) to load the files from blob storage into the data warehouse. PolyBase is designed to leverage the MPP (Massively Parallel Processing) architecture of Azure Synapse, which makes it the fastest way to load data into Azure Synapse.
+The Copy activity will copy data from the SQL DB into the Synapse SQL Pool. In this example, because our SQL DB is in Azure, we use the Azure integration runtime to read data from the SQL DB and write the data into the specified staging environment (ADLS).  <!--check staging file type-->
+
+[PolyBase](/sql/relational-databases/polybase/polybase-guide) is used to load the files from the ADLS staging environment into the data warehouse. PolyBase is designed to leverage the MPP (Massively Parallel Processing) architecture of Azure Synapse, which makes it the fastest way to load data into Azure Synapse.
 
 Loading the data is a two-step process:
 
-1. Create a set of external tables for the data. An external table is a table definition that points to data stored outside of the warehouse &mdash; in this case, the flat files in blob storage. This step does not move any data into the warehouse.
+1. Create a set of external tables for the data. An external table is a table definition that points to data stored outside of the warehouse &mdash; in this case, the flat <!--check staging file type--> files in blob storage. This step does not move any data into the warehouse.
 2. Create staging tables, and load the data into the staging tables. This step copies the data into the warehouse.
 
 **Recommendations:**
@@ -155,7 +177,7 @@ Create the staging tables as heap tables, which are not indexed. The queries tha
 
 PolyBase automatically takes advantage of parallelism in the warehouse. The load performance scales as you increase DWUs. For best performance, use a single load operation. There is no performance benefit to breaking the input data into chunks and running multiple concurrent loads.
 
-PolyBase can read Gzip compressed files. However, only a single reader is used per compressed file, because uncompressing the file is a single-threaded operation. Therefore, avoid loading a single large compressed file. Instead, split the data into multiple compressed files, in order to take advantage of parallelism.
+PolyBase can read Gzip compressed files. However, only a single reader is used per compressed file, because decompressing the file is a single-threaded operation. Therefore, avoid loading a single large compressed file. Instead, split the data into multiple compressed files, in order to take advantage of parallelism.
 
 Be aware of the following limitations:
 
@@ -165,7 +187,7 @@ Be aware of the following limitations:
 
 - Your source data schema might contain data types that are not supported in Azure Synapse.
 
-To work around these limitations, you can create a stored procedure that performs the necessary conversions. Reference this stored procedure when you run bcp. Alternatively, [Redgate Data Platform Studio](/azure/sql-data-warehouse/sql-data-warehouse-load-with-redgate) automatically converts data types that aren't supported in Azure Synapse.
+To work around these limitations, you can create a stored procedure that performs the necessary conversions. Alternatively, [Redgate Data Platform Studio](/azure/sql-data-warehouse/sql-data-warehouse-load-with-redgate) automatically converts data types that aren't supported in Azure Synapse.
 
 For more information, see the following articles:
 
