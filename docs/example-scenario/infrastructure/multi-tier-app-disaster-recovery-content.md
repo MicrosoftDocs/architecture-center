@@ -37,7 +37,7 @@ Traffic Manager is a DNS-based load-balancing service. It balances and fails ove
 
 You can combine both load balancers, if needed. For example, you want the DNS-based failover but you want to add a POP experience in front of that traffic-managed infrastructure.
 
-This architecture uses Traffic Manager because it's light weight. The failover timing is sufficient for illustrative purposes.
+This architecture uses Traffic Manager because it's lightweight. The failover timing is sufficient for illustrative purposes.
 
 ![Diagram showing the architecture overview of a highly resilient multitier web application.][architecture]
 
@@ -98,7 +98,7 @@ We have provided a [sample cost calculator][calculator] for configuring disaster
 
 ## Related resources
 
-For additional high availabilty and disaster recovery reference architectures, see:
+For additional high availability and disaster recovery reference architectures, see:
 
 - [Multi-region N-tier application][Multi-region-N-tier-application]
 - [Multi-region load balancing][Multi-region-load-balancing]
@@ -109,7 +109,7 @@ For additional high availabilty and disaster recovery reference architectures, s
 
 [architecture]: ./media/architecture-disaster-recovery-multi-tier-app.png
 [security]: /azure/security
-[scalability]: ../../framework/scalability/performance-efficiency.md
+[scalability]: /azure/architecture/framework/scalability/performance-efficiency
 [docs-availability-zones]: /azure/availability-zones/az-overview
 [docs-load-balancer]: /azure/load-balancer/load-balancer-overview
 [docs-nsg]: /azure/virtual-network/security-overview
