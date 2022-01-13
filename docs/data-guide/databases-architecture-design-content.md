@@ -31,58 +31,56 @@ Here are some Learn modules you might find useful:
 
 INTRO TEXT
 
-To learn about resources for gathering data from multiple sources and how to and apply data transformation within the data pipeline, see [Extract, transform, and load (ETL)](../data-guide/relational-data/etl.yml).
+To learn about resources for gathering data from multiple sources and how to and apply data transformation within the data pipeline, see [Extract, transform, and load (ETL)](../data-guide/relational-data/etl.md).
 
-To learn about Online analytical processing (OLAP), which organizes large business databases and supports complex analysis, see [Online analytical processing](../data-guide/relational-data/online-analytical-processing.yml).
+To learn about Online analytical processing (OLAP), which organizes large business databases and supports complex analysis, see [Online analytical processing](../data-guide/relational-data/online-analytical-processing.md).
 
-A *non-relational database* does not use the tabular schema of rows and columns. For more information, see [Non-relational data and NoSQL](../data-guide/big-data/non-relational-data.yml).
+A *non-relational database* does not use the tabular schema of rows and columns. For more information, see [Non-relational data and NoSQL](../data-guide/big-data/non-relational-data.md).
 
-To learn about designing a system that scales well as data grows, see [Build a scalable system for massive data](../data-guide/scenarios/build-scalable-database-solutions-azure-services.yml).
+To learn about designing a system that scales well as data grows, see [Build a scalable system for massive data](../data-guide/scenarios/build-scalable-database-solutions-azure-services.md).
 
-A big data architecture can handle ingestion, processing, and analysis of data that is too large or complex for traditional database systems. For more information, see [Big data architectures](../data-guide/big-data.yml).
+A big data architecture can handle ingestion, processing, and analysis of data that is too large or complex for traditional database systems. For more information, see [Big data architectures](../data-guide/big-data/index.md).
 
-In a big data architecture, you might need an analytical data store that serves processed data in a structured format that can be queried using analytical tools. For more information, see [Choose an analytical data store in Azure](../data-guide/technology-choices/analytical-data-stores.yml).
+To learn about data lakes, which hold a large amount of data in its native, raw format, see [Data lakes](../data-guide/scenarios/data-lake.md).
 
-To learn about data lakes, which hold a large amount of data in its native, raw format, see [Data lakes](../data-guide/scenarios/data-lake.yml).
+A hybrid cloud is an IT environment that combines public cloud and on-premises datacenters. For more information, see [Extend on-premises data solutions to the cloud](../data-guide/scenarios/hybrid-on-premises-and-cloud.md).
 
-A hybrid cloud is an IT environment that combines public cloud and on-premises datacenters. For more information, see [Extend on-premises data solutions to the cloud](../data-guide/scenarios/hybrid-on-premises-and-cloud.yml).
+Azure Cosmos DB is a fully managed NoSQL database service for modern app development. For more information, see [Azure Cosmos DB resource model](/azure/cosmos-db/account-databases-containers-items).
 
-Azure Cosmos DB is a fully managed NoSQL database service for modern app development. For more information, see [Azure Cosmos DB resource model](../cosmos-db/account-databases-containers-items.yml).
+Azure Databricks is a fast, powerful Apache Spark–based analytics service for big data analytics and AI solutions. For more information, see [Monitoring Azure Databricks](../databricks-monitoring/index.md).
 
-Azure Databricks is a fast, powerful Apache Spark–based analytics service for big data analytics and AI solutions. For more information, see [Monitoring Azure Databricks](../databricks-monitoring.yml).
-
-To learn about the options for transferring data to and from Azure, see [Transfer data to and from Azure](../data-guide/scenarios/data-transfer.yml).
+To learn about the options for transferring data to and from Azure, see [Transfer data to and from Azure](../data-guide/scenarios/data-transfer.md).
 
 ## Best practices
 
 INTRO TEXT
 
-- [Data management patterns](../patterns/category/data-management.yml)
+- [Data management patterns](../patterns/category/data-management.md)
   Data management is the key element of cloud applications.
   It influences most quality attributes.
 
 - [Transactional Outbox pattern with Azure Cosmos DB](../best-practices/transactional-outbox-cosmos.yml)
   Learn how to use the Transactional Outbox pattern for reliable messaging and guaranteed delivery of events.
 
-- [Distribute your data globally with Azure Cosmos DB](../cosmos-db/distribute-data-globally.yml)
+- [Distribute your data globally with Azure Cosmos DB](/azure/cosmos-db/distribute-data-globally)
   To achieve low latency and high availability, some applications need to be deployed in datacenters that are close to their users.
 
-- [Use the best data store for the job](../guide/design-principles/use-the-best-data-store.yml)
+- [Use the best data store for the job](../guide/design-principles/use-the-best-data-store.md)
   Pick the storage technology that is the best fit for your data and how it will be used.
 
-- [Security in Azure Cosmos DB](../cosmos-db/database-security.yml)
+- [Security in Azure Cosmos DB](/azure/cosmos-db/database-security)
   Security best practices help prevent, detect, and respond to database breaches.
 
-- [Secure data solutions](../data-guide/scenarios/securing-data-solutions.yml)
+- [Secure data solutions](../data-guide/scenarios/securing-data-solutions.md)
   Address concerns around increased accessibility to data in the cloud and how to secure it.
 
-- [Continuous backup with point-in-time restore in Azure Cosmos DB](../cosmos-db/continuous-backup-restore-introduction.yml)
+- [Continuous backup with point-in-time restore in Azure Cosmos DB](/azure/cosmos-db/continuous-backup-restore-introduction)
   Learn about Azure Cosmos DB's point-in-time restore feature.
 
-- [Achieve high availability with Cosmos DB](../cosmos-db/high-availability.yml)
+- [Achieve high availability with Cosmos DB](/azure/cosmos-db/high-availability)
   Cosmos DB provides multiple features and configuration options to achieve high availability.
 
-- [High availability for Azure SQL Database and SQL Managed Instance](../azure-sql/database/high-availability-sla.yml)
+- [High availability for Azure SQL Database and SQL Managed Instance](/azure/azure-sql/database/high-availability-sla.yml)
   The database shouldn't be a single point of failure in your architecture.
 
 ## Azure SQL Database security baselines
@@ -95,14 +93,14 @@ INTRO TEXT
 There are many options for technologies to use with Azure Databases.
 These articles help you choose the best technologies for your needs.
 
-- [Choose an analytical data store in Azure](../data-guide/technology-choices/analytical-data-stores.yml)
-- [Choose a data analytics technology in Azure](../data-guide/technology-choices/analysis-visualizations-reporting.yml)
-- [Choose a batch processing technology in Azure](../data-guide/technology-choices/batch-processing.yml)
-- [Choose a big data storage technology in Azure](../data-guide/technology-choices/data-storage.yml)
-- [Choose a data pipeline orchestration technology in Azure](../data-guide/technology-choices/pipeline-orchestration-data-movement.yml)
-- [Choose a real-time message ingestion technology in Azure](../data-guide/technology-choices/real-time-ingestion.yml)
-- [Choose a search data store in Azure](../data-guide/technology-choices/search-options.yml)
-- [Choose a stream processing technology in Azure](../data-guide/technology-choices/stream-processing.yml)
+- [Choose an analytical data store in Azure](../data-guide/technology-choices/analytical-data-stores.md)
+- [Choose a data analytics technology in Azure](../data-guide/technology-choices/analysis-visualizations-reporting.md)
+- [Choose a batch processing technology in Azure](../data-guide/technology-choices/batch-processing.md)
+- [Choose a big data storage technology in Azure](../data-guide/technology-choices/data-storage.md)
+- [Choose a data pipeline orchestration technology in Azure](../data-guide/technology-choices/pipeline-orchestration-data-movement.md)
+- [Choose a real-time message ingestion technology in Azure](../data-guide/technology-choices/real-time-ingestion.md)
+- [Choose a search data store in Azure](../data-guide/technology-choices/search-options.md)
+- [Choose a stream processing technology in Azure](../data-guide/technology-choices/stream-processing.md)
 
 ## Stay current with databases
 
