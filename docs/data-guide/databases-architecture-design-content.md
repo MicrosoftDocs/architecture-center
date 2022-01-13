@@ -105,6 +105,17 @@ These architectures use database technologies.
 - [Optimized storage with logical data classification](../solution-ideas/articles/optimized-storage-logical-data-classification.yml)
 - [Globally distributed applications using Cosmos DB](../solution-ideas/articles/globally-distributed-mission-critical-applications-using-cosmos-db.yml)
 
+Here are some other resources:
+
+- [Adatum Corporation scenario for data management and analytics in Azure](/azure/cloud-adoption-framework/scenarios/data-management/architectures/reference-architecture-adatum)
+- [Lamna Healthcare scenario for data management and analytics in Azure](/azure/cloud-adoption-framework/scenarios/data-management/architectures/reference-architecture-lamna)
+- [Optimize administration of SQL Server instances](../hybrid/azure-arc-sql-server.yml)
+- [Processing free-form text for search](../data-guide/scenarios/search.md)
+- [Relecloud scenario for data management and analytics in Azure](/azure/cloud-adoption-framework/scenarios/data-management/architectures/reference-architecture-relecloud)
+- [Working with CSV and JSON files for data solutions](../data-guide/scenarios/csv-and-json.md)
+
+### Example solutions
+
 These solution ideas are some of the example approaches that you can adapt to your needs.
 
 - [Data cache](../solution-ideas/articles/data-cache-with-redis-cache.yml)
@@ -115,11 +126,13 @@ These solution ideas are some of the example approaches that you can adapt to yo
 - [Multi-region web app with private connectivity to database](../example-scenario/sql-failover/app-service-private-sql-multi-region.yml)
 - [Serverless apps using Cosmos DB](../solution-ideas/articles/serverless-apps-using-cosmos-db.yml)
 
-Some other resources:
+### Similar database products
 
-- [Adatum Corporation scenario for data management and analytics in Azure](/azure/cloud-adoption-framework/scenarios/data-management/architectures/reference-architecture-adatum)
-- [Lamna Healthcare scenario for data management and analytics in Azure](/azure/cloud-adoption-framework/scenarios/data-management/architectures/reference-architecture-lamna)
-- [Optimize administration of SQL Server instances](../hybrid/azure-arc-sql-server.yml)
-- [Processing free-form text for search](../data-guide/scenarios/search.md)
-- [Relecloud scenario for data management and analytics in Azure](/azure/cloud-adoption-framework/scenarios/data-management/architectures/reference-architecture-relecloud)
-- [Working with CSV and JSON files for data solutions](../data-guide/scenarios/csv-and-json.md)
+If you're familiar with Amazon Web Services (AWS) or Google Cloud Platform (GCP), refer to the following comparisons:
+
+- [Relational database technologies on Azure and AWS](../aws-professional/databases.md)
+- [Google Cloud to Azure services comparison - Data platform](../gcp-professional/services#data-platform.md)
+
+## Next steps
+
+Refer to the [Azure Data Architecture Guide](index.md) for more details.
