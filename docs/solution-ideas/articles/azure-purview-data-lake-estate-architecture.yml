@@ -1,6 +1,6 @@
 ### YamlMime:Architecture
 metadata:
-  title: Data management across Data Lake with Azure Purview
+  title: Data management across Azure Data Lake with Azure Purview
   titleSuffix: Azure Solution Ideas
   description: Use Azure Purview to build a foundation for data governance and management that can produce and deliver high-quality, trusted data. 
   author: arevaloisabel
