@@ -29,7 +29,7 @@ DataOps is a lifecycle approach to data analytics. It uses agile practices to or
 - Data and security officers have sightlines into how data is being used, who has access, and where sensitive data might be located.  
 
 **Defined, clear roles**  
-- Engineers, testers, data scientists, operations, data analysts, business users, data officers all work together and understand their roles in the project.  
+- Engineers, testers, data scientists, operations, data analysts, business users, and data officers all work together and understand their roles in the project.  
 - Stakeholders are identified, and you understand what's motivating stakeholders to start making data-driven decisions. 
 
 **Use cases for data movement**
@@ -89,7 +89,7 @@ DataOps is a lifecycle approach to data analytics. It uses agile practices to or
 
 **Statistical process control (SPC)** 
 - SPC is used to monitor and control the data pipelines.  
-- You can use the outputs of pipelines to determine next step in the data flow.   
+- You can use the outputs of pipelines to determine the next step in the data flow.   
 
 ## Next steps
 - [Organize data operations team members](/azure/cloud-adoption-framework/scenarios/data-management/organize)
