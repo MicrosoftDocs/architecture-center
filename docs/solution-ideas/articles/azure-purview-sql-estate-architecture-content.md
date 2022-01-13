@@ -6,7 +6,7 @@ Without high-quality data in your Azure data estate, the business value can be u
 
 Data needs to be managed at scale across on-premises, cloud, and multi-cloud storage. This management ensures compliance requirements are met around security, privacy, and usage. Well-managed data can also improve self-discovery, data sharing, and quality—improving the use of data in applications and analytics.
 
-With [Azure Purview](/azure/purview/overview) , organizations can:
+With [Azure Purview](/azure/purview/overview), organizations can:
 
 - Ensure that definitions, classifications, and governance processes are applied uniformly for your data.
 - Provide a central platform where the organization can apply definitions and ownership to your data.

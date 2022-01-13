@@ -1,11 +1,11 @@
 ### YamlMime:Architecture
 metadata:
-  title: Managing Data across Azure SQL estate with Azure Purview
+  title: Manage data across Azure SQL estate with Azure Purview
   titleSuffix: Azure Solution Ideas
-  description: Improve organization governance process by using Azure Purview in an Azure SQL State
+  description: Improve your organization's governance process by using Azure Purview in an Azure SQL State.
   author: iarevalo
   ms.author: iarevalo
-  ms.date: 01/07/2022
+  ms.date: 01/13/2022
   ms.topic: conceptual
   ms.service: architecture-center
   ms.subservice: solution-idea
@@ -17,8 +17,8 @@ products:
 - azure-purview
 - azure-sql-managed-instance
 - power-bi
-name:  Managing Data across Azure SQL estate with Azure Purview
-summary: Improve organization governance process by using Azure Purview in an Azure SQL State
+name:  Manage data across Azure SQL estate with Azure Purview
+summary: Improve your organization's governance process by using Azure Purview in an Azure SQL State.
 thumbnailUrl: /docs/browse/thumbs/azure-purview-sql-estate-architecture-thumbnail.png
 content: |
   [!include[](azure-purview-sql-estate-architecture-content.md)]
