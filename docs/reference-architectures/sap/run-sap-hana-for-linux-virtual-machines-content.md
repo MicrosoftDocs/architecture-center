@@ -21,7 +21,7 @@ The architecture includes the following components:
 
 **Network security groups.** To restrict incoming, outgoing, and intra-subnet traffic in the virtual network, define [network security groups](/azure/virtual-network/security-overview) (NSGs) for subnets or individual virtual machines.
 
-**Storage.** Azure Premium managed disks and Azure NetApp Files provide the recommend storage for the SAP executables and the SAP HANA data and logs. Other [storage configurations](/azure/virtual-machines/workloads/sap/hana-vm-operations-storage) are available, such as Ultra disk and Azure NetApp Files.
+**Storage.** Azure Premium managed disks and Azure NetApp Files provide the recommend storage for the SAP executables and the SAP HANA data and logs. Other [storage configurations](/azure/virtual-machines/workloads/sap/hana-vm-operations-storage) are available, such as Ultra disk.
 
 ## Recommendations
 
@@ -55,13 +55,15 @@ The database subnet includes an NSG that defines access policies for all the vir
 
 ## Performance considerations
 
-This implementation uses Azure managed disks. To achieve high input/output operations per second (IOPS) and disk bandwidth throughput, the common practices in storage volume [performance optimization](/azure/virtual-machines/linux/premium-storage-performance) also apply to Azure storage layout. For example, combining multiple disks together to create a striped disk volume improves IO performance. However, if you later resize the virtual machines, you may need a corresponding change to the disk configuration.
+This implementation uses Azure managed disks or Azure NetApp Files. To achieve high input/output operations per second (IOPS) and disk bandwidth throughput, the common practices in storage volume [performance optimization](/azure/virtual-machines/linux/premium-storage-performance) also apply to Azure storage layout. For example, combining multiple disks together to create a striped disk volume improves IO performance. However, if you later resize the virtual machines, you may need a corresponding change to the disk configuration. Azure NetApp Files cost optimization leverages dynamic tuning, which is built into the service to provide the required performance.
 
 Enabling the read cache on storage content that changes infrequently enhances the speed of data retrieval. See also recommendations about [storage configurations](/azure/virtual-machines/workloads/sap/hana-vm-operations-storage) for various virtual machine sizes when running SAP HANA.
 
-To meet the intensive IOPS and transfer bandwidth demands of SAP HANA, [ultra disk storage](/azure/virtual-machines/linux/disks-enable-ultra-ssd) provides the best IO performance. You can dynamically change the performance of ultra disks and independently configure metrics like IOPS and MB/s without rebooting your virtual machine. Ultra disk capabilities continue to evolve. To see if these disks meet your requirements, review the latest information about the service scope of [ultra disks](/azure/virtual-machines/linux/disks-enable-ultra-ssd), especially if your implementation includes Azure resiliency features such as availability sets, Availability Zones, and cross-region replication.
+To meet the intensive IOPS and transfer bandwidth demands of SAP HANA, [ultra disk storage](/azure/virtual-machines/linux/disks-enable-ultra-ssd) and Azure NetAPp Files provide the best IO performance. You can dynamically change the performance of ultra disks and independently configure metrics like IOPS and MB/s without rebooting your virtual machine. Ultra disk capabilities continue to evolve. To see if these disks meet your requirements, review the latest information about the service scope of [ultra disks](/azure/virtual-machines/linux/disks-enable-ultra-ssd), especially if your implementation includes Azure resiliency features such as availability sets, Availability Zones, and cross-region replication.
 
 For details about SAP HANA performance requirements, see [SAP Note 1943937](https://launchpad.support.sap.com/#/notes/1943937), "Hardware Configuration Check Tool."
+
+Azure NetApp Files leverages corss region replication and delivers [four nines availability](https://azure.microsoft.com/support/legal/sla/netapp/).
 
 > [!NOTE]
 > As specified in [SAP Note 2731110](https://launchpad.support.sap.com/#/notes/2731110), do not place any network virtual appliance (NVA) in between the application and the database layers for any SAP application stack. Doing so introduces significant data packets processing time and unacceptably slows application performance.
