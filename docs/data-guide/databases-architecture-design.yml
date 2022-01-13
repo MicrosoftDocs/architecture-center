@@ -12,9 +12,10 @@ metadata:
 azureCategories:
   - databases
 products:
-  - <choose 1-5 products from the list at https://review.docs.microsoft.com/en-us/help/contribute/architecture-center/aac-browser-authoring?branch=master#products>
-  - <1-5 products>
-  - <1-5 products>
+  - azure-database-mariadb
+  - azure-database-migration
+  - azure-database-mysql
+  - azure-database-postgresql
 name: Databases architecture design
 summary: <Write a summary. Can be same as description.>
 thumbnailUrl: /azure/architecture/browse/thumbs/<browse-png-filename>.png
