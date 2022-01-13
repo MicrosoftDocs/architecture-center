@@ -21,6 +21,6 @@ products:
 - power-bi
 name: Data management across Azure Data Lake with Azure Purview
 summary: Use Azure Purview to build a foundation for data governance and management that can produce and deliver high-quality, trusted data. 
-thumbnailUrl: /docs/browse/thumbs/data-lake-purview.png
+thumbnailUrl: /azure/architecture/browse/thumbs/data-lake-purview.png
 content: |
   [!include[](azure-purview-data-lake-estate-architecture-content.md)]

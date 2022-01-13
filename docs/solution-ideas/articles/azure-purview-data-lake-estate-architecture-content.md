@@ -4,13 +4,13 @@ As you load more data into Azure, the need to properly govern and manage that da
 
 If you don't have high-quality data in your Azure data estate, the business value of Azure is diminished. The solution is to build a foundation for data governance and management that can produce and deliver high-quality, trusted data.
 
-Data needs to be managed at scale across on-premises, cloud, and multi-cloud storage to ensure it meets compliance requirements around security, privacy, and usage. Well-managed data can also improve self-discovery, data sharing, and data quality, which improves the use of data in applications and analytics.
+Data needs to be managed at scale across on-premises, cloud, and multi-cloud storage to ensure it meets compliance requirements for security, privacy, and usage. Well-managed data can also improve self-discovery, data sharing, and data quality, which improves the use of data in applications and analytics.
 
 [Azure Purview](/azure/purview/overview) provides governance for finding, classifying, defining, and enforcing policies and standards across data. You can use it to apply definitions, classifications, and governance processes uniformly across data. It catalogs all data sources, identifies any sensitive information, and defines data lineage. It provides a central platform where you can apply definitions and ownership to data. With a single view on reports and insight, it can help you generate data standards that should be applied to your data.
 
 Working with other Azure services, Azure Purview can automatically discover, catalog, classify, and manage data across Azure Data Lake offerings and partner services.
 
-This article describes an architecture that uses these Azure services:
+This article describes a solution that uses Azure Purview with these Azure services:
 
 - Azure Data Factory
 - Azure Data Lake Storage
@@ -19,7 +19,7 @@ This article describes an architecture that uses these Azure services:
 
 ## Potential use cases
 
-The requirements for data management differ across industries. For all industries, the need to govern data at scale has increased as the size and complexity of data and data architectures grow. The architecture described here is appropriate for organizations that would benefit from the following outcomes of well-governed data:
+The requirements for data management differ across industries. For all industries, the need to govern data at scale has increased as the size and complexity of data and data architectures grow. The solution described here is appropriate for organizations that would benefit from the following outcomes of well-governed data:
 - Automatic discovery of data to accelerate cloud adoption
 - Improved security of data for compliance with data laws and regulations
 - Improved access, discovery, and quality of managed data to enhance analytics
@@ -39,10 +39,10 @@ Scenarios for connecting Azure Purview to Data Lake services:
 
 1. Azure Purview provides an improved-security connection to your data lake ingestion, storage, and analytics pipelines to automatically catalog data assets. It also provides lineage across these services. Specific Azure services include Data Factory, Data Lake Storage, and Azure Synapse Analytics.
 
-2. Azure Purview connects natively with Power BI and other reporting and visualization tools. It shows the lineage of data used in end reports. It also shares sensitivity information from the Power BI assets to prevent incorrect data use.
+2. Azure Purview connects natively with Power BI and other reporting and visualization tools. It shows the lineage of data that's used in end reports. It also shares sensitivity information from the Power BI assets to prevent incorrect data use.
 
 > [!IMPORTANT]
-> The information transferred from the sources to Azure Purview is metadata that describes the data within the scanned sources. No actual data is transferred from the sources to Azure Purview.
+> The information that's transferred from the sources to Azure Purview is metadata that describes the data within the scanned sources. No actual data is transferred from the sources to Azure Purview.
 
 #### Capabilities
 
@@ -80,17 +80,17 @@ Scenarios for connecting Azure Purview to Data Lake services:
 
 ## Next steps
 
-- [Read Azure Purview customer case studies](https://customers.microsoft.com/en-us/search?sq=%22Azure%20Purview%22&ff=&p=0&so=story_publish_date%20desc)
-- [Explore Azure Purview technical documentation and best practices](/azure/purview/concept-best-practices-accounts)
+- [Azure Purview customer case studies](https://customers.microsoft.com/en-us/search?sq=%22Azure%20Purview%22&ff=&p=0&so=story_publish_date%20desc)
+- [Azure Purview technical documentation and best practices](/azure/purview/concept-best-practices-accounts)
 - [What is Azure Purview?](/azure/purview/overview)
 - [What is Power BI?](https://powerbi.microsoft.com/what-is-power-bi)
-- [Azure Active Directory](https://azure.microsoft.com/services/active-directory)
-- [Data Factory](https://azure.microsoft.com/services/data-factory)
-- [Data Lake Storage](https://azure.microsoft.com/services/storage/data-lake-storage)
-- [Azure Databricks](https://azure.microsoft.com/services/databricks)
-- [Monitor](https://azure.microsoft.com/services/monitor)
-- [Azure Synapse Analytics](https://azure.microsoft.com/services/synapse-analytics)
-- [Key Vault](https://azure.microsoft.com/services/key-vault)
+- [What is Azure Active Directory?](/azure/active-directory/fundamentals/active-directory-whatis)
+- [What is Data Factory?](/azure/data-factory/introduction)
+- [Introduction to Data Lake Storage](/azure/storage/blobs/data-lake-storage-introduction)
+- [What is Azure Databricks?](/azure/databricks/scenarios/what-is-azure-databricks)
+- [Azure Monitor overview](/azure/azure-monitor/overview)
+- [What is Azure Synapse Analytics?](/azure/synapse-analytics/overview-what-is)
+- [What is Azure Key Vault?](/azure/key-vault/general/basic-concepts)
 
 ## Related resources
 - [Data analysis workloads for regulated industries](/azure/architecture/example-scenario/data/data-analysis-regulated-industries)
