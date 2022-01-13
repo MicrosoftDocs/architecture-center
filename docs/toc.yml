@@ -1717,6 +1717,8 @@ items:
                 href: solution-ideas/articles/big-data-analytics-enterprise-grade-security.yml
               - name: Content Delivery Network analytics
                 href: solution-ideas/articles/content-delivery-network-azure-data-explorer.yml
+              - name: Data management with Azure Purview
+                href: solution-ideas/articles/azure-purview-data-lake-estate-architecture.yml
               - name: Demand forecasting for shipping
                 href: solution-ideas/articles/demand-forecasting-for-shipping-and-distribution.yml
               - name: Demand forecasting and price optimization
