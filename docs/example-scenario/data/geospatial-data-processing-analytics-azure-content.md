@@ -299,7 +299,7 @@ To start implementing this solution, see this information:
 [Quickstart: create a Hyperscale (Citus) server group in the Azure portal]: /azure/postgresql/quickstart-create-hyperscale-portal
 [Redis]: https://redis.io/
 [Rust]: https://www.rust-lang.org/
-[Scalability considerations]: #scalability-considerations
+[Scalability considerations]: #scalability
 [Scaling with Event Hubs partitions]: /azure/event-hubs/event-hubs-scalability#partitions
 [Security in Azure App Service]: /azure/app-service/overview-security
 [ST_AsMVT (postgis.net)]: https://postgis.net/docs/ST_AsMVT.html
