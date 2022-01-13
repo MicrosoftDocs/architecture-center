@@ -29,7 +29,7 @@ Manufacturing companies, as part of their digital transformation journey, focus 
 There are a few common characteristics of configuration management for edge workloads:
 
 - There are several configuration points that can be grouped into distinct layers, like software source, CI/CD pipeline, cloud tenant, and edge location:
-  :::image type="content" source="_images/edge-workload-configuration-1.png" alt-text="The layers that characterize workload configurations: software source, CI/Cd pipelines, cloud tenant, and edge location." border="false" :::
+  :::image type="content" source="_images/edge-workload-configuration-1.png" alt-text="Diagram of the layers that characterize workload configurations: software source, C I  /C D pipelines, cloud tenant, and edge location." border="false" :::
 - The various layers can be updated by different people.
 - No matter how the configurations are updated, they need to be carefully tracked and audited.
 - For business continuity, it's required that configurations can be accessed offline at the edge.
@@ -68,7 +68,7 @@ The solution to configure edge workloads during run-time can be based on an exte
 
 ### External configuration controller variation
 
-:::image type="content" source="_images/edge-workload-configuration-2.png" alt-text="Architecture for the external configuration controller variation." border="false" :::
+:::image type="content" source="_images/edge-workload-configuration-2.png" alt-text="Diagram of the architecture for the external configuration controller variation." border="false" :::
 
 This variation has a configuration controller that's external to the workload. The role of the cloud configuration controller component is to push edits from the cloud datastore to the workload through the edge configuration controller. The edge also contains a datastore so that the system functions even when disconnected from the cloud.
 
@@ -84,7 +84,7 @@ The benefits of this variation are:
 
 ### Internal configuration provider variation
 
-:::image type="content" source="_images/edge-workload-configuration-3.png" alt-text="Architecture for the internal configuration provider variation." border="false" :::
+:::image type="content" source="_images/edge-workload-configuration-3.png" alt-text="Diagram of the architecture for the internal configuration provider variation." border="false" :::
 
 In the internal configuration provider variation, the workload pulls configurations from a configuration provider. For an implementation example, see [Implement a custom configuration provider in .NET](/dotnet/core/extensions/custom-configuration-provider). That example uses C#, but other languages can be used.
 
@@ -99,7 +99,7 @@ The benefits of this variation are:
 
 ### Solutions based on IoT Edge
 
-:::image type="content" source="_images/edge-workload-configuration-4.png" alt-text="Architecture for the IoT Edge-based variation." border="false" :::
+:::image type="content" source="_images/edge-workload-configuration-4.png" alt-text="Diagram of the Architecture for the I o T Edge-based variation." border="false" :::
 
 The cloud component of the IoT Edge reference implementation consists of an IoT hub acting as the cloud configuration controller. The [Azure IoT Hub](https://azure.microsoft.com/services/iot-hub) module twin functionality propagates configuration changes and information about the currently applied configuration by using module twin desired and reported properties. The configuration management service acts as the source of the configurations. It can also be a user interface for managing configurations, a build system, and other tools used to author workload configurations.
 
