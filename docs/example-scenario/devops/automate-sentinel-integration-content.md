@@ -21,8 +21,9 @@ The typical use cases for this architecture include:
 
 * Sentinel as a Service: Our development framework integrates service lifecycle management principles. These principles are suitable for simple or complex organizations like Managed Security Service Providers (MSSPs) who run repeatable, standardized actions across multiple customer tenants while combining the power of Azure DevOps & Azure Lighthouse. For example, an organization that needs to publish Sentinel use cases for a new threat actor or ongoing campaign.
 
-* Building SOC use case for Threat detection: Many organizations and threat intelligence platforms rely on Mitre Att&ck content and taxonomy to analyze their Security Posture against advanced tradecraft or Techniques and Tactics Procedures. The solution defines a structured approach for developing threat detection engineering practices, by incorporating Mitre Att&ck terminology within Microsoft Sentinel artifacts development. The following illustration shows a Mitre Att&ck Cloud scenarios:
+* Building SOC use case for Threat detection: Many organizations and threat intelligence platforms rely on Mitre Att&ck content and taxonomy to analyze their Security Posture against advanced tradecraft or Techniques and Tactics Procedures. The solution defines a structured approach for developing threat detection engineering practices, by incorporating Mitre Att&ck terminology within Microsoft Sentinel artifacts development. 
 
+The following illustration shows a Mitre Att&ck Cloud scenario:
 
 ## Architecture
 
@@ -39,42 +40,39 @@ _Download a [Visio file](https://arch-center.azureedge.net/[filename].vsdx) of t
    * The Azure Git Repository stores the scripts and permits to manage Microsoft Sentinel artifacts in the infrastructure as code.
    * Artifacts and Source Control maintain the extensions and update packages or components of the DevSecOps workflow used in our solution, such as Azure Resource Manager Template Toolkit and Powershell Pester.
 2. Sentinel Artifacts:
-   * Policies: In our Reference Architecture, to configure at scale the “Diagnostic Settings” of such Azure services SIEM Engineers will use Azure Policy that helps to automate the deployment of the Microsoft Sentinel data connectors depending on OMSIntegration API like “Azure Key Vault”.
-   * Connectors: Azure Data Connectors, are logical connectors used by Microsoft Sentinel to ingest security data (audits or metrics) from supported data source like Azure AD, Azure Resources, Microsoft 365 Defender or 3rd party solutions. The main list of Data connectors are managed by SecurityInsights API others rely on OMSIntegration API are managed with Azure Policy (Diagnostic Settings).
-   * Managed Identity: Used by Microsoft Sentinel to act on behalf of the MSI while interacting with Playbooks (Logics Apps), or Automation Runbooks, Key Vault.
-   * Automation: Support SOC teams during investigations to execute digital forensics data acquisition procedures automated with Azure Automation, like Azure VM Chain of Custody or Advanced eDiscovery for Microsoft 365.
-   * Analytics: Built-in or Custom Analytics rules used by SOC Analysts or Threat Hunters to analyze and correlate data in Microsoft Sentinel or trigger playbooks if a threat/incident is identified.
-   * Playbooks: Logic Apps used to execute SecOps repeatable actions like assign an incident, update an incident OR remediation actions like isolate or contain a VM, revoke a token, reset a user password.
-   * Threat Hunting: Proactive Threat hunting capabilities used by Threat Hunters (can be coupled with Jupyter notebooks for advanced use cases like data processing, data manipulation, data visualization, ML or Deep Learning)
-   * Workbooks: Dashboard used by SIEM Engineers to visualize trends, statistics, status of a given Microsoft Sentinel instance and sub-components
-   * Threat Intelligence: Is a specific data connector to fuse Threat Intelligence Platforms feeds with Microsoft Sentinel, we have two connectivity methods TAXII or Graph API (tiIndicators)
-3. Azure AD: Identity and Access Management capabilities delivered to components used in the reference architecture like Managed Identities, Service Principal, RBACs for Microsoft Sentinel, Logic Apps, Automation runbooks.
-4. Azure DevOps Pipelines: Used by the DevOps engineers to create service connection for managing the different Azure subscriptions (environments: Sandbox, Production) with CI/CD pipelines. Note: We highly recommend using approval workflows to prevent unexpected deployments and separated Service Principals if you target multiple subscriptions per Azure “environments”.
-5. Azure Key Vault: Used by SOC Engineers to store securely Service Principal’s secrets/certificate, this component of the architecture helps to enforce DevSecOps principle of “no secrets in code” when used by Azure DevOps Pipeline service connections.
-6. Azure Subscription: In this Reference Architecture, the SOC teams will use two instances of Microsoft Sentinel separated within two logical Azure subscriptions to simulate Production & Sandbox environments (you can scale at your needs with other environments like Testing, Dev, Preproduction etc…)
+   * Policies: In the Reference Architecture, to configure and scale the diagnostic settings of the Azure services, SIEM Engineers use Azure policies. The policies help automate deployment of the Microsoft Sentinel data connectors depending on the OMSIntegration API, such as Azure Key Vault.
+   * Connectors: Azure Data Connectors are logical connectors used by Microsoft Sentinel to ingest security data (audits or metrics) from supported data sources, such as Azure AD, Azure Resources, Microsoft 365 Defender, or third-party solutions. The main list of Data connectors is managed by the SecurityInsights API; others rely on OMSIntegration API and are managed with the Azure Policy (diagnostic settings).
+   * Managed Identity: Microsoft Sentinel uses managed identity to act on behalf of the MSI while interacting with Playbooks (Logics Apps), or Automation Runbooks and the Key Vault.
+   * Automation: This supports Security Operations Center teams during investigations to run digital forensics data acquisition procedures automated with Azure Automation, such as Azure VM Chain of Custody or Advanced eDiscovery for Microsoft 365.
+   * Analytics: SOC Analysts or Threat Hunters use built-in or custom analytics rules to analyze and correlate data in Microsoft Sentinel or to trigger playbooks if a threat and incident is identified.
+   * Playbooks: Logic Apps run the SecOps repeatable actions, such as: assigning an incident, updating an incident, or taking remediation actions, like isolating or containing a VM, revoking a token, or resetting a user password.
+   * Threat Hunting: Proactive threat hunting capabilities used by Threat Hunters. These capabilities can be coupled with Jupyter notebooks for advanced use cases, such as: data processing, data manipulation, data visualization, ML, or Deep Learning.
+   * Workbooks: SIEM Engineers use Workbooks Dashboards to visualize trends and statistics and to view the status of a Microsoft Sentinel instance and its sub-components.
+   * Threat Intelligence: A specific data connector that fuses Threat Intelligence Platforms feeds with Microsoft Sentinel. Two connectivity methods are supported, TAXII or Graph API (tiIndicators).
+3. Azure AD: Identity and Access Management capabilities are delivered to components used in the reference architecture, such as: Managed Identities, Service Principal, RBACs for Microsoft Sentinel, Logic Apps, and Automation runbooks.
+4. Azure DevOps Pipelines: DevOps engineers use pipelines to create service connections for managing the different Azure subscriptions (environments: Sandbox and Production) with CI/CD pipelines. We recommend using approval workflows to prevent unexpected deployments and separated Service Principals if you target multiple subscriptions per Azure environment.
+5. Azure Key Vault: SOC Engineers use the key vault to securely store service principal secrets and certificate. The component of the architecture helps enforce the DevSecOps principle of “no secrets in code” when used by Azure DevOps Pipeline service connections.
+6. Azure Subscription: In this Reference Architecture, the SOC teams use two instances of Microsoft Sentinel separated within two logical Azure subscriptions to simulate Production and Sandbox environments. You can scale for your needs with other environments, such as: Testing, Dev, Preproduction, and so on.
 
-Examples:
-1. Admin 1 adds, updates, or deletes an entry in Admin 1's fork of the Microsoft 365 config file.
-2. Admin 1 commits and syncs the changes to Admin 1's forked repository.
-3. Admin 1 creates a pull request (PR) to merge the changes to the main repository.
+#### Dataflow Example
+
+1. Admin one adds, updates, or deletes an entry in Admin one's fork of the Microsoft 365 config file.
+2. Admin one commits and syncs the changes to Admin one's forked repository.
+3. Admin one creates a pull request (PR) to merge the changes to the main repository.
 4. The build pipeline runs on the PR.
 
 ### Components
 
-> A bullet list of components in the architecture (including all relevant Azure services) with links to the product service pages. This is for lead generation (what business, marketing, and PG want). It helps drive revenue.
+This architecture makes use of the following components:  
 
-> Why is each component there?
-> What does it do and why was it necessary?
-> Link the name of the service (via embedded link) to the service's product service page. Be sure to exclude the localization part of the URL (such as "en-US/").
+* [Azure Active Directory](https://azure.microsoft.com/en-us/services/active-directory/): A multi-tenant, cloud-based service to manage your identity and access controls.
+* [Azure DevOps](https://azure.microsoft.com/en-us/services/devops/): A cloud service to collaborate on code, build and deploy apps, or plan and track your work.
+* [Azure Key Vault](https://azure.microsoft.com/en-us/services/key-vault/): A cloud service for securely storing and accessing secrets. A secret is anything that you want to tightly control access to, such as API keys, passwords, certificates, or cryptographic keys.
+* [Azure Policy](https://azure.microsoft.com/en-us/services/azure-policy/): A service in Azure to create, assign, and manage policy definitions in your Azure environment.
+* [Microsoft Sentinel](https://azure.microsoft.com/en-us/services/azure-sentinel/):
+A scalable, cloud-native, security information and event management (SIEM) and security orchestration, automation, and response (SOAR) solution.
+* [Azure Automation](https://azure.microsoft.com/en-us/services/automation/): An Azure service for simplifying cloud management through process automation. Use Azure Automation to automate long-running, manual, error-prone, and frequently repeated tasks to increase reliability, efficiency, and time to value for your organization.
 
-- Examples: 
-  - [Azure App Service](https://azure.microsoft.com/services/app-service)
-  - [Azure Bot Service](https://azure.microsoft.com/services/bot-service)
-  - [Azure Cognitive Services Language Understanding](https://azure.microsoft.com/services/cognitive-services/language-understanding-intelligent-service)
-  - [Azure Cognitive Services Speech Services](https://azure.microsoft.com/services/cognitive-services/speech-services)
-  - [Azure SQL Database](https://azure.microsoft.com/services/sql-database)
-  - [Azure Monitor](https://azure.microsoft.com/services/monitor): Application Insights is a feature of Azure Monitor.
-  - [Resource Groups][resource-groups] is a logical container for Azure resources.  We use resource groups to organize everything related to this project in the Azure console.
 
 ### Alternatives
 
@@ -84,9 +82,28 @@ Examples:
 
 ## Considerations
 
-> Are there any lessons learned from running this that would be helpful for new customers?  What went wrong when building it out?  What went right?
-> How do I need to think about managing, maintaining, and monitoring this long term?
-> Note that you should have at least two of the H3 sub-sections (which are our pillars).
+With security, in general terms, automation increases operations efficiency while saving time for more complex use cases, such as: threat detection engineering, threat intelligence, SOC, and SOAR use cases. While saving time, DevOps teams need to know where IaC can be leveraged in the context of Microsoft Sentinel CI/CD in a secure fashion, which introduces the use of specific identities used by non-human accounts in Azure AD called [Service Principals](https://docs.microsoft.com/en-us/azure/active-directory/develop/app-objects-and-service-principals) and [Managed Identities](https://docs.microsoft.com/en-us/azure/active-directory/managed-identities-azure-resources/overview).
+
+The following table summarizes security considerations regarding service principals with the main use cases covered by Microsoft Sentinel and Azure DevOps release pipelines:
+
+| Use case | Requirements (least privilege) | Role assignment duration | Permission scope | Trustee| Security considerations |
+| -- | --- | --- | --- | --- | ---------- |
+| Enable Sentinel connectors | <ul type="circle"> <li> Security Administrator (see table note two) </li> <li> Owner (see note one) </li> <li> Sentinel Contributor </li> <li> Reader </li>| JIT (one-time activation) <br> On purpose (every time a new subscription and connector deploys) | Tenant | SPN | <ul type="circle"> <li> Use Key Vault to store SPN secrets and certificate. </li> <li> Enable SPN auditing. </li> <li> Periodically review permission assignment (Azure PIM for SPN) or suspicious activity for SPN. </li>  <li> Use AAD CA and MFA (when supported) for privileged accounts. </li> <li> Use Azure AD Custom Roles for more granularity. </li> |
+| Deploy Sentinel artifacts (workbooks, analytics, rules, threat hunting queries, notebooks, playbooks) | <ul type="circle"> <li> Sentinel Contributor </li> <li> Logic Apps contributor </li> |Permanent | Sentinel's Workspace or Resource Group | SPN | <ul type="circle"> <li> Use ADO Workflow approval and checks to secure pipeline deployment with this SPN. </li>|
+| Assign a policy to configure log streaming features to Sentinel|  Resource Policy Contributor (see note two below this table) | On purpose (every time a new subscription and connector deploys) | All subscriptions to be monitored| SPN | <ul type="circle"> <li> Use AAD CA and MFA (when supported) for privileged accounts. </li> |
+
+Table note one: Only concerns Azure AD Diagnostics Settings. <br>
+Table note two: Specific connectors need additional permissions granted like "Security Administrator" or "Resource Policy Contributor" to allow streaming their data to Sentinel Workspace: Azure AD; Office365, or M365 Defender, Paas Resources like Azure Key Vault.
+
+### Privileged access model
+
+Microsoft recommends adopting a privileged access model strategy to rapidly lower the risks to your organization from high-impact and high-likelihood attacks on privileged access. In the case of automatic processes in a DevOps model, you must base identity on [Service Principal](https://docs.microsoft.com/en-us/azure/active-directory/develop/app-objects-and-service-principals) identities.
+
+Privileged access should be the top security priority at every organization. Any compromise of these identities has a high negative impact to the organization. Privileged identities have access to business-critical assets in an organization, nearly always causing major impact when attackers compromise these accounts.
+
+Security of privileged access is critically important because it's foundational to all other security assurances. An attacker in control of your privileged accounts can undermine all other security assurances.  
+
+For that reason, we recommend logically spreading the service principals into different levels or tiers following a minimum privilege principle. The following illustration shows how the Service Principals should be classified depending on type of access and where access is required.
 
 ### Availability
 
