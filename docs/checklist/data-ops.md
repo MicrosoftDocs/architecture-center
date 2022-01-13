@@ -93,7 +93,7 @@ DataOps is a lifecycle approach to data analytics. It uses agile practices to or
 
 ## Next steps
 - [Organize data operations team members](/azure/cloud-adoption-framework/scenarios/data-management/organize)
-- [DevOps automation for data management and analytics in Azure](azure/cloud-adoption-framework/scenarios/data-management/organize-data-operations)
+- [DevOps automation for data management and analytics in Azure](/azure/cloud-adoption-framework/scenarios/data-management/organize-data-operations)
 - [Smart data pipelines to Azure: Ingesting and migrating data the DataOps way](/shows/ask-the-expert/ask-the-expert-smart-data-pipelines-to-azure-ingesting-and-migrating-data-the-dataops-way)
 
 ## Related resources
