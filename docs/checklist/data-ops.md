@@ -3,7 +3,7 @@ title: DataOps checklist
 titleSuffix: Azure Design Review Framework
 description: DataOps is a life-cycle approach to data analytics that uses agile practices to deliver high-quality data. Use this checklist as a starting point to assess your DataOps process. 
 author: Katie-Novotny
-ms.date: 12/10/2021
+ms.date: 01/18/2022
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: well-architected
