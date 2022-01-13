@@ -21,7 +21,7 @@ The architecture includes the following components:
 
 **Network security groups.** To restrict incoming, outgoing, and intra-subnet traffic in the virtual network, define [network security groups](/azure/virtual-network/security-overview) (NSGs) for subnets or individual virtual machines.
 
-**Storage.** Azure Premium managed disks provide the recommend storage for the SAP executables and the SAP HANA data and logs. Other [storage configurations](/azure/virtual-machines/workloads/sap/hana-vm-operations-storage) are available, such as Ultra disk and Azure NetApp Files.
+**Storage.** Azure Premium managed disks and Azure NetApp Files provide the recommend storage for the SAP executables and the SAP HANA data and logs. Other [storage configurations](/azure/virtual-machines/workloads/sap/hana-vm-operations-storage) are available, such as Ultra disk and Azure NetApp Files.
 
 ## Recommendations
 

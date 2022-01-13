@@ -2,11 +2,13 @@ This reference architecture shows proven practices for improving scalability and
 
 ![GitHub logo](../../_images/github.png) A reference implementation for this architecture is available on [GitHub][github].
 
+## Architecture
+
 ![Web application in Azure with improved scalability](./images/scalable-web-app.png)
 
 *Download a [Visio file][visio-download] of this architecture.*
 
-## Architecture
+### Workflow
 
 This architecture builds on the one shown in [Basic web application][basic-web-app]. It includes the following components:
 
@@ -68,7 +70,60 @@ Modern applications often process large amounts of data. In order to scale for t
 
 See [Choose the right data store][datastore].
 
-## Cost considerations
+## Considerations
+
+### Scalability
+
+A major benefit of Azure App Service is the ability to scale your application based on load. Here are some considerations to keep in mind when planning to scale your application.
+
+#### App Service app
+
+If your solution includes several App Service apps, consider deploying them to separate App Service plans. This approach enables you to scale them independently because they run on separate instances.
+
+#### SQL Database
+
+Increase scalability of a SQL database by *sharding* the database. Sharding refers to partitioning the database horizontally. Sharding allows you to scale out the database horizontally using [Elastic Database tools][sql-elastic]. Potential benefits of sharding include:
+
+- Better transaction throughput.
+- Queries can run faster over a subset of the data.
+
+#### Azure Front Door
+
+Front Door can perform SSL offload and also reduces the total number of TCP connections with the backend web app. This improves scalability because the web app manages a smaller volume of SSL handshakes and TCP connections. These performance gains apply even if you forward the requests to the web app as HTTPS, due to the high level of connection reuse.
+
+#### Azure Search
+
+Azure Search removes the overhead of performing complex data searches from the primary data store, and it can scale to handle load. See [Scale resource levels for query and indexing workloads in Azure Search][azure-search-scaling].
+
+### Security
+
+This section lists security considerations that are specific to the Azure services described in this article. It's not a complete list of security best practices for web applications. For additional security considerations, see [Secure an app in Azure App Service][app-service-security].
+
+#### Restrict incoming traffic
+
+Configure the application to accept traffic only from Front Door. This ensures that all traffic goes through the WAF before reaching the app. For more information, see [How do I lock down the access to my backend to only Azure Front Door?](/azure/frontdoor/front-door-faq#how-do-i-lock-down-the-access-to-my-backend-to-only-azure-front-door-)
+
+#### Cross-Origin Resource Sharing (CORS)
+
+If you create a website and web API as separate apps, the website cannot make client-side AJAX calls to the API unless you enable CORS.
+
+> [!NOTE]
+> Browser security prevents a web page from making AJAX requests to another domain. This restriction is called the same-origin policy, and prevents a malicious site from reading sensitive data from another site. CORS is a W3C standard that allows a server to relax the same-origin policy and allow some cross-origin requests while rejecting others.
+>
+
+App Services has built-in support for CORS, without needing to write any application code. See [Consume an API app from JavaScript using CORS][cors]. Add the website to the list of allowed origins for the API.
+
+#### SQL Database encryption
+
+Use [Transparent Data Encryption][sql-encryption] if you need to encrypt data at rest in the database. This feature performs real-time encryption and decryption of an entire database (including backups and transaction log files) and requires no changes to the application. Encryption does add some latency, so it's a good practice to separate the data that must be secure into its own database and enable encryption only for that database.
+
+### DevOps
+
+#### Front-end deployment
+
+This architecture builds on the one shown in [Basic web application][basic-web-app], see the [DevOps considerations section][basic-web-app-devops].
+
+## Pricing
 
 Use caching to reduce the load on servers that serve content that doesn't change frequently. Every render cycle of a page can impact cost because it consumes compute, memory, and bandwidth. Those costs can be reduced significantly by using caching, especially for static content services, such as JavaScript single-page apps and media streaming content.
 
@@ -82,59 +137,15 @@ Consider placing a function app into a dedicated App Service plan so that backgr
 
 Use the [pricing calculator](https://azure.microsoft.com/pricing/calculator) to estimate costs.
 
-## Scalability considerations
-
-A major benefit of Azure App Service is the ability to scale your application based on load. Here are some considerations to keep in mind when planning to scale your application.
-
-### App Service app
-
-If your solution includes several App Service apps, consider deploying them to separate App Service plans. This approach enables you to scale them independently because they run on separate instances.
-
-### SQL Database
-
-Increase scalability of a SQL database by *sharding* the database. Sharding refers to partitioning the database horizontally. Sharding allows you to scale out the database horizontally using [Elastic Database tools][sql-elastic]. Potential benefits of sharding include:
-
-- Better transaction throughput.
-- Queries can run faster over a subset of the data.
-
-### Azure Front Door
-
-Front Door can perform SSL offload and also reduces the total number of TCP connections with the backend web app. This improves scalability because the web app manages a smaller volume of SSL handshakes and TCP connections. These performance gains apply even if you forward the requests to the web app as HTTPS, due to the high level of connection reuse.
-
-### Azure Search
-
-Azure Search removes the overhead of performing complex data searches from the primary data store, and it can scale to handle load. See [Scale resource levels for query and indexing workloads in Azure Search][azure-search-scaling].
-
-## Security considerations
-
-This section lists security considerations that are specific to the Azure services described in this article. It's not a complete list of security best practices for web applications. For additional security considerations, see [Secure an app in Azure App Service][app-service-security].
-
-### Restrict incoming traffic
-
-Configure the application to accept traffic only from Front Door. This ensures that all traffic goes through the WAF before reaching the app. For more information, see [How do I lock down the access to my backend to only Azure Front Door?](/azure/frontdoor/front-door-faq#how-do-i-lock-down-the-access-to-my-backend-to-only-azure-front-door-)
-
-### Cross-Origin Resource Sharing (CORS)
-
-If you create a website and web API as separate apps, the website cannot make client-side AJAX calls to the API unless you enable CORS.
-
-> [!NOTE]
-> Browser security prevents a web page from making AJAX requests to another domain. This restriction is called the same-origin policy, and prevents a malicious site from reading sensitive data from another site. CORS is a W3C standard that allows a server to relax the same-origin policy and allow some cross-origin requests while rejecting others.
->
-
-App Services has built-in support for CORS, without needing to write any application code. See [Consume an API app from JavaScript using CORS][cors]. Add the website to the list of allowed origins for the API.
-
-### SQL Database encryption
-
-Use [Transparent Data Encryption][sql-encryption] if you need to encrypt data at rest in the database. This feature performs real-time encryption and decryption of an entire database (including backups and transaction log files) and requires no changes to the application. Encryption does add some latency, so it's a good practice to separate the data that must be secure into its own database and enable encryption only for that database.
-
-## DevOps considerations
-
-### Front-end deployment
-
-This architecture builds on the one shown in [Basic web application][basic-web-app], see the [DevOps considerations section][basic-web-app-devops].
-
 ## Next steps
 
+- [Secure an app in Azure App Service][app-service-security]
+- [Transparent Data Encryption][sql-encryption]
+- [ASP.NET Session State Provider for Azure Cache for Redis](/azure/azure-cache-for-redis/cache-aspnet-session-state-provider)
+
+## Related resources
+
+- [Basic web application][basic-web-app]
 - [Run a web application in multiple Azure regions for high availability][web-app-multi-region]
 - [Overview of load-balancing options in Azure](../../guide/technology-choices/load-balancing-overview.md)
 
@@ -150,7 +161,7 @@ This architecture builds on the one shown in [Basic web application][basic-web-a
 [azure-search]: /azure/search
 [azure-search-scaling]: /azure/search/search-capacity-planning
 [basic-web-app]: ./basic-web-app.yml
-[basic-web-app-devops]: ./basic-web-app.yml#devops-considerations
+[basic-web-app-devops]: ./basic-web-app.yml#devops
 [caching-guidance]: ../../best-practices/caching.md
 [cdn-app-service]: /azure/app-service-web/cdn-websites-with-cdn
 [cdn-storage-account]: /azure/cdn/cdn-create-a-storage-account-with-cdn

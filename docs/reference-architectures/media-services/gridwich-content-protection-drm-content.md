@@ -185,6 +185,25 @@ Select **Permit** to approve the pipeline by using the FairPlay Secure File you 
 
 ![Screenshot showing the Permit button to grant approval.](media/select-permit.png)
 
+## Next steps
+
+Product documentation:
+
+- [Gridwich cloud media system](gridwich-architecture.yml)
+- [Azure Media Services v3 overview](/azure/media-services/latest/media-services-overview)
+- [Introduction to Azure Functions](/azure/azure-functions/functions-overview)
+- [What is Azure DevOps?](/azure/devops/user-guide/what-is-azure-devops)
+- [What is Azure Pipelines?](/azure/devops/pipelines/get-started/what-is-azure-pipelines)
+
+Microsoft Learn modules:
+
+- [Create a build pipeline with Azure Pipelines](/learn/modules/create-a-build-pipeline)
+- [Explore Azure Functions](/learn/modules/explore-azure-functions)
+- [Introduction to Azure DevOps](/learn/modules/get-started-with-devops)
+
 ## Related resources
-- For more information about Media Services content protection, see [Content protection overview](/azure/media-services/latest/content-protection-overview).
-- For more details about the Azure Pipelines variable group settings, see [Variable group to Terraform flow](variable-group-terraform-flow.yml).
+
+- [Gridwich request-response messages](gridwich-message-formats.yml)
+- [Gridwich variable flow](variable-group-terraform-flow.yml)
+
+For more information about Media Services content protection, see [Content protection overview](/azure/media-services/latest/content-protection-overview).
