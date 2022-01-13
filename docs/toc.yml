@@ -2665,6 +2665,8 @@ items:
                 href: solution-ideas/articles/dev-test-paas.yml
               - name: DevTest and DevOps with microservices
                 href: solution-ideas/articles/dev-test-microservice.yml
+              - name: DevSecOps with a rolling main branching strategy
+                href: solution-ideas/articles/devsecops-rolling-branch.yml
               - name: DevTest Image Factory
                 href: solution-ideas/articles/dev-test-image-factory.yml
               - name: Hybrid DevOps
