@@ -58,3 +58,25 @@ To delete an environment:
 1. Under **Pipelines** > **Environments**, delete the environment.
 
 1. In the Azure portal, go to the Azure Storage Account that stores your **.tfstate**, and delete the environment file, for example **f233.tfstate**. The Gridwich Storage Account is **gridwichtfstate** in the **gridwich-terraform-rg** resource group.
+
+## Next steps
+
+Product documentation:
+
+- [Gridwich cloud media system](gridwich-architecture.yml)
+- [What is Azure Blob storage?](/azure/storage/blobs/storage-blobs-overview)
+- [What is Azure DevOps?](/azure/devops/user-guide/what-is-azure-devops)
+- [What is Azure Pipelines?](/azure/devops/pipelines/get-started/what-is-azure-pipelines)
+
+Microsoft Learn modules:
+
+- [Configure blob storage](/learn/modules/configure-blob-storage)
+- [Explore Azure Storage services](/learn/modules/azure-storage-fundamentals)
+- [Introduction to Azure DevOps](/learn/modules/get-started-with-devops)
+
+## Related resources
+
+- [Gridwich keys and secrets management](maintain-keys.yml)
+- [Gridwich operations for Azure Storage](gridwich-storage-service.yml)
+- [Gridwich project naming and namespaces](gridwich-project-names.yml)
+- [Test Media Services V3 encoding](test-encoding.yml)
