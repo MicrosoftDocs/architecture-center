@@ -20,7 +20,7 @@ We also provide solution ideas for you to build on, which include links to all t
 ## Learn about databases on Azure
 
 If you're new to databases on Azure, the best place to start is with Microsoft Learn.
-On this free, online training platform, you'll find videos, tutorials, and hands-on learning.
+On this free online training platform, you'll find videos, tutorials, and hands-on learning.
 Microsoft Learn offers learning paths based on your job role, such as developer or data analyst.
 
 [You can browse Azure data modules](/learn/browse/?products=azure&terms=database) or use this Learning Path to understand [Azure SQL fundamentals](/learn/paths/azure-sql-fundamentals).
@@ -131,7 +131,7 @@ These solution ideas are some of the example approaches that you can adapt to yo
 If you're familiar with Amazon Web Services (AWS) or Google Cloud Platform (GCP), refer to the following comparisons:
 
 - [Relational database technologies on Azure and AWS](../aws-professional/databases.md)
-- [Google Cloud to Azure services comparison - Data platform](../gcp-professional/services#data-platform.md)
+- [Google Cloud to Azure services comparison - Data platform](../gcp-professional/services.md#data-platform)
 
 ## Next steps
 
