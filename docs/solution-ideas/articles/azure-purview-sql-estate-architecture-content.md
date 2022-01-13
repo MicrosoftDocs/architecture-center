@@ -30,7 +30,7 @@ The requirements for data management differs across industries, but universally,
 
 ## Architecture
 
-:::image type="complex" source="../media/azure-purview-sql-estate-architecture.png" alt-text="Architecture diagram showing how Azure Purview scans and classify data a data lake storage" lightbox="../media/azure-purview-sql-estate-architecture-lightbox.png ":::
+:::image type="complex" source="../media/azure-purview-sql-estate-architecture.png" alt-text="Architecture diagram showing how Azure Purview scans and classify data a data lake storage" lightbox="../media/azure-purview-sql-estate-architecture.png ":::
 The diagram contains several rectangles. Labels on the rectangles read the connectivity between three different scenarios. First scenario represents the connectivity between Azure Purview and on-premises SQL sources. Second scenario represents the connectivity between Azure SQL to Azure Purview using Private Endpoint. The third scenario represents the connectivity between SQL Managed Instance to Azure Purview using Private Endpoint. The fourth scenario represents the connectivity between Power BI and Azure Purview. The rectangle on the bottom represents the integration between the services above and Azure AD, Azure Monitor, and Azure Key Vault.
 :::image-end:::
 
