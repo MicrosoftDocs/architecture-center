@@ -15,49 +15,87 @@ products:
 categories: 
 - analytics
 - management-and-governance
+- databases
 ---
 # DataOps checklist
 
-DataOps is a lifecycle approach to data analytics that uses agile practices to orchestrate tools, code, and infrastructure to quickly deliver high-quality data with improved security. When you implement and streamline DataOps processes, your business can more easily and cost effectively deliver analytical insights. This allows you to adopt advanced data techniques that can uncover insights and new opportunities. Use this checklist as a starting point to assess your DataOps process. 
+DataOps is a lifecycle approach to data analytics. It uses agile practices to orchestrate tools, code, and infrastructure to quickly deliver high-quality data with improved security. When you implement and streamline DataOps processes, your business can more easily and cost effectively deliver analytical insights. This allows you to adopt advanced data techniques that can uncover insights and new opportunities. Use this checklist as a starting point to assess your DataOps process. 
 
 ## Data governance and people
-**Data governance**. Central location to register data sources; data lineage and metadata also available.  Data is easily discoverable by users and sensitive data is secured.  Data and security officers have sightlines into how data is being used, who has access, and where sensitive data might lie.  
+**Data governance**
+- A central location is used to register data sources.
+- Data lineage and metadata are available.  
+- Data is easily discoverable by users, and sensitive data is secured.  
+- Data and security officers have sightlines into how data is being used, who has access, and where sensitive data might be located.  
 
-**Defined, clear roles**.  DataOps is a team sport; engineers, testers, data scientists, operations, data analysts, business users, data officers must all work together and understand their role in the project.  Stakeholders should be identified and there should be an understanding of what is motivating stakeholders to start making data driven decisions. 
+**Defined, clear roles**  
+- Engineers, testers, data scientists, operations, data analysts, business users, data officers all work together and understand their roles in the project.  
+- Stakeholders are identified, and you understand what's motivating stakeholders to start making data-driven decisions. 
 
-**Use Cases for Data Movement**. The use cases for streaming, interactive, and batch analytics have been resolved.  The different types of data for each case have been clarified and there are metrics defined motivate making data-driven decisions. 
+**Use cases for data movement**
+ - The use cases for streaming, interactive, and batch analytics are resolved.  
+ - The various types of data for each case are clarified, and metrics are defined to motivate making data-driven decisions. 
 
-**Data Tools**. Data tools needed to make data easier to access, share, analyze, and secure have been identified or developed.
+**Data tools**
+- Data tools needed to make data easier to access, share, analyze, and secure are identified or developed.
 
-**Security and compliance**. All resources, data in transit, and data at rest have been audited and meet company security standards.
+**Security and compliance**
+- All resources, data in transit, and data at rest have been audited and meet company security standards.
 
 ## Development
-**Pipeline Design Patterns**. Data pipelines have been designed for reuse and make use of parameterization.  Pipelines solve common ETL problems. 
+**Pipeline design patterns**
+- Data pipelines are designed for reuse and use parameterization.  
+- Pipelines solve common ETL problems. 
 
-**Centralized Ingestion**. Centralized platform that hosts pipelines for all external and internal data sources.  This allows for simplified management, monitoring, security, and standardization of data movement.  Costs associated with handling data will also be centralized and central control can help processes can be put in place to minimize cost and maximize efficiency. 
+**Centralized ingestion** 
+- A centralized platform hosts pipelines for all external and internal data sources. This allows for simplified management, monitoring, security, and standardization of data movement.  
+- Costs associated with handling data are also centralized. Central control can help minimize cost and maximize efficiency. 
 
-**Centralized Computations**. Central team defines metrics and determines how to compute those metrics.  This allows for consistency across the organization and limits confusion about where updates to computations are to be made.  This creates one source for metrics definitions, governance, testing and quality controls. 
+**Centralized computations** 
+- A central team defines metrics and determines how to compute those metrics. This allows for consistency across the organization and limits confusion about where to make updates to computations. It also creates one source for metrics definitions, governance, testing, and quality controls. 
 
-**Data Abstraction**. Reporting makes use of a data abstraction layer.  This allows for the use of consistent business terminology, a simplified view of the data, and for minimal impact to data consumers when new versions of the data are made available. 
+**Data abstraction** 
+- Reporting uses a data abstraction layer. This allows the use of consistent business terminology, a simplified view of data, and minimal effect on data consumers when new versions of the data are made available. 
 
-**Source Control**. Data related infrastructure, database schemas and procedures, ETL processes, reports, are treated as code and managed in a repository.  All changes are deployed and tested up a DTaP stack. 
+**Source control** 
+- Data-related infrastructure, database schemas and procedures, ETL processes, and reports are treated as code and managed in a repository.  
+- All changes are deployed and tested via a Development, Testing, Acceptance, and Production (DTAP) stack. 
 
-## Testing and Release
-**DTaP Environments**. There are non-Production environments available which mimic the Production environment.  Builds and deployments are run and tested on the non-Production environment before a Production push.  Devs are able to deliver reproducible results in all environments. 
+## Testing and release
+**DTAP environments**
+- Non-production environments that mimic the production environment are available.
+- Builds and deployments are run and tested on the non-production environment before a production push.  
+- Developers can deliver reproducible results in all environments. 
 
-**Testing**. Unit, end-to-end, and regression tests are run at a specified frequency and interval.  All tests are in source control and run as part of a build and deploy process.  Post deployment end-user input is welcome and will be incorporated into future testing as appropriate. 
+**Testing** 
+- Unit, end-to-end, and regression tests run at a specified frequency and interval.
+- All tests are in source control and run as part of a build and deploy process.  
+- Post-deployment end-user input is welcome and incorporated into testing as appropriate. 
 
-**Build and Deploy Process**. There is a gated process to deploy changes to the Production environment.  Changes are tested in the DT environments; there is a certification process before any changes can go to Production.  This process is as automated as possible. 
+**Build and deploy process**
+ - A gated process deploys changes to the production environment.  
+ - Changes are tested in the development and test environments. Changes are certified before they go to production. This process is as automated as possible. 
 
 ## Monitoring
-**Alerting and Remediation**. Operations is alerted to any errors; there is the ability to respond to feedback rapidly and a process for rapidly addressing issues as they arise.  Pipelines are observable. 
+**Alerting and remediation** 
+- Operations is alerted to any errors. 
+- You can respond to feedback quickly and have a process for quickly addressing issues as they arise.  
+- Pipelines are observable. 
 
-**Efficiency**. Data movement is efficient; infrastructure can be scaled to meet volume and velocity needs.  Data is reusable wherever possible. 
+**Efficiency**
+- Data movement is efficient. 
+- Infrastructure can be scaled to meet volume and velocity needs.  
+- Data is reusable whenever possible. 
 
-**Statistical Process Control**. SPC is used to monitor and control the data pipelines.  Outputs of pipelines can be used to determine next step in the data flow.   
+**Statistical process control (SPC)** 
+- SPC is used to monitor and control the data pipelines.  
+- You can use the outputs of pipelines to determine next step in the data flow.   
+
+## Next steps
+- [Organize data operations team members](/azure/cloud-adoption-framework/scenarios/data-management/organize)
+- [DevOps automation for data management and analytics in Azure](azure/cloud-adoption-framework/scenarios/data-management/organize-data-operations)
+- [Smart data pipelines to Azure: Ingesting and migrating data the DataOps way](/shows/ask-the-expert/ask-the-expert-smart-data-pipelines-to-azure-ingesting-and-migrating-data-the-dataops-way)
 
 ## Related resources
-
-  - [Organize Data Operations Team Members](/azure/cloud-adoption-framework/scenarios/data-management/organize)
-  - [DataOps for the Modern Data Warehouse](/azure/architecture/example-scenario/data-warehouse/dataops-mdw)
+  - [DataOps for the modern data warehouse](/azure/architecture/example-scenario/data-warehouse/dataops-mdw)
   - [Team Data Science Process for DevOps](/azure/architecture/data-science-process/team-data-science-process-for-devops)
