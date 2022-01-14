@@ -7,9 +7,9 @@ To illustrate the use of Azure Container Apps for a microservices architecture, 
 
 Container Apps is a solution for microservice applications that benefit from:
 
-* Span many microservices deployed in containers.
+* Deploying many microservices in a single container environment.
 * The flexibility of serverless environments.
-* Autoascaling based on HTTP traffic or Kubernetes Event-Driven Autoscaling (KEDA).
+* Autoscaling based on HTTP traffic or Kubernetes Event-Driven Autoscaling (KEDA).
 * Kubernetes features without the need to access the Kubernetes API.
 
 ## Architecture
@@ -50,7 +50,7 @@ This solution uses the following Azure components:
 
 ### Alternatives
 
-An alternative scenario of this example is the Fabrikam Drone Delivery application using Kubernetes can be found [here](https://github.com/mspnp/aks-fabrikam-dronedelivery). 
+An alternative scenario of this example is the Fabrikam Drone Delivery application using Kubernetes can be found [here](https://github.com/mspnp/aks-fabrikam-dronedelivery).
 
 Instead of using Azure Service Bus, messaging between the microservices can be implemented with [Dapr](https://dapr.io/) (Distributed Application Runtime).  
 
@@ -58,9 +58,7 @@ Instead of using Azure Service Bus, messaging between the microservices can be i
 
 ### Availability
 
-this scenario maintains high availability through Container Apps  autoscaling feature that dynamically provisions new replicas of the container app based 
-
-> Need a specific scaling criteria here that we will use in the scenario
+Although not implemented in this scenario, there is the option to maintain high availability through Container Apps autoscaling feature that dynamically provisions new replicas of the container app based on HTTP traffic or any KEDA-based scaling triggers.
 
 ### Operations
 
@@ -74,23 +72,20 @@ This scenario includes the Azure Monitor service to enable monitoring and analys
 
 Factors affecting container app performance:
 
-* The cpu and memory resources configuration.
+* The cpu and memory resource configuration.
 * The autoscaling criteria.
 
 ### Scalability
 
-While this scenario has set the scaling configuration to 
-> Need the scaling criteria
-
-Container Apps service supports autoscaling based on HTTP traffic or any KEDA-based scale triggers.
+Although scaling is not implemented in this scenario, Container Apps supports scaling based on HTTP traffic and any KEDA-based triggers.  Scaling can be easily added to the container app configuration.
 
 ### Security
 
-This scenario users Azure User Managed Identities providing Read and List secrets permissions via Azure KeyVault to the microservices.
+This scenario users Azure Key Vault to securely store and access secret.  Alternatively, the Container Apps allows the application to securely store sensitive configuration values.
 
 ### Resiliency
 
-Any container that crashes is automatically restarted.
+Container Apps provides resiliency by automatically restarting any container app the crashes.
 
 ### DevOps
 
@@ -106,15 +101,20 @@ Follow the steps in the README.md in the [sample repository](https://github.com/
 
 * The [Cost section in the Microsoft Azure Well-Architected Framework](/azure/architecture/framework/cost/overview) describes cost considerations. Use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator) to estimate costs for your specific scenario.
 
-* Azure Container Apps has no costs associated with deployment management, and operations of the Container Apps environments. You only pay for the compute and storage resources the applications consume. Autoscaling can significantly reduce costs by removing empty or unused nodes.
+* Azure Container Apps has no costs associated with deployment, management, and operations of the Container Apps environments. You only pay for the compute and storage resources the applications consume. Autoscaling can significantly reduce costs by removing empty or unused nodes.
 
-* The Azure Cosmos DB and Azure Cache for Redis services will consume the majority of the costs.  In order to avoid costs, do not leave this example running.
+* The Azure Cosmos DB and Azure Cache for Redis services will consume the majority of the costs.  In order to avoid costs from accruing, do not leave this example running.
 
 ## Next steps
 
-  * [Azure Container Apps Documentation](https://docs.microsoft.com/azure/container-apps/?branch=release-ignite-container-apps)
-  * [Build microservices on Azure](https://docs.microsoft.com/azure/architecture/microservices/)
+* [Azure Container Apps Documentation](https://docs.microsoft.com/azure/container-apps/?branch=release-ignite-container-apps)
+* [Build microservices on Azure](/azure/architecture/microservices/)
 
 ## Related resources
 
-> Any suggestions?
+* [Build microservices on Azure](/azure/architecture/microservices/)
+* [Design a microservices architecture](/azure/architecture/microservices/design/)
+* [Microserviceswith AKS](/azure/architecture/solution-ideas/articles/microservices-with-aks)
+* [Advanced Azure Kubernetes Service (AKS) microservices architecture](/azure/architecture/reference-architectures/containers/aks-microservices/aks-microservices-advanced)
+* [Microservices architecture on Azure Kubernetes Service](/azure/architecture/reference-architectures/containers/aks-microservices/aks-microservices)
+* [Microservices architecture on Azure Service Fabric](/azure/architecture/reference-architectures/microservices/service-fabric)
