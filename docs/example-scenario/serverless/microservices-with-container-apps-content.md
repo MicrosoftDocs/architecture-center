@@ -1,7 +1,7 @@
 
 This scenario shows how your business can simplify the deployment and management of microservice containers by deploying them using Azure Container Apps. Container Apps is a fully managed serverless service for building and deploying modern applications at scale.
 
-To illustrate the use of Azure Container Apps for a microservices architecture, we have taken the reference implementation [Fabrikam Drone Delivery](https://github.com/mspnp/aks-fabrikam-dronedelivery) application that previously ran in Azure Kubernetes Service (AKS) and moved it to Container Apps. You can find this scenario on [GitHub](https://github.com/mspnp/container-apps-fabrikam-dronedelivery).
+To illustrate the use of Azure Container Apps for a microservices, we use the [Fabrikam Drone Delivery](https://github.com/mspnp/aks-fabrikam-dronedelivery) application that ran in Azure Kubernetes Service (AKS) and deployed it using Container Apps. You can find this scenario on [GitHub](https://github.com/mspnp/container-apps-fabrikam-dronedelivery).
 
 ## Potential use cases
 
@@ -26,7 +26,7 @@ _download Visio/PPT_
 1. Drone scheduler service: Schedules drones and monitors drones in flight.
 1. Delivery service: Manages deliveries that are scheduled or in-transit.
 
-Each containerized microservice is stored in a container app.  These container apps deployed to single Azure Container Apps environment.  The Container Apps environment is configured with a [Log Analytics workspace](https://docs.microsoft.com/azure/azure-monitor/logs/design-logs-deployment) which is used by the Azure Monitor service. Container Apps in the same environment share the same virtual network and write logs to the same Log Analytics workspace.
+Each containerized microservice is stored in a container app.  These container apps deployed to single Azure Container Apps environment.  The Container Apps environment is configured with a [Log Analytics workspace](https://docs.microsoft.com/azure/azure-monitor/logs/design-logs-deployment), which is used by the Azure Monitor service. Container Apps in the same environment share the same virtual network and write logs to the same Log Analytics workspace.
 
 ### Components
 
@@ -36,9 +36,9 @@ This solution uses the following Azure components:
 
 **External storage and other components:**
 
-**[Azure Key Vault](https://azure.microsoft.com/services/key-vault)** stores and manages security keys for AKS services.
+**[Azure Key Vault](https://azure.microsoft.com/services/key-vault)** service for securely storing and accessing secrets, such as API keys, passwords, and certificates.
 
-**[Azure Container Registry](https://azure.microsoft.com/services/container-registry)** stores private container images that can be run in the AKS cluster. AKS authenticates with Container Registry using its Azure AD managed identity. You can also use other container registries like Docker Hub.
+**[Azure Container Registry](https://azure.microsoft.com/services/container-registry)** stores private container images. You can also use other container registries like Docker Hub.
 
 **[Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db)** stores data using the open-source [Azure Cosmos DB API for MongoDB](/azure/cosmos-db/mongodb-introduction). Microservices are typically stateless and write their state to external data stores. Azure Cosmos DB is a NoSQL database with open-source APIs for MongoDB and Cassandra.
 
@@ -46,7 +46,7 @@ This solution uses the following Azure components:
 
 **[Azure Cache for Redis](https://azure.microsoft.com/services/cache)** adds a caching layer to the application architecture to improve speed and performance for heavy traffic loads.
 
-**[Azure Monitor](/azure/azure-monitor)** collects and stores metrics and logs, including platform metrics for the Azure services in the solution and application telemetry. Use this data to monitor the application, set up alerts and dashboards, and perform root cause analysis of failures. Azure Monitor integrates with Service Fabric to collect metrics from controllers, nodes, and containers, as well as container and node logs.
+**[Azure Monitor](/azure/azure-monitor)** collects and stores metrics and logs. Use this data to monitor the application, set up alerts and dashboards, and do root cause analysis of failures.
 
 ### Alternatives
 
@@ -58,15 +58,15 @@ Instead of using Azure Service Bus, messaging between the microservices can be i
 
 ### Availability
 
-Although not implemented in this scenario, there is the option to maintain high availability through Container Apps autoscaling feature that dynamically provisions new replicas of the container app based on HTTP traffic or any KEDA-based scaling triggers.
+Although not implemented in this scenario, high availability can be achieved with Container Apps autoscaling.  Autoscaling dynamically scales container app instances based on HTTP traffic or any KEDA-based triggers.
 
 ### Operations
 
-Revisions are dynamically deployed when a container app is updated with a change to the container app configuration or image.  
+For easy management and maintenance of the application:
 
-Although not configured in this scenario, traffic-splitting across revisions can be enabled for blue/green deployments and A/B testing.
-
-This scenario includes the Azure Monitor service to enable monitoring and analysis of the application.  
+* Revisions are dynamically deployed when a container app is updated with a change to the container app configuration or image.  
+* The Azure Monitor service to enables monitoring and analysis of the application.
+* Although not configured in this scenario, traffic-splitting across revisions can be enabled for blue/green deployments and A/B testing.
 
 ### Performance
 
@@ -81,7 +81,7 @@ Although scaling is not implemented in this scenario, the Container Apps service
 
 ### Security
 
-This scenario users Azure Key Vault to securely store and access secret.  Alternatively, the Container Apps service allows the application to securely store sensitive configuration values.
+This scenario users Azure Key Vault to securely store and access secrets.  
 
 ### Resiliency
 
@@ -89,8 +89,8 @@ The Container Apps service provides resiliency by automatically restarting any c
 
 ### DevOps
 
-This example uses Bicep templates for deployment. Both deployments and redeployments are run manually.
-Alternatively, CD/CI pipelines can be enabled by adding GitHub Actions to the container apps.  
+This example uses Bicep templates for deployment. Both deployments and redeployments are run manually. 
+CD/CI pipelines can be enabled by adding GitHub Actions to the container apps.  
 
 ## Deploy this scenario
 
@@ -99,10 +99,9 @@ Follow the steps in the README.md in the [sample repository](https://github.com/
 ## Pricing
 
 * The [Cost section in the Microsoft Azure Well-Architected Framework](/azure/architecture/framework/cost/overview) describes cost considerations. Use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator) to estimate costs for your specific scenario.
-
 * Azure Container Apps has no costs associated with deployment, management, and operations of the Container Apps environments. You only pay for the compute and storage resources the applications consume. Autoscaling can significantly reduce costs by removing empty or unused nodes.
-
-* The Azure Cosmos DB and Azure Cache for Redis services will consume the majority of the costs.  In order to avoid costs from accruing, do not leave this example running.
+* In this scenario, the Azure Cosmos DB and Azure Cache for Redis services will consume most of the costs.  
+* To avoid costs from accruing, do not leave this example running.
 
 ## Next steps
 
