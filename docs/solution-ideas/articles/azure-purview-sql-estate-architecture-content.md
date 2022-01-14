@@ -30,8 +30,8 @@ The solution described here is appropriate for organizations that would benefit 
 
 ## Architecture
 
-:::image border="false" type="complex" source="../media/azure-purview-sql-estate-architecture.png" alt-text="Architecture diagram shows how Azure Purview scans and classifies data and data lake storage." lightbox="../media/azure-purview-sql-estate-architecture.png ":::
-The diagram contains several rectangles. Labels on the rectangles read the connectivity between three different scenarios. First scenario represents the connectivity between Azure Purview and on-premises SQL sources. Second scenario represents the connectivity between Azure SQL to Azure Purview using Private Endpoint. The third scenario represents the connectivity between SQL Managed Instance to Azure Purview using Private Endpoint. The fourth scenario represents the connectivity between Power BI and Azure Purview. The rectangle on the bottom represents the integration between the services above and Azure AD, Azure Monitor, and Azure Key Vault.
+:::image type="complex" source="../media/azure-purview-sql-estate-architecture.png" alt-text="Architecture diagram shows how Azure Purview scans and classifies data and data lake storage." lightbox="../media/azure-purview-sql-estate-architecture-lightbox.png" border="false":::
+The diagram shows several rectangles. The labels on the rectangles read the connectivity between four different scenarios. First scenario shows the connectivity between Azure Purview and on-premises SQL sources. Second scenario shows the connectivity between Azure SQL to Azure Purview using Private Endpoint. The third scenario shows the connectivity between SQL Managed Instance to Azure Purview using Private Endpoint. The fourth scenario shows the connectivity between Power BI and Azure Purview. The rectangle on the bottom shows the integration between the services above and Microsoft Azure AD, Azure Monitor, and Azure Key Vault.
 :::image-end:::
 
 _Download a [PowerPoint file](https://arch-center.azureedge.net/azure-purview-sql-estate-architecture.pptx) of this architecture._
@@ -42,11 +42,11 @@ The next four scenarios show the options available to you, to connect to Azure P
 
 1. Connect Azure Purview to **on-premises SQL** via Self-Hosted Integration Run time by Private Endpoint.
 
-2. Connect Azure Purview to **Azure SQL** via Managed Virtual Network by Managed Private Endpoint.
+1. Connect Azure Purview to **Azure SQL** via Managed Virtual Network by Managed Private Endpoint.
 
-3. Connect Azure Purview to **Azure SQL Managed Instance** via Self-Hosted Integration run time by Private Endpoint.
+1. Connect Azure Purview to **Azure SQL Managed Instance** via Self-Hosted Integration run time by Private Endpoint.
 
-4. Connect Azure Purview natively to **Power BI.**
+1. Connect Azure Purview natively to **Power BI.**
 
     > [!NOTE]
     > The information transferred from the sources to Azure Purview is metadata describing the data within the scanned sources. No actual data is transferred from the SQL sources to Azure Purview.
