@@ -1,0 +1,43 @@
+### YamlMime:Architecture
+metadata:
+  title: Hybrid high availability Kubernetes cluster
+  titleSuffix: Azure Solution Ideas
+  description: This article describes how to architect and operate a highly available Kubernetes-based infrastructure using Azure Kubernetes Service (AKS) Engine on Azure Stack Hub. This scenario is common for organizations with critical workloads in highly restricted and regulated environments. Organizations in domains such as finance, defense, and government.
+  author: EdPrice-MSFT
+  ms.author: pnp
+  ms.date: 01/12/2022
+  ms.topic: conceptual
+  ms.service: architecture-center
+  ms.subservice: solution-idea
+  ms.category:
+    - compute
+    - storage
+    - hybrid
+    - integration
+  ms.custom:
+    - acom-architecture
+    - Hybrid Connection
+    - Azure Hybrid Connection
+    - Hybrid Network
+    - Azure Hybrid Network
+    - hybrid-infrastructure
+    - interactive-diagram
+    - networking
+    - e2e-hybrid
+    - "https://azure.microsoft.com/solutions/architecture/hybrid-pattern-highly-available-kubernetes/"
+    - internal-intro
+azureCategories:
+  - compute
+  - storage
+  - hybrid
+  - integration
+products:
+  - azure-stack-hub
+  - azure-virtual-machines
+  - azure-virtual-network
+  - azure-vpn-gateway
+name: Hybrid high availability Kubernetes cluster
+summary: This article describes how to architect and operate a highly available Kubernetes-based infrastructure using Azure Kubernetes Service (AKS) Engine on Azure Stack Hub. This scenario is common for organizations with critical workloads in highly restricted and regulated environments. Organizations in domains such as finance, defense, and government.
+thumbnailUrl: /azure/architecture/browse/thumbs/hybrid-highly-available-kubernetes.png
+content: |
+  [!include[](hybrid-highly-available-kubernetes-content.md)]

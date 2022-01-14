@@ -1,0 +1,43 @@
+### YamlMime:Architecture
+metadata:
+  title: Out of stock detection at the edge
+  titleSuffix: Azure Solution Ideas
+  description: This solution illustrates how to determine if shelves have out of stock items using an Azure Stack Edge or Azure IoT Edge device and network cameras.
+  author: EdPrice-MSFT
+  ms.author: pnp
+  ms.date: 01/12/2022
+  ms.topic: conceptual
+  ms.service: architecture-center
+  ms.subservice: solution-idea
+  ms.category:
+    - compute
+    - storage
+    - hybrid
+    - integration
+  ms.custom:
+    - acom-architecture
+    - Hybrid Connection
+    - Azure Hybrid Connection
+    - Hybrid Network
+    - Azure Hybrid Network
+    - hybrid-infrastructure
+    - interactive-diagram
+    - networking
+    - e2e-hybrid
+    - "https://azure.microsoft.com/solutions/architecture/hybrid-pattern-out-of-stock-at-edge/"
+    - internal-intro
+azureCategories:
+  - compute
+  - storage
+  - hybrid
+  - integration
+products:
+  - azure-stack-hub
+  - azure-virtual-machines
+  - azure-virtual-network
+  - azure-vpn-gateway
+name: Out of stock detection at the edge
+summary: This solution illustrates how to determine if shelves have out of stock items using an Azure Stack Edge or Azure IoT Edge device and network cameras.
+thumbnailUrl: /azure/architecture/browse/thumbs/hybrid-out-of-stock-at-edge.png
+content: |
+  [!include[](hybrid-out-of-stock-at-edge-content.md)]
