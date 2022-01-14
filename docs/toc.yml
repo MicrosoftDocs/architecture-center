@@ -1627,6 +1627,8 @@ items:
             href: solution-ideas/articles/analytics-start-here.yml
           - name: Guides
             items:
+              - name: DataOps checklist
+                href: checklist/data-ops.md
               - name: Technology choices
                 items:
                   - name: Analytical data stores
