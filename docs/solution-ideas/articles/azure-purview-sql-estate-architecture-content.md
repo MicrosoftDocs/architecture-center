@@ -34,7 +34,7 @@ The solution described here is appropriate for organizations that would benefit 
 The diagram contains several rectangles. Labels on the rectangles read the connectivity between three different scenarios. First scenario represents the connectivity between Azure Purview and on-premises SQL sources. Second scenario represents the connectivity between Azure SQL to Azure Purview using Private Endpoint. The third scenario represents the connectivity between SQL Managed Instance to Azure Purview using Private Endpoint. The fourth scenario represents the connectivity between Power BI and Azure Purview. The rectangle on the bottom represents the integration between the services above and Azure AD, Azure Monitor, and Azure Key Vault.
 :::image-end:::
 
-_Download a [Powerpoint file](https://arch-center.azureedge.net/azure-purview-sql-estate-architecture.pptx) of this architecture._
+_Download a [PowerPoint file](https://arch-center.azureedge.net/azure-purview-sql-estate-architecture.pptx) of this architecture._
 
 ### Dataflow
 
@@ -74,7 +74,7 @@ The solution uses the following components:
 
 - [Azure SQL Managed Instance](https://azure.microsoft.com/products/azure-sql/managed-instance) is a cloud database service that provides all the features of SQL Server with added protection, connectivity, and automatic updates.
 
-- [Power BI](https://powerbi.microsoft.com/what-is-power-bi) is a collection of software services and apps. These services create and share reports that connect and visualize sources of data. When you use Power BI with Azure Purview, it can can be cataloged, classified, and have granular lineage illustrated end to end.
+- [Power BI](https://powerbi.microsoft.com/what-is-power-bi) is a collection of software services and apps. These services create and share reports that connect and visualize sources of data. When you use Power BI with Azure Purview, it can be cataloged, classified, and have granular lineage illustrated end to end.
 
 - [Azure Private Link](https://azure.microsoft.com/services/private-link) provides private connectivity from a virtual network to Azure platform as a service (PaaS), services that you own, or Microsoft partner services.
 
@@ -87,8 +87,8 @@ The solution uses the following components:
 ## Next steps
 
 - [Azure customer case studies](https://customers.microsoft.com/en-us/search?sq=%22Azure%20Purview%22&ff=&p=0&so=story_publish_date%20desc)
-- [Azure Purview technical documentation and best practices](../purview/concept-best-practices-accounts.yml)
-- [What is Azure Purview?](../purview/overview.yml)
+- [Azure Purview technical documentation and best practices](/azure/purview/concept-best-practices-accounts)
+- [What is Azure Purview?](/azure/purview/overview)
 - [What is Power BI?](https://powerbi.microsoft.com/what-is-power-bi)
 - [Azure Active Directory](https://azure.microsoft.com/services/active-directory)
 - [Azure Cost Management and Billing](https://azure.microsoft.com/services/cost-management)
