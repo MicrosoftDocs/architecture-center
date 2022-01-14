@@ -1,12 +1,16 @@
 ---
 title: AKS triage - admission controllers
 titleSuffix: Azure Architecture Center
-description: Triage step to check the admission controllers.
+description: Learn to validate that the admission controllers are working as expected, as part of a triage step for Azure Kubernetes Service (AKS) clusters.
 author: kevingbb
 ms.date: 10/12/2020
 ms.topic: conceptual
 ms.service: architecture-center
-ms.subservice:
+ms.subservice: azure-guide
+products:
+  - azure-kubernetes-service
+ms.custom:
+  - e2e-aks
 ---
 
 # Validate the admission controllers are working as expected
@@ -17,7 +21,7 @@ _This article is part of a series. Read the introduction [here](aks-triage-pract
 
 Issues because of admission controllers are an edge case but they should be considered. Here are some examples:
 
-- Mutating and validating webhooks. Be careful when you add mutating and validating webhooks in your cluster. Make sure that they're highly available so that an unhealthy node doesn't cause API server requests to be blocked. AKS Policy, also known as OPA Gatekeeper, is an example of this type of webhooks. If there are problems in the admission control pipeline, it can block a large number of requests to the API server. 
+- Mutating and validating webhooks. Be careful when you add mutating and validating webhooks in your cluster. Make sure that they're highly available so that an unhealthy node doesn't cause API server requests to be blocked. AKS Policy, also known as OPA Gatekeeper, is an example of this type of webhooks. If there are problems in the admission control pipeline, it can block a large number of requests to the API server.
 
 - Service meshes. They use admission controllers to automatically inject sidecars for example.
 
@@ -55,5 +59,6 @@ configmaps                               cm                                     
 ```
 
 ## Next steps
+
 > [!div class="nextstepaction"]
 > [Verify the connection to the container registry](aks-triage-container-registry.md)

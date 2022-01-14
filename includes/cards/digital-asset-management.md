@@ -6,7 +6,7 @@
 <article class="card">
     <div class="card-header has-margin-bottom-none" aria-hidden="true">
         <figure class="image diagram has-height-175 has-overflow-hidden level">
-            <a href="/azure/architecture/solution-ideas/articles/digital-asset-management"><img src="/azure/architecture/browse/thumbs/digital-asset-management.png" class="diagram" alt="Thumbnail of Digital Asset Management Architectural Diagram." data-linktype="relative-path"></a>
+            <a href="/azure/architecture/solution-ideas/articles/digital-asset-management"><img src="/azure/architecture/browse/thumbs/knowledge-mining-digital-asset-management.png" class="diagram" alt="Thumbnail of Digital Asset Management Architectural Diagram." data-linktype="relative-path"></a>
         </figure>
     </div>
     <div class="card-content">
@@ -17,7 +17,7 @@
             <li>12/16/2019</li>
             <li>2 min read</li>
         </ul>
-        <p class="card-content-description">Knowledge mining through a search index makes it easy for end customers and employees to locate what they are looking for faster.</p>
+        <p class="card-content-description">Use digital asset management to mine knowledge and find information. Ingest unstructured and structured data, enrich it with AI, and explore it via search.</p>
         <div class="bottom-to-top-fade is-hidden-mobile"></div>
     </div>
 </article>

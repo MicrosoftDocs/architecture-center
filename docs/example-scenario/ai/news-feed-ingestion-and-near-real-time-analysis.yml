@@ -1,0 +1,35 @@
+### YamlMime:Architecture
+metadata:
+  title: News feeds with near real-time analytics
+  description: Create a pipeline for ingesting and analyzing RSS news feed data using Azure Cosmos DB, Azure Cognitive Services, and other Azure services.
+  author: EdPrice-MSFT
+  ms.author: pnp
+  ms.date: 2/1/2019
+  ms.topic: conceptual
+  ms.service: architecture-center
+  ms.subservice: example-scenario
+  ms.category:
+    - analytics
+    - ai-machine-learning
+  ms.custom:
+    - azcat-ai
+    - AI
+    - example-scenario
+    - internal-intro
+    - ai-machine-learning
+    - aml-project-improvement
+  social_image_url: /azure/architecture/example-scenario/ai/media/mass-ingestion-newsfeeds-architecture.png
+name: Analyze news feeds with near real-time analytics using image and natural language processing
+azureCategories:
+  - analytics
+  - ai-machine-learning
+summary: Create a pipeline for ingesting and analyzing RSS news feed data using Azure Cosmos DB, Azure Cognitive Services, and other Azure services.
+products:
+  - azure-cosmos-db
+  - azure-functions
+  - azure-service-bus
+  - azure-translator-text
+  - azure-face
+thumbnailUrl: /azure/architecture/browse/thumbs/mass-ingestion-newsfeeds-architecture.png
+content: |
+  [!include[](news-feed-ingestion-and-near-real-time-analysis-content.md)]

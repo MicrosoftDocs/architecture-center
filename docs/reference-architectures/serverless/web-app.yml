@@ -3,18 +3,19 @@ metadata:
   title: Serverless web application
   titleSuffix: Azure Reference Architectures
   description: This reference architecture shows a serverless web application, which serves static content from Azure Blob Storage and implements an API using Azure Functions.
-  author: doodlemania2
+  author: EdPrice-MSFT
+  ms.author: pnp
   ms.date: 05/28/2019
   ms.topic: conceptual
   ms.service: architecture-center
+  ms.subservice: reference-architecture
   ms.category:
     - web
     - developer-tools
-  ms.subservice: reference-architecture
   ms.custom:
-    - seodec18
     - serverless
     - reference-architecture
+    - internal-intro
 name: Serverless web application
 azureCategories:
   - web
@@ -24,11 +25,8 @@ products:
   - azure-active-directory
   - azure-api-management
   - azure-blob-storage
-  - azure-cosmos-db
   - azure-cdn
   - azure-functions
-  - azure-monitor
-  - azure-pipelines
 thumbnailUrl: /azure/architecture/browse/thumbs/serverless-web-app.png
 content: |
    [!include[](web-app-content.md)]

@@ -1,0 +1,36 @@
+### YamlMime:Architecture
+metadata:
+  title: SAP system on Oracle Database on Azure
+  description: Examine deployment patterns for SAP systems on Oracle Database that align with the pillars of the Azure Well-Architected Framework.
+  author: shekhag
+  ms.author: pnp
+  ms.date: 02/17/2021
+  ms.topic: conceptual
+  ms.service: architecture-center
+  ms.subservice: example-scenario
+  ms.category:
+    - databases
+    - compute
+  ms.custom:
+    - fasttrack
+    - SAP
+    - Windows
+    - Linux
+    - Oracle
+    - Azure
+    - example-scenario
+    - e2e-sap
+  social_image_url: /azure/architecture/example-scenario/apps/media/architecture-sap-production.png
+name: SAP system on Oracle Database on Azure
+azureCategories:
+  - databases
+  - compute
+summary: This article describe SAP on Oracle Database on Azure deployment patterns.
+products:
+  - azure-expressroute
+  - azure-virtual-machines
+  - azure-virtual-network
+  - azure-resource-manager
+thumbnailUrl: /azure/architecture/browse/thumbs/architecture-sap-production.png
+content: |
+   [!include[](sap-on-oracle-content.md)]

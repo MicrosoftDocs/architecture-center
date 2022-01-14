@@ -2,26 +2,32 @@
 metadata:
   title: Contactless IoT interfaces with Azure intelligent edge
   titleSuffix: Azure Solution Ideas
-  author: doodlemania2
-  description: Combine intelligent and perceptive edge devices with the storage and computing power of the cloud to create touch-free interfaces.
+  description: Create solutions with touch-free interfaces and other intelligent and perceptive IoT devices. The solutions are backed by the storage, compute, AI, and machine learning capabilities of the Azure cloud.
+  author: EdPrice-MSFT
+  ms.author: pnp
   ms.date: 06/06/2020
-  ms.custom: 'iot, fcp'
+  ms.topic: conceptual
   ms.service: architecture-center
   ms.subservice: solution-idea
   ms.category:
     - iot
     - ai-machine-learning
+  ms.custom:
+    - iot
+    - fcp
+    - ai-machine-learning
+    - aml-project-improvement
 name: Contactless IoT interfaces with Azure intelligent edge
 azureCategories:
   - iot
   - ai-machine-learning
-summary: Combine intelligent and perceptive edge devices with the storage and computing power of the cloud to create touch-free interfaces.
+summary: Create solutions with touch-free interfaces and other intelligent and perceptive IoT devices. The solutions are backed by the storage, compute, AI, and machine learning capabilities of the Azure cloud.
 products:
   - azure-cognitive-services
   - azure-iot-edge
   - azure-iot-hub
   - azure-storage
   - azure-machine-learning
-thumbnailUrl: /azure/architecture/browse/thumbs/avanade-contactless.png
+thumbnailUrl: /azure/architecture/browse/thumbs/avanade-contactless-interface-iot-edge.png
 content: |
-   [!include[](contactless-interfaces-content.md)]
+  [!include[](contactless-interfaces-content.md)]

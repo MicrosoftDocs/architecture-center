@@ -1,16 +1,26 @@
 ### YamlMime:Architecture
 metadata:
-  title: Migrate IBM mainframe applications to Azure with TmaxSoft OpenFrame
-  titleSuffix: Azure Solution Ideas
-  author: doodlemania2
-  ms.date: 09/18/2020
+  title: Migrate IBM mainframe apps to Azure with TmaxSoft OpenFrame
+  titleSuffix: Solution Ideas
   description: Migrate IBM zSeries mainframe applications to Azure. Use a no-code approach that TmaxSoft OpenFrame offers for this lift and shift operation.
-  ms.custom: fcp
+  author: EdPrice-MSFT
+  ms.author: pnp
+  ms.date: 09/18/2020
+  ms.topic: conceptual
   ms.service: architecture-center
+  ms.subservice: solution-idea
   ms.category:
     - mainframe
     - migration
-  ms.subservice: solution-idea
+  ms.custom:
+    - fcp
+    - seo-aac-fy21q3
+  keywords:
+    - Mainframe applications
+    - tmaxsoft
+    - mainframe migration
+    - lift and shift
+    - rehosting
   social_image_url: /azure/architecture/solution-ideas/media/migrate-mainframe-application-to-azure.png
 name: Migrate IBM mainframe applications to Azure with TmaxSoft OpenFrame
 azureCategories:

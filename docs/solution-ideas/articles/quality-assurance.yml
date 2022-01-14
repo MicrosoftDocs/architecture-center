@@ -1,18 +1,28 @@
 ### YamlMime:Architecture
 metadata:
-  title: Quality Assurance
-  titleSuffix: Azure Solution Ideas
-  author: doodlemania2
-  ms.date: 12/16/2019
+  title: Quality assurance
+  titleSuffix: Azure Architecture
   description: Build a quality assurance system that collects data and improves productivity by identifying potential problems in a manufacturing pipeline before they occur.
-  ms.custom: 'acom-architecture, artificial intelligence, solution architectures, Azure, ai gallery, anomaly-detection, ''https://azure.microsoft.com/solutions/architecture/quality-assurance/'''
+  author: EdPrice-MSFT
+  ms.author: pnp
+  ms.date: 2/9/2021
+  ms.topic: conceptual
   ms.service: architecture-center
+  ms.subservice: solution-idea
   ms.category:
     - ai-machine-learning
     - integration
-  ms.subservice: solution-idea
+  ms.custom:
+    - acom-architecture
+    - artificial intelligence
+    - solution architectures
+    - Azure
+    - ai gallery
+    - anomaly-detection
+    - "https://azure.microsoft.com/solutions/architecture/quality-assurance/"
+    - ai-machine-learning
   social_image_url: /azure/architecture/solution-ideas/articles/media/quality-assurance.png
-name: Quality Assurance
+name: Quality assurance
 azureCategories:
   - ai-machine-learning
   - integration
@@ -24,4 +34,4 @@ products:
   - power-bi
 thumbnailUrl: /azure/architecture/browse/thumbs/quality-assurance.png
 content: |
-   [!include[](quality-assurance-content.md)]
+  [!include[](quality-assurance-content.md)]

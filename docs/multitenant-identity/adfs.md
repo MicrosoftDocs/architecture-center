@@ -1,25 +1,28 @@
 ---
-title: Federate with a customer's AD FS
+title: Federate with a customer&apos;s AD FS
 description: Learn how a multitenant SaaS application can support authentication by using Active Directory Federation Services, in order to federate with a customer AD FS.
-author: doodlemania2
-ms.date: 07/21/2017
+author: EdPrice-MSFT
+ms.date: 10/06/2021
 ms.topic: conceptual
 ms.service: architecture-center
-ms.category:
-  - identity
 ms.subservice: azure-guide
+categories:
+  - identity
+  - web
+ms.custom:
+  - guide
 pnp.series.title: Manage Identity in Multitenant Applications
 pnp.series.prev: token-cache
 pnp.series.next: client-assertion
-ms.custom:
-  - guide
+products:
+  - azure-active-directory
 ---
 
 # Federate with a customer's AD FS
 
 This article describes how a multitenant SaaS application can support authentication via Active Directory Federation Services (AD FS), in order to federate with a customer's AD FS.
 
-## Overview
+## Federation scenario
 
 Azure Active Directory (Azure AD) makes it easy to sign in users from Azure AD tenants, including Office365 and Dynamics CRM Online customers. But what about customers who use on-premises Active Directory on a corporate intranet?
 
@@ -36,7 +39,7 @@ There are three main roles in the trust relation:
 * The customer's AD FS is the [account partner], responsible for authenticating users from the customer's AD, and creating security tokens with user claims.
 * The SaaS provider's AD FS is the [resource partner], which trusts the account partner and receives the user claims.
 * The application is configured as a relying party (RP) in the SaaS provider's AD FS.
-  
+
   ![Federation trust](./images/federation-trust.png)
 
 > [!NOTE]
@@ -108,7 +111,7 @@ Here are the steps in more detail.
 ### Add the claims provider trust
 
 1. In Server Manager, click **Tools**, and then select **AD FS Management**.
-2. In the console tree, under **AD FS**, right click **Claims Provider Trusts**. Select **Add Claims Provider Trust**.
+2. In the console tree, under **AD FS**, right-click **Claims Provider Trusts**. Select **Add Claims Provider Trust**.
 3. Click **Start** to start the wizard.
 4. Select the option "Import data about the claims provider published online or on a local network". Enter the URI of the customer's federation metadata endpoint. (Example: `https://contoso.com/FederationMetadata/2007-06/FederationMetadata.xml`.) You will need to get this from the customer.
 5. Complete the wizard using the default options.
@@ -149,7 +152,7 @@ The customer must do the following:
 ### Add the RP trust
 
 1. In Server Manager, click **Tools**, and then select **AD FS Management**.
-2. In the console tree, under **AD FS**, right click **Relying Party Trusts**. Select **Add Relying Party Trust**.
+2. In the console tree, under **AD FS**, right-click **Relying Party Trusts**. Select **Add Relying Party Trust**.
 3. Select **Claims Aware** and click **Start**.
 4. On the **Select Data Source** page, select the option "Import data about the claims provider published online or on a local network". Enter the URI of the SaaS provider's federation metadata endpoint.
    ![Add Relying Party Trust Wizard](./images/add-rp-trust.png)
@@ -193,12 +196,12 @@ The customer must do the following:
 [federation trust]: /previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc770993(v=ws.11)
 [account partner]: /previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc731141(v=ws.11)
 [resource partner]: /previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc731141(v=ws.11)
-[Authentication instant]: /dotnet/api/system.security.claims.claimtypes.authenticationinstant?view=netcore-3.1
+[Authentication instant]: /dotnet/api/system.security.claims.claimtypes.authenticationinstant
 [Expiration time]: https://tools.ietf.org/html/draft-ietf-oauth-json-web-token-25#section-4.1.
-[Name identifier]: /dotnet/api/system.security.claims.claimtypes.nameidentifier?view=netcore-3.1
+[Name identifier]: /dotnet/api/system.security.claims.claimtypes.nameidentifier
 [active-directory-on-azure]: /windows-server/identity/ad-ds/introduction-to-active-directory-domain-services-ad-ds-virtualization-level-100
-[blog post]: https://www.cloudidentity.com/blog/2015/08/21/openid-connect-web-sign-on-with-adfs-in-windows-server-2016-tp3
+[blog post]: https://www.cloudidentity.com/blog/?p=3343
 [Customizing the AD FS Sign-in Pages]: /previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/dn280950(v=ws.11)
 [sample application]: https://github.com/mspnp/multitenant-saas-guidance
-[client assertion]: ./client-assertion.md
+[client assertion]: /azure/architecture/multitenant-identity/client-certificate
 [active-directory-dotnet-webapp-wsfederation]: https://github.com/Azure-Samples/active-directory-dotnet-webapp-wsfederation

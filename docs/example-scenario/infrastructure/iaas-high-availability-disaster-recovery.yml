@@ -1,18 +1,18 @@
 ### YamlMime:Architecture
 metadata:
-  title: High availability and disaster recovery scenarios for IaaS apps
+  title: High availability and disaster recovery for IaaS apps
   titleSuffix: Azure Example Scenarios
-  description: This article presents a decision tree and examples of high-availability (HA) and disaster recovery (DR) options when deploying multitier infrastructure-as-a-service (IaaS) apps to Azure.
+  description: Learn about high-availability (HA) and disaster recovery (DR) options when deploying multitier infrastructure-as-a-service (IaaS) apps to Azure.
   author: shcrouch
   ms.date: 04/06/2020
   ms.topic: conceptual
   ms.service: architecture-center
+  ms.subservice: example-scenario
+  ms.category:
+    - management-and-governance
   ms.custom:
     - fcp
     - example-scenario
-  ms.category:
-    - management-and-governance
-  ms.subservice: example-scenario
 name: High availability and disaster recovery scenarios for IaaS apps
 azureCategories:
   - management-and-governance

@@ -1,6 +1,5 @@
 
 
-
 This example scenario is applicable to any industry that needs a Virtual Desktop Infrastructure (VDI) for Linux Desktops. VDI refers to the process of running a user desktop inside a virtual machine that lives on a server in the datacenter. The customer in this scenario chose to use a Citrix-based solution for their VDI needs.
 
 Organizations often have heterogeneous environments with multiple devices and operating systems being used by employees. It can be challenging to provide consistent access to applications while maintaining a secure environment. A VDI solution for Linux desktops will allow your organization to provide access irrespective of the device or OS used by the end user.
@@ -34,7 +33,7 @@ This example scenario demonstrates allowing the corporate network to access the 
 
 For this scenario, the following SKUs are used:
 
-- Citrix ADC (NetScaler): 2 x D4sv3 with [NetScaler 12.0 VPX Standard Edition 200 MBPS PAYG image](https://azuremarketplace.microsoft.com/marketplace/apps/citrix.netscaler-ma-service-agent-120)
+- Citrix ADC (NetScaler): 2 x D4sv3 with NetScaler 12.0 VPX Standard Edition 200 MBPS PAYG image
 - Citrix License Server: 1 x D2s v3
 - Citrix VDA: 4 x D8s v3
 - Citrix Storefront: 2 x D2s v3
@@ -50,7 +49,7 @@ For this scenario, the following SKUs are used:
 - [Azure Virtual Network](/azure/virtual-network/virtual-networks-overview) allows resources such as VMs to securely communicate with each other, the internet, and on-premises networks. Virtual networks provide isolation and segmentation, filter and route traffic, and allow connection between locations. One virtual network will be used for all resources in this scenario.
 - [Network security groups](/azure/virtual-network/security-overview) contain a list of security rules that allow or deny inbound or outbound network traffic based on source or destination IP address, port, and protocol. The virtual networks in this scenario are secured with network security group rules that restrict the flow of traffic between the application components.
 - [Azure Load Balancer](/azure/application-gateway/overview) distributes inbound traffic according to rules and health probes. A load balancer provides low latency and high throughput, and scales up to millions of flows for all TCP and UDP applications. An internal load balancer is used in this scenario to distribute traffic on the Citrix NetScaler.
-- [Azure Hybrid File Sync](https://github.com/MicrosoftDocs/azure-docs/blob/master/articles/storage/files/storage-sync-files-planning.md) will be used for all shared storage. The storage will replicate to two file servers using Hybrid File Sync.
+- [Azure File Sync](/azure/storage/file-sync/file-sync-planning) will be used for all shared storage. The storage will replicate to two file servers using Azure File Sync.
 - [Azure SQL Database](/azure/sql-database/sql-database-technical-overview) is a managed relational database service based on the latest stable version of the Microsoft SQL Server Database Engine. In this example, it is used to host Citrix databases.
 - [ExpressRoute](/azure/expressroute/expressroute-introduction) lets you extend your on-premises networks into the Microsoft cloud over a private connection facilitated by a connectivity provider.
 - [Active Directory Domain Services](/windows-server/identity/ad-ds/get-started/virtual-dc/active-directory-domain-services-overview) is used for Directory Services and user authentication.

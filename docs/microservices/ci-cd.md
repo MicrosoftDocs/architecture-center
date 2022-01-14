@@ -1,13 +1,13 @@
 ---
 title: CI/CD for microservices
 description: Learn about continuous integration and continuous delivery for microservices, including challenges and recommended approaches.
-author: doodlemania2
+author: EdPrice-MSFT
 ms.date: 03/27/2019
 ms.topic: conceptual
 ms.service: architecture-center
+ms.subservice: azure-guide
 ms.category:
   - devops
-ms.subservice: azure-guide
 ms.custom:
   - microservices
   - guide

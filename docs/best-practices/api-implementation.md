@@ -1,14 +1,17 @@
 ---
-title: API implementation guidance
+title: Web API implementation
 titleSuffix: Best practices for cloud applications
 description: Learn about best practices for implementing a web API and publishing it to make it available to client applications.
-author: dragon119
+author: EdPrice-MSFT
+ms.author: pnp
 ms.date: 07/13/2016
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: best-practice
+products:
+  - aspnet
+  - azure-encoding
 ms.custom:
-  - seodec18
   - best-practice
 social_image_url: /azure/architecture/best-practices/media types that the client can handle, such as `image/jpeg, image/gif, image/png
 ---
@@ -153,7 +156,7 @@ public IHttpActionResult DeleteCustomer(int id)
         // with status code 404 (Not Found)
         if (customerToDelete == null)
         {
-                return NotFound();
+            return NotFound();
         }
 
         // Remove the customer from the repository
@@ -182,7 +185,7 @@ public IHttpActionResult DeleteCustomer(int id)
 
 > [!TIP]
 > Do not include information that could be useful to an attacker attempting to penetrate your API.
-  
+
 Many web servers trap error conditions themselves before they reach the web API. For example, if you configure authentication for a web site and the user fails to provide the correct authentication information, the web server should respond with status code 401 (Unauthorized). Once a client has been authenticated, your code can perform its own checks to verify that the client should be able access the requested resource. If this authorization fails, you should return status code 403 (Forbidden).
 
 ### Handle exceptions consistently and log information about errors
@@ -199,7 +202,9 @@ In a distributed environment such as that involving a web server and client appl
 
 ### Support client-side caching
 
-The HTTP 1.1 protocol supports caching in clients and intermediate servers through which a request is routed by the use of the Cache-Control header. When a client application sends an HTTP GET request to the web API, the response can include a Cache-Control header that indicates whether the data in the body of the response can be safely cached by the client or an intermediate server through which the request has been routed, and for how long before it should expire and be considered out-of-date. The following example shows an HTTP GET request and the corresponding response that includes a Cache-Control header:
+The HTTP 1.1 protocol supports caching in clients and intermediate servers through which a request is routed by the use of the Cache-Control header. When a client application sends an HTTP GET request to the web API, the response can include a Cache-Control header that indicates whether the data in the body of the response can be safely cached by the client or an intermediate server through which the request has been routed, and for how long before it should expire and be considered out-of-date.
+
+The following example shows an HTTP GET request and the corresponding response that includes a Cache-Control header:
 
 ```http
 GET https://adventure-works.com/orders/2 HTTP/1.1
@@ -564,7 +569,7 @@ You can combine encoded compression with streaming; compress the data first befo
 
 ### Implement partial responses for clients that do not support asynchronous operations
 
-As an alternative to asynchronous streaming, a client application can explicitly request data for large objects in chunks, known as partial responses. The client application sends an HTTP HEAD request to obtain information about the object. If the web API supports partial responses if should respond to the HEAD request with a response message that contains an Accept-Ranges header and a Content-Length header that indicates the total size of the object, but the body of the message should be empty. The client application can use this information to construct a series of GET requests that specify a range of bytes to receive. The web API should return a response message with HTTP status 206 (Partial Content), a Content-Length header that specifies the actual amount of data included in the body of the response message, and a Content-Range header that indicates which part (such as bytes 4000 to 8000) of the object this data represents.
+As an alternative to asynchronous streaming, a client application can explicitly request data for large objects in chunks, known as partial responses. The client application sends an HTTP HEAD request to obtain information about the object. If the web API supports partial responses it should respond to the HEAD request with a response message that contains an Accept-Ranges header and a Content-Length header that indicates the total size of the object, but the body of the message should be empty. The client application can use this information to construct a series of GET requests that specify a range of bytes to receive. The web API should return a response message with HTTP status 206 (Partial Content), a Content-Length header that specifies the actual amount of data included in the body of the response message, and a Content-Range header that indicates which part (such as bytes 4000 to 8000) of the object this data represents.
 
 HTTP HEAD requests and partial responses are described in more detail in [API design](./api-design.md).
 

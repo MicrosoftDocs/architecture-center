@@ -2,15 +2,16 @@
 title: Throttling pattern
 titleSuffix: Cloud Design Patterns
 description: Control the consumption of resources used by an instance of an application, an individual tenant, or an entire service.
-keywords: design pattern
-author: dragon119
+author: EdPrice-MSFT
+ms.author: pnp
 ms.date: 06/23/2017
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: design-pattern
 ms.custom:
-  - seodec18
   - design-pattern
+keywords:
+  - design pattern
 ---
 
 # Throttling pattern
@@ -87,12 +88,17 @@ In order to prevent the users from one tenant affecting the responsiveness and a
 
 ![Figure 3 - Implementing throttling in a multi-tenant application](./_images/throttling-multi-tenant.png)
 
-## Related patterns and guidance
+## Next steps
 
-The following patterns and guidance may also be relevant when implementing this pattern:
+The following guidance may also be relevant when implementing this pattern:
 
 - [Instrumentation and Telemetry Guidance](/previous-versions/msp-n-p/dn589775(v=pandp.10)). Throttling depends on gathering information about how heavily a service is being used. Describes how to generate and capture custom monitoring information.
 - [Service Metering Guidance](/previous-versions/msp-n-p/dn589796(v=pandp.10)). Describes how to meter the use of services in order to gain an understanding of how they are used. This information can be useful in determining how to throttle a service.
 - [Autoscaling Guidance](/previous-versions/msp-n-p/dn589774(v=pandp.10)). Throttling can be used as an interim measure while a system autoscales, or to remove the need for a system to autoscale. Contains information on autoscaling strategies.
+
+## Related guidance
+
+The following patterns may also be relevant when implementing this pattern:
+
 - [Queue-based Load Leveling pattern](./queue-based-load-leveling.md). Queue-based load leveling is a commonly used mechanism for implementing throttling. A queue can act as a buffer that helps to even out the rate at which requests sent by an application are delivered to a service.
 - [Priority Queue pattern](./priority-queue.md). A system can use priority queuing as part of its throttling strategy to maintain performance for critical or higher value applications, while reducing the performance of less important applications.

@@ -1,16 +1,18 @@
 ---
 title: Index Table pattern
 titleSuffix: Cloud Design Patterns
-description: Create indexes over the fields in data stores that are frequently referenced by queries.
-keywords: design pattern
-author: dragon119
+description: Learn about the Index Table pattern. Create indexes over the fields in data stores that are frequently referenced by queries.
+author: EdPrice-MSFT
 ms.date: 06/23/2017
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: design-pattern
+products:
+  - azure-storage
 ms.custom:
-  - seodec18
   - design-pattern
+keywords:
+  - design pattern
 ---
 
 # Index Table pattern
@@ -53,11 +55,11 @@ The third strategy is to create partially normalized index tables organized by d
 
 With this strategy, you can strike a balance between the first two approaches. The data for common queries can be retrieved quickly by using a single lookup, while the space and maintenance overhead isn't as significant as duplicating the entire data set.
 
-If an application frequently queries data by specifying a combination of values (for example, “Find all customers that live in Redmond and that have a last name of Smith”), you could implement the keys to the items in the index table as a concatenation of the Town attribute and the LastName attribute. The next figure shows an index table based on composite keys. The keys are sorted by Town, and then by LastName for records that have the same value for Town.
+If an application frequently queries data by specifying a combination of values (for example, "Find all customers that live in Redmond and that have a last name of Smith"), you could implement the keys to the items in the index table as a concatenation of the Town attribute and the LastName attribute. The next figure shows an index table based on composite keys. The keys are sorted by Town, and then by LastName for records that have the same value for Town.
 
 ![Figure 5 - An index table based on composite keys](./_images/index-table-figure-5.png)
 
-Index tables can speed up query operations over sharded data, and are especially useful where the shard key is hashed. The next figure shows an example where the shard key is a hash of the Customer ID. The index table can organize data by the nonhashed value (Town and LastName), and provide the hashed shard key as the lookup data. This can save the application from repeatedly calculating hash keys (an expensive operation) if it needs to retrieve data that falls within a range, or it needs to fetch data in order of the nonhashed key. For example, a query such as “Find all customers that live in Redmond” can be quickly resolved by locating the matching items in the index table, where they're all stored in a contiguous block. Then, follow the references to the customer data using the shard keys stored in the index table.
+Index tables can speed up query operations over sharded data, and are especially useful where the shard key is hashed. The next figure shows an example where the shard key is a hash of the Customer ID. The index table can organize data by the nonhashed value (Town and LastName), and provide the hashed shard key as the lookup data. This can save the application from repeatedly calculating hash keys (an expensive operation) if it needs to retrieve data that falls within a range, or it needs to fetch data in order of the nonhashed key. For example, a query such as "Find all customers that live in Redmond" can be quickly resolved by locating the matching items in the index table, where they're all stored in a contiguous block. Then, follow the references to the customer data using the shard keys stored in the index table.
 
 ![Figure 6 - An index table providing quick lookup for sharded data](./_images/index-table-figure-6.png)
 
@@ -100,7 +102,7 @@ You can duplicate the movie data in the values held by each partition by adoptin
 
 ![Figure 8 - Actor partitions acting as index tables for movie data](./_images/index-table-figure-8.png)
 
-## Related patterns and guidance
+## Related guidance
 
 The following patterns and guidance might also be relevant when implementing this pattern:
 

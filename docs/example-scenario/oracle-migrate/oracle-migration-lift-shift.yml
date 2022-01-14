@@ -1,6 +1,6 @@
 ### YamlMime:Architecture
 metadata:
-  title: 'Oracle database migration: Lift and shift'
+  title: "Oracle database migration: Lift and shift"
   titleSuffix: Azure Example Scenarios
   description: Lift and shift your Oracle database from an Oracle environment to Azure Virtual Machines.
   author: amberz
@@ -9,12 +9,12 @@ metadata:
   ms.topic: conceptual
   ms.service: architecture-center
   ms.subservice: example-scenario
-  ms.custom:
-    - fcp
-    - example-scenario
   ms.category:
     - databases
     - migration
+  ms.custom:
+    - fcp
+    - example-scenario
 name: 'Oracle database migration: Lift and shift'
 azureCategories:
   - databases

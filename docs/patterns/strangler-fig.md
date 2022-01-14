@@ -2,15 +2,16 @@
 title: Strangler Fig pattern
 titleSuffix: Cloud Design Patterns
 description: Incrementally migrate a legacy system by gradually replacing specific pieces of functionality with new applications and services.
-keywords: design pattern
-author: dragon119
+author: EdPrice-MSFT
+ms.author: pnp
 ms.date: 06/23/2017
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: design-pattern
 ms.custom:
-  - seodec18
   - design-pattern
+keywords:
+  - design pattern
 ---
 
 # Strangler Fig pattern

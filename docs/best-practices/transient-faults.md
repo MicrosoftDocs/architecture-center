@@ -2,13 +2,13 @@
 title: Retry general guidance
 titleSuffix: Best practices for cloud applications
 description: Learn how to handle transient faults when connecting to resources, caused by loss of network connectivity, temporary unavailability, or timeouts.
-author: dragon119
+author: EdPrice-MSFT
+ms.author: pnp
 ms.date: 07/13/2016
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: best-practice
 ms.custom:
-  - seodec18
   - best-practice
 ---
 
@@ -18,11 +18,7 @@ All applications that communicate with remote services and resources must be sen
 
 This document covers general guidance for transient fault handling. For information about handling transient faults when using Microsoft Azure services, see [Azure service-specific retry guidelines](./retry-service-specific.md).
 
-<!-- markdownlint-disable MD026 -->
-
 ## Why do transient faults occur in the cloud?
-
-<!-- markdownlint-enable MD026 -->
 
 Transient faults can occur in any environment, on any platform or operating system, and in any kind of application. In solutions that run on local on-premises infrastructure, the performance and availability of the application and its components is typically maintained through expensive and often underused hardware redundancy, and components and resources are located close to each other. While this approach makes a failure less likely, it can still result in transient faults - and even an outage through unforeseen events such as external power supply or network issues, or other disaster scenarios.
 
@@ -72,9 +68,9 @@ The following guidelines will help you to design a suitable transient fault hand
 
   - Determining the appropriate intervals between retries is the most difficult part of designing a successful strategy. Typical strategies use the following types of retry interval:
 
-    - **Exponential back-off**. The application waits a short time before the first retry, and then exponentially increasing times between each subsequent retry. For example, it may retry the operation after 3 seconds, 12 seconds, 30 seconds, and so on.
+    - **Exponential back-off**. The application waits a short time before the first retry, and then exponentially increasing time between each subsequent retry. For example, it may retry the operation after 3 seconds, 12 seconds, 30 seconds, and so on.
 
-    - **Incremental intervals**. The application waits a short time before the first retry, and then incrementally increasing times between each subsequent retry. For example, it may retry the operation after 3 seconds, 7 seconds, 13 seconds, and so on.
+    - **Incremental intervals**. The application waits a short time before the first retry, and then incrementally increasing time between each subsequent retry. For example, it may retry the operation after 3 seconds, 7 seconds, 13 seconds, and so on.
 
     - **Regular intervals**. The application waits for the same period of time between each attempt. For example, it may retry the operation every 3 seconds.
 
@@ -141,7 +137,7 @@ The following guidelines will help you to design a suitable transient fault hand
   - Consider implementing a telemetry and monitoring system that can raise alerts when the number and rate of failures, the average number of retries, or the overall times taken for operations to succeed, is increasing.
 
 - **Manage operations that continually fail:**
-  
+
   - There will be circumstances where the operation continues to fail at every attempt, and it is vital to consider how you will handle this situation:
 
     - Although a retry strategy will define the maximum number of times that an operation should be retried, it does not prevent the application repeating the operation again, with the same number of retries. For example, if an order processing service fails with a fatal error that puts it out of action permanently, the retry strategy may detect a connection timeout and consider it to be a transient fault. The code will retry the operation a specified number of times and then give up. However, when another customer places an order, the operation will be attempted again - even though it is sure to fail every time.
@@ -153,7 +149,7 @@ The following guidelines will help you to design a suitable transient fault hand
     - In the meantime, it may be possible to fall back to another instance of the service (perhaps in a different datacenter or application), use a similar service that offers compatible (perhaps simpler) functionality, or perform some alternative operations in the hope that the service will become available soon. For example, it may be appropriate to store requests for the service in a queue or data store and replay them later. Otherwise you might be able to redirect the user to an alternative instance of the application, degrade the performance of the application but still offer acceptable functionality, or just return a message to the user indicating that the application is not available at present.
 
 - **Other considerations**
-  
+
   - When deciding on the values for the number of retries and the retry intervals for a policy, consider if the operation on the service or resource is part of a long-running or multistep operation. It may be difficult or expensive to compensate all the other operational steps that have already succeeded when one fails. In this case, a very long interval and a large number of retries may be acceptable as long as it does not block other operations by holding or locking scarce resources.
 
   - Consider if retrying the same operation may cause inconsistencies in data. If some parts of a multistep process are repeated, and the operations are not idempotent, it may result in an inconsistency. For example, an operation that increments a value, if repeated, will produce an invalid result. Repeating an operation that sends a message to a queue may cause an inconsistency in the message consumer if it cannot detect duplicate messages. To prevent this, ensure that you design each step as an idempotent operation. For more information about idempotency, see [Idempotency patterns][idempotency-patterns].

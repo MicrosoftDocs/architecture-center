@@ -1,5 +1,5 @@
 ---
-title: AKS Day-2 Operations Guide - Patch and upgrade guidance
+title: AKS Day-2 - Patch and upgrade guidance
 titleSuffix: Azure Architecture Center
 description: Learn about day-2 patching and upgrading practices for Azure Kubernetes Service (AKS) worker nodes and Kubernetes (K8S) versions.
 author: rishabhsaha
@@ -7,6 +7,10 @@ ms.date: 01/11/2021
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: reference-architecture
+products:
+  - azure-kubernetes-service
+ms.custom:
+  - e2e-aks
 ---
 
 # Patching and upgrade guidance
@@ -80,9 +84,11 @@ KubernetesVersion  LatestNodeImageVersion     Name     OsType
 ```
 
 To upgrade node pools to the latest node image version:
+
 - [Upgrade all nodes in node pools](/azure/aks/node-image-upgrade#upgrade-all-nodes-in-all-node-pools).
 - [Upgrade a specific node pool](/azure/aks/node-image-upgrade#upgrade-a-specific-node-pool).
 - [Automate node pool upgrades using GitHub Actions](/azure/aks/node-upgrade-github-actions).
+- [Automate node pool upgrades using auto-upgrade channels](/azure/aks/upgrade-cluster#set-auto-upgrade-channel).
 
 ## Cluster upgrades
 
@@ -91,6 +97,7 @@ The Kubernetes community releases minor K8S versions roughly every three months.
 The window of supported K8S versions on AKS is called "N - 2": (N (latest release) - 2 (minor versions)). It's important to establish a continuous cluster upgrade process to ensure that your AKS clusters don't go out of support. Once a new version becomes available, ideally you should plan an upgrade across all environments before the version becomes the default. This approach provides more control and predictability, and lets you plan upgrades with minimal disruption to existing workloads.
 
 To minimize disruption to existing workloads during an upgrade:
+
 - Set up multiple environments.
 - Plan and schedule maintenance windows.
 - [Plan your tolerance for disruption](/azure/aks/operator-best-practices-scheduler#plan-for-availability-using-pod-disruption-budgets).
@@ -128,11 +135,11 @@ systempool    1.16.13
 usernodepool  1.16.13
 usernp179     1.17.9
 ```
-  
+
 You can upgrade the control plane first, and then upgrade the individual node pools.
 
 1. Run the [az aks upgrade](/cli/azure/ext/aks-preview/aks#ext_aks_preview_az_aks_upgrade) command with the `--control-plane-only` flag to upgrade only the cluster control plane, and not any of the associated node pools:
-   
+
    ```azurecli
    az aks upgrade \
       --resource-group <ResourceGroupName> --name <AKSClusterName> \
@@ -141,7 +148,7 @@ You can upgrade the control plane first, and then upgrade the individual node po
    ```
 
 1. Run [az aks nodepool upgrade](/cli/azure/ext/aks-preview/aks/nodepool#ext_aks_preview_az_aks_nodepool_upgrade) to upgrade node pools to the target version:
-   
+
    ```azurecli
    az aks nodepool upgrade \
       --resource-group <ResourceGroupName> --cluster-name <AKSClusterName> --name <NodePoolName> \
@@ -156,7 +163,7 @@ The following table describes characteristics of various AKS upgrade and patchin
 
 |Scenario|User initiated|K8S upgrade|OS kernel upgrade|Node image upgrade|
 |--------|--------------|------------------|-----------------|------------------|-----|
-|Security patching | No  | No | Yes, following reboot | No  |
+|Security patching | No  | No | Yes, following reboot | Yes  |
 |Cluster create | Yes  | Maybe | Yes, if an updated node image uses an updated kernel.|Yes, relative to an existing cluster if a new release is available.|
 |Control plane K8S upgrade | Yes  | Yes | No  | No  |
 |Node pool K8S upgrade | Yes  | Yes | Yes, if an updated node image uses an updated kernel.| Yes, if a new release is available.|
@@ -172,6 +179,7 @@ The following table describes characteristics of various AKS upgrade and patchin
 - Node image auto upgrade is in development. For more information, see [Automatic Node Image Upgrade for node versions](https://github.com/Azure/AKS/issues/1486).
 
 ## See also
+
 - [AKS day-2 operations guide](day-2-operations-guide.md)
 - [AKS triage practices](aks-triage-practices.md)
 - [AKS common issues](/azure/aks/troubleshooting?bc=%2fazure%2farchitecture%2fbread%2ftoc.json&toc=%2fazure%2farchitecture%2ftoc.json)
@@ -181,4 +189,3 @@ The following table describes characteristics of various AKS upgrade and patchin
 - [AKS product documentation](/azure/aks)
 - [AKS Roadmap](https://aka.ms/aks/roadmap)
 - [Defining Day-2 Operations](https://dzone.com/articles/defining-day-2-operations)
-

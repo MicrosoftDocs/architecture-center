@@ -1,19 +1,22 @@
 ### YamlMime:Architecture
 metadata:
-  title: Batch scoring of Spark models on Azure Databricks
+  title: Batch scoring of Spark on Azure Databricks
   description: Build a scalable solution for batch scoring an Apache Spark classification model on a schedule using Azure Databricks.
-  author: njray
+  author: EdPrice-MSFT
+  ms.author: pnp
   ms.date: 11/20/2019
   ms.topic: conceptual
   ms.service: architecture-center
+  ms.subservice: reference-architecture
   ms.category:
     - ai-machine-learning
     - analytics
     - databases
-  ms.subservice: reference-architecture
   ms.custom:
     - azcat-ai
     - reference-architecture
+    - ai-machine-learning
+    - aml-project-improvement
 name: Batch scoring of Spark models on Azure Databricks
 azureCategories:
   - ai-machine-learning
@@ -25,6 +28,6 @@ products:
   - azure-databricks
   - azure-data-factory
   - azure-blob-storage
-thumbnailUrl: /azure/architecture/browse/thumbs/batch-scoring-spark.png
+thumbnailUrl: /azure/architecture/browse/thumbs/batch-scoring-spark-models-databricks.png
 content: |
-   [!include[](batch-scoring-databricks-content.md)]
+  [!include[](batch-scoring-databricks-content.md)]

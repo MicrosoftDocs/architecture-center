@@ -2,15 +2,25 @@
 metadata:
   title: Intelligent apps using Azure Database for MySQL
   titleSuffix: Azure Solution Ideas
-  author: doodlemania2
-  ms.date: 12/16/2019
   description: Use Azure Database for MySQL to develop sophisticated machine learning and visualization apps that provide analytics and information that you can act on.
-  ms.custom: 'acom-architecture, mysql, use cases, azure, solutions, app-dev, ''https://azure.microsoft.com/solutions/architecture/intelligent-apps-using-azure-database-for-mysql/'''
+  author: mattcowen
+  ms.author: pnp
+  ms.date: 09/02/2021
+  ms.topic: conceptual
   ms.service: architecture-center
+  ms.subservice: solution-idea
   ms.category:
     - databases
     - ai-machine-learning
-  ms.subservice: solution-idea
+  ms.custom:
+    - acom-architecture
+    - mysql
+    - use cases
+    - azure
+    - solutions
+    - app-dev
+    - "https://azure.microsoft.com/solutions/architecture/intelligent-apps-using-azure-database-for-mysql/"
+    - ai-machine-learning
   social_image_url: /azure/architecture/solution-ideas/articles/media/intelligent-apps-using-azure-database-for-mysql.svg
 name: Intelligent apps using Azure Database for MySQL
 azureCategories:
@@ -25,4 +35,4 @@ products:
   - power-bi
 thumbnailUrl: /azure/architecture/browse/thumbs/intelligent-apps-using-azure-database-for-mysql.png
 content: |
-   [!include[](intelligent-apps-using-azure-database-for-mysql-content.md)]
+  [!include[](intelligent-apps-using-azure-database-for-mysql-content.md)]

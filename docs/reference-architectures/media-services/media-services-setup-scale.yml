@@ -2,16 +2,23 @@
 metadata:
   title: Gridwich Media Services setup and scaling
   titleSuffix: Azure Reference Architectures
-  description: Learn how Gridwich uses Azure Media Services V2 and V3 SDKs to set up authentication and authorization, and how to scale Media Services resources.
-  author: doodlemania2
+  description: Learn how Gridwich uses Azure Media Services V2 and V3 SDKs to set up authentication and authorization, and how to scale Media Services resources for media processing.
+  author: EdPrice-MSFT
+  ms.author: pnp
   ms.date: 11/12/2020
   ms.topic: conceptual
   ms.service: architecture-center
   ms.subservice: reference-architecture
   ms.custom:
     - fcp
+    - seo-aac-fy21q3
+  keywords:
+    - Media services
+    - gridwich
+    - key vault
+    - media processing
 name: Gridwich Media Services setup and scaling
-summary: Learn how Gridwich uses Azure Media Services V2 and V3 SDKs to set up authentication and authorization, and how to scale Media Services resources.
+summary: Learn how Gridwich uses Azure Media Services V2 and V3 SDKs to set up authentication and authorization, and how to scale Media Services resources for media processing.
 products:
   - azure-functions
   - azure-key-vault

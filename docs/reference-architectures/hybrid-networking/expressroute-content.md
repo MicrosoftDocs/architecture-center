@@ -1,13 +1,12 @@
+This reference architecture shows how to connect an on-premises network to virtual networks on Azure, using [Azure ExpressRoute][expressroute-introduction]. ExpressRoute connections use a private, dedicated connection through a third-party connectivity provider. The private connection extends your on-premises network into Azure.
 
-
-
-This reference architecture shows how to connect an on-premises network to virtual networks on Azure, using [Azure ExpressRoute][expressroute-introduction]. ExpressRoute connections use a private, dedicated connection through a third-party connectivity provider. The private connection extends your on-premises network into Azure. [**Deploy this solution**](#deploy-the-solution).
+## Architecture
 
 ![[0]][0]
 
 *Download a [Visio file][visio-download] of this architecture.*
 
-## Architecture
+### Workflow
 
 The architecture consists of the following components.
 
@@ -129,7 +128,9 @@ Remove-AzExpressRouteCircuit -Name <<circuit-name>> -ResourceGroupName <<resourc
 
 If your provider had already provisioned the circuit, and the `ProvisioningState` is set to `Failed`, or the `CircuitProvisioningState` is not `Enabled`, contact your provider for further assistance.
 
-## Scalability considerations
+## Considerations
+
+### Scalability
 
 ExpressRoute circuits provide a high bandwidth path between networks. Generally, the higher the bandwidth the greater the cost.
 
@@ -178,7 +179,7 @@ Although some providers allow you to change your bandwidth, make sure you pick a
 
     You can upgrade the SKU without disruption, but you cannot switch from the unlimited pricing plan to metered. When downgrading the SKU, your bandwidth consumption must remain within the default limit of the standard SKU.
 
-## Availability considerations
+### Availability
 
 ExpressRoute does not support router redundancy protocols such as hot standby routing protocol (HSRP) and virtual router redundancy protocol (VRRP) to implement high availability. Instead, it uses a redundant pair of BGP sessions per peering. To facilitate highly-available connections to your network, Azure provisions you with two redundant ports on two routers (part of the Microsoft edge) in an active-active configuration.
 
@@ -198,7 +199,7 @@ You can configure high availability for your Azure connection in different ways,
 
 - Configure a site-to-site VPN as a failover path for ExpressRoute. For more about this option, see [Connect an on-premises network to Azure using ExpressRoute with VPN failover][highly-available-network-architecture]. This option only applies to private peering. For Azure and Microsoft 365 services, the Internet is the only failover path.
 
-## Security considerations
+### Security
 
 You can configure security options for your Azure connection in different ways, depending on your security concerns and compliance needs.
 
@@ -220,13 +221,7 @@ If you must expose management endpoints for VMs to an external network, use NSGs
 > Azure VMs deployed through the Azure portal can include a public IP address that provides login access. However, it is a best practice not to permit this.
 >
 
-## DevOps considerations
-
-Use the Infrastructure as Code (IaC) process for deploying the infrastructure. In this architecture, we've used a set of [Azure Building Blocks][azbb] custom templates deployed using the Azure portal. To automate infrastructure deployment, you can use Azure DevOps Services or other CI/CD solutions. The deployment process is also idempotent. 
-
-For a given resource, there can be other resources that must exist before the resource is deployed. Azure Building Blocks templates are also good for dependency tracking because they allow you to define dependencies for resources that are deployed in the same template. 
-
-### Network monitoring
+#### Network monitoring
 
 Use the Network Watcher to monitor and troubleshoot the network components, tools like Traffic Analytics will show you the systems in your virtual networks that generate most traffic, so that you can visually identify bottlenecks before they degenerate into problems. Network Performance Manager has the ability to monitor information about Microsoft ExpressRoute circuits.
 
@@ -234,14 +229,13 @@ You also can use the [Azure Connectivity Toolkit (AzureCT)][azurect] to monitor 
 
 For more information, see the DevOps section in [Microsoft Azure Well-Architected Framework][AAF-devops]. For information specific to monitoring, see [Monitoring For DevOps][devops-monitoring].
 
-
 ## Cost considerations
 
 Use the [Azure pricing calculator][azure-pricing-calculator] to estimate costs. For general considerations, see the Cost section in [Microsoft Azure Well-Architected Framework][aaf-cost].
 
 The services used in this architecture are charged as follows:
 
-### Azure ExpressRoute
+#### Azure ExpressRoute
 
 In this architecture, an ExpressRoute circuit is used to join the on-premises network with Azure through the edge routers.
 
@@ -253,13 +247,13 @@ Calculate your utilization and choose a billing plan accordingly. The **Unlimite
 
 For more information, see [Azure ExpressRoute pricing][expressroute-pricing].
 
-### Azure Virtual Network
+#### Azure Virtual Network
 
 All application tiers are hosted in a single virtual network and are segmented using subnets.
 
 Azure Virtual Network is free. Every subscription is allowed to create up to 50 virtual networks across all regions. All traffic that occurs within the boundaries of a virtual network is free. So, communication between two VMs in the same virtual network is free.
 
-### Virtual machine and internal load balancers
+#### Virtual machine and internal load balancers
 
 In this architecture, internal load balancers are used to load balance traffic inside a virtual network. Basic load balancing between virtual machines that reside in the same virtual network is free.
 
@@ -267,75 +261,45 @@ Virtual machine scale sets are available on all Linux and windows VM sizes. You 
 
 For more information, see [Azure VM pricing][linux-vms-pricing].
 
+## Next steps
 
-## Deploy the solution
+Product documentation:
 
-**Prerequisites**. You must have an existing on-premises infrastructure already configured with a suitable network appliance.
+- [Microsoft 365 services](/office365/servicedescriptions/office-365-service-descriptions-technet-library)
+- [What is Azure ExpressRoute?](/azure/expressroute/expressroute-introduction)
+- [What is Azure Virtual Network?](/azure/virtual-network/virtual-networks-overview)
 
-To deploy the solution, perform the following steps.
+Microsoft Learn modules:
 
-1. Click the link below.
+- [Configure ExpressRoute and Virtual WAN](/learn/modules/configure-expressroute-virtual-wan)
+- [Configure virtual network peering](/learn/modules/configure-vnet-peering)
+- [Design and implement Azure ExpressRoute](/learn/modules/design-implement-azure-expressroute)
+- [Explore the Microsoft 365 platform services](/learn/paths/explore-microsoft-365-platform-services)
 
-    [![Deploy to Azure](https://azuredeploy.net/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fmspnp%2Freference-architectures%2Fmaster%2Fhybrid-networking%2Fexpressroute%2Fazuredeploy.json)
+## Related resources
 
-1. Wait for the link to open in the Azure portal, then follow these steps:
-   - The **Resource group** name is already defined in the parameter file, so select **Create New** and enter `ra-hybrid-er-rg` in the text box.
-   - Select the region from the **Location** drop down box.
-   - Do not edit the **Template Root Uri** or the **Parameter Root Uri** text boxes.
-   - Review the terms and conditions, then click the **I agree to the terms and conditions stated above** checkbox.
-   - Click the **Purchase** button.
-
-1. Wait for the deployment to complete.
-
-1. Click the link below.
-
-    [![Deploy to Azure](https://azuredeploy.net/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fmspnp%2Freference-architectures%2Fmaster%2Fhybrid-networking%2Fexpressroute%2Fazuredeploy-expressRouteCircuit.json)
-
-1. Wait for the link to open in the Azure portal, then follow these steps:
-   - Select **Use existing** in the **Resource group** section and enter `ra-hybrid-er-rg` in the text box.
-   - Select the region from the **Location** drop down box.
-   - Do not edit the **Template Root Uri** or the **Parameter Root Uri** text boxes.
-   - Review the terms and conditions, then click the **I agree to the terms and conditions stated above** checkbox.
-   - Click the **Purchase** button.
-
-1. Wait for the deployment to complete.
+- [Hybrid architecture design](../../hybrid/hybrid-start-here.md)
+- [Connect an on-premises network to Azure using ExpressRoute](../../reference-architectures/hybrid-networking/expressroute-vpn-failover.yml)
+- [Extend an on-premises network using VPN](../../reference-architectures/hybrid-networking/vpn.yml)
 
 <!-- links -->
 
 [highly-available-network-architecture]: ./expressroute-vpn-failover.yml
-
-
-[AAF-devops]: ../../framework/devops/overview.md
-[azbb]: https://github.com/mspnp/template-building-blocks/wiki
-[expressroute-technical-overview]: /azure/expressroute/expressroute-introduction
+[AAF-devops]: /azure/architecture/framework/devops/overview
 [expressroute-prereqs]: /azure/expressroute/expressroute-prerequisites
 [configure-expressroute-routing]: /azure/expressroute/expressroute-howto-routing-arm
 [sla-for-expressroute]: https://azure.microsoft.com/support/legal/sla/expressroute
 [link-vnet-to-expressroute]: /azure/expressroute/expressroute-howto-linkvnet-arm
-[devops-monitoring]: ../../framework/devops/monitoring.md
+[devops-monitoring]: /azure/architecture/framework/devops/monitoring
 [ExpressRoute-provisioning]: /azure/expressroute/expressroute-workflows
 [expressroute-introduction]: /azure/expressroute/expressroute-introduction
 [expressroute-peering]: /azure/expressroute/expressroute-circuit-peerings
 [expressroute-pricing]: https://azure.microsoft.com/pricing/details/expressroute/
-[expressroute-limits]: /azure/azure-subscription-service-limits#networking-limits
-
-[aaf-cost]: ../../framework/cost/overview.md
+[aaf-cost]: /azure/architecture/framework/cost/overview
 [azure-pricing-calculator]: https://azure.microsoft.com/pricing/calculator
-[expressroute-prereqs]: /azure/expressroute/expressroute-prerequisites
-[configure-expressroute-routing]: /azure/expressroute/expressroute-howto-routing-arm
-[sla-for-expressroute]: https://azure.microsoft.com/support/legal/sla/expressroute
-[link-vnet-to-expressroute]: /azure/expressroute/expressroute-howto-linkvnet-arm
 [linux-vms-pricing]: https://azure.microsoft.com/pricing/details/virtual-machines/linux
-[expressroute-pricing]: https://azure.microsoft.com/pricing/details/expressroute
-[ExpressRoute-provisioning]: /azure/expressroute/expressroute-workflows
-[expressroute-introduction]: /azure/expressroute/expressroute-introduction
-[expressroute-peering]: /azure/expressroute/expressroute-circuit-peerings
-[expressroute-pricing]: https://azure.microsoft.com/pricing/details/expressroute
-
-
 [azurect]: https://github.com/Azure/NetworkMonitoring/tree/master/AzureCT
 [visio-download]: https://arch-center.azureedge.net/hybrid-network-architectures.vsdx
-
 [0]: ./images/expressroute.png "Hybrid network architecture using Azure ExpressRoute"
 [1]: ../_images/guidance-hybrid-network-expressroute/figure2.png "Using redundant routers with ExpressRoute primary and secondary circuits"
 [2]: ../_images/guidance-hybrid-network-expressroute/figure3.png "Adding security devices to the on-premises network"

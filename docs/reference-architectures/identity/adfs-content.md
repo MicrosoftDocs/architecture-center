@@ -1,7 +1,4 @@
-
-
-
-This reference architecture implements a secure hybrid network that extends your on-premises network to Azure and uses [Active Directory Federation Services (AD FS)][active-directory-federation-services] to perform federated authentication and authorization for components running in Azure. [**Deploy this solution**](#deploy-the-solution).
+This reference architecture implements a secure hybrid network that extends your on-premises network to Azure and uses [Active Directory Federation Services (AD FS)][active-directory-federation-services] to perform federated authentication and authorization for components running in Azure.
 
 ![Secure hybrid network architecture with Active Directory](./images/adfs.png)
 
@@ -193,184 +190,17 @@ Consider having Active Directory Domain Services as a shared service that is con
 
 For information about the editions offered by Azure Active Directory, see [Azure AD pricing][Azure-AD-pricing]. The AD Federation Services feature is available in all editions.
 
-## Deploy the solution
+## Next Steps
 
-A deployment for this architecture is available on [GitHub][github]. Note that the entire deployment can take up to two hours, which includes creating the VPN gateway and running the scripts that configure Active Directory and AD FS.
-
-### Prerequisites
-
-1. Clone, fork, or download the zip file for the [GitHub repository](https://github.com/mspnp/identity-reference-architectures).
-
-1. Install [Azure CLI 2.0](/cli/azure/install-azure-cli?view=azure-cli-latest).
-
-1. Install the [Azure building blocks](https://github.com/mspnp/template-building-blocks/wiki/Install-Azure-Building-Blocks) npm package.
-
-   ```bash
-   npm install -g @mspnp/azure-building-blocks
-   ```
-
-1. From a command prompt, bash prompt, or PowerShell prompt, sign into your Azure account as follows:
-
-   ```bash
-   az login
-   ```
-
-### Deploy the simulated on-premises datacenter
-
-1. Navigate to the `adfs` folder of the GitHub repository.
-
-1. Open the `onprem.json` file. Search for instances of `adminPassword`, `Password`, and `SafeModeAdminPassword` and update the passwords.
-
-1. Run the following command and wait for the deployment to finish:
-
-    ```bash
-    azbb -s <subscription_id> -g <resource group> -l <location> -p onprem.json --deploy
-    ```
-
-### Deploy the Azure infrastructure
-
-1. Open the `azure.json` file.  Search for instances of `adminPassword` and `Password` and add values for the passwords.
-
-1. Run the following command and wait for the deployment to finish:
-
-    ```bash
-    azbb -s <subscription_id> -g <resource group> -l <location> -p azure.json --deploy
-    ```
-
-### Set up the AD FS farm
-
-1. Open the `adfs-farm-first.json` file.  Search for `AdminPassword` and replace the default password.
-
-1. Run the following command:
-
-    ```bash
-    azbb -s <subscription_id> -g <resource group> -l <location> -p adfs-farm-first.json --deploy
-    ```
-
-1. Open the `adfs-farm-rest.json` file.  Search for `AdminPassword` and replace the default password.
-
-1. Run the following command and wait for the deployment to finish:
-
-    ```bash
-    azbb -s <subscription_id> -g <resource group> -l <location> -p adfs-farm-rest.json --deploy
-    ```
-
-### Configure AD FS (part 1)
-
-1. Open a remote desktop session to the VM named `ra-adfs-jb-vm1`, which is the jumpbox VM. The user name is `testuser`.
-
-1. From the jumpbox, open a remote desktop session to the VM named `ra-adfs-proxy-vm1`. The private IP address is 10.0.6.4.
-
-1. From this remote desktop session, run the [PowerShell ISE][psise].
-
-1. In PowerShell, navigate to the following directory:
-
-    ```powershell
-    C:\Packages\Plugins\Microsoft.Powershell.DSC\2.77.0.0\DSCWork\adfs-v2.0
-    ```
-
-1. Paste the following code into a script pane and run it:
-
-    ```powershell
-    . .\adfs-webproxy.ps1
-    $cd = @{
-        AllNodes = @(
-            @{
-                NodeName = 'localhost'
-                PSDscAllowPlainTextPassword = $true
-                PSDscAllowDomainUser = $true
-            }
-        )
-    }
-
-    $c1 = Get-Credential -UserName testuser -Message "Enter password"
-    InstallWebProxyApp -DomainName contoso.com -FederationName adfs.contoso.com -WebApplicationProxyName "Contoso App" -AdminCreds $c1 -ConfigurationData $cd
-    Start-DscConfiguration .\InstallWebProxyApp
-    ```
-
-    At the `Get-Credential` prompt, enter the password that you specified in the deployment parameter file.
-
-1. Run the following command to monitor the progress of the [DSC](/powershell/scripting/dsc/overview/overview) configuration:
-
-    ```powershell
-    Get-DscConfigurationStatus
-    ```
-
-    It can take several minutes to reach consistency. During this time, you may see errors from the command. When the configuration succeeds, the output should look similar to the following:
-
-    ```powershell
-    PS C:\Packages\Plugins\Microsoft.Powershell.DSC\2.77.0.0\DSCWork\adfs-v2.0> Get-DscConfigurationStatus
-
-    Status     StartDate                 Type            Mode  RebootRequested      NumberOfResources
-    ------     ---------                 ----            ----  ---------------      -----------------
-    Success    12/17/2018 8:21:09 PM     Consistency     PUSH  True                 4
-    ```
-
-### Configure AD FS (part 2)
-
-1. From the jumpbox, open a remote desktop session to the VM named `ra-adfs-proxy-vm2`. The private IP address is 10.0.6.5.
-
-1. From this remote desktop session, run the [PowerShell ISE][psise].
-
-1. Navigate to the following directory:
-
-    ```powershell
-    C:\Packages\Plugins\Microsoft.Powershell.DSC\2.77.0.0\DSCWork\adfs-v2.0
-    ```
-
-1. Past the following in a script pane and run the script:
-
-    ```powershell
-    . .\adfs-webproxy-rest.ps1
-    $cd = @{
-        AllNodes = @(
-            @{
-                NodeName = 'localhost'
-                PSDscAllowPlainTextPassword = $true
-                PSDscAllowDomainUser = $true
-            }
-        )
-    }
-
-    $c1 = Get-Credential -UserName testuser -Message "Enter password"
-    InstallWebProxy -DomainName contoso.com -FederationName adfs.contoso.com -WebApplicationProxyName "Contoso App" -AdminCreds $c1 -ConfigurationData $cd
-    Start-DscConfiguration .\InstallWebProxy
-    ```
-
-    At the `Get-Credential` prompt, enter the password that you specified in the deployment parameter file.
-
-1. Run the following command to monitor the progress of the DSC configuration:
-
-    ```powershell
-    Get-DscConfigurationStatus
-    ```
-
-    It can take several minutes to reach consistency. During this time, you may see errors from the command. When the configuration succeeds, the output should look similar to the following:
-
-    ```powershell
-    PS C:\Packages\Plugins\Microsoft.Powershell.DSC\2.77.0.0\DSCWork\adfs-v2.0> Get-DscConfigurationStatus
-
-    Status     StartDate                 Type            Mode  RebootRequested      NumberOfResources
-    ------     ---------                 ----            ----  ---------------      -----------------
-    Success    12/17/2018 8:21:09 PM     Consistency     PUSH  True                 4
-    ```
-
-    Sometimes this DSC fails. If the status check shows `Status=Failure` and `Type=Consistency`, try re-running step 4.
-
-### Sign into AD FS
-
-1. From the jumpbox, open a remote desktop session to the VM named `ra-adfs-adfs-vm1`. The private IP address is 10.0.5.4.
-
-1. Follow the steps in [Enable the Idp-Initiated Sign on page](/windows-server/identity/ad-fs/troubleshooting/ad-fs-tshoot-initiatedsignon#enable-the-idp-initiated-sign-on-page) to enable the sign-on page.
-
-1. From the jump box, browse to `https://adfs.contoso.com/adfs/ls/idpinitiatedsignon.htm`. You may receive a certificate warning that you can ignore for this test.
-
-1. Verify that the Contoso Corporation sign-in page appears. Sign in as **contoso\testuser**.
+* [Azure Activity Directory Documentation](/azure/active-directory)
+* [Manage Identity in multitenant applications](../../multitenant-identity/index.md)
+* [Identity Management Security](/azure/security/fundamentals/identity-management-overview)
+* [Azure Firewall](/azure/firewall/overview)
 
 <!-- links -->
 
 [extending-ad-to-azure]: ./adds-extend-domain.yml
-[aaf-cost]: ../../framework/cost/overview.md
+[aaf-cost]: /azure/architecture/framework/cost/overview
 [Azure-AD-pricing]: https://azure.microsoft.com/pricing/details/active-directory
 [where-to-place-an-fs-proxy]: /previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/dd807048(v=ws.11)
 [ADDS-pricing]: https://azure.microsoft.com/pricing/details/active-directory-ds
@@ -385,9 +215,8 @@ A deployment for this architecture is available on [GitHub][github]. Note that t
 [Deploying_a_federation_server_farm]: /windows-server/identity/ad-fs/deployment/deploying-a-federation-server-farm
 [install_and_configure_the_web_application_proxy_server]: /previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/dn383662(v=ws.11)
 [publish_applications_using_AD_FS_preauthentication]: /previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/dn383640(v=ws.11)
-[oms-adfs-pack]: https://www.microsoft.com/en-us/download/details.aspx?id=54526
+[oms-adfs-pack]: https://www.microsoft.com/download/details.aspx?id=54526
 [adfs-intro]: /azure/active-directory/hybrid/whatis-hybrid-identity
-[github]: https://github.com/mspnp/identity-reference-architectures/tree/master/adfs
 [adfs_certificates]: /previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/dn781428(v=ws.11)
 [considerations]: ./index.yml
 [visio-download]: https://arch-center.azureedge.net/identity-architectures.vsdx

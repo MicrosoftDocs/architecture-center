@@ -2,15 +2,22 @@
 metadata:
   title: Scalable Umbraco CMS web app
   titleSuffix: Azure Solution Ideas
-  author: doodlemania2
-  ms.date: 12/16/2019
   description: Run an Umbraco content management system on the Web Apps feature of Azure App Service. Use Azure managed services for a high-availability environment.
-  ms.custom: 'acom-architecture, web-apps, app-dev, is-deployable, ''https://azure.microsoft.com/solutions/architecture/medium-umbraco-web-app/'''
+  author: EdPrice-MSFT
+  ms.author: pnp
+  ms.date: 12/16/2019
+  ms.topic: conceptual
   ms.service: architecture-center
+  ms.subservice: solution-idea
   ms.category:
     - web
     - databases
-  ms.subservice: solution-idea
+  ms.custom:
+    - acom-architecture
+    - web-apps
+    - app-dev
+    - is-deployable
+    - "https://azure.microsoft.com/solutions/architecture/medium-umbraco-web-app/"
   social_image_url: /azure/architecture/solution-ideas/articles/media/medium-umbraco-web-app.png
 name: Scalable Umbraco CMS web app
 azureCategories:

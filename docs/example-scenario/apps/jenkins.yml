@@ -3,15 +3,15 @@ metadata:
   title: Run a Jenkins server on Azure
   titleSuffix: Azure Reference Architectures
   description: This scenario explains the architecture and considerations to take into account when installing and configuring Jenkins.
-  author: njray
+  author: EdPrice-MSFT
+  ms.author: pnp
   ms.date: 11/19/2020
-  ms.category:
-    - devops
   ms.topic: conceptual
   ms.service: architecture-center
   ms.subservice: example-scenario
+  ms.category:
+    - devops
   ms.custom:
-    - seodec18
     - devops
     - example-scenario
     - devx-track-jenkins

@@ -1,25 +1,26 @@
 ---
-title: Choosing a data analytics and reporting technology
+title: Choose a data analytics and reporting technology
 description: Evaluate big data analytics technology options for Azure, including key selection criteria and a capability matrix.
-author: zoinerTejada
+author: EdPrice-MSFT
+ms.author: pnp
 ms.date: 02/12/2018
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: azure-guide
+products:
+  - power-bi
+  - azure-notebooks
 ms.custom:
   - data-analytics
   - guide
+  - internal-intro
 ---
 
-# Choosing a data analytics technology in Azure
+# Choose a data analytics technology in Azure
 
 The goal of most big data solutions is to provide insights into the data through analysis and reporting. This can include preconfigured reports and visualizations, or interactive data exploration.
 
-<!-- markdownlint-disable MD026 -->
-
 ## What are your options when choosing a data analytics technology?
-
-<!-- markdownlint-disable MD026 -->
 
 There are several options for analysis, visualizations, and reporting in Azure, depending on your needs:
 
@@ -82,8 +83,6 @@ The following tables summarize the key differences in capabilities.
 
 ### General capabilities
 
-<!-- markdownlint-disable MD033 -->
-
 | Capability | Power BI | Jupyter Notebooks | Zeppelin Notebooks | Microsoft Azure Notebooks |
 | --- | --- | --- | --- | --- |
 | Connect to big data cluster for advanced processing | Yes | Yes | Yes | No |
@@ -96,8 +95,6 @@ The following tables summarize the key differences in capabilities.
 | Data transformation/cleansing options | [Power Query](https://powerbi.microsoft.com/blog/getting-started-with-power-query-part-i/), R | 40 languages, including Python, R, Julia, and Scala | 20+ interpreters, including Python, JDBC, and R | Python, F#, R |
 | Pricing | Free for Power BI Desktop (authoring), see [pricing](https://powerbi.microsoft.com/pricing/) for hosting options | Free | Free | Free |
 | Multiuser collaboration | [Yes](/power-bi/service-how-to-collaborate-distribute-dashboards-reports) | Yes (through sharing or with a multiuser server like [JupyterHub](https://github.com/jupyterhub/jupyterhub)) | Yes | Yes (through sharing) |
-
-<!-- markdownlint-enable MD033 -->
 
 [1] When used as part of a managed HDInsight cluster.
 

@@ -1,22 +1,23 @@
 ---
-title: High Performance Computing (HPC) on Azure
-description: Learn about High Performance Computing on Azure, which uses many CPU or GPU-based computers to solve complex mathematical tasks.
-author: doodlemania2
-ms.date: 8/14/2019
-ms.custom: fcp
+title: "High-performance computing (HPC) on Azure"
+description: Learn about high-performance computing (HPC) on Azure, which uses many CPU or GPU-based computers to solve complex mathematical tasks.
+author: SMBrook
+ms.author: sibrook
+ms.date: 01/03/2022
+ms.topic: guide
 ms.service: architecture-center
+ms.subservice: reference-architecture
 ms.category:
   - compute
   - storage
-ms.subservice: reference-architecture
+ms.custom:
+  - fcp
 social_image_url: /azure/architecture/topics/media/architecture-hpc-saas.png
 ---
 
-<!-- markdownlint-disable MD033 -->
-<!-- markdownlint-disable MD026 -->
 <!-- cSpell:ignore fullheight neuro milliman hymans netapp gluster tibco cyclecloud hpcpack radioss ansys axioma alces slurm mdcs cntk -->
 
-# High Performance Computing (HPC) on Azure
+# High-performance computing (HPC) on Azure
 
 ## Introduction to HPC
 
@@ -26,7 +27,7 @@ social_image_url: /azure/architecture/topics/media/architecture-hpc-saas.png
 
 <!-- markdownlint-enable MD034 -->
 
-High Performance Computing (HPC), also called "Big Compute", uses a large number of CPU or GPU-based computers to solve complex mathematical tasks.
+High-performance computing (HPC), also called "big compute", uses a large number of CPU or GPU-based computers to solve complex mathematical tasks.
 
 Many industries use HPC to solve some of their most difficult problems.  These include workloads such as:
 
@@ -50,9 +51,8 @@ The following articles provide more detail about this dynamic scaling capability
 
 As you're looking to implement your own HPC solution on Azure, ensure you're reviewed the following topics:
 
-<!-- markdownlint-disable MD032 -->
-
 > [!div class="checklist"]
+>
 > - Choose the appropriate [architecture](#infrastructure) based on your requirements
 > - Know which [compute](#compute) options is right for your workload
 > - Identify the right [storage](#storage) solution that meets your needs
@@ -60,45 +60,43 @@ As you're looking to implement your own HPC solution on Azure, ensure you're rev
 > - Optimize your [application](#hpc-applications) for the cloud
 > - [Secure](#security) your Infrastructure
 
-<!-- markdownlint-enable MD032 -->
-
 ## Infrastructure
 
-There are a number of infrastructure components necessary to build an HPC system.  Compute, Storage, and Networking provide the underlying components, no matter how you choose to manage your HPC workloads.
+There are many infrastructure components that are necessary to build an HPC system. Compute, storage, and networking provide the underlying components, no matter how you choose to manage your HPC workloads.
 
 ### Example HPC architectures
 
-There are a number of different ways to design and implement your HPC architecture on Azure.  HPC applications can scale to thousands of compute cores, extend on-premises clusters, or run as a 100% cloud-native solution.
+There are many different ways to design and implement your HPC architecture on Azure.  HPC applications can scale to thousands of compute cores, extend on-premises clusters, or run as a 100% cloud-native solution.
 
 The following scenarios outline a few of the common ways HPC solutions are built.
 
 <ul class="columns is-multiline has-margin-left-none has-margin-bottom-none has-padding-top-medium">
     <li class="column is-one-third has-padding-top-small-mobile has-padding-bottom-small">
-        <a class="is-undecorated is-full-height is-block"
-            href="/azure/architecture/example-scenario/apps/hpc-saas">
-            <article class="card has-outline-hover is-relative is-fullheight">
-                    <figure class="image has-margin-right-none has-margin-left-none has-margin-top-none has-margin-bottom-none">
-                        <img role="presentation" alt="Diagram shows example HPC architecture for computer-aided engineering services on Azure." src="../example-scenario/apps/media/architecture-hpc-saas.png">
-                    </figure>
-                <div class="card-content has-text-overflow-ellipsis">
-                    <div class="has-padding-bottom-none">
-                        <h3 class="is-size-4 has-margin-top-none has-margin-bottom-none has-text-primary">Computer-aided engineering services on Azure</h3>
-                    </div>
+        <article class="card has-outline-hover is-relative is-fullheight">
+            <figure class="image has-margin-right-none has-margin-left-none has-margin-top-none has-margin-bottom-none">
+                <a class="is-undecorated is-full-height is-block"
+                 href="/azure/architecture/example-scenario/apps/hpc-saas">
+                 <img role="presentation" alt="Diagram shows example HPC architecture for computer-aided engineering services on Azure." src="../example-scenario/apps/media/architecture-hpc-saas.png">
+                </a>
+             </figure>
+             <div class="card-content has-text-overflow-ellipsis">
+                 <div class="has-padding-bottom-none">
+                     <h3 class="is-size-4 has-margin-top-none has-margin-bottom-none has-text-primary">Computer-aided engineering services on Azure</h3>
+                 </div>
                     <div class="is-size-7 has-margin-top-small has-line-height-reset">
-                        <p>Provide a software-as-a-service (SaaS) platform for computer-aided engineering (CAE) on
-                            Azure.</p>
+                        <p>Provide a software-as-a-service (SaaS) platform for computer-aided engineering (CAE) on Azure.</p>
                     </div>
                 </div>
             </article>
-        </a>
     </li>
     <li class="column is-one-third has-padding-top-small-mobile has-padding-bottom-small">
-        <a class="is-undecorated is-full-height is-block"
-            href="/azure/architecture/example-scenario/infrastructure/hpc-cfd">
-            <article class="card has-outline-hover is-relative is-fullheight">
-                    <figure class="image has-margin-right-none has-margin-left-none has-margin-top-none has-margin-bottom-none">
-                        <img role="presentation" alt="Diagram shows example HPC architecture for computational fluid dynamics simulations on Azure." src="../example-scenario/infrastructure/media/architecture-hpc-cfd.png">
-                    </figure>
+        <article class="card has-outline-hover is-relative is-fullheight">
+            <figure class="image has-margin-right-none has-margin-left-none has-margin-top-none has-margin-bottom-none">
+               <a class="is-undecorated is-full-height is-block"
+                 href="/azure/architecture/example-scenario/infrastructure/hpc-cfd">
+                 <img role="presentation" alt="Diagram shows example HPC architecture for computational fluid dynamics simulations on Azure." src="../example-scenario/infrastructure/media/architecture-hpc-cfd.png">
+                </a>
+                </figure>
                 <div class="card-content has-text-overflow-ellipsis">
                     <div class="has-padding-bottom-none">
                         <h3 class="is-size-4 has-margin-top-none has-margin-bottom-none has-text-primary">Computational fluid dynamics (CFD) simulations on Azure</h3>
@@ -108,25 +106,24 @@ The following scenarios outline a few of the common ways HPC solutions are built
                     </div>
                 </div>
             </article>
-        </a>
     </li>
     <li class="column is-one-third has-padding-top-small-mobile has-padding-bottom-small">
-        <a class="is-undecorated is-full-height is-block"
-            href="/azure/architecture/example-scenario/infrastructure/video-rendering">
-            <article class="card has-outline-hover is-relative is-fullheight">
-                    <figure class="image has-margin-right-none has-margin-left-none has-margin-top-none has-margin-bottom-none">
-                        <img role="presentation" alt="Diagram shows example HPC architecture for 3D video rendering on Azure." src="../example-scenario/infrastructure/media/architecture-video-rendering.png">
-                    </figure>
-                <div class="card-content has-text-overflow-ellipsis">
-                    <div class="has-padding-bottom-none">
-                        <h3 class="is-size-4 has-margin-top-none has-margin-bottom-none has-text-primary">3D video rendering on Azure</h3>
-                    </div>
-                    <div class="is-size-7 has-margin-top-small has-line-height-reset">
-                        <p>Run native HPC workloads in Azure using the Azure Batch service</p>
-                    </div>
-                </div>
-            </article>
-        </a>
+        <article class="card has-outline-hover is-relative is-fullheight">
+          <figure class="image has-margin-right-none has-margin-left-none has-margin-top-none has-margin-bottom-none">
+              <a class="is-undecorated is-full-height is-block"
+              href="/azure/architecture/example-scenario/infrastructure/video-rendering">
+                 <img role="presentation" alt="Diagram shows example HPC architecture for 3D video rendering on Azure." src="../example-scenario/infrastructure/media/architecture-video-rendering.png">
+            </a>
+          </figure>
+          <div class="card-content has-text-overflow-ellipsis">
+             <div class="has-padding-bottom-none">
+                   <h3 class="is-size-4 has-margin-top-none has-margin-bottom-none has-text-primary">3D video rendering on Azure</h3>
+             </div>
+             <div class="is-size-7 has-margin-top-small has-line-height-reset">
+                   <p>Run native HPC workloads in Azure using the Azure Batch service</p>
+             </div>
+          </div>
+       </article>
     </li>
 </ul>
 
@@ -137,8 +134,8 @@ Azure offers a range of sizes that are optimized for both CPU & GPU intensive wo
 #### CPU-based virtual machines
 
 - [Linux VMs](/azure/virtual-machines/linux/sizes-hpc)
-- [Windows VMs](/azure/virtual-machines/windows/sizes-hpc) VMs
-  
+- [Windows VMs](/azure/virtual-machines/windows/sizes-hpc)
+
 #### GPU-enabled virtual machines
 
 N-series VMs feature NVIDIA GPUs designed for compute-intensive or graphics-intensive applications including artificial intelligence (AI) learning and visualization.
@@ -148,7 +145,7 @@ N-series VMs feature NVIDIA GPUs designed for compute-intensive or graphics-inte
 
 ### Storage
 
-Large-scale Batch and HPC workloads have demands for data storage and access that exceed the capabilities of traditional cloud file systems.  There are a number of solutions to manage both the speed and capacity needs of HPC applications on Azure
+Large-scale Batch and HPC workloads have demands for data storage and access that exceed the capabilities of traditional cloud file systems. There are many solutions that manage both the speed and capacity needs of HPC applications on Azure:
 
 - [Avere vFXT](https://azure.microsoft.com/services/storage/avere-vfxt) for faster, more accessible data storage for high-performance computing at the edge
 - [Azure NetApp Files](/azure/azure-netapp-files/azure-netapp-files-introduction)
@@ -171,16 +168,16 @@ H16r, H16mr, A8, and A9 VMs can connect to a high throughput back-end RDMA netwo
 
 ### Do-it-yourself
 
-Building an HPC system from scratch on Azure offers a significant amount of flexibility, but is often very maintenance intensive.  
+Building an HPC system from scratch on Azure offers a significant amount of flexibility, but it is often very maintenance intensive.
 
 1. Set up your own cluster environment in Azure virtual machines or [virtual machine scale sets](/azure/virtual-machine-scale-sets/overview).
 2. Use Azure Resource Manager templates to deploy leading [workload managers](#workload-managers), infrastructure, and [applications](#hpc-applications).
 3. Choose HPC and GPU [VM sizes](#compute) that include specialized hardware and network connections for MPI or GPU workloads.
-4. Add [high performance storage](#storage) for I/O-intensive workloads.
+4. Add [high-performance storage](#storage) for I/O-intensive workloads.
 
 ### Hybrid and cloud Bursting
 
-If you have an existing on-premises HPC system that you'd like to connect to Azure, there are a number of resources to help get you started.
+If you have an existing on-premises HPC system that you'd like to connect to Azure, there are several resources to help get you started.
 
 First, review the [Options for connecting an on-premises network to Azure](../reference-architectures/hybrid-networking/index.yml) article in the documentation.  From there, you may want information on these connectivity options:
 
@@ -245,14 +242,14 @@ Once network connectivity is securely established, you can start using cloud com
 
 ### Marketplace solutions
 
-There are a number of workload managers offered in the [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace).
+There are many workload managers offered in the [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace).
 
 - [RogueWave CentOS-based HPC](https://azuremarketplace.microsoft.com/marketplace/apps/openlogic.centos-hpc)
-- [SUSE Linux Enterprise Server for HPC](https://azuremarketplace.microsoft.com/marketplace/apps/suse.sles-15-sp1-hpc)
-- [TIBCO Grid Server Engine](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/tibco-software.tibco_datasynapse_gridserver)
+- [SUSE Linux Enterprise Server for HPC](https://azuremarketplace.microsoft.com/marketplace/apps/suse.sles-15-sp2)
+- [TIBCO Datasynapse GridServer](https://azuremarketplace.microsoft.com/marketplace/apps/tibco-software.tibco_datasynapse_gridserver)
 - [Azure Data Science VM for Windows and Linux](/azure/machine-learning/data-science-virtual-machine/overview)
 - [D3View](https://azuremarketplace.microsoft.com/marketplace/apps/xfinityinc.d3view-v5?tab=Overview)
-- [UberCloud](https://azure.microsoft.com/search/marketplace/?q=ubercloud)
+- [UberCloud](https://azuremarketplace.microsoft.com/marketplace/apps/ubercloud.ansys_182_test)
 
 ### Azure Batch
 
@@ -277,13 +274,13 @@ CycleCloud allows you to:
 
 The following are examples of cluster and workload managers that can run in Azure infrastructure. Create stand-alone clusters in Azure VMs or burst to Azure VMs from an on-premises cluster.
 
-- [Alces Flight Compute](https://azuremarketplace.microsoft.com/marketplace/apps?search=Alces%20Flight%20Compute)
+- Alces Flight Compute
 - [TIBCO DataSynapse GridServer](https://azure.microsoft.com/blog/tibco-datasynapse-comes-to-the-azure-marketplace)
 - [Bright Cluster Manager](http://www.brightcomputing.com/technology-partners/microsoft)
 - [IBM Spectrum Symphony and Symphony LSF](https://azure.microsoft.com/blog/ibm-and-microsoft-azure-support-spectrum-symphony-and-spectrum-lsf)
 - [Altair PBS Works](https://www.altair.com/pbs-works)
 - [Rescale](https://www.rescale.com/azure)
-- [Univa Grid Engine](https://www.univa.com/products/univa-grid-engine.php)
+- [Univa Grid Engine](https://www.altair.com/grid-engine)
 - [Microsoft HPC Pack](/powershell/high-performance-computing/overview?view=hpc19-ps&preserve-view=true)
   - [HPC Pack for Windows](/azure/virtual-machines/windows/hpcpack-cluster-options)
   - [HPC Pack for Linux](/azure/virtual-machines/linux/hpcpack-cluster-options)
@@ -301,7 +298,7 @@ Managing your HPC cost on Azure can be done through a few different ways.  Ensur
 
 ## Security
 
-For an overview of security best practices on Azure, review the [Azure Security Documentation](/azure/security/azure-security).  
+For an overview of security best practices on Azure, review the [Azure Security Documentation](/azure/security/azure-security).
 
 In addition to the network configurations available in the [Cloud Bursting](#hybrid-and-cloud-bursting) section, you may want to implement a hub/spoke configuration to isolate your compute resources:
 
@@ -357,7 +354,6 @@ Run custom or commercial HPC applications in Azure. Several examples in this sec
 - [ANSYS CFD](https://azure.microsoft.com/blog/ansys-cfd-and-microsoft-azure-perform-the-best-hpc-scalability-in-the-cloud)
 - [MATLAB Distributed Computing Server](/azure/virtual-machines/windows/matlab-mdcs-cluster)
 - [StarCCM+](/archive/blogs/azurecat/run-star-ccm-in-an-azure-hpc-cluster)
-- [OpenFOAM](https://simulation.azure.com/casestudies/Team-182-ABB-UC-Final.pdf)
 
 ### Graphics and rendering
 
@@ -368,11 +364,16 @@ Run custom or commercial HPC applications in Azure. Several examples in this sec
 - [Microsoft Cognitive Toolkit](/cognitive-toolkit/cntk-on-azure)
 - [Batch Shipyard recipes for deep learning](https://github.com/Azure/batch-shipyard/tree/master/recipes#deeplearning)
 
-### MPI Providers
+### MPI providers
 
 - [Microsoft MPI](/message-passing-interface/microsoft-mpi)
 
 ## Remote visualization
+
+Run GPU-powered virtual machines in Azure in the same region as the HPC output for the lowest latency, access, and to visualize remotely through Azure Virtual Desktop, Citrix, or VMware Horizon.
+
+- [GPU-optimized virtual machine sizes](/azure/virtual-machines/sizes-gpu)
+- [Configure GPU acceleration for Azure Virtual Desktop](/azure/virtual-desktop/configure-vm-gpu)
 
 <ul class="columns is-multiline has-margin-left-none has-margin-bottom-none has-padding-top-medium">
     <li class="column is-one-third has-padding-top-small-mobile has-padding-bottom-small">
@@ -387,7 +388,25 @@ Run custom or commercial HPC applications in Azure. Several examples in this sec
                         <h3 class="is-size-4 has-margin-top-none has-margin-bottom-none has-text-primary">Linux virtual desktops with Citrix</h3>
                     </div>
                     <div class="is-size-7 has-margin-top-small has-line-height-reset">
-                        <p>Build a VDI environment for Linux Desktops using Citrix on Azure.</p>
+                        <p>Build a VDI environment for Linux desktops using Citrix on Azure.</p>
+                    </div>
+                </div>
+            </article>
+        </a>
+    </li>
+    <li class="column is-one-third has-padding-top-small-mobile has-padding-bottom-small">
+        <a class="is-undecorated is-full-height is-block"
+            href="/azure/architecture/example-scenario/wvd/windows-virtual-desktop">
+            <article class="card has-outline-hover is-relative is-fullheight">
+                    <figure class="image has-margin-right-none has-margin-left-none has-margin-top-none has-margin-bottom-none">
+                        <img role="presentation" alt="Diagram of an architecture for Azure Virtual Desktops on Azure." src="../example-scenario/wvd/images/windows-virtual-desktop.png">
+                    </figure>
+                <div class="card-content has-text-overflow-ellipsis">
+                    <div class="has-padding-bottom-none">
+                        <h3 class="is-size-4 has-margin-top-none has-margin-bottom-none has-text-primary">Windows desktops using Azure Virtual Desktop on Azure</h3>
+                    </div>
+                    <div class="is-size-7 has-margin-top-small has-line-height-reset">
+                        <p>Build a VDI environment for Windows desktops using Azure Virtual Desktop on Azure.</p>
                     </div>
                 </div>
             </article>
@@ -395,16 +414,16 @@ Run custom or commercial HPC applications in Azure. Several examples in this sec
     </li>
 </ul>
 
-## Performance Benchmarks
+## Performance benchmarks
 
 - [Compute benchmarks](/azure/virtual-machines/windows/compute-benchmark-scores)
 
 ## Customer stories
 
-There are a number of customers who have seen great success by using Azure for their HPC workloads.  You can find a few of these customer case studies below:
+There are many customers who have seen great success by using Azure for their HPC workloads.  You can find a few of these customer case studies below:
 
 - [AXA Global P&C](https://customers.microsoft.com/story/axa-global-p-and-c)
-- [Axioma](https://customers.microsoft.com/story/axioma-delivers-fintechs-first-born-in-the-cloud-multi-asset-class-enterprise-risk-solution)
+- [Axioma](https://customers.microsoft.com/story/772585-axioma-banking-and-capital-markets-azure-united-states)
 - [d3View](https://customers.microsoft.com/story/big-data-solution-provider-adopts-new-cloud-gains-thou)
 - [EFS](https://customers.microsoft.com/story/efs-professionalservices-azure)
 - [Hymans Robertson](https://customers.microsoft.com/story/hymans-robertson)
@@ -424,7 +443,7 @@ There are a number of customers who have seen great success by using Azure for t
 
 For the latest announcements, see:
 
-- [Microsoft HPC and Batch team blog](/archive/blogs/windowshpc/)
+- [Microsoft HPC and Batch team blog](/archive/blogs/windowshpc)
 - Visit the [Azure blog](https://azure.microsoft.com/blog/tag/hpc).
 
 ### Microsoft Batch Examples

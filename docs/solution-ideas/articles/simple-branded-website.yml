@@ -2,14 +2,24 @@
 metadata:
   title: Simple branded website
   titleSuffix: Azure Solution Ideas
-  author: doodlemania2
-  ms.date: 12/16/2019
   description: Quickly build and launch digital campaigns that automatically scale. Manage website messaging in real time from a browser with no coding required.
-  ms.custom: 'acom-architecture, web-app, web applications, easy deploy, content delivery, interactive-diagram, ''https://azure.microsoft.com/solutions/architecture/simple-branded-website/'''
+  author: EdPrice-MSFT
+  ms.author: pnp
+  ms.date: 12/16/2019
+  ms.topic: conceptual
   ms.service: architecture-center
+  ms.subservice: solution-idea
   ms.category:
     - web
-  ms.subservice: solution-idea
+  ms.custom:
+    - acom-architecture
+    - web-app
+    - web applications
+    - easy deploy
+    - content delivery
+    - interactive-diagram
+    - "https://azure.microsoft.com/solutions/architecture/simple-branded-website/"
+    - internal-intro
   social_image_url: /azure/architecture/solution-ideas/articles/media/simple-branded-website.png
 name: Simple branded website
 azureCategories:

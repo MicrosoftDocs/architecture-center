@@ -1,13 +1,10 @@
-
-
-
 This example scenario is applicable to businesses that want to modernize application development by using containers and DevOps workflows. In this scenario, a Node.js web app is built and deployed by Jenkins into an Azure Container Registry and Azure Kubernetes Service. For a globally distributed database tier, Azure Cosmos DB is used. To monitor and troubleshoot application performance, Azure Monitor integrates with a Grafana instance and dashboard.
 
 Example application scenarios include providing an automated development environment, validating new code commits, and pushing new deployments into staging or production environments. Traditionally, businesses had to manually build and compile applications and updates, and maintain a large, monolithic code base. With a modern approach to application development that uses continuous integration (CI) and continuous deployment (CD), you can more quickly build, test, and deploy services. This modern approach lets you release applications and updates to your customers faster, and respond to changing business demands in a more agile manner.
 
 By using Azure services such as Azure Kubernetes Service, Container Registry, and Cosmos DB, companies can use the latest in application development techniques and tools to simplify the process of implementing high availability.
 
-## Relevant use cases
+## Potential use cases
 
 Other relevant use cases include:
 
@@ -18,6 +15,8 @@ Other relevant use cases include:
 ## Architecture
 
 ![Architecture overview of the Azure components involved in a DevOps scenario using Jenkins, Azure Container Registry, and Azure Kubernetes Service][architecture]
+
+### Dataflow
 
 This scenario covers a DevOps pipeline for a Node.js web application and database back end. The data flows through the scenario as follows:
 
@@ -74,9 +73,9 @@ For general guidance on designing secure solutions, see the [Azure Security Docu
 
 This scenario uses Azure Kubernetes Service for your application. Built into Kubernetes are resiliency components that monitor and restart the containers (pods) if there is an issue. Combined with running multiple Kubernetes nodes, your application can tolerate a pod or node being unavailable.
 
-For general guidance on designing resilient solutions, see [Designing reliable Azure applications](https://docs.microsoft.com/azure/architecture/framework/resiliency/app-design).
+For general guidance on designing resilient solutions, see [Designing reliable Azure applications](/azure/architecture/framework/resiliency/app-design).
 
-## Deploy the scenario
+## Deploy this scenario
 
 ### Prerequisites
 
@@ -87,7 +86,7 @@ For general guidance on designing resilient solutions, see [Designing reliable A
 - You need an Azure Active Directory (AD) service principal for the authentication of service and resources. If needed, you can create a service principal with [az ad sp create-for-rbac][createsp]
 
     ```azurecli-interactive
-    az ad sp create-for-rbac --name myDevOpsScenario
+    az ad sp create-for-rbac --name myDevOpsScenario --role Contributor
     ```
 
     Make a note of the *appId* and *password* in the output from this command. You provide these values to the template when you deploy the scenario.
@@ -128,9 +127,32 @@ We have provided three sample cost profiles based on the number of container ima
 - [Medium][medium-pricing]: this pricing example correlates to 100,000 container builds per month.
 - [Large][large-pricing]: this pricing example correlates to 1,000,000 container builds per month.
 
-## Related resources
+## Next steps
 
 This scenario used Azure Container Registry and Azure Kubernetes Service to store and run a container-based application. Azure Container Instances can also be used to run container-based applications, without having to provision any orchestration components. For more information, see [Azure Container Instances overview][docs-aci].
+
+Product documentation:
+
+- [Azure Kubernetes Service](/azure/aks/intro-kubernetes)
+- [Azure Monitor overview](/azure/azure-monitor/overview)
+- [Linux virtual machines in Azure](/azure/virtual-machines/linux/overview)
+- [Private Docker container registries in Azure](/azure/container-registry/container-registry-intro)
+- [Welcome to Azure Cosmos DB](/azure/cosmos-db/introduction)
+
+Microsoft Learn modules:
+
+- [Build a containerized web application with Docker](/learn/modules/intro-to-containers)
+- [Create an Azure Cosmos DB database built to scale](/learn/modules/create-cosmos-db-for-scale)
+- [Create a Linux virtual machine in Azure](/learn/modules/create-linux-virtual-machine-in-azure)
+- [Deploy a containerized application on Azure Kubernetes Service](/learn/modules/aks-deploy-container-app)
+- [Implement Azure Kubernetes Service (AKS)](/learn/modules/implement-azure-kubernetes-service)
+- [Monitor the usage, performance, and availability of resources with Azure Monitor](/learn/paths/monitor-usage-performance-availability-resources-azure-monitor)
+
+## Related resources
+
+- [Baseline architecture for an Azure Kubernetes Service (AKS) cluster](../../reference-architectures/containers/aks/secure-baseline-aks.yml)
+- [AKS baseline for multiregion clusters](../../reference-architectures/containers/aks-multi-region/aks-multi-cluster.yml)
+- [Secure DevOps for AKS](../../solution-ideas/articles/secure-devops-for-kubernetes.yml)
 
 <!-- links -->
 [architecture]: ./media/architecture-devops-with-aks.png
@@ -144,12 +166,12 @@ This scenario used Azure Container Registry and Azure Kubernetes Service to stor
 [grafana]: https://grafana.com
 [jenkins]: https://jenkins.io
 [security]: /azure/security
-[scalability]: ../../framework/scalability/performance-efficiency.md
+[scalability]: /azure/architecture/framework/scalability/performance-efficiency
 [sshkeydocs]: /azure/virtual-machines/linux/mac-create-ssh-keys
 [azure-pipelines]: /azure/devops/pipelines
 [kubernetes]: https://kubernetes.io
 [service-fabric]: /azure/service-fabric
-[get-aks-versions]: /cli/azure/aks?view=azure-cli-latest#az-aks-get-versions
+[get-aks-versions]: /cli/azure/aks#az-aks-get-versions
 [aks-default-version]: /azure/aks/supported-kubernetes-versions
 
 [small-pricing]: https://azure.com/e/841f0a75b1ea4802ba1ac8f7918a71e7

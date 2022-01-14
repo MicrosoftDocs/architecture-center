@@ -3,17 +3,17 @@ metadata:
   title: Enterprise business intelligence
   titleSuffix: Azure Reference Architectures
   description: Learn how to implement an ELT pipeline that moves data from an on-premises SQL Server database into Azure Synapse and transforms the data for analysis.
-  author: doodlemania2
+  author: EdPrice-MSFT
+  ms.author: pnp
   ms.date: 11/20/2019
   ms.topic: conceptual
   ms.service: architecture-center
+  ms.subservice: reference-architecture
   ms.category:
     - integration
     - analytics
     - databases
-  ms.subservice: reference-architecture
   ms.custom:
-    - seodec18
     - reference-architecture
 name: Enterprise business intelligence
 azureCategories:

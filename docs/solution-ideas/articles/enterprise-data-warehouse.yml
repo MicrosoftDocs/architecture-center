@@ -1,0 +1,35 @@
+### YamlMime:Architecture
+metadata:
+  title: Enterprise data warehouse
+  titleSuffix: Azure Solution Ideas
+  description: Bring all of your data together, via Azure Data Lake (ADLS) Gen-2,  with an Azure Synapse data warehouse that scales easily. Orchestrate and ingest data via Azure Data Factory (ADF) pipelines, optionally enhanced with Azure Databricks, for advanced scalable curation. Build operational reports and analytical dashboards to derive insights from the data.
+  author: EdPrice-MSFT
+  ms.author: pnp
+  ms.date: 05/03/2021
+  ms.topic: conceptual
+  ms.service: architecture-center
+  ms.subservice: solution-idea
+  ms.category:
+    - databases
+  ms.custom:
+    - acom-architecture
+    - Modern data warehouse
+    - modern data warehouse architecture
+    - Cloud data warehouse
+    - Big Data warehouse
+    - interactive-diagram
+    - pricing-calculator
+    - "https://azure.microsoft.com/solutions/architecture/modern-data-warehouse/"
+    - internal-intro
+  social_image_url: /azure/architecture/solution-ideas/articles/media/enterprise-data-warehouse.png
+name: Enterprise data warehouse
+azureCategories:
+  - databases
+summary: Bring all of your data together, via Azure Data Lake (ADLS) Gen-2,  with an Azure Synapse data warehouse that scales easily. Orchestrate and ingest data via Azure Data Factory (ADF) pipelines, optionally enhanced with Azure Databricks, for advanced scalable curation. Build operational reports and analytical dashboards to derive insights from the data.
+products:
+  - azure-blob-storage
+  - azure-data-lake
+  - azure-synapse-analytics
+thumbnailUrl: /azure/architecture/browse/thumbs/enterprise-data-warehouse.png
+content: |
+   [!include[](enterprise-data-warehouse-content.md)]

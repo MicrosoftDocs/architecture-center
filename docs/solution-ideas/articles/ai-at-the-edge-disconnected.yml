@@ -1,29 +1,40 @@
 ### YamlMime:Architecture
 metadata:
-  title: AI at the Edge with Azure Stack Hub - disconnected
+  title: AI at the edge with Azure Stack Hub - disconnected
   titleSuffix: Azure Solution Ideas
-  author: doodlemania2
+  description: Harness the power of edge AI when disconnected from the internet and move your AI models to the edge with a solution architecture that includes Azure Stack Hub.
+  author: EdPrice-MSFT
+  ms.author: pnp
   ms.date: 09/01/2020
-  description: This workflow will help you harness the power of edge AI when disconnected from the internet and move your AI models to the edge with a solution architecture that includes Azure Stack.
-  ms.custom: 'acom-architecture, ai at the edge, azure stack edge, edge ai, offline machine learning, interactive-diagram, ''https://azure.microsoft.com/solutions/architecture/ai-at-the-edge-disconnected/'''
+  ms.topic: conceptual
   ms.service: architecture-center
+  ms.subservice: solution-idea
   ms.category:
     - ai-machine-learning
     - hybrid
-  ms.subservice: solution-idea
+  ms.custom:
+    - acom-architecture
+    - ai at the edge
+    - azure stack edge
+    - edge ai
+    - offline machine learning
+    - interactive-diagram
+    - e2e-hybrid
+    - "https://azure.microsoft.com/solutions/architecture/ai-at-the-edge-disconnected/"
+    - ai-machine-learning
+    - aml-project-improvement
   social_image_url: /azure/architecture/solution-ideas/articles/media/ai-at-the-edge-disconnected.png
-name: AI at the Edge with Azure Stack Hub - disconnected
+name: AI at the edge with Azure Stack Hub - disconnected
 azureCategories:
   - ai-machine-learning
   - hybrid
-summary: This workflow will help you harness the power of edge AI when disconnected from the internet and move your AI models to the edge with a solution architecture that includes Azure Stack.
+summary: Harness the power of edge AI when disconnected from the internet and move your AI models to the edge with a solution architecture that includes Azure Stack Hub.
 products:
+  - azure-container-registry
   - azure-hdinsight
   - azure-kubernetes-service
   - azure-machine-learning
   - azure-stack-hub
-  - azure-storage
-  - azure-virtual-machines
 thumbnailUrl: /azure/architecture/browse/thumbs/ai-at-the-edge-disconnected.png
 content: |
-   [!include[](ai-at-the-edge-disconnected-content.md)]
+  [!include[](ai-at-the-edge-disconnected-content.md)]

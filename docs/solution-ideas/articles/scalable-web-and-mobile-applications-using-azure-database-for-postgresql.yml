@@ -1,17 +1,27 @@
 ### YamlMime:Architecture
 metadata:
-  title: Scalable web and mobile applications using Azure Database for PostgreSQL
+  title: Scalable apps using Azure DB for PostgreSQL
   titleSuffix: Azure Solution Ideas
-  author: doodlemania2
-  ms.date: 12/16/2019
   description: Use Azure Database for PostgreSQL to rapidly build engaging, performant, and scalable cross-platform and native apps for iOS, Android, Windows, or Mac.
-  ms.custom: 'acom-architecture, postgresql, web-app, scalability, use cases, azure, solutions, ''https://azure.microsoft.com/solutions/architecture/scalable-web-and-mobile-applications-using-azure-database-for-postgresql/'''
+  author: mootpointer
+  ms.author: anharvey
+  ms.date: 11/24/2021
+  ms.topic: conceptual
   ms.service: architecture-center
+  ms.subservice: solution-idea
   ms.category:
     - mobile
     - web
     - databases
-  ms.subservice: solution-idea
+  ms.custom:
+    - acom-architecture
+    - postgresql
+    - web-app
+    - scalability
+    - use cases
+    - azure
+    - solutions
+    - "https://azure.microsoft.com/solutions/architecture/scalable-web-and-mobile-applications-using-azure-database-for-postgresql/"
   social_image_url: /azure/architecture/solution-ideas/articles/media/scalable-web-and-mobile-applications-using-azure-database-for-postgresql.png
 name: Scalable web and mobile applications using Azure Database for PostgreSQL
 azureCategories:
@@ -22,7 +32,6 @@ summary: Use Azure Database for PostgreSQL to rapidly build engaging, performant
 products:
   - azure-app-service
   - azure-database-postgresql
-  - azure-traffic-manager
 thumbnailUrl: /azure/architecture/browse/thumbs/scalable-web-and-mobile-applications-using-azure-database-for-postgresql.png
 content: |
    [!include[](scalable-web-and-mobile-applications-using-azure-database-for-postgresql-content.md)]

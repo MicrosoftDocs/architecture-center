@@ -1,29 +1,29 @@
 ### YamlMime:Architecture
 metadata:
-  title: Project 15 Open Platform
+  title: Project 15 Open Platform IoT sustainability
   titleSuffix: Azure Solution Ideas
-  author: AltaOhms
   description: Use Internet of Things technologies with the Project 15 Open Platform to accelerate innovation in species tracking, ecosystem monitoring, and other areas.
+  author: AltaOhms
+  ms.author: pacorte
   ms.date: 11/09/2020
-  ms.custom: 'iot, fcp'
+  ms.topic: conceptual
   ms.service: architecture-center
   ms.subservice: solution-idea
   ms.category:
     - iot
-name: Project 15 Open Platform
+  ms.custom:
+    - iot
+    - fcp
+name: Project 15 Open Platform IoT sustainability
 azureCategories:
   - iot
 summary: Use Internet of Things technologies with the Project 15 Open Platform to accelerate innovation in species tracking, ecosystem monitoring, and other areas.
 products:
-  - azure-app-service
   - azure-event-grid
   - azure-event-hubs
   - azure-functions
   - azure-iot-hub
-  - azure-signalr-service
   - azure-stream-analytics
-  - azure-time-series-insights
-  - power-bi
 thumbnailUrl: /azure/architecture/browse/thumbs/project-15-ref-architecture.png
 content: |
    [!include[](project-15-iot-sustainability-content.md)]

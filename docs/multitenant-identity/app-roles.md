@@ -1,18 +1,21 @@
 ---
 title: Application roles
 description: Learn how to perform authorization by using Azure AD application roles, which are used to assign permissions to users.
-author: doodlemania2
-ms.date: 07/21/2017
+author: EdPrice-MSFT
+ms.date: 10/06/2021
 ms.topic: conceptual
 ms.service: architecture-center
-ms.category:
-  - identity
 ms.subservice: azure-guide
+categories:
+  - identity
+  - web
+ms.custom:
+  - guide
 pnp.series.title: Manage Identity in Multitenant Applications
 pnp.series.prev: signup
 pnp.series.next: authorize
-ms.custom:
-  - guide
+products:
+  - azure-active-directory
 ---
 
 # Application roles
@@ -49,7 +52,7 @@ Advantages of this approach:
 
 Drawbacks:
 
-* Customers without Azure AD Premium cannot assign app roles to security groups. For these customers, all app role assignments to users must be done by individually, by an administrator or an owner of the app.
+* Customers without Azure AD Premium cannot assign app roles to security groups. For these customers, all app role assignments to users must be done individually, by an administrator or an owner of the app.
 * If you have a backend web API which is separate from the web app, the app role assignments for the web app don't apply to the web API. For more discussion of this point, see [Securing a backend web API].
 
 ### Implementation
@@ -143,7 +146,7 @@ When a new customer signs up, the application instructs the customer to create s
 When a user signs in:
 
 1. The application receives the user's groups as claims. The value of each claim is the object ID of a group.
-2. Azure AD limits the number of groups sent in the token. If the number of groups exceeds this limit, Azure AD sends a special "overage" claim. If that claim is present, the application must query the Azure AD Graph API to get all of the groups to which that user belongs. For details, see [Authorization in Cloud Applications using AD Groups], under the section titled "Groups claim overage".
+2. Azure AD limits the number of groups sent in the token. If the number of groups exceeds this limit, Azure AD sends a special "overage" claim. If that claim is present, the application must query the Azure AD Graph API to get all of the groups to which that user belongs. For details, see [Groups overage claim](/azure/active-directory/develop/id-tokens#groups-overage-claim).
 3. The application looks up the object IDs in its own database, to find the corresponding application roles to assign to the user.
 4. The application adds a custom claim value to the user principal that expresses the application role. For example: `survey_role` = "SurveyAdmin".
 

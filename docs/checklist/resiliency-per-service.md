@@ -1,12 +1,17 @@
 ---
-title: Resiliency checklist for Azure services
+title: Resiliency checklist for services
 titleSuffix: Azure Design Review Framework
 description: Resiliency is the ability to recover from failures and continue to function. Use this checklist to review the resiliency considerations for Azure services.
-author: PeterTaylor9999
-ms.date: 11/26/2018
+author: EdPrice-MSFT
+ms.author: pnp
+ms.date: 01/04/2022
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: well-architected
+products:
+  - azure-app-service
+categories:
+  - management-and-governance
 ms.custom:
   - resiliency
   - checklist
@@ -16,7 +21,7 @@ ms.custom:
 
 # Resiliency checklist for specific Azure services
 
-Resiliency is the ability of a system to recover from failures and continue to function. Every technology has its own particular failure modes, which you must consider when designing and implementing your application. Use this checklist to review the resiliency considerations for specific Azure services. For more information about designing resilient applications, see [Design reliable Azure applications](https://docs.microsoft.com/azure/architecture/framework/resiliency/app-design).
+Resiliency is the ability of a system to recover from failures and continue to function. Every technology has its own particular failure modes, which you must consider when designing and implementing your application. Use this checklist to review the resiliency considerations for specific Azure services. For more information about designing resilient applications, see [Design reliable Azure applications](/azure/architecture/framework/resiliency/app-design).
 
 ## App Service
 
@@ -43,6 +48,14 @@ Resiliency is the ability of a system to recover from failures and continue to f
 **Create a separate storage account for logs.** Don't use the same storage account for logs and application data. This helps to prevent logging from reducing application performance.
 
 **Monitor performance.** Use a performance monitoring service such as [New Relic](https://newrelic.com) or [Application Insights](/azure/application-insights/app-insights-overview) to monitor application performance and behavior under load.  Performance monitoring gives you real-time insight into the application. It enables you to diagnose issues and perform root-cause analysis of failures.
+
+## Azure Load Balancer
+
+**Select Standard SKU** Standard Load Balancer provides a dimension of reliability that Basic does not - that of availability zones and zone resiliency. This means when a zone goes down, your zone-redundant Standard Load Balancer will not be impacted. This ensures your deployments can withstand zone failures within a region. In addition, Standard Load Balancer supports global load balancing ensuring your application is not impacted by region failures either.
+
+**Provision at least two instances** Deploy Azure LB with at least two instances in the backend. A single instance could result in a single point of failure. In order to build for scale, you might want to pair LB with Virtual Machine Scale Sets.
+
+**Use outbound rules** Outbound rules ensure that you are not faced with connection failures as a result of SNAT port exhaustion. [Learn more about outbound connectivity.](/azure/load-balancer/outbound-rules) While outbound rules will help improve the solution for small to mid size deployments, for production workloads, we recommend coupling Standard Load Balancer or any subnet deployment with [VNet NAT](/azure/virtual-network/nat-overview).
 
 ## Application Gateway
 

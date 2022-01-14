@@ -6,10 +6,12 @@ ms.author: dkshir
 ms.date: 10/20/2019
 ms.topic: conceptual
 ms.service: architecture-center
+ms.subservice: azure-guide
 ms.category:
   - devops
   - developer-tools
-ms.subservice: azure-guide
+products:
+  - azure-pipelines
 ms.custom:
   - guide
 ---

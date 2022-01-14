@@ -1,15 +1,15 @@
 ### YamlMime:Architecture
 metadata:
-  title: A computer-aided engineering service
+  title: Computer-aided engineering
   titleSuffix: Azure Example Scenarios
   description: This example scenario demonstrates delivery of a software-as-a-service (SaaS) platform built on the high-performance computing (HPC) capabilities of Azure.
   author: alexbuckgit
   ms.date: 08/22/2018
-  ms.category:
-    - compute
   ms.topic: conceptual
   ms.service: architecture-center
   ms.subservice: example-scenario
+  ms.category:
+    - compute
   ms.custom:
     - HPC
     - example-scenario

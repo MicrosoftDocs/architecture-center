@@ -1,6 +1,5 @@
 
 
-
 This article explains how to build a [telehealth system](https://en.wikipedia.org/wiki/Telehealth) using Azure cloud services. The details are based on a real customer implementation that connects a professional healthcare organization to its remote patients. While there are other ways to build such a system, the solution described has been successful in enabling communication between patients and their remote care provider, as well as remotely tuning the medical devices that patients carry.
 
 There are about 700 million people who suffer from hearing disabilities. However, only 10% of them use hearing aid devices to improve their lives. In some geographies or situations, it is impossible for a patient to get direct assistance when needed. For example, consider patients who:
@@ -56,7 +55,7 @@ The solution was set up in this way to:
 - [Azure Application Insights](https://azure.microsoft.com/services/monitor/) centralizes signals/events from the system (logs, telemetry from logs from microservices, frontend, and devices) for troubleshooting purposes.
 - [Azure Content Delivery Network (CDN)](https://azure.microsoft.com/services/cdn/) is used for maintenance and updates (delivery of java scripts file) to the web portal and to deliver media files (videos, images) through the portal. All this content is stored in the Azure storage accounts in the background.
 - [Azure Traffic Manager](https://azure.microsoft.com/services/traffic-manager/) load balances between geo locations.
-- [Azure SignalR](/azure/azure-signalr/signalr-overview) allows server code to send asynchronous notifications to client-side web applications. End-user devices can be configured in either ## Standard##  or ## Advanced##  mode.
+- [Azure SignalR](/azure/azure-signalr/signalr-overview) allows server code to send asynchronous notifications to client-side web applications. End-user devices can be configured in either _Standard_  or _Advanced_  mode.
 
 ### Standard mode
 

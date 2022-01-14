@@ -1,22 +1,32 @@
 ### YamlMime:Architecture
 metadata:
-  title: Customer Churn Prediction
+  title: Customer churn prediction using real-time analytics
   titleSuffix: Azure Solution Ideas
-  author: doodlemania2
+  description: Predict customer churn and find patterns in existing data associated with the predicted churn rate using Azure AI Platform.
+  author: EdPrice-MSFT
+  ms.author: pnp
   ms.date: 12/16/2019
-  description: This architecture uses Cortana Intelligence Suite components to predict churn probability and helps find patterns in existing data associated with the predicted churn rate.
-  ms.custom: 'acom-architecture, artificial intelligence, solution architectures, Azure, ai gallery, ''https://azure.microsoft.com/solutions/architecture/customer-churn-prediction/'''
+  ms.topic: conceptual
   ms.service: architecture-center
+  ms.subservice: solution-idea
   ms.category:
     - ai-machine-learning
-  ms.subservice: solution-idea
+  ms.custom:
+    - acom-architecture
+    - artificial intelligence
+    - solution architectures
+    - Azure
+    - ai gallery
+    - "https://azure.microsoft.com/solutions/architecture/customer-churn-prediction/"
+    - ai-machine-learning
+    - aml-project-improvement
   social_image_url: /azure/architecture/solution-ideas/articles/media/customer-churn-prediction.png
-name: Customer Churn Prediction
+name: Customer churn prediction using real-time analytics
 azureCategories:
   - ai-machine-learning
-summary: This architecture uses Cortana Intelligence Suite components to predict churn probability and helps find patterns in existing data associated with the predicted churn rate.
+summary: Predict customer churn and find patterns in existing data associated with the predicted churn rate using Azure AI Platform.
 products:
   - azure-machine-learning
 thumbnailUrl: /azure/architecture/browse/thumbs/customer-churn-prediction.png
 content: |
-   [!include[](customer-churn-prediction-content.md)]
+  [!include[](customer-churn-prediction-content.md)]

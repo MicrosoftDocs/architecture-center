@@ -1,17 +1,20 @@
 ---
-title: Choosing a cognitive services technology
+title: Choose a cognitive services technology
 description: Learn about Microsoft cognitive services that you can use in artificial intelligence applications and data flows.
-author: zoinerTejada
+author: EdPrice-MSFT
+ms.author: pnp
 ms.date: 02/12/2018
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: azure-guide
+products:
+  - azure-custom-vision
 ms.custom:
   - AI
   - guide
 ---
 
-# Choosing a Microsoft cognitive services technology
+# Choose a Microsoft cognitive services technology
 
 Microsoft cognitive services are cloud-based APIs that you can use in artificial intelligence (AI) applications and data flows. They provide you with pretrained models that are ready to use in your application, requiring no data and no model training on your part. The cognitive services are developed by Microsoft's AI and Research team and leverage the latest deep learning algorithms. They are consumed over HTTP REST interfaces. In addition, SDKs are available for many common application development frameworks.
 
@@ -36,11 +39,7 @@ Considerations:
 
 - Although considerable customization is supported, the available services may not suit all predictive analytics requirements.
 
-<!-- markdownlint-disable MD026 -->
-
 ## What are your options when choosing amongst the cognitive services?
-
-<!-- markdownlint-disable MD026 -->
 
 In Azure, there are dozens of Cognitive Services available. The current listing of these is available in a directory categorized by the functional area they support:
 
@@ -50,7 +49,7 @@ In Azure, there are dozens of Cognitive Services available. The current listing 
 - [Search](https://azure.microsoft.com/services/cognitive-services/directory/search/)
 - [Language](https://azure.microsoft.com/services/cognitive-services/directory/lang/)
 
-## Key Selection Criteria
+## Key selection criteria
 
 To narrow the choices, start by answering these questions:
 

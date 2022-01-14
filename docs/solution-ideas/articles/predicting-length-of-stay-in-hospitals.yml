@@ -1,18 +1,27 @@
 ### YamlMime:Architecture
 metadata:
-  title: Predicting Length of Stay in Hospitals
+  title: Predict the length of stay in hospitals
   titleSuffix: Azure Solution Ideas
-  author: doodlemania2
-  ms.date: 12/16/2019
   description: Length of stay predictions for hospital admissions can enhance care quality and operational workload efficiency and reduce readmissions.
-  ms.custom: 'acom-architecture, artificial intelligence, solution architectures, Azure, ai gallery, ''https://azure.microsoft.com/solutions/architecture/predicting-length-of-stay-in-hospitals/'''
+  author: EdPrice-MSFT
+  ms.author: pnp
+  ms.date: 03/05/2021
+  ms.topic: conceptual
   ms.service: architecture-center
+  ms.subservice: solution-idea
   ms.category:
     - analytics
     - ai-machine-learning
-  ms.subservice: solution-idea
+  ms.custom:
+    - acom-architecture
+    - artificial intelligence
+    - solution architectures
+    - Azure
+    - ai gallery
+    - "https://azure.microsoft.com/solutions/architecture/predicting-length-of-stay-in-hospitals/"
+    - ai-machine-learning
   social_image_url: /azure/architecture/solution-ideas/articles/media/predicting-length-of-stay-in-hospitals.png
-name: Predicting Length of Stay in Hospitals
+name: Predict the length of stay in hospitals
 azureCategories:
   - analytics
   - ai-machine-learning
@@ -23,4 +32,4 @@ products:
   - sql-server
 thumbnailUrl: /azure/architecture/browse/thumbs/predicting-length-of-stay-in-hospitals.png
 content: |
-   [!include[](predicting-length-of-stay-in-hospitals-content.md)]
+  [!include[](predicting-length-of-stay-in-hospitals-content.md)]

@@ -1,8 +1,8 @@
 ---
 title: Event-driven architecture style
 titleSuffix: Azure Application Architecture Guide
-description: Describes benefits, challenges, and best practices for event-driven and IoT architectures on Azure.
-author: doodlemania2
+description: Explore the benefits, challenges, and best practices for event-driven and IoT architectures on Azure.
+author: EdPrice-MSFT
 ms.date: 08/30/2018
 ms.topic: conceptual
 ms.service: architecture-center
@@ -60,7 +60,7 @@ In the logical diagram above, each type of consumer is shown as a single box. In
 
 ### Additional considerations
 
-- The amount of data to include in an event can be a significant consideration that affects both performance and cost. Putting all the relevant information needed for processing in the event itself can simplify the processing code and save additional lookups. Putting the minimal amount of information in an event, like just a couple of identifiers, will reduce transport time and cost, but requires the processing code to look up any additional information it needs.
+- The amount of data to include in an event can be a significant consideration that affects both performance and cost. Putting all the relevant information needed for processing in the event itself can simplify the processing code and save additional lookups. Putting the minimal amount of information in an event, like just a couple of identifiers, will reduce transport time and cost, but requires the processing code to look up any additional information it needs. For more information on this, take a look at [this blog post](https://particular.net/blog/putting-your-events-on-a-diet).
 
  <!-- links -->
 

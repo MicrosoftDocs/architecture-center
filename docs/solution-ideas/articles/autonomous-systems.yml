@@ -2,11 +2,17 @@
 metadata:
   title: Machine teaching with the Microsoft Autonomous Systems platform
   titleSuffix: Azure Example Scenarios
-  author: jocontr
-  ms.date: 07/05/2020
   description: Learn how the Microsoft Autonomous Systems platform uses machine teaching, deep reinforcement learning, and simulations to build and deploy autonomous systems with Bonsai.
-  ms.custom: pcp
+  author: jocontr
+  ms.author: pnp
+  ms.date: 07/05/2020
+  ms.topic: conceptual
+  ms.service: architecture-center
+  ms.subservice: solution-idea
   ms.category:
+    - ai-machine-learning
+  ms.custom:
+    - pcp
     - ai-machine-learning
 name: Machine teaching with the Microsoft Autonomous Systems platform
 azureCategories:
@@ -18,4 +24,4 @@ products:
   - azure-storage
 thumbnailUrl: /azure/architecture/browse/thumbs/machine-teaching-1-2.png
 content: |
-   [!include[](autonomous-systems-content.md)]
+  [!include[](autonomous-systems-content.md)]

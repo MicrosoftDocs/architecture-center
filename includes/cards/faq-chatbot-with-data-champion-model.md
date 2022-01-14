@@ -17,7 +17,7 @@
             <li>12/16/2019</li>
             <li>1 min read</li>
         </ul>
-        <p class="card-content-description">The QnA Maker tool makes it super easy for the content owners to maintain their knowledge base of QnAs. Combined with Bot Service and LUIS, it's easy to setup an FAQ chatbot which responds from differnet knowledge bases depending on the intent of the query.</p>
+        <p class="card-content-description">The QnA Maker tool makes it super easy for the content owners to maintain their knowledge base of QnAs. Combined with Bot Service and LUIS, it's easy to set up an FAQ chatbot that responds from different knowledge bases depending on the intent of the query.</p>
         <div class="bottom-to-top-fade is-hidden-mobile"></div>
     </div>
 </article>

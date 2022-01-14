@@ -1,18 +1,22 @@
 ---
-title: Work with claim-based identities in multitenant applications
-description: Learn about claims in Azure AD. As issuer, Azure AD sends a set of claims about the user which can be trusted because the issuer can be trusted.
-author: doodlemania2
-ms.date: 07/21/2017
+title: Claim-based identities in multitenant apps
+description: Learn about claims in Azure AD. As issuer, Azure AD sends a set of claims about the user that can be trusted, because the issuer can be trusted.
+author: EdPrice-MSFT
+ms.author: pnp
+ms.date: 10/06/2021
 ms.topic: conceptual
 ms.service: architecture-center
-ms.category:
-  - identity
 ms.subservice: azure-guide
+categories:
+  - identity
+  - web
+products:
+  - azure-active-directory
+ms.custom:
+  - guide
 pnp.series.title: Manage Identity in Multitenant Applications
 pnp.series.prev: authenticate
 pnp.series.next: signup
-ms.custom:
-  - guide
 ---
 
 # Work with claims-based identities
@@ -21,7 +25,7 @@ ms.custom:
 
 ## Claims in Azure AD
 
-When a user signs in, Azure AD sends an ID token that contains a set of claims about the user. A claim is simply a piece of information, expressed as a key/value pair. For example, `email`=`bob@contoso.com`.  Claims have an issuer &mdash; in this case, Azure AD &mdash; which is the entity that authenticates the user and creates the claims. You trust the claims because you trust the issuer. (Conversely, if you don't trust the issuer, don't trust the claims!)
+When a user signs in, Azure AD sends an ID token that contains a set of claims about the user. A claim is simply a piece of information, expressed as a key/value pair. For example, `email`=`bob@contoso.com`.  Claims have an issuer (in this case, Azure AD), which is the entity that authenticates the user and creates the claims. You trust the claims because you trust the issuer. (Conversely, if you don't trust the issuer, don't trust the claims!)
 
 At a high level:
 
@@ -61,17 +65,9 @@ Any claims that you add during **AuthenticationValidated** are stored in the ses
 
 Here are some examples of claims transformation:
 
-* **Claims normalization**, or making claims consistent across users. This is particularly relevant if you are getting claims from multiple IDPs, which might use different claim types for similar information. For example, Azure AD sends a "upn" claim that contains the user's email. Other IDPs might send an "email" claim. The following code converts the "upn" claim into an "email" claim:
+* **Claims normalization**, or making claims consistent across users. This is particularly relevant if you are getting claims from multiple IDPs, which might use different claim types for similar information.
 
-  ```csharp
-  var email = principal.FindFirst(ClaimTypes.Upn)?.Value;
-  if (!string.IsNullOrWhiteSpace(email))
-  {
-      identity.AddClaim(new Claim(ClaimTypes.Email, email));
-  }
-  ```
-
-* Add **default claim values** for claims that aren't present &mdash; for example, assigning a user to a default role. In some cases this can simplify authorization logic.
+* Add **default claim values** for claims that aren't present (for example, assigning a user to a default role). In some cases this can simplify authorization logic.
 * Add **custom claim types** with application-specific information about the user. For example, you might store some information about the user in a database. You could add a custom claim with this information to the authentication ticket. The claim is stored in a cookie, so you only need to get it from the database once per login session. On the other hand, you also want to avoid creating excessively large cookies, so you need to consider the trade-off between cookie size versus database lookups.
 
 After the authentication flow is complete, the claims are available in `HttpContext.User`. At that point, you should treat them as a read-only collection&mdash;for example, using them to make authorization decisions.
@@ -80,13 +76,12 @@ After the authentication flow is complete, the claims are available in `HttpCont
 
 In OpenID Connect, the issuer claim ("iss") identifies the IDP that issued the ID token. Part of the OIDC authentication flow is to verify that the issuer claim matches the actual issuer. The OIDC middleware handles this for you.
 
-In Azure AD, the issuer value is unique per AD tenant (`https://sts.windows.net/<tenantID>`). Therefore, an application should do an additional check, to make sure the issuer represents a tenant that is allowed to sign in to the app.
+In Azure AD, the issuer value is unique per AD tenant (`https://sts.windows.net/<tenantID>`). Therefore, an application should do another check, to make sure the issuer represents a tenant that is allowed to sign in to the app.
 
 For a single-tenant application, you can just check that the issuer is your own tenant. In fact, the OIDC middleware does this automatically by default. In a multitenant app, you need to allow for multiple issuers, corresponding to the different tenants. Here is a general approach to use:
 
-* In the OIDC middleware options, set **ValidateIssuer** to false. This turns off the automatic check.
 * When a tenant signs up, store the tenant and the issuer in your user DB.
-* Whenever a user signs in, look up the issuer in the database. If the issuer isn't found, it means that tenant hasn't signed up. You can redirect them to a sign up page.
+* Whenever a user signs in, look up the issuer in the database. If the issuer isn't found, it means that tenant hasn't signed up. You can redirect them to a sign-up page.
 * You could also block certain tenants; for example, for customers that didn't pay their subscription.
 
 For a more detailed discussion, see [Sign-up and tenant onboarding in a multitenant application][signup].
@@ -104,7 +99,7 @@ Here are some basic patterns for checking claims.
    ```
 
    This code checks whether the user has a Role claim with the value "Admin". It correctly handles the case where the user has no Role claim or multiple Role claims.
-  
+
    The **ClaimTypes** class defines constants for commonly used claim types. However, you can use any string value for the claim type.
 * To get a single value for a claim type, when you expect there to be at most one value:
 

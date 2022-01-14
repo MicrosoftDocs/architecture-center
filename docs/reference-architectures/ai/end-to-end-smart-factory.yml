@@ -1,0 +1,31 @@
+### YamlMime:Architecture
+metadata:
+  title: End-to-end manufacturing using computer vision on the edge
+  description: In this example, cameras are attached to a smart device that runs a machine learning model.
+  author: EdPrice-MSFT
+  ms.author: tinglee
+  ms.date: 06/24/2021
+  ms.topic: conceptual
+  ms.service: architecture-center
+  ms.subservice: reference-architecture
+  ms.category:
+    - ai-machine-learning
+  ms.custom:
+    - reference-architecture
+    - ai-machine-learning
+    - fcp
+name: End-to-end manufacturing using computer vision on the edge
+azureCategories:
+  - ai-machine-learning
+  - developer-tools
+  - containers
+summary: In this example, cameras are attached to a smart device that runs a machine learning model.
+products:
+  - azure-iot-hub
+  - azure-machine-learning
+  - azure-container-registry
+  - azure-blob-storage
+  - azure-data-lake-gen2
+thumbnailUrl: /azure/architecture/browse/thumbs/end-to-end-smart-factory-01.png
+content: |
+  [!include[](end-to-end-smart-factory-content.md)]

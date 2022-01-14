@@ -1,19 +1,20 @@
 ---
-title: Design and Implementation patterns
+title: Design and implementation patterns
 titleSuffix: Cloud Design Patterns
 description: Use these design and implementation patterns to simplify administration, development, and reusability for your cloud application.
-keywords: design pattern
-author: dragon119
+author: EdPrice-MSFT
+ms.author: pnp
 ms.date: 06/23/2017
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: design-pattern
 ms.custom:
-  - seodec18
   - design-pattern
+keywords:
+  - design pattern
 ---
 
-# Design and Implementation patterns
+# Design and implementation patterns
 
 Good design encompasses factors such as consistency and coherence in component design and deployment, maintainability to simplify administration and development, and reusability to allow components and subsystems to be used in other applications and in other scenarios. Decisions made during the design and implementation phase have a huge impact on the quality and the total cost of ownership of cloud hosted applications and services.
 

@@ -1,16 +1,20 @@
 ---
-title: Extending on-premises data solutions to the cloud
+title: Extend on-premises data solutions to the cloud
 description: Learn about using hybrid cloud environments that span cloud and on-premises datacenters for migrating to the cloud or extending on-premises infrastructures.
-author: zoinerTejada
+author: EdPrice-MSFT
+ms.author: pnp
 ms.date: 02/12/2018
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: azure-guide
+products:
+  - azure-stack
 ms.custom:
   - guide
+  - e2e-hybrid
 ---
 
-# Extending on-premises data solutions to the cloud
+# Extend on-premises data solutions to the cloud
 
 When organizations move workloads and data to the cloud, their on-premises datacenters often continue to play an important role. The term *hybrid cloud* refers to a combination of public cloud and on-premises datacenters, to create an integrated IT environment that spans both. Some organizations use hybrid cloud as a path to migrate their entire datacenter to the cloud over time. Other organizations use cloud services to extend their existing on-premises infrastructure.
 

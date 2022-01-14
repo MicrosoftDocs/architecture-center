@@ -6,7 +6,7 @@
 <article class="card">
     <div class="card-header has-margin-bottom-none" aria-hidden="true">
         <figure class="image diagram has-height-175 has-overflow-hidden level">
-            <a href="/azure/architecture/solution-ideas/articles/auditing-and-risk-compliance"><img src="/azure/architecture/browse/thumbs/auditing-and-risk-compliance.png" class="diagram" alt="Thumbnail of Auditing, risk, and compliance management Architectural Diagram." data-linktype="relative-path"></a>
+            <a href="/azure/architecture/solution-ideas/articles/auditing-and-risk-compliance"><img src="/azure/architecture/browse/thumbs/knowledge-mining-auditing-and-risk-compliance.png" class="diagram" alt="Thumbnail of Auditing, risk, and compliance management Architectural Diagram." data-linktype="relative-path"></a>
         </figure>
     </div>
     <div class="card-content">
@@ -17,7 +17,7 @@
             <li>12/16/2019</li>
             <li>2 min read</li>
         </ul>
-        <p class="card-content-description">Developers could use knowledge mining to help attorneys quickly identify entities of importance from discovery documents and flag important ideas across documents</p>
+        <p class="card-content-description">Learn how to use knowledge mining to help attorneys quickly identify find information from discovery documents and flag important ideas across documents.</p>
         <div class="bottom-to-top-fade is-hidden-mobile"></div>
     </div>
 </article>

@@ -1,20 +1,24 @@
 ### YamlMime:Architecture
 metadata:
   title: Implement a secure hybrid network
-  description: Learn how to deploy a secure hybrid network that extends an on-premises network to Azure with a perimeter network between the on-premises network and an Azure virtual network.
-  author: doodlemania2
+  description: Learn how to deploy a secure hybrid network that extends an on-premises network to Azure by implementing a perimeter network called a DMZ.
+  author: EdPrice-MSFT
+  ms.author: pnp
   ms.date: 01/07/2020
   ms.topic: conceptual
   ms.service: architecture-center
+  ms.subservice: reference-architecture
   ms.category:
     - networking
     - security
     - hybrid
-  ms.subservice: reference-architecture
   ms.custom:
-    - seodec18
     - networking
     - reference-architecture
+    - e2e-hybrid
+    - internal-intro
+    - deployable
+    - 2021-refresh
 name: Implement a secure hybrid network
 azureCategories:
   - networking

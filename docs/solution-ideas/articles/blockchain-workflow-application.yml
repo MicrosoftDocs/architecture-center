@@ -1,32 +1,31 @@
 ### YamlMime:Architecture
 metadata:
-  title: Blockchain Workflow Application
+  title: Blockchain workflow application
   titleSuffix: Azure Solution Ideas
-  author: doodlemania2
-  ms.date: 12/16/2019
   description: Explore how blockchain is used to digitize workflows and supply chains across organizations with the Blockchain Workflow Application from Microsoft Azure.
-  ms.custom: 'acom-architecture, blockchain, Blockchain Workflow Application, Azure Blockchain, Azure Blockchain Service, interactive-diagram, ''https://azure.microsoft.com/solutions/architecture/blockchain-workflow-application/'''
+  author: EdPrice-MSFT
+  ms.author: pnp
+  ms.date: 12/16/2019
+  ms.topic: conceptual
   ms.service: architecture-center
+  ms.subservice: solution-idea
   ms.category:
     - blockchain
-  ms.subservice: solution-idea
+  ms.custom:
+    - acom-architecture
+    - blockchain
+    - Blockchain Workflow Application
+    - Azure Blockchain
+    - Azure Blockchain Service
+    - interactive-diagram
+    - "https://azure.microsoft.com/solutions/architecture/blockchain-workflow-application/"
   social_image_url: /azure/architecture/solution-ideas/articles/media/blockchain-workflow-application.png
-name: Blockchain Workflow Application
+name: Blockchain workflow application
 azureCategories:
   - blockchain
 summary: Explore how blockchain is used to digitize workflows and supply chains across organizations with the Blockchain Workflow Application from Microsoft Azure.
 products:
-  - azure-app-service
-  - azure-active-directory
   - azure-blockchain-service
-  - azure-event-grid
-  - azure-iot-central
-  - azure-key-vault
-  - azure-logic-apps
-  - azure-powerbi-embedded
-  - azure-service-bus
-  - azure-sql-database
-  - azure-virtual-network
 thumbnailUrl: /azure/architecture/browse/thumbs/blockchain-workflow-application.png
 content: |
    [!include[](blockchain-workflow-application-content.md)]

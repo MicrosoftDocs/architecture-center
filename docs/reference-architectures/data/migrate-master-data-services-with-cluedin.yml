@@ -1,0 +1,25 @@
+### YamlMime:Architecture
+metadata:
+  title: Migrate master data services to Azure with CluedIn and Azure Purview
+  titleSuffix: Azure Architectures
+  description: Use CluedIn to migrate your master data services solution to Azure, by using CluedIn and Azure Purview.
+  author: EdPrice-MSFT
+  ms.author: Oliver.Kaae
+  ms.date: 10/01/2021
+  ms.topic: conceptual
+  ms.service: architecture-center
+  ms.subservice: reference-architecture
+  ms.custom:
+    - fcp
+azureCategories:
+  - databases
+  - management-and-governance
+products:
+  - azure-data-factory
+  - azure-sql-database
+  - azure-synapse-analytics
+name: Migrate master data services to Azure with CluedIn and Azure Purview
+summary: Use CluedIn to migrate your master data services solution to Azure, by using CluedIn and Azure Purview.
+thumbnailUrl: /azure/architecture/browse/thumbs/migrate-mds-to-azure-with-cluedin.png
+content: |
+  [!include[](migrate-master-data-services-with-cluedin-content.md)]

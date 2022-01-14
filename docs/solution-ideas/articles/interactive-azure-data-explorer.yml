@@ -4,14 +4,17 @@ metadata:
   titleSuffix: Azure Solution Ideas
   description: Use interactive analytics in Azure Data Explorer. Examine structured, semi-structured, and unstructured data with improvised, interactive, and fast queries.
   author: orspod
+  ms.author: pnp
   ms.date: 08/11/2020
+  ms.topic: conceptual
   ms.service: architecture-center
   ms.subservice: solution-idea
-  ms.custom:
-    - fcp
   ms.category:
     - analytics
     - iot
+  ms.custom:
+    - fcp
+    - internal-intro
 name: Azure Data Explorer interactive analytics
 azureCategories:
   - analytics

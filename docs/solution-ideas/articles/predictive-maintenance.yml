@@ -1,29 +1,37 @@
 ### YamlMime:Architecture
 metadata:
-  title: Predictive Maintenance
+  title: Predictive maintenance
   titleSuffix: Azure Solution Ideas
-  author: doodlemania2
+  description: Build a predictive maintenance solution that monitors aircraft parts in real time and uses analytics to predict the remaining useful life of engine components.
+  author: EdPrice-MSFT
+  ms.author: pnp
   ms.date: 12/16/2019
-  description: This predictive maintenance solution monitors aircraft parts in real time and uses advanced analytics to predict the remaining useful life of engine components.
-  ms.custom: 'acom-architecture, artificial intelligence, anomaly-detection, solution architectures, Azure, ai gallery, ''https://azure.microsoft.com/solutions/architecture/predictive-maintenance/'''
+  ms.topic: conceptual
   ms.service: architecture-center
+  ms.subservice: solution-idea
   ms.category:
     - ai-machine-learning
-  ms.subservice: solution-idea
+  ms.custom:
+    - acom-architecture
+    - artificial intelligence
+    - anomaly-detection
+    - solution architectures
+    - Azure
+    - ai gallery
+    - "https://azure.microsoft.com/solutions/architecture/predictive-maintenance/"
+    - ai-machine-learning
+    - aml-project-improvement
   social_image_url: /azure/architecture/solution-ideas/articles/media/predictive-maintenance.png
-name: Predictive Maintenance
+name: Predictive maintenance
 azureCategories:
   - ai-machine-learning
-summary: This predictive maintenance solution monitors aircraft parts in real time and uses advanced analytics to predict the remaining useful life of engine components.
+summary: Build a predictive maintenance solution that monitors aircraft parts in real time and uses analytics to predict the remaining useful life of engine components.
 products:
   - azure-data-factory
   - azure-event-hubs
   - azure-hdinsight
   - azure-machine-learning
-  - azure-sql-database
-  - azure-storage
   - azure-stream-analytics
-  - power-bi
 thumbnailUrl: /azure/architecture/browse/thumbs/predictive-maintenance.png
 content: |
-   [!include[](predictive-maintenance-content.md)]
+  [!include[](predictive-maintenance-content.md)]

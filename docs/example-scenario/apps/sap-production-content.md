@@ -1,15 +1,12 @@
-
 <!-- cSpell:ignore DharmeshBhagat HANA -->
 
-
-
-SAP systems are used to run mission-critical business applications. Any outage disrupts key processes and can cause increased expenses or lost revenue. Avoiding these outcomes requires an SAP infrastructure that is highly available and resilient when failures occur.
+SAP systems are used to run mission-critical business applications. Any outage disrupts key processes and can cause increased expenses or lost revenue. Avoiding these outcomes requires an SAP infrastructure that is highly available and resilient to failures.
 
 Building a highly available SAP environment requires eliminating single points of failures in your system architecture and processes. Single points of failure can be caused by site failures, errors in system components, or even human error.
 
 This example scenario demonstrates an SAP deployment on Windows or Linux virtual machines (VMs) on Azure, along with a High Availability (HA) Oracle database. For your SAP deployment, you can use VMs of different sizes based on your requirements.
 
-## Relevant use cases
+## Potential use cases
 
 Other relevant use cases include:
 
@@ -79,7 +76,7 @@ Extra Large|250000|M64s|6xP30, 1xP30|DS11_v2|1x P10|10x DS14_v2|1x P10|[Extra La
 
 - [Extra Large](https://azure.com/e/58c636922cf94faf9650f583ff35e97b): An extra-large system consists of the M64s VM type for the database server with 64x vCPUs, 1024 GB RAM, and 2000 GB of temporary storage, along with seven 1024-GB premium storage disks; an SAP Central Instance server using a DS11_v2 VM types with 2x vCPUs 14-GB RAM and 28 GB of temporary storage; ten VM type DS14_v2 for the SAP application servers with 16x vCPUs, 112 GB RAM, and 224 GB of temporary storage, along with ten 128-GB premium storage disks.
 
-## Deployment
+## Deploy this scenario
 
 Click the link below to deploy the solution.
 

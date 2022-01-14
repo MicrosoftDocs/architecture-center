@@ -9,11 +9,11 @@ metadata:
   ms.service: architecture-center
   ms.subservice: example-scenario
   ms.custom:
-  - fcp
-  - fasttrack-new
+    - fcp
+    - fasttrack-new
 azureCategories:
   - security
-products: 
+products:
   - azure
   - azure-active-directory
   - azure-app-service
@@ -23,4 +23,3 @@ summary: Restrict communications between Azure backend services on both the appl
 thumbnailUrl: /azure/architecture/browse/thumbs/service-to-service-architecture.png
 content: | 
   [!include[](restrict-communications-content.md)] 
-

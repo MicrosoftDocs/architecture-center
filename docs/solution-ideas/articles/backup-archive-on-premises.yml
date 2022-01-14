@@ -1,18 +1,24 @@
 ### YamlMime:Architecture
 metadata:
-  title: Archive on-premises data to cloud
+  title: Archive on-premises data to the cloud
   titleSuffix: Azure Solution Ideas
-  author: doodlemania2
+  description: In this architecture, archive your on-premises data to the cloud using StorSimple and Azure Blob Storage.
+  author: EdPrice-MSFT
+  ms.author: pnp
   ms.date: 12/16/2019
-  description: Use this architecture to archive your on-premises data to Azure Blob storage.
-  ms.custom: 'acom-architecture, bcdr, ''https://azure.microsoft.com/solutions/architecture/backup-archive-on-premises/'''
+  ms.topic: conceptual
   ms.service: architecture-center
+  ms.subservice: solution-idea
   ms.category:
     - storage
     - hybrid
-  ms.subservice: solution-idea
+  ms.custom:
+    - acom-architecture
+    - bcdr
+    - e2e-hybrid
+    - "https://azure.microsoft.com/solutions/architecture/backup-archive-on-premises/"
   social_image_url: /azure/architecture/solution-ideas/articles/media/backup-archive-cloud-application.png
-name: Archive on-premises data to cloud
+name: Archive on-premises data to the cloud
 azureCategories:
   - storage
   - hybrid

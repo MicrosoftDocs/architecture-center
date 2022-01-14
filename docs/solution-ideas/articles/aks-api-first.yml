@@ -2,15 +2,17 @@
 metadata:
   title: API-first SaaS business model
   titleSuffix: Azure Solution Ideas
-  author: doodlemania2
-  ms.date: 04/17/2020
   description: Learn how to create API gateway and developer portals in minutes, handle data schema and adapt to rapid changes, and connect to back-end services anywhere.
-  ms.custom: acom-architecture
+  author: EdPrice-MSFT
+  ms.author: stellal
+  ms.date: 04/17/2020
+  ms.topic: conceptual
   ms.service: architecture-center
+  ms.subservice: solution-idea
   ms.category:
     - containers
-  ms.subservice: solution-idea
-  ms.author: stellal
+  ms.custom:
+    - acom-architecture
   social_image_url: /azure/architecture/solution-ideas/media/aks-api-first.png
 name: API-first SaaS business model
 azureCategories:

@@ -1,16 +1,27 @@
 ### YamlMime:Architecture
 metadata:
-  title: Container CI/CD using Jenkins and Kubernetes on Azure Kubernetes Service (AKS)
+  title: AKS container CI/CD with Jenkins and Kubernetes
   titleSuffix: Azure Solution Ideas
-  author: doodlemania2
-  ms.date: 12/16/2019
   description: By orchestrating the deployment of containers using Azure Kubernetes Service (AKS), you can achieve replicable, manageable clusters of containers.
-  ms.custom: 'acom-architecture, devops, continuous integration, continuous delivery, CI/CD, continuous deployment, interactive-diagram, is-deployable, ''https://azure.microsoft.com/solutions/architecture/container-cicd-using-jenkins-and-kubernetes-on-azure-container-service/'''
+  author: EdPrice-MSFT
+  ms.author: pnp
+  ms.date: 12/16/2019
+  ms.topic: conceptual
   ms.service: architecture-center
+  ms.subservice: solution-idea
   ms.category:
     - devops
     - containers
-  ms.subservice: solution-idea
+  ms.custom:
+    - acom-architecture
+    - devops
+    - continuous integration
+    - continuous delivery
+    - CI/CD
+    - continuous deployment
+    - interactive-diagram
+    - is-deployable
+    - "https://azure.microsoft.com/solutions/architecture/container-cicd-using-jenkins-and-kubernetes-on-azure-container-service/"
   social_image_url: /azure/architecture/solution-ideas/articles/media/container-cicd-using-jenkins-and-kubernetes-on-azure-container-service.png
 name: Container CI/CD using Jenkins and Kubernetes on Azure Kubernetes Service (AKS)
 azureCategories:

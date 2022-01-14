@@ -1,5 +1,4 @@
-
-
+[!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
 The world is cautiously reopening in a physical business environment where COVID-19 remains a factor. To help keep people healthy, [Cognizant](https://www.cognizant.com/) adapted their [OneFacility](https://azuremarketplace.microsoft.com/en-us/marketplace/consulting-services/cognizant.one_facility) solution to make workspaces safer for everyone who enters them. The **Cognizant Safe Buildings** solution provides a strategic approach to create safe buildings with sustainably healthy working environments.
 
@@ -13,7 +12,7 @@ Using [Azure IoT Hub](https://azure.microsoft.com/services/iot-hub/) and other A
 
 ## Architecture
 
-![Diagram that shows an overview of the organization of a Safe Building as described in this article.](../media/safe-building-arch-design.png)
+![Diagram that shows an overview of the organization of a Safe Building as described in this article.](../media/safe-building-arch-design.svg)
 
 1. Different devices collect data: thermal imaging cameras, LIDAR sensors, occupancy sensors, smart watches with hygiene apps, IR sensors, and air quality and temperature sensors. That data flows into the building's IoT Edge server.
 
@@ -24,7 +23,7 @@ Using [Azure IoT Hub](https://azure.microsoft.com/services/iot-hub/) and other A
 1. AKS routes the data so Azure Stream Analytics and Azure Databricks can analyze and enrich it.
 
 1. **Safe Buildings** sends the processed data to various data stores:
- 
+
     * Data Lake - Azure Data Lake Storage
 
     * Time Insight - Azure Cosmos DB and Azure Database for PostgreSQL
@@ -43,7 +42,7 @@ Using [Azure IoT Hub](https://azure.microsoft.com/services/iot-hub/) and other A
 
     * Command and Control - AKS passes the data from the Platform Service to Azure Functions.
 
-## Components
+### Components
 
 * [Azure IoT Edge](https://azure.microsoft.com/services/iot-edge/) allows you to deploy your cloud workloads to run on Internet of Things (IoT) edge devices via standard containers. Workloads like artificial intelligence, Azure and third-party services, or your own business logic.
 
@@ -61,10 +60,9 @@ Using [Azure IoT Hub](https://azure.microsoft.com/services/iot-hub/) and other A
 
 * [Azure Database for PostgreSQL](https://azure.microsoft.com/services/postgresql/) - Focus on application innovation, not database management, with fully managed and intelligent Azure Database for PostgreSQL.
 
-* [Azure SQL Database](https://azure.microsoft.com/services/sql-database/) - The intelligent, scalable, relational database service built for the cloud. It’s evergreen and always up to date, with AI-powered and automated features that optimize performance and durability for you.
+* [Azure SQL Database](https://azure.microsoft.com/services/sql-database/) - The intelligent, scalable, relational database service built for the cloud. It's evergreen and always up to date, with AI-powered and automated features that optimize performance and durability for you.
 
 * [Azure Cache for Redis](https://azure.microsoft.com/services/cache/) - Fully managed, open source–compatible in-memory data store to power fast, scalable applications.
-
 
 * [Azure Machine Learning](https://azure.microsoft.com/services/machine-learning/) empowers developers and data scientists to build, train, and deploy machine learning models faster. Continuous retraining, updating, and improving data collection and analysis makes the models better over time.
 
@@ -74,7 +72,7 @@ Using [Azure IoT Hub](https://azure.microsoft.com/services/iot-hub/) and other A
 
 * [Azure Functions](https://azure.microsoft.com/services/functions/) lets you build and debug locally without additional setup, deploy and operate at scale in the cloud, and integrate services using triggers and bindings.
 
-* In addition, **Safe Buildings** has access to these other Azure services: [Azure Active Directory](https://azure.microsoft.com/services/active-directory/), [Azure API Management](https://azure.microsoft.com/services/api-management/), [Azure Blob storage](https://azure.microsoft.com/services/storage/blobs/), [Azure Container Registry](https://azure.microsoft.com/services/container-registry/), [Azure Data Factory](https://azure.microsoft.com/services/data-factory/), [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/), [Azure Key Vault](https://azure.microsoft.com/services/key-vault/), [Azure Logic App](https://azure.microsoft.com/services/logic-apps/), [Azure Notification Hubs](https://azure.microsoft.com/services/notification-hubs/), [Azure VMs](https://azure.microsoft.com/services/virtual-machines/), [Azure Webapp Service](https://azure.microsoft.com/services/app-service/web/).
+* In addition, **Safe Buildings** has access to these other Azure services: [Azure Active Directory](https://azure.microsoft.com/services/active-directory/), [Azure API Management](https://azure.microsoft.com/services/api-management/), [Azure Blob storage](https://azure.microsoft.com/services/storage/blobs/), [Azure Container Registry](https://azure.microsoft.com/services/container-registry/), [Azure Data Factory](https://azure.microsoft.com/services/data-factory/), [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/), [Azure Key Vault](https://azure.microsoft.com/services/key-vault/), [Azure Logic App](https://azure.microsoft.com/services/logic-apps/), [Azure Notification Hubs](https://azure.microsoft.com/services/notification-hubs/), [Azure VMs](https://azure.microsoft.com/services/virtual-machines/), and [Azure Webapp Service](https://azure.microsoft.com/services/app-service/web/).
 
 ## Next steps
 

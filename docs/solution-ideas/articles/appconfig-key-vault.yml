@@ -2,15 +2,18 @@
 metadata:
   title: Centralized app configuration and security
   titleSuffix: Azure Solution Ideas
-  author: sowmyans
-  ms.date: 05/13/2020
   description: Use Azure App Configuration and Azure Key Vault to create a centralized and secured configuration service for apps.
-  ms.custom: fcp
+  author: sowmyans
+  ms.author: pnp
+  ms.date: 11/08/2021
+  ms.topic: conceptual
   ms.service: architecture-center
   ms.subservice: solution-idea
   ms.category:
     - security
     - management-and-governance
+  ms.custom:
+    - fcp
 name: Centralized app configuration and security
 azureCategories:
   - security

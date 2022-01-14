@@ -1,17 +1,29 @@
 ### YamlMime:Architecture
 metadata:
-  title: Medical Data Storage Solutions
+  title: Medical data storage solutions
   titleSuffix: Azure Solution Ideas
-  author: doodlemania2
-  ms.date: 12/16/2019
   description: Store healthcare data effectively and affordably with cloud-based solutions from Azure. Manage medical records with the highest level of built-in security.
-  ms.custom: 'acom-architecture, medical records management, data, medical records storage, medical data solutions, healthcare data storage, cloud storage in healthcare, medical data storage, interactive-diagram, ''https://azure.microsoft.com/solutions/architecture/medical-data-storage/'''
+  author: EdPrice-MSFT
+  ms.author: pnp
+  ms.date: 12/16/2019
+  ms.topic: conceptual
   ms.service: architecture-center
+  ms.subservice: solution-idea
   ms.category:
     - storage
-  ms.subservice: solution-idea
+  ms.custom:
+    - acom-architecture
+    - medical records management
+    - data
+    - medical records storage
+    - medical data solutions
+    - healthcare data storage
+    - cloud storage in healthcare
+    - medical data storage
+    - interactive-diagram
+    - "https://azure.microsoft.com/solutions/architecture/medical-data-storage/"
   social_image_url: /azure/architecture/solution-ideas/articles/media/medical-data-storage.png
-name: Medical Data Storage Solutions
+name: Medical data storage solutions
 azureCategories:
   - storage
 summary: Store healthcare data effectively and affordably with cloud-based solutions from Azure. Manage medical records with the highest level of built-in security.

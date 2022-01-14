@@ -2,15 +2,22 @@
 metadata:
   title: Bursting from AKS with ACI
   titleSuffix: Azure Solution Ideas
-  author: doodlemania2
-  ms.date: 12/16/2019
   description: Use Azure Kubernetes Service virtual node to provision pods inside Azure Container Instances when traffic spikes, eliminating the need for additional servers.
-  ms.custom: 'acom-architecture, devops, kubernetes, interactive-diagram, ''https://azure.microsoft.com/solutions/architecture/scale-using-aks-with-aci/'''
+  author: uthappa123
+  ms.author: utkatte
+  ms.date: 02/17/2021
+  ms.topic: conceptual
   ms.service: architecture-center
+  ms.subservice: solution-idea
   ms.category:
     - containers
     - devops
-  ms.subservice: solution-idea
+  ms.custom:
+    - acom-architecture
+    - devops
+    - kubernetes
+    - interactive-diagram
+    - "https://azure.microsoft.com/solutions/architecture/scale-using-aks-with-aci/"
   social_image_url: /azure/architecture/solution-ideas/articles/media/scale-using-aks-with-aci.png
 name: Bursting from AKS with ACI
 azureCategories:

@@ -2,17 +2,19 @@
 metadata:
   title: Manage hybrid Azure workloads using Windows Admin Center
   description: Learn how to design a hybrid Windows Admin Center solution to manage workloads that are hosted on-premises and in Microsoft Azure.
-  author: doodlemania2
-  ms.date: 07/29/2020
+  author: t2kx
+  ms.author: mimar
+  ms.date: 04/16/2021
   ms.topic: conceptual
   ms.service: architecture-center
+  ms.subservice: reference-architecture
   ms.category:
     - hybrid
     - management-and-governance
-  ms.subservice: reference-architecture
   ms.custom:
     - fcp
     - reference-architecture
+    - e2e-hybrid
 name: Manage hybrid Azure workloads using Windows Admin Center
 azureCategories:
   - hybrid

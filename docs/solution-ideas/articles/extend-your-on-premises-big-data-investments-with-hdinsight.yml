@@ -2,15 +2,23 @@
 metadata:
   title: Extend your on-premises big data investments with HDInsight
   titleSuffix: Azure Solution Ideas
-  author: doodlemania2
-  ms.date: 12/16/2019
   description: Extend your on-premises big data investments to the cloud. Transform your business by using the advanced analytics capabilities of Azure HDInsight.
-  ms.custom: 'acom-architecture, data, HDInsight, ExpressRoute, ''https://azure.microsoft.com/solutions/architecture/extend-your-on-premises-big-data-investments-with-hdinsight/'''
+  author: aadimanchanda
+  ms.author: amanchanda
+  ms.date: 12/02/2021
+  ms.topic: conceptual
   ms.service: architecture-center
+  ms.subservice: solution-idea
   ms.category:
     - analytics
     - hybrid
-  ms.subservice: solution-idea
+  ms.custom:
+    - acom-architecture
+    - data
+    - HDInsight
+    - ExpressRoute
+    - e2e-hybrid
+    - "https://azure.microsoft.com/solutions/architecture/extend-your-on-premises-big-data-investments-with-hdinsight/"
   social_image_url: /azure/architecture/solution-ideas/articles/media/extend-your-on-premises-big-data-investments-with-hdinsight.png
 name: Extend your on-premises big data investments with HDInsight
 azureCategories:

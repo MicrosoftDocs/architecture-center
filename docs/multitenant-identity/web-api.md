@@ -1,21 +1,23 @@
 ---
-title: Secure a backend web API in a multitenant application
+title: Secure a backend web API in a multitenant app
 description: Learn how to secure a backend web API for multitenant applications by using the Tailspin Surveys app, which has a backend API to manage operations on surveys.
-author: doodlemania2
-ms.date: 07/21/2017
+author: EdPrice-MSFT
+ms.author: pnp
+ms.date: 10/06/2021
 ms.topic: conceptual
 ms.service: architecture-center
-ms.category:
-  - security
-  - developer-tools
-  - identity
-ms.custom:
-  - has-adal-ref
-  - guide
 ms.subservice: azure-guide
+categories:
+  - identity
+  - web
+ms.custom:
+  - guide
 pnp.series.title: Manage Identity in Multitenant Applications
 pnp.series.prev: authorize
 pnp.series.next: token-cache
+products:
+  - azure-active-directory
+  - azure-app-service-web
 ---
 
 # Secure a backend web API for multitenant applications
@@ -93,74 +95,13 @@ In order for Azure AD to issue a bearer token for the web API, you need to confi
 
 ## Getting an access token
 
-Before calling the web API, the web application gets an access token from Azure AD. In a .NET application, use the [Azure AD Authentication Library (ADAL) for .NET][ADAL].
+Before calling the web API, the web application gets an access token from Azure AD. In a .NET application, use the [Microsoft Authentication Library for .NET (MSAL.NET)][MSAL]. Add `.EnableTokenAcquisitionToCallDownstreamApi()` in Startup.cs of the application.
 
-In the OAuth 2 authorization code flow, the application exchanges an authorization code for an access token. The following code uses ADAL to get the access token. This code is called during the `AuthorizationCodeReceived` event.
-
-```csharp
-// The OpenID Connect middleware sends this event when it gets the authorization code.
-public override async Task AuthorizationCodeReceived(AuthorizationCodeReceivedContext context)
-{
-    string authorizationCode = context.ProtocolMessage.Code;
-    string authority = "https://login.microsoftonline.com/" + tenantID
-    string resourceID = "https://tailspin.onmicrosoft.com/surveys.webapi" // App ID URI
-    ClientCredential credential = new ClientCredential(clientId, clientSecret);
-
-    AuthenticationContext authContext = new AuthenticationContext(authority, tokenCache);
-    AuthenticationResult authResult = await authContext.AcquireTokenByAuthorizationCodeAsync(
-        authorizationCode, new Uri(redirectUri), credential, resourceID);
-
-    // If successful, the token is in authResult.AccessToken
-}
-```
-
-Here are the various parameters that are needed:
-
-* `authority`. Derived from the tenant ID of the signed in user. (Not the tenant ID of the SaaS provider)
-* `authorizationCode`. the auth code that you got back from the IDP.
-* `clientId`. The web application's client ID.
-* `clientSecret`. The web application's client secret.
-* `redirectUri`. The redirect URI that you set for OpenID Connect. This is where the IDP calls back with the token.
-* `resourceID`. The App ID URI of the web API, which you created when you registered the web API in Azure AD
-* `tokenCache`. An object that caches the access tokens. See [Token caching][token-cache].
-
-If `AcquireTokenByAuthorizationCodeAsync` succeeds, ADAL caches the token. Later, you can get the token from the cache by calling AcquireTokenSilentAsync:
-
-```csharp
-AuthenticationContext authContext = new AuthenticationContext(authority, tokenCache);
-var result = await authContext.AcquireTokenSilentAsync(resourceID, credential, new UserIdentifier(userId, UserIdentifierType.UniqueId));
-```
-
-where `userId` is the user's object ID, which is found in the `http://schemas.microsoft.com/identity/claims/objectidentifier` claim.
+After acquiring a token, MSAL caches it. So, you'll also need to choose a token cache implementation, which is included in MSAL. This example uses distributed cache. For details, see See [Token caching][token-cache].
 
 ## Using the access token to call the web API
 
-Once you have the token, send it in the Authorization header of the HTTP requests to the web API.
-
-```http
-Authorization: Bearer xxxxxxxxxx
-```
-
-The following extension method from the Surveys application sets the Authorization header on an HTTP request, using the **HttpClient** class.
-
-```csharp
-public static async Task<HttpResponseMessage> SendRequestWithBearerTokenAsync(this HttpClient httpClient, HttpMethod method, string path, object requestBody, string accessToken, CancellationToken ct)
-{
-    var request = new HttpRequestMessage(method, path);
-    if (requestBody != null)
-    {
-        var json = JsonConvert.SerializeObject(requestBody, Formatting.None);
-        var content = new StringContent(json, Encoding.UTF8, "application/json");
-        request.Content = content;
-    }
-
-    request.Headers.Authorization = new AuthenticationHeaderValue("Bearer", accessToken);
-    request.Headers.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
-
-    var response = await httpClient.SendAsync(request, ct);
-    return response;
-}
-```
+Once you have the token, call a downstream web API. That process is described in [Call a downstream web API with the helper class](/azure/active-directory/develop/scenario-web-app-call-api-call-api?tabs=aspnetcore#option-2-call-a-downstream-web-api-with-the-helper-class).
 
 ## Authenticating in the web API
 
@@ -169,27 +110,17 @@ The web API has to authenticate the bearer token. In ASP.NET Core, you can use t
 Register the middleware in your web API `Startup` class.
 
 ```csharp
-public void Configure(IApplicationBuilder app, IHostingEnvironment env, ApplicationDbContext dbContext, ILoggerFactory loggerFactory)
-{
-    // ...
-
-    app.UseJwtBearerAuthentication(new JwtBearerOptions {
-        Audience = configOptions.AzureAd.WebApiResourceId,
-        Authority = Constants.AuthEndpointPrefix,
-        TokenValidationParameters = new TokenValidationParameters {
-            ValidateIssuer = false
+services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
+    .AddMicrosoftIdentityWebApi(jtwOptions =>
+        {
+            jtwOptions.Events = new SurveysJwtBearerEvents(loggerFactory.CreateLogger<SurveysJwtBearerEvents>()); 
         },
-        Events= new SurveysJwtBearerEvents(loggerFactory.CreateLogger<SurveysJwtBearerEvents>())
-    });
-
-    // ...
-}
+        msIdentityOptions => {
+            Configuration.GetSection("AzureAd").Bind(msIdentityOptions);
+        });
 ```
 
-* **Audience**. Set this to the App ID URL for the web API, which you created when you registered the web API with Azure AD.
-* **Authority**. For a multitenant application, set this to `https://login.microsoftonline.com/common/`.
-* **TokenValidationParameters**. For a multitenant application, set **ValidateIssuer** to false. That means the application will validate the issuer.
-* **Events** is a class that derives from **JwtBearerEvents**.
+**Events** is a class that derives from **JwtBearerEvents**.
 
 ### Issuer validation
 
@@ -312,7 +243,7 @@ At startup, the application reads settings from every registered configuration p
 <!-- links -->
 
 [Authorization]: ./authorize.md
-[ADAL]: /azure/active-directory/develop/active-directory-authentication-libraries
+[MSAL]: /azure/active-directory/develop/msal-overview
 [claims-transformation]: ./claims.md#claims-transformations
 [IdentityServer4]: https://github.com/IdentityServer/IdentityServer4
 [JwtBearer]: https://www.nuget.org/packages/Microsoft.AspNet.Authentication.JwtBearer

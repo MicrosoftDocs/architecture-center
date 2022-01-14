@@ -1,18 +1,22 @@
 ---
 title: Authentication in multitenant applications
-description: How a multitenant application can authenticate users from Azure Active Directory.
-author: doodlemania2
-ms.date: 07/21/2017
+description: Learn about how a multitenant application can authenticate users from Azure Active Directory (Azure AD) and the OpenID Connect (OIDC) protocol.
+author: EdPrice-MSFT
+ms.date: 10/06/2021
 ms.topic: conceptual
 ms.service: architecture-center
-ms.category:
-  - identity
 ms.subservice: azure-guide
+categories:
+  - identity
+  - web
+ms.custom:
+  - guide
 pnp.series.title: Manage Identity in Multitenant Applications
 pnp.series.prev: tailspin
 pnp.series.next: claims
-ms.custom:
-  - guide
+products:
+  - azure-active-directory
+  - azure-app-service-web
 ---
 
 <!-- cSpell:ignore OIDC multitenanted openid -->
@@ -52,41 +56,30 @@ This section describes how to configure the authentication middleware in ASP.NET
 In your [startup class](/aspnet/core/fundamentals/startup), add the OpenID Connect middleware:
 
 ```csharp
-app.AddAuthentication().AddOpenIdConnect(options => {
-    options.ClientId = configOptions.AzureAd.ClientId;
-    options.ClientSecret = configOptions.AzureAd.ClientSecret; // for code flow
-    options.Authority = Constants.AuthEndpointPrefix;
-    options.ResponseType = OpenIdConnectResponseType.CodeIdToken;
-    options.PostLogoutRedirectUri = configOptions.AzureAd.PostLogoutRedirectUri;
-    options.SignInScheme = CookieAuthenticationDefaults.AuthenticationScheme;
-    options.TokenValidationParameters = new TokenValidationParameters { ValidateIssuer = false };
-    options.Events = new SurveyAuthenticationEvents(configOptions.AzureAd, loggerFactory);
-});
+services.AddAuthentication(OpenIdConnectDefaults.AuthenticationScheme)
+  .AddMicrosoftIdentityWebApp(
+    options =>
+    {
+        Configuration.Bind("AzureAd", options);
+        options.Events = new SurveyAuthenticationEvents(loggerFactory);
+        options.SignInScheme = CookieAuthenticationDefaults.AuthenticationScheme;
+        options.Events.OnTokenValidated += options.Events.TokenValidated;
+    })
+    .EnableTokenAcquisitionToCallDownstreamApi()
+    .AddDownstreamWebApi(configOptions.SurveyApi.Name, Configuration.GetSection("SurveyApi"))
+    .AddDistributedTokenCaches();
 ```
 
-Notice that some of the settings are taken from runtime configuration options. Here's what the middleware options mean:
+Notice that some of the settings are provided in the secrets.json file. The file must have a section named **AzureAd** with the following settings:
 
+- **Instance**. For a multitenant application, set this to `https://login.microsoftonline.com`. This is the URL for the Azure AD common endpoint, which enables users from any Azure AD tenant to sign in.
 - **ClientId**. The application's client ID, which you got when you registered the application in Azure AD.
-- **Authority**. For a multitenant application, set this to `https://login.microsoftonline.com/common/`. This is the URL for the Azure AD common endpoint, which enables users from any Azure AD tenant to sign in. For more information about the common endpoint, see [this blog post](https://www.cloudidentity.com/blog/2014/08/26/the-common-endpoint-walks-like-a-tenant-talks-like-a-tenant-but-is-not-a-tenant/).
-- In **TokenValidationParameters**, set **ValidateIssuer** to false. That means the app will be responsible for validating the issuer value in the ID token. (The middleware still validates the token itself.) For more information about validating the issuer, see [Issuer validation](claims.md#issuer-validation).
-- **PostLogoutRedirectUri**. Specify a URL to redirect users after the sign out. This should be a page that allows anonymous requests &mdash; typically the home page.
+- **TenantId**. GUID to sign in users in your organization.
+
+Here's what the other middleware options mean:
+
 - **SignInScheme**. Set this to `CookieAuthenticationDefaults.AuthenticationScheme`. This setting means that after the user is authenticated, the user claims are stored locally in a cookie. This cookie is how the user stays logged in during the browser session.
 - **Events.** Event callbacks; see [Authentication events](#authentication-events).
-
-Also add the Cookie Authentication middleware to the pipeline. This middleware is responsible for writing the user claims to a cookie, and then reading the cookie during subsequent page loads.
-
-```csharp
-app.AddAuthentication().AddCookie(options => {
-    options.AutomaticAuthenticate = true;
-    options.AutomaticChallenge = true;
-    options.AccessDeniedPath = "/Home/Forbidden";
-    options.CookieSecure = CookieSecurePolicy.Always;
-
-    // The default setting for cookie expiration is 14 days. SlidingExpiration is set to true by default
-    options.ExpireTimeSpan = TimeSpan.FromHours(1);
-    options.SlidingExpiration = true;
-});
-```
 
 ## Initiate the authentication flow
 
@@ -182,7 +175,7 @@ When the OIDC middleware redirects to the authorization endpoint, the redirect U
 - response_type  = "code id_token". This specifies hybrid flow.
 - response_mode = "form_post". This specifies form post response.
 
-To specify a different flow, set the **ResponseType** property on the options. For example:
+To specify a different flow, set the **ResponseType** property on the options.
 
 ```csharp
 app.AddAuthentication().AddOpenIdConnect(options =>

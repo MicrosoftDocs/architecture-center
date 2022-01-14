@@ -1,22 +1,25 @@
 ---
 title: Image storage in IoT Edge Vision
 titleSuffix: Azure Architecture Center
-description: This article describes the considerations for image storage in an Azure IoT Edge Vision solution.
+description: Learn about image storage and management in an Azure IoT Edge Vision solution. Read a description of a typical storage workflow.
 author: MSKeith
+ms.author: keith
 ms.date: 10/22/2020
 ms.topic: conceptual
 ms.service: architecture-center
-ms.author: keith
+ms.subservice: azure-guide
 ms.category:
   - fcp
-ms.subservice: azure-guide
+products:
+  - azure-iot-edge
+  - azure-blob-storage
 ms.custom:
   - guide
 ---
 
 # Image storage and management in Azure IoT Edge Vision
 
-Storage and management of the images involved in a computer vision application is a critical function. 
+Storage and management of the images involved in a computer vision application is a critical function.
 
 Some of the key considerations for managing these images are:
 

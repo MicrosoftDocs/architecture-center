@@ -1,28 +1,38 @@
 ### YamlMime:Architecture
 metadata:
-  title: Demand Forecasting for Shipping and Distribution
+  title: Demand forecasting for shipping and distribution
   titleSuffix: Azure Solution Ideas
-  author: doodlemania2
+  description: Use historical demand data to train a demand forecasting model for shipping and distribution solutions on Microsoft AI Platform.
+  author: EdPrice-MSFT
+  ms.author: pnp
   ms.date: 12/16/2019
-  description: This solution addresses the challenges raised above by utilizing historical transaction data to train a demand forecasting model for shipping and distribution.
-  ms.custom: 'acom-architecture, artificial intelligence, solution architectures, Azure, ai gallery, ''https://azure.microsoft.com/solutions/architecture/demand-forecasting-for-shipping-and-distribution/'''
+  ms.topic: conceptual
   ms.service: architecture-center
+  ms.subservice: solution-idea
   ms.category:
     - analytics
     - ai-machine-learning
-  ms.subservice: solution-idea
+  ms.custom:
+    - acom-architecture
+    - artificial intelligence
+    - solution architectures
+    - Azure
+    - ai gallery
+    - "https://azure.microsoft.com/solutions/architecture/demand-forecasting-for-shipping-and-distribution/"
+    - ai-machine-learning
+    - aml-project-improvement
   social_image_url: /azure/architecture/solution-ideas/articles/media/demand-forecasting-for-shipping-and-distribution.png
-name: Demand Forecasting for Shipping and Distribution
+name: Demand forecasting for shipping and distribution
 azureCategories:
   - analytics
   - ai-machine-learning
-summary: This solution addresses the challenges raised above by utilizing historical transaction data to train a demand forecasting model for shipping and distribution.
+summary: Use historical demand data to train a demand forecasting model for shipping and distribution solutions on Microsoft AI Platform.
 products:
   - azure-blob-storage
   - azure-data-factory
-  - azure-functions
-  - azure-hdinsight
-  - azure-web-apps
+  - power-bi
+  - azure-stream-analytics
+  - azure-event-hubs
 thumbnailUrl: /azure/architecture/browse/thumbs/demand-forecasting-for-shipping-and-distribution.png
 content: |
-   [!include[](demand-forecasting-for-shipping-and-distribution-content.md)]
+  [!include[](demand-forecasting-for-shipping-and-distribution-content.md)]

@@ -1,25 +1,37 @@
 ### YamlMime:Architecture
 metadata:
-  title: Campaign Optimization with SQL Server
+  title: Campaign optimization with SQL Server
   titleSuffix: Azure Solution Ideas
-  author: doodlemania2
-  ms.date: 12/16/2019
-  description: This solution demonstrates how to build and deploy a machine learning model with SQL Server 2016 with R Services to recommend actions to maximize the purchase rate of leads targeted by a campaign.
-  ms.custom: 'acom-architecture, artificial intelligence, sql-server, solution architectures, Azure, ai gallery, ''https://azure.microsoft.com/solutions/architecture/campaign-optimization-with-sql-server/'''
+  description: Optimize when and how to contact potential customers to improve marketing campaign success rates with machine learning and SQL Server 2016 with R Services.
+  author: prabhkaur1977
+  ms.author: prkau
+  ms.date: 12/15/2021
+  ms.topic: conceptual
   ms.service: architecture-center
+  ms.subservice: solution-idea
   ms.category:
     - databases
     - ai-machine-learning
-  ms.subservice: solution-idea
+  ms.custom:
+    - acom-architecture
+    - artificial intelligence
+    - sql-server
+    - solution architectures
+    - Azure
+    - ai gallery
+    - "https://azure.microsoft.com/solutions/architecture/campaign-optimization-with-sql-server/"
+    - ai-machine-learning
+    - aml-project-improvement
   social_image_url: /azure/architecture/solution-ideas/articles/media/campaign-optimization-with-sql-server.png
-name: Campaign Optimization with SQL Server
+name: Campaign optimization with SQL Server and machine learning
 azureCategories:
   - databases
   - ai-machine-learning
-summary: This solution demonstrates how to build and deploy a machine learning model with SQL Server 2016 with R Services to recommend actions to maximize the purchase rate of leads targeted by a campaign.
+summary: Optimize when and how to contact potential customers to improve marketing campaign success rates with machine learning and SQL Server 2016 with R Services.
 products:
   - azure-data-science-vm
   - azure-virtual-machines
+  - power-bi
 thumbnailUrl: /azure/architecture/browse/thumbs/campaign-optimization-with-sql-server.png
 content: |
-   [!include[](campaign-optimization-with-sql-server-content.md)]
+  [!include[](campaign-optimization-with-sql-server-content.md)]

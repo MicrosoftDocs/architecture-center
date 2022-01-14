@@ -1,20 +1,22 @@
 ### YamlMime:Architecture
 metadata:
-  title: Azure Automation Update Management
+  title: Azure Automation update management
   description: Learn how to design a hybrid update management solution to manage updates on both Microsoft Azure and on-premises Windows and Linux computers.
-  author: doodlemania2
-  ms.date: 07/16/2020
+  author: t2kx
+  ms.author: mimar
+  ms.date: 04/16/2021
   ms.topic: conceptual
   ms.service: architecture-center
+  ms.subservice: reference-architecture
   ms.category:
     - hybrid
     - management-and-governance
     - networking
-  ms.subservice: reference-architecture
   ms.custom:
     - fcp
     - reference-architecture
-name: Azure Automation Update Management
+    - e2e-hybrid
+name: Azure Automation update management
 azureCategories:
   - hybrid
   - management-and-governance

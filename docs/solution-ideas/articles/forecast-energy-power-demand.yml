@@ -1,29 +1,36 @@
 ### YamlMime:Architecture
 metadata:
-  title: Forecast Energy and Power Demand
+  title: Forecast energy and power demand
   titleSuffix: Azure Solution Ideas
-  author: doodlemania2
-  ms.date: 12/16/2019
-  description: Give your company a competitive advantage by using Microsoft Azure to help accurately forecast spikes in demand for energy products and services.
-  ms.custom: 'acom-architecture, energy demand, power forecast, energy forecast, ai-ml, ''https://azure.microsoft.com/solutions/architecture/forecast-energy-power-demand/'''
+  description: Forecast spikes in demand for energy products and services with Microsoft Azure Machine Learning and give your company a competitive advantage.
+  author: cartacios
+  ms.author: pnp
+  ms.date: 3/2/2021
+  ms.topic: conceptual
   ms.service: architecture-center
+  ms.subservice: solution-idea
   ms.category:
     - ai-machine-learning
     - integration
-  ms.subservice: solution-idea
+  ms.custom:
+    - acom-architecture
+    - energy demand
+    - power forecast
+    - energy forecast
+    - ai-ml
+    - "https://azure.microsoft.com/solutions/architecture/forecast-energy-power-demand/"
+    - ai-machine-learning
+    - aml-project-improvement
   social_image_url: /azure/architecture/solution-ideas/articles/media/forecast-energy-power-demand.png
-name: Forecast Energy and Power Demand
+name: Forecast energy and power demand with machine learning
 azureCategories:
   - ai-machine-learning
   - integration
-summary: Give your company a competitive advantage by using Microsoft Azure to help accurately forecast spikes in demand for energy products and services.
+summary: Forecast spikes in demand for energy products and services with Microsoft Azure Machine Learning and give your company a competitive advantage.
 products:
-  - azure-stream-analytics
-  - azure-event-hubs
   - azure-machine-learning
-  - azure-sql-database
   - azure-data-factory
   - power-bi
 thumbnailUrl: /azure/architecture/browse/thumbs/forecast-energy-power-demand.png
 content: |
-   [!include[](forecast-energy-power-demand-content.md)]
+  [!include[](forecast-energy-power-demand-content.md)]

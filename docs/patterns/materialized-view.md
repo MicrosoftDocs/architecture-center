@@ -1,16 +1,17 @@
 ---
 title: Materialized View pattern
 titleSuffix: Cloud Design Patterns
-description: Generate prepopulated views over the data in one or more data stores when the data isn't ideally formatted for required query operations.
-keywords: design pattern
-author: dragon119
+description: Generate prepopulated views over the data in one or more data stores when the data isn&apos;t ideally formatted for required query operations.
+author: EdPrice-MSFT
+ms.author: pnp
 ms.date: 06/23/2017
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: design-pattern
 ms.custom:
-  - seodec18
   - design-pattern
+keywords:
+  - design pattern
 ---
 
 # Materialized View pattern
@@ -63,13 +64,13 @@ This pattern is useful when:
 - Simplifying queries and exposing data for experimentation in a way that doesn't require knowledge of the source data format. For example, by joining different tables in one or more databases, or one or more domains in NoSQL stores, and then formatting the data to fit its eventual use.
 - Providing access to specific subsets of the source data that, for security or privacy reasons, shouldn't be generally accessible, open to modification, or fully exposed to users.
 - Bridging different data stores, to take advantage of their individual capabilities. For example, using a cloud store that's efficient for writing as the reference data store, and a relational database that offers good query and read performance to hold the materialized views.
+- When using microservices, you are recommended to keep them loosely coupled, including their data storage. Therefore, materialized views can help you consolidate data from your services. If materialized views are not appropriate in your microservices architecture or specific scenario, please consider having well-defined boundaries that align to [domain driven design (DDD)](../microservices/model/tactical-ddd.md) and aggregate their data when requested.
 
 This pattern isn't useful in the following situations:
 
 - The source data is simple and easy to query.
 - The source data changes very quickly, or can be accessed without using a view. In these cases, you should avoid the processing overhead of creating views.
 - Consistency is a high priority. The views might not always be fully consistent with the original data.
-- When using microservices.  Microservices typically have well defined boundries aligning to [domain driven design (DDD)](../microservices/model/tactical-ddd.md).
 
 ## Example
 
@@ -81,7 +82,7 @@ Creating this materialized view requires complex queries. However, by exposing t
 
 > Although this example uses Azure table storage, many relational database management systems also provide native support for materialized views.
 
-## Related patterns and guidance
+## Related guidance
 
 The following patterns and guidance might also be relevant when implementing this pattern:
 

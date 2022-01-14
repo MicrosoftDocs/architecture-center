@@ -2,15 +2,17 @@
 title: Compute Resource Consolidation pattern
 titleSuffix: Cloud Design Patterns
 description: Use the Compute Resource Consolidation design pattern to consolidate multiple tasks or operations into a single computational unit.
-keywords: design pattern
-author: dragon119
+author: EdPrice-MSFT
 ms.date: 06/23/2017
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: design-pattern
+products:
+  - azure-app-service
 ms.custom:
-  - seodec18
   - design-pattern
+keywords:
+  - design pattern
 ---
 
 # Compute Resource Consolidation pattern
@@ -79,7 +81,7 @@ This pattern might not be suitable for tasks that perform critical fault-toleran
 
 ## Example
 
-When building a cloud service on Azure, it’s possible to consolidate the processing performed by multiple tasks into a single role. Typically this is a worker role that performs background or asynchronous processing tasks.
+When building a cloud service on Azure, it's possible to consolidate the processing performed by multiple tasks into a single role. Typically this is a worker role that performs background or asynchronous processing tasks.
 
 > In some cases it's possible to include background or asynchronous processing tasks in the web role. This technique helps to reduce costs and simplify deployment, although it can impact the scalability and responsiveness of the public-facing interface provided by the web role.
 
@@ -231,7 +233,7 @@ private void Stop(TimeSpan timeout)
 }
 ```
 
-## Related patterns and guidance
+## Related guidance
 
 The following patterns and guidance might also be relevant when implementing this pattern:
 

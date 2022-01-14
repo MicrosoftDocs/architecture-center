@@ -1,16 +1,17 @@
 ---
 title: Backends for Frontends pattern
 titleSuffix: Cloud Design Patterns
-description: Create separate backend services to be consumed by specific frontend applications or interfaces.
-keywords: design pattern
-author: dragon119
+description: Explore the Backends for Frontends pattern, which creates separate backend services to be consumed by specific frontend applications or interfaces.
+author: EdPrice-MSFT
+ms.author: pnp
 ms.date: 06/23/2017
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: design-pattern
 ms.custom:
-  - seodec18
   - design-pattern
+keywords:
+  - design pattern
 ---
 
 # Backends for Frontends pattern
@@ -62,9 +63,12 @@ This pattern may not be suitable:
 - When interfaces make the same or similar requests to the backend.
 - When only one interface is used to interact with the backend.
 
-## Related guidance
+## Next steps
 
 - [Pattern: Backends For Frontends](https://samnewman.io/patterns/architectural/bff/)
+
+## Related guidance
+
 - [Gateway Aggregation pattern](./gateway-aggregation.md)
 - [Gateway Offloading pattern](./gateway-offloading.md)
 - [Gateway Routing pattern](./gateway-routing.md)

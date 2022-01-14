@@ -1,7 +1,6 @@
 ---
 title: Publisher-Subscriber pattern
-description: Enable an application to announce events to multiple interested consumers asynchronously.
-keywords: design pattern
+description: Learn about the Publisher-Subscriber pattern, which enables an application to announce events to many interested consumers asynchronously.
 author: alexbuckgit
 ms.date: 12/07/2018
 ms.topic: conceptual
@@ -9,6 +8,8 @@ ms.service: architecture-center
 ms.subservice: design-pattern
 ms.custom:
   - design-pattern
+keywords:
+  - design pattern
 ---
 
 # Publisher-Subscriber pattern
@@ -111,14 +112,13 @@ This pattern might not be useful when:
 
 ## Example
 
-The following diagram shows an enterprise integration architecture that uses Service Bus to coordinate workflows, and Event Grid to notify subsystems of events that occur.
-For more information, see [Enterprise integration on Azure using message queues and events](../reference-architectures/enterprise-integration/queues-events.yml).
+The following diagram shows an enterprise integration architecture that uses Service Bus to coordinate workflows, and Event Grid to notify subsystems of events that occur. For more information, see [Enterprise integration on Azure using message queues and events](../reference-architectures/enterprise-integration/queues-events.yml).
 
 ![Enterprise integration architecture](../reference-architectures/enterprise-integration/_images/enterprise-integration-queues-events.png)
 
-## Related patterns and guidance
+## Next steps
 
-The following patterns and guidance might be relevant when implementing this pattern:
+The following guidance might be relevant when implementing this pattern:
 
 - [Choose between Azure services that deliver messages](/azure/event-grid/compare-messaging-services).
 
@@ -126,6 +126,10 @@ The following patterns and guidance might be relevant when implementing this pat
 
 - [Asynchronous Messaging Primer](/previous-versions/msp-n-p/dn589781(v=pandp.10)). Message queues are an asynchronous communications mechanism. If a consumer service needs to send a reply to an application, it might be necessary to implement some form of response messaging. The Asynchronous Messaging Primer provides information on how to implement request/reply messaging using message queues.
 
-- [Observer Pattern](https://en.wikipedia.org/wiki/Observer_pattern). The Publish-Subscribe pattern builds on the Observer pattern by decoupling subjects from observers via asynchronous messaging.
+## Related guidance
 
-- [Message Broker Pattern](https://en.wikipedia.org/wiki/Message_broker). Many messaging subsystems that support a publish-subscribe model are implemented via a message broker.
+The following patterns might be relevant when implementing this pattern:
+
+- [Observer pattern](https://en.wikipedia.org/wiki/Observer_pattern). The Publish-Subscribe pattern builds on the Observer pattern by decoupling subjects from observers via asynchronous messaging.
+
+- [Message Broker pattern](https://en.wikipedia.org/wiki/Message_broker). Many messaging subsystems that support a publish-subscribe model are implemented via a message broker.

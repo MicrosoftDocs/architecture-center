@@ -1,9 +1,6 @@
+<!-- cSpell:ignore UDRs sysvol jumpbox -->
 
-<!-- cSpell:ignore UDRs sysvol AZBB jumpbox -->
-
-
-
-This architecture shows how to extend an on-premises Active Directory domain to Azure to provide distributed authentication services. [**Deploy this solution**](#deploy-the-solution).
+This architecture shows how to extend an on-premises Active Directory domain to Azure to provide distributed authentication services.
 
 ![Secure hybrid network architecture with Active Directory](./images/adds-extend-domain.png)
 
@@ -74,7 +71,17 @@ Deploy the VMs running AD DS into an [availability set][availability-set]. Also,
 
 Perform regular AD DS backups. Don't copy the VHD files of domain controllers instead of performing regular backups, because the AD DS database file on the VHD may not be in a consistent state when it's copied, making it impossible to restart the database.
 
-Do not shut down a domain controller VM using Azure portal. Instead, shut down and restart from the guest operating system. Shutting down through the portal causes the VM to be deallocated, which resets both the `VM-GenerationID` and the `invocationID` of the Active Directory repository. This discards the AD DS relative identifier (RID) pool and marks the sysvol folder as nonauthoritative, and may require reconfiguration of the domain controller.
+It is not recommended to shut down a domain controller VM using the Azure portal. Instead, shut down and restart from the guest operating system. Shutting down through the Azure portal causes the VM to be deallocated which results in the following effects when the domain controller VM is restarted:
+
+1. Resets the `VM-GenerationID` and the `invocationID` of the Active Directory repository.
+2. Discards the current Active Directory relative identifier (RID) pool
+3. Marks the sysvol folder as nonauthoritative
+
+The first issue is relatively benign. Repeated resetting of the `invocationID` will cause minor additional bandwidth usage during replication, but this is usually not significant.
+
+The second issue can contribute to RID pool exhaustion in the domain, especially if the RID pool size has been configured to be larger than the default. Consider that if the domain has been around for a very long time, or is used for workflows requiring repetitive creation and deletion of accounts, the domain may already be nearing RID pool exhaustion. It is a good practice to monitor the domain for RID pool exhaustion warning events – see the [Managing RID Issuance](/windows-server/identity/ad-ds/manage/managing-rid-issuance) article.
+
+The third issue is relatively benign as long as an authoritative domain controller is available when a domain controller VM in Azure is restarted. If all domain controllers in a domain are running in Azure, and they are all simultaneously shutdown and deallocated, on restart each DC will fail to find an authoritative replica. Fixing this condition requires manual intervention – see the [How to force authoritative and non-authoritative synchronization for DFSR-replicated sysvol replication](/troubleshoot/windows-server/group-policy/force-authoritative-non-authoritative-synchronization) article.
 
 ## Security considerations
 
@@ -84,13 +91,13 @@ Use either BitLocker or Azure disk encryption to encrypt the disk hosting the AD
 
 ## DevOps considerations
 
-- Use Infrastructure as Code (IaC) practice, to provision and configure the network and security infrastructure. This reference architecture uses an [Azure Building Blocks (AZBB)][azbb] template. Another option is [Azure Resource Manager templates][arm-template].
+- Use Infrastructure as Code (IaC) practice, to provision and configure the network and security infrastructure. One option is [Azure Resource Manager templates][arm-template].
 
 - Isolate workloads to enable DevOps to do continuous integration and continuous delivery (CI/CD), because every workload is associated and managed by its corresponding DevOps team.
 
-   In this architecture the entire virtual network that includes the different application tiers, management jumpbox, and Azure AD Domain Services is identified as a single isolated workload. That workload is declared in a single AZBB template.
+In this architecture the entire virtual network that includes the different application tiers, management jumpbox, and Azure AD Domain Services is identified as a single isolated workload.
 
-   Virtual machines are configured by using Virtual Machine Extensions and other tools such as [Desired State Configuration (DSC)][dsc-overview], used to configure ADDS on the virtual machines.
+Virtual machines are configured by using Virtual Machine Extensions and other tools such as [Desired State Configuration (DSC)][dsc-overview], used to configure ADDS on the virtual machines.
 
 - Consider using [Azure DevOps][az-devops] or any other CI/CD solutions to automate your deployments. [Azure Pipelines][az-pipelines] is the recommended component of Azure DevOps Services that brings automation for solution builds and deployments, it's also highly integrated in the Azure ecosystem.
 
@@ -112,83 +119,13 @@ Consider having Active Directory Domain Services as a shared service that is con
 
 The main component of this architecture is the VPN gateway service. You are charged based on the amount of time that the gateway is provisioned and available.
 
-All inbound traffic is free, all outbound traffic is charged. Internet bandwidth costs are applied to VPN outbound traffic.  
+All inbound traffic is free, all outbound traffic is charged. Internet bandwidth costs are applied to VPN outbound traffic.
 
 For more information, see [VPN Gateway Pricing][azure-gateway-charges].
 
 ### Azure Virtual Network
 
 Azure Virtual Network is free. Every subscription is allowed to create up to 50 virtual networks across all regions. All traffic that occurs within the boundaries of a virtual network is free. So, communication between two VMs in the same virtual network is free.
-
-## Deploy the solution
-
-A deployment for this architecture is available on [GitHub][github]. The entire deployment can take up to two hours, which includes creating the VPN gateway and running the scripts that configure AD DS.
-
-### Prerequisites
-
-1. Clone, fork, or download the zip file for the [GitHub repository](https://github.com/mspnp/identity-reference-architectures).
-
-2. Install [Azure CLI 2.0](/cli/azure/install-azure-cli?view=azure-cli-latest).
-
-3. Install the [Azure building blocks](https://github.com/mspnp/template-building-blocks/wiki/Install-Azure-Building-Blocks) npm package.
-
-   ```bash
-   npm install -g @mspnp/azure-building-blocks
-   ```
-
-4. From a command prompt, bash prompt, or PowerShell prompt, sign into your Azure account as follows:
-
-   ```bash
-   az login
-   ```
-
-### Deploy the simulated on-premises datacenter
-
-1. Navigate to the `identity/adds-extend-domain` folder of the GitHub repository.
-
-2. Open the `onprem.json` file. Search for instances of `adminPassword` and `Password` and add values for the passwords.
-
-3. Run the following command and wait for the deployment to finish:
-
-    ```bash
-    azbb -s <subscription_id> -g <resource group> -l <location> -p onprem.json --deploy
-    ```
-
-### Deploy the Azure VNet
-
-1. Open the `azure.json` file.  Search for instances of `adminPassword` and `Password` and add values for the passwords.
-
-2. In the same file, search for instances of `sharedKey` and enter shared keys for the VPN connection.
-
-    ```json
-    "sharedKey": "",
-    ```
-
-3. Run the following command and wait for the deployment to finish.
-
-    ```bash
-    azbb -s <subscription_id> -g <resource group> -l <location> -p azure.json --deploy
-    ```
-
-   Deploy to the same resource group as the on-premises VNet.
-
-### Test connectivity with the Azure VNet
-
-After deployment completes, you can test connectivity from the simulated on-premises environment to the Azure VNet.
-
-1. Use the Azure portal, navigate to the resource group that you created.
-
-2. Find the VM named `ra-onpremise-mgmt-vm1`.
-
-3. Click `Connect` to open a remote desktop session to the VM. The username is `contoso\testuser`, and the password is the one that you specified in the `onprem.json` parameter file.
-
-4. From inside your remote desktop session, open another remote desktop session to 10.0.4.4, which is the IP address of the VM named `adds-vm1`. The username is `contoso\testuser`, and the password is the one that you specified in the `azure.json` parameter file.
-
-5. From inside the remote desktop session for `adds-vm1`, go to **Server Manager** and click **Add other servers to manage**.
-
-6. In the **Active Directory** tab, click **Find now**. You should see a list of the AD, AD DS, and Web VMs.
-
-   ![Screenshot of the Add Servers dialog](./images/add-servers-dialog.png)
 
 ## Next steps
 
@@ -197,34 +134,27 @@ After deployment completes, you can test connectivity from the simulated on-prem
 
 <!-- links -->
 
-[aaf-cost]: ../../framework/cost/overview.md
-[AAF-devops]: ../../framework/devops/overview.md
+[aaf-cost]: /azure/architecture/framework/cost/overview
+[AAF-devops]: /azure/architecture/framework/devops/overview
 [adds-resource-forest]: ./adds-forest.yml
 [adfs]: ./adfs.yml
-[azbb]: https://github.com/mspnp/template-building-blocks/wiki/Install-Azure-Building-Blocks
-[dsc-overview]: /powershell/scripting/dsc/overview/overview?view=powershell-7
+[dsc-overview]: /powershell/scripting/dsc/overview
 [ad-ds-operations-masters]: /windows-server/identity/ad-ds/plan/planning-operations-master-role-placement
-
 [ad-ds-ports]: /troubleshoot/windows-server/identity/config-firewall-for-ad-domains-and-trusts  
-
-
 [arm-template]: /azure/azure-resource-manager/resource-group-overview#resource-groups
 [availability-set]: /azure/virtual-machines/windows/tutorial-availability-sets
 [azure-expressroute]: /azure/expressroute/expressroute-introduction
 [azure-monitor]: https://azure.microsoft.com/services/monitor
 [az-devops]: /azure/virtual-machines/windows/infrastructure-automation#azure-devops-services
 [az-pipelines]: /azure/devops/pipelines/?view=azure-devops&preserve-view=true
-
 [ADDS-pricing]: https://azure.microsoft.com/pricing/details/active-directory-ds
 [availability-set]: /azure/virtual-machines/windows/tutorial-availability-sets
 [azure-expressroute]: /azure/expressroute/expressroute-introduction
 [azure-gateway-charges]: https://azure.microsoft.com/pricing/details/vpn-gateway
-
 [azure-vpn-gateway]: /azure/vpn-gateway/vpn-gateway-about-vpngateways
 [capacity-planning-for-adds]: https://social.technet.microsoft.com/wiki/contents/articles/14355.capacity-planning-for-active-directory-domain-services.aspx
 [considerations]: ./index.yml
 [azure-pricing-calculator]: https://azure.microsoft.com/pricing/calculator
-[GitHub]: https://github.com/mspnp/identity-reference-architectures/tree/master/adds-extend-domain
 [microsoft_systems_center]: https://www.microsoft.com/download/details.aspx?id=50013
 [monitoring_ad]: /windows-server/identity/ad-ds/plan/security-best-practices/monitoring-active-directory-for-signs-of-compromise
 [security-considerations]: #security-considerations

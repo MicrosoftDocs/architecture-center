@@ -3,7 +3,8 @@ metadata:
   title: Gridwich variable flow
   titleSuffix: Azure Reference Architectures
   description: Learn how Gridwich converts Azure Pipelines pipeline variable group variables to Terraform variables.
-  author: doodlemania2
+  author: EdPrice-MSFT
+  ms.author: pnp
   ms.date: 11/12/2020
   ms.topic: conceptual
   ms.service: architecture-center

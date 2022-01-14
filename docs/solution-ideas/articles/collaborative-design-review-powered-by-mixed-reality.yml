@@ -1,17 +1,28 @@
 ### YamlMime:Architecture
 metadata:
-  title: Design Review Powered by Mixed Reality
+  title: Design review powered by mixed reality
   titleSuffix: Azure Solution Ideas
-  author: doodlemania2
-  ms.date: 12/16/2019
   description: With this mixed reality scenario, clients, designers, and onsite engineers can easily share and review designs as 3D holograms in the context of their environment.
-  ms.custom: 'acom-architecture, Azure Spatial Anchors, Azure Active Directory, Cosmos DB, Blob Storage, Web Service, Microsoft Hololens, interactive-diagram, ''https://azure.microsoft.com/solutions/architecture/collaborative-design-review-powered-by-mixed-reality/'''
+  author: EdPrice-MSFT
+  ms.author: pnp
+  ms.date: 12/16/2019
+  ms.topic: conceptual
   ms.service: architecture-center
+  ms.subservice: solution-idea
   ms.category:
     - mixed-reality
-  ms.subservice: solution-idea
+  ms.custom:
+    - acom-architecture
+    - Azure Spatial Anchors
+    - Azure Active Directory
+    - Cosmos DB
+    - Blob Storage
+    - Web Service
+    - Microsoft Hololens
+    - interactive-diagram
+    - "https://azure.microsoft.com/solutions/architecture/collaborative-design-review-powered-by-mixed-reality/"
   social_image_url: /azure/architecture/solution-ideas/articles/media/collaborative-design-review-powered-by-mixed-reality.png
-name: Design Review Powered by Mixed Reality
+name: Design review powered by mixed reality
 azureCategories:
   - mixed-reality
 summary: With this mixed reality scenario, clients, designers, and onsite engineers can easily share and review designs as 3D holograms in the context of their environment.

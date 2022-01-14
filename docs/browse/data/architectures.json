@@ -1,6 +1,5 @@
 {
-    "articles": [
-        {
+    "articles": [{
             "tags": [
                 "all-items",
                 "alternative-choices",
@@ -202,10 +201,10 @@
             "category": [
                 "ai-machine-learning"
             ],
-            "image": "/azure/architecture/solution-ideas/media/cognitive-search.png",
-            "imagepath": "C:\\jvPnpRepos\\architecture-center-pr\\docs\\solution-ideas\\media\\cognitive-search.png",
+            "image": "/azure/architecture/solution-ideas/media/cognitive-search-for-ai-enrichment.png",
+            "imagepath": "C:\\jvPnpRepos\\architecture-center-pr\\docs\\solution-ideas\\media\\cognitive-search-for-ai-enrichment.png",
             "publish_date": "6/01/2020",
-            "Summary": "<p>Large, unstructured datasets like the <a href=\"https://www.archives.gov/research/jfk/2017-release\">JFK Files</a>, which contain over 34,000 pages of documents about the CIA investigation of the 1963 JFK assassination, include typewritten and handwritten notes, photos and diagrams, and other unstructured data that standard search solutions can't parse.</p>\n<p><em>AI enrichment</em> in Azure Cognitive Search can extract and enhance searchable, indexable text from images, blobs, and other unstructured data sources like the JFK Files by using pre-trained machine learning skillsets from the Cognitive Services <a href=\"https://docs.microsoft.com/azure/cognitive-services/computer-vision/home\">Computer Vision</a> and <a href=\"https://docs.microsoft.com/azure/cognitive-services/text-analytics/overview\">Text Analytics</a> APIs. You can also create and attach <a href=\"https://docs.microsoft.com/azure/search/cognitive-search-custom-skill-interface\">custom skills</a> to add special processing for domain-specific data like CIA Cryptonyms. Azure Cognitive Search can then index and search the context.</p>\n<ul>\n<li>\n<p><em>Image processing skills</em> like <a href=\"https://docs.microsoft.com/azure/search/cognitive-search-skill-ocr\">Optical Character Recognition (OCR)</a>, <a href=\"https://docs.microsoft.com/azure/cognitive-services/computer-vision/concept-recognizing-text#read-api\">Read</a>, and <a href=\"https://docs.microsoft.com/azure/search/cognitive-search-skill-image-analysis\">image analysis</a> include object and face detection, tag and caption generation, and celebrity and landmark identification. These skills create text representations of image content, which are searchable using the query capabilities of Azure Cognitive Search.</p>\n</li>\n<li>\n<p><em>Natural language processing</em> skills like <a href=\"https://docs.microsoft.com/azure/search/cognitive-search-skill-entity-recognition\">entity recognition</a>, <a href=\"https://docs.microsoft.com/azure/search/cognitive-search-skill-language-detection\">language detection</a>, <a href=\"https://docs.microsoft.com/azure/search/cognitive-search-skill-keyphrases\">key phrase extraction</a>, and <a href=\"https://docs.microsoft.com/azure/cognitive-services/computer-vision/concept-recognizing-text\">text recognition</a> map unstructured text to searchable and filterable fields in an index.</p>\n</li>\n</ul>\n<p>This example solution uses Azure Cognitive Search AI enrichment to extract meaning from the original complex, unstructured JFK Files dataset. You can <a href=\"https://github.com/microsoft/AzureSearch_JFK_Files\">work through the project</a>, watch the process in action in an <a href=\"https://channel9.msdn.com/Shows/AI-Show/Using-Cognitive-Search-to-Understand-the-JFK-Documents\">online video</a>, or explore the JFK Files with an <a href=\"https://aka.ms/jfkfiles-demo\">online demo</a>.</p>",
+            "Summary": "<p>Large, unstructured datasets like the <a href=\"https://www.archives.gov/research/jfk/2017-release\">JFK Files</a>, which contain over 34,000 pages of documents about the CIA investigation of the 1963 JFK assassination, include typewritten and handwritten notes, photos and diagrams, and other unstructured data that standard search solutions can't parse.</p>\n<p><em>AI enrichment</em> in Azure Cognitive Search can extract and enhance searchable, indexable text from images, blobs, and other unstructured data sources like the JFK Files by using pre-trained machine learning skillsets from the Cognitive Services <a href=\"https://docs.microsoft.com/azure/cognitive-services/computer-vision/home\">Computer Vision</a> and <a href=\"https://docs.microsoft.com/azure/cognitive-services/text-analytics/overview\">Text Analytics</a> APIs. You can also create and attach <a href=\"https://docs.microsoft.com/azure/search/cognitive-search-custom-skill-interface\">custom skills</a> to add special processing for domain-specific data like CIA Cryptonyms. Azure Cognitive Search can then index and search the context.</p>\n<ul>\n<li>\n<p><em>Image processing skills</em> like <a href=\"https://docs.microsoft.com/azure/search/cognitive-search-skill-ocr\">Optical Character Recognition (OCR)</a>, <a href=\"https://docs.microsoft.com/azure/cognitive-services/computer-vision/concept-recognizing-text#read-api\">Read</a>, and <a href=\"https://docs.microsoft.com/azure/search/cognitive-search-skill-image-analysis\">image analysis</a> include object and face detection, tag and caption generation, and celebrity and landmark identification. These skills create text representations of image content, which are searchable using the query capabilities of Azure Cognitive Search.</p>\n</li>\n<li>\n<p><em>Natural language processing</em> skills like <a href=\"https://docs.microsoft.com/azure/search/cognitive-search-skill-entity-recognition\">entity recognition</a>, <a href=\"https://docs.microsoft.com/azure/search/cognitive-search-skill-language-detection\">language detection</a>, <a href=\"https://docs.microsoft.com/azure/search/cognitive-search-skill-keyphrases\">key phrase extraction</a>, and <a href=\"https://docs.microsoft.com/azure/cognitive-services/computer-vision/concept-recognizing-text\">text recognition</a> map unstructured text to searchable and filterable fields in an index.</p>\n</li>\n</ul>\n<p>This example solution uses Azure Cognitive Search AI enrichment to extract meaning from the original complex, unstructured JFK Files dataset. You can <a href=\"https://github.com/microsoft/AzureSearch_JFK_Files\">work through the project</a>, watch the process in action in an <a href=\"https://docs.microsoft.com/en-us/shows/AI-Show/Using-Cognitive-Search-to-Understand-the-JFK-Documents\">online video</a>, or explore the JFK Files with an <a href=\"https://aka.ms/jfkfiles-demo\">online demo</a>.</p>",
             "sample_code": true,
             "github_url": "https://github.com/microsoft/AzureSearch_JFK_Files",
             "name": "cognitive-search-with-skillsets",
@@ -575,8 +574,8 @@
             "category": [
                 "ai-machine-learning"
             ],
-            "image": "/azure/architecture/solution-ideas/media/auditing-and-risk-compliance.png",
-            "imagepath": "C:\\jvPnpRepos\\architecture-center-pr\\docs\\solution-ideas\\media\\auditing-and-risk-compliance.png",
+            "image": "/azure/architecture/solution-ideas/media/knowledge-mining-auditing-and-risk-compliance.png",
+            "imagepath": "C:\\jvPnpRepos\\architecture-center-pr\\docs\\solution-ideas\\media\\knowledge-mining-auditing-and-risk-compliance.png",
             "publish_date": "12/16/2019",
             "Flow": {
                 "FlowStep_A": "This content is enriched by using key phrase extraction, language detection, language translation,entity extraction (organizations and people) and custom models to identify certain regulatory obligations and custom models to identify specific legal terms and clauses",
@@ -1102,7 +1101,7 @@
             "publish_date": "12/12/2017",
             "Summary": "<p>This reference architecture shows proven practices for a web application that uses <a href=\"https://docs.microsoft.com/azure/app-service\">Azure App Service</a> and <a href=\"https://docs.microsoft.com/azure/sql-database\">Azure SQL Database</a>. <a href=\"#deploy-the-solution\"><strong>Deploy this solution</strong></a>.</p>\n<p><img alt=\"Reference architecture for a basic web application in Azure\" src=\"https://docs.microsoft.com/azure/architecture/reference-architectures/app-service-web-app/images/basic-web-app.png\" /></p>\n<p><em>Download a <a href=\"https://arch-center.azureedge.net/app-service-reference-architectures.vsdx\">Visio file</a> of this architecture.</em></p>",
             "sample_code": true,
-            "github_url": "https://github.com/mspnp/reference-architectures/tree/master/managed-web-app/basic-web-app/Paas-Basic/Templates",
+            "github_url": "https://github.com/mspnp/samples/tree/master/solutions/basic-web-app",
             "visio_diagram": "https://arch-center.azureedge.net/app-service-reference-architectures.vsdx",
             "code_languages": [
                 "powershell"
@@ -1130,10 +1129,10 @@
                 "ai-machine-learning",
                 "media"
             ],
-            "image": "/azure/architecture/reference-architectures/ai/_images/aml-scoring-deep-learning.png",
-            "imagepath": "C:\\jvPnpRepos\\architecture-center-pr\\docs\\reference-architectures\\ai\\_images\\aml-scoring-deep-learning.png",
+            "image": "/azure/architecture/reference-architectures/ai/_images/azure-machine-learning-deep-learning-scoring-pipeline.png",
+            "imagepath": "C:\\jvPnpRepos\\architecture-center-pr\\docs\\reference-architectures\\ai\\_images\\azure-machine-learning-deep-learning-scoring-pipeline.png",
             "publish_date": "2/06/2019",
-            "Summary": "<p>This reference architecture shows how to apply neural style transfer to a video, using Azure Machine Learning. <em>Style transfer</em> is a deep learning technique that composes an existing image in the style of another image. This architecture can be generalized for any scenario that uses batch scoring with deep learning. <a href=\"#deploy-the-solution\"><strong>Deploy this solution</strong></a>.</p>\n<p><img alt=\"Architecture diagram for deep learning models using Azure Machine Learning\" src=\"https://docs.microsoft.com/azure/architecture/reference-architectures/ai/_images/aml-scoring-deep-learning.png\" /></p>\n<p><strong>Scenario</strong>: A media organization has a video whose style they want to change to look like a specific painting. The organization wants to be able to apply this style to all frames of the video in a timely manner and in an automated fashion. For more background about neural style transfer algorithms, see <a href=\"https://www.cv-foundation.org/openaccess/content_cvpr_2016/papers/Gatys_Image_Style_Transfer_CVPR_2016_paper.pdf\">Image Style Transfer Using Convolutional Neural Networks</a> (PDF).</p>\n<!-- markdownlint-disable MD033 -->\n\n<p>| Style image: | Input/content video: | Output video: |\n|--------|--------|---------|\n| <img src=\"https://happypathspublic.blob.core.windows.net/assets/batch_scoring_for_dl/style_image.jpg\" width=\"300\" alt=\"Picture of a painting in particular art style.\" > | <a href=\"https://happypathspublic.blob.core.windows.net/assets/batch_scoring_for_dl/input_video.mp4\" title=\"Input Video\"><img src=\"https://happypathspublic.blob.core.windows.net/assets/batch_scoring_for_dl/input_video_image_0.jpg\" width=\"300\" height=\"300\" alt=\"Picture of an animal in a tree in realistic style.\" ></a> <em>click to view video</em> | <a href=\"https://happypathspublic.blob.core.windows.net/assets/batch_scoring_for_dl/output_video.mp4\" title=\"Output Video\"><img src=\"https://happypathspublic.blob.core.windows.net/assets/batch_scoring_for_dl/output_video_image_0.jpg\" width=\"300\" height=\"300\" alt=\"Picture of an animal in a tree, stylized to match a painting.\" ></a> <em>click to view video</em> |</p>\n<!-- markdownlint-enable MD033 -->\n\n<p>This reference architecture is designed for workloads that are triggered by the presence of new media in Azure storage.</p>\n<p>Processing involves the following steps:</p>\n<ol>\n<li>Upload a video file to storage.</li>\n<li>The video file triggers a Logic App to send a request to the Azure Machine Learning pipeline published endpoint.</li>\n<li>The pipeline processes the video, applies style transfer with MPI, and postprocesses the video.</li>\n<li>The output is saved back to blob storage once the pipeline is completed.</li>\n</ol>",
+            "Summary": "<p>This reference architecture shows how to apply neural style transfer to a video, using Azure Machine Learning. <em>Style transfer</em> is a deep learning technique that composes an existing image in the style of another image. This architecture can be generalized for any scenario that uses batch scoring with deep learning. <a href=\"#deploy-the-solution\"><strong>Deploy this solution</strong></a>.</p>\n<p><img alt=\"Architecture diagram for deep learning models using Azure Machine Learning\" src=\"https://docs.microsoft.com/azure/architecture/reference-architectures/ai/_images/azure-machine-learning-deep-learning-scoring-pipeline.png\" /></p>\n<p><strong>Scenario</strong>: A media organization has a video whose style they want to change to look like a specific painting. The organization wants to be able to apply this style to all frames of the video in a timely manner and in an automated fashion. For more background about neural style transfer algorithms, see <a href=\"https://www.cv-foundation.org/openaccess/content_cvpr_2016/papers/Gatys_Image_Style_Transfer_CVPR_2016_paper.pdf\">Image Style Transfer Using Convolutional Neural Networks</a> (PDF).</p>\n<!-- markdownlint-disable MD033 -->\n\n<p>| Style image: | Input/content video: | Output video: |\n|--------|--------|---------|\n| <img src=\"https://happypathspublic.blob.core.windows.net/assets/batch_scoring_for_dl/style_image.jpg\" width=\"300\" alt=\"Picture of a painting in particular art style.\" > | <a href=\"https://happypathspublic.blob.core.windows.net/assets/batch_scoring_for_dl/input_video.mp4\" title=\"Input Video\"><img src=\"https://happypathspublic.blob.core.windows.net/assets/batch_scoring_for_dl/input_video_image_0.jpg\" width=\"300\" height=\"300\" alt=\"Picture of an animal in a tree in realistic style.\" ></a> <em>click to view video</em> | <a href=\"https://happypathspublic.blob.core.windows.net/assets/batch_scoring_for_dl/output_video.mp4\" title=\"Output Video\"><img src=\"https://happypathspublic.blob.core.windows.net/assets/batch_scoring_for_dl/output_video_image_0.jpg\" width=\"300\" height=\"300\" alt=\"Picture of an animal in a tree, stylized to match a painting.\" ></a> <em>click to view video</em> |</p>\n<!-- markdownlint-enable MD033 -->\n\n<p>This reference architecture is designed for workloads that are triggered by the presence of new media in Azure storage.</p>\n<p>Processing involves the following steps:</p>\n<ol>\n<li>Upload a video file to storage.</li>\n<li>The video file triggers a Logic App to send a request to the Azure Machine Learning pipeline published endpoint.</li>\n<li>The pipeline processes the video, applies style transfer with MPI, and postprocesses the video.</li>\n<li>The output is saved back to blob storage once the pipeline is completed.</li>\n</ol>",
             "sample_code": true,
             "github_url": "https://github.com/Azure/Batch-Scoring-Deep-Learning-Models-With-AML",
             "name": "batch-scoring-deep-learning",
@@ -1190,10 +1189,10 @@
                 "analytics",
                 "databases"
             ],
-            "image": "/azure/architecture/reference-architectures/ai/_images/batch-scoring-spark.png",
-            "imagepath": "C:\\jvPnpRepos\\architecture-center-pr\\docs\\reference-architectures\\ai\\_images\\batch-scoring-spark.png",
+            "image": "/azure/architecture/reference-architectures/ai/_images/batch-scoring-spark-models-databricks.png",
+            "imagepath": "C:\\jvPnpRepos\\architecture-center-pr\\docs\\reference-architectures\\ai\\_images\\batch-scoring-spark-models-databricks.png",
             "publish_date": "11/20/2019",
-            "Summary": "<p>This reference architecture shows how to build a scalable solution for batch scoring an Apache Spark classification model on a schedule using Azure Databricks, an Apache Spark-based analytics platform optimized for Azure. The solution can be used as a template that can be generalized to other scenarios.</p>\n<p>A reference implementation for this architecture is available on\u00a0<a href=\"https://github.com/Azure/BatchSparkScoringPredictiveMaintenance\">GitHub</a>.</p>\n<p><img alt=\"Batch scoring of Spark models on Azure Databricks\" src=\"https://docs.microsoft.com/azure/architecture/reference-architectures/ai/_images/batch-scoring-spark.png\" /></p>\n<p><strong>Scenario</strong>: A business in an asset-heavy industry wants to minimize the costs and downtime associated with unexpected mechanical failures. Using IoT data collected from their machines, they can create a predictive maintenance model. This model enables the business to maintain components proactively and repair them before they fail. By maximizing mechanical component use, they can control costs and reduce downtime.</p>\n<p>A predictive maintenance model collects data from the machines and retains historical examples of component failures. The model can then be used to monitor the current state of the components and predict if a given component will fail in the near future. For common use cases and modeling approaches, see <a href=\"https://docs.microsoft.com/azure/machine-learning/team-data-science-process/cortana-analytics-playbook-predictive-maintenance\">Azure AI guide for predictive maintenance solutions</a>.</p>\n<p>This reference architecture is designed for workloads that are triggered by the presence of new data from the component machines. Processing involves the following steps:</p>\n<ol>\n<li>\n<p>Ingest the data from the external data store onto an Azure Databricks data store.</p>\n</li>\n<li>\n<p>Train a machine learning model by transforming the data into a training data set, then building a Spark MLlib model. MLlib consists of most common machine learning algorithms and utilities optimized to take advantage of Spark data scalability capabilities.</p>\n</li>\n<li>\n<p>Apply the trained model to predict (classify) component failures by transforming the data into a scoring data set. Score the data with the Spark MLLib model.</p>\n</li>\n<li>\n<p>Store results on the Databricks data store for post-processing consumption.</p>\n</li>\n</ol>\n<p>Notebooks are provided on\u00a0<a href=\"https://github.com/Azure/BatchSparkScoringPredictiveMaintenance\">GitHub</a> to perform each of these tasks.</p>",
+            "Summary": "<p>This reference architecture shows how to build a scalable solution for batch scoring an Apache Spark classification model on a schedule using Azure Databricks, an Apache Spark-based analytics platform optimized for Azure. The solution can be used as a template that can be generalized to other scenarios.</p>\n<p>A reference implementation for this architecture is available on\u00a0<a href=\"https://github.com/Azure/BatchSparkScoringPredictiveMaintenance\">GitHub</a>.</p>\n<p><img alt=\"Batch scoring of Spark models on Azure Databricks\" src=\"https://docs.microsoft.com/azure/architecture/reference-architectures/ai/_images/batch-scoring-spark-models-databricks.png\" /></p>\n<p><strong>Scenario</strong>: A business in an asset-heavy industry wants to minimize the costs and downtime associated with unexpected mechanical failures. Using IoT data collected from their machines, they can create a predictive maintenance model. This model enables the business to maintain components proactively and repair them before they fail. By maximizing mechanical component use, they can control costs and reduce downtime.</p>\n<p>A predictive maintenance model collects data from the machines and retains historical examples of component failures. The model can then be used to monitor the current state of the components and predict if a given component will fail in the near future. For common use cases and modeling approaches, see <a href=\"https://docs.microsoft.com/azure/machine-learning/team-data-science-process/cortana-analytics-playbook-predictive-maintenance\">Azure AI guide for predictive maintenance solutions</a>.</p>\n<p>This reference architecture is designed for workloads that are triggered by the presence of new data from the component machines. Processing involves the following steps:</p>\n<ol>\n<li>\n<p>Ingest the data from the external data store onto an Azure Databricks data store.</p>\n</li>\n<li>\n<p>Train a machine learning model by transforming the data into a training data set, then building a Spark MLlib model. MLlib consists of most common machine learning algorithms and utilities optimized to take advantage of Spark data scalability capabilities.</p>\n</li>\n<li>\n<p>Apply the trained model to predict (classify) component failures by transforming the data into a scoring data set. Score the data with the Spark MLLib model.</p>\n</li>\n<li>\n<p>Store results on the Databricks data store for post-processing consumption.</p>\n</li>\n</ol>\n<p>Notebooks are provided on\u00a0<a href=\"https://github.com/Azure/BatchSparkScoringPredictiveMaintenance\">GitHub</a> to perform each of these tasks.</p>",
             "sample_code": true,
             "github_url": "https://github.com/Azure/BatchSparkScoringPredictiveMaintenance",
             "name": "batch-scoring-databricks",
@@ -1222,7 +1221,7 @@
             "image": "/azure/architecture/reference-architectures/ai/_images/batch-scoring-r-models.png",
             "imagepath": "C:\\jvPnpRepos\\architecture-center-pr\\docs\\reference-architectures\\ai\\_images\\batch-scoring-r-models.png",
             "publish_date": "3/29/2019",
-            "Summary": "<p>This reference architecture shows how to perform batch scoring with R models using Azure Batch. The scenario is based on retail store sales forecasting, but this architecture can be generalized for any scenario requiring the generation of predictions on a larger scale using R models. A reference implementation for this architecture is available on\n<a href=\"https://github.com/Azure/RBatchScoring\">GitHub</a>.</p>\n<p><img alt=\"Architecture diagram\" src=\"https://docs.microsoft.com/azure/architecture/reference-architectures/ai/_images/batch-scoring-r-models.png\" /></p>\n<p><strong>Scenario</strong>: A supermarket chain needs to forecast sales of products over the upcoming quarter. The forecast allows the company to manage its supply chain better and ensure it can meet demand for products at each of its stores. The company updates its forecasts every week as new sales data from the previous week becomes available and the product marketing strategy for next quarter is set. Quantile forecasts are generated to estimate the uncertainty of the individual sales forecasts.</p>\n<p>Processing involves the following steps:</p>\n<ol>\n<li>\n<p>An Azure Logic App triggers the forecast generation process once per week.</p>\n</li>\n<li>\n<p>The logic app starts an Azure Container Instance running the scheduler Docker container, which triggers the scoring jobs on the Batch cluster.</p>\n</li>\n<li>\n<p>Scoring jobs run in parallel across the nodes of the Batch cluster. Each node:</p>\n<ol>\n<li>\n<p>Pulls the worker Docker image from Docker Hub and starts a container.</p>\n</li>\n<li>\n<p>Reads input data and pre-trained R models from Azure Blob storage.</p>\n</li>\n<li>\n<p>Scores the data to produce the forecasts.</p>\n</li>\n<li>\n<p>Writes the forecast results to blob storage.</p>\n</li>\n</ol>\n</li>\n</ol>\n<p>The figure below shows the forecasted sales for four products (SKUs) in one store. The black line is the sales history, the dashed line is the median (q50) forecast, the pink band represents the twenty-fifth and seventy-fifth percentiles, and the blue band represents the fifth and ninety-fifth percentiles.</p>\n<p><img alt=\"Sales forecasts\" src=\"https://docs.microsoft.com/azure/architecture/reference-architectures/ai/_images/sales-forecasts.png\" /></p>",
+            "Summary": "<p>This reference architecture shows how to perform batch scoring with R models using Azure Batch. The scenario is based on retail store sales forecasting, but this architecture can be generalized for any scenario requiring the generation of predictions on a larger scale using R models. A reference implementation for this architecture is available on\n<a href=\"https://github.com/Azure/RBatchScoring\">GitHub</a>.</p>\n<p><img alt=\"Architecture diagram\" src=\"https://docs.microsoft.com/azure/architecture/reference-architectures/ai/_images/batch-scoring-r-models.png\" /></p>\n<p><strong>Scenario</strong>: A supermarket chain needs to forecast sales of products over the upcoming quarter. The forecast allows the company to manage its supply chain better and ensure it can meet demand for products at each of its stores. The company updates its forecasts every week as new sales data from the previous week becomes available and the product marketing strategy for next quarter is set. Quantile forecasts are generated to estimate the uncertainty of the individual sales forecasts.</p>\n<p>Processing involves the following steps:</p>\n<ol>\n<li>\n<p>An Azure Logic App triggers the forecast generation process once per week.</p>\n</li>\n<li>\n<p>The logic app starts an Azure Container Instance running the scheduler Docker container, which triggers the scoring jobs on the Batch cluster.</p>\n</li>\n<li>\n<p>Scoring jobs run in parallel across the nodes of the Batch cluster. Each node:</p>\n<ol>\n<li>\n<p>Pulls the worker Docker image from Docker Hub and starts a container.</p>\n</li>\n<li>\n<p>Reads input data and pre-trained R models from Azure Blob storage.</p>\n</li>\n<li>\n<p>Scores the data to produce the forecasts.</p>\n</li>\n<li>\n<p>Writes the forecast results to blob storage.</p>\n</li>\n</ol>\n</li>\n</ol>\n<p>The figure below shows the forecasted sales for four products (SKUs) in one store. The black line is the sales history, the dashed line is the median (q50) forecast, the pink band represents the twenty-fifth and seventy-fifth percentiles, and the blue band represents the fifth and ninety-fifth percentiles.</p>\n<p><img alt=\"Sales forecasts\" src=\"https://docs.microsoft.com/azure/architecture/reference-architectures/ai/_images/batch-scoring-sales-forecasts.png\" /></p>",
             "sample_code": true,
             "github_url": "https://github.com/Azure/doAzureParallel/blob/master/docs/32-autoscale.md",
             "name": "batch-scoring-R-models",
@@ -1302,8 +1301,8 @@
                 "devops",
                 "ai-machine-learning"
             ],
-            "image": "/azure/architecture/example-scenario/apps/media/deployment-flow.png",
-            "imagepath": "C:\\jvPnpRepos\\architecture-center-pr\\docs\\example-scenario\\apps\\media\\deployment-flow.png",
+            "image": "/azure/architecture/example-scenario/apps/media/ci-cd-pipeline-deployment-arm-templates.png",
+            "imagepath": "C:\\jvPnpRepos\\architecture-center-pr\\docs\\example-scenario\\apps\\media\\ci-cd-pipeline-deployment-arm-templates.png",
             "publish_date": "3/25/2020",
             "sample_code": true,
             "github_url": "https://github.com/mspnp/solution-architectures/tree/master/cicdbots",
@@ -1631,10 +1630,10 @@
             "category": [
                 "ai-machine-learning"
             ],
-            "image": "/azure/architecture/solution-ideas/media/business-process-management.png",
-            "imagepath": "C:\\jvPnpRepos\\architecture-center-pr\\docs\\solution-ideas\\media\\business-process-management.png",
+            "image": "/azure/architecture/solution-ideas/media/knowledge-mining-business-process-management.png",
+            "imagepath": "C:\\jvPnpRepos\\architecture-center-pr\\docs\\solution-ideas\\media\\knowledge-mining-business-process-management.png",
             "publish_date": "12/16/2019",
-            "Summary": "<p>This architecture demonstrates how to use Knowledge Mining for business process management.</p>\n<p>When organizations task employees with the review and research of technical data, it can be tedious to read page after page of dense text. Knowledge mining helps employees quickly review these materials. In industries where bidding competition is fierce, or when the diagnosis of a problem must be quick or in near real-time, companies can use knowledge mining to avoid costly mistakes.</p>\n<p><img alt=\"Architecture Diagram\" src=\"https://docs.microsoft.com/azure/architecture/solution-ideas/media/business-process-management.png\" /></p>",
+            "Summary": "<p>This architecture demonstrates how to use Knowledge Mining for business process management.</p>\n<p>When organizations task employees with the review and research of technical data, it can be tedious to read page after page of dense text. Knowledge mining helps employees quickly review these materials. In industries where bidding competition is fierce, or when the diagnosis of a problem must be quick or in near real-time, companies can use knowledge mining to avoid costly mistakes.</p>\n<p><img alt=\"Architecture Diagram\" src=\"https://docs.microsoft.com/azure/architecture/solution-ideas/media/knowledge-mining-business-process-management.png\" /></p>",
             "Flow": {
                 "FlowStep_A": "This content is enriched by using optical character recognition, forms recognition, layout understanding, table extraction, key-value pair extraction",
                 "FlowStep_B": "And finally, the user can automatically populate data from invoices into ELP systems or databases or compile enriched documents in the knowledge store and project them into tabular or object stores, then surface trends in an analytics dashboard, such as frequent issues, popular products, and much more"
@@ -1871,8 +1870,8 @@
                 "solution-idea"
             ],
             "type": "solution-idea",
-            "file_url": "solution-ideas/articles/cctv-mask-detection.md",
-            "http_url": "/azure/architecture/solution-ideas/articles/cctv-mask-detection",
+            "file_url": "solution-ideas/articles/cctv-iot-edge-for-covid-19-safe-environment-and-mask-detection.md",
+            "http_url": "/azure/architecture/solution-ideas/articles/cctv-iot-edge-for-covid-19-safe-environment-and-mask-detection",
             "word_count": 706,
             "read_time": "3 min read",
             "Title": "COVID-19 Safe Solutions with IoT Edge",
@@ -1881,8 +1880,8 @@
                 "iot",
                 "ai-machine-learning"
             ],
-            "image": "/azure/architecture/solution-ideas/media/bosch-cctv-mask-detection.png",
-            "imagepath": "C:\\jvPnpRepos\\architecture-center-pr\\docs\\solution-ideas\\media\\bosch-cctv-mask-detection.png",
+            "image": "/azure/architecture/solution-ideas/media/bosch-cctv-iot-edge-covid-19-safe-environment-mask-detection.png",
+            "imagepath": "C:\\jvPnpRepos\\architecture-center-pr\\docs\\solution-ideas\\media\\bosch-cctv-iot-edge-covid-19-safe-environment-mask-detection.png",
             "publish_date": "6/06/2020",
             "components": [
                 "<p><a href=\"https://azure.microsoft.com/services/iot-edge/\">Azure IoT Edge</a> servers with onboard storage, computing, artificial intelligence (AI), and machine learning (ML) capabilities can quickly recognize and respond to sensor input.</p>",
@@ -1896,7 +1895,7 @@
                 "<p>Integration with Microsoft <a href=\"https://support.office.com/article/manage-notifications-in-teams-1cc31834-5fe5-412b-8edb-43fecc78413d\">Teams</a> allows automated notifications of relevant stakeholders like HR and Security.</p>",
                 "<p><a href=\"https://powerbi.microsoft.com\">Microsoft Power BI</a> visualizations enable well-informed and data-driven reporting and decision making.</p>"
             ],
-            "name": "cctv-mask-detection",
+            "name": "cctv-iot-edge-for-covid-19-safe-environment-and-mask-detection",
             "popularity": 0,
             "topic": "Internet of Things"
         },
@@ -2149,15 +2148,15 @@
             "word_count": 167,
             "read_time": "1 min read",
             "Title": "Commerce Chatbot",
-            "MetaDescription": "Together, the Azure Bot Service and Language Understanding service enable developers to create conversational interfaces for various scenarios like banking, travel, and entertainment. For example, a hotel's concierge can use a bot to enhance traditional e-mail and phone call interactions by validating a customer via Azure Active Directory and using Cognitive Services to better contextually process customer requests using text and voice. The Speech recognition service can be added to support voice commands.",
+            "MetaDescription": "The Azure Bot Service with Language Understanding enables developers to create conversational interfaces for banking, travel, and entertainment commerce scenarios. For example, a hotel concierge can use a bot to enhance traditional e-mail and phone call interactions. The bot validates a customer via Azure Active Directory and uses Azure Cognitive Services to contextually process customer service requests using text and voice. Add the Speech recognition service to support voice commands.",
             "category": [
                 "ai-machine-learning",
                 "web"
             ],
-            "image": "/azure/architecture/solution-ideas/media/commerce-chatbot.svg",
-            "imagepath": "C:\\jvPnpRepos\\architecture-center-pr\\docs\\solution-ideas\\media\\commerce-chatbot.svg",
+            "image": "/azure/architecture/solution-ideas/media/commerce-chatbot-customer-service.svg",
+            "imagepath": "C:\\jvPnpRepos\\architecture-center-pr\\docs\\solution-ideas\\media\\commerce-chatbot-customer-service.svg",
             "publish_date": "12/16/2019",
-            "Summary": "<p>Together, the Azure Bot Service and Language Understanding service enable developers to create conversational interfaces for various scenarios like banking, travel, and entertainment. For example, a hotel's concierge can use a bot to enhance traditional e-mail and phone call interactions by validating a customer via Azure Active Directory and using Cognitive Services to better contextually process customer requests using text and voice. The Speech recognition service can be added to support voice commands.</p>",
+            "Summary": "<p>The Azure Bot Service with Language Understanding enables developers to create conversational interfaces for banking, travel, and entertainment commerce scenarios. For example, a hotel concierge can use a bot to enhance traditional e-mail and phone call interactions. The bot validates a customer via Azure Active Directory and uses Azure Cognitive Services to contextually process customer service requests using text and voice. Add the Speech recognition service to support voice commands.</p>",
             "Flow": {
                 "FlowStep_A": "Customer uses your mobile app",
                 "FlowStep_B": "Using Azure AD B2C, the user authenticates",
@@ -2370,13 +2369,13 @@
             "word_count": 554,
             "read_time": "3 min read",
             "Title": "Contactless IoT interfaces with Azure intelligent edge",
-            "MetaDescription": "Combine intelligent and perceptive edge devices with the storage and computing power of the cloud to create touch-free interfaces.",
+            "MetaDescription": "Create solutions with touch-free interfaces & other intelligent & perceptive IoT devices backed by the storage, compute, AI, & ML capabilities of Azure cloud.",
             "category": [
                 "iot",
                 "ai-machine-learning"
             ],
-            "image": "/azure/architecture/solution-ideas/media/avanade-contactless.png",
-            "imagepath": "C:\\jvPnpRepos\\architecture-center-pr\\docs\\solution-ideas\\media\\avanade-contactless.png",
+            "image": "/azure/architecture/solution-ideas/media/avanade-contactless-interface-iot-edge.png",
+            "imagepath": "C:\\jvPnpRepos\\architecture-center-pr\\docs\\solution-ideas\\media\\avanade-contactless-interface-iot-edge.png",
             "publish_date": "6/06/2020",
             "components": [
                 "<p><a href=\"https://azure.microsoft.com/services/iot-edge/\">Azure IoT Edge</a> service deploys cloud workloads to run on IoT Edge devices via standard containers. Modules can run AI, other Azure and third-party services, or your own business logic. IoT Edge intelligent devices can respond quickly and offline, and limit costs by preprocessing and sending only necessary data to the cloud.</p>",
@@ -2457,10 +2456,10 @@
             "category": [
                 "ai-machine-learning"
             ],
-            "image": "/azure/architecture/solution-ideas/media/content-research.png",
-            "imagepath": "C:\\jvPnpRepos\\architecture-center-pr\\docs\\solution-ideas\\media\\content-research.png",
+            "image": "/azure/architecture/solution-ideas/media/knowledge-mining-content-research.png",
+            "imagepath": "C:\\jvPnpRepos\\architecture-center-pr\\docs\\solution-ideas\\media\\knowledge-mining-content-research.png",
             "publish_date": "12/16/2019",
-            "Summary": "<p>This architecture describes how knowledge mining can be used for content research.</p>\n<p>When organizations task employees to review and research of technical data, it can be tedious to read page after page of dense text. Knowledge mining helps employees quickly review these dense materials. In industries where bidding competition is fierce, or when the diagnosis of a problem must be quick or in near real-time, companies can use knowledge mining to avoid costly mistakes.</p>\n<p><img alt=\"Architecture Diagram\" src=\"https://docs.microsoft.com/azure/architecture/solution-ideas/media/content-research.png\" /></p>",
+            "Summary": "<p>This architecture describes how knowledge mining can be used for content research.</p>\n<p>When organizations task employees to review and research of technical data, it can be tedious to read page after page of dense text. Knowledge mining helps employees quickly review these dense materials. In industries where bidding competition is fierce, or when the diagnosis of a problem must be quick or in near real-time, companies can use knowledge mining to avoid costly mistakes.</p>\n<p><img alt=\"Architecture Diagram\" src=\"https://docs.microsoft.com/azure/architecture/solution-ideas/media/knowledge-mining-content-research.png\" /></p>",
             "name": "content-research",
             "popularity": 0,
             "topic": "AI + Machine Learning"
@@ -2481,10 +2480,10 @@
             "category": [
                 "ai-machine-learning"
             ],
-            "image": "/azure/architecture/solution-ideas/media/contract-management.png",
-            "imagepath": "C:\\jvPnpRepos\\architecture-center-pr\\docs\\solution-ideas\\media\\contract-management.png",
+            "image": "/azure/architecture/solution-ideas/media/knowledge-mining-contract-management.png",
+            "imagepath": "C:\\jvPnpRepos\\architecture-center-pr\\docs\\solution-ideas\\media\\knowledge-mining-contract-management.png",
             "publish_date": "12/16/2019",
-            "Summary": "<p>Many companies create products for multiple sectors, hence the business opportunities with different vendors and buyers increases exponentially. Knowledge mining can help organizations to scour thousands of pages of sources to create an accurate bid. Minor details in the bidding process can make the difference between a healthy profit or lost opportunity on a project.</p>\n<p><img alt=\"Architecture Diagram\" src=\"https://docs.microsoft.com/azure/architecture/solution-ideas/media/contract-management.png\" /></p>",
+            "Summary": "<p>Many companies create products for multiple sectors, hence the business opportunities with different vendors and buyers increases exponentially. Knowledge mining can help organizations to scour thousands of pages of sources to create an accurate bid. Minor details in the bidding process can make the difference between a healthy profit or lost opportunity on a project.</p>\n<p><img alt=\"Architecture Diagram\" src=\"https://docs.microsoft.com/azure/architecture/solution-ideas/media/knowledge-mining-contract-management.png\" /></p>",
             "name": "contract-management",
             "popularity": 0,
             "topic": "AI + Machine Learning"
@@ -2812,14 +2811,14 @@
             "word_count": 281,
             "read_time": "2 min read",
             "Title": "Customer Feedback and Analytics",
-            "MetaDescription": "Knowledge mining can help customer support teams quickly find the right answer for a customer inquiry or assess customer sentiment at scale.",
+            "MetaDescription": "Knowledge mining can help customer support teams quickly find the right answers for customer questions or assess customer sentiment at scale.",
             "category": [
                 "ai-machine-learning"
             ],
-            "image": "/azure/architecture/solution-ideas/media/customer-feedback-and-analytics.png",
-            "imagepath": "C:\\jvPnpRepos\\architecture-center-pr\\docs\\solution-ideas\\media\\customer-feedback-and-analytics.png",
+            "image": "/azure/architecture/solution-ideas/media/knowledge-mining-customer-feedback-and-analytics.png",
+            "imagepath": "C:\\jvPnpRepos\\architecture-center-pr\\docs\\solution-ideas\\media\\knowledge-mining-customer-feedback-and-analytics.png",
             "publish_date": "12/16/2019",
-            "Summary": "<p>For many companies, customer support is costly and inefficient. Knowledge mining can help customer support teams quickly find the right answer for a customer inquiry or assess customer sentiment at scale.</p>\n<p>Every company is looking to enhance the customer experience. Knowledge mining can aggregate and analyze data to discover trends about what customers are saying and use that information to improve products and services</p>\n<p><img alt=\"Architecture Diagram\" src=\"https://docs.microsoft.com/azure/architecture/solution-ideas/media/customer-feedback-and-analytics.png\" /></p>",
+            "Summary": "<p>For many companies, customer support is costly and inefficient. Knowledge mining can help customer support teams quickly find the right answers for customer questions or assess customer sentiment at scale.</p>\n<p>Every company is looking to enhance the customer experience. Knowledge mining can aggregate and analyze data to discover trends about what customers are saying and use that information to improve products and services</p>\n<p><img alt=\"Architecture Diagram\" src=\"https://docs.microsoft.com/azure/architecture/solution-ideas/media/knowledge-mining-customer-feedback-and-analytics.png\" /></p>",
             "name": "customer-feedback-and-analytics",
             "popularity": 0,
             "topic": "AI + Machine Learning"
@@ -3093,7 +3092,7 @@
             "word_count": 566,
             "read_time": "3 min read",
             "Title": "Demand Forecasting",
-            "MetaDescription": "Accurately forecasting spikes in demand for products and services can give a company a competitive advantage. This solution focuses on demand forecasting within the energy sector.",
+            "MetaDescription": "Accurately forecasting spikes in demand for products and services can give a company a competitive advantage. This solution focuses on-demand forecasting within the energy sector.",
             "category": [
                 "analytics",
                 "ai-machine-learning"
@@ -3102,7 +3101,7 @@
             "imagepath": "C:\\jvPnpRepos\\architecture-center-pr\\docs\\solution-ideas\\media\\demand-forecasting.png",
             "publish_date": "12/16/2019",
             "pricing_guidance": "pricing-info",
-            "Summary": "<p>Accurately forecasting spikes in demand for products and services can give a company a competitive advantage. This solution focuses on demand forecasting within the energy sector.</p>",
+            "Summary": "<p>Accurately forecasting spikes in demand for products and services can give a company a competitive advantage. This solution focuses on-demand forecasting within the energy sector.</p>",
             "Flow": {
                 "FlowStep_A": "The sample data is streamed by newly deployed Azure Web Jobs.",
                 "FlowStep_B": "This synthetic data feeds into the Azure Event Hubs and Azure SQL service as data points or events, that will be used in the rest of the solution flow.",
@@ -3149,50 +3148,6 @@
             ],
             "name": "demand-forecasting-price-optimization-marketing",
             "popularity": 61,
-            "topic": "Analytics"
-        },
-        {
-            "tags": [
-                "'https:--azure.microsoft.com-solutions-architecture-demand-forecasting-and-price-optimization-'",
-                "acom-architecture",
-                "ai-gallery",
-                "all-items",
-                "anomaly-detection",
-                "artificial-intelligence",
-                "azure",
-                "data-flow",
-                "example-code",
-                "github",
-                "pricing-guidance",
-                "solution-architectures",
-                "solution-idea"
-            ],
-            "type": "solution-idea",
-            "file_url": "solution-ideas/articles/demand-forecasting-and-price-optimization.md",
-            "http_url": "/azure/architecture/solution-ideas/articles/demand-forecasting-and-price-optimization",
-            "word_count": 519,
-            "read_time": "3 min read",
-            "Title": "Demand Forecasting and Price Optimization",
-            "MetaDescription": "Pricing is recognized as a pivotal determinant of success in many industries and can be one of the most challenging tasks. Companies often struggle with several aspects of the pricing process, including accurately forecasting the financial impact of potential tactics, taking reasonable consideration of core business constraints, and fairly validating the executed pricing decisions. Expanding product offerings add further computational requirements to make real-time pricing decisions, compounding the difficulty of this already overwhelming task.",
-            "category": [
-                "analytics",
-                "ai-machine-learning"
-            ],
-            "image": "/azure/architecture/solution-ideas/media/demand-forecasting-and-price-optimization.png",
-            "imagepath": "C:\\jvPnpRepos\\architecture-center-pr\\docs\\solution-ideas\\media\\demand-forecasting-and-price-optimization.png",
-            "publish_date": "12/16/2019",
-            "pricing_guidance": "pricing-is-recognized-as-a-pivotal-determinant-of-success-in-many-industries-and-can-be-one-of-the-most-challenging-tasks.-companies-often-struggle-with-several-aspects-of-the-pricing-process,-including-accurately-forecasting-the-financial-impact-of-potential-tactics,-taking-reasonable-consideration-of-core-business-constraints,-and-fairly-validating-the-executed-pricing-decisions.-expanding-product-offerings-add-further-computational-requirements-to-make-real-time-pricing-decisions,-compounding-the-difficulty-of-this-already-overwhelming-task.",
-            "Summary": "<p>Pricing is recognized as a pivotal determinant of success in many industries and can be one of the most challenging tasks. Companies often struggle with several aspects of the pricing process, including accurately forecasting the financial impact of potential tactics, taking reasonable consideration of core business constraints, and fairly validating the executed pricing decisions. Expanding product offerings add further computational requirements to make real-time pricing decisions, compounding the difficulty of this already overwhelming task.</p>\n<p>This solution addresses the challenges raised above by utilizing historical transaction data to train a demand forecasting model. Pricing of products in a competing group is also incorporated to predict cross-product impacts such as cannibalization. A price optimization algorithm then employs the model to forecast demand at various candidate price points and takes into account business constraints to maximize profit. The solution can be customized to analyze various pricing scenarios as long as the general data science approach remains similar.</p>\n<p>The process described above is operationalized and deployed in the Cortana Intelligence Suite. This solution will enable companies to ingest historical transaction data, predict future demand, and obtain optimal pricing recommendations on a regular basis. As a result, the solution drives opportunities for improved profitability and reductions in time and effort allocated to pricing tasks.</p>",
-            "Flow": {
-                "FlowStep_A": "The simulation data is generated hourly by newly deployed Azure Web Jobs.",
-                "FlowStep_B": "This synthetic data is stored at Azure Blob Storage, that will be used in the rest of the solution flow.",
-                "FlowStep_C": "Spark on HDInsight is used to ingest and preprocess the raw data, build and retrain the demand forecasting models, and execute price optimization algorithms.",
-                "FlowStep_D": "Azure Data Factory orchestrates and schedules the entire data flow."
-            },
-            "sample_code": true,
-            "github_url": "https://github.com/Azure/cortana-intelligence-price-optimization/blob/master/Automated%20Deployment%20Guide/Post%20Deployment%20Instructions.md",
-            "name": "demand-forecasting-and-price-optimization",
-            "popularity": 57,
             "topic": "Analytics"
         },
         {
@@ -3318,7 +3273,7 @@
             "publish_date": "12/08/2018",
             "Summary": "<p>This article shows how to deploy a set of network virtual appliances (NVAs) for high availability in Azure. An NVA is typically used to control the flow of network traffic from a perimeter network, also known as a DMZ, to other networks or subnets. To learn about implementing a DMZ in Azure, see <a href=\"https://docs.microsoft.com/azure/best-practices-network-security\">Microsoft cloud services and network security</a>. The article includes example architectures for ingress only, egress only, and both ingress and egress.</p>\n<p><strong>Prerequisites:</strong> This article assumes a basic understanding of Azure networking, <a href=\"https://docs.microsoft.com/azure/load-balancer/load-balancer-overview\">Azure load balancers</a>, and <a href=\"https://docs.microsoft.com/azure/virtual-network/virtual-networks-udr-overview\">user-defined routes</a> (UDRs).</p>",
             "sample_code": true,
-            "github_url": "https://github.com/mspnp/ha-nva",
+            "github_url": "https://github.com/mspnp/samples/tree/master/solutions/ha-nva",
             "name": "nva-ha",
             "popularity": 221,
             "topic": "Networking"
@@ -3820,10 +3775,10 @@
             "category": [
                 "ai-machine-learning"
             ],
-            "image": "/azure/architecture/solution-ideas/media/digital-asset-management.png",
-            "imagepath": "C:\\jvPnpRepos\\architecture-center-pr\\docs\\solution-ideas\\media\\digital-asset-management.png",
+            "image": "/azure/architecture/solution-ideas/media/knowledge-mining-digital-asset-management.png",
+            "imagepath": "C:\\jvPnpRepos\\architecture-center-pr\\docs\\solution-ideas\\media\\knowledge-mining-digital-asset-management.png",
             "publish_date": "12/16/2019",
-            "Summary": "<p>This architecture describes digital asset management for knowledge mining.</p>\n<p>Given the amount of unstructured data created daily, many companies are struggling to make use of or find information within their files. Knowledge mining through a search index makes it easy for end customers and employees to locate what they are looking for faster.</p>\n<p><img alt=\"Architecture Diagram\" src=\"https://docs.microsoft.com/azure/architecture/solution-ideas/media/digital-asset-management.png\" /></p>",
+            "Summary": "<p>This architecture describes digital asset management for knowledge mining.</p>\n<p>Given the amount of unstructured data created daily, many companies are struggling to make use of or find information within their files. Knowledge mining through a search index makes it easy for end customers and employees to locate what they are looking for faster.</p>\n<p><img alt=\"Architecture Diagram\" src=\"https://docs.microsoft.com/azure/architecture/solution-ideas/media/knowledge-mining-digital-asset-management.png\" /></p>",
             "name": "digital-asset-management",
             "popularity": 0,
             "topic": "AI + Machine Learning"
@@ -4246,7 +4201,7 @@
             "word_count": 577,
             "read_time": "3 min read",
             "Title": "Energy Supply Optimization",
-            "MetaDescription": "This solution provides an Azure-based smart solution, leveraging external open-source tools, that determines the optimal energy unit commitments from various types of energy resources for an energy grid.",
+            "MetaDescription": "This solution provides an Azure-based smart solution, applying external open-source tools, to determine the optimal energy unit commitments from various energy resources for an energy grid.",
             "category": [
                 "ai-machine-learning",
                 "integration"
@@ -4256,7 +4211,7 @@
             "publish_date": "12/16/2019",
             "Summary": "<p>In an energy grid, energy consumers are engaged with various types of energy supplying, trading, and storage components such as substations, batteries, windfarms and solar panels, micro-turbines, as well as demand response bids, to meet their respective demands and minimize the cost of energy commitment. To do so, the grid operator must determine how much energy each type of the resources should commit over a time frame, given the prices of soliciting different types of resources and the capacities and the physical characteristics of them.</p>\n<p>This solution is built upon Cortana Intelligence Suite and external open-source tools, and it computes the optimal energy unit commitments from various types of energy resources. This solution demonstrates the ability of Cortana Intelligence Suite to accommodating external tools, to solve parallelized numerical optimization problems over an Azure Batch of Azure Virtual Machines.</p>",
             "Flow": {
-                "FlowStep_A": "The sample data is streamed by newly deployed Azure Web Jobs. The web job uses resource related data from Azure SQL to generate the simulated data.",
+                "FlowStep_A": "The sample data is streamed by newly deployed Azure Web Jobs. The web job uses resource-related data from Azure SQL to generate the simulated data.",
                 "FlowStep_B": "The data simulator feeds this simulated data into the Azure Storage and writes message in Storage Queue, that will be used in the rest of the solution flow.",
                 "FlowStep_C": "Another Web Job monitors the storage queue and initiate an Azure Batch job once message in the queue is available.",
                 "FlowStep_D": "The Azure Batch service together with Data Science Virtual Machines is used to optimize the energy supply from a particular resource type given the inputs received.",
@@ -4356,8 +4311,8 @@
                 "ai-machine-learning",
                 "management-and-governance"
             ],
-            "image": "/azure/architecture/solution-ideas/media/chatbot-dr.png",
-            "imagepath": "C:\\jvPnpRepos\\architecture-center-pr\\docs\\solution-ideas\\media\\chatbot-dr.png",
+            "image": "/azure/architecture/solution-ideas/media/chatbot-with-failover-two-regions.png",
+            "imagepath": "C:\\jvPnpRepos\\architecture-center-pr\\docs\\solution-ideas\\media\\chatbot-with-failover-two-regions.png",
             "publish_date": "6/22/2020",
             "Summary": "<p>To set up disaster recovery for an enterprise-grade <em>conversational bot (chatbot)</em>, first review the service level agreement (SLA) that cover the <em>Recovery Point Objective (RPO)</em> and <em>Recovery Time Objective (RTO)</em> for the chatbot. Implement the disaster recovery patterns in this article to build highly available and disaster resistant chatbot solutions to meet the SLA.</p>\n<p>For a description of the core components of a typical enterprise-grade chatbot solution in Azure, see <a >Enterprise-grade conversational bot</a>.</p>",
             "sample_code": true,
@@ -4482,10 +4437,10 @@
             "imagepath": "C:\\jvPnpRepos\\architecture-center-pr\\docs\\reference-architectures\\serverless\\_images\\cloud-automation.png",
             "publish_date": "1/14/2020",
             "Flow": {
-                "FlowStep_A": "[Cost center tagging](https://github.com/mspnp/serverless-automation/blob/master/src/automation/cost-center/deployment.md): This implementation tracks the cost centers of each Azure resource. The [Azure Policy](/azure/governance/policy/) service [tags all new resources](/azure/azure-resource-manager/resource-group-using-tags) in a group with a default cost center ID. The Event Grid monitors resource creation events, and then calls an [Azure function](/azure/azure-functions/). The function interacts with Azure Active Directory, and validates the cost center ID for the new resource. If different, it updates the tag and sends out an email to the resource owner. The REST queries for Azure Active Directory are mocked out for simplicity. Azure AD can also be integrated using the [Azure AD PowerShell module](/powershell/module/azuread/?view=azureadps-2.0) or the [ADAL for Python library](https://pypi.org/project/adal/)."
+                "FlowStep_A": "[Cost center tagging](https://github.com/mspnp/serverless-automation/blob/main/src/automation/cost-center/deployment.md): This implementation tracks the cost centers of each Azure resource. The [Azure Policy](/azure/governance/policy/) service [tags all new resources](/azure/azure-resource-manager/resource-group-using-tags) in a group with a default cost center ID. The Event Grid monitors resource creation events, and then calls an [Azure function](/azure/azure-functions/). The function interacts with Azure Active Directory, and validates the cost center ID for the new resource. If different, it updates the tag and sends out an email to the resource owner. The REST queries for Azure Active Directory are mocked out for simplicity. Azure AD can also be integrated using the [Azure AD PowerShell module](/powershell/module/azuread/?view=azureadps-2.0)."
             },
             "sample_code": true,
-            "github_url": "https://github.com/mspnp/serverless-automation/blob/master/src/automation/cost-center/deployment.md",
+            "github_url": "https://github.com/mspnp/serverless-automation/blob/main/src/automation/cost-center/deployment.md",
             "code_languages": [
                 "json"
             ],
@@ -4520,7 +4475,6 @@
             "image": "/azure/architecture/reference-architectures/hybrid-networking/images/expressroute.png",
             "imagepath": "C:\\jvPnpRepos\\architecture-center-pr\\docs\\reference-architectures\\hybrid-networking\\images\\expressroute.png",
             "publish_date": "7/23/2019",
-            "deployable": "https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fmspnp%2Freference-architectures%2Fmaster%2Fhybrid-networking%2Fexpressroute%2Fazuredeploy.json",
             "sample_code": true,
             "github_url": "https://github.com/mspnp/template-building-blocks/wiki",
             "visio_diagram": "https://arch-center.azureedge.net/hybrid-network-architectures.vsdx",
@@ -4556,7 +4510,7 @@
             "imagepath": "C:\\jvPnpRepos\\architecture-center-pr\\docs\\reference-architectures\\hybrid-networking\\images\\vpn.png",
             "publish_date": "1/24/2020",
             "sample_code": true,
-            "github_url": "https://github.com/mspnp/reference-architectures/blob/master/hybrid-networking/vpn/README.md",
+            "github_url": "https://github.com/mspnp/samples/blob/master/solutions/secure-hybrid-network/README.md",
             "visio_diagram": "https://arch-center.azureedge.net/hybrid-network-architectures.vsdx",
             "name": "vpn",
             "popularity": 227,
@@ -4677,7 +4631,7 @@
             "word_count": 148,
             "read_time": "1 min read",
             "Title": "FAQ Chatbot with data champion model",
-            "MetaDescription": "The QnA Maker tool makes it super easy for the content owners to maintain their knowledge base of QnAs. Combined with Bot Service and LUIS, it's easy to setup an FAQ chatbot which responds from differnet knowledge bases depending on the intent of the query.",
+            "MetaDescription": "The QnA Maker tool makes it super easy for the content owners to maintain their knowledge base of QnAs. Combined with Bot Service and LUIS, it's easy to setup an FAQ chatbot which responds from different knowledge bases depending on the intent of the query.",
             "category": [
                 "ai-machine-learning"
             ],
@@ -5993,7 +5947,7 @@
         },
         {
             "tags": [
-                "'https:--azure.microsoft.com-solutions-architecture-information-discovery-with-deep-learning-and-nlp-'",
+                "'https:--azure.microsoft.com-solutions-architecture-website-content-tag-suggestion-with-deep-learning-and-nlp-'",
                 "acom-architecture",
                 "ai-ml",
                 "all-items",
@@ -6007,30 +5961,28 @@
                 "solution-idea"
             ],
             "type": "solution-idea",
-            "file_url": "solution-ideas/articles/information-discovery-with-deep-learning-and-nlp.md",
-            "http_url": "/azure/architecture/solution-ideas/articles/information-discovery-with-deep-learning-and-nlp",
+            "file_url": "solution-ideas/articles/website-content-tag-suggestion-with-deep-learning-and-nlp.md",
+            "http_url": "/azure/architecture/solution-ideas/articles/website-content-tag-suggestion-with-deep-learning-and-nlp",
             "word_count": 391,
             "read_time": "2 min read",
-            "Title": "Information discovery with deep learning and NLP",
+            "Title": "Suggest content tags with deep learning and NLP",
             "MetaDescription": "See how deep learning and natural language processing can be used effectively with the Microsoft AI platform.",
             "category": [
                 "ai-machine-learning"
             ],
-            "image": "/azure/architecture/solution-ideas/media/information-discovery-with-deep-learning-and-nlp.png",
-            "imagepath": "C:\\jvPnpRepos\\architecture-center-pr\\docs\\solution-ideas\\media\\information-discovery-with-deep-learning-and-nlp.png",
+            "image": "/azure/architecture/solution-ideas/media/website-content-tag-suggestion-with-deep-learning-and-nlp.png",
+            "imagepath": "C:\\jvPnpRepos\\architecture-center-pr\\docs\\solution-ideas\\media\\website-content-tag-suggestion-with-deep-learning-and-nlp.png",
             "publish_date": "12/16/2019",
             "components": [
                 "<p>Microsoft SQL Server: Data is stored, structured, and indexed using Microsoft SQL Server.</p>",
                 "<p>GPU based Azure Data Science Virtual Machine: The core development environment is the Microsoft Windows Server 2016 GPU DSVM NC24.</p>",
-                "<p>Azure Machine Learning Workbench: The Workbench is used for data cleaning and transformation, and it serves as the primary interface to the Experimentation and Model Management services.</p>",
-                "<p>Azure Machine Learning Experimentation Service: The Experimentation Service is used for model training, including hyperparameter tuning.</p>",
-                "<p>Azure Machine Learning Model Management Service: The Model Management service is used for deployment of the final model, including scaling out to a Kubernetes-managed Azure cluster.</p>",
+                "<p>Azure Machine Learning: Used for model training, including hyperparameter tuning, and deployment of the final model, including scaling out to a Kubernetes-managed Azure cluster.</p>",
                 "<p>Jupyter Notebooks on Azure Data Science VM: Jupyter Notebooks is used as the base IDE for the model, which was developed in Python.</p>",
                 "<p>Azure Container Registry: The Model Management Service creates and packages real-time web services as Docker containers. These containers are uploaded and registered via Azure Container Registry.</p>",
                 "<p><a href=\"https://azure.microsoft.com/services/kubernetes-service\">Azure Kubernetes Service (AKS)</a>: Deployment for this solution uses Azure Kubernetes Service running a Kubernetes-managed cluster. The containers are deployed from images stored in Azure Container Registry.</p>"
             ],
             "Summary": "<p>Social sites, forums, and other text-heavy Q&amp;A services rely heavily on tagging, which enables indexing and user search. Without appropriate tagging, these sites are far less effective. Often, however, tagging is left to the users' discretion. And since users don't have lists of commonly searched terms or a deep understanding of the categorization or information architecture of a site, posts are frequently mislabeled. This makes it difficult or impossible to find that content when it's needed later.</p>\n<p>By combining deep learning and natural language processing (NLP) with data on site-specific search terms, this solution helps greatly improve tagging accuracy on your site. As your user types their post, it offers highly used terms as suggested tags, making it easier for others to find the information they're providing.</p>",
-            "name": "information-discovery-with-deep-learning-and-nlp",
+            "name": "website-content-tag-suggestion-with-deep-learning-and-nlp",
             "popularity": 107,
             "topic": "AI + Machine Learning"
         },
@@ -6325,13 +6277,13 @@
             "http_url": "/azure/architecture/solution-ideas/articles/interactive-voice-response-bot",
             "word_count": 485,
             "read_time": "3 min read",
-            "Title": "Interactive Voice Response Bot",
+            "Title": "Interactive voice response app with bot",
             "MetaDescription": "This solution creates an intelligent interactive voice response (IVR) application that processes customer order requests for bicycles and bicycle accessories. Businesses with no existing IVR solution can easily get started automating requests, or, where existing human-operated systems exist, this solution can be extended to incorporate existing functionality and workflows.",
             "category": [
                 "ai-machine-learning"
             ],
-            "image": "/azure/architecture/solution-ideas/media/interactive-voice-response-bot.png",
-            "imagepath": "C:\\jvPnpRepos\\architecture-center-pr\\docs\\solution-ideas\\media\\interactive-voice-response-bot.png",
+            "image": "/azure/architecture/solution-ideas/media/interactive-voice-response-app-bot.png",
+            "imagepath": "C:\\jvPnpRepos\\architecture-center-pr\\docs\\solution-ideas\\media\\interactive-voice-response-app-bot.png",
             "publish_date": "12/16/2019",
             "Summary": "<p>This solution creates an intelligent interactive voice response (IVR) application that processes customer order requests for bicycles and bicycle accessories. Businesses with no existing IVR solution can easily get started automating requests, or, where existing human-operated systems exist, this solution can be extended to incorporate existing functionality and workflows.</p>",
             "sample_code": true,
@@ -7085,7 +7037,7 @@
         },
         {
             "tags": [
-                "'https:--azure.microsoft.com-solutions-architecture-machine-learning-with-aks-'",
+                "'https:--azure.microsoft.com-solutions-architecture-machine-learning-model-deployment-aks-'",
                 "acom-architecture",
                 "ai-ml",
                 "all-items",
@@ -7098,8 +7050,8 @@
                 "solution-idea"
             ],
             "type": "solution-idea",
-            "file_url": "solution-ideas/articles/machine-learning-with-aks.md",
-            "http_url": "/azure/architecture/solution-ideas/articles/machine-learning-with-aks",
+            "file_url": "solution-ideas/articles/machine-learning-model-deployment-aks.md",
+            "http_url": "/azure/architecture/solution-ideas/articles/machine-learning-model-deployment-aks",
             "word_count": 138,
             "read_time": "1 min read",
             "Title": "Machine Learning model training with AKS",
@@ -7108,10 +7060,10 @@
                 "ai-machine-learning",
                 "containers"
             ],
-            "image": "/azure/architecture/solution-ideas/media/machine-learning-with-aks.png",
-            "imagepath": "C:\\jvPnpRepos\\architecture-center-pr\\docs\\solution-ideas\\media\\machine-learning-with-aks.png",
+            "image": "/azure/architecture/solution-ideas/media/machine-learning-model-deployment-to-aks.png",
+            "imagepath": "C:\\jvPnpRepos\\architecture-center-pr\\docs\\solution-ideas\\media\\machine-learning-model-deployment-to-aks.png",
             "publish_date": "12/16/2019",
-            "Summary": "<p>Training of models using large datasets is a complex and resource intensive task. Use familiar tools such as TensorFlow and Kubeflow to simplify training of Machine Learning models. Your ML models will run in AKS clusters backed by GPU enabled VMs.</p>",
+            "Summary": "<p>Deploy machine learning models on Azure Kubernetes Service (AKS) for high-scale production inference. Use familiar tools such as Kubeflow to simplify deployment of Machine Learning models. Your ML models will run in AKS clusters backed by GPU enabled VMs.</p>",
             "Flow": {
                 "FlowStep_A": "Package ML model into a container and publish to ACR",
                 "FlowStep_B": "Azure Blob storage hosts training data sets and trained model",
@@ -7119,7 +7071,7 @@
                 "FlowStep_D": "Serve production model using Kubeflow, promoting a consistent environment across test, control and production",
                 "FlowStep_E": "AKS supports GPU enabled VM"
             },
-            "name": "machine-learning-with-aks",
+            "name": "machine-learning-model-deployment-aks",
             "popularity": 91,
             "topic": "AI + Machine Learning"
         },
@@ -7297,8 +7249,8 @@
                 "pricing-guidance"
             ],
             "type": "example-workload",
-            "file_url": "example-scenario/ai/newsfeed-ingestion.md",
-            "http_url": "/azure/architecture/example-scenario/ai/newsfeed-ingestion",
+            "file_url": "example-scenario/ai/news-feed-ingestion-and-near-real-time-analysis.md",
+            "http_url": "/azure/architecture/example-scenario/ai/news-feed-ingestion-and-near-real-time-analysis",
             "word_count": 1334,
             "read_time": "5 min read",
             "Title": "Mass ingestion and analysis of news feeds on Azure",
@@ -7324,7 +7276,7 @@
             },
             "sample_code": true,
             "github_url": "https://github.com/Azure/cognitive-services",
-            "name": "newsfeed-ingestion",
+            "name": "news-feed-ingestion-and-near-real-time-analysis",
             "popularity": 69,
             "topic": "Analytics"
         },
@@ -7714,8 +7666,8 @@
                 "shell"
             ],
             "type": "example-workload",
-            "file_url": "example-scenario/ai/movie-recommendations.md",
-            "http_url": "/azure/architecture/example-scenario/ai/movie-recommendations",
+            "file_url": "example-scenario/ai/movie-recommendations-with-machine-learning.md",
+            "http_url": "/azure/architecture/example-scenario/ai/movie-recommendations-with-machine-learning",
             "word_count": 937,
             "read_time": "4 min read",
             "Title": "Movie recommendations on Azure",
@@ -7741,7 +7693,7 @@
             "code_languages": [
                 "shell"
             ],
-            "name": "movie-recommendations",
+            "name": "movie-recommendations-with-machine-learning",
             "popularity": 76,
             "topic": "AI + Machine Learning"
         },
@@ -9087,8 +9039,8 @@
                 "reference-architecture"
             ],
             "type": "reference-architecture",
-            "file_url": "reference-architectures/ai/realtime-scoring-python.md",
-            "http_url": "/azure/architecture/reference-architectures/ai/realtime-scoring-python",
+            "file_url": "reference-architectures/ai/real-time-scoring-machine-learning-models.md",
+            "http_url": "/azure/architecture/reference-architectures/ai/real-time-scoring-machine-learning-models",
             "word_count": 1980,
             "read_time": "8 min read",
             "Title": "Real-time scoring of Python models",
@@ -9117,7 +9069,7 @@
             },
             "sample_code": true,
             "github_url": "https://github.com/Microsoft/MLAKSDeployAML",
-            "name": "realtime-scoring-python",
+            "name": "real-time-scoring-machine-learning-models",
             "popularity": 148,
             "topic": "AI + Machine Learning"
         },
@@ -10326,8 +10278,8 @@
                 "pricing-guidance"
             ],
             "type": "example-workload",
-            "file_url": "example-scenario/ai/scalable-personalization.md",
-            "http_url": "/azure/architecture/example-scenario/ai/scalable-personalization",
+            "file_url": "example-scenario/ai/scalable-personalization-with-content-based-recommendation-system.md",
+            "http_url": "/azure/architecture/example-scenario/ai/scalable-personalization-with-content-based-recommendation-system",
             "word_count": 1584,
             "read_time": "6 min read",
             "Title": "Scalable personalization on Azure",
@@ -10344,7 +10296,7 @@
             "Summary": "<p>Recommendations are a main revenue driver for many businesses and are used in different kinds of industries, including retail, news, and media. With the availability of large amounts of data, you can now provide highly relevant recommendations using machine learning.</p>\n<p>There are two main types of recommendation systems: collaborative filtering and content-based. Collaborative filtering identifies similar patterns in customer behavior and recommends items that other similar customers have interacted with. Content-based recommendation uses information about the items to learn customer preferences and recommends items that share properties with items that a customer has previously interacted with. The approach described in this document focuses on the content-based recommendation system.</p>\n<p>This example scenario shows how your business can use machine learning to automate content-based personalization for your customers. At a high level, we use <a href=\"https://azure.microsoft.com/services/databricks\">Azure Databricks</a> to train a model that predicts the probability a user will engage with an item. That model is deployed to production as a prediction service using <a href=\"https://azure.microsoft.com/services/kubernetes-service\">Azure Kubernetes Service</a>. In turn, you can use this prediction to create personalized recommendations by ranking items based on the content that a user is most likely to consume.</p>",
             "sample_code": true,
             "github_url": "https://github.com/Microsoft/Recommenders/blob/master/SETUP.md#setup-guide-for-azure-databricks",
-            "name": "scalable-personalization",
+            "name": "scalable-personalization-with-content-based-recommendation-system",
             "popularity": 38,
             "topic": "AI + Machine Learning"
         },
@@ -11165,8 +11117,8 @@
                 "reference-architecture"
             ],
             "type": "reference-architecture",
-            "file_url": "reference-architectures/ai/speech-ai-ingestion.md",
-            "http_url": "/azure/architecture/reference-architectures/ai/speech-ai-ingestion",
+            "file_url": "reference-architectures/ai/speech-to-text-transcription-pipeline.md",
+            "http_url": "/azure/architecture/reference-architectures/ai/speech-to-text-transcription-pipeline",
             "word_count": 1651,
             "read_time": "7 min read",
             "Title": "Speech-to-text conversion",
@@ -11174,13 +11126,13 @@
             "category": [
                 "ai-machine-learning"
             ],
-            "image": "/azure/architecture/reference-architectures/ai/_images/audio-files-upload.png",
-            "imagepath": "C:\\jvPnpRepos\\architecture-center-pr\\docs\\reference-architectures\\ai\\_images\\audio-files-upload.png",
+            "image": "/azure/architecture/reference-architectures/ai/_images/speech-to-text-audio-files-upload.png",
+            "imagepath": "C:\\jvPnpRepos\\architecture-center-pr\\docs\\reference-architectures\\ai\\_images\\speech-to-text-audio-files-upload.png",
             "publish_date": "3/25/2020",
             "Summary": "<p>Customer care centers are an integral part of the success of many businesses. You can improve the efficiency of your call centers by using speech AI. Speech recognition and the analysis of high volumes of recorded customer calls can provide your business with valuable information about current trends, product shortcomings, and successes. Enterprise solutions that use the Speech APIs of Azure Cognitive Services can be implemented to consume and process such high volumes of discrete data.</p>\n<p>The reference architecture described in this article shows how to build an audio ingestion and speech-to-text transcription pipeline for customer care centers. This pipeline processes batches of recorded audio files and stores the transcribed text files in Azure Blob storage. This architecture doesn't implement real-time speech processing.</p>\n<p>This pipeline can later feed into the next phase of your speech AI implementation. In that phase, you can process transcribed text to recognize and remove sensitive information, perform sentiment analysis, and so on.</p>\n<p>The reference implementation for this architecture is available on <a href=\"https://github.com/mspnp/cognitive-services-reference-implementation\">GitHub</a>.</p>",
             "sample_code": true,
             "github_url": "https://github.com/mspnp/cognitive-services-reference-implementation",
-            "name": "speech-ai-ingestion",
+            "name": "speech-to-text-transcription-pipeline",
             "popularity": 0,
             "topic": "AI + Machine Learning"
         },

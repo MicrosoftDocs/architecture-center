@@ -1,23 +1,24 @@
 ### YamlMime:Architecture
 metadata:
-  title: MCAS and Azure Sentinel for Amazon Web Services (AWS)
+  title: Defender for Cloud Apps and Microsoft Sentinel for AWS
   titleSuffix: Azure Solution Ideas
-  description: Learn how Microsoft Cloud App Security (MCAS) and Azure Sentinel can help secure and protect Amazon Web Services (AWS) account access and environments.
-  author: doodlemania2
+  description: Learn how Microsoft Defender for Cloud Apps and Microsoft Sentinel can help secure and protect Amazon Web Services (AWS) account access and environments.
+  author: EdPrice-MSFT
+  ms.author: pnp
   ms.date: 12/10/2020
   ms.topic: conceptual
   ms.service: architecture-center
   ms.subservice: reference-architecture
-  ms.custom: fcp
+  ms.custom:
+    - fcp
 name: Azure security solutions for AWS
 azureCategories:
   - security
-summary: Learn how Microsoft Cloud App Security (MCAS) and Azure Sentinel can help secure and protect Amazon Web Services (AWS) account access and environments.
+summary: Learn how Microsoft Defender for Cloud Apps and Microsoft Sentinel can help secure and protect Amazon Web Services (AWS) account access and environments.
 products:
   - azure
   - azure-sentinel
   - m365-ems-cloud-app-security
 thumbnailUrl: /azure/architecture/browse/thumbs/benefits.png
 content: |
-   [!include[](aws-azure-security-solutions-content.md)]
-
+   [!INCLUDE[](aws-azure-security-solutions-content.md)]

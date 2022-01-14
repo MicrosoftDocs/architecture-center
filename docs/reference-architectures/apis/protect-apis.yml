@@ -1,0 +1,25 @@
+### YamlMime:Architecture
+metadata:
+  title: Protect APIs with Azure Application Gateway and Azure API Management
+  titleSuffix: Azure Reference Architectures
+  description: See how to protect APIs with API Management and Application Gateway.
+  author: fabriciosanchez
+  ms.author: fabriciosanchez
+  ms.date: 05/07/2021
+  ms.topic: conceptual
+  ms.service: architecture-center
+  ms.subservice: reference-architecture
+  ms.custom:
+    - reference-architecture
+    - fcp
+azureCategories:
+  - web
+  - security
+products:
+  - azure-api-management
+  - azure-application-gateway
+name: Protect APIs with Application Gateway and API Management
+summary: Learn how to protect APIs with APIM and Application Gateway.
+thumbnailUrl: /azure/architecture/browse/thumbs/protect-apis.png
+content: |
+  [!include[](protect-apis-content.md)]

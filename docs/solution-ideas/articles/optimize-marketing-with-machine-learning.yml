@@ -1,18 +1,27 @@
 ### YamlMime:Architecture
 metadata:
-  title: Optimize Marketing with Machine Learning
+  title: Optimize marketing with machine learning
   titleSuffix: Azure Solution Ideas
-  author: doodlemania2
-  ms.date: 12/16/2019
-  description: Build a machine-learning model with SQL Server 2016 with R Services that optimizes big data marketing campaigns.
-  ms.custom: 'acom-architecture, machine learning r, ai-ml, machine learning in marketing, machine learning marketing, ''https://azure.microsoft.com/solutions/architecture/optimize-marketing-with-machine-learning/'''
+  description: Build a machine-learning model with Azure Machine Learning, Azure Synapse Analytics and Power BI that optimizes big data marketing campaigns.
+  author: nfmoore
+  ms.author: pnp
+  ms.date: 02/24/2021
+  ms.topic: conceptual
   ms.service: architecture-center
+  ms.subservice: solution-idea
   ms.category:
     - ai-machine-learning
     - analytics
-  ms.subservice: solution-idea
+  ms.custom:
+    - acom-architecture
+    - machine learning r
+    - ai-ml
+    - machine learning in marketing
+    - machine learning marketing
+    - "https://azure.microsoft.com/solutions/architecture/optimize-marketing-with-machine-learning/"
+    - ai-machine-learning
   social_image_url: /azure/architecture/solution-ideas/articles/media/optimize-marketing-with-machine-learning.png
-name: Optimize Marketing with Machine Learning
+name: Optimize marketing with machine learning
 azureCategories:
   - ai-machine-learning
   - analytics
@@ -23,4 +32,4 @@ products:
   - sql-server
 thumbnailUrl: /azure/architecture/browse/thumbs/optimize-marketing-with-machine-learning.png
 content: |
-   [!include[](optimize-marketing-with-machine-learning-content.md)]
+  [!include[](optimize-marketing-with-machine-learning-content.md)]

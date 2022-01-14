@@ -1,36 +1,33 @@
 ### YamlMime:Architecture
 metadata:
   title: Run SAP NetWeaver in Windows on Azure
-  description: Learn proven practices for running SAP NetWeaver in a Windows environment on Azure with high availability.
-  author: lbrader
-  ms.date: 02/19/2020
+  description: Learn proven practices for running SAP NetWeaver in a Windows environment on Azure, with high availability.
+  author: bqtrinh
+  ms.author: bentrin
+  ms.date: 12/21/2021
   ms.topic: conceptual
   ms.service: architecture-center
+  ms.subservice: reference-architecture
   ms.category:
     - databases
     - management-and-governance
-  ms.subservice: reference-architecture
   ms.custom:
-    - seodec18
     - SAP
     - Windows
     - fcp
     - reference-architecture
+    - e2e-sap
 name: Run SAP NetWeaver in Windows on Azure
 azureCategories:
   - databases
   - management-and-governance
-summary: Learn proven practices for running SAP NetWeaver in a Windows environment on Azure with high availability.
+summary: Learn proven practices for running SAP NetWeaver in a Windows environment on Azure, with high availability.
 products:
-  - azure-backup
-  - azure-bastion
   - azure-expressroute
-  - azure-load-balancer
-  - azure-monitor
   - azure-sap
-  - azure-storage
   - azure-virtual-machines
   - azure-virtual-network
+  - azure-netapp-files
 thumbnailUrl: /azure/architecture/browse/thumbs/sap-netweaver.png
 content: |
    [!include[](sap-netweaver-content.md)]

@@ -1,6 +1,3 @@
-
-
-
 [!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
 Containers make it easy for you to continuously build and deploy your applications. By orchestrating deployment of those containers using Kubernetes in Azure Kubernetes Service (AKS), you can achieve replicable, manageable clusters of containers.
@@ -12,7 +9,7 @@ By setting up a continuous build to produce your container images and orchestrat
 ![Architecture diagram](../media/cicd-for-containers.png)
 *Download an [SVG](../media/cicd-for-containers.svg) of this architecture.*
 
-## Data Flow
+### Data flow
 
 1. Change application source code
 1. Commit Application Code
@@ -25,12 +22,16 @@ By setting up a continuous build to produce your container images and orchestrat
 1. Review health, performance and usage information
 1. Update backlog item
 
-## Components
+### Components
 
 * [Container Registry](https://azure.microsoft.com/services/container-registry): Store and manage container images across all types of Azure deployments
 * [Azure Kubernetes Service (AKS)](https://azure.microsoft.com/services/kubernetes-service): Simplify the deployment, management, and operations of Kubernetes
 * Application Insights: Detect, triage, and diagnose issues in your web apps and services
 * [Azure DevOps](https://azure.microsoft.com/services/devops): Build and deploy multi-platform apps to get the most from Azure services
+
+## Pricing calculator
+
+* [Customize and get pricing estimates](https://azure.com/e/91c84e39f4df46afaf6c6c433b2c7d78)
 
 ## Next steps
 
@@ -38,7 +39,3 @@ By setting up a continuous build to produce your container images and orchestrat
 * [Authenticate Azure Kubernetes Service (AKS) cluster to Azure Container Registry](/azure/container-registry/container-registry-auth-aks)
 * [Performance monitoring with Application Insights](/azure/application-insights/app-insights-detect-triage-diagnose)
 * [Git on Azure DevOps](/vsts/git/gitquickstart?tabs=visual-studio)
-
-## Pricing Calculator
-
-* [Customize and get pricing estimates](https://azure.com/e/91c84e39f4df46afaf6c6c433b2c7d78)

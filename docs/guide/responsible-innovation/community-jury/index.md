@@ -1,43 +1,51 @@
 ---
-title: Community Jury
+title: Community jury
 titleSuffix: Azure Application Architecture Guide
-description: This technique allows project teams to understand the perceptions and concerns of stakeholders.
+description: Learn about the Community jury stakeholder collaboration technique that allows project teams to understand the perceptions and concerns of stakeholders.
 author: dcass
 ms.date: 05/18/2020
 ms.topic: conceptual
 ms.service: architecture-center
+ms.subservice: guide
 ms.category:
   - fcp
-ms.subservice: guide
 ms.custom:
   - guide
+  - seo-aac-fy21q3
+keywords:
+  - community jury
+  - stakeholder collaboration
+  - citizen jury
+  - effective collaboration
+  - jury solutions
+  - collaborative solutions
 ---
 
-# Community Jury
+# Community jury
 
-Community jury, an adaptation of the [citizen jury](https://jefferson-center.org/about-us/how-we-work/), is a technique where diverse stakeholders impacted by a technology are provided an opportunity to learn about a project, deliberate together, and give feedback on use cases and product design. This technique allows project teams to understand the perceptions and concerns of impacted stakeholders.
+*Community jury*, an adaptation of the [citizen jury](https://jefferson-center.org/about-us/how-we-work/), is a technique where diverse stakeholders impacted by a technology are provided an opportunity to learn about a project, deliberate together, and give feedback on use cases and product design. This technique allows project teams to understand the perceptions and concerns of impacted stakeholders for effective collaboration.
 
-A community jury is different from a focus group or market research; it allows the impacted stakeholders to hear directly from the subject matter experts in the product team, and cocreate solutions to challenging problems with them.
+A community jury is different from a focus group or market research; it allows the impacted stakeholders to hear directly from the subject matter experts in the product team, and cocreate collaborative solutions to challenging problems with them.
 
 ## Benefits
 
 This section discusses some important benefits of community jury.
 
-### Expert Testimony
+### Expert testimony
 
 Members of a community jury hear details about the technology under consideration, directly from experts on the product team. These experts help highlight the capabilities in particular applications.
 
 ### Proximity
 
-A community jury allows decision-makers to hear directly from the community, and to learn about their values, concerns, and ideas regarding a particular issue or problem. It also provides a valuable opportunity to better understand the reasons for their conclusions. 
+A community jury allows decision-makers to hear directly from the community, and to learn about their values, concerns, and ideas regarding a particular issue or problem. It also provides a valuable opportunity to better understand the reasons for their conclusions.
 
 ### Consensus
 
-By bringing impacted individuals together and providing an opportunity for them to learn and discuss key aspects of the technology, a community jury can identify areas of agreement and build common ground solutions to challenging problems.
+By bringing impacted individuals together and providing collaborative solutions and an opportunity for them to learn and discuss key aspects of the technology, a community jury can identify areas of agreement and build common ground solutions to challenging problems.
 
 ## Community jury contributors
 
-### Product Team
+### Product team
 
 This group comprises owners who will bring the product to market, representative project managers, engineers, designers, data scientists, and others involved in the making of a product. Additionally, subject matter experts are included who can answer in-depth questions about the product.
 
@@ -49,9 +57,9 @@ Relevant artifacts could include:
 
 - Documentation of existing protections, planned or in place.
 - Data Flows, for example, what data types collected, who will have access, for how long, with what protections, and so on.
-- Mockups or prototypes of proposed solutions.
+- Mockups or prototypes of proposed stakeholder collaborative solutions.
 
-#### During the Session
+#### During the session
 
 Along with providing an accessible presentation of technical details, product team witnesses should describe certain applications of the technology.
 
@@ -60,23 +68,23 @@ Relevant artifacts could include:
 - Customer benefits
 - Harms assessment and socio-technical impact
 - Storyboards
-- Competitive analyses
+- Competitive solutions and analyses
 - Academic or popular media reports
 
 ### Moderator
 
-Bring on a neutral user researcher to ensure everyone is heard, avoiding domination of the communications by any one member. The moderator will facilitate brainstorms and deliberations, as well as educate jury members in uncovering bias, and ways to ask difficult questions. If a user researcher is not available, choose a moderator who is skilled at facilitating group discussions. Following the session, the moderator is responsible for the following: 
-  
-  - ensure that the agreed-upon compensation is provided to the jury members; 
-  - produce a report that describes key insights, concerns, and recommendations, and 
+Bring on a neutral user researcher to ensure everyone is heard, avoiding domination of the communications by any one member. The moderator will facilitate brainstorms and deliberations, as well as educate jury members in uncovering bias, and ways to ask difficult questions. If a user researcher is not available, choose a moderator who is skilled at facilitating group discussions. Following the session, the moderator is responsible for the following:
+
+  - ensure that the agreed-upon compensation is provided to the jury members;
+  - produce a report that describes key insights, concerns, and recommendations, and
   - share key insights and next steps with the jury, and thank them for their participation.
 
 #### Preparation
 
 - Structure the sessions so that there is ample time for learning, deliberation, and cocreation. This could mean having multiple sessions that go in-depth on different topics or having longer sessions.
-- Pilot the jury with a smaller sample of community members to work out the procedural and content issues prior to the actual sessions. 
+- Pilot the jury with a smaller sample of community members to work out the procedural and content issues prior to the actual sessions.
 
-#### During the Session
+#### During the session
 
 - Ensure that all perspectives are heard, including those of the project team and those of the jury members. This minimizes group-thinking as well as one or two individuals dominating the discussion.
 - Reinforce the value of the juror participation by communicating the plan for integrating jury feedback into the product planning process. Ensure that the project team is prepared to hear criticisms from the jury.
@@ -97,24 +105,24 @@ Stratify a randomly selected participant pool so that the jury includes the demo
 
 Sessions typically last 2-3 hours. Add more or longer deep dive sessions, as needed, if aspects of the project require more learning, deliberation, and cocreation.
 
-1. **Overview, introduction, and Q&A** - The moderator provides a session overview, then introduces the project team and explains the product's purpose, along with potential use cases, benefits, and harms. Questions are then accepted from community members. This session should be between 30 to 60 minutes long.
+1. **Overview, introduction, and Q&A:** The moderator provides a session overview, then introduces the project team and explains the product's purpose, along with potential use cases, benefits, and harms. Questions are then accepted from community members. This session should be between 30 to 60 minutes long.
 
-1. **Discussion of key themes** - Jury members ask in-depth questions about aspects of the project, fielded by the moderator. This session should also be between 30 to 60 minutes in length.
+1. **Discussion of key themes:** Jury members ask in-depth questions about aspects of the project, fielded by the moderator. This session should also be between 30 to 60 minutes in length.
 
 1. This step can be any one of the following options:
-  
-    - **Deliberation and cocreation** - This option is preferable. Jury members deliberate and co-create solutions with the project team. This is typically 30 to 60 minutes long.
-    - **Individual anonymous survey** - Alternatively, conduct an anonymous survey of jury members. Anonymity may allow issues to be raised that would not otherwise be expressed. Use this 30-minute session if there are time constraints.
 
-1. **Following the session** - The moderator produces a study report that describes key insights, concerns, and potential solutions to the concerns.
+    - **Deliberation and cocreation:** This option is preferable. Jury members deliberate and co-create effective collaboration solutions with the project team. This is typically 30 to 60 minutes long.
+    - **Individual anonymous survey:** Alternatively, conduct an anonymous survey of jury members. Anonymity may allow issues to be raised that would not otherwise be expressed. Use this 30-minute session if there are time constraints.
 
-If the values of different stakeholders were in conflict with each other during the session and the value tensions were left unresolved, the product team would need to brainstorm solutions, and conduct a follow-up session with the jury to determine if the solutions adequately resolve their concerns. 
+1. **Following the session:** The moderator produces a study report that describes key insights, concerns, and potential solutions to the concerns.
 
-## Tips to run a successful jury
+If the values of different stakeholders were in conflict with each other during the session and the value tensions were left unresolved, the product team would need to brainstorm solutions, and conduct a follow-up session with the jury to determine if the solutions adequately resolve their concerns.
+
+## Tips to run a successful, effective, and collaborative jury
 
 - Ensure alignment of goals and outcomes with the project team before planning begins, including deliverables, recruitment strategy, and timeline. Consider including additional subject-matter experts relevant to the project, to address open questions/concerns.
 - The consent to audio and video recording of the jury should follow your company's standard procedures for non-disclosure and consent that is obtained from participants during user research studies.
-- Provide fair compensation to participants for the time they devote to participation. Whenever possible, participants should also be reimbursed for costs incurred as a result of study participation, for example, parking and transportation costs. Experienced user research recruiters can help determine fair gratuities for various participant profiles. 
+- Provide fair compensation to participants for the time they devote to participation. Whenever possible, participants should also be reimbursed for costs incurred as a result of study participation, for example, parking and transportation costs. Experienced user research recruiters can help determine fair gratuities for various participant profiles.
 - Ensure that all perspectives are heard, minimizing group-thinking as well as one or two individuals dominating the discussion. This should include those of the project team and the jury members.
 - Structure the sessions so that there is ample time for learning, deliberation, and cocreation. This could mean having multiple sessions going in-depth on different topics or having longer sessions.
 - Pilot the jury with a smaller sample of community members to work out the procedural and content issues prior to the actual sessions.
@@ -125,7 +133,7 @@ If the values of different stakeholders were in conflict with each other during 
 
 ## Additional information
 
-### Privacy Index
+### Privacy index
 
 The [Privacy Index](http://reports-archive.adm.cs.cmu.edu/anon/anon/home/ftp/usr0/ftp/isri2005/CMU-ISRI-05-138.pdf) is an approximate measure for an individual's concern about personal data privacy, and is gauged using the following:
 
@@ -153,4 +161,3 @@ Explore the following references for detailed information on this method:
   - [Jury specification](https://www.connectedhealthcities.org/wp-content/uploads/2018/06/A1-Reasonable-expectations-citizens-jury-specification-v1.pdf)
   - [Juror's report](https://www.connectedhealthcities.org/wp-content/uploads/2018/06/C1-NDG-CJ-jurors-report-final.pdf)
 - Case study: [Community Jury at Microsoft](https://hits.microsoft.com/Study/6014413)
-

@@ -1,0 +1,26 @@
+### YamlMime:Architecture
+metadata:
+  title: Consumer health portal on Azure
+  description: In this example scenario, explore an Azure architecture for a consumer health portal in a digital health solution.
+  author: matthansen0
+  ms.author: mahans
+  ms.date: 02/12/2021
+  ms.topic: conceptual
+  ms.service: architecture-center
+  ms.subservice: example-scenario
+  ms.category:
+    - web
+  ms.custom:
+    - fcp
+    - example-scenario
+name: Consumer health portal on Azure
+azureCategories:
+  - web
+summary: Describes an architecture for consumer health portal in a digital health solution.
+products:
+  - azure-app-service
+  - azure-functions
+  - azure-web-application-firewall
+thumbnailUrl: /azure/architecture/browse/thumbs/consumer_health_portal.png
+content: |
+   [!include[](health-portal-content.md)]

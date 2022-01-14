@@ -1,20 +1,30 @@
 ---
-title: API design guidance
-titleSuffix: Best practices for cloud applications
-description: Web applications can expose APIs so clients to interact with the application. Well-designed web APIs should support platform independence and service evolution.
-author: dragon119
+title: Web API design best practices
+titleSuffix: Azure Architecture Center
+description: Learn the best practices for designing web APIs that support platform independence and service evolution.
+author: EdPrice-MSFT
+ms.author: pnp
 ms.date: 01/12/2018
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: best-practice
+products:
+  - aspnet
+  - seo-aac-fy21q3
 ms.custom:
-  - seodec18
   - best-practice
+keywords:
+  - "What is a web api"
+  - "REST APIs"
+  - "REST web services"
+  - "API design"
+  - "RESTful web services"
+  - "API standards"
 ---
 
 <!-- cSpell:ignore HATEOAS -->
 
-# Web API design
+# RESTful web API design
 
 Most modern web applications expose APIs that clients can use to interact with the application. A well-designed web API should aim to support:
 
@@ -24,9 +34,9 @@ Most modern web applications expose APIs that clients can use to interact with t
 
 This guidance describes issues that you should consider when designing a web API.
 
-## Introduction to REST
+## What is REST?
 
-In 2000, Roy Fielding proposed Representational State Transfer (REST) as an architectural approach to designing web services. REST is an architectural style for building distributed systems based on hypermedia. REST is independent of any underlying protocol and is not necessarily tied to HTTP. However, most common REST implementations use HTTP as the application protocol, and this guide focuses on designing REST APIs for HTTP.
+In 2000, Roy Fielding proposed Representational State Transfer (REST) as an architectural approach to designing web services. REST is an architectural style for building distributed systems based on hypermedia. REST is independent of any underlying protocol and is not necessarily tied to HTTP. However, most common REST API implementations use HTTP as the application protocol, and this guide focuses on designing REST APIs for HTTP.
 
 A primary advantage of REST over HTTP is that it uses open standards, and does not bind the implementation of the API or the client applications to any specific implementation. For example, a REST web service could be written in ASP.NET, and client applications can use any language or toolset that can generate HTTP requests and parse HTTP responses.
 
@@ -74,7 +84,7 @@ In 2008, Leonard Richardson proposed the following [maturity model](https://mart
 
 Level 3 corresponds to a truly RESTful API according to Fielding's definition. In practice, many published web APIs fall somewhere around level 2.
 
-## Organize the API around resources
+## Organize the API design around resources
 
 Focus on the business entities that the web API exposes. For example, in an e-commerce system, the primary entities might be customers and orders. Creating an order can be achieved by sending an HTTP POST request that contains the order information. The HTTP response indicates whether the order was placed successfully or not. When possible, resource URIs should be based on nouns (the resource) and not verbs (the operations on the resource).
 
@@ -109,7 +119,7 @@ Avoid introducing dependencies between the web API and the underlying data sourc
 
 Finally, it might not be possible to map every operation implemented by a web API to a specific resource. You can handle such *non-resource* scenarios through HTTP requests that invoke a function and return the results as an HTTP response message. For example, a web API that implements simple calculator operations such as add and subtract could provide URIs that expose these operations as pseudo resources and use the query string to specify the parameters required. For example, a GET request to the URI */add?operand1=99&operand2=1* would return a response message with the body containing the value 100. However, only use these forms of URIs sparingly.
 
-## Define operations in terms of HTTP methods
+## Define API operations in terms of HTTP methods
 
 The HTTP protocol defines a number of methods that assign semantic meaning to a request. The common HTTP methods used by most RESTful web APIs are:
 
@@ -229,7 +239,7 @@ Here are some typical error conditions that might be encountered when processing
 
 ### DELETE methods
 
-If the delete operation is successful, the web server should respond with HTTP status code 204, indicating that the process has been successfully handled, but that the response body contains no further information. If the resource doesn't exist, the web server can return HTTP 404 (Not Found).
+If the delete operation is successful, the web server should respond with HTTP status code 204 (No Content), indicating that the process has been successfully handled, but that the response body contains no further information. If the resource doesn't exist, the web server can return HTTP 404 (Not Found).
 
 ### Asynchronous operations
 
@@ -479,7 +489,9 @@ As with the previous two approaches, implementing HATEOAS requires including the
 
 ### Media type versioning
 
-When a client application sends an HTTP GET request to a web server it should stipulate the format of the content that it can handle by using an Accept header, as described earlier in this guidance. Frequently the purpose of the *Accept* header is to allow the client application to specify whether the body of the response should be XML, JSON, or some other common format that the client can parse. However, it is possible to define custom media types that include information enabling the client application to indicate which version of a resource it is expecting. The following example shows a request that specifies an *Accept* header with the value *application/vnd.adventure-works.v1+json*. The *vnd.adventure-works.v1* element indicates to the web server that it should return version 1 of the resource, while the *json* element specifies that the format of the response body should be JSON:
+When a client application sends an HTTP GET request to a web server it should stipulate the format of the content that it can handle by using an Accept header, as described earlier in this guidance. Frequently the purpose of the *Accept* header is to allow the client application to specify whether the body of the response should be XML, JSON, or some other common format that the client can parse. However, it is possible to define custom media types that include information enabling the client application to indicate which version of a resource it is expecting.
+
+The following example shows a request that specifies an *Accept* header with the value *application/vnd.adventure-works.v1+json*. The *vnd.adventure-works.v1* element indicates to the web server that it should return version 1 of the resource, while the *json* element specifies that the format of the response body should be JSON:
 
 ```http
 GET https://adventure-works.com/customers/3 HTTP/1.1

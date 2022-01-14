@@ -1,11 +1,14 @@
 ---
 title: Non-relational data and NoSQL
-description: Learn about non-relational databases that store data as key/value pairs, graphs, time series, objects, and other storage models based on data requirements.
-author: zoinerTejada
+description: Learn about non-relational databases that store data as key/value pairs, graphs, time series, objects, and other storage models, based on data requirements.
+author: EdPrice-MSFT
+ms.author: pnp
 ms.date: 02/12/2018
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: azure-guide
+products:
+  - azure-cosmos-db
 ms.custom:
   - guide
 ---
@@ -14,25 +17,25 @@ ms.custom:
 
 A *non-relational database* is a database that does not use the tabular schema of rows and columns found in most traditional database systems. Instead, non-relational databases use a storage model that is optimized for the specific requirements of the type of data being stored. For example, data may be stored as simple key/value pairs, as JSON documents, or as a graph consisting of edges and vertices.
 
-What all of these data stores have in common is that they don't use a [relational model](../index.md). Also, they tend to be more specific in the type of data they support and how data can be queried. For example, time series data stores are optimized for queries over time-based sequences of data, while graph data stores are optimized for exploring weighted relationships between entities. Neither format would generalize well to the task of managing transactional data.
+What all of these data stores have in common is that they don't use a [relational model](../index.md). Also, they tend to be more specific in the type of data they support and how data can be queried. For example, time series data stores are optimized for queries over time-based sequences of data. However, graph data stores are optimized for exploring weighted relationships between entities. Neither format would generalize well to the task of managing transactional data.
 
-The term *NoSQL* refers to data stores that do not use SQL for queries, and instead use other programming languages and constructs to query the data. In practice, "NoSQL" means "non-relational database," even though many of these databases do support SQL-compatible queries. However, the underlying query execution strategy is usually very different from the way a traditional RDBMS would execute the same SQL query.
+The term *NoSQL* refers to data stores that do not use SQL for queries. Instead, the data stores use other programming languages and constructs to query the data. In practice, "NoSQL" means "non-relational database," even though many of these databases do support SQL-compatible queries. However, the underlying query execution strategy is usually very different from the way a traditional RDBMS would execute the same SQL query.
 
 The following sections describe the major categories of non-relational or NoSQL database.
 
 ## Document data stores
 
-A document data store manages a set of named string fields and object data values in an entity referred to as a *document*. These data stores typically store data in the form of JSON documents. Each field value could be a scalar item, such as a number, or a compound element, such as a list or a parent-child collection. The data in the fields of a document can be encoded in a variety of ways, including XML, YAML, JSON, BSON, or even stored as plain text. The fields within documents are exposed to the storage management system, enabling an application to query and filter data by using the values in these fields.
+A document data store manages a set of named string fields and object data values in an entity that's referred to as a *document*. These data stores typically store data in the form of JSON documents. Each field value could be a scalar item, such as a number, or a compound element, such as a list or a parent-child collection. The data in the fields of a document can be encoded in various ways, including XML, YAML, JSON, BSON, or even stored as plain text. The fields within documents are exposed to the storage management system, enabling an application to query and filter data by using the values in these fields.
 
 Typically, a document contains the entire data for an entity. What items constitute an entity are application-specific. For example, an entity could contain the details of a customer, an order, or a combination of both. A single document might contain information that would be spread across several relational tables in a relational database management system (RDBMS). A document store does not require that all documents have the same structure. This free-form approach provides a great deal of flexibility. For example, applications can store different data in documents in response to a change in business requirements.
 
-![Example document data store](./images/document.png)  
+![Example document data store](./images/document.png)
 
-The application can retrieve documents by using the document key. This is a unique identifier for the document, which is often hashed, to help distribute data evenly. Some document databases create the document key automatically. Others enable you to specify an attribute of the document to use as the key. The application can also query documents based on the value of one or more fields. Some document databases support indexing to facilitate fast lookup of documents based on one or more indexed fields.
+The application can retrieve documents by using the document key. The key is a unique identifier for the document, which is often hashed, to help distribute data evenly. Some document databases create the document key automatically. Others enable you to specify an attribute of the document to use as the key. The application can also query documents based on the value of one or more fields. Some document databases support indexing to facilitate fast lookup of documents based on one or more indexed fields.
 
 Many document databases support in-place updates, enabling an application to modify the values of specific fields in a document without rewriting the entire document. Read and write operations over multiple fields in a single document are typically atomic.
 
-Relevant Azure service:  
+Relevant Azure service:
 
 - [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/)
 
@@ -48,11 +51,11 @@ The following diagram shows an example with two column families, `Identity` and 
 
 Unlike a key/value store or a document database, most column-family databases physically store data in key order, rather than by computing a hash. The row key is considered the primary index and enables key-based access via a specific key or a range of keys. Some implementations allow you to create secondary indexes over specific columns in a column family. Secondary indexes let you retrieve data by columns value, rather than row key.
 
-On disk, all of the columns within a column family are stored together in the same file, with a certain number of rows in each file. With large data sets, this approach creates a performance benefit by reducing the amount of data that needs to be read from disk when only a few columns are queried together at a time.
+On disk, all of the columns within a column family are stored together in the same file, with a specific number of rows in each file. With large data sets, this approach creates a performance benefit by reducing the amount of data that needs to be read from disk when only a few columns are queried together at a time.
 
 Read and write operations for a row are typically atomic within a single column family, although some implementations provide atomicity across the entire row, spanning multiple column families.
 
-Relevant Azure service:  
+Relevant Azure service:
 
 - [Cosmos DB Cassandra API](/azure/cosmos-db/cassandra-introduction)
 - [HBase in HDInsight](/azure/hdinsight/hdinsight-hbase-overview)
@@ -73,10 +76,10 @@ Key/value stores are also not optimized for scenarios where querying or filterin
 
 A single key/value store can be extremely scalable, as the data store can easily distribute data across multiple nodes on separate machines.
 
-Relevant Azure services:  
+Relevant Azure services:
 
 - [Azure Cosmos DB Table API](/azure/cosmos-db/table-introduction)
-- [Azure Cache for Redis](https://azure.microsoft.com/services/cache/)  
+- [Azure Cache for Redis](https://azure.microsoft.com/services/cache/)
 - [Azure Table Storage](https://azure.microsoft.com/services/storage/tables/)
 
 ## Graph data stores
@@ -89,9 +92,9 @@ The purpose of a graph data store is to allow an application to efficiently perf
 
 This structure makes it straightforward to perform queries such as "Find all employees who report directly or indirectly to Sarah" or "Who works in the same department as John?" For large graphs with lots of entities and relationships, you can perform complex analyses quickly. Many graph databases provide a query language that you can use to traverse a network of relationships efficiently.
 
-Relevant Azure service:  
+Relevant Azure service:
 
-- [Azure Cosmos DB Graph API](/azure/cosmos-db/graph-introduction)  
+- [Azure Cosmos DB Graph API](/azure/cosmos-db/graph-introduction)
 
 ## Time series data stores
 
@@ -105,7 +108,7 @@ For more information, see [Time series solutions](../scenarios/time-series.md)
 
 Relevant Azure services:
 
-- [Azure Time Series Insights](https://azure.microsoft.com/services/time-series-insights/)  
+- [Azure Time Series Insights](https://azure.microsoft.com/services/time-series-insights/)
 - [OpenTSDB with HBase on HDInsight](/azure/hdinsight/hdinsight-hbase-overview)
 
 ## Object data stores
@@ -114,14 +117,14 @@ Object data stores are optimized for storing and retrieving large binary objects
 
 ![Example of object data](./images/object.png)
 
-Some object data stores replicate a given blob across multiple server nodes, which enables fast parallel reads. This in turn enables the scale-out querying of data contained in large files, because multiple processes, typically running on different servers, can each query the large data file simultaneously.
+Some object data stores replicate a given blob across multiple server nodes, which enables fast parallel reads. This process, in turn, enables the scale-out querying of data contained in large files, because multiple processes, typically running on different servers, can each query the large data file simultaneously.
 
 One special case of object data stores is the network file share. Using file shares enables files to be accessed across a network using standard networking protocols like server message block (SMB). Given appropriate security and concurrent access control mechanisms, sharing data in this way can enable distributed services to provide highly scalable data access for basic, low-level operations such as simple read and write requests.
 
 Relevant Azure services:
 
 - [Azure Blob Storage](https://azure.microsoft.com/services/storage/blobs/)
-- [Azure Data Lake Store](https://azure.microsoft.com/services/data-lake-store/)  
+- [Azure Data Lake Store](https://azure.microsoft.com/services/data-lake-store/)
 - [Azure File Storage](https://azure.microsoft.com/services/storage/files/)
 
 ## External index data stores
@@ -136,7 +139,7 @@ The indexes are created by running an indexing process. This can be performed us
 
 External index data stores are often used to support full text and web-based search. In these cases, searching can be exact or fuzzy. A fuzzy search finds documents that match a set of terms and calculates how closely they match. Some external indexes also support linguistic analysis that can return matches based on synonyms, genre expansions (for example, matching "dogs" to "pets"), and stemming (for example, searching for "run" also matches "ran" and "running").
 
-Relevant Azure service:  
+Relevant Azure service:
 
 - [Azure Search](https://azure.microsoft.com/services/search/)
 
@@ -157,7 +160,7 @@ The following compares the requirements for each of the non-relational data stor
 | Indexing | Primary and secondary indexes | Primary and secondary indexes | Primary index only | Primary and secondary indexes |
 | Data shape | Document | Tabular with column families containing columns | Key and value | Graph containing edges and vertices |
 | Sparse | Yes | Yes | Yes | No |
-| Wide (lots of columns/attributes) | Yes | Yes | No | No |  
+| Wide (lots of columns/attributes) | Yes | Yes | No | No |
 | Datum size | Small (KBs) to medium (low MBs) | Medium (MBs) to Large (low GBs) | Small (KBs) | Small (KBs) |
 | Overall Maximum Scale | Very Large (PBs) | Very Large (PBs) | Very Large (PBs) | Large (TBs) |
 
@@ -172,6 +175,6 @@ The following compares the requirements for each of the non-relational data stor
 | Indexing | Primary and secondary indexes | Primary index only | N/A |
 | Data shape | Tabular | Blob and metadata | Document |
 | Sparse | No | N/A | No |
-| Wide (lots of columns/attributes) |  No | Yes | Yes |  
+| Wide (lots of columns/attributes) |  No | Yes | Yes |
 | Datum size | Small (KBs) | Large (GBs) to Very Large (TBs) | Small (KBs) |
 | Overall Maximum Scale | Large (low TBs)  | Very Large (PBs) | Large (low TBs) |

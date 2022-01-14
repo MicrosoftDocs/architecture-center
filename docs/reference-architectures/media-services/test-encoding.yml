@@ -2,16 +2,23 @@
 metadata:
   title: Test Media Services V3 encoding
   titleSuffix: Azure Reference Architectures
-  description: Test Gridwich Azure Media Services V3 encoding by using the Azure Event Grid Viewer Blazor, or locally.
-  author: doodlemania2
+  description: Follow these instructions to test Gridwich Azure Media Services encoding locally or in Azure by using the Azure Event Grid Viewer Blazor.
+  author: EdPrice-MSFT
+  ms.author: pnp
   ms.date: 11/12/2020
   ms.topic: conceptual
   ms.service: architecture-center
   ms.subservice: reference-architecture
   ms.custom:
     - fcp
+    - seo-aac-fy21q3
+  keywords:
+    - Test in azure
+    - media services
+    - gridwich
+    - event grid
 name: Test Media Services V3 encoding
-summary: Test Gridwich Azure Media Services V3 encoding by using the Azure Event Grid Viewer Blazor, or locally.
+summary: Follow these instructions to test Gridwich Azure Media Services encoding locally or in Azure by using the Azure Event Grid Viewer Blazor.
 products:
   - azure-event-grid
   - azure-functions

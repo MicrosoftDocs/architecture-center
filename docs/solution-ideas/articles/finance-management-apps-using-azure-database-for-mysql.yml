@@ -1,16 +1,25 @@
 ### YamlMime:Architecture
 metadata:
-  title: Finance management apps using Azure Database for MySQL
+  title: Finance management apps with Azure DB for MySQL
   titleSuffix: Azure Solution Ideas
-  author: doodlemania2
-  ms.date: 12/16/2019
   description: Use Azure Database for MySQL to securely store critical data and provide users with high-value analytics and insights over aggregated data.
-  ms.custom: 'acom-architecture, mysql, analytics, use cases, azure, solutions, ''https://azure.microsoft.com/solutions/architecture/finance-management-apps-using-azure-database-for-mysql/'''
+  author: JonDobrzeniecki
+  ms.author: pnp
+  ms.date: 11/19/2021
+  ms.topic: conceptual
   ms.service: architecture-center
+  ms.subservice: solution-idea
   ms.category:
     - databases
     - analytics
-  ms.subservice: solution-idea
+  ms.custom:
+    - acom-architecture
+    - mysql
+    - analytics
+    - use cases
+    - azure
+    - solutions
+    - "https://azure.microsoft.com/solutions/architecture/finance-management-apps-using-azure-database-for-mysql/"
   social_image_url: /azure/architecture/solution-ideas/articles/media/finance-management-apps-using-azure-database-for-mysql.png
 name: Finance management apps using Azure Database for MySQL
 azureCategories:

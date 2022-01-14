@@ -1,0 +1,26 @@
+### YamlMime:Architecture
+metadata:
+  title: Event Hubs with Azure Functions
+  titleSuffix: Azure Example Scenarios
+  description: Learn how to architect, develop, and deploy efficient and scalable code that runs on Azure Functions and responds to Event Hubs events.
+  author: dbarkol
+  ms.author: dabarkol
+  ms.topic: conceptual
+  ms.date: 10/04/2021
+  ms.service: architecture-center
+  ms.subservice: azure-guide
+  ms.custom:
+    - guide
+azureCategories:
+  - compute
+  - integration
+products:
+  - azure-event-hubs
+  - azure-functions
+  - azure-application-insights
+  - azure-monitor
+name: Integrate Event Hubs with serverless functions on Azure 
+summary: Learn how to architect, develop, and deploy efficient and scalable code that runs on Azure Functions and responds to Event Hubs events.
+thumbnailUrl:  /azure/architecture/browse/thumbs/event-hubs-architecture.png
+content: |
+  [!include[](event-hubs-functions-content.md)]

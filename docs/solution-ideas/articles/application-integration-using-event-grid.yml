@@ -1,20 +1,27 @@
 ### YamlMime:Architecture
 metadata:
-  title: Application integration using Event Grid
+  title: Application integration using Azure Event Grid
   titleSuffix: Azure Solution Ideas
-  author: doodlemania2
+  description: Learn how to integrate your app with Azure Event Grid and take advantage of its reliable delivery, advanced routing, and direct integration with Azure.
+  author: EdPrice-MSFT
+  ms.author: pnp
   ms.date: 12/16/2019
-  description: This scenario shows you how to create an application topic to send your app's event data to Event Grid and take advantage of its reliable delivery, advanced routing, and direct integration with Azure.
-  ms.custom: 'acom-architecture, application-development, event-grid, azure, ''https://azure.microsoft.com/solutions/architecture/application-integration-using-event-grid/'''
+  ms.topic: conceptual
   ms.service: architecture-center
+  ms.subservice: solution-idea
   ms.category:
     - analytics
-  ms.subservice: solution-idea
+  ms.custom:
+    - acom-architecture
+    - application-development
+    - event-grid
+    - azure
+    - "https://azure.microsoft.com/solutions/architecture/application-integration-using-event-grid/"
   social_image_url: /azure/architecture/solution-ideas/articles/media/application-integration-using-event-grid.png
-name: Application integration using Event Grid
+name: Application integration using Azure Event Grid
 azureCategories:
   - analytics
-summary: This scenario shows you how to create an application topic to send your app's event data to Event Grid and take advantage of its reliable delivery, advanced routing, and direct integration with Azure.
+summary: This scenario shows you how to create an application topic to send your app&apos;s event data to Azure Event Grid. Take advantage of its reliable delivery, advanced routing, and direct integration with Azure.
 products:
   - azure-event-grid
   - azure-functions

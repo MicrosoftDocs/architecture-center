@@ -1,18 +1,29 @@
 ### YamlMime:Architecture
 metadata:
-  title: SharePoint Farm for Development Testing
+  title: SharePoint farm for development testing
   titleSuffix: Azure Solution Ideas
-  author: doodlemania2
-  ms.date: 12/16/2019
   description: Deploy a SharePoint farm for development testing. Use Azure Active Directory, SQL Server, and SharePoint resources for this agile development architecture.
-  ms.custom: 'acom-architecture, sharepoint dev, sharepoint agile, sharepoint dev environment, lob-app, azure sharepoint development environment, sharepoint farm solution, interactive-diagram, ''https://azure.microsoft.com/solutions/architecture/sharepoint-farm-devtest/'''
+  author: EdPrice-MSFT
+  ms.author: pnp
+  ms.date: 12/16/2019
+  ms.topic: conceptual
   ms.service: architecture-center
+  ms.subservice: solution-idea
   ms.category:
     - devops
     - web
-  ms.subservice: solution-idea
+  ms.custom:
+    - acom-architecture
+    - sharepoint dev
+    - sharepoint agile
+    - sharepoint dev environment
+    - lob-app
+    - azure sharepoint development environment
+    - sharepoint farm solution
+    - interactive-diagram
+    - "https://azure.microsoft.com/solutions/architecture/sharepoint-farm-devtest/"
   social_image_url: /azure/architecture/solution-ideas/articles/media/sharepoint-farm-devtest.png
-name: SharePoint Farm for Development Testing
+name: SharePoint farm for development testing
 azureCategories:
   - devops
   - web
@@ -22,6 +33,7 @@ products:
   - azure-expressroute
   - azure-vpn-gateway
   - sql-server
+  - office-sp
 thumbnailUrl: /azure/architecture/browse/thumbs/sharepoint-farm-devtest.png
 content: |
    [!include[](sharepoint-farm-devtest-content.md)]

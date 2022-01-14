@@ -2,14 +2,16 @@
 title: Caching guidance
 titleSuffix: Best practices for cloud applications
 description: Learn how caching can improve the performance and scalability of a system by copying frequently accessed data to fast storage close to the application.
-author: dragon119
+author: EdPrice-MSFT
 ms.date: 05/24/2017
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: best-practice
+products:
+  - azure-cache-redis
 ms.custom:
-  - seodec18
   - best-practice
+  - internal-intro
 ---
 
 <!-- cSpell:ignore BSON keyspace INCRBY DECR DECRBY GETSET MGET MSET SADD SMEMBERS SDIFF SUNION ZADD LPUSH RPUSH LPOP RPOP LRANGE RRANGE -->
@@ -65,8 +67,7 @@ There are two main disadvantages of the shared caching approach:
 
 ## Considerations for using caching
 
-The following sections describe in more detail the considerations
-for designing and using a cache.
+The following sections describe in more detail the considerations for designing and using a cache.
 
 ### Decide when to cache data
 
@@ -327,8 +328,7 @@ To implement partitioning in a Redis cache, you can take one of the following ap
 - *Client-side partitioning.* In this model, the client application contains logic (possibly in the form of a library) that routes requests to the appropriate Redis server. This approach can be used with Azure Cache for Redis. Create multiple Azure Cache for Redis (one for each data partition) and implement the client-side logic that routes the requests to the correct cache. If the partitioning scheme changes (if additional Azure Cache for Redis are created, for example), client applications might need to be reconfigured.
 - *Proxy-assisted partitioning.* In this scheme, client applications send requests to an intermediary proxy service which understands how the data is partitioned and then routes the request to the appropriate Redis server. This approach can also be used with Azure Cache for Redis; the proxy service can be implemented as an Azure cloud service. This approach requires an additional level of complexity to implement the service, and requests might take longer to perform than using client-side partitioning.
 
-The page [Partitioning: how to split data among multiple Redis instances](https://redis.io/topics/partitioning)
-on the Redis website provides further information about implementing partitioning with Redis.
+The page [Partitioning: how to split data among multiple Redis instances](https://redis.io/topics/partitioning) on the Redis website provides further information about implementing partitioning with Redis.
 
 ### Implement Redis cache client applications
 
@@ -511,7 +511,7 @@ Redis supports a series of atomic get-and-set operations on string values. These
   long oldValue = await cache.StringIncrementAsync("data:counter");
   // Increment by 1 (the default)
   // oldValue should be 100
-  
+
   long newValue = await cache.StringDecrementAsync("data:counter", 50);
   // Decrement by 50
   // newValue should be 50
@@ -540,7 +540,7 @@ Redis supports a series of atomic get-and-set operations on string values. These
           new KeyValuePair<RedisKey, RedisValue>("data:key99", "value2"),
           new KeyValuePair<RedisKey, RedisValue>("data:key322", "value3")
       };
-  
+
   // Store the list of key-value pairs in the cache
   cache.StringSet(keysAndValues.ToArray());
   ...

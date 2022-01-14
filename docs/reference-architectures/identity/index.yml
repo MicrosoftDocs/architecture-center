@@ -2,18 +2,20 @@
 metadata:
   title: Integrate on-premises AD with Azure
   description: Compare options for integrating your on-premises Active Directory (AD) environment with an Azure network.
-  author: doodlemania2
+  author: EdPrice-MSFT
+  ms.author: pnp
   ms.date: 07/30/2019
   ms.topic: conceptual
   ms.service: architecture-center
+  ms.subservice: reference-architecture
   ms.category:
     - identity
     - hybrid
-  ms.subservice: reference-architecture
   ms.custom:
-    - seodec18
     - identity
     - reference-architecture
+    - e2e-hybrid
+    - internal-intro
 name: Integrate on-premises AD with Azure
 azureCategories:
   - identity

@@ -1,11 +1,13 @@
 ---
 title: Data warehousing in Microsoft Azure
 description: Learn about data warehousing in Azure. A data warehouse is a repository of integrated data from disparate sources used for reporting and analysis of the data.
-author: doodlemania2
+author: EdPrice-MSFT
 ms.date: 11/20/2019
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: azure-guide
+products:
+  - azure-synapse-analytics
 ms.custom:
   - guide
 ---
@@ -117,7 +119,7 @@ To narrow the choices, start by answering these questions:
 - Do you need to support a large number of concurrent users and connections? The ability to support a number of concurrent users/connections depends on several factors.
 
   - For Azure SQL Database, refer to the [documented resource limits](/azure/sql-database/sql-database-resource-limits) based on your service tier.
-  
+
   - SQL Server allows a maximum of 32,767 user connections. When running on a VM, performance will depend on the VM size and other factors.
 
   - Azure Synapse has limits on concurrent queries and concurrent connections. For more information, see [Concurrency and workload management in Azure Synapse](/azure/sql-data-warehouse/sql-data-warehouse-develop-concurrency). Consider using complementary services, such as [Azure Analysis Services](/azure/analysis-services/analysis-services-overview), to overcome limits in Azure Synapse.
@@ -130,8 +132,6 @@ The following tables summarize the key differences in capabilities.
 
 ### General capabilities
 
-<!-- markdownlint-disable MD033 -->
-
 | Capability | Azure SQL Database | SQL Server (VM) | Azure Synapse | Apache Hive on HDInsight | Hive LLAP on HDInsight |
 | --- | --- | --- | --- | --- | --- | -- |
 | Is managed service | Yes | No | Yes | Yes <sup>1</sup> | Yes <sup>1</sup> |
@@ -143,8 +143,6 @@ The following tables summarize the key differences in capabilities.
 | Flexible backup restore points | Yes | Yes | No <sup>3</sup> | Yes <sup>4</sup> | Yes <sup>4</sup> |
 | SMP/MPP | SMP | SMP | MPP | MPP | MPP |
 
-<!-- markdownlint-enable MD033 -->
-
 [1] Manual configuration and scaling.
 
 [2] HDInsight clusters can be deleted when not needed, and then re-created. Attach an external data store to your cluster so your data is retained when you delete your cluster. You can use Azure Data Factory to automate your cluster's lifecycle by creating an on-demand HDInsight cluster to process your workload, then delete it once the processing is complete.
@@ -155,8 +153,6 @@ The following tables summarize the key differences in capabilities.
 
 ### Scalability capabilities
 
-<!-- markdownlint-disable MD033 -->
-
 | Capability | Azure SQL Database | SQL Server (VM) |  Azure Synapse | Apache Hive on HDInsight | Hive LLAP on HDInsight |
 | --- | --- | --- | --- | --- | --- | -- |
 | Redundant regional servers for high availability  | Yes | Yes | Yes | No | No |
@@ -166,11 +162,7 @@ The following tables summarize the key differences in capabilities.
 
 [1] Azure Synapse allows you to scale up or down by adjusting the number of data warehouse units (DWUs). See [Manage compute power in Azure Synapse](/azure/sql-data-warehouse/sql-data-warehouse-manage-compute-overview).
 
-<!-- markdownlint-enable MD033 -->
-
 ### Security capabilities
-
-<!-- markdownlint-disable MD033 -->
 
 | Capability |           Azure SQL Database            |  SQL Server in a virtual machine  | Azure Synapse |   Apache Hive on HDInsight    |    Hive LLAP on HDInsight     |
 |-------------------------|-----------------------------------------|-----------------------------------|--------------------|-------------------------------|-------------------------------|
@@ -181,8 +173,6 @@ The following tables summarize the key differences in capabilities.
 |   Row-level security    |                   Yes                   |                Yes                |        Yes         |              No               |       Yes <sup>1</sup>        |
 |   Supports firewalls    |                   Yes                   |                Yes                |        Yes         |              Yes              |       Yes <sup>3</sup>        |
 |  Dynamic data masking   |                   Yes                   |                Yes                |        Yes         |              No               |       Yes <sup>1</sup>        |
-
-<!-- markdownlint-enable MD033 -->
 
 [1] Requires using a [domain-joined HDInsight cluster](/azure/hdinsight/domain-joined/apache-domain-joined-introduction).
 

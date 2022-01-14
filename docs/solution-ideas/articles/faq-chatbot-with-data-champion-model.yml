@@ -1,25 +1,38 @@
 ### YamlMime:Architecture
 metadata:
-  title: FAQ Chatbot with data champion model
+  title: Create a FAQ bot from existing data
   titleSuffix: Azure Solution Ideas
-  author: doodlemania2
+  description: Use QnA Maker to create a FAQ bot that extracts questions and answers from existing knowledge base (kb) data to answer employee questions and actively learn to improve quality.
+  author: EdPrice-MSFT
+  ms.author: pnp
   ms.date: 12/16/2019
-  description: Use QnA Maker to maintain a knowledge base of questions and answers. Set up an FAQ chatbot with Bot Service and LUIS that responds to user queries.
-  ms.custom: 'acom-architecture, chatbot, QnA, QnA Maker, FAQ, FAQ chatbot, interactive-diagram, ''https://azure.microsoft.com/solutions/architecture/faq-chatbot-with-data-champion-model/'''
+  ms.topic: conceptual
   ms.service: architecture-center
+  ms.subservice: solution-idea
   ms.category:
     - ai-machine-learning
-  ms.subservice: solution-idea
+  ms.custom:
+    - acom-architecture
+    - chatbot
+    - QnA
+    - QnA Maker
+    - FAQ
+    - FAQ chatbot
+    - interactive-diagram
+    - "https://azure.microsoft.com/solutions/architecture/faq-chatbot-with-data-champion-model/"
+    - ai-machine-learning
+    - aml-project-improvement
   social_image_url: /azure/architecture/solution-ideas/articles/media/faq-chatbot-with-data-champion-model.png
-name: FAQ Chatbot with data champion model
+name: Create a FAQ bot from existing data with continuous improvement guided by data champions
 azureCategories:
   - ai-machine-learning
-summary: Use QnA Maker to maintain a knowledge base of questions and answers. Set up an FAQ chatbot with Bot Service and LUIS that responds to user queries.
+summary: Use QnA Maker to create a FAQ bot that extracts questions and answers from existing knowledge base (kb) data to answer employee questions and actively learn to improve quality.
 products:
   - azure-app-service
   - azure-bot-service
   - azure-language-understanding
   - azure-qna-maker
+  - azure-application-insights
 thumbnailUrl: /azure/architecture/browse/thumbs/faq-chatbot-with-data-champion-model.png
 content: |
-   [!include[](faq-chatbot-with-data-champion-model-content.md)]
+  [!include[](faq-chatbot-with-data-champion-model-content.md)]

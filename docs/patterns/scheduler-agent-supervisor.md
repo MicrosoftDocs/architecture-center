@@ -1,16 +1,17 @@
 ---
 title: Scheduler Agent Supervisor pattern
 titleSuffix: Cloud Design Patterns
-description: Coordinate a set of actions across a distributed set of services and other remote resources.
-keywords: design pattern
-author: dragon119
+description: Explore the Scheduler Agent Supervisor pattern, which coordinates a set of actions across a distributed set of services and other remote resources.
+author: EdPrice-MSFT
+ms.author: pnp
 ms.date: 06/23/2017
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: design-pattern
 ms.custom:
-  - seodec18
   - design-pattern
+keywords:
+  - design pattern
 ---
 
 # Scheduler Agent Supervisor pattern
@@ -44,7 +45,7 @@ The Scheduler maintains information about the progress of the task and the state
 ![Figure 1 - The actors in the Scheduler Agent Supervisor pattern](./_images/scheduler-agent-supervisor-pattern.png)
 
 > [!NOTE]
-> This diagram shows a simplified version of the pattern. In a real implementation, there might be many instances of the Scheduler running concurrently, each a subset of tasks. Similarly, the system could run multiple instances of each Agent, or even multiple Supervisors. In this case, Supervisors must coordinate their work with each other carefully to ensure that they don’t compete to recover the same failed steps and tasks. The [Leader Election pattern](./leader-election.md) provides one possible solution to this problem.
+> This diagram shows a simplified version of the pattern. In a real implementation, there might be many instances of the Scheduler running concurrently, each a subset of tasks. Similarly, the system could run multiple instances of each Agent, or even multiple Supervisors. In this case, Supervisors must coordinate their work with each other carefully to ensure that they don't compete to recover the same failed steps and tasks. The [Leader Election pattern](./leader-election.md) provides one possible solution to this problem.
 
 When the application is ready to run a task, it submits a request to the Scheduler. The Scheduler records initial state information about the task and its steps (for example, step not yet started) in the state store and then starts performing the operations defined by the workflow. As the Scheduler starts each step, it updates the information about the state of that step in the state store (for example, step running).
 
@@ -130,16 +131,28 @@ Although it isn't shown in this example, the Scheduler might need to keep the ap
 
 To allow the order status to be reported, the application could use its own private response queue. The details of this response queue would be included as part of the request sent to the submission process, which would include this information in the state store. The Scheduler would then post messages to this queue indicating the status of the order (request received, order completed, order failed, and so on). It should include the order ID in these messages so they can be correlated with the original request by the application.
 
-## Related patterns and guidance
+## Next steps
 
-The following patterns and guidance might also be relevant when implementing this pattern:
+The following guidance might also be relevant when implementing this pattern:
+
+- [Asynchronous Messaging Primer](/previous-versions/msp-n-p/dn589781(v=pandp.10)). The components in the Scheduler Agent Supervisor pattern typically run decoupled from each other and communicate asynchronously. Describes some of the approaches that can be used to implement asynchronous communication based on message queues.
+
+- [Reference 6: A Saga on Sagas](/previous-versions/msp-n-p/jj591569(v=pandp.10)). An example showing how the CQRS pattern uses a process manager (part of the CQRS Journey guidance).
+
+- [Microsoft Azure Scheduler](https://azure.microsoft.com/services/scheduler/)
+
+## Related guidance
+
+The following patterns might also be relevant when implementing this pattern:
 
 - [Retry pattern](./retry.md). An Agent can use this pattern to transparently retry an operation that accesses a remote service or resource that has previously failed. Use when the expectation is that the cause of the failure is transient and can be corrected.
+
 - [Circuit Breaker pattern](./circuit-breaker.md). An Agent can use this pattern to handle faults that take a variable amount of time to correct when connecting to a remote service or resource.
+
 - [Compensating Transaction pattern](./compensating-transaction.md). If the workflow being performed by a Scheduler can't be completed successfully, it might be necessary to undo any work it's previously performed. The Compensating Transaction pattern describes how this can be achieved for operations that follow the eventual consistency model. These types of operations are commonly implemented by a Scheduler that performs complex business processes and workflows.
-- [Asynchronous Messaging Primer](/previous-versions/msp-n-p/dn589781(v=pandp.10)). The components in the Scheduler Agent Supervisor pattern typically run decoupled from each other and communicate asynchronously. Describes some of the approaches that can be used to implement asynchronous communication based on message queues.
+
 - [Leader Election pattern](./leader-election.md). It might be necessary to coordinate the actions of multiple instances of a Supervisor to prevent them from attempting to recover the same failed process. The Leader Election pattern describes how to do this.
-- [Cloud Architecture: The Scheduler-Agent-Supervisor Pattern](/archive/blogs/clemensv/cloud-architecture-the-scheduler-agent-supervisor-pattern) on Clemens Vasters' blog
+
+- [Cloud Architecture: The Scheduler-Agent-Supervisor pattern](/archive/blogs/clemensv/cloud-architecture-the-scheduler-agent-supervisor-pattern) on Clemens Vasters' blog
+
 - [Process Manager pattern](https://www.enterpriseintegrationpatterns.com/patterns/messaging/ProcessManager.html)
-- [Reference 6: A Saga on Sagas](/previous-versions/msp-n-p/jj591569(v=pandp.10)). An example showing how the CQRS pattern uses a process manager (part of the CQRS Journey guidance).
-- [Microsoft Azure Scheduler](https://azure.microsoft.com/services/scheduler/)

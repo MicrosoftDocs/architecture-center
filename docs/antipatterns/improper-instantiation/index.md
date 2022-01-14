@@ -1,20 +1,28 @@
 ---
 title: Improper Instantiation antipattern
-titleSuffix: Performance antipatterns for cloud apps
+titleSuffix: Azure Architecture Center
 description: Avoid continually creating new instances of an object that is meant to be created once and then shared.
-author: dragon119
+author: EdPrice-MSFT
 ms.date: 06/05/2017
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: anti-pattern
+products:
+  - azure-cache-redis
 ms.custom:
-  - seodec18
   - article
+  - seo-aac-fy21q3
+keywords:
+  - "Antipattern singleton"
+  - "what is instantiation"
+  - "instantiation"
+  - "improper instantiation"
+  - "antipattern"
 ---
 
 # Improper Instantiation antipattern
 
-It can hurt performance to continually create new instances of an object that is meant to be created once and then shared.
+Sometimes new instances of a class are continually created, when it is meant to be created once and then shared. This behavior can hurt performance, and is called an *improper instantiation antipattern*. An antipattern is a common response to a recurring problem that is usually ineffective and may even be counter-productive.
 
 ## Problem description
 
@@ -25,8 +33,7 @@ Many libraries provide abstractions of external resources. Internally, these cla
 - `Microsoft.Azure.Documents.Client.DocumentClient`. Connects to a Cosmos DB instance.
 - `StackExchange.Redis.ConnectionMultiplexer`. Connects to Redis, including Azure Cache for Redis.
 
-These classes are intended to be instantiated once and reused throughout the lifetime of an application. However, it's a common misunderstanding that these classes should be acquired only as necessary and released quickly. (The ones listed here happen to be .NET libraries, but the pattern is not unique to .NET.)
-The following ASP.NET example creates an instance of `HttpClient` to communicate with a remote service. You can find the complete sample [here][sample-app].
+These classes are intended to be instantiated once and reused throughout the lifetime of an application. However, it's a common misunderstanding that these classes should be acquired only as necessary and released quickly. (The ones listed here happen to be .NET libraries, but the pattern is not unique to .NET.) The following ASP.NET example creates an instance of `HttpClient` to communicate with a remote service. You can find the complete sample [here][sample-app].
 
 ```csharp
 public class NewHttpClientInstancePerRequestController : ApiController
@@ -69,7 +76,7 @@ public class ExpensiveToCreateService
 }
 ```
 
-## How to fix the problem
+## How to fix improper instantiation antipattern
 
 If the class that wraps the external resource is shareable and thread-safe, create a shared singleton instance or a pool of reusable instances of the class.
 
@@ -109,7 +116,7 @@ public class SingleHttpClientInstanceController : ApiController
 
 - In the .NET Framework, many objects that establish connections to external resources are created by using static factory methods of other classes that manage these connections. These objects are intended to be saved and reused, rather than disposed and re-created. For example, in Azure Service Bus, the `QueueClient` object is created through a `MessagingFactory` object. Internally, the `MessagingFactory` manages connections. For more information, see [Best Practices for performance improvements using Service Bus Messaging][service-bus-messaging].
 
-## How to detect the problem
+## How to detect improper instantiation antipattern
 
 Symptoms of this problem include a drop in throughput or an increased error rate, along with one or more of the following:
 
@@ -175,10 +182,10 @@ The next graph shows a similar load test using a shared instance of the `Expensi
 [sample-app]: https://github.com/mspnp/performance-optimization/tree/master/ImproperInstantiation
 [service-bus-messaging]: /azure/service-bus-messaging/service-bus-performance-improvements
 [new-relic]: https://newrelic.com/products/application-monitoring
-[throughput-new-HTTPClient-instance]: _images/HttpClientInstancePerRequest.jpg
-[dashboard-new-HTTPClient-instance]: _images/HttpClientInstancePerRequestWebTransactions.jpg
-[thread-profiler-new-HTTPClient-instance]: _images/HttpClientInstancePerRequestThreadProfile.jpg
-[throughput-new-ExpensiveToCreateService-instance]: _images/ServiceInstancePerRequest.jpg
-[throughput-single-HTTPClient-instance]: _images/SingleHttpClientInstance.jpg
-[throughput-single-ExpensiveToCreateService-instance]: _images/SingleServiceInstance.jpg
-[thread-profiler-single-HTTPClient-instance]: _images/SingleHttpClientInstanceThreadProfile.jpg
+[throughput-new-HTTPClient-instance]: ./_images/HttpClientInstancePerRequest.jpg
+[dashboard-new-HTTPClient-instance]: ./_images/HttpClientInstancePerRequestWebTransactions.jpg
+[thread-profiler-new-HTTPClient-instance]: ./_images/HttpClientInstancePerRequestThreadProfile.jpg
+[throughput-new-ExpensiveToCreateService-instance]: ./_images/ServiceInstancePerRequest.jpg
+[throughput-single-HTTPClient-instance]: ./_images/SingleHttpClientInstance.jpg
+[throughput-single-ExpensiveToCreateService-instance]: ./_images/SingleServiceInstance.jpg
+[thread-profiler-single-HTTPClient-instance]: ./_images/SingleHttpClientInstanceThreadProfile.jpg

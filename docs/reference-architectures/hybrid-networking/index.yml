@@ -1,18 +1,22 @@
 ### YamlMime:Architecture
 metadata:
   title: Connect an on-premises network to Azure
-  description: Compare reference architectures for connecting an on-premises network to Azure.
+  description: Learn about the options for connecting an on-premises network to an Azure Virtual Network (VNet) by comparing reference architectures for each option.
+
   author: telmosampaio
+  ms.author: pnp
   ms.date: 07/02/2018
   ms.topic: conceptual
   ms.service: architecture-center
+  ms.subservice: reference-architecture
   ms.category:
     - hybrid
     - networking
-  ms.subservice: reference-architecture
   ms.custom:
     - networking
     - reference-architecture
+    - e2e-hybrid
+    - internal-intro
 name: Connect an on-premises network to Azure
 azureCategories:
   - hybrid

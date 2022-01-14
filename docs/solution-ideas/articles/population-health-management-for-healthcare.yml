@@ -1,26 +1,37 @@
 ### YamlMime:Architecture
 metadata:
-  title: Population Health Management for Healthcare
+  title: Population health management for healthcare
   titleSuffix: Azure Solution Ideas
-  author: doodlemania2
-  ms.date: 12/16/2019
-  description: Use Population Health Management to improve clinical and health outcomes and reduce costs. Track, monitor, and benchmark data with this tool.
-  ms.custom: 'acom-architecture, artificial intelligence, healthcare, ai-ml, solution architectures, Azure, ai gallery, ''https://azure.microsoft.com/solutions/architecture/population-health-management-for-healthcare/'''
+  description: Use population health management to improve clinical and health outcomes and reduce costs. Track, monitor, and benchmark data with this tool.
+  author: krisbock
+  ms.author: pnp
+  ms.date: 05/07/2021
+  ms.topic: conceptual
   ms.service: architecture-center
+  ms.subservice: solution-idea
   ms.category:
     - ai-machine-learning
-  ms.subservice: solution-idea
+  ms.custom:
+    - acom-architecture
+    - artificial intelligence
+    - healthcare
+    - ai-ml
+    - solution architectures
+    - Azure
+    - ai gallery
+    - "https://azure.microsoft.com/solutions/architecture/population-health-management-for-healthcare/"
+    - ai-machine-learning
   social_image_url: /azure/architecture/solution-ideas/articles/media/population-health-management-for-healthcare.png
-name: Population Health Management for Healthcare
+name: Population health management for healthcare
 azureCategories:
   - ai-machine-learning
-summary: Use Population Health Management to improve clinical and health outcomes and reduce costs. Track, monitor, and benchmark data with this tool.
+summary: Use population health management to improve clinical and health outcomes and reduce costs. Track, monitor, and benchmark data with this tool.
 products:
   - azure-data-factory
-  - azure-data-lake-analytics
-  - azure-event-hubs
-  - azure-stream-analytics
+  - azure-databricks
+  - azure-api-fhir
   - power-bi
+  - azure-machine-learning
 thumbnailUrl: /azure/architecture/browse/thumbs/population-health-management-for-healthcare.png
 content: |
-   [!include[](population-health-management-for-healthcare-content.md)]
+  [!include[](population-health-management-for-healthcare-content.md)]

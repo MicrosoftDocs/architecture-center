@@ -1,0 +1,24 @@
+### YamlMime:Architecture
+metadata:
+  title: Integrate data with Logic App and SQL Server
+  titleSuffix: Azure Example Scenarios
+  description: Automate data integration tasks by using Azure Logic Apps. Configure API calls to trigger tasks like storing data in an on-premises SQL Server database.
+  author: ShantnuS
+  ms.date: 02/12/2021
+  ms.topic: conceptual
+  ms.service: architecture-center
+  ms.subservice: example-scenario
+  ms.custom:
+    - fcp
+azureCategories:
+  - integration
+  - developer-tools
+products:
+  - azure-api-management
+  - azure-logic-apps
+  - sql-server
+name: Data integration with Logic Apps and SQL Server
+summary: Automate data integration tasks by using Azure Logic Apps. Configure API calls to trigger tasks like storing data in an on-premises SQL Server database.
+thumbnailUrl: /azure/architecture/browse/thumbs/logic-apps-data-integration-thumbnail.png
+content: |
+  [!include[](logic-apps-data-integration-content.md)]

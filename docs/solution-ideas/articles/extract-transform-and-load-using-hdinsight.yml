@@ -1,16 +1,24 @@
 ### YamlMime:Architecture
 metadata:
-  title: 'Extract, transform, and load (ETL) using HDInsight'
+  title: Extract, transform, and load (ETL) using HDInsight
   titleSuffix: Azure Solution Ideas
-  author: doodlemania2
-  ms.date: 12/16/2019
   description: Extract, transform, and load (ETL) big data clusters on demand by using Azure HDInsight, Hadoop MapReduce, and Apache Spark.
-  ms.custom: 'acom-architecture, data, HDInsight, Data Lake Storage, Data Factory, ''https://azure.microsoft.com/solutions/architecture/extract-transform-and-load-using-hdinsight/'''
+  author: EdPrice-MSFT
+  ms.author: jodobrze
+  ms.date: 11/10/2021
+  ms.topic: conceptual
   ms.service: architecture-center
+  ms.subservice: solution-idea
   ms.category:
     - analytics
     - databases
-  ms.subservice: solution-idea
+  ms.custom:
+    - acom-architecture
+    - data
+    - HDInsight
+    - Data Lake Storage
+    - Data Factory
+    - "https://azure.microsoft.com/solutions/architecture/extract-transform-and-load-using-hdinsight/"
   social_image_url: /azure/architecture/solution-ideas/articles/media/extract-transform-and-load-using-hdinsight.svg
 name: 'Extract, transform, and load (ETL) using HDInsight'
 azureCategories:
@@ -19,7 +27,7 @@ azureCategories:
 summary: Extract, transform, and load (ETL) big data clusters on demand by using Azure HDInsight, Hadoop MapReduce, and Apache Spark.
 products:
   - azure-data-factory
-  - azure-data-lake-storage
+  - azure-data-lake-gen2
   - azure-hdinsight
 thumbnailUrl: /azure/architecture/browse/thumbs/extract-transform-and-load-using-hdinsight.png
 content: |

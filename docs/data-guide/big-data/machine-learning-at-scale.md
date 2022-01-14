@@ -1,13 +1,18 @@
 ---
 title: Machine learning at scale
 description: Learn how machine learning uses mathematical algorithms to analyze data relationships, train predictive models, and deploy and iterate on models at scale.
-author: zoinerTejada
+author: EdPrice-MSFT
+ms.author: pnp
 ms.date: 02/12/2018
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: azure-guide
+products:
+  - azure-machine-learning
 ms.custom:
   - guide
+categories:
+  - ai-machine-learning
 ---
 
 # Machine learning at scale
@@ -72,4 +77,4 @@ For a list of technology choices for ML in Azure, see:
 The following reference architectures show machine learning scenarios in Azure:
 
 - [Batch scoring on Azure for deep learning models](../../reference-architectures/ai/batch-scoring-deep-learning.yml)
-- [Real-time scoring of Python Scikit-Learn and Deep Learning Models on Azure](../../reference-architectures/ai/realtime-scoring-python.yml)
+- [Real-time scoring of Python Scikit-Learn and Deep Learning Models on Azure](../../reference-architectures/ai/real-time-scoring-machine-learning-models.yml)

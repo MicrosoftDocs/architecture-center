@@ -1,11 +1,57 @@
+This reference architecture shows a secure hybrid network that extends an on-premises network to Azure. The architecture implements a DMZ, also called a *perimeter network*, between the on-premises network and an Azure virtual network. All inbound and outbound traffic passes through Azure Firewall.
 
-
-
-This reference architecture shows a secure hybrid network that extends an on-premises network to Azure. The architecture implements a DMZ, also called a *perimeter network*, between the on-premises network and an Azure virtual network. All inbound and outbound traffic passes through Azure Firewall. [**Deploy this solution**](#deploy-the-solution).
-
-![Secure hybrid network architecture](./images/dmz-private.png)
+[![Secure hybrid network architecture](./images/dmz-private.png)](./images/dmz-private.png#lightbox)
 
 *Download a [Visio file][visio-download] of this architecture.*
+
+## Reference deployment
+
+This deployment creates two resource groups; the first holds a mock on-premises network, the second a set of hub and spoke networks. The mock on-premises network and the hub network are connected using Azure Virtual Network gateways to form a site-to-site connection. This configuration is very similar to how you would connect your on-premises datacenter to Azure.
+
+This deployment can take up to 45 minutes to complete. The recommended deployment method is using the portal option found below.
+
+#### [Azure portal](#tab/portal)
+
+Use the following button to deploy the reference using the Azure portal.
+
+[![Deploy to Azure](../../_images/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fmspnp%2Fsamples%2Fmaster%2Fsolutions%2Fsecure-hybrid-network%2Fazuredeploy.json)
+
+#### [Azure CLI](#tab/cli)
+
+Run the following command to deploy two resource groups and the secure network reference architecture using the Azure CLI.
+
+When prompted, enter values for an admin user name and password. These values are used to log into the included virtual machines.
+
+```azurecli
+az deployment sub create --location eastus \
+    --template-uri https://raw.githubusercontent.com/mspnp/samples/master/solutions/secure-hybrid-network/azuredeploy.json
+```
+
+#### [PowerShell](#tab/powershell)
+
+Run the following command to deploy two resource groups and the secure network reference architecture using PowerShell.
+
+When prompted, enter values for an admin user name and password. These values are used to log into the included virtual machines.
+
+```azurepowershell
+New-AzSubscriptionDeployment -Location eastus `
+    -TemplateUri https://raw.githubusercontent.com/mspnp/samples/master/solutions/secure-hybrid-network/azuredeploy.json
+```
+
+---
+
+Once the deployment has been completed, verify site-to-site connectivity by looking at the newly created connection resources. While in the Azure portal, search for 'connections' and note that the status of each connection.
+
+![Screenshot showing the status of connections.](./images/portal-connections.png)
+
+The IIS instance found in the spoke network can be accessed from the virtual machine located in the mock on-prem network. Create a connection to the virtual machine using the included Azure Bastion host, open a web browser, and navigate to the address of the application's network load balancer.
+
+For detailed information and additional deployment options, see the ARM Templates used to deploy this solution.
+
+> [!div class="nextstepaction"]
+> [Secure Hybrid Network](/samples/mspnp/samples/secure-hybrid-network/)
+
+## Use cases
 
 This architecture requires a connection to your on-premises datacenter, using either a [VPN gateway][ra-vpn] or an [ExpressRoute][ra-expressroute] connection. Typical uses for this architecture include:
 
@@ -29,7 +75,7 @@ The architecture consists of the following components.
   > [!NOTE]
   > Depending on the requirements of your VPN connection, you can configure Border Gateway Protocol (BGP) routes to implement the forwarding rules that direct traffic back through the on-premises network.
 
-- **Network security groups**. Use [security groups][nsg] to restrict network traffic within the virtual network. For example, in the deployment provided with this reference architecture, the web tier subnet allows TCP traffic from the on-premises network and from within the virtual network; the business tier allows traffic from the web tier; and the data tier allows traffic from the business tier.
+- **Network security groups**. Use [security groups][nsg] to restrict network traffic within the virtual network. For example, in the deployment provided with this reference architecture, the web tier subnet allows TCP traffic from the on-premises network and from within the virtual network; the business tier allows traffic from the web tier, and the data tier allows traffic from the business tier.
 
 - **Bastion**. [Azure Bastion](/azure/bastion/) allows you to log into VMs in the virtual network through SSH or remote desktop protocol (RDP) without exposing the VMs directly to the internet. Use Bastion to manage the VMs in the virtual network.
 
@@ -61,7 +107,7 @@ We recommend creating the following resource groups:
 
 ### Networking recommendations
 
-To accept inbound traffic from the internet, add a [Destination Network Address Translation](/azure/firewall/tutorial-firewall-dnat) (DNAT) rule to Azure Firewall. 
+To accept inbound traffic from the internet, add a [Destination Network Address Translation](/azure/firewall/tutorial-firewall-dnat) (DNAT) rule to Azure Firewall.
 
 - Destination address = Public IP address of the firewall instance.
 - Translated address = Private IP address within the virtual network.
@@ -96,9 +142,7 @@ Each tier's subnet in the reference architecture is protected by NSG rules. You 
 
 If you're using ExpressRoute to provide the connectivity between your on-premises datacenter and Azure, use the [Azure Connectivity Toolkit (AzureCT)][azurect] to monitor and troubleshoot connection issues.
 
-You can find additional information about monitoring and managing VPN and ExpressRoute connections in the articles:
-- [Implementing a hybrid network architecture with Azure and on-premises VPN][guidance-vpn-gateway-devops]
-- [Implementing a hybrid network architecture with Azure ExpressRoute][guidance-expressroute-devops]
+You can find additional information about monitoring and managing VPN and ExpressRoute connections in the article [Implementing a hybrid network architecture with Azure and on-premises VPN][guidance-vpn-gateway-devops].
 
 ## Security considerations
 
@@ -127,86 +171,25 @@ Here are cost considerations for the services used in this architecture.
 In this architecture, Azure Firewall is deployed in the virtual network to control traffic between the gateway's subnet and the subnet in which the application tier runs. In this way Azure Firewall is cost effective because it's used as a shared solution consumed by multiple workloads. Here are the Azure Firewall pricing models:
 
 - Fixed rate per deployment hour.
-- Data processed per GB to support auto scaling. 
+- Data processed per GB to support auto scaling.
 
 When compared to network virtual appliances (NVAs), with Azure Firewall you can save up to 30-50%. For more information see [Azure Firewall vs NVA][Firewall-NVA].
 
 ### Azure Bastion
 
-Azure Bastion securely connects to your virtual machine over RDP and SSH without having the need to configure a public IP on the virtual machine. 
+Azure Bastion securely connects to your virtual machine over RDP and SSH without having the need to configure a public IP on the virtual machine.
 
-Bastion billing is comparable to a basic, low-level virtual machine configured as a jumpbox. Comparing Bastion to a jump box, Bastion is more cost effective considering Bastion's built-in security features and no extra costs incurred for storage and managing a separate server. 
+Bastion billing is comparable to a basic, low-level virtual machine configured as a jumpbox. Comparing Bastion to a jump box, Bastion is more cost effective considering Bastion's built-in security features and no extra costs incurred for storage and managing a separate server.
 
 ### Azure Virtual Network
 
-Azure Virtual Network is free. Every subscription is allowed to create up to 50 virtual networks across all regions.
-All traffic that occurs within the boundaries of a virtual network is free. So if two VMs that are in the same VNET are talking each other then no charges will occur.
+Azure Virtual Network is free. Every subscription is allowed to create up to 50 virtual networks across all regions. All traffic that occurs within the boundaries of a virtual network is free. So if two VMs that are in the same VNET are talking each other then no charges will occur.
 
 ### Internal load balancer
 
 Basic load balancing between virtual machines that reside in the same virtual network is free.
 
-In this architecture, internal load balancers are used to load balance traffic inside a virtual network. 
-
-## Deploy the solution
-
-A deployment for a reference architecture that implements these recommendations is available on [GitHub][github-folder].
-
-### Prerequisites
-
-[!INCLUDE [ref-arch-prerequisites.md](../../../includes/ref-arch-prerequisites.md)]
-
-### Deploy resources
-
-1. Navigate to the `/dmz/secure-vnet-hybrid` folder of the reference architectures GitHub repository.
-
-2. Run the following command:
-
-    ```bash
-    azbb -s <subscription_id> -g <resource_group_name> -l <region> -p onprem.json --deploy
-    ```
-
-3. Run the following command:
-
-    ```bash
-    azbb -s <subscription_id> -g <resource_group_name> -l <region> -p secure-vnet-hybrid.json --deploy
-    ```
-
-### Connect the on-premises and Azure gateways
-
-In this step, you will connect the two local network gateways.
-
-1. In the Azure portal, navigate to the resource group that you created.
-
-2. Find the resource named `ra-vpn-vgw-pip` and copy the IP address shown in the **Overview** blade.
-
-3. Find the resource named `onprem-vpn-lgw`.
-
-4. Click the **Configuration** blade. Under **IP address**, paste in the IP address from step 2.
-
-    ![Screenshot of the IP Address field](./images/local-net-gw.png)
-
-5. Click **Save** and wait for the operation to complete. It can take about 5 minutes.
-
-6. Find the resource named `onprem-vpn-gateway1-pip`. Copy the IP address shown in the **Overview** blade.
-
-7. Find the resource named `ra-vpn-lgw`.
-
-8. Click the **Configuration** blade. Under **IP address**, paste in the IP address from step 6.
-
-9. Click **Save** and wait for the operation to complete.
-
-10. To verify the connection, go to the **Connections** blade for each gateway. The status should be **Connected**.
-
-### Verify that network traffic reaches the web tier
-
-1. In the Azure portal, navigate to the resource group that you created.
-
-2. Find the resource named `fe-config1-web`, which is the load balancer in front of web tier. Copy the private IP address from the **Overview** blade.
-
-3. Find the VM named `jb-vm1`. This VM represents the on-premises network. Click **Connect** and use Remote Desktop to connect to the VM. The user name and password are specified in the onprem.json file.
-
-4. From the Remote Desktop Session, open a web browser and navigate to the IP address from step 2. You should see the default Apache2 server home page.
+In this architecture, internal load balancers are used to load balance traffic inside a virtual network.
 
 ## Next steps
 
@@ -217,18 +200,16 @@ In this step, you will connect the two local network gateways.
 
 <!-- links -->
 
-[aaf-cost]: ../../framework/cost/overview.md
+[aaf-cost]: /azure/architecture/framework/cost/overview
 [azure-forced-tunneling]: /azure/vpn-gateway/vpn-gateway-forced-tunneling-rm
 [azurect]: https://github.com/Azure/NetworkMonitoring/tree/master/AzureCT
 [cloud-services-network-security]: /azure/best-practices-network-security
 [azure-pricing-calculator]: https://azure.microsoft.com/pricing/calculator
 [Firewall-NVA]: https://azure.microsoft.com/blog/azure-firewall-and-network-virtual-appliances
 [getting-started-with-azure-security]: /azure/security/azure-security-getting-started
-[github-folder]: https://github.com/mspnp/reference-architectures/tree/master/dmz/secure-vnet-hybrid
-[guidance-expressroute-availability]: ../hybrid-networking/expressroute.yml#availability-considerations
-[guidance-expressroute-devops]: ../hybrid-networking/expressroute.yml#devops-considerations
-[guidance-expressroute-scalability]: ../hybrid-networking/expressroute.yml#scalability-considerations
-[guidance-expressroute-security]: ../hybrid-networking/expressroute.yml#security-considerations
+[guidance-expressroute-availability]: ../hybrid-networking/expressroute.yml#availability
+[guidance-expressroute-scalability]: ../hybrid-networking/expressroute.yml#scalability
+[guidance-expressroute-security]: ../hybrid-networking/expressroute.yml#security
 [guidance-vpn-gateway-availability]: ../hybrid-networking/vpn.yml#availability-considerations
 [guidance-vpn-gateway-devops]: ../hybrid-networking/vpn.yml#devops-considerations
 [guidance-vpn-gateway-scalability]: ../hybrid-networking/vpn.yml#scalability-considerations

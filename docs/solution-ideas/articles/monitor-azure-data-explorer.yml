@@ -2,21 +2,23 @@
 metadata:
   title: Azure Data Explorer monitoring
   titleSuffix: Azure Solution Ideas
-  description: Use Azure Data Explorer in a hybrid monitoring solution that includes Azure Sentinel and Azure Monitor to ingest streamed and batched logs from diverse sources.
+  description: Use Azure Data Explorer in a hybrid monitoring solution that includes Microsoft Sentinel and Azure Monitor to ingest streamed and batched logs from diverse sources.
   author: orspod
+  ms.author: pnp
   ms.date: 08/11/2020
+  ms.topic: conceptual
   ms.service: architecture-center
   ms.subservice: solution-idea
-  ms.custom:
-    - fcp
   ms.category:
     - analytics
     - iot
+  ms.custom:
+    - fcp
 name: Azure Data Explorer monitoring
 azureCategories:
   - analytics
   - iot
-summary: Use Azure Data Explorer in a hybrid monitoring solution that includes Azure Sentinel and Azure Monitor to ingest streamed and batched logs from diverse sources.
+summary: Use Azure Data Explorer in a hybrid monitoring solution that includes Microsoft Sentinel and Azure Monitor to ingest streamed and batched logs from diverse sources.
 products:
   - azure-data-explorer
   - azure-monitor

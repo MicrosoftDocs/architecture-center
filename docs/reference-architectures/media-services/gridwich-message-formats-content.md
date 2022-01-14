@@ -1,6 +1,5 @@
 
 
-
 This article details the specific Event Grid events that form the request-response sequence for different Gridwich operations.
 
 ## Gridwich events
@@ -19,18 +18,18 @@ Gridwich Acknowledgment and Gridwich Failure are different from other Gridwich e
 **Encoding events**
 
 - **Initiate new Encode job**
-  
+
   - [Encode with Media Services V2](#encodeviaamsv2)
   - [Encode with Media Services V3](#encodeviaamsv3)
   - [Encode with CloudPort workflow](#encodeviacp)
   - [Encode with Flip](#encodeviaflip)
-  
+
   The immediate response event from each encoder, aside from an ACK, is either a [Failure](#m-fail) or an [Encoding dispatched](#encodedispatchedresponse) event that indicates successful queuing of the job. The [Encoding progress notification events](#encoderstatus) handle further progress.
 
 - **Encoding progress notifications**
-  
+
   All encoders use the same set of [progress notification status events](#encoderstatus).
-  
+
   - [Encoding scheduled](#encoderstatusscheduled)
   - [Encoding in process](#encoderstatusprocessing)
   - [Encoding completed successfully](#encoderstatussuccess)
@@ -39,22 +38,22 @@ Gridwich Acknowledgment and Gridwich Failure are different from other Gridwich e
 **Blob and container storage events**
 
 - **Containers**
-  
+
   - [Create container](#createcontainer)
   - [Delete container](#deletecontainer)
   - [Change access or visibility level](#changecontaineraccess)
-  
+
 - **Blobs**
-  
+
   - [Set blob metadata](#putblobmetadata)
   - [Copy blob](#copyblob)
   - [Delete blob](#deleteblob)
   - [Change blob access tier](#changeblobtier)
   - [Get blob SAS URL](#getcontentsas)
   - [Analyze blob](#analyzeblob), for example via MediaInfo
-  
+
 - **Blob notifications**
-  
+
   - [Blob created](#statusblobcreated)
   - [Blob deleted](#statusblobdeleted)
 
@@ -912,7 +911,7 @@ The `keyName` corresponds to the key name that Azure Storage defines in its [Get
 **Gridwich** > **Requester**
 
 - Success:
-  
+
   ```json
   {
       "id": "GUID-string",
@@ -926,9 +925,9 @@ The `keyName` corresponds to the key name that Azure Storage defines in its [Get
       "eventType": "response.rollkey.storage.success"
   }
   ```
-  
+
 - Failure:
-  
+
   ```json
   {
       "id": "GUID-string",
@@ -943,5 +942,25 @@ The `keyName` corresponds to the key name that Azure Storage defines in its [Get
       "eventType": "response.rollkey.storage.failure"
   }
   ```
-  
+
   Failure results for this operation aren't as complete as [normal Gridwich failures](#m-fail).
+
+## Next steps
+
+Product documentation:
+
+- [Gridwich cloud media system](gridwich-architecture.yml)
+- [Azure Media Services v3 overview](/azure/media-services/latest/media-services-overview)
+- [What is Azure Blob storage?](/azure/storage/blobs/storage-blobs-overview)
+- [What is Azure Logic Apps?](/azure/logic-apps/logic-apps-overview)
+
+Microsoft Learn modules:
+
+- [Explore Azure Storage services](/learn/modules/azure-storage-fundamentals)
+- [Introduction to Azure Logic Apps](/learn/modules/intro-to-logic-apps)
+
+## Related resources
+
+- [Gridwich content protection and DRM](gridwich-content-protection-drm.yml)
+- [Gridwich operations for Azure Storage](gridwich-storage-service.yml)
+- [Logging in Gridwich](gridwich-logging.yml)

@@ -1,0 +1,29 @@
+### YamlMime:Architecture
+metadata:
+  title: IoT Edge data storage and processing
+  titleSuffix: Azure Solution Ideas
+  description: Use edge devices in your IoT implementation to provide quick response, high availability, and high bandwidth.
+  author: falloutxAY
+  ms.author: ansyeo
+  ms.date: 02/18/2021
+  ms.topic: conceptual
+  ms.service: architecture-center
+  ms.subservice: solution-idea
+  ms.category:
+    - iot
+  ms.custom:
+    - fcp
+    - solution-idea
+name: IoT Edge data storage and processing
+azureCategories:
+  - iot
+summary: Use edge devices in your IoT implementation to provide quick response, high availability, and high bandwidth.
+products:
+  - azure-iot
+  - azure-iot-edge
+  - azure-iot-hub
+  - azure-sql-edge
+
+thumbnailUrl: /azure/architecture/browse/thumbs/data-storage-edge.png
+content: |
+   [!include[](data-storage-edge-content.md)]

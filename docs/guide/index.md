@@ -1,59 +1,44 @@
 ---
-title: Azure Application Architecture Guide
+title: Azure Application Architecture Fundamentals
 description: A structured approach for designing applications on Azure that are scalable, resilient, and highly available
-author: doodlemania2
+author: EdPrice-MSFT
 ms.author: pnp
+ms.date: 12/13/2021
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: guide
-ms.date: 01/08/2020
 ms.custom:
   - guide
+products:
+  - azure
+categories:
+  - management-and-governance
 ---
 
-# Azure Application Architecture Guide
+# Azure application architecture fundamentals
 
-This guide presents a structured approach for designing applications on Azure that are scalable, secure, resilient, and highly available. It is based on proven practices that we have learned from customer engagements.
+This library of content presents a structured approach for designing applications on Azure that are scalable, secure, resilient, and highly available. The guidance is based on proven practices that we have learned from customer engagements.
 
 ## Introduction
 
 The cloud is changing how applications are designed and secured. Instead of monoliths, applications are decomposed into smaller, decentralized services. These services communicate through APIs or by using asynchronous messaging or eventing. Applications scale horizontally, adding new instances as demand requires.
 
-These trends bring new challenges. Application state is distributed. Operations are done in parallel and asynchronously. Applications must be resilient when failures occur. Malicious actors continuously target applications. Deployments must be automated and predictable. Monitoring and telemetry are critical for gaining insight into the system. This guide is designed to help you navigate these changes.
-
-<!-- markdownlint-disable MD033 -->
+These trends bring new challenges. Application states are distributed. Operations are done in parallel and asynchronously. Applications must be resilient when failures occur. Malicious actors continuously target applications. Deployments must be automated and predictable. Monitoring and telemetry are critical for gaining insight into the system. This guide is designed to help you navigate these changes.
 
 <table>
 <thead>
     <tr><th>Traditional on-premises</th><th>Modern cloud</th></tr>
 </thead>
 <tbody>
-<tr><td>Monolithic<br/>
-Designed for predictable scalability<br/>
-Relational database<br/>
-Synchronized processing<br/>
-Design to avoid failures (MTBF)<br/>
-Occasional large updates<br/>
-Manual management<br/>
-Snowflake servers</td>
-<td>
-Decomposed<br/>
-Designed for elastic scale<br/>
-Polyglot persistence (mix of storage technologies)<br/>
-Asynchronous processing<br/>
-Design for failure (MTTR)<br/>
-Frequent small updates<br/>
-Automated self-management<br/>
-Immutable infrastructure<br/>
+<tr><td>Monolithic<br/> Designed for predictable scalability<br/> Relational database<br/> Synchronized processing<br/> Design to avoid failures (MTBF)<br/> Occasional large updates<br/> Manual management<br/> Snowflake servers</td>
+<td> Decomposed<br/> Designed for elastic scale<br/> Polyglot persistence (mix of storage technologies)<br/> Asynchronous processing<br/> Design for failure (MTTR)<br/> Frequent small updates<br/> Automated self-management<br/> Immutable infrastructure<br/>
 </td>
 </tbody>
 </table>
 
-<!-- markdownlint-enable MD033 -->
+## How this guidance is structured
 
-## How this guide is structured
-
-The Azure Application Architecture Guide is organized as a series of steps, from the architecture and design to implementation. For each step, there is supporting guidance that will help you with the design of your application architecture.
+The Azure application architecture fundamentals guidance is organized as a series of steps, from the architecture and design to implementation. For each step, there is supporting guidance that will help you with the design of your application architecture.
 
 ![Diagram that shows the structure of this guide, with the sections of this article represented in a flow diagram.](./images/a3g.svg)
 
@@ -89,7 +74,7 @@ We have identified 10 high-level design principles that will make your applicati
 
 ### Design patterns
 
-Software design patterns are repeatable patterns that are proven to solve specific problems. Our catalog of Cloud design patterns addresses specific challenges in distributed systems. They address aspects such as availability, high availability, operational excellence, resiliency, performance, and security. You can find our catalog of design patterns [here](./index.md).
+Software design patterns are repeatable patterns that are proven to solve specific problems. Our catalog of Cloud design patterns addresses specific challenges in distributed systems. They address aspects such as availability, high availability, operational excellence, resiliency, performance, and security. You can find our catalog of design patterns [here](../patterns/index.md).
 
 ### Best practices
 
@@ -97,13 +82,13 @@ Our [best practices](/azure/architecture/best-practices) articles cover various 
 
 ### Security best practices
 
-Our [security best practices](/security/compass/applications-services) describe how to ensure that the confidentiality, integrity, and availability of your application aren't compromised by malicious actors. 
+Our [security best practices](/security/compass/applications-services) describe how to ensure that the confidentiality, integrity, and availability of your application aren't compromised by malicious actors.
 
 ## Quality pillars
 
-A successful cloud application will focus on five pillars of software quality: Cost optimization, Operational excellence, Performance efficiency, Reliability, and Security. 
+A successful cloud application will focus on five pillars of software quality: Cost optimization, Operational excellence, Performance efficiency, Reliability, and Security.
 
-Leverage the [Microsoft Azure Well-Architected Framework](../framework/index.md) to assess your architecture across these five pillars.
+Leverage the [Microsoft Azure Well-Architected Framework](/azure/architecture/framework) to assess your architecture across these five pillars.
 
 ## Next steps
 

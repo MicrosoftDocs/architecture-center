@@ -1,18 +1,31 @@
 ### YamlMime:Architecture
 metadata:
-  title: Modern Customer Support Portal
+  title: Modern customer support portal
   titleSuffix: Azure Solution Ideas
-  author: doodlemania2
-  ms.date: 12/16/2019
   description: Monitor and respond to customer feedback with this line-of-business application solution. Connect multiple business systems to optimize customer support.
-  ms.custom: 'acom-architecture, line of business app, lob app, lift and shift cloud strategy, cloud migration, cloud innovation, lift and shift solution, lift and shift strategy, interactive-diagram, ''https://azure.microsoft.com/solutions/architecture/modern-customer-support-portal-powered-by-an-agile-business-process/'''
+  author: EdPrice-MSFT
+  ms.author: pnp
+  ms.date: 12/16/2019
+  ms.topic: conceptual
   ms.service: architecture-center
+  ms.subservice: solution-idea
   ms.category:
     - migration
     - hybrid
-  ms.subservice: solution-idea
+  ms.custom:
+    - acom-architecture
+    - line of business app
+    - lob app
+    - lift and shift cloud strategy
+    - cloud migration
+    - cloud innovation
+    - lift and shift solution
+    - lift and shift strategy
+    - interactive-diagram
+    - e2e-hybrid
+    - "https://azure.microsoft.com/solutions/architecture/modern-customer-support-portal-powered-by-an-agile-business-process/"
   social_image_url: /azure/architecture/solution-ideas/articles/media/modern-customer-support-portal-powered-by-an-agile-business-process.png
-name: Modern Customer Support Portal
+name: Modern customer support portal
 azureCategories:
   - migration
   - hybrid

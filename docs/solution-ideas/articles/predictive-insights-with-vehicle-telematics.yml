@@ -1,18 +1,27 @@
 ### YamlMime:Architecture
 metadata:
-  title: Predictive Insights with Vehicle Telematics
+  title: Predictive insights with vehicle telematics
   titleSuffix: Azure Solution Ideas
-  author: doodlemania2
-  ms.date: 12/16/2019
   description: Car dealerships, manufacturers, and insurance companies can use Microsoft Azure to gain predictive insights on vehicle health and driving habits.
-  ms.custom: 'acom-architecture, vehicle telematics, automotive telematics, anomaly-detection, ai-ml, ''https://azure.microsoft.com/solutions/architecture/predictive-insights-with-vehicle-telematics/'''
+  author: EdPrice-MSFT
+  ms.author: pnp
+  ms.date: 3/3/2021
+  ms.topic: conceptual
   ms.service: architecture-center
+  ms.subservice: solution-idea
   ms.category:
     - ai-machine-learning
     - storage
-  ms.subservice: solution-idea
+  ms.custom:
+    - acom-architecture
+    - vehicle telematics
+    - automotive telematics
+    - anomaly-detection
+    - ai-ml
+    - "https://azure.microsoft.com/solutions/architecture/predictive-insights-with-vehicle-telematics/"
+    - ai-machine-learning
   social_image_url: /azure/architecture/solution-ideas/articles/media/predictive-insights-with-vehicle-telematics.png
-name: Predictive Insights with Vehicle Telematics
+name: Predictive insights with vehicle telematics
 azureCategories:
   - ai-machine-learning
   - storage
@@ -22,10 +31,7 @@ products:
   - azure-event-hubs
   - azure-hdinsight
   - azure-machine-learning
-  - azure-sql-database
-  - azure-storage-accounts
   - azure-stream-analytics
-  - power-bi
 thumbnailUrl: /azure/architecture/browse/thumbs/predictive-insights-with-vehicle-telematics.png
 content: |
-   [!include[](predictive-insights-with-vehicle-telematics-content.md)]
+  [!include[](predictive-insights-with-vehicle-telematics-content.md)]

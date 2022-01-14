@@ -1,14 +1,15 @@
 ---
 title: Data partitioning strategies
 titleSuffix: Best practices for cloud applications
-description: Guidance on separating data partitions to be managed and accessed separately.
-author: dragon119
+description: View guidance on separating data partitions to be managed and accessed separately in different services, such as Azure Search, Azure storage queues, and more.
+author: EdPrice-MSFT
 ms.date: 11/04/2018
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: best-practice
+products:
+  - azure-table-storage
 ms.custom:
-  - seodec18
   - best-practice
 ---
 
@@ -116,9 +117,9 @@ Consider the following points when you design your entities for Azure table stor
 
 For more information, see [Azure storage table design guide] and [Scalable partitioning strategy].
 
-## Partitioning Azure blob storage
+## Partitioning Azure Blob Storage
 
-Azure blob storage makes it possible to hold large binary objects. Use block blobs in scenarios when you need to upload or download large volumes of data quickly. Use page blobs for applications that require random rather than serial access to parts of the data.
+Azure Blob Storage makes it possible to hold large binary objects. Use block blobs in scenarios when you need to upload or download large volumes of data quickly. Use page blobs for applications that require random rather than serial access to parts of the data.
 
 Each blob (either block or page) is held in a container in an Azure storage account. You can use containers to group related blobs that have the same security requirements. This grouping is logical rather than physical. Inside a container, each blob has a unique name.
 
@@ -280,7 +281,7 @@ _Figure 8. Suggested structure in Redis storage for recording customer orders an
 
 ## Partitioning Azure Service Fabric
 
-Azure Service Fabric is a microservices platform that provides a runtime for distributed applications in the cloud. Service Fabric supports .Net guest executables, stateful and stateless services, and containers. Stateful services provide a [reliable collection][service-fabric-reliable-collections] to persistently store data in a key-value collection within the Service Fabric cluster. For more information about strategies for partitioning keys in a reliable collection, see [guidelines and recommendations for reliable collections in Azure Service Fabric].
+Azure Service Fabric is a microservices platform that provides a runtime for distributed applications in the cloud. Service Fabric supports .NET guest executables, stateful and stateless services, and containers. Stateful services provide a [reliable collection][service-fabric-reliable-collections] to persistently store data in a key-value collection within the Service Fabric cluster. For more information about strategies for partitioning keys in a reliable collection, see [guidelines and recommendations for reliable collections in Azure Service Fabric].
 
 ### More information
 
@@ -292,7 +293,7 @@ Azure Service Fabric is a microservices platform that provides a runtime for dis
 
 [Azure Event Hubs][event-hubs] is designed for data streaming at massive scale, and partitioning is built into the service to enable horizontal scaling. Each consumer only reads a specific partition of the message stream.
 
-The event publisher is only aware of its partition key, not the partition to which the events are published. This decoupling of key and partition insulates the sender from needing to know too much about the downstream processing. (It's also possible send events directly to a given partition, but generally that's not recommended.)  
+The event publisher is only aware of its partition key, not the partition to which the events are published. This decoupling of key and partition insulates the sender from needing to know too much about the downstream processing. (It's also possible send events directly to a given partition, but generally that's not recommended.)
 
 Consider long-term scale when you select the partition count. After an event hub is created, you can't change the number of partitions.
 

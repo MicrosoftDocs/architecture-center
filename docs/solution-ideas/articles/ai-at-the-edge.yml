@@ -1,18 +1,31 @@
 ### YamlMime:Architecture
 metadata:
-  title: AI at the Edge with Azure Stack Hub
+  title: AI at the edge with Azure Stack Hub
   titleSuffix: Azure Solution Ideas
-  author: doodlemania2
-  ms.date: 09/01/2020
   description: Bring your trained AI model to the edge with Azure Stack Hub and integrate it with your applications for low-latency intelligence.
-  ms.custom: 'ai-ml, acom-architecture, ai at the edge, azure stack edge, edge ai, machine learning, interactive-diagram, ''https://azure.microsoft.com/solutions/architecture/ai-at-the-edge/'''
+  author: EdPrice-MSFT
+  ms.author: pnp
+  ms.date: 03/03/2021
+  ms.topic: conceptual
   ms.service: architecture-center
+  ms.subservice: solution-idea
   ms.category:
     - ai-machine-learning
     - hybrid
-  ms.subservice: solution-idea
+  ms.custom:
+    - ai-ml
+    - acom-architecture
+    - ai at the edge
+    - azure stack edge
+    - edge ai
+    - machine learning
+    - interactive-diagram
+    - e2e-hybrid
+    - edge intelligence
+    - "https://azure.microsoft.com/solutions/architecture/ai-at-the-edge/"
+    - ai-machine-learning
   social_image_url: /azure/architecture/solution-ideas/articles/media/ai-at-the-edge.png
-name: AI at the Edge with Azure Stack Hub
+name: AI at the edge with Azure Stack Hub
 azureCategories:
   - ai-machine-learning
   - hybrid
@@ -23,7 +36,6 @@ products:
   - azure-kubernetes-service
   - azure-machine-learning
   - azure-stack-hub
-  - azure-storage
 thumbnailUrl: /azure/architecture/browse/thumbs/ai-at-the-edge.png
 content: |
-   [!include[](ai-at-the-edge-content.md)]
+  [!include[](ai-at-the-edge-content.md)]

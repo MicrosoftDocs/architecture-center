@@ -2,15 +2,25 @@
 metadata:
   title: Retail and e-commerce using Azure MySQL
   titleSuffix: Azure Solution Ideas
-  author: doodlemania2
-  ms.date: 12/16/2019
   description: Build secure and scalable e-commerce solutions that meet customer and business demands by using Azure Database for MySQL.
-  ms.custom: 'acom-architecture, web-app, ecommerce, mysql, use cases, azure, solutions, ''https://azure.microsoft.com/solutions/architecture/retail-and-ecommerce-using-azure-database-for-mysql/'''
+  author: EdPrice-MSFT
+  ms.author: pnp
+  ms.date: 12/16/2019
+  ms.topic: conceptual
   ms.service: architecture-center
+  ms.subservice: solution-idea
   ms.category:
     - databases
     - web
-  ms.subservice: solution-idea
+  ms.custom:
+    - acom-architecture
+    - web-app
+    - ecommerce
+    - mysql
+    - use cases
+    - azure
+    - solutions
+    - "https://azure.microsoft.com/solutions/architecture/retail-and-ecommerce-using-azure-database-for-mysql/"
   social_image_url: /azure/architecture/solution-ideas/articles/media/retail-and-ecommerce-using-azure-database-for-mysql.png
 name: Retail and e-commerce using Azure MySQL
 azureCategories:

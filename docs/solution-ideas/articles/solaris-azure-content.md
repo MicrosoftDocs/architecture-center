@@ -1,11 +1,10 @@
+[!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
-
-
-This reference architecture shows how an emulator called Charon-SSP from the Microsoft partner, Stromasys, can run SPARC processor-based Solaris virtual machines (VMs) in Azure. Charon-SSP is a member of the Charon cross-platform hardware virtualization product family. The emulator can create virtual replicas of Sun-4m, Sun-4u, or Sun-4v SPARC family members on standard x86-64 Linux physical computers or hypervisors.
+This article shows how an emulator called Charon-SSP from the Microsoft partner, Stromasys, can run SPARC processor-based Solaris virtual machines (VMs) in Azure. Charon-SSP is a member of the Charon cross-platform hardware virtualization product family. The emulator can create virtual replicas of Sun-4m, Sun-4u, or Sun-4v SPARC family members on standard x86-64 Linux physical computers or hypervisors.
 
 Running applications in an emulator on Azure has several benefits, such as reduced operational costs and energy consumption. You can also run multiple application instances on a single x86-64 standard host or existing virtualization infrastructure, giving you the advantages of consolidation while easing legacy system management and maintenance.
 
-## Use cases
+## Potential use cases
 
 - Enable low-friction "lift-and-shift" from on-premises workloads running on SPARC Solaris machines into Azure.
 - Continue to use applications that run on end-of-life SPARCstation or SPARCserver, without changes.
@@ -25,22 +24,22 @@ Running applications in an emulator on Azure has several benefits, such as reduc
 7. The management VM that runs Charon-SSP Director and Manager can be either Windows-based, or Linux-based with a graphic user interface like [GNOME](https://www.gnome.org/).
 8. End users can secure-shell (SSH) connect directly to the Solaris VMs, which have their own dedicated network interface cards and IP addresses.
 
-[XDMCP](https://wiki.ubuntu.com/xdmcp) is available for desktop access to the Solaris VMs. XDMCP isn't an encrypted protocol, so the recommended topology for accessing a Solaris VM via XDMCP is to create a Windows Server VM in Azure as a "hop" server, in which an XDMCP client such as [MobaXterm](https://mobaxterm.mobatek.net/) can be installed. With this configuration, all network traffic occurs over the private Azure virtual network.
+[XDMCP](https://wiki.ubuntu.com/xdmcp) is available for desktop access to the Solaris VMs. XDMCP isn't an encrypted protocol, so the recommended topology for accessing a Solaris VM via XDMCP is to create a Windows Server VM in Azure as a "hop" server, in which an XDMCP client, such as [MobaXterm](https://mobaxterm.mobatek.net), can be installed. With this configuration, all network traffic occurs over the private Azure virtual network.
 
-## Components
+### Components
 
 - [Azure VMs](https://azure.microsoft.com/services/virtual-machines/) are on-demand, scalable computing resources in Azure. An Azure VM gives you the flexibility of virtualization without having to buy and maintain physical hardware. Azure VMs give you a choice of operating systems including Windows and Linux.
-  
+
 - [Azure Virtual Network](/azure/virtual-network/virtual-networks-overview) is the fundamental building block for private networks in Azure. Virtual networks let Azure resources like VMs securely communicate with each other, the internet, and on-premises networks. Azure Virtual Network is similar to a traditional network in your own datacenter, but provides the additional scale, availability, and isolation benefits of the Azure infrastructure.
-  
+
 - [Azure Virtual Network interface cards](/azure/virtual-network/virtual-network-network-interface) enable an Azure VM to communicate with internet, Azure, and on-premises resources. As shown in this architecture, you can add additional network interface cards to the same Azure VM, which allows the Solaris child VMs to have their own dedicated network interface devices and IP addresses.
-  
+
 - [Azure SSD managed disks](/azure/virtual-machines/managed-disks-overview) are block-level storage volumes managed by Azure that are used with Azure VMs. The available types of disks are ultra disks, premium SSDs, standard SSDs, and standard hard disk drives (HDDs). For this architecture, we recommend either Premium SSDs or Ultra Disk SSDs.
-  
+
 - [Azure Files](/azure/storage/files/storage-files-introduction) storage accounts offer fully managed file shares in the cloud that are accessible via the industry standard Server Message Block (SMB) protocol. Azure file shares can be mounted concurrently by cloud and on-premises deployments of Windows, Linux, and macOS.
-  
+
 - [Azure ExpressRoute](/azure/expressroute/expressroute-introduction) lets you extend your on-premises networks into the Microsoft cloud over a private connection facilitated by a connectivity provider. With ExpressRoute, you can establish connections to Microsoft cloud services like Microsoft Azure and Microsoft 365.
-  
+
 - [Stromasys Charon-SSP](https://www.stromasys.com/solutions/charon-ssp) emulator recreates the SPARC virtual hardware layer on industry standard x86-64 computer systems and VMs. The virtual SPARC virtual hardware layer is compatible with any Sun software running on it, so there's no need for code conversion or source code. Charon-SSP is fully compatible with SPARC storage, Ethernet, and serial I/O hardware.
 
 ## Next steps

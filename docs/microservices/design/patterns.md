@@ -1,13 +1,13 @@
 ---
 title: Design patterns for microservices
 description: Learn how designs that use microservices can increase the velocity of application releases by deploying small, autonomous services independently.
-author: doodlemania2
+author: EdPrice-MSFT
 ms.date: 02/25/2019
 ms.topic: conceptual
 ms.service: architecture-center
+ms.subservice: azure-guide
 ms.category:
   - developer-tools
-ms.subservice: azure-guide
 ms.custom:
   - microservices
   - guide
@@ -37,4 +37,4 @@ The goal of microservices is to increase the velocity of application releases, b
 
 [**Strangler Fig**](../../patterns/strangler-fig.md) supports incremental refactoring of an application, by gradually replacing specific pieces of functionality with new services.
 
-For the complete catalog of cloud design patterns on the Azure Architecture Center, see [Cloud Design Patterns](https://docs.microsoft.com/azure/architecture/patterns/).
+For the complete catalog of cloud design patterns on the Azure Architecture Center, see [Cloud Design Patterns](../../patterns/index.md).

@@ -1,18 +1,20 @@
 ### YamlMime:Architecture
 metadata:
-  title: Run SAP HANA for Linux virtual machines in a scale-up architecture on Azure
-  description: 'Proven practices for running SAP HANA in a high-availability, scale-up environment that supports disaster recovery on Azure.'
-  author: maggsl
+  title: SAP HANA for Linux VMs in scale-up systems
+  description: Proven practices for running SAP HANA in a high-availability, scale-up environment that supports disaster recovery on Azure.
+  author: bqtrinh
+  ms.author: bentrin
   ms.date: 06/10/2020
   ms.topic: conceptual
   ms.service: architecture-center
-  ms.custom:
-    - fcp
-    - reference-architecture
+  ms.subservice: reference-architecture
   ms.category:
     - databases
     - compute
-  ms.subservice: reference-architecture
+  ms.custom:
+    - fcp
+    - reference-architecture
+    - e2e-sap
 name: Run SAP HANA for Linux virtual machines in a scale-up architecture on Azure
 azureCategories:
   - databases
@@ -22,6 +24,6 @@ products:
   - azure
   - azure-virtual-machines
   - azure-linux-vm
-thumbnailUrl: /azure/architecture/browse/thumbs/sap-hana-scaleup.png
+thumbnailUrl: /azure/architecture/browse/thumbs/sap-hana-scale-up-thumbnail.png
 content: |
    [!include[](run-sap-hana-for-linux-virtual-machines-content.md)]

@@ -1,19 +1,20 @@
 ---
-title: Building a CI/CD pipeline for microservices on Kubernetes
-description: Describes an example CI/CD pipeline for deploying microservices to Azure Kubernetes Service (AKS).
-author: doodlemania2
+title: Microservices CI/CD pipeline on Kubernetes
+description: Learn about building a Continuous Integration and Continuous Delivery (CI/CD) pipeline for deploying microservices to Azure Kubernetes Service (AKS).
+author: EdPrice-MSFT
 ms.date: 04/11/2019
 ms.topic: conceptual
 ms.service: architecture-center
+ms.subservice: azure-guide
 ms.category:
   - containers
-ms.subservice: azure-guide
+products:
+  - azure-kubernetes-service
+  - azure-container-registry
 ms.custom:
   - microservices
   - guide
 ---
-
-<!-- markdownlint-disable MD040 -->
 
 # Building a CI/CD pipeline for microservices on Kubernetes
 
@@ -21,9 +22,7 @@ It can be challenging to create a reliable CI/CD process for a microservices arc
 
 This article describes an example CI/CD pipeline for deploying microservices to Azure Kubernetes Service (AKS). Every team and project is different, so don't take this article as a set of hard-and-fast rules. Instead, it's meant to be a starting point for designing your own CI/CD process.
 
-The example pipeline described here was created for a microservices reference implementation called the Drone Delivery application, which you can find on [GitHub][ri]. The application scenario is described [here](./design/index.md#reference-implementation).
-
-The goals of the pipeline can be summarized as follows:
+The goals of a CI/CD pipeline for Kubernetes hosted microservices can be summarized as follows:
 
 - Teams can build and deploy their services independently.
 - Code changes that pass the CI process are automatically deployed to a production-like environment.
@@ -69,14 +68,12 @@ trigger:
     - /src/shipping/delivery/
 ```
 
-&#11162; See the [source file](https://github.com/mspnp/microservices-reference-implementation/blob/v0.1.0-invoicing/src/shipping/delivery/azure-pipelines.yml).
-
 Using this approach, each team can have its own build pipeline. Only code that is checked into the `/src/shipping/delivery` folder triggers a build of the Delivery Service. Pushing commits to a branch that matches the filter triggers a CI build. At this point in the workflow, the CI build runs some minimal code verification:
 
 1. Build the code.
 1. Run unit tests.
 
-The goal is to keep build times short, so the developer can get quick feedback. Once the feature is ready to merge into master, the developer opens a PR. This triggers another CI build that performs some additional checks:
+The goal is to keep build times short so that the developer can get quick feedback. Once the feature is ready to merge into master, the developer opens a PR. This operation triggers another CI build that performs some additional checks:
 
 1. Build the code.
 1. Run unit tests.
@@ -90,11 +87,11 @@ The goal is to keep build times short, so the developer can get quick feedback. 
 
 ## Full CI/CD build
 
-At some point, the team is ready to deploy a new version of the Delivery service. The release manager creates a branch from master with this naming pattern: `release/<microservice name>/<semver>`. For example, `release/delivery/v1.0.2`.
+At some point, the team is ready to deploy a new version of the Delivery service. The release manager creates a branch from the main branch with this naming pattern: `release/<microservice name>/<semver>`. For example, `release/delivery/v1.0.2`.
 
 ![Diagram showing ci-delivery-full in the Build pipeline and cd-delivery in the Release pipeline.](./images/aks-cicd-3.png)
 
-Creation of this branch triggers a full CI build that runs all of the previous steps plus:
+The creation of this branch triggers a full CI build that runs all of the previous steps plus:
 
 1. Push the container image to Azure Container Registry. The image is tagged with the version number taken from the branch name.
 2. Run `helm package` to package the Helm chart for the service. The chart is also tagged with a version number.
@@ -107,17 +104,17 @@ Assuming this build succeeds, it triggers a deployment (CD) process using an Azu
 1. Retag the Docker image for the production namespace in Azure Container Registry. For example, if the current tag is `myrepo.azurecr.io/delivery:v1.0.2`, the production tag is `myrepo.azurecr.io/prod/delivery:v1.0.2`.
 1. Deploy the Helm chart to the production environment.
 
-Even in a monorepo, these tasks can be scoped to individual microservices, so that teams can deploy with high velocity. The process has some manual steps: Approving PRs, creating release branches, and approving deployments into the production cluster. These steps are manual by policy &mdash; they could be automated if the organization prefers.
+Even in a monorepo, these tasks can be scoped to individual microservices so that teams can deploy with high velocity. The process has some manual steps: Approving PRs, creating release branches, and approving deployments into the production cluster. These steps are manual; they could be automated if the organization prefers.
 
 ## Isolation of environments
 
-You will have multiple environments where you deploy services, including environments for development, smoke testing, integration testing, load testing, and finally production. These environments need some level of isolation. In Kubernetes, you have a choice between physical isolation and logical isolation. Physical isolation means deploying to separate clusters. Logical isolation uses namespaces and policies, as described earlier.
+You will have multiple environments where you deploy services, including environments for development, smoke testing, integration testing, load testing, and finally, production. These environments need some level of isolation. In Kubernetes, you have a choice between physical isolation and logical isolation. Physical isolation means deploying to separate clusters. Logical isolation uses namespaces and policies, as described earlier.
 
 Our recommendation is to create a dedicated production cluster along with a separate cluster for your dev/test environments. Use logical isolation to separate environments within the dev/test cluster. Services deployed to the dev/test cluster should never have access to data stores that hold business data.
 
 ## Build process
 
-When possible, package your build process into a Docker container. That allows you to build your code artifacts using Docker, without needing to configure the build environment on each build machine. A containerized build process makes it easy to scale out the CI pipeline by adding new build agents. Also, any developer on the team can build the code simply by running the build container.
+When possible, package your build process into a Docker container. This configuration allows you to build code artifacts using Docker and without configuring a build environment on each build machine. A containerized build process makes it easy to scale out the CI pipeline by adding new build agents. Also, any developer on the team can build the code simply by running the build container.
 
 By using multi-stage builds in Docker, you can define the build environment and the runtime image in a single Dockerfile. For example, here's a Dockerfile that builds a .NET application:
 
@@ -152,8 +149,6 @@ COPY --from=publish /app .
 ENTRYPOINT ["dotnet", "Fabrikam.Workflow.Service.dll"]
 ```
 
-&#11162; See the [source file](https://github.com/mspnp/microservices-reference-implementation/blob/master/src/shipping/workflow/Dockerfile).
-
 This Dockerfile defines several build stages. Notice that the stage named `base` uses the .NET runtime, while the stage named `build` uses the full .NET SDK. The `build` stage is used to build the .NET project. But the final runtime container is built from `base`, which contains just the runtime and is significantly smaller than the full SDK image.
 
 ### Building a test runner
@@ -183,7 +178,7 @@ The CI pipeline should also run the tests as part of the build verification step
 Note that this file uses the Docker `ENTRYPOINT` command to run the tests, not the Docker `RUN` command.
 
 - If you use the `RUN` command, the tests run every time you build the image. By using `ENTRYPOINT`, the tests are opt-in. They run only when you explicitly target the `testrunner` stage.
-- A failing test doesn't cause the Docker `build` command to fail. That way you can distinguish container build failures from test failures.
+- A failing test doesn't cause the Docker `build` command to fail. That way, you can distinguish container build failures from test failures.
 - Test results can be saved to a mounted volume.
 
 ### Container best practices
@@ -192,7 +187,7 @@ Here are some other best practices to consider for containers:
 
 - Define organization-wide conventions for container tags, versioning, and naming conventions for resources deployed to the cluster (pods, services, and so on). That can make it easier to diagnose deployment issues.
 
-- During the development and test cycle, the CI/CD process will build many container images. Only some of those images are candidates for release, and then only some of those release candidates will get promoted to production. Have a clear versioning strategy, so that you know which images are currently deployed to production, and can roll back to a previous version if necessary.
+- During the development and test cycle, the CI/CD process will build many container images. Only some of those images are candidates for release, and then only some of those release candidates will get promoted to production. Have a clear versioning strategy so that you know which images are currently deployed to production and to help roll back to a previous version if necessary.
 
 - Always deploy specific container version tags, not `latest`.
 
@@ -204,8 +199,8 @@ Here are some other best practices to consider for containers:
 
 Consider using Helm to manage building and deploying services. Here are some of the features of Helm that help with CI/CD:
 
-- Often a single microservice is defined by multiple Kubernetes objects. Helm allows these objects to be packaged into a single Helm chart.
-- A chart can be deployed with a single Helm command, rather than a series of kubectl commands.
+- Often, a single microservice is defined by multiple Kubernetes objects. Helm allows these objects to be packaged into a single Helm chart.
+- A chart can be deployed with a single Helm command rather than a series of kubectl commands.
 - Charts are explicitly versioned. Use Helm to release a version, view releases, and roll back to a previous version. Tracking updates and revisions, using semantic versioning, along with the ability to roll back to a previous version.
 - Helm charts use templates to avoid duplicating information, such as labels and selectors, across many files.
 - Helm can manage dependencies between charts.
@@ -243,8 +238,6 @@ metadata:
           value: {{ .Values.log.level }}
 ```
 
-&#11162; See the [source file](https://github.com/mspnp/microservices-reference-implementation/blob/v0.1.0-invoicing/charts/package/templates/package-deploy.yaml).
-
 You can see that the deployment name, labels, and container spec all use template parameters, which are provided at deployment time. For example, from the command line:
 
 ```bash
@@ -262,7 +255,7 @@ Consider deploying Helm to its own namespace and using role-based access control
 
 ### Revisions
 
-Helm charts always have a version number, which must use [semantic versioning](https://semver.org/). A chart can also have an `appVersion`. This field is optional, and doesn't have to be related to the chart version. Some teams might want to application versions separately from updates to the charts. But a simpler approach is to use one version number, so there's a 1:1 relation between chart version and application version. That way, you can store one chart per release and easily deploy the desired release:
+Helm charts always have a version number, which must use [semantic versioning](https://semver.org/). A chart can also have an `appVersion`. This field is optional and doesn't have to be related to the chart version. Some teams might want to application versions separately from updates to the charts. But a simpler approach is to use one version number, so there's a 1:1 relation between chart version and application version. That way, you can store one chart per release and easily deploy the desired release:
 
 ```bash
 helm install <package-chart-name> --version <desiredVersion>
@@ -359,7 +352,7 @@ Based on the CI flow described earlier in this article, a build pipeline might c
         imageName: '$(imageName)'
     ```
 
-1. Push to the container to Azure Container Registry (or other container registry).
+1. Push the container image to Azure Container Registry (or other container registry).
 
     ```yaml
     - task: Docker@1
@@ -393,8 +386,6 @@ Based on the CI flow described earlier in this article, a build pipeline might c
         az acr helm push $(System.ArtifactsDirectory)/$(repositoryName)-$(Build.SourceBranchName).tgz --name $(AzureContainerRegistry);
     ```
 
-&#11162; See the [source file](https://github.com/mspnp/microservices-reference-implementation/blob/v0.1.0-invoicing/src/shipping/delivery/azure-pipelines.yml).
-
 The output from the CI pipeline is a production-ready container image and an updated Helm chart for the microservice. At this point, the release pipeline can take over. It performs the following steps:
 
 - Deploy to dev/QA/staging environments.
@@ -408,9 +399,3 @@ For more information about creating a release pipeline, see [Release pipelines, 
 The following diagram shows the end-to-end CI/CD process described in this article:
 
 ![CD/CD pipeline](./images/aks-cicd-flow.png)
-
-## Next steps
-
-This article was based on a reference implementation that you can find on [GitHub][ri].
-
-[ri]: https://github.com/mspnp/microservices-reference-implementation

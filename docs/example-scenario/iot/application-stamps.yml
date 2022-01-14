@@ -1,10 +1,10 @@
 ### YamlMime:Architecture
 metadata:
-  title: Scale IoT solutions with application stamps
+  title: Scale IoT solutions with deployment stamps
   titleSuffix: Azure Example Scenarios
-  description: Learn about scaling up IoT device populations with application stamps, and strategies for moving devices and applications between stamps.
+  description: Learn about scaling up IoT device populations with deployment stamps and strategies for moving devices and applications between stamps.
   author: wamachine
-  ms.date: 08/10/2020
+  ms.date: 04/22/2021
   ms.topic: conceptual
   ms.service: architecture-center
   ms.subservice: example-scenario
@@ -13,14 +13,15 @@ metadata:
   ms.custom:
     - fcp
     - example-scenario
-name: Scale IoT solutions with application stamps
+name: Scale IoT solutions with deployment stamps
 azureCategories:
   - iot
-summary: Learn about scaling up IoT device populations with application stamps, and strategies for moving devices and applications between stamps.
+summary: Learn about scaling up IoT device populations with deployment stamps and strategies for moving devices and applications between stamps.
 products:
   - azure-event-hubs
   - azure-iot-hub
   - azure-traffic-manager
-thumbnailUrl: /azure/architecture/browse/thumbs/application-stamping.png
+  - azure-iot-dps
+thumbnailUrl: /azure/architecture/browse/thumbs/scale-iot-deployment-stamps.svg
 content: |
    [!include[](application-stamps-content.md)]

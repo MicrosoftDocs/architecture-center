@@ -1,16 +1,21 @@
 ### YamlMime:Architecture
 metadata:
-  title: Dynamics Business Central as a Service on Azure
+  title: Dynamics Business Central as a service on Azure
   titleSuffix: Azure Solution Ideas
-  author: altotovi
-  ms.date: 06/25/2020
   description: This example shows how to establish the production environment for Business Central in partner private Azure environment.
-  ms.custom: 'acom-architecture, fcp'
+  author: altotovi
+  ms.author: altotovi
+  ms.sme: chrogers
+  ms.date: 11/16/2021
+  ms.topic: conceptual
   ms.service: architecture-center
   ms.subservice: solution-idea
   ms.category:
     - compute
-name: Dynamics Business Central as a Service on Azure
+  ms.custom:
+    - acom-architecture
+    - fcp
+name: Dynamics Business Central as a service on Azure
 azureCategories:
   - compute
 summary: This example shows how to establish the production environment for Business Central in partner private Azure environment.

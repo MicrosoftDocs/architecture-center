@@ -14,9 +14,11 @@ Many industries protect their data by using confidential computing for these pur
 
 ## Architecture
 
-:::image type="complex" source="./media/healthcare-demo-architecture.png" alt-text="Diagram of a confidential healthcare platform demonstration. The platform includes a hospital, medical platform provider, and diagnostic provider." lightbox="./media/healthcare-demo-architecture-enlarged.png":::
+:::image type="complex" source="./media/confidential-healthcare-inference.png" alt-text="Diagram of a confidential healthcare platform demonstration. The platform includes a hospital, medical platform provider, and diagnostic provider." border="false":::
 Diagram showing how data flows between three parties in a healthcare setting. Three rectangles represent the three parties: a hospital, a medical platform, and a diagnostic provider. Each rectangle contains icons that represent various components, such as a website, a client application, Azure Attestation, a web API, data storage, and a runtime. The medical platform and diagnostic provider rectangles also contain smaller rectangles that represent confidential nodes and A K S clusters. Arrows connect these components and show the flow of data. Numbered callouts correspond to the steps that this article describes after the diagram.
 :::image-end:::
+
+*Download an [.svg][Confidential Healthcare Inference svg] of this architecture.*
 
 The diagram outlines the architecture. Throughout the system:
 
@@ -25,19 +27,13 @@ The diagram outlines the architecture. Throughout the system:
 
 The solution involves the following steps:
 
-1. A clerk for Lamna Hospital opens the hospital's web portal, an Azure Blob Storage static website, to enter patient data.
-
-1. The clerk enters data into the hospital's web portal, which Contoso Medical Platform Ltd. powers with a Python Flask–based web API. A confidential node in the [SCONE](https://sconedocs.github.io/#scone-executive-summary) confidential computing software protects the patient data. SCONE works within an AKS cluster that has the Software Guard Extensions (SGX) enabled that help run the container in an enclave.
-
-1. The Python code is wrapped in SCONE SGX software. The solution deploys that code on an AKS confidential node as a confidential container. The code stores the data in memory within a Redis cache (**3a**), using Azure Attestation to establish trust (**3b**).
-
-1. If the code doesn't find the patient data, it prompts the clerk to enter the sensitive information on a form. The code then stores that information in Redis.
-
-1. The Contoso application sends the protected patient data from its AKS cluster to an enclave in the Open Neural Network Exchange (ONNX) runtime server. Fabrikam Diagnostic Provider hosts this confidential inferencing server in a confidential node of the Fabrikam AKS cluster.
-
-1. The Fabrikam machine learning–based application obtains the diagnostic results from the confidential inferencing ONNX runtime server. The app sends these results back to the confidential node in the Contoso AKS cluster.
-
-1. The Contoso application sends the diagnostic results from the confidential node back to Lamna's client application.
+1. A clerk for a local hospital opens a web portal. The entire web app is an Azure Blob Storage static website.
+1. The clerk enters data into the hospital's web portal, which connects to a Python Flask–based web API built by a popular medical platform vendor. A confidential node in the [SCONE](https://sconedocs.github.io/#scone-executive-summary) confidential computing software protects the patient data. SCONE works within an AKS cluster that has the Software Guard Extensions (SGX) enabled that help run the container in an enclave. The Web API will provide evidence that the sensitive data and app code is encrypted and isolated in a Trusted Execution Environment. This means that no humans, no processes, and no logs have access to the cleartext data or the application code.
+1. The hospital's web app client requests that an attestation service (Azure Attestation) validates this evidence, and receives a signed *attestation token* for other apps to verify.
+1. If the Web API requires additional components (like a Redis cache), it can pass along the attestation token to verify that the data and app code have so far remained in a safe enclave (see step 6 for verification).
+1. The Web API can even consume remote services, such as an ML model hosted by a third-party diagnostics provider. When doing so, it continues to pass along any attestation tokens for evidence that required enclaves are safe. The Web API could also attempt to receive and verify attestation tokens for the diagnostic provider's infrastructure.
+1. The remote infrastructure accepts the attestation token from the medical platform's web api and verifies it with a public certificate found in the Azure Attestation service. If the token is verified, there is near certainty that the enclave is safe and neither the data or app code have been opened outside of the enclave.
+1. The diagnostics provider, confident that the data has not been exposed, sends it into its own enclave in an Open Neural Network Exchange (ONNX) runtime server. An AI model interprets the medical imagery and returns its diagnosis results back to the medical platform's confidential Web API app. From here, the software can then interact with patient records and/or contact other hospital staff.
 
 ### Components
 
@@ -56,10 +52,6 @@ The solution involves the following steps:
 - [Secure Container Environment (SCONE)](https://sconedocs.github.io/) supports the execution of confidential applications in containers that run inside a Kubernetes cluster.
 
 - [Confidential Inferencing ONNX Runtime Server Enclave (ONNX RT - Enclave)](https://github.com/microsoft/onnx-server-openenclave) is a host that restricts the ML hosting party from accessing both the inferencing request and its corresponding response.
-
-- [Azure Monitor](/azure/azure-monitor/overview) collects and analyzes app telemetry, such as performance metrics and activity logs.
-
-- [ACR](https://azure.microsoft.com/services/container-registry/) is a service that creates a managed registry. ACR builds, stores, and manages container images and can store containerized machine learning models.
 
 ### Alternatives
 
@@ -110,10 +102,11 @@ The profile doesn't include the following components:
 - SCONE ISV licensing
 - Compliance services required for solutions working with sensitive data, including:
 
-  - Azure Security Center and Azure Defender for Kubernetes
+  - Microsoft Defender for Cloud and Microsoft Defender for Kubernetes
   - Azure DDoS Protection: standard
   - Azure Firewall
   - Azure Application Gateway and Azure Web Application Firewall
+  - Azure Key Vault
 
 ## Next steps
 
@@ -127,3 +120,5 @@ The profile doesn't include the following components:
 - [Confidential ONNX inference server (GitHub sample)](https://github.com/microsoft/onnx-server-openenclave).
 - [MobileCoin use case with anonymized blockchain data](https://customers.microsoft.com/story/844245-mobilecoin-banking-and-capital-markets-azure).
 - [A sample brain segmentation image](https://github.com/mateuszbuda/brain-segmentation-pytorch/blob/master/assets/TCGA_CS_4944.png) for use with the delineation function that invokes the confidential inferencing server.
+
+[Confidential Healthcare Inference svg]: ./media/confidential-healthcare-inference.svg

@@ -1,16 +1,19 @@
 ---
 title: Serverless Functions code walkthrough
 titleSuffix: Azure Example Scenarios
-description: Follow this code walkthrough to implement an example serverless application with Azure Functions.
+description: Learn about serverless technologies in Azure by walking through an example implementation of a serverless application with Azure Functions.
 author: rogeriohc
-ms.date: 06/22/2020
 ms.author: pnp
+ms.date: 06/22/2020
 ms.topic: conceptual
 ms.service: architecture-center
+ms.subservice: azure-guide
 ms.category:
   - developer-tools
   - featured
-ms.subservice: azure-guide
+products:
+  - azure-event-hubs
+  - azure-functions
 ms.custom:
   - guide
 ---
@@ -61,8 +64,6 @@ Here's a screenshot of the web app, showing the result of a query:
 ## Design the application
 
 Fabrikam has decided to use Azure Functions to implement the application business logic. Azure Functions is an example of "Functions as a Service" (FaaS). In this computing model, a *function* is a piece of code that is deployed to the cloud and runs in a hosting environment. This hosting environment completely abstracts the servers that run the code.
-
-<!-- markdownlint-disable MD026 -->
 
 ### Why choose a serverless approach?
 
@@ -348,7 +349,7 @@ Notice that this class uses dependency injection to inject the `IDocumentClient`
 
 ## Error handling
 
-As mentioned earlier, the `RawTelemetryFunction` function app processes a batch of messages in a loop. That means the function needs to handle any exceptions gracefully and continue processing the rest of the batch. Otherwise, messages might get dropped.  
+As mentioned earlier, the `RawTelemetryFunction` function app processes a batch of messages in a loop. That means the function needs to handle any exceptions gracefully and continue processing the rest of the batch. Otherwise, messages might get dropped.
 
 If an exception is encountered when processing a message, the function puts the message onto a dead-letter queue:
 
@@ -358,7 +359,7 @@ catch (Exception ex)
     logger.LogError(ex, "Error deserializing message", message.SystemProperties.PartitionKey, message.SystemProperties.SequenceNumber);
     await deadLetterMessages.AddAsync(new DeadLetterMessage { Exception = ex, EventData = message });
 }
- ```
+```
 
 The dead-letter queue is defined using an [output binding](/azure/azure-functions/functions-bindings-storage-queue-output) to a storage queue:
 
@@ -523,8 +524,7 @@ There are several advantages of this approach:
 
 ## GetStatus function
 
-The other Functions app in this solution implements a simple REST API to get the last-known status of a drone.
-This function is defined in a class named `GetStatusFunction`. Here is the complete code for the function:
+The other Functions app in this solution implements a simple REST API to get the last-known status of a drone. This function is defined in a class named `GetStatusFunction`. Here is the complete code for the function:
 
 <!-- cSpell:ignore CosmosDB -->
 
@@ -633,11 +633,12 @@ For more information about authentication and authorization in this application,
 ## Next steps
 
 Once you get a feel for how this reference solution works, learn best practices and recommendations for similar solutions.
-- For a serverless event ingestion solution, see [Serverless event processing using Azure Functions](../reference-architectures/serverless/event-processing.yml). 
+- For a serverless event ingestion solution, see [Serverless event processing using Azure Functions](../reference-architectures/serverless/event-processing.yml).
 - For a serverless web app, see [Serverless web application on Azure](../reference-architectures/serverless/web-app.yml).
 
 Azure Functions is just one Azure compute option. For help with choosing a compute technology, see [Choose an Azure compute service for your application](../guide/technology-choices/compute-decision-tree.md).
 
 ## Related resources
+
 - For in-depth discussion on developing serverless solutions on premises as well as in the cloud, read [Serverless apps: Architecture, patterns, and Azure implementation](/dotnet/standard/serverless-architecture).
 - Read more about the [Event-driven architecture style](../guide/architecture-styles/event-driven.md).

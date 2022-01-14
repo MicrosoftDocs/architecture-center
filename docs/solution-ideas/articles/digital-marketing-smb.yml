@@ -2,14 +2,19 @@
 metadata:
   title: Simple digital marketing website
   titleSuffix: Azure Solution Ideas
-  author: doodlemania2
-  ms.date: 12/16/2019
   description: Use an Azure-based content management system to easily maintain messaging on your website in real time, from a browser, with no coding skills.
-  ms.custom: 'acom-architecture, web-apps,''https://azure.microsoft.com/solutions/architecture/digital-marketing-smb/'''
+  author: EdPrice-MSFT
+  ms.author: pnp
+  ms.date: 12/16/2019
+  ms.topic: conceptual
   ms.service: architecture-center
+  ms.subservice: solution-idea
   ms.category:
     - web
-  ms.subservice: solution-idea
+  ms.custom:
+    - acom-architecture
+    - web-apps
+    - "https://azure.microsoft.com/solutions/architecture/digital-marketing-smb/"
   social_image_url: /azure/architecture/solution-ideas/articles/media/digital-marketing-smb.png
 name: Simple digital marketing website
 azureCategories:

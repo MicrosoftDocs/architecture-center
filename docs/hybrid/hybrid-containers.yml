@@ -2,31 +2,31 @@
 metadata:
   title: Run containers in a hybrid environment
   description: This reference architecture illustrates how developers can create, manage, and monitor deployed containers in the public cloud, across multiple clouds, and on-premises.
-  author: doodlemania2
-  ms.date: 06/29/2020
+  author: pdebruin
+  ms.author: pidebrui
+  ms.date: 03/15/2021
   ms.topic: conceptual
   ms.service: architecture-center
+  ms.subservice: reference-architecture
   ms.category:
     - hybrid
     - devops
-  ms.subservice: reference-architecture
   ms.custom:
     - fcp
     - reference-architecture
+    - e2e-hybrid
+    - internal-intro
 name: Run containers in a hybrid environment
 azureCategories:
   - hybrid
   - devops
 summary: This reference architecture illustrates how developers can create, manage, and monitor deployed containers in the public cloud, across multiple clouds, and on-premises.
 products:
+  - azure-container-registry
   - azure-arc
   - azure-container-instances
   - azure-cosmos-db
-  - azure-key-vault
   - azure-kubernetes-service
-  - azure-monitor
-  - azure-private-link
-  - azure-security-center
 thumbnailUrl: /azure/architecture/browse/thumbs/hybrid-containers.png
 content: |
    [!include[](hybrid-containers-content.md)]

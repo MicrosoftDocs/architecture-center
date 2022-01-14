@@ -1,7 +1,6 @@
 
 
-
-This reference architecture shows how to create a separate Active Directory domain in Azure that is trusted by domains in your on-premises AD forest. [**Deploy this solution**](#deploy-the-solution).
+This reference architecture shows how to create a separate Active Directory domain in Azure that is trusted by domains in your on-premises AD forest.
 
 ![Secure hybrid network architecture with separate Active Directory domains](./images/adds-forest.png)
 
@@ -82,79 +81,9 @@ Consider having Active Directory Domain Services as a shared service that is con
 
 The main component of this architecture is the VPN gateway service. You are charged based on the amount of time that the gateway is provisioned and available.
 
-All inbound traffic is free, all outbound traffic is charged. Internet bandwidth costs are applied to VPN outbound traffic.  
+All inbound traffic is free, all outbound traffic is charged. Internet bandwidth costs are applied to VPN outbound traffic.
 
 For more information, see [VPN Gateway Pricing][azure-gateway-charges].
-
-## Deploy the solution
-
-A deployment for this architecture is available on [GitHub][github]. Note that the entire deployment can take up to two hours, which includes creating the VPN gateway and running the scripts that configure AD DS.
-
-### Prerequisites
-
-1. Clone, fork, or download the zip file for the [GitHub repository](https://github.com/mspnp/identity-reference-architectures).
-
-2. Install [Azure CLI 2.0](/cli/azure/install-azure-cli?view=azure-cli-latest).
-
-3. Install the [Azure building blocks](https://github.com/mspnp/template-building-blocks/wiki/Install-Azure-Building-Blocks) npm package.
-
-   ```bash
-   npm install -g @mspnp/azure-building-blocks
-   ```
-
-4. From a command prompt, bash prompt, or PowerShell prompt, sign into your Azure account as follows:
-
-   ```bash
-   az login
-   ```
-
-### Deploy the simulated on-premises datacenter
-
-1. Navigate to the `identity/adds-forest` folder of the GitHub repository.
-
-2. Open the `onprem.json` file. Search for instances of `adminPassword` and `Password` and add values for the passwords.
-
-3. Run the following command and wait for the deployment to finish:
-
-    ```bash
-    azbb -s <subscription_id> -g <resource group> -l <location> -p onprem.json --deploy
-    ```
-
-### Deploy the Azure VNet
-
-1. Open the `azure.json` file. Search for instances of `adminPassword` and `Password` and add values for the passwords.
-
-2. In the same file, search for instances of `sharedKey` and enter shared keys for the VPN connection.
-
-    ```json
-    "sharedKey": "",
-    ```
-
-3. Run the following command and wait for the deployment to finish.
-
-    ```bash
-    azbb -s <subscription_id> -g <resource group> -l <location> -p azure.json --deploy
-    ```
-
-   Deploy to the same resource group as the on-premises VNet.
-
-### Test the AD trust relation
-
-1. Use the Azure portal, navigate to the resource group that you created.
-
-2. Use the Azure portal to find the VM named `ra-adt-mgmt-vm1`.
-
-3. Click `Connect` to open a remote desktop session to the VM. The username is `contoso\testuser`, and the password is the one that you specified in the `onprem.json` parameter file.
-
-4. From inside your remote desktop session, open another remote desktop session to 192.168.0.4, which is the IP address of the VM named `ra-adtrust-onpremise-ad-vm1`. The username is `contoso\testuser`, and the password is the one that you specified in the `azure.json` parameter file.
-
-5. From inside the remote desktop session for `ra-adtrust-onpremise-ad-vm1`, go to **Server Manager** and click **Tools** > **Active Directory Domains and Trusts**.
-
-6. In the left pane, right-click on the contoso.com and select **Properties**.
-
-7. Click the **Trusts** tab. You should see treyresearch.net listed as an incoming trust.
-
-![Screenshot of Active Directory forest trust dialog](./images/ad-forest-trust.png)
 
 ## Next steps
 
@@ -163,7 +92,7 @@ A deployment for this architecture is available on [GitHub][github]. Note that t
 
 <!-- links -->
 
-[aaf-cost]: ../../framework/cost/overview.md
+[aaf-cost]: /azure/architecture/framework/cost/overview
 [adds-extend-domain]: ./adds-extend-domain.yml
 [ADDS-pricing]: https://azure.microsoft.com/pricing/details/active-directory-ds
 [adfs]: ./adfs.yml
@@ -174,7 +103,6 @@ A deployment for this architecture is available on [GitHub][github]. Note that t
 [azure-pricing-calculator]: https://azure.microsoft.com/pricing/calculator
 [creating-external-trusts]: /previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc816837(v=ws.10)
 [creating-forest-trusts]: /previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc816810(v=ws.10)
-[github]: https://github.com/mspnp/identity-reference-architectures/tree/master/adds-forest
 [microsoft_systems_center]: https://microsoft.com/cloud-platform/system-center
 [monitoring_ad]: /previous-versions/windows/it-pro/windows-2000-server/bb727046(v=technet.10)
 [standby-operations-masters]: /previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc794737(v=ws.10)

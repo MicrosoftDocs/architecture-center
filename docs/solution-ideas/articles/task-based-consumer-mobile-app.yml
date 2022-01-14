@@ -1,18 +1,27 @@
 ### YamlMime:Architecture
 metadata:
-  title: Task-Based Consumer Mobile App
+  title: Task-based consumer mobile app
   titleSuffix: Azure Solution Ideas
-  author: doodlemania2
-  ms.date: 12/16/2019
   description: This mobile app architecture simplifies authentication, stores and syncs data, sends notifications, automates builds and tests, and monitors and analyzes usage.
-  ms.custom: 'acom-architecture, Consumer Mobile App, Offline Mobile App, Mobile App Authentication, app-dev, interactive-diagram, ''https://azure.microsoft.com/solutions/architecture/task-based-consumer-mobile-app/'''
+  author: EdPrice-MSFT
+  ms.author: pnp
+  ms.date: 12/16/2019
+  ms.topic: conceptual
   ms.service: architecture-center
+  ms.subservice: solution-idea
   ms.category:
     - mobile
     - developer-tools
-  ms.subservice: solution-idea
+  ms.custom:
+    - acom-architecture
+    - Consumer Mobile App
+    - Offline Mobile App
+    - Mobile App Authentication
+    - app-dev
+    - interactive-diagram
+    - "https://azure.microsoft.com/solutions/architecture/task-based-consumer-mobile-app/"
   social_image_url: /azure/architecture/solution-ideas/articles/media/task-based-consumer-mobile-app.png
-name: Task-Based Consumer Mobile App
+name: Task-based consumer mobile app
 azureCategories:
   - mobile
   - developer-tools

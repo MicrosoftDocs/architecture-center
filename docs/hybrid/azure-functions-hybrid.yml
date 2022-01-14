@@ -2,17 +2,19 @@
 metadata:
   title: Azure Functions in a hybrid environment
   description: This reference architecture illustrates Azure Functions being utilized from on-premises virtual machines.
-  author: doodlemania2
-  ms.date: 06/29/2020
+  author: raunakjhawar
+  ms.author: rajhawar
+  ms.date: 02/22/2021
   ms.topic: conceptual
   ms.service: architecture-center
+  ms.subservice: reference-architecture
   ms.category:
     - hybrid
     - web
-  ms.subservice: reference-architecture
   ms.custom:
     - fcp
     - reference-architecture
+    - e2e-hybrid
 name: Azure Functions in a hybrid environment
 azureCategories:
   - hybrid

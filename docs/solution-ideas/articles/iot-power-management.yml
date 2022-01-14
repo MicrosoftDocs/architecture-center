@@ -1,16 +1,19 @@
 ### YamlMime:Architecture
 metadata:
-  title: 'IoT connected light, power, and internet for emerging markets'
+  title: IoT connected light, power, and internet for emerging markets
   titleSuffix: Azure Solution Ideas
-  author: doodlemania2
   description: Energy provider Veriown uses solar-powered IoT devices with Azure services to provide clean, low-cost power, light, and internet service to remote customers.
+  author: EdPrice-MSFT
+  ms.author: pnp
   ms.date: 08/17/2020
-  ms.custom: fcp
+  ms.topic: conceptual
   ms.service: architecture-center
   ms.subservice: solution-idea
   ms.category:
     - iot
-name: 'IoT connected light, power, and internet for emerging markets'
+  ms.custom:
+    - fcp
+name: IoT connected light, power, and internet for emerging markets
 azureCategories:
   - iot
 summary: Energy provider Veriown uses solar-powered IoT devices with Azure services to provide clean, low-cost power, light, and internet service to remote customers.

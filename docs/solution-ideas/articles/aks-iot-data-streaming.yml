@@ -2,17 +2,19 @@
 metadata:
   title: Instant IoT data streaming with AKS
   titleSuffix: Azure Solution Ideas
-  author: doodlemania2
-  ms.date: 04/17/2020
   description: Learn how to ingest and analyze high volumes of IoT data and generate real-time recommendations and insights.
-  ms.custom: acom-architecture
+  author: EdPrice-MSFT
+  ms.author: stellal
+  ms.date: 04/17/2020
+  ms.topic: conceptual
   ms.service: architecture-center
+  ms.subservice: solution-idea
   ms.category:
     - containers
     - iot
     - analytics
-  ms.subservice: solution-idea
-  ms.author: stellal
+  ms.custom:
+    - acom-architecture
   social_image_url: /azure/architecture/solution-ideas/media/aks-demand-spikes.png
 name: Instant IoT data streaming with AKS
 azureCategories:
@@ -21,17 +23,8 @@ azureCategories:
   - analytics
 summary: Learn how to ingest and analyze high volumes of IoT data and generate real-time recommendations and insights.
 products:
-  - azure-api-management
-  - azure-cache-redis
-  - azure-container-registry
-  - azure-cosmos-db
-  - azure-database-postgresql
-  - azure-databricks
-  - azure-hdinsight
-  - azure-key-vault
+  - azure-iot
   - azure-kubernetes-service
-  - azure-pipelines
-  - azure-web-apps
 thumbnailUrl: /azure/architecture/browse/thumbs/aks-iot-data-streaming.png
 content: |
    [!include[](aks-iot-data-streaming-content.md)]

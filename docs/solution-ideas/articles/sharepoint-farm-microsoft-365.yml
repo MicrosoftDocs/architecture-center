@@ -1,18 +1,30 @@
 ### YamlMime:Architecture
 metadata:
-  title: Hybrid SharePoint Farm with Microsoft 365
+  title: Hybrid SharePoint farm with Microsoft 365
   titleSuffix: Azure Solution Ideas
-  author: doodlemania2
-  ms.date: 12/16/2019
   description: Deliver highly available intranet capability and share hybrid workloads with Microsoft 365 by using SharePoint servers, Azure Active Directory, and SQL Server.
-  ms.custom: 'acom-architecture, hybrid-infrastructure, sharepoint hybrid, sharepoint hybrid architecture, sharepoint farm solution, microsoft 365 sharepoint hybrid, sharepoint hybrid solution, interactive-diagram, ''https://azure.microsoft.com/solutions/architecture/sharepoint-farm-microsoft-365/'''
+  author: EdPrice-MSFT
+  ms.author: pnp
+  ms.date: 12/16/2019
+  ms.topic: conceptual
   ms.service: architecture-center
+  ms.subservice: solution-idea
   ms.category:
     - web
     - hybrid
-  ms.subservice: solution-idea
+  ms.custom:
+    - acom-architecture
+    - hybrid-infrastructure
+    - sharepoint hybrid
+    - sharepoint hybrid architecture
+    - sharepoint farm solution
+    - microsoft 365 sharepoint hybrid
+    - sharepoint hybrid solution
+    - interactive-diagram
+    - e2e-hybrid
+    - "https://azure.microsoft.com/solutions/architecture/sharepoint-farm-microsoft-365/"
   social_image_url: /azure/architecture/solution-ideas/articles/media/sharepoint-farm-microsoft-365.png
-name: Hybrid SharePoint Farm with Microsoft 365
+name: Hybrid SharePoint farm with Microsoft 365
 azureCategories:
   - web
   - hybrid
@@ -21,6 +33,7 @@ products:
   - azure-active-directory
   - sql-server
   - windows-server
+  - office-sp
 thumbnailUrl: /azure/architecture/browse/thumbs/sharepoint-farm-microsoft-365.png
 content: |
    [!include[](sharepoint-farm-microsoft-365-content.md)]

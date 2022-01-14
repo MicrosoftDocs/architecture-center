@@ -1,18 +1,28 @@
 ### YamlMime:Architecture
 metadata:
-  title: Advanced Analytics Architecture
+  title: Advanced analytics
   titleSuffix: Azure Solution Ideas
-  author: doodlemania2
-  ms.date: 12/16/2019
   description: This architecture allows you to combine any data at any scale with custom machine learning and get near real-time data analytics on streaming services.
-  ms.custom: 'acom-architecture, Big data architecture, Real time analytics, real time data analytics, interactive-diagram, pricing-calculator, ''https://azure.microsoft.com/solutions/architecture/advanced-analytics-on-big-data/'''
+  author: EdPrice-MSFT
+  ms.author: pnp
+  ms.date: 05/03/2021
+  ms.topic: conceptual
   ms.service: architecture-center
+  ms.subservice: solution-idea
   ms.category:
     - analytics
     - databases
-  ms.subservice: solution-idea
+  ms.custom:
+    - acom-architecture
+    - Big data architecture
+    - Real time analytics
+    - real time data analytics
+    - interactive-diagram
+    - pricing-calculator
+    - "https://azure.microsoft.com/solutions/architecture/advanced-analytics-on-big-data/"
+    - internal-intro
   social_image_url: /azure/architecture/solution-ideas/articles/media/advanced-analytics-on-big-data.png
-name: Advanced Analytics Architecture
+name: Advanced analytics architecture
 azureCategories:
   - analytics
   - databases
@@ -21,9 +31,8 @@ products:
   - azure-analysis-services
   - azure-blob-storage
   - azure-cosmos-db
-  - azure-databricks
-  - azure-data-factory
   - azure-synapse-analytics
+  - power-bi
 thumbnailUrl: /azure/architecture/browse/thumbs/advanced-analytics-on-big-data.png
 content: |
    [!include[](advanced-analytics-on-big-data-content.md)]

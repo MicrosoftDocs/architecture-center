@@ -1,32 +1,33 @@
 ### YamlMime:Architecture
 metadata:
-  title: Azure data platform end-to-end
+  title: Analytics end-to-end with Azure Synapse
   titleSuffix: Azure Example Scenarios
-  description: This example scenario demonstrates how to use the extensive family of Azure Data Services to build a modern data platform capable of handling the most common data challenges in an organization.
+  description: Learn how to use Azure Data Services to build a modern analytics platform capable of handling the most common data challenges in an organization.
   author: fabragaMS
-  ms.date: 01/31/2020
-  ms.category:
-    - databases
-    - analytics
+  ms.author: fabraga
+  ms.date: 12/21/2021
   ms.topic: conceptual
   ms.service: architecture-center
   ms.subservice: example-scenario
+  ms.category:
+    - databases
+    - analytics
   ms.custom:
     - fcp
     - data-analytics
     - example-scenario
-  social_image_url: /azure/architecture/example-scenario/dataplate2e/media/azure-data-platform-end-to-end.jpg
-name: Azure data platform end-to-end
+  social_image_url: /azure/architecture/example-scenario/dataplate2e/media/azure-analytics-end-to-end.png
+name: Analytics end-to-end with Azure Synapse
 azureCategories:
   - databases
   - analytics
-summary: This example scenario demonstrates how to use the extensive family of Azure Data Services to build a modern data platform capable of handling the most common data challenges in an organization.
+summary: This example scenario demonstrates how to use the extensive family of Azure Data Services to build a modern analytics platform capable of handling the most common data challenges in an organization.
 products:
+  - azure-synapse-analytics
   - azure-cosmos-db
   - azure-data-factory
   - azure-databricks
-  - azure-functions
   - azure-event-hubs
-thumbnailUrl: /azure/architecture/browse/thumbs/azure-data-platform-end-to-end.jpg
+thumbnailUrl: /azure/architecture/browse/thumbs/azure-analytics-end-to-end.png
 content: |
    [!include[](data-platform-end-to-end-content.md)]

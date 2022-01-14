@@ -1,18 +1,18 @@
 ### YamlMime:Architecture
 metadata:
   title: N-tier application with Apache Cassandra
-  description: Run Linux virtual machines for an N-tier architecture with Apache Cassandra in Microsoft Azure.
-  author: doodlemania2
+  description: Deploy Linux virtual machines and a virtual network configured for an N-tier architecture with Apache Cassandra in Microsoft Azure.
+  author: EdPrice-MSFT
+  ms.author: pnp
   ms.date: 08/21/2019
   ms.topic: conceptual
   ms.service: architecture-center
+  ms.subservice: reference-architecture
   ms.category:
     - databases
     - web
     - management-and-governance
-  ms.subservice: reference-architecture
   ms.custom:
-    - seodec18
     - reference-architecture
 name: N-tier application with Apache Cassandra
 azureCategories:

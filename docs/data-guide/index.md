@@ -1,8 +1,9 @@
 ---
 title: Azure Data Architecture Guide
-description: Use proven customer engagement practices to design data-centric Azure solutions for traditional relational database workloads and big data architectures. 
-author: doodlemania2
-ms.date: 02/12/2018
+description: Use proven customer engagement practices to design data-centric Azure solutions for traditional relational database workloads and big data architectures.
+author: EdPrice-MSFT
+ms.author: pnp
+ms.date: 08/16/2021
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: cloud-fundamentals
@@ -11,6 +12,9 @@ ms.subservice: cloud-fundamentals
 # Azure Data Architecture Guide
 
 This guide presents a structured approach for designing data-centric solutions on Microsoft Azure. It is based on proven practices derived from customer engagements.
+
+> [!NOTE]
+> Learn more about adopting your systems for data governance, analytics, and data management, in [Cloud adoption for data management](/azure/cloud-adoption-framework/scenarios/data-management).
 
 ## Introduction
 

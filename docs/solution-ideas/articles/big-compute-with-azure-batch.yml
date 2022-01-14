@@ -1,22 +1,30 @@
 ### YamlMime:Architecture
 metadata:
-  title: HPC System and Big Compute Solutions
+  title: HPC system and big-compute solutions
   titleSuffix: Azure Solution Ideas
-  author: doodlemania2
+  description: Explore big-compute solutions with Azure Batch, and use HPC cloud systems for cloud-native application and batch processing.
+  author: EdPrice-MSFT
+  ms.author: pnp
   ms.date: 12/16/2019
-  description: Explore Big Compute solutions with Azure Batch and use HPC cloud systems for cloud-native application and batch processing.
-  ms.custom: 'acom-architecture, hpc, big compute solutions, interactive-diagram, ''https://azure.microsoft.com/solutions/architecture/big-compute-with-azure-batch/'''
+  ms.topic: conceptual
   ms.service: architecture-center
+  ms.subservice: solution-idea
   ms.category:
     - compute
     - storage
-  ms.subservice: solution-idea
+  ms.custom:
+    - acom-architecture
+    - hpc
+    - big compute solutions
+    - interactive-diagram
+    - "https://azure.microsoft.com/solutions/architecture/big-compute-with-azure-batch/"
+    - internal-intro
   social_image_url: /azure/architecture/solution-ideas/articles/media/big-compute-with-azure-batch.png
-name: HPC System and Big Compute Solutions
+name: HPC system and big-compute solutions
 azureCategories:
   - compute
   - storage
-summary: Explore Big Compute solutions with Azure Batch and use HPC cloud systems for cloud-native application and batch processing.
+summary: Explore big-compute solutions with Azure Batch and use HPC cloud systems for cloud-native application and batch processing.
 products:
   - azure-batch
   - azure-storage-accounts

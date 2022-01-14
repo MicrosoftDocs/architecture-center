@@ -1,15 +1,17 @@
 ---
 title: Azure IoT Edge Vision
 titleSuffix: Azure Architecture Center
-description: These series of articles describe how to create an AI solution using Azure IoT Edge Vision.
+description: Create an AI solution using Azure IoT Edge Vision. Explore camera recommendations, hardware acceleration, machine learning, image storage, alerts, and UI.
 author: MSKeith
+ms.author: keith
 ms.date: 10/22/2020
 ms.topic: conceptual
 ms.service: architecture-center
-ms.author: keith
+ms.subservice: azure-guide
 ms.category:
   - fcp
-ms.subservice: azure-guide
+products:
+  - azure-iot-edge
 ms.custom:
   - guide
 ---
@@ -20,19 +22,19 @@ Visual inspection of products, resources, and environments has been a core pract
 
 To improve the efficacy of visual inspection, enterprises began turning to deep learning artificial neural networks known as *convolutional neural networks* (or CNNs), to emulate human vision for analysis of images and video. Today this is commonly called computer vision, or simply *Vision AI*. Artificial intelligence for image analytics spans a wide variety of industries, including manufacturing, retail, healthcare, and the public sector, and an equally wide area of use cases.
 
-- **Vision for quality assurance** - In manufacturing environments, Vision AI can be very helpful with quality inspection of parts and processes with a high degree of accuracy and velocity. An enterprise pursuing this path automates the inspection of a product for defects to answer questions such as:
+- **Vision for quality assurance:** In manufacturing environments, Vision AI can be very helpful with quality inspection of parts and processes with a high degree of accuracy and velocity. An enterprise pursuing this path automates the inspection of a product for defects to answer questions such as:
 
     - Is the manufacturing process producing consistent results?
     - Is the product assembled properly?
     - Can there be an earlier notification of a defect to reduce waste?
     - How to leverage drift in the computer vision model to prescribe predictive maintenance?
 
-- **Vision for safety** - In any environment, safety is a fundamental concern for every enterprise, and the reduction of risk is a driving force for adopting Vision AI. Automated monitoring of video feeds to scan for potential safety issues provides critical time to respond to incidents, and opportunities to reduce exposure to risk. Enterprises looking at Vision AI for this use case are commonly trying to answer questions such as:
+- **Vision for safety:** In any environment, safety is a fundamental concern for every enterprise, and the reduction of risk is a driving force for adopting Vision AI. Automated monitoring of video feeds to scan for potential safety issues provides critical time to respond to incidents, and opportunities to reduce exposure to risk. Enterprises looking at Vision AI for this use case are commonly trying to answer questions such as:
 
     - How compliant is the workforce with using personal protective equipment?
     - How often are people entering unauthorized work zones?
     - Are products being stored in a safe manner?
-    - Are there unreported close calls in a facility, or pedestrian/equipment “near misses”?
+    - Are there unreported close calls in a facility, or pedestrian/equipment "near misses"?
 
 ## Why vision on the Edge
 

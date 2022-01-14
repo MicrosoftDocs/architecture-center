@@ -2,14 +2,20 @@
 metadata:
   title: Build web and mobile applications
   titleSuffix: Azure Solution Ideas
-  author: doodlemania2
-  ms.date: 06/24/2020
   description: Build web and mobile applications with an Azure microservices-based architecture. Use this solution inspired by PayMe for Business in e-commerce platforms.
-  ms.custom: 'acom-architecture, fcp'
+  author: EdPrice-MSFT
+  ms.author: pnp
+  ms.date: 02/04/2021
+  ms.topic: conceptual
   ms.service: architecture-center
+  ms.subservice: solution-idea
   ms.category:
     - ai-machine-learning
-  ms.subservice: solution-idea
+  ms.custom:
+    - acom-architecture
+    - fcp
+    - internal-intro
+    - ai-machine-learning
 name: Build web and mobile applications
 azureCategories:
   - ai-machine-learning
@@ -21,4 +27,4 @@ products:
   - azure-kubernetes-service
 thumbnailUrl: /azure/architecture/browse/thumbs/webapps.png
 content: |
-   [!include[](webapps-content.md)]
+  [!include[](webapps-content.md)]

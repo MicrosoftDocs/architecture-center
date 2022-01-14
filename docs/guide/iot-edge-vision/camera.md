@@ -1,24 +1,27 @@
 ---
 title: Camera selection for IoT Edge Vision
 titleSuffix: Azure Architecture Center
-description: This article describes the camera considerations for Azure IoT Edge Vision solution.
+description: Get information about camera selection in an Azure IoT Edge Vision solution. Explore camera features, camera placement, and the communication interface.
 author: MSKeith
+ms.author: keith
 ms.date: 10/22/2020
 ms.topic: conceptual
 ms.service: architecture-center
-ms.author: keith
+ms.subservice: azure-guide
 ms.category:
   - fcp
-ms.subservice: azure-guide
+products:
+  - azure-iot-edge
+  - azure-machine-learning
 ms.custom:
   - guide
 ---
 
 # Camera selection in Azure IoT Edge Vision
 
-One of the most critical components in any AI Vision workload is selecting the right camera. The items being identified by this camera must be presented in such a way that the artificial intelligence or machine learning models can evaluate them correctly. An in-depth understanding of the different camera types is required to understand this concept. 
+One of the most critical components in any AI Vision workload is selecting the right camera. The items being identified by this camera must be presented in such a way that the artificial intelligence or machine learning models can evaluate them correctly. An in-depth understanding of the different camera types is required to understand this concept.
 
-> [!NOTE] 
+> [!NOTE]
 > There are different manufacturers for **area**, **line**, and **smart** cameras. Instead of recommending any one vendor over another, Microsoft recommends that you select a vendor that fits your specific needs.
 
 ## Types of cameras
@@ -29,15 +32,15 @@ This camera type generates the traditional camera image, where a 2D image is cap
 
 As the name suggests, area scan cameras look at a large area and are great at detecting change in an area. Examples of workloads that could use an area scan camera would be workplace safety, or detecting or counting objects (people, animals, cars, and so on) in an environment.
 
-Examples of manufacturers of area scan cameras are [Basler](https://www.baslerweb.com/en/products/industrial-cameras/), [Axis](https://www.axis.com), [Sony](https://www.sony-semicon.co.jp/e/products/IS/industry/product.html), [Bosch](https://commerce.boschsecurity.com/us/en/IP-Cameras/c/10164917899), [FLIR](https://www.flir.com/), [Allied Vision](https://www.alliedvision.com/digital-industrial-camera-solutions.html).
+Examples of manufacturers of area scan cameras are [Basler](https://www.baslerweb.com/en/products/industrial-cameras/), [Axis](https://www.axis.com), [Sony](https://www.sony-semicon.co.jp/e/products/IS/industry/product.html), [Bosch](https://commerce.boschsecurity.com/us/en/IP-Cameras/c/10164917899), [FLIR](https://www.flir.com/), [Allied Vision](https://www.alliedvision.com/en/products/customization/).
 
 ### Line scan cameras
 
 Unlike the area scan cameras, the line scan camera has a single row of linear pixel sensors. This allows the camera to take one-pixel width images in quick successions, and then stitches them together into a video stream. This video stream is then sent over to an Edge device for processing.
 
 Line scan cameras are great for vision workloads where the items to be identified are either moving past the camera, or need to be rotated to detect defects. The line scan camera would then be able to produce a continuous image stream for evaluation. Examples of workloads that would work best with a line scan camera are:
-- an item defect detection on parts that are moved on a conveyer belt, 
-- workloads that require spinning to see a cylindrical object, or 
+- an item defect detection on parts that are moved on a conveyer belt,
+- workloads that require spinning to see a cylindrical object, or
 - any workload that requires rotation.
 
 Examples of manufacturers of line scan cameras are [Basler](https://www.baslerweb.com/en/products/industrial-cameras/), [Teledyne Dalsa](https://www.teledynedalsa.com/en/home/), [Hamamatsu Corporation](https://www.hamamatsu.com/index.html?nfxsid=5ede4ac8e12e41591626440), [DataLogic](https://www.datalogic.com/), [Vieworks](https://vieworks.com/), and [Xenics](https://www.xenics.com/).
@@ -52,14 +55,14 @@ Examples of manufacturers of embedded smart cameras are [Basler](https://www.bas
 
 ### Sensor size
 
-This is one of the most important factors to evaluate in any vision workload. A sensor is the hardware within a camera that captures the light and converts into signals, which then produce an image. The sensor contains millions of semiconducting photodetectors called photosites. A higher megapixel count does not always result in a better image. For example, let’s look at two different sensor sizes for a 12-megapixel camera. Camera A has a ½ inch sensor with 12 million photosites and camera B has a 1-inch sensor with 12 million photosites. In the same lighting conditions, the camera that has the 1-inch sensor will be cleaner and sharper. Many cameras typically used in vision workloads have a sensor sized between ¼ inch to 1 inch. In some cases, much larger sensors might be required.
+This is one of the most important factors to evaluate in any vision workload. A sensor is the hardware within a camera that captures the light and converts into signals, which then produce an image. The sensor contains millions of semiconducting photodetectors called photosites. A higher megapixel count does not always result in a better image. For example, let's look at two different sensor sizes for a 12-megapixel camera. Camera A has a ½ inch sensor with 12 million photosites and camera B has a 1-inch sensor with 12 million photosites. In the same lighting conditions, the camera that has the 1-inch sensor will be cleaner and sharper. Many cameras typically used in vision workloads have a sensor sized between ¼ inch to 1 inch. In some cases, much larger sensors might be required.
 
 If a camera has a choice between a larger sensor or a smaller sensor, some factors deciding why you might choose the larger sensor are:
 - need for precision measurements,
-- lower light conditions, 
+- lower light conditions,
 - shorter exposure times, or fast-moving items.
 
-### Resolution 
+### Resolution
 
 This is another important factor to both line scan and area scan camera workloads. If your workload must identify fine features, such as the writing on an IC chip, then you need greater resolution cameras. If your workload is trying to detect a face, then higher resolution is required. And if you need to identify a vehicle from a distance, again a higher resolution will be required.
 
@@ -72,7 +75,7 @@ Sensors come in two types- [*CCD* and *CMOS*](https://en.wikipedia.org/wiki/Imag
 
 ## Camera placement
 
-The items that you are capturing in your vision workload will determine the location and angles that the camera should be placed. The camera location can also affect the sensor type, lens type, and camera body type. 
+The items that you are capturing in your vision workload will determine the location and angles that the camera should be placed. The camera location can also affect the sensor type, lens type, and camera body type.
 
 There are several different factors that can weigh into the overall decision for camera placement. Two of the most critical ones are the lighting and the field of view.
 
@@ -98,15 +101,14 @@ In a computer vision workload, lighting is a critical component to camera placem
 
 The figure below shows the angular placement of light:
 
-
 ![Angular placement of light - IoT Edge Vision](./images/lighting-chart.png)
 
 ### Field of view
 
 In a vision workload, you need to know the distance to the object that you are trying to evaluate. This also will play a part in the camera selection, sensor selection, and lens configuration. Some of the components that make up the field of view are:
 
-* **Distance to object(s):** For example, is the object being monitored with computer vision on a conveyor belt and the camera is two feet above it, or is the object across a parking lot? As the distance changes, so does the camera’s sensors and lens configurations.
-* **Area of coverage:** Is the area that the computer vision is trying to monitor small or large? This has direct correlation to the camera’s resolution, lens, and sensor type.
+* **Distance to object(s):** For example, is the object being monitored with computer vision on a conveyor belt and the camera is two feet above it, or is the object across a parking lot? As the distance changes, so does the camera's sensors and lens configurations.
+* **Area of coverage:** Is the area that the computer vision is trying to monitor small or large? This has direct correlation to the camera's resolution, lens, and sensor type.
 * **Direction of the sun:** If the computer vision workload is outside, such as monitoring a job construction site for worker safety, will the camera be pointed in the sun at any time? Keep in mind that if the sun is casting a shadow over the object that the vision workload is monitoring, items might be a bit obscured. Also, if the camera is getting direct sunlight in the lens, the camera might be *blinded* until the angle of the sun changes.
 * **Camera angle to the object(s):** Angle of the camera to the object that the vision workload is monitoring is also a critical component to think about. If the camera is too high, it might miss the details that the vision workload is trying to capture, and the same may be true if it is too low.
 
@@ -124,7 +126,7 @@ In building a computer vision workload, it is also important to understand how t
 
   There are several standards defined for CSI:
 
-  * **CSI-1**:  This was the original standard that MIPI started with.  
+  * **CSI-1**:  This was the original standard that MIPI started with.
   * **CSI-2**:  This standard was released in 2005, and uses either D-PHY or C-PHY as physical layers options. This is further divided into several layers:
     * Physical Layer (C-PHY, D-PHY)
     * Lane Merger layer

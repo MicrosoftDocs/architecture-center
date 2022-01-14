@@ -1,29 +1,37 @@
 ### YamlMime:Architecture
 metadata:
-  title: Predictive Aircraft Engine Monitoring
+  title: Predictive aircraft engine monitoring
   titleSuffix: Azure Solution Ideas
-  author: doodlemania2
+  description: Demonstrates how to combine real-time aircraft data with analytics to create a solution for predictive aircraft engine monitoring and health.
+  author: EdPrice-MSFT
+  ms.author: pnp
   ms.date: 12/16/2019
-  description: Microsoft Azure's Predictive Maintenance solution demonstrates how to combine real-time aircraft data with analytics to monitor aircraft health.
-  ms.custom: 'acom-architecture, anomaly-detection, aircraft engine monitor, aircraft health monitoring systems, ''https://azure.microsoft.com/solutions/architecture/aircraft-engine-monitoring-for-predictive-maintenance-in-aerospace/'''
+  ms.topic: conceptual
   ms.service: architecture-center
+  ms.subservice: solution-idea
   ms.category:
     - analytics
     - ai-machine-learning
-  ms.subservice: solution-idea
+  ms.custom:
+    - acom-architecture
+    - anomaly-detection
+    - aircraft engine monitor
+    - aircraft health monitoring systems
+    - "https://azure.microsoft.com/solutions/architecture/aircraft-engine-monitoring-for-predictive-maintenance-in-aerospace/"
+    - ai-machine-learning
+    - aml-project-improvement
   social_image_url: /azure/architecture/solution-ideas/articles/media/aircraft-engine-monitoring-for-predictive-maintenance-in-aerospace.png
-name: Predictive Aircraft Engine Monitoring
+name: Predictive aircraft engine monitoring
 azureCategories:
   - analytics
   - ai-machine-learning
-summary: Microsoft Azure's Predictive Maintenance solution demonstrates how to combine real-time aircraft data with analytics to monitor aircraft health.
+summary: Demonstrates how to combine real-time aircraft data with analytics to create a solution for predictive aircraft engine monitoring and health.
 products:
   - azure-data-factory
   - azure-event-hubs
   - azure-hdinsight
   - azure-machine-learning
   - azure-stream-analytics
-  - azure-sql-database
 thumbnailUrl: /azure/architecture/browse/thumbs/aircraft-engine-monitoring-for-predictive-maintenance-in-aerospace.png
 content: |
-   [!include[](aircraft-engine-monitoring-for-predictive-maintenance-in-aerospace-content.md)]
+  [!include[](aircraft-engine-monitoring-for-predictive-maintenance-in-aerospace-content.md)]

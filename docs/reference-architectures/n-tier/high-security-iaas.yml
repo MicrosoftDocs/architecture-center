@@ -2,30 +2,28 @@
 metadata:
   title: Security considerations for highly sensitive IaaS apps in Azure
   description: Learn about VM security, encryption, NSGs, DMZs, access control, and other security considerations for highly sensitive IaaS and hybrid apps.
-  author: doodlemania2
+  author: EdPrice-MSFT
+  ms.author: pnp
   ms.date: 4/15/2020
   ms.topic: conceptual
   ms.service: architecture-center
-  ms.custom:
-    - fcp
-    - reference-architecture
+  ms.subservice: reference-architecture
   ms.category:
     - security
     - compute
-  ms.subservice: reference-architecture
+  ms.custom:
+    - fcp
+    - reference-architecture
 name: Security considerations for highly sensitive IaaS apps in Azure
 azureCategories:
   - security
   - compute
 summary: Learn about VM security, encryption, NSGs, DMZs, access control, and other security considerations for highly sensitive IaaS and hybrid apps.
 products:
-  - azure-bastion
-  - azure-dedicated-host
   - azure-disk-encryption
   - azure-firewall
   - azure-key-vault
   - azure-security-center
-  - azure-virtual-machines
   - azure-virtual-network
 thumbnailUrl: /azure/architecture/browse/thumbs/dedicated-hosts.png
 content: |

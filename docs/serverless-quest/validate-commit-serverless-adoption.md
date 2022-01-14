@@ -1,5 +1,5 @@
 ---
-title: Plan serverless Functions deployment
+title: Plan a serverless Functions deployment
 titleSuffix: Azure Example Scenarios
 description: Perform activities to validate, commit, and plan serverless Azure Functions deployment.
 author: rogeriohc
@@ -7,11 +7,13 @@ ms.date: 06/22/2020
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: azure-guide
+products:
+  - azure-functions
 ms.custom:
   - fcp
   - guide
 ---
-# Plan for serverless Functions
+# Plan for deploying serverless Functions
 
 To plan for moving an application to a serverless Azure Functions architecture, a technical decision maker (TDM) or architect:
 - Verifies the application's characteristics and business requirements.
@@ -29,7 +31,6 @@ TDMs and architects may perform one or more of the following activities:
 - **Identify and execute a Proof of Concept (PoC) or pilot, or technical implementation.** Deliver a PoC, pilot, or technical implementation to provide evidence that serverless Azure Functions can solve a team's business problems. Showing teams how to modernize or build new cloud-native applications to their specifications can accelerate deployment to production. See [PoC or pilot](poc-pilot.md).
 
 - **Conduct architectural design sessions.** An architectural design session (ADS) is an in-depth discussion on how a new solution will blend into the environment. ADSs validate business requirements and transform them to functional and other requirements.
-
 
 ## Next steps
 For example scenarios that use serverless architectures with Azure Functions, see [Serverless reference architectures](reference-architectures.md).

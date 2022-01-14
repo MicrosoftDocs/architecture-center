@@ -1,11 +1,10 @@
+[!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
-
-
-Azure Cognitive Services offers many possibilities for Artificial Intelligence (AI) solutions. One of them is [Azure Custom Vision](/azure/cognitive-services/custom-vision-service/), which allows you to build, deploy, and improve your image classifiers. This architecture uses Custom Vision to classify images taken by a simulated drone. It provides a way to combine AI and the Internet of Things (IoT).
+Azure Cognitive Services offers many possibilities for Artificial Intelligence (AI) solutions. One of them is [Azure Custom Vision](/azure/cognitive-services/custom-vision-service/), which allows you to build, deploy, and improve your image classifiers. This architecture uses Custom Vision to classify images taken by a simulated drone. It provides a way to combine AI and the Internet of Things (IoT). Azure Custom Vision can also be used for object detection purpose.
 
 ## Potential use case
 
-Microsoft [Search and Rescue Lab](https://github.com/Microsoft/DroneRescue) suggests a hypothetical use case for Custom Vision. In the lab, you fly a Microsoft AirSim simulated drone around in a 3D-rendered environment. You use the simulated drone to capture synthetic images of the animals in that environment. After creating a dataset of images, you use the dataset to train a Custom Vision classifier model. To train the model, you tag the images with the names of the animals. When you fly the drone again, take new images of the animals. This solution identifies the name of the animal in each new image.
+Microsoft [Search and Rescue Lab](https://github.com/microsoft/DroneRescue) suggests a hypothetical use case for Custom Vision. In the lab, you fly a Microsoft AirSim simulated drone around in a 3D-rendered environment. You use the simulated drone to capture synthetic images of the animals in that environment. After creating a dataset of images, you use the dataset to train a Custom Vision classifier model. To train the model, you tag the images with the names of the animals. When you fly the drone again, take new images of the animals. This solution identifies the name of the animal in each new image.
 
 In a practical application of the lab, an actual drone replaces the Microsoft AirSim simulated drone. If a pet is lost, the owner provides images of the pet to the Custom Vision model trainer. Just like in the simulation, the images are used to train the model to recognize the pet. Then, the drone pilot searches an area where the lost pet might be. As it finds animals along the way, the drone's camera can capture images and determine if the animal is the lost pet.
 
@@ -16,6 +15,7 @@ In a practical application of the lab, an actual drone replaces the Microsoft Ai
 1. Use AirSim's 3D-rendered environment to take images taken with the drone. Use the images as the training dataset.
 1. Import and tag the dataset in a Custom Vision project. The cognitive service trains and tests the model.
 1. Export the model into TensorFlow format so you can use it locally.
+1. The model can also be deployed to a [container](/azure/iot-edge/tutorial-deploy-custom-vision?view=iotedge-2018-06) or to [mobile devices](/azure/cognitive-services/custom-vision-service/export-your-model).
 
 ## Components
 
@@ -25,7 +25,7 @@ In a practical application of the lab, an actual drone replaces the Microsoft Ai
 
 ### Azure Custom Vision
 
-[Azure Custom Vision](https://www.customvision.ai) s part of [Azure Cognitive Services](https://azure.microsoft.com/services/cognitive-services/). In this architecture, it creates an image classifier model.
+[Azure Custom Vision](https://www.customvision.ai) is part of [Azure Cognitive Services](https://azure.microsoft.com/services/cognitive-services/). In this architecture, it creates an image classifier model.
 
 ### TensorFlow
 
@@ -33,7 +33,7 @@ In a practical application of the lab, an actual drone replaces the Microsoft Ai
 
 ## Deploy the solution
 
-To deploy this reference architecture, follow the steps described in the [GitHub repo of the Search and Rescue Lab](https://github.com/Microsoft/DroneRescue).
+To deploy this reference architecture, follow the steps described in the [GitHub repo of the Search and Rescue Lab](https://github.com/microsoft/DroneRescue).
 
 ## Next steps
 

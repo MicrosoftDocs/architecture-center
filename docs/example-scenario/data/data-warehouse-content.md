@@ -1,6 +1,3 @@
-
-
-
 This example scenario demonstrates a data pipeline that integrates large amounts of data from multiple sources into a unified analytics platform in Azure. This specific scenario is based on a sales and marketing solution, but the design patterns are relevant for many industries requiring advanced analytics of large datasets such as e-commerce, retail, and healthcare.
 
 This example demonstrates a sales and marketing company that creates incentive programs. These programs reward customers, suppliers, salespeople, and employees. Data is fundamental to these programs, and the company wants to improve the insights gained through data analytics using Azure.
@@ -12,7 +9,7 @@ The company needs a modern approach to analysis data, so that decisions are made
 - Loading data using a highly parallelized approach that can support thousands of incentive programs, without the high costs of deploying and maintaining on-premises infrastructure.
 - Greatly reducing the time needed to gather and transform data, so you can focus on analyzing the data.
 
-## Relevant use cases
+## Potential use cases
 
 This approach can also be used to:
 
@@ -22,7 +19,7 @@ This approach can also be used to:
 
 ## Architecture
 
-![Azure Architecture](/DataWarehousing.png)
+![Architecture for a data warehousing and analysis scenario in Azure](./media/architecture-data-warehousing.png)
 
 The data flows through the solution as follows:
 
@@ -94,4 +91,3 @@ Review a [pricing sample for a data warehousing scenario][calculator] via the Az
 
 [source-document]: https://customers.microsoft.com/story/maritz
 [calculator]: https://azure.com/e/b798fb70c53e4dd19fdeacea4db78276
-[architecture]: ./media/architecture-data-warehouse.png

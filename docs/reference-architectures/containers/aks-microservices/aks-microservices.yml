@@ -1,18 +1,20 @@
 ### YamlMime:Architecture
 metadata:
-  title: Microservices architecture on Azure Kubernetes Service (AKS)
-  description: Learn how to deploy a microservices architecture on Azure Kubernetes Service (AKS).
-  author: doodlemania2
-  ms.date: 05/07/2020
+  title: Microservices architecture on AKS
+  description: Learn about the infrastructure and DevOps considerations of deploying and running a microservices architecture on Azure Kubernetes Service (AKS).
+  author: EdPrice-MSFT
+  ms.author: pnp
+  ms.date: 05/04/2020
   ms.topic: conceptual
   ms.service: architecture-center
+  ms.subservice: reference-architecture
   ms.category:
     - containers
-  ms.subservice: reference-architecture
   ms.custom:
     - microservices
     - reference-architecture
-name: Microservices architecture on Azure Kubernetes Service (AKS)
+    - e2e-aks
+name: Microservices architecture on Azure Kubernetes Service
 azureCategories:
   - containers
 summary: Learn how to deploy a microservices architecture on Azure Kubernetes Service (AKS).
@@ -21,7 +23,6 @@ products:
   - azure-container-registry
   - azure-kubernetes-service
   - azure-load-balancer
-  - azure-monitor
   - azure-pipelines
 thumbnailUrl: /azure/architecture/browse/thumbs/aks.png
 content: |

@@ -1,18 +1,24 @@
 ### YamlMime:Architecture
 metadata:
-  title: Keyword search/speech-to-text/OCR digital media
+  title: Keyword search and speech-to-text with OCR digital media
   titleSuffix: Azure Solution Ideas
-  author: doodlemania2
-  ms.date: 12/16/2019
   description: Identify speech in static video files and manage it as standard content with this speech-to-text solution. Jump to video points that contain specific phrases.
-  ms.custom: 'acom-architecture, speech, ''https://azure.microsoft.com/solutions/architecture/digital-media-speech-text/'''
+  author: EdPrice-MSFT
+  ms.author: pnp
+  ms.date: 12/16/2019
+  ms.topic: conceptual
   ms.service: architecture-center
+  ms.subservice: solution-idea
   ms.category:
     - ai-machine-learning
     - media
-  ms.subservice: solution-idea
+  ms.custom:
+    - acom-architecture
+    - speech
+    - "https://azure.microsoft.com/solutions/architecture/digital-media-speech-text/"
+    - ai-machine-learning
   social_image_url: /azure/architecture/solution-ideas/articles/media-speech-text.png
-name: Keyword search/speech-to-text/OCR digital media
+name: Keyword search and speech-to-text with OCR digital media
 azureCategories:
   - ai-machine-learning
   - media
@@ -25,4 +31,4 @@ products:
   - azure-web-apps
 thumbnailUrl: /azure/architecture/browse/thumbs/digital-media-speech-text.png
 content: |
-   [!include[](digital-media-speech-text-content.md)]
+  [!include[](digital-media-speech-text-content.md)]

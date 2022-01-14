@@ -1,6 +1,5 @@
 
 
-
 This reference architecture shows how to deploy virtual machines (VMs) and a virtual network configured for an [N-tier](../../guide/architecture-styles/n-tier.md) application, using SQL Server on Windows for the data tier. [**Deploy this solution**](#deploy-the-solution).
 
 [![N-tier architecture using Microsoft Azure](./images/n-tier-sql-server.png)](./images/n-tier-sql-server.png)
@@ -39,7 +38,7 @@ The architecture has the following components.
 
 - **Cloud Witness**. A failover cluster requires more than half of its nodes to be running, which is known as having quorum. If the cluster has just two nodes, a network partition could cause each node to think it's the primary node. In that case, you need a *witness* to break ties and establish quorum. A witness is a resource such as a shared disk that can act as a tie breaker to establish quorum. Cloud Witness is a type of witness that uses Azure Blob Storage. To learn more about the concept of quorum, see [Understanding cluster and pool quorum](/windows-server/storage/storage-spaces/understand-quorum). For more information about Cloud Witness, see [Deploy a Cloud Witness for a Failover Cluster](/windows-server/failover-clustering/deploy-cloud-witness).
 
-- **Jumpbox**. Also called a [bastion host]. A secure VM on the network that administrators use to connect to the other VMs. The jumpbox has an NSG that allows remote traffic only from public IP addresses on a safe list. The NSG should permit remote desktop (RDP) traffic.
+- **Jumpbox**. Also called a [bastion host]. Traditionally, a secure VM on the network that administrators use to connect to the other VMs. The jumpbox has an NSG that allows remote traffic only from public IP addresses on a safe list. The NSG should permit Remote Desktop Protocol (RDP) traffic. Azure offers the managed solution [Azure Bastion](/azure/bastion/bastion-overview) to meet this need.
 
 ## Recommendations
 
@@ -107,11 +106,15 @@ Test your deployment by [forcing a manual failover][sql-alwayson-force-failover]
 
 ### Jumpbox
 
-Don't allow RDP access from the public Internet to the VMs that run the application workload. Instead, all RDP access to these VMs should go through the jumpbox. An administrator logs into the jumpbox, and then logs into the other VM from the jumpbox. The jumpbox allows RDP traffic from the Internet, but only from known, safe IP addresses.
+When you run virtual machines in a private virtual network, as in this architecture, there's a need to access virtual machines for software installation, patching, and so on. But, making these machines accessible to the public internet isn't a good idea because it increases the attack surface significantly. Instead, a jumpbox is used as a middle access layer.
 
-The jumpbox has minimal performance requirements, so select a small VM size. Create a [public IP address] for the jumpbox. Place the jumpbox in the same virtual network as the other VMs, but in a separate management subnet.
+In the past, a VM that's managed by the customer might be used as a jumpbox. In that scenario, the following recommendations apply:
 
-To secure the jumpbox, add an NSG rule that allows RDP connections only from a safe set of public IP addresses. Configure the NSGs for the other subnets to allow RDP traffic from the management subnet.
+- Don't allow RDP access from the public internet to the VMs that run the application workload. Instead, all RDP access to these VMs should go through the jumpbox. An administrator logs in to the jumpbox and then logs in to the other VM from the jumpbox. The jumpbox allows RDP traffic from the internet, but only from known, safe IP addresses.
+- The jumpbox has minimal performance requirements, so select a small VM size. Create a [public IP address] for the jumpbox. Place the jumpbox in the same virtual network as the other VMs, but in a separate management subnet.
+- To secure the jumpbox, add an NSG rule that allows RDP connections only from a safe set of public IP addresses. Configure the NSGs for the other subnets to allow RDP traffic from the management subnet.
+
+For a customer-managed VM, all these rules apply. However, the current recommendation is to use [Azure Bastion](/azure/bastion/bastion-overview), a managed jumpbox solution that allows for HTML5 access to RDP or SSH behind Azure AD protection. This is a much simpler solution that ultimately has a lower total cost of ownership (TCO) for the customer.
 
 ## Scalability considerations
 
@@ -211,7 +214,6 @@ Virtual networks are a traffic isolation boundary in Azure. By default, VMs in o
 
 **DDoS protection**. The Azure platform provides basic DDoS protection by default. This basic protection is targeted at protecting the Azure infrastructure as a whole. Although basic DDoS protection is automatically enabled, we recommend using [DDoS Protection Standard][ddos]. Standard protection uses adaptive tuning, based on your application's network traffic patterns, to detect threats. This allows it to apply mitigations against DDoS attacks that might go unnoticed by the infrastructure-wide DDoS policies. Standard protection also provides alerting, telemetry, and analytics through Azure Monitor. For more information, see [Azure DDoS Protection: Best practices and reference architectures][ddos-best-practices].
 
-
 ## DevOps considerations
 
 In this architecture you use [Azure Building Blocks templates][azbb-template] for provisioning the Azure resources and its dependencies. Since all the main resources and their dependencies are in the same virtual network, they are isolated in the same basic workload, that makes it easier to associate the workload's specific resources to a team, so that the team can independently manage all aspects of those resources. This isolation enables DevOps to perform continuous integration and continuous delivery (CI/CD).
@@ -227,7 +229,6 @@ Consider using the [Azure Monitor][azure-monitor] to Analyze and optimize the pe
 Make sure not only to monitor your compute elements supporting your application code, but your data platform as well, in particular your databases, since a low performance of the data tier of an application could have serious consequences.
 
 In order to test the Azure environment where the applications are running, it should be version-controlled and deployed through the same mechanisms as application code, then it can be tested and validated using DevOps testing paradigms too.
-
 
 For more information, see the Operational Excellence section in [Azure Well-Architected Framework][WAF-devops].
 
@@ -317,5 +318,5 @@ If you specify a region that supports availability zones, the VMs are deployed i
 [vmss-design]: /azure/virtual-machine-scale-sets/virtual-machine-scale-sets-design-overview
 [vmss]: /azure/virtual-machine-scale-sets/virtual-machine-scale-sets-overview
 [Windows-vm-pricing]: https://azure.microsoft.com/pricing/details/virtual-machines/windows
-[WAF-devops]: ../../framework/devops/overview.md
-[WAF-cost]: ../../framework/cost/overview.md
+[WAF-devops]: /azure/architecture/framework/devops/overview
+[WAF-cost]: /azure/architecture/framework/cost/overview

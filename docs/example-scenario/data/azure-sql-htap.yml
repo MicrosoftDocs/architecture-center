@@ -1,0 +1,28 @@
+### YamlMime:Architecture
+metadata:
+  title: Cost savings through HTAP with Azure SQL
+  titleSuffix: Azure Example Scenarios
+  description: Use a scalable HTAP architecture with Azure SQL Database to combine transaction processing with analytics. Reduce latencies and costs with in-memory databases.
+  author: paakos
+  ms.author: pahumada
+  ms.date: 09/29/2021
+  ms.topic: conceptual
+  ms.service: architecture-center
+  ms.subservice: example-scenario
+  ms.custom:
+    - fcp
+azureCategories:
+  - analytics
+  - databases
+  - storage
+products:
+  - azure-databricks
+  - azure-event-hubs
+  - azure-functions
+  - azure-sql-database
+  - azure-stream-analytics
+name: Cost savings through HTAP with Azure SQL
+summary: Use a scalable HTAP architecture with Azure SQL Database to combine transaction processing with analytics. Reduce latencies and costs with in-memory databases.
+thumbnailUrl: /azure/architecture/browse/thumbs/azure-sql-htap-thumbnail.png
+content: |
+  [!include[](azure-sql-htap-content.md)]

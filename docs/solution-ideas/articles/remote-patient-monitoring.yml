@@ -1,18 +1,30 @@
 ### YamlMime:Architecture
 metadata:
-  title: Remote Patient Monitoring Solutions
+  title: Remote patient monitoring solutions
   titleSuffix: Azure Solution Ideas
-  author: doodlemania2
-  ms.date: 12/16/2019
   description: Provide a high level of preventative medical care with remote patient monitoring from Azure. Analyze large amounts of medical data in a secure environment.
-  ms.custom: 'acom-architecture, ai-ml, healthcare, remote patient monitoring, remote patient monitoring system, medical data analysis, remote patient monitoring solutions, interactive-diagram, ''https://azure.microsoft.com/solutions/architecture/remote-patient-monitoring/'''
+  author: EdPrice-MSFT
+  ms.author: pnp
+  ms.date: 12/16/2019
+  ms.topic: conceptual
   ms.service: architecture-center
+  ms.subservice: solution-idea
   ms.category:
     - ai-machine-learning
     - integration
-  ms.subservice: solution-idea
+  ms.custom:
+    - acom-architecture
+    - ai-ml
+    - healthcare
+    - remote patient monitoring
+    - remote patient monitoring system
+    - medical data analysis
+    - remote patient monitoring solutions
+    - interactive-diagram
+    - "https://azure.microsoft.com/solutions/architecture/remote-patient-monitoring/"
+    - ai-machine-learning
   social_image_url: /azure/architecture/solution-ideas/articles/media/remote-patient-monitoring.png
-name: Remote Patient Monitoring Solutions
+name: Remote patient monitoring solutions
 azureCategories:
   - ai-machine-learning
   - integration
@@ -25,4 +37,4 @@ products:
   - power-bi
 thumbnailUrl: /azure/architecture/browse/thumbs/remote-patient-monitoring.png
 content: |
-   [!include[](remote-patient-monitoring-content.md)]
+  [!include[](remote-patient-monitoring-content.md)]

@@ -1,0 +1,27 @@
+### YamlMime:Architecture
+metadata:
+  title: Modern data warehouse for small and medium business
+  titleSuffix: Azure Example Scenarios
+  description: Use Azure Synapse Analytics, SQL Database, and Data Lake Storage to modernize SMB legacy and on-premises data. Easily integrate fused data with other services.
+  author: galinagpolyakova
+  ms.author: gapolyak
+  ms.date: 07/09/2021
+  ms.topic: conceptual
+  ms.service: architecture-center
+  ms.subservice: example-scenario
+azureCategories:
+  - analytics
+  - databases
+  - storage
+products:
+  - azure-data-lake
+  - azure-sql-database
+  - azure-synapse-analytics
+  - dynamics-365
+  - power-platform
+
+name: Modern data warehouse for small and medium business
+summary: Use Azure Synapse Analytics, SQL Database, and Data Lake Storage to modernize SMB legacy and on-premises data. Easily integrate fused data with other services.
+thumbnailUrl: /azure/architecture/browse/thumbs/small-medium-data-warehouse.png
+content: |
+  [!include[](small-medium-data-warehouse-content.md)]

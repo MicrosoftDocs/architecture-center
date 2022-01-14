@@ -1,6 +1,3 @@
-
-
-
 *Logging* uses discrete event messages to track and report application data in a centralized way. Log events provide an overview of application execution state, track code errors or application failures, and deliver informational messages. Automation can read event logs and notify relevant parties if events meet a criterion or threshold.
 
 *Tracing* focuses on the continuous flow of an application. Tracing follows program execution through various methods and services from beginning to end, while understanding data state and transitions.
@@ -41,7 +38,7 @@ The following architecture uses Azure services to build a unified logging and mo
 1. Application Insights queries short-term logging, tracing, and monitoring data.
 1. Stream Analytics jobs can use the Event Hubs data to trigger Logic Apps workflows.
 1. A Logic Apps job calls the representational state transfer (REST) endpoint of an Information Technology Service Management (ITSM) system, and sends notifications to the development team.
-1. Azure Sentinel automation uses Playbooks powered by Azure Logic Apps to generate security alerts.
+1. Microsoft Sentinel automation uses Playbooks powered by Azure Logic Apps to generate security alerts.
 1. Keeping event logs in long-term storage allows later analysis and diagnostics with Log Analytics.
 
 For applications that use Azure VMs, the following infrastructure-as-a-service (IaaS) architecture includes Azure Monitor to monitor the performance and health of the VMs that run the application.
@@ -76,18 +73,17 @@ When building a cloud-native distributed microservices architecture, teams can u
 
 [Azure Monitor](/azure/azure-monitor/overview) is a service that maximizes availability and performance by collecting, analyzing, and acting on telemetry from cloud-native applications. With Azure Monitor, teams can create operational dashboards that detect issues and alert teams of critical situations.
 
-If the team uses an ITSM system, Logic Apps can call the REST endpoint of the system and create an issue with the appropriate severity level. This process provides quick notification to all relevant teams and ensures that triaging is immediate and useful. For more information, see [Stream Analytics and Azure Logic Apps](/archive/blogs/vinaysin/consuming-azure-stream-analytics-output-in-azure-logic-apps). 
+If the team uses an ITSM system, Logic Apps can call the REST endpoint of the system and create an issue with the appropriate severity level. This process provides quick notification to all relevant teams and ensures that triaging is immediate and useful. For more information, see [Stream Analytics and Azure Logic Apps](/archive/blogs/vinaysin/consuming-azure-stream-analytics-output-in-azure-logic-apps).
 
 ### Application Insights
 
 [Application Insights](/azure/azure-monitor/app/app-insights-overview), a feature of Azure Monitor, is an extensible Application Performance Management (APM) service for developers and DevOps teams. Application Insights can monitor live services, detect anomalies in performance and analytics tools, diagnose and trace problems, and query log data. You can use Application Insights to do [distributed tracing](/azure/azure-monitor/app/distributed-tracing#enabling-via-application-insights-through-auto-instrumentation-or-sdks) through the Application Insights SDK. You can also use Application Insights from [within Visual Studio](/azure/azure-monitor/app/visual-studio).
 
-### Azure Sentinel
+### Microsoft Sentinel
 
-[Azure Sentinel](https://azure.microsoft.com/services/azure-sentinel/) is a Security Information and Event Management (SIEM) and Security Orchestration, Automation, and Response (SOAR) service. Sentinel provides a unified overview of the cloud estate through native integration of Azure services. Sentinel can collect information from the cloud as well as from downstream dependent systems in customers' data centers.
+[Microsoft Sentinel](https://azure.microsoft.com/services/azure-sentinel/) is a Security Information and Event Management (SIEM) and Security Orchestration, Automation, and Response (SOAR) service. Sentinel provides a unified overview of the cloud estate through native integration of Azure services. Sentinel can collect information from the cloud as well as from downstream dependent systems in customers' data centers.
 
-Azure Sentinel provides a dashboard view of the current security posture and allows administrators a global view on potentially malicious events such as failed logins, suspicious credentials, and the relevant connections from these events. Site reliability engineering (SRE) teams can use [Log Analytics](/azure/azure-monitor/log-query/log-query-overview) to query the data.
-You can also designate automation to trigger when Sentinel rules generate security alerts. Automation in Azure Sentinel uses Playbooks powered by Azure Logic Apps. For more information, see [Tutorial: Investigate incidents with Azure Sentinel](/azure/sentinel/tutorial-investigate-cases).
+Microsoft Sentinel provides a dashboard view of the current security posture and allows administrators a global view on potentially malicious events such as failed logins, suspicious credentials, and the relevant connections from these events. Site reliability engineering (SRE) teams can use [Log Analytics](/azure/azure-monitor/log-query/log-query-overview) to query the data. You can also designate automation to trigger when Sentinel rules generate security alerts. Automation in Microsoft Sentinel uses Playbooks powered by Azure Logic Apps. For more information, see [Tutorial: Investigate incidents with Microsoft Sentinel](/azure/sentinel/tutorial-investigate-cases).
 
 ## Issues and considerations
 
@@ -98,7 +94,7 @@ The following practices help microservices architectures perform unified logging
 - All logs, except audit logs, should be emitted to the same hub and stored in a central repository. If audit logs are required for security or compliance, it's best to store them in a separate data store. Make sure that recorded and stored information meets regulatory guidelines and doesn't contain any personally identifiable information.
 - Log data should use JSON format.
 - Logging should be asynchronous. Asynchronous logging helps to reduce overhead by delegating the call to a background task. The application doesn't need to await the results of the operation and can continue the logical program flow.
-- Logging should use a logging framework if possible. Don't expend engineering effort creating a logging system unless there's a clear business need. [Serilog](https://github.com/serilog) is a popular open-source logging framework that provides support for the Azure ecosystem through community supported extensions. 
+- Logging should use a logging framework if possible. Don't expend engineering effort creating a logging system unless there's a clear business need. [Serilog](https://github.com/serilog) is a popular open-source logging framework that provides support for the Azure ecosystem through community supported extensions.
 
 ### Logging levels
 
@@ -130,6 +126,7 @@ A key aspect of logging is the structure of the log itself. Log data is essentia
 A structured format makes event data readable and able to be parsed by automated systems. JSON is the data interchange format used by most web services today, and its familiar schema is well suited for structured logging.
 
 When defining log structure, you can add context to every request with the following objects:
+
 - Correlation ID for the request. The ID chains related log events together to provide a narrative for events and help establish where issues occur in distributed systems. The correlation ID should be a globally unique value.
 - Date and time in UTC
 - Service name
@@ -159,3 +156,9 @@ The following code shows examples of the structured logging objects:
 ```
 
 Incorporating the preceding changes into a distributed application allows team members to retrieve logs from the complete lifecycle of the request by using the correlation ID. Structured logging makes it easier to search through logs when issues occur, as well as allowing automated alerting.
+
+## Next steps
+
+- [Building microservices on Azure](../../microservices/index.md)
+- [Microservices architecture on Azure Service Fabric](../../reference-architectures/microservices/service-fabric.yml)
+- [Azure Spring Cloud reference architecture](/azure/spring-cloud/reference-architecture)

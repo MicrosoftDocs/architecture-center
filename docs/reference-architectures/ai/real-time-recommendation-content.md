@@ -1,7 +1,4 @@
-
 <!--cSpell:ignore njray precompute -->
-
-
 
 This reference architecture shows how to train a recommendation model using Azure Databricks and deploy it as an API by using Azure Cosmos DB, Azure Machine Learning, and Azure Kubernetes Service (AKS). This architecture can be generalized for most recommendation engine scenarios, including recommendations for products, movies, and news.
 
@@ -37,10 +34,9 @@ This architecture consists of the following components:
 
 [Azure Databricks][databricks]. Databricks is a development environment used to prepare input data and train the recommender model on a Spark cluster. Azure Databricks also provides an interactive workspace to run and collaborate on notebooks for any data processing or machine learning tasks.
 
-[Azure Kubernetes Service][aks] (AKS). AKS is used to deploy and operationalize a machine learning model service API on a Kubernetes cluster. AKS hosts the containerized model, providing scalability that meets your throughput requirements, identity and access management, and
- logging and health monitoring.
+[Azure Kubernetes Service][aks] (AKS). AKS is used to deploy and operationalize a machine learning model service API on a Kubernetes cluster. AKS hosts the containerized model, providing scalability that meets your throughput requirements, identity and access management, and logging and health monitoring.
 
-[Azure Cosmos DB][cosmosdb]. Cosmos DB is a globally distributed database service used to store the top 10 recommended movies for each user. Azure Cosmos DB is well-suited for this scenario, because it provides low latency (10 ms at 99th percentile) to read the top recommended items for a given user.
+[Azure Cosmos DB][cosmosdb]. Cosmos DB is a globally distributed database service used to store the top 10 recommended movies for each user. Azure Cosmos DB is well-suited for this scenario, because it provides low latency (10 ms at 99th percentile) to read the top recommended items for a given user.
 
 [Azure Machine Learning][mls]. This service is used to track and manage machine learning models, and then package and deploy these models to a scalable AKS environment.
 
@@ -64,7 +60,7 @@ If you don't plan to use Spark, or you have a smaller workload where you don't n
 
 During training, provision a larger fixed-size Spark cluster in Azure Databricks or configure [autoscaling][autoscaling]. When autoscaling is enabled, Databricks monitors the load on your cluster and scales up and downs when required. Provision or scale out a larger cluster if you have a large data size and you want to reduce the amount of time it takes for data preparation or modeling tasks.
 
-Scale the AKS cluster to meet your performance and throughput requirements. Take care to scale up the number of [pods][scale] to fully utilize the cluster, and to scale the [nodes][nodes] of the cluster to meet the demand of your service. For more information on how to scale your cluster to meet the performance and throughput requirements of your recommender service, see [Scaling Azure Container Service Clusters][blog].
+Scale the AKS cluster to meet your performance and throughput requirements. Take care to scale up the number of [pods][scale] to fully utilize the cluster, and to scale the [nodes][nodes] of the cluster to meet the demand of your service. You can also set autoscaling on AKS cluster, see [Deploy a model to an Azure Kubernetes Service cluster][blog].
 
 To manage Azure Cosmos DB performance, estimate the number of reads required per second, and provision the number of [RUs per second][ru] (throughput) needed. Use best practices for [partitioning and horizontal scaling][partition-data].
 
@@ -123,15 +119,15 @@ We have also built a reference architecture that uses Spark and Azure Databricks
 
 <!-- links -->
 
-[adbauthentication]: https://docs.azuredatabricks.net/api/latest/authentication.html#generate-a-token
+[adbauthentication]: /azure/databricks/dev-tools/api/latest/authentication
 [aks]: /azure/aks/intro-kubernetes
 [als]: https://spark.apache.org/docs/latest/ml-collaborative-filtering.html
 [als-example]: https://github.com/Microsoft/Recommenders/blob/master/examples/05_operationalize/als_movie_o16n.ipynb
-[autoscaling]: https://docs.azuredatabricks.net/user-guide/clusters/sizing.html
+[autoscaling]: /azure/databricks/clusters/configure#autoscaling
 [batch-scoring]: ../../reference-architectures/ai/batch-scoring-databricks.yml
-[blog]: /archive/blogs/machinelearning/scaling-azure-container-service-cluster
+[blog]: /azure/machine-learning/how-to-deploy-azure-kubernetes-service?tabs=python#autoscaling
 [cosmosdb]: /azure/cosmos-db/introduction
-[data-source]: https://docs.azuredatabricks.net/spark/latest/data-sources/index.html
+[data-source]: /azure/databricks/data/data-sources/
 [databricks]: /azure/azure-databricks/what-is-azure-databricks
 [dsvm]: /azure/machine-learning/data-science-virtual-machine/overview
 [eval-guide]: https://github.com/Microsoft/Recommenders/blob/master/examples/03_evaluate/evaluation.ipynb

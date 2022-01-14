@@ -1,9 +1,9 @@
 ### YamlMime:Hub
 metadata:
   title: Azure Architecture Center
-  description: The Azure Architecture Center provides best practices for running your workloads on Azure.
+  description: The Azure Architecture Center provides guidance for designing and building solutions on Azure using established patterns and practices.
   ms.topic: hub-page
-  ms.date: 04/22/2020
+  ms.date: 12/13/2021
   ms.collection: collection
   ms.author: adboegli
   google-site-verification: b-xRLveOzJ9oSOh37wgRTRB2lMOoFY8HiHf9_0DIawE
@@ -26,7 +26,7 @@ highlightedContent:
       url: guide/index.md
     # Card
     - title: Assess, optimize, and review your workload
-      url: ./framework/index.md
+      url: /azure/architecture/framework
       itemType: how-to-guide
     # Card
     - title: See what's new
@@ -58,7 +58,7 @@ productDirectory:
     - title: Optimizing your workload
       imageSrc: https://docs.microsoft.com/media/common/i_architecture.svg
       links:
-        - url: ./framework/index.md
+        - url: /azure/architecture/framework
           text: Guiding tenets for your architecture
         - url: /assessments/?id=azure-architecture-review
           text: Examine your workload
@@ -66,7 +66,7 @@ productDirectory:
           text: Performance tuning
         - url: ./antipatterns/index.md
           text: Performance antipatterns
-        - url: ./framework/security/overview.md
+        - url: /azure/architecture/framework/security/overview
           text: Securing your infrastructure
 
     # Card
@@ -98,7 +98,7 @@ conceptualContent:
         url: ./aws-professional/services.md
         itemType: reference
       - text: Cloud Design Patterns
-        url: /azure/architecture/patterns/
+        url: ./patterns/index.md
         itemType: concept
       - text: Web API design
         url: ./best-practices/api-design.md
@@ -141,15 +141,15 @@ conceptualContent:
         url: ./data-guide/technology-choices/r-developers-guide.md
       - text: Movie recommendation
         itemType: get-started
-        url: ./example-scenario/ai/movie-recommendations.yml
+        url: ./example-scenario/ai/movie-recommendations-with-machine-learning.yml
       - text: Scalable personalization
         itemType: get-started
-        url: ./example-scenario/ai/scalable-personalization.yml
+        url: ./example-scenario/ai/scalable-personalization-with-content-based-recommendation-system.yml
       # footerLink (optional)
       footerLink:
         url: ./data-guide/big-data/machine-learning-at-scale.md
         text: See more
-    
+
     - title: Data
       links:
         - url: ./data-guide/big-data/index.md
@@ -407,13 +407,13 @@ conceptualContent:
           url: reference-architectures/sap/run-sap-bw4hana-with-linux-virtual-machines.yml
         - text: SAP NetWeaver on SQL Server
           itemType: architecture
-          url: solution-ideas/articles/sap-netweaver-on-sql-server.yml  
+          url: solution-ideas/articles/sap-netweaver-on-sql-server.yml
         - text: SAP deployment using an Oracle DB
           itemType: architecture
           url: example-scenario/apps/sap-production.yml
         - text: Dev/test for SAP
           itemType: architecture
-          url: example-scenario/apps/sap-dev-test.yml           
+          url: example-scenario/apps/sap-dev-test.yml
 
     - title: Web apps
       links:

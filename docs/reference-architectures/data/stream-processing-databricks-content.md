@@ -1,7 +1,4 @@
-
 <!-- cSpell:ignore eventhubs shapefile Appender malformedrides malformedfares Dropwizard dropoff taxijob durationms timechart startofday endofday DBUs DBCU -->
-
-
 
 This reference architecture shows an end-to-end [stream processing](../../data-guide/big-data/real-time-processing.md) pipeline. This type of pipeline has four stages: ingest, process, store, and analysis and reporting. For this reference architecture, the pipeline ingests data from two sources, performs a join on related records from each stream, enriches the result, and calculates an average in real time. The results are stored for further analysis.
 
@@ -23,17 +20,19 @@ The architecture consists of the following components.
 
 **Cosmos DB**. The output from Azure Databricks job is a series of records, which are written to [Cosmos DB](/azure/cosmos-db) using the Cassandra API. The Cassandra API is used because it supports time series data modeling.
 
+- [Azure Synapse Link for Azure Cosmos DB](/azure/cosmos-db/synapse-link) enables you to run near real-time analytics over operational data in Azure Cosmos DB, **without any performance or cost impact on your transactional workload**, by using the two analytics engines available from your Azure Synapse workspace: [SQL Serverless](/azure/synapse-analytics/sql/on-demand-workspace-overview) and [Spark Pools](/azure/synapse-analytics/spark/apache-spark-overview).
+
 **Azure Log Analytics**. Application log data collected by [Azure Monitor](/azure/monitoring-and-diagnostics) is stored in a [Log Analytics workspace](/azure/log-analytics). Log Analytics queries can be used to analyze and visualize metrics and inspect log messages to identify issues within the application.
 
-## Data ingestion
+### Alternatives
 
-<!-- markdownlint-disable MD033 -->
+- [Synapse Link](/azure/cosmos-db/synapse-link) is the Microsoft preferred solution for analytics on top of Cosmos DB data.
+
+## Data ingestion
 
 To simulate a data source, this reference architecture uses the [New York City Taxi Data](https://uofi.app.box.com/v/NYCtaxidata/folder/2332218797) dataset<sup>[[1]](#note1)</sup>. This dataset contains data about taxi trips in New York City over a four-year period (2010 &ndash; 2013). It contains two types of record: Ride data and fare data. Ride data includes trip duration, trip distance, and pickup and drop-off location. Fare data includes fare, tax, and tip amounts. Common fields in both record types include medallion number, hack license, and vendor ID. Together these three fields uniquely identify a taxi plus a driver. The data is stored in CSV format.
 
 <span id="note1">[1]</span> Donovan, Brian; Work, Dan (2016): New York City Taxi Trip Data (2010-2013). University of Illinois at Urbana-Champaign. <https://doi.org/10.13012/J8PN93H8>
-
-<!-- markdownlint-enable MD033 -->
 
 The data generator is a .NET Core application that reads the records and sends them to Azure Event Hubs. The generator sends ride data in JSON format and fare data in CSV format.
 
@@ -182,9 +181,11 @@ val maxAvgFarePerNeighborhood = mergedTaxiTrip.selectExpr("medallion", "hackLice
       .agg(
         count("*").as("rideCount"),
         sum($"fareAmount").as("totalFareAmount"),
-        sum($"tipAmount").as("totalTipAmount")
+        sum($"tipAmount").as("totalTipAmount"),
+        (sum($"fareAmount")/count("*")).as("averageFareAmount"),
+        (sum($"tipAmount")/count("*")).as("averageTipAmount")
       )
-      .select($"window.start", $"window.end", $"pickupNeighborhood", $"rideCount", $"totalFareAmount", $"totalTipAmount")
+      .select($"window.start", $"window.end", $"pickupNeighborhood", $"rideCount", $"totalFareAmount", $"totalTipAmount", $"averageFareAmount", $"averageTipAmount")
 ```
 
 Which is then inserted into Cosmos DB:
@@ -205,7 +206,7 @@ Access to the Azure Databricks workspace is controlled using the [administrator 
 
 ### Managing secrets
 
-Azure Databricks includes a [secret store](https://docs.azuredatabricks.net/security/secrets/index.html#secrets) that is used to store secrets, including connection strings, access keys, user names, and passwords. Secrets within the Azure Databricks secret store are partitioned by **scopes**:
+Azure Databricks includes a [secret store](/azure/databricks/security/secrets/) that is used to store secrets, including connection strings, access keys, user names, and passwords. Secrets within the Azure Databricks secret store are partitioned by **scopes**:
 
 ```bash
 databricks secrets create-scope --scope "azure-databricks-job"
@@ -218,33 +219,13 @@ databricks secrets put --scope "azure-databricks-job" --key "taxi-ride"
 ```
 
 > [!NOTE]
-> An Azure Key Vault-backed scope can be used instead of the native Azure Databricks scope. To learn more, see [Azure Key Vault-backed scopes](https://docs.azuredatabricks.net/security/secrets/secret-scopes.html#azure-key-vault-backed-scopes).
+> An Azure Key Vault-backed scope can be used instead of the native Azure Databricks scope. To learn more, see [Azure Key Vault-backed scopes](/azure/databricks/security/secrets/secret-scopes).
 
 In code, secrets are accessed via the Azure Databricks [secrets utilities](https://docs.databricks.com/user-guide/dev-tools/dbutils.html#secrets-utilities).
 
 ## Monitoring considerations
 
-Azure Databricks is based on Apache Spark, and both use [log4j](https://logging.apache.org/log4j/2.x) as the standard library for logging. In addition to the default logging provided by Apache Spark, this reference architecture sends logs and metrics to [Azure Log Analytics](/azure/log-analytics).
-
-The **com.microsoft.pnp.TaxiCabReader** class configures the Apache Spark logging system to send its logs to Azure Log Analytics using the values in the **log4j.properties** file. While the Apache Spark logger messages are strings, Azure Log Analytics requires log messages to be formatted as JSON. The **com.microsoft.pnp.log4j.LogAnalyticsAppender** class transforms these messages to JSON:
-
-```scala
-
-    @Override
-    protected void append(LoggingEvent loggingEvent) {
-        if (this.layout == null) {
-            this.setLayout(new JSONLayout());
-        }
-
-        String json = this.getLayout().format(loggingEvent);
-        try {
-            this.client.send(json, this.logType);
-        } catch(IOException ioe) {
-            LogLog.warn("Error sending LoggingEvent to Log Analytics", ioe);
-        }
-    }
-
-```
+Azure Databricks is based on Apache Spark, and both use [log4j](https://logging.apache.org/log4j/2.x) as the standard library for logging. In addition to the default logging provided by Apache Spark, you can implement logging to Azure Log Analytics following the article [Monitoring Azure Databricks](../../databricks-monitoring/index.md).
 
 As the **com.microsoft.pnp.TaxiCabReader** class processes ride and fare messages, it's possible that either one may be malformed and therefore not valid. In a production environment, it's important to analyze these malformed messages to identify a problem with the data sources so it can be fixed quickly to prevent data loss. The **com.microsoft.pnp.TaxiCabReader** class registers an Apache Spark Accumulator that keeps track of the number of malformed fare and ride records:
 
@@ -257,52 +238,40 @@ As the **com.microsoft.pnp.TaxiCabReader** class processes ride and fare message
 
 Apache Spark uses the Dropwizard library to send metrics, and some of the native Dropwizard metrics fields are incompatible with Azure Log Analytics. Therefore, this reference architecture includes a custom Dropwizard sink and reporter. It formats the metrics in the format expected by Azure Log Analytics. When Apache Spark reports metrics, the custom metrics for the malformed ride and fare data are also sent.
 
-The last metric to be logged to the Azure Log Analytics workspace is the cumulative progress of the Spark Structured Streaming job progress. This is done using a custom StreamingQuery listener implemented in the **com.microsoft.pnp.StreamingMetricsListener** class. This class is registered to the Apache Spark Session when the job runs:
-
-```scala
-spark.streams.addListener(new StreamingMetricsListener())
-```
-
-The methods in the StreamingMetricsListener are called by the Apache Spark runtime whenever a structured steaming event occurs, sending log messages and metrics to the Azure Log Analytics workspace. You can use the following queries in your workspace to monitor the application:
-
-### Latency and throughput for streaming queries
-
-```shell
-taxijob_CL
-| where TimeGenerated > startofday(datetime(<date>)) and TimeGenerated < endofday(datetime(<date>))
-| project mdc_inputRowsPerSecond_d, mdc_durationms_triggerExecution_d
-| render timechart
-```
+The following are example queries that you can use in your Azure Log Analytics workspace to monitor the execution of the streaming job. The argument `ago(1d)` in each query will return all records that were generated in the last day, and can be adjusted to view a different time period.
 
 ### Exceptions logged during stream query execution
 
-```shell
-taxijob_CL
-| where TimeGenerated > startofday(datetime(<date>)) and TimeGenerated < endofday(datetime(<date>))
-| where Level contains "Error"
+```kusto
+SparkLoggingEvent_CL
+| where TimeGenerated > ago(1d)
+| where Level == "ERROR"
 ```
 
 ### Accumulation of malformed fare and ride data
 
-```shell
+```kusto
 SparkMetric_CL
-| where TimeGenerated > startofday(datetime(<date>)) and TimeGenerated < endofday(datetime(<date>))
-| render timechart
+| where TimeGenerated > ago(1d)
 | where name_s contains "metrics.malformedrides"
+| project value_d, TimeGenerated, applicationId_s
+| render timechart
 
 SparkMetric_CL
-| where TimeGenerated > startofday(datetime(<date>)) and TimeGenerated < endofday(datetime(<date>))
-| render timechart
+| where TimeGenerated > ago(1d)
 | where name_s contains "metrics.malformedfares"
+| project value_d, TimeGenerated, applicationId_s
+| render timechart
 ```
 
-### Job execution to trace resiliency
+### Job execution over time
 
-```shell
+```kusto
 SparkMetric_CL
-| where TimeGenerated > startofday(datetime(<date>)) and TimeGenerated < endofday(datetime(<date>))
-| render timechart
+| where TimeGenerated > ago(1d)
 | where name_s contains "driver.DAGScheduler.job.allJobs"
+| project value_d, TimeGenerated, applicationId_s
+| render timechart
 ```
 
 For more information, see [Monitoring Azure Databricks](../../databricks-monitoring/index.md).
@@ -390,14 +359,20 @@ For more information, see the cost section in [Microsoft Azure Well-Architected 
 
 To the deploy and run the reference implementation, follow the steps in the [GitHub readme][github].
 
+## Next steps
+
+- [Stream processing with Azure Stream Analytics](./stream-processing-stream-analytics.yml)
+- [Demand Forecasting](../../solution-ideas/articles/demand-forecasting.yml)
+- [Real Time Analytics on Big Data Architecture](../../solution-ideas/articles/real-time-analytics.yml)
+
 <!-- links -->
 
-[AAF-devops]: ../../framework/devops/overview.md
+[AAF-devops]: /azure/architecture/framework/devops/overview
 [arm-template]: /azure/azure-resource-manager/resource-group-overview#resource-groups
 [az-devops]: /azure/virtual-machines/windows/infrastructure-automation#azure-devops-services
 [azure-monitor]: https://azure.microsoft.com/services/monitor
 [databricks-monitoring]: ../../databricks-monitoring/index.md
-[aaf-cost]: ../../framework/cost/overview.md
+[aaf-cost]: /azure/architecture/framework/cost/overview
 [Cosmos-Calculator]: https://cosmos.azure.com/capacitycalculator
 [cosmosdb-pricing]: https://azure.microsoft.com/pricing/details/cosmos-db
 [azure-pricing-calculator]: https://azure.microsoft.com/pricing/calculator

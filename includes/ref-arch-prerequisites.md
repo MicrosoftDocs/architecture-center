@@ -1,6 +1,6 @@
 1. Clone, fork, or download the zip file for the [reference architectures](https://github.com/mspnp/reference-architectures) GitHub repository.
 
-2. Install [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
+2. Install [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli).
 
 3. Install [Node and NPM](https://nodejs.org/en/download)
 

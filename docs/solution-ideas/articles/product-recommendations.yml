@@ -2,14 +2,23 @@
 metadata:
   title: Product recommendations for retail using Azure
   titleSuffix: Azure Solution Ideas
-  author: doodlemania2
-  ms.date: 12/16/2019
   description: Aggregate customer data into complete profiles. Use advanced Azure machine learning models to provide predictive insights on simulated customers.
-  ms.custom: 'acom-architecture, artificial intelligence, solution architectures, Azure, ai gallery, interactive-diagram, ''https://azure.microsoft.com/solutions/architecture/customer-360/'''
+  author: EdPrice-MSFT
+  ms.author: pnp
+  ms.date: 12/16/2019
+  ms.topic: conceptual
   ms.service: architecture-center
+  ms.subservice: solution-idea
   ms.category:
     - analytics
-  ms.subservice: solution-idea
+  ms.custom:
+    - acom-architecture
+    - artificial intelligence
+    - solution architectures
+    - Azure
+    - ai gallery
+    - interactive-diagram
+    - "https://azure.microsoft.com/solutions/architecture/customer-360/"
   social_image_url: /azure/architecture/solution-ideas/articles/media/product-recommendations.png
 name: Product recommendations for retail using Azure
 azureCategories:

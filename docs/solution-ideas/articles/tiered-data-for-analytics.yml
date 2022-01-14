@@ -1,18 +1,30 @@
 ### YamlMime:Architecture
 metadata:
-  title: Tier Applications & Data for Analytics
+  title: Tier applications and data for analytics
   titleSuffix: Azure Solution Ideas
-  author: doodlemania2
-  ms.date: 12/16/2019
   description: As data flows into a storage account, use Azure Stack to analyze the data for anomalies or compliance and to display insights in apps.
-  ms.custom: 'acom-architecture, analytics, application tier, data tier, tier architecture, tier data, tier application architecture, hybrid application, interactive-diagram, ''https://azure.microsoft.com/solutions/architecture/tiered-data-for-analytics/'''
+  author: EdPrice-MSFT
+  ms.author: pnp
+  ms.date: 12/16/2019
+  ms.topic: conceptual
   ms.service: architecture-center
+  ms.subservice: solution-idea
   ms.category:
     - analytics
     - databases
-  ms.subservice: solution-idea
+  ms.custom:
+    - acom-architecture
+    - analytics
+    - application tier
+    - data tier
+    - tier architecture
+    - tier data
+    - tier application architecture
+    - hybrid application
+    - interactive-diagram
+    - "https://azure.microsoft.com/solutions/architecture/tiered-data-for-analytics/"
   social_image_url: /azure/architecture/solution-ideas/articles/media/tiered-data-for-analytics.png
-name: Tier Applications & Data for Analytics
+name: Tier applications and data for analytics
 azureCategories:
   - analytics
   - databases

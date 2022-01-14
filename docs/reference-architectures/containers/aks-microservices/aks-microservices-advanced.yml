@@ -1,0 +1,26 @@
+### YamlMime:Architecture
+metadata:
+  title: Advanced Azure Kubernetes Service (AKS) microservices architecture
+  description: Learn about a scalable, secure AKS microservices architecture that builds on recommended AKS microservices baseline architectures and implementations.
+  author: EdPrice-MSFT
+  ms.date: 02/20/2021
+  ms.topic: conceptual
+  ms.service: architecture-center
+  ms.category:
+    - containers
+  ms.subservice: reference-architecture
+  ms.custom:
+    - microservices
+    - fcp
+name: Advanced Azure Kubernetes Service (AKS) microservices architecture
+azureCategories:
+  - containers
+summary: Learn about a scalable, secure AKS microservices architecture that builds on recommended AKS microservices baseline architectures and implementations.
+products:
+  - azure-application-gateway
+  - azure-container-registry
+  - azure-kubernetes-service
+  - azure-virtual-network
+thumbnailUrl: /azure/architecture/browse/thumbs/default.png
+content: |
+   [!include[](aks-microservices-advanced-content.md)]

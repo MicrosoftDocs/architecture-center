@@ -1,18 +1,28 @@
 ### YamlMime:Architecture
 metadata:
-  title: Loan Credit Risk + Default Modeling
+  title: Loan credit risk and default modeling
   titleSuffix: Azure Solution Ideas
-  author: doodlemania2
-  ms.date: 12/16/2019
   description: SQL Server 2016 with R Services can help lenders issue fewer unprofitable loans by predicting borrower credit risk and default probability.
-  ms.custom: 'acom-architecture, finance, analytics, sql-server, credit risk analyzer, credit risk modeling, probability of default, ''https://azure.microsoft.com/solutions/architecture/loan-credit-risk-analyzer-and-default-modeling/'''
+  author: EdPrice-MSFT
+  ms.author: pnp
+  ms.date: 12/16/2019
+  ms.topic: conceptual
   ms.service: architecture-center
+  ms.subservice: solution-idea
   ms.category:
     - databases
     - analytics
-  ms.subservice: solution-idea
+  ms.custom:
+    - acom-architecture
+    - finance
+    - analytics
+    - sql-server
+    - credit risk analyzer
+    - credit risk modeling
+    - probability of default
+    - "https://azure.microsoft.com/solutions/architecture/loan-credit-risk-analyzer-and-default-modeling/"
   social_image_url: /azure/architecture/solution-ideas/articles/media/loan-credit-risk-analyzer-and-default-modeling.png
-name: Loan Credit Risk + Default Modeling
+name: Loan credit risk and default modeling
 azureCategories:
   - databases
   - analytics

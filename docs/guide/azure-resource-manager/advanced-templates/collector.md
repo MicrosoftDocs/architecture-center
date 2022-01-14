@@ -1,14 +1,19 @@
 ---
-title: Implement a property transformer and collector in an Azure Resource Manager template
+title: Transformer and collector ARM template
 description: Describes how to implement a property transformer and collector in an Azure Resource Manager template.
 author: PeterTaylor9999
-ms.date: 10/30/2018
+ms.date: 09/07/2021
 ms.topic: conceptual
 ms.service: architecture-center
+ms.subservice: azure-guide
 ms.category:
   - developer-tools
   - devops
-ms.subservice: azure-guide
+categories:
+  - developer-tools
+  - devops
+products:
+  - azure-resource-manager
 ms.custom:
   - article
 ---
@@ -46,41 +51,41 @@ We'll be using our `securityRules` parameter object from [objects as parameters]
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
-      "networkSecurityGroupsSettings": {
-      "value": {
-          "securityRules": [
-            {
-              "name": "RDPAllow",
-              "description": "allow RDP connections",
-              "direction": "Inbound",
-              "priority": 100,
-              "sourceAddressPrefix": "*",
-              "destinationAddressPrefix": "10.0.0.0/24",
-              "sourcePortRange": "*",
-              "destinationPortRange": "3389",
-              "access": "Allow",
-              "protocol": "Tcp"
-            },
-            {
-              "name": "HTTPAllow",
-              "description": "allow HTTP connections",
-              "direction": "Inbound",
-              "priority": 200,
-              "sourceAddressPrefix": "*",
-              "destinationAddressPrefix": "10.0.1.0/24",
-              "sourcePortRange": "*",
-              "destinationPortRange": "80",
-              "access": "Allow",
-              "protocol": "Tcp"
+        "networkSecurityGroupsSettings": {
+            "value": {
+                "securityRules": [
+                    {
+                        "name": "RDPAllow",
+                        "description": "allow RDP connections",
+                        "direction": "Inbound",
+                        "priority": 100,
+                        "sourceAddressPrefix": "*",
+                        "destinationAddressPrefix": "10.0.0.0/24",
+                        "sourcePortRange": "*",
+                        "destinationPortRange": "3389",
+                        "access": "Allow",
+                        "protocol": "Tcp"
+                    },
+                    {
+                        "name": "HTTPAllow",
+                        "description": "allow HTTP connections",
+                        "direction": "Inbound",
+                        "priority": 200,
+                        "sourceAddressPrefix": "*",
+                        "destinationAddressPrefix": "10.0.1.0/24",
+                        "sourcePortRange": "*",
+                        "destinationPortRange": "80",
+                        "access": "Allow",
+                        "protocol": "Tcp"
+                    }
+                ]
             }
-          ]
         }
-      }
     }
-  }
+}
 ```
 
 Let's look at our **transform template** first.
@@ -96,50 +101,52 @@ Our parameters look like this:
 
 ```json
 {
-  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-  "contentVersion": "1.0.0.0",
-  "parameters": {
-    "source": { "type": "object" },
-    "state": {
-      "type": "array",
-      "defaultValue": [ ]
-    }
-  },
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "source": {
+            "type": "object"
+        },
+        "state": {
+            "type": "array",
+            "defaultValue": []
+        }
+    },
 ```
 
 Our template also defines a variable named `instance`. It performs the actual transform of our `source` object into the required JSON schema:
 
 ```json
-  "variables": {
+"variables": {
     "instance": [
-      {
-        "name": "[parameters('source').name]",
-        "properties":{
-            "description": "[parameters('source').description]",
-            "protocol": "[parameters('source').protocol]",
-            "sourcePortRange": "[parameters('source').sourcePortRange]",
-            "destinationPortRange": "[parameters('source').destinationPortRange]",
-            "sourceAddressPrefix": "[parameters('source').sourceAddressPrefix]",
-            "destinationAddressPrefix": "[parameters('source').destinationAddressPrefix]",
-            "access": "[parameters('source').access]",
-            "priority": "[parameters('source').priority]",
-            "direction": "[parameters('source').direction]"
+        {
+            "name": "[parameters('source').name]",
+            "properties": {
+                "description": "[parameters('source').description]",
+                "protocol": "[parameters('source').protocol]",
+                "sourcePortRange": "[parameters('source').sourcePortRange]",
+                "destinationPortRange": "[parameters('source').destinationPortRange]",
+                "sourceAddressPrefix": "[parameters('source').sourceAddressPrefix]",
+                "destinationAddressPrefix": "[parameters('source').destinationAddressPrefix]",
+                "access": "[parameters('source').access]",
+                "priority": "[parameters('source').priority]",
+                "direction": "[parameters('source').direction]"
+            }
         }
-      }
     ]
-
-  },
+}
 ```
 
 Finally, the `output` of our template concatenates the collected transforms of our `state` parameter with the current transform performed by our `instance` variable:
 
 ```json
-    "resources": [],
-    "outputs": {
+"resources": [],
+"outputs": {
     "collection": {
-      "type": "array",
-      "value": "[concat(parameters('state'), variables('instance'))]"
+        "type": "array",
+        "value": "[concat(parameters('state'), variables('instance'))]"
     }
+}
 ```
 
 Next, let's take a look at our **collector template** to see how it passes in our parameter values.
@@ -155,21 +162,26 @@ Our **collector template** includes three parameters:
 Our parameters look like this:
 
 ```json
-  "parameters": {
-    "source": { "type": "array" },
-    "transformTemplateUri": { "type": "string" },
+"parameters": {
+    "source": {
+        "type": "array"
+    },
+    "transformTemplateUri": {
+        "type": "string"
+    },
     "state": {
-      "type": "array",
-      "defaultValue": [ ]
+        "type": "array",
+        "defaultValue": []
     }
+}
 ```
 
 Next, we define a variable named `count`. Its value is the length of the `source` parameter object array:
 
 ```json
-  "variables": {
+"variables": {
     "count": "[length(parameters('source'))]"
-  },
+}
 ```
 
 As you might suspect, we use it for the number of iterations in our copy loop.
@@ -182,51 +194,51 @@ Now let's take a look at our resources. We define two resources:
 Our resources look like this:
 
 ```json
-  "resources": [
+"resources": [
     {
-      "type": "Microsoft.Resources/deployments",
-      "apiVersion": "2015-01-01",
-      "name": "loop-0",
-      "properties": {
-        "mode": "Incremental",
-        "parameters": { },
-        "template": {
-          "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-          "contentVersion": "1.0.0.0",
-          "parameters": { },
-          "variables": { },
-          "resources": [ ],
-          "outputs": {
-            "collection": {
-              "type": "array",
-              "value": "[parameters('state')]"
+        "type": "Microsoft.Resources/deployments",
+        "apiVersion": "2015-01-01",
+        "name": "loop-0",
+        "properties": {
+            "mode": "Incremental",
+            "parameters": { },
+            "template": {
+                "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+                "contentVersion": "1.0.0.0",
+                "parameters": { },
+                "variables": { },
+                "resources": [ ],
+                "outputs": {
+                    "collection": {
+                        "type": "array",
+                        "value": "[parameters('state')]"
+                    }
+                }
             }
-          }
         }
-      }
     },
     {
-      "type": "Microsoft.Resources/deployments",
-      "apiVersion": "2015-01-01",
-      "name": "[concat('loop-', copyindex(1))]",
-      "copy": {
-        "name": "iterator",
-        "count": "[variables('count')]",
-        "mode": "serial"
-      },
-      "dependsOn": [
-        "loop-0"
-      ],
-      "properties": {
-        "mode": "Incremental",
-        "templateLink": { "uri": "[parameters('transformTemplateUri')]" },
-        "parameters": {
-          "source": { "value": "[parameters('source')[copyindex()]]" },
-          "state": { "value": "[reference(concat('loop-', copyindex())).outputs.collection.value]" }
+        "type": "Microsoft.Resources/deployments",
+        "apiVersion": "2015-01-01",
+        "name": "[concat('loop-', copyindex(1))]",
+        "copy": {
+            "name": "iterator",
+            "count": "[variables('count')]",
+            "mode": "serial"
+        },
+        "dependsOn": [
+            "loop-0"
+        ],
+        "properties": {
+            "mode": "Incremental",
+            "templateLink": { "uri": "[parameters('transformTemplateUri')]" },
+            "parameters": {
+                "source": { "value": "[parameters('source')[copyindex()]]" },
+                "state": { "value": "[reference(concat('loop-', copyindex())).outputs.collection.value]" }
+            }
         }
-      }
     }
-  ],
+]
 ```
 
 Let's take a closer look at the parameters we're passing to our **transform template** in the nested template. Recall from earlier that our `source` parameter passes the current object in the `source` parameter object array. The `state` parameter is where the collection happens, because it takes the output of the previous iteration of our copy loop&mdash;notice that the `reference()` function uses the `copyIndex()` function with no parameter to reference the `name` of our previous linked template object&mdash;and passes it to the current iteration.
@@ -234,12 +246,12 @@ Let's take a closer look at the parameters we're passing to our **transform temp
 Finally, the `output` of our template returns the `output` of the last iteration of our **transform template**:
 
 ```json
-  "outputs": {
+"outputs": {
     "result": {
-      "type": "array",
-      "value": "[reference(concat('loop-', variables('count'))).outputs.collection.value]"
+        "type": "array",
+        "value": "[reference(concat('loop-', variables('count'))).outputs.collection.value]"
     }
-  }
+}
 ```
 
 It may seem counterintuitive to return the `output` of the last iteration of our **transform template** to our **calling template** because it appeared we were storing it in our `source` parameter. However, remember that it's the last iteration of our **transform template** that holds the complete array of transformed property objects, and that's what we want to return.
@@ -256,6 +268,7 @@ Our **calling template** defines a single parameter named `networkSecurityGroups
     "networkSecurityGroupsSettings": {
         "type": "object"
     }
+}
 ```
 
 Next, our template defines a single variable named `collectorTemplateUri`:
@@ -263,14 +276,14 @@ Next, our template defines a single variable named `collectorTemplateUri`:
 ```json
 "variables": {
     "collectorTemplateUri": "[uri(deployment().properties.templateLink.uri, 'collector.template.json')]"
-  }
+}
 ```
 
 As you would expect, this is the URI for the **collector template** that will be used by our linked template resource:
 
 ```json
 {
-    "apiVersion": "2015-01-01",
+    "apiVersion": "2020-06-01",
     "name": "collector",
     "type": "Microsoft.Resources/deployments",
     "properties": {
@@ -280,8 +293,12 @@ As you would expect, this is the URI for the **collector template** that will be
             "contentVersion": "1.0.0.0"
         },
         "parameters": {
-            "source" : {"value": "[parameters('networkSecurityGroupsSettings').securityRules]"},
-            "transformTemplateUri": { "value": "[uri(deployment().properties.templateLink.uri, 'transform.json')]"}
+            "source": {
+                "value": "[parameters('networkSecurityGroupsSettings').securityRules]"
+            },
+            "transformTemplateUri": {
+                "value": "[uri(deployment().properties.templateLink.uri, 'transform.json')]"
+            }
         }
     }
 }
@@ -295,23 +312,23 @@ We pass two parameters to the **collector template**:
 Finally, our `Microsoft.Network/networkSecurityGroups` resource directly assigns the `output` of the `collector` linked template resource to its `securityRules` property:
 
 ```json
+"resources": [
     {
-      "apiVersion": "2015-06-15",
-      "type": "Microsoft.Network/networkSecurityGroups",
-      "name": "networkSecurityGroup1",
-      "location": "[resourceGroup().location]",
-      "properties": {
-        "securityRules": "[reference('collector').outputs.result.value]"
-      }
+        "apiVersion": "2020-05-01",
+        "type": "Microsoft.Network/networkSecurityGroups",
+        "name": "networkSecurityGroup1",
+        "location": "[resourceGroup().location]",
+        "properties": {
+            "securityRules": "[reference('collector').outputs.result.value]"
+        }
     }
-  ],
-  "outputs": {
-      "instance":{
-          "type": "array",
-          "value": "[reference('collector').outputs.result.value]"
-      }
-
-  }
+],
+"outputs": {
+    "instance": {
+        "type": "array",
+        "value": "[reference('collector').outputs.result.value]"
+    }
+}
 ```
 
 ## Try the template
@@ -331,5 +348,5 @@ az deployment group create -g <resource-group-name> \
 
 [objects-as-parameters]: ./objects-as-parameters.md
 [nsg]: /azure/virtual-network/virtual-networks-nsg
-[cli]: /cli/azure/?view=azure-cli-latest
+[cli]: /cli/azure/
 [github]: https://github.com/mspnp/template-examples

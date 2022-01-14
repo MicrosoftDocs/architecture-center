@@ -1,19 +1,21 @@
 ### YamlMime:Architecture
 metadata:
-  title: Hybrid availability and performance monitoring
+  title: Monitor hybrid availability, performance
   description: Use Azure Monitor to monitor performance and availability for OS workloads running on-premises, in third-party cloud providers, and in Microsoft Azure.
-  author: doodlemania2
+  author: EdPrice-MSFT
+  ms.author: pnp
   ms.date: 07/27/2020
   ms.topic: conceptual
   ms.service: architecture-center
+  ms.subservice: reference-architecture
   ms.category:
     - hybrid
     - monitoring
     - management-and-governance
-  ms.subservice: reference-architecture
   ms.custom:
     - fcp
     - reference-architecture
+    - e2e-hybrid
 name: Hybrid availability and performance monitoring
 azureCategories:
   - hybrid

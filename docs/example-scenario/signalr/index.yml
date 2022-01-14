@@ -1,21 +1,23 @@
 ### YamlMime:Architecture
 metadata:
-  title: Sharing location in real time using low-cost serverless Azure services
+  title: Real-time location sharing
   titleSuffix: Azure Example Scenarios
-  description: In this scenario, learn how to architect a solution that processes changes to underlying data within a web view without the need for a page refresh using real-time services.
+  description: Learn how to architect a solution that processes changes to underlying data within a web view without the need for a page refresh using real-time services.
   author: talhanaveed
+  ms.author: pnp
   ms.date: 12/09/2019
+  ms.topic: conceptual
+  ms.service: architecture-center
+  ms.subservice: example-scenario
   ms.category:
     - devops
     - integration
     - developer-tools
     - hybrid
-  ms.topic: conceptual
-  ms.service: architecture-center
-  ms.subservice: example-scenario
   ms.custom:
     - fcp
     - example-scenario
+    - e2e-hybrid
 name: Sharing location in real time using low-cost serverless Azure services
 azureCategories:
   - devops

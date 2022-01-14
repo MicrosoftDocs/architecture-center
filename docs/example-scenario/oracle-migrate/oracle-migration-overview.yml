@@ -9,12 +9,12 @@ metadata:
   ms.topic: conceptual
   ms.service: architecture-center
   ms.subservice: example-scenario
-  ms.custom:
-    - fcp
-    - example-scenario
   ms.category:
     - databases
     - migration
+  ms.custom:
+    - fcp
+    - example-scenario
 name: Overview of Oracle database migration
 azureCategories:
   - databases

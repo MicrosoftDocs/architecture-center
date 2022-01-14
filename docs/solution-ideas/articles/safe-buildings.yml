@@ -2,14 +2,17 @@
 metadata:
   title: Cognizant Safe Buildings with IoT and Azure
   titleSuffix: Azure Solution Ideas
-  author: doodlemania2
   description: Deploy Cognizant Safe Buildings, IoT, and Azure services to protect buildings from COVID-19 outbreaks.
-  ms.date: 06/09/2020
-  ms.custom: fcp
+  author: EdPrice-MSFT
+  ms.author: pnp
+  ms.date: 10/19/2021
+  ms.topic: conceptual
   ms.service: architecture-center
   ms.subservice: solution-idea
   ms.category:
     - iot
+  ms.custom:
+    - fcp
 name: Cognizant Safe Buildings with IoT and Azure
 azureCategories:
   - iot
@@ -20,6 +23,6 @@ products:
   - azure-kubernetes-service
   - azure-stream-analytics
   - azure-databricks
-thumbnailUrl: /azure/architecture/browse/thumbs/safe-building-arch-design.png
+thumbnailUrl: /azure/architecture/browse/thumbs/safe-building-arch-design.svg
 content: |
    [!include[](safe-buildings-content.md)]

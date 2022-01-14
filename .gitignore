@@ -245,3 +245,7 @@ _themes*/
 /build/architecture-automation/acom_data/resx/*
 .cspell.json
 *.bak
+.vscode/settings.json
+.vscode/settings.json
+docs/.vscode/settings.json
+.gitignore

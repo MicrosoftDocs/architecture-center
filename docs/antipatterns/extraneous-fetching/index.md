@@ -1,24 +1,31 @@
 ---
 title: Extraneous Fetching antipattern
-titleSuffix: Performance antipatterns for cloud apps
-description: Retrieving more data than needed for a business operation can result in unnecessary I/O overhead and reduce responsiveness.
+titleSuffix: Azure Architecture Center
+description: Learn about ways to mitigate the Extraneous Fetching antipattern, the common design flaw of fetching more data than needed for a business operation.
 author: dragon119
 ms.date: 06/05/2017
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: anti-pattern
 ms.custom:
-  - seodec18
   - article
+  - seo-aac-fy21q3
+keywords:
+  - anti-pattern
+  - antipattern
+  - performance antipattern
+  - entity framework
+  - extraneous fetching
+  - horizontal partitioning
 ---
 
 <!-- cSpell:ignore IQueryable LINQ -->
 
 # Extraneous Fetching antipattern
 
-Retrieving more data than needed for a business operation can result in unnecessary I/O overhead and reduce responsiveness.
+Anti-patterns are common design flaws that can break your software or applications under stress situations and should not be overlooked. In an *extraneous fetching antipattern*, more than needed data is retrieved for a business operation, often resulting in unnecessary I/O overhead and reduced responsiveness.
 
-## Problem description
+## Examples of extraneous fetching antipattern
 
 This antipattern can occur if the application tries to minimize I/O requests by retrieving all of the data that it *might* need. This is often a result of overcompensating for the [Chatty I/O][chatty-io] antipattern. For example, an application might fetch the details for every product in a database. But the user may need just a subset of the details (some may not be relevant to customers), and probably doesn't need to see *all* of the products at once. Even if the user is browsing the entire catalog, it would make sense to paginate the results&mdash;showing 20 at a time, for example.
 
@@ -70,7 +77,7 @@ The application is trying to find products with a `SellStartDate` more than a we
 
 The call to `AsEnumerable` is a hint that there is a problem. This method converts the results to an `IEnumerable` interface. Although `IEnumerable` supports filtering, the filtering is done on the *client* side, not the database. By default, LINQ to Entities uses `IQueryable`, which passes the responsibility for filtering to the data source.
 
-## How to fix the problem
+## How to fix extraneous fetching antipattern
 
 Avoid fetching large volumes of data that may quickly become outdated or might be discarded, and only fetch the data needed for the operation being performed.
 
@@ -104,7 +111,7 @@ public async Task<IHttpActionResult> AggregateOnDatabaseAsync()
 }
 ```
 
-When using Entity Framework, ensure that LINQ queries are resolved using the `IQueryable`interface and not `IEnumerable`. You may need to adjust the query to use only functions that can be mapped to the data source. The earlier example can be refactored to remove the `AddDays` method from the query, allowing filtering to be done by the database.
+When using Entity Framework, ensure that LINQ queries are resolved using the `IQueryable` interface and not `IEnumerable`. You may need to adjust the query to use only functions that can be mapped to the data source. The earlier example can be refactored to remove the `AddDays` method from the query, allowing filtering to be done by the database.
 
 ```csharp
 DateTime dateSince = DateTime.Now.AddDays(-7); // AddDays has been factored out.
@@ -131,7 +138,7 @@ List<Product> products = query.ToList();
 
 - Offloading processing to the database is not always the best option. Only use this strategy when the database is designed or optimized to do so. Most database systems are highly optimized for certain functions, but are not designed to act as general-purpose application engines. For more information, see the [Busy Database antipattern][BusyDatabase].
 
-## How to detect the problem
+## How to detect extraneous fetching antipattern
 
 Symptoms of extraneous fetching include high latency and low throughput. If the data is retrieved from a data store, increased contention is also probable. End users are likely to report extended response times or failures caused by services timing out. These failures could return HTTP 500 (Internal Server) errors or HTTP 503 (Service Unavailable) errors. Examine the event logs for the web server, which likely contain more detailed information about the causes and circumstances of the errors.
 
@@ -240,12 +247,12 @@ Here is the corresponding telemetry for the `AggregateOnDatabaseAsync` method. T
 
 [chatty-io]: ../chatty-io/index.md
 [MonolithicPersistence]: ../monolithic-persistence/index.md
-[Load-Test-Results-Client-Side1]:_images/LoadTestResultsClientSide1.jpg
-[Load-Test-Results-Client-Side2]:_images/LoadTestResultsClientSide2.jpg
-[Load-Test-Results-Database-Side1]:_images/LoadTestResultsDatabaseSide1.jpg
-[Load-Test-Results-Database-Side2]:_images/LoadTestResultsDatabaseSide2.jpg
-[QueryDetails]: _images/QueryDetails.jpg
-[TelemetryAllFields]: _images/TelemetryAllFields.jpg
-[TelemetryAggregateOnClient]: _images/TelemetryAggregateOnClient.jpg
-[TelemetryRequiredFields]: _images/TelemetryRequiredFields.jpg
-[TelemetryAggregateInDatabaseAsync]: _images/TelemetryAggregateInDatabase.jpg
+[Load-Test-Results-Client-Side1]: ./_images/LoadTestResultsClientSide1.jpg
+[Load-Test-Results-Client-Side2]: ./_images/LoadTestResultsClientSide2.jpg
+[Load-Test-Results-Database-Side1]: ./_images/LoadTestResultsDatabaseSide1.jpg
+[Load-Test-Results-Database-Side2]: ./_images/LoadTestResultsDatabaseSide2.jpg
+[QueryDetails]: ./_images/QueryDetails.jpg
+[TelemetryAllFields]: ./_images/TelemetryAllFields.jpg
+[TelemetryAggregateOnClient]: ./_images/TelemetryAggregateOnClient.jpg
+[TelemetryRequiredFields]: ./_images/TelemetryRequiredFields.jpg
+[TelemetryAggregateInDatabaseAsync]: ./_images/TelemetryAggregateInDatabase.jpg

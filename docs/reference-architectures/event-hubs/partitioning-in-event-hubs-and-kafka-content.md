@@ -1,6 +1,5 @@
 
 
-
 This reference architecture provides strategies for the [partitioning model][Partitions] that event ingestion services use. Because event ingestion services provide solutions for high-scale event streaming, they need to process events in parallel and be able to maintain event order. They also need to balance loads and offer scalability. Partitioning models meet all of these requirements.
 
 Specifically, this document discusses the following strategies:
@@ -197,7 +196,6 @@ public static void RunProducer(string broker, string connectionString, string to
         }
     }
 }
-
 
 public static void RunConsumer(string broker, string connectionString, string consumerGroup, string topic)
 {

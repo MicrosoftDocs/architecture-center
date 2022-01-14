@@ -1,6 +1,3 @@
-
-
-
 [!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
 Improve uptime and operations in hospitality, manufacturing, retail, and more with mixed reality and IoT. This scenario shows how you can visualize a virtual replica of your physical space with real-time data in the context of your environment. It is built on [Azure Spatial Anchors](https://azure.microsoft.com/services/spatial-anchors) and [Azure Digital Twins](https://azure.microsoft.com/services/digital-twins).
@@ -10,7 +7,7 @@ Improve uptime and operations in hospitality, manufacturing, retail, and more wi
 ![Architecture diagram](../media/facilities-management-powered-by-mixed-reality-and-iot.png)
 *Download an [SVG](../media/facilities-management-powered-by-mixed-reality-and-iot.svg) of this architecture.*
 
-## Data Flow
+### Data flow
 
 1. The client authenticates to the facilities management web service and specifies the name of the space where it's located in the Azure Digital Twins object model.
 1. The client's web service authenticates itself to Azure Active Directory.
@@ -22,7 +19,7 @@ Improve uptime and operations in hospitality, manufacturing, retail, and more wi
 1. When IoT sensor data is updated, Azure Digital Twins pushes it to Event Hubs.
 1. Azure Functions uses an Event Hubs trigger to process the change and update data in Azure Cosmos DB as needed.
 
-## Components
+### Components
 
 * [Spatial Anchors](https://azure.microsoft.com/services/spatial-anchors): Create multi-user, spatially aware mixed reality experiences
 * [Azure Active Directory](https://azure.microsoft.com/services/active-directory): Synchronize on-premises directories and enable single sign-on

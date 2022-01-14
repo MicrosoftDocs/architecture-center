@@ -1,14 +1,14 @@
 ---
-title: Content Delivery Network guidance
+title: CDN guidance
 titleSuffix: Best practices for cloud applications
 description: Guidance on using Content Delivery Networks (CDNs) to deliver high-bandwidth content hosted in Azure.
-author: dragon119
+author: EdPrice-MSFT
+ms.author: edprice
 ms.date: 02/02/2018
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: best-practice
 ms.custom:
-  - seodec18
   - best-practice
 ---
 
@@ -92,7 +92,7 @@ Do not use the query string to denote different versions of the application in l
 
 Deploying new versions of static content when you update an application can be a challenge if the previous resources are cached on the CDN. For more information, see the section on cache control, below.
 
-Consider restricting the CDN content access by country/region. Azure CDN allows you to filter requests based on the country or region of origin and restrict the content delivered. For more information, see [Restrict access to your content by country/region](/azure/cdn/cdn-restrict-access-by-country).
+Consider restricting the CDN content access by country/region. Azure CDN allows you to filter requests based on the country or region of origin and restrict the content delivered. For more information, see [Restrict access to your content by country/region](/azure/cdn/cdn-restrict-access-by-country-region).
 
 ### Cache control
 

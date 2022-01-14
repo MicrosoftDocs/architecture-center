@@ -1,7 +1,4 @@
-
-
-
-This reference architecture shows proven practices for deploying a highly available SharePoint Server 2016 farm on Azure, using MinRole topology and SQL Server Always On availability groups. The SharePoint farm is deployed in a secured virtual network with no Internet-facing endpoint or presence. [**Deploy this solution**](#deploy-the-solution).
+This reference architecture shows proven practices for deploying a highly available SharePoint Server 2016 farm on Azure, using MinRole topology and SQL Server Always On availability groups. The SharePoint farm is deployed in a secured virtual network with no Internet-facing endpoint or presence.
 
 ![Reference architecture for a highly available SharePoint Server 2016 farm in Azure](./images/sharepoint-ha.png)
 
@@ -19,7 +16,7 @@ The architecture consists of the following components:
 
 - **Virtual machines (VMs)**. The VMs are deployed into the VNet, and private static IP addresses are assigned to all of the VMs. Static IP addresses are recommended for the VMs running SQL Server and SharePoint Server 2016, to avoid issues with IP address caching and changes of addresses after a restart.
 
-- **Availability sets**. Place the VMs for each SharePoint role into separate [availability sets][availability-set], and provision at least two virtual machines (VMs) for each role. This makes the VMs eligible for a higher service level agreement (SLA).
+- **Availability sets**. Place the VMs for each SharePoint role into separate [availability sets][availability-set], and provision at least two virtual machines (VMs) for each role. This configuration makes the VMs eligible for a higher service level agreement (SLA).
 
 - **Internal load balancer**. The [load balancer][load-balancer] distributes SharePoint request traffic from the on-premises network to the front-end web servers of the SharePoint farm.
 
@@ -29,15 +26,15 @@ The architecture consists of the following components:
 
 - **Windows Server Active Directory (AD) domain controllers**. This reference architecture deploys Windows Server AD domain controllers. These domain controllers run in the Azure VNet and have a trust relationship with the on-premises Windows Server AD forest. Client web requests for SharePoint farm resources are authenticated in the VNet rather than sending that authentication traffic across the gateway connection to the on-premises network. In DNS, intranet A or CNAME records are created so that intranet users can resolve the name of the SharePoint farm to the private IP address of the internal load balancer.
 
-  SharePoint Server 2016 also supports using [Azure Active Directory Domain Services](/azure/active-directory-domain-services). Azure AD Domain Services provides managed domain services, so that you don't need to deploy and manage domain controllers in Azure.
+  SharePoint Server 2016 also supports using [Azure Active Directory Domain Services](/azure/active-directory-domain-services). Azure AD Domain Services provides managed domain services so that you don't need to deploy and manage domain controllers in Azure.
 
-- **SQL Server Always On availability group**. For high availability of the SQL Server database, we recommend [SQL Server Always On availability groups][sql-always-on]. Two virtual machines are used for SQL Server. One contains the primary database replica and the other contains the secondary replica.
+- **SQL Server Always On availability group**. For high availability of the SQL Server database, we recommend [SQL Server Always On availability groups][sql-always-on]. Two virtual machines are used for SQL Server. One contains the primary database replica, and the other contains the secondary replica.
 
-- **Majority node VM**. This VM allows the failover cluster to establish quorum. For more information, see [Understanding Quorum Configurations in a Failover Cluster][sql-quorum].
+- **Majority node VM**. This VM allows the failover cluster to establish a quorum. For more information, see [Understanding Quorum Configurations in a Failover Cluster][sql-quorum].
 
 - **SharePoint servers**. The SharePoint servers perform the web front-end, caching, application, and search roles.
 
-- **Jumpbox**. Also called a [bastion host][bastion-host]. This is a secure VM on the network that administrators use to connect to the other VMs. The jumpbox has an NSG that allows remote traffic only from public IP addresses on a safe list. The NSG should permit remote desktop (RDP) traffic.
+- **Jumpbox**. Also called a [bastion host][bastion-host]. This is a secure VM on the network that administrators use to connect to the other VMs. The jump box has an NSG that allows remote traffic only from public IP addresses on a safe list. The NSG should permit remote desktop (RDP) traffic.
 
 ## Recommendations
 
@@ -49,7 +46,7 @@ We recommend separating resource groups according to the server role, and having
 
 ### Virtual network and subnet recommendations
 
-Use one subnet for each SharePoint role, plus a subnet for the gateway and one for the jumpbox.
+Use one subnet for each SharePoint role, plus a subnet for the gateway and one for the jump box.
 
 The gateway subnet must be named *GatewaySubnet*. Assign the gateway subnet address space from the last part of the virtual network address space. For more information, see [Connect an on-premises network to Azure using a VPN gateway][hybrid-vpn-ra].
 
@@ -63,11 +60,7 @@ This architecture requires a minimum of 44 cores:
 - 1 majority node on Standard_DS1_v2 = 1 core
 - 1 management server on Standard_DS1_v2 = 1 core
 
-Make sure your Azure subscription has enough VM core quota for the deployment, or the deployment will fail. See [Azure subscription and service limits, quotas, and constraints][quotas].
-
-For all SharePoint roles except the Search Indexer, we recommended using the [Standard_DS3_v2][vm-sizes-general] VM size. The Search Indexer should be at least the [Standard_DS13_v2][vm-sizes-memory] size. For testing, the parameter files for this reference architecture specify the smaller DS3_v2 size for the Search Indexer role. For a production deployment, update the parameter files to use the DS13 size or larger. For more information, see [Hardware and software requirements for SharePoint Server 2016][sharepoint-reqs].
-
-For the SQL Server VMs, we recommend a minimum of 4 cores and 8 GB RAM. The parameter files for this reference architecture specify the DS3_v2 size. For a production deployment, you might need to specify a larger VM size. For more information, see [Storage and SQL Server capacity planning and configuration (SharePoint Server)](/sharepoint/administration/storage-and-sql-server-capacity-planning-and-configuration#estimate-memory-requirements).
+For all SharePoint roles except the Search Indexer, we recommended using the [Standard_DS3_v2][vm-sizes-general] VM size. The Search Indexer should be at least the [Standard_DS13_v2][vm-sizes-memory] size. For more information, see [Hardware and software requirements for SharePoint Server 2016][sharepoint-reqs]. For the SQL Server VMs, we recommend a minimum of 4 cores and 8 GB RAM. For more information, see [Storage and SQL Server capacity planning and configuration (SharePoint Server)](/sharepoint/administration/storage-and-sql-server-capacity-planning-and-configuration#estimate-memory-requirements).
 
 ### NSG recommendations
 
@@ -81,14 +74,11 @@ The storage configuration of the VMs in the farm should match the appropriate be
 
 For best reliability, we recommend using [Azure Managed Disks][managed-disks]. Managed disks ensure that the disks for VMs within an availability set are isolated to avoid single points of failure.
 
-> [!NOTE]
-> Currently the Resource Manager template for this reference architecture does not use managed disks. We are planning to update the template to use managed disks.
-
 Use Premium managed disks for all SharePoint and SQL Server VMs. You can use Standard managed disks for the majority node server, the domain controllers, and the management server.
 
 ### SharePoint Server recommendations
 
-Before configuring the SharePoint farm, make sure you have one Windows Server Active Directory service account per service. For this architecture, you need at a minimum the following domain-level accounts to isolate privilege per role:
+Before configuring the SharePoint farm, make sure you have one Windows Server Active Directory service account per service. For this architecture, you need, at a minimum, the following domain-level accounts to isolate privilege per role:
 
 - SQL Server Service account
 - Setup User account
@@ -100,7 +90,7 @@ Before configuring the SharePoint farm, make sure you have one Windows Server Ac
 - Cache Super User account
 - Cache Super Reader account
 
-To meet the support requirement for disk throughput of 200 MB per second minimum, make sure to plan the Search architecture. See [Plan enterprise search architecture in SharePoint Server 2013][sharepoint-search]. Also follow the guidelines in [Best practices for crawling in SharePoint Server 2016][sharepoint-crawling].
+To meet the support requirement for disk throughput of 200 MB per second minimum, make sure to plan the Search architecture. See [Plan enterprise search architecture in SharePoint Server 2013][sharepoint-search]. Also, follow the guidelines in [Best practices for crawling in SharePoint Server 2016][sharepoint-crawling].
 
 In addition, store the search component data on a separate storage volume or partition with high performance. To reduce load and improve throughput, configure the object cache user accounts, which are required in this architecture. Split the Windows Server operating system files, the SharePoint Server 2016 program files, and diagnostics logs across three separate storage volumes or partitions with normal performance.
 
@@ -110,11 +100,11 @@ For more information about these recommendations, see [Initial deployment admini
 
 This reference architecture deploys a SharePoint Server 2016 farm that can be used as a [SharePoint hybrid environment][sharepoint-hybrid] &mdash; that is, extending SharePoint Server 2016 to SharePoint Online. If you have Office Online Server, see [Office Web Apps and Office Online Server supportability in Azure][office-web-apps].
 
-The default service applications in this deployment are designed to support hybrid workloads. All SharePoint Server 2016 and Microsoft 365 hybrid workloads can be deployed to this farm without changes to the SharePoint infrastructure, with one exception: The Cloud Hybrid Search Service Application must not be deployed onto servers hosting an existing search topology. Therefore, one or more search-role-based VMs must be added to the farm to support this hybrid scenario.
+The default service applications in this solution are designed to support hybrid workloads. All SharePoint Server 2016 and Microsoft 365 hybrid workloads can be deployed to this farm without changes to the SharePoint infrastructure, with one exception: The Cloud Hybrid Search Service Application must not be deployed onto servers hosting an existing search topology. Therefore, one or more search-role-based VMs must be added to the farm to support this hybrid scenario.
 
 ### SQL Server Always On availability groups
 
-This architecture uses SQL Server virtual machines because SharePoint Server 2016 cannot use Azure SQL Database. To support high availability in SQL Server, we recommend using Always On availability groups, which specify a set of databases that fail over together, making them highly available and recoverable. In this reference architecture, the databases are created during deployment, but you must manually enable Always On availability groups and add the SharePoint databases to an availability group. For more information, see [Create the availability group and add the SharePoint databases][create-availability-group].
+This architecture uses SQL Server virtual machines because SharePoint Server 2016 cannot use Azure SQL Database. To support high availability in SQL Server, we recommend using Always On availability groups, which specify a set of databases that failover together, making them highly available and recoverable. For more information, see [Create the availability group and add the SharePoint databases][create-availability-group].
 
 We also recommend adding a listener IP address to the cluster, which is the private IP address of the internal load balancer for the SQL Server virtual machines.
 
@@ -132,7 +122,7 @@ Note that SharePoint Server 2016 doesn't support using virtual machine scale set
 
 ## Availability considerations
 
-This reference architecture supports high availability within an Azure region, because each role has at least two VMs deployed in an availability set.
+This reference architecture supports high availability within an Azure region because each role has at least two VMs deployed in an availability set.
 
 To protect against a regional failure, create a separate disaster recovery farm in a different Azure region. Your recovery time objectives (RTOs) and recovery point objectives (RPOs) will determine the setup requirements. For details, see [Choose a disaster recovery strategy for SharePoint 2016][sharepoint-dr]. The secondary region should be a *paired region* with the primary region. In the event of a broad outage, recovery of one region is prioritized out of every pair. For more information, see [Business continuity and disaster recovery (BCDR): Azure Paired Regions][paired-regions].
 
@@ -156,7 +146,7 @@ In addition, it's always wise to plan for security hardening. Other recommendati
 
 ## Cost considerations
 
-Use the [Azure pricing calculator][azure-pricing-calculator] to estimate costs. Here are some factors for optimizing cost for this architecture.
+Use the [Azure pricing calculator][azure-pricing-calculator] to estimate costs. Here are some factors for optimizing the cost for this architecture.
 
 ### Active Directory Domain Services
 
@@ -170,8 +160,7 @@ All inbound traffic is free. All outbound traffic is billed. Internet bandwidth 
 
 ### Virtual Network
 
-Azure Virtual Network is free. Every subscription is allowed to create up to 50 virtual networks across all regions.
-All traffic that originates within the boundaries of a virtual network is free. So, communication between two VMs in the same virtual network is free.
+Azure Virtual Network is free. Every subscription is allowed to create up to 50 virtual networks across all regions. All traffic that originates within the boundaries of a virtual network is free. So, communication between two VMs in the same virtual network is free.
 
 This architecture builds on the architecture deployed in [Run Windows VMs for an N-tier application][windows-n-tier]. See [Cost considerations](../../reference-architectures/n-tier/n-tier-sql-server.yml#cost-considerations) for more information.
 
@@ -181,153 +170,46 @@ For more information, see the cost section in [Microsoft Azure Well-Architected 
 
 Consider using separate resource groups for production, development, and test environments. Separate resource groups make it easier to manage deployments, delete test deployments, and assign access rights. In general, put resources that have the same lifecycle in the same resource group. Use the Developer tier for development and test environments. To minimize costs during preproduction, deploy a replica of your production environment, run your tests, and then shut down.
 
-In this architecture the entire Sharepoint farm infrastructure is deployed by using [Azure Building Blocks templates][azbb]. You can also use Azure [Azure Resource Manager templates][arm-template], in both cases you follow the Infrastructure as code (IaC) practice for deploying the resources. To automate infrastructure deployment, you can use Azure DevOps Services or other CI/CD solutions. The deployment process is also idempotent - that is, repeatable to produce the same results. Azure [Pipelines][pipelines] is part of [Azure DevOps Services][az-devops] and runs automated builds, tests, and deployments.
+Use Azure [Azure Resource Manager templates][arm-template] or Azure Bicep templates for defining the infrastructure. In both cases, you follow the infrastructure as code (IaC) practice for deploying the resources. To automate infrastructure deployment, you can use Azure DevOps Services or other CI/CD solutions. The deployment process is also idempotent - that is, repeatable to produce the same results. Azure [Pipelines][pipelines] is part of [Azure DevOps Services][az-devops] and runs automated builds, tests, and deployments.
 
-Structure you deployment templates following the workload criteria, identify single units of works and include them in its own template. In this scenario
-at least seven workloads are identified and isolated in their own templates: the Azure VNet and the VPN gateway, the management jumpbox, AD domain controllers, and SQL Server VMs, the Failover cluster and the availability group and the Remaining VMs, Sharepoint primary node, Sharepoint cache and NSG rules. Workload isolation makes it easier to associate the workload's specific resources to a team, so that the team can independently manage all aspects of those resources. This isolation enables DevOps to perform continuous integration and continuous delivery (CI/CD) it also allows the staging your workloads, which means deploying to various stages and running validations at each stage before moving on to the next one; that way you can push updates to your production environments in a highly controlled way and minimize unanticipated deployment issues.
-
+Structure your deployment templates following the workload criteria, identify single units of works, and include them in their own template. In this scenario, at least seven workloads are identified and isolated in their own templates: the Azure VNet and the VPN gateway, the management jump box, AD domain controllers, and SQL Server VMs, the Failover cluster and the availability group, and the Remaining VMs, Sharepoint primary node, Sharepoint cache, and NSG rules. Workload isolation makes it easier to associate the workload's specific resources to a team, so that the team can independently manage all aspects of those resources. This isolation enables DevOps to perform continuous integration and continuous delivery (CI/CD). This configuration also allows the staging of your workloads, which means deploying to various stages and running validations at each stage before moving on to the next one. This way, you can push updates to your production environments in a highly controlled way and minimize unanticipated deployment issues.
 
 Consider using the [Azure Monitor][az-monitor] to Analyze and optimize the performance of your infrastructure, Monitor and diagnose networking issues without logging into your virtual machines.
 
+For more information, see the DevOps section in [Azure Well-Architected Framework][AAF-devops].
 
-For more information, see the DevOps section in [Azure Architecture Framework][AAF-devops].
+## Next steps
 
-## Deploy the solution
+For more information about the individual pieces of the solution architecture, see the following topics:
 
-A deployment for this reference architecture is available on [GitHub][github]. The entire deployment can take several hours to complete.
+- [Availability Sets](/azure/virtual-machines/windows/manage-availability)
+- [Azure VPN Gateway](/azure/vpn-gateway/vpn-gateway-about-vpngateways)
+- [Azure Load Balancer](/azure/load-balancer/load-balancer-internal-overview)
+- [Hardware and software requirements for SharePoint Server 2016](/sharepoint/install/hardware-and-software-requirements)
+- [Overview of MinRole Server Roles in SharePoint Servers 2016 and 2019](/sharepoint/install/overview-of-minrole-server-roles-in-sharepoint-server)
+- [Always On availability groups](/sql/database-engine/availability-groups/windows/always-on-availability-groups-sql-server)
+- [Best practices for SQL Server in a SharePoint Server farm](/sharepoint/administration/best-practices-for-sql-server-in-a-sharepoint-server-farm)
+- [SharePoint Server 2016 in Microsoft Azure](/sharepoint/administration/sharepoint-server-2016-in-microsoft-azure)
 
-The deployment creates the following resource groups in your subscription:
+## Related resources
 
-- ra-onprem-sp2016-rg
-- ra-sp2016-network-rg
-
-The template parameter files refer to these names, so if you change them, update the parameter files to match.
-
-The parameter files include a hard-coded password in various places. Change these values before you deploy.
-
-### Prerequisites
-
-[!INCLUDE [ref-arch-prerequisites.md](../../../includes/ref-arch-prerequisites.md)]
-
-### Deployment steps
-
-1. Run the following command to deploy a simulated on-premises network.
-
-    ```bash
-    azbb -s <subscription_id> -g ra-onprem-sp2016-rg -l <location> -p onprem.json --deploy
-    ```
-
-2. Run the following command to deploy the Azure VNet and the VPN gateway.
-
-    ```bash
-    azbb -s <subscription_id> -g ra-onprem-sp2016-rg -l <location> -p connections.json --deploy
-    ```
-
-3. Run the following command to deploy the jumpbox, AD domain controllers, and SQL Server VMs.
-
-    ```bash
-    azbb -s <subscription_id> -g ra-onprem-sp2016-rg -l <location> -p azure1.json --deploy
-    ```
-
-4. Run the following command to create the failover cluster and the availability group.
-
-    ```bash
-    azbb -s <subscription_id> -g ra-onprem-sp2016-rg -l <location> -p azure2-cluster.json --deploy
-    ```
-
-5. Run the following command to deploy the remaining VMs.
-
-    ```bash
-    azbb -s <subscription_id> -g ra-onprem-sp2016-rg -l <location> -p azure3.json --deploy
-    ```
-
-At this point, verify that you can make a TCP connection from the web front end to the load balancer for the SQL Server Always On availability group. To do so, perform the following steps:
-
-1. Use the Azure portal to find the VM named `ra-sp-jb-vm1` in the `ra-sp2016-network-rg` resource group. This is the jumpbox VM.
-
-2. Click `Connect` to open a remote desktop session to the VM. Use the password that you specified in the `azure1.json` parameter file.
-
-3. From the Remote Desktop session, sign in to 10.0.5.4. This is the IP address of the VM named `ra-sp-app-vm1`.
-
-4. Open a PowerShell console in the VM, and use the `Test-NetConnection` cmdlet to verify that you can connect to the load balancer.
-
-    ```powershell
-    Test-NetConnection 10.0.3.100 -Port 1433
-    ```
-
-The output should look similar to the following:
-
-```console
-ComputerName     : 10.0.3.100
-RemoteAddress    : 10.0.3.100
-RemotePort       : 1433
-InterfaceAlias   : Ethernet 3
-SourceAddress    : 10.0.0.132
-TcpTestSucceeded : True
-```
-
-If it fails, use the Azure portal to restart the VM named `ra-sp-sql-vm2`. After the VM restarts, run the `Test-NetConnection` command again. You may need to wait about a minute after the VM restarts for the connection to succeed.
-
-Now complete the deployment as follows.
-
-1. Run the following command to deploy the SharePoint farm primary node.
-
-    ```bash
-    azbb -s <subscription_id> -g ra-onprem-sp2016-rg -l <location> -p azure4-sharepoint-server.json --deploy
-    ```
-
-2. Run the following command to deploy the SharePoint cache, search, and web.
-
-    ```bash
-    azbb -s <subscription_id> -g ra-onprem-sp2016-rg -l <location> -p azure5-sharepoint-farm.json --deploy
-    ```
-
-3. Run the following command to create the NSG rules.
-
-    ```bash
-    azbb -s <subscription_id> -g ra-onprem-sp2016-rg -l <location> -p azure6-security.json --deploy
-    ```
-
-### Validate the deployment
-
-1. In the [Azure portal][azure-portal], navigate to the `ra-onprem-sp2016-rg` resource group.
-
-2. In the list of resources, select the VM resource named `ra-onpr-u-vm1`.
-
-3. Connect to the VM, as described in [Connect to virtual machine][connect-to-vm]. The user name is `\onpremuser`.
-
-4. When the remote connection to the VM is established, open a browser in the VM and navigate to `http://portal.contoso.local`.
-
-5. In the **Windows Security** box, sign in to the SharePoint portal using `contoso.local\testuser` for the user name.
-
-This sign-in tunnels from the Fabrikam.com domain used by the on-premises network to the contoso.local domain used by the SharePoint portal. When the SharePoint site opens, you'll see the root demo site.
-
-**_Contributors to this reference architecture_** &mdash; Joe Davies, Bob Fox, Neil Hodgkinson, Paul Stork
+- [windows-n-tier](/azure/architecture/reference-architectures/n-tier/n-tier-sql-server)
+- [Highly available SharePoint farm - Azure Solution Ideas](/azure/architecture/solution-ideas/articles/highly-available-sharepoint-farm)
+- [Hybrid SharePoint farm with Microsoft 365](/azure/architecture/solution-ideas/articles/sharepoint-farm-microsoft-365)
 
 <!-- links -->
 
-
-
-[AAF-cost]: ../../framework/cost/overview.md
-[AAF-devops]: ../../framework/devops/overview.md
+[AAF-cost]: /azure/architecture/framework/cost/overview
+[AAF-devops]: /azure/architecture/framework/devops/overview
 [arm-template]: /azure/azure-resource-manager/management/overview
-[Cost-Calculator]: https://azure.microsoft.com/pricing/calculator/
 [ADDS-pricing]: https://azure.microsoft.com/pricing/details/active-directory-ds/
 [availability-set]: /azure/virtual-machines/windows/manage-availability
 [az-devops]: /azure/devops/index?view=azure-devops
 [az-monitor]: https://azure.microsoft.com/services/monitor/
-[azbb]: https://github.com/mspnp/template-building-blocks/wiki/Install-Azure-Building-Blocks
 [azure-gateway-pricing]: https://azure.microsoft.com/pricing/details/vpn-gateway/
-[aaf-cost]: ../../framework/cost/overview.md
 [azure-pricing-calculator]: https://azure.microsoft.com/pricing/calculator
-[ADDS-pricing]: https://azure.microsoft.com/pricing/details/active-directory-ds
-[availability-set]: /azure/virtual-machines/windows/manage-availability
-[azure-gateway-pricing]: https://azure.microsoft.com/pricing/details/vpn-gateway
-[azure-portal]: https://portal.azure.com
 [bastion-host]: https://en.wikipedia.org/wiki/Bastion_host
 [create-availability-group]: /sharepoint/administration/sharepoint-intranet-farm-in-azure-phase-5-create-the-availability-group-and-add
-[connect-to-vm]: /azure/virtual-machines/windows/quick-create-portal#connect-to-virtual-machine
-[github]: https://github.com/mspnp/reference-architectures
 [hybrid-ra]: ../hybrid-networking/index.yml
 [hybrid-vpn-ra]: ../hybrid-networking/vpn.yml
 [load-balancer]: /azure/load-balancer/load-balancer-internal-overview
@@ -337,9 +219,7 @@ This sign-in tunnels from the Fabrikam.com domain used by the on-premises networ
 [office-web-apps]: https://support.microsoft.com/help/3199955/office-web-apps-and-office-online-server-supportability-in-azure
 [paired-regions]: /azure/best-practices-availability-paired-regions
 [pipelines]: /azure/devops/pipelines/?view=azure-devops&preserve-view=true
-[readme]: https://github.com/mspnp/reference-architectures/tree/master/sharepoint/sharepoint-2016
 [resource-group]: /azure/azure-resource-manager/resource-group-overview
-[quotas]: /azure/azure-subscription-service-limits
 [sharepoint-accounts]: /SharePoint/install/initial-deployment-administrative-and-service-accounts-in-sharepoint-server
 [sharepoint-crawling]: /SharePoint/search/best-practices-for-crawling
 [sharepoint-dr]: /SharePoint/administration/plan-for-disaster-recovery

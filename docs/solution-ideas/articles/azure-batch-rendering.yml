@@ -1,19 +1,29 @@
 ### YamlMime:Architecture
 metadata:
-  title: HPC Media Rendering
+  title: HPC media rendering
   titleSuffix: Azure Solution Ideas
-  author: doodlemania2
-  ms.date: 11/04/2020
   description: Optimize the media rendering process with a step-by-step HPC solution architecture from Azure that combines Azure CycleCloud and HPC Cache.
-  ms.custom: 'acom-architecture, hpc architecture, hpc solution, cluster orchestration, media render, interactive-diagram, ''https://azure.microsoft.com/solutions/architecture/azure-batch-rendering/'''
+  author: EdPrice-MSFT
+  ms.author: pnp
+  ms.date: 11/04/2020
+  ms.topic: conceptual
   ms.service: architecture-center
+  ms.subservice: solution-idea
   ms.category:
     - storage
     - compute
     - media
-  ms.subservice: solution-idea
+  ms.custom:
+    - acom-architecture
+    - hpc architecture
+    - hpc solution
+    - cluster orchestration
+    - media render
+    - interactive-diagram
+    - "https://azure.microsoft.com/solutions/architecture/azure-batch-rendering/"
+    - internal-intro
   social_image_url: /azure/architecture/solution-ideas/articles/media/azure-batch-rendering.png
-name: HPC Media Rendering
+name: HPC media rendering
 azureCategories:
   - storage
   - compute

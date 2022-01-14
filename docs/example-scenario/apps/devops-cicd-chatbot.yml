@@ -1,31 +1,33 @@
 ### YamlMime:Architecture
 metadata:
-  title: Build a CI/CD pipeline for chatbots with ARM templates
+  title: CI/CD pipeline for chatbots with ARM templates
   titleSuffix: Azure Example Scenarios
-  description: Use Azure Pipelines with ARM templates to set up a CI/CD pipeline to Azure App Service and Azure Bot Service for a chatbot app.
+  description: Use Azure Pipelines and ARM templates to set up a CI/CD pipeline to deploy a chatbot app and its infrastructure as code with Azure App and Azure Bot services.
   author: MariaVrabie
-  ms.date: 03/25/2020
+  ms.date: 10/28/2021
   ms.topic: conceptual
   ms.service: architecture-center
+  ms.subservice: example-scenario
+  ms.category:
+    - devops
+    - ai-machine-learning
   ms.custom:
     - fasttrack
     - fcp
     - example-scenario
-  ms.category:
-    - devops
     - ai-machine-learning
-  social_image_url: /azure/architecture/example-scenario/apps/media/deployment-flow.png
-  ms.subservice: example-scenario
+    - aml-project-improvement
+  social_image_url: /azure/architecture/example-scenario/apps/media/ci-cd-pipeline-deployment-arm-templates.png
 name: Build a CI/CD pipeline for chatbots with ARM templates
 azureCategories:
   - devops
   - ai-machine-learning
-summary: Use Azure Pipelines with ARM templates to set up a CI/CD pipeline to Azure App Service and Azure Bot Service for a chatbot app.
+summary: Use Azure Pipelines and ARM templates to set up a CI/CD pipeline to deploy a chatbot app and its infrastructure as code with Azure App and Azure Bot services.
 products:
   - azure-app-service
   - azure-application-insights
   - azure-bot-service
   - azure-resource-manager
-thumbnailUrl: /azure/architecture/browse/thumbs/deployment-flow.png
+thumbnailUrl: /azure/architecture/browse/thumbs/devops-cicd-chatbot.png
 content: |
-   [!include[](devops-cicd-chatbot-content.md)]
+  [!include[](devops-cicd-chatbot-content.md)]

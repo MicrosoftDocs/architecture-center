@@ -1,23 +1,24 @@
 ### YamlMime:Architecture
 metadata:
-  title: Publishing internal APIs to external users
+  title: Publish internal APIs to external users
   description: In this scenario, an organization consolidates multiple APIs internally using Azure API Management deployed inside a Virtual Network.
   author: ssarwa
-  ms.date: 03/12/2019
   ms.author: ssarwa
-  ms.category:
-    - integration
-    - hybrid
+  ms.date: 03/12/2019
   ms.topic: conceptual
   ms.service: architecture-center
   ms.subservice: example-scenario
+  ms.category:
+    - integration
+    - hybrid
   ms.custom:
     - fasttrack
     - web-apps
     - app-modernization
     - example-scenario
+    - internal-intro
   social_image_url: ./media/architecture-publish-internal-apis-externally.png
-name: Publishing internal APIs to external users
+name: Publish internal APIs to external users
 azureCategories:
   - integration
   - hybrid

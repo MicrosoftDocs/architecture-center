@@ -1,27 +1,39 @@
 ### YamlMime:Architecture
 metadata:
-  title: Interactive Price Analytics
-  titleSuffix: Azure Solution Ideas
-  author: doodlemania2
+  title: Interactive price analytics
+  titleSuffix: Azure Architecture Center
+  description: Use transaction history data to develop a pricing strategy with a machine learning model accounting for confounding and data sparsity.
+  author: EdPrice-MSFT
+  ms.author: pnp
   ms.date: 12/16/2019
-  description: Use transactional history data to develop a pricing strategy. Overcome problems caused by confounding and data sparsity when modeling prices.
-  ms.custom: 'acom-architecture, artificial intelligence, analytics, solution architectures, Azure, ai gallery, ''https://azure.microsoft.com/solutions/architecture/interactive-price-analytics/'''
+  ms.topic: conceptual
   ms.service: architecture-center
+  ms.subservice: solution-idea
   ms.category:
     - analytics
     - ai-machine-learning
-  ms.subservice: solution-idea
+  ms.custom:
+    - acom-architecture
+    - artificial intelligence
+    - analytics
+    - solution architectures
+    - Azure
+    - ai gallery
+    - "https://azure.microsoft.com/solutions/architecture/interactive-price-analytics/"
+    - ai-machine-learning
+    - aml-project-improvement
   social_image_url: /azure/architecture/solution-ideas/articles/media/interactive-price-analytics.png
-name: Interactive Price Analytics
+name: Interactive price analytics using transaction history data
 azureCategories:
   - analytics
   - ai-machine-learning
-summary: Use transactional history data to develop a pricing strategy. Overcome problems caused by confounding and data sparsity when modeling prices.
+summary: Use transaction history data to develop a pricing strategy with a machine learning model accounting for confounding and data sparsity.
 products:
   - azure-data-factory
   - azure-machine-learning
   - office-excel
-  - power-bi
+  - azure-blob-storage
+  - azure-sql-database
 thumbnailUrl: /azure/architecture/browse/thumbs/interactive-price-analytics.png
 content: |
-   [!include[](interactive-price-analytics-content.md)]
+  [!include[](interactive-price-analytics-content.md)]

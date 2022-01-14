@@ -1,0 +1,30 @@
+### YamlMime:Architecture
+metadata:
+  title: Mining equipment monitoring
+  titleSuffix: Azure Solution Ideas
+  description: Send equipment data to the Azure cloud to monitor its condition and performance. Process the data with Azure Databricks and alert operators and administrators as needed.
+  author: falloutxAY
+  ms.author: ansyeo
+  ms.date: 04/16/2021
+  ms.topic: conceptual
+  ms.service: architecture-center
+  ms.subservice: solution-idea
+  ms.category:
+    - analytics
+    - management-and-governance
+  ms.custom:
+    - fcp
+    - solution-idea
+name: Mining equipment monitoring
+azureCategories:
+  - analytics
+  - management-and-governance
+summary: Send equipment data to the Azure cloud to monitor its condition and performance. Process the data with Azure Databricks and alert operators and administrators as needed.
+products:
+  - azure-analysis-services
+  - azure-logic-apps
+  - azure-data-lake-storage
+  - azure-databricks
+thumbnailUrl: /azure/architecture/browse/thumbs/monitor-mining-equipment.png
+content: |
+   [!include[](monitor-mining-equipment-content.md)]

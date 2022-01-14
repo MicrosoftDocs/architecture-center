@@ -1,8 +1,8 @@
 ---
-title: Performance tuning - Event streaming with Azure Functions
+title: Performance tuning - Event streaming
 titleSuffix: Azure Architecture Center
-description: Using load testing to improve the performance of an event streaming application.
-author: doodlemania2
+description: Use load testing to tune the performance of an event streaming application. Fix partitioning issues and do parallel writes.
+author: EdPrice-MSFT
 ms.author: pnp
 ms.date: 08/27/2019
 ms.topic: conceptual
@@ -145,7 +145,6 @@ After deploying this code change, the application was able to ingest more than 2
 
 ## Client-side Consideration
 Overall client experience may be diminished by aggressive parallelization on server side.  Consider leveraging [Azure Cosmos DB bulk executor library]( /azure/cosmos-db/bulk-executor-overview) (not shown in this implementation) which significantly reduces the client-side compute resources needed to saturate the throughput allocated to a Cosmos DB container. A single threaded application that writes data using the bulk import API achieves nearly ten times greater write throughput when compared to a multi-threaded application that writes data in parallel while saturating the client machine's CPU.
-
 
 ## Summary
 

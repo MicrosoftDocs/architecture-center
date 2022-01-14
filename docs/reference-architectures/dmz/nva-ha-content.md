@@ -1,124 +1,140 @@
 
+This article explains the most common options to deploy a set of Network Virtual Appliances (NVAs) for high availability in Azure. An NVA is typically used to control the flow of traffic between network segments classified with different security levels, for example between a De-Militarized Zone (DMZ) Virtual Network and the public Internet.
 
+There are a number of design patterns where NVAs are used to inspect traffic between different security zones, for example:
 
-This article shows how to deploy a set of network virtual appliances (NVAs) for high availability in Azure. An NVA is typically used to control the flow of network traffic from a perimeter network, also known as a DMZ, to other networks or subnets. To learn about implementing a DMZ in Azure, see [Microsoft cloud services and network security][cloud-security]. The article includes example architectures for ingress only, egress only, and both ingress and egress.
+- To inspect egress traffic from virtual machines to the Internet and prevent data exfiltration
+- To inspect ingress traffic from the Internet to virtual machines and prevent attacks
+- To filter traffic between virtual machines in Azure, to prevent lateral moves of compromised systems
+- To filter traffic between on-premises systems and Azure virtual machines, if they are considered to belong to different security levels (for example if Azure hosts the DMZ, and on-premises the internal applications).
 
-**Prerequisites:** This article assumes a basic understanding of Azure networking, [Azure load balancers][lb-overview], and [user-defined routes][udr-overview] (UDRs).
+There are many examples of NVAs, such as network firewalls, Layer-4 reverse-proxies, IPsec VPN endpoints, web-based reverse-proxies with web application firewall functionality, Internet proxies to restrict which Internet pages can be accessed from Azure, Layer-7 load balancers, and many others. All of them can be inserted in an Azure design with the patterns described in this article. Even Azure first-party Network Virtual Appliances such as [Azure Firewall][azfw] and [Azure Application Gateway][appgw] use the designs explained below. Understanding these options is critical both from a design perspective as well as when troubleshooting network issues.
 
-## Architecture diagrams
+The first question to be answered is why High Availability for Network Virtual Appliances is required. The reason is because these devices control the communication between network segments, so if they are not available, network traffic cannot flow and applications will stop working. Scheduled and unscheduled outages can and will occasionally bring down NVA instances (as any other virtual machine in Azure or any other cloud), even if those NVAs are configured with Premium Managed Disks to provide single-instance SLA in Azure. Hence, highly available applications will require at least a second NVA that can ensure connectivity.
 
-An NVA can be deployed to a DMZ in many different architectures. For example, the following figure illustrates the use of a [single NVA][nva-scenario] for ingress.
+**Prerequisites:** This article assumes a basic understanding of Azure networking, [Azure Load Balancers][alb], and [Virtual Network Traffic Routing][udr] (UDRs).
 
-![[0]][0]
+When choosing the best option to deploy a Network Virtual Appliance into an Azure VNet, the most important aspect to consider is whether the NVA vendor has vetted and validated that specific design, and provided the required NVA configuration that is needed to integrate the NVA in Azure. If the NVA vendor offers different alternatives as supported design options for an NVA, these factors can influence the decision:
 
-In this architecture, the NVA provides a secure network boundary by checking all inbound and outbound network traffic and passing only the traffic that meets network security rules. However, the fact that all network traffic must pass through the NVA means that the NVA is a single point of failure in the network. If the NVA fails, there is no other path for network traffic and all the back-end subnets are unavailable.
+* Convergence time: how long does it take in each design to steer the traffic away from a failed NVA instance?
+* Topology support: what NVA configurations does each design option support? Active/active, active/standby, scale-out NVA clusters with n+1 redundancy?
+* Traffic symmetry: does a particular design force the NVA to perform Source Network Address Translation (SNAT) on the packets to avoid asymmetric routing? Or is traffic symmetry enforced by other means?
 
-To make an NVA highly available, deploy more than one NVA into an availability set.
+The following sections in the document will describe the most common architectures used to integrate NVAs into a Hub and Spoke network.
+
+>[!NOTE]
+> This article is focused on [Hub & Spoke designs][caf_hns]. [Virtual WAN][vwan] is not covered, since Virtual WAN is much more prescriptive on how NVAs are deployed, depending on whether a specific NVA is supported in the Virtual WAN hubs. See [Network Virtual Appliances in the Virtual WAN hub][vwan_nva] for more information.
+
+## HA architectures overview
 
 The following architectures describe the resources and configuration necessary for highly available NVAs:
 
-<!-- markdownlint-disable MD033 -->
-
 | Solution | Benefits | Considerations |
 | --- | --- | --- |
-| [Load Balancer Standard & HA ports](/azure/load-balancer/load-balancer-ha-ports-overview) |Balances all TCP and UDP flows |Confirm with NVA providers how to best use HA ports and to learn which scenarios are supported <br/> HA ports feature is available in all the global Azure regions <br/> Fast failover to healthy instances, with per-instance health probes <br/> Review [limitations](/azure/load-balancer/load-balancer-ha-ports-overview#limitations)|
-| [Ingress with layer 7 NVAs][ingress-with-layer-7] |All NVA nodes are active |Requires an NVA that can terminate connections and use SNAT<br/> Requires a separate set of NVAs for traffic coming from the Internet and from Azure <br/> Can only be used for traffic originating outside Azure |
-| [Egress with layer 7 NVAs][egress-with-layer-7] |All NVA nodes are active | Requires an NVA that can terminate connections and implements source network address translation (SNAT)
-| [Ingress-Egress with layer 7 NVAs][ingress-egress-with-layer-7] |All nodes are active<br/>Able to handle traffic originated in Azure |Requires an NVA that can terminate connections and use SNAT<br/>Requires a separate set of NVAs for traffic coming from the Internet and from Azure |
-| [PIP-UDR switch][pip-udr-switch] |Single set of NVAs for all traffic<br/>Can handle all traffic (no limit on port rules) |Active-passive<br/>Requires a failover process |
-| [PIP-UDR without SNAT](#pip-udr-nvas-without-snat) | Single set of NVAs for all traffic<br/>Can handle all traffic (no limit on port rules)<br/>Does not require configuring SNAT for inbound requests |Active-passive<br/>Requires a failover process<br/>Probing and failover logic run outside the virtual network |
+| [Azure Load Balancer](#load-balancer-design) | Supports active/active, active/standby and scale-out NVAs. Very good convergence time | The NVA needs to provide a port for the health probes, especially for active/standby deployments. Flows to/from Internet require SNAT for symmetry |
+| [Azure Route Server](#azure-route-server) | The NVA needs to support BGP. Supports active/active, active/standby and scale-out NVAs. | Traffic symmetry requires SNAT |
+| [Gateway Load Balancer](#gateway-load-balancer) | Traffic symmetry guaranteed without SNAT. NVAs can be shared across tenants. Very good convergence time. Supports active/active, active/standby and scale-out NVAs. | Supports flows to/from the Internet, no East-West flows |
+| [Changing PIP/UDR](#changing-pip-udr) | No special feature required by the NVA. Guarantees symmetric traffic | Only for active/passive designs. High convergence time of 1-2 minutes |
 
-<!-- markdown-enable MD033 -->
+## Load Balancer design
 
-## Ingress with layer 7 NVAs
+This design uses two Azure Load Balancers to expose a cluster of NVAs to the rest of the network:
 
-The following figure shows a high availability architecture that implements an ingress DMZ behind an internet-facing load balancer. This architecture is designed to provide connectivity to Azure workloads for layer 7 traffic, such as HTTP or HTTPS:
+- An internal Load Balancer is used to redirect internal traffic from Azure and on-premises to the NVAs. This internal load balancer is configured with [HA Ports rules][alb_haports], so that every TCP/UDP port is redirected to the NVA instances. 
+- A public Load Balancer exposes the NVAs to the Internet. Since [HA Ports][alb_haports] for inbound traffic every individual TCP/UDP port needs to be opened in a dedicated load-balancing rule.
 
-![[1]][1]
+The following diagram describes the sequence of hops that packets from the Internet to an application server in a spoke VNet would follow:
 
-The benefit of this architecture is that all NVAs are active, and if one fails the load balancer directs network traffic to the other NVA. Both NVAs route traffic to the internal load balancer so as long as one NVA is active, traffic continues to flow. The NVAs are required to terminate SSL traffic intended for the web tier VMs. These NVAs cannot be extended to handle on-premises traffic because on-premises traffic requires another dedicated set of NVAs with their own network routes.
+![ALB Internet][alb_internet]
 
-## Egress with layer 7 NVAs
+The mechanism to send traffic from spokes to the public Internet through the NVAs is a User-Defined Route for `0.0.0.0/0` with next-hop the internal Load Balancer's IP address.
 
-The previous architecture can be expanded to provide an egress DMZ for requests originating in the Azure workload. The following architecture is designed to provide high availability of the NVAs in the DMZ for layer 7 traffic, such as HTTP or HTTPS:
+For traffic between Azure and the public Internet, each direction of the traffic flow will cross a different Azure Load Balancer (the ingress packet through the public ALB, and the egress packet through the internal ALB). As a consequence, if traffic symmetry is required, Source Network Address Translation (SNAT) needs to be performed by the NVA instances to attract the return traffic and avoid traffic asymmetry.
 
-![[2]][2]
+This design can be used as well to inspect traffic between Azure and on-premises networks:
 
-In this architecture, all traffic originating in Azure is routed to an internal load balancer. The load balancer distributes outgoing requests between a set of NVAs. These NVAs direct traffic to the Internet using their individual public IP addresses.
+![ALB Onpremises][alb_onprem]
 
-## Ingress-egress with layer 7 NVAs
+The mechanism to send traffic between spokes through the NVAs is exactly the same, so no additional diagram is provided. In the example diagrams above, since spoke1 doesn't know about spoke2's range, the `0.0.0.0/0` UDR will send traffic addressed to spoke2 to the NVA's internal Azure Load Balancer. 
 
-In the two previous architectures, there was a separate DMZ for ingress and egress. The following architecture demonstrates how to create a DMZ that can be used for both ingress and egress for layer 7 traffic, such as HTTP or HTTPS:
+For traffic between on-premises networks and Azure or between Azure virtual machines, traffic symmetry is guaranteed by the internal Azure Load Balancer: when both directions of a traffic flow traverse the same Azure Load Balancer, the same NVA instance will be chosen.
 
-![[4]][4]
+The Azure Load Balancer has a very good convergence time in case of individual NVA outages. Since the [health probes][alb_probes] can be sent every 5 seconds, and it takes 3 failed probes to declare a backend instance out of service, it usually takes 10-15 seconds for the Azure Load Balancer to converge traffic to a different NVA instance.
 
-In this architecture, the NVAs process incoming requests from the application gateway. The NVAs also process outgoing requests from the workload VMs in the back-end pool of the load balancer. Because incoming traffic is routed with an application gateway and outgoing traffic is routed with a load balancer, the NVAs are responsible for maintaining session affinity. That is, the application gateway maintains a mapping of inbound and outbound requests so it can forward the correct response to the original requestor. However, the internal load balancer does not have access to the application gateway mappings, and uses its own logic to send responses to the NVAs. It's possible the load balancer could send a response to an NVA that did not initially receive the request from the application gateway. In this case, the NVAs must communicate and transfer the response between them so the correct NVA can forward the response to the application gateway.
+This setup supports both active/active and active/standby configurations. However, for active/standby configurations the NVA instances need to offer a TCP/UDP port or HTTP endpoint that doesn't respond to the Load Balancer health probes unless the instance is in the active role.
 
-> [!NOTE]
-> You can also solve the asymmetric routing issue by ensuring the NVAs perform inbound source network address translation (SNAT). This would replace the original source IP of the requestor to one of the IP addresses of the NVA used on the inbound flow. This ensures that you can use multiple NVAs at a time, while preserving the route symmetry.
+### Using L7 load balancers
 
-## PIP-UDR switch with layer 4 NVAs
+A particular case of this design is replacing the Azure public Load Balancer with a Layer-7 load balancer such as the [Azure Application Gateway][appgw] (which can be considered as an NVA on its own). In this case, the NVAs will only require an internal Load Balancer in front of them, since traffic from the Application Gateway will be sourced from inside the VNet, and traffic asymmetry is not a concern.
 
-The following architecture demonstrates an architecture with one active and one passive NVA. This architecture handles both ingress and egress for layer 4 traffic:
+The NVA should be taking inbound traffic for protocols not supported by your Layer-7 load balancer, plus potentially all egress traffic. For further details about this configuration when using Azure Firewall as NVA and Azure Application Gateway as Layer-7 web reverse-proxy, see [Firewall and Application Gateway for virtual networks][azfw_appgw].
 
-![[3]][3]
+## Azure Route Server
 
-> [!TIP]
-> A complete solution for this architecture is available on [GitHub][pnp-ha-nva].
+[Azure Route Server][ars] is a service which allows an NVA to interact with Azure SDN via Border Gateway Protocol (BGP). Not only the NVAs will learn which IP prefixes exist in the Azure VNets, but they will be able to inject routes in the effective route tables of the virtual machines in Azure. 
 
-This architecture is similar to the first architecture discussed in this article. That architecture included a single NVA accepting and filtering incoming layer 4 requests. This architecture adds a second passive NVA to provide high availability. If the active NVA fails, the passive NVA is made active and the UDR and PIP are changed to point to the NICs on the now active NVA. These changes to the UDR and PIP can either be done manually or using an automated process. The automated process is typically daemon or other monitoring service running in Azure. It queries a health probe on the active NVA and performs the UDR and PIP switch when it detects a failure of the NVA.
+![ARS Internet][ars_internet]
 
-The preceding figure shows an example [ZooKeeper][zookeeper] cluster providing a high availability daemon. Within the ZooKeeper cluster, a quorum of nodes elects a leader. If the leader fails, the remaining nodes hold an election to elect a new leader. For this architecture, the leader node executes the daemon that queries the health endpoint on the NVA. If the NVA fails to respond to the health probe, the daemon activates the passive NVA. The daemon then calls the Azure REST API to remove the PIP from the failed NVA and attaches it to newly activated NVA. The daemon then modifies the UDR to point to the newly activated NVA's internal IP address.
+In the diagram above each NVA instance is peered over BGP with the Azure Route Server. No route table is required in the spoke subnets, since Azure Route Server will program the routes advertised by the NVAs. If two or more routes are programmed in the Azure virtual machines, they will use Equal Cost MultiPathing (ECMP) to choose one of the NVA instances for every traffic flow. As a consequence, SNAT is a must in this design if traffic symmetry is a requirement.
 
-Do not include the ZooKeeper nodes in a subnet that is only accessible using a route that includes the NVA. Otherwise, the ZooKeeper nodes are inaccessible if the NVA fails. Should the daemon fail for any reason, you won't be able to access any of the ZooKeeper nodes to diagnose the problem.
+This insertion method supports both active/active (all NVAs advertise the same routes to the Azure Route Server), as well as active/standby (one NVA advertises routes with a shorter AS path than the other). The Azure Route Server supports a maximum of 8 BGP adjacencies. Hence, if using a scale-out cluster of active NVAs, this design will support a maximum of 8 NVA instances.
 
-To see the complete solution including sample code, see the files in the [GitHub repository][pnp-ha-nva].
+Convergence time is pretty fast in this setup, and will be influenced by the keepalive and holdtime timers of the BGP adjacency. While the Azure Route Server has default keepalive and holdtime timers (60 seconds and 180 seconds respectively), the NVAs can negotiate lower timers during the BGP adjacency establishment. Setting these timers too low could lead to BGP instabilities.
 
-## PIP-UDR NVAs without SNAT
+This design is the most common option for NVAs that need to interact with Azure routing, for example VPN termination NVAs that need to learn the prefixes configured in Azure VNets, or advertise certain routes over ExpressRoute private peerings.
 
-This architecture uses two Azure virtual machines to host the NVA firewall in an active-passive configuration that supports automated failover but does not require Source Network Address Translation (SNAT).
+## Gateway Load Balancer
 
-![PIP-UDR NVAs without SNAT architecture](./images/nva-ha/pip-udr-without-snat.png)
+[Azure Gateway Load Balancer][gwlb] is a new way of inserting NVAs in the data path without the need to steer traffic with User-Defined Routes. For Virtual Machines that expose their workloads via an Azure Load Balancer or a public IP address, inbound and outbound traffic can be redirected transparently to a cluster of NVAs located in a different VNet. The following diagram describes the path that packets follow for inbound traffic from the public Internet in case the workloads expose the application via an Azure Load Balancer:
 
-> [!TIP]
-> A complete solution for this architecture is available on [GitHub][ha-nva-fo].
+![GWLB Internet][gwlb_internet]
 
-This solution is designed for Azure customers who cannot configure SNAT for inbound requests on their NVA firewalls. SNAT hides the original source client IP address. If you need to log the original IPs or used them within other layered security components behind your NVAs, this solution offers a basic approach.
+One of the main advantages of this NVA injection method is that Source Network Address Translation (SNAT) is not required to guarantee traffic symmetry. Another benefit of this design option is that the same NVAs can be used to inspect traffic to/from different VNets, thus achieving multitenancy from the NVA perspective. No VNet peering is required between the NVA VNet and the workload VNet(s), and no User-Defined Routes are required in the workload VNet, which dramatically simplifies the configuration.
 
-The failover of UDR table entries is automated by a next-hop address set to the IP address of an interface on the active NVA firewall virtual machine. The automated failover logic is hosted in a function app that you create using [Azure Functions](/azure/azure-functions/). The failover code runs as a serverless function inside Azure Functions. Deployment is convenient, cost-effective, and easy to maintain and customize. In addition, the function app is hosted within Azure Functions, so it has no dependencies on the virtual network. If changes to the virtual network impact the NVA firewalls, the function app continues to run independently. Testing is more accurate as well, because it takes place outside the virtual network using the same route as the inbound client requests.
+Service injection with the Gateway Load Balancer can be used for inbound flows hitting an Azure public Load Balancer (and their return traffic), as well as for outbound flows originating in Azure. East-West traffic between Azure virtual machines cannot leverage the Gateway Load Balancer for NVA injection.
 
-To check the availability of the NVA firewall, the function app code probes it in one of two ways:
+In the NVA cluster, Azure Load Balancer health check probes will be used to detect individual NVA instance failures, achieving a very quick convergence time (10-15 seconds).
 
-- By monitoring the state of the Azure virtual machines hosting the NVA firewall.
+## Changing PIP-UDR
 
-- By testing whether there is an open port through the firewall to the back-end web server. For this option, the NVA must expose a socket via PIP for the function app code to test.
+The idea behind this design is having the setup that would be required without NVA redundancy, and have it modified in case the NVA suffers from downtime. The diagram below shows how an Azure Public IP address is associated to the active NVA (NVA1), and the User-Defined Routes in the spokes have the active NVA's IP address as next hop (`10.0.0.37`).
 
-You choose the type of probe you want to use when you configure the function app. To see the complete solution including sample code, see the files in the [GitHub repository][ha-nva-fo].
+![PIP/UDR Internet][pipudr_internet]
+
+If the active NVA became unavailable, the standby NVA would call the Azure API to remap the public IP address and the spoke User-Defined Routes to itself (or move the private IP address too). These API calls can take some minutes to be effective, which is why this design offers the worst convergence time of all the options in this document.
+
+Another limitation of this design is that only active/standby configurations are supported, which can lead to scalability problems: if you need to increase the bandwidth supported by your NVAs, the only option with this design is scaling up both instances.
+
+One benefit of this design is that no Source Network Address Translation (SNAT) is required to guarantee traffic symmetry, since there is only one NVA active at any given point in time.
 
 ## Next steps
 
-- Learn how to [implement a DMZ between Azure and your on-premises datacenter][dmz-on-premises] using Azure Firewall.
-- [Troubleshoot network virtual appliance issues in Azure](/azure/virtual-network/virtual-network-troubleshoot-nva)
+- Learn how to [implement a secure hybrid network][secure_hybrid] using Azure Firewall.
+- [Perimeter Networks - Cloud Adoption Framework][caf_perimeter]
+- [Cloud DMZ - Cloud Adoption Framework][caf_dmz]
 
 <!-- links -->
 
-[cloud-security]: /azure/best-practices-network-security
-[dmz-on-premises]: ./secure-vnet-dmz.yml
-[egress-with-layer-7]: #egress-with-layer-7-nvas
-[ingress-with-layer-7]: #ingress-with-layer-7-nvas
-[ingress-egress-with-layer-7]: #ingress-egress-with-layer-7-nvas
-[lb-overview]: /azure/load-balancer/load-balancer-overview
-[nva-scenario]: /azure/virtual-network/virtual-network-scenario-udr-gw-nva
-[pip-udr-switch]: #pip-udr-switch-with-layer-4-nvas
-[udr-overview]: /azure/virtual-network/virtual-networks-udr-overview
-[zookeeper]: https://zookeeper.apache.org
-[pnp-ha-nva]: https://github.com/mspnp/ha-nva
-[ha-nva-fo]: https://aka.ms/ha-nva-fo
+[udr]: https://docs.microsoft.com/azure/virtual-network/virtual-networks-udr-overview
+[azfw]: https://docs.microsoft.com/azure/firewall/overview
+[appgw]: https://docs.microsoft.com/azure/application-gateway/overview
+[ars]: https://docs.microsoft.com/azure/route-server/overview
+[gwlb]: https://docs.microsoft.com/azure/load-balancer/gateway-overview
+[alb]: https://docs.microsoft.com/azure/load-balancer/load-balancer-overview
+[vwan]: https://docs.microsoft.com/azure/virtual-wan/virtual-wan-about
+[vwan_nva]: https://docs.microsoft.com/azure/virtual-wan/about-nva-hub
+[alb_probes]: https://docs.microsoft.com/azure/load-balancer/load-balancer-custom-probe-overview
+[alb_haports]: https://docs.microsoft.com/azure/load-balancer/load-balancer-ha-ports-overview
+[caf_dmz]: https://docs.microsoft.com/azure/cloud-adoption-framework/decision-guides/software-defined-network/cloud-dmz
+[caf_perimeter]: https://docs.microsoft.com/azure/cloud-adoption-framework/ready/azure-best-practices/perimeter-networks
+[caf_hns]: https://docs.microsoft.com/azure/cloud-adoption-framework/ready/azure-best-practices/hub-spoke-network-topology
+[secure_hybrid]: https://docs.microsoft.com/azure/architecture/reference-architectures/dmz/secure-vnet-dmz
+[azfw_appgw]: https://docs.microsoft.com/azure/architecture/example-scenario/gateway/firewall-application-gateway
 
 <!-- images -->
 
-[0]: ./images/nva-ha/single-nva.png "Single NVA architecture"
-[1]: ./images/nva-ha/l7-ingress.png "Layer 7 ingress"
-[2]: ./images/nva-ha/l7-ingress-egress.png "Layer 7 egress"
-[3]: ./images/nva-ha/active-passive.png "Active-Passive cluster"
-[4]: ./images/nva-ha/l7-ingress-egress-ag.png
+[alb_internet]: ./images/nva-ha/nvaha-alb-internet.png "Internet traffic with ALB integration"
+[alb_onprem]: ./images/nva-ha/nvaha-alb-on-premises.png "On-premises traffic with ALB integration"
+[ars_internet]: ./images/nva-ha/nvaha-ars-internet.png "Internet traffic with ARS integration"
+[gwlb_internet]: ./images/nva-ha/nvaha-gwlb-internet.png "Internet traffic with GWLB integration"
+[pipudr_internet]: ./images/nva-ha/nvaha-pipudr-internet.png "Internet traffic with moving PIP/UDR"

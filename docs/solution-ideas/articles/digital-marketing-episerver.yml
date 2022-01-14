@@ -2,14 +2,19 @@
 metadata:
   title: Scalable Episerver marketing website
   titleSuffix: Azure Solution Ideas
-  author: doodlemania2
-  ms.date: 12/16/2019
   description: Run multi-channel digital marketing websites on one platform. Start and stop campaigns on demand. Manage site and campaign performance with Episerver.
-  ms.custom: 'acom-architecture, web-apps, ''https://azure.microsoft.com/solutions/architecture/digital-marketing-episerver/'''
+  author: EdPrice-MSFT
+  ms.author: pnp
+  ms.date: 12/16/2019
+  ms.topic: conceptual
   ms.service: architecture-center
+  ms.subservice: solution-idea
   ms.category:
     - web
-  ms.subservice: solution-idea
+  ms.custom:
+    - acom-architecture
+    - web-apps
+    - "https://azure.microsoft.com/solutions/architecture/digital-marketing-episerver/"
   social_image_url: /azure/architecture/solution-ideas/articles/media/digital-marketing-episerver.png
 name: Scalable Episerver marketing website
 azureCategories:

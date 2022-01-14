@@ -1,6 +1,3 @@
-
-
-
 This reference architecture illustrates a logic app that's running in Microsoft Azure, which is triggered by Azure Spring Cloud. It then connects to on-premises resources such as Microsoft SQL Server and Microsoft SharePoint Server.
 
 ![The diagram illustrates an Azure Spring Cloud resource triggering a Logic App that advances through a workflow that connects to on-premises SQL Server and SharePoint Server resources by using a data gateway.][architectural-diagram]
@@ -76,6 +73,12 @@ An on-premises data gateway can be used with more than just Logic Apps. It's pos
 - Use the [Azure pricing calculator][azure-pricing-calculator] to estimate costs.
 - This reference assumes that the [consumption plan][azure-logic-app-consumption-plan] is used to create a global Logic Apps resource.
 - This reference only uses standard connectors, which are metered at a lower price than enterprise connectors.
+
+## Next steps
+
+* [Connect an on-premises network to Azure](../reference-architectures/hybrid-networking/index.yml)
+* [Extend an on-premises network using ExpressRoute](../reference-architectures/hybrid-networking/expressroute.yml)
+* [Extend an on-premises network using VPN](../reference-architectures/hybrid-networking/vpn.yml)
 
 [architectural-diagram]: ./images/gateway-logic-apps.png
 [architectural-diagram-visio-source]: https://arch-center.azureedge.net/gateway-logic-apps.vsdx

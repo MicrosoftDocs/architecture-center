@@ -1,27 +1,32 @@
 ---
-title: Choreography
+title: Choreography pattern
 titleSuffix: Cloud Design Patterns
 description: Let each service decide when and how a business operation is processed, instead of depending on a central orchestrator.
-keywords: design pattern
 author: PageWriter-MSFT
-ms.date: 02/24/2020
 ms.author: pnp
+ms.date: 02/24/2020
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: design-pattern
+products:
+  - azure-event-grid
+categories:
+  - integration
 ms.custom:
   - design-pattern
+keywords:
+  - design pattern
 ---
 
 <!-- cSpell:ignore upsert typeof -->
 
-# Choreography
+# Choreography pattern
 
 Have each component of the system participate in the decision-making process about the workflow of a business transaction, instead of relying on a central point of control.
 
 ## Context and problem
 
-In microservices architecture, it’s often the case that a cloud-based application is divided into several small services that work together to process a business transaction end-to-end. To lower coupling between services, each service is responsible for a single business operation. Some benefits include faster development, smaller code base, and scalability. However, designing an efficient and scalable workflow is a challenge and often requires complex interservice communication.
+In microservices architecture, it's often the case that a cloud-based application is divided into several small services that work together to process a business transaction end-to-end. To lower coupling between services, each service is responsible for a single business operation. Some benefits include faster development, smaller code base, and scalability. However, designing an efficient and scalable workflow is a challenge and often requires complex interservice communication.
 
 The services communicate with each other by using well-defined APIs. Even a single business operation can result in multiple point-to-point calls among all services. A common pattern for communication is to use a centralized service that acts as the orchestrator. It acknowledges all incoming requests and delegates operations to the respective services. In doing so, it also manages the workflow of the entire business transaction. Each service just completes an operation and is not aware of the overall workflow.
 
@@ -87,11 +92,11 @@ The design uses multiple message buses to process the entire business transactio
 
 To avoid cascading retry operations that might lead to multiple efforts, only Event Grid retries an operation instead of the business service. It flags a failed request by sending a messaging to a [dead letter queue (DLQ)](/azure/service-bus-messaging/service-bus-dead-letter-queues).
 
-The business services are idempotent to make sure retry operations don’t result in duplicate resources. For example, the Package service uses upsert operations to add data to the data store.
+The business services are idempotent to make sure retry operations don't result in duplicate resources. For example, the Package service uses upsert operations to add data to the data store.
 
 The example implements a custom solution to correlate calls across all services and Event Grid hops.
 
-Here’s a code example that shows the choreography pattern between all business services. It shows the workflow of the Drone Delivery app transactions. Code for exception handling and logging have been removed for brevity.
+Here's a code example that shows the choreography pattern between all business services. It shows the workflow of the Drone Delivery app transactions. Code for exception handling and logging have been removed for brevity.
 
 ```csharp
 [HttpPost]
@@ -155,14 +160,13 @@ public async Task<IActionResult> Post([FromBody] EventGridEvent[] events)
 }
 ```
 
-## Related patterns and guidance
+## Related guidance
 
 Consider these patterns in your design for choreography.
 
 - Modularize the business service by using the [ambassador design pattern](./ambassador.md).
 
-- Implement [queue-based load leveling pattern](./queue-based-load-leveling.md)
-    to handle spikes of the workload.
+- Implement [queue-based load leveling pattern](./queue-based-load-leveling.md) to handle spikes of the workload.
 
 - Use asynchronous distributed messaging through the [publisher-subscriber pattern](./publisher-subscriber.md).
 

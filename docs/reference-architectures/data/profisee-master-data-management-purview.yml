@@ -1,0 +1,27 @@
+### YamlMime:Architecture
+metadata:
+  title: Data governance with Profisee and Azure Purview
+  titleSuffix: Azure Architectures
+  description: Integrate Profisee master data management with Azure Purview, to build a foundation for data governance and management. Produce and deliver high-quality, trusted data.
+  author: EdPrice-MSFT
+  ms.author: gamal
+  ms.date: 06/08/2021
+  ms.topic: conceptual
+  ms.service: architecture-center
+  ms.subservice: reference-architecture
+  ms.custom:
+    - fcp
+azureCategories:
+  - databases
+  - management-and-governance
+products:
+  - azure-data-factory
+  - azure-kubernetes-service 
+  - azure-synapse-analytics 
+  - power-bi 
+  - azure-machine-learning
+name: Data governance with Profisee and Azure Purview
+summary: Integrate Profisee master data management with Azure Purview, to build a foundation for data governance and management. Produce and deliver high-quality, trusted data.
+thumbnailUrl: /azure/architecture/browse/thumbs/profisee-master-data-management-purview.png
+content: |
+  [!include[](profisee-master-data-management-purview-content.md)]

@@ -3,20 +3,22 @@ title: Monoliths to microservices using domain-driven design
 titleSuffix: Azure Architecture Center
 description: Use a DDD approach to migrate a monolithic application to microservices
 author: lavann
-ms.date: 11/04/2019
 ms.author: pnp
+ms.date: 11/04/2019
 ms.topic: conceptual
 ms.service: architecture-center
+ms.subservice: azure-guide
 ms.category:
   - migration
   - developer-tools
-ms.subservice: azure-guide
+products:
+  - aspnet
 ms.custom:
   - microservices
   - guide
 ---
 
-# Monoliths to microservices using domain-driven design
+# Migrate a monolith application to microservices using domain-driven design
 
 This article describes how to use domain-driven design (DDD) to migrate a monolithic application to microservices.
 
@@ -39,7 +41,7 @@ Despite these limitations, a monolithic design can make sense as a starting poin
 - Easier to reason about, because there are fewer moving parts.
 
 As the application grows in complexity, however, these advantages can disappear. Large monoliths often become progressively harder to build, debug, and reason about. At some point, the problems outweigh the benefits. This is the point when it can make sense to migrate the application to a microservices architecture. Unlike monoliths, microservices are typically decentralized, loosely coupled units of execution. The following diagram shows a typical microservices architecture:
- 
+
 ![A typical microservices architecture](./images/monolith/figure2.png)
 
 Migrating a monolith to a microservice requires significant time and investment to avoid failures or overruns. To ensure that any migration is successful, it's good to understand both the benefits and also challenges that microservices bring. The benefits include:
@@ -61,9 +63,9 @@ Any migration strategy should allow teams to incrementally refactor the applicat
 - Split the front end from the back end.
 - Decompose and decouple the monolith into a series of microservices.
 
-To help facilitate this decomposition, a viable software development approach is to apply the principles of domain-driven design (DDD). 
+To help facilitate this decomposition, a viable software development approach is to apply the principles of domain-driven design (DDD).
 
-Domain Driven Design (DDD) is a software development approach first introduced by [Eric Evans](http://domainlanguage.com/ddd/). DDD requires a good understanding of the domain for which the application will be written. The necessary domain knowledge to create the application resides within the people who understand it &mdash; the domain experts. 
+Domain Driven Design (DDD) is a software development approach first introduced by [Eric Evans](http://domainlanguage.com/ddd/). DDD requires a good understanding of the domain for which the application will be written. The necessary domain knowledge to create the application resides within the people who understand it &mdash; the domain experts.
 
 The DDD approach can be applied retroactively to an existing application, as a way to begin decomposing the application.
 
@@ -111,7 +113,7 @@ At this stage, the team can begin peeling away the monolithic application and sl
 
 ![Use API layer](./images/monolith/figure6.png)
 
-As you continue to peel away the monolith, eventually there will come the point when it no longer needs to exist, and the microservices have been successfully extracted from the monolith. At this point, the anti-corruption layer (glue code) can safely be removed. 
+As you continue to peel away the monolith, eventually there will come the point when it no longer needs to exist, and the microservices have been successfully extracted from the monolith. At this point, the anti-corruption layer (glue code) can safely be removed.
 
 This approach is an example of the [Strangler Fig pattern](../patterns/strangler-fig.md) and allows for a controlled decomposition of a monolith into a set of microservices. Over time, as existing functionality is moved into microservices, the monolith will shrink in size and complexity, to the point that it no longer exists.
 

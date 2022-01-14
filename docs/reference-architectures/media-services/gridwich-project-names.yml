@@ -3,7 +3,8 @@ metadata:
   title: Gridwich project naming and namespaces
   titleSuffix: Azure Reference Architectures
   description: Learn about Gridwich namespaces and project naming conventions and structure, based on components, capabilities, and technologies.
-  author: doodlemania2
+  author: EdPrice-MSFT
+  ms.author: pnp
   ms.date: 11/12/2020
   ms.topic: conceptual
   ms.service: architecture-center

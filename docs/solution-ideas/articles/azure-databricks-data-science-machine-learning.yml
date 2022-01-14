@@ -1,0 +1,25 @@
+### YamlMime:Architecture
+metadata:
+  title: Data science and machine learning with Azure Databricks
+  titleSuffix: Azure Solution Ideas
+  description: Improve operations by using Azure Databricks, Delta Lake, and MLflow for data science and machine learning. Develop, train, and deploy machine learning models.
+  author: kacummis
+  ms.author: kacummis
+  ms.date: 08/27/2021
+  ms.topic: conceptual
+  ms.service: architecture-center
+  ms.subservice: solution-idea
+  ms.custom: fcp
+azureCategories:
+  - ai-machine-learning
+  - analytics
+products:
+  - azure-databricks
+  - azure-data-lake-storage
+  - azure-kubernetes-service
+  - azure-machine-learning
+name: Data science and machine learning with Azure Databricks
+summary: Improve operations by using Azure Databricks, Delta Lake, and MLflow for data science and machine learning. Develop, train, and deploy machine learning models.
+thumbnailUrl: /azure/architecture/browse/thumbs/azure-databricks-data-science-machine-learning-architecture-thumbnail.png
+content: |
+  [!include[](azure-databricks-data-science-machine-learning-content.md)]

@@ -1,0 +1,27 @@
+### YamlMime:Architecture
+metadata:
+  title: Efficient Docker image deployment for intermittent low-bandwidth connectivity
+  titleSuffix: Azure Example Workloads
+  description: An example of a reliable and resilient deployment capability for situations when you have limited, intermittent, or low bandwidth.
+  author: EdPrice-MSFT
+  ms.author: kadimitr
+  ms.date: 10/08/2021
+  ms.topic: conceptual
+  ms.service: architecture-center
+  ms.subservice: example-scenario
+  ms.category:
+    - devops
+    - databases
+name: Efficient Docker image deployment for intermittent low-bandwidth connectivity
+azureCategories:
+  - analytics
+summary: An example of a reliable and resilient deployment capability for situations when you have limited, intermittent, or low bandwidth.
+products:
+  - azure-devops
+  - azure-functions
+  - azure-container-registry
+  - azure-storage
+  - azure-key-vault
+thumbnailUrl: /azure/architecture/browse/thumbs/efficient-docker-image-deployment-01.png
+content: |
+   [!include[](efficient-docker-image-deployment-content.md)]

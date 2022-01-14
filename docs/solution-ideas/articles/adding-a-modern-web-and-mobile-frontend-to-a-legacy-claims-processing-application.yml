@@ -1,20 +1,34 @@
 ### YamlMime:Architecture
 metadata:
-  title: Adding a mobile front-end to a legacy app
+  title: Add a mobile front end to a legacy app
   titleSuffix: Azure Solution Ideas
-  author: doodlemania2
+  description: This solution consolidates data from multiple business systems and then surfaces the data through web and mobile front ends. This consolidation helps improve employee productivity and helps speed up decision making.
+  author: EdPrice-MSFT
+  ms.author: pnp
   ms.date: 12/16/2019
-  description: This solution consolidates data from multiple business systems and surfaces the data through web and mobile front ends-helping to improve employee productivity and speed decision making.
-  ms.custom: 'acom-architecture, line of business app, lob app, lift and shift cloud strategy, cloud migration, cloud innovation, lift and shift solution, lift and shift strategy, interactive-diagram, ''https://azure.microsoft.com/solutions/architecture/adding-a-modern-web-and-mobile-frontend-to-a-legacy-claims-processing-application/'''
+  ms.topic: conceptual
   ms.service: architecture-center
+  ms.subservice: solution-idea
   ms.category:
     - migration
-  ms.subservice: solution-idea
+    - mobile
+  ms.custom:
+    - acom-architecture
+    - line of business app
+    - lob app
+    - lift and shift cloud strategy
+    - cloud migration
+    - cloud innovation
+    - lift and shift solution
+    - lift and shift strategy
+    - interactive-diagram
+    - "https://azure.microsoft.com/solutions/architecture/adding-a-modern-web-and-mobile-frontend-to-a-legacy-claims-processing-application/"
   social_image_url: /azure/architecture/solution-ideas/articles/media/adding-a-modern-web-and-mobile-frontend-to-a-legacy-claims-processing-application.png
-name: Adding a mobile front-end to a legacy app
+name: Add a mobile front end to a legacy app
 azureCategories:
   - migration
-summary: This solution consolidates data from multiple business systems and surfaces the data through web and mobile front ends-helping to improve employee productivity and speed decision making.
+  - mobile
+summary: This solution consolidates data from multiple business systems and then surfaces the data through web and mobile front ends. This consolidation helps improve employee productivity and helps speed up decision making.
 products:
   - azure-active-directory
   - azure-active-directory-b2c

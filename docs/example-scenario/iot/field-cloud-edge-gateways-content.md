@@ -1,6 +1,3 @@
-
-
-
 IoT devices can connect to the IoT platform directly, or through *IoT Edge gateways* that implement intelligent capabilities. Edge gateways enable functionality like:
 - Aggregating or filtering device events before they're sent to the IoT platform
 - Localized decision-making
@@ -8,7 +5,7 @@ IoT devices can connect to the IoT platform directly, or through *IoT Edge gatew
 
 There are two types of edge gateways, *field* or [IoT Edge](/azure/iot-edge/iot-edge-as-gateway), and *cloud* or [protocol](/azure/iot-hub/iot-hub-protocol-gateway) gateways.
 
-![A diagram illustrating the flow of events, commands, and protocols as they are routed through a field or cloud edge gateway to the Azure IoT Platform.](media/field-edge-gateways.png) 
+![A diagram illustrating the flow of events, commands, and protocols as they are routed through a field or cloud edge gateway to the Azure IoT Platform.](media/field-edge-gateways.svg)
 
 - IoT Edge *field gateways* are located close to devices on-premises, and connect to the IoT platform to extend cloud capabilities into devices. IoT Edge devices can act as communication enablers, local device control systems, and data processors for the IoT platform. IoT Edge devices can run cloud workflows on-premises by using [Edge modules](/azure/iot-edge/iot-edge-modules), and can communicate with devices even in offline scenarios.
 
@@ -16,12 +13,12 @@ There are two types of edge gateways, *field* or [IoT Edge](/azure/iot-edge/iot-
 
 ## See also
 - For detailed documentation on using IoT Edge as a Field Gateway, refer to the following links:
-    - [Using IoT Edge As a Field Gateway](https://docs.microsoft.com/en-us/azure/iot-edge/iot-edge-as-gateway?view=iotedge-2018-06)
-    - How to configure an [IoT Edge Gateway](https://docs.microsoft.com/en-us/azure/iot-edge/how-to-create-transparent-gateway?view=iotedge-2018-06)
+    - [Using IoT Edge As a Field Gateway](/azure/iot-edge/iot-edge-as-gateway?view=iotedge-2018-06)
+    - How to configure an [IoT Edge Gateway](/azure/iot-edge/how-to-create-transparent-gateway?view=iotedge-2018-06)
 - For detailed documentation using Azure IoT Hub as a Cloud Gateway, refer to the following links:
-	- What is [Azure's Cloud Gateway](https://docs.microsoft.com/en-us/azure/architecture/guide/iiot-guidance/iiot-architecture#cloud-gateway)?
-	- What is [Azure IoT Hub](https://docs.microsoft.com/en-us/azure/iot-hub/about-iot-hub)?
-	- How do I add [additional protocol support](https://docs.microsoft.com/en-us/azure/iot-hub/iot-hub-protocol-gateway) for Azure IoT Hub?
+	- What is [Azure's Cloud Gateway](../../guide/iiot-guidance/iiot-architecture.md#cloud-gateway)?
+	- What is [Azure IoT Hub](/azure/iot-hub/about-iot-hub)?
+	- How do I add [additional protocol support](/azure/iot-hub/iot-hub-protocol-gateway) for Azure IoT Hub?
 - For overall guidance, refer to the following links:
-    - [IoT Solutions Conceptual Overview](https://docs.microsoft.com/en-us/azure/architecture/example-scenario/iot/introduction-to-solutions)
-    - [IoT Reference Architecture](https://docs.microsoft.com/en-us/azure/architecture/reference-architectures/iot)
+    - [IoT Solutions Conceptual Overview](./introduction-to-solutions.yml)
+    - [IoT Reference Architecture](../../reference-architectures/iot.yml)

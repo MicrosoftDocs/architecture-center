@@ -1,0 +1,29 @@
+### YamlMime:Architecture
+metadata:
+  title: Environment monitoring and supply chain optimization with IoT
+  titleSuffix: Azure Solution Ideas
+  description: Learn how to use Azure IoT for environment monitoring and supply chain optimization.
+  author: falloutxAY
+  ms.author: ansyeo
+  ms.date: 05/03/2021
+  ms.topic: conceptual
+  ms.service: architecture-center
+  ms.subservice: solution-idea
+  ms.category:
+    - iot
+  ms.custom:
+    - fcp
+    - solution-idea
+name: Environment monitoring and supply chain optimization with IoT
+azureCategories:
+  - iot
+summary: Learn how to use Azure IoT for environment monitoring and supply chain optimization.
+products:
+  - azure-functions
+  - azure-iot
+  - azure-storage
+  - azure-machine-learning
+  - azure-databricks
+thumbnailUrl: /azure/architecture/browse/thumbs/environment-monitor-supply-chain.png
+content: |
+   [!include[](environment-monitoring-and-supply-chain-optimization-content.md)]

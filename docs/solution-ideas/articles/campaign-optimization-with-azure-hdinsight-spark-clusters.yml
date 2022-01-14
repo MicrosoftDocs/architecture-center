@@ -1,26 +1,37 @@
 ### YamlMime:Architecture
 metadata:
-  title: Campaign Optimization with Azure HDInsight Spark Clusters
+  title: Campaign optimization with HDInsight Spark
   titleSuffix: Azure Solution Ideas
-  author: doodlemania2
+  description: Build and deploy a machine learning model to maximize the purchase rate of leads that are targeted by a marketing campaign using Microsoft Machine Learning Server.
+  author: EdPrice-MSFT
+  ms.author: pnp
   ms.date: 12/16/2019
-  description: This solution demonstrates how to build and deploy a machine learning model with Microsoft R Server on Azure HDInsight Spark clusters to recommend actions to maximize the purchase rate of leads targeted by a campaign.
-  ms.custom: 'acom-architecture, artificial intelligence, solution architectures, Azure, ai gallery, ''https://azure.microsoft.com/solutions/architecture/campaign-optimization-with-azure-hdinsight-spark-clusters/'''
+  ms.topic: conceptual
   ms.service: architecture-center
+  ms.subservice: solution-idea
   ms.category:
     - databases
     - analytics
     - ai-machine-learning
-  ms.subservice: solution-idea
+  ms.custom:
+    - acom-architecture
+    - artificial intelligence
+    - solution architectures
+    - Azure
+    - ai gallery
+    - "https://azure.microsoft.com/solutions/architecture/campaign-optimization-with-azure-hdinsight-spark-clusters/"
+    - ai-machine-learning
+    - aml-project-improvement
   social_image_url: /azure/architecture/solution-ideas/articles/media/campaign-optimization-with-azure-hdinsight-spark-clusters.png
-name: Campaign Optimization with Azure HDInsight Spark Clusters
+name: Campaign optimization with Azure HDInsight Spark clusters
 azureCategories:
   - databases
   - analytics
   - ai-machine-learning
-summary: This solution demonstrates how to build and deploy a machine learning model with Microsoft R Server on Azure HDInsight Spark clusters to recommend actions to maximize the purchase rate of leads targeted by a campaign.
+summary: Build and deploy a machine learning model to maximize the purchase rate of leads that are targeted by a marketing campaign using Microsoft Machine Learning Server.
 products:
   - azure-hdinsight
+  - power-bi
 thumbnailUrl: /azure/architecture/browse/thumbs/campaign-optimization-with-azure-hdinsight-spark-clusters.png
 content: |
-   [!include[](campaign-optimization-with-azure-hdinsight-spark-clusters-content.md)]
+  [!include[](campaign-optimization-with-azure-hdinsight-spark-clusters-content.md)]

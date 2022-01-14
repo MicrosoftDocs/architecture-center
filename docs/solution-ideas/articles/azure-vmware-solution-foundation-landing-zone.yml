@@ -1,0 +1,21 @@
+### YamlMime:Architecture
+metadata:
+  title: Azure VMware Solution landing zone
+  titleSuffix: Azure Solution Ideas
+  description: Get started with Azure VMware Solution foundation block landing zone. Understand how Azure VMware Solution fits into a larger landing zone implementation.
+  author: Mahesh-MSFT
+  ms.author: maksh
+  ms.date: 11/01/2021
+  ms.topic: conceptual
+  ms.service: architecture-center
+  ms.subservice: solution-idea
+azureCategories:
+  - hybrid
+  - compute
+products:
+  - azure-vmware-solution
+name: Landing zone considerations for Azure VMware Solution
+summary: Get started with Azure VMware Solution foundation block landing zone. Understand how Azure VMware Solution fits into a larger landing zone implementation.
+thumbnailUrl: /azure/architecture/browse/thumbs/azure-vmware-solution-landing-zone.png
+content: |
+  [!include[](azure-vmware-solution-foundation-landing-zone-content.md)]

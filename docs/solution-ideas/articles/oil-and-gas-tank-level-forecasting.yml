@@ -1,18 +1,28 @@
 ### YamlMime:Architecture
 metadata:
-  title: Oil and Gas Tank Level Forecasting
+  title: Oil and gas tank level forecasting
   titleSuffix: Azure Solution Ideas
-  author: doodlemania2
-  ms.date: 12/16/2019
   description: Tank level forecasting harnesses the power of real-time and historical data from sensors, meters, and records to prevent problems and reduce expenses.
-  ms.custom: 'acom-architecture, artificial intelligence, hpc, analytics, solution architectures, Azure, ai gallery, ''https://azure.microsoft.com/solutions/architecture/oil-and-gas-tank-level-forecasting/'''
+  author: EdPrice-MSFT
+  ms.author: pnp
+  ms.date: 12/16/2019
+  ms.topic: conceptual
   ms.service: architecture-center
+  ms.subservice: solution-idea
   ms.category:
     - analytics
     - compute
-  ms.subservice: solution-idea
+  ms.custom:
+    - acom-architecture
+    - artificial intelligence
+    - hpc
+    - analytics
+    - solution architectures
+    - Azure
+    - ai gallery
+    - "https://azure.microsoft.com/solutions/architecture/oil-and-gas-tank-level-forecasting/"
   social_image_url: /azure/architecture/solution-ideas/articles/media/oil-and-gas-tank-level-forecasting.png
-name: Oil and Gas Tank Level Forecasting
+name: Oil and gas tank level forecasting
 azureCategories:
   - analytics
   - compute
@@ -23,7 +33,6 @@ products:
   - azure-machine-learning
   - azure-stream-analytics
   - azure-synapse-analytics
-  - power-bi
 thumbnailUrl: /azure/architecture/browse/thumbs/oil-and-gas-tank-level-forecasting.png
 content: |
    [!include[](oil-and-gas-tank-level-forecasting-content.md)]

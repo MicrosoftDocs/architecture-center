@@ -1,19 +1,30 @@
 ### YamlMime:Architecture
 metadata:
-  title: Social App for Mobile and Web with Authentication
+  title: Mobile and web social app with authentication
   titleSuffix: Azure Solution Ideas
-  author: doodlemania2
-  ms.date: 12/16/2019
   description: Build and implement a mobile client app architecture that offers authentication abilities and social image sharing with a companion web app, even while offline.
-  ms.custom: 'acom-architecture, identity, web-app, Social Image Sharing, Image Processing App, Image Share App, Companion Web App, interactive-diagram, ''https://azure.microsoft.com/solutions/architecture/social-mobile-and-web-app-with-authentication/'''
+  author: EdPrice-MSFT
+  ms.author: pnp
+  ms.date: 12/16/2019
+  ms.topic: conceptual
   ms.service: architecture-center
+  ms.subservice: solution-idea
   ms.category:
     - mobile
     - web
     - identity
-  ms.subservice: solution-idea
+  ms.custom:
+    - acom-architecture
+    - identity
+    - web-app
+    - Social Image Sharing
+    - Image Processing App
+    - Image Share App
+    - Companion Web App
+    - interactive-diagram
+    - "https://azure.microsoft.com/solutions/architecture/social-mobile-and-web-app-with-authentication/"
   social_image_url: /azure/architecture/solution-ideas/articles/media/social-mobile-and-web-app-with-authentication.png
-name: Social App for Mobile and Web with Authentication
+name: Social app for mobile and web with authentication
 azureCategories:
   - mobile
   - web

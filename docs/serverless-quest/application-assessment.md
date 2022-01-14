@@ -7,6 +7,8 @@ ms.date: 06/22/2020
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: azure-guide
+products:
+  - azure-active-directory
 ms.custom:
   - fcp
   - guide
@@ -14,7 +16,7 @@ ms.custom:
 # Application assessment
 
 [Cloud rationalization](/azure/cloud-adoption-framework/digital-estate/5-rs-of-rationalization) is the process of evaluating applications to determine the best way to migrate or modernize them for the cloud.
- 
+
 Rationalization methods include:
 
 - **Rehost**. Also known as a *lift and shift* migration, rehost moves a current application to the cloud with minimal change.
@@ -31,7 +33,7 @@ Each of the following factors adds to complexity, risk, or both.
 
 ### Architecture
 
-Define the high-level architecture, such as web application, web services, data storage, or caching. 
+Define the high-level architecture, such as web application, web services, data storage, or caching.
 
 | Factor | Complexity | Risk |
 |------------------------------------------------------------------|---|---|
