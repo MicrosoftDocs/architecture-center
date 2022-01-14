@@ -1,15 +1,15 @@
 
-This scenario shows how your business can simplify the deployment and management of microservice containers by deploying them using Azure Container Apps. Azure Container Apps is a fully managed serverless service for building and deploying modern applications at scale.
+This scenario shows how your business can simplify the deployment and management of microservice containers by deploying them using Azure Container Apps. Container Apps is a fully managed serverless service for building and deploying modern applications at scale.
 
 To illustrate the use of Azure Container Apps for a microservices architecture, we have taken the reference implementation [Fabrikam Drone Delivery](https://github.com/mspnp/aks-fabrikam-dronedelivery) application that previously ran in Azure Kubernetes Service (AKS) and moved it to Container Apps. You can find this scenario on [GitHub](https://github.com/mspnp/container-apps-fabrikam-dronedelivery).
 
 ## Potential use cases
 
-Container Apps is a solution for microservice applications that benefit from:
+The Container Apps service is a solution for microservice applications that benefit from:
 
 * Deploying many microservices in a single container environment.
 * The flexibility of serverless environments.
-* Autoscaling based on HTTP traffic or Kubernetes Event-Driven Autoscaling (KEDA).
+* Autoscaling based on HTTP traffic or Kubernetes Event-Driven Autoscaling (KEDA) triggers.
 * Kubernetes features without the need to access the Kubernetes API.
 
 ## Architecture
@@ -20,11 +20,11 @@ _download Visio/PPT_
 
 ### Workflow
 
-1. Ingestion Container App: Receives client requests, buffers them and send them via Azure Service Bus to the WorkFlow Container App.
-1. Workflow Container App:  Dispatches client requests and manages the delivery workflow.
-1. Package Container App: Manages packages.
-1. Drone scheduler Container App: Schedules drones and monitors drones in flight.
-1. Delivery Container App: Manages deliveries that are scheduled or in-transit.
+1. Ingestion service: Receives client requests, buffers them and send them via Azure Service Bus to the WorkFlow service.
+1. Workflow service:  Dispatches client requests and manages the delivery workflow.
+1. Package service: Manages packages.
+1. Drone scheduler service: Schedules drones and monitors drones in flight.
+1. Delivery service: Manages deliveries that are scheduled or in-transit.
 
 Each containerized microservice is stored in a container app.  These container apps deployed to single Azure Container Apps environment.  The Container Apps environment is configured with a [Log Analytics workspace](https://docs.microsoft.com/azure/azure-monitor/logs/design-logs-deployment) which is used by the Azure Monitor service. Container Apps in the same environment share the same virtual network and write logs to the same Log Analytics workspace.
 
@@ -62,7 +62,7 @@ Although not implemented in this scenario, there is the option to maintain high 
 
 ### Operations
 
-Revisions are dynamically deployed when a change to the container app configuration or image.  
+Revisions are dynamically deployed when a container app is updated with a change to the container app configuration or image.  
 
 Although not configured in this scenario, traffic-splitting across revisions can be enabled for blue/green deployments and A/B testing.
 
@@ -70,28 +70,27 @@ This scenario includes the Azure Monitor service to enable monitoring and analys
 
 ### Performance
 
-Factors affecting container app performance:
+Factors affecting performance are:
 
 * The cpu and memory resource configuration.
 * The autoscaling criteria.
 
 ### Scalability
 
-Although scaling is not implemented in this scenario, Container Apps supports scaling based on HTTP traffic and any KEDA-based triggers.  Scaling can be easily added to the container app configuration.
+Although scaling is not implemented in this scenario, the Container Apps service supports scaling based on HTTP traffic and any KEDA-based triggers.  Scaling can be easily added to the container app configuration.
 
 ### Security
 
-This scenario users Azure Key Vault to securely store and access secret.  Alternatively, the Container Apps allows the application to securely store sensitive configuration values.
+This scenario users Azure Key Vault to securely store and access secret.  Alternatively, the Container Apps service allows the application to securely store sensitive configuration values.
 
 ### Resiliency
 
-Container Apps provides resiliency by automatically restarting any container app the crashes.
+The Container Apps service provides resiliency by automatically restarting any container app that crashes.
 
 ### DevOps
 
-This example uses Bicep templates for deployment. Both deployments and redeployments are run manually. 
-
-Alternatively CD/CI pipelines can be enabled by adding GitHub Actions to the Container Apps configurations.  This will enable automatic deployments when changes in the repository affect the container images or the container apps configuration.
+This example uses Bicep templates for deployment. Both deployments and redeployments are run manually.
+Alternatively, CD/CI pipelines can be enabled by adding GitHub Actions to the container apps.  
 
 ## Deploy this scenario
 
@@ -114,7 +113,7 @@ Follow the steps in the README.md in the [sample repository](https://github.com/
 
 * [Build microservices on Azure](/azure/architecture/microservices/)
 * [Design a microservices architecture](/azure/architecture/microservices/design/)
-* [Microserviceswith AKS](/azure/architecture/solution-ideas/articles/microservices-with-aks)
+* [Microservices with AKS](/azure/architecture/solution-ideas/articles/microservices-with-aks)
 * [Advanced Azure Kubernetes Service (AKS) microservices architecture](/azure/architecture/reference-architectures/containers/aks-microservices/aks-microservices-advanced)
 * [Microservices architecture on Azure Kubernetes Service](/azure/architecture/reference-architectures/containers/aks-microservices/aks-microservices)
 * [Microservices architecture on Azure Service Fabric](/azure/architecture/reference-architectures/microservices/service-fabric)
