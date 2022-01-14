@@ -12,10 +12,23 @@ ms.custom: fcp
 keywords:
   - Azure
 products:
+- azure-speech-text
+- azure-speech-translation
+- azure-functions
+- azure-cache-redis
+- azure-kubernetes-service
 categories:
+- ai-machine-learning
+- containers
+- databases
 ---
 # Solutions for the game development industry
-intro paras 
+
+There are 2 billion gamers in the world today. They play a broad range of games, on a broad range of devices. Game creators strive to continuously engage players, spark their imaginations, and inspire them. Microsoft tools and services can help you achieve these goals. 
+
+Build, scale, and operate your game on the global, secure, and reliable Azure cloud by using Azure technologies like Azure Cognitive Services, Azure Functions, and Azure Kubernetes Service.
+
+<br>
 
 > [!VIDEO https://www.youtube.com/embed/mPJUsxRBF4o]
 
@@ -28,7 +41,7 @@ The following articles provide detailed analysis of architectures created and re
 |[Content moderation](/gaming/azure/reference-architectures/cognitive-content-moderation?toc=https:%2f%2fdocs.microsoft.com%2fen-us%2fazure%2farchitecture%2ftoc.json&bc=https:%2f%2fdocs.microsoft.com%2fen-us%2fazure%2farchitecture%2fbread%2ftoc.json)|Learn how to moderate content to maintain a civil, welcoming, and pleasurable experience among players.|
 |[Customer service bot for gaming](/gaming/azure/reference-architectures/cognitive-css-bot?toc=https:%2f%2fdocs.microsoft.com%2fen-us%2fazure%2farchitecture%2ftoc.json&bc=https:%2f%2fdocs.microsoft.com%2fen-us%2fazure%2farchitecture%2fbread%2ftoc.json)|Create a conversational assistant that's tailored to your game and that understands natural language. |
 |[Image classification](/azure/architecture/example-scenario/ai/intelligent-apps-image-processing)|Use Azure services like the Computer Vision API and Azure Functions to process images. For example, you could classify telemetry data from game screenshots. |
-|[Speech to text for gaming](/gaming/azure/reference-architectures/cognitive-speech-to-text?toc=https:%2f%2fdocs.microsoft.com%2fen-us%2fazure%2farchitecture%2ftoc.json&bc=https:%2f%2fdocs.microsoft.com%2fen-us%2fazure%2farchitecture%2fbread%2ftoc.json)|Help bring everyone into the conversation by using the speech to text Cognitive Service provided by Azure.|
+|[Speech to text for gaming](/gaming/azure/reference-architectures/cognitive-speech-to-text?toc=https:%2f%2fdocs.microsoft.com%2fen-us%2fazure%2farchitecture%2ftoc.json&bc=https:%2f%2fdocs.microsoft.com%2fen-us%2fazure%2farchitecture%2fbread%2ftoc.json)|Help bring everyone into the conversation by using the speech to text cognitive service provided by Azure.|
 |[Text to speech for gaming](/gaming/azure/reference-architectures/cognitive-text-to-speech?toc=https:%2f%2fdocs.microsoft.com%2fen-us%2fazure%2farchitecture%2ftoc.json&bc=https:%2f%2fdocs.microsoft.com%2fen-us%2fazure%2farchitecture%2fbread%2ftoc.json)|Help bring everyone into the conversation by converting text messages to audio by using text to speech.|
 |[Text translation for gaming](/gaming/azure/reference-architectures/cognitive-text-translation?toc=https:%2f%2fdocs.microsoft.com%2fen-us%2fazure%2farchitecture%2ftoc.json&bc=https:%2f%2fdocs.microsoft.com%2fen-us%2fazure%2farchitecture%2fbread%2ftoc.json)|Accommodate players in various languages by providing both the original message and a translation.|
 
@@ -42,7 +55,7 @@ The following articles provide detailed analysis of architectures created and re
 | Architecture | Summary | 
 | ------- | ------- | 
 |[Gaming using Azure MySQL](/azure/architecture/solution-ideas/articles/gaming-using-azure-database-for-mysql)|Elastically scale your Azure Database for MySQL database to accommodate unpredictable bursts of traffic and deliver low-latency multiplayer experiences on a global scale.|
-|[Gaming using Cosmos DB](/azure/architecture/solution-ideas/articles/gaming-using-cosmos-db)|Elastically scale your Azure Cosmos DB database to accommodate unpredictable bursts of traffic and deliver low-latency multiplayer experiences on a global scale.|
+|[Gaming using Azure Cosmos DB](/azure/architecture/solution-ideas/articles/gaming-using-cosmos-db)|Elastically scale your Azure Cosmos DB database to accommodate unpredictable bursts of traffic and deliver low-latency multiplayer experiences on a global scale.|
 
 ### Game streaming 
 | Architecture | Summary | 
@@ -72,17 +85,17 @@ The following articles provide detailed analysis of architectures created and re
 ### Scalable gaming servers
 | Architecture | Summary |
 | ------- | ------- | 
-|[Asynchronous multiplayer](/gaming/azure/reference-architectures/multiplayer-asynchronous?toc=https:%2f%2fdocs.microsoft.com%2fen-us%2fazure%2farchitecture%2ftoc.json&bc=https:%2f%2fdocs.microsoft.com%2fen-us%2fazure%2farchitecture%2fbread%2ftoc.json)||
-|[Custom game server scaling](/gaming/azure/reference-architectures/multiplayer-custom-server-scaling?toc=https:%2f%2fdocs.microsoft.com%2fen-us%2fazure%2farchitecture%2ftoc.json&bc=https:%2f%2fdocs.microsoft.com%2fen-us%2fazure%2farchitecture%2fbread%2ftoc.json)||
-|[Multiplayer backend reference architectures](/gaming/azure/reference-architectures/multiplayer?toc=https:%2f%2fdocs.microsoft.com%2fen-us%2fazure%2farchitecture%2ftoc.json&bc=https:%2f%2fdocs.microsoft.com%2fen-us%2fazure%2farchitecture%2fbread%2ftoc.json)|||
-|[Multiplayer hosting with Azure Batch](/gaming/azure/reference-architectures/multiplayer-synchronous-batch?toc=https:%2f%2fdocs.microsoft.com%2fen-us%2fazure%2farchitecture%2ftoc.json&bc=https:%2f%2fdocs.microsoft.com%2fen-us%2fazure%2farchitecture%2fbread%2ftoc.json)||
-|[Multiplayer hosting with Service Fabric](/gaming/azure/reference-architectures/multiplayer-synchronous-sf?toc=https:%2f%2fdocs.microsoft.com%2fen-us%2fazure%2farchitecture%2ftoc.json&bc=https:%2f%2fdocs.microsoft.com%2fen-us%2fazure%2farchitecture%2fbread%2ftoc.json)||
-|[Multiplayer with Azure Container Instances](/gaming/azure/reference-architectures/multiplayer-synchronous-aci?toc=https:%2f%2fdocs.microsoft.com%2fen-us%2fazure%2farchitecture%2ftoc.json&bc=https:%2f%2fdocs.microsoft.com%2fen-us%2fazure%2farchitecture%2fbread%2ftoc.json)|||
-|[Multiplayer with Azure Kubernetes Services](/gaming/azure/reference-architectures/multiplayer-synchronous-aks?toc=https:%2f%2fdocs.microsoft.com%2fen-us%2fazure%2farchitecture%2ftoc.json&bc=https:%2f%2fdocs.microsoft.com%2fen-us%2fazure%2farchitecture%2fbread%2ftoc.json)||
-|[Serverless asynchronous multiplayer](/gaming/azure/reference-architectures/multiplayer-asynchronous-serverless?toc=https:%2f%2fdocs.microsoft.com%2fen-us%2fazure%2farchitecture%2ftoc.json&bc=https:%2f%2fdocs.microsoft.com%2fen-us%2fazure%2farchitecture%2fbread%2ftoc.json)||
+|[Asynchronous multiplayer](/gaming/azure/reference-architectures/multiplayer-asynchronous?toc=https:%2f%2fdocs.microsoft.com%2fen-us%2fazure%2farchitecture%2ftoc.json&bc=https:%2f%2fdocs.microsoft.com%2fen-us%2fazure%2farchitecture%2fbread%2ftoc.json)|Build an asynchronous multiplayer by saving game state to a persistent database. |
+|[Custom game server scaling](/gaming/azure/reference-architectures/multiplayer-custom-server-scaling?toc=https:%2f%2fdocs.microsoft.com%2fen-us%2fazure%2farchitecture%2ftoc.json&bc=https:%2f%2fdocs.microsoft.com%2fen-us%2fazure%2farchitecture%2fbread%2ftoc.json)|Containerize your game server with Docker and build a reliable, automated deployment process for servers by using Azure Resource Manager templates, Azure Functions, and DevOps practices.|
+|[Multiplayer backend reference architectures](/gaming/azure/reference-architectures/multiplayer?toc=https:%2f%2fdocs.microsoft.com%2fen-us%2fazure%2farchitecture%2ftoc.json&bc=https:%2f%2fdocs.microsoft.com%2fen-us%2fazure%2farchitecture%2fbread%2ftoc.json)|Learn about a variety of multiplayer backend use cases and implementations that can help you create a cloud solution that works for your game.|
+|[Multiplayer hosting with Azure Batch](/gaming/azure/reference-architectures/multiplayer-synchronous-batch?toc=https:%2f%2fdocs.microsoft.com%2fen-us%2fazure%2farchitecture%2ftoc.json&bc=https:%2f%2fdocs.microsoft.com%2fen-us%2fazure%2farchitecture%2fbread%2ftoc.json)|Build a scalable game server that's hosted on Azure Batch.|
+|[Multiplayer hosting with Service Fabric](/gaming/azure/reference-architectures/multiplayer-synchronous-sf?toc=https:%2f%2fdocs.microsoft.com%2fen-us%2fazure%2farchitecture%2ftoc.json&bc=https:%2f%2fdocs.microsoft.com%2fen-us%2fazure%2farchitecture%2fbread%2ftoc.json)|Build a scalable game server that's hosted on Azure Service Fabric.|
+|[Multiplayer with Azure Container Instances](/gaming/azure/reference-architectures/multiplayer-synchronous-aci?toc=https:%2f%2fdocs.microsoft.com%2fen-us%2fazure%2farchitecture%2ftoc.json&bc=https:%2f%2fdocs.microsoft.com%2fen-us%2fazure%2farchitecture%2fbread%2ftoc.json)|Learn about a multiplayer solution that automatically scales on demand and is billed per second of usage.|
+|[Multiplayer with Azure Kubernetes Service](/gaming/azure/reference-architectures/multiplayer-synchronous-aks?toc=https:%2f%2fdocs.microsoft.com%2fen-us%2fazure%2farchitecture%2ftoc.json&bc=https:%2f%2fdocs.microsoft.com%2fen-us%2fazure%2farchitecture%2fbread%2ftoc.json)|Manage containerized dedicated game servers by using the Kubernetes orchestrator on Azure.|
+|[Serverless asynchronous multiplayer](/gaming/azure/reference-architectures/multiplayer-asynchronous-serverless?toc=https:%2f%2fdocs.microsoft.com%2fen-us%2fazure%2farchitecture%2ftoc.json&bc=https:%2f%2fdocs.microsoft.com%2fen-us%2fazure%2farchitecture%2fbread%2ftoc.json)|Build a serverless asynchronous multiplayer game on Azure.|
 
 ### Server hosting
 | Architecture | Summary | 
 | ------- | ------- | 
-|[Basic game server hosting](/gaming/azure/reference-architectures/multiplayer-basic-game-server-hosting?toc=https:%2f%2fdocs.microsoft.com%2fen-us%2fazure%2farchitecture%2ftoc.json&bc=https:%2f%2fdocs.microsoft.com%2fen-us%2fazure%2farchitecture%2fbread%2ftoc.json)||
-|[LAMP architectures for gaming](/gaming/azure/reference-architectures/general-purpose-lamp?toc=https:%2f%2fdocs.microsoft.com%2fen-us%2fazure%2farchitecture%2ftoc.json&bc=https:%2f%2fdocs.microsoft.com%2fen-us%2fazure%2farchitecture%2fbread%2ftoc.json)||
+|[Basic game server hosting](/gaming/azure/reference-architectures/multiplayer-basic-game-server-hosting?toc=https:%2f%2fdocs.microsoft.com%2fen-us%2fazure%2farchitecture%2ftoc.json&bc=https:%2f%2fdocs.microsoft.com%2fen-us%2fazure%2farchitecture%2fbread%2ftoc.json)|Set up a basic Azure back end that hosts a game server on either Windows or Linux.|
+|[LAMP architectures for gaming](/gaming/azure/reference-architectures/general-purpose-lamp?toc=https:%2f%2fdocs.microsoft.com%2fen-us%2fazure%2farchitecture%2ftoc.json&bc=https:%2f%2fdocs.microsoft.com%2fen-us%2fazure%2farchitecture%2fbread%2ftoc.json)|Learn how to  effectively and efficiently deploy an existing LAMP architecture on Azure.|

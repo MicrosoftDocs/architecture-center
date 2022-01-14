@@ -1192,6 +1192,8 @@ items:
             href: example-scenario/infrastructure/reservoir-simulation.yml
       - name: Game development
         items:
+          - name: Overview
+            href: industries/game-development.md
           - name: Rendering
             items:
               - name: 3D video rendering
