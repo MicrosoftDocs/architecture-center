@@ -15,7 +15,7 @@ Once the model is trained, it's registered with Azure ML, containerized, and add
 ## Architecture
 
 ![Architecture diagram](../media/hybrid-train-ml-model-at-edge.png)  
-_Download an [Visio file](https://arch-center.azureedge.net/hybrid-train-ml-model-at-edge.vsdx) of this architecture._
+_Download a [Visio file](https://arch-center.azureedge.net/hybrid-train-ml-model-at-edge.vsdx) of this architecture._
 
 ### Data flow
 

@@ -11,7 +11,7 @@ The solution example uses an edge device, like an Azure Stack Edge in each store
 ## Architecture
 
 ![Architecture diagram](../media/hybrid-out-of-stock-at-edge.png)  
-_Download an [Visio file](https://arch-center.azureedge.net/hybrid-out-of-stock-at-edge.vsdx) of this architecture._
+_Download a [Visio file](https://arch-center.azureedge.net/hybrid-out-of-stock-at-edge.vsdx) of this architecture._
 
 ### Data flow
 

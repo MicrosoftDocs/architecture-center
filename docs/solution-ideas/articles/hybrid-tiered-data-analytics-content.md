@@ -26,7 +26,7 @@ Using both on-premises and public cloud environments meets the demands of multi-
 ## Architecture
 
 ![Architecture diagram](../media/hybrid-tiered-data-analytics.png)  
-_Download an [Visio file](https://arch-center.azureedge.net/hybrid-tiered-data-analytics.vsdx) of this architecture._
+_Download a [Visio file](https://arch-center.azureedge.net/hybrid-tiered-data-analytics.vsdx) of this architecture._
 
 ### Data flow
 
