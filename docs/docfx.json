@@ -94,7 +94,7 @@
         ]
       },
       "open_to_public_contributors": {
-        "**/*.yml": false
+        "**/*.yml": false,
         "**/*.md": true
       },                               
       "searchScope": { 
