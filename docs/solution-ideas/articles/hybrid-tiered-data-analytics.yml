@@ -24,7 +24,6 @@ metadata:
     - interactive-diagram
     - networking
     - e2e-hybrid
-    - "https://azure.microsoft.com/solutions/architecture/hybrid-pattern-tiered-data-analytics/"
     - internal-intro
 azureCategories:
   - compute

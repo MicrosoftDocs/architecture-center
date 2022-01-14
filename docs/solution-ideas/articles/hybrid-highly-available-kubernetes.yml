@@ -24,7 +24,6 @@ metadata:
     - interactive-diagram
     - networking
     - e2e-hybrid
-    - "https://azure.microsoft.com/solutions/architecture/hybrid-pattern-highly-available-kubernetes/"
     - internal-intro
 azureCategories:
   - compute
