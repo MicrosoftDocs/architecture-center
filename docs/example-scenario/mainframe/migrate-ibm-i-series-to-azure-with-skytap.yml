@@ -1,6 +1,6 @@
 ### YamlMime:Architecture
 metadata:
-  title: Migrate IBM i series applications to Azure with Skytap
+  title: Migrate IBM i series to Azure with Skytap
   titleSuffix: Azure Example Scenarios
   description: This example architecture shows how to use the native IBM i backup and recovery services with Microsoft Azure components.
   author: EdPrice-MSFT
