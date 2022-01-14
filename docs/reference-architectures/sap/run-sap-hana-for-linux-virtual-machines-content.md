@@ -1,13 +1,15 @@
 This reference architecture shows a set of proven practices for running SAP HANA in a high-availability, scale-up environment that supports disaster recovery on Azure. This implementation focuses on the database layer and is designed to support various SAP applications, such as S/4HANA and SAP BW/4HANA.
 
+## Architecture
+
+This reference architecture describes a common production system. You can choose the virtual machine sizes to accommodate your organization's needs. This configuration can also be reduced to one virtual machine.
+
 ![Reference architecture for SAP HANA ScaleUp](./images/sap-hana-scale-up.png)
 
 > [!NOTE]
 > Deploying this reference architecture requires appropriate licensing of SAP products and other non-Microsoft technologies.
 
-## Architecture
-
-This reference architecture describes a common production system. You can choose the virtual machine sizes to accommodate your organization's needs. This configuration can also be reduced to one virtual machine.
+## Workflow
 
 The architecture includes the following components:
 
@@ -53,7 +55,9 @@ As mentioned, you can increase application availability by using [Availability Z
 
 The database subnet includes an NSG that defines access policies for all the virtual machines within this subnet. To control the flow of traffic between the servers in a subnet, set up NSGs using either the [Azure portal](/azure/virtual-network/tutorial-filter-network-traffic), [PowerShell](/azure/virtual-network/tutorial-filter-network-traffic-powershell), or [Azure CLI](/azure/virtual-network/tutorial-filter-network-traffic-cli). For added control, you can also associate the SAP HANA subnet with [application security groups](/azure/virtual-network/application-security-groups).
 
-## Performance considerations
+## Considerations
+
+### Performance
 
 This implementation uses Azure managed disks or Azure NetApp Files. To achieve high input/output operations per second (IOPS) and disk bandwidth throughput, the common practices in storage volume [performance optimization](/azure/virtual-machines/linux/premium-storage-performance) also apply to Azure storage layout. For example, combining multiple disks together to create a striped disk volume improves IO performance. However, if you later resize the virtual machines, you may need a corresponding change to the disk configuration. Azure NetApp Files cost optimization leverages dynamic tuning, which is built into the service to provide the required performance.
 
@@ -68,7 +72,7 @@ Azure NetApp Files leverages corss region replication and delivers [four nines a
 > [!NOTE]
 > As specified in [SAP Note 2731110](https://launchpad.support.sap.com/#/notes/2731110), do not place any network virtual appliance (NVA) in between the application and the database layers for any SAP application stack. Doing so introduces significant data packets processing time and unacceptably slows application performance.
 
-## Scalability considerations
+### Scalability
 
 This architecture runs SAP HANA on virtual machines that can scale up to 11.5 TB in one instance.
 
@@ -76,7 +80,7 @@ If your workload exceeds the maximum virtual machine size, Microsoft offers [Azu
 
 A multi-node configuration is also possible. For online transaction processing (OLTP) applications, it has a total memory capacity of up to 48 TB. With online analytical processing (OLAP) applications, the memory capacity is 96 TB. For example, you can deploy SAP HANA in a scale-out configuration with standby on virtual machines—running either [Red Hat Enterprise Linux](/azure/virtual-machines/workloads/sap/sap-hana-scale-out-standby-netapp-files-rhel) or [SUSE Linux Enterprise Server](/azure/virtual-machines/workloads/sap/sap-hana-scale-out-standby-netapp-files-suse)—using [Azure NetApp Files](/azure/azure-netapp-files/azure-netapp-files-introduction/) for the shared storage volumes.
 
-## Availability considerations
+### Availability
 
 This reference architecture shows a highly available SAP HANA database system consisting of two virtual machines. With the database tier's SAP HANA native system replication feature, there's either manual or automatic failover between replicated nodes:
 
@@ -88,7 +92,7 @@ For SAP HANA high availability on Linux, create a [Pacemaker cluster](/azure/vir
 
 This architecture uses Linux clustering to detect system failures and make automatic failover easier. With a storage-based or cloud-based fencing mechanism, a failed system is isolated or shut down to prevent a cluster split-brain condition.
 
-## Disaster recovery considerations
+### Disaster recovery
 
 In this architecture, HSR is used for database replication to a database instance in the secondary region. It's optional to use a cluster in the secondary region, but doing so can improve SAP HANA availability after a disaster recovery failover.
 
@@ -96,28 +100,28 @@ In addition to a local, two-node high availability implementation, HSR supports 
 
 Disaster recovery failover is a manual process.
 
-### Virtual network peering
+#### Virtual network peering
 
 To support disaster recovery in this architecture, virtual networks in the secondary region have their traffic directed over ExpressRoute to the on-premises gateway. The traffic is then routed back to Azure, where it's destined for services in the primary region.
 
 You can also use [virtual network peering](../hybrid-networking/hub-spoke.yml). Many virtual networks are [peered together](/azure/virtual-network/virtual-network-peering-overview) to provide network segmentation and isolation for the services that Azure deploys. Through network peering, services in disparate networks in one region can connect with each other. Global network peering bridges virtual networks in remote regions.
 
-### Azure NetApp Files
+#### Azure NetApp Files
 
 As an option, [Azure NetApp Files](/azure/virtual-machines/workloads/sap/hana-vm-operations-storage) can be used to provide a scalable and high-performance storage solution for SAP HANA data and log files. It's also a good solution for Linux cluster shared storage—for example, when building Pacemaker clusters for (A)SCS. With Azure NetApp Files, it's easy to provision file shares for Linux workloads without deploying an NFS file server. This provisioning helps simplify the SAP landscape.
 
 Azure NetApp Files supports snapshots for fast backup, recovery, and local replication. For cross-region content replication, you can use the [NetApp Cloud Sync Service](https://azuremarketplace.microsoft.com/marketplace/apps/netapp.cloud-sync-service?tab=Overview), rsync, or another copy function.
 
-### Azure Site Recovery
+#### Azure Site Recovery
 
 You can use [Azure Site Recovery](/azure/site-recovery/site-recovery-sap) to automatically replicate your production configuration in a secondary location. Then, to extend your recovery plans, you can use customized [deployment scripts](/azure/site-recovery/site-recovery-runbook-automation). An example of the custom Site Recovery Automation Runbooks script is available on [GitHub](https://github.com/Azure/azure-quickstart-templates/tree/master/demos/asr-automation-recovery).
 
 > [!NOTE]
 > As of this writing, Site Recovery does not support the replication of virtual machines in proximity placement groups. Make sure to verify your target region's [resource capacity](/azure/site-recovery/azure-to-azure-common-questions#capacity). Like all Azure services, Site Recovery continues to add features and capabilities. For the latest information about Azure-to-Azure replication, see the [support matrix](/azure/site-recovery/azure-to-azure-support-matrix).
 
-## Management and operations considerations
+### Management and operations
 
-### Backup
+#### Backup
 
 SAP HANA data can be backed up in many ways. After migrating to Azure, you can continue to use any existing partner backup solutions you already have. Azure provides two native approaches: [SAP HANA file-level backup](/azure/virtual-machines/workloads/sap/sap-hana-backup-file-level) and Azure Backup for SAP HANA over the Backint interface.
 
@@ -125,7 +129,7 @@ For SAP HANA file-level backup, you can use your tool of choice, such as hdbsql 
 
 Azure Backup offers a simple, enterprise-grade solution for workloads running on virtual machines. [Azure Backup for SAP HANA](/azure/virtual-machines/workloads/sap/sap-hana-backup-guide) provides full integration with the SAP HANA backup catalog and guarantees database-consistent, full, or point-in-time recoveries. Azure Backup is [BackInt-certified](https://www.sap.com/dmc/exp/2013_09_adpd/enEN/#/solutions) by SAP. See also the [Azure Backup FAQ](/azure/backup/backup-azure-backup-faq).
 
-### Monitoring
+#### Monitoring
 
 To monitor your workloads on Azure, [Azure Monitor](/azure/azure-monitor/overview) lets you comprehensively collect, analyze, and act on telemetry from your cloud and on-premises environments.
 
@@ -135,7 +139,7 @@ To provide SAP-based monitoring of resources and service performance of the SAP 
 
 To monitor SAP application and associated infrastructures, Azure Monitor for SAP Solutions (preview) can be used. [Azure Monitor for SAP Solutions](/azure/virtual-machines/workloads/sap/azure-monitor-overview) provides a simple setup experience. The customer can collect telemetry data from Azure resources. They can then correlate data to various monitoring KPIs and use data to help with troubleshooting.
 
-## Security considerations
+### Security
 
 Many security measures are used to protect the confidentiality, integrity, and availability of an SAP landscape. To secure user access, for example, SAP has its own User Management Engine (UME) to control role-based access and authorization within the SAP application and databases. For more information, see [SAP HANA Security—An Overview](https://archive.sap.com/documents/docs/DOC-62943).
 
@@ -196,6 +200,8 @@ Learn more about the component technologies:
 - [Installation of SAP HANA on Azure virtual machines](/azure/virtual-machines/workloads/sap/hana-get-started)
 - [What is Azure Virtual Network?](/azure/virtual-network/virtual-networks-overview)
 - [Network security groups](/azure/virtual-network/network-security-groups-overview)
+
+## Related resources
 
 Explore related architectures:
 
