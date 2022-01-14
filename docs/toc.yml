@@ -2829,6 +2829,8 @@ items:
                     href: solution-ideas/articles/cross-cloud-scaling.yml
                   - name: Hybrid connections
                     href: solution-ideas/articles/hybrid-connectivity.yml
+                  - name: Hybrid Geo-distributed solution
+                    href: solution-ideas/articles/hybrid-geo-distributed.yml
                   - name: Unlock legacy data with Azure Stack
                     href: solution-ideas/articles/unlock-legacy-data.yml
               - name: Azure VMware Solution foundations
