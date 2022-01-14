@@ -26,7 +26,7 @@ categories:
 
 There are 2 billion gamers in the world today. They play a broad range of games, on a broad range of devices. Game creators strive to continuously engage players, spark their imaginations, and inspire them. Microsoft tools and services can help you achieve these goals. 
 
-Build, scale, and operate your game on the global, secure, and reliable Azure cloud by using Azure technologies like Azure Cognitive Services, Azure Functions, and Azure Kubernetes Service.
+Build, scale, and operate your game on the global, reliable Azure cloud, and incorporate features like multiplayer, leaderboards, translation, and bots. 
 
 <br>
 
@@ -61,8 +61,8 @@ The following articles provide detailed analysis of architectures created and re
 | Architecture | Summary | 
 | ------- | ------- | 
 |[Unreal Pixel Streaming](/gaming/azure/reference-architectures/unreal-pixel-streaming-in-azure?toc=https:%2f%2fdocs.microsoft.com%2fen-us%2fazure%2farchitecture%2ftoc.json&bc=https:%2f%2fdocs.microsoft.com%2fen-us%2fazure%2farchitecture%2fbread%2ftoc.json)|Deploy Unreal Engine's Pixel Streaming technology on Azure. You can use this Epic Games technology to stream remotely deployed interactive 3D applications through a browser.|
-|[Deploy Unreal Pixel Streaming](/gaming/azure/reference-architectures/unreal-pixel-streaming-deploying?toc=https:%2f%2fdocs.microsoft.com%2fen-us%2fazure%2farchitecture%2ftoc.json&bc=https:%2f%2fdocs.microsoft.com%2fen-us%2fazure%2farchitecture%2fbread%2ftoc.json)|Deploy the Unreal Pixel Streaming package on an Azure GPU virtual machine, or on multiple virtual machines. |
-|[Unreal Pixel Streaming at scale](/gaming/azure/reference-architectures/unreal-pixel-streaming-at-scale?toc=https:%2f%2fdocs.microsoft.com%2fen-us%2fazure%2farchitecture%2ftoc.json&bc=https:%2f%2fdocs.microsoft.com%2fen-us%2fazure%2farchitecture%2fbread%2ftoc.json)|Deploy Unreal Engine's Pixel Streaming technology on Azure at scale.|
+|[Deploy Unreal Pixel Streaming](/gaming/azure/reference-architectures/unreal-pixel-streaming-deploying?toc=https:%2f%2fdocs.microsoft.com%2fen-us%2fazure%2farchitecture%2ftoc.json&bc=https:%2f%2fdocs.microsoft.com%2fen-us%2fazure%2farchitecture%2fbread%2ftoc.json)|Deploy the Unreal Pixel Streaming package on an Azure GPU virtual machine or on multiple virtual machines. |
+|[Unreal Pixel Streaming at scale](/gaming/azure/reference-architectures/unreal-pixel-streaming-at-scale?toc=https:%2f%2fdocs.microsoft.com%2fen-us%2fazure%2farchitecture%2ftoc.json&bc=https:%2f%2fdocs.microsoft.com%2fen-us%2fazure%2farchitecture%2fbread%2ftoc.json)|Deploy Unreal Engine's Pixel Streaming technology at scale on Azure.|
 
 ### Leaderboards
 | Architecture | Summary | 
@@ -90,8 +90,8 @@ The following articles provide detailed analysis of architectures created and re
 |[Multiplayer backend reference architectures](/gaming/azure/reference-architectures/multiplayer?toc=https:%2f%2fdocs.microsoft.com%2fen-us%2fazure%2farchitecture%2ftoc.json&bc=https:%2f%2fdocs.microsoft.com%2fen-us%2fazure%2farchitecture%2fbread%2ftoc.json)|Learn about a variety of multiplayer backend use cases and implementations that can help you create a cloud solution that works for your game.|
 |[Multiplayer hosting with Azure Batch](/gaming/azure/reference-architectures/multiplayer-synchronous-batch?toc=https:%2f%2fdocs.microsoft.com%2fen-us%2fazure%2farchitecture%2ftoc.json&bc=https:%2f%2fdocs.microsoft.com%2fen-us%2fazure%2farchitecture%2fbread%2ftoc.json)|Build a scalable game server that's hosted on Azure Batch.|
 |[Multiplayer hosting with Service Fabric](/gaming/azure/reference-architectures/multiplayer-synchronous-sf?toc=https:%2f%2fdocs.microsoft.com%2fen-us%2fazure%2farchitecture%2ftoc.json&bc=https:%2f%2fdocs.microsoft.com%2fen-us%2fazure%2farchitecture%2fbread%2ftoc.json)|Build a scalable game server that's hosted on Azure Service Fabric.|
-|[Multiplayer with Azure Container Instances](/gaming/azure/reference-architectures/multiplayer-synchronous-aci?toc=https:%2f%2fdocs.microsoft.com%2fen-us%2fazure%2farchitecture%2ftoc.json&bc=https:%2f%2fdocs.microsoft.com%2fen-us%2fazure%2farchitecture%2fbread%2ftoc.json)|Learn about a multiplayer solution that automatically scales on demand and is billed per second of usage.|
-|[Multiplayer with Azure Kubernetes Service](/gaming/azure/reference-architectures/multiplayer-synchronous-aks?toc=https:%2f%2fdocs.microsoft.com%2fen-us%2fazure%2farchitecture%2ftoc.json&bc=https:%2f%2fdocs.microsoft.com%2fen-us%2fazure%2farchitecture%2fbread%2ftoc.json)|Manage containerized dedicated game servers by using the Kubernetes orchestrator on Azure.|
+|[Multiplayer with Azure Container Instances](/gaming/azure/reference-architectures/multiplayer-synchronous-aci?toc=https:%2f%2fdocs.microsoft.com%2fen-us%2fazure%2farchitecture%2ftoc.json&bc=https:%2f%2fdocs.microsoft.com%2fen-us%2fazure%2farchitecture%2fbread%2ftoc.json)|Learn about a multiplayer solution that automatically scales on demand and is billed per seconds of usage.|
+|[Multiplayer with Azure Kubernetes Service](/gaming/azure/reference-architectures/multiplayer-synchronous-aks?toc=https:%2f%2fdocs.microsoft.com%2fen-us%2fazure%2farchitecture%2ftoc.json&bc=https:%2f%2fdocs.microsoft.com%2fen-us%2fazure%2farchitecture%2fbread%2ftoc.json)|Manage containerized, dedicated game servers by using the Kubernetes orchestrator on Azure.|
 |[Serverless asynchronous multiplayer](/gaming/azure/reference-architectures/multiplayer-asynchronous-serverless?toc=https:%2f%2fdocs.microsoft.com%2fen-us%2fazure%2farchitecture%2ftoc.json&bc=https:%2f%2fdocs.microsoft.com%2fen-us%2fazure%2farchitecture%2fbread%2ftoc.json)|Build a serverless asynchronous multiplayer game on Azure.|
 
 ### Server hosting
@@ -101,4 +101,4 @@ The following articles provide detailed analysis of architectures created and re
 |[LAMP architectures for gaming](/gaming/azure/reference-architectures/general-purpose-lamp?toc=https:%2f%2fdocs.microsoft.com%2fen-us%2fazure%2farchitecture%2ftoc.json&bc=https:%2f%2fdocs.microsoft.com%2fen-us%2fazure%2farchitecture%2fbread%2ftoc.json)|Learn how to  effectively and efficiently deploy an existing LAMP architecture on Azure.|
 
 ## Related resources
-[Game development architectures](/azure/architecture/browse/?terms=game)
+[Browse game development architectures](/azure/architecture/browse/?terms=game)
