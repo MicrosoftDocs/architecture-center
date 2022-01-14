@@ -2,7 +2,7 @@
 metadata:
   title: Databases architecture design
   titleSuffix: Azure Reference Architectures
-  description: <A brief summary of your article. This is the description that appears in search engine results. Maximum recommended length is 150-160 characters.>
+  description: This article provides an overview of the Azure database solutions described in Azure Architecture Center.
   author: EdPrice-MSFT
   ms.author: pnp
   ms.date: 01/17/2022
@@ -17,7 +17,7 @@ products:
   - azure-database-mysql
   - azure-database-postgresql
 name: Databases architecture design
-summary: <Write a summary. Can be same as description.>
+summary: This article provides an overview of the Azure database solutions described in Azure Architecture Center.
 thumbnailUrl: /azure/architecture/browse/thumbs/architecture-design-types.png
 content: |
   [!include[](databases-architecture-design-content.md)]
