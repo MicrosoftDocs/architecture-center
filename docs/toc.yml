@@ -1801,6 +1801,8 @@ items:
             href: solution-ideas/articles/analytics-start-here.yml
           - name: Guides
             items:
+              - name: DataOps checklist
+                href: checklist/data-ops.md
               - name: Technology choices
                 items:
                   - name: Analytical data stores
@@ -2232,8 +2234,6 @@ items:
                     href: data-guide/technology-choices/search-options.md
                   - name: Stream processing
                     href: data-guide/technology-choices/stream-processing.md
-              - name: DataOps checklist
-                href: checklist/data-ops.md
               - name: Data management patterns
                 href: patterns/category/data-management.md
               - name: Use the Transactional Outbox pattern
@@ -2395,7 +2395,7 @@ items:
               - name: Serverless apps using Cosmos DB
                 href: solution-ideas/articles/serverless-apps-using-cosmos-db.yml
               - name: Streaming using HDInsight
-                href: solution-ideas/articles/streaming-using-hdinsight.yml             
+                href: solution-ideas/articles/streaming-using-hdinsight.yml
       - name: Developer Options
         items:
           - name: Microservices
