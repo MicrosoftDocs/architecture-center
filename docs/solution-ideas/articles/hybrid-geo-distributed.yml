@@ -1,0 +1,36 @@
+### YamlMime:Architecture
+metadata:
+  title: Hybrid Geo-distributed solution
+  titleSuffix: Azure Solution Ideas
+  description: Learn how to provide app endpoints across multiple regions and route user traffic based on location and compliance needs.
+  author: EdPrice-MSFT
+  ms.author: pnp
+  ms.date: 01/12/2022
+  ms.topic: conceptual
+  ms.service: architecture-center
+  ms.subservice: solution-idea
+  ms.category:
+    - hybrid
+  ms.custom:
+    - acom-architecture
+    - Hybrid Identity
+    - Azure Hybrid Identity
+    - Service Principles
+    - Azure Active Directory
+    - Azure Active Directory Tenant
+    - interactive-diagram
+    - hybrid-infrastructure
+    - e2e-hybrid
+  social_image_url: /azure/architecture/solution-ideas/articles/media/hybrid-pattern-geo-distributed.png
+name: Hybrid Geo-distributed solution
+azureCategories:
+  - identity
+  - hybrid
+summary: Learn how to provide app endpoints across multiple regions and route user traffic based on location and compliance needs.
+products:
+  - azure-active-directory
+  - azure-stack-hub
+  - azure-virtual-machines
+thumbnailUrl: /azure/architecture/browse/thumbs/hybrid-geo-distributed.png
+content: |
+   [!include[](hybrid-geo-distributed-content.md)] 
