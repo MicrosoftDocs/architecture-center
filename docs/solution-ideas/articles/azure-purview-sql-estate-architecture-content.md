@@ -87,8 +87,8 @@ The solution uses the following components:
 ## Next steps
 
 - [Azure customer case studies](https://customers.microsoft.com/en-us/search?sq=%22Azure%20Purview%22&ff=&p=0&so=story_publish_date%20desc)
-- [Azure Purview technical documentation and best practices](../../purview/concept-best-practices-accounts.yml)
-- [What is Azure Purview?](../../purview/overview.yml)
+- [Azure Purview technical documentation and best practices](../purview/concept-best-practices-accounts.yml)
+- [What is Azure Purview?](../purview/overview.yml)
 - [What is Power BI?](https://powerbi.microsoft.com/what-is-power-bi)
 - [Azure Active Directory](https://azure.microsoft.com/services/active-directory)
 - [Azure Cost Management and Billing](https://azure.microsoft.com/services/cost-management)
