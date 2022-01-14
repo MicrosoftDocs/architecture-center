@@ -1,0 +1,27 @@
+### YamlMime:Architecture
+metadata:
+  title: Migrate IBM i series applications to Azure with Skytap
+  titleSuffix: Azure Example Scenarios
+  description: This example architecture shows how to use the native IBM i backup and recovery services with Microsoft Azure components.
+  author: EdPrice-MSFT
+  ms.author: Ricardo.Galvan
+  ms.date: 05/24/2021
+  ms.topic: conceptual
+  ms.service: architecture-center
+  ms.subservice: example-scenario
+  ms.custom:
+    - fcp
+azureCategories:
+  - hybrid
+  - migration
+products:
+  - azure-virtual-network
+  - azure-private-link
+  - azure-expressroute
+  - azure-virtual-machines
+  - azure-data-box-family
+name: Migrate IBM i series applications to Azure with Skytap
+summary: This example architecture shows how to use the native IBM i backup and recovery services with Microsoft Azure components.
+thumbnailUrl: /azure/architecture/browse/thumbs/migrate-ibm-i-series-applications.png
+content: |
+  [!include[](migrate-ibm-i-series-to-azure-with-skytap-content.md)]

@@ -7,7 +7,7 @@ Automating workflows and repetitive tasks on the cloud using [serverless technol
 1. **Throttling response**: This example monitors a Cosmos DB database for throttling. [Azure Monitor alerts](/azure/azure-monitor/overview#alerts) are triggered when data access requests to CosmosDB exceed the [capacity in Request Units (or RUs)](/azure/cosmos-db/request-units). An [Azure Monitor action group](https://azure.microsoft.com/resources/videos/azure-friday-azure-monitor-action-groups/) is configured to call the automation function in response to these alerts. The function scales the RUs to a higher value, increasing the capacity and in turn stopping the alerts.
 
 > [!NOTE]
-> These solutions are not the only away to accomplish these tasks and are shown as illustrative of how serverless technologies can react to environmental signals (events) and influence changes to your environment impartiatively. Where practical, perfer the usage of platform-native solutions over custom solutions. For example, CosmosDB natively supports [autoscale throughput](/azure/cosmos-db/provision-throughput-autoscale) as a native alternative to the Throttling response scenario.
+> These solutions are not the only away to accomplish these tasks and are shown as illustrative of how serverless technologies can react to environmental signals (events) and influence changes to your environment. Where practical, use platform-native solutions over custom solutions. For example, CosmosDB natively supports [autoscale throughput](/azure/cosmos-db/provision-throughput-autoscale) as a native alternative to the Throttling response scenario.
 
 ![Serverless cloud automation](./_images/cloud-automation.png)
 
@@ -235,8 +235,8 @@ Learn more about the [serverless implementations](../../serverless/code.md).
 
 <!-- links -->
 
-[AAF-cost]: ../../framework/cost/overview.md
-[AAF-devops]: ../../framework/devops/overview.md
+[AAF-cost]: /azure/architecture/framework/cost/overview
+[AAF-devops]: /azure/architecture/framework/devops/overview
 [app-insights]: /azure/azure-monitor/app/app-insights-overview
 [az-logic-apps-ISE]: /azure/logic-apps/connect-virtual-network-vnet-isolated-environment-overview
 [cosmos-calculator]: https://cosmos.azure.com/capacitycalculator

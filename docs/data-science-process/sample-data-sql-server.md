@@ -8,7 +8,7 @@ editor: marktab
 ms.service: machine-learning
 ms.subservice: team-data-science-process
 ms.topic: article
-ms.date: 01/10/2020
+ms.date: 12/16/2021
 ms.author: tdsp
 ms.custom:
   - previous-author=deguhath
@@ -66,9 +66,7 @@ TABLESAMPLE (10 PERCENT)
 >
 
 ### <a name="sql-aml"></a>Connecting to Azure Machine Learning
-You can directly  use the sample queries above in the Azure Machine Learning [Import Data][import-data] module to down-sample the data on the fly and bring it into an Azure Machine Learning experiment. A screenshot of using the reader module to read the sampled data is shown here:
-
-![reader sql][1]
+You may directly use the sample queries above in Azure Machine Learning code (perhaps a notebook, or code inserted into Designer).  [See this link for more dtails about how to connect to storage with an Azure Machine Learning datastore](/azure/machine-learning/concept-data#connect-to-storage-with-datastores).
 
 ## <a name="python"></a>Using the Python programming language
 This section demonstrates using the [pyodbc library](https://code.google.com/p/pyodbc/) to establish an ODBC connect to a SQL server database in Python. The database connection string is as follows: (replace servername, dbname, username, and password with your configuration):
@@ -123,15 +121,10 @@ You can use the following sample code to save the down-sampled data to a file an
         print ("Something went wrong with uploading blob:"+BLOBNAME)
     ```
 
-3. Read data from Azure blob using Azure Machine Learning [Import Data][import-data] module as shown in the following screen grab:
-
-![reader blob][2]
+3. [This guide provides an overview of the next step to access data in Azure Machine Learning through datastores and datasets](/azure/machine-learning/concept-data).
 
 ## The Team Data Science Process in Action example
 
 To walk through an example of the Team Data Science Process a using a public dataset, see [Team Data Science Process in Action: using SQL Server](sql-walkthrough.md).
-
-[1]: ./media/sample-sql-server-virtual-machine/reader-database.png
-[2]: ./media/sample-sql-server-virtual-machine/reader-blob.png
 
 [import-data]: /azure/machine-learning/studio-module-reference/import-data

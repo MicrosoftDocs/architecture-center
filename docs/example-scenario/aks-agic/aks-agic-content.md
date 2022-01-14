@@ -39,7 +39,7 @@ The Azure Kubernetes Service (AKS) cluster uses a user-defined managed identity 
 - [Managed identity in place of a service principal](/azure/aks/use-managed-identity)
 - [Azure Active Directory pod-managed identities](/azure/aks/use-azure-ad-pod-identity)
 - [Azure Network Policies](/azure/aks/use-network-policies)
-- [Azure Monitor for containers add-on](/azure/azure-monitor/containers/container-insights-enable-new-cluster)
+- [Azure Monitor container insights add-on](/azure/azure-monitor/containers/container-insights-enable-new-cluster)
 - [Application Gateway Ingress Controller add-on](https://azure.github.io/application-gateway-kubernetes-ingress/)
 - [Dynamic allocation of IPs and enhanced subnet support](/azure/aks/configure-azure-cni#dynamic-allocation-of-ips-and-enhanced-subnet-support-preview)
 
@@ -293,9 +293,9 @@ Although the monitoring considerations are not fully pertaining to multitenancy 
 
 ## Deploy this scenario
 
-The source code for this scenario is available [on GitHub](https://github.com/paolosalvatori/aks-agic). This solution is open source and provided with an [MIT License](https://github.com/paolosalvatori/aks-agic/blob/master/LICENSE). You can also find a demo application, as shown in the following figure, in [this GitHub repository](https://github.com/paolosalvatori/aks-multi-tenant-agic).
+The source code for this scenario is available [on GitHub](https://github.com/Azure-Samples/aks-agic). This solution is open source and provided with an [MIT License](https://github.com/Azure-Samples/aks-agic/blob/main/LICENSE.md). You can also find a demo application, as shown in the following figure, in [this GitHub repository](https://github.com/Azure-Samples/aks-multi-tenant-agic).
 
-![Architecture Diagram](./media/aks-agic-sample.png)
+![The diagram shows the deployment of this AGIC with AKS architecture.](./media/aks-agic-sample.png)
 
 ### Prerequisites
 
@@ -305,13 +305,13 @@ For online deployments, you must have an existing Azure account. If you need one
 
 1. Make sure you have your Azure subscription information handy.
 
-2. Start by cloning the [workbench GitHub repository](https://github.com/paolosalvatori/aks-agic):
+2. Start by cloning the [workbench GitHub repository](https://github.com/Azure-Samples/aks-agic):
 
    ```git
-   git clone https://github.com/paolosalvatori/aks-agic.git
+   git clone https://github.com/Azure-Samples/aks-agic.git
    ```
 
-3. Follow the instructions provided in the [README.md file](https://github.com/paolosalvatori/aks-agic/blob/master/README.md).
+3. Follow the instructions provided in the [README.md file](https://github.com/Azure-Samples/aks-agic/blob/main/README.md).
 
 ## Pricing
 
@@ -322,7 +322,7 @@ The cost of this architecture depends on configuration aspects, like the followi
 - Automation scripts
 - Your disaster recovery level
 
-After you assess these aspects, go to the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator) to estimate your costs. Also, for more pricing optimization options, see the [Principles of cost optimization](../../framework/cost/overview.md) in the Microsoft Azure Well-Architected Framework.
+After you assess these aspects, go to the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator) to estimate your costs. Also, for more pricing optimization options, see the [Principles of cost optimization](/azure/architecture/framework/cost/overview) in the Microsoft Azure Well-Architected Framework.
 
 ## Next steps
 

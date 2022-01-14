@@ -4,7 +4,7 @@ titleSuffix: Azure Architecture Center
 description: This article describes the features of Azure Resource Manager that are useful when you work with multitenanted systems, and it provides links to guidance and examples for how to use Azure Resource Manager in a multitenant solution.
 author: johndowns
 ms.author: jodowns
-ms.date: 11/22/2021
+ms.date: 1/4/2022
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: azure-guide
@@ -13,7 +13,7 @@ products:
  - azure-resource-manager
 categories:
  - management-and-governance
- - security
+ - devops
 ms.category:
   - fcp
 ms.custom:
@@ -64,37 +64,7 @@ The mitigations you select need to be appropriate for the specific limit you enc
 
 ## Isolation models
 
-In some multitenant solutions, you might decide to deploy separate or dedicated resources for each tenant. Resource Manager provides several models that you can use to isolate resources, depending on your requirements and the reason you choose to isolate the resources.
-
-### Shared resource groups
-
-We recommend that you use resource groups to manage resources with the same lifecycle. In some multitenant systems, it makes sense to deploy resources for multiple tenants into a single resource group or a set of resource groups.
-
-Be aware of the maximum number of resources of a given type that can be deployed into a single resource group, and other [resource group limits](/azure/azure-resource-manager/management/azure-subscription-service-limits#resource-group-limits). You should also be aware of limits that apply to the Azure subscription.
-
-### Resource groups per tenant
-
-You might choose to deploy a resource group for each tenant. This can make sense when you need to manage all of the Azure resources for a specific tenant together as a unit, or when you need to use Azure RBAC to grant permissions to a specific tenant's resources.
-
-Ensure you are aware of the maximum number of resource groups that can be created within a subscription, and other [subscription limits](/azure/azure-resource-manager/management/azure-subscription-service-limits#subscription-limits).
-
-### Subscriptions per tenant
-
-In some scenarios, you might need to deploy dedicated Azure subscriptions for each tenant, or for a subset of your tenants. This is most commonly used when your tenants are enterprise customers with stringent isolation requirements.
-
-You might also choose to create separate Azure subscriptions for the purposes of scaling, such as when you adopt the [Deployment Stamps pattern](../../../patterns/deployment-stamp.md). In this scenario, it's helpful to pre-create your subscriptions, submit any [quota allocation requests](/azure/azure-resource-manager/management/azure-subscription-service-limits#managing-limits) required, and deploy your resources.
-
-Resource Manager provides [APIs and template support](/azure/cost-management-billing/manage/create-subscription) to create Azure subscriptions programmatically, where it depends on your commercial relationship with Microsoft or a Microsoft partner.
-
-[Management groups](/azure/governance/management-groups) enable you to manage a set of subscriptions together. For example, you might create an Azure subscription for tenant A, another for tenant B, and so forth. You can group all of these subscriptions into a management group, which provides you with a convenient way to assign RBAC permissions and policies.
-
-Make you are aware of the number of subscriptions that you can create. The maximum number of subscriptions might differ, depending on your commercial relationship with Microsoft or a Microsoft partner, such as if you have an [enterprise agreement](/azure/cost-management-billing/manage/programmatically-create-subscription-enterprise-agreement?tabs=rest#limitations-of-azure-enterprise-subscription-creation-api).
-
-### Azure AD tenants per tenant
-
-It's also possible to create separate Azure AD tenants, such as to manage each of your own tenants in their own Azure AD tenant. Additionally, in some situations, it might make sense to keep your own organization's Azure AD tenant separate from the Azure AD tenant that you use to provision your own tenants' Azure resources.
-
-In general, it's not advisable to create multiple Azure AD tenants. This approach requires additional management effort, and it introduces a significant amount of complexity to your deployment processes. Additionally, it's generally redundant because a single Azure AD tenant can be used by multiple separate subscriptions and Azure resources. Before you make an effort to deploy multiple Azure AD tenants, [consider whether there are other approaches that could achieve your purposes](https://azure.microsoft.com/resources/securing-azure-environments-with-azure-active-directory).
+In some multitenant solutions, you might decide to deploy separate or dedicated resources for each tenant. Resource Manager provides several models that you can use to isolate resources, depending on your requirements and the reason you choose to isolate the resources. See [Azure resource organization in multitenant solutions](../approaches/resource-organization.md) for guidance about how to isolate your Azure resources.
 
 ## Next steps
 

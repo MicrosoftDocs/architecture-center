@@ -127,7 +127,7 @@ In this example, we configure a Power Automate cloud flow to consume the REST en
 
 ## Pricing
 
-**Azure Pricing:** First party Infrastructure-as-a-Service (IaaS) and Platform-as-a-Service (PaaS) services on Azure use a consumption-based pricing model. They don't require a license or subscription fee. In general, use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator) to estimate costs. For other considerations, see [Cost Optimization](../../framework/cost/index.yml) in the Well-Architected Framework.
+**Azure Pricing:** First party Infrastructure-as-a-Service (IaaS) and Platform-as-a-Service (PaaS) services on Azure use a consumption-based pricing model. They don't require a license or subscription fee. In general, use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator) to estimate costs. For other considerations, see [Cost Optimization](/azure/architecture/framework/cost/index) in the Well-Architected Framework.
 
 **Power Platform Pricing:** [Power Apps](https://powerapps.microsoft.com/pricing), [Power Automate](https://flow.microsoft.com/pricing) and [Power BI](https://powerbi.microsoft.com/pricing) are Software-as-a-Service (SaaS) applications and have their own pricing models, including per app plan, and per user.
 

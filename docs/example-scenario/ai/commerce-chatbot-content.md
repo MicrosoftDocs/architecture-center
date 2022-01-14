@@ -60,7 +60,7 @@ This scenario uses Azure SQL Database for storing customer reservations. SQL Dat
 
 To monitor the health of your application, this scenario uses Application Insights. With Application Insights, you can generate alerts and respond to performance issues that would affect customer experience and availability of the chatbot. For more information, see [What is Application Insights?][appinsights-docs]
 
-For other resiliency articles, see [Designing reliable Azure applications](../../framework/resiliency/app-design.md).
+For other resiliency articles, see [Designing reliable Azure applications](/azure/architecture/framework/resiliency/app-design).
 
 ## Deploy the scenario
 
@@ -124,7 +124,7 @@ Microsoft Learn modules:
 [learn1]: /learn/paths/create-bots-with-the-azure-bot-service/
 [learn2]: /learn/modules/build-faq-chatbot-qna-maker-azure-bot-service/
 [security]: /azure/security
-[scalability]: ../../framework/scalability/performance-efficiency.md
+[scalability]: /azure/architecture/framework/scalability/performance-efficiency
 [sqlavailability-docs]: /azure/sql-database/sql-database-technical-overview#availability-capabilities
 [sqldatabase-docs]: /azure/sql-database
 [sqlsecurity-docs]: /azure/sql-database/sql-database-technical-overview#advanced-security-and-compliance

@@ -90,3 +90,21 @@ Besides the `Gridwich.SagaParticipants.Encode` packaging that shares code across
 To keep `using` statements to a minimum, Gridwich doesn't restrict package contents to the namespace that the package name indicates. Some packages contribute entities to other namespaces. For example, the package `Gridwich.Core.Tests` contributes the `Gridwich.Core.Helpers.TestHelpers` class.
 
 However, each package builds a DLL that matches the package name for the production code in `src`, and a DLL of unit tests, if any, in `tests`. The test DLL name is the same as the package name, but with a `Tests` suffix.
+
+## Next steps
+
+Product documentation:
+
+- [Gridwich cloud media system](gridwich-architecture.yml)
+- [Introduction to Azure Functions](/azure/azure-functions/functions-overview)
+
+Microsoft Learn modules:
+
+- [Create a long-running serverless workflow with Durable Functions](/learn/modules/create-long-running-serverless-workflow-with-durable-functions)
+- [Explore Azure Functions](/learn/modules/explore-azure-functions)
+
+## Related resources
+
+- [Gridwich clean monolith architecture](gridwich-clean-monolith.yml)
+- [Gridwich content protection and DRM](gridwich-content-protection-drm.yml)
+- [Gridwich saga orchestration](gridwich-saga-orchestration.yml)
