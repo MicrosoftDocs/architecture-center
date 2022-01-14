@@ -24,7 +24,7 @@ This solution isn't recommended when:
 ## Architecture
 
 ![Architecture diagram](../media/hybrid-cross-cloud-scaling.png)  
-_Download an [Visio file](https://arch-center.azureedge.net/hybrid-cross-cloud-scaling.vsdx) of this architecture._
+_Download a [Visio file](https://arch-center.azureedge.net/hybrid-cross-cloud-scaling.vsdx) of this architecture._
 
 ### Data flow
 
