@@ -95,6 +95,7 @@
       },
       "open_to_public_contributors": {
         "**/*.yml": false
+        "**/*.md": true
       },                               
       "searchScope": { 
         "guide/**/*.md": [ "Azure", "Azure Architecture Center", "Application Architecture Guide" ],
