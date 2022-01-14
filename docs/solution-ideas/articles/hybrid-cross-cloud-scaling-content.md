@@ -4,7 +4,7 @@ This architecture illustrates how to extend an app located in a local cloud with
 
 ## Potential use cases
 
-When an app can't increase capacity to meet unexpected increases in demand. This lack of scalability results in users not reaching the app during peak usage times. The app can service a fixed number of users.
+When an app can't increase capacity to meet unexpected increases in demand. The app can only service a fixed number of users and this lack of scalability potentially results in users not reaching the app during peak usage times.
 
 Global enterprises require secure, reliable, and available cloud-based apps. Meeting increases in demand and using the right infrastructure to support that demand is critical. Businesses struggle to balance costs and maintenance with business data security, storage, and real-time availability.
 
@@ -30,7 +30,7 @@ _Download an [Visio file](https://arch-center.azureedge.net/hybrid-cross-cloud-s
 
 1. The client sends a request to the cloud application.
 1. Traffic Manager uses DNS to direct the client requests to the appropriate service endpoint based on a traffic-routing method. Traffic Manager also provides health monitoring for every endpoint.
-1. The instance of the cloud application chosen by Traffic Manager processes the request.
+1. The instance of the cloud application chosen by Traffic Manager process the request.
 
 ### Components
 
@@ -42,7 +42,8 @@ _Download an [Visio file](https://arch-center.azureedge.net/hybrid-cross-cloud-s
 
 ### Alternatives
 
-For web applications, you can use [Azure Front Door](https://azure.microsoft.com/services/frontdoor/). It works at Layer 7 (HTTP/HTTPS layer) using anycast protocol with split TCP and Microsoft's global network to improve global connectivity. Based on your routing method you can ensure that Front Door will route your client requests to the fastest and most available application backend.
+For web applications, you can use [Azure Front Door](https://azure.microsoft.com/services/frontdoor/). It works at Layer 7 (HTTP/HTTPS layer)
+and can keep traffic on the best path to your app, improve service scale, reduce latency, and increase throughput for your global users with edge load balancing, SSL offload, and application acceleration.
 
 ## Considerations
 
