@@ -30,11 +30,9 @@ The solution described here is appropriate for organizations that would benefit 
 
 ## Architecture
 
-:::image type="complex" source="../media/azure-purview-sql-estate-architecture.png" alt-text="Architecture diagram shows how Azure Purview scans and classifies data and data lake storage." lightbox="../media/azure-purview-sql-estate-architecture-lightbox.png" border="false":::
-The diagram shows several rectangles. The labels on the rectangles read the connectivity between four different scenarios. First scenario shows the connectivity between Azure Purview and on-premises SQL sources. Second scenario shows the connectivity between Azure SQL to Azure Purview using Private Endpoint. The third scenario shows the connectivity between SQL Managed Instance to Azure Purview using Private Endpoint. The fourth scenario shows the connectivity between Power BI and Azure Purview. The rectangle on the bottom shows the integration between the services above and Microsoft Azure AD, Azure Monitor, and Azure Key Vault.
-:::image-end:::
+[![Architecture diagram shows how Azure Purview scans and classifies data and data lake storage](../media/azure-purview-sql-estate-architecture.png)](../media/azure-purview-sql-estate-architecture.png#lightbox)
 
-_Download a [PowerPoint file](https://arch-center.azureedge.net/azure-purview-sql-estate-architecture.pptx) of this architecture._
+*Download a [PowerPoint file](https://arch-center.azureedge.net/azure-purview-sql-estate-architecture.pptx) of this architecture.*
 
 ### Dataflow
 
