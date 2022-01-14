@@ -67,7 +67,7 @@ To meet the intensive IOPS and transfer bandwidth demands of SAP HANA, [ultra di
 
 For details about SAP HANA performance requirements, see [SAP Note 1943937](https://launchpad.support.sap.com/#/notes/1943937), "Hardware Configuration Check Tool."
 
-Azure NetApp Files leverages corss region replication and delivers [four nines availability](https://azure.microsoft.com/support/legal/sla/netapp/).
+Azure NetApp Files leverages cross-region replication and delivers [four nines availability](https://azure.microsoft.com/support/legal/sla/netapp/).
 
 > [!NOTE]
 > As specified in [SAP Note 2731110](https://launchpad.support.sap.com/#/notes/2731110), do not place any network virtual appliance (NVA) in between the application and the database layers for any SAP application stack. Doing so introduces significant data packets processing time and unacceptably slows application performance.
