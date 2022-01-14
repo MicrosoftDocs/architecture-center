@@ -1,0 +1,39 @@
+### YamlMime:Architecture
+metadata:
+  title: Cross-Cloud Scaling
+  titleSuffix: Azure Solution Ideas
+  description: Automatically add resources to an existing app to accommodate an increase in load.
+  author: EdPrice-MSFT
+  ms.author: pnp
+  ms.date: 01/12/2022
+  ms.topic: conceptual
+  ms.service: architecture-center
+  ms.subservice: solution-idea
+  ms.category:
+    - compute
+    - storage
+    - hybrid
+    - integration
+  ms.custom:
+    - acom-architecture
+    - Hybrid Connection
+    - Azure Hybrid Connection
+    - Hybrid Network
+    - Azure Hybrid Network
+    - hybrid-infrastructure
+    - interactive-diagram
+    - networking
+    - e2e-hybrid
+    - internal-intro
+azureCategories:
+  - compute
+  - hybrid
+  - integration
+products:
+  - azure-stack-hub
+  - azure-virtual-machines
+name: Cross-Cloud Scaling
+summary: Automatically add resources to an existing app to accommodate an increase in load.
+thumbnailUrl: /azure/architecture/browse/thumbs/hybrid-cross-cloud-scaling.png
+content: |
+  [!include[](hybrid-cross-cloud-scaling-content.md)]
