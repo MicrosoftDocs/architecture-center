@@ -622,12 +622,10 @@ For additional network security, consider implementing a [network DMZ](../../ref
 
 For infrastructure security, data is encrypted in transit and at rest. The "Security considerations" section of the [SAP NetWeaver on Azure Virtual Machines–Planning and Implementation Guide](/azure/virtual-machines/workloads/sap/planning-guide) begins to address network security and applies to S/4HANA. The guide also specifies the network ports you must open on the firewalls to allow application communication.
 
-To encrypt Linux virtual machine disks, you can use [Azure Disk Encryption](/azure/virtual-machines/linux/disk-encryption-overview). It uses the DM-Crypt feature of Linux to provide volume encryption for the operating system and the data disks. The solution also works with Azure Key Vault to help you control and manage the disk-encryption keys and secrets in your key vault subscription. Data on the virtual machine disks are encrypted at rest in your Azure storage.
-
-For SAP HANA data-at-rest encryption, we recommend using the SAP HANA native encryption technology.
+To encrypt Linux virtual machine disks, you have various choices as described in [Azure Disk Encryption](/azure/virtual-machines/linux/disk-encryption-overview). For SAP HANA data-at-rest encryption, we recommend using the SAP HANA native encryption technology. Be aware that some Azure Disk Encryption methods may not be supported on SAP specific Linux images.
 
 > [!NOTE]
-> Do not use the HANA data-at-rest encryption with Azure Disk Encryption on the same storage volume. For HANA, use only HANA data encryption. Also, operating system boot disks for Linux virtual machines do not support Azure Disk Encryption, nor does Azure Site Recovery yet support Azure Disk Encryption-attached data disks on Linux.
+> Do not use the HANA data-at-rest encryption with Azure Disk Encryption or Host based encryption on the same storage volume. For HANA, use only HANA data encryption. Also, be aware that the usage of customer managed keys might have impact on the I/O throughput that can be achieved.
 
 ## Communities
 
