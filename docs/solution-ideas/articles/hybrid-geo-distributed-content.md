@@ -16,7 +16,7 @@ When to use this architecture:
 ## Architecture
 
 ![Architecture diagram](../media/hybrid-geo-distributed.png)  
-_Download an [Visio file](https://arch-center.azureedge.net/hybrid-geo-distributed.vsdx) of this architecture._
+_Download a [Visio file](https://arch-center.azureedge.net/hybrid-geo-distributed.vsdx) of this architecture._
 
 ### Data flow
 
