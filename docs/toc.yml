@@ -291,6 +291,8 @@ items:
                 href: guide/multitenant/approaches/overview.md
               - name: Resource organization
                 href: guide/multitenant/approaches/resource-organization.md
+              - name: Governance and compliance
+                href: guide/multitenant/approaches/governance-compliance.md
               - name: Cost management and allocation
                 href: guide/multitenant/approaches/cost-management-allocation.md
               - name: Deployment and configuration
