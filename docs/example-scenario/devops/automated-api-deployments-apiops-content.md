@@ -132,7 +132,7 @@ This scenario provides API designers and developers with the following options a
 
 - _Create artifacts from portal_ runs the extractor and creates artifacts that resemble a Git repository structure like that shown in the following screenshot:
 
-  :::image type="content" alt-text="Screenshot of 'APIM-automation' that shows 'apim-instances' and a folder hierarchy." source="media/automated-api-deployment-apim-automation-instances.png":::
+  :::image type="content" alt-text="Screenshot of 'APIM-automation' that shows 'apim-instances' and a folder hierarchy." source="media/automated-api-deployment-api-management-automation-instances.png":::
 
 - After the artifact is generated, _Create template branch_ creates a PR with the changes extracted for the platform team to review.
 
@@ -149,13 +149,13 @@ This scenario provides API designers and developers with the following options a
 
 - After the PR is approved, it triggers another pipeline called _apim-publish-to-portal_. This pipeline has the following stages: _Build creator_, _Build terminator_, and _Publish APIM instances_.
 
-  :::image type="content" alt-text="Screenshot of the stages in APIM-publish-to-portal, a pipeline." source="media/automated-api-deployment-stages-of-apim-publish.png":::
+  :::image type="content" alt-text="Screenshot of the stages in APIM-publish-to-portal, a pipeline." source="media/automated-api-deployment-stages-of-api-management-publish.png":::
 
 - The _build creator_ stage handles creation of new APIs.
 
 - The _build terminator_ stage handles any deletions.
 
-  :::image type="content" alt-text="Screenshot that shows the jobs in an example run of APIM-publish-to-portal, a pipeline." source="media/automated-api-deployment-jobs-in-apim-publish.png" lightbox="media/automated-api-deployment-jobs-in-apim-publish.png":::
+  :::image type="content" alt-text="Screenshot that shows the jobs in an example run of APIM-publish-to-portal, a pipeline." source="media/automated-api-deployment-jobs-in-api-management-publish.png" lightbox="media/automated-api-deployment-jobs-in-api-management-publish.png":::
 
 - After this pipeline runs successfully, all the changes are published into the API Management instance.
 
