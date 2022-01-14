@@ -1,16 +1,3 @@
----
-title: 'Microservice container depplyment with Azure Container Apps'
-titleSuffix: Azure Example Scenarios
-description: Deploy your Microservices orchestration with Azure Container Apps
-services: container-apps
-author: cebundy
-ms.topic: conceptual
-ms.service: architecture-center
-ms.subservice: example-scenario
-ms.date: 01/15/2022
-ms.author: v-bcatherine
-ms.custom: mode-portal
----
 
 This scenario shows how your business can simplify the deployment and management of microservice containers by deploying them using Azure Container Apps. Azure Container Apps is a fully managed serverless service for building and deploying modern applications at scale.
 
