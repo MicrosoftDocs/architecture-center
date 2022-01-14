@@ -12,6 +12,8 @@ This approach is best suited for:
 
 ![design](_images/mlops-platform-databricks-kubernetes.png)
 
+### Workflow
+
 At a high level, this solution design addresses each stage of the machine learning lifecycle:
 
 - Data Preparation: this includes sourcing, cleaning, and transforming the data for processing and analysis. Data can live in a data lake or data warehouse and be stored in a feature store after it's curated.
@@ -25,7 +27,7 @@ At a high level, this solution design addresses each stage of the machine learni
 >- The services covered by this architecture are only a subset of a much larger family of Azure services.
 >- Specific business requirements for your analytics use case could require the use of different services or features that are not considered in this design.
 
-## Components
+### Components
 
 The following components are used as part of this design:
 
@@ -47,10 +49,6 @@ Before implementing this solution some factors you might want to consider,  incl
 - When implementing a [CI/CD pipeline](/azure/architecture/microservices/ci-cd) different tools such as Azure Pipelines or GitHub Actions can be used.
 - Specific business requirements for your analytics use case could require the use of different services or features that are not considered in this design.
 
-## Pricing
-
-All services deployed in this solution use a consumption-based pricing model. The [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator) can be used to estimate costs for a specific scenario. For other considerations, see [Cost Optimization](../../framework/cost/index.yml) in the Well-Architected Framework.
-
 ## Deploy this scenario
 
 A proof-of-concept implementation of this scenario is available at the [ML Ops Platform using Databricks and Kubernetes](https://github.com/nfmoore/databricks-kubernetes-mlops-poc) repository. This sample illustrates:
@@ -59,6 +57,14 @@ A proof-of-concept implementation of this scenario is available at the [ML Ops P
 - How to package models as a web service using open-source tools.
 - How to deploy to Kubernetes via CI/CD.
 - How to monitor API performance and model data drift.
+
+## Pricing
+
+All services deployed in this solution use a consumption-based pricing model. The [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator) can be used to estimate costs for a specific scenario. For other considerations, see [Cost Optimization](../../framework/cost/index.yml) in the Well-Architected Framework.
+
+## Next steps
+
+---To add links to Docs and Learn---
 
 ## Related resources
 
