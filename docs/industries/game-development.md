@@ -2,8 +2,8 @@
 title: Solutions for the game development industry 
 titleSuffix: Azure Architecture Center
 description: Architectures and ideas for using Azure services to build solutions in the game development industry.
-author: 
-ms.author: 
+author: EdPrice-MSFT
+ms.author: edprice
 ms.date: 01/18/2022
 ms.topic: article
 ms.service: architecture-center
@@ -60,7 +60,7 @@ The following articles provide detailed analysis of architectures created and re
 ### Game streaming 
 | Architecture | Summary | 
 | ------- | ------- | 
-|[Unreal Pixel Streaming](/gaming/azure/reference-architectures/unreal-pixel-streaming-in-azure?toc=https:%2f%2fdocs.microsoft.com%2fen-us%2fazure%2farchitecture%2ftoc.json&bc=https:%2f%2fdocs.microsoft.com%2fen-us%2fazure%2farchitecture%2fbread%2ftoc.json)|Deploy Unreal Engine's Pixel Streaming technology on Azure. You can use this technology to stream remotely deployed interactive 3D applications through a browser.|
+|[Unreal Pixel Streaming](/gaming/azure/reference-architectures/unreal-pixel-streaming-in-azure?toc=https:%2f%2fdocs.microsoft.com%2fen-us%2fazure%2farchitecture%2ftoc.json&bc=https:%2f%2fdocs.microsoft.com%2fen-us%2fazure%2farchitecture%2fbread%2ftoc.json)|Deploy Unreal Engine's Pixel Streaming technology on Azure. You can use this Epic Games technology to stream remotely deployed interactive 3D applications through a browser.|
 |[Deploy Unreal Pixel Streaming](/gaming/azure/reference-architectures/unreal-pixel-streaming-deploying?toc=https:%2f%2fdocs.microsoft.com%2fen-us%2fazure%2farchitecture%2ftoc.json&bc=https:%2f%2fdocs.microsoft.com%2fen-us%2fazure%2farchitecture%2fbread%2ftoc.json)|Deploy the Unreal Pixel Streaming package on an Azure GPU virtual machine, or on multiple virtual machines. |
 |[Unreal Pixel Streaming at scale](/gaming/azure/reference-architectures/unreal-pixel-streaming-at-scale?toc=https:%2f%2fdocs.microsoft.com%2fen-us%2fazure%2farchitecture%2ftoc.json&bc=https:%2f%2fdocs.microsoft.com%2fen-us%2fazure%2farchitecture%2fbread%2ftoc.json)|Deploy Unreal Engine's Pixel Streaming technology on Azure at scale.|
 
@@ -80,7 +80,7 @@ The following articles provide detailed analysis of architectures created and re
 | Architecture | Summary | 
 | ------- | ------- | 
 |[3D video rendering](/azure/architecture/example-scenario/infrastructure/video-rendering)|Use Azure Batch to run large-scale 3D video rendering jobs.|
-|[Digital image-based modeling](/azure/architecture/example-scenario/infrastructure/image-modeling)|Perform image-based modeling on Azure infrastructure-as-a-service (IaaS).|
+|[Digital image-based modeling](/azure/architecture/example-scenario/infrastructure/image-modeling)|Perform image-based modeling for your game's visual effects.|
 
 ### Scalable gaming servers
 | Architecture | Summary |
@@ -99,3 +99,6 @@ The following articles provide detailed analysis of architectures created and re
 | ------- | ------- | 
 |[Basic game server hosting](/gaming/azure/reference-architectures/multiplayer-basic-game-server-hosting?toc=https:%2f%2fdocs.microsoft.com%2fen-us%2fazure%2farchitecture%2ftoc.json&bc=https:%2f%2fdocs.microsoft.com%2fen-us%2fazure%2farchitecture%2fbread%2ftoc.json)|Set up a basic Azure back end that hosts a game server on either Windows or Linux.|
 |[LAMP architectures for gaming](/gaming/azure/reference-architectures/general-purpose-lamp?toc=https:%2f%2fdocs.microsoft.com%2fen-us%2fazure%2farchitecture%2ftoc.json&bc=https:%2f%2fdocs.microsoft.com%2fen-us%2fazure%2farchitecture%2fbread%2ftoc.json)|Learn how to  effectively and efficiently deploy an existing LAMP architecture on Azure.|
+
+## Related resources
+[Game development architectures](/azure/architecture/browse/?terms=game)
