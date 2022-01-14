@@ -291,6 +291,8 @@ items:
                 href: guide/multitenant/approaches/overview.md
               - name: Resource organization
                 href: guide/multitenant/approaches/resource-organization.md
+              - name: Governance and compliance
+                href: guide/multitenant/approaches/governance-compliance.md
               - name: Cost management and allocation
                 href: guide/multitenant/approaches/cost-management-allocation.md
               - name: Deployment and configuration
@@ -1627,6 +1629,8 @@ items:
             href: solution-ideas/articles/analytics-start-here.yml
           - name: Guides
             items:
+              - name: DataOps checklist
+                href: checklist/data-ops.md
               - name: Technology choices
                 items:
                   - name: Analytical data stores
@@ -1717,6 +1721,8 @@ items:
                 href: solution-ideas/articles/big-data-analytics-enterprise-grade-security.yml
               - name: Content Delivery Network analytics
                 href: solution-ideas/articles/content-delivery-network-azure-data-explorer.yml
+              - name: Data management with Azure Purview
+                href: solution-ideas/articles/azure-purview-data-lake-estate-architecture.yml
               - name: Demand forecasting for shipping
                 href: solution-ideas/articles/demand-forecasting-for-shipping-and-distribution.yml
               - name: Demand forecasting and price optimization
@@ -3198,9 +3204,9 @@ items:
                   - name: Micro Focus Enterprise Server on Azure
                     href: example-scenario/mainframe/micro-focus-server.yml
                   - name: Migrate AIX workloads to Skytap
-                    href: example-scenario/mainframe/migrate-aix-workloads-to-skytap.yml
+                    href: example-scenario/mainframe/migrate-aix-workloads-to-azure-with-skytap.yml
                   - name: Migrate IBM i series to Skytap on Azure
-                    href: example-scenario/mainframe/migrate-ibm-i-series-applications.yml
+                    href: example-scenario/mainframe/migrate-ibm-i-series-to-azure-with-skytap.yml
                   - name: Refactor IBM z/OS mainframe CF
                     href: reference-architectures/zos/refactor-zos-coupling-facility.yml
                   - name: Refactor mainframe apps with Advanced
