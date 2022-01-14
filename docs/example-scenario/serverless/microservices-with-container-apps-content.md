@@ -1,7 +1,7 @@
 
-This scenario shows how your business can simplify the deployment and management of microservice containers by deploying them using Azure Container Apps. Container Apps is a fully managed serverless service for building and deploying modern applications at scale.
+Your business can simplify the deployment and management of microservice containers by using Azure Container Apps. Container Apps provides a fully managed serverless environment for building and deploying modern applications.
 
-To illustrate the use of Azure Container Apps for a microservices, we use the [Fabrikam Drone Delivery](https://github.com/mspnp/aks-fabrikam-dronedelivery) application that ran in Azure Kubernetes Service (AKS) and deployed it using Container Apps. You can find this scenario on [GitHub](https://github.com/mspnp/container-apps-fabrikam-dronedelivery).
+To illustrate, we use the [Fabrikam Drone Delivery](https://github.com/mspnp/aks-fabrikam-dronedelivery) application that ran in Azure Kubernetes Service (AKS) and deployed it using Container Apps. You can find this scenario on [GitHub](https://github.com/mspnp/container-apps-fabrikam-dronedelivery).
 
 ## Potential use cases
 
@@ -16,7 +16,7 @@ The Container Apps service is a solution for microservice applications that bene
 
 _Architecture diagram goes here_
 
-_download Visio/PPT_
+_Download Visio/PPT_
 
 ### Workflow
 
@@ -64,9 +64,9 @@ Although not implemented in this scenario, high availability can be achieved wit
 
 For easy management and maintenance of the application:
 
-* Revisions are dynamically deployed when a container app is updated with a change to the container app configuration or image.  
-* The Azure Monitor service to enables monitoring and analysis of the application.
-* Although not configured in this scenario, traffic-splitting across revisions can be enabled for blue/green deployments and A/B testing.
+* Revisions are dynamically deployed when a container app is updated.
+* The Azure Monitor service enables monitoring and analysis of the application.
+* Traffic-splitting across revisions can be enabled for blue/green deployments and A/B testing.
 
 ### Performance
 
@@ -77,7 +77,7 @@ Factors affecting performance are:
 
 ### Scalability
 
-Although scaling is not implemented in this scenario, the Container Apps service supports scaling based on HTTP traffic and any KEDA-based triggers.  Scaling can be easily added to the container app configuration.
+When needed, the Container Apps service supports scaling based on HTTP traffic and any KEDA-based triggers.  Scaling can be easily added to the container app configuration.
 
 ### Security
 
@@ -101,7 +101,7 @@ Follow the steps in the README.md in the [sample repository](https://github.com/
 * The [Cost section in the Microsoft Azure Well-Architected Framework](/azure/architecture/framework/cost/overview) describes cost considerations. Use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator) to estimate costs for your specific scenario.
 * Azure Container Apps has no costs associated with deployment, management, and operations of the Container Apps environments. You only pay for the compute and storage resources the applications consume. Autoscaling can significantly reduce costs by removing empty or unused nodes.
 * In this scenario, the Azure Cosmos DB and Azure Cache for Redis services will consume most of the costs.  
-* To avoid costs from accruing, do not leave this example running.
+* To avoid accruing charges, don't leave this example running.
 
 ## Next steps
 
