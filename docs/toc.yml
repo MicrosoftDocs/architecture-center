@@ -1745,6 +1745,8 @@ items:
                 href: solution-ideas/articles/interactive-azure-data-explorer.yml
               - name: IoT analytics with Azure Data Explorer
                 href: solution-ideas/articles/iot-azure-data-explorer.yml
+              - name: Manage data across Azure SQL estate with Azure Purview
+                href: solution-ideas/articles/azure-purview-sql-estate-architecture.yml
               - name: Mining equipment monitoring
                 href: solution-ideas/articles/monitor-mining-equipment.yml
               - name: Modern analytics with Azure Databricks
