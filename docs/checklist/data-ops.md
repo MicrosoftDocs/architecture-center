@@ -17,6 +17,7 @@ categories:
 - management-and-governance
 - databases
 ---
+
 # DataOps checklist
 
 DataOps is a lifecycle approach to data analytics. It uses agile practices to orchestrate tools, code, and infrastructure to quickly deliver high-quality data with improved security. When you implement and streamline DataOps processes, your business can more easily and cost effectively deliver analytical insights. This allows you to adopt advanced data techniques that can uncover insights and new opportunities. Use this checklist as a starting point to assess your DataOps process. 
