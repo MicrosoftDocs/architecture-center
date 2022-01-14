@@ -18,6 +18,6 @@ products:
   - azure-database-postgresql
 name: Databases architecture design
 summary: <Write a summary. Can be same as description.>
-thumbnailUrl: /azure/architecture/browse/thumbs/<browse-png-filename>.png
+thumbnailUrl: /azure/architecture/browse/thumbs/architecture-design-types.png
 content: |
   [!include[](databases-architecture-design-content.md)]
