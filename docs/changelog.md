@@ -86,7 +86,7 @@ New and updated articles in Azure Architecture Center.
 - [Service-specific guidance for a multitenant solution](./guide/multitenant/service/overview.md)  ([#7ea4a61ae](https://github.com/MicrosoftDocs/architecture-center/commit/7ea4a61ae))
 - [Modeling stage of the Team Data Science Process lifecycle](./data-science-process/lifecycle-modeling.md)  ([#7c8304f17](https://github.com/MicrosoftDocs/architecture-center/commit/7c8304f17))
 - [Azure Virtual Desktop for the enterprise](./example-scenario/wvd/windows-virtual-desktop.yml)  ([#43a9e9bb1](https://github.com/MicrosoftDocs/architecture-center/commit/43a9e9bb1))
-- [Migrate AIX workloads to Azure with Skytap](./example-scenario/mainframe/.yml)  ([#9bdbeb6d0](https://github.com/MicrosoftDocs/architecture-center/commit/9bdbeb6d0))
+- [Migrate AIX workloads to Azure with Skytap](./example-scenario/mainframe/migrate-aix-workloads-to-azure-with-skytap.yml)  ([#9bdbeb6d0](https://github.com/MicrosoftDocs/architecture-center/commit/9bdbeb6d0))
 - [Monitor hybrid availability, performance](./hybrid/hybrid-perf-monitoring.yml)  ([#95f2e26b8](https://github.com/MicrosoftDocs/architecture-center/commit/95f2e26b8))
 - [Consumer health portal on Azure](./example-scenario/digital-health/health-portal.yml)  ([#9f23b73b8](https://github.com/MicrosoftDocs/architecture-center/commit/9f23b73b8))
 - [Azure Machine Learning Anomaly Detection API](./data-science-process/apps-anomaly-detection-api.md)  ([#984d16b93](https://github.com/MicrosoftDocs/architecture-center/commit/984d16b93))
