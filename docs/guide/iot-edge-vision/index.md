@@ -16,7 +16,7 @@ ms.custom:
   - guide
 ---
 
-# Video Analytics with Azure IoT Edge
+# Video analytics with Azure IoT Edge
 
 Visual inspection of products, resources, and environments has been a core practice for most enterprises, and was until recently, a very manual process. An individual, or a group of individuals, would be responsible for manually inspecting the assets or the environment. Depending on the circumstances, this could become inefficient, inaccurate, or both, due to human error and limitations.
 
