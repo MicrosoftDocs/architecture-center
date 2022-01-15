@@ -947,6 +947,8 @@ items:
                 maintainContext: true
       - name: Game Development
         items:
+          - name: Overview
+            href: industries/game-development.md
           - name: All game development architectures
             href: /azure/architecture/browse/?terms=game
           - name: Rendering
