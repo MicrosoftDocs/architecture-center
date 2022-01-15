@@ -207,9 +207,9 @@ In this architecture, internal load balancers are used to load balance traffic i
 [azure-pricing-calculator]: https://azure.microsoft.com/pricing/calculator
 [Firewall-NVA]: https://azure.microsoft.com/blog/azure-firewall-and-network-virtual-appliances
 [getting-started-with-azure-security]: /azure/security/azure-security-getting-started
-[guidance-expressroute-availability]: ../hybrid-networking/expressroute.yml#availability-considerations
-[guidance-expressroute-scalability]: ../hybrid-networking/expressroute.yml#scalability-considerations
-[guidance-expressroute-security]: ../hybrid-networking/expressroute.yml#security-considerations
+[guidance-expressroute-availability]: ../hybrid-networking/expressroute.yml#availability
+[guidance-expressroute-scalability]: ../hybrid-networking/expressroute.yml#scalability
+[guidance-expressroute-security]: ../hybrid-networking/expressroute.yml#security
 [guidance-vpn-gateway-availability]: ../hybrid-networking/vpn.yml#availability-considerations
 [guidance-vpn-gateway-devops]: ../hybrid-networking/vpn.yml#devops-considerations
 [guidance-vpn-gateway-scalability]: ../hybrid-networking/vpn.yml#scalability-considerations

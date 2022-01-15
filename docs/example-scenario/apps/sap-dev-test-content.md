@@ -6,7 +6,7 @@ For production use cases review the SAP reference architectures available below:
 - [SAP S/4HANA][sap-hana]
 - [SAP on Azure large instances][sap-large]
 
-## Relevant use cases
+## Potential use cases
 
 Other relevant use cases include:
 
@@ -16,6 +16,8 @@ Other relevant use cases include:
 ## Architecture
 
 ![Architecture diagram for dev/test environments for SAP workloads](./media/architecture-sap-dev-test.png)
+
+### Dataflow
 
 This scenario demonstrates provisioning a single SAP system database and SAP application server on a single virtual machine. The data flows through the scenario as follows:
 
@@ -31,6 +33,7 @@ This scenario demonstrates provisioning a single SAP system database and SAP app
 - [ExpressRoute](/azure/expressroute/expressroute-introduction) extends your on-premises networks into the Microsoft cloud over a private connection, which is facilitated by a connectivity provider.
 - [Network security groups](/azure/virtual-network/security-overview) limit network traffic to specific resources in a virtual network. A network security group contains a list of security rules that allow or deny inbound or outbound network traffic. The security rules are based on source or destination IP address, port, and protocol.
 - [Resource groups](/azure/azure-resource-manager/resource-group-overview#resource-groups) act as logical containers for Azure resources.
+- [Azure Files](/azure/storage/files/storage-files-introduction) or [Azure NetApp Files](/azure/azure-netapp-files/azure-netapp-files-introduction) are recommended solutions to provide the storage for the SAP executables and HANA data and logs.
 
 ## Considerations
 
@@ -49,6 +52,10 @@ For general guidance on designing secure solutions, see the [Azure Security Docu
 ### Resiliency
 
 For general guidance on designing resilient solutions, see [Designing resilient applications for Azure][resiliency].
+
+### Data protection and cloning
+
+For general guidance on protecting your application data, see [Azure Application Consistent Snapshot tool](/azure/azure-netapp-files/azacsnap-introduction), which provides application consistent snapshots when used in combination with Azure NetApp Files.
 
 ## Pricing
 
@@ -71,7 +78,7 @@ Extra Large|64000|M64s|4xP20, 1xP10|[Extra Large](https://azure.com/e/975fb58a96
 - [Large](https://azure.com/e/ada2e849d68b41c3839cc976000c6931): A large system consists of VM type E32s_v3 with 32x vCPUs, 256-GB RAM, and 512 GB of temporary storage. It also contains premium storage: three 512-GB disks and one 128-GB disk.
 - [Extra Large](https://azure.com/e/975fb58a965c4fbbb54c5c9179c61cef): An extra-large system consists of a VM type M64s with 64x vCPUs, 1024-GB RAM, and 2000 GB of temporary storage. It also contains premium storage: four 512-GB disks and one 128-GB disk.
 
-## Deployment
+## Deploy this scenario
 
 Select the link below to deploy the solution.
 
@@ -93,6 +100,8 @@ Learn more about the component technologies:
 - [Installation of SAP HANA on Azure virtual machines](/azure/virtual-machines/workloads/sap/hana-get-started)
 - [Manage Azure Resource Manager resource groups by using Azure CLI](/azure/azure-resource-manager/management/manage-resource-groups-cli)
 - [High-availability architecture and scenarios for SAP NetWeaver](/azure/virtual-machines/workloads/sap/sap-high-availability-architecture-scenarios)
+
+## Related resources
 
 Explore related architectures:
 
