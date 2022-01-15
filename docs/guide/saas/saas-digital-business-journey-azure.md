@@ -3,7 +3,7 @@ title: SaaS digital business journey on Azure
 description: "Build your Software as a Service (Saas). There are links that help you: get started with Azure; build, deploy, and publish your app; and build audience."
 author: mekenthompson
 ms.author: kethomps
-ms.date: 01/12/2022
+ms.date: 01/17/2022
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: azure-guide
