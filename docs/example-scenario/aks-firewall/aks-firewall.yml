@@ -1,8 +1,8 @@
 ### YamlMime:Architecture
 metadata:
-  title: Monitor an AKS cluster by using Azure Firewall
+  title: Use Azure Firewall to help protect an AKS cluster
   titleSuffix: Azure Example Scenarios
-  description: Deploy an AKS cluster in a hub-and-spoke network topology by using Terraform and Azure DevOps. Monitor the inbound and outbound traffic by using Azure Firewall.
+  description: Deploy an AKS cluster in a hub-and-spoke network topology by using Terraform and Azure DevOps. Help protect the inbound and outbound traffic by using Azure Firewall.
   author: paolosalvatori
   ms.author: paolos
   ms.date: 01/10/2022
@@ -11,12 +11,12 @@ metadata:
   ms.subservice: example-scenario
   ms.custom:
     - fcp
-name: Monitor an Azure Kubernetes Service (AKS) cluster by using Azure Firewall
+name: Use Azure Firewall to help protect an Azure Kubernetes Service (AKS) cluster
 azureCategories:
   - containers
   - security
   - networking
-summary: Learn how to deploy an Azure Kubernetes Service (AKS) cluster in a hub-and-spoke network topology by using Terraform and Azure DevOps. Monitor the inbound and outbound traffic by using Azure Firewall.
+summary: Learn how to deploy an Azure Kubernetes Service (AKS) cluster in a hub-and-spoke network topology by using Terraform and Azure DevOps. Help protect the inbound and outbound traffic by using Azure Firewall.
 products:
 - azure-firewall
 - azure-kubernetes-service
