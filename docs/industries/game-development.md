@@ -22,6 +22,7 @@ categories:
 - containers
 - databases
 ---
+
 # Solutions for the game development industry
 
 There are 2 billion gamers in the world today. They play a broad range of games, on a broad range of devices. Game creators strive to continuously engage players, spark their imaginations, and inspire them. Microsoft tools and services can help you achieve these goals. 
