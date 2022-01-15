@@ -1,5 +1,5 @@
 ---
-title: Azure IoT Edge Vision
+title: Computer vision with Azure IoT Edge
 titleSuffix: Azure Architecture Center
 description: Create an AI solution using Azure IoT Edge Vision. Explore camera recommendations, hardware acceleration, machine learning, image storage, alerts, and UI.
 author: MSKeith
@@ -16,7 +16,7 @@ ms.custom:
   - guide
 ---
 
-# Vision with Azure IoT Edge
+# Video Analytics with Azure IoT Edge
 
 Visual inspection of products, resources, and environments has been a core practice for most enterprises, and was until recently, a very manual process. An individual, or a group of individuals, would be responsible for manually inspecting the assets or the environment. Depending on the circumstances, this could become inefficient, inaccurate, or both, due to human error and limitations.
 
@@ -80,3 +80,12 @@ This series of articles demonstrate how to build a complete vision workload usin
 - [Azure Kinect DK documentation](/azure/kinect-dk/)
 - [MMdnn tool](https://github.com/Microsoft/MMdnn)
 - [ONNX](https://onnx.ai/)
+
+## Related resources
+
+- [Getting started with Azure IoT solutions](/azure/architecture/reference-architectures/iot/iot-architecture-overview)
+- [Azure IoT reference architecture](/azure/architecture/reference-architectures/iot)
+- [End-to-end manufacturing using computer vision on the edge](/azure/architecture/reference-architectures/ai/end-to-end-smart-factory)
+- [Connected factory hierarchy service](/azure/architecture/solution-ideas/articles/connected-factory-hierarchy-service)
+- [Connected factory signal pipeline](/azure/architecture/example-scenario/iot/connected-factory-signal-pipeline)
+- [Create smart places by using Azure Digital Twins](/azure/architecture/example-scenario/iot/smart-places)
