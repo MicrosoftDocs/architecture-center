@@ -291,6 +291,8 @@ items:
                 href: guide/multitenant/approaches/overview.md
               - name: Resource organization
                 href: guide/multitenant/approaches/resource-organization.md
+              - name: Governance and compliance
+                href: guide/multitenant/approaches/governance-compliance.md
               - name: Cost management and allocation
                 href: guide/multitenant/approaches/cost-management-allocation.md
               - name: Deployment and configuration
@@ -1627,6 +1629,8 @@ items:
             href: solution-ideas/articles/analytics-start-here.yml
           - name: Guides
             items:
+              - name: DataOps checklist
+                href: checklist/data-ops.md
               - name: Technology choices
                 items:
                   - name: Analytical data stores
@@ -1717,6 +1721,8 @@ items:
                 href: solution-ideas/articles/big-data-analytics-enterprise-grade-security.yml
               - name: Content Delivery Network analytics
                 href: solution-ideas/articles/content-delivery-network-azure-data-explorer.yml
+              - name: Data management with Azure Purview
+                href: solution-ideas/articles/azure-purview-data-lake-estate-architecture.yml
               - name: Demand forecasting for shipping
                 href: solution-ideas/articles/demand-forecasting-for-shipping-and-distribution.yml
               - name: Demand forecasting and price optimization
@@ -1739,6 +1745,8 @@ items:
                 href: solution-ideas/articles/interactive-azure-data-explorer.yml
               - name: IoT analytics with Azure Data Explorer
                 href: solution-ideas/articles/iot-azure-data-explorer.yml
+              - name: Manage data across Azure SQL estate with Azure Purview
+                href: solution-ideas/articles/azure-purview-sql-estate-architecture.yml
               - name: Mining equipment monitoring
                 href: solution-ideas/articles/monitor-mining-equipment.yml
               - name: Modern analytics with Azure Databricks
@@ -1967,6 +1975,8 @@ items:
                 href: example-scenario/apps/build-cncf-incubated-graduated-projects-aks.yml  
               - name: CI/CD pipeline for container workloads
                 href: example-scenario/apps/devops-with-aks.yml
+              - name: Firewall protection for an AKS cluster
+                href: example-scenario/aks-firewall/aks-firewall.yml
               - name: GitOps for AKS
                 href: example-scenario/gitops-aks/gitops-blueprint-aks.yml
               - name: Magento e-commerce in AKS
@@ -2663,6 +2673,8 @@ items:
                 href: solution-ideas/articles/dev-test-paas.yml
               - name: DevTest and DevOps with microservices
                 href: solution-ideas/articles/dev-test-microservice.yml
+              - name: DevSecOps with a rolling main branching strategy
+                href: solution-ideas/articles/devsecops-rolling-branch.yml
               - name: DevTest Image Factory
                 href: solution-ideas/articles/dev-test-image-factory.yml
               - name: Hybrid DevOps
@@ -3194,9 +3206,9 @@ items:
                   - name: Micro Focus Enterprise Server on Azure
                     href: example-scenario/mainframe/micro-focus-server.yml
                   - name: Migrate AIX workloads to Skytap
-                    href: example-scenario/mainframe/migrate-aix-workloads-to-skytap.yml
+                    href: example-scenario/mainframe/migrate-aix-workloads-to-azure-with-skytap.yml
                   - name: Migrate IBM i series to Skytap on Azure
-                    href: example-scenario/mainframe/migrate-ibm-i-series-applications.yml
+                    href: example-scenario/mainframe/migrate-ibm-i-series-to-azure-with-skytap.yml
                   - name: Refactor IBM z/OS mainframe CF
                     href: reference-architectures/zos/refactor-zos-coupling-facility.yml
                   - name: Refactor mainframe apps with Advanced
