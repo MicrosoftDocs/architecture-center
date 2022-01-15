@@ -364,7 +364,7 @@ For additional network security, consider implementing a [network DMZ](../../ref
 
 For infrastructure security, data is encrypted in transit and at rest. The "Security considerations" section of the [SAP NetWeaver on Azure Virtual Machines–Planning and Implementation Guide](/azure/virtual-machines/workloads/sap/planning-guide) begins to address network security and applies to S/4HANA. The guide also specifies the network ports you must open on the firewalls to allow application communication.
 
-To encrypt Linux virtual machine disks, you have various choices, as described in [Disk Encryption Overview](/azure/virtual-machines/linux/disk-encryption-overview). For SAP HANA data-at-rest encryption, we recommend using the SAP HANA native encryption technology. Some Azure Disk Encryption methods may not be supported on SAP-specific Linux images.
+To encrypt Linux virtual machine disks, you have various choices, as described in [Disk Encryption Overview](/azure/virtual-machines/disk-encryption-overview). For SAP HANA data-at-rest encryption, we recommend using the SAP HANA native encryption technology. For support of Azure Disk Encryption on specific Linux distros/versions/images check the document [Azure Disk Encryption for Linux VMs](/azure/virtual-machines/linux/disk-encryption-overview).
 
 For SAP HANA data-at-rest encryption, we recommend using the SAP HANA native encryption technology.
 
