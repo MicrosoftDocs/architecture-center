@@ -257,6 +257,8 @@ items:
               - name: Differential privacy
                 href: /azure/machine-learning/concept-differential-privacy
                 maintainContext: true
+      - name: SaaS digital business journey on Azure
+        href: guide/saas/saas-digital-business-journey-azure.md
       - name: Architecture for startups
         items:
           - name: Overview
