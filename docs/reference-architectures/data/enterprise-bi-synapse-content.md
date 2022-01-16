@@ -12,7 +12,7 @@ This reference architecture implements the [Analytics end-to-end with Azure Syna
 
 *Diagram: [Analytics end-to-end with Azure Synapse][e2e-analytics]. Red path denotes the scope of this article.*
 <!--
-TODO - may be grey out the background more and only circle the Synapse Provisioned Pools without ADLS? 
+TODO - may be grey out the background more and only circle the Synapse Provisioned Pools without ADLS? asterisk? 
 -->
 
 **Scenario**: An organization has a large on-premises Data Warehouse stored in a SQL Database. The organization wants to use Azure Synapse to perform analysis, using Power BI to serve these insights.
@@ -50,7 +50,7 @@ Data modeling approach in this use case is presented by composition of Enterpris
 <!-- TODO: find better place for this -->
 ![Diagram of the enterprise BI pipeline](./images/enterprise-bi-small-architecture.png)
 
-## Incremental loading
+### Incremental loading *TODO review
 
 When you run an automated ETL or ELT process, it's most efficient to load only the data that changed since the previous run. This is called an *incremental load*, as opposed to a full load that loads all the data. To perform an incremental load, you need a way to identify which data has changed. The most common approach is to use a *high water mark* value, which means tracking the latest value of some column in the source table, either a datetime column or a unique integer column.
 
@@ -64,7 +64,7 @@ Temporal tables are useful for dimension data, which can change over time. Fact 
 
 Here is the general flow for the ELT pipeline:
 
-1. For each table in the source database, track the cutoff time when the last ELT job ran. Store this information in the data warehouse. (On initial setup, all times are set to '1-1-1900'.)
+1. For each table in the source database, track the cutoff time when the last ELT job ran. Store this information in the data warehouse. (On initial setup, all times are set to `1-1-1900`.) <!-- reword-->
 
 2. During the data export step, the cutoff time is passed as a parameter to a set of stored procedures in the source database. These stored procedures query for any records that were changed or created after the cutoff time. For all tables in our example, we can use the `ModifiedDate` column.
 
@@ -82,6 +82,8 @@ This reference architecture uses the [Adventure Works DW][adventureworksdw-sampl
 4. Transform the data into a star schema (T-SQL).
 5. Load a semantic model into Analysis Services (SQL Server Data Tools). 
 -->
+
+<!-- Noah TODO: link to copy data tool-->
 
 1. Most recent watermark entry is retrieved from the control table, located in the SQL DB.
 1. For every table in the SQL DB, the pipeline will:
@@ -159,7 +161,7 @@ This technique works best if the data type of the watermark column is the same a
 
 ### ForEach Table
 
-The ForEach activity is configured to iterate over every table in the Data Warehouse, allowing us to check if any data has been modified, and if so, copy that data into our SQL Pool.
+The ForEach activity is configured to iterate over every table in the Data Warehouse, allowing us to check if any data has been modified, and if so, copy that data into our SQL Pool. <!-- TODO: links for all activities-->
 
 **Recommendations:**
 
@@ -205,7 +207,7 @@ For more information, see the following articles:
 - [Migrate your schemas to Azure Synapse](/azure/sql-data-warehouse/sql-data-warehouse-migrate-schema)
 - [Guidance for defining data types for tables in Azure Synapse](/azure/sql-data-warehouse/sql-data-warehouse-tables-data-types)
 
-### Storing the new watermark value
+### Stored Procedure = TODO* the new watermark value
 
 After copying new records into our SQL pool, we execute the stored procedure defined in the [incremental load pattern](incremental-load). This will update the value of the high watermark in our control table.
 
@@ -220,7 +222,7 @@ TODO: partitioning on MPP if needed
 
 // Galina to cover PBI with modelling
 
-### Use Power BI Premium to access, model and visualize the data
+### Use Power BI Premium to access, model and visualize the data - Galina
 
 TODO: connect mode, security, data gateways, authorization
 Power BI premium components
@@ -272,7 +274,7 @@ Azure Analysis Services uses Azure Active Directory (Azure AD) to authenticate u
 For more information, see [Manage database roles and users](/azure/analysis-services/analysis-services-database-users).
 */
 
-## DevOps considerations
+## DevOps considerations - George
 
 TODO: internal info on repo, workspace etc
 
@@ -282,15 +284,15 @@ TODO: internal info on repo, workspace etc
 
 - Put each workload in a separate deployment template and store the resources in source control systems. You can deploy the templates together or individually as part of a CI/CD process, making the automation process easier.
 
-    In this architecture, there are three main workloads:
-    
-    - The data warehouse server, Analysis Services, and related resources.
-    - Azure Data Factory.
-    - An on-premises to cloud simulated scenario.
-    
-    Each workload has its own deployment template.
-    
-    The data warehouse server is set up and configured by using Azure CLI commands which follows the imperative approach of the IaC practice. Consider using deployment scripts and integrate them in the automation process.
+  In this architecture, there are three main workloads:
+  
+  - The data warehouse server, Analysis Services, and related resources.
+  - Azure Data Factory.
+  - An on-premises to cloud simulated scenario.
+  
+  Each workload has its own deployment template.
+  
+  The data warehouse server is set up and configured by using Azure CLI commands which follows the imperative approach of the IaC practice. Consider using deployment scripts and integrate them in the automation process.
 
 - Consider staging your workloads. Deploy to various stages and run validation checks at each stage before moving to the next stage. That way you can push updates to your production environments in a highly controlled way and minimize unanticipated deployment issues. Use [Blue-green deployment][blue-green-dep] and [Canary releases][cannary-releases]  strategies for updating live production environments.
 
@@ -301,9 +303,7 @@ TODO: internal info on repo, workspace etc
 For more information, see the DevOps section in [Microsoft Azure Well-Architected Framework][AAF-devops].
 */
 
-## Cost Considerations
-
-/*
+## Cost Considerations - Galina
 
 ### Azure Synapse
 
