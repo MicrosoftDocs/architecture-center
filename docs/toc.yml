@@ -257,6 +257,8 @@ items:
               - name: Differential privacy
                 href: /azure/machine-learning/concept-differential-privacy
                 maintainContext: true
+      - name: SaaS digital business journey on Azure
+        href: guide/saas/saas-digital-business-journey-azure.md
       - name: Architecture for startups
         items:
           - name: Overview
@@ -947,6 +949,8 @@ items:
                 maintainContext: true
       - name: Game Development
         items:
+          - name: Overview
+            href: industries/game-development.md
           - name: All game development architectures
             href: /azure/architecture/browse/?terms=game
           - name: Rendering
@@ -3205,9 +3209,9 @@ items:
                     href: example-scenario/mainframe/integrate-ibm-message-queues-azure.yml
                   - name: Micro Focus Enterprise Server on Azure
                     href: example-scenario/mainframe/micro-focus-server.yml
-                  - name: Migrate AIX workloads to Skytap
+                  - name: Migrate AIX workloads to Azure with Skytap
                     href: example-scenario/mainframe/migrate-aix-workloads-to-azure-with-skytap.yml
-                  - name: Migrate IBM i series to Skytap on Azure
+                  - name: Migrate IBM i series to Azure with Skytap
                     href: example-scenario/mainframe/migrate-ibm-i-series-to-azure-with-skytap.yml
                   - name: Refactor IBM z/OS mainframe CF
                     href: reference-architectures/zos/refactor-zos-coupling-facility.yml
