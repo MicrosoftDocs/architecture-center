@@ -40,7 +40,7 @@ If you're new to storage on Azure, the best way to learn more is with [Microsoft
 [Store data in Azure](/learn/paths/store-data-in-azure) learning path. 
 
 ## Path to production
-- Choose the storage approach that best meets your needs and then create an account. For more information, see [Storage account overview - Azure Storage](/azure/storage/common/storage-account-overview?toc=https:%2f%2fdocs.microsoft.com%2fen-us%2fazure%2farchitecture%2ftoc.json&bc=https:%2f%2fdocs.microsoft.com%2fen-us%2fazure%2farchitecture%2fbread%2ftoc.json). 
+- Choose the storage approach that best meets your needs and then create an account. For more information, see [Storage account overview](/azure/storage/common/storage-account-overview?toc=https:%2f%2fdocs.microsoft.com%2fen-us%2fazure%2farchitecture%2ftoc.json&bc=https:%2f%2fdocs.microsoft.com%2fen-us%2fazure%2farchitecture%2fbread%2ftoc.json). 
 
 - Be sure you understand security and reliability. See these articles: 
   - [Azure Storage encryption for data at rest](/azure/storage/common/storage-service-encryption?toc=https:%2f%2fdocs.microsoft.com%2fen-us%2fazure%2farchitecture%2ftoc.json&bc=https:%2f%2fdocs.microsoft.com%2fen-us%2fazure%2farchitecture%2fbread%2ftoc.json)
