@@ -180,7 +180,7 @@ Deploying this solution involves these steps:
 ## Related resources
 
 - [GitOps for Azure Kubernetes Service](../gitops-aks/gitops-blueprint-aks.yml)
-- [Migrate a web app using Azure API Management](../apps/apm-api-scenario.yml)
+- [Migrate a web app using Azure API Management](../apps/apim-api-scenario.yml)
 - [Protect APIs with Application Gateway and API Management](../../reference-architectures/apis/protect-apis.yml)
 - [Publish internal APIs to external users](../apps/publish-internal-apis-externally.yml)
 
