@@ -29,7 +29,7 @@ The Azure Storage platform is the Microsoft cloud storage solution for modern da
 
 The Azure Storage platform includes the following data services:
 
-- [Azure Blob Storage](/azure/storage/blobs/storage-blobs-introduction): A massively scalable object store for text and binary data. Also includes support for big data analytics through Data Lake Storage Gen2.
+- [Azure Blob Storage](/azure/storage/blobs/storage-blobs-introduction): A massively scalable object store for text and binary data. Also includes support for big data analytics through Azure Data Lake Storage Gen2.
 - [Azure Files](/azure/storage/files/storage-files-introduction): Managed file shares for cloud or on-premises deployments.
 - [Azure Queue Storage](/azure/storage/queues/storage-queues-introduction): A messaging store for reliable messaging between application components.
 - [Azure Table Storage](/azure/storage/tables/table-storage-overview): A NoSQL store for schemaless storage of structured data.
