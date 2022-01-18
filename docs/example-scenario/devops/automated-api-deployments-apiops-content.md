@@ -1,16 +1,16 @@
-APIOps applies the concepts of [GitOps](https://www.gitops.tech/) and [DevOps](/devops/) to API deployments. By using practices from these two methodologies, APIOps can enable everyone involved in the lifecycle of API design, development, and deployment with self-service and automated tools to ensure the quality of the specifications and APIs that they're building.
+APIOps applies the concepts of [GitOps](https://www.gitops.tech/) and [DevOps](/devops/) to API deployment. By using practices from these two methodologies, APIOps can enable everyone involved in the lifecycle of API design, development, and deployment with self-service and automated tools to ensure the quality of the specifications and APIs that they're building.
 
 APIOps places the [Azure API Management](/azure/api-management/) infrastructure under version control to achieve these goals. Rather than making changes directly in API Management, most operations happen through code changes that can be reviewed and audited. This approach supports the security principle of least-privilege access.
 
 APIOps not only enforces policies within API Management, but also helps support security by providing feedback for proposed policy changes. Early feedback is more convenient for developers and reduces risks and costs. Also, the earlier in the pipeline that you can identify deviations from your standards, the faster you can resolve them.
 
-The more APIs that you build and deploy by following this approach, the greater the consistency between them. This means that there's a smaller chance of deploying a service that is of too poor quality to be consumed.
+Also, the more APIs that you build and deploy by following this approach, the greater the consistency between APIs. With greater consistency, it's less likely that the service can't or won't be consumed because of low quality. 
 
 This article describes a solution for using APIOps with an API Management instance. This solution provides full audit capabilities, policy enforcement, and early feedback.
 
 ## Potential use cases
 
-This solution benefits any organization that wants the advantages of deploying APIs and the API Management infrastructure as code, with an audit trail of every change that's made to the individual APIs, policies, operations, and so on. This solution is especially suitable for highly regulated industries like insurance, banking, and finance. It's also appropriate for other businesses that want to apply the concept of APIOps to an API and the application lifecycle.
+This solution benefits any organization that wants the advantages of deploying APIs and the API Management infrastructure as code. It provides an audit trail of every change that's made to the individual APIs, policies, operations, and so on. This solution is especially suitable for highly regulated industries like insurance, banking, and finance. It's also appropriate for other businesses that want to apply the concept of APIOps to an API and the application lifecycle.
 
 ## Architecture
 
@@ -105,59 +105,61 @@ When someone makes a PR in the Git repository, the API operator knows they have 
 
 ## Deploy this scenario
 
-This scenario provides API designers and developers with the following options and benefits:
+Deploying this solution involves these steps:
 
-- You can develop the API in the portal or make changes to the OpenAPI specification by using a tool of your choice.
+- Develop the API in the portal or make changes to the OpenAPI specification by using a tool of your choice.
 
-- If you make changes in the portal, you can run the extractor to automatically extract all the APIs and other relevant policies, operations, and configurations from API Management. You can synchronize this information to the git repository.
+  If you make changes in the portal, you can run the extractor to automatically extract all the APIs and other relevant policies, operations, and configurations from API Management. You can synchronize this information to the git repository.
 
-- You can use the [Create pull request](/azure/devops/repos/Git/pull-requests?view=azure-devops&tabs=azure-devops-cli#create-a-pull-request) script, which is written in Azure DevOps CLI, to create new PRs.
+- Optionally, use the [Create pull request](/azure/devops/repos/Git/pull-requests?view=azure-devops&tabs=azure-devops-cli#create-a-pull-request) script, which is written in Azure DevOps CLI, to create new PRs.
 
 - The extractor workflow includes the following steps that you take:
 
-    - Run the pipeline that downloads changes in the portal to the API Management instance.
-      <!--Pipline named _APIM-download-portal-changes_ in the scenario.-->
+    - Run a pipeline that downloads changes in the portal to the API Management instance.
+      <!--Pipeline named _APIM-download-portal-changes_ in the scenario.-->
 
     - Enter the names of the branch, the API Management instance, and the resource group.
 
       :::image type="content" alt-text="Screenshot of 'Run pipeline', where you enter the names of the API Management instance and the resource group." source="media/automated-api-deployments-run-pipeline.png":::
 
-- The pipeline has the following stages:
+- In our scenario, the pipeline that downloads changes in the portal to the API Management instance has the following stages: _Build extractor_, _Create artifacts from portal_, and _Create template branch_.
 
-    - Build extractor
-    - Create artifacts from portal
-    - Create template branch PRs
+    - _Build extractor_
 
-- _Build extractor_ builds the extractor code.
+      This stage builds the extractor code.
 
-- _Create artifacts from portal_ runs the extractor and creates artifacts that resemble a Git repository structure like that shown in the following screenshot:
+    - _Create artifacts from portal_
 
-  :::image type="content" alt-text="Screenshot of 'APIM-automation' that shows 'apim-instances' and a folder hierarchy." source="media/automated-api-deployment-api-management-automation-instances.png":::
+      This stage runs the extractor and creates artifacts that resemble a Git repository structure like that shown in the following screenshot:
 
-- After the artifact is generated, _Create template branch_ creates a PR with the changes extracted for the platform team to review.
+      :::image type="content" alt-text="Screenshot of 'APIM-automation' that shows 'apim-instances' and a folder hierarchy." source="media/automated-api-deployment-api-management-automation-instances.png":::
 
-  > [!NOTE]
-  > The first time you run the extractor, it pulls everything from the Git repository. The PR that's created will have all the APIs, policies, artifacts, and so on.
+    - _Create template branch_
 
-- Later extractions have only changes that were made before the extraction in the PR. Sometimes changes might be only to the specification of an API, which is the case in the following example of a PR.
+      After the artifact is generated, this stage creates a PR with the changes extracted for the platform team to review.
 
-  :::image type="content" alt-text="Screenshot of an example pull request after an extraction that shows proposed changes to a file named 'specification.yml'." source="media/automated-api-deployment-subsequent-extraction-pr.png" lightbox="media/automated-api-deployment-subsequent-extraction-pr.png":::
+      - The first time you run the extractor, it pulls everything from the Git repository. The PR that's created will have all the APIs, policies, artifacts, and so on.
+
+      - Later extractions have only changes that were made before the extraction in the PR. Sometimes changes might be only to the specification of an API, which is the case in the following example of a PR.
+
+        :::image type="content" alt-text="Screenshot of an example pull request after an extraction that shows proposed changes to a file named 'specification.yml'." source="media/automated-api-deployment-subsequent-extraction-pr.png" lightbox="media/automated-api-deployment-subsequent-extraction-pr.png":::
+
 
 - A reviewer goes to **Pull Requests** and views the pull requests to be reviewed. This step can also be automatically approved if the changes that are discovered by the extractor should always be pulled in.
 
   :::image type="content" alt-text="Screenshot of an example pull request that shows changes to content in 'policy.xml' and changes only to whitespace in other files." source="media/automated-api-deployment-merging-artifacts-pr.png" lightbox="media/automated-api-deployment-merging-artifacts-pr.png":::
 
-- After the PR is approved, it triggers another pipeline called _apim-publish-to-portal_. This pipeline has the following stages: _Build creator_, _Build terminator_, and _Publish APIM instances_.
+- After the PR is approved, it triggers another pipeline that publishes from API Management to the portal. In our example, <!--we named this pipeline _apim-publish-to-portal_, and--> it has the following stages: _Build creator_, _Build terminator_, and _Publish APIM instances_.
 
   :::image type="content" alt-text="Screenshot of the stages in APIM-publish-to-portal, a pipeline." source="media/automated-api-deployment-stages-of-api-management-publish.png":::
 
-- The _build creator_ stage handles creation of new APIs.
+  - The _build creator_ stage handles creation of new APIs.
 
-- The _build terminator_ stage handles any deletions.
+  - The _build terminator_ stage handles any deletions.
 
-  :::image type="content" alt-text="Screenshot that shows the jobs in an example run of APIM-publish-to-portal, a pipeline." source="media/automated-api-deployment-jobs-in-api-management-publish.png" lightbox="media/automated-api-deployment-jobs-in-api-management-publish.png":::
+    :::image type="content" alt-text="Screenshot that shows the jobs in an example run of APIM-publish-to-portal, a pipeline." source="media/automated-api-deployment-jobs-in-api-management-publish.png" lightbox="media/automated-api-deployment-jobs-in-api-management-publish.png":::
 
-- After this pipeline runs successfully, all the changes are published into the API Management instance.
+  - After this pipeline runs successfully, all the changes are published into the API Management instance. In our example, this stage is named _Publish APIM instances_.
 
 ## Pricing
 
