@@ -138,11 +138,11 @@ Deploying this solution involves these steps:
 
       After the artifact is generated, this stage creates a PR with the changes extracted for the platform team to review.
 
-      - The first time you run the extractor, it pulls everything from the Git repository. The PR that's created will have all the APIs, policies, artifacts, and so on.
+      The first time you run the extractor, it pulls everything from the Git repository. The PR that's created will have all the APIs, policies, artifacts, and so on.
 
-      - Later extractions have only changes that were made before the extraction in the PR. Sometimes changes might be only to the specification of an API, which is the case in the following example of a PR.
+      Later extractions have only changes that were made before the extraction in the PR. Sometimes changes might be only to the specification of an API, which is the case in the following example of a PR.
 
-        :::image type="content" alt-text="Screenshot of an example pull request after an extraction that shows proposed changes to a file named 'specification.yml'." source="media/automated-api-deployment-subsequent-extraction-pr.png" lightbox="media/automated-api-deployment-subsequent-extraction-pr.png":::
+      :::image type="content" alt-text="Screenshot of an example pull request after an extraction that shows proposed changes to a file named 'specification.yml'." source="media/automated-api-deployment-subsequent-extraction-pr.png" lightbox="media/automated-api-deployment-subsequent-extraction-pr.png":::
 
 
 - A reviewer goes to **Pull Requests** and views the pull requests to be reviewed. This step can also be automatically approved if the changes that are discovered by the extractor should always be pulled in.
@@ -157,9 +157,11 @@ Deploying this solution involves these steps:
 
   - The _build terminator_ stage handles any deletions.
 
-    :::image type="content" alt-text="Screenshot that shows the jobs in an example run of APIM-publish-to-portal, a pipeline." source="media/automated-api-deployment-jobs-in-api-management-publish.png" lightbox="media/automated-api-deployment-jobs-in-api-management-publish.png":::
+  After this pipeline runs successfully, all the changes are published into the API Management instance. In our example, this stage is named _Publish APIM instances_.
 
-  - After this pipeline runs successfully, all the changes are published into the API Management instance. In our example, this stage is named _Publish APIM instances_.
+  :::image type="content" alt-text="Screenshot that shows the jobs in an example run of APIM-publish-to-portal, a pipeline." source="media/automated-api-deployment-jobs-in-api-management-publish.png" lightbox="media/automated-api-deployment-jobs-in-api-management-publish.png":::
+
+
 
 ## Pricing
 
