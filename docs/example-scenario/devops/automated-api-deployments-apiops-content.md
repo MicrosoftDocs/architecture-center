@@ -1,6 +1,6 @@
-APIOps applies the concepts of [GitOps](https://www.gitops.tech/) and [DevOps](/devops/) to API deployment. By using practices from these two methodologies, APIOps can enable everyone involved in the lifecycle of API design, development, and deployment with self-service and automated tools to ensure the quality of the specifications and APIs that they're building.
+APIOps applies the concepts of [GitOps](https://www.gitops.tech) and [DevOps](/devops) to API deployment. By using practices from these two methodologies, APIOps can enable everyone involved in the lifecycle of API design, development, and deployment with self-service and automated tools to ensure the quality of the specifications and APIs that they're building.
 
-APIOps places the [Azure API Management](/azure/api-management/) infrastructure under version control to achieve these goals. Rather than making changes directly in API Management, most operations happen through code changes that can be reviewed and audited. This approach supports the security principle of least-privilege access.
+APIOps places the [Azure API Management](/azure/api-management) infrastructure under version control to achieve these goals. Rather than making changes directly in API Management, most operations happen through code changes that can be reviewed and audited. This approach supports the security principle of least-privilege access.
 
 APIOps not only enforces policies within API Management, but also helps support security by providing feedback for proposed policy changes. Early feedback is more convenient for developers and reduces risks and costs. Also, the earlier in the pipeline that you can identify deviations from your standards, the faster you can resolve them.
 
@@ -50,11 +50,11 @@ The solution has the following components:
 
 - [Azure DevOps](/azure/devops/?view=azure-devops) is a service for managing your development lifecycle end-to-end—from planning and project management, to code management, and continuing to build and release.
 
-- [API Management DevOps Resource Kit](https://github.com/Azure/azure-api-management-devops-resource-kit/) provides guidance, examples, and tools to help you achieve API DevOps with Azure API Management. 
+- [API Management DevOps Resource Kit](https://github.com/Azure/azure-api-management-devops-resource-kit) provides guidance, examples, and tools to help you achieve API DevOps with Azure API Management. 
 
-- [Azure Pipelines](/services/devops/pipelines/) enables continuous integration (CI) and continuous delivery (CD) to test and build your code and ship it to any target.
+- [Azure Pipelines](/services/devops/pipelines) enables continuous integration (CI) and continuous delivery (CD) to test and build your code and ship it to any target.
 
-- [Azure Repos](/services/devops/repos/) is a set of version control tools, including standard Git, that you can use to manage your code.
+- [Azure Repos](/services/devops/repos) is a set of version control tools, including standard Git, that you can use to manage your code.
 
 
 ### Alternatives
@@ -163,7 +163,7 @@ Deploying this solution involves these steps:
 
 ## Pricing
 
-- Use the [Azure pricing calculator](https://azure.microsoft.com/en-us/pricing/calculator/) to estimate costs.
+- Use the [Azure pricing calculator](https://azure.microsoft.com/en-us/pricing/calculator) to estimate costs.
 
 - API Management offers the following tiers: Consumption, Developer, Basic, Standard, and Premium.
 
@@ -172,7 +172,7 @@ Deploying this solution involves these steps:
 ## Next steps
 
 - [Azure Pipelines](/azure/devops/pipelines/get-started/what-is-azure-pipelines?view=azure-devops)
-- [API Management DevOps Resource Kit](https://github.com/Azure/azure-api-management-devops-resource-kit/)
+- [API Management DevOps Resource Kit](https://github.com/Azure/azure-api-management-devops-resource-kit)
 - [CI/CD for API Management using Azure Resource Manager templates](/azure/api-management/devops-api-development-templates)
 - [Guide to GitOps](https://www.weave.works/technologies/gitops)
 - [Tutorial: Deploy configurations using GitOps on an Azure Arc-enabled Kubernetes cluster](/azure/azure-arc/kubernetes/tutorial-use-gitops-connected-cluster)
