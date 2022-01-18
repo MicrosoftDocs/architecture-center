@@ -3773,8 +3773,10 @@ items:
                 href: example-scenario/private-web-app/private-web-app.yml
       - name: Storage
         items:
+          - name: Get started
+            href: solution-ideas/articles/storage-start-here.md
           - name: Guides
-            items:
+            items: 
               - name: Storage accounts
                 href: /azure/storage/common/storage-account-overview
                 maintainContext: true
