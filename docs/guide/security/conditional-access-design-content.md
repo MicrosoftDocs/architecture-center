@@ -16,47 +16,51 @@ visio
 
  ![Diagram that provides an overview of the Conditional Access signal, decision, enforcement path.](./images/conditional-access-signals.png)
 
- Here's a more detailed view of the elements of Conditional Access what it covers:
+ Here's a more detailed view of the elements of Conditional Access and what it covers:
 
- ![ZT User Access](./images/user-access.png)
+ ![Diagram that shows a more detailed view of Conditional Access.](./images/user-access.png)
 
- The figure shows Conditional Access and related elements that can protect access to resources for users (as opposed to non-interactive/non-human access) as shown in the figure below.
+ This diagram shows Conditional Access and related elements that can help protect user access to resources, as opposed to non-interactive or non-human access. The following diagram describes these identities: 
 
- ![CA Identity Types](./images/conditional-access-identity.svg)
+ ![Diagram that describes Conditional Access identity types.](./images/conditional-access-identity.svg)
 
-The non-human access to resources also must be protected. Expect this document to be changed to reflect any such potential changes in the CA policy engine as/if they arrive. Meanwhile, non-human identities accessing cloud resources must be protected by other means (like grant controls for OAuth based access).
+Non-human access to resources also must be protected. Currently, you need to protect non-human access to cloud resources by other means, like grant controls for OAuth-based access.
 
-Note! As per medio November, Microsoft now provides a preview for targeting service principals and protect access to resources for such machine/workload identities based on location. See persona section for more details.
+> [!NOTE] 
+> Functionality for targeting service principals and helping to protect access to resources for machine or workload identities based on location is currently in preview. See the persona section for more details.
 
-### Enterprise Access Model
+### Enterprise access model
 
-In the past, Microsoft has provided guidance and principles for access to on-premises resources based on a tiering model, where Domain Controllers, PKI, ADFS servers and management solutions managing these servers are considered Tier 0, servers hosting applications are considered Tier 1 and client devices are considered Tier 2.
+In the past, Microsoft provided guidance and principles for access to on-premises resources based on a tiering model: 
+- Tier 0: Domain controllers, PKI, Active Directory Federation Services (AD FS) servers and management solutions that manage these servers 
+- Tier 1: Servers that host applications 
+- Tier 2: Client devices 
 
-This model is still relevant for on-premises resources, but when we discuss protecting access to resources in the cloud, Microsoft suggests developing an access control strategy that
+This model is still relevant for on-premises resources, but for helping to protect access to resources in the cloud, Microsoft recommends an access control strategy that:
 
-- Is comprehensive and consistent
-- Rigorously applies security principles throughout the technology stack
-- Is flexible enough to meet the needs of the organization
+- Is comprehensive and consistent.
+- Rigorously applies security principles throughout the technology stack.
+- Is flexible enough to meet the needs of your organization.
 
-Based on these principles, Microsoft has formed the following the Enterprise Access Model shown below.
+Based on these principles, Microsoft created the following enterprise access model:
 
-![Enterprise Access Model](./images/enterprise-access-model.png)
+![Diagram that outlines the enterprise access model.](./images/enterprise-access-model.png)
 
-The enterprise access model supersedes and replaces the legacy tier model that was focused on containing unauthorized escalation of privilege in an on-premises Windows Server Active Directory environment. Tier 0 expands to become the control plane, Tier 1 consists of the management and data plane and Tier 2 covers user and app access.
+The enterprise access model replaces the legacy tier model, which was focused on containing unauthorized escalation of privilege in an on-premises Windows Server Active Directory environment. Tier 0 expands to become the control plane, Tier 1 consists of the management and data plane, and Tier 2 covers user and app access.
 
-Microsoft suggests moving the control and management plane up into being cloud services using Conditional Access as the main control plane and policy engine, thus defining and enforcing access.
+Microsoft recommends moving control and management into cloud services that use Conditional Access as the main control plane and policy engine, thus defining and enforcing access.
 
-The Azure Active Directory CA policy engine can be extended to other policy enforcement points, including:
+You can extend the Azure Active Directory Conditional Access policy engine to other policy enforcement points, including:
 
 - Modern applications: Applications that use modern authentication protocols.
-- Legacy applications: Via Azure AD Application Proxy.
-- VPN and remote access solutions: Such as Microsoft Always-On, Cisco AnyConnect, Palo Alto Networks, F5, Fortinet, Citrix, and Zscaler.
+- Legacy applications: Via Azure Active Directory (Azure AD) Application Proxy.
+- VPN and remote access solutions: Solutions like Microsoft Always On VPN, Cisco AnyConnect, Palo Alto Networks, F5, Fortinet, Citrix, and Zscaler.
 - Documents, email, and other files: Via Microsoft Information Protection.
-- SaaS applications:
+- SaaS applications.
 
-### Zero Trust Principles
+### Principles of Zero Trust
 
-Based on experiences from having worked with various enterprise customers, it seems that the three main Zero Trust principles that Microsoft defines are well understood and makes sense, especially for security departments. However, sometimes, it is overlooked how important the usability is when designing Zero Trust solutions.
+The three main Zero-Trust principles that Microsoft defines seem to be understood, especially for security departments. However, sometimes, it is overlooked how important the usability is when designing Zero Trust solutions.
 
 Based on experiences from having worked with various enterprise customers, it seems that the three main Zero Trust principles that Microsoft defines are well understood and makes sense, especially for security departments. However, sometimes, it is overlooked how important the usability is when designing Zero Trust solutions.
 
