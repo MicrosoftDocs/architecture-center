@@ -1,6 +1,5 @@
 
 
-
 [Availability zones](/azure/availability-zones/az-overview) are physically separated collections of datacenters within a given region. Replicating your deployments across multiple zones, ensures that local outages limited to a zone do not negatively impact the availability of your application. This architecture shows how you can improve the resiliency of an ASE deployment by deploying in multiple availability zones. These zones are not related to proximity. They can map to different physical locations for different subscriptions. This architecture assumes a single subscription deployment.
 
 ![GitHub logo](../../_images/github.png) A reference implementation for this architecture is available on [GitHub](https://github.com/mspnp/app-service-environments-ILB-deployments).

@@ -1,8 +1,8 @@
 ### YamlMime:Architecture
 metadata:
-  title: Enterprise deployment using App Services Environment
+  title: Enterprise deployment using Azure ASE
   titleSuffix: Azure Reference Architectures
-  description: Recommended architecture for deploying an enterprise application using App Services Environment.
+  description: Learn about the recommended architecture for deploying an enterprise application using App Services Environment in Azure.
   author: dsk-2015
   ms.author: pnp
   ms.date: 05/08/2020
@@ -24,8 +24,6 @@ products:
   - azure-application-gateway
   - azure-app-service
   - azure-firewall
-  - azure-key-vault
-  - azure-pipelines
   - azure-virtual-network
 thumbnailUrl: /azure/architecture/browse/thumbs/standard-ase-deployment.png
 content: |

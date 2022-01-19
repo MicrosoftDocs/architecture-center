@@ -13,11 +13,11 @@ ms.subservice: cloud-fundamentals
 
 ## Simple Email Service
 
-AWS provides the Simple Email Service (SES), which enables developers to support several email use cases, including transactional, marketing, and mass email communications. In Azure, third-party solutions, like [SendGrid](https://sendgrid.com/partners/azure), provide email services that can be incorporated into solutions to cater for various use cases. 
+AWS provides the Simple Email Service (SES) for sending notification, transactional, or marketing emails. In Azure, third-party solutions, like [SendGrid](https://sendgrid.com/partners/azure), provide email services that can be incorporated into solutions to cater for various use cases.
 
 ## Simple Queueing Service
 
-AWS Simple Queueing Service (SQS) is a fully managed message queuing service that enables developers to decouple and scale microservices, distributed systems, and serverless applications. Azure has two services that provide similar functionality:
+AWS Simple Queueing Service (SQS) provides a messaging system for connecting applications, services, and devices within the AWS platform. Azure has two services that provide similar functionality:
 
 - [Queue storage](/azure/storage/queues/storage-nodejs-how-to-use-queues) is a cloud messaging service that allows communication between application components within Azure.
 

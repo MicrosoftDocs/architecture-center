@@ -1,0 +1,26 @@
+### YamlMime:Architecture
+metadata:
+  title: Building blocks for autonomous-driving simulation environments
+  titleSuffix: Azure Reference Architectures
+  description: To assess autonomous driving (AD), function engineers need to simulate the behavior of vehicles with AD capabilities.
+  author: EdPrice-MSFT
+  ms.author: gurcan.gulesir
+  ms.date: 09/17/2021
+  ms.topic: conceptual
+  ms.service: architecture-center
+  ms.subservice: solution-idea
+azureCategories:
+  - compute
+  - containers
+  - devops
+products:
+  - azure-container-instances
+  - azure-active-directory
+  - azure-virtual-network
+  - azure-virtual-machines
+  - azure-pipelines
+name: Building blocks for autonomous-driving simulation environments
+summary: To assess autonomous driving (AD), function engineers need to simulate the behavior of vehicles with AD capabilities.
+thumbnailUrl: /azure/architecture/browse/thumbs/building-blocks-autonomous-driving-simulation-environments.png
+content: |
+  [!include[](building-blocks-autonomous-driving-simulation-environments-content.md)]

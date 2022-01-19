@@ -29,12 +29,11 @@ The solution involves the following steps:
 
 1. A clerk for a local hospital opens a web portal. The entire web app is an Azure Blob Storage static website.
 1. The clerk enters data into the hospital's web portal, which connects to a Python Flask–based web API built by a popular medical platform vendor. A confidential node in the [SCONE](https://sconedocs.github.io/#scone-executive-summary) confidential computing software protects the patient data. SCONE works within an AKS cluster that has the Software Guard Extensions (SGX) enabled that help run the container in an enclave. The Web API will provide evidence that the sensitive data and app code is encrypted and isolated in a Trusted Execution Environment. This means that no humans, no processes, and no logs have access to the cleartext data or the application code.
-1. The hospital's web app client requests that an attestation service (Azure Attestation) validates this evidence, and receives a signed _attestation token_ for other apps to verify.
+1. The hospital's web app client requests that an attestation service (Azure Attestation) validates this evidence, and receives a signed *attestation token* for other apps to verify.
 1. If the Web API requires additional components (like a Redis cache), it can pass along the attestation token to verify that the data and app code have so far remained in a safe enclave (see step 6 for verification).
-1. The Web API can even consume remote services, such as an ML model hosted by a third-party diagnostics provider. When doing so, it continues to pass along any attestation tokens for evidence that required enclaves are safe. The Web API could also attempt to receive and verify attestation tokens for the diagnostic provider's infrastructure. 
+1. The Web API can even consume remote services, such as an ML model hosted by a third-party diagnostics provider. When doing so, it continues to pass along any attestation tokens for evidence that required enclaves are safe. The Web API could also attempt to receive and verify attestation tokens for the diagnostic provider's infrastructure.
 1. The remote infrastructure accepts the attestation token from the medical platform's web api and verifies it with a public certificate found in the Azure Attestation service. If the token is verified, there is near certainty that the enclave is safe and neither the data or app code have been opened outside of the enclave.
-1. The diagnostics provider, confident that the data has not been exposed, sends it into its own enclave in an Open Neural Network Exchange (ONNX) runtime server. An AI model interprets the medical imagery and returns its diagnosis results back to the medical platform's confidential Web API app. From here, the software can then interact with patient records and/or contact other hospital staff. 
-
+1. The diagnostics provider, confident that the data has not been exposed, sends it into its own enclave in an Open Neural Network Exchange (ONNX) runtime server. An AI model interprets the medical imagery and returns its diagnosis results back to the medical platform's confidential Web API app. From here, the software can then interact with patient records and/or contact other hospital staff.
 
 ### Components
 
@@ -103,7 +102,7 @@ The profile doesn't include the following components:
 - SCONE ISV licensing
 - Compliance services required for solutions working with sensitive data, including:
 
-  - Azure Security Center and Azure Defender for Kubernetes
+  - Microsoft Defender for Cloud and Microsoft Defender for Kubernetes
   - Azure DDoS Protection: standard
   - Azure Firewall
   - Azure Application Gateway and Azure Web Application Firewall

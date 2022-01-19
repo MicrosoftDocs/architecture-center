@@ -1,26 +1,33 @@
 ---
-title: Performance tuning - Distributed business transactions
+title: Distributed business transaction performance tuning
 titleSuffix: Azure Architecture Center
 description: Use load testing to tune the performance of a distributed business transaction. Tests include increasing the cache size, parallelism, and lock duration.
-author: doodlemania2
+author: EdPrice-MSFT
 ms.author: pnp
-ms.date: 08/27/2019
+ms.date: 09/24/2021
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: cloud-fundamentals
 ms.custom:
   - article
+categories:
+  - containers
+  - devops
+products:
+  - azure-kubernetes-service
+  - azure-cache-redis
+  - application-insights
 ---
 
 # Performance tuning scenario: Distributed business transactions
 
-This article describes how a development team used metrics to find bottlenecks and improve the performance of a distributed system. The article is based on actual load testing that we did for a sample application. The application code is available on [GitHub](https://github.com/mspnp/microservices-reference-implementation).
+This article describes how a development team used metrics to find bottlenecks and improve the performance of a distributed system. The article is based on actual load testing that we did for a sample application. The application is from the [Azure Kubernetes Service (AKS) Baseline for microservices](../reference-architectures/containers/aks-microservices/aks-microservices-advanced.yml).
 
 *This article is part of a series. Read the first part [here](./index.md).*
 
 **Scenario**: A client application initiates a business transaction that involves multiple steps.
 
-This scenario involves a drone delivery application that runs on Azure Kubernetes Service (AKS). Customers use a web app to schedule deliveries by drone. Each transaction requires multiple steps that are performed by separate microservices on the back end:
+This scenario involves a drone delivery application that runs on AKS. Customers use a web app to schedule deliveries by drone. Each transaction requires multiple steps that are performed by separate microservices on the back end:
 
 - The Delivery service manages deliveries.
 - The Drone Scheduler service schedules drones for pickup.
@@ -34,7 +41,7 @@ For more information about this scenario, see [Designing a microservices archite
 
 ## Test 1: Baseline
 
-For the first load test, the team created a 6-node AKS cluster and deployed three replicas of each microservice. The load test was a step-load test, starting at two simulated users and ramping up to 40 simulated users. 
+For the first load test, the team created a six-node AKS cluster and deployed three replicas of each microservice. The load test was a step-load test, starting at two simulated users and ramping up to 40 simulated users.
 
 | Setting | Value |
 |---------|-------|
@@ -45,7 +52,7 @@ The following graph shows the results of the load test, as shown in Visual Studi
 
 ![Graph of Visual Studio load test results](./images/workflow/1-load-test.png)
 
-The first thing to realize about this scenario is that client requests per second is not a useful metric of performance. That's because the application processes requests asynchronously, so the client gets a response right away. The response code is always HTTP 202 (Accepted), meaning the request was accepted but processing is not complete. 
+The first thing to realize about this scenario is that client requests per second is not a useful metric of performance. That's because the application processes requests asynchronously, so the client gets a response right away. The response code is always HTTP 202 (Accepted), meaning the request was accepted but processing is not complete.
 
 What we really want to know is whether the backend is keeping up with the request rate. The Service Bus queue can absorb spikes, but if the backend cannot handle a sustained load, processing will fall further and further behind.
 
@@ -55,7 +62,7 @@ Here's a more informative graph. It plots the number incoming and outgoing messa
 
 This chart is showing that the rate of incoming messages increases, reaching a peak and then dropping back to zero at the end of the load test. But the number of outgoing messages peaks early in the test and then actually drops. That means the Workflow service, which handles the requests, isn't keeping up. Even after the load test ends (around 9:22 on the graph), messages are still being processed as the Workflow service continues to drain the queue.
 
-What's slowing down the processing? The first thing to look for is errors or exceptions that might indicate a systematic issue. The [Application Map](/azure/azure-monitor/app/app-map) in Azure Monitor shows the graph of calls between components, and is a quick way to spot issues and then click through to get more details. 
+What's slowing down the processing? The first thing to look for is errors or exceptions that might indicate a systematic issue. The [Application Map](/azure/azure-monitor/app/app-map) in Azure Monitor shows the graph of calls between components, and is a quick way to spot issues and then click through to get more details.
 
 Sure enough, the Application Map shows that the Workflow service is getting errors from the Delivery service:
 
@@ -84,15 +91,15 @@ The following graph measures throughput in terms of message completion &mdash; t
 This graph was generated by running a query in the Log Analytics workspace, using the [Kusto query language](/azure/kusto/query/):
 
 ```kusto
-let start=datetime("2019-07-31T22:30:00.000Z");
-let end=datetime("2019-07-31T22:45:00.000Z");
+let start=datetime("2020-07-31T22:30:00.000Z");
+let end=datetime("2020-07-31T22:45:00.000Z");
 dependencies
-| where cloud_RoleName == 'fabrikam-workflow' 
+| where cloud_RoleName == 'fabrikam-workflow'
 | where timestamp > start and timestamp < end
-| where type == 'Azure Service Bus' 
+| where type == 'Azure Service Bus'
 | where target has 'https://dev-i-iuosnlbwkzkau.servicebus.windows.net'
 | where client_Type == "PC"
-| where name == "Complete" 
+| where name == "Complete"
 | summarize succeeded=sumif(itemCount, success == true), failed=sumif(itemCount, success == false) by bin(timestamp, 5s)
 | render timechart
 ```
@@ -116,7 +123,7 @@ Throughput is more consistent, but the maximum achieved is about the same as the
 
 ![Graph of message throughput showing that the maximum achieved is about the same as the previous test.](./images/workflow/3-throughput.png)
 
-Moreover, looking at [Azure Monitor for containers](/azure/azure-monitor/insights/container-insights-overview), it appears the problem is not caused by resource exhaustion within the cluster. First, the node-level metrics show that CPU utilization remains under 40% even at the 95th percentile, and memory utilization is about 20%.
+Moreover, looking at [Azure Monitor container insights](/azure/azure-monitor/insights/container-insights-overview), it appears the problem is not caused by resource exhaustion within the cluster. First, the node-level metrics show that CPU utilization remains under 40% even at the 95th percentile, and memory utilization is about 20%.
 
 ![Graph of AKS node utilization](./images/workflow/3-node-utilization.png)
 
@@ -128,7 +135,7 @@ From this test, it seems that just adding more pods to the back end won't help. 
 
 ![Screenshot of Application Insights](./images/workflow/3-perf-summary.png)
 
-We can also run a query to get metrics on the individual operations within each transaction:  
+We can also run a query to get metrics on the individual operations within each transaction:
 
 | target | percentile_duration_50 | percentile_duration_95 |
 |--------|------------------------|------------------------|
@@ -140,8 +147,8 @@ We can also run a query to get metrics on the individual operations within each 
 The first row in this table represents the Service Bus queue. The other rows are the calls to the backend services. For reference, here's the Log Analytics query for this table:
 
 ```kusto
-let start=datetime("2019-07-31T22:30:00.000Z");
-let end=datetime("2019-07-31T22:45:00.000Z");
+let start=datetime("2020-07-31T22:30:00.000Z");
+let end=datetime("2020-07-31T22:45:00.000Z");
 let dataset=dependencies
 | where timestamp > start and timestamp < end
 | where (cloud_RoleName == 'fabrikam-workflow')
@@ -152,7 +159,7 @@ dataset
 
 ![Screenshot of Log Analytics query result](./images/workflow/3-perf.png)
 
-These latencies look reasonable. But here is the key insight: If the total operation time is ~250 ms, that puts a strict upper bound on how fast messages can be processed in serial. The key to improving throughput, therefore, is greater parallelism. 
+These latencies look reasonable. But here is the key insight: If the total operation time is ~250 ms, that puts a strict upper bound on how fast messages can be processed in serial. The key to improving throughput, therefore, is greater parallelism.
 
 That should be possible in this scenario, for two reasons:
 
@@ -168,23 +175,23 @@ For this test, the team focused on increasing parallelism. To do so, they adjust
 | `MaxConcurrentCalls` | The maximum number of messages to process concurrently. | 1 |  20 |
 | `PrefetchCount` | How many messages the client will fetch ahead of time into its local cache. | 0 | 3000 |
 
-For more information about these settings, see [Best Practices for performance improvements using Service Bus Messaging](/azure/service-bus-messaging/service-bus-performance-improvements#concurrent-operations). Running the test with these settings produced the following graph: 
+For more information about these settings, see [Best Practices for performance improvements using Service Bus Messaging](/azure/service-bus-messaging/service-bus-performance-improvements#concurrent-operations). Running the test with these settings produced the following graph:
 
 ![Graph of incoming and outgoing messages showing the number of outgoing messages actually exceeding the total number of incoming messages.](./images/workflow/4-event-hub.png)
 
 Recall that incoming messages are shown in light blue, and outgoing messages are shown in dark blue.
 
-At first glance, this is a very weird graph. For a while, the outgoing message rate exactly tracks the incoming rate. But then, at about the 2:03 mark, the rate of incoming messages levels off, while the number of outgoing messages continues to rise, actually exceeding the total number of incoming messages. That seems impossible. 
+At first glance, this is a very weird graph. For a while, the outgoing message rate exactly tracks the incoming rate. But then, at about the 2:03 mark, the rate of incoming messages levels off, while the number of outgoing messages continues to rise, actually exceeding the total number of incoming messages. That seems impossible.
 
 The clue to this mystery can be found in the **Dependencies** view in Application Insights. This chart summarizes all of the calls that the Workflow service made to Service Bus:
 
 ![Graph of dependency calls](./images/workflow/4-event-hub-perf.png)
 
-Notice that entry for `DeadLetter`. That calls indicates messages are going into the Service Bus [dead-letter queue](/azure/service-bus-messaging/service-bus-dead-letter-queues).  
+Notice that entry for `DeadLetter`. That calls indicates messages are going into the Service Bus [dead-letter queue](/azure/service-bus-messaging/service-bus-dead-letter-queues).
 
 To understand what's happening, you need to understand [Peek-Lock](/rest/api/servicebus/peek-lock-message-non-destructive-read) semantics in Service Bus. When a client uses Peek-Lock, Service Bus atomically retrieves and locks a message. While the lock is held, the message is guaranteed not to be delivered to other receivers. If the lock expires, the message becomes available to other receivers. After a maximum number of delivery attempts (which is configurable), Service Bus will put the messages onto a [dead-letter queue](/azure/service-bus-messaging/service-bus-dead-letter-queues), where it can be examined later.
 
-Remember that the Workflow service is prefetching large batches of messages &mdash; 3000 messages at a time). That means the total time to process each message is longer, which results in messages timing out, going back onto the queue, and eventually going into the dead-letter queue. 
+Remember that the Workflow service is prefetching large batches of messages &mdash; 3000 messages at a time). That means the total time to process each message is longer, which results in messages timing out, going back onto the queue, and eventually going into the dead-letter queue.
 
 You can also see this behavior in the exceptions, where numerous `MessageLostLockException` exceptions are recorded:
 
@@ -204,7 +211,7 @@ However, running the same test with a longer duration showed that the applicatio
 
 ![Graph of incoming and outgoing messages showing that the application could not sustain this rate.](./images/workflow/5b-event-hub.png)
 
-The container metrics show that maximum CPU utilization was close to 100%. At this point, the application appears to be CPU-bound. Scaling the cluster might improve performance now, unlike the previous attempt at scaling out. 
+The container metrics show that maximum CPU utilization was close to 100%. At this point, the application appears to be CPU-bound. Scaling the cluster might improve performance now, unlike the previous attempt at scaling out.
 
 ![Graph of AKS node utilization showing that maximum CPU utilization was close to 100%.](./images/workflow/5-node-utilization.png)
 
@@ -238,7 +245,7 @@ To diagnose these issues, the development team relied on the following metrics:
 - Application Map in Application Insights.
 - Errors and exceptions.
 - Custom Log Analytics queries.
-- CPU and memory utilization in Azure Monitor for containers.
+- CPU and memory utilization in Azure Monitor container insights.
 
 ## Next steps
 

@@ -1,7 +1,8 @@
 ---
-title: Choosing an Azure compute option for microservices
+title: Choose a compute option for microservices
 description: Learn about service orchestrator and serverless architecture as compute options, or hosting models for the computing resources where your application runs.
-author: doodlemania2
+author: EdPrice-MSFT
+ms.author: pnp
 ms.date: 02/25/2019
 ms.topic: conceptual
 ms.service: architecture-center
@@ -16,7 +17,7 @@ ms.custom:
   - guide
 ---
 
-# Choosing an Azure compute option for microservices
+# Choose an Azure compute option for microservices
 
 The term *compute* refers to the hosting model for the computing resources that your application runs on. For a microservices architecture, two approaches are especially popular:
 
@@ -53,11 +54,7 @@ With a [serverless](https://azure.microsoft.com/solutions/serverless/) architect
 
 [Azure Functions](/azure/azure-functions/) is a serverless compute service that supports various function triggers, including HTTP requests, Service Bus queues, and Event Hubs events. For a complete list, see [Azure Functions triggers and bindings concepts](/azure/azure-functions/functions-triggers-bindings). Also consider [Azure Event Grid](/azure/event-grid/), which is a managed event routing service in Azure.
 
-<!-- markdownlint-disable MD026 -->
-
 ## Orchestrator or serverless?
-
-<!-- markdownlint-enable MD026 -->
 
 Here are some factors to consider when choosing between an orchestrator approach and a serverless approach.
 

@@ -1,6 +1,3 @@
-
-
-
 [!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
 Modern software is increasingly connected and distributed. The consistency of Azure Stack with Azure infrastructure and platform services enable you to scale resources cross cloud to meet increased load as needed, and decrease resources as demand drops. Optimize cost and maximize resource efficiency while remaining compliant with cross cloud architecture.
@@ -10,7 +7,7 @@ Modern software is increasingly connected and distributed. The consistency of Az
 ![Architecture diagram](../media/cross-cloud-scaling.png)
 *Download an [SVG](../media/cross-cloud-scaling.svg) of this architecture.*
 
-## Data Flow
+### Data flow
 
 1. A large number of users attempt to access a web app.
 1. Traffic manager returns the Azure Stack DNS name.
@@ -18,7 +15,7 @@ Modern software is increasingly connected and distributed. The consistency of Az
 1. Once a threshold is reached, a function starts the Azure Web App and enables the Azure Traffic Manager route.
 1. Traffic is routed to Azure, which can automatically scale App Service.
 
-## Components
+### Components
 
 * [Traffic Manager](https://azure.microsoft.com/services/traffic-manager): Route incoming traffic for high performance and availability
 * [Azure Functions](https://azure.microsoft.com/services/functions): Process events with serverless code

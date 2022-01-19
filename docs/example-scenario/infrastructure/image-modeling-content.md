@@ -1,6 +1,5 @@
 
 
-
 This example scenario provides architecture and design guidance for any organization that wants to perform image-based modeling on Azure infrastructure-as-a-service (IaaS). The scenario is designed for running photogrammetry software on Azure Virtual Machines (VMs) using high-performance storage that accelerates processing time. The environment can be scaled up and down as needed and supports terabytes of storage without sacrificing performance.
 
 ## Relevant use cases
@@ -53,7 +52,7 @@ This scenario is designed specifically to provide high-performance storage for a
 
 Deployment considerations depend on the applications and services used, but a few notes apply:
 
-- When building high-performance applications, use Azure Premium Storage and [optimize the application layer](/azure/virtual-machines/windows/premium-storage-performance). Optimize storage for frequent access using Azure Blob [hot tier access](/azure/storage/blobs/storage-blob-storage-tiers).
+- When building high-performance applications, use Azure Premium Storage and [optimize the application layer](/azure/virtual-machines/windows/premium-storage-performance). Optimize storage for frequent access using Azure Blob [hot tier access](/azure/storage/blobs/access-tiers-overview).
 - Use a storage [replication option](/azure/storage/common/storage-redundancy) that meets your availability and performance requirements. In this example, Avere vFXT is configured for high availability by default, with locally redundant storage (LRS). For load balancing, all VMs in this setup use the round-robin pattern to access vFXT exports.
 - If the backend storage will be consumed by both Windows clients and Linux clients, use Samba servers to support the Windows nodes. A [version](https://github.com/paulomarquesc/beegfs-template) of this example scenario based on BeeGFS uses Samba to support the scheduler node of the HPC workload (PhotoScan) running on Windows. A load balancer is deployed to act like a smart replacement for DNS round robin.
 - Run HPC applications using the VM type best suited for your [Windows](/azure/virtual-machines/windows/sizes-hpc) or [Linux](/azure/virtual-machines/linux/sizes?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) workload.

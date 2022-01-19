@@ -31,6 +31,6 @@ products:
   - azure-machine-learning
   - azure-data-factory
   - power-bi
-thumbnailUrl: /azure/architecture/browse/thumbs/automl-forecast-energy-demand.png
+thumbnailUrl: /azure/architecture/browse/thumbs/forecast-energy-power-demand.png
 content: |
   [!include[](forecast-energy-power-demand-content.md)]

@@ -1,9 +1,9 @@
 ### YamlMime:Architecture
 metadata:
-  title: CI/CD for Containers
+  title: CI/CD for containers
   titleSuffix: Azure Solution Ideas
   description: Learn how to orchestrate CI/CD of containers using Kubernetes in Azure Kubernetes Service, so you can achieve replicable, manageable clusters of containers.
-  author: doodlemania2
+  author: EdPrice-MSFT
   ms.author: pnp
   ms.date: 12/16/2019
   ms.topic: conceptual
@@ -23,7 +23,7 @@ metadata:
     - pricing-calculator
     - "https://azure.microsoft.com/solutions/architecture/cicd-for-containers/"
   social_image_url: /azure/architecture/solution-ideas/articles/media/cicd-for-containers.png
-name: CI/CD for Containers
+name: CI/CD for containers
 azureCategories:
   - devops
   - containers

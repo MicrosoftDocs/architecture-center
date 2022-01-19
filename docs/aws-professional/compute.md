@@ -1,6 +1,6 @@
 ---
 title: Comparing AWS and Azure compute services
-description: A comparison of the differences between compute services between Azure and AWS
+description: Compare the compute services in Azure and AWS. Explore the differences in virtual servers, containers and container orchestrators, and serverless architectures.
 author: kobile70
 ms.author: kobilevi
 ms.date: 08/09/2021
@@ -45,7 +45,7 @@ Autoscaling in Azure is handled by two services:
 
 ## Container Service
 
-The [Azure Kubernetes Service](/azure/aks/intro-kubernetes) supports Docker containers managed through Kubernetes.
+The [Azure Kubernetes Service](/azure/aks/intro-kubernetes) supports Docker containers managed through Kubernetes. See [Container runtime configuration](/azure/aks/cluster-configuration#container-runtime-configuration) for specifics on the hosting environment.
 
 ## Distributed Systems Platform
 

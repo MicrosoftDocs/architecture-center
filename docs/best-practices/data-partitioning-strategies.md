@@ -1,8 +1,8 @@
 ---
 title: Data partitioning strategies
 titleSuffix: Best practices for cloud applications
-description: Guidance on separating data partitions to be managed and accessed separately.
-author: dragon119
+description: View guidance on separating data partitions to be managed and accessed separately in different services, such as Azure Search, Azure storage queues, and more.
+author: EdPrice-MSFT
 ms.date: 11/04/2018
 ms.topic: conceptual
 ms.service: architecture-center
@@ -293,7 +293,7 @@ Azure Service Fabric is a microservices platform that provides a runtime for dis
 
 [Azure Event Hubs][event-hubs] is designed for data streaming at massive scale, and partitioning is built into the service to enable horizontal scaling. Each consumer only reads a specific partition of the message stream.
 
-The event publisher is only aware of its partition key, not the partition to which the events are published. This decoupling of key and partition insulates the sender from needing to know too much about the downstream processing. (It's also possible send events directly to a given partition, but generally that's not recommended.)  
+The event publisher is only aware of its partition key, not the partition to which the events are published. This decoupling of key and partition insulates the sender from needing to know too much about the downstream processing. (It's also possible send events directly to a given partition, but generally that's not recommended.)
 
 Consider long-term scale when you select the partition count. After an event hub is created, you can't change the number of partitions.
 

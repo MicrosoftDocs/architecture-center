@@ -1,5 +1,5 @@
 ---
-title: AKS Day-2 Operations Guide - Patch and upgrade guidance
+title: AKS Day-2 - Patch and upgrade guidance
 titleSuffix: Azure Architecture Center
 description: Learn about day-2 patching and upgrading practices for Azure Kubernetes Service (AKS) worker nodes and Kubernetes (K8S) versions.
 author: rishabhsaha
@@ -135,7 +135,7 @@ systempool    1.16.13
 usernodepool  1.16.13
 usernp179     1.17.9
 ```
-  
+
 You can upgrade the control plane first, and then upgrade the individual node pools.
 
 1. Run the [az aks upgrade](/cli/azure/ext/aks-preview/aks#ext_aks_preview_az_aks_upgrade) command with the `--control-plane-only` flag to upgrade only the cluster control plane, and not any of the associated node pools:

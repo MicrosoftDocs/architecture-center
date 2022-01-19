@@ -102,13 +102,11 @@ Deploying Windows Admin Center on a local Windows 10 client is great for quick-s
 - You can help ensure high availability of the Windows Admin Center gateway service by deploying it in an active/passive model on a failover cluster. In this scenario, only one instance of the Windows Admin Center gateway service is active. If one of the nodes in the cluster fails, the Windows Admin Center gateway service seamlessly fails over to another node.
   > [!CAUTION]
   > Deploying Windows Admin Center on a Windows 10 client computer doesn't provide high availability because gateway functionality isn't included with the Windows 10 deployment. Deploy the Windows Admin Center gateway to Windows Server 2016 or Windows Server 2019.
-- To help ensure high availability of Windows Admin Center data in case of a node failure, configure a Cluster Shared Volume (CSV) into which Windows Admin Center will store persistent data that all the nodes in the cluster access.
-You can deploy the failover cluster for Windows Admin Center gateway by using an automated deployment script. The **Install-WindowsAdminCenterHA.ps1** script automatically deploys the failover cluster, configures IP addresses for the cluster service, installs Windows Admin Center gateway, configures the port number for the gateway service, and configures the web service with the appropriate certificate.
+- To help ensure high availability of Windows Admin Center data in case of a node failure, configure a Cluster Shared Volume (CSV) into which Windows Admin Center will store persistent data that all the nodes in the cluster access. You can deploy the failover cluster for Windows Admin Center gateway by using an automated deployment script. The **Install-WindowsAdminCenterHA.ps1** script automatically deploys the failover cluster, configures IP addresses for the cluster service, installs Windows Admin Center gateway, configures the port number for the gateway service, and configures the web service with the appropriate certificate.
   > [!TIP]
   > For more information about using the automated deployment script, refer to [Deploy Windows Admin Center with high availability][wac-deploy-ha].
 
-- Deploying Windows Admin Center gateway to an Azure VM provides additional high-availability options. For example, by using availability sets you can provide VM redundancy and availability within an Azure datacenter by distributing the VMs across multiple hardware nodes.
-You can also use availability zones in Azure, which provide datacenter fault tolerance. Availability zones are unique physical locations that span datacenters within an Azure region. This helps ensure that Azure VMs have independent power, cooling, and networking. For more information on high availability, refer to [Availability options for virtual machines in Azure][azure-vm-availability] and [High availability and disaster recovery for IaaS apps][iaas-ha-dr].
+- Deploying Windows Admin Center gateway to an Azure VM provides additional high-availability options. For example, by using availability sets you can provide VM redundancy and availability within an Azure datacenter by distributing the VMs across multiple hardware nodes. You can also use availability zones in Azure, which provide datacenter fault tolerance. Availability zones are unique physical locations that span datacenters within an Azure region. This helps ensure that Azure VMs have independent power, cooling, and networking. For more information on high availability, refer to [Availability options for virtual machines in Azure][azure-vm-availability] and [High availability and disaster recovery for IaaS apps][iaas-ha-dr].
 
 ## Manageability considerations
 
@@ -134,10 +132,10 @@ For a complete list of server management capabilities, refer to [Manage Servers 
 
   > [!IMPORTANT]
   > Windows Admin Center doesn't replace all Remote Server Administration Tools (RSAT), such as Internet Information Services (IIS), because there is no equivalent management capability for it in Windows Admin Center.
-  
+
   > [!NOTE]
   > Windows Admin Center provides a subset of Server Manager features for managing Windows 10 client PCs.
-  
+
 - Windows Admin Center provides support for managing failover clusters and cluster resources, managing Hyper-V VMs and virtual switches, and managing Windows Server Storage Replica. In addition to using Windows Admin Center to manage and monitor an existing Hyper-Converged Infrastructure, you can also use Windows Admin Center to deploy a new Hyper-Converged Infrastructure. By using a multistage workflow, Windows Admin Center guides you through installing features, configuring networking, creating a cluster, and deploying Storage Spaces Direct and Software-Defined Networking. For more information, refer to [Manage Hyper-Converged Infrastructure with Windows Admin Center][wac-manage-hyper-converged].
   > [!NOTE]
   > You can use Windows Admin Center to manage Microsoft Hyper-V Server 2016 or Microsoft Hyper-V Server 2019 (the free Microsoft virtualization product).
@@ -151,7 +149,7 @@ For a complete list of server management capabilities, refer to [Manage Servers 
 
   > [!IMPORTANT]
   > The Azure AD app requires Azure integration in Windows Admin Center.
-  
+
 ## Security considerations
 
 - Deploying Windows Admin Center provides your organization with a centralized management interface for your server environment. By controlling access to Windows Admin Center, you can improve the security of your management landscape.

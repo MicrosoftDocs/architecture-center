@@ -2,7 +2,8 @@
 title: Deploy highly available Kubernetes cluster on Azure Stack Hub
 description: Learn how to deploy a Kubernetes cluster solution for high availability using Azure and Azure Stack Hub.
 author: BryanLa
-ms.service: azure
+ms.service: architecture-center
+ms.subservice: azure-guide
 ms.topic: article
 ms.date: 12/03/2020
 ms.author: bryanla
@@ -35,8 +36,8 @@ In this solution deployment guide, you learn how to:
 > - Upgrade Kubernetes
 > - Scale Kubernetes
 >
-> [!Tip]  
-> ![Hybrid pillars](media/solution-deployment-guide-cross-cloud-scaling/hybrid-pillars.png)  
+> [!Tip]
+> ![Hybrid pillars](media/solution-deployment-guide-cross-cloud-scaling/hybrid-pillars.png)
 > Microsoft Azure Stack Hub is an extension of Azure. Azure Stack Hub brings the agility and innovation of cloud computing to your on-premises environment, enabling the only hybrid cloud that allows you to build and deploy hybrid apps anywhere.  
 >
 > The article [Hybrid app design considerations](/hybrid/app-solutions/overview-app-design-considerations) reviews pillars of software quality (placement, scalability, availability, resiliency, manageability, and security) for designing, deploying, and operating hybrid apps. The design considerations assist in optimizing hybrid app design, minimizing challenges in production environments.
@@ -109,15 +110,13 @@ The end result of the `aks-engine deploy` command and the preparations in the pr
 
 ![Cluster IaaS components Azure Stack Hub portal](media/solution-deployment-guide-highly-available-kubernetes/aks-azure-stack-iaas-components.png)
 
-1) Azure load balancer (K8s API Endpoint)
-2) Worker Nodes (Agent Pool)
-3) Master Nodes
+1) Azure load balancer (K8s API Endpoint) 2) Worker Nodes (Agent Pool) 3) Master Nodes
 
 The cluster is now up-and-running and in the next step we'll connect to it.
 
 ## Connect to the Kubernetes cluster
 
-You can now connect to the previously created Kubernetes cluster, either via SSH (using the SSH key specified as part of the deployment) or via `kubectl` (recommended). The Kubernetes command-line tool `kubectl` is available for Windows, Linux, and macOS [here](https://kubernetes.io/docs/tasks/tools/install-kubectl/). It's already pre-installed and configured on the master nodes of our cluster.
+You can now connect to the previously created Kubernetes cluster, either via SSH (using the SSH key specified as part of the deployment) or via `kubectl` (recommended). The Kubernetes command-line tool `kubectl` is available for Windows, Linux, and macOS [here](https://kubernetes.io/docs/tasks/tools/install-kubectl/). It's already pre-installed and configured on the master nodes of our cluster:
 
 ```console
 ssh azureuser@<k8s-master-lb-ip>
@@ -130,7 +129,7 @@ It's not recommended to use the master node as a jumpbox for administrative task
 > [!IMPORTANT]
 > Keep these files secure because they contain the credentials for your Kubernetes cluster. An attacker with access to the file has enough information to gain administrator access to it. All actions that are done using the initial `.kube/config` file are done using a cluster-admin account.
 
-You can now try various commands using `kubectl` to check the status of your cluster.
+You can now try various commands using `kubectl` to check the status of your cluster. Here are example commands:
 
 ```console
 kubectl get nodes
@@ -196,7 +195,7 @@ In the sample topology, "Method one" is used, which allows automation of the pro
 
 For the next step, you need an Azure LogAnalytics Workspace (ID and Key), `Helm` (version 3), and `kubectl` on your machine.
 
-Helm is a Kubernetes package manager, available as a binary that is runs on macOS, Windows, and Linux. It can be downloaded here: [helm.sh](https://helm.sh/docs/intro/quickstart/) Helm relies on the Kubernetes configuration file used for the `kubectl` command.
+Helm is a Kubernetes package manager, available as a binary that is runs on macOS, Windows, and Linux. It can be downloaded at [helm.sh](https://helm.sh/docs/intro/quickstart). Helm relies on the Kubernetes configuration file used for the `kubectl` command:
 
 ```bash
 helm repo add incubator https://kubernetes-charts-incubator.storage.googleapis.com/
@@ -278,13 +277,13 @@ The "External IP" address is our "application endpoint". It's how users will con
 
 ## Autoscale the application
 
-You can optionally configure the [Horizontal Pod Autoscaler](https://kubernetes.io/docs/tasks/run-application/horizontal-pod-autoscale-walkthrough/) to scale up or down based on certain metrics like CPU utilization. The following command will create a Horizontal Pod Autoscaler that maintains 1 to 10 replicas of the Pods controlled by the ratings-web deployment. HPA will increase and decrease the number of replicas (via the deployment) to maintain an average CPU utilization across all Pods of 80%.
+You can optionally configure the [Horizontal Pod Autoscaler](https://kubernetes.io/docs/tasks/run-application/horizontal-pod-autoscale-walkthrough/) to scale up or down based on certain metrics like CPU utilization. The following command will create a Horizontal Pod Autoscaler that maintains 1 to 10 replicas of the Pods controlled by the ratings-web deployment. HPA will increase and decrease the number of replicas (via the deployment) to maintain an average CPU utilization across all Pods of 80%:
 
 ```kubectl
 kubectl autoscale deployment ratings-web --cpu-percent=80 --min=1 --max=10
 ```
 
-You may check the current status of autoscaler by running:
+You may check the current status of autoscaler by running this command:
 
 ```console
 kubectl get hpa
@@ -344,5 +343,5 @@ The scale command reuses your cluster configuration file (apimodel.json) in the 
 
 ## Next steps
 
-- Learn more about [Hybrid app design considerations](/hybrid/app-solutions/overview-app-design-considerations)
+- Learn more about [Hybrid app design considerations](/hybrid/app-solutions/overview-app-design-considerations).
 - Review and propose improvements to [the code for this sample on GitHub](https://github.com/Azure-Samples/azure-intelligent-edge-patterns/tree/master/AKSe-on-AzStackHub).

@@ -3,7 +3,7 @@ title: Best practices in cloud applications
 titleSuffix: Azure Architecture Center
 description: Learn best practices for building reliable, scalable, and secure applications in the cloud. See resources on caching, partitioning, monitoring, and other areas.
 author: EdPrice-MSFT
-ms.date: 04/09/2021
+ms.date: 01/04/2022
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: design-pattern
@@ -57,11 +57,11 @@ This table lists various best practices. The **Related pillars or patterns** col
 - [Microsoft Azure Well-Architected Framework][Microsoft Azure Well-Architected Framework]
 
 [About Azure Cache for Redis]: /azure/azure-cache-for-redis/cache-overview
-[Autoscaling]: ./auto-scaling.md
+[Autoscaling]: ./auto-scaling.md
 [Background jobs]: ./background-jobs.md
 [Best practices for monitoring cloud applications]: ./monitoring.md
 [Best practices for using content delivery networks (CDNs)]: ./cdn.md
-[Caching]: ./caching.md
+[Caching]: ./caching.md
 [Cloud Design Patterns]: ../patterns/index.md
 [Data Management patterns]: ../patterns/category/data-management.md
 [Data partitioning strategies]: ./data-partitioning-strategies.md
@@ -71,13 +71,13 @@ This table lists various best practices. The **Related pillars or patterns** col
 [Introduction to the core Azure Storage services]: /azure/storage/common/storage-introduction
 [Message encoding considerations]: ./message-encode.md
 [Messaging patterns]: ../patterns/category/messaging.md
-[Microsoft Azure Well-Architected Framework]: ../framework/index.md
+[Microsoft Azure Well-Architected Framework]: /azure/architecture/framework/index
 [Overview of autoscale in Microsoft Azure]: /azure/azure-monitor/autoscale/autoscale-overview
-[Overview of the operational excellence pillar]: ../framework/devops/overview.md
-[Overview of the performance efficiency pillar]: ../framework/scalability/overview.md
-[Overview of the security pillar]: ../framework/security/overview.md
-[Principles of cost optimization]: ../framework/cost/overview.md
-[Principles of the reliability pillar]: ../framework/resiliency/principles.md
+[Overview of the operational excellence pillar]: /azure/architecture/framework/devops/overview
+[Overview of the performance efficiency pillar]: /azure/architecture/framework/scalability/overview
+[Overview of the security pillar]: /azure/architecture/framework/security/overview
+[Principles of cost optimization]: /azure/architecture/framework/cost/overview
+[Principles of the reliability pillar]: /azure/architecture/framework/resiliency/principles
 [Retry guidance for Azure services]: ./retry-service-specific.md
 [Transient fault handling]: ./transient-faults.md
 [Web API design]: ./api-design.md

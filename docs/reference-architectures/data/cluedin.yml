@@ -15,20 +15,9 @@ azureCategories:
   - databases
   - management-and-governance
 products:
-  - azure-cosmos-db
   - azure-data-factory
-  - azure-database-postgresql
-  - azure-databricks
-  - azure-devops-tool-integrations
-  - azure-kubernetes-service
-  - azure-log-analytics
-  - azure-machine-learning
-  - azure-monitor
-  - azure-pipelines
   - azure-sql-database
-  - azure-sql-managed-instance
   - azure-synapse-analytics
-  - power-bi
 name: Master data management with Azure and CluedIn
 summary: Use the CluedIn eventual connectivity data integration technique to seamlessly blend data from many siloed data sources into Azure data management and analytics services.
 thumbnailUrl: /azure/architecture/browse/thumbs/cluedin-architecture-small.png

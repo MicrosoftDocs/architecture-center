@@ -3,7 +3,7 @@ title: Azure for Google Cloud professionals
 description: Learn the basics of Microsoft Azure accounts, platform, and services, and key similarities and differences between the Google Cloud and Azure platforms.
 author: cjnova
 ms.author: petuton
-ms.date: 08/10/2021
+ms.date: 12/13/2021
 ms.topic: reference
 ms.service: architecture-center
 ms.subservice: cloud-fundamentals
@@ -16,6 +16,10 @@ keywords:
   - difference between Azure and Google Cloud
   - Azure and GCP
   - Azure and Google Cloud
+products:
+  - azure
+categories:
+  - management-and-governance
 ---
 
 # Azure for Google Cloud Professionals
@@ -30,7 +34,7 @@ You'll learn:
 
 Azure and Google Cloud built their capabilities independently over time so that each has important implementation and design differences.
 
-## Overview
+## Azure for Google Cloud overview
 
 Like Google Cloud, Microsoft Azure is built around a core set of compute, storage, database, and networking services. In many cases, both platforms offer a basic equivalence between the products and services they offer. Both Google Cloud and Azure allow you to build highly available solutions based on Linux or Windows hosts. So, if you're used to development using Linux and OSS technology, both platforms can do the job.
 
@@ -53,9 +57,9 @@ Azure services can be purchased using several pricing options, depending on your
 
 [Azure subscriptions](/azure/virtual-machines/linux/infrastructure-example) are a grouping of resources with an assigned owner responsible for billing and permissions management.
 
-A GCP *project* is conceptually similar to the Azure subscription, in terms of billing, quotas, and limits. However, from a functional perspective, a GCP project is more like a resource group in Azure. It's a logical unit that cloud resources are deployed to.
+A Google Cloud *project* is conceptually similar to the Azure subscription, in terms of billing, quotas, and limits. However, from a functional perspective, a Google Cloud project is more like a resource group in Azure. It's a logical unit that cloud resources are deployed to.
 
-Note that unlike in GCP, there is no maximum number of Azure subscriptions. Each Azure subscription is linked to a single Azure Active Directory (Azure AD) tenant (an *account*, in GCP terms). An Azure AD tenant can contain an unlimited number of subscriptions, whereas GCP has a default limit of 30 projects per account.
+Note that unlike in Google Cloud, there is no maximum number of Azure subscriptions. Each Azure subscription is linked to a single Azure Active Directory (Azure AD) tenant (an *account*, in Google Cloud terms). An Azure AD tenant can contain an unlimited number of subscriptions, whereas Google Cloud has a default limit of 30 projects per account.
 
 Subscriptions are assigned three types of administrator accounts:
 
@@ -82,7 +86,7 @@ Azure resources are deployed and managed using one of two models: [Azure Resourc
 
 ### Resource groups
 
-Azure additionally has an entity called "resource groups" that organize resources such as VMs, storage, and virtual networking devices. An Azure resource is always associated with one resource group. A resource created in one resource group can be moved to another group but can only be in one resource group at a time. Resource groups are the fundamental grouping used by Azure Resource Manager.
+Azure additionally has an entity called "resource groups" that organize resources such as VMs, storage, and virtual networking devices. An Azure resource is always associated with one resource group. A resource created in one resource group can be moved to another group but can only be in one resource group at a time. For more information, see [Move Azure resources across resource groups, subscriptions, or regions](/azure/azure-resource-manager/management/move-resources-overview). Resource groups are the fundamental grouping used by Azure Resource Manager.
 
 Resources can also be organized using [tags](/azure/azure-resource-manager/resource-group-using-tags). Tags are key-value pairs that allow you to group resources across your subscription irrespective of resource group membership.
 
@@ -95,6 +99,7 @@ Azure offers several ways to manage your resources:
 - [Command Line](/azure/azure-resource-manager/cli-azure-resource-manager). The Azure CLI provides a command-line interface capable of creating and managing Azure resources. The Azure CLI is available for [Windows, Linux, and macOS](/cli/azure).
 - [PowerShell](/azure/azure-resource-manager/powershell-azure-resource-manager). The Azure modules for PowerShell allow you to execute automated management tasks using a script. PowerShell is available for [Windows, Linux, and macOS](https://github.com/PowerShell/PowerShell).
 - [Templates](/azure/azure-resource-manager/resource-group-authoring-templates). Azure Resource Manager templates provide JSON template-based resource management capabilities.
+- [SDK](https://azure.microsoft.com/downloads). The SDKs are a collection of libraries that allows users to programmatically manage and interact with Azure services.
 
 In each of these interfaces, the resource group is central to how Azure resources get created, deployed, or modified.
 
@@ -104,7 +109,7 @@ In addition, many third-party management tools like [Hashicorp's Terraform](http
 
 - [Azure resource group guidelines](/azure/azure-resource-manager/resource-group-overview#resource-groups)
 
-## Regions and zones (high availability)
+## Regions and Availability Zones
 
 Failures can vary in the scope of their impact. Some hardware failures, such as a failed disk, may affect a single host machine. A failed network switch could affect a whole server rack. Less common are failures that disrupt a whole datacenter, such as loss of power in a datacenter. In rare situations, an entire region could become unavailable.
 
@@ -133,13 +138,15 @@ Availability sets should be organized by the instance's role in your application
 
 Availability sets
 
-### Availability zones
+### Availability Zones
 
 Like Google Cloud, Azure regions can have Availability zones. An [Availability Zone](/azure/availability-zones/az-overview) is a physically separate zone within an Azure region. Each Availability Zone has a distinct power source, network, and cooling. Deploying VMs across availability zones helps to protect an application against datacenter-wide failures.
 
 ![Diagram showing a zone redundant virtual machine deployment with a Region that contains three zones with a subnet that crosses all three zones.](./images/availability_zones.png)
 
 Zone redundant VM deployment on Azure
+
+For more information, see [Build solutions for high availability using Availability Zones](../high-availability/building-solutions-for-high-availability.md).
 
 ### Paired regions
 
@@ -158,7 +165,7 @@ Region Pairs in Azure
 - [Regions for virtual machines in Azure](/azure/virtual-machines/linux/regions)
 - [Availability options for virtual machines in Azure](/azure/virtual-machines/linux/availability)
 - [High availability for Azure applications](../example-scenario/infrastructure/multi-tier-app-disaster-recovery.yml)
-- [Failure and disaster recovery for Azure applications](../framework/resiliency/backup-and-recovery.md)
+- [Failure and disaster recovery for Azure applications](/azure/architecture/framework/resiliency/backup-and-recovery)
 - [Planned maintenance for Linux virtual machines in Azure](/azure/virtual-machines/linux/maintenance-and-updates)
 
 ## Services

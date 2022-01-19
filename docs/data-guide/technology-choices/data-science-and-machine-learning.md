@@ -1,5 +1,5 @@
 ---
-title: Compare machine learning products from Microsoft
+title: Microsoft machine learning products
 description: Compare options for building, deploying, and managing your machine learning models. Decide which Microsoft products to choose for your solution.
 author: EdPrice-MSFT
 ms.author: pnp
@@ -13,8 +13,6 @@ ms.custom:
   - contperf-fy21q1
   - guide
 ---
-
-<!-- markdownlint-disable MD026 -->
 
 # Compare the machine learning products and technologies from Microsoft
 
@@ -62,8 +60,6 @@ Use Python SDK, Jupyter notebooks, R, and the CLI for machine learning at cloud 
 
 [Try Azure Machine Learning for free](https://aka.ms/AMLFree).
 
-<!-- markdownlint-disable MD033 -->
-
 |||
 |-|-|
 |**Type**                   |Cloud-based machine learning solution|
@@ -76,10 +72,10 @@ Use Python SDK, Jupyter notebooks, R, and the CLI for machine learning at cloud 
 
 [Azure Cognitive Services](/azure/cognitive-services/welcome) is a set of *pre-built* APIs that enable you to build apps that use natural methods of communication. The term pre-built suggests that you do not need to bring datasets or data science expertise to train models to use in your applications. That's all done for you and packaged as APIs and SDKs that allow your apps to see, hear, speak, understand, and interpret user needs with just a few lines of code. You can easily add intelligent features to your apps, such as:
 
-- **Vision** - Object detection, face recognition, OCR, etc. See [Computer Vision](/azure/cognitive-services/computer-vision/), [Face](/azure/cognitive-services/face/), [Form Recognizer](/azure/cognitive-services/form-recognizer/).
-- **Speech** - Speech-to-text, text-to-speech, speaker recognition, etc. See [Speech Service](/azure/cognitive-services/speech-service/).
-- **Language** - Translation, Sentiment analysis, key phrase extraction, language understanding, etc. See [Translator](/azure/cognitive-services/translator/), [Text Analytics](/azure/cognitive-services/text-analytics/), [Language Understanding](/azure/cognitive-services/luis/), [QnA Maker](/azure/cognitive-services/qnamaker/)
-- **Decision** - Anomaly detection, content moderation, reinforcement learning. See [Anomaly Detector](/azure/cognitive-services/anomaly-detector/), [Content Moderator](/azure/cognitive-services/content-moderator/), [Personalizer](/azure/cognitive-services/personalizer/).
+- **Vision:** Object detection, face recognition, OCR, etc. See [Computer Vision](/azure/cognitive-services/computer-vision/), [Face](/azure/cognitive-services/face/), [Form Recognizer](/azure/cognitive-services/form-recognizer/).
+- **Speech:** Speech-to-text, text-to-speech, speaker recognition, etc. See [Speech Service](/azure/cognitive-services/speech-service/).
+- **Language:** Translation, Sentiment analysis, key phrase extraction, language understanding, etc. See [Translator](/azure/cognitive-services/translator/), [Text Analytics](/azure/cognitive-services/text-analytics/), [Language Understanding](/azure/cognitive-services/luis/), [QnA Maker](/azure/cognitive-services/qnamaker/)
+- **Decision:** Anomaly detection, content moderation, reinforcement learning. See [Anomaly Detector](/azure/cognitive-services/anomaly-detector/), [Content Moderator](/azure/cognitive-services/content-moderator/), [Personalizer](/azure/cognitive-services/personalizer/).
 
 Use Cognitive Services to develop apps across devices and platforms. The APIs keep improving, and are easy to set up.
 
@@ -125,8 +121,7 @@ Use the Data Science VM when you need to run or host your jobs on a single node.
 
 ## Azure Databricks
 
-[Azure Databricks](/azure/azure-databricks/what-is-azure-databricks) is an Apache Spark-based analytics platform optimized for the Microsoft Azure cloud services platform. Databricks is integrated with Azure to provide one-click setup, streamlined workflows, and an interactive workspace that enables collaboration between data scientists, data engineers, and business analysts.
-Use Python, R, Scala, and SQL code in web-based notebooks to query, visualize, and model data.
+[Azure Databricks](/azure/azure-databricks/what-is-azure-databricks) is an Apache Spark-based analytics platform optimized for the Microsoft Azure cloud services platform. Databricks is integrated with Azure to provide one-click setup, streamlined workflows, and an interactive workspace that enables collaboration between data scientists, data engineers, and business analysts. Use Python, R, Scala, and SQL code in web-based notebooks to query, visualize, and model data.
 
 Use Databricks when you want to collaborate on building machine learning solutions on Apache Spark.
 

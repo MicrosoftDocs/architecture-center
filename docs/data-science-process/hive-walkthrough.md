@@ -1,5 +1,5 @@
 ---
-title: Explore data in a Hadoop cluster - Team Data Science Process
+title: Explore data in a Hadoop cluster
 description: Using the Team Data Science Process for an end-to-end scenario, employing an HDInsight Hadoop cluster to build and deploy a model.
 services: machine-learning
 author: marktab
@@ -8,16 +8,19 @@ editor: marktab
 ms.service: machine-learning
 ms.subservice: team-data-science-process
 ms.topic: article
-ms.date: 01/10/2020
+ms.date: 01/10/2022
 ms.author: tdsp
-ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
+ms.custom:
+  - previous-author=deguhath
+  - previous-ms.author=deguhath
 products:
   - azure-machine-learning
 categories:
   - ai-machine-learning
+ROBOTS: NOINDEX
 ---
-# The Team Data Science Process in action: Use Azure HDInsight Hadoop clusters
-In this walkthrough, we use the [Team Data Science Process (TDSP)](overview.md) in an end-to-end scenario. We use an [Azure HDInsight Hadoop cluster](https://azure.microsoft.com/services/hdinsight/) to store, explore, and feature-engineer data from the publicly available [NYC Taxi Trips](https://www.andresmh.com/nyctaxitrips/) dataset, and to down-sample the data. To handle binary and multiclass classification and regression predictive tasks, we build models of the data with Azure Machine Learning. 
+# Explore data in a Hadoop cluster
+In this walkthrough, we use the [Team Data Science Process (TDSP)](overview.md) in an end-to-end scenario. We use an [Azure HDInsight Hadoop cluster](https://azure.microsoft.com/services/hdinsight/) to store, explore, and feature-engineer data from the publicly available [NYC Taxi Trips](https://www.andresmh.com/nyctaxitrips/) dataset, and to down-sample the data. To handle binary and multiclass classification and regression predictive tasks, we build models of the data with Machine Learning Studio (classic).
 
 For a walkthrough that shows how to handle a larger dataset, see [Team Data Science Process - Using Azure HDInsight Hadoop Clusters on a 1-TB dataset](hive-criteo-walkthrough.md).
 
@@ -72,28 +75,28 @@ Determine the kind of predictions you want to make based on data analysis to hel
   - Class 3: tip_amount > $10 and tip_amount <= $20
   - Class 4: tip_amount > $20
 
-- **Regression task**: Predict the amount of the tip paid for a trip.  
+- **Regression task**: Predict the amount of the tip paid for a trip.
 
 ## <a name="setup"></a>Set up an HDInsight Hadoop cluster for advanced analytics
 > [!NOTE]
 > This is typically an admin task.
-> 
-> 
+>
+>
 
 You can set up an Azure environment for advanced analytics that employs an HDInsight cluster in three steps:
 
 1. [Create a storage account](/azure/storage/common/storage-account-create): This storage account is used for storing data in Azure Blob storage. The data used in HDInsight clusters also resides here.
 2. [Customize Azure HDInsight Hadoop clusters for the Advanced Analytics Process and Technology](/azure/hdinsight/spark/apache-spark-jupyter-spark-sql). This step creates an HDInsight Hadoop cluster with 64-bit Anaconda Python 2.7 installed on all nodes. There are two important steps to remember while customizing your HDInsight cluster.
-   
+
    * Remember to link the storage account created in step 1 with your HDInsight cluster when you are creating it. This storage account accesses data that is processed within the cluster.
    * After you create the cluster, enable Remote Access to the head node of the cluster. Browse to the **Configuration** tab, and select **Enable Remote**. This step specifies the user credentials used for remote login.
-3. [Create an Azure Machine Learning workspace](/azure/machine-learning/classic/create-workspace): You use this workspace to build machine learning models. This task is addressed after completing an initial data exploration and down-sampling, by using the HDInsight cluster.
+3. [Create an Machine Learning Studio (classic) workspace](/azure/machine-learning/classic/create-workspace): You use this workspace to build machine learning models. This task is addressed after completing an initial data exploration and down-sampling, by using the HDInsight cluster.
 
 ## <a name="getdata"></a>Get the data from a public source
 > [!NOTE]
 > This is typically an admin task.
-> 
-> 
+>
+>
 
 To copy the [NYC Taxi Trips](https://www.andresmh.com/nyctaxitrips/) dataset to your machine from its public location, use any of the methods described in [Move data to and from Azure Blob storage](move-azure-blob.md).
 
@@ -110,12 +113,12 @@ Here, we describe how to use AzCopy to transfer the files containing data. To do
 ## <a name="upload"></a>Upload the data to the default container of the HDInsight Hadoop cluster
 > [!NOTE]
 > This is typically an admin task.
-> 
-> 
+>
+>
 
 In the following AzCopy commands, replace the following parameters with the actual values that you specified when creating the Hadoop cluster and unzipping the data files.
 
-* ***\<path_to_data_folder>*** The directory (along with the path) on your machine that contains the unzipped data files.  
+* ***\<path_to_data_folder>*** The directory (along with the path) on your machine that contains the unzipped data files.
 * ***\<storage account name of Hadoop cluster>*** The storage account associated with your HDInsight cluster.
 * ***\<default container of Hadoop cluster>*** The default container used by your cluster. The name of the default container is usually the same name as the cluster itself. For example, if the cluster is called "abc123.azurehdinsight.net", the default container is abc123.
 * ***\<storage account key>*** The key for the storage account used by your cluster.
@@ -139,12 +142,12 @@ The data should now be in Blob storage, and ready to be consumed within the HDIn
 ## <a name="#download-hql-files"></a>Sign in to the head node of Hadoop cluster and prepare for exploratory data analysis
 > [!NOTE]
 > This is typically an admin task.
-> 
-> 
+>
+>
 
 To access the head node of the cluster for exploratory data analysis and down-sampling of the data, follow the procedure outlined in [Access the head node of Hadoop Cluster](/azure/hdinsight/spark/apache-spark-jupyter-spark-sql).
 
-In this walkthrough, we primarily use queries written in [Hive](https://hive.apache.org/), a SQL-like query language, to perform preliminary data explorations. The Hive queries are stored in '.hql' files. We then down-sample this data to be used within Machine Learning for building models.
+In this walkthrough, we primarily use queries written in [Hive](https://hive.apache.org/), a SQL-like query language, to perform preliminary data explorations. The Hive queries are stored in `.hql` files. We then down-sample this data to be used within Machine Learning for building models.
 
 To prepare the cluster for exploratory data analysis, download the '.hql' files containing the relevant Hive scripts from [GitHub](https://github.com/Azure/Azure-MachineLearning-DataScience/tree/master/Misc/DataScienceProcess/DataScienceScripts) to a local directory (C:\temp) on the head node. Open the command prompt from within the head node of the cluster, and run the following two commands:
 
@@ -154,16 +157,14 @@ set script='https://raw.githubusercontent.com/Azure/Azure-MachineLearning-DataSc
 @powershell -NoProfile -ExecutionPolicy unrestricted -Command "iex ((new-object net.webclient).DownloadString(%script%))"
 ```
 
-These two commands download all '.hql' files needed in this walkthrough to the local directory ***C:\temp&#92;*** in the head node.
+These two commands download all `.hql` files needed in this walkthrough to the local directory `C:\temp\` in the head node.
 
 ## <a name="#hive-db-tables"></a>Create Hive database and tables partitioned by month
-> [!NOTE]
-> This task is typically for an admin.
-> 
-> 
 
-You are now ready to create Hive tables for the NYC taxi dataset.
-In the head node of the Hadoop cluster, open the Hadoop command line on the desktop of the head node. Enter the Hive directory by running the following command:
+> [!NOTE]
+> This task is typically performed by an administrator.
+
+You are now ready to create Hive tables for the NYC taxi dataset. In the head node of the Hadoop cluster, open the Hadoop command line on the desktop of the head node. Enter the Hive directory by running the following command:
 
 ```console
 cd %hive_home%\bin
@@ -171,8 +172,8 @@ cd %hive_home%\bin
 
 > [!NOTE]
 > Run all Hive commands in this walkthrough from the Hive bin/ directory prompt. This handles any path issues automatically. We use the terms "Hive directory prompt", "Hive bin/ directory prompt", and "Hadoop command line" interchangeably in this walkthrough.
-> 
-> 
+>
+>
 
 From the Hive directory prompt, run the following command in the Hadoop command line of the head node that creates the Hive database and tables:
 
@@ -233,8 +234,8 @@ If you need any additional assistance with these procedures, or you want to inve
 ## <a name="#load-data"></a>Load data to Hive tables by partitions
 > [!NOTE]
 > This task is typically for an admin.
-> 
-> 
+>
+>
 
 The NYC taxi dataset has a natural partitioning by month, which we use to enable faster processing and query times. The following PowerShell commands (issued from the Hive directory by using the Hadoop command line) load data to the trip and fare Hive tables, partitioned by month.
 
@@ -316,8 +317,8 @@ Time taken: 1.887 seconds, Fetched: 12 row(s)
 ## <a name="#explore-hive"></a>Data exploration and feature engineering in Hive
 > [!NOTE]
 > This is typically a data scientist task.
-> 
-> 
+>
+>
 
 You  can use Hive queries to accomplish data exploration and feature engineering tasks for the data loaded into the Hive tables. Here are examples of such tasks:
 
@@ -330,8 +331,8 @@ You  can use Hive queries to accomplish data exploration and feature engineering
 ### Exploration: View the top 10 records in table trip
 > [!NOTE]
 > This is typically a data scientist task.
-> 
-> 
+>
+>
 
 To see what the data looks like, examine 10 records from each table. To inspect the records, run the following two queries separately from the Hive directory prompt in the Hadoop command-line console.
 
@@ -356,8 +357,8 @@ hive -e "select * from nyctaxidb.fare where month=1 limit 10;" > C:\temp\testout
 ### Exploration: View the number of records in each of the 12 partitions
 > [!NOTE]
 > This is typically a data scientist task.
-> 
-> 
+>
+>
 
 Of interest is how the number of trips varies during the calendar year. Grouping by month shows the distribution of trips.
 
@@ -442,8 +443,8 @@ The total number of records in both tables is also the same, providing a second 
 ### Exploration: Trip distribution by medallion
 > [!NOTE]
 > This analysis is typically a data scientist task.
-> 
-> 
+>
+>
 
 This example identifies the medallions (taxi numbers) with greater than 100 trips within a given time period. The query benefits from the partitioned table access, because it is conditioned by the partition variable **month**. The query results are written to a local file, **queryoutput.tsv**, in `C:\temp` on the head node.
 
@@ -484,8 +485,8 @@ hive -f "C:\temp\sample_hive_trip_count_by_medallion.hql" > C:\temp\queryoutput.
 ### Exploration: Trip distribution by medallion and hack license
 > [!NOTE]
 > This task is typically for a data scientist.
-> 
-> 
+>
+>
 
 When exploring a dataset, we frequently want to examine the distributions of groups of values. This section provides an example of how to do this analysis for cabs and drivers.
 
@@ -513,8 +514,8 @@ The query results are written to a local file, **C:\temp\queryoutput.tsv**.
 ### Exploration: Assessing data quality by checking for invalid longitude or latitude records
 > [!NOTE]
 > This is typically a data scientist task.
-> 
-> 
+>
+>
 
 A common objective of exploratory data analysis is to weed out invalid or bad records. The example in this section determines whether either the longitude or latitude fields contain a value far outside the NYC area. Since it is likely that such records have an erroneous longitude-latitude value, we want to eliminate them from any data that is to be used for modeling.
 
@@ -540,12 +541,12 @@ The *-S* argument included in this command suppresses the status screen printout
 ### Exploration: Binary class distributions of trip tips
 > [!NOTE]
 > This is typically a data scientist task.
-> 
-> 
+>
+>
 
 For the binary classification problem outlined in the [Examples of prediction tasks](hive-walkthrough.md#mltasks) section, it is useful to know whether a tip was given or not. This distribution of tips is binary:
 
-* tip given (Class 1, tip\_amount > $0)  
+* tip given (Class 1, tip\_amount > $0)
 * no tip (Class 0, tip\_amount = $0)
 
 The following **sample\_hive\_tipped\_frequencies.hql** file shows the command to run:
@@ -566,12 +567,11 @@ From the Hive directory prompt, run:
 hive -f "C:\temp\sample_hive_tipped_frequencies.hql"
 ```
 
-
 ### Exploration: Class distributions in the multiclass setting
 > [!NOTE]
 > This is typically a data scientist task.
-> 
-> 
+>
+>
 
 For the multiclass classification problem outlined in the [Examples of prediction tasks](hive-walkthrough.md#mltasks) section, this dataset also lends itself to a natural classification to predict the amount of the tips given. We can use bins to define tip ranges in the query. To get the class distributions for the various tip ranges, use the **sample\_hive\_tip\_range\_frequencies.hql** file. Here are its contents.
 
@@ -597,8 +597,8 @@ hive -f "C:\temp\sample_hive_tip_range_frequencies.hql"
 ### Exploration: Compute the direct distance between two longitude-latitude locations
 > [!NOTE]
 > This is typically a data scientist task.
-> 
-> 
+>
+>
 
 You might want to know if there is a difference between the direct distance between two locations, and the actual trip distance of the taxi. A passenger might be less likely to tip if they figure out that the driver has intentionally taken them by a longer route.
 
@@ -652,17 +652,17 @@ hdfs dfs -copyToLocal wasb:///queryoutputdir/000000_0 C:\temp\tempfile
 ```
 
 > [!WARNING]
-> `copyToLocal` can be very slow for large files, and is not recommended for use with them.  
-> 
-> 
+> `copyToLocal` can be very slow for large files, and is not recommended for use with them.
+>
+>
 
 A key advantage of having this data reside in an Azure blob is that we can explore the data within Machine Learning, by using the [Import Data][import-data] module.
 
 ## <a name="#downsample"></a>Down-sample data and build models in Machine Learning
 > [!NOTE]
 > This is typically a data scientist task.
-> 
-> 
+>
+>
 
 After the exploratory data analysis phase, we are now ready to down-sample the data for building models in Machine Learning. In this section, we show how to use a Hive query to down-sample the data. Machine Learning then accesses it from the [Import Data][import-data] module.
 
@@ -678,7 +678,7 @@ The query applies standard Hive functions directly to generate the following tim
 
 The query also generates the direct distance between the pick-up and dropoff locations. For a complete list of such functions, see [LanguageManual UDF](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+UDF).
 
-The query then down-samples the data so that the query results can fit into Azure Machine Learning Studio. Only about 1 percent of the original dataset is imported into the studio.
+The query then down-samples the data so that the query results can fit into Machine Learning Studio (classic). Only about 1 percent of the original dataset is imported into the studio.
 
 Here are the contents of **sample\_hive\_prepare\_for\_aml\_full.hql** file that prepares data for model building in Machine Learning:
 
@@ -811,7 +811,7 @@ To run this query from the Hive directory prompt:
 hive -f "C:\temp\sample_hive_prepare_for_aml_full.hql"
 ```
 
-We now have an internal table, **nyctaxidb.nyctaxi_downsampled_dataset**, which can be accessed by using the [Import Data][import-data] module from Machine Learning. Furthermore, we can use this dataset for building Machine Learning models.  
+We now have an internal table, **nyctaxidb.nyctaxi_downsampled_dataset**, which can be accessed by using the [Import Data][import-data] module from Machine Learning. Furthermore, we can use this dataset for building Machine Learning models.
 
 ### Use the Import Data module in Machine Learning to access the down-sampled data
 To issue Hive queries in the [Import Data][import-data] module of Machine Learning, you need access to a Machine Learning workspace. You also need access to the credentials of the cluster and its associated storage account.
@@ -832,8 +832,8 @@ Here are some details about the [Import Data][import-data] module and the parame
 
 > [!IMPORTANT]
 > Any table we wish to query by using the [Import Data][import-data] module in Machine Learning must be an internal table.
-> 
-> 
+>
+>
 
 Here is how to determine if a table **T** in a database **D.db** is an internal table. From the Hive directory prompt, run the following command:
 

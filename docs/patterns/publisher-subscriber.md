@@ -112,8 +112,7 @@ This pattern might not be useful when:
 
 ## Example
 
-The following diagram shows an enterprise integration architecture that uses Service Bus to coordinate workflows, and Event Grid to notify subsystems of events that occur.
-For more information, see [Enterprise integration on Azure using message queues and events](../reference-architectures/enterprise-integration/queues-events.yml).
+The following diagram shows an enterprise integration architecture that uses Service Bus to coordinate workflows, and Event Grid to notify subsystems of events that occur. For more information, see [Enterprise integration on Azure using message queues and events](../reference-architectures/enterprise-integration/queues-events.yml).
 
 ![Enterprise integration architecture](../reference-architectures/enterprise-integration/_images/enterprise-integration-queues-events.png)
 

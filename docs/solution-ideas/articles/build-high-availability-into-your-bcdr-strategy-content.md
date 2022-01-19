@@ -1,6 +1,3 @@
-
-
-
 [!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
 Virtual machines (VMs) are physically separated across zones, and a virtual network is created using load balancers at each site. These locations are close enough for high availability replication, so your applications stay running, despite any issues at the physical locations.
@@ -10,7 +7,7 @@ Virtual machines (VMs) are physically separated across zones, and a virtual netw
 ![Architecture Diagram](../media/build-high-availability-into-your-bcdr-strategy.png)
 *Download an [SVG](../media/build-high-availability-into-your-bcdr-strategy.svg) of this architecture.*
 
-## Data flow
+### Data flow
 
 1. Create zone-redundant Load Balancer.
 1. Create front-end subnet.
@@ -20,7 +17,7 @@ Virtual machines (VMs) are physically separated across zones, and a virtual netw
 1. Add VMs to the load balancer's back-end pool.
 1. Deploy your application on VMs for redundancy and high availability.
 
-## Components
+### Components
 
 * [Virtual Machines](https://azure.microsoft.com/services/virtual-machines): Provision Windows and Linux virtual machines in seconds
 * [Azure SQL Database](https://azure.microsoft.com/services/sql-database): Managed, intelligent SQL in the cloud

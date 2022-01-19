@@ -1,8 +1,9 @@
 ---
-title: Monitoring and diagnostics guide
+title: Monitoring and diagnostics guidance
 titleSuffix: Best practices for cloud applications
 description: Learn how to track how users use your distributed applications and services, trace resource utilization, and monitor the health and performance.
-author: dragon119
+author: EdPrice-MSFT
+ms.author: pnp
 ms.date: 07/13/2016
 ms.topic: conceptual
 ms.service: architecture-center
@@ -95,7 +96,7 @@ An operator should also be able to view the historical availability of each syst
 
 A monitoring solution should provide an immediate and historical view of the availability or unavailability of each subsystem. It should also be capable of quickly alerting an operator when one or more services fail or when users can't connect to services. This is a matter of not only monitoring each service, but also examining the actions that each user performs if these actions fail when they attempt to communicate with a service. To some extent, a degree of connectivity failure is normal and might be due to transient errors. But it might be useful to allow the system to raise an alert for the number of connectivity failures to a specified subsystem that occur during a specific period.
 
-<!-- markdownlint-disable MD024 MD033 -->
+<!-- markdownlint-disable MD024 -->
 
 ### Data sources, instrumentation, and data-collection requirements
 
@@ -423,16 +424,16 @@ Security issues might occur at any point in the system. For example, a user migh
 The section [Instrumenting an application](#instrumenting-an-application) contains more guidance on the information that you should capture. But you can use a variety of strategies to gather this information:
 
 - **Application/system monitoring**. This strategy uses internal sources within the application, application frameworks, operating system, and infrastructure. The application code can generate its own monitoring data at notable points during the lifecycle of a client request. The application can include tracing statements that might be selectively enabled or disabled as circumstances dictate. It might also be possible to inject diagnostics dynamically by using a diagnostics framework. These frameworks typically provide plug-ins that can attach to various instrumentation points in your code and capture trace data at these points.
-  
+
     Additionally, your code and/or the underlying infrastructure might raise events at critical points. Monitoring agents that are configured to listen for these events can record the event information.
 
 - **Real user monitoring**. This approach records the interactions between a user and the application and observes the flow of each request and response. This information can have a two-fold purpose: it can be used for metering usage by each user, and it can be used to determine whether users are receiving a suitable quality of service (for example, fast response times, low latency, and minimal errors). You can use the captured data to identify areas of concern where failures occur most often. You can also use the data to identify elements where the system slows down, possibly due to hotspots in the application or some other form of bottleneck. If you implement this approach carefully, it might be possible to reconstruct users' flows through the application for debugging and testing purposes.
-  
+
   > [!IMPORTANT]
   > You should consider the data that's captured by monitoring real users to be highly sensitive because it might include confidential material. If you save captured data, store it securely. If you want to use the data for performance monitoring or debugging purposes, strip out all personally identifiable information first.
 
 - **Synthetic user monitoring**. In this approach, you write your own test client that simulates a user and performs a configurable but typical series of operations. You can track the performance of the test client to help determine the state of the system. You can also use multiple instances of the test client as part of a load-testing operation to establish how the system responds under stress, and what sort of monitoring output is generated under these conditions.
-  
+
   > [!NOTE]
   > You can implement real and synthetic user monitoring by including code that traces and times the execution of method calls and other critical parts of an application.
 

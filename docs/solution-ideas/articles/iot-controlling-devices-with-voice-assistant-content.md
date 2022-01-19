@@ -1,7 +1,5 @@
 <!-- cSpell:ignore khilscher -->
 
-
-
 [!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
 Create seamless conversational interfaces with all of your internet-accessible devices-from your connected television or fridge to devices in a connected power plant. By combining [Azure Speech Service](/azure/cognitive-services/speech-service/overview), [Language Understanding Service](/azure/cognitive-services/luis/) (LUIS) and [Azure Bot Framework](/azure/bot-service/?view=azure-bot-service-4.0), developers can create natural, human-like conversational interfaces to control smart devices using [Azure IoT Hub](https://azure.microsoft.com/services/iot-hub/).
@@ -10,7 +8,7 @@ Create seamless conversational interfaces with all of your internet-accessible d
 
 ![Architecture diagram](../media/controlling-iot-devices-using-voice.svg)
 
-## Data flow
+### Data flow
 
 1. Using voice, the user asks the voice assistant app to turn on the exterior house lights.
 1. Using the Speech SDK, the app connects to Direct Line Speech. If keywords are confirmed by Keyword Verification, the speech is transcribed to text and sent to the Bot Service.
@@ -23,7 +21,7 @@ Create seamless conversational interfaces with all of your internet-accessible d
 1. Application Insights gathers runtime telemetry to help development with bot performance and usage
 1. Azure App Service hosts the Bot Service application.
 
-## Components
+### Components
 
 1. [Voice assistants documentation](/azure/cognitive-services/speech-service/index-voice-assistants)
 1. [Tutorial: Voice-enable your bot using the Speech SDK](/azure/cognitive-services/speech-service/tutorial-voice-enable-your-bot-speech-sdk)
@@ -46,6 +44,6 @@ Create seamless conversational interfaces with all of your internet-accessible d
 - Learn about various methods you can use to send commands to an IoT device by using [Azure IoT Hub](https://azure.microsoft.com/services/iot-hub/), including:
    * Sending [cloud-to-device commands](/azure/iot-hub/iot-hub-csharp-csharp-c2d)
    * Using [device twins](/azure/iot-hub/iot-hub-csharp-csharp-twin-getstarted)
-   * Using [direct methods](/azure/iot-hub/iot-hub-devguide-direct-methods) 
+   * Using [direct methods](/azure/iot-hub/iot-hub-devguide-direct-methods)
 - Learn how to [build an enterprise-grade conversational bot](../../reference-architectures/ai/conversational-bot.yml) by using the [Azure Bot Service](/azure/bot-service/?view=azure-bot-service-4.0).
 - To learn more about developing solutions by using IoT Hub, see the [Azure Iot Hub developer guide](/azure/iot-hub/iot-hub-devguide).

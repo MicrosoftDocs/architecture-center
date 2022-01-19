@@ -1,6 +1,5 @@
 
 
-
 This scenario provides architecture and design guidance for building a continuous integration (CI) and continuous deployment (CD) pipeline. In this example, the CI/CD pipeline deploys a two-tier .NET web application to the Azure App Service.
 
 Migrating to modern CI/CD processes provides many benefits for application builds, deployments, testing, and monitoring. By using Azure DevOps along with other services such as App Service, organizations can focus on the development of their apps rather than the management of the supporting infrastructure.

@@ -1,7 +1,7 @@
 ### YamlMime:Architecture
 metadata:
   title: Globally distributed applications using Cosmos DB
-  titleSuffix: Azure Solution Ideas
+  titleSuffix: Azure Example Scenarios
   description: Guarantee access to users around the world with the high-availability and low-latency capabilities built into Microsoft global datacenters.
   author: t2kx
   ms.author: pnp

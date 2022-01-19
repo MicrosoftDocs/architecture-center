@@ -1,7 +1,7 @@
 ---
-title: Choosing a data storage technology
+title: Choose a data storage technology
 description: Compare big data storage technology options in Azure, including key selection criteria and a capability matrix.
-author: doodlemania2
+author: EdPrice-MSFT
 ms.date: 11/19/2020
 ms.topic: conceptual
 ms.service: architecture-center
@@ -16,15 +16,11 @@ ms.custom:
 
 <!-- cSpell:ignore VHDs HDFS WASB HMAC POSIX ACLs JDBC -->
 
-# Choosing a big data storage technology in Azure
+# Choose a big data storage technology in Azure
 
 This topic compares options for data storage for big data solutions &mdash; specifically, data storage for bulk data ingestion and batch processing, as opposed to [analytical data stores](./analytical-data-stores.md) or [real-time streaming ingestion](./real-time-ingestion.md).
 
-<!-- markdownlint-disable MD026 -->
-
 ## What are your options when choosing data storage in Azure?
-
-<!-- markdownlint-enable MD026 -->
 
 There are several options for ingesting data into Azure, depending on your needs.
 
@@ -48,7 +44,7 @@ Azure Storage is a managed storage service that is highly available, secure, dur
 
 There are various Azure Storage services you can use to store data. The most flexible option for storing blobs from a number of data sources is [Blob storage](/azure/storage/blobs/storage-blobs-introduction). Blobs are basically files. They store pictures, documents, HTML files, virtual hard disks (VHDs), big data such as logs, database backups &mdash; pretty much anything. Blobs are stored in containers, which are similar to folders. A container provides a grouping of a set of blobs. A storage account can contain an unlimited number of containers, and a container can store an unlimited number of blobs.
 
-Azure Storage is a good choice for big data and analytics solutions, because of its flexibility, high availability, and low cost. It provides hot, cool, and archive storage tiers for different use cases. For more information, see [Azure Blob Storage: Hot, cool, and archive storage tiers](/azure/storage/blobs/storage-blob-storage-tiers).
+Azure Storage is a good choice for big data and analytics solutions, because of its flexibility, high availability, and low cost. It provides hot, cool, and archive storage tiers for different use cases. For more information, see [Azure Blob Storage: Hot, cool, and archive storage tiers](/azure/storage/blobs/access-tiers-overview).
 
 Azure Blob storage can be accessed from Hadoop (available through HDInsight). HDInsight can use a blob container in Azure Storage as the default file system for the cluster. Through a Hadoop distributed file system (HDFS) interface provided by a WASB driver, the full set of components in HDInsight can operate directly on structured or unstructured data stored as blobs. Azure Blob storage can also be accessed via Azure Synapse Analytics using its PolyBase feature.
 
@@ -147,7 +143,7 @@ The following tables summarize the key differences in capabilities.
 | Primary database model         | Relational (column store), telemetry, and time series store                                                                                                                     |
 | SQL language support           | Yes                                                                                                                                                                             |
 | Pricing model                  | Elastically scalable cluster instances                                                                                                                                          |
-| Authentication                 | Based on [Azure Active Directory identities](https://github.com/uglide/azure-content/blob/master/articles/active-directory/active-directory-authentication-scenarios.md) |
+| Authentication                 | Based on [Azure Active Directory identities](https://github.com/uglide/azure-content/blob/master/articles/active-directory/active-directory-authentication-scenarios.md) |
 | Encryption at rest             | Supported, customer managed keys                                                                                                                                                |                                                                                                                                            |
 | Analytics workload performance | Optimized performance for parallel analytics workloads                                                                                                                         |
 | Size limits                    | Linearly scalable               |

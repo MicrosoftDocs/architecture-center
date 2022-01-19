@@ -1,9 +1,9 @@
 ### YamlMime:Architecture
 metadata:
-  title: Custom Data Sovereignty & Data Gravity Requirements
+  title: Custom data sovereignty and data gravity requirements
   titleSuffix: Azure Solution Ideas
   description: Learn how to set custom data sovereignty and data gravity requirements in the cloud with Azure Stack.
-  author: doodlemania2
+  author: EdPrice-MSFT
   ms.author: pnp
   ms.date: 12/16/2019
   ms.topic: conceptual
@@ -23,7 +23,7 @@ metadata:
     - interactive-diagram
     - "https://azure.microsoft.com/solutions/architecture/data-sovereignty-and-gravity/"
   social_image_url: /azure/architecture/solution-ideas/articles/media/data-sovereignty-and-gravity.png
-name: Custom Data Sovereignty & Data Gravity Requirements
+name: Custom data sovereignty and data gravity requirements
 azureCategories:
   - management-and-governance
   - databases

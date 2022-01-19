@@ -1,5 +1,5 @@
 ---
-title: Identify scenarios for Azure Machine Learning - Team Data Science Process
+title: Identify scenarios for Azure Machine Learning
 description: Select the appropriate scenarios for doing advanced predictive analytics with the Team Data Science Process.
 services: machine-learning
 author: marktab
@@ -8,13 +8,16 @@ editor: marktab
 ms.service: machine-learning
 ms.subservice: team-data-science-process
 ms.topic: article
-ms.date: 01/10/2020
+ms.date: 01/10/2022
 ms.author: tdsp
-ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
+ms.custom:
+  - previous-author=deguhath
+  - previous-ms.author=deguhath
 products:
   - azure-machine-learning
 categories:
   - ai-machine-learning
+ROBOTS: NOINDEX
 ---
 # Scenarios for advanced analytics in Azure Machine Learning
 This article outlines the variety of sample data sources and target scenarios that can be handled by the [Team Data Science Process (TDSP)](overview.md). The TDSP provides a systematic approach for teams to collaborate on building intelligent applications. The scenarios presented here illustrate options available in the data processing workflow that depend on the data characteristics, source locations, and target repositories in Azure.
@@ -26,12 +29,12 @@ Each of the following sections presents a sample scenario. For each scenario, a 
 > [!NOTE]
 > **For all of the following scenarios, you need to:**
 > <br/>
-> 
+>
 > * [Create a storage account](/azure/storage/common/storage-account-create)
 >   <br/>
 > * [Create an Azure Machine Learning workspace](/azure/machine-learning/classic/create-workspace)
-> 
-> 
+>
+>
 
 ## <a name="smalllocal"></a>Scenario \#1: Small to medium tabular dataset in local files
 ![Small to medium local files][1]
@@ -79,17 +82,17 @@ Each of the following sections presents a sample scenario. For each scenario, a 
 1. Transform data to a cleaned tabular form, if needed.
 1. Save data to VM-local files (IPython Notebook is running on VM, local drives refer to VM drives).
 1. Load data to SQL Server database running on an Azure VM.
-   
+
    Option \#1: Using SQL Server Management Studio.
-   
+
    * Log in to SQL Server VM
    * Run SQL Server Management Studio.
    * Create database and target tables.
    * Use one of the bulk import methods to load the data from VM-local files.
-   
+
    Option \#2: Using IPython Notebook – not advisable for medium and larger datasets
-   
-   <!-- -->    
+
+   <!-- -->
    * Use ODBC connection string to access SQL Server on VM.
    * Create database and target tables.
    * Use one of the bulk import methods to load the data from VM-local files.
@@ -106,30 +109,30 @@ Each of the following sections presents a sample scenario. For each scenario, a 
 1. Create an Azure Virtual Machine running SQL Server and IPython Notebook server.
 1. Upload data to an Azure Storage container.
 1. (Optional) Pre-process and clean data.
-   
+
     a.  Pre-process and clean data in IPython Notebook, accessing data from Azure blobs.
-   
+
     b.  Transform data to a cleaned tabular form, if needed.
-   
+
     c.  Save data to VM-local files (IPython Notebook is running on VM, local drives refer to VM drives).
 1. Load data to SQL Server database running on an Azure VM.
-   
+
     a.  Log in to SQL Server VM.
-   
+
     b.  If data not saved already, download data files from Azure storage container to local-VM folder.
-   
+
     c.  Run SQL Server Management Studio.
-   
+
     d.  Create database and target tables.
-   
+
     e.  Use one of the bulk import methods to load the data.
-   
+
     f.  If table joins are required, create indexes to expedite joins.
-   
+
    > [!NOTE]
    > For faster loading of large data sizes, it is recommended that you create partitioned tables and bulk import the data in parallel. For more information, see [Parallel Data Import to SQL Partitioned Tables](parallel-load-sql-partitioned-tables.md).
-   > 
-   > 
+   >
+   >
 1. Explore data, create features as needed. The features do not need to be materialized in the database tables. Only note the necessary query to create them.
 1. Decide on a data sample size, if needed and/or desired.
 1. Sign in to the [Azure Machine Learning Studio](https://studio.azureml.net/).
@@ -142,34 +145,34 @@ Each of the following sections presents a sample scenario. For each scenario, a 
 #### Additional Azure resources: Azure Virtual Machine (SQL Server / IPython Notebook server)
 1. Create an Azure Virtual Machine running SQL Server and IPython Notebook server.
 1. Use one of the data export methods to export the data from SQL Server to dump files.
-   
+
    > [!NOTE]
    > If you decide to move all data from the on premises database,
    > an alternate (faster) method to move the full database to the
    > SQL Server instance in Azure. Skip the steps to export data,
    > create database, and load/import data to the target database and
    > follow the alternate method.
-   > 
-   > 
+   >
+   >
 1. Upload dump files to Azure Storage container.
 1. Load the data to a SQL Server database running on an Azure Virtual Machine.
-   
+
    a.  Log in to the SQL Server VM.
-   
+
    b.  Download data files from an Azure Storage container to the local-VM folder.
-   
+
    c.  Run SQL Server Management Studio.
-   
+
    d.  Create database and target tables.
-   
+
    e.  Use one of the bulk import methods to load the data.
-   
+
    f.  If table joins are required, create indexes to expedite joins.
-   
+
    > [!NOTE]
    > For faster loading of large data sizes, create partitioned tables and to bulk import the data in parallel. For more information, see [Parallel Data Import to SQL Partitioned Tables](parallel-load-sql-partitioned-tables.md).
-   > 
-   > 
+   >
+   >
 1. Explore data, create features as needed. The features do not need to be materialized in the database tables. Only note the necessary query to create them.
 1. Decide on a data sample size, if needed and/or desired.
 1. Sign in to the [Azure Machine Learning Studio](https://studio.azureml.net/).
@@ -195,35 +198,35 @@ To replicate the entire SQL Server database in your SQL Server VM, you should co
 1. Create an Azure Virtual Machine running IPython Notebook server.
 1. Create an Azure HDInsight Hadoop cluster.
 1. (Optional) Pre-process and clean data.
-   
+
    a.  Pre-process and clean data in IPython Notebook, accessing data from Azure blobs.
-   
+
    b.  Transform data to a cleaned tabular form, if needed.
-   
+
    c.  Save data to VM-local files (IPython Notebook is running on VM, local drives refer to VM drives).
 1. Upload data to the default container of the Hadoop cluster selected in the step 2.
 1. Load data to Hive database in Azure HDInsight Hadoop cluster.
-   
+
    a.  Log in to the head node of the Hadoop cluster
-   
+
    b.  Open the Hadoop Command Line.
-   
+
    c.  Enter the Hive root directory by command `cd %hive_home%\bin` in Hadoop Command Line.
-   
+
    d.  Run the Hive queries to create database and tables, and load data from blob storage to Hive tables.
-   
+
    > [!NOTE]
    > If the data is big, users can create the Hive table with partitions. Then, users can use a `for` loop in the Hadoop Command Line on the head node to load data into the Hive table partitioned by partition.
-   > 
-   > 
+   >
+   >
 1. Explore data and create features as needed in Hadoop Command Line. The features do not need to be materialized in the database tables. Only note the necessary query to create them.
-   
+
    a.  Log in to the head node of the Hadoop cluster
-   
+
    b.  Open the Hadoop Command Line.
-   
+
    c.  Enter the Hive root directory by command `cd %hive_home%\bin` in Hadoop Command Line.
-   
+
    d.  Run the Hive queries in Hadoop Command Line on the head node of the Hadoop cluster to explore the data and create features as needed.
 1. If needed and/or desired, sample the data to fit in Azure Machine Learning Studio.
 1. Sign in to the [Azure Machine Learning Studio](https://studio.azureml.net/).
@@ -251,7 +254,6 @@ For end-to-end Azure Machine Learning walkthroughs that employ the Advanced Anal
 [7]: ./media/plan-sample-scenarios/dsp-plan-attach-db.png
 [8]: ./media/plan-sample-scenarios/dsp-plan-sample-scenarios.png
 [9]: ./media/plan-sample-scenarios/dsp-plan-local-to-hive.png
-
 
 <!-- Module References -->
 [import-data]: /azure/machine-learning/studio-module-reference/import-data

@@ -18,7 +18,7 @@ Use the following button to deploy the reference using the Azure portal.
 
 #### [Azure CLI](#tab/cli)
 
-Run the following command to deploy two resource groups and the secure network reference architecture using the Azure CLI. 
+Run the following command to deploy two resource groups and the secure network reference architecture using the Azure CLI.
 
 When prompted, enter values for an admin user name and password. These values are used to log into the included virtual machines.
 
@@ -29,7 +29,7 @@ az deployment sub create --location eastus \
 
 #### [PowerShell](#tab/powershell)
 
-Run the following command to deploy two resource groups and the secure network reference architecture using PowerShell. 
+Run the following command to deploy two resource groups and the secure network reference architecture using PowerShell.
 
 When prompted, enter values for an admin user name and password. These values are used to log into the included virtual machines.
 
@@ -107,7 +107,7 @@ We recommend creating the following resource groups:
 
 ### Networking recommendations
 
-To accept inbound traffic from the internet, add a [Destination Network Address Translation](/azure/firewall/tutorial-firewall-dnat) (DNAT) rule to Azure Firewall. 
+To accept inbound traffic from the internet, add a [Destination Network Address Translation](/azure/firewall/tutorial-firewall-dnat) (DNAT) rule to Azure Firewall.
 
 - Destination address = Public IP address of the firewall instance.
 - Translated address = Private IP address within the virtual network.
@@ -171,26 +171,25 @@ Here are cost considerations for the services used in this architecture.
 In this architecture, Azure Firewall is deployed in the virtual network to control traffic between the gateway's subnet and the subnet in which the application tier runs. In this way Azure Firewall is cost effective because it's used as a shared solution consumed by multiple workloads. Here are the Azure Firewall pricing models:
 
 - Fixed rate per deployment hour.
-- Data processed per GB to support auto scaling. 
+- Data processed per GB to support auto scaling.
 
 When compared to network virtual appliances (NVAs), with Azure Firewall you can save up to 30-50%. For more information see [Azure Firewall vs NVA][Firewall-NVA].
 
 ### Azure Bastion
 
-Azure Bastion securely connects to your virtual machine over RDP and SSH without having the need to configure a public IP on the virtual machine. 
+Azure Bastion securely connects to your virtual machine over RDP and SSH without having the need to configure a public IP on the virtual machine.
 
-Bastion billing is comparable to a basic, low-level virtual machine configured as a jumpbox. Comparing Bastion to a jump box, Bastion is more cost effective considering Bastion's built-in security features and no extra costs incurred for storage and managing a separate server. 
+Bastion billing is comparable to a basic, low-level virtual machine configured as a jumpbox. Comparing Bastion to a jump box, Bastion is more cost effective considering Bastion's built-in security features and no extra costs incurred for storage and managing a separate server.
 
 ### Azure Virtual Network
 
-Azure Virtual Network is free. Every subscription is allowed to create up to 50 virtual networks across all regions.
-All traffic that occurs within the boundaries of a virtual network is free. So if two VMs that are in the same VNET are talking each other then no charges will occur.
+Azure Virtual Network is free. Every subscription is allowed to create up to 50 virtual networks across all regions. All traffic that occurs within the boundaries of a virtual network is free. So if two VMs that are in the same VNET are talking each other then no charges will occur.
 
 ### Internal load balancer
 
 Basic load balancing between virtual machines that reside in the same virtual network is free.
 
-In this architecture, internal load balancers are used to load balance traffic inside a virtual network. 
+In this architecture, internal load balancers are used to load balance traffic inside a virtual network.
 
 ## Next steps
 
@@ -201,17 +200,16 @@ In this architecture, internal load balancers are used to load balance traffic i
 
 <!-- links -->
 
-[aaf-cost]: ../../framework/cost/overview.md
+[aaf-cost]: /azure/architecture/framework/cost/overview
 [azure-forced-tunneling]: /azure/vpn-gateway/vpn-gateway-forced-tunneling-rm
 [azurect]: https://github.com/Azure/NetworkMonitoring/tree/master/AzureCT
 [cloud-services-network-security]: /azure/best-practices-network-security
 [azure-pricing-calculator]: https://azure.microsoft.com/pricing/calculator
 [Firewall-NVA]: https://azure.microsoft.com/blog/azure-firewall-and-network-virtual-appliances
 [getting-started-with-azure-security]: /azure/security/azure-security-getting-started
-[github-folder]: https://github.com/mspnp/reference-architectures/tree/master/dmz/secure-vnet-hybrid
-[guidance-expressroute-availability]: ../hybrid-networking/expressroute.yml#availability-considerations
-[guidance-expressroute-scalability]: ../hybrid-networking/expressroute.yml#scalability-considerations
-[guidance-expressroute-security]: ../hybrid-networking/expressroute.yml#security-considerations
+[guidance-expressroute-availability]: ../hybrid-networking/expressroute.yml#availability
+[guidance-expressroute-scalability]: ../hybrid-networking/expressroute.yml#scalability
+[guidance-expressroute-security]: ../hybrid-networking/expressroute.yml#security
 [guidance-vpn-gateway-availability]: ../hybrid-networking/vpn.yml#availability-considerations
 [guidance-vpn-gateway-devops]: ../hybrid-networking/vpn.yml#devops-considerations
 [guidance-vpn-gateway-scalability]: ../hybrid-networking/vpn.yml#scalability-considerations

@@ -3,7 +3,7 @@ metadata:
   title: IoT Connected Platform for COVID-19 detection and prevention
   titleSuffix: Azure Solution Ideas
   description: Deploy a connected ecosystem of intelligent IoT Edge devices, Azure services, and cloud-powered apps to create safe and healthy public spaces.
-  author: doodlemania2
+  author: EdPrice-MSFT
   ms.author: pnp
   ms.date: 06/12/2020
   ms.topic: conceptual

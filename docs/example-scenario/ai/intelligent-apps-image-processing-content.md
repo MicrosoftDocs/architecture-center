@@ -28,7 +28,7 @@ This scenario covers the back-end components of a web or mobile application. Dat
 
 - [Computer Vision API](/azure/cognitive-services/computer-vision/home) is part of the Cognitive Services suite and is used to retrieve information about each image.
 - [Azure Functions](/azure/azure-functions/functions-overview) provides the back-end API for the web application, as well as the event processing for uploaded images.
-- [Event Grid](/azure/event-grid/overview) triggers an event when a new image is uploaded to blob storage. The image is then processed with Azure functions. 
+- [Event Grid](/azure/event-grid/overview) triggers an event when a new image is uploaded to blob storage. The image is then processed with Azure functions.
 - [Blob storage](/azure/storage/blobs/storage-blobs-introduction) stores all of the image files that are uploaded into the web application, as well any static files that the web application consumes.
 - [Cosmos DB](/azure/cosmos-db/introduction) stores metadata about each image that is uploaded, including the results of the processing from Computer Vision API.
 
@@ -91,8 +91,8 @@ Before deploying this example scenario in a production environment, review recom
 [large-pricing]: https://azure.com/e/cbadbca30f8640d6a061f8457a74ba7d
 [serverless]: /learn/paths/create-serverless-applications/
 [cv-categories]: /azure/cognitive-services/computer-vision/category-taxonomy
-[resiliency]: ../../framework/resiliency/principles.md
+[resiliency]: /azure/architecture/framework/resiliency/principles
 [security]: /azure/security
-[scalability]: ../../framework/scalability/performance-efficiency.md
+[scalability]: /azure/architecture/framework/scalability/performance-efficiency
 [functions-best-practices]: /azure/azure-functions/functions-best-practices
 [msi]: /azure/app-service/app-service-managed-service-identity

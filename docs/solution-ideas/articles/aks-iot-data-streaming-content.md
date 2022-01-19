@@ -4,6 +4,8 @@
 
 This solution demonstrates how to ingest and analyze high volumes of IoT data and generate real-time recommendations and insights.
 
+## Potential use cases
+
 This solution utilizes the following functionality:
 
 - Real-time data ingestion and processing pipeline capable of detection and notification within seconds.
@@ -44,7 +46,7 @@ This example scenario uses several Azure components:
 - [Azure Databricks](https://azure.microsoft.com/services/databricks/): An Apache Spark-based analytics platform optimized for the Microsoft Azure cloud services platform.
 - [Azure Cache for Redis](https://azure.microsoft.com/services/cache/): A fully managed, open source–compatible in-memory data store to power fast, scalable applications.
 
-## Next Steps
+## Next steps
 
 - [What is Kubernetes?](https://azure.microsoft.com/topic/what-is-kubernetes/)
 - [Learn about Kubernetes on Azure](https://azure.microsoft.com/overview/kubernetes-on-azure/)

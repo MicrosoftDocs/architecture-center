@@ -1,5 +1,5 @@
 ---
-title: Sample data in Azure HDInsight Hive tables - Team Data Science Process
+title: Sample data in Azure HDInsight Hive tables
 description: Down-sample data stored in Azure HDInsight Hive tables using Hive queries to reduce the data to a size more manageable for analysis.
 services: machine-learning
 author: marktab
@@ -10,7 +10,9 @@ ms.subservice: team-data-science-process
 ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
-ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
+ms.custom:
+  - previous-author=deguhath
+  - previous-ms.author=deguhath
 products:
   - azure-machine-learning
 categories:
@@ -23,8 +25,7 @@ This article describes how to down-sample data stored in Azure HDInsight Hive ta
 * Random sampling by groups
 * Stratified sampling
 
-**Why sample your data?**
-If the dataset you plan to analyze is large, it's usually a good idea to down-sample the data to reduce it to a smaller but representative and more manageable size. Down-sampling facilitates data understanding, exploration, and feature engineering. Its role in the Team Data Science Process is to enable fast prototyping of the data processing functions and machine learning models.
+**Why sample your data?** If the dataset you plan to analyze is large, it's usually a good idea to down-sample the data to reduce it to a smaller but representative and more manageable size. Down-sampling facilitates data understanding, exploration, and feature engineering. Its role in the Team Data Science Process is to enable fast prototyping of the data processing functions and machine learning models.
 
 This sampling task is a step in the [Team Data Science Process (TDSP)](/azure/machine-learning/team-data-science-process/).
 

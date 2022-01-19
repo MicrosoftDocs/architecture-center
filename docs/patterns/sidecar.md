@@ -2,7 +2,8 @@
 title: Sidecar pattern
 titleSuffix: Cloud Design Patterns
 description: Deploy components of an application into a separate process or container to provide isolation and encapsulation.
-author: dragon119
+author: EdPrice-MSFT
+ms.author: pnp
 ms.date: 06/23/2017
 ms.topic: conceptual
 ms.service: architecture-center
@@ -41,9 +42,9 @@ Advantages of using a sidecar pattern include:
 
 - The sidecar can access the same resources as the primary application. For example, a sidecar can monitor system resources used by both the sidecar and the primary application.
 
-- Because of its proximity to the primary application, there’s no significant latency when communicating between them.
+- Because of its proximity to the primary application, there's no significant latency when communicating between them.
 
-- Even for applications that don’t provide an extensibility mechanism, you can use a sidecar to extend functionality by attaching it as its own process in the same host or sub-container as the primary application.
+- Even for applications that don't provide an extensibility mechanism, you can use a sidecar to extend functionality by attaching it as its own process in the same host or sub-container as the primary application.
 
 The sidecar pattern is often used with containers and referred to as a sidecar container or sidekick container.
 

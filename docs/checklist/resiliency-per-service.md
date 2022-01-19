@@ -2,13 +2,16 @@
 title: Resiliency checklist for services
 titleSuffix: Azure Design Review Framework
 description: Resiliency is the ability to recover from failures and continue to function. Use this checklist to review the resiliency considerations for Azure services.
-author: PeterTaylor9999
-ms.date: 11/26/2018
+author: EdPrice-MSFT
+ms.author: pnp
+ms.date: 01/04/2022
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: well-architected
 products:
   - azure-app-service
+categories:
+  - management-and-governance
 ms.custom:
   - resiliency
   - checklist
@@ -18,7 +21,7 @@ ms.custom:
 
 # Resiliency checklist for specific Azure services
 
-Resiliency is the ability of a system to recover from failures and continue to function. Every technology has its own particular failure modes, which you must consider when designing and implementing your application. Use this checklist to review the resiliency considerations for specific Azure services. For more information about designing resilient applications, see [Design reliable Azure applications](../framework/resiliency/app-design.md).
+Resiliency is the ability of a system to recover from failures and continue to function. Every technology has its own particular failure modes, which you must consider when designing and implementing your application. Use this checklist to review the resiliency considerations for specific Azure services. For more information about designing resilient applications, see [Design reliable Azure applications](/azure/architecture/framework/resiliency/app-design).
 
 ## App Service
 
@@ -45,7 +48,6 @@ Resiliency is the ability of a system to recover from failures and continue to f
 **Create a separate storage account for logs.** Don't use the same storage account for logs and application data. This helps to prevent logging from reducing application performance.
 
 **Monitor performance.** Use a performance monitoring service such as [New Relic](https://newrelic.com) or [Application Insights](/azure/application-insights/app-insights-overview) to monitor application performance and behavior under load.  Performance monitoring gives you real-time insight into the application. It enables you to diagnose issues and perform root-cause analysis of failures.
-
 
 ## Azure Load Balancer
 

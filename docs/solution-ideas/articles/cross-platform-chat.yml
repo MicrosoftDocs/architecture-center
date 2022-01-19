@@ -1,9 +1,9 @@
 ### YamlMime:Architecture
 metadata:
-  title: Cross-platform Chat
+  title: Cross-platform chat
   titleSuffix: Azure Solution Ideas
   description: Use this architecture to accelerate development of reliable, high-performing chat applications.
-  author: doodlemania2
+  author: EdPrice-MSFT
   ms.author: pnp
   ms.date: 12/16/2019
   ms.topic: conceptual
@@ -20,7 +20,7 @@ metadata:
     - e2e-hybrid
     - "https://azure.microsoft.com/solutions/architecture/cross-platform-chat/"
   social_image_url: /azure/architecture/solution-ideas/articles/media/cross-platform-chat.png
-name: Cross-platform Chat
+name: Cross-platform chat
 azureCategories:
   - hybrid
   - web

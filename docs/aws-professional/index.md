@@ -25,7 +25,7 @@ You'll learn:
 
 Azure and AWS built their capabilities independently over time, so that each has important implementation and design differences.
 
-## Overview
+## Azure for AWS overview
 
 Like AWS, Microsoft Azure is built around a core set of compute, storage, database, and networking services. In many cases, both platforms offer a basic equivalence between the products and services they offer. Both AWS and Azure allow you to build highly available solutions based on Windows or Linux hosts. So, if your preference for development is using Linux distributions and OSS technologies, both platforms are capable of doing the job.
 

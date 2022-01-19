@@ -131,7 +131,7 @@ The solution should be deployed in stages:
     1. See [Configure sync with clinical data using Azure FHIR Sync Agent](/dynamics365/industry/healthcare/configure-sync-clinical-data) and [Embed Power BI reports for analytics](/dynamics365/industry/healthcare/configure-powerbi-reports) to understand some other configurations that may be required.
 
 1. The additional components that were specifically created for this solution, are not available for production-grade usage. The healthcare facility may need to create its own version of these applications:
-  
+
     1. Appointment Queue
 
     1. Automated notifications using Power Automate

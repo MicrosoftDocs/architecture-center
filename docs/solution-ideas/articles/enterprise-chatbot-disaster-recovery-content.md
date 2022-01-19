@@ -12,15 +12,15 @@ The diagram below shows deployment of a chatbot solution for disaster recovery. 
 
 *Download a [Visio file](https://arch-center.azureedge.net/Bot_DR.vsdx) of this architecture.*
 
-## Components
+### Components
 
 Disaster recovery solutions vary depending on your SLA and the Azure services you use.
 
-### Non-regional services
+#### Non-regional services
 
 Azure Active Directory (Azure AD), Azure Traffic Manager, Azure Front Door, and Azure Bot Service registration are non-regional services. They're always available in Azure geographies, whatever the specific region availability or outage.
 
-### Regional services with automatic failover
+#### Regional services with automatic failover
 
 Although you provision Azure Key Vault and Language Understanding Intelligent Service (LUIS) in a specific Azure region, these services provide automatic failover to a different Azure region. For more information, see:
 
@@ -28,7 +28,7 @@ Although you provision Azure Key Vault and Language Understanding Intelligent Se
 - To set up high availability for Azure Cosmos DB, see [High availability with Azure Cosmos DB](/azure/cosmos-db/high-availability).
 - [LUIS regions and endpoints](/azure/cognitive-services/luis/luis-reference-regions)
 
-### Regional services without automatic failover
+#### Regional services without automatic failover
 
 These services may need your attention to ensure high availability and disaster recovery.
 
@@ -42,7 +42,7 @@ Keep all deployment and source code artifacts in a source code repository, and u
 - Create a Secure Sockets Layer (TLS/SSL) certificate for your traffic manager endpoint, and [bind the TLS/SSL certificate](/azure/app-service/configure-ssl-bindings) in your App Services.
 - Finally, use the Traffic Manager or Azure Front Door endpoint of QnA Maker in your bot. Then, use the Traffic Manager endpoint of the bot API as the bot endpoint in Azure Bot Service registration.
 
-### List of services
+#### List of services
 
 Key technologies used to implement this architecture:
 
@@ -60,11 +60,6 @@ Key technologies used to implement this architecture:
 
 ## Next steps
 
-Azure Architecture Center:
-
-- Review the overview article [Principles of the reliability pillar](../../framework/resiliency/principles.md)
-- See the related reference architecture [Build an enterprise-grade conversational bot](../../reference-architectures/ai/conversational-bot.yml)
-
 Product documentation:
 
 - Cognitive Services - [Authoring and publishing regions and the associated keys](/azure/cognitive-services/luis/luis-reference-regions)
@@ -75,3 +70,10 @@ Product documentation:
 Article on availability:
 
 - [Business continuity and disaster recovery (BCDR): Azure Paired Regions](/azure/best-practices-availability-paired-regions)
+
+## Related resources
+
+Azure Architecture Center:
+
+- Review the overview article [Principles of the reliability pillar](/azure/architecture/framework/resiliency/principles)
+- See the related reference architecture [Build an enterprise-grade conversational bot](../../reference-architectures/ai/conversational-bot.yml)

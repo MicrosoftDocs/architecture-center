@@ -1,5 +1,5 @@
 ---
-title:  Azure Well-Architected Framework review of Azure Firewall
+title: Azure Well-Architected Framework review of Azure Firewall
 titleSuffix: Azure Architecture Center
 description: This guidance provides best practices for Azure Firewall, based on the Well-Architected Framework's five pillars of architecture excellence.
 author: rohilla-shweta
@@ -22,7 +22,7 @@ This article provides architectural best practices for Azure Firewall. The guida
 
 ## Cost optimization
 
-Review underutilized Azure Firewall instances, and identify and delete Azure Firewall deployments not in use. To identify Azure Firewall deployments not in use, start analyzing the Monitoring Metrics and User Defined Routes (UDRs) that are associated with subnets pointing to the Firewall’s private IP. Then, combine that with additional validations, such as if the Azure Firewall has any Rules (Classic) for NAT, or Network and Application, or even if the DNS Proxy setting is configured to **Disabled**, as well as with internal documentation about your environment and deployments. See the details about monitoring logs and metrics at [Monitor Azure Firewall logs and metrics](/azure/firewall/firewall-diagnostics) and [SNAT port utilization](/azure/firewall/logs-and-metrics#metrics).
+Review underutilized Azure Firewall instances, and identify and delete Azure Firewall deployments not in use. To identify Azure Firewall deployments not in use, start analyzing the Monitoring Metrics and User Defined Routes (UDRs) that are associated with subnets pointing to the Firewall's private IP. Then, combine that with additional validations, such as if the Azure Firewall has any Rules (Classic) for NAT, or Network and Application, or even if the DNS Proxy setting is configured to **Disabled**, as well as with internal documentation about your environment and deployments. See the details about monitoring logs and metrics at [Monitor Azure Firewall logs and metrics](/azure/firewall/firewall-diagnostics) and [SNAT port utilization](/azure/firewall/logs-and-metrics#metrics).
 
 Share the same Azure Firewall across multiple workloads and Azure Virtual Networks. Deploy a central Azure Firewall in the hub virtual network, and share the same Firewall across many spoke virtual networks that are connected to the same hub from the same region. Ensure that there is no unexpected cross-region traffic as part of the hub-spoke topology.
 
@@ -45,7 +45,7 @@ Review the differences between the two Azure Firewall SKUs. The Standard option 
 - Use Azure Firewall Premium, if any of the following capabilities are required:
   - TLS inspection - Decrypts outbound traffic, processes the data, encrypts the data, and then sends it to the destination.
   - IDPS - A network intrusion detection and prevention system (IDPS) allows you to monitor network activities for malicious activity, log information about this activity, report it, and optionally attempt to block it.
-  - URL filtering - Extends Azure Firewall’s FQDN filtering capability to consider an entire URL. For example, the filtered URL might be www.contoso.com/a/c instead of www.contoso.com.
+  - URL filtering - Extends Azure Firewall's FQDN filtering capability to consider an entire URL. For example, the filtered URL might be www.contoso.com/a/c instead of www.contoso.com.
   - Web categories - Administrators can allow or deny user access to website categories, such as gambling websites, social media websites, and others.
   - See more details at [Azure Firewall Premium Preview features](/azure/firewall/premium-features).
 - Use Firewall Manager to deploy and manage multiple Azure Firewalls across Azure Virtual WAN hubs and hub-spoke based deployments.
@@ -60,7 +60,7 @@ Review the differences between the two Azure Firewall SKUs. The Standard option 
 - Become familiar with the limits and limitations, especially SNAT ports. Do not exceed limits, and be aware of the limitations. See the Azure Firewall limits at [Azure subscription limits and quotas -  Azure Resource  Manager](/azure/azure-resource-manager/management/azure-subscription-service-limits#azure-firewall-limits). Also, learn more about any existing usability limitations at [Azure Firewall FAQ](/azure/firewall/firewall-faq).
 - For concurrent deployments, make sure to use IP Groups, policies, and firewalls that do not have concurrent Put operations on them. Ensure all updates to the IP Groups and policies have an implicit firewall update that is run afterwards.
 - Ensure a developer and test environment to validate firewall changes.
-- A well-architected solution also involves considering the placement of your resources, to align with all functional and non-functional requirements. Azure Firewall, Application Gateway, and Load Balancers can be combined in multiple ways to achieve different goals. You can find scenarios with detailed recommendations, at [Firewall and Application Gateway for virtual networks](/azure/architecture/example-scenario/gateway/firewall-application-gateway).
+- A well-architected solution also involves considering the placement of your resources, to align with all functional and non-functional requirements. Azure Firewall, Application Gateway, and Load Balancers can be combined in multiple ways to achieve different goals. You can find scenarios with detailed recommendations, at [Firewall and Application Gateway for virtual networks](../../example-scenario/gateway/firewall-application-gateway.yml).
 
 ### Networking
 
@@ -90,7 +90,7 @@ The following metrics can be used by the customer, as indicators of utilization 
 
 Azure Firewall exposes a few other logs and metrics for troubleshooting that can be used as indicators of issues. We recommend evaluating alerts, as per the table below. Refer to [Monitor Azure Firewall logs and metrics](/azure/firewall/firewall-diagnostics).
 
-| **Metric name**  | **Explanation** |
+| **Metric name**  | **Explanation** |
 | :--: | :-- |
 | Application rule log | Each new connection that matches one of your configured application rules will result in a log for the accepted/denied connection. |
 | Network rule log | Each new connection that matches one of your configured network rules will result in a log for the accepted/denied connection. |
@@ -110,7 +110,7 @@ Azure Firewall exposes a few other logs and metrics for troubleshooting that can
 
 ### Auto scale and performance
 
-- Azure Firewall uses auto scale. It can go up to 20 instances that provide up to 20 Gbps.
+- Azure Firewall uses auto scale. It can go up to 30 Gbps.
 - Azure Firewall always starts with 2 instances. It scales up and down, based on CPU and the network throughput. After an auto scale, Azure Firewall ends up with either n-1 or n+1 instances.
 - Scaling up happens if the threshold for CPU or throughput are greater than 60%, for more than five minutes.
 - Scaling down happens if the threshold for CPU or throughput are under 60%, for more than 30 minutes. The scale-down process happens gracefully (deleting instances). The active connections on the deprovisioned instances are disconnected and switched over to other instances. For the majority of applications, this process does not cause any downtime, but applications should have some type of auto-reconnect capability. (The majority already has this capability.)
@@ -123,7 +123,7 @@ Azure Firewall exposes a few other logs and metrics for troubleshooting that can
 
 - Azure Firewall provides different SLAs for when it is deployed in a single Availability Zone and for when it is deployed in multi-zones. For more information, see [SLA for Azure Firewall](https://azure.microsoft.com/support/legal/sla/azure-firewall/v1_1). For information about all Azure SLAs, see the [Azure service level agreements page](https://azure.microsoft.com/support/legal/sla/summary).
 
-- For workloads designed to be resistant to failures and to be fault-tolerant, remember to take into consideration that Azure Firewalls and Virtual Networks are regional resources. 
+- For workloads designed to be resistant to failures and to be fault-tolerant, remember to take into consideration that Azure Firewalls and Virtual Networks are regional resources.
 
 - Closely monitor metrics, especially SNAT port utilization, firewall health state, and throughput.
 
@@ -151,7 +151,7 @@ Azure Firewall exposes a few other logs and metrics for troubleshooting that can
   - Azure Firewall Premium is a next-generation firewall, with capabilities that are required for highly sensitive and regulated environments. It includes the following features:
     - TLS inspection - Decrypts outbound traffic, processes the data, encrypts the data, and then sends it to the destination.
     - IDPS - A network intrusion detection and prevention system (IDPS) allows you to monitor network activities for malicious activity, log information about this activity, report it, and optionally attempt to block it.
-    - URL filtering - Extends Azure Firewall’s FQDN filtering capability to consider an entire URL. For example, the filtered URL might be www.contoso.com/a/c instead of www.contoso.com.
+    - URL filtering - Extends Azure Firewall's FQDN filtering capability to consider an entire URL. For example, the filtered URL might be www.contoso.com/a/c instead of www.contoso.com.
     - Web categories - Administrators can allow or deny user access to website categories, such as gambling websites, social media websites, and others.
   - See more at [Azure Firewall Premium Preview features](/azure/firewall/premium-features).
 - Deploy a security partner provider:
@@ -159,17 +159,17 @@ Azure Firewall exposes a few other logs and metrics for troubleshooting that can
   - With a quick configuration, you can secure a hub with a supported security partner. You can route and filter Internet traffic from your Virtual Networks (VNets) or branch locations within a region. You can do this with automated route management, without setting up and managing user-defined routes (UDRs).
   - The current supported security partners are Zscaler, Check Point, and iboss.
   - See more at [Deploy an Azure Firewall Manager security partner provider](/azure/firewall-manager/deploy-trusted-security-partner).
-  
+
  ## Next steps
 
- - See the [Microsoft Azure Well-Architected Framework](../../framework/index.md).
+ - See the [Microsoft Azure Well-Architected Framework](/azure/architecture/framework/index).
  - [What is Azure Firewall?](/azure/firewall/overview)
 
  ## Related resources
- 
- - [Azure Firewall architecture overview](/azure/architecture/example-scenario/firewalls)
- - [Azure Well-Architected Framework review of Azure Application Gateway](/azure/architecture/networking/guide/waf-application-gateway)
- - [Firewall and Application Gateway for virtual networks](/azure/architecture/example-scenario/gateway/firewall-application-gateway)
- - [Choose between virtual network peering and VPN gateways](/azure/architecture/reference-architectures/hybrid-networking/vnet-peering)
- - [Hub-spoke network topology in Azure](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke)
- - [Security considerations for highly sensitive IaaS apps in Azure](/azure/architecture/reference-architectures/n-tier/high-security-iaas)
+
+ - [Azure Firewall architecture overview](../../example-scenario/firewalls/index.yml)
+ - [Azure Well-Architected Framework review of Azure Application Gateway](./waf-application-gateway.md)
+ - [Firewall and Application Gateway for virtual networks](../../example-scenario/gateway/firewall-application-gateway.yml)
+ - [Choose between virtual network peering and VPN gateways](../../reference-architectures/hybrid-networking/vnet-peering.yml)
+ - [Hub-spoke network topology in Azure](../../reference-architectures/hybrid-networking/hub-spoke.yml)
+ - [Security considerations for highly sensitive IaaS apps in Azure](../../reference-architectures/n-tier/high-security-iaas.yml)

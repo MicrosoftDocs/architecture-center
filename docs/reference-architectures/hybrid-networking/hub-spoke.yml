@@ -3,7 +3,7 @@ metadata:
   title: Hub-spoke network topology in Azure
   titleSuffix: Azure Reference Architectures
   description: Learn how to implement a hub-spoke topology in Azure, where the hub is a virtual network and the spokes are virtual networks that peer with the hub.
-  author: neilpeterson
+  author: EdPrice-MSFT
   ms.author: pnp
   ms.date: 01/26/2021
   ms.topic: conceptual

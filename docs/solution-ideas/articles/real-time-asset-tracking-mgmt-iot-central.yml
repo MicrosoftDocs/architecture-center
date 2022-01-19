@@ -20,6 +20,6 @@ products:
   - azure-event-hubs
 name: Real-time asset tracking and management
 summary: Use Azure IoT Central to capture real-time asset data, and tools like Azure Functions, Azure Notification Hubs, and Power BI to create alerts and reports.
-thumbnailUrl: /azure/architecture/browse/thumbs/real-time-asset-tracking-mgmt-iot-central.png
+thumbnailUrl: /azure/architecture/browse/thumbs/real-time-asset-tracking-mgmt-iot-central-content.png
 content: |
   [!include[](real-time-asset-tracking-mgmt-iot-central-content.md)]

@@ -2,8 +2,8 @@
 metadata:
   title: Predictive marketing with machine learning
   titleSuffix: Azure Solution Ideas
-  description: Optimize big data marketing campaigns with a machine-learning model using Microsoft Machine Learning Server on Azure HDInsight Spark clusters.
-  author: doodlemania2
+  description: Optimize big data marketing campaigns with a machine-learning model using Microsoft Machine Learning and Azure HDInsight Spark clusters.
+  author: EdPrice-MSFT
   ms.author: pnp
   ms.date: 12/16/2019
   ms.topic: conceptual
@@ -27,9 +27,9 @@ name: Predictive marketing with machine learning
 azureCategories:
   - ai-machine-learning
   - analytics
-summary: Optimize big data marketing campaigns with a machine-learning model using Microsoft Machine Learning Server on Azure HDInsight Spark clusters.
+summary: Optimize big data marketing campaigns with a machine-learning model using Microsoft Machine Learning and Azure HDInsight Spark clusters.
 products:
-  - azure-hdinsight-rserver
+  - azure-hdinsight
   - azure-machine-learning
   - azure-storage
   - power-bi

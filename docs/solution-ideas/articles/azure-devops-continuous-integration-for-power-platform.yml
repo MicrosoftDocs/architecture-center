@@ -1,0 +1,39 @@
+### YamlMime:Architecture
+metadata:
+  title: CI/CD for Microsoft Power Platform
+  titleSuffix: Azure Solution Ideas
+  description: Learn how to create an Azure CI/CD pipeline to manage your Power Platform application lifecycle.
+  author: sarahparkes
+  ms.author: meparkes
+  ms.date: 09/17/2021
+  ms.topic: conceptual
+  ms.service: architecture-center
+  ms.subservice: solution-idea
+  ms.category:
+    - devops
+    - web
+    - featured
+  ms.custom:
+    - acom-architecture
+    - devops
+    - continuous integration
+    - continuous delivery
+    - CI/CD
+    - continuous deployment
+    - pricing-calculator
+  social_image_url: /azure/architecture/solution-ideas/articles/media/azure-devops-continuous-integration-and-continuous-deployment-for-power-apps.png
+name: CI/CD for Azure Power Platform
+azureCategories:
+  - devops
+  - web
+  - featured
+summary: Learn how to create an Azure CI/CD pipeline to manage your Power Platform application lifecycle.
+products:
+  - azure-application-insights
+  - azure-devops
+  - azure-web-apps
+  - power-apps
+  - azure-repos
+thumbnailUrl: /azure/architecture/browse/thumbs/azure-devops-continuous-integration-and-continuous-deployment-for-power-apps.png
+content: |
+   [!include[](azure-devops-continuous-integration-for-power-platform-content.md)]

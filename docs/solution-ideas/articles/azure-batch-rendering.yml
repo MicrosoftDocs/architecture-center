@@ -1,9 +1,9 @@
 ### YamlMime:Architecture
 metadata:
-  title: HPC Media Rendering
+  title: HPC media rendering
   titleSuffix: Azure Solution Ideas
   description: Optimize the media rendering process with a step-by-step HPC solution architecture from Azure that combines Azure CycleCloud and HPC Cache.
-  author: doodlemania2
+  author: EdPrice-MSFT
   ms.author: pnp
   ms.date: 11/04/2020
   ms.topic: conceptual
@@ -23,7 +23,7 @@ metadata:
     - "https://azure.microsoft.com/solutions/architecture/azure-batch-rendering/"
     - internal-intro
   social_image_url: /azure/architecture/solution-ideas/articles/media/azure-batch-rendering.png
-name: HPC Media Rendering
+name: HPC media rendering
 azureCategories:
   - storage
   - compute

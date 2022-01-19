@@ -1,8 +1,9 @@
 ---
-title: Use dashboards to visualize Azure Databricks metrics
+title: Dashboards to visualize Azure Databricks metrics
 description: Learn how to set up a Grafana dashboard to monitor performance of Azure Databricks jobs. Azure Databricks is an Apache Spark-based analytics service.
-author: PeterTaylor9999
-ms.date: 03/26/2019
+author: EdPrice-MSFT
+ms.author: pnp
+ms.date: 12/17/2021
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: azure-guide
@@ -24,7 +25,7 @@ This article shows how to set up a Grafana dashboard to monitor Azure Databricks
 
 This library enables logging of Azure Databricks service metrics as well as Apache Spark structure streaming query event metrics. Once you've successfully deployed this library to an Azure Databricks cluster, you can further deploy a set of [Grafana](https://grafana.com) dashboards that you can deploy as part of your production environment.
 
-![Screenshot of dashboard](./_images/dashboard-screenshot.png)
+![Screenshot of the dashboard.](./_images/dashboard-screenshot.png)
 
 ## Prerequisites
 
@@ -43,7 +44,7 @@ To deploy the Azure Log Analytics workspace, follow these steps:
     - **workspaceName** (optional): A name for the workspace. If not specified, the template generates a name.
 
     ```bash
-    az group deployment create --resource-group <resource-group-name> --template-file logAnalyticsDeploy.json --parameters location='East US' serviceTier='Standalone'
+    az deployment group create --resource-group <resource-group-name> --template-file logAnalyticsDeploy.json --parameters location='East US' serviceTier='Standalone'
     ```
 
 This template creates the workspace and also creates a set of predefined queries that are used by dashboard.
@@ -55,7 +56,7 @@ Grafana is an open source project you can deploy to visualize the time series me
 1. Use the Azure CLI to accept the Azure Marketplace image terms for Grafana.
 
     ```bash
-    az vm image accept-terms --publisher bitnami --offer grafana --plan default
+    az vm image terms accept --publisher bitnami --offer grafana --plan default
     ```
 
 1. Navigate to the `/spark-monitoring/perftools/deployment/grafana` directory in your local copy of the GitHub repo.
@@ -63,7 +64,7 @@ Grafana is an open source project you can deploy to visualize the time series me
 
     ```bash
     export DATA_SOURCE="https://raw.githubusercontent.com/mspnp/spark-monitoring/master/perftools/deployment/grafana/AzureDataSource.sh"
-    az group deployment create \
+    az deployment group create \
         --resource-group <resource-group-name> \
         --template-file grafanaDeploy.json \
         --parameters adminPass='<vm password>' dataSource=$DATA_SOURCE
@@ -96,7 +97,7 @@ Next, change the Grafana administrator password by following these steps:
 
 ## Create an Azure Monitor data source
 
-1. Create a service principal that allows Grafana to manage access to your Log Analytics workspace. For more information, see [Create an Azure service principal with Azure CLI](/cli/azure/create-an-azure-service-principal-azure-cli?view=azure-cli-latest)
+1. Create a service principal that allows Grafana to manage access to your Log Analytics workspace. For more information, see [Create an Azure service principal with Azure CLI](/cli/azure/create-an-azure-service-principal-azure-cli)
 
     ```bash
     az ad sp create-for-rbac --name http://<service principal name> --role "Log Analytics Reader"

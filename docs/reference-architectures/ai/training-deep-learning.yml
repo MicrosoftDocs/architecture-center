@@ -1,6 +1,6 @@
 ### YamlMime:Architecture
 metadata:
-  title: Distributed training of deep learning models on Azure
+  title: Distributed training, deep learning models
   description: This reference architecture shows how to conduct distributed training of deep learning models across clusters of GPU-enabled VMs using Azure Machine Learning.
   author: msalvaris
   ms.author: pnp

@@ -2,7 +2,7 @@
 title: Synchronous I/O antipattern
 titleSuffix: Performance antipatterns for cloud apps
 description: Blocking the calling thread while I/O completes can reduce performance and affect vertical scalability.
-author: dragon119
+author: EdPrice-MSFT
 ms.date: 06/05/2017
 ms.topic: conceptual
 ms.service: architecture-center
@@ -203,5 +203,5 @@ Throughput is far higher. Over the same duration as the previous test, the syste
 [performance-counters]: /azure/cloud-services/cloud-services-dotnet-diagnostics-performance-counters
 [web-sites-monitor]: /azure/app-service-web/web-sites-monitor
 
-[sync-performance]: _images/SyncPerformance.jpg
-[async-performance]: _images/AsyncPerformance.jpg
+[sync-performance]: ./_images/SyncPerformance.jpg
+[async-performance]: ./_images/AsyncPerformance.jpg

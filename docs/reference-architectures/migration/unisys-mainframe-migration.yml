@@ -1,17 +1,17 @@
 ### YamlMime:Architecture
 metadata:
-  title: Unisys mainframe migration
+  title: Unisys mainframe migration with Asysco
   titleSuffix: Azure Reference Architectures
   description: Learn about options for using the Asysco Automated Migration Technology (AMT) Framework to migrate Unisys mainframe workloads to Azure.
-  author: doodlemania2
-  ms.author: pnp
+  author: jjfrost
+  ms.author: jfrost
   ms.date: 11/17/2020
   ms.topic: conceptual
   ms.service: architecture-center
   ms.subservice: reference-architecture
   ms.custom:
     - fcp
-name: Unisys mainframe migration
+name: Unisys mainframe migration with Asysco
 summary: Learn about options for using the Asysco Automated Migration Technology (AMT) Framework to migrate Unisys mainframe workloads to Azure.
 products:
   - azure-bastion

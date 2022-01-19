@@ -1,18 +1,15 @@
-
-
-
 [!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
 Develop sophisticated, transformational apps using state-of-the-art machine learning algorithms and integrated visualization tools to get actionable insights and analytics.
 
-In this example of an intelligent app, PostgreSQL is the heart of the architecture as the main database for a common AIML use case of social media text analysis. PostgreSQL's support for unstructured data, ability to execute parallel queries and declarative partitioning makes it an effective database choice for a highly data-intensive AIML task. Since PostgreSQL is a cloud-based solution, this architecture isn't recommended for mobile application, and is more appropriate for downstream analysis.
+In this example of an intelligent app, PostgreSQL is the heart of the architecture as the main database for a common AIML use case of social media text analysis. PostgreSQL's support for unstructured data, ability to execute parallel queries and declarative partitioning makes it an effective database choice for a highly data-intensive AIML task. Since PostgreSQL is a cloud-based solution, this architecture isn't recommended for a mobile application, and is more appropriate for downstream analysis.
 
 ## Architecture
 
 ![Architecture Diagram](../media/intelligent-apps-using-azure-database-for-postgresql.png)
 *Download an [SVG](../media/intelligent-apps-using-azure-database-for-postgresql.svg) of this architecture.*
 
-## Data flow
+### Data flow
 
 1. Data could come from various sources, such as Event Hubs for high volumes of data ingestion, or data that's uploaded to Blob Storage. An Azure Function App is triggered as new data is received.
 2. The Azure Function App calls the Text Analytics API in Azure Cognitive Services to analyze the data (for example, for Sentiment Analysis). The results of the analysis are returned in JSON format.
@@ -23,7 +20,7 @@ In this example of an intelligent app, PostgreSQL is the heart of the architectu
     * Results from this further ML analysis are saved back to PostgreSQL
 5. Finally, human-interpretable insights can be explored in Power BI through the PostgreSQL connector.
 
-## Components
+### Components
 
 * [Azure App Services](https://azure.microsoft.com/services/app-service/): A fully managed platform for quickly building, deploying, and scaling web apps and APIs.
 * [Azure Functions](/azure/azure-functions/functions-overview)
@@ -39,7 +36,7 @@ Azure Cognitive Services Text Analytics API has a maximum size of 5120 character
 
 Depending on the volume and velocity of data being ingressed, you can select one of three deployment modes: single server, flexible, and Hyperscale (Citus). Assuming that you would be mining large workloads of customer opinions and reviews, Hyperscale is a recommended solution. Explore the [When to use Azure Database for PostgreSQL Learn Module](/learn/modules/intro-to-postgres/5-when-to-use-azure-database-postgres) to understand when to use each deployment mode.
 
-## Security
+### Security
 
 All data in PostgreSQL is automatically [encrypted](/azure/postgresql/concepts-data-encryption-postgresql) and backed up. You can configure Azure Advanced Threat Protection for further mitigation of threats. Read more at [Advanced Threat Protection in Azure Database for PostgreSQL](/azure/postgresql/concepts-data-access-and-security-threat-protection).
 

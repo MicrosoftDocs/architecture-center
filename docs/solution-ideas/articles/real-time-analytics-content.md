@@ -34,7 +34,7 @@ Get insights from live streaming data with ease. Capture data continuously from 
 
 - [Synapse Link](/azure/cosmos-db/synapse-link) is the Microsoft preferred solution for analytics on top of Cosmos DB data.
 
-## Pricing 
+## Pricing
 
 * [Customize and get pricing estimates](https://azure.com/e/f8f5bc2de0b64aa0ae2dd154e7b6b462)
 

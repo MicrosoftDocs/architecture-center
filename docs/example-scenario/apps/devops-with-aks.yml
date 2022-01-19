@@ -4,7 +4,8 @@ metadata:
   titleSuffix: Azure Example Scenarios
   description: Build a DevOps CI/CD pipeline for a Node.js web app with Jenkins, Azure Container Registry, Azure Kubernetes Service, Cosmos DB, and Grafana.
   author: iainfoulds
-  ms.date: 07/05/2018
+  ms.author: pnp
+  ms.date: 01/10/2022
   ms.topic: conceptual
   ms.service: architecture-center
   ms.subservice: example-scenario
@@ -32,7 +33,7 @@ products:
   - azure-kubernetes-service
   - azure-monitor
   - azure-pipelines
-  
+
 thumbnailUrl: /azure/architecture/browse/thumbs/architecture-devops-with-aks.png
 content: |
    [!include[](devops-with-aks-content.md)]

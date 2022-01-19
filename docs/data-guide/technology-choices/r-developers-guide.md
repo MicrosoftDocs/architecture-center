@@ -1,5 +1,5 @@
 ---
-title: R developer's guide to Azure - R programming
+title: R developer&apos;s guide - R programming
 description: Learn about the Azure services that support the R programming language and how R developers can use them to extend their data science workloads into the cloud.
 services: machine-learning
 author: AnalyticJeremy
@@ -8,7 +8,8 @@ ms.date: 04/02/2020
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: cloud-fundamentals
-ms.workload: data-services
+ms.workload:
+  - data-services
 ms.devlang: R
 products:
   - azure-machine-learning
@@ -35,21 +36,18 @@ This article covers the following Azure services that support the R language:
 
 |Service                                                          |Description                                                                       |
 |-----------------------------------------------------------------|----------------------------------------------------------------------------------|
-|[Azure Machine Learning Server](/machine-learning-server/rebranding-microsoft-r-server)|enterprise software for data science, providing R and Python interpreters
 |[Data Science Virtual Machine](#data-science-virtual-machine)    |a customized VM to use as a data science workstation or as a custom compute target|
 |[ML Services on HDInsight](#ml-services-on-hdinsight)            |cluster-based system for running R analyses on large datasets across many nodes   |
 |[Azure Databricks](#azure-databricks)                            |collaborative Spark environment that supports R and other languages               |
 |[Azure Machine Learning](#azure-machine-learning)                | cloud service that you use to train, deploy, automate, and manage machine learning models
-|[Azure Machine Learning Studio (classic)](#azure-machine-learning-studio)  |run custom R scripts in Azure's machine learning experiments                      |
 |[Azure Batch](#azure-batch)                                      |offers a variety options for economically running R code across many nodes in a cluster|
 |[Azure SQL Managed Instance](#azure-sql-managed-instance)        |run R and Python scripts inside of the SQL Server database engine                  |
 
 ## Data Science Virtual Machine
 
-The [Data Science Virtual Machine](/azure/machine-learning/data-science-virtual-machine/overview) (DSVM) is a customized VM image on Microsoft’s Azure cloud platform built specifically for doing data science. It has many popular data science tools, including:
+The [Data Science Virtual Machine](/azure/machine-learning/data-science-virtual-machine/overview) (DSVM) is a customized VM image on Microsoft&apos;s Azure cloud platform built specifically for doing data science. It has many popular data science tools, including:
 
 - [Microsoft R Open](https://mran.microsoft.com/open/)
-- [Microsoft Machine Learning Server](/machine-learning-server/what-is-machine-learning-server)
 - [RStudio Desktop](https://www.rstudio.com/products/rstudio/#Desktop)
 - [RStudio Server](https://www.rstudio.com/products/rstudio/#Server)
 
@@ -93,14 +91,6 @@ The article [What is Azure Databricks?](/azure/azure-databricks/what-is-azure-da
 
 Start training on your local machine and then scale out to the cloud. [Train your first model in R](/azure/machine-learning/service/tutorial-1st-r-experiment) with Azure Machine Learning today.
 
-## <a name="azure-machine-learning-studio"></a>Azure Machine Learning Studio (classic)
-
-[Azure Machine Learning Studio (classic)](https://azure.microsoft.com/services/machine-learning-studio/) is a collaborative, drag-and-drop tool you can use to build, test, and deploy predictive analytics solutions in the cloud.  It enables emerging data scientists to create and deploy machine learning models without the need to write much code.
-
-Azure Machine Learning Studio (classic) supports both R and Python.  
-
-Customers currently using or evaluating Azure Machine Learning Studio (classic) are encouraged to try the designer in Azure Machine Learning, which provides drag-n-drop ML modules plus scalability, version control, and enterprise security.
-
 ## Azure Batch
 
 For large-scale R jobs, you can use [Azure Batch](https://azure.microsoft.com/services/batch/).  This service provides cloud-scale job scheduling and compute management so you can scale your R workload across tens, hundreds, or thousands of virtual machines.  Since it is a generalized computing platform, there a few options for running R jobs on Azure Batch.
@@ -120,8 +110,6 @@ While Machine Learning Services has been part of on-premises SQL Server since 20
 ### Next steps
 
 - [Running your R code on Azure with mrsdeploy](https://blog.revolutionanalytics.com/2017/03/running-your-r-code-azure.html)
-- [Machine Learning Server in the Cloud](/machine-learning-server/install/machine-learning-server-in-the-cloud)
-- [Additional Resources for Machine Learning Server and Microsoft R](/machine-learning-server/resources-more)
 - [R on Azure](https://github.com/yueguoguo/r-on-azure): an overview of packages, tools, and case studies for using R with Azure
 
 ---

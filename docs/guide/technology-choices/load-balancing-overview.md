@@ -1,24 +1,27 @@
 ---
-title: Overview of Azure load-balancing options
+title: Load-balancing options
 titleSuffix: Azure Application Architecture Guide
 description: Learn about Azure load-balancing services and how you can use them to distribute your workloads across multiple computing resources.
 author: EdPrice-MSFT
 ms.author: pnp
-ms.date: 03/02/2021
+ms.date: 10/21/2021
 ms.topic: conceptual
 ms.service: architecture-center
-ms.subservice: guide
+ms.subservice: azure-guide
 ms.category:
   - web
   - compute
 products:
   - azure-load-balancer
+  - azure-front-door
+  - azure-application-gateeway
+  - azure-traffic-manager
 ms.custom:
   - guide
   - internal-intro
 ---
 
-# Understand Azure Load Balancing
+# Understand Azure load balancing
 
 The term *load balancing* refers to the distribution of workloads across multiple computing resources. Load balancing aims to optimize resource use, maximize throughput, minimize response time, and avoid overloading any single resource. It can also improve availability by sharing a workload across redundant computing resources.
 
@@ -26,7 +29,7 @@ Azure provides various load balancing services that you can use to distribute yo
 
 This article describes how you can use the Azure Load Balancing hub page in the Azure portal to determine an appropriate load-balancing solution for your business needs.
 
-## Overview
+## Service categorizations
 
 Azure load balancing services can be categorized along two dimensions: global versus regional, and HTTP(S) versus non-HTTP(S).
 
@@ -57,7 +60,7 @@ Here are the main load-balancing services currently available in Azure:
 
 [Front Door](/azure/frontdoor/front-door-overview) is an application delivery network that provides global load balancing and site acceleration service for web applications. It offers Layer 7 capabilities for your application like SSL offload, path-based routing, fast failover, caching, etc. to improve performance and high-availability of your applications.
 
->[!NOTE]
+> [!NOTE]
 > At this time, Azure Front Door does not support Web Sockets.
 
 [Traffic Manager](/azure/traffic-manager/traffic-manager-overview) is a DNS-based traffic load balancer that enables you to distribute traffic optimally to services across global Azure regions, while providing high availability and responsiveness. Because Traffic Manager is a DNS-based load-balancing service, it load balances only at the domain level. For that reason, it can't fail over as quickly as Front Door, because of common challenges around DNS caching and systems not honoring DNS TTLs.
@@ -72,18 +75,19 @@ You can use the Azure Load Balancing page in the Azure portal to help you guide 
 
 1. Sign in to the Azure portal at [https://portal.azure.com](https://portal.azure.com).
 1. In the *Search resources, services, and docs* box at the top of the portal, type *load balancing*. When **Load balancing** appears in the search results, select it.
-    
-    ![Search for load balancing - Azure portal screenshot](./images/load-balancing-search.png)
+
+    [ ![Search for load balancing - Azure portal screenshot](./images/load-balancing-search-1.png) ](./images/load-balancing-search-1.png#lightbox)
     > [!NOTE]
     > To learn about some of the factors considered in selecting a load-balancing solution, see [Decision tree for load-balancing in Azure](#decision-tree-for-load-balancing-in-azure) in this article.
 
 1. In the **Load balancing - help me choose (Preview)** page, do one of the following:
     - To find the appropriate load-balancing solution for your business, follow instructions in the default **Help me choose** tab.
-      
-        ![Choose an Azure load balancing solution - Azure portal screenshot](./images/load-balancing-help-me-choose.png)
+
+        [ ![Choose an Azure load balancing solution - Azure portal screenshot](./images/load-balancing-help-me-choose.png) ](./images/load-balancing-help-me-choose.png#lightbox)
+
     - To learn about the supported protocols and service capabilities of each load balancing service, select the **Service comparisons** tab.
     - To access free training on load balancing services, select the **Tutorial** tab.
-     
+
 ## Reference architecture examples
 
 The following table lists various architecture reference articles based on the load-balancing services used as a solution.
@@ -123,6 +127,8 @@ If your application consists of multiple workloads, evaluate each workload separ
 - **Global**. End users or clients are located beyond a small geographical area. For example, users across multiple continents, across countries/regions within a continent, or even across multiple metropolitan areas within a larger country/region.
 
 - **PaaS**. Platform as a service (PaaS) services provide a managed hosting environment, where you can deploy your application without needing to manage VMs or networking resources. In this case, PaaS refers to services that provide integrated load balancing within a region. See [Choosing a compute service &ndash; Scalability](./compute-decision-tree.md#scalability).
+
+- **AKS**. Azure Kubernetes Service enables you to deploy and manage containerized applications. AKS provides serverless Kubernetes, an integrated continuous integration and continuous delivery (CI/CD) experience, and enterprise-grade security and governance. For more information about our AKS architectural resources, see [Azure Kubernetes Service (AKS) architecture design](../../reference-architectures/containers/aks-start-here.md).
 
 - **IaaS**. Infrastructure as a service (IaaS) is a computing option where you provision the VMs that you need, along with associated network and storage components. IaaS applications require internal load balancing within a virtual network, using Azure Load Balancer.
 

@@ -1,13 +1,13 @@
 ---
 title: Big data architecture style
 titleSuffix: Azure Application Architecture Guide
-description: Describes benefits, challenges, and best practices for Big Data architectures on Azure.
+description: Explore the benefits, challenges, and best practices for Big Data architectures on Azure. Examine IoT architecture, a specialized subset of big data solutions.
 author: EdPrice-MSFT
 ms.author: pnp
 ms.date: 11/20/2019
 ms.topic: conceptual
 ms.service: architecture-center
-ms.subservice: guide
+ms.subservice: azure-guide
 products:
   - azure-data-lake-analytics
 ms.custom:

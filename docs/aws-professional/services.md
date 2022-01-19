@@ -4,7 +4,7 @@ titleSuffix: Azure Architecture Center
 description: Compare Azure cloud services to Amazon Web Services (AWS) for multicloud solutions or migration to Azure.
 author: EdPrice-MSFT
 ms.author: yuanzhiqu
-ms.date: 8/16/2021
+ms.date: 09/06/2021
 ms.topic: reference
 ms.service: architecture-center
 ms.subservice: cloud-fundamentals
@@ -32,10 +32,6 @@ products:
   - azure-cosmos-db
   - azure-functions
   - azure-storage
-  - azure-search
-  - azure-cognitive-search
-  - azure-computer-vision
-  - azure-translator-text
 ---
 
 <!-- cSpell:ignore Alexa Rekognition Cognito ElastiCache Greengrass Firehose -->
@@ -51,8 +47,6 @@ This article compares services that are roughly comparable. Not every AWS servic
 As the leading public cloud platforms, Azure and AWS each offer a broad and deep set of capabilities with global coverage. Yet many organizations choose to use both platforms together for greater choice and flexibility, as well as to spread their risk and dependencies with a multicloud approach. Consulting companies and software vendors might also build on and use both Azure and AWS, as these platforms represent most of the cloud market demand.
 
 For an overview of Azure for AWS users, see [Introduction to Azure for AWS professionals](./index.md).
-
-<!-- markdownlint-disable MD033 -->
 
 ## Marketplace
 
@@ -90,8 +84,8 @@ For an overview of Azure for AWS users, see [Introduction to Azure for AWS profe
 
 | AWS service | Azure service | Description |
 | ----------- | ------------- | ----------- |
-| [Redshift](https://aws.amazon.com/redshift) | [Synapse Analytics](https://azure.microsoft.com/services/synapse-analytics/) | Cloud-based Enterprise Data Warehouse (EDW) that uses Massively Parallel Processing (MPP) to quickly run complex queries across petabytes of data. |
-| [Lake Formation](https://aws.amazon.com/lake-formation) | [Data Share](https://azure.microsoft.com/services/data-share/) | A simple and safe service for sharing big data|
+| [Redshift](https://aws.amazon.com/redshift) | [Synapse Analytics](https://azure.microsoft.com/services/synapse-analytics/) | Cloud-based enterprise data warehouse (EDW) that uses massively parallel processing (MPP) to quickly run complex queries across petabytes of data. |
+| [Lake Formation](https://aws.amazon.com/lake-formation) | [Data Share](https://azure.microsoft.com/services/data-share/) | A simple and safe service for sharing big data.|
 
 ### Data warehouse architectures
 
@@ -184,10 +178,10 @@ For an overview of Azure for AWS users, see [Introduction to Azure for AWS profe
 |-------------|---------------|-------------|
 | [CloudWatch](https://aws.amazon.com/cloudwatch), [X-Ray](https://aws.amazon.com/xray/) | [Monitor](https://azure.microsoft.com/services/monitor) | Comprehensive solution for collecting, analyzing, and acting on telemetry from your cloud and on-premises environments. |
 | [CodeDeploy](https://aws.amazon.com/codedeploy) <br/><br/>[CodeCommit](https://aws.amazon.com/codecommit/) <br/><br/>[CodePipeline](https://aws.amazon.com/codepipeline) | [DevOps](https://azure.microsoft.com/services/devops/) | A cloud service for collaborating on code development. |
-| [Developer Tools](https://aws.amazon.com/products/developer-tools) | [Developer Tools](https://azure.microsoft.com/tools) | Collection of tools for building, debugging, deploying, diagnosing, and managing multiplatform scalable apps and services. |
-| [CodeBuild](https://aws.amazon.com/codebuild) | [DevOps](https://azure.microsoft.com/services/devops/) | Fully managed build service that supports continuous integration and deployment. |
+| [Developer Tools](https://aws.amazon.com/products/developer-tools) | [Developer Tools](https://azure.microsoft.com/services/devops/) | Collection of tools for building, debugging, deploying, diagnosing, and managing multiplatform scalable apps and services. |
+| [CodeBuild](https://aws.amazon.com/codebuild) | [DevOps Pipeline](https://azure.microsoft.com/services/devops/pipelines) <br/><br/> [Github Actions](https://github.com/features/actions) | Fully managed build service that supports continuous integration and deployment. |
 | [Command Line Interface](https://aws.amazon.com/cli) | [CLI](/cli/azure/install-azure-cli) <br/><br/>[PowerShell](/powershell/azure/overview) | Built on top of the native REST API across all cloud services, various programming language-specific wrappers provide easier ways to create solutions. |
-| [eksctl](https://docs.aws.amazon.com/eks/latest/userguide/getting-started-eksctl.html) | [az aks](/cli/azure/aks?view=azure-cli-latest) | Manage Azure Kubernetes Services. |
+| [eksctl](https://docs.aws.amazon.com/eks/latest/userguide/getting-started-eksctl.html) | [az aks](/cli/azure/aks) | Manage Azure Kubernetes Services. |
 | [AWS CloudShell](https://aws.amazon.com/cloudshell) | [Azure Cloud Shell](/azure/cloud-shell/overview) | Azure Cloud Shell is an interactive, authenticated, browser-accessible shell for managing Azure resources. It gives you the flexibility to choose the shell experience that best suits the way you work, either Bash or PowerShell. |
 | [OpsWorks (Chef-based)](https://aws.amazon.com/opsworks) | [Automation](https://azure.microsoft.com/services/automation) | Configures and operates applications of all shapes and sizes, and provides templates to create and manage a collection of resources. |
 | [CloudFormation](https://aws.amazon.com/cloudformation) | [Resource Manager](https://azure.microsoft.com/features/resource-manager) <br/><br/>[Bicep](/azure/azure-resource-manager/bicep/overview) <br/><br/>[VM extensions](/azure/virtual-machines/extensions/features-windows?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) <br/><br/>[Azure Automation](https://azure.microsoft.com/services/automation) | Provides a way for users to automate the manual, long-running, error-prone, and frequently repeated IT tasks.
@@ -230,7 +224,7 @@ For an overview of Azure for AWS users, see [Introduction to Azure for AWS profe
 | AWS service | Azure service | Description |
 |-------------|---------------|-------------|
 | [AWS Organizations](https://aws.amazon.com/organizations) | [Management Groups](/azure/governance/management-groups)| Azure management groups help you organize your resources and subscriptions.|
-| [AWS Well-Architected Tool](https://docs.aws.amazon.com/wellarchitected/latest/userguide/intro.html)| [Azure Well-Architected Review](https://docs.microsoft.com/assessments/?mode=pre-assessment)| Examine your workload through the lenses of reliability, cost management, operational excellence, security, and performance efficiency. |
+| [AWS Well-Architected Tool](https://docs.aws.amazon.com/wellarchitected/latest/userguide/intro.html)| [Azure Well-Architected Review](/assessments/?mode=pre-assessment)| Examine your workload through the lenses of reliability, cost management, operational excellence, security, and performance efficiency. |
 | [Trusted Advisor](https://aws.amazon.com/premiumsupport/technology/trusted-advisor) | [Advisor](https://azure.microsoft.com/services/advisor) | Provides analysis of cloud resource configuration and security, so that subscribers can ensure they're making use of best practices and optimum configurations. |
 | [AWS Billing and Cost Management](https://docs.aws.amazon.com/account-billing/index.html) | [Azure Cost Management and Billing](/azure/cost-management-billing) | Azure Cost Management and Billing helps you understand your Azure invoice (bill), manage your billing account and subscriptions, monitor and control Azure spending, and optimize resource use. |
 | [Cost and Usage Reports](https://docs.aws.amazon.com/cur/latest/userguide/cur-create.html) | [Usage Details API](/azure/cost-management-billing/manage/consumption-api-overview#usage-details-api) | Services to help generate, monitor, forecast, and share billing data for resource usage by time, organization, or product resources. |
@@ -317,7 +311,7 @@ In addition to front-end testing, the [Azure DevTest Labs](https://azure.microso
 
 | AWS service | Azure service | Description |
 | ----------- | ------------- | ----------- |
-| [Inspector](https://aws.amazon.com/inspector) | [Security Center](https://azure.microsoft.com/services/security-center) | An automated security assessment service that improves the security and compliance of applications. Automatically assess applications for vulnerabilities or deviations from best practices. |
+| [Inspector](https://aws.amazon.com/inspector) | [Defender for Cloud](https://azure.microsoft.com/services/security-center) | An automated security assessment service that improves the security and compliance of applications. Automatically assess applications for vulnerabilities or deviations from best practices. |
 | [Certificate Manager](https://aws.amazon.com/certificate-manager) | [App Service Certificates available on the Portal](https://azure.microsoft.com/blog/internals-of-app-service-certificate) | Service that allows customers to create, manage, and consume certificates seamlessly in the cloud. |
 | [GuardDuty](https://aws.amazon.com/guardduty/) | [Advanced Threat Protection](https://azure.microsoft.com/features/azure-advanced-threat-protection) | Detect and investigate advanced attacks on-premises and in the cloud. |
 | [Artifact](https://aws.amazon.com/artifact) | [Service Trust Portal](https://servicetrust.microsoft.com/) | Provides access to audit reports, compliance guides, and trust documents from across cloud services. |
@@ -329,7 +323,7 @@ In addition to front-end testing, the [Azure DevTest Labs](https://azure.microso
 
 [!INCLUDE [Real-time fraud detection](../../includes/cards/fraud-detection.md)]
 [!INCLUDE [Securely managed web applications](../../includes/cards/fully-managed-secure-apps.md)]
-[!INCLUDE [Threat indicators for cyber threat intelligence in Azure Sentinel](../../includes/cards/sentinel-threat-intelligence.md)]
+[!INCLUDE [Threat indicators for cyber threat intelligence in Sentinel](../../includes/cards/sentinel-threat-intelligence.md)]
 
 </ul>
 
@@ -375,7 +369,7 @@ In addition to front-end testing, the [Azure DevTest Labs](https://azure.microso
 
 | Area | AWS service | Azure service | Description |
 |------|-------------|---------------|-------------|
-| Backend process logic | [Step Functions](https://aws.amazon.com/step-functions) | [Logic Apps](https://azure.microsoft.com/services/logic-apps) | Cloud technology to build distributed applications using out-of-the-box connectors to reduce integration challenges. Connect apps, data and devices on-premises or in the cloud. |
+| Backend process logic | [Step Functions](https://aws.amazon.com/step-functions) | [Logic Apps](https://azure.microsoft.com/services/logic-apps) | Cloud technology to build distributed applications using out-of-the-box connectors to reduce integration challenges. Connect apps, data, and devices on-premises or in the cloud. |
 | Enterprise application services | [WorkMail](https://aws.amazon.com/workmail), [WorkDocs](https://aws.amazon.com/workdocs), [Chime](https://aws.amazon.com/chime) | [Microsoft 365](https://products.office.com) | Fully integrated cloud service that provides communications, email, and document management in the cloud and is available on a wide variety of devices. |
 | Gaming | [GameLift](https://aws.amazon.com/gamelift) | [PlayFab](https://playfab.com) | Managed services for hosting dedicated game servers. |
 | Media transcoding | [Elastic Transcoder](https://aws.amazon.com/elastictranscoder) | [Media Services](https://azure.microsoft.com/services/media-services/) | Services that offer broadcast-quality video streaming services, including various transcoding technologies. |
@@ -383,7 +377,6 @@ In addition to front-end testing, the [Azure DevTest Labs](https://azure.microso
 | Hybrid | [Outposts](https://aws.amazon.com/outposts) | [Stack](https://azure.microsoft.com/overview/azure-stack) | Azure Stack is a hybrid cloud platform that enables you to run Azure services in your company's or service provider's datacenter. As a developer, you can build apps on Azure Stack. You can then deploy them to either Azure Stack or Azure, or you can build truly hybrid apps that take advantage of connectivity between an Azure Stack cloud and Azure. |
 | Media | [Elemental MediaConvert](https://aws.amazon.com/media-services) | [Media Services](https://azure.microsoft.com/services/media-services) | Cloud-based media workflow platform to index, package, protect, and stream video at scale.|
 | Satellite | [Ground Station](https://aws.amazon.com/ground-station) | [Azure Orbital](/azure/networking/azure-orbital-overview) | Fully managed cloud-based ground station as a service.|
-| Blockchain | [Amazon Managed Blockchain](https://aws.amazon.com/managed-blockchain) | [Azure Blockchain Service](/azure/blockchain/service/overview) | Fully managed service that gives users the ability to grow and operate blockchain networks at scale.|
 | Quantum computing | [Amazon Braket](https://aws.amazon.com/braket) | [Azure Quantum](/azure/quantum/overview-azure-quantum) | Managed quantum computing service that developers, researchers, and businesses can use to run quantum computing programs.|
 
 ## More learning

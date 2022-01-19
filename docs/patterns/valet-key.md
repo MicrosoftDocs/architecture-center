@@ -2,7 +2,7 @@
 title: Valet Key pattern
 titleSuffix: Cloud Design Patterns
 description: Use a token or key that provides clients with restricted direct access to a specific resource or service.
-author: dragon119
+author: EdPrice-MSFT
 ms.date: 01/19/2022
 ms.topic: conceptual
 ms.service: architecture-center
@@ -143,7 +143,6 @@ public class SasController : ControllerBase
       blobSasBuilder.SetPermissions(BlobSasPermissions.Write);
   
       var storageSharedKeyCredential = new StorageSharedKeyCredential(blobServiceClient.AccountName, key.Value);
-      var sas = blobSasBuilder.ToSasQueryParameters(storageSharedKeyCredential).ToString();
 
       return new StorageEntitySas
       {

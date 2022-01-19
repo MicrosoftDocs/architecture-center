@@ -1,6 +1,6 @@
-[!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
-
 Quality assurance systems allow businesses to prevent defects throughout their processes of delivering goods or services to customers. Building such a system that collects data and identifies potential problems along a pipeline can provide enormous advantages. For example, in digital manufacturing, quality assurance across the assembly line is imperative. Identifying slowdowns and potential failures before they occur rather than after they are detected can help companies reduce costs for scrap and rework while improving productivity.
+
+## Potential use cases
 
 This solution shows how to predict failures using the example of manufacturing pipelines (assembly lines). This is done by leveraging test systems already in place and failure data, specifically looking at returns and functional failures at the end of assembly line. By combining these with domain knowledge and root cause analysis within a modular design that encapsulates main processing steps, we provide a generic advanced analytics solution that uses machine learning to predict failures before they happen. Early prediction of future failures allows for less expensive repairs or even discarding, which are usually more cost efficient than going through recall and warranty cost.
 
@@ -9,7 +9,7 @@ This solution shows how to predict failures using the example of manufacturing p
 ![Architecture Diagram](../media/quality-assurance.png)
 *Download an [SVG](../media/quality-assurance.svg) of this architecture.*
 
-### Data Flow
+### Data flow
 
 1. Source system event generator streams data into Azure Event Hub.
 2. Event Hub uses Capture to send raw event to Data Lake.
@@ -24,14 +24,13 @@ This solution shows how to predict failures using the example of manufacturing p
 
 * [Event Hubs](/azure/event-hubs/) ingests assembly line events and passes them on to Stream Analytics and an Azure ML Web Service.
 * [Azure Stream Analytics](/azure/stream-analytics/): Stream Analytics accepts the input stream from Event Hubs, calls an Azure ML Web Service to do predictions, and sends the stream to Azure Synapse and Power BI and Logic Apps for alerts.
-* [Azure Machine Learning](/azure/machine-learning/): Machine Learning helps you design, test, operationalize, and manage predictive analytics solutions in the cloud and deploy web
-services that can be called by Stream Analytics.
+* [Azure Machine Learning](/azure/machine-learning/): Machine Learning helps you design, test, operationalize, and manage predictive analytics solutions in the cloud and deploy web services that can be called by Stream Analytics.
 * [Storage Accounts](/azure/storage/): Azure Storage stores raw events stream data from Event Hub and serves for long-term data persistence.
 * [Logic Apps](/azure/logic-apps/): Sends alerts generated from the streaming data into operator device
 * [Synapse Analytics](/azure/synapse-analytics/): Store relational data for ad-hoc and planned analytical processing and user analytical queries
 * [Power BI](/power-bi/create-reports/): visualizes real-time operational dashboards and also servers for analytical reports.
 
-## Alternatives
+### Alternatives
 
 * Depending on the scenario, the basic architecture can be simplified by removing batch layer - removing Storage for raw events and Azure Synapse for relational data
 * [Azure SQL Database](/azure/sql-database/) is a managed relational database-as-a service. Depending on your data volumes and access patterns, you may choose Azure SQL Database.
@@ -79,8 +78,8 @@ For general guidance on designing resilient solutions, see [Designing resilient 
 [large-pricing]: https://azure.com/e/cbadbca30f8640d6a061f8457a74ba7d
 [serverless]: /learn/paths/create-serverless-applications/
 [cv-categories]: /azure/cognitive-services/computer-vision/category-taxonomy
-[resiliency]: ../../framework/resiliency/principles.md
+[resiliency]: /azure/architecture/framework/resiliency/principles
 [security]: /azure/security
-[scalability]: ../../framework/scalability/performance-efficiency.md
+[scalability]: /azure/architecture/framework/scalability/performance-efficiency
 [functions-best-practices]: /azure/azure-functions/functions-best-practices
 [msi]: /azure/app-service/app-service-managed-service-identity

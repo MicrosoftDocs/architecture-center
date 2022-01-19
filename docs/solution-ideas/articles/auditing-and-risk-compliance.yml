@@ -1,9 +1,9 @@
 ### YamlMime:Architecture
 metadata:
-  title: Auditing, risk, and compliance management
+  title: Knowledge mining in auditing, risk, and compliance management
   titleSuffix: Azure Solution Ideas
   description: Learn how to use knowledge mining to help attorneys quickly find information from discovery documents and flag important ideas across documents.
-  author: doodlemania2
+  author: EdPrice-MSFT
   ms.author: pracjain
   ms.date: 12/16/2019
   ms.topic: conceptual

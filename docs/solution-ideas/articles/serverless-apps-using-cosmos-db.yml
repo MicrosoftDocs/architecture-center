@@ -3,7 +3,7 @@ metadata:
   title: Serverless apps using Cosmos DB
   titleSuffix: Azure Solution Ideas
   description: Use Azure Functions and Azure Cosmos DB to build globally distributed, scalable, serverless applications.
-  author: doodlemania2
+  author: EdPrice-MSFT
   ms.author: pnp
   ms.date: 12/16/2019
   ms.topic: conceptual

@@ -2,7 +2,8 @@
 metadata:
   title: Build a movie recommendation system
   description: Create a movie recommendation system using machine learning and Azure Data Science Virtual Machine (DSVM) to train a model.
-  author: njray
+  author: EdPrice-MSFT
+  ms.author: pnp
   ms.date: 01/09/2019
   ms.topic: conceptual
   ms.service: architecture-center
@@ -28,7 +29,6 @@ products:
   - azure-cosmos-db
   - azure-data-science-vm
   - azure-machine-learning
-  - azure-databricks
 thumbnailUrl: /azure/architecture/browse/thumbs/architecture-movie-recommender.png
 content: |
   [!include[](movie-recommendations-with-machine-learning-content.md)]

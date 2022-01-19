@@ -1,13 +1,17 @@
 ---
 title: Architecting for resiliency and availability
 description: Learn how to build resiliency and availability into your Azure application by starting at the design stage and building key elements into your architecture.
-author: doodlemania2
-ms.date: 11/20/2019
+author: EdPrice-MSFT
+ms.date: 12/13/2021
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: well-architected
 ms.custom:
   - article
+products:
+  - azure
+categories:
+  - management-and-governance
 ---
 
 <!-- cSpell:ignore BACPAC DTUs architecting -->
@@ -64,7 +68,7 @@ Use the following tasks to meet redundancy requirements:
 
 ## Ensure that availability meets SLAs
 
-*Availability* is the proportion of time that a system is functional and working, and it is one of the [pillars of software quality](../framework/index.md). Use the tasks in this section to review your application architecture from an availability standpoint to make sure that your availability meets your SLAs.
+*Availability* is the proportion of time that a system is functional and working, and it is one of the [pillars of software quality](/azure/architecture/framework). Use the tasks in this section to review your application architecture from an availability standpoint to make sure that your availability meets your SLAs.
 
 - **Avoid any single point of failure.** All components, services, resources, and compute instances should be deployed as multiple instances to prevent a single point of failure from affecting availability. Authentication mechanisms can also be a single point of failure. Design the application to be configurable to use multiple instances and to automatically detect failures and redirect requests to non-failed instances, if the platform doesn't do this automatically.
 - **Decompose workloads by service-level objective.** If a service is composed of critical and less-critical workloads, manage them differently and specify the service features and number of instances to meet their availability requirements.
@@ -85,15 +89,15 @@ Use the following tasks to meet redundancy requirements:
 
 How you manage your data plays directly into the availability of your application. The tasks in this section can help you create a management plan to help ensure availability.
 
-- **Replicate data and understand the replication methods for your application's data stores.** Replicating data is a general strategy for handling nontransient failures in a data store. Consider both the read and write paths. Depending on the storage technology, you might have multiple writable replicas or you might have a single writable replica and multiple read-only replicas. To maximize availability, replicas can be placed in multiple regions. However, this approach increases the latency when replicating the data. Typically, replicating across regions is done asynchronously, which implies an eventual consistency model and potential data loss if a replica fails.  
+- **Replicate data and understand the replication methods for your application's data stores.** Replicating data is a general strategy for handling nontransient failures in a data store. Consider both the read and write paths. Depending on the storage technology, you might have multiple writable replicas or you might have a single writable replica and multiple read-only replicas. To maximize availability, replicas can be placed in multiple regions. However, this approach increases the latency when replicating the data. Typically, replicating across regions is done asynchronously, which implies an eventual consistency model and potential data loss if a replica fails.
 
   You can use [Azure Site Recovery](/azure/site-recovery/azure-to-azure-quickstart) to replicate Azure Virtual Machines from one region to another. Site Recovery replicates data continuously to the target region. When an outage occurs at your primary site, you fail over to a secondary location.
 
 - **Ensure that no single user account has access to both production and backup data.** Your data backups are compromised if one single user account has permission to write to both production and backup sources. A malicious user could purposely delete all your data, and a regular user could accidentally delete it. Design your application to limit the permissions of each user account. Only grant write access to users who require it, and grant access to either production or backup, but not both.
 - **Document and test your data store failover and failback process.** If a data store fails catastrophically, a human operator must follow a set of documented instructions to fail over to a new data store. If the documented steps have errors, an operator won't be able to successfully follow them and to fail over the resource. Regularly test the instruction steps to verify that an operator who follows the documentation can successfully fail over and fail back.
 - **Back up your data and validate your data backups.** Regularly run a script to validate data integrity, schema, and queries to ensure that backup data is what you expect. Log and report any inconsistencies so the backup service can be repaired.
-- **Use periodic backup and point-in-time restore.** Regularly and automatically back up data that is not preserved elsewhere. Verify that you can reliably restore both the data and the application itself if failure occurs. Ensure that backups meet your RPO. Data replication isn't a backup feature, because human error or malicious operations can corrupt data across all the replicas. The backup process must be secure to protect the data in transit and in storage. Databases can usually be recovered to a previous point in time by using transaction logs. For more information, see [Recover from data corruption or accidental deletion](../framework/resiliency/backup-and-recovery.md).
-- **Consider using a geo-redundant storage account.** Data stored in an Azure Storage account is always replicated locally. However, there are multiple replication strategies to choose from when a storage account is provisioned. To protect your application data against the rare case when an entire region becomes unavailable, select [Azure Read-Access Geo-Redundant Storage (RA-GRS)](/azure/storage/common/storage-designing-ha-apps-with-ragrs).  
+- **Use periodic backup and point-in-time restore.** Regularly and automatically back up data that is not preserved elsewhere. Verify that you can reliably restore both the data and the application itself if failure occurs. Ensure that backups meet your RPO. Data replication isn't a backup feature, because human error or malicious operations can corrupt data across all the replicas. The backup process must be secure to protect the data in transit and in storage. Databases can usually be recovered to a previous point in time by using transaction logs. For more information, see [Data Management for Reliability](/azure/architecture/framework/resiliency/data-management).
+- **Consider using a geo-redundant storage account.** Data stored in an Azure Storage account is always replicated locally. However, there are multiple replication strategies to choose from when a storage account is provisioned. To protect your application data against the rare case when an entire region becomes unavailable, select [Azure Read-Access Geo-Redundant Storage (RA-GRS)](/azure/storage/common/storage-designing-ha-apps-with-ragrs).
 
     > [!NOTE]
     > For VMs, do not rely on RA-GRS replication to restore the VM disks (VHD files). Instead, use [Azure Backup](/azure/backup).
@@ -105,7 +109,7 @@ How you manage your data plays directly into the availability of your applicatio
 - **Use optimistic concurrency and eventual consistency.** Transactions that block access to resources through locking (*pessimistic concurrency*) can cause poor performance and reduce availability. These problems can become especially acute in distributed systems. In many cases, careful design and techniques, such as partitioning, can minimize the chances of conflicting updates occurring. If data is replicated or read from a separately updated store, the data will only be eventually consistent. But the advantages usually outweigh the impact on availability of using transactions to ensure immediate consistency.
 - **Use active geo-replication for SQL Database to replicate changes to a secondary database.** Active geo-replication for SQL Database automatically replicates database changes to secondary databases in the same region or a different region. For more information, see [Creating and using active geo-replication](/azure/sql-database/sql-database-active-geo-replication).
 
-  Alternatively, you can take a more manual approach by using the **DATABASE COPY** command to create a backup copy of the database with transactional consistency. You can also use the import/export service of Azure SQL Database, which supports exporting databases to BACPAC files (compressed files containing your database schema and associated data) that are stored in Azure Blob storage. Azure Storage creates two replicas of the backup file in the same region. However, the frequency of the backup process determines your RPO, which is the amount of data you might lose in disaster scenarios. For example, if you back up data every hour, and a disaster occurs two minutes before the backup, you will lose 58 minutes of data. Also, to protect against a region-wide service disruption, you should copy the BACPAC files to an alternate region. For more information, see [Overview of business continuity with Azure SQL Database](/azure/sql-database/sql-database-business-continuity).
+  Alternatively, you can take a more manual approach by using the **DATABASE COPY** command to create a backup copy of the database with transactional consistency. You can also use the import/export service of Azure SQL Database, which supports exporting databases to BACPAC files (compressed files containing your database schema and associated data) that are stored in Azure Blob storage. Azure Storage creates two replicas of the backup file in the same region. However, the frequency of the backup process determines your RPO, which is the amount of data you might lose in disaster scenarios. For example, if you back up data every hour, and a disaster occurs two minutes before the backup, you will lose 58 minutes of data. Also, to protect against a region-wide service disruption, you should copy the BACPAC files to an alternate region. For more information, see [Overview of business continuity with Azure SQL Database](/azure/sql-database/sql-database-business-continuity).
 
 - **Use geo-backups for Azure Synapse Analytics.** For Azure Synapse, use [geo-backups](/azure/sql-data-warehouse/backup-and-restore) to restore to a paired region for disaster recovery. These backups are taken every 24 hours and can be restored to the paired region. This feature is on by default for all Azure Synapse instances. For more information on how to restore your data warehouse, see [Restore from an Azure geographical region using PowerShell.](/azure/sql-data-warehouse/sql-data-warehouse-restore)
 
@@ -119,4 +123,4 @@ How you manage your data plays directly into the availability of your applicatio
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Test for resiliency and availability](../framework/resiliency/testing.md)
+> [Test for resiliency and availability](/azure/architecture/framework/resiliency/testing)

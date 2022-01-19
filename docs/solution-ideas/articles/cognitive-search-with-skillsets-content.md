@@ -1,5 +1,3 @@
-[!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
-
 Large, unstructured datasets like the [JFK Files](https://www.archives.gov/research/jfk/2017-release), which contains over 34,000 pages of documents about the CIA investigation of the 1963 JFK assassination, include typewritten and handwritten notes, photos and diagrams, and other unstructured data that standard search solutions can't parse.
 
 *AI enrichment* in Azure Cognitive Search can extract and enhance searchable, indexable text from images, blobs, and other unstructured data sources like the JFK Files by using pre-trained machine learning skillsets from the Cognitive Services [Computer Vision](/azure/cognitive-services/computer-vision/home) and [Text Analytics](/azure/cognitive-services/text-analytics/overview) APIs. You can also create and attach [custom skills](/azure/search/cognitive-search-custom-skill-interface) to add special processing for domain-specific data like CIA Cryptonyms. Azure Cognitive Search can then index and search the context.
@@ -12,8 +10,6 @@ The Azure Cognitive Search skills in this example solution fall into the followi
 
 - *Custom skills* that capture domain-specific data. These skills are build with the [custom skills interface](/azure/search/cognitive-search-custom-skill-interface).
 
-This example solution uses Azure Cognitive Search AI enrichment to extract meaning from the original complex, unstructured JFK Files dataset. You can [work through the project](https://github.com/microsoft/AzureSearch_JFK_Files), watch the process in action in an [online video](https://channel9.msdn.com/Shows/AI-Show/Using-Cognitive-Search-to-Understand-the-JFK-Documents), or explore the JFK Files with an [online demo](https://aka.ms/jfkfiles-demo).
-
 ## Potential use cases
 
 - Increase the value and utility of unstructured text and image content in search and data science apps.
@@ -22,7 +18,7 @@ This example solution uses Azure Cognitive Search AI enrichment to extract meani
 - Produce better outcomes than standard PDF text extraction for PDFs with combined image and text.
 - Create new information from inherently meaningful raw content or context that's hidden in larger unstructured or semi-structured documents.
 
-## Architecture converting unstructured data to structured data
+## Architecture
 
 ![Cognitive Search architecture to convert unstructured into structured data](../media/cognitive-search-for-ai-enrichment.png)
 
@@ -33,29 +29,29 @@ This diagram illustrates the process of passing unstructured data through the Co
 1. The Cognitive Search extensibility mechanism uses an Azure Function to apply the CIA Cryptonyms custom skill to the data.
 1. The pre-built and custom skillsets deliver structured knowledge that Azure Cognitive Search can index.
 
-## Components
+### Components
 
 Azure Cognitive Search works with other Azure components to provide this solution.
 
-### Azure Blob Storage
+#### Azure Blob Storage
 
-[Azure Blob Storage](https://azure.microsoft.com/services/storage/blobs/) is REST-based object storage for data that you can access from anywhere in the world via HTTPS. You can use Blob storage to expose data publicly to the world, or to store application data privately. Blob storage is ideal for large amounts of unstructured data like text or graphics.
+[Azure Blob Storage](https://azure.microsoft.com/services/storage/blobs) is REST-based object storage for data that you can access from anywhere in the world via HTTPS. You can use Blob storage to expose data publicly to the world, or to store application data privately. Blob storage is ideal for large amounts of unstructured data like text or graphics.
 
-### Azure Cognitive Search
+#### Azure Cognitive Search
 
-[Cognitive Search](https://azure.microsoft.com/services/search/) indexes the content and powers the user experience. You use Cognitive Search capabilities to apply [pre-built cognitive skills](/azure/search/cognitive-search-predefined-skills) to the content, and use the extensibility mechanism to add [custom skills](/azure/search/cognitive-search-custom-skill-interface).
+[Cognitive Search](https://azure.microsoft.com/services/search) indexes the content and powers the user experience. You use Cognitive Search capabilities to apply [pre-built cognitive skills](/azure/search/cognitive-search-predefined-skills) to the content, and use the extensibility mechanism to add [custom skills](/azure/search/cognitive-search-custom-skill-interface).
 
-- The [Computer Vision API](https://azure.microsoft.com/services/cognitive-services/computer-vision/) uses [text recognition APIs](/azure/cognitive-services/computer-vision/concept-recognizing-text) to extract and recognize text information from images. [Read](/azure/cognitive-services/computer-vision/concept-recognizing-text#read-api) uses the latest recognition models, and is optimized for large, text-heavy documents and noisy images. [OCR](/azure/cognitive-services/computer-vision/concept-recognizing-text#ocr-optical-character-recognition-api) isn't optimized for large documents, but supports more languages. The current example solution uses OCR to produce data in the [hOCR format](https://en.wikipedia.org/wiki/HOCR).
+- The [Computer Vision API](https://azure.microsoft.com/services/cognitive-services/computer-vision) uses [text recognition APIs](/azure/cognitive-services/computer-vision/concept-recognizing-text) to extract and recognize text information from images. [Read](/azure/cognitive-services/computer-vision/concept-recognizing-text#read-api) uses the latest recognition models, and is optimized for large, text-heavy documents and noisy images. [OCR](/azure/cognitive-services/computer-vision/concept-recognizing-text#ocr-optical-character-recognition-api) isn't optimized for large documents, but supports more languages. The current example solution uses OCR to produce data in the [hOCR format](https://en.wikipedia.org/wiki/HOCR).
 
 - The [Text Analytics API](/azure/cognitive-services/text-analytics/overview) extracts text information from unstructured documents by using capabilities like [Named Entity Recognition (NER)](/azure/cognitive-services/text-analytics/how-tos/text-analytics-how-to-entity-linking), [key phrase extraction](/azure/search/cognitive-search-skill-keyphrases), and [full-text search](/azure/search/search-lucene-query-architecture).
 
 - [Custom skills](/azure/search/cognitive-search-custom-skill-interface) extend Cognitive Search to apply specific enrichment transformations to content. The current example solution creates a custom skill to apply [CIA Cryptonyms](https://www.maryferrell.org/php/cryptdb.php), which decode uppercase code names in CIA documents. For example, the CIA assigned the cryptonym `GPFLOOR` to Lee Harvey Oswald, so the custom CIA Cryptonym skill links any JFK files containing that cryptonym with Oswald.
 
-### Azure Functions
+#### Azure Functions
 
 [Azure Functions](/azure/azure-functions/functions-overview) is a serverless compute service that lets you run small pieces of event-triggered code without having to explicitly provision or manage infrastructure. This example solution uses an Azure Function method to apply the CIA Cryptonyms list to the JFK Files as a custom skill.
 
-### Azure App Service
+#### Azure App Service
 
 This example solution also builds a standalone web app in [Azure App Service](/azure/app-service/) for testing, demonstrating, searching the index, and exploring connections in the enriched and indexed documents.
 
@@ -66,12 +62,16 @@ This example solution also builds a standalone web app in [Azure App Service](/a
 - Some scanned and native PDF formats may not parse correctly in Cognitive Search.
 - The JFK Files sample project and demo create a public website and publicly readable storage container for extracted images, so don't use this solution with non-public data.
 
+## Deploy this scenario
+
+This example solution uses Azure Cognitive Search AI enrichment to extract meaning from the original complex, unstructured JFK Files dataset. You can [work through the project](https://github.com/microsoft/AzureSearch_JFK_Files), watch the process in action in an [online video](/shows/AI-Show/Using-Cognitive-Search-to-Understand-the-JFK-Documents), or explore the JFK Files with an [online demo](https://aka.ms/jfkfiles-demo).
+
 ## Next steps
 
 Explore the JFK dataset:
 
 - Explore the [JFK Files project](https://github.com/microsoft/AzureSearch_JFK_Files) on GitHub.
-- Watch the process in action in an [online video](https://channel9.msdn.com/Shows/AI-Show/Using-Cognitive-Search-to-Understand-the-JFK-Documents).
+- Watch the process in action in an [online video](/shows/AI-Show/Using-Cognitive-Search-to-Understand-the-JFK-Documents).
 - Explore the JFK Files [online demo](https://aka.ms/jfkfiles-demo).
 
 Read product documentation:
@@ -87,4 +87,4 @@ Read product documentation:
 
 Try the Microsoft Learn path:
 
-- [Implement knowledge mining with Azure Cognitive Search](/learn/paths/implement-knowledge-mining-azure-cognitive-search/)
+- [Implement knowledge mining with Azure Cognitive Search](/learn/paths/implement-knowledge-mining-azure-cognitive-search)

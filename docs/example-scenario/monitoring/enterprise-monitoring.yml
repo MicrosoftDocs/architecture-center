@@ -1,0 +1,27 @@
+### YamlMime:Architecture
+metadata:
+  title: Enterprise monitoring with Azure Monitor
+  titleSuffix: Azure Example Scenarios
+  description: See an enterprise monitoring solution that uses Azure Monitor to collect and manage data from cloud, on-premises, and hybrid resources.
+  author: EdPrice-MSFT
+  ms.author: surins
+  ms.date: 11/10/2021
+  ms.topic: conceptual
+  ms.service: architecture-center
+  ms.subservice: example-scenario
+  ms.custom: fcp
+azureCategories:
+  - devops
+  - hybrid
+  - management-and-governance
+products:
+  - azure-arc
+  - azure-automation
+  - azure-logic-apps
+  - azure-monitor
+  - azure-sentinel
+name: Enterprise monitoring with Azure Monitor
+summary: See an enterprise monitoring solution that uses Azure Monitor to collect and manage data from cloud, on-premises, and hybrid resources.
+thumbnailUrl: /azure/architecture/browse/thumbs/enterprise-monitoring.png
+content: |
+  [!include[](enterprise-monitoring-content.md)]

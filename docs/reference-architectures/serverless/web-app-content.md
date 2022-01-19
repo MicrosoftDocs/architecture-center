@@ -1,9 +1,8 @@
 
 
-
 This reference architecture shows a [serverless](https://azure.microsoft.com/solutions/serverless/) web application. The application serves static content from Azure Blob Storage, and implements an API using Azure Functions. The API reads data from Cosmos DB and returns the results to the web app.
 
-![GitHub logo](../../_images/github.png) A reference implementation for this architecture is available on [GitHub][github].
+![GitHub logo](../../_images/github.png) Two reference implementations for this architecture are available on GitHub: [Drone Delivery App (ARM & Azure Pipelines)][drone-delivery] and [To Do App (Bicep & GitHub Actions)][todo].
 
 ![Reference architecture for a serverless web application](./_images/serverless-web-app.png)
 *Download an [SVG](./_images/serverless-web-app.svg) of this architecture.*
@@ -50,6 +49,8 @@ If you don't need all of the functionality provided by API Management, another o
 **Azure Monitor**. [Monitor][monitor] collects performance metrics about the Azure services deployed in the solution. By visualizing these in a dashboard, you can get visibility into the health of the solution. It also collected application logs.
 
 **Azure Pipelines**. [Pipelines][pipelines] is a continuous integration (CI) and continuous delivery (CD) service that builds, tests, and deploys the application.
+
+**GitHub Actions**. [Workflow][gh-actions] is an automated process (CI/CD) that you set up in your GitHub repository. You can build, test, package, release, or deploy any project on GitHub with a workflow.
 
 ## Recommendations
 
@@ -231,7 +232,7 @@ Alternatively, you can store application secrets in Key Vault. This allows you t
 The front end of this reference architecture is a single page application, with JavaScript accessing the serverless back-end APIs, and static content providing a fast user experience. The following are some important considerations for such an application:
 
 - Deploy the application uniformly to users over a wide geographical area with a global-ready CDN, with the static content hosted on the cloud. This avoids the need for a dedicated web server. Read [Integrate an Azure storage account with Azure CDN](/azure/cdn/cdn-create-a-storage-account-with-cdn) to get started. Secure your application with [HTTPS](/azure/storage/blobs/storage-https-custom-domain-cdn). Read the [Best practices for using content delivery networks](../../best-practices/cdn.md) for additional recommendations.
-- Use a fast and reliable CI/CD service such as [Azure Pipelines](/azure/devops/pipelines/get-started/what-is-azure-pipelines?view=azure-devops&preserve-view=true), to automatically build and deploy every source change. The source must reside in an online version control system. For more details, read [Create your first pipeline](/azure/devops/pipelines/create-first-pipeline?tabs=tfs-2018-2&view=azure-devops&preserve-view=true).
+- Use a fast and reliable CI/CD service such as [Azure Pipelines](/azure/devops/pipelines/get-started/what-is-azure-pipelines?view=azure-devops&preserve-view=true) or [GitHub Actions][gh-actions], to automatically build and deploy every source change. The source must reside in an online version control system. For more details on Azure Pipelines, read [Create your first pipeline](/azure/devops/pipelines/create-first-pipeline?tabs=tfs-2018-2&view=azure-devops&preserve-view=true). To learn more on GitHub Actions for Azure, see [Deploy apps to Azure](/azure/developer/github/deploy-to-azure).
 - Compress your website files to reduce the bandwidth consumption on the CDN and improve performance. Azure CDN allows [compression on the fly on the edge servers](/azure/cdn/cdn-improve-performance). Alternatively, the deploy pipeline in this reference architecture compresses the files before deploying them to the Blob storage. This reduces the storage requirement, and gives you more freedom to choose the compression tools, regardless of any CDN limitations.
 - The CDN should be able to [purge its cache](/azure/cdn/cdn-purge-endpoint) to ensure all users are served the freshest content. A cache purge is required if the build and deploy processes are not atomic, for example, if they replace old files with newly built ones in the same origin folder.
 - A different cache strategy such as versioning using directories, may not require a purge by the CDN. The build pipeline in this front-end application creates a new directory for each newly built version. This version is uploaded as an atomic unit to the Blob storage. The Azure CDN points to this new version only after a completed deployment.
@@ -306,7 +307,7 @@ Related guidance:
 
 <!-- links -->
 
-[aaf-cost]: ../../framework/cost/overview.md
+[aaf-cost]: /azure/architecture/framework/cost/overview
 [api-versioning]: ../../best-practices/api-design.md#versioning-a-restful-web-api
 [apim]: /azure/api-management/api-management-key-concepts
 [apim-ip]: /azure/api-management/api-management-faq#how-can-i-secure-the-connection-between-the-api-management-gateway-and-my-back-end-services
@@ -346,11 +347,13 @@ Related guidance:
 [oauth-flow]: https://auth0.com/docs/api-auth/which-oauth-flow-to-use
 [partition-key]: /azure/cosmos-db/partition-data
 [pipelines]: /azure/devops/pipelines/index
+[gh-actions]: /azure/developer/github/github-actions
 [ru]: /azure/cosmos-db/request-units
 [scopes]: /azure/active-directory/develop/v2-permissions-and-consent
 [static-hosting]: /azure/storage/blobs/storage-blob-static-website
 [storage-https]: /azure/storage/common/storage-require-secure-transfer
 [tm]: /azure/traffic-manager/traffic-manager-overview
 
-[github]: https://github.com/mspnp/serverless-reference-implementation/tree/v0.1.0-update
+[drone-delivery]: https://github.com/mspnp/serverless-reference-implementation/tree/v0.1.0-update
+[todo]: https://github.com/Azure-Samples/serverless-web-application
 [readme]: https://github.com/mspnp/serverless-reference-implementation/blob/v0.1.0-update/README.md

@@ -12,7 +12,7 @@ When organizations task employees with the review and research of technical data
 
 ![Architecture Diagram: knowledge mining in business process management, with three steps: ingest, enrich, and explore.](../media/knowledge-mining-business-process-management.png)
 
-### Data flow 
+### Data flow
 
 There are three steps in knowledge mining: ingest, enrich, and explore.
 

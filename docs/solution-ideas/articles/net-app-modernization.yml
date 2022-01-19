@@ -3,7 +3,7 @@ metadata:
   title: Modernize .NET applications
   titleSuffix: Azure Solution Ideas
   description: Modernize .NET applications with Azure SQL DB and Azure App Service. Make the apps secure, flexible, available, and scalable by migrating them to Azure.
-  author: doodlemania2
+  author: EdPrice-MSFT
   ms.author: pnp
   ms.date: 06/26/2020
   ms.topic: conceptual

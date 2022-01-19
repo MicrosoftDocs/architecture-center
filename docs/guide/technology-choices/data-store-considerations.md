@@ -1,5 +1,5 @@
 ---
-title: Criteria for choosing a data store
+title: Criteria for data store choice
 titleSuffix: Azure Application Architecture Guide
 description: Explore general considerations when choosing your data store. Examine functional and non-functional requirements, management and cost, security, and DevOps.
 author: dsk-2015
@@ -17,7 +17,7 @@ This article describes the comparison criteria you should use when evaluating a 
 
 ## General considerations
 
-Keep the following considerations in mind when making your selection. 
+Keep the following considerations in mind when making your selection.
 
 ### Functional requirements
 
@@ -78,5 +78,3 @@ Keep the following considerations in mind when making your selection.
 - **Skill set**. Are there particular programming languages, operating systems, or other technology that your team is particularly adept at using? Are there others that would be difficult for your team to work with?
 
 - **Clients** Is there good client support for your development languages?
-
-<!-- markdownlint-enable MD033 -->

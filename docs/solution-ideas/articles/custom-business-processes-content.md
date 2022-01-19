@@ -1,9 +1,4 @@
-
-
-
 [!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
-
-## Overview
 
 This example demonstrates how you can deploy portals that automate manual or paper-based processes and surface rich user experience. Leverage Azure API management and Azure Functions to connect custom APIs which tap into your legacy systems. Using Azure managed databases and low-code approach to automate tasks, you can lower the overall solution costs while easily building apps that are real-time, resilient, and scalable by default.
 
@@ -11,7 +6,7 @@ This example demonstrates how you can deploy portals that automate manual or pap
 
 ![Architecture Diagram](../media/custom-business-processes.png)
 
-## Data Flow
+### Data flow
 
 The data flows through the solution as follows:
 
@@ -23,7 +18,7 @@ The data flows through the solution as follows:
 6. Custom bots sends flight updates to users in Teams.
 7. Power BI generates reports from the Azure Data Lake, based on Teams activity.
 
-## Components
+### Components
 
 Data is loaded from these different data sources using several Azure components:
 
@@ -40,6 +35,6 @@ Data is loaded from these different data sources using several Azure components:
 - [Power Automate](https://flow.microsoft.com/): Streamline repetitive tasks and paperless processes
 - [Power BI](/power-bi) is a suite of business analytics tools to analyze data and share insights.
 
-## Next Steps
+## Next steps
 
 - Learn more: [https://aka.ms/learnpowerapps](/learn/browse/?products=power-apps)

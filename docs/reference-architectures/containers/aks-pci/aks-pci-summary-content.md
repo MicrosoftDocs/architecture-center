@@ -14,7 +14,7 @@ PCI DSS 3.2.1 workloads demand the rigor of being a well-architected solution. A
 
 ## Security
 
-Follow the fundamental guidance provided in the [Security design principles](../../../framework/security/security-principles.md). Best practices for a regulated environment are summarized in these sections.
+Follow the fundamental guidance provided in the [Security design principles](/azure/architecture/framework/security/security-principles). Best practices for a regulated environment are summarized in these sections.
 
 ### Governance
 
@@ -39,9 +39,9 @@ Azure provides several built-in policies for most services. Review these [Azure 
 
 Compliance must be systematically monitored and maintained. Regular compliance attestations are performed. Knowing whether your cloud resources are in compliance will help prepare for attestations and audit.
 
-Take advantage the regulatory compliance dashboard in Azure Security Center. By continuously monitoring the dashboard, you can keep track of the compliance status of your workload.
+Take advantage the regulatory compliance dashboard in Microsoft Defender for Cloud. By continuously monitoring the dashboard, you can keep track of the compliance status of your workload.
 
-![Screenshot that shows the compliance dashboard.](.\images\regulatory-compliance-pci.png)
+:::image type="content" source="./images/regulatory-compliance-pci.png" alt-text="Example compliance monitoring" border ="true":::
 
 ### Network security
 
@@ -109,7 +109,7 @@ Kubernetes role-based access control (RBAC) manages permissions to the Kubernete
 
 #### Zero-Trust access
 
-Kubernetes RBAC, Azure RBAC, and Azure services implement _deny all_ by default. Override that setting with caution, allowing access to only those entities who need it. Another area for implementing Zero-Trust is to disable SSH access to the cluster nodes.
+Kubernetes RBAC, Azure RBAC, and Azure services implement *deny all* by default. Override that setting with caution, allowing access to only those entities who need it. Another area for implementing Zero-Trust is to disable SSH access to the cluster nodes.
 
 ### Least privileges
 
@@ -127,7 +127,7 @@ Make sure access to the key store has a balance of network and access controls. 
 
 ## Operational Excellence
 
-Follow the fundamental guidance provided in the [Operational Excellence principles](../../../framework/devops/principles.md). Best practices for a regulated environment are summarized in these sections.
+Follow the fundamental guidance provided in the [Operational Excellence principles](/azure/architecture/framework/devops/principles). Best practices for a regulated environment are summarized in these sections.
 
 ### Separation of roles
 
@@ -147,17 +147,17 @@ Maintain information about approved solutions that are part of the infrastructur
 
 To fulfill Requirement 10, observability into the CDE is critical for compliance. Activity logs provide information about operations related to account and secret management, diagnostic setting management, server management, and other resource access operations. All logs are recorded with date, time, identity, and other detailed information. Retain logs for up to a year for in storage accounts for long-term archival and auditing.
 
-Make sure logs are only accessed by roles that need them. Log Analytics and Azure Sentinel support various role-based access controls to manage audit trail access.
+Make sure logs are only accessed by roles that need them. Log Analytics and Microsoft Sentinel support various role-based access controls to manage audit trail access.
 
 ### Response and remediation
 
-The Azure monitoring services, Azure Monitor and Azure Security Center, can generate notifications or alerts when they detect anomalous activity. Those alerts include context information such as severity, status, and activity time. As alerts are generated, have a remediation strategy and review progress. We recommend centralizing data in a security information and event management (SIEM) solution because integrating data can provide rich alert context.
+The Azure monitoring services, Azure Monitor and Microsoft Defender for Cloud, can generate notifications or alerts when they detect anomalous activity. Those alerts include context information such as severity, status, and activity time. As alerts are generated, have a remediation strategy and review progress. We recommend centralizing data in a security information and event management (SIEM) solution because integrating data can provide rich alert context.
 
-From the **Security alerts** view in Azure Security Center, you have access to all alerts that Azure Security Center detects on your resources. Have a triage process to address the issue. Work with your security team to understand how relevant alerts will be made available to the workload owners.
+From the **Security alerts** view in Microsoft Defender for Cloud, you have access to all alerts that Microsoft Defender for Cloud detects on your resources. Have a triage process to address the issue. Work with your security team to understand how relevant alerts will be made available to the workload owners.
 
 ## Performance Efficiency
 
-Follow the fundamental guidance provided in the [Performance Efficiency principles](../../../framework/scalability/principles.md). Best practices for a regulated environment are summarized in these sections.
+Follow the fundamental guidance provided in the [Performance Efficiency principles](/azure/architecture/framework/scalability/principles). Best practices for a regulated environment are summarized in these sections.
 
 ### Scaling
 
@@ -177,12 +177,11 @@ Complexity of workloads is hard to document and to audit. Strive for simplicity 
 
 ## Reliability
 
-The reliability of regulated environments needs to be predictable so that they can be explained consistently for auditing purposes. Follow the fundamental guidance provided in the [reliability principles](../../../framework/resiliency/principles.md). Best practices for a regulated environment are summarized in these sections.
+The reliability of regulated environments needs to be predictable so that they can be explained consistently for auditing purposes. Follow the fundamental guidance provided in the [reliability principles](/azure/architecture/framework/resiliency/principles). Best practices for a regulated environment are summarized in these sections.
 
 ### Recovery targets and disaster recovery
 
-Due to the sensitive nature of the data handled in regulated workloads, recovery targets and recovery point objectives (RPOs) are critical to define. What is acceptable loss of CHD? Recovery efforts within the CDE are still subject to the standard requirements. Expect failures and have a clear recovery plan for those failures that align with roles, responsibilities, and justified data access. Live-site issues are not justification for deviating from any regulations.
-This is especially important in a full disaster recovery situation. Have clear disaster recovery documentation that adheres to the requirements and minimizes unexpected CDE or CHD access. After recovery, always review the recovery process steps to ensure that no unexpected access occurred. Document business justifications for those instances.
+Due to the sensitive nature of the data handled in regulated workloads, recovery targets and recovery point objectives (RPOs) are critical to define. What is acceptable loss of CHD? Recovery efforts within the CDE are still subject to the standard requirements. Expect failures and have a clear recovery plan for those failures that align with roles, responsibilities, and justified data access. Live-site issues are not justification for deviating from any regulations. This is especially important in a full disaster recovery situation. Have clear disaster recovery documentation that adheres to the requirements and minimizes unexpected CDE or CHD access. After recovery, always review the recovery process steps to ensure that no unexpected access occurred. Document business justifications for those instances.
 
 ### Recovery
 
@@ -198,7 +197,7 @@ Reliability extends to all operational processes in and adjacent to the CDE. Wel
 
 ## Cost Optimization
 
-Follow the fundamental guidance provided in the [Cost Optimization principles](../../../framework/cost/overview.md).
+Follow the fundamental guidance provided in the [Cost Optimization principles](/azure/architecture/framework/cost/overview).
 
 Because of the compliance requirements and strict security controls, a clear tradeoff is cost. We recommend, that you establish initial estimates by using the [Pricing Calculator](https://azure.microsoft.com/pricing/calculator/).
 
@@ -206,13 +205,13 @@ Here's a high-level representation of the cost impact of the main resources that
 
 ![Diagram of cost management in the architecture.](.\images\cost-analysis.png)
 
-The main drivers are the virtual machine scale sets that make up the node pools and Azure Firewall. Another contributor is Log Analytics. There are also incremental costs associated with Azure Defender, depending on your choice of plans.
+The main drivers are the virtual machine scale sets that make up the node pools and Azure Firewall. Another contributor is Log Analytics. There are also incremental costs associated with Microsoft Defender for Cloud, depending on your choice of plans.
 
 Have a clear understanding of what constitutes the price of a service. Azure tracks metered usage. Here's a drilldown of Azure Firewall for this architecture.
 
 ![Diagram that illustrates cost management in an Azure Firewall example.](.\images\firewall-cost.png)
 
-The cost associated with some resources, such as Azure Firewall, can be spread across multiple business units and/or applications. Another way to optimize cost might be to host a multitenant cluster within an organization, maximizing density with workload diversity. We do _not_ recommend this approach for regulated workloads. Always prioritize compliance and segmentation over cost benefits.
+The cost associated with some resources, such as Azure Firewall, can be spread across multiple business units and/or applications. Another way to optimize cost might be to host a multitenant cluster within an organization, maximizing density with workload diversity. We do *not* recommend this approach for regulated workloads. Always prioritize compliance and segmentation over cost benefits.
 
 To keep within the budget constraints, some ways to control cost are by adjusting the Azure Application Gateway infrastructure, setting the instance count for autoscaling, and reducing the log output as long as they still meet the audit trail required by PCI-DSS 3.2.1. Always evaluate those choices against the tradeoffs on other aspects of the design that allow you to meet your SLA. For example, are you still able to scale appropriately to meet spikes in traffic.
 

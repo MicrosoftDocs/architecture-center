@@ -12,6 +12,8 @@ Mining companies can have Azure continually monitor the performance data from th
 
 *Download a [Visio file](https://arch-center.azureedge.net/US-1816419-PR-2777-monitor-mining-equipment.vsdx) of this architecture.*
 
+### Data flow
+
 The data flows through the solution as follows:
 
 1. Equipment and other assets have integrated sensor systems that deliver sensor data (in CSV files) to a folder in an FTP server or to Azure Storage.
@@ -26,7 +28,7 @@ The data flows through the solution as follows:
 1. Notification Hub then sends notifications to various mobile platforms to alert operators and administrators of events that require attention.
 1. Monitoring advisors can create visual reports to explore the data. They can publish and share them, and collaborate with others. Power BI integrates with other tools, including Power Apps. Advisors can integrate Power BI reports into a Canvas App in Power Apps for a good user experience.
 
-## Components
+### Components
 
 Data is loaded from these different data sources using several Azure components:
 
@@ -69,7 +71,7 @@ See the following related database architectural guidance:
 - [Data lakes](../../data-guide/scenarios/data-lake.md)
 - [Choosing a big data storage technology in Azure](../../data-guide/technology-choices/data-storage.md)
 - [Modernize mainframe & midrange data](../../reference-architectures/migration/modernize-mainframe-data-to-azure.yml)
-- [Profisee master data management with Azure Data Factory](../../reference-architectures/data/profisee-master-data-management-data-factory.yml)
+- [Master data management with Profisee and Azure Data Factory](../../reference-architectures/data/profisee-master-data-management-data-factory.yml)
 - [Master Data Management powered by CluedIn](../../reference-architectures/data/cluedin.yml)
 - [DataOps for the modern data warehouse](../../example-scenario/data-warehouse/dataops-mdw.yml)
 - [Data warehousing and analytics](../../example-scenario/data/data-warehouse.yml)

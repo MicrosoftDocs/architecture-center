@@ -3,7 +3,7 @@ metadata:
   title: Azure IoT reference architecture
   titleSuffix: Azure Reference Architectures
   description: Recommended architecture for IoT applications on Azure using PaaS (platform-as-a-service) components.
-  author: mcosner 
+  author: mcosner
   ms.author: mcosner
   ms.date: 07/24/2021
   ms.topic: conceptual
@@ -20,12 +20,11 @@ azureCategories:
   - featured
 summary: Recommended architecture for IoT applications on Azure using PaaS (platform-as-a-service) components.
 products:
-  - azure-blob-storage
   - azure-functions
   - azure-iot-hub
   - azure-iot-dps
-  - azure-logic-apps
   - azure-stream-analytics
+  - azure-digital-twins
 thumbnailUrl: /azure/architecture/browse/thumbs/iot-refarch.svg
 content: |
    [!include[](iot-content.md)]

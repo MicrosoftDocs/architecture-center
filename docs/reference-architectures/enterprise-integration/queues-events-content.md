@@ -1,6 +1,8 @@
-This reference architecture integrates enterprise backend systems, using message queues and events to decouple services for greater scalability and reliability. The backend systems may include software as a service (SaaS) systems, Azure services, and existing web services in your enterprise.
+This reference architecture integrates enterprise backend systems, using message broker and events to decouple services for greater scalability and reliability. The backend systems may include software as a service (SaaS) systems, Azure services, and existing web services in your enterprise.
 
-![Reference architecture for enterprise integration using queues and events](./_images/enterprise-integration-queues-events.png)
+![Reference architecture for enterprise integration using queues and events](./_images/enterprise-integration-message-broker-events.png)
+
+*Download a [Visio file](https://arch-center.azureedge.net/queues-events-content.vsdx) of this architecture*.
 
 ## Architecture
 
@@ -15,12 +17,13 @@ This version of the architecture adds two components that help make the system m
 Asynchronous communication using a message broker provides a number of advantages over making direct, synchronous calls to backend services:
 
 - Provides load-leveling to handle bursts in workloads, using the [Queue-Based Load Leveling pattern](../../patterns/queue-based-load-leveling.md).
+- Provides for broadcasting of messages to multiple consumers using [Publisher-Subscriber pattern](../../patterns/publisher-subscriber.md).
 - Reliably tracks the progress of long-running workflows that involve multiple steps or multiple applications.
 - Helps to decouple applications.
 - Integrates with existing message-based systems.
 - Allows work to be queued when a backend system is not available.
 
-Event Grid enables the various components in the system to react to events as they happen, rather than relying on polling or scheduled tasks. As with a message queue, it helps decouple applications and services. An application or service can publish events, and any interested subscribers will be notified. New subscribers can be added without updating the sender.
+Event Grid enables the various components in the system to react to events as they happen, rather than relying on polling or scheduled tasks. As with a message queue and topics, it helps decouple applications and services. An application or service can publish events, and any interested subscribers will be notified. New subscribers can be added without updating the sender.
 
 Many Azure services support sending events to Event Grid. For example, a logic app can listen for an event when new files are added to a blob store. This pattern enables reactive workflows, where uploading a file or putting a message on a queue kicks off a series of processes. The processes might be executed in parallel or in a specific sequence.
 
@@ -63,11 +66,12 @@ See DevOps considerations in [Basic Enterprise Integration reference architectur
 
 To secure Service Bus, use shared access signature (SAS). You can grant a user access to Service Bus resources with specific rights by using [SAS authentication](/azure/service-bus-messaging/service-bus-sas). For more information, see [Service Bus authentication and authorization](/azure/service-bus-messaging/service-bus-authentication-and-authorization).
 
-If you need to expose a Service Bus queue as an HTTP endpoint, for example, to post new messages, use API Management to secure the queue by fronting the endpoint. You can then secure the endpoint with certificates or OAuth authentication as appropriate. The easiest way to secure an endpoint is using a logic app with an HTTP request/response trigger as an intermediary.
+If you need to expose a Service Bus queue or topic as an HTTP endpoint, for example, to post new messages, use API Management to secure the queue by fronting the endpoint. You can then secure the endpoint with certificates or OAuth authentication as appropriate. The easiest way to secure an endpoint is using a logic app with an HTTP request/response trigger as an intermediary.
 
 The Event Grid service secures event delivery through a validation code. If you use Logic Apps to consume the event, validation is automatically performed. For more information, see [Event Grid security and authentication](/azure/event-grid/security-authentication).
 
 ## Cost Considerations
+
 In general, use the [Azure pricing calculator][azure-pricing-calculator] to estimate costs. Here are some other considerations.
 
 ### API Management
@@ -76,29 +80,29 @@ You are charged for all API Management instances when they are running. If you h
 
 ### Logic Apps
 
-Logic Apps uses a [serverless](/azure/logic-apps/logic-apps-serverless-overview) model. Billing is calculated based on action and connector execution. For more information, see [Logic Apps pricing](https://azure.microsoft.com/pricing/details/logic-apps/). 
+Logic Apps uses a [serverless](/azure/logic-apps/logic-apps-serverless-overview) model. Billing is calculated based on action and connector execution. For more information, see [Logic Apps pricing](https://azure.microsoft.com/pricing/details/logic-apps/).
 
-### Service Bus queues
+### Service Bus queues, topics and subscriptions
 
-Service Bus queues support both push and pull models for delivering messages. In the pull model, every polling request is metered as an action. Even with long polling at 30 secs (default), cost can be high. Unless you need real-time delivery of messages, consider using the push model.     
+Service Bus queues and subscriptions support both push and pull models for delivering messages. In the pull model, every polling request is metered as an action. Even with long polling at 30 secs (default), cost can be high. Unless you need real-time delivery of messages, consider using the push model.
 
-Service Bus queues are included in all tiers (Basic, standard, and premium tiers). For more information, see [Azure Service Bus pricing][service-bus-pricing]. 
+Service Bus queues are included in all tiers (Basic, standard, and premium tiers). While Service Bus topics and subscriptions are available in standard and premium tiers. For more information, see [Azure Service Bus pricing][service-bus-pricing].
 
 ### Event Grid
 
 Event Grid uses a serverless model. Billing is calculated based on the number of operations (event executions). Operations include ingress of events to Domains or Topics, advanced matches, delivery attempts, and management calls. Usage of up to 100,000 operations is free of charge.
 
-For more information, see [Event Grid pricing](https://azure.microsoft.com/pricing/details/event-grid/). 
+For more information, see [Event Grid pricing](https://azure.microsoft.com/pricing/details/event-grid/).
 
 For more information, see the cost section in [Microsoft Azure Well-Architected Framework][aaf-cost].
 
 ## Next steps
 
-* [Basic enterprise integration on Azure](./basic-enterprise-integration.yml)
-* [Enterprise business intelligence](../data/enterprise-bi-synapse.yml)
-* [Custom Business Processes](../../solution-ideas/articles/custom-business-processes.yml)
+- [Basic enterprise integration on Azure](./basic-enterprise-integration.yml)
+- [Enterprise business intelligence](../data/enterprise-bi-synapse.yml)
+- [Custom Business Processes](../../solution-ideas/articles/custom-business-processes.yml)
 
-[aaf-cost]: ../../framework/cost/overview.md
+[aaf-cost]: /azure/architecture/framework/cost/overview
 [apim]: /azure/api-management
 [apim-sla]: https://azure.microsoft.com/support/legal/sla/api-management
 [apim-autoscale]: /azure/api-management/api-management-howto-autoscale

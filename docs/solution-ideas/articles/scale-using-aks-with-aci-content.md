@@ -7,17 +7,17 @@ Use the AKS virtual node to provision pods inside ACI that start in seconds. Thi
 ![Architecture Diagram](../media/scale-using-aks-with-aci.png)
 *Download an [SVG](../media/scale-using-aks-with-aci.svg) of this architecture.*
 
-## Data flow
+### Data flow
 
 1. User registers a container in Azure Container Registry.
 1. Container images are pulled from the Azure Container Registry.
 1. AKS virtual node, a Virtual Kubelet implementation, provisions pods inside ACI from AKS, when traffic comes in spikes.
 1. AKS and ACI containers write to a shared data store.
 
-## Components
+### Components
 
 - [Azure Kubernetes Service](https://azure.microsoft.com/services/kubernetes-service/) offers fully managed Kubernetes clusters for deployment, scaling, and management of containerized applications.
-- [Azure Container Registry](https://azure.microsoft.com/services/container-registry/) is a managed, private Docker registry service on Azure. Use Container Registry to store private Docker images, which are deployed to the cluster. 
+- [Azure Container Registry](https://azure.microsoft.com/services/container-registry/) is a managed, private Docker registry service on Azure. Use Container Registry to store private Docker images, which are deployed to the cluster.
 - [Azure Container Instances](https://azure.microsoft.com/services/container-instances/) offers the fastest and simplest way to run a container in Azure, without having to manage any virtual machines and without having to adopt a higher-level service. Azure Kubernetes Service (AKS) can use the Virtual Kubelet to provision pods inside Azure Container Instance(ACI) that start in seconds. This enables AKS to run with just enough capacity for your average workload. As you run out of capacity in your AKS cluster, scale out additional pods in ACI without any additional servers to manage.
 - [Azure SQL Database](https://azure.microsoft.com/services/sql-database/) is a fully managed and intelligent relational database service built for the cloud. With SQL Database, you can create a highly available and high-performance data storage layer for modern cloud applications.
 
@@ -29,4 +29,4 @@ Use the AKS virtual node to provision pods inside ACI that start in seconds. Thi
 
 ## Related resources
 
-If you need a refresher in Kubernetes, complete the [Azure Kubernetes Service Workshop](/learn/modules/aks-workshop/) to deploy a multi-container application to Kubernetes on Azure Kubernetes Service (AKS).
+If you need a refresher in Kubernetes, complete the [Azure Kubernetes Service Workshop](/learn/modules/aks-workshop) to deploy a multi-container application to Kubernetes on Azure Kubernetes Service (AKS).
