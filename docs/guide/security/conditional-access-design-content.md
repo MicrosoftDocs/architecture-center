@@ -4,7 +4,7 @@ In this article, you'll learn about design principles and dependencies for a Con
 
 We'll start out with some design principles.
 
-### Conditional Access as a Zero-Trust policy engine
+### Conditional Access as a Zero Trust policy engine
 
 The Microsoft approach to Zero Trust includes Conditional Access as the main policy engine. Here's an overview of that approach:
 
@@ -12,7 +12,7 @@ The Microsoft approach to Zero Trust includes Conditional Access as the main pol
 
 visio 
 
- Conditional Access is used as the policy engine for a Zero-Trust architecture that covers both policy definition and policy enforcement. Based on various signals or conditions, Conditional Access can block or give limited access to resources, as shown here:
+ Conditional Access is used as the policy engine for a Zero Trust architecture that covers both policy definition and policy enforcement. Based on various signals or conditions, Conditional Access can block or give limited access to resources, as shown here:
 
  ![Diagram that provides an overview of the Conditional Access signal, decision, enforcement path.](./images/conditional-access-signals.png)
 
@@ -32,7 +32,7 @@ Non-human access to resources also must be protected. Currently, you need to pro
 ### Enterprise access model
 
 In the past, Microsoft provided guidance and principles for access to on-premises resources based on a tiering model: 
-- Tier 0: Domain controllers, PKI, Active Directory Federation Services (AD FS) servers and management solutions that manage these servers 
+- Tier 0: Domain controllers, public key infrastructure (PKI), Active Directory Federation Services (AD FS) servers and management solutions that manage these servers 
 - Tier 1: Servers that host applications 
 - Tier 2: Client devices 
 
@@ -60,62 +60,61 @@ You can extend the Azure Active Directory Conditional Access policy engine to ot
 
 ### Principles of Zero Trust
 
-The three main Zero-Trust principles that Microsoft defines seem to be understood, especially for security departments. However, sometimes, it is overlooked how important the usability is when designing Zero Trust solutions.
+The three main Zero Trust principles that Microsoft defines seem to be understood, especially by security departments. However, sometimes the importance of usability is overlooked during the design of Zero Trust solutions.
 
-Based on experiences from having worked with various enterprise customers, it seems that the three main Zero Trust principles that Microsoft defines are well understood and makes sense, especially for security departments. However, sometimes, it is overlooked how important the usability is when designing Zero Trust solutions.
+Usability should always be considered an implicit principle.
 
-The figure below emphasize that the usability should always be considered as an implicit principle and shows a few examples of where usability can be improved as you implement solutions based on Zero Trust.
+### Principles of Conditional Access
 
-### Conditional Access Principles
-
-Based on all this, we summarize the suggested principles. Microsoft recommends creating an access model based on Conditional Access that is aligned with Microsoft’s three main Zero Trust principles.
+Based on the preceding information, here's a summary of suggested principles. Microsoft recommends that you create an access model based on Conditional Access that's aligned with the three main Microsoft Zero Trust principles:
 
 **Verify explicitly**
 
-- Move control plane to the cloud (Integrate app with AAD and protect using Conditional Access)
-- Consider all clients as external (even so you are connected to Corp net)
-Least privileged access
-- Evaluate access based on compliance and risk (including user risk, sign-in risk and device risk)
-- Use the following access priorities
-  - Access the resource directly protected by Conditional Access
-  - Publish access to resource using Azure AD Application Proxy, protected by Conditional Access
-  - Use CA based VPN to get access to the resource, restrict access to be on a per-app/DNS name
-  
-**Assume Breach**
+- Move the control plane to the cloud. Integrate apps with Azure AD and protect them by using Conditional Access.
+- Consider all clients as external.
 
-- Segment network infrastructure
-- Minimize use of Enterprise PKI
-- Migrate SSO from ADFS to PHS
-- Minimize dependencies on DCs using “Cloud KDC” (Kerberos KDC provided in Azure AD)
-- Move management plane to the cloud (Manage devices with MEM)
+**Use least privileged access**
+- Evaluate access based on compliance and risk, including user risk, sign-in, risk and device risk.
+- Use these access priorities:
+  - Access the resource directly, protected by Conditional Access
+  - Publish access to the resource by using Azure AD Application Proxy, protected by Conditional Access.
+  - Use Conditional Access—based VPN to access the resource. Restrict access to the level of the app or DNS name.
 
-Further, some additional and more detailed principles and recommended practices for Conditional Access
+**Assume breach**
 
-- Apply Zero Trust principles to Conditional Access
+- Segment network infrastructure.
+- Minimize use of enterprise PKI.
+- Migrate single sign-on (SSO) from AD FS to password hash synchronization (PHS).
+- Minimize dependencies on DCs by using Kerberos KDC in Azure AD.
+- Move the management plane to the cloud. Manage devices by using Microsoft Endpoint Manager.
+
+Here are some more detailed principles and recommended practices for Conditional Access:
+
+- Apply Zero Trust principles to Conditional Access.
 - Use report-only mode before putting a policy into production.
-- Test both positive and negative scenarios
-- Use change and revision control on CA policies
-- Automate the management of CA policies using tools like Azure DevOps/GitHub or Logic Apps
-- Limited use of block mode for general access, only if/where needed
-- Assure all applications and platform are protected (CA has no implicit "deny all")
-- Protect privileged users in all M365 RBAC systems
-- Require password change and MFA for high-risk users and sign-ins
-- Restrict access from devices with high risk (Intune compliance policy with compliance check in Conditional Access)
-- Protect privileged systems (like Azure Mgt. Portal, AWS, GCP)
-- Prevent persistent browser sessions for admins and on untrusted devices
-- Block legacy authentication
-- Restrict access from unknown or unsupported device platforms
-- Restrict strong credential registration
-- Consider using default session policy that allows sessions to continue working in case of outage given the satisfied the conditions before the outage
+- Test both positive and negative scenarios.
+- Use change and revision control on Conditional Access policies.
+- Automate the management of Conditional Access policies by using tools like Azure DevOps / GitHub or Azure Logic Apps.
+- Use block mode for general access only if and where you need to.
+- Ensure all applications and your platform are protected. Conditional Access has no implicit "deny all."
+- Protect privileged users in all Microsoft 365 role-based access control (RBAC) systems.
+- Require password change and multi-factor authentication for high-risk users and sign-ins.
+- Restrict access from high-risk devices. Use an Intune compliance policy with a compliance check in Conditional Access.
+- Protect privileged systems, like the Azure portal, AWS, and GCP.
+- Prevent persistent browser sessions for admins and on untrusted devices.
+- Block legacy authentication.
+- Restrict access from unknown or unsupported device platforms.
+- Restrict strong credential registration.
+- Consider using default session policy that allows sessions to continue in the case of an outage, if the appropriate conditions were satisfied before the outage.
 
-## Design dependencies and related areas
+## Design dependencies and related technologies
 
-The figure below shows dependencies and related areas. Some of the areas are pre-requisites for CA and others are areas that depend on CA being in place. The design described in this document mainly focuses on CA itself and not on any of the related areas.
+The following diagram shows dependencies and related technologies. Some of the technologies are prerequisites for Conditional Access. Others depend on Conditional Access. The design described in this document mainly focuses on Conditional Access and not on the related technologies.
 
-![CA Dependencies](./images/conditional-access-dependencies.svg)
+![Diagram that shows Conditional Access dependencies.](./images/conditional-access-dependencies.png)
 
-## Next Steps
+## Next steps
 
-In the next sub-section we will look at the conceptual Conditional Access design based on Zero Trust and personas.
+[Conditional Access design based on Zero Trust and personas]
 
 ## Related resources
