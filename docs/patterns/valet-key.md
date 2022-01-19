@@ -148,7 +148,7 @@ public class SasController : ControllerBase
       return new StorageEntitySas
       {
           BlobUri = blobClient.Uri,
-          Credentials = sas
+          Credentials = blobSasBuilder.ToSasQueryParameters(storageSharedKeyCredential).ToString()
       };
   }
 
