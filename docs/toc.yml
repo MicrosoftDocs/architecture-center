@@ -2629,6 +2629,8 @@ items:
             items:
               - name: Automate multistage DevOps pipelines
                 href: example-scenario/devops/automate-azure-pipelines.yml
+              - name: Automated API deployments using APIOps
+                href: example-scenario/devops/automated-api-deployments-apiops.yml
               - name: Automated Jupyter Notebooks for diagnostics
                 href: example-scenario/data/automating-diagnostic-jupyter-notebook.yml
               - name: Azure DevTest Labs for enterprises
