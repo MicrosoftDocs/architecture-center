@@ -2,10 +2,10 @@
 metadata:
   title: Automated API deployments using APIOps
   titleSuffix: Azure Example Scenarios
-  description: Use APIOps with an API Management instance to build and deploy APIs. This solution provides self-service tools, auditing, policy enforcement, and early feedback.
+  description: Use APIOps with an Azure API Management instance to build and deploy APIs. This solution provides self-service tools, auditing, policy enforcement, and early feedback.
   author: rishabhsaha
   ms.author: risaha
-  ms.date: 01/07/2022
+  ms.date: 01/20/2022
   ms.topic: conceptual
   ms.service: architecture-center
   ms.subservice: example-scenario
