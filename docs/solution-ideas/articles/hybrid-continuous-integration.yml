@@ -17,7 +17,7 @@ metadata:
     - interactive-diagram
     - hybrid-infrastructure
     - e2e-hybrid
-  social_image_url: /azure/architecture/solution-ideas/articles/media/hybrid-pattern-cicd-pipeline.png
+  social_image_url: /azure/architecture/solution-ideas/articles/media/hybrid-continuous-integration.png
 azureCategories:
   - hybrid
   - devops
@@ -29,4 +29,4 @@ name: DevOps with Azure Stack Hub
 summary: Code from a single location and deploy to multiple targets in development, test, and production environments that may be in your local datacenter, private clouds, or the public cloud.
 thumbnailUrl: /azure/architecture/browse/thumbs/hybrid-pattern-cicd-pipeline.png
 content: |
-   [!include[](hybrid-pattern-cicd-pipeline-content.md)]
+   [!include[](hybrid-continuous-integration-content.md)]

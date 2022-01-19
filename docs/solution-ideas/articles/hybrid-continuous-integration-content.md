@@ -29,8 +29,8 @@ This solution isn't recommended:
 
 ## Architecture
 
-![Architecture diagram](../media/hybrid-pattern-cicd-pipeline.png)  
-_Download a [Visio file](https://arch-center.azureedge.net/hybrid-pattern-cicd-pipeline.vsdx) of this architecture._
+![Architecture diagram](../media/hybrid-continuous-integration.png)  
+_Download a [Visio file](https://arch-center.azureedge.net/hybrid-continuous-integration.vsdx) of this architecture._
 
 ### Dataflow
 

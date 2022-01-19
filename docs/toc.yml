@@ -3017,7 +3017,7 @@ items:
                   - name: Cross-cloud scaling
                     href: solution-ideas/articles/cross-cloud-scaling.yml
                   - name: DevOps with Azure Stack Hub
-                    href: solution-ideas/articles/hybrid-pattern-cicd-pipeline.yml
+                    href: solution-ideas/articles/hybrid-continuous-integration.yml
                   - name: Hybrid connections
                     href: solution-ideas/articles/hybrid-connectivity.yml
                   - name: Unlock legacy data with Azure Stack
