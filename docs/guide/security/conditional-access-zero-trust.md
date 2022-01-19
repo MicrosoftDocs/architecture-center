@@ -1,6 +1,6 @@
 ---
 title: Conditional Access overview
-description: Review a high-level design and framework for Azure AD Conditional Access. Conditional Access provides access to cloud services based on a zero-trust approach. 
+description: Review a high-level design and framework for Azure AD Conditional Access. Conditional Access provides access to cloud services based on a Zero-Trust approach. 
 author: clajes
 ms.author: clajes
 ms.date: 01/25/2022

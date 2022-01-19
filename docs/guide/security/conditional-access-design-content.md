@@ -1,24 +1,28 @@
+In this article, you'll learn about design principles and dependencies for a Conditional Access scenario that's based on Zero Trust.
+
 ## Design principles
 
-In this section we want to form the design principles to design the Conditional Access solution that meets the requirements and follow such principles.
+We'll start out with some design principles.
 
-### Conditional Access as Zero Trust policy engine
+### Conditional Access as a Zero-Trust policy engine
 
-Microsoft’s approach to Zero Trust includes Conditional Access as the main policy engine as shown in the figure below.
+The Microsoft approach to Zero Trust includes Conditional Access as the main policy engine. Here's an overview of that approach:
 
- ![Zero Trust Model](./images/zero-trust-model.png)
+ ![Diagram that provides an overview of the Zero Trust model.](./images/zero-trust-model.png)
 
- Conditional Access is used as the policy engine for a Zero Trust architecture covering both policy definition point as well as policy enforcement. Based on various signals/conditions, Conditional Access can decide to allow, block or give limited access to resources as shown below.
+visio 
 
- ![CA Signals](images/casignals.png)
+ Conditional Access is used as the policy engine for a Zero-Trust architecture that covers both policy definition and policy enforcement. Based on various signals or conditions, Conditional Access can block or give limited access to resources, as shown here:
 
- In the figure below we zoom even more in on the Conditional Access elements and what it covers.
+ ![Diagram that provides an overview of the Conditional Access signal, decision, enforcement path.](./images/conditional-access-signals.png)
 
- ![ZT User Access](media/ztuseraccess.png)
+ Here's a more detailed view of the elements of Conditional Access what it covers:
+
+ ![ZT User Access](./images/user-access.png)
 
  The figure shows Conditional Access and related elements that can protect access to resources for users (as opposed to non-interactive/non-human access) as shown in the figure below.
 
- ![CA Identity Types](media/caidentitytypes.svg)
+ ![CA Identity Types](./images/conditional-access-identity.svg)
 
 The non-human access to resources also must be protected. Expect this document to be changed to reflect any such potential changes in the CA policy engine as/if they arrive. Meanwhile, non-human identities accessing cloud resources must be protected by other means (like grant controls for OAuth based access).
 
@@ -36,7 +40,7 @@ This model is still relevant for on-premises resources, but when we discuss prot
 
 Based on these principles, Microsoft has formed the following the Enterprise Access Model shown below.
 
-![Enterprise Access Model](media/enterpriseaccessmodel.png)
+![Enterprise Access Model](./images/enterprise-access-model.png)
 
 The enterprise access model supersedes and replaces the legacy tier model that was focused on containing unauthorized escalation of privilege in an on-premises Windows Server Active Directory environment. Tier 0 expands to become the control plane, Tier 1 consists of the management and data plane and Tier 2 covers user and app access.
 
@@ -104,7 +108,7 @@ Further, some additional and more detailed principles and recommended practices 
 
 The figure below shows dependencies and related areas. Some of the areas are pre-requisites for CA and others are areas that depend on CA being in place. The design described in this document mainly focuses on CA itself and not on any of the related areas.
 
-![CA Dependencies](media/cadependencies.svg)
+![CA Dependencies](./images/conditional-access-dependencies.svg)
 
 ## Next Steps
 

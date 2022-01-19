@@ -1,7 +1,7 @@
 ### YamlMime:Architecture
 metadata:
   title: Conditional Access design principles and dependencies
-  description: Learn design principles and dependencies for a Conditional Access scenario that's based on zero trust. 
+  description: Learn design principles and dependencies for a Conditional Access scenario that's based on Zero trust. 
   author: clajes
   ms.author: clajes
   ms.date: 01/25/2022
@@ -20,7 +20,7 @@ azureCategories:
   - security
   - identity
 name: Conditional Access design principles and dependencies
-summary: Learn design principles and dependencies for a Conditional Access scenario that's based on zero trust. 
+summary: Learn design principles and dependencies for a Conditional Access scenario that's based on Zero Trust. 
 thumbnailUrl: /azure/architecture/browse/thumbs/zero-trust-model.png
 content: |
   [!include[](conditional-access-design-content.md)]
