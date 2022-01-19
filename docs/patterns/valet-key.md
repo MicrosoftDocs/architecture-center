@@ -117,7 +117,6 @@ public class SasController : ControllerBase
 {
    private readonly string blobContainer = "valetkeysample";
    private readonly string blobEndpoint;
-   private readonly IConfiguration configuration;
   ...
   /// <summary>
   /// Return a limited access key that allows the caller to upload a file
