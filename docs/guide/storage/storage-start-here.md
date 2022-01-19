@@ -25,15 +25,15 @@ ms.custom:
 
 # Storage architecture design
 
-The Azure Storage platform is the Microsoft cloud storage solution for modern data storage scenarios. Core storage services offer a massively scalable object store for data objects, disk storage for Azure virtual machines (VMs), a file system service for the cloud, a messaging store for reliable messaging, and a NoSQL store. 
+The Azure Storage platform is the Microsoft cloud storage solution for modern data storage scenarios.  
 
 The Azure Storage platform includes the following data services:
 
-- [Azure Blob Storage](/azure/storage/blobs/storage-blobs-introduction): A massively scalable object store for text and binary data. Also includes support for big data analytics through Azure Data Lake Storage Gen2.
-- [Azure Files](/azure/storage/files/storage-files-introduction): Managed file shares for cloud or on-premises deployments.
-- [Azure Queue Storage](/azure/storage/queues/storage-queues-introduction): A messaging store for reliable messaging between application components.
-- [Azure Table Storage](/azure/storage/tables/table-storage-overview): A NoSQL store for schemaless storage of structured data.
-- [Azure managed disks](/azure/virtual-machines/managed-disks-overview): Block-level storage volumes for Azure VMs.
+- [Azure Blob Storage](https://azure.microsoft.com/services/storage/blobs): A massively scalable object store for text and binary data. Also includes support for big data analytics through Azure Data Lake Storage Gen2.
+- [Azure Files](https://azure.microsoft.com/services/storage/files): Managed file shares for cloud or on-premises deployments.
+- [Azure Queue Storage](https://azure.microsoft.com/services/storage/queues): A messaging store for reliable messaging between application components.
+- [Azure Table Storage](https://azure.microsoft.com/services/storage/tables): A NoSQL store for schemaless storage of structured data.
+- [Azure Disk Storage](https://azure.microsoft.com/services/storage/disks): Block-level storage volumes for Azure VMs.
 
 ## Introduction to storage on Azure
 If you're new to storage on Azure, the best way to learn more is with [Microsoft Learn](/learn/?WT.mc_id=learnaka), a free online training platform. Microsoft Learn provides interactive learning for Microsoft products and more. Check out the 
@@ -87,7 +87,7 @@ See the following guides for information about Table Storage:
 - [Design scalable and performant tables](/azure/storage/tables/table-storage-design?toc=https%3A%2F%2Freview.docs.microsoft.com%2Fen-us%2Fazure%2Farchitecture%2Ftoc.json&bc=https%3A%2F%2Freview.docs.microsoft.com%2Fen-us%2Fazure%2Farchitecture%2Fbread%2Ftoc.json)
 - [Design for querying](/azure/storage/tables/table-storage-design-for-query?toc=https%3A%2F%2Freview.docs.microsoft.com%2Fen-us%2Fazure%2Farchitecture%2Ftoc.json&bc=https%3A%2F%2Freview.docs.microsoft.com%2Fen-us%2Fazure%2Farchitecture%2Fbread%2Ftoc.json)
 
-## Azure managed disks
+## Azure Disk Storage
 See the following guides for information about Azure managed disks:
 - [Server-side encryption of Azure Disk Storage](/azure/virtual-machines/disk-encryption?toc=https%3A%2F%2Freview.docs.microsoft.com%2Fen-us%2Fazure%2Farchitecture%2Ftoc.json&bc=https%3A%2F%2Freview.docs.microsoft.com%2Fen-us%2Fazure%2Farchitecture%2Fbread%2Ftoc.json)
 - [Azure Disk Encryption for Windows VMs](/azure/virtual-machines/windows/disk-encryption-overview?toc=https%3A%2F%2Freview.docs.microsoft.com%2Fen-us%2Fazure%2Farchitecture%2Ftoc.json&bc=https%3A%2F%2Freview.docs.microsoft.com%2Fen-us%2Fazure%2Farchitecture%2Fbread%2Ftoc.json)
