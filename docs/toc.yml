@@ -3774,7 +3774,7 @@ items:
       - name: Storage
         items:
           - name: Get started
-            href: solution-ideas/articles/storage-start-here.md
+            href: guide/storage/storage-start-here.md
           - name: Guides
             items: 
               - name: Storage accounts
