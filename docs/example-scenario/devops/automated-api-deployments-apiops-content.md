@@ -16,7 +16,7 @@ This solution benefits any organization that wants the advantages of deploying A
 
 :::image type="content" alt-text="Diagram of the architecture for automated API deployments using APIOps on Azure." source="media/automated-api-deployments-architecture-diagram.png" lightbox="media/automated-api-deployments-architecture-diagram.png":::
 
-Download a [Visio file](https://arch-center.azureedge.net/automated-api-deployments-apiops-architecture-diagram.vsdx) of this architecture.
+_Download a [Visio file](https://arch-center.azureedge.net/automated-api-deployments-apiops-architecture-diagram.vsdx) of this architecture._
 
 ### Workflow
 
@@ -40,22 +40,19 @@ This solution uses [Azure Repos](/azure/devops/repos/?view=azure-devops) to prov
 
 9.  After the changes are merged, the publishing pipeline deploys the changes by using the same process that was used for API definitions.
 
-
-
 ### Components
 
 The solution has the following components:
 
-- [Azure API Management](/services/api-management/#overview) creates consistent, modern API gateways for back-end services. Besides routing API calls to back ends, this platform also verifies credentials, enforces usage quotas, and logs metadata.
+- [Azure API Management](https://azure.microsoft.com/services/api-management) creates consistent, modern API gateways for back-end services. Besides routing API calls to back ends, this platform also verifies credentials, enforces usage quotas, and logs metadata.
 
-- [Azure DevOps](/azure/devops/?view=azure-devops) is a service for managing your development lifecycle end-to-end—from planning and project management, to code management, and continuing to build and release.
+- [Azure DevOps](https://azure.microsoft.com/solutions/devops) is a service for managing your development lifecycle end-to-end—from planning and project management, to code management, and continuing to build and release.
 
 - [API Management DevOps Resource Kit](https://github.com/Azure/azure-api-management-devops-resource-kit) provides guidance, examples, and tools to help you achieve API DevOps with Azure API Management. 
 
-- [Azure Pipelines](/services/devops/pipelines) enables continuous integration (CI) and continuous delivery (CD) to test and build your code and ship it to any target.
+- [Azure Pipelines](https://azure.microsoft.com/services/devops/pipelines) enables continuous integration (CI) and continuous delivery (CD) to test and build your code and ship it to any target.
 
 - [Azure Repos](/services/devops/repos) is a set of version control tools, including standard Git, that you can use to manage your code.
-
 
 ### Alternatives
 
@@ -161,7 +158,6 @@ Deploying this solution involves these steps:
 
   After this pipeline runs successfully, all the changes are published into the API Management instance.
 
-
 ## Pricing
 
 - Use the [Azure pricing calculator](https://azure.microsoft.com/en-us/pricing/calculator) to estimate costs.
@@ -172,7 +168,7 @@ Deploying this solution involves these steps:
 
 ## Next steps
 
-- [Azure Pipelines](/azure/devops/pipelines/get-started/what-is-azure-pipelines?view=azure-devops)
+- [Azure Pipelines](/azure/devops/pipelines/get-started/what-is-azure-pipelines)
 - [API Management DevOps Resource Kit](https://github.com/Azure/azure-api-management-devops-resource-kit)
 - [CI/CD for API Management using Azure Resource Manager templates](/azure/api-management/devops-api-development-templates)
 - [Guide to GitOps](https://www.weave.works/technologies/gitops)
@@ -184,4 +180,3 @@ Deploying this solution involves these steps:
 - [Migrate a web app using Azure API Management](../apps/apim-api-scenario.yml)
 - [Protect APIs with Application Gateway and API Management](../../reference-architectures/apis/protect-apis.yml)
 - [Publish internal APIs to external users](../apps/publish-internal-apis-externally.yml)
-
