@@ -14,9 +14,7 @@ The Container Apps service is a solution for microservice applications that bene
 
 ## Architecture
 
-_Architecture diagram goes here_
-
-_Download Visio/PPT_
+![Microservices Deployed with Container Apps](./media/microservices-with-container-apps-diagram.png)
 
 ### Workflow
 
@@ -46,7 +44,7 @@ This solution uses the following Azure components:
 
 **[Azure Cache for Redis](https://azure.microsoft.com/services/cache)** adds a caching layer to the application architecture to improve speed and performance for heavy traffic loads.
 
-**[Azure Monitor](/azure/azure-monitor)** collects and stores metrics and logs. Use this data to monitor the application, set up alerts and dashboards, and do root cause analysis of failures.
+**[Azure Monitor](/azure/azure-monitor)** collects and stores metrics and logs. Use this data to monitor the application, set up alerts and dashboards, and do root cause analysis of failures.  This scenario uses a Log Analytics workspace for comprehensive monitoring of the application.
 
 ### Alternatives
 
