@@ -3776,7 +3776,7 @@ items:
           - name: Get started
             href: guide/storage/storage-start-here.md
           - name: Guides
-            items: 
+            items:
               - name: Storage accounts
                 href: /azure/storage/common/storage-account-overview
                 maintainContext: true
