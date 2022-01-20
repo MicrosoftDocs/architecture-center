@@ -27,7 +27,7 @@ categories:
 
 # Solutions for the travel and hospitality industry
 
-Travel and hospitality are trillion-dollar industries in just the United States. Travel and hospitality companies are investing in newer products and technologies, looking for that competitive edge. Cloud technology offers innovative, affordable, and versatile solutions. With integrated solutions, services, and templates—Azure gives developers and IT professionals the ability to create and manage the Internet of Things (IoT), mobile devices, and web solutions through their existing knowledge by using familiar technologies.
+Travel and hospitality are trillion-dollar industries in just the United States alone. Travel and hospitality companies are investing in newer products and technologies, looking for that competitive edge. Cloud technology offers innovative, affordable, and versatile solutions. With integrated solutions, services, and templates—Azure gives developers and IT professionals the ability to create and manage the Internet of Things (IoT), mobile devices, and web solutions through their existing knowledge by using familiar technologies.
 
 Azure has the flexibility and scalability to handle the challenges faced in the travel and hospitality industries.  Azure offers the following solutions:
 
@@ -37,7 +37,7 @@ Azure has the flexibility and scalability to handle the challenges faced in the 
 - Build, deploy, and manage apps.  Customize your cloud software to meet your needs.
 - Improve customer service and uncover new business opportunities by using built-in support for analyzing data and key insights.
 
-The following video shows how Azure can optimize your guests experiences.
+The following video shows how Azure can optimize your guest experience.
 
 <BR>
 
