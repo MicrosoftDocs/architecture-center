@@ -8,7 +8,7 @@ editor: marktab
 ms.service: machine-learning
 ms.subservice: team-data-science-process
 ms.topic: article
-ms.date: 01/10/2020
+ms.date: 01/20/2022
 ms.author: tdsp
 ms.custom:
   - previous-author=deguhath
@@ -17,7 +17,8 @@ products:
   - azure-machine-learning
 categories:
   - ai-machine-learning
----
+ROBOTS: NOINDEX
+--
 
 # Azure Synapse Analytics data science walkthroughs using T-SQL and Python on Azure
 
