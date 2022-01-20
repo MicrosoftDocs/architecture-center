@@ -61,7 +61,7 @@ The following articles provide detailed analysis of architectures created and re
 |[Custom business processes for airlines](../solution-ideas/articles/custom-business-processes.yml)|Monitor customer flight data, when a traveller selects or is assigned a flight.|Integration|
 |[Data science and machine learning with Azure Databricks](../solution-ideas/articles/azure-databricks-data-science-machine-learning.yml)|Improve efficiency, enhance customer experiences, and predict changes in your business with data science and machine learning.|AI|
 |[Migrate a web app using Azure API Management](../example-scenario/apps/apim-api-scenario.yml)|Migrate from your legacy web applications by using Azure API Management.|Web|
-|[Predictive aircraft engine monitoring](/solution-ideas/articles/aircraft-engine-monitoring-for-predictive-maintenance-in-aerospace.yml)|Combine real-time aircraft data with analytics to create a solution for predictive aircraft engine monitoring and health.|Analytics|
+|[Predictive aircraft engine monitoring](../solution-ideas/articles/aircraft-engine-monitoring-for-predictive-maintenance-in-aerospace.yml)|Combine real-time aircraft data with analytics to create a solution for predictive aircraft engine monitoring and health.|Analytics|
 
 ## Solution ideas for travel and hospitality
 
