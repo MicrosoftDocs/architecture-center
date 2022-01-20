@@ -1,66 +1,40 @@
----
-title: Conditional Access architecture and personas
-description: Conditional Access architecture and personas defined using access cards
-author: clajes
-ms.author: clajes
-ms.date: 12/12/2021
-ms.topic: conceptual
-ms.service: architecture-center
-ms.subservice: azure-guide
-products:
-  - azure-active-directory
-  - m365-threat-protection 
-  - mdatp
-  - m365-ems
-  - m365-ems-cloud-app-security
-  - mem
-categories:
-  - Security
-  - Identity
-ms.custom: fcp
----
+This article describes a Conditional Access architecture that adheres to Zero Trust principles. The architecture uses a persona-based approach to form a structured Conditional Access framework.
 
-# Conditional Access architecture
+## Conditional Access Zero Trust architecture
 
-In this section we describe a Conditional Access architecture that adheres til Zero Trust principles using on a Persona based approach to form a structured Conditional Access framework.
+You first need to choose an architcture. We recommend that you consider either a Targeted or a Zero Trust Conditional Access architecture. This diagram shows the corresponding settings:
 
+![Diagram that shows the settings for Targeted and Zero Trust architectures.](images/conditional-access-architecture.png)
 
-## Conditional Access Zero Trust Architecture
+The Zero Trust Conditional Access architecture is the one that best fits the principles of Zero Trust. If you select the **All cloud apps** option in a Conditional Access policy, all endpoints are protected by the given grant controls, like known user and known or compliant device. But the policy doesn't just apply to the endpoints and apps that support Conditional Access. It applies to any endpoint that the user interacts with.
 
-An important consideration is to choose which architecture the customer wants to pursue. We suggest considering using a Targeted or a Zero Trust CA Architecture. The figure below shows the idea of the two architectures.
+An example is a device-login flow endpoint that's used in various new PowerShell and Microsoft Graph tools. Device-login flow provides a way to allow sign-in from a device on which it's not possible to show a sign-in screen, like on an IoT device.
 
-![CAZerotrustarchitecture](media/CAzerotrustarchitecture.svg)
+A device-based sign-in command is run on the given device, and a code is shown to the user. This code is used on another device. The user goes to https://aka.ms/devicelogin and specifies their user name and password. After sign-in from the other device, the sign-in succeeds on the IoT device in that user context.
 
-The Zero Trust CA architecture is the one that best fits the principles of Zero Trust (hence the wording). Choosing "All cloud apps" in a CA policy implies that all endpoints are protected by the given grant controls, like known user and known or compliant device. However, the policy applies not only the endpoints/apps that support Conditional Access, but any endpoint that the end-user interacts with.
+The challenge with this sign-in is that it doesn't support device-based Conditional Access. This means that nobody can use the tools and commands if you apply a baseline policy for all cloud apps that requires known user and known device. There are other applications that have the same problem with device-based Conditional Access.
 
-An example is a device login flow endpoint that is being used in various new PowerShell and Graph tools. Device login flow is a way of allowing login from a device where it is not possible to show a login screen, like on an IOT device.
+The other architecture, the Targeted one, is built on the principle that you target only individual apps that you want to protect in Conditional Access policies. In this case, endpoints like device-login endpoints aren't protected by the Conditional Access policies, so they continue to work.
 
-The mechanism is that a device-based login command is executed on the given device and a code is shown to the user. This code is used on another device where the user goes to "https://aka.ms/devicelogin" and specifies the user and password for the user. After login from the other device, the login succeeds on the IOT device in that user context.
+The challenge with this architecture is that you might forget to protect all your cloud apps. The number of Office 365 and Azure Active Directory (Azure AD) apps increases over time as Microsoft and partners release new features and as your IT admins integrate various applications with Azure AD.
 
-The challenge with this login is that it (in nature) does not support device based Conditional Access, which means that no-one can use such tools/commands if we apply a baseline policy for all cloud apps requiring known user and known device. There are other applications that have the same issue with Device Based Conditional Access.
+Access to all such applications is protected only if you have a mechanism that detects any new app that supports Condition Access and automatically applies a policy to them. Creating and maintaining such a script could be challenging.
 
-The other architecture, "Targeted architecture", built on the principle that you only target individual apps in CA policies that you want to protect. In this case, endpoints like device-login endpoint are not subjective to the CA policies and hence will continue to work.
+Also, the maximum supported number of apps for any one Conditional Access policy is approximately 250. You might be able to add as many as 600 apps before you get a technical error about payload being exceeded, but that number isn't supported.
 
-The challenge using this architecture is that you may forget to protect all cloud apps. The number of Office 365 and Azure AD apps increase over time as Microsoft or partners release new features or your IT admins integrate various applications with Azure AD.
+## Conditional Access personas
 
-Access to all such applications will only be protected if you have a mechanism that detects any new app that supports CA and automatically apply a policy to them. Creating and maintaining such a script is a task not to be underestimated.
+There are many ways to structure Condtional Access policies. One approach is to structure policies based on the sensitivity of the resource being accessed. In practice, this approach can be challenging to implement and while still protecting access to resources for various users. 
 
-Also notice that it is only supported to have about 250 apps included in one CA policy. In some cases we have found that you can have up to 600 apps in one policy before you may get a technical error about payload being exceeded, but that is not supported.
+For example, you could define a Conditional Access policy that requires a known user and a known device for access to a sensitive resource that must be accessed by both guests and employees. When guests come from a managed device, the access request won't work. You'd need to adjust the Condtional Access policy to meet both requirements, which typically would result in a policy that meets the less secure requrement.
 
+Another approach would be to try to define access policies based on where you are in the organization. This approach could result in many Conditional Acceess policies and might be unmanageable.
 
-## CA Personas
+A better approach is to structure policies related to common access needs and contain a set of access needs in a persona that represents these needs for various users who have the same needs. Personas are identity types that share common enterprise attributes, responsibilities, experiences, objectives, and access.
 
-There have been (and still are) many ways of structuring CA policies. One approach is to structure CA policies based on sensitivity of the resource being accessed. In practice this approach has proven to be very challenging to implement and still protect access to resources for various users. 
+Understanding how enterprise assets and resources are accessed by various personas is integral to developing a comprehensive Zero Trust strategy.
 
-An example would be to define a CA policy that requires known user and known device for access to a sensitive resource that must be accessed by both guests and employees. As guests come from a managed device, this would not work and you would have to adjust the CA policy to meet both requirements, with typically would result in a policy that only meets lowest denominator (implies less secure).
-
-Another approach would be to look at the organization and try to define access policies based on where you are in the organization. However this approach would result in way too many CA policies and seems unmanageable.
-
-A better approach is to structure policies related to common access needs and contain a set of access needs in a persona, representing these needs for various users who have the same needs. Personas are identity types that share common enterprise attributes, responsibilities, experiences, objectives, and access.
-
-We want to emphasize that understanding how enterprise assets and resources are accessed by various personas is integral to developing a comprehensive Zero Trust strategy.
-
-Some suggested CA personas from Microsoft are shown in the figure below.
+Some suggested Conditional Access personas from Microsoft are shown here:
 
 ![CA Sample Personas](media/casamplepersonas.png)
 
