@@ -3979,6 +3979,8 @@ items:
                 href: example-scenario/private-web-app/private-web-app.yml
       - name: Storage
         items:
+          - name: Get started
+            href: guide/storage/storage-start-here.md
           - name: Guides
             items:
               - name: Storage accounts
