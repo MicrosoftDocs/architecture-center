@@ -18,7 +18,7 @@ products:
 categories:
   - ai-machine-learning
 ROBOTS: NOINDEX
---
+---
 
 # Azure Synapse Analytics data science walkthroughs using T-SQL and Python on Azure
 
