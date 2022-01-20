@@ -11,10 +11,6 @@ metadata:
   ms.custom: fcp
 products:
   - azure-active-directory
-  - m365-threat-protection 
-  - mdatp
-  - m365-ems
-  - m365-ems-cloud-app-security
   - mem
 azureCategories:
   - security

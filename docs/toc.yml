@@ -3073,6 +3073,10 @@ items:
                     href: multitenant-identity/client-certificate.md
                   - name: Federate with a customer's AD FS
                     href: multitenant-identity/adfs.md
+              - name: Conditional Access
+                items: 
+                  -name: Conditional Access design principles
+                   href: guide/security/conditional-access-design.yml
               - name: Integrate on-premises AD with Azure
                 href: reference-architectures/identity/index.yml
               - name: Deployment guidance
