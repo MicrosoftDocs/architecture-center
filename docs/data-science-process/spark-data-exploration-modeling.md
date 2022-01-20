@@ -8,7 +8,7 @@ editor: marktab
 ms.service: machine-learning
 ms.subservice: team-data-science-process
 ms.topic: sample
-ms.date: 06/03/2020
+ms.date: 01/20/2022
 ms.author: tdsp
 ms.custom:
   - previous-author=deguhath
@@ -18,6 +18,7 @@ products:
   - azure-machine-learning
 categories:
   - ai-machine-learning
+ROBOTS: NOINDEX
 ---
 # Data exploration and modeling with Spark
 
