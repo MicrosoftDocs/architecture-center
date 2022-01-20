@@ -41,7 +41,11 @@ The following video shows how Azure can optimize your guests experiences.
 
 <BR>
 
-> [!VIDEO https://www.youtube.com/watch?v=EHNBvshgNbA]
+<!-- markdownlint-disable MD034 -->
+
+> [!VIDEO https://www.youtube.com/embed/EHNBvshgNbA]
+
+<!-- markdownlint-enable MD034 -->
 
 <BR>
 
