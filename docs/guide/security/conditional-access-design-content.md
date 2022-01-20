@@ -18,13 +18,13 @@ The Microsoft approach to Zero Trust includes Conditional Access as the main pol
 
  Here's a more detailed view of the elements of Conditional Access and what it covers:
 
- ![Diagram that shows a more detailed view of Conditional Access.](./images/user-access.png)
+:::image type="content" source="./images/user-access.png" alt-text="Diagram that shows a more detailed view of Conditional Access." lightbox="./images/user-access.png" border="false":::
 
  This diagram shows Conditional Access and related elements that can help protect user access to resources, as opposed to non-interactive or non-human access. The following diagram describes both types of identities: 
 
  ![Diagram that describes Conditional Access identity types.](./images/conditional-access-identity.svg)
 
-Non-human access to resources must also be protected. Currently, you need to protect non-human access to cloud resources by other means, like grant controls for OAuth-based access.
+Non-human access to resources must also be protected. Currently, you can't use Conditional Access to protect non-human access to cloud resources. You need to use another method, like grant controls for OAuth-based access.
 
 > [!NOTE] 
 > Functionality for targeting service principals and helping to protect access to resources for machine or workload identities based on location is currently in preview. See [Conditional Access design based on Zero Trust and personas](/azure/architecture/guide/security/conditional-access-architecture) for details.
@@ -46,7 +46,7 @@ Based on these principles, Microsoft created the following enterprise access mod
 
 ![Diagram that outlines the enterprise access model.](./images/enterprise-access-model.png)
 
-The enterprise access model replaces the legacy tier model, which focused on containing unauthorized escalation of privilege in an on-premises Windows Server Active Directory environment. Tier 0 expands to become the control plane, Tier 1 consists of the management and data plane, and Tier 2 covers user and app access.
+The enterprise access model replaces the legacy tier model, which focused on containing unauthorized escalation of privilege in an on-premises Windows Server Active Directory environment. In the new model, Tier 0 expands to become the control plane, Tier 1 consists of the management and data plane, and Tier 2 covers user and app access.
 
 Microsoft recommends moving control and management into cloud services that use Conditional Access as the main control plane and policy engine, thus defining and enforcing access.
 
