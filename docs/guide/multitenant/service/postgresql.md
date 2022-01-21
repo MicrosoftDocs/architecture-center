@@ -31,7 +31,7 @@ Many multitenant solution on Azure leverage the open-source relational database 
 There are three deployment modes available for Azure Database for PostgreSQL that are suitable for use with multitenant applications:
 
 - [Single Server](/azure/postgresql/single-server/) - The basic PostgreSQL service that has a broad set of supported features and [service limits](/azure/postgresql/concepts-limits).
-- [Flexible Server](/azure/postgresql/flexible-server/) - Supports higher [service limits](azure/postgresql/flexible-server/concepts-limits) and larger SKUs than single server. This is a good choice for most multitenant deployments that don't require the very high scalability provided by Hyperscale (Citus).
+- [Flexible Server](/azure/postgresql/flexible-server/) - Supports higher [service limits](/azure/postgresql/flexible-server/concepts-limits) and larger SKUs than single server. This is a good choice for most multitenant deployments that don't require the very high scalability provided by Hyperscale (Citus).
 - [Hyperscale (Citus)](/azure/postgresql/hyperscale/) - Azure managed database service designed for multitenant solutions by providing horizontal scaling with sharding.
 
 ## Features of Azure Database for PostgreSQL that support multitenancy
@@ -72,3 +72,7 @@ More information:
 - [PgBouncer in Azure Database for PostgreSQL - Flexible Server](/azure/postgresql/hyperscale/concepts-connection-pool)
 - [Azure Database for PostgreSQL – Hyperscale (Citus) connection pooling](/azure/postgresql/flexible-server/concepts-pgbouncer)
 - [Steps to install and setup PgBouncer connection pooling proxy with Azure DB for PostgreSQL](https://techcommunity.microsoft.com/t5/azure-database-for-postgresql/steps-to-install-and-setup-pgbouncer-connection-pooling-proxy/ba-p/730555)
+
+## Next steps
+
+Review [storage and data approaches for multitenancy](../approaches/storage-data.md).

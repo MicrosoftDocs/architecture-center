@@ -330,7 +330,7 @@ items:
                   - name: Azure Cosmos DB
                     href: guide/multitenant/service/cosmos-db.md
                   - name: Azure Database for PostgreSQL
-                    href: guide/multitenant/service/postgressql.md
+                    href: guide/multitenant/service/postgresql.md
           - name: Related resources
             href: guide/multitenant/related-resources.md
       - name: Cloud comparisons
