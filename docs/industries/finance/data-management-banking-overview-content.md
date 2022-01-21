@@ -1,17 +1,3 @@
----
-# required metadata
-title: Data management in banking
-author: dstarr
-ms.author: dastarr
-ms.date: 11/20/2019
-ms.topic: article
-ms.service: industry
-description: Describes techniques of managing data in a regulated banking environment using Microsoft Azure.
----
-# Data management in banking
-
-## Introduction
-
 Banks today carry responsibility for securing and storing enormous amounts of
 valuable information within their firewalls, both about their customers and
 about the shifting financial landscape. In many cases that information goes

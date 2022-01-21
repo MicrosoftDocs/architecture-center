@@ -1,15 +1,3 @@
----
-# required metadata
-title: Risk grid computing solution
-author: dstarr
-ms.author: dastarr
-ms.date: 11/20/2019
-ms.topic: article
-ms.service: industry
-description: Introduces technical aspects of implementing Azure Batch for Risk Grid Computing in Banking. 
----
-# Risk grid computing solution
-
 This article provides a technical overview of using Microsoft Azure to support and enhance risk grid computing in banking, including recommended systems and high-level architectures.
 
 This document is intended for Solution Architects, and in some cases Technical Decision Makers, who want a deep dive on proposed solutions for risk computing.

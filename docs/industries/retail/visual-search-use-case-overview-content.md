@@ -1,18 +1,3 @@
----
-# required metadata
-title: Visual search in retail with CosmosDB
-author: scseely
-ms.author: scseely
-ms.date: 11/20/2019
-ms.topic: article
-ms.service: industry
-description: This article explains the phases of migrating ecommerce infrastructure from on premises to Azure.
----
-
-# Visual search in retail with CosmosDB
-
-## Executive Summary
-
 Artificial Intelligence offers the potential to transform retailing as we know it today. It is reasonable to believe that retailers will develop a customer experience architecture supported by AI. Some expectations are that a platform enhanced with AI will provide a revenue bump due to hyper personalization. Digital commerce continues to heighten customer expectations, preferences and behavior. Demands such as real-time engagement, relevant recommendations and hyper-personalization are driving speed and convenience at a click of a button. Enabling intelligence in applications through natural speech, vision, etc. enables improvements in retail that will increase value while disrupting how customers shop.
 
 This document focuses on the AI  concept of **visual search** and offers a few key considerations on its implementation. It provides a workflow example and maps its stages to the relevant Azure technologies. The concept is based on a customer being able to leverage an image taken with their mobile device or located on the internet to conduct a search of relevant and/or like items, depending upon the intention of the experience. Thus, visual search improves speed from texted entry to an image with multiple meta-data points to quickly surface applicable items available.

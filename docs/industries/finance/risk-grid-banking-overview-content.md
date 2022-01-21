@@ -1,17 +1,3 @@
----
-# required metadata
-title: Risk grid computing in banking
-author: dstarr
-ms.author: dastarr
-ms.date: 11/20/2019
-ms.topic: article
-ms.service: industry
-description: Presents the business considerations of implementing Risk Grid Computing in Banking on Azure.
----
-# Risk grid computing in banking
-
-## Introduction
-
 In corporate finance and investment banking, one of the most important jobs is analyzing risk.
 
 To provide a comprehensive picture of the risk associated with an investment portfolio, financial risk analysts review research, monitor economic and social conditions, stay abreast of regulations, and create computer models of the investment climate.

@@ -493,6 +493,8 @@ items:
                 href: reference-architectures/ai/real-time-recommendation.yml
               - name: Content-based recommendation
                 href: example-scenario/ai/scalable-personalization-with-content-based-recommendation-system.yml
+              - name: Data management in retail
+                href: industries/retail/retail-data-management-overview.md
               - name: E-commerce front end
                 href: example-scenario/apps/ecommerce-scenario.yml
               - name: Hybrid AI footfall detection for retail
@@ -502,12 +504,20 @@ items:
                 href: example-scenario/apps/ecommerce-search.yml
               - name: Magento e-commerce platform in AKS
                 href: example-scenario/magento/magento-azure.yml
+              - name: Migrate your e-commerce solution to Azure
+                href: industries/retail/migrate-ecommerce-solution.md
               - name: Movie recommendations on Azure
                 href: example-scenario/ai/movie-recommendations-with-machine-learning.yml
+              - name: Optimize and reuse an existing recommendation system
+                href: industries/retail/recommendation-engine-optimization.yml
               - name: Retail - Buy online, pickup in store
                 href: example-scenario/iot/vertical-buy-online-pickup-in-store.yml
               - name: Scalable order processing
                 href: example-scenario/data/ecommerce-order-processing.yml
+              - name: SKU optimization for consumer brands
+                href: industries/retail/sku-optimization-solution-guide.yml
+              - name: Visual search in retail with Cosmos DB
+                href: industries/retail/visual-search-use-case-overview.yml
       - name: Finance
         items:
           - name: Overview
@@ -547,10 +557,16 @@ items:
             items:
               - name: All finance architectures
                 href: /azure/architecture/browse/?terms=finance
+              - name: Actuarial risk analysis and financial modeling
+                href: industries/finance/actuarial-risk-analysis-financial-model.yml
               - name: Banking system cloud transformation
                 href: example-scenario/banking/banking-system-cloud-transformation.yml
+              - name: Data management in banking
+                href: industries/finance/data-management-banking-overview.yml
               - name: Decentralized trust between banks
                 href: example-scenario/apps/decentralized-trust.yml
+              - name: Enable the financial services risk lifecycle with Azure and R
+                href: industries/finance/financial-risk-model.md
               - name: Modernize mainframe & midrange data
                 href: reference-architectures/migration/modernize-mainframe-data-to-azure.yml
               - name: Patterns and implementations in banking
@@ -559,6 +575,10 @@ items:
                 href: example-scenario/data/fraud-detection.yml
               - name: Replicate and sync mainframe data in Azure
                 href: reference-architectures/migration/sync-mainframe-data-with-azure.yml
+              - name: Risk grid computing in banking
+                href: industries/finance/risk-grid-banking-overview.yml
+              - name: Risk grid computing solution
+                href: industries/finance/risk-grid-banking-solution-guide.yml
               - name: Scale regulated AI and ML in finance
                 href: example-scenario/ai/scale-ai-and-machine-learning-in-regulated-industries.yml                
               - name: SWIFT on Azure
@@ -655,6 +675,8 @@ items:
                 href: example-scenario/digital-health/health-portal.yml
               - name: Health data consortium
                 href: example-scenario/data/azure-health-data-consortium.yml
+              - name: Implement the Azure healthcare blueprint for AI
+                href: industries/healthcare/healthcare-ai-blueprint.yml
               - name: Population health management
                 href: solution-ideas/articles/population-health-management-for-healthcare.yml
               - name: Predict hospital readmissions with ML
@@ -863,8 +885,16 @@ items:
                 href: solution-ideas/articles/connected-factory-hierarchy-service.yml
               - name: Connected factory signal pipeline
                 href: example-scenario/iot/connected-factory-signal-pipeline.yml
+              - name: Extract actionable insights from IoT data
+                href: industries/manufacturing/extract-insights-iot-data.yml
+              - name: Introduction to predictive maintenance
+                href: industries/manufacturing/predictive-maintenance-overview.yml
+              - name: Predictive maintenance in manufacturing
+                href: industries/manufacturing/compute-manufacturing-overview.yml
               - name: Predictive maintenance with IoT
                 href: example-scenario/predictive-maintenance/iot-predictive-maintenance.yml
+              - name: Predictive maintenance solution
+                href: industries/manufacturing/predictive-maintenance-solution.yml
               - name: Quality assurance
                 href: solution-ideas/articles/quality-assurance.yml
               - name: Supply chain track and trace

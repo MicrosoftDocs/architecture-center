@@ -1,16 +1,3 @@
----
-# required metadata
-title: Reuse recommender systems, and algorithms from R with Azure
-author: kbaroni
-ms.author: kbaroni
-ms.date: 11/20/2019
-ms.topic: article
-ms.service: industry
-description: How to reuse and optimize recommendation apps written in the R language. Relies Machine Learning Server on a Azure VMs.
----
-
-# Optimize and reuse an existing recommendation system  
-
 This document describes the process of successfully reusing and improving an existing recommendation system written in R. The key to this was the parallelism of the MicrosoftML and RevoScaleR libraries built into Microsoft Machine Learning Server.
 
 ## Recommendation systems and R

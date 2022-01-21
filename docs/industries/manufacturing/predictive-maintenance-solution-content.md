@@ -1,18 +1,3 @@
----
-# required metadata
-title: Predictive maintenance solution
-author: ercenk
-ms.author: ercenk
-ms.date: 11/20/2019
-ms.topic: article
-ms.service: industry
-description: Solution description of how to develop Predictive Maintenance for Manufacturing customers on Azure.
----
-# Predictive maintenance solution
-
-
-## Introduction
-
 Predictive maintenance uses a combination of sensors, artificial intelligence, and data science to optimize equipment maintenance. Anticipating equipment maintenance needs to minimize maintenance costs and maximize uptime provides significant value to manufacturers.
 
 Data lies at the heart of the solution. The data needs to have adequate failure indicators, as well as other aspects that describe the context. It can come from multiple sources, such as sensors, machine logs, and manufacturing application logs.

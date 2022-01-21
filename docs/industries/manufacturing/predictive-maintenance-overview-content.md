@@ -1,18 +1,3 @@
----
-# required metadata
-title: Introduction to predictive maintenance in manufacturing
-author: scseely
-ms.author: scseely
-ms.date: 11/20/2019
-ms.topic: article
-ms.service: industry
-description: Overview of how to develop Predictive Maintenance (PdM) for Manufacturing customers on Azure.
----
-
-# Predictive Maintenance in Manufacturing Overview
-
-## Introduction
-
 Predictive Maintenance (PdM) anticipates maintenance needs to avoid costs associated with unscheduled downtime. By connecting to devices and monitoring the data the devices produce, you can identify patterns that lead to potential problems or failures. You can then use these insights to address issues before they happen. This ability to predict when equipment or assets need maintenance allows you to optimize equipment lifetime and minimize downtime.
 
 PdM extracts insights from the data produced by the equipment on the shop floor and acts on these insights. The idea of PdM goes back to the early 1990&#39;s and augments regularly scheduled, preventive maintenance. Early on, the lack of availability of sensors generating data as well as a lack of computational resources for gathering and analyzing the data made it difficult to implement PdM. Today, advances in the Internet of Things (IoT), cloud computing, data analytics, and Machine Learning (ML) are enabling predictive maintenance to go mainstream.

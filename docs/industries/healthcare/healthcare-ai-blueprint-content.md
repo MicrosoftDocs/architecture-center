@@ -1,17 +1,3 @@
----
-# required metadata
-title: Implement the Azure healthcare blueprint for AI
-author: dstarr
-ms.author: dastarr
-ms.date: 11/20/2019
-ms.topic: article
-ms.service: industry
-description: This article provides guidance for the Microsoft Azure blueprint for AI.
----
-# Implement the Azure healthcare blueprint for AI
-
-## Introduction
-
 Healthcare organizations are realizing that AI (Artificial Intelligence) and ML (machine learning) can be valuable tools for many parts of their business, from improving patient outcomes to streamlining daily operations. Often, healthcare organizations do not have the technology staff to implement AI/ML systems. To improve this situation and get AI/ML solutions running on Azure quickly, Microsoft created the [Azure healthcare AI blueprint](/azure/security/blueprints/azure-health?WT.mc_id=ms-docs-dastarr). Using the blueprint, we show how to get started with AI/ML quickly in a safe, compliant, secure, and reliable way.
 
 The health blueprint for AI bootstraps AI/ML into your organization using Azure. This article describes installing the blueprint, its components, and how to use it to run an AI/ML experiment that predicts a patient’s length of stay.

@@ -1,0 +1,23 @@
+### YamlMime:Architecture
+metadata:
+  title: Introduction to predictive maintenance in manufacturing
+  description: Overview of how to develop Predictive Maintenance (PdM) for Manufacturing customers on Azure.
+  author: scseely
+  ms.author: scseely
+  ms.date: 11/20/2019
+  ms.topic: conceptual
+  ms.service: architecture-center
+  ms.subservice: azure-guide
+azureCategories:
+  - iot
+products:
+  - azure-data-lake-storage
+  - azure-event-hubs
+  - azure-iot-hub
+  - azure-iot-edge
+  - azure-machine-learning
+name: Introduction to predictive maintenance in manufacturing
+summary: Overview of how to develop Predictive Maintenance (PdM) for Manufacturing customers on Azure.
+thumbnailUrl: /azure/architecture/browse/thumbs/data-science-diagram.png
+content: |
+  [!include[](predictive-maintenance-overview-content.md)]

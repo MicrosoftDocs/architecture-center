@@ -1,17 +1,3 @@
----
-# required metadata
-title: Predictive maintenance in manufacturing 
-author: ercenk
-ms.author: ercenk
-ms.date: 11/20/2019
-ms.topic: article
-ms.service: industry
-description: Overview for the high power compute need in Manufacturing industry.
----
-# Predictive maintenance in manufacturing
-
-## Introduction
-
 Customers are demanding products that have these attributes: lightweight,
 strong, safe, sustainable, and customized. As a result, the design stage has
 become increasingly complex. In that stage, computers are used to visualize,

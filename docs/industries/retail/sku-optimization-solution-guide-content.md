@@ -1,17 +1,3 @@
----
-# required metadata
-title: SKU optimization for consumer brands
-author: scseely
-ms.author: scseely
-ms.date: 11/20/2019
-ms.topic: article
-ms.service: industry
-description: Retail industry assortment optimization. SKU optimization through insights from AI and ML.
----
-# SKU optimization for consumer brands
-
-## Introduction
-
 Retailers and consumer brands are focused on ensuring they have the right products and services that consumers seek to purchase within the marketplace. It is also fair to say, that when looking at maximizing sales, products (or combinations of products) are the major part of the shopping experience. The availability of offerings—inventory—is a constant concern for consumer brands.
 
 Product inventory, also known as SKU assortment, is a complex topic that spans the supply and logistics value chain. For this document, we focus specifically on the problem of optimizing SKU assortment to maximize revenue from a consumer goods point of view. The puzzle of SKU assortment optimization can be solved by developing algorithms to answer the following questions:

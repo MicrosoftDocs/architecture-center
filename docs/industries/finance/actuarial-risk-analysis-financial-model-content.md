@@ -1,16 +1,3 @@
----
-# required metadata
-title: Actuarial risk analysis and financial modeling
-author: scseely
-ms.author: scseely
-ms.date: 11/20/2019
-ms.topic: article
-ms.service: industry
-description: How an actuarial developer can move an existing solution plus supporting infrastructure to Azure.
----
-
-# Actuarial risk analysis and financial modeling
-
 Over the last several years, insurers and companies that provide insurance-like products have seen several new regulations come into place. These new regulations have required more extensive financial modeling for insurers. The European Union enacted [Solvency II](https://eur-lex.europa.eu/legal-content/EN/ALL/?uri=celex%3A32009L0138) which requires insurers to demonstrate that they have done proper analysis to validate that the insurer will be solvent at the end of the year. Insurers who provide variable annuities have to follow [Actuarial Guideline XLIII](https://eur-lex.europa.eu/legal-content/EN/ALL/?uri=celex%3A32009L0138) with extensive analysis of asset and liability cash flows. All types of insurers, including those who distribute insurance like products, will have to implement [International Financial Reporting Standard 17](https://www.ifrs.org/supporting-implementation/supporting-materials-by-ifrs-standard/ifrs-17/) (IFRS 17) by 2021. Other regulations exist depending on the jurisdictions the insurers operate in. These standards and regulations require actuaries to use compute-intensive techniques when modeling assets and liabilities. Much of the analysis will make use of stochastically generated scenario data over seriatim inputs of things like assets and liabilities. Beyond regulatory needs, actuaries do a fair amount of financial modeling and computation to generate the input tables for the models that generate the regulatory reports. Internal grids do not satisfy the computational needs, so actuaries are steadily moving to the cloud.
 
 Actuaries move to the cloud to get more time to review, evaluate, and validate results. When regulators audit insurers, the actuaries need to be able to explain their results. The move to the cloud gives access to the computing resources to run 20000 hours of analysis in 24-120 hours of clock time through the power of parallelization. To assist with this need for scale, many of the companies that create actuarial software provide solutions that allow calculations to run in Azure. Some of these solutions are built on technologies that run on premises and Azure like [HPC Pack](/powershell/high-performance-computing/overview?view=hpc16-ps&WT.mc_id=riskmodel-docs-scseely). Others are Azure native and use [Azure Batch](/azure/batch?WT.mc_id=riskmodel-docs-scseely), [Virtual Machine Scale Sets](/azure/virtual-machine-scale-sets?WT.mc_id=riskmodel-docs-scseely), or a custom scaling solution.

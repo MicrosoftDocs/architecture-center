@@ -1,16 +1,3 @@
----
-# required metadata
-title: Extract actionable insights from IoT data
-description: Extract insights from IoT data with Azure services.
-author: ercenk
-ms.author: ercenk
-manager: gmarchet
-ms.service: industry
-ms.topic: article
-ms.date: 11/28/2019
----
-# Extract actionable insights from IoT data
-
 If you are responsible for the machines on a factory floor, you are already aware that the Internet of Things (IoT) is the next step in improving your processes and results. Having sensors on machines, or the factory floor, is the first step. The next step is to use the data—which is the object of this document. This guide provides a technical overview of the components needed to extract actionable insights from IoT data analytics.
 
 IoT analytics solutions are about transforming raw IoT data coming from a set of devices into a form that is better suited for analytics. Once the data is in an analyzable form we can actually perform analytics. Some examples of analytics include:
