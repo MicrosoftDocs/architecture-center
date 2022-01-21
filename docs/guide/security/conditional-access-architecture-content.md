@@ -6,7 +6,7 @@ You first need to choose an architecture. We recommend that you consider either 
 
 ![Diagram that shows the settings for Targeted and Zero Trust architectures.](images/conditional-access-architecture.png)
 
-The Zero Trust Conditional Access architecture is the one that best fits the principles of Zero Trust. If you select the **All cloud apps** option in a Conditional Access policy, all endpoints are protected by the given grant controls, like known user and known or compliant device. But the policy doesn't just apply to the endpoints and apps that support Conditional Access. It applies to any endpoint that the user interacts with.
+The Zero Trust Conditional Access architecture is the one that best fits the principles of Zero Trust. If you select the **All cloud apps** option in a Conditional Access policy, all endpoints are protected by the provided grant controls, like known user and known or compliant device. But the policy doesn't just apply to the endpoints and apps that support Conditional Access. It applies to any endpoint that the user interacts with.
 
 An example is a device-login flow endpoint that's used in various new PowerShell and Microsoft Graph tools. Device-login flow provides a way to allow sign-in from a device on which it's not possible to show a sign-in screen, like an IoT device.
 A device-based sign-in command is run on the given device, and a code is shown to the user. This code is used on another device. The user goes to https://aka.ms/devicelogin and specifies their user name and password. After sign-in from the other device, the sign-in succeeds on the IoT device in that user context.
@@ -17,9 +17,9 @@ The other architecture, the Targeted one, is built on the principle that you tar
 
 The challenge with this architecture is that you might forget to protect all your cloud apps. The number of Office 365 and Azure Active Directory (Azure AD) apps increases over time as Microsoft and partners release new features and as your IT admins integrate various applications with Azure AD.
 
-Access to all such applications is protected only if you have a mechanism that detects any new app that supports Conditional Access and automatically applies a policy to it. Creating and maintaining such a script could be challenging.
+Access to all such applications is protected only if you have a mechanism that detects any new app that supports Conditional Access and automatically applies a policy to it. Creating and maintaining such a script might be challenging.
 
-Also, the maximum supported number of apps for any one Conditional Access policy is approximately 250. You might be able to add as many as 600 apps before you get a technical error about payload being exceeded, but that number isn't supported.
+Also, the maximum supported number of apps for any one Conditional Access policy is approximately 250. You might be able to add as many as 600 apps before you get an error about payload being exceeded, but that number isn't supported.
 
 ## Conditional Access personas
 
@@ -27,7 +27,7 @@ There are many ways to structure Conditional Access policies. One approach is to
 
 For example, you could define a Conditional Access policy that requires a known user and a known device for access to a sensitive resource that needs to be accessed by both guests and employees. When guests come from a managed device, the access request won't work. You'd need to adjust the Conditional Access policy to meet both requirements, which typically would result in a policy that meets the less secure requirement.
 
-Another approach would be to try to define access policies based on where a user is in the organization. This approach could result in many Conditional Access policies and might be unmanageable.
+Another approach is to try to define access policies based on where a user is in the organization. This approach might result in many Conditional Access policies and might be unmanageable.
 
 A better approach is to structure policies related to common access needs and bundle a set of access needs in a persona for a group of users who have the same needs. Personas are identity types that share common enterprise attributes, responsibilities, experiences, objectives, and access.
 
@@ -37,7 +37,7 @@ Some suggested Conditional Access personas from Microsoft are shown here:
 
 ![Image that shows recommended Conditional Access personas.](images/suggested-personas.png)
 
-Microsoft also recommends having a separate persona defined for identities that aren't part of any other persona group. This is called the Global persona. Global is meant to enforce policies for identities that aren't in a persona group and policies that should be enforced for all personas.
+Microsoft also recommends defining a separate persona for identities that aren't part of any other persona group. This is called the Global persona. Global is meant to enforce policies for identities that aren't in a persona group and policies that should be enforced for all personas.
 
 The following sections describe some recommended personas. 
 
@@ -45,23 +45,21 @@ The following sections describe some recommended personas.
 
 Global is a persona/placeholder for policies that are general in nature. It's used to define policies that apply to all personas or that don't apply to one specific persona. Use it for policies that aren't covered by other personas. You need this persona to protect all relevant scenarios. 
 
-For example, assume that you want to have the same policy to block legacy authentication for all users. You can make it a global policy instead of using a group of legacy policies that might be different for various personas. 
+For example, assume that you want to use one policy to block legacy authentication for all users. You can make it a global policy instead of using a group of legacy policies that might be different for various personas. 
 
-Another example: you want to block a given account or user from specific applications, and the user or account isn't part of any of the personas. For example, if you create a cloud identity in the Azure AD tenant, this identity isn't part of any of the other personas because it hasn't been assigned any Azure AD roles. You still might want to block the identity from access to Office 365 services. 
-
-You might want to block all access from identities that aren't covered by any persona group. Or you might just want to enforce multi-factor authentication.
+Another example: you want to block a given account or user from specific applications, and the user or account isn't part of any of the personas. For example, if you create a cloud identity in the Azure AD tenant, this identity isn't part of any of the other personas because it isn't assigned any Azure AD roles. You still might want to block the identity from access to Office 365 services. You might want to block all access from identities that aren't covered by any persona group. Or you might just want to enforce multi-factor authentication.
 
 **Admins** 
 
 In this context, an admin is any non-guest identity, cloud or synced, that has any Azure AD or other Microsoft 365 admin role (for example, in Microsoft Defender for Cloud Apps, Exchange, Defender for Endpoint, or Compliance Manager). Because guests who have these roles are covered in a different persona, guests are excluded from this persona. 
 
-Some companies have separate accounts for the sensitive admin roles that this persona is based on. Optimally, they would use these sensitive accounts from a Privileged Access Workstation (PAW). But we often see that admin accounts are used on standard workstations, where the user just switches between accounts on one device. 
+Some companies have separate accounts for the sensitive admin roles that this persona is based on. Optimally, they use these sensitive accounts from a Privileged Access Workstation (PAW). But we often see that admin accounts are used on standard workstations, where the user just switches between accounts on one device. 
 
 You might want to differentiate based on the sensitivity of cloud admin roles and assign less sensitive Azure roles to the Internals persona rather than using separate accounts. You could then rely on Just-In-Time (JIT) elevation instead. In this case, a user is targeted by two sets of Conditional Access policies, one for each persona. If you use PAWs, you might also want to introduce policies that use device filters in Conditional Access to restrict access so that admins are allowed only on PAWs.
 
 **Developers**
 
-The Developers persona contains users who have unique needs. They're based on Active Directory accounts that are synced to Azure AD, but they need special access to services like Azure DevOps, CI/CD pipelines, device code flow, and GitHub. The Developers persona might include users who are considered internal and others considered external, but a person will be in only one of the personas.
+The Developers persona contains users who have unique needs. They're based on Active Directory accounts that are synced to Azure AD, but they need special access to services like Azure DevOps, CI/CD pipelines, device code flow, and GitHub. The Developers persona might include users who are considered internal and others considered external, but a person should be in only one of the personas.
 
 **Internals**
 
@@ -81,7 +79,7 @@ The GuestAdmins persona holds all users who have an Azure AD guest account that'
 
 **Microsoft365ServiceAccounts**
 
-This persona contains cloud (Azure AD), user-based service accounts that are used to access Microsoft 365 services when no other solution can meet the need, like using a managed service identity.
+This persona contains cloud (Azure AD) user-based service accounts that are used to access Microsoft 365 services when no other solution can meet the need, like using a managed service identity.
 
 **AzureServiceAccounts**
 
