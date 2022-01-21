@@ -1,6 +1,6 @@
 This article describes a Conditional Access architecture that adheres to Zero Trust principles. The architecture uses a persona-based approach to form a structured Conditional Access framework.
 
-## Conditional Access Zero Trust architecture
+## Conditional Access Zero Trust architecture 
 
 You first need to choose an architcture. We recommend that you consider either a Targeted or a Zero Trust Conditional Access architecture. This diagram shows the corresponding settings:
 
