@@ -1,7 +1,7 @@
 ### YamlMime:Architecture
 metadata: 
   title: Conditional Access architecture and personas 
-  description: Conditional Access architecture and personas defined using access cards
+  description: Learn about a Conditional Access architecture and personas that support Zero Trust principles.
   author: clajes
   ms.author: clajes
   ms.date: 01/25/2022
@@ -11,17 +11,12 @@ metadata:
   ms.custom: fcp
 products:
   - azure-active-directory
-  - m365-threat-protection 
-  - mdatp
-  - m365-ems
-  - m365-ems-cloud-app-security
-  - mem
 azureCategories:
   - security
   - identity
 name: Conditional Access architecture and personas
-summary: Conditional Access architecture and personas defined using access cards
-thumbnailUrl:
+summary: Learn about a Conditional Access architecture and personas that support Zero Trust principles.
+thumbnailUrl: /azure/architecture/browse/thumbs/conditional-access-architecture.png
 content: |
   [!include[](conditional-access-architecture-content.md)]
 
