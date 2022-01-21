@@ -25,7 +25,7 @@ Also, the maximum supported number of apps for any one Conditional Access policy
 
 There are many ways to structure Conditional Access policies. One approach is to structure policies based on the sensitivity of the resource being accessed. In practice, this approach can be challenging to implement in a way that still protects access to resources for various users. 
 
-For example, you could define a Conditional Access policy that requires a known user and a known device for access to a sensitive resource that needs to be accessed by both guests and employees. When guests come from a managed device, the access request won't work. You'd need to adjust the Conditional Access policy to meet both requirements, which typically would result in a policy that meets the less secure requirement.
+For example, you could define a Conditional Access policy that requires a known user and a known device for access to a sensitive resource that needs to be accessed by both guests and employees. When guests attempt access from a managed device, the access request won't work. You'd need to adjust the Conditional Access policy to meet both requirements, which would typically result in a policy that meets the less secure requirement.
 
 Another approach is to try to define access policies based on where a user is in the organization. This approach might result in many Conditional Access policies and might be unmanageable.
 
@@ -47,13 +47,15 @@ Global is a persona/placeholder for policies that are general in nature. It's us
 
 For example, assume that you want to use one policy to block legacy authentication for all users. You can make it a global policy instead of using a group of legacy policies that might be different for various personas. 
 
-Another example: you want to block a given account or user from specific applications, and the user or account isn't part of any of the personas. For example, if you create a cloud identity in the Azure AD tenant, this identity isn't part of any of the other personas because it isn't assigned any Azure AD roles. You still might want to block the identity from access to Office 365 services. You might want to block all access from identities that aren't covered by any persona group. Or you might just want to enforce multi-factor authentication.
+Another example: you want to block a given account or user from specific applications, and the user or account isn't part of any of the personas. For example, if you create a cloud identity in the Azure AD tenant, this identity isn't part of any of the other personas because it isn't assigned any Azure AD roles. You still might want to block the identity from access to Office 365 services. 
+
+You might want to block all access from identities that aren't covered by any persona group. Or you might just want to enforce multi-factor authentication.
 
 **Admins** 
 
 In this context, an admin is any non-guest identity, cloud or synced, that has any Azure AD or other Microsoft 365 admin role (for example, in Microsoft Defender for Cloud Apps, Exchange, Defender for Endpoint, or Compliance Manager). Because guests who have these roles are covered in a different persona, guests are excluded from this persona. 
 
-Some companies have separate accounts for the sensitive admin roles that this persona is based on. Optimally, they use these sensitive accounts from a Privileged Access Workstation (PAW). But we often see that admin accounts are used on standard workstations, where the user just switches between accounts on one device. 
+Some companies have separate accounts for the sensitive admin roles that this persona is based on. Optimally, admins use these sensitive accounts from a Privileged Access Workstation (PAW). But we often see that admin accounts are used on standard workstations, where the user just switches between accounts on one device. 
 
 You might want to differentiate based on the sensitivity of cloud admin roles and assign less sensitive Azure roles to the Internals persona rather than using separate accounts. You could then rely on Just-In-Time (JIT) elevation instead. In this case, a user is targeted by two sets of Conditional Access policies, one for each persona. If you use PAWs, you might also want to introduce policies that use device filters in Conditional Access to restrict access so that admins are allowed only on PAWs.
 
