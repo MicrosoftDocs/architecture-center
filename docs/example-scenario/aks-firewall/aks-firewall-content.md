@@ -266,7 +266,7 @@ The cost of this architecture depends on the following configuration details:
 - Automation scripts
 - Your disaster recovery level
 
-After you assess these configuration details, use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator) to estimate your costs. For more pricing optimization options, see the [principles of cost optimization](/azure/architecture/framework.md/#cost-optimization) in the Microsoft Azure Well-Architected Framework.
+After you assess these configuration details, use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator) to estimate your costs. For more pricing optimization options, see the [principles of cost optimization](/azure/architecture/framework/#cost-optimization) in the Microsoft Azure Well-Architected Framework.
 
 ## Next steps
 
