@@ -103,11 +103,11 @@ This persona contains machine identities, like Azure AD service principals and m
 
 ## Persona access cards
 
-We recommend that you use access template cards to define the charactaristics for each persona. Here's an example: 
+We recommend that you use access template cards to define the characteristics for each persona. Here's an example: 
 
-![CA Persona Access Card example](images/persona-access-card.svg)
+![CA Persona Access Card example](images/persona-access-card.png)
 
-The access card for each persona serves as requirements as input to forming the specific Conditonal Access policies for each persona.
+The access card for each persona serves as requirements as input to forming the specific Conditional Access policies for each persona.
 
 ## Next steps
 

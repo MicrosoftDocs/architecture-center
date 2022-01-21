@@ -20,7 +20,7 @@ azureCategories:
   - security
   - identity
 name: Conditional Access architecture and personas
-summary: 
+summary: Conditional Access architecture and personas defined using access cards
 thumbnailUrl:
 content: |
   [!include[](conditional-access-architecture-content.md)]
