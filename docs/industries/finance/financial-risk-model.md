@@ -1,11 +1,15 @@
 ---
 title: Enable the financial services risk lifecycle with Azure and R
-description: 
-author: sseely
-ms.author: sseely
+description: Learn about risk calculations, which are pivotal at several stages in the lifecycle of key financial services operations.
+author: EdPrice-MSFT
+ms.author: edprice
 ms.service: industry
 ms.topic: overview
 ms.date: 11/19/2019
+azureCategories:
+  - management-and-governance
+products:
+  - azure-batch
 ---
 
 # Enable the financial services risk lifecycle with Azure and R
@@ -17,11 +21,11 @@ the insurance product management lifecycle might look something like
 the diagram below. The risk calculation aspects are shown in blue
 text.
 
-![](./images/financial-risk-modeling/image1.png)
+![Diagram shows risk calculation factors.](./images/financial-risk-model/image1.png)
 
 A scenario in a capital markets firm might look like this:
 
-![](./images/financial-risk-modeling/image2.png)
+![Diagram shows risk calculation scenario for a capital markets firm.](./images/financial-risk-model/image2.png)
 
 Through these processes there are common needs around risk modelling
 including:
@@ -307,12 +311,13 @@ for 50 paths. The second picture illustrates the underlying Credit
 Exposure for the equity forward after subtracting the premium of the
 equity forward and limiting the exposure to positive values.
 
+<img src="./images/financial-risk-model/image3.png" width="400px" alt="Figure 1 - 50 Monte Carlo Paths"/>
 
-|       |    |
-|---    |--- |
-| <img src="./images/financial-risk-modeling/image3.png" width="400px" alt="Figure 1 - 50 Monte Carlo Paths"/> | <img src="./images/financial-risk-modeling/image4.png" width="400px" alt="Figure 2 - Credit Exposure for Equity Forward"/> |
-| Figure 1 - 50 Monte Carlo Paths | Figure 2 - Credit Exposure for Equity Forward |
+Figure 1 - 50 Monte Carlo Paths
 
+<img src="./images/financial-risk-model/image4.png" width="400px" alt="Figure 2 - Credit Exposure for Equity Forward"/>
+
+Figure 2 - Credit Exposure for Equity Forward
 
 In the last step, the 1-Month 0.95 Quantile PFE is calculated by the
 following code.
@@ -325,7 +330,7 @@ resulting in the final PFE plot
 plot(df_pfe, t = 'l', ylab = "Potential Future Exposure in USD", xlab = "time t in Years")
 ````
 
-<img src="./images/financial-risk-modeling/image5.png" width="500px" alt="Potential Future Exposure for MSFT Equity Forward" /> 
+<img src="./images/financial-risk-model/image5.png" width="500px" alt="Potential Future Exposure for MSFT Equity Forward" /> 
 
 Figure 3 Potential Future Exposure for MSFT Equity Forward
 
@@ -544,10 +549,13 @@ plot(as.numeric(df$term[df$statistic == 'PFE']) / 365, df$result[df$statistic ==
 
 The resulting plots look like this:
 
-|       |     |
-|----    |---- |
-| <img src="./images/financial-risk-modeling/image6.png" width="400px" alt="Figure 4 - Credit Exposure for MSFT Equity Forward - Calculated with a Cloud Based Risk Engine"/> | <img src="./images/financial-risk-modeling/image7.png" width="400px" alt="Figure 5 - Potential Future Exposure for MSFT Equity Forward - Calculated with a Cloud  Based Risk Engine" /> |
-| Figure 4 - Credit Exposure for MSFT Equity Forward - <br/>Calculated with a Cloud Based Risk Engine | Figure 5 - Potential Future Exposure for MSFT Equity Forward - <br/> Calculated with a Cloud  Based Risk Engine |
+<img src="./images/financial-risk-model/image6.png" width="400px" alt="Figure 4 - Credit Exposure for MSFT Equity Forward - Calculated with a Cloud Based Risk Engine"/>
+
+Figure 4 - Credit Exposure for MSFT Equity Forward - Calculated with a Cloud Based Risk Engine
+
+<img src="./images/financial-risk-model/image7.png" width="400px" alt="Figure 5 - Potential Future Exposure for MSFT Equity Forward - Calculated with a Cloud  Based Risk Engine" />
+
+Figure 5 - Potential Future Exposure for MSFT Equity Forward - Calculated with a Cloud  Based Risk Engine
 
 
 

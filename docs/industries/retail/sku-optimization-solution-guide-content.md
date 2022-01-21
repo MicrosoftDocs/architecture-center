@@ -95,7 +95,7 @@ They introduce the concept of “ranking”—where consumers express a strict p
 
 The assortment optimization problem can be expressed as maximization of revenue:
 
-<center><img style="float: center;" src="/images/sku-optimization-solution-guide/assortment-optimization-problem.png" width="150"/></center>
+<center><img src="/images/sku-optimization-solution-guide/assortment-optimization-problem.png" width="150"/></center>
  
 - $r_i$ denotes the revenue of product i 
 - $y_i^k$ is 1 if the product i is chosen in ranking k, 0 otherwise  
@@ -125,7 +125,7 @@ The sales data from the point of sales system will consist of transactions with 
 
 We can also construct a matrix:
 
-<center><img style="float: center;" src="./images/sku-optimization-solution-guide/matrix-construction.png" width="300"/></center>
+<center><img src="./images/sku-optimization-solution-guide/matrix-construction.png" width="300"/></center>
 
 Finding our probability distribution λ given our sales data becomes another optimization problem. We want to find a vector λ to minimize our sales estimate error:
 

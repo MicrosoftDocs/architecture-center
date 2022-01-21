@@ -13,7 +13,7 @@ azureCategories:
   - databases
 products:
   - azure-machine-learning
-  - azure-sql-database"
+  - azure-sql-database
 name: Optimize and reuse an existing recommendation system 
 summary: How to reuse and optimize recommendation apps written in the R language. Relies Machine Learning Server on a Azure VMs.
 thumbnailUrl: /azure/architecture/browse/thumbs/recommendation-architecture.png

@@ -9,7 +9,7 @@ metadata:
   ms.service: architecture-center
   ms.subservice: azure-guide
 azureCategories:
-  - ai-machine-learning"
+  - ai-machine-learning
 products:
   - azure-data-factory
   - azure-machine-learning

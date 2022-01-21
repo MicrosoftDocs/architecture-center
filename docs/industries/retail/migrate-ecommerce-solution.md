@@ -1,11 +1,15 @@
 ---
 # required metadata
 title: Migrate your e-commerce solution to Azure
-author: scseely
-ms.author: scseely
+author: EdPrice-MSFT
+ms.author: edprice
 ms.date: 11/20/2019
 ms.topic: article
 ms.service: industry
+products:
+  - azure-migrate
+categories:
+  - migration
 description: This article explains the phases of migrating ecommerce infrastructure from on premises to Azure.
 ---
 
@@ -28,7 +32,7 @@ The customer behavior is captured as data. And the shopping funnel is a collecti
 
 A typical retail business relies on a large collection of software solutions that range from customer-facing applications down through the stack to foundational applications.  The following drawing shows a view of the functionality present in a typical retail business.
 
- ![](./images/migrating-ecommerce-solution/ecommerce-system-sketch.png)
+ ![Diagram compares externally visible functionality with core functionality.](./images/migrating-ecommerce-solution/ecommerce-system-sketch.png)
 
 The cloud presents an opportunity to shift how an organization obtains, uses and manages technology.  Other benefits include: reduced costs of maintaining data centers, improved reliability and performance, and the flexibility to add other services. In this use case, we look at a path a retail business can take to migrate its existing infrastructure to Azure. We also take advantage of the new environment using a phased approach of rehost, refactor and rebuild. While many organizations may follow this series path to modernization, in most cases, organizations can drop into any phase as their starting point.  Organizations may choose to forgo rehosting their current application on Azure, and jump straight to refactor or even rebuild.  This decision will be unique to the application, and organization to best meet their modernization needs.
 

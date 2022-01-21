@@ -43,7 +43,7 @@ There are a few key components to consider when implementing visual search:
 - Featurization, encoding or "hashing"
 - Similarity measures or distances and ranking
 
- ![](./media/visual-search-use-case-overview/visual-search-pipeline.png)
+ ![](./images/visual-search-use-case-overview/visual-search-pipeline.png)
 
 *Figure 1: Example of Visual Search Pipeline*
 
@@ -51,7 +51,7 @@ There are a few key components to consider when implementing visual search:
 
 If you do not own a picture catalog, you may need to train the algorithms on openly available data sets, such as fashion [MNIST](https://www.kaggle.com/zalando-research/fashionmnist), deep [fashion](http://mmlab.ie.cuhk.edu.hk/projects/DeepFashion.html) and similar. They contain several categories of products and are commonly used to benchmark image categorization and search algorithms.
 
- ![](./media/visual-search-use-case-overview/deep-fashion-dataset.png)
+ ![](./images/visual-search-use-case-overview/deep-fashion-dataset.png)
 
 *Figure 2: An Example from The Deep Fashion Dataset*
 
@@ -79,7 +79,7 @@ You may also want to require a minimum number of useful data points (e.g. an ima
 
 [Azure CosmosDB](https://azure.microsoft.com/services/cosmos-db/?WT.mc_id=vsearchgio-article-gmarchet) offers the required flexibility and a variety of access mechanisms for applications built on top of it (which will help with your catalog search). However, one has to be careful to drive the best price/performance. CosmosDB allows document attachments to be stored, but there is a total limit per account and it may be a costly proposition. It is common practice to store the actual image files in blobs and insert a link to them in the database. In the case of CosmosDB this implies creating a document that contains the catalog properties associated to that image (sku, tag etc.) and an attachment that contains the URL of the image file (e.g. on Azure blob storage, OneDrive etc).
 
- ![](./media/visual-search-use-case-overview/cosmosdb-data-model.png)
+ ![](./images/visual-search-use-case-overview/cosmosdb-data-model.png)
 
 *Figure 3: CosmosDB Hierarchical Resource Model*
 
@@ -101,7 +101,7 @@ Pre-trained neural networks are relatively easy to use but may not be as efficie
 
 You may want to modify and retrain them so they produce both a category prediction and a dense (i.e. smaller, not sparse) vector, which will be very useful to restrict the search space, reduce memory and storage requirements. Binary vectors can be used and are often referred to as " [semantic hash](https://www.cs.utoronto.ca/~rsalakhu/papers/semantic_final.pdf)" – a term derived from document encoding and retrieval techniques. The binary representation simplifies further calculations.
 
- ![](./media/visual-search-use-case-overview/resnet-modifications.png)
+ ![](./images/visual-search-use-case-overview/resnet-modifications.png)
 
 *Figure 4: Modifications to ResNet for Visual Search – F. Yang et al., 2017*
 
