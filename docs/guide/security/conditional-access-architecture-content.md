@@ -36,29 +36,76 @@ Understanding how enterprise assets and resources are accessed by various person
 
 Some suggested Conditional Access personas from Microsoft are shown here:
 
-![Image that shows recommended Conditional Access personas.](images/person-access-card.png)
+![Image that shows recommended Conditional Access personas.](images/suggested-personas.png)
 
 Microsoft also recommends having a separate persona defined for identities that aren't part of any other persona group. This is called the Global persona. Global is meant to enforce policies for identities that aren't in a persona group and policies that should be enforced for all personas.
 
-|Persona|Description|
-|--------|----------|
-|Global|Global is a persona/placeholder for policies that are general in nature. It's used to define policies that apply to all personas or that don't apply to one specific persona. Use it for policies that aren't covered by other personas. You need this persona to protect all relevant scenarios. <br> <br>Here are some examples of how you might use this persona: <ul><li>If you want to have the same policy to block legacy authentication for all users, you can make it a global policy instead of having a legacy policy per persona that might be different for various personas. <li>You want to block a given account or user from specific applications and the user or account isn't part of any of the personas. <li>Another example: if you create a cloud identity in the Azure AD tenant, then this identity is not part of any of the other personas (given it has not been assigned any Azure AD Roles), but still we may want to hinder this identity in getting access to Office 365 services. Some customers may want to block all access from identities not covered by any persona group, whereas others may want to just enforce MFA|
-|Admins|We define admins in this context as any non-guest identity (cloud or synced) that have any Azure AD or other Microsoft 365 admin Role (like in MDCA, Exchange, Defender for Endpoints or Compliance). As guests who have such roles are covered in a separate persona, guests are excluded from this persona. Many customers still have separate accounts for sensitive admin roles which this persona is based on. Optimally they use these sensitive accounts from a Privileged Access Workstation (PAW), but often we see that admin accounts are being used on standard workstations where the end-user just switches between accounts on same device/PC. Some customers want to differentiate based on sensitivity of cloud admin roles and assign less sensitive Azure roles to standard end-users (Internals) without using separate accounts for this and rather rely on JIT (Just In Time) elevation. In this case notice that an end-user will be targeted by two sets of CA policies, one for each persona. When using PAWs, you may also want to introduce additional policies that uses device-filters in CA to restrict access for admins to only being allowed when using the PAW|
-|Developers|The Developers persona covers users who have special needs. They are based on AD accounts synced to Azure AD but need special access to services like Azure DevOps, CI/CD pipelines, Device Code Flow, GitHub i.e. The developers persona can cover users who are considered Internals as well as Externals, but a person will only be part of one of the personas|
-|Internals|Internals cover all users who have an AD account synced to Azure AD who are employees of the company and work in a standard end-user role. Internals who have a developers profile are suggested to be covered by the developers persona|
-|Externals|This persona holds all external consultants with an AD account synced to Azure AD. Externals who have a developer profile are suggested to be covered by the developer persona|
-|Guests|Guests holds all users who have an Azure AD guest account that has been invited into the customer tenant|
-|GuestAdmins|GuestAdmins persona holds all users who have an Azure AD guest account that has any of the mentioned admin roles assigned|
-|Microsoft365ServiceAccounts|This persona covers cloud based (AAD) user-based service accounts used to access Microsoft 365 services where no other solution can cover the need, like using a managed service |
-|AzureServiceAccounts|This persona covers cloud (AAD) user-based service accounts used to access Microsoft Azure (IaaS/PaaS) services, where no other solution can cover the need, like using a managed service identity|
-|CorpServiceAccounts|This persona covers user-based service accounts originating from on-premises AD used from on-premises or from an IaaS based virtual machine in another (cloud) datacenter, like Azure, synced to Azure AD that accesses any Azure or Microsoft 365 service (should be avoided)|
-|WorkloadIdentities|This persona covers machine identities, like Azure AD service principals and managed identities. CA now supports protecting access to resources from these accounts|
+The following sections describe some recommended personas. 
 
-## Persona Access Cards
+**Global** 
 
-It is recommended to define charactaristics of each persona. We suggest using an access card template for that. An exampple is shown below.
+Global is a persona/placeholder for policies that are general in nature. It's used to define policies that apply to all personas or that don't apply to one specific persona. Use it for policies that aren't covered by other personas. You need this persona to protect all relevant scenarios. 
 
-![CA Persona Access Card example](media/capersonaaccesscardexample.svg)
+For example, if you want to have the same policy to block legacy authentication for all users, you can make it a global policy instead of having a legacy policy per persona that might be different for various personas. 
+
+Another example: you want to block a given account or user from specific applications, and the user or account isn't part of any of the personas. For example, if you create a cloud identity in the Azure AD tenant, this identity isn't part of any of the other personas because it hasn't been assigned any Azure AD roles. You still might want to block the identity from access to Office 365 services. 
+
+You might want to block all access from identities that aren't covered by any persona group. Or you might just want to enforce multi-factor authentication.
+
+**Admins** 
+
+In this context, an admin is any non-guest identity, cloud or synced, that has any Azure AD or other Microsoft 365 admin role (for example, in Microsoft Defender for Cloud Apps, Exchange, Defender for Endpoint, or Compliance Manager.) Because guests who have these roles are covered in a separate persona, guests are excluded from this persona. 
+
+You might have separate accounts for the sensitive admin roles that this persona is based on. Optimally, you would use these sensitive accounts from a Privileged Access Workstation (PAW). But we often see that admin accounts are used on standard workstations, where the user just switches between accounts on one device. 
+
+You might want to differentiate based on the sensitivity of cloud admin roles and assign less sensitive Azure roles to Internals rather than using separate accounts. You could then rely on Just-In-Time (JIT) elevation instead. In this case, a user is targeted by two sets of Conditional Access policies, one for each persona. If you use PAWs, you might also want to introduce policies that use device filters in Conditional Access to restrict access so that admins are allowed only when using a PAW.
+
+**Developers**
+
+The Developers persona contains users who have special needs. They're based on Active Directory accounts that are synced to Azure AD, but they need special access to services like Azure DevOps, CI/CD pipelines, device code flow, and GitHub. The Developers persona might include users who are considered internal and others considered external, but a person will be in only one of the personas.
+
+**Internals**
+
+Internals contains all users who have an Active Directory account synced to Azure AD, who are employees of the company, and who work in a standard end-user role. We recommend that internal users who are developers be added to Developers persona.
+
+**Externals**
+
+This persona holds all external consultants who have an Active Directory account synced to Azure AD. We recommend that external users who are developers be added to Developers persona.
+
+**Guests**
+
+Guests holds all users who have an Azure AD guest account that has been invited to the customer tenant.
+
+**GuestAdmins**
+
+The GuestAdmins persona holds all users who have an Azure AD guest account that is assigned any of the previously mentioned admin roles.
+
+**Microsoft365ServiceAccounts**
+
+This persona contains cloud (Azure AD), user-based service accounts that are used to access Microsoft 365 services when no other solution can meet the need, like using a managed service identity.
+
+**AzureServiceAccounts**
+
+This persona contains cloud (Azure AD) user-based service accounts that are used to access Azure (IaaS/PaaS) services when no other solution can meet the need, like using a managed service identity.
+
+**CorpServiceAccounts**
+
+This persona contains user-based service accounts that have all of these characteristics: 
+- Originate from on-premises Active Directory. 
+- Are used from on-premises or from an IaaS-based virtual machine in another (cloud) datacenter, like Azure.
+- Are synced to an Azure AD instance that accesses any Azure or Microsoft 365 service.
+ 
+ This scenario should be avoided.
+
+**WorkloadIdentities**
+
+This persona contains machine identities, like Azure AD service principals and managed identities. Conditional Access now supports protecting access to resources from these accounts.
+
+## Persona access cards
+
+We recommend that you use access template cards to define the charactaristics for each persona. Here's an example: 
+
+![CA Persona Access Card example](images/persona-access-card.svg)
 
 The access card for each persona serves as requirements as input to forming the specific Conditonal Access policies for each persona.
 
