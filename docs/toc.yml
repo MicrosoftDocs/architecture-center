@@ -508,7 +508,7 @@ items:
                 href: industries/retail/migrate-ecommerce-solution.md
               - name: Movie recommendations on Azure
                 href: example-scenario/ai/movie-recommendations-with-machine-learning.yml
-              - name: Optimize and reuse an existing recommendation system
+              - name: Optimize and reuse a recommendation system
                 href: industries/retail/recommendation-engine-optimization.yml
               - name: Retail - Buy online, pickup in store
                 href: example-scenario/iot/vertical-buy-online-pickup-in-store.yml
@@ -565,7 +565,7 @@ items:
                 href: industries/finance/data-management-banking-overview.yml
               - name: Decentralized trust between banks
                 href: example-scenario/apps/decentralized-trust.yml
-              - name: Enable the financial services risk lifecycle with Azure and R
+              - name: Financial services risk lifecycle with Azure and R
                 href: industries/finance/financial-risk-model.md
               - name: Modernize mainframe & midrange data
                 href: reference-architectures/migration/modernize-mainframe-data-to-azure.yml

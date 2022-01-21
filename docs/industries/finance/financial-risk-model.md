@@ -6,7 +6,7 @@ ms.author: edprice
 ms.service: industry
 ms.topic: overview
 ms.date: 11/19/2019
-azureCategories:
+categories:
   - management-and-governance
 products:
   - azure-batch
