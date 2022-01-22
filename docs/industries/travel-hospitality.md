@@ -3,7 +3,7 @@ title: Solutions for the travel and hospitality industries
 titleSuffix: Azure Architecture Center
 description: Architectures and ideas for using Azure services to build solutions in the travel and hospitality industries.
 author: EdPrice-MSFT
-ms.author: edprice
+ms.author: pnp
 ms.date: 01/24/2022
 ms.topic: article
 ms.service: architecture-center
