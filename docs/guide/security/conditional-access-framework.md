@@ -3,7 +3,7 @@ title: Conditional Access framework and policies
 description: Conditional Access framework, structure and policy details
 author: clajes
 ms.author: clajes
-ms.date: 12/12/2021
+ms.date: 01/25/2022
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: azure-guide
@@ -15,42 +15,38 @@ products:
   - m365-ems-cloud-app-security
   - mem
 categories:
-  - Security
-  - Identity
+  - security
+  - identity
 ms.custom: fcp
 ---
 
 # Conditional Access framework and policies
 
-This section describes a suggested Conditional Access framework in details that includes a structured persona based approach on how to form and name the Conditional Access policies.
+This article provides a framework for implementing a persona-based Conditional Access architecture, like the one described in [Conditional Access Zero Trust architecture](/azure/architecture/guide/security/conditional-access-architecture). In this article, you'll get details on how to form and name the Conditional Access policies.
 
-What typically happens if you don't form such a framework including a naming standard is that policies are created over time by different people and in an ad-hoc manner.
+If you don't use a framework like the one provided here, including a naming standard, policies tend to be created over time by different people in an ad-hoc manner.
+This can result in policies that overlap. If the people who created them are no longer available, it can be difficult for others to know the purpose of a given policy.
 
-Typically this results in many policies that overlap and if/when people who have created them are not available it is very difficult for others to know why the are there and what the intention was with a given policy.
+Following a structured framework makes it simpler to understand the policies. It also makes it easier to cover all scenarios and avoid conflicting policies that are difficult to troubleshoot.
 
-Following a structured framework makes it simpler to understand the policies and also makes it easier to cover all scenarios and not have conflicting policies that are difficult to troubleshoot.
+## Naming conventions
 
-## Naming Conventions
+A properly defined naming convention helps you and your colleagues understand the purpose of a policy, which enables easier policy management and troubleshooting. Your naming convention should fit to the framework you use to structure your policies.
 
-Having a properly defined naming convention helps understand the purpose of a policy and thus enables easier policy management and troubleshooting. Your naming convention should fit to the framework you choose to structure your policies.
+The recommended naming policy is based on personas, policy types, and apps. It looks like this:
 
-The recommended naming policy is based on personas, policy types and apps and looks as follows:
-
-**\<CAnumber>-\<Persona>-\<Policy Type>-\<App>-\<Platform>-\<GrantControl>-\<OptionalDescription>**
-
-
-![CA Framework Naming](media/caframeworknaming.png)
+**\<CANumber>-\<Persona>-\<PolicyType>-\<App>-\<Platform>-\<GrantControl>-\<OptionalDescription>**
 
 The naming sections of the policies are explained in the table below
 
-|CA Section|Description and example|
+|Naming component|Description/example|
 |----------|-----------------------|
-|CA Number|CA001-CA099|
-|Persona Groups|Global, Admins, Internals, Externals, GuestUsers, Microsoft365ServiceAccounts, AzureServiceAccounts, CorpServiceAccounts|
+|CA Number|Used to quickly identify policy type scope and order. Example: CA001-CA099|
+|Persona |Global, Admins, Internals, Externals, GuestUsers, Microsoft365ServiceAccounts, AzureServiceAccounts, CorpServiceAccounts|
 |Policy Type|BaseProtection, AppProtection, DataProtection, IdentityProtection, AttackSurfaceProtection, Compliance|
 |App|AllApps, O365 for all O365 services, EXO for Exchange Online|
 |Platform| AnyPlatform, Unknown, Windows, MacOS, iOS, Android|
-|GrantControl|Block, ADHJ, Compliant, Unmanaged, where unmanaged is specified in device state condition|
+|Grant Control|Block, ADHJ, Compliant, Unmanaged, where unmanaged is specified in device state condition|
 |Description|Optional extra words to describe purpose of the policy|
 
 ## Numbering scheme

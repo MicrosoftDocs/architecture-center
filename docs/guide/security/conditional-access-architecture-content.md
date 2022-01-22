@@ -11,19 +11,19 @@ The Zero Trust Conditional Access architecture is the one that best fits the pri
 An example is a device-login flow endpoint that's used in various new PowerShell and Microsoft Graph tools. Device-login flow provides a way to allow sign-in from a device on which it's not possible to show a sign-in screen, like an IoT device.
 A device-based sign-in command is run on the given device, and a code is shown to the user. This code is used on another device. The user goes to https://aka.ms/devicelogin and specifies their user name and password. After sign-in from the other device, the sign-in succeeds on the IoT device in that user context.
 
-The challenge with this sign-in is that it doesn't support device-based Conditional Access. This means that nobody can use the tools and commands if you apply a baseline policy for all cloud apps that requires known user and known device. There are other applications that have the same problem with device-based Conditional Access.
+The challenge with this sign-in is that it doesn't support device-based Conditional Access. This means that nobody can use the tools and commands if you apply a baseline policy that requires known user and known device for all cloud apps. There are other applications that have the same problem with device-based Conditional Access.
 
 The other architecture, the Targeted one, is built on the principle that you target only individual apps that you want to protect in Conditional Access policies. In this case, endpoints like device-login endpoints aren't protected by the Conditional Access policies, so they continue to work.
 
 The challenge with this architecture is that you might forget to protect all your cloud apps. The number of Office 365 and Azure Active Directory (Azure AD) apps increases over time as Microsoft and partners release new features and as your IT admins integrate various applications with Azure AD.
 
-Access to all such applications is protected only if you have a mechanism that detects any new app that supports Conditional Access and automatically applies a policy to it. Creating and maintaining such a script might be challenging.
+Access to all such applications is protected only if you have a mechanism that detects any new app that supports Conditional Access and automatically applies a policy to it. Creating and maintaining such a script might be difficult.
 
 Also, the maximum supported number of apps for any one Conditional Access policy is approximately 250. You might be able to add as many as 600 apps before you get an error about payload being exceeded, but that number isn't supported.
 
 ## Conditional Access personas
 
-There are many ways to structure Conditional Access policies. One approach is to structure policies based on the sensitivity of the resource being accessed. In practice, this approach can be challenging to implement in a way that still protects access to resources for various users. 
+There are many ways to structure Conditional Access policies. One approach is to structure policies based on the sensitivity of the resource being accessed. In practice, this approach can be difficult to implement in a way that still protects access to resources for various users. 
 
 For example, you could define a Conditional Access policy that requires a known user and a known device for access to a sensitive resource that needs to be accessed by both guests and employees. When guests attempt access from a managed device, the access request won't work. You'd need to adjust the Conditional Access policy to meet both requirements, which would typically result in a policy that meets the less secure requirement.
 
@@ -57,11 +57,11 @@ In this context, an admin is any non-guest identity, cloud or synced, that has a
 
 Some companies have separate accounts for the sensitive admin roles that this persona is based on. Optimally, admins use these sensitive accounts from a Privileged Access Workstation (PAW). But we often see that admin accounts are used on standard workstations, where the user just switches between accounts on one device. 
 
-You might want to differentiate based on the sensitivity of cloud admin roles and assign less sensitive Azure roles to the Internals persona rather than using separate accounts. You could then rely on Just-In-Time (JIT) elevation instead. In this case, a user is targeted by two sets of Conditional Access policies, one for each persona. If you use PAWs, you might also want to introduce policies that use device filters in Conditional Access to restrict access so that admins are allowed only on PAWs.
+You might want to differentiate based on the sensitivity of cloud admin roles and assign less sensitive Azure roles to the Internals persona rather than using separate accounts. You could then use Just-In-Time (JIT) elevation instead. In this case, a user is targeted by two sets of Conditional Access policies, one for each persona. If you use PAWs, you might also want to introduce policies that use device filters in Conditional Access to restrict access so that admins are allowed only on PAWs.
 
 **Developers**
 
-The Developers persona contains users who have unique needs. They're based on Active Directory accounts that are synced to Azure AD, but they need special access to services like Azure DevOps, CI/CD pipelines, device code flow, and GitHub. The Developers persona might include users who are considered internal and others considered external, but a person should be in only one of the personas.
+The Developers persona contains users who have unique needs. They're based on Active Directory accounts that are synced to Azure AD, but they need special access to services like Azure DevOps, CI/CD pipelines, device code flow, and GitHub. The Developers persona can include users who are considered internal and others considered external, but a person should be in only one of the personas.
 
 **Internals**
 
@@ -73,7 +73,7 @@ This persona holds all external consultants who have an Active Directory account
 
 **Guests**
 
-Guests holds all users who have an Azure AD guest account that has been invited to the customer tenant.
+Guests holds all users who have an Azure AD guest account that's been invited to the customer tenant.
 
 **GuestAdmins**
 
@@ -81,11 +81,11 @@ The GuestAdmins persona holds all users who have an Azure AD guest account that'
 
 **Microsoft365ServiceAccounts**
 
-This persona contains cloud (Azure AD) user-based service accounts that are used to access Microsoft 365 services when no other solution can meet the need, like using a managed service identity.
+This persona contains cloud (Azure AD) user-based service accounts that are used to access Microsoft 365 services when no other solution meets the need, like using a managed service identity.
 
 **AzureServiceAccounts**
 
-This persona contains cloud (Azure AD) user-based service accounts that are used to access Azure (IaaS/PaaS) services when no other solution can meet the need, like using a managed service identity.
+This persona contains cloud (Azure AD) user-based service accounts that are used to access Azure (IaaS/PaaS) services when no other solution meets the need, like using a managed service identity.
 
 **CorpServiceAccounts**
 
