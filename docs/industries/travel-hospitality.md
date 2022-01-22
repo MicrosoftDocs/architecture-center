@@ -4,7 +4,7 @@ titleSuffix: Azure Architecture Center
 description: Architectures and ideas for using Azure services to build solutions in the travel and hospitality industries.
 author: EdPrice-MSFT
 ms.author: edprice
-ms.date: 01/20/2022
+ms.date: 01/24/2022
 ms.topic: article
 ms.service: architecture-center
 ms.subservice: azure-guide
