@@ -1064,6 +1064,8 @@ items:
                 maintainContext: true
       - name: Travel and Hospitality
         items:
+          - name: Overview
+            href: industries/travel-hospitality.md
           - name: All travel and hospitality architectures
             href: /azure/architecture/browse/?terms=travel
           - name: Build a chatbot for hotel booking
