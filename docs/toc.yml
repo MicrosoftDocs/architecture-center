@@ -2010,7 +2010,7 @@ items:
                 href: solution-ideas/articles/secure-devops-for-kubernetes.yml
       - name: Databases
         items:
-          - name: Databases architecture design
+          - name: Get started
             href: data-guide/databases-architecture-design.yml
           - name: Guides
             items:
