@@ -407,6 +407,8 @@ items:
         href: patterns/cqrs.md
       - name: Deployment Stamps
         href: patterns/deployment-stamp.md
+      - name: Edge Workload Configuration
+        href: patterns/edge-workload-configuration.md
       - name: Event Sourcing
         href: patterns/event-sourcing.md
       - name: External Configuration Store
