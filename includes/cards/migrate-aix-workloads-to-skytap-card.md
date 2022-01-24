@@ -6,11 +6,11 @@
 <article class="card">
     <div class="card-header has-margin-bottom-none" aria-hidden="true">
         <figure class="image diagram has-height-175 has-overflow-hidden level">
-            <a href="/azure/architecture/example-scenario/mainframe/migrate-aix-workloads-to-skytap"><img src="/azure/architecture/browse/thumbs/migrate-aix-workloads-to-skytap.png" class="diagram" alt="Thumbnail of Migrate AIX workloads to Skytap on Azure Architectural Diagram." data-linktype="relative-path"></a>
+            <a href="/azure/architecture/example-scenario/mainframe/migrate-aix-workloads-to-azure-with-skytap"><img src="/azure/architecture/browse/thumbs/migrate-aix-workloads-to-skytap.png" class="diagram" alt="Thumbnail of Migrate AIX workloads to Skytap on Azure Architectural Diagram." data-linktype="relative-path"></a>
         </figure>
     </div>
     <div class="card-content">
-        <a class="card-content-title has-margin-top-none" href="/azure/architecture/example-scenario/mainframe/migrate-aix-workloads-to-skytap">
+        <a class="card-content-title has-margin-top-none" href="/azure/architecture/example-scenario/mainframe/migrate-aix-workloads-to-azure-with-skytap">
             <p>Migrate AIX workloads to Skytap on Azure</p>
         </a>
         <ul class="card-content-metadata">

@@ -38,6 +38,8 @@ This example includes a high availability configuration for an Oracle database, 
 
 - [Resource groups](/azure/azure-resource-manager/resource-group-overview#resource-groups) act as logical containers for Azure resources.
 
+- [Storage](https://docs.microsoft.com/azure/?product=storage) Azure Premium Managed Disks or Azure NetApp Files (for Oracle 19C) provide the recommended storage for the SAP executables and the Oracle database.
+
 ### Alternatives
 
 SAP provides flexible options for different combinations of operating system, database management system, and VM types in an Azure environment. For more information, see [SAP note 1928533](https://launchpad.support.sap.com/#/notes/1928533), "SAP Applications on Azure: Supported Products and Azure VM Types".
@@ -84,6 +86,12 @@ Click the link below to deploy the solution.
 
 > [!NOTE]
 > SAP and Oracle are not installed during this deployment. You will need to deploy these components separately.
+
+## Next steps
+
+- [What is Azure Virtual Network?](/azure/virtual-network/virtual-networks-overview)
+- [Linux virtual machines in Azure](/azure/virtual-machines/linux/overview)
+- [Windows virtual machines in Azure](/azure/virtual-machines/windows/overview)
 
 ## Related resources
 

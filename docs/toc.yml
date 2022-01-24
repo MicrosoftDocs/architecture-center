@@ -257,6 +257,8 @@ items:
               - name: Differential privacy
                 href: /azure/machine-learning/concept-differential-privacy
                 maintainContext: true
+      - name: SaaS digital business journey on Azure
+        href: guide/saas/saas-digital-business-journey-azure.md
       - name: Architecture for startups
         items:
           - name: Overview
@@ -405,6 +407,8 @@ items:
         href: patterns/cqrs.md
       - name: Deployment Stamps
         href: patterns/deployment-stamp.md
+      - name: Edge Workload Configuration
+        href: patterns/edge-workload-configuration.md
       - name: Event Sourcing
         href: patterns/event-sourcing.md
       - name: External Configuration Store
@@ -947,6 +951,8 @@ items:
                 maintainContext: true
       - name: Game Development
         items:
+          - name: Overview
+            href: industries/game-development.md
           - name: All game development architectures
             href: /azure/architecture/browse/?terms=game
           - name: Rendering
@@ -1058,6 +1064,8 @@ items:
                 maintainContext: true
       - name: Travel and Hospitality
         items:
+          - name: Overview
+            href: industries/travel-hospitality.md
           - name: All travel and hospitality architectures
             href: /azure/architecture/browse/?terms=travel
           - name: Build a chatbot for hotel booking
@@ -1745,6 +1753,8 @@ items:
                 href: solution-ideas/articles/interactive-azure-data-explorer.yml
               - name: IoT analytics with Azure Data Explorer
                 href: solution-ideas/articles/iot-azure-data-explorer.yml
+              - name: Manage data across Azure SQL estate with Azure Purview
+                href: solution-ideas/articles/azure-purview-sql-estate-architecture.yml
               - name: Mining equipment monitoring
                 href: solution-ideas/articles/monitor-mining-equipment.yml
               - name: Modern analytics with Azure Databricks
@@ -2016,6 +2026,8 @@ items:
                 href: solution-ideas/articles/secure-devops-for-kubernetes.yml
       - name: Databases
         items:
+          - name: Get started
+            href: data-guide/databases-architecture-design.yml
           - name: Guides
             items:
               - name: Get started
@@ -2623,6 +2635,8 @@ items:
             items:
               - name: Automate multistage DevOps pipelines
                 href: example-scenario/devops/automate-azure-pipelines.yml
+              - name: Automated API deployments using APIOps
+                href: example-scenario/devops/automated-api-deployments-apiops.yml
               - name: Automated Jupyter Notebooks for diagnostics
                 href: example-scenario/data/automating-diagnostic-jupyter-notebook.yml
               - name: Azure DevTest Labs for enterprises
@@ -2835,6 +2849,8 @@ items:
                     href: solution-ideas/articles/hybrid-footfall-detection.yml
                   - name: Cross-cloud scaling
                     href: solution-ideas/articles/cross-cloud-scaling.yml
+                  - name: DevOps with Azure Stack Hub
+                    href: solution-ideas/articles/hybrid-continuous-integration.yml
                   - name: Hybrid connections
                     href: solution-ideas/articles/hybrid-connectivity.yml
                   - name: Unlock legacy data with Azure Stack
@@ -3203,9 +3219,9 @@ items:
                     href: example-scenario/mainframe/integrate-ibm-message-queues-azure.yml
                   - name: Micro Focus Enterprise Server on Azure
                     href: example-scenario/mainframe/micro-focus-server.yml
-                  - name: Migrate AIX workloads to Skytap
+                  - name: Migrate AIX workloads to Azure with Skytap
                     href: example-scenario/mainframe/migrate-aix-workloads-to-azure-with-skytap.yml
-                  - name: Migrate IBM i series to Skytap on Azure
+                  - name: Migrate IBM i series to Azure with Skytap
                     href: example-scenario/mainframe/migrate-ibm-i-series-to-azure-with-skytap.yml
                   - name: Refactor IBM z/OS mainframe CF
                     href: reference-architectures/zos/refactor-zos-coupling-facility.yml
@@ -3969,6 +3985,8 @@ items:
                 href: example-scenario/private-web-app/private-web-app.yml
       - name: Storage
         items:
+          - name: Get started
+            href: guide/storage/storage-start-here.md
           - name: Guides
             items:
               - name: Storage accounts
