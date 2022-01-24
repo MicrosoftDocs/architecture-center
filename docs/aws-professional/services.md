@@ -251,7 +251,7 @@ For an overview of Azure for AWS users, see [Introduction to Azure for AWS profe
 | AWS service | Azure service | Description |
 | ----------- | ------------- | ----------- |
 | [Mobile Hub](https://aws.amazon.com/blogs/aws/aws-mobile-hub-build-test-and-monitor-mobile-applications) | [App Center](https://azure.microsoft.com/services/app-center) <br/><br/>[Xamarin Apps](https://azure.microsoft.com/features/xamarin) | Provides backend mobile services for rapid development of mobile solutions, identity management, data synchronization, and storage and notifications across devices. |
-| [Mobile SDK](https://docs.aws.amazon.com/mobile-sdk) | [App Center](https://azure.microsoft.com/services/app-center) | Provides the technology to rapidly build cross-platform and native apps for mobile devices. |
+| [Mobile SDK](https://www.redfoundry.com/what-is-a-mobile-sdk) | [App Center](https://azure.microsoft.com/services/app-center) | Provides the technology to rapidly build cross-platform and native apps for mobile devices. |
 | [Cognito](https://aws.amazon.com/cognito) | [Azure Active Directory](https://azure.microsoft.com/services/active-directory/) | Provides authentication capabilities for mobile applications. |
 | [Device Farm](https://aws.amazon.com/device-farm) | [App Center](https://azure.microsoft.com/services/app-center) | Provides services to support testing mobile applications. |
 | [Mobile Analytics](https://aws.amazon.com/mobileanalytics) | [App Center](https://azure.microsoft.com/services/app-center) | Supports monitoring, and feedback collection for the debugging and analysis of a mobile application service quality. |
