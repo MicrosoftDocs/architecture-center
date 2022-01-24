@@ -3079,6 +3079,8 @@ items:
                     href: guide/security/conditional-access-design.yml
                   - name: Conditional Access architecture  
                     href: guide/security/conditional-access-architecture.yml
+                  - name:  Conditional Access framework and policies
+                    href:  guide/security/conditional-access-framework.md
               - name: Integrate on-premises AD with Azure
                 href: reference-architectures/identity/index.yml
               - name: Deployment guidance

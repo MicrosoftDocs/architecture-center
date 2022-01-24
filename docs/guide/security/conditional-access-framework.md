@@ -1,19 +1,14 @@
 ---
 title: Conditional Access framework and policies
-description: Conditional Access framework, structure and policy details
+description: Get a detailed description of a recommended Conditional Access framework and a starting point for policies. 
 author: clajes
 ms.author: clajes
-ms.date: 01/25/2022
+ms.date: 01/26/2022
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: azure-guide
 products:
   - azure-active-directory
-  - m365-threat-protection 
-  - mdatp
-  - m365-ems
-  - m365-ems-cloud-app-security
-  - mem
 categories:
   - security
   - identity
@@ -22,12 +17,12 @@ ms.custom: fcp
 
 # Conditional Access framework and policies
 
-This article provides a framework for implementing a persona-based Conditional Access architecture, like the one described in [Conditional Access Zero Trust architecture](/azure/architecture/guide/security/conditional-access-architecture). In this article, you'll get details on how to form and name the Conditional Access policies.
+This article provides a framework for implementing a persona-based Conditional Access architecture, like the one described in [Conditional Access Zero Trust architecture](/azure/architecture/guide/security/conditional-access-architecture). In this article, you'll get details on how to form and name the Conditional Access policies. You'll also get a starting point for creating policies.
 
-If you don't use a framework like the one provided here, including a naming standard, policies tend to be created over time by different people in an ad-hoc manner.
-This can result in policies that overlap. If the people who created them are no longer available, it can be difficult for others to know the purpose of a given policy.
+If you don't use a framework like the one provided here, including a naming standard, policies tend to be created over time by different people in an ad-hoc way.
+This can result in policies that overlap. If the person who created a policy is no longer available, it can be difficult for others to know the purpose of the policy.
 
-Following a structured framework makes it simpler to understand the policies. It also makes it easier to cover all scenarios and avoid conflicting policies that are difficult to troubleshoot.
+Following a structured framework makes it easier to understand the policies. It also makes it easier to cover all scenarios and avoid conflicting policies that are difficult to troubleshoot.
 
 ## Naming conventions
 
@@ -37,23 +32,23 @@ The recommended naming policy is based on personas, policy types, and apps. It l
 
 **\<CANumber>-\<Persona>-\<PolicyType>-\<App>-\<Platform>-\<GrantControl>-\<OptionalDescription>**
 
-The naming sections of the policies are explained in the table below
+These are components of this name:
 
-|Naming component|Description/example|
+|Naming component|Description/Example|
 |----------|-----------------------|
-|CA Number|Used to quickly identify policy type scope and order. Example: CA001-CA099|
-|Persona |Global, Admins, Internals, Externals, GuestUsers, Microsoft365ServiceAccounts, AzureServiceAccounts, CorpServiceAccounts|
-|Policy Type|BaseProtection, AppProtection, DataProtection, IdentityProtection, AttackSurfaceProtection, Compliance|
-|App|AllApps, O365 for all O365 services, EXO for Exchange Online|
-|Platform| AnyPlatform, Unknown, Windows, MacOS, iOS, Android|
-|Grant Control|Block, ADHJ, Compliant, Unmanaged, where unmanaged is specified in device state condition|
-|Description|Optional extra words to describe purpose of the policy|
+|CA Number|Used to quickly identify Policy Type scope and order. Example: CA001-CA099.|
+|Persona |Global, Admins, Internals, Externals, GuestUsers, GuestAdmins, Microsoft365ServiceAccounts, AzureServiceAccounts, CorpServiceAccounts.|
+|Policy Type|BaseProtection, AppProtection, DataProtection, IdentityProtection, AttackSurfaceReduction, Compliance.|
+|App|AllApps, O365 (for all Office 365 services), EXO (for Exchange Online).|
+|Platform| AnyPlatform, Unknown, WindowsPhone, macOS, iOS, Android.|
+|Grant Control|Block, ADHJ, Compliant, Unmanaged (where unmanaged is specified in the device state condition).|
+|Description|Optional description of the purpose of the policy.|
 
 ## Numbering scheme
 
-For ease of administration, the below numbering scheme is suggested.
+To make administration easy, we suggest this numbering scheme:
 
-|Persona Group|Number Allocation|
+|Persona group|Number allocation|
 |-------------|-----------------|
 |CA-Persona-Global|CA001-CA099|
 |CA-Persona-Internals|CA100-CA199|
@@ -67,104 +62,108 @@ For ease of administration, the below numbering scheme is suggested.
 |CA-Persona-WorkloadIdentities|CA900-CA999|
 |CA-Persona-Developers|CA1000-CA1099|
 
-## Policy Types
+## Policy types
 
-The suggested policy types are explained below
+These are the recommended policy types:
 
-|Policy Type|Description/Examples|
+|Policy type|Description/Examples|
 |-----------|--------------------|
-|BaseProtection|For each persona, we want to have a base protection that is covered by this policy type. For users on managed devices, this could typically be known user and known device, whereas for external guests, it could be known user and MFA. The base protection is the default policy for all app for users of the given persona. If a given app should have other policy than the default policy, the idea is to exclude that app from the base protection policy and add an explicit policy targeting only that app. An example would be if the base protection for Internals is to require known user and known device for all cloud apps, but you want to allow for Outlook on the Web (OWA) from any device, then you would exclude Exchange Online from the Base Protection policy and add a separate policy for Exchange Online where you require known device OR MFA|
-|IdentityProtection|On top of the base protection for each persona, we can have CA policies that relate to identity. Examples are: Block Legacy Authentication, Require extra MFA for high user or sign-in risk, Require known device for MFA registration|
-|DataProtection|Type policy type indicates delta policies that protect data as an extra layer on top of the base protection. Examples includes App Protection Policies for iOS and Android where we can protect and encrypt the data on a phone. (App Protection policies also include app protection, so it can be considered both). Other examples include session policies where data is protected using Azure Information protection on the flow if the data being downloaded is considered sensitive data|
-|AppProtection|This policy type is another addition to the base protection. An example is if/when you want to allow for web access to Exchange Online from any device. In this case you exclude Exchange from the base policy and create a new explicit policy for access to Exchange, where you for example only allow read-only to Exchange Online. Another example of AppProtection policy would be if we require MFA for Endpoint Manager enrollment. We would then exclude "Intune/EM enrollment" from the base policy and add an app protection policy that requires MFA for Endpoint Manager enrollment|
-|AttackSurfaceReduction|This type of policy is to mitigate against various attacks, like if a user is coming from an unknown platform, then experiences shows that this could be an attempt to try to bypass CA policies where we require a given platform, hence we may want to block requests coming from unknown platforms to mitigate against this. Another example would be to block access to Office 365 services for Azure Administrators or block access to an app for all users if the app is a known to be bad|
-|Compliance|A compliance policy could be used to require a user to see a "Terms of Use" for guests accessing customer services. In this case you would have an audit record that proves that the guest user|
+|BaseProtection|For each persona, there's a baseline protection that's covered by this policy type. For users on managed devices, this is typically known user and known device. For external guests, it might be known user and multi-factor authentication.<br><br> The base protection is the default policy for all apps for users in the given persona. If a specific app should have a different policy, exclude that app from the base protection policy and add an explicit policy that targets only that app.<br><br> Example: Assume the base protection for Internals is to require known user and known device for all cloud apps, but you want to allow for Outlook on the web from any device. You could exclude Exchange Online from the base protection policy and add a separate policy for Exchange Online, where you require known device OR multi-factor authentication.|
+|IdentityProtection|On top of the base protection for each persona, you can have Conditional Access policies that relate to identity.<br><br> Examples: Block legacy authentication, require extra multi-factor authentication for high user or sign-in risk, require known device for multi-factor authentication registration.|
+|DataProtection|This policy type indicates delta policies that protect data as an extra layer on top of the base protection. <br><br>Examples: <ul><li>App protection policies for iOS and Android that you can use to encrypt data and provide improved protection of that data on a phone. (App protection policies also include app protection.) <li> Session policies where Azure Information Protection helps secure data during download if the data is sensitive.|
+|AppProtection|This policy type is another addition to the base protection. <br><br>Examples:<ul><li> Assume you want to allow web access to Exchange Online from any device. You could exclude Exchange from the base policy and create a new explicit policy for access to Exchange, where, for example, you allow only read-only access to Exchange Online. <li>Assume you require multi-factor authentication for Microsoft Endpoint Manager enrollment. You could exclude Intune Endpoint Manager enrollment from the base policy and add an app protection policy that requires multi-factor authentication for Endpoint Manager enrollment.|
+|AttackSurfaceReduction|The purpose of this type of policy is to mitigate against various attacks. <br><br>Examples:<ul><li> If an access attempt comes from an unknown platform, it might be an attempt to bypass Conditional Access policies where you require a specific platform. You can block requests from unknown platforms to mitigate this risk. <li> Block access to Office 365 services for Azure Administrators or block access to an app for all users if the app is a known to be bad.|
+|Compliance|You can use a compliance policy to require a user to view the terms of use for guests who access customer services. |
 
-## App Type
+## App 
 
-The App Type section of a policy is explained below
+The following table describes the App component of a policy name:
 
-|APP Name|Description/Examples|
+|App name|Description/Examples|
 |--------|--------------------|
-|All Apps|Indicates that "All Cloud Apps" is being targeted in the CA policy which means that all endpoints are protected for users’ access, both those endpoints that support CA as well as those that don't. Using “AllApps” does have implications of some scenarios that don't work well with this policy. Using “AllApps” in the base policy is recommended seen from a security point of view as you then have all endpoints protected by the base policy and new apps showing up in Azure AD will also adhere to this policy automatically|
-|AppName|AppName is just an example of an app that the policy addresses, it could be "EXO" for Exchange Online (to not make the policy name too long), or SPO for SharePoint Online|
+|AllApps|AllApps indicates that all cloud apps are targeted in the Conditional Access policy. All endpoints are covered, including those that support Conditional Access and those that don't. In some scenarios, targeting all apps doesn't work well. We recommend targeting all apps in the base policy so that all endpoints are covered by that policy. New apps that appear in Azure AD will also automatically adhere to the policy.|
+|\<AppName>|\<AppName> is a placeholder for the name of an app that the policy addresses. Avoid making the name too long.<br><br>Example names: <ul><li>EXO for Exchange Online<li>SPO for SharePoint Online <br><br>|
 
-## Platform Type
+## Platform type
 
-Platform section as part of a Conditional Access policy name is explained below.
+The following table describes the Platform component of a policy name:
 
-|Platform Type|Description/Examples|
+|Platform type|Description|
 |-------------|--------------------|
-|AnyPlatform|This indicates that the policy should target any platform. This is typically done by selecting "Any Device" (in CA policy both the word platform as well as device are being used)|
-|iOS|Means that the policy targets the Apple iOS platforms|
-|Android|Means that the policy targets the Google Android platforms|
-|WindowsPhone|Means that the policy targets the Windows Phone platforms|
-|macOS|Means that the policy targets the MacOS platforms|
-|iOSAndroid|Means that the policy targets both the iOS and the Android platforms|
-|Unknown|Means that the policy targets both the iOS and the Android platforms Means that the policy targets platforms not any of the above. This is typically used by including "Any Device" and excluding all the individual platforms|
+|AnyPlatform|The policy targets any platform. You typically configure this by selecting **Any Device**. (In Conditional Access policies, both the word *platform* and the word *device* are used.)|
+|iOS|The policy targets Apple iOS platforms.|
+|Android|The policy targets Google Android platforms.|
+|WindowsPhone|The policy targets Windows Phone platforms.|
+|macOS|The policy targets the macOS platforms|
+|iOSAndroid|The policy targets both iOS and Android platforms.|
+|Unknown|The policy targets any platform not listed previously. You typically configure this by including **Any Device** and excluding all the individual platforms.|
 
-## Grant Control Types
+## Grant control types
 
-The various grant control types are explained below
+The following table describes the Grant Control component of a policy name:
 
-|Grant Type|Description/Examples|
+|Grant type|Description/Examples|
 |----------|--------------------|
-|MFA|Indicate that the policy requires MFA|
-|Compliant|Indicates that the policy requires a compliant device as determined by Endpoint Manager, so the device needs to be managed by Endpoint Manager|
-|CompliantorAADHJ|Indicates that the policy requires a compliant device or Azure AD Hybrid Joined device. A standard company PC that is domain joined is also Azure AD Hybrid Joined. Mobile phones and Windows 10 PCs that are comanaged or Azure AD Joined can be compliant|
-|CompliantandAADHJ|This indicates that the policy requires a compliant AND Azure AD Hybrid Joined Device|
-|MFAorCompliant|Indicates that the policy requires a compliant device OR MFA if it is not|
-|MFAandCompliant|Indicates that the policy requires a compliant device AND MFA to satisfy this policy|
-|MFAorAADHJ|Indicates that the policy requires an Azure AD Hybrid Joined PC or MFA if it is not|
-|MFAandAADHJ|Indicates that the policy requires an Azure AD Hybrid Joined PC and MFA|
-|Unmanaged|This indicates that the policy is targeting devices that are not known by Azure AD. An example of where this could be used would be to allow for access to Exchange Online from any device|
+|Multi-factor authentication|The policy requires multi-factor authentication.|
+|Compliant|The policy requires a compliant device, as determined by Endpoint Manager, so the device needs to be managed by Endpoint Manager.|
+|CompliantorAADHJ|The policy requires a compliant device OR a Hybrid Azure AD joined device. A standard company computer that's domain joined is also Hybrid Azure AD  joined. Mobile phones and Windows 10 computers that are co-managed or Azure AD joined can be compliant.|
+|CompliantandAADHJ|The policy requires a device that's compliant AND Hybrid Azure AD joined.|
+|MFAorCompliant|The policy requires a compliant device OR multi-factor authentication if it's not compliant.|
+|MFAandCompliant|The policy requires a compliant device AND multi-factor authentication.|
+|MFAorAADHJ|The policy requires a Hybrid Azure AD joined computer OR multi-factor authentication if it's not a Hybrid Azure AD joined computer.|
+|MFAandAADHJ|The policy requires a Hybrid Azure AD joined computer AND multi-factor authentication.|
+|Unmanaged|The policy targets devices that aren't known by Azure AD. For example, you can use this grant type to allow access to Exchange Online from any device.|
 
-## Named Locations
+## Named locations
 
-When defining locations for use in conditional access policies, we recommend that you define these standard locations:
+We recommend that you define these standard locations for use in Conditional Access policies:
 
-- Trusted IPs / Internal Networks. These IP subnets represent locations and networks that have physical access restrictions and/or other controls in place, such as computer system management, network level authentication and intrusion detection. These locations are more secure and conditional access enforcement may be relaxed. Consider if Azure or other data centre locations (IPs) should be included in this or have their own named locations.
-- Citrix Trusted IPs . If you have Citrix on-premises, it may be useful to configure separate outgoing IPv4 addresses for the Citrix farms, if there is a need to be able to connect to clod services from Citrix sessions. In this case, those locations can potentially be excluded from CA policies where needed.
-- ZScaler locations (if applicable). As PCs have a ZPA agent installed and will forward all traffic to the internet to/through ZScaler cloud, it is worthwhile defining ZScaler source IPs in CA and require all requests from non-mobiles to go through ZScaler.
-- Countries Allowed Business In/With. It can be useful when designing a policy to divide countries into two location groups. One represented the areas of the world that employees typically work in vs locations that are typically not working from. By having these locations defined, an organization can apply additional controls to requests that originate from outside the areas where the organization normally operates.
-- Locations where MFA may be difficult or impossible. The nature of some work conditions may mean that requiring MFA is not practical to the extent that staff may be impeded from carrying out their duties. For example, frontline staff performing border protection duties at immigration screening points may not have the time or opportunity to respond to frequent MFA challenges.  Another example may be locations where RF screening or electrical interference negate the use of mobile devices. Typically, these locations would be afforded other controls and may be trusted.
+- Trusted IPs / Internal networks. These IP subnets represent locations and networks that have physical access restrictions or other controls in place, like computer system management, network-level authentication, or intrusion detection. These locations are more secure, so Conditional Access enforcement can be relaxed. Consider whether Azure or other datacenter locations (IPs) should be included in this location or have their own named locations.
+- Citrix-trusted IPs. If you have Citrix on-premises, it might be useful to configure separate outgoing IPv4 addresses for the Citrix farms, if you need to be able to connect to cloud services from Citrix sessions. In that case, you can exclude those locations from Conditional Access policies if you need to.
+- Zscaler locations (if applicable). Computers have a ZPA agent installed and will forward all traffic to the internet to or through Zscaler cloud. So it's worth defining Zscaler source IPs in Conditional Access and requiring all requests from non-mobile devices to go through Zscaler.
+- Countries to allow business with. It can be useful to divide countries into two location groups: One that represents areas of the world where employees typically work and one that represents other locations. This allows you to apply additional controls to requests that originate from outside the areas where your organization normally operates.
+- Locations where multi-factor authentication might be difficult or impossible. In some scenarios, requiring multi-factor authentication could make it difficult for employees to do their work. For example, staff might not have the time or opportunity to respond to frequent multi-factor authentication challenges. Or, in some locations, RF screening or electrical interference can make the use of mobile devices difficult. Typically, you'd use other controls in these locations, or they might be trusted.
 
-Location-based access controls rely on the source IP of a request to determine the location of the user at the time of the request. Although it is non-trivial to spoof on the public Internet, protection afforded by network boundaries may be considered less relevant than it once was. We do not recommend relying solely on location as a condition for access but for some scenarios it may be the best/only control that can be used, like securing access from a service account from on-premises that is used in a non-interactive scenario.
+Location-based access controls rely on the source IP of a request to determine the location of the user at the time of the request. It's not easy to perform spoofing on the public internet, but protection afforded by network boundaries might be considered less relevant than it once was. We don't recommend relying solely on location as a condition for access. But for some scenarios it might be the best control that you can use, like if you're securing access from a service account from on-premises that's used in a non-interactive scenario.
 
-## Suggested CA Policies
+## Recommended Conditional Access policies
 
-Link to CA policies to come facilitated in an Excel spreadsheet 
+We've created a spreadsheet that contains recommended Conditional Access policies. You can [download the spreadsheet here](https://arch-center.azureedge.net/Conditional-Access-policies-for-personas.xlsx). 
 
-The suggested policies should be considered as your starting set of policies.
+Use the suggested policies as a starting point.
 
-You should expect that the policies will be changed over time for each persona to accommodate for various use-cases important to the business. A few examples of scenarios that may result in change of CA policies are shown below.
+Your policies will probably change over time to accommodate use cases that are important to your business. Here are a few examples of scenarios that might require changes:
 
-- Read Only access to Exchange Online for employees from any unmanaged device based on MFA and App Protection and approved client app.
-- Information protection, ensuring that sensitive information is not downloaded without being protected using Azure Information Protection.
-- Hinder Copy/Paste for guest access
+- Implement read-only access to Exchange Online for employees using any unmanaged device based on multi-factor authentication, app protection, and an approved client app.
+- Implement information protection to ensure that sensitive information isn't downloaded without improved protection via Azure Information Protection.
+- Provide protection against copy and paste by guests.
   
-## Next Steps
+## Conditional Access guidance
 
-Now that you have a starter set of CA Policies, you want to consider how to deploy them in a controlled and phased approch. We suggest that you use a deployment model.
+Now that you have a starter set of Conditional Access policies, you need to deploy them in a controlled and phased way. We suggest that you use a deployment model.
 
-One approach is depicted in the figure below.
+Here's one approach:
 
-![CA Deployment Model](media/cadeploymentmodel.svg)
+![Diagram that shows a Conditional Access deployment model.](images/conditional-access-deployment.svg)
 
-The idea is to deploy policies to a small number of users within one persona group. An associated Azure AD group called Persona-Ring 0 can be used for this. After verifying that everything seems to work you change the assignment to a group, Persona-Ring 1 that has more members and so on for multiple Rings.
+The idea is to first deploy policies to a small number of users within one persona group. You can use an associated Azure AD group called Persona Ring 0 for this deployment. After you verify that everything works, you change the assignment to a group, Persona Ring 1, that has more members, and so on.
 
-Then you start by enabling the policies using the same ring based approach and you end up by having all policies deployed.
+You then enable the policies by using the same ring-based approach until all policies are deployed.
 
-The members for Ring 0 and Ring 1 would typically be managed manually whereas a Ring 2 or Ring 3 group that covers hundreds or even thousands of users could be based on a dynamic group based on a given percentage of the users in a given Persona group.
+You typically manage the members of ring 0 and ring 1 manually. A ring 2 or 3 group that contains hundreds or even thousands of users could be managed via a dynamic group that's based on a percentage of the users in a given persona.
 
-The use of rings as part of a deployment model is not only for the initial deployment, but can also be used ongoing when new or changes to existing policies are required.
+The use of rings as part of a deployment model isn't just for initial deployment. You can also use it when new policies or changes to existing policies are required.
 
-With a finished deployment you also want to design and implement monitoring controls that we mentioned as part of the Conditional Access principles.
+With a finished deployment, you should also design and implement the monitoring controls that we discussed in the [Conditional Access principles](/azure/architecture/guide/security/conditional-access-design#principles-of-conditional-access).
 
-Additionally you may want to automate not only the initial deployment but maybe also the ongoing changes to the policies using CI/CD pipelines. One tool that could be used for this is Microsoft365DSC.
+In addition to automating the initial deployment, you might want to automate changes to policies by using CI/CD pipelines. You could use Microsoft365DSC for this automation.
+
+## Next steps
+- [Learning path: Implement and manage identity and access](/learn/paths/implement-manage-identity-access)
+- [Conditional Access policies](/azure/active-directory/conditional-access/concept-conditional-access-policies)
 
 ## Related resources
-
-[Conditional Access Policies](https://docs.microsoft.com/azure/active-directory/conditional-access/concept-conditional-access-policies)
-
-[Plan Implement and administer Conditional Access](https://docs.microsoft.com/learn/modules/plan-implement-administer-conditional-access/)
+- [Conditional Access overview](/azure/architecture/guide/security/conditional-access-zero-trust)
+- [Conditional Access design principles and dependencies](/azure/architecture/guide/security/conditional-access-design)
+- [Conditional Access design based on Zero Trust and personas](/azure/architecture/guide/security/conditional-access-architecture)
+- [Azure Active Directory IDaaS in security operations](/azure/architecture/example-scenario/aadsec/azure-ad-security)
