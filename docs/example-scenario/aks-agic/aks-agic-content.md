@@ -167,7 +167,7 @@ Although the security considerations are not fully pertaining to multitenancy in
 
 - Consider using [AAD Pod Identity](/azure/aks/use-azure-ad-pod-identity) to assign a managed identity for an Azure resource to individual microservices, which they can then use to access managed resources (such as Azure Key Vault, SQL Database, Service Bus, and Cosmos DB), without the need to store and retrieve use connection strings or credentials from Kubernetes secrets.
 - Consider using the [Secret Store CSI Driver for Azure Key Vault](/azure/key-vault/general/key-vault-integrate-kubernetes) to access secrets, such as credentials and connections strings from Key Vault, rather than from Kubernetes secrets.
-- Consider using the [Dapr Secrets Stores](https://v1-rc2.docs.dapr.io/developing-applications/building-blocks/secrets/secrets-overview/) building block, with the [Azure Key Vault store with Managed Identities on Kubernetes](https://v1-rc2.docs.dapr.io/operations/components/setup-secret-store/supported-secret-stores/azure-keyvault-managed-identity/), to retrieve secrets (such as credentials and connection strings) from Key Vault.
+- Consider using the [Dapr Secrets Stores](https://docs.dapr.io/developing-applications/building-blocks/secrets/secrets-overview/) building block, with the [Azure Key Vault store with Managed Identities on Kubernetes](https://docs.dapr.io/developing-applications/integrations/azure/authenticating-azure/), to retrieve secrets (such as credentials and connection strings) from Key Vault.
 
 #### Workload and cluster
 
@@ -177,7 +177,7 @@ Although the security considerations are not fully pertaining to multitenancy in
 - Use the [AppArmor](https://kubernetes.io/docs/tutorials/clusters/apparmor/) Linux kernel security module to limit the actions that containers can do.
 - Regularly upgrade your AKS clusters to the latest Kubernetes version to take advantage of new features and bug fixes.
 - AKS automatically downloads and installs security fixes on each Linux node, but it doesn't automatically reboot the node if necessary. Use [kured](https://github.com/weaveworks/kured) to watch for pending reboots, cordon and drain nodes, and finally, apply your updates. For Windows Server nodes, regularly run an AKS upgrade operation to safely cordon and drain pods and to deploy any updated nodes.
-- Consider using HTTPS and gRPC secure transport protocols for all intra-pod communications and to use a more advanced authentication mechanism that does not require you to send the plain credentials on every request, like OAuth or JWT. Secure intra-service communication can be achieved by leveraging a service mesh, like [Istio](https://istio.io/), [Linkerd](https://linkerd.io/), [Consul](https://www.consul.io/), or [Open Service Mesh](https://openservicemesh.io/), or by using [Dapr](https://v1-rc2.docs.dapr.io/developing-applications/building-blocks/service-invocation/service-invocation-overview/).
+- Consider using HTTPS and gRPC secure transport protocols for all intra-pod communications and to use a more advanced authentication mechanism that does not require you to send the plain credentials on every request, like OAuth or JWT. Secure intra-service communication can be achieved by leveraging a service mesh, like [Istio](https://istio.io/), [Linkerd](https://linkerd.io/), [Consul](https://www.consul.io/), or [Open Service Mesh](https://openservicemesh.io/), or by using [Dapr](https://docs.dapr.io/developing-applications/building-blocks/service-invocation/service-invocation-overview/).
 
 #### Azure Container Registry
 
