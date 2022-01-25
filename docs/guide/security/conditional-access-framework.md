@@ -17,7 +17,7 @@ ms.custom: fcp
 
 # Conditional Access framework and policies
 
-This article provides a framework for implementing a persona-based Conditional Access architecture, like the one described in [Conditional Access Zero Trust architecture](/azure/architecture/guide/security/conditional-access-architecture). In this article, there are details on how to form and name the Conditional Access policies. There's also get a starting point for creating policies.
+This article provides a framework for implementing a persona-based Conditional Access architecture, like the one described in [Conditional Access Zero Trust architecture](/azure/architecture/guide/security/conditional-access-architecture). In this article, there are details on how to form and name the Conditional Access policies. There's also a starting point for creating policies.
 
 If you don't use a framework like the one provided here, including a naming standard, policies tend to be created over time by different people in an ad-hoc way.
 This can result in policies that overlap. If the person who created a policy is no longer available, it can be difficult for others to know the purpose of the policy.
