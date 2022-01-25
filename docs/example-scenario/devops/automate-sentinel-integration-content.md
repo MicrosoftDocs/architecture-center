@@ -175,37 +175,71 @@ We recommended using managed identities where possible. In the case of non-manag
 
 ### DevOps
 
-Microsoft Sentinel solutions are composed of three main segments, which ensure complete and successful implementation.  
+Microsoft Sentinel solutions are composed of three blocks, which ensure complete and successful implementation.  
 
-The first segment is the environment definition, which makes up the essential architecture elements. Your main concern with this block is to consider the number of production and non-production environments to be deployed, then how to ensure the implementation is homogeneous in all cases.
+The first block is the environment definition, which makes up the essential architecture elements. Your main concern with this block is to consider the number of production and non-production environments to be deployed, then how to ensure the implementation is homogeneous in all cases.
 
-The second segment is the Microsoft Sentinel Connector deployment, where you consider the kind of connectors required by the organization and the security requirements to enable them.
+The second block is the Microsoft Sentinel Connector deployment, where you consider the kind of connectors required by your organization and the security requirements to enable them.
 
-The third segment is the Microsoft Sentinel artifacts lifecycle management, which covers coding, deployment, and use or destruction of the components. For example, the Analytic Rules, Playbooks, Workbooks, Threat Hunting, and so on.
+The third block is the Microsoft Sentinel artifacts lifecycle management, which covers coding, deployment, and use or destruction of the components. For example, the analytic rules, playbooks, workbooks, threat hunting, and so on.
 
-Inter-dependencies between artifacts to consider include the following examples:
+Inter-dependencies between artifacts to consider:
 
 * Automation rules defined in an Analytics rule
-* Workbooks or Analytics that require a new data source or connector
-* How to manage updates of existing components like:
+* Workbooks or analytics that require a new data source or connector
+* Managing updates of existing components, such as:
   * How to version your artifacts
   * How to identify, test, and deploy an updated or entirely new analytics rule
 
-#### Build, test, and deployment infrastructure
+### Build, test, and deploy infrastructure
 
 In managing Microsoft Sentinel solutions and DevOps, it's important to consider the connectivity and security aspects of your Enterprise Architecture.
 
-Azure DevOps can use Microsoft-hosted agents or self-hosted agents for build, testing, and deployment activities.
+Azure DevOps can use Microsoft-hosted agents or self-hosted agents for build, test, and deploy activities.
 Depending on your organization's requirements, you can use Microsoft-hosted, self-hosted, or a combination of both models.
 
 * Microsoft-hosted agents: This option is the fastest way to work with Azure DevOps agents, because it's a shared infrastructure for your entire organization. For more information on using Microsoft-hosted agents in your pipeline, see [Microsoft-hosted agents](/azure/devops/pipelines/agents/hosted?view=azure-devops&tabs=yaml) Microsoft-hosted agents can work in hybrid-networking environments, granting access for the following [IP ranges](https://www.microsoft.com/download/details.aspx?id=56519)
 * Self-hosted agents: This option gives you dedicated resources and more control when installing dependent software for your builds and deployments. Self-hosted agents can work over virtual machines, scale sets, and containers on Azure. For more information on self-hosted agents, see [Azure Pipelines agents](/azure/devops/pipelines/agents/agents?view=azure-devops&tabs=browser#install).
 
+#### GitHub runners
+
+GitHub can use GitHub-hosted runners or self-hosted runners for activities related to building, testing and deploying.  Depending on your organization needs, you can use GitHub-hosted, self-hosted, or a combination of both models.
+
+GitHub-hosted runners
+
+This option is the fastest way to work with GitHub workflows, since it's a shared infrastructure for an entire organization. For more information on GitHub hosted runners, see [About GitHub-hosted runners](https://docs.github.com/en/actions/using-github-hosted-runners/about-github-hosted-runners) GitHub-hosted agents work in hybrid-networking environments, according to certain network requirements. For more information on the network requirements, see [Supported runners and hardware resources](https://docs.github.com/en/actions/using-github-hosted-runners/about-github-hosted-runners#ip-addresses)
+  
+Self-hosted runners
+
+This option facilitates to the organizations, having dedicated resources on specific scenarios. Self-Hosted runners can work over Virtual Machines and Containers on Azure, being very relevant consider the scenarios for auto-scaling.
+
+### Considerations for choosing runners
+
+Some of the things you'll need to consider when choosing options for the agents and runners for your Microsoft Sentinel solution:
+
+* Does your organization need dedicated resources for running processes on your Microsoft Sentinel environment(s)?
+* Does your organization want to isolate resources for Production environment DevOps activities from the rest of environments? 
+* Does your organization need to test cases that require access to critical resources or resources available only on an internal network?
+
 ## Deploy this scenario
 
-> (Optional, but greatly encouraged)
+You can set up the deployment process with Azure DevOps or GitHub. Azure DevOps supports using a YAML pipeline or a Release pipeline. For more information on using a YAML pipeline in Azure DevOps, see [Use Azure Pipelines](https://docs.microsoft.com/en-us/azure/devops/pipelines/get-started/pipelines-get-started?view=azure-devops). For more information on using a Release pipeline in Azure DevOps, see [Release pipelines](https://docs.microsoft.com/en-us/azure/devops/pipelines/release/?view=azure-devops). For more information on using GitHub with GitHub Actions, see [Understanding GitHub Actions](https://docs.github.com/en/actions/learn-github-actions/understanding-github-actions).
 
-> Is there an example deployment that can show me this in action?  What would I need to change to run this in production?
+### Azure DevOps deployment
+
+Azure DevOps Pipelines based on YAML files, associating the trigger to Pull-Request approval or allowing to run it under demand  
+
+Manage the usage of the Service Connection which represents the different environment, using Azure DevOps Groups 
+
+On critical environment, use Deployment approval using Service Connections Approval feature, using Azure DevOps Groups to assign the right approvals in the organization 
+
+GitHub 
+
+Use GitHub actions, associating the trigger to with pull request action or using Deployment action  
+
+Manage the usage of Service Principal credentials using GitHub Secrets 
+
+Deployment approval can be integrated in the Workflow associated on the GitHub action 
 
 ## Pricing
 
