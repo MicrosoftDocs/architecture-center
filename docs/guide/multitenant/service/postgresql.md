@@ -22,7 +22,7 @@ ms.custom:
 
 # Multitenancy and Azure Database for PostgreSQL
 
-Many multitenant solutions on Azure leverage the open-source relational database management system Azure Database for PostgreSQL. In this article, we review the features of Azure Database for PostgreSQL that are useful when working with multitenant systems and link to guidance and examples for how to use Azure Database for PostgreSQL in a multitenant solution.
+Many multitenant solutions on Azure use the open-source relational database management system Azure Database for PostgreSQL. In this article, we review the features of Azure Database for PostgreSQL that are useful when working with multitenant systems. The article also links to guidance and examples for how to use Azure Database for PostgreSQL in a multitenant solution.
 
 ## Deployment modes
 
@@ -62,7 +62,7 @@ More information:
 
 ### Connection pooling
 
-Postgres uses a process-based model for connections. This model makes it inefficient to maintain large numbers of idle connections. Some multitenant architectures may require a large number of active connections, which will negatively impact the performance of the Postgres server.
+Postgres uses a process-based model for connections. This model makes it inefficient to maintain large numbers of idle connections. Some multitenant architectures require a large number of active connections, which will negatively impact the performance of the Postgres server.
 
 Connection pooling via PgBouncer is installed by default in Azure Database for PostgreSQL [Flexible Server](/azure/postgresql/flexible-server/) and [Hyperscale (Citus)](/azure/postgresql/hyperscale/). Connection pooling via PgBouncer is not built-in to [Single Server](/azure/postgresql/single-server/), but can be installed on a separate server.
 
