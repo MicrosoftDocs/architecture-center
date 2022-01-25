@@ -52,7 +52,7 @@ The solution has the following components:
 
 - [Azure Pipelines](https://azure.microsoft.com/services/devops/pipelines) enables continuous integration (CI) and continuous delivery (CD) to test and build your code and ship it to any target.
 
-- [Azure Repos](/services/devops/repos) is a set of version control tools, including standard Git, that you can use to manage your code.
+- [Azure Repos](/azure/devops/repos) is a set of version control tools, including standard Git, that you can use to manage your code.
 
 ### Alternatives
 
