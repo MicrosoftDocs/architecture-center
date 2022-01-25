@@ -31,7 +31,7 @@ This guidance is intended for individuals who:
 
 The intended audience has a basic working knowledge of Azure Active Directory (Azure AD) and a general understanding of multi-factor authentication, Conditional Access, identity, and security concepts.
 
-Knowledge in following areas is also recommended:
+Knowledge in the following areas is also recommended:
 - Microsoft Endpoint Manager
 - Azure AD identity management
 - Azure AD Conditional Access and multi-factor authentication for guest users (B2B)
@@ -40,7 +40,7 @@ Knowledge in following areas is also recommended:
 
 ## Requirements
 
-Every company has different requirements and security policies. When you create an architecture and follow this suggested framework for Conditional Access, you need to take your company's requirements into account. The guidance doesn't include specific requirements that vary depending on the company. It includes principles related to Zero Trust that you can use as input when you create an architecture. You can then address specific company requirements and policies and adjust the architecture accordingly.
+Every company has different requirements and security policies. When you create an architecture and follow this suggested framework for Conditional Access, you need to take your company's requirements into account. The guidance includes principles related to Zero Trust that you can use as input when you create an architecture. You can then address specific company requirements and policies and adjust the architecture accordingly.
 
 For example, a company might have these requirements:
 - All access must be protected by at least two factors.
@@ -51,9 +51,9 @@ For example, a company might have these requirements:
 ## Conditional Access guidance
 
 This section includes the following articles:
-- [Conditional access design principles and dependencies](/azure/architecture/guide/security/conditional-access-design) provides recommended principles that, together with your company's requirements, serve as input to the suggested persona-based architecture.
-- [Conditional access architecture and personas](/azure/architecture/guide/security/conditional-access-architecture) introduces the persona based-approach for structuring Conditional Access policies. It also provides suggested personas that you can use as a starting point.
-- [Conditional access framework and policies](/azure/architecture/guide/security/conditional-access-framework) provides specific details on how to structure and name Conditional Access policies that are based on the personas.
+- [Conditional Access design principles and dependencies](/azure/architecture/guide/security/conditional-access-design) provides recommended principles that, together with your company's requirements, serve as input to the suggested persona-based architecture.
+- [Conditional Access architecture and personas](/azure/architecture/guide/security/conditional-access-architecture) introduces the persona based-approach for structuring Conditional Access policies. It also provides suggested personas that you can use as a starting point.
+- [Conditional Access framework and policies](/azure/architecture/guide/security/conditional-access-framework) provides specific details on how to structure and name Conditional Access policies that are based on the personas.
 
 ## Next steps 
 - [Learning path: Implement and manage identity and access](/learn/paths/implement-manage-identity-access)
@@ -62,6 +62,6 @@ This section includes the following articles:
 
 ## Related resources 
 - [Conditional Access design principles and dependencies](/azure/architecture/guide/security/conditional-access-design)
-- [Conditional access architecture and personas](/azure/architecture/guide/security/conditional-access-architecture)
+- [Conditional Access architecture and personas](/azure/architecture/guide/security/conditional-access-architecture)
 - [Conditional Access framework and policies](/azure/architecture/guide/security/conditional-access-framework)
 - [Azure Active Directory IDaaS in security operations](/azure/architecture/example-scenario/aadsec/azure-ad-security)
