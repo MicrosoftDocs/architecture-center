@@ -34,7 +34,7 @@ There are three deployment modes available for Azure Database for PostgreSQL tha
 
 ## Features of Azure Database for PostgreSQL that support multitenancy
 
-Azure Database for PostgresSQL includes a number of features that support multitenancy.
+When you are building a multitenant application using Azure Database for PostgresSQL there are a number of features that you can use to enhance the solution.
 
 > [!NOTE]
 > Some features are only available in specific [deployment modes](#deployment-modes). These features are indicated in the guidance below.
@@ -51,7 +51,7 @@ More information:
 
 The [Sharding pattern](/azure/architecture/patterns/sharding) enables you to scale your workload across multiple databases or database servers.
 
-Azure Database for PostgreSQL Hyperscale (Citus) deployment mode provides tools for horizontally sharding your tenants across multiple servers (nodes). By using _distributed tables_ in multitenant databases, you can ensure that all data for a tenant is stored on the same node, increasing query performance.
+Solutions that need a very high-level of scale can use Azure Database for PostgreSQL Hyperscale (Citus) to enable horizontal sharding tenants across multiple servers (nodes). By using _distributed tables_ in multitenant databases, you can ensure that all data for a tenant is stored on the same node, increasing query performance.
 
 More information:
 
