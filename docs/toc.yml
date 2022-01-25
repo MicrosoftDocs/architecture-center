@@ -3048,6 +3048,16 @@ items:
                 href: /azure/active-directory-domain-services/compare-identity-solutions
                 maintainContext: true
               - name: Build for resilience
+              - name: Conditional Access
+                items:
+                  - name: Conditional Access for Zero trust
+                    href: guide/security/conditional-access-zero-trust.md 
+                  - name: Conditional Access design principles
+                    href: guide/security/conditional-access-design.yml
+                  - name: Conditional Access architecture  
+                    href: guide/security/conditional-access-architecture.yml
+                  - name:  Conditional Access framework and policies
+                    href:  guide/security/conditional-access-framework.md
                 href: guide/resilience/resilience-overview.md
               - name: Identity in multitenant applications
                 items:
@@ -3073,16 +3083,6 @@ items:
                     href: multitenant-identity/client-certificate.md
                   - name: Federate with a customer's AD FS
                     href: multitenant-identity/adfs.md
-              - name: Conditional Access
-                items:
-                  - name: Conditional Access for Zero trust
-                    href: guide/security/conditional-access-zero-trust.md 
-                  - name: Conditional Access design principles
-                    href: guide/security/conditional-access-design.yml
-                  - name: Conditional Access architecture  
-                    href: guide/security/conditional-access-architecture.yml
-                  - name:  Conditional Access framework and policies
-                    href:  guide/security/conditional-access-framework.md
               - name: Integrate on-premises AD with Azure
                 href: reference-architectures/identity/index.yml
               - name: Deployment guidance
