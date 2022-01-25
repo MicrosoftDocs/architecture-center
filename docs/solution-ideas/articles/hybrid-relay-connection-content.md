@@ -65,5 +65,5 @@ This solution only allows for 1:1 port mappings on the client and server. For ex
 
 * [Security in a hybrid workload](/azure/architecture/framework/hybrid/hybrid-security)
 * [Hybrid Security Monitoring using Microsoft Defender for Cloud and Microsoft Sentinel](../../hybrid/hybrid-security-monitoring.yml)
-* [Hybrid connections](./hybrid-connectivity-content.md)
-* [Network topology and connectivity overview in Azure](https://docs.microsoft.com/azure/cloud-adoption-framework/ready/enterprise-scale/network-topology-and-connectivity)
+* [Hybrid connections](hybrid-connectivity.yml)
+* [Network topology and connectivity overview in Azure](/azure/cloud-adoption-framework/ready/enterprise-scale/network-topology-and-connectivity)
