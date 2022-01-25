@@ -3074,7 +3074,9 @@ items:
                   - name: Federate with a customer's AD FS
                     href: multitenant-identity/adfs.md
               - name: Conditional Access
-                items: 
+                items:
+                  - name: Conditional Access for Zero trust
+                    href: guide/security/conditional-access-zero-trust.md 
                   - name: Conditional Access design principles
                     href: guide/security/conditional-access-design.yml
                   - name: Conditional Access architecture  
