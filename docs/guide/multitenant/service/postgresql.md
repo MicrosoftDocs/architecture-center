@@ -22,7 +22,7 @@ ms.custom:
 
 # Multitenancy and Azure Database for PostgreSQL
 
-Many multitenant solution on Azure leverage the open-source relational database management system Azure Database for PostgreSQL. In this article, we review the features of Azure Database for PostgreSQL that are useful when working with multitenanted systems, and we link to guidance and examples for how to use Azure Database for PostgreSQL in a multitenant solution.
+Many multitenant solutions on Azure leverage the open-source relational database management system Azure Database for PostgreSQL. In this article, we review the features of Azure Database for PostgreSQL that are useful when working with multitenant systems and link to guidance and examples for how to use Azure Database for PostgreSQL in a multitenant solution.
 
 ## Guidance
 
