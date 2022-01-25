@@ -1,6 +1,6 @@
 # Microservices assessment and readiness 
 
-A microservices architecture can provide many benefits for your applications, including agility, scalability, and high availability. Besides these benefits, it comes with its own challenges that need proper understanding and experience to address them. When building microservices based applications or re-platforming existing applications into microservices architecture, adequate analysis, assessment and preparedness is essential for identifying key areas that need improvement.
+A microservices architecture can provide many benefits for your applications, including agility, scalability, and high availability. Along with these benefits, it comes with its own challenges. that need proper understanding and experience to address them. When building microservices based applications or re-platforming existing applications into microservices architecture, adequate analysis, assessment and preparedness is essential for identifying key areas that need improvement.
 
 This guide will help reader to understand some common factors that must be considered when building new applications or transforming existing applications into microservices architecture. You can use these factors to assess the maturity state of application, infrastructure, DevOps, development model, and others.  
 
