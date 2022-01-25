@@ -53,6 +53,8 @@ az deployment group create --resource-group azsynapse-e2e \
     --parameters networkIsolationMode=default synapseSqlAdminPassword=use-complex-password-here
 ```
 
+---
+
 For detailed information and additional deployment options, see the [deployment accelerator GitHub repo](https://github.com/Azure/azure-synapse-analytics-end2end) with documentation and code used to define this solution.
 
 ## Analytics use cases
