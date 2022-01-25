@@ -1,9 +1,9 @@
 ---
-title: Conditional Access overview
-description: Review a high-level design and framework for Azure AD Conditional Access. Conditional Access provides access to cloud services based on a Zero-Trust approach. 
+title: Conditional Access for Zero Trust
+description: Review an introduction to a design and framework for implementing Zero Trust principles by using Azure AD Conditional Access. 
 author: clajes
 ms.author: clajes
-ms.date: 01/25/2022
+ms.date: 01/26/2022
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: azure-guide
@@ -15,60 +15,45 @@ categories:
 ms.custom: fcp
 ---
 
-# Conditional Access overview
+# Conditional Access for Zero Trust
 
-This article introduces the Conditional Access guidance based on Zero Trust principles.
+The articles in this section provide a design and framework for implementing Zero Trust principles by using Conditional Access to control access to cloud services. The guidance is based on years of experience with helping customers control access to their resources.  
 
-## Introduction
+The framework presented here represents a structured approach that you can use to get a good balance between security and usability while ensuring that user access is controlled.
 
-This document describes a high-level design and framework for Azure AD Conditional Access which is the central policy engine for access to cloud services based on a Zero Trust approach. The guidance is based on years of experiences from engagements where Microsoft has helped customers secure access to their resources based on Zero Trust Principles.  
+The guidance suggests a structured approach for helping to secure access based on personas. It also includes breakdown of suggested personas and defines the Conditional Access policies for each persona.
 
-The Conditional Access policy framework presented as part of this guidance represents a structured approach for customers to follow to ensure that they can get a good balance between security and usability while ensuring that any interactive/user access is secured
+## Intended audience
 
-## Document Purpose
+This guidance is intended for individuals who: 
+- Design security and identity solutions to control access to Azure protected resources. 
+- Maintain the solution after it's delivered.
 
-The purpose of this document is to help companies understand how they can secure access to resources based on Zero Trust principles.
+The intended audience has a basic working knowledge of Azure Active Directory (Azure AD) and a general understanding of multi-factor authentication, conditional access, identity, and security concepts.
 
-Not only does the guidance suggest a structured approach on how to secure the access based on personas. it also includes breakdown of suggested personas and shows what the related Conditional Access policies would be for each persona.
-
-## Intended Audience
-
-This guidance is intended for employees and individuals in companies who are responsible for designing and arhitecting security and identity solutions for access control to Azure protected resources well as for people maintaining the solution after it’s delivered.
-
-It assumes a basic working knowledge of Azure AD, and a general understanding of MFA, conditional access, identity, and security concepts.
-
-Knowledge about the following areas is suggested to follow the topics discussed and recommendations and design decisions.
-
-- Azure Active Directory
+Knowledge in following areas is also recommended:
 - Microsoft Endpoint Manager
-- Azure AD Identity Management
-- Azure AD Conditional Access and MFA for Guest users (B2B)
-- Azure AD Security Policies and resource protection
-- B2B Invitation process
+- Azure AD identity management
+- Azure AD Conditional Access and multi-factor authentication for guest users (B2B)
+- Azure AD security policies and resource protection
+- The B2B invitation process
 
 ## Requirements
 
-Companies have different individual requirements and security policies that must be taken into account when forming an architecture and following a suggested framework for Conditional Access. This guidance does not include specific requirements as they will vary from one company to another. Rather the guidance includes principles related to Zero Trust and take this as input to forming the architecture.
+Every company has different requirements and security policies. When you create an architecture and follow this suggested framework for Conditional Access, you need to take your company's requirements into account. This guidance doesn't include specific requirements that vary depending on the company. It includes principles related to Zero Trust that you can use as input when you create an architecture. You can then address specific company requirements and policies into account and adjust the architecture accordingly.
 
-Readers are encouraged to include specific company requirements and policies to and adjust accordingly.
+For example, a company might have these requirements:
+- All access must be protected by at least two factors.
+- No data on unmanaged devices.
+- No guest access allowed.
+- Access to cloud services must be based on passwordless authentication.
 
-Example of requirements for company CONTOSO:
+## Conditional Access guidance
 
-CONTOSO to provide more input in this section
-
-- All access must be protected by at least two factors
-- No data on unmanaged devices
-- No guest access allowed (if so)
-- Access to cloud services must be based on password-less authentication
-
-
-## Next steps
-
-The Conditional Access guidance is broken down into the following sub-sections
-
-- Conditional access design principles and dependencies 
-- Conditional access architecture and personas 
-- Conditional access framework and policies 
+This guidance includes the following articles:
+- [Conditional access design principles and dependencies](/azure/architecture/guide/security/conditional-access-design) 
+- [Conditional access architecture and personas](/azure/architecture/guide/security/conditional-access-architecture)
+- [Conditional access framework and policies](/azure/architecture/guide/security/conditional-access-framework) 
 
 The design principles sub-section lists recommended principles to follow that together with the companies requirements will server as input to the suggested architecture based on personas.
 
