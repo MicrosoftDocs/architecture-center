@@ -25,6 +25,36 @@ This approach can also be used to:
 >- The services covered by this architecture are only a subset of a much larger family of Azure services. Similar outcomes can be achieved by using other services or features that are not covered by this design.
 >- Specific business requirements for your analytics use case could require the use of different services or features that are not considered in this design.
 
+## Reference Architecture Deployment
+
+This deployment accelerator gives you the option to implement the entire reference architecture or choose what workloads you need for your analytics use case. You also have the option to select whether services are accessible via public endpoints or if they are to be accessed only via private endpoints.
+
+### [Azure portal](#tab/portal)
+
+Use the following button to deploy the reference using the Azure portal.
+
+[![Deploy to Azure](https://aka.ms/deploytoazurebutton)](https://portal.azure.com/#blade/Microsoft_Azure_CreateUIDef/CustomDeploymentBlade/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-synapse-analytics-end2end%2Fmain%2FDeploy%2FAzureAnalyticsE2E.json/uiFormDefinitionUri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-synapse-analytics-end2end%2Fmain%2FDeploy%2FcreateUiDefinition.json)
+
+### [Azure CLI](#tab/cli)
+
+Run the following command to deploy the entire reference architecture using public endpoints. Click the **Try it** button to use an embedded shell.
+
+```azurecli-interactive
+az deployment group create --resource-group azsynapse-e2e \
+    --template-uri https://raw.githubusercontent.com/Azure/azure-synapse-analytics-end2end/main/Deploy/AzureAnalyticsE2E.json \
+    --parameters networkIsolationMode=default synapseSqlAdminPassword=use-complex-password-here
+```
+
+Run the following command to deploy the entire reference architecture using private endpoints. Click the **Try it** button to use an embedded shell.
+
+```azurecli-interactive
+az deployment group create --resource-group azsynapse-e2e \
+    --template-uri https://raw.githubusercontent.com/Azure/azure-synapse-analytics-end2end/main/Deploy/AzureAnalyticsE2E.json \
+    --parameters networkIsolationMode=default synapseSqlAdminPassword=use-complex-password-here
+```
+
+For detailed information and additional deployment options, see the [deployment accelerator GitHub repo](https://github.com/Azure/azure-synapse-analytics-end2end) with documentation and code used to define this solution.
+
 ## Analytics use cases
 
 The analytics use cases covered by the architecture are illustrated by the different data sources on the left-hand side of the diagram. Data flows through the solution from the bottom up as follows:
