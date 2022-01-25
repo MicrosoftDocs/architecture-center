@@ -51,9 +51,9 @@ For example, a company might have these requirements:
 ## Conditional Access guidance
 
 This section includes the following articles:
-- [Conditional Access design principles and dependencies](./conditional-access-design) provides recommended principles that, together with your company's requirements, serve as input to the suggested persona-based architecture.
-- [Conditional Access architecture and personas](./conditional-access-architecture) introduces the persona-based approach for structuring Conditional Access policies. It also provides suggested personas that you can use as a starting point.
-- [Conditional Access framework and policies](./conditional-access-framework) provides specific details on how to structure and name Conditional Access policies that are based on the personas.
+- [Conditional Access design principles and dependencies](./conditional-access-design.yml) provides recommended principles that, together with your company's requirements, serve as input to the suggested persona-based architecture.
+- [Conditional Access architecture and personas](./conditional-access-architecture.yml) introduces the persona-based approach for structuring Conditional Access policies. It also provides suggested personas that you can use as a starting point.
+- [Conditional Access framework and policies](./conditional-access-framework.md) provides specific details on how to structure and name Conditional Access policies that are based on the personas.
 
 ## Next steps 
 - [Learning path: Implement and manage identity and access](/learn/paths/implement-manage-identity-access)
@@ -61,7 +61,7 @@ This section includes the following articles:
 - [Common Conditional Access policies](/azure/active-directory/conditional-access/concept-conditional-access-policy-common)
 
 ## Related resources 
-- [Conditional Access design principles and dependencies](/azure/architecture/guide/security/conditional-access-design)
-- [Conditional Access architecture and personas](./conditional-access-architecture)
-- [Conditional Access framework and policies](./conditional-access-framework)
+- [Conditional Access design principles and dependencies](./conditional-access-design.yml)
+- [Conditional Access architecture and personas](./conditional-access-architecture.yml)
+- [Conditional Access framework and policies](./conditional-access-framework.md)
 - [Azure Active Directory IDaaS in security operations](/azure/architecture/example-scenario/aadsec/azure-ad-security)
