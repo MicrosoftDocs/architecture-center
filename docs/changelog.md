@@ -2,7 +2,7 @@
 title: What's New in Azure Architecture Center
 description: New and updated articles in Azure Architecture Center
 author: doodlemania2
-ms.date: 01/18/2022
+ms.date: 01/25/2022
 ms.topic: article
 ms.service: architecture-center
 ---
@@ -27,6 +27,12 @@ New and updated articles in Azure Architecture Center.
 
 ### New Articles
 
+- [Solutions for the travel and hospitality industries](./industries/travel-hospitality.md)
+- [Databases architecture design](./data-guide/databases-architecture-design.yml)
+- [Edge Workload Configuration pattern](./patterns/edge-workload-configuration.md)
+- [Storage design](./guide/storage/storage-start-here.md)
+- [Automated API deployments using APIOps](./example-scenario/devops/automated-api-deployments-apiops.yml)
+- [DevOps with Azure Stack Hub](./solution-ideas/articles/hybrid-continuous-integration.yml)
 - [SaaS digital business journey on Azure](./guide/saas/saas-digital-business-journey-azure.md)
 - [Solutions for the game development industry](./industries/game-development.md)
 - [Manage data across Azure SQL estate with Azure Purview](./solution-ideas/articles/azure-purview-sql-estate-architecture.yml)
@@ -53,6 +59,9 @@ New and updated articles in Azure Architecture Center.
 
 - [DevOps checklist](./checklist/dev-ops.md)  ([#8d2302d7b](https://github.com/MicrosoftDocs/architecture-center/commit/8d2302d7b))
 - [Azure resource organization in multitenant solutions](./guide/multitenant/approaches/resource-organization.md)  ([#0bc7de6d9](https://github.com/MicrosoftDocs/architecture-center/commit/0bc7de6d9))
+- [Azure Virtual Desktop for the enterprise](./example-scenario/wvd/windows-virtual-desktop.yml)  ([#79adc0725](https://github.com/MicrosoftDocs/architecture-center/commit/79adc0725))
+- [SAP deployment on Azure using an Oracle database](./example-scenario/apps/sap-production.yml)  ([#f5c527723](https://github.com/MicrosoftDocs/architecture-center/commit/f5c527723))
+- [Valet Key pattern](./patterns/valet-key.md)  ([#7a9472004](https://github.com/MicrosoftDocs/architecture-center/commit/7a9472004))
 - [Computer vision with Azure IoT Edge](./guide/iot-edge-vision/index.md)  ([#c79dfeaa5](https://github.com/MicrosoftDocs/architecture-center/commit/c79dfeaa5))
 - [SAP HANA for Linux VMs in scale-up systems](./reference-architectures/sap/run-sap-hana-for-linux-virtual-machines.yml)  ([#b55c5fd90](https://github.com/MicrosoftDocs/architecture-center/commit/b55c5fd90))
 - [CI/CD pipeline for container-based workloads](./example-scenario/apps/devops-with-aks.yml)  ([#bec078aad](https://github.com/MicrosoftDocs/architecture-center/commit/bec078aad))

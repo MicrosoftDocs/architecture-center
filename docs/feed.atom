@@ -2,12 +2,60 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id/>
     <title>Azure Architecture Center</title>
-    <updated>2022-01-18T15:42:21.798Z</updated>
+    <updated>2022-01-25T17:50:51.573Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <subtitle>Updated articles for Azure Architecture Center</subtitle>
     <rights>https://docs.microsoft.com/legal/termsofuse</rights>
     <category term="new"/>
     <category term="updated"/>
+    <entry>
+        <title type="html"><![CDATA[Solutions for the travel and hospitality industries]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/industries/travel-hospitality</id>
+        <link href="https://docs.microsoft.com/azure/architecture/industries/travel-hospitality"/>
+        <updated>2022-01-23T10:24:56.000Z</updated>
+        <summary type="html"><![CDATA[Architectures and ideas for using Azure services to build solutions in the travel and hospitality industries.]]></summary>
+        <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Databases architecture design]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/data-guide/databases-architecture-design</id>
+        <link href="https://docs.microsoft.com/azure/architecture/data-guide/databases-architecture-design"/>
+        <updated>2022-01-23T10:21:46.000Z</updated>
+        <summary type="html"><![CDATA[This article provides an overview of the Azure database solutions described in Azure Architecture Center.]]></summary>
+        <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Edge Workload Configuration pattern]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/patterns/edge-workload-configuration</id>
+        <link href="https://docs.microsoft.com/azure/architecture/patterns/edge-workload-configuration"/>
+        <updated>2022-01-23T09:47:45.000Z</updated>
+        <summary type="html"><![CDATA[Learn how to design your workload configuration processes to control the complexity of devices and systems on your shop floors.]]></summary>
+        <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Storage design]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/guide/storage/storage-start-here</id>
+        <link href="https://docs.microsoft.com/azure/architecture/guide/storage/storage-start-here"/>
+        <updated>2022-01-20T18:43:08.000Z</updated>
+        <summary type="html"><![CDATA[Get an overview of Azure Storage technologies, guidance offerings, solution ideas, and reference architectures.]]></summary>
+        <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Automated API deployments using APIOps]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/example-scenario/devops/automated-api-deployments-apiops</id>
+        <link href="https://docs.microsoft.com/azure/architecture/example-scenario/devops/automated-api-deployments-apiops"/>
+        <updated>2022-01-19T20:29:18.000Z</updated>
+        <summary type="html"><![CDATA[Use APIOps with an Azure API Management instance to build and deploy APIs. This solution provides self-service tools, auditing, policy enforcement, and early feedback.]]></summary>
+        <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[DevOps with Azure Stack Hub]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/solution-ideas/articles/hybrid-continuous-integration</id>
+        <link href="https://docs.microsoft.com/azure/architecture/solution-ideas/articles/hybrid-continuous-integration"/>
+        <updated>2022-01-19T09:24:32.000Z</updated>
+        <summary type="html"><![CDATA[Code from a single location and deploy to multiple targets in development, test, and production environments that may be in your local datacenter, private clouds, or the public cloud.]]></summary>
+        <category label="new" term="new"/>
+    </entry>
     <entry>
         <title type="html"><![CDATA[SaaS digital business journey on Azure]]></title>
         <id>https://docs.microsoft.com/azure/architecture/guide/saas/saas-digital-business-journey-azure</id>
@@ -190,6 +238,30 @@
         <link href="https://docs.microsoft.com/azure/architecture/guide/multitenant/approaches/resource-organization"/>
         <updated>2022-01-14T09:54:44.000Z</updated>
         <summary type="html"><![CDATA[This article describes how to organize your Azure resources in a multitenant solution.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Azure Virtual Desktop for the enterprise]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/example-scenario/wvd/windows-virtual-desktop</id>
+        <link href="https://docs.microsoft.com/azure/architecture/example-scenario/wvd/windows-virtual-desktop"/>
+        <updated>2022-01-21T10:30:57.000Z</updated>
+        <summary type="html"><![CDATA[Explore Azure Virtual Desktop and learn to build virtual desktop infrastructure solutions at enterprise scale.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[SAP deployment on Azure using an Oracle database]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/example-scenario/apps/sap-production</id>
+        <link href="https://docs.microsoft.com/azure/architecture/example-scenario/apps/sap-production"/>
+        <updated>2022-01-20T15:38:07.000Z</updated>
+        <summary type="html"><![CDATA[This example demonstrates a SAP deployment on virtual machines on Azure, along with a High Availability Oracle database.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Valet Key pattern]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/patterns/valet-key</id>
+        <link href="https://docs.microsoft.com/azure/architecture/patterns/valet-key"/>
+        <updated>2022-01-19T16:40:15.000Z</updated>
+        <summary type="html"><![CDATA[Use a token or key that provides clients with restricted direct access to a specific resource or service.]]></summary>
         <category label="updated" term="updated"/>
     </entry>
     <entry>
