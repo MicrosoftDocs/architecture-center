@@ -50,7 +50,7 @@ Run the following command to deploy the entire reference architecture using priv
 ```azurecli-interactive
 az deployment group create --resource-group azsynapse-e2e \
     --template-uri https://raw.githubusercontent.com/Azure/azure-synapse-analytics-end2end/main/Deploy/AzureAnalyticsE2E.json \
-    --parameters networkIsolationMode=default synapseSqlAdminPassword=use-complex-password-here
+    --parameters networkIsolationMode=vNet synapseSqlAdminPassword=use-complex-password-here
 ```
 
 ---
