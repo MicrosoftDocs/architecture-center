@@ -1,0 +1,23 @@
+### YamlMime:Architecture
+metadata:
+  title: Identity architecture design
+  titleSuffix: Azure Architecture Center
+  description: Control access to your apps and data by designing and implementing an identity solution. See resources with guidelines, best practices, and recommendations.
+  author: EdPrice-MSFT
+  ms.date: 01/26/2022
+  ms.topic: conceptual 
+  ms.service: architecture-center
+  ms.subservice: azure-guide
+  ms.custom: fcp
+azureCategories:
+  - hybrid
+  - identity
+  - migration
+products:
+  - azure-active-directory
+  - azure-active-directory-b2c
+name: Identity architecture design
+summary: Control access to your apps and data by designing and implementing an identity solution. See resources with guidelines, best practices, and recommendations.
+thumbnailUrl: /azure/architecture/browse/thumbs/identity-basic-architecture-thumbnail.png
+content: |
+   [!include[](identity-start-here-content.md)]
