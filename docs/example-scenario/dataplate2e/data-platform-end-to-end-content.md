@@ -320,6 +320,9 @@ In general, use the [Azure pricing calculator](https://azure.microsoft.com/prici
 
 - Explore the [Data Engineer Learning Paths at Microsoft learn](/learn/roles/data-engineer) for further training content and labs on the services involved in this reference architecture.
 
+- Review the documentation and deploy the reference architecture using the [deployment accelerator available from GitHub](https://github.com/Azure/azure-synapse-analytics-end2end).
+
+
 ## Related resources
 
 - Find comprehensive architectural guidance on data pipelines, data warehousing, online analytical processing (OLAP), and big data in the [Azure Data Architecture Guide](../../data-guide/index.md).
