@@ -25,7 +25,7 @@ This approach can also be used to:
 >- The services covered by this architecture are only a subset of a much larger family of Azure services. Similar outcomes can be achieved by using other services or features that are not covered by this design.
 >- Specific business requirements for your analytics use case could require the use of different services or features that are not considered in this design.
 
-## Reference Architecture Deployment
+## Deploy the architecture
 
 This deployment accelerator gives you the option to implement the entire reference architecture or choose what workloads you need for your analytics use case. You also have the option to select whether services are accessible via public endpoints or if they are to be accessed only via private endpoints.
 
