@@ -41,7 +41,7 @@ The following architectures describe the resources and configuration necessary f
 This design uses two Azure Load Balancers to expose a cluster of NVAs to the rest of the network:
 
 - An internal Load Balancer is used to redirect internal traffic from Azure and on-premises to the NVAs. This internal load balancer is configured with [HA Ports rules][alb_haports], so that every TCP/UDP port is redirected to the NVA instances. 
-- A public Load Balancer exposes the NVAs to the Internet. Since [HA Ports][alb_haports] for inbound traffic every individual TCP/UDP port needs to be opened in a dedicated load-balancing rule.
+- A public Load Balancer exposes the NVAs to the Internet. Since [HA Ports][alb_haports] for inbound traffic control every individual TCP/UDP port needs to be opened in a dedicated load-balancing rule.
 
 The following diagram describes the sequence of hops that packets from the Internet to an application server in a spoke VNet would follow:
 
