@@ -47,6 +47,10 @@ An Azure Bastion host provides improved-security SSH connectivity to the jump-bo
 
 The architecture includes an [Azure firewall](/azure/firewall/overview) that's used to control the inbound and outbound traffic via [DNAT rules, network rules, and application rules](/azure/firewall/rule-processing). It also helps protect workloads by using [threat intelligence-based filtering](/azure/firewall/threat-intel). The Azure firewall and Bastion are deployed to a hub virtual network that's peered with the virtual network that hosts the private AKS cluster. A route table and user-defined routes are used to route the outbound traffic from the private AKS cluster to the Azure firewall.
 
+> [!NOTE]
+>
+> We highly recommend that you use the Premium SKU of Azure Firewall because it provides [advanced threat protection](/azure/firewall/premium-features). 
+
 A key vault is used as a secret store by workloads that run on AKS to retrieve keys, certificates, and secrets via a client library, [Secrets Store CSI Driver](/azure/aks/csi-secrets-store-driver), or [Dapr](https://docs.dapr.io/developing-applications/building-blocks/secrets/secrets-overview). [Azure Private Link](/azure/private-link/private-link-overview) enables AKS workloads to access Azure PaaS services, like Azure Key Vault, over a private endpoint in the virtual network.
 
 The topology includes private endpoints and private DNS zones for these services:
@@ -262,7 +266,7 @@ The cost of this architecture depends on the following configuration details:
 - Automation scripts
 - Your disaster recovery level
 
-After you assess these configuration details, use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator) to estimate your costs. For more pricing optimization options, see the [principles of cost optimization](/azure/architecture/framework.md/#cost-optimization) in the Microsoft Azure Well-Architected Framework.
+After you assess these configuration details, use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator) to estimate your costs. For more pricing optimization options, see the [principles of cost optimization](/azure/architecture/framework/#cost-optimization) in the Microsoft Azure Well-Architected Framework.
 
 ## Next steps
 

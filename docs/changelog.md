@@ -2,7 +2,7 @@
 title: What's New in Azure Architecture Center
 description: New and updated articles in Azure Architecture Center
 author: doodlemania2
-ms.date: 01/10/2022
+ms.date: 01/25/2022
 ms.topic: article
 ms.service: architecture-center
 ---
@@ -27,6 +27,20 @@ New and updated articles in Azure Architecture Center.
 
 ### New Articles
 
+- [Solutions for the travel and hospitality industries](./industries/travel-hospitality.md)
+- [Databases architecture design](./data-guide/databases-architecture-design.yml)
+- [Edge Workload Configuration pattern](./patterns/edge-workload-configuration.md)
+- [Storage design](./guide/storage/storage-start-here.md)
+- [Automated API deployments using APIOps](./example-scenario/devops/automated-api-deployments-apiops.yml)
+- [DevOps with Azure Stack Hub](./solution-ideas/articles/hybrid-continuous-integration.yml)
+- [SaaS digital business journey on Azure](./guide/saas/saas-digital-business-journey-azure.md)
+- [Solutions for the game development industry](./industries/game-development.md)
+- [Manage data across Azure SQL estate with Azure Purview](./solution-ideas/articles/azure-purview-sql-estate-architecture.yml)
+- [Architectural approaches for governance and compliance in multitenant solutions](./guide/multitenant/approaches/governance-compliance.md)
+- [DataOps checklist](./checklist/data-ops.md)
+- [Data management across Azure Data Lake with Azure Purview](./solution-ideas/articles/azure-purview-data-lake-estate-architecture.yml)
+- [DevSecOps with a rolling main branching strategy](./solution-ideas/articles/devsecops-rolling-branch.yml)
+- [Use Azure Firewall to help protect an AKS cluster](./example-scenario/aks-firewall/aks-firewall.yml)
 - [Azure NAT Gateway considerations for multitenancy](./guide/multitenant/service/nat-gateway.md)
 - [Teacher-provisioned virtual labs in Azure](./example-scenario/devops/teacher-provisioned-virtual-labs-azure.yml)
 - [Automate document processing by using Azure Form Recognizer](./example-scenario/ai/automate-document-processing-azure-form-recognizer.yml)
@@ -44,6 +58,43 @@ New and updated articles in Azure Architecture Center.
 ### Updated Articles
 
 - [DevOps checklist](./checklist/dev-ops.md)  ([#8d2302d7b](https://github.com/MicrosoftDocs/architecture-center/commit/8d2302d7b))
+- [Azure resource organization in multitenant solutions](./guide/multitenant/approaches/resource-organization.md)  ([#0bc7de6d9](https://github.com/MicrosoftDocs/architecture-center/commit/0bc7de6d9))
+- [Azure Virtual Desktop for the enterprise](./example-scenario/wvd/windows-virtual-desktop.yml)  ([#79adc0725](https://github.com/MicrosoftDocs/architecture-center/commit/79adc0725))
+- [SAP deployment on Azure using an Oracle database](./example-scenario/apps/sap-production.yml)  ([#f5c527723](https://github.com/MicrosoftDocs/architecture-center/commit/f5c527723))
+- [Valet Key pattern](./patterns/valet-key.md)  ([#7a9472004](https://github.com/MicrosoftDocs/architecture-center/commit/7a9472004))
+- [Computer vision with Azure IoT Edge](./guide/iot-edge-vision/index.md)  ([#c79dfeaa5](https://github.com/MicrosoftDocs/architecture-center/commit/c79dfeaa5))
+- [SAP HANA for Linux VMs in scale-up systems](./reference-architectures/sap/run-sap-hana-for-linux-virtual-machines.yml)  ([#b55c5fd90](https://github.com/MicrosoftDocs/architecture-center/commit/b55c5fd90))
+- [CI/CD pipeline for container-based workloads](./example-scenario/apps/devops-with-aks.yml)  ([#bec078aad](https://github.com/MicrosoftDocs/architecture-center/commit/bec078aad))
+- [Run reservoir simulation software on Azure](./example-scenario/infrastructure/reservoir-simulation.yml)  ([#bec078aad](https://github.com/MicrosoftDocs/architecture-center/commit/bec078aad))
+- [Scalable and secure WordPress on Azure](./example-scenario/infrastructure/wordpress.yml)  ([#bec078aad](https://github.com/MicrosoftDocs/architecture-center/commit/bec078aad))
+- [Multiple forests with AD DS, Azure AD, and Azure AD DS](./example-scenario/wvd/multi-forest-azure-managed.yml)  ([#bec078aad](https://github.com/MicrosoftDocs/architecture-center/commit/bec078aad))
+- [Azure Stack remote offices and branches](./hybrid/azure-stack-robo.yml)  ([#bec078aad](https://github.com/MicrosoftDocs/architecture-center/commit/bec078aad))
+- [Disaster recovery for Azure Stack Hub VMs](./hybrid/azure-stack-vm-dr.yml)  ([#bec078aad](https://github.com/MicrosoftDocs/architecture-center/commit/bec078aad))
+- [Batch scoring of Python models on Azure](./reference-architectures/ai/batch-scoring-python.yml)  ([#bec078aad](https://github.com/MicrosoftDocs/architecture-center/commit/bec078aad))
+- [Basic web application](./reference-architectures/app-service-web-app/basic-web-app.yml)  ([#bec078aad](https://github.com/MicrosoftDocs/architecture-center/commit/bec078aad))
+- [Scalable web application](./reference-architectures/app-service-web-app/scalable-web-app.yml)  ([#bec078aad](https://github.com/MicrosoftDocs/architecture-center/commit/bec078aad))
+- [On-premises network using ExpressRoute](./reference-architectures/hybrid-networking/expressroute.yml)  ([#bec078aad](https://github.com/MicrosoftDocs/architecture-center/commit/bec078aad))
+- [Troubleshoot a hybrid VPN connection](./reference-architectures/hybrid-networking/troubleshoot-vpn.yml)  ([#bec078aad](https://github.com/MicrosoftDocs/architecture-center/commit/bec078aad))
+- [Create a Gridwich cloud environment](./reference-architectures/media-services/create-delete-cloud-environment.yml)  ([#bec078aad](https://github.com/MicrosoftDocs/architecture-center/commit/bec078aad))
+- [Gridwich content protection and DRM](./reference-architectures/media-services/gridwich-content-protection-drm.yml)  ([#bec078aad](https://github.com/MicrosoftDocs/architecture-center/commit/bec078aad))
+- [Logging in Gridwich](./reference-architectures/media-services/gridwich-logging.yml)  ([#bec078aad](https://github.com/MicrosoftDocs/architecture-center/commit/bec078aad))
+- [Gridwich request-response messages](./reference-architectures/media-services/gridwich-message-formats.yml)  ([#bec078aad](https://github.com/MicrosoftDocs/architecture-center/commit/bec078aad))
+- [Gridwich project naming and namespaces](./reference-architectures/media-services/gridwich-project-names.yml)  ([#bec078aad](https://github.com/MicrosoftDocs/architecture-center/commit/bec078aad))
+- [Gridwich operations for Azure Storage](./reference-architectures/media-services/gridwich-storage-service.yml)  ([#bec078aad](https://github.com/MicrosoftDocs/architecture-center/commit/bec078aad))
+- [Gridwich keys and secrets management](./reference-architectures/media-services/maintain-keys.yml)  ([#bec078aad](https://github.com/MicrosoftDocs/architecture-center/commit/bec078aad))
+- [Gridwich Media Services setup and scaling](./reference-architectures/media-services/media-services-setup-scale.yml)  ([#bec078aad](https://github.com/MicrosoftDocs/architecture-center/commit/bec078aad))
+- [Test Media Services V3 encoding](./reference-architectures/media-services/test-encoding.yml)  ([#bec078aad](https://github.com/MicrosoftDocs/architecture-center/commit/bec078aad))
+- [Gridwich variable flow](./reference-architectures/media-services/variable-group-terraform-flow.yml)  ([#bec078aad](https://github.com/MicrosoftDocs/architecture-center/commit/bec078aad))
+- [Cross-platform chat](./solution-ideas/articles/cross-platform-chat.yml)  ([#bec078aad](https://github.com/MicrosoftDocs/architecture-center/commit/bec078aad))
+- [Data streaming with AKS](./solution-ideas/articles/data-streaming-scenario.yml)  ([#bec078aad](https://github.com/MicrosoftDocs/architecture-center/commit/bec078aad))
+- [Energy supply optimization](./solution-ideas/articles/energy-supply-optimization.yml)  ([#bec078aad](https://github.com/MicrosoftDocs/architecture-center/commit/bec078aad))
+- [IoT analytics with Azure Data Explorer](./solution-ideas/articles/iot-azure-data-explorer.yml)  ([#bec078aad](https://github.com/MicrosoftDocs/architecture-center/commit/bec078aad))
+- [Loan chargeoff prediction with SQL Server](./solution-ideas/articles/loan-chargeoff-prediction-with-sql-server.yml)  ([#bec078aad](https://github.com/MicrosoftDocs/architecture-center/commit/bec078aad))
+- [Run Oracle databases on Azure](./solution-ideas/articles/reference-architecture-for-oracle-database-on-azure.yml)  ([#bec078aad](https://github.com/MicrosoftDocs/architecture-center/commit/bec078aad))
+- [Retail and e-commerce using Azure MySQL](./solution-ideas/articles/retail-and-ecommerce-using-azure-database-for-mysql.yml)  ([#bec078aad](https://github.com/MicrosoftDocs/architecture-center/commit/bec078aad))
+- [Retail and e-commerce using Azure PostgreSQL](./solution-ideas/articles/retail-and-ecommerce-using-azure-database-for-postgresql.yml)  ([#bec078aad](https://github.com/MicrosoftDocs/architecture-center/commit/bec078aad))
+- [Scalable web apps with Azure Redis Cache](./solution-ideas/articles/scalable-web-apps.yml)  ([#bec078aad](https://github.com/MicrosoftDocs/architecture-center/commit/bec078aad))
+- [SAP workload development and test settings](./example-scenario/apps/sap-dev-test.yml)  ([#c92dec5a3](https://github.com/MicrosoftDocs/architecture-center/commit/c92dec5a3))
 - [Secure research environment for regulated data](./example-scenario/ai/secure-compute-for-research.yml)  ([#90428ee6b](https://github.com/MicrosoftDocs/architecture-center/commit/90428ee6b))
 - [Baseline architecture for an AKS cluster](./reference-architectures/containers/aks/secure-baseline-aks.yml)  ([#bb571243f](https://github.com/MicrosoftDocs/architecture-center/commit/bb571243f))
 - [AKS regulated cluster for PCI-DSS 3.2.1 - Network segmentation](./reference-architectures/containers/aks-pci/aks-pci-network.yml)  ([#60aaf99a3](https://github.com/MicrosoftDocs/architecture-center/commit/60aaf99a3))
@@ -86,7 +137,6 @@ New and updated articles in Azure Architecture Center.
 - [Service-specific guidance for a multitenant solution](./guide/multitenant/service/overview.md)  ([#7ea4a61ae](https://github.com/MicrosoftDocs/architecture-center/commit/7ea4a61ae))
 - [Modeling stage of the Team Data Science Process lifecycle](./data-science-process/lifecycle-modeling.md)  ([#7c8304f17](https://github.com/MicrosoftDocs/architecture-center/commit/7c8304f17))
 - [Azure Virtual Desktop for the enterprise](./example-scenario/wvd/windows-virtual-desktop.yml)  ([#43a9e9bb1](https://github.com/MicrosoftDocs/architecture-center/commit/43a9e9bb1))
-- [Migrate AIX workloads to Skytap on Azure](./example-scenario/mainframe/migrate-aix-workloads-to-skytap.yml)  ([#9bdbeb6d0](https://github.com/MicrosoftDocs/architecture-center/commit/9bdbeb6d0))
 - [Monitor hybrid availability, performance](./hybrid/hybrid-perf-monitoring.yml)  ([#95f2e26b8](https://github.com/MicrosoftDocs/architecture-center/commit/95f2e26b8))
 - [Consumer health portal on Azure](./example-scenario/digital-health/health-portal.yml)  ([#9f23b73b8](https://github.com/MicrosoftDocs/architecture-center/commit/9f23b73b8))
 - [Azure Machine Learning Anomaly Detection API](./data-science-process/apps-anomaly-detection-api.md)  ([#984d16b93](https://github.com/MicrosoftDocs/architecture-center/commit/984d16b93))
@@ -165,7 +215,6 @@ New and updated articles in Azure Architecture Center.
 - [Back up files and apps on Azure Stack Hub](./hybrid/azure-stack-backup.yml)  ([#d89cee609](https://github.com/MicrosoftDocs/architecture-center/commit/d89cee609))
 - [Instant broadcasting on serverless architecture](./solution-ideas/articles/instant-broadcasting-on-serverless-architecture.yml)  ([#b1545f035](https://github.com/MicrosoftDocs/architecture-center/commit/b1545f035))
 - [Centralized app configuration and security](./solution-ideas/articles/appconfig-key-vault.yml)  ([#1431f1f57](https://github.com/MicrosoftDocs/architecture-center/commit/1431f1f57))
-- [Use Azure HDInsight Hadoop Cluster on 1-TB dataset](./data-science-process/hive-criteo-walkthrough.md)  ([#e302bb2fa](https://github.com/MicrosoftDocs/architecture-center/commit/e302bb2fa))
 - [Parallel bulk data import in SQL partition tables](./data-science-process/parallel-load-sql-partitioned-tables.md)  ([#e302bb2fa](https://github.com/MicrosoftDocs/architecture-center/commit/e302bb2fa))
 - [Hybrid file services](./hybrid/hybrid-file-services.yml)  ([#410dbde8d](https://github.com/MicrosoftDocs/architecture-center/commit/410dbde8d))
 - [Process Azure blob data with advanced analytics](./data-science-process/data-blob.md)  ([#204f47047](https://github.com/MicrosoftDocs/architecture-center/commit/204f47047))

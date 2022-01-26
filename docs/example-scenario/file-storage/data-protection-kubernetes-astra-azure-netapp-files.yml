@@ -20,6 +20,6 @@ products:
   - azure-virtual-network
 name: Application data protection for AKS workloads on Azure NetApp Files
 summary: Deploy Astra Control Service with Azure NetApp Files for data protection, disaster recovery, and mobility for Azure Kubernetes Service (AKS) applications.
-thumbnailUrl: /docs/browse/thumbs/data-protection-kubernetes-astra-azure-netapp-files-thumbnail.png
+thumbnailUrl: /azure/architecture/browse/thumbs/data-protection-kubernetes-astra-azure-netapp-files-thumbnail.png
 content: |
   [!include[](data-protection-kubernetes-astra-azure-netapp-files-content.md)]

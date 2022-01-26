@@ -2,12 +2,15 @@
 
 This solution idea shows how you can deploy Azure Virtual Desktop (AVD) rapidly in a *minimum viable product* (MVP) or a *proof of concept* (PoC) environment with the use of Azure Active Directory Domain Services ([Azure AD DS](/azure/active-directory-domain-services/overview)). Use this idea to extend on-premises multi-forest AD DS identities to Azure without private connectivity and also support [legacy authentication](/azure/active-directory-domain-services/concepts-resource-forest).
 
+## Potential use cases
+
 This solution idea also applies to mergers and acquisitions, organization rebranding, and multiple on-premises identities requirements.
 
 ## Architecture
+
 :::image type="content" source="images/wvd-multi-forest-aadds-edited.png" alt-text="Azure Virtual Desktop with Azure AD Domain Services" lightbox="images/wvd-multi-forest-aadds-edited.png":::
 
-## Data flow
+### Dataflow
 
 The following steps show how the data flows in this architecture in the form of identity.
 
@@ -28,7 +31,15 @@ The following steps show how the data flows in this architecture in the form of 
 > 1. For Group Policy requirements in Azure AD DS, you can [install Group Policy Management tools](/azure/active-directory-domain-services/manage-group-policy#before-you-begin) on a Windows Server virtual machine that is joined to Azure AD DS.
 > 2. To extend GPO infrastructure for AVD from the on-premises domain controllers, manual export and import to Azure AD DS is required.
 
->
+### Components
+
+Key technologies used to implement this architecture:
+
+- [Azure Active Directory](https://azure.microsoft.com/services/active-directory)
+- [Azure Active Directory Domain Services](https://azure.microsoft.com/services/active-directory-ds)
+- [Azure Files](https://azure.microsoft.com/services/storage/files)
+- [Azure Virtual Desktop](https://azure.microsoft.com/services/virtual-desktop)
+- [Virtual Network](https://azure.microsoft.com/services/virtual-network)
 
 ## Next steps
 
@@ -37,5 +48,11 @@ For more information, see these articles:
 - [Multiple AD forests architecture with Azure Virtual Desktop](./multi-forest.yml)
 - [Azure Virtual Desktop for enterprises](./windows-virtual-desktop.yml)
 - [Azure AD Connect Topology](/azure/active-directory/hybrid/plan-connect-topologies)
-- [Compare different Identity options: Self-managed Active Directory Domain Services (AD DS), Azure Active Directory (Azure AD), and Azure Active Directory Domain Services (Azure AD DS)](/azure/active-directory-domain-services/compare-identity-solutions)
+- [Compare different Identity options](/azure/active-directory-domain-services/compare-identity-solutions)
 - [Azure Virtual Desktop Documentation](/azure/virtual-desktop/)
+
+## Related resources
+
+- [Hybrid architecture design](../../hybrid/hybrid-start-here.md)
+- [Azure Virtual Desktop for the enterprise](windows-virtual-desktop.yml)
+- [Multiple forests with AD DS and Azure AD](multi-forest.yml)
