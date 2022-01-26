@@ -1,7 +1,7 @@
 ### YamlMime:Architecture
 metadata:
   title: Risk grid computing in banking
-  description: Presents the business considerations of implementing Risk Grid Computing in Banking on Azure.
+  description: Presents the business considerations of implementing risk grid computing in banking on Azure.
   author: dstarr
   ms.author: dastarr
   ms.date: 11/20/2019
@@ -18,7 +18,7 @@ products:
   - azure-expressroute
   - azure-hdinsight
 name: Risk grid computing in banking
-summary: Presents the business considerations of implementing Risk Grid Computing in Banking on Azure.
+summary: Presents the business considerations of implementing risk grid computing in banking on Azure.
 thumbnailUrl: /azure/architecture/browse/thumbs/hybrid-cloud.png
 content: |
   [!include[](risk-grid-banking-overview-content.md)]
