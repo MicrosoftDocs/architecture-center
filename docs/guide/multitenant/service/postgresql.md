@@ -55,8 +55,8 @@ Solutions that need a very high-level of scale can use Azure Database for Postgr
 
 More information:
 
-- [Hyperscale (Citus)](/azure/postgresql/tutorial-design-database-hyperscale-multi-tenant)
-- [Distributed tables](/azure/postgresql/hyperscale/concepts-nodes#type-1-distributed-tables)
+- [Designing a multitenant database in Hyperscale (Citus)](/azure/postgresql/tutorial-design-database-hyperscale-multi-tenant).
+- [Distributed tables](/azure/postgresql/hyperscale/concepts-nodes#type-1-distributed-tables).
 - Choosing a [distribution column](/azure/postgresql/hyperscale/concepts-choose-distribution-column) in a distributed table.
 - A guide to using [Citus for multitenant applications](https://docs.citusdata.com/en/v10.2/use_cases/multi_tenant.html).
 
@@ -68,9 +68,9 @@ Connection pooling via PgBouncer is installed by default in Azure Database for P
 
 More information:
 
-- [PgBouncer in Azure Database for PostgreSQL - Flexible Server](/azure/postgresql/hyperscale/concepts-connection-pool)
-- [Azure Database for PostgreSQL – Hyperscale (Citus) connection pooling](/azure/postgresql/flexible-server/concepts-pgbouncer)
-- [Steps to install and setup PgBouncer connection pooling proxy with Azure Database for PostgreSQL](https://techcommunity.microsoft.com/t5/azure-database-for-postgresql/steps-to-install-and-setup-pgbouncer-connection-pooling-proxy/ba-p/730555)
+- [PgBouncer in Azure Database for PostgreSQL - Flexible Server](/azure/postgresql/hyperscale/concepts-connection-pool).
+- [Azure Database for PostgreSQL – Hyperscale (Citus) connection pooling](/azure/postgresql/flexible-server/concepts-pgbouncer).
+- [Steps to install and setup PgBouncer connection pooling proxy with Azure Database for PostgreSQL](https://techcommunity.microsoft.com/t5/azure-database-for-postgresql/steps-to-install-and-setup-pgbouncer-connection-pooling-proxy/ba-p/730555).
 
 ## Next steps
 
