@@ -10,15 +10,15 @@ ms.date: 01/26/2022
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: azure-guide
-azureCategories:
-  - integration
-  - compute
-  - hybrid
 products:
   - azure-service-bus
   - azure-event-grid
   - azure-event-hubs
   - azure-queue-storage
+categories:
+  - integration
+  - compute
+  - hybrid
 ms.category:
   - fcp
 ms.custom:
