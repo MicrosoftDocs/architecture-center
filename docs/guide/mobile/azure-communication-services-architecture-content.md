@@ -1,5 +1,3 @@
-# Azure Communication Services Architecture Guide
-
 This guide presents data flow diagrams for [Azure Communication Services (ACS)](https://docs.microsoft.com/en-us/azure/communication-services/). Use these diagrams to understand how your code interact with ACS sub-systems.
 
 Azure Communication Services are cloud-based services with REST APIs and client library SDKs available to help you integrate communication into your applications. Azure Communication Services supports various communication formats: voice and video calling, text chat, SMS and "raw" data between clients (TURN). You can add communication features to your applications without being an expert in communication technologies such as media encoding and real-time networking. 
