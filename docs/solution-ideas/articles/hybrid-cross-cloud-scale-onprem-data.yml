@@ -1,0 +1,42 @@
+### YamlMime:Architecture
+metadata:
+  title: Cross-cloud scaling (on-premises data) 
+  titleSuffix: Azure Solution Ideas
+  description: Learn how to build a hybrid app that spans Azure and Azure Stack Hub. This solution also shows you how to use a single on-premises data source for compliance.
+  author: EdPrice-MSFT
+  ms.author: pnp
+  ms.date: 01/25/2022
+  ms.topic: conceptual
+  ms.service: architecture-center
+  ms.subservice: solution-idea
+  ms.category:
+    - compute
+    - storage
+    - hybrid
+    - integration
+  ms.custom:
+    - acom-architecture
+    - Hybrid Connection
+    - Azure Hybrid Connection
+    - Hybrid Network
+    - Azure Hybrid Network
+    - hybrid-infrastructure
+    - interactive-diagram
+    - networking
+    - e2e-hybrid
+    - internal-intro
+azureCategories:
+  - compute
+  - storage
+  - hybrid
+  - integration
+products:
+  - azure-stack-hub
+  - azure-virtual-machines
+  - azure-virtual-network
+  - azure-vpn-gateway
+name: Cross-cloud scaling (on-premises data)
+summary: Learn how to build a hybrid app that spans Azure and Azure Stack Hub. This solution also shows you how to use a single on-premises data source for compliance.
+thumbnailUrl: /azure/architecture/browse/thumbs/hybrid-cross-cloud-scale-onprem-data.png
+content: |
+  [!include[](hybrid-cross-cloud-scale-onprem-data.md)] 
