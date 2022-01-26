@@ -1,6 +1,3 @@
-
-
-
 [!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
 Learn how to use Azure Machine Learning to predict failures before they happen with real-time assembly line data.
@@ -12,7 +9,7 @@ This solution is built on Azure-managed services: [Azure Stream Analytics](https
 ![Architecture diagram: defect prevention with predictive maintenance.](../media/defect-prevention-with-predictive-maintenance.png)
 *Download an [SVG](../media/defect-prevention-with-predictive-maintenance.svg) of this architecture.*
 
-## Components
+### Components
 
 * [Event Hubs](https://azure.microsoft.com/services/event-hubs) ingests raw assembly-line data and passes it on to Azure Stream Analytics.
 * [Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics) provides near real-time analytics on the input stream from Event Hubs. Input data is filtered and passed to an Azure Machine Learning endpoint. Results of machine learning are sent to a Power BI dashboard.
@@ -22,17 +19,19 @@ This solution is built on Azure-managed services: [Azure Stream Analytics](https
 
 ## Next steps
 
-See other Azure Architecture Center articles:
-
-* [Artificial intelligence (AI) Overview](../../data-guide/big-data/ai-overview.md)
-* [Predictive maintenance](./predictive-maintenance.yml)
-* [Predictive marketing with machine learning](./predictive-marketing-campaigns-with-machine-learning-and-spark.yml)
-* [Predictive maintenance for industrial IoT](./iot-predictive-maintenance.yml)
-
-See product documentation:
+See the product documentation:
 
 * [Stream Analytics](/azure/stream-analytics/stream-analytics-introduction)
 * [Event Hubs](/azure/event-hubs/event-hubs-what-is-event-hubs)
 * [Azure Machine Learning](/azure/machine-learning/overview-what-is-azure-ml)
 * [Synapse Analytics](/azure/sql-data-warehouse/sql-data-warehouse-overview-what-is)
 * [Power BI](https://powerbi.microsoft.com/documentation/powerbi-landing-page)
+
+## Related resources
+
+See the following related Azure Architecture Center articles:
+
+* [Artificial intelligence (AI) Overview](../../data-guide/big-data/ai-overview.md)
+* [Predictive maintenance](./predictive-maintenance.yml)
+* [Predictive marketing with machine learning](./predictive-marketing-campaigns-with-machine-learning-and-spark.yml)
+* [Predictive maintenance for industrial IoT](./iot-predictive-maintenance.yml)

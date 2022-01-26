@@ -1,6 +1,5 @@
 
 
-
 Azure Media Services uses [Digital Rights Management (DRM)](https://en.wikipedia.org/wiki/Digital_rights_management) to protect content, and supports [Microsoft PlayReady](https://www.microsoft.com/playready/overview/), [Google Widevine](https://www.widevine.com/solutions/widevine-drm), and [Apple FairPlay](https://developer.apple.com/streaming/fps/). This article discusses Gridwich content protection, and explains how to set up and update content protection and DRM policies.
 
 ## Asset streaming locators
@@ -8,7 +7,7 @@ Azure Media Services uses [Digital Rights Management (DRM)](https://en.wikipedia
 When Gridwich first publishes an asset, it creates a *streaming locator* by calling the Azure Media Services v3 API. The streaming locator references two Azure Media Services policies:
 
 - The *streaming policy* describes which protocols are enabled for a secured adaptive streaming output.
-  
+
 - The *content key policy* describes how to deliver the key or DRM license to a player. For DRM, the policy describes properties like duration, offline mode, minimum device security level, and digital output protection. Gridwich configures these DRM settings and secrets, and uses them to create and update the policy.
 
 Gridwich creates these policies in the Media Services account at first publication, and reuses them for future publications.
@@ -97,7 +96,6 @@ A secured token service (STS), not provided in Gridwich, should deliver tokens w
 }
 ```
 
-
 ```json
 {
   "urn:microsoft:azure:mediaservices:contentkeyidentifier": "insert the content key id here",
@@ -116,9 +114,9 @@ To change the authorized protocols or DRM license properties for content protect
 - The Media Services *streaming policy* can't change. Gridwich uses an external Gridwich publication message name that doesn't change, and uses an internal Media Services name to assign a version to the updated policy. Old locators will still use the old streaming policy, and new locators will use the updated streaming policy.
 
 - The Media Services *content key policy* can change, so Gridwich uses the same name in Media Services and in the Gridwich publication message. Updating the content key policy affects all old and new locators.
-  
+
   You can extend Gridwich to have two or more content key policies with different names side by side. You can use different policies for completely different asset classes with different rights.
-  
+
 The following diagram shows the process of updating the streaming policy and content key policies:
 
 ![Content protection policies update diagram.](media/update-content-protection-policies.png)
@@ -156,7 +154,7 @@ Azure Media Services uses the OpenID Connect Discovery Document endpoint URL tha
 To store the OpenID Connect Discovery Document endpoint:
 
 1. In the Gridwich Azure DevOps project, go to **Pipelines** > **Library** > **Variable groups** > **gridwich-cicd-variables.global**.
-   
+
 1. Edit the variable name **amsDrmOpenIdConnectDiscoveryDocumentEndpoint**, setting it to the value of the endpoint URL, for example `https://domain.com/.well-known/OpenIdConfiguration`.
 
 ### Apple FairPlay settings
@@ -170,11 +168,11 @@ Gridwich processes and ingests the FairPlay package from Apple as settings. Hand
    1. Convert the *FairPlay.cer* file to a *.pem* file.
    1. Convert the *.pem* file to a *.pfx* file with a password-protected private key.
    1. Convert the *.pfx* file to a base 64 text file called *FairPlay-out-base64.txt*.
-   
+
 1. Copy the *FairPlay-out-base64.txt* file to **Pipelines** > **Library** > **Secure files**, replacing any existing same-named file.
-   
+
 1. Store the OpenSSL password in **Pipelines** > **Library** > **Variable groups > gridwich-cicd-variables.global** under the variable **amsDrmFairPlayPfxPassword**, in Secured mode.
-   
+
 1. Store the hexadecimal ASK Key that Apple provides in *AppleASK.txt* in **Pipelines** > **Library** > **Variable groups > gridwich-cicd-variables.global** under the variable **amsDrmFairPlayAskHex**, in Secured mode.
 
 #### Update approval
@@ -187,7 +185,25 @@ Select **Permit** to approve the pipeline by using the FairPlay Secure File you 
 
 ![Screenshot showing the Permit button to grant approval.](media/select-permit.png)
 
-## Related resources
-- For more information about Media Services content protection, see [Content protection overview](/azure/media-services/latest/content-protection-overview).
-- For more details about the Azure Pipelines variable group settings, see [Variable group to Terraform flow](variable-group-terraform-flow.yml).
+## Next steps
 
+Product documentation:
+
+- [Gridwich cloud media system](gridwich-architecture.yml)
+- [Azure Media Services v3 overview](/azure/media-services/latest/media-services-overview)
+- [Introduction to Azure Functions](/azure/azure-functions/functions-overview)
+- [What is Azure DevOps?](/azure/devops/user-guide/what-is-azure-devops)
+- [What is Azure Pipelines?](/azure/devops/pipelines/get-started/what-is-azure-pipelines)
+
+Microsoft Learn modules:
+
+- [Create a build pipeline with Azure Pipelines](/learn/modules/create-a-build-pipeline)
+- [Explore Azure Functions](/learn/modules/explore-azure-functions)
+- [Introduction to Azure DevOps](/learn/modules/get-started-with-devops)
+
+## Related resources
+
+- [Gridwich request-response messages](gridwich-message-formats.yml)
+- [Gridwich variable flow](variable-group-terraform-flow.yml)
+
+For more information about Media Services content protection, see [Content protection overview](/azure/media-services/latest/content-protection-overview).

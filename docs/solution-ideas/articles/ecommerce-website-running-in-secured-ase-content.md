@@ -1,14 +1,13 @@
-
-
-
 [!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
+
+Keep sensitive user and payment data from an e-commerce website secure by using the Microsoft Azure App Service Environment.
 
 ## Architecture
 
 ![Architecture diagram](../media/ecommerce-website-running-in-secured-ase.png)
 *Download an [SVG](../media/ecommerce-website-running-in-secured-ase.svg) of this architecture.*
 
-## Data Flow
+### Data flow
 
 1. Customer accesses the public website in browser.
 1. Browser pulls static resources and product images from Azure Content Delivery Network.
@@ -24,7 +23,7 @@
 1. Employee searches orders.
 1. Admin website invokes orders web service.
 
-## Components
+### Components
 
 * [App Service](https://azure.microsoft.com/services/app-service): Quickly create powerful cloud apps for web and mobile
 * [Web Apps](https://azure.microsoft.com/services/app-service/web): An App Service Web App runs in a single region, accessible to web and mobile browsers

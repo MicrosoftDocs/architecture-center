@@ -9,7 +9,7 @@ This solution is built on the Azure managed service: [Media Services](/azure/med
 ![Architecture Diagram](../media/digital-media-live-stream.png)
 *Download an [SVG](../media/digital-media-live-stream.svg) of this architecture.*
 
-## Components
+### Components
 
 * [Partner on-premises live encoder](/azure/media-services/latest/become-on-premises-encoder-partner): Outputs the live source for ingest into the cloud as RTMP(S), or Smooth Streaming.
 * Stores large amounts of unstructured data, such as text or binary data, that can be accessed from anywhere in the world via HTTP or HTTPS. You can use [Blob storage](https://azure.microsoft.com/services/storage/blobs) to expose data publicly to the world, or to store application data privately.

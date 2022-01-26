@@ -1,11 +1,10 @@
-
-
-
 [!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
 Social sites, forums, and other text-heavy Q&A services rely heavily on content tagging, which enables good indexing and user search. Often, however, content tagging is left to users' discretion. Because users don't have lists of commonly searched terms or a deep understanding of the site structure, they frequently mislabel content. Mislabeled content is difficult or impossible to find when it's needed later.
 
-By combining deep learning and natural language processing (NLP) with data on site-specific search terms, this solution helps greatly improve content tagging accuracy on a site. As users type content, this solution offers highly used terms as suggested content tags, making it easier for others to find the information.
+## Potential use cases
+
+By combining deep learning and natural language processing (NLP) with data on site-specific search terms, this solution helps greatly improve content tagging accuracy on a site. As users type content, this solution offers highly used terms as suggested content tags, which makes it easier for others to find the information.
 
 ## Architecture
 
@@ -13,14 +12,23 @@ By combining deep learning and natural language processing (NLP) with data on si
 
 *Download an [SVG](../media/website-content-tag-suggestion-with-deep-learning-and-nlp.svg) of this architecture.*
 
-## Components
+### Workflow
 
-* [Microsoft SQL Server](/sql/): Data is stored, structured, and indexed using Microsoft SQL Server.
-* [Azure Machine Learning](https://azure.microsoft.com/en-us/services/machine-learning/): Model training, including hyperparameter tuning, and deployment of the final model, including scaling out to a Kubernetes-managed Azure cluster.
-* [Azure Data Science Virtual Machine](/azure/machine-learning/data-science-virtual-machine/): The core development environment for this solution is a customized VM image on the Azure cloud platform built specifically for doing data science.
-* [Jupyter Notebooks on Azure Data Science VM](/azure/machine-learning/data-science-virtual-machine/reference-ubuntu-vm): Jupyter Notebooks can be used as the base integrated development environment (IDE) for the model.
-* [Azure Container Registry](/azure/container-registry/): Stores real-time web services as Docker containers. These containers are uploaded and registered via Azure Container Registry.
-* [Azure Kubernetes Service (AKS)](https://azure.microsoft.com/services/kubernetes-service): Deployment for this solution uses Azure Kubernetes Service running a Kubernetes-managed cluster. The containers are deployed from images stored in Azure Container Registry.
+* Data is stored, structured, and indexed using Microsoft SQL Server.
+* Model training, including hyperparameter tuning, and deployment of the final model, including scaling out to a Kubernetes-managed Azure cluster.
+* The core development environment for this solution is a customized VM image on the Azure cloud platform built specifically for doing data science.
+* Jupyter Notebooks can be used as the base integrated development environment (IDE) for the model.
+* Stores real-time web services as Docker containers. These containers are uploaded and registered via Azure Container Registry.
+* Deployment for this solution uses Azure Kubernetes Service running a Kubernetes-managed cluster. The containers are deployed from images stored in Azure Container Registry.
+
+### Components
+
+* [Microsoft SQL Server](/sql/)
+* [Azure Machine Learning](https://azure.microsoft.com/en-us/services/machine-learning/)
+* [Azure Data Science Virtual Machine](/azure/machine-learning/data-science-virtual-machine/)
+* [Jupyter Notebooks on Azure Data Science VM](/azure/machine-learning/data-science-virtual-machine/reference-ubuntu-vm)
+* [Azure Container Registry](/azure/container-registry/)
+* [Azure Kubernetes Service (AKS)](https://azure.microsoft.com/services/kubernetes-service)
 
 ## Next steps
 

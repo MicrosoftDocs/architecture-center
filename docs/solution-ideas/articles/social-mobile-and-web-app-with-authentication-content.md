@@ -1,32 +1,26 @@
-
-
-
 [!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
-This mobile client app offers social image sharing with a companion web app. The app back end service does background image processing using an Azure Function and can notify users of progress via a notification hub. Non-image data is stored in Cosmos DB. The web app accesses the back end service data and images via Traffic Manager.
+This mobile client app offers social image sharing with a companion web app. The app back-end service does background image processing using an Azure Function, and it can notify users of progress via a notification hub. Non-image data is stored in Cosmos DB. The web app accesses the back end service data and images via Azure Traffic Manager.
 
-The mobile client app works in offline mode, allowing you to view and upload images even when you don't have a network connection.
+See the following services, which are featured in this solution architecture:
 
-The links to the right provide documentation on deploying and managing the Azure products listed in the solution architecture above.
+- [Visual Studio Team Services](https://azure.microsoft.com/services/visual-studio-team-services)
+- [Visual Studio](https://www.visualstudio.com/vs)
+- [Visual Studio Tools for Xamarin](https://www.visualstudio.com/xamarin)
+- [Application Insights](https://azure.microsoft.com/services/application-insights)
+- [Visual Studio App Center](https://www.visualstudio.com/app-center)
+- [App Service Mobile Apps](https://azure.microsoft.com/services/app-service/mobile)
 
-[Visual Studio Team Services](https://azure.microsoft.com/services/visual-studio-team-services)
+## Potential use cases
 
-[Visual Studio](https://www.visualstudio.com/vs)
-
-[Visual Studio Tools for Xamarin](https://www.visualstudio.com/xamarin)
-
-[Application Insights](https://azure.microsoft.com/services/application-insights)
-
-[Visual Studio App Center](https://www.visualstudio.com/app-center)
-
-[App Service Mobile Apps](https://azure.microsoft.com/services/app-service/mobile)
+The mobile client app works in offline mode, which allows you to view and upload images, even when you don't have a network connection.
 
 ## Architecture
 
 ![Architecture Diagram](../media/social-mobile-and-web-app-with-authentication.png)
 *Download an [SVG](../media/social-mobile-and-web-app-with-authentication.svg) of this architecture.*
 
-## Data Flow
+### Data flow
 
 1. Create the app using Visual Studio and Xamarin.
 1. Add the Azure App Service Mobile Apps back end service to the app solution.
@@ -40,7 +34,7 @@ The links to the right provide documentation on deploying and managing the Azure
 1. Control the distribution of user traffic to service endpoints in different datacenters.
 1. Use Application Insights to monitor the app service.
 
-## Components
+### Components
 
 * Build the web front end, mobile apps, and back end services with C# in [Visual Studio](/visualstudio) 2017 or [Visual Studio](/visualstudio) for Mac.
 * [Xamarin](/xamarin): Create mobile apps for iOS and Android using C# and Azure SDKs.

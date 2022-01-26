@@ -3,7 +3,7 @@ metadata:
   title: SMB disaster recovery with Double-Take DR
   titleSuffix: Azure Solution Ideas
   description: Small-sized and medium-sized businesses can inexpensively implement cloud-based disaster recovery solutions by using a partner solution like Double-Take DR.
-  author: doodlemania2
+  author: EdPrice-MSFT
   ms.author: pnp
   ms.date: 12/16/2019
   ms.topic: conceptual

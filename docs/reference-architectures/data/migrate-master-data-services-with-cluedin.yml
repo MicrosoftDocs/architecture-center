@@ -15,22 +15,10 @@ azureCategories:
   - databases
   - management-and-governance
 products:
-  - azure-active-directory
+  - azure-purview
   - azure-data-factory
-  - azure-data-lake-gen2
-  - azure-databricks
-  - azure-devops
-  - azure-devops-tool-integrations
-  - azure-event-hubs
-  - azure-functions
-  - azure-key-vault
-  - azure-monitor
-  - azure-service-bus
-  - azure-sql-managed-instance
+  - azure-sql-database
   - azure-synapse-analytics
-  - power-apps
-  - power-automate
-  - power-bi
 name: Migrate master data services to Azure with CluedIn and Azure Purview
 summary: Use CluedIn to migrate your master data services solution to Azure, by using CluedIn and Azure Purview.
 thumbnailUrl: /azure/architecture/browse/thumbs/migrate-mds-to-azure-with-cluedin.png

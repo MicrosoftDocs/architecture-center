@@ -21,7 +21,7 @@
     },
     {
       "source_path": "docs/reference-architectures/managed-web-app/index.md",
-      "redirect_url": "/azure/architecture/reference-architectures/app-service-web-app",
+      "redirect_url": "/azure/architecture/reference-architectures/app-service-web-app/basic-web-app",
       "redirect_document_id": false
     },
     {
@@ -159,7 +159,7 @@
     {
       "source_path": "docs/framework/devops/iac.md",
       "redirect_url": "/azure/architecture/framework/devops/automation-infrastructure",
-      "redirect_document_id": true
+      "redirect_document_id": false
     },
     {
       "source_path": "docs/microservices/domain-analysis.md",
@@ -212,7 +212,7 @@
     {
       "source_path": "docs/checklist/scalability.md",
       "redirect_url": "/azure/architecture/framework/scalability/overview",
-      "redirect_document_id": true
+      "redirect_document_id": false
     },
     {
       "source_path": "docs/resiliency/index.md",
@@ -364,7 +364,7 @@
     {
       "source_path": "docs/security/architecture-type.md",
       "redirect_url": "/azure/architecture/framework/security/architecture-type",
-      "redirect_document_id": true
+      "redirect_document_id": false
     },
     {
       "source_path": "docs/security/critical-impact-accounts.md",
@@ -379,12 +379,12 @@
     {
       "source_path": "docs/reliability/requirements.md",
       "redirect_url": "/azure/architecture/framework/resiliency/business-metrics",
-      "redirect_document_id": true
+      "redirect_document_id": false
     },
     {
       "source_path": "docs/reliability/testing.md",
       "redirect_url": "/azure/architecture/framework/resiliency/testing",
-      "redirect_document_id": true
+      "redirect_document_id": false
     },
     {
       "source_path": "docs/reliability/deploy.md",
@@ -394,17 +394,17 @@
     {
       "source_path": "docs/reliability/monitoring.md",
       "redirect_url": "/azure/architecture/framework/resiliency/monitoring",
-      "redirect_document_id": true
+      "redirect_document_id": false
     },
     {
       "source_path": "docs/reliability/disaster-recovery.md",
       "redirect_url": "/azure/architecture/framework/resiliency/backup-and-recovery",
-      "redirect_document_id": true
+      "redirect_document_id": false
     },
     {
       "source_path": "docs/resiliency/recovery-data-corruption.md",
       "redirect_url": "/azure/architecture/framework/resiliency/data-management",
-      "redirect_document_id": true
+      "redirect_document_id": false
     },
     {
       "source_path": "docs/security/governance.md",
@@ -414,7 +414,7 @@
     {
       "source_path": "docs/security/law-authority.md",
       "redirect_url": "/azure/architecture/framework/security/design-regulatory-compliance",
-      "redirect_document_id": true
+      "redirect_document_id": false
     },
     {
       "source_path": "docs/security/network-security-containment.md",
@@ -424,22 +424,22 @@
     {
       "source_path": "docs/security/resilience.md",
       "redirect_url": "/azure/architecture/framework/security/resilience",
-      "redirect_document_id": true
+      "redirect_document_id": false
     },
     {
       "source_path": "docs/security/security-operations.md",
       "redirect_url": "/azure/architecture/framework/security/security-operations",
-      "redirect_document_id": true
+      "redirect_document_id": false
     },
     {
       "source_path": "docs/security/security-principles.md",
       "redirect_url": "/azure/architecture/framework/security/security-principles",
-      "redirect_document_id": true
+      "redirect_document_id": false
     },
     {
       "source_path": "docs/security/storage-data-encryption.md",
       "redirect_url": "/azure/architecture/framework/security/storage-data-encryption",
-      "redirect_document_id": true
+      "redirect_document_id": false
     },
     {
       "source_path": "docs/cloud-adoption-guide/adoption-intro/azure-resource-access.md",
@@ -1930,7 +1930,7 @@
     {
       "source_path": "docs/guide/pillars.md",
       "redirect_url": "/azure/architecture/framework/",
-      "redirect_document_id": true
+      "redirect_document_id": false
     },
     {
       "source_path": "docs/guide/technology-choices/compute-overview.md",
@@ -2200,34 +2200,68 @@
     {
       "source_path": "docs/framework/security/monitor-identity-network.md",
       "redirect_url": "/azure/architecture/framework/security/monitor-resources",
-      "redirect_document_id": true
+      "redirect_document_id": false
     },
     {
       "source_path": "docs/framework/security/governance.md",
       "redirect_url": "/azure/architecture/framework/security/design-governance",
-      "redirect_document_id": true
+      "redirect_document_id": false
     },
     {
       "source_path": "docs/framework/security/network-security-containment.md",
       "redirect_url": "/azure/architecture/framework/security/design-network-segmentation",
-      "redirect_document_id": true
+      "redirect_document_id": false
     },
     {
       "source_path": "docs/framework/security/critical-impact-accounts.md",
       "redirect_url": "/azure/architecture/framework/security/design-admins",
-      "redirect_document_id": true
+      "redirect_document_id": false
     },
     {
       "source_path": "docs/framework/security/role-of-security.md",
       "redirect_url": "/azure/architecture/framework/security/overview",
-      "redirect_document_id": true
+      "redirect_document_id": false
     },
     {
       "source_path": "docs/multitenant-identity/client-assertion.md",
       "redirect_url": "/azure/architecture/multitenant-identity/client-certificate",
       "redirect_document_id": true
-    }            
-
+    },
+    {
+      "source_path": "docs/guide/devops/release-packaging-deploying-disconnected-azure-stack-hub.md",
+      "redirect_url": "/azure/architecture/",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/guide/startups/core-startup-stack.yml",
+      "redirect_url": "/azure/architecture/example-scenario/startups/core-startup-stack",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "docs/reference-architectures/containers/deploy-keda-aksacr-disconnected-azure-stack-hub.yml",
+      "redirect_url": "/azure/architecture/",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/data-science-process/hive-criteo-walkthrough.md",
+      "redirect_url": "/azure/architecture/data-science-process/overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/data-science-process/hive-walkthrough.md",
+      "redirect_url": "/azure/architecture/data-science-process/overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/data-science-process/plan-sample-scenarios.md",
+      "redirect_url": "/azure/architecture/data-science-process/overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/data-science-process/sql-walkthrough.md",
+      "redirect_url": "/azure/architecture/data-science-process/overview",
+      "redirect_document_id": false
+    }
 
   ]
 }

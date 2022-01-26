@@ -2,7 +2,7 @@
 metadata:
   title: Disaster recovery for Azure Stack Hub VMs
   description: This solution delivers an optimized approach to disaster recovery of virtual machine (VM)-based user workloads hosted on Azure Stack Hub.
-  author: doodlemania2
+  author: EdPrice-MSFT
   ms.author: pnp
   ms.date: 08/06/2020
   ms.topic: conceptual

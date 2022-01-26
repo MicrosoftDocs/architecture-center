@@ -4,6 +4,8 @@
 
 This solution demonstrates how to ingest and analyze high volumes of IoT data and generate real-time recommendations and insights.
 
+## Potential use cases
+
 This solution utilizes the following functionality:
 
 - Real-time data ingestion and processing pipeline capable of detection and notification within seconds.

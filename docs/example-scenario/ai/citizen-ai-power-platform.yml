@@ -2,9 +2,9 @@
 metadata:
   title: Citizen AI with the Power Platform
   titleSuffix: Azure Example Scenarios
-  description: Learn how to user Azure Machine Learning and Microsoft Power Platform to quickly create a machine learning (ML) proof of concept, and a production version.  
+  description: Learn how to user Azure Machine Learning and Microsoft Power Platform to quickly create a machine learning (ML) proof of concept, and a production version.
   author: vyasdev
-  ms.author: vyvenugo 
+  ms.author: vyvenugo
   ms.date: 10/06/2021
   ms.topic: conceptual
   ms.service: architecture-center

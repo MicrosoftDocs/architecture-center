@@ -95,7 +95,7 @@ In order for Azure AD to issue a bearer token for the web API, you need to confi
 
 ## Getting an access token
 
-Before calling the web API, the web application gets an access token from Azure AD. In a .NET application, use the [Microsoft Authentication Library for .NET (MSAL.NET)][MSAL]. Add `.EnableTokenAcquisitionToCallDownstreamApi()` in Startup.cs of the application. 
+Before calling the web API, the web application gets an access token from Azure AD. In a .NET application, use the [Microsoft Authentication Library for .NET (MSAL.NET)][MSAL]. Add `.EnableTokenAcquisitionToCallDownstreamApi()` in Startup.cs of the application.
 
 After acquiring a token, MSAL caches it. So, you'll also need to choose a token cache implementation, which is included in MSAL. This example uses distributed cache. For details, see See [Token caching][token-cache].
 
@@ -119,7 +119,6 @@ services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
             Configuration.GetSection("AzureAd").Bind(msIdentityOptions);
         });
 ```
-
 
 **Events** is a class that derives from **JwtBearerEvents**.
 

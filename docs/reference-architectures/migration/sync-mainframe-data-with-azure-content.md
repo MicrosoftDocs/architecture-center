@@ -33,7 +33,7 @@ Mainframe and midrange systems update on-premises application databases on a reg
 
 1. Pipelines group the activities that perform tasks. To extract data, Data Factory dynamically creates one pipeline per on-premises table. You can then use a massively parallel implementation when you replicate data in Azure. But you can also configure the solution to meet your requirements:
 
-   - Full replication: You replicate the entire database, making necessary modifications to data types and fields in the target Azure database. 
+   - Full replication: You replicate the entire database, making necessary modifications to data types and fields in the target Azure database.
    - Partial, delta, or incremental replication: You use *watermark columns* in source tables to sync updated rows with Azure databases. These columns contain either a continuously incrementing key or a time stamp indicating the table's last update.
 
    Data Factory also uses pipelines for the following transformation tasks:
@@ -71,7 +71,6 @@ Mainframe and midrange systems update on-premises application databases on a reg
    - Third-party tools: When the solution requires near real-time replication, you can use third-party tools. Some of these agents are available in [Azure Marketplace][Azure Marketplace].
 
 1. Azure Synapse Analytics manages the data and makes it available for business intelligence and machine learning applications.
-
 
 ## Components
 

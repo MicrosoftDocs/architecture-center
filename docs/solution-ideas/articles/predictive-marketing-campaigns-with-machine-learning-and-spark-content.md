@@ -11,7 +11,7 @@ Optimizing your campaigns with predictive marketing helps improve both sales lea
 ![Architecture diagram: predictive marketing with Azure Machine Learning.](../media/predictive-marketing-campaigns-with-machine-learning-and-spark.png)
 *Download an [SVG](../media/predictive-marketing-campaigns-with-machine-learning-and-spark.svg) of this architecture.*
 
-## Components
+### Components
 
 * [Power BI](https://powerbi.microsoft.com) provides an interactive dashboard with visualization that uses data stored in SQL Server to drive decisions on the predictions.
 * [Storage Accounts](https://azure.microsoft.com/services/storage): Azure Storage stores campaign and lead data.
@@ -19,15 +19,17 @@ Optimizing your campaigns with predictive marketing helps improve both sales lea
 
 ## Next steps
 
-Read other Azure Architecture Center articles about predictive machine learning:
-
-* [Predictive aircraft engine monitoring](./aircraft-engine-monitoring-for-predictive-maintenance-in-aerospace.yml)
-* [Predictive maintenance for industrial IoT](./iot-predictive-maintenance.yml)
-* [Predict length of stay and patient flow for healthcare](./predict-length-of-stay-and-patient-flow-with-healthcare-analytics.yml)
-
 See product documentation:
 
 * [Spark on HDInsight](/azure/hdinsight/hdinsight-apache-spark-overview)
 * [Power BI](https://powerbi.microsoft.com/documentation/powerbi-landing-page)
 * [Azure storage](/azure/storage/common/storage-introduction)
 * [Azure Machine Learning](/azure/machine-learning/overview-what-is-azure-ml)
+
+## Related resources
+
+Read other Azure Architecture Center articles about predictive machine learning:
+
+* [Predictive aircraft engine monitoring](./aircraft-engine-monitoring-for-predictive-maintenance-in-aerospace.yml)
+* [Predictive maintenance for industrial IoT](./iot-predictive-maintenance.yml)
+* [Predict length of stay and patient flow for healthcare](./predict-length-of-stay-and-patient-flow-with-healthcare-analytics.yml)

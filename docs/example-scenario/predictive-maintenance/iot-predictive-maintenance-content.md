@@ -1,6 +1,5 @@
 
 
-
 The *Internet-of-things (IoT) Edge* brings data processing and storage close to the data source, enabling fast, consistent responses with reduced dependency on cloud connectivity and resources. Edge computing can incorporate artificial intelligence (AI) and machine learning (ML) models to create *intelligent edge* devices and networks, which can integrate with the cloud for further processing and security.
 
 This article describes a collaboration between the Microsoft Commercial Software Engineering (CSE) team and a major railway company to create an [intelligent cloud and intelligent edge](https://azure.microsoft.com/overview/future-of-cloud/) train maintenance and safety solution. The railway company wants to improve railroad safety and efficiency by proactively identifying defective components, predictively scheduling maintenance and repair, and continuously improving their findings and predictions. The pilot project for the *ML on Edge* solution is a train wheel health analysis system.
@@ -11,21 +10,20 @@ Bringing ML and business logic closer to the data sources lets devices react fas
 
 The wheel health analysis system provides early identification of potential equipment failure, helping prevent catastrophic failures that could lead to train derailment. The company can use stored data to spot trends and inform prescriptive maintenance and overhaul schedules.
 
-## Use cases
+## Potential use cases
 
 IoT Edge implementations are most relevant when large amounts of data captured in real time need action or decisions with little or no latency. The example system had to maintain 99.999% uptime, process data from up to 24 trains and 35 million readings per day, and guarantee one-hour delivery of alerts and notifications.
 
 ## Architecture
-
-:::image type="content" source="./media/solution-architecture.png" alt-text="Solution architecture diagram showing the IoT Edge modules in the trackside bungalows. The Edge modules use machine learning to identify failure risks. The alert handler module uploads image data to Azure Blob Storage. Azure Edge Hub uploads associated metadata and messages through Azure IoT Hub to Azure Cosmos DB storage." border="false":::
+[ ![Solution architecture diagram showing the IoT Edge modules in the trackside bungalows. The Edge modules use machine learning to identify failure risks. The alert handler module uploads image data to Azure Blob Storage. Azure Edge Hub uploads associated metadata and messages through Azure IoT Hub to Azure Cosmos DB storage.](./media/iot-predictive-maintenance.svg) ](./media/iot-predictive-maintenance.svg#lightbox)
 
 1. An image file server (NAS) in a bungalow serves processed and categorized train wheel images. Three pictures of each wheel create a stitched image.
-1. The polling module alerts the Edge device that new images are available for processing.
-1. A third-party ML model processes the images and identifies wheel areas that need more inspection.
-1. The alert handler uploads all images into Azure Blob Storage, starting with images that have potential defects, and returns the image blob URIs.
-1. IoT Edge Hub associates the image URIs with image metadata, and uploads the metadata and alerts to Azure IoT Hub.
-1. IoT Hub sends the metadata via Event Hub and Azure Functions to an Azure Cosmos DB database.
-1. The Cosmos DB database holds the image metadata and points to the location of images in Azure Blob Storage.
+2. The polling module alerts the Edge device that new images are available for processing.
+3. A third-party ML model processes the images and identifies wheel areas that need more inspection.
+4. The alert handler uploads all images into Azure Blob Storage, starting with images that have potential defects, and returns the image blob URIs.
+5. IoT Edge Hub associates the image URIs with image metadata, and uploads the metadata and alerts to Azure IoT Hub.
+6. IoT Hub sends the metadata via Event Hub and Azure Functions to an Azure Cosmos DB database.
+7. The Cosmos DB database holds the image metadata (Equipment/Car #, Axle, Timestamp, Detector Location, etc.) and points to the location of images in Azure Blob Storage.
 
 ### Components
 

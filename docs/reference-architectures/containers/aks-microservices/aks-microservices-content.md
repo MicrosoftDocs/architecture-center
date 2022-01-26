@@ -51,7 +51,7 @@ In Kubernetes, the functionality of an API gateway is primarily handled by an **
 
 ### Data storage
 
-In a microservices architecture, services should not share data storage solutions. Each service should manage its own data set to avoid hidden dependencies among services. Data separation helps avoid unintentional coupling between services, which can happen when services share the same underlying data schemas. Also, when services manage their own data stores, they can use the right data store for their particular requirements. 
+In a microservices architecture, services should not share data storage solutions. Each service should manage its own data set to avoid hidden dependencies among services. Data separation helps avoid unintentional coupling between services, which can happen when services share the same underlying data schemas. Also, when services manage their own data stores, they can use the right data store for their particular requirements.
 
 For more information, see [Designing microservices: Data considerations](../../../microservices/design/data-considerations.md).
 
@@ -59,8 +59,8 @@ Avoid storing persistent data in local cluster storage because that ties the dat
 
 For more information, see [Storage options for application in Azure Kubernetes Service](/azure/aks/concepts-storage).
 
-
 ## Service object
+
 The Kubernetes **Service** object provides a set of capabilities that match the microservices requirements for service discoverability:
 
 - IP address. The Service object provides a static internal IP address for a group of pods (ReplicaSet). As pods are created or moved around, the service is always reachable at this internal IP address.
@@ -91,8 +91,7 @@ Often, configuring the proxy server requires complex files, which can be hard to
 
 On the other hand, if you need complete control over the settings, you may want to bypass this abstraction and configure the proxy server manually. For more information, see [Deploying Nginx or HAProxy to Kubernetes](../../../microservices/design/gateway.md#deploying-nginx-or-haproxy-to-kubernetes).
 
-> For AKS, you can also use Azure Application Gateway, using the [Application Gateway Ingress Controller](https://azure.github.io/application-gateway-kubernetes-ingress/). This option requires [CNI networking](/azure/aks/configure-azure-cni) to be enabled when you configure the AKS cluster, because Application Gateway is deployed into a subnet of the AKS virtual network. 
-Azure Application Gateway can perform layer-7 routing and SSL termination. It also has built-in support for web application firewall (WAF).
+> For AKS, you can also use Azure Application Gateway, using the [Application Gateway Ingress Controller](https://azure.github.io/application-gateway-kubernetes-ingress/). This option requires [CNI networking](/azure/aks/configure-azure-cni) to be enabled when you configure the AKS cluster, because Application Gateway is deployed into a subnet of the AKS virtual network.  Azure Application Gateway can perform layer-7 routing and SSL termination. It also has built-in support for web application firewall (WAF).
 
 For information about load-balancing services in Azure, see [Overview of load-balancing options in Azure](../../../guide/technology-choices/load-balancing-overview.md).
 
@@ -215,15 +214,14 @@ Using a system like HashiCorp Vault or Azure Key Vault provides several advantag
 
 These are recommended practices for securing your pods and containers:
 
-- **Threat Monitoring –** Monitor for threats using [Azure Defender for container registries](/azure/security-center/defender-for-container-registries-introduction) and [Azure Defender for Kubernetes](/azure/security-center/defender-for-kubernetes-introduction) (or 3rd party capabilities). If you are hosting containers on a VM, use [Azure Defender for servers](/azure/security-center/defender-for-servers-introduction) or a 3rd party capability.
-Additionally, you can integrate logs from [Container Monitoring solution in Azure Monitor](/azure/azure-monitor/insights/containers) to [Azure Sentinel](/azure/sentinel/) or an existing SIEM
+- **Threat monitoring:** Monitor for threats using [Microsoft Defender for container registries](/azure/security-center/defender-for-container-registries-introduction) and [Microsoft Defender for Kubernetes](/azure/security-center/defender-for-kubernetes-introduction) (or 3rd party capabilities). If you are hosting containers on a VM, use [Microsoft Defender for servers](/azure/security-center/defender-for-servers-introduction) or a 3rd party capability. Additionally, you can integrate logs from [Container Monitoring solution in Azure Monitor](/azure/azure-monitor/insights/containers) to [Microsoft Sentinel](/azure/sentinel/) or an existing SIEM solution.
 
-- **Vulnerability monitoring -** Continuously monitor images and running containers for known vulnerabilities using [Azure Security Center](/azure/security-center/container-security) or a 3rd party solution available through the Azure Marketplace.
-- **Automate image patching** using [ACR Tasks](/azure/container-registry/container-registry-tasks-overview), a feature of Azure Container Registry. A container image is built up from layers. The base layers include the OS image and application framework images, such as ASP.NET Core or Node.js. The base images are typically created upstream from the application developers, and are maintained by other project maintainers. When these images are patched upstream, it&#39;s important to update, test, and redeploy your own images, so that you don&#39;t leave any known security vulnerabilities. ACR Tasks can help to automate this process.
+- **Vulnerability monitoring:** Continuously monitor images and running containers for known vulnerabilities using [Microsoft Defender for Cloud](/azure/security-center/container-security) or a 3rd party solution available through the Azure Marketplace.
+- **Automate image patching** using [ACR Tasks](/azure/container-registry/container-registry-tasks-overview), a feature of Azure Container Registry. A container image is built up from layers. The base layers include the OS image and application framework images, such as ASP.NET Core or Node.js. The base images are typically created upstream from the application developers, and are maintained by other project maintainers. When these images are patched upstream, it's important to update, test, and redeploy your own images, so that you don't leave any known security vulnerabilities. ACR Tasks can help to automate this process.
 - **Store images in a trusted private registry** such as Azure Container Registry or Docker Trusted Registry. Use a validating admission webhook in Kubernetes to ensure that pods can only pull images from the trusted registry.
 - **Apply Least Privilege** principle
   - Don't run containers in privileged mode. Privileged mode gives a container access to all devices on the host.
-  - When possible, avoid running processes as root inside containers. Containers do not provide complete isolation from a security standpoint, so it&#39;s better to run a container process as a non-privileged user.
+  - When possible, avoid running processes as root inside containers. Containers do not provide complete isolation from a security standpoint, so it's better to run a container process as a non-privileged user.
 
 ## DevOps considerations
 
@@ -287,7 +285,7 @@ To deploy the reference implementation for this architecture, follow the steps i
 [ri]: https://github.com/mspnp/microservices-reference-implementation
 [ri-deploy]: https://github.com/mspnp/microservices-reference-implementation/blob/main/deployment.md
 [visio-download]: https://arch-center.azureedge.net/aks-reference-architecture.vsdx
-[aaf-cost]: ../../../framework/cost/overview.md
+[aaf-cost]: /azure/architecture/framework/cost/overview
 [azure-pricing-calculator]: https://azure.microsoft.com/pricing/calculator
 [DevOps-pricing]: https://azure.microsoft.com/pricing/details/devops/azure-devops-services
 [AppGatewayPricing]: https://azure.microsoft.com/pricing/details/application-gateway

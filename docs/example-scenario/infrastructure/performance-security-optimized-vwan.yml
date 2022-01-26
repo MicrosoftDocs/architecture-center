@@ -1,0 +1,24 @@
+### YamlMime:Architecture
+metadata:
+  title: Virtual WAN architecture optimized for department-specific requirements
+  titleSuffix: Azure Example Scenarios
+  description: This article describes how to design a single network that has varying security and performance requirements.
+  author: EdPrice-MSFT
+  ms.author: jopoetzi 
+  ms.date: 11/30/2021
+  ms.topic: conceptual
+  ms.service: architecture-center
+  ms.subservice: example-scenario
+  ms.custom: fcp
+azureCategories:
+  - "networking"
+  - "security"
+products:
+  - "azure-virtual-wan"
+  - "azure-expressroute"
+  - "azure-virtual-network"
+name: Virtual WAN architecture optimized for department-specific requirements
+summary: This article describes how to design a single network that has varying security and performance requirements.
+thumbnailUrl: /azure/architecture/browse/thumbs/performance-security-optimized-vwan-architecture-main.png
+content: |
+  [!include[](performance-security-optimized-vwan-content.md)]

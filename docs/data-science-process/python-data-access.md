@@ -1,5 +1,5 @@
 ---
-title: Access datasets with Python client library - Team Data Science Process
+title: Access datasets with Python client library
 description: Install and use the Python client library to access and manage Azure Machine Learning data securely from a local Python environment.
 services: machine-learning
 author: marktab
@@ -10,13 +10,17 @@ ms.subservice: team-data-science-process
 ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
-ms.custom: seodec18, devx-track-python, previous-author=deguhath, previous-ms.author=deguhath
+ms.custom:
+  - devx-track-python
+  - previous-author=deguhath
+  - previous-ms.author=deguhath
 products:
   - azure-machine-learning
 categories:
   - ai-machine-learning
 ---
 # Access datasets with Python using the Azure Machine Learning Python client library
+
 The preview of Microsoft Azure Machine Learning Python client library can enable secure access to your Azure Machine Learning datasets from a local Python environment and enables the creation and management of datasets in a workspace.
 
 This topic provides instructions on how to:
@@ -89,13 +93,13 @@ Authorization tokens are managed on the **AUTHORIZATION TOKENS** page under **SE
 1. In Machine Learning Studio (classic), click **DATASETS** in the navigation bar on the left.
 2. Select the dataset you would like to access. You can select any of the datasets from the **MY DATASETS** list or from the **SAMPLES** list.
 3. From the bottom toolbar, click **Generate Data Access Code**. If the data is in a format incompatible with the Python client library, this button is disabled.
-   
+
     ![Screenshot shows datasets with the GENERATE DATA ACCESS CODE.][datasets]
 4. Select the code snippet from the window that appears and copy it to your clipboard.
-   
+
     ![Generate data access code button][dataset-access-code]
 5. Paste the code into the notebook of your local Python application.
-   
+
     ![Paste code into the notebook][ipython-dataset]
 
 ## <a name="accessingIntermediateDatasets"></a>Access intermediate datasets from Machine Learning experiments
@@ -130,16 +134,16 @@ The following steps show an example that creates an experiment, runs it and acce
 5. Save the experiment, run it, and wait for the job to finish.
 6. Click the output node on the [Convert to CSV][convert-to-csv] module.
 7. When the context menu appears, select **Generate Data Access Code**.
-   
+
     ![Context Menu][experiment]
 8. Select the code snippet and copy it to your clipboard from the window that appears.
-   
+
     ![Generate access code from context menu][intermediate-dataset-access-code]
 9. Paste the code in your notebook.
-   
+
     ![Paste code into notebook][ipython-intermediate-dataset]
 10. You can visualize the data using matplotlib. This displays in a histogram for the age column:
-    
+
     ![Histogram][ipython-histogram]
 
 ## <a name="clientApis"></a>Use the Machine Learning Python client library to access, read, create, and manage datasets
@@ -359,7 +363,6 @@ If your data is already serialized, use `update_from_raw_data` instead of `updat
 [intermediate-dataset-access-code]:./media/python-data-access/intermediate-dataset-access-code.png
 [ipython-intermediate-dataset]:./media/python-data-access/ipython-intermediate-dataset.png
 [ipython-histogram]:./media/python-data-access/ipython-histogram.png
-
 
 <!-- Module References -->
 [convert-to-csv]: /azure/machine-learning/studio-module-reference/convert-to-csv

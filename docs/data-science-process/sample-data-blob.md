@@ -1,5 +1,5 @@
 ---
-title: Sample data in Azure Blob storage - Team Data Science Process
+title: Sample data in Azure Blob storage
 description: Sampling data stored in Azure Blob storage by downloading it programmatically and then sampling it using procedures written in Python.
 services: machine-learning
 author: marktab
@@ -8,26 +8,28 @@ editor: marktab
 ms.service: machine-learning
 ms.subservice: team-data-science-process
 ms.topic: article
-ms.date: 01/10/2020
+ms.date: 12/16/2021
 ms.author: tdsp
-ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath, fcp
+ms.custom:
+  - previous-author=deguhath
+  - previous-ms.author=deguhath
+  - fcp
 products:
   - azure-machine-learning
 categories:
   - ai-machine-learning
 ---
-# <a name="heading"></a>Sample data in Azure Blob storage
+# Sample data in Azure Blob storage
 
 This article covers sampling data stored in Azure Blob storage by downloading it programmatically and then sampling it using procedures written in Python.
 
-**Why sample your data?**
-If the dataset you plan to analyze is large, it's usually a good idea to down-sample the data to reduce it to a smaller but representative and more manageable size. Sampling facilitates data understanding, exploration, and feature engineering. Its role in the Cortana Analytics Process is to enable fast prototyping of the data processing functions and machine learning models.
+**Why sample your data?** If the dataset you plan to analyze is large, it's usually a good idea to down-sample the data to reduce it to a smaller but representative and more manageable size. Sampling facilitates data understanding, exploration, and feature engineering. Its role in the Cortana Analytics Process is to enable fast prototyping of the data processing functions and machine learning models.
 
 This sampling task is a step in the [Team Data Science Process (TDSP)](/azure/machine-learning/team-data-science-process/).
 
 ## Download and down-sample data
 
-1. Download the data from Azure Blob storage using the Blob service from the following sample Python code: 
+1. Download the data from Azure Blob storage using the Blob service from the following sample Python code:
 
     ```python
     from azure.storage.blob import BlobService
@@ -102,6 +104,4 @@ You can use the following sample code to down-sample the data and use it directl
         print ("Something went wrong with uploading to the blob:"+ BLOBNAME)
     ```
 
-3. Read the data from the Azure blob using Azure Machine Learning [Import Data](/azure/machine-learning/studio-module-reference/import-data) as shown in the image below:
-
-![reader blob](./media/sample-data-blob/reader-blob.png)
+3. Make a datastore in Azure Machine Learning which points to the Azure Blob Storage.  [This link describes the concept of datastores and how to subsequently make a dataset for use with Azure Machine Learning](/azure/machine-learning/concept-data).

@@ -53,14 +53,13 @@ The second diagram shows how you can use Azure services to re-engineer a similar
 3. Azure provides various services to implement a mainframe batch workload. Select specific services that are based on your business requirements. For example, compute power required, total execution time, the ability to split mainframe batch process into smaller units, and cost sensitivity.
 
     1. Azure Databricks is an Apache Spark-based analytics platform. Jobs can be written in the R, Python, Java, Scala, and Spark SQL languages. It provides a compute environment with fast cluster start times, auto termination, and autoscaling. It has built-in integration with Azure storage like Azure Blob Storage and Azure Data Lake storage. Use Azure Databricks if you need to process large amounts of data in a short time. It's also a good choice if you need to run Extract, Transform, and Load (ETL) workloads.
-    2. AKS and Service Fabric provide an infrastructure to implement a service-based application architecture. It might not be cost effective for a single application.
-    You can refactor your mainframe application using Java Spring Boot. The best way to run Spring Boot apps on Azure is to use Azure Spring Cloud, a fully managed Spring Cloud service. Java developers can use it to easily build and run Spring Boot Microservices on Azure.
+    2. AKS and Service Fabric provide an infrastructure to implement a service-based application architecture. It might not be cost effective for a single application. You can refactor your mainframe application using Java Spring Boot. The best way to run Spring Boot apps on Azure is to use Azure Spring Cloud, a fully managed Spring Cloud service. Java developers can use it to easily build and run Spring Boot Microservices on Azure.
     3. You can re-engineer your mainframe batch application using .NET or Java. Batch provides the infrastructure to run this application at scale. It creates and manages a pool of virtual machines (VMs), installs the applications, and then schedules jobs to run on the VMs. There's no cluster or job scheduler software to install, manage, or scale. Write applications in any programming language supported by Windows or Linux.
     4. You can re-engineer short running COBOL or PL/1 batch programs. For these programs, use Azure services like Functions, WebJobs, or Logic Apps.
 
 4. Azure provides various data services to store and retrieve data.
 
-    - You can migrate mainframe relational databases like Db2 and Informix with minimal changes to the Azure relational database offerings' visibility. For example, relational database services like Azure SQL VM, Azure SQL DB, or Azure SQL MI. You can also use any open-source Relational Database Management System (RDBMS) like Azure PostgreSQL. The selection of an Azure database depends on the type of workload, cross-database queries, two-phase commit requirements, and many other factors.  
+    - You can migrate mainframe relational databases like Db2 and Informix with minimal changes to the Azure relational database offerings' visibility. For example, relational database services like Azure SQL VM, Azure SQL DB, or Azure SQL MI. You can also use any open-source Relational Database Management System (RDBMS) like Azure PostgreSQL. The selection of an Azure database depends on the type of workload, cross-database queries, two-phase commit requirements, and many other factors.
     - You can migrate mainframe non-relational databases like IMS, Integrated Data Management System (IDMS), or VSAM to Azure Cosmos DB. Azure Cosmos DB provides fast response times, automatic and instant scalability, and guaranteed speed at any scale. It's a cost-effective option for unpredictable or sporadic workloads of any size or scale. Developers can easily get started without having to plan for or manage capacity.
     - You can use Azure Cache for Redis to speed up a re-engineered application.
 
@@ -88,7 +87,7 @@ The second diagram shows how you can use Azure services to re-engineer a similar
 - [Azure Databricks](https://azure.microsoft.com/services/databricks): Azure Databricks is a cloud-based data engineering tool that's used for processing and transforming large amounts of data. You can then explore that data through machine learning models.
 - [Azure Spring Cloud](https://azure.microsoft.com/services/spring-cloud): Azure Spring Cloud makes it easy to deploy, manage, and run Spring microservices to Azure. It supports both Java and .NET Core.
 - [AKS](https://azure.microsoft.com/services/kubernetes-service): AKS simplifies deploying a managed Kubernetes cluster in Azure by offloading the operational overhead to Azure.
-- [Batch](https://azure.microsoft.com/services/batch): Batch is designed to run general purpose batch computing in the cloud across many VMs that can scale based on the workload being executed. It’s a perfect fit for ETL or AI use cases where multiple tasks are executed in parallel, independent from each other.
+- [Batch](https://azure.microsoft.com/services/batch): Batch is designed to run general purpose batch computing in the cloud across many VMs that can scale based on the workload being executed. It's a perfect fit for ETL or AI use cases where multiple tasks are executed in parallel, independent from each other.
 - [Functions](https://azure.microsoft.com/services/functions): Use Functions to run small pieces of code without worrying about application infrastructure. With Functions, the cloud infrastructure provides all the up-to-date servers you need to keep your application running at scale.
 - [Azure App Service](https://azure.microsoft.com/services/app-service): With [WebJobs](/azure/app-service/webjobs-create), a feature of App Service, you can code reusable background business logic as web jobs.
 - [Azure Cache for Redis](https://azure.microsoft.com/services/cache/): Applications that use a high volume of backend data can be developed to scale and deliver a highly optimized performance by integrating with an in-memory data store like Redis. Azure Cache for Redis offers both the Redis open-source (OSS Redis) and a commercial product from Redis Labs, Redis Enterprise, as a managed service.
@@ -101,7 +100,7 @@ Azure storage provides multiple tiers of hot, cool, and archive data. Effective 
 - [Azure Files](https://azure.microsoft.com/services/storage/files): Simple, secure, and serverless enterprise-grade cloud file shares. Azure Files can particularly come in handy for re-engineered mainframe solutions. It provides an effective add-on for the managed SQL storage.
 - [Table Storage](https://azure.microsoft.com/services/storage/tables/#overview): A NoSQL key-value store for rapid development using large semi-structured datasets.
 - [Azure Queue Storage](https://azure.microsoft.com/services/storage/queues): Simple, cost-effective, durable message queueing for large workloads.
-- [Azure SQL](https://azure.microsoft.com/products/azure-sql): Azure’s fully managed family of services for SQL Server. You can migrate and use the relational data efficiently with other Azure services like Azure SQL Managed Instance, SQL Server on Azure Virtual Machines, and Azure Database for MariaDB.
+- [Azure SQL](https://azure.microsoft.com/products/azure-sql): Azure's fully managed family of services for SQL Server. You can migrate and use the relational data efficiently with other Azure services like Azure SQL Managed Instance, SQL Server on Azure Virtual Machines, and Azure Database for MariaDB.
 - [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db): A no-SQL offering that you can use to migrate non-tabular data from the mainframes.
 
 #### Monitoring
@@ -148,7 +147,7 @@ Azure storage provides multiple tiers of hot, cool, and archive data. Effective 
 ### Resiliency
 
 - You can use Azure Monitor and Application Insights, in addition to Log Analytics, to monitor the health of an Azure resource. Set alerts to proactively manage your resource health.
-- For more information on resiliency in Azure, see [Designing reliable Azure applications](../../framework/resiliency/app-design.md).
+- For more information on resiliency in Azure, see [Designing reliable Azure applications](/azure/architecture/framework/resiliency/app-design).
 
 ## Pricing
 

@@ -1,7 +1,4 @@
-[!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
-
 Oracle DB migrations can be accomplished in multiple ways. This solution covers one of these options, wherein Oracle Active Data Guard is used to migrate the Database. It is assumed that Oracle Data Guard (or Active Data Guard) is used for HA/DR purposes. Depending on the application, either the application can be migrated first or the database. In this case, the application is migrated to Azure using Azure Load Balancer. This enables you to split your traffic between on-premises and Azure, allowing you to gradually migrate your application tier. The database migration is performed in multiple steps. As a first step, Oracle Data Guard is used to set up a Secondary/Standby Database in Azure. This allows you to migrate your data to Azure. Once the secondary in Azure is in-sync with the primary, you can flip the database in Azure to be your primary database while maintaining your secondary on-premises. As a next step, you may set up a secondary database in a different Availability Zone (or region) for HA/DR purposes. At this point, you can decommission your on-premises environment. All data traffic between on-premises and Azure flows over Azure ExpressRoute or Site-to-Site VPN connectivity.
-
 
 ## Architecture
 
@@ -14,7 +11,7 @@ Oracle DB migrations can be accomplished in multiple ways. This solution covers 
 3. Switch your OracleDB1 in Azure as primary and set up your OracleDB2 in Azure as your standby to finish your migration.
 
 > [!Note]
-> 
+>
 > - This method works only when migrating to and from the same OS version and database version.
 > - *Assumption*: You're using DataGuard on-premises.
 
@@ -53,7 +50,7 @@ Use multiple premium or ultra disks (managed disks) for performance and availabi
 We recommend the following tests to validate your application against your new Oracle database:
 
 * Run performance tests to ensure that they meet your business expectations.
-* Test database failover, recovery, and restoration to make sure that you’re meeting RPO and RTO requirements.
+* Test database failover, recovery, and restoration to make sure that you're meeting RPO and RTO requirements.
 * List all critical jobs and reports, and run them on new Oracle instance to evaluate their performance against your service-level agreements (SLAs).
 * Finally, when migrating or creating applications for the cloud, it's important to tweak your application code to add cloud-native patterns such as retry pattern and circuit breaker pattern. Additional patterns defined in the Cloud Design Patterns guide could help your application be more resilient.
 

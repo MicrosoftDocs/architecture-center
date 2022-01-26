@@ -3,7 +3,7 @@ metadata:
   title: DevTest and DevOps for IaaS solutions
   titleSuffix: Azure Solution Ideas
   description: Learn how to configure a DevTest and DevOps infrastructure for development, testing, and deploying IaaS-based software.
-  author: doodlemania2
+  author: EdPrice-MSFT
   ms.author: pnp
   ms.date: 09/17/2020
   ms.topic: conceptual
@@ -22,12 +22,9 @@ summary: Learn how to configure a DevTest and DevOps infrastructure for developm
 products:
   - azure-active-directory
   - azure-boards
-  - azure-devops
   - azure-devtest-labs
   - azure-key-vault
-  - azure-monitor
   - azure-pipelines
-  - azure-policy
 thumbnailUrl: /azure/architecture/browse/thumbs/dev-test-iaas.png
 content: |
    [!include[](dev-test-iaas-content.md)]

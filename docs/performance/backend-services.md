@@ -28,7 +28,7 @@ This article describes how a development team used metrics to find bottlenecks a
 
 **Scenario**: Call multiple backend services to retrieve information and then aggregate the results.
 
-This scenario involves a drone delivery application. Clients can query a REST API to get their latest invoice information. The invoice includes a summary of the customer's deliveries, packages, and total drone utilization. This application uses a microservices architecture running on AKS, and the information needed for the invoice is spread across several microservices. 
+This scenario involves a drone delivery application. Clients can query a REST API to get their latest invoice information. The invoice includes a summary of the customer's deliveries, packages, and total drone utilization. This application uses a microservices architecture running on AKS, and the information needed for the invoice is spread across several microservices.
 
 Rather than the client calling each service directly, the application implements the [Gateway Aggregation](../patterns/gateway-aggregation.md) pattern. Using this pattern, the client makes a single request to a gateway service. The gateway in turn calls the backend services in parallel, and then aggregates the results into a single response payload.
 
@@ -40,15 +40,15 @@ To establish a baseline, the development team started with a step-load test, ram
 
 ![Graph of Visual Studio load test results](./images/backend-services/read-throughput-1.png)
 
-The red line along the bottom of the chart shows that no errors were returned to the client, which is encouraging. However, the average throughput peaks about half way through the test, and then drops off for the remainder, even while the load continues to increase. That indicates the back end is not able to keep up. The pattern seen here is common when a system starts to reach resource limits &mdash; after reaching a maximum, throughput actually falls significantly. Resource contention, transient errors, or an increase in the rate of exceptions can all contribute to this pattern. 
+The red line along the bottom of the chart shows that no errors were returned to the client, which is encouraging. However, the average throughput peaks about half way through the test, and then drops off for the remainder, even while the load continues to increase. That indicates the back end is not able to keep up. The pattern seen here is common when a system starts to reach resource limits &mdash; after reaching a maximum, throughput actually falls significantly. Resource contention, transient errors, or an increase in the rate of exceptions can all contribute to this pattern.
 
-Let's dig into the monitoring data to learn what's happening inside the system. The next chart is taken from Application Insights. It shows the average durations of the HTTP calls from the gateway to the backend services. 
+Let's dig into the monitoring data to learn what's happening inside the system. The next chart is taken from Application Insights. It shows the average durations of the HTTP calls from the gateway to the backend services.
 
 ![Graph of HTTP call durations](./images/backend-services/read-latency-1.png)
 
-This chart shows that one operation in particular, `GetDroneUtilization`, takes much longer on average &mdash; by an order of magnitude. The gateway makes these calls in parallel, so the slowest operation determines how long it takes for the entire request to complete. 
+This chart shows that one operation in particular, `GetDroneUtilization`, takes much longer on average &mdash; by an order of magnitude. The gateway makes these calls in parallel, so the slowest operation determines how long it takes for the entire request to complete.
 
-Clearly the next step is dig into the `GetDroneUtilization` operation and look for any bottlenecks. One possibility is resource exhaustion. Perhaps this particular backend service is running out of CPU or memory. For an AKS cluster, this information is available in the Azure portal through the [Azure Monitor for containers](/azure/azure-monitor/insights/container-insights-overview) feature. The following graphs show resource utilization at the cluster level:
+Clearly the next step is dig into the `GetDroneUtilization` operation and look for any bottlenecks. One possibility is resource exhaustion. Perhaps this particular backend service is running out of CPU or memory. For an AKS cluster, this information is available in the Azure portal through the [Azure Monitor container insights](/azure/azure-monitor/insights/container-insights-overview) feature. The following graphs show resource utilization at the cluster level:
 
 ![Graph of AKS node utilization](./images/backend-services/read-perf-1.png)
 
@@ -76,7 +76,7 @@ For this load test, the Cosmos DB collection was provisioned with 900 RUs. The c
 
 ## Test 2: Increase resource units
 
-For the second load test, the team scaled out the Cosmos DB collection from 900 RU to 2500 RU. Throughput increased from 19 requests/second to 23 requests/second, and average latency dropped from 669 ms to 569 ms. 
+For the second load test, the team scaled out the Cosmos DB collection from 900 RU to 2500 RU. Throughput increased from 19 requests/second to 23 requests/second, and average latency dropped from 669 ms to 569 ms.
 
 | Metric | Test 1 | Test 2 |
 |--------|--------|--------|
@@ -88,7 +88,7 @@ These aren't huge gains, but looking at the graph over time shows a more complet
 
 ![Graph of Visual Studio load test results showing more consistent throughput.](./images/backend-services//read-throughput-2.png)
 
-Whereas the previous test showed an initial spike followed by a sharp drop, this test shows more consistent throughput. However, the maximum throughput is not significantly higher. 
+Whereas the previous test showed an initial spike followed by a sharp drop, this test shows more consistent throughput. However, the maximum throughput is not significantly higher.
 
 All requests to Cosmos DB returned a 2xx status, and the HTTP 429 errors went away:
 
@@ -157,7 +157,7 @@ For the third load test, this setting was changed from 0 to -1. The following ta
 | Successful requests | 9.8 K | 11 K | 20 K |
 | Throttled requests | 2.72 K | 0 | 0 |
 
-From the load test graph, not only is the overall throughput much higher (the orange line), but throughput also keeps pace with the load (the purple line). 
+From the load test graph, not only is the overall throughput much higher (the orange line), but throughput also keeps pace with the load (the purple line).
 
 ![Graph of Visual Studio load test results showing higher overall throughput that keeps pace with load.](./images/backend-services//read-throughput-3.png)
 
@@ -227,7 +227,7 @@ In addition, CPU utilization was identified as a potential bottleneck at higher 
 - Latency and throughput from the load test.
 - Cosmos DB errors and RU consumption.
 - The end-to-end transaction view in Application Insight.
-- CPU and memory utilization in Azure Monitor for containers.
+- CPU and memory utilization in Azure Monitor container insights.
 
 ## Next steps
 

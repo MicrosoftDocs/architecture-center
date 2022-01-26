@@ -1,5 +1,5 @@
 ---
-title:  Azure Well-Architected Framework review of an Azure NAT gateway
+title: Azure Well-Architected Framework review of an Azure NAT gateway
 titleSuffix: Azure Architecture Center
 description: Best practices for an Azure NAT gateway, based on the Azure Well-Architected Framework's five pillars of architecture excellence.
 author: jknightly
@@ -8,7 +8,8 @@ ms.date: 09/21/2021
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: azure-guide
-ms.custom: fcp
+ms.custom:
+  - fcp
 products:
   - azure-application-gateway
   - azure-virtual-network
@@ -23,7 +24,7 @@ This article provides best practices for an Azure NAT gateway. The guidance is b
 
 We assume that you have a working knowledge of Azure Virtual Network NAT and Azure NAT gateway and that you are well-versed with the respective features. As a refresher, review the full set of [Azure Virtual Network NAT](/azure/virtual-network/nat-gateway) documentation.
 
-NAT stands for _network address translation_. See [An introduction to Network Address Translation](/azure/rtos/netx-duo/netx-duo-nat/chapter1).
+NAT stands for *network address translation*. See [An introduction to Network Address Translation](/azure/rtos/netx-duo/netx-duo-nat/chapter1).
 
 ## Cost optimization
 
@@ -33,24 +34,24 @@ Access to PaaS services should be through Azure Private Link or service endpoint
 
 Each NAT gateway resource provides up to 50 Gbps of throughput. You can split your deployments into multiple subnets, and then you can assign each subnet or groups of subnets a NAT gateway to scale out.
 
-Each NAT gateway supports 64,000 flows for TCP and UDP respectively, per assigned outbound IP address. Up to 16 IP addresses can be assigned to a NAT gateway. The IP addresses can be individual Standard Public IP addresses, the Public IP prefix, or both. Review the following section on Source Network Address Translation (SNAT) for details. TCP stands for _Transmission Control Protocol_, and UDP stands for _User Datagram Protocol_.
+Each NAT gateway supports 64,000 flows for TCP and UDP respectively, per assigned outbound IP address. Up to 16 IP addresses can be assigned to a NAT gateway. The IP addresses can be individual Standard Public IP addresses, the Public IP prefix, or both. Review the following section on Source Network Address Translation (SNAT) for details. TCP stands for *Transmission Control Protocol*, and UDP stands for *User Datagram Protocol*.
 
 ### SNAT exhaustion
 
 - NAT gateway resources have a default TCP idle timeout of 4 minutes. If this setting is changed to a higher value, NAT will hold on to flows longer and can cause unnecessary pressure on SNAT port inventory.
 - Atomic requests (one request per connection) are a poor design choice, because it limits scale, reduces performance, and reduces reliability. Instead, reuse HTTP/S connections, to reduce the numbers of connections and associated SNAT ports. Connection reuse will better allow the application to scale. Application performance will improve, due to reduced handshakes, overhead, and cryptographic operation costs when using TLS.
-- DNS can introduce many individual flows at volume, when the client isn't caching the DNS resolvers result. Use DNS caching to reduce the volume of flows and reduce the number of SNAT ports. DNS typically stands for _Domain Name System_, the naming system for the resources that are connected to the Internet or to a private network.
+- DNS can introduce many individual flows at volume, when the client isn't caching the DNS resolvers result. Use DNS caching to reduce the volume of flows and reduce the number of SNAT ports. DNS typically stands for *Domain Name System*, the naming system for the resources that are connected to the Internet or to a private network.
 - UDP flows, such as DNS lookups, use SNAT ports during the idle timeout. The longer the idle timeout, the higher the pressure on SNAT ports. A shorter idle timeout, such as 4 minutes, will reduce the length of time that the SNAT ports will be in use.
 - Use connection pools to shape your connection volume.
 - Never silently abandon a TCP flow and rely on TCP timers to clean up flow. If you don't let TCP explicitly close the connection, the TCP connection remains open. Intermediate systems and endpoints will keep this connection in use, which in turn makes the SNAT port unavailable for other connections. This anti-pattern can trigger application failures and SNAT exhaustion.
-- Don't change OS-level TCP-close related timer values, without expert knowledge of the implications. While the TCP stack will recover, your application performance can be negatively affected when the endpoints of a connection have mismatched expectations. Changing timer values is usually a sign of an underlying design problem. If the underlying application has other anti-patterns, SNAT exhaustion can also be amplified if the timer values are altered. 
+- Don't change OS-level TCP-close related timer values, without expert knowledge of the implications. While the TCP stack will recover, your application performance can be negatively affected when the endpoints of a connection have mismatched expectations. Changing timer values is usually a sign of an underlying design problem. If the underlying application has other anti-patterns, SNAT exhaustion can also be amplified if the timer values are altered.
 
 Review the following guidance to improve the scale and reliability of your service:
 
 - Explore the effect of reducing the TCP idle timeout to lower values. A default idle timeout of 4 minutes can free up SNAT port inventory earlier.
 - Consider asynchronous polling patterns for long-running operations, to free up your connection resources for other operations.
 - Long-lived flows, such as reused TCP connections, should use TCP keepalives or application-layer keepalives, to avoid intermediate systems timing out. You should only increase the idle timeout as a last resort, and it might not resolve the root cause. A long timeout can cause low rate failures, when the timeout expires, and it can introduce a delay and unnecessary failures.
-- Graceful retry patterns should be used to avoid aggressive retries/bursts during transient failure or failure recovery. An antipattern, called _atomic connections_, is when you create a new TCP connection for every HTTP operation. Atomic connections will prevent your application from scaling well and will waste resources. Always pipeline multiple operations into the same connection. Your application will benefit in transaction speed and resource costs. When your application uses transport layer encryption (for example, TLS), there's a significant cost associated with the processing of new connections. See [Azure Cloud Design Patterns](/azure/architecture/patterns) for more best-practice patterns.
+- Graceful retry patterns should be used to avoid aggressive retries/bursts during transient failure or failure recovery. An antipattern, called *atomic connections*, is when you create a new TCP connection for every HTTP operation. Atomic connections will prevent your application from scaling well and will waste resources. Always pipeline multiple operations into the same connection. Your application will benefit in transaction speed and resource costs. When your application uses transport layer encryption (for example, TLS), there's a significant cost associated with the processing of new connections. See [Azure Cloud Design Patterns](/azure/architecture/patterns) for more best-practice patterns.
 
 ## Operational excellence
 
@@ -62,12 +63,11 @@ Use Azure Monitor alerts to monitor and alert on SNAT port usage.
 
 When a subnet is configured with a NAT gateway, the NAT gateway will replace all other outbound connectivity to the public Internet for all the VMs on that subnet. NAT gateway will take precedence over a load balancer with or without outbound rules, and over public IP addresses assigned directly to VMs. Azure tracks the direction of a flow, and asymmetric routing will not occur. Inbound originated traffic will be translated correctly, such as a load balancer frontend IP, and it will be translated separately from outbound originated traffic through a NAT gateway. This separation allows inbound and outbound services to coexist seamlessly.
 
-NAT gateway is recommended as the default for enabling outbound connectivity for virtual networks. NAT gateway is more efficient and less operationally complex than other outbound connectivity techniques in Azure. NAT gateways allocate SNAT ports on-demand and use a more efficient algorithm to prevent SNAT port reuse conflicts. Don't rely on _default outbound connectivity_ (an anti-pattern) for your estate. Instead, explicitly define it with NAT gateway resources.
+NAT gateway is recommended as the default for enabling outbound connectivity for virtual networks. NAT gateway is more efficient and less operationally complex than other outbound connectivity techniques in Azure. NAT gateways allocate SNAT ports on-demand and use a more efficient algorithm to prevent SNAT port reuse conflicts. Don't rely on *default outbound connectivity* (an anti-pattern) for your estate. Instead, explicitly define it with NAT gateway resources.
 
 ## Reliability
 
-NAT gateway resources are highly available and span multiple fault domains. This is true even if a NAT gateway is deployed regionally, without availability zones.
-When using availability zones for zone isolation, NAT gateways can also be deployed zonally.
+NAT gateway resources are highly available and span multiple fault domains. This is true even if a NAT gateway is deployed regionally, without availability zones. When using availability zones for zone isolation, NAT gateways can also be deployed zonally.
 
 Availability zone isolation cannot be provided, unless each subnet only has resources within a specific zone. Instead, deploy a subnet for each of the availability zones where VMs are deployed, align the zonal VMs with matching zonal NAT gateways, and build separate zonal stacks.  For example, a virtual machine in availability zone 1 is on a subnet with other resources that are also only in availability zone 1. A NAT gateway is configured in availability zone 1 to serve that subnet. See the following diagram.
 
@@ -75,11 +75,11 @@ Availability zone isolation cannot be provided, unless each subnet only has reso
 
 ## Security
 
-A common approach is to design an outbound-only network virtual appliance (NVA) scenario with third-party firewalls or with proxy servers. When a NAT gateway is deployed to a subnet with a virtual machine scale set of NVAs, those NVAs will use the NAT gateway address(es) for outbound connectivity, as opposed to the IP of a load balancer or the individual IPs. To employ this scenario with Azure Firewall, see [Integrate Azure Firewall with Azure Standard Load Balancer](/azure/firewall/integrate-lb).  
+A common approach is to design an outbound-only network virtual appliance (NVA) scenario with third-party firewalls or with proxy servers. When a NAT gateway is deployed to a subnet with a virtual machine scale set of NVAs, those NVAs will use the NAT gateway address(es) for outbound connectivity, as opposed to the IP of a load balancer or the individual IPs. To employ this scenario with Azure Firewall, see [Integrate Azure Firewall with Azure Standard Load Balancer](/azure/firewall/integrate-lb).
 
 ![Diagram that shows firewalls with a load balancer sandwich and NAT gateway.](./images/natgw-fw-vmss.svg)
 
-Azure Security Center can monitor for any suspicious outbound connectivity through a NAT gateway. This is an alert feature in [Azure Security Center](/azure/security-center).
+Microsoft Defender for Cloud can monitor for any suspicious outbound connectivity through a NAT gateway. This is an alert feature in [Microsoft Defender for Cloud](/azure/security-center).
 
 ## Next steps
 

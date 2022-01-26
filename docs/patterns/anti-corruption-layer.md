@@ -2,7 +2,8 @@
 title: Anti-corruption Layer pattern
 titleSuffix: Cloud Design Patterns
 description: Examine the Anti-corruption Layer pattern. Implement a façade or adapter layer between a modern application and a legacy system.
-author: dragon119
+author: EdPrice-MSFT
+ms.author: pnp
 ms.date: 06/23/2017
 ms.topic: conceptual
 ms.service: architecture-center

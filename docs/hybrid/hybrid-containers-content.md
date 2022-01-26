@@ -1,6 +1,5 @@
 
 
-
 This reference architecture illustrates how developers can create, manage, and monitor deployed containers in the public cloud, across multiple clouds, and on-premises.
 
 ![The diagram illustrates a developer team that deploys its container images to a Microsoft Azure Container Registry. Subsequently, the container images are pulled and deployed to either an on-premises or cloud-based Kubernetes cluster. The containers are monitored using Azure Monitor and the container images are scanned and monitored using Azure Container Registry.][architectural-diagram]
@@ -22,7 +21,7 @@ Typical uses for this architecture include:
 - **[Azure Policy][azure-policy]**. Azure Policy enforces standards and assesses compliance for targeted resources deployed to Azure.
 - **[Azure Private Link][azure-private-link]**. Azure Private Link creates a private endpoint in your virtual network that you can use to communicate with Azure platform as a service (PaaS) without exposing your service to the public internet.
 - **[Azure Monitor][azure-monitor]**. Azure Monitor is an all-encompassing suite of monitoring services for applications that deploy both in Azure and on-premises.
-- **[Azure Security Center][azure-security-center]**. Azure Security Center is a unified security management and threat protection system for workloads across on-premises, multiple clouds, and Azure.
+- **[Microsoft Defender for Cloud][azure-security-center]**. Microsoft Defender for Cloud is a unified security management and threat protection system for workloads across on-premises, multiple clouds, and Azure.
 - **[On-premises Kubernetes cluster][kubernetes]**. In this architecture, a local Kubernetes cluster is used to run multiple containers on-premises.
 
 ## Recommendations
@@ -89,10 +88,10 @@ In this reference, Azure Container Instances container groups are utilized as *v
 
 ## Next steps
 
-* [Learn more about Azure Container Registry][azure-container-registry]
-* [Learn more about Azure Kubernetes Service][azure-kubernetes-service]
-* [Learn more about Azure Policy][azure-policy]
-* [Learn more about Azure Monitor][azure-monitor]
+- [Learn more about Azure Container Registry][azure-container-registry]
+- [Learn more about Azure Kubernetes Service][azure-kubernetes-service]
+- [Learn more about Azure Policy][azure-policy]
+- [Learn more about Azure Monitor][azure-monitor]
 
 [architectural-diagram]: ./images/hybrid-containers.png
 [architectural-diagram-visio-source]: https://arch-center.azureedge.net/hybrid-containers.vsdx
@@ -143,8 +142,8 @@ In this reference, Azure Container Instances container groups are utilized as *v
 [azure-stack-hub-azure-app-service]: /azure-stack/operator/azure-stack-app-service-deploy
 [azure-virtual-machines-pricing]: https://azure.microsoft.com/pricing/details/virtual-machines/
 [azure-virtual-network]: /azure/virtual-network/
-[azure-well-architected-framework]: ../framework/index.md
-[azure-well-architected-framework-performance]: ../framework/index.md#performance-efficiency
-[azure-well-architected-framework-cost]: ../framework/cost/overview.md
+[azure-well-architected-framework]: /azure/architecture/framework
+[azure-well-architected-framework-performance]: /azure/architecture/framework/#performance-efficiency
+[azure-well-architected-framework-cost]: /azure/architecture/framework/cost/overview
 [kubernetes]: https://kubernetes.io
 [reference-architecture-azure-arc-kubernetes-enabled]: arc-hybrid-kubernetes.yml

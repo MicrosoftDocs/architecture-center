@@ -8,13 +8,14 @@ ms.topic: conceptual
 ms.date: 09/03/2021
 ms.author: pnp
 categories:
-    - hybrid
-    - management-and-governance
+  - hybrid
+  - management-and-governance
 ms.custom:
-    - fcp
-    - reference-architecture
-    - e2e-hybrid
-products: azure
+  - fcp
+  - reference-architecture
+  - e2e-hybrid
+products:
+  - azure
 ---
 
 # Hybrid architecture design

@@ -3,7 +3,7 @@ metadata:
   title: DevTest and DevOps for PaaS solutions
   titleSuffix: Azure Solution Ideas
   description: Combine Azure platform as a service (PaaS) resources with DevTest and DevOps practices to support rapid iteration cycles and reduced overhead.
-  author: doodlemania2
+  author: EdPrice-MSFT
   ms.author: pnp
   ms.date: 09/17/2020
   ms.topic: conceptual

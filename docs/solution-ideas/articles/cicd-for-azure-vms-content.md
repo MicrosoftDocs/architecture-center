@@ -9,7 +9,7 @@ Azure DevOps provides the CI/CD pipeline, starting with a Git repository for man
 ![Architecture diagram](../media/cicd-for-azure-vms.png)
 *Download an [SVG](../media/cicd-for-azure-vms.svg) of this architecture.*
 
-## Data flow
+### Data flow
 
 1. Change application source code
 1. Commit Application Code and Azure Resource Manager (ARM) Template
@@ -22,7 +22,7 @@ Azure DevOps provides the CI/CD pipeline, starting with a Git repository for man
 1. Review health, performance and usage information
 1. Update backlog item
 
-## Components
+### Components
 
 * [Virtual Machines](https://azure.microsoft.com/services/virtual-machines): Provision Windows and Linux virtual machines in seconds
 * [Azure DevTest Labs](https://azure.microsoft.com/services/devtest-lab): Quickly create environments using reusable templates and artifacts

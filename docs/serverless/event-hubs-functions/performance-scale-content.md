@@ -35,7 +35,7 @@ When it comes to an Event Hubs namespace, there are several important settings t
 
 In the Event Hubs standard tier, throughput is classified as the amount of data that enters and is read from the namespace within a given period. A [throughput unit](/azure/event-hubs/event-hubs-faq#throughput-units) (TU) is a mechanism that's used to both measure and manage how much throughput an Event Hubs namespace supports.
 
-For reference, a *namespace* in Event Hubs may be compared to a *cluster* in Kafka. For a conceptual mapping between Kafka and Event Hubs, review this [table](/azure/event-hubs/event-hubs-for-kafka-ecosystem-overview#kafka-and-event-hub-conceptual-mapping). 
+For reference, a *namespace* in Event Hubs may be compared to a *cluster* in Kafka. For a conceptual mapping between Kafka and Event Hubs, review this [table](/azure/event-hubs/event-hubs-for-kafka-ecosystem-overview#kafka-and-event-hub-conceptual-mapping).
 
 Each throughput unit is billed on an hourly basis and is shared across all the event hubs in a namespace. This means that all the applications and services, both publishers and consumers, must be accounted for when choosing the number of allotted TUs. Azure Functions impacts the number of bytes and events that are both published to and read from an event hub.
 
@@ -168,7 +168,7 @@ Refer to the [documentation](/azure/azure-functions/functions-bindings-event-hub
 
 ### Throttling and back pressure
 
-Throttling considerations apply to output binding as well, not only for Event Hubs but also for Azure services such as [Azure Cosmos DB](/azure/cosmos-db/). In general, it’s important to become familiar with the limits and quotas that apply to those services and to plan accordingly.
+Throttling considerations apply to output binding as well, not only for Event Hubs but also for Azure services such as [Azure Cosmos DB](/azure/cosmos-db/). In general, it's important to become familiar with the limits and quotas that apply to those services and to plan accordingly.
 
 To handle downstream errors, you can catch exceptions from IAsyncCollector by wrapping AddAsync and FlushAsync in an exception handler for .NET Azure Functions, or not use output bindings and use the Event Hubs SDKs directly.
 
@@ -184,7 +184,7 @@ When considering asynchronous programming in an Functions, there are some essent
 
 - **All asynchronous or all synchronous:** If a function is configured to run asynchronously, all the I/O calls should be asynchronous as well. In most cases, being partially asynchronous can be worse than code that is entirely synchronous. Choose either asynchronous or synchronous for the implementation of the function and follow it all the way through.
 
-- **Avoid blocking calls:** Blocking calls return to the caller only after the call completes. This is different than asynchronous calls that return immediately. An example in C# would be calling **Task.Result** or **Task.Wait** on an asynchronous operation. 
+- **Avoid blocking calls:** Blocking calls return to the caller only after the call completes. This is different than asynchronous calls that return immediately. An example in C# would be calling **Task.Result** or **Task.Wait** on an asynchronous operation.
 
 ### More about blocking calls
 

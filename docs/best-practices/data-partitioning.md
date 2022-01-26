@@ -2,7 +2,8 @@
 title: Data partitioning guidance
 titleSuffix: Best practices for cloud applications
 description: View guidance for how to separate data partitions to be managed and accessed separately. Understand horizontal, vertical, and functional partitioning strategies.
-author: dragon119
+author: EdPrice-MSFT
+ms.author: pnp
 ms.date: 11/04/2018
 ms.topic: conceptual
 ms.service: architecture-center
@@ -22,11 +23,7 @@ However, the partitioning strategy must be chosen carefully to maximize the bene
 > [!NOTE]
 > In this article, the term *partitioning* means the process of physically dividing data into separate data stores. It is not the same as SQL Server table partitioning.
 
-<!-- markdownlint-disable MD026 -->
-
 ## Why partition data?
-
-<!-- markdownlint-enable MD026 -->
 
 - **Improve scalability**. When you scale up a single database system, it will eventually reach a physical hardware limit. If you divide data across multiple partitions, each hosted on a separate server, you can scale out the system almost indefinitely.
 

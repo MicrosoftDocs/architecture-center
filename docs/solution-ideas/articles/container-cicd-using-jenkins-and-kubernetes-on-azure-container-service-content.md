@@ -29,7 +29,7 @@ By setting up a continuous build to produce your container images and orchestrat
 * [Azure Monitor](https://azure.microsoft.com/services/monitor): Highly granular and real-time monitoring data for any Azure resource.
 * [Visual Studio Code](https://azure.microsoft.com/products/visual-studio): Build and deploy multi-platform apps to get the most from Azure services.
 
-## Deploy this solution
+## Deploy this scenario
 
 * [Deploy to Azure](https://azure.microsoft.com/resources/templates/jenkins-cicd-container)
 

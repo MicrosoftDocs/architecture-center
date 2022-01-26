@@ -1,6 +1,5 @@
 
 
-
 In this example scenario, we walk through an approach using [Service Fabric](/azure/service-fabric/service-fabric-overview) as a platform for decomposing an unwieldy monolithic application. Here we consider an iterative approach to decomposing an IIS/ASP.NET web site into an application composed of multiple, manageable microservices.
 
 Moving from a monolithic architecture to a microservice architecture provides the following benefits:

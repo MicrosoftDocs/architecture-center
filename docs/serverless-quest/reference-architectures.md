@@ -34,8 +34,7 @@ Common serverless architecture patterns include:
 
 :::row:::
     :::column:::
-        ### Web application backends
-        Retail scenario: Pick up online orders from a queue, process them, and store the resulting data in a database
+        ### Web application backends Retail scenario: Pick up online orders from a queue, process them, and store the resulting data in a database
     :::column-end:::
     :::column span="2":::
         :::image type="content" source="./images/web-app-backends.png" alt-text="Diagram shows a request made in a web app queued in Service Bus, then processed by a function and sent to Cosmos DB.":::
@@ -46,8 +45,7 @@ Common serverless architecture patterns include:
 
 :::row:::
     :::column:::
-        ### Mobile application backends
-        Financial services scenario: Colleagues use mobile banking to reimburse each other for lunch. Whoever paid for lunch requests payment through a mobile app, triggering a notification on colleagues' phones.
+        ### Mobile application backends Financial services scenario: Colleagues use mobile banking to reimburse each other for lunch. Whoever paid for lunch requests payment through a mobile app, triggering a notification on colleagues' phones.
     :::column-end:::
     :::column span="2":::
         :::image type="content" source="./images/mobile-app-backends.png" alt-text="Diagram shows an H T T P A P I call, processed by a function and sent to Cosmos DB which triggers another function to send notifications.":::
@@ -58,8 +56,7 @@ Common serverless architecture patterns include:
 
 :::row:::
     :::column:::
-        ### IoT-connected backends
-        Manufacturing scenario: A manufacturing company uses IoT to monitor its machines. Functions detects anomalous data and triggers a message to the service department when repair is required.
+        ### IoT-connected backends Manufacturing scenario: A manufacturing company uses IoT to monitor its machines. Functions detects anomalous data and triggers a message to the service department when repair is required.
     :::column-end:::
     :::column span="2":::
         :::image type="content" source="./images/iot-connected-backends.png" alt-text="Diagram shows I o T devices that produce requests for repair, which are sent to the I o T Hub, then routed for processing by using Zendesk.":::
@@ -70,8 +67,7 @@ Common serverless architecture patterns include:
 
 :::row:::
     :::column:::
-        ### Conversational bot processing
-        Hospitality scenario: Customers ask for available vacation accommodations on their smartphones. A serverless bot deciphers requests and returns vacation options.
+        ### Conversational bot processing Hospitality scenario: Customers ask for available vacation accommodations on their smartphones. A serverless bot deciphers requests and returns vacation options.
     :::column-end:::
     :::column span="2":::
         :::image type="content" source="./images/conversational-bot-processing.png" alt-text="Diagram shows a user request through a conversational interface that a bot deciphers for another function to process the request.":::
@@ -82,8 +78,7 @@ Common serverless architecture patterns include:
 
 :::row:::
     :::column:::
-        ### Real-time file processing
-        Healthcare scenario: The solution securely uploads patient records as PDF files. The solution then decomposes the data, processes it using OCR detection, and adds it to a database for easy queries.
+        ### Real-time file processing Healthcare scenario: The solution securely uploads patient records as PDF files. The solution then decomposes the data, processes it using OCR detection, and adds it to a database for easy queries.
     :::column-end:::
     :::column span="2":::
         :::image type="content" source="./images/real-time-file-processing.png" alt-text="Diagram shows patient records uploaded, then decomposed and sent to Cognitive Services to be structured into a database.":::
@@ -94,8 +89,7 @@ Common serverless architecture patterns include:
 
 :::row:::
     :::column:::
-        ### Real-time stream processing
-        Independent software vendor (ISV) scenario: A massive cloud app collects huge amounts of telemetry data. The app processes that data in near real-time and stores it in a database for use in an analytics dashboard.
+        ### Real-time stream processing Independent software vendor (ISV) scenario: A massive cloud app collects huge amounts of telemetry data. The app processes that data in near real-time and stores it in a database for use in an analytics dashboard.
     :::column-end:::
     :::column span="2":::
         :::image type="content" source="./images/real-time-stream-processing.png" alt-text="Diagram shows an app that collects data, which is ingested by Event Hubs, processed by a function, and sent to Cosmos DB.":::
@@ -106,8 +100,7 @@ Common serverless architecture patterns include:
 
 :::row:::
     :::column:::
-        ### Scheduled task automation
-        Financial services scenario: The app analyzes a customer database for duplicate entries every 15 minutes, to avoid sending out multiple communications to the same customers.
+        ### Scheduled task automation Financial services scenario: The app analyzes a customer database for duplicate entries every 15 minutes, to avoid sending out multiple communications to the same customers.
     :::column-end:::
     :::column span="2":::
         :::image type="content" source="./images/automation-scheduled-tasks.png" alt-text="Diagram shows a database which is cleaned by a function every 15 minutes, which removes duplicate entries.":::
@@ -118,8 +111,7 @@ Common serverless architecture patterns include:
 
 :::row:::
     :::column:::
-        ### Extending SaaS applications
-        Professional services scenario: A SaaS solution provides extensibility through webhooks, which Functions can implement to automate certain workflows.
+        ### Extending SaaS applications Professional services scenario: A SaaS solution provides extensibility through webhooks, which Functions can implement to automate certain workflows.
     :::column-end:::
     :::column span="2":::
         :::image type="content" source="./images/extending-saas-app.png" alt-text="Diagram shows an issue created in GitHub, which triggers a webhook call, which is processed by a function by posting the issue details to Slack.":::

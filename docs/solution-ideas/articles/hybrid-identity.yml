@@ -1,9 +1,9 @@
 ### YamlMime:Architecture
 metadata:
-  title: Hybrid Identity
+  title: Hybrid identity
   titleSuffix: Azure Solution Ideas
   description: Manage applications and user identity across clouds with Azure Stack Hub. Use the hybrid identity blueprint for on-premises apps that interact with the cloud.
-  author: doodlemania2
+  author: EdPrice-MSFT
   ms.author: pnp
   ms.date: 09/01/2020
   ms.topic: conceptual
@@ -24,7 +24,7 @@ metadata:
     - e2e-hybrid
     - "https://azure.microsoft.com/solutions/architecture/hybrid-identity/"
   social_image_url: /azure/architecture/solution-ideas/articles/media/hybrid-identity.png
-name: Hybrid Identity
+name: Hybrid identity
 azureCategories:
   - identity
   - hybrid

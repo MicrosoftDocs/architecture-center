@@ -61,7 +61,7 @@ SUSE provides support with:
 - [SAP S/4HANA in Linux on Azure](../..//reference-architectures/sap/sap-s4hana.yml)
 - [SAP S/4 HANA for Large Instances](sap-s4-hana-on-hli-with-ha-and-dr.yml)
 - [Use Azure to host and run SAP workload scenarios](/azure/virtual-machines/workloads/sap/get-started)
-- [SAP workloads on Azure: planning and deployment checklist](https://docs.microsoft.com/en-us/azure/virtual-machines/workloads/sap/sap-deployment-checklist)
+- [SAP workloads on Azure: planning and deployment checklist](/azure/virtual-machines/workloads/sap/sap-deployment-checklist)
 - [SUSE SAP automation solution for Azure](https://github.com/petersatsuse/SA-SAP-Automation/raw/master/build/SA/SA_color_en_azure.pdf) (GitHub PDF document)
 - [Automated SAP/HA Deployments in Public/Private Clouds with Terraform](https://github.com/SUSE/ha-sap-terraform-deployments) (GitHub project)
 - [Deploying SUSE SAP HA Automation in Microsoft Azure](https://cloudblogs.microsoft.com/opensource/2021/01/21/deploying-suse-sap-ha-automation-in-microsoft-azure/) (Microsoft blog)
@@ -70,8 +70,7 @@ SUSE provides support with:
 
 - [Azure premium storage: design for high performance](/azure/virtual-machines/premium-storage-performance)
 - [Plan virtual networks](/azure/virtual-network/virtual-network-vnet-plan-design-arm)
-- [What is Azure Load Balancer?](https://docs.microsoft.com/en-us/azure/load-balancer/load-balancer-overview)
-
+- [What is Azure Load Balancer?](/azure/load-balancer/load-balancer-overview)
 
 ### SUSE
 

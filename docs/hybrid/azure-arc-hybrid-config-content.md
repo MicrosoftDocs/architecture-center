@@ -1,6 +1,5 @@
 
 
-
 This reference architecture illustrates how Azure Arc enables you to manage, govern, and secure servers across on-premises, multiple cloud, and edge scenarios.
 
 ![An Azure Arc hybrid server topology diagram with Arc enabled servers connected to Azure.][architectural-diagram]
@@ -84,9 +83,9 @@ You can use Azure Automation Change Tracking and Inventory for Arc enabled serve
 
 You can use Azure Monitor to monitor your VMs, virtual machine scale sets, and Azure Arc machines at scale. Azure Monitor analyzes the performance and health of your Windows and Linux VMs and monitors their processes and dependencies on other resources and external processes. It includes support for monitoring performance and application dependencies for VMs that are hosted on-premises or in another cloud provider.
 
-### Implement Azure Sentinel
+### Implement Microsoft Sentinel
 
-You can use [Azure Sentinel][Azure Sentinel] to deliver intelligent security analytics and threat intelligence across the enterprise, providing a single solution for alert detection, threat visibility, proactive hunting, and threat response. Azure Sentinel is a scalable, cloud-native, security information event management (SIEM), and security orchestration automated response (SOAR) solution that enables several scenarios including:
+You can use [Microsoft Sentinel](/azure/sentinel/overview) to deliver intelligent security analytics and threat intelligence across the enterprise, providing a single solution for alert detection, threat visibility, proactive hunting, and threat response. Microsoft Sentinel is a scalable, cloud-native, security information event management (SIEM), and security orchestration automated response (SOAR) solution that enables several scenarios including:
 
 - Collect data at cloud scale across all users, devices, applications, and infrastructure, both on-premises and in multiple clouds.
 - Detect previously undetected threats and minimize false positives.
@@ -102,7 +101,7 @@ The Connected Machine agent for Linux and Windows communicates outbound securely
 - In most cases, the location you select when you create the installation script should be the Azure region geographically closest to your machine's location. The rest of the data will be stored within the Azure geography containing the region you specify, which might also affect your choice of region if you have data residency requirements. If an outage affects the Azure region to which your machine is connected, the outage will not affect the Arc enabled server, but management operations using Azure might not be able to complete. For resilience in the event of a regional outage, if you have multiple locations that provide a geographical-redundant service, it's best to connect the machines in each location to a different Azure region.
 - Ensure that Azure Arc enabled servers is supported in your regions by checking [supported regions][supported regions].
 - Ensure that services referenced in the Architecture section are supported in the region to which Azure Arc enabled servers is deployed.
-  
+
 ## Manageability considerations
 
 - Consult the list of supported [operated systems][supported operating systems] on the Azure Arc enabled servers agent overview page.
@@ -110,8 +109,8 @@ The Connected Machine agent for Linux and Windows communicates outbound securely
 
 ## Security considerations
 
-- Appropriate Azure role-based access control (Azure RBAC) access should be managed for Arc enabled servers. To onboard machines, you must be a member of the **Azure Connected Machine Onboarding** role. To read, modify, re-onboard, and delete a machine, you must be a member of the **Azure Connected Machine Resource Administrator** role.  
-- You can use Azure Policy to manage security policies across your Arc enabled servers, including implementing security policies in Azure Security Center. A security policy defines the desired configuration of your workloads and helps ensure you're complying with the security requirements of your company or regulators. Security Center policies are based on policy initiatives created in Azure Policy.
+- Appropriate Azure role-based access control (Azure RBAC) access should be managed for Arc enabled servers. To onboard machines, you must be a member of the **Azure Connected Machine Onboarding** role. To read, modify, re-onboard, and delete a machine, you must be a member of the **Azure Connected Machine Resource Administrator** role.
+- You can use Azure Policy to manage security policies across your Arc enabled servers, including implementing security policies in Microsoft Defender for Cloud. A security policy defines the desired configuration of your workloads and helps ensure you're complying with the security requirements of your company or regulators. Defender for Cloud policies are based on policy initiatives created in Azure Policy.
 
 ## Cost considerations
 
@@ -120,18 +119,17 @@ The Connected Machine agent for Linux and Windows communicates outbound securely
 
 ## Next steps
 
-* [Learn more about Azure Arc][Azure Arc]
-* [Learn more about Azure virtual machines][Azure virtual machines]
-* [Learn more about Azure Policy Guest Configuration][Azure Policy Guest Configuration]
-* [Learn more about Azure Monitor][Azure Monitor]
-* [Overview of Azure Arc enabled servers agent][agent-overview]
+- [Learn more about Azure Arc][Azure Arc]
+- [Learn more about Azure virtual machines][Azure virtual machines]
+- [Learn more about Azure Policy Guest Configuration][Azure Policy Guest Configuration]
+- [Learn more about Azure Monitor][Azure Monitor]
+- [Overview of Azure Arc enabled servers agent][agent-overview]
 
 [architectural-diagram]: ./images/azure-arc-hybrid-config.png
 [architectural-diagram-visio-source]: https://arch-center.azureedge.net/azure-arc-hybrid-config.vsdx
 [Azure Arc]: /azure/azure-arc/
 [Azure Policy Guest Configuration]: /azure/governance/policy/concepts/guest-configuration
 [Azure Monitor]: /azure/azure-monitor/
-[Azure Sentinel]: /azure/sentinel/overview
 [Azure virtual machines]: /azure/virtual-machines/
 [windows-agent-download]: https://aka.ms/AzureConnectedMachineAgent
 [microsoft-package-repo]: https://packages.microsoft.com/
@@ -146,5 +144,5 @@ The Connected Machine agent for Linux and Windows communicates outbound securely
 [rg-limits]: /azure/azure-resource-manager/management/azure-subscription-service-limits#resource-group-limits
 [arc-built-in-policies]: /azure/azure-arc/servers/policy-samples
 [pricing-calculator]: https://azure.microsoft.com/pricing/calculator
-[principles-cost-opt]: ../framework/cost/overview.md
+[principles-cost-opt]: /azure/architecture/framework/cost/overview
 [onboard-dsc]: /azure/azure-arc/servers/onboard-dsc

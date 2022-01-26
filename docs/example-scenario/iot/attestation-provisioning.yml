@@ -4,7 +4,7 @@ metadata:
   titleSuffix: Azure Example Scenarios
   description: Understand how devices attest their identity, authenticate, and get provisioned within Azure IoT Hubs.
   author: wamachine
-  ms.date: 08/21/2020
+  ms.date: 02/04/2021
   ms.topic: conceptual
   ms.service: architecture-center
   ms.subservice: example-scenario

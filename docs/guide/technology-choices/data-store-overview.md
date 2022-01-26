@@ -4,7 +4,7 @@ titleSuffix: Azure Application Architecture Guide
 description: Learn about the high-level differences between the various data storage models found in Azure data services.
 author: dsk-2015
 ms.author: pnp
-ms.date: 08/08/2020
+ms.date: 01/12/2022
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: guide
@@ -29,9 +29,9 @@ Generally, you should start by considering which storage model is best suited fo
 
 Relational databases organize data as a series of two-dimensional tables with rows and columns. Most vendors provide a dialect of the Structured Query Language (SQL) for retrieving and managing data. An RDBMS typically implements a transactionally consistent mechanism that conforms to the ACID (Atomic, Consistent, Isolated, Durable) model for updating information.
 
-An RDBMS typically supports a schema-on-write model, where the data structure is defined ahead of time, and all read or write operations must use the schema. 
+An RDBMS typically supports a schema-on-write model, where the data structure is defined ahead of time, and all read or write operations must use the schema.
 
-This model is very useful when strong consistency guarantees are important &mdash; where all changes are atomic, and transactions always leave the data in a consistent state. However, an RDBMS generally can't scale out horizontally without sharding the data in some way. Also, the data in an RDBMS must be normalized, which isn't appropriate for every data set. 
+This model is very useful when strong consistency guarantees are important &mdash; where all changes are atomic, and transactions always leave the data in a consistent state. However, an RDBMS generally can't scale out horizontally without sharding the data in some way. Also, the data in an RDBMS must be normalized, which isn't appropriate for every data set.
 
 ### Azure services
 
@@ -78,7 +78,7 @@ A single key/value store can be extremely scalable, as the data store can easily
 
 ### Azure services
 
-- [Azure Cosmos DB Table API][cosmos-table], [etcd API (preview)][cosmos-etcd], and [SQL API][cosmos-sql-key-value] | [(Cosmos DB Security Baseline)](/azure/cosmos-db/security-baseline)
+- [Azure Cosmos DB Table API][cosmos-table] and [SQL API][cosmos-sql-key-value] | [(Cosmos DB Security Baseline)](/azure/cosmos-db/security-baseline)
 - [Azure Cache for Redis][redis] | [(Security Baseline)](/azure/azure-cache-for-redis/security-baseline)
 - [Azure Table Storage][table-storage-classic] | [(Security Baseline)](/azure/storage/common/security-baseline)
 
@@ -116,7 +116,7 @@ Typically, a document contains the data for single entity, such as a customer or
 
 ### Workload
 
-- Insert and update operations are common. 
+- Insert and update operations are common.
 - No object-relational impedance mismatch. Documents can better match the object structures used in application code.
 - Individual documents are retrieved and written as a single block.
 - Data requires index on multiple fields.
@@ -161,7 +161,7 @@ This structure makes it straightforward to perform queries such as "Find all emp
 - Nodes and relationships.
 - Nodes are similar to table rows or JSON documents.
 - Relationships are just as important as nodes, and are exposed directly in the query language.
-- Composite objects, such as a person with multiple phone numbers, tend to be broken into separate, smaller nodes, combined with traversable relationships 
+- Composite objects, such as a person with multiple phone numbers, tend to be broken into separate, smaller nodes, combined with traversable relationships
 
 ### Examples
 
@@ -247,7 +247,7 @@ Read and write operations for a row are usually atomic with a single column-fami
 
 ## Search Engine Databases
 
-A search engine database allows applications to search for information held in external data stores. A search engine database can index massive volumes of data and provide near real-time access to these indexes. 
+A search engine database allows applications to search for information held in external data stores. A search engine database can index massive volumes of data and provide near real-time access to these indexes.
 
 Indexes can be multi-dimensional and may support free-text searches across large volumes of text data. Indexing can be performed using a pull model, triggered by the search engine database, or using a push model, initiated by external application code.
 
@@ -293,8 +293,8 @@ Time series data is a set of values organized by time. Time series databases  ty
 
 ### Data type
 
- - A timestamp is used as the primary key and sorting mechanism.
- - Tags may define additional information about the type, origin, and other information about the entry.
+- A timestamp is used as the primary key and sorting mechanism.
+- Tags may define additional information about the type, origin, and other information about the entry.
 
 ### Examples
 
@@ -352,8 +352,6 @@ Sometimes, using simple flat files can be the most effective means of storing an
 - Shared content accessible among a number of VMs or app instances
 
 Aided with this understanding of different data storage models, the next step is to evaluate your workload and application, and decide which data store will meet your specific needs. Use the [data storage decision tree](./data-store-decision-tree.md) to help with this process.
-
-<!-- markdownlint-enable MD033 -->
 
 <!-- links -->
 

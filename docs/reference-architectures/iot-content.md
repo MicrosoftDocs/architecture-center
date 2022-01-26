@@ -1,8 +1,4 @@
-
-This article discusses a recommended architecture for IoT applications using Azure PaaS (platform-as-a-service) components. The following diagram reflects different Azure components that can be used to architect an IoT solution. The diagram shows, and the article highlights, most of the commonly used services, but no solution requires all of them. If you're just getting started with Azure IoT or looking to build your first proof-of-concept solution, start here:
-
-> [!div class="nextstepaction"]
-> [Getting started with Azure IoT](/azure/architecture/reference-architectures/iot/iot-architecture-overview)
+This article discusses a recommended architecture for IoT applications using Azure PaaS (platform-as-a-service) components. The following diagram reflects different Azure components that can be used to architect an IoT solution. The diagram shows, and the article highlights, most of the commonly used services, but no solution requires all of them. 
 
 [ ![Diagram of the architecture](./iot/images/iot-refarch.svg) ](./iot/images/iot-refarch.svg#lightbox)
 
@@ -10,9 +6,13 @@ This reference architecture uses Azure PaaS (platform-as-a-service) components. 
 
 Azure IoT solutions involve **things** (typically **devices**) that generate data, **insights** that you form about the data, and **actions** that you take based on the insights. Consider a motor that sends temperature data. This data is used to evaluate whether the motor is performing as expected. The insight about its performance is used to prioritize a maintenance schedule for the motor.
 
+If you want to see IoT reference architectures that address solutions that are specific to industry verticals, you can start here:
+> [!div class="nextstepaction"]
+> [Industry Specific IoT reference architectures](/azure/architecture/reference-architectures/iot/iot-architecture-overview)
+
 ## Devices
 
-Azure IoT supports a large range of devices, from microcontrollers running Azure RTOS and Azure Sphere to developer boards like [MX Chip](https://docs.microsoft.com/samples/azure-samples/mxchip-iot-devkit-get-started/sample/) and Raspberry Pi. Azure IoT also supports smart server gateways capable of running custom code. Devices might perform some local processing through a service such as **Azure IoT Edge**, or just connect directly to Azure so that they can send data to and receive data from the IoT solution.
+Azure IoT supports a large range of devices, from microcontrollers running Azure RTOS and Azure Sphere to developer boards like [MX Chip](/samples/azure-samples/mxchip-iot-devkit-get-started/sample/) and Raspberry Pi. Azure IoT also supports smart server gateways capable of running custom code. Devices might perform some local processing through a service such as **Azure IoT Edge**, or just connect directly to Azure so that they can send data to and receive data from the IoT solution.
 
 When devices are connected to the cloud, there are several services that assist with ingesting data. **Azure IoT Hub** is a cloud gateway service that can securely connect and manage devices. **IoT Hub Device Provisioning Service (DPS)** enables zero-touch, just-in-time provisioning that helps to register a large number of devices in a secure and scalable manner. **Azure Digital Twins** enables virtual models of real world systems.
 
@@ -35,10 +35,10 @@ You can use the insights gathered about your data to manage and control your env
 - **Azure Web Apps** enables you to deploy web applications that scale with your organization.
 - **Mobile Apps** allows you to build cross platform and native apps for iOs, Android, Windows, or Mac.
 - **Dynamics 365** combines CRM (customer relationship management) and ERP (enterprise resource planning) in the cloud.
-- **Microsoft Flow** is an SaaS offering for automating workflows across applications and other SaaS services.
+- **Microsoft Flow** is a SaaS offering for automating workflows across applications and other SaaS services.
 - **Azure Logic Apps** is a cloud-based PaaS offering used to create and automate workflows that integrate your apps, data, services, and systems.
 
-There are also several services provided by Azure to help you monitor your entire IoT solution and keep it secure. Diagnostic services include **Azure Monitor**. Security services such as **Azure Active Directory** and **Azure Defender for IoT** help you control, view, and manage your security settings, threat detection and response.
+There are also several services provided by Azure to help you monitor your entire IoT solution and keep it secure. Diagnostic services include **Azure Monitor**. Security services such as **Azure Active Directory** and **Microsoft Defender for IoT** help you control, view, and manage your security settings, threat detection and response.
 
 ## Digital Twins
 
@@ -109,15 +109,15 @@ For additional security considerations, see [Internet of Things (IoT) security a
 
 ## Reliability and performance
 
-A key area of consideration for resilient IoT solutions is business continuity and disaster recovery. Designing for High Availability (HA) and Disaster Recovery (DR) can help you define and achieve required uptime goals for your solution.
+A key area of consideration for resilient IoT solutions is business continuity and disaster recovery. Designing for High Availability (HA) and Disaster Recovery (DR) can help you define and achieve required uptime goals for your solution.
 
-Different Azure services offer different options for redundancy and failover to help you achieve the uptime goals that best suit your business objectives. Incorporating any of these HA/DR alternatives into your IoT solution requires a careful evaluation of the trade-offs between the:
+Different Azure services offer different options for redundancy and failover to help you achieve the uptime goals that best suit your business objectives. Incorporating any of these HA/DR alternatives into your IoT solution requires a careful evaluation of the trade-offs between the:
 
 - Level of resiliency you require
 - Implementation and maintenance complexity
 - Cost of Goods Sold (COGS) impact
 
-The article [Azure Business Continuity Technical Guidance](/azure/architecture/resiliency) describes a general framework to help you think about business continuity and disaster recovery. The [Disaster recovery and high availability for Azure applications](/azure/architecture/reliability/disaster-recovery) paper provides architecture design guidance on strategies for Azure applications to achieve High Availability (HA) and Disaster Recovery (DR).
+The article [Azure Business Continuity Technical Guidance](/azure/architecture/resiliency) describes a general framework to help you think about business continuity and disaster recovery. The [Disaster recovery and high availability for Azure applications](/azure/architecture/reliability/disaster-recovery) paper provides architecture design guidance on strategies for Azure applications to achieve High Availability (HA) and Disaster Recovery (DR).
 
 You can also find service-specific performance information in the documentation for each Azure IoT service.
 

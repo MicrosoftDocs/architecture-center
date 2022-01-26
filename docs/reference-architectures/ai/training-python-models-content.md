@@ -1,6 +1,5 @@
 
 
-
 This reference architecture shows recommended practices for tuning the hyperparameters of Python models. Hyperparameters are adjustable parameters that let you control the model training process. [Azure Machine Learning][aml] lets you automate hyperparameter tuning and run experiments in parallel to efficiently optimize hyperparameters.
 
 Two scenarios are covered in this reference architecture: hyperparameter optimization of [scikit-learn][scikit] models and deep learning models with GPUs. Two reference implementations for this architecture are available on GitHub, one for [training scikit-learn models on Azure][github1] models and one for [training deep learning models on Azure][github2] models.

@@ -1,15 +1,14 @@
 
 
-
 There are many security considerations for deploying *infrastructure-as-a-service (IaaS)* apps to Azure. This article builds on reference architectures for virtual machine-based workloads and hybrid network infrastructures to focus on security for highly sensitive IaaS workloads in Azure, based on [Azure security fundamentals](/azure/security/fundamentals/).
 
 Also see [Azure virtual machines security overview](/azure/security/fundamentals/virtual-machines-overview) and [Security best practices for IaaS workloads in Azure](/azure/security/fundamentals/iaas).
 
 ## Azure VMs
 
-Azure's compute platform is based on machine virtualization. A *hypervisor* runs on the physical hardware of each Azure node or network endpoint, and creates a variable number of guest [Hyper-V virtual machines](/virtualization/hyper-v-on-windows/about/) (VMs) in the node. All user code executes on the VMs. For basic Azure VM deployment instructions, see [Run a Linux VM on Azure](./linux-vm.yml) or [Run a Windows VM on Azure](./windows-vm.yml). Most deployment processes are the same for the two operating systems (OSs), but OS-specific tools like disk encryption may differ. 
+Azure's compute platform is based on machine virtualization. A *hypervisor* runs on the physical hardware of each Azure node or network endpoint, and creates a variable number of guest [Hyper-V virtual machines](/virtualization/hyper-v-on-windows/about/) (VMs) in the node. All user code executes on the VMs. For basic Azure VM deployment instructions, see [Run a Linux VM on Azure](./linux-vm.yml) or [Run a Windows VM on Azure](./windows-vm.yml). Most deployment processes are the same for the two operating systems (OSs), but OS-specific tools like disk encryption may differ.
 
-You can use [Azure Security Center](https://azure.microsoft.com/services/security-center/) for VM patch management and to deploy and monitor [antimalware tools](/azure/security-center/security-center-install-endpoint-protection). Alternatively, you can manage your own or third-party patching and antimalware tools, which is common when extending or migrating existing infrastructures to Azure. 
+You can use [Microsoft Defender for Cloud](https://azure.microsoft.com/services/security-center/) for VM patch management and to deploy and monitor [antimalware tools](/azure/security-center/security-center-install-endpoint-protection). Alternatively, you can manage your own or third-party patching and antimalware tools, which is common when extending or migrating existing infrastructures to Azure.
 
 Microsoft provides Basic *distributed denial of service (DDoS)* protection as part of the Azure platform. Apps that have public endpoints can use Standard [Azure DDoS Protection](/azure/virtual-network/ddos-protection-overview) for additional protection. However, highly sensitive workloads don't usually have public endpoints, and can only be accessed from specific locations over a *virtual private network (VPN)* or leased line.
 
@@ -19,12 +18,12 @@ Many IaaS applications consist of multiple tiers, such as a web tier, business t
 
 - **High availability** (HA). HA apps must be available more than 99.9% of the time. Placing in-tier VMs in different Azure [availability zones](/azure/availability-zones/az-overview) (AZs) ensures HA, because AZs span one or more datacenters, providing resiliency through resistance to datacenter failure. Regions that don't support AZs can use [availability sets](/azure/virtual-machines/windows/manage-availability#configure-multiple-virtual-machines-in-an-availability-set-for-redundancy) (ASs), which distribute VMs across multiple isolated hardware nodes.
 - **Load balancing**. [Load balancers](/azure/load-balancer/load-balancer-get-started-internet-arm-cli) distribute traffic among VMs, to balance load and for resiliency when a VM fails. You don't need load balancers if the application manages load balancing and the individual VMs are known to the caller.
-- **Virtual networks**. [Virtual networks](/azure/virtual-network/) and subnets segment your network, enabling easier security management and advanced routing. 
+- **Virtual networks**. [Virtual networks](/azure/virtual-network/) and subnets segment your network, enabling easier security management and advanced routing.
 - **Domain Name System (DNS)**. [Azure DNS](/azure/dns/) provides a highly available and secure DNS service. A [private zone](/azure/dns/private-dns-overview) in Azure DNS lets you use custom domains inside your virtual networks.
 
 ### Backup and restore
 
-To protect against human error, malicious data deletion, and ransomware, you should back up at least your data-tier VMs. [Azure Backup](/azure/backup/backup-overview) can [back up and restore encrypted VMs](/azure/backup/backup-azure-vms-encryption) if it can access the encryption keys in Azure Key Vault. 
+To protect against human error, malicious data deletion, and ransomware, you should back up at least your data-tier VMs. [Azure Backup](/azure/backup/backup-overview) can [back up and restore encrypted VMs](/azure/backup/backup-azure-vms-encryption) if it can access the encryption keys in Azure Key Vault.
 
 For the web and business tiers, you can use [virtual machine scale set](/azure/virtual-machine-scale-sets/overview) autoscaling rules to automatically [destroy compromised VMs](/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-manage-cli#remove-vms-from-a-scale-set) and deploy fresh VM instances from a base image.
 
@@ -40,7 +39,7 @@ Isolated VMs are large VM sizes that are isolated to a specific hardware type an
 
 The minimum size of an isolated VM is 64 virtual CPU cores and 256 GiB of memory. These VMs are far larger than most n-tier applications require, and can create a large cost overhead. To reduce the overhead, you can run multiple app tiers on a single VM with nested virtualization, or in different processes or containers. You still need to deploy different VMs in AZs for resiliency, and run [demilitarized zone (DMZ) appliances](#deploy-a-dmz) on separate VMs. Combining multiple apps on one infrastructure for economic reasons might also conflict with organizational app segregation policies.
 
-As Azure region capabilities expand over time, Azure may also remove isolation guarantees from certain VM sizes, with one year's notice. 
+As Azure region capabilities expand over time, Azure may also remove isolation guarantees from certain VM sizes, with one year's notice.
 
 #### Azure Dedicated Hosts
 
@@ -66,7 +65,7 @@ When hosting SQL Server on a VM, you can use the [SQL Server Connector for Micro
 
 Azure Disk Encryption uses a BitLocker external key protector to provide volume encryption for the OS and data disks of Azure VMs, and can be integrated with Azure Key Vault to help you control and manage disk encryption keys and secrets. Each VM generates its own encryption keys and stores them in Azure Key Vault. To configure Azure Key Vault to enable Azure Disk Encryption, see [Create and configure a key vault for Azure Disk Encryption](/azure/virtual-machines/windows/disk-encryption-key-vault).
 
-For highly sensitive workloads, you should also use a *key encryption key (KEK)* for an additional layer of security. When you specify a KEK, Azure Disk Encryption uses that key to wrap the encryption secrets before writing to Key Vault. You can generate a KEK in Azure Key Vault, but a more secure method is to generate a key in your on-premises HSM and import it to Azure Key Vault. This scenario is often referred to as *bring your own key*, or BYOK. Because the imported keys can't leave the HSM boundary, generating the key in your HSM ensures you're in full control of the encryption keys. 
+For highly sensitive workloads, you should also use a *key encryption key (KEK)* for an additional layer of security. When you specify a KEK, Azure Disk Encryption uses that key to wrap the encryption secrets before writing to Key Vault. You can generate a KEK in Azure Key Vault, but a more secure method is to generate a key in your on-premises HSM and import it to Azure Key Vault. This scenario is often referred to as *bring your own key*, or BYOK. Because the imported keys can't leave the HSM boundary, generating the key in your HSM ensures you're in full control of the encryption keys.
 
 ![HSM-protected encryption](images/encryption.png)
 
@@ -78,7 +77,7 @@ Network protocols like HTTPS encrypt data in transit with certificates. Client-t
 
 Azure Key Vault can act as a self-signed certificate CA for tier-to-tier traffic. The *Key Vault VM extension* provides monitoring and automatic refresh of specified certificates on VMs, with or without the private key depending on use case. To use the Key Vault VM extension, see [Key Vault virtual machine extension for Linux](/azure/virtual-machines/extensions/key-vault-linux) or [Key Vault virtual machine extension for Windows](/azure/virtual-machines/extensions/key-vault-windows).
 
-Key Vault can also store keys for network protocols that don't use certificates. Custom workloads could require scripting a [custom script extension](/azure/virtual-machines/windows/tutorial-automate-vm-deployment) that retrieves a key from Key Vault and stores it for applications to use. Apps can also use a VM's [managed identity](/azure/active-directory/managed-identities-azure-resources/tutorial-windows-vm-access-nonaad) to retrieve secrets directly from Key Vault. 
+Key Vault can also store keys for network protocols that don't use certificates. Custom workloads could require scripting a [custom script extension](/azure/virtual-machines/windows/tutorial-automate-vm-deployment) that retrieves a key from Key Vault and stores it for applications to use. Apps can also use a VM's [managed identity](/azure/active-directory/managed-identities-azure-resources/tutorial-windows-vm-access-nonaad) to retrieve secrets directly from Key Vault.
 
 ## Network security
 
@@ -110,11 +109,11 @@ Hybrid architectures connect on-premises networks with public clouds like Azure.
   - [ExpressRoute with VPN failover](../hybrid-networking/expressroute-vpn-failover.yml). This option uses ExpressRoute in normal conditions, but fails over to a VPN connection if there's a loss of connectivity in the ExpressRoute circuit, providing higher availability.
   - [VPN over ExpressRoute](/azure/expressroute/site-to-site-vpn-over-microsoft-peering). This option is the best for highly sensitive workloads. ExpressRoute provides a private circuit with scalability and reliability, and VPN provides an additional layer of protection that terminates the encrypted connection in a specific Azure virtual network.
 
-For more guidance on choosing between different types of hybrid connectivity, see [Choose a solution for connecting an on-premises network to Azure](../hybrid-networking/index.yml). 
+For more guidance on choosing between different types of hybrid connectivity, see [Choose a solution for connecting an on-premises network to Azure](../hybrid-networking/index.yml).
 
 ### Deploy a DMZ
 
-Connecting on-premises and Azure environments gives on-premises users access to Azure applications. A perimeter network or *demilitarized zone (DMZ)* provides additional protection for highly sensitive workloads. 
+Connecting on-premises and Azure environments gives on-premises users access to Azure applications. A perimeter network or *demilitarized zone (DMZ)* provides additional protection for highly sensitive workloads.
 
 An architecture like the one in [Network DMZ between Azure and an on-premises datacenter](../dmz/secure-vnet-dmz.yml) deploys all DMZ and application services in the same virtual network, with NSG rules and user-defined routes to isolate the DMZ and application subnets. This architecture can make the management subnet available via public internet, to manage apps even if the on-premises gateway isn't available. However, for highly sensitive workloads, you should only allow bypassing the gateway in a [break glass scenario](/azure/active-directory/users-groups-roles/directory-emergency-access). A better solution is to use [Azure Bastion](https://azure.microsoft.com/services/azure-bastion/), which enables access directly from the Azure portal while limiting exposure of public IP addresses.
 
@@ -128,7 +127,7 @@ Business continuity and disaster recovery might require deploying your applicati
 
 ### Regional pairs
 
-An Azure geography is a defined area of the world that contains at least one Azure region, each with one or more datacenters. Each Azure region is paired with another region in the same geography in a *regional pair*. Regional pairs aren't both updated at the same time, and if a disaster hits both regions, one of the regions is prioritized to come back online first. For business continuity, you should deploy highly sensitive apps at least to regional pairs if you deploy in multiple regions. 
+An Azure geography is a defined area of the world that contains at least one Azure region, each with one or more datacenters. Each Azure region is paired with another region in the same geography in a *regional pair*. Regional pairs aren't both updated at the same time, and if a disaster hits both regions, one of the regions is prioritized to come back online first. For business continuity, you should deploy highly sensitive apps at least to regional pairs if you deploy in multiple regions.
 
 For more details, see [Business continuity and disaster recovery (BCDR): Azure Paired Regions](/azure/best-practices-availability-paired-regions). The whitepaper [Achieve compliant data residency and security with Azure](https://azure.microsoft.com/resources/achieving-compliant-data-residency-and-security-with-azure/) discusses data residency, and what to do to meet data residency requirements.
 
@@ -161,17 +160,18 @@ Use the resources in your management subnet to grant app tier access only to peo
 There are several other ways to control Azure roles and policies:
 
 - [Azure role-based access control (Azure RBAC)](/azure/role-based-access-control/overview) for Azure resources lets you assign built-in or custom roles to users, so they have only the privileges they need. You can combine Azure RBAC with PIM to implement an audited approval workflow that elevates privileges for a limited time period.
-- Policies enforce corporate rules, standards, and SLAs. [Azure Policy](/azure/governance/policy/) is an Azure service that creates, assigns, and manages policies, and evaluates your resources for policy compliance. 
+- Policies enforce corporate rules, standards, and SLAs. [Azure Policy](/azure/governance/policy/) is an Azure service that creates, assigns, and manages policies, and evaluates your resources for policy compliance.
 - [Azure Blueprints](/azure/governance/blueprints/overview) combine role assignments, policy assignments, and deployment templates to define a set of replicable Azure resources that implement and follow an organization's standards, patterns, and requirements. Blueprints are a declarative way to orchestrate the deployment of resource templates and other artifacts. You can create blueprints yourself, or leverage existing blueprints. For example, the [ISO 27001 Shared Services blueprint](/azure/governance/blueprints/samples/iso27001-shared/) deploys a shared services hub that you can modify and extend to your organization's requirements.
 
 ## Monitoring
 
-[Azure Security Center](/azure/security-center/security-center-intro) provides monitoring and alerts that help you maintain security of your environment. The free service automatically checks for vulnerabilities such as missing OS patches, security misconfiguration, and basic network security. The Standard paid version gives you additional features, such as [behavioral analytics](/azure/security-center/threat-protection), [Adaptive Network Hardening](/azure/security-center/security-center-adaptive-network-hardening), and [JIT VM access](/azure/security-center/security-center-just-in-time). For a full list of features, see [Feature coverage for machines](/azure/security-center/security-center-services). Security Center also provides [threat protection](/azure/security-center/security-center-services) for other resources like Azure Key Vault.
+[Microsoft Defender for Cloud](/azure/security-center/security-center-intro) provides monitoring and alerts that help you maintain security of your environment. The free service automatically checks for vulnerabilities such as missing OS patches, security misconfiguration, and basic network security. The Standard paid version gives you additional features, such as [behavioral analytics](/azure/security-center/threat-protection), [Adaptive Network Hardening](/azure/security-center/security-center-adaptive-network-hardening), and [JIT VM access](/azure/security-center/security-center-just-in-time). For a full list of features, see [Feature coverage for machines](/azure/security-center/security-center-services). Defender for Cloud also provides [threat protection](/azure/security-center/security-center-services) for other resources like Azure Key Vault.
 
-You can use [Azure Monitor](/azure/azure-monitor/overview) for further monitoring and analysis. To monitor identity and access, you can [route Azure AD activity logs to Azure Monitor](/azure/active-directory/reports-monitoring/concept-activity-logs-azure-monitor). You can also monitor [VMs](/azure/azure-monitor/insights/vminsights-overview), [networks](/azure/azure-monitor/insights/network-insights-overview), and [Azure Firewall](/azure/firewall/tutorial-diagnostics), and analyze imported logs with powerful [log query](/azure/azure-monitor/log-query/log-query-overview) capability. You can integrate Azure Monitor with your *Security Information and Event Manager (SIEM)*, which can be a [third-party SIEM](https://azure.microsoft.com/blog/use-azure-monitor-to-integrate-with-siem-tools/) or [Azure Sentinel](/azure/sentinel/overview).
+You can use [Azure Monitor](/azure/azure-monitor/overview) for further monitoring and analysis. To monitor identity and access, you can [route Azure AD activity logs to Azure Monitor](/azure/active-directory/reports-monitoring/concept-activity-logs-azure-monitor). You can also monitor [VMs](/azure/azure-monitor/insights/vminsights-overview), [networks](/azure/azure-monitor/insights/network-insights-overview), and [Azure Firewall](/azure/firewall/tutorial-diagnostics), and analyze imported logs with powerful [log query](/azure/azure-monitor/log-query/log-query-overview) capability. You can integrate Azure Monitor with your *Security Information and Event Manager (SIEM)*, which can be a [third-party SIEM](https://azure.microsoft.com/blog/use-azure-monitor-to-integrate-with-siem-tools/) or [Microsoft Sentinel](/azure/sentinel/overview).
 
 ## Related resources
-- For more information about n-tier architectures, see [Linux n-tier application in Azure with Apache Cassandra](./n-tier-cassandra.yml) and [Windows n-tier application on Azure with SQL Server](./n-tier-sql-server.yml). 
+
+- For more information about n-tier architectures, see [Linux n-tier application in Azure with Apache Cassandra](./n-tier-cassandra.yml) and [Windows n-tier application on Azure with SQL Server](./n-tier-sql-server.yml).
 - For an end-to-end tutorial on using the Azure Key Vault virtual machine extension, see [Secure a web server on a Windows virtual machine in Azure with SSL certificates stored in Key Vault](/azure/virtual-machines/windows/tutorial-secure-web-server).
-- For more information about Azure Disk Encryption, see [Azure Disk Encryption for Linux VMs](/azure/virtual-machines/linux/disk-encryption-overview) or [Azure Disk Encryption for Windows VMs](/azure/virtual-machines/windows/disk-encryption-overview). 
+- For more information about Azure Disk Encryption, see [Azure Disk Encryption for Linux VMs](/azure/virtual-machines/linux/disk-encryption-overview) or [Azure Disk Encryption for Windows VMs](/azure/virtual-machines/windows/disk-encryption-overview).
 - For more information about Azure network security, see [Azure network security overview](/azure/security/fundamentals/network-overview).

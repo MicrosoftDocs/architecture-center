@@ -12,18 +12,18 @@ Here are examples of how you can use edge networks in Azure solutions.
 
 ### Manufacturing
 
-- **Predict machine failure on the plant floor** - Use sensor data to monitor machines and predict failures. Send failure alerts to the cloud. For example, see how [ZEISS sharpens its focus on optical excellence with Microsoft Azure SQL Edge.](https://customers.microsoft.com/story/764241-zeiss-manufacturing-sql-db-edge).
-- **Provide real-time data on the plant floor for immediate decision making** - Capture production data on an Azure SQL Edge database. Use the data to monitor production processes, empower front-line employees, and provide real-time insights. For example, see how [Achilles uses Microsoft Azure SQL Edge to keep front-line workers connected and employees empowered](https://customers.microsoft.com/story/823356-achilles-manufacturing-azure-sql-edge).
+- **Predict machine failure on the plant floor:** Use sensor data to monitor machines and predict failures. Send failure alerts to the cloud. For example, see how [ZEISS sharpens its focus on optical excellence with Microsoft Azure SQL Edge.](https://customers.microsoft.com/story/764241-zeiss-manufacturing-sql-db-edge).
+- **Provide real-time data on the plant floor for immediate decision making:** Capture production data on an Azure SQL Edge database. Use the data to monitor production processes, empower front-line employees, and provide real-time insights. For example, see how [Achilles uses Microsoft Azure SQL Edge to keep front-line workers connected and employees empowered](https://customers.microsoft.com/story/823356-achilles-manufacturing-azure-sql-edge).
 
 ### Healthcare
 
-- **Obtain a complete view of patients** - Consolidate and analyze data from medical and patient devices to provide a unified and complete picture of each patient's condition.
-- **Monitor surgeries and procedures** - Consolidate and analyze data from surgeries and other procedures to gain insight and improve outcomes.  
-  
+- **Obtain a complete view of patients:** Consolidate and analyze data from medical and patient devices to provide a unified and complete picture of each patient's condition.
+- **Monitor surgeries and procedures:** Consolidate and analyze data from surgeries and other procedures to gain insight and improve outcomes.
+
 ### Energy
 
-- **Monitor offshore oil rigs** - Monitor rig conditions and save the data in an edge database for high availability. Use the data to predict failures, monitor efficiency, and reduce risk.
-- **Monitor ships at sea** - Apply machine learning and real-time analysis of ship data on-premises without having to transmit data via satellite. For example, see how [Geotechnical company Fugro generates environmental insights faster and more reliably with edge computing](https://customers.microsoft.com/story/772599-fugro-professional-services-azure-sql-database-edge).
+- **Monitor offshore oil rigs:** Monitor rig conditions and save the data in an edge database for high availability. Use the data to predict failures, monitor efficiency, and reduce risk.
+- **Monitor ships at sea:** Apply machine learning and real-time analysis of ship data on-premises without having to transmit data via satellite. For example, see how [Geotechnical company Fugro generates environmental insights faster and more reliably with edge computing](https://customers.microsoft.com/story/772599-fugro-professional-services-azure-sql-database-edge).
 
 ## Architecture
 
@@ -31,15 +31,15 @@ Here are examples of how you can use edge networks in Azure solutions.
 
 This implementation uses Azure SQL Edge on an edge processor. Communications to and from devices is done using Edge Hub. Communications between IoT devices and cloud applications is done using Azure IoT Hub.
 
-## Components
+### Components
 
 The architecture uses the following Azure services:
 
-- [Azure IoT Edge](https://azure.microsoft.com/services/iot-edge/) is a fully managed service built on Azure IoT Hub. It can run your cloud workloads—whether artificial intelligence, Azure and third-party services, or your own business logic—on edge devices via standard containers.
-- [Azure IoT Hub](https://azure.microsoft.com/services/iot-hub/) provides highly secure and reliable communication between your IoT application and the devices it manages. It can extend your solution from the cloud to the edge with per-device authentication, built-in device management, and scaled provisioning.
-- [Azure SQL Edge](https://azure.microsoft.com/services/sql-edge/) is a small-footprint, edge-optimized SQL database engine with built-in AI.
-- [Azure Cognitive Services](https://azure.microsoft.com/services/cognitive-services/) is a comprehensive family of AI services and cognitive APIs that your intelligent apps can use. The services can run on IoT Edge devices via containers.
-- [Azure SQL Database](https://azure.microsoft.com/services/sql-database/) is a fully managed relational database with built-in intelligence.
+- [Azure IoT Edge](https://azure.microsoft.com/services/iot-edge) is a fully managed service built on Azure IoT Hub. It can run your cloud workloads—whether artificial intelligence, Azure and third-party services, or your own business logic—on edge devices via standard containers.
+- [Azure IoT Hub](https://azure.microsoft.com/services/iot-hub) provides highly secure and reliable communication between your IoT application and the devices it manages. It can extend your solution from the cloud to the edge with per-device authentication, built-in device management, and scaled provisioning.
+- [Azure SQL Edge](https://azure.microsoft.com/services/sql-edge) is a small-footprint, edge-optimized SQL database engine with built-in AI.
+- [Azure Cognitive Services](https://azure.microsoft.com/services/cognitive-services) is a comprehensive family of AI services and cognitive APIs that your intelligent apps can use. The services can run on IoT Edge devices via containers.
+- [Azure SQL Database](https://azure.microsoft.com/services/sql-database) is a fully managed relational database with built-in intelligence.
 - [SQL Server on Virtual Machines](https://azure.microsoft.com/services/virtual-machines/sql-server) can run your SQL Server workloads on the cloud at the lowest total cost of ownership.
 - [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) is a fast NoSQL database with open APIs for any scale.
 

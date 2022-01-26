@@ -1,7 +1,6 @@
-
-
-
 [!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
+
+Build scalable e-commerce web apps with Azure Functions and Web Apps, so you can create personalized experiences while Azure takes care of the infrastructure.
 
 ## Architecture
 
@@ -10,7 +9,7 @@
 ![Architecture Diagram](../media/scalable-ecommerce-web-app.png)
 *Download an [SVG](../media/scalable-ecommerce-web-app.svg) of this architecture.*
 
-## Data Flow
+### Data flow
 
 1. User accesses the web app in browser and signs in.
 1. Browser pulls static resources such as images from Azure Content Delivery Network.
@@ -22,7 +21,7 @@
 1. Azure Functions processes order payment.
 1. Azure Functions makes payment to third party and records payment in SQL database.
 
-## Components
+### Components
 
 * [Web Apps](https://azure.microsoft.com/services/app-service/web): An App Service Web App runs in a single region, accessible to web and mobile browsers
 * [Azure SQL Database](https://azure.microsoft.com/services/sql-database): Managed, intelligent SQL in the cloud

@@ -2,11 +2,11 @@
 
 This architecture provides a high-availability solution for a web application that uses massive amounts of data. A secondary region serves as a standby to the primary, improving availability. The primary region sends its data to the secondary by using the built-in replication capabilities of Azure Storage.
 
-Data is stored in Azure Table Storage tables. As with any Azure Storage service, Table Storage data is replicated synchronously three times in the primary region. To make it available for standby use, it's also replicated asynchronously three times in the secondary region. For information about Azure Storage replication, see [Azure Storage redundancy](https://docs.microsoft.com/azure/storage/common/storage-redundancy).
+Data is stored in Azure Table Storage tables. As with any Azure Storage service, Table Storage data is replicated synchronously three times in the primary region. To make it available for standby use, it's also replicated asynchronously three times in the secondary region. For information about Azure Storage replication, see [Azure Storage redundancy](/azure/storage/common/storage-redundancy).
 
 The architecture includes a cache for the tables to reduce access load and improve application response.
 
->[!Note]
+> [!Note]
 > Your application may require multiple storage accounts under some circumstances. See [Considerations](#considerations) for more information.
 
 ## Potential use cases
@@ -67,7 +67,7 @@ The architecture may be appropriate for any application that uses massive amount
 
    For more information, see [Scalability and performance targets for Table Storage](/azure/storage/tables/scalability-targets).
 - Table Storage replication isn't available in some Azure regions.
-- The data in a secondary region has eventual consistency, which means that there's a lag between the time an update occurs in a primary region and when it's seen in the secondary region. Because replication from the primary region to the secondary region is asynchronous, data can be lost if the primary region fails and does not recover. There is currently no service level agreement (SLA) on how long it takes to replicate data to the secondary region. For more information, see [Azure Storage redundancy](https://docs.microsoft.com/azure/storage/common/storage-redundancy).
+- The data in a secondary region has eventual consistency, which means that there's a lag between the time an update occurs in a primary region and when it's seen in the secondary region. Because replication from the primary region to the secondary region is asynchronous, data can be lost if the primary region fails and does not recover. There is currently no service level agreement (SLA) on how long it takes to replicate data to the secondary region. For more information, see [Azure Storage redundancy](/azure/storage/common/storage-redundancy).
 
 ## Next steps
 

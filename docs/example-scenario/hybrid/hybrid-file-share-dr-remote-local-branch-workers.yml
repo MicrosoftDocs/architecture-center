@@ -1,0 +1,23 @@
+### YamlMime:Architecture
+metadata:
+  title: Hybrid file share with disaster recovery for remote and local branch workers
+  titleSuffix: Azure Example Scenarios
+  description: Learn how to provide high-availability desktop access to file shares in an environment with many on-premises locations, and a workforce that works on-premises and remotely.
+  author: johnpoetzinger
+  ms.author: jopoetzi
+  ms.date: 11/19/2021
+  ms.topic: conceptual
+  ms.service: architecture-center
+  ms.subservice: example-scenario
+  ms.custom: fcp
+azureCategories:
+  - hybrid
+  - storage
+products:
+  - azure-files
+  - azure-storage-accounts
+name: Hybrid file share with disaster recovery for remote and local branch workers
+summary: Learn how to provide high-availability desktop access to file shares in an environment with many on-premises locations, and a workforce that works on-premises and remotely.
+thumbnailUrl: /azure/architecture/browse/thumbs/hybrid-file-share-dr-remote-local-branch-workers.png
+content: |
+   [!include[](hybrid-file-share-dr-remote-local-branch-workers-content.md)]

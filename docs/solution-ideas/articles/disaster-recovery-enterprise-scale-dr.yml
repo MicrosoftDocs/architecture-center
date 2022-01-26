@@ -3,8 +3,8 @@ metadata:
   title: Enterprise-scale disaster recovery
   titleSuffix: Azure Solution Ideas
   description: This large-enterprise architecture for SharePoint, Dynamics CRM, and Linux web servers runs on an on-premises datacenter and fails over to Azure infrastructure.
-  author: doodlemania2
-  ms.author: pnp
+  author: EdPrice-MSFT
+  ms.author: laclama
   ms.date: 12/16/2019
   ms.topic: conceptual
   ms.service: architecture-center

@@ -4,15 +4,15 @@ titleSuffix: Azure Architecture Center
 description: This article introduces the considerations you need to give when planning a multitenant architecture.
 author: johndowns
 ms.author: jodowns
-ms.date: 07/09/2021
+ms.date: 12/16/2021
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: azure-guide
 products:
- - azure
+  - azure
 categories:
- - management-and-governance
- - security
+  - management-and-governance
+  - security
 ms.category:
   - fcp
 ms.custom:
@@ -21,9 +21,9 @@ ms.custom:
 
 # Architectural considerations for a multitenant solution
 
-When you're considering a multitenant architecture, there are a number of decisions you need to make and elements you need to consider.
+When you're considering a multitenant architecture, there are several decisions you need to make and elements you need to consider.
 
-In a multitenant architecture, you share some or all of your resources between tenants. This means that a multitenant architecture can give you cost and operational efficiency. However, multitenancy introduces complexities, including the following:
+In a multitenant architecture, you share some or all of your resources between tenants. This process means that a multitenant architecture can give you cost and operational efficiency. However, multitenancy introduces complexities, including the following:
 
 - How do you define what a _tenant_ is, for your specific solution? Does a tenant correspond to a customer, a user, or a group of users (like a team)?
 - How will you deploy your infrastructure to support multitenancy, and how much isolation will you have between tenants?
@@ -37,11 +37,11 @@ Whatever your architecture, it's essential that you have a clear understanding o
 
 As an example, imagine you're building a multitenant solution that you sell to businesses in the financial services industry. Your customers have very strict security requirements, and they need you to provide a comprehensive list of every domain name that your solution uses, so they can add it to their firewall's allowlist. This requirement affects the Azure services you use and the level of isolation that you have to provide between your tenants. They also require that their solution has a minimum level of resiliency. There may be many similar expectations, both explicit and implicit, that you need to consider across your whole solution.
 
-In this series, we outline the considerations that you should give, the requirements you should elicit, and some of the tradeoffs you need to make, when you are planning a multitenant architecture.
+In this section, we outline the considerations that you should give, the requirements you should elicit, and some of the tradeoffs you need to make, when you are planning a multitenant architecture.
 
 ## Intended audience
 
-The content in this series is particularly relevant for technical decision-makers, like chief technology officers (CTOs) and architects. However, anyone who works with multitenant architectures should have some familiarity with these principles and tradeoffs.
+The pages in this section are particularly relevant for technical decision-makers, like chief technology officers (CTOs) and architects. The audience also includes independent software vendors (ISVs) and startups who develop SaaS solutions. However, anyone who works with multitenant architectures should have some familiarity with these principles and tradeoffs.
 
 ## Next steps
 

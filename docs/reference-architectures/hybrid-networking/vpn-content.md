@@ -1,6 +1,5 @@
 
 
-
 This reference architecture shows how to extend a network from on premises or from Azure Stack into an Azure virtual network, using a site-to-site virtual private network (VPN). Traffic flows between the on-premises network and Azure through an IPSec VPN tunnel or through the Azure Stack multitenant VPN gateway.
 
 <img src="./images/vpn.png" alt="Hybrid network spanning on-premises and Azure infrastructures" aria-describedby="description-1">
@@ -22,7 +21,7 @@ Use the following button to deploy the reference using the Azure portal.
 
 #### [Azure CLI](#tab/cli)
 
-Run the following command to deploy two resource groups and the secure network reference architecture using the Azure CLI. 
+Run the following command to deploy two resource groups and the secure network reference architecture using the Azure CLI.
 
 When prompted, enter values for an admin user name and password. These values are used to log into the included virtual machines.
 
@@ -33,7 +32,7 @@ az deployment sub create --location eastus \
 
 #### [PowerShell](#tab/powershell)
 
-Run the following command to deploy two resource groups and the secure network reference architecture using PowerShell. 
+Run the following command to deploy two resource groups and the secure network reference architecture using PowerShell.
 
 When prompted, enter values for an admin user name and password. These values are used to log into the included virtual machines.
 
@@ -110,7 +109,7 @@ Create the virtual network gateway in the gateway subnet and assign it the newly
 
 - Create a [policy-based gateway][policy-based-routing] if you need to closely control how requests are routed based on policy criteria such as address prefixes. Policy-based gateways use static routing, and only work with site-to-site connections.
 
-- Create a [route-based gateway][route-based-routing] 
+- Create a [route-based gateway][route-based-routing]
 
     - You connect to the on-premises network using RRAS,
     - You support multi-site or cross-region connections, or
@@ -236,9 +235,9 @@ The services used in this architecture are charged as follows:
 
 ### Azure VPN Gateway
 
-The main component of this architecture is the VPN gateway service. You are charged based on the amount of time that the gateway is provisioned and available. 
+The main component of this architecture is the VPN gateway service. You are charged based on the amount of time that the gateway is provisioned and available.
 
-All inbound traffic is free, all outbound traffic is charged. Internet bandwidth costs are applied to VPN outbound traffic.  
+All inbound traffic is free, all outbound traffic is charged. Internet bandwidth costs are applied to VPN outbound traffic.
 
 For more information, see [VPN Gateway Pricing][azure-gateway-charges].
 
@@ -248,10 +247,9 @@ Azure Virtual Network is free. Every subscription is allowed to create up to 50 
 
 All traffic that occurs within the boundaries of a virtual network is free. So, communication between two virtual machines in the same virtual network is free.
 
-
 ### Azure Bastion
 
-Azure Bastion securely connects to your virtual machine in the virtual network over RDP and SSH without having the need to configure a public IP on the virtual machine. You will need Bastion in every virtual network that contains virtual machines that you want to connect to. This solution is more economical and secure than using jump boxes. 
+Azure Bastion securely connects to your virtual machine in the virtual network over RDP and SSH without having the need to configure a public IP on the virtual machine. You will need Bastion in every virtual network that contains virtual machines that you want to connect to. This solution is more economical and secure than using jump boxes.
 
 For examples, see [Azure Bastion Pricing][Bastion-pricing].
 
@@ -265,16 +263,15 @@ For more information, see [Azure VM pricing][linux-vms-pricing].
 
 ## Deploy the solution
 
-To deploy this reference architecture, see the [GitHub readme][readme]. 
+To deploy this reference architecture, see the [GitHub readme][readme].
 
 ## Next steps
 
 Although VPNs can be used to connect virtual networks within Azure, it's not always the best choice. For more information, see [Choose between virtual network peering and VPN gateways in Azure](./vnet-peering.yml).
 
-
 <!-- links -->
 
-[aaf-cost]: ../../framework/cost/overview.md
+[aaf-cost]: /azure/architecture/framework/cost/overview
 [adds-extend-domain]: ../identity/adds-extend-domain.yml
 [az-vpn]: /azure/azure-stack/azure-stack-connect-vpn
 [azure-gateway-charges]: https://azure.microsoft.com/pricing/details/vpn-gateway

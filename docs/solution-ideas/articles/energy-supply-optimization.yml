@@ -1,9 +1,9 @@
 ### YamlMime:Architecture
 metadata:
-  title: Energy Supply Optimization
+  title: Energy supply optimization
   titleSuffix: Azure Solution Ideas
   description: This solution provides an Azure-based smart solution, applying external open-source tools, to determine the optimal energy unit commitments from various energy resources for an energy grid.
-  author: doodlemania2
+  author: EdPrice-MSFT
   ms.author: pnp
   ms.date: 01/26/2021
   ms.topic: conceptual
@@ -21,7 +21,7 @@ metadata:
     - "https://azure.microsoft.com/solutions/architecture/energy-supply-optimization/"
     - ai-machine-learning
   social_image_url: /azure/architecture/solution-ideas/articles/media/energy-supply-optimization.png
-name: Energy Supply Optimization
+name: Energy supply optimization
 azureCategories:
   - ai-machine-learning
   - integration

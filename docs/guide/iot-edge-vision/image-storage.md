@@ -19,7 +19,7 @@ ms.custom:
 
 # Image storage and management in Azure IoT Edge Vision
 
-Storage and management of the images involved in a computer vision application is a critical function. 
+Storage and management of the images involved in a computer vision application is a critical function.
 
 Some of the key considerations for managing these images are:
 

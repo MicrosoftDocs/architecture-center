@@ -1,6 +1,5 @@
 
 
-
 This reference architecture describes how to build an enterprise-grade conversational bot (chatbot) using the [Azure Bot Framework][bot-framework]. Each bot is different, but there are some common patterns, workflows, and technologies to be aware of. Especially for a bot to serve enterprise workloads, there are many design considerations beyond just the core functionality. This article covers the most essential design aspects, and introduces the tools needed to build a robust, secure, and actively learning bot.
 
 [![Diagram of the architecture][0]][0]
@@ -134,7 +133,7 @@ Another option is to integrate your own custom AI service. This approach is more
 
 **Testing**. Testing a bot involves unit tests, integration tests, regression tests, and functional tests. For testing, we recommend recording real HTTP responses from external services, such as Azure Search or QnA Maker, so they can be played back during unit testing without needing to make real network calls to external services.
 
->[!NOTE]
+> [!NOTE]
 > To jump-start your development in these areas, look at the [Botbuilder Utils for JavaScript][git-repo-base]. This repo contains sample utility code for bots built with [Microsoft Bot Framework v4][bot-framework] and running Node.js. It includes the following packages:
 >
 > - [Cosmos DB Logging Store][cosmosdb-logger]. Shows how to store and query bot logs in Cosmos DB.
@@ -213,7 +212,7 @@ For other cost considerations, see the Cost section in [Microsoft Azure Well-Arc
 
 [0]: ./_images/conversational-bot.png
 [aad]: /azure/active-directory
-[aaf-cost]: ../../framework/cost/overview.md
+[aaf-cost]: /azure/architecture/framework/cost/overview
 [activities]: /azure/bot-service/rest-api/bot-framework-rest-connector-concepts#activity
 [aml]: /azure/machine-learning/service
 [app-insights]: /azure/azure-monitor/app/app-insights-overview

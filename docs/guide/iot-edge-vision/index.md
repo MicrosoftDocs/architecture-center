@@ -1,5 +1,5 @@
 ---
-title: Azure IoT Edge Vision
+title: Computer vision with Azure IoT Edge
 titleSuffix: Azure Architecture Center
 description: Create an AI solution using Azure IoT Edge Vision. Explore camera recommendations, hardware acceleration, machine learning, image storage, alerts, and UI.
 author: MSKeith
@@ -16,25 +16,25 @@ ms.custom:
   - guide
 ---
 
-# Vision with Azure IoT Edge
+# Video analytics with Azure IoT Edge
 
 Visual inspection of products, resources, and environments has been a core practice for most enterprises, and was until recently, a very manual process. An individual, or a group of individuals, would be responsible for manually inspecting the assets or the environment. Depending on the circumstances, this could become inefficient, inaccurate, or both, due to human error and limitations.
 
 To improve the efficacy of visual inspection, enterprises began turning to deep learning artificial neural networks known as *convolutional neural networks* (or CNNs), to emulate human vision for analysis of images and video. Today this is commonly called computer vision, or simply *Vision AI*. Artificial intelligence for image analytics spans a wide variety of industries, including manufacturing, retail, healthcare, and the public sector, and an equally wide area of use cases.
 
-- **Vision for quality assurance** - In manufacturing environments, Vision AI can be very helpful with quality inspection of parts and processes with a high degree of accuracy and velocity. An enterprise pursuing this path automates the inspection of a product for defects to answer questions such as:
+- **Vision for quality assurance:** In manufacturing environments, Vision AI can be very helpful with quality inspection of parts and processes with a high degree of accuracy and velocity. An enterprise pursuing this path automates the inspection of a product for defects to answer questions such as:
 
     - Is the manufacturing process producing consistent results?
     - Is the product assembled properly?
     - Can there be an earlier notification of a defect to reduce waste?
     - How to leverage drift in the computer vision model to prescribe predictive maintenance?
 
-- **Vision for safety** - In any environment, safety is a fundamental concern for every enterprise, and the reduction of risk is a driving force for adopting Vision AI. Automated monitoring of video feeds to scan for potential safety issues provides critical time to respond to incidents, and opportunities to reduce exposure to risk. Enterprises looking at Vision AI for this use case are commonly trying to answer questions such as:
+- **Vision for safety:** In any environment, safety is a fundamental concern for every enterprise, and the reduction of risk is a driving force for adopting Vision AI. Automated monitoring of video feeds to scan for potential safety issues provides critical time to respond to incidents, and opportunities to reduce exposure to risk. Enterprises looking at Vision AI for this use case are commonly trying to answer questions such as:
 
     - How compliant is the workforce with using personal protective equipment?
     - How often are people entering unauthorized work zones?
     - Are products being stored in a safe manner?
-    - Are there unreported close calls in a facility, or pedestrian/equipment “near misses”?
+    - Are there unreported close calls in a facility, or pedestrian/equipment "near misses"?
 
 ## Why vision on the Edge
 
@@ -80,3 +80,12 @@ This series of articles demonstrate how to build a complete vision workload usin
 - [Azure Kinect DK documentation](/azure/kinect-dk/)
 - [MMdnn tool](https://github.com/Microsoft/MMdnn)
 - [ONNX](https://onnx.ai/)
+
+## Related resources
+
+- [Getting started with Azure IoT solutions](/azure/architecture/reference-architectures/iot/iot-architecture-overview)
+- [Azure IoT reference architecture](/azure/architecture/reference-architectures/iot)
+- [End-to-end manufacturing using computer vision on the edge](/azure/architecture/reference-architectures/ai/end-to-end-smart-factory)
+- [Connected factory hierarchy service](/azure/architecture/solution-ideas/articles/connected-factory-hierarchy-service)
+- [Connected factory signal pipeline](/azure/architecture/example-scenario/iot/connected-factory-signal-pipeline)
+- [Create smart places by using Azure Digital Twins](/azure/architecture/example-scenario/iot/smart-places)

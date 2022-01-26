@@ -1,5 +1,5 @@
 ---
-title: Agile development of data science projects - Team Data Science Process
+title: Agile development of data science projects
 description: Execute a data science project in a systematic, version controlled, and collaborative way within a project team by using the Team Data Science Process.
 author: marktab
 manager: marktab
@@ -9,15 +9,18 @@ ms.subservice: azure-guide
 ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
-ms.category: ai-machine-learning
-ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath, fcp
+ms.category:
+  - ai-machine-learning
+ms.custom:
+  - previous-author=deguhath
+  - previous-ms.author=deguhath
+  - fcp
 products:
   - azure
   - azure-synapse-analytics
 categories:
   - ai-machine-learning
 ---
-
 
 # Agile development of data science projects
 

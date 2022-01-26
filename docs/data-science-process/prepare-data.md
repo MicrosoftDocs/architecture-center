@@ -1,5 +1,5 @@
 ---
-title: Prep data for ML Studio (classic) - Team Data Science Process
+title: Prepare data for ML Studio (classic)
 description: Pre-process and clean data to prepare it to be used effectively for machine learning.
 services: machine-learning
 author: marktab
@@ -10,13 +10,16 @@ ms.subservice: team-data-science-process
 ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
-ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
+ms.custom:
+  - previous-author=deguhath
+  - previous-ms.author=deguhath
 products:
   - azure-machine-learning
 categories:
   - ai-machine-learning
 ---
-# Tasks to prepare data for enhanced machine learning
+# Prepare data for enhanced machine learning
+
 Pre-processing and cleaning data are important tasks that must be conducted before a dataset can be used for model training. Raw data is often noisy and unreliable, and may be missing values. Using such data for modeling can produce misleading results. These tasks are part of the Team Data Science Process (TDSP) and typically follow an initial exploration of a dataset used to discover and plan the pre-processing required. For more detailed instructions on the TDSP process, see the steps outlined in the [Team Data Science Process](overview.md).
 
 Pre-processing and cleaning tasks, like the data exploration task, can be carried out in a wide variety of environments, such as SQL or Hive or Azure Machine Learning Studio (classic), and with various tools and languages, such as R or Python, depending where your data is stored and how it is formatted. Since TDSP is iterative in nature, these tasks can take place at various steps in the  workflow of the process.
@@ -49,7 +52,7 @@ We can check the general quality of data by checking:
 
 When you find issues with data, **processing steps** are necessary, which often involves cleaning missing values, data normalization, discretization, text processing to remove and/or replace embedded characters that may affect data alignment, mixed data types in common fields, and others.
 
-**Azure Machine Learning consumes well-formed tabular data**.  If the data is already in tabular form, data pre-processing can be performed directly with Azure Machine Learning Studio (classic) in the Machine Learning.  If data is not in tabular form, say it is in XML, parsing may be required in order to convert the data to tabular form.  
+**Azure Machine Learning consumes well-formed tabular data**.  If the data is already in tabular form, data pre-processing can be performed directly with Azure Machine Learning Studio (classic) in the Machine Learning.  If data is not in tabular form, say it is in XML, parsing may be required in order to convert the data to tabular form.
 
 ## What are some of the major tasks in data pre-processing?
 * **Data cleaning**:  Fill in missing values, detect, and remove noisy data and outliers.
@@ -67,27 +70,27 @@ To deal with missing values, it is best to first identify the reason for the mis
 * **Dummy substitution**: Replace missing values with a dummy value: e.g, *unknown* for categorical or 0 for numerical values.
 * **Mean substitution**: If the missing data is numerical, replace the missing values with the mean.
 * **Frequent substitution**: If the missing data is categorical, replace the missing values with the most frequent item
-* **Regression substitution**: Use a regression method to replace missing values with regressed values.  
+* **Regression substitution**: Use a regression method to replace missing values with regressed values.
 
 ## How to normalize data?
 Data normalization rescales numerical values to a specified range. Popular data normalization methods include:
 
 * **Min-Max Normalization**: Linearly transform the data to a range, say between 0 and 1, where the min value is scaled to 0 and max value to 1.
 * **Z-score Normalization**: Scale data based on mean and standard deviation: divide the difference between the data and the mean by the standard deviation.
-* **Decimal scaling**: Scale the data by moving the decimal point of the attribute value.  
+* **Decimal scaling**: Scale the data by moving the decimal point of the attribute value.
 
 ## How to discretize data?
 Data can be discretized by converting continuous values to nominal attributes or intervals. Some ways of doing this are:
 
 * **Equal-Width Binning**: Divide the range of all possible values of an attribute into N groups of the same size, and assign the values that fall in a bin with the bin number.
-* **Equal-Height Binning**: Divide the range of all possible values of an attribute into N groups, each containing the same number of instances, then assign the values that fall in a bin with the bin number.  
+* **Equal-Height Binning**: Divide the range of all possible values of an attribute into N groups, each containing the same number of instances, then assign the values that fall in a bin with the bin number.
 
 ## How to reduce data?
 There are various methods to reduce data size for easier data handling. Depending on data size and the domain, the following methods can be applied:
 
 * **Record Sampling**: Sample the data records and only choose the representative subset from the data.
-* **Attribute Sampling**: Select only a subset of the most important attributes from the data.  
-* **Aggregation**: Divide the data into groups and store the numbers for each group. For example, the daily revenue numbers of a restaurant chain over the past 20 years can be aggregated to monthly revenue to reduce the size of the data.  
+* **Attribute Sampling**: Select only a subset of the most important attributes from the data.
+* **Aggregation**: Divide the data into groups and store the numbers for each group. For example, the daily revenue numbers of a restaurant chain over the past 20 years can be aggregated to monthly revenue to reduce the size of the data.
 
 ## How to clean text data?
 **Text fields in tabular data** may include characters that affect columns alignment and/or record boundaries. For example, embedded tabs in a tab-separated file cause column misalignment, and embedded new line characters break record lines. Improper text encoding handling while writing or reading text leads to information loss, inadvertent introduction of unreadable characters (like nulls), and may also affect text parsing. Careful parsing and editing may be required in order to clean text fields for proper alignment and/or to extract structured data from unstructured or semi-structured text data.
@@ -96,5 +99,5 @@ There are various methods to reduce data size for easier data handling. Dependin
 
 ## References
 > *Data Mining: Concepts and Techniques*, Third Edition, Morgan Kaufmann, 2011, Jiawei Han, Micheline Kamber, and Jian Pei
-> 
+>
 > 

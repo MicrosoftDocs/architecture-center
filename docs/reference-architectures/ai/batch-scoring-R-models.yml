@@ -2,7 +2,7 @@
 metadata:
   title: Batch scoring with R models to forecast sales
   description: Perform batch scoring with R models using Azure Batch and a data set based on retail store sales forecasting.
-  author: njray
+  author: EdPrice-MSFT
   ms.author: pnp
   ms.date: 03/29/2019
   ms.topic: conceptual

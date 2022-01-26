@@ -96,7 +96,7 @@ Try some code:
 
 - [Microsoft Recommenders repository][github] - Contains tutorials and examples of recommendation systems.
 - [Create and connect to a Data Science Virtual Machine][ms-learn] - A Microsoft Learn module.
-  
+
 [architecture]: ./media/architecture-movie-recommender.png
 [aci]: /azure/container-instances/container-instances-overview
 [aks]: /azure/aks/intro-kubernetes

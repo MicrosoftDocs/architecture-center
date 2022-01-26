@@ -8,7 +8,7 @@ The benefits of using a hub and spoke configuration include cost savings, overco
 
 This deployment includes one hub virtual network and two peered spokes. An Azure Firewall and Azure Bastion host are also deployed. Optionally, the deployment can include virtual machines in the first spoke network and a VPN gateway.
 
-#### [Azure CLI](#tab/cli)
+# [Azure CLI](#tab/cli)
 
 Use the following command to create a resource group for the deployment. Click the **Try it** button to use an embedded shell.
 
@@ -64,7 +64,7 @@ Use the following button to deploy the reference using the Azure portal.
 
 [![Deploy to Azure](../../_images/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fmspnp%2Fsamples%2Fmaster%2Fsolutions%2Fazure-hub-spoke%2Fazuredeploy.json)
 
---- 
+---
 
 For detailed information and extra deployment options, see the Azure Resource Manager (ARM) templates used to deploy this solution.
 
@@ -164,7 +164,7 @@ An Azure Firewall is deployed in the hub network in this architecture. When used
 
 You can use virtual network peering to route traffic between virtual networks by using private IP addresses. Here are some points:
 
-- Ingress and egress traffic is charged at both ends of the peered networks. 
+- Ingress and egress traffic is charged at both ends of the peered networks.
 - Different zones have different transfer rates.
 
 For instance, data transfer from a virtual network in zone 1 to another virtual network in zone 2, will incur outbound transfer rate for zone 1 and inbound rate for zone 2. For more information, see [Virtual network pricing](https://azure.microsoft.com/pricing/details/virtual-network).

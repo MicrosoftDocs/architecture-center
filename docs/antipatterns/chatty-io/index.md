@@ -2,7 +2,7 @@
 title: Chatty I/O antipattern
 titleSuffix: Performance antipatterns for cloud apps
 description: Learn about the cumulative effect of many I/O requests, which can have a significant impact on performance and responsiveness.
-author: dragon119
+author: EdPrice-MSFT
 ms.date: 06/05/2017
 ms.topic: conceptual
 ms.service: architecture-center
@@ -318,11 +318,11 @@ Tracing the SQL statement shows that all the data is fetched in a single SELECT 
 [new-relic]: https://newrelic.com/products/application-monitoring
 [no-cache]: ../no-caching/index.md
 
-[key-indicators-chatty-io]: _images/ChattyIO.jpg
-[key-indicators-chunky-io]: _images/ChunkyIO.jpg
-[databasetraffic]: _images/DatabaseTraffic.jpg
-[databasetraffic2]: _images/DatabaseTraffic2.jpg
-[queries]: _images/DatabaseQueries.jpg
-[queries2]: _images/DatabaseQueries2.jpg
-[queries3]: _images/DatabaseQueries3.jpg
-[queries4]: _images/DatabaseQueries4.jpg
+[key-indicators-chatty-io]: ./_images/ChattyIO.jpg
+[key-indicators-chunky-io]: ./_images/ChunkyIO.jpg
+[databasetraffic]: ./_images/DatabaseTraffic.jpg
+[databasetraffic2]: ./_images/DatabaseTraffic2.jpg
+[queries]: ./_images/DatabaseQueries.jpg
+[queries2]: ./_images/DatabaseQueries2.jpg
+[queries3]: ./_images/DatabaseQueries3.jpg
+[queries4]: ./_images/DatabaseQueries4.jpg

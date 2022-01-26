@@ -1,16 +1,17 @@
-
-
-
 [!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
-This NetWeaver on SQL Server application solution illustrates how a user request flows through an SAP landscape built on NetWeaver using Azure Virtual Machines to host SAP applications and a SQL Server database. This system takes advantage of OS clustering for high availability, premium storage for faster storage performance and scalability, SQL Server AlwaysOn capability for replication, and a full disaster recovery (DR) configuration for 99.95 percent system availability.
+This NetWeaver on SQL Server application solution illustrates how a user request flows through an SAP landscape that's built on NetWeaver, by using Azure Virtual Machines to host SAP applications and a SQL Server database.
+
+## Potential use cases
+
+This system takes advantage of OS clustering for high availability, premium storage for faster storage performance and scalability, SQL Server AlwaysOn capability for replication, and a full disaster recovery (DR) configuration for 99.95 percent system availability.
 
 ## Architecture
 
 ![Architecture diagram](../media/sap-netweaver-on-sql-server.png)
 *Download an [SVG](../media/sap-netweaver-on-sql-server.svg) of this architecture.*
 
-## Data Flow
+### Data flow
 
 1. Using Azure Active Directory synchronized with on-premises Active Directory, SAP application user authenticates from on-premises to SAP landscape on Azure with single sign-on credentials.
 1. Azure high-speed ExpressRoute Gateway connects on-premises network to Azure virtual machines and other resources securely.
@@ -22,7 +23,7 @@ This NetWeaver on SQL Server application solution illustrates how a user request
 1. VMs on the disaster recovery region can be used for nonproduction work to save costs.
 1. SAP app server with ASCS on disaster recovery side can be in standby shutdown mode, and can be started when needed to save costs.
 
-## Components
+### Components
 
 * Information on [Virtual Machines](https://azure.microsoft.com/services/virtual-machines) for SAP application servers.
 * Microsoft Azure [Premium Storage](https://azure.microsoft.com/services/storage/disks) provides improved throughput and less variability in I/O latencies. For improved performance, [Premium Storage](https://azure.microsoft.com/services/storage/disks) uses solid state disk (SSD) in Azure Storage nodes, and read cache that's backed by the local SSD of an Azure compute node.

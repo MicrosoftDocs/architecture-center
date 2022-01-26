@@ -1,6 +1,6 @@
 This reference architecture shows how to conduct distributed training of deep learning models across clusters of GPU-enabled VMs. The scenario is image classification, but the solution can be generalized to other deep learning scenarios such as segmentation or object detection.
 
-A reference implementation for this architecture is available on [GitHub][github]. 
+A reference implementation for this architecture is available on [GitHub][github].
 
 ![Architecture for distributed deep learning][0]
 
@@ -116,7 +116,7 @@ Azure Container Registry offers Basic, Standard and Premium. Choose a tier depen
 
 ### Azure Machine Learning Compute
 
-In this architecture, Azure ML Compute is likely the main cost driver. The implementation needs a cluster of GPU compute nodes price of which is determined by their number and the selected VM size. For more information on the VM sizes that include GPUs, see [GPU-optimized virtual machine sizes][gpu-vm-sizes] and [Azure Virtual Machines Pricing][az-vm-pricing]. 
+In this architecture, Azure ML Compute is likely the main cost driver. The implementation needs a cluster of GPU compute nodes price of which is determined by their number and the selected VM size. For more information on the VM sizes that include GPUs, see [GPU-optimized virtual machine sizes][gpu-vm-sizes] and [Azure Virtual Machines Pricing][az-vm-pricing].
 
 Typically, deep learning workloads checkpoint progress after every (few) epoch(s) to limit the impact of unexpected interruptions to the training. This can be nicely paired with the ability to leverage low-priority VMs for Azure Machine Learning compute clusters. Low-priority VMs use Azure's excess capacity at significantly reduced rates, however, they can be preempted if capacity demands increase.
 
@@ -142,7 +142,7 @@ You may also find the following resources useful:
 [1]: ./_images/distributed_dl_flow.png
 [2]: ./_images/distributed_dl_tests.png
 [acr]: /azure/container-registry/container-registry-intro
-[aaf-cost]: ../../framework/cost/overview.md
+[aaf-cost]: /azure/architecture/framework/cost/overview
 [aml-compute]: /azure/machine-learning/service/how-to-set-up-training-targets#amlcompute
 [az-container-registry-pricing]: https://azure.microsoft.com/pricing/details/container-registry
 [az-vm-pricing]: https://azure.microsoft.com/pricing/details/virtual-machines

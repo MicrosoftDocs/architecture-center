@@ -2,7 +2,7 @@
 title: Event-driven architecture style
 titleSuffix: Azure Application Architecture Guide
 description: Explore the benefits, challenges, and best practices for event-driven and IoT architectures on Azure.
-author: doodlemania2
+author: EdPrice-MSFT
 ms.date: 08/30/2018
 ms.topic: conceptual
 ms.service: architecture-center

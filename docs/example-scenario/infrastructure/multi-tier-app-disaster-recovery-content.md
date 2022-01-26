@@ -1,7 +1,4 @@
-
 <!-- cSpell:ignore sujayt -->
-
-
 
 This example scenario is applicable to any industry that needs to deploy resilient multitier applications built for high availability and disaster recovery. In this scenario, the application consists of three layers.
 
@@ -11,7 +8,7 @@ This example scenario is applicable to any industry that needs to deploy resilie
 
 Common application scenarios include any mission-critical application running on Windows or Linux. This can be an off-the-shelf application such as SAP and SharePoint or a custom line-of-business application.
 
-## Relevant use cases
+## Potential use cases
 
 Other relevant use cases include:
 
@@ -23,26 +20,26 @@ Other relevant use cases include:
 
 This scenario demonstrates a multitier application that uses ASP.NET and Microsoft SQL Server. In [Azure regions that support availability zones](/azure/availability-zones/az-overview#services-support-by-region), you can deploy your virtual machines (VMs) in a source region across availability zones and replicate the VMs to the target region used for disaster recovery. In Azure regions that don't support availability zones, you can deploy your VMs within an [availability set](/azure/virtual-machines/availability-set-overview) and replicate the VMs to the target region.
 
-To route traffic between regions, you need a global load balancer. There are two main Azure offerings: 
+To route traffic between regions, you need a global load balancer. There are two main Azure offerings:
 
 - Azure Front Door
 - Azure Traffic Manager
 
 When choosing a load balancer, consider your requirements and the feature set of the two offerings. How quickly do you want to failover? Can you take on the overhead of TLS management? Are there any organizational cost constraints?
 
-Front Door has Layer 7 capabilities: SSL offload, path-based routing, fast failover, caching, and others to improve performance and high-availability of your applications. You might experience faster packet travel times because the infrastructure is onboarded on Azure network sooner. 
+Front Door has Layer 7 capabilities: SSL offload, path-based routing, fast failover, caching, and others to improve performance and high-availability of your applications. You might experience faster packet travel times because the infrastructure is onboarded on Azure network sooner.
 
-Because Front Door adds a new hop, there are added security operations. If the architecture complies to regulatory requirements, there might be restrictions about the additional traffic TLS termination point. The TLS cipher suites selected by Front Door must meet your organization's security bar. Also, Front Door expects the backend services to use [certificates used by Microsoft](https://ccadb-public.secure.force.com/microsoft/IncludedCACertificateReportForMSFT). 
+Because Front Door adds a new hop, there are added security operations. If the architecture complies to regulatory requirements, there might be restrictions about the additional traffic TLS termination point. The TLS cipher suites selected by Front Door must meet your organization's security bar. Also, Front Door expects the backend services to use [certificates used by Microsoft](https://ccadb-public.secure.force.com/microsoft/IncludedCACertificateReportForMSFT).
 
-Another consideration is cost. The architecture should take advantage of the extensive feature set (not just failover) to justify the added cost. 
+Another consideration is cost. The architecture should take advantage of the extensive feature set (not just failover) to justify the added cost.
 
 Traffic Manager is a DNS-based load-balancing service. It balances and fails over only at the DNS level. For that reason, it can't fail over as quickly as Front Door, because of common challenges around DNS caching and systems not honoring DNS TTLs.
 
 You can combine both load balancers, if needed. For example, you want the DNS-based failover but you want to add a POP experience in front of that traffic-managed infrastructure.
 
-This architecture uses Traffic Manager because it's light weight. The failover timing is sufficient for illustrative purposes. 
+This architecture uses Traffic Manager because it's lightweight. The failover timing is sufficient for illustrative purposes.
 
-![Architecture overview of a highly resilient multitier web application][architecture]
+![Diagram showing the architecture overview of a highly resilient multitier web application.][architecture]
 
 - Distribute the VMs in each tier across two availability zones in regions that support zones. In other regions, deploy the VMs in each tier within one availability set.
 - The database tier can be configured to use Always On availability groups. With this SQL Server configuration, one primary database within a cluster is configured with up to eight secondary databases. If an issue occurs with the primary database, the cluster fails over to one of the secondary databases, allowing the application to remain available. For more information, see [Overview of Always On availability groups for SQL Server][docs-sql-always-on].
@@ -94,11 +91,25 @@ Configuring disaster recovery for Azure VMs using Azure Site Recovery will incur
 
 We have provided a [sample cost calculator][calculator] for configuring disaster recovery for a three-tier application using six virtual machines. All of the services are pre-configured in the cost calculator. To see how the pricing would change for your particular use case, change the appropriate variables to estimate the cost.
 
+## Next Steps
+
+- [Deploy Traffic Manager in Azure][Deploy-Traffic-Manager-in-Azure]
+- [Set up disaster recovery for Azure VMs][Set-up-disaster-recovery-for-Azure-VMs]
+
+## Related resources
+
+For additional high availability and disaster recovery reference architectures, see:
+
+- [Multi-region N-tier application][Multi-region-N-tier-application]
+- [Multi-region load balancing][Multi-region-load-balancing]
+- [Multi-region app with private database][Multi-region-app-with-private-database]
+- [Enterprise-scale disaster recovery][Enterprise-scale-disaster-recovery]
+
 <!-- links -->
 
 [architecture]: ./media/architecture-disaster-recovery-multi-tier-app.png
 [security]: /azure/security
-[scalability]: ../../framework/scalability/performance-efficiency.md
+[scalability]: /azure/architecture/framework/scalability/performance-efficiency
 [docs-availability-zones]: /azure/availability-zones/az-overview
 [docs-load-balancer]: /azure/load-balancer/load-balancer-overview
 [docs-nsg]: /azure/virtual-network/security-overview
@@ -108,3 +119,9 @@ We have provided a [sample cost calculator][calculator] for configuring disaster
 [docs-azure-site-recovery]: /azure/site-recovery/azure-to-azure-quickstart
 [docs-availability-sets]: /azure/virtual-machines/windows/manage-availability
 [calculator]: https://azure.com/e/6835332265044d6d931d68c917979e6d
+[Multi-region-N-tier-application]: /azure/architecture/reference-architectures/n-tier/multi-region-sql-server
+[Multi-region-load-balancing]: /azure/architecture/high-availability/reference-architecture-traffic-manager-application-gateway
+[Multi-region-app-with-private-database]: /azure/architecture/example-scenario/sql-failover/app-service-private-sql-multi-region
+[Enterprise-scale-disaster-recovery]: /azure/architecture/solution-ideas/articles/disaster-recovery-enterprise-scale-dr
+[Set-up-disaster-recovery-for-Azure-VMs]: /azure/site-recovery/azure-to-azure-tutorial-enable-replication
+[Deploy-Traffic-Manager-in-Azure]: /azure/traffic-manager/quickstart-create-traffic-manager-profile

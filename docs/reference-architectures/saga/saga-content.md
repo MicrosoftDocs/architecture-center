@@ -1,7 +1,4 @@
-
-
-
-The *saga* design pattern is a way to manage data consistency across microservices in distributed transaction scenarios. A saga is a sequence of transactions that updates each service and publishes a message or event to trigger the next transaction step. If a step fails, the saga executes compensating transactions that counteract the preceding transactions.
+The Saga design pattern is a way to manage data consistency across microservices in distributed transaction scenarios. A saga is a sequence of transactions that updates each service and publishes a message or event to trigger the next transaction step. If a step fails, the saga executes compensating transactions that counteract the preceding transactions.
 
 ## Context and problem
 
@@ -19,15 +16,15 @@ A [database-per-microservice](/dotnet/architecture/cloud-native/distributed-data
 
 Distributed transactions like the [two-phase commit (2PC)](https://en.wikipedia.org/wiki/Two-phase_commit_protocol) protocol require all participants in a transaction to commit or roll back before the transaction can proceed. However some participant implementations, such as NoSQL databases and message brokering, don't support this model.
 
-Another distributed transaction limitation is [interprocess communication (IPC)](https://en.wikipedia.org/wiki/Inter-process_communication) synchronicity and availability. Operating system-provided IPC allows separate processes to share data. For distributed transactions to commit, all participating services must be available, potentially reducing overall system availability. Architectural implementations with IPC or transaction limitations are candidates for the saga pattern.
+Another distributed transaction limitation is [interprocess communication (IPC)](https://en.wikipedia.org/wiki/Inter-process_communication) synchronicity and availability. Operating system-provided IPC allows separate processes to share data. For distributed transactions to commit, all participating services must be available, potentially reducing overall system availability. Architectural implementations with IPC or transaction limitations are candidates for the Saga pattern.
 
 ## Solution
 
-The saga pattern provides transaction management using a sequence of *local transactions*. A local transaction is the atomic work effort performed by a saga participant. Each local transaction updates the database and publishes a message or event to trigger the next local transaction in the saga. If a local transaction fails, the saga executes a series of *compensating transactions* that undo the changes that were made by the preceding local transactions.
+The Saga pattern provides transaction management using a sequence of *local transactions*. A local transaction is the atomic work effort performed by a saga participant. Each local transaction updates the database and publishes a message or event to trigger the next local transaction in the saga. If a local transaction fails, the saga executes a series of *compensating transactions* that undo the changes that were made by the preceding local transactions.
 
 ![Saga overview.](./images/saga-overview.png)
 
-In saga patterns:
+In Saga patterns:
 - *Compensable transactions* are transactions that can potentially be reversed by processing another transaction with the opposite effect.
 - A *pivot transaction* is the go/no-go point in a saga. If the pivot transaction commits, the saga runs until completion. A pivot transaction can be a transaction that is neither compensable nor retryable, or it can be the last compensable transaction or the first retryable transaction in the saga.
 - *Retryable transactions* are transactions that follow the pivot transaction and are guaranteed to succeed.
@@ -72,10 +69,10 @@ Orchestration is a way to coordinate sagas where a centralized controller tells 
 
 ## Issues and considerations
 
-Consider the following points when implementing the saga pattern:
+Consider the following points when implementing the Saga pattern:
 
-- The saga pattern may initially be challenging, as it requires a new way of thinking on how to coordinate a transaction and maintain data consistency for a business process spanning multiple microservices.
-- The saga pattern is particularly hard to debug, and the complexity grows as participants increase.
+- The Saga pattern may initially be challenging, as it requires a new way of thinking on how to coordinate a transaction and maintain data consistency for a business process spanning multiple microservices.
+- The Saga pattern is particularly hard to debug, and the complexity grows as participants increase.
 - Data can't be rolled back, because saga participants commit changes to their local databases.
 - The implementation must be capable of handling a set of potential transient failures, and provide *idempotence* for reducing side-effects and ensuring data consistency. Idempotence means that the same operation can be repeated multiple times without changing the initial result.
 - It's best to implement observability to monitor and track the saga workflow.
@@ -96,12 +93,12 @@ Suggested countermeasures to reduce or prevent anomalies include:
 
 ## When to use this pattern
 
-Use the saga pattern when you need to:
+Use the Saga pattern when you need to:
 
 - Ensure data consistency in a distributed system without tight coupling.
 - Roll back or compensate if one of the operations in the sequence fails.
 
-The saga pattern is less suitable for:
+The Saga pattern is less suitable for:
 
 - Tightly coupled transactions.
 - Compensating transactions that occur in earlier participants.

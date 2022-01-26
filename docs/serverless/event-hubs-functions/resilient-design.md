@@ -112,7 +112,7 @@ There are several noteworthy approaches that you can use to compensate for issue
 
 - **Use a schema registry:** A schema registry can be used as a proactive tool to help improve consistency and data quality. The [Azure Schema Registry](/azure/event-hubs/schema-registry-overview) can support the transition of schemas along with versioning and different compatibility modes as schemas evolve. At its core, the schema will serve as a contract between producers and consumers, which could reduce the possibility of invalid or corrupt data being published to the stream.
 
-In the end, there isn’t a perfect solution and the consequences and tradeoffs of each of the strategies needs to be thoroughly examined. Based on the requirements, using several of these techniques together may be the best approach.
+In the end, there isn't a perfect solution and the consequences and tradeoffs of each of the strategies needs to be thoroughly examined. Based on the requirements, using several of these techniques together may be the best approach.
 
 ## Next steps
 

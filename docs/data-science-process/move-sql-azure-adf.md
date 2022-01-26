@@ -1,5 +1,5 @@
 ---
-title: SQL Server data to SQL Database with Azure Data Factory - Team Data Science Process
+title: SQL Server data to SQL Database with Azure Data Factory 
 description: Set up an ADF pipeline that composes two data migration activities that together move data on a daily basis between databases on-premises and in the cloud.
 services: machine-learning
 author: marktab
@@ -10,7 +10,9 @@ ms.subservice: team-data-science-process
 ms.topic: article
 ms.date: 09/03/2020
 ms.author: tdsp
-ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
+ms.custom:
+  - previous-author=deguhath
+  - previous-ms.author=deguhath
 products:
   - azure-machine-learning
 categories:
@@ -80,7 +82,6 @@ A linked service defines the information needed for Azure Data Factory to connec
 
 The step-by-step procedure for creating linked services is provided in [Create linked services](/azure/data-factory/tutorial-hybrid-copy-portal#create-a-pipeline).
 
-
 ## <a name="adf-tables"></a>Define and create tables to specify how to access the datasets
 Create tables that specify the structure, location, and availability of the datasets with the following script-based procedures. JSON files are used to define the tables. For more information on the structure of these files, see [Datasets](/azure/data-factory/concepts-datasets-linked-services).
 
@@ -141,7 +142,6 @@ Copy the JSON definition of the table into a file called *onpremtabledef.json* f
 ```azurepowershell
 New-AzureDataFactoryTable -ResourceGroupName ADFdsprg -DataFactoryName ADFdsp –File C:\temp\onpremtabledef.json
 ```
-
 
 ### <a name="adf-table-blob-store"></a>Blob Table
 Definition for the table for the output blob location is in the following (this maps the ingested data from on-premises to Azure blob):
@@ -210,7 +210,6 @@ Copy the JSON definition of the table into a file called *AzureSqlTable.json* fi
 ```azurepowershell
 New-AzureDataFactoryTable -ResourceGroupName adfdsprg -DataFactoryName adfdsp -File C:\temp\AzureSqlTable.json
 ```
-
 
 ## <a name="adf-pipeline"></a>Define and create the pipeline
 Specify the activities that belong to the pipeline and create the pipeline with the following script-based procedures. A JSON file is used to define the pipeline properties.
@@ -298,7 +297,6 @@ Copy this JSON definition of the pipeline into a file called *pipelinedef.json* 
 ```azurepowershell
 New-AzureDataFactoryPipeline  -ResourceGroupName adfdsprg -DataFactoryName adfdsp -File C:\temp\pipelinedef.json
 ```
-
 
 ## <a name="adf-pipeline-start"></a>Start the Pipeline
 The pipeline can now be run using the following command:

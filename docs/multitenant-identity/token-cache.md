@@ -1,7 +1,8 @@
 ---
 title: Cache access tokens in a multitenant app
 description: Learn how to implement a custom token cache that derives from the Azure AD Authentication Library TokenCache class suitable for web apps.
-author: doodlemania2
+author: EdPrice-MSFT
+ms.author: pnp
 ms.date: 10/06/2021
 ms.topic: conceptual
 ms.service: architecture-center
@@ -27,7 +28,7 @@ It's relatively expensive to get an OAuth access token, because it requires an H
 
 Some implementations include MSAL are in-memory cache and distributed cache. This option is set in the ConfigureServices method of the Startup class of the web application. To acquire a token for the downstream API, you'll need to `.EnableTokenAcquisitionToCallDownstreamApi()`.
 
-The Surveys app uses distributed token cache that stores data in the backing store. The app uses a Redis cache as the backing store. Every server instance in a server farm reads/writes to the same cache, and this approach scales to many users. 
+The Surveys app uses distributed token cache that stores data in the backing store. The app uses a Redis cache as the backing store. Every server instance in a server farm reads/writes to the same cache, and this approach scales to many users.
 
 For a single-instance web server, you could use the ASP.NET Core [in-memory cache][in-memory-cache]. (This is also a good option for running the app locally during development.)
 
@@ -55,7 +56,7 @@ services.AddAuthentication(OpenIdConnectDefaults.AuthenticationScheme)
 
 The configuration for SurveyApi is specified in appsettings.json.
 
-```
+```json
   "SurveyApi": {
     "BaseUrl": "https://localhost:44301",
     "Scopes": "https://test.onmicrosoft.com/surveys.webapi/surveys.access",
@@ -65,42 +66,50 @@ The configuration for SurveyApi is specified in appsettings.json.
 
 ## Encrypting cached tokens
 
-Tokens are sensitive data, because they grant access to a user's resources. (Moreover, unlike a user's password, you can't just store a hash of the token.) Therefore, it's critical to protect tokens from being compromised. 
+Tokens are sensitive data, because they grant access to a user's resources. (Moreover, unlike a user's password, you can't just store a hash of the token.) Therefore, it's critical to protect tokens from being compromised.
 
-The Redis-backed cache is protected by a password, but if someone obtains the password, they could get all of the cached access tokens. The MSAL token cache is encrypted. 
+The Redis-backed cache is protected by a password, but if someone obtains the password, they could get all of the cached access tokens. The MSAL token cache is encrypted.
 
 ## Acquire the token
 
 The Survey application calls the downstream web API from the page constructor.
-```
+
+```csharp
 public class SurveyService : ISurveyService
 {
+    private string _serviceName;
     private readonly IDownstreamWebApi _downstreamWebApi;
-    ...
 
     public SurveyService(HttpClientService factory, IDownstreamWebApi downstreamWebApi, IOptions<ConfigurationOptions> configOptions)
-        {
-            _httpClient = factory.GetHttpClient();
-            _serviceName = configOptions.Value.SurveyApi.Name;
-            _downstreamWebApi = downstreamWebApi;
-        }
+    {
+        _serviceName = configOptions.Value.SurveyApi.Name;
+        _downstreamWebApi = downstreamWebApi;
+    }
 
-        public async Task<SurveyDTO> GetSurveyAsync(int id)
-        {
-            return await _downstreamWebApi.CallWebApiForUserAsync<SurveyDTO>(_serviceName,
-                    options =>
-                    {
-                        options.HttpMethod = HttpMethod.Get;
-                        options.RelativePath = $"surveys/{id}";
-                    });
-        }
-    ...
+    public async Task<SurveyDTO> GetSurveyAsync(int id)
+    {
+        return await _downstreamWebApi.CallWebApiForUserAsync<SurveyDTO>(_serviceName,
+            options =>
+            {
+                options.HttpMethod = HttpMethod.Get;
+                options.RelativePath = $"surveys/{id}";
+            });
+    }
 }
 ```
 Another way is to inject an `ITokenAcquisition` service in the controller. For more information, see [Acquire and cache tokens using the Microsoft Authentication Library (MSAL)](/azure/active-directory/develop/scenario-web-app-call-api-acquire-token?tabs=aspnetcore)
 
-
 [**Next**][client-certificate]
+
+## Next steps
+
+- [Token cache serialization in MSAL.NET](/azure/active-directory/develop/msal-net-token-cache-serialization)
+- [Acquire and cache tokens using the Microsoft Authentication Library (MSAL)](/azure/active-directory/develop/msal-acquire-cache-tokens)
+
+## Related resources
+
+- [Identity management in multitenant applications](/azure/architecture/multitenant-identity)
+- [Secure a backend web API for multitenant applications](/azure/architecture/multitenant-identity/web-api)
 
 <!-- links -->
 
