@@ -1,7 +1,7 @@
 ### YamlMime:Architecture
 metadata:
-  title: Reuse recommender systems, and algorithms from R with Azure
-  description: How to reuse and optimize recommendation apps written in the R language. Relies Machine Learning Server on a Azure VMs.
+  title: Reuse recommender systems and algorithms from R with Azure
+  description: How to reuse and optimize recommendation apps written in the R language. Relies on Machine Learning Server on Azure VMs.
   author: kbaroni
   ms.author: kbaroni
   ms.date: 11/20/2019
@@ -15,7 +15,7 @@ products:
   - azure-machine-learning
   - azure-sql-database
 name: Optimize and reuse an existing recommendation system 
-summary: How to reuse and optimize recommendation apps written in the R language. Relies Machine Learning Server on a Azure VMs.
+summary: How to reuse and optimize recommendation apps written in the R language. Relies on Machine Learning Server on Azure VMs.
 thumbnailUrl: /azure/architecture/browse/thumbs/recommendation-architecture.png
 content: |
   [!include[](recommendation-engine-optimization-content.md)]
