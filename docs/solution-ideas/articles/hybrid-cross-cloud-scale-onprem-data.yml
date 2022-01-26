@@ -39,4 +39,5 @@ name: Cross-cloud scaling (on-premises data)
 summary: Learn how to build a hybrid app that spans Azure and Azure Stack Hub. This solution also shows you how to use a single on-premises data source for compliance.
 thumbnailUrl: /azure/architecture/browse/thumbs/hybrid-cross-cloud-scale-onprem-data.png
 content: |
-  [!include[](hybrid-cross-cloud-scale-onprem-data.md)] 
+  [!include[](hybrid-cross-cloud-scale-onprem-data-content.md)] 
+             
