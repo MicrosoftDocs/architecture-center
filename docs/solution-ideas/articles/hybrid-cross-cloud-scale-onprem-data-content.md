@@ -50,7 +50,7 @@ _Download a [Visio](https://arch-center.azureedge.net/hybrid-cross-cloud-scale-o
   - Azure DNS for hosting DNS domains and providing name resolution.
 
 - [Azure Traffic Manager](https://azure.microsoft.com/services/traffic-manager/) is a DNS-based traffic load balancer. It allows you to control the distribution of user traffic for service endpoints in different datacenters.
-- [Application Insights](hhttps://azure.microsoft.com/services/monitor) is an extensible Application Performance Management service for web developers building and managing apps on multiple platforms.
+- [Application Insights](https://azure.microsoft.com/services/monitor) is an extensible Application Performance Management service for web developers building and managing apps on multiple platforms.
 - [Azure Functions](https://azure.microsoft.com/services/functions/) allows you to execute your code in a serverless environment without having to first create a VM or publish a web app.
 - [Azure Stack Hub](https://azure.microsoft.com/products/azure-stack/hub/) is an extension of Azure that can run workloads in an on-premises environment by providing Azure services in your datacenter.
   - IaaS Compute. Azure Stack Hub allows you to use the same app model, self-service portal, and APIs enabled by Azure. Azure Stack Hub IaaS allows a broad range of open-source technologies for consistent hybrid cloud deployments. The solution example uses a Windows Server VM to SQL Server, for example.
@@ -126,7 +126,7 @@ Azure and Azure Stack Hub are uniquely suited to support the needs of today's gl
 
 - [Extend an on-premises network using VPN](/azure/architecture/reference-architectures/hybrid-networking/vpn). This reference architecture shows how to extend a network from on premises or from Azure Stack into an Azure virtual network, using a site-to-site virtual private network (VPN). Traffic flows between the on-premises network and Azure through an IPSec VPN tunnel or through the Azure Stack multitenant VPN gateway
 - [Hybrid architecture design](../../hybrid/hybrid-start-here.md)
-- [Connect an on-premises network to Azure](../../reference-architectures/hybrid-networking/index-content.md)
+- [Connect an on-premises network to Azure](../../reference-architectures/hybrid-networking/index.yml)
 - [Extend an on-premises network using VPN](../../reference-architectures/hybrid-networking/vpn.yml)
-- [Connect an on-premises network to Azure using ExpressRoute](../../reference-architectures/hybrid-networking/expressroute-vpn-failover)
+- [Connect an on-premises network to Azure using ExpressRoute](../../reference-architectures/hybrid-networking/expressroute-vpn-failover.yml)
 - [DevOps with Azure Stack Hub](hybrid-continuous-integration.yml)
