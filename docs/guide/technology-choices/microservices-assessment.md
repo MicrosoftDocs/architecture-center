@@ -1,3 +1,20 @@
+---
+title: Microservices assessment and readiness 
+description: You this guide as a checklist of considerations to keep in mind when you move to a microservices architecture. 
+author: ovaismehboob 
+ms.author: ovmehboo
+ms.date: 01/28/2022
+ms.topic: conceptual
+ms.service: architecture-center
+ms.subservice: azure-guide
+products:
+  - azure-devops
+  - azure-api-management
+categories:
+  - devops
+ms.custom: fcp
+---
+
 # Microservices assessment and readiness 
 
 A microservices architecture can provide many benefits for your applications, including agility, scalability, and high availability. Along with these benefits, this architecture presents challenges. When you build microservices-based applications or transform existing applications into a microservices architecture, you need to analyze, assess, and prepare for the change to identify areas that need improvement.
@@ -39,7 +56,7 @@ Document the SLAs that are aligned with various parts of your application to ens
 ## Record architectural decisions
 A microservices architecture helps teams become autonomous. Teams can make their own decisions about technologies, methodologies, infrastructure components, and other areas. However, these choices should respect the formally agreed-upon principles known as shared governance, which expresses the agreement among teams on how to address the broader strategy for microservices.
 
-Here are some factors to consider: 
+Consider these factors: 
 - Is shared governance in place?
 - Do you track decisions and their trade-offs in an architecture journal?
 - Can your team easily access your architecture journal?
@@ -48,7 +65,7 @@ Here are some factors to consider:
 ## Assess team composition
 You need to have the proper team structure to avoid unnecessary communication across teams. A microservices architecture encourages the formation of small, focused, cross-functional teams and requires a mindset change, which must be preceded by team restructuring.
 
-Here are some factors to consider:
+Consider these factors:
 - Are your teams split based on subdomains, following [domain-driven design (DDD) principles](/dotnet/architecture/microservices/microservice-ddd-cqrs-patterns/ddd-oriented-microservice)? 
 - Are your teams cross-functional, with enough capacity to build and operate related microservices independently?
 - How much time is spent in ad hoc activities and tasks that aren't related to projects?
@@ -86,7 +103,7 @@ When you evaluate your DevOps capability for a microservices architecture, keep 
 ## Identify business areas that change frequently
 A microservices architecture is flexible and adaptable. During assessment, drive a discussion in the organization to determine the areas that they think will change more frequently. Building microservices allows teams to respond to changes requested by customers quickly and minimize regression testing efforts. In a monolithic application, a change in one module requires numerous levels of regression testing and reduces agility in releasing new versions. 
 
-Here are some factors to consider:
+Consider these factors:
 - Is the service independently deployable?
 - Does the service follow DDD principles?
 - Does the service follow [SOLID](https://azure.microsoft.com/resources/cloud-solid-cloud-architecture-and-the-single-responsibility-principle) principles?
@@ -163,7 +180,7 @@ Take the following considerations into account:
 ## Assess your service development model
 One of the greatest benefits of microservices architectures is technology diversity. Microservices-based systems enable teams to develop services by using the technologies they choose. In traditional application development, you might reuse existing code when you build new components or create an internal development framework to reduce development effort. The use of multiple technologies can prevent code reuse. 
 
-Here are some factors to consider:  
+Consider these factors:  
 - Do you use a service template to kickstart new service development?
 - Do you follow the Twelve-Factor app methodology and use a single code base for microservices, isolating dependencies and externalizing configuration?
 - Do you keep sensitive configuration secured in key vaults?
@@ -213,7 +230,7 @@ By using correlation tokens, you can retrieve the request trail by identifying w
 
 For example, if there's a long chain of operations that involves many services, passing the correlation token to services can help you investigate the issue easily if any of the services fails during the transaction. Each service usually has its own database. The correlation token is kept in the database record. In case of a transaction replay, services that have that particular correlation token in their databases ignore the request. Only services that don't have the token serve the request. 
 
-Here are some points to consider:
+Consider these factors:
 - At which stage do you assign the correlation token?
 - Which component assigns the correlation token?
 - Do you save correlation tokens in service's database?
@@ -235,30 +252,41 @@ Consider these factors:
 ## Assess your approach to application testing
 Traditionally, testing is done after development is completed and the application is ready to roll out to UAT (user acceptance testing) and production environments. There's a shift in this approach, moving the testing early (left) in the application development lifecycle. Shift-left testing increases the quality of applications because testing is done during each phase of the application development lifecycle, including the design, development, and post-development phases. 
 
-For example, when you build an application, you start with designing an architecture. The shift-left approach helps you test the design with respect to vulnerabilities by using tools like Microsoft Threat modeling. When you start development, you can scan your source code by running tools like SAST (Static Application Security Testing) tools and using other analyzers to uncover issues. Once the application is deployed, tools like Dynamic Application Security Testing (DAST) can be used to test the applications while it is hosted. Functional testing, chaos testing, penetration testing and other kinds of testing will also come later in the stage in shift-left approach. 
+For example, when you build an application, you start by designing an architecture. The shift-left approach helps you test the design for vulnerabilities by using tools like [Microsoft Threat Modeling](/azure/security/develop/threat-modeling-tool). When you start development, you can scan your source code by running tools like SAST (static application security testing) and using other analyzers to uncover problems. After the application is deployed, you can use tools like dynamic application security testing (DAST) to test it while it's hosted. Functional testing, chaos testing, penetration testing, and other kinds of testing happen later. 
 
-The following aspects are important to consider when assessing this area: 
-- Do you write test plan that cover the entire development life cycle?
-- Do you include testers in requirements meetings and in the entire application development life cycle?
-- Do you embrace test-driven design or behavior-driven design?
-- Do you test user stories, and do you add acceptance criteria in your user stories?
-- Do you test your design using tools like Microsoft Thread Modeling?
+Consider these factors: 
+- Do you write test plans that cover the entire development lifecycle?
+- Do you include testers in requirements meetings and in the entire application development lifecycle?
+- Do you use test-driven design or behavior-driven design?
+- Do you test user stories? Do you include acceptance criteria in your user stories?
+- Do you test your design by using tools like Microsoft Threat Modeling?
 - Do you write unit tests? 
 - Do you use static code analyzers or other tools to measure code quality?
 - Do you have automated tools in place to test applications?  
-- Have you implemented Secure DevOps practices? 
-- Do you have a practice of doing integration testing, end-to-end application testing, load/performance testing, penetration testing and chaos testing?
+- Do you implement [Secure DevOps](https://www.microsoft.com/securityengineering/devsecops) practices? 
+- Do you do integration testing, end-to-end application testing, load/performance testing, penetration testing, and chaos testing?
 
-## Assess Microservices Security 
-When it comes to building microservices, some of the most important considerations are service protection, secure access and secure communication. For example,  microservices based system that spans over multiple services and implementing token validation for each service is not a viable solution, since it affects the agility of the overall system and the potential of introducing implementation drift across services. Security concerns are usually handled by the API gateway and the application firewall which takes the incoming request, validate the tokens, apply various filters and policies such as implementing OWASP Top 10 principles to intercept the traffic and then finally send it to the backend microservices. This helps developers to build services focusing on the business aspects rather than adding other cross-cutting concerns such as security as one of them. 
+## Assess microservices security 
+Service protection, secure access, and secure communication are among of the most important considerations for a microservices architecture. For example, a microservices-based system that spans multiple services and uses token validation for each service isn't a viable solution. This system would affect the agility of the overall system and the potential of introducing implementation drift across services. 
 
-The following aspects are important to consider when assessing this area: 
-- Is the service authentication and authorization required?
-- Are you using API gateway to validate tokens and incoming requests?
-- Are the services communication secured using SSL or MTLS protocols?
-- Are the network security policies in place to allow the required communication among services?
-- Are you securing internal/external communications by using firewalls (L4, L7) where applicable?
-- Have you implemented security policies in API Gateway to control traffic?
+Security concerns are usually handled by the API gateway and the application firewall. The gateway and firewall take incoming requests, validate tokens, apply various filters and policies, like implementing OWASP Top 10 principles to intercept traffic. Finally, they send the request to the back-end microservices. This configuration helps developers focus on business needs rather than cross-cutting concerns like security. 
 
-## References
+Consider these factors: 
+- Are authentication and authorization required for the service?
+- Are you using an API gateway to validate tokens and incoming requests?
+- Is SSL or mTLS used to provide security for the service's communication?
+- Do you have network security policies in place to allow the required communication among services?
+- Are you using firewalls (L4, L7) where applicable to provide security for internal and external communications?
+- Do you use security policies in API Gateway to control traffic?
+
+## Next steps
+- [Microservices on Azure](https://azure.microsoft.com/solutions/microservice-applications)
 - [Embrace Microservices Design – by Packt](https://www.amazon.com/Embracing-Microservices-Design-anti-patterns-architectural/dp/180181838X) 
+- [Introduction to deployment patterns](/learn/modules/introduction-to-deployment-patterns)
+- [Design a microservice-oriented application](/dotnet/architecture/microservices/multi-container-microservice-net-applications/microservice-application-design)
+
+## Related resources
+- [Microservices architecture style](/azure/architecture/guide/architecture-styles)
+- [Build microservices on Azure](/azure/architecture/microservices)
+- [Microservices architecture on Azure Kubernetes Service](/azure/architecture/reference-architectures/containers/aks-microservices/aks-microservices)
+- [Microservices architecture on Azure Service Fabric](/azure/architecture/reference-architectures/microservices/service-fabric)

@@ -2386,6 +2386,8 @@ items:
                 href: microservices/index.md
               - name: Guides
                 items:
+                  - name: Microservices assessment and readiness
+                    href: guide/technology-choices/microservices-assessment.md
                   - name: Domain modeling for microservices
                     items:
                       - name: Domain analysis
