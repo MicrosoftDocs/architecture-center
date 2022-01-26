@@ -1,7 +1,7 @@
 ### YamlMime:Architecture
 metadata:
   title: Predictive maintenance in manufacturing 
-  description: Overview for the high power compute need in Manufacturing industry.
+  description: Overview for the high power compute need in the manufacturing industry.
   author: ercenk
   ms.author: ercenk
   ms.date: 11/20/2019
@@ -15,7 +15,7 @@ products:
   - azure-files
   - azure-machine-learning
 name: Predictive maintenance in manufacturing 
-summary: Overview for the high power compute need in Manufacturing industry.
+summary: Overview for the high power compute need in the manufacturing industry.
 thumbnailUrl: /azure/architecture/browse/thumbs/azure-batch-ai.png
 content: |
   [!include[](compute-manufacturing-overview-content.md)]
