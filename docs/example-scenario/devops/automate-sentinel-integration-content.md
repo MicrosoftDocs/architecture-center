@@ -211,11 +211,11 @@ This option is the fastest way to work with GitHub workflows, since it's a share
   
 Self-hosted runners
 
-This option facilitates to the organizations, having dedicated resources on specific scenarios. Self-Hosted runners can work over Virtual Machines and Containers on Azure, being very relevant consider the scenarios for auto-scaling.
+This option gives your organization a dedicated resources infrastructure. Self-hosted runners work over Virtual Machines and Containers on Azure, and support auto-scaling.
 
 ### Considerations for choosing runners
 
-Some of the things you'll need to consider when choosing options for the agents and runners for your Microsoft Sentinel solution:
+The following are things to consider when choosing options for the agents and runners in your Microsoft Sentinel solution:
 
 * Does your organization need dedicated resources for running processes on your Microsoft Sentinel environment(s)?
 * Does your organization want to isolate resources for Production environment DevOps activities from the rest of environments? 
@@ -227,19 +227,95 @@ You can set up the deployment process with Azure DevOps or GitHub. Azure DevOps 
 
 ### Azure DevOps deployment
 
-Azure DevOps Pipelines based on YAML files, associating the trigger to Pull-Request approval or allowing to run it under demand  
+You can do the following deployment activities in an Azure DevOps deployment.
 
-Manage the usage of the Service Connection which represents the different environment, using Azure DevOps Groups 
+* Use a YAML pipeline to automatically trigger pull request approvals or run on-demand.  
+* Manage service connections for different environments using Azure DevOps Groups.
+* On your critical environments, set up deployment approvals using the service connection feature and Azure DevOps Groups to assign specific user permissions in your organization.
 
-On critical environment, use Deployment approval using Service Connections Approval feature, using Azure DevOps Groups to assign the right approvals in the organization 
+GitHub
 
-GitHub 
+You can do the following deployment activities in a GitHub deployment.
 
-Use GitHub actions, associating the trigger to with pull request action or using Deployment action  
+* Use GitHub to create pull requests or deployment activities.  
+* Manage service principal credentials by using GitHub Secrets.
+* Integrate deployment approval through the workflow that's associated with GitHub.
 
-Manage the usage of Service Principal credentials using GitHub Secrets 
+### Automatic deployment with Microsoft Sentinel infrastructure
 
-Deployment approval can be integrated in the Workflow associated on the GitHub action 
+You can deploy one or more Microsoft Sentinel environments, depending on your enterprise architecture:
+
+* Organizations that need multiple instances on their Production environment can set up different subscriptions on the same tenant for each geographical location.  
+* A centralized instance on the Production environment provides access to one or more organizations on the same tenant.
+* Organizations that need multiple environments like Production, Pre-Production, Integration, and so on can create and destroy them as needed.
+
+#### Physical vs logical environment definitions
+
+You have two choices in setting up your environment definitions, physical or logical. Both have different options and advantages.
+
+* Physical definition - The elements of the Microsoft Sentinel architecture are defined with the following options for Infrastructure as Code (IaC):
+  * Bicep templates
+  * Azure Resource Manager (ARM) templates
+  * Terraform
+* Logical definition - This acts as an abstraction layer for setting up different teams in the organization and defining their environments. The definition is set in the deployment pipeline and workflows as input for the build environment using the physical infrastructure layer.
+
+Some things for you to think about when defining your logical environments:
+
+* Naming conventions
+* Environment identifications
+* Connectors and configurations
+
+#### Code Repository
+
+Given the environment approaches shown in the previous section, consider the following GitHub code repository organizations:
+
+* Physical definition - Based on IaC options, think about an approach based on individual module definitions linked in the main deployment definition.
+
+The following example shows a how your code might be organized:
+
+![Code example for a physical environment definition](./media/physical-definition-code-format-example.png)
+
+Access to this repository should be restricted to the team that defines the architecture at the physical level, ensuring a homogeneous definition in the Enterprise architecture.
+
+You can adapt the branching and merging strategy to the deployment strategy for each organization. If your organization needs to start with the definition, see [Adopt a Git branching strategy](https://docs.microsoft.com/en-us/azure/devops/repos/git/git-branching-guidance?view=azure-devops). For more information on Azure ARM templates, see [Using linked and nested templates when deploying Azure resources](https://docs.microsoft.com/en-us/azure/azure-resource-manager/templates/linked-templates?tabs=azure-powershell#linked-template). For more information on setting up Bicep environments, see [Install Bicep tools](https://docs.microsoft.com/en-us/azure/azure-resource-manager/bicep/install). For more information on GitHub, see [GitHub flow](https://docs.github.com/en/get-started/quickstart/github-flow).
+
+Logical definitions facilitate the organization environments. The Git repository must consolidate the different definitions for an organization.
+
+The following example shows a how your code might be organized:
+
+![Code example for a logical environment definition](./media/logical-definition-code-format-example.png)
+
+The usage of the repository should be based on pull request actions, where the different environment can be defined by different teams and being approved by the owners/approvers of the organization.
+
+The privileged level for executing an environment deployment must be Level 2, to ensure the creation for the Resource Group and the resources inside, ensuring the isolation of the environment. Approval actions must be also considered for productive environments (Production, Pre-Production) avoiding unmanaged actions over these cases.  
+
+Organizations that want to provide environments under demand for testing and development, ensuring the destruction after completing the purpose, can implement an Azure DevOps Pipeline or GitHub Actions for destroy the environment, based on Scheduled Triggers (Azure DevOps)/Events (GitHub).
+
+#### Sentinel Connectors Automatic Configuration  
+
+Microsoft Sentinel Connectors is an essential part of the solution, which allows to connect with different elements in the Enterprise Architecture landscape like Azure AD, Microsoft 365, Microsoft Defenders, Threat Intelligence Platform solutions, etc.  
+
+At the time of defining an Environment, facilitating the connectors configuration makes possible for the organization to provide environments with homogeneous configurations. 
+
+Enabling connectors as part of DevOps model needs to be supported over the Service Principal level model for ensuring the right level of privileges like we can see in the following reference: 
+
+| Connector Scenario | Privilege Access Model Level | Azure Least Privilege | Requires Workflow Approval  | 
+| ---- | --- | --- | --- | 
+| Azure Active Directory | Level 0 | Global Admin or Security Admin | Recommended |
+| Azure Active Directory Identity Protection | Level 0 | Global Admin or Security Admin | Recommended |
+| Microsoft Defender for Identity | Level 0 | Global Admin or Security Admin | Recommended |
+| Microsoft Office 365 | Level 0 | Global Admin or Security Admin | Recommended |
+| Microsoft Cloud App Security | Level 0 | Global Admin or Security Admin | Recommended |
+| Microsoft 365 Defender | Level 0 | Global Admin or Security Admin | Recommended |
+| Microsoft Defender for IOT | Level 2 | Contributor | Recommended |
+| Microsoft Defender for Cloud | Level 2 | Security Reader | Optional |
+| Azure Activity | Level 2 | Subscription Reader | Optional |
+| Threat Intelligence Platforms | Level 0 | Global Admin or Security Admin | Recommended |
+| Security Events | Level 4 | None | Optional |
+| Syslog | Level 4 | None | Optional |
+| DNS (preview) | Level 4 | None | Optional |
+| Windows Firewall | Level 4 | None | Optional |
+| Windows Security Events via AMA | Level 4 | None | Optional |
 
 ## Pricing
 
