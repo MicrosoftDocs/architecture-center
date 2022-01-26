@@ -10,6 +10,15 @@ ms.date: 01/26/2022
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: azure-guide
+azureCategories:
+  - integration
+  - compute
+  - hybrid
+products:
+  - azure-service-bus
+  - azure-event-grid
+  - azure-event-hubs
+  - azure-queue-storage
 ms.category:
   - fcp
 ms.custom:
@@ -38,7 +47,7 @@ Claim Check - to avoid sending sensitive info through a shared queue
 All messaging systems have similar functionalities, transport protocols, and usage scenarios. For example, most of the modern messaging systems support asynchronous communications using volatile or persistent queues, AMQP and HTTPS transport protocols, at least once-delivery, and so forth. However, looking more closely at the type of published information and how data is consumed and processed by client applications, we can distinguish between different kinds of messages and events. There's an essential distinction between services that deliver an event and systems that send a message. For more information, see:
 
 - [Choose between Azure messaging services - Event Grid, Event Hubs, and Service Bus](/azure/event-grid/compare-messaging-services)
-- [Events, Data Points, and Messages - Choosing the right Azure messaging service for your data](https://azure.microsoft.com/en-us/blog/events-data-points-and-messages-choosing-the-right-azure-messaging-service-for-your-data/)
+- [Events, Data Points, and Messages - Choosing the right Azure messaging service for your data](/blog/events-data-points-and-messages-choosing-the-right-azure-messaging-service-for-your-data/)
 
 ### Events
 
