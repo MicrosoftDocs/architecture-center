@@ -3,13 +3,20 @@ title: Asynchronous messaging options
 titleSuffix: Azure Application Architecture Guide
 description: Learn about asynchronous messaging options in Azure, including the different types of messages and the entities that participate in a messaging infrastructure.
 author: PageWriter-MSFT
-ms.date: 10/30/2019
+ms.date: 1/27/2022
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: guide
 ms.category:
   - integration
   - developer-tools
+categories:
+  - integration
+  - developer-tools
+products:
+  - azure-event-hubs
+  - azure-event-grid
+  - azure-service-bus
 ms.custom:
   - seonov19
   - guide
@@ -21,7 +28,7 @@ This article describes the different types of messages and the entities that par
 
 At an architectural level, a message is a datagram created by an entity (_producer_), to distribute information so that other entities (_consumers_) can be aware and act accordingly. The producer and the consumer can communicate directly or optionally through an intermediary entity (_message broker_). This article focuses on asynchronous messaging using a message broker.
 
-![Entities that take part in asynchronous messaging](./images/messaging.png)
+![Diagram demonstrating entities that take part in asynchronous messaging.](./images/messaging.png)
 
 Messages can be classified into two main categories. If the producer expects an action from the consumer, that message is a _command_. If the message informs the consumer that an action has taken place, then the message is an _event_.
 
