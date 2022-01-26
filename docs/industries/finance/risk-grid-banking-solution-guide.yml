@@ -1,7 +1,7 @@
 ### YamlMime:Architecture
 metadata:
   title: Risk grid computing solution
-  description: Introduces technical aspects of implementing Azure Batch for Risk Grid Computing in Banking.
+  description: Introduces technical aspects of implementing Azure Batch for risk grid computing in banking.
   author: dstarr
   ms.author: dastarr
   ms.date: 11/20/2019
@@ -16,7 +16,7 @@ products:
   - azure-expressroute
   - azure-vpn-gateway
 name: Risk grid computing solution
-summary: Introduces technical aspects of implementing Azure Batch for Risk Grid Computing in Banking.
+summary: Introduces technical aspects of implementing Azure Batch for risk grid computing in banking.
 thumbnailUrl: /azure/architecture/browse/thumbs/batch-run-process.png
 content: |
   [!include[](risk-grid-banking-solution-guide-content.md)]
