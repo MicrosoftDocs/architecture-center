@@ -78,7 +78,7 @@ When you evaluate your DevOps capability for a microservices architecture, keep 
    - Is continuous delivery implemented?
    - Is continuous deployment implemented?
    - Is continuous monitoring implemented?
-   - Is infrastructure as code in place?  
+   - Is [Infrastructure as Code (IaC)](/devops/deliver/what-is-infrastructure-as-code) in place?  
 - Are the right tools used to support CI/CD? 
 - How is configuration of staging and production environments managed for the application?
 - Does the tool chain have community support and a support model and provide proper channels and documentation?
@@ -116,114 +116,126 @@ Microservices are adaptive to change and embrace agile development to shorten re
 - Do you maintain different environments and propagate the same release in a sequence (like first to staging and then to production)?
 - Do you use versioning for your APIs?
 - Do you follow proper versioning guidelines for APIs?
-- What makes to change an API version?
-- What is your approach for handling API versioning?
-   - URI Path Versioning
-   - Query Parameter Versioning
-   - Content-Type Versioning
-   - Custom Header Versioning
-- Do you have a practice to perform event versioning?
+- When do you to change an API version?
+- What's your approach for handling API versioning?
+   - URI path versioning
+   - Query parameter versioning
+   - Content-type versioning
+   - Custom header versioning
+- Do you have a practice in place for event versioning?
 
 ## Assess communication across services 
-Microservices are self-contained services that communicates with one another across process boundaries to address various business scenarios. Selecting the communication protocol is a critical factor for achieving reliable and dependable communication. 
+Microservices are self-contained services that communicate with each other across process boundaries to address business scenarios. To get reliable and dependable communication, you need to select an appropriate communication protocol. 
 
-Following aspects should be considered when assessing this factor:
-- Are you following API first approach where APIs are treated as first-class citizens?
-- Do you have long chain operations where multiple services are communicating in sequence over synchronous communication protocol?
+Take these factors into consideration:
+- Are you following an API-first approach, where APIs are treated as first-class citizens?
+- Do you have long-chain operations, where multiple services communicate in sequence over a synchronous communication protocol?
 - Have you considered asynchronous communication anywhere in the system?
-- Assess the message broker technology and its capabilities to provide value to the business?
-- Understand the throughput of messages received and processed by services?
-- Do you have a direct client-to-service communication implemented?
-- Do you have a need to persist messages at the message broker level?
-- Are you using materialized view pattern to address the chatty behavior of microservices? 
-- Have you implemented retry, circuit-breaker, exponential back-off and jittering for reliable communication? A common way to handle this is to use Ambassador pattern.
+- Have you assessed the message broker technology and its capabilities?
+- Do you understand the throughput of messages received and processed by services?
+- Do you use direct client-to-service communication?
+- Do you need to persist messages at the message broker level?
+- Are you using the [Materialized View pattern](/azure/architecture/patterns/materialized-view) to address the chatty behavior of microservices? 
+- Have you implemented Retry, Circuit Breaker, Exponential Backoff, and Jitter for reliable communication? A common way to handle this is to use the [Ambassador pattern](/azure/architecture/patterns/ambassador).
 - Do you have defined domain events to facilitate communication between microservices? 
 
 ## Evaluate how services are exposed to clients
-API gateway is one of the core components when developing microservices architecture. Directly exposing services to the clients creates plenty of issues in terms of manageability, control, and dependable communication. API Gateway serves as a proxy server, intercepting traffic and routing it to backend services. If you need to filter traffic by IP address, authorization, mock responses, and so on, you can do it at the API gateway level without making any changes to the services.
+An API gateway is one of the core components in a microservices architecture. Directly exposing services to the clients creates plenty of problems in terms of manageability, control, and dependable communication. An API gateway serves as a proxy server, intercepting traffic and routing it to back-end services. If you need to filter traffic by IP address, authorization, mock responses, and so on, you can do it at the API gateway level without making any changes to the services.
 
-You should evaluate the following:
+Evaluate the following considerations:
 - Are the services directly consumed by clients?
-- Is there any API gateway that acts as a facade for all the services?
-- Is the API gateway capable of setting up policies such as quota limits, mocking responses, filtering IP addresses, and others?
-- Are you using multiple API gateways to address the needs of different types of clients such as mobile apps, web apps, partners and others?
-- Does API gateway provide a portal where clients can discover and subscribe to services, such as a developer portal in Azure API Management?
-- Does your solution provide L7 load balancing or Web Application Firewall (WAF) capabilities along with API gateway?
+- Is there an API gateway that acts as a facade for all the services?
+- Can the API gateway set up policies like quota limits, mocking responses, and filtering IP of addresses?
+- Are you using multiple API gateways to address the needs of different types of clients, like mobile apps, web apps, and partners?
+- Does your API gateway provide a portal where clients can discover and subscribe to services, like a developer portal in [Azure API Management](https://azure.microsoft.com/services/api-management)?
+- Does your solution provide L7 load balancing or Web Application Firewall (WAF) capabilities along with the API gateway?
  
 ## Assess transaction handling
-Distributed transaction facilitates the execution of multiple operations as a single unit of work. In Microservices architecture, the system is decomposed into numerous services, where a single business use case is addressed by invoking multiple microservices as part of a single distributed transaction. In a distributed transaction, a command is an operation that initiates when an event occurs. The event alerts the system to act and perform some operation. If that operation succeeds, it may trigger another command, which can then trigger another event, and so on until all the transactions are completed or rolled back, depending on whether the transaction was successful or failed. Let's look at some of the things to think about when considering this factor:
+Distributed transaction facilitates the execution of multiple operations as a single unit of work. In a microservices architecture, the system is decomposed into numerous services. A single business use case is addressed by multiple microservices as part of a single distributed transaction. In a distributed transaction, a command is an operation that initiates when an event occurs. The event alerts the system to perform some operation. If the operation succeeds, it might trigger another command, which can then trigger another event, and so on until all the transactions are completed or rolled back, depending on whether the transaction was successful or failed. 
+
+Take the following considerations into account:
 - How many distributed transactions exist in the system? 
-- What is your approach to handling distributed transactions, evaluate the use of Saga pattern with orchestrator/choreography? 
-- How many transactions span over multiple services?
-- Are you following ACID or BASE transaction models to achieve consistency and integrity of data?
-- Are you using long-chaining operation for transactions spanning to multiple services?
+- What's your approach to handling distributed transactions? Evaluate the use of [Saga pattern](/azure/architecture/reference-architectures/saga/saga) with orchestration or choreography.
+- How many transactions span multiple services?
+- Are you following ACID or BASE transaction models to achieve data consistency and integrity?
+- Are you using long-chaining operations for transactions that span multiple services?
 
 ## Assess your service development model
-One of the greatest benefits of microservices architecture is technology diversity. Microservices based systems enable teams to develop services using the technology of choice to address specific use case. Unlike, in traditional application development where we reuse existing code while building new components or create internal development framework to reduce development effort is far challenging with microservices architecture. When building a service using the same technology, you can reuse the code but if that service is using a different technology, the code cannot be reused. 
+One of the greatest benefits of microservices architectures is technology diversity. Microservices-based systems enable teams to develop services by using the technologies they choose. In traditional application development, you might reuse existing code when you build new components or create an internal development framework to reduce development effort. The use of multiple technologies can prevent code reuse. 
 
-Following are some important aspects to consider when evaluating this factor:  
-- Do you have a practice of keeping a service template to kick start new service development?
-- Do you follow the twelve-factor app methodology for single code base for microservices, isolating dependencies and externalizing configuration?
-- Do you keep sensitive configuration secured using key vaults?
-- Are you containerizing your services?
+Here are some factors to consider:  
+- Do you use a service template to kickstart new service development?
+- Do you follow the Twelve-Factor app methodology and use a single code base for microservices, isolating dependencies and externalizing configuration?
+- Do you keep sensitive configuration secured in key vaults?
+- Do you containerize your services?
 - Do you know your data consistency requirements?
 
 ## Assess your deployment approach
-Deployment approach is the method for releasing versions of your application across different deployment environments. Microservices based systems enable agility to release versions faster to the market as compared to traditional applications. When analyzing a deployment plan, the following factors should be considered:
-- Do you follow deployment strategy for deploying your services?
-- Are you using modern tools and technologies for deploying your services?
-- What kind of collaboration is needed with other teams when you deploy your services?
-- Do you have a practice of provisioning infrastructure using Infrastructure as Code (IaC)?
-- Are you using DevOps capabilities to automate deployments?
-- Do you propagate same builds to multiple environments as suggested by the twelve-factor app methodology? 
+Your deployment approach is your method for releasing versions of your application across various deployment environments. Microservices-based systems provide the agility to release versions faster than you can with traditional applications. 
+
+When you assess your deployment plan, consider these factors:
+- Do you have a strategy for deploying your services?
+- Are you using modern tools and technologies to deploy your services?
+- What kind of collaboration is required among teams when you deploy services?
+- Do you provision infrastructure by using Infrastructure as Code (IaC)?
+- Do you use DevOps capabilities to automate deployments?
+- Do you propagate the same builds to multiple environments, as suggested by the Twelve-Factor app methodology? 
 
 ## Assess your hosting platform
-One of the key advantages of a microservices architecture is scalability. Since microservices are modelled towards business domains, where each service can be scaled independently. However, a monolithic application is deployed as a single unit on a hosting platform and needed to be scaled holistically that results in downtime, deployment risk, and maintenance. Although, at times these monolithic applications are well designed in the form of components addressing individual business domains but due to lack of process boundaries the potential of violating the principles of single responsibility becomes more difficult and eventually results in a spaghetti code and since the application is composed and deployed as a single hosting process, scalability is difficult. 
+Scalability is one of the key advantages of microservices architectures. That's because microservices are mapped to business domains, so each service can be scaled independently. A monolithic application is deployed as a single unit on a hosting platform and needs to be scaled holistically. That results in downtime, deployment risk, and maintenance. Your monolithic application might be well designed, with components addressing individual business domains. But because of a lack of process boundaries, the potential for violating the principles of single responsibility becomes more difficult. This eventually results in a spaghetti code. Because the application is composed and deployed as a single hosting process, scalability is difficult. 
 
-Microservices enables teams to choose the right hosting platform to support their scalability needs. There are various hosting platforms available today to address these challenges by providing capabilities such as auto-scaling, elastic provisioning, higher availability, faster deployment and easy monitoring. 
+Microservices enables teams to choose the right hosting platform to support their scalability needs. There are various hosting platforms available to address these challenges by providing capabilities like autoscaling, elastic provisioning, higher availability, faster deployment, and easy monitoring. 
 
-When discussing the platform capabilities with your customers, it’s important to consider following factors: 
-- What is the hosting platform you have used to deploy your services (Virtual Machines, Containers, Serverless)? 
-- Is the hosting platform scalable and support auto-scaling?
-- How much time is required to scale the hosting platform?
-- Understand the SLAs provided by different hosting platforms?
-- Does the hosting platform support disaster recovery?
+Consider these factors: 
+- What hosting platform do you use to deploy your services (virtual machines, containers, serverless)? 
+- Is the hosting platform scalable? Does it support autoscaling?
+- How long does it take to scale your hosting platform?
+- Do you understand the SLAs provided by various hosting platforms?
+- Does your hosting platform support disaster recovery?
 
 ## Assess services monitoring
-Monitoring is an important element of a microservices-based application. Since the application is divided into a number of services that run independently, troubleshooting errors becomes a daunting task. If you use proper semantics for monitoring your services, your teams will be able to easily monitor, investigate, and respond to errors. 
+Monitoring is an important element of a microservices-based application. Because the application is divided into a number of services that run independently, troubleshooting errors can be daunting. If you use proper semantics to monitor your services, your teams can to easily monitor, investigate, and respond to errors. 
 
-The following factors must be considered when evaluating this area:
-- Do you maintain a practice of monitoring your services when it is deployed?
-- Is there a proper logging mechanism in place and what tools you are using?
-- Is there a distributed tracing infrastructure in place?
-- Is there a practice of recording exceptions?
-- Is there a practice of maintaining business error codes for quick identification of issues?
-- Are health probes implemented for services?
-- Are you following semantic logging, and have you implemented key metrics, thresholds, and indicators? 
-- Are you masking sensitive data while logging?
+Consider these factors:
+- Do you monitor your deployed services?
+- Do you have a logging mechanism in place? What tools do you use?
+- Do you have a distributed tracing infrastructure in place?
+- Do you record exceptions?
+- Do you maintain business error codes for quick identification of problems?
+- Do you use health probes for services?
+- Do you use semantic logging? Have you implemented key metrics, thresholds, and indicators? 
+- Do you mask sensitive data during logging?
 
 ## Assess correlation token assignment
-In Microservices architecture, the application is composed of various microservices hosted independently, interacting with each other to serve different business use cases. When an application interacts with back-end services to perform an operation, assigning a unique number (also known as correlation token) to that request is an important factor to consider, which later helps in troubleshooting the error in case of failure. This helps in triaging the issue across microservices to determine the root cause, assess the impact and approach to remediate the issue. With correlation token the request trail can be retrieved by identifying which services contains the correlation token and which are failed by not having that correlation token for that request. Eventually, the same transaction can be re-tried in case of failure, and only those services will serve the request that don’t have the same correlation token to enforce idempotency. 
+In a microservices architecture, an application is composed of various microservices hosted independently, interacting with each other to serve various business use cases. When an application interacts with back-end services to perform an operation, you can assign a unique number, known as a correlation token, to that request. We recommend that you consider using correlation tokens, because they can help you troubleshoot errors. They help you determine the root cause of a problem, assess the impact, and determine an approach to remediate the problem. 
 
-For example, if there is a long chain of operations where many services are involved, passing the correlation token to services help investigate the issue easily if any of the services fails during the transaction. Usually, each service has its own database, they keep the correlation token within the database record. In case of transaction replay, services that contains the same correlation token in their databases will ignore that request and only those services will serve that don’t have that correlation token. 
+By using correlation tokens, you can retrieve the request trail by identifying which services contain the correlation token and which don't. The ones that don't have the correlation token for that request failed. In case of failure, you can later retry the same transaction. To enforce idempotency, only services that don't have the correlation token will serve the request. 
 
-The following points should be considered when discussing correlation tokens:
-- At which stage the correlation token is assigned?
-- Which component is responsible for assigning the correlation token?
-- Do you save correlation tokens in service’s database?
-- What is the format of the correlation token?
-- Do you log correlation token and other request information in logging solution?
+For example, if there's a long chain of operations that involves many services, passing the correlation token to services can help you investigate the issue easily if any of the services fails during the transaction. Each service usually has its own database. The correlation token is kept in the database record. In case of a transaction replay, services that have that particular correlation token in their databases ignore the request. Only services that don't have the token serve the request. 
+
+Here are some points to consider:
+- At which stage do you assign the correlation token?
+- Which component assigns the correlation token?
+- Do you save correlation tokens in service's database?
+- What's the format of the correlation token?
+- Do you log correlation tokens and other request information?
 
 ## Evaluate the need for a microservices chassis framework 
-The Microservices chassis framework is a base framework that provides capabilities of cross-cutting concerns such as logging, exception handling, distributed tracing, security, communication and others.  By implementing this approach you focus more on implementing the service boundary rather than making efforts for interacting with infrastructure functionalities. For example, you are building a cart management service where you want to validate the incoming token, write logs to the logging database and communicate to other service by invoking that service’s endpoint. The development efforts can be reduced if you have a Microservices chassis framework in place.  Dapr is one of the examples that provides various building blocks to implement cross-cutting concerns. While driving a discussion with your customer, following factors are important to consider evaluating this area: 
-- Do you use microservices chassis framework in place?
-- Are you using Dapr to interact with cross-cutting concerns?
-- Your chassis framework is language agnostic?
-- Chassis framework should not contain application specific logic. Is your chassis framework generic to support all kind of applications? 
-- Is your chassis framework providing a mechanism to use the selected components or services as needed?
+A microservices chassis framework is a base framework that provides capabilities for cross-cutting concerns like logging, exception handling, distributed tracing, security, and communication. When you use a chassis framework, you focus more on implementing the service boundary than interacting with infrastructure functionality. 
+
+For example, say you're building a cart management service. You want to validate the incoming token, write logs to the logging database, and communicate with another service by invoking that service's endpoint. If you use a microservices chassis framework, you can reduce development efforts.  Dapr is one system that provides various building blocks for implementing cross-cutting concerns. 
+
+Consider these factors: 
+- Do you use a microservices chassis framework?
+- Do you use Dapr to interact with cross-cutting concerns?
+- Is your chassis framework language agnostic?
+- Is your chassis framework generic, so it supports all kinds of applications? A chassis framework shouldn't contain application-specific logic. 
+- Does your chassis framework provide a mechanism to use the selected components or services as needed?
 
 ## Assess your approach to application testing
-Traditionally, testing is done once the development is completed and the application is ready to roll out to UAT (User Acceptance Testing) and production environments. Today, there is a shift in this approach by shifting the testing left and adopting it early in the application development life cycle. Shift left testing increases the quality of the application by testing each phase that includes design, development and post development phases of application development life cycle. For instance, if you are building an application, you start with designing an architecture and shift left approach helps you to test the design with respect to vulnerabilities by using tools like Microsoft Threat modeling. When you start development, you can scan your source code by running tools like SAST (Static Application Security Testing) tools and using other analyzers to uncover issues. Once the application is deployed, tools like Dynamic Application Security Testing (DAST) can be used to test the applications while it is hosted. Functional testing, chaos testing, penetration testing and other kinds of testing will also come later in the stage in shift-left approach. 
+Traditionally, testing is done after development is completed and the application is ready to roll out to UAT (user acceptance testing) and production environments. There's a shift in this approach, moving the testing early (left) in the application development lifecycle. Shift-left testing increases the quality of applications because testing is done during each phase of the application development lifecycle, including the design, development, and post-development phases. 
+
+For example, when you build an application, you start with designing an architecture. The shift-left approach helps you test the design with respect to vulnerabilities by using tools like Microsoft Threat modeling. When you start development, you can scan your source code by running tools like SAST (Static Application Security Testing) tools and using other analyzers to uncover issues. Once the application is deployed, tools like Dynamic Application Security Testing (DAST) can be used to test the applications while it is hosted. Functional testing, chaos testing, penetration testing and other kinds of testing will also come later in the stage in shift-left approach. 
 
 The following aspects are important to consider when assessing this area: 
 - Do you write test plan that cover the entire development life cycle?
