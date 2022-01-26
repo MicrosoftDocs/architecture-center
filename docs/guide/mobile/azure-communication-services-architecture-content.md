@@ -1,13 +1,4 @@
- ---
- title:  Azure Communication Services Architecture Guide
- titleSuffix: Azure Communication Services Architecture Guide
- description: Learn about Communication Services' architecture.
- author: tophpalmer
- manager: tophpalmer
- ms.author: chpalm
- ---
-
- # Azure Communication Services Architecture Guide
+# Azure Communication Services Architecture Guide
 
 This guide presents data flow diagrams for [Azure Communication Services (ACS)](https://docs.microsoft.com/en-us/azure/communication-services/). Use these diagrams to understand how your code interact with ACS sub-systems.
 
