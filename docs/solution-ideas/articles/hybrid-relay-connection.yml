@@ -24,6 +24,6 @@ summary:  Learn how to connect to edge resources or devices that are protected b
 products:
   - azure-stack-hub
   - azure-virtual-machines
-thumbnailUrl: /azure/architecture/browse/thumbs/hybrid-pattern-hybrid-relay.png
+thumbnailUrl: /azure/architecture/browse/thumbs/hybrid-relay-connection.png 
 content: |
    [!include[](hybrid-relay-connection-content.md)]
