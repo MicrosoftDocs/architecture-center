@@ -1,7 +1,7 @@
 ---
 title: Azure Database for PostgreSQL considerations for multitenancy
 titleSuffix: Azure Architecture Center
-description: This article describes the features of Azure Database for PostgreSQL that are useful when working with multitenanted systems, and links to guidance and examples for how to use Azure Database for PostgreSQL in a multitenant solution.
+description: This article describes the features of Azure Database for PostgreSQL that are useful when working with multitenanted systems, and provides links to guidance and examples.
 author: PlagueHO
 ms.author: dascottr
 ms.date: 01/20/2022
