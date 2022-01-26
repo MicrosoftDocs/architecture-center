@@ -1,10 +1,10 @@
-Identity and access management (IAM) provides a framework for protecting data and resources. In on-premises systems, internal networks establish security boundaries. But in cloud environments, perimeter networks and firewalls aren't sufficient for managing access to apps and data. Instead, public cloud systems rely on identity solutions for boundary security.
+Identity and access management (IAM) provides a framework for protecting data and resources. Internal networks establish security boundaries in on-premises systems. In cloud environments, perimeter networks and firewalls aren't sufficient for managing access to apps and data. Instead, public cloud systems rely on identity solutions for boundary security.
 
-An identity solution controls who and what has access to an organization's apps and data. Identities exist for user accounts and for accounts that devices, applications, and service principles use. IAM components support the authentication and authorization of these identities. The process of authentication identifies users. Authorization determines what users can do in applications.
+An identity solution controls access to an organization's apps and data. IAM components support the authentication and authorization of identities like users, devices, and applications. The process of authentication identifies who or what is using an account. Authorization determines what that user can do in applications.
 
-Whether you're just starting to evaluate identity solutions or looking to expand your current implementation, Azure provides many options. At the core of many solutions is Azure Active Directory (Azure AD), a cloud service that provides identity management and access control capabilities. The workflow starts with learning about this service and other Azure components, tools, and reference architectures that you can use to develop secure and efficient identity solutions.
+Whether you're just starting to evaluate identity solutions or looking to expand your current implementation, Azure offers many options. One example is Azure Active Directory (Azure AD), a cloud service that provides identity management and access control capabilities. The workflow starts with learning about this service and other Azure components, tools, and reference architectures.
 
-:::image type="content" source="./media/identity-basic-architecture.png" alt-text="Architecture diagram that shows the connections between Azure A D and various components like apps, partners, and devices." border="false":::
+:::image type="content" source="./media/identity-basic-architecture.png" alt-text="Architecture diagram that shows Azure A D in a cloud environment. Connections to apps, devices, and other components are also visible." border="false":::
 
 ## Introduction to identity on Azure
 
@@ -54,7 +54,7 @@ To explore options for identity solutions, consult these resources:
 
 When you've decided on an approach, implementation comes next. For deployment recommendations, see these resources:
 
-- For a series of articles and code samples for a multitenant application identity solution, see [Identity management in multitenant applications][Identity management in multitenant applications].
+- For a series of articles and code samples for a multitenant solution, see [Identity management in multitenant applications][Identity management in multitenant applications].
 
 - For information on deploying Azure AD, see these resources:
 
@@ -66,7 +66,7 @@ When you've decided on an approach, implementation comes next. For deployment re
 
 ## Best practices
 
-- Azure AD can help boost productivity. For general information on benfitting from this service's automation, self-service, and single sign-on capabilities, see [Four steps to a strong identity foundation with Azure Active Directory][Four steps to a strong identity foundation with Azure Active Directory].
+- With capabilities like automation, self-service, and single sign-on, Azure AD can help boost productivity. For general information on benefitting from this service, see [Four steps to a strong identity foundation with Azure Active Directory][Four steps to a strong identity foundation with Azure Active Directory].
 
 - To check whether your Azure AD implementation aligns with the Azure Security Benchmark version 2.0, see [Azure security baseline for Azure Active Directory][Azure security baseline for Azure Active Directory].
 
@@ -112,7 +112,7 @@ The following resources provide practical recommendations and information for sp
 - [Design authentication and credential strategies][Design authentication and credential strategies]
 - [Design an account strategy][Design an account strategy]
 - [Design identity governance][Design identity governance]
-- [Updated Guidance for M365 EDU Deployment during COVID-19][Updated Guidance for M365 EDU Deployment during COVID-19]
+- [Updated Guidance for Microsoft 365 EDU Deployment during COVID-19][Updated Guidance for M365 EDU Deployment during COVID-19]
 
 ### Information for Amazon Web Services (AWS) and Google Cloud Platform (GCP) professionals
 
