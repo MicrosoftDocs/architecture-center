@@ -72,7 +72,7 @@ This kind of contractual message handling is quite different from a publisher pu
 
 ### Scenarios
 
-Here is a list of typical scenarios for messages, data points, and discrete events:
+Here is a list of some example multitenant scenarios for messages, data points, and discrete events:
 
 - Events:
   - A music sharing platform tracks the fact that a specific user in a specific tenant has listened to a particular music track.
