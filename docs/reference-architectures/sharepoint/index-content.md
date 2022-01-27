@@ -199,8 +199,8 @@ For more information about the individual pieces of the solution architecture, s
 
 <!-- links -->
 
-[AAF-cost]: ../../framework/cost/overview.md
-[AAF-devops]: ../../framework/devops/overview.md
+[AAF-cost]: /azure/architecture/framework/cost/overview
+[AAF-devops]: /azure/architecture/framework/devops/overview
 [arm-template]: /azure/azure-resource-manager/management/overview
 [ADDS-pricing]: https://azure.microsoft.com/pricing/details/active-directory-ds/
 [availability-set]: /azure/virtual-machines/windows/manage-availability

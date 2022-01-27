@@ -8,7 +8,7 @@ editor: marktab
 ms.service: machine-learning
 ms.subservice: team-data-science-process
 ms.topic: article
-ms.date: 12/03/2021
+ms.date: 01/20/2022
 ms.author: tdsp
 ms.custom:
   - previous-author=deguhath
@@ -17,6 +17,7 @@ products:
   - azure-machine-learning
 categories:
   - ai-machine-learning
+ROBOTS: NOINDEX
 ---
 # Walk-throughs executing the Team Data Science Process
 

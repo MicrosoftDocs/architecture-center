@@ -4,7 +4,7 @@ titleSuffix: Azure Architecture Center
 description: This article describes approaches to support multitenancy for the storage and data components of your solution.
 author: johndowns
 ms.author: jodowns
-ms.date: 11/03/2021
+ms.date: 12/13/2021
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: azure-guide
@@ -28,7 +28,7 @@ When planning multitenant storage or data components, you need to decide on an a
 
 ## Key considerations and requirements
 
-It's important to consider the approaches you use for storage and data services from a number of perspectives, which approximately align to the pillars of the [Azure Well-Architected Framework](../../../framework/index.md).
+It's important to consider the approaches you use for storage and data services from a number of perspectives, which approximately align to the pillars of the [Azure Well-Architected Framework](/azure/architecture/framework).
 
 ### Scale
 
@@ -78,7 +78,7 @@ Generally, the higher the density of tenants to your deployment infrastructure, 
 
 ## Approaches and patterns to consider
 
-Several design patterns from the Azure Architecture Center are of relevance to mulitenant storage and data services. You might choose to follow one pattern consistently. Or, you could consider mixing and matching patterns. For example, you might use a multitenant database for most of your tenants, but deploy single-tenant stamps for tenants who pay more or who have unusual requirements. Similarly, it's often a good practice to scale by using deployment stamps, even when you use a multitenant database or sharded databases within a stamp.
+Several design patterns from the Azure Architecture Center are of relevance to multitenant storage and data services. You might choose to follow one pattern consistently. Or, you could consider mixing and matching patterns. For example, you might use a multitenant database for most of your tenants, but deploy single-tenant stamps for tenants who pay more or who have unusual requirements. Similarly, it's often a good practice to scale by using deployment stamps, even when you use a multitenant database or sharded databases within a stamp.
 
 ### Deployment Stamps pattern
 

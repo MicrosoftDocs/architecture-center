@@ -68,7 +68,7 @@ For general guidance on designing secure solutions, see the [Azure Security Docu
 
 The Ethereum PoA blockchain can itself provide some degree of resilience as the validator nodes can be deployed in different regions. Azure has options for deployments in over 54 regions worldwide. A blockchain such as the one in this scenario provides unique and refreshing possibilities of cooperation to increase resilience. The resilience of the network is not just provided for by a single centralized party but all members of the consortium. A proof-of-authority&ndash;based blockchain allows network resilience to be even more planned and deliberate.
 
-For general guidance on designing resilient solutions, see [Designing reliable Azure applications](../../framework/resiliency/app-design.md).
+For general guidance on designing resilient solutions, see [Designing reliable Azure applications](/azure/architecture/framework/resiliency/app-design).
 
 ## Pricing
 
@@ -98,6 +98,6 @@ For more information on using the Ethereum Proof-of-Authority solution template 
 [deploy]: https://portal.azure.com/?pub_source=email&pub_status=success#create/microsoft-azure-blockchain.azure-blockchain-ethereumethereum-poa-consortium
 [source]: https://github.com/vitoc/creditscoreblockchain
 [monitor]: /azure/monitoring-and-diagnostics/monitoring-overview-azure-monitor
-[scalability]: ../../framework/scalability/performance-efficiency.md
+[scalability]: /azure/architecture/framework/scalability/performance-efficiency
 [security]: /azure/security
 [vault]: https://azure.microsoft.com/services/key-vault

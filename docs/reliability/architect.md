@@ -2,12 +2,16 @@
 title: Architecting for resiliency and availability
 description: Learn how to build resiliency and availability into your Azure application by starting at the design stage and building key elements into your architecture.
 author: EdPrice-MSFT
-ms.date: 11/20/2019
+ms.date: 12/13/2021
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: well-architected
 ms.custom:
   - article
+products:
+  - azure
+categories:
+  - management-and-governance
 ---
 
 <!-- cSpell:ignore BACPAC DTUs architecting -->
@@ -64,7 +68,7 @@ Use the following tasks to meet redundancy requirements:
 
 ## Ensure that availability meets SLAs
 
-*Availability* is the proportion of time that a system is functional and working, and it is one of the [pillars of software quality](../framework/index.md). Use the tasks in this section to review your application architecture from an availability standpoint to make sure that your availability meets your SLAs.
+*Availability* is the proportion of time that a system is functional and working, and it is one of the [pillars of software quality](/azure/architecture/framework). Use the tasks in this section to review your application architecture from an availability standpoint to make sure that your availability meets your SLAs.
 
 - **Avoid any single point of failure.** All components, services, resources, and compute instances should be deployed as multiple instances to prevent a single point of failure from affecting availability. Authentication mechanisms can also be a single point of failure. Design the application to be configurable to use multiple instances and to automatically detect failures and redirect requests to non-failed instances, if the platform doesn't do this automatically.
 - **Decompose workloads by service-level objective.** If a service is composed of critical and less-critical workloads, manage them differently and specify the service features and number of instances to meet their availability requirements.
@@ -119,4 +123,4 @@ How you manage your data plays directly into the availability of your applicatio
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Test for resiliency and availability](../framework/resiliency/testing.md)
+> [Test for resiliency and availability](/azure/architecture/framework/resiliency/testing)

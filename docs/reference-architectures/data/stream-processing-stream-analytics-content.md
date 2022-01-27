@@ -236,7 +236,7 @@ You may wish to review the following [Azure example scenarios](/azure/architectu
 - [Real-time fraud detection](../../example-scenario/data/fraud-detection.yml)
 
 <!-- links -->
-[AAF-devops]: ../../framework/devops/overview.md
+[AAF-devops]: /azure/architecture/framework/devops/overview
 [arm-template]: /azure/azure-resource-manager/resource-group-overview#resource-groups
 [az-devops]: /azure/virtual-machines/windows/infrastructure-automation#azure-devops-services
 [azure-monitor]: https://azure.microsoft.com/services/monitor

@@ -32,6 +32,20 @@ The architecture incorporates the following capabilities:
 - **[Azure File Sync][azure-file-sync]**. A cloud-based service that can synchronize and cache content of Azure file shares, by using Windows Servers across your Azure and non-Azure environments.
 - **[Storage Replica][storage-replica]**. A Windows Server technology that enables replication of volumes between servers or clusters for disaster recovery.
 
+### Components
+
+Key technologies used to implement this architecture:
+
+- [Automation](https://azure.microsoft.com/services/automation)
+- [Azure Site Recovery](https://azure.microsoft.com/services/site-recovery)
+- [Azure Arc](https://azure.microsoft.com/services/azure-arc)
+- [Azure Backup](https://azure.microsoft.com/services/backup)
+- [Azure Container Registry](https://azure.microsoft.com/services/container-registry)
+- [Azure Files](https://azure.microsoft.com/services/storage/files)
+- [Azure Monitor](https://azure.microsoft.com/services/monitor)
+- [Azure Policy](https://azure.microsoft.com/services/azure-policy)
+- [Microsoft Defender for Cloud](https://azure.microsoft.com/services/defender-for-cloud)
+
 ## Recommendations
 
 The following recommendations apply for most scenarios. Follow these recommendations unless you have a specific requirement that overrides them.
@@ -122,9 +136,43 @@ Security considerations include:
 - [Azure Stack HCI basic security][azs-hci-basic-security]. Leverage Azure Stack HCI hardware components (such as Secure Boot, UEFI, and TPM) to build a secure foundation for Azure Stack HCI VM-level security, including Device Guard and Credential Guard. Use [Windows Admin Center role-based access control][wac-rbac] to delegate management tasks by following the principle of least privilege.
 - [Azure Stack HCI advanced security][azs-hci-advanced-security]. Apply Microsoft security baselines to Azure Stack HCI clusters and their Windows Server workloads by using Active Directory Domain Services (AD DS) with Group Policy. You can use [Microsoft Advanced Threat Analytics (ATA)][ms-ata] to detect and remediate cyber threats targeting AD DS domain controllers providing authentication services to Azure Stack HCI clusters and their Windows Server workloads.
 
+## Next steps
+
+Product documentation:
+
+- [About Site Recovery](/azure/site-recovery/site-recovery-overview)
+- [Azure Automation State Configuration overview](/azure/automation/automation-dsc-overview)
+- [Azure Kubernetes Service](/azure/aks/intro-kubernetes)
+- [Azure Monitor overview](/azure/azure-monitor/overview)
+- [Change Tracking and Inventory overview](/azure/automation/change-tracking/overview)
+- [Manage registered servers with Azure File Sync](/azure/storage/file-sync/file-sync-server-registration)
+- [Update Management overview](/azure/automation/update-management/overview)
+- [What are Azure Arc-enabled data services?](/azure/azure-arc/data/overview)
+- [What is Azure Arc-enabled servers?](/azure/azure-arc/servers/overview)
+- [What is the Azure Backup service?](/azure/backup/backup-overview)
+
+Microsoft Learn modules:
+
+- [Configure Azure files and Azure File Sync](/learn/modules/configure-azure-files-file-sync)
+- [Configure Azure Monitor](/learn/modules/configure-azure-monitor)
+- [Design your site recovery solution in Azure](/learn/modules/design-your-site-recovery-solution-in-azure)
+- [Introduction to Azure Arc enabled servers](/learn/modules/intro-to-arc-for-servers)
+- [Introduction to Azure Arc-enabled data services](/learn/modules/intro-to-arc-enabled-data-services)
+- [Introduction to Azure Kubernetes Service](/learn/modules/intro-to-azure-kubernetes-service)
+- [Keep your virtual machines updated](/learn/modules/keep-your-virtual-machines-updated)
+- [Protect your virtual machine settings with Azure Automation State Configuration](/learn/modules/protect-vm-settings-with-dsc)
+- [Protect your virtual machines by using Azure Backup](/learn/modules/protect-virtual-machines-with-azure-backup)
+
+## Related resources
+
+- [Hybrid architecture design](hybrid-start-here.md)
+- [Azure Automation in a hybrid environment](azure-automation-hybrid.yml)
+- [Azure Automation State Configuration](../example-scenario/state-configuration/state-configuration.yml)
+- [Use Azure Stack HCI stretched clusters for disaster recovery](azure-stack-hci-dr.yml)
+
 [architectural-diagram]: images/azure_stack_robo.png
 [architectural-diagram-visio-source]: https://arch-center.azureedge.net/azure_stack_robo.vsdx
-[azure-well-architected-framerwork]: ../framework/index.md
+[azure-well-architected-framerwork]: /azure/architecture/framework
 [azs-hci]: /azure-stack/hci/overview
 [azure-arc]: /azure/azure-arc/overview
 [azure-monitor]: /azure/azure-monitor/overview
