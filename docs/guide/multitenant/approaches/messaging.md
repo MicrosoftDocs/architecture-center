@@ -70,12 +70,12 @@ This kind of contractual message handling is quite different from a publisher pu
 
 Here is a list of typical scenarios for messages, data points, and discrete events:
 
-- Events: 
+- Events:
   - A music sharing platform tracks the fact that a specific user in a specific tenant has listened to a particular music track.
   - In an online store web application, the catalog microservice sends an event using a the [Publisher-Subscriber pattern](/azure/architecture/patterns/publisher-subscriber) to other microservices to notify them that an item price has changed.
   - A manufactoring company pushes real-time information to customers and 3rd parties about equipment maintenance, systems health, and contract updates.
-- Data points: 
-  - An IoT system receives telemetry events such as temperature or humidity readings from sensors belonging to multiple customers.
+- Data points:
+  - A Building control system receives telemetry events such as temperature or humidity readings from sensors belonging to multiple customers.
   - An event-driven monitoring system receives and processes diagnostics logs in a near-real-time fashion from multiple services such as web servers.
   - A client-side script on a web page collects user actions and sends them to a click-analytics solution.
 - Messages:
