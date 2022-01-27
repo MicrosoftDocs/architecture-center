@@ -21,32 +21,8 @@ A microservices architecture can provide many benefits for your applications, in
 
 This guide will help you understand some considerations to keep in mind when you move to a microservices architecture. You can use this guide to assess the maturity of your application, infrastructure, DevOps, development model, and more.  
 
-Take these considerations into account when you evaluate your application and organization for microservices readiness:
-- Understand business priorities
-- Record architectural decisions
-- Assess team composition
-- Use the Twelve-Factor methodology
-- Understand the decomposition approach
-- Assess DevOps readiness
-- Identify business areas that change frequently
-- Assess infrastructure readiness 
-- Assess release cycles
-- Assess communication across services 
-- Evaluate how services are exposed to clients
-- Assess transaction handling
-- Assess your service development model
-- Assess your deployment approach
-- Assess your hosting platform 
-- Assess services monitoring
-- Assess correlation token assignment 
-- Evaluate the need for a microservices chassis framework 
-- Assess your approach to application testing 
-- Assess microservices security
-
-These considerations are discussed in the following sections. 
-
 ## Understand business priorities
-To start evaluating a microservices architecture, you need to first understand the core priorities of your business. Core priorities might be related to agility, change adoption, or rapid development, for example. You need to analyze whether your architecture is a good fit for your core priorities. Keep in mind that business priorities can change over time. For example, innovation is a top priority for startups, but after a few years the core priorities might be reliability and efficiency. 
+To start evaluating a microservices architecture, you need to first understand the core priorities of your business. Core priorities might be related to agility, change adoption, or rapid development, for example. You need to analyze whether your architecture is a good fit for your core priorities. Keep in mind that business priorities can change over time. For example, innovation is a top priority for startups, but after a few years, the core priorities might be reliability and efficiency. 
 
 Here are some priorities to consider:  
 - Innovation
@@ -56,7 +32,7 @@ Here are some priorities to consider:
 Document the SLAs that are aligned with various parts of your application to ensure an organizational commitment that can serve as a guide to your assessment. 
 
 ## Record architectural decisions
-A microservices architecture helps teams become autonomous. Teams can make their own decisions about technologies, methodologies, and infrastructure components, for example. However, these choices should respect the formally agreed-upon principles known as shared governance, which expresses the agreement among teams on how to address the broader strategy for microservices.
+A microservices architecture helps teams become autonomous. Teams can make their own decisions about technologies, methodologies, and infrastructure components, for example. However, these choices should respect the formally agreed-upon principles known as shared governance, which express the agreement among teams on how to address the broader strategy for microservices.
 
 Consider these factors: 
 - Is shared governance in place?
@@ -76,17 +52,17 @@ Consider these factors:
 - How are lessons learned and experience communicated across teams?
 
 ## Use the Twelve-Factor methodology 
-The fundamental goal of choosing a microservices architecture is to deliver faster value and be adaptive to change by following agile practices. The [Twelve-Factor app methodology](/dotnet/architecture/cloud-native/definition#the-twelve-factor-application) provides guidelines for building maintainable and scalable applications. These guidelines promote attributes like immutability, ephemerality, declarative configuration, and automation. By incorporating these guidelines and avoiding common pitfalls, you can create loosely coupled, self-contained microservices. 
+The fundamental goal of choosing a microservices architecture is to deliver value faster and be adaptive to change by following agile practices. The [Twelve-Factor app methodology](/dotnet/architecture/cloud-native/definition#the-twelve-factor-application) provides guidelines for building maintainable and scalable applications. These guidelines promote attributes like immutability, ephemerality, declarative configuration, and automation. By incorporating these guidelines and avoiding common pitfalls, you can create loosely coupled, self-contained microservices. 
 
 ## Understand the decomposition approach
-Transforming a monolithic application to a microservices architecture takes time. Start with edge services. Edge services are those that have fewer dependencies on other services and can be easily decomposed from the system as independent services. We highly recommend patterns like [Strangler Fig](../../patterns/strangler-fig.md) and [Anti-corruption Layer](../../patterns/anti-corruption-layer.md) to keep the monolithic application in a working state until all services are decomposed into separate microservices. During segregation, the principles of DDD can help teams choose components or services from the monolithic application based on subdomains. 
+Transforming a monolithic application to a microservices architecture takes time. Start with edge services. Edge services have fewer dependencies on other services and can be easily decomposed from the system as independent services. We highly recommend patterns like [Strangler Fig](../../patterns/strangler-fig.md) and [Anti-corruption Layer](../../patterns/anti-corruption-layer.md) to keep the monolithic application in a working state until all services are decomposed into separate microservices. During segregation, the principles of DDD can help teams choose components or services from the monolithic application based on subdomains. 
 
 For example, in an e-commerce system, you might have these modules: cart, product management, order management, pricing, invoice generation, and notification. You decide to start the transformation of the application with the notification module because it doesn't have dependencies on other modules. However, other modules might depend on this module to send out notifications. The notification module can easily be decomposed into a separate microservice, but you'll need to make some changes in the monolithic application to call the new notification service. You decide to transform the invoice generation module next. This module is called after an order is generated. You can use patterns like Strangler and Anti-corruption to support this transformation. 
 
 Data synchronization, multi-writes to both monolithic and microservice interfaces, data ownership, schema decomposition, joins, volume of data, and data integrity might make data breakdown and migration difficult. There are several techniques that you can use, like keeping a shared database between microservices, decoupling databases from a group of services based on business capability or domain, and isolating databases from the services. The recommended solution is to decompose each database with each service. In many circumstances, that's not practical. In those cases, you can use patterns like the Database View pattern and the Database Wrapping Service pattern.
 
 ## Assess DevOps readiness
-When you move to a microservices architecture, it's important to assess your DevOps competence. A microservices architecture is intended to facilitate agile development and embrace change in applications to increase organizational agility. DevOps is one of the key practices that you should implement to achieve this competence. 
+When you move to a microservices architecture, it's important to assess your DevOps competence. A microservices architecture is intended to facilitate agile development in applications to increase organizational agility. DevOps is one of the key practices that you should implement to achieve this competence. 
 
 When you evaluate your DevOps capability for a microservices architecture, keep these points in mind:
 - Do people in your organization know the fundamental practices and principles of DevOps? 
@@ -103,7 +79,7 @@ When you evaluate your DevOps capability for a microservices architecture, keep 
 - Does the tool chain have community support and a support model and provide proper channels and documentation?
 
 ## Identify business areas that change frequently
-A microservices architecture is flexible and adaptable. During assessment, drive a discussion in the organization to determine the areas that your colleagues think will change more frequently. Building microservices allows teams to respond to changes requested by customers quickly and minimize regression testing efforts. In a monolithic application, a change in one module requires numerous levels of regression testing and reduces agility in releasing new versions. 
+A microservices architecture is flexible and adaptable. During assessment, drive a discussion in the organization to determine the areas that your colleagues think will change frequently. Building microservices allows teams to quickly respond to changes that customers request and minimize regression testing efforts. In a monolithic application, a change in one module requires numerous levels of regression testing and reduces agility in releasing new versions. 
 
 Consider these factors:
 - Is the service independently deployable?
@@ -127,8 +103,8 @@ Consider these factors when you evaluate your infrastructure readiness:
 - Does the deployment infrastructure support self-healing of services?
 
 ## Assess release cycles
-Microservices are adaptive to change and take advantage of agile development to shorten release cycles and bring value to customers more quickly. Consider these factors when you evaluate your release cycles: 
-- How often you build and release applications?
+Microservices are adaptive to change and take advantage of agile development to shorten release cycles and bring value to customers more. Consider these factors when you evaluate your release cycles: 
+- How often do you build and release applications?
 - How often do your releases fail after deployment?
 - How long does it take to recover or remediate problems after an outage? 
 - Do you use semantic versioning for your applications? 
@@ -151,7 +127,7 @@ Take these factors into consideration:
 - Do you have long-chain operations, where multiple services communicate in sequence over a synchronous communication protocol?
 - Have you considered asynchronous communication anywhere in the system?
 - Have you assessed the message broker technology and its capabilities?
-- Do you understand the throughput of messages received and processed by services?
+- Do you understand the throughput of messages that services receive and process?
 - Do you use direct client-to-service communication?
 - Do you need to persist messages at the message broker level?
 - Are you using the [Materialized View pattern](/azure/architecture/patterns/materialized-view) to address the chatty behavior of microservices? 
@@ -170,7 +146,7 @@ Take these factors into consideration:
 - Does your solution provide L7 load balancing or Web Application Firewall (WAF) capabilities along with the API gateway?
  
 ## Assess transaction handling
-Distributed transaction facilitates the execution of multiple operations as a single unit of work. In a microservices architecture, the system is decomposed into numerous services. A single business use case is addressed by multiple microservices as part of a single distributed transaction. In a distributed transaction, a command is an operation that initiates when an event occurs. The event triggers the system to perform some operation. If the operation succeeds, it might trigger another command, which can then trigger another event, and so on until all the transactions are completed or rolled back, depending on whether the transaction succeeds. 
+Distributed transactions facilitate the execution of multiple operations as a single unit of work. In a microservices architecture, the system is decomposed into numerous services. A single business use case is addressed by multiple microservices as part of a single distributed transaction. In a distributed transaction, a command is an operation that starts when an event occurs. The event triggers the an operation in the system. If the operation succeeds, it might trigger another command, which can then trigger another event, and so on until all the transactions are completed or rolled back, depending on whether the transaction succeeds. 
 
 Take the following considerations into account:
 - How many distributed transactions are there in the system? 
@@ -180,7 +156,7 @@ Take the following considerations into account:
 - Are you using long-chaining operations for transactions that span multiple services?
 
 ## Assess your service development model
-One of the greatest benefits of microservices architectures is technology diversity. Microservices-based systems enable teams to develop services by using the technologies they choose. In traditional application development, you might reuse existing code when you build new components, or create an internal development framework to reduce development effort. The use of multiple technologies can prevent code reuse. 
+One of the greatest benefits of microservices architectures is technology diversity. Microservices-based systems enable teams to develop services by using the technologies that they choose. In traditional application development, you might reuse existing code when you build new components, or create an internal development framework to reduce development effort. The use of multiple technologies can prevent code reuse. 
 
 Consider these factors:  
 - Do you use a service template to kickstart new service development?
@@ -201,7 +177,7 @@ When you assess your deployment plan, consider these factors:
 - Do you propagate the same builds to multiple environments, as suggested by the Twelve-Factor app methodology? 
 
 ## Assess your hosting platform
-Scalability is one of the key advantages of microservices architectures. That's because microservices are mapped to business domains, so each service can be scaled independently. A monolithic application is deployed as a single unit on a hosting platform and needs to be scaled holistically. That results in downtime, deployment risk, and maintenance. Your monolithic application might be well designed, with components addressing individual business domains. But because of a lack of process boundaries, the potential for violating the principles of single responsibility becomes more difficult. This eventually results in a spaghetti code. Because the application is composed and deployed as a single hosting process, scalability is difficult. 
+Scalability is one of the key advantages of microservices architectures. That's because microservices are mapped to business domains, so each service can be scaled independently. A monolithic application is deployed as a single unit on a hosting platform and needs to be scaled holistically. That results in downtime, deployment risk, and maintenance. Your monolithic application might be well designed, with components addressing individual business domains. But because of a lack of process boundaries, the potential for violating the principles of single responsibility becomes more difficult. This eventually results in spaghetti code. Because the application is composed and deployed as a single hosting process, scalability is difficult. 
 
 Microservices enables teams to choose the right hosting platform to support their scalability needs. Various hosting platforms are available to address these challenges by providing capabilities like autoscaling, elastic provisioning, higher availability, faster deployment, and easy monitoring. 
 
@@ -209,7 +185,7 @@ Consider these factors:
 - What hosting platform do you use to deploy your services (virtual machines, containers, serverless)? 
 - Is the hosting platform scalable? Does it support autoscaling?
 - How long does it take to scale your hosting platform?
-- Do you understand the SLAs provided by various hosting platforms?
+- Do you understand the SLAs that various hosting platforms provide?
 - Does your hosting platform support disaster recovery?
 
 ## Assess services monitoring
@@ -252,9 +228,9 @@ Consider these factors:
 - Does your chassis framework provide a mechanism to use the selected components or services as needed?
 
 ## Assess your approach to application testing
-Traditionally, testing is done after development is completed and the application is ready to roll out to UAT (user acceptance testing) and production environments. There's currently a shift in this approach, moving the testing early (left) in the application development lifecycle. Shift-left testing increases the quality of applications because testing is done during each phase of the application development lifecycle, including the design, development, and post-development phases. 
+Traditionally, testing is done after development is completed and the application is ready to roll out to user acceptance testing (UAT) and production environments. There's currently a shift in this approach, moving the testing early (left) in the application development lifecycle. Shift-left testing increases the quality of applications because testing is done during each phase of the application development lifecycle, including the design, development, and post-development phases. 
 
-For example, when you build an application, you start by designing an architecture. When you use the shift-left approach, you test the design for vulnerabilities by using tools like [Microsoft Threat Modeling](/azure/security/develop/threat-modeling-tool). When you start development, you can scan your source code by running tools like SAST (static application security testing) and using other analyzers to uncover problems. After you deploy the application, you can use tools like dynamic application security testing (DAST) to test it while it's hosted. Functional testing, chaos testing, penetration testing, and other kinds of testing happen later. 
+For example, when you build an application, you start by designing an architecture. When you use the shift-left approach, you test the design for vulnerabilities by using tools like [Microsoft Threat Modeling](/azure/security/develop/threat-modeling-tool). When you start development, you can scan your source code by running tools like static application security testing (SAST) and using other analyzers to uncover problems. After you deploy the application, you can use tools like dynamic application security testing (DAST) to test it while it's hosted. Functional testing, chaos testing, penetration testing, and other kinds of testing happen later. 
 
 Consider these factors: 
 - Do you write test plans that cover the entire development lifecycle?
