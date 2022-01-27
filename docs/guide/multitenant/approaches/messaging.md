@@ -33,19 +33,6 @@ Sharing the same messaging system or event-streaming service can significantly r
 
 In this article, you can find a distinction between messages and events and some guidelines that solution architects can follow when deciding which approach to use for a messaging or eventing infrastructure in a multitenant solution.
 
-<!-- Notes on things to discuss:
-* Separating queues/topics by tenant/message type
-* For a better isolation, adopt separate namespaces per tenant when using Service and Event Hubs
-* Event Grid domains
-* Event Hubs considerations
-
-Patterns:
-https://docs.microsoft.com/en-nz/azure/architecture/patterns/publisher-subscriber
-https://docs.microsoft.com/en-nz/azure/architecture/patterns/priority-queue
-https://docs.microsoft.com/en-nz/azure/architecture/patterns/pipes-and-filters
-Claim Check - to avoid sending sensitive info through a shared queue
--->
-
 ## Messages, data points, and discrete events
 
 All messaging systems have similar functionalities, transport protocols, and usage scenarios. For example, most of the modern messaging systems support asynchronous communications using volatile or persistent queues, AMQP and HTTPS transport protocols, at-least-once delivery, and so forth. However, looking more closely at the type of published information and how data is consumed and processed by client applications, we can distinguish between different kinds of messages and events. There's an essential distinction between services that deliver an event and systems that send a message. For more information, see:
@@ -76,7 +63,7 @@ Here is a list of some example multitenant scenarios for messages, data points, 
 
 - Events:
   - A music sharing platform tracks the fact that a specific user in a specific tenant has listened to a particular music track.
-  - In an online store web application, the catalog application sends an event using the [Publisher-Subscriber pattern](../../../../patterns/publisher-subscriber.md) to other applications to notify them that an item price has changed.
+  - In an online store web application, the catalog application sends an event using the [Publisher-Subscriber pattern](/azure/architecture/patterns/publisher-subscriber) to other applications to notify them that an item price has changed.
   - A manufactoring company pushes real-time information to customers and 3rd parties about equipment maintenance, systems health, and contract updates.
 - Data points:
   - A Building control system receives telemetry events such as temperature or humidity readings from sensors belonging to multiple customers.
@@ -108,9 +95,9 @@ Likewise, Azure Event Hubs pricing tiers allow you to size the namespace based o
 
 For more information, see [Overview of Event Hubs Premium](/azure/event-hubs/event-hubs-premium-overview).
 
-When your solution handles a considerable number of tenants, and you decide to adopt a separate messaging system for each tenant, you need to have a consistent strategy to automate the deployment, monitoring, alerting, and scaling of each infrastructure separately from one other. For more information on deployment models, see [Architectural approaches for the deployment and configuration of multitenant solutions](/azure/architecture/guide/multitenant/approaches/deployment-configuration).
+When your solution handles a considerable number of tenants, and you decide to adopt a separate messaging system for each tenant, you need to have a consistent strategy to automate the deployment, monitoring, alerting, and scaling of each infrastructure separately from one other.
 
-For example, a messaging system for a given tenant could be deployed during the provisioning process using an infrastructure as code (IaC) tool such a Terraform, Bicep, or ARM JSON templates and a DevOps system such as Azure DevOps or GitHub Actions. For more information, see [Architectural approaches for the deployment and configuration of multitenant solutions](deployment-configuration.md).
+For example, a messaging system for a given tenant could be deployed during the provisioning process using an infrastructure as code (IaC) tool such a Terraform, Bicep, or ARM JSON templates and a DevOps system such as Azure DevOps or GitHub Actions. For more information, see [Architectural approaches for the deployment and configuration of multitenant solutions](/azure/architecture/guide/multitenant/approaches/deployment-configuration).
 
 The messaging system could be sized with a maximum throughput in messages per unit of time. If the system supports dynamic autoscaling, its capacity could be increased or decreased automatically based on the traffic conditions and metrics to meet the expected service level agreement.
 
