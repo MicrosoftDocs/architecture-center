@@ -89,7 +89,7 @@ Here is a list of some example multitenant scenarios for messages, data points, 
 
 ## Key considerations and requirements
 
-The deployment and tenancy model that you choose for your solution has a deep impact on security, performance, data isolation, management, and the ability to cross-charge resource costs to tenants. This analysis includes the model that you select for your messaging and eventing infrastructure. In this section, we review some of the key decisions you must make when you plan for a messaging system in your multitenant solution. 
+The [deployment and tenancy model](../considerations/tenancy-models.md) that you choose for your solution has a deep impact on security, performance, data isolation, management, and the ability to cross-charge resource costs to tenants. This analysis includes the model that you select for your messaging and eventing infrastructure. In this section, we review some of the key decisions you must make when you plan for a messaging system in your multitenant solution. 
 
 ### Scale
 
