@@ -83,7 +83,7 @@ Here is a list of some example multitenant scenarios for messages, data points, 
   - An event-driven monitoring system receives and processes diagnostics logs in a near-real-time fashion from multiple services such as web servers.
   - A client-side script on a web page collects user actions and sends them to a click-analytics solution.
 - Messages:
-  - B2B finance application receives a message to process a tenant's banking records.
+  - A B2B finance application receives a message to begin processing a tenant's banking records.
   - A long-running workflow receives a message that triggers the execution of the next step.
   - The basket microservice of an online store application sends a CreateOrder command using an asynchronous, persistent message to the ordering microservice.
 
