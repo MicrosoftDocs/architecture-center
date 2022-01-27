@@ -27,7 +27,7 @@ The Microsoft approach to Zero Trust includes Conditional Access as the main pol
 Non-human access to resources must also be protected. Currently, you can't use Conditional Access to protect non-human access to cloud resources. You need to use another method, like grant controls for OAuth-based access.
 
 > [!NOTE] 
-> Functionality for targeting service principles and helping to protect access to resources for machine or workload identities based on location is currently in preview. See [Conditional Access design based on Zero Trust and personas](/azure/architecture/guide/security/conditional-access-architecture) for details.
+> Functionality for targeting service principals and helping to protect access to resources for machine or workload identities based on location is currently in preview. See [Conditional Access design based on Zero Trust and personas](/azure/architecture/guide/security/conditional-access-architecture) for details.
 
 ### Enterprise access model
 
