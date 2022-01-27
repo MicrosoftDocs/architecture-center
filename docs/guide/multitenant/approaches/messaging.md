@@ -55,12 +55,12 @@ All messaging systems have similar functionalities, transport protocols, and usa
 
 ### Events
 
-An event is a lightweight notification of a condition or a state change. Events can be discrete units or part of a series. Events are messages that don't generally convey a publisher's intent other than to inform. An event captures a fact and communicates it to other services or components. A consumer of the event can process the event as it pleases and doesn't fulfill any specific expectations the publisher holds. We can classify events into two main categories: 
+An event is a lightweight notification of a condition or a state change. Events can be discrete units or part of a series. Events are messages that don't generally convey a publisher's intent other than to inform. An event captures a fact and communicates it to other services or components. A consumer of the event can process the event as it pleases and doesn't fulfill any specific expectations the publisher holds. We can classify events into two main categories:
 
 - Discrete events hold information about specific actions that the publishing application has carried out. When using asynchronous event-driven communication, an application publishes a notification event when something happens within its domain. One or more consuming applications needs to be aware of this state change, like a price change in a product catalog application. Consumers subscribe to the events to receive them asynchronously. When a given event happens, the consuming applications might update their domain entities, which can cause more integration events to be published.
 - Series events carry informational data points, such as temperature readings from devices for analysis or user actions in a click-analytics solution, as elements in an ongoing, continuous stream. An event stream is related to a specific context like the temperature or humidity reported by a field device: all the events related to the same context have a strict temporal order that matters when processing these events with an event stream processing engine. Analyzing streams of events carrying data points requires accumulating these events in a buffer that spans a desired time window or a selected number of items and then processing these events using a near-real-time solution or machine-trained algorithm. The analysis of a series of events may yield signals, like the average of a value measured over a time window crossing a threshold, and those signals may then be raised as discrete, actionable events.
 
-Discrete events report state change and are actionable. The event payload has information about what happened but, in general, doesn't have the complete data that triggered the event. For example, an event notifies consumers that a reporting microservice created a new file in a storage account. The event payload may have general information about the file, but it doesn't have the file itself. Discrete events are ideal for serverless solutions that need to scale.
+Discrete events report state change and are actionable. The event payload has information about what happened but, in general, doesn't have the complete data that triggered the event. For example, an event notifies consumers that a reporting application created a new file in a storage account. The event payload may have general information about the file, but it doesn't have the file itself. Discrete events are ideal for serverless solutions that need to scale.
 
 Series events report a condition and are analyzable. Discrete events are time-ordered and interrelated. In some contexts, the consumer needs to receive the complete sequence of events to analyze what happened and take the necessary action.
 
@@ -76,7 +76,7 @@ Here is a list of some example multitenant scenarios for messages, data points, 
 
 - Events:
   - A music sharing platform tracks the fact that a specific user in a specific tenant has listened to a particular music track.
-  - In an online store web application, the catalog microservice sends an event using the [Publisher-Subscriber pattern](../../../../patterns/publisher-subscriber.md) to other microservices to notify them that an item price has changed.
+  - In an online store web application, the catalog application sends an event using the [Publisher-Subscriber pattern](../../../../patterns/publisher-subscriber.md) to other applications to notify them that an item price has changed.
   - A manufactoring company pushes real-time information to customers and 3rd parties about equipment maintenance, systems health, and contract updates.
 - Data points:
   - A Building control system receives telemetry events such as temperature or humidity readings from sensors belonging to multiple customers.
@@ -85,7 +85,7 @@ Here is a list of some example multitenant scenarios for messages, data points, 
 - Messages:
   - A B2B finance application receives a message to begin processing a tenant's banking records.
   - A long-running workflow receives a message that triggers the execution of the next step.
-  - The basket microservice of an online store application sends a CreateOrder command using an asynchronous, persistent message to the ordering microservice.
+  - The basket application of an online store application sends a CreateOrder command using an asynchronous, persistent message to the ordering application.
 
 ## Key considerations and requirements
 
