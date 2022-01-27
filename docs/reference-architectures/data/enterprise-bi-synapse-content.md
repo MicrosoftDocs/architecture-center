@@ -278,6 +278,12 @@ For more information, see [Manage database roles and users](/azure/analysis-serv
 ## DevOps considerations - George
 
 TODO: internal info on repo, workspace etc
+#### Quick start: ####
+
+[Azure Synapse 1-click POC](https://github.com/Azure/Test-Drive-Azure-Synapse-with-a-1-click-POC) environment with pre-populated dataset, pipeline, notebook
+This 1-click deployment allows the user to deploy a Proof-of-Concept environment of Azure Synapse Analytics with dataset (New York Taxi Trips & Fares data), pipeline to (ingest, merge, aggregate), notebook (Spark ML prediction)
+
+#### General Recommendataions: ####
 
 - Create separate resource groups for production, development, and test environments. Separate resource groups make it easier to manage deployments, delete test deployments, and assign access rights.
 
