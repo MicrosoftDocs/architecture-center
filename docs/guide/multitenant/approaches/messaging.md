@@ -145,7 +145,9 @@ Likewise, event-driven application can provide different levels of isolation:
 ### Complexity of implementation
 
 When designing a multitenant solution, it is essential to consider how the system will evolve in the medium to long term to prevent its complexity from growing over time until it is necessary to redesign part or the entire solution to cope with an increasing number of tenants. When designing a messaging system, you should consider the expected growth in message volumes and tenants in the next few years and create a system that can scale out to keep up with the predicted traffic and reduce the complexity of operations such as provisioning, monitoring, and maintenance.
-The solution should automatically create or delete the necessary messaging entities any time a tenant application is provisioned or unprovisioned without the need for manual operations. 
+
+The solution should automatically create or delete the necessary messaging entities any time a tenant application is provisioned or unprovisioned without the need for manual operations.
+
 A particular concern for multitenant data solutions is the level of customization you support. Any customization should be automatically configured and applied by the application provisioning system (e.g., a DevOps system) based on a set of initial parameters whenever a single-tenant or multitenant application is deployed.
 
 ### Complexity of management and operations
