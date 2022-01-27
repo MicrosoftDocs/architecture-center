@@ -108,7 +108,11 @@ Likewise, Azure Event Hubs pricing tiers allow you to size the namespace based o
 
 For more information, see [Overview of Event Hubs Premium](/azure/event-hubs/event-hubs-premium-overview).
 
-When your solution handles a considerable number of tenants, and you decide to adopt a separate messaging system for each tenant, you need to have a consistent strategy to automate the deployment, monitoring, alerting, and scaling of each infrastructure separately from one other. For example, a messaging system for a given tenant could be deployed during the provisioning process using an infrastructure as code (IaC) tool such a Terraform, Bicep, or ARM JSON templates and a DevOps system such as Azure DevOps or GitHub Actions. The messaging system could be sized with a maximum throughput in messages per unit time and, if the system supports dynamic autoscaling, its capacity could be increased or decreased on the flight based on the traffic conditions and metrics to meet the expected service level agreement.
+When your solution handles a considerable number of tenants, and you decide to adopt a separate messaging system for each tenant, you need to have a consistent strategy to automate the deployment, monitoring, alerting, and scaling of each infrastructure separately from one other.
+
+For example, a messaging system for a given tenant could be deployed during the provisioning process using an infrastructure as code (IaC) tool such a Terraform, Bicep, or ARM JSON templates and a DevOps system such as Azure DevOps or GitHub Actions. For more information, see [Architectural approaches for the deployment and configuration of multitenant solutions](deployment-configuration.md).
+
+The messaging system could be sized with a maximum throughput in messages per unit of time. If the system supports dynamic autoscaling, its capacity could be increased or decreased automatically based on the traffic conditions and metrics to meet the expected service level agreement.
 
 ### Performance predictability
 
