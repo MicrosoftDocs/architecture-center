@@ -108,7 +108,7 @@ Likewise, Azure Event Hubs pricing tiers allow you to size the namespace based o
 
 For more information, see [Overview of Event Hubs Premium](/azure/event-hubs/event-hubs-premium-overview).
 
-When your solution handles a considerable number of tenants, and you decide to adopt a separate messaging system for each tenant, you need to have a consistent strategy to automate the deployment, monitoring, alerting, and scaling of each infrastructure separately from one other.
+When your solution handles a considerable number of tenants, and you decide to adopt a separate messaging system for each tenant, you need to have a consistent strategy to automate the deployment, monitoring, alerting, and scaling of each infrastructure separately from one other. For more information on deployment models, see [Architectural approaches for the deployment and configuration of multitenant solutions](/azure/architecture/guide/multitenant/approaches/deployment-configuration).
 
 For example, a messaging system for a given tenant could be deployed during the provisioning process using an infrastructure as code (IaC) tool such a Terraform, Bicep, or ARM JSON templates and a DevOps system such as Azure DevOps or GitHub Actions. For more information, see [Architectural approaches for the deployment and configuration of multitenant solutions](deployment-configuration.md).
 
