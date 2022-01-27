@@ -61,7 +61,7 @@ This kind of contractual message handling is quite different from a publisher pu
 
 Here is a list of some example multitenant scenarios for messages, data points, and discrete events:
 
-- Events:
+- Discrete Events:
   - A music sharing platform tracks the fact that a specific user in a specific tenant has listened to a particular music track.
   - In an online store web application, the catalog application sends an event using the [Publisher-Subscriber pattern](/azure/architecture/patterns/publisher-subscriber) to other applications to notify them that an item price has changed.
   - A manufactoring company pushes real-time information to customers and 3rd parties about equipment maintenance, systems health, and contract updates.
