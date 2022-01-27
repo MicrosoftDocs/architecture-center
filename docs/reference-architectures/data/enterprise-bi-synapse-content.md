@@ -276,12 +276,10 @@ For more information, see [Manage database roles and users](/azure/analysis-serv
 */
 
 ## DevOps considerations - George
-
-TODO: internal info on repo, workspace etc
 #### Quick start: ####
 
 [Azure Synapse 1-click POC](https://github.com/Azure/Test-Drive-Azure-Synapse-with-a-1-click-POC) environment with pre-populated dataset, pipeline, notebook
-This 1-click deployment allows the user to deploy a Proof-of-Concept environment of Azure Synapse Analytics with dataset (New York Taxi Trips & Fares data), pipeline to (ingest, merge, aggregate), notebook (Spark ML prediction)
+This 1-click deployment allows the user to deploy a Proof-of-Concept environment of Azure Synapse Analytics with dataset (New York Taxi Trips & Fares data), pipeline to (ingest, merge, aggregate), notebook (Spark ML prediction). 
 
 #### General Recommendataions: ####
 
@@ -308,7 +306,6 @@ This 1-click deployment allows the user to deploy a Proof-of-Concept environment
 - [Azure Monitor][azure-monitor] is the recommended option for analyzing the performance of your data warehouse and the entire Azure analytics platform for an integrated monitoring experience. [Azure Synapse Analytics][synapse-analytics] provides a monitoring experience within the Azure portal to show insights to your data warehouse workload. The Azure portal is the recommended tool when monitoring your data warehouse because it provides configurable retention periods, alerts, recommendations, and customizable charts and dashboards for metrics and logs.
 
 For more information, see the DevOps section in [Microsoft Azure Well-Architected Framework][AAF-devops].
-*/
 
 ## Cost Considerations - Galina
 
