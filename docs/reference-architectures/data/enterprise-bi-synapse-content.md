@@ -8,8 +8,9 @@ This reference architecture implements the [Analytics end-to-end with Azure Syna
 
 ### Enterprise Architecture
 
-![Architecture diagram for Enterprise BI in Azure with Azure Synapse](./images/analytics-with-azure-synapse-pbi.png)
-
+![Architecture diagram for Enterprise BI in Azure with Azure Synapse](./images/aac-scoped-architecture-new-grayed.png)
+<!-- ![Architecture diagram for Enterprise BI in Azure with Azure Synapse](./images/analytics-with-azure-synapse-pbi.png)
+-->
 *Diagram: [Analytics end-to-end with Azure Synapse][e2e-analytics]. Red path denotes the scope of this article.*
 <!--
 TODO - may be grey out the background more and only circle the Synapse Provisioned Pools without ADLS? asterisk? 
