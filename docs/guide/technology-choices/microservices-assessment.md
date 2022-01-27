@@ -288,7 +288,7 @@ Consider these factors:
 - [Design a microservices-oriented application](/dotnet/architecture/microservices/multi-container-microservice-net-applications/microservice-application-design)
 
 ## Related resources
-- [Microservices architecture style](/azure/architecture/guide/architecture-styles)
+- [Microservices architecture style](../../guide/architecture-styles/index.md)
 - [Build microservices on Azure](../../microservices/index.md)
 - [Microservices architecture on Azure Kubernetes Service](../../reference-architectures/containers/aks-microservices/aks-microservices.yml)
 - [Using domain analysis to model microservices](../../microservices/model/domain-analysis.md)
