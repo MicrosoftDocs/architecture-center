@@ -1082,6 +1082,8 @@ items:
             href: solution-ideas/articles/aircraft-engine-monitoring-for-predictive-maintenance-in-aerospace.yml
       - name: Automotive, Mobility, and Transportation
         items:
+          - name: Overview
+            href: industries/automotive.md
           - name: Guides
             items:
               - name: Dynamics 365 automotive accelerator
