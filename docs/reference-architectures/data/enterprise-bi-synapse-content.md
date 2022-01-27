@@ -257,7 +257,9 @@ todo
 
 ### Azure Synapse Provisioned Pool
 
-With Azure Synapse, you can scale out your compute resources on demand. The query engine optimizes queries for parallel processing based on the number of compute nodes, and moves data between nodes as necessary. For more information, see [Manage compute in Azure Synapse](/azure/sql-data-warehouse/sql-data-warehouse-manage-compute-overview).
+With Azure Synapse, you can scale out ([using The Portal, Powershell or T-SQL](/azure/synapse-analytics/sql-data-warehouse/quickstart-scale-compute-portal)) your compute resources on demand. The query engine optimizes queries for parallel processing based on the number of compute nodes, and moves data between nodes as necessary. For more information, see [Manage compute in Azure Synapse](/azure/sql-data-warehouse/sql-data-warehouse-manage-compute-overview).
+Scaling can be accomplished using teh Portal, Powershell of T-SQL
+
 
 ### Power BI premium
 
@@ -275,7 +277,7 @@ Azure Analysis Services uses Azure Active Directory (Azure AD) to authenticate u
 For more information, see [Manage database roles and users](/azure/analysis-services/analysis-services-database-users).
 */
 
-## DevOps considerations - George
+## DevOps considerations
 #### Quick start: ####
 
 [Azure Synapse 1-click POC](https://github.com/Azure/Test-Drive-Azure-Synapse-with-a-1-click-POC) environment with pre-populated dataset, pipeline, notebook
