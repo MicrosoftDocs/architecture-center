@@ -76,7 +76,7 @@ Here is a list of some example multitenant scenarios for messages, data points, 
 
 - Events:
   - A music sharing platform tracks the fact that a specific user in a specific tenant has listened to a particular music track.
-  - In an online store web application, the catalog microservice sends an event using a the [Publisher-Subscriber pattern](/azure/architecture/patterns/publisher-subscriber) to other microservices to notify them that an item price has changed.
+  - In an online store web application, the catalog microservice sends an event using the [Publisher-Subscriber pattern](../../../../patterns/publisher-subscriber.md) to other microservices to notify them that an item price has changed.
   - A manufactoring company pushes real-time information to customers and 3rd parties about equipment maintenance, systems health, and contract updates.
 - Data points:
   - A Building control system receives telemetry events such as temperature or humidity readings from sensors belonging to multiple customers.
