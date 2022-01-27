@@ -156,7 +156,7 @@ Azure Machine Learning uses [Jupyter notebooks for data analysis](/azure/machine
 
 ## Identify your advanced analytics scenario
 
-After you have answered the questions in the previous section, you are ready to determine which scenario best fits your case. The sample scenarios are outlined in [Scenarios for advanced analytics in Azure Machine Learning](plan-sample-scenarios.md).
+After you have answered the questions in the previous section, you are ready to determine which scenario best fits your case. The sample scenarios are outlined in [Scenarios for advanced analytics in Azure Machine Learning](/azure/architecture/data-science-process/overview).
 
 ## Next steps
 

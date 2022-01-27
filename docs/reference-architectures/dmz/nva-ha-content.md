@@ -1,4 +1,3 @@
-
 This article explains the most common options to deploy a set of Network Virtual Appliances (NVAs) for high availability in Azure. An NVA is typically used to control the flow of traffic between network segments classified with different security levels, for example between a De-Militarized Zone (DMZ) Virtual Network and the public Internet.
 
 There are a number of design patterns where NVAs are used to inspect traffic between different security zones, for example:
@@ -115,21 +114,21 @@ One benefit of this design is that no Source Network Address Translation (SNAT) 
 
 <!-- links -->
 
-[udr]: https://docs.microsoft.com/azure/virtual-network/virtual-networks-udr-overview
-[azfw]: https://docs.microsoft.com/azure/firewall/overview
-[appgw]: https://docs.microsoft.com/azure/application-gateway/overview
-[ars]: https://docs.microsoft.com/azure/route-server/overview
-[gwlb]: https://docs.microsoft.com/azure/load-balancer/gateway-overview
-[alb]: https://docs.microsoft.com/azure/load-balancer/load-balancer-overview
-[vwan]: https://docs.microsoft.com/azure/virtual-wan/virtual-wan-about
-[vwan_nva]: https://docs.microsoft.com/azure/virtual-wan/about-nva-hub
-[alb_probes]: https://docs.microsoft.com/azure/load-balancer/load-balancer-custom-probe-overview
-[alb_haports]: https://docs.microsoft.com/azure/load-balancer/load-balancer-ha-ports-overview
-[caf_dmz]: https://docs.microsoft.com/azure/cloud-adoption-framework/decision-guides/software-defined-network/cloud-dmz
-[caf_perimeter]: https://docs.microsoft.com/azure/cloud-adoption-framework/ready/azure-best-practices/perimeter-networks
-[caf_hns]: https://docs.microsoft.com/azure/cloud-adoption-framework/ready/azure-best-practices/hub-spoke-network-topology
-[secure_hybrid]: https://docs.microsoft.com/azure/architecture/reference-architectures/dmz/secure-vnet-dmz
-[azfw_appgw]: https://docs.microsoft.com/azure/architecture/example-scenario/gateway/firewall-application-gateway
+[udr]: /azure/virtual-network/virtual-networks-udr-overview
+[azfw]: /azure/firewall/overview
+[appgw]: /azure/application-gateway/overview
+[ars]: /azure/route-server/overview
+[gwlb]: /azure/load-balancer/gateway-overview
+[alb]: /azure/load-balancer/load-balancer-overview
+[vwan]: /azure/virtual-wan/virtual-wan-about
+[vwan_nva]: /azure/virtual-wan/about-nva-hub
+[alb_probes]: /azure/load-balancer/load-balancer-custom-probe-overview
+[alb_haports]: /azure/load-balancer/load-balancer-ha-ports-overview
+[caf_dmz]: /azure/cloud-adoption-framework/decision-guides/software-defined-network/cloud-dmz
+[caf_perimeter]: /azure/cloud-adoption-framework/ready/azure-best-practices/perimeter-networks
+[caf_hns]: /azure/cloud-adoption-framework/ready/azure-best-practices/hub-spoke-network-topology
+[secure_hybrid]: /azure/architecture/reference-architectures/dmz/secure-vnet-dmz
+[azfw_appgw]: /azure/architecture/example-scenario/gateway/firewall-application-gateway
 
 <!-- images -->
 

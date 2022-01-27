@@ -39,8 +39,8 @@ Get up and running quickly.
 - Set up [Azure Cost Management and Billing](/azure/cost-management-billing/cost-management-billing-overview) to avoid surprise bills.
 - Set up [Azure Advisor](/azure/advisor/advisor-overview) to receive recommendations on cost optimization, security, performance, and more.
 - Understand [Azure architectures](../../browse/index.yml) to find the right Azure architecture for your app.
-- If you're designing for a startup, consider [architecture guidance for startups](https://aka.ms/StartupArchitecture).
-- Decide which tenant-isolation or sharing model to implement by reviewing [multitenant architectural guidance](https://aka.ms/MultitenantArchitecture).
+- If you're designing for a startup, consider [architecture guidance for startups](/azure/architecture/guide/startups/startup-architecture).
+- Decide which tenant-isolation or sharing model to implement by reviewing [multitenant architectural guidance](/azure/architecture/guide/multitenant/overview).
 
 ## Build your app
 

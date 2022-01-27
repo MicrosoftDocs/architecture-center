@@ -77,8 +77,8 @@ Review these best practices when designing your solutions.
 
 Security is a vital part of any database solution.
 
-- [Azure security baseline for Azure SQL Database](https://docs.microsoft.com/security/benchmark/azure/baselines/sql-database-security-baseline)
-- [Azure security baseline for Azure Database Migration Service](https://docs.microsoft.com/security/benchmark/azure/baselines/database-migration-security-baseline)
+- [Azure security baseline for Azure SQL Database](/security/benchmark/azure/baselines/sql-database-security-baseline)
+- [Azure security baseline for Azure Database Migration Service](/security/benchmark/azure/baselines/database-migration-security-baseline)
 
 ## Technology choices
 

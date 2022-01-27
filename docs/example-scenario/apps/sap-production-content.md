@@ -38,7 +38,7 @@ This example includes a high availability configuration for an Oracle database, 
 
 - [Resource groups](/azure/azure-resource-manager/resource-group-overview#resource-groups) act as logical containers for Azure resources.
 
-- [Storage](https://docs.microsoft.com/azure/?product=storage) Azure Premium Managed Disks or Azure NetApp Files (for Oracle 19C) provide the recommended storage for the SAP executables and the Oracle database.
+- [Storage](../../index.yml?product=storage) Azure Premium Managed Disks or Azure NetApp Files (for Oracle 19C) provide the recommended storage for the SAP executables and the Oracle database.
 
 ### Alternatives
 
