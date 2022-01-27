@@ -257,9 +257,9 @@ todo
 
 ### Azure Synapse Provisioned Pool
 
-With Azure Synapse, you can scale out ([using The Portal, Powershell or T-SQL](/azure/synapse-analytics/sql-data-warehouse/quickstart-scale-compute-portal)) your compute resources on demand. The query engine optimizes queries for parallel processing based on the number of compute nodes, and moves data between nodes as necessary. For more information, see [Manage compute in Azure Synapse](/azure/sql-data-warehouse/sql-data-warehouse-manage-compute-overview).
-Scaling can be accomplished using teh Portal, Powershell of T-SQL
-
+With Azure Synapse, you can scale out ([using The Portal, Powershell or T-SQL](/azure/synapse-analytics/sql-data-warehouse/quickstart-scale-compute-portal)) your compute resources on demand. 
+The query engine optimizes queries for parallel processing based on the number of compute nodes, and moves data between nodes as necessary. 
+For more information, see [Manage compute in Azure Synapse](/azure/sql-data-warehouse/sql-data-warehouse-manage-compute-overview).
 
 ### Power BI premium
 
