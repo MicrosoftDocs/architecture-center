@@ -17,9 +17,9 @@ ms.custom: fcp
 
 # Microservices assessment and readiness 
 
-A microservices architecture can provide many benefits for your applications, including agility, scalability, and high availability. Along with these benefits, this architecture presents challenges. When you build microservices-based applications or transform existing applications into a microservices architecture, you need to analyze, assess, and prepare for the change to identify areas that need improvement.
+A microservices architecture can provide many benefits for your applications, including agility, scalability, and high availability. Along with these benefits, this architecture presents challenges. When you build microservices-based applications or transform existing applications into a microservices architecture, you need to analyze and assess your current situation to identify areas that need improvement.
 
-This guide will help you understand some considerations to keep in mind when you move to a microservices architecture. You can use this guide assess the maturity of your application, infrastructure, DevOps, development model, and more.  
+This guide will help you understand some considerations to keep in mind when you move to a microservices architecture. You can use this guide to assess the maturity of your application, infrastructure, DevOps, development model, and more.  
 
 Take these considerations into account when you evaluate your application and organization for microservices readiness:
 - Understand business priorities
@@ -62,7 +62,7 @@ Consider these factors:
 - Is shared governance in place?
 - Do you track decisions and their trade-offs in an architecture journal?
 - Can your team easily access your architecture journal?
-- Do you have a practice for evaluating tools, technologies, and frameworks? 
+- Do you have a process for evaluating tools, technologies, and frameworks? 
 
 ## Assess team composition
 You need to have the proper team structure to avoid unnecessary communication across teams. A microservices architecture encourages the formation of small, focused, cross-functional teams and requires a mindset change, which must be preceded by team restructuring.
@@ -72,18 +72,18 @@ Consider these factors:
 - Are your teams cross-functional, with enough capacity to build and operate related microservices independently?
 - How much time is spent in ad hoc activities and tasks that aren't related to projects?
 - How much time is spent in cross-team collaboration?
-- Do you have a practice for identifying and minimizing technical debt?
+- Do you have a process for identifying and minimizing technical debt?
 - How are lessons learned and experience communicated across teams?
 
 ## Use the Twelve-Factor methodology 
 The fundamental goal of choosing a microservices architecture is to deliver faster value and be adaptive to change by following agile practices. The [Twelve-Factor app methodology](/dotnet/architecture/cloud-native/definition#the-twelve-factor-application) provides guidelines for building maintainable and scalable applications. These guidelines promote attributes like immutability, ephemerality, declarative configuration, and automation. By incorporating these guidelines and avoiding common pitfalls, you can create loosely coupled, self-contained microservices. 
 
 ## Understand the decomposition approach
-Transforming a monolithic application to a microservices architecture takes time. Start with edge services. Edge services are services that have fewer dependencies on other services and can be easily decomposed from the system as independent services. We highly recommend patterns like [Strangler Fig](../../patterns/strangler-fig.md) and [Anti-corruption Layer](../../patterns/anti-corruption-layer.md) to keep the monolithic application in a working state until all services are decomposed into separate microservices. During segregation, the principles of DDD can help teams choose components or services from the monolithic application based on subdomains. 
+Transforming a monolithic application to a microservices architecture takes time. Start with edge services. Edge services are those that have fewer dependencies on other services and can be easily decomposed from the system as independent services. We highly recommend patterns like [Strangler Fig](../../patterns/strangler-fig.md) and [Anti-corruption Layer](../../patterns/anti-corruption-layer.md) to keep the monolithic application in a working state until all services are decomposed into separate microservices. During segregation, the principles of DDD can help teams choose components or services from the monolithic application based on subdomains. 
 
-For example, in an e-commerce system, you might have these modules: cart, product management, order management, pricing, invoice generation, and notification. You can start the transformation of the application with the notification module because it doesn't have dependencies on other modules. However, other modules might depend on this module to send out notifications. The notification module can easily be decomposed into a separate microservice, but you'll need to make some changes in the monolithic application to call the new notification service. The next module to transform is the invoice generation module, which is called after an order is generated. You can use patterns like Strangler and Anti-corruption to support this transformation. 
+For example, in an e-commerce system, you might have these modules: cart, product management, order management, pricing, invoice generation, and notification. You decide to start the transformation of the application with the notification module because it doesn't have dependencies on other modules. However, other modules might depend on this module to send out notifications. The notification module can easily be decomposed into a separate microservice, but you'll need to make some changes in the monolithic application to call the new notification service. You decide to transform the invoice generation module next. This module is called after an order is generated. You can use patterns like Strangler and Anti-corruption to support this transformation. 
 
-Data synchronization, multi-writes to both monolithic and microservice interfaces, data ownership, schema decomposition, joins, volume of data, and data integrity might make data breakdown and migration difficult. There are several techniques that you can use, like keeping a shared database between microservices, decoupling databases from a group of services based on business capability or domain, or isolating databases from the services. The recommended solution is to decompose each database with each service. In many circumstances, that's not practical. In those cases, you can use patterns like the Database View pattern and the Database Wrapping Service pattern.
+Data synchronization, multi-writes to both monolithic and microservice interfaces, data ownership, schema decomposition, joins, volume of data, and data integrity might make data breakdown and migration difficult. There are several techniques that you can use, like keeping a shared database between microservices, decoupling databases from a group of services based on business capability or domain, and isolating databases from the services. The recommended solution is to decompose each database with each service. In many circumstances, that's not practical. In those cases, you can use patterns like the Database View pattern and the Database Wrapping Service pattern.
 
 ## Assess DevOps readiness
 When you move to a microservices architecture, it's important to assess your DevOps competence. A microservices architecture is intended to facilitate agile development and embrace change in applications to increase organizational agility. DevOps is one of the key practices that you should implement to achieve this competence. 
@@ -170,7 +170,7 @@ Take these factors into consideration:
 - Does your solution provide L7 load balancing or Web Application Firewall (WAF) capabilities along with the API gateway?
  
 ## Assess transaction handling
-Distributed transaction facilitates the execution of multiple operations as a single unit of work. In a microservices architecture, the system is decomposed into numerous services. A single business use case is addressed by multiple microservices as part of a single distributed transaction. In a distributed transaction, a command is an operation that initiates when an event occurs. The event triggers the system to perform some operation. If the operation succeeds, it might trigger another command, which can then trigger another event, and so on until all the transactions are completed or rolled back, depending on whether the transaction was successful. 
+Distributed transaction facilitates the execution of multiple operations as a single unit of work. In a microservices architecture, the system is decomposed into numerous services. A single business use case is addressed by multiple microservices as part of a single distributed transaction. In a distributed transaction, a command is an operation that initiates when an event occurs. The event triggers the system to perform some operation. If the operation succeeds, it might trigger another command, which can then trigger another event, and so on until all the transactions are completed or rolled back, depending on whether the transaction succeeds. 
 
 Take the following considerations into account:
 - How many distributed transactions are there in the system? 
@@ -226,9 +226,9 @@ Consider these factors:
 - Do you mask sensitive data during logging?
 
 ## Assess correlation token assignment
-In a microservices architecture, an application is composed of various microservices that are hosted independently, interacting with each other to serve various business use cases. When an application interacts with back-end services to perform an operation, you can assign a unique number, known as a correlation token, to that request. We recommend that you consider using correlation tokens, because they can help you troubleshoot errors. They help you determine the root cause of a problem, assess the impact, and determine an approach to remediate the problem. 
+In a microservices architecture, an application is composed of various microservices that are hosted independently, interacting with each other to serve various business use cases. When an application interacts with back-end services to perform an operation, you can assign a unique number, known as a correlation token, to the request. We recommend that you consider using correlation tokens, because they can help you troubleshoot errors. They help you determine the root cause of a problem, assess the impact, and determine an approach to remediate the problem. 
 
-By using correlation tokens, you can retrieve the request trail by identifying which services contain the correlation token and which don't. The services that don't have the correlation token for that request failed. If a failure occurs, you can later retry the transaction. To enforce idempotency, only services that don't have the correlation token will serve the request. 
+You can use correlation tokens to retrieve the request trail by identifying which services contain the correlation token and which don't. The services that don't have the correlation token for that request failed. If a failure occurs, you can later retry the transaction. To enforce idempotency, only services that don't have the correlation token will serve the request. 
 
 For example, if you have a long chain of operations that involves many services, passing a correlation token to services can help you investigate issues easily if any of the services fails during a transaction. Each service usually has its own database. The correlation token is kept in the database record. In case of a transaction replay, services that have that particular correlation token in their databases ignore the request. Only services that don't have the token serve the request. 
 
@@ -283,7 +283,7 @@ Consider these factors:
 
 ## Next steps
 - [Microservices on Azure](https://azure.microsoft.com/solutions/microservice-applications)
-- [Embrace Microservices Design – by Packt](https://www.amazon.com/Embracing-Microservices-Design-anti-patterns-architectural/dp/180181838X) 
+- [Embrace Microservices Design](https://www.amazon.com/Embracing-Microservices-Design-anti-patterns-architectural/dp/180181838X) 
 - [Introduction to deployment patterns](/learn/modules/introduction-to-deployment-patterns)
 - [Design a microservices-oriented application](/dotnet/architecture/microservices/multi-container-microservice-net-applications/microservice-application-design)
 
