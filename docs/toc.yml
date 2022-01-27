@@ -305,6 +305,8 @@ items:
                 href: guide/multitenant/approaches/networking.md
               - name: Storage and data
                 href: guide/multitenant/approaches/storage-data.md
+              - name: Messaging
+                href: guide/multitenant/approaches/messaging.md
           - name: Service-specific guidance
             items:
               - name: Overview
