@@ -70,7 +70,7 @@ Messages contain raw data produced by a service to be consumed or stored elsewhe
 
 This kind of contractual message handling is quite different from a publisher publishing discrete events to an audience of consumer agents without any specific expectation of how they will handle these notifications.
 
-### Scenarios
+### Example scenarios
 
 Here is a list of some example multitenant scenarios for messages, data points, and discrete events:
 
