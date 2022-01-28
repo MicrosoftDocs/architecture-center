@@ -39,7 +39,7 @@ This article doesn't address the application's underlying services, like App Ser
 
 - To communicate with private resources in the back end, Application Gateway and API Management must be in the same virtual network as the resources. Before implementing the solution, set up a virtual network for your resources. The solution creates subnets for Application Gateway and API Management.
 
-- The private, internal deployment model allows API Management to connect to an existing virtual network, making it reachable from the inside of that network context. To enable this feature, deploy either the **Development** or **Production** API Management tiers.
+- The private, internal deployment model allows API Management to connect to an existing virtual network, making it reachable from the inside of that network context. To enable this feature, deploy either the **Developer** or **Premium** API Management tiers.
 
 - Application Gateway requires PFX certificates for SSL termination. Make sure these certificates are in place before you implement the solution.
 

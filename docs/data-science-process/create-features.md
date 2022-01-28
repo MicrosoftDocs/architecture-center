@@ -8,7 +8,7 @@ editor: marktab
 ms.service: machine-learning
 ms.subservice: team-data-science-process
 ms.topic: conceptual
-ms.date: 05/14/2020
+ms.date: 12/21/2021
 ms.author: tdsp
 ms.custom:
   - previous-author=deguhath
@@ -20,6 +20,19 @@ categories:
   - ai-machine-learning
 ---
 # Feature engineering in machine learning
+
+> [!NOTE]
+> This item is under maintenance. We encourage you to use the [Azure Machine Learning designer](https://azure.microsoft.com/services/cognitive-services/anomaly-detector/).
+
+> [!IMPORTANT]
+> Support for Machine Learning Studio (classic) will end on 31 August 2024. We recommend you transition to [Azure Machine Learning](https://azure.microsoft.com/services/machine-learning/) by that date.
+>
+> Beginning 1 December 2021, you will not be able to create new Machine Learning Studio (classic) resources. Through 31 August 2024, you can continue to use the existing Machine Learning Studio (classic) resources.  
+> 
+> -	See [information on moving machine learning projects from ML Studio (classic) to Azure Machine Learning](/azure/machine-learning/migrate-overview). 
+> -	Learn more about [Azure Machine Learning](/azure/machine-learning/overview-what-is-azure-machine-learning)
+> 
+> ML Studio (classic) documentation is being retired and may not be updated in the future.
 
 In this article, you learn about feature engineering and its role in enhancing data in machine learning. Learn from illustrative examples drawn from [Azure Machine Learning Studio (classic)](/azure/machine-learning/overview-what-is-machine-learning-studio#ml-studio-classic-vs-azure-machine-learning-studio) experiments.
 

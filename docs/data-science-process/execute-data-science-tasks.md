@@ -7,7 +7,7 @@ editor: marktab
 ms.service: machine-learning
 ms.subservice: team-data-science-process
 ms.topic: article
-ms.date: 11/17/2020
+ms.date: 12/14/2021
 ms.author: tdsp
 ms.custom:
   - previous-author=deguhath
@@ -22,9 +22,8 @@ categories:
 
 Typical data science tasks include data exploration, modeling, and deployment. This article outlines the tasks to complete several common data science tasks such as interactive data exploration, data analysis, reporting, and model creation. Options for deploying a model into a production environment may include:
 
-- [Azure Machine Learning](/azure/machine-learning/)
-- [SQL-Server with ML services](/sql/advanced-analytics/r/r-services)
-- [Microsoft Machine Learning Server](/machine-learning-server/what-is-machine-learning-server)
+- Recommended: [Azure Machine Learning](/azure/machine-learning)
+- Possible: [SQL-Server with ML services](/sql/advanced-analytics/r/r-services)
 
 ## 1. <a name='DataQualityReportUtility-1'></a> Exploration
 
@@ -39,38 +38,23 @@ The deliverable at the end of this phase is a data exploration report. The repor
 There are numerous toolkits and packages for training models in a variety of languages. Data scientists should feel free to use which ever ones they are comfortable with, as long as performance considerations regarding accuracy and latency are satisfied for the relevant business use cases and production scenarios.
 
 ### Model management
-After multiple models have been built, you usually need to have a system for registering and managing the models. Typically you need a combination of scripts or APIs and a backend database or versioning system. A few options that you can consider for these management tasks are:
-
-1. [Azure Machine Learning - model management service](/azure/machine-learning/)
-2. [ModelDB from MIT](https://people.csail.mit.edu/mvartak/papers/modeldb-hilda.pdf)
-3. [SQL-server as a model management system](https://blogs.technet.microsoft.com/dataplatforminsider/2016/10/17/sql-server-as-a-machine-learning-model-management-system/)
-4. [Microsoft Machine Learning Server](/sql/advanced-analytics/r/r-server-standalone)
+After multiple models have been built, you usually need to have a system for registering and managing the models. Typically you need a combination of scripts or APIs and a backend database or versioning system. Azure Machine Learning provides [deployment of ONNX models](/azure/machine-learning/concept-onnx#deploy-onnx-models-in-azure) or [deployment of ML Flow models](/azure/machine-learning/how-to-deploy-mlflow-models).
 
 ## 3. <a name='Deployment-3'></a> Deployment
 
 Production deployment enables a model to play an active role in a business. Predictions from a deployed model can be used for business decisions.
 
 ### Production platforms
-There are various approaches and platforms to put models into production. Here are a few options:
-
-- [Model deployment in Azure Machine Learning](/azure/machine-learning/how-to-deploy-and-where)
-- [Deployment of a model in SQL-server](/sql/advanced-analytics/tutorials/sqldev-py6-operationalize-the-model)
-- [Microsoft Machine Learning Server](/sql/advanced-analytics/r/r-server-standalone)
+There are various approaches and platforms to put models into production.  We recommend [deployment to Azure Machine Learning](/azure/machine-learning/how-to-deploy-and-where).
 
 > [!NOTE]
 > Prior to deployment, one has to insure the latency of model scoring is low enough to use in production.
 >
 >
 
-Further examples are available in walkthroughs that demonstrate all the steps in the process for **specific scenarios**. They are listed and linked with thumbnail descriptions in the [Example walkthroughs](walkthroughs.md) article. They illustrate how to combine cloud, on-premises tools, and services into a workflow or pipeline to create an intelligent application.
-
-> [!NOTE]
-> For deployment using Machine Learning Studio (classic), see [Deploy a Machine Learning Studio (classic) web service](/azure/machine-learning/classic/deploy-a-machine-learning-web-service).
->
->
 
 ### A/B testing
-When multiple models are in production, it can be useful to perform [A/B testing](https://en.wikipedia.org/wiki/A/B_testing) to compare performance of the models.
+When multiple models are in production, it can be useful to perform [A/B testing](https://wikipedia.org/wiki/A/B_testing) to compare performance of the models.
 
 ## Next steps
 

@@ -102,7 +102,7 @@ For more information, see the cost section in [Microsoft Azure Well-Architected 
 - [Enterprise business intelligence](../data/enterprise-bi-synapse.yml)
 - [Custom Business Processes](../../solution-ideas/articles/custom-business-processes.yml)
 
-[aaf-cost]: ../../framework/cost/overview.md
+[aaf-cost]: /azure/architecture/framework/cost/overview
 [apim]: /azure/api-management
 [apim-sla]: https://azure.microsoft.com/support/legal/sla/api-management
 [apim-autoscale]: /azure/api-management/api-management-howto-autoscale
