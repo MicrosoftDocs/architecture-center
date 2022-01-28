@@ -16,11 +16,11 @@ Industry standards for communication such as [WebRTC](https://webrtc.org/) separ
 | **Control Plane** | Governs who communicates, when, and how | REST  | Azure Active Directory service credentials |
 | **Data Plane**| Communication content, voice, video, text, data, that interfaces with human beings and apps | UDP, RTMP, WebSockets | User access tokens |
 
-A common architectural pattern is end-users initiating communication via a client applications that requests control information from your communication management service:
+A common architectural pattern is client applications initiating communication by requesting control information from your communication management service:
 
 2. What meetings do I have today?
 1. What phone number do I use to call my friend Joseph? What phone number does Joseph use?
-3. What are the names of my teammates? What chat threads do we on-going?
+3. What are the names of my teammates? What chat threads do we have on-going?
 
 Your control service fulfills these requests by providing clients Azure Communication Services tokens and identifiers for users, threads, phone numbers, and calls, which are then used by clients to interact with the data plane. In WebRTC terms, the process of clients requesting control information from services is called *signaling* - and ACS identifiers such as call id essentially wrap [session descriptions](https://datatracker.ietf.org/doc/html/rfc8866).
 
