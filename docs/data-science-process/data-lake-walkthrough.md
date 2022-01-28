@@ -8,7 +8,7 @@ editor: marktab
 ms.service: machine-learning
 ms.subservice: team-data-science-process
 ms.topic: article
-ms.date: 01/10/2020
+ms.date: 01/28/2022
 ms.author: tdsp
 ms.custom:
   - previous-author=deguhath
@@ -759,11 +759,9 @@ The web service dashboard displays shortly:
 ## Summary
 By completing this walkthrough, you have created a data science environment for building scalable end-to-end solutions in Azure Data Lake. This environment was used to analyze a large public dataset, taking it through the canonical steps of the Data Science Process, from data acquisition through model training, and then to the deployment of the model as a web service. U-SQL was used to process, explore, and sample the data. Python and Hive were used with Azure Machine Learning Studio (classic) to build and deploy predictive models.
 
-## What's next?
+## Next steps
 The learning path for the
 [Team Data Science Process (TDSP)](/azure/machine-learning/team-data-science-process/) provides links to topics describing each step in the advanced analytics process. There are a series of walkthroughs itemized on the [Team Data Science Process walkthroughs](walkthroughs.md) page that showcase how to use resources and services in various predictive analytics scenarios:
 
 * [The Team Data Science Process in action: using Azure Synapse Analytics](sqldw-walkthrough.md)
-* [The Team Data Science Process in action: using HDInsight Hadoop clusters](/azure/architecture/data-science-process/overview)
-* [The Team Data Science Process: using SQL Server](/azure/architecture/data-science-process/overview)
 * [Overview of the Data Science Process using Spark on Azure HDInsight](spark-overview.md)
