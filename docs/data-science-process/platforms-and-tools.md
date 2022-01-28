@@ -7,7 +7,7 @@ editor: marktab
 ms.service: machine-learning
 ms.subservice: team-data-science-process
 ms.topic: article
-ms.date: 12/14/2021
+ms.date: 01/28/2022
 ms.author: tdsp
 ms.custom:
   - previous-author=deguhath
@@ -48,7 +48,7 @@ The data science virtual machine offered on both Windows and Linux by Microsoft,
 
 It also includes **ML and AI tools** like xgboost, mxnet, and Vowpal Wabbit.
 
-Currently DSVM is available in **Windows** and **Linux CentOS** operating systems. Choose the size of your DSVM (number of CPU cores and the amount of memory) based on the needs of the data science projects that you are planning to execute on it.
+Currently DSVM is available in **Windows** and **Linux CentOS** operating systems. Choose the size of your DSVM (number of CPU cores and the amount of memory) based on the needs of the data science projects that you plan to execute on it.
 
 For more information on Windows edition of DSVM, see [Microsoft Data Science Virtual Machine](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-dsvm.dsvm-win-2019) on the Azure Marketplace. For the Linux edition of the DSVM, see [Linux Data Science Virtual Machine](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-dsvm.ubuntu-1804).
 
@@ -80,7 +80,7 @@ Apache Hive is a data warehouse system for Hadoop, which enables data summarizat
 
 Hive allows you to project structure on largely unstructured data. After you define the structure, you can use Hive to query that data in a Hadoop cluster without having to use, or even know, Java or MapReduce. HiveQL (the Hive query language) allows you to write queries with statements that are similar to T-SQL.
 
-For data scientists, Hive can run Python User-Defined Functions (UDFs) in Hive queries to process records. This ability extends the capability of Hive queries in data analysis considerably. Specifically, it allows data scientists to conduct scalable feature engineering in languages they are mostly familiar with: the SQL-like HiveQL and Python.
+For data scientists, Hive can run Python User-Defined Functions (UDFs) in Hive queries to process records. This ability extends the capability of Hive queries in data analysis considerably. Specifically, it allows data scientists to conduct scalable feature engineering in languages they're mostly familiar with: the SQL-like HiveQL and Python.
 
 For more information on Azure HDInsight Hive Clusters, see [Use Hive and HiveQL with Hadoop in HDInsight](/azure/hdinsight/hadoop/hdinsight-use-hive). To learn how to build a scalable end-to-end data science solution with Azure HDInsight Hive Clusters, see [The Team Data Science Process in action: using HDInsight Hadoop clusters](/azure/architecture/data-science-process/overview).
 
@@ -102,7 +102,7 @@ The TDSP team from Microsoft has published two end-to-end walkthroughs that show
 
 ### Install Git Credential Manager on Windows
 
-If you are following the TDSP on **Windows**, you need to install the **Git Credential Manager (GCM)** to communicate with the Git repositories. To install GCM, you first need to install **Chocolaty**. To install Chocolaty and the GCM, run the following commands in Windows PowerShell as an **Administrator**:
+If you're following the TDSP on **Windows**, you need to install the **Git Credential Manager (GCM)** to communicate with the Git repositories. To install GCM, you first need to install **Chocolaty**. To install Chocolaty and the GCM, run the following commands in Windows PowerShell as an **Administrator**:
 
 ```powershell
 iwr https://chocolatey.org/install.ps1 -UseBasicParsing | iex
@@ -119,7 +119,7 @@ sudo yum install git
 
 ### Generate public SSH key on Linux (CentOS) machines
 
-If you are using Linux (CentOS) machines to run the git commands, you need to add the public SSH key of your machine to your Azure DevOps Services, so that this machine is recognized by the Azure DevOps Services. First, you need to generate a public SSH key and add the key to SSH public keys in your Azure DevOps Services security setting page.
+If you're using Linux (CentOS) machines to run the git commands, you need to add the public SSH key of your machine to your Azure DevOps Services, so that this machine is recognized by the Azure DevOps Services. First, you need to generate a public SSH key and add the key to SSH public keys in your Azure DevOps Services security setting page.
 
 1. To generate the SSH key, run the following two commands:
 
@@ -146,4 +146,4 @@ If you are using Linux (CentOS) machines to run the git commands, you need to ad
 
 Full end-to-end walkthroughs that demonstrate all the steps in the process for **specific scenarios** are also provided. They are listed and linked with thumbnail descriptions in the [Example walkthroughs](walkthroughs.md) topic. They illustrate how to combine cloud, on-premises tools, and services into a workflow or pipeline to create an intelligent application.
 
-For examples that show how to execute steps in the Team Data Science Process by using Azure Machine Learning Studio (classic), see the [With Azure ML](/azure/machine-learning/team-data-science-process/) learning path.
+For examples that show how to execute steps in the Team Data Science Process by using Azure Machine Learning studio (classic), see the [With Azure ML](/azure/machine-learning/team-data-science-process/) learning path.
