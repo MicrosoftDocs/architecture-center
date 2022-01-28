@@ -101,7 +101,7 @@ For example, a messaging system for a given tenant could be deployed during the 
 
 The messaging system could be sized with a maximum throughput in messages per unit of time. If the system supports dynamic autoscaling, its capacity could be increased or decreased automatically based on the traffic conditions and metrics to meet the expected service level agreement.
 
-### Performance Predictability
+### Performance Predictability and Reliability
 
 When designing and building a messaging system for a limited number of tenants, using a single messaging system could be an excellent solution to meet the functional requirements in terms of throughput and reduce the total cost of ownership. A multitenant application may share the same messaging entities such as queues and topics across multiple customers or use a dedicated set of components for each to increase tenant isolation. On the other hand, sharing the same messaging infrastructure across multiple tenants may expose the entire solution to the [Noisy Neighbor issue](../../../antipatterns/noisy-neighbor/index.md) issue as the activity of one tenant could harm other tenants in terms of performance and operativity. In this case, the messaging system should be properly sized to sustain the expected traffic load at peak time and ideally support autoscaling: the messaging system should dynamically scale out when the traffic increases and scale in when the traffic decreases. A dedicated messaging system for each tenant could also mitigate the noisy neighbor risk, but managing a large number of messaging systems could increase the complexity of the solution.
 
