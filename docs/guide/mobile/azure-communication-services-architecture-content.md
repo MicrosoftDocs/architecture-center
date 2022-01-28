@@ -22,7 +22,7 @@ A common architectural pattern is a client application initiating communication 
 1. What phone number do I use to call my friend Joseph? What phone number does Joseph use?
 3. What are the names of my teammates? What chat threads do we have on-going?
 
-Your control service fulfills these requests by providing clients Azure Communication Services tokens and identifiers for users, threads, phone numbers, and calls, which are then used by clients to interact with the data plane. In WebRTC terms, the process of clients requesting control information from services is called *signaling* - and ACS identifiers such as call id essentially wrap [session descriptions](https://datatracker.ietf.org/doc/html/rfc8866).
+Your control service fulfills these requests by providing clients Azure Communication Services tokens and identifiers for users, threads, phone numbers, and calls, which are then used by clients to interact with the data plane. In WebRTC terms, the process of clients requesting control information from services is called *signaling* - and ACS identifiers such as call ID essentially wrap [session descriptions](https://datatracker.ietf.org/doc/html/rfc8866).
 
 ## User access management
 
