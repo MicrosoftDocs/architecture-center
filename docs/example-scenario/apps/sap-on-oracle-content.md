@@ -15,7 +15,7 @@ The reference architecture describes a typical SAP production system running on 
 
 The presentation layer (SAPGUI, SAP NetWeaver Business Client, Browser, and so on) of the reference architecture reside in the user workstation (laptop, desktop, and so on), which connects to Azure via on-premises datacenter. Below are the considerations and recommendations around presentation layer of the architecture.
 
-#### Considerations
+#### Considerations 
 
 - The presentation layer of the SAP Solution can reside in a user workstation (laptop, desktop, and so on), remote desktop in Azure, or in virtual desktop solutions, such as Citrix, [Azure Virtual Desktop](/azure/virtual-desktop/overview), and so on.
 
