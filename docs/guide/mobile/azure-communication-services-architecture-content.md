@@ -1,6 +1,6 @@
 This guide presents data flow diagrams for [Azure Communication Services (ACS)](https://docs.microsoft.com/en-us/azure/communication-services/). Use these diagrams to understand how your clients and services interact with Azure, and with each other, to deliver communication experiences. 
 
-Azure Communication Services are cloud-based services with REST APIs and client library SDKs available to help you integrate communication into your applications. Azure Communication Services supports various communication formats: voice and video calling, text chat, SMS and custom binary data. You can connect custom client endpoints, custom services, and the publicly switched telephony network (PSTN) to your communications application. You can acquire phone numbers directly through Azure Communication Services REST APIs, SDKs, or the Azure portal; and use these numbers for SMS or calling applications. Azure Communication Services direct routing allows you to use SIP and session border controllers to connect your own PSTN carriers and bring your own phone numbers.
+Azure Communication Services are cloud-based services with REST APIs and client library SDKs available to help you integrate communication into your applications. Azure Communication Services supports various communication formats: voice and video calling, text chat, SMS and custom binary data. You can connect custom client apps, custom services, and the publicly switched telephony network (PSTN) to your communications application. You can acquire phone numbers directly through Azure Communication Services REST APIs, SDKs, or the Azure portal; and use these numbers for SMS or calling applications. Azure Communication Services direct routing allows you to use SIP and session border controllers to connect your own PSTN carriers and bring your own phone numbers.
 
 Several components are used repeatedly in these data flow diagrams:
 
@@ -9,7 +9,7 @@ Several components are used repeatedly in these data flow diagrams:
 1. **Communication Controller Service.**  This service capability you build to **control** chat threads, voice and video calls.
 1. **Communication Data Service.**  This service capability you build to interact with communication content directly such as sending chat and SMS messages or playing audio in a voice call.
 
-Industry standards for communication such as [WebRTC](https://webrtc.org/) separate communication into a **control plane** and **data plane** described below.  
+Industry standards for communication such as [WebRTC](https://webrtc.org/) separate communication into a **control plane** and **data plane**:  
 
 | System  | Function| Common Protocols  | Access Model   |
 |---|---|-----|--|
@@ -71,8 +71,8 @@ You may want users to join a call without an explicit invitation. For example yo
 
 ### Dataflows
 1. Initiating user initializes their Call client and makes a group call.
-2. The initiating user shares the group call ID with a Call management service.
-3. The Call Management Service shares the call ID with other users. For example, if the application orients around scheduled events, the group call ID might be an attribute of the scheduled event's data model.
+2. The initiating user shares the group call ID with a Communication Controller service.
+3. The communication controller service shares the call ID with other users. For example, if the application orients around scheduled events, the group call ID might be an attribute of the scheduled event's data model.
 4. Other users join the call using the group call ID.
 5. The users communicate with each other using voice and video in a call.
 
@@ -95,8 +95,8 @@ The Teams platform can be simplified as four systems that you can access through
 
 1. **Teams Shell Experience** - Create apps, tabs, and other enhancements to the Teams app with the [Teams SDK](https://docs.microsoft.com/en-us/microsoftteams/platform/get-started/get-started-overview).
 2. **Teams Control Plane, Compliance, and Administration.** - Schedule meetings, search channels, and automate compliance tasks with [Microsoft Graph](https://docs.microsoft.com/en-us/graph/overview?view=graph-rest-1.0).
-3. **Teams Data Plane** - Using Azure Communication SErvices to connect custom clients and services to Teams calls, meetings, chat threads, using custom (guest) or AAD/M365 identity
-4. **Identity** - Use [Azure Active Directory](https://docs.microsoft.com/en-us/azure/active-directory/develop/v2-overview) to deliver secure single-sign-on (SSO) for end-users and accomplish secure service-to-service authentication
+3. **Teams Data Plane** - Using Azure Communication Services to connect custom clients and services to Teams calls, meetings, chat threads, using custom (guest) or AAD/M365 identity.
+4. **Identity** - Use [Azure Active Directory](https://docs.microsoft.com/en-us/azure/active-directory/develop/v2-overview) to deliver secure single-sign-on (SSO) for end-users and accomplish secure service-to-service authentication.
 
 ## Joining a scheduled Teams call
 Azure Communication Service applications can join Teams calls. For external users, they need a link to the Teams meeting, and this is managed using Graph APIs. The complete flow is below:
@@ -105,8 +105,8 @@ Azure Communication Service applications can join Teams calls. For external user
 
 
 ### Dataflows
-1. The Communication Controller Service creates a group call with [Graph APIs](/graph/api/resources/onlinemeeting?view=graph-rest-1.0&preserve-view=true). Another pattern involves end users creating the group call using [Bookings](https://www.microsoft.com/microsoft-365/business/scheduling-and-booking-app), Outlook, Teams, or another scheduling experience in the Microsoft 365 ecosystem.
-2. The Communication Controller Service shares the Teams call details with Azure Communication Service clients.
+1. The Communication Controller Service creates a group call with [Graph APIs](/graph/api/resources/onlinemeeting?view=graph-rest-1.0&preserve-view=true). Another pattern involves end users creating the group call using [Bookings](https://www.microsoft.com/microsoft-365/business/scheduling-and-booking-app), Outlook or Teams.
+2. The communication controller service shares the Teams call details with Azure Communication Service clients.
 3. Typically, a Teams user must join the call and allow external users to join through the lobby. However this experience is sensitive to the Teams tenant configuration and specific meeting settings.
 4. Azure Communication Service users initialize their Call client and join the Teams meeting, using the details received in Step 2.
 5. The users communicate with each other using voice and video in a call.
