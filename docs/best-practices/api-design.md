@@ -180,7 +180,7 @@ If the server cannot match any of the media type(s) listed, it should return HTT
 
 ### GET methods
 
-A successful GET method typically returns HTTP status code 200 (OK). If the resource cannot be found, the method should return 404 (Not Found).
+A successful GET method typically returns HTTP status code 200 (OK). If the resource cannot be found, the method should return 404 (Not Found). If the request was fulfilled but there is no data to return, then it should return 204 (No-Content).
 
 ### POST methods
 
