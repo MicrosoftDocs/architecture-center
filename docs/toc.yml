@@ -1111,7 +1111,7 @@ items:
       - name: Facilities and Real Estate
         items: 
           - name: Overview
-            href: industries/facilities-real-estate
+            href: industries/facilities-real-estate.md
           - name: All facilities and real estate architectures
             href: /azure/architecture/browse/?terms=facilities
           - name: Cognizant Safe Buildings with IoT
