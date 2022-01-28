@@ -3792,6 +3792,8 @@ items:
               - name: Traditional Azure networking topology
                 href: /azure/cloud-adoption-framework/ready/azure-best-practices/traditional-azure-networking-topology
                 maintainContext: true
+              - name: Trusted Internet Connections (TIC) 3.0 compliance
+                href: example-scenario/security/trusted-internet-connections-3.0.yml
               - name: Update route tables with Route Server
                 href: example-scenario/networking/manage-routing-azure-route-server.yml
               - name: Virtual WAN network topology
