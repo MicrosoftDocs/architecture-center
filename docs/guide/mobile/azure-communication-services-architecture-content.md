@@ -4,7 +4,7 @@ Azure Communication Services are cloud-based services with REST APIs and client 
 
 Several components are used repeatedly in these data flow diagrams:
 
-1. **Client Application.** This website or native application is used by end-users to communicate. Azure Communication Services provides [SDK client libraries](https://docs.microsoft.com/azure/communication-services/concepts/sdk-options) for multiple browsers and application platforms. In addition to our core SDKs, [a UI Library](https://aka.ms/acsstorybook) is available to accelerate browser app development.
+1. **Client Application.** This website or native application is used by end users to communicate. Azure Communication Services provides [SDK client libraries](https://docs.microsoft.com/azure/communication-services/concepts/sdk-options) for multiple browsers and application platforms. In addition to our core SDKs, [a UI Library](https://aka.ms/acsstorybook) is available to accelerate browser app development.
 1. **Identity Management Service.**  This service capability you build to map users and other concepts in your business logic to Azure Communication Services identities and create tokens for those users when required.
 1. **Communication Controller Service.**  This service capability you build to **control** chat threads, voice and video calls.
 1. **Communication Data Service.**  This service capability you build to interact with communication content directly such as sending chat and SMS messages or playing audio in a voice call.
@@ -14,9 +14,9 @@ Industry standards for communication such as [WebRTC](https://webrtc.org/) separ
 | System  | Function| Common Protocols  | Access Model   |
 |---|---|-----|--|
 | **Control Plane** | Governs who communicates, when, and how | REST  | Azure Active Directory service credentials |
-| **Data Plane**| Communication content, voice, video, text, data, that interfaces with human beings and apps | UDP, RTMP, WebSockets | User access tokens |
+| **Data Plane**| Communication content, voice, video, text, data, that interface with human beings and apps | UDP, RTMP, WebSockets | User access tokens |
 
-A common architectural pattern is client applications initiating communication by requesting control information from your communication management service:
+A common architectural pattern is a client application initiating communication by requesting control information from your communication controller service:
 
 2. What meetings do I have today?
 1. What phone number do I use to call my friend Joseph? What phone number does Joseph use?
@@ -87,7 +87,7 @@ Many enterprises use Microsoft 365 and Teams for communication. Developers can e
 
 1. **Adding experiences within the Teams apps, such as tabs, bots, compliance automation, and Teams apps.** This is accomplished using the [Teams SDK](https://docs.microsoft.com/en-us/microsoftteams/platform/get-started/get-started-overview) with Microsoft Graph. These scenarios are outside this article's scope.
 2. **Delivering a custom application for an external user to join a Teams meeting.** This is ideal for virtual visit scenarios where a business using Teams hosts a meeting for consumers using a custom app and a custom identity. Check out the [Virtual Visits tutorial and Sample Builder](https://docs.microsoft.com/en-us/learn/modules/intro-to-azure-communication-services/) to learn more about this specific scenario.
-3. **Delivering a custom application for an internal user with M365/Active Directory credentials to join Teams meetings and participate in 1:1 calling using their Teams identity and Teams-allocated phone number.** This is ideal for building custom employee experiences for Teams interaction. For example [Landis Technologies](https://landistechnologies.com/microsoft-teams-attendant-console/) offers a custom application optimized for attendant scenarios where an employee is answering many phone calls to their Teams allocated phone number.
+3. **Delivering a custom application for an internal user with M365/Active Directory credentials to join Teams meetings and participate in 1:1 calling using their Teams identity and Teams-allocated phone number.** This is ideal for building custom employee experiences for Teams interaction. For example [Landis Technologies](https://landistechnologies.com/microsoft-teams-attendant-console/) offers a custom application optimized for attendant scenarios where an employee is answering phone calls to their Teams allocated phone number.
 
 These custom application scenarios require usage of [Microsoft Graph APIs](https://docs.microsoft.com/en-us/graph/overview?view=graph-rest-1.0). In the communications space, you can use Graph as the *Teams control plane* - configuring who, how, and when users communicate via [calendar and online meeting APIs](https://docs.microsoft.com/en-us/graph/choose-online-meeting-api?view=graph-rest-1.0). While you use the Azure Communication Service data plane to [interact with Teams communication content](https://docs.microsoft.com/en-us/azure/communication-services/concepts/teams-interop.md).
 
