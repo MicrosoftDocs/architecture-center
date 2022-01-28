@@ -29,7 +29,7 @@ IoT, AI, machine learning, and other Azure technologies have the potential to he
 
 Smart buildings can perfectly heat and cool themselves, sending energy to the right places at the right times. They can even greet visitors and help them find their way. Predictive maintenance can help building operators know when something is likely to need attention.  
 
-Machine learning, Azure IoT Edge, and other technologies can help create safe indoor environments during challenging times. Solar-powered IoT devices combined with Azure services can provide clean, low-cost power, light, and internet service to remote customers.
+Machine learning, Azure IoT Edge, and other technologies can help create safe indoor environments during challenging times. And solar-powered IoT devices combined with Azure services can provide clean, low-cost power, light, and internet service to remote customers.
 
 Watch this short video to get a sense of some of the things smart buildings are capable of: 
 
