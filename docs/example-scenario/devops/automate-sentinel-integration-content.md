@@ -285,19 +285,19 @@ The following example shows a how your code might be organized:
 
 ![Code example for a logical environment definition](./media/logical-definition-code-format-example.png)
 
-The usage of the repository should be based on pull request actions, where the different environment can be defined by different teams and being approved by the owners/approvers of the organization.
+Using the repository is based on pull request actions, where the various environments are defined by different teams and approved by the organization's owners or approvers.
 
-The privileged level for executing an environment deployment must be Level 2, to ensure the creation for the Resource Group and the resources inside, ensuring the isolation of the environment. Approval actions must be also considered for productive environments (Production, Pre-Production) avoiding unmanaged actions over these cases.  
+The privilege level for running an environment deployment is Level two. This level ensures that the Resource Group and the resources are created for the environment with the necessary security and privacy. This level also sets the user permissions on allowed actions in the production environments (Production, Pre-Production).  
 
-Organizations that want to provide environments under demand for testing and development, ensuring the destruction after completing the purpose, can implement an Azure DevOps Pipeline or GitHub Actions for destroy the environment, based on Scheduled Triggers (Azure DevOps)/Events (GitHub).
+Organizations that want environments on demand for testing and development and the ability to then destroy the environments after finishing their testing, can implement an Azure DevOps Pipeline or GitHub Actions. They can set scheduled triggers to destroy the environments as needed using Azure DevOps Events or GitHub Actions.
 
 #### Sentinel Connectors Automatic Configuration  
 
-Microsoft Sentinel Connectors is an essential part of the solution, which allows to connect with different elements in the Enterprise Architecture landscape like Azure AD, Microsoft 365, Microsoft Defenders, Threat Intelligence Platform solutions, etc.  
+Microsoft Sentinel Connectors is an essential part of the solution that supports connecting with different elements in the Enterprise Architecture landscape, like Azure AD, Microsoft 365, Microsoft Defenders, Threat Intelligence Platform solutions, and so on.  
 
-At the time of defining an Environment, facilitating the connectors configuration makes possible for the organization to provide environments with homogeneous configurations. 
+At the time of defining an Environment, the connectors configuration makes it possible for you to set up environments with homogeneous configurations.
 
-Enabling connectors as part of DevOps model needs to be supported over the Service Principal level model for ensuring the right level of privileges like we can see in the following reference: 
+Enabling connectors as part of the DevOps model needs to be supported over the Service Principal level model for ensuring the right level of privileges as shown in the following table.
 
 | Connector Scenario | Privilege Access Model Level | Azure Least Privilege | Requires Workflow Approval  | 
 | ---- | --- | --- | --- | 
