@@ -7,18 +7,18 @@ Several components are used repeatedly in these data flow diagrams:
 1. **Client Application.** This website or native application is used by end users to communicate. Azure Communication Services provides [SDK client libraries](https://docs.microsoft.com/azure/communication-services/concepts/sdk-options) for multiple browsers and application platforms. In addition to our core SDKs, [a UI Library](https://aka.ms/acsstorybook) is available to accelerate browser app development.
 1. **Identity Management Service.**  This service capability you build to map users and other concepts in your business logic to Azure Communication Services identities and create tokens for those users when required.
 1. **Communication Controller Service.**  This service capability you build to **control** chat threads, voice and video calls.
-1. **Communication Data Service.**  This service capability you build to interact with communication content directly such as sending chat and SMS messages or playing audio in a voice call.
+1. **Communication Data Service.**  This service capability you build to interact with communication **content** directly such as sending chat and SMS messages or playing audio in a voice call.
 
-Industry standards for communication such as [WebRTC](https://webrtc.org/) separate communication into a **control/signaling plane** and **data/media plane**. Azure Communication Services allows you to build communication experience without understanding our internal implementation of WebRTC, but these concepts can help you architect your app:
+Industry standards for communication such as [WebRTC](https://webrtc.org/) separate communication into a **control/signaling plane** and **data plane**. Azure Communication Services allows you to build communication experience without understanding our internal implementation of WebRTC, but these concepts can help you architect your app:
 
 | System  | Function| Common Protocols  | Access Model   |
 |---|---|-----|--|
 | **Control Plane** | Governs who communicates, when, and how | REST  | Azure Active Directory service credentials |
 | **Data Plane**| Communication content, voice, video, text, data, that interface with human beings and apps | UDP, RTMP, WebSockets | User access tokens |
 
-The control plane is not described in the WebRTC standard because it is typically unique to the specific application experience, *"[Communications are coordinated by the exchange of control messages (called a signaling protocol) over a signaling channel which is provided by unspecified means, but generally by a script in the page via the server, e.g. using Web Sockets or XMLHttpRequest."](https://www.w3.org/TR/webrtc/#introduction)* Azure Communication Services control plan functionality is simple and generic so you can build your own custom experience. 
+The control plane is not described in the WebRTC standard because it is typically unique to the specific application experience, *"[Communications are coordinated by the exchange of control messages (called a signaling protocol) over a signaling channel which is provided by unspecified means.](https://www.w3.org/TR/webrtc/#introduction)* Azure Communication Services control plane functionality is simple and generic so you can build your own custom experience. 
 
-A common architectural pattern is a client application initiating communication by requesting control information from your communication controller service:
+A common data flow is a client application initiating communication by requesting control information from your communication controller service:
 
 2. What meetings do I have today?
 1. What phone number do I use to call my friend Joseph? What phone number does Joseph use?
