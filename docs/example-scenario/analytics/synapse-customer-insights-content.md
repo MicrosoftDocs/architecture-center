@@ -70,7 +70,7 @@ You can deploy this solution with the following options.
 Azure services like Azure Storage accounts, Key Vault, Container Registry, Application Insights, and so on, that are deployed with Azure Synapse Analytics and Azure Machine Learning will incur other costs.
 
 ## Next steps
-- [Unlock customer intent with Dynamics 365 Customer Insights](learn/paths/build-customer-insights)
+- [Unlock customer intent with Dynamics 365 Customer Insights](/learn/paths/build-customer-insights)
 - [Product overview for Dynamics 365 Customer Insights](/dynamics365/customer-insights/overview)
 - [What is Azure Machine Learning?](/azure/machine-learning/overview-what-is-azure-machine-learning)
 - [What is Azure Synapse Analytics?](/azure/synapse-analytics/overview-what-is)
