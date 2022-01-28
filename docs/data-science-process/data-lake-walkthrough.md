@@ -13,14 +13,17 @@ ms.author: tdsp
 ms.custom:
   - previous-author=deguhath
   - previous-ms.author=deguhath
-products:
   - azure-machine-learning
 categories:
   - ai-machine-learning
+ products:
+   - azure-data-lake
+   - azure-machine-learning
+   - azure-storage
 ---
 # Scalable data science with Azure Data Lake
 
-This walkthrough shows how to use Azure Data Lake to do data exploration and binary classification tasks on a sample of the NYC taxi trip and fare dataset to predict whether or not a tip is paid by a fare. It walks you through the steps of the [Team Data Science Process](/azure/machine-learning/team-data-science-process/), end-to-end, from data acquisition to model training, and then to the deployment of a web service that publishes the model.
+This walkthrough shows how to use Azure Data Lake to do data exploration and binary classification tasks on a sample of the NYC taxi trip and fare dataset. The sample shows you how to predict whether or not a tip is paid by a fare. It walks you through the steps of the [Team Data Science Process](/azure/machine-learning/team-data-science-process), end-to-end, from data acquisition to model training. Then it shows you how to deploy a web service that publishes the model.
 
 ## Technologies
 
@@ -34,9 +37,9 @@ These technologies are used in this walkthrough.
 
 ### Azure Data Lake Analytics
 
-The [Microsoft Azure Data Lake](https://azure.microsoft.com/solutions/data-lake/) has all the capabilities required to make it easy for data scientists to store data of any size, shape and speed, and to conduct data processing, advanced analytics, and machine learning modeling with high scalability in a cost-effective way.   You pay on a per-job basis, only when data is actually being processed. Azure Data Lake Analytics includes U-SQL, a language that blends the declarative nature of SQL with the expressive power of C# to provide scalable distributed query capability. It enables you to process unstructured data by applying schema on read, insert custom logic and user-defined functions (UDFs), and includes extensibility to enable fine grained control over how to execute at scale. To learn more about the design philosophy behind U-SQL, see [Visual Studio blog post](https://blogs.msdn.microsoft.com/visualstudio/2015/09/28/introducing-u-sql-a-language-that-makes-big-data-processing-easy/).
+The [Microsoft Azure Data Lake](https://azure.microsoft.com/solutions/data-lake/) has all the capabilities required to make it easy for data scientists to store data of any size, shape and speed, and to conduct data processing, advanced analytics, and machine learning modeling with high scalability in a cost-effective way. You pay on a per-job basis, only when data is actually being processed. Azure Data Lake Analytics includes U-SQL, a language that blends the declarative nature of SQL with the expressive power of C#. U-SQL then provides a scalable distributed query capability. It enables you to process unstructured data by applying schema on read. You can also insert custom logic and user-defined functions (UDFs), and it includes extensibility to enable fine-grained control over how to execute at scale. To learn more about the design philosophy behind U-SQL, see [this Visual Studio blog post](https://blogs.msdn.microsoft.com/visualstudio/2015/09/28/introducing-u-sql-a-language-that-makes-big-data-processing-easy).
 
-Data Lake Analytics is also a key part of Cortana Analytics Suite and works with Azure Synapse Analytics, Power BI, and Data Factory. This combination gives you a complete cloud big data and advanced analytics platform.
+Data Lake Analytics is also a key part of Cortana Analytics Suite. It works with Azure Synapse Analytics, Power BI, and Data Factory. This combination gives you a complete cloud big data and advanced analytics platform.
 
 This walkthrough begins by describing how to install the prerequisites and resources that are needed to complete data science process tasks. Then it outlines the data processing steps using U-SQL and concludes by showing how to use Python and Hive with Azure Machine Learning Studio (classic) to build and deploy the predictive models.
 
@@ -46,7 +49,7 @@ This walkthrough recommends using Visual Studio to edit U-SQL scripts to process
 
 ### Python
 
-This walkthrough also contains a section that shows how to build and deploy a predictive model using Python with Azure Machine Learning Studio. It provides a Jupyter notebook with the Python scripts for the steps in this process. The notebook includes code for some additional feature engineering steps and models construction such as multiclass classification and regression modeling in addition to the binary classification model outlined here. The regression task is to predict the amount of the tip based on other tip features.
+This walkthrough also contains a section that shows how to build and deploy a predictive model using Python with Azure Machine Learning Studio. It provides a Jupyter Notebook with the Python scripts for the steps in this process. The notebook includes code for some additional feature engineering steps and models construction such as multiclass classification and regression modeling in addition to the binary classification model outlined here. The regression task is to predict the amount of the tip based on other tip features.
 
 ### Azure Machine Learning
 
@@ -736,7 +739,7 @@ You are now ready to build and deploy a model that predicts whether or not a tip
     select * from nyc_stratified_sample;
     ```
 
-4. Enter the URI of HDInsight cluster (this URI can be found in Azure portal), Hadoop credentials, location of output data, and Azure Storage account name/key/container name.
+4. Enter the URL of the HDInsight cluster (this URL can be found in the Azure portal), then enter the Hadoop credentials, the location of the output data, and the Azure Storage account name/key/container name.
 
    ![23](./media/data-lake-walkthrough/23-reader-module-v3.png)
 
