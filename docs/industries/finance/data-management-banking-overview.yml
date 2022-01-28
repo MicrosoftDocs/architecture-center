@@ -11,9 +11,6 @@ metadata:
 azureCategories:
   - databases
   - storage
-categories:
-  - databases
-  - storage
 products:
   - azure-blob-storage
   - azure-data-factory
