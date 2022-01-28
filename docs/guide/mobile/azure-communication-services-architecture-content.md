@@ -9,12 +9,14 @@ Several components are used repeatedly in these data flow diagrams:
 1. **Communication Controller Service.**  This service capability you build to **control** chat threads, voice and video calls.
 1. **Communication Data Service.**  This service capability you build to interact with communication content directly such as sending chat and SMS messages or playing audio in a voice call.
 
-Industry standards for communication such as [WebRTC](https://webrtc.org/) separate communication into a **control plane** and **data plane**:  
+Industry standards for communication such as [WebRTC](https://webrtc.org/) separate communication into a **control/signaling plane** and **data/media plane**. Azure Communication Services allows you to build communication experience without understanding our internal implementation of WebRTC, but these concepts can help you architect your app:
 
 | System  | Function| Common Protocols  | Access Model   |
 |---|---|-----|--|
 | **Control Plane** | Governs who communicates, when, and how | REST  | Azure Active Directory service credentials |
 | **Data Plane**| Communication content, voice, video, text, data, that interface with human beings and apps | UDP, RTMP, WebSockets | User access tokens |
+
+The control plane is not described in the WebRTC standard because it is typically unique to the specific application experience, *"[Communications are coordinated by the exchange of control messages (called a signaling protocol) over a signaling channel which is provided by unspecified means, but generally by a script in the page via the server, e.g. using Web Sockets or XMLHttpRequest."](https://www.w3.org/TR/webrtc/#introduction)* Azure Communication Services control plan functionality is simple and generic so you can build your own custom experience. 
 
 A common architectural pattern is a client application initiating communication by requesting control information from your communication controller service:
 
@@ -22,7 +24,7 @@ A common architectural pattern is a client application initiating communication 
 1. What phone number do I use to call my friend Joseph? What phone number does Joseph use?
 3. What are the names of my teammates? What chat threads do we have on-going?
 
-Your control service fulfills these requests by providing clients Azure Communication Services tokens and identifiers for users, threads, phone numbers, and calls, which are then used by clients to interact with the data plane. In WebRTC terms, the process of clients requesting control information from services is called *signaling* - and ACS identifiers such as call ID essentially wrap [session descriptions](https://datatracker.ietf.org/doc/html/rfc8866).
+Your control service fulfills these requests by providing clients Azure Communication Services tokens and identifiers for users, threads, phone numbers, and calls, which are then used by clients to interact with the data plane. In WebRTC terms, the process of clients requesting control information from services is called *control messages* or *signaling* - and ACS identifiers such as call ID essentially wrap [session descriptions](https://datatracker.ietf.org/doc/html/rfc8866).
 
 ## User access management
 
