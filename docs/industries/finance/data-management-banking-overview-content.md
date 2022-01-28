@@ -1,6 +1,6 @@
 Banks today carry responsibility for securing and storing enormous amounts of
-valuable information within their firewalls, both about their customers and
-about the shifting financial landscape. In many cases that information goes
+valuable information within their firewalls. This information is both about their customers and
+about the shifting financial landscape. In many cases, that information goes
 unused because it is not easily accessible or searchable, even though use of
 data could improve decision making across multiple banking activities.
 
