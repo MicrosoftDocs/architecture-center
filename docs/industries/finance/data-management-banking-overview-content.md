@@ -5,13 +5,13 @@ unused because it is not easily accessible or searchable, even though use of
 data could improve decision making across multiple banking activities.
 
 With this data, banks could find information faster about who is at risk for defaulting on
-a loan or decide what market portfolio valuation adjustments are needed. Banks
+a loan, or banks could decide what market portfolio valuation adjustments are needed. Banks
 could also have a clearer view of how their data is stored and managed to meet
 regulatory requirements, so that data can be leveraged, retained, archived or
 deleted to comply.
 
-With thousands of decisions, large and small, required to meet every day banking
-function requirements, data becomes increasingly important. Not only that, but
+Thousands of decisions, large and small, are required to meet everyday banking
+function requirements. As a result, data becomes increasingly important. Not only that, but
 given strict regulatory requirements and Financial Crime obligations, banks need
 the ability to audit the results of any data analysis process, all the way back
 to the initial information landing into a data repository. Traceability
