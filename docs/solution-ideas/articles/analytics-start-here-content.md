@@ -20,7 +20,7 @@ If you're new to analytics on Azure, the best place to learn more is with
 
 If your organization is new to the cloud, the [Cloud Adoption Framework](/azure/cloud-adoption-framework/) can help you get started. This collection of documentation and best practices offers proven guidance from Microsoft designed to accelerate your cloud adoption journey. It also lists [innovation tools to democratize data in Azure](/azure/cloud-adoption-framework/innovate/best-practices/data).
 
-To help assure the quality of your analytics solution on Azure, we recommend following the [Azure Well-Architected Framework](../../framework/index.md). It provides prescriptive guidance for organizations seeking architectural excellence and discusses how to design, provision, and monitor cost-optimized Azure solutions.
+To help assure the quality of your analytics solution on Azure, we recommend following the [Azure Well-Architected Framework](/azure/architecture/framework/index). It provides prescriptive guidance for organizations seeking architectural excellence and discusses how to design, provision, and monitor cost-optimized Azure solutions.
 
 ## Path to production
 
@@ -42,15 +42,15 @@ To get started, consider the following example implementations:
 
 ## Best practices
 
-High-quality analytics start with robust, trustworthy data. At the highest level, [information security](../../framework/security/overview.md) practices help ensure that your data is protected in transit and at rest. Access to that data must also be trusted. Trustworthy data implies a design that implements:
+High-quality analytics start with robust, trustworthy data. At the highest level, [information security](/azure/architecture/framework/security/overview) practices help ensure that your data is protected in transit and at rest. Access to that data must also be trusted. Trustworthy data implies a design that implements:
 
--   [Governance policies](../../framework/security/design-governance.md).
+-   [Governance policies](/azure/architecture/framework/security/design-governance).
 
--   [Identity and access management](../../framework/security/design-identity.md).
+-   [Identity and access management](/azure/architecture/framework/security/design-identity).
 
--   [Network security controls](../../framework/security/design-network.md).
+-   [Network security controls](/azure/architecture/framework/security/design-network).
 
--   [Data protection](../../framework/security/design-storage.md).
+-   [Data protection](/azure/architecture/framework/security/design-storage).
 
 At the platform level, the following [big data best practices](../../guide/architecture-styles/big-data.md#best-practices) contribute to trustworthy analytics on Azure:
 

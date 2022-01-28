@@ -142,8 +142,8 @@ In this reference, Azure Container Instances container groups are utilized as *v
 [azure-stack-hub-azure-app-service]: /azure-stack/operator/azure-stack-app-service-deploy
 [azure-virtual-machines-pricing]: https://azure.microsoft.com/pricing/details/virtual-machines/
 [azure-virtual-network]: /azure/virtual-network/
-[azure-well-architected-framework]: ../framework/index.md
-[azure-well-architected-framework-performance]: ../framework/index.md#performance-efficiency
-[azure-well-architected-framework-cost]: ../framework/cost/overview.md
+[azure-well-architected-framework]: /azure/architecture/framework
+[azure-well-architected-framework-performance]: /azure/architecture/framework/#performance-efficiency
+[azure-well-architected-framework-cost]: /azure/architecture/framework/cost/overview
 [kubernetes]: https://kubernetes.io
 [reference-architecture-azure-arc-kubernetes-enabled]: arc-hybrid-kubernetes.yml

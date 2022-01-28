@@ -75,14 +75,14 @@ One solution to this problem is to use HTTP polling. Polling is useful to client
 
 - The API offloads processing to another component, such as a message queue.
 
-- While the work is still pending, the status endpoint returns HTTP 202. Once the work is complete, the status endpoint can either return a resource that indicates completion, or redirect to another resource URL. For example, if the asynchronous operation creates a new resource, the status endpoint would redirect to the URL for that resource.
+- For every successful call to the status endpoint, it returns HTTP 202. While the work is still pending, the status endpoint returns a resource that indicates the work is still in progress. Once the work is complete, the status endpoint can either return a resource that indicates completion, or redirect to another resource URL. For example, if the asynchronous operation creates a new resource, the status endpoint would redirect to the URL for that resource.
 
 The following diagram shows a typical flow:
 
 ![Request and response flow for asynchronous HTTP requests](./_images/async-request.png)
 
 1. The client sends a request and receives an HTTP 202 (Accepted) response.
-2. The client sends an HTTP GET request to the status endpoint. The work is still pending, so this call also returns HTTP 202.
+2. The client sends an HTTP GET request to the status endpoint. The work is still pending, so this call returns HTTP 202.
 3. At some point, the work is complete and the status endpoint returns 302 (Found) redirecting to the resource.
 4. The client fetches the resource at the specified URL.
 
