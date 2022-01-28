@@ -5,7 +5,7 @@ description: Get an overview  of architectures and ideas for using Azure service
 author: EdPrice-MSFT
 ms.author: edprice
 ms.date: 01/31/2022
-ms.topic: article
+ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: azure-guide
 ms.custom: fcp 
@@ -42,17 +42,17 @@ The following articles provide detailed analysis of architectures created and re
 
 |Architecture|Summary|Technology focus|
 |---|---|---|
-|[Azure IoT reference architecture](../reference-architectures/iot.yml) |Learn about a recommended architecture for IoT applications that use Azure platform as a service (PaaS) components. You can apply this architecture to smart buildings and other facilities scenarios.|IoT|
-|[Cognizant Safe Buildings with IoT and Azure](../solution-ideas/articles/safe-buildings.yml) |Deploy Cognizant Safe Buildings, IoT, and Azure services to protect buildings from COVID-19 outbreaks.|IoT|
-|[Connected factory signal pipeline](../example-scenario/iot/connected-factory-signal-pipeline.yml) |Learn about the connected factory signal pipeline architecture, which provides a common configuration interface to connect brownfield IoT devices through an OPC Unified Architecture (UA) gateway. You can apply this architecture to predictive maintenance scenarios and other scenarios that are related to facilities and real estate. |IoT|
+|[Azure IoT reference architecture](../reference-architectures/iot.yml) |Learn about a recommended architecture for IoT applications that use Azure platform as a service (PaaS) components. Apply this architecture to smart buildings and other facilities scenarios.|IoT|
+|[Cognizant Safe Buildings with IoT and Azure](../solution-ideas/articles/safe-buildings.yml) |Deploy Cognizant Safe Buildings, IoT, and Azure services to help protect buildings from COVID-19 outbreaks.|IoT|
+|[Connected factory signal pipeline](../example-scenario/iot/connected-factory-signal-pipeline.yml) |Learn about the connected factory signal pipeline architecture, which provides a common configuration interface to connect brownfield IoT devices through an OPC Unified Architecture (UA) gateway. Apply this architecture to predictive maintenance scenarios and other scenarios that are related to facilities and real estate. |IoT|
 |[COVID-19 safe solutions with IoT Edge](../solution-ideas/articles/cctv-iot-edge-for-covid-19-safe-environment-and-mask-detection.yml) |Create an environment that monitors social distance, mask/PPE use, and occupancy requirements by using CCTVs and Azure IoT Edge, Azure Stream Analytics, and Azure Machine Learning.|Containers|
 |[Create smart places by using Azure Digital Twins](../example-scenario/iot/smart-places.yml) |Use Azure Digital Twins to create models of smart places from IoT device data. View and control products, systems, environments, and experiences.|IoT|
-|[Digital image-based modeling on Azure](../example-scenario/infrastructure/image-modeling.yml) |Learn how to perform image-based modeling on Azure infrastructure-as-a-service (IaaS). You can apply this technology to modeling and measuring buildings.|Compute|
+|[Digital image-based modeling on Azure](../example-scenario/infrastructure/image-modeling.yml) |Learn how to perform image-based modeling on Azure infrastructure as a service (IaaS). You can use this technology to model and measure buildings.|Compute|
 |[Facilities management powered by mixed reality and IoT](../solution-ideas/articles/facilities-management-powered-by-mixed-reality-and-iot.yml)|Improve uptime and operations with mixed reality and IoT. Visualize a virtual replica of your physical space with real-time data in the context of your environment.|Mixed reality|
 |[IoT connected light, power, and internet for emerging markets](../solution-ideas/articles/iot-power-management.yml)|View an architecture that uses solar-powered IoT devices with Azure services to provide clean, low-cost power, light, and internet service to remote customers.|IoT|
 |[IoT device connectivity for healthcare facilities](../solution-ideas/articles/healthcare-network.yml)|Learn how to reliably connect building and campus IoT devices to the cloud with improved security and scalability. |Networking|
 |[IoT measure and control loops](../example-scenario/iot/measure-control-loop.yml)|Learn how an IoT measure and control loop keeps an IoT device within the tolerable range of setpoint configuration. This technology applies to smoke sensors, thermostats, and solar panels.|IoT|
-|[IoT monitor and manage loops](../example-scenario/iot/monitor-manage-loop.yml)|Learn about an IoT monitor and manage loop—a supervisory system that continually monitors a physical system controlled by a set of networked IoT devices. Applies to smart campus and smart metering. |IoT|
+|[IoT monitor and manage loops](../example-scenario/iot/monitor-manage-loop.yml)|Learn about an IoT monitor and manage loop—a supervisory system that continually monitors a physical system controlled by a set of networked IoT devices. This technology applies to smart campuses and smart metering. |IoT|
 |[Buy online, pick up in store (BOPIS)](../example-scenario/iot/vertical-buy-online-pickup-in-store.yml) |Learn how to use Azure IoT to enhance a solution for stores that implement buy online, pick up in store scenarios.|IoT|
 |[UVEN smart and secure disinfection and lighting](../solution-ideas/articles/uven-disinfection.yml) |Learn about a system that uses IoT and Azure Sphere to provide smart virus disinfection and healthy, human-optimized lighting.|IoT|
 

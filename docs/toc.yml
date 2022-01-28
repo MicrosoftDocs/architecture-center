@@ -1108,9 +1108,11 @@ items:
               - name: TISAX overview
                 href: /azure/compliance/offerings/offering-tisax
                 maintainContext: true
-      - name: Facilities and Real-Estate
+      - name: Facilities and Real Estate
         items: 
-          - name: All facilities and real-estate architectures
+          - name: Overview
+            href: industries/facilities-real-estate
+          - name: All facilities and real estate architectures
             href: /azure/architecture/browse/?terms=facilities
           - name: Cognizant Safe Buildings with IoT
             href: solution-ideas/articles/safe-buildings.yml
