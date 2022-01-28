@@ -21,6 +21,7 @@ categories:
    - azure-machine-learning
    - azure-storage
 ---
+
 # Scalable data science with Azure Data Lake
 
 This walkthrough shows how to use Azure Data Lake to do data exploration and binary classification tasks on a sample of the NYC taxi trip and fare dataset. The sample shows you how to predict whether or not a tip is paid by a fare. It walks you through the steps of the [Team Data Science Process](/azure/machine-learning/team-data-science-process), end-to-end, from data acquisition to model training. Then it shows you how to deploy a web service that publishes the model.
@@ -764,7 +765,7 @@ By completing this walkthrough, you have created a data science environment for 
 
 ## Next steps
 The learning path for the
-[Team Data Science Process (TDSP)](/azure/machine-learning/team-data-science-process/) provides links to topics describing each step in the advanced analytics process. There are a series of walkthroughs itemized on the [Team Data Science Process walkthroughs](walkthroughs.md) page that showcase how to use resources and services in various predictive analytics scenarios:
+[Team Data Science Process (TDSP)](/azure/machine-learning/team-data-science-process) provides links to topics describing each step in the advanced analytics process. There are a series of walkthroughs itemized on the [Team Data Science Process walkthroughs](walkthroughs.md) page that showcase how to use resources and services in various predictive analytics scenarios:
 
 * [The Team Data Science Process in action: using Azure Synapse Analytics](sqldw-walkthrough.md)
 * [Overview of the Data Science Process using Spark on Azure HDInsight](spark-overview.md)
