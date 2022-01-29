@@ -11,22 +11,22 @@ Let’s start with the high-level components of a predictive maintenance solutio
 
 In this breakdown, the following high-level activities occur:
 
-1. Collect training data, including failure data
+1. Collect training data, including failure data.
 
 2. With this training data, train a Machine Learning (ML) model to predict
-    future asset failures given a set of conditions
+    future asset failures given a set of conditions.
 
-3. Continue collecting data on an ongoing basis
+3. Continue collecting data on an ongoing basis.
 
 4. Input the collected data to the ML model, which will predict failure,
-    normally with some level of confidence (for example: “there is an 85%
-    probability that the machine will fail in the next 24 hours”)
+    normally with some level of confidence. (For example: “there is an 85%
+    probability that the machine will fail in the next 24 hours.”)
 
-5. Surface the predicted failure cases
+5. Surface the predicted failure cases.
 
-6. Plan and act on the insights seen in the data
+6. Plan and act on the insights seen in the data.
 
-## Training the ML Model
+## Training the ML model
 
 Building an ML model requires sufficient, correct and complete data. In
 addition, predictive maintenance poses unique challenges, a major one being the availability of
@@ -39,7 +39,7 @@ desired level anymore? Is the failure case a cutting machine being destroyed,
 because of a component failure caused by metal fatigue, or other indicators that
 point a failure, before a catastrophe happens?
 
-## Considering the Data Needed for ML
+## Considering the data needed for ML
 
 Consider, too, are we capturing enough data to record it these failures
 properly? In many cases, sensor data alone may not be enough to identify a
@@ -99,7 +99,7 @@ Again, bringing in the data may mean utilizing multiple channels, initializing
 it first in bulk, and then continue receiving streaming data for predicting
 failures, also using it for subsequent builds of the model.
 
-## Bringing Data to Azure
+## Bringing data to Azure
 
 Microsoft Azure provides variety services for ingesting and storing the data. We
 recommend batch methods for getting the data transferred to Azure if it is not
@@ -178,7 +178,7 @@ compute and storage power on the cloud platforms enable building ML and AI
 models. Thus, using Azure services for building the models is the most logical
 option for implementing this data flow.
 
-## Using the Model
+## Using the model
 
 Once we have an ML model we need a mechanism for consuming it (or “using” it) to
 predict the need for maintenance of the equipment. After the data is received
@@ -213,7 +213,7 @@ to a service in the cloud, or locally on the factory floor.
 There are two main alternatives for where the ML model is executed, locally or
 cloud only.
 
-## Local Execution
+## Local execution
 
 The ML model is consumed locally, while data is sent
 to the cloud for ingestion, storage, and further processing. This option is well
@@ -221,7 +221,7 @@ suited for scenarios where early detection is critical.
 
 ![local execution](./images/predictive-maintenance-solution/local-cloud.png)
 
-## Cloud Execution
+## Cloud execution
 
 Ingestion, process and storage, and execution of the
 ML model can all take place in the Azure cloud. This option may be better suited
@@ -258,7 +258,7 @@ capable of pushing data directly into the system, existing systems are already
 collecting data, or no near-real-time data processing is necessary. In these
 cases, there is no need to consider an edge gateway.
 
-## Predictive Maintenance in the IoT Context
+## Predictive maintenance in the IoT context
 
 Many IoT solutions ingest and store data as part of their feature set. And as
 predictive maintenance solutions often rely on IoT data, they can be a natural feature add to IoT
@@ -286,7 +286,7 @@ online](https://download.microsoft.com/download/A/4/D/A4DAD253-BC21-41D3-B9D9-87
 However, there are unique challenges that may arise due to the potentially
 substantial number of devices connecting to backend services.
 
-## Data Ingestion and Stream Processing
+## Data ingestion and stream processing
 
 Bringing in data from the devices is a problem of communication between two
 separate services; i.e. systems generating data (devices) and systems processing
@@ -315,7 +315,7 @@ Both patterns can be implemented using Azure service, [IoT
 Hub](https://azure.microsoft.com/services/iot-hub/?WT.mc_id=pdmsolution-docs-ercenk) and [Azure Stream
 Analytics](https://azure.microsoft.com/services/stream-analytics/?WT.mc_id=pdmsolution-docs-ercenk).
 
-## Edge and Cloud Processing Cooperation
+## Edge and cloud processing cooperation
 
 Not all devices and equipment can access the internet directly and consistently.
 Sometimes their data needs to be pulled out from a common gateway. For example,
@@ -341,13 +341,13 @@ interact with other shop-floor systems to deliver alerts.
 
 ![Multitenant](./images/predictive-maintenance-solution/multitenant.png)
 
-## Multitenant Perspective
+## Multitenant perspective
 
 As mentioned earlier, some manufacturers or third-parties may want to deliver
 predictive maintenance services to their customers. These services will most likely be offered in
 multitenant cloud deployments, which present their own set of challenges:
 
-### Data security and Isolation
+### Data security and isolation
 
 The party providing a service must ensure confidential information from its
 customers is identified and properly secured or scrubbed out. Microsoft Azure
@@ -385,7 +385,7 @@ Building the ML models requires compute resources that can scale elastically.
 The solution provider must devise processes that make effective use of compute
 resources and use the processes for scaling the solution on demand.
 
-### Provisioning Tenants and Secure Access
+### Provisioning tenants and secure access
 
 The service provider needs to devise methods for effectively onboarding new
 tenants and giving them means for managing their accounts by themselves. This is
@@ -393,7 +393,7 @@ also the when the decision on deployments to exclusive or shared resources are
 made.
 
 
-## Pillars of Software Quality Review 
+## Pillars of software quality review 
 
 Complex systems require additional scrutiny, other than fulfilling the
 functional requirements. Successful cloud solutions focus on these five pillars,
@@ -401,9 +401,8 @@ scalability, availability, resiliency, management, and security. In addition to
 the five pillars, we also would like to bring the cost effectiveness of the
 solution.
 
-Please see [Pillars of Software
-Quality](/azure/architecture/guide/pillars?WT.mc_id=pdmsolution-docs-ercenk)
-article for the details.
+Please see the [Azure Well-Architected Framework pillars of software
+quality](/azure/architecture/guide/pillars?WT.mc_id=pdmsolution-docs-ercenk) for the details.
 
 | Pillar                      |                                                                                                                                                                                                                                                                                                                                                                                                 |
 |-----------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -427,7 +426,7 @@ This article provided a vision for how to collect data and train data models,
 along with utilizing the trained model to take action on the outcomes predicted
 in the previous sections.
 
-## Further Reading
+## Next steps
 
 1. [Future-focused: Stop thinking in the past and get ahead of the unexpected
     with
