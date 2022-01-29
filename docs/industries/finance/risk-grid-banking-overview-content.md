@@ -1,6 +1,6 @@
 In corporate finance and investment banking, one of the most important jobs is analyzing risk.
 
-To provide a comprehensive picture of the risk associated with an investment portfolio, financial risk analysts review research, monitor economic and social conditions, stay abreast of regulations, and create computer models of the investment climate.
+Financial risk analysts provide a comprehensive picture of the risk associated with an investment portfolio. They review research, monitor economic and social conditions, stay abreast of regulations, and create computer models of the investment climate.
 
 Risk analysis across the many vectors that affect a portfolio is sufficiently complex that computer modeling is required. Most analysts spend quite a bit of time working with computer models to simulate and predict how financial conditions will change. When evaluating investment risks (Market Risk, Credit Risk and Operational Risk), the computational load of processing the predicative models can be quite large due to the volume of and diversity data.
 
@@ -8,11 +8,11 @@ Cloud computing offers significant benefits for risk grid computing or risk mode
 
 ## Grid computing services
 
-Analysts need a simple and reliable way to provide their models to a batch processing pipeline, which starts with data ingestion and flows through data processing to analysis, where insights can be derived from the resulting data.
+Analysts need a simple and reliable way to provide their models to a batch processing pipeline. It starts with data ingestion and flows through data processing to analysis, where insights can be derived from the resulting data.
 
 Risk model input data comes in several forms, the most common being Excel files or .csv files. These files are often restructured into formats more suitable for processing the risk model in later stages of the risk compute pipeline. A common technique for parsing and processing these files is batch processing with a grid of virtual machines (VMs?WT.mc_id=gridbank-docs-dastarr) working together to reach a common goal.
 
-[Azure Batch](/azure/batch/?WT.mc_id=gridbank-docs-dastarr) is an Azure service which allows multiple worker VMs to run in parallel, as shown below. Processing data files and submitting results to machine learning systems or data stores are common tasks for the worker nodes. The application code run by the worker nodes is created by the customer, so almost any action may be taken in the batch job.
+[Azure Batch](/azure/batch/?WT.mc_id=gridbank-docs-dastarr) is an Azure service that allows multiple worker VMs to run in parallel, as shown below. Processing data files and submitting results to machine learning systems or data stores are common tasks for the worker nodes. The application code run by the worker nodes is created by the customer, so almost any action may be taken in the batch job.
 
 ![On premises batch](./images/risk-grid-banking-overview/01-on-prem.png)
 
@@ -46,7 +46,7 @@ Another solution for your scenario may be using [Azure Data Factory](/azure/data
 
 ## Matching processing needs with demand
 
-When computing risk, whether daily or with the heavier loads at the end of the month, the calculations consume significant computational resources. These calculations do not run 24x7. When risk calculations are not being run on the on-premises grid, the organization leaves valuable and expensive servers running with no workload, but with ongoing costs for power, cooling, and datacenter space, along with other fixed costs.
+When computing risk, whether daily or with the heavier loads at the end of the month, the calculations consume significant computational resources. These calculations don't run 24x7. When risk calculations aren't being run on the on-premises grid, the organization leaves valuable and expensive servers running with no workload, but with ongoing costs for power, cooling, and datacenter space, along with other fixed costs.
 
 ### Augmenting an on-premises grid with Azure Batch
 
@@ -85,7 +85,7 @@ Under this model, all risk grid computing activities can take place in the cloud
 
 ### Data security considerations for risk grid computing
 
-While calculation data often does not include any Personally Identifiable Information (PII?WT.mc_id=gridbank-docs-dastarr), most banks are still likely to conduct a security risk assessment before placing any workload in the cloud. This assessment may require input from Microsoft and may result in security recommendations.
+While calculation data often doesn't include any Personally Identifiable Information (PII?WT.mc_id=gridbank-docs-dastarr), most banks are still likely to conduct a security risk assessment before placing any workload in the cloud. This assessment may require input from Microsoft and may result in security recommendations.
 
 A notable consideration for risk grid computing is to [run the batch processes within an Azure VNet](/azure/batch/batch-virtual-network?WT.mc_id=gridbank-docs-dastarr). This allows pool compute nodes to communicate securely with other compute nodes, or with an on-premises network. Appropriate service accounts and Network Service Groups (NSG) should be created and used by the batch compute nodes. [Azure also has solutions](/azure/security/blueprints/financial-services-regulated-workloads?WT.mc_id=gridbank-docs-dastarr) for data encryption in transit and at rest in Azure storage.
 
@@ -97,7 +97,7 @@ Many customers have an in-house risk computing grid they already use. If your co
 
 To mitigate any security, speed, and connection reliability concerns, consider connecting your on-premises network to Azure using Azure ExpressRoute or a VPN Gateway. From there, you may have your on-premises head node provision a cluster of Azure-based worker nodes, spinning them up and down as needed.
 
-Lastly, you may be ready for a complete migration of your risk compute infrastructure to Azure. If this is the case, [here is an article](/azure/batch/?WT.mc_id=gridbank-docs-dastarr) to get you started today.
+Lastly, you may be ready for a complete migration of your risk compute infrastructure to Azure. If this is the case, [here's an article](/azure/batch/?WT.mc_id=gridbank-docs-dastarr) to get you started today.
 
 ## Components
 
