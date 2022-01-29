@@ -26,12 +26,12 @@ A scenario in a capital markets firm might look like this:
 
 ![Diagram shows risk calculation scenario for a capital markets firm.](./images/financial-risk-model/image2.png)
 
-Through these processes, there are common needs around risk modelling
+Through these processes, there are common needs around risk modeling
 including:
 
 1. The need for ad-hoc risk-related experimentation by risk analysts;
     actuaries in an insurance firm or quants in a capital markets firm.
-    These analysts typically work with code and modelling tools popular
+    These analysts typically work with code and modeling tools popular
     in their domain: R and Python. Many university curriculums include
     training in R or Python in mathematical finance and in MBA courses.
     Both languages offer a wide range of open source libraries that
@@ -59,14 +59,14 @@ including:
 
 4. The rapid execution of defined models, configured by the analysts,
     for pricing, valuations, and market risk. The valuations use a
-    combination of dedicated risk modelling, market risk tools, and
+    combination of dedicated risk modeling, market risk tools, and
     custom code. The analysis is executed in a batch with varying
     nightly, weekly, monthly, quarterly, and annual calculations.
     This analysis generates spikes in workloads.
 
 5. The integration of data with other enterprise wide risk measures for
     consolidated risk reporting. In larger organizations, lower level
-    risk estimates can be transferred to an enterprise risk modelling
+    risk estimates can be transferred to an enterprise risk modeling
     and reporting tool.
 
 6. Results must be reported in a defined format at the required
@@ -79,14 +79,14 @@ we show practical examples of how to perform ad-hoc experimentation
 using R. We begin by explaining how to run the experiment on a single
 machine. Next, we show you how to run the same experiment on [Azure
 Batch](/azure/batch/?WT.mc_id=fsiriskmodelr-docs-scseely), and we close by showing
-you how to take advantage of external services in our modelling. The options and
+you how to take advantage of external services in our modeling. The options and
 considerations for the execution of defined models on Azure are
 described in these articles focused on
 [banking](/azure/industry/financial/risk-grid-banking-solution-guide?WT.mc_id=fsiriskmodelr-docs-scseely)
 and
 [insurance](/azure/industry/financial/actuarial-risk-analysis-and-financial-modeling-solution-guide?WT.mc_id=fsiriskmodelr-docs-scseely).
 
-## Analyst Modelling in R
+## Analyst modeling in R
 
 Let's start by looking at how R may be used by an analyst in a
 simplified, representative capital markets scenario. You can build this
@@ -94,7 +94,7 @@ either by referencing an existing R library for the calculation or by
 writing code from scratch. In our example, we also must fetch external
 pricing data. To keep the example simple but illustrative, we calculate
 the potential future exposure (PFE) of an equity stock forward contract.
-This example avoids complex quantitative modelling techniques for
+This example avoids complex quantitative modeling techniques for
 instruments like complex derivatives and focuses on a single risk factor
 to concentrate on the risk life cycle. Our example lets you do the following actions:
 
@@ -435,7 +435,7 @@ stopCluster(cluster)
 The first two examples show how to utilize local and cloud
 infrastructure for developing an adequate valuation model. This paradigm
 has begun to shift. In the same way that on-premises infrastructure has
-transformed into cloud-based IaaS and PaaS services, the modelling of
+transformed into cloud-based IaaS and PaaS services, the modeling of
 relevant risk figures is transforming into a service-oriented process.
 Today's analysts face two major challenges:
 
@@ -563,7 +563,7 @@ _This article is being updated and maintained by Microsoft. It was originally wr
 - [Dr. Darko Mocelj](https://www.linkedin.com/in/darko-mocelj) | HPC Global Blackbelt & AI Sr. Technology Specialist
 - [Rupert Nicolay](https://www.linkedin.com/in/rupert-nicolay) | Financial Services Industry Solutions Lead
 
-## Next Steps
+## Next steps
 
 Flexible access to the cloud through compute infrastructure and
 SaaS-based risk analysis services can deliver improvements in speed and
