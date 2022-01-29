@@ -1,14 +1,14 @@
-Healthcare organizations are realizing that AI (Artificial Intelligence) and ML (machine learning) can be valuable tools for many parts of their business, from improving patient outcomes to streamlining daily operations. Often, healthcare organizations do not have the technology staff to implement AI/ML systems. To improve this situation and get AI/ML solutions running on Azure quickly, Microsoft created the [Azure healthcare AI blueprint](/azure/security/blueprints/azure-health?WT.mc_id=ms-docs-dastarr). Using the blueprint, we show how to get started with AI/ML quickly in a safe, compliant, secure, and reliable way.
+Healthcare organizations are realizing that AI (Artificial Intelligence) and ML (machine learning) can be valuable tools for many parts of their business, from improving patient outcomes to streamlining daily operations. Often, healthcare organizations don't have the technology staff to implement AI/ML systems. To improve this situation and get AI/ML solutions running on Azure quickly, Microsoft created the [Azure healthcare AI blueprint](/azure/security/blueprints/azure-health?WT.mc_id=ms-docs-dastarr). Using the blueprint, we show how to get started with AI/ML quickly in a safe, compliant, secure, and reliable way.
 
-The health blueprint for AI bootstraps AI/ML into your organization using Azure. This article describes installing the blueprint, its components, and how to use it to run an AI/ML experiment that predicts a patient’s length of stay.
+The health blueprint for AI bootstraps AI/ML into your organization using Azure. This article describes how to install the blueprint and what its components are. Then we cover how to use the solution to run an AI/ML experiment that predicts a patient’s length of stay.
 
 ### Benefits
 
-The blueprint was created to give healthcare organizations guidance and a quick start on proper PaaS (Platform as a Service) architectures to support AI/ML in in highly regulated healthcare environments, including ensuring the system upholds HIPAA and HITRUST compliance requirements.
+The blueprint was created to give healthcare organizations guidance and a quick start on proper PaaS (Platform as a Service) architectures. The blueprint supports AI/ML in highly regulated healthcare environments. The solution ensures the system upholds HIPAA and HITRUST compliance requirements.
 
-Technology staff in healthcare organizations often have little time for new projects, especially those in which they must learn a new and complex technology. The blueprint can help technical staff become familiar with Azure and several of its services quickly, saving the cost of a learning curve. Technical staff can learn from the blueprint as a reference implementation after it is installed and use that knowledge to extend its capabilities or create a new AI/ML solution patterned after the blueprint.
+Technology staff in healthcare organizations often have little time for new projects, especially those in which they must learn a new and complex technology. The blueprint can help technical staff become familiar with Azure and several of its services quickly, saving the cost of a learning curve. After the blueprint is installed, technical staff can learn from it as a reference implementation. They can then use that knowledge to extend its capabilities or to create a new AI/ML solution that's patterned after the blueprint.
 
-The blueprint gets your organization up and running with new AI/ML capabilities—quickly. With AI and ML in place, technical staff are ready to run AI/ML experiments using data collected through various sources. For instance, data may already exist on previous instances of sepsis and many of the accompanying variables that were tracked for individual patients with the condition. Using this data in an anonymized format, technical staff can look for indicators of potential sepsis in patients and help change operational procedures to better avoid the condition.
+The blueprint gets your organization up and running with new AI/ML capabilities—quickly. With AI and ML in place, technical staff are ready to run AI/ML experiments using data collected through various sources. For example, data might already exist on previous instances of sepsis and through many of the accompanying variables that were tracked for individual patients with the condition. By using this data in an anonymized format, technical staff can look for indicators of potential sepsis in patients. They can then help change operational procedures to better avoid the condition.
 
 The blueprint provides the data and example code for learning how to predict a patient’s length of stay. This is a sample use case that can be used for learning about the components of the AI/ML solution.
 
@@ -18,13 +18,13 @@ Microsoft Azure offers both PaaS and SaaS offerings and choosing the right one f
 
 ### PaaS option
 
-Using a PaaS services model results in reduced Total Cost of Ownership(TCO) because there is no hardware to manage. The organization doesn’t need to buy and maintain hardware or VMs. The blueprint uses PaaS services exclusively.
+Using a PaaS services model results in reduced Total Cost of Ownership(TCO) because there's no hardware to manage. The organization doesn’t need to buy and maintain hardware or VMs. The blueprint uses PaaS services exclusively.
 
-This reduces the cost of maintaining an on-premises solution and frees technical staff to focus on strategic initiatives instead of infrastructure. It can also move paying for computing and storage from capital expense budgets to operational expense budgets. The costs of running this blueprint scenario are driven by usage of the services plus the costs of data storage.
+This reduces the cost of maintaining an on-premises solution and frees technical staff to focus on strategic initiatives instead of infrastructure. Staff can also move paying for computing and storage from their capital expense budgets to their operational expense budgets instead. The costs of running this blueprint scenario are driven by usage of the services plus the costs of data storage.
 
 ### IaaS option
 
-Although the blueprint and this article focus on the PaaS implementation, there is an [open source extension](https://github.com/Azure/Azure-Health-Extension) to the blueprint which allows using it in an infrastructure as a service (IaaS) environments.
+Although the blueprint and this article focus on the PaaS implementation, there's an [open source extension](https://github.com/Azure/Azure-Health-Extension) to the blueprint that allows you to use it in an infrastructure as a service (IaaS) environment.
 
 In an IaaS hosting model, customers pay for uptime of Azure hosted VMs and their processing power. IaaS gives a higher level of control since the customer is managing their own VMs, but typically at increased costs as VMs are charged for uptime versus usage. Further, the customer is responsible for maintaining the VMs by applying patches, guarding against malware and so on.
 
@@ -38,7 +38,7 @@ The blueprint includes an AI/ML experiment to predict a patient’s length of st
 
 ## Blueprint technical resources
 
-The resources below are all found in this GitHub repository.
+The resources listed in this section are all found in the GitHub repository.
 
 Primary resources are:
 
@@ -50,7 +50,7 @@ Cross cutting concerns for this model include identity and security, both of whi
 
 ![ML pipeline](./images/healthcare-ai-blueprint/ml-pipeline.png)
 
-The graphic below shows the Azure products that are installed. Each resource or service provides a component of the AI/ML processing solution, including the cross-cutting concerns of identity and security.
+The following graphic shows the Azure products that are installed. Each resource or service provides a component of the AI/ML processing solution, including the cross-cutting concerns of identity and security.
 
 ![Component zones](./images/healthcare-ai-blueprint/component-zones.png)
 
@@ -74,13 +74,13 @@ These resources are [here on GitHub](https://github.com/Azure/Health-Data-and-AI
 
 ## Installing the blueprint
 
-There is little time investment to get up and running with this blueprint solution. A bit of PowerShell scripting knowledge is recommended, but step by step instructions are available to help guide the installation so technologists will be successful deploying this blueprint regardless of their scripting skills.
+There's little time investment to get up and running with this blueprint solution. A bit of PowerShell scripting knowledge is recommended, but step by step instructions are available to help guide the installation so technologists will be successful deploying this blueprint regardless of their scripting skills.
 
 Technical staff can expect to install the blueprint with little experience using Azure in 30 minutes to an hour.
 
 ### The installation script
 
-The blueprint provides exceptional guidance and instructions for installation. It also provides scripting for install and uninstall of the blueprint services and resources. Calling the PowerShell deployment script is simple. Before the blueprint is installed, certain data must be collected and used as arguments to the deploy.ps1 script as show below.
+The blueprint provides exceptional guidance and instructions for installation. It also provides scripting for install and uninstall of the blueprint services and resources. Calling the PowerShell deployment script is simple. Before the blueprint is installed, certain data must be collected and used as arguments to the deploy.ps1 script as show in the following code.
 
 ```powershell
 .\deploy.ps1 -deploymentPrefix <prefix> `
@@ -94,7 +94,7 @@ The blueprint provides exceptional guidance and instructions for installation. I
 
 ### The installation environment
 
-**Important!** Do not install the blueprint from a machine outside of Azure. The install is much more likely to succeed if you create a clean Windows 10 (or other Windows VM) in Azure and run the install scripts from there. This technique uses a cloud-based VM to mitigate latency and help to create a smooth installation.
+**Important!** Don't install the blueprint from a machine outside of Azure. The install is much more likely to succeed if you create a clean Windows 10 (or other Windows VM) in Azure and run the install scripts from there. This technique uses a cloud-based VM to mitigate latency and help to create a smooth installation.
 
 During installation, the script calls out to other packages to load and use. When installing from a VM in Azure, the lag between the installation machine and the target resources will be much lower. However, some of the scripting packages downloaded are still vulnerable to latency as script packages live outside the Azure environment—which may lead to time-out failures.
 
@@ -102,7 +102,7 @@ During installation, the script calls out to other packages to load and use. Whe
 
 The installer downloads some external packages during installation. Sometimes, a script resource request will time out due to lag between the install machine and the package. When this happens, you have two choices:
 
-1. Run the install script again with no changes. The installer checks for already allocated resources and installs only those needed. While this technique can work, there is a risk the install script will try to allocate resources already in place. This can cause an error and the installation will fail.
+1. Run the install script again with no changes. The installer checks for already allocated resources and installs only those needed. While this technique can work, there's a risk the install script will try to allocate resources already in place. This can cause an error and the installation will fail.
 
 2. You still run the deploy.ps1 script, but pass different arguments for uninstalling the blueprint services.
 
@@ -127,23 +127,23 @@ Note the Key Vault is held as a “soft delete” and while it isn’t seen in t
 
 ### Reinstall after an uninstall
 
-If there is a need to reinstall the blueprint after an uninstall, you must change the prefix in the next deployment as the uninstalled Key Vault will cause an error if you do not change the prefix. More about this is covered in the _Technical Issues > Key Vault_ section of this article.
+If there's a need to reinstall the blueprint after an uninstall, you must change the prefix in the next deployment as the uninstalled Key Vault will cause an error if you don't change the prefix. More about this is covered in the _Technical Issues > Key Vault_ section of this article.
 
 ### Required administrator roles
 
-The person installing the blueprint must be in the Global Administrator role in the AAD. The installing account must also be an Azure subscription administrator for the subscription being used. If the person doing the install is not in both of these roles, the install will fail.
+The person installing the blueprint must be in the Global Administrator role in the AAD. The installing account must also be an Azure subscription administrator for the subscription being used. If the person doing the install isn't in both of these roles, the install will fail.
 
 ![Blueprint installer](./images/healthcare-ai-blueprint/blueprint-installer.png)
 
-Further, the install is not designed to work with MSDN subscriptions due to the tight integration with AAD. A standard Azure account must be used. If needed, [get a free trial](https://azure.microsoft.com/free/?WT.mc_id=ms-docs-dastarr) with credit to spend for installing the blueprint solution and running its demos.
+Further, the install isn't designed to work with MSDN subscriptions due to the tight integration with AAD. A standard Azure account must be used. If needed, [get a free trial](https://azure.microsoft.com/free/?WT.mc_id=ms-docs-dastarr) with credit to spend for installing the blueprint solution and running its demos.
 
 ## Adding other resources
 
 The Azure blueprint installation doesn’t include more services than those needed to implement the AI/ML use case. However, more resources or services can be added to the Azure environment, making it a good test bed for additional initiatives, or a starting point for a production system. For instance, one might add other PaaS services or IaaS resources in the same subscription and AAD.
 
-New resources, like [Cosmos DB](/azure/cosmos-db/introduction?WT.mc_id=ms-docs-dastarr) or a new [Azure Functions](/azure/azure-functions/functions-overview?WT.mc_id=ms-docs-dastarr), may be added to the solution as more Azure capabilities are needed. When adding new resources or services, ensure they are configured to meet security and privacy policies to remain compliant with regulations and policy.
+New resources, like [Cosmos DB](/azure/cosmos-db/introduction?WT.mc_id=ms-docs-dastarr) or a new [Azure Functions](/azure/azure-functions/functions-overview?WT.mc_id=ms-docs-dastarr), may be added to the solution as more Azure capabilities are needed. When adding new resources or services, ensure they're configured to meet security and privacy policies to remain compliant with regulations and policy.
 
-New resources and services may be created with [Azure REST APIs](/rest/api/?view=Azure&WT.mc_id=ms-docs-dastarr), [Azure PowerShell scripting](/powershell/azure/get-started-azureps?view=azurermps-6.6.0&WT.mc_id=ms-docs-dastarr), or by using the [Azure Portal](https://portal.azure.com/?WT.mc_id=ms-docs-dastarr).
+New resources and services may be created with [Azure REST APIs](/rest/api/?view=Azure&WT.mc_id=ms-docs-dastarr), [Azure PowerShell scripting](/powershell/azure/get-started-azureps?view=azurermps-6.6.0&WT.mc_id=ms-docs-dastarr), or by using the [Azure portal](https://portal.azure.com/?WT.mc_id=ms-docs-dastarr).
 
 ## Using machine learning with the blueprint
 
@@ -151,7 +151,7 @@ The blueprint was built to demonstrate an ML scenario with a regression algorith
 
 ### Ingesting training data
 
-With the blueprint installed and all services working properly, the data to be analyzed can be ingested. 100,000 patient [records are available for ingest](/azure/security/blueprints/azure-health?WT.mc_id=ms-docs-dastarr#ingest) and working with the model. Ingesting patient records is the first step in the using [Azure Machine Learning Studio](/azure/machine-learning/studio/what-is-ml-studio?WT.mc_id=ms-docs-dastarr) to run the patient length of stay experiment as shown below.
+With the blueprint installed and all services working properly, the data to be analyzed can be ingested. 100,000 patient [records are available for ingest](/azure/security/blueprints/azure-health?WT.mc_id=ms-docs-dastarr#ingest) and working with the model. Ingesting patient records is the first step in the using [Azure Machine Learning Studio](/azure/machine-learning/studio/what-is-ml-studio?WT.mc_id=ms-docs-dastarr) to run the patient length of stay experiment, as shown in the following image.
 
 ![Ingest](./images/healthcare-ai-blueprint/ingest.png)
 
@@ -189,9 +189,9 @@ This security model ensures the system’s compliance with HIPAA and HITRUST req
 
 ### Defense in depth
 
-System designs using multiple abstraction layers of security controls are using defense in depth. Defense in depth provides security redundancy at multiple levels. It means you are not dependent on a single layer of defense. It ensures that user and service accounts have appropriate access to resources, services and data. Azure provides security and monitoring resources at every level of system architecture to provide defense in depth for the entire landscape of technologies.
+System designs using multiple abstraction layers of security controls are using defense in depth. Defense in depth provides security redundancy at multiple levels. It means you're not dependent on a single layer of defense. It ensures that user and service accounts have appropriate access to resources, services and data. Azure provides security and monitoring resources at every level of system architecture to provide defense in depth for the entire landscape of technologies.
 
-In a software system, like the one installed by the blueprint, a user may login but not have permission to a specific resource. This example of defense in depth is provided by RBAC (Role Based Access Control) and AAD, supporting the principle of least privilege.
+In a software system, like the one installed by the blueprint, a user may login but not have permission to a specific resource. This example of defense in depth is provided by RBAC (Role Based Access Control) and Azure Active Directory (AAD), supporting the principle of least privilege.
 
 Two-factor authentication is also a form of technical defense in depth and may be optionally included when the blueprint is installed.
 
@@ -203,11 +203,11 @@ Additionally, vaults are accessible by application service identities or other a
 
 Keys stored in a vault may be encrypted or signed, and key usage can be monitored for any security concerns.
 
-If a Key Vault is deleted, it is not immediately purged from Azure. Implications of this are covered in the _Technical Issues > Key Vault_ section of this article.
+If a Key Vault is deleted, it's not immediately purged from Azure. Implications of this are covered in the _Technical Issues > Key Vault_ section of this article.
 
 ### Application Insights
 
-Healthcare organizations often have mission and life-critical systems that must be reliable and resilient. Anomalies or disruptions in service must be detected and corrected as soon as possible. [Application Insights](/azure/application-insights/app-insights-proactive-application-security-detection-pack?WT.mc_id=ms-docs-dastarr) is an Application Performance Management (APM) technology that monitors applications and sends alerts when something goes wrong. It monitors applications at runtime for errors or application anomalies. It is designed to work with multiple programming languages and provides a rich set of capabilities to help ensure applications are healthy and running smoothly.
+Healthcare organizations often have mission and life-critical systems that must be reliable and resilient. Anomalies or disruptions in service must be detected and corrected as soon as possible. [Application Insights](/azure/application-insights/app-insights-proactive-application-security-detection-pack?WT.mc_id=ms-docs-dastarr) is an Application Performance Management (APM) technology that monitors applications and sends alerts when something goes wrong. It monitors applications at runtime for errors or application anomalies. It's designed to work with multiple programming languages and provides a rich set of capabilities to help ensure applications are healthy and running smoothly.
 
 For example, an application may have a memory leak. Application Insights can help find and diagnose issues like this through the rich reporting and KPIs it monitors. Application Insights is a robust APM service for application developers.
 
@@ -229,11 +229,11 @@ In the context of the Health AI blueprint, ASC analyzes the system components an
 - Resource security hygiene
 - Threat protection
 
-Below is an example dashboard identifying 13 suggestions for improving system threat vulnerabilities. It also shows a mere 46% compliance with HIPAA and policy.
+The following example dashboard identifies 13 suggestions for improving the system threat vulnerabilities. It also shows a mere 46% compliance with HIPAA and policy.
 
 ![Threat protection](./images/healthcare-ai-blueprint/threat_protection.png)
 
-Drilling into the high severity security problems shows what resources are affected and the remediation needed for each resource, as shown below.
+Drilling into the high severity security problems shows what resources are affected and the remediation needed for each resource, as shown later in this section.
 
 Many hours can be spent by IT staff trying to manually secure all resources and networks. With ASC to identify vulnerabilities in a given system, time can be spent in other strategic pursuits. For many of the vulnerabilities identified, ASC can automatically apply the remediating action and secure the resource without an administrator having to dig deeply into the problem.
 
@@ -255,9 +255,9 @@ To enable this, RBAC is part of Azure security and enables precisely focused acc
 
 The HITRUST customer responsibility matrix is an Excel document that supports customers implementing and documenting security controls for systems built on Azure. The workbook lists the relevant HITRUST requirements and explains how Microsoft and the customer are responsible for meeting each one.
 
-Understanding the shared responsibility for implementing security controls in a cloud environment is essential for customers building systems on Azure. Implementing a specific security control may be the responsibility of Microsoft, the responsibility of customers, or a shared responsibility between Microsoft and customers. Different cloud implementations affect the way responsibilities are shared between Microsoft and customers.
+It's essential for customers, who building systems on Azure, to understand the shared responsibility for implementing security controls in a cloud environment. Implementing a specific security control may be the responsibility of Microsoft, the responsibility of customers, or a shared responsibility between Microsoft and customers. Different cloud implementations affect the way responsibilities are shared between Microsoft and customers.
 
-See the responsibilities table below for examples.
+See the following responsibilities table for examples.
 
 |Azure responsibilities  |Customer responsibilities  |
 |---------|---------|
@@ -268,13 +268,13 @@ These are only two examples of the many responsibilities to be considered when d
 
 ## Customization
 
-It is common to customize the blueprint after it is installed. Reasons and techniques to customize the environment vary.
+It's common to customize the blueprint after it's installed. Reasons and techniques to customize the environment vary.
 
-The blueprint may be customized before installation by modifying the install scripts. While this is possible, it is advisable to create independent PowerShell scripts to run after the initial install is complete. New services may also be added to the system through the portal once the initial installation has taken place.
+The blueprint may be customized before installation by modifying the install scripts. While this is possible, we advise you to create independent PowerShell scripts to run after the initial install is complete. New services may also be added to the system through the portal once the initial installation has taken place.
 
 Customizations may include any or more of the following.
 
-- Adding new experiments to Machine Learning Studio
+- Adding new experiments to Machine Learning studio
 - Adding additional unrelated services to environment
 - Modifying data ingestion and the ML experiment output to use a different data source than the Azure SQL patientdb database
 - Providing production data to the ML experiment
@@ -294,13 +294,13 @@ A Key Vault created by the installation script is retained as a “soft delete�
 
 ### Azure Active Directory
 
-It is strongly recommended that you install the blueprint in an empty AAD rather than into a production system. Create a new AAD instance and use its tenant id during installs to avoid adding blueprint accounts to your live AAD instance.
+It's strongly recommended that you install the blueprint in an empty AAD rather than into a production system. Create a new AAD instance and use its tenant ID during installs to avoid adding blueprint accounts to your live AAD instance.
 
 ## Components
 
 - Learn more about the [Azure Health Data and AI blueprint](/azure/security/blueprints/azure-health?WT.mc_id=ms-docs-dastarr).
 - Download, clone or fork the [GitHub repo here](https://github.com/Azure/Health-Data-and-AI-Blueprint/blob/master/deployment.md).
-- [Machine Learning Studio](/azure/machine-learning/?WT.mc_id=ms-docs-dastarr) is the workspace and tool data scientists use to create Machine Learning experiments. It allows using built-in algorithms, special purpose widgets, and Python and R scripts.
+- [Machine Learning studio](/azure/machine-learning/?WT.mc_id=ms-docs-dastarr) is the workspace and tool data scientists use to create Machine Learning experiments. It allows using built-in algorithms, special purpose widgets, and Python and R scripts.
 - Secrets, certificates, and other private data is held in [Azure Key Vault](/azure/key-vault/key-vault-whatis?WT.mc_id=ms-docs-dastarr).
 - The scripting language PowerShell is instrumental to setting up the blueprint, although needed commands are presented in the installation instructions.
 - [Azure AI Gallery](https://gallery.azure.ai/) provides a recipe box of AI/ML solutions useful for customers by their industry. There are several solutions published by data scientists along with other experts for healthcare.
@@ -308,9 +308,9 @@ It is strongly recommended that you install the blueprint in an empty AAD rather
 
 ## Conclusion
 
-The [Azure Health Data AI blueprint](/azure/security/blueprints/azure-health?WT.mc_id=ms-docs-dastarr) is a complete ML solution and can be used as a learning tool for technologists to better understand Azure and how to ensure systems conform to healthcare regulatory requirements. It can also be used as a starting point for a production system using Azure Machine Learning Studio as the focal point.
+The [Azure Health Data AI blueprint](/azure/security/blueprints/azure-health?WT.mc_id=ms-docs-dastarr) is a complete ML solution and can be used as a learning tool for technologists to better understand Azure and how to ensure systems conform to healthcare regulatory requirements. It can also be used as a starting point for a production system, by using Azure Machine Learning studio as the focal point.
 
-Whether you are using the blueprint for learning purposes or for the seed of an AI/ML solution for your organization, it provides a starting point for working with AI/ML in Azure with a focus on healthcare.
+Whether you're using the blueprint for learning purposes or for the seed of an AI/ML solution for your organization, it provides a starting point for working with AI/ML in Azure with a focus on healthcare.
 
 ## Next steps
 
