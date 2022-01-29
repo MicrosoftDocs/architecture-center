@@ -4,7 +4,7 @@ metadata:
   description: How to reuse and optimize recommendation apps written in the R language. Relies on Machine Learning Server on Azure VMs.
   author: kbaroni
   ms.author: kbaroni
-  ms.date: 11/20/2019
+  ms.date: 01/31/2022
   ms.topic: conceptual
   ms.service: architecture-center
   ms.subservice: azure-guide
