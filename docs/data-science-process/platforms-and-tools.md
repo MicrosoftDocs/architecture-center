@@ -20,7 +20,7 @@ categories:
 
 # Platforms and tools for data science projects
 
-Microsoft provides a full spectrum of analytics resources for both cloud or on-premises platforms. They can be deployed to make the execution of your data science projects efficient and scalable. Guidance for teams implementing data science projects in a trackable, version controlled, and collaborative way is provided by the [Team Data Science Process](overview.md) (TDSP).  For an outline of the personnel roles, and their associated tasks that are handled by a data science team standardizing on this process, see [Team Data Science Process roles and tasks](roles-tasks.md).
+Microsoft provides a full spectrum of analytics resources for both cloud or on-premises platforms. They can be deployed to make the execution of your data science projects efficient and scalable. Guidance for teams implementing data science projects in a trackable, version controlled, and collaborative way is provided by the [Team Data Science Process](overview.md) (TDSP). See [Team Data Science Process roles and tasks](roles-tasks.md), for an outline of the personnel roles, and their associated tasks that are handled by a data science team standardizing on this process.
 
 The main recommended Azure resource for TDSP is [Azure Machine Learning](/azure/machine-learning).  Examples in this Azure Architecture Center may show Azure Machine Learning used with other Azure resources.  These other analytics resources available to data science teams using the TDSP include:
 
@@ -119,7 +119,7 @@ sudo yum install git
 
 ### Generate public SSH key on Linux (CentOS) machines
 
-If you're using Linux (CentOS) machines to run the git commands, you need to add the public SSH key of your machine to your Azure DevOps Services, so that this machine is recognized by the Azure DevOps Services. First, you need to generate a public SSH key and add the key to SSH public keys in your Azure DevOps Services security setting page.
+If you're using Linux (CentOS) machines to run the git commands, you need to add the public SSH key of your machine to your Azure DevOps services. This way the machine is recognized by the Azure DevOps Services. First, you need to generate a public SSH key and add the key to SSH public keys in your Azure DevOps services security setting page.
 
 1. To generate the SSH key, run the following two commands:
 
@@ -144,6 +144,6 @@ If you're using Linux (CentOS) machines to run the git commands, you need to add
 
 ## Next steps
 
-Full end-to-end walkthroughs that demonstrate all the steps in the process for **specific scenarios** are also provided. They are listed and linked with thumbnail descriptions in the [Example walkthroughs](walkthroughs.md) topic. They illustrate how to combine cloud, on-premises tools, and services into a workflow or pipeline to create an intelligent application.
+Full end-to-end walkthroughs that demonstrate all the steps in the process for **specific scenarios** are also provided. They're listed and linked with thumbnail descriptions in the [Example walkthroughs](walkthroughs.md) topic. They illustrate how to combine cloud, on-premises tools, and services into a workflow or pipeline to create an intelligent application.
 
 For examples that show how to execute steps in the Team Data Science Process by using Azure Machine Learning studio (classic), see the [With Azure ML](/azure/machine-learning/team-data-science-process/) learning path.
