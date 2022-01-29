@@ -428,20 +428,20 @@ in the previous sections.
 
 ## Next steps
 
-1. [Future-focused: Stop thinking in the past and get ahead of the unexpected
+- [Future-focused: Stop thinking in the past and get ahead of the unexpected
     with
     IoT](https://blogs.microsoft.com/iot/2017/02/28/future-focused-stop-thinking-in-the-past-and-get-ahead-of-the-unexpected-with-iot-2/?WT.mc_id=pdmsolution-docs-ercenk)
 
-2. [Boost equipment reliability with IoT-enabled predictive
+- [Boost equipment reliability with IoT-enabled predictive
     maintenance](https://www.microsoft.com/internet-of-things/predictive-maintenance?WT.mc_id=pdmsolution-docs-ercenk)
 
-3. [Capture value from the Internet of Things: How to approach a predictive
+- [Capture value from the Internet of Things: How to approach a predictive
     maintenance
     project](https://download.microsoft.com/download/0/7/D/07D394CE-185D-4B96-AC3C-9B61179F7080/Capture_value_from_the_Internet%20of%20Things_with_Predictive_Maintenance.PDF?WT.mc_id=pdmsolution-docs-ercenk)
 
-4. [Partner perspectives: Predictive maintenance on the
+- [Partner perspectives: Predictive maintenance on the
     frontlines](https://blogs.microsoft.com/iot/2017/03/21/partner-perspectives-predictive-maintenance-on-the-frontlines/?WT.mc_id=pdmsolution-docs-ercenk)
 
-5. [From commoditization to servitization: Transforming your business to
+- [From commoditization to servitization: Transforming your business to
     compete in the new age of field service with
     IoT](https://blogs.microsoft.com/iot/2016/11/07/from-commodization-to-servitization-transforming-your-business-to-compete-in-the-new-age-of-field-service-with-iot/?WT.mc_id=pdmsolution-docs-ercenk)
