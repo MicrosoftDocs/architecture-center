@@ -5,7 +5,7 @@ author: EdPrice-MSFT
 ms.author: edprice
 ms.service: industry
 ms.topic: overview
-ms.date: 11/19/2019
+ms.date: 01/31/2022
 categories:
   - management-and-governance
 products:
@@ -13,7 +13,6 @@ products:
 ---
 
 # Enable the financial services risk lifecycle with Azure and R
-
 
 Risk calculations are pivotal at several stages in the lifecycle of
 key financial services operations. For example, a simplified form of
@@ -27,7 +26,7 @@ A scenario in a capital markets firm might look like this:
 
 ![Diagram shows risk calculation scenario for a capital markets firm.](./images/financial-risk-model/image2.png)
 
-Through these processes there are common needs around risk modelling
+Through these processes, there are common needs around risk modelling
 including:
 
 1. The need for ad-hoc risk-related experimentation by risk analysts;
@@ -35,7 +34,7 @@ including:
     These analysts typically work with code and modelling tools popular
     in their domain: R and Python. Many university curriculums include
     training in R or Python in mathematical finance and in MBA courses.
-    Both languages offer a wide range of open source libraries which
+    Both languages offer a wide range of open source libraries that
     support popular risk calculations. Along with appropriate tooling,
     analysts often require access to:
 
@@ -62,12 +61,12 @@ including:
     for pricing, valuations, and market risk. The valuations use a
     combination of dedicated risk modelling, market risk tools, and
     custom code. The analysis is executed in a batch with varying
-    nightly, weekly, monthly, quarterly, and annual calculations
-    generating spikes in workloads.
+    nightly, weekly, monthly, quarterly, and annual calculations.
+    This analysis generates spikes in workloads.
 
 5. The integration of data with other enterprise wide risk measures for
-    consolidated risk reporting. In larger organizations lower level
-    risk estimates may be transferred to an enterprise risk modelling
+    consolidated risk reporting. In larger organizations, lower level
+    risk estimates can be transferred to an enterprise risk modelling
     and reporting tool.
 
 6. Results must be reported in a defined format at the required
@@ -78,9 +77,9 @@ services and partner offerings in the [Azure
 Marketplace](https://azuremarketplace.microsoft.com/?WT.mc_id=fsiriskmodelr-docs-scseely). In this article,
 we show practical examples of how to perform ad-hoc experimentation
 using R. We begin by explaining how to run the experiment on a single
-machine, then show how to run the same experiment on [Azure
-Batch](/azure/batch/?WT.mc_id=fsiriskmodelr-docs-scseely), and close by showing
-how to take advantage of external services in our modelling. Options and
+machine. Next, we show you how to run the same experiment on [Azure
+Batch](/azure/batch/?WT.mc_id=fsiriskmodelr-docs-scseely), and we close by showing
+you how to take advantage of external services in our modelling. The options and
 considerations for the execution of defined models on Azure are
 described in these articles focused on
 [banking](/azure/industry/financial/risk-grid-banking-solution-guide?WT.mc_id=fsiriskmodelr-docs-scseely)
@@ -97,7 +96,7 @@ pricing data. To keep the example simple but illustrative, we calculate
 the potential future exposure (PFE) of an equity stock forward contract.
 This example avoids complex quantitative modelling techniques for
 instruments like complex derivatives and focuses on a single risk factor
-to concentrate on the risk life cycle. Our example does the following:
+to concentrate on the risk life cycle. Our example lets you do the following actions:
 
 1. Select an instrument of interest.
 
@@ -120,8 +119,8 @@ to concentrate on the risk life cycle. Our example does the following:
 6. Take the 0.95 Quantile to get the PFE value at each time step / end
     of simulation period
 
-We will calculate the potential future exposure for an equity forward
-based on MSFT stock. As mentioned above, to model the stock prices,
+We'll calculate the potential future exposure for an equity forward
+based on Microsoft (MSFT) stock. As mentioned previously, to model the stock prices,
 historic prices for the MSFT stock are required so we can calibrate the
 model to historical data. There are many ways to acquire historical
 stock prices. In our example, we use a free version of a stock price
@@ -261,8 +260,8 @@ dt <- T / n
 t <- seq(0,T,by=dt)
 ````
 
-We are now ready to start a Monte Carlo simulation to model the
-potential exposure for some number of simulation paths. We will limit
+We're now ready to start a Monte Carlo simulation to model the
+potential exposure for some number of simulation paths. We'll limit
 the simulation to 50 Monte Carlo paths and 256 time steps. In
 preparation for scaling out the simulation and taking advantage of
 parallelization in R, the Monte Carlo simulation loop uses a foreach
@@ -289,7 +288,7 @@ end_s <- Sys.time()
 difftime(end_s, start_s) 
 ````
 
-We have now simulated the price of the underlying MSFT stock. To
+We've now simulated the price of the underlying MSFT stock. To
 calculate the exposure of the equity forward, we subtract the premium
 and limit the exposure to only positive values.
 
@@ -346,11 +345,11 @@ show the code and summary of the process to connect to Azure Batch and
 how to take advantage of the extension to the cloud in a simplified PFE
 calculation.
 
-This example tackles the same model described earlier. As we have seen
+This example tackles the same model described earlier. As we've seen
 before, this calculation can run on our personal computer. Increases to
 the number of Monte Carlo paths or use of smaller time steps will result
 in much longer execution times. Almost all of the R code will remain
-unchanged. We will highlight the differences in this section.
+unchanged. We'll highlight the differences in this section.
 
 Each path of the Monte Carlo simulation runs in Azure. We can do this
 because each path is independent of the others, giving us an
@@ -466,7 +465,7 @@ risk analysis. This approach has some advantages:
 In our example, we want to invoke a cloud-based service for FRTB
 calculations. Several of these can be found on
 [AppSource](https://appsource.microsoft.com/?WT.mc_id=fsiriskmodelr-docs-scseely). For this article we chose
-a trial option from [Vector Risk](http://www.vectorrisk.com/). We will
+a trial option from [Vector Risk](http://www.vectorrisk.com/). We'll
 continue to modify our system. This time, we use a service to calculate
 the risk figure of interest. This process consists of the following
 steps:
@@ -549,15 +548,20 @@ plot(as.numeric(df$term[df$statistic == 'PFE']) / 365, df$result[df$statistic ==
 
 The resulting plots look like this:
 
-<img src="./images/financial-risk-model/image6.png" width="400px" alt="Figure 4 - Credit Exposure for MSFT Equity Forward - Calculated with a Cloud Based Risk Engine"/>
+<img src="./images/financial-risk-model/image6.png" width="400px" alt="Figure 4 - Credit exposure for MSFT equity forward - Calculated with a cloud-based risk engine."/>
 
-Figure 4 - Credit Exposure for MSFT Equity Forward - Calculated with a Cloud Based Risk Engine
+Figure 4 - Credit exposure for MSFT equity forward - Calculated with a cloud-based risk engine
 
-<img src="./images/financial-risk-model/image7.png" width="400px" alt="Figure 5 - Potential Future Exposure for MSFT Equity Forward - Calculated with a Cloud  Based Risk Engine" />
+<img src="./images/financial-risk-model/image7.png" width="400px" alt="Figure 5 - Potential future exposure for MSFT equity forward - Calculated with a cloud-based risk engine" />
 
-Figure 5 - Potential Future Exposure for MSFT Equity Forward - Calculated with a Cloud  Based Risk Engine
+Figure 5 - Potential future exposure for MSFT equity forward - Calculated with a cloud-based risk engine
 
+## Contributors
 
+_This article is being updated and maintained by Microsoft. It was originally written by the following contributors:_
+
+- [Dr. Darko Mocelj](https://www.linkedin.com/in/darko-mocelj) | HPC Global Blackbelt & AI Sr. Technology Specialist
+- [Rupert Nicolay](https://www.linkedin.com/in/rupert-nicolay) | Financial Services Industry Solutions Lead
 
 ## Next Steps
 
@@ -571,7 +575,7 @@ models.
 
 ### Tutorials
 
-- R Developers: [Run a parallel R simulation with Azure
+- R developers: [Run a parallel R simulation with Azure
     Batch](/azure/batch/tutorial-r-doazureparallel?WT.mc_id=fsiriskmodelr-docs-scseely)
 
 - [Basic R commands and RevoScaleR functions: 25 common
@@ -580,7 +584,5 @@ models.
 - [Visualize and analyze data using
     RevoScaleR](/machine-learning-server/r/tutorial-revoscaler-data-model-analysis?WT.mc_id=fsiriskmodelr-docs-scseely)
 
-- [Introduction to ML Services and open-source R capabilities on
+- [Introduction to ML services and open-source R capabilities on
     HDInsight](/azure/hdinsight/r-server/r-server-overview?WT.mc_id=fsiriskmodelr-docs-scseely)
-
-_This article was authored by Dr. Darko Mocelj and Rupert Nicolay._
