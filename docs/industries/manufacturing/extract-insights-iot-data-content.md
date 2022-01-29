@@ -115,7 +115,7 @@ Use [Azure Stream Analytics](/azure/stream-analytics?WT.mc_id=iotinsightssoln-do
 
 Stream Analytics queries start with a source of streaming data that is ingested into Azure Event Hub, Azure IoT Hub or from a data store like Azure Blob Storage. To examine a stream, create a Stream Analytics job that specifies the input source that streams data. The job also specifies a transformation query that defines how to look for data, patterns, or relationships. The transformation query leverages a SQL-like query language that is used to filter, sort, aggregate, and join streaming data over a period of time.
 
-## Warm Path
+## Warm path
 
 The example scenario for this document is a machine utilization KPI (introduced at the beginning of the guide). We could opt for a naive interpretation of the data and assume that if the machine is sending data then it is being utilized. However, the machine could be sending data while not really producing anything (for example, it could be idle, or being maintained). This highlights a very common challenge when trying to extract insight out of IoT data: the data you are looking for is not available in the data you are getting. So, in our example, we are not getting data clearly and unequivocally telling us whether or not the machine is producing.  Therefore, we need to infer utilization by combining the data we are getting with other sources of data, and applying rules to determine of whether or not the machine is producing. In addition, these rules may change from company to company since they may have different interpretations of what “producing” is. The warm path is all about analyzing as the data flows through the system. We process this stream in near-real time, save it to the warm storage, and push it to the analytics clients.
 
@@ -137,7 +137,7 @@ Pricing for Cosmos DB is based on storage used and [request units](/azure/cosmos
 
 [Microsoft Power BI](/power-bi/power-bi-overview?WT.mc_id=iotinsightssoln-docs-ercenk) is a collection of software services, apps, and connectors that work together to turn your unrelated sources of data into coherent, visually immersive, and interactive insights. Power BI helps you stay up to date with the information that matters to you. You can utilize the [real-time streaming in Power BI](/power-bi/service-real-time-streaming?WT.mc_id=iotinsightssoln-docs-ercenk) to push data to the service. This real time stream can act as a real time streaming data source for various visuals on the Power BI dashboard.
 
-## Cold Path
+## Cold path
 
 The warm path is where the stream processing occurs to discover patterns over time. However we also would like to calculate the utilization over a period of time in the past, with different pivots, and aggregations, such as machine, line, plant, produced part etcetera. We  want to merge those results with the warm path results to present a unified view to the user. The cold path includes the batch layer and the serving layers. The combination provides a long-term view of the system.
 
@@ -187,29 +187,7 @@ Time Series Insights has a data explorer to visualize and query data as well as 
 
 If you require a browser-based user interface that aggregates data from multiple sources, both TSI and Power BI services allow embedding visualization controls. Both also provide REST APIs ([Power BI Rest API](/rest/api/power-bi/?WT.mc_id=iotinsightssoln-docs-ercenk), [TSI REST API](/rest/api/time-series-insights/time-series-insights-reference-queryapi?WT.mc_id=iotinsightssoln-docs-ercenk)) and JavaScript SDKs ([Power BI JavaScript SDK](https://github.com/Microsoft/PowerBI-JavaScript?WT.mc_id=iotinsightssoln-docs-ercenk), [TSI JavaScript SDK](/azure/time-series-insights/tutorial-explore-js-client-lib?WT.mc_id=iotinsightssoln-docs-ercenk)) that allows extensive customizations.
 
-## Next Steps
-
-We covered a lot of concepts and would like to give the reader a set of starting points to learn more and apply the techniques to their own requirements. Here are some tutorials we believe can be useful for this purpose.
-
-- Converting the data to a stream
-  - [Creating a Logic App running on a schedule](/azure/logic-apps/tutorial-build-schedule-recurring-logic-app-workflow?WT.mc_id=iotinsightssoln-docs-ercenk)
-  - [Code examples for data operations on Logic Apps](/azure/logic-apps/logic-apps-data-operations-code-samples?WT.mc_id=iotinsightssoln-docs-ercenk)
-  - [Running Azure Functions in a container](/azure/azure-functions/functions-create-function-linux-custom-image?WT.mc_id=iotinsightssoln-docs-ercenk) to host your Azure Function is covered in multiple places. Creating a function on Linux using a custom image, running functions on any platform, Docker images for Azure Functions Runtime
-  - [Using various bindings on Azure Functions](/azure/azure-functions/functions-triggers-bindings?WT.mc_id=iotinsightssoln-docs-ercenk)
-
-- Hot path
-  - End-to-end tutorials demonstrating the use of Event Hubs, Azure Stream Analytics and Power BI. See [Tutorial: Visualize data anomalies](/azure/event-hubs/event-hubs-tutorial-visualize-anomalies?WT.mc_id=iotinsightssoln-docs-ercenk) in real-time events sent to Azure Event Hubs, and [Create a Stream Analytics job to analyze phone call data](/azure/stream-analytics/stream-analytics-manage-job?WT.mc_id=iotinsightssoln-docs-ercenk) and visualize results in a Power BI dashboard.
-  -[Using Azure Cosmos DB with .NET](/azure/cosmos-db/sql-api-get-started?WT.mc_id=iotinsightssoln-docs-ercenk)
-- Cold path
-  - [Transforming data in the cloud by using a Spark activity](/azure/data-factory/tutorial-transform-data-spark-portal?WT.mc_id=iotinsightssoln-docs-ercenk) in Azure Data Factory
-  - [Tutorial: Create an Azure Time Series Insights environment](/azure/time-series-insights/tutorial-create-populate-tsi-environment?WT.mc_id=iotinsightssoln-docs-ercenk)
-- Analysis clients
-  - [Learning Power BI](/power-bi/guided-learning/?WT.mc_id=iotinsightssoln-docs-ercenk)
-  - [Creating a Time Series Insights SPA](/azure/time-series-insights/tutorial-create-tsi-sample-spa?WT.mc_id=iotinsightssoln-docs-ercenk)
-  - [Exploring Time Series Insights Java Script client library](/azure/time-series-insights/tutorial-explore-js-client-lib?WT.mc_id=iotinsightssoln-docs-ercenk)
-  - See the [TSI demo](https://insights.timeseries.azure.com/demo) and [Power BI demo](https://microsoft.github.io/PowerBI-JavaScript/demo/v2-demo/index.html).
-
-## Appendix: Pillars of software quality (PoSQ)
+## Pillars of software quality (PoSQ)
 
 A successful cloud application is built on these [pillars of software quality](/azure/architecture/guide/pillars?WT.mc_id=iotinsightssoln-docs-ercenk): Scalability, availability, resiliency, management, and security. In this section, we will briefly cover those pillars for each component as necessary. We don’t cover availability, resiliency, management and DevOps, since they are mostly addressed at the implementation level, and we want to mention Azure platform provides extensive means for achieving those through APIs, tools, diagnostics and logging. In addition to the mentioned pillars, we will also mention cost efficiency.
 
@@ -265,3 +243,25 @@ Azure Data Factory service provides multiple methods for securing data store cre
 SQL Database provides an extensive set of security features for data access, monitoring and auditing as well as encrypting data at rest. For details, see [Security Center for SQL Server Database Engine and Azure SQL Database](/sql/relational-databases/security/security-center-for-sql-server-database-engine-and-azure-sql-database?WT.mc_id=iotinsightssoln-docs-ercenk).
 
 **Cost Efficiency**: At the heart of any analytics solution is the storage. Analytics engines need speed, efficiency, security, and throughput for processing volumes of data in reasonable times. Devising mechanisms to make best of use of the underlying platform, by aggregating and summarizing data, and efficiently using polyglot stores are the means for efficiently managing costs. As Azure is a cloud platform, there are methods to programmatically decommission, recommission, and resize resources. For example, the [Create or Update operation](/rest/api/sql/databases/createorupdate?WT.mc_id=iotinsightssoln-docs-ercenk) provides a way to change the database size of Azure SQL Database.
+
+## Next steps
+
+We covered a lot of concepts, and we would like to give the reader a set of starting points to learn more and apply the techniques to their own requirements. Here are some tutorials we believe can be useful for this purpose.
+
+- Converting the data to a stream:
+  - [Creating a Logic App running on a schedule](/azure/logic-apps/tutorial-build-schedule-recurring-logic-app-workflow?WT.mc_id=iotinsightssoln-docs-ercenk)
+  - [Code examples for data operations on Logic Apps](/azure/logic-apps/logic-apps-data-operations-code-samples?WT.mc_id=iotinsightssoln-docs-ercenk)
+  - [Running Azure Functions in a container](/azure/azure-functions/functions-create-function-linux-custom-image?WT.mc_id=iotinsightssoln-docs-ercenk) to host your Azure Function is covered in multiple places. Creating a function on Linux using a custom image, running functions on any platform, Docker images for Azure Functions Runtime
+  - [Using various bindings on Azure Functions](/azure/azure-functions/functions-triggers-bindings?WT.mc_id=iotinsightssoln-docs-ercenk)
+
+- Hot path:
+  - End-to-end tutorials demonstrating the use of Event Hubs, Azure Stream Analytics and Power BI. See [Tutorial: Visualize data anomalies](/azure/event-hubs/event-hubs-tutorial-visualize-anomalies?WT.mc_id=iotinsightssoln-docs-ercenk) in real-time events sent to Azure Event Hubs, and [Create a Stream Analytics job to analyze phone call data](/azure/stream-analytics/stream-analytics-manage-job?WT.mc_id=iotinsightssoln-docs-ercenk) and visualize results in a Power BI dashboard.
+  -[Using Azure Cosmos DB with .NET](/azure/cosmos-db/sql-api-get-started?WT.mc_id=iotinsightssoln-docs-ercenk)
+- Cold path:
+  - [Transforming data in the cloud by using a Spark activity](/azure/data-factory/tutorial-transform-data-spark-portal?WT.mc_id=iotinsightssoln-docs-ercenk) in Azure Data Factory
+  - [Tutorial: Create an Azure Time Series Insights environment](/azure/time-series-insights/tutorial-create-populate-tsi-environment?WT.mc_id=iotinsightssoln-docs-ercenk)
+- Analysis clients:
+  - [Learning Power BI](/power-bi/guided-learning/?WT.mc_id=iotinsightssoln-docs-ercenk)
+  - [Creating a Time Series Insights SPA](/azure/time-series-insights/tutorial-create-tsi-sample-spa?WT.mc_id=iotinsightssoln-docs-ercenk)
+  - [Exploring Time Series Insights Java Script client library](/azure/time-series-insights/tutorial-explore-js-client-lib?WT.mc_id=iotinsightssoln-docs-ercenk)
+  - See the [TSI demo](https://insights.timeseries.azure.com/demo) and [Power BI demo](https://microsoft.github.io/PowerBI-JavaScript/demo/v2-demo/index.html).
