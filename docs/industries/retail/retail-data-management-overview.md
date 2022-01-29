@@ -3,7 +3,7 @@
 title: Data management in the retail industry
 author: dstarr
 ms.author: dastarr
-ms.date: 11/20/2019
+ms.date: 01/31/2022
 ms.topic: article
 ms.service: industry
 products:
@@ -146,4 +146,9 @@ To continue to understand more of Azure capabilities related to implementing a d
 - See actual retail reports illustrating how [Power BI](https://powerbi.microsoft.com/en-us/industries/retail/?WT.mc_id=retaildm-docs-dastarr) can give deeper insights into known questions, but enable trend analysis.
 - Visit the [Azure Marketplace](https://azuremarketplace.microsoft.com/?WT.mc_id=retaildm-docs-dastarr) to find solutions compatible with those already on-premises.
 
-_This article was authored by David Starr and Mariya Zorotovich._
+## Contributors
+
+_This article is being updated and maintained by Microsoft. It was originally written by the following contributors:_
+
+- [David Starr](https://www.linkedin.com/in/davidstarr) | Principal Solutions Architect
+- [Mariya Zorotovich](https://www.linkedin.com/in/mariyazoro) | Head of Customer Experience, HLS & Emerging Technology
