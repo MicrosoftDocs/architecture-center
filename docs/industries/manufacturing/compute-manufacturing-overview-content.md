@@ -12,7 +12,7 @@ In this article, we walk through some well-known areas in engineering and
 manufacturing that need large computing power and explore how the Microsoft
 Azure platform can help.
 
-## Cloud Design Workstations
+## Cloud design workstations
 
 Product designers use a variety of software tools during the design and planning
 phases of the product development lifecycle. CAD tools require strong graphics
@@ -26,7 +26,7 @@ workstation hosted on the cloud allows the designer to access it from any
 location. And it allows the organization to change the cost model from capital
 expenses to operational expenses.
 
-### Remote Desktop Protocol
+### Remote desktop protocol
 
 Microsoft’s Remote Desktop Protocol (RDP) has supported TCP-only for a long
 time. TCP introduces more overhead than UDP. Starting with RDP 8.0, UDP is
@@ -58,7 +58,7 @@ you the ability to control costs. Microsoft’s partnership with Citrix, for the
 XenDesktop and XenApp solutions also provides another alternative for a desktop
 virtualization solution.
 
-## Analysis and Simulation
+## Analysis and simulation
 
 Analysis and simulation of physical systems on computers has been around for a
 long time. Finite element analysis (FEA) is a numerical method used for solving
@@ -142,7 +142,7 @@ Storage](/azure/virtual-machines/windows/premium-storage?WT.mc_id=computeinmanuf
 and [Azure Data
 Lake](/azure/data-lake-store/data-lake-store-overview?WT.mc_id=computeinmanufacturing-docs-ercenk).
 
-## Generative Design
+## Generative design
 
 The design process is always an iterative one. A designer starts with a set of
 constraints and parameters for a target design and iterates over several design
@@ -175,7 +175,7 @@ and
 [VMSS](/azure/virtual-machine-scale-sets/overview?WT.mc_id=computeinmanufacturing-docs-ercenk)
 are natural destinations for those workloads.
 
-## Machine Learning (ML)
+## Machine learning (ML)
 
 At a very simplistic level, we can generalize ML systems like so: given a data
 point, or a set of data points, the system returns a correlated result. In this
