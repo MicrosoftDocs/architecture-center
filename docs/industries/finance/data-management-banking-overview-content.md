@@ -76,7 +76,7 @@ Different data migration strategies exist for moving data from on-premises to
 Azure and have varying degrees of latency. All the techniques referenced below
 provide data transparency and reliable security.
 
-### Virtual Network (VNet) Service Endpoints
+### Virtual Network (VNet) service endpoints
 
 Security is a primary concern when dealing with customer financial information.
 The securing of resources (such as database) within Azure often depends on
@@ -85,15 +85,15 @@ network via a specific endpoint.
 
 Before transferring data to Azure, it's useful to consider the network topology
 securing both your Azure resources and the connection to them from on-premises.
-[Virtual Network (VNet?WT.mc_id=bankdm-docs-dastarr) Service
-Endpoints](/azure/virtual-network/virtual-network-service-endpoints-overview?WT.mc_id=bankdm-docs-dastarr)
+[Virtual Network (VNet?WT.mc_id=bankdm-docs-dastarr) service
+endpoints](/azure/virtual-network/virtual-network-service-endpoints-overview?WT.mc_id=bankdm-docs-dastarr)
 provide a secured direct connection to an Azure defined VNet.
 
 VNets are defined in Azure to contain Azure resources within a bounded VNet. An
 endpoint to that VNet then enables secure access to your critical Azure service
 resources and only to those on the defined VNet.
 
-## Database Lift and Shift
+## Database lift and shift
 
 A “lift and shift” model of database migration is one of the most common
 scenarios for using Azure SQL Database. Lift and shift simply means taking
@@ -130,7 +130,7 @@ changes required before migrating the database is up to you. Further, use of the
 service requires a Site-to-Site internet connection between the on-premises
 network and Azure.
 
-### Bulk Copy Program for SQL Server
+### Bulk copy program (BCP) for SQL Server
 
 If SQL Server is on-premises today and the goal is to move to SQL Azure, another
 great technique is to use SQL Server Management Studio [and the BCP utility to
@@ -138,7 +138,7 @@ move data](https://azure.microsoft.com/blog/bcp-and-sql-azure/?WT.mc_id=bankdm-d
 Azure. After scripting and creating Azure SQL databases from the original
 on-premises server, BCP can be used to rapidly transfer data into SQL Azure.
 
-### Blob and File storage
+### Azure Blob and File storage
 
 Individual bank branches often have their own file stores on local on-premises
 servers. This can cause problems with file sharing between branches and result
@@ -285,7 +285,7 @@ new archived data or rid the database of data no longer wanted in the archive.
 The infrequent access to on-premises machines means higher total cost of
 ownership of the hardware.
 
-### Azure Archive storage
+### Azure Archive Storage
 
 For unstructured data such as files or images, Azure offers [several tiers of
 storage](/azure/storage/blobs/storage-blob-storage-tiers?WT.mc_id=bankdm-docs-dastarr)
@@ -329,7 +329,7 @@ Function](/azure/azure-functions/functions-bindings-timer?WT.mc_id=bankdm-docs-d
 can be written to perform this job well. If you delete any data, Microsoft Azure
 deletes the data, including any cached or backup copies.
 
-## Getting Started
+## Getting started
 
 There are many ways to get started based on the current usage and maturity of
 the data models used today. In all cases, it's a perfect time to review the
@@ -351,7 +351,9 @@ overall storage costs. The backup and archive [Azure solution
 architectures](https://docs.microsoft.com/en-us/azure/architecture/browse/?terms=backup%20archive)
 are good resources to help plan your overall strategy.
 
-## Relevant Technologies
+## Components
+
+The following technologies are relevant to this solution:
 
 - [Azure
     Functions](/azure/azure-functions/functions-bindings-timer?WT.mc_id=bankdm-docs-dastarr)
@@ -393,9 +395,6 @@ Operating and acting on that data can be simple using Azure services like
 Databricks and Data Factory. Archival storage is available for long-term storage
 of rarely-accessed data and it can be deleted on a rolling cycle as needed.
 
-Visit the Azure solutions library for [backup and archival
-storage](https://azure.microsoft.com/solutions/architecture/?solution=backup-archive?WT.mc_id=bankdm-docs-dastarr) to get started designing your data management plan.
-
 ## Contributors
 
 _This article is being updated and maintained by Microsoft. It was originally written by the following contributors:_
@@ -403,3 +402,8 @@ _This article is being updated and maintained by Microsoft. It was originally wr
 - [Howard Bush](https://www.linkedin.com/in/howardbush) | 
 Banking and Capital Markets Cloud & AI, Consulting Services
 - [David Starr](https://www.linkedin.com/in/davidstarr) | Principal Azure Software Engineer
+
+## Next steps
+
+Visit the Azure solutions library for [backup and archival
+storage](https://azure.microsoft.com/solutions/architecture/?solution=backup-archive?WT.mc_id=bankdm-docs-dastarr), to get started designing your data management plan.
