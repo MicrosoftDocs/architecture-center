@@ -19,7 +19,7 @@ You believe in the promise of the cloud: it can run your financial and risk mode
 
 Let's look at these items individually.
 
-### Data Preparation
+### Data preparation
 
 Data flows in from several different sources. You have semi-structured policy data in your books of business. Information about the insured people, companies, and the items which appear in various application forms. Economic Scenario Generators (ESGs) produce data in a variety of formats which may need translation to a form your model can use. Current data on values of assets also needs normalization. The stock market data, cash flow data on rentals, payment information on mortgages, and other asset data all need some preparation when moving from the source to the model. Finally, you should update any assumptions based on recent experience data. To speed up a model run, you prepare the data ahead of time. When run time happens, you do any necessary updates to add in changes since the last scheduled update.j
 
@@ -74,7 +74,7 @@ To run all this, you have several options. Most actuarial software works with co
 
 If you need to coordinate the execution and deployment across many machines, perhaps with some running in different regions, you can take advantage of CycleCloud. CycleCloud costs nothing extra. It orchestrates data movement when necessary. This includes allocation, monitoring, and shut down of the machines. It can even handle low priority machines, making sure expenses are contained. You can go so far as to describe the mix of machines you need. For example, maybe you need a class of machine but can run well on any version that has 2 or more cores. Cycle can allocate cores across those machine types.
 
-## Reporting on the Results
+## Reporting on the results
 
 Once the actuarial packages have run and produced their results, you'll have several regulator ready reports. You'll also have a mountain of new data that you may want to analyze to generate insights not required by regulators or auditors. You may want to understand the profile of your best customers. Using insights, you can tell marketing what a low-cost customer looks like so that marketing and sales can find them faster. Likewise, you can use the data to discover which groups benefit the most from having the insurance. For example, you may discover that people who take advantage of an annual physical found out about early stage health issues earlier. This saves the insurance company time and money. You can use that data to drive behavior in your customer base.
 
@@ -84,7 +84,7 @@ If you need to do more analysis, you can use Apache data science tools like Spar
 
 Once you have found something interesting, you need to present the results. Many actuaries will start by taking the sample results and plugging them into Excel to create charts, graphs, and other visualizations. If you want something that also has a nice interface for drilling into the data, take a look at [Power BI](/power-bi/?WT.mc_id=riskmodel-docs-scseely). Power BI can make some nice visualizations, display the source data, and it allows for explaining the data to the reader through the addition of [ordered, annotated bookmarks](/power-bi/desktop-bookmarks?WT.mc_id=riskmodel-docs-scseely).
 
-## Data Retention
+## Data retention
 
 Much of the data you bring into the system needs to be preserved for future audits. Data retention requirements typically range from 7 to 10 years, but requirements vary. Minimal retention involves:
 
