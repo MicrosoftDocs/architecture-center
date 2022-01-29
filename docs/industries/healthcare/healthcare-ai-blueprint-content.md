@@ -296,7 +296,7 @@ A Key Vault created by the installation script is retained as a “soft delete�
 
 It is strongly recommended that you install the blueprint in an empty AAD rather than into a production system. Create a new AAD instance and use its tenant id during installs to avoid adding blueprint accounts to your live AAD instance.
 
-## Technologies presented
+## Components
 
 - Learn more about the [Azure Health Data and AI blueprint](/azure/security/blueprints/azure-health?WT.mc_id=ms-docs-dastarr).
 - Download, clone or fork the [GitHub repo here](https://github.com/Azure/Health-Data-and-AI-Blueprint/blob/master/deployment.md).
@@ -306,9 +306,13 @@ It is strongly recommended that you install the blueprint in an empty AAD rather
 - [Azure AI Gallery](https://gallery.azure.ai/) provides a recipe box of AI/ML solutions useful for customers by their industry. There are several solutions published by data scientists along with other experts for healthcare.
 - [Azure Security Center](/azure/security-center/?WT.mc_id=ms-docs-dastarr) provides insights into your application’s behavior, vulnerabilities, and mitigation techniques.
 
-## Wrapping up
+## Conclusion
 
 The [Azure Health Data AI blueprint](/azure/security/blueprints/azure-health?WT.mc_id=ms-docs-dastarr) is a complete ML solution and can be used as a learning tool for technologists to better understand Azure and how to ensure systems conform to healthcare regulatory requirements. It can also be used as a starting point for a production system using Azure Machine Learning Studio as the focal point.
+
+Whether you are using the blueprint for learning purposes or for the seed of an AI/ML solution for your organization, it provides a starting point for working with AI/ML in Azure with a focus on healthcare.
+
+## Next steps
 
 [Download the blueprint](https://github.com/Azure/Health-Data-and-AI-Blueprint/blob/master/deployment.md) to get started with your implementation in hours, not days or weeks. If you have problems with your install or questions about blueprint, visit [the FAQ page](https://github.com/Azure/Health-Data-and-AI-Blueprint/blob/master/faq.md).
 
@@ -318,5 +322,3 @@ Download the supporting collateral to gain a better understanding of the bluepri
 2. [The comprehensive threat model](https://servicetrust.microsoft.com/ViewPage/HIPAABlueprint?command=Download&downloadType=Document&downloadId=01828de2-9555-4bac-a2a0-44e9ed2eeeaf&docTab=d7c399a0-2b92-11e8-9910-13dc07d708f7_Data_Analytics&WT.mc_id=ms-docs-dastarr)
 3. [HITRUST health data and AI review whitepaper](https://servicetrust.microsoft.com/ViewPage/HIPAABlueprint?command=Download&downloadType=Document&downloadId=ffc32e44-665e-46c5-b753-163d55a17d27&docTab=d7c399a0-2b92-11e8-9910-13dc07d708f7_Data_Analytics&WT.mc_id=ms-docs-dastarr)
 4. [HIPAA health data and AI review](https://servicetrust.microsoft.com/ViewPage/HIPAABlueprint?command=Download&downloadType=Document&downloadId=d5ce675c-3e83-45db-98a6-ae77fc439436&docTab=d7c399a0-2b92-11e8-9910-13dc07d708f7_Data_Analytics?WT.mc_id=ms-docs-dastarr)
-
-Whether you are using the blueprint for learning purposes or for the seed of an AI/ML solution for your organization, it provides a starting point for working with AI/ML in Azure with a focus on healthcare.
