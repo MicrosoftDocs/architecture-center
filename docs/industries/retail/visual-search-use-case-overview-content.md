@@ -127,6 +127,13 @@ Once similarity is defined, we need to devise an efficient method to retrieve th
 
 Finally, memory and computation requirements will determine the choice of deployment technology for the trained model, as well high availability. Typically, the search space will be partitioned, and several instances of the ranking algorithm will run in parallel. One option that allows for scalability and availability is [Azure Kubernetes](https://azure.microsoft.com/services/container-service/kubernetes/?WT.mc_id=vsearchgio-article-gmarchet) clusters. In that case it is advisable to deploy the ranking model across several containers (handling a partition of the search space each) and several nodes (for high availability).
 
+## Contributors
+
+_This article is being updated and maintained by Microsoft. It was originally written by the following contributors:_
+
+- [Giovanni Marchetti](https://www.linkedin.com/in/giovanni-marchetti) | Manager, Azure Solution Architects
+- [Mariya Zorotovich](https://www.linkedin.com/in/mariyazoro) | Head of Customer Experience, HLS & Emerging Technology
+
 ## Next steps
 
 Implementing visual search need not be complex. You can use Bing or build your own with Azure services, while benefiting from Microsoft's AI research and tools.
@@ -147,5 +154,3 @@ Implementing visual search need not be complex. You can use Bing or build your o
 - [Visual Search at Ebay](https://arxiv.org/abs/1706.03154): Cornell University research
 - [Visual Discovery at Pinterest](https://arxiv.org/abs/1702.04680) Cornell University research
 - [Semantic Hashing](https://www.cs.utoronto.ca/~rsalakhu/papers/semantic_final.pdf) University of Toronto research
-
-_This article was authored by Giovanni Marchetti and Mariya Zorotovich._
