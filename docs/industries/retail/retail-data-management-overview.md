@@ -68,7 +68,7 @@ Data stored in Azure has great performance backed up by a solid service-level ag
 
 Both structured and unstructured data can be stored in [Azure Data Lake](/azure/data-lake-store/data-lake-store-overview?WT.mc_id=retaildm-docs-dastarr) and queried using [U-SQL](/azure/data-lake-analytics/data-lake-analytics-u-sql-get-started?WT.mc_id=retaildm-docs-dastarr), a query language specific to Azure Data Lake. Examples of data that may be included in a Data Lake include the following, which are divided into commonly structured and unstructured data sources.
 
-### Structured Data
+### Structured data
 
 - CRM data and other line of business applications
 - POS transaction data
@@ -76,7 +76,7 @@ Both structured and unstructured data can be stored in [Azure Data Lake](/azure/
 - Relational data
 - eCommerce transaction data
 
-### Unstructured Data
+### Unstructured data
 
 - Social feeds
 - Video
@@ -139,16 +139,18 @@ Another type of insight that may arise are patterns not previously questioned. F
 
 Data management in retail is complex. But it offers the valuable ability to deliver relevance and an improved customer experience. Using the techniques in this article, insights may be gained to improve the customer experience, drive profitable business outcomes and uncover trends that may drive operational improvements.
 
-To continue to understand more of Azure capabilities related to implementing a data management pipeline, read the following:
-
-- See how [Azure Data Factory](/azure/data-factory/?WT.mc_id=retaildm-docs-dastarr) can help ingest data from on-premises data stores into Azure.
-- Learn more about how [Azure Data Lake](/azure/data-lake-store/data-lake-store-overview?WT.mc_id=retaildm-docs-dastarr) can serve as a store all data, both structured and unstructured.
-- See actual retail reports illustrating how [Power BI](https://powerbi.microsoft.com/en-us/industries/retail/?WT.mc_id=retaildm-docs-dastarr) can give deeper insights into known questions, but enable trend analysis.
-- Visit the [Azure Marketplace](https://azuremarketplace.microsoft.com/?WT.mc_id=retaildm-docs-dastarr) to find solutions compatible with those already on-premises.
-
 ## Contributors
 
 _This article is being updated and maintained by Microsoft. It was originally written by the following contributors:_
 
 - [David Starr](https://www.linkedin.com/in/davidstarr) | Principal Solutions Architect
 - [Mariya Zorotovich](https://www.linkedin.com/in/mariyazoro) | Head of Customer Experience, HLS & Emerging Technology
+
+## Next steps
+
+To continue to understand more of Azure capabilities related to implementing a data management pipeline, read the following:
+
+- See how [Azure Data Factory](/azure/data-factory/?WT.mc_id=retaildm-docs-dastarr) can help ingest data from on-premises data stores into Azure.
+- Learn more about how [Azure Data Lake](/azure/data-lake-store/data-lake-store-overview?WT.mc_id=retaildm-docs-dastarr) can serve as a store all data, both structured and unstructured.
+- See actual retail reports illustrating how [Power BI](https://powerbi.microsoft.com/en-us/industries/retail/?WT.mc_id=retaildm-docs-dastarr) can give deeper insights into known questions, but enable trend analysis.
+- Visit the [Azure Marketplace](https://azuremarketplace.microsoft.com/?WT.mc_id=retaildm-docs-dastarr) to find solutions compatible with those already on-premises.
