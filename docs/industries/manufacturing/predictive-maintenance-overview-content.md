@@ -1,12 +1,12 @@
-Predictive Maintenance (PdM) anticipates maintenance needs to avoid costs associated with unscheduled downtime. By connecting to devices and monitoring the data the devices produce, you can identify patterns that lead to potential problems or failures. You can then use these insights to address issues before they happen. This ability to predict when equipment or assets need maintenance allows you to optimize equipment lifetime and minimize downtime.
+Predictive maintenance (PdM) anticipates maintenance needs to avoid costs associated with unscheduled downtime. By connecting to devices and monitoring the data the devices produce, you can identify patterns that lead to potential problems or failures. You can then use these insights to address issues before they happen. This ability to predict when equipment or assets need maintenance allows you to optimize equipment lifetime and minimize downtime.
 
 PdM extracts insights from the data produced by the equipment on the shop floor and acts on these insights. The idea of PdM goes back to the early 1990&#39;s and augments regularly scheduled, preventive maintenance. Early on, the lack of availability of sensors generating data as well as a lack of computational resources for gathering and analyzing the data made it difficult to implement PdM. Today, advances in the Internet of Things (IoT), cloud computing, data analytics, and Machine Learning (ML) are enabling predictive maintenance to go mainstream.
 
 PdM requires the equipment to provide data from sensors monitoring the equipment as well as other operational data. The PdM system analyzes the data and stores the results. Humans act based on the analysis.
 
-After introducing some background in this article, we discuss how to implement the various pieces of a PdM solution using a combination of on-premises data, Azure machine learning, and usage of the machine learning models. PdM relies heavily on data to make decisions, so we start by looking at data collection. The data must be collected and then used to evaluate what is happening now as well as used to build up better predictive models in the future. Finally, we explain what an analysis solution looks like, including visualizing the analysis results in a reporting tool like [Power BI](/power-bi/).
+After introducing some background in this article, we discuss how to implement the various pieces of a PdM solution using a combination of on-premises data, Azure machine learning, and usage of the machine learning models. PdM relies heavily on data to make decisions, so we start by looking at data collection. The data must be collected and then used to evaluate what is happening now as well as used to build up better predictive models in the future. Finally, we explain what an analysis solution looks like, including visualizing the analysis results in a reporting tool like [Power BI](/power-bi).
 
-## Maintenance Strategies
+## Maintenance strategies
 
 Over the history of the manufacturing industry, several maintenance strategies emerged. Reactive maintenance fixes issues after they occur. Preventive maintenance fixes issues before they occur by following a maintenance schedule based on prior failure experience. PdM also fixes issues before they occur but considers the actual utilization of the equipment instead of working from a fixed schedule. Of the three, PdM was the most difficult to achieve because of historical limitations on data collection, processing, and data visualization. Let&#39;s look at each option in a bit more detail.
 
@@ -19,7 +19,7 @@ Predictive maintenance monitors the usage of assets using models to predict when
  ![](./images/predictive-maintenance-overview/maintenance-strategies.png)
 
 
-## Different Ways PdM can be Offered
+## Different ways PdM can be offered
 
 A PdM solution can be used by a manufacturer directly, monitoring the data coming from its own manufacturing operations. Other ways exist which mean new business opportunities and revenue streams for other organizations. For example:
 
@@ -47,35 +47,35 @@ The horsepower of Azure allows you to train and test the models on your technolo
 
 Whatever your PdM needs, Azure has the tools, the scale, the capabilities you need for building a solid solution.
 
-## Getting Started
+## Getting started
 
 A lot of equipment found on the factory floor collects data and provides mechanisms to collect the data from the devices. Start collecting that data as soon as possible. As failures occur, have the data scientists analyze the data to create models which can detect future failures. As knowledge builds about failure detection, you will move to predictive mode where you fix components during planned downtime. The [Predictive Maintenance Modeling Guide](https://gallery.azure.ai/Collection/Predictive-Maintenance-Modelling-Guide-1) provides a solid walkthrough of how to build the Machine Learning pieces of the solution.
 
 To see an example solution, review the solution, guide, and playbook for [PdM in Aerospace](https://github.com/Azure/cortana-intelligence-predictive-maintenance-aerospace). If you need to ramp up on building models, we recommend visiting [AI School](https://aischool.microsoft.com/). The [Introduction to Machine Learning with Azure ML](https://aischool.microsoft.com/learning-paths/4ZYo4wHJVCsUSAKa2EoAk8) course will help provide familiarity with our tools.
 
-## Technologies Presented
+## Components
 
-[Azure Blob Storage](/azure/storage/blobs/storage-blobs-introduction) stores from hundreds to billions of objects in hot, cool, or archive tiers, depending on how often data access is needed.
+- [Azure Blob Storage](/azure/storage/blobs/storage-blobs-introduction) stores from hundreds to billions of objects in hot, cool, or archive tiers, depending on how often data access is needed.
 
-[Azure Cosmos DB](/azure/cosmos-db/) is a database for extremely low latency and massively scalable applications anywhere in the world, with native support for NoSQL.
+- [Azure Cosmos DB](/azure/cosmos-db) is a database for extremely low latency and massively scalable applications anywhere in the world, with native support for NoSQL.
 
-[Azure Data Lake Store](/azure/data-lake-store/) includes all the capabilities required to make it easy for developers, data scientists, and analysts to store data of any size, shape, and speed, and do all types of processing and analytics across platforms and languages.
+- [Azure Data Lake Store](/azure/data-lake-store) includes all the capabilities required to make it easy for developers, data scientists, and analysts to store data of any size, shape, and speed, and do all types of processing and analytics across platforms and languages.
 
-[Azure Event Hubs](/azure/event-hubs/) is a hyper-scale telemetry ingestion service that collects, transforms, and stores millions of events. As a distributed streaming platform, it gives you low latency and configurable time retention, which enables you to ingress massive amounts of telemetry into the cloud and read the data from multiple applications using publish-subscribe semantics.
+- [Azure Event Hubs](/azure/event-hubs) is a hyper-scale telemetry ingestion service that collects, transforms, and stores millions of events. As a distributed streaming platform, it gives you low latency and configurable time retention, which enables you to ingress massive amounts of telemetry into the cloud and read the data from multiple applications using publish-subscribe semantics.
 
-[Azure IoT Edge](/azure/iot-edge/) is an Internet of Things (IoT) service that builds on top of IoT Hub. This service is meant for customers who want to analyze data on devices, a.k.a. &quot;at the edge&quot;, instead of in the cloud. By moving parts of your workload to the edge, your devices can spend less time sending messages to the cloud and react more quickly to changes in status.
+- [Azure IoT Edge](/azure/iot-edge) is an Internet of Things (IoT) service that builds on top of IoT Hub. This service is meant for customers who want to analyze data on devices, also known as &quot;at the edge&quot;, instead of in the cloud. By moving parts of your workload to the edge, your devices can spend less time sending messages to the cloud and react more quickly to changes in status.
 
-[Azure IoT Hub](/azure/iot-hub/) is a fully managed service that enables reliable and secure bidirectional communications between millions of IoT devices and a solution back end.
+- [Azure IoT Hub](/azure/iot-hub) is a fully managed service that enables reliable and secure bidirectional communications between millions of IoT devices and a solution back end.
 
-[Azure Machine Learning](/azure/machine-learning/) enables computers to learn from data and experiences and to act without being explicitly programmed. Customers can build Artificial Intelligence (AI) applications that intelligently sense, process, and act on information - augmenting human capabilities, increasing speed and efficiency, and helping organizations achieve more.
+- [Azure Machine Learning](/azure/machine-learning) enables computers to learn from data and experiences and to act without being explicitly programmed. Customers can build Artificial Intelligence (AI) applications that intelligently sense, process, and act on information - augmenting human capabilities, increasing speed and efficiency, and helping organizations achieve more.
 
-[Azure Service Bus](/azure/service-bus/) is a brokered communication mechanism. The core components of the Service Bus messaging infrastructure are queues, topics, and subscriptions.
+- [Azure Service Bus](/azure/service-bus) is a brokered communication mechanism. The core components of the Service Bus messaging infrastructure are queues, topics, and subscriptions.
 
-[Azure SQL Database](/azure/sql-database/) is the intelligent, fully managed relational cloud database service that provides the broadest SQL Server engine compatibility, so you can migrate your SQL Server databases without changing your apps.
+- [Azure SQL Database](/azure/sql-database) is the intelligent, fully managed relational cloud database service that provides the broadest SQL Server engine compatibility, so you can migrate your SQL Server databases without changing your apps.
 
-[Power BI](/power-bi/) is a suite of business analytics tools that deliver insights throughout your organization. Connect to hundreds of data sources, simplify data prep, and drive ad hoc analysis.
+- [Power BI](/power-bi) is a suite of business analytics tools that deliver insights throughout your organization. Connect to hundreds of data sources, simplify data prep, and drive ad hoc analysis.
 
-[Time Series Insights](/azure/time-series-insights/) is a fully managed analytics, storage, and visualization service for managing IoT-scale time-series data in the cloud.
+- [Time Series Insights](/azure/time-series-insights) is a fully managed analytics, storage, and visualization service for managing IoT-scale time-series data in the cloud.
 
 ## Conclusion
 
