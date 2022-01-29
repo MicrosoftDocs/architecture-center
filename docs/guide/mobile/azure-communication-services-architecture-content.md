@@ -1,49 +1,50 @@
 This guide presents data flow diagrams for [Azure Communication Services (ACS)](https://docs.microsoft.com/en-us/azure/communication-services/). Use these diagrams to understand how your clients and services interact with Azure, and with each other, to deliver communication experiences. 
 
-Azure Communication Services are cloud-based services with REST APIs and client library SDKs available to help you integrate communication into your applications. Azure Communication Services supports various communication formats: voice and video calling, text chat, SMS and custom binary data. You can connect custom client apps, custom services, and the publicly switched telephony network (PSTN) to your communications application. You can acquire phone numbers directly through Azure Communication Services REST APIs, SDKs, or the Azure portal; and use these numbers for SMS or calling applications. Azure Communication Services direct routing allows you to use SIP and session border controllers to connect your own PSTN carriers and bring your own phone numbers.
+Azure Communication Services are cloud-based services with REST APIs and client library SDKs to help you integrate communication into your applications. Azure Communication Services supports multiple communication formats: voice and video calling, text chat, SMS and custom binary data. 
 
-Several components are used repeatedly in these data flow diagrams:
+You can add communication to Web and mobile apps, integrate custom services and bots, and progammatically access the publicly switched telephony network (PSTN). You can acquire [phone numbers](https://docs.microsoft.com/azure/communication-services/concepts/numbers/number-types) directly from Azure Communication Services APIs or the Azure portal; and use these numbers for SMS or voice calling applications. [Azure Communication Services direct routing](https://docs.microsoft.com/azure/communication-services/concepts/telephony/telephony-concept#azure-direct-routing) allows you to bring your own telephony provider using SIP and session border controllers.
+
+Several components are used in these data flow diagrams:
 
 1. **Client Application.** This website or native application is used by end users to communicate. Azure Communication Services provides [SDK client libraries](https://docs.microsoft.com/azure/communication-services/concepts/sdk-options) for multiple browsers and application platforms. In addition to our core SDKs, [a UI Library](https://aka.ms/acsstorybook) is available to accelerate browser app development.
 1. **Identity Management Service.**  This service capability you build to map users and other concepts in your business logic to Azure Communication Services identities and create tokens for those users when required.
 1. **Communication Controller Service.**  This service capability you build to **control** chat threads, voice and video calls.
 1. **Communication Data Service.**  This service capability you build to interact with communication **content** directly such as sending chat and SMS messages or playing audio in a voice call.
 
-Industry standards for communication such as [WebRTC](https://webrtc.org/) separate communication into a **control/signaling plane** and **data plane**. Azure Communication Services allows you to build communication experience without understanding our internal implementation of WebRTC, but these concepts can help you architect your app:
+Industry standards for communication such as [WebRTC](https://webrtc.org/) separate communication into a **control & signaling plane** and **data plane**. Azure Communication Services allows you to build communication experience without understanding the service's internal implementation of WebRTC, but these concepts can help you design your app:
 
-| System  | Function| Common Protocols  | Access Model   |
+| System  | Function| Protocols  | Access Model   |
 |---|---|-----|--|
-| **Control Plane** | Governs who communicates, when, and how | REST  | Azure Active Directory service credentials |
-| **Data Plane**| Communication content, voice, video, text, data, that interface with human beings and apps | UDP, RTMP, WebSockets | User access tokens |
+| **Control Plane** | Governs who communicates, when, and how | REST | [Azure Active Directory service credentials](https://docs.microsoft.com/azure/communication-services/concepts/authentication#azure-ad-authentication) |
+| **Data Plane**| Communication content, voice, video, text, data, that interface with humans and apps | UDP, [RTMP](https://docs.microsoft.com/azure/communication-services/concepts/voice-video-calling/network-requirements), WebSockets, REST | [User access tokens](https://docs.microsoft.com/azure/communication-services/concepts/authentication#user-access-tokens) and AAD service credentials |
 
-The control plane is not described in the WebRTC standard because it is typically unique to the specific application experience, *"[Communications are coordinated by the exchange of control messages (called a signaling protocol) over a signaling channel which is provided by unspecified means.](https://www.w3.org/TR/webrtc/#introduction)* Azure Communication Services control plane functionality is simple and generic so you can build your own custom experience. 
-
-A common data flow is a client application initiating communication by requesting control information from your communication controller service:
+A common pattern is client applications initiating communication by requesting control information from a service controller:
 
 2. What meetings do I have today?
 1. What phone number do I use to call my friend Joseph? What phone number does Joseph use?
 3. What are the names of my teammates? What chat threads do we have on-going?
 
-Your control service fulfills these requests by providing clients Azure Communication Services tokens and identifiers for users, threads, phone numbers, and calls, which are then used by clients to interact with the data plane. In WebRTC terms, the process of clients requesting control information from services is called *control messages* or *signaling* - and ACS identifiers such as call ID essentially wrap [session descriptions](https://datatracker.ietf.org/doc/html/rfc8866).
+Your control service fulfills these requests by providing clients Azure Communication Services tokens and identifiers for users, threads, phone numbers, and calls, which are then used by clients to interact with the Azure data plane. Azure Communication Service APIs do not constrain the design of your end-user experience or the concepts that control communcation. 
+
+In WebRTC terms, the process of clients requesting control information from services is called *control messages* or *signaling* - and ACS identifiers such as call ID essentially wrap [WebRTC session descriptions](https://datatracker.ietf.org/doc/html/rfc8866). Because it would overly constrain apps, the control plane is unspecified in the WebRTC standard *"[Communications are coordinated by the exchange of control messages (called a signaling protocol) over a signaling channel which is provided by unspecified means.](https://www.w3.org/TR/webrtc/#introduction)*. 
 
 ## User access management
 
-Azure Communication Services clients must present `user access tokens` to access the Azure data plane securely. `User access tokens` should be generated and managed by a trusted service due to the sensitive nature of the token and the connection string or Azure Active Directory secrets necessary to generate them. Failure to properly manage access tokens can result in additional charges due to misuse of resources.
+Azure Communication Services clients present `user access tokens` to access the Azure calling and chat data plane securely. `User access tokens` should be generated and managed by a trusted service due to the sensitive nature of the token and the connection string or Azure Active Directory secrets necessary to generate them. Failure to properly manage access tokens can result in additional charges due to misuse of resources.
 
 :::image type="content" source="./media/architecture_v2_identity.svg" alt-text="Diagram showing user access token architecture.":::
 
 ### Dataflows
-1. The user starts the client application. The design of this application and user authentication scheme is in your control.
+1. The user starts the client application. 
 2. The client application contacts your identity management service. The identity management service maintains a mapping between your users and other addressable objects (for example services or bots) to Azure Communication Service identities.
 3. The identity management service creates a user access token for the applicable identity. If no Azure Communication Services identity has been allocated the past, a new identity is created.
+
+Azure App Services or Azure Functions are straightforward options for operating the identity management service. These services scale easily and have built-in [authentication and authorization features](https://docs.microsoft.com/en-us/azure/app-service/overview-authentication-authorization). They are integrated with [OpenID](https://docs.microsoft.com/azure/app-service/configure-authentication-provider-openid-connect) and 3rd party identity providers such as [Facebook](https://docs.microsoft.com/azure/app-service/configure-authentication-provider-facebook).
 
 ### Resources
 - **Concept:** [User Identity](https://docs.microsoft.com/azure/communication-services/concepts/identity-model)
 - **Quickstart:** [Create and manage access tokens](https://docs.microsoft.com/azure/communication-services/quickstarts/access-tokens)
-- **Tutorial:** [Build a identity management services use Azure Functions](https://docs.microsoft.com/azure/communication-services/tutorials/trusted-service-tutorial)
-
-> [!IMPORTANT]
-> For clarity, we do not show user access management and token distribution in subsequent flow diagrams.
+- **Tutorial:** [Build a identity management service use Azure Functions](https://docs.microsoft.com/azure/communication-services/tutorials/trusted-service-tutorial)
 
 ## Calling a user without push notifications
 The simplest voice and video calling scenarios involves a user calling another user in the foreground without push notifications.
