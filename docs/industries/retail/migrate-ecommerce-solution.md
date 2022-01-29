@@ -3,7 +3,7 @@
 title: Migrate your e-commerce solution to Azure
 author: EdPrice-MSFT
 ms.author: edprice
-ms.date: 11/20/2019
+ms.date: 01/31/2022
 ms.topic: article
 ms.service: industry
 products:
@@ -12,7 +12,6 @@ categories:
   - migration
 description: This article explains the phases of migrating ecommerce infrastructure from on premises to Azure.
 ---
-
 
 # Migrate your e-commerce solution to Azure
 
@@ -117,13 +116,7 @@ Because you have all your data and systems in Azure, you can easily incorporate 
 
 Next, take a look at the offerings in the [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/?WT.mc_id=retailecomm-docs-scseely) which can help you do things like optimize inventory, manage campaigns based on customer attributes, and present the right items to each customer based on their preferences and history. Expect to spend some time configuring your data to work in the Marketplace offerings.
 
-## Next Steps
-
-Many development teams are tempted to do rehost and refactor simultaneously to address technical debt and better leverage capacity. There are benefits to rehosting before jumping into the next steps.  Any issues in the deployment to the new environment will be easier to diagnose and fix. This in turn gives your development and support teams time to ramp up with Azure as the new environment. As you begin to refactor and rebuild the system, you are building on a stable, working application. This allows for smaller, targeted changes and more frequent updates.
-
-We have published a more general whitepaper on migrating to the cloud: [Cloud Migration Essentials](https://azure.microsoft.com/resources/cloud-migration-essentials-e-book/?_lrsc=9618a836-9f81-4087-901f-51058783c3a8&WT.mc_id=retailecomm-docs-scseely). This is a great piece to read through as you plan out your migration.
-
-## Technologies Presented
+## Components
 
 Used during rehost:
 
@@ -148,5 +141,15 @@ Used during rebuild:
 
 Moving your ecommerce system into Azure takes analysis, planning and a defined approach. We looked at a three phase approach of rehost, refactor, and rebuild. This allows an organization to move from one working state to another while minimizing the amount of change at each step. Retailers may also choose to refactor or even rebuild components, skipping rehosting altogether. Many times, you will have a clear path forward to modernization—take it when you can. As you gain experience running in Azure, you will see more opportunities to add new capabilities, reduce costs, and improve the overall system.
 
+## Contributors
 
-_This article was authored by Scott Seely and Mariya Zorotovich._
+_This article is being updated and maintained by Microsoft. It was originally written by the following contributors:_
+
+- [Scott Seely](https://www.linkedin.com/in/scottseely) | Software Architect
+- [Mariya Zorotovich](https://www.linkedin.com/in/mariyazoro) | Head of Customer Experience, HLS & Emerging Technology
+
+## Next steps
+
+Many development teams are tempted to do rehost and refactor simultaneously to address technical debt and better leverage capacity. There are benefits to rehosting before jumping into the next steps.  Any issues in the deployment to the new environment will be easier to diagnose and fix. This in turn gives your development and support teams time to ramp up with Azure as the new environment. As you begin to refactor and rebuild the system, you are building on a stable, working application. This allows for smaller, targeted changes and more frequent updates.
+
+We have published a more general whitepaper on migrating to the cloud: [Cloud Migration Essentials](https://azure.microsoft.com/resources/cloud-migration-essentials-e-book/?_lrsc=9618a836-9f81-4087-901f-51058783c3a8&WT.mc_id=retailecomm-docs-scseely). This is a great piece to read through as you plan out your migration.
