@@ -255,10 +255,12 @@ A solution that deals with sensitive data contains financial records, stock leve
 
 For more information about GDPR, see our [compliance](https://www.microsoft.com/trustcenter?WT.mc_id=invopt-article-gmarchet) page.
 
-## Technologies Mentioned
+## Components
+
+The following technologies were featured in this article:
 
 - [Azure Batch](https://azure.microsoft.com/services/batch/?WT.mc_id=invopt-article-gmarchet)
-- [Azure Active Directory](https://azure.microsoft.com/services/active-directory/?&OCID=AID719825_SEM_w1MNAVjn&lnkd=Google_Azure_Brand&gclid=CjwKCAjw5ZPcBRBkEiwA-avvk4bGtyQo11KBY-u2skor1SydsSl1vrYUmhyGhhwyJhDlAYpnMmIcRRoCTfsQAvD_BwE&dclid=CMn6lvfRkd0CFRwBrQYdtIoJOA?WT.mc_id=invopt-article-gmarchet)
+- [Azure Active Directory](https://azure.microsoft.com/services/active-directory/?WT.mc_id=invopt-article-gmarchet)
 - [Azure Data Factory](/azure/data-factory/introduction?WT.mc_id=invopt-article-gmarchet)
 - [Azure Integration Runtime](/azure/data-factory/concepts-integration-runtime?WT.mc_id=invopt-article-gmarchet)
 - [HDInsight](https://azure.microsoft.com/services/hdinsight/?WT.mc_id=invopt-article-gmarchet)
