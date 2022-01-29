@@ -28,7 +28,7 @@ Additional data science walkthroughs that execute the Team Data Science Process 
 
 ## Predict taxi tips using Hive with HDInsight Hadoop
 
-The [Use HDInsight Hadoop clusters](hive-walkthrough.md) walkthrough uses data from New York taxis to predict:
+The [Use HDInsight Hadoop clusters](/azure/architecture/data-science-process/overview) walkthrough uses data from New York taxis to predict:
 
 - Whether a tip is paid
 - The distribution of tip amounts
@@ -37,10 +37,10 @@ The scenario is implemented using Hive with an [Azure HDInsight Hadoop cluster](
 
 ## Predict advertisement clicks using Hive with HDInsight Hadoop
 
-The [Use Azure HDInsight Hadoop Clusters on a 1-TB dataset](hive-criteo-walkthrough.md) walkthrough uses a publicly available [Criteo](https://labs.criteo.com/downloads/download-terabyte-click-logs/) click dataset to predict whether a tip is paid and the expected amounts. The scenario is implemented using Hive with an [Azure HDInsight Hadoop cluster](https://azure.microsoft.com/services/hdinsight/) to store, explore, feature engineer, and down sample data. It uses Azure Machine Learning to build, train, and score a binary classification model predicting whether a user clicks on an advertisement. The walkthrough concludes showing how to publish one of these models as a Web service.
+The [Use Azure HDInsight Hadoop Clusters on a 1-TB dataset](/azure/architecture/data-science-process/overview) walkthrough uses a publicly available [Criteo](https://labs.criteo.com/downloads/download-terabyte-click-logs/) click dataset to predict whether a tip is paid and the expected amounts. The scenario is implemented using Hive with an [Azure HDInsight Hadoop cluster](https://azure.microsoft.com/services/hdinsight/) to store, explore, feature engineer, and down sample data. It uses Azure Machine Learning to build, train, and score a binary classification model predicting whether a user clicks on an advertisement. The walkthrough concludes showing how to publish one of these models as a Web service.
 
 ## Next steps
 
 For a discussion of the key components that comprise the Team Data Science Process, see [Team Data Science Process overview](overview.md).
 
-For a discussion of the Team Data Science Process lifecycle that you can use to structure your data science projects, see [Team Data Science Process lifecycle](lifecycle.md). The lifecycle outlines the steps, from start to finish, that projects usually follow when they are executed. 
+For a discussion of the Team Data Science Process lifecycle that you can use to structure your data science projects, see [Team Data Science Process lifecycle](lifecycle.md). The lifecycle outlines the steps, from start to finish, that projects usually follow when they are executed.

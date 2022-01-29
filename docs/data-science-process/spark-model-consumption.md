@@ -123,7 +123,7 @@ For more information on the kernels for Jupyter notebooks and the predefined "ma
 ## Ingest data and create a cleaned data frame
 This section contains the code for a series of tasks required to ingest the data to be scored. Read in a joined 0.1% sample of the taxi trip and fare file (stored as a .tsv file), format the data, and then creates a clean data frame.
 
-The taxi trip and fare files were joined based on the procedure provided in the: [The Team Data Science Process in action: using HDInsight Hadoop clusters](hive-walkthrough.md) topic.
+The taxi trip and fare files were joined based on the procedure provided in the: [The Team Data Science Process in action: using HDInsight Hadoop clusters](/azure/architecture/data-science-process/overview) topic.
 
 ```python
 # INGEST DATA AND CREATE A CLEANED DATA FRAME

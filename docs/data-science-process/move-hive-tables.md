@@ -38,7 +38,7 @@ If you want to practice on the **NYC Taxi Trip Data**, you need to:
 
 * **download** the 24 NYC Taxi Trip Data files (12 Trip files and 12 Fare files) -- either available through [Azure Open Datasets](/azure/open-datasets/dataset-taxi-yellow?tabs=azureml-opendatasets) or from the source [TLC Trip Record Data](https://www1.nyc.gov/site/tlc/about/tlc-trip-record-data.page),
 * **unzip** all files into .csv files, and then
-* **upload** them to the default (or appropriate container) of the Azure Storage account; options for such an account appear at [Use Azure Storage with Azure HDInsight clusters](/azure/hdinsight/hdinsight-hadoop-use-blob-storage) topic. The process to upload the .csv files to the default container on the storage account can be found on this [page](hive-walkthrough.md#upload).
+* **upload** them to the default (or appropriate container) of the Azure Storage account; options for such an account appear at [Use Azure Storage with Azure HDInsight clusters](/azure/hdinsight/hdinsight-hadoop-use-blob-storage) topic. The process to upload the .csv files to the default container on the storage account can be found on this [page](/azure/architecture/data-science-process/overview#upload).
 
 ## <a name="submit"></a>How to submit Hive queries
 Hive queries can be submitted by using:
@@ -256,4 +256,4 @@ It is safe to drop the *\<external text file table name\>* when using the follow
     DROP TABLE IF EXISTS <database name>.<external textfile table name>;
 ```
 
-After following this procedure, you should have a table with data in the ORC format ready to use.  
+After following this procedure, you should have a table with data in the ORC format ready to use.

@@ -28,7 +28,7 @@ Additional data science walkthroughs that execute the Team Data Science Process 
 
 ## Predict taxi tips using Python and SQL queries with SQL Server
 
-The [Use SQL Server](sql-walkthrough.md) walkthrough shows how you build and deploy machine learning classification and regression models.  The data are a publicly available NYC taxi trip and fare dataset.
+The [Use SQL Server](/azure/architecture/data-science-process/overview) walkthrough shows how you build and deploy machine learning classification and regression models.  The data are a publicly available NYC taxi trip and fare dataset.
 
 ## Predict taxi tips using Microsoft R with SQL Server
 
