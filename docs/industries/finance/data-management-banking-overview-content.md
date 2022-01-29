@@ -1,18 +1,18 @@
 Banks today carry responsibility for securing and storing enormous amounts of
 valuable information within their firewalls. This information is both about their customers and
 about the shifting financial landscape. In many cases, that information goes
-unused because it is not easily accessible or searchable, even though use of
+unused because it's not easily accessible or searchable, even though use of
 data could improve decision making across multiple banking activities.
 
 With this data, banks could find information faster about who is at risk for defaulting on
-a loan, or banks could decide what market portfolio valuation adjustments are needed. Banks
+a loan. Banks can also decide what market portfolio valuation adjustments are needed. Banks
 could also have a clearer view of how their data is stored and managed to meet
 regulatory requirements, so that data can be leveraged, retained, archived or
 deleted to comply.
 
 Thousands of decisions, large and small, are required to meet everyday banking
 function requirements. As a result, data becomes increasingly important. Not only that, but
-given strict regulatory requirements and Financial Crime obligations, banks need
+banks are given strict regulatory requirements and financial crime obligations. They need
 the ability to audit the results of any data analysis process, all the way back
 to the initial information landing into a data repository. Traceability
 requires transparency from ingestion to producing actionable data.
@@ -20,7 +20,7 @@ requires transparency from ingestion to producing actionable data.
 To manage the many accounts or businesses that banks are serving, they need to
 make sense of all this data rapidly and cost-effectively. As banks mature
 digitally, the amount of data and the opportunities to leverage that data in new
-ways is exponentially growing, enabling banks to pursue new business models and
+ways is exponentially growing. This growth enables banks to pursue new business models and
 areas of customer-centric opportunities.
 
 Having the appropriate data storage strategy in place is key to operational
@@ -37,13 +37,13 @@ any other data operations other than archiving. This is the key activity needed
 to take advantage of the data to help make more informed decisions.
 
 All banks and financial institutions ingest, move and store data. This article
-focuses on bringing data to Azure and moving away from traditional on-premises
+focuses on bringing data to Azure. The solution helps move you away from traditional on-premises
 data storage, processing, archiving, and deletion. By moving data to Azure,
 banks and financial institutions can take advantage of fundamental benefits
 including:
 
 - Cost control through effectively unlimited global scale, using compute
-    resources and data capacity only when and where it is needed.
+    resources and data capacity only when and where it's needed.
 
 - Reduction of capital expenditure and management costs through retiring of
     physical servers on-premises.
@@ -58,7 +58,7 @@ including:
     learning, forecasting, transformation, or other needs.
 
 This article provides recommended techniques to ensure efficient data ingress to
-Azure and fundamental data management techniques to use once it is in the cloud.
+Azure and fundamental data management techniques to use once it's in the cloud.
 
 ## Data ingest
 
@@ -66,7 +66,7 @@ Financial Institutions will have data that has already been collected and is
 being used by current applications. There are several options for moving this
 data to Azure. In many cases existing applications can connect to data in Azure
 as though it were on-premises, with minimal changes to those existing
-applications. This is especially true when using Microsoft [Azure SQL
+applications. This process is especially true when using Microsoft [Azure SQL
 Database](/azure/sql-database/?WT.mc_id=bankdm-docs-dastarr), but through the
 [Azure
 Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/category/databases?WT.mc_id=bankdm-docs-dastarr)
@@ -83,7 +83,7 @@ The securing of resources (such as database) within Azure often depends on
 setting up a network infrastructure within Azure itself, and then accessing that
 network via a specific endpoint.
 
-Before transferring data to Azure, it is useful to consider the network topology
+Before transferring data to Azure, it's useful to consider the network topology
 securing both your Azure resources and the connection to them from on-premises.
 [Virtual Network (VNet?WT.mc_id=bankdm-docs-dastarr) Service
 Endpoints](/azure/virtual-network/virtual-network-service-endpoints-overview?WT.mc_id=bankdm-docs-dastarr)
@@ -192,10 +192,10 @@ A service focused on migrating very large volumes of data to Azure is [Azure Dat
 Box](https://azure.microsoft.com/services/storage/databox/?WT.mc_id=bankdm-docs-dastarr). This service
 is designed to migrate data without transferring data or backups over an Azure
 connection. Suitable for terabytes of data, Azure Data Box is an appliance that
-can be ordered from the Azure Portal. It is shipped to your location, where it
+can be ordered from the Azure Portal. It's shipped to your location, where it
 can be connected to your network and loaded with data via standard NAS protocols
 and secured via standard256-AES encryption. Once the data is on the appliance,
-it is shipped back to the Azure Data Center where the data is hydrated in Azure.
+it's shipped back to the Azure Data Center where the data is hydrated in Azure.
 The device is then securely erased.
 
 ## Azure Information Protection
@@ -260,7 +260,7 @@ of activities.
 ### Azure Databricks
 
 [Azure Databricks](/azure/azure-databricks/?WT.mc_id=bankdm-docs-dastarr) is
-a managed Apache Spark based analytics platform in Azure. It is highly scalable
+a managed Apache Spark based analytics platform in Azure. It's highly scalable
 and Spark jobs run on machine clusters as large as needed. Databricks works from
 a Notebook which provides a single place of collaboration between data
 scientists, data engineers, and business analysts.
@@ -299,13 +299,13 @@ offline.
 Archive tier data can be rehydrated into the cool or hot tiers, but this action
 may take several hours to complete. Archive storage may be appropriate if your
 data isn’t going to be accessed for at least 180 days. When a blob is in archive
-storage, it cannot be read, but other existing operations may be performed such
+storage, it can't be read, but other existing operations may be performed such
 as list, delete, and retrieving metadata. The archive data tier is the least
 expensive data tier for blob storage.
 
 ### Azure SQL Database long-term retention
 
-When using Azure SQL, there is a [long-term backup retention
+When using Azure SQL, there's a [long-term backup retention
 service](/azure/sql-database/sql-database-long-term-retention?WT.mc_id=bankdm-docs-dastarr)
 for storing backups up to ten years. Users can schedule backups to be retained
 for long-term storage such that the backup will be retained for weeks, months,
@@ -318,9 +318,9 @@ subscription as the original database.
 ## Deleting unwanted data
 
 To remain compliant with banking regulations or policies regarding data
-retention, data must often be deleted when it is no longer wanted. Before
-implementing a technical solution for this unwanted data, it is important to
-have a purge plan in place so agreed upon policies are not violated. Data may be
+retention, data must often be deleted when it's no longer wanted. Before
+implementing a technical solution for this unwanted data, it's important to
+have a purge plan in place so agreed upon policies aren't violated. Data may be
 deleted from archive or any other data stores in Azure at any time.
 
 An effective strategy for deleting unwanted data is to do so on an interval,
@@ -332,13 +332,13 @@ deletes the data, including any cached or backup copies.
 ## Getting Started
 
 There are many ways to get started based on the current usage and maturity of
-the data models used today. In all cases, it is a perfect time to review the
-data storage, processing, and the retention model needed per data store. This is
+the data models used today. In all cases, it's a perfect time to review the
+data storage, processing, and the retention model needed per data store. This step is
 critical in building data management systems in regulatory compliance scenarios.
-The cloud provides new opportunities here, that are not currently available
+The cloud provides new opportunities here, that aren't currently available
 on-premises. This may mean updates to existing data models you may have.
 
-Once you are comfortable with new data model, determine your data ingestion
+Once you're comfortable with new data model, determine your data ingestion
 strategy. What data sources are there? Where will the data live in Azure? How
 and when will it be moved into Azure? There are many resources available here to
 help migrate based on the content type, size and more. The Azure Data Migration
@@ -347,9 +347,9 @@ Service is one such example.
 Once your data is hosted in Azure, create a data purge plan for data that has
 outlived its usefulness or lifespan. While long-term (cold) storage is always a
 great option for archiving, clean-up of expired data reduces footprint and
-overall storage costs. Backup and archive [Azure solution
-architectures](https://azure.microsoft.com/solutions/architecture/?solution=backup-archive?WT.mc_id=bankdm-docs-dastarr)
-is a good resource to help plan your overall strategy.
+overall storage costs. The backup and archive [Azure solution
+architectures](https://docs.microsoft.com/en-us/azure/architecture/browse/?terms=backup%20archive)
+are good resources to help plan your overall strategy.
 
 ## Relevant Technologies
 
@@ -394,7 +394,12 @@ Databricks and Data Factory. Archival storage is available for long-term storage
 of rarely-accessed data and it can be deleted on a rolling cycle as needed.
 
 Visit the Azure solutions library for [backup and archival
-storage](https://azure.microsoft.com/solutions/architecture/?solution=backup-archive?WT.mc_id=bankdm-docs-dastarr)
-to get started designing your data management plan.
+storage](https://azure.microsoft.com/solutions/architecture/?solution=backup-archive?WT.mc_id=bankdm-docs-dastarr) to get started designing your data management plan.
 
-**Article by**: Howard Bush and David Starr
+## Contributors
+
+_This article is being updated and maintained by Microsoft. It was originally written by the following contributors:_
+
+- [Howard Bush](https://www.linkedin.com/in/howardbush) | 
+Banking and Capital Markets Cloud & AI, Consulting Services
+- [David Starr](https://www.linkedin.com/in/davidstarr) | Principal Azure Software Engineer
