@@ -61,7 +61,7 @@ A web interface was created to invoke R scripts and secure the website. Node.js 
 
 The sections below describe how the server infrastructure was deployed for this project. Getting the right development and deployment infrastructure can be as essential as determining the modeling approach and techniques that will be applied.
 
-### Initial Database Load
+### Initial database load
 
 The first step was to import the subscriber data from a very large .csv file into Azure SQL Database. There are multiple options for importing data into Azure SQL Database described in in this [reference](/archive/blogs/sqlcat/loading-data-to-sql-azure-the-fast-way). Here is how we did it:
 
@@ -141,7 +141,7 @@ A data set is unbalanced if there are many more samples for one ‘class’ than
 
 One technique for treating an unbalanced data set is to change the data set and either over-sample the under-represented class, or under-sample the over-represented class. Another technique is to synthetically generate additional data using the data owner’s exact knowledge of the data and its attributes. The customer established a threshold for the minimum sample size for a subscriber. For subscribers below that threshold, data would need to be treated. For this project both approaches were explored.
 
-## Algorithm Selection
+## Algorithm selection
 
 Three different classification algorithm implementations were evaluated: *rxDForest*, *rxFastTrees*, and *rxFastForest*. All three algorithms take advantage of multi-threading and parallelism. And Microsoft ML will use multiple CPUs or GPUs if available. The criteria for evaluating the models included:
 
@@ -159,7 +159,7 @@ The table below summarizes the findings:
 
 In the end, the customer selected the *rxFastForest* algorithm and decided to treat the unbalanced data by using the [vtreat](https://cran.r-project.org/web/packages/vtreat/index.html) library and adding a customized data pre-processing step to synthetically generate data for the under-represented subscribers.
 
-## Model Deployment & Web Services
+## Model deployment and web services
 
 Publishing a model for deployment to the operations VM is straight-forward and documented in this QuickStart documentation [Deploy an R Model as a web service with mrsdeploy](/machine-learning-server/operationalize/quickstart-publish-r-web-service).
 In our scenario, once the models were created on the development VM, they were published on the operations VM using these steps:
@@ -194,6 +194,6 @@ Implementing the infrastructure to support a model pipeline and getting the tech
 - [R Samples for Machine Learning Server](/machine-learning-server/r/r-samples)
 - [R Function Library Reference](/machine-learning-server/r-reference/introducing-r-server-r-package-reference)
 
-## References
+## Next steps
 
 If you are interested in building other predictive solutions for your retail business, visit the [retail section](https://gallery.azure.ai/industries/retail) of the Azure [AI Gallery](https://gallery.azure.ai/).
