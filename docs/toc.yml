@@ -1351,28 +1351,6 @@ items:
                     items:
                       - name: DevOps - CI/CD
                         href: data-science-process/ci-cd-flask.md
-                  - name: Worked-out examples
-                    items:
-                      - name: Overview
-                        href: data-science-process/walkthroughs.md
-                      - name: Spark examples
-                        items:
-                          - name: Spark with PySpark and Scala
-                            href: data-science-process/walkthroughs-spark.md
-                          - name: Explore and model data
-                            href: data-science-process/spark-data-exploration-modeling.md
-                          - name: Advanced data exploration
-                            href: data-science-process/spark-advanced-data-exploration-modeling.md
-                          - name: Score models
-                            href: data-science-process/spark-model-consumption.md
-                      - name: Hive with HDInsight Hadoop
-                        href: data-science-process/walkthroughs-hdinsight-hadoop.md
-                      - name: U-SQL with Azure Data Lake
-                        href: data-science-process/walkthroughs-azure-data-lake.md
-                      - name: R, Python and T-SQL with SQL Server
-                        href: data-science-process/walkthroughs-sql-server.md
-                      - name: T-SQL and Python with Azure Synapse
-                        href: data-science-process/walkthroughs-sql-data-warehouse.md
                   - name: Training
                     items:
                       - name: For data scientists
