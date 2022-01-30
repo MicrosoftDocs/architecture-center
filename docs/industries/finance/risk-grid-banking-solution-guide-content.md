@@ -6,7 +6,7 @@ This document is intended for Solution Architects, and in some cases Technical D
 
 Financial risk analysis models are typically processed as batch jobs. They have heavy compute loads generating high demand for computing power, data access, and analysis. Demand for risk grid computing calculations often grows over time, and the need for compute resources increases with it.
 
-The broad range of available products and services in Azure means there can be more than one solution to most problems. This article provides an overview of the technologies, patterns and practices gauged to be most effective for a risk grid computing solution in banking using [Microsoft Azure Batch](/azure/batch/batch-dotnet-get-started?WT.mc_id=gridbanksg-docs-dastarr).
+The broad range of available products and services in Azure means there can be more than one solution to most problems. This article provides an overview of the technologies, patterns, and practices that are the most effective for a risk grid computing solution in banking that uses [Microsoft Azure Batch](/azure/batch/batch-dotnet-get-started?WT.mc_id=gridbanksg-docs-dastarr).
 
 Azure Batch is a free service that provides cost-effective and secure solutions. The solutions are for both the infrastructure and the various stages of batch processing that are typically used with risk grid computing models. Azure Batch can augment, extend, or even replace current on-premises compute resource investments using hybrid networks or by moving the entire Batch process into Azure.  Data can traverse up and down from the cloud or stay on-premises. Other data can be processed by compute nodes in a burst-to-cloud model, when on-premises resources run low.
 
@@ -22,7 +22,7 @@ These applications can be uploaded via the [Batch API](/azure/batch/batch-apis-t
 
 **Figure 1:** Azure Batch grid computing
 
-An Azure Batch run consists of several logical elements. Figure 2 shows the logical model of a batch job. A pool is a container for the VMs involved in the Batch run and provisions the compute node VMs. A pool is also the container for the applications installed on the compute nodes. Jobs are created and run within the pool. Tasks are executed by the jobs. Tasks are a run of the worker application and are invoked by a command line instruction.
+An Azure Batch run consists of several logical elements. Figure 2 shows the logical model of a batch job. A pool is a container for the VMs involved in the Batch run and provisions the compute node VMs. A pool is also the container for the applications installed on the compute nodes. Jobs are created and run within the pool. Tasks are executed by the jobs. Tasks are a run of the worker application and are invoked by a command-line instruction.
 
 The worker application is installed to the compute node when it's created.
 
@@ -30,14 +30,14 @@ The worker application is installed to the compute node when it's created.
 
 **Figure 2:** Logical batch concept model
 
-When the job executes, the pool provisions any worker VMs needed and installs the worker applications. The job assigns tasks to those compute nodes, which in turn run a command line instruction (CLI). The CLI script typically calls the installed applications or scripts.
+When the job executes, the pool provisions any worker VMs needed and installs the worker applications. The job assigns tasks to those compute nodes, which in turn run a command-line instruction (CLI). The CLI script typically calls the installed applications or scripts.
 
 Using Batch typically follows a prototypical pattern, described as follows:
 
 1. Create a resource group to contain the Batch assets.
 2. Within the resource group, create a Batch account.
 3. Create a linked storage account.
-4. Create a pool in which to provision the worker VMs.
+4. Create a pool in which you can provision the worker VMs.
 5. Upload the compute node application or scripts to the pool.
 6. Create a job to assign tasks to the VMs in the pool.
 7. Add the job to the pool.
@@ -59,13 +59,13 @@ For more detailed walkthroughs on how to get starting with Batch, [5-minute Quic
 
 Azure Batch has a scheduler built in so scheduling of each run can be defined in the portal or through APIs. The Batch job scheduler can define multiple schedules to fire multiple jobs. Each job has its own properties such as what to do when the job starts and ends. Job schedules can be set on recurring intervals or for a one-time run.
 
-Many bank grid computing systems already have their own scheduling service. There may be no immediate need to move my scheduler to Azure. This can work seamlessly because Azure Batch may be invoked manually or through an SDK, allowing scheduling to still occur on-premises and workloads to be processed in Azure.
+Many bank grid computing systems already have their own scheduling service. There may be no immediate need to move my scheduler to Azure. This can work seamlessly because Azure Batch can be invoked manually or through an SDK. This ability allows scheduling to still occur on-premises, and it allows workloads to be processed in Azure.
 
-Batch processing can happen on a predetermined schedule or on demand, but in either case there's no need to keep compute node VMs alive when they aren’t being used.  When using hundreds, if not thousands, of VM compute nodes, significant cost savings can be realized by de-provisioning the servers when they're done running their queued tasks.
+Batch processing can happen on a predetermined schedule or on demand. In either case, there's no need to keep compute node VMs alive when they aren’t being used. When using hundreds, if not thousands, of VM compute nodes, significant cost savings can be realized, by de-provisioning the servers when they're done running their queued tasks.
 
 ## Compute node applications
 
-Compute nodes need an application to run when a task is invoked. These applications are written by the business to perform the processing jobs when installed on the workers. In risk grid computing for banking scenarios this this application often takes on the job of transforming data into formats especially suited for downstream analytics or other processing.
+Compute nodes need an application to run when a task is invoked. These applications are written by the business to perform the processing jobs when installed on the workers. In risk grid computing for banking scenarios, this application often takes on the job of transforming data into formats especially suited for downstream analytics or other processing.
 
 When providing the application to the pool for distribution to compute nodes, it's uploaded in an application package. An application package may be another version of a previously uploaded application package. More than one application package can be installed to one compute node. The job contains the applications packages to load onto the worker machines.
 
@@ -75,42 +75,42 @@ Application package deployment may also be managed by version. If multiple versi
 
 **Figure 4:** Versioning compute node task applications
 
-An application package is uploaded to the pool as a .zip file containing the application binaries and supporting files required for tasks to run the application. There are 2 scopes for application packages. You can designate an application package in scope of the pool, or in the scope of tasks.
+An application package is uploaded to the pool as a .zip file. The file contains the application binaries and the supporting files that are required for tasks to run the application. There are two scopes for application packages. You can designate an application package in scope of the pool, or in the scope of tasks.
 
 ## Pool application packages
 
-These packages are deployed to every compute node in the pool. When a compute node VM is provisioned, rebooted or reimaged, a new copy of any pool application packages is installed, should an updated application exist. One or more application packages can be assigned to a pool, which means the compute nodes will get all packages designated.
+These packages are deployed to every compute node in the pool. When a compute node VM is provisioned, rebooted, or reimaged, a new copy of any pool application packages is installed, if an updated application exists. One or more application packages can be assigned to a pool, which means the compute nodes will get all packages designated.
 
 ## Task application packages
 
 Application packages targeting the task level are only installed to compute nodes scheduled to run a task. Task applications packages are intended for use when more than one job is run in one pool.
 
-Task applications are useful when aggregating data produced by pool-level jobs, which can be relevant in risk grid computing scenarios. For example, a task application may run a set of risk calculations which generate data to be used later in the risk calculation workflow.
+Task applications are useful when aggregating data that's produced by pool-level jobs. These applications can be relevant in risk grid computing scenarios. For example, a task application can run a set of risk calculations that generate data to be used later in the risk calculation workflow.
 
 ## Scaling batch jobs
 
 Banks often perform risk analysis batch runs over weekends or at night when computing resources are underutilized. While this model works for some, it can quickly be outgrown, requiring more capital to add more worker machines to the grid.
 
-If Batch jobs are taking too long to run or you want more computing power in your Batch runs, Azure offers several options.
+If Azure Batch jobs take too long to run, or if you want more computing power in your Batch runs, Azure offers several options.
 
 1. Allocate more compute node machines to scale out.
 2. Allocate more powerful compute node machines to scale up. Azure machines may be provisioned to meet high performance needs of for cores and memory, and even GPU computing power.
 
 > Note: Using Microsoft HPC Pack with Batch is a more complex model and is not discussed in this article.
 
-In a Batch processing cluster, there may be as few as two processing VMs, or thousands of simultaneous tasks running on thousands of VM compute nodes with tens of thousands of cores. Each VM is responsible for running a single task at a time. The number of VMs in a pool may be scaled manually or automatically as configured when load increases or decreases.
+In a Batch processing cluster, you might have as few as two processing VMs. Or you could have thousands of simultaneous tasks running on thousands of VM compute nodes, with tens of thousands of cores. Each VM is responsible for running a single task at a time. The number of VMs in a pool can be scaled manually or automatically, as configured when load increases or decreases.
 
 ### Burst to cloud
 
-When compute resources in an on-premises grid are running low due to executing a large analysis job, “burst to cloud” offers a way to augment those resources by adding more compute nodes in Azure. Burst to cloud is a model in which private clouds or infrastructure distribute their workload to cloud servers when demand is high for on-premises resources.
+When compute resources in an on-premises grid are running low due to executing a large analysis job, “burst to cloud” offers a way to augment those resources by adding more compute nodes in Azure. Burst to cloud is a model in which private clouds or infrastructure distribute their workload to cloud servers, when demand is high for on-premises resources.
 
 These compute nodes can be pre-configured as Linux or Windows virtual machines to be provisioned in Azure’s IaaS platform. Further, servers can be provisioned and automatically configured to work with existing investments like Tibco Gridserver and IBM Symphony.
 
 ### Automatic scaling formulas
 
-This elasticity can be configured in the Azure portal or by using [automatic scaling formulas](/azure/batch/batch-automatic-scaling?WT.mc_id=gridbanksg-docs-dastarr). Automatic scaling formulas are scripts uploaded to the Batch processing scheduler for fine-grained control of Batch behavior. Automatic scaling on a pool of compute nodes is done by associating the nodes with auto-scale formulas.
+This elasticity can be configured in the Azure portal or by using [automatic scaling formulas](/azure/batch/batch-automatic-scaling?WT.mc_id=gridbanksg-docs-dastarr). Automatic scaling formulas are scripts uploaded to the Batch processing scheduler for fine-grained control of Batch behavior. Automatic scaling on a pool of compute nodes is done by associating the nodes with autoscale formulas.
 
-Below is an example of an automatic scaling formula directing auto scaling to start with one VM and scale up to 50 VMs as needed. As tasks complete, VMs become free one by one and the auto scaling formula shrinks the pool.
+The following example is of an automatic scaling formula directing auto scaling to start with one VM and scale up to 50 VMs as needed. As tasks complete, VMs become free one by one and the auto scaling formula shrinks the pool.
 
 ```Formula
 startingNumberOfVMs = 1;
@@ -141,15 +141,15 @@ Scaling can also be accomplished using the Azure CLI with the `az batch pool res
 
 ## Data storage and retention
 
-Once data is ingested and processed by a compute node, the resulting output data may be stored in a database for further processing and analysis or transformed upon ingestion before storage to ensure proper formats for downstream processing. Microsoft Azure offers several storage options. The choice of [which data store technology to use](/azure/architecture/data-guide/?WT.mc_id=gridbanksg-docs-dastarr) depends largely on analysis and or reporting needs in downstream processes.
+Once data is ingested and processed by a compute node, the resulting output data can be stored in a database. The output data can be further processed and analyzed or transformed upon ingestion, before storage, in order to ensure the proper formats for downstream processing. Microsoft Azure offers several storage options. The choice of [which data store technology to use](/azure/architecture/data-guide/?WT.mc_id=gridbanksg-docs-dastarr) depends largely on analysis and or reporting needs in downstream processes.
 
-When using a hybrid network, the data storage target may be on-premises. When using Batch over a hybrid network, compute nodes can write data back to an on-premises data store without using an Azure-based storage location. Workers can also write to Azure File storage, which can be mounted as a disk on an on-premises machine for easy access by any process that works with the files on-premises.
+When using a hybrid network, the data storage target may be on-premises. When using Batch over a hybrid network, compute nodes can write data back to an on-premises data store without using an Azure-based storage location. Workers can also write to Azure File storage, which can be mounted as a disk on an on-premises machine. This setup allows easy access by any process that works with the files on-premises.
 
 ## Monitoring and logging
 
-To optimize future runs of the Batch job, data should be recorded to help identify areas of optimization. For example, if workers are running near CPU capacity, adding cores to the compute nodes may help avoid being CPU-bound and the job can finish faster. Each application run in the Batch job has its own characteristics and the optimizations made to the VMs in the Batch runs may differ. For memory intensive tasks, more memory can be allocated by configuring the machines differently in the next run.
+To optimize future runs of the Batch job, data should be recorded to help identify areas of optimization. For example, if workers are running near CPU capacity, adding cores to the compute nodes may help avoid being CPU-bound and the job can finish faster. Each application run in the Batch job has its own characteristics and the optimizations made to the VMs in the Batch runs may differ. For memory-intensive tasks, more memory can be allocated by configuring the machines differently in the next run.
 
-Logging can be done by the compute node and grid head applications or by a job using [Batch Diagnostic Logging](/azure/batch/batch-diagnostics?WT.mc_id=gridbanksg-docs-dastarr). Logging information about the performance of the Batch runs can be configured to help identify which areas to improve for better performance and faster task completion.
+Logging can be done by the compute node and grid head applications or by a job using [Batch diagnostic logging](/azure/batch/batch-diagnostics?WT.mc_id=gridbanksg-docs-dastarr). Logging information about the performance of the Batch runs can be configured to help identify which areas to improve for better performance and faster task completion.
 
 ### Custom Batch monitoring and logging
 
@@ -160,21 +160,21 @@ The controlling application and compute node applications can generate this data
 - The time each compute node is alive and not running tasks
 - The overall batch job run time
 
-### Batch Diagnostic Logging
+### Batch diagnostic logging
 
 There's an alternative to using the controller and compute node applications to emit instrumentation data. [Batch diagnostics logging](/azure/batch/batch-diagnostics?WT.mc_id=gridbanksg-docs-dastarr) can capture a lot of the run data. Batch Diagnostic Logging is not enabled by default and must be enabled for the Batch account.
 
-Batch diagnostic logging provides a significant amount of data aiding in trouble shooting and optimizing Batch runs. Start and end times for job and tasks, core count, total node count and many other metrics.
+Batch diagnostic logging provides a significant amount of data aiding in trouble shooting and optimizing Batch runs. Start and end times for job and tasks, core count, total node count, and many other metrics.
 
-Batch logging requires a storage destination for the logs emitted, storing events produced by the Batch run such as pool creation, job execution, task execution, etc. In addition to storing diagnostic log events in an Azure Storage account, Batch Service Log events can be streamed to an instance of [Azure Event Hubs](/azure/event-hubs/event-hubs-what-is-event-hubs?WT.mc_id=gridbanksg-docs-dastarr), and sent to [Azure Log Analytics](/azure/log-analytics/log-analytics-overview?WT.mc_id=gridbanksg-docs-dastarr).
+Batch logging requires a storage destination for the logs emitted, storing events produced by the Batch run such as pool creation, job execution, task execution, and so on. In addition to storing diagnostic log events in an Azure Storage account, Batch service log events can be streamed to an instance of [Azure Event Hubs](/azure/event-hubs/event-hubs-what-is-event-hubs?WT.mc_id=gridbanksg-docs-dastarr). The events can then be sent to [Azure Log Analytics](/azure/log-analytics/log-analytics-overview?WT.mc_id=gridbanksg-docs-dastarr).
 
-Using these data, core computing and head node applications may be optimized. This can lower costs due to things like faster deprovisioning worker VMs when they're no longer needed, rather than waiting for the end of the Batch run to complete.
+Using these data, core computing and head node applications can be optimized. This can lower costs, due to things like faster deprovisioning worker VMs, when they're no longer needed, rather than waiting for the end of the Batch run to complete.
 
 ### Batch management tools
 
-The Azure portal provides a Batch monitoring dashboard which shows information about Batch as jobs are running and even account quota usage. It's sufficient for many Batch job applications.
+The Azure portal provides a Batch monitoring dashboard that shows information about Batch as jobs are running and even account quota usage. It's sufficient for many Batch job applications.
 
-In addition to the Batch management and visualization tools available in the Azure portal, there's a free open source tool, [BatchLabs](https://github.com/Azure/BatchLabs) for managing Batch. This is a standalone client tool to help create, debug and monitor Azure Batch applications. Download an installation package for Mac, Linux, or Windows.
+In addition to the Batch management and visualization tools available in the Azure portal, there's a free open-source tool, [BatchLabs](https://github.com/Azure/BatchLabs), for managing Batch. This is a standalone client tool to help create, debug, and monitor Azure Batch applications. Download an installation package for Mac, Linux, or Windows.
 
 ## Network models
 
@@ -194,7 +194,7 @@ Additional pricing information for Azure ExpressRoute [can be found here](https:
 
 ### VPN Gateway
 
-A VPN Gateway is another way to connect your network to Azure. The downside of this model is traffic flows over the Internet. The connection can less resilient as a result and network speeds cannot reach those of ExpressRoute, however this may not be a barrier for a risk grid computing scenario as reading data files is typically a fast operation.
+A VPN Gateway is another way to connect your network to Azure. The downside of this model is traffic flows over the Internet. The connection can be less resilient as a result and network speeds cannot reach those of ExpressRoute, however this may not be a barrier for a risk grid computing scenario as reading data files is typically a fast operation.
 
 Additional pricing information for VPN Gateway [can be found here](https://azure.microsoft.com/pricing/details/expressroute/?WT.mc_id=gridbanksg-docs-dastarr).
 
@@ -240,7 +240,7 @@ Several configurations may be applicable in your situation. To help with decisio
 
 ## Security considerations
 
-An Azure [virtual network (VNet)](/azure/virtual-network/virtual-networks-overview?WT.mc_id=gridbanksg-docs-dastarr) may be created and the pool's compute nodes created within it. This provides an extra level of isolation for the Batch runs and allows authentication using [Azure Active Directory (AAD)](/azure/active-directory/active-directory-whatis?WT.mc_id=gridbanksg-docs-dastarr). See [Pool network configuration](/azure/batch/batch-api-basics#pool-network-configuration?WT.mc_id=gridbanksg-docs-dastarr) for more information.
+An Azure [virtual network (VNet)](/azure/virtual-network/virtual-networks-overview?WT.mc_id=gridbanksg-docs-dastarr) may be created and the pool's compute nodes created within it. This provides an extra level of isolation for the Batch runs and allows authentication using [Azure Active Directory (AAD)](/azure/active-directory/active-directory-whatis?WT.mc_id=gridbanksg-docs-dastarr). For more information, see [Pool network configuration](/azure/batch/batch-api-basics#pool-network-configuration?WT.mc_id=gridbanksg-docs-dastarr).
 
 There are two ways to authenticate a Batch application using Azure Active Directory (AAD):
 
@@ -288,15 +288,15 @@ and run batch compute jobs. Options for building the application are as follows:
 - [Batch management with PowerShell](/azure/batch/batch-powershell-cmdlets-get-started?WT.mc_id=gridbanksg-docs-dastarr)
 - [Batch management with the Azure CLI](/azure/batch/batch-cli-get-started?WT.mc_id=gridbanksg-docs-dastarr)
 
-Consider launching a proof-of-concept initiative. What will your approach be for data ingestion into Azure? Will you use a hybrid network or upload data via an SDK or REST interface? If you're considering a bybrid network, consider launching a pilot to put this in place.
+Consider launching a proof-of-concept initiative. What will your approach be for data ingestion into Azure? Will you use a hybrid network or upload data via an SDK or REST interface? If you're considering a hybrid network, consider launching a pilot to put this in place.
 
-Evaluate the size of your Batch compute jobs and select the right scaling solution. [Autoscaling
+Evaluate the size of your Batch compute jobs, and then select the right scaling solution. [Autoscaling
 formulas](/azure/batch/batch-automatic-scaling?WT.mc_id=gridbanksg-docs-dastarr)
-enable complex scheduling scenarios while simpler scenarios are achivable by using the Azure portal.
+enable complex scheduling scenarios, while simpler scenarios are achievable by using the Azure portal.
 
 ## Components
 
-- [Azure Batch](/azure/batch/?WT.mc_id=gridbanksg-docs-dastarr) provides capabilities to run large scale parallel processing jobs in the cloud.
+- [Azure Batch](/azure/batch/?WT.mc_id=gridbanksg-docs-dastarr) provides capabilities to run large-scale parallel processing jobs in the cloud.
 
 - [Azure Active
 Directory](/azure/active-directory/active-directory-whatis?WT.mc_id=gridbanksg-docs-dastarr) is a multi-tenant, cloud-based directory, and identity management service combining core directory services, application access management, and identity protection into a single solution.
@@ -307,7 +307,7 @@ formulas](/azure/batch/batch-automatic-scaling?WT.mc_id=gridbanksg-docs-dastarr)
 - [Batch Diagnostics
 Logging](/azure/batch/batch-diagnostics?WT.mc_id=gridbanksg-docs-dastarr) is a feature of Azure Batch enabling creation of a detailed log from your Batch runs and the events generated. Logs are stored in Azure Storage.
 
-- [BatchLabs](https://github.com/Azure/BatchLabs) is a standalone application for Batch monitoring and management available Windows, macOS and Linux.
+- [BatchLabs](https://github.com/Azure/BatchLabs) is a standalone application for Batch monitoring and management available Windows, macOS, and Linux.
 
 - [ExpressRoute](/azure/expressroute/expressroute-introduction?WT.mc_id=gridbanksg-docs-dastarr)
 is a high speed and reliability hybrid network solution for joining on-premises and Azure networks.
@@ -321,4 +321,4 @@ and even cost considerations.
 
 ## Next steps
 
-When considering moving forward in evaluating Azure Batch for risk grid computing, [this page](/azure/batch/?WT.mc_id=gridbanksg-docs-dastarr) is a good resource for getting started. It provides sample guided tutorials for parallel file processing, which is inherent in risk grid computing. Tutorials are provided using the Azure Portal, Azure CLI, .NET and Python.
+When considering moving forward in evaluating Azure Batch for risk grid computing, [this page](/azure/batch/?WT.mc_id=gridbanksg-docs-dastarr) is a good resource for getting started. It provides sample guided tutorials for parallel file processing, which is inherent in risk grid computing. Tutorials are provided using the Azure Portal, Azure CLI, .NET, and Python.
