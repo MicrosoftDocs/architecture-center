@@ -8,7 +8,7 @@ editor: marktab
 ms.service: architecture-center
 ms.subservice: azure-guide
 ms.topic: article
-ms.date: 12/21/2021
+ms.date: 01/30/2022
 ms.author: tdsp
 ms.category:
   - ai-machine-learning
@@ -21,6 +21,7 @@ products:
   - azure-cognitive-services
 categories:
   - ai-machine-learning
+ROBOTS: NOINDEX
 ---
 
 # Machine Learning Anomaly Detection API
