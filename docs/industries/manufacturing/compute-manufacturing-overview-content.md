@@ -2,14 +2,14 @@ Customers are demanding products that have these attributes: lightweight,
 strong, safe, sustainable, and customized. As a result, the design stage has
 become increasingly complex. In that stage, computers are used to visualize,
 analyze, simulate, and optimize. And those tasks will grow more sophisticated
-and computationally-hungry. Add to this the fact that products are increasingly
-connected and generating vast amounts of data that needs to be processed and
+and computationally-hungry. In addition, products are increasingly
+connected and generate vast amounts of data that needs to be processed and
 analyzed.
 
 It all adds up to a single need: large computing resources, on-demand.
 
 In this article, we walk through some well-known areas in engineering and
-manufacturing that need large computing power and explore how the Microsoft
+manufacturing that need large computing power. We then explore how the Microsoft
 Azure platform can help.
 
 ## Cloud design workstations
@@ -29,13 +29,13 @@ expenses to operational expenses.
 ### Remote desktop protocol
 
 Microsoft’s Remote Desktop Protocol (RDP) has supported TCP-only for a long
-time. TCP introduces more overhead than UDP. Starting with RDP 8.0, UDP is
+time. Transmission Control Protocol (TCP) introduces more overhead than User Datagram Protocol (UDP). Starting with RDP 8.0, UDP is
 available to servers running Microsoft Remote Desktop Services. To be usable, a
 virtual machine (VM) must have enough hardware resources, namely: CPU, memory
 and—most critically—the graphics processing unit (GPU). (The GPU is arguably the
 most critical component of a high performance cloud workstation.) Windows Server
 2016 provides several options for accessing the underlying graphics
-capabilities. The default RDS GPU solution, also known as Windows Advanced
+capabilities. The default Remote Desktop Services (RDS) GPU solution, also known as Windows Advanced
 Rasterization Platform (WARP) is an adequate solution for knowledge-worker
 scenarios, but provides inadequate resources for the cloud workstation
 scenarios. RemoteFX vGPU is a feature of RemoteFX that was introduced for remote
@@ -46,8 +46,8 @@ use of a GPU’s power.
 
 NV Series VMs are available with single or multiple NVDIA GPUs as part of the
 Azure N Series offering. These VMs are optimized for remote visualization and
-VDI scenarios, using frameworks such as OpenGL and DirectX. Going up to 4 GPUs,
-it is possible to provision workstations taking full advantage of the GPU
+virtual desktop infrastructure (VDI) scenarios, by using frameworks such as OpenGL and DirectX. Going up to 4 GPUs,
+it's possible to provision workstations taking full advantage of the GPU
 through DDA on Azure.
 
 A very important point to worth mentioning is the programmability of the Azure
@@ -66,7 +66,7 @@ many analysis problems. FEA requires a lot of computational power to perform
 large matrix calculations. The number of matrices involved in the solution of an
 FEA model explodes exponentially as we go from 2D to 3D, and as we add
 granularity to the FEA mesh. This requires computing power deployed on demand.
-It is important that the problem-solving code can be run in parallel, to take
+It's important that the problem-solving code can be run in parallel, to take
 advantage of the scalability of resources.
 
 Solving simulation problems requires large-scale computing resources. High
@@ -75,7 +75,7 @@ low backend network latency, with remote direct memory access (RDMA)
 capabilities for fast parallel computations. The Azure platform offers VMs built
 for high-performance computing. They feature specialized processors paired with
 DDR4 memory, and they allow compute-intensive solutions to run effectively, both
-on Linux and Windows installations. And they are available in several sizes. See
+on Linux and Windows installations. And they're available in several sizes. See
 [High performance compute VM
 sizes](/azure/virtual-machines/windows/sizes-hpc?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json%3fWT.mc_id%3dcomputeinmanufacturing-docs-ercenk).
 To see how Azure supports HPC in other ways, see Big compute: [HPC &
@@ -110,8 +110,8 @@ families for an all-cloud solution.
 
 ### Burst to Azure
 
-If a local cluster is available, another option is to extend it to Azure, and
-thereby offload peak workloads (aka as bursting to Azure). To do so requires
+If a local cluster is available, another option is to extend it to Azure. This process
+offloads peak workloads and is known as _bursting to Azure_. To do so requires
 using one of the on-premise workload managers that support Azure (e.g. [Alces
 Flight
 Compute](https://azuremarketplace.microsoft.com/marketplace/apps/alces-flight-limited.alces-flight-compute-solo?tab=Overview?WT.mc_id=computeinmanufacturing-docs-ercenk),
@@ -144,7 +144,7 @@ Lake](/azure/data-lake-store/data-lake-store-overview?WT.mc_id=computeinmanufact
 
 ## Generative design
 
-The design process is always an iterative one. A designer starts with a set of
+The design process is always iterative. A designer starts with a set of
 constraints and parameters for a target design and iterates over several design
 alternatives, eventually settling on one that satisfies the constraints.
 However, when computational power is virtually infinite, one could evaluate
