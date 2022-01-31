@@ -2728,7 +2728,7 @@ items:
                   - name: Deploy highly available MongoDB
                     href: hybrid/deployments/solution-deployment-guide-mongodb-ha.md
                   - name: Deploy hybrid app with on-premises data
-                    href: hybrid/deployments/solution-deployment-guide-cross-cloud-scale-on-premises-data.yml
+                    href: hybrid/deployments/solution-deployment-guide-cross-cloud-scaling-onprem-data.md
                   - name: Deploy a SQL Server 2016 AG
                     href: hybrid/deployments/solution-deployment-guide-sql-ha.md
                   - name: Direct traffic with a geo-distributed app
