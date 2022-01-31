@@ -12,7 +12,7 @@ ms.date: 01/28/2022
 ms.author: tdsp
 categories:
   - ai-machine-learning
- products:
+products:
    - azure-data-lake
    - azure-machine-learning
    - azure-storage
