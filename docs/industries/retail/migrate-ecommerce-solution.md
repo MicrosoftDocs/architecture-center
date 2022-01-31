@@ -17,7 +17,7 @@ description: This article explains the phases of migrating ecommerce infrastruct
 
 ## Introduction
 
-Moving an existing e-commerce solution to the cloud presents many benefits for an enterprise: it enables scalability, it offers customers 24/7 accessibility, and it becomes easier to integrate cloud services. But first, to move an e-commerce solution to the cloud is a significant task, with costs that must be understood by a decision maker. This document explains the scope of an Azure migration with the goal of informing you of the options. The first phase begins with IT Pros moving the components to the cloud. Once on Azure, we describe the steps the e-commerce team can take to increase ROI and take advantage of the cloud.
+Moving an existing e-commerce solution to the cloud presents many benefits for an enterprise: it enables scalability, it offers customers 24/7 accessibility, and it becomes easier to integrate cloud services. But first, to move an e-commerce solution to the cloud is a significant task, with costs that must be understood by a decision maker. This document explains the scope of an Azure migration with the goal of informing you of the options. The first phase begins with IT Pros moving the components to the cloud. Once you're on Azure, we describe the steps an e-commerce team can take to increase your return on investment (ROI) and to take advantage of the cloud.
 
 **At the crossroads**
 
@@ -27,9 +27,9 @@ Although global e-commerce transactions account for only a fraction of total ret
 
 E-commerce, which is primarily focused on the customer journey, has many different attributes. These attributes can be grouped into four main areas: discovery, evaluation, purchase and post-purchase.
 
-The customer behavior is captured as data. And the shopping funnel is a collection of connection points to applications used for viewing product data, transactions, inventory, shipping, order fulfillment, customer profile, shopping cart, and product recommendations to name a few.
+The customer behavior is captured as data. The shopping funnel is a collection of connection points to applications used for viewing product data, transactions, inventory, shipping, order fulfillment, customer profile, shopping cart, and product recommendations, to name a few.
 
-A typical retail business relies on a large collection of software solutions that range from customer-facing applications down through the stack to foundational applications.  The following drawing shows a view of the functionality present in a typical retail business.
+A typical retail business relies on a large collection of software solutions that range from customer-facing applications, down through the stack to foundational applications.  The following drawing shows a view of the functionality present in a typical retail business.
 
  ![Diagram compares externally visible functionality with core functionality.](./images/migrating-ecommerce-solution/ecommerce-system-sketch.png)
 
@@ -42,23 +42,23 @@ Also referred to as &quot;lift and shift,&quot; this stage entails migrating phy
 To rehost in Azure, there are three phases:
 
 - **Analysis** : Identify and inventory on-premises resources like applications, workloads, networking, and security. At the end of this phase, you have complete documentation of the existing system.
-- **Migration** : Move each subsystem from on-premises to Azure. During this stage, you will use Azure as an extension of your data center with the applications continuing to communicate.
+- **Migration** : Move each subsystem from on-premises to Azure. During this stage, you'll use Azure as an extension of your data center with the applications continuing to communicate.
 - **Optimization** : As systems move into Azure, make sure that things are sized properly. If the environment shows that too many resources are allocated to some VMs, change the VM type to one that has a more appropriate combination of CPU, memory, and local storage.
 
 ### Analyze
 
-Do the following:
+Take the following steps:
 
-1. List the on-premises servers and applications. This relies upon an agent or management tool to gather metadata about the servers, the applications running on the servers, the current server usage, and how the servers and their applications are configured. This result is a report of all the servers and applications in the environment.
+1. List the on-premises servers and applications. This process relies on an agent or management tool to gather metadata about the servers, the applications that run on the servers, the current server usage, and how the servers and their applications are configured. Thed result is a report of all the servers and applications in the environment.
 1. Identify the dependencies. You can use tooling to identify which servers talk to each other, and applications that communicate to each other. The result is a map—or maps—of all applications and workloads. These maps feed into migration planning.
 1. Analyze the configurations. The goal is to know what VM types you need once running in Azure. The result is a report on all applications that can move to Azure. They can be further classified as having:
       1. No modifications
       1. Basic modifications such as naming changes
       1. Minor modifications, such as a slight code changes
-      1. Incompatible workloads which require extra effort to move
-1. Create your budget. You now have a list that enumerates each CPU—memory, and so on—and the requirements for each application. Place those workloads on properly sized VMs. Cloud platforms bill costs based on usage. Tooling exists to map your needs to the right sized Azure VMs. If you are migrating Windows VMs or SQL Server, you should also look at the [Azure Hybrid Benefit](https://azure.microsoft.com/pricing/hybrid-benefit/?WT.mc_id=retailecomm-docs-scseely) which reduces your expenses on Azure.
+      1. Incompatible workloads that require extra effort to move
+1. Create your budget. You now have a list that enumerates each CPU—memory, and so on—and the requirements for each application. Place those workloads on properly sized VMs. The cloud-platform bill costs are based on usage. Tooling exists to map your needs to the right sized Azure VMs. If you are migrating Windows VMs or SQL Server, you should also look at the [Azure Hybrid Benefit](https://azure.microsoft.com/pricing/hybrid-benefit/?WT.mc_id=retailecomm-docs-scseely), which reduces your expenses on Azure.
 
-Microsoft provides several tools to analyze and catalog your systems. If you run VMWare, you can use [Azure Migrate](/azure/migrate/migrate-overview?WT.mc_id=retailecomm-docs-scseely) to assist with discovery and assessment. The tool identifies machines that can be moved to Azure, recommends the type of VM to run, and estimates the cost of the workload. For Hyper-V environments use [Azure Site Recovery Deployment Planner](/azure/site-recovery/hyper-v-deployment-planner-overview?WT.mc_id=retailecomm-docs-scseely). For large migrations where you need to move hundreds or more VMs, you may want to work with an [Azure migration partner](https://azure.microsoft.com/migration/partners/?WT.mc_id=retailecomm-docs-scseely). These partners have the expertise and experience to move your workloads.
+Microsoft provides several tools to analyze and catalog your systems. If you run VMware, you can use [Azure Migrate](/azure/migrate/migrate-overview?WT.mc_id=retailecomm-docs-scseely) to assist with discovery and assessment. The tool identifies machines that can be moved to Azure, recommends the type of VM to run, and estimates the cost of the workload. For Hyper-V environments, use [Azure Site Recovery Deployment Planner](/azure/site-recovery/hyper-v-deployment-planner-overview?WT.mc_id=retailecomm-docs-scseely). For large migrations where you need to move hundreds or more VMs, you can work with an [Azure migration partner](https://azure.microsoft.com/migration/partners/?WT.mc_id=retailecomm-docs-scseely). These partners have the expertise and experience to move your workloads.
 
 ### Migrate
 
@@ -78,7 +78,7 @@ Once a subsystem has been moved to Azure, test to make sure that everything work
 
 ### Optimize
 
-At this point, you will continue to monitor the environment and change the underlying compute options to fit workloads as the environment changes. Whoever monitors the health of the environment should watch how much each resource is used. The goal should be to have 75-90% utilization on most of the VMs. On VMs that have exceptionally low utilization, consider packing them with more applications, or migrating to the lowest cost VMs on Azure that retain the right level of performance.
+At this point, you'll continue to monitor the environment and change the underlying compute options to fit workloads as the environment changes. Whoever monitors the health of the environment should watch how much each resource is used. The goal should be to have 75-90% utilization on most of the VMs. On VMs that have exceptionally low utilization, consider packing them with more applications, or migrating to the lowest cost VMs on Azure that retain the right level of performance.
 
 Azure provides tools to optimize the environment as well. [Azure Advisor](/azure/advisor/advisor-overview?WT.mc_id=retailecomm-docs-scseely) monitors components of your environment and provides personalized recommendations based on best practices. The recommendations help improve the performance, security, and availability of the resources used in your applications. The Azure portal also exposes information about the health of your applications. Your VMs should take advantage of the [Azure virtual machine extensions for Linux and Windows](/azure/virtual-machines/extensions/overview?WT.mc_id=retailecomm-docs-scseely). Those extensions provide for post deployment configuration, antivirus, app monitoring, and more. You can also take advantage of many other Azure services for network diagnostics, service usage, and alerting through services like [Network Watcher](/azure/network-watcher/network-watcher-monitoring-overview?WT.mc_id=retailecomm-docs-scseely), [Service Map](/azure/monitoring/monitoring-walkthrough-servicemap?WT.mc_id=retailecomm-docs-scseely), [Application Insights](/azure/application-insights/app-insights-overview?WT.mc_id=retailecomm-docs-scseely), and [Log Analytics](/azure/log-analytics/log-analytics-overview?WT.mc_id=retailecomm-docs-scseely).
 
@@ -88,7 +88,7 @@ While parts of the organization are optimizing the system now in Azure, the deve
 
 With the migration complete, your ecommerce application can start taking advantage of its new home in Azure. The refactor phase does not have to wait until the entire environment has moved. If your CMS team has migrated, but the ERP team has not, no problem. The CMS team can still begin their refactoring efforts. This stage involves using additional Azure services to optimize the cost, reliability, and performance by refactoring your applications. Where in lift and shift, you were only taking advantage of the provider managed hardware and OS, in this model you also take advantage of cloud services to drive down cost. You continue to utilize your current application as-is, with some minor application code or configuration changes, and connect your application to new infrastructure services such as containers, database, and identity management systems.
 
-The refactoring effort changes very little code and configuration. You will focus more time on automation mostly because the technologies adopted at this phase rely upon scripting to build up and deploy the resources; the deployment instructions are a script.
+The refactoring effort changes very little code and configuration. You'll focus more time on automation mostly because the technologies adopted at this phase rely upon scripting to build up and deploy the resources; the deployment instructions are a script.
 
 While many of the Azure services can be used, we will focus on the most common services used in the refactor phase: containers, app services, and database services. Why do we look at refactoring? Refactoring provides a strong code foundation that lowers long-term costs by keeping code debt within reason.
 
@@ -139,7 +139,7 @@ Used during rebuild:
 
 ## Conclusion
 
-Moving your ecommerce system into Azure takes analysis, planning and a defined approach. We looked at a three phase approach of rehost, refactor, and rebuild. This allows an organization to move from one working state to another while minimizing the amount of change at each step. Retailers may also choose to refactor or even rebuild components, skipping rehosting altogether. Many times, you will have a clear path forward to modernization—take it when you can. As you gain experience running in Azure, you will see more opportunities to add new capabilities, reduce costs, and improve the overall system.
+Moving your ecommerce system into Azure takes analysis, planning and a defined approach. We looked at a three phase approach of rehost, refactor, and rebuild. This allows an organization to move from one working state to another while minimizing the amount of change at each step. Retailers may also choose to refactor or even rebuild components, skipping rehosting altogether. Many times, you'll have a clear path forward to modernization—take it when you can. As you gain experience running in Azure, you'll see more opportunities to add new capabilities, reduce costs, and improve the overall system.
 
 ## Contributors
 
