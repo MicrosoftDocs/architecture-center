@@ -24,7 +24,7 @@ Use this approach for scenarios like:
 
 ## Architecture
 
-![Architecture diagram](../media/hybrid-cross-cloud-scale-onprem-data.png)  
+![Architecture diagram](../media/hybrid-cross-cloud-scale-on-premises-data.png)  
 _Download a [Visio](https://arch-center.azureedge.net/hybrid-cross-cloud-scale-onprem-data.vsdx) of this architecture._
 
 ### Data flow
