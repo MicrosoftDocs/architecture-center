@@ -2261,7 +2261,52 @@
       "source_path": "docs/data-science-process/sql-walkthrough.md",
       "redirect_url": "/azure/architecture/data-science-process/overview",
       "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/data-science-process/walkthroughs.md",
+      "redirect_url": "/azure/architecture/data-science-process/overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/data-science-process/walkthroughs-spark.md",
+      "redirect_url": "/azure/architecture/data-science-process/overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/data-science-process/spark-data-exploration-modeling.md",
+      "redirect_url": "/azure/architecture/data-science-process/overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/data-science-process/spark-advanced-data-exploration-modeling.md",
+      "redirect_url": "/azure/architecture/data-science-process/overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/data-science-process/spark-model-consumption.md",
+      "redirect_url": "/azure/architecture/data-science-process/overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/data-science-process/walkthroughs-hdinsight-hadoop.md",
+      "redirect_url": "/azure/architecture/data-science-process/overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/data-science-process/walkthroughs-azure-data-lake.md",
+      "redirect_url": "/azure/architecture/data-science-process/overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/data-science-process/walkthroughs-sql-server.md",
+      "redirect_url": "/azure/architecture/data-science-process/overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/data-science-process/walkthroughs-sql-data-warehouse.md",
+      "redirect_url": "/azure/architecture/data-science-process/overview",
+      "redirect_document_id": false
     }
-
+    
   ]
 }
