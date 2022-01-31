@@ -1,0 +1,20 @@
+### YamlMime:Architecture
+metadata:
+  title: Data warehousing in Microsoft Azure
+  description: Learn about data warehousing in Azure. A data warehouse is a repository of integrated data from disparate sources used for reporting and analysis of the data.
+  author: EdPrice-MSFT
+  ms.date: 11/20/2019
+  ms.topic: conceptual
+  ms.service: architecture-center
+  ms.subservice: azure-guide
+  ms.custom: fcp
+azureCategories:
+  - analytics
+  - databases
+products:
+  - azure-synapse-analytics
+name: Data warehousing in Microsoft Azure
+summary: Learn about data warehousing in Azure. A data warehouse is a repository of integrated data from disparate sources used for reporting and analysis of the data.
+thumbnailUrl: /azure/architecture/reference-architectures/data/images/enterprise-bi-synapse.png
+content: |
+  [!include[](data-warehousing-content.md)]

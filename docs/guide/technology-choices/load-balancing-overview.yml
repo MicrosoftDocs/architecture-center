@@ -1,0 +1,24 @@
+### YamlMime:Architecture
+metadata:
+  title: Load-balancing options
+  description: Learn about Azure load-balancing services and how you can use them to distribute your workloads across multiple computing resources.
+  author: EdPrice-MSFT
+  ms.author: pnp
+  ms.date: 01/30/2022
+  ms.topic: conceptual
+  ms.service: architecture-center
+  ms.subservice: azure-guide
+  ms.custom: fcp
+azureCategories:
+  - web
+  - compute
+products:
+  - azure-load-balancer
+  - azure-front-door
+  - azure-application-gateway
+  - azure-traffic-manager
+name: Load-balancing options
+summary: Learn about Azure load-balancing services and how you can use them to distribute your workloads across multiple computing resources.
+thumbnailUrl: /azure/architecture/guide/technology-choices/images/load-balancing-decision-tree.png
+content: |
+   [!include[](load-balancing-overview-content.md)]

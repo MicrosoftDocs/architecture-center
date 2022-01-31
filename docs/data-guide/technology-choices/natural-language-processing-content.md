@@ -1,20 +1,3 @@
----
-title: Natural language processing technology
-description: Choose a natural language processing service for sentiment analysis, topic and language detection, key phrase extraction, and document categorization.
-author: EdPrice-MSFT
-ms.author: pnp
-ms.date: 02/25/2020
-ms.topic: conceptual
-ms.service: architecture-center
-ms.subservice: azure-guide
-products:
-  - azure-hdinsight
-ms.custom:
-  - guide
----
-
-# Choose a natural language processing technology in Azure
-
 Natural language processing (NLP) is used for tasks such as sentiment analysis, topic detection, language detection, key phrase extraction, and document categorization.
 
 ![Diagram of a natural language processing pipeline](../images/nlp-pipeline.png)

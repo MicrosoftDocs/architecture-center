@@ -1,19 +1,3 @@
----
-title: Choose an Internet of Things (IoT) solution in Azure
-titleSuffix: Azure Architecture Center
-description: You can use this content to decide if you can use a managed solution based on Azure IoT Central, or if you should consider building a PaaS solution using Azure IoT Hub.
-author: mcosner
-ms.author: prkau
-ms.date: 10/15/2021
-ms.topic: conceptual
-ms.service: architecture-center
-ms.subservice: example-scenario
-products:
-  - azure-iot-hub
-  - azure-iot-central
----
-# Compare Internet of Things (IoT) solution approaches (PaaS vs. aPaaS)
-
 IoT solutions require a combination of technologies to effectively connect devices, events, and actions to cloud applications. In Azure, we have a single set of guidance for building and connecting devices to the cloud. However, there are many options for building and deploying your IoT cloud solutions. Which technologies and services you'll use depends on your scenario's development, deployment, and management needs.
 
 ## Starting with Azure IoT Central (aPaaS)
