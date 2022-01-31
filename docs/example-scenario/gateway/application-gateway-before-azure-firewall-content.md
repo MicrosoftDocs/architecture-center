@@ -97,9 +97,9 @@ The following diagram shows the packet flow when Application Gateway is in a spo
 :::image type="content" source="./images/application-gateway-before-azure-hub-spoke-external.png" alt-text="Architecture diagram showing the packet flow in a hub and spoke network with a load balancer and a firewall. Clients connect from the public internet." border="false":::
 
 1. A client submits a request to a web server.
-1. Application Gateway intercepts the client packets and examines them. If the packets pass inspection, a user-defined route (UDR) in the Application Gateway subnet forwards the packets to Azure Firewall Premium.
+1. Application Gateway intercepts the client packets and examines them. If the packets pass inspection, the Application Gateway would send the packet to the backend VM. When the packet hits Azure, a user-defined route (UDR) in the Application Gateway subnet forwards the packets to Azure Firewall Premium.
 1. Azure Firewall Premium runs security checks on the packets. If they pass the tests, Azure Firewall Premium forwards the packets to the application VM.
-1. The VM responds and sets the destination IP address to Application Gateway. A UDR in the Application Gateway subnet redirects the packets to Azure Firewall Premium.
+1. The VM responds and sets the destination IP address to the Application Gateway. A UDR in the VM subnet redirects the packets to Azure Firewall Premium.
 1. Azure Firewall Premium forwards the packets to Application Gateway.
 1. Application Gateway answers the client.
 
@@ -111,7 +111,7 @@ Traffic can also arrive from an on-premises network instead of the public intern
 1. The gateway forwards the client packets to Application Gateway.
 1. Application Gateway examines the packets. If they pass inspection, a UDR in the Application Gateway subnet forwards the packets to Azure Firewall Premium.
 1. Azure Firewall Premium runs security checks on the packets. If they pass the tests, Azure Firewall Premium forwards the packets to the application VM.
-1. The VM responds and sets the destination IP address to Application Gateway. A UDR in the Application Gateway subnet redirects the packets to Azure Firewall Premium.
+1. The VM responds and sets the destination IP address to Application Gateway. A UDR in the VM subnet redirects the packets to Azure Firewall Premium.
 1. Azure Firewall Premium forwards the packets to Application Gateway.
 1. Application Gateway sends the packets to the virtual network gateway.
 1. The gateway answers the client.
@@ -166,11 +166,9 @@ The following diagram shows the packet flow when Route Server simplifies dynamic
 
 1. An on-premises client connects to the virtual network gateway.
 1. The gateway forwards the client packets to Application Gateway.
-1. Application Gateway examines the packets. If they pass inspection, the Application Gateway subnet forwards the packets to an NVA.
-1. The NVA requests DNS resolution from a DNS server in the shared services virtual network.
-1. The DNS server answers the resolution request.
+1. Application Gateway examines the packets. If they pass inspection, the Application Gateway subnet forwards the packets to a backend machine. A route in the ApplicationGateway subnet injected by the Route Server would forward the traffic to an NVA.
 1. The NVA runs security checks on the packets. If they pass the tests, the NVA forwards the packets to the application VM.
-1. The VM responds and sets the destination IP address to Application Gateway. The Application Gateway subnet redirects the packets to the NVA.
+1. The VM responds and sets the destination IP address to Application Gateway. A route injected in the VM subnet by the Route Server redirects the packets to the NVA.
 1. The NVA forwards the packets to Application Gateway.
 1. Application Gateway sends the packets to the virtual network gateway.
 1. The gateway answers the client.

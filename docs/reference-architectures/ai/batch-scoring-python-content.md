@@ -73,7 +73,7 @@ Automatic scaling may not be appropriate for batch jobs that happen too close to
 Product documentation:
 
 - [What is Azure Blob storage?](/azure/storage/blobs/storage-blobs-overview)
-- [Introduction to private Docker container registries in Azure](/container-registry/container-registry-intro)
+- [Introduction to private Docker container registries in Azure](/azure/container-registry/container-registry-intro)
 - [Azure Event Hubs](/azure/event-hubs/event-hubs-about)
 - [What is Azure Machine Learning?](/azure/machine-learning/overview-what-is-azure-machine-learning)
 - [What is Azure SQL Database?](/azure/azure-sql/database/sql-database-paas-overview)
