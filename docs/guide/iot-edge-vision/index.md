@@ -9,11 +9,12 @@ ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: azure-guide
 ms.category:
-  - fcp
+  - iot
 products:
   - azure-iot-edge
 ms.custom:
   - guide
+  - fcp
 ---
 
 # Vision AI solutions with Azure IoT Edge
@@ -22,9 +23,9 @@ This series of articles describes how to plan and design a computer vision workl
 
 Visually inspecting products, resources, and environments is an important process for many enterprises. Visual inspection and analytics were once manual processes. Human limitations made these processes potentially inefficient or inaccurate. Enterprises can now use deep learning artificial neural networks called *convolutional neural networks* (CNNs) to emulate human vision. Using CNNs for automated image input and analytics is commonly called *computer vision* or *vision AI*.
 
-Internet of things (IoT) smart devices and networks can use vision AI solutions at the edge for optimal performance and cost savings. Cloud-native technologies like containerization support portability, and allow migrating computer vision technology to the network edge. You can train vision inference models in the cloud, containerize the models, and use them to create custom modules for Azure IoT Edge runtime-enabled devices.
+Cloud-native technologies like containerization support portability, and allow migrating computer vision technology to the network edge. You can train vision inference models in the cloud, containerize the models, and use them to create custom modules for Azure IoT Edge runtime-enabled devices. Deploying vision AI solutions at the edge promotes optimal performance and cost savings.
 
-## Use cases
+## Use cases for vision AI at the edge
 
 Use cases for vision AI span manufacturing, retail, healthcare, and the public sector. Some typical use cases include:
 
@@ -46,7 +47,7 @@ Automated visual monitoring can scan for potential safety and security issues. A
 - Check proper product storage.
 - Record unreported close calls or pedestrian-equipment near-misses.
 
-## Considerations
+## Cost and performance benefits
 
 Reasons to migrate computer vision workloads from the cloud to the edge include performance and cost.
 
@@ -60,7 +61,7 @@ Reasons to migrate computer vision workloads from the cloud to the edge include 
 
 Sending all data to the cloud for analysis can significantly impact the return on investment (ROI) of a computer vision initiative. You can design IoT Edge vision modules to score image data and send only images considered relevant with a reasonable confidence level to the cloud. Sending only selected images significantly reduces the amount of data going to the cloud, lowering costs.
 
-## Components and processes
+## IoT Edge vision AI components and processes
 
 Vision AI solutions for IoT Edge involve several components and processes. The following articles provide in-depth planning and design guidance for each area:
 
