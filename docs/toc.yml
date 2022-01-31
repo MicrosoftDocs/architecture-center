@@ -2839,6 +2839,8 @@ items:
                     href: solution-ideas/articles/hybrid-connectivity.yml
                   - name: Hybrid relay connection
                     href: solution-ideas/articles/hybrid-relay-connection.yml
+                  - name: Tiered data for analytics
+                    href: solution-ideas/articles/hybrid-tiered-data-analytics.yml
                   - name: Unlock legacy data with Azure Stack
                     href: solution-ideas/articles/unlock-legacy-data.yml
               - name: Azure VMware Solution foundations
