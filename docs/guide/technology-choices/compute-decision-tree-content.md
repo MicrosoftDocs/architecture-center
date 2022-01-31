@@ -1,3 +1,4 @@
+
 Azure offers a number of ways to host your application code. The term *compute* refers to the hosting model for the computing resources that your application runs on. The following flowchart will help you to choose a compute service for your application.
 
 If your application consists of multiple workloads, evaluate each workload separately. A complete solution may incorporate two or more compute services.
