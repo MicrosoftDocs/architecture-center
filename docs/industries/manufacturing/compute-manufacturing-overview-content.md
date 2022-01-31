@@ -2,7 +2,7 @@ Customers are demanding products that have these attributes: lightweight,
 strong, safe, sustainable, and customized. As a result, the design stage has
 become increasingly complex. In that stage, computers are used to visualize,
 analyze, simulate, and optimize. And those tasks will grow more sophisticated
-and computationally-hungry. In addition, products are increasingly
+and computationally hungry. In addition, products are increasingly
 connected and generate vast amounts of data that needs to be processed and
 analyzed.
 
@@ -33,22 +33,22 @@ time. Transmission Control Protocol (TCP) introduces more overhead than User Dat
 available to servers running Microsoft Remote Desktop Services. To be usable, a
 virtual machine (VM) must have enough hardware resources, namely: CPU, memory
 and—most critically—the graphics processing unit (GPU). (The GPU is arguably the
-most critical component of a high performance cloud workstation.) Windows Server
+most critical component of a high-performance cloud workstation.) Windows Server
 2016 provides several options for accessing the underlying graphics
-capabilities. The default Remote Desktop Services (RDS) GPU solution, also known as Windows Advanced
-Rasterization Platform (WARP) is an adequate solution for knowledge-worker
-scenarios, but provides inadequate resources for the cloud workstation
+capabilities. The default Remote Desktop Services (RDS) GPU solution is also known as Windows Advanced
+Rasterization Platform (WARP). It is an adequate solution for knowledge-worker
+scenarios, but it provides inadequate resources for the cloud workstation
 scenarios. RemoteFX vGPU is a feature of RemoteFX that was introduced for remote
-connections, which provides for scenarios with higher user densities per server,
-allowing high burst GPU utilization. However, when the time comes for using the
+connections. It provides a solution for scenarios with higher user densities per server,
+which allows a high-burst GPU utilization. However, when the time comes for using the
 power of the GPU, Discrete Device Assignment (DDA) is necessary to make the full
 use of a GPU’s power.
 
-NV Series VMs are available with single or multiple NVDIA GPUs as part of the
+NV Series VMs are available with single or multiple NVDIA GPUs, as part of the
 Azure N Series offering. These VMs are optimized for remote visualization and
-virtual desktop infrastructure (VDI) scenarios, by using frameworks such as OpenGL and DirectX. Going up to 4 GPUs,
-it's possible to provision workstations taking full advantage of the GPU
-through DDA on Azure.
+virtual desktop infrastructure (VDI) scenarios, They use frameworks such as OpenGL and DirectX. Going up to 4 GPUs,
+you can provision workstations that take full advantage of the GPU,
+through Discrete Device Assignment (DDA) on Azure.
 
 A very important point to worth mentioning is the programmability of the Azure
 platform. It offers several options for a VM. For example, you can provision a
@@ -64,7 +64,7 @@ Analysis and simulation of physical systems on computers has been around for a
 long time. Finite element analysis (FEA) is a numerical method used for solving
 many analysis problems. FEA requires a lot of computational power to perform
 large matrix calculations. The number of matrices involved in the solution of an
-FEA model explodes exponentially as we go from 2D to 3D, and as we add
+FEA model explodes exponentially, as we go from 2D to 3D, and as we add
 granularity to the FEA mesh. This requires computing power deployed on demand.
 It's important that the problem-solving code can be run in parallel, to take
 advantage of the scalability of resources.
@@ -76,7 +76,7 @@ capabilities for fast parallel computations. The Azure platform offers VMs built
 for high-performance computing. They feature specialized processors paired with
 DDR4 memory, and they allow compute-intensive solutions to run effectively, both
 on Linux and Windows installations. And they're available in several sizes. See
-[High performance compute VM
+[High-performance compute VM
 sizes](/azure/virtual-machines/windows/sizes-hpc?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json%3fWT.mc_id%3dcomputeinmanufacturing-docs-ercenk).
 To see how Azure supports HPC in other ways, see Big compute: [HPC &
 Batch](https://azure.microsoft.com/solutions/big-compute/?WT.mc_id=computeinmanufacturing-docs-ercenk).
@@ -94,7 +94,7 @@ when running the simulation:
 
 Another popular engineering analysis software package is ANSYS CFD. It enables
 engineers to perform multi-physics analysis, including fluid forces, thermal
-effects, structural integrity and electromagnetic radiation. [The published
+effects, structural integrity, and electromagnetic radiation. [The published
 study](https://azure.microsoft.com/blog/ansys-cfd-and-microsoft-azure-perform-the-best-hpc-scalability-in-the-cloud/?WT.mc_id=computeinmanufacturing-docs-ercenk)
 demonstrates the scalability of the solution on Azure, showing similar results.
 
@@ -112,7 +112,7 @@ families for an all-cloud solution.
 
 If a local cluster is available, another option is to extend it to Azure. This process
 offloads peak workloads and is known as _bursting to Azure_. To do so requires
-using one of the on-premise workload managers that support Azure (e.g. [Alces
+using one of the on-premise workload managers that support Azure, such as [Alces
 Flight
 Compute](https://azuremarketplace.microsoft.com/marketplace/apps/alces-flight-limited.alces-flight-compute-solo?tab=Overview?WT.mc_id=computeinmanufacturing-docs-ercenk),
 [TIBCO DataSynapse
@@ -121,7 +121,7 @@ GridServer](https://azure.microsoft.com/blog/tibco-datasynapse-comes-to-the-azur
 Manager](http://www.brightcomputing.com/technology-partners/microsoft), [IBM
 Spectrum Symphony and Symphony
 LSF](https://azure.microsoft.com/blog/ibm-and-microsoft-azure-support-spectrum-symphony-and-spectrum-lsf/?WT.mc_id=computeinmanufacturing-docs-ercenk),
-[PBS Pro](http://pbspro.org/), [Microsoft HPC
+[PBS Pro](http://pbspro.org/), and [Microsoft HPC
 Pack](/powershell/high-performance-computing/overview?WT.mc_id=computeinmanufacturing-docs-ercenk)).
 
 Another option is Azure Batch, which is a service to run large scale parallel
