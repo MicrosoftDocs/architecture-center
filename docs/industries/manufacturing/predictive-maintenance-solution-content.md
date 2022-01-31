@@ -2,10 +2,9 @@ Predictive maintenance uses a combination of sensors, artificial intelligence, a
 
 Data lies at the heart of the solution. The data needs to have adequate failure indicators, as well as other aspects that describe the context. It can come from multiple sources, such as sensors, machine logs, and manufacturing application logs.
 
-This article presents options for building a predictive maintenance solution. It presents different perspectives and reference existing materials to get you started. The requirements for a predictive maintenance solution vary by equipment, environment, process, and organization; we are attempting to give alternative approaches and technologies for guiding you in the journey of coming up with a solution for your needs.
+This article presents options for building a predictive maintenance solution. It presents different perspectives and reference existing materials to get you started. The requirements for a predictive maintenance solution vary by equipment, environment, process, and organization. We give alternative approaches and technologies to guide you in the journey of determining a solution for your needs.
 
 Let’s start with the high-level components of a predictive maintenance solution.
-
 
 ![High Level Solution](./images/predictive-maintenance-solution/high-level-solution.png)
 
@@ -19,7 +18,7 @@ In this breakdown, the following high-level activities occur:
 3. Continue collecting data on an ongoing basis.
 
 4. Input the collected data to the ML model, which will predict failure,
-    normally with some level of confidence. (For example: “there is an 85%
+    normally with some level of confidence. (For example, “there's an 85%
     probability that the machine will fail in the next 24 hours.”)
 
 5. Surface the predicted failure cases.
@@ -30,11 +29,11 @@ In this breakdown, the following high-level activities occur:
 
 Building an ML model requires sufficient, correct and complete data. In
 addition, predictive maintenance poses unique challenges, a major one being the availability of
-failure data. Failures are relatively rare events – particularly in high-capital
-equipment, such as CNC machines, or components of oil refineries; so even if we have collected sensor data over a long period of time,
-we may not have sufficient failure data. Consider how “failure” is defined; what
+failure data. Failures are relatively rare events, particularly in high-capital
+equipment, such as computer numerical control (CNC) machines, or components of oil refineries. Even if we've collected sensor data over a long period of time,
+we might not have sufficient failure data. Consider how “failure” is defined. What
 exactly constitutes a failure? Is it when the device stops working unexpectedly?
-Is it when the device degrades to a level where it is not performing at a
+Is it when the device degrades to a level where it isn't performing at a
 desired level anymore? Is the failure case a cutting machine being destroyed,
 because of a component failure caused by metal fatigue, or other indicators that
 point a failure, before a catastrophe happens?
@@ -45,10 +44,10 @@ Consider, too, are we capturing enough data to record it these failures
 properly? In many cases, sensor data alone may not be enough to identify a
 failure. Sometimes we may need external data to “flag” a machine’s state as a
 failure state, or a secondary source of information, such as an operator
-capturing the failure case through a different system. This data may be residing
-in external systems such as ERP, manufacturing execution systems (MES),
-historians, etc., and cross the infamous IT/OT divide so prevalent in
-manufacturing firms, making securing the necessary data extra challenging.
+capturing the failure case through a different system. This data might reside
+in external systems, such as ERP, manufacturing execution systems (MES),
+historians, and so on. The data might cross the IT/OT divide that's prevalent in
+manufacturing firms, which provides a challenge when securing the necessary data.
 
 By nature, predictive maintenance is a dynamic problem and, as such, associated machine learning
 models need to be continuously refreshed (or re-trained). If done well, predictive maintenance
@@ -61,19 +60,19 @@ periodically with any changes in failure conditions.
 previously used for training the model. In other words, we may model the failure
 as the function of variables _x<sub>1</sub>,x<sub>2</sub>,⋯,x<sub>n</sub>, f(x<sub>1</sub>,x<sub>2</sub>,⋯,x<sub>n</sub>)_, but eventually we
 may discover variables _x<sub>(n+1)</sub>,⋯,x<sub>(m+n)</sub>_ are also influencing the failure, thus
-we may need to modify our model training for _f(x<sub>1</sub>,x<sub>2</sub>,⋯,x<sub>(m+n)</sub>)_. The model may not be performing well for detecting the failures, and a new model may be built including data points from the machine’s MES logs as well for the next iteration.
+we may need to modify our model training for _f(x<sub>1</sub>,x<sub>2</sub>,⋯,x<sub>(m+n)</sub>)_. The model might not perform well for detecting the failures. A new model can be built to include the data points from the machine’s MES logs, as well for the next iteration.
 
 Even without a modern IoT environment streaming data to the cloud, the data
-needed to train the machine learning models may be already in your MES,
+needed to train the machine learning models might already be in your MES,
 historians, or other production systems. It’s just a matter of preparing the
 data so it can be used to train the machine learning models.
 
 The following figure illustrates the typical workflow for training a ML model. The arrow
-labeled “repeat” suggests that this is an iterative process – one where we are
+labeled “repeat” suggests that this is an iterative process. We're
 continuously re-training the models as fresh data comes in and conditions
-change. When and how often this loop needs to repeat depends on the specific
-conditions of the implementation and requires careful monitoring of the
-performance of the previously built models in predicting failures to detect when
+change. When and how often this loop needs to repeat, depends on the specific
+conditions of the implementation. You must carefully monitor the
+performance of the previously built models, in predicting failures to detect when
 models are “aging” or “degrading”.
 
 Continuously training new models and deploying them also brings in the challenge
@@ -88,21 +87,21 @@ guide](/azure/machine-learning/team-data-science-process/cortana-analytics-playb
 on how to prepare the data and train the machine learning model. There are three typical maintenance questions, and the related machine learning algorithms:
 
 - _For the asset, what is the probability that a failure will occur within the next X hours?_ Answer: 0-100%
-  - **Binary classification:** Binary classification is a machine learning method that uses data to determine the category, type, or class of an item or row of data, as a member of one of the two classes. There are multiple types of classification algorithms, Microsoft published a set of algorithms available as [Machine Learning Studio modules](/azure/machine-learning/studio-module-reference/machine-learning-initialize-model-classification?WT.mc_id=pdmsolution-docs-ercenk).
+  - **Binary classification** is a machine-learning method that uses data to determine the category, type, or class of an item or row of data, as a member of one of the two classes. There are multiple types of classification algorithms, Microsoft published a set of algorithms available as [Machine Learning studio modules](/azure/machine-learning/studio-module-reference/machine-learning-initialize-model-classification?WT.mc_id=pdmsolution-docs-ercenk).
 - _What is the remaining useful life of the asset?_ Answer: X hours
-  - **Regression:** Regression is a class of machine learning algorithms that predict the value of a variable, given a set of other variables. Machine Learning Studio includes a set of regression algorithms as [modules](/azure/machine-learning/studio-module-reference/machine-learning-initialize-model-regression?WT.mc_id=pdmsolution-docs-ercenk).
+  - **Regression** is a class of machine learning algorithms that predict the value of a variable, given a set of other variables. Machine Learning studio includes a set of regression algorithms as [modules](/azure/machine-learning/studio-module-reference/machine-learning-initialize-model-regression?WT.mc_id=pdmsolution-docs-ercenk).
     - **Long Short Term Memory (LSTM):** [LSTM](https://colah.github.io/posts/2015-08-Understanding-LSTMs/?WT.mc_id=pdmsolution-docs-ercenk) networks are a type of deep neural networks (DNN). Inspiration of DNNs comes from modelling the behavior of individual neurons in the brain. Microsoft has published a [step-by-step guide](/azure/machine-learning/desktop-workbench/scenario-deep-learning-for-predictive-maintenance?WT.mc_id=pdmsolution-docs-ercenk) for describing on using an LSTM for Predictive Maintenance
 - _Which asset requires servicing most urgently?_ Answer: Asset X
-  - **Multi-class classification:** Multi-class classification is a machine learning method that uses data to determine the category, type, or class of an item or row of data, as a member of more than two classes.
+  - **Multi-class classification** is a machine-learning method that uses data to determine the category, type, or class of an item or row of data, as a member of more than two classes.
 
-Again, bringing in the data may mean utilizing multiple channels, initializing
+Again, bringing in the data might mean utilizing multiple channels. You'd initialize
 it first in bulk, and then continue receiving streaming data for predicting
-failures, also using it for subsequent builds of the model.
+failures. You'd also use it for subsequent builds of the model.
 
 ## Bringing data to Azure
 
 Microsoft Azure provides variety services for ingesting and storing the data. We
-recommend batch methods for getting the data transferred to Azure if it is not
+recommend batch methods for getting the data transferred to Azure if it isn't
 already there. If you can export your data as files into well-known formats,
 such as csv, json, xml etc. these are good options. You may also choose to
 compress them before uploading, and further process them on the cloud side.
@@ -121,7 +120,7 @@ compress them before uploading, and further process them on the cloud side.
 
 - [Mount an Azure
     File](/azure/storage/files/storage-how-to-use-files-windows?WT.mc_id=pdmsolution-docs-ercenk)
-    share on Windows, Linux and MacOS
+    share on Windows, Linux, and macOS
 
 If the data is in a SQL Server database, you can also use [Data Migration
 Assistant](/sql/dma/dma-overview?WT.mc_id=pdmsolution-docs-ercenk) to upload the
@@ -131,7 +130,7 @@ There are a variety of tools and services on the Azure platform for Extract,
 Transform and Load (ETL) operations. The most prominent service is the [Azure
 Data Factory](/azure/data-factory/?WT.mc_id=pdmsolution-docs-ercenk) , which
 provides a full set of features for manipulating data. Other options for
-manipulating data are present in the many ML services available on Azure through
+manipulating data are present in the many ML services that are available on Azure, through
 the open source libraries.
 
 As for training the ML mode, Microsoft Azure provides many options, which all
@@ -157,8 +156,8 @@ team’s experience, and the size of the data.
 
 The cost equation on cloud solutions contain many variables, in addition to the
 cloud service costs, such as additional engineering, administration, data
-transfers etc. Use these variables when assessing the cost, and make an informed
-decision. Services only do not make up the total cost equation.
+transfers, and so on. Use these variables when assessing the cost, and make an informed
+decision. Services only don't make up the total cost equation.
 
 Designing the process for analyzing the data and publishing the model are
 detailed subjects and differ by the technologies used. Those topics are outside
@@ -169,7 +168,7 @@ data scientists to collaborate effectively over the lifecycle of the data.
 
 Microsoft’s [Machine Learning
 documentation](/azure/machine-learning?WT.mc_id=pdmsolution-docs-ercenk)
-is a good starting point for exploring the options for building, deploying and
+is a good starting point for exploring the options for building, deploying, and
 managing ML and AI models to the cloud.
 
 The Microsoft Azure platform offers abundant choices for processing data in
@@ -180,10 +179,10 @@ option for implementing this data flow.
 
 ## Using the model
 
-Once we have an ML model we need a mechanism for consuming it (or “using” it) to
+Once we have an ML model, we need a mechanism for consuming it (or “using” it) to
 predict the need for maintenance of the equipment. After the data is received
 from the equipment, it moves through a processing layer to predict future
-failure cases and present various means for the maintenance teams to act.
+failure cases. It then presents various means for the maintenance teams to act on.
 
 ![Using the model](./images/predictive-maintenance-solution/model.png)
 
@@ -206,7 +205,7 @@ processing and storing the data, such as:
 - [Apache Kafka for
     HDInsight](/azure/hdinsight/kafka/apache-kafka-introduction?WT.mc_id=pdmsolution-docs-ercenk)
 
-Unlike the process of building the ML model, consuming it does not require a lot
+Unlike the process of building the ML model, consuming it doesn't require a lot
 of computational resources. Depending on your needs, the model can be deployed
 to a service in the cloud, or locally on the factory floor.
 
@@ -225,11 +224,11 @@ suited for scenarios where early detection is critical.
 
 Ingestion, process and storage, and execution of the
 ML model can all take place in the Azure cloud. This option may be better suited
-in cases where when sharing the results of the execution of the ML model amongst
-multiple tenants or geographies (and latency is not critical). An optional
-component, often referred to as “edge gateway” can be added locally to perform
-some of the work - such as data aggregation and projection, stream analytics,
-etc., following a pattern known as the [“Ambassador”
+in cases where you share the results of the execution of the ML model amongst
+multiple tenants or geographies (and where latency isn't critical). An optional
+component, often referred to as “edge gateway”, can be added locally to perform
+some of the work. This work includes data aggregation and projection, stream analytics,
+and so on. It follows the [“Ambassador”
 pattern](/azure/architecture/patterns/ambassador?WT.mc_id=pdmsolution-docs-ercenk).
 
 There are multiple ways for using the model on Azure. [Azure Machine Learning
@@ -250,13 +249,13 @@ from custom applications to enterprise solution integration.
 
 ![Cloud only](./images/predictive-maintenance-solution/cloud-only.png)
 
-A cloud-only deployment does not necessarily mean there will be live steaming of
+A cloud-only deployment doesn't necessarily mean there will be live steaming of
 data only. A potential strategy is to periodically export data from a local
 system (for example, a historian or MES), import it into the cloud system, and
-present the outcome. This option may be a feasible approach when devices are not
+present the outcome. This option may be a feasible approach when devices aren't
 capable of pushing data directly into the system, existing systems are already
 collecting data, or no near-real-time data processing is necessary. In these
-cases, there is no need to consider an edge gateway.
+cases, there's no need to consider an edge gateway.
 
 ## Predictive maintenance in the IoT context
 
