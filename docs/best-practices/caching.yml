@@ -1,0 +1,23 @@
+### YamlMime:Architecture
+metadata:
+  title: Caching guidance
+  description: Learn how caching can improve the performance and scalability of a system by copying frequently accessed data to fast storage close to the application.
+  author: EdPrice-MSFT
+  ms.date: 05/24/2017
+  ms.topic: conceptual
+  ms.service: architecture-center
+  ms.subservice: best-practice
+  ms.custom: fcp
+azureCategories:
+  - databases
+  - identity
+  - web
+  - storage
+  - security
+products:
+  - azure-cache-redis
+name: Caching guidance
+summary: Learn how caching can improve the performance and scalability of a system by copying frequently accessed data to fast storage close to the application.
+thumbnailUrl: /azure/architecture/best-practices/images/caching/caching3.png
+content: |
+  [!include[](caching-content.md)]
