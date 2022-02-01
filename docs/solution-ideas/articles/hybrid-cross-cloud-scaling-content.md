@@ -29,7 +29,7 @@ _Download an [SVG file](https://arch-center.azureedge.net/cross-cloud-scaling.sv
 ### Dataflow
 
 1. The client sends a request to the cloud application.
-1. Azure Traffic Manager uses DNS to direct the client request to the appropriate service endpoint, based on a [traffic-routing method](/azure/traffic-manager/traffic-manager-routing-methods). Traffic Manager also provides health monitoring for every endpoint.
+1. Traffic Manager uses DNS to direct the client request to the appropriate service endpoint, based on a [traffic-routing method](/azure/traffic-manager/traffic-manager-routing-methods). Traffic Manager also provides health monitoring for every endpoint.
 1. The instance of the cloud application chosen by Traffic Manager processes the request.
 
 ### Components
@@ -69,7 +69,7 @@ The key benefit of cross-cloud scaling is the ability to deliver on-demand scali
 - See the [Azure Traffic Manager documentation](/azure/traffic-manager/traffic-manager-overview) to learn more about how this DNS-based traffic load balancer works.
 - See [Hybrid application design considerations](/hybrid/app-solutions/overview-app-design-considerations) to learn more about best practices.
 - Learn about the [Azure Stack portfolio of products and solutions](/azure-stack).
-- When you're ready to deploy this solution, use the [Cross-cloud scaling solution deployment guide](/../../hybrid/deployments/solution-deployment-guide-cross-cloud-scaling.md). It provides step-by-step instructions for deploying and testing the solution's components. 
+- When you're ready to deploy this solution, use the [Cross-cloud scaling solution deployment guide](/azure/architecture/hybrid/deployments/solution-deployment-guide-cross-cloud-scaling). It provides step-by-step instructions for deploying and testing the solution's components. 
 
 ## Related resources
 
