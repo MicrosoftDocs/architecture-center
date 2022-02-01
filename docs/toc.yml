@@ -2859,7 +2859,7 @@ items:
                 href: solution-ideas/articles/cross-platform-chat.yml
       - name: Identity
         items:
-          - name: Identity architecture design
+          - name: Get started
             href: identity/identity-start-here.yml
           - name: Guides
             items:
@@ -2928,17 +2928,17 @@ items:
                     maintainContext: true
               - name: Identity management
                 items:
-                  - name: Enterprise enrollment and AAD tenants
-                    href: /azure/cloud-adoption-framework/ready/enterprise-scale/enterprise-enrollment-and-azure-ad-tenants
+                  - name: Azure billing and AAD tenants
+                    href: /azure/cloud-adoption-framework/ready/landing-zone/design-area/azure-billing-ad-tenant?toc=/azure/architecture/toc.json&bc=/azure/architecture/_bread/toc.json
                     maintainContext: true
                   - name: Identity and access management
-                    href: /azure/cloud-adoption-framework/ready/enterprise-scale/identity-and-access-management
+                    href: /azure/cloud-adoption-framework/ready/landing-zone/design-area/identity-access?toc=/azure/architecture/toc.json&bc=/azure/architecture/_bread/toc.json
                     maintainContext: true
                   - name: Limit cross-tenant private endpoints
                     href: /azure/cloud-adoption-framework/ready/azure-best-practices/limit-cross-tenant-private-endpoint-connections
                     maintainContext: true
-                  - name: Management groups and subscriptions
-                    href: /azure/cloud-adoption-framework/ready/enterprise-scale/management-group-and-subscription-organization
+                  - name: Resource organization
+                    href: /azure/cloud-adoption-framework/ready/landing-zone/design-area/resource-org?toc=/azure/architecture/toc.json&bc=/azure/architecture/_bread/toc.json
                     maintainContext: true
               - name: Hybrid identity
                 items:
