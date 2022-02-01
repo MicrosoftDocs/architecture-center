@@ -1,7 +1,7 @@
 ---
 title: Computer vision with Azure IoT Edge
 titleSuffix: Azure Architecture Center
-description: Create an vision AI solution that uses Azure IoT Edge. Explore hardware recommendations, machine learning and storage requirements, alerting, and user interfaces.
+description: Create n vision AI solution that uses Azure IoT Edge. Explore hardware recommendations, machine learning and storage requirements, alerting, and user interfaces.
 author: MSKeith
 ms.author: keith
 ms.date: 01/27/2022
@@ -10,8 +10,11 @@ ms.service: architecture-center
 ms.subservice: azure-guide
 ms.category:
   - iot
+categories: iot
 products:
   - azure-iot-edge
+  - azure-machine-learning
+  - azure-storage
 ms.custom:
   - guide
   - fcp
