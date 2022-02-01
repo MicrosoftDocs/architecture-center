@@ -8,7 +8,7 @@ When an app can't increase capacity to meet unexpected increases in demand. The 
 
 Global enterprises require secure, reliable, and available cloud-based apps. Meeting increases in demand and using the right infrastructure to support that demand is critical. Businesses struggle to balance costs and maintenance with business data security, storage, and real-time availability.
 
-However, sometimes is not economically feasible for the business to maintain the capacity required in their on-premises environment to handle spikes in demand for the app. With this solution, you can use the elasticity of the public cloud with your on-premises solution.  
+However, sometimes it's not economically feasible for the business to maintain the capacity required in their on-premises environment to handle spikes in demand for the app. With this solution, you can use the elasticity of the public cloud with your on-premises solution.  
 
 Use this solution:
 
