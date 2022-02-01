@@ -4,7 +4,7 @@ titleSuffix: Azure Architecture Center
 description: This article introduces how to build multitenant solutions on Azure and the guidance we provide throughout this series.
 author: johndowns
 ms.author: jodowns
-ms.date: 12/21/2021
+ms.date: 01/04/2022
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: azure-guide
@@ -40,7 +40,7 @@ In this series, we provide guidance about how to design, build, and operate your
 
 While Azure is itself a multitenant service, and some of our guidance is based on our experience with running large multitenant solutions, the focus of this series is on helping you build your own multitenant services, while harnessing the power of the Azure platform.
 
-Additionally, when you design a solution, there are many areas you need to consider. The content in this section is specific to how you design for multitenancy. We don't cover all of the features of the Azure services, or all of the architectural design considerations for every application. You should read this guide in conjunction with the [Microsoft Azure Well-Architected Framework](../../framework/index.md) and the documentation for each Azure service that you use.
+Additionally, when you design a solution, there are many areas you need to consider. The content in this section is specific to how you design for multitenancy. We don't cover all of the features of the Azure services, or all of the architectural design considerations for every application. You should read this guide in conjunction with the [Microsoft Azure Well-Architected Framework](/azure/architecture/framework/index) and the documentation for each Azure service that you use.
 
 ## Intended audience
 
@@ -49,7 +49,7 @@ The guidance provided in this series is applicable to anyone building a multiten
 The content throughout this series is designed to be useful for technical decision-makers, like chief technology officers (CTOs) and architects, and anyone designing or implementing a multitenant solution on Microsoft Azure.
 
 > [!NOTE]
-> *Managed service providers* (MSPs) manage and operate Azure environments on behalf of their customers, and work with multiple Azure Active Directory tenants in the process. This is another form of multitenancy, but it's focused on managing Azure resoures across multiple Azure Active Directory tenants. This series isn't intended to provide guidance on these matters.
+> *Managed service providers* (MSPs) manage and operate Azure environments on behalf of their customers, and work with multiple Azure Active Directory tenants in the process. This is another form of multitenancy, but it's focused on managing Azure resources across multiple Azure Active Directory tenants. This series isn't intended to provide guidance on these matters.
 >
 > However, the series is likely to be helpful for ISVs who build software for MSPs, or for anyone else who builds and deploys multitenant software.
 

@@ -77,7 +77,7 @@ This reference architecture runs Central Services on VMs in the application tier
 
 For highly available file-shares, there are several options. We recommend that you use [Azure Files](/azure/storage/files/storage-files-introduction) shares as fully managed, cloud-native SMB or NFS shares. An alternative to Azure Files is [Azure NetApp Files](/azure/azure-netapp-files/azure-netapp-files-introduction), which provides high-performance NFS and SMB shares.
 
-You can also implement the highly available file shares on the Central Service instances by using WSFC with ([Azure Files](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-windows-azure-files-smb)). This solution also supports Windows Cluster with shared disks by using an Azure shared disk as the cluster shared volume (CSV). If you prefer to use shared disks, we recommend that you use [Azure shared disks](/azure/virtual-machines/disks-shared#linux) to set up a [Windows Server failover cluster for SAP Central Services Cluster](/azure/virtual-machines/workloads/sap/sap-high-availability-infrastructure-wsfc-shared-disk).
+You can also implement the highly available file shares on the Central Service instances by using WSFC with ([Azure Files](/azure/virtual-machines/workloads/sap/high-availability-guide-windows-azure-files-smb)). This solution also supports Windows Cluster with shared disks by using an Azure shared disk as the cluster shared volume (CSV). If you prefer to use shared disks, we recommend that you use [Azure shared disks](/azure/virtual-machines/disks-shared#linux) to set up a [Windows Server failover cluster for SAP Central Services Cluster](/azure/virtual-machines/workloads/sap/sap-high-availability-infrastructure-wsfc-shared-disk).
 
 There are also third-party products like [SIOS DataKeeper Cluster Edition](https://azuremarketplace.microsoft.com/marketplace/apps/sios_datakeeper.sios-datakeeper-8) from SIOS Technology Corp. This add-on replicates contents from independent disks attached to the ASCS cluster nodes and then presents the disks as a CSV to the cluster software.
 
@@ -406,7 +406,7 @@ See these articles for more information and for examples of SAP workloads that u
 
 <!-- links -->
 
-[aaf-cost]: ../../framework/cost/overview.md
+[aaf-cost]: /azure/architecture/framework/cost/overview
 [azure-pricing-calculator]: https://azure.microsoft.com/pricing/calculator
 [expressroute-pricing]: https://azure.microsoft.com/pricing/details/expressroute
 [visio-download]: https://arch-center.azureedge.net/sap-netweaver.vsdx

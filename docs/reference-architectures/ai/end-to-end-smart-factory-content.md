@@ -131,7 +131,7 @@ IoT devices have limited memory and processing power, so it's important to limit
 To optimize performance for training models, this example architecture uses
 [Azure Premium Blob Storage](https://azure.microsoft.com/services/storage/blobs/). This performance tier is designed for workloads that require very fast response times and high transaction rates like this human-in-the-loop video labeling scenario.
 
-For general guidance on designing scalable solutions, see the [performance efficiency checklist](../../framework/scalability/performance-efficiency.md) in the Azure Architecture Center.
+For general guidance on designing scalable solutions, see the [performance efficiency checklist](/azure/architecture/framework/scalability/performance-efficiency) in the Azure Architecture Center.
 
 ### Scalability
 
@@ -166,7 +166,7 @@ Here are a few related GitHub resources you can use:
 
 ## Pricing
 
-In general, use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator) to estimate costs. For other considerations, see [Cost Optimization](../../framework/cost/index.yml) in the Well-Architected Framework.
+In general, use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator) to estimate costs. For other considerations, see [Cost Optimization](/azure/architecture/framework/cost/index) in the Well-Architected Framework.
 
 Azure Machine Learning also deploys Container Registry, Azure Storage, and Azure Key Vault services, which incur extra costs. For more information, see [How Azure Machine Learning works: Architecture and concepts](/azure/machine-learning/concept-azure-machine-learning-architecture). Azure Machine Learning pricing includes charges for the virtual machines that are used for training the model in the public cloud.
 

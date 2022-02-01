@@ -1,9 +1,11 @@
-SAP system on Oracle Database is one of the popular deployment patterns in the SAP world. This article describes a typical architecture of SAP on Oracle on Azure, which aligns with the pillars of the [Azure Well Architected Framework](../../framework/index.md).
+SAP system on Oracle Database is one of the popular deployment patterns in the SAP world. This article describes a typical architecture of SAP on Oracle on Azure, which aligns with the pillars of the [Azure Well Architected Framework](/azure/architecture/framework/index).
 
 ## Architecture
 
 ![Diagram showing an architecture overview of a production SAP system on Oracle on Azure.](./media/sap-on-oracle-architecture.png)
 *Figure – Architecture Diagram of SAP on Oracle Database on Azure*
+
+Download a [Visio file](https://arch-center.azureedge.net/sap-oracle-architecture.vsdx) of this architecture.
 
 ## Components
 
@@ -13,7 +15,7 @@ The reference architecture describes a typical SAP production system running on 
 
 The presentation layer (SAPGUI, SAP NetWeaver Business Client, Browser, and so on) of the reference architecture reside in the user workstation (laptop, desktop, and so on), which connects to Azure via on-premises datacenter. Below are the considerations and recommendations around presentation layer of the architecture.
 
-#### Considerations
+#### Considerations 
 
 - The presentation layer of the SAP Solution can reside in a user workstation (laptop, desktop, and so on), remote desktop in Azure, or in virtual desktop solutions, such as Citrix, [Azure Virtual Desktop](/azure/virtual-desktop/overview), and so on.
 
@@ -75,15 +77,15 @@ Below are the considerations and recommendations around virtual machine componen
 
 ### Storage
 
-The architecture uses Azure-managed disks for Azure VM disks and Azure Files for shared storage. Below are the considerations and recommendations around storage component of the architecture.
+The architecture uses Azure-managed disks for Azure VM disks and Azure Files or Azure NetApp Files for shared storage. Below are the considerations and recommendations around storage component of the architecture.
 
 #### Considerations
 
-- Azure Managed Disks and [Azure NetApp Files](/azure/virtual-machines/workloads/oracle/oracle-database-backup-strategies#azure-netapp-files) are the storage solutions for Oracle databases on Azure. Refer [SAP Note – 2039619](https://launchpad.support.sap.com/#/notes/2039619) to understand the possible supported combinations of Operating systems, Oracle products, and the storage solutions.
+- Azure Managed Disks and [Azure NetApp Files](/azure/virtual-machines/workloads/oracle/oracle-database-backup-strategies#azure-netapp-files) are the recommended storage solutions for Oracle databases on Azure. Refer [SAP Note – 2039619](https://launchpad.support.sap.com/#/notes/2039619) to understand the possible supported combinations of Operating systems, Oracle products, and the storage solutions.
 - Azure Files (In Preview), Azure Shared Disk, and Azure NetApp files can be used for shared file systems.
 - Oracle database is supported on both ASM and Non-ASM File systems on Azure.
 - Be aware of some of the [limitations](/azure/virtual-machines/disks-enable-ultra-ssd?tabs=azure-portal) of Azure Ultra SSD, when using Ultra SSD for database storage.
-- Azure NetApp files do not currently support Availability Zones.
+- Azure NetApp files does not currently support Availability Zones, but it does provide highly efficient storage based replication through [Cross region replication](https://docs.microsoft.com/azure/azure-netapp-files/cross-region-replication-introduction).
 
 ##### Recommendations
 
@@ -97,7 +99,8 @@ The architecture uses Azure-managed disks for Azure VM disks and Azure Files for
   - Enable write accelerator (for write caching) for all the log disks when using premium SSD with M series.
   - For production/performance critical SAP-on-Oracle deployment with E series VMs, use ultra SSD for log disks and can use premium SSD for data disks.
   - For non-prod systems/non-performance critical SAP-on-Oracle deployment, you can replace the Premium-managed disk with Standard SSD.
-- Can use [premium SSD performance tiering](/azure/virtual-machines/disks-performance-tiers-portal) to temporary increase the performance offerings from the premium SSD.
+- Can use [premium SSD performance tiering](/azure/virtual-machines/disks-performance-tiers-portal) to temporarily increase the performance offerings from the premium SSD.
+- Can use [Azure NetApp Files service levels](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-service-levels] to dynamically manage the performance level of the shared disks.
 
 ### Security
 
@@ -122,7 +125,7 @@ The overall solution is integrated into [Microsoft Defender for Cloud](/azure/se
 
 #### Recommendations
 
-- SAP whitepaper [Security Recommendations: A Practical Guide for Securing SAP® Solutions](https://www.sap.com/documents/2017/03/14cf06b2-af7c-0010-82c7-eda71af511fa.html) describes a good framework for SAP Solution Security.
+- SAP whitepaper [Security Recommendations: A Practical Guide for Securing SAP&reg; Solutions](https://www.sap.com/documents/2017/03/14cf06b2-af7c-0010-82c7-eda71af511fa.html) describes a good framework for SAP Solution Security.
 - Enable Single-Sign-On (SSO) for user authentication from SAPGUI and browser-based SAP access.
 - Use security hardened operating system images for provisioning Azure VMs. See the latest [CIS benchmarks](https://www.cisecurity.org/benchmark/azure/) for the latest recommendations.
 - Implement encryption-at-rest for:
@@ -186,7 +189,7 @@ The reference architecture uses Azure Backup for backing up Azure VMs and Oracle
 
 #### Considerations
 
-- There are multiple ways to perform SAP Oracle database backup on Azure. This includes traditional methods like SAP BRTools, Oracle RMAN, SAP Backint certified third-party backup solutions, Azure native PaaS solution, Azure Backup, and so on.
+- There are multiple ways to perform SAP Oracle database backup on Azure. This includes traditional methods like SAP BRTools, Oracle RMAN, SAP Backint certified third-party backup solutions, Azure native PaaS solution, Azure Backup, Azure NetApp FIles snapshots, and so on.
 - Azure Backup offers a simple, enterprise-grade solution for workloads running on virtual machines. For more information, see [Oracle database backup using Azure Backup](/azure/virtual-machines/workloads/oracle/oracle-database-backup-azure-backup?tabs=azure-portal).
 
 #### Recommendations
@@ -227,7 +230,7 @@ Here are some of the cost optimization measures that can be adopted to achieve c
 - Based on the system usage profile of different SAP systems of the landscape, such as Development, Test, Pre-Production and Production. Adopt compute cost optimization strategy by choosing either [Azure VM reservations or VM snoozing](https://azure.microsoft.com/resources/reduce-business-costs-by-snoozing-or-reserving-azure-virtual-machines/).
 - Consider using [Azure Hybrid Benefit](https://azure.microsoft.com/pricing/hybrid-benefit) to use pre-existing on-premises Windows Server, Red Hat, or SUSE licenses.
 
-- For a temporary increase (such as for finite duration) in storage performance without increasing the storage capacity, consider using [Performance tiering of Premium SSD](/azure/virtual-machines/disks-performance-tiers-portal) and Azure NetApp Files.
+- For a temporary increase (such as for finite duration) in storage performance without increasing the storage capacity, consider using [Performance tiering of Premium SSD](/azure/virtual-machines/disks-performance-tiers-portal) and Azure NetApp Files service levels.
 
 ## Next steps
 

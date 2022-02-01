@@ -117,9 +117,20 @@ Also, note that:
 
 ### Azure limitations
 
-The Azure Virtual Desktop service is scalable to more than 10,000 session hosts per workspace. You can address some Azure platform and Azure Virtual Desktop control plane limitations in the design phase to avoid changes in the scaling phase.
+Azure Virtual Desktop much like Azure has a number of service limitations that you need to be aware. You can address some of these limitations in the design phase to avoid changes in the scaling phase.
 
-- We recommend deploying not more than 5,000 VMs per Azure subscription per region, this recommendation applies to both personal and pooled host pools based on Windows 10 Enterprise single and multi-session. Most customers use Windows 10 Enterprise multi-session, which allows multiple users to log on to each VM. You can increase the resources of individual session host VMs to accommodate more user sessions.
+| Azure Virtual Desktop Object                        | Parent Container Object                         | Service Limit   |
+|-----------------------------------------------------|-------------------------------------------------|--------------------------------------------------|
+| Workspace                                           | Azure Active Directory Tenant                   | 1300 |
+| HostPool                                            | Workspace                                       | 400 |
+| Application group                                   | HostPool                                        | 500<sup>1</sup> |
+| RemoteApp                                           | Application group                               | 500 |
+| Role Assignment                                     | Any AVD Object                                  | 200 |
+| Session Host                                        | HostPool                                        | 10,000 |
+
+<sup>1</sup>If you require over 500 Application groups then please raise a support ticket via the Azure portal.
+
+- We recommend deploying no more than 5,000 VMs per Azure subscription per region, this recommendation applies to both personal and pooled host pools based on Windows Enterprise single and multi-session. Most customers use Windows Enterprise multi-session, which allows multiple users to log on to each VM. You can increase the resources of individual session host VMs to accommodate more user sessions.
 - For automated session host scaling tools, the limits are around 2,500 VMs per Azure subscription per region, because VM status interaction consumes more resources.
 - To manage enterprise environments with more than 5,000 VMs per Azure subscription in the same region, you can create multiple Azure subscriptions in a hub-spoke architecture and connect them via virtual network peering, as in the preceding example architecture. You could also deploy VMs in a different region in the same subscription to increase the number of VMs.
 - Azure Resource Manager (ARM) subscription API throttling limits don't allow more than 600 Azure VM reboots per hour via the Azure portal. You can reboot all your machines at once via the operating system, which doesn't consume any Azure Resource Manager subscription API calls. For more information about counting and troubleshooting throttling limits based on your Azure subscription, see [Troubleshoot API throttling errors](/azure/virtual-machines/troubleshooting/troubleshooting-throttling-errors).

@@ -212,7 +212,7 @@ For other cost considerations, see the Cost section in [Microsoft Azure Well-Arc
 
 [0]: ./_images/conversational-bot.png
 [aad]: /azure/active-directory
-[aaf-cost]: ../../framework/cost/overview.md
+[aaf-cost]: /azure/architecture/framework/cost/overview
 [activities]: /azure/bot-service/rest-api/bot-framework-rest-connector-concepts#activity
 [aml]: /azure/machine-learning/service
 [app-insights]: /azure/azure-monitor/app/app-insights-overview

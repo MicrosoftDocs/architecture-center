@@ -125,6 +125,6 @@ You can use the following sample code to save the down-sampled data to a file an
 
 ## The Team Data Science Process in Action example
 
-To walk through an example of the Team Data Science Process a using a public dataset, see [Team Data Science Process in Action: using SQL Server](sql-walkthrough.md).
+To walk through an example of the Team Data Science Process a using a public dataset, see [Team Data Science Process in Action: using SQL Server](/azure/architecture/data-science-process/overview).
 
 [import-data]: /azure/machine-learning/studio-module-reference/import-data
