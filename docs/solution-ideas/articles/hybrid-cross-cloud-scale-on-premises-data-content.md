@@ -83,7 +83,7 @@ It's important to think about how to handle networking or power failures. For in
 
   - Assign permissions to the app identity that are different from user permissions and that are restricted to the app's needs.
   - Use a certificate for authentication when you run an unattended script.
-  For more information about service principal creation and using a certificate for credentials, see [Use an app identity to access resources](/active-directory/develop/howto-create-service-principal-portal).
+  For more information about service principal creation and using a certificate for credentials, see [Use an app identity to access resources](/azure/active-directory/develop/howto-create-service-principal-portal).
 
 - **A single, consistent identity management solution.** Azure Stack Hub works with both Azure Active Directory (Azure AD) and Active Directory Federation Services (AD FS). It works with Azure AD in connected scenarios. For environments that don't have connectivity, you can use AD FS as a disconnected solution. Service principals are used to grant access to apps, allowing them to deploy or configure resources through Azure Resource Manager.
 
