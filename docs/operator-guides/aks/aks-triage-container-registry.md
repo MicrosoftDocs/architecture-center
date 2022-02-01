@@ -26,7 +26,7 @@ If you are using Azure Container Registry (ACR), the cluster service principal o
 
 One way is to run this command using the managed identity of the AKS cluster node pool. This command gets a list of its permissions.
 
-```bash
+```azurecli
 # Get Kubelet Identity (Nodepool MSI)
 ASSIGNEE=$(az aks show -g $RESOURCE_GROUP -n $NAME --query identityProfile.kubeletidentity.clientId -o tsv)
 az role assignment list --assignee $ASSIGNEE --all -o table
