@@ -9,7 +9,7 @@ You can use this solution to:
 - Gain better insights from your customer data. 
 - Target sources of customer churn or dissatisfaction.
 - Direct account and customer service activities.
-- Run targeted promotions aimed at customer retention or upselling.
+- Run targeted promotions that are aimed at customer retention or upselling.
 
 ## Architecture
 ![Diagram that shows an architecture for a Customer 360 solution that uses Azure Synapse Analytics and Dynamics 365 Customer Insights.](./media/customer-360.png)
@@ -56,7 +56,7 @@ To deploy this solution, follow the steps in the [Getting Started guide](https:/
 
 [Azure Synapse Analytics](https://azure.microsoft.com/pricing/details/synapse-analytics) has various pricing options to help you optimize costs. You can perform big data processing tasks like data engineering, data preparation, and machine learning directly in Azure Synapse by using memory-optimized or hardware-accelerated Apache Spark pools. Billing for usage of Spark pools is rounded up to the nearest minute.
 
-[Azure Machine Learning](https://azure.microsoft.com/pricing/details/machine-learning/#pricing) has no additional license charge. However, there are charges for compute and other Azure services consumed, including but not limited to Azure Blob Storage, Azure Key Vault, Azure Container Registry, and Application Insights.
+[Azure Machine Learning](https://azure.microsoft.com/pricing/details/machine-learning/#pricing) has no additional license charge. However, there are charges for compute and other Azure services that you consume, including but not limited to Azure Blob Storage, Azure Key Vault, Azure Container Registry, and Application Insights.
 
 There are various [Power BI](https://powerbi.microsoft.com/pricing) product options to meet different requirements. [Power BI Embedded](https://azure.microsoft.com/pricing/details/power-bi-embedded) provides an Azure-based option for embedding Power BI functionality in your applications. 
 
@@ -67,7 +67,7 @@ You can deploy this solution with the following options.
    - Compute instance of type Standard_DS11_v2
    - Compute cluster of type Standard_D2_v2
 
-Azure services like Azure Storage accounts, Key Vault, Container Registry, Application Insights, and so on, that are deployed with Azure Synapse Analytics and Azure Machine Learning will incur other costs.
+Azure services like Azure Storage accounts, Key Vault, Container Registry, Application Insights, and so on, that are deployed with Azure Synapse Analytics and Azure Machine Learning incur other costs.
 
 ## Next steps
 - [Unlock customer intent with Dynamics 365 Customer Insights](/learn/paths/build-customer-insights)

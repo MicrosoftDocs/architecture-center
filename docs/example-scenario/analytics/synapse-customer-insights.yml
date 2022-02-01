@@ -2,7 +2,7 @@
 metadata:
   title: Customer 360 with Azure Synapse and Dynamics 365 Customer Insights 
   titleSuffix: Azure Example Scenarios
-  description: Build an end-to-end Customer 360 solution using by Azure Synapse Analytics and Dynamics 360 Customer Insights.
+  description: Build an end-to-end Customer 360 solution by using Azure Synapse Analytics and Dynamics 360 Customer Insights.
   author: nchandhi 
   ms.author: nachandh 
   ms.date: 02/02/2022
@@ -10,7 +10,7 @@ metadata:
   ms.service: architecture-center
   ms.subservice: example-scenario
 azureCategories:
-  -  analytics
+  - analytics
   - ai-machine-learning
 products:
   - dynamics-cust-insights
@@ -18,7 +18,7 @@ products:
   - azure-machine-learning
   - power-bi
 name: Customer 360 with Azure Synapse and Dynamics 365 Customer Insights
-summary: Build an end-to-end Customer 360 solution using by Azure Synapse Analytics and Dynamics 360 Customer Insights.
+summary: Build an end-to-end Customer 360 solution by using Azure Synapse Analytics and Dynamics 360 Customer Insights.
 thumbnailUrl: /azure/architecture/browse/thumbs/customer-360-architecture.png
 content: |
   [!include[](synapse-customer-insights-content.md)]
