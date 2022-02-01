@@ -1,4 +1,4 @@
-Retailers and consumer brands are focused on ensuring they have the right products and services that consumers seek to purchase within the marketplace. It is also fair to say, that when looking at maximizing sales, products (or combinations of products) are the major part of the shopping experience. The availability of offerings—inventory—is a constant concern for consumer brands.
+Retailers and consumer brands are focused on ensuring they have the right products and services that consumers seek to purchase within the marketplace. When looking at maximizing sales, products (or combinations of products) are the major part of the shopping experience. The availability of offerings—inventory—is a constant concern for consumer brands.
 
 Product inventory, also known as SKU assortment, is a complex topic that spans the supply and logistics value chain. For this document, we focus specifically on the problem of optimizing SKU assortment to maximize revenue from a consumer goods point of view. The puzzle of SKU assortment optimization can be solved by developing algorithms to answer the following questions:
 
@@ -9,9 +9,9 @@ Product inventory, also known as SKU assortment, is a complex topic that spans t
 
 ## Automate decision making
 
-Traditionally, consumer brands approached consumer demand by increasing the number of SKUs in the SKU portfolio. As the number of SKUs ballooned, and competition increased, it is estimated that 90 percent of revenue is attributed to only 10 percent of product SKUs within the portfolio. Typically, 80 percent of revenue accrues from 20 percent of SKUs. And this ratio is a candidate for improving profitability. 
+Traditionally, consumer brands approached consumer demand by increasing the number of SKUs in the SKU portfolio. As the number of SKUs ballooned, and competition increased, it's estimated that 90 percent of revenue is attributed to only 10 percent of product SKUs within the portfolio. Typically, 80 percent of revenue accrues from 20 percent of SKUs. And this ratio is a candidate for improving profitability. 
 
-Traditional methods of static reporting leverage historical data—which limits insights. At best, decisions are still manually made and implemented. This means human intervention and processing time. With the advancements of artificial intelligence (AI) and cloud computing, it is possible to use advanced analytics to a provide a range of choices and predictions. This kind of automation improves results and speed-to-customer.
+Traditional methods of static reporting leverage historical data—which limits insights. At best, decisions are still manually made and implemented. This means human intervention and processing time. With the advancements of artificial intelligence (AI) and cloud computing, it's possible to use advanced analytics to a provide a range of choices and predictions. This kind of automation improves results and speed-to-customer.
 
 ## SKU assortment optimization
 
@@ -28,7 +28,7 @@ Descriptive models aggregate data points and explore relationships among factors
 
 A traditional data warehousing and reporting approach is sufficient in this case to understand, for instance, what SKUs have been the best and worst performers over a period of time.
 
-The figure below shows a typical report of historical data—sales data. It features several blocks with check boxes to select criteria to filter the results. The center shows two bar charts that show sales over time. The first chart shows the average sales by week; the second shows quantities by week.
+The following figure shows a typical report of historical data—sales data. It features several blocks with check boxes to select criteria to filter the results. The center shows two bar charts that show sales over time. The first chart shows the average sales by week; the second shows quantities by week.
 
  ![Dashbord example showing historical sales data.](./images/sku-optimization-solution-guide/sku-max-model.png)
   
@@ -57,7 +57,7 @@ Assortment optimization means finding a subset of products to put on sale that w
 
 Unfortunately, such data isn’t collected as reliably as transaction data. 
 
-In this document, for simplicity we will only consider transaction data and SKU data, not external factors.
+In this document, for simplicity we'll only consider transaction data and SKU data, not external factors.
 
 Even so note that, given a set of n products, there are 2n possible assortments. This makes the optimization problem a computationally intensive process. Evaluating all possible combinations is impractical with a large number of products. So typically, assortments are segmented by category (for example, cereals), location and other criteria to reduce the number of variables. Optimization models try to “prune” the number of permutations to a workable subset.
 
@@ -67,28 +67,28 @@ Mathematical models to predict consumers’ choice have been developed over the 
 
 ## Parametric Models
 
-Parametric models approximate customer behavior by using a function with a finite set of parameters. We estimate the set of parameters to best fit the data at our disposal. One of the oldest and best known is [Multinomial Logistic Regression](https://en.wikipedia.org/wiki/Multinomial_logistic_regression) (aka MNL, multi-class logit, or softmax regression). It is used to compute the probabilities of several possible outcomes in classification problems. In this case, you can use MNL to compute:
+Parametric models approximate customer behavior by using a function with a finite set of parameters. We estimate the set of parameters to best fit the data at our disposal. One of the oldest and best known is [Multinomial Logistic Regression](https://en.wikipedia.org/wiki/Multinomial_logistic_regression) (also known as MNL, multi-class logit, or softmax regression). It's used to compute the probabilities of several possible outcomes in classification problems. In this case, you can use MNL to compute:
 
 - The probability that a consumer (c) chooses an item (i) at a specific time (t), given a set of items of that category in an assortment (a) with a known utility to the customer (v). 
 
 We also assume that the utility of an item can be a function of its features. External information may also be included in the measure of utility (for example, an umbrella is more useful when it rains).
 
-We often use MNL as a benchmark for other models because of its tractability in estimation of parameters and evaluation of results. In other words, if you do worse than MNL, your algorithm is of no use.
-Several models have been derived from MNL, but it is beyond the scope of this paper to discuss them. 
+We often use MNL as a benchmark for other models because of its tractability when estimating parameters and when evaluating results. In other words, if you do worse than MNL, your algorithm is of no use.
+Several models have been derived from MNL, but it's beyond the scope of this paper to discuss them. 
 
-There are libraries for the R and Python programming languages. For R, you might use glm (and derivatives).  For Python, there are [scikit-learn](http://scikit-learn.org/stable/), [biogeme](http://biogeme.epfl.ch/), and [larch](https://pypi.org/project/larch/). These libraries offer tools to specify MNL problems, and parallel solvers to find solutions on a variety of platforms.
+There are libraries for the R and Python programming languages. For R, you might use glm (and derivatives).  For Python, there are [scikit-learn](http://scikit-learn.org/stable), [biogeme](http://biogeme.epfl.ch/), and [larch](https://pypi.org/project/larch/). These libraries offer tools to specify MNL problems, and parallel solvers to find solutions on a variety of platforms.
 
 Most recently, implementation of MNL models on GPUs have been proposed to compute complex models with a number of parameters that would make them intractable otherwise.
 
-Neural networks with a softmax output layer have been used effectively on large multi-class problems. These networks produce a vector of outputs that represent a probability distribution over a number of different outcomes. They are slow to train compared to other implementations, but can handle a large number of classes and parameters. 
+Neural networks with a softmax output layer have been used effectively on large multi-class problems. These networks produce a vector of outputs that represent a probability distribution over a number of different outcomes. They're slow to train compared to other implementations, but can handle a large number of classes and parameters. 
 
 ## Non-Parametric Models
 
 Despite its popularity, MNL places some significant assumptions on human behavior that may limit its usefulness. In particular, it assumes that the relative probability of someone choosing between two options is independent of additional alternatives introduced in the set later. That is impractical in most cases.
 
-For instance, if you like product "A” and product “B” equally, you will choose one over the other 50% of the time. Let’s introduce product “C” to the mix. You may still choose “A” 50% of the time, but now you split your preference 25% to “B” and 25% to “C.” The relative probability has changed.
+For instance, if you like product "A” and product “B” equally, you'll choose one over the other 50% of the time. Let’s introduce product “C” to the mix. You may still choose “A” 50% of the time, but now you split your preference 25% to “B” and 25% to “C.” The relative probability has changed.
 
-Also, MNL and derivatives have no simple way to account for substitution due to stock-out or assortment variety (that is, when you have no clear idea and pick a random item among those on the shelf).
+Also, MNL and derivatives have no simple way to account for substitution, due to stock-out or assortment variety (that is, when you have no clear idea and pick a random item among those on the shelf).
 Non-parametric models are designed to account for substitution and impose fewer constraints on customer behavior. 
 
 They introduce the concept of “ranking”—where consumers express a strict preference for products in an assortment. Their purchasing behavior can therefore be modelled by sorting the products in descending order of preference. 
@@ -97,31 +97,31 @@ The assortment optimization problem can be expressed as maximization of revenue:
 
 <center><img src="/images/sku-optimization-solution-guide/assortment-optimization-problem.png" width="150"/></center>
  
-- $r_i$ denotes the revenue of product i 
-- $y_i^k$ is 1 if the product i is chosen in ranking k, 0 otherwise  
-- $\lambda_k$ is the probability that the customer makes a choice according to ranking k
-- $x_i$ is 1 if the product is included in the assortment, 0 otherwise
-- K is the number of rankings 
-- n is the number of products
+- _$r_i$_ denotes the revenue of product _i_.
+- _ $y_i^k$_ is 1 if the product _i_ is chosen in ranking _k_. Otherwise it's 0.  
+- _$\lambda_k$_ is the probability that the customer makes a choice according to ranking _k_.
+- _ $x_i$_ is 1, if the product is included in the assortment. Otherwise it's 0.
+- _K_ is the number of rankings.
+- _n_ is the number of products.
 
-subject to constraints:
+Subject to constraints:
 
-- there can be exactly 1 choice for each ranking
-- under a ranking k, a product i can be chosen only if it is part of the assortment
-- if a product i is included in the assortment, none of the less preferable options in ranking k can be chosen 
-- no-purchase is an option, and as such none of the less preferable options in a ranking can be chosen
+- There can be exactly 1 choice for each ranking.
+- Under a ranking _k_, a product _i_ can be chosen only if it's part of the assortment.
+- If a product _i_ is included in the assortment, none of the less preferable options in ranking _k_ can be chosen.
+- No-purchase is an option, and as such none of the less preferable options in a ranking can be chosen.
 
 In such a formulation, the problem can be regarded as a [mixed-integer optimization](https://en.wikipedia.org/wiki/Integer_programming).
 
 Let us consider that if there are n products, the maximum number of possible rankings, including the no-choice option, is factorial: (n+1)!
 
-Although the constraints in the formulation allow for a relatively efficient pruning of the possible    options (for instance only the most preferable option is chosen and set to 1, the rest are set to 0), you can imagine that scalability of the implementation will be important, given the number of possible alternatives.
+The constraints in the formulation allow for a relatively efficient pruning of the possible options. (For example, only the most preferable option is chosen and set to 1. The rest are set to 0.) You can imagine that the scalability of the implementation will be important, given the number of possible alternatives.
 
 ### The importance of data
 
 We mentioned before that sales data are readily available. We want to use them to inform our assortment optimization model. In particular, we want to find our probability distribution λ.
 
-The sales data from the point of sales system will consist of transactions with time stamps and of a set of products shown to customers at that time and location. From those, we can construct a vector of actual sales, whose elements vi,m represent the probability of selling item i to a customer given an assortment $S_m$
+The sales data from the point-of-sales system will consist of transactions with time stamps and of a set of products shown to customers at that time and location. From those, we can construct a vector of actual sales, whose elements vi,m represent the probability of selling item i to a customer given an assortment $S_m$
 
 We can also construct a matrix:
 
@@ -135,7 +135,7 @@ Note that the computation can also be expressed as a regression, and as such, mo
 
 ## Implementation Details
 
-As we can deduct from the formulation above, optimization models are both data-driven and computation-intensive.
+As we can deduct from the previous formulation, optimization models are both data-driven and computation-intensive.
 
 Microsoft partners, such as Neal Analytics, have developed robust architectures to satisfy those conditions. See [SKU Max](https://appsource.microsoft.com/product/web-apps/neal_analytics.8066ad01-1e61-40cd-bd33-9b86c65fa73a?tab=Overview?WT.mc_id=invopt-article-gmarchet). We’ll use those architectures as an example and offer a few considerations.
 
@@ -164,7 +164,7 @@ In the capture phase, we can leverage the copy activity (built-in to Data Factor
 - [Copy data to or from Azure SQL DW](/azure/data-factory/connector-azure-sql-data-warehouse?WT.mc_id=invopt-article-gmarchet)
 - [Load Data into Azure SQL DW](/azure/data-factory/load-azure-sql-data-warehouse?WT.mc_id=invopt-article-gmarchet)
 
-The figure below shows the definition of a pipeline. It consists of three equally-sized three blocks in a row. The first two are a data set and an activity connected by arrows to indicate data flows. The third block is labeled “pipeline” and simply points to the first two to indicate encapsulation. 
+The following figure shows the definition of a pipeline. It consists of three equally-sized three blocks in a row. The first two are a data set and an activity connected by arrows to indicate data flows. The third block is labeled “pipeline” and simply points to the first two to indicate encapsulation. 
 
  ![Azure Data Factory concepts: datasets consumed by pipeline of activities.](./images/sku-optimization-solution-guide/azure-data-factory.png)<center><font size="1">_Figure 3: Basic concepts of  Azure Data Factory_</font></center>
 
@@ -175,7 +175,7 @@ An example of the data format that is used by Neal Analytics’ solution can be 
 - SKU codes and description
 - SKU attributes that capture features of the products (for example, size, material). These are typically used in parametric models to differentiate between product variants.
 
-If the data sources are not expressed in the particular format, Data Factory offers a series of transformation activities. 
+If the data sources aren't expressed in the particular format, Data Factory offers a series of transformation activities. 
 
 In the process phase, SQL Data Warehouse is the main storage engine. Therefore, you may want to express such a transformation activity as a SQL stored procedure, which can be automatically invoked as part of the pipeline. The documentation provides detailed instructions:
 
@@ -191,7 +191,7 @@ There are several tools that will help you implement parametric and non-parametr
 
 However, the data size it can handle is limited to 10 GB (for now) and the number of cores available to each component is also limited to 2 (for now).
 
-The figure below shows an example of the ML studio in use. It is a graphical representation of a machine learning experiment. The figure shows several groups of blocks. Each set of blocks represents some stage in the experiment, and each block is connected to one or more blocks to indicate data input and output.
+The following figure shows an example of the ML studio in use. It's a graphical representation of a machine learning experiment. The figure shows several groups of blocks. Each set of blocks represents some stage in the experiment, and each block is connected to one or more blocks to indicate data input and output.
 
 ![Example of machine learning studio in use.](./images/sku-optimization-solution-guide/ml-training-pipeline-example.png)<center><font size="1">_Figure 4: example of ML training pipeline with R and pre-built components_</font></center>
 
@@ -199,17 +199,17 @@ If you need to scale further but still want to use some of Microsoft’s fast, p
 
 For very large data sizes (TBs), it makes sense to choose a platform where the storage and the computation element can:
 
-- Scale independently, to limit costs when you are not training the models.
+- Scale independently, to limit costs when you aren't training the models.
 - Distribute the computation across multiple cores.
 - Run the computation “close” to the storage to limit data movement.
 
-Azure [HDInsight](https://azure.microsoft.com/services/hdinsight/?WT.mc_id=invopt-article-gmarchet) and [Databricks](https://azure.microsoft.com/services/databricks/?WT.mc_id=invopt-article-gmarchet) both satisfy those requirements. In addition, they are both execution platforms supported within the Azure Data Factory editor. It is relatively simple to integrate either one in a workflow.
+Azure [HDInsight](https://azure.microsoft.com/services/hdinsight/?WT.mc_id=invopt-article-gmarchet) and [Databricks](https://azure.microsoft.com/services/databricks/?WT.mc_id=invopt-article-gmarchet) both satisfy those requirements. In addition, they're both execution platforms supported within the Azure Data Factory editor. It's relatively simple to integrate either one in a workflow.
 
 ML Server and its libraries can be deployed on top of HDInsight, but to take full advantage of the platform capabilities, you may want to implement your ML algorithm of choice using the SparkML , Microsoft ML Spark libraries in Python, or other specialist linear programming solvers such as TFoCS, Spark-LP or SolveDF. 
 
 Starting the training process then becomes a question of invoking the appropriate pySpark script or notebook from a Data Factory workflow. This is fully supported in the graphical editor. For more details, please see [Run a Databricks notebook with the Databricks Notebook Activity in Azure Data Factory](/azure/data-factory/transform-data-using-databricks-notebook?WT.mc_id=invopt-article-gmarchet).
 
-The figure below shows the Data Factory user interface, as accessed through the Azure portal. It includes blocks for the various processes in the workflow. 
+The following figure shows the Data Factory user interface, as accessed through the Azure portal. It includes blocks for the various processes in the workflow. 
 
 ![Data Factory interface showing databricks notebook activity.](./images/sku-optimization-solution-guide/data-factory-pipeline-databricks.png)<center><font size="1">_Figure 5: example of Data Factory pipeline with Databricks notebook activity_</font></center>
 
@@ -223,7 +223,7 @@ Although more complex than those suggested so far, this technique allows for max
 
 Once the model has been trained, running it typically requires a different infrastructure than the one used for deployment. In order to make it easily consumable, you may opt to deploy it as a web service with a REST interface. Both Azure ML Studio and ML Server automate the process of creating such services. In the case of ML Server, we provide templates for deployment of a supporting infrastructure. Please see the relevant [documentation](/machine-learning-server/what-is-operationalization?WT.mc_id=invopt-article-gmarchet).
 
-The figure below shows the architecture of the deployment. It includes representations of servers running the R language and Python. Both servers communicate to a sub section of web nodes that perform computation. A large data store is connected to the computation block.
+The following figure shows the architecture of the deployment. It includes representations of servers running the R language and Python. Both servers communicate to a sub section of web nodes that perform computation. A large data store is connected to the computation block.
 
 ![ML server deployment diagram. Load balancer before multiple nodes for execution.](./images/sku-optimization-solution-guide/ml-server-deployment-example.png)<center><font size="1">_Figure 6: example of ML server deployment_</font></center>
 
@@ -238,9 +238,9 @@ To use containers, you can package your models and deploy them on Azure Kubernet
 
 Once deployed, the model will be able to process financial transaction workflows and stock readings to generate optimal assortment predictions. The data thus produced can be stored back into Azure SQL Data Warehouse for further analysis. In particular, it will be possible to study historical performance of various SKUs, identifying the best revenue generators and the loss-makers. You’ll then be able to compare those against the assortments suggested by the models and evaluate performance, and the need for re-training.
 
-[PowerBI](https://powerbi.microsoft.com/get-started/?&OCID=AID719832_SEM_uhlWLg3x&lnkd=Google_PowerBI_Brand&gclid=CjwKCAjw5ZPcBRBkEiwA-avvkyOLMJCrhqH8iac84aLX7EcUQIirSSqUCostzGi8y_XntJTCD73ZixoCQ4sQAvD_BwE?WT.mc_id=invopt-article-gmarchet) provides a way to analyze and display the data produced in the process. 
+[Power BI](https://powerbi.microsoft.com/get-started/?&OCID=AID719832_SEM_uhlWLg3x&lnkd=Google_PowerBI_Brand&gclid=CjwKCAjw5ZPcBRBkEiwA-avvkyOLMJCrhqH8iac84aLX7EcUQIirSSqUCostzGi8y_XntJTCD73ZixoCQ4sQAvD_BwE?WT.mc_id=invopt-article-gmarchet) provides a way to analyze and display the data produced in the process. 
 
-The figure below shows a typical Power BI dashboard. It includes two graphs that show SKU stock information. 
+The following figure shows a typical Power BI dashboard. It includes two graphs that show SKU stock information. 
 
 ![Example of a dashboard showing results over 12 months.](./images/sku-optimization-solution-guide/sku-max-model.png)<center><font size="1">_Figure 7: example of model results report—courtesy of Neal Analytics_</font></center>
 
@@ -270,7 +270,7 @@ The following technologies were featured in this article:
 - [Microsoft ML Server](/machine-learning-server/what-is-machine-learning-server?WT.mc_id=invopt-article-gmarchet)
 - [Azure Data Science VM](https://azure.microsoft.com/services/virtual-machines/data-science-virtual-machines/?WT.mc_id=invopt-article-gmarchet)
 - [Azure Kubernetes Service](https://azure.microsoft.com/services/kubernetes-service/?WT.mc_id=invopt-article-gmarchet)
-- [Microsoft PowerBI](https://powerbi.microsoft.com/?WT.mc_id=invopt-article-gmarchet)
+- [Microsoft Power BI](https://powerbi.microsoft.com/?WT.mc_id=invopt-article-gmarchet)
 - [Pyomo Optimization Modelling Language](http://www.pyomo.org/)
 - [Bonmin Solver](https://projects.coin-or.org/Bonmin)
 - [TFoCS solver for Spark](https://github.com/databricks/spark-tfocs)
