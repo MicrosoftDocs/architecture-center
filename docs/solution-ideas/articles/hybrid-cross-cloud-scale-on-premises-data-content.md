@@ -4,7 +4,7 @@ This solution demonstrates how to build a hybrid app that spans Azure and Azure 
 
 Many organizations collect and store massive amounts of sensitive customer data.  They're frequently prevented from storing sensitive data in the public cloud because of corporate regulations or government policy, but they might want to take advantage of the scalability of the public cloud. The public cloud can handle seasonal peaks in traffic, allowing organizations to pay for exactly the hardware they need, when they need it.
 
-The solution takes advantage of the compliance benefits of the private cloud and combines them with the scalability of the public cloud. The Azure and Azure Stack Hub hybrid cloud provide a consistent experience for developers. This consistency lets them apply their skills to both public cloud and on-premises environments.
+The solution takes advantage of the compliance benefits of the private cloud and combines them with the scalability of the public cloud. The Azure and Azure Stack Hub hybrid cloud provides a consistent experience for developers. This consistency lets them apply their skills to both public cloud and on-premises environments.
 
 This solution allows you to deploy an identical web app to a public and private cloud. You can also access a non-internet routable network that's hosted on the private cloud.
 
@@ -15,7 +15,7 @@ This solution is applicable in scenarios like these:
 - Your organization uses a DevOps approach or plans to use one in the near future.
 - You want to implement continuous integration and continuous delivery (CI/CD) practices across an Azure Stack Hub implementation and the public cloud.
 - You want to consolidate the CI/CD pipeline across cloud and on-premises environments.
-- You want to be able to develop apps seamlessly, by using cloud or on-premises services.
+- You want to be able to develop apps by using cloud or on-premises services.
 - You want skills required by developers to be consistent across cloud and on-premises apps.
 - You're using Azure but have developers who are working in an on-premises Azure Stack Hub cloud.
 - Your on-premises apps experience spikes in demand during seasonal, cyclical, or unpredictable fluctuations.
@@ -47,7 +47,7 @@ _Download a [Visio file](https://arch-center.azureedge.net/hybrid-cross-cloud-sc
   - A virtual network gateway, which acts as a site-to-site VPN gateway connection.
   - A public IP address.
   - A point-to-site VPN connection.
-  - Azure DNS for hosting DNS domains and providing name resolution.
+  - Azure DNS to host DNS domains and provide name resolution.
 
 - [Traffic Manager](https://azure.microsoft.com/services/traffic-manager) is a DNS-based traffic load balancer. You can use it to control the distribution of user traffic for service endpoints in different datacenters.
 - [Application Insights](https://azure.microsoft.com/services/monitor) is an extensible application performance management service for web developers who build and manage apps on multiple platforms.
@@ -100,7 +100,7 @@ See additional guidance in the [Release engineering](/azure/architecture/framewo
 
 ### Performance efficiency
 
-Azure and Azure Stack Hub support the needs of today's globally distributed business.
+Azure and Azure Stack Hub support the needs of globally distributed businesses.
 
 - **Easy-to-manage hybrid cloud.** Microsoft provides integration of on-premises assets with Azure Stack Hub and Azure in one unified solution. This integration eliminates the challenge of managing multiple point solutions and a mix of cloud providers. With cross-cloud scaling, just connect your Azure Stack Hub to Azure with [cloud bursting](https://azure.microsoft.com/overview/what-is-cloud-bursting) and your data and apps will be available in Azure.
 
@@ -115,7 +115,7 @@ Azure and Azure Stack Hub support the needs of today's globally distributed busi
 
 ## Next steps
 
-- Watch [Dynamically scale apps between datacenters and public cloud](https://www.youtube.com/watch?v=2lw8zOpJTn0) for an overview of this architecture.
+- Watch [Dynamically scale apps between datacenters and public cloud](https://www.youtube.com/watch?v=2lw8zOpJTn0) for an overview of a similar architecture.
 - See [Hybrid app design considerations](/hybrid/app-solutions/overview-app-design-considerations) to learn more about best practices.
 - Learn about the entire [Azure Stack portfolio](/azure-stack) of products and solutions.
 - [Sign up and sign in to Azure DevOps](/azure/devops/user-guide/sign-up-invite-teammates) to set up continuous integration for build, test, and deployment.
