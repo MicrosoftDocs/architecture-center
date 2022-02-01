@@ -1,6 +1,6 @@
 [!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
-This solution shows how to extend an app that's located in a local cloud by connecting it to public cloud resources. Routing is triggered by an increase or decrease in demand, and adds or removes resources in the cloud. These resources provide redundancy, rapid availability, and geo-compliant routing.
+This solution shows how to use Azure Traffic Manager to extend an app that's located in a local cloud by connecting it to public cloud resources. A change in routing is triggered by an increase or decrease in demand, and resources are added or removed in the cloud. These resources provide redundancy, rapid availability, and geo-compliant routing.
 
 ## Potential use cases
 
@@ -24,7 +24,7 @@ We don't recommend this solution when:
 ## Architecture
 
 ![Diagram that shows an architecture for hybrid cross-cloud scaling.](../media/hybrid-cross-cloud-scaling.png)  
-_Download a [Visio file](https://arch-center.azureedge.net/hybrid-cross-cloud-scaling.vsdx) of this architecture._
+_Download an [SVG file](https://arch-center.azureedge.net/cross-cloud-scaling.svg) of this architecture._
 
 ### Dataflow
 
@@ -67,9 +67,9 @@ The key benefit of cross-cloud scaling is the ability to deliver on-demand scali
 ## Next steps
 
 - See the [Azure Traffic Manager documentation](/azure/traffic-manager/traffic-manager-overview) to learn more about how this DNS-based traffic load balancer works.
-- See [Hybrid application design considerations](https://docs.microsoft.com/hybrid/app-solutions/overview-app-design-considerations) to learn more about best practices.
+- See [Hybrid application design considerations](/hybrid/app-solutions/overview-app-design-considerations) to learn more about best practices.
 - Learn about the [Azure Stack portfolio of products and solutions](/azure-stack).
-- When you're ready to deploy this solution, use the [Cross-cloud scaling solution deployment guide](/azure/architecture/hybrid/deployments/solution-deployment-guide-cross-cloud-scaling). The deployment guide provides step-by-step instructions for deploying and testing the solution's components. 
+- When you're ready to deploy this solution, use the [Cross-cloud scaling solution deployment guide](/../../hybrid/deployments/solution-deployment-guide-cross-cloud-scaling.md). It provides step-by-step instructions for deploying and testing the solution's components. 
 
 ## Related resources
 
