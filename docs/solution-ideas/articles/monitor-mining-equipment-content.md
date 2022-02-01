@@ -64,7 +64,7 @@ Information about the Delta Lake open-source project for building a Lakehouse ar
 See the following related database architectural guidance:
 
 - [Azure Data Architecture Guide](../../data-guide/index.md)
-- [Non-relational data and NoSQL](../../data-guide/big-data/non-relational-data.md)
+- [Non-relational data and NoSQL](../../data-guide/big-data/non-relational-data-content.md)
 - [Big data architectures](../../data-guide/big-data/index.md)
 - [Batch processing](../../data-guide/big-data/batch-processing.md)
 - [Choosing a batch processing technology in Azure](../../data-guide/technology-choices/batch-processing.md)

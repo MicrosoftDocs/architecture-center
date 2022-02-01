@@ -172,4 +172,4 @@ Consider these patterns in your design for choreography.
 
 - Use [compensating transactions](./compensating-transaction.md) to undo a series of successful operations in case one or more related operation fails.
 
-- For information about using a message broker in a messaging infrastructure, see [Asynchronous messaging options in Azure](../guide/technology-choices/messaging.md).
+- For information about using a message broker in a messaging infrastructure, see [Asynchronous messaging options in Azure](../guide/technology-choices/messaging-content.md).

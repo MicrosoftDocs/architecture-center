@@ -115,7 +115,7 @@ One example of prebuilt AI might be a pretrained model that can be incorporated 
 
 - [Choosing a Microsoft Cognitive Services technology](../../data-guide/technology-choices/cognitive-services.md)
 
-- [Choosing a natural language processing technology in Azure](../../data-guide/technology-choices/natural-language-processing.md)
+- [Choosing a natural language processing technology in Azure](../../data-guide/technology-choices/natural-language-processing-content.md)
 
 #### Prebuilt AI models in AI Builder
 
@@ -301,7 +301,7 @@ This is an AI-powered cloud search service for mobile and web app development. T
 
 - [Azure Cognitive Search documentation overview](/azure/search/)
 
-- [Choosing a natural language processing technology in Azure](../../data-guide/technology-choices/natural-language-processing.md)
+- [Choosing a natural language processing technology in Azure](../../data-guide/technology-choices/natural-language-processing-content.md)
 
 - [Quickstart: Create an Azure Cognitive Search cognitive skill set in the Azure portal](/azure/search/cognitive-search-quickstart-blob)
 

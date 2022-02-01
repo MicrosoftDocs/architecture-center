@@ -61,4 +61,4 @@ This model is especially useful in the following scenarios:
 ## Related resources
 
 - [Publisher-Subscriber pattern](../../patterns/publisher-subscriber.md)
-- [Asynchronous messaging options in Azure](../../guide/technology-choices/messaging.md)
+- [Asynchronous messaging options in Azure](../../guide/technology-choices/messaging-content.md)

@@ -51,7 +51,7 @@ Extract, load, and transform (ELT) differs from ETL solely in where the transfor
 
 Typical use cases for ELT fall within the big data realm. For example, you might start by extracting all of the source data to flat files in scalable storage, such as a Hadoop distributed file system, an Azure blob store, or Azure Data Lake gen 2 (or a combination). Technologies, such as Spark, Hive, or Polybase, can then be used to query the source data. The key point with ELT is that the data store used to perform the transformation is the same data store where the data is ultimately consumed. This data store reads directly from the scalable storage, instead of loading the data into its own proprietary storage. This approach skips the data copy step present in ETL, which often can be a time consuming operation for large data sets.
 
-In practice, the target data store is a [data warehouse](./data-warehousing.md) using either a Hadoop cluster (using Hive or Spark) or a SQL dedicated pools on Azure Synapse Analytics. In general, a schema is overlaid on the flat file data at query time and stored as a table, enabling the data to be queried like any other table in the data store. These are referred to as external tables because the data does not reside in storage managed by the data store itself, but on some external scalable storage such as Azure data lake store or Azure blob storage.
+In practice, the target data store is a [data warehouse](./data-warehousing-content.md) using either a Hadoop cluster (using Hive or Spark) or a SQL dedicated pools on Azure Synapse Analytics. In general, a schema is overlaid on the flat file data at query time and stored as a table, enabling the data to be queried like any other table in the data store. These are referred to as external tables because the data does not reside in storage managed by the data store itself, but on some external scalable storage such as Azure data lake store or Azure blob storage.
 
 The data store only manages the schema of the data and applies the schema on read. For example, a Hadoop cluster using Hive would describe a Hive table where the data source is effectively a path to a set of files in HDFS. In Azure Synapse, PolyBase can achieve the same result &mdash; creating a table against data stored externally to the database itself. Once the source data is loaded, the data present in the external tables can be processed using the capabilities of the data store. In big data scenarios, this means the data store must be capable of massively parallel processing (MPP), which breaks the data into smaller chunks and distributes processing of the chunks across multiple nodes in parallel.
 
@@ -90,8 +90,8 @@ Other tools:
 ## Technology choices
 
 - [Online Transaction Processing (OLTP) data stores](./online-transaction-processing.md#oltp-in-azure)
-- [Online Analytical Processing (OLAP) data stores](./online-analytical-processing.md#olap-in-azure)
-- [Data warehouses](./data-warehousing.md)
+- [Online Analytical Processing (OLAP) data stores](./online-analytical-processing-content.md#olap-in-azure)
+- [Data warehouses](./data-warehousing-content.md)
 - [Pipeline orchestration](../technology-choices/pipeline-orchestration-data-movement.md)
 
 ## Next steps

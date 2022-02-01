@@ -230,7 +230,7 @@ View the [Profisee Azure Data Factory templates](https://github.com/profisee/azu
 
 - [Extract, transform, and load (ETL)](../../data-guide/relational-data/etl.md)
 - [Integration runtime in Azure Data Factory](/azure/data-factory/concepts-integration-runtime)
-- [Data warehousing](../../data-guide/relational-data/data-warehousing.md)
+- [Data warehousing](../../data-guide/relational-data/data-warehousing-content.md)
 - [Batch processing](../../data-guide/big-data/batch-processing.md)
 - [Choosing a data pipeline orchestration technology in Azure](../../data-guide/technology-choices/pipeline-orchestration-data-movement.md)
 

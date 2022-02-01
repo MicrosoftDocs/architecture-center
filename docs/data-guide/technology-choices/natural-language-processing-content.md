@@ -76,4 +76,4 @@ The following tables summarize the key differences in capabilities.
 
 ## See also
 
-[Natural language processing](../technology-choices/natural-language-processing.md)
+[Natural language processing](../technology-choices/natural-language-processing-content.md)
