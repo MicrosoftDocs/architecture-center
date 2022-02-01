@@ -3,13 +3,15 @@ title: Baseball decision analysis with ML.NET and Blazor
 description: This scenario describes a web application that provides an interface for on-technical users to use artificial intelligence (AI) and machine learning (ML) to perform decision analysis techniques. These techniques help you rapidly gain insights and make informed predictions.
 author: EdPrice-MSFT
 ms.author: pnp
-ms.date: 06/10/2020
+ms.date: 01/04/2022
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: azure-guide
 products:
   - azure-machine-learning
   - mlnet
+categories:
+  - analysis
 ms.custom:
   - fcp
   - guide
@@ -87,7 +89,7 @@ Azure App Service is used for hosting the workbench in the cloud. With App Servi
 
 In Blazor Server, the state of many components might be maintained concurrently by the server. Because of this maintenance, memory exhaustion is a concern that must be addressed. For guidance on how to author a Blazor Server app to help ensure the best use of server memory, see [Threat mitigation guidance for ASP.NET Core Blazor Server](/aspnet/core/security/blazor/server/threat-mitigation). Applying these best practices allows a server-side Blazor application to scale to thousands of concurrent users—even on relatively small server hosts.
 
-General guidance on designing scalable solutions is provided in the Azure Architecture Center's [Performance efficiency checklist](../../framework/scalability/performance-efficiency.md).
+General guidance on designing scalable solutions is provided in the Azure Architecture Center's [Performance efficiency checklist](/azure/architecture/framework/scalability/performance-efficiency).
 
 ### Resiliency and support
 
@@ -137,7 +139,7 @@ The container can be run locally (offline) in your own environment. It can also 
 
 - [ML.NET documentation](/dotnet/machine-learning)
 
-- [ASP.NET Core Blazor hosting models](/aspnet/core/blazor/hosting-models?view=aspnetcore-3.1)
+- [ASP.NET Core Blazor hosting models](/aspnet/core/blazor/hosting-models?view=aspnetcore-3.1&preserve-view=true)
 
 - [MLOps (DevOps for Machine Learning)](https://azure.microsoft.com/services/machine-learning/mlops/) helps data science teams deliver innovation faster, increasing the pace of ML model development
 

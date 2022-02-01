@@ -147,7 +147,7 @@ Azure Active Directory pricing ranges from free, for features like SSO and MFA, 
 
 - [Zero Trust security](https://www.microsoft.com/security/business/zero-trust)
 - [Zero Trust Deployment Guide for Microsoft Azure Active Directory](https://www.microsoft.com/security/blog/2020/04/30/zero-trust-deployment-guide-azure-active-directory/)
-- [Overview of the security pillar](../../framework/security/overview.md)
+- [Overview of the security pillar](/azure/architecture/framework/security/overview)
 - [Azure Security Compass](https://github.com/MarkSimos/MicrosoftSecurity/blob/master/Azure%20Security%20Compass%201.1/AzureSecurityCompassIndex.md)
 - [Azure Active Directory demo tenant](https://demos.microsoft.com/) (requires a Microsoft Partner Network account), or [Enterprise Mobility + Security free trial](https://www.microsoft.com/microsoft-365/enterprise-mobility-security)
 - [Azure Active Directory deployment plans](/azure/active-directory/fundamentals/active-directory-deployment-plans)

@@ -61,13 +61,13 @@ Other options for the data tier include:
 
 ### Availability
 
-- Consider ysubg the [typical design patterns for availability](/azure/architecture/framework/resiliency/reliability-patterns) when building your cloud application. azure/architecture/framework/scalability/performance-efficiency
+- Consider using the [typical design patterns for availability](/azure/architecture/framework/resiliency/reliability-patterns) when building your cloud application. 
 - Review the availability considerations in the appropriate [App Service web application reference architecture][app-service-reference-architecture]
 - For additional considerations concerning availability, see the [availability checklist][availability] in the Azure Architecture Center.
 
 ### Scalability
 
-- When building a cloud application be aware of the [typical design patterns for scalability](../../framework/scalability/performance-efficiency-patterns.md).
+- When building a cloud application be aware of the [typical design patterns for scalability](/azure/architecture/framework/scalability/performance-efficiency-patterns).
 - Review the scalability considerations in the appropriate [App Service web application reference architecture][app-service-reference-architecture]
 - For other scalability topics, see the [performance efficiency checklist](/azure/architecture/framework/scalability/performance-efficiency) available in the Azure Architecture Center.
 
@@ -102,7 +102,7 @@ We have provided three sample cost profiles based on amount of traffic you expec
 
 ## Next steps
 
-- [Typical design patterns for scalability](../../framework/scalability/performance-efficiency-patterns.md)
+- [Typical design patterns for scalability](/azure/architecture/framework/scalability/performance-efficiency-patterns)
 - [Ssecure development lifecycle][secure-development]
 - [Resiliency][resiliency]
 - [Recommended practices for App Service][resiliency-app-service]
@@ -120,12 +120,12 @@ We have provided three sample cost profiles based on amount of traffic you expec
 [medium-pricing]: https://azure.com/e/38d5d387e3234537b6859660db1c9973
 [large-pricing]: https://azure.com/e/f07f99b6c3134803a14c9b43fcba3e2f
 [app-service-reference-architecture]: ../../reference-architectures/app-service-web-app/basic-web-app.yml
-[availability]: ../../framework/resiliency/reliability-patterns.md
+[availability]: /azure/architecture/framework/resiliency/reliability-patterns
 [circuit-breaker]: ../../patterns/circuit-breaker.md
-[design-patterns-availability]: ../../framework/resiliency/reliability-patterns.md
-[design-patterns-resiliency]: ../../framework/resiliency/reliability-patterns.md
-[design-patterns-performance efficiency]: ../../framework/scalability/performance-efficiency-patterns.md
-[design-patterns-security]: ../../framework/security/security-patterns.md
+[design-patterns-availability]: /azure/architecture/framework/resiliency/reliability-patterns
+[design-patterns-resiliency]: /azure/architecture/framework/resiliency/reliability-patterns
+[design-patterns-performance efficiency]: /azure/architecture/framework/scalability/performance-efficiency-patterns
+[design-patterns-security]: /azure/architecture/framework/security/security-patterns
 [docs-application-insights]: https://www.microsoft.com/azure/application-insights/app-insights-overview
 [docs-b2c]: https://www.microsoft.com/azure/active-directory-b2c/active-directory-b2c-overview
 [docs-cdn]: https://www.microsoft.com/azure/cdn/cdn-overview
@@ -146,8 +146,8 @@ We have provided three sample cost profiles based on amount of traffic you expec
 [multi-region-web-app]: ../../reference-architectures/app-service-web-app/multi-region.yml
 [pci-dss-blueprint]: /azure/security/blueprints/payment-processing-blueprint
 [resiliency-app-service]: ../../checklist/resiliency-per-service.md#app-service
-[resiliency]: ../../framework/resiliency/principles.md
-[scalability]: ../../framework/scalability/performance-efficiency.md
+[resiliency]: /azure/architecture/framework/resiliency/principles
+[scalability]: /azure/architecture/framework/scalability/performance-efficiency
 [secure-development]: https://www.microsoft.com/SDL/process/design.aspx
 [service-bus]: /azure/service-bus-messaging
 [sql-geo-replication]: /azure/sql-database/sql-database-geo-replication-overview

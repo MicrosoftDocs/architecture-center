@@ -309,7 +309,7 @@ These solutions require at least Azure AD Premium P1. For pricing details, see [
 For information about AD FS and Web Application Proxy, see [Pricing and licensing for Windows Server 2022](https://www.microsoft.com/windows-server/pricing).
 
 For more pricing information, see these resources: 
-- [Microsoft Intune pricing](https://docs.microsoft.com/mem/intune/fundamentals/licenses)
+- [Microsoft Intune pricing](/mem/intune/fundamentals/licenses)
 - [Exchange Online plans](https://www.microsoft.com/microsoft-365/exchange/compare-microsoft-exchange-online-plans)
 - [Exchange server pricing](https://www.microsoft.com/microsoft-365/exchange/microsoft-exchange-licensing-faq-email-for-business)
 
