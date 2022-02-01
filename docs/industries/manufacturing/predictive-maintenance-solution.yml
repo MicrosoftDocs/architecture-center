@@ -1,0 +1,20 @@
+### YamlMime:Architecture
+metadata:
+  title: Predictive maintenance solution
+  description: Solution description of how to develop predictive maintenance for manufacturing customers on Azure.
+  author: ercenk
+  ms.author: ercenk
+  ms.date: 01/31/2022
+  ms.topic: conceptual
+  ms.service: architecture-center
+  ms.subservice: azure-guide
+azureCategories:
+  - ai-machine-learning
+products:
+  - azure-machine-learning
+  - azure-machine-learning-studio
+name: Predictive maintenance solution
+summary: Solution description of how to develop predictive maintenance for manufacturing customers on Azure.
+thumbnailUrl: /azure/architecture/browse/thumbs/iot-predictive.png
+content: |
+  [!include[](predictive-maintenance-solution-content.md)]

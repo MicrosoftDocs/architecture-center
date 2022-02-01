@@ -1,0 +1,23 @@
+### YamlMime:Architecture
+metadata:
+  title: Data management in banking
+  description: Describes techniques of managing data in a regulated banking environment using Microsoft Azure.
+  author: dstarr
+  ms.author: dastarr
+  ms.date: 01/31/2022
+  ms.topic: conceptual
+  ms.service: architecture-center
+  ms.subservice: azure-guide
+azureCategories:
+  - databases
+  - storage
+products:
+  - azure-blob-storage
+  - azure-data-factory
+  - azure-files
+  - azure-sql-database
+name: Data management in banking
+summary: Describes techniques of managing data in a regulated banking environment using Microsoft Azure.
+thumbnailUrl: /azure/architecture/browse/thumbs/data-mgmt-01.png
+content: |
+  [!include[](data-management-banking-overview-content.md)]
