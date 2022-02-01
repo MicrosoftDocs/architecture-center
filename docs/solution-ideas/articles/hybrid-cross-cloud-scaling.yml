@@ -1,19 +1,14 @@
 ### YamlMime:Architecture
 metadata:
-  title: Cross-Cloud Scaling
+  title: Hybrid cross-cloud scaling
   titleSuffix: Azure Solution Ideas
-  description: Automatically add resources to an existing app to accommodate an increase in load.
+  description: Use Azure Traffic Manager to automatically add resources to an existing app to accommodate an increase in load.
   author: EdPrice-MSFT
-  ms.author: pnp
-  ms.date: 01/12/2022
+  ms.author: edprice
+  ms.date: 02/03/2022
   ms.topic: conceptual
   ms.service: architecture-center
   ms.subservice: solution-idea
-  ms.category:
-    - compute
-    - storage
-    - hybrid
-    - integration
   ms.custom:
     - acom-architecture
     - Hybrid Connection
@@ -30,10 +25,13 @@ azureCategories:
   - hybrid
   - integration
 products:
+  - azure-traffic-manager
+  - azure-container-instances
+  - azure-vm-scalesets
   - azure-stack-hub
   - azure-virtual-machines
-name: Cross-Cloud Scaling
-summary: Automatically add resources to an existing app to accommodate an increase in load.
+name: Hybrid cross-cloud scaling
+summary: Use Azure Traffic Manager to automatically add resources to an existing app to accommodate an increase in load.
 thumbnailUrl: /azure/architecture/browse/thumbs/hybrid-cross-cloud-scaling.png
 content: |
   [!include[](hybrid-cross-cloud-scaling-content.md)]
