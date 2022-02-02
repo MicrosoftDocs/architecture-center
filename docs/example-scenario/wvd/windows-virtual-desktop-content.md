@@ -1,6 +1,6 @@
 [Azure Virtual Desktop](https://azure.microsoft.com/services/virtual-desktop/) is a desktop and application virtualization service that runs in the Azure cloud. This article helps Desktop Infrastructure Architects, Cloud Architects, Desktop Administrators, or System Administrators explore Azure Virtual Desktop and build virtualized desktop infrastructure (VDI) solutions at enterprise scale. Enterprise-scale solutions generally cover 1,000 virtual desktops and above.
 
-## Relevant use cases
+## Potential use cases
 
 Most demand for enterprise virtual desktop solutions comes from:
 
@@ -25,11 +25,11 @@ This diagram shows a typical architectural setup for Azure Virtual Desktop.
 
 For more information about FSLogix Profile Container - Azure Files and Azure NetApp Files best practices, see [FSLogix for the enterprise](./windows-virtual-desktop-fslogix.yml)
 
-## Components
+### Components
 
 [Azure Virtual Desktop](/azure/virtual-desktop/overview) service architecture is similar to [Windows Server Remote Desktop Services](/windows-server/remote/remote-desktop-services/welcome-to-rds). Microsoft manages the infrastructure and brokering components, while enterprise customers manage their own desktop host virtual machines (VMs), data, and clients.
 
-### Components Microsoft manages
+#### Components Microsoft manages
 
 Microsoft manages the following Azure Virtual Desktop services, as part of Azure:
 
@@ -39,7 +39,7 @@ Microsoft manages the following Azure Virtual Desktop services, as part of Azure
 - **Diagnostics**: Remote Desktop Diagnostics is an event-based aggregator that marks each user or administrator action on the Azure Virtual Desktop deployment as a success or failure. Administrators can query the event aggregation to identify failing components.
 - **Extensibility components**: Azure Virtual Desktop includes several extensibility components. You can manage Azure Virtual Desktop using Windows PowerShell or with the provided REST APIs, which also enable support from third-party tools.
 
-### Components you manage
+#### Components you manage
 
 Customers manage these components of Azure Virtual Desktop solutions:
 
@@ -56,7 +56,7 @@ Customers manage these components of Azure Virtual Desktop solutions:
   You can choose VM sizes, including GPU-enabled VMs. Each session host has a Azure Virtual Desktop host agent, which registers the VM as part of the Azure Virtual Desktop workspace or tenant. Each host pool can have one or more app groups, which are collections of remote applications or desktop sessions that users can access.
 - **Azure Virtual Desktop workspace:** The Azure Virtual Desktop workspace or tenant is a management construct to manage and publish host pool resources.
 
-### Personal and pooled desktops
+## Personal and pooled desktops
 
 Personal desktop solutions, sometimes called persistent desktops, allow users to always connect to the same specific session host. Users can typically modify their desktop experience to meet personal preferences, and save files in the desktop environment. Personal desktop solutions:
 
@@ -65,7 +65,7 @@ Personal desktop solutions, sometimes called persistent desktops, allow users to
 
 Pooled desktop solutions, also called non-persistent desktops, assign users to whichever session host is currently available, depending on the load-balancing algorithm. Because the users don't always return to the same session host each time they connect, they have limited ability to customize the desktop environment and don't usually have administrator access.
 
-### Windows servicing
+## Windows servicing
 
 There are several options for updating Azure Virtual Desktop instances. Deploying an updated image every month guarantees compliance and state.
 
@@ -75,7 +75,7 @@ There are several options for updating Azure Virtual Desktop instances. Deployin
 - [Azure Log Analytics](/azure/azure-monitor/platform/log-analytics-agent) checks compliance.
 - Deploy a new (custom) image to session hosts every month for the latest Windows and applications updates. You can use an image from the Azure Marketplace or a [custom Azure managed image](/azure/virtual-machines/windows/capture-image-resource).
 
-### Relationships between key logical components
+## Relationships between key logical components
 
 The relationships between host pools, workspaces and other key logical components vary. The following diagram summarises these relationships.
 
@@ -146,7 +146,11 @@ For more information about Azure subscription limitations, see [Azure subscripti
 
 Use simulation tools to test deployments with both stress tests and real-life usage simulations. Make sure the system is responsive and resilient enough to meet user needs, and remember to vary the load sizes when testing.
 
-### Pricing
+## Deploy this scenario
+
+Use the [ARM templates](https://github.com/Azure/RDS-Templates/tree/master/ARM-wvd-templates) to automate the deployment of your Azure Virtual Desktop environment. These ARM templates support only Azure Resource Manager's Azure Virtual Desktop objects. These ARM templates don't support Azure Virtual Desktop (classic).
+
+## Pricing
 
 Architect your Azure Virtual Desktop solution to realize cost savings. Here are five different options to help manage costs for enterprises:
 
@@ -157,14 +161,13 @@ Architect your Azure Virtual Desktop solution to realize cost savings. Here are 
 
 ## Next steps
 
-- [FSLogix for the enterprise - best practices documentation](./windows-virtual-desktop-fslogix.yml)
-- Use the new [ARM templates](https://github.com/Azure/RDS-Templates/tree/master/ARM-wvd-templates) to automate the deployment of your Azure Virtual Desktop environment. These ARM templates support only Azure Resource Manager's Azure Virtual Desktop objects. These ARM templates don't support Azure Virtual Desktop (classic).
-- For multiple AD forests architecture, read [Multiple AD Forests Architecture in Azure Virtual Desktop](./multi-forest.yml).
 - [Azure Virtual Desktop partner integrations](/azure/virtual-desktop/partners) lists approved Azure Virtual Desktop partner providers and independent software vendors.
 - Use the resources at [Windows_10_VDI_Optimize](https://github.com/The-Virtual-Desktop-Team/Virtual-Desktop-Optimization-Tool) to help optimize performance in a Windows 10 Enterprise VDI environment.
-
-## Additional resources
-
 - [Deploy Azure AD-joined virtual machines in Azure Virtual Desktop](/azure/virtual-desktop/deploy-azure-ad-joined-vm)
 - [Active Directory Domain Services](/windows-server/identity/ad-ds/active-directory-domain-services)
 - [What is Azure AD Connect?](/azure/active-directory/hybrid/whatis-azure-ad-connect)
+
+## Additional resources
+
+- [FSLogix for the enterprise - best practices documentation](./windows-virtual-desktop-fslogix.yml)
+- For multiple AD forests architecture, read [Multiple AD Forests Architecture in Azure Virtual Desktop](./multi-forest.yml).
