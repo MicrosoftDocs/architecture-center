@@ -4,7 +4,7 @@ Without high-quality data in your Azure data estate, the business value of Azure
 
 ![Diagram of Purview and Profisee overview.](./images/purview-overview.png)
 
-**Azure Purview** catalogs all the data sources and identifies any sensitive information, as well as lineage. It gives the data architect a place to consider the  appropriate data standards that should be imposed on all data. Purview's focus is on governance to find, classify, and define policies and standards. Enforcing policies and standards and remediating deficient data falls to technologies like master data management (MDM).
+**Azure Purview** catalogs all the data sources and identifies any sensitive information, as well as lineage. It gives the data architect a place to consider the  appropriate data standards that should be imposed on all data. Purview's focus is on governance to find, classify, and define policies and standards. Enforcing policies, standards and remediating deficient data falls to technologies like master data management (MDM).
 
 **Profisee MDM** is designed to accept master data from any source, then match, merge, standardize, verify, correct, and synchronize it across systems, ensuring data can be properly integrated and will meet the needs of downstream systems, such as business intelligence (BI), machine learning, and so on.
 
@@ -24,7 +24,7 @@ In addition, these MDM solutions help financial organizations that rely heavily 
 
 ## Architecture
 
-The flow illustrated next represents the general order of activity that occurs during the development and subsequent operation of your master data solution. This flow should be thought of as **highly iterative**. As your solution evolves, these steps and phases may be repeated, sometimes automatically and sometimes manually, depending on the changes occurring to your master data solution, metadata, and/or data.
+The flow illustration next represents the general order of activity that occurs during the development and subsequent operation of your master data solution. This flow should be thought of as **highly iterative**. As your solution evolves, these steps and phases may be repeated, sometimes automatically and sometimes manually, depending on the changes occurring to your master data solution, metadata, and/or data.
 
 ![Diagram of Purview microservice design architecture.](./images/purview-microservice-design-architecture.png)
 
@@ -58,7 +58,7 @@ Metadata and data flow include these steps, shown in the preceding figure:
 
 ## Alternatives
 
-Absent a purpose-built MDM application, some of the technical capabilities needed to build an MDM solution may be found within the Azure ecosystem:
+In the abscence of a purpose-built MDM application, some of the technical capabilities needed to build an MDM solution may be found within the Azure ecosystem:
 
 - **Data quality**: When loading to an analytics platform, data quality can be built into integration processes. For example, you can use hardcoded scripts to apply data quality transformations in an [Azure Data Factory](https://azure.microsoft.com/services/data-factory/) pipeline.
 - **Data standardization and enrichment**: [Azure Maps](https://azure.microsoft.com/services/azure-maps/) is available to provide data verification and standardization for address data. The standardized data can be used in Azure Functions and/or Azure Data Factory. Standardization of other data may require you to develop hardcoded scripts.
@@ -223,14 +223,10 @@ Profisee authenticates users, by using OpenID Connect, which implements an OAuth
 
 ## Deploy the scenario
 
-The Profisee platform can be deployed as a platform as a solution (PaaS) in Azure by using the [Profisee ARM template](https://github.com/Profisee/kubernetes/tree/master/Azure-ARM). There are two options, as the template applies to Purview integration:
+The Profisee platform can be deployed as a platform as a solution (PaaS) in Azure by using the [Profisee ARM template](https://github.com/Profisee/kubernetes/tree/master/Azure-ARM). For integration with Purview select "Yes, configure using Purview" and fill the below details:
 
-- If you already have an Azure Purview account and metadata populated, you can connect Profisee to the existing account. In this case, you must specify the following properties in the Profisee Azure Resource Manager template (ARM template):
-   - The **Atlas Endpoint URL** that's associated with your Purview account.
-   - An App Registration **Client ID** and **Client Secret** that has the **Purview Data Curator** role assigned.
-- If you don't yet have an Azure Purview account, Profisee's ARM template can provision one for you, as part of the Profisee Platform installation. In this case, you must specify the following properties in the ARM template:
-   - The **Purview Account Name** that you want to assign to the newly provisioned Purview account.
-   - The **Platform Size**, which is indicated in capacity units. Purview currently supports two choices: 4 and 16. Refer to [Manage and increase quotas for resources with Azure Purview](/azure/purview/how-to-manage-quotas) for details on sizing your Purview account.
+- Select the **Purview account** from the drop down against "Select Purview Account".
+- An App Registration **Client ID** and **Client Secret** that has the **Purview Data Curator** role assigned.
 
 The following figure illustrates how these options are reflected in Profisee's ARM template:
 
