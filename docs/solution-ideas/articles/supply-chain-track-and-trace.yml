@@ -26,6 +26,7 @@ metadata:
 name: Supply chain track and trace
 azureCategories:
   - iot
+  - compute
 summary: Use Azure Blockchain Workbench to build an application for a supply chain that can track assets and trigger remediating events downstream.
 products:
   - azure-blockchain-workbench
