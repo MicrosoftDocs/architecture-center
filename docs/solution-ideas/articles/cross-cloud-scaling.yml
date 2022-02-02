@@ -1,6 +1,6 @@
 ### YamlMime:Architecture
 metadata:
-  title: Cross-cloud scaling with autostart architecture
+  title: Cross-cloud scaling with Azure Functions
   titleSuffix: Azure Solution Ideas
   description: Understand how to improve cross-cloud scalability with solution architecture that includes Azure Stack.
   author: EdPrice-MSFT
@@ -23,7 +23,7 @@ metadata:
     - e2e-hybrid
     - "https://azure.microsoft.com/solutions/architecture/cross-cloud-scaling/"
   social_image_url: /azure/architecture/solution-ideas/articles/media/cross-cloud-scaling.png
-name: Cross-cloud scaling with autostart architecture
+name: Cross-cloud scaling with Azure Functions 
 azureCategories:
   - hybrid
   - web
