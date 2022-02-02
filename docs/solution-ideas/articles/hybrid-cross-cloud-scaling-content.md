@@ -7,7 +7,7 @@ Global enterprises need their apps to be secure, reliable, and available. They n
 
 When an app can't increase capacity to meet unexpected increases in demand, it can service only a fixed number of users. This lack of scalability can result in users not reaching the app during peak usage times.
 
-However, sometimes it's not economically feasible for a business to maintain the capacity required to handle spikes in demand in their on-premises environment. By using this solution, you can use the elasticity of the public cloud with your on-premises solution.  
+However, sometimes it's not economically feasible for a business to maintain the capacity that's required to handle spikes in demand in their on-premises environment. By using this solution, you can use the elasticity of the public cloud with your on-premises solution.  
 
 Use this solution when:
 
@@ -29,7 +29,7 @@ _Download an [SVG file](https://arch-center.azureedge.net/cross-cloud-scaling.sv
 
 1. The client sends a request to the cloud application.
 1. Traffic Manager uses DNS to direct the client request to the appropriate service endpoint, based on a [traffic-routing method](/azure/traffic-manager/traffic-manager-routing-methods). Traffic Manager also provides health monitoring for every endpoint.
-1. The instance of the cloud application chosen by Traffic Manager processes the request.
+1. The instance of the cloud application that's chosen by Traffic Manager processes the request.
 
 ### Components
 
@@ -62,7 +62,7 @@ The operational excellence pillar of the Azure Well-Architected Framework covers
 
 ### Performance efficiency
 
-The key benefit of cross-cloud scaling is the ability to deliver on-demand scaling. Scaling must happen between public and local cloud infrastructure and provide a consistent, reliable service based on demand. See [Performance efficiency](/azure/architecture/framework/scalability) to learn more about implementing scalability in Azure.
+The key benefit of cross-cloud scaling is the ability to deliver on-demand scaling. Scaling must happen between public and local cloud infrastructure and provide a consistent, reliable service that's based on demand. See [Performance efficiency](/azure/architecture/framework/scalability) to learn more about implementing scalability in Azure.
 
 ## Next steps
 
