@@ -257,6 +257,8 @@ items:
               - name: Differential privacy
                 href: /azure/machine-learning/concept-differential-privacy
                 maintainContext: true
+      - name: SaaS digital business journey on Azure
+        href: guide/saas/saas-digital-business-journey-azure.md
       - name: Architecture for startups
         items:
           - name: Overview
@@ -291,6 +293,8 @@ items:
                 href: guide/multitenant/approaches/overview.md
               - name: Resource organization
                 href: guide/multitenant/approaches/resource-organization.md
+              - name: Governance and compliance
+                href: guide/multitenant/approaches/governance-compliance.md
               - name: Cost management and allocation
                 href: guide/multitenant/approaches/cost-management-allocation.md
               - name: Deployment and configuration
@@ -403,6 +407,8 @@ items:
         href: patterns/cqrs.md
       - name: Deployment Stamps
         href: patterns/deployment-stamp.md
+      - name: Edge Workload Configuration
+        href: patterns/edge-workload-configuration.md
       - name: Event Sourcing
         href: patterns/event-sourcing.md
       - name: External Configuration Store
@@ -945,6 +951,8 @@ items:
                 maintainContext: true
       - name: Game Development
         items:
+          - name: Overview
+            href: industries/game-development.md
           - name: All game development architectures
             href: /azure/architecture/browse/?terms=game
           - name: Rendering
@@ -1056,6 +1064,8 @@ items:
                 maintainContext: true
       - name: Travel and Hospitality
         items:
+          - name: Overview
+            href: industries/travel-hospitality.md
           - name: All travel and hospitality architectures
             href: /azure/architecture/browse/?terms=travel
           - name: Build a chatbot for hotel booking
@@ -1072,6 +1082,8 @@ items:
             href: solution-ideas/articles/aircraft-engine-monitoring-for-predictive-maintenance-in-aerospace.yml
       - name: Automotive, Mobility, and Transportation
         items:
+          - name: Overview
+            href: industries/automotive.md
           - name: Guides
             items:
               - name: Dynamics 365 automotive accelerator
@@ -1096,9 +1108,11 @@ items:
               - name: TISAX overview
                 href: /azure/compliance/offerings/offering-tisax
                 maintainContext: true
-      - name: Facilities and Real-Estate
+      - name: Facilities and Real Estate
         items: 
-          - name: All facilities and real-estate architectures
+          - name: Overview
+            href: industries/facilities-real-estate.md
+          - name: All facilities and real estate architectures
             href: /azure/architecture/browse/?terms=facilities
           - name: Cognizant Safe Buildings with IoT
             href: solution-ideas/articles/safe-buildings.yml
@@ -1339,28 +1353,6 @@ items:
                     items:
                       - name: DevOps - CI/CD
                         href: data-science-process/ci-cd-flask.md
-                  - name: Worked-out examples
-                    items:
-                      - name: Overview
-                        href: data-science-process/walkthroughs.md
-                      - name: Spark examples
-                        items:
-                          - name: Spark with PySpark and Scala
-                            href: data-science-process/walkthroughs-spark.md
-                          - name: Explore and model data
-                            href: data-science-process/spark-data-exploration-modeling.md
-                          - name: Advanced data exploration
-                            href: data-science-process/spark-advanced-data-exploration-modeling.md
-                          - name: Score models
-                            href: data-science-process/spark-model-consumption.md
-                      - name: Hive with HDInsight Hadoop
-                        href: data-science-process/walkthroughs-hdinsight-hadoop.md
-                      - name: U-SQL with Azure Data Lake
-                        href: data-science-process/walkthroughs-azure-data-lake.md
-                      - name: R, Python and T-SQL with SQL Server
-                        href: data-science-process/walkthroughs-sql-server.md
-                      - name: T-SQL and Python with Azure Synapse
-                        href: data-science-process/walkthroughs-sql-data-warehouse.md
                   - name: Training
                     items:
                       - name: For data scientists
@@ -1627,6 +1619,8 @@ items:
             href: solution-ideas/articles/analytics-start-here.yml
           - name: Guides
             items:
+              - name: DataOps checklist
+                href: checklist/data-ops.md
               - name: Technology choices
                 items:
                   - name: Analytical data stores
@@ -1675,6 +1669,8 @@ items:
                   - name: Blueprint - Analytics for PCI DSS
                     href: /previous-versions/azure/security/blueprints/pcidss-analytics-overview
                     maintainContext: true
+              - name: Customer 360 with Azure Synapse and Dynamics 365
+                href: example-scenario/analytics/synapse-customer-insights.yml      
               - name: Data analysis for regulated industries
                 href: example-scenario/data/data-analysis-regulated-industries.yml
               - name: Data lake queries via Synapse serverless
@@ -1717,6 +1713,8 @@ items:
                 href: solution-ideas/articles/big-data-analytics-enterprise-grade-security.yml
               - name: Content Delivery Network analytics
                 href: solution-ideas/articles/content-delivery-network-azure-data-explorer.yml
+              - name: Data management with Azure Purview
+                href: solution-ideas/articles/azure-purview-data-lake-estate-architecture.yml
               - name: Demand forecasting for shipping
                 href: solution-ideas/articles/demand-forecasting-for-shipping-and-distribution.yml
               - name: Demand forecasting and price optimization
@@ -1739,6 +1737,8 @@ items:
                 href: solution-ideas/articles/interactive-azure-data-explorer.yml
               - name: IoT analytics with Azure Data Explorer
                 href: solution-ideas/articles/iot-azure-data-explorer.yml
+              - name: Manage data across Azure SQL estate with Azure Purview
+                href: solution-ideas/articles/azure-purview-sql-estate-architecture.yml
               - name: Mining equipment monitoring
                 href: solution-ideas/articles/monitor-mining-equipment.yml
               - name: Modern analytics with Azure Databricks
@@ -2010,6 +2010,8 @@ items:
                 href: solution-ideas/articles/secure-devops-for-kubernetes.yml
       - name: Databases
         items:
+          - name: Get started
+            href: data-guide/databases-architecture-design.yml
           - name: Guides
             items:
               - name: Get started
@@ -2375,6 +2377,8 @@ items:
                 href: microservices/index.md
               - name: Guides
                 items:
+                  - name: Microservices assessment and readiness
+                    href: guide/technology-choices/microservices-assessment.md
                   - name: Domain modeling for microservices
                     items:
                       - name: Domain analysis
@@ -2617,6 +2621,8 @@ items:
             items:
               - name: Automate multistage DevOps pipelines
                 href: example-scenario/devops/automate-azure-pipelines.yml
+              - name: Automated API deployments using APIOps
+                href: example-scenario/devops/automated-api-deployments-apiops.yml
               - name: Automated Jupyter Notebooks for diagnostics
                 href: example-scenario/data/automating-diagnostic-jupyter-notebook.yml
               - name: Azure DevTest Labs for enterprises
@@ -2665,6 +2671,8 @@ items:
                 href: solution-ideas/articles/dev-test-paas.yml
               - name: DevTest and DevOps with microservices
                 href: solution-ideas/articles/dev-test-microservice.yml
+              - name: DevSecOps with a rolling main branching strategy
+                href: solution-ideas/articles/devsecops-rolling-branch.yml
               - name: DevTest Image Factory
                 href: solution-ideas/articles/dev-test-image-factory.yml
               - name: Hybrid DevOps
@@ -2829,8 +2837,12 @@ items:
                     href: solution-ideas/articles/cross-cloud-scaling.yml
                   - name: Cross-cloud scaling (routing method)
                     href: solution-ideas/articles/hybrid-cross-cloud-scaling.yml
+                  - name: DevOps with Azure Stack Hub
+                    href: solution-ideas/articles/hybrid-continuous-integration.yml
                   - name: Hybrid connections
                     href: solution-ideas/articles/hybrid-connectivity.yml
+                  - name: Hybrid relay connection
+                    href: solution-ideas/articles/hybrid-relay-connection.yml
                   - name: Unlock legacy data with Azure Stack
                     href: solution-ideas/articles/unlock-legacy-data.yml
               - name: Azure VMware Solution foundations
@@ -2845,6 +2857,8 @@ items:
                 href: solution-ideas/articles/cross-platform-chat.yml
       - name: Identity
         items:
+          - name: Get started
+            href: identity/identity-start-here.yml
           - name: Guides
             items:
               - name: Compare identity services
@@ -2852,6 +2866,16 @@ items:
                 maintainContext: true
               - name: Build for resilience
                 href: guide/resilience/resilience-overview.md
+              - name: Conditional Access
+                items:
+                  - name: Conditional Access for Zero trust
+                    href: guide/security/conditional-access-zero-trust.md 
+                  - name: Conditional Access design principles
+                    href: guide/security/conditional-access-design.yml
+                  - name: Conditional Access architecture  
+                    href: guide/security/conditional-access-architecture.yml
+                  - name: Conditional Access framework and policies
+                    href: guide/security/conditional-access-framework.md
               - name: Identity in multitenant applications
                 items:
                   - name: Introduction
@@ -2912,17 +2936,17 @@ items:
                     maintainContext: true
               - name: Identity management
                 items:
-                  - name: Enterprise enrollment and AAD tenants
-                    href: /azure/cloud-adoption-framework/ready/enterprise-scale/enterprise-enrollment-and-azure-ad-tenants
+                  - name: Azure billing and AAD tenants
+                    href: /azure/cloud-adoption-framework/ready/landing-zone/design-area/azure-billing-ad-tenant?toc=/azure/architecture/toc.json&bc=/azure/architecture/_bread/toc.json
                     maintainContext: true
                   - name: Identity and access management
-                    href: /azure/cloud-adoption-framework/ready/enterprise-scale/identity-and-access-management
+                    href: /azure/cloud-adoption-framework/ready/landing-zone/design-area/identity-access?toc=/azure/architecture/toc.json&bc=/azure/architecture/_bread/toc.json
                     maintainContext: true
                   - name: Limit cross-tenant private endpoints
                     href: /azure/cloud-adoption-framework/ready/azure-best-practices/limit-cross-tenant-private-endpoint-connections
                     maintainContext: true
-                  - name: Management groups and subscriptions
-                    href: /azure/cloud-adoption-framework/ready/enterprise-scale/management-group-and-subscription-organization
+                  - name: Resource organization
+                    href: /azure/cloud-adoption-framework/ready/landing-zone/design-area/resource-org?toc=/azure/architecture/toc.json&bc=/azure/architecture/_bread/toc.json
                     maintainContext: true
               - name: Hybrid identity
                 items:
@@ -3197,10 +3221,10 @@ items:
                     href: example-scenario/mainframe/integrate-ibm-message-queues-azure.yml
                   - name: Micro Focus Enterprise Server on Azure
                     href: example-scenario/mainframe/micro-focus-server.yml
-                  - name: Migrate AIX workloads to Skytap
-                    href: example-scenario/mainframe/migrate-aix-workloads-to-skytap.yml
-                  - name: Migrate IBM i series to Skytap on Azure
-                    href: example-scenario/mainframe/migrate-ibm-i-series-applications.yml
+                  - name: Migrate AIX workloads to Azure with Skytap
+                    href: example-scenario/mainframe/migrate-aix-workloads-to-azure-with-skytap.yml
+                  - name: Migrate IBM i series to Azure with Skytap
+                    href: example-scenario/mainframe/migrate-ibm-i-series-to-azure-with-skytap.yml
                   - name: Refactor IBM z/OS mainframe CF
                     href: reference-architectures/zos/refactor-zos-coupling-facility.yml
                   - name: Refactor mainframe apps with Advanced
@@ -3963,6 +3987,8 @@ items:
                 href: example-scenario/private-web-app/private-web-app.yml
       - name: Storage
         items:
+          - name: Get started
+            href: guide/storage/storage-start-here.md
           - name: Guides
             items:
               - name: Storage accounts

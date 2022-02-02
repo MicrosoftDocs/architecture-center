@@ -2,7 +2,7 @@
 
 This example scenario is applicable to companies that need a highly scalable and secure installation of WordPress. This scenario is based on a deployment that was used for a large convention and was successfully able to scale to meet the spike traffic that sessions drove to the site.
 
-## Relevant use cases
+## Potential use cases
 
 Other relevant use cases include:
 
@@ -14,6 +14,8 @@ Other relevant use cases include:
 ## Architecture
 
 [![Architecture overview of the Azure components involved in a scalable and secure WordPress deployment](media/secure-scalable-wordpress.png)](media/secure-scalable-wordpress.png#lightbox)
+
+### Dataflow
 
 This scenario covers a scalable and secure installation of WordPress that uses Ubuntu web servers and MariaDB. There are two distinct data flows in this scenario the first is users access the website:
 
@@ -84,6 +86,35 @@ We have provided a pre-configured [cost profile][pricing] based on the architect
 - How much traffic are you expecting in terms of GB/month? The amount of traffic will have the biggest impact on your cost, as it will impact the number of VMs that are required to surface the data in the virtual machine scale set. Additionally, it will directly correlate with the amount of data that is surfaced via the CDN.
 - How much new data are you going to be writing to your website? New data written to your website correlates with how much data is mirrored across the regions.
 - How much of your content is dynamic? How much is static? The variance around dynamic and static content influences how much data has to be retrieved from the database tier versus how much will be cached in the CDN.
+
+## Next steps
+
+Product documentation:
+
+- [About Azure Key Vault](/azure/key-vault/general/overview)
+- [What are virtual machine scale sets?](/azure/virtual-machine-scale-sets/overview)
+- [What is a content delivery network on Azure?](/azure/cdn/cdn-overview)
+- [What is Azure Active Directory?](/azure/active-directory/fundamentals/active-directory-whatis)
+- [What is Azure Files?](/azure/storage/files/storage-files-introduction)
+- [What is Azure Load Balancer?](/azure/load-balancer/load-balancer-overview)
+- [What is Azure Virtual Network?](/azure/virtual-network/virtual-networks-overview)
+- [What is VPN Gateway?](/azure/vpn-gateway/vpn-gateway-about-vpngateways)
+
+Microsoft Learn modules:
+
+- [Build a scalable application with virtual machine scale sets](/learn/modules/build-app-with-scale-sets)
+- [Configure Azure Active Directory](/learn/modules/configure-azure-active-directory)
+- [Configure Azure Load Balancer](/learn/modules/configure-azure-load-balancer)
+- [Configure Azure files and Azure File Sync](/learn/modules/configure-azure-files-file-sync)
+- [Create a Content Delivery Network for your Website with Azure CDN and Blob Services](/learn/modules/create-cdn-static-resources-blob-storage)
+- [Implement Azure Key Vault](/learn/modules/implement-azure-key-vault)
+- [Introduction to Azure Virtual Networks](/learn/modules/introduction-to-azure-virtual-networks)
+
+## Related resources
+
+- [Ten design principles for Azure applications](../../guide/design-principles/index.md)
+- [Scalable cloud applications and site reliability engineering](../../example-scenario/apps/scalable-apps-performance-modeling-site-reliability.yml)
+- [Scalable web application](../../solution-ideas/articles/scalable-web-apps.yml)
 
 <!-- links -->
 

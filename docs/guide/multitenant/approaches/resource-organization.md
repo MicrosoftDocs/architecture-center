@@ -68,6 +68,8 @@ As an illustration of the shared resource approach, suppose Contoso is building 
 
 You can also deploy dedicated resources for each tenant. You might deploy an entire copy of your solution for a single tenant. Or, you might share some components between tenants and deploy other components that are dedicated to a specific tenant.
 
+We recommend that you use resource groups to manage resources with the same lifecycle. In some multitenant systems, it makes sense to deploy resources for multiple tenants into a single resource group or a set of resource groups.
+
 It's important that you consider how you deploy and manage these resources, including [whether the deployment of tenant-specific resources is initiated by your deployment pipeline or your application](deployment-configuration.yml#resource-management-responsibility). You also need to determine how you'll [clearly identify that specific resources relate to specific tenants](cost-management-allocation.md). Consider using a clear [naming convention strategy](/azure/cloud-adoption-framework/ready/azure-best-practices/naming-and-tagging), [resource tags](cost-management-allocation.md#allocate-costs-by-using-resource-tags), or a tenant catalog database.
 
 It's a good practice to use separate resource groups for the resources you share between multiple tenants and the resources that you deploy for individual tenants. However, for some resources, [Azure limits the number of resources of a single type that can be deployed into a resource group](/azure/azure-resource-manager/management/resources-without-resource-group-limit). This limit means you might need to [scale across multiple resource groups](#resource-group-and-subscription-limits) as you grow.
@@ -92,6 +94,8 @@ In our example, Contoso might choose to deploy a stamp for each of their custome
 
 By deploying tenant-specific subscriptions, you can completely isolate tenant-specific resources. Additionally, because most quotas and limits apply within a subscription, using a separate subscription per tenant ensures that each tenant has full use of any applicable quotas. For some Azure billing account types, [you can programmatically create subscriptions](/azure/cost-management-billing/manage/programmatically-create-subscription). You can also use [Azure reservations](/azure/cost-management-billing/reservations/save-compute-costs-reservations) across subscriptions.
 
+Make you are aware of the number of subscriptions that you can create. The maximum number of subscriptions might differ, depending on your commercial relationship with Microsoft or a Microsoft partner, such as if you have an [enterprise agreement](/azure/cost-management-billing/manage/programmatically-create-subscription-enterprise-agreement?tabs=rest#limitations-of-azure-enterprise-subscription-creation-api).
+
 However, it can be more difficult to request quota increases, when you work across a large number of subscriptions. The [Quota API](/rest/api/reserved-vm-instances/quotaapi) provides a programmatic interface for some resource types. However, for many resource types, quota increases must be requested by [initiating a support case](/azure/azure-resource-manager/management/azure-subscription-service-limits#managing-limits). It can also be challenging to work with Azure support agreements and support cases, when you work with many subscriptions.
 
 Consider grouping your tenant-specific subscriptions into a [management group](/azure/governance/management-groups/overview) hierarchy, to enable easy management of access control rules and policies.
@@ -112,6 +116,8 @@ It's also possible to manually create individual Azure Active Directory (Azure A
 
 > [!WARNING]
 > **We advise against creating multiple Azure Active Directory tenants for most multitenant solutions.** Working across Azure AD tenants introduces extra complexity and reduces your ability to scale and manage your resources. Typically, this approach is only used by managed service providers (MSPs), who operate Azure environments on behalf of their customers.
+>
+> A single Azure AD tenant can be used by multiple separate subscriptions and Azure resources. Before you make an effort to deploy multiple Azure AD tenants, [consider whether there are other approaches that could achieve your purposes](https://azure.microsoft.com/resources/securing-azure-environments-with-azure-active-directory).
 
 In situations where you need to manage Azure resources in subscriptions that are tied to multiple Azure AD tenants, consider using [Azure Lighthouse](/azure/lighthouse/overview) to help manage your resources across your Azure AD tenants.
 
@@ -169,7 +175,7 @@ Over time, you might reach the limit of the number of resources in a single reso
 
 ![Diagram that shows bin packing across multiple resources, in multiple resource groups.](media/resource-organization/bin-pack-resources-3.png)
 
-And as you grow even larger, you can deploy across multiple (*S*) subscriptions, each containing multiple (*G*) resource groups with multiple (*R*) resources. The following diagram shows bin packing across multiple resources, in multiple resource grouops and subscriptions.
+And as you grow even larger, you can deploy across multiple (*S*) subscriptions, each containing multiple (*G*) resource groups with multiple (*R*) resources. The following diagram shows bin packing across multiple resources, in multiple resource groups and subscriptions.
 
 ![Diagram that shows bin packing across multiple resources, in multiple resource groups and subscriptions.](media/resource-organization/bin-pack-resources-4.png)
 

@@ -71,4 +71,4 @@ data_frame = pd.read_sql('''select <columnname1>, <columnname2>... from <tablena
 Now you can work with the Pandas DataFrame as covered in the topic [Process Azure Blob data in your data science environment](data-blob.md).
 
 ## The Team Data Science Process in action example
-For an end-to-end walkthrough example of the Cortana Analytics Process using a public dataset, see [The Team Data Science Process in action: using SQL Server](sql-walkthrough.md).
+For an end-to-end walkthrough example of the Cortana Analytics Process using a public dataset, see [The Team Data Science Process in action: using SQL Server](/azure/architecture/data-science-process/overview).
