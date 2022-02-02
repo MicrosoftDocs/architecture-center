@@ -1669,6 +1669,8 @@ items:
                   - name: Blueprint - Analytics for PCI DSS
                     href: /previous-versions/azure/security/blueprints/pcidss-analytics-overview
                     maintainContext: true
+              - name: Customer 360 with Azure Synapse and Dynamics 365
+                href: example-scenario/analytics/synapse-customer-insights.yml      
               - name: Data analysis for regulated industries
                 href: example-scenario/data/data-analysis-regulated-industries.yml
               - name: Data lake queries via Synapse serverless
@@ -2853,6 +2855,8 @@ items:
                 href: solution-ideas/articles/cross-platform-chat.yml
       - name: Identity
         items:
+          - name: Get started
+            href: identity/identity-start-here.yml
           - name: Guides
             items:
               - name: Compare identity services
@@ -2930,17 +2934,17 @@ items:
                     maintainContext: true
               - name: Identity management
                 items:
-                  - name: Enterprise enrollment and AAD tenants
-                    href: /azure/cloud-adoption-framework/ready/enterprise-scale/enterprise-enrollment-and-azure-ad-tenants
+                  - name: Azure billing and AAD tenants
+                    href: /azure/cloud-adoption-framework/ready/landing-zone/design-area/azure-billing-ad-tenant?toc=/azure/architecture/toc.json&bc=/azure/architecture/_bread/toc.json
                     maintainContext: true
                   - name: Identity and access management
-                    href: /azure/cloud-adoption-framework/ready/enterprise-scale/identity-and-access-management
+                    href: /azure/cloud-adoption-framework/ready/landing-zone/design-area/identity-access?toc=/azure/architecture/toc.json&bc=/azure/architecture/_bread/toc.json
                     maintainContext: true
                   - name: Limit cross-tenant private endpoints
                     href: /azure/cloud-adoption-framework/ready/azure-best-practices/limit-cross-tenant-private-endpoint-connections
                     maintainContext: true
-                  - name: Management groups and subscriptions
-                    href: /azure/cloud-adoption-framework/ready/enterprise-scale/management-group-and-subscription-organization
+                  - name: Resource organization
+                    href: /azure/cloud-adoption-framework/ready/landing-zone/design-area/resource-org?toc=/azure/architecture/toc.json&bc=/azure/architecture/_bread/toc.json
                     maintainContext: true
               - name: Hybrid identity
                 items:
