@@ -112,10 +112,10 @@ Numbers in the following sections are approximate. The numbers are based on a va
 
 Also, note that:
 
-- You can't create more than 200 application groups per single Azure AD tenant.
+- You can't create more than 500 application groups per single Azure AD tenant<sup>1</sup>.
 - We recommend that you don't publish more than 50 applications per application group.
 
-### Azure limitations
+### Azure Virtual Desktop limitations
 
 Azure Virtual Desktop much like Azure has a number of service limitations that you need to be aware. You can address some of these limitations in the design phase to avoid changes in the scaling phase.
 
