@@ -7,7 +7,7 @@ ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: azure-guide
 ms.custom: fcp
-Categories:
+categories:
   - web 
 products:
   - azure-app-service
