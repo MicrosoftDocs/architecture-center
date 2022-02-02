@@ -18,6 +18,6 @@ products:
   - azure-cache-redis
 name: Caching guidance
 summary: Learn how caching can improve the performance and scalability of a system by copying frequently accessed data to fast storage close to the application.
-thumbnailUrl: /azure/architecture/best-practices/images/caching/caching3.png
+thumbnailUrl: /azure/architecture/browse/thumbs/caching3.png
 content: |
   [!include[](caching-content.md)]

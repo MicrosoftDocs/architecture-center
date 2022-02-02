@@ -6,14 +6,12 @@ author: EdPrice-MSFT
 ms.date: 06/05/2017
 ms.topic: conceptual
 ms.service: architecture-center
-ms.subservice: anti-pattern
+ms.subservice: azure-guide
+ms.custom: fcp
 azureCategories:
   - databases
 products:
   - azure-cache-redis
-ms.custom:
-  - article
-  - seo-aac-fy21q3
 keywords:
   - antipattern
   - anti-pattern
