@@ -229,7 +229,7 @@ Use this pipeline to create a new single cloud developer environment with a cust
    RUN_FLAG_TERRAFORM = true
    ```
 
-   You can also use Azure CLI to add the variables. Run the following command for each variable respectively, after signing in to the Azure subscription and installing the [Pipelines extension](/azure/devops/pipelines/create-first-pipeline-cli):
+   You can also use Azure CLI to add the variables. Run the following command for each variable respectively, after signing in to the Azure subscription and installing the [Pipelines extension](/azure/devops/pipelines/create-first-pipeline):
 
    ```azurecli
    az pipelines variable create \
@@ -272,7 +272,7 @@ Use this pipeline to delete an environment, like one that the `ci_cd_ext_release
    applicationName = cl1grw <or your app name>
    ```
 
-   You can also use Azure CLI to add the variables. Run the following command for each variable respectively, after signing in to the Azure subscription and installing the [Pipelines extension](/azure/devops/pipelines/create-first-pipeline-cli):
+   You can also use Azure CLI to add the variables. Run the following command for each variable respectively, after signing in to the Azure subscription and installing the [Pipelines extension](/azure/devops/pipelines/create-first-pipeline):
 
    ```azurecli
    az pipelines variable create \
