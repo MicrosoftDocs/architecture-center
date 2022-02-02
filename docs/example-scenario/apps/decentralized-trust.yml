@@ -4,6 +4,7 @@ metadata:
   titleSuffix: Azure Example Scenarios
   description: Establish a trusted environment for communication and information sharing without resorting to a centralized database.
   author: vitoc
+  ms.author: pnp
   ms.date: 09/09/2018
   ms.topic: conceptual
   ms.service: architecture-center
@@ -18,7 +19,8 @@ metadata:
   social_image_url: /azure/architecture/example-scenario/apps/media/architecture-decentralized-trust.png
 name: Decentralized trust between banks
 azureCategories:
-  - blockchain
+  - networking
+  - compute
 summary: Establish a trusted environment for communication and information sharing without resorting to a centralized database.
 products:
   - azure-key-vault
