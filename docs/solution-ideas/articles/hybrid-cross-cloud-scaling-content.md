@@ -3,10 +3,9 @@
 This solution shows how to use Azure Traffic Manager to extend an app that's located in a local cloud by connecting it to public cloud resources. A change in routing is triggered by an increase or decrease in demand, and resources are added or removed in the cloud. These resources provide redundancy, rapid availability, and geo-compliant routing.
 
 ## Potential use cases
+Global enterprises need their apps to be secure, reliable, and available. They need to meet increases in demand and use the right infrastructure to support that demand. It can be difficult to balance costs and maintenance with business-data security, storage, and real-time availability.
 
 When an app can't increase capacity to meet unexpected increases in demand, it can service only a fixed number of users. This lack of scalability can result in users not reaching the app during peak usage times.
-
-Global enterprises need their apps to be secure, reliable, and available. They need to meet increases in demand and use the right infrastructure to support that demand. It can be difficult to balance costs and maintenance with business-data security, storage, and real-time availability.
 
 However, sometimes it's not economically feasible for a business to maintain the capacity required to handle spikes in demand in their on-premises environment. By using this solution, you can use the elasticity of the public cloud with your on-premises solution.  
 
