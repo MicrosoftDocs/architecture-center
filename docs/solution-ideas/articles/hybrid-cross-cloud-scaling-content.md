@@ -6,7 +6,7 @@ This solution shows how to use Azure Traffic Manager to extend an app that's loc
 
 When an app can't increase capacity to meet unexpected increases in demand, it can service only a fixed number of users. This lack of scalability can result in users not reaching the app during peak usage times.
 
-Global enterprises require secure, reliable, and available cloud-based apps. It's critical to meet increases in demand and use the right infrastructure to support that demand. It can be difficult to balance costs and maintenance with business-data security, storage, and real-time availability.
+Global enterprises need their apps to be secure, reliable, and available. They need to meet increases in demand and use the right infrastructure to support that demand. It can be difficult to balance costs and maintenance with business-data security, storage, and real-time availability.
 
 However, sometimes it's not economically feasible for a business to maintain the capacity required to handle spikes in demand in their on-premises environment. By using this solution, you can use the elasticity of the public cloud with your on-premises solution.  
 
@@ -34,6 +34,7 @@ _Download an [SVG file](https://arch-center.azureedge.net/cross-cloud-scaling.sv
 
 ### Components
 
+- [Azure Stack Hub](https://azure.microsoft.com/products/azure-stack/hub) is an extension of Azure. Azure Stack Hub brings the agility of cloud computing to your on-premises environment. In this architecture, it hosts the on-premises version of the app. 
 - [Traffic Manager](https://azure.microsoft.com/services/traffic-manager) is a DNS-based traffic load balancer. It's used here to direct client requests to the appropriate endpoint.
 - [Azure Virtual Machine Scale Sets](https://azure.microsoft.com/services/virtual-machine-scale-sets) enables you to scale virtual machines. In this architecture, you can use it to enable app resources to scale in and out. 
 - [Azure Container Instances](https://azure.microsoft.com/services/container-instances) enables you to run containers in Azure. In this architecture, it can be used as an alternative to Virtual Machine Scale Sets to provide scaling. 
@@ -50,7 +51,7 @@ It can keep traffic on the best path to your app, improve service scale, reduce 
 
 ### Reliability
 
-Use appropriate on-premises hardware configuration and software deployment practices to ensure that locally deployed apps are configured for high availability. Follow the guidance in [Resiliency and dependencies](/azure/architecture/framework/resiliency/design-resiliency) and [Best practices](/azure/architecture/framework/resiliency/design-best-practices) to improve resiliency.
+Use appropriate on-premises hardware configuration and software deployment practices to ensure that locally deployed apps are configured for high availability. To improve resiliency, follow the guidance in [Resiliency and dependencies](/azure/architecture/framework/resiliency/design-resiliency) and [Best practices](/azure/architecture/framework/resiliency/design-best-practices).
 
 ### Security
 
