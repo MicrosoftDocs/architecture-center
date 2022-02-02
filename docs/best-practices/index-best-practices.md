@@ -61,7 +61,7 @@ This table lists various best practices. The **Related pillars or patterns** col
 [Background jobs]: ./background-jobs.md
 [Best practices for monitoring cloud applications]: ./monitoring.md
 [Best practices for using content delivery networks (CDNs)]: ./cdn.md
-[Caching]: ./caching.md
+[Caching]: ./caching.yml
 [Cloud Design Patterns]: ../patterns/index.md
 [Data Management patterns]: ../patterns/category/data-management.md
 [Data partitioning strategies]: ./data-partitioning-strategies.md
