@@ -61,7 +61,7 @@ Before implementing this solution some factors you might want to consider,  incl
 
 ## Deploy this scenario
 
-A proof-of-concept implementation of this scenario is available at the [MLOps Platform using Databricks and Kubernetes](https://github.com/nfmoore/databricks-kubernetes-mlops-poc) repository.
+A proof-of-concept implementation of this scenario is available at the [Proof-of-Concept: Employee Retention with Databricks and Kubernetes](https://github.com/Azure/employee-retention-databricks-kubernetes-poc) repository.
 
 ![design](media/employee-retention-with-databricks-and-kubernetes-workflow.png)
 
