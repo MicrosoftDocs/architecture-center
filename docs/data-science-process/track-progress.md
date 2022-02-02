@@ -24,12 +24,12 @@ Data science group managers, team leads, and project leads can track the progres
 
 ## Azure DevOps dashboards
 
-If you're using Azure DevOps, you can build dashboards to track the activities and work items associated with a given Agile project. For more information about dashboards, see [Dashboards, reports, and widgets](/azure/devops/report/dashboards/).
+If you're using Azure DevOps, you can build dashboards to track the activities and work items associated with a given Agile project. For more information about dashboards, see [Dashboards, reports, and widgets](/azure/devops/report/dashboards/overview).
 
 For instructions on how to create and customize dashboards and widgets in Azure DevOps, see the following quickstarts:
 
-- [Add and manage dashboards](/azure/devops/report/dashboards/dashboards)
-- [Add widgets to a dashboard](/azure/devops/report/dashboards/add-widget-to-dashboard)
+- [Add and manage dashboards](/azure/devops/report/dashboards/overviewdashboards)
+- [Add widgets to a dashboard](/azure/devops/report/dashboards/overviewadd-widget-to-dashboard)
 
 ## Example dashboard
 
