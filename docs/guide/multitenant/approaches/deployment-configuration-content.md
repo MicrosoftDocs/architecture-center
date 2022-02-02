@@ -76,7 +76,7 @@ The [Deployment Stamps pattern](../../../patterns/deployment-stamp.md) involves 
 
 ### Feature flags
 
-[Feature flags](/azure/devops/migrate/phase-features-with-feature-flags) enable you to expose new features or versions of your solution to different tenants, while you maintain a single codebase. Consider using [Azure App Configuration](/azure/azure-app-configuration/overview) to manage your feature flags. For more information, see [Feature flags](../considerations/updates.md#feature-flags).
+[Feature flags](/devops/operate/progressive-experimentation-feature-flags) enable you to expose new features or versions of your solution to different tenants, while you maintain a single codebase. Consider using [Azure App Configuration](/azure/azure-app-configuration/overview) to manage your feature flags. For more information, see [Feature flags](../considerations/updates.md#feature-flags).
 
 Sometimes you need to selectively enable specific features for certain customers. For example, you might have different [pricing tiers](../considerations/pricing-models.md) that allow access to certain capabilities. Feature flags aren't usually the right choice for these scenarios. Instead, consider building a process to track and enforce the *license entitlements* that each customer has.
 
