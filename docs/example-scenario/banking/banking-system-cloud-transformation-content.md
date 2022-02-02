@@ -252,7 +252,7 @@ The CSE team created release branches that generated stable versions for deploym
 
 #### Disaster recovery
 
-The solution uses [Terraform scripts and Azure Pipelines](/azure/devops/pipelines/release/automate-terraform) for all the services. If a disaster occurs, Contoso Bank can re-create the entire environment by using Terraform scripts or by running the release pipeline again. Terraform understands that the environment has changed and recreates it. The solution dynamically provisions and destroys the infrastructure on Azure as needed. Storage accounts are zone-redundant storage (ZRS). A backup strategy was out of scope for this engagement.
+The solution uses Terraform scripts and Azure Pipelines for all the services. If a disaster occurs, Contoso Bank can re-create the entire environment by using Terraform scripts or by running the release pipeline again. Terraform understands that the environment has changed and recreates it. The solution dynamically provisions and destroys the infrastructure on Azure as needed. Storage accounts are zone-redundant storage (ZRS). A backup strategy was out of scope for this engagement.
 
 #### Security and privacy
 
