@@ -1,7 +1,7 @@
 ---
 title: Computer vision with Azure IoT Edge
 titleSuffix: Azure Architecture Center
-description: Create n vision AI solution that uses Azure IoT Edge. Explore hardware recommendations, machine learning and storage requirements, alerting, and user interfaces.
+description: Create a vision AI solution with Azure IoT Edge. Explore computer vision hardware, machine learning and storage requirements, alerting, and user interfaces.
 author: MSKeith
 ms.author: keith
 ms.date: 01/27/2022
@@ -22,11 +22,11 @@ ms.custom:
 
 # Vision AI solutions with Azure IoT Edge
 
-This series of articles describes how to plan and design a computer vision workload with Azure IoT Edge. IoT Edge runtime devices and networks can integrate seamlessly with Azure Machine Learning, Azure Storage, and user interfaces like Power BI and Azure App Service.
+This series of articles describes how to plan and design a computer vision workload with Azure IoT Edge. Run Azure IoT Edge on devices, and integrate with Azure Machine Learning, Azure Storage, and Power BI or Azure App Service for an end-to-end vison AI solution.
 
 Visually inspecting products, resources, and environments is an important process for many enterprises. Visual inspection and analytics were once manual processes. Human limitations made these processes potentially inefficient or inaccurate. Enterprises can now use deep learning artificial neural networks called *convolutional neural networks* (CNNs) to emulate human vision. Using CNNs for automated image input and analytics is commonly called *computer vision* or *vision AI*.
 
-Cloud-native technologies like containerization support portability, and allow migrating computer vision technology to the network edge. You can train vision inference models in the cloud, containerize the models, and use them to create custom modules for Azure IoT Edge runtime-enabled devices. Deploying vision AI solutions at the edge promotes optimal performance and cost savings.
+Technologies like containerization support portability, and allow migrating computer vision models to the network edge. You can train vision inference models in the cloud, containerize the models, and use them to create custom modules for Azure IoT Edge runtime-enabled devices. Deploying vision AI solutions at the edge promotes optimal performance and cost savings.
 
 ## Use cases for vision AI at the edge
 
@@ -39,7 +39,6 @@ In manufacturing environments, vision AI can inspect parts and processes fast an
 - Monitor manufacturing process consistency.
 - Check proper product assembly.
 - Provide early defect notifications.
-- Identify model drift that requires predictive maintenance changes.
 
 ### Safety and security
 
@@ -47,7 +46,7 @@ Automated visual monitoring can scan for potential safety and security issues. A
 
 - Track workforce compliance with personal protective equipment guidelines.
 - Monitor entry into unauthorized work zones.
-- Check proper product storage.
+- Check for proper product storage.
 - Record unreported close calls or pedestrian-equipment near-misses.
 
 ## Cost and performance benefits
@@ -58,7 +57,7 @@ Reasons to migrate computer vision workloads from the cloud to the edge include 
 
 - Exporting large quantities of data to the cloud can strain network infrastructure, causing performance issues.
 - Retrieving results from the cloud can introduce unacceptable latency. For example, a person entering an unauthorized area might need immediate intervention. Positioning the scoring model near the data ingestion point allows near real-time image scoring.
-- Alerting can happen locally or through the cloud, depending on network topology.
+- Alerting can happen locally or through the cloud, depending on solution design and requirements.
 
 ### Cost considerations
 
@@ -68,11 +67,11 @@ Sending all data to the cloud for analysis can significantly impact the return o
 
 Vision AI solutions for IoT Edge involve several components and processes. The following articles provide in-depth planning and design guidance for each area:
 
-- Input camera. See [Camera selection for Azure IoT Edge vision AI](./camera.md).
+- Camera. See [Camera selection for Azure IoT Edge vision AI](./camera.md).
 - Edge hardware acceleration chips and processors. See [Hardware acceleration in Azure IoT Edge vision AI](./hardware.md).
 - Training and machine learning for IoT Edge vision modules. See [Machine learning and data science in Azure IoT Edge vision AI](./machine-learning.md).
 - Storing image data on IoT Edge devices and in the cloud. See [Image storage and management for Azure IoT Edge vision AI](./image-storage.md).
-- Alerting for images that require attention. See [Alert persistence in Azure IoT Edge vision AI](./alerts.md).
+- Alerting based on image scores that need attention. See [Alert persistence in Azure IoT Edge vision AI](./alerts.md).
 - User interaction with the system. See [User interface in Azure IoT Edge vision AI](./user-interface.md).
 
 ## Next steps
