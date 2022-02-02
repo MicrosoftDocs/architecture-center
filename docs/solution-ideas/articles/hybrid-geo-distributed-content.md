@@ -1,17 +1,17 @@
 [!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
-This solution illustrates geographic traffic routing, a process for implementing geo-distributed apps. The solution lets traffic be directed to specific endpoints based on various metrics. Creating a Traffic Manager with geographic-based routing and endpoint configuration routes traffic to endpoints based on regional requirements, corporate and international regulation, and data needs.
+This solution illustrates geographic traffic routing, a process for implementing geo-distributed apps. The solution directs traffic to specific endpoints based on various metrics. It uses Azure Traffic Manager to route traffic to endpoints based on regional requirements, corporate and international regulations, and data needs.
 
 ## Potential use cases
 
-Organizations with wide-reaching geographies strive to securely and accurately distribute and enable access to data while ensuring required levels of security, compliance and performance per user, location, and device across borders.
+Organizations that have wide-reaching geographies strive to distribute data and enable access that data while ensuring required levels of security, compliance, and performance per user, location, and device across borders.
 
-When to use this architecture:
+Use this solution when: 
 
-* My organization has international branches requiring custom regional security and distribution policies.
-* Each of my organization's offices pulls employee, business, and facility data, requiring reporting activity per local regulations and time zone.
-* High-scale requirements can be met by horizontally scaling out apps, with multiple app deployments being made within a single region and across regions to handle extreme load requirements.
-* The apps must be highly available and responsive to client requests even in single-region outages.
+* Your organization has international branches that require custom regional security and distribution policies.
+* Each of your organization's offices pulls employee, business, and facility data, and that necessitates reporting activity per local regulations and time zone.
+* You can meet high-scale requirements by horizontally scaling out apps, with multiple app deployments made within a single region and across regions to handle extreme load requirements.
+* Your apps must be highly available and responsive to client requests even during single-region outages.
 
 ## Architecture
 
