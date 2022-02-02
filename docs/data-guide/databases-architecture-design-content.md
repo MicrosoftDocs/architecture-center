@@ -71,7 +71,7 @@ Review these best practices when designing your solutions.
 | [Secure data solutions](../data-guide/scenarios/securing-data-solutions.md) | Address concerns around increased accessibility to data in the cloud and how to secure it. |
 | [Continuous backup with point-in-time restore in Azure Cosmos DB](/azure/cosmos-db/continuous-backup-restore-introduction) | Learn about Azure Cosmos DB's point-in-time restore feature. |
 | [Achieve high availability with Cosmos DB](/azure/cosmos-db/high-availability) | Cosmos DB provides multiple features and configuration options to achieve high availability. |
-| [High availability for Azure SQL Database and SQL Managed Instance](/azure/azure-sql/database/high-availability-sla.yml) | The database shouldn't be a single point of failure in your architecture. |
+| [High availability for Azure SQL Database and SQL Managed Instance](/azure/azure-sql/database/high-availability-sla) | The database shouldn't be a single point of failure in your architecture. |
 
 ## Azure SQL Database security baselines
 
