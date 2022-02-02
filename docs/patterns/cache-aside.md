@@ -7,6 +7,8 @@ ms.date: 11/01/2018
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: design-pattern
+azureCategories:
+  - web
 products:
   - azure-cache-redis
 ms.custom:

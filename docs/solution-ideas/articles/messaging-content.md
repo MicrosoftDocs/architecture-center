@@ -23,4 +23,4 @@ Key technologies used to implement this architecture:
 ## Next Steps
 
 * [Asynchronous messaging options in Azure](../../guide/technology-choices/messaging.md)
-* [Caching Best Practice](../../best-practices/caching.md?toc=%2fazure%2fredis-cache%2ftoc.json)
+* [Caching Best Practice](../../best-practices/caching-content.md?toc=%2fazure%2fredis-cache%2ftoc.json)
