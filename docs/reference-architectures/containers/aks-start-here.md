@@ -4,7 +4,7 @@ titleSuffix: Azure Architecture Center
 description: An overview of Microsoft Azure Kubernetes Service (AKS) guidance offerings ranging from &quot;just starting out&quot;, to production, and through sustained operations.
 author: ckittel
 ms.author: pnp
-ms.date: 08/16/2020
+ms.date: 02/02/2022
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: reference-architecture
@@ -61,7 +61,7 @@ If you need a regulated environment, make the baseline implementation highly sec
 > [!div class="nextstepaction"]
 > [Regulated baseline cluster for PCI-DSS 3.2.1](./aks-pci/aks-pci-intro.yml)
 
-### Business Continuity and Disaster Recovery
+### Business continuity and disaster recovery
 
 A resilient solution needs multiple instances of the baseline cluster across regions in an active/active and highly available configuration.
 
