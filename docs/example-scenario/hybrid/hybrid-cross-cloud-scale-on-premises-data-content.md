@@ -1,5 +1,3 @@
-[!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
-
 This solution demonstrates how to build a hybrid app that spans Azure and Azure Stack Hub. It uses a single on-premises data source, which is a compliance requirement for some organizations.
 
 Many organizations collect and store massive amounts of sensitive customer data.  They're frequently prevented from storing sensitive data in the public cloud because of corporate regulations or government policy, but they might want to take advantage of the scalability of the public cloud. The public cloud can handle seasonal peaks in traffic, allowing organizations to pay for exactly the hardware they need, when they need it.
@@ -24,7 +22,7 @@ This solution is applicable in scenarios like these:
 
 ## Architecture
 
-![Diagram that shows an architecture for a hybrid app that spans Azure and Azure Stack Hub.](../media/hybrid-cross-cloud-scale-on-premises-data.png)  
+![Diagram that shows an architecture for a hybrid app that spans Azure and Azure Stack Hub.](../hybrid/media/hybrid-cross-cloud-scale-on-premises-data.png)  
 _Download a [Visio file](https://arch-center.azureedge.net/hybrid-cross-cloud-scale-onprem-data.vsdx) of this architecture._
 
 ### Dataflow
