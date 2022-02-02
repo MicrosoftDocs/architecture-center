@@ -20,7 +20,7 @@ We don't recommend this solution when:
 
 ## Architecture
 
-![Diagram that shows an architecture for hybrid cross-cloud scaling.](../media/hybrid-cross-cloud-scaling.png)  
+![Diagram that shows an architecture for hybrid cross-cloud scaling.](../hybrid/media/hybrid-cross-cloud-scaling.png)  
 _Download an [SVG file](https://arch-center.azureedge.net/cross-cloud-scaling.svg) of this architecture._
 
 ### Dataflow
