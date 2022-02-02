@@ -143,19 +143,17 @@ To monitor SAP application and associated infrastructures, Azure Monitor for SAP
 
 Many security measures are used to protect the confidentiality, integrity, and availability of an SAP landscape. To secure user access, for example, SAP has its own User Management Engine (UME) to control role-based access and authorization within the SAP application and databases. For more information, see [SAP HANA Security—An Overview](https://archive.sap.com/documents/docs/DOC-62943).
 
-For data at rest, encryption provides security as follows:
+For data at rest, different encryption functionalities provide security as follows:
 
 - Along with the SAP HANA native encryption technology, consider using an encryption solution from a partner that supports customer-managed keys.
 
-- To encrypt virtual machine disks, you can use [Azure Disk Encryption](/azure/virtual-machines/linux/disk-encryption-overview). The solution also works with Azure Key Vault to help you control and manage the disk-encryption keys and secrets in your Key Vault subscription. Our recommended approach to encrypting your SAP data at rest is as follows:
-  - Azure Disk Encryption for SAP Application servers: Operating system disks and data disks.
-  - Azure Disk Encryption for SAP Database servers: Operating system disks and data disks not used by the DBMS.
-  - SAP Database servers: Use Transparent Data Encryption offered by the DBMS provider (for example, *SAP HANA native encryption technology*) to secure your data and log files and to ensure the backups are also encrypted.
-
-- Data in Azure physical storage is automatically encrypted at rest with an Azure managed key.
+- To encrypt virtual machine disks, you can use functionalities described in [Disk Encryption Overview](/azure/virtual-machines/disk-encryption-overview). 
+- SAP Database servers: Use Transparent Data Encryption offered by the DBMS provider (for example, *SAP HANA native encryption technology*) to secure your data and log files and to ensure the backups are also encrypted.
+- Data in Azure physical storage is automatically encrypted at rest with an Azure managed key. You also can choose a customer managed key (CMK) instad of the Azure managed key.
+- For support of Azure Disk Encryption on particular Linux distros/version/images check [Azure Disk Encryption for Linux VMs](/azure/virtual-machines/linux/disk-encryption-overview).
 
 > [!NOTE]
-> Do not use the SAP HANA data-at-rest encryption with Azure Disk Encryption on the same storage volume. Also, operating system boot disks for Linux virtual machines do not support Azure Disk Encryption, nor does Site Recovery yet support Azure Disk Encryption-attached data disks on Linux.
+> Do not use the SAP HANA data-at-rest encryption with Azure Disk Encryption or Host Based Encryption on the same storage volume. Also, operating system boot disks for Linux virtual machines do not support Azure Disk Encryption, nor does Site Recovery yet support Azure Disk Encryption-attached data disks on Linux. Be aware that the usage of customer managed keys might impact storage throughput.
 
 For network security, use network security groups (NSGs) and Azure Firewall or a network virtual appliance as follows:
 

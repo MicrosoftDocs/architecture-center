@@ -3,9 +3,9 @@ metadata:
   title: Azure Virtual Desktop for the enterprise
   titleSuffix: Azure Example Scenarios
   description: Explore Azure Virtual Desktop and learn to build virtual desktop infrastructure solutions at enterprise scale.
-  author: EdPrice-MSFT
-  ms.author: pnp
-  ms.date: 07/16/2020
+  author: TomHickling
+  ms.author: thhickli
+  ms.date: 01/24/2022
   ms.topic: conceptual
   ms.service: architecture-center
   ms.subservice: example-scenario

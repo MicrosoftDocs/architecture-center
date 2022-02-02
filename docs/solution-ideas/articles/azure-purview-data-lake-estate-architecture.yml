@@ -16,6 +16,7 @@ azureCategories:
  - management-and-governance
 products:
 - azure-data-factory
+- azure-purview
 - azure-data-lake-storage
 - azure-synapse-analytics
 - power-bi

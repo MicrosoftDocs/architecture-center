@@ -8,7 +8,7 @@ editor: marktab
 ms.service: machine-learning
 ms.subservice: team-data-science-process
 ms.topic: conceptual
-ms.date: 12/21/2021
+ms.date: 01/31/2022
 ms.author: tdsp
 ms.custom:
   - previous-author=deguhath
@@ -18,6 +18,7 @@ products:
   - azure-machine-learning
 categories:
   - ai-machine-learning
+ROBOTS: NOINDEX
 ---
 # Feature engineering in machine learning
 
