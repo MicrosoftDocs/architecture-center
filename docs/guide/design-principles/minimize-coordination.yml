@@ -19,4 +19,4 @@ name: Minimize coordination
 summary: Follow these recommendations to improve scalability by minimizing coordination between application services.
 thumbnailUrl: /azure/architecture/guide/design-principles/images/database-lock.svg
 content: |
-  [!include[](minimize-coordination-content.md)]
+  [!include[](minimize-coordination-content.yml)]

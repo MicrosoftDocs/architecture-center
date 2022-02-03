@@ -56,14 +56,14 @@ items:
           - name: Choose a compute service
             items:
               - name: Azure compute services
-                href: guide/technology-choices/compute-decision-tree-content.md
+                href: guide/technology-choices/compute-decision-tree-content.yml
               - name: Microservices compute options
                 href: /azure/architecture/microservices/design/compute-options
               - name: Web apps and single page apps
                 href: /dotnet/architecture/modern-web-apps-azure/choose-between-traditional-web-and-single-page-apps
                 maintainContext: true
               - name: Multiparty computing
-                href: guide/technology-choices/multiparty-computing-service-content.md 
+                href: guide/technology-choices/multiparty-computing-service-content.yml
           - name: Choose a Kubernetes edge option
             items:
               - name: Kubernetes at the edge
@@ -99,13 +99,13 @@ items:
               - name: Database scenarios
                 items:
                   - name: OLAP solutions
-                    href: data-guide/relational-data/online-analytical-processing-content.md
+                    href: data-guide/relational-data/online-analytical-processing-content.yml
                   - name: OLTP solutions
                     href: data-guide/relational-data/online-transaction-processing.md
                   - name: Data warehousing
-                    href: data-guide/relational-data/data-warehousing-content.md
+                    href: data-guide/relational-data/data-warehousing-content.yml
                   - name: Non-relational data store
-                    href: data-guide/big-data/non-relational-data-content.md
+                    href: data-guide/big-data/non-relational-data-content.yml
                   - name: Pipeline orchestration
                     href: data-guide/technology-choices/pipeline-orchestration-data-movement.md
                   - name: Search data store
@@ -125,7 +125,7 @@ items:
               - name: Cognitive services
                 href: data-guide/technology-choices/cognitive-services.md
               - name: Natural language processing
-                href: data-guide/technology-choices/natural-language-processing-content.md
+                href: data-guide/technology-choices/natural-language-processing-content.yml
               - name: Machine learning
                 href: data-guide/technology-choices/data-science-and-machine-learning.md
               - name: Machine learning tools
@@ -139,15 +139,15 @@ items:
                 href: /azure/cloud-adoption-framework/ready/considerations/networking-options
                 maintainContext: true
               - name: Load balancing options
-                href: guide/technology-choices/load-balancing-overview-content.md
+                href: guide/technology-choices/load-balancing-overview-content.yml
           - name: Choose a messaging service
             items:
               - name: Asynchronous messaging
-                href: guide/technology-choices/messaging-content.md
+                href: guide/technology-choices/messaging-content.yml
               - name: Real-time message ingestion
                 href: data-guide/technology-choices/real-time-ingestion.md
           - name: Choose an IoT solution
-            href: example-scenario/iot/iot-central-iot-hub-cheat-sheet-content.md
+            href: example-scenario/iot/iot-central-iot-hub-cheat-sheet-content.yml
           - name: Choose a mixed reality engine
             href: /windows/mixed-reality/develop/choosing-an-engine
             maintainContext: true
@@ -1248,7 +1248,7 @@ items:
               - name: Cognitive services
                 href: data-guide/technology-choices/cognitive-services.md
               - name: Natural language processing
-                href: data-guide/technology-choices/natural-language-processing-content.md
+                href: data-guide/technology-choices/natural-language-processing-content.yml
               - name: R developer's guide to Azure
                 href: data-guide/technology-choices/r-developers-guide.md
               - name: Machine learning
@@ -1787,7 +1787,7 @@ items:
           - name: Guides
             items:
               - name: Choose a compute service
-                href: guide/technology-choices/compute-decision-tree-content.md
+                href: guide/technology-choices/compute-decision-tree-content.yml
               - name: SAS on Azure architecture
                 href: guide/sas/sas-overview.yml
               - name: Industry guidance
@@ -2019,15 +2019,15 @@ items:
                   - name: 'Extract, transform, and load (ETL)'
                     href: data-guide/relational-data/etl.md
                   - name: Online analytical processing (OLAP)
-                    href: data-guide/relational-data/online-analytical-processing-content.md
+                    href: data-guide/relational-data/online-analytical-processing-content.yml
                   - name: Online transaction processing (OLTP)
                     href: data-guide/relational-data/online-transaction-processing.md
                   - name: Data warehousing
-                    href: data-guide/relational-data/data-warehousing-content.md
+                    href: data-guide/relational-data/data-warehousing-content.yml
               - name: Non-relational data
                 items:
                   - name: Non-relational data stores
-                    href: data-guide/big-data/non-relational-data-content.md
+                    href: data-guide/big-data/non-relational-data-content.yml
                   - name: Free-form text search
                     href: data-guide/scenarios/search.md
                   - name: Time series data
@@ -3100,7 +3100,7 @@ items:
               - name: Azure IoT client SDK support
                 href: guide/iot/azure-iot-client-sdk-support.md
               - name: Choose an IoT solution
-                href: example-scenario/iot/iot-central-iot-hub-cheat-sheet-content.md
+                href: example-scenario/iot/iot-central-iot-hub-cheat-sheet-content.yml
               - name: Moving from test to production
                 href: example-scenario/iot/iot-move-to-production.md
           - name: Architectures

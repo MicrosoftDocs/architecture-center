@@ -117,7 +117,7 @@
       "redirect_url": "/azure/architecture/data-guide/relational-data/data-warehousing"
     },
     {
-      "source_path": "docs/data-guide/scenarios/online-analytical-processing.md",
+      "source_path": "docs/data-guide/scenarios/online-analytical-processing.yml",
       "redirect_url": "/azure/architecture/data-guide/relational-data/online-analytical-processing"
     },
     {

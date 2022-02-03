@@ -7,6 +7,8 @@ ms.date: 06/22/2020
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: azure-guide
+categories:
+  - compute
 products:
   - azure-functions
 ms.custom:
@@ -53,4 +55,4 @@ Successful implementation of serverless technologies with Azure Functions requir
 ## Related resources
 - To learn more about serverless technology, see the [Azure serverless documentation](https://azure.microsoft.com/solutions/serverless/).
 - To learn more about Azure Functions, see the [Azure Functions documentation](/azure/azure-functions/).
-- For help with choosing a compute technology, see [Choose an Azure compute service for your application](../guide/technology-choices/compute-decision-tree-content.md).
+- For help with choosing a compute technology, see [Choose an Azure compute service for your application](../guide/technology-choices/compute-decision-tree-content.yml).

@@ -8,6 +8,11 @@ ms.date: 08/30/2018
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: guide
+categories:
+  - compute
+products:
+  - azure
+  - azure-batch
 ms.custom:
   - seojan19
   - HPC
@@ -78,7 +83,7 @@ In this scenario, an organization is running HPC Pack on-premises, and uses Azur
 
 ## Next steps
 
-- [Choose an Azure compute service for your application](../technology-choices/compute-decision-tree-content.md)
+- [Choose an Azure compute service for your application](../technology-choices/compute-decision-tree-content.yml)
 - [High Performance Computing (HPC) on Azure](../../topics/high-performance-computing.md)
 - [HPC cluster deployed in the cloud](../../solution-ideas/articles/hpc-cluster.yml)
 
