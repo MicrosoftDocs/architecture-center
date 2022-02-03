@@ -10,9 +10,11 @@ metadata:
   ms.subservice: best-practice
   ms.custom: fcp
 azureCategories:
-  -
+  - storage
 products:
-  -
+  - azure-storage
+  - azure-blob-storage
+  - azure-iot
 name: CDN guidance
 summary: Guidance on using Content Delivery Networks (CDNs) to deliver high-bandwidth content hosted in Azure.
 thumbnailUrl: /azure/architecture/browse/thumbs/caching-thumbnail.png

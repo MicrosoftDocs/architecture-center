@@ -1,18 +1,15 @@
 ---
 title: N-tier architecture style
+titleSuffix: Azure Application Architecture Guide
 description: Know the benefits, challenges, and best practices for N-tier architectures on Azure. An N-tier architecture splits an app into logical layers and physical tiers.
 author: EdPrice-MSFT
 ms.date: 08/30/2018
 ms.topic: conceptual
 ms.service: architecture-center
-ms.subservice: azure-guide
-categories:
-  - web
-products:
-  - azure-storage
-  - azure-cloud-services
-  - azure-virtual-machines
-ms.custom: fcp
+ms.subservice: guide
+ms.custom:
+  - seojan19
+  - guide
 ---
 
 # N-tier architecture style

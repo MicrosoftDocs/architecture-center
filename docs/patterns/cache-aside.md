@@ -1,16 +1,16 @@
 ---
 title: Cache-Aside pattern
+titleSuffix: Cloud Design Patterns
 description: Learn how to load data on demand into a cache, which can improve performance and maintain consistency between cached data and the underlying data store.
 author: EdPrice-MSFT
 ms.date: 11/01/2018
 ms.topic: conceptual
 ms.service: architecture-center
-ms.subservice: azure-guide
-ms.custom: fcp
-categories:
-  - web
+ms.subservice: design-pattern
 products:
   - azure-cache-redis
+ms.custom:
+  - design-pattern
 keywords:
   - design pattern
 ---

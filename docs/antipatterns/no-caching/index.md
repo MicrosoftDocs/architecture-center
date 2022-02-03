@@ -1,16 +1,17 @@
 ---
 title: No Caching antipattern
+titleSuffix: Performance antipatterns for cloud apps
 description: Learn about ways to mitigate the No Caching antipattern, the common design flaw of repeatedly fetching the same data.
 author: EdPrice-MSFT
 ms.date: 06/05/2017
 ms.topic: conceptual
 ms.service: architecture-center
-ms.subservice: azure-guide
-ms.custom: fcp
-categories:
-  - databases
+ms.subservice: anti-pattern
 products:
   - azure-cache-redis
+ms.custom:
+  - article
+  - seo-aac-fy21q3
 keywords:
   - antipattern
   - anti-pattern
