@@ -7,7 +7,7 @@ ms.date: 10/20/2019
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: azure-guide
-ms.category:
+categories:
   - devops
   - developer-tools
 products:

@@ -7,6 +7,8 @@ ms.date: 04/10/2019
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: azure-guide
+categories:
+  - web
 products:
   - azure-app-service
 ms.custom:
