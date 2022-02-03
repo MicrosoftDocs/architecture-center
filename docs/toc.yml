@@ -1449,16 +1449,6 @@ items:
                             href: data-science-process/select-features.md
                       - name: Deploy models in production
                         href: data-science-process/deploy-models-in-production.md
-                  - name: Related
-                    items:
-                      - name: Anomaly detection
-                        href: data-science-process/apps-anomaly-detection-api.md
-                      - name: Predictive maintenance
-                        items:
-                          - name: Overview
-                            href: data-science-process/predictive-maintenance-playbook.md
-                          - name: Technical guide
-                            href: data-science-process/predictive-maintenance-technical-guide.md
           - name: Architectures
             items:
               - name: AI enrichment with Cognitive Search
