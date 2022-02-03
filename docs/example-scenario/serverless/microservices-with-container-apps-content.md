@@ -1,36 +1,68 @@
+# place holder
 
-Your business can simplify the deployment and management of microservice containers by using Azure Container Apps. Container Apps provides a fully managed serverless environment for building and deploying modern applications.
+This example scenario demonstrates how to deploy microservice containers without the needing to manage complex infrastructure and container orchestration.  
 
-To illustrate, we use the [Fabrikam Drone Delivery](https://github.com/mspnp/aks-fabrikam-dronedelivery) application that ran in Azure Kubernetes Service (AKS) and deployed it using Container Apps. You can find this scenario on [GitHub](https://github.com/mspnp/container-apps-fabrikam-dronedelivery).
+Fabrikam, Inc. has implemented a drone delivery service where users can request a drone to pick up goods for delivery. When a customer schedules a pickup, a backend system assigns a drone and notifies the user with an estimated delivery time. While the delivery is in progress, the customer can track the location of the drone, with a continuously updated ETA.  The application is implemented as containerized microservices and originally deployed to using Azure Kubernetes Service (AKS).
+
+Fabrikam needed to simplify their implementation and move their platform where their application could scale to meet future demands.
+
+With Azure Container Apps, Fabrikam can run their applications on a flexible serverless platform built for microservice applications.  Container Apps provides the powerful features of kubernetes without needing to create and maintain complicated configurations.  
+
+In this scenario, the existing Fabrikam Drone Delivery application [Azure Kubernetes Service (AKS) implementation](https://github.com/mspnp/aks-fabrikam-dronedelivery) is instead, deployed using Container Apps.  By deploying the application in Container Apps, this architecture is streamlined by eliminating the need for many external Azure services that were required in the previous AKS implementation.
+
+You can find this example workload on [Container Apps Example Scenario](https://github.com/mspnp/container-apps-fabrikam-dronedelivery).
 
 ## Potential use cases
 
-The Container Apps service is a solution for microservice applications that benefit from:
+The Container Apps service is a solution for microservice and containerized applications.   Common uses of Azure Container Apps include:
 
-* Deploying many microservices in a single container environment.
-* The flexibility of serverless environments.
-* Autoscaling based on HTTP traffic or Kubernetes Event-Driven Autoscaling (KEDA) triggers.
-* Kubernetes features without the need to access the Kubernetes API.
+* Deploying applications to a serverless platform
+* Deploying API endpoints
+* Hosting background processing applications
+* Handling event-driven processing
+* Deploying applications that dynamically scale
 
 ## Architecture
 
-![Microservices Deployed with Container Apps](./media/microservices-with-container-apps-diagram.png)
+![Microservices Deployed with Container Apps](./media/microservices-with-container-apps-deployment.png)
+
+In this scenario, the design decision was made to deploy all of the microservice containers to a single Container Apps environment.  With this option, the services share the same secure environment with:
+
+* a single internal VNET
+* internal ingress and service discovery
+* a single Log Analytics workspace for runtime logging
+* external HTTP endpoints enabled without the need for other Azure services
+* secured management of secrets and certificates
+
+Each containers app is pulled from Azure Container Registry and added to a Container Apps environment.  
+
+![Microservices Deployed with Container Apps](./media/microservices-with-container-apps-runtime-diagram.png)
+
+This diagram illustrates the runtime architecture for the solution.  
 
 ### Workflow
 
-1. Ingestion service: Receives client requests, buffers them and send them via Azure Service Bus to the WorkFlow service.
-1. Workflow service:  Dispatches client requests and manages the delivery workflow.
-1. Package service: Manages packages.
-1. Drone scheduler service: Schedules drones and monitors drones in flight.
-1. Delivery service: Manages deliveries that are scheduled or in-transit.
-
-Each containerized microservice is stored in a container app.  These container apps deployed to single Azure Container Apps environment.  The Container Apps environment is configured with a [Log Analytics workspace](https://docs.microsoft.com/azure/azure-monitor/logs/design-logs-deployment), which is used by the Azure Monitor service. Container Apps in the same environment share the same virtual network and write logs to the same Log Analytics workspace.
+1. **Ingest service:** Receives client requests, buffers them and sends them via Azure Service Bus to the WorkFlow service.
+1. **Workflow service:**  Dispatches client requests and manages the delivery workflow.
+1. **Package service:** Manages packages.
+1. **Drone scheduler service:** Schedules drones and monitors drones in flight.
+1. **Delivery service:** Manages deliveries that are scheduled or in-transit.
 
 ### Components
 
 This solution uses the following Azure components:
 
-**[Azure Container Apps](https://azure.microsoft.com/services/container-apps)** is an Azure offering that provides serverless, managed platform.
+**[Azure Container Apps](https://azure.microsoft.com/services/container-apps)** is fully managed serverless container service to building and deploying modern apps at scale.
+
+Many of the complexities of the previous AKS architecture are replaced by these features:
+
+* Built-in service discovery
+* Fully managed HTTP and HTTP/2 endpoints
+* Integrated load balancing
+* Logging and monitoring
+* Autoscaling based on HTTP traffic or events powered by KEDA
+* Application upgrades and versioning
+
 
 **External storage and other components:**
 
@@ -51,6 +83,8 @@ This solution uses the following Azure components:
 An alternative scenario of this example is the Fabrikam Drone Delivery application using Kubernetes can be found [here](https://github.com/mspnp/aks-fabrikam-dronedelivery).
 
 Instead of using Azure Service Bus, messaging between the microservices can be implemented with [Dapr](https://dapr.io/) (Distributed Application Runtime).  
+
+As an alternative to a deploying all of the microservices to a single Container Apps environment, the containers could be deployed to multiple environments. Multiple environments ensure that the services don't share the same compute resources.
 
 ## Considerations
 
@@ -75,11 +109,11 @@ Factors affecting performance are:
 
 ### Scalability
 
-When needed, the Container Apps service supports scaling based on HTTP traffic and any KEDA-based triggers.  Scaling can be easily added to the container app configuration.
+When implemented, Container Apps provides independent scaling of microservices.  Your service can scale up or down based on HTTP traffic or any KEDA-based event triggers. Scaling rules can be easily configures for each container. 
 
 ### Security
 
-This scenario users Azure Key Vault to securely store and access secrets.  
+Container Apps allows your application to securely store sensitive configuration values.  Once defined at the application level, secured values are available to the containers across revisions, and when implemented, inside scale rules.  In this scenario uses GitHub secrets and environmental variable values.
 
 ### Resiliency
 
@@ -88,7 +122,7 @@ The Container Apps service provides resiliency by automatically restarting any c
 ### DevOps
 
 This example uses Bicep templates for deployment. Both deployments and redeployments are run manually. 
-CD/CI pipelines can be enabled by adding GitHub Actions to the container apps.  
+CD/CI pipelines can be enabled by adding GitHub Actions to the container app.  
 
 ## Deploy this scenario
 
