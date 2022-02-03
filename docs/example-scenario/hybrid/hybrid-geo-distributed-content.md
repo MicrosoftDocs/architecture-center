@@ -27,7 +27,7 @@ _Download an [SVG file](https://arch-center.azureedge.net/geo-distributed.svg) o
 * [Traffic Manager](https://azure.microsoft.com/services/traffic-manager). Traffic Manager is a DNS-based traffic load balancer. It's used here to direct client requests to the appropriate endpoint.
 * **Domain Name System (DNS)**. DNS translates (or resolves) a website or service name to its IP address.
 * **Cloud endpoint**: Public IP addresses route incoming traffic through Traffic Manager to the endpoints for the public cloud app resources.
-* **Local endpoint**: Public IP addresses route incoming traffic through Traffic Manager to the endpoints for the public cloud app resources.
+* **Local endpoint**: Public IP addresses route incoming traffic through Traffic Manager to the endpoints for the local cloud app resources.
 
 ### Alternatives
 
