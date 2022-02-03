@@ -2795,7 +2795,7 @@ items:
                 href: reference-architectures/hybrid-networking/expressroute-vpn-failover.yml
               - name: Connect standalone servers
                 href: hybrid/azure-network-adapter.yml
-              - name: Cross-cloud scaling 
+              - name: Cross-cloud scaling with Traffic Manager
                 href: example-scenario/hybrid/hybrid-cross-cloud-scaling.yml
               - name: Deploy AI and ML with Azure Stack Edge
                 href: hybrid/deploy-ai-ml-azure-stack-edge.yml
