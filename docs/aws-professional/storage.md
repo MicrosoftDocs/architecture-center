@@ -49,4 +49,4 @@ For data that is infrequently accessed but must be available immediately when ac
 
 - [Azure Storage security guide](/azure/storage/common/storage-security-guide)
 
-- [Best practices for using content delivery networks (CDNs)](../best-practices/cdn.md)
+- [Best practices for using content delivery networks (CDNs)](../best-practices/cdn.yml)
