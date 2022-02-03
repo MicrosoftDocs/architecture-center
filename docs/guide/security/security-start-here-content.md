@@ -39,20 +39,22 @@ The Azure Well-Architected Framework is a set of guiding tenets, based on five p
  
 For information about security for sensitive IaaS workloads, see [Security considerations for highly sensitive IaaS apps in Azure](/azure/architecture/reference-architectures/n-tier/high-security-iaas).
 
-## Identity management
+## Security architectures
+ 
+### Identity management
 - [Secure OAuth 2.0 On-Behalf-Of refresh tokens for web services](/azure/architecture/example-scenario/secrets/secure-refresh-tokens)
-## Threat protection 
+### Threat protection 
 - [Threat indicators for cyber threat intelligence in Microsoft Sentinel](/azure/architecture/example-scenario/data/sentinel-threat-intelligence)
 - [Multilayered protection for Azure virtual machine access](/azure/architecture/solution-ideas/articles/multilayered-protection-azure-vm)
 - [Real-time fraud detection](/azure/architecture/example-scenario/data/fraud-detection)
 
-## Information protection
+### Information protection
 - [Confidential computing on a healthcare platform](/azure/architecture/example-scenario/confidential/healthcare-inference)
 - [Homomorphic encryption with SEAL](/azure/architecture/solution-ideas/articles/homomorphic-encryption-seal)
 - [SQL Managed Instance with customer-managed keys](/azure/architecture/example-scenario/data/sql-managed-instance-cmk)
 - [Virtual network integrated serverless microservices](/azure/architecture/example-scenario/integrated-multiservices/virtual-network-integration)
 
-## Discover and respond
+### Discover and respond
 - [Long-term security log retention with Azure Data Explorer](/azure/architecture/example-scenario/security/security-log-retention-azure-data-explorer)
 
 ## Stay current with security 
