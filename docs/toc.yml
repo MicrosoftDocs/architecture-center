@@ -2795,6 +2795,8 @@ items:
                 href: reference-architectures/hybrid-networking/expressroute-vpn-failover.yml
               - name: Connect standalone servers
                 href: hybrid/azure-network-adapter.yml
+              - name: Cross-cloud scaling (on-premises data)
+                href: example-scenario/hybrid/hybrid-cross-cloud-scale-on-premises-data.yml   
               - name: Deploy AI and ML with Azure Stack Edge
                 href: hybrid/deploy-ai-ml-azure-stack-edge.yml
               - name: Design a hybrid Domain Name System
