@@ -61,7 +61,7 @@ The key benefit of cross-cloud scaling is the ability to deliver on-demand scali
 ## Related resources
 
 * [Highly available multi-region web application](../../reference-architectures/app-service-web-app/multi-region.yml)
-* [Architecting Azure applications for resiliency and availability](/azure/architecture/reliability/architect.md)
+* [Architecting Azure applications for resiliency and availability](/azure/architecture/reliability/architect)
 * [Hybrid architecture design](../../hybrid/hybrid-start-here.md)
 * [Extend an on-premises network using VPN](../../reference-architectures/hybrid-networking/vpn.yml)
 * [Hybrid availability and performance monitoring](../../hybrid/hybrid-containers.yml)
