@@ -2811,6 +2811,8 @@ items:
                 href: reference-architectures/hybrid-networking/expressroute.yml
               - name: Extend an on-premises network using VPN
                 href: reference-architectures/hybrid-networking/vpn.yml
+              - name: Geo-distributed solution
+                href: example-scenario/hybrid/hybrid-geo-distributed.yml
               - name: Hybrid availability and monitoring
                 href: hybrid/hybrid-perf-monitoring.yml
               - name: Hybrid file services
@@ -2839,8 +2841,6 @@ items:
                     href: solution-ideas/articles/hybrid-continuous-integration.yml
                   - name: Hybrid connections
                     href: solution-ideas/articles/hybrid-connectivity.yml
-                  - name: Hybrid Geo-distributed solution
-                    href: solution-ideas/articles/hybrid-geo-distributed.yml
                   - name: Hybrid relay connection
                     href: solution-ideas/articles/hybrid-relay-connection.yml
                   - name: Unlock legacy data with Azure Stack

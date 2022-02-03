@@ -14,7 +14,7 @@ Use this solution when:
 ## Architecture
 
 ![Diagram that shows an architecture for geographic traffic routing.](../hybrid/media/hybrid-geo-distributed.png)  
-_Download a [Visio file](https://arch-center.azureedge.net/geo-distributed.svg) of this architecture._
+_Download an [SVG file](https://arch-center.azureedge.net/geo-distributed.svg) of this architecture._
 
 ### Dataflow
 
@@ -23,11 +23,11 @@ _Download a [Visio file](https://arch-center.azureedge.net/geo-distributed.svg) 
 1. The instance of the cloud application selected by Traffic Manager processes the request.
 
 ### Components
-* [Azure Stack Hub](https://azure.microsoft.com/products/azure-stack/hub). Azure Stack Hub is an extension of Azure. Azure Stack Hub brings the agility of cloud computing to your on-premises environment. In this architecture, it hosts the on-premises version of the app.
+* [Azure Stack Hub](https://azure.microsoft.com/products/azure-stack/hub). Azure Stack Hub is an extension of Azure. It brings the agility of cloud computing to your on-premises environment. In this architecture, it hosts the on-premises version of the app.
 * [Traffic Manager](https://azure.microsoft.com/services/traffic-manager). Traffic Manager is a DNS-based traffic load balancer. It's used here to direct client requests to the appropriate endpoint.
-* **Domain Name System (DNS)**. The DNS translates (or resolves) a website or service name to its IP address.
-* **Cloud endpoint**: Public IP addresses route incoming traffic through Traffic Manager to the endpoint for the public cloud app resources.
-* **Local endpoint**: Public IP addresses route incoming traffic through Traffic Manager to the endpoint for the public cloud app resources.
+* **Domain Name System (DNS)**. DNS translates (or resolves) a website or service name to its IP address.
+* **Cloud endpoint**: Public IP addresses route incoming traffic through Traffic Manager to the endpoints for the public cloud app resources.
+* **Local endpoint**: Public IP addresses route incoming traffic through Traffic Manager to the endpoints for the public cloud app resources.
 
 ### Alternatives
 
