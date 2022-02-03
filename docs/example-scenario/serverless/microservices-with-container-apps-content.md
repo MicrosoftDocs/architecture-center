@@ -1,5 +1,7 @@
 # place holder
 
+Your business can simplify the deployment and management of microservice containers by using Azure Container Apps. Container Apps provides a fully managed serverless environment for building and deploying modern applications.
+
 This example scenario demonstrates how to deploy microservice containers without the needing to manage complex infrastructure and container orchestration.  
 
 Fabrikam, Inc. has implemented a drone delivery service where users can request a drone to pick up goods for delivery. When a customer schedules a pickup, a backend system assigns a drone and notifies the user with an estimated delivery time. While the delivery is in progress, the customer can track the location of the drone, with a continuously updated ETA.  The application is implemented as containerized microservices and originally deployed to using Azure Kubernetes Service (AKS).
@@ -137,7 +139,7 @@ Follow the steps in the README.md in the [sample repository](https://github.com/
 
 ## Next steps
 
-* [Azure Container Apps Documentation](https://docs.microsoft.com/azure/container-apps/?branch=release-ignite-container-apps)
+* [Azure Container Apps Documentation](/azure/container-apps/?branch=release-ignite-container-apps)
 * [Build microservices on Azure](/azure/architecture/microservices/)
 
 ## Related resources
