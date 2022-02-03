@@ -2815,6 +2815,8 @@ items:
                 href: reference-architectures/hybrid-networking/expressroute.yml
               - name: Extend an on-premises network using VPN
                 href: reference-architectures/hybrid-networking/vpn.yml
+              - name: Geo-distributed solution
+                href: example-scenario/hybrid/hybrid-geo-distributed.yml
               - name: Hybrid availability and monitoring
                 href: hybrid/hybrid-perf-monitoring.yml
               - name: Hybrid file services
