@@ -25,6 +25,8 @@ This solution applies to many areas:
    The diagram contains several gray boxes, each with a different label. From left to right, the labels are Ingest, Prepare, Load, Serve, and Visualize and explore. A final box underneath the others has the label Monitor and secure. Each box contains icons that represent various Azure services. Numbered arrows connect the boxes in the way that the steps describe in the diagram explanation.
 :::image-end:::
 
+### Workflow
+
 1. IoT data enters the system:
    - Azure Event Hubs ingests streams of IoT data. The data contains coordinates or other information that identifies locations of devices.
    - Event Hubs uses Azure Databricks for initial stream processing.
@@ -65,7 +67,7 @@ Throughout the process:
 - Log Analytics runs queries on Monitor logs and analyzes the results.
 - Azure Key Vault secures passwords, connection strings, and secrets.
 
-## Components
+### Components
 
 - [Event Hubs][Azure Event Hubs — A big data streaming platform and event ingestion service] is a fully managed streaming platform for big data. This platform as a service (PaaS) offers a partitioned consumer model. Multiple applications can use this model to process the data stream at the same time.
 
@@ -100,7 +102,7 @@ Throughout the process:
 
 - [Key Vault][About Azure Key Vault] stores and controls access to secrets such as tokens, passwords, and API keys. Key Vault also creates and controls encryption keys and manages security certificates.
 
-## Alternatives
+### Alternatives
 
 - Instead of developing your own APIs, consider using [Martin][Urbica Martin]. This open-source tile server makes vector tiles available to web apps. Written in [Rust][Rust], Martin connects to PostgreSQL tables. You can deploy it as a container.
 
@@ -132,7 +134,7 @@ Throughout the process:
 
 The following considerations, based on the [Microsoft Azure Well-Architected Framework][Microsoft Azure Well-Architected Framework], apply to this solution:
 
-### Availability considerations
+### Availability
 
 - [Event Hubs spreads failure risk across clusters][Azure Event Hubs - Geo-disaster recovery].
 
@@ -145,7 +147,7 @@ The following considerations, based on the [Microsoft Azure Well-Architected Fra
 
 - Consider using [App Service to back up application files][Basic web app availability considerations]. But be careful with backed-up files, which include app settings in plain text. Those settings can contain secrets like connection strings.
 
-### Scalability considerations
+### Scalability
 
 This solution's implementation meets these conditions:
 
@@ -184,7 +186,7 @@ You can scale Azure components independently:
 
 The [autoscale feature of Monitor][Overview of autoscale in Microsoft Azure] also provides scaling functionality. You can configure this feature to add resources to handle increases in load. It can also remove resources to save money.
 
-### Security considerations
+### Security
 
 - Protect vector tile data. Vector tiles embed coordinates and attributes for multiple entities in one file. If you generate vector tiles, use a dedicated set of tiles for each permission level in your access control system. With this approach, only users within each permission level have access to that level's data file.
 
@@ -209,6 +211,20 @@ The [autoscale feature of Monitor][Overview of autoscale in Microsoft Azure] als
 
 To start implementing this solution, see this information:
 
+- [Connect a WFS to Azure Maps][Connect to a WFS service]
+- [Process OpenStreetMap data][Frameworks - OpenStreetMap Wiki] with Spark.
+- Explore ways to [display data with Azure Maps][Azure Maps Web SDK Samples].
+
+### Information on processing geospatial data
+
+- [Functions for querying PostGIS for vector tiles][ST_AsMVT (postgis.net)]
+- [Functions for loading PostGIS rasters][Chapter 4. PostGIS Usage]
+- [Azure Data Explorer geospatial functions][Azure Data Explorer geo_distance_2points() function]
+- [Data sources for vector tiles in Azure Maps][Create a data source for a map in Microsoft Azure Maps]
+- [Approaches for processing geospatial data in Databricks][Processing Geospatial Data at Scale With Databricks]
+
+## Related resources
+
 ### Related architectures
 
 - [Big data analytics with Azure Data Explorer][Big data analytics with Azure Data Explorer]
@@ -222,20 +238,6 @@ To start implementing this solution, see this information:
 - [Machine learning operations (MLOps) framework to scale up machine learning lifecycle with Azure Machine Learning][Machine learning operations (MLOps) framework to upscale machine learning Lifecycle with Azure Machine Learning]
 - [Azure Machine Learning decision guide for optimal tool selection][Azure Machine Learning decision guide for optimal tool selection]
 - [Monitor Azure Databricks][Monitoring Azure Databricks]
-
-### Information on processing geospatial data
-
-- [Functions for querying PostGIS for vector tiles][ST_AsMVT (postgis.net)]
-- [Functions for loading PostGIS rasters][Chapter 4. PostGIS Usage]
-- [Azure Data Explorer geospatial functions][Azure Data Explorer geo_distance_2points() function]
-- [Data sources for vector tiles in Azure Maps][Create a data source for a map in Microsoft Azure Maps]
-- [Approaches for processing geospatial data in Databricks][Processing Geospatial Data at Scale With Databricks]
-
-## Related resources
-
-- [Connect a WFS to Azure Maps][Connect to a WFS service].
-- [Process OpenStreetMap data][Frameworks - OpenStreetMap Wiki] with Spark.
-- Explore ways to [display data with Azure Maps][Azure Maps Web SDK Samples].
 
 [About Azure Key Vault]: /azure/key-vault/general/overview
 [Advanced analytics architecture]: ../../solution-ideas/articles/advanced-analytics-on-big-data.yml
@@ -257,8 +259,8 @@ To start implementing this solution, see this information:
 [Azure Monitor Logs overview]: /azure/azure-monitor/logs/data-platform-logs
 [Azure Monitor Metrics overview]: /azure/azure-monitor/essentials/data-platform-metrics
 [Azure Monitor overview]: /azure/azure-monitor/overview
-[Basic web app availability considerations]: ../../reference-architectures/app-service-web-app/basic-web-app.yml#availability-considerations
-[Basic web application scalability considerations]: ../../reference-architectures/app-service-web-app/basic-web-app.yml?tabs=cli#scalability-considerations
+[Basic web app availability considerations]: ../../reference-architectures/app-service-web-app/basic-web-app.yml#availability
+[Basic web application scalability considerations]: ../../reference-architectures/app-service-web-app/basic-web-app.yml?tabs=cli#scalability
 [Basic web application authentication]: ../../reference-architectures/app-service-web-app/basic-web-app.yml?tabs=cli#authentication
 [Big data analytics with Azure Data Explorer]: ../../solution-ideas/articles/big-data-azure-data-explorer.yml
 [Chapter 4. PostGIS Usage]: https://postgis.net/docs/postgis_usage.html#RT_Loading_Rasters
@@ -297,7 +299,7 @@ To start implementing this solution, see this information:
 [Quickstart: create a Hyperscale (Citus) server group in the Azure portal]: /azure/postgresql/quickstart-create-hyperscale-portal
 [Redis]: https://redis.io/
 [Rust]: https://www.rust-lang.org/
-[Scalability considerations]: #scalability-considerations
+[Scalability considerations]: #scalability
 [Scaling with Event Hubs partitions]: /azure/event-hubs/event-hubs-scalability#partitions
 [Security in Azure App Service]: /azure/app-service/overview-security
 [ST_AsMVT (postgis.net)]: https://postgis.net/docs/ST_AsMVT.html

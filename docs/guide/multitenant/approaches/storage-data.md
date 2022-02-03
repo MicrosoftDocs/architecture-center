@@ -59,7 +59,7 @@ It's important to consider the complexity of your implementation. It's good prac
 
 Similarly, if your solution doesn't need to scale to a large number of tenants, or if you don't have concerns around performance or data isolation, then it's better to keep your solution simple and avoid adding unnecessary complexity.
 
-A particular concern for multitenant data solutions is the level of customization you support. For example, can a tenant extend your data model or apply custom data rules? Ensure you design for this upfront. Avoid forking or providing custom infrastructure for individual tenants, since this inhibits your ability to scale, to test your solution, and to deploy updates. Instead, consider using [feature flags](/azure/devops/migrate/phase-features-with-feature-flags) and other forms of tenant configuration.
+A particular concern for multitenant data solutions is the level of customization you support. For example, can a tenant extend your data model or apply custom data rules? Ensure you design for this upfront. Avoid forking or providing custom infrastructure for individual tenants, since this inhibits your ability to scale, to test your solution, and to deploy updates. Instead, consider using [feature flags](/devops/operate/progressive-experimentation-feature-flags) and other forms of tenant configuration.
 
 ### Complexity of management and operations
 
@@ -78,7 +78,7 @@ Generally, the higher the density of tenants to your deployment infrastructure, 
 
 ## Approaches and patterns to consider
 
-Several design patterns from the Azure Architecture Center are of relevance to mulitenant storage and data services. You might choose to follow one pattern consistently. Or, you could consider mixing and matching patterns. For example, you might use a multitenant database for most of your tenants, but deploy single-tenant stamps for tenants who pay more or who have unusual requirements. Similarly, it's often a good practice to scale by using deployment stamps, even when you use a multitenant database or sharded databases within a stamp.
+Several design patterns from the Azure Architecture Center are of relevance to multitenant storage and data services. You might choose to follow one pattern consistently. Or, you could consider mixing and matching patterns. For example, you might use a multitenant database for most of your tenants, but deploy single-tenant stamps for tenants who pay more or who have unusual requirements. Similarly, it's often a good practice to scale by using deployment stamps, even when you use a multitenant database or sharded databases within a stamp.
 
 ### Deployment Stamps pattern
 
