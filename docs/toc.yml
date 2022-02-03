@@ -2797,6 +2797,8 @@ items:
                 href: hybrid/azure-network-adapter.yml
               - name: Cross-cloud scaling with Traffic Manager
                 href: example-scenario/hybrid/hybrid-cross-cloud-scaling.yml
+              - name: Cross-cloud scaling (on-premises data)
+                href: example-scenario/hybrid/hybrid-cross-cloud-scale-on-premises-data.yml   
               - name: Deploy AI and ML with Azure Stack Edge
                 href: hybrid/deploy-ai-ml-azure-stack-edge.yml
               - name: Design a hybrid Domain Name System
@@ -3502,7 +3504,7 @@ items:
                     href: /windows/mixed-reality/design/system-gesture
                     maintainContext: true
               - name: Types of mixed reality apps
-                href: /windows/mixed-reality/design/types-of-mixed-reality-apps
+                href: /windows/mixed-reality/discover/types-of-mixed-reality-apps
                 maintainContext: true
               - name: Design content for holographic display
                 href: /windows/mixed-reality/design/designing-content-for-holographic-display

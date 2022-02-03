@@ -75,7 +75,7 @@ We recommend using a traffic manager in front of the different clusters to optim
 
 ### Deployment
 
-The most important aspect to consider when deploying this scenario is the coordination of deployments across the cloud-based backend and the frontend (phones/devices). Consider using the concept of a [feature flag](/azure/devops/migrate/phase-features-with-feature-flags?view=azure-devops) to achieve this.
+The most important aspect to consider when deploying this scenario is the coordination of deployments across the cloud-based backend and the frontend (phones/devices). Consider using the concept of a [feature flag](/devops/operate/progressive-experimentation-feature-flags) to achieve this.
 
 ### Management
 
