@@ -26,8 +26,8 @@ _Download an [SVG file](https://arch-center.azureedge.net/geo-distributed.svg) o
 * [Azure Stack Hub](https://azure.microsoft.com/products/azure-stack/hub). Azure Stack Hub is an extension of Azure. It brings the agility of cloud computing to your on-premises environment. In this architecture, it hosts the on-premises version of the app.
 * [Traffic Manager](https://azure.microsoft.com/services/traffic-manager). Traffic Manager is a DNS-based traffic load balancer. It's used here to direct client requests to the appropriate endpoint.
 * **Domain Name System (DNS)**. DNS translates (or resolves) a website or service name to its IP address.
-* **Cloud endpoint**: Public IP addresses route incoming traffic through Traffic Manager to the endpoints for the public cloud app resources.
-* **Local endpoint**: Public IP addresses route incoming traffic through Traffic Manager to the endpoints for the local cloud app resources.
+* **Cloud endpoint**. Public IP addresses route incoming traffic through Traffic Manager to the endpoints for the public cloud app resources.
+* **Local endpoint**. Public IP addresses route incoming traffic through Traffic Manager to the endpoints for the local cloud app resources.
 
 ### Alternatives
 

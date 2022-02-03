@@ -2,7 +2,7 @@
 metadata:
   title: Hybrid geo-distributed architecture
   titleSuffix: Azure Example Scenarios
-  description: Learn how to use Azure Traffic Manager to direct traffic to specific endpoints based on various metrics. 
+  description: Learn how to use Azure Traffic Manager to direct traffic to specific cloud and on-premises endpoints based on various metrics. 
   author: EdPrice-MSFT
   ms.author: edprice
   ms.date: 02/04/2022
@@ -26,7 +26,7 @@ metadata:
 name: Hybrid geo-distributed architecture
 azureCategories:
   - hybrid
-summary: Learn how to use Azure Traffic Manager to direct traffic to specific endpoints based on various metrics. 
+summary: Learn how to use Azure Traffic Manager to direct traffic to specific cloud and on-premises endpoints based on various metrics.  
 products:
   - azure-stack-hub
   - azure-traffic-manager
