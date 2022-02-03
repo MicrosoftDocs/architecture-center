@@ -288,7 +288,7 @@ At the end of the project, the CSE team shared the following insights:
 
   * A product's end-of-life may require creative customizations. A preparation phase plays an important role when the team delivers a successful solution.
 
-  * The CSE team recommended the use of the [Cloud Load Testing (CLT)](/rest/api/azure/devops/clt/#cloud-based-load-testing-service-clt-availability-timeframe-for) functionality in [Azure Test Plans](https://azure.microsoft.com/services/devops/test-plans/) with Apache JMeter tests. Unfortunately, during the investigation phase, the team identified that the Azure Test Plans team deprecated this functionality. The team had to create a new solution integrating ACI and JMeter in the pipeline.
+  * The CSE team recommended the use of the [Cloud Load Testing (CLT)](/rest/api/azure/devops/clt) functionality in [Azure Test Plans](https://azure.microsoft.com/services/devops/test-plans/) with Apache JMeter tests. Unfortunately, during the investigation phase, the team identified that the Azure Test Plans team deprecated this functionality. The team had to create a new solution integrating ACI and JMeter in the pipeline.
 
   * The team recommended the use of the Azure Event Hubs for Kafka, but for Contoso Bank, schema registry was an important feature. To attend to Contoso Bank in the requested time frame, the team had to consider the use of schema registry in another instance of AKS.
 
