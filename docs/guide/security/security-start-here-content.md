@@ -75,5 +75,5 @@ Get the latest updates on [Azure security services and features](https://azure.m
 
 - **AWS**
    - [Security and identity with Azure and AWS](../../aws-professional/security-identity.md)
-   - [AWS to Azure services comparison - Security](../../aws-professional/services#security-identity-and-access.md)
-- [Google Cloud to Azure services comparison - Security](../../gcp-professional/services#security-and-identity.md)
+   - [AWS to Azure services comparison - Security](../../aws-professional/services.md#security-identity-and-access)
+- [Google Cloud to Azure services comparison - Security](../../gcp-professional/services.md#security-and-identity)
