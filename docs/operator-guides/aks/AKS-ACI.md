@@ -1,4 +1,4 @@
-# Bursting the workload in VIrtual Node using AKS
+# Bursting the workload in Virtual Node using AKS
 
 ## Introduction
 
@@ -8,7 +8,7 @@ To rapidly scale application workloads in an AKS cluster, you can use virtual no
 
 ## Known Limitations
 
-Virtaul node is fairly a new concept that is getting developed & has few limitations. Before taking the decision around whether Virtual Node can be the best-fit for your workload , please also go through https://docs.microsoft.com/en-us/azure/aks/virtual-nodes#known-limitations
+Virtual node is fairly a new concept that is getting developed & is quite helpful when there are burst capabilities to be leveraged. Before taking the decision around whether Virtual Node can be the best-fit for your workload , please also go through https://docs.microsoft.com/en-us/azure/aks/virtual-nodes#known-limitations
 
 <br/>
 
