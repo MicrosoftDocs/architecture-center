@@ -10,7 +10,9 @@ metadata:
   ms.subservice: azure-guide
   ms.custom: fcp
 azureCategories:
-  - blockchain
+  - storage
+  - containers
+  - hybrid
 products:
   - azure-blob-storage
   - azure-blockchain-service
