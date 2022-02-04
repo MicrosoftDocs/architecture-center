@@ -1,0 +1,23 @@
+### YamlMime:Architecture
+metadata:
+  title: CDN guidance
+  description: Guidance on using Content Delivery Networks (CDNs) to deliver high-bandwidth content hosted in Azure.
+  author: EdPrice-MSFT
+  ms.author: edprice
+  ms.date: 02/02/2022
+  ms.topic: conceptual
+  ms.service: architecture-center
+  ms.subservice: best-practice
+  ms.custom: fcp
+azureCategories:
+  - storage
+products:
+  - azure-storage
+  - azure-blob-storage
+  - azure-iot
+name: CDN guidance
+summary: Guidance on using Content Delivery Networks (CDNs) to deliver high-bandwidth content hosted in Azure.
+thumbnailUrl: /azure/architecture/browse/thumbs/caching-thumbnail.png
+content: |
+  [!include[](cdn-content.md)]
+

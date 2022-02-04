@@ -7,6 +7,12 @@ ms.date: 08/30/2018
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: guide
+categories:
+  - web
+products:
+  - azure-storage
+  - azure-cloud-services
+  - azure-virtual-machines
 ms.custom:
   - seojan19
   - guide
@@ -114,7 +120,7 @@ For more information about running N-tier applications on Azure:
 - If you need higher availability than the Azure SLA for VMs provides, replicate the application across two regions and use Azure Traffic Manager for failover. For more information, see [Run Windows VMs in multiple regions][multiregion-windows] or [Run Linux VMs in multiple regions][multiregion-linux].
 
 [autoscaling]: ../../best-practices/auto-scaling.md
-[caching]: ../../best-practices/caching.md
+[caching]: ../../best-practices/caching.yml
 [dmz]: ../../reference-architectures/dmz/secure-vnet-dmz.yml
 [ha-nva]: ../../reference-architectures/dmz/nva-ha.yml
 [hybrid-network]: ../../reference-architectures/hybrid-networking/index.yml

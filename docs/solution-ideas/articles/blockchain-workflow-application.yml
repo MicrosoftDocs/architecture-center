@@ -22,7 +22,7 @@ metadata:
   social_image_url: /azure/architecture/solution-ideas/articles/media/blockchain-workflow-application.png
 name: Blockchain workflow application
 azureCategories:
-  - blockchain
+  - compute
 summary: Explore how blockchain is used to digitize workflows and supply chains across organizations with the Blockchain Workflow Application from Microsoft Azure.
 products:
   - azure-blockchain-service

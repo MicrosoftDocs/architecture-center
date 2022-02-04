@@ -38,7 +38,7 @@ You can download [source code](https://github.com/Azure/DevOps-For-AI-Apps) and 
 To use the downloaded source code and tutorial, you need the following prerequisites:
 
 - The [source code repository](https://github.com/Azure/DevOps-For-AI-Apps) forked to your GitHub account
-- An [Azure DevOps Organization](/azure/devops/organizations/accounts/create-organization-msa-or-work-student)
+- An [Azure DevOps Organization](/azure/devops/organizations/accounts/create-organization)
 - [Azure CLI](/cli/azure/install-azure-cli)
 - An [Azure Container Service for Kubernetes (AKS) cluster](/previous-versions/azure/container-service/kubernetes/container-service-tutorial-kubernetes-deploy-cluster)
 - [Kubectl](https://kubernetes.io/docs/tasks/tools/install-kubectl/) to run commands and fetch configuration from the AKS cluster
