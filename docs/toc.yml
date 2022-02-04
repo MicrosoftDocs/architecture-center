@@ -36,7 +36,7 @@ items:
           - name: Make all things redundant
             href: guide/design-principles/redundancy.md
           - name: Minimize coordination
-            href: guide/design-principles/minimize-coordination.md
+            href: guide/design-principles/minimize-coordination.yml
           - name: Design to scale out
             href: guide/design-principles/scale-out.md
           - name: Partition around limits
