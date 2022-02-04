@@ -51,4 +51,4 @@ This pattern may not be suitable:
 
 ## Related guidance
 
-- Martin Fowler's blog post on [StranglerApplication](https://www.martinfowler.com/bliki/StranglerApplication.html)
+- Martin Fowler's blog post on [StranglerFigApplication](https://martinfowler.com/bliki/StranglerFigApplication.html)
