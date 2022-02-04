@@ -12,12 +12,15 @@ Over the history of the manufacturing industry, several maintenance strategies e
 
 Reactive maintenance embodies the &quot;if it isn&#39;t broken, don&#39;t fix it&quot; mentality. Service the asset only when it fails. For example, the motor of your 5-axis CNC Machining Center gets serviced only when it stops working. Reactive maintenance maximizes the lifetime of the component that eventually fails. Reactive maintenance also introduces unknown amounts of downtime, unexpected collateral damage to components harmed by the failing component, and other issues.
 
+ ![Diagram explains reactive maintenance.](./images/predictive-maintenance-overview/maintenance-strategies-reactive.png)
+
 Preventive maintenance requires you to the service the asset at pre-determined intervals. The interval is typically based on the experienced failure frequency history for the asset. These intervals are based on historical performance, simulations, statistical modeling, and so on. The advantage of this strategy is that it increases uptime, results in less failures, and maintenance can be planned. The downside in many cases is the replaced component on the asset may have had some life left. This results in over-maintenance and waste. On the flip side, some parts may still fail before the scheduled maintenance. You probably know preventive maintenance well: after every set hours of operation (or some other metric), stop using the machine and inspect the machine. Replace any parts that are due to be replaced.
+
+ ![Diagram explains preventive maintenance.](./images/predictive-maintenance-overview/maintenance-strategies-preventative.png)
 
 Predictive maintenance monitors the usage of assets using models to predict when an asset will likely experience a component failure. That component then has its maintenance scheduled for &quot;just-in-time maintenance&quot;. PdM improves on the previous strategies by maximining both uptime and asset life. Since you service the equipment close to the component maximum lifetimes, you spend less money on replacing working parts. The downside is that the just-in-time nature of PdM is more difficult to execute since it requires a more responsive and flexible Services organization. Back to the motor of the 5-axis CNC Machining, you would schedule its maintenance &quot;gracefully&quot; (in a planned fashion, without disrupting production), if a predictive model predicts that the motor has, say, a 75% probability of failure in the next 24 hours (based on the information coming from sensors in the machine).
 
- ![](./images/predictive-maintenance-overview/maintenance-strategies.png)
-
+ ![Diagram explains predictive maintenance.](./images/predictive-maintenance-overview/maintenance-strategies-predictive.png)
 
 ## Different ways PdM can be offered
 
@@ -31,7 +34,7 @@ A PdM solution can be used by a manufacturer directly, monitoring the data comin
 
 To build a PdM solution, we start with data; ideally data that shows normal operation as well as data that shows what the equipment looked like before, during, and after a failure. The data comes from sensors, notes maintained by equipment operators, run information, environmental data, machine specifications, and so on. Systems of record can include historians, manufacturing execution systems, ERP, and so on. The data is made available for analytics in a variety of ways. [The Team Data Science Process](/azure/machine-learning/team-data-science-process) is illustrated in the following diagram. It's customized for manufacturing and does an excellent job explaining the various concerns one has when building and executing machine learning models.
 
- ![](./images/predictive-maintenance-overview/data-science-diagram.png)
+:::image type="content" source="./images/predictive-maintenance-overview/data-science-diagram-inline.png" lightbox="./images/predictive-maintenance-overview/data-science-diagram-expanded.png":::
 
 Your first task will be to identify the types of failures you want to predict. With that in mind, you then identify the data sources which have interesting data around that failure type. The pipeline gets the data into the system from your environment. The data scientists will use their favorite machine learning tools to prepare the data. At this point, they're ready to create and train models that can identify diverse types of issues. The models answer questions like:
 

@@ -30,8 +30,8 @@ A traditional data warehousing and reporting approach is sufficient in this case
 
 The following figure shows a typical report of historical data—sales data. It features several blocks with check boxes to select criteria to filter the results. The center shows two bar charts that show sales over time. The first chart shows the average sales by week; the second shows quantities by week.
 
- ![Dashbord example showing historical sales data.](./images/sku-optimization-solution-guide/sku-max-model.png)
-  
+:::image type="content" source="./images/sku-optimization-solution-guide/sku-max-model-inline.png" alt-text="Dashboard example showing historical sales data." lightbox="./images/sku-optimization-solution-guide/sku-max-model-expanded.png":::
+
 ## Predictive Analytics
 
 Historical reporting is useful to understand what has happened. Ultimately, we want a forecast of what is likely to happen. Past information may be useful for that purpose. For example, we can identify seasonal trends. But it can’t cover “what-if” scenarios—for example, to model the introduction of a new product. To do that, we must shift our focus to modelling customer behavior, as that is the ultimate factor that determines sales.
@@ -95,7 +95,7 @@ They introduce the concept of “ranking”—where consumers express a strict p
 
 The assortment optimization problem can be expressed as maximization of revenue:
 
-<center><img src="/images/sku-optimization-solution-guide/assortment-optimization-problem.png" width="150"/></center>
+![Diagram shows assortment optimization problem equations.](./images/sku-optimization-solution-guide/assortment-optimization-problem.png)
  
 - _$r_i$_ denotes the revenue of product _i_.
 - _ $y_i^k$_ is 1 if the product _i_ is chosen in ranking _k_. Otherwise it's 0.  
@@ -125,7 +125,7 @@ The sales data from the point-of-sales system will consist of transactions with 
 
 We can also construct a matrix:
 
-<center><img src="./images/sku-optimization-solution-guide/matrix-construction.png" width="300"/></center>
+![Diagram shows a matrix.](./images/sku-optimization-solution-guide/matrix-construction.png)
 
 Finding our probability distribution λ given our sales data becomes another optimization problem. We want to find a vector λ to minimize our sales estimate error:
 
@@ -144,7 +144,9 @@ Microsoft partners, such as Neal Analytics, have developed robust architectures 
 
 Figure 2 shows an example architecture. It includes four major blocks, capture, process, model, and operationalize. Each block contains major processes. Capture includes “data preprocessing;” process includes the “store data” function; model includes the “train machine learning model” function; and operationalize includes “store data” and reporting options (such as dashboards).
 
-![Architecture in four parts: capture, process, model, and operationalize.](./images/sku-optimization-solution-guide/architecture-sku-optimization.png)<center><font size="1">_Figure 2: architecture for SKU optimization—courtesy of Neal Analytics_</font></center>
+:::image type="content" source="./images/sku-optimization-solution-guide/architecture-sku-optimization-inline.png" alt-text="Architecture in four parts: capture, process, model, and operationalize." lightbox="./images/sku-optimization-solution-guide/architecture-sku-optimization-expanded.png":::
+
+_Figure 2: architecture for SKU optimization—courtesy of Neal Analytics_
 
 ## The data pipeline
 
@@ -193,7 +195,9 @@ However, the data size it can handle is limited to 10 GB (for now) and the numbe
 
 The following figure shows an example of the ML studio in use. It's a graphical representation of a machine learning experiment. The figure shows several groups of blocks. Each set of blocks represents some stage in the experiment, and each block is connected to one or more blocks to indicate data input and output.
 
-![Example of machine learning studio in use.](./images/sku-optimization-solution-guide/ml-training-pipeline-example.png)<center><font size="1">_Figure 4: example of ML training pipeline with R and pre-built components_</font></center>
+:::image type="content" source="./images/sku-optimization-solution-guide/ml-training-pipeline-example-inline.png" alt-text="Example of machine learning studio in use." lightbox="./images/sku-optimization-solution-guide/ml-training-pipeline-example-expanded.png":::
+
+_Figure 4: example of ML training pipeline with R and pre-built components_
 
 If you need to scale further but still want to use some of Microsoft’s fast, parallel implementation of common machine learning algorithm (such as multinomial logistic regression), you may want to look at Microsoft ML Server running on Azure Data Science Virtual Machine.
 
@@ -211,7 +215,9 @@ Starting the training process then becomes a question of invoking the appropriat
 
 The following figure shows the Data Factory user interface, as accessed through the Azure portal. It includes blocks for the various processes in the workflow. 
 
-![Data Factory interface showing databricks notebook activity.](./images/sku-optimization-solution-guide/data-factory-pipeline-databricks.png)<center><font size="1">_Figure 5: example of Data Factory pipeline with Databricks notebook activity_</font></center>
+:::image type="content" source="./images/sku-optimization-solution-guide/data-factory-pipeline-databricks-inline.png" alt-text="Data Factory interface showing databricks notebook activity." lightbox="./images/sku-optimization-solution-guide/data-factory-pipeline-databricks-expanded.png":::
+
+_Figure 5: example of Data Factory pipeline with Databricks notebook activity_
 
 Also note that in our [inventory optimization solution](https://gallery.azure.ai/Solution/Inventory-Optimization-3?WT.mc_id=invopt-article-gmarchet) we propose a container-based implementation of solvers that is scaled via [Azure Batch](https://azure.microsoft.com/services/batch/?WT.mc_id=invopt-article-gmarchet). Specialist optimization libraries such as [pyomo](http://www.pyomo.org/about/) allow you to express an optimization problem in the Python programming language, then invoke independent solvers such as [bonmin](https://projects.coin-or.org/Bonmin) (open source) or [gurobi](http://www.gurobi.com/) (commercial) to find a solution.
 
@@ -242,7 +248,7 @@ Once deployed, the model will be able to process financial transaction workflows
 
 The following figure shows a typical Power BI dashboard. It includes two graphs that show SKU stock information. 
 
-![Example of a dashboard showing results over 12 months.](./images/sku-optimization-solution-guide/sku-max-model.png)<center><font size="1">_Figure 7: example of model results report—courtesy of Neal Analytics_</font></center>
+:::image type="content" source="./images/sku-optimization-solution-guide/sku-max-model-inline.png" alt-text="Dashbord example showing historical sales data." lightbox="./images/sku-optimization-solution-guide/sku-max-model-expanded.png":::
 
 ## Security Considerations
 

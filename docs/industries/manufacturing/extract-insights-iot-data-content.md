@@ -24,10 +24,10 @@ The equipment in a manufacturing plant (things) sends various types of data as i
 Microsoft has published a high level reference architecture for IoT applications that walks through the various subsystems and the recommended approaches for those subsystems.
 An IoT application consists of the following subsystems:
 
-1. Devices, or on-premises edge gateways, which are a specific kind of device that can securely register message sources (devices) with the cloud. The edge gateway may also transform messages from a native protocol to another format (such as JSON).
-2. A cloud gateway service, or hub (such as [Azure IoT Hub](/azure/iot-hub/?WT.mc_id=iotinsightssoln-docs-ercenk) or [Azure Event Hubs](/azure/event-hubs/event-hubs-about?WT.mc_id=iotinsightssoln-docs-ercenk)), to securely ingest data and provide device management capabilities. 
-3. Stream processors that consume streaming data. The processors may also integrate with business processes and place the data into storage.
-4. A user interface, in the form of a dashboard, to visualize IoT data and facilitate device management.
+- Devices, or on-premises edge gateways, which are a specific kind of device that can securely register message sources (devices) with the cloud. The edge gateway may also transform messages from a native protocol to another format (such as JSON).
+- A cloud gateway service, or hub (such as [Azure IoT Hub](/azure/iot-hub/?WT.mc_id=iotinsightssoln-docs-ercenk) or [Azure Event Hubs](/azure/event-hubs/event-hubs-about?WT.mc_id=iotinsightssoln-docs-ercenk)), to securely ingest data and provide device management capabilities. 
+- Stream processors that consume streaming data. The processors may also integrate with business processes and place the data into storage.
+- A user interface, in the form of a dashboard, to visualize IoT data and facilitate device management.
 
 ![Architecture of the solution.](./images/extract-insights-iot-data/architecture.png)
 
@@ -183,7 +183,7 @@ At this layer, we want to merge the two data pipelines (warm and cold paths) to 
 
 Time Series Insights has a data explorer to visualize and query data as well as REST query APIs. Further, it exposes a JavaScript controls library that lets you embed TSI-powered charts into custom applications. The following is a basic heatmap view on the TSI for the incoming data that approximates the utilization of the machines on the shop floor, by simply looking at the number of samples observed.
 
-![Lambda architecture: batch layer highlighted.](./images/extract-insights-iot-data/client-screen.png)
+:::image type="content" source="./images/extract-insights-iot-data/client-screen-inline.png" alt-text="Lambda architecture: batch layer highlighted." lightbox="./images/extract-insights-iot-data/client-screen-expanded.png":::
 
 If you require a browser-based user interface that aggregates data from multiple sources, both TSI and Power BI services allow embedding visualization controls. Both also provide REST APIs ([Power BI Rest API](/rest/api/power-bi/?WT.mc_id=iotinsightssoln-docs-ercenk), [TSI REST API](/rest/api/time-series-insights/time-series-insights-reference-queryapi?WT.mc_id=iotinsightssoln-docs-ercenk)) and JavaScript SDKs ([Power BI JavaScript SDK](https://github.com/Microsoft/PowerBI-JavaScript?WT.mc_id=iotinsightssoln-docs-ercenk), [TSI JavaScript SDK](/azure/time-series-insights/tutorial-explore-js-client-lib?WT.mc_id=iotinsightssoln-docs-ercenk)) that allows extensive customizations.
 

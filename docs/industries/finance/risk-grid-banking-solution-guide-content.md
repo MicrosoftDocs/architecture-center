@@ -202,8 +202,8 @@ Additional pricing information for VPN Gateway [can be found here](https://azure
 
 There are essentially two models for extending your network to Azure, as shown in Figure 5.
 
-1. Virtual Gateway – Site-to-Site
-2. ExpressRoute – Exchange or ISP provider
+- Virtual Gateway – Site-to-Site
+- ExpressRoute – Exchange or ISP provider
 
 ![Site to Site and ExpressRoute](./images/risk-grid-banking-solution-guide/10-s2s-expressroute.png)
 
@@ -244,9 +244,9 @@ An Azure [virtual network (VNet)](/azure/virtual-network/virtual-networks-overvi
 
 There are two ways to authenticate a Batch application using Azure Active Directory (AAD):
 
-1. **Integrated authentication**. A batch application using AAD accounts can use the account to gain resources to data stores and other resources.
+- **Integrated authentication**. A batch application using AAD accounts can use the account to gain resources to data stores and other resources.
 
-2. **Service principal**. AAD Service principals define access policy and permissions for users and applications. A service principal provides authentication to users using a secret key tied to that application. This allows authenticating an unattended application with a secret key. A service principal defines the policy and permissions for an application to represent the application when accessing resources at runtime. [Learn more here](/azure/active-directory/develop/active-directory-application-objects?WT.mc_id=gridbanksg-docs-dastarr).
+- **Service principal**. AAD Service principals define access policy and permissions for users and applications. A service principal provides authentication to users using a secret key tied to that application. This allows authenticating an unattended application with a secret key. A service principal defines the policy and permissions for an application to represent the application when accessing resources at runtime. [Learn more here](/azure/active-directory/develop/active-directory-application-objects?WT.mc_id=gridbanksg-docs-dastarr).
 
 For more information on security in batch processing with AAD, [see this article](/azure/batch/batch-aad-auth?WT.mc_id=gridbanksg-docs-dastarr).
 
