@@ -38,4 +38,4 @@ By setting up a continuous build to produce your container images and orchestrat
 * [Pushing Docker images to Azure Container Registry](/azure/container-registry/container-registry-get-started-docker-cli)
 * [Authenticate Azure Kubernetes Service (AKS) cluster to Azure Container Registry](/azure/container-registry/container-registry-auth-aks)
 * [Performance monitoring with Application Insights](/azure/application-insights/app-insights-detect-triage-diagnose)
-* [Git on Azure DevOps](/vsts/git/gitquickstart?tabs=visual-studio)
+* [Git on Azure DevOps](/azure/devops/repos/git/gitquickstart)
