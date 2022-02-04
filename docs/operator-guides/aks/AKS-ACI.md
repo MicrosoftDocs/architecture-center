@@ -61,3 +61,6 @@ spec:
       - key: azure.com/aci
         effect: NoSchedule
 ```
+
+There could be scenarios where you're looking to split the workoad across the agentpools & Virtual nodes  , therefore you can also use pod-affinity that can help in splitting the workload however that can only be possible if your workload does not fall under the known limitations today (https://docs.microsoft.com/en-us/azure/aks/virtual-nodes#known-limitations)
+
