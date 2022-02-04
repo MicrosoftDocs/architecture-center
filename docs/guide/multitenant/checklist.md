@@ -61,12 +61,12 @@ When you build your multitenant solution in Azure, there are many elements that 
 ## Operational Excellence considerations
 
 * Review the [Azure Well-Architected Operational Excellence checklist](../../checklist/data-ops.md), which is applicable to all workloads.
-* Use automation to manage the [tenant lifecycle](./considerations/tenant-lifecycle.md) such as onboarding, [deployment, provisioning, and configuration](./approaches/deployment-configuration-content.yml).
+* Use automation to manage the [tenant lifecycle](./considerations/tenant-lifecycle.md) such as onboarding, [deployment, provisioning, and configuration](./approaches/deployment-configuration.yml).
 * Find the right balance for [deploying service updates](./considerations/updates.md). Consider both your tenants' requirements and your own operational requirements.
 * Monitor the health of the overall system, as well as each tenant.
 * Configure and test alerts to notify you when specific tenants are experiencing issues or exceeding their consumption limits.
 * [Organize your Azure resources](./approaches/resource-organization.md) for isolation and scale.
-* Avoid [deployment and configuration antipatterns](./approaches/deployment-configuration-content.yml#antipatterns-to-avoid). Antipatterns include running separate versions of the solution for each tenant, hardcoding tenant-specific configurations or logic, and manual deployments.
+* Avoid [deployment and configuration antipatterns](./approaches/deployment-configuration.yml#antipatterns-to-avoid). Antipatterns include running separate versions of the solution for each tenant, hardcoding tenant-specific configurations or logic, and manual deployments.
 
 ## Performance Efficiency considerations
 
