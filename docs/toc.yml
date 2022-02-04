@@ -1132,6 +1132,8 @@ items:
             href: example-scenario/iot/smart-places.yml
       - name: Education
         items:
+          - name: Overview
+            href: industries/education.md
           - name: Guides
             items:
               - name: Dynamics 365 education accelerator
