@@ -5,7 +5,7 @@ author: EdPrice-MSFT
 ms.author: edprice
 ms.service: industry
 ms.topic: overview
-ms.date: 01/31/2022
+ms.date: 02/05/2022
 categories:
   - management-and-governance
 products:
@@ -277,19 +277,19 @@ for (i in 2:nt) {
 
 The next two pictures show the result of the simulation. The first
 picture shows the Monte Carlo simulation of the underlying stock price
-for 50 paths. The second picture illustrates the underlying Credit
-Exposure for the equity forward after subtracting the premium of the
+for 50 paths. The second picture illustrates the underlying credit
+exposure for the equity forward after subtracting the premium of the
 equity forward and limiting the exposure to positive values.
 
 <img src="./images/financial-risk-model/image3.png" width="400px" alt="Figure 1 - 50 Monte Carlo Paths"/>
 
-Figure 1 - 50 Monte Carlo Paths
+Figure 1 - 50 Monte Carlo paths
 
 <img src="./images/financial-risk-model/image4.png" width="400px" alt="Figure 2 - Credit Exposure for Equity Forward"/>
 
-Figure 2 - Credit Exposure for Equity Forward
+Figure 2 - Credit exposure for equity forward
 
-In the last step, the 1-Month 0.95 Quantile PFE is calculated by the
+In the last step, the 1-month 0.95 quantile PFE is calculated by the
 following code.
 
 ````R
@@ -302,7 +302,7 @@ plot(df_pfe, t = 'l', ylab = "Potential Future Exposure in USD", xlab = "time t 
 
 <img src="./images/financial-risk-model/image5.png" width="500px" alt="Potential Future Exposure for MSFT Equity Forward" /> 
 
-Figure 3 Potential Future Exposure for MSFT Equity Forward
+Figure 3 Potential future exposure for MSFT equity forward
 
 ## Using Azure Batch with R 
 
@@ -396,7 +396,7 @@ After the calculations have finished, the additional resources can
 easily be shut-down by invoking the following a single instruction:
 
 ````R
-# Stop the Cloud cluster
+# Stop the cloud cluster
 stopCluster(cluster)
 ````
 

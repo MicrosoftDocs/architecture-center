@@ -172,7 +172,7 @@ Azure’s multiple options for scaling up on demand for the compute needs, throu
 [Azure
 Batch](/azure/batch/batch-technical-overview?WT.mc_id=computeinmanufacturing-docs-ercenk),
 and
-[VMSS](/azure/virtual-machine-scale-sets/overview?WT.mc_id=computeinmanufacturing-docs-ercenk)
+[VMSS](/azure/virtual-machine-scale-sets/overview?WT.mc_id=computeinmanufacturing-docs-ercenk),
 are natural destinations for those workloads.
 
 ## Machine learning (ML)
@@ -197,7 +197,7 @@ Adding an advanced analytic capability using artificial intelligence (AI) and
 machine learning (ML) starts with developing a model, with a process similar to
 the following.
 
-![](./images/compute-manufacturing-overview/ai-pipeline.png)
+[![AI pipeline](./images/compute-manufacturing-overview/ai-pipeline.png)](./images/compute-manufacturing-overview/ai-pipeline.png#lightbox)
 
 [Selecting the
 algorithm](/azure/machine-learning/studio/algorithm-choice?WT.mc_id=computeinmanufacturing-docs-ercenk)
@@ -228,7 +228,7 @@ or [Azure Deep Learning Virtual Machine
 and push the training to the cluster. DSVM and DLVM are specially configured VM
 images with a rich set of preinstalled set of tools and samples.
 
-![](./images/compute-manufacturing-overview/azure-batch-ai.png)
+[![Azure Batch AI](./images/compute-manufacturing-overview/azure-batch-ai.png)](./images/compute-manufacturing-overview/azure-batch-ai.png#lightbox)
 
 ## Conclusion
 
@@ -244,15 +244,15 @@ to build your own solution. Or you can find a Microsoft partner to expedite the
 solution creation. Our partners know how to take advantage of the power of
 Azure.
 
-## Next Steps
+## Next steps
 
 - Set up a cloud workstation by deploying an [NV series
-    VM](/azure/virtual-machines/windows/sizes-gpu?WT.mc_id=computeinmanufacturing-docs-ercenk)
+    VM](/azure/virtual-machines/windows/sizes-gpu?WT.mc_id=computeinmanufacturing-docs-ercenk).
 
 - Review the
     [options](/azure/virtual-machines/linux/high-performance-computing?WT.mc_id=computeinmanufacturing-docs-ercenk)
     for deploying a tool for your design needs to take advantage of Azure HPC
-    capabilities
+    capabilities.
 
 - Learn the possibilities with [Azure Machine
-    Learning](/azure/machine-learning/?WT.mc_id=computeinmanufacturing-docs-ercenk)
+    Learning](/azure/machine-learning/?WT.mc_id=computeinmanufacturing-docs-ercenk).
