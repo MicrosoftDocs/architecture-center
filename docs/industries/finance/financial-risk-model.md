@@ -5,7 +5,7 @@ author: EdPrice-MSFT
 ms.author: edprice
 ms.service: industry
 ms.topic: overview
-ms.date: 01/31/2022
+ms.date: 02/05/2022
 categories:
   - management-and-governance
 products:
@@ -29,7 +29,7 @@ A scenario in a capital markets firm might look like this:
 Through these processes, there are common needs around risk modeling
 including:
 
-1. The need for ad-hoc risk-related experimentation by risk analysts;
+- The need for ad-hoc risk-related experimentation by risk analysts;
     actuaries in an insurance firm or quants in a capital markets firm.
     These analysts typically work with code and modeling tools popular
     in their domain: R and Python. Many university curriculums include
@@ -38,38 +38,38 @@ including:
     support popular risk calculations. Along with appropriate tooling,
     analysts often require access to:
 
-    a.  Accurate market pricing data.
+    -  Accurate market pricing data.
 
-    b.  Existing policy and claims data.
+    -  Existing policy and claims data.
 
-    c.  Existing market position data.
+    -  Existing market position data.
 
-    d.  Other external data. Sources include structured data such as
+    - Other external data. Sources include structured data such as
         mortality tables and competitive pricing data. Less traditional
         sources such as weather, news and others may also be used.
 
-    e.  Computational capacity to enable quick interactive data
+    -  Computational capacity to enable quick interactive data
         investigations.
 
-2. They may also make use of ad-hoc machine learning algorithms for
+- They may also make use of ad-hoc machine learning algorithms for
     pricing or determining market strategy.
 
-3. The need to visualize and present data for use in product planning,
+- The need to visualize and present data for use in product planning,
     trading strategy, and similar discussions.
 
-4. The rapid execution of defined models, configured by the analysts,
+- The rapid execution of defined models, configured by the analysts,
     for pricing, valuations, and market risk. The valuations use a
     combination of dedicated risk modeling, market risk tools, and
     custom code. The analysis is executed in a batch with varying
     nightly, weekly, monthly, quarterly, and annual calculations.
     This analysis generates spikes in workloads.
 
-5. The integration of data with other enterprise wide risk measures for
+- The integration of data with other enterprise wide risk measures for
     consolidated risk reporting. In larger organizations, lower level
     risk estimates can be transferred to an enterprise risk modeling
     and reporting tool.
 
-6. Results must be reported in a defined format at the required
+- Results must be reported in a defined format at the required
     interval to meet investor and regulatory requirements.
 
 Microsoft supports the above concerns through a combination of Azure
@@ -98,25 +98,25 @@ This example avoids complex quantitative modeling techniques for
 instruments like complex derivatives and focuses on a single risk factor
 to concentrate on the risk life cycle. Our example lets you do the following actions:
 
-1. Select an instrument of interest.
+- Select an instrument of interest.
 
-2. Source historic prices for the instrument.
+- Source historic prices for the instrument.
 
-3. Model equity price by simple Monte Carlo (MC) calculation, which
+- Model equity price by simple Monte Carlo (MC) calculation, which
     uses Geometric Brownian Motion (GBM):
 
-    a.  Estimate expected return μ (mu) and volatility σ (theta).
+    -  Estimate expected return μ (mu) and volatility σ (theta).
 
-    b.  Calibrate the model to historic data.
+    -  Calibrate the model to historic data.
 
-4. Visualize the various paths to communicate the results.
+- Visualize the various paths to communicate the results.
 
-5. Plot max(0,Stock Value) to demonstrate the meaning of PFE, the
+- Plot max(0,Stock Value) to demonstrate the meaning of PFE, the
     difference to Value at Risk (VaR)
 
-    a.  To clarify: PFE = Share Price (T) -- Forward Contract Price K
+    -  To clarify: PFE = Share Price (T) -- Forward Contract Price K
 
-6. Take the 0.95 Quantile to get the PFE value at each time step / end
+- Take the 0.95 Quantile to get the PFE value at each time step / end
     of simulation period
 
 We'll calculate the potential future exposure for an equity forward
@@ -133,16 +133,16 @@ service from an external service provider,
 To process the data and define the risk associated with the equity, we
 need to do the following things:
 
-1. Retrieve history data from the equity.
+- Retrieve history data from the equity.
 
-2. Determine the expected return μ and volatility σ from the historic
+- Determine the expected return μ and volatility σ from the historic
     data.
 
-3. Model the underlying stock prices using some simulation.
+- Model the underlying stock prices using some simulation.
 
-4. Run the model
+- Run the model
 
-5. Determine the exposure of the equity in the future.
+- Determine the exposure of the equity in the future.
 
 We start by retrieving the stock from the Quandl service and plotting
 the closing price history over the last 180 days.
@@ -306,19 +306,19 @@ for (i in 2:nt) {
 
 The next two pictures show the result of the simulation. The first
 picture shows the Monte Carlo simulation of the underlying stock price
-for 50 paths. The second picture illustrates the underlying Credit
-Exposure for the equity forward after subtracting the premium of the
+for 50 paths. The second picture illustrates the underlying credit
+exposure for the equity forward after subtracting the premium of the
 equity forward and limiting the exposure to positive values.
 
 <img src="./images/financial-risk-model/image3.png" width="400px" alt="Figure 1 - 50 Monte Carlo Paths"/>
 
-Figure 1 - 50 Monte Carlo Paths
+Figure 1 - 50 Monte Carlo paths
 
 <img src="./images/financial-risk-model/image4.png" width="400px" alt="Figure 2 - Credit Exposure for Equity Forward"/>
 
-Figure 2 - Credit Exposure for Equity Forward
+Figure 2 - Credit exposure for equity forward
 
-In the last step, the 1-Month 0.95 Quantile PFE is calculated by the
+In the last step, the 1-month 0.95 quantile PFE is calculated by the
 following code.
 
 ````R
@@ -331,7 +331,7 @@ plot(df_pfe, t = 'l', ylab = "Potential Future Exposure in USD", xlab = "time t 
 
 <img src="./images/financial-risk-model/image5.png" width="500px" alt="Potential Future Exposure for MSFT Equity Forward" /> 
 
-Figure 3 Potential Future Exposure for MSFT Equity Forward
+Figure 3 Potential future exposure for MSFT equity forward
 
 ## Using Azure Batch with R 
 
@@ -425,7 +425,7 @@ After the calculations have finished, the additional resources can
 easily be shut-down by invoking the following a single instruction:
 
 ````R
-# Stop the Cloud cluster
+# Stop the cloud cluster
 stopCluster(cluster)
 ````
 
