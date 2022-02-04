@@ -101,7 +101,7 @@ Stamps are a great way to provide isolation between tenants. They also provide y
 
 ### Feature flags
 
-[Feature flags](/azure/devops/migrate/phase-features-with-feature-flags) enable you to add functionality to your solution, while only exposing to a subset of your customers or tenants. You might use feature flags, if you deploy updates regularly but want to avoid showing new functionality, or if you want to avoid applying changes in behavior until a customer opts in.
+[Feature flags](/devops/operate/progressive-experimentation-feature-flags) enable you to add functionality to your solution, while only exposing to a subset of your customers or tenants. You might use feature flags, if you deploy updates regularly but want to avoid showing new functionality, or if you want to avoid applying changes in behavior until a customer opts in.
 
 You can embed feature flag support into your application by writing code yourself, or by using a service like [Azure App Configuration](/azure/azure-app-configuration/overview).
 

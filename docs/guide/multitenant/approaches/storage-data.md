@@ -59,7 +59,7 @@ It's important to consider the complexity of your implementation. It's good prac
 
 Similarly, if your solution doesn't need to scale to a large number of tenants, or if you don't have concerns around performance or data isolation, then it's better to keep your solution simple and avoid adding unnecessary complexity.
 
-A particular concern for multitenant data solutions is the level of customization you support. For example, can a tenant extend your data model or apply custom data rules? Ensure you design for this upfront. Avoid forking or providing custom infrastructure for individual tenants, since this inhibits your ability to scale, to test your solution, and to deploy updates. Instead, consider using [feature flags](/azure/devops/migrate/phase-features-with-feature-flags) and other forms of tenant configuration.
+A particular concern for multitenant data solutions is the level of customization you support. For example, can a tenant extend your data model or apply custom data rules? Ensure you design for this upfront. Avoid forking or providing custom infrastructure for individual tenants, since this inhibits your ability to scale, to test your solution, and to deploy updates. Instead, consider using [feature flags](/devops/operate/progressive-experimentation-feature-flags) and other forms of tenant configuration.
 
 ### Complexity of management and operations
 
