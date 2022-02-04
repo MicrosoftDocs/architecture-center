@@ -89,7 +89,7 @@ Other tools:
 
 ## Technology choices
 
-- [Online Transaction Processing (OLTP) data stores](./online-transaction-processing.yml#oltp-in-azure)
+- [Online Transaction Processing (OLTP) data stores](./online-transaction-processing.md#oltp-in-azure)
 - [Online Analytical Processing (OLAP) data stores](./online-analytical-processing.yml#olap-in-azure)
 - [Data warehouses](./data-warehousing.yml)
 - [Pipeline orchestration](../technology-choices/pipeline-orchestration-data-movement.md)

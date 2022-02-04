@@ -101,7 +101,7 @@ items:
                   - name: OLAP solutions
                     href: data-guide/relational-data/online-analytical-processing.yml
                   - name: OLTP solutions
-                    href: data-guide/relational-data/online-transaction-processing.yml
+                    href: data-guide/relational-data/online-transaction-processing.md
                   - name: Data warehousing
                     href: data-guide/relational-data/data-warehousing.yml
                   - name: Non-relational data store
@@ -2015,7 +2015,7 @@ items:
                   - name: Online analytical processing (OLAP)
                     href: data-guide/relational-data/online-analytical-processing.yml
                   - name: Online transaction processing (OLTP)
-                    href: data-guide/relational-data/online-transaction-processing.yml
+                    href: data-guide/relational-data/online-transaction-processing.md
                   - name: Data warehousing
                     href: data-guide/relational-data/data-warehousing.yml
               - name: Non-relational data
