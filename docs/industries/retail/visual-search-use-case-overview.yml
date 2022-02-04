@@ -18,6 +18,6 @@ products:
   - azure-sql-database
 name: Visual search in retail with Cosmos DB
 summary: This article explains the phases of migrating ecommerce infrastructure from on premises to Azure.
-thumbnailUrl: /azure/architecture/browse/thumbs/cosmosdb-data-model.png
+thumbnailUrl: /azure/architecture/browse/thumbs/cosmos-db-data-model.png
 content: |
   [!include[](visual-search-use-case-overview-content.md)]

@@ -231,13 +231,13 @@ In the context of the Health AI blueprint, ASC analyzes the system components an
 
 The following example dashboard identifies 13 suggestions for improving the system threat vulnerabilities. It also shows a mere 46% compliance with HIPAA and policy.
 
-![Threat protection](./images/healthcare-ai-blueprint/threat_protection.png)
+![Threat protection](./images/healthcare-ai-blueprint/threat-protection.png)
 
 Drilling into the high severity security problems shows what resources are affected and the remediation needed for each resource, as shown later in this section.
 
 Many hours can be spent by IT staff trying to manually secure all resources and networks. With ASC to identify vulnerabilities in a given system, time can be spent in other strategic pursuits. For many of the vulnerabilities identified, ASC can automatically apply the remediating action and secure the resource without an administrator having to dig deeply into the problem.
 
-![High risks](./images/healthcare-ai-blueprint/high_risks.png)
+![High risks](./images/healthcare-ai-blueprint/high-risks.png)
 
 ACS does even more through its threat detection and alerting capabilities. Use ACS to monitor networks, machines, and cloud services for incoming attacks and post-breach activity to keep your environment secure.
 ASC automatically collects, analyzes, and integrates security information and logs from a variety of Azure resources. 
