@@ -333,7 +333,7 @@ Use the [Azure pricing calculator][Azure pricing calculator] to estimate the cos
 [Azure Sphere]: https://azure.microsoft.com/services/azure-sphere/
 [Azure Synapse Analytics]: https://azure.microsoft.com/services/synapse-analytics
 [Brookfield sets a new standard for innovation in real estate with WillowTwin and Azure Digital Twins]: https://customers.microsoft.com/story/855907-brookfield-properties-professional-services-azure
-[Choose an Internet of Things (IoT) solution in Azure]: ./iot-central-iot-hub-cheat-sheet-content.yml
+[Choose an Internet of Things (IoT) solution in Azure]: ./iot-central-iot-hub-cheat-sheet.yml
 [Cognizant Safe Buildings with IoT and Azure]: ../../solution-ideas/articles/safe-buildings.yml
 [COVID-19 safe environments with IoT Edge monitoring and alerting]: ../../solution-ideas/articles/cctv-iot-edge-for-covid-19-safe-environment-and-mask-detection.yml
 [Data Lake]: https://azure.microsoft.com/solutions/data-lake

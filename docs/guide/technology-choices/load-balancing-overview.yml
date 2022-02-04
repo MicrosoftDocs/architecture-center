@@ -19,6 +19,6 @@ products:
   - azure-traffic-manager
 name: Load-balancing options
 summary: Learn about Azure load-balancing services and how you can use them to distribute your workloads across multiple computing resources.
-thumbnailUrl: /azure/architecture/guide/technology-choices/images/load-balancing-decision-tree.png
+thumbnailUrl: /azure/architecture/browse/thumbs/load-balancing-decision-tree.png
 content: |
    [!include[](load-balancing-overview-content.md)]

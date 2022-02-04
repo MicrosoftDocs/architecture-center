@@ -18,6 +18,6 @@ products:
   - azure-stream-analytics
 name: Asynchronous messaging options
 summary: Learn about asynchronous messaging options in Azure, including the different types of messages and the entities that participate in a messaging infrastructure.
-thumbnailUrl: /azure/architecture/guide/technology-choices/images/messagetrans.png
+thumbnailUrl: /azure/architecture/browse/thumbs/messagetrans.png
 content: |
    [!include[](messaging-content.md)]

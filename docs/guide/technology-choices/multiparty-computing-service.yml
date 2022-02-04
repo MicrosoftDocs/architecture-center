@@ -10,7 +10,6 @@ metadata:
   ms.subservice: azure-guide
   ms.custom: fcp
 azureCategories:
-  - blockchain
   - compute
 products:
   - azure-blob-storage
@@ -19,7 +18,7 @@ products:
   - azure-sql-database
 name: Choose an Azure multiparty computing service
 summary: Use this chart and other information to decide which multiparty computing services to use for your solution.
-thumbnailUrl: /azure/architecture/guide/blockchain/images/multiparty-compute-options.png
+thumbnailUrl: /azure/architecture/browse/thumbs/multiparty-compute-options.png
 content: |
   [!include[](multiparty-computing-service-content.md)]
 

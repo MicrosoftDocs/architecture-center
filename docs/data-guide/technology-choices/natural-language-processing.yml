@@ -18,7 +18,7 @@ products:
   - azure-storage
 name: Natural language processing technology
 summary: Choose a natural language processing service for sentiment analysis, topic and language detection, key phrase extraction, and document categorization.
-thumbnailUrl: /azure/architecture/data-guide/images/nlp-pipeline.png
+thumbnailUrl: /azure/architecture/browse/thumbs/nlp-pipeline.png
 content: |
   [!include[](natural-language-processing-content.md)]
   

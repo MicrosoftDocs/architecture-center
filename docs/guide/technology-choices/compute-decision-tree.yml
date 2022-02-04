@@ -16,6 +16,6 @@ products:
   - azure-kubernetes-service
 name: Choose an Azure compute service
 summary: Use this chart and other information to decide which compute service, or hosting model for computing resources, best suits your application.
-thumbnailUrl: /azure/architecture/guide/technology-choices/images/compute-choices.png
+thumbnailUrl: /azure/architecture/browse/thumbs/compute-choices.png
 content: |
   [!include[](compute-decision-tree-content.md)]

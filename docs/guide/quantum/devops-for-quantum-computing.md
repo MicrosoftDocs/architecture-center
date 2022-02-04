@@ -85,7 +85,7 @@ As with any other Azure environment, you can use [Azure Resource Manager templat
 
 :::image type="content" source="media/iac-in-quantum-devops.png" alt-text="Diagram that shows deployment of Infrastructure as Code in DevOps for quantum applications.":::
 
-If you use the [loosely coupled integration model](../../example-scenario/quantum/loosely-coupled-quantum-computing-job.yml), the classical environment includes all the resources that you need to expose the quantum functionality via API. If you use the [tightly coupled approach](../../example-scenario/quantum/tightly-coupled-quantum-computing-job.yml), the resources that you need vary depending on the [compute model](../technology-choices/compute-decision-tree-content.yml).
+If you use the [loosely coupled integration model](../../example-scenario/quantum/loosely-coupled-quantum-computing-job.yml), the classical environment includes all the resources that you need to expose the quantum functionality via API. If you use the [tightly coupled approach](../../example-scenario/quantum/tightly-coupled-quantum-computing-job.yml), the resources that you need vary depending on the [compute model](../technology-choices/compute-decision-tree.yml).
 
 ## Continuous integration (CI) and automated testing
 

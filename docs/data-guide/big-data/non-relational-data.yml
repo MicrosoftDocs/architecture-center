@@ -17,7 +17,7 @@ products:
   - azure-data-lake
 name: Non-relational data and NoSQL
 summary: Learn about non-relational databases that store data as key/value pairs, graphs, time series, objects, and other storage models, based on data requirements.
-thumbnailUrl: /azure/architecture/guide/technology-choices/images/graph.png
+thumbnailUrl: /azure/architecture/browse/thumbs/graph.png
 content: |
   [!include[](non-relational-data-content.md)]
 

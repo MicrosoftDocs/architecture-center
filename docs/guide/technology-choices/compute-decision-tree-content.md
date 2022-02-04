@@ -139,7 +139,7 @@ Perform a more detailed evaluation looking at the following aspects of the servi
 - [Cost](https://azure.microsoft.com/pricing/)
 - [SLA](https://azure.microsoft.com/support/legal/sla/)
 - [Regional availability](https://azure.microsoft.com/global-infrastructure/services/)
-- [Compute comparison tables](./compute-decision-tree-content.yml)
+- [Compute comparison tables](./compute-decision-tree.yml)
 
 ## Next steps
 

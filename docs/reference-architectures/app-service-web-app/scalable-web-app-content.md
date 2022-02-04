@@ -147,7 +147,7 @@ Use the [pricing calculator](https://azure.microsoft.com/pricing/calculator) to 
 
 - [Basic web application][basic-web-app]
 - [Run a web application in multiple Azure regions for high availability][web-app-multi-region]
-- [Overview of load-balancing options in Azure](../../guide/technology-choices/load-balancing-overview-content.yml)
+- [Overview of load-balancing options in Azure](../../guide/technology-choices/load-balancing-overview.yml)
 
 <!-- links -->
 

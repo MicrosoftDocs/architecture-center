@@ -83,7 +83,7 @@ In this scenario, an organization is running HPC Pack on-premises, and uses Azur
 
 ## Next steps
 
-- [Choose an Azure compute service for your application](../technology-choices/compute-decision-tree-content.yml)
+- [Choose an Azure compute service for your application](../technology-choices/compute-decision-tree.yml)
 - [High Performance Computing (HPC) on Azure](../../topics/high-performance-computing.md)
 - [HPC cluster deployed in the cloud](../../solution-ideas/articles/hpc-cluster.yml)
 

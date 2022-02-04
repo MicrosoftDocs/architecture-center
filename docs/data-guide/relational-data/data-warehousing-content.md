@@ -29,7 +29,7 @@ Other benefits include:
 - A data warehouse can consolidate data from different software.
 - Data mining tools can find hidden patterns in the data using automatic methodologies.
 - Data warehouses make it easier to provide secure access to authorized users, while restricting access to others. Business users don't need access to the source data, removing a potential attack vector.
-- Data warehouses make it easier to create business intelligence solutions, such as [OLAP cubes](online-analytical-processing-content.yml).
+- Data warehouses make it easier to create business intelligence solutions, such as [OLAP cubes](online-analytical-processing.yml).
 
 ## Challenges
 

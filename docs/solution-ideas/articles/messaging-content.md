@@ -22,5 +22,5 @@ Key technologies used to implement this architecture:
 
 ## Next Steps
 
-* [Asynchronous messaging options in Azure](../../guide/technology-choices/messaging-content.md)
+* [Asynchronous messaging options in Azure](../../guide/technology-choices/messaging.md)
 * [Caching Best Practice](../../best-practices/caching.yml
