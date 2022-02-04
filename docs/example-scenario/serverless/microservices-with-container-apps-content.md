@@ -4,13 +4,13 @@ Your business can simplify the deployment and management of microservice contain
 
 This example scenario demonstrates how to deploy microservice containers without needing to manage complex infrastructure and container orchestration.  
 
-Fabrikam, Inc. has implemented a drone delivery service where users can request a drone to pick up goods for delivery. When a customer schedules a pickup, a backend system assigns a drone and notifies the user with an estimated delivery time. While the delivery is in progress, the customer can track the location of the drone, with a continuously updated ETA.  The application is implemented as containerized microservices and originally deployed to using Azure Kubernetes Service (AKS).
+Fabrikam, Inc. (a fictional company) has implemented a drone delivery service where users can request a drone to pick up goods for delivery. When a customer schedules a pickup, a backend system assigns a drone and notifies the user with an estimated delivery time. While the delivery is in progress, the customer can track the location of the drone, with a continuously updated ETA.  The application is implemented as containerized microservices and originally deployed to using Azure Kubernetes Service (AKS).
 
-Fabrikam needed to simplify their implementation and move their platform where their application could scale to meet future demands.
+Fabrikam needed to simplify their implementation and move to a  platform where their application could scale to meet future demands.
 
 With Azure Container Apps, Fabrikam can run their applications on a flexible serverless platform built for microservice applications.  Container Apps provides the powerful features of kubernetes without needing to create and maintain complicated configurations.  
 
-In this scenario, the existing Fabrikam Drone Delivery application [Azure Kubernetes Service (AKS) implementation](https://github.com/mspnp/aks-fabrikam-dronedelivery) is instead, deployed using Container Apps.  By deploying the application in Container Apps, this architecture is streamlined by eliminating the need for many external Azure services that were required in the previous AKS implementation.
+In this scenario, the existing Fabrikam Drone Delivery [Azure Kubernetes Service (AKS) implementation](https://github.com/mspnp/aks-fabrikam-dronedelivery) is instead, deployed using Container Apps.  By deploying the application in Container Apps, this architecture is streamlined by eliminating the need for many external Azure services that were required in the previous AKS implementation.
 
 You can find this example workload on [Container Apps Example Scenario](https://github.com/mspnp/container-apps-fabrikam-dronedelivery).
 
@@ -88,7 +88,7 @@ An alternative scenario of this example is the Fabrikam Drone Delivery applicati
 
 Instead of using Azure Service Bus, messaging between the microservices can be implemented with [Dapr](https://dapr.io/) (Distributed Application Runtime).  
 
-As an alternative to a deploying all of the microservices to a single Container Apps environment, the containers could be deployed to multiple environments. This is an option for microservices that don't need to discover each other and don't need to share the same compute space.  Deploying applications to multiple environments provides separate security boundaries around container applications minimizing security risks.
+As an alternative to a deploying all of the microservices to a single Container Apps environment, the containers could be deployed to multiple environments. This is an option for microservices that don't need to discover each other and share the same compute space.  Deploying applications to multiple environments provides separate security boundaries around container applications minimizing security risks.
 
 ## Considerations
 
@@ -98,18 +98,19 @@ Deploying containers with Container Apps you can more easily manage, maintain an
 
 Application updates automatically trigger revisions.  These revisions can be managed and traffic split between the revisions to support blue/green deployments and A/B testing.
 
-Real-time monitoring enables you to track the performance of the container apps.  Setting alerts will notify you of any problems.  When an app unexpectedly shuts down due to a coding error or resource issue, the Container Apps service automatically restarts it.  
+Real-time monitoring enables you to track the execution of the container apps.  Setting alerts will notify you of any problems.  When an app unexpectedly shuts down due to a coding error or resource issue, the Container Apps service automatically restarts it.  
 
-As the workload on the apps increase, autoscaling can be enabled to spawn replicas to ensure availability.  Dynamic load balancing optimizes the performance of the replicas.
+As workload increases, autoscaling can be enabled to spawn replicas to ensure availability.  Dynamic load balancing optimizes the performance of the replicas.
 
 
-### Operations
+### Operational Excellence
 
-For easy management and maintenance of the application:
+To achieve operational excellence, the Container Apps service offers these features:
 
-* Revisions are dynamically deployed when a container app is updated.
-* The Azure Monitor service enables monitoring and analysis of the application.
-* Traffic-splitting across revisions can be enabled for blue/green deployments and A/B testing.
+* Automated deployment for reliable, predictable deployments
+* Container Apps revisions to quickly roll forward and roll back updates
+* Traffic-splitting across revisions can be enabled for blue/green deployments and A/B testing
+* Azure Monitor service for logging and metrics for each the container
 * CI/CD pipeline can be created for this scenario by enabling GitHub Actions
 
 ### Performance
