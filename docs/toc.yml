@@ -164,9 +164,9 @@ items:
           - name: Background jobs
             href: best-practices/background-jobs.md
           - name: Caching
-            href: best-practices/caching.md
+            href: best-practices/caching.yml
           - name: Content Delivery Network
-            href: best-practices/cdn.md
+            href: best-practices/cdn.yml
           - name: Data partitioning
             href: best-practices/data-partitioning.md
           - name: Data partitioning strategies (by service)

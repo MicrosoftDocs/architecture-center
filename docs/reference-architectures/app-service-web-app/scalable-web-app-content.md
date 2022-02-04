@@ -162,10 +162,10 @@ Use the [pricing calculator](https://azure.microsoft.com/pricing/calculator) to 
 [azure-search-scaling]: /azure/search/search-capacity-planning
 [basic-web-app]: ./basic-web-app.yml
 [basic-web-app-devops]: ./basic-web-app.yml#devops
-[caching-guidance]: ../../best-practices/caching.md
+[caching-guidance]: ../../best-practices/caching.yml
 [cdn-app-service]: /azure/app-service-web/cdn-websites-with-cdn
 [cdn-storage-account]: /azure/cdn/cdn-create-a-storage-account-with-cdn
-[cdn-guidance]: ../../best-practices/cdn.md
+[cdn-guidance]: ../../best-practices/cdn.yml
 [cors]: /azure/app-service-api/app-service-api-cors-consume-javascript
 [cosmosdb]: /azure/cosmos-db
 [datastore]: ../..//guide/technology-choices/data-store-overview.md
