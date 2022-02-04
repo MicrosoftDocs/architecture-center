@@ -38,14 +38,14 @@ this video covers the breadth of the Azure offerings for education. it shows how
 
 ## Architectures for education 
 The following articles provide detailed analysis of architectures created and recommended for the education industry.
+
 |Architecture|Summary|Technology focus|
-|---|---|---|
+|---|---|---| 
 |[Build a telehealth system on Azure](../example-scenario/apps/telehealth-system.yml) | Learn how to use Azure cloud services to build a system that connects teachers to remote students.|Containers|
 |[Computer forensics chain of custody in Azure](../example-scenario/forensics/index.yml)|Create an infrastructure to ensure a valid digital-evidence chain of custody for the capture and analysis of data from computers and storage media.|Management|
 |[Create smart places by using Azure Digital Twins](../example-scenario/iot/smart-places.yml)|Use Azure Digital Twins to create models of smart places from IoT device data. View and control products, systems, environments, and experiences.|IoT|
 |[Enhanced-security hybrid messaging — client access](../example-scenario/hybrid/secure-hybrid-messaging-client.yml)|Learn how to enhance your security in a client access scenario by using Azure AD Multi-Factor Authentication.| Hybrid|
 |[Enhanced-security hybrid messaging — mobile access](../example-scenario/hybrid/secure-hybrid-messaging-mobile.yml)|Learn how to enhance your security in a mobile access scenario by using Azure AD Multi-Factor Authentication.| Hybrid|
-
 |[Enhanced-security hybrid messaging — web access](../example-scenario/hybrid/secure-hybrid-messaging-web.yml)|Learn how to enhance your security in a web access scenario by using Azure AD Multi-Factor Authentication.| Hybrid|
 |[Governance of Teams guest users](../example-scenario/governance/governance-teams-guest-users.yml)|Learn how to use Microsoft Teams and Azure AD entitlement management to collaborate with other organizations, while maintaining control over resource use.|Identity|
 |[Moodle deployment with Azure NetApp Files](../example-scenario/file-storage/moodle-azure-netapp-files.yml)|Deploy Moodle with Azure NetApp Files for a resilient solution that offers high-throughput, low-latency access to scalable shared storage.| Storage|
