@@ -88,17 +88,17 @@ An alternative scenario of this example is the Fabrikam Drone Delivery applicati
 
 Instead of using Azure Service Bus, messaging between the microservices can be implemented with [Dapr](https://dapr.io/) (Distributed Application Runtime).  
 
-As an alternative to a deploying all of the microservices to a single Container Apps environment, the containers could be deployed to multiple environments. This is an option for microservices that do not need to discover each other and do not need to share the same compute space.  Deploying applications to multiple environments provides separate security boundaries around container applications minimizing security risks.
+As an alternative to a deploying all of the microservices to a single Container Apps environment, the containers could be deployed to multiple environments. This is an option for microservices that don't need to discover each other and don't need to share the same compute space.  Deploying applications to multiple environments provides separate security boundaries around container applications minimizing security risks.
 
 ## Considerations
 
 ### Availability
 
-Deploying containers with Container Apps provides the ability to manage, maintain and monitor the applications.  
+Deploying containers with Container Apps you can more easily manage, maintain and monitor the applications.  
 
 Application updates automatically trigger revisions.  These revisions can be managed and traffic split between the revisions to support blue/green deployments and A/B testing.
 
-Realtime monitoring and metrics enables you to track the performance of the container apps.  Setting alerts will notify you of any problems.  And in the event that an app unexpectedly shuts down due to a coding error or resource issue, the Container Apps service automatically restarts it.  
+Real-time monitoring enables you to track the performance of the container apps.  Setting alerts will notify you of any problems.  When an app unexpectedly shuts down due to a coding error or resource issue, the Container Apps service automatically restarts it.  
 
 As the workload on the apps increase, autoscaling can be enabled to spawn replicas to ensure availability.  Dynamic load balancing optimizes the performance of the replicas.
 
@@ -116,7 +116,7 @@ For easy management and maintenance of the application:
 
 Performance considerations in this solution:
 
-* The workload is distributed among multiple microservice application.
+* The workload is distributed among multiple microservice applications.
 * Each microservice is independent sharing nothing with the other microservices so that they easily scale.
 * Autoscaling can be enabled as the workload increases.
 * The Container Apps service provides dynamic load balancing.
@@ -125,7 +125,7 @@ Performance considerations in this solution:
 
 ### Reliability
 
-When a container app shutdown due to a coding error or resource issues, the Container Apps automatically restarts the container.  Container Apps runs on a serverless platform that provides resiliency to hardware and other infrastructure errors.
+When a container app shuts down due to a coding error or resource issues, the Container Apps automatically restarts the container.  Container Apps runs on a serverless platform that provides resiliency to hardware and other infrastructure errors.
 
 Use performance monitoring through Log Analytics and Azure Monitor to evaluate the application under load.  It enables you to diagnose issues and perform root-cause analysis of failures.
 
