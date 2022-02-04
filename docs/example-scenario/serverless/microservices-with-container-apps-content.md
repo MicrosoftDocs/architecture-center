@@ -2,7 +2,7 @@
 
 Your business can simplify the deployment and management of microservice containers by using Azure Container Apps. Container Apps provides a fully managed serverless environment for building and deploying modern applications.
 
-This example scenario demonstrates how to deploy microservice containers without the needing to manage complex infrastructure and container orchestration.  
+This example scenario demonstrates how to deploy microservice containers without needing to manage complex infrastructure and container orchestration.  
 
 Fabrikam, Inc. has implemented a drone delivery service where users can request a drone to pick up goods for delivery. When a customer schedules a pickup, a backend system assigns a drone and notifies the user with an estimated delivery time. While the delivery is in progress, the customer can track the location of the drone, with a continuously updated ETA.  The application is implemented as containerized microservices and originally deployed to using Azure Kubernetes Service (AKS).
 
@@ -18,11 +18,13 @@ You can find this example workload on [Container Apps Example Scenario](https://
 
 The Container Apps service is a solution for microservice and containerized applications.   Common uses of Azure Container Apps include:
 
-* Deploying applications to a serverless platform
+* Deploying multiple microservice containers
+* Running applications to a flexible serverless platform
+* Autoscaling applications based on HTTP/HTTPS traffic and KEDA triggers
+* Minimizing maintenance overhead for containerized applications
 * Deploying API endpoints
 * Hosting background processing applications
 * Handling event-driven processing
-* Deploying applications that dynamically scale
 
 ## Architecture
 
@@ -86,13 +88,20 @@ An alternative scenario of this example is the Fabrikam Drone Delivery applicati
 
 Instead of using Azure Service Bus, messaging between the microservices can be implemented with [Dapr](https://dapr.io/) (Distributed Application Runtime).  
 
-As an alternative to a deploying all of the microservices to a single Container Apps environment, the containers could be deployed to multiple environments. Multiple environments ensure that the services don't share the same compute resources.
+As an alternative to a deploying all of the microservices to a single Container Apps environment, the containers could be deployed to multiple environments. This is an option for microservices that do not need to discover each other and do not need to share the same compute space.  Deploying applications to multiple environments provides separate security boundaries around container applications minimizing security risks.
 
 ## Considerations
 
 ### Availability
 
-Although not implemented in this scenario, high availability can be achieved with Container Apps autoscaling.  Autoscaling dynamically scales container app instances based on HTTP traffic or any KEDA-based triggers.
+Deploying containers with Container Apps provides the ability to manage, maintain and monitor the applications.  
+
+Application updates automatically trigger revisions.  These revisions can be managed and traffic split between the revisions to support blue/green deployments and A/B testing.
+
+Realtime monitoring and metrics enables you to track the performance of the container apps.  Setting alerts will notify you of any problems.  And in the event that an app unexpectedly shuts down due to a coding error or resource issue, the Container Apps service automatically restarts it.  
+
+As the workload on the apps increase, autoscaling can be enabled to spawn replicas to ensure availability.  Dynamic load balancing optimizes the performance of the replicas.
+
 
 ### Operations
 
@@ -101,30 +110,28 @@ For easy management and maintenance of the application:
 * Revisions are dynamically deployed when a container app is updated.
 * The Azure Monitor service enables monitoring and analysis of the application.
 * Traffic-splitting across revisions can be enabled for blue/green deployments and A/B testing.
+* CI/CD pipeline can be created for this scenario by enabling GitHub Actions
 
 ### Performance
 
-Factors affecting performance are:
+Performance considerations in this solution:
 
-* The cpu and memory resource configuration.
-* The autoscaling criteria.
+* The workload is distributed among multiple microservice application.
+* Each microservice is independent sharing nothing with the other microservices so that they easily scale.
+* Autoscaling can be enabled as the workload increases.
+* The Container Apps service provides dynamic load balancing.
+* Metrics, including CPU and memory utilization, bandwidth information and storage utilization are available through Azure Monitor.
+* Log analytics provide log aggregation to gather information across each container app.
 
-### Scalability
+### Reliability
 
-When implemented, Container Apps provides independent scaling of microservices.  Your service can scale up or down based on HTTP traffic or any KEDA-based event triggers. Scaling rules can be easily configures for each container. 
+When a container app shutdown due to a coding error or resource issues, the Container Apps automatically restarts the container.  Container Apps runs on a serverless platform that provides resiliency to hardware and other infrastructure errors.
+
+Use performance monitoring through Log Analytics and Azure Monitor to evaluate the application under load.  It enables you to diagnose issues and perform root-cause analysis of failures.
 
 ### Security
 
 Container Apps allows your application to securely store sensitive configuration values.  Once defined at the application level, secured values are available to the containers across revisions, and when implemented, inside scale rules.  In this scenario uses GitHub secrets and environmental variable values.
-
-### Resiliency
-
-The Container Apps service provides resiliency by automatically restarting any container app that crashes.
-
-### DevOps
-
-This example uses Bicep templates for deployment. Both deployments and redeployments are run manually. 
-CD/CI pipelines can be enabled by adding GitHub Actions to the container app.  
 
 ## Deploy this scenario
 
