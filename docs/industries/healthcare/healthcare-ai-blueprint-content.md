@@ -40,11 +40,11 @@ The blueprint includes an AI/ML experiment to predict a patient’s length of st
 
 The resources listed in this section are all found in the GitHub repository.
 
-Primary resources are:
+Review the following primary resources:
 
-1. [PowerShell](/powershell/scripting/powershell-scripting?WT.mc_id=ms-docs-dastarr) scripts for deployment, configuration, and other tasks.
-2. [Detailed instructions for installation](https://github.com/Azure/Health-Data-and-AI-Blueprint/blob/master/deployment.md) which include how to use the install script.
-3. [A comprehensive FAQ](https://github.com/Azure/Health-Data-and-AI-Blueprint/blob/master/faq.md).
+- [PowerShell](/powershell/scripting/powershell-scripting?WT.mc_id=ms-docs-dastarr) scripts for deployment, configuration, and other tasks.
+- [Detailed instructions for installation](https://github.com/Azure/Health-Data-and-AI-Blueprint/blob/master/deployment.md) include how to use the install script.
+- [A comprehensive FAQ](https://github.com/Azure/Health-Data-and-AI-Blueprint/blob/master/faq.md)
 
 Cross cutting concerns for this model include identity and security, both of which are especially important when dealing with patient data. The components of the ML pipeline are shown in this graphic.
 
@@ -60,15 +60,15 @@ The blueprint also provides additional scripts and data used to simulate and stu
 
 ### Additional blueprint resources
 
-The blueprint provides exceptional guidance and instructions for technical staff and also includes artifacts to help create a fully functional installation. These other artifacts include:
+The blueprint provides exceptional guidance and instructions for technical staff and also includes artifacts to help create a fully functional installation. See the following additional artifacts:
 
-1. A [threat model](https://servicetrust.microsoft.com/ViewPage/HIPAABlueprint?command=Download&downloadType=Document&downloadId=01828de2-9555-4bac-a2a0-44e9ed2eeeaf&docTab=d7c399a0-2b92-11e8-9910-13dc07d708f7_Data_Analytics&WT.mc_id=ms-docs-dastarr) for use with the [Microsoft Threat Modeling Tool](https://www.microsoft.com/download/details.aspx?id=49168&WT.mc_id=ms-docs-dastarr). This threat model shows components of the solution, the data flows between them, and the trust boundaries. The tool can be used for threat modeling by those looking to extend the base blueprint or for learning about the system architecture from a security perspective.
+- A [threat model](https://servicetrust.microsoft.com/ViewPage/HIPAABlueprint?command=Download&downloadType=Document&downloadId=01828de2-9555-4bac-a2a0-44e9ed2eeeaf&docTab=d7c399a0-2b92-11e8-9910-13dc07d708f7_Data_Analytics&WT.mc_id=ms-docs-dastarr) for use with the [Microsoft Threat Modeling Tool](https://www.microsoft.com/download/details.aspx?id=49168&WT.mc_id=ms-docs-dastarr). This threat model shows components of the solution, the data flows between them, and the trust boundaries. The tool can be used for threat modeling by those looking to extend the base blueprint or for learning about the system architecture from a security perspective.
 
-2. The [HITRUST customer responsibility matrix](https://servicetrust.microsoft.com/ViewPage/HIPAABlueprint?command=Download&downloadType=Document&downloadId=eab85244-b9ab-490a-9e2a-611153f7d3af&docTab=d7c399a0-2b92-11e8-9910-13dc07d708f7_Data_Analytics&WT.mc_id=ms-docs-dastarr), in an Excel workbook.  This shows what you (the customer) must provide versus what Microsoft provides for each requirement in the matrix. More information about this responsibility matrix is included in this article, in the "Security and Compliance" > Blueprint responsibility matrix section of this document.
+- The [HITRUST customer responsibility matrix](https://servicetrust.microsoft.com/ViewPage/HIPAABlueprint?command=Download&downloadType=Document&downloadId=eab85244-b9ab-490a-9e2a-611153f7d3af&docTab=d7c399a0-2b92-11e8-9910-13dc07d708f7_Data_Analytics&WT.mc_id=ms-docs-dastarr) is an Excel workbook.  This resource shows what you (the customer) must provide, versus what Microsoft provides, for each requirement in the matrix. More information about this responsibility matrix is included in this article, in the "Security and Compliance" > Blueprint responsibility matrix section of this document.
 
-3. The [HITRUST health data and AI review](https://servicetrust.microsoft.com/ViewPage/HIPAABlueprint?command=Download&downloadType=Document&downloadId=ffc32e44-665e-46c5-b753-163d55a17d27&docTab=d7c399a0-2b92-11e8-9910-13dc07d708f7_Data_Analytics&WT.mc_id=ms-docs-dastarr) whitepaper examines the blueprint through the lens of requirements to be met for HITRUST certification.
+- The [HITRUST health data and AI review](https://servicetrust.microsoft.com/ViewPage/HIPAABlueprint?command=Download&downloadType=Document&downloadId=ffc32e44-665e-46c5-b753-163d55a17d27&docTab=d7c399a0-2b92-11e8-9910-13dc07d708f7_Data_Analytics&WT.mc_id=ms-docs-dastarr) whitepaper examines the blueprint through the lens of requirements to be met for HITRUST certification.
 
-4. The [HIPAA health data and AI review](https://servicetrust.microsoft.com/ViewPage/HIPAABlueprint?command=Download&downloadType=Document&downloadId=d5ce675c-3e83-45db-98a6-ae77fc439436&docTab=d7c399a0-2b92-11e8-9910-13dc07d708f7_Data_Analytics&WT.mc_id=ms-docs-dastarr) whitepaper reviews the architecture with HIPAA regulations in mind.
+- The [HIPAA health data and AI review](https://servicetrust.microsoft.com/ViewPage/HIPAABlueprint?command=Download&downloadType=Document&downloadId=d5ce675c-3e83-45db-98a6-ae77fc439436&docTab=d7c399a0-2b92-11e8-9910-13dc07d708f7_Data_Analytics&WT.mc_id=ms-docs-dastarr) whitepaper reviews the architecture with HIPAA regulations in mind.
 
 These resources are [here on GitHub](https://github.com/Azure/Health-Data-and-AI-Blueprint).
 
