@@ -329,6 +329,8 @@ items:
                     href: guide/multitenant/service/sql-database.md
                   - name: Azure Cosmos DB
                     href: guide/multitenant/service/cosmos-db.md
+                  - name: Azure Database for PostgreSQL
+                    href: guide/multitenant/service/postgresql.md
           - name: Related resources
             href: guide/multitenant/related-resources.md
       - name: Cloud comparisons
@@ -1449,16 +1451,6 @@ items:
                             href: data-science-process/select-features.md
                       - name: Deploy models in production
                         href: data-science-process/deploy-models-in-production.md
-                  - name: Related
-                    items:
-                      - name: Anomaly detection
-                        href: data-science-process/apps-anomaly-detection-api.md
-                      - name: Predictive maintenance
-                        items:
-                          - name: Overview
-                            href: data-science-process/predictive-maintenance-playbook.md
-                          - name: Technical guide
-                            href: data-science-process/predictive-maintenance-technical-guide.md
           - name: Architectures
             items:
               - name: AI enrichment with Cognitive Search
@@ -2795,6 +2787,10 @@ items:
                 href: reference-architectures/hybrid-networking/expressroute-vpn-failover.yml
               - name: Connect standalone servers
                 href: hybrid/azure-network-adapter.yml
+              - name: Cross-cloud scaling with Traffic Manager
+                href: example-scenario/hybrid/hybrid-cross-cloud-scaling.yml
+              - name: Cross-cloud scaling (on-premises data)
+                href: example-scenario/hybrid/hybrid-cross-cloud-scale-on-premises-data.yml   
               - name: Deploy AI and ML with Azure Stack Edge
                 href: hybrid/deploy-ai-ml-azure-stack-edge.yml
               - name: Design a hybrid Domain Name System
@@ -2811,6 +2807,8 @@ items:
                 href: reference-architectures/hybrid-networking/expressroute.yml
               - name: Extend an on-premises network using VPN
                 href: reference-architectures/hybrid-networking/vpn.yml
+              - name: Geo-distributed solution
+                href: example-scenario/hybrid/hybrid-geo-distributed.yml
               - name: Hybrid availability and monitoring
                 href: hybrid/hybrid-perf-monitoring.yml
               - name: Hybrid file services
