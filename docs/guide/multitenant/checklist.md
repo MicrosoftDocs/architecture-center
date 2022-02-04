@@ -2,8 +2,8 @@
 title: Multitenancy checklist on Azure
 titleSuffix: Azure Architecture Center
 description: Multitenancy enables you to serve multiple distinct tenants in your Azure-hosted solution. Use this checklist to assess your multitenancy requirements and architecture. 
-author: cherchyk
-ms.author: bocherch
+author: arsenvlad
+ms.author: arsenv
 ms.date: 02/04/2022
 ms.topic: conceptual
 ms.service: architecture-center
