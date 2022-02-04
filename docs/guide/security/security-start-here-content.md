@@ -41,7 +41,7 @@ For information about security for sensitive IaaS workloads, see [Security consi
 
 ## Security architectures
  
-### Identity management
+### Identity and access management
 - [Secure OAuth 2.0 On-Behalf-Of refresh tokens for web services](../../example-scenario/secrets/secure-refresh-tokens.yml)
 ### Threat protection 
 - [Threat indicators for cyber threat intelligence in Microsoft Sentinel](../../example-scenario/data/sentinel-threat-intelligence.yml)
