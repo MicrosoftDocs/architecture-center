@@ -2,8 +2,8 @@
 metadata:
   title: Choose an Azure multiparty computing service
   description: Use this chart and other information to decide which multiparty computing services to use for your solution.
-  author: saffiali
-  ms.author: safali
+  author: EdPrice-MSFT
+  ms.author: edprice
   ms.date: 01/30/2022
   ms.topic: conceptual
   ms.service: architecture-center

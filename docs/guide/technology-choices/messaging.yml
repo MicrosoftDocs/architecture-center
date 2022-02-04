@@ -2,7 +2,8 @@
 metadata:
   title: Asynchronous messaging options
   description: Learn about asynchronous messaging options in Azure, including the different types of messages and the entities that participate in a messaging infrastructure.
-  author: PageWriter-MSFT
+  author: EdPrice-MSFT
+  ms.author: edprice
   ms.date: 01/30/2022
   ms.topic: conceptual
   ms.service: architecture-center
