@@ -35,7 +35,15 @@ Here are two learning paths to get you started:
 - Azure governance establishes the tooling needed to support cloud governance, compliance auditing, and automated guardrails. See [Azure governance design area guidance](/azure/cloud-adoption-framework/ready/landing-zone/design-area/governance) for information about governing your Azure environment. 
 
 ## Best practices
-The Azure Well-Architected Framework is a set of guiding tenets, based on five pillars, that you can use to improve the quality of your architectures. For information about the security pillar, see [Security design principles in Azure](/azure/architecture/framework/security/security-principles).
+The Azure Well-Architected Framework is a set of guiding tenets, based on five pillars, that you can use to improve the quality of your architectures. For information, see [Overview of the security pillar](/azure/architecture/framework/security/overview) and [Security design principles in Azure](/azure/architecture/framework/security/security-principles).
+
+The Well-Architected Framework also provides these checklists:
+
+- [Azure identity and access management considerations](/azure/architecture/framework/security/design-identity)
+- [Network security](/azure/architecture/framework/security/design-network)
+- [Data protection considerations](/azure/architecture/framework/security/design-storage) 
+- [Governance, risk, and compliance](/azure/architecture/framework/security/design-governance)
+
  
 For information about security for sensitive IaaS workloads, see [Security considerations for highly sensitive IaaS apps in Azure](../../reference-architectures/n-tier/high-security-iaas.yml).
 
