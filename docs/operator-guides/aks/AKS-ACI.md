@@ -30,7 +30,7 @@ virtual-node-aci-linux         Ready     agent     28m       v1.11.2
 aks-agentpool-14693408-0       Ready     agent     32m       v1.11.2
 ```
 
-3. Now, its time to deploy the SampleApp
+3. Now, its time to deploy the SampleApp (Refer https://docs.microsoft.com/en-us/azure/aks/virtual-nodes-cli)
 ```yaml
 apiVersion: apps/v1
 kind: Deployment
@@ -63,4 +63,5 @@ spec:
 ```
 
 4. There could be scenarios where you're looking to split the workoad across the agentpools & Virtual nodes  , therefore you can also use pod-affinity that can help in splitting the workload however that can only be possible if your workload does not fall under the known limitations today (https://docs.microsoft.com/en-us/azure/aks/virtual-nodes#known-limitations)
+
 
