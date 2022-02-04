@@ -1,5 +1,3 @@
-[!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
-
 This solution illustrates how to use Azure Stack Hub and Azure to stage, analyze, process, sanitize, and store data across multiple on-premises and cloud locations.
 
 One of the problems facing enterprise organizations in the modern technology landscape concerns secure data storage, processing, and analyzing. Considerations include:
