@@ -80,7 +80,7 @@ for managing them. Microsoft offers Azure Machine Learning Model Management
 service for the CI/CD (continuous integration and continuous delivery) of
 models.
 
-![ML Model Building Stages](./images/predictive-maintenance-solution/model-build-stages.png)
+[![ML Model Building Stages](./images/predictive-maintenance-solution/model-build-stages.png)](./images/predictive-maintenance-solution/model-build-stages.png#lightbox)
 
 Microsoft has published [a detailed
 guide](/azure/machine-learning/team-data-science-process/cortana-analytics-playbook-predictive-maintenance?WT.mc_id=pdmsolution-docs-ercenk)
