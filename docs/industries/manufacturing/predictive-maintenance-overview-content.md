@@ -16,7 +16,7 @@ Preventive maintenance requires you to the service the asset at pre-determined i
 
 Predictive maintenance monitors the usage of assets using models to predict when an asset will likely experience a component failure. That component then has its maintenance scheduled for &quot;just-in-time maintenance&quot;. PdM improves on the previous strategies by maximining both uptime and asset life. Since you service the equipment close to the component maximum lifetimes, you spend less money on replacing working parts. The downside is that the just-in-time nature of PdM is more difficult to execute since it requires a more responsive and flexible Services organization. Back to the motor of the 5-axis CNC Machining, you would schedule its maintenance &quot;gracefully&quot; (in a planned fashion, without disrupting production), if a predictive model predicts that the motor has, say, a 75% probability of failure in the next 24 hours (based on the information coming from sensors in the machine).
 
- ![](./images/predictive-maintenance-overview/maintenance-strategies.png)
+ [![](./images/predictive-maintenance-overview/maintenance-strategies.png)](./images/predictive-maintenance-overview/maintenance-strategies.png#lightbox)
 
 
 ## Different ways PdM can be offered
@@ -31,7 +31,7 @@ A PdM solution can be used by a manufacturer directly, monitoring the data comin
 
 To build a PdM solution, we start with data; ideally data that shows normal operation as well as data that shows what the equipment looked like before, during, and after a failure. The data comes from sensors, notes maintained by equipment operators, run information, environmental data, machine specifications, and so on. Systems of record can include historians, manufacturing execution systems, ERP, and so on. The data is made available for analytics in a variety of ways. [The Team Data Science Process](/azure/machine-learning/team-data-science-process) is illustrated in the following diagram. It's customized for manufacturing and does an excellent job explaining the various concerns one has when building and executing machine learning models.
 
- ![](./images/predictive-maintenance-overview/data-science-diagram.png)
+[ ![](./images/predictive-maintenance-overview/data-science-diagram.png)](./images/predictive-maintenance-overview/data-science-diagram.png#lightbox)
 
 Your first task will be to identify the types of failures you want to predict. With that in mind, you then identify the data sources which have interesting data around that failure type. The pipeline gets the data into the system from your environment. The data scientists will use their favorite machine learning tools to prepare the data. At this point, they're ready to create and train models that can identify diverse types of issues. The models answer questions like:
 
