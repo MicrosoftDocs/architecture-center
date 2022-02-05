@@ -30,7 +30,7 @@ A traditional data warehousing and reporting approach is sufficient in this case
 
 The following figure shows a typical report of historical data—sales data. It features several blocks with check boxes to select criteria to filter the results. The center shows two bar charts that show sales over time. The first chart shows the average sales by week; the second shows quantities by week.
 
- ![Dashbord example showing historical sales data.](./images/sku-optimization-solution-guide/sku-max-model.png)
+ [![Dashbord example showing historical sales data.](./images/sku-optimization-solution-guide/sku-max-model.png)](./images/sku-optimization-solution-guide/sku-max-model.png#lightbox)
   
 ## Predictive Analytics
 
@@ -144,7 +144,7 @@ Microsoft partners, such as Neal Analytics, have developed robust architectures 
 
 Figure 2 shows an example architecture. It includes four major blocks, capture, process, model, and operationalize. Each block contains major processes. Capture includes “data preprocessing;” process includes the “store data” function; model includes the “train machine learning model” function; and operationalize includes “store data” and reporting options (such as dashboards).
 
-![Architecture in four parts: capture, process, model, and operationalize.](./images/sku-optimization-solution-guide/architecture-sku-optimization.png)<center><font size="1">_Figure 2: architecture for SKU optimization—courtesy of Neal Analytics_</font></center>
+[![Architecture in four parts: capture, process, model, and operationalize.](./images/sku-optimization-solution-guide/architecture-sku-optimization.png)](./images/sku-optimization-solution-guide/architecture-sku-optimization.png#lightbox)<center><font size="1">_Figure 2: architecture for SKU optimization—courtesy of Neal Analytics_</font></center>
 
 ## The data pipeline
 
@@ -166,7 +166,8 @@ In the capture phase, we can leverage the copy activity (built-in to Data Factor
 
 The following figure shows the definition of a pipeline. It consists of three equally-sized three blocks in a row. The first two are a data set and an activity connected by arrows to indicate data flows. The third block is labeled “pipeline” and simply points to the first two to indicate encapsulation. 
 
- ![Azure Data Factory concepts: datasets consumed by pipeline of activities.](./images/sku-optimization-solution-guide/azure-data-factory.png)<center><font size="1">_Figure 3: Basic concepts of  Azure Data Factory_</font></center>
+ [![Azure Data Factory concepts: datasets consumed by pipeline of activities.](./images/sku-optimization-solution-guide/azure-data-factory.png)](./images/sku-optimization-solution-guide/azure-data-factory.png#lightbox)
+ <center><font size="1">_Figure 3: Basic concepts of  Azure Data Factory_</font></center>
 
 An example of the data format that is used by Neal Analytics’ solution can be found on Microsoft’s Appsource page. The solution includes the following datasets:
 
@@ -193,7 +194,8 @@ However, the data size it can handle is limited to 10 GB (for now) and the numbe
 
 The following figure shows an example of the ML studio in use. It's a graphical representation of a machine learning experiment. The figure shows several groups of blocks. Each set of blocks represents some stage in the experiment, and each block is connected to one or more blocks to indicate data input and output.
 
-![Example of machine learning studio in use.](./images/sku-optimization-solution-guide/ml-training-pipeline-example.png)<center><font size="1">_Figure 4: example of ML training pipeline with R and pre-built components_</font></center>
+[![Example of machine learning studio in use.](./images/sku-optimization-solution-guide/ml-training-pipeline-example.png)](./images/sku-optimization-solution-guide/ml-training-pipeline-example.png#lightbox)
+<center><font size="1">_Figure 4: example of ML training pipeline with R and pre-built components_</font></center>
 
 If you need to scale further but still want to use some of Microsoft’s fast, parallel implementation of common machine learning algorithm (such as multinomial logistic regression), you may want to look at Microsoft ML Server running on Azure Data Science Virtual Machine.
 
@@ -211,7 +213,8 @@ Starting the training process then becomes a question of invoking the appropriat
 
 The following figure shows the Data Factory user interface, as accessed through the Azure portal. It includes blocks for the various processes in the workflow. 
 
-![Data Factory interface showing databricks notebook activity.](./images/sku-optimization-solution-guide/data-factory-pipeline-databricks.png)<center><font size="1">_Figure 5: example of Data Factory pipeline with Databricks notebook activity_</font></center>
+[![Data Factory interface showing databricks notebook activity.](./images/sku-optimization-solution-guide/data-factory-pipeline-databricks.png)](./images/sku-optimization-solution-guide/data-factory-pipeline-databricks.png#lightbox)
+<center><font size="1">_Figure 5: example of Data Factory pipeline with Databricks notebook activity_</font></center>
 
 Also note that in our [inventory optimization solution](https://gallery.azure.ai/Solution/Inventory-Optimization-3?WT.mc_id=invopt-article-gmarchet) we propose a container-based implementation of solvers that is scaled via [Azure Batch](https://azure.microsoft.com/services/batch/?WT.mc_id=invopt-article-gmarchet). Specialist optimization libraries such as [pyomo](http://www.pyomo.org/about/) allow you to express an optimization problem in the Python programming language, then invoke independent solvers such as [bonmin](https://projects.coin-or.org/Bonmin) (open source) or [gurobi](http://www.gurobi.com/) (commercial) to find a solution.
 
@@ -225,7 +228,8 @@ Once the model has been trained, running it typically requires a different infra
 
 The following figure shows the architecture of the deployment. It includes representations of servers running the R language and Python. Both servers communicate to a sub section of web nodes that perform computation. A large data store is connected to the computation block.
 
-![ML server deployment diagram. Load balancer before multiple nodes for execution.](./images/sku-optimization-solution-guide/ml-server-deployment-example.png)<center><font size="1">_Figure 6: example of ML server deployment_</font></center>
+[![ML server deployment diagram. Load balancer before multiple nodes for execution.](./images/sku-optimization-solution-guide/ml-server-deployment-example.png)](./images/sku-optimization-solution-guide/ml-server-deployment-example.png#lightbox)
+<center><font size="1">_Figure 6: example of ML server deployment_</font></center>
 
 
 For models created on HDInsight or Databricks and hence dependent on the Spark environment (libraries, parallel capabilities etc.), you may want to consider running them on a cluster. Guidance is provided [here](/azure/machine-learning/team-data-science-process/spark-model-consumption?WT.mc_id=invopt-article-gmarchet).
@@ -242,7 +246,8 @@ Once deployed, the model will be able to process financial transaction workflows
 
 The following figure shows a typical Power BI dashboard. It includes two graphs that show SKU stock information. 
 
-![Example of a dashboard showing results over 12 months.](./images/sku-optimization-solution-guide/sku-max-model.png)<center><font size="1">_Figure 7: example of model results report—courtesy of Neal Analytics_</font></center>
+[![Example of a dashboard showing results over 12 months.](./images/sku-optimization-solution-guide/sku-max-model.png)](./images/sku-optimization-solution-guide/sku-max-model.png#lightbox)
+<center><font size="1">_Figure 7: example of model results report—courtesy of Neal Analytics_</font></center>
 
 ## Security Considerations
 
