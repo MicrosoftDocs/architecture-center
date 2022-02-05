@@ -9,6 +9,9 @@ metadata:
   ms.service: architecture-center
   ms.subservice: azure-guide
   ms.custom: fcp
+  ms.categories:
+    - storage
+    - containers
 azureCategories:
   - storage
   - containers
