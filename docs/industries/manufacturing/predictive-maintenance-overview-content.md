@@ -27,7 +27,7 @@ A PdM solution can be used by a manufacturer directly, monitoring the data comin
 - A manufacturer offers its products under a Product-as-a-Service model - where customers &quot;subscribe&quot; to the product instead of purchasing it outright. Under this model, the manufacturer wants to maximize product uptime; the product won't generate revenue when the product isn't working.
 - A company provides predictive maintenance products and services for products manufactured by one or more manufacturers.
 
-## Building a Predictive Maintenance Solution
+## Building a predictive maintenance solution
 
 To build a PdM solution, we start with data; ideally data that shows normal operation as well as data that shows what the equipment looked like before, during, and after a failure. The data comes from sensors, notes maintained by equipment operators, run information, environmental data, machine specifications, and so on. Systems of record can include historians, manufacturing execution systems, ERP, and so on. The data is made available for analytics in a variety of ways. [The Team Data Science Process](/azure/machine-learning/team-data-science-process) is illustrated in the following diagram. It's customized for manufacturing and does an excellent job explaining the various concerns one has when building and executing machine learning models.
 
