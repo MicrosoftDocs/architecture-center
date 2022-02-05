@@ -4,7 +4,7 @@ titleSuffix: Azure Architecture Center
 description: Create a vision AI solution with Azure IoT Edge. Explore computer vision hardware, machine learning and storage requirements, alerting, and user interfaces.
 author: MSKeith
 ms.author: keith
-ms.date: 01/27/2022
+ms.date: 02/04/2022
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: azure-guide
@@ -22,7 +22,7 @@ ms.custom:
 
 # Vision AI solutions with Azure IoT Edge
 
-This series of articles describes how to plan and design a computer vision workload with Azure IoT Edge. Run Azure IoT Edge on devices, and integrate with Azure Machine Learning, Azure Storage, and Power BI or Azure App Service for an end-to-end vision AI solution.
+This series of articles describes how to plan and design a computer vision workload with Azure IoT Edge. You can run Azure IoT Edge on devices, and integrate with Azure Machine Learning, Azure Storage, and Power BI or Azure App Service for an end-to-end vision AI solution.
 
 Visually inspecting products, resources, and environments is an important process for many enterprises. Visual inspection and analytics were once manual processes. Human limitations made these processes potentially inefficient or inaccurate. Enterprises can now use deep learning artificial neural networks called *convolutional neural networks* (CNNs) to emulate human vision. Using CNNs for automated image input and analytics is commonly called *computer vision* or *vision AI*.
 
@@ -46,7 +46,7 @@ Automated visual monitoring can scan for potential safety and security issues. A
 
 - Track workforce compliance with personal protective equipment guidelines.
 - Monitor entry into unauthorized work zones.
-- Check for proper product storage.
+- Alert on unidentified objects.
 - Record unreported close calls or pedestrian-equipment near-misses.
 
 ## Cost and performance benefits
