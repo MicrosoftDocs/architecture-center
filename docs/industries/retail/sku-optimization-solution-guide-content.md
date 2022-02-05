@@ -32,7 +32,7 @@ The following figure shows a typical report of historical data—sales data. It 
 
  [![Dashbord example showing historical sales data.](./images/sku-optimization-solution-guide/sku-max-model.png)](./images/sku-optimization-solution-guide/sku-max-model.png#lightbox)
   
-## Predictive Analytics
+## Predictive analytics
 
 Historical reporting is useful to understand what has happened. Ultimately, we want a forecast of what is likely to happen. Past information may be useful for that purpose. For example, we can identify seasonal trends. But it can’t cover “what-if” scenarios—for example, to model the introduction of a new product. To do that, we must shift our focus to modelling customer behavior, as that is the ultimate factor that determines sales.
 
@@ -65,7 +65,7 @@ The crux of the problem rests in **modelling the behavior of consumers** effecti
 
 Mathematical models to predict consumers’ choice have been developed over the course of decades. The choice of model will ultimately determine the most suitable implementation technology; therefore, we’ll summarize them and offer a few considerations.
 
-## Parametric Models
+## Parametric models
 
 Parametric models approximate customer behavior by using a function with a finite set of parameters. We estimate the set of parameters to best fit the data at our disposal. One of the oldest and best known is [Multinomial Logistic Regression](https://en.wikipedia.org/wiki/Multinomial_logistic_regression) (also known as MNL, multi-class logit, or softmax regression). It's used to compute the probabilities of several possible outcomes in classification problems. In this case, you can use MNL to compute:
 
@@ -82,7 +82,7 @@ Most recently, implementation of MNL models on GPUs have been proposed to comput
 
 Neural networks with a softmax output layer have been used effectively on large multi-class problems. These networks produce a vector of outputs that represent a probability distribution over a number of different outcomes. They're slow to train compared to other implementations, but can handle a large number of classes and parameters. 
 
-## Non-Parametric Models
+## Non-parametric models
 
 Despite its popularity, MNL places some significant assumptions on human behavior that may limit its usefulness. In particular, it assumes that the relative probability of someone choosing between two options is independent of additional alternatives introduced in the set later. That is impractical in most cases.
 
@@ -133,7 +133,7 @@ $$min_\lambda|\Lambda\lambda - v|$$
 
 Note that the computation can also be expressed as a regression, and as such, models like multi-variate decision trees can be used. 
 
-## Implementation Details
+## Implementation details
 
 As we can deduct from the previous formulation, optimization models are both data-driven and computation-intensive.
 
@@ -238,7 +238,7 @@ This has the advantage that the operational model can itself be invoked via a Da
 
 To use containers, you can package your models and deploy them on Azure Kubernetes Service. Prototype will require the use of the [Azure Data Science VM](https://azure.microsoft.com/services/virtual-machines/data-science-virtual-machines/?WT.mc_id=invopt-article-gmarchet); you must also install the Azure ML [command line](/azure/machine-learning/desktop-workbench/model-management-service-deploy?WT.mc_id=invopt-article-gmarchet) tools on the VM.
 
-## Data Output and Reporting
+## Data output and reporting
 
 Once deployed, the model will be able to process financial transaction workflows and stock readings to generate optimal assortment predictions. The data thus produced can be stored back into Azure SQL Data Warehouse for further analysis. In particular, it will be possible to study historical performance of various SKUs, identifying the best revenue generators and the loss-makers. You’ll then be able to compare those against the assortments suggested by the models and evaluate performance, and the need for re-training.
 
@@ -249,7 +249,7 @@ The following figure shows a typical Power BI dashboard. It includes two graphs 
 [![Example of a dashboard showing results over 12 months.](./images/sku-optimization-solution-guide/sku-max-model.png)](./images/sku-optimization-solution-guide/sku-max-model.png#lightbox)
 <center><font size="1">_Figure 7: example of model results report—courtesy of Neal Analytics_</font></center>
 
-## Security Considerations
+## Security considerations
 
 A solution that deals with sensitive data contains financial records, stock levels and price information. Such sensitive data must be protected. To allay concerns about security and privacy of the data, note that:
 
