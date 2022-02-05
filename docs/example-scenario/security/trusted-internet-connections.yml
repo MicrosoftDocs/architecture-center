@@ -21,6 +21,6 @@ products:
   - azure-active-directory
 name: Trusted Internet Connection (TIC) 3.0 compliance for internet-facing applications 
 summary: Deliver Trusted Internet Connection (TIC) 3.0 compliance for your internet-facing Azure applications and services, and improve the user experience.
-thumbnailUrl: /azure/architecture/browse/thumbs/trusted-internet-connections-3.0.png
+thumbnailUrl: /azure/architecture/browse/thumbs/trusted-internet-connections.png
 content: |
-  [!include[](trusted-internet-connections-3.0-content.md)]
+  [!include[](trusted-internet-connections-content.md)]
