@@ -159,11 +159,11 @@ The blueprint includes an experiment and the necessary data to run an ML job in 
 
 In this demonstration environment, the data ingested into the Azure SQL database is free from any defects or missing data elements. This data is clean. Often, unclean data is ingested and must be “cleaned” before it can be used for feeding a machine learning training algorithm. Or it must be cleaned before using the data in an ML job. Missing data or incorrect values in the data will negatively impact the results of the ML analysis.
 
-## Azure Machine Learning Studio
+## Azure Machine Learning studio
 
 Many healthcare organizations don’t have the technical staff to focus on ML projects. This often means valuable data is left unused or expensive consultants are brought in to create ML solutions.
 
-AI/ML experts as well as those learning about AI/ML can use Azure Machine Learning Studio to design experiments. MLS is a web-based design environment used to create ML experiments. With MLS, you can create, train, evaluate, and score models, saving precious time when using different tools to develop models.
+AI/ML experts as well as those learning about AI/ML can use Azure Machine Learning studio to design experiments. MLS is a web-based design environment used to create ML experiments. With MLS, you can create, train, evaluate, and score models, saving precious time when using different tools to develop models.
 
 MLS offers a complete toolset for ML workloads. This means people new to ML can get a jump start using the tool and produce results faster than with other ML tools. That lets your IT staff focus on providing value elsewhere and without bringing in a ML specialist. This capability in your own healthcare organization means various hypotheses can be tested. The resulting data is then analyzed for actionable insights, like how patient interventionism offers [pre-written modules](/azure/machine-learning/studio-module-reference/index?WT.mc_id=ms-docs-dastarr#help-for-machine-learning-modules). These modules are to be used on a drag-and-drop canvas, visually composing end-to-end data-science workflows as experiments.
 
@@ -282,7 +282,7 @@ Customizations may include any or more of the following.
 
 Customizing the installation is no different than working with any Azure solution. Services or resources may be added or removed, providing new capabilities. When customizing the blueprint, take care not to alter the overall ML pipeline to ensure the implementation continues working.
 
-## Technical Issues
+## Technical issues
 
 The following issues can cause the blueprint installation to fail or to install in an undesirable configuration.
 
