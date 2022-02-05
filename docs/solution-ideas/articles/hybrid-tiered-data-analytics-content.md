@@ -1,31 +1,33 @@
 This solution illustrates how to use Azure Stack Hub and Azure to stage, analyze, process, sanitize, and store data across multiple on-premises and cloud locations.
 
-One of the problems facing enterprise organizations in the modern technology landscape concerns secure data storage, processing, and analyzing. Considerations include:
+One of the problems organizations face concerns secure data storage, processing, and analysis. Considerations include:
 
-- data content
-- location
-- security and privacy requirements
-- access permissions
-- maintenance
-- storage warehousing
+- Data content
+- Location
+- Security and privacy requirements
+- Access permissions
+- Maintenance
+- Storage warehousing
 
-Azure, in combination with Azure Stack Hub, addresses data concerns and offers low-cost solutions. This solution is best expressed through a distributed manufacturing or logistics company. Using both on-premises and public cloud environments meets the demands of multi-facility enterprises. Azure Stack Hub offers a rapid, secure, and flexible solution for collecting, processing, storing, and distributing local and remote data. 
+Azure, together with Azure Stack Hub, addresses data concerns and provides low-cost solutions. 
 
-This solution is especially useful when security, confidentiality, corporate policy, and regulatory requirements differ between locations and users.
+The architecture described here is best exemplified by a distributed manufacturing or logistics company. Using both on-premises and public cloud environments meets the demands of multi-facility enterprises. Azure Stack Hub offers a rapid, secure, and flexible solution for collecting, processing, storing, and distributing local and remote data. 
+
+This solution is especially useful when security, confidentiality, corporate policy, and regulatory requirements differ among locations and users.
 
 ## Potential use cases
 
-The solution is applicable to a large multi-branch manufacturing organization with the following requirements:
+The solution is applicable to large multi-branch manufacturing organizations require:
 
-- Rapid and secure data storage, processing, and distribution between global remote locations and its central headquarters are required.
-- Employee and machinery activity, facility information, and business reporting data that must remain secure. The data must be distributed appropriately and meet regional compliance policy and industry regulations.
+- Rapid and secure data storage, processing, and distribution between global remote locations and central headquarters.
+- Security of employee and machinery activity, facility information, and business reporting data. The data must be distributed appropriately and meet regional compliance policies and industry regulations.
 
 ## Architecture
 
-![Architecture diagram](../media/hybrid-tiered-data-analytics.png)  
+![Diagram that shows an architecture for staging, analyzing, processing, sanitizing, and storing data across multiple on-premises and cloud locations.](../media/hybrid-tiered-data-analytics.png)  
 _Download a [Visio file](https://arch-center.azureedge.net/hybrid-tiered-data-analytics.vsdx) of this architecture._
 
-### Data flow
+### Dataflow
 
 1. Blob storage in the on-premises Azure Stack Hub environment is used for raw data storage. Blob storage can hold any type of text or binary data, such as a document, media file, or app installer. Every blob is organized under a container. Containers provide a useful way to assign security policies to groups of objects. A storage account could have any number of containers, and a container can contain any number of blobs, up to the 500-TB capacity limit of the storage account.
 1. As raw data arrives in the storage account, functions hosted on-premises using the Azure App Service resource provider on Azure Stack Hub are triggered to support the data intake. The intake functions can communicate with local apps and services to help process the data.
