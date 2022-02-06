@@ -8,8 +8,6 @@ ms.date: 02/04/2022
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: azure-guide
-ms.category:
-  - iot
 categories: iot
 products:
   - azure-iot-edge

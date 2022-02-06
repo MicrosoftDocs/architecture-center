@@ -8,13 +8,13 @@ ms.date: 02/04/2022
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: azure-guide
-ms.category:
-  - fcp
+categories: iot
 products:
   - azure-iot-edge
   - azure-machine-learning
 ms.custom:
   - guide
+  - fcp
 ---
 
 # Camera selection in Azure IoT Edge vision AI
