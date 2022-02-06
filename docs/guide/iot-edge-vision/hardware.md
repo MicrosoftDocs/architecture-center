@@ -1,10 +1,10 @@
 ---
 title: Hardware for IoT Edge Vision
 titleSuffix: Azure Architecture Center
-description: Explore hardware acceleration for an Azure IoT Edge Vision solution. Learn about hardware acceleration components in CPUs, GPUs, FPGAs, and ASICs.
+description: Explore hardware acceleration for Azure IoT Edge vision solutions. Learn about hardware acceleration capabilities of CPUs, GPUs, FPGAs, and ASIC chips.
 author: MSKeith
 ms.author: keith
-ms.date: 10/22/2020
+ms.date: 02/05/2022
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: azure-guide
@@ -16,28 +16,30 @@ ms.custom:
   - guide
 ---
 
-# Hardware acceleration in Azure IoT Edge Vision
+# Hardware acceleration in Azure IoT Edge vision AI
 
-Along with the camera selection, one of the other critical decisions in Vision on the Edge projects is hardware acceleration.
+A critical factor in Azure IoT Edge vision AI projects is the degree of hardware acceleration needed. A central processing unit (CPU) provides a baseline for performance. Hardware accelerators such as graphics processing units (GPUs), field programmable gate arrays (FPGAs), and application-specific integrated circuits (ASICs) are cost effective ways to improve performance. Better performance can support near real-time interactions at the IoT Edge.
 
-The following sections describe the key components of the underlying hardware.
+The following sections describe the the main types of computing hardware for IoT Edge vision components:
 
 ## CPU
 
-The Central Processing Unit (CPU) is your default compute for most processes running on a computer. It is designed for general purpose compute. For some vision workloads where timing is not as critical, this might be a good option. However, most workloads that involve critical timing, multiple camera streams, and/or high frame rates, will require more specific hardware acceleration.
+A CPU is the default compute option for most general purpose processes. A CPU might be sufficient for vision workloads where timing isn't critical. However, workloads that involve critical timing, multiple camera streams, or high frame rates need specific hardware acceleration.
 
 ## GPU
 
-Many people are familiar with the Graphics Processing Unit (GPU) as this is the de-facto processor for any high-end PC graphics card. In recent years, the GPU has been leveraged in high performance computer (HPC) scenarios, in data mining, and in computer AI/ML workloads. The GPU's massive potential of parallel computing can be used in a vision workload to accelerate the processing of pixel data. The downside to a GPU is its higher power consumption, which is a critical factor to consider for your vision workload.
+A GPU is the default processor for high-end computer graphics cards. High performance computer (HPC) scenarios, data mining, and AI or ML workloads all use GPUs. Vision workloads use GPUs' massive parallel computing power to accelerate pixel data processing. The downside to a GPU is its higher power consumption, which is a critical consideration for edge workloads.
 
 ## FPGA
 
-Field Programmable Gate Arrays are reconfigurable hardware accelerators. These powerful accelerators allow for the growth of Deep Learning Neural networks, which are still evolving. These accelerators have millions of programmable gates, hundreds of I/O pins, and an exceptional compute power in the trillions of tera-MAC's. There also many different libraries available for FPGAs that are optimized for vision workloads. Some of these libraries also include preconfigured interfaces to connect to downstream cameras and devices. One area that FPGAs tend to fall short on is floating point operations. However, manufacturers are currently working on this issue and have made many improvements in this area.
+FPGAs are powerful, reconfigurable hardware accelerators that support the growth of deep learning neural networks. FPGA accelerators have millions of programmable gates, hundreds of I/O pins, and trillions of multiply-accumulate (MAC) operations per second (TOPS). There are many FPGA libraries optimized for vision workloads. Some of these libraries include preconfigured interfaces to connect to downstream cameras and devices.
+
+The usage of FGPAs in ML and IoT Edge workloads is still evolving. FPGAs tend to fall short in floating point operations, but manufacturers have made improvements in this area.
 
 ## ASIC
 
-Application-Specific Integrated Circuit is by far the fastest accelerator on the market today.  While they are the fastest, they are the hardest to change as they are manufactured to function for a specific task.  These custom chips are gaining popularity due to size, power per watt performance, and IP protection. This is because the IP burned into the ASIC accelerator is much harder to backwards engineer proprietary algorithms.
+ASICs are manufactured to do a specific task, and are by far the fastest accelerators available. ASIC chips are popular because of their small size, power per watt performance, and intellectual property (IP) protection. The IP is burned into the ASIC accelerator, making it hard to reverse engineer proprietary algorithms.
 
 ## Next steps
 
-Proceed to learn what considerations go into place for [Machine learning and data science in Azure IoT Edge Vision](./machine-learning.md).
+[Machine learning and data science in Azure IoT Edge vision AI](./machine-learning.md).
