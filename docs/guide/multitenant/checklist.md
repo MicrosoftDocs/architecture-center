@@ -49,7 +49,7 @@ When you build your multitenant solution in Azure, there are many elements that 
 * Ensure that your application code prevents any cross-tenant access.
 * Perform ongoing penetration testing and code reviews.
 * Understand your tenants' [compliance requirements](./approaches/governance-compliance.md), including data residency and any compliance or regulatory standards that they require that you meet.
-* Correctly [manage domain names](./considerations/domain-names.md) and avoid vulnerabilities like [dangling DNS and subdomain takeover attacks](./considerations/domain-names.md#dangling-dns-and-subdomain-takeover-attacks)
+* Correctly [manage domain names](./considerations/domain-names.md) and avoid vulnerabilities like [dangling DNS and subdomain takeover attacks](./considerations/domain-names.md#dangling-dns-and-subdomain-takeover-attacks).
 * Follow [service-specific guidance](./service/overview.md) for multitenancy.
 
 ## Cost Optimization considerations
