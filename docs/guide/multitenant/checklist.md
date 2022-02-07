@@ -21,7 +21,7 @@ ms.custom:
 
 # Checklist for architecting and building multitenant solutions on Azure
 
-When you build your multitenant solution in Azure, there are many elements that you need to consider. Use this checklist as a starting point to help you design and build your multitenant solution. This checklist is a companion resource to the [Architecting multitenant solutions on Azure](./overview.md) series of articles. The checklist is structured around the business considerations and the fice pillars of the [Azure Well-Architected Framework](/azure/architecture/framework/).
+When you build your multitenant solution in Azure, there are many elements that you need to consider. Use this checklist as a starting point to help you design and build your multitenant solution. This checklist is a companion resource to the [Architecting multitenant solutions on Azure](./overview.md) series of articles. The checklist is structured around the business considerations and the five pillars of the [Azure Well-Architected Framework](/azure/architecture/framework/).
 
 ## Business considerations
 
