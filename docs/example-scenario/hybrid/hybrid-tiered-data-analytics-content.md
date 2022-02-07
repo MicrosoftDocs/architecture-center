@@ -98,4 +98,4 @@ To learn more about the topics introduced in this article:
 - [Azure Data Architecture Guide](../../data-guide/index.md)
 - [Overview of a hybrid workload](/azure/architecture/framework/hybrid/hybrid-overview.md)
 - [Hybrid Security Monitoring using Microsoft Defender for Cloud and Microsoft Sentinel](../../hybrid/hybrid-security-monitoring.yml)
-- [Hybrid identity](/azure/architecture/articles/solution-ideas/hybrid-identity.yml)
+- [Hybrid identity](/azure/architecture/solution-ideas/articles/hybrid-identity.yml)
