@@ -3936,6 +3936,8 @@ items:
                 href: solution-ideas/articles/sap-workload-automation-suse.yml
       - name: Security
         items:
+          - name: Get started
+            href: guide/security/security-start-here.yml
           - name: Guides
             items:
               - name: Highly-secure IaaS apps
