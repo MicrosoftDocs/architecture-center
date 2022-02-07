@@ -123,7 +123,7 @@ Azure Event Hubs is a big data streaming platform and event ingestion service, c
 
 The figure below shows the speed layer stage. It consists of an event hub, a Stream Analytics instance, and a data store for warm storage.
 
-![Lambda architecture: speed layer highlighted.](./images/extract-insights-iot-data/lambda-2.png)
+![Lambda architecture: speed layer highlighted.](./images/extract-insights-iot-data/lambda-speed-layer.png)
   
 The Azure platform provides many options for processing the events on an Event Hub, however, we recommend Stream Analytics. Stream Analytics can also push data to the Power BI service to visualize streamed data.
 
@@ -143,7 +143,7 @@ The warm path is where the stream processing occurs to discover patterns over ti
 
 The cold path contains the long-term data store for the solution. It also contains the batch layer, which creates pre-calculated aggregate views to provide fast query responses over long periods of time. The technology options available for this layer on Azure platform is quite diverse.
 
-![Lambda architecture: batch layer highlighted.](./images/extract-insights-iot-data/lambda-3.png)
+![Lambda architecture: batch layer highlighted.](./images/extract-insights-iot-data/lambda-batch-layer.png)
   
 [Azure Time Series Insights](/azure/time-series-insights/?WT.mc_id=iotinsightssoln-docs-ercenk) (TSI) is an analytics, storage and visualization service for time series data. It provides SQL-like filtering and aggregation, alleviating the need for user-defined functions. TSI can receive data from Event Hubs, IoT Hub or Azure Blob storage. All data in TSI is stored in-memory and in SSDs, which ensures that the data is always ready for interactive analytics. For example, a typical aggregation over tens of millions of events returns on the order of milliseconds. It also provides visualizations such as overlays of different time series, dashboard comparisons, accessible tabular views, and heat maps. Key features of TSI include:
 
@@ -177,7 +177,7 @@ Azure SQL Data Warehouse provides many additional features that can be useful in
 
 At this layer, we want to merge the two data pipelines (warm and cold paths) to present a cohesive view of the data. In this example, we used multiple metrics to deduce the utilization of the machine on both warm and cold paths. In the analytics stage, we provide visualizations that combine the data from those paths.
 
-[![Lambda architecture: analytics clients layer highlighted.](./images/extract-insights-iot-data/lambda-4.png)](./images/extract-insights-iot-data/lambda-4.png#lightbox)
+[![Lambda architecture: analytics clients layer highlighted.](./images/extract-insights-iot-data/lambda-analytics-clients.png)](./images/extract-insights-iot-data/lambda-analytics-clients.png#lightbox)
 
 [Microsoft Power BI](/power-bi/?WT.mc_id=iotinsightssoln-docs-ercenk) and [Azure Time Series Insights](/azure/time-series-insights/?WT.mc_id=iotinsightssoln-docs-ercenk) provide data visualizations out-of-the-box. Power BI is business analytics solution that lets you visualize your data and share insights across your organization, or embed them in your app or website. [Power BI Desktop](https://powerbi.microsoft.com/desktop/?WT.mc_id=iotinsightssoln-docs-ercenk) is a free and powerful tool for modelling reports and their underlying data sources.  The applications embedding Power BI visualizations use the reports authored by the desktop tool and hosted on the Power BI Service.
 

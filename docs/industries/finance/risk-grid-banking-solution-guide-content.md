@@ -18,7 +18,7 @@ The compute node application performs the task of parallel processing risk model
 
 These applications can be uploaded via the [Batch API](/azure/batch/batch-apis-tools?WT.mc_id=gridbanksg-docs-dastarr), directly through the Azure portal, or via the [Azure CLI commands for Batch](/azure/batch/cli-samples?WT.mc_id=gridbanksg-docs-dastarr).
 
-![A diagram that demonstrates Azure Batch Grid Computing.](./images/risk-grid-banking-solution-guide/05-batch-grid-computing.png)
+![A diagram that demonstrates Azure Batch Grid Computing.](./images/risk-grid-banking-solution-guide/batch-grid-computing.png)
 
 **Figure 1:** Azure Batch grid computing
 
@@ -26,7 +26,7 @@ An Azure Batch run consists of several logical elements. Figure 2 shows the logi
 
 The worker application is installed to the compute node when it's created.
 
-![Pool, Jobs, and Tasks](./images/risk-grid-banking-solution-guide/06-pool-job-logical-model.png)
+![Pool, Jobs, and Tasks](./images/risk-grid-banking-solution-guide/pool-job-logical-model.png)
 
 **Figure 2:** Logical batch concept model
 
@@ -47,7 +47,7 @@ Using Batch typically follows a prototypical pattern, described as follows:
 
 An illustration of this process is show in Figure 3.
 
-![Batch run process](./images/risk-grid-banking-solution-guide/07-batch-run-process.png)
+![Batch run process](./images/risk-grid-banking-solution-guide/batch-run-process.png)
 
 **Figure 3:** Logical batch concept model
 
@@ -71,7 +71,7 @@ When providing the application to the pool for distribution to compute nodes, it
 
 Application package deployment may also be managed by version. If multiple versions of an application package have been loaded into a pool, a specific version may be designated for use in a Batch run as shown in Figure 4. This may be necessary in audit environments or when the business wants to reproduce a prior run. It can also be used for roll-back purposes if a bug is introduced to the worker application.
 
-![Batch run process](./images/risk-grid-banking-solution-guide/08-versioning-worker-applications.png)
+![Batch run process](./images/risk-grid-banking-solution-guide/versioning-worker-applications.png)
 
 **Figure 4:** Versioning compute node task applications
 
@@ -205,11 +205,11 @@ There are essentially two models for extending your network to Azure, as shown i
 - Virtual gateway – site-to-site
 - ExpressRoute – Exchange or ISP provider
 
-![Site to Site and ExpressRoute](./images/risk-grid-banking-solution-guide/10-s2s-expressroute.png)
+![Site to Site and ExpressRoute](./images/risk-grid-banking-solution-guide/s2s-expressroute.png)
 
 **Figure 5:** Site-to-Site and ExpressRoute
 
-#### Virtual gateway Site-to-Site integration
+#### Virtual gateway site-to-site integration
 
 A [Site-to-Site VPN Gateway](/azure/vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal?WT.mc_id=gridbanksg-docs-dastarr) connects your on-premises network to an Azure VNet. This bridges the gap between networks essentially making them parts of the same network, with two-way access to resources, servers, and artifacts. This allows direct access to data files from the Azure worker VMs running the risk grid computing batch job.
 
@@ -225,7 +225,7 @@ Another Batch scenario is uploading all data files into Azure storage for later 
 
 In this scenario, the job controller and all compute nodes live in Azure as shown in Figure 6. The likely destination for processed data is an Azure data store, in preparation for further processing by Azure Machine Learning solutions or other systems. This additional processing is beyond the scope of this article.
 
-![Site to Site and ExpressRoute](./images/risk-grid-banking-solution-guide/09-batch-upload-process.png)
+![Site to Site and ExpressRoute](./images/risk-grid-banking-solution-guide/batch-upload-process.png)
 
 **Figure 6:** Batch upload to execution lifecycle
 

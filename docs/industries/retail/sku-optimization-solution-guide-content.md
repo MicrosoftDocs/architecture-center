@@ -32,7 +32,7 @@ The following figure shows a typical report of historical data—sales data. It 
 
 :::image type="content" source="./images/sku-optimization-solution-guide/sku-max-model-inline.png" alt-text="Dashboard example showing historical sales data." lightbox="./images/sku-optimization-solution-guide/sku-max-model-expanded.png":::
 
-## Predictive Analytics
+## Predictive analytics
 
 Historical reporting is useful to understand what has happened. Ultimately, we want a forecast of what is likely to happen. Past information may be useful for that purpose. For example, we can identify seasonal trends. But it can’t cover “what-if” scenarios—for example, to model the introduction of a new product. To do that, we must shift our focus to modelling customer behavior, as that is the ultimate factor that determines sales.
 

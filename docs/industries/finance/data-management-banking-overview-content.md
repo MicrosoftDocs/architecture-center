@@ -30,7 +30,7 @@ it can be used for business intelligence and actionable insights.
 
 A common pattern to data management follows:
 
-![Data management flow](./images/data-management-banking-overview/data-mgmt-00.png)
+![Data management flow](./images/data-management-banking-overview/data-management-pattern.png)
 
 In this model, “Data Services” describes any transformation, joining of data, or
 any other data operations other than archiving. This is the key activity needed
@@ -175,7 +175,7 @@ the corporate datacenter and can be mounted as any other networked file share.
 When using this technique, data is encrypted at rest and during transport
 between the data center and Azure.
 
-![Logical File Sharing](./images/data-management-banking-overview/data-mgmt-01.png)
+![Logical File Sharing](./images/data-management-banking-overview/logical-network-connection.png)
 
 Figure 1
 
@@ -244,7 +244,7 @@ common [Data
 Lake](/azure/data-lake-store/data-lake-store-overview?WT.mc_id=bankdm-docs-dastarr)
 to be used by downstream analytics services.
 
-![A Data Lake ingest model](./images/data-management-banking-overview/data-mgmt-02.png)
+![A Data Lake ingest model](./images/data-management-banking-overview/data-lake-ingest-model.png)
 
 Figure 2
 
@@ -269,7 +269,7 @@ Databricks is a logical processing pipeline when data transformation or analysis
 is needed. It can be fed directly by Data Factory for machine learning scenarios
 where time-to-insight is critical, or for simple file transformations.
 
-![Databricks](./images/data-management-banking-overview/data-mgmt-03.png)
+![Databricks](./images/data-management-banking-overview/data-pipeline.png)
 
 ## Archiving data
 
