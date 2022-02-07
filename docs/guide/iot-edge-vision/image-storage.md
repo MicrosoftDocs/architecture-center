@@ -1,51 +1,52 @@
 ---
-title: Image storage in IoT Edge Vision
+title: Image storage in IoT Edge vision AI
 titleSuffix: Azure Architecture Center
-description: Learn about image storage and management in an Azure IoT Edge Vision solution. Read a description of a typical storage workflow.
+description: Learn about image storage and management in an Azure IoT Edge vision AI solution. See an image storage workflow that uses an IoT Edge blob storage module.
 author: MSKeith
 ms.author: keith
-ms.date: 10/22/2020
+ms.date: 02/07/2022
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: azure-guide
-ms.category:
-  - fcp
+categories: iot
 products:
   - azure-iot-edge
   - azure-blob-storage
 ms.custom:
   - guide
+  - fcp
 ---
 
-# Image storage and management in Azure IoT Edge Vision
+# Image storage in Azure IoT Edge vision AI
 
-Storage and management of the images involved in a computer vision application is a critical function.
+Image storage and management are important functions in Azure IoT Edge computer vision solutions.
 
-Some of the key considerations for managing these images are:
+Image storage requirements include:
 
-* Ability to store all raw images during training with ease of retrieval for labeling.
-* Faster storage medium to avoid pipeline bottlenecks and loss.
-* Storage on the edge as well as in the cloud, as labeling activity can be performed at both places.
-* Categorization of images for easy retrieval.
-* Naming and tagging images to link them with inferred metadata.
+- Fast storage to avoid pipeline bottlenecks and data loss
+- Storage and labeling at the edge and in the cloud
+- Easy retrieval of stored raw images for labeling
+- Categorization of images for easy retrieval
+- Naming and tagging to link images with inferred metadata
 
-The combination of Azure Blob Storage, Azure IoT Hub, and Azure IoT Edge allow several potential options for the storage of image data, such as:
+You can get image data into cloud storage in several different ways. For example:
 
-* Use of the [Azure IoT Edge Blob Storage module](/azure/iot-edge/how-to-store-data-blob), which will automatically sync images to Azure Blob based on policy.
-* Storing images to local host file system and uploading to Azure Blob service using a custom module.
-* Use of a local database to store images, which then are synced to the cloud database.
+- Use an [Azure IoT Edge blob storage module](/azure/iot-edge/how-to-store-data-blob) to automatically sync images to Azure Blob Storage via policy.
+- Store images to a local host file system, and upload them to Blob Storage by using a custom module.
+- Use a local database to store images, and sync them to the cloud database.
 
-## Typical storage workflow
+## Example storage workflow
 
-The IoT Edge Blob Storage module is one of the most powerful and straightforward solutions, and our preferred approach. A typical workflow using this module might be as follows:
+You can combine Blob Storage, Azure IoT Hub, and IoT Edge in several different ways to store image data. An IoT Edge blob storage module is a powerful and straightforward solution. The following steps describe a typical workflow that uses this module:
 
-1. Raw messages after ingestion are stored locally on the Edge Blob module, with time stamping and sequence numbering to uniquely identify the image files.
-2. Policy is set on the Edge Blob module for automatic upload to Azure Blob with ordering.
-3. To conserve space on the Edge device, automatic deletion after certain time is configured along with *retain while uploading* option to ensure all images get synced to the cloud.
-4. Local categorization or domain and labeling is implemented using module that can read these images into the UX. The label data is associated to the image URI along with the coordinates and category.
-5. As label data needs to be saved, a local database is preferred to store this metadata, as it will allow easy lookup for the UX and can be synced to the cloud using telemetry messages.
-6. During scoring run, the model detects matching patterns and generates events of interest. This metadata is sent to cloud via telemetry referring to the image URI and optionally stored in local database for edge UX. The images continue to be stored to Edge Blob and synced with Azure Blob.
+1. The IoT Edge blob module stores raw data locally after ingestion, with time stamping and sequence numbering to uniquely identify the image files.
+1. A policy set on the IoT Edge blob module automatically uploads the image data to Azure Blob Storage, with ordering.
+1. To conserve space, the IoT Edge device automatically deletes the local data after a certain time span. The device also has the *retain while uploading* option set, to ensure all images sync to the cloud before deletion.
+1. Local categorization or labeling uses a module that reads images into a user interface. The label data associates to the image URI, along with coordinates and category.
+1. A local database stores the image metadata, and syncs to the cloud by using telemetry messages. Local storage supports easy lookup for the user interface.
+1. During a scoring run, the machine learning model detects matching patterns and generates events of interest. The model sends this metadata to the cloud via telemetry that refers to the image URI. Optionally, the model also stores this metadata in the local database for the edge user interface. The images themselves continue to store in the IoT Edge blob module and sync to Azure Blob Storage.
 
 ## Next steps
 
-How you respond to alerts generated by the AI model is crucial. Learn more about this in [Alert persistence in Azure IoT Edge Vision](./alerts.md).
+> [!div class="nextstepaction"]
+> [Alert persistence in Azure IoT Edge vision AI](./alerts.md)

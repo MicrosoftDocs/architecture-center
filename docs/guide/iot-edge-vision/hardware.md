@@ -16,19 +16,19 @@ ms.custom:
   - fcp
 ---
 
-# Azure IoT Edge vision AI hardware acceleration
+# Hardware acceleration for Azure IoT Edge vision
 
-A critical factor in Azure IoT Edge vision AI projects is the degree of hardware acceleration needed. A central processing unit (CPU) provides a baseline for performance. Hardware accelerators such as graphics processing units (GPUs), field programmable gate arrays (FPGAs), and application-specific integrated circuits (ASICs) are cost effective ways to improve performance.
+Computer graphics and artificial intelligence (AI) require large amounts of computing power. A critical factor in designing Azure IoT Edge vision AI projects is the degree of hardware acceleration the solution needs.
 
-The following sections describe the main types of computing hardware for IoT Edge vision components:
+Hardware accelerators such as graphics processing units (GPUs), field programmable gate arrays (FPGAs), and application-specific integrated circuits (ASICs) are cost effective ways to improve performance. The following sections describe the main types of computing hardware for IoT Edge vision components.
 
 ## CPU
 
-A CPU is the default option for most general purpose compute processes. A CPU might be sufficient for vision workloads where timing isn't critical. However, workloads that involve critical timing, multiple camera streams, or high frame rates need specific hardware acceleration.
+A CPU is the default option for most general purpose computing. A CPU might be sufficient for vision workloads where timing isn't critical. However, workloads that involve critical timing, multiple camera streams, or high frame rates need specific hardware acceleration.
 
 ## GPU
 
-A GPU is the default processor for high-end computer graphics cards. High performance computer (HPC) scenarios, data mining, and AI or ML workloads all use GPUs. Vision workloads use GPUs' massive parallel computing power to accelerate pixel data processing. The downside to a GPU is its higher power consumption, which is a critical consideration for edge workloads.
+A GPU is the default processor for high-end computer graphics cards. High performance computer (HPC) scenarios, data mining, and AI or machine learning (ML) workloads all use GPUs. Vision workloads use GPUs' massive parallel computing power to accelerate pixel data processing. The downside to a GPU is its higher power consumption, which is a critical consideration in edge workloads.
 
 ## FPGA
 
@@ -38,8 +38,9 @@ The usage of FGPAs in ML and IoT Edge workloads is still evolving. FPGAs tend to
 
 ## ASIC
 
-ASICs are manufactured to do a specific task, and are by far the fastest accelerators available. ASIC chips are popular because of their small size, power per watt performance, and intellectual property (IP) protection. The IP is burned into the ASIC chip, making it hard to reverse engineer proprietary algorithms.
+ASICs are manufactured to do a specific task. ASICs are by far the fastest accelerators available, but are the least configurable. ASIC chips are popular because of their small size, power per watt performance, and intellectual property (IP) protection. The IP is burned into ASIC chips, making it hard to reverse engineer proprietary algorithms.
 
 ## Next steps
 
-[Machine learning and data science in Azure IoT Edge vision AI](./machine-learning.md).
+> [!div class="nextstepaction"]
+> [Machine learning and data science in Azure IoT Edge vision AI](./machine-learning.md)

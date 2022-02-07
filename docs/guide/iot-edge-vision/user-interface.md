@@ -1,171 +1,171 @@
 ---
-title: User interface in IoT Edge Vision
+title: User interfaces and scenarios in IoT Edge vision AI
 titleSuffix: Azure Architecture Center
-description: Examine user interface (UI) requirements in an Azure IoT Edge Vision solution. The four UIs normally used are administrator, consumer, operator, and analytics.
+description: Examine user interface (UI) types, useful user-facing technology choices, and two user scenarios for Azure IoT Edge vision AI solutions.
 author: MSKeith
 ms.author: keith
-ms.date: 10/22/2020
+ms.date: 02/07/2022
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: azure-guide
-ms.category:
-  - fcp
+categories: iot
 products:
   - power-bi
   - azure-app-service
 ms.custom:
   - guide
+  - fcp
+
 ---
 
-# User interface in Azure IoT Edge Vision
+# User interfaces and scenarios for Azure IoT Edge vision AI
 
-The user interface requirements of an IoT solution will vary depending on the overall objectives. Four types of user interfaces are commonly found in IoT solutions:
+This final article in the Azure IoT Edge vision AI series discusses how users interact with internet of things (IoT) and artificial intelligence (AI) solutions. The article presents two detailed scenarios describing how organizations implemented user-facing IoT Edge vision AI solutions.
 
-* **Administrator:** Allows full access to device provisioning, device and solution configuration, user management, and so on. These features could be provided as part of one solution or as separate solutions.
-* **Consumer:** Is only applicable to consumer solutions. They provide similar access to the operator's interface, but limited to the devices owned by the user.
-* **Operator:** Provides centralized access to the operational components of the solution. It typically includes device management, alerts monitoring, and configuration.
-* **Analytics:** Is an interactive dashboard which provides visualization of telemetry and other data analyses.
+## User interfaces
 
-This article focuses on a simple operator's user interface and visualization dashboard.
+A user interface (UI) is how users interact with a system. UI requirements vary depending on overall objectives. Internet of things (IoT) solutions usually have four UI types:
 
-## Technology options
+- The *administrator* UI allows full access to device provisioning, device and solution configuration, and user management. These features can be part of one solution, or separate solutions.
+- An *operator* UI provides access to the solution's operational components, such as device management, alert monitoring, and configuration.
+- A *consumer* UI applies only to consumer-facing solutions. The UI is similar to an operator's interface, but is limited to the devices the user owns.
+- An *analytics* UI is an interactive dashboard that provides telemetry visualizations and other data analyses.
 
-- **Power BI:** Power BI is a compelling option for our analytics and virtualization needs. It provides power features to create customizable interactive dashboards. It also allows connectivity to many popular database systems and services. It is available as a managed service and as a self-hosted package. The former is the most popular and recommended option. With Power BI embedded in your solution, you could add customer-facing reports, dashboards, and analytics in your own applications by using and branding Power BI as your own. You can reduce developer resources by automating the monitoring, management, and deployment of analytics, while getting full control of Power BI features and intelligent analytics.
+## Technology choices
 
-- **Azure Maps:** Another suitable technology for IoT visualizations is Azure Maps which allows you to create location-aware web and mobile applications using simple and secure geospatial services, APIs, and SDKs in Azure. You can deliver seamless experiences based on geospatial data with built-in location intelligence from world-class mobility technology partners.
+Here are some user-friendly options for building and analyzing IoT Edge vision AI solutions:
 
-- **Azure App Service:** Azure App Service is a managed platform with powerful capabilities for building web and mobile apps for many platforms and mobile devices. It allows developers to quickly build, deploy, and scale web apps created with popular frameworks, such as .NET, .NET Core, Node.js, Java, PHP, Ruby, or Python, in containers or running on any supported operating system. You can also meet rigorous, enterprise-grade performance, security, and compliance requirements by using the fully managed platform for your operational and monitoring tasks.
+- [Azure App Service](https://azure.microsoft.com/services/app-service) is a managed platform for building web and mobile apps for many platforms and mobile devices. App Service allows developers to quickly build, deploy, and scale web apps. App Service supports frameworks like .NET, .NET Core, Node.js, Java, PHP, Ruby, or Python, in containers or running on any supported operating system. The fully managed App Service platform meets rigorous, enterprise-grade performance, security, and compliance requirements.
 
-- **Azure SignalR Service:** For real-time data reporting, Azure SignalR Service, makes adding real-time communications to your web application as simple as provisioning a service. An in-depth real-time communications expertise is not required. It easily integrates with services such as Azure Functions, Azure Active Directory, Azure Storage, Azure App Service, Azure Analytics, Power BI, Azure IoT, Azure Cognitive Services, Azure Machine Learning, and more.
+- [Azure SignalR Service](https://azure.microsoft.com/services/signalr-service) lets you add real-time data communications and reporting to your web apps, without needing in-depth real-time communications expertise. SignalR Service integrates easily with many Azure services.
 
-To secure your user interface solutions, **Azure Active Directory (Azure AD)** enterprise identity service provides single sign-on and multi-factor authentication.
+- [Azure Maps](https://azure.microsoft.com/services/azure-maps) is a suitable technology for IoT visualizations and computer vision projects. Azure Maps lets you create location-aware web and mobile apps by using simple and secure geospatial services, APIs, and SDKs. You can deliver seamless experiences based on geospatial data. Azure Maps has built-in location intelligence from worldwide technology partners.
 
-Now let's learn how to build the user interface for some common scenarios.
+- [Power BI](https://powerbi.microsoft.com) has powerful features to create customizable interactive visualizations and dashboards. Power BI is available as a managed service or self-hosted package, and connects to many popular database systems and data services. With [Power BI Embedded](https://azure.microsoft.com/services/power-bi-embedded), you can add customer-facing reports, dashboards, and analytics to your apps and brand them as your own. Use Power BI to conserve developer resources by automating analytics monitoring, management, and deployment.
 
-## Scenario 1
+- [Azure Active Directory (Azure AD)](https://azure.microsoft.com/services/active-directory) provides single sign-on and multi-factor authentication to secure your UI solutions.
 
-Contoso Boards produces high-quality circuit boards used in computers. Their number one product is a motherboard. Lately, they have been seeing an increase in issues with chip placement on the board. Through their investigation, they have noticed that the circuit boards are getting placed incorrectly on the assembly line. They need a way to identify if the circuit board is placed on the assembly line correctly. The data scientists at Contoso Boards are most familiar with TensorFlow and would like to continue using it as their primary ML model structure. Contoso Boards has several assembly lines that produce these mother boards. They would also like to centralize the management of the entire solution.
+## User scenarios
 
-### Considerations in this scenario
+### Scenario 1: Quality control
 
-Contoso Boards can ask themselves questions such as the following:
+Contoso Boards produces high-quality circuit boards used in computers. Their number one product is a motherboard.
 
-- What are we analyzing?
-  - Motherboard
+Contoso Boards saw an increase in issues with chip placement on the board, and determined that the circuit boards are getting placed incorrectly on the assembly line. Contoso Boards need a way to identify correct circuit board placement on the assembly line.
 
-- Where are we going to view the motherboard from?
-  - Assembly Line Conveyor belt
+The Contoso Boards data scientists are familiar with [TensorFlow]() and want to continue using it as their primary ML model structure. Contoso Boards also wants to centralize management of several assembly lines that produce the motherboards.
 
-- What camera do we need?
-  - Area or line scan
-  - Color or monochrome
-  - CCD or CMOS sensor
-  - Global or rolling shutter
-  - Frame rate
-  - Resolution
+The Contoso Boards solution focuses on edge detection.
 
-- What type of lighting is needed?
-  - Backlighting
-  - Shade
-  - Darkfield
+### Camera
 
-- How should the camera be mounted?
-  - Top down
-  - Side view
-  - Angular
+Camera placement: The camera position will be directly above at 90 degrees and about 16 inches from the part.
 
-- What hardware should be used?
-  - CPU
-  - FPGA
-  - GPU
-  - ASIC
+Camera type: Since the conveyer system moves relatively slowly, Contoso can use an area scan camera with a global shutter.
 
-### Solution
+Frame rate: For this use case, the camera should capture about 30 frames per second.
 
-To find the solution that will be useful for Contoso Boards, let's focus on the edge detection. We need to **position a camera directly above at 90 degrees and about 16 inches above the edge part**. Since the conveyer system moves relatively slowly, we can use an **area scan** camera with a **global shutter**. For this use case, our camera should **capture about 30 frames per second**. The resolution can be found using the formula of `Res=(Object Size) Divided by (details to be captured)`. Based on this formula, **Res=16"/8"** gives 2MP in x and 4 in y, so we need a **camera capable of 4MP**. As for the sensor type, we are not fast moving, and really looking for an edge detection, so a **CMOS sensor** is better suited. One of the more critical aspects for any vision workload is lighting. In this application, Contoso Boards should choose to use a **white diffused filter back light**. This will make the part look almost black and have a high amount of contrast for edge detection. When it comes to color options for this application, it is better to be in black and white, as this is what will yield the sharpest edge for the AI detection model. The data scientists are most familiar with TensorFlow, so learning ONNX or others would slow down the time for development of the model. Also because there are several assembly lines that will use this solution, and Contoso Boards would like a centrally managed edge solution, so **Azure Stack Edge** (with GPU option) would work well here. Based on the workload, the fact that Contoso Boards already knows TensorFlow, and this will be used on multiple assembly lines, GPU-based hardware would be the choice for hardware acceleration.
+Resolution: Resolution uses the formula of `Res=(Object Size) divided by (details to be captured)`. Based on this formula, `Res=16"/8"` gives 2 megapixels (MP) in `x` and 4 MP in `y`, so Contoso Boards needs a camera capable of 4MP resolution.
 
-The following figure shows a sample of what the camera would see in this scenario:
+Sensor type: The targets aren't fast moving, and only require edge detection, so a CMOS sensor is best suited.
 
-![Azure IoT Edge user interface scenario - motherboard](./images/motherboard.png)
+Lighting: Contoso Boards chooses to use a white diffused filter back light. This lighting makes the part look almost black, with high contrast for edge detection.
 
-## Scenario 2
+Color: Black and white yields the sharpest edges for the AI detection model.
 
-Contoso Shipping recently has had several pedestrian accidents at their loading docks. Most of the accidents are happening when a truck leaves the loading dock, and the driver does not see a dock worker walking in front of the truck. Contoso Shipping would like a solution that would watch for people, predict the direction of travel, and warn the drivers of potential dangers of hitting the workers. The distance from the cameras to Contoso Shipping's server room is too far for GigE connectivity, however they do have a large WIFI mesh that could be used. Most of the data scientists at Contoso Shipping are familiar with Open-VINO and they would like to be able to reuse the models on additional hardware in the future. The solution will also need to ensure that devices are operating as power-efficiently as possible. Finally, Contoso Shipping needs a way to manage the solution remotely for updates.
+### Hardware acceleration
 
-### Considerations in this scenario
+Based on the workload, the fact that Contoso Boards already knows TensorFlow, and that this solution will be used on several assembly lines, GPU-based hardware is the choice for hardware acceleration.
 
-Contoso Shipping can introspect by asking the following questions:
+### ML model
 
-- What are we analyzing?
-  - People and patterns of movement
+The data scientists are most familiar with TensorFlow, so learning ONNX or other frameworks would slow down model development. Also because there are several assembly lines using this solution, and Contoso Boards wants a centrally managed edge solution, [Azure Stack Edge]() works well here.
 
-- Where are we going to view the people from?
-  - The loading docks are 165 feet long.
-  - Cameras will be placed 17 feet high to keep with city ordinances.
-  - Cameras will need to be positioned 100 feet away from the front of the trucks.
-  - Camera focus will need to be 10 feet behind the front of the truck, and 10 additional feet in front of the truck, giving a 20 foot depth on focus.
+The following image shows what the camera captures in this scenario:
 
-- What camera do we need?
-  - Area or line scan
-  - Color or monochrome
-  - CCD or CMOS sensor
-  - Global or rolling shutter
-  - Frame rate
-  - Resolution
+![Image that shows what the camera captures in this IoT Edge scenario.](./images/motherboard.png)
 
-- What type of lighting is needed?
-  - Backlighting
-  - Shade
-  - Darkfield
+## Scenario 2: Safety
 
-- What hardware should be used?
-  - CPU
-  - FPGA
-  - GPU
-  - ASIC
+Contoso Shipping recently had several pedestrian accidents at their loading docks. Most accidents happened when a truck left the loading dock, and the driver didn't see a dock worker walking in front of the truck. Contoso Shipping needs a solution that watches for people, predicts their direction of travel, and warns drivers of potential collisions.
 
-- How should the camera be mounted?
-  - Top down
-  - Side view
-  - Angular
+Most of the data scientists at Contoso Shipping are familiar with Open-VINO, and want to reuse the models on future hardware. The solution should also support power efficiency, and use the smallest number of cameras possible. Finally, Contoso Shipping wants to manage the solution remotely for updates.
 
-### Solution
+### Cameras
 
-Based on the distance of the loading dock size, Contoso Shipping will require several cameras to cover the entire dock. The zoning laws that Contoso Shipping must adhere to, require that the surveillance cameras cannot be mounted higher that 20 feet. In this use case, the average size of a worker is 5 foot 8 inches. The solution must use the least number of cameras possible.
+The solution needs 11 monochrome 5184 horizontal pixel or 10MP CMOS cameras with IPX67 housings or weather boxes. The cameras are mounted on 17-foot poles 100 feet from the trucks. The following sections describe how Contoso Shipping determined these camera specifications.
 
-Formula for field of view (FOV):
+#### Placement
 
-![Formula for field of view - Azure IoT Edge Vision](./images/field-of-view.png)
+The loading docks are 165 feet long. Cameras must be 100 feet away from the front of the trucks. Local zoning laws require surveillance cameras to be mounted no higher than 20 feet. The average worker height is 5 foot 8 inches. Cameras will be mounted on poles 100 feet from the trucks and 17 feet high.
 
-For example, look at the following images.
+#### Resolution and field of view
 
-This image is taken with 480 horizontal pixels at 20 foot:
+Contoso Shipping must consider what resolution they need to capture enough details to detect a person. This solution only needs to identify if a person is in the frame, so the pixels per foot (PPF) can be around 15-20, rather than the 80 needed for facial recognition. Camera focus will need to be 10 feet behind and 10 feet in front of the front of the truck, giving a 20 foot depth of focus.
 
-![Car image at 480 pixels - Azure IoT Edge Vision](./images/car-image-low-pixel.png)
+The formula for field of view (FOV) is `FOV=(Horizontal resolution) divided by (Pixels per foot)`. Lens can impact the FOV, but if the camera uses the wrong sensor for the use case, results can be unsatisfactory. The following images demonstrate the problem with using the wrong resolution camera for a given use case. The red square illustrates one pixel color.
 
-This image is taken with 5184 horizontal pixels at 20 foot:
+- This image is taken with 480 horizontal pixels at 20 feet:
 
-![Car image at 5184 pixels - Azure IoT Edge Vision](./images/car-image-high-pixel.png)
+  ![Photograph of a car at 480 pixels.](./images/car-image-low-pixel.png)
 
-The red square is shown to illustrate one pixel color.
+- This image is taken with 5184 horizontal pixels at 20 feet:
 
-These images demonstrate the issue with using the wrong resolution camera for a given use case. Lens can impact the FOV. However, if the wrong sensor is used for that given use case, the results could be less than expected.
+  ![Photograph of a car at 5184 pixels.](./images/car-image-high-pixel.png)
 
-With the above in mind, when choosing a camera for the solution required for Contoso Shipping, we need to think about how many cameras, and at what resolution, are needed to get the correct number of details to detect a person. Since we are only trying to identify if a person is in the frame or not, our PPF does not need to be around 80, which is needed for facial identification; we can use somewhere around 15-20. That would place the FOV around 16 feet. A 16-foot FOV would give us about 17.5 pixels per foot, which fits within our required PPF of 15-20. This would mean that we need a **10MP camera that has a horizontal resolution of ~5184 pixels**, and a lens that would allow for an **FOV of 16 feet**. The cameras would need to be placed outside, and the choice of sensor type should not allow for *bloom*. Bloom is when light hits the sensor and overloads the sensor, causing a view of almost over-exposure or a *white out* kind of condition. **CMOS** is the sensor of choice here.
+For Contoso Shipping, the required 15-20 PPF value puts the FOV at around 16 feet. A 16-foot FOV gives about 17.5 pixels per foot, which meets the required PPF of 15-20. This POV means that the solution needs 10MP cameras with a horizontal resolution of about 5184 pixels, and lenses that allows a 16-foot FOV.
 
-Contoso operates 24x7 and as such, needs to ensure that nighttime personnel are also protected. **Monochrome** handles low light conditions much better compared to color. We are not looking to identify a person based on color. And monochrome sensors are a little cheaper then color.
+Since the cameras can look at a 16-foot path, a 165-foot dock divided by a 16-foot FOV gives 10.3125 cameras. The solution needs 11, 5184-horizontal pixel or 10MP cameras.
 
-How many cameras will it take? Since we have figured out that our cameras can look at a 16 foot path, we can do simple math. 165 foot dock divided by 16 foot FOV gives us 10.3125 cameras. So the solution would need **11 monochrome 5184 horizontal pixel (or 10MP) CMOS cameras with IPX67 housings or weather boxes**. The cameras would be mounted on 11 poles 100 feet from the trucks at 17f high.  Based on the fact that the data scientists are more familiar with **Open-VINO**, data models should be built in **ONNX**. As for what hardware should be used, a device that can be connected over WIFI, and use as little power as possible, is required. Based on this, they should look to an **FPGA processor**. Potentially an ASIC processor could also be utilized, but due to the nature of how an ASIC processor works, it would not meet the requirement of being able to use the models on different hardware in the future.
+#### Sensor type
 
-![Camera mount scenario - Azure IoT Edge Vision](./images/truck-person-camera-mount.png)
+The cameras are outside, so the sensor type shouldn't allow *bloom*. Bloom is when light hits the sensor and overloads the sensor, causing overexposure or whiteout. CMOS is the sensor of choice.
+
+#### Color and lighting
+
+Contoso operates day and night, and must also protect nighttime personnel. Monochrome handles low light conditions better than color. In this case, color information is unnecessary. Monochrome sensors are also lower cost.
+
+### ML model
+
+Because the data scientists are more familiar with [Open-VINO](), data models are built in ONNX. 
+
+### Hardware acceleration
+
+The distance from the cameras to the Contoso Shipping server room is too far for GigE connectivity, but there is a large WIFI mesh. The solution requires a device that connects over WIFI, and uses as little power as possible. Based on these requirements, FPGA processors are best to use. The solution could also use ASIC processors, but because ASIC chips aren't configurable, they don't meet the requirement of usability for future models.
+
+The following illustration shows the camera placement solution for this scenario.
+
+![Illustration of camera placement for an IoT Edge vision AI scenario.](./images/truck-person-camera-mount.png)
 
 ## Next steps
 
-This series of articles have demonstrated how to build a complete vision workload using Azure IoT Edge devices. For further information, you may refer to the product documentation as following:
+This series of articles described how to build a vision AI workload that uses Azure IoT Edge devices.
+
+See the other articles in this series:
+
+- [Camera selection for Azure IoT Edge vision AI](./camera.md)
+- [Hardware acceleration in Azure IoT Edge vision AI](./hardware.md)
+- [Machine learning and data science in Azure IoT Edge vision AI](./machine-learning.md)
+- [Image storage and management for Azure IoT Edge vision AI](./image-storage.md)
+- [Alert persistence in Azure IoT Edge vision AI](./alerts.md)
+
+To learn more about CNNs, vision AI, Azure Machine Learning, and Azure IoT Edge, see the following documentation:
 
 - [Azure IoT Edge documentation](/azure/iot-edge/)
-- [Tutorial: Perform image classification at the edge with Custom Vision Service](/azure/iot-edge/tutorial-deploy-custom-vision)
 - [Azure Machine Learning documentation](/azure/machine-learning/)
-- [Azure Kinect DK documentation](/azure/kinect-dk/)
-- [MMdnn tool](https://github.com/Microsoft/MMdnn)
-- [ONNX](https://onnx.ai/)
+- [Tutorial: Perform image classification at the edge with Custom Vision Service](/azure/iot-edge/tutorial-deploy-custom-vision)
+- [What is Computer Vision?](/azure/cognitive-services/computer-vision/overview)
+- [What is Azure Video Analyzer? (preview)](/azure/azure-video-analyzer/video-analyzer-docs/overview)
+- [Azure Kinect DK developer kit documentation](/azure/kinect-dk/)
+- [Open Neural Network Exchange (ONNX)](https://onnx.ai/)
+
+## Related resources
+
+For more computer vision architectures, examples, and ideas that use Azure IoT, see the following articles:
+
+- [Getting started with Azure IoT solutions](/azure/architecture/reference-architectures/iot/iot-architecture-overview)
+- [End-to-end manufacturing using computer vision on the edge](/azure/architecture/reference-architectures/ai/end-to-end-smart-factory)
+- [Connected factory hierarchy service](/azure/architecture/solution-ideas/articles/connected-factory-hierarchy-service)
+- [Connected factory signal pipeline](/azure/architecture/example-scenario/iot/connected-factory-signal-pipeline)
+- [Create smart places by using Azure Digital Twins](/azure/architecture/example-scenario/iot/smart-places)
+

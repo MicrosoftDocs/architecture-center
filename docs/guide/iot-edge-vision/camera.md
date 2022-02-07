@@ -125,10 +125,10 @@ In planning a vision workload, you need to know about the field of view of the o
 
 In planning a computer vision workload, it's important to understand how the camera output interacts with the rest of the system. There are several standard ways that cameras communicate to IoT Edge devices:
 
-- [Real Time Streaming Protocol (RTSP)](https://en.wikipedia.org/wiki/Real_Time_Streaming_Protocol) transfers real-time video data from the camera to the IoT Edge compute endpoint directly over a TCP/IP connection. RTSP functions in a client-server application model that is at the application level in the network.
-- [Open Network Video Interface Forum (ONVIF)](https://www.onvif.org) is a global, open industry forum that is developing open standards for IP-based cameras. These standards will describe communication between IP cameras and downstream systems, interoperability, and open source.
+- [Real Time Streaming Protocol (RTSP)](https://en.wikipedia.org/wiki/Real_Time_Streaming_Protocol) is an application-level network protocol that controls streaming video servers. RTSP transfers real-time video data from the camera to the IoT Edge compute endpoint over a TCP/IP connection.
+- [Open Network Video Interface Forum (ONVIF)](https://www.onvif.org) is a global, open industry forum that develops open standards for IP-based cameras. These standards describe communication between IP cameras and downstream systems, interoperability, and open source.
 - [Universal Serial Bus (USB)](https://en.wikipedia.org/wiki/USB)-connected cameras connect over the USB port directly to the IoT Edge compute device. This connection is less complex, but limits the distance the camera can be located from the IoT Edge device.
-- [Camera Serial Interface (CSI)](https://www.mipi.org/specifications/csi-2) is from the Mobile Industry Processor Interface (MIPI) Alliance. CSI describes how to communicate between a camera and a host processor. CSI has several standards defined. CSI-1 was the original standard. CSI-2 was released in 2005, and is divided into several layers:
+- [Camera Serial Interface (CSI)](https://www.mipi.org/specifications/csi-2) includes several standards from the Mobile Industry Processor Interface (MIPI) Alliance. CSI describes how to communicate between a camera and a host processor. CSI-2 was released in 2005, and has several layers:
 
   - Physical layer (either C-PHY or D-PHY)
   - Lane merger layer
@@ -136,8 +136,9 @@ In planning a computer vision workload, it's important to understand how the cam
   - Pixel to byte conversion layer
   - Application layer
 
-  The specification was updated in 2017 to v2, which added support for RAW-24 color depth, Unified Serial Link, and Smart Region of Interest.
+  [CSI-2 v3.0](https://resources.mipi.org/blog/mipi-csi-2s-newest-frontier-machine-awareness) released in 2019, and added support for RAW-24 color depth, Unified Serial Link, and Smart Region of Interest.
 
 ## Next steps
 
-- [Hardware acceleration in Azure IoT Edge vision AI](./hardware.md)
+> [!div class="nextstepaction"]
+> [Hardware acceleration in Azure IoT Edge vision AI](./hardware.md)

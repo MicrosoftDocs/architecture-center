@@ -28,7 +28,7 @@ Technologies like containerization support portability, and allow migrating comp
 
 ## Use cases for vision AI at the edge
 
-Use cases for vision AI span manufacturing, retail, healthcare, and the public sector. Some typical use cases include:
+Use cases for vision AI span manufacturing, retail, healthcare, and the public sector. Typical vision AI use cases include quality assurance, safety, and security.
 
 ### Quality assurance
 
@@ -40,7 +40,7 @@ In manufacturing environments, vision AI can inspect parts and processes fast an
 
 ### Safety and security
 
-Automated visual monitoring can scan for potential safety and security issues. Automation can provide more time to respond to incidents, and more opportunities to reduce risk. For example, automated safety monitoring can:
+Automated visual monitoring can scan for potential safety and security issues. Automation can provide more time to respond to incidents, and more opportunities to reduce risk. Automated safety monitoring can:
 
 - Track workforce compliance with personal protective equipment guidelines.
 - Monitor entry into unauthorized work zones.
@@ -54,25 +54,32 @@ Reasons to migrate computer vision workloads from the cloud to the edge include 
 ### Performance considerations
 
 - Exporting large quantities of data to the cloud can strain network infrastructure, causing performance issues.
-- Retrieving results from the cloud can introduce unacceptable latency. For example, a person entering an unauthorized area might need immediate intervention. Positioning the scoring model near the data ingestion point allows near real-time image scoring.
-- Alerting can happen locally or through the cloud, depending on solution design and requirements.
+- Retrieving results from the cloud can introduce unacceptable latency.
+- Alerting through the cloud can also cause delay and complexity.
+
+For example, a person entering an unauthorized area might need immediate intervention. Positioning the scoring model near the data ingestion point allows near real-time image scoring and alerting.
 
 ### Cost considerations
 
-Sending all data to the cloud for analysis can significantly impact the return on investment (ROI) of a computer vision initiative. You can design IoT Edge vision modules to score image data and send only images considered relevant with a reasonable confidence level to the cloud. Sending only selected images significantly reduces the amount of data going to the cloud, lowering costs.
+Sending all data to the cloud for analysis can significantly impact the return on investment (ROI) of a computer vision initiative. You can design IoT Edge vision modules to score image data, and send to the cloud only the images they deem relevant with reasonable confidence. Sending only selected images significantly reduces the amount of data going to the cloud, lowering costs.
 
 ## IoT Edge vision AI components and processes
 
-Vision AI solutions for IoT Edge involve several components and processes. The following articles provide in-depth planning and design guidance for each area:
+Vision AI solutions for IoT Edge involve several components and processes. The other articles in this series provide in-depth planning and design guidance for these areas:
 
 - Camera. See [Camera selection for Azure IoT Edge vision AI](./camera.md).
 - Edge hardware acceleration chips and processors. See [Hardware acceleration in Azure IoT Edge vision AI](./hardware.md).
 - Training and machine learning for IoT Edge vision modules. See [Machine learning and data science in Azure IoT Edge vision AI](./machine-learning.md).
 - Storing image data on IoT Edge devices and in the cloud. See [Image storage and management for Azure IoT Edge vision AI](./image-storage.md).
 - Alerting based on image scores that need attention. See [Alert persistence in Azure IoT Edge vision AI](./alerts.md).
-- User interaction with the system. See [User interface in Azure IoT Edge vision AI](./user-interface.md).
+- User interaction with the system. See [User interface and scenarios in Azure IoT Edge vision AI](./user-interface.md).
 
 ## Next steps
+
+To continue with this series about IoT Edge vision AI, go on to the next article:
+
+> [!div class="nextstepaction"]
+> [Camera selection for Azure IoT Edge vision AI](./camera.md)
 
 To learn more about CNNs, vision AI, Azure Machine Learning, and Azure IoT Edge, see the following documentation:
 
