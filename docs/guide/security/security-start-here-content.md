@@ -1,6 +1,6 @@
 Information security has always been a complex subject, and it evolves quickly with the creative ideas and implementations of attackers and security researchers.  
 
-Security is one of the most important aspects of any architecture. It provides confidentiality, integrity, and availability assurances against deliberate attacks and abuse of your valuable data and systems. Losing these assurances can negatively affect your business operations and revenue, and your organization's reputation.
+Security is one of the most important aspects of any architecture. Good security provides confidentiality, integrity, and availability assurances against deliberate attacks and abuse of your valuable data and systems. Losing these assurances can harm your business operations and revenue, and your organization's reputation.
 
 Here are some broad categories to consider when you design a security system: 
 
@@ -19,7 +19,7 @@ Azure provides a wide range of security tools and capabilities. These are just s
 For a more comprehensive description of Azure security tools and capabilities, see [End-to-end security in Azure](/azure/security/fundamentals/end-to-end).
 
 ## Introduction to security on Azure
-If you're new to security on Azure, the best way to learn more is with [Microsoft Learn](https://docs.microsoft.com/learn/?WT.mc_id=learnaka), a free online training platform. Microsoft Learn provides interactive learning for Microsoft products and more.
+If you're new to security on Azure, the best way to learn more is with [Microsoft Learn](https://docs.microsoft.com/learn/?WT.mc_id=learnaka), a free online training platform. Microsoft Learn provides interactive training for Microsoft products and more.
 
 Here are two learning paths to get you started:
 
@@ -81,7 +81,6 @@ Get the latest updates on [Azure security services and features](https://azure.m
 
 ### AWS or GCP professionals
 
-- **AWS**
-   - [Security and identity with Azure and AWS](../../aws-professional/security-identity.md)
-   - [AWS to Azure services comparison - Security](../../aws-professional/services.md#security-identity-and-access)
+- [Security and identity with Azure and AWS](../../aws-professional/security-identity.md)
+- [AWS to Azure services comparison - Security](../../aws-professional/services.md#security-identity-and-access)
 - [Google Cloud to Azure services comparison - Security](../../gcp-professional/services.md#security-and-identity)
