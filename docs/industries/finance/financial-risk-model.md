@@ -432,11 +432,11 @@ continue to modify our system. This time, we use a service to calculate
 the risk figure of interest. This process consists of the following
 steps:
 
-- Call the relevant risk service and with the right parameters.
+1. Call the relevant risk service and with the right parameters.
 
-- Wait until the service finishes the calculation.
+1. Wait until the service finishes the calculation.
 
-- Retrieve and incorporate the results into the risk analysis.
+1. Retrieve and incorporate the results into the risk analysis.
 
 Translated into R code, our R code can be enhanced by the definition of
 the required input values from a prepared input template.

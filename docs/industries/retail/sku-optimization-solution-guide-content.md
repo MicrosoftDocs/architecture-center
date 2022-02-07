@@ -104,12 +104,13 @@ The assortment optimization problem can be expressed as maximization of revenue:
 - _K_ is the number of rankings.
 - _n_ is the number of products.
 
-Subject to constraints:
-
-- There can be exactly 1 choice for each ranking.
-- Under a ranking _k_, a product _i_ can be chosen only if it's part of the assortment.
-- If a product _i_ is included in the assortment, none of the less preferable options in ranking _k_ can be chosen.
-- No-purchase is an option, and as such none of the less preferable options in a ranking can be chosen.
+> [!NOTE]
+> Subject to constraints:
+>
+> - There can be exactly 1 choice for each ranking.
+> - Under a ranking _k_, a product _i_ can be chosen only if it's part of the assortment.
+> - If a product _i_ is included in the assortment, none of the less preferable options in ranking _k_ can be chosen.
+> - No-purchase is an option, and as such none of the less preferable options in a ranking can be chosen.
 
 In such a formulation, the problem can be regarded as a [mixed-integer optimization](https://en.wikipedia.org/wiki/Integer_programming).
 
@@ -194,12 +195,6 @@ There are several tools that will help you implement parametric and non-parametr
 
 However, the data size it can handle is limited to 10 GB (for now) and the number of cores available to each component is also limited to 2 (for now).
 
-The following figure shows an example of the ML studio in use. It's a graphical representation of a machine learning experiment. The figure shows several groups of blocks. Each set of blocks represents some stage in the experiment, and each block is connected to one or more blocks to indicate data input and output.
-
-:::image type="content" source="./images/sku-optimization-solution-guide/ml-training-pipeline-example-inline.png" alt-text="Example of machine learning studio in use." lightbox="./images/sku-optimization-solution-guide/ml-training-pipeline-example-expanded.png":::
-
-_Figure 4: example of ML training pipeline with R and pre-built components_
-
 If you need to scale further but still want to use some of Microsoft’s fast, parallel implementation of common machine learning algorithm (such as multinomial logistic regression), you may want to look at Microsoft ML Server running on Azure Data Science Virtual Machine.
 
 For very large data sizes (TBs), it makes sense to choose a platform where the storage and the computation element can:
@@ -218,7 +213,7 @@ The following figure shows the Data Factory user interface, as accessed through 
 
 :::image type="content" source="./images/sku-optimization-solution-guide/data-factory-pipeline-databricks-inline.png" alt-text="Data Factory interface showing databricks notebook activity." lightbox="./images/sku-optimization-solution-guide/data-factory-pipeline-databricks-expanded.png":::
 
-_Figure 5: example of Data Factory pipeline with Databricks notebook activity_
+_Figure 4: example of Data Factory pipeline with Databricks notebook activity_
 
 Also note that in our [inventory optimization solution](https://gallery.azure.ai/Solution/Inventory-Optimization-3?WT.mc_id=invopt-article-gmarchet) we propose a container-based implementation of solvers that is scaled via [Azure Batch](https://azure.microsoft.com/services/batch/?WT.mc_id=invopt-article-gmarchet). Specialist optimization libraries such as [pyomo](http://www.pyomo.org/about/) allow you to express an optimization problem in the Python programming language, then invoke independent solvers such as [bonmin](https://projects.coin-or.org/Bonmin) (open source) or [gurobi](http://www.gurobi.com/) (commercial) to find a solution.
 
@@ -233,7 +228,7 @@ Once the model has been trained, running it typically requires a different infra
 The following figure shows the architecture of the deployment. It includes representations of servers running the R language and Python. Both servers communicate to a sub section of web nodes that perform computation. A large data store is connected to the computation block.
 
 [![ML server deployment diagram. Load balancer before multiple nodes for execution.](./images/sku-optimization-solution-guide/ml-server-deployment-example.png)](./images/sku-optimization-solution-guide/ml-server-deployment-example.png#lightbox)
-<center><font size="1">_Figure 6: example of ML server deployment_</font></center>
+<center><font size="1">_Figure 5: example of ML server deployment_</font></center>
 
 
 For models created on HDInsight or Databricks and hence dependent on the Spark environment (libraries, parallel capabilities etc.), you may want to consider running them on a cluster. Guidance is provided [here](/azure/machine-learning/team-data-science-process/spark-model-consumption?WT.mc_id=invopt-article-gmarchet).
