@@ -7,7 +7,7 @@ ms.date: 10/20/2019
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: azure-guide
-ms.category:
+categories:
   - devops
   - developer-tools
 products:
@@ -236,4 +236,4 @@ This ensures that the CDN always gets new updated files, and removes the need to
 
 - Now that you understand the basics, follow [this readme](https://github.com/mspnp/serverless-reference-implementation/tree/master/src/ClientApp) to set up and execute the CI/CD pipeline.
 
-- Learn [best practices for using content delivery networks (CDNs)](../../best-practices/cdn.md)
+- Learn [best practices for using content delivery networks (CDNs)](../../best-practices/cdn.yml)
