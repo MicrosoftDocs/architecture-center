@@ -37,7 +37,7 @@ When you build your multitenant solution in Azure, there are many elements that 
 * Review the [Azure Well-Architected Reliability checklist](/azure/architecture/framework/resiliency/design-checklist), which is applicable to all workloads.
 * Understand the [Noisy Neighbor antipattern](../../antipatterns/noisy-neighbor/index.md). Prevent individual tenants from impacting the system's availability for other tenants.
 * [Design your multitenant solution](./approaches/overview.md) for the level of growth that you expect. But don't overengineer for unrealistic growth.
-* Define Service Level Objectives (SLOs) and optionally [Service Level Agreements (SLAs)](/learn/modules/choose-azure-services-sla-lifecycle/2-what-are-service-level-agreements) for your solution. SLAs and SLOs should be based on the requirements of your tenants and the [composite SLA of the Azure resources in your architecture](/azure/architecture/framework/resiliency/business-metrics).
+* Define Service Level Objectives (SLOs) and optionally [Service Level Agreements (SLAs)](/learn/modules/choose-azure-services-sla-lifecycle/2-what-are-service-level-agreements) for your solution. SLAs and SLOs should be based on the requirements of your tenants, as well as the [composite SLA of the Azure resources in your architecture](/azure/architecture/framework/resiliency/business-metrics).
 * Test the [scale](./approaches/compute.md#scale) of your solution. Ensure that it performs well under all levels of load, and that it scales correctly as the number of tenants increases.
 * Apply [Chaos Engineering principles](./approaches/compute.md#isolation) to test the reliability of your solution.
 
