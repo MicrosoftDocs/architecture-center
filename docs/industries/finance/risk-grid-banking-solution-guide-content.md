@@ -202,14 +202,14 @@ Additional pricing information for VPN Gateway [can be found here](https://azure
 
 There are essentially two models for extending your network to Azure, as shown in Figure 5.
 
-- Virtual Gateway – Site-to-Site
+- Virtual gateway – site-to-site
 - ExpressRoute – Exchange or ISP provider
 
 ![Site to Site and ExpressRoute](./images/risk-grid-banking-solution-guide/10-s2s-expressroute.png)
 
 **Figure 5:** Site-to-Site and ExpressRoute
 
-#### Virtual Gateway Site-to-Site integration
+#### Virtual gateway Site-to-Site integration
 
 A [Site-to-Site VPN Gateway](/azure/vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal?WT.mc_id=gridbanksg-docs-dastarr) connects your on-premises network to an Azure VNet. This bridges the gap between networks essentially making them parts of the same network, with two-way access to resources, servers, and artifacts. This allows direct access to data files from the Azure worker VMs running the risk grid computing batch job.
 

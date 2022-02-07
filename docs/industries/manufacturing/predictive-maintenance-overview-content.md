@@ -18,7 +18,7 @@ Preventive maintenance requires you to the service the asset at pre-determined i
 
  ![Diagram explains preventive maintenance.](./images/predictive-maintenance-overview/maintenance-strategies-preventative.png)
 
-Predictive maintenance monitors the usage of assets using models to predict when an asset will likely experience a component failure. That component then has its maintenance scheduled for &quot;just-in-time maintenance&quot;. PdM improves on the previous strategies by maximining both uptime and asset life. Since you service the equipment close to the component maximum lifetimes, you spend less money on replacing working parts. The downside is that the just-in-time nature of PdM is more difficult to execute since it requires a more responsive and flexible Services organization. Back to the motor of the 5-axis CNC Machining, you would schedule its maintenance &quot;gracefully&quot; (in a planned fashion, without disrupting production), if a predictive model predicts that the motor has, say, a 75% probability of failure in the next 24 hours (based on the information coming from sensors in the machine).
+Predictive maintenance monitors the usage of assets using models to predict when an asset will likely experience a component failure. That component then has its maintenance scheduled for &quot;just-in-time maintenance&quot;. PdM improves on the previous strategies by maximizing both uptime and asset life. Since you service the equipment close to the component maximum lifetimes, you spend less money on replacing working parts. The downside is that the just-in-time nature of PdM is more difficult to execute since it requires a more responsive and flexible Services organization. Back to the motor of the 5-axis CNC Machining, you would schedule its maintenance &quot;gracefully&quot; (in a planned fashion, without disrupting production), if a predictive model predicts that the motor has, say, a 75% probability of failure in the next 24 hours (based on the information coming from sensors in the machine).
 
  ![Diagram explains predictive maintenance.](./images/predictive-maintenance-overview/maintenance-strategies-predictive.png)
 
@@ -30,7 +30,7 @@ A PdM solution can be used by a manufacturer directly, monitoring the data comin
 - A manufacturer offers its products under a Product-as-a-Service model - where customers &quot;subscribe&quot; to the product instead of purchasing it outright. Under this model, the manufacturer wants to maximize product uptime; the product won't generate revenue when the product isn't working.
 - A company provides predictive maintenance products and services for products manufactured by one or more manufacturers.
 
-## Building a Predictive Maintenance Solution
+## Building a predictive maintenance solution
 
 To build a PdM solution, we start with data; ideally data that shows normal operation as well as data that shows what the equipment looked like before, during, and after a failure. The data comes from sensors, notes maintained by equipment operators, run information, environmental data, machine specifications, and so on. Systems of record can include historians, manufacturing execution systems, ERP, and so on. The data is made available for analytics in a variety of ways. [The Team Data Science Process](/azure/machine-learning/team-data-science-process) is illustrated in the following diagram. It's customized for manufacturing and does an excellent job explaining the various concerns one has when building and executing machine learning models.
 

@@ -208,4 +208,4 @@ date
 
 ## Advanced Analytics Process and Technology in Action Example
 
-For an end-to-end walkthrough example using the Team Data Science Process with a public dataset, see [Team Data Science Process in Action: using SQL Server](sql-walkthrough.md).
+For an end-to-end walkthrough example using the Team Data Science Process with a public dataset, see [Team Data Science Process in Action: using SQL Server](/azure/architecture/data-science-process/overview).

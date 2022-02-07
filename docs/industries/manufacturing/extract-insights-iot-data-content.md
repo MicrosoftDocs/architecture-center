@@ -177,7 +177,7 @@ Azure SQL Data Warehouse provides many additional features that can be useful in
 
 At this layer, we want to merge the two data pipelines (warm and cold paths) to present a cohesive view of the data. In this example, we used multiple metrics to deduce the utilization of the machine on both warm and cold paths. In the analytics stage, we provide visualizations that combine the data from those paths.
 
-![Lambda architecture: analytics clients layer highlighted.](./images/extract-insights-iot-data/lambda-4.png)
+[![Lambda architecture: analytics clients layer highlighted.](./images/extract-insights-iot-data/lambda-4.png)](./images/extract-insights-iot-data/lambda-4.png#lightbox)
 
 [Microsoft Power BI](/power-bi/?WT.mc_id=iotinsightssoln-docs-ercenk) and [Azure Time Series Insights](/azure/time-series-insights/?WT.mc_id=iotinsightssoln-docs-ercenk) provide data visualizations out-of-the-box. Power BI is business analytics solution that lets you visualize your data and share insights across your organization, or embed them in your app or website. [Power BI Desktop](https://powerbi.microsoft.com/desktop/?WT.mc_id=iotinsightssoln-docs-ercenk) is a free and powerful tool for modelling reports and their underlying data sources.  The applications embedding Power BI visualizations use the reports authored by the desktop tool and hosted on the Power BI Service.
 

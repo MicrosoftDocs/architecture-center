@@ -9,7 +9,7 @@ Visual search engines retrieve information using images as input and often—but
 Engines are becoming more and more common in the retail industry, and for very good reasons:
 
 - Around 75% of internet users search for pictures or videos of a product before making a purchase, according to an [Emarketer](https://www.emarketer.com/Report/Visual-Commerce-2017-How-Image-Recognition-Augmentation-Changing-Retail/2002059) report published in 2017.
-- 74% of consumers also find text searches inefficient, according to Slyce (a visual search company) 2015 report.
+- 74% of consumers also find text searches inefficient, according to a Slyce (a visual search company) 2015 report.
 
 Therefore, the image recognition market will be worth more than $25 billion by 2019, according to research by [Markets &amp; Markets](https://www.marketsandmarkets.com/PressReleases/image-recognition.asp).
 

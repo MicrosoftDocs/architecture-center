@@ -27,7 +27,7 @@ The [Azure Feature Pack for Integration Services (SSIS)](/sql/integration-servic
 
 Once customers have moved on-premises data into the cloud, they can access their data from any Azure service to leverage the full power of the suite of Azure technologies. The data may be subsequently used, for example, in Azure Machine Learning or on an HDInsight cluster.
 
-Examples for using these Azure resources are in the [SQL](sql-walkthrough.md) and [HDInsight](hive-walkthrough.md) walkthroughs.
+Examples for using these Azure resources are in the [SQL](/azure/architecture/data-science-process/overview) and [HDInsight](/azure/architecture/data-science-process/overview) walkthroughs.
 
 For a discussion of canonical scenarios that use SSIS to accomplish business needs common in hybrid data integration scenarios, see [Doing more with SQL Server Integration Services Feature Pack for Azure](https://techcommunity.microsoft.com/t5/sql-server-integration-services/doing-more-with-sql-server-integration-services-feature-pack-for/ba-p/388238) blog.
 
