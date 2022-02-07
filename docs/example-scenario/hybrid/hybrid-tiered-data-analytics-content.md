@@ -1,6 +1,6 @@
 This solution shows how to use Azure Stack Hub and Azure to stage, analyze, process, sanitize, and store data across multiple on-premises and cloud locations.
 
-Considerations about secure data storage, processing, and analysis include:
+When you design a solution for secure data storage, processing, and analysis, you need to take these considerations into account:
 
 - Data content
 - Location
