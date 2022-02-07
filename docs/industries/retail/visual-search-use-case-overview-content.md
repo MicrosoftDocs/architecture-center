@@ -79,7 +79,7 @@ You might also want to require a minimum number of useful data points (such as a
 
 [Azure CosmosDB](https://azure.microsoft.com/services/cosmos-db/?WT.mc_id=vsearchgio-article-gmarchet) offers the required flexibility and a variety of access mechanisms for applications built on top of it (which will help with your catalog search). However, one has to be careful to drive the best price/performance. CosmosDB allows document attachments to be stored, but there's a total limit per account and it may be a costly proposition. It's a common practice to store the actual image files in blobs and insert a link to them in the database. In the case of CosmosDB this implies creating a document that contains the catalog properties associated to that image (such as a SKU, tag, and so on) and an attachment that contains the URL of the image file (for example, on Azure Blob storage, OneDrive, and so on).
 
- ![](./images/visual-search-use-case-overview/cosmosdb-data-model.png)
+ ![](./images/visual-search-use-case-overview/cosmos-db-data-model.png)
 
 *Figure 3: CosmosDB Hierarchical Resource Model*
 

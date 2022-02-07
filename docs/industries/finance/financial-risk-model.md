@@ -29,48 +29,31 @@ A scenario in a capital markets firm might look like this:
 Through these processes, there are common needs around risk modeling
 including:
 
-- The need for ad-hoc risk-related experimentation by risk analysts;
-    actuaries in an insurance firm or quants in a capital markets firm.
-    These analysts typically work with code and modeling tools popular
-    in their domain: R and Python. Many university curriculums include
-    training in R or Python in mathematical finance and in MBA courses.
-    Both languages offer a wide range of open source libraries that
-    support popular risk calculations. Along with appropriate tooling,
-    analysts often require access to:
+- The need for ad-hoc risk-related experimentation by risk analysts; actuaries in an insurance firm or quants in a capital markets firm.
+  These analysts typically work with code and modeling tools popular in their domain: R and Python. Many university curriculums include training in R or Python in mathematical finance and in MBA courses.
+  Both languages offer a wide range of open source libraries that support popular risk calculations.
+- Along with appropriate tooling, analysts often require access to:
 
-    -  Accurate market pricing data.
+  - Accurate market pricing data.
+  - Existing policy and claims data.
+  - Existing market position data.
+  - Other external data. Sources include structured data such as mortality tables and competitive pricing data.
+    Less traditional sources such as weather, news and others may also be used.
+  - Computational capacity to enable quick interactive data investigations.
 
-    -  Existing policy and claims data.
+- They may also make use of ad-hoc machine learning algorithms for pricing or determining market strategy.
 
-    -  Existing market position data.
+- The need to visualize and present data for use in product planning, trading strategy, and similar discussions.
 
-    - Other external data. Sources include structured data such as
-        mortality tables and competitive pricing data. Less traditional
-        sources such as weather, news and others may also be used.
+- The rapid execution of defined models, configured by the analysts for pricing, valuations, and market risk.
+  The valuations use a combination of dedicated risk modeling, market risk tools, and custom code.
+  The analysis is executed in a batch with varying nightly, weekly, monthly, quarterly, and annual calculations.
+  This analysis generates spikes in workloads.
 
-    -  Computational capacity to enable quick interactive data
-        investigations.
+- The integration of data with other enterprise wide risk measures for consolidated risk reporting.
+  In larger organizations, lower level risk estimates can be transferred to an enterprise risk modeling and reporting tool.
 
-- They may also make use of ad-hoc machine learning algorithms for
-    pricing or determining market strategy.
-
-- The need to visualize and present data for use in product planning,
-    trading strategy, and similar discussions.
-
-- The rapid execution of defined models, configured by the analysts,
-    for pricing, valuations, and market risk. The valuations use a
-    combination of dedicated risk modeling, market risk tools, and
-    custom code. The analysis is executed in a batch with varying
-    nightly, weekly, monthly, quarterly, and annual calculations.
-    This analysis generates spikes in workloads.
-
-- The integration of data with other enterprise wide risk measures for
-    consolidated risk reporting. In larger organizations, lower level
-    risk estimates can be transferred to an enterprise risk modeling
-    and reporting tool.
-
-- Results must be reported in a defined format at the required
-    interval to meet investor and regulatory requirements.
+- Results must be reported in a defined format at the required interval to meet investor and regulatory requirements.
 
 Microsoft supports the above concerns through a combination of Azure
 services and partner offerings in the [Azure
@@ -99,25 +82,18 @@ instruments like complex derivatives and focuses on a single risk factor
 to concentrate on the risk life cycle. Our example lets you do the following actions:
 
 - Select an instrument of interest.
-
 - Source historic prices for the instrument.
+- Model equity price by simple Monte Carlo (MC) calculation, which uses Geometric Brownian Motion (GBM):
 
-- Model equity price by simple Monte Carlo (MC) calculation, which
-    uses Geometric Brownian Motion (GBM):
-
-    -  Estimate expected return μ (mu) and volatility σ (theta).
-
-    -  Calibrate the model to historic data.
+  - Estimate expected return μ (mu) and volatility σ (theta).
+  - Calibrate the model to historic data.
 
 - Visualize the various paths to communicate the results.
+- Plot max(0,Stock Value) to demonstrate the meaning of PFE, the difference to Value at Risk (VaR).
 
-- Plot max(0,Stock Value) to demonstrate the meaning of PFE, the
-    difference to Value at Risk (VaR)
+  - To clarify: PFE = Share Price (T) -- Forward Contract Price K
 
-    -  To clarify: PFE = Share Price (T) -- Forward Contract Price K
-
-- Take the 0.95 Quantile to get the PFE value at each time step / end
-    of simulation period
+- Take the 0.95 Quantile to get the PFE value at each time step / end of simulation period.
 
 We'll calculate the potential future exposure for an equity forward
 based on Microsoft (MSFT) stock. As mentioned previously, to model the stock prices,
@@ -134,14 +110,9 @@ To process the data and define the risk associated with the equity, we
 need to do the following things:
 
 - Retrieve history data from the equity.
-
-- Determine the expected return μ and volatility σ from the historic
-    data.
-
+- Determine the expected return μ and volatility σ from the historic data.
 - Model the underlying stock prices using some simulation.
-
-- Run the model
-
+- Run the model.
 - Determine the exposure of the equity in the future.
 
 We start by retrieving the stock from the Quandl service and plotting
@@ -439,28 +410,19 @@ transformed into cloud-based IaaS and PaaS services, the modeling of
 relevant risk figures is transforming into a service-oriented process.
 Today's analysts face two major challenges:
 
-1. The regulatory requirements use increasing compute capacity to add
-    to modeling requirements. The regulators are asking for more
-    frequent and up-to date risk figures.
-
-2.  The existing risk infrastructure has grown organically with time and
-    creates challenges when implementing new requirements and more
-    advanced risk modeling in an agile manner.
+- The regulatory requirements use increasing compute capacity to add to modeling requirements.
+  The regulators are asking for more frequent and up-to date risk figures.
+- The existing risk infrastructure has grown organically with time and creates challenges when implementing new requirements and more advanced risk modeling in an agile manner.
 
 Cloud-based services can deliver the required functionality and support
 risk analysis. This approach has some advantages:
 
--  The most common risk calculations required by the regulator must be
-    implemented by everyone under the regulation. By utilizing services
-    from a specialized service provider, the analyst benefits from ready
-    to use, regulator-compliant risk calculations. Such services may
-    include market risk calculations, counterparty risk calculations,
-    X-Value Adjustment (XVA), and even Fundamental Review of Trading
-    Book (FRTB) calculations.
+- The most common risk calculations required by the regulator must be implemented by everyone under the regulation.
+  By utilizing services from a specialized service provider, the analyst benefits from ready to use, regulator-compliant risk calculations.
+  Such services may include market risk calculations, counterparty risk calculations, X-Value Adjustment (XVA), and even Fundamental Review of Trading Book (FRTB) calculations.
 
-- These services expose their interfaces through web services. The
-    existing risk infrastructure can be enhanced by these other
-    services.
+- These services expose their interfaces through web services.
+  The existing risk infrastructure can be enhanced by these other services.
 
 In our example, we want to invoke a cloud-based service for FRTB
 calculations. Several of these can be found on
@@ -472,9 +434,9 @@ steps:
 
 1. Call the relevant risk service and with the right parameters.
 
-2. Wait until the service finishes the calculation.
+1. Wait until the service finishes the calculation.
 
-3. Retrieve and incorporate the results into the risk analysis.
+1. Retrieve and incorporate the results into the risk analysis.
 
 Translated into R code, our R code can be enhanced by the definition of
 the required input values from a prepared input template.

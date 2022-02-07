@@ -137,7 +137,7 @@ rxGetInfo (input_data, getVarInfo = TRUE)
 
 Because the goal of the recommendation model was to forecast the probability a customer would renew a contract and categorize the probability it into a ‘yes’, ‘no’, or ‘maybe’, a classification algorithm was used. One problem that can seriously impact the accuracy and performance of a classification algorithm is an unbalanced data set.  
 A data set is unbalanced if there are many more samples for one ‘class’ than another ‘class’. In this case, the number of rows available for each subscriber was unbalanced: on the high end, one subscriber had 1 million+ rows; on the low end, 330 customers had fewer than 100 rows of data. The graph below shows the imbalance with the number of rows (samples) per subscriber:
-![imbalance-chart](./images/recommendation-engine-optimization/recommendaton_engine_chart.png)
+![imbalance-chart](./images/recommendation-engine-optimization/recommendaton-engine-chart.png)
 
 One technique for treating an unbalanced data set is to change the data set and either over-sample the under-represented class, or under-sample the over-represented class. Another technique is to synthetically generate additional data using the data owner’s exact knowledge of the data and its attributes. The customer established a threshold for the minimum sample size for a subscriber. For subscribers below that threshold, data would need to be treated. For this project both approaches were explored.
 

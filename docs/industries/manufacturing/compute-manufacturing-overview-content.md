@@ -90,7 +90,7 @@ dynamics (CFD) model provides a glimpse of the scalability of the platform. The
 following chart demonstrates the observed scalability as more cores are added
 when running the simulation:
 
-![https://azurecomcdn.azureedge.net/mediahandler/acomblog/media/Default/blog/34f1873b-4db5-4c62-b963-8bdf3966cf60.png](./images/compute-manufacturing-overview/starccm.png)
+![https://azurecomcdn.azureedge.net/mediahandler/acomblog/media/Default/blog/34f1873b-4db5-4c62-b963-8bdf3966cf60.png](./images/compute-manufacturing-overview/star-ccm.png)
 
 Another popular engineering analysis software package is ANSYS CFD. It enables
 engineers to perform multi-physics analysis, including fluid forces, thermal
@@ -211,7 +211,7 @@ for benchmarking the training of ML algorithms; it shows the time to complete
 the training cycle given different algorithms, data set sizes and computation
 targets (GPU or CPU).
 
-[![VM sizes](./images/compute-manufacturing-overview/vm-sizes.png)](./images/compute-manufacturing-overview/vm-sizes.png#lightbox)
+:::image type="content" source="./images/compute-manufacturing-overview/vm-sizes-inline.png" alt-text="Image shows values for benchmarking the training of an algorithm." lightbox="./images/compute-manufacturing-overview/vm-sizes-expanded.png":::
 
 The major driver for the decision is the business problem. If the problem
 requires a large data set to be processed with a suitable algorithm, the
