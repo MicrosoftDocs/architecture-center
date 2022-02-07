@@ -25,8 +25,8 @@ When you build your multitenant solution in Azure, there are many elements that 
 
 ## Business considerations
 
-* Understand what kind of solution you are creating, such as Business-to-Business (B2B), Business-to-Consumer (B2C), or your enterprise software, and [how tenants are different from users](./overview.md).
-* [Define your tenants](./considerations/tenancy-models.md#define-a-tenant), how many you will have initially, and your growth plans.
+* Understand what kind of solution you're creating, such as Business-to-Business (B2B), Business-to-Consumer (B2C), or your enterprise software, and [how tenants are different from users](./overview.md).
+* [Define your tenants](./considerations/tenancy-models.md#define-a-tenant), how many you'll have initially, and your growth plans.
 * [Define your pricing model](./considerations/pricing-models.md) and ensure it aligns with your [tenants’ consumption of Azure resources](./considerations/measure-consumption.md).
 * Understand whether you need to separate your tenants into different [tiers](./considerations/pricing-models.md#feature--and-service-level-based-pricing). Tiers might have different pricing, features, performance promises, geographic locations, and so forth.
 * Based on your customers’ requirements, decide on the [tenancy models](./considerations/tenancy-models.md) appropriate for various parts of your solution.
@@ -71,9 +71,9 @@ When you build your multitenant solution in Azure, there are many elements that 
 ## Performance Efficiency considerations
 
 * Review the [Azure Well-Architected Performance Efficiency checklist](/azure/architecture/framework/scalability/performance-efficiency), which is applicable to all workloads.
-* If you use shared infrastructure, plan for how you'll mitigate [Noisy Neighbor](../../antipatterns/noisy-neighbor/index.md) concerns and ensure that one tenant cannot negatively impact the system for other tenants.
-* Determine how you will scale [compute](./approaches/compute.md), [storage](./approaches/storage-data.md), [networking](./approaches/networking.md), and other Azure resources to match the demands of your tenants.
-* Consider each Azure resource's scale limits. [Organize your resources](./approaches/resource-organization.md) appropriately to avoid [resource organization antipatterns](./approaches/resource-organization.md#antipatterns-to-avoid), such as not planning for scale at all or over-architecting when unnecessary.
+* If you use shared infrastructure, plan for how you'll mitigate [Noisy Neighbor](../../antipatterns/noisy-neighbor/index.md) concerns and ensure that one tenant can't reduce the performance of the system for other tenants.
+* Determine how you'll scale your [compute](./approaches/compute.md), [storage](./approaches/storage-data.md), [networking](./approaches/networking.md), and other Azure resources to match the demands of your tenants.
+* Consider each Azure resource's scale limits. [Organize your resources](./approaches/resource-organization.md) appropriately to avoid [resource organization antipatterns](./approaches/resource-organization.md#antipatterns-to-avoid). For example, don't over-architect your solution to work within unrealistic scale requirements.
 
 ## Next steps
 
