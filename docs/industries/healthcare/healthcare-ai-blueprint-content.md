@@ -159,7 +159,7 @@ The blueprint includes an experiment and the necessary data to run an ML job in 
 
 In this demonstration environment, the data ingested into the Azure SQL database is free from any defects or missing data elements. This data is clean. Often, unclean data is ingested and must be “cleaned” before it can be used for feeding a machine learning training algorithm. Or it must be cleaned before using the data in an ML job. Missing data or incorrect values in the data will negatively impact the results of the ML analysis.
 
-## Azure Machine Learning studio
+## Azure Machine Learning Studio
 
 Many healthcare organizations don’t have the technical staff to focus on ML projects. This often means valuable data is left unused or expensive consultants are brought in to create ML solutions.
 
@@ -286,7 +286,7 @@ Customizing the installation is no different than working with any Azure solutio
 
 The following issues can cause the blueprint installation to fail or to install in an undesirable configuration.
 
-### Key Vault
+### Key vaults
 
 Key vaults are unique when deleting an Azure resource. Vaults are kept by Azure for recovery purposes. Accordingly, a different prefix must be passed into the install script each time the install script is run, or the install will fail due to a collision with the old vault name. Key vaults, and all other resources, are named using the prefix you provide to the install script.
 

@@ -20,11 +20,11 @@ the insurance product management lifecycle might look something like
 the diagram below. The risk calculation aspects are shown in blue
 text.
 
-![Diagram shows risk calculation factors.](./images/financial-risk-model/image1.png)
+![Diagram shows risk calculation factors.](./images/financial-risk-model/risk-calculation-factors.png)
 
 A scenario in a capital markets firm might look like this:
 
-![Diagram shows risk calculation scenario for a capital markets firm.](./images/financial-risk-model/image2.png)
+![Diagram shows risk calculation scenario for a capital markets firm.](./images/financial-risk-model/risk-calculation-scenario.png)
 
 Through these processes, there are common needs around risk modeling
 including:
@@ -281,11 +281,11 @@ for 50 paths. The second picture illustrates the underlying credit
 exposure for the equity forward after subtracting the premium of the
 equity forward and limiting the exposure to positive values.
 
-<img src="./images/financial-risk-model/image3.png" width="400px" alt="Figure 1 - 50 Monte Carlo Paths"/>
+<img src="./images/financial-risk-model/monte-carlo-paths.png" width="400px" alt="Figure 1 - 50 Monte Carlo Paths"/>
 
 Figure 1 - 50 Monte Carlo paths
 
-<img src="./images/financial-risk-model/image4.png" width="400px" alt="Figure 2 - Credit Exposure for Equity Forward"/>
+<img src="./images/financial-risk-model/credit-exposure.png" width="400px" alt="Figure 2 - Credit Exposure for Equity Forward"/>
 
 Figure 2 - Credit exposure for equity forward
 
@@ -300,7 +300,7 @@ resulting in the final PFE plot
 plot(df_pfe, t = 'l', ylab = "Potential Future Exposure in USD", xlab = "time t in Years")
 ````
 
-<img src="./images/financial-risk-model/image5.png" width="500px" alt="Potential Future Exposure for MSFT Equity Forward" /> 
+<img src="./images/financial-risk-model/potential-future-exposure.png" width="500px" alt="Potential Future Exposure for MSFT Equity Forward" /> 
 
 Figure 3 Potential future exposure for MSFT equity forward
 
@@ -510,11 +510,11 @@ plot(as.numeric(df$term[df$statistic == 'PFE']) / 365, df$result[df$statistic ==
 
 The resulting plots look like this:
 
-<img src="./images/financial-risk-model/image6.png" width="400px" alt="Figure 4 - Credit exposure for MSFT equity forward - Calculated with a cloud-based risk engine."/>
+<img src="./images/financial-risk-model/credit-exposure-equity-forward.png" width="400px" alt="Figure 4 - Credit exposure for MSFT equity forward - Calculated with a cloud-based risk engine."/>
 
 Figure 4 - Credit exposure for MSFT equity forward - Calculated with a cloud-based risk engine
 
-<img src="./images/financial-risk-model/image7.png" width="400px" alt="Figure 5 - Potential future exposure for MSFT equity forward - Calculated with a cloud-based risk engine" />
+<img src="./images/financial-risk-model/future-exposure-equity-forward.png" width="400px" alt="Figure 5 - Potential future exposure for MSFT equity forward - Calculated with a cloud-based risk engine" />
 
 Figure 5 - Potential future exposure for MSFT equity forward - Calculated with a cloud-based risk engine
 

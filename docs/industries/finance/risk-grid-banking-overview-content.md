@@ -14,7 +14,7 @@ Risk model input data comes in several forms, the most common being Excel files 
 
 [Azure Batch](/azure/batch/?WT.mc_id=gridbank-docs-dastarr) is an Azure service that allows multiple worker VMs to run in parallel, as shown below. Processing data files and submitting results to machine learning systems or data stores are common tasks for the worker nodes. The application code run by the worker nodes is created by the customer, so almost any action may be taken in the batch job.
 
-![On premises batch](./images/risk-grid-banking-overview/01-on-prem.png)
+![On premises batch](./images/risk-grid-banking-overview/multiple-worker-virtual-machines.png)
 
 Azure provides an elegant solution for risk grid computing using Azure Batch. Customers can use Azure Batch to extend their existing risk computing grid, or to replace on-premises resources with a completely cloud-based solution.
 
@@ -30,7 +30,7 @@ When connecting to the cloud, security is a primary consideration. Accounting fo
 
 A hybrid network ties Azure directly to the customer&#39;s on-premises network. Azure offers two models for securely and reliably connecting current on-premises systems to Azure, [Microsoft Azure ExpressRoute](/azure/expressroute/expressroute-introduction?WT.mc_id=gridbank-docs-dastarr) and [VPN Gateway](/azure/vpn-gateway/?WT.mc_id=gridbank-docs-dastarr). Both are trusted connectivity solutions, although there are differences in implementation, performance, cost and other attributes.
 
-![Azure connectivty](./images/risk-grid-banking-overview/02-connectivity.png)
+![Azure connectivity](./images/risk-grid-banking-overview/azure-connectivity.png)
 
 &quot;Burst to cloud&quot; offloads computing jobs to cloud-based machines when existing resources spike, augmenting the customer&#39;s data center or private cloud resources. Using the hybrid network model allows for easy burst to cloud scenarios as the cloud-based risk computing grid is a simple extension of the existing network.
 
@@ -61,7 +61,7 @@ The Azure Batch processing model has several benefits for risk grid computing:
 
 A common solution is to automatically add worker nodes in Azure when the on-premises workers are all in use. The risk grid head node simply asks for more workers. This automatically scales the number of grid worker nodes in Azure and enables an elastic demand solution.
 
-![Hybrid cloud](./images/risk-grid-banking-overview/03-hybrid-cloud.png)
+![Hybrid cloud](./images/risk-grid-banking-overview/hybrid-cloud.png)
 
 Along with efficient use of resources, this arrangement provides other benefits. For independent tasks, adding more workers allows the load to scale linearly. Azure also provides the flexibility to try out a very large VM instance or a machine with several GPU cards. This flexibility enables experimentation and innovation.
 
@@ -79,7 +79,7 @@ As on-premises machines reach end of life, you can further distribute worker nod
 
 As part of this change, data may be made available to Azure using various file ingress techniques. Azure has many storage options to choose from, including rest endpoints to allow uploading data directly, rather than having the compute jobs pick it up from the on-premises network.
 
- ![On premises batch](./images/risk-grid-banking-overview/04-batch-process.png)
+ ![On premises batch](./images/risk-grid-banking-overview/batch-process.png)
 
 Under this model, all risk grid computing activities can take place in the cloud. Data files processed by the workers may be stored in Azure storage, data can be fed directly into the Azure Data Lake, and Azure HDInsight can take care of machine learning needs. Finally, Power BI and Azure Analytics are excellent data analysis tools and can work across all data stored in Azure.
 

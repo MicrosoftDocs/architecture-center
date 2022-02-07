@@ -18,6 +18,6 @@ products:
   - azure-sql-database
 name: Data management in banking
 summary: Describes techniques of managing data in a regulated banking environment using Microsoft Azure.
-thumbnailUrl: /azure/architecture/browse/thumbs/data-mgmt-01.png
+thumbnailUrl: /azure/architecture/browse/thumbs/logical-network-connection.png
 content: |
   [!include[](data-management-banking-overview-content.md)]
