@@ -64,12 +64,15 @@ items:
                 maintainContext: true
               - name: Multiparty computing
                 href: guide/technology-choices/multiparty-computing-service.md 
-          - name: Choose a Kubernetes edge option
+          - name: Choose a container option
             items:
+              - name: Container options
+                href: /azure/container-apps/compare-options
+                maintainContext: true
               - name: Kubernetes at the edge
                 href: operator-guides/aks/choose-kubernetes-edge-compute-option.md
               - name: Bare-metal Kubernetes at the edge
-                href: operator-guides/aks/choose-bare-metal-kubernetes.yml
+                href: operator-guides/aks/choose-bare-metal-kubernetes.yml              
           - name: Choose an identity service
             items:
               - name: Active Directory services
@@ -110,6 +113,8 @@ items:
                     href: data-guide/technology-choices/pipeline-orchestration-data-movement.md
                   - name: Search data store
                     href: data-guide/technology-choices/search-options.md
+                  - name: Data transfer options
+                    href: data-guide/scenarios/data-transfer.md
           - name: Choose an analytics solution
             items:
               - name: Analytical data stores
@@ -140,8 +145,13 @@ items:
                 maintainContext: true
               - name: Load balancing options
                 href: guide/technology-choices/load-balancing-overview.md
+              - name: VNet peering and VPN gateways
+                href: reference-architectures/hybrid-networking/vnet-peering.yml
           - name: Choose a messaging service
             items:
+              - name: Compare messaging services
+                href: /azure/event-grid/compare-messaging-services
+                maintainContext: true
               - name: Asynchronous messaging
                 href: guide/technology-choices/messaging.md
               - name: Real-time message ingestion
@@ -216,6 +226,7 @@ items:
       - name: Responsible engineering
         items:
           - name: Responsible innovation
+            expanded: true
             items:
               - name: Overview
                 href: guide/responsible-innovation/index.md
@@ -257,14 +268,14 @@ items:
               - name: Differential privacy
                 href: /azure/machine-learning/concept-differential-privacy
                 maintainContext: true
-      - name: SaaS digital business journey on Azure
-        href: guide/saas/saas-digital-business-journey-azure.md
       - name: Architecture for startups
         items:
           - name: Overview
             href: guide/startups/startup-architecture.md
           - name: Core startup stack architecture
             href: example-scenario/startups/core-startup-stack.yml
+          - name: SaaS digital business journey on Azure
+            href: guide/saas/saas-digital-business-journey-azure.md
       - name: Multitenant applications
         items:
           - name: Overview
@@ -842,16 +853,12 @@ items:
               - name: On-demand, scalable, high-power compute
                 href: /previous-versions/azure/industry-marketing/manufacturing/compute-in-manufacturing-overview
                 maintainContext: true
-              - name: Azure AI for predictive maintenance
-                href: data-science-process/predictive-maintenance-playbook.md
               - name: Predictive maintenance in manufacturing
                 href: /previous-versions/azure/industry-marketing/manufacturing/predictive-maintenance-overview
                 maintainContext: true
               - name: Predictive maintenance solution
                 href: /previous-versions/azure/industry-marketing/manufacturing/predictive-maintenance-solution
                 maintainContext: true
-              - name: ML Anomaly Detection API
-                hrf: data-science-process/apps-anomaly-detection-api.md
               - name: Extract actionable insights from IoT data
                 href: /previous-versions/azure/industry-marketing/manufacturing/extracting-insights-from-iot-data
                 maintainContext: true
