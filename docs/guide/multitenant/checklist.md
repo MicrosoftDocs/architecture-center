@@ -2,8 +2,8 @@
 title: Multitenancy checklist on Azure
 titleSuffix: Azure Architecture Center
 description: Multitenancy enables you to serve multiple distinct tenants in your Azure-hosted solution. Use this checklist to assess your multitenancy requirements and architecture. 
-author: cherchyk
-ms.author: bocherch
+author: arsenvlad
+ms.author: arsenv
 ms.date: 02/04/2022
 ms.topic: conceptual
 ms.service: architecture-center
@@ -21,7 +21,7 @@ ms.custom:
 
 # Checklist for architecting and building multitenant solutions on Azure
 
-When you build your multitenant solution in Azure, there are many elements that you need to consider. Use this checklist as a starting point to help you design and build your multitenant solution. This checklist is a companion resource to the [Architecting multitenant solutions on Azure](./overview.md) series of articles. The checklist is structured around the business considerations and the fice pillars of the [Azure Well-Architected Framework](/azure/architecture/framework/).
+When you build your multitenant solution in Azure, there are many elements that you need to consider. Use this checklist as a starting point to help you design and build your multitenant solution. This checklist is a companion resource to the [Architecting multitenant solutions on Azure](./overview.md) series of articles. The checklist is structured around the business considerations and the five pillars of the [Azure Well-Architected Framework](/azure/architecture/framework/).
 
 ## Business considerations
 
@@ -49,7 +49,7 @@ When you build your multitenant solution in Azure, there are many elements that 
 * Ensure that your application code prevents any cross-tenant access.
 * Perform ongoing penetration testing and code reviews.
 * Understand your tenants' [compliance requirements](./approaches/governance-compliance.md), including data residency and any compliance or regulatory standards that they require that you meet.
-* Correctly [manage domain names](./considerations/domain-names.md) and avoid vulnerabilities like [dangling DNS and subdomain takeover attacks](./considerations/domain-names.md#dangling-dns-and-subdomain-takeover-attacks)
+* Correctly [manage domain names](./considerations/domain-names.md) and avoid vulnerabilities like [dangling DNS and subdomain takeover attacks](./considerations/domain-names.md#dangling-dns-and-subdomain-takeover-attacks).
 * Follow [service-specific guidance](./service/overview.md) for multitenancy.
 
 ## Cost Optimization considerations
@@ -77,4 +77,7 @@ When you build your multitenant solution in Azure, there are many elements that 
 
 ## Next steps
 
-Review [Resources for architects and developers of multitenant solutions](related-resources.md).
+* Review [architectural considerations for a multitenant solutions](./considerations/overview.md).
+* Review [architectural approaches for a multitenancy](./approaches/overview.md).
+* Review [service-specific guidance for multitenancy](./service/overview.md).
+* Review additional [resources for architects and developers of multitenant solutions](related-resources.md).
