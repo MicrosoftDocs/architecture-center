@@ -28,7 +28,7 @@ categories:
 ---
 
 # Solutions for the education industry
-Help your students take hold of their futures with Microsoft Azure, a platform that provides the tools required to enable, elevate, and enhance remote learning. Azure services can connect teachers to students, help you create models of smart campus buildings, deploy virtual labs, and more.    
+Help your students take hold of their futures with Microsoft Azure, a platform that provides the tools to enable, elevate, and enhance remote learning. Azure services can connect teachers to students, help you create models of smart campus buildings, deploy virtual labs, and more.    
  
 Watch the following short video to get a sense of the breadth of the Azure offerings for education. It also shows how the [Cloud Adoption Framework](/azure/cloud-adoption-framework) can help you get the necessary resources for education.
 <br><br>
@@ -51,7 +51,7 @@ The following articles provide detailed analysis of architectures created and re
 |[Moodle deployment with Azure NetApp Files](../example-scenario/file-storage/moodle-azure-netapp-files.yml)|Deploy the Moodle learning platform with Azure NetApp Files for a resilient solution that offers high-throughput, low-latency access to scalable shared storage.| Storage|
 |[Optimized storage with logical data classification](../solution-ideas/articles/optimized-storage-logical-data-classification.yml)|Learn about a high-availability solution that handles massive amounts of data. This solution applies to scenarios like university enrollment and scheduling.| Databases|
 |[Secure research environment for regulated data](../example-scenario/ai/secure-compute-for-research.yml)|Learn about an architecture created for higher education research institutions. It enables researchers to access sensitive data while providing a high level of control and data protection.| Security|
-|[Teacher-provisioned virtual labs in Azure](../example-scenario/devops/teacher-provisioned-virtual-labs-azure.yml)|Use Azure Lab Services to set up identical virtual labs from templates. Virtual labs can be used in training and other scenarios.| DevOps|
+|[Teacher-provisioned virtual labs in Azure](../example-scenario/devops/teacher-provisioned-virtual-labs-azure.yml)|Use Azure Lab Services to set up identical virtual labs from templates. Virtual labs are ideal for training and other scenarios.| DevOps|
  
 ## Solution ideas for education
 The following are other ideas that you can use as a starting point for your education solution.
