@@ -23,7 +23,7 @@ Use the AKS virtual node to provision pods inside ACI that start in seconds. Thi
 
 ## Next steps
 
-- To learn about how to run a Kubernetes cluster by bridging AKS and ACI through the Virtual-Kubelet, see [Run a serverless Kubernetes cluster by bridging AKS and ACI through the Virtual-Kubelet](https://azure.microsoft.com/en-us/resources/videos/ignite-2018-run-a-serverless-kubernetes-cluster-by-bridging-aks-and-aci-through-the-virtual-kubelet/).
+- To learn about how to use virtual nodes in AKS, see [Create and configure an Azure Kubernetes Services (AKS) cluster to use virtual nodes](https://docs.microsoft.com/en-us/azure/aks/virtual-nodes).
 - For information about scaling, see [Scale with ease using AKS and ACI](https://azure.microsoft.com/resources/scale-with-ease-using-aks-and-aci/), [Scaling options for applications in Azure Kubernetes Service (AKS) ](/azure/aks/concepts-scale), and [Scale single database resources in Azure SQL Database](/azure/azure-sql/database/single-database-scale).
 - For information about the AKS product roadmap, see [Azure Kubernetes Service Roadmap on GitHub](https://github.com/Azure/AKS/projects/1).
 
