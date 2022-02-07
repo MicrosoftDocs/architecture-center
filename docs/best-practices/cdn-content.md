@@ -1,20 +1,4 @@
----
-title: CDN guidance
-titleSuffix: Best practices for cloud applications
-description: Guidance on using Content Delivery Networks (CDNs) to deliver high-bandwidth content hosted in Azure.
-author: EdPrice-MSFT
-ms.author: edprice
-ms.date: 02/02/2018
-ms.topic: conceptual
-ms.service: architecture-center
-ms.subservice: best-practice
-ms.custom:
-  - best-practice
----
-
 <!-- cSpell:ignore CDNs -->
-
-# Best practices for using content delivery networks (CDNs)
 
 A content delivery network (CDN) is a distributed network of servers that can efficiently deliver web content to users. CDNs store cached content on edge servers that are close to end users to minimize latency.
 

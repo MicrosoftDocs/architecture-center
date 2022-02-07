@@ -5,7 +5,7 @@ metadata:
   description: Use transaction history data to develop a pricing strategy with a machine learning model accounting for confounding and data sparsity.
   author: EdPrice-MSFT
   ms.author: pnp
-  ms.date: 12/16/2019
+  ms.date: 11/04/2021
   ms.topic: conceptual
   ms.service: architecture-center
   ms.subservice: solution-idea

@@ -64,12 +64,15 @@ items:
                 maintainContext: true
               - name: Multiparty computing
                 href: guide/technology-choices/multiparty-computing-service.md 
-          - name: Choose a Kubernetes edge option
+          - name: Choose a container option
             items:
+              - name: Container options
+                href: /azure/container-apps/compare-options
+                maintainContext: true
               - name: Kubernetes at the edge
                 href: operator-guides/aks/choose-kubernetes-edge-compute-option.md
               - name: Bare-metal Kubernetes at the edge
-                href: operator-guides/aks/choose-bare-metal-kubernetes.yml
+                href: operator-guides/aks/choose-bare-metal-kubernetes.yml              
           - name: Choose an identity service
             items:
               - name: Active Directory services
@@ -110,6 +113,8 @@ items:
                     href: data-guide/technology-choices/pipeline-orchestration-data-movement.md
                   - name: Search data store
                     href: data-guide/technology-choices/search-options.md
+                  - name: Data transfer options
+                    href: data-guide/scenarios/data-transfer.md
           - name: Choose an analytics solution
             items:
               - name: Analytical data stores
@@ -140,8 +145,13 @@ items:
                 maintainContext: true
               - name: Load balancing options
                 href: guide/technology-choices/load-balancing-overview.md
+              - name: VNet peering and VPN gateways
+                href: reference-architectures/hybrid-networking/vnet-peering.yml
           - name: Choose a messaging service
             items:
+              - name: Compare messaging services
+                href: /azure/event-grid/compare-messaging-services
+                maintainContext: true
               - name: Asynchronous messaging
                 href: guide/technology-choices/messaging.md
               - name: Real-time message ingestion
@@ -164,9 +174,9 @@ items:
           - name: Background jobs
             href: best-practices/background-jobs.md
           - name: Caching
-            href: best-practices/caching.md
+            href: best-practices/caching.yml
           - name: Content Delivery Network
-            href: best-practices/cdn.md
+            href: best-practices/cdn.yml
           - name: Data partitioning
             href: best-practices/data-partitioning.md
           - name: Data partitioning strategies (by service)
@@ -216,6 +226,7 @@ items:
       - name: Responsible engineering
         items:
           - name: Responsible innovation
+            expanded: true
             items:
               - name: Overview
                 href: guide/responsible-innovation/index.md
@@ -257,14 +268,14 @@ items:
               - name: Differential privacy
                 href: /azure/machine-learning/concept-differential-privacy
                 maintainContext: true
-      - name: SaaS digital business journey on Azure
-        href: guide/saas/saas-digital-business-journey-azure.md
       - name: Architecture for startups
         items:
           - name: Overview
             href: guide/startups/startup-architecture.md
           - name: Core startup stack architecture
             href: example-scenario/startups/core-startup-stack.yml
+          - name: SaaS digital business journey on Azure
+            href: guide/saas/saas-digital-business-journey-azure.md
       - name: Multitenant applications
         items:
           - name: Overview
@@ -329,6 +340,8 @@ items:
                     href: guide/multitenant/service/sql-database.md
                   - name: Azure Cosmos DB
                     href: guide/multitenant/service/cosmos-db.md
+                  - name: Azure Database for PostgreSQL
+                    href: guide/multitenant/service/postgresql.md
           - name: Related resources
             href: guide/multitenant/related-resources.md
       - name: Cloud comparisons
@@ -840,16 +853,12 @@ items:
               - name: On-demand, scalable, high-power compute
                 href: /previous-versions/azure/industry-marketing/manufacturing/compute-in-manufacturing-overview
                 maintainContext: true
-              - name: Azure AI for predictive maintenance
-                href: data-science-process/predictive-maintenance-playbook.md
               - name: Predictive maintenance in manufacturing
                 href: /previous-versions/azure/industry-marketing/manufacturing/predictive-maintenance-overview
                 maintainContext: true
               - name: Predictive maintenance solution
                 href: /previous-versions/azure/industry-marketing/manufacturing/predictive-maintenance-solution
                 maintainContext: true
-              - name: ML Anomaly Detection API
-                hrf: data-science-process/apps-anomaly-detection-api.md
               - name: Extract actionable insights from IoT data
                 href: /previous-versions/azure/industry-marketing/manufacturing/extracting-insights-from-iot-data
                 maintainContext: true
@@ -1449,16 +1458,6 @@ items:
                             href: data-science-process/select-features.md
                       - name: Deploy models in production
                         href: data-science-process/deploy-models-in-production.md
-                  - name: Related
-                    items:
-                      - name: Anomaly detection
-                        href: data-science-process/apps-anomaly-detection-api.md
-                      - name: Predictive maintenance
-                        items:
-                          - name: Overview
-                            href: data-science-process/predictive-maintenance-playbook.md
-                          - name: Technical guide
-                            href: data-science-process/predictive-maintenance-technical-guide.md
           - name: Architectures
             items:
               - name: AI enrichment with Cognitive Search
@@ -2795,6 +2794,10 @@ items:
                 href: reference-architectures/hybrid-networking/expressroute-vpn-failover.yml
               - name: Connect standalone servers
                 href: hybrid/azure-network-adapter.yml
+              - name: Cross-cloud scaling with Traffic Manager
+                href: example-scenario/hybrid/hybrid-cross-cloud-scaling.yml
+              - name: Cross-cloud scaling (on-premises data)
+                href: example-scenario/hybrid/hybrid-cross-cloud-scale-on-premises-data.yml   
               - name: Deploy AI and ML with Azure Stack Edge
                 href: hybrid/deploy-ai-ml-azure-stack-edge.yml
               - name: Design a hybrid Domain Name System
@@ -2811,6 +2814,8 @@ items:
                 href: reference-architectures/hybrid-networking/expressroute.yml
               - name: Extend an on-premises network using VPN
                 href: reference-architectures/hybrid-networking/vpn.yml
+              - name: Geo-distributed solution
+                href: example-scenario/hybrid/hybrid-geo-distributed.yml
               - name: Hybrid availability and monitoring
                 href: hybrid/hybrid-perf-monitoring.yml
               - name: Hybrid file services
