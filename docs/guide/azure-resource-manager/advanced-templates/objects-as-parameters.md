@@ -147,7 +147,7 @@ Let's take a closer look at how we specify our property values in the `securityR
 
 An example template is available on [GitHub][github]. To deploy the template, clone the repo and run the following [Azure CLI][cli] commands:
 
-```bash
+```azurecli
 git clone https://github.com/mspnp/template-examples.git
 cd template-examples/example3-object-param
 az group create --location <location> --name <resource-group-name>
