@@ -96,6 +96,6 @@ To learn more about the topics introduced in this article:
 - [Extend on-premises data solutions to the cloud](../../data-guide/scenarios/hybrid-on-premises-and-cloud.md)
 - [Serverless web application](../../reference-architectures/serverless/web-app.yml)
 - [Azure Data Architecture Guide](../../data-guide/index.md)
-- [Overview of a hybrid workload](/azure/architecture/framework/hybrid/hybrid-overview.md)
+- [Overview of a hybrid workload](/azure/architecture/framework/hybrid/hybrid-overview)
 - [Hybrid Security Monitoring using Microsoft Defender for Cloud and Microsoft Sentinel](../../hybrid/hybrid-security-monitoring.yml)
-- [Hybrid identity](/azure/architecture/solution-ideas/articles/hybrid-identity.yml)
+- [Hybrid identity](/azure/architecture/solution-ideas/articles/hybrid-identity)
