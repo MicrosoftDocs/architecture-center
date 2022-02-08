@@ -106,7 +106,7 @@ Maximum number of concurrent jobs that can be run on a single Hybrid Runbook Wor
 
 - Azure Security baseline for Automation: The Azure security baseline for Automation contains recommendations on how to increase overall security configuration to protect your asset following best-practice guidance.
 
-## Devops considerations
+## DevOps considerations
 
 - Azure Automation allows integration with popular source control systems, Azure DevOps, and GitHub. With Source Control, you can integrate the existing development environment that contains your scripts and custom code that have been previously tested in an isolated environment.
 - For information on how to integrate Azure Automation with your Source Control environment, refer to: Use source control integration.
