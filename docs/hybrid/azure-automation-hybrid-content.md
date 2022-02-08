@@ -1,5 +1,7 @@
 Runbooks in Azure Automation might not have access to resources in other clouds or in your on-premises environment because they run on the Azure cloud platform. You can use the Hybrid Runbook Worker feature of Azure Automation to run runbooks directly on the machine hosting the role and against resources in the environment to manage those local resources. Runbooks are stored and managed in Azure Automation and then delivered to one or more assigned machines.
 
+## Potential use cases
+
 Azure Automation provides native integration of the Hybrid Runbook Worker role through the Azure virtual machine (VM) extension framework. The Azure VM agent is responsible for management of the extension on Azure VMs on Windows and Linux VMs, and on non-Azure machines through the Arc-enabled servers Connected Machine agent. Now there are two Hybrid Runbook Workers installation platforms supported by Azure Automation.
 
 
@@ -24,6 +26,8 @@ The extension-based Hybrid Runbook Worker only supports the user Hybrid Runbook 
 Agent-based (V1) Hybrid Runbook Workers rely on the [Log Analytics agent][4] reporting to an Azure Monitor [Log Analytics workspace][5]. The workspace isn't only to collect monitoring data from the machine, but also to download the components required to install the agent-based Hybrid Runbook Worker. When Azure Automation [Update Management][6] is enabled, any machine connected to your Log Analytics workspace is automatically configured as a system Hybrid Runbook Worker.
 
 ## Architecture
+
+### Workflow
 
 The architecture consists of the following components:
 
@@ -127,6 +131,15 @@ More about Azure Automation:
 - [Pre-requisites: Azure Automation network configuration details](/azure/automation/automation-network-configuration)
 - [Azure Arc Overview](/azure/azure-arc/overview)
 - [What is Azure Arc enabled servers?](/azure/azure-arc/servers/overview)
+
+## Related resources
+
+- [Hybrid architecture design](/azure/architecture/hybrid/hybrid-start-here)
+- [Connect an on-premises network to Azure](/azure/architecture/reference-architectures/hybrid-networking)
+- [Azure Automation update management](/azure/architecture/hybrid/azure-update-mgmt)
+- [Enterprise monitoring with Azure Monitor](/azure/architecture/example-scenario/monitoring/enterprise-monitoring)
+- [Computer forensics chain of custody in Azure](/azure/architecture/example-scenario/forensics)
+- [Disaster Recovery for Azure Stack Hub virtual machines](/azure/architecture/hybrid/azure-stack-vm-dr)
 
 
 [architectural-diagram]: ./images/azure-automation-hybrid.png
