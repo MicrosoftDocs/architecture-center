@@ -487,21 +487,16 @@ items:
             href: industries/retail.md
           - name: Guides
             items: 
-              - name: Data management in the retail industry
-                href: /previous-versions/azure/industry-marketing/retail/retail-data-management-overview
-                maintainContext: true
+              - name: Data management in retail
+                href: industries/retail/retail-data-management-overview.md
               - name: Migrate your e-commerce solution to Azure
-                href: /previous-versions/azure/industry-marketing/retail/migrating-ecommerce-solution-to-azure
-                maintainContext: true
-              - name: Optimize and reuse recommendations
-                href: /previous-versions/azure/industry-marketing/retail/recommendation-engine-optimization
-                maintainContext: true
-              - name: Visual search in retail with CosmosDB
-                href: /previous-versions/azure/industry-marketing/retail/visual-search-use-case-overview
-                maintainContext: true
+                href: industries/retail/migrate-ecommerce-solution.md
+              - name: Optimize and reuse a recommendation system
+                href: industries/retail/recommendation-engine-optimization.yml
               - name: SKU optimization for consumer brands
-                href: /previous-versions/azure/industry-marketing/retail/sku-optimization-solution-guide
-                maintainContext: true
+                href: industries/retail/sku-optimization-solution-guide.yml
+              - name: Visual search in retail with Cosmos DB
+                href: industries/retail/visual-search-use-case-overview.yml
           - name: Architectures
             items:
               - name: All retail architectures
@@ -543,23 +538,18 @@ items:
                     href: /industry/financial-services/compliance-overview
                     maintainContext: true
               - name: Risk grid computing in banking
-                href: /previous-versions/azure/industry-marketing/financial/risk-grid-banking-overview
-                maintainContext: true
+                href: industries/finance/risk-grid-banking-overview.yml
               - name: Risk grid computing solution
-                href: /previous-versions/azure/industry-marketing/financial/risk-grid-banking-solution-guide
-                maintainContext: true
+                href: industries/finance/risk-grid-banking-solution-guide.yml
               - name: Data management in banking
-                href: /previous-versions/azure/industry-marketing/financial/data-mgmt-in-banking-overview
-                maintainContext: true
+                href: industries/finance/data-management-banking-overview.yml
               - name: Financial institutions with data mesh
                 href: /azure/cloud-adoption-framework/scenarios/data-management/architectures/reference-architecture-data-mesh
                 maintainContext: true
               - name: Actuarial risk analysis
-                href: /previous-versions/azure/industry-marketing/financial/actuarial-risk-analysis-and-financial-modeling-solution-guide
-                maintainContext: true
-              - name: Enable the financial services risk lifecycle
-                href: /previous-versions/azure/industry-marketing/financial/fsi-risk-modeling
-                maintainContext: true
+                href: industries/finance/actuarial-risk-analysis-financial-model.yml
+              - name: Financial services risk lifecycle
+                href: industries/finance/financial-risk-model.md
           - name: Architectures
             items:
               - name: All finance architectures
@@ -697,8 +687,7 @@ items:
                     href: /previous-versions/azure/security/blueprints/azure-health
                     maintainContext: true
                   - name: Implement the healthcare blueprint for AI
-                    href: /previous-versions/azure/industry-marketing/health/sg-healthcare-ai-blueprint
-                    maintainContext: true
+                    href: industries/healthcare/healthcare-ai-blueprint.yml
                   - name: HIPAA/HITRUST compliant health data
                     href: solution-ideas/articles/security-compliance-blueprint-hipaa-hitrust-health-data-ai.yml
       - name: Government
@@ -851,17 +840,17 @@ items:
               - name: Upscale ML lifecycle with MLOps framework
                 href: example-scenario/mlops/mlops-technical-paper.yml
               - name: On-demand, scalable, high-power compute
-                href: /previous-versions/azure/industry-marketing/manufacturing/compute-in-manufacturing-overview
-                maintainContext: true
+                href: industries/manufacturing/compute-manufacturing-overview.yml
+              - name: Azure AI for predictive maintenance
+                href: data-science-process/predictive-maintenance-playbook.md
               - name: Predictive maintenance in manufacturing
-                href: /previous-versions/azure/industry-marketing/manufacturing/predictive-maintenance-overview
-                maintainContext: true
+                href: industries/manufacturing/predictive-maintenance-overview.yml
               - name: Predictive maintenance solution
-                href: /previous-versions/azure/industry-marketing/manufacturing/predictive-maintenance-solution
-                maintainContext: true
+                href: industries/manufacturing/predictive-maintenance-solution.yml
+              - name: ML Anomaly Detection API
+                href: data-science-process/apps-anomaly-detection-api.md
               - name: Extract actionable insights from IoT data
-                href: /previous-versions/azure/industry-marketing/manufacturing/extracting-insights-from-iot-data
-                maintainContext: true
+                href: industries/manufacturing/extract-insights-iot-data.yml
           - name: Architectures
             items:
               - name: All manufacturing architectures
