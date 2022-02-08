@@ -249,8 +249,7 @@ items:
                 href: /azure/cloud-adoption-framework/innovate/best-practices/trusted-ai
                 maintainContext: true
               - name: Guidelines for human-AI interaction
-                href: /ai/guidelines-human-ai-interaction
-                maintainContext: true
+                href: https://docs.microsoft.com/ai/guidelines-human-ai-interaction/?toc=https%3A%2F%2Fdocs.microsoft.com%2Fen-us%2Fazure%2Farchitecture%2Ftoc.json&bc=https%3A%2F%2Fdocs.microsoft.com%2Fen-us%2Fazure%2Farchitecture%2Fbread%2Ftoc.json
               - name: Responsible AI with Cognitive Services
                 href: /azure/cognitive-services/responsible-use-of-ai-overview
                 maintainContext: true
@@ -1117,6 +1116,16 @@ items:
               - name: TISAX overview
                 href: /azure/compliance/offerings/offering-tisax
                 maintainContext: true
+      - name: Telecommunications
+        items:
+          - name: Guides
+            items:
+              - name: Field and cloud edge gateways
+                href: /azure/architecture/example-scenario/iot/field-cloud-edge-gateways              
+          - name: Architectures
+            items:
+              - name: All telecommunications architectures
+                href: /azure/architecture/browse/?terms=telecommunications
       - name: Facilities and Real Estate
         items: 
           - name: Overview
@@ -1204,6 +1213,26 @@ items:
                 href: solution-ideas/articles/environment-monitoring-and-supply-chain-optimization.yml
               - name: Low-latency network for farming
                 href: solution-ideas/articles/low-latency-network.yml
+      - name: Aerospace
+        items:
+          - name: Guides
+            items:
+              - name: Azure Orbital for space communication
+                href: /azure/orbital/overview
+                maintainContext: true
+              - name: Modular Datacenter
+                href: /azure-stack/mdc/mdc-overview
+                maintainContext: true
+          - name: Architectures
+            items:
+              - name: All aerospace architectures
+                href: /azure/architecture/browse/?terms=aircraft
+              - name: Advanced (AKS) microservices - drones
+                href: /azure/architecture/reference-architectures/containers/aks-microservices/aks-microservices-advanced
+              - name: Predictive maintenance for aircraft monitoring
+                href: /azure/architecture/solution-ideas/articles/predictive-maintenance
+              - name: Vision classifier model - simulated drone
+                href: /azure/architecture/example-scenario/dronerescue/vision-classifier-model-with-custom-vision
       - name: Nonprofit
         items:
           - name: Microsoft Cloud for Nonprofit
@@ -1231,13 +1260,6 @@ items:
           - name: Dynamics 365 nonprofit accelerator for Azure
             href: /dynamics365/industry/accelerators/nfp
             maintainContext: true
-      - name: Space
-        items:
-          - name: Azure Orbital for space communication
-            href: /azure/orbital/overview
-            maintainContext: true
-          - name: Predictive maintenance for aerospace
-            href: data-science-process/predictive-maintenance-technical-guide.md
       - name: Sports
         items:
           - name: Analyze Olympic sports with sensors and vision
