@@ -2937,6 +2937,8 @@ items:
                 href: hybrid/hybrid-server-os-mgmt.yml
               - name: On-premises data gateway for Logic Apps
                 href: hybrid/gateway-logic-apps.yml
+              - name: Public multi-access edge compute deployment
+                href: example-scenario/hybrid/public-multi-access-edge-compute-deployment.yml
               - name: Run containers in a hybrid environment
                 href: hybrid/hybrid-containers.yml
               - name: Use Azure file shares in a hybrid environment
