@@ -87,7 +87,7 @@ The following table summarizes security considerations regarding service princip
 
 | Use case | Requirements (least privilege) | Role assignment duration | Permission scope | Trustee| Security considerations |
 | -- | --- | --- | --- | --- | ---------- |
-| Enable Sentinel connectors | <ul type="circle"> <li> Security Administrator (see table note two) </li> <li> Owner * </li> <li> Sentinel Contributor </li> <li> Reader </li>| JIT (one-time activation) <br> On purpose (every time a new subscription and connector deploys) | Tenant | SPN | <ul type="circle"> <li> Use Key Vault to store SPN secrets and certificate. </li> <li> Enable SPN auditing. </li> <li> Periodically review permission assignment (Azure PIM for SPN) or suspicious activity for SPN. </li>  <li> Use AAD CA and MFA (when supported) for privileged accounts. </li> <li> Use Azure AD Custom Roles for more granularity. </li> |
+| Enable Sentinel connectors | <ul type="circle"> <li> Security Administrator ** </li> <li> Owner * </li> <li> Sentinel Contributor </li> <li> Reader </li>| JIT (one-time activation) <br> On purpose (every time a new subscription and connector deploys) | Tenant | SPN | <ul type="circle"> <li> Use Key Vault to store SPN secrets and certificate. </li> <li> Enable SPN auditing. </li> <li> Periodically review permission assignment (Azure PIM for SPN) or suspicious activity for SPN. </li>  <li> Use AAD CA and MFA (when supported) for privileged accounts. </li> <li> Use Azure AD Custom Roles for more granularity. </li> |
 | Deploy Sentinel artifacts (workbooks, analytics, rules, threat hunting queries, notebooks, playbooks) | <ul type="circle"> <li> Sentinel Contributor </li> <li> Logic Apps contributor </li> |Permanent | Sentinel's Workspace or Resource Group | SPN | <ul type="circle"> <li> Use ADO Workflow approval and checks to secure pipeline deployment with this SPN. </li>|
 | Assign a policy to configure log streaming features to Sentinel|  Resource Policy Contributor ** | On purpose (every time a new subscription and connector deploys) | All subscriptions to be monitored| SPN | <ul type="circle"> <li> Use AAD CA and MFA (when supported) for privileged accounts. </li> |
 
@@ -259,7 +259,7 @@ You have two choices in setting up your environment definitions, physical or log
   * Terraform
 * Logical definition - This acts as an abstraction layer for setting up different teams in the organization and defining their environments. The definition is set in the deployment pipeline and workflows as input for the build environment using the physical infrastructure layer.
 
-Some things for you to think about when defining your logical environments:
+Things for you to think about when defining your logical environments:
 
 * Naming conventions
 * Environment identifications
@@ -277,7 +277,7 @@ The following example shows a how your code might be organized:
 
 Access to this repository should be restricted to the team that defines the architecture at the physical level, ensuring a homogeneous definition in the Enterprise architecture.
 
-You can adapt the branching and merging strategy to the deployment strategy for each organization. If your organization needs to start with the definition, see [Adopt a Git branching strategy](https://docs.microsoft.com/en-us/azure/devops/repos/git/git-branching-guidance?view=azure-devops). For more information on Azure ARM templates, see [Using linked and nested templates when deploying Azure resources](https://docs.microsoft.com/en-us/azure/azure-resource-manager/templates/linked-templates?tabs=azure-powershell#linked-template). For more information on setting up Bicep environments, see [Install Bicep tools](https://docs.microsoft.com/en-us/azure/azure-resource-manager/bicep/install). For more information on GitHub, see [GitHub flow](https://docs.github.com/en/get-started/quickstart/github-flow).
+You can adapt the branching and merging strategy to the deployment strategy for each organization. If your organization needs to start with the definition, see [Adopt a Git branching strategy](/azure/devops/repos/git/git-branching-guidance?view=azure-devops). For more information on Azure ARM templates, see [Using linked and nested templates when deploying Azure resources](/azure/azure-resource-manager/templates/linked-templates?tabs=azure-powershell#linked-template). For more information on setting up Bicep environments, see [Install Bicep tools](/azure/azure-resource-manager/bicep/install). For more information on GitHub, see [GitHub flow](https://docs.github.com/en/get-started/quickstart/github-flow).
 
 Logical definitions facilitate the organization environments. The Git repository must consolidate the different definitions for an organization.
 
@@ -295,12 +295,12 @@ Organizations that want environments on demand for testing and development and t
 
 Microsoft Sentinel Connectors is an essential part of the solution that supports connecting with different elements in the Enterprise Architecture landscape, like Azure AD, Microsoft 365, Microsoft Defenders, Threat Intelligence Platform solutions, and so on.  
 
-At the time of defining an Environment, the connectors configuration makes it possible for you to set up environments with homogeneous configurations.
+When defining an Environment, the connectors configuration makes it possible to set up environments with homogeneous configurations.
 
-Enabling connectors as part of the DevOps model needs to be supported over the Service Principal level model for ensuring the right level of privileges as shown in the following table.
+Enabling connectors as part of the DevOps model must be supported over the Service Principal level model. This focus enures the right level of privileges as shown in the following table.
 
-| Connector Scenario | Privilege Access Model Level | Azure Least Privilege | Requires Workflow Approval  | 
-| ---- | --- | --- | --- | 
+| Connector Scenario | Privilege Access Model Level | Azure Least Privilege | Requires Workflow Approval  |
+| ---- | --- | --- | --- |
 | Azure Active Directory | Level 0 | Global Admin or Security Admin | Recommended |
 | Azure Active Directory Identity Protection | Level 0 | Global Admin or Security Admin | Recommended |
 | Microsoft Defender for Identity | Level 0 | Global Admin or Security Admin | Recommended |
@@ -316,6 +316,72 @@ Enabling connectors as part of the DevOps model needs to be supported over the S
 | DNS (preview) | Level 4 | None | Optional |
 | Windows Firewall | Level 4 | None | Optional |
 | Windows Security Events via AMA | Level 4 | None | Optional |
+
+### Sentinel Artifacts Deployment  
+
+Microsoft Sentinel Artifacts is where DevOps has greater relevance, because each organization creates multiple artifacts for preventing and remediating attacks.
+
+Implementing the Microsoft Sentinel artifacts can be the responsibility of one team or multiple teams. Automatic build and artifacts deployment is often the most common process requirement and can condition the approach for Agents/Runners.
+
+Deploying and managing Microsoft Sentinel artifacts requires using the Microsoft Sentinel REST API. For more information, see [Microsoft Sentinel REST API](/rest/api/securityinsights/). The following diagram shows an Azure DevOps pipeline on an Azure REST API stack.
+
+![Azure DevOps pipeline on Microsoft Sentinel API stack](./media/azure-devops-pipeline-on-sentinel-api-stack.png)
+
+You can also implement your repository using PowerShell. 
+
+If your organization uses MITRE, consider classifying the different artifacts and specifying the Tactics and Technics for each one. Be sure you include a corresponding metadata file for each artifact type.
+
+For example, if you're creating a new playbook using an Azure ARM template and the file name is _Playbook.arm.json_, you add a JSON file named _Playbook.arm.mitre.json_. The metadata for this file then includes the CSV, JSON, or YAML formats corresponding to the MITRE Tactics or Technics you're using. 
+
+By following this practice, your organization can evaluate your MITRE coverage based on the jobs done during implementation for the different artifact types you use.
+
+#### Build artifacts
+
+The objective of your build process is to ensure that you generate the highest quality artifacts. The following diagram shows some of the build process actions you can take:
+
+![Microsoft Sentinel build process](./media/build-artifact-process.png)
+
+* You can base your artifact definition on a descriptive schema in JSON or YAML format and then validate the schema to avoid syntax errors.  
+  * Validate your ARM templates using [TTK ARM Template Test Toolkit](/azure/azure-resource-manager/templates/test-toolkit).
+  * Validate your YAML and JSON files for custom models using PowerShell.
+* Validate your watchlist settings and be sure the CIDR records that you define follow the correct schema (for example, 10.1.0.0/16).  
+* Analytic rules, hunting rules, and live stream rules use KQL queries, which you can validate at the level of the syntax.
+* The [KQL local validation](https://github.com/Azure/Azure-Sentinel#run-kql-validation-locally) tool is one option.
+* The [KQL inline validation](https://github.com/Azure/Azure-Sentinel/blob/master/.azure-pipelines/kqlValidations.yaml) tool is integrated in DevOps pipeline.
+* If you're implementing logic based on PowerShell for Azure Automation, you can include syntax validation and unit testing using the following elements:
+  * [Pester](https://devblogs.microsoft.com/scripting/what-is-pester-and-why-should-i-care/)
+  * [PowerShell Script Analyzer](https://docs.microsoft.com/en-us/powershell/module/psscriptanalyzer/?view=ps-modules)  
+* Generate the MITRE manifest metadata report based on the metadata files included with the artifacts.
+
+#### Export Artifacts
+
+Usually, multiple implementation teams work over several Microsoft Sentinel instances to generate necessary artifacts and validate them. With the idea of reusing existing artifacts, an organization can implement automatic processes for getting the artifact definitions from existing environments. Automation can also supply information on any artifacts created by different development teams during implementation. The following diagram shows an example artifact extraction process.
+
+![Microsoft Sentinel artifact extraction process](./media/artifact-extraction-process.png)
+
+#### Deploy Artifacts
+
+The objective of your Deployment process is to reduce the time to market, increase performance across the multiple teams involved with setting up and managing your solution, and setting up integration testing to evaluate the health of the environment.  
+
+Development teams use the process to ensure they can deploy, test, and validate artifact use cases under development.
+ The Architecture team and the Security Operations Center (SOC) teams validate the pipeline quality on QA environments and work with the integration tests for attack scenarios. On the test cases, the team usually combines different artifacts as Analytic Rules, Remediation Playbooks, Watchlists, and so on. A part of each use case includes simulating attacks where the entire chain is evaluated from ingestion, detection, and remediation. The following diagram shows the deployment process sequence that ensures your artifacts are deployed in the right order.
+
+![Microsoft Sentinel artifact deployment process](./media/artifact-deployment-process.png)
+
+Managing Sentinel artifacts as code offer you flexible ways to maintain your operations and automate the deployment in a CI/CD DevOps pipeline.
+
+Microsoft solutions provide automation workflows for the following artifacts:
+
+| Artifact | Automation workflows |
+| ---- | --- |
+| Watchlists | <ul type="circle"> <li>Code Review </li><ul><li>Schema validation </li></ul> </li> <li>[Deployment](/rest/api/securityinsights/watchlists) </li><ul><li>Create, Update, Delete watchlists and [items](/rest/api/securityinsights/watchlist-items) </li></ul></li></ul> |
+| Analytics Rules <ul type="circle"> <li>Fusion</li> <li>Microsoft Security</li> <li>ML Behavioral Analytics</li> <li>Anomaly</li> <li>Scheduled</li></ul> | <ul type="circle"> <li>[Code Review](/azure/security/develop/security-code-analysis-overview) </li><ul><li>KQL Syntax validation</li><li>Schema validation</li><li>Pester</li></ul> </li> <li>[Deployment](/rest/api/securityinsights/alert-rules) </li><ul><li>Create, Enable, Update, Delete, Export</li><li>[Alert templates support](/rest/api/securityinsights/alert-rule-templates)</li></ul></li></ul> |
+| Automation Rules | <ul type="circle"> <li>[Code Review](/azure/security/develop/security-code-analysis-overview) </li><ul><li>Schema validation</li></ul> </li> <li>[Deployment](/rest/api/securityinsights/alert-rules) </li><ul><li>Create, Enable, Update, Delete, Export</li></ul></li></ul> |
+| Connectors | <ul type="circle"> <li>[Code Review](/azure/security/develop/security-code-analysis-overview) </li><ul><li>Schema validation</li></ul> </li> <li>[Deployment](/rest/api/securityinsights/data-connectors) </li><ul><li>Actions: Enable, Delete (Disable), Update</li></ul></li></ul> |
+| Hunting Rules | <ul type="circle"> <li>[Code Review](/azure/security/develop/security-code-analysis-overview) </li><ul><li>KQL Syntax validation</li><li>Schema validation</li><li>Pester</li></ul> </li> <li>[Deployment](/azure/sentinel/hunting-with-rest-api) </li><ul><li>Actions: Create, Enable, Update, Delete, Export</li></ul></li></ul> |
+| Playbooks | <ul type="circle"> <li>[Code Review](/azure/security/develop/security-code-analysis-overview) </li><ul><li>TTK </li></ul> </li> <li>[Deployment](/azure/logic-apps/logic-apps-azure-resource-manager-templates-overview) </li><ul><li>Actions: Create, Enable, Update, Delete, Export</li></ul></li></ul> |
+| Workbooks | <ul type="circle"> <li>[Code Review](CR-LINK) </li><ul><li>Actions: Create, Update, Delete</li></ul> </li> <li>[Deployment](/azure/azure-monitor/visualize/workbooks-automate) </li><ul><li>Actions: Create, Update, Delete</li></ul></li></ul> |
+| Runbooks | <ul type="circle"> <li>[Code Review](/azure/security/develop/security-code-analysis-overview) </li><ul><li>PowerShell Syntax validation</li><li>Pester</li></ul> </li> <li>[Deployment](/azure/automation/automation-deploy-template-runbook) </li><ul><li>Actions: Create, Enable, Update, Delete, Export</li></ul></li></ul> |
 
 ## Pricing
 
