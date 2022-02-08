@@ -205,11 +205,11 @@ Depending on your organization's requirements, you can use Microsoft-hosted, sel
 
 GitHub can use GitHub-hosted runners or self-hosted runners for activities related to building, testing and deploying.  Depending on your organization needs, you can use GitHub-hosted, self-hosted, or a combination of both models.
 
-GitHub-hosted runners
+**GitHub-hosted runners**
 
 This option is the fastest way to work with GitHub workflows, since it's a shared infrastructure for an entire organization. For more information on GitHub hosted runners, see [About GitHub-hosted runners](https://docs.github.com/en/actions/using-github-hosted-runners/about-github-hosted-runners) GitHub-hosted agents work in hybrid-networking environments, according to certain network requirements. For more information on the network requirements, see [Supported runners and hardware resources](https://docs.github.com/en/actions/using-github-hosted-runners/about-github-hosted-runners#ip-addresses)
   
-Self-hosted runners
+**Self-hosted runners**
 
 This option gives your organization a dedicated resources infrastructure. Self-hosted runners work over Virtual Machines and Containers on Azure, and support auto-scaling.
 
@@ -218,14 +218,14 @@ This option gives your organization a dedicated resources infrastructure. Self-h
 The following are things to consider when choosing options for the agents and runners in your Microsoft Sentinel solution:
 
 * Does your organization need dedicated resources for running processes on your Microsoft Sentinel environment(s)?
-* Does your organization want to isolate resources for Production environment DevOps activities from the rest of environments? 
-* Does your organization need to test cases that require access to critical resources or resources available only on an internal network?
+* Does your organization want to isolate resources for Production environment DevOps activities from the rest of the environments?
+* Does your organization need to test certain cases that require access to critical resources or resources available only on an internal network?
 
-## Deploy this scenario
+### Orchestration and automation of release processes
 
 You can set up the deployment process with Azure DevOps or GitHub. Azure DevOps supports using a YAML pipeline or a Release pipeline. For more information on using a YAML pipeline in Azure DevOps, see [Use Azure Pipelines](https://docs.microsoft.com/en-us/azure/devops/pipelines/get-started/pipelines-get-started?view=azure-devops). For more information on using a Release pipeline in Azure DevOps, see [Release pipelines](https://docs.microsoft.com/en-us/azure/devops/pipelines/release/?view=azure-devops). For more information on using GitHub with GitHub Actions, see [Understanding GitHub Actions](https://docs.github.com/en/actions/learn-github-actions/understanding-github-actions).
 
-### Azure DevOps deployment
+#### Azure DevOps
 
 You can do the following deployment activities in an Azure DevOps deployment.
 
@@ -233,7 +233,7 @@ You can do the following deployment activities in an Azure DevOps deployment.
 * Manage service connections for different environments using Azure DevOps Groups.
 * On your critical environments, set up deployment approvals using the service connection feature and Azure DevOps Groups to assign specific user permissions in your organization.
 
-GitHub
+#### GitHub
 
 You can do the following deployment activities in a GitHub deployment.
 
@@ -243,13 +243,13 @@ You can do the following deployment activities in a GitHub deployment.
 
 ### Automatic deployment with Microsoft Sentinel infrastructure
 
-You can deploy one or more Microsoft Sentinel environments, depending on your enterprise architecture:
+You can deploy one or more Microsoft Sentinel environments, depending on your enterprise architecture.
 
 * Organizations that need multiple instances on their Production environment can set up different subscriptions on the same tenant for each geographical location.  
 * A centralized instance on the Production environment provides access to one or more organizations on the same tenant.
 * Organizations that need multiple environments like Production, Pre-Production, Integration, and so on can create and destroy them as needed.
 
-#### Physical vs logical environment definitions
+#### Physical versus logical environment definitions
 
 You have two choices in setting up your environment definitions, physical or logical. Both have different options and advantages.
 
@@ -259,7 +259,7 @@ You have two choices in setting up your environment definitions, physical or log
   * Terraform
 * Logical definition - This acts as an abstraction layer for setting up different teams in the organization and defining their environments. The definition is set in the deployment pipeline and workflows as input for the build environment using the physical infrastructure layer.
 
-Things for you to think about when defining your logical environments:
+The following list is some things to think about when defining your logical environments.
 
 * Naming conventions
 * Environment identifications
@@ -267,9 +267,9 @@ Things for you to think about when defining your logical environments:
 
 #### Code Repository
 
-Given the environment approaches shown in the previous section, consider the following GitHub code repository organizations:
+Given the environment approaches shown in the previous section, consider the following GitHub code repository organizations.
 
-* Physical definition - Based on IaC options, think about an approach based on individual module definitions linked in the main deployment definition.
+* Physical definition - Based on IaC options, think about an approach using individual module definitions linked in the main deployment definition.
 
 The following example shows a how your code might be organized:
 
@@ -299,7 +299,7 @@ When defining an Environment, the connectors configuration makes it possible to 
 
 Enabling connectors as part of the DevOps model must be supported over the Service Principal level model. This focus enures the right level of privileges as shown in the following table.
 
-| Connector Scenario | Privilege Access Model Level | Azure Least Privilege | Requires Workflow Approval  |
+| Connector scenario | Privilege access model level | Azure least privilege | Requires workflow approval  |
 | ---- | --- | --- | --- |
 | Azure Active Directory | Level 0 | Global Admin or Security Admin | Recommended |
 | Azure Active Directory Identity Protection | Level 0 | Global Admin or Security Admin | Recommended |
@@ -317,17 +317,17 @@ Enabling connectors as part of the DevOps model must be supported over the Servi
 | Windows Firewall | Level 4 | None | Optional |
 | Windows Security Events via AMA | Level 4 | None | Optional |
 
-### Sentinel Artifacts Deployment  
+### Microsoft Sentinel artifacts deployment  
 
-Microsoft Sentinel Artifacts is where DevOps has greater relevance, because each organization creates multiple artifacts for preventing and remediating attacks.
+Microsoft Sentinel artifacts is where DevOps gains greater relevance, because each organization creates multiple artifacts for preventing and remediating attacks.
 
-Implementing the Microsoft Sentinel artifacts can be the responsibility of one team or multiple teams. Automatic build and artifacts deployment is often the most common process requirement and can condition the approach for Agents/Runners.
+Implementing the artifacts can be the responsibility of one team or multiple teams. Automatic build and artifacts deployment is often the most common process requirement and determines the approach and conditions for your agents and runners.
 
 Deploying and managing Microsoft Sentinel artifacts requires using the Microsoft Sentinel REST API. For more information, see [Microsoft Sentinel REST API](/rest/api/securityinsights/). The following diagram shows an Azure DevOps pipeline on an Azure REST API stack.
 
 ![Azure DevOps pipeline on Microsoft Sentinel API stack](./media/azure-devops-pipeline-on-sentinel-api-stack.png)
 
-You can also implement your repository using PowerShell. 
+You can also implement your repository using PowerShell.
 
 If your organization uses MITRE, consider classifying the different artifacts and specifying the Tactics and Technics for each one. Be sure you include a corresponding metadata file for each artifact type.
 
@@ -337,7 +337,7 @@ By following this practice, your organization can evaluate your MITRE coverage b
 
 #### Build artifacts
 
-The objective of your build process is to ensure that you generate the highest quality artifacts. The following diagram shows some of the build process actions you can take:
+The objective of your build process is to ensure that you generate the highest quality artifacts. The following diagram shows some of the build process actions you can take.
 
 ![Microsoft Sentinel build process](./media/build-artifact-process.png)
 
@@ -355,7 +355,7 @@ The objective of your build process is to ensure that you generate the highest q
 
 #### Export Artifacts
 
-Usually, multiple implementation teams work over several Microsoft Sentinel instances to generate necessary artifacts and validate them. With the idea of reusing existing artifacts, an organization can implement automatic processes for getting the artifact definitions from existing environments. Automation can also supply information on any artifacts created by different development teams during implementation. The following diagram shows an example artifact extraction process.
+Usually, multiple implementation teams work over several Microsoft Sentinel instances to generate necessary artifacts and validate them. With the goal of reusing existing artifacts, your organization can implement automatic processes for getting the artifact definitions from existing environments. Automation can also supply information on any artifacts created by different development teams during implementation. The following diagram shows an example artifact extraction process.
 
 ![Microsoft Sentinel artifact extraction process](./media/artifact-extraction-process.png)
 
@@ -364,13 +364,13 @@ Usually, multiple implementation teams work over several Microsoft Sentinel inst
 The objective of your Deployment process is to reduce the time to market, increase performance across the multiple teams involved with setting up and managing your solution, and setting up integration testing to evaluate the health of the environment.  
 
 Development teams use the process to ensure they can deploy, test, and validate artifact use cases under development.
- The Architecture team and the Security Operations Center (SOC) teams validate the pipeline quality on QA environments and work with the integration tests for attack scenarios. On the test cases, the team usually combines different artifacts as Analytic Rules, Remediation Playbooks, Watchlists, and so on. A part of each use case includes simulating attacks where the entire chain is evaluated from ingestion, detection, and remediation. The following diagram shows the deployment process sequence that ensures your artifacts are deployed in the right order.
+ The Architecture team and the Security Operations Center (SOC) teams validate the pipeline quality on QA environments and work with the integration tests for attack scenarios. On the test cases, the team usually combines different artifacts as analytic rules, remediation playbooks, watchlists, and so on. A part of each use case includes simulating attacks where the entire chain is evaluated from ingestion, detection, and remediation. The following diagram shows the deployment process sequence that ensures your artifacts are deployed in the right order.
 
 ![Microsoft Sentinel artifact deployment process](./media/artifact-deployment-process.png)
 
 Managing Sentinel artifacts as code offer you flexible ways to maintain your operations and automate the deployment in a CI/CD DevOps pipeline.
 
-Microsoft solutions provide automation workflows for the following artifacts:
+Microsoft solutions provide automation workflows for the following artifacts.
 
 | Artifact | Automation workflows |
 | ---- | --- |
@@ -383,16 +383,157 @@ Microsoft solutions provide automation workflows for the following artifacts:
 | Workbooks | <ul type="circle"> <li>[Code Review](CR-LINK) </li><ul><li>Actions: Create, Update, Delete</li></ul> </li> <li>[Deployment](/azure/azure-monitor/visualize/workbooks-automate) </li><ul><li>Actions: Create, Update, Delete</li></ul></li></ul> |
 | Runbooks | <ul type="circle"> <li>[Code Review](/azure/security/develop/security-code-analysis-overview) </li><ul><li>PowerShell Syntax validation</li><li>Pester</li></ul> </li> <li>[Deployment](/azure/automation/automation-deploy-template-runbook) </li><ul><li>Actions: Create, Enable, Update, Delete, Export</li></ul></li></ul> |
 
+Depending on the automation language you choose, some automation capabilities might not be supported. The following diagram shows which automation capabilities are supported by language.
+
+![Supported automation capabilities chart](./media/supported-automation-capabilities.png)
+
+\* Features in development or not yet documented<br>
+\** Automation methods supported by [Microsoft Operational Insights](/rest/api/loganalytics/workspaces) or [Microsoft Insights Resource Provider APIs](/azure/templates/microsoft.insights/workbooks?tabs=bicep)
+
+#### Azure Automation
+
+The following diagram shows the components of simplifying Microsoft Sentinel access with managed service identity.
+
+![Azure Sentinel managed service identity diagram](./media/azure_sentinel-managed-service-identity.png)
+
+If you need to grant access to another resources, using managed identity ensures a unique identity for all critical operations.
+
+Use Azure Automation for setting up Playbooks. Use PowerShell scripts for the following complex tasks and automation features.
+
+* Integrating with third-party solutions, where different levels of credentials are required (based on Azure AD or Custom):
+  * Azure AD User Credentials
+  * Azure AD Service Principal Credentials
+  * Certificate Authentication
+  * Custom Credentials
+  * Managed Identity 
+* Implementing a solution that reuses organizational scripts, or solutions that require the use of PowerShell commands to avoid complex translation to playbooks
+  * PowerShell-based solutions
+  * Python-based solutions
+* Implementing solutions on Hybrid Scenarios, where remediation actions can affect your cloud and on-premises resources
+
+#### Microsoft Sentinel repositories
+
+Experienced DevOps teams might consider managing Microsoft Sentinel in Infra as Code (IaC) with CI/CD pipelines built in Azure DevOps. Product groups understand the challenges customers and partners face in building Azure DevOps Security Architecture, so the following two initiatives can help.  
+
+* Documenting the reference architecture
+* Developing a new solution, announced at Ignite 2021, called “Microsoft Sentinel Repositories”.
+
+To support choosing the solution that fits your organization's needs, the following table compares the functional and technical criteria.
+
+| Use case and features | Azure DevOps and GitHub custom approach | Microsoft Sentinel repositories | 
+| ---- | --- | --- |
+| We want to quickly start deploying Microsoft Sentinel artifacts without spending time in defining ADO architecture (Agents, Pipelines, Git, Dashboards, Wiki, Service Principals, RBACs, Auditing, and so on).  | Not recommended | Recommended |
+| We have small teams and low skill sets to manage the CI/CD pipelines. | Not recommended | Recommended |
+| We want to control and manage all security aspects of the CI/CD pipelines. |  Supported | Not supported |
+| We need to integrate gates and branching for supervising integration, before allowing developers to trigger deployment pipelines (source control, coding review, rollback, workflow approval, and so on). | Supported | Partially supported |
+| We have a customized Git or Repository structure. | Supported | Supported |
+| We don't use ARM or Bicep IaC languages to build artifacts. | Supported | Not supported |
+| We want to centrally manage the deployment of artifacts to multiple Microsoft Sentinel workspaces in a single Azure AD Tenant. | Supported | Supported |
+| We want to integrate or extend CI/CD pipelines across multiple Azure AD Tenants. | Supported | Supported |
+| We have playbooks with different parametrization depending on subscription, location, environment, and so on. | Supported | TBD (Guidelines to be documented) |
+| We want to integrate different artifacts on the same repository to compose use cases. | Supported | Supported |
+| We want the ability to bulk remove artifacts. | Supported | Not Supported |
+
+### Availability, performance, and scalability
+
+When choosing the architecture for the Azure DevOps Agents in your organization for Microsoft Sentinel scenarios, consider the following needs.
+
+* The Production environment might require a dedicated agents pool for operations over the Microsoft Sentinel environment.
+* Non-Production environments might share the agent pool with a large number of instances for handling the different demands from the teams (in particular for CI/CD practices).
+  * Attack simulation scenarios are a special case where dedicated agents can be required. Consider whether a dedicated pool is necessary for your testing needs. 
+* Organizations working on hybrid networking scenarios might consider integrating the agents inside the network.
+
+Organizations can create their own images for agents based on containers. For more information, see [Run a self-hosted agent in Docker](/azure/devops/pipelines/agents/docker?view=azure-devops#create-and-build-the-dockerfile-1)  
+
+#### Microsoft Sentinel cross-tenant management with Azure DevOps
+
+As a Global SOC or Managed Security Service Provider (MSSP), you might have to manage multiple tenants. Azure Lighthouse supports scaled operations across several Azure Active Directory (Azure AD) tenants at once, making your management tasks more efficient. For more information, see [Azure Lighthouse Overview](/azure/lighthouse/overview).
+
+The following scenarios are where cross-tenant management is especially effective.
+
+* Manage Microsoft Sentinel resources [in customer tenants](/azure/sentinel/multiple-tenants-service-providers).
+* [Track attacks and view security alerts across multiple tenants](https://techcommunity.microsoft.com/t5/azure-sentinel/using-azure-lighthouse-and-azure-sentinel-to-monitor-across/ba-p/1043899).
+* [View incidents](/azure/sentinel/multiple-workspace-view) across multiple Microsoft Sentinel workspaces that are spread across tenants.
+
+#### Methods to onboard customers
+
+You have two options to onboard customers.
+
+#### Manual onboarding using an ARM template
+
+If you don't want to publish an offer to Azure Marketplace as a ‘Service Provider’, or you don't meet all the requirements, you can onboard customers manually by using Azure Resource Manager templates. This is the most likely option in an enterprise scenario, where the same enterprise has multiple tenants.
+
+The following table compares the onboarding methods.
+
+| Consideration | Managed Service offer | ARM templates |
+| ---- | --- | --- |
+| Requires a [Partner Center account](/azure/marketplace/partner-center-portal/create-account) | Yes | No |
+| Requires [Silver or Gold cloud platform competency level](/partner-center/learn-about-competencies) or [Azure Expert MSP](https://partner.microsoft.com/membership/azure-expert-msp) | Yes | No |
+| Available to new customers through Azure Marketplace | Yes | No |
+| Can limit offer to specific customers | Yes (only with private offers, which can't be used with subscriptions established through a reseller of the Cloud Solution Provider (CSP) program) | Yes |
+| Requires customer acceptance in Azure portal | Yes | No |
+| Can use automation to onboard multiple subscriptions, resource groups, or customers | No | Yes |
+| Immediate access to new built-in roles and Azure Lighthouse features | Not always (generally available after some delay) | Yes |
+
+For more information on publishing Managed Service offers, see [Publish a Managed Service offer to Azure Marketplace](/azure/lighthouse/how-to/publish-managed-services-offers).
+
+For more information on how to create an Azure Resource Manager template, see [Create and deploy Azure Resource Manager templates](/learn/modules/create-deploy-azure-resource-manager-templates/).
+
+The following diagram shows the high-level architecture integration between a Managed Security Service Provider (MSSP) tenant and a Customer's (Resource Provider) tenants with Azure Lighthouse and Microsoft Sentinel.
+
+ ![Azure Sentinel managed service identity diagram](./media/azure-lighthouse-for-microsoft-sentinel-architecture.png)
+
+**Identity across multiple tenants**
+
+To manage Microsoft Sentinel with Azure DevOps, evaluate the following design decisions for the components.
+| Use case | Pros |
+| ---- | --- |
+| Global Identity for managing DevOps actions (Single Service Principal) | <ul type="circle"> <li>This case applies to Global Deployment processes, which involve all tenants.<li>Using unified identity facilitates the access for the different Tenants but could make complex managing approval actions for specific tenants.<li> Also is very important the protection mechanism and authorization model for this kind of identity, to avoid usage non-authorized due to the global impact related.</li> |  
+| Dedicated Identity for managing DevOps actions (Multiple Service Principals) | <ul type="circle"> <li>This case applies when deployment processes are dedicated for each tenant or is required approval actions by tenant. <li>In this case, the recommendation for protecting and authorize the usage of this identity is the same than in the Global case, even when the impact is more reduced. </li> |
+
+**Code repository organization**
+
+| Use case | Pros |
+| ---- | --- |
+| Unified Repository with single version of code for all Tenants. | <ul type="circle"> <li>This case facilitates having unified versions for the Code in the repository.<li>In this case, with a unified version of the code managing specific version for tenant could require support it over branches for each case.</li> | 
+| Unified Repository with specific code folders by tenant. | <ul type="circle"> <li>In complement to the Single Repository case, we can split dedicated artifact under a folder structure by Tenant.</li> |
+| Dedicated Repository by Tenant | <ul type="circle"> <li>With this approach we got more isolation at the time of managing code artifacts, facilitating the evolution between tenants with different teams/requirements.<li>Consolidating changes, require a process between Repositories which it could require more effort to maintain.</li> |
+
+**Build and deployment processes**
+
+| Use case | Pros |
+| ---- | --- |
+| Single Build process for all Tenants | <ul type="circle"> <li>When all the different tenants work with the same version of artifacts, this is the simplest option for implementing the generation and package.</li>|
+| Build process by Tenant | <ul type="circle"> <li>With the idea of generating different version from the code to be deployed on each tenant.</li> | 
+| Global Deployment process for all Tenants | <ul type="circle"> <li>In this case, the deployment for new and updates deployments apply to all tenant, following the same steps during the process.</li> |
+| Global Deployment process Tenant by Tenant | <ul type="circle"> <li>In this case, the deployment for new and updates deployments can apply to for one or more tenant, following the same steps during the process.</li> |
+| Dedicated Deployment process by Tenant | <ul type="circle"> <li>In this case, the deployment process is adapted to each Tenant.</li> |
+ 
 ## Pricing
 
-> How much will this cost to run?
-> Are there ways I could save cost?
-> If it scales linearly, than we should break it down by cost/unit. If it does not, why?
-> What are the components that make up the cost?
-> How does scale affect the cost?
+The cost of the solution varies with the volume of data your organization feeds into the Microsoft Sentinel log analytics workspace on a monthly basis, the commitment tier you choose (Commitment Tier or PAYG), and the retention rate of the data policies (at a table or global level). For more information, see [Azure data type retention](https://techcommunity.microsoft.com/t5/azure-sentinel/new-per-data-type-retention-is-now-available-for-azure-sentinel/ba-p/917316).
 
-> Link to the pricing calculator with all of the components in the architecture included, even if they're a $0 or $1 usage.
-> If it makes sense, include small/medium/large configurations. Describe what needs to be changed as you move to larger sizes.
+To calculate pricing, see the [Azure Sentinel pricing calculator](/pricing/details/azure-sentinel/). For more information on the advanced pricing considerations and examples, see [Azure Sentinel billing](/azure/sentinel/azure-sentinel-billing).  
+
+Additional cost might incur if you extend your solution with following components:
+  
+* Playbooks - Logic Apps and Functions runtime. For more information, see [Pricing details](/pricing/details/logic-apps/).  
+* Exporting to external storage like ADX, EventHub, or Storage Account.
+* ML Workspace and compute used by the Jupyter Notebook component.
+
+## Deploy this scenario
+
+The following section describes the steps for deploying this scenario in the form of a sample use case covering the various DevOps processes.
+
+### Build and release the Microsoft Sentinel framework
+
+You first set up the necessary NuGet components in a dedicated repository where different processes can consume the releases that you generate. If you're working with Azure DevOps, you can create a component feed to host the different NuGet packages from the Microsoft Sentinel Framework for PowerShell. For more information, see [Get started with Nuget packages](/azure/devops/artifacts/get-started-nuget?view=azure-devops&tabs=windows).
+
+![Create component feed to host Nuget packages](./media/create-new-feed-to-host-nuget-package.png)
+
+If your organization chooses a GitHub registry, you can connect it as a NuGet repository, because it's compatible with the feed protocol. For more information, see [Introduction to GitHub packages](https://docs.github.com/en/packages/learn-github-packages/introduction-to-github-packages).
+
+When you have an available NuGet repository, the Azure DevOps Pipeline contains a service connection for NuGet. The configuration for this kind of Service Connection should be like is described in the next illustrations, specifying the name Microsoft Sentinel Nuget Framework Connection 
 
 ## Next steps
 
