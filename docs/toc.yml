@@ -1121,11 +1121,62 @@ items:
           - name: Guides
             items:
               - name: Field and cloud edge gateways
-                href: /azure/architecture/example-scenario/iot/field-cloud-edge-gateways              
+                href: /azure/architecture/example-scenario/iot/field-cloud-edge-gateways
+              - name: Edge Workload Configuration pattern
+                href: /azure/architecture/patterns/edge-workload-configuration
+              - name: Kubernetes at the edge
+                items:  
+                  - name: Choose a Kubernetes at the edge option
+                    href: /azure/architecture/operator-guides/aks/choose-kubernetes-edge-compute-option
+                  - name: Choose a bare-metal Kubernetes option
+                    href: /azure/architecture/operator-guides/aks/choose-bare-metal-kubernetes
+              - name: Telecommunications accelerator for Azure Maps
+                items:
+                  - name: Dynamics 365 telecommunications accelerator
+                    href: /dynamics365/industry/accelerators/telecommunications-overview
+                    maintainContext: true
+                  - name: Configure the accelerator for Azure Maps
+                    href: /dynamics365/industry/accelerators/telecommunications-configure
+                    maintainContext: true
+              - name: Private multi-access edge compute
+                items:
+                  - name: Overview
+                    href: /azure/private-multi-access-edge-compute-mec/overview
+                    maintainContext: true
+                  - name: Partner services
+                    href: /azure/private-multi-access-edge-compute-mec/partner-programs
+                    maintainContext: true
+                  - name: Fusion Core
+                    href: /azure/private-multi-access-edge-compute-mec/metaswitch-fusion-core-overview
+                    maintainContext: true
+                  - name: Affirmed Private Network Service
+                    href: /azure/private-multi-access-edge-compute-mec/affirmed-private-network-service-overview
+                    maintainContext: true
+              - name: Azure Network Function Manager
+                href: /azure/network-function-manager/overview
+                maintainContext: true
           - name: Architectures
             items:
               - name: All telecommunications architectures
                 href: /azure/architecture/browse/?terms=telecommunications
+              - name: Customer churn prediction
+                href: /azure/architecture/solution-ideas/articles/customer-churn-prediction
+              - name: Deploy AI and ML at the edge
+                href: /azure/architecture/hybrid/deploy-ai-ml-azure-stack-edge
+              - name: Determine customer lifetime and churn
+                href: /azure/architecture/example-scenario/ai/customer-lifecycle-churn
+              - name: Enterprise-grade conversational bot
+                href: /azure/architecture/reference-architectures/ai/conversational-bot
+              - name: IoT device connectivity for industry
+                href: /azure/architecture/solution-ideas/articles/healthcare-network
+              - name: Low-latency network connections for industry 
+                href: /azure/architecture/solution-ideas/articles/low-latency-network
+              - name: Predictive maintenance with AI IoT Edge
+                href: /azure/architecture/example-scenario/predictive-maintenance/iot-predictive-maintenance
+              - name: Real-time fraud detection 
+                href: /azure/architecture/example-scenario/data/fraud-detection
+              - name: Video capture and analytics 
+                href: /azure/architecture/solution-ideas/articles/video-analytics
       - name: Facilities and Real Estate
         items: 
           - name: Overview
