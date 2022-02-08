@@ -3381,7 +3381,6 @@ items:
                 maintainContext: true
               - name: Management for VMware Solution
                 href: /azure/cloud-adoption-framework/scenarios/azure-vmware/eslz-management-and-monitoring
-                /azure/cloud-adoption-framework/ready/landing-zone/design-area/management
                 maintainContext: true
           - name: Architectures
             items:
