@@ -62,10 +62,10 @@ The following camera choices supported this workload:
 - Camera placement: The camera is directly above at 90 degrees and about 16 inches from the part.
 - Camera type: Since the conveyer system moves relatively slowly, the solution can use an area scan camera with a global shutter.
 - Frame rate: For this use case, the camera captures about 30 frames per second.
-- Resolution: The formula for required resolution is `Res=(Object Size) divided by (details to be captured)`. Based on this formula, `Res=16"/8"` gives 2 megapixels (MP) in `x` and 4MP in `y`, so Contoso Boards needs a camera capable of 4MP resolution.
-- Sensor type: The targets aren't fast moving, and only require edge detection, so a CMOS sensor is best suited.
-- Lighting: Contoso Boards chooses to use a white diffused filter back light. This lighting makes the part look almost black, with high contrast for edge detection.
-- Color: Black and white yields the sharpest edges for the AI detection model.
+- Resolution: The formula for required resolution is `Res=(object size) / (details to capture)`. Based on this formula, `Res=16"/8"` gives 2 megapixels (MP) in `x` and 4MP in `y`, so Contoso Boards needs a camera capable of 4MP resolution.
+- Sensor type: The targets aren't fast moving, and only require edge detection, so a CMOS sensor works well.
+- Lighting: The solution use a white diffused filter back light. This lighting makes the part look almost black, with high contrast for edge detection.
+- Color: Monochrome yields the sharpest edges for the AI detection model.
 
 The following image shows what the camera captures in this scenario:
 
@@ -73,51 +73,53 @@ The following image shows what the camera captures in this scenario:
 
 ### Hardware acceleration
 
-Based on the workload, the fact that Contoso Boards already knows TensorFlow, and the usage on several assembly lines, GPU-based hardware is the choice for hardware acceleration.
+Based on the workload, the use of TensorFlow, and the usage on several assembly lines, GPU-based hardware is the best choice for hardware acceleration.
 
 ### ML model
 
-The data scientists are most familiar with TensorFlow, so learning ONNX or other ML frameworks would slow down model development. Because there are several assembly lines, and Contoso Boards wants a centrally managed edge solution, [Azure Stack Edge](https://azure.microsoft.com/products/azure-stack/edge) works well.
+The data scientists are most familiar with TensorFlow, so learning ONNX or other ML frameworks would slow down model development. [Azure Stack Edge](https://azure.microsoft.com/products/azure-stack/edge) provides a centrally managed edge solution for all assembly lines.
 
 ## User scenario 2: Safety
 
-Contoso Shipping recently had several pedestrian accidents at their loading docks. Most accidents happened when a truck left the loading dock, and the driver didn't see a dock worker walking in front of the truck. Contoso Shipping needs a solution that watches for people, predicts their direction of travel, and warns drivers of potential collisions.
+Contoso Shipping has had several pedestrian accidents at their loading docks. Most accidents happened when a truck left the loading dock, and the driver didn't see a dock worker walking in front of the truck. Contoso Shipping needed a solution that watches for people, predicts their direction of travel, and warns drivers of potential collisions.
 
-Most of the data scientists at Contoso Shipping are familiar with [OpenVINO](https://docs.openvino.ai/latest/index.html), and want to reuse the solution models on future hardware. The solution should also support power efficiency, and use the smallest number of cameras possible. Finally, Contoso Shipping wants to manage the solution remotely for updates.
+Most of the data scientists at Contoso Shipping were familiar with [OpenVINO](https://docs.openvino.ai/latest/index.html), and wanted to reuse the solution models on future hardware. The solution also needed to support power efficiency, and use the smallest possible number of cameras. Finally, Contoso Shipping wanted to manage the solution remotely for updates.
 
 ### Cameras
 
-The solution uses 11 monochrome, 10MP CMOS cameras with IPX67 housings or weather boxes, mounted on 17-foot poles, 100 feet from the trucks. The following sections describe how Contoso Shipping determined these specifications.
+The solution uses 11 monochrome, 10MP CMOS cameras with IPX67 housings or weather boxes, mounted on 17-foot poles, 100 feet away from the trucks. The following sections describe how Contoso Shipping determined these specifications.
 
-#### Placement
+#### Camera placement
 
-Local zoning laws require surveillance cameras to be mounted no higher than 20 feet. Cameras are mounted on 17-foot poles, 100 feet from the trucks.
+Cameras needed to be 100 feet away from the fronts of the trucks. Camera focus had to be 10 feet in front of and behind the fronts of the trucks, giving a 20-foot depth of focus. Local zoning laws limited surveillance camera height to 20 feet.
 
-The following illustration shows the camera placement solution for this scenario.
+The following illustration shows the camera placement for this scenario:
 
-![Illustration of camera placement for an IoT Edge vision AI scenario.](./images/truck-person-camera-mount.png)
+![Illustration of camera placement for an IoT Edge vision AI scenario.](./images/truck-person-camera-mount-new.png)
 
 #### Resolution and field of view
 
-The solution needs to capture only enough detail to detect a person in the frame. The pixels per foot (PPF) can be around 15-20, rather than the 80 needed for facial recognition. Camera focus must be 10 feet in front of and 10 feet behind the front of the truck, giving a 20 foot depth of focus.
+The solution must capture only enough detail to detect a person in the frame. The pixels per foot (PPF) can be around 15-20, rather than the 80 PPF that facial recognition needs.
 
-The formula for field of view (FOV) is `FOV=(Horizontal resolution) divided by (Pixels per foot)`. Lens can impact the FOV, but the camera must use the right sensor for the use case. The following images show the problem with using the wrong resolution for a given use case.
+The formula for field of view (FOV) is `FOV=(horizontal resolution) / (PPF)`. For resolution, the camera must use the right sensor for the use case.
 
-- This image is taken with 480 horizontal pixels at 20 feet:
+The following images show the problem with using the wrong resolution for a given use case. Both images were taken 20 feet away from the car. The small red boxes represent one pixel.
+
+- The following image was taken with 480 horizontal pixels:
 
   ![Photograph of a car at 480 pixels.](./images/car-image-low-pixel.png)
 
-- This image is taken with 5184 horizontal pixels at 20 feet:
+- The following image was taken with 5184 horizontal pixels:
 
   ![Photograph of a car at 5184 pixels.](./images/car-image-high-pixel.png)
 
-For Contoso Shipping, the required 15-20 PPF value puts the FOV at around 16 feet. A 16-foot FOV gives about 17.5 pixels per foot, which meets the required PPF of 15-20. This POV means that the solution can use 10MP cameras with a horizontal resolution of about 5184 pixels, and lenses that allow a 16-foot FOV.
+This solution uses camera lenses that allow a 16-foot FOV. Using the preceding formula, a 16-foot FOV gives about 17.5 PPF, which falls within the required 15-20 PPF. This FOV means the solution should use 10MP cameras, which have a horizontal resolution of about 5184 pixels.
 
-Since the cameras can look at a 16-foot path, a 165-foot long dock divided by a 16-foot FOV gives 10.3125 cameras. The solution needs 11, 5184-horizontal pixel or 10MP cameras.
+Since the cameras can look at a 16-foot path, a 165-foot long loading dock divided by a 16-foot FOV gives 10.3125 cameras. So the solution needs 11, 5184-horizontal pixel or 10MP cameras.
 
 #### Sensor type
 
-The cameras are outside, so the sensor type shouldn't allow *bloom*. Bloom is when light hits the sensor and overloads the sensor, causing overexposure or whiteout. CMOS is the sensor of choice.
+The cameras are outdoors, so the sensor type shouldn't allow *bloom*. Bloom is when light hits the sensor and overloads the sensor, causing overexposure or whiteout. CMOS is the sensor of choice.
 
 #### Color and lighting
 
@@ -125,11 +127,11 @@ Contoso Shipping operates 24/7, and must also protect nighttime personnel. Monoc
 
 ### ML model
 
-Because the data scientists are more familiar with OpenVINO, they build data models in [ONNX](https://onnx.ai).
+Because the data scientists are more familiar with OpenVINO, the solution builds data models in [ONNX](https://onnx.ai).
 
 ### Hardware acceleration
 
-The distance from the cameras to the servers is too far for Gigabit Ethernet or USB connectivity. Contoso Shipping has a large mesh Wi-Fi network. The solution requires a device that connects over Wi-Fi and uses as little power as possible. Based on these requirements, FPGA processors are best to use. The solution could also use ASIC processors, but purpose-built ASIC chips don't meet the requirement for future usability.
+The distance from the cameras to the servers is too far for Gigabit Ethernet or USB connectivity, but there's a large mesh Wi-Fi network. The hardware must connect over Wi-Fi, and use as little power as possible. Based on these requirements, the solution uses FPGA processors. The solution could also use ASIC processors, but purpose-built ASIC chips don't meet the requirement for future usability.
 
 ## Next steps
 

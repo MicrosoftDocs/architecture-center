@@ -102,8 +102,8 @@ There are several common lighting types for computer vision workloads:
 - *Direct lighting* is the most common lighting condition. The light source is projected at the object to be captured.
 - *Line lighting* is a single array of lights most used with line scan cameras. Line lighting creates a single line of light at the focus of the camera.
 - *Diffused lighting* illuminates an object but prevents harsh shadows. Diffused lighting is mostly used around specular, or reflective, objects.
-- *Back lighting* is used behind the object, producing a silhouette of the object. Back lighting is most useful for measurements, edge detection, or object orientation.
 - *Axial diffused lighting* is often used with highly reflective objects, or to prevent shadows on the part to capture.
+- *Back lighting* is used behind the object, producing a silhouette of the object. Back lighting is most useful for measurements, edge detection, or object orientation.
 - *Custom grid lighting* is a structured lighting condition that lays out a grid of light on the object. The known grid projection provides more accurate measurements of item components, parts, and placement.
 - *Strobe lighting* is used for high speed moving parts. The strobe must be in sync with the camera to take a *freeze* of the object for evaluation. Strobe lighting helps prevent motion blurring effects.
 - *Dark field lighting* uses several lights with different angles to the part to be captured. For example, if the part is lying flat on a conveyor belt, the lights are at a 45-degree angle to the belt. Dark field lighting is most useful with highly reflective clear objects, and is commonly used for *lens scratch detections*.
@@ -118,7 +118,7 @@ In planning a vision workload, you need to know about the field of view of the o
 
 - Distance to objects. For example, is the object being monitored on a conveyor belt with the camera two feet above it, or across a parking lot? Camera sensors and lens configurations are different for different distances.
 - Area of coverage. Is the area that the computer vision is trying to monitor small or large? This factor directly correlates to the camera's resolution, lens, and sensor type.
-- Direction of the sun. If the computer vision workload is outdoors, will the camera ever point into the sun? If the camera gets direct sunlight in the lens, it might be *blinded* until the angle of the sun changes. If the sun casts a shadow over the object being monitored, the object might be obscured.
+- Direction of the sun. If the computer vision workload is outdoors, will the camera ever point into the sun? If the camera gets direct sunlight in the lens, it might be blinded until the angle of the sun changes. If the sun casts a shadow over the object being monitored, the object might be obscured.
 - Camera angle to the objects. If the camera is too high or too low, it might miss the details that the workload is trying to capture.
 
 ## Communication interface
