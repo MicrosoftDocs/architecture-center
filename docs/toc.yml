@@ -249,8 +249,7 @@ items:
                 href: /azure/cloud-adoption-framework/innovate/best-practices/trusted-ai
                 maintainContext: true
               - name: Guidelines for human-AI interaction
-                href: /ai/guidelines-human-ai-interaction
-                maintainContext: true
+                href: https://docs.microsoft.com/ai/guidelines-human-ai-interaction/?toc=https%3A%2F%2Fdocs.microsoft.com%2Fen-us%2Fazure%2Farchitecture%2Ftoc.json&bc=https%3A%2F%2Fdocs.microsoft.com%2Fen-us%2Fazure%2Farchitecture%2Fbread%2Ftoc.json
               - name: Responsible AI with Cognitive Services
                 href: /azure/cognitive-services/responsible-use-of-ai-overview
                 maintainContext: true
@@ -1106,6 +1105,67 @@ items:
               - name: TISAX overview
                 href: /azure/compliance/offerings/offering-tisax
                 maintainContext: true
+      - name: Telecommunications
+        items:
+          - name: Guides
+            items:
+              - name: Field and cloud edge gateways
+                href: /azure/architecture/example-scenario/iot/field-cloud-edge-gateways
+              - name: Edge Workload Configuration pattern
+                href: /azure/architecture/patterns/edge-workload-configuration
+              - name: Kubernetes at the edge
+                items:  
+                  - name: Choose a Kubernetes at the edge option
+                    href: /azure/architecture/operator-guides/aks/choose-kubernetes-edge-compute-option
+                  - name: Choose a bare-metal Kubernetes option
+                    href: /azure/architecture/operator-guides/aks/choose-bare-metal-kubernetes
+              - name: Telecommunications accelerator for Azure Maps
+                items:
+                  - name: Dynamics 365 telecommunications accelerator
+                    href: /dynamics365/industry/accelerators/telecommunications-overview
+                    maintainContext: true
+                  - name: Configure the accelerator for Azure Maps
+                    href: /dynamics365/industry/accelerators/telecommunications-configure
+                    maintainContext: true
+              - name: Private multi-access edge compute
+                items:
+                  - name: Overview
+                    href: /azure/private-multi-access-edge-compute-mec/overview
+                    maintainContext: true
+                  - name: Partner services
+                    href: /azure/private-multi-access-edge-compute-mec/partner-programs
+                    maintainContext: true
+                  - name: Fusion Core
+                    href: /azure/private-multi-access-edge-compute-mec/metaswitch-fusion-core-overview
+                    maintainContext: true
+                  - name: Affirmed Private Network Service
+                    href: /azure/private-multi-access-edge-compute-mec/affirmed-private-network-service-overview
+                    maintainContext: true
+              - name: Azure Network Function Manager
+                href: /azure/network-function-manager/overview
+                maintainContext: true
+          - name: Architectures
+            items:
+              - name: All telecommunications architectures
+                href: /azure/architecture/browse/?terms=telecommunications
+              - name: Customer churn prediction
+                href: /azure/architecture/solution-ideas/articles/customer-churn-prediction
+              - name: Deploy AI and ML at the edge
+                href: /azure/architecture/hybrid/deploy-ai-ml-azure-stack-edge
+              - name: Determine customer lifetime and churn
+                href: /azure/architecture/example-scenario/ai/customer-lifecycle-churn
+              - name: Enterprise-grade conversational bot
+                href: /azure/architecture/reference-architectures/ai/conversational-bot
+              - name: IoT device connectivity for industry
+                href: /azure/architecture/solution-ideas/articles/healthcare-network
+              - name: Low-latency network connections for industry 
+                href: /azure/architecture/solution-ideas/articles/low-latency-network
+              - name: Predictive maintenance with AI IoT Edge
+                href: /azure/architecture/example-scenario/predictive-maintenance/iot-predictive-maintenance
+              - name: Real-time fraud detection 
+                href: /azure/architecture/example-scenario/data/fraud-detection
+              - name: Video capture and analytics 
+                href: /azure/architecture/solution-ideas/articles/video-analytics
       - name: Facilities and Real Estate
         items: 
           - name: Overview
@@ -1195,6 +1255,26 @@ items:
                 href: solution-ideas/articles/environment-monitoring-and-supply-chain-optimization.yml
               - name: Low-latency network for farming
                 href: solution-ideas/articles/low-latency-network.yml
+      - name: Aerospace
+        items:
+          - name: Guides
+            items:
+              - name: Azure Orbital for space communication
+                href: /azure/orbital/overview
+                maintainContext: true
+              - name: Modular Datacenter
+                href: /azure-stack/mdc/mdc-overview
+                maintainContext: true
+          - name: Architectures
+            items:
+              - name: All aerospace architectures
+                href: /azure/architecture/browse/?terms=aircraft
+              - name: Advanced (AKS) microservices - drones
+                href: /azure/architecture/reference-architectures/containers/aks-microservices/aks-microservices-advanced
+              - name: Predictive maintenance for aircraft monitoring
+                href: /azure/architecture/solution-ideas/articles/predictive-maintenance
+              - name: Vision classifier model - simulated drone
+                href: /azure/architecture/example-scenario/dronerescue/vision-classifier-model-with-custom-vision
       - name: Nonprofit
         items:
           - name: Microsoft Cloud for Nonprofit
@@ -1222,13 +1302,6 @@ items:
           - name: Dynamics 365 nonprofit accelerator for Azure
             href: /dynamics365/industry/accelerators/nfp
             maintainContext: true
-      - name: Space
-        items:
-          - name: Azure Orbital for space communication
-            href: /azure/orbital/overview
-            maintainContext: true
-          - name: Predictive maintenance for aerospace
-            href: data-science-process/predictive-maintenance-technical-guide.md
       - name: Sports
         items:
           - name: Analyze Olympic sports with sensors and vision
@@ -2679,6 +2752,9 @@ items:
             items:
               - name: Hybrid workload in Azure
                 href: /azure/architecture/framework/hybrid/hybrid-overview
+                maintainContext: true
+              - name: Hybrid app design considerations
+                href: /hybrid/app-solutions/overview-app-design-considerations
               - name: Azure Arc guidance
                 items:
                   - name: Administer SQL Server with Azure Arc
@@ -2709,12 +2785,6 @@ items:
                     href: hybrid/deployments/solution-deployment-guide-sql-ha.md
                   - name: Direct traffic with a geo-distributed app
                     href: hybrid/deployments/solution-deployment-guide-geo-distributed.md
-              - name: Azure Stack guidance
-                items:
-                  - name: Azure Stack stretched clusters for DR
-                    href: hybrid/azure-stack-hci-dr.yml
-                  - name: Azure Stack HCI switchless interconnect
-                    href: hybrid/azure-stack-robo.yml
               - name: Azure VMware Solution guidance
                 items:
                   - name: API Management for AVS
@@ -2776,25 +2846,39 @@ items:
                 href: example-scenario/hybrid/azure-files-on-premises-authentication.yml
               - name: Azure Functions in a hybrid environment
                 href: hybrid/azure-functions-hybrid.yml
+              - name: Azure Stack HCI stretched clusters for DR
+                href: hybrid/azure-stack-hci-dr.yml
+              - name: Azure Stack HCI switchless interconnect
+                href: hybrid/azure-stack-robo.yml
+              - name: Azure Stack Hub solutions
+                items:
+                  - name: AI-based footfall detection
+                    href: solution-ideas/articles/hybrid-footfall-detection.yml
+                  - name: Back up files on Azure Stack Hub
+                    href: hybrid/azure-stack-backup.yml
+                  - name: Cross-cloud scaling (on-premises data)
+                    href: example-scenario/hybrid/hybrid-cross-cloud-scale-on-premises-data.yml 
+                  - name: Cross-cloud scaling with Traffic Manager
+                    href: /azure/architecture/example-scenario/hybrid/hybrid-cross-cloud-scaling
+                  - name: DevOps with Azure Stack Hub
+                    href: solution-ideas/articles/hybrid-continuous-integration.yml
+                  - name: Disaster recovery for Stack Hub VMs
+                    href: hybrid/azure-stack-vm-dr.yml
+                  - name: Hybrid geo-distributed architecture
+                    href: example-scenario/hybrid/hybrid-geo-distributed.yml
+                  - name: Hybrid relay connection
+                    href: solution-ideas/articles/hybrid-relay-connection.yml
               - name: Azure VMware Solution in hub-and-spoke
                 href: /azure/azure-vmware/concepts-hub-and-spoke
                 maintainContext: true
-              - name: Back up files on Azure Stack Hub
-                href: hybrid/azure-stack-backup.yml
               - name: Connect on-premises with ExpressRoute
                 href: reference-architectures/hybrid-networking/expressroute-vpn-failover.yml
               - name: Connect standalone servers
                 href: hybrid/azure-network-adapter.yml
-              - name: Cross-cloud scaling with Traffic Manager
-                href: example-scenario/hybrid/hybrid-cross-cloud-scaling.yml
-              - name: Cross-cloud scaling (on-premises data)
-                href: example-scenario/hybrid/hybrid-cross-cloud-scale-on-premises-data.yml   
               - name: Deploy AI and ML with Azure Stack Edge
                 href: hybrid/deploy-ai-ml-azure-stack-edge.yml
               - name: Design a hybrid Domain Name System
                 href: hybrid/hybrid-dns-infra.yml
-              - name: Disaster recovery for Stack Hub VMs
-                href: hybrid/azure-stack-vm-dr.yml
               - name: "Enhanced-security hybrid messaging: client"
                 href: example-scenario/hybrid/secure-hybrid-messaging-client.yml
               - name: "Enhanced-security hybrid messaging: mobile"
@@ -2804,9 +2888,7 @@ items:
               - name: Extend on-premises using ExpressRoute
                 href: reference-architectures/hybrid-networking/expressroute.yml
               - name: Extend an on-premises network using VPN
-                href: reference-architectures/hybrid-networking/vpn.yml
-              - name: Geo-distributed solution
-                href: example-scenario/hybrid/hybrid-geo-distributed.yml
+                href: reference-architectures/hybrid-networking/vpn.yml    
               - name: Hybrid availability and monitoring
                 href: hybrid/hybrid-perf-monitoring.yml
               - name: Hybrid file services
@@ -2827,16 +2909,10 @@ items:
             items:
               - name: Azure Stack Hub solutions
                 items:
-                  - name: AI-based footfall detection
-                    href: solution-ideas/articles/hybrid-footfall-detection.yml
                   - name: Cross-cloud scaling
                     href: solution-ideas/articles/cross-cloud-scaling.yml
-                  - name: DevOps with Azure Stack Hub
-                    href: solution-ideas/articles/hybrid-continuous-integration.yml
                   - name: Hybrid connections
                     href: solution-ideas/articles/hybrid-connectivity.yml
-                  - name: Hybrid relay connection
-                    href: solution-ideas/articles/hybrid-relay-connection.yml
                   - name: Unlock legacy data with Azure Stack
                     href: solution-ideas/articles/unlock-legacy-data.yml
               - name: Azure VMware Solution foundations
@@ -3057,7 +3133,7 @@ items:
                     href: example-scenario/iot/cloud-to-device.yml
                   - name: 'Builders, developers, and operators'
                     href: example-scenario/iot/builders-developers-operators.yml
-              - name: Video Analytics on Edge
+              - name: Video analytics on the edge
                 items:
                   - name: Overview
                     href: guide/iot-edge-vision/index.md
@@ -3215,7 +3291,7 @@ items:
                     href: example-scenario/mainframe/integrate-ibm-message-queues-azure.yml
                   - name: Micro Focus Enterprise Server on Azure
                     href: example-scenario/mainframe/micro-focus-server.yml
-                  - name: Migrate AIX workloads to Azure with Skytap
+                  - name: Migrate AIX workloads with Skytap
                     href: example-scenario/mainframe/migrate-aix-workloads-to-azure-with-skytap.yml
                   - name: Migrate IBM i series to Azure with Skytap
                     href: example-scenario/mainframe/migrate-ibm-i-series-to-azure-with-skytap.yml
@@ -3261,6 +3337,8 @@ items:
         items:
           - name: Guides
             items:
+              - name: Governance best practices
+                href: /security/compass/governance
               - name: Backup
                 items:
                   - name: Backup architecture and components
@@ -3289,8 +3367,8 @@ items:
                   - name: BCDR for Azure VMware Solution
                     href: /azure/cloud-adoption-framework/scenarios/azure-vmware/eslz-business-continuity-and-disaster-recovery
                     maintainContext: true
-              - name: Management and monitoring
-                href: /azure/cloud-adoption-framework/ready/enterprise-scale/management-and-monitoring
+              - name: Management for Azure environments
+                href: /azure/cloud-adoption-framework/ready/landing-zone/design-area/management
                 maintainContext: true
               - name: Management for VMware Solution
                 href: /azure/cloud-adoption-framework/scenarios/azure-vmware/eslz-management-and-monitoring
@@ -3935,12 +4013,13 @@ items:
                 href: reference-architectures/n-tier/high-security-iaas.yml
               - name: Security design principles
                 href: /azure/architecture/framework/security/security-principles
+                maintainContext: true
               - name: Virtual Network security options
                 href: example-scenario/gateway/firewall-application-gateway.yml
               - name: Zero-trust network for web applications
                 href: example-scenario/gateway/application-gateway-before-azure-firewall.yml
-              - name: Enterprise-scale security and governance
-                href: /azure/cloud-adoption-framework/ready/enterprise-scale/security-governance-and-compliance
+              - name: Azure governance design area
+                href: /azure/cloud-adoption-framework/ready/landing-zone/design-area/governance
                 maintainContext: true
               - name: Integrate Data Explorer with Sentinel
                 href: /azure/sentinel/store-logs-in-azure-data-explorer?tabs=adx-event-hub
