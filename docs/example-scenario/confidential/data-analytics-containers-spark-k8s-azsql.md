@@ -50,19 +50,6 @@ The solution involves the following steps:
 6. The PySpark execution can be horizontally scaled across several Kubernetes nodes. All PySpark instances communicate over an encrypted channel, and all the files that need to be written to their local filesystems (e.g. shuffle files) are also encrypted.
 7. The results of the analysis are encrypted and uploaded to an [Azure SQL Database with Always Encrypted](https://docs.microsoft.com/en-us/azure/azure-sql/database/always-encrypted-azure-key-vault-configure?tabs=azure-powershell) (Column level encryption). Access to the output data and encryption keys can be securely granted to other confidential applications (e.g., in a pipeline) using the same security policies and hardware-based attestation evidence approach described here.
 
-### Enclave assurances
-
-Kubernetes admins, or any privileged user with the highest level of access (e.g. `root`), cannot inspect the in-memory contents or source code of driver or executors. EPC is specialized memory partition in an Azure Confidential VMs that Enclaves or Confidential containers use. These VM's also come with regular memory (un-encrypted) memory to run non-enclave apps. Read more about Intel SGX Enclaves [here](https://docs.microsoft.com/en-us/azure/confidential-computing/confidential-computing-enclaves)
-
-### Attestation
-
-Attestation is a mechanism that allows any client(party) that needs cryptographic evidence that the environment where the app is running can be verified including its software and hardware components before exchanging data.
-
-Remote attestation ensures that your workload has not been tampered with when deployed to a untrusted host, such as a VM instance or a Kubernetes node that runs in the cloud. In this process, attestation evidence provided by Intel SGX hardware is analyzed by an attestation provider. To perform remote attestation on a Scone application (such as Spark Driver and Executor pods), two services are required:
-* **Local Attestation Service (LAS)**: runs on the untrusted host (AKS Nodepool VM) and gathers the attestation evidence provided by Intel SGX about the application being attested. This evidence is signed and forwarded to CAS because of Scone app deployment methods; and
-* **Configuration and Attestation Service (CAS**): a central service that manages security policies (called Scone sessions), configuration and secrets. CAS compares the attestation evidence gathered by LAS against the application's security policies (defined by the application owner) to decide whether the enclave is trustworthy of not. If so, CAS allows the enclave to run and securely injects configuration and secrets into it. [Learn more about CAS and its features, such as secret generation and access control](https://sconedocs.github.io/CASOverview/).
-
-For this scenario, we use a [Public CAS](https://sconedocs.github.io/public-CAS/) provided by Scone for demonstration and simplicity. We deploy the [LAS](https://sconedocs.github.io/LASIntro/) to run as a [`DaemonSet`](https://kubernetes.io/docs/concepts/workloads/controllers/daemonset/) per AKS node.
 
 ### Components
 
@@ -80,7 +67,9 @@ For this scenario, we use a [Public CAS](https://sconedocs.github.io/public-CAS/
 
 - [Azure Attestation](/azure/attestation/) is a unified solution that remotely verifies the trustworthiness of a platform. Azure Attestation also remotely verifies the integrity of the binaries that run in the platform. Use Azure Attestation to establish trust with the confidential application.
 
+
 ### Alternatives for Intel SGX wrapper software for containers
+
 [Occlum]( https://occlum.io/) is a memory-safe, multi-process library OS (LibOS) for Intel SGX. The OS enables legacy applications to run on SGX with little to no modifications to source code. Occlum transparently protects the confidentiality of user workloads while allowing an easy "lift and shift" to existing Docker applications. Occlum supports Java apps.
 
 The SCONE engineering team maintains an [Apache Spark](https://sconedocs.github.io/sconeapps_spark/) Container Image running the latest version of Spark. Some alternatives - not specific to Apache Spark include:
@@ -90,6 +79,21 @@ The SCONE engineering team maintains an [Apache Spark](https://sconedocs.github.
 ## Considerations
 
 Azure Confidential Enclave VM's DCsv3 and DCdsv3 offers large EPC memory sizes to help run memory intensive applications like analytics. This scenario uses Intel SGX-enabled DCsv3-series virtual machines. You can only deploy certain sizes in certain regions. For more information, see [Quickstart: Deploy an Azure Confidential Computing VM in the Marketplace](/azure/confidential-computing/quick-create-marketplace) and [Products available by region](https://azure.microsoft.com/global-infrastructure/services/?products=virtual-machines).
+
+### Enclave assurances
+
+Kubernetes admins, or any privileged user with the highest level of access (e.g. `root`), cannot inspect the in-memory contents or source code of driver or executors. EPC is specialized memory partition in an Azure Confidential VMs that Enclaves or Confidential containers use. These VM's also come with regular memory (un-encrypted) memory to run non-enclave apps. Read more about Intel SGX Enclaves [here](https://docs.microsoft.com/en-us/azure/confidential-computing/confidential-computing-enclaves)
+
+### Attestation
+
+Attestation is a mechanism that allows any client(party) that needs cryptographic evidence that the environment where the app is running can be verified including its software and hardware components before exchanging data.
+
+Remote attestation ensures that your workload has not been tampered with when deployed to a untrusted host, such as a VM instance or a Kubernetes node that runs in the cloud. In this process, attestation evidence provided by Intel SGX hardware is analyzed by an attestation provider. To perform remote attestation on a Scone application (such as Spark Driver and Executor pods), two services are required:
+* **Local Attestation Service (LAS)**: runs on the untrusted host (AKS Nodepool VM) and gathers the attestation evidence provided by Intel SGX about the application being attested. This evidence is signed and forwarded to CAS because of Scone app deployment methods; and
+* **Configuration and Attestation Service (CAS**): a central service that manages security policies (called Scone sessions), configuration and secrets. CAS compares the attestation evidence gathered by LAS against the application's security policies (defined by the application owner) to decide whether the enclave is trustworthy of not. If so, CAS allows the enclave to run and securely injects configuration and secrets into it. [Learn more about CAS and its features, such as secret generation and access control](https://sconedocs.github.io/CASOverview/).
+
+For this scenario, we use a [Public CAS](https://sconedocs.github.io/public-CAS/) provided by Scone for demonstration and simplicity. We deploy the [LAS](https://sconedocs.github.io/LASIntro/) to run as a [`DaemonSet`](https://kubernetes.io/docs/concepts/workloads/controllers/daemonset/) per AKS node.
+
 
 ## Deploy this scenario
 
