@@ -840,14 +840,10 @@ items:
                 href: example-scenario/mlops/mlops-technical-paper.yml
               - name: On-demand, scalable, high-power compute
                 href: industries/manufacturing/compute-manufacturing-overview.yml
-              - name: Azure AI for predictive maintenance
-                href: data-science-process/predictive-maintenance-playbook.md
               - name: Predictive maintenance in manufacturing
                 href: industries/manufacturing/predictive-maintenance-overview.yml
               - name: Predictive maintenance solution
                 href: industries/manufacturing/predictive-maintenance-solution.yml
-              - name: ML Anomaly Detection API
-                href: data-science-process/apps-anomaly-detection-api.md
               - name: Extract actionable insights from IoT data
                 href: industries/manufacturing/extract-insights-iot-data.yml
           - name: Architectures
