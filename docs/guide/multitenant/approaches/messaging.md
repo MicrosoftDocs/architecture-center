@@ -135,23 +135,23 @@ Likewise, an event-driven application can provide different levels of isolation:
 
 ### Complexity of implementation
 
-When designing a multitenant solution, it is essential to consider how the system will evolve in the medium to long term to prevent its complexity from growing over time until it is necessary to redesign part or the entire solution to cope with an increasing number of tenants. When designing a messaging system, you should consider the expected growth in message volumes and tenants in the next few years and create a system that can scale out to keep up with the predicted traffic and reduce the complexity of operations such as provisioning, monitoring, and maintenance.
+When designing a multitenant solution, it's essential to consider how the system will evolve in the medium to long term, in order to prevent its complexity from growing over time, until it is necessary to redesign part of or the entire solution. This redesign will help you cope with an increasing number of tenants. When designing a messaging system, you should consider the expected growth in message volumes and tenants, in the next few years, and then create a system that can scale out, in order to keep up with the predicted traffic and to reduce the complexity of operations, such as provisioning, monitoring, and maintenance.
 
-The solution should automatically create or delete the necessary messaging entities any time a tenant application is provisioned or unprovisioned without the need for manual operations.
+The solution should automatically create or delete the necessary messaging entities any time that a tenant application is provisioned or unprovisioned, without the need for manual operations.
 
-A particular concern for multitenant data solutions is the level of customization you support. Any customization should be automatically configured and applied by the application provisioning system (e.g., a DevOps system) based on a set of initial parameters whenever a single-tenant or multitenant application is deployed.
+A particular concern for multitenant data solutions is the level of customization that you support. Any customization should be automatically configured and applied by the application provisioning system (such as a DevOps system), which is based on a set of initial parameters, whenever a single-tenant or multitenant application is deployed.
 
 ### Complexity of management and operations
 
-Plan from the beginning how you intend to operate, monitor, and maintain your messaging and eventing infrastructure and how your multitenancy approach affects your operations and processes. For example:
+Plan from the beginning how you intend to operate, monitor, and maintain your messaging and eventing infrastructure and how your multitenancy approach affects your operations and processes. For example, consider the following possibilities:
 
-- If you plan to host the messaging system used by your application in a dedicated set of virtual machines, one for each tenant, how do you plan to deploy, upgrade, monitor, and scale out these systems?
+- You might plan to host the messaging system that's used by your application in a dedicated set of virtual machines, one for each tenant. If so, how do you plan to deploy, upgrade, monitor, and scale out these systems?
 - Likewise, if you containerize and host your messaging system in a shared Kubernetes cluster, how do you plan to deploy, upgrade, monitor, and scale out individual messaging systems?
-- Suppose you share a messaging system across multiple tenants. How can your solution collects and reports per-tenant usage metrics or throttle the number of messages each tenant can send or receive?
-- When your messaging system leverages a PaaS service such as Azure Service Bus:
-  - How can you customize the pricing tier for each tenant based on the features and isolation level (shared or dedicated) requested by the tenant? 
-  - How can you create a per-tenant manage identity and Azure role assignment to assign the proper permissions only to the messaging entities such as queues, topics, and subscriptions that the tenant can access? For more information,  see [Authenticate a managed identity with Azure Active Directory to access Azure Service Bus resources](/azure/service-bus-messaging/service-bus-managed-service-identity)
-- How will you migrate tenants if they need to move to a different type of messaging service, a different deployment, or another region?
+- Suppose you share a messaging system across multiple tenants. How can your solution collect and report the per-tenant usage metrics or throttle the number of messages that each tenant can send or receive?
+- When your messaging system leverages a PaaS service, such as Azure Service Bus, you should ask the following question:
+  - How can you customize the pricing tier for each tenant, based on the features and isolation level (shared or dedicated) that are requested by the tenant? 
+  - How can you create a per-tenant manage identity and Azure role assignment to assign the proper permissions only to the messaging entities, such as queues, topics, and subscriptions, that the tenant can access? For more information,  see [Authenticate a managed identity with Azure Active Directory to access Azure Service Bus resources](/azure/service-bus-messaging/service-bus-managed-service-identity).
+- How will you migrate tenants, if they need to move to a different type of messaging service, a different deployment, or another region?
 
 ### Cost
 
@@ -159,57 +159,59 @@ Generally, the higher the density of tenants to your deployment infrastructure, 
 
 ## Approaches and patterns to consider
 
-Several [Cloud Design Patterns](/azure/architecture/patterns/) from the Azure Architecture Center can be applied to a multitenant messaging system. You might choose to follow one or more patterns consistently, or you could consider mixing and matching patterns based on your needs. For example, you might use a multitenant Service Bus namespace for most of your tenants, but deploy a dedicated, single-tenant Service Bus namespace for those tenants who pay more or who have higher requirements in terms or isolation and performance. Similarly, it's often a good practice to scale by using deployment stamps, even when you use a multitenant Service Bus namespace or dedicated namespaces within a stamp.
+Several [Cloud Design Patterns](/azure/architecture/patterns) from the Azure Architecture Center can be applied to a multitenant messaging system. You might choose to follow one or more patterns consistently, or you could consider mixing and matching patterns, based on your needs. For example, you might use a multitenant Service Bus namespace for most of your tenants, but then you might deploy a dedicated, single-tenant Service Bus namespace for those tenants who pay more or who have higher requirements, in terms or isolation and performance. Similarly, it's often a good practice to scale by using deployment stamps, even when you use a multitenant Service Bus namespace or dedicated namespaces within a stamp.
 
 ### Deployment Stamps pattern
 
-For more information about the Deployment Stamps pattern and multitenancy, see [Overview](overview.md#deployment-stamps-pattern). For more information about tenancy models, see [Tenancy models to consider for a multitenant solution](../considerations/tenancy-models.md).
+For more information about the Deployment Stamps pattern and multitenancy, see [the Deployment Stamps pattern section of Architectural approaches for multitenancy](overview.md#deployment-stamps-pattern). For more information about tenancy models, see [Tenancy models to consider for a multitenant solution](../considerations/tenancy-models.md).
 
 ### Shared messaging system
 
-You might consider deploying a shared messaging system such as Azure Service Bus and sharing it across all of your tenants.
+You might consider deploying a shared messaging system, such as Azure Service Bus, and sharing it across all of your tenants.
 
 ![Diagram showing a single shared multitenant messaging system for all tenants.](media/messaging/shared-messaging-system.png)
 
-This approach provides the highest density of tenants to infrastructure, so it reduces the overall total cost of ownership. It also often reduces the management overhead since there's a single messaging system or resource to manage and secure.
-However, when you share a resource or an entire infrastructure across multiple tenants, there are several caveats to consider:
+This approach provides the highest density of tenants to the infrastructure, so it reduces the overall total cost of ownership. It also often reduces the management overhead, since there's a single messaging system or resource to manage and secure.
 
-- Always keep in mind and consider the constraints, scaling capabilities, quotas, and limits of the resource in question. For example, the maximum number of [Service  Bus namespaces in an Azure subscription](/azure/service-bus-messaging/service-bus-quotas), the maximum number of [Event Hubs in a single namespace](/azure/event-hubs/event-hubs-quotas), or the maximum throughput limits, may eventually become a hard blocker if and when your architecture grows to support more tenants. Carefully consider the maximum scale you need to achieve in terms of the number of namespaces per single Azure subscription or queues per single namespace. Then compare your current and future estimates to the existing quotas and limits of the messaging system of choice before selecting this pattern.
-- As remarked in the above sections, the [Noisy Neighbor problem](/azure/architecture/antipatterns/noisy-neighbor/) might become a factor when sharing a resource across multiple tenants, especially if some are particularly busy or generate higher traffic than others. In this case, consider applying the [Throttling pattern](/azure/architecture/patterns/throttling) or the [Rate Limiting pattern](/azure/architecture/patterns/rate-limiting-pattern) to mitigate these effects, for example, the maximum number of messages that a single tenant can send or receive in the unit of time.
-- You might have difficulty monitoring the activity and [measuring the resource consumption](/azure/architecture/guide/multitenant/considerations/measure-consumption) for a single tenant. Some services, such as Azure Service Bus, charge for messaging operations. Hence, when sharing a namespace across multiple tenants, your application should be able to keep track of the number of messaging operations done on behalf of each tenant and chargeback costs to them. Other services don't provide the same level of detail. 
+However, when you share a resource or an entire infrastructure across multiple tenants, consider the following caveats:
+
+- Always keep in mind and consider the constraints, scaling capabilities, quotas, and limits of the resource in question. For example, the maximum number of [Service  Bus namespaces in an Azure subscription](/azure/service-bus-messaging/service-bus-quotas), the maximum number of [Event Hubs in a single namespace](/azure/event-hubs/event-hubs-quotas), or the maximum throughput limits, might eventually become a hard blocker, if and when your architecture grows to support more tenants. Carefully consider the maximum scale that you need to achieve in terms of the number of namespaces per single Azure subscription, or queues per single namespace. Then compare your current and future estimates to the existing quotas and limits of the messaging system of choice, before you select this pattern.
+- As mentioned in the above sections, the [Noisy Neighbor problem](/azure/architecture/antipatterns/noisy-neighbor) might become a factor, when you share a resource across multiple tenants, especially if some are particularly busy or if they generate higher traffic than others. In this case, consider applying the [Throttling pattern](/azure/architecture/patterns/throttling) or the [Rate Limiting pattern](/azure/architecture/patterns/rate-limiting-pattern) to mitigate these effects. For example, you could limit the maximum number of messages that a single tenant can send or receive in the unit of time.
+- You might have difficulty monitoring the activity and [measuring the resource consumption](/azure/architecture/guide/multitenant/considerations/measure-consumption) for a single tenant. Some services, such as Azure Service Bus, charge for messaging operations. Hence, when you share a namespace across multiple tenants, your application should be able to keep track of the number of messaging operations done on behalf of each tenant and the chargeback costs to them. Other services don't provide the same level of detail. 
+
 Tenants may have different requirements for security, intra-region resiliency, disaster recovery, or location. If these don't match your messaging system configuration, you might not be able to accommodate them just with a single resource.
 
 ### Sharding pattern
 
-The [Sharding pattern](../../../patterns/sharding.md) involves deploying multiple messaging systems, called *shards*, that contain one or more tenants' messaging entities such as queues and topics. Unlike deployment stamps, shards don't imply that the entire infrastructure is duplicated. You might shard messaging systems without also duplicating or sharding other infrastructure in your solution.
+The [Sharding pattern](../../../patterns/sharding.md) involves deploying multiple messaging systems, called *shards*, which contain one or more tenants' messaging entities, such as queues and topics. Unlike deployment stamps, shards don't imply that the entire infrastructure is duplicated. You might shard messaging systems without also duplicating or sharding other infrastructure in your solution.
 
 ![Diagram showing a sharded messaging system. One messaging system contains the queues for tenants A and B, and the other contains the queues for tenant C.](media/messaging/sharding.png)
 
-Every messaging system or *shard* can have different characteristics in terms of reliability, SKU, and location. For example, you could shard your tenants across multiple messaging systems with different characteristics based on their location or needs in terms of performance, reliability, data protection, or business continuity.
+Every messaging system or *shard* can have different characteristics in terms of reliability, SKU, and location. For example, you could shard your tenants across multiple messaging systems with different characteristics, based on their location or needs in terms of performance, reliability, data protection, or business continuity.
 
-When using the sharding pattern, you need to use a [sharding strategy](/azure/architecture/patterns/sharding#sharding-strategies) to map a given tenant to the messaging system that contains its queues. The [lookup strategy](/azure/architecture/patterns/sharding#sharding-strategies) uses a map to individuate the target messaging system based on the tenant name or id. Multiple tenants might share the same shard, but the messaging entities used by a single tenant won't be spread across multiple shards. The map can be implemented with a single dictionary that maps the tenant's name to the name or reference of the target messaging system. The map can be stored in a distributed cache accessible by all the instances of a multitenant application or in a persistent store such as a table in a relational database or a table in a storage account.
+When using the sharding pattern, you need to use a [sharding strategy](/azure/architecture/patterns/sharding#sharding-strategies), in order to map a given tenant to the messaging system that contains its queues. The [lookup strategy](/azure/architecture/patterns/sharding#sharding-strategies) uses a map to individuate the target messaging system, based on the tenant name or ID. Multiple tenants might share the same shard, but the messaging entities used by a single tenant won't be spread across multiple shards. The map can be implemented with a single dictionary that maps the tenant's name to the name or reference of the target messaging system. The map can be stored in a distributed cache accessible, by all the instances of a multitenant application, or in a persistent store, such as a table in a relational database or a table in a storage account.
 
-The Sharding pattern can scale to very large numbers of tenants. Additionally, depending on your workload, you might be able to achieve a high density of tenants to shards, so the cost can be attractive. The Sharding pattern can also be used to address [Azure subscription and service quotas, limits and constraints](/azure/azure-resource-manager/management/azure-subscription-service-limits).
+The Sharding pattern can scale to very large numbers of tenants. Additionally, depending on your workload, you might be able to achieve a high density of tenants to shards, so the cost can be attractive. The Sharding pattern can also be used to address [Azure subscription and service quotas, limits, and constraints](/azure/azure-resource-manager/management/azure-subscription-service-limits).
 
 ### Multitenant app with dedicated messaging system for each tenant
 
-Another common approach is to deploy a single multitenant application, with dedicated messaging systems for each tenant. In this tenancy model, you have some shared components, for example computing resources, while other services are provisioned, and managed using a single-tenant, dedicated deployment approach. For example, you could build a single application tier, and then deploy individual messaging systems for each tenant, as shown in this illustration:
+Another common approach is to deploy a single multitenant application, with dedicated messaging systems for each tenant. In this tenancy model, you have some shared components, such as computing resources, while other services are provisioned, and managed using a single-tenant, dedicated deployment approach. For example, you could build a single application tier, and then deploy individual messaging systems for each tenant, as shown in the following illustration.
 
 ![Diagram showing different messaging systems for each tenant.](media/messaging/dedicated-messaging-systems.png)
 
-Horizontally partitioned deployments can help you mitigate a noisy-neighbor problem, if you've identified that most of the load on your system is due to specific components that you can deploy separately for each tenant. For example, you may need to use a separate messaging or event streaming system for each tenant because a single instance is not enough to keep up with traffic generated by multiple tenants. When using a dedicated messaging system for each tenant, if a single tenant causes a large volume of messages or events, this may affect shared components but not other tenants' messaging systems.
+Horizontally partitioned deployments can help you mitigate a noisy-neighbor problem, if you've identified that most of the load on your system is due to specific components that you can deploy separately for each tenant. For example, you may need to use a separate messaging or event streaming system for each tenant because a single instance is not enough to keep up with traffic that's generated by multiple tenants. When using a dedicated messaging system for each tenant, if a single tenant causes a large volume of messages or events, this might affect the shared components but not other tenants' messaging systems.
 
-Because you provision dedicated resources for each tenant, the cost for this approach can be higher than a shared hosting model. On the other hand, it's easier to charge back resource costs of a dedicated system to the unique tenant that makes use of it when adopting this tenancy model. This approach allows achieving high density for other services such as computing resources and reduces these components' cost.
+Because you provision dedicated resources for each tenant, the cost for this approach can be higher than a shared hosting model. On the other hand, it's easier to charge back resource costs of a dedicated system to the unique tenant that makes use of it, when adopting this tenancy model. This approach allows you to achieve high density for other services, such as computing resources, and it reduces these components' costs.
 
 With a horizontally partitioned deployment, you need to adopt an automated process for deploying and managing a multitenant application's services, especially those used by a single tenant.
 
 ### Geodes pattern
 
-The [Geode pattern](../../../patterns/geodes.md) involves deploying a collection of backend services into a set of geographical nodes, each of which can service any request for any client in any region. This pattern allows serving requests in an active-active style, improving latency and increasing availability by distributing request processing around the globe.
+The [Geode pattern](../../../patterns/geodes.md) involves deploying a collection of backend services into a set of geographical nodes. Each can service any request for any client in any region. This pattern allows you to serve requests in an active-active style, which improves latency and increases availability, by distributing request processing around the globe.
 
 ![Diagram showing the Geode pattern, with messaging systems deployed across multiple regions that synchronize together.](media/messaging/geodes.png)
 
-[Azure Service Bus](/azure/service-bus-messaging/service-bus-geo-dr) and [Azure Event Hubs](/azure/event-hubs/event-hubs-geo-dr) support metadata disaster recovery across a primary and secondary disaster recovery namespaces across separate regions and availability zones support for best intra-region resiliency. Besides, Azure Service Bus and Azure Event Hubs implement a set of federation patterns that actively replicate the same logical topic, queue, or event hub to be available in multiple namespaces, eventually located in different regions. For more information, see:
+[Azure Service Bus](/azure/service-bus-messaging/service-bus-geo-dr) and [Azure Event Hubs](/azure/event-hubs/event-hubs-geo-dr) support metadata disaster recovery, across primary and secondary disaster recovery namespaces and across separate regions and availability zones, in order to provide support for the best intra-region resiliency. Also, Azure Service Bus and Azure Event Hubs implement a set of federation patterns that actively replicate the same logical topic, queue, or event hub to be available in multiple namespaces, eventually located in different regions. For more information, see the following resources:
 
 - [Message replication and cross-region federation](/azure/service-bus-messaging/service-bus-federation-overview)
 - [Message replication tasks patterns](/azure/service-bus-messaging/service-bus-federation-patterns)
@@ -218,7 +220,7 @@ The [Geode pattern](../../../patterns/geodes.md) involves deploying a collection
 
 ## Next steps
 
-For more information about messaging design patterns, see:
+For more information about messaging design patterns, see the following resources:
 
 - [Claim-Check pattern](/azure/architecture/patterns/claim-check)
 - [Competing Consumers pattern](/azure/architecture/patterns/competing-consumers)
