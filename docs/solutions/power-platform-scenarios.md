@@ -1,0 +1,1 @@
+Azure and Power Platform scenarios
