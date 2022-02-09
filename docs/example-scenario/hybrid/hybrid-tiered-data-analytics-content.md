@@ -17,7 +17,7 @@ This solution is especially useful when security, confidentiality, corporate pol
 
 ## Potential use cases
 
-The solution applies to large multi-branch manufacturing organizations that require:
+This solution applies to large multi-branch manufacturing organizations that require:
 
 - Rapid and secure data storage, processing, and distribution between global remote locations and central headquarters.
 - Security of employee and machinery activity, facility information, and business reporting data. The data must be distributed appropriately and meet regional compliance policies and industry regulations.
@@ -38,7 +38,7 @@ _Download a [Visio file](https://arch-center.azureedge.net/hybrid-tiered-data-an
 
 1. Data saved to Queue Storage triggers functions that are used to sterilize data. Automatically and manually triggered functions can process, clean up, and archive data. Examples include nightly scrubs of customer lists and monthly report processing.
 
-1. An Azure Storage account provides a sterile data consumption endpoint on the cloud. For example, the anonymized data is used to generate reports.
+1. An Azure Storage account provides a sterile data consumption endpoint in the cloud. For example, the anonymized data is used to generate reports.
 
 ### Components
 
@@ -58,7 +58,7 @@ _Download a [Visio file](https://arch-center.azureedge.net/hybrid-tiered-data-an
 ### Storage
 Blob Storage can hold any type of text or binary data, like documents, media files, and app installers. Every blob is organized in a container. Containers provide a useful way to assign security policies to groups of objects. A storage account can have any number of containers. A container can contain any number of blobs, up to the 500-TB capacity limit of the storage account.
 
-You can use low-cost Blob Storage to archive cool data. Examples of cool data include backups, media content, scientific data, compliance data, and archival data. In general, any data that you access infrequently is considered cool storage. Data tiering is based on attributes like frequency of access and retention period. Customer data is infrequently accessed, but it requires latency and performance that's similar to that required for hot data.
+You can use low-cost Blob Storage to archive cool data. Examples of cool data include backups, media content, scientific data, compliance data, and archival data. In general, any data that you access infrequently is considered cool storage. Data tiering is based on attributes like frequency of access and retention period. Customer data is infrequently accessed, but it requires latency and performance that's similar to what's required for hot data.
 
 ### Reliability
 
@@ -70,7 +70,7 @@ Because this solution captures customer data, security is an important considera
 
 Provide security via [identity and access management](/azure/architecture/framework/security/design-identity), and be sure to tier the user access levels. Tiering ensures that users have access to only the data they need.
 
-For security guidance about serverless applications with functions, see [Serverless Functions security](../../serverless-quest/functions-app-security.md).
+For guidance about security for serverless applications with functions, see [Serverless Functions security](../../serverless-quest/functions-app-security.md).
 
 ### Operational excellence
 
@@ -79,7 +79,7 @@ The manageability of this solution depends on the authoring tools that you're us
 
 ### Performance efficiency
 
-Azure functions and storage solutions scale to meet data volume and processing demands. For Azure Storage scalability information and targets, see [Azure Storage scalability documentation](/azure/storage/common/scalability-targets-standard-account).
+Azure functions and storage solutions scale to meet data volume and processing demands. For Azure Storage scalability information and targets, see the [Azure Storage scalability documentation](/azure/storage/common/scalability-targets-standard-account).
 
 ## Next steps
 
