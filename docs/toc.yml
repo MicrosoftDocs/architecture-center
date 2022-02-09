@@ -3424,7 +3424,7 @@ items:
       - name: Media
         items:
           - name: Get started
-            items: /azure/media-services/latest/architecture-concept
+            href: /azure/media-services/latest/architecture-concept
             maintainContext: true
           - name: Guides
             items:
