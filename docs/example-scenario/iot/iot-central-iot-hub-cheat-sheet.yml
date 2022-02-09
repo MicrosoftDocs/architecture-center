@@ -16,6 +16,6 @@ products:
   - azure-iot-central
 name: Choose an Internet of Things (IoT) solution in Azure
 summary: You can use this content to decide if you can use a managed solution based on Azure IoT Central, or if you should consider building a PaaS solution using Azure IoT Hub.
-thumbnailUrl: /azure/architecture/browse/thumbs/iotc-arch.svg
+thumbnailUrl: /azure/architecture/browse/thumbs/iotc-arch.png
 content: |
    [!include[](iot-central-iot-hub-cheat-sheet-content.md)]
