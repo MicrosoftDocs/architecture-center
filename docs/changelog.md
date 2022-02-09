@@ -2,7 +2,7 @@
 title: What's New in Azure Architecture Center
 description: New and updated articles in Azure Architecture Center
 author: doodlemania2
-ms.date: 01/31/2022
+ms.date: 02/07/2022
 ms.topic: article
 ms.service: architecture-center
 ---
@@ -22,6 +22,22 @@ The Azure Architecture Center (AAC) helps you design, build, and operate solutio
   href="/azure/architecture/feed.atom" />
 
 New and updated articles in Azure Architecture Center.
+
+## February 2022
+
+### New Articles
+
+- [Azure Database for PostgreSQL considerations for multitenancy](./guide/multitenant/service/postgresql.md)
+- [Hybrid geo-distributed architecture](./example-scenario/hybrid/hybrid-geo-distributed.yml)
+- [Cross-cloud scaling with Traffic Manager](./example-scenario/hybrid/hybrid-cross-cloud-scaling.yml)
+- [Cross-cloud scaling - on-premises data](./example-scenario/hybrid/hybrid-cross-cloud-scale-on-premises-data.yml)
+- [Identity architecture design](./identity/identity-start-here.yml)
+- [Customer 360 with Azure Synapse and Dynamics 365 Customer Insights](./example-scenario/analytics/synapse-customer-insights.yml)
+
+### Updated Articles
+
+- [N-tier architecture style](./guide/architecture-styles/n-tier.md)  ([#4a1bad2c3](https://github.com/MicrosoftDocs/architecture-center/commit/4a1bad2c3))
+- [End-to-end governance in Azure](./example-scenario/governance/end-to-end-governance-in-azure.yml)  ([#d92ed29b2](https://github.com/MicrosoftDocs/architecture-center/commit/d92ed29b2))
 
 ## January 2022
 
@@ -149,7 +165,6 @@ New and updated articles in Azure Architecture Center.
 - [Azure Virtual Desktop for the enterprise](./example-scenario/wvd/windows-virtual-desktop.yml)  ([#43a9e9bb1](https://github.com/MicrosoftDocs/architecture-center/commit/43a9e9bb1))
 - [Monitor hybrid availability, performance](./hybrid/hybrid-perf-monitoring.yml)  ([#95f2e26b8](https://github.com/MicrosoftDocs/architecture-center/commit/95f2e26b8))
 - [Consumer health portal on Azure](./example-scenario/digital-health/health-portal.yml)  ([#9f23b73b8](https://github.com/MicrosoftDocs/architecture-center/commit/9f23b73b8))
-- [Azure Machine Learning Anomaly Detection API](./data-science-process/apps-anomaly-detection-api.md)  ([#984d16b93](https://github.com/MicrosoftDocs/architecture-center/commit/984d16b93))
 - [Analytics end-to-end with Azure Synapse](./example-scenario/dataplate2e/data-platform-end-to-end.yml)  ([#faaf3d26b](https://github.com/MicrosoftDocs/architecture-center/commit/faaf3d26b))
 - [Feature engineering in machine learning](./data-science-process/create-features.md)  ([#ea2e85f88](https://github.com/MicrosoftDocs/architecture-center/commit/ea2e85f88))
 - [Scalable order processing](./example-scenario/data/ecommerce-order-processing.yml)  ([#861fef949](https://github.com/MicrosoftDocs/architecture-center/commit/861fef949))
@@ -227,49 +242,4 @@ New and updated articles in Azure Architecture Center.
 - [Centralized app configuration and security](./solution-ideas/articles/appconfig-key-vault.yml)  ([#1431f1f57](https://github.com/MicrosoftDocs/architecture-center/commit/1431f1f57))
 - [Parallel bulk data import in SQL partition tables](./data-science-process/parallel-load-sql-partitioned-tables.md)  ([#e302bb2fa](https://github.com/MicrosoftDocs/architecture-center/commit/e302bb2fa))
 - [Hybrid file services](./hybrid/hybrid-file-services.yml)  ([#410dbde8d](https://github.com/MicrosoftDocs/architecture-center/commit/410dbde8d))
-- [Process Azure blob data with advanced analytics](./data-science-process/data-blob.md)  ([#204f47047](https://github.com/MicrosoftDocs/architecture-center/commit/204f47047))
-- [Supply chain track and trace](./solution-ideas/articles/supply-chain-track-and-trace.yml)  ([#956a1f2d8](https://github.com/MicrosoftDocs/architecture-center/commit/956a1f2d8))
-
-## October 2021
-
-### New Articles
-
-- [Client certificate for an Azure AD access token](./multitenant-identity/client-certificate.md)
-- [Apache NiFi on Azure](./example-scenario/data/azure-nifi.yml)
-- [Helm-based deployments for Apache NiFi](./guide/data/helm-deployments-apache-nifi.yml)
-- [Apache NiFi monitoring with MonitoFi](./guide/data/monitor-apache-nifi-monitofi.yml)
-- [Architecture for startups](./guide/startups/startup-architecture.md)
-- [Customer lifetime value and churn prediction with Azure AI services](./example-scenario/ai/customer-lifecycle-churn.yml)
-- [Refactor mainframe applications with Advanced](./example-scenario/mainframe/refactor-mainframe-applications-advanced.yml)
-- [Transit hub dynamic pub-sub messaging system](./solution-ideas/articles/transit-hub.yml)
-- [Mainframe and midrange data replication to Azure using Qlik](./example-scenario/mainframe/mainframe-midrange-data-replication-azure-qlik.yml)
-- [AIX UNIX on-premises to Azure Linux migration](./example-scenario/unix-migration/migrate-aix-azure-linux.yml)
-- [Azure Storage considerations for multitenancy](./guide/multitenant/service/storage.md)
-- [Predict hospital readmissions by using machine learning](./example-scenario/ai/predict-hospital-readmissions-machine-learning.yml)
-- [Power Automate deployment at scale](./example-scenario/power-automate/power-automate.yml)
-- [Multi-tier app service with service endpoint](./reference-architectures/app-service-web-app/multi-tier-app-service-service-endpoint.yml)
-- [Azure SQL Database considerations for multitenancy](./guide/multitenant/service/sql-database.md)
-- [Efficient Docker image deployment for intermittent low-bandwidth connectivity](./example-scenario/iot/efficient-docker-image-deployment.yml)
-- [Citizen AI with the Power Platform](./example-scenario/ai/citizen-ai-power-platform.yml)
-- [Stream processing with fully managed open-source data engines](./example-scenario/data/open-source-data-engine-stream-processing.yml)
-- [Event Hubs with Azure Functions](./serverless/event-hubs-functions/event-hubs-functions.yml)
-- [Monitor Azure Functions and Event Hubs](./serverless/event-hubs-functions/observability.yml)
-- [Performance and scale guidance for Event Hubs with Azure Functions](./serverless/event-hubs-functions/performance-scale.yml)
-- [Resilient design guidance for Event Hubs and Functions](./serverless/event-hubs-functions/resilient-design.md)
-- [Secure Azure Functions with Event Hubs](./serverless/event-hubs-functions/security.md)
-
-### Updated Articles
-
-- [Azure Machine Learning Anomaly Detection API](./data-science-process/apps-anomaly-detection-api.md)  ([#3f89b0c77](https://github.com/MicrosoftDocs/architecture-center/commit/3f89b0c77))
-- [Create personalized marketing solutions](./solution-ideas/articles/personalized-marketing.yml)  ([#7f6cc7678](https://github.com/MicrosoftDocs/architecture-center/commit/7f6cc7678))
-- [Deploy machine learning models to AKS with Kubeflow](./solution-ideas/articles/machine-learning-model-deployment-aks.yml)  ([#69221aa50](https://github.com/MicrosoftDocs/architecture-center/commit/69221aa50))
-- [Predict loan charge-offs with HDInsight Spark](./solution-ideas/articles/loan-chargeoff-prediction-with-azure-hdinsight-spark-clusters.yml)  ([#3398fff02](https://github.com/MicrosoftDocs/architecture-center/commit/3398fff02))
-- [Interactive voice response app with bot](./solution-ideas/articles/interactive-voice-response-bot.yml)  ([#a4532949f](https://github.com/MicrosoftDocs/architecture-center/commit/a4532949f))
-- [Demand forecasting and price optimization](./solution-ideas/articles/demand-forecasting-price-optimization-marketing.yml)  ([#b2cd92b5d](https://github.com/MicrosoftDocs/architecture-center/commit/b2cd92b5d))
-- [Commerce chatbot for customer service](./solution-ideas/articles/commerce-chatbot.yml)  ([#ca079d0bf](https://github.com/MicrosoftDocs/architecture-center/commit/ca079d0bf))
-- [Defender for Cloud Apps and Microsoft Sentinel for AWS](./reference-architectures/aws/aws-azure-security-solutions.yml)  ([#15f56b812](https://github.com/MicrosoftDocs/architecture-center/commit/15f56b812))
-- [Azure AD security for AWS](./reference-architectures/aws/aws-azure-ad-security.yml)  ([#e5279fc93](https://github.com/MicrosoftDocs/architecture-center/commit/e5279fc93))
-- [Deploy AI-based footfall detection solution in Azure and Azure Stack Hub](./hybrid/deployments/solution-deployment-guide-retail-footfall-detection.md)  ([#5c73ee7ee](https://github.com/MicrosoftDocs/architecture-center/commit/5c73ee7ee))
-- [Big data analytics with enterprise-grade security using Azure Synapse](./solution-ideas/articles/big-data-analytics-enterprise-grade-security.yml)  ([#24ad8e000](https://github.com/MicrosoftDocs/architecture-center/commit/24ad8e000))
-- [Choose a batch processing technology](./data-guide/technology-choices/batch-processing.md)  ([#8a7513ed1](https://github.com/MicrosoftDocs/architecture-center/commit/8a7513ed1))
 
