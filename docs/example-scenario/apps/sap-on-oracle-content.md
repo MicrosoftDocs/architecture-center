@@ -100,7 +100,7 @@ The architecture uses Azure-managed disks for Azure VM disks and Azure Files or 
   - For production/performance critical SAP-on-Oracle deployment with E series VMs, use ultra SSD for log disks and can use premium SSD for data disks.
   - For non-prod systems/non-performance critical SAP-on-Oracle deployment, you can replace the Premium-managed disk with Standard SSD.
 - Can use [premium SSD performance tiering](/azure/virtual-machines/disks-performance-tiers-portal) to temporarily increase the performance offerings from the premium SSD.
-- Can use [Azure NetApp Files service levels](/azure/azure-netapp-files/azure-netapp-files-service-levels] to dynamically manage the performance level of the shared disks.
+- Can use [Azure NetApp Files service levels](/azure/azure-netapp-files/azure-netapp-files-service-levels) to dynamically manage the performance level of the shared disks.
 
 ### Security
 
