@@ -838,7 +838,7 @@ items:
                 href: guide/iiot-guidance/iiot-architecture.md
               - name: Upscale ML lifecycle with MLOps framework
                 href: example-scenario/mlops/mlops-technical-paper.yml
-              - name: On-demand, scalable, high-power compute
+              - name: High-performance computing for manufacturing
                 href: industries/manufacturing/compute-manufacturing-overview.yml
               - name: Predictive maintenance in manufacturing
                 href: industries/manufacturing/predictive-maintenance-overview.yml
@@ -1115,9 +1115,9 @@ items:
                     href: /azure/architecture/operator-guides/aks/choose-kubernetes-edge-compute-option
                   - name: Choose a bare-metal Kubernetes option
                     href: /azure/architecture/operator-guides/aks/choose-bare-metal-kubernetes
-              - name: Telecommunications accelerator for Azure Maps
+              - name: Dynamics 365 telecommunications accelerator
                 items:
-                  - name: Dynamics 365 telecommunications accelerator
+                  - name: Overview
                     href: /dynamics365/industry/accelerators/telecommunications-overview
                     maintainContext: true
                   - name: Configure the accelerator for Azure Maps
@@ -1152,6 +1152,8 @@ items:
                 href: /azure/architecture/example-scenario/ai/customer-lifecycle-churn
               - name: Enterprise-grade conversational bot
                 href: /azure/architecture/reference-architectures/ai/conversational-bot
+              - name: IoT connected light, power, and internet
+                href: /azure/architecture/solution-ideas/articles/iot-power-management
               - name: IoT device connectivity for industry
                 href: /azure/architecture/solution-ideas/articles/healthcare-network
               - name: Low-latency network connections for industry 
@@ -3335,6 +3337,7 @@ items:
             items:
               - name: Governance best practices
                 href: /security/compass/governance
+                maintainContext: true
               - name: Backup
                 items:
                   - name: Backup architecture and components
@@ -3420,6 +3423,9 @@ items:
                 href: solution-ideas/articles/disaster-recovery-smb-double-take-dr.yml
       - name: Media
         items:
+          - name: Get started
+            items: /azure/media-services/latest/architecture-concept
+            maintainContext: true
           - name: Guides
             items:
               - name: Media Services terminology and concepts
@@ -3427,6 +3433,18 @@ items:
                 maintainContext: true
               - name: Encoding video and audio
                 href: /azure/media-services/latest/encode-concept
+                maintainContext: true
+              - name: Live streaming
+                href: /azure/media-services/latest/stream-live-streaming-concept
+                maintainContext: true
+              - name: High availability with video on demand
+                href: /azure/media-services/latest/architecture-high-availability-encoding-concept
+                maintainContext: true
+              - name: Monitor Media Services
+                href: /azure/media-services/latest/monitoring/monitor-media-services
+                maintainContext: true
+              - name: Dynamic encryption
+                href: /azure/media-services/latest/drm-content-protection-concept
                 maintainContext: true
               - name: Security baseline for Media Services
                 href: /security/benchmark/azure/baselines/media-services-security-baseline
