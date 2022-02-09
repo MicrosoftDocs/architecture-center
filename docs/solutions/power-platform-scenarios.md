@@ -30,72 +30,72 @@ intro to video
 
 |Architecture|Summary|Technology focus|
 |--|--|--|
-|[Citizen AI with the Power Platform](/azure/architecture/example-scenario/ai/citizen-ai-power-platform)||AI|
-|[Custom business processes](/azure/architecture/solution-ideas/articles/custom-business-processes)||Integration|
-|[Virtual health on Microsoft Cloud for Healthcare](/azure/architecture/example-scenario/mch-health/virtual-health-mch)||Web|
+|[Citizen AI with the Power Platform](/azure/architecture/example-scenario/ai/citizen-ai-power-platform)|Learn how to user Azure Machine Learning and Microsoft Power Platform to quickly create a machine learning (ML) proof of concept, and a production version.|AI|
+|[Custom business processes](/azure/architecture/solution-ideas/articles/custom-business-processes)|This example demonstrates how you can deploy portals that automate manual or paper-based processes and surface rich user experience.|Integration|
+|[Virtual health on Microsoft Cloud for Healthcare](/azure/architecture/example-scenario/mch-health/virtual-health-mch)|This article describes an architecture to develop a virtual health solution using Microsoft Cloud for Healthcare.|Web|
 
 ## Power Apps
 
 |Architecture|Summary|Technology focus|
 |--|--|--|
-|[Custom business processes](/azure/architecture/solution-ideas/articles/custom-business-processes)|| Integration|
-[CI/CD for Microsoft Power Platform](/azure/architecture/solution-ideas/articles/azure-devops-continuous-integration-for-power-platform)|| DevOps|
-[Eventual consistency between multiple Power Apps instances](/azure/architecture/reference-architectures/power-platform/eventual-consistency)|| Web|
-[Line of Business Extension](/azure/architecture/solution-ideas/articles/lob)|| Integration|
-[Web and Mobile Front Ends](/azure/architecture/solution-ideas/articles/front-end) ||Integration|
+|[Custom business processes](/azure/architecture/solution-ideas/articles/custom-business-processes)|This example demonstrates how you can deploy portals that automate manual or paper-based processes and surface rich user experience.| Integration|
+[CI/CD for Microsoft Power Platform](/azure/architecture/solution-ideas/articles/azure-devops-continuous-integration-for-power-platform)|Learn how to create an Azure CI/CD pipeline to manage your Power Platform application lifecycle.| DevOps|
+[Eventual consistency between multiple Power Apps instances](/azure/architecture/reference-architectures/power-platform/eventual-consistency)|Handle dependent data in a resilient way in Power Apps.| Web|
+[Line of business extension](/azure/architecture/solution-ideas/articles/lob)|Modernize legacy systems by automating processes. Schedule calculations, connect to third party data sources or legacy systems, and process and share data.| Integration|
+[Web and mobile front ends](/azure/architecture/solution-ideas/articles/front-end) |Accelerate development with a visual designer. Use Azure Functions for low-latency processing and Azure Power Apps and Power Automate for out-of-box connectors.|Integration|
 
 ## Power Automate
 
 |Architecture|Summary|Technology focus|
 |--|--|--|
-|[Extract text from objects using Power Automate and AI Builder](/azure/architecture/example-scenario/ai/extract-object-text)|| AI|
-|[Power Automate deployment at scale](/azure/architecture/example-scenario/power-automate/power-automate)|| Integration|
-|[Web and Mobile Front Ends](/azure/architecture/solution-ideas/articles/front-end)| |Integration|
+|[Extract text from objects using Power Automate and AI Builder](/azure/architecture/example-scenario/ai/extract-object-text)|Use AI Builder and Azure Form Recognizer in a Power Automate workflow to extract text from images, for indexing and retrieval.| AI|
+|[Power Automate deployment at scale](/azure/architecture/example-scenario/power-automate/power-automate)|See how to use a hub-and-spoke architectural model to deploy Power Automate parent and child flows.| Integration|
+|[Web and mobile front ends](/azure/architecture/solution-ideas/articles/front-end)|Accelerate development with a visual designer. Use Azure Functions for low-latency processing and Azure Power Apps and Power Automate for out-of-box connectors. |Integration|
 
 
 ## Power BI
 
 |Architecture|Summary|Technology focus|
 |--|--|--|
-|[Advanced analytics](/azure/architecture/solution-ideas/articles/advanced-analytics-on-big-data)|| (Analytics)
-|[Azure Machine Learning architecture](/articles/azure-machine-learning-solution-architecture)|| AI|
-|[Campaign optimization with HDInsight Spark](/azure/architecture/solution-ideas/articles/campaign-optimization-with-azure-hdinsight-spark-clusters)|| Databases|
-|[Campaign optimization with SQL Server](/azure/architecture/solution-ideas/articles/campaign-optimization-with-sql-server)|| Databases|
-|[Clinical insights with Microsoft Cloud for Healthcare](/azure/architecture/example-scenario/mch-health/medical-data-insights)|| Web|
-|[Data analysis for regulated industries](/azure/architecture/example-scenario/data/data-analysis-regulated-industries)|| Analytics|
-|[Data governance with Profisee and Azure Purview](/azure/architecture/reference-architectures/data/profisee-master-data-management-purview)|| Databases|
-|[Data management across Azure Data Lake with Azure Purview](/azure/architecture/solution-ideas/articles/azure-purview-data-lake-estate-architecture)|| Analytics|
-|[Defect prevention with predictive maintenance](/azure/architecture/solution-ideas/articles/defect-prevention-with-predictive-maintenance)|| AI|
-|[Deliver highly scalable customer service and ERP applications](/azure/architecture/solution-ideas/articles/erp-customer-service)|| Analytics|
-|[Demand forecasting for shipping and distribution](/azure/architecture/solution-ideas/articles/demand-forecasting-for-shipping-and-distribution)|| Analytics|
-|[Finance management apps using Azure Database for PostgreSQL](/azure/architecture/solution-ideas/articles/finance-management-apps-using-azure-database-for-postgresql)|| Databases|
-|[Finance management apps with Azure DB for MySQL](/azure/architecture/solution-ideas/articles/finance-management-apps-using-azure-database-for-mysql)|| Databases|
-|[Forecast energy and power demand](/azure/architecture/solution-ideas/articles/forecast-energy-power-demand)|| AI|
-|[HIPAA and HITRUST compliant health data AI](/azure/architecture/solution-ideas/articles/security-compliance-blueprint-hipaa-hitrust-health-data-ai)|| Serverless|
-|[Intelligent apps using Azure Database for MySQL](/azure/architecture/solution-ideas/articles/intelligent-apps-using-azure-database-for-mysql)|| Databases|
-|[Intelligent apps using Azure Database for PostgreSQL](/azure/architecture/solution-ideas/articles/intelligent-apps-using-azure-database-for-mysql)|| Databases|
-|[Interactive querying with HDInsight](/azure/architecture/solution-ideas/articles/interactive-querying-with-hdinsight)|| Databases|
-|[IoT connected light, power, and internet for emerging markets](/azure/architecture/solution-ideas/articles/iot-power-management)|| IoT|
-|[IoT using Cosmos DB](/azure/architecture/solution-ideas/articles/iot-using-cosmos-db)|| IoT|
-|[Line of Business Extension](/azure/architecture/solution-ideas/articles/lob)|| Integration|
-|[Loan charge-off prediction with HDInsight Spark](/azure/architecture/solution-ideas/articles/loan-chargeoff-prediction-with-azure-hdinsight-spark-clusters)|| Databases|
-|[Loan chargeoff prediction with SQL Server](/azure/architecture/solution-ideas/articles/loan-chargeoff-prediction-with-sql-server)|| Databases|
-|[Loan credit risk and default modeling](/azure/architecture/solution-ideas/articles/loan-credit-risk-analyzer-and-default-modeling)|| Databases|
-|[Loan credit risk with SQL Server](/azure/architecture/solution-ideas/articles/loan-credit-risk-with-sql-server)|| Databases|
-|[Manage data across Azure SQL estate with Azure Purview](/azure/architecture/solution-ideas/articles/azure-purview-sql-estate-architecture)|| Analytics|
-|[Master data management with Azure and CluedIn](/azure/architecture/reference-architectures/data/cluedin)|| Databases|
-|[Master data management with Profisee and Azure Data Factory](/azure/architecture/reference-architectures/data/profisee-master-data-management-data-factory)|| Databases|
-|[Medical data storage solutions](/azure/architecture/solution-ideas/articles/medical-data-storage)|| Storage|
-|[Modern analytics architecture with Azure Databricks](/azure/architecture/solution-ideas/articles/azure-databricks-modern-analytics-architecture)|| Analytics|
-|[Modern data warehouse for small and medium business](/azure/architecture/example-scenario/data/small-medium-data-warehouse)|| Analytics|
-|[Optimize Marketing with Machine Learning](/azure/architecture/solution-ideas/articles/optimize-marketing-with-machine-learning)|| AI|
-|[Population Health Management for Healthcare](/azure/architecture/solution-ideas/articles/population-health-management-for-healthcare)|| AI|
-|[Predict Length of Stay and Patient Flow](/azure/architecture/solution-ideas/articles/predict-length-of-stay-and-patient-flow-with-healthcare-analytics)|| AI|
-|[Predict the length of stay in hospitals](/azure/architecture/solution-ideas/articles/predicting-length-of-stay-in-hospitals)|| Analytics|
-|[Predictive Insights with Vehicle Telematics](/azure/architecture/solution-ideas/articles/predictive-insights-with-vehicle-telematics)|| AI|
-|[Predictive marketing with machine learning](/azure/architecture/solution-ideas/articles/predictive-marketing-campaigns-with-machine-learning-and-spark)|| AI|
-|[Product recommendations for retail using Azure](/azure/architecture/solution-ideas/articles/product-recommendations)|| AI|
-|[Project 15 Open Platform](/azure/architecture/solution-ideas/articles/project-15-iot-sustainability)|| IoT|
-|[Quality Assurance](/azure/architecture/solution-ideas/articles/quality-assurance)|| AI|
-|[Serverless computing solution for LOB apps](/azure/architecture/solution-ideas/articles/onboarding-customers-with-a-cloud-native-serverless-architecture)|| Serverless|
-|[Use a demand forecasting model for price optimization](/azure/architecture/solution-ideas/articles/demand-forecasting-price-optimization-marketing)|| Analytics|
+|[Advanced analytics](/azure/architecture/solution-ideas/articles/advanced-analytics-on-big-data)|This architecture allows you to combine any data at any scale with custom machine learning and get near real-time data analytics on streaming services.| (Analytics)
+|[Azure Machine Learning architecture](/azure/architecture/solution-ideas/articles/azure-machine-learning-solution-architecture)|Learn how to build, deploy, and manage high-quality models with Azure Machine Learning, a service for the end-to-end ML lifecycle.| AI|
+|[Campaign optimization with HDInsight Spark](/azure/architecture/solution-ideas/articles/campaign-optimization-with-azure-hdinsight-spark-clusters)|Build and deploy a machine learning model to maximize the purchase rate of leads that are targeted by a marketing campaign using Microsoft Machine Learning Server.| Databases|
+|[Campaign optimization with SQL Server](/azure/architecture/solution-ideas/articles/campaign-optimization-with-sql-server)|Optimize when and how to contact potential customers to improve marketing campaign success rates with machine learning and SQL Server 2016 with R Services.| Databases|
+|[Clinical insights with Microsoft Cloud for Healthcare](/azure/architecture/example-scenario/mch-health/medical-data-insights)|This article describes an architecture to gather insights from the clinical and medical data using Microsoft Cloud for Healthcare.| Web|
+|[Data analysis for regulated industries](/azure/architecture/example-scenario/data/data-analysis-regulated-industries)|This article describes an architecture for data analysis workloads for regulated industries. The architecture includes ETL/ELT and Power BI.| Analytics|
+|[Data governance with Profisee and Azure Purview](/azure/architecture/reference-architectures/data/profisee-master-data-management-purview)|Integrate Profisee master data management with Azure Purview, to build a foundation for data governance and management. Produce and deliver high-quality, trusted data.| Databases|
+|[Data management across Azure Data Lake with Azure Purview](/azure/architecture/solution-ideas/articles/azure-purview-data-lake-estate-architecture)|Use Azure Purview to build a foundation for data governance and management that can produce and deliver high-quality, trusted data.| Analytics|
+|[Defect prevention with predictive maintenance](/azure/architecture/solution-ideas/articles/defect-prevention-with-predictive-maintenance)|Predict failures before they happen with real-time assembly line data and Azure Machine Learning and Azure Synapse Analytics.| AI|
+|[Deliver highly scalable customer service and ERP applications](/azure/architecture/solution-ideas/articles/erp-customer-service)|Use Azure SQL and Azure Cosmos DB to deliver highly scalable customer service and ERP applications that work with structured and unstructured data.| Analytics|
+|[Demand forecasting for shipping and distribution](/azure/architecture/solution-ideas/articles/demand-forecasting-for-shipping-and-distribution)|Use historical demand data to train a demand forecasting model for shipping and distribution solutions on Microsoft AI Platform.| Analytics|
+|[Finance management apps using Azure Database for PostgreSQL](/azure/architecture/solution-ideas/articles/finance-management-apps-using-azure-database-for-postgresql)|Use Azure Database for PostgreSQL to securely store critical data and provide users with high-value analytics and insights over aggregated data.| Databases|
+|[Finance management apps with Azure DB for MySQL](/azure/architecture/solution-ideas/articles/finance-management-apps-using-azure-database-for-mysql)|Use Azure Database for MySQL to securely store critical data and provide users with high-value analytics and insights over aggregated data.| Databases|
+|[Forecast energy and power demand](/azure/architecture/solution-ideas/articles/forecast-energy-power-demand)|Forecast spikes in demand for energy products and services with Microsoft Azure Machine Learning and give your company a competitive advantage.| AI|
+|[HIPAA and HITRUST compliant health data AI](/azure/architecture/solution-ideas/articles/security-compliance-blueprint-hipaa-hitrust-health-data-ai)|Store, manage, and analyze HIPAA-compliant and HITRUST-compliant health data and medical records with the highest level of built-in security.| Serverless|
+|[Intelligent apps using Azure Database for MySQL](/azure/architecture/solution-ideas/articles/intelligent-apps-using-azure-database-for-mysql)|Use Azure Database for MySQL to develop sophisticated machine learning and visualization apps that provide analytics and information that you can act on.| Databases|
+|[Intelligent apps using Azure Database for PostgreSQL](/azure/architecture/solution-ideas/articles/intelligent-apps-using-azure-database-for-postgresql)|Use Azure Database for PostgreSQL to develop sophisticated machine learning and visualization apps that provide analytics and information that you can act on.| Databases|
+|[Interactive querying with HDInsight](/azure/architecture/solution-ideas/articles/interactive-querying-with-hdinsight)|Use Apache Hive Live Long And Process (LLAP) to perform fast, interactive SQL queries at scale, over structured or unstructured data.| Databases|
+|[IoT connected light, power, and internet for emerging markets](/azure/architecture/solution-ideas/articles/iot-power-management)|Energy provider Veriown uses solar-powered IoT devices with Azure services to provide clean, low-cost power, light, and internet service to remote customers.| IoT|
+|[IoT using Azure Cosmos DB](/azure/architecture/solution-ideas/articles/iot-using-cosmos-db)|Azure Cosmos DB scales instantly and elastically to accommodate diverse and unpredictable IoT workloads without sacrificing ingestion or query performance.| IoT|
+|[Line of business extension](/azure/architecture/solution-ideas/articles/lob)|Modernize legacy systems by automating processes. Schedule calculations, connect to third party data sources or legacy systems, and process and share data.| Integration|
+|[Loan charge-off prediction with HDInsight Spark](/azure/architecture/solution-ideas/articles/loan-chargeoff-prediction-with-azure-hdinsight-spark-clusters)|By using Azure HDInsight, a lending institution can use machine learning to predict the likelihood of loans getting charged off.| Databases|
+|[Loan charge-off prediction with SQL Server](/azure/architecture/solution-ideas/articles/loan-chargeoff-prediction-with-sql-server)|Build and deploy a machine learning model with SQL Server 2016 with R Services to predict whether a bank loan will soon need to be charged off.| Databases|
+|[Loan credit risk and default modeling](/azure/architecture/solution-ideas/articles/loan-credit-risk-analyzer-and-default-modeling)|SQL Server 2016 with R Services can help lenders issue fewer unprofitable loans by predicting borrower credit risk and default probability.| Databases|
+|[Loan credit risk with SQL Server](/azure/architecture/solution-ideas/articles/loan-credit-risk-with-sql-server)|Lending institutions can use the predictive analytics of SQL Server 2016 with R Services to reduce the number of loans to borrowers most likely to default.| Databases|
+|[Manage data across your Azure SQL estate with Azure Purview](/azure/architecture/solution-ideas/articles/azure-purview-sql-estate-architecture)|Improve your organization's governance process by using Azure Purview in your Azure SQL estate.| Analytics|
+|[Master data management with Azure and CluedIn](/azure/architecture/reference-architectures/data/cluedin)|Use CluedIn eventual connectivity data integration to blend data from many siloed data sources and prepare it for analytics and business operations.| Databases|
+|[Master data management with Profisee and Azure Data Factory](/azure/architecture/reference-architectures/data/profisee-master-data-management-data-factory)|Integrate Profisee master data management with Azure Data Factory to deliver high-quality, trusted data for Azure Synapse, and all analytic applications.| Databases|
+|[Medical data storage solutions](/azure/architecture/solution-ideas/articles/medical-data-storage)|Store healthcare data effectively and affordably with cloud-based solutions from Azure. Manage medical records with the highest level of built-in security.| Storage|
+|[Modern analytics architecture with Azure Databricks](/azure/architecture/solution-ideas/articles/azure-databricks-modern-analytics-architecture)|Create a modern analytics architecture with Azure Databricks, Data Lake Storage, and other Azure services. Unify data, analytics, and AI workloads at any scale.| Analytics|
+|[Modern data warehouse for small and medium business](/azure/architecture/example-scenario/data/small-medium-data-warehouse)|Use Azure Synapse Analytics, SQL Database, and Data Lake Storage to modernize SMB legacy and on-premises data. Easily integrate fused data with other services.| Analytics|
+|[Optimize Marketing with Machine Learning](/azure/architecture/solution-ideas/articles/optimize-marketing-with-machine-learning)|Build a machine-learning model with Azure Machine Learning, Azure Synapse Analytics and Power BI that optimizes big data marketing campaigns.| AI|
+|[Population Health Management for Healthcare](/azure/architecture/solution-ideas/articles/population-health-management-for-healthcare)|Use population health management to improve clinical and health outcomes and reduce costs. Track, monitor, and benchmark data with this tool.| AI|
+|[Predict Length of Stay and Patient Flow](/azure/architecture/solution-ideas/articles/predict-length-of-stay-and-patient-flow-with-healthcare-analytics)|Predict capacity and patient flow for your hospital or healthcare facility so that you can enhance the quality of care and improve operational efficiency.| AI|
+|[Predict the length of stay in hospitals](/azure/architecture/solution-ideas/articles/predicting-length-of-stay-in-hospitals)|Length of stay predictions for hospital admissions can enhance care quality and operational workload efficiency and reduce readmissions.| Analytics|
+|[Predictive Insights with Vehicle Telematics](/azure/architecture/solution-ideas/articles/predictive-insights-with-vehicle-telematics)|Car dealerships, manufacturers, and insurance companies can use Microsoft Azure to gain predictive insights on vehicle health and driving habits.| AI|
+|[Predictive marketing with machine learning](/azure/architecture/solution-ideas/articles/predictive-marketing-campaigns-with-machine-learning-and-spark)|Optimize big data marketing campaigns with a machine-learning model using Microsoft Machine Learning and Azure HDInsight Spark clusters.| AI|
+|[Product recommendations for retail using Azure](/azure/architecture/solution-ideas/articles/product-recommendations)|Aggregate customer data into complete profiles. Use advanced Azure machine learning models to provide predictive insights on simulated customers.| AI|
+|[Project 15 Open Platform](/azure/architecture/solution-ideas/articles/project-15-iot-sustainability)|Use Internet of Things technologies with the Project 15 Open Platform to accelerate innovation in species tracking, ecosystem monitoring, and other areas.| IoT|
+|[Quality Assurance](/azure/architecture/solution-ideas/articles/quality-assurance)|Build a quality assurance system that collects data and improves productivity by identifying potential problems in a manufacturing pipeline before they occur.| AI|
+|[Serverless computing solution for LOB apps](/azure/architecture/solution-ideas/articles/onboarding-customers-with-a-cloud-native-serverless-architecture)|Build and run customer onboarding applications without managing or maintaining infrastructure. Improve developer productivity with this serverless architecture.| Serverless|
+|[Use a demand forecasting model for price optimization](/azure/architecture/solution-ideas/articles/demand-forecasting-price-optimization-marketing)|Predict future customer demand and optimize pricing to maximize profitability using big-data and advanced-analytics services from Microsoft Azure.| Analytics|
