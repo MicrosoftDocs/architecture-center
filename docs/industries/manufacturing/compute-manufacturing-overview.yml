@@ -15,7 +15,7 @@ products:
   - azure-files
   - azure-machine-learning
 name: High-performance computing for manufacturing 
-summary: Overview for the high power compute need in the manufacturing industry.
+summary: Overview for the high-power compute need in the manufacturing industry.
 thumbnailUrl: /azure/architecture/browse/thumbs/azure-batch-ai.png
 content: |
   [!include[](compute-manufacturing-overview-content.md)]
