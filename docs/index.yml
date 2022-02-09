@@ -52,8 +52,8 @@ productDirectory:
           text: Building microservices on Azure
         - url: ./patterns/index.md
           text: Application design patterns
-        - url: ./multitenant-identity/index.md
-          text: Managing identity in multitenant apps
+        - url: ./guide/multitenant/overview.md
+          text: Architecting multitenant solutions on Azure
     # Card
     - title: Optimizing your workload
       imageSrc: https://docs.microsoft.com/media/common/i_architecture.svg
