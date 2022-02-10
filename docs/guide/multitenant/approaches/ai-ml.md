@@ -102,7 +102,7 @@ Generally, AI and ML workloads incur the greatest proportion of their costs from
 
 Consider the following requirements when planning your AI and ML costs (you can also use this [Azure Pricing Calculator](https://azure.microsoft.com/pricing/calculator/) for general cost related Azure estimates):
 
-- **Determine compute SKUs for training.** For example, refer to [this page for guidance on how to do this with Azure ML](/azure/cloud-adoption-framework/ready/azure-best-practices/optimize-ai-machine-learning-cost#determine-the-compute-size-for-training).
+- **Determine compute SKUs for training.** For example, refer to [guidance on how to do this with Azure ML](/azure/cloud-adoption-framework/ready/azure-best-practices/optimize-ai-machine-learning-cost#determine-the-compute-size-for-training).
 - **Determine compute SKUs for inference.** For inference cost estimate example refer to [this guidance for Azure ML](/azure/cloud-adoption-framework/ready/azure-best-practices/optimize-ai-machine-learning-cost#determine-the-compute-size-for-inference).
 - **Monitor your utilization.** By observing the utilization of your compute resources, you can determine whether you should decrease or increase their capacity by deploying different SKUs, or scale the compute resources as your requirements change. See [Azure Machine Learning Monitor](/azure/machine-learning/monitor-azure-machine-learning).
 - **Optimize your compute clustering environment.** When you use compute clusters, monitor cluster utilization or configure [autoscaling](/python/api/azureml-core/azureml.core.compute.amlcompute.scalesettings) to scale down compute nodes.  
