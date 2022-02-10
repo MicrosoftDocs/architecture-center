@@ -17,7 +17,7 @@ ms.custom:
   - fcp
 ---
 
-# Camera selection in Azure IoT Edge vision AI
+# Camera selection for Azure IoT Edge vision AI
 
 One of the most critical components in a computer vision system is the camera. The camera must capture and present images that artificial intelligence (AI) or machine learning (ML) models can evaluate and identify correctly. This article provides an in-depth understanding of different camera types, capabilities, and considerations.
 
@@ -114,7 +114,7 @@ The following figure demonstrates the angular placement of light sources:
 
 ### Field of view
 
-In planning a vision workload, you need to know about the field of view of the objects you're evaluating. Field of view plays a part in camera selection, sensor selection, and lens configuration. Some components of the field of view include:
+In planning a vision workload, you need to know about the field of view (FOV) of the objects you're evaluating. FOV plays a part in camera selection, sensor selection, and lens configuration. FOV components include:
 
 - Distance to objects. For example, is the object being monitored on a conveyor belt with the camera two feet above it, or across a parking lot? Camera sensors and lens configurations are different for different distances.
 - Area of coverage. Is the area that the computer vision is trying to monitor small or large? This factor directly correlates to the camera's resolution, lens, and sensor type.
@@ -128,7 +128,7 @@ In planning a computer vision workload, it's important to understand how the cam
 - [Real Time Streaming Protocol (RTSP)](https://en.wikipedia.org/wiki/Real_Time_Streaming_Protocol) is an application-level network protocol that controls streaming video servers. RTSP transfers real-time video data from the camera to the IoT Edge compute endpoint over a TCP/IP connection.
 - [Open Network Video Interface Forum (ONVIF)](https://www.onvif.org) is a global, open industry forum that develops open standards for IP-based cameras. These standards describe communication between IP cameras and downstream systems, interoperability, and open source.
 - [Universal Serial Bus (USB)](https://en.wikipedia.org/wiki/USB)-connected cameras connect over the USB port directly to the IoT Edge compute device. This connection is less complex, but limits the distance the camera can be located from the IoT Edge device.
-- [Camera Serial Interface (CSI)](https://www.mipi.org/specifications/csi-2) includes several standards from the Mobile Industry Processor Interface (MIPI) Alliance. CSI describes how to communicate between a camera and a host processor. CSI-2 was released in 2005, and has several layers:
+- [Camera Serial Interface (CSI)](https://www.mipi.org/specifications/csi-2) includes several standards from the Mobile Industry Processor Interface (MIPI) Alliance. CSI describes how to communicate between a camera and a host processor. CSI-2, released in 2005, has several layers:
 
   - Physical layer (either C-PHY or D-PHY)
   - Lane merger layer
@@ -136,7 +136,7 @@ In planning a computer vision workload, it's important to understand how the cam
   - Pixel to byte conversion layer
   - Application layer
 
-  [CSI-2 v3.0](https://resources.mipi.org/blog/mipi-csi-2s-newest-frontier-machine-awareness) released in 2019, and added support for RAW-24 color depth, Unified Serial Link, and Smart Region of Interest.
+  [CSI-2 v3.0](https://resources.mipi.org/blog/mipi-csi-2s-newest-frontier-machine-awareness) added support for RAW-24 color depth, Unified Serial Link, and Smart Region of Interest.
 
 ## Next steps
 

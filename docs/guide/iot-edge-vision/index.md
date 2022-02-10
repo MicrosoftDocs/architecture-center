@@ -38,6 +38,8 @@ In manufacturing environments, vision AI can inspect parts and processes fast an
 - Check proper product assembly.
 - Provide early defect notifications.
 
+For an IoT Edge vision AI scenario for this use case, see [User scenario 1: Quality control](user-interface.md#user-scenario-1-quality-control).
+
 ### Safety and security
 
 Automated visual monitoring can scan for potential safety and security issues. Automation can provide more time to respond to incidents, and more opportunities to reduce risk. Automated safety monitoring can:
@@ -46,6 +48,8 @@ Automated visual monitoring can scan for potential safety and security issues. A
 - Monitor entry into unauthorized work zones.
 - Alert on unidentified objects.
 - Record unreported close calls or pedestrian-equipment near-misses.
+
+For an IoT Edge vision AI scenario for this use case, see [User scenario 2: Safety](user-interface.md#user-scenario-2-safety).
 
 ## Cost and performance benefits
 
@@ -65,14 +69,14 @@ Sending all data to the cloud for analysis can significantly impact the return o
 
 ## IoT Edge vision AI components and processes
 
-Vision AI solutions for IoT Edge involve several components and processes. The other articles in this series provide in-depth planning and design guidance for these areas:
+Vision AI solutions for IoT Edge involve several components and processes. The remaining articles in this series provide in-depth planning and design guidance for these areas.
 
-- Camera. See [Camera selection for Azure IoT Edge vision AI](./camera.md).
-- Edge hardware acceleration chips and processors. See [Hardware acceleration in Azure IoT Edge vision AI](./hardware.md).
-- Training and machine learning for IoT Edge vision modules. See [Machine learning and data science in Azure IoT Edge vision AI](./machine-learning.md).
-- Storing image data on IoT Edge devices and in the cloud. See [Image storage and management for Azure IoT Edge vision AI](./image-storage.md).
-- Alerting based on image scores that need attention. See [Alert persistence in Azure IoT Edge vision AI](./alerts.md).
-- User interaction with the system. See [User interface and scenarios in Azure IoT Edge vision AI](./user-interface.md).
+1. Cameras provide the input into computer vision systems. See [Camera selection for Azure IoT Edge vision AI](./camera.md).
+1. Hardware acceleration chips and processors on IoT Edge devices provide the computing power for computer graphics and AI. See [Hardware acceleration in Azure IoT Edge vision AI](./hardware.md).
+1. Machine learning (ML) models deployed as IoT Edge modules score incoming image data to trigger various outcomes and actions. See [Machine learning in Azure IoT Edge vision AI](./machine-learning.md).
+1. Relevant image data and metadata are stored on the IoT Edge device and synced to the cloud. Stored data is used for ML retraining, troubleshooting, and analytics. See [Image storage and management for Azure IoT Edge vision AI](./image-storage.md).
+1. Image scores that need attention trigger automatic alerts, which drive further actions. See [Alert persistence in Azure IoT Edge vision AI](./alerts.md).
+1. Users can interact with the system through apps, dashboards, and other user interfaces. See [User interfaces and scenarios in Azure IoT Edge vision AI](./user-interface.md).
 
 ## Next steps
 
@@ -83,13 +87,14 @@ To continue with this series about IoT Edge vision AI, go on to the next article
 
 To learn more about CNNs, vision AI, Azure Machine Learning, and Azure IoT Edge, see the following documentation:
 
-- [Azure IoT Edge documentation](/azure/iot-edge/)
-- [Azure Machine Learning documentation](/azure/machine-learning/)
+- [Azure IoT Edge documentation](/azure/iot-edge)
+- [Azure Machine Learning documentation](/azure/machine-learning)
 - [Tutorial: Perform image classification at the edge with Custom Vision Service](/azure/iot-edge/tutorial-deploy-custom-vision)
 - [What is Computer Vision?](/azure/cognitive-services/computer-vision/overview)
 - [What is Azure Video Analyzer? (preview)](/azure/azure-video-analyzer/video-analyzer-docs/overview)
-- [Azure Kinect DK developer kit documentation](/azure/kinect-dk/)
-- [Open Neural Network Exchange (ONNX)](https://onnx.ai/)
+- [Azure Kinect DK developer kit documentation](/azure/kinect-dk)
+- [Open Neural Network Exchange (ONNX) ML framework](https://onnx.ai)
+- [Model management deep neural network (MMdnn) ML framework](https://github.com/Microsoft/MMdnn)
 
 ## Related resources
 

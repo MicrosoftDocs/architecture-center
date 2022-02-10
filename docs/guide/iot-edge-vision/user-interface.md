@@ -20,11 +20,11 @@ ms.custom:
 
 # User interfaces and scenarios for Azure IoT Edge vision AI
 
-This final article in the Azure IoT Edge vision AI series discusses how users interact with internet of things (IoT) and artificial intelligence (AI) solutions. The article also presents design scenarios for two IoT Edge vision AI solutions.
+This final article in the Azure IoT Edge vision AI series discusses how users interact with internet of things (IoT) and artificial intelligence (AI) solutions. The article also presents two example IoT Edge vision AI scenarios.
 
 ## User interfaces
 
-Users interact with computer systems through a user interface (UI). UI requirements vary depending on overall objectives. Internet of things (IoT) solutions usually have four types of UI:
+Users interact with computer systems through a user interface (UI). UI requirements vary depending on overall objectives. IoT systems usually have four UI types:
 
 - The *administrator* UI allows full access to device provisioning, device and solution configuration, and user management. These features can be part of one solution, or separate solutions.
 - An *operator* UI provides access to the solution's operational components, such as device management, alert monitoring, and configuration.
@@ -33,17 +33,17 @@ Users interact with computer systems through a user interface (UI). UI requireme
 
 ## Technology choices
 
-Here are some user-friendly options for building and analyzing IoT Edge vision AI solutions:
+The following software and services are some of the ways that users can interact with IoT Edge vision AI systems:
 
-- [Azure App Service](https://azure.microsoft.com/services/app-service) is a managed platform for building web and mobile apps for many platforms and mobile devices. App Service allows developers to quickly build, deploy, and scale web apps. App Service supports frameworks like .NET, .NET Core, Node.js, Java, PHP, Ruby, or Python. Apps can be in containers or run on any supported operating system. The fully managed App Service platform meets rigorous, enterprise-grade performance, security, and compliance requirements.
+- [Azure App Service](https://azure.microsoft.com/services/app-service) is a platform for developers to quickly build, deploy, and scale web and mobile apps. App Service supports frameworks like .NET, .NET Core, Node.js, Java, PHP, Ruby, or Python. Apps can be in containers or run on any supported operating system, mobile device, or IoT Edge hardware. The fully managed App Service platform meets enterprise-grade performance, security, and compliance requirements.
 
-- [Azure SignalR Service](https://azure.microsoft.com/services/signalr-service) adds real-time data communications and reporting to web apps, without requiring in-depth real-time communications expertise. SignalR Service integrates easily with many Azure services.
+- [Azure SignalR Service](https://azure.microsoft.com/services/signalr-service) adds real-time data communications and reporting to apps, without requiring in-depth real-time communications expertise. SignalR Service integrates easily with many Azure cloud services.
 
-- [Azure Maps](https://azure.microsoft.com/services/azure-maps) is a suitable technology for IoT visualizations and computer vision projects. Azure Maps lets you create location-aware web and mobile apps by using simple and secure geospatial services, APIs, and SDKs. You can deliver seamless experiences based on geospatial data. Azure Maps has built-in location intelligence from worldwide technology partners.
+- [Azure Maps](https://azure.microsoft.com/services/azure-maps) is a technology for IoT visualization and computer vision projects. Azure Maps lets you create location-aware web and mobile apps by using simple and secure geospatial services, APIs, and SDKs. Azure Maps has built-in location intelligence from worldwide technology partners. You can deliver seamless experiences based on geospatial data.
 
-- [Power BI](https://powerbi.microsoft.com) is Power BI is a collection of services, apps, and connectors that turn data into customizable, interactive visualizations and dashboards. Power BI is available as a managed service or self-hosted package, and connects to many popular database systems and data services. With [Power BI Embedded](https://azure.microsoft.com/services/power-bi-embedded), you can create customer-facing reports and dashboards, and brand them as your own apps. Power BI can conserve developer resources by automating analytics monitoring, management, and deployment.
+- [Azure Active Directory (Azure AD)](https://azure.microsoft.com/services/active-directory) provides single sign-on and multi-factor authentication to secure your apps and user interfaces.
 
-- [Azure Active Directory (Azure AD)](https://azure.microsoft.com/services/active-directory) provides single sign-on and multi-factor authentication to secure your UI solutions.
+- [Power BI](https://powerbi.microsoft.com) is a set of analytics services, apps, and connectors that turn data into customizable, interactive visualizations and dashboards. Power BI is available as a managed service or self-hosted package, and connects to many popular database systems and data services. With [Power BI Embedded](https://azure.microsoft.com/services/power-bi-embedded), you can create customer-facing reports and dashboards, and brand them as your own apps. Power BI can conserve developer resources by automating analytics monitoring, management, and deployment.
 
 ## User scenario 1: Quality control
 
@@ -51,7 +51,7 @@ Contoso Boards produces high-quality circuit boards used in computers. Their num
 
 Contoso Boards saw an increase in issues with chip placement on the board. Investigation determined that the circuit boards were being placed incorrectly on the assembly line. Contoso Boards needed a way to identify and check correct circuit board placement.
 
-The Contoso Boards data scientists are familiar with [TensorFlow](https://www.tensorflow.org), and wanted to continue using it as their primary ML model structure. Contoso Boards also wanted to centralize management of several assembly lines that produce the motherboards.
+The Contoso Boards data scientists were familiar with [TensorFlow](https://www.tensorflow.org), and wanted to continue using it as their primary ML model structure. Contoso Boards also wanted to centralize management of several assembly lines that produce the motherboards.
 
 The Contoso Boards solution focuses on edge detection.
 
@@ -81,7 +81,7 @@ The data scientists are most familiar with TensorFlow, so learning ONNX or other
 
 ## User scenario 2: Safety
 
-Contoso Shipping has had several pedestrian accidents at their loading docks. Most accidents happened when a truck left the loading dock, and the driver didn't see a dock worker walking in front of the truck. Contoso Shipping needed a solution that watches for people, predicts their direction of travel, and warns drivers of potential collisions.
+Contoso Shipping has had several pedestrian accidents at their loading docks. Most accidents happened when a truck left the loading dock, and the driver didn't see a dock worker walking in front of the truck. Contoso Shipping needed a vision AI solution that watches for people, predicts their direction of travel, and warns drivers of potential collisions.
 
 Most of the data scientists at Contoso Shipping were familiar with [OpenVINO](https://docs.openvino.ai/latest/index.html), and wanted to reuse the solution models on future hardware. The solution also needed to support power efficiency, and use the smallest possible number of cameras. Finally, Contoso Shipping wanted to manage the solution remotely for updates.
 
@@ -127,7 +127,7 @@ Contoso Shipping operates 24/7, and must also protect nighttime personnel. Monoc
 
 ### ML model
 
-Because the data scientists are more familiar with OpenVINO, the solution builds data models in [ONNX](https://onnx.ai).
+Because the data scientists are familiar with OpenVINO, the solution builds data models in [ONNX](https://onnx.ai).
 
 ### Hardware acceleration
 
@@ -135,8 +135,9 @@ The distance from the cameras to the servers is too far for Gigabit Ethernet or 
 
 ## Next steps
 
-This series of articles described how to build a vision AI workload that uses Azure IoT Edge devices. For the other articles in this series, see:
+This series of articles described how to build a vision AI workload with Azure IoT Edge. For the other articles in this series, see:
 
+- [Azure IoT Edge vision AI overview](./index.md)
 - [Camera selection for Azure IoT Edge vision AI](./camera.md)
 - [Hardware acceleration in Azure IoT Edge vision AI](./hardware.md)
 - [Machine learning and data science in Azure IoT Edge vision AI](./machine-learning.md)
