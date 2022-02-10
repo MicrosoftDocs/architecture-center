@@ -45,7 +45,7 @@ Tenant-specific models are trained only on the data for a single tenant, and the
 
 #### Shared models
 
-In solutions that use shared models, all tenants perform inference based on the same shared model. Shared models might be pretrained models that you acquire or obtain from a community source, as illustrated below:
+In solutions that use shared models, all tenants perform inference based on the same shared model. Shared models might be pretrained models that you acquire or obtain from a community source. The following diagram illustrates how a single pretrained model can be used for inference by all tenants:
 
 ![Diagram that shows a single pretrained model. The model is used for inference by users from all tenants.](media/ai-ml/shared-pretrained-models.png)
 
