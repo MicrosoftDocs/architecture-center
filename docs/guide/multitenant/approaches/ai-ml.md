@@ -54,7 +54,9 @@ You also can build your own shared models by training them from the data provide
 ![Diagram that shows a single shared model trained on the data from multiple tenants. The model is used for inference by users from all tenants.](media/ai-ml/shared-tenant-trained-models.png)
 
 > [!IMPORTANT]
-> If you train a shared model from your tenants' data, ensure that your tenants understand and agree to the use of their data. Ensure your tenants' data removed identifying information. Consider what to do if a tenant objects to their data being used to train a model that will be applied to another tenant.
+> If you train a shared model from your tenants' data, ensure that your tenants understand and agree to the use of their data. Ensure identifying information is removed from your tenants' data.
+>
+> Consider what to do if a tenant objects to their data being used to train a model that will be applied to another tenant. For example, would you be able to exclude specific tenants' data from the training data set?
 
 #### Tuned shared models
 
