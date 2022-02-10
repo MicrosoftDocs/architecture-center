@@ -166,7 +166,7 @@ Add Azure Pipelines *variable groups* to store secrets and values to pass into t
 
 Add the Azure Pipelines build and deployment pipelines.
 
-### Add the functions_pr_master.yml pipeline
+### Add the functions_pr_main.yml pipeline
 
 This pipeline runs when you make a code pull request from a feature branch to the main branch.
 
@@ -178,7 +178,7 @@ This pipeline runs when you make a code pull request from a feature branch to th
 
 1. Select **Existing Azure Pipelines YAML file**.
 
-1. Under **Path**, select **/infrastructure/azure-pipelines/functions_pr_master.yml**, and then select **Continue**.
+1. Under **Path**, select **/infrastructure/azure-pipelines/functions_pr_main.yml**, and then select **Continue**.
 
 1. Select **Run** to run the pipeline.
 
@@ -307,7 +307,7 @@ Adjust the following suggested settings as you see fit.
 
    Add a **Build validation** build policy with the following settings:
 
-   - Build pipeline: `functions_pr_master`
+   - Build pipeline: `functions_pr_main`
    - Path filter: `/src/*`
    - Display name: `PR Policy`
 
