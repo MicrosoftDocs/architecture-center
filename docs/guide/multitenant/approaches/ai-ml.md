@@ -102,7 +102,7 @@ By using a prebuilt ML platform like Azure Cognitive Services, or a pretrained m
 
 Generally, AI and ML workloads incur the greatest proportion of their costs from the compute resources that are required for model training and inference. Review [Architectural approaches for compute in multitenant solutions](compute.md) to understand how to optimize the cost of your compute workload for your requirements. 
 
-Consider the following requirements when planning your AI and ML costs (you can also use this [Azure Pricing Calculator](https://azure.microsoft.com/pricing/calculator/) for general cost related Azure estimates):
+Consider the following requirements when planning your AI and ML costs:
 
 - **Determine compute SKUs for training.** For example, refer to [guidance on how to do this with Azure ML](/azure/cloud-adoption-framework/ready/azure-best-practices/optimize-ai-machine-learning-cost#determine-the-compute-size-for-training).
 - **Determine compute SKUs for inference.** For inference cost estimate example refer to [this guidance for Azure ML](/azure/cloud-adoption-framework/ready/azure-best-practices/optimize-ai-machine-learning-cost#determine-the-compute-size-for-inference).
