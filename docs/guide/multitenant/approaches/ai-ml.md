@@ -142,7 +142,7 @@ The following diagram illustrates an example architecture that uses Azure Machin
 
 Azure provides several powerful analytics platforms that can be used for a range of purposes. These platforms include [Azure Synapse Analytics](/azure/synapse-analytics/overview-what-is), [Databricks](/azure/databricks/scenarios/ml/), and [Apache Spark](/azure/synapse-analytics/spark/apache-spark-machine-learning-training).
 
-You can consider using these platforms for AI/ML when you need to scale your ML capabilities to a very large number of tenants, and require large-scale compute and orchestration. You also might consider using these platforms for AI/ML when you need a broad analytics platform for other parts of your solution, such as for data analytics and integration with reporting through Microsoft Power BI. You can deploy a single platform that covers all of your analytics and AI/ML needs. When you implement data platforms in a multitenant solution, review [Architectural approaches for storage and data in multitenant solutions](storage-data.md).
+You can consider using these platforms for AI/ML when you need to scale your ML capabilities to a very large number of tenants, and when you need large-scale compute and orchestration. You also might consider using these platforms for AI/ML when you need a broad analytics platform for other parts of your solution, such as for data analytics and integration with reporting through Microsoft Power BI. You can deploy a single platform that covers all of your analytics and AI/ML needs. When you implement data platforms in a multitenant solution, review [Architectural approaches for storage and data in multitenant solutions](storage-data.md).
 
 ## Antipatterns to avoid
 
