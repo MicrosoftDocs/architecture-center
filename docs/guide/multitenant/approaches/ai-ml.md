@@ -49,7 +49,7 @@ In solutions that use shared models, all tenants perform inference based on the 
 
 ![Diagram that shows a single pretrained model. The model is used for inference by users from all tenants.](media/ai-ml/shared-pretrained-models.png)
 
-You also can build your own shared models by training from the data provided by all of your tenants, as illustrated below:
+You also can build your own shared models by training them from the data provided by all of your tenants. The following diagram illustrates a single shared model, which is trained on data from all tenants:
 
 ![Diagram that shows a single shared model trained on the data from multiple tenants. The model is used for inference by users from all tenants.](media/ai-ml/shared-tenant-trained-models.png)
 
