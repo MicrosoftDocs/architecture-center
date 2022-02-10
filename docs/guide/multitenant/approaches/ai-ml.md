@@ -126,7 +126,7 @@ Many managed ML services don't require model training or data, so there's usuall
 Consider the scale requirements for the components in your solution. For example, many of the APIs within Azure Cognitive Services support a maximum number of requests per second. If you deploy a single Cognitive Services resource to share across your tenants, then as the number of tenants increases you might need to [scale to multiple resources](resource-organization.md).
 
 > [!NOTE]
-> Some managed services enable you to train with your own data, like the [Custom Vision service](/azure/cognitive-services/custom-vision-service/overview), the [Face API](/azure/cognitive-services/face/face-api-how-to-topics/how-to-add-faces), and [Form Recognizer custom models](/azure/applied-ai-services/form-recognizer/concept-custom). When you work with these services, it's important to consider the [isolation requirements](#tenant-isolation) for your tenants' data.
+> Some managed services enable you to train with your own data, including the [Custom Vision service](/azure/cognitive-services/custom-vision-service/overview), the [Face API](/azure/cognitive-services/face/face-api-how-to-topics/how-to-add-faces), and [Form Recognizer custom models](/azure/applied-ai-services/form-recognizer/concept-custom). When you work with these services, it's important to consider the [isolation requirements](#tenant-isolation) for your tenants' data.
 
 ### Custom AI/ML architecture
 
