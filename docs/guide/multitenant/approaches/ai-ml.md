@@ -134,7 +134,7 @@ When working in a multitenant solution, it's important to consider the [isolatio
 
 When you use open source models, you might need to retrain these models by using transfer learning or tuning. Consider how you will manage the different models and training data for each tenant, as well as versions of the model.
 
-The following diagram illustrates an example architecture that uses Azure Machine Learning. The example uses the [tenant-specific models](#tenant-specific-models) isolation model.
+The following diagram illustrates an example architecture that uses Azure Machine Learning. The example uses the [tenant-specific models](#tenant-specific-models) isolation approach.
 
 ![Diagram that shows an architecture that uses Azure Machine Learning. A workspace, containing projects and experiments, builds models for tenants A, B, and C. The users for each tenant access a shared API layer, which performs inference by using the relevant ML model for their tenant,](media/ai-ml/approach-azure-ml.png)
 
