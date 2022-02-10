@@ -35,7 +35,7 @@ When you work with AI and ML, it's important to separately consider your require
 
 Ensure that tenants don't gain unauthorized or unwanted access to the data or models of other tenants. Treat models with a similar sensitivity to the raw data that trained them. Ensure that your tenants understand how their data is used to train models, and how models trained on other tenants' data might be used for inference purposes on their workloads.
 
-There are three common approaches for ML models in multitenant solutions.
+There are three common approaches for working with ML models in multitenant solutions: tenant-specific models, shared models, and tuned shared models.
 
 #### Tenant-specific models
 
