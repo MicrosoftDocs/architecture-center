@@ -1,12 +1,9 @@
 ---
 title: Move Blob storage data with Azure Storage Explorer
 description: Learn how to use Azure Storage Explorer to upload and download data from Azure Blob Storage.
-services: machine-learning
 author: marktab
 manager: marktab
 editor: marktab
-ms.service: machine-learning
-ms.subservice: team-data-science-process
 ms.topic: article
 ms.date: 12/16/2021
 ms.author: tdsp
