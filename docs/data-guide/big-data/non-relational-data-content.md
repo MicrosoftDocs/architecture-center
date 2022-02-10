@@ -1,20 +1,3 @@
----
-title: Non-relational data and NoSQL
-description: Learn about non-relational databases that store data as key/value pairs, graphs, time series, objects, and other storage models, based on data requirements.
-author: EdPrice-MSFT
-ms.author: pnp
-ms.date: 02/12/2018
-ms.topic: conceptual
-ms.service: architecture-center
-ms.subservice: azure-guide
-products:
-  - azure-cosmos-db
-ms.custom:
-  - guide
----
-
-# Non-relational data and NoSQL
-
 A *non-relational database* is a database that does not use the tabular schema of rows and columns found in most traditional database systems. Instead, non-relational databases use a storage model that is optimized for the specific requirements of the type of data being stored. For example, data may be stored as simple key/value pairs, as JSON documents, or as a graph consisting of edges and vertices.
 
 What all of these data stores have in common is that they don't use a [relational model](../index.md). Also, they tend to be more specific in the type of data they support and how data can be queried. For example, time series data stores are optimized for queries over time-based sequences of data. However, graph data stores are optimized for exploring weighted relationships between entities. Neither format would generalize well to the task of managing transactional data.

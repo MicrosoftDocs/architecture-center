@@ -36,7 +36,7 @@ items:
           - name: Make all things redundant
             href: guide/design-principles/redundancy.md
           - name: Minimize coordination
-            href: guide/design-principles/minimize-coordination.md
+            href: guide/design-principles/minimize-coordination.yml
           - name: Design to scale out
             href: guide/design-principles/scale-out.md
           - name: Partition around limits
@@ -56,14 +56,15 @@ items:
           - name: Choose a compute service
             items:
               - name: Azure compute services
-                href: guide/technology-choices/compute-decision-tree.md
+                href: guide/technology-choices/compute-decision-tree.yml
               - name: Microservices compute options
                 href: /azure/architecture/microservices/design/compute-options
               - name: Web apps and single page apps
                 href: /dotnet/architecture/modern-web-apps-azure/choose-between-traditional-web-and-single-page-apps
                 maintainContext: true
               - name: Multiparty computing
-                href: guide/technology-choices/multiparty-computing-service.md 
+                href: guide/technology-choices/multiparty-computing-service.yml
+          - name: Choose a Kubernetes edge option
           - name: Choose a container option
             items:
               - name: Container options
@@ -102,13 +103,13 @@ items:
               - name: Database scenarios
                 items:
                   - name: OLAP solutions
-                    href: data-guide/relational-data/online-analytical-processing.md
+                    href: data-guide/relational-data/online-analytical-processing.yml
                   - name: OLTP solutions
                     href: data-guide/relational-data/online-transaction-processing.md
                   - name: Data warehousing
-                    href: data-guide/relational-data/data-warehousing.md
+                    href: data-guide/relational-data/data-warehousing.yml
                   - name: Non-relational data store
-                    href: data-guide/big-data/non-relational-data.md
+                    href: data-guide/big-data/non-relational-data.yml
                   - name: Pipeline orchestration
                     href: data-guide/technology-choices/pipeline-orchestration-data-movement.md
                   - name: Search data store
@@ -130,7 +131,7 @@ items:
               - name: Cognitive services
                 href: data-guide/technology-choices/cognitive-services.md
               - name: Natural language processing
-                href: data-guide/technology-choices/natural-language-processing.md
+                href: data-guide/technology-choices/natural-language-processing.yml
               - name: Machine learning
                 href: data-guide/technology-choices/data-science-and-machine-learning.md
               - name: Machine learning tools
@@ -144,7 +145,7 @@ items:
                 href: /azure/cloud-adoption-framework/ready/considerations/networking-options
                 maintainContext: true
               - name: Load balancing options
-                href: guide/technology-choices/load-balancing-overview.md
+                href: guide/technology-choices/load-balancing-overview.yml
               - name: VNet peering and VPN gateways
                 href: reference-architectures/hybrid-networking/vnet-peering.yml
           - name: Choose a messaging service
@@ -153,11 +154,11 @@ items:
                 href: /azure/event-grid/compare-messaging-services
                 maintainContext: true
               - name: Asynchronous messaging
-                href: guide/technology-choices/messaging.md
+                href: guide/technology-choices/messaging.yml
               - name: Real-time message ingestion
                 href: data-guide/technology-choices/real-time-ingestion.md
           - name: Choose an IoT solution
-            href: example-scenario/iot/iot-central-iot-hub-cheat-sheet.md
+            href: example-scenario/iot/iot-central-iot-hub-cheat-sheet.yml
           - name: Choose a mixed reality engine
             href: /windows/mixed-reality/develop/choosing-an-engine
             maintainContext: true
@@ -948,115 +949,160 @@ items:
         items:
           - name: Overview
             href: industries/game-development.md
-          - name: All game development architectures
-            href: /azure/architecture/browse/?terms=game
-          - name: Rendering
+          - name: Guides
             items:
-              - name: 3D video rendering
-                href: example-scenario/infrastructure/video-rendering.yml
-              - name: Digital image-based modeling on Azure
-                href: example-scenario/infrastructure/image-modeling.yml
-          - name: Databases for gaming
-            items:
-              - name: Gaming using Azure MySQL
-                href: solution-ideas/articles/gaming-using-azure-database-for-mysql.yml
-              - name: Gaming using Cosmos DB
-                href: solution-ideas/articles/gaming-using-cosmos-db.yml
-          - name: Game server hosting
-            items:
-              - name: Basic game server hosting
-                href: /gaming/azure/reference-architectures/multiplayer-basic-game-server-hosting
+              - name: Azure PlayFab overview
+                href: /gaming/playfab/what-is-playfab
                 maintainContext: true
-              - name: LAMP architectures for gaming
-                href: /gaming/azure/reference-architectures/general-purpose-lamp
+              - name: Azure AD authentication for PlayFab
+                href: /gaming/playfab/features/authentication/aad-authentication
                 maintainContext: true
-          - name: Scalable gaming servers
-            items:
-              - name: Multiplayer backend architectures
-                href: /gaming/azure/reference-architectures/multiplayer
+              - name: PlayFab CloudScript with Azure Functions
+                href: /gaming/playfab/features/automation/cloudscript-af
                 maintainContext: true
-              - name: Real-time multiplayer
+              - name: Multiplayer guidance
                 items:
-                  - name: Custom game server scaling
-                    href: /gaming/azure/reference-architectures/multiplayer-custom-server-scaling
+                  - name: Multiplayer with PlayFab
+                    href: /gaming/playfab/features/multiplayer/mpintro
                     maintainContext: true
-                  - name: Multiplayer hosting with Service Fabric
-                    href: /gaming/azure/reference-architectures/multiplayer-synchronous-sf
+                  - name: Host multiplayer games
+                    href: /gaming/playfab/features/multiplayer/servers/using-playfab-servers-to-host-games
                     maintainContext: true
-                  - name: Multiplayer server hosting with ACI
-                    href: /gaming/azure/reference-architectures/multiplayer-synchronous-aci
+                  - name: Create virtual machines
+                    href: /gaming/playfab/features/multiplayer/servers/deploying-playfab-multiplayer-server-builds
                     maintainContext: true
-                  - name: Multiplayer server hosting with AKS
-                    href: /gaming/azure/reference-architectures/multiplayer-synchronous-aks
+                  - name: Build definition
+                    href: /gaming/playfab/features/multiplayer/servers/build-definition
                     maintainContext: true
-                  - name: Multiplayer server hosting with Batch
-                    href: /gaming/azure/reference-architectures/multiplayer-synchronous-batch
+                  - name: Linux container images
+                    href: /gaming/playfab/features/multiplayer/servers/deploying-linux-based-builds
                     maintainContext: true
-              - name: Turn-based multiplayer
+                  - name: Measure player latency to Azure
+                    href: /gaming/playfab/features/multiplayer/servers/using-qos-beacons-to-measure-player-latency-to-azure
+                    maintainContext: true
+                  - name: Connect clients to game servers
+                    href: /gaming/playfab/features/multiplayer/servers/connecting-clients-to-game-servers
+                    maintainContext: true
+                  - name: Increase core limits and Azure regions
+                    href: /gaming/playfab/features/multiplayer/servers/identifying-and-increasing-core-limits
+                    maintainContext: true
+              - name: PlayFab Insights
+                href: /gaming/playfab/features/insights/overview
+                maintainContext: true
+              - name: PlayFab samples
+                href: /gaming/playfab/resources/playfab-samples
+                maintainContext: true
+          - name: Architectures
+            items:
+              - name: All game development architectures
+                href: /azure/architecture/browse/?terms=game
+              - name: AI in games
                 items:
-                  - name: Asynchronous multiplayer basics
-                    href: /gaming/azure/reference-architectures/multiplayer-asynchronous
+                  - name: Content moderation
+                    href: /gaming/azure/reference-architectures/cognitive-content-moderation
                     maintainContext: true
-                  - name: Serverless asynchronous multiplayer
-                    href: /gaming/azure/reference-architectures/multiplayer-asynchronous-serverless
+                  - name: Customer service bot for gaming
+                    href: /gaming/azure/reference-architectures/cognitive-css-bot
                     maintainContext: true
-          - name: Game analytics
-            items:
-              - name: In-editor debugging telemetry
-                href: /gaming/azure/reference-architectures/analytics-in-editor-debugging
-                maintainContext: true
-              - name: Non-real-time dashboard
-                href: /gaming/azure/reference-architectures/analytics-non-real-time-dashboard
-                maintainContext: true
-          - name: Matchmaking
-            items:
-              - name: Multiplayer matchmaker
-                href: /gaming/azure/reference-architectures/multiplayer-matchmaker
-                maintainContext: true
-              - name: Serverless matchmaker
-                href: /gaming/azure/reference-architectures/multiplayer-matchmaker-serverless
-                maintainContext: true
-          - name: Leaderboards
-            items:
-              - name: Leaderboard basics
-                href: /gaming/azure/reference-architectures/leaderboard
-                maintainContext: true
-              - name: Non-relational leaderboard
-                href: /gaming/azure/reference-architectures/leaderboard-non-relational
-                maintainContext: true
-              - name: Relational leaderboard
-                href: /gaming/azure/reference-architectures/leaderboard-relational
-                maintainContext: true
-          - name: AI in games
-            items:
-              - name: Content moderation
-                href: /gaming/azure/reference-architectures/cognitive-content-moderation
-                maintainContext: true
-              - name: Customer service bot for gaming
-                href: /gaming/azure/reference-architectures/cognitive-css-bot
-                maintainContext: true
-              - name: Image classification
-                href: example-scenario/ai/intelligent-apps-image-processing.yml
-              - name: Speech to text for gaming
-                href: /gaming/azure/reference-architectures/cognitive-speech-to-text
-                maintainContext: true
-              - name: Text to speech for gaming
-                href: /gaming/azure/reference-architectures/cognitive-text-to-speech
-                maintainContext: true
-              - name: Text translation for gaming
-                href: /gaming/azure/reference-architectures/cognitive-text-translation
-                maintainContext: true
-          - name: Game streaming
-            items:
-              - name: Unreal Pixel Streaming
-                href: /gaming/azure/reference-architectures/unreal-pixel-streaming-in-azure
-                maintainContext: true
-              - name: Deploy Unreal Pixel Streaming
-                href: /gaming/azure/reference-architectures/unreal-pixel-streaming-deploying
-                maintainContext: true
-              - name: Unreal Pixel Streaming at scale
-                href: /gaming/azure/reference-architectures/unreal-pixel-streaming-at-scale
-                maintainContext: true
+                  - name: Image classification
+                    href: example-scenario/ai/intelligent-apps-image-processing.yml
+                  - name: Speech to text for gaming
+                    href: /gaming/azure/reference-architectures/cognitive-speech-to-text
+                    maintainContext: true
+                  - name: Text to speech for gaming
+                    href: /gaming/azure/reference-architectures/cognitive-text-to-speech
+                    maintainContext: true
+                  - name: Text translation for gaming
+                    href: /gaming/azure/reference-architectures/cognitive-text-translation
+                    maintainContext: true
+              - name: Analytics in games
+                items:
+                  - name: In-editor debugging telemetry
+                    href: /gaming/azure/reference-architectures/analytics-in-editor-debugging
+                    maintainContext: true
+                  - name: Non-real-time dashboard
+                    href: /gaming/azure/reference-architectures/analytics-non-real-time-dashboard
+                    maintainContext: true
+              - name: Databases for gaming
+                items:
+                  - name: Gaming using Azure MySQL
+                    href: solution-ideas/articles/gaming-using-azure-database-for-mysql.yml
+                  - name: Gaming using Cosmos DB
+                    href: solution-ideas/articles/gaming-using-cosmos-db.yml
+              - name: Game streaming
+                items:
+                  - name: Unreal Pixel Streaming
+                    href: /gaming/azure/reference-architectures/unreal-pixel-streaming-in-azure
+                    maintainContext: true
+                  - name: Deploy Unreal Pixel Streaming
+                    href: /gaming/azure/reference-architectures/unreal-pixel-streaming-deploying
+                    maintainContext: true
+                  - name: Unreal Pixel Streaming at scale
+                    href: /gaming/azure/reference-architectures/unreal-pixel-streaming-at-scale
+                    maintainContext: true
+              - name: Leaderboards
+                items:
+                  - name: Leaderboard basics
+                    href: /gaming/azure/reference-architectures/leaderboard
+                    maintainContext: true
+                  - name: Non-relational leaderboard
+                    href: /gaming/azure/reference-architectures/leaderboard-non-relational
+                    maintainContext: true
+                  - name: Relational leaderboard
+                    href: /gaming/azure/reference-architectures/leaderboard-relational
+                    maintainContext: true
+              - name: Matchmaking
+                items:
+                  - name: Multiplayer matchmaker
+                    href: /gaming/azure/reference-architectures/multiplayer-matchmaker
+                    maintainContext: true
+                  - name: Serverless matchmaker
+                    href: /gaming/azure/reference-architectures/multiplayer-matchmaker-serverless
+                    maintainContext: true
+              - name: Rendering
+                items:
+                  - name: 3D video rendering
+                    href: example-scenario/infrastructure/video-rendering.yml
+                  - name: Digital image-based modeling on Azure
+                    href: example-scenario/infrastructure/image-modeling.yml
+              - name: Scalable gaming servers
+                items:
+                  - name: Multiplayer backend architectures
+                    href: /gaming/azure/reference-architectures/multiplayer
+                    maintainContext: true
+                  - name: Real-time multiplayer
+                    items:
+                      - name: Custom game server scaling
+                        href: /gaming/azure/reference-architectures/multiplayer-custom-server-scaling
+                        maintainContext: true
+                      - name: Multiplayer hosting with Service Fabric
+                        href: /gaming/azure/reference-architectures/multiplayer-synchronous-sf
+                        maintainContext: true
+                      - name: Multiplayer server hosting with ACI
+                        href: /gaming/azure/reference-architectures/multiplayer-synchronous-aci
+                        maintainContext: true
+                      - name: Multiplayer server hosting with AKS
+                        href: /gaming/azure/reference-architectures/multiplayer-synchronous-aks
+                        maintainContext: true
+                      - name: Multiplayer server hosting with Batch
+                        href: /gaming/azure/reference-architectures/multiplayer-synchronous-batch
+                        maintainContext: true
+                  - name: Turn-based multiplayer
+                    items:
+                      - name: Asynchronous multiplayer basics
+                        href: /gaming/azure/reference-architectures/multiplayer-asynchronous
+                        maintainContext: true
+                      - name: Serverless asynchronous multiplayer
+                        href: /gaming/azure/reference-architectures/multiplayer-asynchronous-serverless
+                        maintainContext: true
+              - name: Server hosting
+                items:
+                  - name: Basic game server hosting
+                    href: /gaming/azure/reference-architectures/multiplayer-basic-game-server-hosting
+                    maintainContext: true
+                  - name: LAMP architectures for gaming
+                    href: /gaming/azure/reference-architectures/general-purpose-lamp
+                    maintainContext: true
       - name: Travel and Hospitality
         items:
           - name: Overview
@@ -1321,7 +1367,7 @@ items:
               - name: Cognitive services
                 href: data-guide/technology-choices/cognitive-services.md
               - name: Natural language processing
-                href: data-guide/technology-choices/natural-language-processing.md
+                href: data-guide/technology-choices/natural-language-processing.yml
               - name: R developer's guide to Azure
                 href: data-guide/technology-choices/r-developers-guide.md
               - name: Machine learning
@@ -1852,7 +1898,7 @@ items:
           - name: Guides
             items:
               - name: Choose a compute service
-                href: guide/technology-choices/compute-decision-tree.md
+                href: guide/technology-choices/compute-decision-tree.yml
               - name: SAS on Azure architecture
                 href: guide/sas/sas-overview.yml
               - name: Industry guidance
@@ -2084,15 +2130,15 @@ items:
                   - name: 'Extract, transform, and load (ETL)'
                     href: data-guide/relational-data/etl.md
                   - name: Online analytical processing (OLAP)
-                    href: data-guide/relational-data/online-analytical-processing.md
+                    href: data-guide/relational-data/online-analytical-processing.yml
                   - name: Online transaction processing (OLTP)
                     href: data-guide/relational-data/online-transaction-processing.md
                   - name: Data warehousing
-                    href: data-guide/relational-data/data-warehousing.md
+                    href: data-guide/relational-data/data-warehousing.yml
               - name: Non-relational data
                 items:
                   - name: Non-relational data stores
-                    href: data-guide/big-data/non-relational-data.md
+                    href: data-guide/big-data/non-relational-data.yml
                   - name: Free-form text search
                     href: data-guide/scenarios/search.md
                   - name: Time series data
@@ -3176,7 +3222,7 @@ items:
               - name: Azure IoT client SDK support
                 href: guide/iot/azure-iot-client-sdk-support.md
               - name: Choose an IoT solution
-                href: example-scenario/iot/iot-central-iot-hub-cheat-sheet.md
+                href: example-scenario/iot/iot-central-iot-hub-cheat-sheet.yml
               - name: Moving from test to production
                 href: example-scenario/iot/iot-move-to-production.md
           - name: Architectures
