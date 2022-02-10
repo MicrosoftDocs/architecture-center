@@ -18,11 +18,11 @@ ms.custom:
 
 # Machine learning in Azure IoT Edge vision AI
 
-Machine learning (ML) has unique requirements and challenges in IoT Edge hardware with limited memory, compute capacity, and power capability. This article discusses (ML) data and architectural choices for Azure IoT Edge vision AI solutions. The article also discusses the process of choosing, training, and deploying ML solutions, and gives examples of ML platform and tool choices.
+IoT Edge systems, with their limited memory, compute capacity, and power capabilities, present unique challenges and requirements for machine learning (ML). This article discusses ML data and architectural choices for Azure IoT Edge vision AI solutions. The article also discusses the process of choosing, training, and deploying ML solutions, and gives examples of ML platform and tool choices.
 
-Training machine learning (ML) models is an iterative, data-driven process. Choosing the data and architecture to use for a ML solution is also an iterative process. If a chosen ML model performs poorly, you can address issues through experimentation and retraining.
+Training ML models is an iterative, data-driven process. Choosing the data and architecture to use for an ML solution is also an iterative process. If a chosen ML model performs poorly, you can address issues through experimentation and retraining.
 
-Determining the correct data to use and training an ML model to score data correctly require knowledge of the problem domain. You also need experience designing and using ML algorithms or neural networks. IoT Edge AI projects also require expertise with deploying models to IoT Edge hardware. To explore and evaluate all appropriate solutions, make sure to gain the necessary knowledge, or adequately staff the planning and implementation teams.
+To determine the correct data to use and train an ML model to score data correctly, you need knowledge of the problem domain. You also need experience designing and using ML algorithms or neural networks. IoT Edge AI projects also require expertise with deploying models to IoT Edge hardware. Make sure your team has the necessary knowledge to explore and evaluate all appropriate solutions.
 
 When investigating and choosing ML models for IoT Edge scenarios, follow these guidelines:
 
@@ -49,9 +49,11 @@ Datasets for ML model training are split into training, validation, and test sub
   > [!TIP]
   > Don't optimize models for one test dataset. It's a good idea to have a few different test datasets.
 
-Deep learning finds signals in noise better than traditional ML, and helps avoid costly and difficult feature engineering, featurizations, and preprocessing. Deep learning still uses data transformations to clean or reformat data for model input. This capacity is needed both during training and during *inference*, or using the model to score new data.
+[Deep learning](/azure/machine-learning/concept-deep-learning-vs-machine-learning) finds signals in noise better than traditional ML, and helps avoid costly and difficult feature engineering, featurizations, and preprocessing. Deep learning still uses data transformations to clean or reformat data for model input. Transformations are needed both during training and during *inference*, or using the model to score new data.
 
-For IoT Edge vision AI solutions, advanced preprocessing like denoising, adjusting brightness or contrast, or transformations from RGB to HSV can greatly affect model performance. Sometimes, you can only fully observe and evaluate these effects in a real-world situation. After installing the hardware in its permanent location, monitor the incoming data stream for *data drift*. Data drift is deviation of current data from the original data, and often causes degraded model performance and accuracy. Decreased performance can also be due to other factors, like hardware or camera failure.
+For IoT Edge vision AI solutions, advanced preprocessing like denoising, adjusting brightness or contrast, or transformations from RGB to HSV can greatly affect model performance. Sometimes, you can only fully observe and evaluate these effects in a real-world situation.
+
+After installing IoT Edge hardware in its permanent location, monitor the incoming data stream for *data drift*. Data drift is deviation of current data from the original data, and often causes degraded model performance and accuracy. Decreased performance can also be due to other factors, like hardware or camera failure.
 
 The system must also collect new data for retraining rounds. You can also use the new data to monitor components for hardware degradation.
 
@@ -115,7 +117,7 @@ First, formulate a clear, data-driven problem statement, and decide on the desir
 
 1. Collect or acquire data from a representative data source.
 
-   Generally, the more data the better, and the more data variability, the better the generalization. Data collection or acquisition could be an online image search from a currently deployed device.
+   Generally, the more data the better, and the more data variability, the better the generalization. Data collection or acquisition can be an online image search from a currently deployed device.
 
 1. Label the data.
 
@@ -124,6 +126,10 @@ First, formulate a clear, data-driven problem statement, and decide on the desir
 1. Train a model with an ML framework.
 
    Choose an ML framework like [TensorFlow](https://www.tensorflow.org) or [PyTorch](https://pytorch.org), both with Python and C++ APIs. Framework choice usually depends on the code samples that are available open-source or in-house, and the team's expertise and preference.
+
+   The chosen code language partly determines what API or SDK to use for ML model training and inferencing. The API or SDK then dictates the types of ML model, device, and IoT Edge module to use.
+
+   For example, if the app developer is building a C++ app, use a framework like PyTorch, TensorFlow, or CNTK that has C++ inferencing APIs. The PyTorch C++ inferencing and training API works well with the OpenCV C++ API.
 
    You can use [Azure Machine Learning](https://azure.microsoft.com/services/machine-learning) to train models using any ML framework and approach. Azure Machine Learning is framework-agnostic, has Python and R bindings, and includes many wrappers around popular frameworks.
 
@@ -137,11 +143,11 @@ First, formulate a clear, data-driven problem statement, and decide on the desir
 
 1. Using the runtime, deploy the solution to the device.
 
-   Choose a runtime, usually in conjunction with the ML framework choice, and deploy the compiled solution. The Azure IoT Runtime is a Docker-based system that can deploy the ML runtimes as containers.
+   Choose a runtime, usually in conjunction with the ML framework choice, and deploy the compiled solution. The [Azure IoT Edge runtime](/azure/iot-edge/iot-edge-runtime) is a Docker-based system that can deploy the ML models as containers.
    
 1. Continue to collect data to use for retraining and monitoring.
 
-The following diagram shows a sample data science process that uses open-source tools for the deployment workflow. Data availability and type drives most of the choices, including the devices and hardware chosen.
+The following diagram shows a sample data science process that uses open-source tools for the deployment workflow. Data type and availability drive most of the choices, including the devices and hardware chosen.
 
 ![Diagram showing an example IoT Edge vision AI workflow.](./images/vision-edge-flow.png)
 
@@ -150,11 +156,8 @@ If a workflow already exists for data scientists and app developers, a few other
 - Have a code, model, and data versioning system in place.
 - Have an automation plan for testing code, integration, triggers, and the build/release process. Automated testing speeds up the time to production.
 
-## IoT Edge scenario considerations
 
-The chosen code language partly determines what API or SDK to use for ML model training and inferencing. The API or SDK then dictates the types of ML model, device, and IoT Edge module to use. For example, if the app developer is building a C++ app for deployment, consider using a framework like PyTorch, or others such as TensorFlow or CNTK, that have C++ inferencing APIs. The PyTorch C++ inferencing and training API works well with the OpenCV C++ API.
-
-Hre are key ML and data science considerations for IoT Edge vision AI scenarios:
+Here are the key ML and data science considerations for deployingg IoT Edge vision AI scenarios:
 
 - Converting models involves optimizations like faster inference and smaller model footprints, which are critical for resource-constrained devices.
 - Build the solution on the same type of build-dedicated device to be used for final deployment.
