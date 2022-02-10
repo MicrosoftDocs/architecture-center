@@ -58,7 +58,7 @@ You also can build your own shared models by training from the data provided by 
 
 #### Specialized shared models
 
-You also might choose to acquire a pretrained base model, and then perform further model tuning to make it applicable to each of your tenants based on their own data. This approach is illustrated below:
+You also might choose to acquire a pretrained base model, and then perform further model tuning to make it applicable to each of your tenants based on their own data. The following diagram illustrates this approach:
 
 ![Diagram that shows a pretrained base model that is specialized for each tenant with their own data. The models are used for inference by that tenant's users.](media/ai-ml/specialized-shared-models.png)
 
