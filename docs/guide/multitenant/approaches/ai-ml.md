@@ -56,7 +56,7 @@ You also can build your own shared models by training them from the data provide
 > [!IMPORTANT]
 > If you train a shared model from your tenants' data, ensure that your tenants understand and agree to the use of their data. Ensure your tenants' data removed identifying information. Consider what to do if a tenant objects to their data being used to train a model that will be applied to another tenant.
 
-#### Specialized shared models
+#### Tuned shared models
 
 You also might choose to acquire a pretrained base model, and then perform further model tuning to make it applicable to each of your tenants based on their own data. The following diagram illustrates this approach:
 
