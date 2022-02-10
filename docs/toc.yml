@@ -346,6 +346,10 @@ items:
                     href: guide/multitenant/service/postgresql.md
           - name: Related resources
             href: guide/multitenant/related-resources.md
+      - name: Solutions across Microsoft clouds
+        items: Azure and Power Platform scenarios 
+            items: overview
+            href: solutions/power-platform-scenarios.md
       - name: Cloud comparisons
         items:
           - name: Azure for AWS professionals
