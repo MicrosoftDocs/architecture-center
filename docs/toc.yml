@@ -347,9 +347,12 @@ items:
           - name: Related resources
             href: guide/multitenant/related-resources.md
       - name: Solutions across Microsoft clouds
+        expanded: true 
         items:
-        - name: Azure and Power Platform scenarios 
-          href: solutions/power-platform-scenarios.md
+          - name: Azure and Power Platform scenarios 
+            items:
+                   - name: Overview
+                     href: solutions/power-platform-scenarios.md
       - name: Cloud comparisons
         items:
           - name: Azure for AWS professionals
