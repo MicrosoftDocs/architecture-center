@@ -80,7 +80,7 @@ Consider the performance requirements for the AI/ML components of your solution,
 
 **Training:** Training is often performed as a batch process, which means that it might not be as performance-sensitive as other parts of your workload. However, you need to ensure that you provision sufficient resources to perform your model training efficiently, including as you scale.
 
-**Inference:** Inference often requires a fast (even real-time) response, which means it's a latency-sensitive process. Even if you don't need to perform inference in real time, ensure you monitor the performance of your solution and use the appropriate services to optimize your workload.
+**Inference:** Inference is a latency-sensitive process, often requiring a fast or even real-time response. Even if you don't need to perform inference in real time, ensure you monitor the performance of your solution and use the appropriate services to optimize your workload.
 
 Ensure you take advantage of Azure's high-performance computing capabilities for your AI and ML workloads. Azure provides many different types of virtual machines and other hardware instances. Consider whether your solution would benefit from using CPUs, [GPUs](/azure/machine-learning/how-to-deploy-inferencing-gpus), [FPGAs](/azure/machine-learning/how-to-deploy-fpga-web-service), or other hardware accelerated environments. Azure can also provide real-time inference with NVIDIA GPUs, including NVIDIA Triton Inference Servers. For low-priority compute requirements, consider using [AKS spot node pools](/azure/aks/spot-node-pool). To learn more about optimizing compute services in a multitenant solution, see [Architectural approaches for compute in multitenant solutions](compute.md).
 
