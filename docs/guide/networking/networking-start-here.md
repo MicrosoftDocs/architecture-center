@@ -30,10 +30,10 @@ Azure provides a wide range of networking tools and capabilities. These are just
 - [Azure Virtual WAN](https://azure.microsoft.com/services/virtual-wan). Optimize and automate branch-to-branch connectivity.
 - [Azure Private Link](https://azure.microsoft.com/services/private-link). Enable private access to services that are hosted on the Azure platform while keeping your data on the Microsoft network.
 - [Azure Firewall](https://azure.microsoft.com/services/azure-firewall). Provide protection for your Azure Virtual Network resources.
-- [Azure Application Gateway](https://azure.microsoft.com/services/application-gateway). Build secure, scalable, highly available web front ends.
+- [Azure Application Gateway](https://azure.microsoft.com/services/application-gateway). Build highly secure, scalable, highly available web front ends.
 - [Azure ExpressRoute](https://azure.microsoft.com/services/expressroute). Create a fast, reliable, and private connection to Azure.
 - [Azure Load Balancer](https://azure.microsoft.com/products/azure-load-balancing). Deliver high availability and network performance to your apps.
-- [Azure VPN Gateway](https://azure.microsoft.com/services/vpn-gateway). Establish secure, cross-premises connectivity.
+- [Azure VPN Gateway](https://azure.microsoft.com/services/vpn-gateway). Establish high security cross-premises connectivity.
 
 For information about more Azure networking services, see [Azure networking](https://azure.microsoft.com/product-categories/networking).
 
