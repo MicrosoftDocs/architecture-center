@@ -1,6 +1,8 @@
 Runbooks in Azure Automation might not have access to resources in other clouds or in your on-premises environment because they run on the Azure cloud platform. You can use the Hybrid Runbook Worker feature of Azure Automation to run runbooks directly on the machine hosting the role and against resources in the environment to manage those local resources. Runbooks are stored and managed in Azure Automation and then delivered to one or more assigned machines.
 
-## Runbook integration types
+## Potential use cases
+
+## Hybrid Runbook Worker installation approach
 
 Azure Automation provides native integration of the Hybrid Runbook Worker role through the Azure virtual machine (VM) extension framework. The Azure VM agent is responsible for management of the extension on Azure VMs on Windows and Linux VMs, and on non-Azure machines through the Arc-enabled servers connected Machine agent. Now, there are two Hybrid Runbook Workers installation platforms supported by Azure Automation.
 
@@ -31,21 +33,24 @@ Agent-based (V1) Hybrid Runbook Workers rely on the [Log Analytics agent][4] rep
 
 The architecture consists of the following components:
 
-- Automation Account: A cloud service that automates configuration and management across your Azure and non-Azure environments.
-- Hybrid Runbook Worker: A computer that is configured with the Hybrid Runbook Worker feature and can execute runbooks directly on the computer and against the resources in the local environment.
-- Hybrid Runbook Worker Group: Groups multiple Hybrid runbook workers for higher availability and scale to run a set of runbooks.
-- A Runbook: A collection of one or more linked activities that together automate a process or operation. [Learn more][7]
-- On-premises machines and VMs: On-premises computers and VMs with Windows or Linux operating system hosted in a private local-area network.
+- **Automation Account**: A cloud service that automates configuration and management across your Azure and non-Azure environments.
+- **Hybrid Runbook Worker**: A computer that is configured with the Hybrid Runbook Worker feature and can execute runbooks directly on the computer and against the resources in the local environment.
+- **Hybrid Runbook Worker Group**: Groups multiple Hybrid runbook workers for higher availability and scale to run a set of runbooks.
+- **Runbook**: A collection of one or more linked activities that together automate a process or operation. [Learn more][7]
+- **On-premises machines and VMs**: On-premises computers and VMs with Windows or Linux operating system hosted in a private local-area network.
 - Components applicable for extension-based approach (V2):
-    - Hybrid Runbook Worker VM Extension: A small application installed on a computer that configures it as a Hybrid Runbook Worker 
-    - Arc-enabled Server: Azure Arc-enabled servers enables you to manage your Windows and Linux physical servers and virtual machines hosted outside of Azure, on your corporate network, or other cloud provider. This management experience is designed to be consistent with how you manage native Azure virtual machines. [Learn more][8]
+    - **Hybrid Runbook Worker VM Extension**: A small application installed on a computer that configures it as a Hybrid Runbook Worker 
+    - **Arc-enabled Server**: Azure Arc-enabled servers enables you to manage your Windows and Linux physical servers and virtual machines hosted outside of Azure, on your corporate network, or other cloud provider. This management experience is designed to be consistent with how you manage native Azure virtual machines. [Learn more][8]
 - Components applicable for agent-based approach (V1):
-    - Log Analytics Workspace: A Log Analytics workspace is a data repository for log data collected from resources that run in Azure, on-premises or in another cloud provider.
-    - Automation Hybrid Worker solution: With this, you can create Hybrid Runbook Workers to run Azure Automation runbooks on your Azure and non-Azure computers.
+    - **Log Analytics Workspace**: A Log Analytics workspace is a data repository for log data collected from resources that run in Azure, on-premises or in another cloud provider.
+    - **Automation Hybrid Worker solution**: With this, you can create Hybrid Runbook Workers to run Azure Automation runbooks on your Azure and non-Azure computers.
+
+### Workflows
 
 #### User Hybrid Runbook Worker
 
 ![Azure Automation in a User Hybrid Runbook Worker][architectural-diagram]
+
 *Download a [Visio file][architectural-diagram-visio-source] of this architecture.*
 
 Each user Hybrid Runbook Worker is a member of a Hybrid Runbook Worker group that you specify when you install the worker. A group can include a single worker, but you can include multiple workers in a group for high availability. Each machine can host one Hybrid Runbook Worker reporting to one Automation account; you can't register the hybrid worker across multiple Automation accounts. A hybrid worker can only listen for jobs from a single Automation account.
@@ -53,6 +58,7 @@ Each user Hybrid Runbook Worker is a member of a Hybrid Runbook Worker group tha
 #### System Hybrid Runbook Worker
 
 ![Azure Automation in a System Hybrid Runbook Worker][System-architectural-diagram]
+
 *Download a [Visio file][architectural-diagram-visio-source] of this architecture.*
 
 For machines hosting the system Hybrid Runbook worker managed by Update Management, they can be added to a Hybrid Runbook Worker group. But you must use the same Automation account for both Update Management and the Hybrid Runbook Worker group membership.
