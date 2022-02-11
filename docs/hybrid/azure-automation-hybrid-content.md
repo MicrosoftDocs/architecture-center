@@ -27,8 +27,6 @@ Agent-based (V1) Hybrid Runbook Workers rely on the [Log Analytics agent][4] rep
 
 ### Components
 
-### Workflow
-
 The architecture consists of the following components:
 
 - Automation Account: A cloud service that automates configuration and management across your Azure and non-Azure environments.
