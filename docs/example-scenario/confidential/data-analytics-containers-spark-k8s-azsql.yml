@@ -4,7 +4,7 @@ metadata:
   titleSuffix: Azure Example Scenarios
   description: Use confidential computing on Kubernetes to run Big Data Analytics with Apache Spark inside Intel SGX confidential containers with data from Azure Data Lake Storage and Azure SQL Database.
   author: mdrakiburrahman
-  ms.author: mdrrahman,amgowda
+  ms.author: amgowda
   ms.date: 02/15/2022
   ms.topic: conceptual
   ms.service: architecture-center
