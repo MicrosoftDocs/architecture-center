@@ -3806,6 +3806,8 @@ items:
                 href: solution-ideas/articles/task-based-consumer-mobile-app.yml
       - name: Networking
         items:
+          - name: Get started
+            href: networking-start-here.md
           - name: Guides
             items:
               - name: Application Gateway framework review
