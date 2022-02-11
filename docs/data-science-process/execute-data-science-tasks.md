@@ -4,8 +4,6 @@ description: How a data scientist can execute a data science project in a tracka
 author: marktab
 manager: marktab
 editor: marktab
-ms.service: machine-learning
-ms.subservice: team-data-science-process
 ms.topic: article
 ms.date: 12/14/2021
 ms.author: tdsp

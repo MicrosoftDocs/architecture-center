@@ -4,8 +4,6 @@ description: How to deploy models to production, which enables them to play an a
 author: marktab
 manager: marktab
 editor: marktab
-ms.service: machine-learning
-ms.subservice: team-data-science-process
 ms.topic: article
 ms.date: 12/16/2021
 ms.author: tdsp
