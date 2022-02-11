@@ -1,12 +1,12 @@
 ---
 title: Set up data science environments in Azure
 description: Set up data science environments on Azure for use in the Team Data Science Process.
-services: machine-learning
 author: marktab
 manager: marktab
 editor: marktab
-ms.service: machine-learning
-ms.subservice: team-data-science-process
+services: architecture-center
+ms.service: architecture-center
+ms.subservice: azure-guide
 ms.topic: article
 ms.date: 12/14/2021
 ms.author: tdsp

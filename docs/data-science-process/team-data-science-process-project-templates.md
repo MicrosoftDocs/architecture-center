@@ -4,9 +4,9 @@ description: Microsoft Project and Excel templates that help you plan and manage
 author: marktab
 manager: marktab
 editor: marktab
-services: machine-learning
-ms.service: machine-learning
-ms.subservice: team-data-science-process
+services: architecture-center
+ms.service: architecture-center
+ms.subservice: azure-guide
 ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp

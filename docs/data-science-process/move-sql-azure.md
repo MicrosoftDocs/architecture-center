@@ -1,12 +1,12 @@
 ---
 title: Move data to Azure SQL Database
 description: Move data from flat files (CSV or TSV formats) or from data stored in a SQL Server to an Azure SQL Database.
-services: machine-learning
 author: marktab
 manager: marktab
 editor: marktab
-ms.service: machine-learning
-ms.subservice: team-data-science-process
+services: architecture-center
+ms.service: architecture-center
+ms.subservice: azure-guide
 ms.topic: article
 ms.date: 12/21/2021
 ms.author: tdsp

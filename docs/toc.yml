@@ -36,7 +36,7 @@ items:
           - name: Make all things redundant
             href: guide/design-principles/redundancy.md
           - name: Minimize coordination
-            href: guide/design-principles/minimize-coordination.md
+            href: guide/design-principles/minimize-coordination.yml
           - name: Design to scale out
             href: guide/design-principles/scale-out.md
           - name: Partition around limits
@@ -56,14 +56,15 @@ items:
           - name: Choose a compute service
             items:
               - name: Azure compute services
-                href: guide/technology-choices/compute-decision-tree.md
+                href: guide/technology-choices/compute-decision-tree.yml
               - name: Microservices compute options
                 href: /azure/architecture/microservices/design/compute-options
               - name: Web apps and single page apps
                 href: /dotnet/architecture/modern-web-apps-azure/choose-between-traditional-web-and-single-page-apps
                 maintainContext: true
               - name: Multiparty computing
-                href: guide/technology-choices/multiparty-computing-service.md 
+                href: guide/technology-choices/multiparty-computing-service.yml
+          - name: Choose a Kubernetes edge option
           - name: Choose a container option
             items:
               - name: Container options
@@ -102,13 +103,13 @@ items:
               - name: Database scenarios
                 items:
                   - name: OLAP solutions
-                    href: data-guide/relational-data/online-analytical-processing.md
+                    href: data-guide/relational-data/online-analytical-processing.yml
                   - name: OLTP solutions
                     href: data-guide/relational-data/online-transaction-processing.md
                   - name: Data warehousing
-                    href: data-guide/relational-data/data-warehousing.md
+                    href: data-guide/relational-data/data-warehousing.yml
                   - name: Non-relational data store
-                    href: data-guide/big-data/non-relational-data.md
+                    href: data-guide/big-data/non-relational-data.yml
                   - name: Pipeline orchestration
                     href: data-guide/technology-choices/pipeline-orchestration-data-movement.md
                   - name: Search data store
@@ -130,7 +131,7 @@ items:
               - name: Cognitive services
                 href: data-guide/technology-choices/cognitive-services.md
               - name: Natural language processing
-                href: data-guide/technology-choices/natural-language-processing.md
+                href: data-guide/technology-choices/natural-language-processing.yml
               - name: Machine learning
                 href: data-guide/technology-choices/data-science-and-machine-learning.md
               - name: Machine learning tools
@@ -144,7 +145,7 @@ items:
                 href: /azure/cloud-adoption-framework/ready/considerations/networking-options
                 maintainContext: true
               - name: Load balancing options
-                href: guide/technology-choices/load-balancing-overview.md
+                href: guide/technology-choices/load-balancing-overview.yml
               - name: VNet peering and VPN gateways
                 href: reference-architectures/hybrid-networking/vnet-peering.yml
           - name: Choose a messaging service
@@ -153,11 +154,11 @@ items:
                 href: /azure/event-grid/compare-messaging-services
                 maintainContext: true
               - name: Asynchronous messaging
-                href: guide/technology-choices/messaging.md
+                href: guide/technology-choices/messaging.yml
               - name: Real-time message ingestion
                 href: data-guide/technology-choices/real-time-ingestion.md
           - name: Choose an IoT solution
-            href: example-scenario/iot/iot-central-iot-hub-cheat-sheet.md
+            href: example-scenario/iot/iot-central-iot-hub-cheat-sheet.yml
           - name: Choose a mixed reality engine
             href: /windows/mixed-reality/develop/choosing-an-engine
             maintainContext: true
@@ -249,8 +250,7 @@ items:
                 href: /azure/cloud-adoption-framework/innovate/best-practices/trusted-ai
                 maintainContext: true
               - name: Guidelines for human-AI interaction
-                href: /ai/guidelines-human-ai-interaction
-                maintainContext: true
+                href: https://docs.microsoft.com/ai/guidelines-human-ai-interaction/?toc=https%3A%2F%2Fdocs.microsoft.com%2Fen-us%2Fazure%2Farchitecture%2Ftoc.json&bc=https%3A%2F%2Fdocs.microsoft.com%2Fen-us%2Fazure%2Farchitecture%2Fbread%2Ftoc.json
               - name: Responsible AI with Cognitive Services
                 href: /azure/cognitive-services/responsible-use-of-ai-overview
                 maintainContext: true
@@ -316,6 +316,8 @@ items:
                 href: guide/multitenant/approaches/networking.md
               - name: Storage and data
                 href: guide/multitenant/approaches/storage-data.md
+              - name: Messaging
+                href: guide/multitenant/approaches/messaging.md
           - name: Service-specific guidance
             items:
               - name: Overview
@@ -487,21 +489,16 @@ items:
             href: industries/retail.md
           - name: Guides
             items: 
-              - name: Data management in the retail industry
-                href: /previous-versions/azure/industry-marketing/retail/retail-data-management-overview
-                maintainContext: true
+              - name: Data management in retail
+                href: industries/retail/retail-data-management-overview.md
               - name: Migrate your e-commerce solution to Azure
-                href: /previous-versions/azure/industry-marketing/retail/migrating-ecommerce-solution-to-azure
-                maintainContext: true
-              - name: Optimize and reuse recommendations
-                href: /previous-versions/azure/industry-marketing/retail/recommendation-engine-optimization
-                maintainContext: true
-              - name: Visual search in retail with CosmosDB
-                href: /previous-versions/azure/industry-marketing/retail/visual-search-use-case-overview
-                maintainContext: true
+                href: industries/retail/migrate-ecommerce-solution.md
+              - name: Optimize and reuse a recommendation system
+                href: industries/retail/recommendation-engine-optimization.yml
               - name: SKU optimization for consumer brands
-                href: /previous-versions/azure/industry-marketing/retail/sku-optimization-solution-guide
-                maintainContext: true
+                href: industries/retail/sku-optimization-solution-guide.yml
+              - name: Visual search in retail with Cosmos DB
+                href: industries/retail/visual-search-use-case-overview.yml
           - name: Architectures
             items:
               - name: All retail architectures
@@ -543,23 +540,18 @@ items:
                     href: /industry/financial-services/compliance-overview
                     maintainContext: true
               - name: Risk grid computing in banking
-                href: /previous-versions/azure/industry-marketing/financial/risk-grid-banking-overview
-                maintainContext: true
+                href: industries/finance/risk-grid-banking-overview.yml
               - name: Risk grid computing solution
-                href: /previous-versions/azure/industry-marketing/financial/risk-grid-banking-solution-guide
-                maintainContext: true
+                href: industries/finance/risk-grid-banking-solution-guide.yml
               - name: Data management in banking
-                href: /previous-versions/azure/industry-marketing/financial/data-mgmt-in-banking-overview
-                maintainContext: true
+                href: industries/finance/data-management-banking-overview.yml
               - name: Financial institutions with data mesh
                 href: /azure/cloud-adoption-framework/scenarios/data-management/architectures/reference-architecture-data-mesh
                 maintainContext: true
               - name: Actuarial risk analysis
-                href: /previous-versions/azure/industry-marketing/financial/actuarial-risk-analysis-and-financial-modeling-solution-guide
-                maintainContext: true
-              - name: Enable the financial services risk lifecycle
-                href: /previous-versions/azure/industry-marketing/financial/fsi-risk-modeling
-                maintainContext: true
+                href: industries/finance/actuarial-risk-analysis-financial-model.yml
+              - name: Financial services risk lifecycle
+                href: industries/finance/financial-risk-model.md
           - name: Architectures
             items:
               - name: All finance architectures
@@ -697,8 +689,7 @@ items:
                     href: /previous-versions/azure/security/blueprints/azure-health
                     maintainContext: true
                   - name: Implement the healthcare blueprint for AI
-                    href: /previous-versions/azure/industry-marketing/health/sg-healthcare-ai-blueprint
-                    maintainContext: true
+                    href: industries/healthcare/healthcare-ai-blueprint.yml
                   - name: HIPAA/HITRUST compliant health data
                     href: solution-ideas/articles/security-compliance-blueprint-hipaa-hitrust-health-data-ai.yml
       - name: Government
@@ -850,18 +841,14 @@ items:
                 href: guide/iiot-guidance/iiot-architecture.md
               - name: Upscale ML lifecycle with MLOps framework
                 href: example-scenario/mlops/mlops-technical-paper.yml
-              - name: On-demand, scalable, high-power compute
-                href: /previous-versions/azure/industry-marketing/manufacturing/compute-in-manufacturing-overview
-                maintainContext: true
+              - name: High-performance computing for manufacturing
+                href: industries/manufacturing/compute-manufacturing-overview.yml
               - name: Predictive maintenance in manufacturing
-                href: /previous-versions/azure/industry-marketing/manufacturing/predictive-maintenance-overview
-                maintainContext: true
+                href: industries/manufacturing/predictive-maintenance-overview.yml
               - name: Predictive maintenance solution
-                href: /previous-versions/azure/industry-marketing/manufacturing/predictive-maintenance-solution
-                maintainContext: true
+                href: industries/manufacturing/predictive-maintenance-solution.yml
               - name: Extract actionable insights from IoT data
-                href: /previous-versions/azure/industry-marketing/manufacturing/extracting-insights-from-iot-data
-                maintainContext: true
+                href: industries/manufacturing/extract-insights-iot-data.yml
           - name: Architectures
             items:
               - name: All manufacturing architectures
@@ -962,115 +949,160 @@ items:
         items:
           - name: Overview
             href: industries/game-development.md
-          - name: All game development architectures
-            href: /azure/architecture/browse/?terms=game
-          - name: Rendering
+          - name: Guides
             items:
-              - name: 3D video rendering
-                href: example-scenario/infrastructure/video-rendering.yml
-              - name: Digital image-based modeling on Azure
-                href: example-scenario/infrastructure/image-modeling.yml
-          - name: Databases for gaming
-            items:
-              - name: Gaming using Azure MySQL
-                href: solution-ideas/articles/gaming-using-azure-database-for-mysql.yml
-              - name: Gaming using Cosmos DB
-                href: solution-ideas/articles/gaming-using-cosmos-db.yml
-          - name: Game server hosting
-            items:
-              - name: Basic game server hosting
-                href: /gaming/azure/reference-architectures/multiplayer-basic-game-server-hosting
+              - name: Azure PlayFab overview
+                href: /gaming/playfab/what-is-playfab
                 maintainContext: true
-              - name: LAMP architectures for gaming
-                href: /gaming/azure/reference-architectures/general-purpose-lamp
+              - name: Azure AD authentication for PlayFab
+                href: /gaming/playfab/features/authentication/aad-authentication
                 maintainContext: true
-          - name: Scalable gaming servers
-            items:
-              - name: Multiplayer backend architectures
-                href: /gaming/azure/reference-architectures/multiplayer
+              - name: PlayFab CloudScript with Azure Functions
+                href: /gaming/playfab/features/automation/cloudscript-af
                 maintainContext: true
-              - name: Real-time multiplayer
+              - name: Multiplayer guidance
                 items:
-                  - name: Custom game server scaling
-                    href: /gaming/azure/reference-architectures/multiplayer-custom-server-scaling
+                  - name: Multiplayer with PlayFab
+                    href: /gaming/playfab/features/multiplayer/mpintro
                     maintainContext: true
-                  - name: Multiplayer hosting with Service Fabric
-                    href: /gaming/azure/reference-architectures/multiplayer-synchronous-sf
+                  - name: Host multiplayer games
+                    href: /gaming/playfab/features/multiplayer/servers/using-playfab-servers-to-host-games
                     maintainContext: true
-                  - name: Multiplayer server hosting with ACI
-                    href: /gaming/azure/reference-architectures/multiplayer-synchronous-aci
+                  - name: Create virtual machines
+                    href: /gaming/playfab/features/multiplayer/servers/deploying-playfab-multiplayer-server-builds
                     maintainContext: true
-                  - name: Multiplayer server hosting with AKS
-                    href: /gaming/azure/reference-architectures/multiplayer-synchronous-aks
+                  - name: Build definition
+                    href: /gaming/playfab/features/multiplayer/servers/build-definition
                     maintainContext: true
-                  - name: Multiplayer server hosting with Batch
-                    href: /gaming/azure/reference-architectures/multiplayer-synchronous-batch
+                  - name: Linux container images
+                    href: /gaming/playfab/features/multiplayer/servers/deploying-linux-based-builds
                     maintainContext: true
-              - name: Turn-based multiplayer
+                  - name: Measure player latency to Azure
+                    href: /gaming/playfab/features/multiplayer/servers/using-qos-beacons-to-measure-player-latency-to-azure
+                    maintainContext: true
+                  - name: Connect clients to game servers
+                    href: /gaming/playfab/features/multiplayer/servers/connecting-clients-to-game-servers
+                    maintainContext: true
+                  - name: Increase core limits and Azure regions
+                    href: /gaming/playfab/features/multiplayer/servers/identifying-and-increasing-core-limits
+                    maintainContext: true
+              - name: PlayFab Insights
+                href: /gaming/playfab/features/insights/overview
+                maintainContext: true
+              - name: PlayFab samples
+                href: /gaming/playfab/resources/playfab-samples
+                maintainContext: true
+          - name: Architectures
+            items:
+              - name: All game development architectures
+                href: /azure/architecture/browse/?terms=game
+              - name: AI in games
                 items:
-                  - name: Asynchronous multiplayer basics
-                    href: /gaming/azure/reference-architectures/multiplayer-asynchronous
+                  - name: Content moderation
+                    href: /gaming/azure/reference-architectures/cognitive-content-moderation
                     maintainContext: true
-                  - name: Serverless asynchronous multiplayer
-                    href: /gaming/azure/reference-architectures/multiplayer-asynchronous-serverless
+                  - name: Customer service bot for gaming
+                    href: /gaming/azure/reference-architectures/cognitive-css-bot
                     maintainContext: true
-          - name: Game analytics
-            items:
-              - name: In-editor debugging telemetry
-                href: /gaming/azure/reference-architectures/analytics-in-editor-debugging
-                maintainContext: true
-              - name: Non-real-time dashboard
-                href: /gaming/azure/reference-architectures/analytics-non-real-time-dashboard
-                maintainContext: true
-          - name: Matchmaking
-            items:
-              - name: Multiplayer matchmaker
-                href: /gaming/azure/reference-architectures/multiplayer-matchmaker
-                maintainContext: true
-              - name: Serverless matchmaker
-                href: /gaming/azure/reference-architectures/multiplayer-matchmaker-serverless
-                maintainContext: true
-          - name: Leaderboards
-            items:
-              - name: Leaderboard basics
-                href: /gaming/azure/reference-architectures/leaderboard
-                maintainContext: true
-              - name: Non-relational leaderboard
-                href: /gaming/azure/reference-architectures/leaderboard-non-relational
-                maintainContext: true
-              - name: Relational leaderboard
-                href: /gaming/azure/reference-architectures/leaderboard-relational
-                maintainContext: true
-          - name: AI in games
-            items:
-              - name: Content moderation
-                href: /gaming/azure/reference-architectures/cognitive-content-moderation
-                maintainContext: true
-              - name: Customer service bot for gaming
-                href: /gaming/azure/reference-architectures/cognitive-css-bot
-                maintainContext: true
-              - name: Image classification
-                href: example-scenario/ai/intelligent-apps-image-processing.yml
-              - name: Speech to text for gaming
-                href: /gaming/azure/reference-architectures/cognitive-speech-to-text
-                maintainContext: true
-              - name: Text to speech for gaming
-                href: /gaming/azure/reference-architectures/cognitive-text-to-speech
-                maintainContext: true
-              - name: Text translation for gaming
-                href: /gaming/azure/reference-architectures/cognitive-text-translation
-                maintainContext: true
-          - name: Game streaming
-            items:
-              - name: Unreal Pixel Streaming
-                href: /gaming/azure/reference-architectures/unreal-pixel-streaming-in-azure
-                maintainContext: true
-              - name: Deploy Unreal Pixel Streaming
-                href: /gaming/azure/reference-architectures/unreal-pixel-streaming-deploying
-                maintainContext: true
-              - name: Unreal Pixel Streaming at scale
-                href: /gaming/azure/reference-architectures/unreal-pixel-streaming-at-scale
-                maintainContext: true
+                  - name: Image classification
+                    href: example-scenario/ai/intelligent-apps-image-processing.yml
+                  - name: Speech to text for gaming
+                    href: /gaming/azure/reference-architectures/cognitive-speech-to-text
+                    maintainContext: true
+                  - name: Text to speech for gaming
+                    href: /gaming/azure/reference-architectures/cognitive-text-to-speech
+                    maintainContext: true
+                  - name: Text translation for gaming
+                    href: /gaming/azure/reference-architectures/cognitive-text-translation
+                    maintainContext: true
+              - name: Analytics in games
+                items:
+                  - name: In-editor debugging telemetry
+                    href: /gaming/azure/reference-architectures/analytics-in-editor-debugging
+                    maintainContext: true
+                  - name: Non-real-time dashboard
+                    href: /gaming/azure/reference-architectures/analytics-non-real-time-dashboard
+                    maintainContext: true
+              - name: Databases for gaming
+                items:
+                  - name: Gaming using Azure MySQL
+                    href: solution-ideas/articles/gaming-using-azure-database-for-mysql.yml
+                  - name: Gaming using Cosmos DB
+                    href: solution-ideas/articles/gaming-using-cosmos-db.yml
+              - name: Game streaming
+                items:
+                  - name: Unreal Pixel Streaming
+                    href: /gaming/azure/reference-architectures/unreal-pixel-streaming-in-azure
+                    maintainContext: true
+                  - name: Deploy Unreal Pixel Streaming
+                    href: /gaming/azure/reference-architectures/unreal-pixel-streaming-deploying
+                    maintainContext: true
+                  - name: Unreal Pixel Streaming at scale
+                    href: /gaming/azure/reference-architectures/unreal-pixel-streaming-at-scale
+                    maintainContext: true
+              - name: Leaderboards
+                items:
+                  - name: Leaderboard basics
+                    href: /gaming/azure/reference-architectures/leaderboard
+                    maintainContext: true
+                  - name: Non-relational leaderboard
+                    href: /gaming/azure/reference-architectures/leaderboard-non-relational
+                    maintainContext: true
+                  - name: Relational leaderboard
+                    href: /gaming/azure/reference-architectures/leaderboard-relational
+                    maintainContext: true
+              - name: Matchmaking
+                items:
+                  - name: Multiplayer matchmaker
+                    href: /gaming/azure/reference-architectures/multiplayer-matchmaker
+                    maintainContext: true
+                  - name: Serverless matchmaker
+                    href: /gaming/azure/reference-architectures/multiplayer-matchmaker-serverless
+                    maintainContext: true
+              - name: Rendering
+                items:
+                  - name: 3D video rendering
+                    href: example-scenario/infrastructure/video-rendering.yml
+                  - name: Digital image-based modeling on Azure
+                    href: example-scenario/infrastructure/image-modeling.yml
+              - name: Scalable gaming servers
+                items:
+                  - name: Multiplayer backend architectures
+                    href: /gaming/azure/reference-architectures/multiplayer
+                    maintainContext: true
+                  - name: Real-time multiplayer
+                    items:
+                      - name: Custom game server scaling
+                        href: /gaming/azure/reference-architectures/multiplayer-custom-server-scaling
+                        maintainContext: true
+                      - name: Multiplayer hosting with Service Fabric
+                        href: /gaming/azure/reference-architectures/multiplayer-synchronous-sf
+                        maintainContext: true
+                      - name: Multiplayer server hosting with ACI
+                        href: /gaming/azure/reference-architectures/multiplayer-synchronous-aci
+                        maintainContext: true
+                      - name: Multiplayer server hosting with AKS
+                        href: /gaming/azure/reference-architectures/multiplayer-synchronous-aks
+                        maintainContext: true
+                      - name: Multiplayer server hosting with Batch
+                        href: /gaming/azure/reference-architectures/multiplayer-synchronous-batch
+                        maintainContext: true
+                  - name: Turn-based multiplayer
+                    items:
+                      - name: Asynchronous multiplayer basics
+                        href: /gaming/azure/reference-architectures/multiplayer-asynchronous
+                        maintainContext: true
+                      - name: Serverless asynchronous multiplayer
+                        href: /gaming/azure/reference-architectures/multiplayer-asynchronous-serverless
+                        maintainContext: true
+              - name: Server hosting
+                items:
+                  - name: Basic game server hosting
+                    href: /gaming/azure/reference-architectures/multiplayer-basic-game-server-hosting
+                    maintainContext: true
+                  - name: LAMP architectures for gaming
+                    href: /gaming/azure/reference-architectures/general-purpose-lamp
+                    maintainContext: true
       - name: Travel and Hospitality
         items:
           - name: Overview
@@ -1117,6 +1149,69 @@ items:
               - name: TISAX overview
                 href: /azure/compliance/offerings/offering-tisax
                 maintainContext: true
+      - name: Telecommunications
+        items:
+          - name: Guides
+            items:
+              - name: Field and cloud edge gateways
+                href: /azure/architecture/example-scenario/iot/field-cloud-edge-gateways
+              - name: Edge Workload Configuration pattern
+                href: /azure/architecture/patterns/edge-workload-configuration
+              - name: Kubernetes at the edge
+                items:  
+                  - name: Choose a Kubernetes at the edge option
+                    href: /azure/architecture/operator-guides/aks/choose-kubernetes-edge-compute-option
+                  - name: Choose a bare-metal Kubernetes option
+                    href: /azure/architecture/operator-guides/aks/choose-bare-metal-kubernetes
+              - name: Dynamics 365 telecommunications accelerator
+                items:
+                  - name: Overview
+                    href: /dynamics365/industry/accelerators/telecommunications-overview
+                    maintainContext: true
+                  - name: Configure the accelerator for Azure Maps
+                    href: /dynamics365/industry/accelerators/telecommunications-configure
+                    maintainContext: true
+              - name: Private multi-access edge compute
+                items:
+                  - name: Overview
+                    href: /azure/private-multi-access-edge-compute-mec/overview
+                    maintainContext: true
+                  - name: Partner services
+                    href: /azure/private-multi-access-edge-compute-mec/partner-programs
+                    maintainContext: true
+                  - name: Fusion Core
+                    href: /azure/private-multi-access-edge-compute-mec/metaswitch-fusion-core-overview
+                    maintainContext: true
+                  - name: Affirmed Private Network Service
+                    href: /azure/private-multi-access-edge-compute-mec/affirmed-private-network-service-overview
+                    maintainContext: true
+              - name: Azure Network Function Manager
+                href: /azure/network-function-manager/overview
+                maintainContext: true
+          - name: Architectures
+            items:
+              - name: All telecommunications architectures
+                href: /azure/architecture/browse/?terms=telecommunications
+              - name: Customer churn prediction
+                href: /azure/architecture/solution-ideas/articles/customer-churn-prediction
+              - name: Deploy AI and ML at the edge
+                href: /azure/architecture/hybrid/deploy-ai-ml-azure-stack-edge
+              - name: Determine customer lifetime and churn
+                href: /azure/architecture/example-scenario/ai/customer-lifecycle-churn
+              - name: Enterprise-grade conversational bot
+                href: /azure/architecture/reference-architectures/ai/conversational-bot
+              - name: IoT connected light, power, and internet
+                href: /azure/architecture/solution-ideas/articles/iot-power-management
+              - name: IoT device connectivity for industry
+                href: /azure/architecture/solution-ideas/articles/healthcare-network
+              - name: Low-latency network connections for industry 
+                href: /azure/architecture/solution-ideas/articles/low-latency-network
+              - name: Predictive maintenance with AI IoT Edge
+                href: /azure/architecture/example-scenario/predictive-maintenance/iot-predictive-maintenance
+              - name: Real-time fraud detection 
+                href: /azure/architecture/example-scenario/data/fraud-detection
+              - name: Video capture and analytics 
+                href: /azure/architecture/solution-ideas/articles/video-analytics
       - name: Facilities and Real Estate
         items: 
           - name: Overview
@@ -1139,6 +1234,8 @@ items:
             href: example-scenario/iot/smart-places.yml
       - name: Education
         items:
+          - name: Overview
+            href: industries/education.md
           - name: Guides
             items:
               - name: Dynamics 365 education accelerator
@@ -1204,6 +1301,26 @@ items:
                 href: solution-ideas/articles/environment-monitoring-and-supply-chain-optimization.yml
               - name: Low-latency network for farming
                 href: solution-ideas/articles/low-latency-network.yml
+      - name: Aerospace
+        items:
+          - name: Guides
+            items:
+              - name: Azure Orbital for space communication
+                href: /azure/orbital/overview
+                maintainContext: true
+              - name: Modular Datacenter
+                href: /azure-stack/mdc/mdc-overview
+                maintainContext: true
+          - name: Architectures
+            items:
+              - name: All aerospace architectures
+                href: /azure/architecture/browse/?terms=aircraft
+              - name: Advanced (AKS) microservices - drones
+                href: /azure/architecture/reference-architectures/containers/aks-microservices/aks-microservices-advanced
+              - name: Predictive maintenance for aircraft monitoring
+                href: /azure/architecture/solution-ideas/articles/predictive-maintenance
+              - name: Vision classifier model - simulated drone
+                href: /azure/architecture/example-scenario/dronerescue/vision-classifier-model-with-custom-vision
       - name: Nonprofit
         items:
           - name: Microsoft Cloud for Nonprofit
@@ -1231,13 +1348,6 @@ items:
           - name: Dynamics 365 nonprofit accelerator for Azure
             href: /dynamics365/industry/accelerators/nfp
             maintainContext: true
-      - name: Space
-        items:
-          - name: Azure Orbital for space communication
-            href: /azure/orbital/overview
-            maintainContext: true
-          - name: Predictive maintenance for aerospace
-            href: data-science-process/predictive-maintenance-technical-guide.md
       - name: Sports
         items:
           - name: Analyze Olympic sports with sensors and vision
@@ -1257,7 +1367,7 @@ items:
               - name: Cognitive services
                 href: data-guide/technology-choices/cognitive-services.md
               - name: Natural language processing
-                href: data-guide/technology-choices/natural-language-processing.md
+                href: data-guide/technology-choices/natural-language-processing.yml
               - name: R developer's guide to Azure
                 href: data-guide/technology-choices/r-developers-guide.md
               - name: Machine learning
@@ -1788,7 +1898,7 @@ items:
           - name: Guides
             items:
               - name: Choose a compute service
-                href: guide/technology-choices/compute-decision-tree.md
+                href: guide/technology-choices/compute-decision-tree.yml
               - name: SAS on Azure architecture
                 href: guide/sas/sas-overview.yml
               - name: Industry guidance
@@ -2020,15 +2130,15 @@ items:
                   - name: 'Extract, transform, and load (ETL)'
                     href: data-guide/relational-data/etl.md
                   - name: Online analytical processing (OLAP)
-                    href: data-guide/relational-data/online-analytical-processing.md
+                    href: data-guide/relational-data/online-analytical-processing.yml
                   - name: Online transaction processing (OLTP)
                     href: data-guide/relational-data/online-transaction-processing.md
                   - name: Data warehousing
-                    href: data-guide/relational-data/data-warehousing.md
+                    href: data-guide/relational-data/data-warehousing.yml
               - name: Non-relational data
                 items:
                   - name: Non-relational data stores
-                    href: data-guide/big-data/non-relational-data.md
+                    href: data-guide/big-data/non-relational-data.yml
                   - name: Free-form text search
                     href: data-guide/scenarios/search.md
                   - name: Time series data
@@ -2688,6 +2798,9 @@ items:
             items:
               - name: Hybrid workload in Azure
                 href: /azure/architecture/framework/hybrid/hybrid-overview
+                maintainContext: true
+              - name: Hybrid app design considerations
+                href: /hybrid/app-solutions/overview-app-design-considerations
               - name: Azure Arc guidance
                 items:
                   - name: Administer SQL Server with Azure Arc
@@ -2718,12 +2831,6 @@ items:
                     href: hybrid/deployments/solution-deployment-guide-sql-ha.md
                   - name: Direct traffic with a geo-distributed app
                     href: hybrid/deployments/solution-deployment-guide-geo-distributed.md
-              - name: Azure Stack guidance
-                items:
-                  - name: Azure Stack stretched clusters for DR
-                    href: hybrid/azure-stack-hci-dr.yml
-                  - name: Azure Stack HCI switchless interconnect
-                    href: hybrid/azure-stack-robo.yml
               - name: Azure VMware Solution guidance
                 items:
                   - name: API Management for AVS
@@ -2785,25 +2892,39 @@ items:
                 href: example-scenario/hybrid/azure-files-on-premises-authentication.yml
               - name: Azure Functions in a hybrid environment
                 href: hybrid/azure-functions-hybrid.yml
+              - name: Azure Stack HCI stretched clusters for DR
+                href: hybrid/azure-stack-hci-dr.yml
+              - name: Azure Stack HCI switchless interconnect
+                href: hybrid/azure-stack-robo.yml
+              - name: Azure Stack Hub solutions
+                items:
+                  - name: AI-based footfall detection
+                    href: solution-ideas/articles/hybrid-footfall-detection.yml
+                  - name: Back up files on Azure Stack Hub
+                    href: hybrid/azure-stack-backup.yml
+                  - name: Cross-cloud scaling (on-premises data)
+                    href: example-scenario/hybrid/hybrid-cross-cloud-scale-on-premises-data.yml 
+                  - name: Cross-cloud scaling with Traffic Manager
+                    href: /azure/architecture/example-scenario/hybrid/hybrid-cross-cloud-scaling
+                  - name: DevOps with Azure Stack Hub
+                    href: solution-ideas/articles/hybrid-continuous-integration.yml
+                  - name: Disaster recovery for Stack Hub VMs
+                    href: hybrid/azure-stack-vm-dr.yml
+                  - name: Hybrid geo-distributed architecture
+                    href: example-scenario/hybrid/hybrid-geo-distributed.yml
+                  - name: Hybrid relay connection
+                    href: solution-ideas/articles/hybrid-relay-connection.yml
               - name: Azure VMware Solution in hub-and-spoke
                 href: /azure/azure-vmware/concepts-hub-and-spoke
                 maintainContext: true
-              - name: Back up files on Azure Stack Hub
-                href: hybrid/azure-stack-backup.yml
               - name: Connect on-premises with ExpressRoute
                 href: reference-architectures/hybrid-networking/expressroute-vpn-failover.yml
               - name: Connect standalone servers
                 href: hybrid/azure-network-adapter.yml
-              - name: Cross-cloud scaling with Traffic Manager
-                href: example-scenario/hybrid/hybrid-cross-cloud-scaling.yml
-              - name: Cross-cloud scaling (on-premises data)
-                href: example-scenario/hybrid/hybrid-cross-cloud-scale-on-premises-data.yml   
               - name: Deploy AI and ML with Azure Stack Edge
                 href: hybrid/deploy-ai-ml-azure-stack-edge.yml
               - name: Design a hybrid Domain Name System
                 href: hybrid/hybrid-dns-infra.yml
-              - name: Disaster recovery for Stack Hub VMs
-                href: hybrid/azure-stack-vm-dr.yml
               - name: "Enhanced-security hybrid messaging: client"
                 href: example-scenario/hybrid/secure-hybrid-messaging-client.yml
               - name: "Enhanced-security hybrid messaging: mobile"
@@ -2813,9 +2934,7 @@ items:
               - name: Extend on-premises using ExpressRoute
                 href: reference-architectures/hybrid-networking/expressroute.yml
               - name: Extend an on-premises network using VPN
-                href: reference-architectures/hybrid-networking/vpn.yml
-              - name: Geo-distributed solution
-                href: example-scenario/hybrid/hybrid-geo-distributed.yml
+                href: reference-architectures/hybrid-networking/vpn.yml    
               - name: Hybrid availability and monitoring
                 href: hybrid/hybrid-perf-monitoring.yml
               - name: Hybrid file services
@@ -2836,16 +2955,14 @@ items:
             items:
               - name: Azure Stack Hub solutions
                 items:
-                  - name: AI-based footfall detection
-                    href: solution-ideas/articles/hybrid-footfall-detection.yml
                   - name: Cross-cloud scaling
                     href: solution-ideas/articles/cross-cloud-scaling.yml
-                  - name: DevOps with Azure Stack Hub
-                    href: solution-ideas/articles/hybrid-continuous-integration.yml
                   - name: Hybrid connections
                     href: solution-ideas/articles/hybrid-connectivity.yml
                   - name: Hybrid relay connection
                     href: solution-ideas/articles/hybrid-relay-connection.yml
+                  - name: Tiered data for analytics
+                    href: example-scenario/hybrid/hybrid-tiered-data-analytics.yml
                   - name: Unlock legacy data with Azure Stack
                     href: solution-ideas/articles/unlock-legacy-data.yml
               - name: Azure VMware Solution foundations
@@ -3066,7 +3183,7 @@ items:
                     href: example-scenario/iot/cloud-to-device.yml
                   - name: 'Builders, developers, and operators'
                     href: example-scenario/iot/builders-developers-operators.yml
-              - name: Video Analytics on Edge
+              - name: Video analytics on the edge
                 items:
                   - name: Overview
                     href: guide/iot-edge-vision/index.md
@@ -3109,7 +3226,7 @@ items:
               - name: Azure IoT client SDK support
                 href: guide/iot/azure-iot-client-sdk-support.md
               - name: Choose an IoT solution
-                href: example-scenario/iot/iot-central-iot-hub-cheat-sheet.md
+                href: example-scenario/iot/iot-central-iot-hub-cheat-sheet.yml
               - name: Moving from test to production
                 href: example-scenario/iot/iot-move-to-production.md
           - name: Architectures
@@ -3224,7 +3341,7 @@ items:
                     href: example-scenario/mainframe/integrate-ibm-message-queues-azure.yml
                   - name: Micro Focus Enterprise Server on Azure
                     href: example-scenario/mainframe/micro-focus-server.yml
-                  - name: Migrate AIX workloads to Azure with Skytap
+                  - name: Migrate AIX workloads with Skytap
                     href: example-scenario/mainframe/migrate-aix-workloads-to-azure-with-skytap.yml
                   - name: Migrate IBM i series to Azure with Skytap
                     href: example-scenario/mainframe/migrate-ibm-i-series-to-azure-with-skytap.yml
@@ -3270,6 +3387,9 @@ items:
         items:
           - name: Guides
             items:
+              - name: Governance best practices
+                href: /security/compass/governance
+                maintainContext: true
               - name: Backup
                 items:
                   - name: Backup architecture and components
@@ -3298,8 +3418,8 @@ items:
                   - name: BCDR for Azure VMware Solution
                     href: /azure/cloud-adoption-framework/scenarios/azure-vmware/eslz-business-continuity-and-disaster-recovery
                     maintainContext: true
-              - name: Management and monitoring
-                href: /azure/cloud-adoption-framework/ready/enterprise-scale/management-and-monitoring
+              - name: Management for Azure environments
+                href: /azure/cloud-adoption-framework/ready/landing-zone/design-area/management
                 maintainContext: true
               - name: Management for VMware Solution
                 href: /azure/cloud-adoption-framework/scenarios/azure-vmware/eslz-management-and-monitoring
@@ -3355,6 +3475,9 @@ items:
                 href: solution-ideas/articles/disaster-recovery-smb-double-take-dr.yml
       - name: Media
         items:
+          - name: Get started
+            href: /azure/media-services/latest/architecture-concept
+            maintainContext: true
           - name: Guides
             items:
               - name: Media Services terminology and concepts
@@ -3362,6 +3485,18 @@ items:
                 maintainContext: true
               - name: Encoding video and audio
                 href: /azure/media-services/latest/encode-concept
+                maintainContext: true
+              - name: Live streaming
+                href: /azure/media-services/latest/stream-live-streaming-concept
+                maintainContext: true
+              - name: High availability with video on demand
+                href: /azure/media-services/latest/architecture-high-availability-encoding-concept
+                maintainContext: true
+              - name: Monitor Media Services
+                href: /azure/media-services/latest/monitoring/monitor-media-services
+                maintainContext: true
+              - name: Dynamic encryption
+                href: /azure/media-services/latest/drm-content-protection-concept
                 maintainContext: true
               - name: Security baseline for Media Services
                 href: /security/benchmark/azure/baselines/media-services-security-baseline
@@ -3792,6 +3927,8 @@ items:
               - name: Traditional Azure networking topology
                 href: /azure/cloud-adoption-framework/ready/azure-best-practices/traditional-azure-networking-topology
                 maintainContext: true
+              - name: Trusted Internet Connections (TIC) 3.0 compliance
+                href: example-scenario/security/trusted-internet-connections.yml
               - name: Update route tables with Route Server
                 href: example-scenario/networking/manage-routing-azure-route-server.yml
               - name: Virtual WAN network topology
@@ -3944,12 +4081,13 @@ items:
                 href: reference-architectures/n-tier/high-security-iaas.yml
               - name: Security design principles
                 href: /azure/architecture/framework/security/security-principles
+                maintainContext: true
               - name: Virtual Network security options
                 href: example-scenario/gateway/firewall-application-gateway.yml
               - name: Zero-trust network for web applications
                 href: example-scenario/gateway/application-gateway-before-azure-firewall.yml
-              - name: Enterprise-scale security and governance
-                href: /azure/cloud-adoption-framework/ready/enterprise-scale/security-governance-and-compliance
+              - name: Azure governance design area
+                href: /azure/cloud-adoption-framework/ready/landing-zone/design-area/governance
                 maintainContext: true
               - name: Integrate Data Explorer with Sentinel
                 href: /azure/sentinel/store-logs-in-azure-data-explorer?tabs=adx-event-hub
