@@ -226,4 +226,4 @@ The following design patterns might be relevant to your scenario:
 
 ## Next steps
 
-- Learn about partitioning strategies for specific Azure services. See [Data partitioning strategies](./data-partitioning-strategies.md)
+- Learn about partitioning strategies for specific Azure services. See [Data partitioning strategies](./data-partitioning-strategies.yml)

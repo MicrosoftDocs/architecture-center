@@ -135,7 +135,7 @@ To create a VM and install Jenkins, follow the instructions in the article, [Qui
 [managed-disk]: /azure/virtual-machines/linux/managed-disks-overview
 [matrix]: https://plugins.jenkins.io/matrix-auth
 [monitor]: /azure/monitoring-and-diagnostics
-[monitoring-diag]: ../../best-practices/monitoring.md
+[monitoring-diag]: ../../best-practices/monitoring.yml
 [multi-primary]: https://jenkins.io/doc/book/architecting-for-scale
 [nginx]: https://www.digitalocean.com/community/tutorials/how-to-create-an-ssl-certificate-on-nginx-for-ubuntu-14-04
 [nsg]: /azure/virtual-network/virtual-networks-nsg

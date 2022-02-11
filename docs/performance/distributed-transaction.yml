@@ -15,7 +15,6 @@ azureCategories:
 products:
   - azure-kubernetes-service
   - azure-cache-redis
-  - application-insights
 name: Distributed business transaction performance tuning
 summary: Use load testing to tune the performance of a distributed business transaction. Tests include increasing the cache size, parallelism, and lock duration.
 thumbnailUrl: /azure/architecture/browse/thumbs/drone-delivery-impl.png

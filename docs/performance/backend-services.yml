@@ -15,8 +15,6 @@ azureCategories:
 products:
   - azure-kubernetes-service
   - azure-cosmos-db
-  - vs-devops-test-performance
-  - application-insights
 name: Performance tuning - Multiple backend services
 summary: Use load testing to tune the performance of an application with multiple backend services. Increase resource units, run parallel queries, and optimize the query.
 thumbnailUrl: /azure/architecture/browse/thumbs/gateway-aggregation.png

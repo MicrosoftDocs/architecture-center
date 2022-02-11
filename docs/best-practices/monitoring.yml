@@ -13,9 +13,6 @@ azureCategories:
   - security
 products:
   - azure-monitor
-ms.custom:
-  - best-practice
-  - internal-intro
 name: Monitoring and diagnostics guidance
 summary: Learn how to track how users use your distributed applications and services, trace resource utilization, and monitor the health and performance.
 thumbnailUrl: /azure/architecture/browse/thumbs/PullModel.png

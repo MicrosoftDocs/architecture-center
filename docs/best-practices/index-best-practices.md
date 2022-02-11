@@ -59,14 +59,14 @@ This table lists various best practices. The **Related pillars or patterns** col
 [About Azure Cache for Redis]: /azure/azure-cache-for-redis/cache-overview
 [Autoscaling]: ./auto-scaling.md
 [Background jobs]: ./background-jobs.md
-[Best practices for monitoring cloud applications]: ./monitoring.md
+[Best practices for monitoring cloud applications]: ./monitoring.yml
 [Best practices for using content delivery networks (CDNs)]: ./cdn.md
 [Caching]: ./caching.md
 [Cloud Design Patterns]: ../patterns/index.md
 [Data Management patterns]: ../patterns/category/data-management.md
-[Data partitioning strategies]: ./data-partitioning-strategies.md
+[Data partitioning strategies]: ./data-partitioning-strategies.yml
 [Design and implementation patterns]: ../patterns/category/design-implementation.md
-[Horizontal, vertical, and functional data partitioning]: ./data-partitioning.md
+[Horizontal, vertical, and functional data partitioning]: ./data-partitioning.yml
 [Introduction to Azure Blob storage]: /azure/storage/blobs/storage-blobs-introduction
 [Introduction to the core Azure Storage services]: /azure/storage/common/storage-introduction
 [Message encoding considerations]: ./message-encode.md
