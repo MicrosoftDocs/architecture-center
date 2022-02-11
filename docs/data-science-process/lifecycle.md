@@ -1,12 +1,12 @@
 ---
 title: The Team Data Science Process lifecycle
 description: The Team Data Science Process (TDSP) provides a recommended lifecycle that you can use to structure your data-science projects.
-services: machine-learning
 author: marktab
 manager: marktab
 editor: marktab
-ms.service: machine-learning
-ms.subservice: team-data-science-process
+services: architecture-center
+ms.service: architecture-center
+ms.subservice: azure-guide
 ms.topic: article
 ms.date: 12/14/2021
 ms.author: tdsp

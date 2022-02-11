@@ -4,6 +4,7 @@ description: Execute a data science project in a systematic, version controlled,
 author: marktab
 manager: marktab
 editor: marktab
+services: architecture-center
 ms.service: architecture-center
 ms.subservice: azure-guide
 ms.topic: article

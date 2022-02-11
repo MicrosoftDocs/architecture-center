@@ -1,12 +1,12 @@
 ---
 title: Build and deploy a model using Azure Synapse Analytics
 description: Build and deploy a machine learning model using Azure Synapse Analytics with a publicly available dataset.
-services: machine-learning
 author: marktab
 manager: marktab
 editor: marktab
-ms.service: machine-learning
-ms.subservice: team-data-science-process
+services: architecture-center
+ms.service: architecture-center
+ms.subservice: azure-guide
 ms.topic: article
 ms.date: 01/22/2022
 ms.author: tdsp

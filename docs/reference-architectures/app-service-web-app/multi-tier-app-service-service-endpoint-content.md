@@ -15,7 +15,7 @@ This architecture may suit these use cases:
 
 ## Architecture
 
-:::image type="content" source="images/multi-tier-app-service-service-endpoint.svg" lightbox="images/multi-tier-app-service-service-endpoint.png" alt-text="Architecture of a multi-tier app.":::
+:::image type="content" source="images/multi-tier-app-service-service-endpoint.png" lightbox="images/multi-tier-app-service-service-endpoint.png" alt-text="Architecture of a multi-tier app.":::
 
 *Download a [Visio file](https://arch-center.azureedge.net/US-1874703-PR-3830-multi-tier-app-service-service-endpoint.vsdx) of this architecture.*
 
