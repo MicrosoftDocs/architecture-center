@@ -16,13 +16,13 @@ By using natural language processing (NLP) with deep learning for content taggin
 
 1. Data is stored in various formats, depending on its original source. Data can be stored as files within Azure Data Lake Storage or in tabular form in Azure Synapse or Azure SQL Database. 
 
-2. Azure Machine Learning can connect and read from such sources to ingest the data into the NLP pipeline for pre-processing, model training, and post-processing. 
+2. Azure Machine Learning can connect and read from such sources, to ingest the data into the NLP pipeline for pre-processing, model training, and post-processing. 
 
-3. NLP pre-processing includes several steps to consume data with the purpose of text generalization. Once the text is broken up into sentences, NLP techniques such as lemmatization or stemming allow language to be tokenized in a general form. 
+3. NLP pre-processing includes several steps to consume data, with the purpose of text generalization. Once the text is broken up into sentences, NLP techniques, such as lemmatization or stemming, allow language to be tokenized in a general form. 
 
-4. As NLP models are already available pre-trained, the transfer learning approach recommends downloading language specific embeddings and using an industry standard model for multi-class text classification such as variations of [BERT](https://arxiv.org/abs/1810.04805). 
+4. As NLP models are already available pre-trained, the transfer learning approach recommends that you download language-specific embeddings and use an industry standard model, for multi-class text classification, such as variations of [BERT](https://arxiv.org/abs/1810.04805).
 
-5. NLP post-processing recommends storing the model in a model register in AML to track model metrics. Furthermore, text can be post-processed with specific business rules that are deterministically defined based on the business goals. Microsoft recommends using ethical AI tools to detect biased language ensuring fair training of language model. 
+5. NLP post-processing recommends storing the model in a model register in AML, to track model metrics. Furthermore, text can be post-processed with specific business rules that are deterministically defined, based on the business goals. Microsoft recommends using ethical AI tools to detect biased language, which ensures the fair training of a language model. 
 
 6. The model can be deployed through Azure Kubernetes Service running a Kubernetes-managed cluster while containers are deployed from images stored in Azure Container Registry. Endpoints can be made available to a front-end application. The model can be deployed through Azure Kubernetes Service as real-time endpoints 
 
