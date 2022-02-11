@@ -1,12 +1,12 @@
 ---
 title: Process data in a SQL Server virtual machine on Azure
 description: Explore + process data and generate features using Python or SQL in a SQL Server virtual machine on Azure.
-services: machine-learning
 author: marktab
 manager: marktab
 editor: marktab
-ms.service: machine-learning
-ms.subservice: team-data-science-process
+services: architecture-center
+ms.service: architecture-center
+ms.subservice: azure-guide
 ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
