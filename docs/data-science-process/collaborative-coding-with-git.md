@@ -1,6 +1,7 @@
 ---
 title: Collaborative coding with Git
 description: How to do collaborative code development for data science projects, using Git with agile planning.
+services: architecture-center
 author: marktab
 manager: marktab
 editor: marktab

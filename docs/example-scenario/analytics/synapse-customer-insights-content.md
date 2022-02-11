@@ -12,7 +12,7 @@ You can use this solution to:
 - Run targeted promotions that are aimed at customer retention or upselling.
 
 ## Architecture
-![Diagram that shows an architecture for a Customer 360 solution that uses Azure Synapse Analytics and Dynamics 365 Customer Insights.](./media/customer-360.png)
+:::image type="content" border="false" source="./media/customer-360.png" alt-text="Diagram that shows an architecture for a Customer 360 solution that uses Azure Synapse Analytics and Dynamics 365 Customer Insights." lightbox="./media/customer-360.png":::
 
 *Download a [Visio file](https://arch-center.azureedge.net/customer-360-architecture.vsdx) of this architecture.*
 

@@ -38,10 +38,10 @@ Here are some Learn modules you might find useful:
 To find options helpful for dealing with relational data, consider these resources:
 
 - To learn about resources for gathering data from multiple sources and how to and apply data transformations within the data pipeline, see [Extract, transform, and load (ETL)](../data-guide/relational-data/etl.md).
-- To learn about Online analytical processing (OLAP), which organizes large business databases and supports complex analysis, see [Online analytical processing](../data-guide/relational-data/online-analytical-processing.md).
+- To learn about Online analytical processing (OLAP), which organizes large business databases and supports complex analysis, see [Online analytical processing](../data-guide/relational-data/online-analytical-processing.yml).
 - Online transaction processing systems record business interactions as they occur. For more information, see [Online transaction processing (OLTP)](../data-guide/relational-data/online-transaction-processing.md).
 
-A *non-relational database* doesn't use the tabular schema of rows and columns. For more information, see [Non-relational data and NoSQL](../data-guide/big-data/non-relational-data.md).
+A *non-relational database* doesn't use the tabular schema of rows and columns. For more information, see [Non-relational data and NoSQL](../data-guide/big-data/non-relational-data.yml).
 
 To learn about data lakes, which hold a large amount of data in its native, raw format, see [Data lakes](../data-guide/scenarios/data-lake.md).
 
@@ -71,7 +71,7 @@ Review these best practices when designing your solutions.
 | [Secure data solutions](../data-guide/scenarios/securing-data-solutions.md) | Address concerns around increased accessibility to data in the cloud and how to secure it. |
 | [Continuous backup with point-in-time restore in Azure Cosmos DB](/azure/cosmos-db/continuous-backup-restore-introduction) | Learn about Azure Cosmos DB's point-in-time restore feature. |
 | [Achieve high availability with Cosmos DB](/azure/cosmos-db/high-availability) | Cosmos DB provides multiple features and configuration options to achieve high availability. |
-| [High availability for Azure SQL Database and SQL Managed Instance](/azure/azure-sql/database/high-availability-sla.yml) | The database shouldn't be a single point of failure in your architecture. |
+| [High availability for Azure SQL Database and SQL Managed Instance](/azure/azure-sql/database/high-availability-sla) | The database shouldn't be a single point of failure in your architecture. |
 
 ## Azure SQL Database security baselines
 

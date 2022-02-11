@@ -38,7 +38,7 @@ The articles in this section describe some Azure services commonly used in multi
 - Deployment and configuration: [Azure Resource Manager](resource-manager.md)
 - Compute: [App Service and Azure Functions](app-service.md)
 - Networking: [NAT Gateway](nat-gateway.md)
-- Storage and data: [Azure Storage](storage.md), [Azure SQL Database](sql-database.md), and [Azure Cosmos DB](cosmos-db.md)
+- Storage and data: [Azure Storage](storage.md), [Azure SQL Database](sql-database.md), [Azure Cosmos DB](cosmos-db.md), and [Azure Database for PostgreSQL](postgresql.md)
 
 We frequently add new articles with guidance for additional services. You're also welcome to [submit suggestions for additional service-specific guidance](https://aka.ms/multitenancy/feedback).
 

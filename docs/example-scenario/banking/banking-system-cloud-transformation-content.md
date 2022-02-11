@@ -252,7 +252,7 @@ The CSE team created release branches that generated stable versions for deploym
 
 #### Disaster recovery
 
-The solution uses [Terraform scripts and Azure Pipelines](/azure/devops/pipelines/release/automate-terraform) for all the services. If a disaster occurs, Contoso Bank can re-create the entire environment by using Terraform scripts or by running the release pipeline again. Terraform understands that the environment has changed and recreates it. The solution dynamically provisions and destroys the infrastructure on Azure as needed. Storage accounts are zone-redundant storage (ZRS). A backup strategy was out of scope for this engagement.
+The solution uses Terraform scripts and Azure Pipelines for all the services. If a disaster occurs, Contoso Bank can re-create the entire environment by using Terraform scripts or by running the release pipeline again. Terraform understands that the environment has changed and recreates it. The solution dynamically provisions and destroys the infrastructure on Azure as needed. Storage accounts are zone-redundant storage (ZRS). A backup strategy was out of scope for this engagement.
 
 #### Security and privacy
 
@@ -288,7 +288,7 @@ At the end of the project, the CSE team shared the following insights:
 
   * A product's end-of-life may require creative customizations. A preparation phase plays an important role when the team delivers a successful solution.
 
-  * The CSE team recommended the use of the [Cloud Load Testing (CLT)](/azure/devops/test/load-test/overview#cloud-based-load-testing-service-clt-availability-timeframe-for) functionality in [Azure Test Plans](https://azure.microsoft.com/services/devops/test-plans/) with Apache JMeter tests. Unfortunately, during the investigation phase, the team identified that the Azure Test Plans team deprecated this functionality. The team had to create a new solution integrating ACI and JMeter in the pipeline.
+  * The CSE team recommended the use of the [Cloud Load Testing (CLT)](/rest/api/azure/devops/clt) functionality in [Azure Test Plans](https://azure.microsoft.com/services/devops/test-plans/) with Apache JMeter tests. Unfortunately, during the investigation phase, the team identified that the Azure Test Plans team deprecated this functionality. The team had to create a new solution integrating ACI and JMeter in the pipeline.
 
   * The team recommended the use of the Azure Event Hubs for Kafka, but for Contoso Bank, schema registry was an important feature. To attend to Contoso Bank in the requested time frame, the team had to consider the use of schema registry in another instance of AKS.
 
