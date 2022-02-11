@@ -1,12 +1,9 @@
 ---
 title: Business understanding in Team Data Science Process
 description: The goals, tasks, and deliverables for the business understanding stage of your data-science projects in the Team Data Science Process.
-services: machine-learning
 author: marktab
 manager: marktab
 editor: marktab
-ms.service: machine-learning
-ms.subservice: team-data-science-process
 ms.topic: article
 ms.date: 01/31/2022
 ms.author: tdsp

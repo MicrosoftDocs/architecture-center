@@ -1,12 +1,9 @@
 ---
 title: Load data into Azure Storage environments
 description: Learn about how to ingest data into various target environments where the data is stored and processed.
-services: machine-learning
 author: marktab
 manager: marktab
 editor: marktab
-ms.service: machine-learning
-ms.subservice: team-data-science-process
 ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
