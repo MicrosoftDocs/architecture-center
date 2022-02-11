@@ -182,7 +182,7 @@ items:
       - name: Performance tuning and antipatterns
         items:
           - name: Introduction
-            href: performance/noisy-neighbor.md
+            href: performance/noisy-neighbor/noisy-neighbor.md
           - name: Scenario 1 - Distributed transactions
             href: performance/distributed-transaction.yml
           - name: Scenario 2 - Multiple backend services
@@ -208,7 +208,7 @@ items:
               - name: No Caching
                 href: antipatterns/no-caching/index.md
               - name: Noisy Neighbor
-                href: antipatterns/noisy-neighbor/index.yml
+                href: antipatterns/noisy-neighbor/noisy-neighbor.yml
               - name: Retry Storm
                 href: antipatterns/retry-storm/index.md
               - name: Synchronous I/O

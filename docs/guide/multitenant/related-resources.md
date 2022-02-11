@@ -47,7 +47,7 @@ The following [cloud design patterns](../../patterns/index.md) are frequently us
 
 ## Antipatterns
 
-Consider the [Noisy Neighbor antipattern](../../antipatterns/noisy-neighbor.yml), in which the activity of one tenant can have a negative impact on another tenant's use of the system.
+Consider the [Noisy Neighbor antipattern](../../antipatterns/noisy-neighbor/noisy-neighbor.yml), in which the activity of one tenant can have a negative impact on another tenant's use of the system.
 
 ## Microsoft Azure Well-Architected Framework
 
