@@ -4,6 +4,9 @@ description: Set up an ADF pipeline that composes two data migration activities 
 author: marktab
 manager: marktab
 editor: marktab
+services: architecture-center
+ms.service: architecture-center
+ms.subservice: azure-guide
 ms.topic: article
 ms.date: 09/03/2020
 ms.author: tdsp

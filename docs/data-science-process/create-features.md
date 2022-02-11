@@ -4,6 +4,9 @@ description: Learn about feature engineering and its role in the data enhancemen
 author: marktab
 manager: marktab
 editor: marktab
+services: architecture-center
+ms.service: architecture-center
+ms.subservice: azure-guide
 ms.topic: conceptual
 ms.date: 01/31/2022
 ms.author: tdsp

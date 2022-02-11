@@ -4,6 +4,9 @@ description: Move Data to and from Azure Blob storage using Azure Storage Explor
 author: marktab
 manager: marktab
 editor: marktab
+services: architecture-center
+ms.service: architecture-center
+ms.subservice: azure-guide
 ms.topic: article
 ms.date: 12/16/2021
 ms.author: tdsp

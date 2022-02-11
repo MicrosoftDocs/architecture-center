@@ -4,6 +4,9 @@ description: How to use Azure Data Lake to do data exploration and binary classi
 author: marktab
 manager: marktab
 editor: marktab
+services: architecture-center
+ms.service: architecture-center
+ms.subservice: azure-guide
 ms.topic: article
 ms.date: 01/28/2022
 ms.author: tdsp

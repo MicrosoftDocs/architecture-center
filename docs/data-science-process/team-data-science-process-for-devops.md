@@ -1,12 +1,12 @@
 ---
 title: Team Data Science Process for DevOps
 description: Developer Operations (DevOps) functions that are specific to an Advanced Analytics and Cognitive Services solution implementation.
-services: machine-learning
 author: marktab
 manager: marktab
 editor: marktab
-ms.service: machine-learning
-ms.subservice: team-data-science-process
+services: architecture-center
+ms.service: architecture-center
+ms.subservice: azure-guide
 ms.topic: article
 ms.date: 12/14/2021
 ms.author: tdsp

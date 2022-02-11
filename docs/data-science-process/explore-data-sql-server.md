@@ -4,6 +4,9 @@ description: How to explore data that is stored in a SQL Server VM on Azure usin
 author: marktab
 manager: marktab
 editor: marktab
+services: architecture-center
+ms.service: architecture-center
+ms.subservice: azure-guide
 ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
