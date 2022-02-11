@@ -8,7 +8,7 @@ ms.date: 06/22/2020
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: azure-guide
-ms.category:
+categories:
   - developer-tools
   - featured
 products:
@@ -636,7 +636,7 @@ Once you get a feel for how this reference solution works, learn best practices 
 - For a serverless event ingestion solution, see [Serverless event processing using Azure Functions](../reference-architectures/serverless/event-processing.yml).
 - For a serverless web app, see [Serverless web application on Azure](../reference-architectures/serverless/web-app.yml).
 
-Azure Functions is just one Azure compute option. For help with choosing a compute technology, see [Choose an Azure compute service for your application](../guide/technology-choices/compute-decision-tree.md).
+Azure Functions is just one Azure compute option. For help with choosing a compute technology, see [Choose an Azure compute service for your application](../guide/technology-choices/compute-decision-tree.yml).
 
 ## Related resources
 

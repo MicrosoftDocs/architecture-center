@@ -1,12 +1,12 @@
 ---
 title: Create features for data in an Azure HDInsight Hadoop cluster
 description: Examples of Hive queries that generate features in data stored in an Azure HDInsight Hadoop cluster.
-services: machine-learning
 author: marktab
 manager: marktab
 editor: marktab
-ms.service: machine-learning
-ms.subservice: team-data-science-process
+services: architecture-center
+ms.service: architecture-center
+ms.subservice: azure-guide
 ms.topic: article
 ms.date: 12/21/2021
 ms.author: tdsp
