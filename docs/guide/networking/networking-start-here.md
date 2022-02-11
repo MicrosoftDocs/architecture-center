@@ -21,22 +21,21 @@ ms.custom: fcp
 
 # Networking architecture design
 
-This article provides information about sample architectures, solutions, and guides that can help you explore the various networking services in Azure.
+This article provides information about sample architectures, solutions, and guides that can help you explore networking in Azure.
 
-Designing and implementing Azure networking capabilities is a critical part of your cloud adoption efforts. You'll need to make networking design decisions to properly support the workloads and services that are hosted in the cloud. 
+Designing and implementing Azure networking capabilities is a critical part of your cloud solution. You'll need to make networking design decisions to properly support your workloads and services. 
 
 Azure provides a wide range of networking tools and capabilities. These are just some of the key networking services available in Azure:
-
-- [Azure Application Gateway](https://azure.microsoft.com/services/application-gateway). Build secure, scalable, highly available web front ends.
-- [Azure ExpressRoute](https://azure.microsoft.com/services/expressroute). Experience a fast, reliable, and private connection to Azure.
-- [Azure Firewall](https://azure.microsoft.com/services/azure-firewall). Use a cloud-native, next-generation firewall to provide protection for your Azure Virtual Network resources.
-- [Azure Load Balancer](https://azure.microsoft.com/products/azure-load-balancing). Deliver high availability and network performance to your apps.
-- [Azure Private Link](https://azure.microsoft.com/services/private-link). Enable private access to services that are hosted on the Azure platform while keeping your data on the Microsoft network.
 - [Azure Virtual Network](https://azure.microsoft.com/services/virtual-network). Provision private networks, and optionally connect to on-premises datacenters.
-- [Azure Virtual WAN](https://azure.microsoft.com/services/virtual-wan). Optimize and automate branch-to-branch connectivity through Azure.
+- [Azure Virtual WAN](https://azure.microsoft.com/services/virtual-wan). Optimize and automate branch-to-branch connectivity.
+- [Azure Private Link](https://azure.microsoft.com/services/private-link). Enable private access to services that are hosted on the Azure platform while keeping your data on the Microsoft network.
+- [Azure Firewall](https://azure.microsoft.com/services/azure-firewall). Provide protection for your Azure Virtual Network resources.
+- [Azure Application Gateway](https://azure.microsoft.com/services/application-gateway). Build secure, scalable, highly available web front ends.
+- [Azure ExpressRoute](https://azure.microsoft.com/services/expressroute). Create a fast, reliable, and private connection to Azure.
+- [Azure Load Balancer](https://azure.microsoft.com/products/azure-load-balancing). Deliver high availability and network performance to your apps.
 - [Azure VPN Gateway](https://azure.microsoft.com/services/vpn-gateway). Establish secure, cross-premises connectivity.
 
-For more about information more Azure networking services, see [Azure networking](https://azure.microsoft.com/product-categories/networking).
+For information about more Azure networking services, see [Azure networking](https://azure.microsoft.com/product-categories/networking).
 
 ## Introduction to networking on Azure
 If you're new to networking on Azure, the best way to learn more is with [Microsoft Learn](/learn/?WT.mc_id=learnaka), a free online training platform. Microsoft Learn provides interactive training for Microsoft products and more.
@@ -58,17 +57,17 @@ Consider these technologies and solutions as you plan and implement your deploym
 
 
 ## Best practices
-The [Azure Well-Architected Framework](/azure/architecture/framework) is a set of guiding tenets, based on five pillars, that you can use to improve the quality of your architectures. These reviews provide guidance for each of the pillars: 
-- [Azure Well-Architected Framework review of Azure Application Gateway](../../networking/guide/waf-application-gateway.md) 
-- [Azure Well-Architected Framework review of Azure Firewall](../../networking/guide/well-architected-framework-azure-firewall.md) 
-- [Azure Well-Architected Framework review of an Azure NAT gateway](../../networking/guide/well-architected-network-address-translation-gateway.md) 
+The [Azure Well-Architected Framework](/azure/architecture/framework) is a set of guiding tenets, based on five pillars, that you can use to improve the quality of your architectures. These articles provide guidance for each of the pillars: 
+- [Review of Azure Application Gateway](../../networking/guide/waf-application-gateway.md) 
+- [Review of Azure Firewall](../../networking/guide/well-architected-framework-azure-firewall.md) 
+- [Review of an Azure NAT gateway](../../networking/guide/well-architected-network-address-translation-gateway.md) 
 
-The [Cloud Adoption Framework](/azure/cloud-adoption-framework) is a collection of documentation, implementation guidance, best practices, and tools that are designed to accelerate your cloud adoption. You might find these helpful as you plan and implement your networking solution: 
-- [Connectivity to other cloud providers - Cloud Adoption Framework](/azure/cloud-adoption-framework/ready/azure-best-practices/connectivity-to-other-providers?view=o365-worldwide&toc=https:%2f%2fdocs.microsoft.com%2fazure%2farchitecture%2ftoc.json&bc=https:%2f%2fdocs.microsoft.com%2fazure%2farchitecture%2fbread%2ftoc.json) 
-- [Connectivity to Oracle Cloud Infrastructure - Cloud Adoption Framework](/azure/cloud-adoption-framework/ready/azure-best-practices/connectivity-to-other-providers-oci?view=o365-worldwide&toc=https:%2f%2fdocs.microsoft.com%2fazure%2farchitecture%2ftoc.json&bc=https:%2f%2fdocs.microsoft.com%2fazure%2farchitecture%2fbread%2ftoc.json) 
+The [Cloud Adoption Framework](/azure/cloud-adoption-framework) is a collection of documentation, implementation guidance, best practices, and tools that are designed to accelerate your cloud adoption. You might find these articles helpful as you plan and implement your networking solution: 
+- [Connectivity to other cloud providers](/azure/cloud-adoption-framework/ready/azure-best-practices/connectivity-to-other-providers?view=o365-worldwide&toc=https:%2f%2fdocs.microsoft.com%2fazure%2farchitecture%2ftoc.json&bc=https:%2f%2fdocs.microsoft.com%2fazure%2farchitecture%2fbread%2ftoc.json) 
+- [Connectivity to Oracle Cloud Infrastructure](/azure/cloud-adoption-framework/ready/azure-best-practices/connectivity-to-other-providers-oci?view=o365-worldwide&toc=https:%2f%2fdocs.microsoft.com%2fazure%2farchitecture%2ftoc.json&bc=https:%2f%2fdocs.microsoft.com%2fazure%2farchitecture%2fbread%2ftoc.json) 
 
 ## Networking architectures
-Following are some networking architectures, organized by category. 
+The following sections, organized by category, provide links to sample networking architectures. 
 ### High availability
 - [Deploy highly available NVAs](../../reference-architectures/dmz/nva-ha.yml)
 - [High availability and disaster recovery scenarios for IaaS apps](../../example-scenario/infrastructure/iaas-high-availability-disaster-recovery.yml)
@@ -96,9 +95,9 @@ Following are some networking architectures, organized by category.
 
 ### Multi-region networking
 - [Multi-region N-tier application](../../reference-architectures/n-tier/multi-region-sql-server.yml)
-- [Multi-region load balancing with Traffic Manager and Application Gateway](../../high-availability/reference-architecture-traffic-manager-application-gateway.yml)
+- [Multi-region load balancing with Azure Traffic Manager and Application Gateway](../../high-availability/reference-architecture-traffic-manager-application-gateway.yml)
 
-### Stay current with networking
+## Stay current with networking
 Get the [latest updates on Azure networking products and features](https://azure.microsoft.com/blog/topics/networking).
 
 ## Additional resources 
