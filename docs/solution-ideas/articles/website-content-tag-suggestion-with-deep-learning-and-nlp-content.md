@@ -4,7 +4,7 @@ Social sites, forums, and other text-heavy Q&A services rely heavily on content 
 
 ## Potential use cases
 
-By combining deep learning and natural language processing (NLP) with data on site-specific search terms, this solution helps greatly improve content tagging accuracy on a site. As users type content, this solution offers highly used terms as suggested content tags, which makes it easier for others to find the information.
+Using Natural language processing (NLP) with Deep Learning with data on site-specific search labels enables this solution to greatly improve content tagging accuracy on a site. As users type content, this solution offers highly used terms as suggested content tags, which makes it easier for others to find the information. NLP inference tags content appropriately to make it searchable on-scaled applications.
 
 ## Architecture
 
@@ -14,35 +14,41 @@ By combining deep learning and natural language processing (NLP) with data on si
 
 ### Workflow
 
-* Data is stored, structured, and indexed using Microsoft SQL Server.
-* Model training, including hyperparameter tuning, and deployment of the final model, including scaling out to a Kubernetes-managed Azure cluster.
-* The core development environment for this solution is a customized VM image on the Azure cloud platform built specifically for doing data science.
-* Jupyter Notebooks can be used as the base integrated development environment (IDE) for the model.
-* Stores real-time web services as Docker containers. These containers are uploaded and registered via Azure Container Registry.
-* Deployment for this solution uses Azure Kubernetes Service running a Kubernetes-managed cluster. The containers are deployed from images stored in Azure Container Registry.
+1. Data is stored in various formats depending on its original source. Data can be stored as files within Azure Data Lake Storage or in tabular form in Azure Synapse or Azure SQL Database. 
+
+2. Azure Machine Learning can connect and read from such sources to ingest the data into the NLP pipeline for pre-processing, model training, and post-processing. 
+
+3. NLP pre-processing includes several steps to consume data with the purpose of text generalization. Once the text is broken up into sentences, NLP techniques such as lemmatization or stemming allow language to be tokenized in a general form. 
+
+4. As NLP models are already available pre-trained, the transfer learning approach recommends downloading language specific embeddings and using an industry standard model for multi-class text classification such as variations of [BERT](https://arxiv.org/abs/1810.04805). 
+
+5. NLP post-processing recommends storing the model in a model register in AML to track model metrics. Furthermore, text can be post-processed with specific business rules that are deterministically defined based on the business goals. Microsoft recommends using ethical AI tools to detect biased language ensuring fair training of language model. 
+
+6. The model can be deployed through Azure Kubernetes Service running a Kubernetes-managed cluster while containers are deployed from images stored in Azure Container Registry. Endpoints can be made available to a front-end application. The model can be deployed through Azure Kubernetes Service as real-time endpoints 
+
+7. Model results can be written to a storage option in file or tabular format, then properly indexed by Azure Cognitive Search. The model would run as batch inference and store results in the respective datastore. 
 
 ### Components
 
-* [Microsoft SQL Server](/sql/)
+* [Data Lake Storage for Big Data Analytics](https://azure.microsoft.com/en-us/services/storage/data-lake-storage/)
 * [Azure Machine Learning](https://azure.microsoft.com/en-us/services/machine-learning/)
-* [Azure Data Science Virtual Machine](/azure/machine-learning/data-science-virtual-machine/)
-* [Jupyter Notebooks on Azure Data Science VM](/azure/machine-learning/data-science-virtual-machine/reference-ubuntu-vm)
-* [Azure Container Registry](/azure/container-registry/)
-* [Azure Kubernetes Service (AKS)](https://azure.microsoft.com/services/kubernetes-service)
+* [Azure Cognitive Search](https://azure.microsoft.com/en-us/services/search/)
+* [Azure Container Registry](https://docs.microsoft.com/en-us/azure/container-registry/)
+* [Azure Kubernetes Service (AKS)](https://azure.microsoft.com/services/kubernetes-service/)
 
 ## Next steps
 
 See product documentation:
 
+* [Azure Data Lake Storage Gen2 Introduction](https://docs.microsoft.com/en-us/azure/storage/blobs/data-lake-storage-introduction/)
 * [Azure Machine Learning](/azure/machine-learning)
-* [Azure Kubernetes Service](/azure/aks/intro-kubernetes)
+* [Azure Cognitive Search documentation](https://docs.microsoft.com/en-us/azure/search/)
 * [Learn more about Azure Container Registry](/azure/container-registry/container-registry-intro)
-* [Microsoft SQL Server](https://www.microsoft.com/sql-server/sql-server-2017)
-* [Learn more about Jupyter Notebooks](https://jupyter.org)
+* [Azure Kubernetes Service](/azure/aks/intro-kubernetes)
 
 Try these Microsoft Learn modules:
 
 * [Introduction to Natural Language Processing with PyTorch](/learn/modules/intro-natural-language-processing-pytorch/)
 * [Train and evaluate deep learning models](/learn/modules/train-evaluate-deep-learn-models/)
-* [Create and connect to a Data Science Virtual Machine](/learn/modules/intro-to-azure-data-science-virtual-machine/)
+* [Natural language processing technology](https://docs.microsoft.com/en-us/azure/architecture/data-guide/technology-choices/natural-language-processing)
 * [Implement knowledge mining with Azure Cognitive Search](/learn/paths/implement-knowledge-mining-azure-cognitive-search/)
