@@ -1,12 +1,12 @@
 ---
 title: Parallel bulk data import in SQL partition tables
 description: Build partitioned tables for fast parallel bulk importing of data to a SQL Server database.
-services: machine-learning
 author: marktab
 manager: marktab
 editor: marktab
-ms.service: machine-learning
-ms.subservice: team-data-science-process
+services: architecture-center
+ms.service: architecture-center
+ms.subservice: azure-guide
 ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp

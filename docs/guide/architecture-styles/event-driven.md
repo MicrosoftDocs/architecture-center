@@ -7,6 +7,11 @@ ms.date: 08/30/2018
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: guide
+categories:
+  - iot
+products:
+  - azure-iot
+  - azure-stream-analystics
 ms.custom:
   - seojan19
   - guide
@@ -65,4 +70,4 @@ In the logical diagram above, each type of consumer is shown as a single box. In
  <!-- links -->
 
 [competing-consumers]: ../../patterns/competing-consumers.md
-[minimize-coordination]: ../design-principles/minimize-coordination.md
+[minimize-coordination]: ../design-principles/minimize-coordination.yml

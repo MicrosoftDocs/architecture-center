@@ -74,13 +74,13 @@ productDirectory:
       # imageSrc should be square in ratio with no whitespace
       imageSrc: https://docs.microsoft.com/media/common/i_overview.svg
       links:
-        - url: ./guide/technology-choices/compute-decision-tree.md
+        - url: ./guide/technology-choices/compute-decision-tree.yml
           text: Choosing a Compute Service
-        - url: ./guide/technology-choices/load-balancing-overview.md
+        - url: ./guide/technology-choices/load-balancing-overview.yml
           text: Choosing a Load Balancing Service
         - url: ./guide/technology-choices/data-store-overview.md
           text: Choosing a data store
-        - url: ./guide/technology-choices/messaging.md
+        - url: ./guide/technology-choices/messaging.yml
           text: Choosing a messaging service
 
 # conceptualContent section (optional)
@@ -104,7 +104,7 @@ conceptualContent:
         url: ./best-practices/api-design.md
         itemType: reference
       - text: Chose your Azure compute service
-        url: ./guide/technology-choices/compute-decision-tree.md
+        url: ./guide/technology-choices/compute-decision-tree.yml
         itemType: reference
       - text: Application Architecture Guide
         url: ./guide/index.md
@@ -135,7 +135,7 @@ conceptualContent:
         url: ./data-guide/technology-choices/data-science-and-machine-learning.md
       - text: Natural language processing
         itemType: concept
-        url: ./data-guide/technology-choices/natural-language-processing.md
+        url: ./data-guide/technology-choices/natural-language-processing.yml
       - text: R developer's guide to Azure
         itemType: concept
         url: ./data-guide/technology-choices/r-developers-guide.md

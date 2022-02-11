@@ -1,27 +1,3 @@
----
-title: Choose an Azure multiparty computing service
-description: Use this chart and other information to decide which multiparty computing services to use for your solution.
-author: saffiali
-ms.author: safali
-ms.date: 12/22/2021
-ms.topic: conceptual
-ms.service: architecture-center
-ms.subservice: azure-guide
-categories:
-  - blockchain
-  - compute
-products:
-  - azure-blob-storage
-  - azure-blockchain-service
-  - azure-kubernetes-service
-  - azure-sql-database
-ms.custom:
-  - guide
-  - fcp
----
-
-# Choose an Azure multiparty computing service
-
 Multiparty computing or privacy-preserving computation allows parties in a business relationship to share data, do computations, and arrive at a mutual result without divulging their private data. Azure services can help you build a multiparty computing solution. The solution can include cloud-based and on-premises resources.
 
 Multiparty computing has the following attributes:
