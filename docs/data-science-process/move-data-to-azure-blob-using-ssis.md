@@ -4,6 +4,9 @@ description: Learn how to move Data to or from Azure Blob Storage using SQL Serv
 author: marktab
 manager: marktab
 editor: marktab
+services: architecture-center
+ms.service: architecture-center
+ms.subservice: azure-guide
 ms.topic: article
 ms.date: 12/16/2021
 ms.author: tdsp
