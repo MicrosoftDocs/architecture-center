@@ -49,9 +49,9 @@ Datasets for ML model training are split into training, validation, and test sub
 
 ### ML data considerations
 
-[Deep learning](/azure/machine-learning/concept-deep-learning-vs-machine-learning), used in vision AI workloads, finds signals in noise better than traditional ML. Use deep learning models to help avoid costly and difficult feature engineering, featurizations, and preprocessing.
-
 All types of ML use data transformations to clean or reformat data for model input. Transformations are needed both during training and during *inference*, or using the model to score new data.
+
+[Deep learning](/azure/machine-learning/concept-deep-learning-vs-machine-learning), used in vision AI workloads, finds signals in noise better than traditional ML. Use deep learning models to help avoid costly and difficult feature engineering, featurizations, and preprocessing.
 
 For IoT Edge vision AI solutions, advanced preprocessing like denoising, adjusting brightness or contrast, or transformations from RGB to HSV can greatly affect model performance. Sometimes, you can only fully observe and evaluate these effects in a real-world situation.
 

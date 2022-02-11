@@ -861,7 +861,7 @@ items:
                 href: solution-ideas/articles/anomaly-detector-process.yml
               - name: Build a speech-to-text transcription pipeline
                 href: reference-architectures/ai/speech-to-text-transcription-pipeline.yml
-              - name: Computer vision on the edge
+              - name: Computer vision at the edge
                 href: reference-architectures/ai/end-to-end-smart-factory.yml
               - name: Connected factory hierarchy service
                 href: solution-ideas/articles/connected-factory-hierarchy-service.yml
@@ -1509,7 +1509,7 @@ items:
                 href: example-scenario/ai/commerce-chatbot.yml
               - name: Citizen AI with the Power Platform
                 href: example-scenario/ai/citizen-ai-power-platform.yml
-              - name: Computer vision on the edge
+              - name: Computer vision at the edge
                 href: reference-architectures/ai/end-to-end-smart-factory.yml
               - name: Deploy AI and ML at the edge
                 href: hybrid/deploy-ai-ml-azure-stack-edge.yml
@@ -3075,7 +3075,7 @@ items:
                     href: example-scenario/iot/cloud-to-device.yml
                   - name: 'Builders, developers, and operators'
                     href: example-scenario/iot/builders-developers-operators.yml
-              - name: Video Analytics on Edge
+              - name: Computer vision AI with IoT Edge
                 items:
                   - name: Overview
                     href: guide/iot-edge-vision/index.md
@@ -3089,7 +3089,7 @@ items:
                     href: guide/iot-edge-vision/image-storage.md
                   - name: Alert persistence
                     href: guide/iot-edge-vision/alerts.md
-                  - name: User interface
+                  - name: User interface and scenarios
                     href: guide/iot-edge-vision/user-interface.md
               - name: Industrial IoT Analytics
                 items:
@@ -3127,7 +3127,7 @@ items:
                 href: reference-architectures/iot.yml
               - name: Automated guided vehicles fleet control
                 href: example-scenario/iot/automated-guided-vehicles-fleet-control.yml
-              - name: Computer vision on the edge
+              - name: Computer vision at the edge
                 href: reference-architectures/ai/end-to-end-smart-factory.yml
               - name: Connected factory hierarchy service
                 href: solution-ideas/articles/connected-factory-hierarchy-service.yml

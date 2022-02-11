@@ -31,9 +31,9 @@ Users interact with computer systems through a user interface (UI). UI requireme
 - A *consumer* UI applies only to consumer-facing solutions. The UI is similar to an operator's interface, but is limited to the devices the user owns.
 - An *analytics* UI is an interactive dashboard that provides telemetry visualizations and other data analyses.
 
-## Technology choices
+### Technology choices
 
-The following software and services are some of the ways that users can interact with IoT Edge vision AI systems:
+Here are some of the services and software you can use to create user interfaces for IoT Edge vision AI systems:
 
 - [Azure App Service](https://azure.microsoft.com/services/app-service) is a platform for developers to quickly build, deploy, and scale web and mobile apps. App Service supports frameworks like .NET, .NET Core, Node.js, Java, PHP, Ruby, or Python. Apps can be in containers or run on any supported operating system, mobile device, or IoT Edge hardware. The fully managed App Service platform meets enterprise-grade performance, security, and compliance requirements.
 
