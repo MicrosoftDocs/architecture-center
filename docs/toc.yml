@@ -1725,7 +1725,7 @@ items:
               - name: Automated enterprise BI
                 href: reference-architectures/data/enterprise-bi-adf.yml
               - name: Big Data Analytics on confidential computing
-                href: data-analytics-containers-spark-k8s-azsql.yml
+                href: example-scenario/confidential/data-analytics-containers-spark-k8s-azsql.yml
               - name: Blueprint architectures
                 items:
                   - name: Blueprint - Analytics for FedRAMP
