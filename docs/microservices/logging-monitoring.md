@@ -2,7 +2,7 @@
 title: Monitor a microservices app in AKS
 description: Learn about best practices for monitoring a microservices application that runs on Azure Kubernetes Service, by collecting telemetry from the application.
 author: doodlemania2
-ms.date: 04/06/2020
+ms.date: 02/11/2022
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: azure-guide
@@ -104,30 +104,30 @@ Azure Monitor is billed per gigabyte (GB) of data ingested into the service (see
 
 ### OpenTelemetry
 
-OpenTelemetry is a cross-industry effort to improve tracing by standardizing the interface between applications, libraries, telemetry and data collectors. When using a libray and framework instrumented with OpenTelemetry, most of the work of tracing traditionally system operations is handled by the underlying libraries, including common scenarios like:
+OpenTelemetry is a cross-industry effort to improve tracing by standardizing the interface between applications, libraries, telemetry, and data collectors. When using a libray and framework that are instrumented with OpenTelemetry, most of the work of tracing traditionally system operations is handled by the underlying libraries, which includes the following common scenarios:
 
-- Logging basic request operations: start/exit time, duration
+- Logging basic request operations, such as start/exit time and duration
 - Exceptions thrown
-- Context propagation (e.g. sending a correlation ID across HTTP call boundaries)
+- Context propagation (such as sending a correlation ID across HTTP call boundaries)
 
-Instead, the base libraries and frameworks that handle these operations create rich interrelated Span and Trace data structures and propagate these across contexts. Before OpenTelemetry, these were usually just injected as special log messages or as proprietary data structures specific to the vendor building the monitoring tools. OpenTelemetry also encourages a richer instrumentation data model than a traditional logging-first approach, and the logs are made more useful since log messages are linked to the Traces and Spans where they were generated. This often makes finding logs associated with a specific operation or request very easy.
+Instead, the base libraries and frameworks that handle these operations create rich interrelated span and trace data structures and propagate these across contexts. Before OpenTelemetry, these were usually just injected as special log messages or as proprietary data structures that were specific to the vendor who built the monitoring tools. OpenTelemetry also encourages a richer instrumentation data model than a traditional logging-first approach, and the logs are made more useful since the log messages are linked to the traces and spans where they were generated. This often makes finding logs that are associated with a specific operation or request very easy.
 
 Many of the Azure SDKs have been instrumented with OpenTelemetry or are in the process of implementing it.
 
-An application developer can add manual instrumentation using the OpenTelemetry SDKs to:
+An application developer can add manual instrumentation by using the OpenTelemetry SDKs to do the following:
 
-- Add instrumentation where an underlying library does not provide it
-- Enrich the trace context by adding Spans to expose application-specific units of work (e.g. an order loop creating a span for the processing of each order line)
-- Enrich existing Spans with entity keys to enable easier tracing (e.g. add an "OrderID" key/value to the request that processes that order). These are surfaced by the monitoring tools as structured values for querying, filtering and aggregating (without parsing out log message strings or looking for combinations of log message sequences, as was commmon with a logging-first approach.)
-- Propagate trace context by accessing Trace and Span attributes, injecting traceIds into responses and payloads and/or reading traceIds from incoming messages to create Requests and Spans.
+- Add instrumentation where an underlying library does not provide it.
+- Enrich the trace context by adding spans to expose application-specific units of work (such as an order loop that creates a span for the processing of each order line).
+- Enrich existing spans with entity keys, in order to enable easier tracing (for example, add an "OrderID" key/value to the request that processes that order). These are surfaced by the monitoring tools as structured values for querying, filtering, and aggregating (without parsing out log message strings or looking for combinations of log message sequences, as was commmon with a logging-first approach).
+- Propagate trace context by accessing trace and span attributes, injecting traceIds into responses and payloads and/or reading traceIds from incoming messages, in order to create requests and spans.
 
-Read more about instrumentation and the OpenTelemetry SDKs in the [OpenTelemetry documentation](https://opentelemetry.io/docs/concepts/instrumenting/).
+Read more about instrumentation and the OpenTelemetry SDKs, in the [OpenTelemetry documentation](https://opentelemetry.io/docs/concepts/instrumenting).
 
 ### Application Insights
 
-Application Insights collects rich data from OpenTelemetry and its instrumentation libraries, capturing it in an efficient data store to provide rich visualization and query support. The [Application Insights OpenTelemetry-based instrumentation libraries](azure/azure-monitor/app/opentelemetry-enable.md) for languages such as .NET, Java, Node.js, or Python make it easy to send telemetry data to Application Insights.
+Application Insights collects rich data from OpenTelemetry and its instrumentation libraries, capturing it in an efficient data store to provide rich visualization and query support. The [Application Insights OpenTelemetry-based instrumentation libraries](azure/azure-monitor/app/opentelemetry-enable.md), for languages such as .NET, Java, Node.js, or Python, make it easy to send telemetry data to Application Insights.
 
-If you are using .NET Core, we recommend also looking at the [Application Insights for Kubernetes](https://github.com/microsoft/ApplicationInsights-Kubernetes) library. This library enriches Application Insights traces with additional information such as the container, node, pod, labels, and replica set.
+If you are using .NET Core, we recommend also looking at the [Application Insights for Kubernetes](https://github.com/microsoft/ApplicationInsights-Kubernetes) library. This library enriches Application Insights traces with additional information, such as the container, node, pod, labels, and replica set.
 
 Application Insights maps the OpenTelemetry context to its internal data model:
 
@@ -199,7 +199,7 @@ Here is the JSON from this example:
 }
 ```
 
-Many log messages mark the start/end of a unit of work or connect a business entity with a set of messages and operations for traceability. In many cases, enriching OpenTelemetry Span and Request objects is a better approach than only logging the start and end of that operation. This adds that context to all connected traces and child operations and puts that information in the scope of the full operation. The OpenTelemetry SDKs for various langauges support creating Spans or adding custom attributes on Spans. [Using the Java OpenTelemetry SDK](https://github.com/open-telemetry/opentelemetry-java-instrumentation/blob/main/docs/manual-instrumentation.md#adding-attributes-to-the-current-span) ([supported by Application Insights](https://docs.microsoft.com/azure/azure-monitor/app/java-in-process-agent#add-span-attributes)), an existing parent span (for example, a request Span associated with a REST controller call, created by the web framework being used) can be enriched with an entity id associated with it:
+Many log messages mark the start or end of a unit of work, or they connect a business entity with a set of messages and operations for traceability. In many cases, enriching OpenTelemetry span and request objects is a better approach than only logging the start and end of that operation. This adds that context to all connected traces and child operations, and it puts that information in the scope of the full operation. The OpenTelemetry SDKs for various langauges support creating spans or adding custom attributes on spans. [Using the Java OpenTelemetry SDK](https://github.com/open-telemetry/opentelemetry-java-instrumentation/blob/main/docs/manual-instrumentation.md#adding-attributes-to-the-current-span) that's ([supported by Application Insights](/azure/azure-monitor/app/java-in-process-agent#add-span-attributes)). An existing parent span (for example, a request span that's associated with a REST controller call and created by the web framework being used) can be enriched with an entity ID that's associated with it. See the following script:
 
 ```java
 import io.opentelemetry.api.trace.Span;
@@ -209,7 +209,7 @@ import io.opentelemetry.api.trace.Span;
 Span.current().setAttribute("A1234", deliveryId);
 ```
 
-This sets a key/value on the current Span, which is connected to operations and log mesages that occur under that Span. This appears in the Application Insights Request object:
+This code sets a key or value on the current span, which is connected to operations and log mesages that occur under that span. This appears in the Application Insights request object, as shown in the following code:
 
 ```kusto
 requests
@@ -218,7 +218,7 @@ requests
 | project timestamp, name, url, success, resultCode, duration, operation_Id, deliveryId
 ```
 
-This becomes more powerful when used with logs, filtering and annotating log traces with Span context:
+This becomes more powerful when used with logs, filtering, and annotating log traces with span context. See the following:
 
 ```kusto
 requests
@@ -229,11 +229,11 @@ requests
 | project requestTimestamp, requestDuration, logTimestamp = timestamp, deliveryId, message
 ```
 
-Using a library or framework that's already instrumented with OpenTelemetry handles creating Spans and Requests, but application code may also create units of work. For example, a method that loops through an array of entities performing work on each one may create a Span for each iteration of the processing loop. See the [OpenTelemery Instrumenting documentation](https://opentelemetry.io/docs/instrumentation/go/instrumentation/) on how to add instrumentation to application and library code.
+By using a library or framework that's already instrumented with OpenTelemetry, it handles creating spans and requests, but the application code might also create units of work. For example, a method that loops through an array of entities that performs work on each one, might create a span for each iteration of the processing loop. See the [OpenTelemery Instrumenting documentation](https://opentelemetry.io/docs/instrumentation/go/instrumentation), on how to add instrumentation to application and library code.
 
 ## Distributed tracing
 
-A significant challenge of microservices is to understand the flow of events across services. A single transaction may involve calls to multiple services.
+A significant challenge of microservices is to understand the flow of events across the services. A single transaction can involve calls to multiple services.
 
 ### Example of distributed tracing
 
