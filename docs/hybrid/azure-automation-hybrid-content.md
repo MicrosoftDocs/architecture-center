@@ -27,22 +27,6 @@ Agent-based (V1) Hybrid Runbook Workers rely on the [Log Analytics agent][4] rep
 
 ## Architecture
 
-# [User Hybrid Runbook Worker](#tab/userhybridrunbookworker)
- 
-![Azure Automation in a User Hybrid Runbook Worker][architectural-diagram]
-*Download a [Visio file][architectural-diagram-visio-source] of this architecture.*
-
-Each user Hybrid Runbook Worker is a member of a Hybrid Runbook Worker group that you specify when you install the worker. A group can include a single worker, but you can include multiple workers in a group for high availability. Each machine can host one Hybrid Runbook Worker reporting to one Automation account; you can't register the hybrid worker across multiple Automation accounts. A hybrid worker can only listen for jobs from a single Automation account.
-
-# [System Hybrid Runbook Worker](#tab/systemhybridrunbookworker)
-
-![Azure Automation in a System Hybrid Runbook Worker][System-architectural-diagram]
-*Download a [Visio file][architectural-diagram-visio-source] of this architecture.*
-
-For machines hosting the system Hybrid Runbook worker managed by Update Management, they can be added to a Hybrid Runbook Worker group. But you must use the same Automation account for both Update Management and the Hybrid Runbook Worker group membership.
-
----
-
 ### Components
 
 The architecture consists of the following components:
@@ -58,6 +42,20 @@ The architecture consists of the following components:
 - Components applicable for agent-based approach (V1):
     - Log Analytics Workspace: A Log Analytics workspace is a data repository for log data collected from resources that run in Azure, on-premises or in another cloud provider.
     - Automation Hybrid Worker solution: With this, you can create Hybrid Runbook Workers to run Azure Automation runbooks on your Azure and non-Azure computers.
+
+#### User Hybrid Runbook Worker
+
+![Azure Automation in a User Hybrid Runbook Worker][architectural-diagram]
+*Download a [Visio file][architectural-diagram-visio-source] of this architecture.*
+
+Each user Hybrid Runbook Worker is a member of a Hybrid Runbook Worker group that you specify when you install the worker. A group can include a single worker, but you can include multiple workers in a group for high availability. Each machine can host one Hybrid Runbook Worker reporting to one Automation account; you can't register the hybrid worker across multiple Automation accounts. A hybrid worker can only listen for jobs from a single Automation account.
+
+#### System Hybrid Runbook Worker
+
+![Azure Automation in a System Hybrid Runbook Worker][System-architectural-diagram]
+*Download a [Visio file][architectural-diagram-visio-source] of this architecture.*
+
+For machines hosting the system Hybrid Runbook worker managed by Update Management, they can be added to a Hybrid Runbook Worker group. But you must use the same Automation account for both Update Management and the Hybrid Runbook Worker group membership.
 
 #### Job execution on Hybrid Runbook Worker
 
