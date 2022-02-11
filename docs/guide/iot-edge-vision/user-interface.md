@@ -4,7 +4,7 @@ titleSuffix: Azure Architecture Center
 description: Examine user interface (UI) types, useful user-facing technology choices, and two user scenarios for Azure IoT Edge vision AI solutions.
 author: MSKeith
 ms.author: keith
-ms.date: 02/07/2022
+ms.date: 02/11/2022
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: azure-guide
@@ -81,7 +81,7 @@ The data scientists are most familiar with TensorFlow, so learning ONNX or other
 
 ## User scenario 2: Safety
 
-Contoso Shipping has had several pedestrian accidents at their loading docks. Most accidents happened when a truck left the loading dock, and the driver didn't see a dock worker walking in front of the truck. Contoso Shipping needed a vision AI solution that watches for people, predicts their direction of travel, and warns drivers of potential collisions.
+Contoso Shipping has had several pedestrian accidents at their loading docks. Most accidents happened when a truck left the loading dock, and the driver didn't see a dock worker walking in front of the truck. Contoso Shipping needed a vision AI solution that could watch for people, predict their direction of travel, and warn drivers of potential collisions.
 
 Most of the data scientists at Contoso Shipping were familiar with [OpenVINO](https://docs.openvino.ai/latest/index.html), and wanted to reuse the solution models on future hardware. The solution also needed to support power efficiency, and use the smallest possible number of cameras. Finally, Contoso Shipping wanted to manage the solution remotely for updates.
 
@@ -103,16 +103,6 @@ The solution must capture only enough detail to detect a person in the frame. Th
 
 The formula for field of view (FOV) is `FOV=(horizontal resolution) / (PPF)`. For resolution, the camera must use the right sensor for the use case.
 
-The following images show the problem with using the wrong resolution for a given use case. Both images were taken 20 feet away from the car. The small red boxes represent one pixel.
-
-- The following image was taken with 480 horizontal pixels:
-
-  ![Photograph of a car at 480 pixels.](./images/car-image-low-pixel.png)
-
-- The following image was taken with 5184 horizontal pixels:
-
-  ![Photograph of a car at 5184 pixels.](./images/car-image-high-pixel.png)
-
 This solution uses camera lenses that allow a 16-foot FOV. Using the preceding formula, a 16-foot FOV gives about 17.5 PPF, which falls within the required 15-20 PPF. This FOV means the solution should use 10MP cameras, which have a horizontal resolution of about 5184 pixels.
 
 Since the cameras can look at a 16-foot path, a 165-foot long loading dock divided by a 16-foot FOV gives 10.3125 cameras. So the solution needs 11, 5184-horizontal pixel or 10MP cameras.
@@ -131,7 +121,9 @@ Because the data scientists are familiar with OpenVINO, the solution builds data
 
 ### Hardware acceleration
 
-The distance from the cameras to the servers is too far for Gigabit Ethernet or USB connectivity, but there's a large mesh Wi-Fi network. The hardware must connect over Wi-Fi, and use as little power as possible. Based on these requirements, the solution uses FPGA processors. The solution could also use ASIC processors, but purpose-built ASIC chips don't meet the requirement for future usability.
+The distance from the cameras to the servers is too far for Gigabit Ethernet or USB connectivity, but there's a large mesh Wi-Fi network. The hardware must connect over Wi-Fi, and use as little power as possible.
+
+Based on these requirements, the solution uses FPGA processors. The solution could also use ASIC processors, but purpose-built ASIC chips don't meet the requirement for future usability.
 
 ## Next steps
 
@@ -146,21 +138,23 @@ This series of articles described how to build a vision AI workload with Azure I
 
 To learn more about CNNs, vision AI, Azure Machine Learning, and Azure IoT Edge, see the following documentation:
 
-- [Azure IoT Edge documentation](/azure/iot-edge/)
-- [Azure Machine Learning documentation](/azure/machine-learning/)
+- [Azure IoT Edge documentation](/azure/iot-edge)
+- [Azure Machine Learning documentation](/azure/machine-learning)
 - [Tutorial: Perform image classification at the edge with Custom Vision Service](/azure/iot-edge/tutorial-deploy-custom-vision)
 - [What is Computer Vision?](/azure/cognitive-services/computer-vision/overview)
 - [What is Azure Video Analyzer? (preview)](/azure/azure-video-analyzer/video-analyzer-docs/overview)
-- [Azure Kinect DK developer kit documentation](/azure/kinect-dk/)
-- [Open Neural Network Exchange (ONNX)](https://onnx.ai/)
+- [Azure Kinect DK developer kit documentation](/azure/kinect-dk)
+- [Open Neural Network Exchange (ONNX) ML framework](https://onnx.ai)
+- [Model management deep neural network (MMdnn) ML framework](https://github.com/Microsoft/MMdnn)
 
 ## Related resources
 
 For more computer vision architectures, examples, and ideas that use Azure IoT, see the following articles:
 
-- [Getting started with Azure IoT solutions](/azure/architecture/reference-architectures/iot/iot-architecture-overview)
-- [End-to-end manufacturing using computer vision on the edge](/azure/architecture/reference-architectures/ai/end-to-end-smart-factory)
-- [Connected factory hierarchy service](/azure/architecture/solution-ideas/articles/connected-factory-hierarchy-service)
-- [Connected factory signal pipeline](/azure/architecture/example-scenario/iot/connected-factory-signal-pipeline)
-- [Create smart places by using Azure Digital Twins](/azure/architecture/example-scenario/iot/smart-places)
+- [Getting started with Azure IoT solutions](../../reference-architectures/iot/iot-architecture-overview.md)
+- [End-to-end manufacturing using computer vision on the edge](../../reference-architectures/ai/end-to-end-smart-factory.yml)
+- [Connected factory hierarchy service](../../solution-ideas/articles/connected-factory-hierarchy-service.yml)
+- [Connected factory signal pipeline](../../example-scenario/iot/connected-factory-signal-pipeline.yml)
+- [Create smart places by using Azure Digital Twins](../../example-scenario/iot/smart-places.yml)
+- [Deploy AI and ML computing on-premises and to the edge](../../hybrid/deploy-ai-ml-azure-stack-edge.yml)
 

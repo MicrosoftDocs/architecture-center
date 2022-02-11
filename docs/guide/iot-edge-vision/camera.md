@@ -85,6 +85,16 @@ Resolution is another important factor in camera selection. You need higher reso
 - Is trying to detect faces
 - Needs to identify vehicles from a distance
 
+The following images show the problem with using the wrong resolution for a given use case. Both images were taken 20 feet away from the car. The small red boxes represent one pixel.
+
+- The following image was taken with 480 horizontal pixels:
+
+  ![Photograph of a car at 480 pixels.](./images/car-image-low-pixel.png)
+
+- The following image was taken with 5184 horizontal pixels:
+
+  ![Photograph of a car at 5184 pixels.](./images/car-image-high-pixel.png)
+
 ### Speed
 
 If your vision workload requires capturing many images per second, two factors are important. The first factor is the speed of the camera interface connection. The second factor is the type of sensor. Sensors come in two types, [charge-coupled devices (CCD) and active-pixel sensors (CMOS)](https://en.wikipedia.org/wiki/Image_sensor). CMOS sensors have a direct readout from the photosites, so they typically offer a higher frame rate.

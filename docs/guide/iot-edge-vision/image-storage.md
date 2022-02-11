@@ -4,7 +4,7 @@ titleSuffix: Azure Architecture Center
 description: Learn about image storage and management in an Azure IoT Edge vision AI solution. See an image storage workflow that uses an IoT Edge blob storage module.
 author: MSKeith
 ms.author: keith
-ms.date: 02/07/2022
+ms.date: 02/11/2022
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: azure-guide
@@ -29,7 +29,7 @@ Image storage requirements include:
 - Categorization of images for easy retrieval
 - Naming and tagging to link images with inferred metadata
 
-You can get image data into cloud storage in several different ways. For example:
+You can combine Blob Storage, Azure IoT Hub, and IoT Edge in several different ways to store image data. For example:
 
 - Use an [Azure IoT Edge blob storage module](/azure/iot-edge/how-to-store-data-blob) to automatically sync images to Azure Blob Storage via policy.
 - Store images to a local host file system, and upload them to Blob Storage by using a custom module.
@@ -37,7 +37,7 @@ You can get image data into cloud storage in several different ways. For example
 
 ## Example storage workflow
 
-You can combine Blob Storage, Azure IoT Hub, and IoT Edge in several different ways to store image data. An IoT Edge blob storage module is a powerful and straightforward solution. The following steps describe a typical workflow that uses this module:
+The following steps describe a typical workflow that uses an IoT Edge blob storage module.
 
 1. The IoT Edge blob module stores raw data locally after ingestion, with time stamping and sequence numbering to uniquely identify the image files.
 1. A policy set on the IoT Edge blob module automatically uploads the image data to Azure Blob Storage, with ordering.

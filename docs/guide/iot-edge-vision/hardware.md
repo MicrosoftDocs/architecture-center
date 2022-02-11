@@ -4,7 +4,7 @@ titleSuffix: Azure Architecture Center
 description: Explore hardware acceleration for Azure IoT Edge vision solutions. Learn about hardware acceleration capabilities of CPUs, GPUs, FPGAs, and ASIC chips.
 author: MSKeith
 ms.author: keith
-ms.date: 02/05/2022
+ms.date: 02/11/2022
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: azure-guide
@@ -24,7 +24,7 @@ Hardware accelerators such as graphics processing units (GPUs), field programmab
 
 ## CPU
 
-A CPU is the default option for most general purpose computing. A CPU might be sufficient for vision workloads where timing isn't critical. However, workloads that involve critical timing, multiple camera streams, or high frame rates need specific hardware acceleration.
+A central processing unit (CPU) is the default option for most general purpose computing. A CPU might be sufficient for vision workloads where timing isn't critical. However, workloads that involve critical timing, multiple camera streams, or high frame rates need specific hardware acceleration.
 
 ## GPU
 
@@ -32,7 +32,7 @@ A GPU is the default processor for high-end computer graphics cards. High perfor
 
 ## FPGA
 
-FPGAs are powerful, reconfigurable hardware accelerators that support the growth of deep learning neural networks. FPGA accelerators have millions of programmable gates, hundreds of I/O pins, and trillions of multiply accumulate (MAC) operations per second (TOPS). There are many FPGA libraries optimized for vision workloads. Some of these libraries include preconfigured interfaces to connect to downstream cameras and devices.
+FPGAs are powerful, reconfigurable hardware accelerators that support the growth of deep learning neural networks. FPGA accelerators have millions of programmable gates and hundreds of I/O pins, and can do trillions of multiply accumulate (MAC) operations per second (TOPS). There are many FPGA libraries optimized for vision workloads. Some of these libraries include preconfigured interfaces to connect to downstream cameras and devices.
 
 The usage of FGPAs in ML and IoT Edge workloads is still evolving. FPGAs tend to fall short in floating point operations, but manufacturers have made improvements in this area.
 

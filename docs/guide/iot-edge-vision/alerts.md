@@ -4,7 +4,7 @@ titleSuffix: Azure Architecture Center
 description: Learn about alerts and alert persistence in an Azure IoT Edge vision solution. An alert is a response to an event that's triggered by the AI model.
 author: MSKeith
 ms.author: keith
-ms.date: 02/07/2022
+ms.date: 02/11/2022
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: azure-guide

@@ -4,7 +4,7 @@ titleSuffix: Azure Architecture Center
 description: Learn about machine learning data and models in Azure IoT Edge vision AI solutions.
 author: MSKeith
 ms.author: keith
-ms.date: 02/08/2022
+ms.date: 02/11/2022
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: azure-guide
@@ -18,16 +18,14 @@ ms.custom:
 
 # Machine learning in Azure IoT Edge vision AI
 
-IoT Edge systems, with their limited memory, compute capacity, and power capabilities, present unique challenges and requirements for machine learning (ML). This article discusses ML data and architectural choices for Azure IoT Edge vision AI solutions. The article also discusses the process of choosing, training, and deploying ML solutions, and gives examples of ML platform and tool choices.
+IoT Edge devices have limited memory, compute capacity, and power capabilities. These characteristics present unique challenges and requirements for machine learning (ML) solutions. This article discusses ML data and architectural choices for Azure IoT Edge vision AI solutions. The article also discusses the process of choosing, training, and deploying ML solutions and tools.
 
 Training ML models is an iterative, data-driven process. Choosing the data and architecture to use for an ML solution is also an iterative process. If a chosen ML model performs poorly, you can address issues through experimentation and retraining.
-
-To determine the correct data to use and train an ML model to score data correctly, you need knowledge of the problem domain. You also need experience designing and using ML algorithms or neural networks. IoT Edge AI projects also require expertise with deploying models to IoT Edge hardware. Make sure your team has the necessary knowledge to explore and evaluate all appropriate solutions.
 
 When investigating and choosing ML models for IoT Edge scenarios, follow these guidelines:
 
 - Clearly define the problem to solve.
-- Ensure or acquire sufficient expertise in the problem domain, ML, and IoT Edge scenarios.
+- Make sure your team has sufficient expertise in the problem domain, ML and neural networks, and IoT Edge deployments.
 - Understand the type of data the devices collect, to determine the kind of ML algorithm to use.
 - Make sure to use representative data, with enough variability to represent all classes.
 - Consider how to solve the problem without ML, or with the simplest possible ML algorithm.
@@ -49,15 +47,21 @@ Datasets for ML model training are split into training, validation, and test sub
   > [!TIP]
   > Don't optimize models for one test dataset. It's a good idea to have a few different test datasets.
 
-[Deep learning](/azure/machine-learning/concept-deep-learning-vs-machine-learning) finds signals in noise better than traditional ML, and helps avoid costly and difficult feature engineering, featurizations, and preprocessing. Deep learning still uses data transformations to clean or reformat data for model input. Transformations are needed both during training and during *inference*, or using the model to score new data.
+### ML data considerations
+
+[Deep learning](/azure/machine-learning/concept-deep-learning-vs-machine-learning), used in vision AI workloads, finds signals in noise better than traditional ML. Use deep learning models to help avoid costly and difficult feature engineering, featurizations, and preprocessing.
+
+All types of ML use data transformations to clean or reformat data for model input. Transformations are needed both during training and during *inference*, or using the model to score new data.
 
 For IoT Edge vision AI solutions, advanced preprocessing like denoising, adjusting brightness or contrast, or transformations from RGB to HSV can greatly affect model performance. Sometimes, you can only fully observe and evaluate these effects in a real-world situation.
 
-After installing IoT Edge hardware in its permanent location, monitor the incoming data stream for *data drift*. Data drift is deviation of current data from the original data, and often causes degraded model performance and accuracy. Decreased performance can also be due to other factors, like hardware or camera failure.
+After installing IoT Edge hardware in its permanent location, monitor the incoming data stream for *data drift*. Data drift is deviation of current data from the original data, and can be the cause of degraded model performance and accuracy. Decreased performance can also be due to other factors, like hardware or camera failure.
 
-The system must also collect new data for retraining rounds. You can also use the new data to monitor components for hardware degradation.
+The system must also collect new data for retraining rounds, and to monitor components for hardware degradation or issues.
 
-Here are key recommendations for data in IoT Edge vision ML models:
+### ML data recommendations
+
+Here are some recommendations for data collection for vision ML models:
 
 - Use a balanced dataset with all classes represented equally.
 - Make sure the data is as representative as possible.
@@ -67,11 +71,15 @@ Here are key recommendations for data in IoT Edge vision ML models:
 
 ## Machine learning architecture
 
-ML architecture is the layout of mathematical operations that process data input into desired actionable output. In deep learning, architecture describes the number and arrangement of layers and neurons in each layer of a deep neural network. Learnable parameters correlate to the number of layers and neurons per layer. The number of learnable parameters determine a model's *memorization capacity*.
+ML architecture is the layout of mathematical operations that process data input into actionable output. In deep learning, architecture describes the number and arrangement of layers and neurons in each layer of a deep neural network. Learnable parameters correlate to the number of layers and neurons per layer. The number of learnable parameters determine a model's *memorization capacity*.
 
 You choose an ML architecture to achieve the best possible performance metric, such as accuracy. In the exploratory phase, consider several different architectures before choosing one. You might update both the choice of data and the choice of architecture during this phase.
 
+### ML model considerations
+
 During training, assessment values pass through *optimization* and *weight updates*. Issues can arise when training an ML model, after training, or even at the point of inferencing on devices. *Overfitting* and *underfitting* are two common issues found during training and testing.
+
+#### Overfitting
 
 Overfitting occurs when the model fits to the training or testing data so closely that it can't generalize well to new data. For example, a model only performs well indoors, because the training data was from an indoor setting. Overfitting can give a false sense of success, because the performance metric might be very good when the input data looks like the training data.
 
@@ -82,6 +90,8 @@ Many issues can cause overfitting, some beyond the scope of this article. Common
 - The model was trained over too many iterations.
 - The model architecture has too many learnable parameters.
 
+#### Underfitting
+
 Underfitting happens when the model has generalized so much that it can't tell the difference between classes with confidence. The training [loss](/dotnet/machine-learning/resources/glossary#loss-function) is unacceptably high.
 
 Common causes of underfitting include:
@@ -90,11 +100,17 @@ Common causes of underfitting include:
 - The model was trained over too few iterations and is overgeneralized.
 - The model was unable to recognize objects, or had poor recognition and high loss values during training.
 
+#### Capacity
+
 *Capacity* refers to network size and number of learnable parameters. An ML architecture can have too much or too little capacity. *Transfer learning* happens when some network layers are set as not trainable, or *frozen*. Increasing capacity means opening up more layers earlier in the network. Less capacity means using only the last few layers in training, with the rest remaining frozen.
 
 There's no hard and fast rule for determining the number of layers needed in deep neural networks. Several model architectures might need to be evaluated within an ML task. In general, start with smaller networks and fewer layers and parameters. Increase the complexity gradually.
 
+#### Speed
+
 Another consideration for architecture choice is inference speed requirements. Faster inference speed can be associated with lower performance, accuracy, confidence, or precision. Assess and determine the acceptable speed versus accuracy tradeoff for your needs.
+
+### ML model recommendations
 
 Base discussions about ML training and inferencing on the preceding considerations, and any company-specific requirements. If company policy allows, open-source solutions provide many ML algorithmic possibilities. Most cutting-edge ML work is in the open-source domain.
 
@@ -157,7 +173,7 @@ If a workflow already exists for data scientists and app developers, a few other
 - Have an automation plan for testing code, integration, triggers, and the build/release process. Automated testing speeds up the time to production.
 
 
-Here are the key ML and data science considerations for deployingg IoT Edge vision AI scenarios:
+Here are key ML and data science deployment considerations for IoT Edge vision AI scenarios:
 
 - Converting models involves optimizations like faster inference and smaller model footprints, which are critical for resource-constrained devices.
 - Build the solution on the same type of build-dedicated device to be used for final deployment.
