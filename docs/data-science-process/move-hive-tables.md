@@ -4,6 +4,9 @@ description: Use Hive queries to create Hive tables and load data from Azure Blo
 author: marktab
 manager: marktab
 editor: marktab
+services: architecture-center
+ms.service: architecture-center
+ms.subservice: azure-guide
 ms.topic: article
 ms.date: 12/16/2021
 ms.author: tdsp
