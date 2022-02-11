@@ -51,4 +51,4 @@ The following steps describe a typical workflow that uses an IoT Edge blob stora
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Alert persistence in Azure IoT Edge vision AI](./alerts.md)
+> [User interface and scenarios in Azure IoT Edge vision AI](./user-interface.md)

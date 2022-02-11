@@ -145,7 +145,7 @@ To learn more about CNNs, vision AI, Azure Machine Learning, and Azure IoT Edge,
 - [What is Azure Video Analyzer? (preview)](/azure/azure-video-analyzer/video-analyzer-docs/overview)
 - [Azure Kinect DK developer kit documentation](/azure/kinect-dk)
 - [Open Neural Network Exchange (ONNX) ML framework](https://onnx.ai)
-- [Model management deep neural network (MMdnn) ML framework](https://github.com/Microsoft/MMdnn)
+- [Model management deep neural network (MMdnn) ML tool](https://github.com/Microsoft/MMdnn)
 
 ## Related resources
 

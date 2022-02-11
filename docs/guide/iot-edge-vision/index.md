@@ -96,14 +96,15 @@ To learn more about CNNs, vision AI, Azure Machine Learning, and Azure IoT Edge,
 - [What is Azure Video Analyzer? (preview)](/azure/azure-video-analyzer/video-analyzer-docs/overview)
 - [Azure Kinect DK developer kit documentation](/azure/kinect-dk)
 - [Open Neural Network Exchange (ONNX) ML framework](https://onnx.ai)
-- [Model management deep neural network (MMdnn) ML framework](https://github.com/Microsoft/MMdnn)
+- [Model management deep neural network (MMdnn) tool](https://github.com/Microsoft/MMdnn)
 
 ## Related resources
 
 For more computer vision architectures, examples, and ideas that use Azure IoT, see the following articles:
 
 - [Getting started with Azure IoT solutions](../../reference-architectures/iot/iot-architecture-overview.md)
-- [End-to-end manufacturing using computer vision on the edge](../../reference-architectures/ai/end-to-end-smart-factory.yml)
+- [End-to-end manufacturing using computer vision at the edge](../../reference-architectures/ai/end-to-end-smart-factory.yml)
+- [Video capture and analytics for retail](../../solution-ideas/articles/video-analytics.yml)
 - [Connected factory hierarchy service](../../solution-ideas/articles/connected-factory-hierarchy-service.yml)
 - [Connected factory signal pipeline](../../example-scenario/iot/connected-factory-signal-pipeline.yml)
 - [Create smart places by using Azure Digital Twins](../../example-scenario/iot/smart-places.yml)

@@ -3183,7 +3183,7 @@ items:
                     href: example-scenario/iot/cloud-to-device.yml
                   - name: 'Builders, developers, and operators'
                     href: example-scenario/iot/builders-developers-operators.yml
-              - name: Computer vision at the IoT Edge
+              - name: Computer vision with Azure IoT Edge
                 items:
                   - name: Overview
                     href: guide/iot-edge-vision/index.md
@@ -3193,10 +3193,10 @@ items:
                     href: guide/iot-edge-vision/hardware.md
                   - name: Machine learning
                     href: guide/iot-edge-vision/machine-learning.md
-                  - name: Image storage
-                    href: guide/iot-edge-vision/image-storage.md
                   - name: Alert persistence
                     href: guide/iot-edge-vision/alerts.md
+                  - name: Image storage
+                    href: guide/iot-edge-vision/image-storage.md
                   - name: User interface and scenarios
                     href: guide/iot-edge-vision/user-interface.md
               - name: Industrial IoT Analytics

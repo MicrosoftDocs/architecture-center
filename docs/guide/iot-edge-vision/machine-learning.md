@@ -184,4 +184,4 @@ Here are key ML and data science deployment considerations for IoT Edge vision A
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Image storage and management in Azure IoT Edge Vision](./image-storage.md)
+> [Alert persistence in Azure IoT Edge vision AI](./alerts.md)
