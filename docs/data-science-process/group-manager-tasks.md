@@ -4,6 +4,9 @@ description: Follow this detailed walkthrough of the tasks a group manager compl
 author: marktab
 manager: marktab
 editor: marktab
+services: architecture-center
+ms.service: architecture-center
+ms.subservice: azure-guide
 ms.topic: article
 ms.date: 11/17/2020
 ms.author: tdsp

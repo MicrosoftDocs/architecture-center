@@ -4,6 +4,9 @@ description: How to explore data that is stored in an Azure blob container using
 author: marktab
 manager: marktab
 editor: marktab
+services: architecture-center
+ms.service: architecture-center
+ms.subservice: azure-guide
 ms.topic: article
 ms.date: 04/30/2021
 ms.author: tdsp
