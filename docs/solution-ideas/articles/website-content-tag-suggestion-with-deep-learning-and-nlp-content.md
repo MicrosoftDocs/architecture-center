@@ -1,10 +1,10 @@
 [!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
-Social sites, forums, and other text-heavy Q&A services rely heavily on content tagging, which enables good indexing and user search. Often, however, content tagging is left to users' discretion. Because users do not have lists of commonly searched terms or a deep understanding of the site structure, they frequently mislabel content. Mislabeled content is difficult or impossible to find when it is needed later.
+Social sites, forums, and other text-heavy Q&A services rely heavily on content tagging, which enables good indexing and user search. Often, however, content tagging is left to users' discretion. Because users don't have lists of commonly searched terms or a deep understanding of the site structure, they frequently mislabel content. Mislabeled content is difficult or impossible to find when it's needed later.
 
 ## Potential use cases
 
-Using Natural language processing (NLP) with Deep Learning for content tagging enables a scalable solution creating tags across content. As users search for content by keywords, this multi-class classification process enriches untagged content with labels that will allow searching on substantial portions of text improving the information retrieval processes. New incoming content will be appropriately tagged running NLP inference.
+By using natural language processing (NLP) with deep learning for content tagging, you enable a scalable solution to create tags across content. As users search for content by keywords, this multi-class classification process enriches untagged content with labels that will allow you to search on substantial portions of text, which improves the information retrieval processes. New incoming content will be appropriately tagged by running NLP inference.
 
 ## Architecture
 
@@ -14,7 +14,7 @@ Using Natural language processing (NLP) with Deep Learning for content tagging e
 
 ### Workflow
 
-1. Data is stored in various formats depending on its original source. Data can be stored as files within Azure Data Lake Storage or in tabular form in Azure Synapse or Azure SQL Database. 
+1. Data is stored in various formats, depending on its original source. Data can be stored as files within Azure Data Lake Storage or in tabular form in Azure Synapse or Azure SQL Database. 
 
 2. Azure Machine Learning can connect and read from such sources to ingest the data into the NLP pipeline for pre-processing, model training, and post-processing. 
 
