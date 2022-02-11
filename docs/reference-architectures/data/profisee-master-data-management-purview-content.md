@@ -4,7 +4,7 @@ Without high-quality data in your Azure data estate, the business value of Azure
 
 ![Diagram of Purview and Profisee overview.](./images/purview-overview.png)
 
-**Azure Purview** catalogs all the data sources and identifies any sensitive information, as well as lineage. It gives the data architect a place to consider the  appropriate data standards that should be imposed on all data. Purview's focus is on governance to find, classify, and define policies and standards. Enforcing policies, standards and remediating deficient data falls to technologies like master data management (MDM).
+**Azure Purview** catalogs all the data sources and identifies any sensitive information, as well as lineage. It gives the data architect a place to consider the  appropriate data standards that should be imposed on all data. Purview's focus is on governance to find, classify, and define policies and standards. Enforcing policies and standards and remediating deficient data falls to technologies like master data management (MDM).
 
 **Profisee MDM** is designed to accept master data from any source, then match, merge, standardize, verify, correct, and synchronize it across systems, ensuring data can be properly integrated and will meet the needs of downstream systems, such as business intelligence (BI), machine learning, and so on.
 
@@ -223,10 +223,10 @@ Profisee authenticates users, by using OpenID Connect, which implements an OAuth
 
 ## Deploy the scenario
 
-The Profisee platform can be deployed as a platform as a solution (PaaS) in Azure by using the [Profisee ARM template](https://github.com/Profisee/kubernetes/tree/master/Azure-ARM). For integration with Purview select "Yes, configure using Purview" and fill the below details:
+The Profisee platform can be deployed as a platform as a solution (PaaS) in Azure by using the [Profisee ARM template](https://github.com/Profisee/kubernetes/tree/master/Azure-ARM). For integration with Purview, select "Yes, configure using Purview" and fill in the following details:
 
-- Select the **Purview account** from the drop down against "Select Purview Account".
-- An App Registration **Client ID** and **Client Secret** that has the **Purview Data Curator** role assigned.
+- Select **Purview account** from the "Select Purview Account" drop down list.
+- Enter the App Registration **Client ID** and **Client Secret** that has the **Purview Data Curator** role assigned.
 
 The following figure illustrates how these options are reflected in Profisee's ARM template:
 
