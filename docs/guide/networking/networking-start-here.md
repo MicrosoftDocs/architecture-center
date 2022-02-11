@@ -50,7 +50,7 @@ And here's a comprehensive learning path:
 ## Path to production
 Consider these technologies and solutions as you plan and implement your deployment: 
 - [Azure Firewall architecture overview](../../example-scenario/firewalls/index.yml) 
-- [Azure Private Link in a hub-and-spoke network](../guide/networking/private-link-hub-spoke-network.yml)
+- [Azure Private Link in a hub-and-spoke network](private-link-hub-spoke-network.yml)
 - [Build solutions with availability zones](../../high-availability/building-solutions-for-high-availability.md) 
 - [Add IP address spaces to peered virtual networks](../../networking/prefixes/add-ip-space-peered-vnet.md)
 - [Choose between virtual network peering and VPN gateways](../../reference-architectures/hybrid-networking/vnet-peering.yml)
@@ -76,7 +76,7 @@ Following are some networking architectures, organized by category.
 
 ### Hybrid networking 
 - [Azure Automation update management](../../hybrid/azure-update-mgmt.yml)
-- [Connect standalone servers by using Azure Network Adapter](../../hybrid/azure-network-adapter)
+- [Connect standalone servers by using Azure Network Adapter](../../hybrid/azure-network-adapter.yml)
 - [Design a hybrid Domain Name System solution with Azure](../../hybrid/hybrid-dns-infra.yml)
 - [Hybrid availability and performance monitoring](../../hybrid/hybrid-perf-monitoring.yml)
 - [Implement a secure hybrid network](../../reference-architectures/dmz/secure-vnet-dmz.yml)

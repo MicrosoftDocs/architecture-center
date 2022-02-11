@@ -3807,7 +3807,7 @@ items:
       - name: Networking
         items:
           - name: Get started
-            href: networking-start-here.md
+            href: guide/networking-start-here.md
           - name: Guides
             items:
               - name: Application Gateway framework review
