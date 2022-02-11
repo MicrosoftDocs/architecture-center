@@ -10,9 +10,12 @@ metadata:
   ms.subservice: best-practice
   ms.custom: fcp
 azureCategories:
-  - 
+  - storage
 products:
   - azure-blob-storage
-ms.custom:
-  - best-practice
+name: Data partitioning guidance
+summary: View guidance for how to separate data partitions to be managed and accessed separately. Understand horizontal, vertical, and functional partitioning strategies.
+thumbnailUrl: /azure/architecture/browse/thumbs/datapartitioning03.png
+content: |
+  [!include[](data-partitioning-content.md)]
 ---

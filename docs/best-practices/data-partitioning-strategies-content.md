@@ -1,21 +1,4 @@
----
-title: Data partitioning strategies
-titleSuffix: Best practices for cloud applications
-description: View guidance on separating data partitions to be managed and accessed separately in different services, such as Azure Search, Azure storage queues, and more.
-author: EdPrice-MSFT
-ms.date: 11/04/2018
-ms.topic: conceptual
-ms.service: architecture-center
-ms.subservice: best-practice
-products:
-  - azure-table-storage
-ms.custom:
-  - best-practice
----
-
 <!-- cSpell:ignore shardlet shardlets MGET MSET -->
-
-# Data partitioning strategies
 
 This article describes some strategies for partitioning data in various Azure data stores. For general guidance about when to partition data and best practices, see [Data partitioning](./data-partitioning.md).
 
