@@ -30,10 +30,10 @@ ms.custom: fcp
 
 [Power Platform](https://powerplatform.microsoft.com) provides tools for analyzing data, building solutions, automating processes, and creating virtual agents. Power Platform includes these products:
 
-- [Power BI](https://powerbi.microsoft.com). Make informed, confident business decisions by putting data-driven insights into the hands of your employees.
-- [Power Apps](https://powerapps.microsoft.com). Turn ideas into organizational solutions by enabling anyone to build custom apps that solve business challenges.
-- [Power Automate](https://powerautomate.microsoft.com). Get more done by giving everyone the ability to automate organizational processes.
-- [Power Virtual Agents](https://powervirtualagents.microsoft.com). Easily build chatbots to engage conversationally with your customers and employees—no coding required.
+- [Power BI](https://powerbi.microsoft.com). Enable your employees to generate data-driven insights.
+- [Power Apps](https://powerapps.microsoft.com). Enable anyone to build custom apps.
+- [Power Automate](https://powerautomate.microsoft.com). Give everyone the ability to automate organizational processes.
+- [Power Virtual Agents](https://powervirtualagents.microsoft.com). Build chatbots to engage with your customers and employees—no coding required.
 
 This article provides summaries of solutions and architectures that use Power Platform together with Azure services. 
 
@@ -61,7 +61,7 @@ Anyone can be a developer with Power Platform. Check out this short video to lea
 [CI/CD for Microsoft Power Platform](../solution-ideas/articles/azure-devops-continuous-integration-for-power-platform.yml)|Learn how to create an Azure CI/CD pipeline to manage your Power Platform application lifecycle.| DevOps|
 [Eventual consistency between multiple Power Apps instances](../reference-architectures/power-platform/eventual-consistency.yml)|Handle dependent data in a resilient way in Power Apps.| Web|
 [Line of business extension](../solution-ideas/articles/lob.yml)|Modernize legacy systems by automating processes. Schedule calculations, connect to third-party data sources or legacy systems, and process and share data. Power Apps retrieves the data, and Power BI provides reporting.| Integration|
-[Web and mobile front ends](../solution-ideas/articles/front-end.yml) |Accelerate development by using a visual designer. Use Azure Functions for low-latency processing and Power Apps and Power Automate for out-of-box connectors.|Integration|
+[Web and mobile front ends](../solution-ideas/articles/front-end.yml) |Accelerate development by using a visual designer. Use Azure Functions for low-latency processing and Power Apps and Power Automate for out-of-the-box connectors.|Integration|
 
 ## Power Automate
 
@@ -69,7 +69,7 @@ Anyone can be a developer with Power Platform. Check out this short video to lea
 |--|--|--|
 |[Extract text from objects using Power Automate and AI Builder](../example-scenario/ai/extract-object-text.yml)|Use AI Builder and Azure Form Recognizer in a Power Automate workflow to extract text from images. The text can be used for indexing and retrieval.| AI|
 |[Power Automate deployment at scale](../example-scenario/power-automate/power-automate.yml)|Learn how to use a hub-and-spoke architectural model to deploy Power Automate parent and child flows.| Integration|
-|[Web and mobile front ends](../solution-ideas/articles/front-end.yml)|Accelerate development by using a visual designer. Use Azure Functions for low-latency processing and Power Apps and Power Automate for out-of-box connectors. |Integration|
+|[Web and mobile front ends](../solution-ideas/articles/front-end.yml)|Accelerate development by using a visual designer. Use Azure Functions for low-latency processing and Power Apps and Power Automate for out-of-the-box connectors. |Integration|
 
 
 ## Power BI
