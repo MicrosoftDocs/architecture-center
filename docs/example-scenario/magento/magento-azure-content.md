@@ -1,6 +1,5 @@
 
 
-
 Magento is an open-source e-commerce platform written in PHP. This example scenario shows Magento deployed to Azure Kubernetes Service (AKS), and describes common best practices for hosting Magento on Azure.
 
 ## Architecture
@@ -34,18 +33,18 @@ Kubernetes and Azure both have mechanisms for *role-based access control (RBAC)*
 
 - Kubernetes RBAC controls permissions to the Kubernetes API. For example, creating pods and listing pods are actions that Kubernetes RBAC can authorize to users.
 
-AKS integrates the Azure and Kubernetes RBAC mechanisms. To assign AKS permissions to users, create *roles* and *role bindings*:
+AKS integrates the Azure and Kubernetes RBAC mechanisms. To assign AKS permissions to users, create *roles* and *role bindings*:
 
 - A role is a set of permissions that apply within a namespace. Permissions are defined as verbs like get, update, create, or delete, on resources like pods or deployments.
-  
+
 - Role binding assigns users or groups to roles.
-  
+
 - A *ClusterRole* object defines a role that applies to the entire AKS cluster, across all namespaces. To assign users or groups to a ClusterRole, create a *ClusterRoleBinding*.
-  
+
 When you create the AKS cluster, you can configure it to use Azure AD for user authentication.
 
-- For details on how to set up Azure AD integration, see [AKS-managed Azure Active Directory integration](/azure/aks/managed-aad).
-  
+- For details on how to set up Azure AD integration, see [AKS-managed Azure Active Directory integration](/azure/aks/managed-aad).
+
 - For more information about controlling access to cluster resources using Kubernetes RBAC and Azure AD identities, see [Use Kubernetes RBAC with Azure AD](/azure/aks/azure-ad-rbac).
 
 ## Scalability considerations
@@ -61,25 +60,25 @@ There are several ways to optimize scalability for this scenario:
 ### Database connection
 
 - Turn on *persistent connection* to the MySQL database, so Magento keeps reusing the existing connection instead of creating a new one for every request. To turn on persistent connection, add the following line to the `db` section of the Magento *env.php* file:
-  
+
   `'persistent' => '1'`
 
 - If MySQL consumes too much CPU, reduce the utilization by turning off *product count* from layered navigation in [Magento configuration](https://devdocs.magento.com/guides/v2.4/config-guide/prod/config-reference-most.html):
-  
+
   `magento config:set -vvv catalog/layered_navigation/display_product_count 0`
 
 ### Caching
 
 - Configure [OPcache](https://www.php.net/manual/book.opcache.php) for PHP code caching and optimization.
-  
+
   Make sure the following directives are set and uncommented in *php.ini*:
-  
+
   `opcache.enable=1`
-  
+
   `opcache.save_comments=1`
-  
+
   `opcache.validate_timestamps=0`
-  
+
 - Load balance the [Varnish cache](https://devdocs.magento.com/guides/v2.4/config-guide/varnish/config-varnish.html) by running multiple instances on pods so that it can scale.
 
 ### Logging
@@ -87,11 +86,11 @@ There are several ways to optimize scalability for this scenario:
 Limit access logging, to avoid performance issues and prevent exposing sensitive data like client IP addresses.
 
 - Use the following Varnish command to limit logging to error-level:
-  
+
   `varnishd -s malloc,1G -a :80 -f /etc/varnish/magento.vcl && varnishlog -q "RespStatus >= 400 or BerespStatus >= 400"`
 
 - If you use Apache web server for ingress, limit Apache logging to error-level by adding the following line to the Magento `VirtualHost` entry in the Apache server configuration:
-  
+
   `CustomLog /dev/null common`
 
 - Turn off PHP-FPM access logs by commenting out the `access.log` setting in all PHP-FPM configurations.
@@ -124,9 +123,9 @@ AKS clusters can be deployed across multiple Availability Zones, to provide a hi
 
 - Do capacity planning based on performance testing.
 
-- Use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator) to estimate costs.
+- Use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator) to estimate costs.
 
-- See other cost considerations in [Principles of cost optimization](../../framework/cost/overview.md) in the Microsoft Azure Well-Architected Framework.
+- See other cost considerations in [Principles of cost optimization](/azure/architecture/framework/cost/overview) in the Microsoft Azure Well-Architected Framework.
 
 ## DevOps considerations
 

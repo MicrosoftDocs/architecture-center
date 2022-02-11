@@ -16,7 +16,7 @@ The solution involves the following steps:
 
 ### Components
 
-* [Azure Pipelines](https://azure.microsoft.com/services/devops/pipelines/) builds and tests code projects, and initiates the HPC jobs on the Azure Batch service. 
+* [Azure Pipelines](https://azure.microsoft.com/services/devops/pipelines/) builds and tests code projects, and initiates the HPC jobs on the Azure Batch service.
 * [Azure Storage](https://azure.microsoft.com/services/storage/) houses HPC data and executable files used in a job.
 * [Azure Batch](https://azure.microsoft.com/services/batch) schedules the jobs and tasks across a massive number of nodes, and manages all of the compute resources.
 * [Azure Virtual Machines](https://azure.microsoft.com/services/virtual-machines/) run as workers, performing the compute tasks.
@@ -25,14 +25,14 @@ The solution involves the following steps:
 
 ## Considerations
 
-Batch compute pools need not contain commodity hardware. Specialized virtual machines with GPU processors and advanced networking exist to be used by Azure Batch. [GPU-optimized virtual machines](/azure/virtual-machines/sizes-gpu) with NVIDIA Tesla GPUs and [high-throughput Infiniband networking](/azure/virtual-machines/workloads/hpc/enable-infiniband) are available. 
+Batch compute pools need not contain commodity hardware. Specialized virtual machines with GPU processors and advanced networking exist to be used by Azure Batch. [GPU-optimized virtual machines](/azure/virtual-machines/sizes-gpu) with NVIDIA Tesla GPUs and [high-throughput Infiniband networking](/azure/virtual-machines/workloads/hpc/enable-infiniband) are available.
 
 Batch compute pools can [autoscale](/azure/batch/batch-automatic-scaling), which grows and shrinks the number of nodes in the pool as the amount of work changes. Rather than paying for unused pool members, autoscaling can reduce the compute costs of a job to only the resources that are performing tasks.
 
 ## Pricing
 To explore the cost of running this scenario, use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator), which preconfigures all Azure services.
 
-Azure Batch is a free service, and customers pay only for the underlying virtual machine, storage, and networking costs. In this solution, there are additional costs for the Azure Pipelines and Azure Monitor services. Specifically for Azure Batch, however, is an option to buy graphics rendering software (like Autodesk Maya and Chaos Group V-Ray) at a per-minute rate. See [Azure Batch Pricing](https://azure.microsoft.com/pricing/details/batch/) for details. 
+Azure Batch is a free service, and customers pay only for the underlying virtual machine, storage, and networking costs. In this solution, there are additional costs for the Azure Pipelines and Azure Monitor services. Specifically for Azure Batch, however, is an option to buy graphics rendering software (like Autodesk Maya and Chaos Group V-Ray) at a per-minute rate. See [Azure Batch Pricing](https://azure.microsoft.com/pricing/details/batch/) for details.
 
 ## Next steps
 

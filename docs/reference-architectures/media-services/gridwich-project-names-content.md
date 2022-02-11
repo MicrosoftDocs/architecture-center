@@ -1,20 +1,19 @@
 
 
-
 Gridwich is a .NET Core solution composed of multiple projects. It's important for code projects to have a naming convention to help understand application structure, find relevant code quickly, and reduce [bike-shedding](https://en.wiktionary.org/wiki/bikeshedding) in project naming.
 
 The Gridwich system has three major components, `Core`, `Host.FunctionApp`, and `SagaParticipants`.
 
 - The `Core` project has system-wide interfaces, models, data transfer objects (DTOs), and base classes.
-  
+
   `Core.{Technology}` projects have the client classes and base functionalities that various capability implementations use.
-  
+
 - The `Host.FunctionApp` project is the public interface to the overall system.
-  
+
 - `SagaParticipants` projects provide external function capabilities like analysis, encoding, publishing, and storage.
-  
+
   `SagaParticipants.{Capability}` projects describe the interfaces, exceptions, and events that a capability produces.
-  
+
   `SagaParticipants.{Capability}.{Technology}` projects provide actual capability implementation, event listeners, and capability-specific functionality.
 
 A Gridwich `Technology` is an actual implementation of a capability or core function. A `{Technology}` project can be under either a `Core` or a `SagaParticipants.{Capability}` namespace and project name, depending on usage.
@@ -28,17 +27,17 @@ Is the code a contract, like base classes, interfaces, models, or DTOs, or a ser
 - Yes: Does the code relate to a specific capacity or service?
   - Yes: `Gridwich.SagaParticipants.{Capability}`
   - No: `Gridwich.Core`
-  
+
 - No: Does the code relate to an event listener or an implementation of a specific technology?
 
   - Yes: Will more than one service use the code?
     - Yes, for example an SDK wrapper: `Gridwich.Core.{Technology}`
     - No: `Gridwich.SagaParticipants.{Capability}.{Technology}`
-    
+
   - No: Does the code relate to a specific capability?
-  
+
     - Yes: `Gridwich.SagaParticipants.{Capability}`
-    
+
     - No: Is the code an Azure Function App endpoint?
       - Yes: `Gridwich.Host.FunctionApp`
       - No: `Gridwich.Core`
@@ -88,7 +87,24 @@ Besides the `Gridwich.SagaParticipants.Encode` packaging that shares code across
 
 ### Package names and other namespaces
 
-To keep `using` statements to a minimum, Gridwich doesn't restrict package contents to the namespace that the package name indicates. Some packages contribute entities to other namespaces. For example, the package `Gridwich.Core.Tests` contributes the `Gridwich.Core.Helpers.TestHelpers` class. 
+To keep `using` statements to a minimum, Gridwich doesn't restrict package contents to the namespace that the package name indicates. Some packages contribute entities to other namespaces. For example, the package `Gridwich.Core.Tests` contributes the `Gridwich.Core.Helpers.TestHelpers` class.
 
 However, each package builds a DLL that matches the package name for the production code in `src`, and a DLL of unit tests, if any, in `tests`. The test DLL name is the same as the package name, but with a `Tests` suffix.
 
+## Next steps
+
+Product documentation:
+
+- [Gridwich cloud media system](gridwich-architecture.yml)
+- [Introduction to Azure Functions](/azure/azure-functions/functions-overview)
+
+Microsoft Learn modules:
+
+- [Create a long-running serverless workflow with Durable Functions](/learn/modules/create-long-running-serverless-workflow-with-durable-functions)
+- [Explore Azure Functions](/learn/modules/explore-azure-functions)
+
+## Related resources
+
+- [Gridwich clean monolith architecture](gridwich-clean-monolith.yml)
+- [Gridwich content protection and DRM](gridwich-content-protection-drm.yml)
+- [Gridwich saga orchestration](gridwich-saga-orchestration.yml)

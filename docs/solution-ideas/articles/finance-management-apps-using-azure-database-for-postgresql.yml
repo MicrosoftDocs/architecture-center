@@ -3,9 +3,9 @@ metadata:
   title: Finance management apps using Azure Database for PostgreSQL
   titleSuffix: Azure Solution Ideas
   description: Use Azure Database for PostgreSQL to securely store critical data and provide users with high-value analytics and insights over aggregated data.
-  author: EdPrice-MSFT
+  author: JonDobrzeniecki
   ms.author: pnp
-  ms.date: 12/16/2019
+  ms.date: 11/19/2021
   ms.topic: conceptual
   ms.service: architecture-center
   ms.subservice: solution-idea

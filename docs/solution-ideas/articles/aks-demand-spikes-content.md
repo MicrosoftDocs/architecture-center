@@ -1,6 +1,6 @@
 [!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
-This example shows how to achieve fast and reliable service quality during seasonal and other high-traffic demand periods. 
+This example shows how to achieve fast and reliable service quality during seasonal and other high-traffic demand periods.
 
 ## Potential use cases
 

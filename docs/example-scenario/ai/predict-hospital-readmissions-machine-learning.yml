@@ -6,7 +6,8 @@ metadata:
   author: matthansen0
   ms.author: mahans
   ms.date: 10/15/2021
-  ms.custom: fcp
+  ms.custom:
+    - fcp
   ms.topic: conceptual
   ms.service: architecture-center
   ms.subservice: example-scenario

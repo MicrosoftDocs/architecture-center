@@ -4,6 +4,7 @@ metadata:
   titleSuffix: Azure Solution Ideas
   description: Send equipment data to the Azure cloud to monitor its condition and performance. Process the data with Azure Databricks and alert operators and administrators as needed.
   author: falloutxAY
+  ms.author: ansyeo
   ms.date: 04/16/2021
   ms.topic: conceptual
   ms.service: architecture-center

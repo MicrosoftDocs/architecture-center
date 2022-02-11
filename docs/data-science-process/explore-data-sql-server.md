@@ -1,5 +1,5 @@
 ---
-title: Explore data in SQL Server virtual machine - Team Data Science Process
+title: Explore data in a SQL Server virtual machine 
 description: How to explore data that is stored in a SQL Server VM on Azure using SQL or a programming language like Python.
 services: machine-learning
 author: marktab
@@ -10,13 +10,15 @@ ms.subservice: team-data-science-process
 ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
-ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
+ms.custom:
+  - previous-author=deguhath
+  - previous-ms.author=deguhath
 products:
   - azure-machine-learning
 categories:
   - ai-machine-learning
 ---
-# Explore data in SQL Server Virtual Machine on Azure
+# Explore data in a SQL Server virtual machine on Azure
 
 This article covers how to explore data that is stored in a SQL Server VM on Azure. Use SQL or Python to examine the data.
 
@@ -24,29 +26,29 @@ This task is a step in the [Team Data Science Process](overview.md).
 
 > [!NOTE]
 > The sample SQL statements in this document assume that data is in SQL Server. If it isn't, refer to the cloud data science process map to learn how to move your data to SQL Server.
-> 
-> 
+>
+>
 
 ## <a name="sql-dataexploration"></a>Explore SQL data with SQL scripts
 Here are a few sample SQL scripts that can be used to explore data stores in SQL Server.
 
 1. Get the count of observations per day
-   
-    `SELECT CONVERT(date, <date_columnname>) as date, count(*) as c from <tablename> group by CONVERT(date, <date_columnname>)` 
+
+    `SELECT CONVERT(date, <date_columnname>) as date, count(*) as c from <tablename> group by CONVERT(date, <date_columnname>)`
 2. Get the levels in a categorical column
-   
+
     `select  distinct <column_name> from <databasename>`
-3. Get the number of levels in combination of two categorical columns 
-   
+3. Get the number of levels in combination of two categorical columns
+
     `select <column_a>, <column_b>,count(*) from <tablename> group by <column_a>, <column_b>`
 4. Get the distribution for numerical columns
-   
+
     `select <column_name>, count(*) from <tablename> group by <column_name>`
 
 > [!NOTE]
 > For a practical example, you can use the [NYC Taxi dataset](https://www.andresmh.com/nyctaxitrips/) and refer to the IPNB titled [NYC Data wrangling using IPython Notebook and SQL Server](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/iPythonNotebooks/machine-Learning-data-science-process-sql-walkthrough.ipynb) for an end-to-end walk-through.
-> 
-> 
+>
+>
 
 ## <a name="python"></a>Explore SQL data with Python
 Using Python to explore data and generate features when the data is in SQL Server is similar to processing data in Azure blob using Python, as documented in [Process Azure Blob data in your data science environment](data-blob.md). Load the data from the database into a pandas DataFrame and then can be processed further. We document the process of connecting to the database and loading the data into the DataFrame in this section.
@@ -69,4 +71,4 @@ data_frame = pd.read_sql('''select <columnname1>, <columnname2>... from <tablena
 Now you can work with the Pandas DataFrame as covered in the topic [Process Azure Blob data in your data science environment](data-blob.md).
 
 ## The Team Data Science Process in action example
-For an end-to-end walkthrough example of the Cortana Analytics Process using a public dataset, see [The Team Data Science Process in action: using SQL Server](sql-walkthrough.md).
+For an end-to-end walkthrough example of the Cortana Analytics Process using a public dataset, see [The Team Data Science Process in action: using SQL Server](/azure/architecture/data-science-process/overview).

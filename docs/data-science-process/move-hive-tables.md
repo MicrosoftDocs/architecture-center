@@ -1,5 +1,5 @@
 ---
-title: Create Hive tables and load data from Blob storage - Team Data Science Process
+title: Create Hive tables and load data from Blob storage
 description: Use Hive queries to create Hive tables and load data from Azure Blob Storage. Partition Hive tables and use the Optimized Row Columnar (ORC) formatting to improve query performance.
 services: machine-learning
 author: marktab
@@ -8,9 +8,11 @@ editor: marktab
 ms.service: machine-learning
 ms.subservice: team-data-science-process
 ms.topic: article
-ms.date: 01/10/2020
+ms.date: 12/16/2021
 ms.author: tdsp
-ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
+ms.custom:
+  - previous-author=deguhath
+  - previous-ms.author=deguhath
 products:
   - azure-machine-learning
 categories:
@@ -34,9 +36,9 @@ We assume that the data for Hive tables is in an **uncompressed** tabular format
 
 If you want to practice on the **NYC Taxi Trip Data**, you need to:
 
-* **download** the 24 [NYC Taxi Trip Data](https://www.andresmh.com/nyctaxitrips) files (12 Trip files and 12 Fare files),
+* **download** the 24 NYC Taxi Trip Data files (12 Trip files and 12 Fare files) -- either available through [Azure Open Datasets](/azure/open-datasets/dataset-taxi-yellow?tabs=azureml-opendatasets) or from the source [TLC Trip Record Data](https://www1.nyc.gov/site/tlc/about/tlc-trip-record-data.page),
 * **unzip** all files into .csv files, and then
-* **upload** them to the default (or appropriate container) of the Azure Storage account; options for such an account appear at [Use Azure Storage with Azure HDInsight clusters](/azure/hdinsight/hdinsight-hadoop-use-blob-storage) topic. The process to upload the .csv files to the default container on the storage account can be found on this [page](hive-walkthrough.md#upload).
+* **upload** them to the default (or appropriate container) of the Azure Storage account; options for such an account appear at [Use Azure Storage with Azure HDInsight clusters](/azure/hdinsight/hdinsight-hadoop-use-blob-storage) topic. The process to upload the .csv files to the default container on the storage account can be found on this [page](/azure/architecture/data-science-process/overview#upload).
 
 ## <a name="submit"></a>How to submit Hive queries
 Hive queries can be submitted by using:
@@ -57,7 +59,7 @@ Log in to the head node of the Hadoop cluster, open the Hadoop Command Line on t
 You have three ways to submit Hive queries in the Hadoop Command Line:
 
 * directly
-* using '.hql' files
+* using `.hql` files
 * with the Hive command console
 
 #### Submit Hive queries directly in Hadoop Command Line.
@@ -65,33 +67,34 @@ You can run command like `hive -e "<your hive query>;` to submit simple Hive que
 
 ![Command to submit Hive query with output from Hive query](./media/move-hive-tables/run-hive-queries-1.png)
 
-#### Submit Hive queries in '.hql' files
-When the Hive query is more complicated and has multiple lines, editing queries in command line or Hive command console is not practical. An alternative is to use a text editor in the head node of the Hadoop cluster to save the Hive queries in a '.hql' file in a local directory of the head node. Then the Hive query in the '.hql' file can be submitted by using the `-f` argument as follows:
+#### Submit Hive queries in `.hql` files
+
+When the Hive query is more complicated and has multiple lines, editing queries in command line or Hive command console is not practical. An alternative is to use a text editor in the head node of the Hadoop cluster to save the Hive queries in an `.hql` file in a local directory of the head node. Then the Hive query in the `.hql` file can be submitted by using the `-f` argument as follows:
 
 ```console
-hive -f "<path to the '.hql' file>"
+hive -f "<path to the .hql file>"
 ```
 
-![Hive query in a '.hql' file](./media/move-hive-tables/run-hive-queries-3.png)
+![Hive query in an `.hql` file](./media/move-hive-tables/run-hive-queries-3.png)
 
 **Suppress progress status screen print of Hive queries**
 
 By default, after Hive query is submitted in Hadoop Command Line, the progress of the Map/Reduce job is printed out on screen. To suppress the screen print of the Map/Reduce job progress, you can use an argument `-S` ("S" in upper case) in the command line as follows:
 
 ```console
-hive -S -f "<path to the '.hql' file>"
+hive -S -f "<path to the .hql file>"
 hive -S -e "<Hive queries>"
 ```
 
 #### Submit Hive queries in Hive command console.
+
 You can also first enter the Hive command console by running command `hive` in Hadoop Command Line, and then submit Hive queries in Hive command console. Here is an example. In this example, the two red boxes highlight the commands used to enter the Hive command console, and the Hive query submitted in Hive command console, respectively. The green box highlights the output from the Hive query.
 
 ![Open Hive command console and enter command, view Hive query output](./media/move-hive-tables/run-hive-queries-2.png)
 
 The previous examples directly output the Hive query results on screen. You can also write the output to a local file on the head node, or to an Azure blob. Then, you can use other tools to further analyze the output of Hive queries.
 
-**Output Hive query results to a local file.**
-To output Hive query results to a local directory on the head node, you have to submit the Hive query in the Hadoop Command Line as follows:
+**Output Hive query results to a local file.** To output Hive query results to a local directory on the head node, you have to submit the Hive query in the Hadoop Command Line as follows:
 
 ```console
 hive -e "<hive query>" > <local path in the head node>
@@ -253,4 +256,4 @@ It is safe to drop the *\<external text file table name\>* when using the follow
     DROP TABLE IF EXISTS <database name>.<external textfile table name>;
 ```
 
-After following this procedure, you should have a table with data in the ORC format ready to use.  
+After following this procedure, you should have a table with data in the ORC format ready to use.

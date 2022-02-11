@@ -9,9 +9,9 @@ ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: azure-guide
 products:
- - azure
+  - azure
 categories:
- - management-and-governance
+  - management-and-governance
 ms.category:
   - fcp
 ms.custom:
@@ -20,7 +20,7 @@ ms.custom:
 
 # Tenant lifecycle considerations in a multitenant solution
 
-When you're considering a multitenant architecture, it's important to consider all of the different stages in a tenant's lifecycle.
+When you're considering a multitenant architecture, it's important to consider all of the different stages in a tenant's lifecycle. On this page, we provide guidance for technical decision-makers about the stages of the lifecycle and the important considerations for each stage.
 
 ## Trial tenants
 

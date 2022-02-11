@@ -47,7 +47,7 @@ In this architecture, the identity flow works as follows.
 1. Azure AD Connect syncs users from both CompanyA.com and CompanyB.com to Azure AD tenant (NewCompanyAB.onmicrosoft.com).
 2. Host pools, workspaces, and app groups are created in the respective subscriptions and spoke virtual networks.
 3. Users are assigned to the app groups.
-4. AVD session hosts in the host pools join the domains CompanyA.com and CompanyB.com using the domain controllers in Azure.  
+4. AVD session hosts in the host pools join the domains CompanyA.com and CompanyB.com using the domain controllers in Azure.
 5. Users sign in using either the [AVD Desktop](/azure/virtual-desktop/connect-windows-7-10#install-the-windows-desktop-client) or a [web client](/azure/virtual-desktop/connect-web) with the corresponding format: user@NewCompanyA.com, user@CompanyB.com, or user@NewCompanyAB.com, depending on the UPN suffix configured.
 6. Users are presented with their respective virtual desktops or apps. For example, users in CompanyA will be presented with virtual desktops or apps in Workspace A, host pool 1 or 2.
 7. FSLogix user profiles are created in Azure Files shares on the corresponding storage accounts.
@@ -82,7 +82,7 @@ In scenarios with users in multiple on-premises Active Directory forests, only o
 
 The following identity topologies are supported:
 
-- Multiple on-premises Active Directory forests.  
+- Multiple on-premises Active Directory forests.
 - One or more resource forests trust all account forests.
 - A full mesh topology allows users and resources to be in any forest. Commonly, there are two-way trusts between the forests.
 

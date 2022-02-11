@@ -1,8 +1,6 @@
 
 <!-- cSpell:ignore CosmosDB Kusto APIM executable's Serilog Traefik SPOF NSGs appsettings Dynatrace -->
 
-
-
 This reference architecture shows a microservices architecture deployed to Azure Service Fabric. It shows a basic cluster configuration that can be the starting point for most deployments.
 
 ![GitHub logo](../../_images/github.png) A reference implementation of this architecture is available on [GitHub][ri].
@@ -122,7 +120,7 @@ Service Fabric supports scaling these cluster entities:
 - Scaling the number of nodes for each node type.
 - Scaling services.
 
-This section is focused on autoscaling. You can choose to manually scale in situations where appropriate. For example, a situation where manual intervention is required to set the number of instances.  
+This section is focused on autoscaling. You can choose to manually scale in situations where appropriate. For example, a situation where manual intervention is required to set the number of instances.
 
 ### Initial cluster configuration for scalability
 
@@ -152,7 +150,7 @@ Stateless and stateful services apply different approaches to scaling.
 - Set **InstanceCount** to -1 in the service manifest, which tells Service Fabric to run an instance of the service on every node. This approach enables the service to scale dynamically as the cluster scales. As the number of nodes in the cluster changes, Service Fabric automatically creates and deletes service instances to match.
 
 > [!NOTE]
-> In some cases, you might want to manually scale your service.  For example, if you have a service that reads from Event Hubs, you might want a dedicated instance to read from each event hub partition, to avoid concurrent access to the partition.  
+> In some cases, you might want to manually scale your service.  For example, if you have a service that reads from Event Hubs, you might want a dedicated instance to read from each event hub partition, to avoid concurrent access to the partition.
 
 #### Scaling for stateful services
 
@@ -343,7 +341,7 @@ Service Fabric telemetry includes health metrics and events about the operation 
 
 - [EventStore](/azure/service-fabric/service-fabric-diagnostics-eventstore). A stateful system service that collects events related to the cluster and its entities. Service Fabric uses EventStore to write [Service Fabric events](/azure/service-fabric/service-fabric-diagnostics-event-generation-operational) to provide information about your cluster and can be used for status updates, troubleshooting, monitoring. It can also correlate events from different entities at a given time to identify issues in the cluster. The service exposes those events through a REST API. For information about how to query the EventStore APIs, see [Query EventStore APIs for cluster events](/azure/service-fabric/service-fabric-diagnostics-eventstore-query). You can view the events from EventStore in Log Analytics by configuring your cluster with WAD extension.
 - [HealthStore](/azure/service-fabric/service-fabric-health-introduction). Provides a snapshot of the current health of the cluster. A stateful service that aggregates all health data reported by entities in a hierarchy. The data is visualized in [Service Fabric Explorer][sfx]. The HealthStore also monitors application upgrades. You can use health queries in PowerShell, a .NET application, or REST APIs. See, [Introduction to Service Fabric health monitoring](/azure/service-fabric/service-fabric-health-introduction).
-- Consider implementing internal custom watchdog services. Those services can periodically report custom health data such as faulty states of running services. For more information, see [Custom health reports](/azure/service-fabric/service-fabric-report-health). You can read the health reports using the Service Fabric explorer.  
+- Consider implementing internal custom watchdog services. Those services can periodically report custom health data such as faulty states of running services. For more information, see [Custom health reports](/azure/service-fabric/service-fabric-report-health). You can read the health reports using the Service Fabric explorer.
 
 ### Infrastructure metrics and logs
 
@@ -368,7 +366,7 @@ You can also view performance logs and telemetry data related to a Service Fabri
 
 - [Application Insights Application Map](/azure/azure-monitor/app/app-map) provides the topology of the application by using HTTP dependency calls made between services, with the installed Application Insights SDK.
 - [Service Map solution in Log Analytics](/azure/azure-monitor/insights/service-map) provides information about inbound and outbound traffic from/to external services. In addition, Service Map integrates with other solutions such as updates or security.
-- Custom watchdogs can be used to report error conditions on external services. For example, the service could report an error health report if it cannot access an external service or data storage (Azure Cosmos DB).  
+- Custom watchdogs can be used to report error conditions on external services. For example, the service could report an error health report if it cannot access an external service or data storage (Azure Cosmos DB).
 
 ### Distributed tracing
 
@@ -447,7 +445,7 @@ To deploy the reference implementation for this architecture, follow the steps i
 
 [sfx]: /azure/service-fabric/service-fabric-visualizing-your-cluster
 [service-fabric-tutorial]: /azure/service-fabric/service-fabric-tutorial-deploy-container-app-with-cicd-vsts
-[aaf-cost]: ../../framework/cost/overview.md
+[aaf-cost]: /azure/architecture/framework/cost/overview
 [ap-insight-cost]: /azure/azure-monitor/app/pricing
 [Api-Management-pricing]: https://azure.microsoft.com/pricing/details/api-management
 [az-monitor-pricing]: https://azure.microsoft.com/pricing/details/monitor

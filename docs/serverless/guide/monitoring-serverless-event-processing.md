@@ -1,5 +1,5 @@
 ---
-title: Monitoring serverless event processing
+title: Monitor serverless event processing
 description: Guidance on monitoring serverless event-driven architectures using Application Insights.
 author: rasavant-ms
 ms.author: rasavant
@@ -28,7 +28,7 @@ ms.custom:
 ---
 <!-- cSpell:ignore todatetime dateformatter tostring kusto KEDA datetimes isfuzzy Ccmd rasavant -->
 
-# Monitoring serverless event processing
+# Monitor serverless event processing
 
 This article provides guidance on monitoring [serverless](https://azure.microsoft.com/solutions/serverless/) event-driven architectures.
 

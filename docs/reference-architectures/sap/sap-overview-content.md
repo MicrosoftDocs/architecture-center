@@ -1,12 +1,12 @@
-The SAP on Azure Architecture Guide describes a set of guiding tenets that are used to help ensure the quality of SAP workloads running on Azure. This guide is based on the [Microsoft Azure Well-Architected Framework](../../framework/index.md), but the recommendations are specific to deployments of SAP solutions. A solid architectural foundation starts with five pillars of excellence: cost, DevOps, resiliency, scalability, and security.
+The SAP on Azure Architecture Guide describes a set of guiding tenets that are used to help ensure the quality of SAP workloads running on Azure. This guide is based on the [Microsoft Azure Well-Architected Framework](/azure/architecture/framework/index), but the recommendations are specific to deployments of SAP solutions. A solid architectural foundation starts with five pillars of excellence: cost, DevOps, resiliency, scalability, and security.
 
-Microsoft and SAP work in [partnership](https://blogs.microsoft.com/blog/2019/05/09/microsoft-partners-with-sap-as-the-first-global-cloud-provider-to-launch-project-embrace/) to provide a clear roadmap for organizations that want to innovate in the cloud. Azure supports SAP applications on Linux and Windows across development, test, and production environments. Our customers run SAP deployments of all sizes on Azure—including SAP NetWeaver an all supported Database Management Systems, SAP S/4HANA, BW/4HANA,  BI, and HANA in scale-up and scale-out scenarios. 
+Microsoft and SAP work in [partnership](https://blogs.microsoft.com/blog/2019/05/09/microsoft-partners-with-sap-as-the-first-global-cloud-provider-to-launch-project-embrace/) to provide a clear roadmap for organizations that want to innovate in the cloud. Azure supports SAP applications on Linux and Windows across development, test, and production environments. Our customers run SAP deployments of all sizes on Azure—including SAP NetWeaver an all supported Database Management Systems, SAP S/4HANA, BW/4HANA,  BI, and HANA in scale-up and scale-out scenarios.
 
 One way to get started is to run through the [Azure Well-Architected Review](/assessments/?id=azure-architecture-review&mode=pre-assessment).
 
 ## Cost
 
-When you move your workloads to the cloud, you have multiple aspects which can help to reduce costs of the overall solution. Many of them are covered in the Azure Well-Architected Framework under the [pillar of cost optimization](../../framework/cost/index.yml). When you move SAP solutions to Azure, you have the additional opportunity to perform cost optimization. You can start a **rationalization** of your landscape or there is the chance to **rearchitecture** or substitute components, especially when moving from Business Suite to S/4HANA during your journey to the cloud. All these actions take place at the beginning of your journey to Azure and continues throughout.
+When you move your workloads to the cloud, you have multiple aspects which can help to reduce costs of the overall solution. Many of them are covered in the Azure Well-Architected Framework under the [pillar of cost optimization](/azure/architecture/framework/cost/index). When you move SAP solutions to Azure, you have the additional opportunity to perform cost optimization. You can start a **rationalization** of your landscape or there is the chance to **rearchitecture** or substitute components, especially when moving from Business Suite to S/4HANA during your journey to the cloud. All these actions take place at the beginning of your journey to Azure and continues throughout.
 
 System rationalization answers cost-related questions. For example, do you need to move all SAP systems, or can you decommission those which are no longer used? Is it more cost-efficient to refactor certain workloads—or more timely to lift and shift? Do you really need a system as large as you sized it on premises?
 
@@ -18,7 +18,7 @@ Bringing rationalization together with a potential rearchitecture of the overall
 
 ### Continuous cost management
 
-Another way to reduce costs is to deallocate or “snooze” virtual machines. If you run your sandbox systems 10 hours a day, Monday through Friday, instead of around the clock every day, you might reduce your costs up to approximately 70 percent in a pay-as-you-go model. When your SAP applications need to run all the time, opt for [Azure Reserved Instances](https://azure.microsoft.com/pricing/reserved-vm-instances/) to also help drive down costs.
+Another way to reduce costs is to deallocate or "snooze" virtual machines. If you run your sandbox systems 10 hours a day, Monday through Friday, instead of around the clock every day, you might reduce your costs up to approximately 70 percent in a pay-as-you-go model. When your SAP applications need to run all the time, opt for [Azure Reserved Instances](https://azure.microsoft.com/pricing/reserved-vm-instances/) to also help drive down costs.
 
 Combining virtual machine [pricing options](https://azure.microsoft.com/pricing/details/virtual-machines/sles-sap/)  can also lower costs. For budget predictability, you can use an Azure Reserved Virtual Machine Instance, an advanced purchase for one or three years in a specified region. For low cost and flexibility, you can pay as you go for compute capacity, which requires no long term-commitment.
 
@@ -85,7 +85,7 @@ In production environments, it's important to guard against a single point of fa
 
 Keeping these basic principles in mind, the recommendation would be to implement 3-tier systems across the SAP landscapes, ensuring that all application components involved are isolated from each other and can achieve high-availability through redundancy.
 
-We recommend deploying the virtual machines that run SAP Central Services and databases in Availability Sets or Availability Zones, which help protect applications against planned maintenance events and unplanned outages.  
+We recommend deploying the virtual machines that run SAP Central Services and databases in Availability Sets or Availability Zones, which help protect applications against planned maintenance events and unplanned outages.
 
 When applying resiliency to the SAP application servers, we recommend using fewer, smaller servers instead of one larger application server. The practice is to configure the guest operating system's cluster technologies, such as Windows Failover Cluster or Linux Pacemaker, to help ensure short failover times of the SAP Central Services and database management system (DBMS). To ensure there is no (or minimal) data loss, the best practice is to configure DBMS synchronous or asynchronous replication depending on the scenario.
 
@@ -117,14 +117,11 @@ On the database layer, production data can be replicated within the region or be
 
 When designing a resilient architecture for the database layer, consider the following aspects:
 
-- **Resiliency against data loss.** Designing for resiliency means recovering from data loss. That might mean recovering from a logical error on the SAP database, a large-scale disaster, or the loss of a complete Azure region. When designing for recoverability, it is necessary to understand the Recovery Point Objective (RPO) and Recovery Time Objective (RTO) of your SAP application.
-It is essential to carefully consider both availability and recoverability within the design of the SAP deployment architecture. This will protect your business from financial losses resulting in downtime and data loss.
+- **Resiliency against data loss.** Designing for resiliency means recovering from data loss. That might mean recovering from a logical error on the SAP database, a large-scale disaster, or the loss of a complete Azure region. When designing for recoverability, it is necessary to understand the Recovery Point Objective (RPO) and Recovery Time Objective (RTO) of your SAP application. It is essential to carefully consider both availability and recoverability within the design of the SAP deployment architecture. This will protect your business from financial losses resulting in downtime and data loss.
 
-- **Use of synchronous replication.** When there is a business need of RPO = 0, meaning no data loss in case of a failure, we need to consider synchronous replication on the database layer and design accordingly.  This results in a system where every transaction needs to be committed on at least both sides of the highly available databases.
-Latency between the two DBMS instances needs to be measured and considered carefully.  The higher the network latency, the more likely it will affect the scalability of your workload.
-This is especially important when deciding to use [Availability Zones](/azure/availability-zones/az-overview) where workloads can be separated in an Azure region in unique physical locations.  As the physical distance between these locations, so will the network latency.
+- **Use of synchronous replication.** When there is a business need of RPO = 0, meaning no data loss in case of a failure, we need to consider synchronous replication on the database layer and design accordingly.  This results in a system where every transaction needs to be committed on at least both sides of the highly available databases. Latency between the two DBMS instances needs to be measured and considered carefully.  The higher the network latency, the more likely it will affect the scalability of your workload. This is especially important when deciding to use [Availability Zones](/azure/availability-zones/az-overview) where workloads can be separated in an Azure region in unique physical locations.  As the physical distance between these locations, so will the network latency.
 
-For more information, see [General Azure Virtual Machines DBMS deployment for SAP workload](/azure/virtual-machines/workloads/sap/dbms_guide_general) and its listed recommendations per DBMS. 
+For more information, see [General Azure Virtual Machines DBMS deployment for SAP workload](/azure/virtual-machines/workloads/sap/dbms_guide_general) and its listed recommendations per DBMS.
 
 ### Backup resiliency
 
@@ -136,7 +133,7 @@ Several certified third-party backup solutions exist in the [Azure Marketplace](
 
 Storage solutions such as Azure NetApp Files can backup critical data through the capabilities of snapshots.
 
-Azure Backup is Azure's native backup solution: 
+Azure Backup is Azure's native backup solution:
 
 - Native SAP HANA backups through the Backint connector.
 - Ability to create an application consistent backup using disks snapshots of Azure Premium storage.
@@ -207,13 +204,12 @@ Your SAP data is likely the treasure of your organization's technical footprint.
 
 SAP on Azure is delivered in the infrastructure as a service (IaaS) cloud model. This means security protections are built into the service by Microsoft at the level of the physical datacenter, physical network, physical host, and hypervisor. For the areas above the hypervisor—such as the guest operating system for SAP—you need to carefully evaluate the services and technologies you select to ensure you are providing the proper security controls for your architecture.
 
-For authentication, you can take advantage of [Azure Active Directory](/azure/active-directory/) (Azure AD) with SAML to sign on to your SAP [NetWeaver](/azure/active-directory/saas-apps/sap-netweaver-tutorial) or [HANA](/azure/active-directory/saas-apps/saphana-tutorial), also use SSO for other SAP services like [Fiori Launchpad](/azure/active-directory/saas-apps/sap-fiori-tutorial), [SAP Cloud Platform](/azure/active-directory/saas-apps/sap-hana-cloud-platform-tutorial), or [SuccessFactors](/azure/active-directory/saas-apps/successfactors-tutorial) can be configured. 
+For authentication, you can take advantage of [Azure Active Directory](/azure/active-directory/) (Azure AD) with SAML to sign on to your SAP [NetWeaver](/azure/active-directory/saas-apps/sap-netweaver-tutorial) or [HANA](/azure/active-directory/saas-apps/saphana-tutorial), also use SSO for other SAP services like [Fiori Launchpad](/azure/active-directory/saas-apps/sap-fiori-tutorial), [SAP Cloud Platform](/azure/active-directory/saas-apps/sap-hana-cloud-platform-tutorial), or [SuccessFactors](/azure/active-directory/saas-apps/successfactors-tutorial) can be configured.
 
 [Network security groups](/azure/virtual-network/security-overview) (NSGs) allow you to filter network traffic to and from resources in your
-[virtual network](/azure/virtual-network/virtual-networks-overview). You can define NSG rules to allow or deny access to your SAP services—for
-instance, allowing access to the SAP application ports from on-premises IP addresses ranges and denying public internet access.
+[virtual network](/azure/virtual-network/virtual-networks-overview). You can define NSG rules to allow or deny access to your SAP services—for instance, allowing access to the SAP application ports from on-premises IP addresses ranges and denying public internet access.
 
-[Application security groups](/azure/virtual-network/application-security-groups) (ASG) should be used to make it easier to configure the network security. The ASG can be used in security rules instead of explicit IPs for VMs. And the VMs are then assigned to ASG. This will support the reuse of the same policy over different application landscapes, because of this abstraction layer. 
+[Application security groups](/azure/virtual-network/application-security-groups) (ASG) should be used to make it easier to configure the network security. The ASG can be used in security rules instead of explicit IPs for VMs. And the VMs are then assigned to ASG. This will support the reuse of the same policy over different application landscapes, because of this abstraction layer.
 
 Regarding data integrity, [Azure Disk Encryption](/azure/security/azure-security-disk-encryption-faq) helps you encrypt your SAP virtual machine disks. Both the operating system and data volumes can be encrypted at rest in storage.
 
@@ -225,7 +221,7 @@ Consider using Azure AD to authenticate and authorize users. Azure AD is a fully
 
 For consumer-facing applications, Azure Active Directory B2C lets users authenticate with their existing social accounts (such as Facebook, Google, or LinkedIn) or to create a new user account that is managed by Azure AD.
 
-If you want to integrate an on-premises Active Directory environment with an Azure network, several approaches are possible, depending on your requirements. For more information, see the [identity management](../identity/index.yml) reference architectures.
+If you want to integrate an on-premises Active Directory environment with an Azure network, several approaches are possible, depending on your requirements. For more information, see the [identity management](../identity/index.yml) reference architectures.
 
 ### Protecting your infrastructure
 
@@ -239,17 +235,17 @@ Cloud applications often use managed services that have access keys. It bears re
 
 ### Data sovereignty and encryption
 
-Make sure that your data remains in the correct geopolitical zone when using highly available regions in Azure. Azure Storage, like [Azure NetApp Files](/azure/azure-netapp-files/azure-netapp-files-introduction), can provide geo-replication based on the concept of a [paired region](/azure/best-practices-availability-paired-regions) in the same geopolitical zone. 
+Make sure that your data remains in the correct geopolitical zone when using highly available regions in Azure. Azure Storage, like [Azure NetApp Files](/azure/azure-netapp-files/azure-netapp-files-introduction), can provide geo-replication based on the concept of a [paired region](/azure/best-practices-availability-paired-regions) in the same geopolitical zone.
 
-A common feature of cloud-based infrastructures like Azure Storage is that they provide a highly available and durable platform for hosting data and applications. Developers of cloud-based applications must consider carefully how to leverage this platform to maximize those advantages for their users. 
+A common feature of cloud-based infrastructures like Azure Storage is that they provide a highly available and durable platform for hosting data and applications. Developers of cloud-based applications must consider carefully how to leverage this platform to maximize those advantages for their users.
 
-When deciding which redundancy option is best for your scenario, consider the tradeoffs between lower costs and higher availability. In case, customers would like to replicate their SAP on Azure infrastructure to other Azure regions for Business continuity and Disaster recovery purpose, they can achieve the same with Storage replication, for example GRS or Disaster Recovery mechanisms like Azure Site Recovery. More details at https://docs.microsoft.com/azure/storage/common/storage-redundancy  
+When deciding which redundancy option is best for your scenario, consider the tradeoffs between lower costs and higher availability. In case, customers would like to replicate their SAP on Azure infrastructure to other Azure regions for Business continuity and Disaster recovery purpose, they can achieve the same with Storage replication, for example GRS or Disaster Recovery mechanisms like Azure Site Recovery. More details at https://docs.microsoft.com/azure/storage/common/storage-redundancy
 
 We recommend using Key Vault to safeguard cryptographic keys and secrets. You can use Key Vault to encrypt keys and small secrets, like passwords, that use keys stored in hardware security modules (HSMs).  Azure Key Vault supports the SQL server from DBMS point of view. Many storage and database services support data encryption at rest, including [Azure Storage](/azure/storage/storage-service-encryption), [Azure SQL Database](/azure/sql-database/sql-database-always-encrypted-azure-key-vault), [Azure Synapse Analytics](/azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is), and [Azure Cosmos DB](/azure/cosmos-db/database-security).
 
 ### Security resources
 
-- [Azure Security Center](https://azure.microsoft.com/services/security-center) provides integrated security monitoring and policy management across your Azure subscriptions.
+- [Microsoft Defender for Cloud](https://azure.microsoft.com/services/security-center) provides integrated security monitoring and policy management across your Azure subscriptions.
 
 - [Azure security documentation](/azure/security)
 

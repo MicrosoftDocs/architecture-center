@@ -1,6 +1,5 @@
 
 
-
 This reference architecture shows how to perform batch scoring with R models using [Azure Batch][batch]. Azure Batch works well with intrinsically parallel workloads and includes job scheduling and compute management. Batch inference (scoring) is widely used to segment customers, forecast sales, predict customer behaviors, predict maintenance, or improve cyber security.
 
 The scenario shown in this article is based on retail store sales forecasting, but this architecture can be generalized for any scenario requiring the generation of predictions on a larger scale using R models. A reference implementation for this architecture is available on [GitHub][github].
@@ -39,8 +38,7 @@ This architecture consists of the following components.
 
 [Azure Blob Storage][blob] is used to store the input data, the pre-trained machine learning models, and the forecast results. It delivers cost-effective storage for the performance that this workload requires.
 
-[Azure Container Instances][aci] provide serverless compute on demand. In this case, a container instance is
-deployed on a schedule to trigger the Batch jobs that generate the forecasts. The Batch jobs are triggered from an R script using the [doAzureParallel][doAzureParallel] package. The container instance automatically shuts down once the jobs have finished.
+[Azure Container Instances][aci] provide serverless compute on demand. In this case, a container instance is deployed on a schedule to trigger the Batch jobs that generate the forecasts. The Batch jobs are triggered from an R script using the [doAzureParallel][doAzureParallel] package. The container instance automatically shuts down once the jobs have finished.
 
 [Azure Logic Apps][logic-apps] triggers the entire workflow by deploying the container instances on a schedule. An Azure Container Instances connector in Logic Apps allows an instance to be deployed upon a range of trigger events.
 

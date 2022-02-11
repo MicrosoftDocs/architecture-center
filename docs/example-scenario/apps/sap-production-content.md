@@ -1,15 +1,12 @@
-
 <!-- cSpell:ignore DharmeshBhagat HANA -->
 
-
-
-SAP systems are used to run mission-critical business applications. Any outage disrupts key processes and can cause increased expenses or lost revenue. Avoiding these outcomes requires an SAP infrastructure that is highly available and resilient when failures occur.
+SAP systems are used to run mission-critical business applications. Any outage disrupts key processes and can cause increased expenses or lost revenue. Avoiding these outcomes requires an SAP infrastructure that is highly available and resilient to failures.
 
 Building a highly available SAP environment requires eliminating single points of failures in your system architecture and processes. Single points of failure can be caused by site failures, errors in system components, or even human error.
 
-This example scenario demonstrates an SAP deployment on Windows or Linux virtual machines (VMs) on Azure, along with a High Availability (HA) Oracle database. For your SAP deployment, you can use VMs of different sizes based on your requirements.
+This example scenario demonstrates an SAP deployment on Windows or Linux virtual machines (VMs) on Azure, along with a high availability (HA) Oracle database. For your SAP deployment, you can use VMs of different sizes based on your requirements.
 
-## Relevant use cases
+## Potential use cases
 
 Other relevant use cases include:
 
@@ -24,7 +21,7 @@ Other relevant use cases include:
 This example includes a high availability configuration for an Oracle database, SAP central services, and multiple SAP application servers running on different virtual machines. The Azure network uses a [hub-and-spoke topology](../../reference-architectures/hybrid-networking/hub-spoke.yml) for security purposes. The data flows through the solution as follows:
 
 1. Users access the SAP system via the SAP user interface, a web browser, or other client tools like Microsoft Excel. An ExpressRoute connection provides access from the organization's on-premises network to resources running in Azure.
-2. The ExpressRoute terminates in Azure at the ExpressRoute virtual network (VNet) gateway. Network traffic is routed to a gateway subnet through the ExpressRoute gateway created in the hub VNet.
+2. The ExpressRoute terminates in Azure at the ExpressRoute virtual network (VNet) gateway. Network traffic is routed to a gateway subnet through the ExpressRoute gateway that's created in the hub VNet.
 3. The hub VNet is peered to a spoke VNet. The application tier subnet hosts the virtual machines running SAP in an availability set.
 4. The identity management servers provide authentication services for the solution.
 5. The jump box is used by system administrators to securely manage resources deployed in Azure.
@@ -35,11 +32,13 @@ This example includes a high availability configuration for an Oracle database, 
 
 - [Virtual Machines](/azure/virtual-machines/windows/overview) provide the compute resources for each tier of the solution. Each cluster of virtual machines is configured as an [availability set](/azure/virtual-machines/windows/availability#availability-sets).
 
-- [ExpressRoute](/azure/expressroute/expressroute-introduction) extends your on-premises network into the Microsoft cloud through a private connection established by a connectivity provider.
+- [ExpressRoute](/azure/expressroute/expressroute-introduction) extends your on-premises network into the Microsoft cloud through a private connection that's established by a connectivity provider.
 
 - [Network security groups](/azure/virtual-network/security-overview) limit network access to the resources in a virtual network. A network security group contains a list of security rules that allow or deny network traffic based on source or destination IP address, port, and protocol.
 
 - [Resource groups](/azure/azure-resource-manager/resource-group-overview#resource-groups) act as logical containers for Azure resources.
+
+- [Storage](../../index.yml?product=storage) Azure Premium Managed Disks or Azure NetApp Files (for Oracle 19C) provide the recommended storage for the SAP executables and the Oracle database.
 
 ### Alternatives
 
@@ -53,13 +52,13 @@ SAP provides flexible options for different combinations of operating system, da
 
 - Oracle Data Guard is used to eliminate single points of failure for mission-critical Oracle databases. For more information, see [Implementing Oracle Data Guard on a Linux virtual machine in Azure](/azure/virtual-machines/workloads/oracle/configure-oracle-dataguard).
 
-- Microsoft Azure offers infrastructure services that can be used to deploy SAP products with an Oracle database. For more information, see [Deploying an Oracle DBMS on Azure for an SAP workload](/azure/virtual-machines/workloads/sap/dbms_guide_oracle).
+- Microsoft Azure offers infrastructure services that can be used to deploy SAP products with an Oracle database. For more information, see [Deploying an Oracle DBMS on Azure for an SAP workload](/azure/virtual-machines/workloads/sap/dbms_guide_oracle). (_DBMS_ stands for database management system.)
 
 ## Pricing
 
-To help you explore the cost of running this scenario, all of the services are pre-configured in the cost calculator examples below. To see how the pricing would change for your particular use case, change the appropriate variables to match your expected traffic.
+To help you explore the cost of running this scenario, all of the services are pre-configured in the cost calculator examples later in this section. To see how the pricing would change for your particular use case, change the appropriate variables to match your expected traffic.
 
-We have provided four sample cost profiles based on amount of traffic you expect to receive:
+We've provided four sample cost profiles based on amount of traffic you expect to receive:
 
 |Size|SAPs|DB VM Type|DB Storage|(A)SCS VM|(A)SCS Storage|App VM Type|App Storage|Azure Pricing Calculator|
 |----|----|-------|-------|-----|---|---|--------|---------------|
@@ -79,7 +78,7 @@ Extra Large|250000|M64s|6xP30, 1xP30|DS11_v2|1x P10|10x DS14_v2|1x P10|[Extra La
 
 - [Extra Large](https://azure.com/e/58c636922cf94faf9650f583ff35e97b): An extra-large system consists of the M64s VM type for the database server with 64x vCPUs, 1024 GB RAM, and 2000 GB of temporary storage, along with seven 1024-GB premium storage disks; an SAP Central Instance server using a DS11_v2 VM types with 2x vCPUs 14-GB RAM and 28 GB of temporary storage; ten VM type DS14_v2 for the SAP application servers with 16x vCPUs, 112 GB RAM, and 224 GB of temporary storage, along with ten 128-GB premium storage disks.
 
-## Deployment
+## Deploy this scenario
 
 Click the link below to deploy the solution.
 
@@ -88,13 +87,19 @@ Click the link below to deploy the solution.
 > [!NOTE]
 > SAP and Oracle are not installed during this deployment. You will need to deploy these components separately.
 
+## Next steps
+
+- [What is Azure Virtual Network?](/azure/virtual-network/virtual-networks-overview)
+- [Linux virtual machines in Azure](/azure/virtual-machines/linux/overview)
+- [Windows virtual machines in Azure](/azure/virtual-machines/windows/overview)
+
 ## Related resources
 
 For other information about running SAP production workloads in Azure, review the following reference architectures:
 
 - [SAP NetWeaver for AnyDB](../../reference-architectures/sap/sap-netweaver.yml)
 - [SAP S/4HANA](../../reference-architectures/sap/sap-s4hana.yml)
-- [SAP HANA large instances](../../reference-architectures/sap/hana-large-instances.yml)
+- [SAP HANA Large Instances](../../reference-architectures/sap/hana-large-instances.yml)
 
 <!-- links -->
 

@@ -4,7 +4,7 @@ metadata:
   titleSuffix: Azure Example Scenarios
   description: Use Azure Pipelines and ARM templates to set up a CI/CD pipeline to deploy a chatbot app and its infrastructure as code with Azure App and Azure Bot services.
   author: MariaVrabie
-  ms.date: 03/25/2020
+  ms.date: 10/28/2021
   ms.topic: conceptual
   ms.service: architecture-center
   ms.subservice: example-scenario

@@ -3,7 +3,7 @@ title: Azure for Google Cloud professionals
 description: Learn the basics of Microsoft Azure accounts, platform, and services, and key similarities and differences between the Google Cloud and Azure platforms.
 author: cjnova
 ms.author: petuton
-ms.date: 08/10/2021
+ms.date: 12/13/2021
 ms.topic: reference
 ms.service: architecture-center
 ms.subservice: cloud-fundamentals
@@ -16,6 +16,10 @@ keywords:
   - difference between Azure and Google Cloud
   - Azure and GCP
   - Azure and Google Cloud
+products:
+  - azure
+categories:
+  - management-and-governance
 ---
 
 # Azure for Google Cloud Professionals
@@ -53,9 +57,9 @@ Azure services can be purchased using several pricing options, depending on your
 
 [Azure subscriptions](/azure/virtual-machines/linux/infrastructure-example) are a grouping of resources with an assigned owner responsible for billing and permissions management.
 
-A GCP *project* is conceptually similar to the Azure subscription, in terms of billing, quotas, and limits. However, from a functional perspective, a GCP project is more like a resource group in Azure. It's a logical unit that cloud resources are deployed to.
+A Google Cloud *project* is conceptually similar to the Azure subscription, in terms of billing, quotas, and limits. However, from a functional perspective, a Google Cloud project is more like a resource group in Azure. It's a logical unit that cloud resources are deployed to.
 
-Note that unlike in GCP, there is no maximum number of Azure subscriptions. Each Azure subscription is linked to a single Azure Active Directory (Azure AD) tenant (an *account*, in GCP terms). An Azure AD tenant can contain an unlimited number of subscriptions, whereas GCP has a default limit of 30 projects per account.
+Note that unlike in Google Cloud, there is no maximum number of Azure subscriptions. Each Azure subscription is linked to a single Azure Active Directory (Azure AD) tenant (an *account*, in Google Cloud terms). An Azure AD tenant can contain an unlimited number of subscriptions, whereas Google Cloud has a default limit of 30 projects per account.
 
 Subscriptions are assigned three types of administrator accounts:
 
@@ -161,7 +165,7 @@ Region Pairs in Azure
 - [Regions for virtual machines in Azure](/azure/virtual-machines/linux/regions)
 - [Availability options for virtual machines in Azure](/azure/virtual-machines/linux/availability)
 - [High availability for Azure applications](../example-scenario/infrastructure/multi-tier-app-disaster-recovery.yml)
-- [Failure and disaster recovery for Azure applications](../framework/resiliency/backup-and-recovery.md)
+- [Failure and disaster recovery for Azure applications](/azure/architecture/framework/resiliency/backup-and-recovery)
 - [Planned maintenance for Linux virtual machines in Azure](/azure/virtual-machines/linux/maintenance-and-updates)
 
 ## Services

@@ -1,22 +1,19 @@
 ---
-title: Choosing a search data store
-description: Learn about the capabilities of search data stores in Azure and the key criteria for choosing one that best matches your needs. 
-author: zoinerTejada
+title: Choose a search data store
+description: Learn about the capabilities of search data stores in Azure and the key criteria for choosing one that best matches your needs.
+author: EdPrice-MSFT
+ms.author: pnp
 ms.date: 11/30/2020
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: azure-guide
 ---
 
-# Choosing a search data store in Azure
+# Choose a search data store in Azure
 
 This article compares technology choices for search data stores in Azure. A search data store is used to create and store specialized indexes for performing searches on free-form text. The text that is indexed may reside in a separate data store, such as blob storage. An application submits a query to the search data store, and the result is a list of matching documents. For more information about this scenario, see [Processing free-form text for search](../scenarios/search.md).
 
-<!-- markdownlint-disable MD026 -->
-
 ## What are your options when choosing a search data store?
-
-<!-- markdownlint-enable MD026 -->
 
 In Azure, all of the following data stores will meet the core requirements for search against free-form text data by providing a search index:
 
@@ -49,7 +46,7 @@ The following tables summarize the key differences in capabilities.
 
 | Capability | Cognitive Search | Elasticsearch | HDInsight with Solr | SQL Database |
 | --- | --- | --- | --- | --- |
-| Is managed service | Yes | No | Yes | Yes |  
+| Is managed service | Yes | No | Yes | Yes |
 | REST API | Yes | Yes | Yes | No |
 | Programmability | .NET, Java, Python, JavaScript | Java | Java | T-SQL |
 | Document indexers for common file types (PDF, DOCX, TXT, and so on) | Yes | No | Yes | No |
@@ -74,9 +71,9 @@ The following tables summarize the key differences in capabilities.
 | Capability | Cognitive Search | Elasticsearch | HDInsight with Solr | SQL Database |
 | --- | --- | --- | --- | --- |
 | Row-level security | Partial (requires application query to filter by group id) | Partial (requires application query to filter by group id) | Yes | Yes |
-| Transparent data encryption | No | No | No | Yes |  
+| Transparent data encryption | No | No | No | Yes |
 | Restrict access to specific IP addresses | Yes | Yes | Yes | Yes |
-| Restrict access to allow virtual network access only | Yes | Yes | Yes | Yes |  
+| Restrict access to allow virtual network access only | Yes | Yes | Yes | Yes |
 | Active Directory authentication (integrated authentication) | No | No | No | Yes |
 
 ## See also

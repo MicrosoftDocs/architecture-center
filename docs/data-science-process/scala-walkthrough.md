@@ -1,5 +1,5 @@
 ---
-title: Data Science using Scala and Spark on Azure - Team Data Science Process
+title: Data Science using Scala and Spark on Azure
 description: How to use Scala for supervised machine learning tasks with the Spark scalable MLlib and Spark ML packages on an Azure HDInsight Spark cluster.
 services: machine-learning
 author: marktab
@@ -10,7 +10,9 @@ ms.subservice: team-data-science-process
 ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
-ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
+ms.custom:
+  - previous-author=deguhath
+  - previous-ms.author=deguhath
 products:
   - azure-machine-learning
 categories:
@@ -34,8 +36,8 @@ The setup steps and code in this article are for Azure HDInsight 3.4 Spark 1.6. 
 
 > [!NOTE]
 > For a topic that shows you how to use Python rather than Scala to complete tasks for an end-to-end Data Science process, see [Data Science using Spark on Azure HDInsight](spark-overview.md).
-> 
-> 
+>
+>
 
 ## Prerequisites
 * You must have an Azure subscription. If you do not already have one, [get an Azure free trial](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
@@ -44,10 +46,10 @@ The setup steps and code in this article are for Azure HDInsight 3.4 Spark 1.6. 
 ![HDInsight cluster type configuration](./media/scala-walkthrough/spark-cluster-on-portal.png)
 
 > [!INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
-> 
-> 
+>
+>
 
-For a description of the NYC taxi trip data and instructions on how to execute code from a Jupyter notebook on the Spark cluster, see the relevant sections in [Overview of Data Science using Spark on Azure HDInsight](spark-overview.md).  
+For a description of the NYC taxi trip data and instructions on how to execute code from a Jupyter notebook on the Spark cluster, see the relevant sections in [Overview of Data Science using Spark on Azure HDInsight](spark-overview.md).
 
 ## Execute Scala code from a Jupyter notebook on the Spark cluster
 You can launch a Jupyter notebook from the Azure portal. Find the Spark cluster on your dashboard, and then click it to enter the management page for your cluster. Next, click **Cluster Dashboards**, and then click **Jupyter Notebook** to open the notebook associated with the Spark cluster.
@@ -79,7 +81,7 @@ The Spark kernels that are provided with Jupyter notebooks have preset contexts.
 * `sqlContext` for HiveContext
 
 ### Spark magics
-The Spark kernel provides some predefined “magics,” which are special commands that you can call with `%%`. Two of these commands are used in the following code samples.
+The Spark kernel provides some predefined "magics," which are special commands that you can call with `%%`. Two of these commands are used in the following code samples.
 
 * `%%local` specifies that the code in subsequent lines will be executed locally. The code must be valid Scala code.
 * `%%sql -o <variable name>` executes a Hive query against `sqlContext`. If the `-o` parameter is passed, the result of the query is persisted in the `%%local` Scala context as a Spark data frame.
@@ -201,7 +203,6 @@ val taxi_temp = (taxi_train_file.map(_.split("\t"))
                             p(17), p(18), p(19).toDouble, p(20).toDouble, p(21).toDouble, p(22).toDouble,
                             p(23).toDouble, p(24).toDouble, p(25).toDouble, p(26).toDouble)))
 
-
 # CREATE AN INITIAL DATA FRAME AND DROP COLUMNS, AND THEN CREATE A CLEANED DATA FRAME BY FILTERING FOR UNWANTED VALUES OR OUTLIERS
 val taxi_train_df = sqlContext.createDataFrame(taxi_temp, taxi_schema)
 
@@ -281,8 +282,8 @@ In the following code, the `%%local` magic creates a local data frame, sqlResult
 
 > [!TIP]
 > Local magic is used multiple times in this article. If your data set is large, please sample to create a data frame that can fit in local memory.
-> 
-> 
+>
+>
 
 ### Plot the data
 You can plot by using Python code after the data frame is in local context as a Pandas data frame.
@@ -546,7 +547,6 @@ val indexerModel = indexer.fit(indexedTESTbinaryDF)
 val indexedTESTwithCatFeat = indexerModel.transform(indexedTESTregDF)
 ```
 
-
 ## Binary classification model: Predict whether a tip should be paid
 In this section, you create three types of binary classification models to predict whether or not a tip should be paid:
 
@@ -622,7 +622,6 @@ Use Python on local Pandas data frames to plot the ROC curve.
 # QUERY THE RESULTS
 %%sql -q -o sqlResults
 SELECT tipped, probability from testResults
-
 
 # RUN THE CODE LOCALLY ON THE JUPYTER SERVER AND IMPORT LIBRARIES
 %%local
@@ -796,7 +795,6 @@ val elapsedtime =  ((endtime.getTime() - starttime.getTime())/1000).toString;
 println("Time taken to run the above cell: " + elapsedtime + " seconds.");
 ```
 
-
 **Output:**
 
 Time to run the cell: 13 seconds.
@@ -852,8 +850,8 @@ The code creates a local data frame from the query output and plots the data. Th
 
 > [!NOTE]
 > This Spark magic is used multiple times in this article. If the amount of data is large, you should sample to create a data frame that can fit in local memory.
-> 
-> 
+>
+>
 
 Create plots by using Python matplotlib.
 
@@ -898,7 +896,6 @@ val predictions = gbtModel.transform(indexedTESTwithCatFeat)
 # COMPUTE TEST SET R2
 val evaluator = new RegressionEvaluator().setLabelCol("label").setPredictionCol("prediction").setMetricName("r2")
 val Test_R2 = evaluator.evaluate(predictions)
-
 
 # GET THE TIME TO RUN THE CELL
 val endtime = Calendar.getInstance().getTime()
@@ -1045,7 +1042,6 @@ val RMSE  = Array.fill(numModels)(0.0)
 # CREATE K-FOLDS
 val splits = MLUtils.kFold(indexedTRAINbinary, numFolds = nFolds, seed=1234)
 
-
 # LOOP THROUGH K-FOLDS AND THE PARAMETER GRID TO GET AND IDENTIFY THE BEST PARAMETER SET BY LEVEL OF ACCURACY
 for (i <- 0 to (nFolds-1)) {
     validateLB = i * h
@@ -1114,7 +1110,6 @@ val test_rsqr = new RegressionMetrics(labelAndPreds).r2
 val endtime = Calendar.getInstance().getTime()
 val elapsedtime =  ((endtime.getTime() - starttime.getTime())/1000).toString;
 println("Time taken to run the above cell: " + elapsedtime + " seconds.");
-
 
 # LOAD THE MODEL
 val savedRFModel = RandomForestModel.load(sc, filename)

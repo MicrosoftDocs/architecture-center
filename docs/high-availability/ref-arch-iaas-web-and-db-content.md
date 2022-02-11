@@ -142,7 +142,7 @@ For SQL server VMs pricing options, see [SQL VMs pricing](https://www.microsoft.
 
 You're charged only for the number of configured load-balancing and outbound rules. Inbound NAT rules are free. There's no hourly charge for the Standard Load Balancer when no rules are configured.
 
-For more information, see the cost section in [Azure Architecture Framework](../framework/cost/overview.md).
+For more information, see the cost section in [Azure Architecture Framework](/azure/architecture/framework/cost/overview).
 
 ### Application Gateway
 
@@ -168,8 +168,7 @@ Encrypt sensitive data at rest and use [Azure Key Vault](https://azure.microsoft
 
 ### DDoS protection
 
-The Azure platform provides basic DDoS protection by default. This basic protection is targeted at protecting the Azure infrastructure. Although basic DDoS protection is automatically enabled, we recommend using [Azure DDoS Protection Standard](/azure/virtual-network/ddos-protection-overview).
-Standard protection uses adaptive tuning, based on your application's network traffic patterns, to detect threats. This allows it to apply mitigations against DDoS attacks that might go unnoticed by the infrastructure-wide DDoS policies. Standard protection also provides alerting, telemetry, and analytics through Azure Monitor. For more information, see [Azure DDoS Protection: Best practices and reference architectures](/azure/security/fundamentals/ddos-best-practices).
+The Azure platform provides basic DDoS protection by default. This basic protection is targeted at protecting the Azure infrastructure. Although basic DDoS protection is automatically enabled, we recommend using [Azure DDoS Protection Standard](/azure/virtual-network/ddos-protection-overview). Standard protection uses adaptive tuning, based on your application's network traffic patterns, to detect threats. This allows it to apply mitigations against DDoS attacks that might go unnoticed by the infrastructure-wide DDoS policies. Standard protection also provides alerting, telemetry, and analytics through Azure Monitor. For more information, see [Azure DDoS Protection: Best practices and reference architectures](/azure/security/fundamentals/ddos-best-practices).
 
 ## Next steps
 

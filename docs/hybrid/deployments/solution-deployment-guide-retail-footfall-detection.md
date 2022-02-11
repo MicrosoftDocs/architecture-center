@@ -2,23 +2,23 @@
 title: Deploy AI-based footfall detection solution in Azure and Azure Stack Hub
 description: Learn how to deploy an AI-based footfall detection solution for analyzing visitor traffic in retail stores using Azure and Azure Stack Hub.
 author: BryanLa
-ms.service: azure
+ms.service: architecture-center
+ms.subservice: azure-guide
 ms.topic: article
 ms.date: 11/05/2019
 ms.author: bryanla
 ms.reviewer: anajod
 ms.lastreviewed: 11/05/2019
 products:
-  - azure-stack-hub
+  - azure-stack-hubx
   - azure-app-service
   - azure-cognitive-services
-  - azure-event-hubs
   - azure-iot-edge
   - azure-iot-hub
 categories:
   - hybrid
-
 # Intent: As an Azure Stack Hub operator, I want to deploy a footfall detection solution using Azure and Azure Stack Hub so I can analyze visitor traffic in retail stores.
+
 # Keyword: AI footfall detection azure stack hub
 
 ---
@@ -30,14 +30,14 @@ This article describes how to deploy an AI-based solution that generates insight
 In this solution, you learn how to:
 
 > [!div class="checklist"]
-> - Deploy Cloud Native Application Bundles (CNAB) at the edge. 
+> - Deploy Cloud Native Application Bundles (CNAB) at the edge.
 > - Deploy an app that spans cloud boundaries.
 > - Use the Custom Vision AI Dev Kit for inference at the edge.
 
-> [!Tip]  
-> ![Hybrid pillars diagram](media/solution-deployment-guide-cross-cloud-scaling/hybrid-pillars.png)  
-> Microsoft Azure Stack Hub is an extension of Azure. Azure Stack Hub brings the agility and innovation of cloud computing to your on-premises environment, enabling the only hybrid cloud that allows you to build and deploy hybrid apps anywhere.  
-> 
+> [!TIP]
+> ![Hybrid pillars diagram](media/solution-deployment-guide-cross-cloud-scaling/hybrid-pillars.png)
+> Microsoft Azure Stack Hub is an extension of Azure. Azure Stack Hub brings the agility and innovation of cloud computing to your on-premises environment, enabling the only hybrid cloud that allows you to build and deploy hybrid apps anywhere.
+>
 > The article [Hybrid app design considerations](/hybrid/app-solutions/overview-app-design-considerations) reviews pillars of software quality (placement, scalability, availability, resiliency, manageability, and security) for designing, deploying, and operating hybrid apps. The design considerations assist in optimizing hybrid app design, minimizing challenges in production environments.
 
 ## Prerequisites
@@ -53,7 +53,7 @@ Before getting started with this deployment guide, make sure you:
 - Create two service principals in your directory:
   - One set up for use with Azure resources, with access at the Azure subscription scope.
   - One set up for use with Azure Stack Hub resources, with access at the Azure Stack Hub subscription scope.
-  - To learn more about creating service principals and authorizing access, see [Use an app identity to access resources](/azure-stack/operator/azure-stack-create-service-principals). If you prefer to use Azure CLI, see [Create an Azure service principal with Azure CLI](/cli/azure/create-an-azure-service-principal-azure-cli?view=azure-cli-latest&preserve-view=true).
+  - To learn more about creating service principals and authorizing access, see [Use an app identity to access resources](/azure-stack/operator/azure-stack-create-service-principals). If you prefer to use Azure CLI, see [Create an Azure service principal with Azure CLI](/cli/azure/create-an-azure-service-principal-azure-cli).
 - Deploy Azure Cognitive Services in Azure or Azure Stack Hub.
   - First, [learn more about Cognitive Services](https://azure.microsoft.com/services/cognitive-services/).
   - Then visit [Deploy Azure Cognitive Services to Azure Stack Hub](/azure-stack/user/azure-stack-solution-template-cognitive-services) to deploy Cognitive Services on Azure Stack Hub. You first need to sign up for access to the preview.
@@ -71,9 +71,9 @@ Before getting started with this deployment guide, make sure you:
 
 ## Deploy the hybrid cloud app
 
-First you use the Porter CLI to generate a credential set, then deploy the cloud app.  
+First you use the Porter CLI to generate a credential set, then deploy the cloud app.
 
-1. Clone or download the repository containing the solution sample code: https://github.com/Azure-Samples/azure-intelligent-edge-patterns/tree/master/footfall-analysis. 
+1. Clone or download the [repository containing the solution sample code](https://github.com/Azure-Samples/azure-intelligent-edge-patterns/tree/master/footfall-analysis).
 
 1. Porter will generate a set of credentials that will automate deployment of the app. Before running the credential generation command, be sure to have the following available:
 
@@ -91,8 +91,8 @@ First you use the Porter CLI to generate a credential set, then deploy the cloud
 
 1. Porter also requires a set of parameters to run. Create a parameter text file and enter the following name/value pairs. Ask your Azure Stack Hub administrator if you need assistance with any of the required values.
 
-   > [!NOTE] 
-   > The `resource suffix` value is used to ensure that your deployment's resources have unique names across Azure. It must be a unique string of letters and numbers, no longer than 8 characters.
+    > [!NOTE]
+    > The `resource suffix` value is used to ensure that your deployment's resources have unique names across Azure. It must be a unique string of letters and numbers, no longer than 8 characters.
 
     ```porter
     azure_stack_tenant_arm="Your Azure Stack Hub tenant endpoint"
@@ -104,7 +104,8 @@ First you use the Porter CLI to generate a credential set, then deploy the cloud
     powerbi_display_name="Your first and last name"
     powerbi_principal_name="Your Power BI account email address"
     ```
-   Save the text file and make a note of its path.
+
+    Save the text file and make a note of its path.
 
 1. You're now ready to deploy the hybrid cloud app using Porter. Run the install command and watch as resources are deployed to Azure and Azure Stack Hub:
 
@@ -149,13 +150,13 @@ Use the Porter CLI to generate a credential set, then deploy the camera app.
 
     Save the text file and make a note of its path.
 
-4. You're now ready to deploy the camera app using Porter. Run the install command and watch as the IoT Edge deployment is created.
+1. You're now ready to deploy the camera app using Porter. Run the install command and watch as the IoT Edge deployment is created.
 
     ```porter
     porter install footfall-camera –tag intelligentedge/footfall-camera-deployment:0.1.0 –creds footfall-camera-deployment –param-file "path-to-camera-parameters-file.txt"
     ```
 
-5. Verify that the camera's deployment is complete by viewing the camera feed at `https://<camera-ip>:3000/`, where `<camara-ip>` is the camera IP address. This step may take up to 10 minutes.
+1. Verify that the camera's deployment is complete by viewing the camera feed at `https://<camera-ip>:3000/`, where `<camara-ip>` is the camera IP address. This step may take up to 10 minutes.
 
 ## Configure Azure Stream Analytics
 
@@ -168,7 +169,7 @@ Now that data is flowing to Azure Stream Analytics from the camera, we need to m
 3. Select the **traffic-output** output sink.
 
 4. Select **Renew authorization** and sign in to your Power BI account.
-  
+
     ![Renew authorization prompt in Power BI](media/solution-deployment-guide-retail-footfall-detection/image2.png)
 
 5. Save the output settings.

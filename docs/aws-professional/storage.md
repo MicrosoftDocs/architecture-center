@@ -1,17 +1,20 @@
 ---
-title: Comparing AWS and Azure storage services
+title: Compare AWS and Azure storage services
 description: Review storage technology differences between Azure and AWS. Compare Azure Storage with S3, EBS, EFS, and Glacier.
-author: doodlemania2
+author: EdPrice-MSFT
+ms.author: pnp
 ms.date: 05/21/2020
 ms.topic: reference
 ms.service: architecture-center
 ms.subservice: cloud-fundamentals
+categories:
+  - storage
 products:
   - azure-blob-storage
   - azure-storage
 ---
 
-# Comparing storage on Azure and AWS
+# Compare storage on Azure and AWS
 
 ## S3/EBS/EFS and Azure Storage
 
@@ -48,4 +51,4 @@ For data that is infrequently accessed but must be available immediately when ac
 
 - [Azure Storage security guide](/azure/storage/common/storage-security-guide)
 
-- [Best practices for using content delivery networks (CDNs)](../best-practices/cdn.md)
+- [Best practices for using content delivery networks (CDNs)](../best-practices/cdn.yml)

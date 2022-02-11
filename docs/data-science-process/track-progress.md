@@ -9,7 +9,9 @@ ms.subservice: team-data-science-process
 ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
-ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
+ms.custom:
+  - previous-author=deguhath
+  - previous-ms.author=deguhath
 products:
   - azure-machine-learning
 categories:
@@ -22,7 +24,7 @@ Data science group managers, team leads, and project leads can track the progres
 
 ## Azure DevOps dashboards
 
-If you're using Azure DevOps, you can build dashboards to track the activities and work items associated with a given Agile project. For more information about dashboards, see [Dashboards, reports, and widgets](/azure/devops/report/dashboards/).
+If you're using Azure DevOps, you can build dashboards to track the activities and work items associated with a given Agile project. For more information about dashboards, see [Dashboards, reports, and widgets](/azure/devops/report/dashboards/overview).
 
 For instructions on how to create and customize dashboards and widgets in Azure DevOps, see the following quickstarts:
 
@@ -31,13 +33,13 @@ For instructions on how to create and customize dashboards and widgets in Azure 
 
 ## Example dashboard
 
-Here is a simple example dashboard that tracks the sprint activities of an Agile data science project, including the number of commits to associated repositories. 
+Here is a simple example dashboard that tracks the sprint activities of an Agile data science project, including the number of commits to associated repositories.
 
-- The **countdown** tile shows the number of days that remain in the current sprint. 
+- The **countdown** tile shows the number of days that remain in the current sprint.
 
-- The two **code tiles** show the number of commits in the two project repositories for the past seven days. 
+- The two **code tiles** show the number of commits in the two project repositories for the past seven days.
 
-- **Work items for TDSP Customer Project** shows the results of a query for all work items and their status. 
+- **Work items for TDSP Customer Project** shows the results of a query for all work items and their status.
 
 - A **cumulative flow diagram** (CFD) shows the number of Closed and Active work items.
 

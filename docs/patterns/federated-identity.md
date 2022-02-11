@@ -2,7 +2,7 @@
 title: Federated Identity pattern
 titleSuffix: Cloud Design Patterns
 description: Use the Federated Identity design pattern to delegate authentication to an external identity provider.
-author: dragon119
+author: EdPrice-MSFT
 ms.date: 06/23/2017
 ms.topic: conceptual
 ms.service: architecture-center

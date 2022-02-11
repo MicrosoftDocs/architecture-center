@@ -24,8 +24,6 @@ products:
   - azure-application-gateway
   - azure-app-service
   - azure-firewall
-  - azure-key-vault
-  - azure-pipelines
   - azure-virtual-network
 thumbnailUrl: /azure/architecture/browse/thumbs/standard-ase-deployment.png
 content: |

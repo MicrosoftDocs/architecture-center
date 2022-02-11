@@ -1,5 +1,5 @@
 ---
-title: Build and deploy a model using Azure Synapse Analytics - Team Data Science Process
+title: Build and deploy a model using Azure Synapse Analytics
 description: Build and deploy a machine learning model using Azure Synapse Analytics with a publicly available dataset.
 services: machine-learning
 author: marktab
@@ -8,19 +8,22 @@ editor: marktab
 ms.service: machine-learning
 ms.subservice: team-data-science-process
 ms.topic: article
-ms.date: 01/10/2020
+ms.date: 01/22/2022
 ms.author: tdsp
-ms.custom: seodec18, devx-track-python, previous-author=deguhath, previous-ms.author=deguhath
+ms.custom:
+  - devx-track-python
+  - previous-author=deguhath
+  - previous-ms.author=deguhath
 products:
   - azure-machine-learning
 categories:
   - ai-machine-learning
 ---
-# The Team Data Science Process in action: using Azure Synapse Analytics
+# Build and deploy a model using Azure Synapse Analytics
 
-In this tutorial, we walk you through building and deploying a machine learning model using Azure Synapse Analytics for a publicly available dataset -- the [NYC Taxi Trips](https://www.andresmh.com/nyctaxitrips/) dataset. The binary classification model constructed predicts whether or not a tip is paid for a trip.  Models include multiclass classification (whether or not there is a tip) and regression (the distribution for the tip amounts paid).
+In this tutorial, we walk you through building and deploying a machine learning model using Azure Synapse Analytics for a publicly available dataset -- the [NYC Taxi Trips](https://www1.nyc.gov/site/tlc/about/tlc-trip-record-data.page) dataset. The binary classification model constructed predicts whether or not a tip is paid for a trip.  Models include multiclass classification (whether or not there is a tip) and regression (the distribution for the tip amounts paid).
 
-The procedure follows the [Team Data Science Process (TDSP)](/azure/machine-learning/team-data-science-process/) workflow. We show how to set up a data science environment, how to load the data into Azure Synapse Analytics, and how to use either Azure Synapse Analytics or an IPython Notebook to explore the data and engineer features to model. We then show how to build and deploy a model with Azure Machine Learning.
+The procedure follows the [Team Data Science Process (TDSP)](/azure/machine-learning/team-data-science-process/) workflow. We show how to set up a data science environment, how to load the data into Azure Synapse Analytics, and how to use either Azure Synapse Analytics or a Jupyter Notebook to explore the data and engineer features to model. We then show how to build and deploy a model with Azure Machine Learning.
 
 ## <a name="dataset"></a>The NYC Taxi Trips dataset
 
@@ -92,8 +95,7 @@ To set up your Azure Data Science environment, follow these steps.
   * **Storage Account Key**
   * **Container Name** (which you want the data to be stored in the Azure blob storage)
 
-**Provision your Azure Synapse Analytics instance.**
-Follow the documentation at [Create and query an Azure Synapse Analytics in the Azure portal](/azure/synapse-analytics/sql-data-warehouse/create-data-warehouse-portal) to provision a Azure Synapse Analytics instance. Make sure that you make notations on the following Azure Synapse Analytics credentials that will be used in later steps.
+**Provision your Azure Synapse Analytics instance.** Follow the documentation at [Create and query an Azure Synapse Analytics in the Azure portal](/azure/synapse-analytics/sql-data-warehouse/create-data-warehouse-portal) to provision a Azure Synapse Analytics instance. Make sure that you make notations on the following Azure Synapse Analytics credentials that will be used in later steps.
 
 * **Server Name**: \<server Name>.database.windows.net
 * **SQLDW (Database) Name**
@@ -603,13 +605,7 @@ Here is an example to call this function to generate features in your SQL query:
 -- Sample query to call the function to create features
 
    ```sql
-SELECT pickup_latitude, pickup_longitude, dropoff_latitude, dropoff_longitude,
-dbo.fnCalculateDistance(pickup_latitude, pickup_longitude, dropoff_latitude, dropoff_longitude) AS DirectDistance
-FROM <schemaname>.<nyctaxi_trip>
-WHERE datepart("mi",pickup_datetime)=1
-AND CAST(pickup_latitude AS float) BETWEEN -90 AND 90
-AND CAST(dropoff_latitude AS float) BETWEEN -90 AND 90
-AND pickup_longitude != '0' AND dropoff_longitude != '0'
+SELECT pickup_latitude, pickup_longitude, dropoff_latitude, dropoff_longitude, dbo.fnCalculateDistance(pickup_latitude, pickup_longitude, dropoff_latitude, dropoff_longitude) AS DirectDistance FROM <schemaname>.<nyctaxi_trip> WHERE datepart("mi",pickup_datetime)=1 AND CAST(pickup_latitude AS float) BETWEEN -90 AND 90 AND CAST(dropoff_latitude AS float) BETWEEN -90 AND 90 AND pickup_longitude != '0' AND dropoff_longitude != '0'
    ```
 
 **Output:** This query generates a table (with 2,803,538 rows) with pickup and dropoff latitudes and longitudes and the corresponding direct distances in miles. Here are the results for first three rows:
@@ -622,7 +618,7 @@ AND pickup_longitude != '0' AND dropoff_longitude != '0'
 
 ### Prepare data for model building
 
-The following query joins the **nyctaxi\_trip** and **nyctaxi\_fare** tables, generates a binary classification label **tipped**, a multi-class classification label **tip\_class**, and extracts a sample from the full joined dataset. The sampling is done by retrieving a subset of the trips based on pickup time.  This query can be copied then pasted directly in the [Azure Machine Learning Studio (classic)](https://studio.azureml.net) [Import Data][import-data] module for direct data ingestion from the SQL Database instance in Azure. The query excludes records with incorrect (0, 0) coordinates.
+The following query joins the **nyctaxi\_trip** and **nyctaxi\_fare** tables, generates a binary classification label **tipped**, a multi-class classification label **tip\_class**, and extracts a sample from the full joined dataset. The sampling is done by retrieving a subset of the trips based on pickup time.  This SQL query may be copied then pasted for direct data ingestion from the SQL Database instance in Azure. The query excludes records with incorrect (0, 0) coordinates.
 
 ```sql
 SELECT t.*, f.payment_type, f.fare_amount, f.surcharge, f.mta_tax, f.tolls_amount,     f.total_amount, f.tip_amount,
@@ -643,32 +639,18 @@ AND   pickup_longitude != '0' AND dropoff_longitude != '0'
 
 When you are ready to proceed to Azure Machine Learning, you may either:
 
-1. Save the final SQL query to extract and sample the data and copy-paste the query directly into an Import Data][import-data] module in Azure Machine Learning, or
-2. Persist the sampled and engineered data you plan to use for model building in a new Azure Synapse Analytics table and use the new table in the [Import Data][import-data] module in Azure Machine Learning. The PowerShell script in earlier step has done this task for you. You can read directly from this table in the Import Data module.
+1. Save the final SQL query to extract and sample the data and copy-paste the query directly [into a notebook in Azure Machine Learning](/azure/machine-learning/samples-notebooks), or
+2. Persist the sampled and engineered data you plan to use for model building in a new Azure Synapse Analytics table and access that table [through a datastore in Azure Machine Learning](/azure/machine-learning/concept-data#connect-to-storage-with-datastores).
 
-## <a name="ipnb"></a>Data exploration and feature engineering in IPython notebook
+## <a name="ipnb"></a>Data exploration and feature engineering in the notebook
 
-In this section, we will perform data exploration and feature generation
-using both Python and SQL queries against the Azure Synapse Analytics created earlier. A sample IPython notebook named **SQLDW_Explorations.ipynb** and a Python script file **SQLDW_Explorations_Scripts.py** have been downloaded to your local directory. They are also available on [GitHub](https://github.com/Azure/Azure-MachineLearning-DataScience/tree/master/Misc/SQLDW). These two files are identical in Python scripts. The Python script file is provided to you in case you do not have an IPython Notebook server. These two sample Python files are designed under **Python 2.7**.
+In this section, we will perform data exploration and feature generation using both Python and SQL queries against the Azure Synapse Analytics created earlier. A sample  notebook named **SQLDW_Explorations.ipynb** and a Python script file **SQLDW_Explorations_Scripts.py** have been downloaded to your local directory. They are also available on [GitHub](https://github.com/Azure/Azure-MachineLearning-DataScience/tree/master/Misc/SQLDW). These two files are identical in Python scripts. The Python script file is provided to you in case you would like to use Python without a notebook. These two sample Python files were designed under **Python 2.7**.
 
-The needed Azure Synapse Analytics information in the sample IPython Notebook and the Python script file downloaded to your local machine has been plugged in by the PowerShell script previously. They are executable without any modification.
+The needed Azure Synapse Analytics information in the sample Jupyter Notebook and the Python script file downloaded to your local machine has been plugged in by the PowerShell script previously. They are executable without any modification.
 
-If you have already set up an Azure Machine Learning workspace, you can directly upload the sample IPython Notebook to the AzureML IPython Notebook service and start running it. Here are the steps to upload to the AzureML IPython Notebook service:
+If you have already set up an Azure Machine Learning workspace, you can directly upload the sample  Notebook to the AzureML Notebooks area.  For directions on uploading a notebook, see [Run Jupyter Notebooks in your workspace](/azure/machine-learning/how-to-run-jupyter-notebooks)
 
-1. Log in to your Azure Machine Learning workspace, click **Studio"** at the top, and click **NOTEBOOKS** on the left side of the web page.
-
-    ![Click Studio then NOTEBOOKS][22]
-2. Click **NEW** on the left bottom corner of the web page, and select **Python 2**. Then, provide a name to the notebook and click the check mark to create the new blank IPython Notebook.
-
-    ![Click NEW then select Python 2][23]
-3. Click the **Jupyter** symbol on the left top corner of the new IPython Notebook.
-
-    ![Click Jupyter symbol][24]
-4. Drag and drop the sample IPython Notebook to the **tree** page of your AzureML IPython Notebook service, and click **Upload**. Then, the sample IPython Notebook will be uploaded to the AzureML IPython Notebook service.
-
-    ![Click Upload][25]
-
-In order to run the sample IPython Notebook or the Python script file, the following Python packages are needed. If you are using the AzureML IPython Notebook service, these packages have been pre-installed.
+Note: In order to run the sample Jupyter Notebook or the Python script file, the following Python packages are needed.
 
 - pandas
 - numpy
@@ -684,7 +666,7 @@ When building advanced analytical solutions on Azure Machine Learning with large
 * For larger data exploration, data manipulation and feature engineering, use Python to issue SQL Queries directly against the Azure Synapse Analytics.
 * Decide the sample size to be suitable for Azure Machine Learning model building.
 
-The followings are a few data exploration, data visualization, and feature engineering examples. More data explorations can be found in the sample IPython Notebook and the sample Python script file.
+The followings are a few data exploration, data visualization, and feature engineering examples. More data explorations can be found in the sample Jupyter Notebook and the sample Python script file.
 
 ### Initialize database credentials
 
@@ -771,13 +753,11 @@ print 'Time to read the sample table is %f seconds' % (t1-t0)
 print 'Number of rows and columns retrieved = (%d, %d)' % (df1.shape[0], df1.shape[1])
 ```
 
-Time to read the sample table is 14.096495 seconds.
-Number of rows and columns retrieved = (1000, 21).
+Time to read the sample table is 14.096495 seconds. Number of rows and columns retrieved = (1000, 21).
 
 ### Descriptive statistics
 
-Now you are ready to explore the sampled data. We start with
-looking at some descriptive statistics for the **trip\_distance** (or any other fields you choose to specify).
+Now you are ready to explore the sampled data. We start with looking at some descriptive statistics for the **trip\_distance** (or any other fields you choose to specify).
 
 ```sql
 df1['trip_distance'].describe()
@@ -836,8 +816,7 @@ pd.Series(trip_dist_bin_id).value_counts().plot(kind='line')
 
 ### Visualization: Scatterplot examples
 
-We show scatter plot between **trip\_time\_in\_secs** and **trip\_distance** to see if there
-is any correlation
+We show scatter plot between **trip\_time\_in\_secs** and **trip\_distance** to see if there is any correlation
 
 ```sql
 plt.scatter(df1['trip_time_in_secs'], df1['trip_distance'])
@@ -853,7 +832,7 @@ plt.scatter(df1['passenger_count'], df1['trip_distance'])
 
 ![Scatterplot output of relationship between code and distance][8]
 
-### Data exploration on sampled data using SQL queries in IPython notebook
+### Data exploration on sampled data using SQL queries in Jupyter notebook
 
 In this section, we explore data distributions using the sampled data that is persisted in the new table we created above. Similar explorations may be performed using the original tables.
 
@@ -960,22 +939,22 @@ pd.read_sql(query,conn)
 
 ## <a name="mlmodel"></a>Build models in Azure Machine Learning
 
-We are now ready to proceed to model building and model deployment in [Azure Machine Learning](https://studio.azureml.net). The data is ready to be used in any of the prediction problems identified earlier, namely:
+We are now ready to proceed to model building and model deployment in [Azure Machine Learning](/azure/machine-learning/). The data is ready to be used in any of the prediction problems identified earlier, namely:
 
 1. **Binary classification**: To predict whether or not a tip was paid for a trip.
 2. **Multiclass classification**: To predict the range of tip paid, according to the previously defined classes.
 3. **Regression task**: To predict the amount of tip paid for a trip.
 
-To begin the modeling exercise, log in to your **Azure Machine Learning (classic)** workspace. If you have not yet created a machine learning workspace, see [Create an Azure Machine Learning Studio (classic) workspace](/azure/machine-learning/classic/create-workspace).
+To begin the modeling exercise, log in to your **Azure Machine Learning workspace**. If you have not yet created a machine learning workspace, see [Create the workspace](/azure/machine-learning/quickstart-create-resources#create-the-workspace).
 
-1. To get started with Azure Machine Learning, see [What is Azure Machine Learning Studio (classic)?](/azure/machine-learning/overview-what-is-machine-learning-studio#ml-studio-classic-vs-azure-machine-learning-studio)
-2. Log in to [Azure Machine Learning Studio (classic)](https://studio.azureml.net).
-3. The Machine Learning Studio (classic) Home page provides a wealth of information, videos, tutorials, links to the Modules Reference, and other resources. For more information about Azure Machine Learning, see the [Azure Machine Learning Documentation Center](https://azure.microsoft.com/documentation/services/machine-learning/).
+1. To get started with Azure Machine Learning, see [What is Azure Machine Learning?](/azure/machine-learning/overview-what-is-azure-machine-learning)
+2. Sign in to [the Azure portal](https://portal.azure.com).
+3. The Machine Learning Home page provides a wealth of information, videos, tutorials, links to the Modules Reference, and other resources. For more information about Azure Machine Learning, see the [Azure Machine Learning Documentation Center](/azure/machine-learning/).
 
 A typical training experiment consists of the following steps:
 
-1. Create a **+NEW** experiment.
-2. Get the data into Azure Machine Learning Studio (classic).
+1. Create an authoring resource (notebook or designer, for example).
+2. Get the data into Azure Machine Learning.
 3. Pre-process, transform, and manipulate the data as needed.
 4. Generate features as needed.
 5. Split the data into training/validation/testing datasets(or have separate datasets for each).
@@ -985,52 +964,19 @@ A typical training experiment consists of the following steps:
 9. Evaluate the model(s) to compute the relevant metrics for the learning problem.
 10. Tune the model(s) and select the best model to deploy.
 
-In this exercise, we have already explored and engineered the data in Azure Synapse Analytics, and decided on the sample size to ingest in Azure Machine Learning Studio (classic). Here is the procedure to build one or more of the prediction models:
+In this exercise, we have already explored and engineered the data in Azure Synapse Analytics, and decided on the sample size to ingest in Azure Machine Learning. Here is the procedure to build one or more of the prediction models:
 
-1. Get the data into Azure Machine Learning Studio (classic) using the [Import Data][import-data] module, available in the **Data Input and Output** section. For more information, see the [Import Data][import-data] module reference page.
+1. Get the data into Azure Machine Learning.  For details, see [Data ingestion options for Azure Machine Learning workflows](/azure/machine-learning/concept-data-ingestion)
+2. Connect to Synapse Analytics.  For details, see [Link Azure Synapse Analytics and Azure Machine Learning workspaces and attach Apache Spark pools](/azure/machine-learning/how-to-link-synapse-ml-workspaces)
 
-    ![Azure ML Import Data][17]
-2. Select **Azure SQL Database** as the **Data source** in the **Properties** panel.
-3. Enter the database DNS name in the **Database server name** field. Format: `tcp:<your_virtual_machine_DNS_name>,1433`
-4. Enter the **Database name** in the corresponding field.
-5. Enter the *SQL user name* in the **Server user account name**, and the *password* in the **Server user account password**.
-7. In the **Database query** edit text area, paste the query that extracts the necessary database fields (including any computed fields such as the labels) and down samples the data to the desired sample size.
-
-An example of a binary classification experiment reading data directly from the Azure Synapse Analytics database is in the figure below (remember to replace the table names nyctaxi_trip and nyctaxi_fare by the schema name and the table names you used in your walkthrough). Similar experiments can be constructed for multiclass classification and regression problems.
-
-![Azure ML Train][10]
 
 > [!IMPORTANT]
 > In the modeling data extraction and sampling query examples provided in previous sections, **all labels for the three modeling exercises are included in the query**. An important (required) step in each of the modeling exercises is to **exclude** the unnecessary labels for the other two problems, and any other **target leaks**. For example, when using binary classification, use the label **tipped** and exclude the fields **tip\_class**, **tip\_amount**, and **total\_amount**. The latter are target leaks since they imply the tip paid.
 >
-> To exclude any unnecessary columns or target leaks, you may use the [Select Columns in Dataset][select-columns] module or the [Edit Metadata][edit-metadata]. For more information, see [Select Columns in Dataset][select-columns] and [Edit Metadata][edit-metadata] reference pages.
->
->
 
 ## <a name="mldeploy"></a>Deploy models in Azure Machine Learning
 
-When your model is ready, you can easily deploy it as a web service directly from the experiment. For more information about deploying Azure ML web services, see [Deploy an Azure Machine Learning web service](/azure/machine-learning/classic/deploy-a-machine-learning-web-service).
-
-To deploy a new web service, you need to:
-
-1. Create a scoring experiment.
-2. Deploy the web service.
-
-To create a scoring experiment from a **Finished** training experiment, click **CREATE SCORING EXPERIMENT** in the lower action bar.
-
-![Azure Scoring][18]
-
-Azure Machine Learning will attempt to create a scoring experiment based on the components of the training experiment. In particular, it will:
-
-1. Save the trained model and remove the model training modules.
-2. Identify a logical **input port** to represent the expected input data schema.
-3. Identify a logical **output port** to represent the expected web service output schema.
-
-When the scoring experiment is created, review the results and make adjust as needed. A typical adjustment is to replace the input dataset or query with one that excludes label fields, because these label fields will not be mapped to the schema when calling the service. It is also a good practice to reduce the size of the input dataset and/or query to a few records, enough to indicate the input schema. For the output port, it is common to exclude all input fields and only include the **Scored Labels** and **Scored Probabilities** in the output using the [Select Columns in Dataset][select-columns] module.
-
-A sample scoring experiment is provided in the figure below. When ready to deploy, click the **PUBLISH WEB SERVICE** button in the lower action bar.
-
-![Azure ML Publish][11]
+When your model is ready, you can easily deploy it as a web service directly from the model stored in the experiment run.  For details on the options for deployment, see [Deploy machine learning models to Azure](/azure/machine-learning/how-to-deploy-and-where)
 
 ## Summary
 
@@ -1038,12 +984,10 @@ To recap what we have done in this walkthrough tutorial, you have created an Azu
 
 ### License information
 
-This sample walkthrough and its accompanying scripts and IPython notebook(s) are shared by Microsoft under the MIT license. Check the LICENSE.txt file in the directory of the sample code on GitHub for more details.
+This sample walkthrough and its accompanying scripts and notebook(s) are shared by Microsoft under the MIT license. Check the LICENSE.txt file in the directory of the sample code on GitHub for more details.
 
 ## References
 
-- [Andrés Monroy NYC Taxi Trips Download Page](https://www.andresmh.com/nyctaxitrips/)
-- [FOILing NYC's Taxi Trip Data by Chris Whong](https://chriswhong.com/open-data/foil_nyc_taxi/)
 - [NYC Taxi and Limousine Commission Research and Statistics](https://www1.nyc.gov/site/tlc/about/tlc-trip-record-data.page)
 
 [1]: ./media/sqldw-walkthrough/sql-walkthrough-26-1.png
@@ -1059,20 +1003,12 @@ This sample walkthrough and its accompanying scripts and IPython notebook(s) are
 [11]: ./media/sqldw-walkthrough/azure-ml-publish.png
 [12]: ./media/sqldw-walkthrough/ssms-connect.png
 [13]: ./media/sqldw-walkthrough/execute-script.png
-[14]: ./media/sqldw-walkthrough/sql-server-properties.png
 [15]: ./media/sqldw-walkthrough/sql-default-dirs.png
 [16]: ./media/sqldw-walkthrough/bulk-import.png
-[17]: ./media/sqldw-walkthrough/aml-reader.png
-[18]: ./media/sqldw-walkthrough/aml-scoring.png
 [19]: ./media/sqldw-walkthrough/ps-download-scripts.png
 [20]: ./media/sqldw-walkthrough/ps-load-data.png
 [21]: ./media/sqldw-walkthrough/azcopy-overwrite.png
-[22]: ./media/sqldw-walkthrough/ipnb-service-aml-1.png
-[23]: ./media/sqldw-walkthrough/ipnb-service-aml-2.png
-[24]: ./media/sqldw-walkthrough/ipnb-service-aml-3.png
-[25]: ./media/sqldw-walkthrough/ipnb-service-aml-4.png
 [26]: ./media/sqldw-walkthrough/tip-class-hist-1.png
-
 
 <!-- Module References -->
 [edit-metadata]: /azure/machine-learning/studio-module-reference/edit-metadata

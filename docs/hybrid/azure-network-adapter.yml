@@ -2,9 +2,9 @@
 metadata:
   title: Connect standalone servers by using Azure Network Adapter
   description: Learn how to connect an on-premises standalone server to Microsoft Azure virtual networks by using the Azure Network Adapter that you deploy through Windows Admin Center (WAC).
-  author: doodlemania2
-  ms.author: pnp
-  ms.date: 07/23/2020
+  author: fmigacz
+  ms.author: fmigacz
+  ms.date: 05/07/2021
   ms.topic: conceptual
   ms.service: architecture-center
   ms.subservice: reference-architecture

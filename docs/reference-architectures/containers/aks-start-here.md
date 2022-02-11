@@ -4,7 +4,7 @@ titleSuffix: Azure Architecture Center
 description: An overview of Microsoft Azure Kubernetes Service (AKS) guidance offerings ranging from &quot;just starting out&quot;, to production, and through sustained operations.
 author: ckittel
 ms.author: pnp
-ms.date: 08/16/2020
+ms.date: 02/02/2022
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: reference-architecture
@@ -36,16 +36,16 @@ If you're new to Kubernetes or AKS, the best place to learn about the service is
 
 You understand the benefits and trade-offs of Kubernetes, and have decided that AKS is the best Azure compute platform for your workload. Your organizational controls have been put into place; you're ready to learn how to deploy production-ready clusters for your workload.
 
-**Microsoft's AKS Baseline Cluster** is the starting point to help you build production-ready AKS clusters. 
+**Microsoft's AKS Baseline Cluster** is the starting point to help you build production-ready AKS clusters.
 
 > [!div class="nextstepaction"]
 > [Microsoft's AKS Baseline Cluster](../../reference-architectures/containers/aks/secure-baseline-aks.yml)
 
 We recommend you start from the baseline implementation and modify it to align to your workload's specific needs.
 
-## Suite of baseline implementations 
+## Suite of baseline implementations
 
-We've provided a set of more baseline implementations to illustrate how you can adopt and configure components of AKS Baseline Cluster for various scenarios. 
+We've provided a set of more baseline implementations to illustrate how you can adopt and configure components of AKS Baseline Cluster for various scenarios.
 
 ### Microservices
 
@@ -61,9 +61,9 @@ If you need a regulated environment, make the baseline implementation highly sec
 > [!div class="nextstepaction"]
 > [Regulated baseline cluster for PCI-DSS 3.2.1](./aks-pci/aks-pci-intro.yml)
 
-### High availability
+### Business continuity and disaster recovery
 
-A highly available solution needs multiple instances of the baseline cluster across regions in an active/active and highly available configuration.
+A resilient solution needs multiple instances of the baseline cluster across regions in an active/active and highly available configuration.
 
 > [!div class="nextstepaction"]
 > [Baseline for multiregion clusters](./aks-multi-region/aks-multi-cluster.yml)
@@ -97,8 +97,6 @@ Kubernetes and AKS are both moving fast. The platform is evolving and just knowi
 
 ---
 
-
-
 ## Additional resources
 
 The typical AKS solution journey shown ranges from learning about AKS to growing your existing clusters to meet new product and customer demands. However, you might also just be looking for additional reference and supporting material to help along the way for your specific situation.
@@ -112,12 +110,12 @@ If you're seeking additional references that use AKS as their foundation, here a
 * [Building a telehealth system](../../example-scenario/apps/telehealth-system.yml)
 * [CI/CD pipeline for container-based workloads](../../example-scenario/apps/devops-with-aks.yml)
 
-### Azure Arc
+### Azure Arc-enabled Kubernetes
 
-Azure Kubernetes Service offers you a managed Kubernetes experience on Azure, however there are workloads or situations that might be best suited for placing your own Kubernetes clusters under [Azure Arc](/azure/azure-arc/) management. This includes your clusters such as RedHat OpenShift, RedHat RKE, and Canonical Charmed Kubernetes. Azure Arc management should also be used for [AKS Engine](https://github.com/Azure/aks-engine) clusters running in your datacenter, in another cloud, or on [Azure Stack Hub](/azure-stack/user/azure-stack-kubernetes-aks-engine-overview).
+Azure Kubernetes Service offers you a managed Kubernetes experience on Azure, however there are workloads or situations that might be best suited for placing your own Kubernetes clusters under [Azure Arc-enabled Kubernetes](/azure/azure-arc/kubernetes) management. This includes your clusters such as RedHat OpenShift, RedHat RKE, and Canonical Charmed Kubernetes. Azure Arc management can also be used with [Cluster API provider Azure](https://github.com/kubernetes-sigs/cluster-api-provider-azure) clusters to benefit from the Azure Resource Manager representation of the cluster and availability of cluster extensions like Azure Monitor container insights and Azure Policy. Azure Arc-enabled Kubernetes can also be used with [AKS on Azure Stack HCI clusters](/azure-stack/aks-hci/connect-to-arc) and with Kubernetes clusters running on other cloud providers.
 
 > [!div class="nextstepaction"]
-> [Azure Arc enabled Kubernetes](/Azure/azure-arc/kubernetes/overview)
+> [Azure Arc-enabled Kubernetes](/Azure/azure-arc/kubernetes/overview)
 
 ### Managed service provider
 

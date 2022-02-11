@@ -3,7 +3,7 @@ metadata:
   title: Lift and shift to containers with AKS
   titleSuffix: Azure Solution Ideas
   description: Migrate existing applications to containers in Azure Kubernetes Service (AKS). Use Open Service Broker for Azure (OSBA) to access Azure databases.
-  author: doodlemania2
+  author: EdPrice-MSFT
   ms.author: pnp
   ms.date: 12/16/2019
   ms.topic: conceptual

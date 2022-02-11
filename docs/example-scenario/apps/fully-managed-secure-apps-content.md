@@ -2,7 +2,7 @@ This scenario provides an overview of deploying secure applications using the [A
 
 This scenario is commonly deployed in industries such as banking and insurance where customers are conscious of platform-level security in addition to application level security. To demonstrate these concepts, we'll use an application that allows users to submit expense reports.
 
-## Relevant use cases
+## Potential use cases
 
 Consider this scenario for the following use cases:
 
@@ -12,7 +12,9 @@ Consider this scenario for the following use cases:
 
 ## Architecture
 
-![Sample scenario architecture for Secure ILB ASE Deployment][architecture]
+![Diagram featuring the sample scenario architecture for Secure ILB ASE Deployment.][architecture]
+
+### Dataflow
 
 Data flows through the scenario as follows:
 
@@ -29,11 +31,11 @@ Data flows through the scenario as follows:
 
 - The [App Service Environment][intro-to-app-svc-env] provides a fully isolated, dedicated environment for securely running the application at high scale. In addition, since ASE and the workloads that run on it are behind a virtual network, it also provides an additional layer of security and isolation. The requirement of high scale and isolation drove the selection of ILB ASE.
 - This workload is using the [isolated App Service pricing tier][isolated-tier-pricing-and-ase-pricing], so the application is running in a private dedicated environment in an Azure datacenter using Dv2-series VMs with faster processors, SSD storage, and double the memory-to-core ratio compared to Standard.
-- Azure App Services [Web App][docs-webapps] and [API App][docs-apiapps] host web applications and RESTful APIs. These are hosted on the Isolated Pricing Tier plan that also offers autoscaling, custom domains, and so on, but in a dedicated tier.
+- Azure App Services [Web App][docs-webapps] and [API App][docs-apiapps] host web applications and RESTful APIs. These apps and APIs are hosted on the Isolated Pricing Tier plan, which also offers autoscaling, custom domains, and so on, but in a dedicated tier.
 - Azure [Application Gateway][docs-appgw] is a web traffic load balancer operating at Layer 7 that manages traffic to the web application. It offers SSL offloading, which removes additional overhead from the web servers hosting the web app to decrypt traffic again.
 - [Web Application Firewall][docs-waf] (WAF) is a feature of Application Gateway. Enabling the WAF in the Application Gateway further enhances security. The WAF uses OWASP rules to protect the web application against attacks such as cross-site scripting, session hijacks, and SQL injection.
-- [Azure SQL Database][docs-sql-database] was selected because the majority of the data in this application is relational data, with some data as documents and Blobs.
-- [Azure Networking][azure-networking] provides a variety of networking capabilities in Azure, and the networks can be peered with other virtual networks in Azure Connectivity can also be established with on-premises datacenters via ExpressRoute or site-to-site. In this case, a [service endpoint][sql-service-endpoint] is enabled on the virtual network to ensure the data is flowing only between the Azure virtual network and the SQL Database instance.
+- [Azure SQL Database][docs-sql-database] was selected because most of the data in this application is relational data, with some data as documents and Blobs.
+- [Azure Networking][azure-networking] provides various networking capabilities in Azure, and the networks can be peered with other virtual networks in Azure Connectivity can also be established with on-premises datacenters via ExpressRoute or site-to-site. In this case, a [service endpoint][sql-service-endpoint] is enabled on the virtual network to ensure the data is flowing only between the Azure virtual network and the SQL Database instance.
 - [Azure DevOps][docs-azure-devops] is used to help teams collaborate during many sprints, using features of Azure DevOps that support Agile Development, and to create build and release pipelines.
 - An Azure build [VM][docs-azure-vm] was created so that the installed agent can pull down the respective build, and deploy the web app to the ASE environment.
 
@@ -42,7 +44,7 @@ Data flows through the scenario as follows:
 ASE can run regular web apps on Windows or, as in this example, the web apps deployed inside the ASE are each running as Linux containers. ASE was selected to host these single-instance containerized applications. There are alternatives available&mdash;review the considerations below when designing your solution.
 
 - [Azure Service Fabric][docs-service-fabric]: If your environment is predominantly Windows-based, and your workloads are primarily .NET Framework-based, and you are not yet considering rearchitecting to .NET Core, then use Service Fabric to support and deploy Windows Server Containers. Additionally, Service Fabric supports C# or Java programming APIs, and for developing native microservices, the clusters can be provisioned on Windows or Linux.
-- [Azure Kubernetes Service][docs-kubernetes-service] (AKS) is an open source project and an orchestration platform more suited to hosting complex multicontainer applications that typically use a microservices-based architecture. AKS is a managed Azure service that abstracts away the complexities of provisioning and configuring a Kubernetes cluster. However, significant knowledge of the Kubernetes platform is still required to support and maintain it,so hosting a handful of single-instance containerized web applications may not be the best option.
+- [Azure Kubernetes Service][docs-kubernetes-service] (AKS) is an open-source project and an orchestration platform more suited to hosting complex multicontainer applications that typically use a microservices-based architecture. AKS is a managed Azure service that abstracts away the complexities of provisioning and configuring a Kubernetes cluster. However, significant knowledge of the Kubernetes platform is still required to support and maintain it, so hosting a handful of single-instance containerized web applications may not be the best option.
 
 Other options for the data tier include:
 
@@ -50,14 +52,13 @@ Other options for the data tier include:
 
 ## Considerations
 
-There are certain considerations to be aware of when dealing with certificates on ILB ASE. The real trick here is generating a certificate that is chained up to a trusted root without requiring a Certificate Signing Request generated by the server on which the cert will be eventually placed. With IIS, for example, the first step is to generate a CSR from your IIS server and then send it to the SSL certificate issuing authority.
+There are certain considerations to be aware of when dealing with certificates on ILB ASE. The real trick here is generating a certificate that is chained up to a trusted root without requiring a Certificate Signing Request generated by the server on which the cert will be eventually placed. With IIS, for example, the first step is to generate a CSR from your IIS server and then send it to the SSL certificate-issuing authority.
 
-You cannot issue a CSR from the Internal Load Balancer (ILB) of an ASE. The way to handle this is to use [this procedure][create-wildcard-cert-letsencrypt].
+You cannot issue a CSR from the Internal Load Balancer (ILB) of an ASE. The way to handle this limitation, is to use [the wildcard procedure][create-wildcard-cert-letsencrypt].
 
 The above allows you to use proof of DNS name ownership instead of a CSR. If you own a DNS namespace, you can put in special DNS TXT record, the above service checks that the record is there, and if found, knows that you own the DNS server because you have the right record. Based on that information, it issues a certificate that is signed up to a trusted root, which you can then upload to your ILB. You don't need to do anything with the individual certificate stores on the Web Apps because you have a trusted root SSL certificate at the ILB.
 
-Make self-signed or internally issued SSL cert work if we want to make secure calls between services running in ILB ASE
-Another [solution to consider][ase-and-internally-issued-cert] on how to make ILB ASE work with internally issued SSL certificate and how to load the internal CA to the trusted root store.
+Make self-signed or internally issued SSL cert work if we want to make secure calls between services running in ILB ASE Another [solution to consider][ase-and-internally-issued-cert] on how to make ILB ASE work with internally issued SSL certificate and how to load the internal CA to the trusted root store.
 
 While provisioning the ASE, consider the following limitations when choosing a domain name for the ASE. Domain names cannot be:
 
@@ -78,7 +79,7 @@ Another point to consider is regarding DNS. In order to allow applications withi
 
 ### Availability
 
-- Consider leveraging the [typical design patterns for availability](../../framework/resiliency/reliability-patterns.md) when building your cloud application.
+- Consider applying the [typical design patterns for availability](/azure/architecture/framework/resiliency/reliability-patterns) when building your cloud application.
 - Review the availability considerations in the appropriate [App Service web application reference architecture][app-service-reference-architecture].
 - For additional considerations concerning availability, see the [availability checklist](../../checklist/resiliency-per-service.md) in the Azure Architecture Center.
 
@@ -86,13 +87,13 @@ Another point to consider is regarding DNS. In order to allow applications withi
 
 - Understand how [scale works][docs-azure-scale-ase] in ASE.
 - Review best practices for [cloud apps autoscale][design-best-practice-cloud-apps-autoscale].
-- When building a cloud application, be aware of the [typical design patterns for scalability](../../framework/resiliency/reliability-patterns.md).
+- When building a cloud application, be aware of the [typical design patterns for scalability](/azure/architecture/framework/resiliency/reliability-patterns).
 - Review the scalability considerations in the appropriate [App Service web application reference architecture][app-service-reference-architecture].
 - For other scalability topics, see the [performance efficiency checklist][scalability] available in the Azure Architecture Center.
 
 ### Security
 
-- Consider leveraging the [typical design patterns for security](../../framework/security/security-patterns.md) where appropriate.
+- Consider applying the [typical design patterns for security](/azure/architecture/framework/security/security-patterns) where appropriate.
 - Review the security considerations in the appropriate [App Service web application reference architecture][app-service-reference-architecture].
 - Consider following a [secure development lifecycle][secure-development] process to help developers build more secure software and address security compliance requirements while reducing development cost.
 - Review the blueprint architecture for [Azure PCI DSS compliance][pci-dss-blueprint].
@@ -100,12 +101,12 @@ Another point to consider is regarding DNS. In order to allow applications withi
 ### Resiliency
 
 - Consider using [Geo Distributed Scale with ASE][design-geo-distributed-ase] for greater resiliency and scalability.
-- Review the [typical design patterns for resiliency](../../framework/resiliency/reliability-patterns.md) and consider implementing these where appropriate.
-- You can find a number of [recommended practices for App Service][resiliency-app-service] in the Azure Architecture Center.
+- Review the [typical design patterns for resiliency](/azure/architecture/framework/resiliency/reliability-patterns) and consider implementing these where appropriate.
+- You can find several [recommended practices for App Service][resiliency-app-service] in the Azure Architecture Center.
 - Consider using active [geo-replication][sql-geo-replication] for the data tier and [geo-redundant][storage-geo-redudancy] storage for images and queues.
 - For a deeper discussion on [resiliency][resiliency], see the relevant article in the Azure Architecture Center.
 
-## Deploy the scenario
+## Deploy this scenario
 
 To deploy this scenario, you can follow this [step-by-step tutorial][end-to-end-walkthrough] demonstrating how to manually deploy each component. This tutorial also provides a .NET sample application that runs a simple Contoso expense reporting application.
 
@@ -117,12 +118,20 @@ We have provided three sample cost profiles based on amount of traffic you expec
 
 - [Small][small-pricing]: This pricing example represents the components necessary to build the out for a minimum production level instance. Here we are assuming a small number of users, numbering only in a few thousand per month. The app is using a single instance of a standard web app that will be enough to enable autoscaling. Each of the other components is scaled to a basic tier that will allow for a minimum amount of cost but still ensure that there is SLA support and enough capacity to handle a production-level workload.
 - [Medium][medium-pricing]: This pricing example represents the components indicative of a moderate size deployment. Here we estimate approximately 100,000 users using the system over the course of a month. The expected traffic is handled in a single app service instance with a moderate standard tier. Additionally, moderate tiers of cognitive and search services are added to the calculator.
-- [Large][large-pricing]: This pricing example represents an application meant for high scale, at the order of millions of users per month moving terabytes of data. At this level of usage high performance, premium tier web apps deployed in multiple regions fronted by traffic manager is required. Data consists of the following components: storage, databases, and CDN, are configured for terabytes of data.
+- [Large][large-pricing]: This pricing example represents an application meant for high scale, at the order of millions of users per month, when moving terabytes of data. At this level of usage high performance, premium tier web apps deployed in multiple regions fronted by traffic manager is required. Data consists of the following components: storage, databases, and CDN, are configured for terabytes of data.
+
+## Next steps
+
+- [Step-by-step deployment tutorial][end-to-end-walkthrough]
+- [Integrate your ILB App Service Environment with the Azure Application Gateway][integrate-ilb-ase-with-appgw]
+- [Integrate your Web Apps with the Azure Application Gateway][use-app-svc-web-apps-with-appgw]
+- [Geo distributed scale with ASE][design-geo-distributed-ase]
 
 ## Related resources
 
-- [Integrate your ILB App Service Environment with the Azure Application Gateway][integrate-ilb-ase-with-appgw]
-- [Integrate your Web Apps with the Azure Application Gateway][use-app-svc-web-apps-with-appgw]
+- [App Service web application reference architecture][app-service-reference-architecture]
+- [High availability enterprise deployment using App Services Environment](/azure/architecture/reference-architectures/enterprise-integration/ase-high-availability-deployment)
+- [Publish internal APIs to external users](/azure/architecture/example-scenario/apps/publish-internal-apis-externally)
 
 <!-- links -->
 
@@ -143,10 +152,10 @@ We have provided three sample cost profiles based on amount of traffic you expec
 [app-service-reference-architecture]: ../../reference-architectures/app-service-web-app/basic-web-app.yml
 [availability]: ../../checklist/resiliency-per-service.md
 
-[design-patterns-availability]: ../../framework/resiliency/reliability-patterns.md
-[design-patterns-resiliency]: ../../framework/resiliency/resiliency-patterns.md
-[design-patterns-performance-efficiency]: ../../framework/scalability/performance-efficiency-patterns.md
-[design-patterns-security]: ../../framework/security/security-patterns.md
+[design-patterns-availability]: /azure/architecture/framework/resiliency/reliability-patterns
+[design-patterns-resiliency]: /azure/architecture/framework/resiliency/resiliency-patterns
+[design-patterns-performance-efficiency]: /azure/architecture/framework/scalability/performance-efficiency-patterns
+[design-patterns-security]: /azure/architecture/framework/security/security-patterns
 [design-geo-distributed-ase]: /azure/app-service/environment/app-service-app-service-environment-geo-distributed-scale
 [design-best-practice-cloud-apps-autoscale]: ../../best-practices/auto-scaling.md
 
@@ -167,8 +176,8 @@ We have provided three sample cost profiles based on amount of traffic you expec
 [integrate-ilb-ase-with-appgw]: /azure/app-service/environment/integrate-with-application-gateway
 [pci-dss-blueprint]: /azure/security/blueprints/payment-processing-blueprint
 [resiliency-app-service]: ../../checklist/resiliency-per-service.md#app-service
-[resiliency]: ../../framework/resiliency/principles.md
-[scalability]: ../../framework/scalability/performance-efficiency.md
+[resiliency]: /azure/architecture/framework/resiliency/principles
+[scalability]: /azure/architecture/framework/scalability/performance-efficiency
 [secure-development]: https://www.microsoft.com/SDL/process/design.aspx
 [sql-geo-replication]: /azure/sql-database/sql-database-geo-replication-overview
 [storage-geo-redudancy]: /azure/storage/common/storage-redundancy-grs

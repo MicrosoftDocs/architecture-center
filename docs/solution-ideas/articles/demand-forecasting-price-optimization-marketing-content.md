@@ -4,7 +4,7 @@ Pricing is pivotal for many industries, but it can be one of the most challengin
 
 This solution addresses those challenges by using historical transaction data to train a demand-forecasting model in a retail context. It also incorporates the pricing of products in a competing group to predict cannibalization and other cross-product impacts. A price-optimization algorithm then uses that model to forecast demand at various price points and factors in business constraints to maximize potential profit.
 
-The process described above can be operationalized and deployed in [Microsoft AI platform](https://www.microsoft.com/ai/ai-platform). 
+The process described above can be operationalized and deployed in [Microsoft AI platform](https://www.microsoft.com/ai/ai-platform).
 
 ## Potential use cases
 
@@ -15,10 +15,10 @@ With this solution, you can ingest historical transaction data, predict future d
 ![Architectural diagram: Demand forecasting for price optimization with Microsoft AI platform](../media/demand-forecasting-price-optimization-marketing.png)
 *Download an [SVG](../media/demand-forecasting-price-optimization-marketing.svg) of this architecture.*
 
-[Microsoft AI platform](https://www.microsoft.com/ai/ai-platform) provides advanced analytics tools such as data ingestion, storage, processing, and advanced analytics components. These tools are the essential elements for building a demand forecasting and price optimization solution. 
+[Microsoft AI platform](https://www.microsoft.com/ai/ai-platform) provides advanced analytics tools such as data ingestion, storage, processing, and advanced analytics components. These tools are the essential elements for building a demand forecasting and price optimization solution.
 
-1. Azure Data Lake (or Azure Blob Storage) stores the weekly raw sales data. 
-2. Apache Spark for Azure HDInsight ingests the data and executes data preprocessing, forecasting modeling, and price optimization algorithms. 
+1. Azure Data Lake (or Azure Blob Storage) stores the weekly raw sales data.
+2. Apache Spark for Azure HDInsight ingests the data and executes data preprocessing, forecasting modeling, and price optimization algorithms.
 3. Data Factory orchestrates and schedules the entire data flow.
 
 ### Components

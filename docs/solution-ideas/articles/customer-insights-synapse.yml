@@ -1,0 +1,27 @@
+### YamlMime:Architecture
+metadata:
+  title: Enhanced customer dimension with Dynamics 365 Customer Insights
+  titleSuffix: Azure Solution Ideas
+  description: Use Dynamics 365 Customer Insights to create an enhanced customer dataset and make it available in Azure Data Lake for consumption by Azure Synapse Analytics. 
+  author: jondobrzeniecki 
+  ms.author: jodobrze
+  ms.date: 12/6/2021
+  ms.topic: conceptual
+  ms.service: architecture-center
+  ms.subservice: solution-idea
+  ms.custom: fcp
+azureCategories:
+  - "databases"
+  - "analytics"
+  - "storage"
+  - "integration"
+products:
+  - "azure-data-lake-gen2"
+  - "azure-synapse-analytics"
+  - "azure-data-factory"
+  - "dynamics-cust-insights"
+name: Enhanced customer dimension with Dynamics 365 Customer Insights
+summary: Use Dynamics 365 Customer Insights to create an enhanced customer dataset and make it available in Azure Data Lake for consumption by Azure Synapse Analytics. 
+thumbnailUrl: /azure/architecture/browse/thumbs/customer-insights-synapse.png
+content: |
+  [!include[](customer-insights-synapse-content.md)]

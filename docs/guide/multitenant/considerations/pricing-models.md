@@ -4,14 +4,14 @@ titleSuffix: Azure Architecture Center
 description: This article describes the considerations for planning pricing models for a multitenant solution.
 author: PlagueHO
 ms.author: dascottr
-ms.date: 07/09/2021
+ms.date: 12/13/2021
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: azure-guide
 products:
- - azure
+  - azure
 categories:
- - management-and-governance
+  - management-and-governance
 ms.category:
   - fcp
 ms.custom:
@@ -20,7 +20,7 @@ ms.custom:
 
 # Pricing models for a multitenant solution
 
-A good pricing model ensures that you remain profitable as the number of tenants grows and as you add new features. An important consideration when developing a commercial multitenant solution is how to design pricing models for your product.
+A good pricing model ensures that you remain profitable as the number of tenants grows and as you add new features. An important consideration when developing a commercial multitenant solution is how to design pricing models for your product. On this page, we provide guidance for technical decision-makers about the pricing models you can consider and the tradeoffs involved.
 
 When you determine the pricing model for your product, you need to balance the _return on value_ (ROV) for your customers with the _cost of goods sold_ (COGS) to deliver the service. Offering more flexible commercial models (for a solution) might increase the ROV for customers, but it might also increase the architectural and commercial complexity of the solution (and therefore also increase your COGS).
 
@@ -113,7 +113,7 @@ You may choose to offer your solution with different tiers of functionality at d
 
 ![Diagram showing revenue increasing in steps between three tiers.](media/pricing-models/feature-service-level.png)
 
-This model may also offer different service-level agreements for different tiers. For example, your basic tier may offer 99.9% uptime, whereas a premium tier may offer 99.99%. The higher service-level agreement (SLA) could be implemented by using services and features that enable higher [availability targets](../../../framework/resiliency/business-metrics.md#workload-availability-targets).
+This model may also offer different service-level agreements for different tiers. For example, your basic tier may offer 99.9% uptime, whereas a premium tier may offer 99.99%. The higher service-level agreement (SLA) could be implemented by using services and features that enable higher [availability targets](/azure/architecture/framework/resiliency/business-metrics#workload-availability-targets).
 
 Although this model can be commercially beneficial, it does require mature engineering practices to do well. With careful consideration, this model can be very effective.
 
@@ -170,7 +170,7 @@ The following diagram illustrates these pricing patterns.
 
 ## Non-production environment discounts
 
-In many cases, customers require access to a non-production environment that they can use for testing, training, or for creating their own internal documentation. Non-production environments usually have lower consumption requirements and costs to operate. For example, non-production environments often aren't subject to service-level agreements (SLAs), and [rate limits](#rate-limits) might be set at lower values. You might also consider more aggressive [autoscaling](../../../framework/cost/optimize-autoscale.md) on your Azure services.
+In many cases, customers require access to a non-production environment that they can use for testing, training, or for creating their own internal documentation. Non-production environments usually have lower consumption requirements and costs to operate. For example, non-production environments often aren't subject to service-level agreements (SLAs), and [rate limits](#rate-limits) might be set at lower values. You might also consider more aggressive [autoscaling](/azure/architecture/framework/cost/optimize-autoscale) on your Azure services.
 
 Equally, customers often expect non-production environments to be significantly cheaper than their production environments. There are several alternatives that might be appropriate, when you provide non-production environments:
 

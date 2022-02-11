@@ -1,6 +1,6 @@
 [!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
-Elastic Workplace Search helps Azure users optimize productivity by streamlining the search process for all work documents and data. It centralizes content across a team’s diverse platforms into a single, customizable search experience. Workplace Search boasts compatibility with a variety of popular work platforms including OneDrive and SharePoint. Automated keyword detection is user-friendly, and role-based permissions fortify security by restricting access to assigned users. Automated filtering removes the need for box checking and manual search processes. Azure users can deploy Workplace Search on Elastic Cloud or download and manage it independently.
+Elastic Workplace Search helps Azure users optimize productivity by streamlining the search process for all work documents and data. It centralizes content across a team's diverse platforms into a single, customizable search experience. Workplace Search boasts compatibility with a variety of popular work platforms including OneDrive and SharePoint. Automated keyword detection is user-friendly, and role-based permissions fortify security by restricting access to assigned users. Automated filtering removes the need for box checking and manual search processes. Azure users can deploy Workplace Search on Elastic Cloud or download and manage it independently.
 
 ## Potential use cases
 
@@ -34,7 +34,7 @@ The architecture components depend on your deployment choice: Elastic Cloud mana
 
 ### Elastic on Azure
 
-- [Elastic Cloud on Azure Marketplace](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/elastic.ec-azure?tab=Overview)
+- [Elastic Cloud on Azure Marketplace](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/elastic.ec-azure-pp?tab=Overview)
 - [QuickStart: Get started with Elastic](/azure/partner-solutions/elastic/create)
 - [Esri builds flexible mapping managed service in the cloud](https://customers.microsoft.com/en-us/story/esri)
 - [Magento e-commerce platform in Azure Kubernetes Service (AKS)](../../example-scenario/magento/magento-azure.yml)

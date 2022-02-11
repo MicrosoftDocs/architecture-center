@@ -2,9 +2,9 @@
 metadata:
   title: Azure file shares in a hybrid environment
   description: With identity-based authentication, you can control access to Azure file shares by using Active Directory Directory Services users and groups.
-  author: doodlemania2
-  ms.author: pnp
-  ms.date: 07/26/2020
+  author: raunakjhawar
+  ms.author: ancoughl
+  ms.date: 03/11/2021
   ms.topic: conceptual
   ms.service: architecture-center
   ms.subservice: reference-architecture

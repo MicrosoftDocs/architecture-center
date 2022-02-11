@@ -1,15 +1,17 @@
 [!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
-DevOps and Kubernetes are better together. By implementing secure DevOps together with Kubernetes on Azure, you can achieve the balance between speed and security and deliver code faster, at scale. Put guardrails around the development processes, by using CI/CD with dynamic policy controls, and then accelerate your feedback loop with constant monitoring. Use Azure Pipelines to deliver fast, while ensuring the enforcement of critical policies, with Azure Policy. Azure provides you real-time observability for your build and release pipelines, and the ability to apply a compliance audit and reconfigurations easily.
+DevOps and Kubernetes are better together. By implementing secure DevOps together with Kubernetes on Azure, you can achieve the balance between speed and security and deliver code faster, at scale.
+
+## Potential use cases
+
+Put guardrails around the development processes, by using CI/CD with dynamic policy controls, and then accelerate your feedback loop with constant monitoring. Use Azure Pipelines to deliver fast, while ensuring the enforcement of critical policies, with Azure Policy. Azure provides you real-time observability for your build and release pipelines, and the ability to apply a compliance audit and reconfigurations easily.
 
 ## Architecture
 
 ![Architecture diagram](../media/secure-devops-for-kubernetes.png)
 *Download an [SVG](../media/secure-devops-for-kubernetes.svg) of this architecture.*
 
-<!-- markdownlint-disable MD033 -->
-
-## Data flow
+### Data flow
 
 1. Developers rapidly iterate, test, and debug different parts of an application together, in the same Kubernetes cluster.
 1. Code is merged into a GitHub repository, after which automated builds and tests are run by Azure Pipelines.
@@ -21,14 +23,14 @@ DevOps and Kubernetes are better together. By implementing secure DevOps togethe
 1. App telemetry, container health monitoring, and real-time log analytics are obtained using Azure Monitor.
 1. Insights are used to address issues and are fed into next sprint plans.
 
-## Components
+### Components
 
-* [GitHub Enterprise](https://help.github.com/en/github) hosts the source code, where developers can collaborate within your organization and the open-source communities. GitHub Enterprise offers advanced security features to identify vulnerabilities in the code you write and in open-source dependencies
-* [Azure Pipelines](https://azure.microsoft.com/services/devops/pipelines/) is a service that provides Continuous Integration and Continuous Delivery jobs, to build and release your application automatically.
-* [Azure Container Registry](https://azure.microsoft.com/services/container-registry/) hosts your Docker container images. This service includes container image scanning with the integration with Azure Security Center.
-* [Azure Kubernetes Service](https://azure.microsoft.com/services/kubernetes-service/) offers a Kubernetes cluster that is fully managed by Azure, to ensure availability and security of your infrastructure.
-* [Azure Policy](https://azure.microsoft.com/services/azure-policy/) lets you create, assign, and manage policies. These policies enforce different rules and effects over your resources, so those resources stay compliant with your corporate standards and service level agreements. It integrates with Azure Kubernetes Service too.
-* [Azure Monitor](https://azure.microsoft.com/services/monitor/) lets you get insights on the availability and performance of your application and infrastructure. It also gives you access to signals to monitor your solution's health and spot abnormal activity early.
+- [GitHub Enterprise](https://help.github.com/en/github) hosts the source code, where developers can collaborate within your organization and the open-source communities. GitHub Enterprise offers advanced security features to identify vulnerabilities in the code you write and in open-source dependencies
+- [Azure Pipelines](https://azure.microsoft.com/services/devops/pipelines/) is a service that provides Continuous Integration and Continuous Delivery jobs, to build and release your application automatically.
+- [Azure Container Registry](https://azure.microsoft.com/services/container-registry/) hosts your Docker container images. This service includes container image scanning with the integration with Microsoft Defender for Cloud.
+- [Azure Kubernetes Service](https://azure.microsoft.com/services/kubernetes-service/) offers a Kubernetes cluster that is fully managed by Azure, to ensure availability and security of your infrastructure.
+- [Azure Policy](https://azure.microsoft.com/services/azure-policy/) lets you create, assign, and manage policies. These policies enforce different rules and effects over your resources, so those resources stay compliant with your corporate standards and service level agreements. It integrates with Azure Kubernetes Service too.
+- [Azure Monitor](https://azure.microsoft.com/services/monitor/) lets you get insights on the availability and performance of your application and infrastructure. It also gives you access to signals to monitor your solution's health and spot abnormal activity early.
 
 ## Next steps
 
@@ -42,6 +44,6 @@ DevOps and Kubernetes are better together. By implementing secure DevOps togethe
 
 See the related architectures:
 
-* [Azure Kubernetes Service solution journey](../../reference-architectures/containers/aks-start-here.md)
-* [Building a telehealth system on Azure](../../example-scenario/apps/telehealth-system.yml)
-* [Microservices with AKS](./microservices-with-aks.yml)
+- [Azure Kubernetes Service solution journey](../../reference-architectures/containers/aks-start-here.md)
+- [Building a telehealth system on Azure](../../example-scenario/apps/telehealth-system.yml)
+- [Microservices with AKS](./microservices-with-aks.yml)

@@ -1,16 +1,17 @@
-
-
-
 [!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
-This solution provides a highly available deployment of SharePoint using a load balanced Azure Active Directory (Azure AD), highly available SQL always on instance, and highly available SharePoint resources. It addresses the need to deliver highly available intranet capability using the latest and greatest supported platforms.
+This solution provides a highly available deployment of SharePoint, by using a load balanced Azure Active Directory (Azure AD), a highly available SQL always-on instance, and highly available SharePoint resources.
+
+## Potential use cases
+
+This solution addresses the need to deliver a highly available intranet capability, by using the latest and greatest supported platforms.
 
 ## Architecture
 
 ![Architecture diagram](../media/sharepoint-farm-microsoft-365.png)
 *Download an [SVG](../media/sharepoint-farm-microsoft-365.svg) of this architecture.*
 
-## Data Flow
+### Data flow
 
 1. Create resource group to host all Azure based infrastructure and services.
 1. Create virtual network in Azure.
@@ -23,7 +24,7 @@ This solution provides a highly available deployment of SharePoint using a load 
 1. Setup and provision external access to the Hybrid farm hosted in Azure IaaS
 1. Setup and configure Hybrid Workloads between Microsoft 365 and the SharePoint farm.
 
-## Components
+### Components
 
 * [Azure Resource Group](https://azure.microsoft.com/features/resource-manager): Container that holds related resources for an Azure solution
 * [Virtual Network](https://azure.microsoft.com/services/virtual-network): Provision private networks, optionally connect to on-premises datacenters

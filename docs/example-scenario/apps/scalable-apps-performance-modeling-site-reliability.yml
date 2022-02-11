@@ -1,0 +1,25 @@
+### YamlMime:Architecture
+metadata:
+  title: Scalable cloud applications and SRE
+  titleSuffix: Azure Example Scenarios
+  description: Build scalable cloud applications by using performance modeling and other principles and practices of site reliability engineering (SRE).
+  author: EdPrice-MSFT
+  ms.author: subhajch
+  ms.date: 12/06/2021
+  ms.topic: conceptual
+  ms.service: architecture-center
+  ms.subservice: example-scenario
+azureCategories:
+  - web
+  - developer-tools
+products:
+  - azure-front-door
+  - azure-api-management
+  - azure-kubernetes-service
+  - azure-application-gateway
+  - dynamics-365
+name: Scalable cloud applications and site reliability engineering (SRE)
+summary: Build scalable cloud applications by using performance modeling and other principles and practices of site reliability engineering (SRE).
+thumbnailUrl: /azure/architecture/browse/thumbs/scalable-apps-performance-modeling-site-reliability.png
+content: |
+  [!include[](scalable-apps-performance-modeling-site-reliability-content.md)]

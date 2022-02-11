@@ -32,7 +32,6 @@ products:
   - azure-app-service
   - azure-bot-service
   - azure-language-understanding
-  - azure-sql-database
   - azure-cognitive-services
 thumbnailUrl: /azure/architecture/browse/thumbs/commerce-chatbot.png
 content: |

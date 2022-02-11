@@ -1,14 +1,13 @@
-
-
-
 [!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
+
+Store, manage, and analyze HIPAA-compliant and HITRUST-compliant health data and medical records with the highest level of built-in security.
 
 ## Architecture
 
 ![Architecture Diagram](../media/security-compliance-blueprint-hipaa-hitrust-health-data-ai.png)
 *Download an [SVG](../media/security-compliance-blueprint-hipaa-hitrust-health-data-ai.svg) of this architecture.*
 
-## Data Flow
+### Data flow
 
 1. Securely ingest bulk patient data into Azure Blob storage.
 1. Event Grid publishes patient data to Azure Functions for processing, and securely stores patient data in SQL Database.
@@ -17,34 +16,34 @@
 1. Analyze newly ingested data using the trained Machine Learning model.
 1. Interact with patient data using Power BI while preserving Azure role-based access control (Azure RBAC).
 
-## Components
+### Components
 
-* [Azure Functions](https://azure.microsoft.com/services/functions): Process events with serverless code
-* [Event Grid](https://azure.microsoft.com/services/event-grid): Get reliable event delivery at massive scale
-* [Storage Accounts](https://azure.microsoft.com/services/storage): Durable, highly available, and massively scalable cloud storage
-* [Azure SQL Database](https://azure.microsoft.com/services/sql-database): Managed, intelligent SQL in the cloud
-* [Azure Machine Learning](https://azure.microsoft.com/services/machine-learning): Bring AI to everyone with an end-to-end, scalable, trusted platform with experimentation and model management
-* [Power BI Embedded](https://azure.microsoft.com/services/power-bi-embedded): Embed fully interactive, stunning data visualizations in your applications
-* [Security Center](https://azure.microsoft.com/services/security-center): Unify security management and enable advanced threat protection across hybrid cloud workloads
-* [Azure Active Directory](https://azure.microsoft.com/services/active-directory): Synchronize on-premises directories and enable single sign-on
-* [Key Vault](https://azure.microsoft.com/services/key-vault): Safeguard and maintain control of keys and other secrets
-* Application Insights: Detect, triage, and diagnose issues in your web apps and services
-* [Azure Monitor](https://azure.microsoft.com/services/monitor): Full observability into your applications, infrastructure, and network
-* [Operation Management Suite](https://www.microsoft.com/cloud-platform/operations-management-suite): A collection of management services that were designed in the cloud from the start
-* [Azure RBAC and built-in roles](/azure/role-based-access-control/built-in-roles): Azure role-based access control (Azure RBAC) has several built-in role definitions that you can assign to users, groups, and service principals.
+- [Azure Functions](https://azure.microsoft.com/services/functions): Process events with serverless code
+- [Event Grid](https://azure.microsoft.com/services/event-grid): Get reliable event delivery at massive scale
+- [Storage Accounts](https://azure.microsoft.com/services/storage): Durable, highly available, and massively scalable cloud storage
+- [Azure SQL Database](https://azure.microsoft.com/services/sql-database): Managed, intelligent SQL in the cloud
+- [Azure Machine Learning](https://azure.microsoft.com/services/machine-learning): Bring AI to everyone with an end-to-end, scalable, trusted platform with experimentation and model management
+- [Power BI Embedded](https://azure.microsoft.com/services/power-bi-embedded): Embed fully interactive, stunning data visualizations in your applications
+- [Defender for Cloud](https://azure.microsoft.com/services/security-center): Unify security management and enable advanced threat protection across hybrid cloud workloads
+- [Azure Active Directory](https://azure.microsoft.com/services/active-directory): Synchronize on-premises directories and enable single sign-on
+- [Key Vault](https://azure.microsoft.com/services/key-vault): Safeguard and maintain control of keys and other secrets
+- Application Insights: Detect, triage, and diagnose issues in your web apps and services
+- [Azure Monitor](https://azure.microsoft.com/services/monitor): Full observability into your applications, infrastructure, and network
+- [Operation Management Suite](https://www.microsoft.com/cloud-platform/operations-management-suite): A collection of management services that were designed in the cloud from the start
+- [Azure RBAC and built-in roles](/azure/role-based-access-control/built-in-roles): Azure role-based access control (Azure RBAC) has several built-in role definitions that you can assign to users, groups, and service principals.
 
 ## Next steps
 
-* [Azure Functions Documentation](/azure/azure-functions)
-* [Azure Event Grid Documentation](/azure/event-grid)
-* [Azure Storage Documentation](/azure/storage)
-* [Azure SQL Database Documentation](/azure/sql-database)
-* [Azure Machine Learning Documentation](/azure/machine-learning)
-* [Power BI Embedded Documentation](/azure/power-bi-embedded)
-* [Azure Security Center Documentation](/azure/security-center)
-* [Get started with Azure AD](/azure/active-directory/get-started-azure-ad)
-* [What is Azure Key Vault?](/azure/key-vault/key-vault-overview)
-* [What is Application Insights?](/azure/application-insights/app-insights-overview)
-* [Monitoring Azure applications and resources](/azure/monitoring-and-diagnostics/monitoring-overview)
-* [What is Operations Management Suite (OMS)?](/azure/operations-management-suite/operations-management-suite-overview)
-* [Built-in roles for Azure role-based access control](/azure/role-based-access-control/built-in-roles)
+- [Azure Functions Documentation](/azure/azure-functions)
+- [Azure Event Grid Documentation](/azure/event-grid)
+- [Azure Storage Documentation](/azure/storage)
+- [Azure SQL Database Documentation](/azure/sql-database)
+- [Azure Machine Learning Documentation](/azure/machine-learning)
+- [Power BI Embedded Documentation](/azure/power-bi-embedded)
+- [Microsoft Defender for Cloud Documentation](/azure/security-center)
+- [Get started with Azure AD](/azure/active-directory/get-started-azure-ad)
+- [What is Azure Key Vault?](/azure/key-vault/key-vault-overview)
+- [What is Application Insights?](/azure/application-insights/app-insights-overview)
+- [Monitoring Azure applications and resources](/azure/monitoring-and-diagnostics/monitoring-overview)
+- [What is Operations Management Suite (OMS)?](/azure/operations-management-suite/operations-management-suite-overview)
+- [Built-in roles for Azure role-based access control](/azure/role-based-access-control/built-in-roles)

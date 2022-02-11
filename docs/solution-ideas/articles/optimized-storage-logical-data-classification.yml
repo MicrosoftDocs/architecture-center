@@ -1,7 +1,7 @@
 ### YamlMime:Architecture
 metadata:
   title: Optimized storage with logical data classification
-  titleSuffix: Azure Solution Ideas
+  titleSuffix: Azure Architecture
   description: Architecture for a high-availability solution that handles massive amounts of data. It uses an optimized tiering strategy to reduce storage costs.
   author: nabilshams
   ms.author: nasiddi

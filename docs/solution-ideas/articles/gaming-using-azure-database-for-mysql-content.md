@@ -1,6 +1,6 @@
 [!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
-This gaming solution idea elastically scales your database to accommodate unpredictable bursts of traffic and deliver low-latency multi-player experiences on a global scale. 
+This gaming solution idea elastically scales your database to accommodate unpredictable bursts of traffic and deliver low-latency multi-player experiences on a global scale.
 
 ## Potential use cases
 
@@ -12,7 +12,7 @@ This solution is based on a gaming scenario. However, the design patterns are re
 *Download an [SVG](../media/gaming-using-azure-database-for-mysql.svg) of this architecture.*
 
 ### Data flow
-1. Azure Traffic Manager routes a user's game traffic to the apps hosted in Azure App Service, Functions or Containers and APIs published via Azure API Gateway. 
+1. Azure Traffic Manager routes a user's game traffic to the apps hosted in Azure App Service, Functions or Containers and APIs published via Azure API Gateway.
 2. Azure CDN serves static images and game content to the user that are stored in Azure Blob Storage.
 3. Azure Database for MySQL stores user's game  data in a transactional database hosted.
 4. The data from Azure Database for MySQL are processed using Azure Databricks and stored in the analytics platform.

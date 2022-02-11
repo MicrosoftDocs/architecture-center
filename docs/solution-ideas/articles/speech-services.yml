@@ -1,6 +1,6 @@
 ### YamlMime:Architecture
 metadata:
-  title: Speech Services
+  title: Speech services
   titleSuffix: Azure Solution Ideas
   description: Use Speech services to transcribe calls and then run full-text searches, detect sentiment and language, and create custom language and acoustic models.
   author: edprice-msft
@@ -20,12 +20,13 @@ metadata:
     - "https://azure.microsoft.com/solutions/architecture/speech-services/"
     - ai-machine-learning
   social_image_url: /azure/architecture/solution-ideas/articles/media/speech-services.png
-name: Speech Services
+name: Speech services
 azureCategories:
   - ai-machine-learning
 summary: Use Speech services to transcribe calls and then run full-text searches, detect sentiment and language, and create custom language and acoustic models.
 products:
   - azure-speech
+  - azure-blob-storage
 thumbnailUrl: /azure/architecture/browse/thumbs/speech-services.png
 content: |
   [!include[](speech-services-content.md)]

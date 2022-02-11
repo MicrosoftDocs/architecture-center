@@ -2,7 +2,8 @@
 title: Strangler Fig pattern
 titleSuffix: Cloud Design Patterns
 description: Incrementally migrate a legacy system by gradually replacing specific pieces of functionality with new applications and services.
-author: dragon119
+author: EdPrice-MSFT
+ms.author: pnp
 ms.date: 06/23/2017
 ms.topic: conceptual
 ms.service: architecture-center
@@ -50,4 +51,4 @@ This pattern may not be suitable:
 
 ## Related guidance
 
-- Martin Fowler's blog post on [StranglerApplication](https://www.martinfowler.com/bliki/StranglerApplication.html)
+- Martin Fowler's blog post on [StranglerFigApplication](https://martinfowler.com/bliki/StranglerFigApplication.html)

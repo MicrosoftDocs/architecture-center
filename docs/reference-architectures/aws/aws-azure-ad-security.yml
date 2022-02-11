@@ -3,7 +3,7 @@ metadata:
   title: Azure AD security for AWS
   titleSuffix: Azure Reference Architectures
   description: Learn how Azure Active Directory can help secure and protect Amazon Web Services (AWS) identity management and account access. Discover Microsoft security solutions.
-  author: doodlemania2
+  author: EdPrice-MSFT
   ms.author: pnp
   ms.date: 12/10/2020
   ms.topic: conceptual

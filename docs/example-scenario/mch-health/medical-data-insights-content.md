@@ -72,7 +72,7 @@ Most of the components used in this solution are detailed in the [Components sec
 - **Sales Insights**. This solution uses [Sales Insights](/dynamics365/ai/sales/overview), a Dynamics 365 add-in, to provide alerts and notifications for the following data changes in the system:
 
   - patient's wearable device exceeds preset thresholds for health metrics, such as heart rate, and
-  
+
   - diagnostic test results are available in the system.
 
   These notifications are triggered from a [Power Automate flow](/power-automate/flow-types). See [Create custom insight cards](/dynamics365/ai/sales/create-insight-cards-flow) on how to create automation flows that integrate with Sales Insights.

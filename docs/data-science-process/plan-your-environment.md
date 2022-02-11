@@ -1,5 +1,5 @@
 ---
-title: Identify scenarios and plan the analytics process - Team Data Science Process | Azure Machine Learning 
+title: Identify scenarios and plan the analytics process
 description: Identify scenarios and plan for advanced analytics data processing by considering a series of key questions.
 services: machine-learning
 author: marktab
@@ -8,16 +8,18 @@ editor: marktab
 ms.service: machine-learning
 ms.subservice: team-data-science-process
 ms.topic: article
-ms.date: 01/10/2020
+ms.date: 12/14/2021
 ms.author: tdsp
-ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
+ms.custom:
+  - previous-author=deguhath
+  - previous-ms.author=deguhath
 products:
   - azure-machine-learning
 categories:
   - ai-machine-learning
 ---
 
-# How to identify scenarios and plan for advanced analytics data processing
+# Identify scenarios and plan for advanced analytics data processing
 
 What resources are required for you to create an environment that can perform advanced analytics processing on a dataset? This article suggests a series of questions to ask that can help identify tasks and resources relevant your scenario.
 
@@ -38,7 +40,7 @@ The logistic questions cover the following items:
 * target destination in Azure
 * requirements for moving the data, including the schedule, amount, and resources involved
 
-You may need to move the data several times during the analytics process. A common scenario is to move local data into some form of storage on Azure and then into Machine Learning Studio.
+You may need to move the data several times during the analytics process. A common scenario is to move local data into some form of storage on Azure and then into [Azure Machine Learning](/azure/machine-learning).
 
 ### What is your data source?
 
@@ -51,13 +53,13 @@ Is your data local or in the cloud? Possible locations include:
 
 ### What is the Azure destination?
 
-Where does your data need to be for processing or modeling? 
+Where does your data need to be for processing or modeling?
 
+* Azure Machine Learning
 * Azure Blob Storage
 * SQL Azure databases
 * SQL Server on Azure VM
 * HDInsight (Hadoop on Azure) or Hive tables
-* Azure Machine Learning
 * Mountable Azure virtual hard disks
 
 ### How are you going to move the data?
@@ -65,7 +67,7 @@ Where does your data need to be for processing or modeling?
 For procedures and resources to ingest or load data into a variety of different storage and processing environments, see:
 
 * [Load data into storage environments for analytics](ingest-data.md)
-* [Import your training data into Machine Learning Studio (classic) from various data sources](/azure/machine-learning/classic/import-data)
+* [Secure data access in Azure Machine Learning](/azure/machine-learning/concept-data)
 
 ### Does the data need to be moved on a regular schedule or modified during migration?
 
@@ -78,7 +80,7 @@ For more information, see [Move data from a SQL Server database to SQL Azure wit
 
 ### How much of the data is to be moved to Azure?
 
-Large datasets may exceed the storage capacity of certain environments. For an example, see the discussion of size limits for Machine Learning Studio (classic) in the next section. In such cases, you might use a sample of the data during the analysis. For details of how to down-sample a dataset in various Azure environments, see [Sample data in the Team Data Science Process](sample-data.md).
+Large datasets may exceed the storage capacity of certain compute clusters. In such cases, you might use a sample of the data during the analysis. For details of how to down-sample a dataset in various Azure environments, see [Sample data in the Team Data Science Process](sample-data.md).
 
 ## Data characteristics questions: type, format, and size
 
@@ -105,11 +107,10 @@ These questions are key to planning your storage and processing environments. Th
 * Medium: Greater than 2 GB and less than 10 GB
 * Large: Greater than 10 GB
 
-Take the Machine Learning Studio (classic) environment for example:
+As applied to Azure Machine Learning:
 
-* For a list of the data formats and types supported by Machine Learning Studio (classic), see
-  [Data formats and data types supported](/azure/machine-learning/classic/import-data#supported-data-formats-and-data-types) section.
-* For information on the limitations of other Azure services used in the analytics process, see [Azure Subscription and Service Limits, Quotas, and Constraints](/azure/azure-resource-manager/management/azure-subscription-service-limits).
+* [Data ingestion options for Azure Machine Learning workflows](/azure/machine-learning/concept-data-ingestion).
+* [Optimize data processing with Azure Machine Learning](/azure/machine-learning/concept-optimize-data-processing).
 
 ## Data quality questions: exploration and pre-processing
 
@@ -142,21 +143,20 @@ There are many options for languages, development environments, and tools. Be aw
 * R
 * Python
 * SQL
+* Other
 
-### What tools should you use for data analysis?
+### What tools could you use for data analysis?
+
+Azure Machine Learning uses [Jupyter notebooks for data analysis](/azure/machine-learning/samples-notebooks).  In addition to this recommended environment, here are other options often paired in intermediate to advanced enterprise scenarios.
 
 * [Microsoft Azure PowerShell](/powershell/azure/) - a script language used to administer your Azure resources in a script language
-* [Azure Machine Learning Studio](/azure/machine-learning/overview-what-is-machine-learning-studio#ml-studio-classic-vs-azure-machine-learning-studio)
-* [Revolution Analytics](https://www.microsoft.com/sql-server/machinelearningserver)
 * [RStudio](https://www.rstudio.com)
 * [Python Tools for Visual Studio](/visualstudio/python/)
-* [Anaconda](https://www.anaconda.com/)
-* [Jupyter notebooks](https://jupyter.org/)
 * [Microsoft Power BI](https://powerbi.microsoft.com)
 
 ## Identify your advanced analytics scenario
 
-After you have answered the questions in the previous section, you are ready to determine which scenario best fits your case. The sample scenarios are outlined in [Scenarios for advanced analytics in Azure Machine Learning](plan-sample-scenarios.md).
+After you have answered the questions in the previous section, you are ready to determine which scenario best fits your case. The sample scenarios are outlined in [Scenarios for advanced analytics in Azure Machine Learning](/azure/architecture/data-science-process/overview).
 
 ## Next steps
 

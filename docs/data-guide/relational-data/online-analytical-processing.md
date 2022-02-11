@@ -1,7 +1,8 @@
 ---
 title: Online analytical processing (OLAP)
 description: Learn about online analytical processing (OLAP) solutions to organize large databases and support complex analysis without affecting transactional systems.
-author: zoinerTejada
+author: EdPrice-MSFT
+ms.author: pnp
 ms.date: 02/12/2018
 ms.topic: conceptual
 ms.service: architecture-center
@@ -128,8 +129,6 @@ The following tables summarize the key differences in capabilities.
 
 ### General capabilities
 
-<!-- markdownlint-disable MD033 -->
-
 | Capability | Azure Analysis Services | SQL Server Analysis Services | SQL Server with Columnstore Indexes | Azure SQL Database with Columnstore Indexes |
 | --- | --- | --- | --- | --- |
 | Is managed service | Yes | No | No | Yes |
@@ -139,8 +138,6 @@ The following tables summarize the key differences in capabilities.
 | Supports real-time analytics | No | No | Yes | Yes |
 | Requires process to copy data from source(s) | Yes | Yes | No | No |
 | Azure AD integration | Yes | No | No <sup>2</sup> | Yes |
-
-<!-- markdownlint-enable MD033 -->
 
 [1] Although SQL Server and Azure SQL Database cannot be used to query from and integrate multiple external data sources, you can still build a pipeline that does this for you using [SSIS](/sql/integration-services/sql-server-integration-services) or [Azure Data Factory](/azure/data-factory/). SQL Server hosted in an Azure VM has additional options, such as linked servers and [PolyBase](/sql/relational-databases/polybase/polybase-guide). For more information, see [Pipeline orchestration, control flow, and data movement](../technology-choices/pipeline-orchestration-data-movement.md).
 

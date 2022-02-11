@@ -6,7 +6,7 @@ Data is stored in Azure Table Storage tables. As with any Azure Storage service,
 
 The architecture includes a cache for the tables to reduce access load and improve application response.
 
->[!Note]
+> [!Note]
 > Your application may require multiple storage accounts under some circumstances. See [Considerations](#considerations) for more information.
 
 ## Potential use cases

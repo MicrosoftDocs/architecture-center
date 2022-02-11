@@ -4,14 +4,18 @@ Personalized marketing is essential for building customer loyalty and remaining 
 
 Marketers using intelligent systems and analyzing massive amounts of data can deliver highly relevant and personalized offers to each user, cutting through the clutter and driving engagement. For example, retailers can provide offers and content based on each customer's unique interests, preferences and product affinity, putting products in front of the people most likely to buy them.
 
-By personalizing your offers, you'll deliver an individualized experience for current and prospective customers, boosting engagement and improving customer conversion, lifetime value, and retention. This solution shows how you can create a solution personalizing offers with [Azure Functions](/azure/azure-functions/functions-overview), [Azure Machine Learning](/azure/machine-learning/overview-what-is-azure-ml), and [Azure Stream Analytics](/azure/stream-analytics/stream-analytics-introduction).
+This architecture shows how you can create a solution personalizing offers with [Azure Functions](/azure/azure-functions/functions-overview), [Azure Machine Learning](/azure/machine-learning/overview-what-is-azure-ml), and [Azure Stream Analytics](/azure/stream-analytics/stream-analytics-introduction).
+
+## Potential use cases
+
+By personalizing your offers, you'll deliver an individualized experience for current and prospective customers, boosting engagement and improving customer conversion, lifetime value, and retention.
 
 ## Architecture
 
 ![Architecture diagram: personalizing offers with machine learning and near real time analytics.](../media/personalized-marketing.png)
 *Download an [SVG](../media/personalized-marketing.svg) of this architecture.*
 
-## Components
+### Components
 
 * [Event Hubs](https://azure.microsoft.com/services/event-hubs) ingests raw click-stream data from Azure Functions and passes it on to Stream Analytics.
 * [Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics) aggregates clicks in near real time by product, offer, and user. Writes to Azure Cosmos DB and also archives raw click-stream data to Azure Storage.
@@ -23,12 +27,6 @@ By personalizing your offers, you'll deliver an individualized experience for cu
 * [Power BI](https://powerbi.microsoft.com) enables visualization of user activity data and offers presented by reading in data from Cosmos DB.
 
 ## Next steps
-
-Read other Azure Architecture Center articles:
-
-* [Big data architecture style](../../guide/architecture-styles/big-data.md)
-* [Machine learning at scale](../../data-guide/big-data/machine-learning-at-scale.md)
-* [Scalable personalization on Azure](../../example-scenario/ai/scalable-personalization-with-content-based-recommendation-system.yml)
 
 See product documentation:
 
@@ -46,3 +44,11 @@ Try a Microsoft Learn path:
 * [Implement a Data Streaming Solution with Azure Streaming Analytics](/learn/paths/implement-data-streaming-with-asa/)
 * [Build a Machine Learning model](/learn/modules/machine-learning-model-nasa/)
 * [Create serverless apps with Azure Functions](/learn/paths/create-serverless-applications/)
+
+## Related resources
+
+Read other Azure Architecture Center articles:
+
+* [Big data architecture style](../../guide/architecture-styles/big-data.md)
+* [Machine learning at scale](../../data-guide/big-data/machine-learning-at-scale.md)
+* [Scalable personalization on Azure](../../example-scenario/ai/scalable-personalization-with-content-based-recommendation-system.yml)

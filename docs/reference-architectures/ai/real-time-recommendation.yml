@@ -1,8 +1,8 @@
 ### YamlMime:Architecture
 metadata:
-  title: Build a Real-time Recommendation API
+  title: Build a real-time recommendation API on Azure
   description: Use machine learning to automate recommendations using Azure Databricks and Azure Data Science Virtual Machines (DSVM) to train a model on Azure.
-  author: njray
+  author: EdPrice-MSFT
   ms.author: pnp
   ms.date: 01/28/2021
   ms.topic: conceptual
@@ -16,7 +16,7 @@ metadata:
     - azcat-ai
     - reference-architecture
     - ai-machine-learning
-name: Build a Real-time Recommendation API on Azure
+name: Build a real-time recommendation API on Azure
 azureCategories:
   - ai-machine-learning
   - compute

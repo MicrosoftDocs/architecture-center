@@ -18,23 +18,9 @@ azureCategories:
   - web
 summary: Describes an architecture for consumer health portal in a digital health solution.
 products:
-  - azure-api-fhir
-  - azure-api-management
   - azure-app-service
-  - azure-application-insights
-  - azure-active-directory-b2c
-  - azure-blob-storage
-  - azure-blueprints
-  - azure-cosmos-db
-  - azure-front-door
   - azure-functions
-  - azure-iot-hub
-  - azure-key-vault
-  - azure-notification-hubs
-  - azure-rbac
   - azure-web-application-firewall
-  - office-365
-  - azure-synapse-analytics
 thumbnailUrl: /azure/architecture/browse/thumbs/consumer_health_portal.png
 content: |
    [!include[](health-portal-content.md)]

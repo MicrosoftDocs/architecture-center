@@ -1,8 +1,9 @@
 ---
-title: API implementation guidance
+title: Web API implementation
 titleSuffix: Best practices for cloud applications
 description: Learn about best practices for implementing a web API and publishing it to make it available to client applications.
-author: dragon119
+author: EdPrice-MSFT
+ms.author: pnp
 ms.date: 07/13/2016
 ms.topic: conceptual
 ms.service: architecture-center
@@ -184,7 +185,7 @@ public IHttpActionResult DeleteCustomer(int id)
 
 > [!TIP]
 > Do not include information that could be useful to an attacker attempting to penetrate your API.
-  
+
 Many web servers trap error conditions themselves before they reach the web API. For example, if you configure authentication for a web site and the user fails to provide the correct authentication information, the web server should respond with status code 401 (Unauthorized). Once a client has been authenticated, your code can perform its own checks to verify that the client should be able access the requested resource. If this authorization fails, you should return status code 403 (Forbidden).
 
 ### Handle exceptions consistently and log information about errors
@@ -201,7 +202,9 @@ In a distributed environment such as that involving a web server and client appl
 
 ### Support client-side caching
 
-The HTTP 1.1 protocol supports caching in clients and intermediate servers through which a request is routed by the use of the Cache-Control header. When a client application sends an HTTP GET request to the web API, the response can include a Cache-Control header that indicates whether the data in the body of the response can be safely cached by the client or an intermediate server through which the request has been routed, and for how long before it should expire and be considered out-of-date. The following example shows an HTTP GET request and the corresponding response that includes a Cache-Control header:
+The HTTP 1.1 protocol supports caching in clients and intermediate servers through which a request is routed by the use of the Cache-Control header. When a client application sends an HTTP GET request to the web API, the response can include a Cache-Control header that indicates whether the data in the body of the response can be safely cached by the client or an intermediate server through which the request has been routed, and for how long before it should expire and be considered out-of-date.
+
+The following example shows an HTTP GET request and the corresponding response that includes a Cache-Control header:
 
 ```http
 GET https://adventure-works.com/orders/2 HTTP/1.1
@@ -712,7 +715,7 @@ Watch out for unexpected response status codes in the 5xx range. These messages 
 
 - Verify that asynchronous operations complete successfully. If the web API supports streaming for requests that return large binary objects (such as video or audio), ensure that client requests are not blocked while the data is streamed. If the web API implements polling for long-running data modification operations, verify that the operations report their status correctly as they proceed.
 
-You should also create and run performance tests to check that the web API operates satisfactorily under duress. You can build a web performance and load test project by using Visual Studio Ultimate. For more information, see [Run performance tests on an application before a release](/azure/devops/test/load-test/run-performance-tests-app-before-release?view=azure-devops).
+You should also create and run performance tests to check that the web API operates satisfactorily under duress. You can build a web performance and load test project by using Visual Studio Ultimate.
 
 ## Using Azure API Management
 

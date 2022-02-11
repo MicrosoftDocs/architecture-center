@@ -61,12 +61,11 @@ The deployment process has two major parts, the first of which is the deployment
 
 Once the deployment begins, you can change the focus of the WAC by selecting other tools or servers. The deployment process continues in the background.
 
-If you select the **Auto-generated Self-signed root and client Certificate** option, Azure creates the two required certificates for you automatically and stores them in the selected server's certificate store. You can use the **Certificates** tool in the WAC to find them, and then you can locate a root certificate in the Local Machine/Root container. The certificate's name begins with **Windows Admin Center-Created-vpngw** and contains the **P2SRoot** string. The string's tail includes a timestamp encoded with the certificate's creation date. This certificate will also be stored in the Local Machine/CA container.
-The second certificate is stored in the Local Machine/My container. The name of this certificate starts with **Windows Admin Center-Created-vpngw** and contains the **P2SClient** string. The string's tail includes a timestamp encoded with the certificate's creation date.
+If you select the **Auto-generated Self-signed root and client Certificate** option, Azure creates the two required certificates for you automatically and stores them in the selected server's certificate store. You can use the **Certificates** tool in the WAC to find them, and then you can locate a root certificate in the Local Machine/Root container. The certificate's name begins with **Windows Admin Center-Created-vpngw** and contains the **P2SRoot** string. The string's tail includes a timestamp encoded with the certificate's creation date. This certificate will also be stored in the Local Machine/CA container. The second certificate is stored in the Local Machine/My container. The name of this certificate starts with **Windows Admin Center-Created-vpngw** and contains the **P2SClient** string. The string's tail includes a timestamp encoded with the certificate's creation date.
 
 After the deployment finishes, the selected server's **Networks** tool is updated with the new Azure Network Adapter, which automatically starts after the deployment ends and indicates an active status. You can select the adapter to activate the **More** drop-down list, which you can select to disconnect or delete the adapter. On the actual server, the Azure Network Adapter is installed as a VPN connection. The adapter's name begins with **Windows Admin CenterVPN-** followed by a random three-digit number.
 
-When the Azure Network Adapter is installed and connected, you can use this new network connection to connect directly to the Azure VNets and their systems. This type of connection is typically used to establish a remote-desktop session via an Azure VM's internal IP address, instead of using the VM's public IP address.  
+When the Azure Network Adapter is installed and connected, you can use this new network connection to connect directly to the Azure VNets and their systems. This type of connection is typically used to establish a remote-desktop session via an Azure VM's internal IP address, instead of using the VM's public IP address.
 
 ### Using a dedicated WAC server
 
@@ -123,8 +122,8 @@ The Azure Network Adapter's installation interface might not meet your naming co
     | HTTPS | 5986 |
 
   - How you connect to the server on which the Windows Admin Center (WAC) is installed depends on your WAC's installation type. The default port varies and can be port 6516 when installed on Windows 10 or port 443 when installed on Windows Server. For more information, see [Install Windows Admin Center][15].
-- Azure Security Center integration:
-  - To help protect the server on which the Azure Network Adapter is installed, you can integrate the server to Azure Security Center by selecting **Azure Security Center** from the **Tools** section in WAC. During the integration, you must select an existing Azure Log Analytics workspace or create a new one. You'll be billed separately for each server that you integrate with Azure Security Center. For more information, see [Azure Security Center pricing][16].
+- Microsoft Defender for Cloud integration:
+  - To help protect the server on which the Azure Network Adapter is installed, you can integrate the server to Microsoft Defender for Cloud by selecting **Microsoft Defender for Cloud** from the **Tools** section in WAC. During the integration, you must select an existing Azure Log Analytics workspace or create a new one. You'll be billed separately for each server that you integrate with Microsoft Defender for Cloud. For more information, see [Microsoft Defender for Cloud pricing][16].
 
 ## DevOps considerations
 
@@ -134,7 +133,7 @@ The Azure Network Adapter's installation interface might not meet your naming co
 ## Cost considerations
 
 - Azure Pricing Calculator:
-  - Using the Azure Network Adapter doesn't actually cost anything, as it's a component that you deploy to an on-premises system. The Azure VPN Gateway, as part of the solution, does generate extra costs, as does the use of other services, such as Azure Recovery Vault or Azure Security Center. For more information about actual costs, see the [Azure Pricing Calculator][18]. It's important to note that actual costs vary by Azure region and your individual contract. Contact a Microsoft sales representative for more information about pricing.
+  - Using the Azure Network Adapter doesn't actually cost anything, as it's a component that you deploy to an on-premises system. The Azure VPN Gateway, as part of the solution, does generate extra costs, as does the use of other services, such as Azure Recovery Vault or Microsoft Defender for Cloud. For more information about actual costs, see the [Azure Pricing Calculator][18]. It's important to note that actual costs vary by Azure region and your individual contract. Contact a Microsoft sales representative for more information about pricing.
 - Egress costs:
   - There are extra costs associated with outbound Inter-VNet data transfers. Those costs are dependent on your VPN Gateway's SKU and the actual amount of data you're using. For more information, see the [Azure Pricing Calculator][18]. It's important to note that actual costs vary by Azure region and your individual contract. Contact a Microsoft sales representative for additional information about pricing.
 

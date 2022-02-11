@@ -2,7 +2,8 @@
 title: Throttling pattern
 titleSuffix: Cloud Design Patterns
 description: Control the consumption of resources used by an instance of an application, an individual tenant, or an entire service.
-author: dragon119
+author: EdPrice-MSFT
+ms.author: pnp
 ms.date: 06/23/2017
 ms.topic: conceptual
 ms.service: architecture-center
