@@ -24,7 +24,7 @@ In addition, these MDM solutions help financial organizations that rely heavily 
 
 ## Architecture
 
-The flow illustration next represents the general order of activity that occurs during the development and subsequent operation of your master data solution. This flow should be thought of as **highly iterative**. As your solution evolves, these steps and phases may be repeated, sometimes automatically and sometimes manually, depending on the changes occurring to your master data solution, metadata, and/or data.
+The following flow illustration represents the general order of activity that occurs during the development and subsequent operation of your master data solution. This flow should be thought of as **highly iterative**. As your solution evolves, these steps and phases may be repeated, sometimes automatically and sometimes manually, depending on the changes occurring to your master data solution, metadata, and/or data.
 
 ![Diagram of Purview microservice design architecture.](./images/purview-microservice-design-architecture.png)
 
@@ -58,7 +58,7 @@ Metadata and data flow include these steps, shown in the preceding figure:
 
 ## Alternatives
 
-In the abscence of a purpose-built MDM application, some of the technical capabilities needed to build an MDM solution may be found within the Azure ecosystem:
+In the absence of a purpose-built MDM application, some of the technical capabilities needed to build an MDM solution may be found within the Azure ecosystem:
 
 - **Data quality**: When loading to an analytics platform, data quality can be built into integration processes. For example, you can use hardcoded scripts to apply data quality transformations in an [Azure Data Factory](https://azure.microsoft.com/services/data-factory/) pipeline.
 - **Data standardization and enrichment**: [Azure Maps](https://azure.microsoft.com/services/azure-maps/) is available to provide data verification and standardization for address data. The standardized data can be used in Azure Functions and/or Azure Data Factory. Standardization of other data may require you to develop hardcoded scripts.
@@ -223,12 +223,12 @@ Profisee authenticates users, by using OpenID Connect, which implements an OAuth
 
 ## Deploy the scenario
 
-The Profisee platform can be deployed as a platform as a solution (PaaS) in Azure by using the [Profisee ARM template](https://github.com/Profisee/kubernetes/tree/master/Azure-ARM). For integration with Purview, select "Yes, configure using Purview" and fill in the following details:
+The Profisee platform can be deployed as a platform as a solution (PaaS) in Azure by using the [Profisee ARM template](https://github.com/Profisee/kubernetes/tree/master/Azure-ARM). For integration with Purview, select **Yes, configure using Purview**, and then fill in the following details:
 
-- Select **Purview account** from the "Select Purview Account" drop down list.
-- Enter the App Registration **Client ID** and **Client Secret** that has the **Purview Data Curator** role assigned.
+* In the **Select Purview Account** dropdown, select **Purview account**.
+* Enter the App Registration **Client ID** and the **Client Secret** that has the **Purview Data Curator** role assigned.
 
-The following figure illustrates how these options are reflected in Profisee's ARM template:
+The following figure illustrates how these options are reflected in the Profisee ARM template:
 
 ![Diagram of the Profisee ARM template.](./images/profisee-azure-resource-manager-template.png)
 
