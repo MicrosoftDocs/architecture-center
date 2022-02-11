@@ -4,6 +4,7 @@ description: Data science code testing on Azure with the UCI adult income predic
 author: marktab
 manager: marktab
 editor: marktab
+services: architecture-center
 ms.service: architecture-center
 ms.subservice: azure-guide
 ms.topic: article

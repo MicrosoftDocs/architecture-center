@@ -4,6 +4,9 @@ description: Examples of Hive queries that generate features in data stored in a
 author: marktab
 manager: marktab
 editor: marktab
+services: architecture-center
+ms.service: architecture-center
+ms.subservice: azure-guide
 ms.topic: article
 ms.date: 12/21/2021
 ms.author: tdsp

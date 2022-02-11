@@ -4,6 +4,9 @@ description: Generate features for data stored in a SQL Server VM on Azure using
 author: marktab
 manager: marktab
 editor: marktab
+services: architecture-center
+ms.service: architecture-center
+ms.subservice: azure-guide
 ms.topic: article
 ms.date: 12/16/2021
 ms.author: tdsp
