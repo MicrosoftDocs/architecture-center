@@ -27,25 +27,47 @@ And here's a comprehensive learning path:
 - [Configure and manage virtual networks for Azure administrators](/learn/paths/azure-administrator-manage-virtual-networks)
 
 ## Path to production
-
+Consider these technologies and solutions as you plan and implement your deployment: 
 - [Azure Firewall architecture overview](/azure/architecture/example-scenario/firewalls) 
 - [Azure Private Link in a hub-and-spoke network](/azure/architecture/guide/networking/private-link-hub-spoke-network)
 - [Build solutions with availability zones](/azure/architecture/high-availability/building-solutions-for-high-availability) 
+- [Add IP address spaces to peered virtual networks](/azure/architecture/networking/prefixes/add-ip-space-peered-vnet)
+- [Choose between virtual network peering and VPN gateways](/azure/architecture/reference-architectures/hybrid-networking/vnet-peering)
+- [Use Azure ExpressRoute with Microsoft Power Platform](/power-platform/guidance/expressroute/overview?toc=https%3A%2F%2Fdocs.microsoft.com%2Fazure%2Farchitecture%2Ftoc.json&bc=https%3A%2F%2Fdocs.microsoft.com%2Fazure%2Farchitecture%2Fbread%2Ftoc.json)
 
-more? but some are in other section 
 
 ## Best practices
+The [Azure Well-Architected Framework](/azure/architecture/framework) is a set of guiding tenets, based on five pillars, that you can use to improve the quality of your architectures. These reviews provide guidance for each of the pillars: 
+- [Azure Well-Architected Framework review of Azure Application Gateway](/azure/architecture/networking/guide/waf-application-gateway) 
+- [Azure Well-Architected Framework review of Azure Firewall](/azure/architecture/networking/guide/well-architected-framework-azure-firewall) 
+- [Azure Well-Architected Framework review of an Azure NAT gateway](/azure/architecture/networking/guide/well-architected-network-address-translation-gateway) 
 
-[other sections that categorize items ]
+The [Cloud Adoption Framework](/azure/cloud-adoption-framework) is a collection of documentation, implementation guidance, best practices, and tools that are designed to accelerate your cloud adoption. You might find these helpful as you plan and implement your networking solution: 
+- [Connectivity to other cloud providers - Cloud Adoption Framework](/azure/cloud-adoption-framework/ready/azure-best-practices/connectivity-to-other-providers?view=o365-worldwide&toc=https:%2f%2fdocs.microsoft.com%2fazure%2farchitecture%2ftoc.json&bc=https:%2f%2fdocs.microsoft.com%2fazure%2farchitecture%2fbread%2ftoc.json) 
+- [Connectivity to Oracle Cloud Infrastructure - Cloud Adoption Framework](/azure/cloud-adoption-framework/ready/azure-best-practices/connectivity-to-other-providers-oci?view=o365-worldwide&toc=https:%2f%2fdocs.microsoft.com%2fazure%2farchitecture%2ftoc.json&bc=https:%2f%2fdocs.microsoft.com%2fazure%2farchitecture%2fbread%2ftoc.json) 
 
-## Stay current with networking
+## Networking architectures
+### HA
+
+### hybrid
+
+### hu and spoke
+
+### vwan
+
+### multiregion 
+
+### Stay current with networking
 
 ## Additional resources 
 
 ### Example solutions 
-Here are a few sample implementations of networking on Azure:
+These are some additional sample implementations of networking on Azure:
 
 [See more networking examples on the Azure Architecture Center]
  
 ### AWS or GCP professionals
 These articles provide service mapping and comparison between Azure and other cloud services. They can help you ramp up quickly on Azure.
+- [Compare AWS and Azure networking options](/azure/architecture/aws-professional/networking) 
+- [Google Cloud to Azure services comparison - Networking](/azure/architecture/gcp-professional/services#networking)
+
