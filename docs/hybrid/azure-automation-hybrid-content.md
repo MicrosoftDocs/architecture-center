@@ -23,7 +23,7 @@ The extension-based Hybrid Runbook Worker only supports the user Hybrid Runbook 
 
 Agent-based (V1) Hybrid Runbook Workers rely on the [Log Analytics agent][4] reporting to an Azure Monitor [Log Analytics workspace][5]. The workspace isn't only to collect monitoring data from the machine, but also to download the components required to install the agent-based Hybrid Runbook Worker. When Azure Automation [Update Management][6] is enabled, any machine connected to your Log Analytics workspace is automatically configured as a system Hybrid Runbook Worker.
 
-## Architecture
+### Components
 
 The architecture consists of the following components:
 
@@ -39,22 +39,21 @@ The architecture consists of the following components:
     - Log Analytics Workspace: A Log Analytics workspace is a data repository for log data collected from resources that run in Azure, on-premises or in another cloud provider.
     - Automation Hybrid Worker solution: With this, you can create Hybrid Runbook Workers to run Azure Automation runbooks on your Azure and non-Azure computers.
 
-### User Hybrid Runbook Worker
-
-Each user Hybrid Runbook Worker is a member of a Hybrid Runbook Worker group that you specify when you install the worker. A group can include a single worker, but you can include multiple workers in a group for high availability. Each machine can host one Hybrid Runbook Worker reporting to one Automation account; you can't register the hybrid worker across multiple Automation accounts. A hybrid worker can only listen for jobs from a single Automation account.
+#### User Hybrid Runbook Worker
 
 ![Azure Automation in a User Hybrid Runbook Worker][architectural-diagram]
 *Download a [Visio file][architectural-diagram-visio-source] of this architecture.*
 
+Each user Hybrid Runbook Worker is a member of a Hybrid Runbook Worker group that you specify when you install the worker. A group can include a single worker, but you can include multiple workers in a group for high availability. Each machine can host one Hybrid Runbook Worker reporting to one Automation account; you can't register the hybrid worker across multiple Automation accounts. A hybrid worker can only listen for jobs from a single Automation account.
 
-### System Hybrid Runbook Worker
-
-For machines hosting the system Hybrid Runbook worker managed by Update Management, they can be added to a Hybrid Runbook Worker group. But you must use the same Automation account for both Update Management and the Hybrid Runbook Worker group membership.
+#### System Hybrid Runbook Worker
 
 ![Azure Automation in a System Hybrid Runbook Worker][System-architectural-diagram]
 *Download a [Visio file][architectural-diagram-visio-source] of this architecture.*
 
-**Job execution on Hybrid Runbook Worker**
+For machines hosting the system Hybrid Runbook worker managed by Update Management, they can be added to a Hybrid Runbook Worker group. But you must use the same Automation account for both Update Management and the Hybrid Runbook Worker group membership.
+
+#### Job execution on Hybrid Runbook Worker
 
 When you start a runbook on a user Hybrid Runbook Worker, you specify the group that it runs on. Each worker in the group polls Azure Automation to see if any jobs are available. If a job is available, the first worker to get the job takes it. The processing time of the jobs queue depends on the hybrid worker hardware profile and load. You can't specify a particular worker. Hybrid worker works on a polling mechanism (every 30 secs) and follows an order of first-come, first-serve.
 
@@ -130,7 +129,7 @@ More about Azure Automation:
 
 
 [architectural-diagram]: ./images/azure-automation-hybrid.png
-[architectural-diagram-visio-source]: https://arch-center.azureedge.net/azure-automation-hybrid.vsdx
+[architectural-diagram-visio-source]: https://arch-center.azureedge.net/azure-automation-system.vsdx
 [System-architectural-diagram]: ./images/azure-automation-system.png
 [architectural-diagram-visio-source]: https://arch-center.azureedge.net/azure-automation-hybrid.vsdx
 [1]: /azure/automation/extension-based-hybrid-runbook-worker
