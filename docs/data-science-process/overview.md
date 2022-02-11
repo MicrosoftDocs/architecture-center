@@ -1,12 +1,12 @@
 ---
 title: What is the Team Data Science Process?
 description: Provides a data science methodology to deliver predictive analytics solutions and intelligent applications.
-services: machine-learning
 author: marktab
 manager: marktab
 editor: marktab
-ms.service: machine-learning
-ms.subservice: team-data-science-process
+services: architecture-center
+ms.service: architecture-center
+ms.subservice: azure-guide
 ms.topic: overview
 ms.date: 11/17/2020
 ms.author: tdsp

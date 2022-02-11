@@ -39,8 +39,8 @@ Get up and running quickly.
 - Set up [Azure Cost Management and Billing](/azure/cost-management-billing/cost-management-billing-overview) to avoid surprise bills.
 - Set up [Azure Advisor](/azure/advisor/advisor-overview) to receive recommendations on cost optimization, security, performance, and more.
 - Understand [Azure architectures](../../browse/index.yml) to find the right Azure architecture for your app.
-- If you're designing for a startup, consider [architecture guidance for startups](https://aka.ms/StartupArchitecture).
-- Decide which tenant-isolation or sharing model to implement by reviewing [multitenant architectural guidance](https://aka.ms/MultitenantArchitecture).
+- If you're designing for a startup, consider [architecture guidance for startups](/azure/architecture/guide/startups/startup-architecture).
+- Decide which tenant-isolation or sharing model to implement by reviewing [multitenant architectural guidance](/azure/architecture/guide/multitenant/overview).
 
 ## Build your app
 
@@ -65,7 +65,7 @@ Ensure a successful deployment and launch to market.
 
 Accelerate your marketing strategy and innovate your product to drive competitive differentiation.
 
-- Co-sell with microsoft [Microsoft co-sell status](/azure/marketplace/co-sell-overview) to profit from the world-wide Microsoft partner ecosystem.
+- Co-sell with microsoft [Microsoft co-sell status](/partner-center/co-sell-overview) to profit from the world-wide Microsoft partner ecosystem.
 - [List your SaaS app with Microsoft Cloud Solution Provider partners](https://partner.microsoft.com/licensing) to expand your salesforce.
 - [Extend your app to Microsoft Teams](https://developer.microsoft.com/microsoft-teams) in order to meet your users where they work all day long.
 - [Integrate with Microsoft Power Platform](/connectors/custom-connectors) to empower your customers to build low-code and no-code apps that address their needs.

@@ -1,12 +1,12 @@
 ---
 title: Identify scenarios and plan the analytics process
 description: Identify scenarios and plan for advanced analytics data processing by considering a series of key questions.
-services: machine-learning
 author: marktab
 manager: marktab
 editor: marktab
-ms.service: machine-learning
-ms.subservice: team-data-science-process
+services: architecture-center
+ms.service: architecture-center
+ms.subservice: azure-guide
 ms.topic: article
 ms.date: 12/14/2021
 ms.author: tdsp
@@ -156,7 +156,7 @@ Azure Machine Learning uses [Jupyter notebooks for data analysis](/azure/machine
 
 ## Identify your advanced analytics scenario
 
-After you have answered the questions in the previous section, you are ready to determine which scenario best fits your case. The sample scenarios are outlined in [Scenarios for advanced analytics in Azure Machine Learning](plan-sample-scenarios.md).
+After you have answered the questions in the previous section, you are ready to determine which scenario best fits your case. The sample scenarios are outlined in [Scenarios for advanced analytics in Azure Machine Learning](/azure/architecture/data-science-process/overview).
 
 ## Next steps
 

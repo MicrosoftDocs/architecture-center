@@ -1,14 +1,14 @@
 ---
 title: Feature engineering in machine learning
 description: Learn about feature engineering and its role in the data enhancement process of machine learning.
-services: machine-learning
 author: marktab
 manager: marktab
 editor: marktab
-ms.service: machine-learning
-ms.subservice: team-data-science-process
+services: architecture-center
+ms.service: architecture-center
+ms.subservice: azure-guide
 ms.topic: conceptual
-ms.date: 12/21/2021
+ms.date: 01/31/2022
 ms.author: tdsp
 ms.custom:
   - previous-author=deguhath
@@ -18,6 +18,7 @@ products:
   - azure-machine-learning
 categories:
   - ai-machine-learning
+ROBOTS: NOINDEX
 ---
 # Feature engineering in machine learning
 

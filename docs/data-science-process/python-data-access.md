@@ -1,12 +1,12 @@
 ---
 title: Access datasets with Python client library
 description: Install and use the Python client library to access and manage Azure Machine Learning data securely from a local Python environment.
-services: machine-learning
 author: marktab
 manager: marktab
 editor: marktab
-ms.service: machine-learning
-ms.subservice: team-data-science-process
+services: architecture-center
+ms.service: architecture-center
+ms.subservice: azure-guide
 ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
