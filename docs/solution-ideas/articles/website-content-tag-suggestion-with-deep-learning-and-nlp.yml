@@ -1,6 +1,6 @@
 ### YamlMime:Architecture
 metadata:
-  title: Suggest content tags with NLP using Dep Learning
+  title: Suggest content tags with NLP using Deep Learning
   titleSuffix: Azure Solution Ideas
   description: Use Microsoft AI to improve website content tagging accuracy by combining deep learning and natural language processing (NLP) with data on site-specific search terms.
   author: msteller

@@ -1,10 +1,10 @@
 [!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
-Social sites, forums, and other text-heavy Q&A services rely heavily on content tagging, which enables good indexing and user search. Often, however, content tagging is left to users' discretion. Because users don't have lists of commonly searched terms or a deep understanding of the site structure, they frequently mislabel content. Mislabeled content is difficult or impossible to find when it's needed later.
+Social sites, forums, and other text-heavy Q&A services rely heavily on content tagging, which enables good indexing and user search. Often, however, content tagging is left to users' discretion. Because users do not have lists of commonly searched terms or a deep understanding of the site structure, they frequently mislabel content. Mislabeled content is difficult or impossible to find when it is needed later.
 
 ## Potential use cases
 
-Using Natural language processing (NLP) with Deep Learning with data on site-specific search labels enables this solution to greatly improve content tagging accuracy on a site. As users type content, this solution offers highly used terms as suggested content tags, which makes it easier for others to find the information. NLP inference tags content appropriately to make it searchable on-scaled applications.
+Using Natural language processing (NLP) with Deep Learning for content tagging enables a scalable solution creating tags across content. As users search for content by keywords, this multi-class classification process enriches untagged content with labels that will allow searching on substantial portions of text improving the information retrieval processes. New incoming content will be appropriately tagged running NLP inference.
 
 ## Architecture
 
