@@ -1,12 +1,9 @@
 ---
 title: Create features in SQL Server using SQL and Python
 description: Generate features for data stored in a SQL Server VM on Azure using SQL and Python - part of the Team Data Science Process.
-services: machine-learning
 author: marktab
 manager: marktab
 editor: marktab
-ms.service: machine-learning
-ms.subservice: team-data-science-process
 ms.topic: article
 ms.date: 12/16/2021
 ms.author: tdsp
