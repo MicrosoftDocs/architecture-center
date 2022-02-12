@@ -1,6 +1,6 @@
 ### YamlMime:Architecture
 metadata:
-  title: Suggest content tags with NLP using Deep Learning
+  title: Suggest content tags with NLP using deep learning
   titleSuffix: Azure Solution Ideas
   description: Use Microsoft AI to improve website content tagging accuracy by combining deep learning and natural language processing (NLP) with data on site-specific search terms.
   author: msteller
@@ -26,7 +26,7 @@ metadata:
     - ai-machine-learning
     - aml-project-improvement
   social_image_url: /azure/architecture/solution-ideas/articles/media/website-content-tag=suggestion-with-deep-learning-and-nlp.png
-name: Suggest content tags with deep learning and NLP
+name: Suggest content tags with NLP using deep learning
 azureCategories:
   - ai-machine-learning
 summary: Use Microsoft AI to improve website content tagging accuracy by combining deep learning and natural language processing (NLP) with data on site-specific search terms.
