@@ -35,12 +35,12 @@ Vision AI alerts should persist locally where they're raised, and pass on to the
 
 Options to achieve alert persistence and cloud syncing include:
 
-- Use the built-in store and forward capability of the IoT Edge runtime, which automatically syncs with Azure IoT Hub after lost connectivity.
+- Use the built-in store and forward capability of the IoT Edge runtime, which automatically syncs with Azure IoT Hub after any lost connectivity.
 - Persist alerts on the host file system as log files, and periodically sync the logs to blob storage in the cloud.
 - Use an [Azure IoT Edge blob storage module](/azure/iot-edge/how-to-store-data-blob) to sync the data to Azure Blob Storage in the cloud, based on configurable policies.
 - Use a local database such as [Azure SQL Edge](/azure/azure-sql-edge/overview) for storing data on IoT Edge, and sync with Azure SQL Database by using SQL Data Sync. Another lightweight database option is [SQLite](https://www.sqlite.org/index.html).
 
-For alerts, the best option is the built-in store and forward capability of the IoT Edge runtime. This option is the most suitable because of its time sensitivity, typically small messages sizes, and ease of use.
+For alerts, the best option is the built-in store and forward capability of the IoT Edge runtime. This option is the most suitable because of its time sensitivity, typically small messages size, and ease of use. For more information, see [Understand extended offline capabilities for IoT Edge devices, modules, and child devices](/azure/iot-edge/offline-capabilities).
 
 ## Next step
 

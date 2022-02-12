@@ -51,19 +51,19 @@ Datasets for ML model training are split into training, validation, and test sub
 
 All types of ML use data transformations to clean or reformat data for model input. Transformations are needed both during training and during *inference*, or using the model to score new data.
 
-[Deep learning](/azure/machine-learning/concept-deep-learning-vs-machine-learning), used in vision AI workloads, finds signals in noise better than traditional ML. Use deep learning models to help avoid costly and difficult feature engineering, featurizations, and preprocessing.
+[Deep learning](/azure/machine-learning/concept-deep-learning-vs-machine-learning), used in vision AI workloads, finds signals in noise better than traditional ML. Using deep learning models helps avoids costly and difficult feature engineering and preprocessing.
 
 For IoT Edge vision AI solutions, advanced preprocessing like denoising, adjusting brightness or contrast, or transformations from RGB to HSV can greatly affect model performance. Sometimes, you can only fully observe and evaluate these effects in a real-world situation.
 
-After installing IoT Edge hardware in its permanent location, monitor the incoming data stream for *data drift*. Data drift is deviation of current data from the original data, and can be the cause of degraded model performance and accuracy. Decreased performance can also be due to other factors, like hardware or camera failure.
+After installing IoT Edge hardware in its permanent location, monitor the incoming data stream for *data drift*. Data drift is deviation of current data from the original data, and can be the cause of degraded model performance and accuracy. Decreased performance can also be due to other factors, like hardware or camera issues.
 
-The system must also collect new data for retraining rounds, and to monitor components for hardware degradation or issues.
+The system must also collect new data for retraining rounds, and to monitor hardware components for degradation or failure.
 
 ### ML data recommendations
 
 Here are some recommendations for data collection for vision ML models:
 
-- Use a balanced dataset with all classes represented equally.
+- Use a balanced dataset with all classes represented.
 - Make sure the data is as representative as possible.
 - Have a system in place to test for data drift.
 - Have a system in place to collect new data for retraining.
@@ -120,7 +120,7 @@ Here are key recommendations for making ML model architecture decisions:
 - Test several ML architectures.
 - Trade off between too much network capacity and too little. Start with too little, and build up from there.
 - Trade off between speed and performance metrics such as accuracy.
-- Investigate open-source ML solution if possible.
+- Investigate open-source ML solutions if possible.
 - Don't iterate indefinitely. When ML model performance is acceptable, the exploratory phase is complete.
 
 ## Model deployment on IoT Edge devices
@@ -137,11 +137,11 @@ First, formulate a clear, data-driven problem statement, and decide on the desir
 
 1. Label the data.
 
-   You can label the data for a small number of images in-house, such as when using transfer learning. If many images need labeling, you can use a vendor for both data collection and labeling.
+   You can label the data for a small number of images in-house, such as when using transfer learning. If many images need labeling, you can hire a vendor for both data collection and labeling.
    
 1. Train a model with an ML framework.
 
-   Choose an ML framework like [TensorFlow](https://www.tensorflow.org) or [PyTorch](https://pytorch.org), both with Python and C++ APIs. Framework choice usually depends on the code samples that are available open-source or in-house, and the team's expertise and preference.
+   Framework choice usually depends on the code samples that are available open-source or in-house, and the team's expertise and preference. ML frameworks like [TensorFlow](https://www.tensorflow.org) and [PyTorch](https://pytorch.org) have both Python and C++ APIs. 
 
    The chosen code language partly determines what API or SDK to use for ML model training and inferencing. The API or SDK then dictates the types of ML model, device, and IoT Edge module to use.
 
@@ -155,7 +155,7 @@ First, formulate a clear, data-driven problem statement, and decide on the desir
 
 1. Build the solution for the device.
 
-   You build the solution on the same type of device that you use for the final deployment, because binary files are system-specific.
+   You usually build the solution on the same type of device that you use for the final deployment, because binary files are system-specific.
 
 1. Using the runtime, deploy the solution to the device.
 
@@ -167,17 +167,17 @@ The following diagram shows a sample data science process that uses open-source 
 
 ![Diagram showing an example IoT Edge vision AI workflow.](./images/vision-edge-flow.png)
 
-If a workflow already exists for data scientists and app developers, a few other recommendations apply:
+If your organization already has a data science or app development workflow, a few more recommendations apply:
 
 - Have a code, model, and data versioning system in place.
-- Have an automation plan for testing code, integration, triggers, and the build/release process. Automated testing speeds up the time to production.
-
+- Have an automation plan for code and integration testing.
+- Use aspects of the data science process, such as triggers and a build/release process, to speed up the time to production and promote team collaboration.
 
 Here are key ML and data science deployment considerations for IoT Edge vision AI scenarios:
 
 - Converting models involves optimizations like faster inference and smaller model footprints, which are critical for resource-constrained devices.
-- Build the solution on the same type of build-dedicated device to be used for final deployment.
-- The chosen code language and ML framework depend on the ML practitioner's experience and what is available in open-source.
+- Build the solution on the same type of device to be used for final deployment.
+- The chosen code language and ML framework depend on the ML practitioner's experience and what's available in open-source.
 - The chosen runtime depends on the type of device and hardware acceleration available for ML.
 - It's important to have a code, model, and data versioning system and automated testing in place.
 

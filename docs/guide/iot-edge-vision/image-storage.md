@@ -44,9 +44,11 @@ The following steps describe a typical workflow that uses an IoT Edge blob stora
 1. To conserve space, the IoT Edge device automatically deletes the local data after a certain time span. The device also has the *retain while uploading* option set, to ensure all images sync to the cloud before deletion.
 1. Local categorization or labeling uses a module that reads images into a user interface. The label data associates to the image URI, along with coordinates and category.
 1. A local database stores the image metadata, and syncs to the cloud by using telemetry messages. Local storage supports easy lookup for the user interface.
-1. During a scoring run, the machine learning model detects matching patterns and generates events of interest. The model sends this metadata to the cloud via telemetry that refers to the image URI.
+1. During a scoring run, the machine learning model detects matching patterns and generates events of interest.
 
-   Optionally, the model also stores this metadata in the local database for the edge user interface. The images themselves continue to store in the IoT Edge blob module and sync to Azure Blob Storage.
+   - The model sends this metadata to the cloud via telemetry that refers to the image URI.
+   - Optionally, the model also stores this metadata in the local database for the edge user interface.
+   - The images themselves continue to store in the IoT Edge blob module and sync to Azure Blob Storage.
 
 ## Next steps
 
