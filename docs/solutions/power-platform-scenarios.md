@@ -13,7 +13,6 @@ products:
   - power-automate
   - power-bi
   - power-virtual-agents
-
 categories:
   - ai-machine-learning
   - analytics
