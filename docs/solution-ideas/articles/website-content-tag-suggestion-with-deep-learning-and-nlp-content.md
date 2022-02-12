@@ -16,33 +16,33 @@ By using natural language processing (NLP) with deep learning for content taggin
 
 1. Data is stored in various formats, depending on its original source. Data can be stored as files within Azure Data Lake Storage or in tabular form in Azure Synapse or Azure SQL Database. 
 
-2. Azure Machine Learning can connect and read from such sources, to ingest the data into the NLP pipeline for pre-processing, model training, and post-processing. 
+2. Azure Machine Learning (ML) can connect and read from such sources, to ingest the data into the NLP pipeline for pre-processing, model training, and post-processing. 
 
-3. NLP pre-processing includes several steps to consume data, with the purpose of text generalization. Once the text is broken up into sentences, NLP techniques, such as lemmatization or stemming, allow language to be tokenized in a general form. 
+3. NLP pre-processing includes several steps to consume data, with the purpose of text generalization. Once the text is broken up into sentences, NLP techniques, such as lemmatization or stemming, allow the language to be tokenized in a general form. 
 
 4. As NLP models are already available pre-trained, the transfer learning approach recommends that you download language-specific embeddings and use an industry standard model, for multi-class text classification, such as variations of [BERT](https://arxiv.org/abs/1810.04805).
 
-5. NLP post-processing recommends storing the model in a model register in AML, to track model metrics. Furthermore, text can be post-processed with specific business rules that are deterministically defined, based on the business goals. Microsoft recommends using ethical AI tools to detect biased language, which ensures the fair training of a language model. 
+5. NLP post-processing recommends storing the model in a model register in Azure ML, to track model metrics. Furthermore, text can be post-processed with specific business rules that are deterministically defined, based on the business goals. Microsoft recommends using ethical AI tools to detect biased language, which ensures the fair training of a language model. 
 
-6. The model can be deployed through Azure Kubernetes Service running a Kubernetes-managed cluster while containers are deployed from images stored in Azure Container Registry. Endpoints can be made available to a front-end application. The model can be deployed through Azure Kubernetes Service as real-time endpoints 
+6. The model can be deployed through Azure Kubernetes Service, while running a Kubernetes-managed cluster where the containers are deployed from images that are stored in Azure Container Registry. Endpoints can be made available to a front-end application. The model can be deployed through Azure Kubernetes Service as real-time endpoints.
 
-7. Model results can be written to a storage option in file or tabular format, then properly indexed by Azure Cognitive Search. The model would run as batch inference and store results in the respective datastore. 
+7. Model results can be written to a storage option in file or tabular format, then properly indexed by Azure Cognitive Search. The model would run as batch inference and store the results in the respective datastore. 
 
 ### Components
 
-* [Data Lake Storage for Big Data Analytics](https://azure.microsoft.com/en-us/services/storage/data-lake-storage/)
-* [Azure Machine Learning](https://azure.microsoft.com/en-us/services/machine-learning/)
-* [Azure Cognitive Search](https://azure.microsoft.com/en-us/services/search/)
-* [Azure Container Registry](https://docs.microsoft.com/en-us/azure/container-registry/)
-* [Azure Kubernetes Service (AKS)](https://azure.microsoft.com/services/kubernetes-service/)
+* [Data Lake Storage for Big Data Analytics](https://azure.microsoft.com/services/storage/data-lake-storage)
+* [Azure Machine Learning](https://azure.microsoft.com/services/machine-learning)
+* [Azure Cognitive Search](https://azure.microsoft.com/services/search)
+* [Azure Container Registry](https://docs.microsoft.com/azure/container-registry)
+* [Azure Kubernetes Service (AKS)](https://azure.microsoft.com/services/kubernetes-service)
 
 ## Next steps
 
-See product documentation:
+See the product documentation:
 
-* [Azure Data Lake Storage Gen2 Introduction](https://docs.microsoft.com/en-us/azure/storage/blobs/data-lake-storage-introduction/)
+* [Azure Data Lake Storage Gen2 Introduction](/azure/storage/blobs/data-lake-storage-introduction)
 * [Azure Machine Learning](/azure/machine-learning)
-* [Azure Cognitive Search documentation](https://docs.microsoft.com/en-us/azure/search/)
+* [Azure Cognitive Search documentation](/azure/search)
 * [Learn more about Azure Container Registry](/azure/container-registry/container-registry-intro)
 * [Azure Kubernetes Service](/azure/aks/intro-kubernetes)
 
@@ -50,5 +50,16 @@ Try these Microsoft Learn modules:
 
 * [Introduction to Natural Language Processing with PyTorch](/learn/modules/intro-natural-language-processing-pytorch/)
 * [Train and evaluate deep learning models](/learn/modules/train-evaluate-deep-learn-models/)
-* [Natural language processing technology](https://docs.microsoft.com/en-us/azure/architecture/data-guide/technology-choices/natural-language-processing)
 * [Implement knowledge mining with Azure Cognitive Search](/learn/paths/implement-knowledge-mining-azure-cognitive-search/)
+
+## Related resources
+
+See the following related architectural articles:
+
+* [Natural language processing technology](/azure/architecture/data-guide/technology-choices/natural-language-processing)
+* [Build a delta lake to support ad hoc queries in online leisure and travel booking](/azure/architecture/solution-ideas/articles/build-data-lake-support-adhoc-queries-online)
+* [Query a data lake or lakehouse by using Azure Synapse serverless](/azure/architecture/example-scenario/data/synapse-exploratory-data-analytics)
+* [Machine learning operations (MLOps) framework to upscale machine learning lifecycle with Azure Machine Learning](/azure/architecture/example-scenario/mlops/mlops-technical-paper)
+* [High-performance computing for manufacturing](/azure/architecture/industries/manufacturing/compute-manufacturing-overview)
+* [Introduction to predictive maintenance in manufacturing](/azure/architecture/industries/manufacturing/predictive-maintenance-overview)
+* [Predictive maintenance solution](/azure/architecture/industries/manufacturing/predictive-maintenance-solution)
