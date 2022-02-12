@@ -62,6 +62,8 @@ This is the architecture of the example system shown above when refactored for A
 
 *Download a [Visio file](https://arch-center.azureedge.net/US-1885559-refactor-mainframe-applications-advanced.vsdx) of this architecture.*
 
+## Workflow ##
+
 1. Input typically comes either through Azure ExpressRoute from remote clients, or from other Azure applications. In either case, TCP/IP connections are the primary means of connecting to the system. User access to web applications is over TLS port 443. You can keep the UI of the web applications the same to minimize end user retraining, or you can update it by using modern UX frameworks. Azure Bastion provides admin access to the virtual machines (VMs), maximizing security by minimizing open ports.
 1. Once in Azure, access to the application compute clusters is through an Azure load balancer. This approach allows for scale-out compute resources to process the input work. Depending on input, you can load balance at either the application level or the network-protocol level.
 1. Advanced supports deployment in containers, VMs, or Virtual Machine Scale Sets. Containers and Virtual Machine Scale Sets, unlike VMs, can scale out and in rapidly. Shifting the unit of scaling to containers optimizes infrastructure utilization.

@@ -88,7 +88,7 @@ This section shares guides and building blocks that are useful when building IoT
 
 ### Guides for building IoT solutions
 
-* [Compare IoT solution approaches](../../example-scenario/iot/iot-central-iot-hub-cheat-sheet.md): There are many options for building and deploying your IoT cloud solutions. The technologies and services you choose depends on your scenario's development, deployment, and management needs. Use the linked article to compare PaaS and aPaaS approaches.
+* [Compare IoT solution approaches](../../example-scenario/iot/iot-central-iot-hub-cheat-sheet.yml): There are many options for building and deploying your IoT cloud solutions. The technologies and services you choose depends on your scenario's development, deployment, and management needs. Use the linked article to compare PaaS and aPaaS approaches.
 
 * [Vision with Azure IoT Edge](../../guide/iot-edge-vision/index.md): Artificial intelligence for image analytics spans a wide variety of industries including manufacturing, retail, healthcare, and the public sector.
 
@@ -112,7 +112,7 @@ See the related IoT architecture guides:
 
 * [Azure IoT reference architecture](../iot.yml)
 * [IoT solutions conceptual overview](../../example-scenario/iot/introduction-to-solutions.yml)
-* [Choose an Internet of Things (IoT) solution in Azure](../../example-scenario/iot/iot-central-iot-hub-cheat-sheet.md)
+* [Choose an Internet of Things (IoT) solution in Azure](../../example-scenario/iot/iot-central-iot-hub-cheat-sheet.yml)
 
 See the related IoT solution guides for COVID-19:
 

@@ -65,7 +65,7 @@ Ensure a successful deployment and launch to market.
 
 Accelerate your marketing strategy and innovate your product to drive competitive differentiation.
 
-- Co-sell with microsoft [Microsoft co-sell status](/azure/marketplace/co-sell-overview) to profit from the world-wide Microsoft partner ecosystem.
+- Co-sell with microsoft [Microsoft co-sell status](/partner-center/co-sell-overview) to profit from the world-wide Microsoft partner ecosystem.
 - [List your SaaS app with Microsoft Cloud Solution Provider partners](https://partner.microsoft.com/licensing) to expand your salesforce.
 - [Extend your app to Microsoft Teams](https://developer.microsoft.com/microsoft-teams) in order to meet your users where they work all day long.
 - [Integrate with Microsoft Power Platform](/connectors/custom-connectors) to empower your customers to build low-code and no-code apps that address their needs.

@@ -5,6 +5,8 @@ SAP system on Oracle Database is one of the popular deployment patterns in the S
 ![Diagram showing an architecture overview of a production SAP system on Oracle on Azure.](./media/sap-on-oracle-architecture.png)
 *Figure – Architecture Diagram of SAP on Oracle Database on Azure*
 
+Download a [Visio file](https://arch-center.azureedge.net/sap-oracle-architecture.vsdx) of this architecture.
+
 ## Components
 
 The reference architecture describes a typical SAP production system running on Oracle database on Azure. The key components of the architecture are mentioned below. The architecture and its components can be customized based on the requirements (for example, RPO/RTO, System Role, and so on). The considerations associated with each of the components highlight some of customizing options and the recommendations are based on the best practices for running SAP on Oracle database on Azure.
@@ -79,11 +81,11 @@ The architecture uses Azure-managed disks for Azure VM disks and Azure Files or 
 
 #### Considerations
 
-- Azure Managed Disks and [Azure NetApp Files](/azure/virtual-machines/workloads/oracle/oracle-database-backup-strategies#azure-netapp-files) are the storage solutions for Oracle databases on Azure. Refer [SAP Note – 2039619](https://launchpad.support.sap.com/#/notes/2039619) to understand the possible supported combinations of Operating systems, Oracle products, and the storage solutions.
+- Azure Managed Disks and [Azure NetApp Files](/azure/virtual-machines/workloads/oracle/oracle-database-backup-strategies#azure-netapp-files) are the recommended storage solutions for Oracle databases on Azure. Refer [SAP Note – 2039619](https://launchpad.support.sap.com/#/notes/2039619) to understand the possible supported combinations of Operating systems, Oracle products, and the storage solutions.
 - Azure Files (In Preview), Azure Shared Disk, and Azure NetApp Files can be used for shared file systems.
 - Oracle database is supported on both ASM and Non-ASM File systems on Azure.
 - Be aware of some of the [limitations](/azure/virtual-machines/disks-enable-ultra-ssd?tabs=azure-portal) of Azure Ultra SSD, when using Ultra SSD for database storage.
-- Azure NetApp Files does not currently support Availability Zones.
+- Azure NetApp Files does not currently support Availability Zones, but it does provide highly efficient storage based replication through [Cross region replication](https://docs.microsoft.com/azure/azure-netapp-files/cross-region-replication-introduction).
 
 ##### Recommendations
 
@@ -97,7 +99,8 @@ The architecture uses Azure-managed disks for Azure VM disks and Azure Files or 
   - Enable write accelerator (for write caching) for all the log disks when using premium SSD with M series.
   - For production/performance critical SAP-on-Oracle deployment with E series VMs, use ultra SSD for log disks and can use premium SSD for data disks.
   - For non-prod systems/non-performance critical SAP-on-Oracle deployment, you can replace the Premium-managed disk with Standard SSD.
-- Can use [premium SSD performance tiering](/azure/virtual-machines/disks-performance-tiers-portal) to temporary increase the performance offerings from the premium SSD.
+- Can use [premium SSD performance tiering](/azure/virtual-machines/disks-performance-tiers-portal) to temporarily increase the performance offerings from the premium SSD.
+- Can use [Azure NetApp Files service levels](/azure/azure-netapp-files/azure-netapp-files-service-levels) to dynamically manage the performance level of the shared disks.
 
 ### Security
 
@@ -176,7 +179,7 @@ Below are the considerations and recommendations related to HA/DR setup.
 | Oracle Database Server | Synchronous Oracle Data Guard replication between Oracle databases in availability zones. | Asynchronous Oracle Data Guard replication between Oracle databases in two regions. |
 | Oracle Observer | VMs distributed between Availability Zones – or – VMs in availability set. | - |
 
-> **_*_**  See the supported scenarios with [Azure Site Recovery](/azure/site-recovery/azure-to-azure-support-matrix).
+> *****  See the supported scenarios with [Azure Site Recovery](/azure/site-recovery/azure-to-azure-support-matrix).
 
 - Use Azure Automation Runbook to automate the pre- and post-steps of the region failover.
 
@@ -186,7 +189,7 @@ The reference architecture uses Azure Backup for backing up Azure VMs and Oracle
 
 #### Considerations
 
-- There are multiple ways to perform SAP Oracle database backup on Azure. This includes traditional methods like SAP BRTools, Oracle RMAN, SAP Backint certified third-party backup solutions, Azure native PaaS solution, Azure Backup, and so on.
+- There are multiple ways to perform SAP Oracle database backup on Azure. This includes traditional methods like SAP BRTools, Oracle RMAN, SAP Backint certified third-party backup solutions, Azure native PaaS solution, Azure Backup, Azure NetApp Files snapshots, and so on.
 - Azure Backup offers a simple, enterprise-grade solution for workloads running on virtual machines. For more information, see [Oracle database backup using Azure Backup](/azure/virtual-machines/workloads/oracle/oracle-database-backup-azure-backup?tabs=azure-portal).
 
 #### Recommendations
@@ -203,7 +206,7 @@ Below are the considerations and recommendations related to monitoring aspects o
 - SAP Application and Database Monitoring can be performed using SAP Tools like – SAP Solution Manager,  DB*/ SM*/ST* SAP transactions.
 - Azure VMs running SAP application and databases can be monitored using Azure Monitor and Linux Pacemaker cluster can be monitored using [Azure Monitor for SAP (preview)](/azure/virtual-machines/workloads/sap/azure-monitor-providers#provider-type-high-availability-cluster).
 - Azure Network Watcher can be used for Network Monitoring.
-- Metrics and Logs from the Azure Monitor can be cascaded to Azure log Analytics workspace and corelated with other KPIs for different use cases.
+- Metrics and Logs from the Azure Monitor can be cascaded to Azure log Analytics workspace and correlated with other KPIs for different use cases.
 - Microsoft Defender for Cloud and Microsoft Sentinel can be used for security monitoring and audit logging.
 
 #### Recommendations
@@ -227,7 +230,7 @@ Here are some of the cost optimization measures that can be adopted to achieve c
 - Based on the system usage profile of different SAP systems of the landscape, such as Development, Test, Pre-Production and Production. Adopt compute cost optimization strategy by choosing either [Azure VM reservations or VM snoozing](https://azure.microsoft.com/resources/reduce-business-costs-by-snoozing-or-reserving-azure-virtual-machines/).
 - Consider using [Azure Hybrid Benefit](https://azure.microsoft.com/pricing/hybrid-benefit) to use pre-existing on-premises Windows Server, Red Hat, or SUSE licenses.
 
-- For a temporary increase (such as for finite duration) in storage performance without increasing the storage capacity, consider using [Performance tiering of Premium SSD](/azure/virtual-machines/disks-performance-tiers-portal) and Azure NetApp Files.
+- For a temporary increase (such as for finite duration) in storage performance without increasing the storage capacity, consider using [Performance tiering of Premium SSD](/azure/virtual-machines/disks-performance-tiers-portal) and Azure NetApp Files service levels.
 
 ## Next steps
 
