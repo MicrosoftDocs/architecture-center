@@ -346,7 +346,7 @@ items:
                     href: guide/multitenant/service/postgresql.md
           - name: Related resources
             href: guide/multitenant/related-resources.md
-      - name: Solutions across Microsoft clouds
+      - name: Solutions across Microsoft cloud platforms
         expanded: true 
         items:
           - name: Azure and Power Platform scenarios 
