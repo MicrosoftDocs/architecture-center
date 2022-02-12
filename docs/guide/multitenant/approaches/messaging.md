@@ -27,7 +27,7 @@ ms.custom:
 
 Asynchronous messaging and event-driven communication are critical assets when building a distributed application that's composed of several internal and external services. When you design a multitenant solution, it's crucial to conduct a preliminary analysis to define how to share or partition messages that pertain to different tenants.
 
-Sharing the same messaging system or event-streaming service can significantly reduce the operational cost and management complexity. However, using a dedicated messaging system for each tenant provides better data isolation, reduces the risk of data leakage, eliminates the [Noisy Neighbor issue](../../../antipatterns/noisy-neighbor/noisy-neighbor.md), and allows to charge back Azure costs to tenants easily.
+Sharing the same messaging system or event-streaming service can significantly reduce the operational cost and management complexity. However, using a dedicated messaging system for each tenant provides better data isolation, reduces the risk of data leakage, eliminates the [Noisy Neighbor issue](../../../antipatterns/noisy-neighbor/noisy-neighbor.yml), and allows to charge back Azure costs to tenants easily.
 
 In this article, you can find a distinction between messages and events, and you'll find guidelines that solution architects can follow when deciding which approach to use for a messaging or eventing infrastructure in a multitenant solution.
 
@@ -101,7 +101,7 @@ The messaging system could be sized with a maximum throughput in messages per un
 
 ### Performance predictability and reliability
 
-When designing and building a messaging system for a limited number of tenants, using a single messaging system could be an excellent solution to meet the functional requirements, in terms of throughput, and it could reduce the total cost of ownership. A multitenant application might share the same messaging entities, such as queues and topics across multiple customers. Or they might use a dedicated set of components for each, in order to increase tenant isolation. On the other hand, sharing the same messaging infrastructure across multiple tenants could expose the entire solution to the [Noisy Neighbor issue](../../../antipatterns/noisy-neighbor/noisy-neighbor.md). The activity of one tenant could harm other tenants, in terms of performance and operability. 
+When designing and building a messaging system for a limited number of tenants, using a single messaging system could be an excellent solution to meet the functional requirements, in terms of throughput, and it could reduce the total cost of ownership. A multitenant application might share the same messaging entities, such as queues and topics across multiple customers. Or they might use a dedicated set of components for each, in order to increase tenant isolation. On the other hand, sharing the same messaging infrastructure across multiple tenants could expose the entire solution to the [Noisy Neighbor issue](../../../antipatterns/noisy-neighbor/noisy-neighbor.yml). The activity of one tenant could harm other tenants, in terms of performance and operability. 
 
 In this case, the messaging system should be properly sized to sustain the expected traffic load at peak time. Ideally, it should support autoscaling. The messaging system should dynamically scale out when the traffic increases and scale in when the traffic decreases. A dedicated messaging system for each tenant could also mitigate the Noisy Neighbor risk, but managing a large number of messaging systems could increase the complexity of the solution.
 
@@ -155,7 +155,7 @@ Plan from the beginning how you intend to operate, monitor, and maintain your me
 
 ### Cost
 
-Generally, the higher the density of tenants to your deployment infrastructure, the lower the cost to provision that infrastructure. However, shared infrastructure increases the likelihood of issues like the [Noisy Neighbor issue](../../../antipatterns/noisy-neighbor/noisy-neighbor.md), so consider the tradeoffs carefully.
+Generally, the higher the density of tenants to your deployment infrastructure, the lower the cost to provision that infrastructure. However, shared infrastructure increases the likelihood of issues like the [Noisy Neighbor issue](../../../antipatterns/noisy-neighbor/noisy-neighbor.yml), so consider the tradeoffs carefully.
 
 ## Approaches and patterns to consider
 
