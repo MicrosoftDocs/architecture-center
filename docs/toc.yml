@@ -193,7 +193,7 @@ items:
       - name: Performance tuning and antipatterns
         items:
           - name: Introduction
-            href: performance/noisy-neighbor.yml
+            href: performance/index.md
           - name: Scenario 1 - Distributed transactions
             href: performance/distributed-transaction.yml
           - name: Scenario 2 - Multiple backend services
