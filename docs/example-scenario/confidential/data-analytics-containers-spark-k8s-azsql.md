@@ -9,6 +9,8 @@ Confidential computing technology encrypts data in memory and only processes it 
 > 
 > Confidential data analytics helps to meet the highest needs of security and confidentiality by removing from computation the untrusted parties, such as the cloud operator and service or guest admins. This method helps to meet data compliance needs through hardware-backed guarantees.
 
+_Apache®, Apache Ignite, Ignite, and the flame logo are either registered trademarks or trademarks of the Apache Software Foundation in the United States and/or other countries. No endorsement by The Apache Software Foundation is implied by the use of these marks._
+
 ## Potential use cases
 
 Many industries, specially financial services, protect their data by using confidential computing for these purposes:
@@ -43,7 +45,7 @@ Many industries, specially financial services, protect their data by using confi
 Diagram that shows how sensitive data flows securely from ingestion phase to analytics within the bounds of a confidential computing environment. The problems that this architecture aims to solve is ingestion and storage of sensitive data in the Azure cloud, gathering business insights by processing and storing the data at scale, and ensuring confidentiality through hardware-enforced means.
 :::image-end:::
 
-*Download a [PowerPoint file][media/confidential-data-processing.pptx] of this architecture.*
+*Download a [PowerPoint file](https://arch-center.azureedge.net/big-data-azure-confidential-processing.pptx) of this architecture.*
 
 The preceding diagram outlines the architecture—a scalable pattern for processing larger datasets in a distributed fashion, as well as showcasing confidential analytics on relational Database Engines storing confidential data. In particular, the containerized Spark app can process datasets from two data sources as illustrated:
 
