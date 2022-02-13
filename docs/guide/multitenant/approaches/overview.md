@@ -4,7 +4,7 @@ titleSuffix: Azure Architecture Center
 description: This article introduces the approaches you can consider when planning a multitenant architecture.
 author: johndowns
 ms.author: jodowns
-ms.date: 12/21/2021
+ms.date: 02/12/2022
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: azure-guide
@@ -22,7 +22,7 @@ ms.custom:
 
 There are many different ways that you can design and build multitenant solutions in Azure. At one extreme, you can share every resource in your solution between every tenant. At the other extreme, you can deploy isolated resources for every tenant. It might seem simple to deploy separate resources for every tenant, and it can work for a small numbers of tenants. However, it typically doesn't provide cost effectiveness, and it can become difficult to manage your resources. There are also various approaches that fit between these extremes, and they all have tradeoffs: scale, isolation, cost efficiency, performance, implementation complexity, and manageability.
 
-Throughout this section, we discuss the main categories of Azure services that comprise a solution, including [compute](compute.md), [storage and data](storage-data.md), [networking](networking.md), and [deployment](deployment-configuration.yml). Coming soon, we will also provide guidance for messaging and IoT. For each category, we outline the key patterns and approaches you can consider when you're designing a multitenant solution, and some antipatterns to avoid.
+Throughout this section, we discuss the main categories of Azure services that comprise a solution, including [compute](compute.md), [storage and data](storage-data.md), [networking](networking.md), [deployment](deployment-configuration.yml), [messaging](messaging.md), and [artificial intellience and machine learning](ai-ml.md). Coming soon, we will also provide guidance for identity and IoT. For each category, we outline the key patterns and approaches you can consider when you're designing a multitenant solution, and some antipatterns to avoid.
 
 ## Deployment Stamps pattern
 
