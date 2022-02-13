@@ -4355,14 +4355,6 @@ items:
             items:
               - name: Basic web application
                 href: reference-architectures/app-service-web-app/basic-web-app.yml
-              - name: Blueprint architectures
-                items:
-                 - name: Blueprint - PaaS web app for FedRAMP
-                   href: /previous-versions/azure/security/blueprints/fedramp-paaswa-overview
-                   maintainContext: true
-                 - name: Blueprint - PaaS web app for PCI DSS
-                   href: /previous-versions/azure/security/blueprints/pcidss-paaswa-overview
-                   maintainContext: true
               - name: Clinical insights with Cloud for Healthcare
                 href: example-scenario/mch-health/medical-data-insights.yml
               - name: Common web app architectures
