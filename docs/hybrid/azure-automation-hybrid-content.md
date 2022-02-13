@@ -114,12 +114,12 @@ Maximum number of concurrent jobs that can be run on a single Hybrid Runbook Wor
 ## DevOps considerations
 
 - Azure Automation allows integration with popular source control systems, Azure DevOps, and GitHub. With Source Control, you can integrate the existing development environment that contains your scripts and custom code that have been previously tested in an isolated environment.
-- For information on how to integrate Azure Automation with your Source Control environment, refer to: Use source control integration.
+- For information on how to integrate Azure Automation with your Source Control environment, refer to the [Use source control integration][12].
 
 ## Cost considerations
 
-- Azure Automation costs are priced for job execution per minute. Every month, the first 500 minutes of process automation are free. Use the Azure pricing calculator to estimate costs. Pricing models for Azure Automation are explained here.
-- For agent-based approach (V1) - Azure Log Analytics Workspace might generate additional costs related to the amount of log data stored in the Azure Log Analytics. The pricing model is based on consumption. The costs are associated for data.
+- Azure Automation costs are priced for job execution per minute. Every month, the first 500 minutes of process automation are free. Use the [Azure pricing calculator][13] to estimate costs. Pricing models for Azure Automation are explained [here][14].
+- For agent-based approach (V1) - Azure Log Analytics Workspace might generate additional costs related to the amount of log data stored in the Azure Log Analytics. The pricing model is based on consumption. The costs are associated for data ingestion and data retention. For ingesting data into Azure Log Analytics, use Capacity Reservation or Pay-As-You-Go model that include 5 gigabytes (GB) free per billing account per month. Data retention for the first 31 days are free of charge. Pricing models for Log Analytics are explained [here] [15].
 
 
 ## Next steps
@@ -147,10 +147,10 @@ More about Azure Automation:
 
 
 [architectural-diagram]: ./images/azure-automation-hybrid.png
-[architectural-diagram-visio-source]: https://arch-center.azureedge.net/azure-automation-system.vsdx
-[System-architectural-diagram]: ./images/azure-automation-system.png
 [architectural-diagram-visio-source]: https://arch-center.azureedge.net/azure-automation-hybrid.vsdx
-[1]: /azure/automation/extension-based-hybrid-runbook-worker
+[System-architectural-diagram]: ./images/azure-automation-system.png
+[architectural-diagram-visio-source]: https://arch-center.azureedge.net/azure-automation-system.vsdx
+[1]: /azure/automation/extension-based-hybrid-runbook-worker-install?tabs=windows
 [2]: /azure/automation/automation-windows-hrw-install
 [3]: /azure/automation/extension-based-hybrid-runbook-worker-install
 [4]: /azure/azure-monitor/agents/log-analytics-agent
@@ -161,3 +161,7 @@ More about Azure Automation:
 [9]: /azure/automation/automation-runbook-execution#runbook-execution-environment
 [10]: /azure/azure-resource-manager/management/azure-subscription-service-limits#automation-limits
 [11]: /azure/automation/automation-runbook-execution#fair-share
+[12]: /azure/automation/source-control-integration
+[13]: /azure.microsoft.com/pricing/calculator/
+[14]: /azure.microsoft.com/pricing/details/automation/
+[15]: /azure.microsoft.com/pricing/details/monitor/
