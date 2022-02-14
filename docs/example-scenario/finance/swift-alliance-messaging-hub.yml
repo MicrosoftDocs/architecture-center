@@ -1,6 +1,6 @@
 ### YamlMime:Architecture
 metadata:
-  title: SWIFT Alliance Messaging Hub (AMH) on Azure
+  title: SWIFT's Alliance Messaging Hub (AMH) with Alliance Connect
   description: This article provides a reference architecture for deploying and running SWIFT Alliance Messaging Hub (AMH) on Azure.
   author: Mahesh-MSFT
   ms.author: maksh
@@ -13,7 +13,7 @@ metadata:
   ms.custom:
     - fcp
     - example-scenario
-name: SWIFT Alliance Messaging Hub (AMH) on Azure
+name: SWIFT's Alliance Messaging Hub (AMH) with Alliance Connect
 azureCategories:
   - integration
   - migration
