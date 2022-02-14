@@ -13,7 +13,7 @@ ms.subservice: cloud-fundamentals
 
 ## Simple Email Service
 
-AWS provides the Simple Email Service (SES) for sending notification, transactional, or marketing emails. In Azure, third-party solutions, like [SendGrid](https://sendgrid.com/partners/azure), provide email services that can be incorporated into solutions to cater for various use cases. 
+AWS provides the Simple Email Service (SES) for sending notification, transactional, or marketing emails. In Azure, third-party solutions, like [SendGrid](https://sendgrid.com/partners/azure), provide email services that can be incorporated into solutions to cater for various use cases.
 
 ## Simple Queueing Service
 

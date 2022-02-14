@@ -1,25 +1,24 @@
 
 
-
 Best practices for logging include:
 
 - Don't use string formatting or interpolation. Logging a string with `$"This broke {brokenThing}"` isn't useful for debugging.
-  
+
 - Pass objects so that they become searchable fields.
-  
+
   Instead of `LogInformation(LogEventIds.StartProcessing, $"Processing has started on item {Item.itemNumber}");`, use:
-  
+
   - An object as such, like `LogInformationObject(LogEventIds.StartProcessing, Item);`, or
   - Anonymous objects, like `LogInformationObject(LogEventIds.StartProcessing, new {Item.itemNumber, Item.itemDescription, someData});`.
-  
+
 - Follow the EventId numbering conventions outlined in [LogEventIds](https://github.com/mspnp/gridwich/blob/main/src/Gridwich.Core/src/Constants/LogEventIds.cs).
-  
+
 - For any significant body of work, use the following logging pattern:
-  
+
   - Use `LogInformationObject` on entry, for example when about to start an encode job.
   - Use `LogInformationObject` on success, for example when the encode job is successful.
   - Use `LogWarningObject`, `LogErrorObject`, or `LogCriticalObject` on failure, for example if the encoding job fails. Use Exception method variants if applicable.
-  
+
 - Although you can log any information at any stage, don't pollute logs with extraneous noise.
 
 ## ObjectLogger
@@ -75,3 +74,20 @@ Assigning the appropriate logging level may not be straightforward. The followin
 |LogCritical| 5|Describes an unrecoverable application or system crash, or a catastrophic failure that requires immediate attention.
 |LogNone| 6| Not used for writing log messages. Specifies that a logging category should not write any messages.|
 
+## Next steps
+
+Product documentation:
+
+- [Gridwich cloud media system](gridwich-architecture.yml)
+- [Azure Storage analytics logging](/azure/storage/common/storage-analytics-logging)
+
+Microsoft Learn modules:
+
+- [Configure blob storage](/learn/modules/configure-blob-storage)
+- [Explore Azure Storage services](/learn/modules/azure-storage-fundamentals)
+
+## Related resources
+
+- [Gridwich operations for Azure Storage](gridwich-storage-service.yml)
+- [Gridwich project naming and namespaces](gridwich-project-names.yml)
+- [Gridwich request-response messages](gridwich-message-formats.yml)

@@ -1,6 +1,6 @@
 ---
-title: Conduct a Proof of Concept or pilot
-titleSuffix: Azure Example Scenarios
+title: Conduct a proof of concept or pilot
+titleSuffix: Azure Architecture Center
 description: Conduct a Proof of Concept or pilot and manage change during serverless adoption with Azure Functions.
 author: rogeriohc
 ms.date: 06/22/2020
@@ -13,7 +13,7 @@ ms.custom:
   - fcp
   - guide
 ---
-# Proof of Concept or pilot
+# Proof of concept or pilot
 
 When driving a technical and security decision for your company or customer, a *Proof of Concept (PoC)* or *pilot* is an opportunity to deliver evidence that the proposed solution solves the business problems. The PoC or pilot increases the likelihood of a successful adoption.
 

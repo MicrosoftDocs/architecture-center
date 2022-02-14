@@ -6,7 +6,7 @@ author: dsk-2015
 ms.date: 04/19/2021
 ms.topic: article
 ms.service: architecture-center
-ms.subservice: 
+ms.subservice: azure-guide
 products:
   - azure
   - dynamics-365
@@ -18,7 +18,8 @@ categories:
   - storage
   - databases
   - compute
-keywords: Azure
+keywords:
+  - Azure
 ---
 
 # Solutions for the finance industry
@@ -29,7 +30,11 @@ With digital transformation, financial institutions can leverage the speed and s
 
 <br>
 
+<!-- markdownlint-disable MD034 -->
+
 > [!VIDEO https://www.youtube.com/embed/MqESP4OIC00]
+
+<!-- markdownlint-enable MD034 -->
 
 <br>
 

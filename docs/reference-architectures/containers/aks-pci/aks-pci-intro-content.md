@@ -1,4 +1,4 @@
-This reference architecture describes the considerations for an Azure Kubernetes Service (AKS) cluster designed to run a sensitive workload. The guidance is tied to the regulatory requirements of the Payment Card Industry Data Security Standard (PCI-DSS 3.2.1). 
+This reference architecture describes the considerations for an Azure Kubernetes Service (AKS) cluster designed to run a sensitive workload. The guidance is tied to the regulatory requirements of the Payment Card Industry Data Security Standard (PCI-DSS 3.2.1).
 
 It's _not_ our goal to replace your demonstration of your compliance with this series. The intent is to assist merchants get started on the architectural design by addressing the applicable DSS control objectives as a tenant on the AKS environment. The guidance covers the compliance aspects of the environment including infrastructure, interactions with the workload, operations, management, and interactions between services.
 
@@ -29,7 +29,7 @@ This series assumes:
 - You're familiar with Kubernetes concepts and workings of an [AKS cluster](/azure/aks).
 - You've read the [AKS baseline reference architecture](../aks/secure-baseline-aks.yml).
 - You've deployed the [AKS baseline reference implementation](https://github.com/mspnp/aks-secure-baseline).
-- You're well versed with the official [PCI DSS 3.2.1 specification](https://www.pcisecuritystandards.org/documents/PCI_DSS_v3-2-1.pdf). 
+- You're well versed with the official [PCI DSS 3.2.1 specification](https://www.pcisecuritystandards.org/documents/PCI_DSS_v3-2-1.pdf).
 - You've read the [Azure security baseline for Azure Kubernetes Service](/security/benchmark/azure/baselines/aks-security-baseline).
 
 ### In this series

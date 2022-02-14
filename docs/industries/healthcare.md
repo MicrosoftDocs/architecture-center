@@ -3,10 +3,10 @@ title: Solutions for the healthcare industry
 titleSuffix: Azure Architecture Center
 description: Architectures and ideas to use Azure and other Microsoft services for building efficient and reliable healthcare solutions.
 author: dsk-2015
-ms.date: 04/19/2021
+ms.date: 12/13/2021
 ms.topic: article
 ms.service: architecture-center
-ms.subservice: 
+ms.subservice: azure-guide
 products:
   - azure
   - dynamics-365
@@ -18,7 +18,8 @@ categories:
   - containers
   - security
   - web
-keywords: Azure
+keywords:
+  - Azure
 ---
 
 # Solutions for the healthcare industry
@@ -29,7 +30,11 @@ Modernization and digital transformation of healthcare facilities is all the mor
 
 <br>
 
+<!-- markdownlint-disable MD034 -->
+
 > [!VIDEO https://www.youtube.com/embed/ehv6UL-_MoE]
+
+<!-- markdownlint-enable MD034 -->
 
 <br>
 
@@ -43,7 +48,7 @@ The following articles provide detailed analysis of architectures developed and 
 | ------- | ------- | ------- |
 | [Virtual health on Microsoft Cloud for Healthcare](../example-scenario/mch-health/virtual-health-mch.yml) | Use [Microsoft Cloud for Healthcare](/industry/healthcare/overview), a software package created for the healthcare industry, to build an architecture for scheduling and following up on virtual visits between patients, providers, and care managers. | Web |
 | [Clinical insights with Microsoft Cloud for Healthcare](../example-scenario/mch-health/medical-data-insights.yml) | Use Microsoft Cloud for Healthcare to collect, analyze, and visualize medical and health insights, that can be used to improve healthcare operations. | Web |
-| [Consumer health portal on Azure](../example-scenario/digital-health/health-portal.yml) | Learn how to develop a consumer health portal using Azure services, to track statistics from wearables, engage with medical providers, and monitor health habits, built on a foundation of the [Azure Well Architected Framework](../framework/index.md). | Web |
+| [Consumer health portal on Azure](../example-scenario/digital-health/health-portal.yml) | Learn how to develop a consumer health portal using Azure services, to track statistics from wearables, engage with medical providers, and monitor health habits, built on a foundation of the [Azure Well Architected Framework](/azure/architecture/framework/). | Web |
 | [Confidential computing for healthcare](../example-scenario/confidential/healthcare-inference.yml) | Use [Azure confidential computing](/azure/confidential-computing/overview) to encrypt medical and patient data, for secure collaboration between hospitals and third-party diagnostic providers. | Security |
 | [Health Data Consortium on Azure](../example-scenario/data/azure-health-data-consortium.yml) | Use the Azure Data Platform, and [Azure Data Share](/azure/data-share/overview) to create an environment where healthcare organizations can appropriately, and securely share data with partner organizations to support activities like clinical trials and research.  | Data |
 | [Precision Medicine Pipeline with Genomics](../example-scenario/precision-medicine/genomic-analysis-reporting.yml) | Use [Microsoft Genomics](/azure/genomics/overview-what-is-genomics) and the Azure Data Platform to perform analysis and reporting for scenarios like precision medicine and genetic profiling. | Data/Analytics |

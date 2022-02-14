@@ -6,6 +6,8 @@ ms.date: 03/16/2020
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: best-practice
+categories:
+  - networking
 products:
   - azure-encoding
 ms.custom:
@@ -16,7 +18,7 @@ ms.custom:
 
 # Message encoding considerations
 
-Many cloud applications use asynchronous messages to exchange information between components of the system. An important aspect of messaging is the format used to encode the payload data. After you [choose a messaging technology](../guide/technology-choices/messaging.md), the next step is to define how the messages will be encoded. There are many options available, but the right choice depends on your use case.
+Many cloud applications use asynchronous messages to exchange information between components of the system. An important aspect of messaging is the format used to encode the payload data. After you [choose a messaging technology](../guide/technology-choices/messaging.yml), the next step is to define how the messages will be encoded. There are many options available, but the right choice depends on your use case.
 
  This article describes some of the considerations.
 
@@ -72,7 +74,7 @@ A message payload arrives as a sequence of bytes. To parse this sequence, the co
 
 - Store the schema externally.
 
-Some encoding formats define the schema and use tools that generate classes from the schema. The producer and consumer use those classes and libraries to serialize and deserialize the payload. The libraries also provide compatibility checks between the writer and reader schema. Both protobuf and Apache Avro follow that approach. The key difference is that protobuf has a language-agnostic schema definition but Avro uses compact JSON. Another difference is in the way both formats provide compatibility checks between reader and writer schemas.  
+Some encoding formats define the schema and use tools that generate classes from the schema. The producer and consumer use those classes and libraries to serialize and deserialize the payload. The libraries also provide compatibility checks between the writer and reader schema. Both protobuf and Apache Avro follow that approach. The key difference is that protobuf has a language-agnostic schema definition but Avro uses compact JSON. Another difference is in the way both formats provide compatibility checks between reader and writer schemas.
 
 Another way to store the schema externally in a schema registry. The message contains a reference to the schema and the payload. The producer sends the schema identifier in the message and the consumer retrieves the schema by specifying that identifier from an external store. Both parties use format-specific library to read and write messages. Apart from storing the schema a registry can provide compatibility checks to make sure the contract between the producer and consumer isn't broken as the schema evolves.
 
@@ -142,7 +144,7 @@ The biggest advantage is that its universally available. It's most interoperable
 
 Being a text-based format, it isn't efficient over the wire and not an ideal choice in cases where storage is a concern. If you're returning cached items directly to a client via HTTP, storing JSON could save the cost of deserializing from another format and then serializing to JSON.
 
-Use JSON for single-record messages or for a sequence of messages in which each message has a different schema. Avoid using JSON for a sequence of records, such as for time-series data.  
+Use JSON for single-record messages or for a sequence of messages in which each message has a different schema. Avoid using JSON for a sequence of records, such as for time-series data.
 
 There are other variations of JSON such as [BSON](http://bsonspec.org), which is a binary encoding aligned to work with MongoDB.
 

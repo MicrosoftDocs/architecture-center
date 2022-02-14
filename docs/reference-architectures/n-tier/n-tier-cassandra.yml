@@ -2,7 +2,7 @@
 metadata:
   title: N-tier application with Apache Cassandra
   description: Deploy Linux virtual machines and a virtual network configured for an N-tier architecture with Apache Cassandra in Microsoft Azure.
-  author: doodlemania2
+  author: EdPrice-MSFT
   ms.author: pnp
   ms.date: 08/21/2019
   ms.topic: conceptual

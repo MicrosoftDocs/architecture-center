@@ -1,8 +1,9 @@
 ---
-title: Identifying microservice boundaries
+title: Identify microservice boundaries
 description: Learn how to start from a carefully designed domain model to determine the right size for a microservice.
-author: doodlemania2
-ms.date: 02/25/2019
+author: EdPrice-MSFT
+ms.author: edprice
+ms.date: 02/14/2022
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: azure-guide
@@ -14,7 +15,7 @@ ms.custom:
   - guide
 ---
 
-# Identifying microservice boundaries
+# Identify microservice boundaries
 
 What is the right size for a microservice? You often hear something to the effect of, "not too big and not too small" &mdash; and while that's certainly correct, it's not very helpful in practice. But if you start from a carefully designed domain model, it's much easier to reason about microservices.
 
@@ -51,7 +52,7 @@ After you identify the microservices in your application, validate your design a
 - Your service boundaries will not create problems with data consistency or integrity. Sometimes it's important to maintain data consistency by putting functionality into a single microservice. That said, consider whether you really need strong consistency. There are strategies for addressing eventual consistency in a distributed system, and the benefits of decomposing services often outweigh the challenges of managing eventual consistency.
 
 Above all, it's important to be pragmatic, and remember that domain-driven design is an iterative process. When in doubt, start with more coarse-grained microservices. Splitting a microservice into two smaller services is easier than refactoring functionality across several existing microservices.
-  
+
 ## Example: Defining microservices for the Drone Delivery application
 
 Recall that the development team had identified the four aggregates &mdash; Delivery, Package, Drone, and Account &mdash; and two domain services, Scheduler and Supervisor.

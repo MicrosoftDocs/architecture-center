@@ -1,6 +1,5 @@
 
 
-
 This article explains how to build a [telehealth system](https://en.wikipedia.org/wiki/Telehealth) using Azure cloud services. The details are based on a real customer implementation that connects a professional healthcare organization to its remote patients. While there are other ways to build such a system, the solution described has been successful in enabling communication between patients and their remote care provider, as well as remotely tuning the medical devices that patients carry.
 
 There are about 700 million people who suffer from hearing disabilities. However, only 10% of them use hearing aid devices to improve their lives. In some geographies or situations, it is impossible for a patient to get direct assistance when needed. For example, consider patients who:
@@ -76,7 +75,7 @@ We recommend using a traffic manager in front of the different clusters to optim
 
 ### Deployment
 
-The most important aspect to consider when deploying this scenario is the coordination of deployments across the cloud-based backend and the frontend (phones/devices). Consider using the concept of a [feature flag](/azure/devops/migrate/phase-features-with-feature-flags?view=azure-devops) to achieve this.
+The most important aspect to consider when deploying this scenario is the coordination of deployments across the cloud-based backend and the frontend (phones/devices). Consider using the concept of a [feature flag](/devops/operate/progressive-experimentation-feature-flags) to achieve this.
 
 ### Management
 

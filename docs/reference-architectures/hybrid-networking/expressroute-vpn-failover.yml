@@ -4,8 +4,8 @@ metadata:
   titleSuffix: Azure Reference Architectures
   description: Learn how to connect an on-premises network to an Azure virtual network (VNet) using ExpressRoute with a virtual private network (VPN) gateway failover.
   author: telmosampaio
-  ms.author: pnp
-  ms.date: 10/22/2017
+  ms.author: meparkes
+  ms.date: 04/29/2021
   ms.topic: conceptual
   ms.service: architecture-center
   ms.subservice: reference-architecture

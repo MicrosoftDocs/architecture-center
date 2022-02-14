@@ -21,9 +21,7 @@ azureCategories:
   - web
 summary: Build a conversational chatbot for common business scenarios with Azure Bot Service. This example scenario shows a chatbot for hotel booking.
 products:
-  - azure
   - azure-bot-service
-  - azure-application-insights
   - azure-language-understanding
   - azure-active-directory-b2c
   - azure-app-service

@@ -1,6 +1,6 @@
 ### YamlMime:Architecture
 metadata:
-  title: MLOps for Python with Machine Learning
+  title: MLOps for Python with Azure Machine Learning
   titleSuffix: Azure Reference Architectures
   description: Implement a continuous integration (CI), continuous delivery (CD), and retraining pipeline for an AI application using Azure DevOps and Azure Machine Learning.
   author: praneet22
@@ -24,12 +24,9 @@ azureCategories:
   - featured
 summary: Implement a continuous integration (CI), continuous delivery (CD), and retraining pipeline for an AI application using Azure DevOps and Azure Machine Learning.
 products:
-  - azure-application-insights
   - azure-blob-storage
-  - azure-container-instances
   - azure-container-registry
   - azure-devops
-  - azure-kubernetes-service
   - azure-machine-learning
   - azure-pipelines
 thumbnailUrl: /azure/architecture/browse/thumbs/ml-ops-python.png

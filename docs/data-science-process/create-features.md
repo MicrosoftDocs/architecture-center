@@ -1,24 +1,41 @@
 ---
-title: Feature engineering in machine learning - Team Data Science Process
+title: Feature engineering in machine learning
 description: Learn about feature engineering and its role in the data enhancement process of machine learning.
-services: machine-learning
 author: marktab
 manager: marktab
 editor: marktab
-ms.service: machine-learning
-ms.subservice: team-data-science-process
+services: architecture-center
+ms.service: architecture-center
+ms.subservice: azure-guide
 ms.topic: conceptual
-ms.date: 05/14/2020
+ms.date: 01/31/2022
 ms.author: tdsp
-ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath, contperf-fy20q4
+ms.custom:
+  - previous-author=deguhath
+  - previous-ms.author=deguhath
+  - contperf-fy20q4
 products:
   - azure-machine-learning
 categories:
   - ai-machine-learning
+ROBOTS: NOINDEX
 ---
 # Feature engineering in machine learning
 
-In this article, you learn about feature engineering and its role in enhancing data in machine learning. Learn from illustrative examples drawn from [Azure Machine Learning Studio (classic)](/azure/machine-learning/overview-what-is-machine-learning-studio#ml-studio-classic-vs-azure-machine-learning-studio) experiments. 
+> [!NOTE]
+> This item is under maintenance. We encourage you to use the [Azure Machine Learning designer](https://azure.microsoft.com/services/cognitive-services/anomaly-detector/).
+
+> [!IMPORTANT]
+> Support for Machine Learning Studio (classic) will end on 31 August 2024. We recommend you transition to [Azure Machine Learning](https://azure.microsoft.com/services/machine-learning/) by that date.
+>
+> Beginning 1 December 2021, you will not be able to create new Machine Learning Studio (classic) resources. Through 31 August 2024, you can continue to use the existing Machine Learning Studio (classic) resources.  
+> 
+> -	See [information on moving machine learning projects from ML Studio (classic) to Azure Machine Learning](/azure/machine-learning/migrate-overview). 
+> -	Learn more about [Azure Machine Learning](/azure/machine-learning/overview-what-is-azure-machine-learning)
+> 
+> ML Studio (classic) documentation is being retired and may not be updated in the future.
+
+In this article, you learn about feature engineering and its role in enhancing data in machine learning. Learn from illustrative examples drawn from [Azure Machine Learning Studio (classic)](/azure/machine-learning/overview-what-is-machine-learning-studio#ml-studio-classic-vs-azure-machine-learning-studio) experiments.
 
 * **Feature engineering**: The process of creating new features from raw data to increase the predictive power of the learning algorithm. Engineered features should capture additional information that is not easily apparent in the original feature set.
 * **Feature selection**: The process of selecting the key subset of features to reduce the dimensionality of the training problem.
@@ -66,7 +83,7 @@ The following figure demonstrates the R script used to create feature set B in t
 
 ### Results
 
-A comparison of the performance results of the four models is summarized in the following table: 
+A comparison of the performance results of the four models is summarized in the following table:
 
 ![result comparison](./media/create-features/result-1.png)
 
@@ -84,7 +101,7 @@ In Studio (classic), there is a [Feature Hashing](/azure/machine-learning/studio
 
 * First, select the column that contains the input text ("Col2" in this example).
 * Second, set the "Hashing bitsize" to 8, which means 2^8=256 features will be created. The word/phase in all the text will be hashed to 256 indices. The parameter "Hashing bitsize" ranges from 1 to 31. The word(s)/phrase(s) are less likely to be hashed into the same index if setting it to be a larger number.
-* Third, set the parameter "N-grams" to 2. This value gets the occurrence frequency of unigrams (a feature for every single word) and bigrams (a feature for every pair of adjacent words) from the input text. The parameter "N-grams" ranges from 0 to 10, which indicates the maximum number of sequential words to be included in a feature.  
+* Third, set the parameter "N-grams" to 2. This value gets the occurrence frequency of unigrams (a feature for every single word) and bigrams (a feature for every pair of adjacent words) from the input text. The parameter "N-grams" ranges from 0 to 10, which indicates the maximum number of sequential words to be included in a feature.
 
 !["Feature Hashing" module](./media/create-features/feature-hashing-1.png)
 

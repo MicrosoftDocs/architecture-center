@@ -1,11 +1,15 @@
 ---
 title: Design principles for Azure applications
 description: Follow these design principles to make your Azure application more scalable, resilient, and manageable.
-author: doodlemania2
+author: EdPrice-MSFT
 ms.date: 08/30/2018
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: guide
+categories:
+  - management-and-governance
+products:
+  - azure
 ms.custom:
   - seojan19
   - guide
@@ -19,7 +23,7 @@ Follow these design principles to make your application more scalable, resilient
 
 **[Make all things redundant](redundancy.md)**. Build redundancy into your application, to avoid having single points of failure.
 
-**[Minimize coordination](minimize-coordination.md)**. Minimize coordination between application services to achieve scalability.
+**[Minimize coordination](minimize-coordination.yml)**. Minimize coordination between application services to achieve scalability.
 
 **[Design to scale out](scale-out.md)**. Design your application so that it can scale horizontally, adding or removing new instances as demand requires.
 

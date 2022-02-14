@@ -1,5 +1,3 @@
-[!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
-
 Understanding the data usage patterns is critical for designing an optimized tiering strategy. The right data-tiering strategy can help you save money and scale your application without adding costs. In the following diagram, the application data is segregated by customer and further divided into different categories based on usage patterns.
 
 :::image type="content" source="../media/optimized-storage-logical-data-classification-usage.svg" alt-text="Data segregated by customer and category.":::

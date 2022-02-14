@@ -1,6 +1,5 @@
 
 
-
 [!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
 Let your business run multi-channel digital marketing websites on one platform and spin up and spin down campaigns on demand. Take advantage of the comprehensive capabilities of Episerver to manage every aspect of your site and campaign performance.

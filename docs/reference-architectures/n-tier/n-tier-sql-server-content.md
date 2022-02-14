@@ -1,6 +1,5 @@
 
 
-
 This reference architecture shows how to deploy virtual machines (VMs) and a virtual network configured for an [N-tier](../../guide/architecture-styles/n-tier.md) application, using SQL Server on Windows for the data tier. [**Deploy this solution**](#deploy-the-solution).
 
 [![N-tier architecture using Microsoft Azure](./images/n-tier-sql-server.png)](./images/n-tier-sql-server.png)
@@ -215,7 +214,6 @@ Virtual networks are a traffic isolation boundary in Azure. By default, VMs in o
 
 **DDoS protection**. The Azure platform provides basic DDoS protection by default. This basic protection is targeted at protecting the Azure infrastructure as a whole. Although basic DDoS protection is automatically enabled, we recommend using [DDoS Protection Standard][ddos]. Standard protection uses adaptive tuning, based on your application's network traffic patterns, to detect threats. This allows it to apply mitigations against DDoS attacks that might go unnoticed by the infrastructure-wide DDoS policies. Standard protection also provides alerting, telemetry, and analytics through Azure Monitor. For more information, see [Azure DDoS Protection: Best practices and reference architectures][ddos-best-practices].
 
-
 ## DevOps considerations
 
 In this architecture you use [Azure Building Blocks templates][azbb-template] for provisioning the Azure resources and its dependencies. Since all the main resources and their dependencies are in the same virtual network, they are isolated in the same basic workload, that makes it easier to associate the workload's specific resources to a team, so that the team can independently manage all aspects of those resources. This isolation enables DevOps to perform continuous integration and continuous delivery (CI/CD).
@@ -231,7 +229,6 @@ Consider using the [Azure Monitor][azure-monitor] to Analyze and optimize the pe
 Make sure not only to monitor your compute elements supporting your application code, but your data platform as well, in particular your databases, since a low performance of the data tier of an application could have serious consequences.
 
 In order to test the Azure environment where the applications are running, it should be version-controlled and deployed through the same mechanisms as application code, then it can be tested and validated using DevOps testing paradigms too.
-
 
 For more information, see the Operational Excellence section in [Azure Well-Architected Framework][WAF-devops].
 
@@ -321,5 +318,5 @@ If you specify a region that supports availability zones, the VMs are deployed i
 [vmss-design]: /azure/virtual-machine-scale-sets/virtual-machine-scale-sets-design-overview
 [vmss]: /azure/virtual-machine-scale-sets/virtual-machine-scale-sets-overview
 [Windows-vm-pricing]: https://azure.microsoft.com/pricing/details/virtual-machines/windows
-[WAF-devops]: ../../framework/devops/overview.md
-[WAF-cost]: ../../framework/cost/overview.md
+[WAF-devops]: /azure/architecture/framework/devops/overview
+[WAF-cost]: /azure/architecture/framework/cost/overview

@@ -4,7 +4,7 @@ metadata:
   titleSuffix: Azure Reference Architectures
   description: Learn how to modernize IBM mainframe and midrange data and see how to use a data-first approach to migrate this data to Azure.
   author: ashish-khandelwal-ms
-  ms.author: askhande 
+  ms.author: askhande
   ms.date: 11/04/2020
   ms.topic: conceptual
   ms.service: architecture-center

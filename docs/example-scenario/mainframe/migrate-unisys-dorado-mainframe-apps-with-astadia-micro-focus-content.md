@@ -89,7 +89,7 @@ This diagram shows the components that Unisys Sperry OS 1100/2200 mainframe syst
   - Telnet
   - File Transfer Protocol (FTP)
   - Sockets
-  
+
   In Azure, web browsers replace legacy terminal emulation. On-demand and online users can use these web browsers to access system resources.
 
 - Mainframe applications are in COBOL, Fortran, C, MASM, SSG, Pascal, UCOBOL, and ECL (**B**). In Azure, Micro Focus COBOL recompiles COBOL and other legacy application code to .NET. Micro Focus can also maintain and reprocess original base code whenever that code changes. This architecture doesn't require any changes in the original source code.
@@ -261,7 +261,7 @@ To estimate the cost of implementing this solution, use the [Azure pricing calcu
 [Azure Hybrid Benefit]: https://azure.microsoft.com/pricing/hybrid-benefit/
 [Azure Hybrid Benefit FAQ]: https://azure.microsoft.com/pricing/hybrid-benefit/faq/
 [Azure Monitor overview]: /azure/azure-monitor/overview
-[Azure is the new mainframe]: https://channel9.msdn.com/Shows/Azure-Friday/Azure-is-the-new-mainframe/
+[Azure is the new mainframe]: /shows/Azure-Friday/Azure-is-the-new-mainframe
 [Azure Private Link pricing]: https://azure.microsoft.com/pricing/details/private-link/
 [Azure Site Recovery pricing]: https://azure.microsoft.com/pricing/details/site-recovery/
 [Azure SQL Database pricing]: https://azure.microsoft.com/pricing/details/sql-database/single/
@@ -281,14 +281,14 @@ To estimate the cost of implementing this solution, use the [Azure pricing calcu
 [Managed Disks pricing]: https://azure.microsoft.com/pricing/details/managed-disks/
 [Micro Focus]: https://www.microfocus.com/home
 [Micro Focus Enterprise Server on Azure VMs]: ./micro-focus-server.yml
-[Microsoft Azure Well-Architected Framework]: ../../framework/index.md
+[Microsoft Azure Well-Architected Framework]: /azure/architecture/framework/index
 [Migrate IBM mainframe applications to Azure with TmaxSoft OpenFrame]: ../../solution-ideas/articles/migrate-mainframe-apps-with-tmaxsoft-openframe.yml
 [Modernize mainframe & midrange data]: ../../reference-architectures/migration/modernize-mainframe-data-to-azure.yml
 [Network security groups]: /azure/virtual-network/network-security-groups-overview
-[Overview of the performance efficiency pillar]: ../../framework/scalability/overview.md
+[Overview of the performance efficiency pillar]: /azure/architecture/framework/scalability/overview
 [Pricing calculator]: https://azure.microsoft.com/pricing/calculator/
 [Unisys mainframe migration]: ../../reference-architectures/migration/unisys-mainframe-migration.yml
-[Optimize VM costs]: ../../framework/cost/optimize-vm.md
+[Optimize VM costs]: /azure/architecture/framework/cost/optimize-vm
 [Use auto-failover groups to enable transparent and coordinated failover of multiple databases]: /azure/azure-sql/database/auto-failover-group-overview
 [Virtual Network pricing]: https://azure.microsoft.com/pricing/details/virtual-network/
 [Visio version of architecture diagram]: https://arch-center.azureedge.net/US-1813846-PR-2593-migrate-unisys-dorado-mainframe-apps-architecture-diagram.vsdx

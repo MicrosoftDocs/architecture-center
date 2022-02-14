@@ -1,7 +1,5 @@
 <!-- cSpell:ignore UDRs sysvol jumpbox -->
 
-
-
 This architecture shows how to extend an on-premises Active Directory domain to Azure to provide distributed authentication services.
 
 ![Secure hybrid network architecture with Active Directory](./images/adds-extend-domain.png)
@@ -121,7 +119,7 @@ Consider having Active Directory Domain Services as a shared service that is con
 
 The main component of this architecture is the VPN gateway service. You are charged based on the amount of time that the gateway is provisioned and available.
 
-All inbound traffic is free, all outbound traffic is charged. Internet bandwidth costs are applied to VPN outbound traffic.  
+All inbound traffic is free, all outbound traffic is charged. Internet bandwidth costs are applied to VPN outbound traffic.
 
 For more information, see [VPN Gateway Pricing][azure-gateway-charges].
 
@@ -136,11 +134,11 @@ Azure Virtual Network is free. Every subscription is allowed to create up to 50 
 
 <!-- links -->
 
-[aaf-cost]: ../../framework/cost/overview.md
-[AAF-devops]: ../../framework/devops/overview.md
+[aaf-cost]: /azure/architecture/framework/cost/overview
+[AAF-devops]: /azure/architecture/framework/devops/overview
 [adds-resource-forest]: ./adds-forest.yml
 [adfs]: ./adfs.yml
-[dsc-overview]: /powershell/scripting/dsc/overview/overview?view=powershell-7
+[dsc-overview]: /powershell/scripting/dsc/overview
 [ad-ds-operations-masters]: /windows-server/identity/ad-ds/plan/planning-operations-master-role-placement
 [ad-ds-ports]: /troubleshoot/windows-server/identity/config-firewall-for-ad-domains-and-trusts  
 [arm-template]: /azure/azure-resource-manager/resource-group-overview#resource-groups

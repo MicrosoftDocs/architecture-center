@@ -4,14 +4,15 @@ metadata:
   titleSuffix: Azure Example Scenarios
   description: See how Qlik Replication is a valuable tool for migrating mainframe and midrange systems to the cloud, or for extending such systems with cloud applications.
   author: ashish-khandelwal-ms
-  ms.author: askhande 
+  ms.author: askhande
   ms.date: 10/25/2021
   ms.topic: conceptual
   ms.service: architecture-center
   ms.subservice: example-scenario
   ms.category:
     - migration
-  ms.custom: fcp
+  ms.custom:
+    - fcp
 name: Mainframe and midrange data replication to Azure using Qlik
 azureCategories:
   - migration

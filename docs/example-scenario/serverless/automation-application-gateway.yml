@@ -1,0 +1,25 @@
+### YamlMime:Architecture
+metadata:
+  title: Automate IP rotation with Azure Container Instances container groups
+  titleSuffix: Example Scenarios
+  description: Application Gateway is commonly used to load balance traffic to Container Instances container groups. This article explores automation for rotated IP addresses.
+  author: guangying94
+  ms.author: gutee
+  ms.date: 11/15/2021
+  ms.topic: conceptual
+  ms.service: architecture-center
+  ms.subservice: example-scenario
+  ms.custom: fcp 
+azureCategories:
+  - containers
+  - networking
+products:
+  - azure-container-instances
+  - azure-application-gateway
+  - azure-functions
+  - azure-monitor
+name: Automate infrastructure reconfiguration by using Azure
+summary: Application Gateway is commonly used to load balance traffic to Azure Container Instances container groups. The private IP of a container group isn't static. This article explores automation for rotated IP addresses.
+thumbnailUrl: /azure/architecture/browse/thumbs/architecture-automation.png
+content: |
+  [!include[](automation-application-gateway-content.md)]

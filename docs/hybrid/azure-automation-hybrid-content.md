@@ -6,7 +6,7 @@ This reference architecture illustrates how to extend automation to on-premises 
 
 Typical uses for this architecture include:
 
-- Automated management and configuration across Azure, on-premises, or other cloud providers.  
+- Automated management and configuration across Azure, on-premises, or other cloud providers.
 - Automation of Azure virtual machines (VMs) that reside behind a firewall, with outbound connectivity over the 443 TCP port.
 
 ## Architecture
@@ -39,9 +39,7 @@ The following steps highlight the actual implementation:
 
 ### Create a Log Analytics Workspace
 
-Before you create a Log Analytics Workspace, ensure that you have at least Log Analytics Contributor role permissions.
-An Azure subscription can contain more than one Log Analytics Workspace for data isolation or for geographic location for data storage, but the Log Analytics agent can be configured to report to one Log Analytics Workspace. For more information, review the [Azure Monitor Log design guidance][4] before you create the workspace.
-Use the following steps to create a Log Analytics Workspace:
+Before you create a Log Analytics Workspace, ensure that you have at least Log Analytics Contributor role permissions. An Azure subscription can contain more than one Log Analytics Workspace for data isolation or for geographic location for data storage, but the Log Analytics agent can be configured to report to one Log Analytics Workspace. For more information, review the [Azure Monitor Log design guidance][4] before you create the workspace. Use the following steps to create a Log Analytics Workspace:
 
 1. Sign in to the Azure portal at [**https://portal.azure.com**][5].
 1. In the Azure portal, select  **Create a Resource**. In the Search the Marketplace, enter  **Log Analytics**. As you begin entering, the list filters based on your input. Select  **Log Analytics Workspaces**.
@@ -58,8 +56,7 @@ Use the following steps to create a Log Analytics Workspace:
 
 ### Add an Automation Hybrid Worker Solution
 
-Next, prepare the Log Analytics Workspace with the necessary components required for the Hybrid Runbook Worker.
-Use the following steps to add Automation Hybrid Worker Solution:
+Next, prepare the Log Analytics Workspace with the necessary components required for the Hybrid Runbook Worker. Use the following steps to add Automation Hybrid Worker Solution:
 
 1. In the Azure portal, select  **Create a Resource**.
 1. In the Search the Marketplace, enter  **Automation Hybrid Worker.** As you begin entering, the list filters based on your input. Select  **Automation Hybrid Worker.**
@@ -68,8 +65,7 @@ Use the following steps to add Automation Hybrid Worker Solution:
 
 ### Create an Automation Account
 
-When Automation Hybrid Worker Solution has been added to Log Analytics Workplace, proceed with creating the Azure Automation Account. It's important that you create an
-Automation Account in the same region and preferably in the same Resource Group as the Log Analytics Workplace.
+When Automation Hybrid Worker Solution has been added to Log Analytics Workplace, proceed with creating the Azure Automation Account. It's important that you create an Automation Account in the same region and preferably in the same Resource Group as the Log Analytics Workplace.
 
 Use the following steps to create the Automation Account:
 
@@ -153,7 +149,7 @@ Use the following procedure to manually deploy Hybrid Runbook Worker Group and H
 
   ```powershell
   cd "C:\Program Files\Microsoft Monitoring Agent\Agent\AzureAutomation\\<version>\HybridRegistration"
-  
+
   Import-Module .\HybridRegistration.psd1
   ```
 
@@ -162,10 +158,10 @@ Use the following procedure to manually deploy Hybrid Runbook Worker Group and H
   ```powershell
   Add-HybridRunbookWorker –GroupName <String> -Url <Url> -Key <String>
   ```
-  
+
   > [!NOTE]
   > For the URL, use the previously recorded **URL**, and for the **Key**, use the previously copied **Primary access key**.
-  
+
 ### Create a Runbook in Azure Automation
 
 To manage resources on a local computer or against resources in the local environment where the hybrid worker is deployed, you must create a Runbook. Add a Runbook to Azure Automation by either creating a new one or importing an existing one from a file or the [Runbook Gallery][20].

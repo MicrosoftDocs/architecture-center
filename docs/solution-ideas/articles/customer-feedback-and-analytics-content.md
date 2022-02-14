@@ -6,7 +6,7 @@ For many companies, customer support is costly and doesn't always operate effici
 
 ## Potential use cases
 
-[Azure Cognitive Search](/azure/search/search-what-is-azure-search) is a key part of knowledge mining solutions. Cognitive Search creates a search index over aggregated and analyzed content. 
+[Azure Cognitive Search](/azure/search/search-what-is-azure-search) is a key part of knowledge mining solutions. Cognitive Search creates a search index over aggregated and analyzed content.
 
 With queries using the search index, companies can discover trends about what customers are saying and use that information to improve products and services.
 

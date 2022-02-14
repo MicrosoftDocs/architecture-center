@@ -1,0 +1,28 @@
+### YamlMime:Architecture
+metadata:
+  title: Improved-security access to multitenant web apps from an on-premises network
+  titleSuffix: Azure Example Scenarios
+  description: Set up improved-security private connectivity to a multitenant web app or function app from an on-premises network or from within an Azure virtual network. 
+  author: ansingha
+  ms.author: ansingha
+  ms.date: 11/19/2021
+  ms.topic: conceptual
+  ms.service: architecture-center
+  ms.subservice: example-scenario
+  ms.custom: 
+    - fcp
+    - references_regions 
+azureCategories:
+  - "security"
+  - "web"
+products:
+  - "azure-app-service"
+  - "azure-virtual-network"
+  - "azure-private-link"
+  - "azure-key-vault"
+  - "azure-storage-accounts"
+name: Improved-security access to multitenant web apps from an on-premises network
+summary: This reference architecture shows how to set up improved-security private connectivity to a multitenant web app or function app from an on-premises network or from within an Azure virtual network. 
+thumbnailUrl: /azure/architecture/browse/thumbs/multitenant-web-apps.png
+content: |
+  [!include[](access-multitenant-web-app-from-on-premises-content.md)]

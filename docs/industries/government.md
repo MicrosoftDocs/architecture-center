@@ -6,8 +6,9 @@ author: dsk-2015
 ms.date: 06/04/2021
 ms.topic: article
 ms.service: architecture-center
-ms.subservice: 
-keywords: Azure
+ms.subservice: azure-guide
+keywords:
+  - Azure
 products:
   - azure
   - microsoft-365
@@ -36,7 +37,11 @@ Microsoft is committed to provide government agencies with innovative technology
 
 <br>
 
+<!-- markdownlint-disable MD034 -->
+
 > [!VIDEO https://www.youtube.com/embed/_WcyWeARD2Y]
+
+<!-- markdownlint-enable MD034 -->
 
 <br>
 
@@ -49,7 +54,7 @@ The following articles provide detailed analysis of architectures developed and 
 | [Azure Automation in a hybrid environment](../hybrid/azure-automation-hybrid.yml) | Extend automated management and configuration from Azure to on-premises and other cloud providers. | Hybrid/Multicloud |
 | [Azure Automation Update Management](../hybrid/azure-update-mgmt.yml) | Design a hybrid update management solution to manage updates on both Microsoft Azure and on-premises Windows and Linux computers. | Hybrid/Multicloud |
 | [Computer forensics Chain of Custody in Azure](../example-scenario/forensics/index.yml) | Ensure a valid Chain of Custody (CoC) in acquiring, storing, and accessing of digital evidence to support criminal investigations or civil proceedings. | Management/Governance |
-| [Hybrid Security Monitoring using Azure Security Center and Azure Sentinel](../hybrid/hybrid-security-monitoring.yml) | Monitor the security configuration and telemetry of on-premises and Azure operating system workloads. | Hybrid/Multicloud |
+| [Hybrid Security Monitoring using Microsoft Defender for Cloud and Microsoft Sentinel](../hybrid/hybrid-security-monitoring.yml) | Monitor the security configuration and telemetry of on-premises and Azure operating system workloads. | Hybrid/Multicloud |
 | [Vision classifier model with Azure Custom Vision Cognitive Service](../example-scenario/dronerescue/vision-classifier-model-with-custom-vision.yml) | Combine AI and Internet of Things (IoT) by using Azure Custom Vision to classify images taken by a simulated drone. | AI/ML |
 | [Web app private connectivity to Azure SQL database](../example-scenario/private-web-app/private-web-app.yml) | Set up private connectivity from an Azure Web App to Azure Platform-as-a-Service (PaaS) services. | Security |
 | [Azure Virtual Desktop for the enterprise](../example-scenario/wvd/windows-virtual-desktop.yml) | Use Azure Virtual Desktop to build virtualized desktop infrastructure (VDI) solutions at enterprise scale, covering 1,000 virtual desktops and above. | Hybrid/Multicloud |

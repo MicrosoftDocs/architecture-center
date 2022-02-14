@@ -1,7 +1,7 @@
 ---
 title: Microservices CI/CD pipeline on Kubernetes
 description: Learn about building a Continuous Integration and Continuous Delivery (CI/CD) pipeline for deploying microservices to Azure Kubernetes Service (AKS).
-author: doodlemania2
+author: EdPrice-MSFT
 ms.date: 04/11/2019
 ms.topic: conceptual
 ms.service: architecture-center
@@ -15,8 +15,6 @@ ms.custom:
   - microservices
   - guide
 ---
-
-<!-- markdownlint-disable MD040 -->
 
 # Building a CI/CD pipeline for microservices on Kubernetes
 
@@ -251,7 +249,7 @@ helm install $HELM_CHARTS/package/ \
      --name package-v0.1.0
 ```
 
-Although your CI/CD pipeline could install a chart directly to Kubernetes, we recommend creating a chart archive (.tgz file) and pushing the chart to a Helm repository such as Azure Container Registry. For more information, see [Package Docker-based apps in Helm charts in Azure Pipelines](/azure/devops/pipelines/languages/helm?view=azure-devops&preserve-view=true).
+Although your CI/CD pipeline could install a chart directly to Kubernetes, we recommend creating a chart archive (.tgz file) and pushing the chart to a Helm repository such as Azure Container Registry. For more information, see [Package Docker-based apps in Helm charts in Azure Pipelines](/azure/devops/pipelines/tasks/deploy/helm-deploy).
 
 Consider deploying Helm to its own namespace and using role-based access control (RBAC) to restrict which namespaces it can deploy to. For more information, see [Role-based Access Control](https://helm.sh/docs/using_helm/#helm-and-role-based-access-control) in the Helm documentation.
 

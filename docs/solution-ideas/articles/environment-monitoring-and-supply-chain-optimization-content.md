@@ -7,7 +7,7 @@ This article describes a warehouse management scenario that monitors environment
 ## Potential use cases
 
 - **Fleet management:** This solution can be used where routes need to be optimized for safety based on the evolving conditions of surrounding areas.
-- **Agriculture:** Predicting wildfires that will impact the safety of workers and livestock is critical. By providing ample lead time for danger notifications, people in the affected area can evacuate to safety. Farms can also equip livestock areas with automated gates that can unlock and open in dire situations, allowing animals to escape.  
+- **Agriculture:** Predicting wildfires that will impact the safety of workers and livestock is critical. By providing ample lead time for danger notifications, people in the affected area can evacuate to safety. Farms can also equip livestock areas with automated gates that can unlock and open in dire situations, allowing animals to escape.
 
 ## Architecture
 
@@ -76,11 +76,11 @@ Warehouse operators and major distribution centers will benefit from a predictiv
 
 The table below provides a summary of common use cases and corresponding IoT solutions. Each use case is an example of how an IoT process pattern can be applied to real-world scenarios.
 
-| Use case | Solutions | Pattern
-|---|---|---|
-| Enable supply chain logistics rerouting and production planning by predicting likelihood of interruption due to wildfires near the impacted location. | Ideally, you want to be able to monitor all the key elements of the supply chain so that you can provide a more comprehensive response. [myDevices](https://mydevices.com/) has a catalog of certified plug and play devices that connect to a [LoRa](https://en.wikipedia.org/wiki/LoRa) network gateway. The gateway sends data to the cloud application using cellular connectivity. LoRa technology is ideal because the signal needs to penetrate deep into the buildings. Sensors for CO2, temperature, humidity, wind direction, and air quality can be installed in relevant building locations including roofs and storage facilities. Sensors can also be installed in trucks for location tracking to facilitate rerouting. | [Analyze and optimize](../../example-scenario/iot/analyze-optimize-loop.yml) |
-| Identify wildfire conditions and understand the degree of danger for a given location. | Wildfire prediction models trained with historical data, micro-weather conditions, and local sensor data can help assess the risk of a wildfire. | [Analyze and optimize](../../example-scenario/iot/analyze-optimize-loop.yml) |
-| Automated alerts for evacuation and facility rerouting | Once unsafe conditions are detected, the digital twin of the facility can then be updated to show that it's no longer online. Once updated, other distribution centers within the network can begin to reroute traffic accordingly, allowing on-site facility managers and warehouse operators to focus on employee safety. This scenario uses ML to predict where the wildfire will spread, using public real-time and historical data sets along with micro weather data for more accurate predictions. Sensors track current wildfire conditions, and facility alarms trigger employee evacuation. | [Analyze and optimize](../../example-scenario/iot/analyze-optimize-loop.yml) |
+| Use case | Solutions
+|---|---|
+| Enable supply chain logistics rerouting and production planning by predicting likelihood of interruption due to wildfires near the impacted location. | Ideally, you want to be able to monitor all the key elements of the supply chain so that you can provide a more comprehensive response. [myDevices](https://mydevices.com/) has a catalog of certified plug and play devices that connect to a [LoRa](https://en.wikipedia.org/wiki/LoRa) network gateway. The gateway sends data to the cloud application using cellular connectivity. LoRa technology is ideal because the signal needs to penetrate deep into the buildings. Sensors for CO2, temperature, humidity, wind direction, and air quality can be installed in relevant building locations including roofs and storage facilities. Sensors can also be installed in trucks for location tracking to facilitate rerouting. |
+| Identify wildfire conditions and understand the degree of danger for a given location. | Wildfire prediction models trained with historical data, micro-weather conditions, and local sensor data can help assess the risk of a wildfire. |
+| Automated alerts for evacuation and facility rerouting | Once unsafe conditions are detected, the digital twin of the facility can then be updated to show that it's no longer online. Once updated, other distribution centers within the network can begin to reroute traffic accordingly, allowing on-site facility managers and warehouse operators to focus on employee safety. This scenario uses ML to predict where the wildfire will spread, using public real-time and historical data sets along with micro weather data for more accurate predictions. Sensors track current wildfire conditions, and facility alarms trigger employee evacuation. |
 
 ## Considerations
 

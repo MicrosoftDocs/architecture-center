@@ -1,6 +1,7 @@
 ---
-title: Collaborative coding with Git - Team Data Science Process
-description: How to do collaborative code development for data science projects using Git with agile planning.
+title: Collaborative coding with Git
+description: How to do collaborative code development for data science projects, using Git with agile planning.
+services: architecture-center
 author: marktab
 manager: marktab
 editor: marktab
@@ -9,15 +10,18 @@ ms.subservice: azure-guide
 ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
-ms.category: ai-machine-learning
-ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath, fcp
+ms.category:
+  - ai-machine-learning
+ms.custom:
+  - previous-author=deguhath
+  - previous-ms.author=deguhath
+  - fcp
 products:
   - azure
   - azure-machine-learning
 categories:
   - ai-machine-learning
 ---
-
 
 # Collaborative coding with Git
 

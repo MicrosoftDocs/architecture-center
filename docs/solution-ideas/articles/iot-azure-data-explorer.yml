@@ -5,7 +5,7 @@ metadata:
   description: Use Azure Data Explorer for near real-time IoT telemetry analytics on fast-flowing, high-volume streaming data from a wide variety of IoT devices.
   author: orspod
   ms.author: pnp
-  ms.date: 08/11/2020
+  ms.date: 07/16/2021
   ms.topic: conceptual
   ms.service: architecture-center
   ms.subservice: solution-idea

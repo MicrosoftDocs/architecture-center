@@ -4,15 +4,15 @@ titleSuffix: Azure Architecture Center
 description: This article describes the considerations for mapping requests to tenants in a multitenant solution.
 author: PlagueHO
 ms.author: dascottr
-ms.date: 07/16/2021
+ms.date: 12/13/2021
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: azure-guide
 products:
- - azure
+  - azure
 categories:
- - management-and-governance
- - web
+  - management-and-governance
+  - web
 ms.category:
   - fcp
 ms.custom:
@@ -25,6 +25,8 @@ Whenever a request arrives into your application, you need to determine the tena
 
 ![Diagram showing mapping a request from a logical tenant to physical tenant infrastructure.](media/map-requests/map-logical-physical.png)
 
+On this page, we provide guidance for technical decision-makers about the approaches you can consider to map requests to the appropriate tenant, and the tradeoffs involved in the approaches.
+
 > [!NOTE]
 > This page mostly discusses HTTP-based applications, like websites and APIs. However, many of same underlying principles apply to multitenant applications that use other communication protocols.
 
@@ -34,7 +36,9 @@ There are multiple ways you can identify the tenant for an incoming request.
 
 ### Domain names
 
-If you use [tenant-specific domain or subdomain names](./domain-names.md), it's likely that requests can be easily mapped to tenants. However, consider the following questions:
+If you use [tenant-specific domain or subdomain names](./domain-names.md), it's likely that requests can be easily mapped to tenants by using the `Host` header, or another HTTP header that includes the original hostname for each request.
+
+However, consider the following questions:
 
 - How will users know which domain name to use to access the service?
 - Do you have a central entry point, like a landing page or login page, that all the tenants use? If you do, how will users identify the tenant that they need to access?
@@ -115,8 +119,7 @@ The following common reverse proxies are used in Azure:
 It is important that your application validates that any requests that it receives are authorized for the tenant. For example, if your application uses a custom domain name to map requests to the tenant, then your application must still check that each request received by the application is authorized for that tenant. Even though the request includes a domain name or other tenant identifier, it doesn't mean you should automatically grant access. When you use OAuth 2.0, you perform the validation by inspecting the _audience_ and _scope_ claims.
 
 > [!NOTE]
-> This is part of the _assume zero trust_ security design principle in the [Microsoft Azure Well-Architected Framework](../../../framework/security/security-principles.md).
-
+> This is part of the _assume zero trust_ security design principle in the [Microsoft Azure Well-Architected Framework](/azure/architecture/framework/security/security-principles).
 When implementing request validation, you should consider the following:
 
 - How will you authorize all the requests to your application? You need to authorize requests, regardless of the approach you use to map them to physical infrastructure.

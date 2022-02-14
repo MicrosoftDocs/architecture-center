@@ -2,8 +2,8 @@
 title: Valet Key pattern
 titleSuffix: Cloud Design Patterns
 description: Use a token or key that provides clients with restricted direct access to a specific resource or service.
-author: dragon119
-ms.date: 02/24/2020
+author: EdPrice-MSFT
+ms.date: 01/19/2022
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: design-pattern
@@ -112,45 +112,54 @@ Azure shared access signatures also support server-stored access policies that c
 The following code shows how to create a shared access signature token that's valid for five minutes. The `GetSharedAccessReferenceForUpload` method returns a shared access signatures token that can be used to upload a file to Azure Blob Storage.
 
 ```csharp
-public class ValuesController : ApiController
+[ApiController]
+public class SasController : ControllerBase
 {
-  private readonly BlobServiceClient blobServiceClient;
-  private readonly string blobContainer;
+  private readonly string blobContainer = "valetkeysample";
+  private readonly string blobEndpoint = "https://<StorageAccountName>.blob.core.windows.net";
   ...
   /// <summary>
   /// Return a limited access key that allows the caller to upload a file
   /// to this specific destination for a defined period of time.
   /// </summary>
-  private StorageEntitySas GetSharedAccessReferenceForUpload(string blobName)
+  private async Task<StorageEntitySas> GetSharedAccessReferenceForUpload(string blobName)
   {          
-      var blob = blobServiceClient.GetBlobContainerClient(this.blobContainer).GetBlobClient(blobName);
-      var storageSharedKeyCredential = new StorageSharedKeyCredential(blobServiceClient.AccountName, ConfigurationManager.AppSettings["AzureStorageEmulatorAccountKey"]);
+    var blobServiceClient = new BlobServiceClient(new Uri(blobEndpoint), new DefaultAzureCredential());
 
-      var blobSasBuilder = new BlobSasBuilder
-      {
-          BlobContainerName = this.blobContainer,
-          BlobName = blobName,
-          Resource = "b",
-          StartsOn = DateTimeOffset.UtcNow.AddMinutes(-5),
-          ExpiresOn = DateTimeOffset.UtcNow.AddMinutes(5)
-      };
-      blobSasBuilder.SetPermissions(BlobSasPermissions.Write);
-  
-      return new StorageEntitySas
-      {
-          BlobUri = blob.Uri,
-          Credentials = blobSasBuilder.ToSasQueryParameters(storageSharedKeyCredential).ToString()
-      };
+    var blobContainerClient = blobServiceClient.GetBlobContainerClient(this.blobContainer);
+    var blobClient = blobContainerClient.GetBlobClient(blobName);
+    var parentBlobServiceClient = blobContainerClient.GetParentBlobServiceClient();
+
+    UserDelegationKey key = await parentBlobServiceClient.GetUserDelegationKeyAsync(DateTimeOffset.UtcNow, DateTimeOffset.UtcNow.AddDays(7));
+
+    var blobSasBuilder = new BlobSasBuilder
+    {
+      BlobContainerName = this.blobContainer,
+      BlobName = blobName,
+      Resource = "b",
+      StartsOn = DateTimeOffset.UtcNow.AddMinutes(-5),
+      ExpiresOn = DateTimeOffset.UtcNow.AddMinutes(5)
+    };
+    blobSasBuilder.SetPermissions(BlobSasPermissions.Write);
+
+    var storageSharedKeyCredential = new StorageSharedKeyCredential(blobServiceClient.AccountName, key.Value);
+
+    return new StorageEntitySas
+    {
+      BlobUri = blobClient.Uri,
+      Credentials = blobSasBuilder.ToSasQueryParameters(storageSharedKeyCredential).ToString()
+    };
   }
+
   public struct StorageEntitySas
   {
-      public string Credentials;
-      public Uri BlobUri;
+    public string Credentials;
+    public Uri BlobUri;
   }
 }
 ```
 
-> The complete sample is available in the ValetKey solution available for download from [GitHub](https://github.com/mspnp/cloud-design-patterns/tree/master/valet-key). The ValetKey.Web project in this solution contains a web application that includes the `ValuesController` class shown above. A sample client application that uses this web application to retrieve a shared access signatures key and upload a file to blob storage is available in the ValetKey.Client project.
+> The complete sample is available in the ValetKey solution available for download from [GitHub](https://github.com/mspnp/cloud-design-patterns/tree/master/valet-key). The ValetKey.Web project in this solution contains a web application that includes the `SasController` class shown above. A sample client application that uses this web application to retrieve a shared access signatures key and upload a file to blob storage is available in the ValetKey.Client project.
 
 ## Next steps
 

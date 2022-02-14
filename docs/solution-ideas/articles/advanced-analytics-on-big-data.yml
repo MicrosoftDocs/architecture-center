@@ -1,6 +1,6 @@
 ### YamlMime:Architecture
 metadata:
-  title: Advanced analytics architecture
+  title: Advanced analytics
   titleSuffix: Azure Solution Ideas
   description: This architecture allows you to combine any data at any scale with custom machine learning and get near real-time data analytics on streaming services.
   author: EdPrice-MSFT
@@ -31,9 +31,8 @@ products:
   - azure-analysis-services
   - azure-blob-storage
   - azure-cosmos-db
-  - azure-databricks
-  - azure-data-factory
   - azure-synapse-analytics
+  - power-bi
 thumbnailUrl: /azure/architecture/browse/thumbs/advanced-analytics-on-big-data.png
 content: |
    [!include[](advanced-analytics-on-big-data-content.md)]

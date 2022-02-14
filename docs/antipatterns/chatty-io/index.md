@@ -2,11 +2,13 @@
 title: Chatty I/O antipattern
 titleSuffix: Performance antipatterns for cloud apps
 description: Learn about the cumulative effect of many I/O requests, which can have a significant impact on performance and responsiveness.
-author: dragon119
+author: EdPrice-MSFT
 ms.date: 06/05/2017
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: anti-pattern
+categories:
+ - databases
 products:
   - azure-event-hubs
 ms.custom:
@@ -310,7 +312,7 @@ Tracing the SQL statement shows that all the data is fetched in a single SELECT 
 - [No Caching antipattern][no-cache]
 
 [api-design]: ../../best-practices/api-design.md
-[caching-guidance]: ../../best-practices/caching.md
+[caching-guidance]: ../../best-practices/caching.yml
 [code-sample]: https://github.com/mspnp/performance-optimization/tree/master/ChattyIO
 [data-consistency-guidance]: /previous-versions/msp-n-p/dn589800(v=pandp.10)
 [ef]: /ef
@@ -318,11 +320,11 @@ Tracing the SQL statement shows that all the data is fetched in a single SELECT 
 [new-relic]: https://newrelic.com/products/application-monitoring
 [no-cache]: ../no-caching/index.md
 
-[key-indicators-chatty-io]: _images/ChattyIO.jpg
-[key-indicators-chunky-io]: _images/ChunkyIO.jpg
-[databasetraffic]: _images/DatabaseTraffic.jpg
-[databasetraffic2]: _images/DatabaseTraffic2.jpg
-[queries]: _images/DatabaseQueries.jpg
-[queries2]: _images/DatabaseQueries2.jpg
-[queries3]: _images/DatabaseQueries3.jpg
-[queries4]: _images/DatabaseQueries4.jpg
+[key-indicators-chatty-io]: ./_images/ChattyIO.jpg
+[key-indicators-chunky-io]: ./_images/ChunkyIO.jpg
+[databasetraffic]: ./_images/DatabaseTraffic.jpg
+[databasetraffic2]: ./_images/DatabaseTraffic2.jpg
+[queries]: ./_images/DatabaseQueries.jpg
+[queries2]: ./_images/DatabaseQueries2.jpg
+[queries3]: ./_images/DatabaseQueries3.jpg
+[queries4]: ./_images/DatabaseQueries4.jpg

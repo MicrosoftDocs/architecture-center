@@ -11,9 +11,9 @@ metadata:
   ms.subservice: example-scenario
   ms.custom:
     - fcp
-azureCategories: 
+azureCategories:
   - analytics
-products: 
+products:
   - azure-databricks
   - azure-log-analytics
   - azure-monitor

@@ -2,6 +2,8 @@ This reference architecture integrates enterprise backend systems, using message
 
 ![Reference architecture for enterprise integration using queues and events](./_images/enterprise-integration-message-broker-events.png)
 
+*Download a [Visio file](https://arch-center.azureedge.net/queues-events-content.vsdx) of this architecture*.
+
 ## Architecture
 
 The architecture shown here builds on a simpler architecture that is shown in [Basic enterprise integration][basic-enterprise-integration]. That architecture uses [Logic Apps][logic-apps] to orchestrate workflows and [API Management][apim] to create catalogs of APIs.
@@ -100,7 +102,7 @@ For more information, see the cost section in [Microsoft Azure Well-Architected 
 - [Enterprise business intelligence](../data/enterprise-bi-synapse.yml)
 - [Custom Business Processes](../../solution-ideas/articles/custom-business-processes.yml)
 
-[aaf-cost]: ../../framework/cost/overview.md
+[aaf-cost]: /azure/architecture/framework/cost/overview
 [apim]: /azure/api-management
 [apim-sla]: https://azure.microsoft.com/support/legal/sla/api-management
 [apim-autoscale]: /azure/api-management/api-management-howto-autoscale

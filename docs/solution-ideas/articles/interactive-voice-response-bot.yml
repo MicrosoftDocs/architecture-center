@@ -3,7 +3,7 @@ metadata:
   title: Interactive voice response app with bot
   titleSuffix: Azure Solution Ideas
   description: Process customer requests with an intelligent interactive voice response (IVR) application. Build automated systems from scratch or extend existing systems.
-  author: doodlemania2
+  author: EdPrice-MSFT
   ms.author: pnp
   ms.date: 12/16/2019
   ms.topic: conceptual

@@ -1,0 +1,27 @@
+### YamlMime:Architecture
+metadata:
+  title: Multiparty computing with Azure services
+  description: Learn about Azure services that can help you build a multiparty computing solution, which can include cloud-based and on-premises resources.
+  author: saffiali
+  ms.author: safali
+  ms.date: 02/04/2022
+  ms.topic: conceptual
+  ms.service: architecture-center
+  ms.subservice: azure-guide
+  ms.custom: fcp
+  ms.categories:
+    - storage
+    - containers
+azureCategories:
+  - storage
+  - containers
+products:
+  - azure-blob-storage
+  - azure-blockchain-service
+  - azure-kubernetes-service
+  - azure-sql-database
+name: Multiparty computing with Azure services
+summary: Learn about Azure services that can help you build a multiparty computing solution, which can include cloud-based and on-premises resources.
+thumbnailUrl: /azure/architecture/browse/thumbs/database-ledger.png
+content: |
+  [!include[](multiparty-compute-content.md)]

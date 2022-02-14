@@ -15,13 +15,11 @@ azureCategories:
   - hybrid
   - integration
 products:
+  - azure-logic-apps
   - azure-sql-database
   - azure-sql-managed-instance
   - azure-sql-virtual-machines
   - azure-database-postgresql
-  - azure-database-mysql
-  - azure-cosmos-db
-  - azure-synapse-analytics
 name: Integrate IBM mainframe and midrange message queues with Azure
 summary: This example describes a data-first approach to middleware integration that enables IBM message queues (MQs).
 thumbnailUrl: /azure/architecture/browse/thumbs/integrate-ibm-message-queues-azure-01.png

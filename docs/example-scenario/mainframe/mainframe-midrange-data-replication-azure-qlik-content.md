@@ -1,7 +1,7 @@
 
 Many organizations use mainframe and midrange systems to run demanding and critical workloads. Most applications use one or more databases, and most databases are shared by many applications, often on multiple systems. In such an environment, modernizing to the cloud means that on-premises data must be provided to cloud-based applications. Therefore, data replication becomes an important modernization tactic.
 
-The [Qlik](https://www.qlik.com/us) Data Integration platform includes Qlik Replication, which does data replication. It uses change data capture (CDC) to replicate on-premises data stores in real time to Azure. The change data can come from Db2, IMS, and VSAM change logs. This replication technique eliminates inconvenient batch bulk loads.
+The [Qlik](https://www.qlik.com/microsoft) Data Integration platform includes Qlik Replication, which does data replication. It uses change data capture (CDC) to replicate on-premises data stores in real time to Azure. The change data can come from Db2, IMS, and VSAM change logs. This replication technique eliminates inconvenient batch bulk loads.
 
 This solution uses an on-premises instance of Qlik to replicate on-premises data sources to Azure in real time.
 
@@ -79,7 +79,7 @@ The solution uses the components that are listed in the following subsections.
 
 ## Considerations
 
-Incorporate the following pillars of the [Microsoft Azure Well-Architected Framework](../../framework/index.md) for a highly available and secure system:
+Incorporate the following pillars of the [Microsoft Azure Well-Architected Framework](/azure/architecture/framework/index) for a highly available and secure system:
 
 ### Availability
 
@@ -103,7 +103,7 @@ Databricks, Data Lake Storage, and other Azure databases have auto-scaling capab
 ### Resiliency
 
 - You can combine Monitor's Application Insights and Log Analytics features to monitor the health of Azure resources. You can set alerts so that you can manage proactively.
-- For guidance on resiliency in Azure, see [Designing reliable Azure applications](../../framework/resiliency/app-design.md).
+- For guidance on resiliency in Azure, see [Designing reliable Azure applications](/azure/architecture/framework/resiliency/app-design).
 
 ## Pricing
 
@@ -112,6 +112,7 @@ Use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculato
 ## Next steps
 
 - [Qlik Data Integration platform](https://www.qlik.com/us/data-integration/data-integration-platform)
+- [Unleash New Azure Analytics Initiatives (PDF data sheet)](https://www.qlik.com/us/-/media/files/resource-library/global-us/direct/datasheets/ds-qlik-mainframe-integration-for-azure-en.pdf)
 - [What is Azure ExpressRoute?](/azure/expressroute/expressroute-introduction)
 - [What is VPN Gateway?](/azure/vpn-gateway/vpn-gateway-about-vpngateways)
 - [What is Azure Active Directory?](/azure/active-directory/fundamentals/active-directory-whatis)
@@ -124,6 +125,7 @@ Use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculato
 - [What is Application Insights?](/azure/azure-monitor/app/app-insights-overview)
 - [Azure Monitor Logs overview](/azure/azure-monitor/logs/data-platform-logs)
 - [Log queries in Azure Monitor](/azure/azure-monitor/logs/log-query-overview)
+- [Contact us (select to create email)](mailto:mainframedatamod@microsoft.com)
 
 ### Related resources
 

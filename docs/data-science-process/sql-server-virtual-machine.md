@@ -1,29 +1,31 @@
 ---
-title: Explore data in a SQL Server virtual machine - Team Data Science Process
+title: Process data in a SQL Server virtual machine on Azure
 description: Explore + process data and generate features using Python or SQL in a SQL Server virtual machine on Azure.
-services: machine-learning
 author: marktab
 manager: marktab
 editor: marktab
-ms.service: machine-learning
-ms.subservice: team-data-science-process
+services: architecture-center
+ms.service: architecture-center
+ms.subservice: azure-guide
 ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
-ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
+ms.custom:
+  - previous-author=deguhath
+  - previous-ms.author=deguhath
 products:
   - azure-machine-learning
 categories:
   - ai-machine-learning
 ---
-# <a name="heading"></a>Process Data in SQL Server Virtual Machine on Azure
+# Process data in a SQL Server virtual machine on Azure
 
 This document covers how to explore data and generate features for data stored in a SQL Server VM on Azure. This goal may be completed by data wrangling using SQL or by using a programming language like Python.
 
 > [!NOTE]
 > The sample SQL statements in this document assume that data is in SQL Server. If it isn't, refer to the cloud data science process map to learn how to move your data to SQL Server.
-> 
-> 
+>
+>
 
 ## <a name="SQL"></a>Using SQL
 
@@ -38,41 +40,41 @@ Here are a few sample SQL scripts that can be used to explore data stores in SQL
 
 > [!NOTE]
 > For a practical example, you can use the [NYC Taxi dataset](https://www.andresmh.com/nyctaxitrips/) and refer to the IPNB titled [NYC Data wrangling using IPython Notebook and SQL Server](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/iPythonNotebooks/machine-Learning-data-science-process-sql-walkthrough.ipynb) for an end-to-end walk-through.
-> 
-> 
+>
+>
 
 1. Get the count of observations per day
-   
-    `SELECT CONVERT(date, <date_columnname>) as date, count(*) as c from <tablename> group by CONVERT(date, <date_columnname>)` 
+
+    `SELECT CONVERT(date, <date_columnname>) as date, count(*) as c from <tablename> group by CONVERT(date, <date_columnname>)`
 2. Get the levels in a categorical column
-   
+
     `select  distinct <column_name> from <databasename>`
-3. Get the number of levels in combination of two categorical columns 
-   
+3. Get the number of levels in combination of two categorical columns
+
     `select <column_a>, <column_b>,count(*) from <tablename> group by <column_a>, <column_b>`
 4. Get the distribution for numerical columns
-   
+
     `select <column_name>, count(*) from <tablename> group by <column_name>`
 
 ### <a name="sql-featuregen"></a>Feature Generation
 
-In this section, we describe ways of generating features using SQL:  
+In this section, we describe ways of generating features using SQL:
 
 1. [Count based Feature Generation](#sql-countfeature)
 2. [Binning Feature Generation](#sql-binningfeature)
 3. [Rolling out the features from a single column](#sql-featurerollout)
 
 > [!NOTE]
-> Once you generate additional features, you can either add them as columns to the existing table or create a new table with the additional features and primary key, that can be joined with the original table. 
-> 
-> 
+> Once you generate additional features, you can either add them as columns to the existing table or create a new table with the additional features and primary key, that can be joined with the original table.
+>
+>
 
 ### <a name="sql-countfeature"></a>Count based Feature Generation
 
 The following examples demonstrate two ways of generating count features. The first method uses conditional sum and the second method uses the 'where' clause. These results may then be joined with the original table (using primary key columns) to have count features alongside the original data.
 
 ```sql
-select <column_name1>,<column_name2>,<column_name3>, COUNT(*) as Count_Features from <tablename> group by <column_name1>,<column_name2>,<column_name3> 
+select <column_name1>,<column_name2>,<column_name3>, COUNT(*) as Count_Features from <tablename> group by <column_name1>,<column_name2>,<column_name3>
 
 select <column_name1>,<column_name2> , sum(1) as Count_Features from <tablename> 
 where <column_name3> = '<some_value>' group by <column_name1>,<column_name2> 
@@ -118,19 +120,19 @@ select
 from <tablename>
 ```
 
-These location-based features can be further used to generate additional count features as described earlier. 
+These location-based features can be further used to generate additional count features as described earlier.
 
 > [!TIP]
-> You can programmatically insert the records using your language of choice. You may need to insert the data in chunks to improve write efficiency (for an example of how to do this using pyodbc, see [A HelloWorld sample to access SQLServer with python](https://code.google.com/p/pypyodbc/wiki/A_HelloWorld_sample_to_access_mssql_with_python)). 
+> You can programmatically insert the records using your language of choice. You may need to insert the data in chunks to improve write efficiency (for an example of how to do this using pyodbc, see [A HelloWorld sample to access SQLServer with python](https://code.google.com/p/pypyodbc/wiki/A_HelloWorld_sample_to_access_mssql_with_python)).
 > Another alternative is to insert data in the database using the [BCP utility](/sql/tools/bcp-utility).
-> 
-> 
+>
+>
 
 ### <a name="sql-aml"></a>Connecting to Azure Machine Learning
 
 The newly generated feature can be added as a column to an existing table or stored in a new table and joined with the original table for machine learning. Features can be generated or accessed if already created, using the [Import Data][import-data] module in Azure Machine Learning as shown below:
 
-![azureml readers][1] 
+![azureml readers][1]
 
 ## <a name="python"></a>Using a programming language like Python
 
@@ -155,10 +157,9 @@ Now you can work with the Pandas data frame as covered in the article [Process A
 
 ## Azure Data Science in Action Example
 
-For an end-to-end walkthrough example of the Azure Data Science Process using a public dataset, see [Azure Data Science Process in Action](sql-walkthrough.md).
+For an end-to-end walkthrough example of the Azure Data Science Process using a public dataset, see [Azure Data Science Process in Action](/azure/architecture/data-science-process/overview).
 
 [1]: ./media/sql-server-virtual-machine/reader-db-featurized-input.png
-
 
 <!-- Module References -->
 [import-data]: /azure/machine-learning/studio-module-reference/import-data

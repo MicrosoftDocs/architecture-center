@@ -1,6 +1,5 @@
 
 
-
 This article summarizes the process and components the Microsoft Commercial Software Engineering (CSE) team used to build a solution for a banking customer. For the sake of anonymity, the article refers to the customer as Contoso Bank. It's a major international Financial Services Industry (FSI) organization that wanted to modernize one of its financial transaction systems.
 
 Contoso Bank wanted to use simulated and actual applications and existing workloads to monitor the reaction of the solution infrastructure for scalability and performance. The solution had to be compatible with the requirements of the existing payment system.
@@ -13,7 +12,7 @@ Contoso Bank wanted to use a set of simulations to:
 
 * Determine the reaction to failures in the existing architectural design of specific mainframe software.
 
-The proposed solution would use a virtual application to simulate functional scenarios. Its purpose would be to monitor the performance and scalability of the infrastructure. The aim was to determine the impact of failures in the mainframe Electronic Funds Transfer (EFT) system workloads through this set of simulations.  
+The proposed solution would use a virtual application to simulate functional scenarios. Its purpose would be to monitor the performance and scalability of the infrastructure. The aim was to determine the impact of failures in the mainframe Electronic Funds Transfer (EFT) system workloads through this set of simulations.
 
 There was also a requirement to propose a smooth DevOps transition from on-premises to the cloud. The transition had to include the bank's process and methodology, and it had to  use Contoso Bank's existing tools. Using existing technologies would reduce the up-skill impact for the developers. The transition would assist Contoso Bank in reviewing current and future design decisions. The transition would also provide confidence that Azure is an environment robust enough to host the new distributed systems.
 
@@ -122,7 +121,7 @@ This component focuses on running Channel Holder, EFT Controller, and EFT Proces
 The list below summarizes the technologies that the CSE team used to create this solution:
 
 * Azure
-  
+
   * [Azure Pipelines](https://azure.microsoft.com/services/devops/pipelines/)
 
   * [Azure Kubernetes Services (AKS)](https://azure.microsoft.com/services/kubernetes-service/)
@@ -253,7 +252,7 @@ The CSE team created release branches that generated stable versions for deploym
 
 #### Disaster recovery
 
-The solution uses [Terraform scripts and Azure Pipelines](/azure/devops/pipelines/release/automate-terraform) for all the services. If a disaster occurs, Contoso Bank can re-create the entire environment by using Terraform scripts or by running the release pipeline again. Terraform understands that the environment has changed and recreates it. The solution dynamically provisions and destroys the infrastructure on Azure as needed. Storage accounts are zone-redundant storage (ZRS). A backup strategy was out of scope for this engagement.
+The solution uses Terraform scripts and Azure Pipelines for all the services. If a disaster occurs, Contoso Bank can re-create the entire environment by using Terraform scripts or by running the release pipeline again. Terraform understands that the environment has changed and recreates it. The solution dynamically provisions and destroys the infrastructure on Azure as needed. Storage accounts are zone-redundant storage (ZRS). A backup strategy was out of scope for this engagement.
 
 #### Security and privacy
 
@@ -289,7 +288,7 @@ At the end of the project, the CSE team shared the following insights:
 
   * A product's end-of-life may require creative customizations. A preparation phase plays an important role when the team delivers a successful solution.
 
-  * The CSE team recommended the use of the [Cloud Load Testing (CLT)](/azure/devops/test/load-test/overview#cloud-based-load-testing-service-clt-availability-timeframe-for) functionality in [Azure Test Plans](https://azure.microsoft.com/services/devops/test-plans/) with Apache JMeter tests. Unfortunately, during the investigation phase, the team identified that the Azure Test Plans team deprecated this functionality. The team had to create a new solution integrating ACI and JMeter in the pipeline.
+  * The CSE team recommended the use of the [Cloud Load Testing (CLT)](/rest/api/azure/devops/clt) functionality in [Azure Test Plans](https://azure.microsoft.com/services/devops/test-plans/) with Apache JMeter tests. Unfortunately, during the investigation phase, the team identified that the Azure Test Plans team deprecated this functionality. The team had to create a new solution integrating ACI and JMeter in the pipeline.
 
   * The team recommended the use of the Azure Event Hubs for Kafka, but for Contoso Bank, schema registry was an important feature. To attend to Contoso Bank in the requested time frame, the team had to consider the use of schema registry in another instance of AKS.
 

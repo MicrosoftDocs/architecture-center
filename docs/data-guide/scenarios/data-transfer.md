@@ -1,7 +1,8 @@
 ---
-title: Choosing a data transfer technology
+title: Choose a data transfer technology
 description: Learn about Azure data transfer options like Import/Export, Data Box, Data Factory, and command line and graphical interface tools.
-author: zoinerTejada
+author: EdPrice-MSFT
+ms.author: pnp
 ms.date: 11/20/2019
 ms.topic: conceptual
 ms.service: architecture-center
@@ -12,7 +13,7 @@ ms.custom:
 
 <!-- cSpell:ignore SATA HDDs SDDs Distcp WASB Sqoop -->
 
-# Transferring data to and from Azure
+# Transfer data to and from Azure
 
 There are several options for transferring data to and from Azure, depending on your needs.
 
@@ -86,8 +87,6 @@ The following tables summarize the key differences in capabilities.
 
 ### Physical transfer
 
-<!-- markdownlint-enable MD033 -->
-
 | Capability | Azure Import/Export service | Azure Data Box |
 | --- | --- | --- |
 | Form factor | Internal SATA HDDs or SDDs | Secure, tamper-proof, single hardware appliance |
@@ -111,8 +110,6 @@ The following tables summarize the key differences in capabilities.
 
 **Other:**
 
-<!-- markdownlint-disable MD033 -->
-
 | Capability | Azure CLI | AzCopy | PowerShell | AdlCopy | PolyBase |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | Compatible platforms | Linux, OS X, Windows | Linux, Windows | Windows | Linux, OS X, Windows | SQL Server, Azure Synapse |
@@ -123,8 +120,6 @@ The following tables summarize the key differences in capabilities.
 | Copy from Blob storage | Yes | Yes | Yes | Yes | Yes |
 | Copy to Data Lake Store | No | Yes | Yes | Yes |  Yes |
 | Copy from Data Lake Store | No | No | Yes | Yes | Yes |
-
-<!-- markdownlint-enable MD033 -->
 
 [1] AdlCopy is optimized for transferring big data when used with a Data Lake Analytics account.
 

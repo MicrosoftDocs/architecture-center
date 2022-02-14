@@ -22,7 +22,7 @@ GitHub DevSecOps installations cover many security scenarios. Possibilities incl
 ## Architecture
 
 :::image type="complex" source="../media/devsecops-in-github-data-flow.png" alt-text="Architecture diagram highlighting the security checks that run in various GitHub and Azure components in a GitHub DevSecOps environment." border="false":::
-   Architecture diagram highlighting security checks that run in a GitHub DevSecOps environment. After Azure AD authenticates developers, Codespaces run security scans. GitHub Actions then test security and encrypt sensitive data. In production, Azure Policy, Azure Security Center, and Azure Monitor evaluate deployed software for risks.
+   Architecture diagram highlighting security checks that run in a GitHub DevSecOps environment. After Azure AD authenticates developers, Codespaces run security scans. GitHub Actions then test security and encrypt sensitive data. In production, Azure Policy, Microsoft Defender for Cloud, and Azure Monitor evaluate deployed software for risks.
 :::image-end:::
 *Download an [.svg][DevSecOps in GitHub svg] of this architecture.*
 
@@ -30,9 +30,9 @@ GitHub DevSecOps installations cover many security scenarios. Possibilities incl
 1. Developers begin working on tasks in Codespaces. Organized into containers, these pre-built development environments provide correctly configured IDEs that are equipped with required security scanning extensions.
 1. When developers commit new code, GitHub Actions automatically scan the code to quickly find vulnerabilities and coding errors.
 1. Pull requests (PRs) trigger code builds and automated testing through GitHub Actions. GitHub encrypts secrets and credentials at rest and obfuscates these entries in logs.
-1. GitHub Actions deploy build artifacts to Azure App Service while making changes to other cloud resources, such as service endpoints.  
+1. GitHub Actions deploy build artifacts to Azure App Service while making changes to other cloud resources, such as service endpoints.
 1. Azure Policy evaluates Azure resources that are in deployment. Defined policies then potentially deny releases, modify cloud resources, or create warning events in activity logs.
-1. Azure Security Center identifies attacks targeting applications that are running in deployed projects.
+1. Microsoft Defender for Cloud identifies attacks targeting applications that are running in deployed projects.
 1. Azure Monitor continuously tracks and evaluates app behavior. When threats materialize, this service sends alerts to start the process of rolling code back to previous commits.
 
 ### Components
@@ -44,7 +44,7 @@ GitHub DevSecOps installations cover many security scenarios. Possibilities incl
 - [GitHub Actions][GitHub Actions] are custom workflows that provide continuous integration (CI) and continuous deployment (CD) capabilities directly in repositories. Computers called *runners* host these CI/CD jobs.
 - [App Service][App Service] provides a framework for building, deploying, and scaling web apps. This platform offers built-in infrastructure maintenance, security patching, and scaling.
 - [Azure Policy][Azure Policy] helps teams manage and prevent IT issues through policy definitions that can enforce rules for cloud resources. For instance, if your project is about to deploy a virtual machine with an unrecognized SKU, Azure Policy alerts you to the problem and stops the deployment.
-- [Azure Security Center][Azure Security Center] provides unified security management and advanced threat protection across hybrid cloud workloads.
+- [Microsoft Defender for Cloud](/azure/defender-for-cloud/defender-for-cloud-introduction) provides unified security management and advanced threat protection across hybrid cloud workloads.
 - [Azure Monitor][Azure Monitor] collects and analyzes app telemetry, such as performance metrics and activity logs. When this service identifies irregular conditions, it alerts apps and personnel.
 
 #### Security
@@ -62,7 +62,7 @@ GitHub DevSecOps installations cover many security scenarios. Possibilities incl
     - The [National Vulnerability Database][National Vulnerability Database]: A standardized repository of vulnerabilities that the U.S. government maintains.
     - [GitHub tracking][GitHub tracking]: A combination of machine learning and human review that GitHub conducts to detect vulnerabilities in public commits.
     - [GitHub security advisories][GitHub security advisories]: Information about vulnerabilities that development teams make public on GitHub.
-    - [PHP Security Advisories Database][PHP Security Advisories Database]: References to known security vulnerabilities in PHP projects and libraries.  
+    - [PHP Security Advisories Database][PHP Security Advisories Database]: References to known security vulnerabilities in PHP projects and libraries.
 
 When GitHub identifies a vulnerability, it takes the steps illustrated in the following diagram.
 :::image type="complex" source="../media/devsecops-in-github-vulnerability-management-data-flow.png" alt-text="Architecture diagram illustrating the chain of events that the identification of a vulnerability triggers, including alerts, upgrades, and deployment." border="false":::
@@ -91,7 +91,7 @@ To keep GitHub DevSecOps solutions aligned with the tenets of the [Azure Well-Ar
 - One concern with DevSecOps is that code scans can generate noisy results filled with false positives, leading to the following types of problems:
   - Developers waste time investigating nonexistent problems.
   - Addressing security issues interrupts workflow.
-  - Having lost trust in security tools because of the inaccuracies, developers ignore results.  
+  - Having lost trust in security tools because of the inaccuracies, developers ignore results.
 
   Overcome these obstacles by integrating security into the software lifecycle:
   - Employ tools like Codespaces that embed scanning checks in IDEs, meaning developers use them in familiar environments.
@@ -149,7 +149,6 @@ For long-running or complex Actions, host your own runners for CI/CD jobs. You c
 [GitHub Actions]: https://docs.github.com/en/actions/getting-started-with-github-actions/about-github-actions
 [App Service]: https://azure.microsoft.com/services/app-service/
 [Azure Policy]: /azure/governance/policy/overview
-[Azure Security Center]: /azure/security-center/security-center-intro
 [Azure Monitor]: /azure/azure-monitor/overview
 [GitHub code scanning]: https://docs.github.com/en/github/finding-security-vulnerabilities-and-errors-in-your-code/about-code-scanning
 [CodeQL]: https://securitylab.github.com/tools/codeql
@@ -162,7 +161,7 @@ For long-running or complex Actions, host your own runners for CI/CD jobs. You c
 [GitHub security advisories]: https://docs.github.com/en/github/managing-security-vulnerabilities/about-github-security-advisories
 [PHP Security Advisories Database]: https://github.com/FriendsOfPHP/security-advisories
 [Vulnerability management in GitHub svg]: ../media/devsecops-in-github-vulnerability-management-data-flow.svg
-[Azure Well-Architected Framework]: ../../framework/index.md
+[Azure Well-Architected Framework]: /azure/architecture/framework/index
 [About billing for GitHub actions]: https://docs.github.com/en/github/setting-up-and-managing-billing-and-payments-on-github/about-billing-for-github-actions
 [About self-hosted runners]: https://docs.github.com/en/actions/hosting-your-own-runners/about-self-hosted-runners
 [GitHub Enterprise Server]: https://azuremarketplace.microsoft.com/marketplace/apps/github.githubenterprise

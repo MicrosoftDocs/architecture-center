@@ -1,13 +1,13 @@
 [!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
-Generate personalized recommendations for customers in real time, using low-latency and tunable consistency settings for immediate insights
+Generate personalized recommendations for customers in real time, using low-latency and tunable consistency settings for immediate insights.
 
 ## Architecture
 
 ![Architecture Diagram](../media/personalization-using-cosmos-db.png)
 *Download an [SVG](../media/personalization-using-cosmos-db.svg) of this architecture.*
 
-## Data flow
+### Data flow
 1. Shopper/User signs in to e-commerce app using their own credentials.
 2. Shopper/User places the order and order goes to Azure API Apps.
 3. Data gets stored in Cosmos DB (Customer Order).
@@ -15,7 +15,7 @@ Generate personalized recommendations for customers in real time, using low-late
 5. Using Apache Spark on Azure Data Bricks, data is trained and stored in Cosmos DB (Product+ User Vectors)
 6. Latest Recommendation will be fetched by the e-commerce store UI using Azure Container Service (Recommendation APIs).
 
-## Components
+### Components
 
 This architecture includes the following components:
 
@@ -47,6 +47,6 @@ Scale the AKS cluster to meet your performance and throughput requirements. Take
 
 * [Basic Web App Azure Reference Architecture](../../reference-architectures/app-service-web-app/basic-web-app.yml?tabs=cli)
 
-* [Common Azure Cosmos DB Use Cases](/azure/cosmos-db/use-cases) 
+* [Common Azure Cosmos DB Use Cases](/azure/cosmos-db/use-cases)
 
 * [Stream Processing with Azure DataBricks](../../reference-architectures/data/stream-processing-databricks.yml)

@@ -1,16 +1,18 @@
 ---
-title: Move data to a SQL Server virtual machine - Team Data Science Process
+title: Move data to a SQL Server virtual machine
 description: Move data from flat files or from on-premises SQL Server to SQL Server on Azure VM.
-services: machine-learning
 author: marktab
 manager: marktab
 editor: marktab
-ms.service: machine-learning
-ms.subservice: team-data-science-process
+services: architecture-center
+ms.service: architecture-center
+ms.subservice: azure-guide
 ms.topic: article
-ms.date: 01/10/2020
+ms.date: 01/04/2022
 ms.author: tdsp
-ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
+ms.custom:
+  - previous-author=deguhath
+  - previous-ms.author=deguhath
 products:
   - azure-machine-learning
 categories:
@@ -58,7 +60,7 @@ If your data is in a flat file (arranged in a row/column format), it can be move
 BCP is a command-line utility installed with SQL Server and is one of the quickest ways to move data. It works across all three SQL Server variants (On-premises SQL Server, SQL Azure, and SQL Server VM on Azure).
 
 > [!NOTE]
-> **Where should my data be for BCP?**  
+> **Where should my data be for BCP?**
 > While it is not required, having files containing source data located on the same machine as the target SQL Server allows for faster transfers (network speed vs local disk IO speed). You can move the flat files containing data to the machine where SQL Server is installed using various file copying tools such as [AZCopy](/azure/storage/common/storage-use-azcopy-v10), [Azure Storage Explorer](https://storageexplorer.com/) or windows copy/paste via Remote Desktop Protocol (RDP).
 >
 >
@@ -67,7 +69,7 @@ BCP is a command-line utility installed with SQL Server and is one of the quicke
 
     ```sql
     CREATE DATABASE <database_name>
-    
+
     CREATE TABLE <tablename>
     (
         <columnname1> <datatype> <constraint>,
@@ -113,14 +115,12 @@ $ScriptBlock = {
     #bcp database..tablename in datafile_path.csv -o path_to_outputfile.$partitionnumber.txt -h "TABLOCK" -F 2 -f format_file_path.xml  -T -b block_size_to_move_in_single_attempt -t "," -r \n
 }
 
-
 # Background processing of all partitions
 for ($i=1; $i -le $NO_OF_PARALLEL_JOBS; $i++)
 {
     Write-Debug "Submit loading partition # $i"
     Start-Job $ScriptBlock -Arg $i      
 }
-
 
 # Wait for it all to complete
 While (Get-Job -State "Running")
@@ -138,7 +138,7 @@ Set-ExecutionPolicy Restricted #reset the execution policy
 
 [Bulk Insert SQL Query](/sql/t-sql/statements/bulk-insert-transact-sql) can be used to import data into the database from row/column based files (the supported types are covered in the[Prepare Data for Bulk Export or Import (SQL Server)](/sql/relational-databases/import-export/prepare-data-for-bulk-export-or-import-sql-server)) topic.
 
-Here are some sample commands for Bulk Insert are as below:  
+Here are some sample commands for Bulk Insert are as below:
 
 1. Analyze your data and set any custom options before importing to make sure that the SQL Server database assumes the same format for any special fields such as dates. Here is an example of how to set the date format as year-month-day (if your data contains the date in year-month-day format):
 
@@ -161,10 +161,9 @@ Here are some sample commands for Bulk Insert are as below:
 
 ### <a name="sql-builtin-utilities"></a>Built-in Utilities in SQL Server
 
-You can use SQL Server Integration Services (SSIS) to import data into SQL Server VM on Azure from a flat file.
-SSIS is available in two studio environments. For details, see [Integration Services (SSIS) and Studio Environments](/sql/integration-services/integration-services-ssis-development-and-management-tools):
+You can use SQL Server Integration Services (SSIS) to import data into SQL Server VM on Azure from a flat file. SSIS is available in two studio environments. For details, see [Integration Services (SSIS) and Studio Environments](/sql/integration-services/integration-services-ssis-development-and-management-tools):
 
-* For details on SQL Server Data Tools, see [Microsoft SQL Server Data Tools](/sql/ssdt/download-sql-server-data-tools-ssdt)  
+* For details on SQL Server Data Tools, see [Microsoft SQL Server Data Tools](/sql/ssdt/download-sql-server-data-tools-ssdt)
 * For details on the Import/Export Wizard, see [SQL Server Import and Export Wizard](/sql/integration-services/import-export-data/import-and-export-data-with-the-sql-server-import-and-export-wizard)
 
 ## <a name="sqlonprem_to_sqlonazurevm"></a>Moving Data from on-premises SQL Server to SQL Server on an Azure VM
@@ -173,7 +172,7 @@ You can also use the following migration strategies:
 
 1. [Deploy a SQL Server Database to a Microsoft Azure VM wizard](#deploy-a-sql-server-database-to-a-microsoft-azure-vm-wizard)
 2. [Export to Flat File](#export-flat-file)
-3. [SQL Database Migration Wizard](#sql-migration)
+3. [SQL Server Migration Assistant (SSMA)](#sql-migration)
 4. [Database back up and restore](#sql-backup)
 
 We describe each of these options below:
@@ -201,11 +200,11 @@ Various methods can be used to bulk export data from an On-Premises SQL Server a
     `bcp dbname..tablename format nul -c -x -f  exportformatfilename.xml  -U username@servername.database.windows.net -S tcp:servername -P password  --t \t -r \n`
 4. Use any of the methods described in section [Moving Data from File Source](#filesource_to_sqlonazurevm) to move the data in flat files to a SQL Server.
 
-### <a name="sql-migration"></a>SQL Database Migration Wizard
+### <a name="sql-migration"></a>SQL Server Migration Assistant (SSMA)
 
-[SQL Server Database Migration Wizard](https://sqlazuremw.codeplex.com/) provides a user-friendly way to move data between two SQL server instances. It allows the user to map the data schema between sources and destination tables, choose column types and various other functionalities. It uses bulk copy (BCP) under the covers. A screenshot of the welcome screen for the SQL Database Migration wizard is shown below.  
+[SQL Server Migration Assistant (SSMA)](https://techcommunity.microsoft.com/t5/microsoft-data-migration/bg-p/MicrosoftDataMigration) provides a user-friendly way to move data between two SQL server instances. It allows the user to map the data schema between sources and destination tables, choose column types and various other functionalities. It uses bulk copy (BCP) under the covers. A screenshot of the welcome screen for SQL Server Migration Assistant (SSMA) is shown below.
 
-![SQL Server Migration Wizard][2]
+![Screenshot of the SQL Server Migration Assistant (SSMA).][2]
 
 ### <a name="sql-backup"></a>Database back up and restore
 
@@ -216,7 +215,7 @@ SQL Server supports:
 
 A screenshot of the Database back up/restore options from SQL Server Management Studio is shown below.
 
-![SQL Server Import Tool][1]
+![Screenshot of the SQL Server Import Tool.][1]
 
 ## Resources
 
@@ -225,4 +224,4 @@ A screenshot of the Database back up/restore options from SQL Server Management 
 [SQL Server on Azure Virtual Machines overview](/azure/azure-sql/virtual-machines/windows/sql-server-on-azure-vm-iaas-what-is-overview)
 
 [1]: ./media/move-sql-server-virtual-machine/sql-server-built-in-utilities.png
-[2]: ./media/move-sql-server-virtual-machine/database-migration-wizard.png
+[2]: ./media/move-sql-server-virtual-machine/addsql-aud.png

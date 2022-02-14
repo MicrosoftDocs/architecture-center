@@ -20,7 +20,6 @@ azureCategories:
   - web
 summary: This example shows how to use Azure Content Delivery Network and other Azure services to deploy a highly scalable and secure installation of WordPress.
 products:
-  - azure-active-directory
   - azure-cdn
   - azure-key-vault
   - azure-load-balancer

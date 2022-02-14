@@ -1,7 +1,8 @@
 ---
-title: What is the CQRS pattern?
+title: CQRS pattern
 description: Learn how to segregate operations that read data from those that update data, using the CQRS (Command and Query Responsibility Segregation) pattern.
-author: dragon119
+author: EdPrice-MSFT
+ms.author: pnp
 ms.date: 02/11/2020
 ms.topic: conceptual
 ms.service: architecture-center
@@ -18,7 +19,7 @@ keywords:
   - "microservices event sourcing"
 ---
 
-# What is the CQRS pattern?
+# CQRS pattern
 
 CQRS stands for Command and Query Responsibility Segregation, a pattern that separates read and update operations for a data store. Implementing CQRS in your application can maximize its performance, scalability, and security. The flexibility created by migrating to CQRS allows a system to better evolve over time and prevents update commands from causing merge conflicts at the domain level.
 
@@ -241,7 +242,7 @@ The following patterns and guidance are useful when implementing this pattern:
 
 Martin Fowler's blog posts:
 
-- [What do you mean by “Event-Driven”?](https://martinfowler.com/articles/201701-event-driven.html)
+- [What do you mean by "Event-Driven"?](https://martinfowler.com/articles/201701-event-driven.html)
 - [CQRS](https://martinfowler.com/bliki/CQRS.html)
 
 ## Related guidance

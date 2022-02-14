@@ -4,13 +4,15 @@ description: An outline of the key components, personnel roles, and associated t
 author: marktab
 manager: marktab
 editor: marktab
-services: machine-learning
-ms.service: machine-learning
-ms.subservice: team-data-science-process
+services: architecture-center
+ms.service: architecture-center
+ms.subservice: azure-guide
 ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
-ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
+ms.custom:
+  - previous-author=deguhath
+  - previous-ms.author=deguhath
 products:
   - azure-machine-learning
 categories:
@@ -23,7 +25,7 @@ The Team Data Science Process (TDSP) is a framework developed by Microsoft that 
 
 This introductory article links to tutorials on how to set up the TDSP environment. The tutorials provide detailed guidance for using Azure DevOps Projects, Azure Repos repositories, and Azure Boards.  The motivating goal is moving from concept through modeling and into deployment.
 
-The tutorials use Azure DevOps because that is how to implement TDSP at Microsoft. Azure DevOps facilitates collaboration by integrating role-based security, work item management and tracking, and code hosting, sharing, and source control. The tutorials also use an Azure [Data Science Virtual Machine](https://aka.ms/dsvm) (DSVM) as the analytics desktop, which has several popular data science tools pre-configured and integrated with Microsoft software and Azure services. 
+The tutorials use Azure DevOps because that is how to implement TDSP at Microsoft. Azure DevOps facilitates collaboration by integrating role-based security, work item management and tracking, and code hosting, sharing, and source control. The tutorials also use an Azure [Data Science Virtual Machine](https://aka.ms/dsvm) (DSVM) as the analytics desktop, which has several popular data science tools pre-configured and integrated with Microsoft software and Azure services.
 
 You can use the tutorials to implement TDSP using other code-hosting, agile planning, and development tools and environments, but some features may not be available.
 
@@ -40,11 +42,11 @@ In such a structure, there are group leads and team leads. Typically, a data sci
 With the assumption that the data science unit consists of teams within a group, there are four distinct roles for TDSP personnel:
 
 1. **Group Manager**: Manages the entire data science unit in an enterprise. A data science unit might have multiple teams, each of which is working on multiple data science projects in distinct business verticals. A Group Manager might delegate their tasks to a surrogate, but the tasks associated with the role do not change.
-   
+
 2. **Team Lead**: Manages a team in the data science unit of an enterprise. A team consists of multiple data scientists. For a small data science unit, the Group Manager and the Team Lead might be the same person.
-   
+
 3. **Project Lead**: Manages the daily activities of individual data scientists on a specific data science project.
-   
+
 4. **Project Individual Contributors**: Data Scientists, Business Analysts, Data Engineers, Architects, and others who execute a data science project.
 
 > [!NOTE]
@@ -60,7 +62,7 @@ The following diagram shows the top-level tasks for each Team Data Science Proce
 
 The Group Manager or a designated TDSP system administrator completes the following tasks to adopt the TDSP:
 
-- Creates an Azure DevOps **organization** and a group project within the organization. 
+- Creates an Azure DevOps **organization** and a group project within the organization.
 - Creates a **project template repository** in the Azure DevOps group project, and seeds it from the project template repository developed by the Microsoft TDSP team. The Microsoft TDSP project template repository provides:
   - A **standardized directory structure**, including directories for data, code, and documents.
   - A set of **standardized document templates** to guide an efficient data science process.
@@ -81,7 +83,6 @@ The Team Lead or a designated project administrator completes the following task
 - Sets up **security control** by adding team members and configuring their permissions.
 
 For detailed instructions, see [Team Lead tasks for a data science team](team-lead-tasks.md).
-
 
 ## Project Lead tasks
 

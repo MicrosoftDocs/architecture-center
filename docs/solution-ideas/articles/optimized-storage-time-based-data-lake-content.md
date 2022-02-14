@@ -1,5 +1,3 @@
-[!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
-
 This architecture uses multiple Azure services to optimize storage performance and cost. Azure Cosmos DB holds recent data, and meets the application's availability, performance, and resiliency requirements. The native Azure Cosmos DB replication capabilities replicate the Azure Cosmos DB data to other regions.
 Periodically, Azure Data Factory moves older data from Azure Cosmos DB to Azure Data Lake to reduce storage costs.
 

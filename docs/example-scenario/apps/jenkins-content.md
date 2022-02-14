@@ -32,7 +32,7 @@ The architecture consists of the following components:
 
 - **Azure Active Directory (Azure AD).** [Azure AD][azure-ad] supports user authentication, allowing you to set up SSO. Azure AD [service principals][service-principal] define the policy and permissions for each role authorization in the workflow, using [Azure role-based access control (Azure RBAC)][rbac]. Each service principal is associated with a Jenkins job.
 
-- **Azure Key Vault.** To manage secrets and cryptographic keys used to provision Azure resources when secrets are required, this architecture uses [Azure Key Vault][key-vault]. 
+- **Azure Key Vault.** To manage secrets and cryptographic keys used to provision Azure resources when secrets are required, this architecture uses [Azure Key Vault][key-vault].
 
 - **Azure monitoring services**. This service [monitors][monitor] the Azure virtual machine hosting Jenkins. This deployment monitors the virtual machine status and CPU utilization and sends alerts.
 
@@ -85,7 +85,7 @@ Use the following approaches to help lock down security on a basic Jenkins serve
 
 Jenkins jobs often require secrets to access Azure services that require authorization, such as Azure Container Service. Use [Key Vault][key-vault] to manage these secrets securely. Use Key Vault to store service principal credentials, passwords, tokens, and other secrets.
 
-To get a central view of the security state of your Azure resources, use [Azure Security Center][security-center]. Security Center monitors potential security issues and provides a comprehensive picture of the security health of your deployment. Security Center is configured per Azure subscription. Enable security data collection as described in the [Azure Security Center quick start guide][quick-start]. When data collection is enabled, Security Center automatically scans any virtual machines created under that subscription.
+To get a central view of the security state of your Azure resources, use [Microsoft Defender for Cloud][security-center]. Defender for Cloud monitors potential security issues and provides a comprehensive picture of the security health of your deployment. Defender for Cloud is configured per Azure subscription. Enable security data collection as described in the [Microsoft Defender for Cloud quick start guide][quick-start]. When data collection is enabled, Defender for Cloud automatically scans any virtual machines created under that subscription.
 
 The Jenkins server has its own user management system, and the Jenkins community provides best practices for [securing a Jenkins instance on Azure][secure-jenkins].
 
@@ -93,7 +93,7 @@ The Jenkins server has its own user management system, and the Jenkins community
 
 Use resource groups to organize the Azure resources that are deployed. Deploy production environments and development/test environments in separate resource groups, so that you can monitor each environment's resources and roll up billing costs by resource group. You can also delete resources as a set, which is useful for test deployments.
 
-Azure provides several features for [monitoring and diagnostics][monitoring-diag] of the overall infrastructure. To monitor CPU usage, this architecture deploys Azure Monitor. For example, you can use Azure Monitor to monitor CPU utilization, and send a notification if CPU usage exceeds 80 percent. (High CPU usage indicates that you might want to scale up the Jenkins server VM.) You can also notify a designated user if the VM fails or becomes unavailable.
+Azure provides several features for [monitoring and diagnostics][monitoring-diag] of the overall infrastructure. To monitor CPU usage, this architecture deploys Azure Monitor. For example, you can use Azure Monitor to monitor CPU utilization, and send a notification if CPU usage exceeds 80 percent. (High CPU usage indicates that you might want to scale up the Jenkins server VM.) You can also notify a designated user if the VM fails or becomes unavailable.
 
 ## Communities
 
@@ -109,10 +109,10 @@ To create a VM and install Jenkins, follow the instructions in the article, [Qui
 
 ## Next steps
 
-* [Design a CI/CD pipeline using Azure DevOps](./devops-dotnet-webapp.yml)
-* [Container CI/CD using Jenkins and Kubernetes on Azure Kubernetes Service](../../solution-ideas/articles/container-cicd-using-jenkins-and-kubernetes-on-azure-container-service.yml)
-* [Immutable Infrastructure CI/CD using Jenkins and Terraform on Azure Virtual Architecture overview](../../solution-ideas/articles/immutable-infrastructure-cicd-using-jenkins-and-terraform-on-azure-virtual-architecture-overview.yml)
-* [Java CI/CD using Jenkins and Azure Web Apps](../../solution-ideas/articles/java-cicd-using-jenkins-and-azure-web-apps.yml)
+- [Design a CI/CD pipeline using Azure DevOps](./devops-dotnet-webapp.yml)
+- [Container CI/CD using Jenkins and Kubernetes on Azure Kubernetes Service](../../solution-ideas/articles/container-cicd-using-jenkins-and-kubernetes-on-azure-container-service.yml)
+- [Immutable Infrastructure CI/CD using Jenkins and Terraform on Azure Virtual Architecture overview](../../solution-ideas/articles/immutable-infrastructure-cicd-using-jenkins-and-terraform-on-azure-virtual-architecture-overview.yml)
+- [Java CI/CD using Jenkins and Azure Web Apps](../../solution-ideas/articles/java-cicd-using-jenkins-and-azure-web-apps.yml)
 
 <!-- links -->
 

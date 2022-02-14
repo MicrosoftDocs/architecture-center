@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: azure-guide
 products:
- - azure
+  - azure
 categories:
- - management-and-governance
- - security
+  - management-and-governance
+  - security
 ms.category:
   - fcp
 ms.custom:
@@ -51,7 +51,11 @@ Consider the [Noisy Neighbor antipattern](../../antipatterns/noisy-neighbor/inde
 
 ## Microsoft Azure Well-Architected Framework
 
-While the entirety of the [Azure Well-Architected Framework](../../framework/index.md) is important for all solutions, pay special attention to the [Resiliency pillar](../../framework/resiliency/reliability-patterns.md#resiliency). The nature of cloud hosting leads to  applications that are often multitenant, use shared platform services, compete for resources and bandwidth, communicate over the internet, and run on commodity hardware. This increases the likelihood that both transient and more permanent faults will arise.
+While the entirety of the [Azure Well-Architected Framework](/azure/architecture/framework/index) is important for all solutions, pay special attention to the [Resiliency pillar](/azure/architecture/framework/resiliency/reliability-patterns#resiliency). The nature of cloud hosting leads to  applications that are often multitenant, use shared platform services, compete for resources and bandwidth, communicate over the internet, and run on commodity hardware. This increases the likelihood that both transient and more permanent faults will arise.
+
+## Multitenant architectural guidance
+
+* [Accelerate and De-Risk Your Journey to SaaS](https://myignite.microsoft.com/sessions/99bb894b-4b43-4831-ae63-4cf74b711630) (video): This video provides guidance for transitioning to the "software as a service" (SaaS) delivery model - whether you're starting by lifting-and-shifting an existing solution from on-premises to Azure, considering a multitenant architecture, or looking to modernize an existing SaaS web application.
 
 ## Resources for Azure services
 
@@ -97,7 +101,6 @@ While the entirety of the [Azure Well-Architected Framework](../../framework/ind
 
 * [Multitenancy solutions with Power BI embedded analytics](/power-bi/developer/embedded/embed-multi-tenancy): When designing a multitenant application that contains Power BI Embedded, you must carefully choose the tenancy model that best fits your needs.
 
-
 ### IoT
 
 * [Multitenancy in IoT Hub Device Provisioning Service](/azure/iot-dps/how-to-provision-multitenant): A multitenant IoT solution will commonly assign tenant devices, by using a group of IoT hubs that are scattered across regions.
@@ -111,6 +114,6 @@ While the entirety of the [Azure Well-Architected Framework](../../framework/ind
 ### Kubernetes
 * [Three Tenancy Models For Kubernetes](https://kubernetes.io/blog/2021/04/15/three-tenancy-models-for-kubernetes/): Kubernetes clusters are typically used by several teams in an organization. This article explains three tenancy models for Kubernetes.
 * [Understanding Kubernetes Multi Tenancy](https://cloudian.com/guides/kubernetes-storage/understanding-kubernetes-multi-tenancy/): Kubernetes is not a multi-tenant system out of the box. While it is possible to configure multi-tenancy, this can be challenging. This article explains Kubernetes multi-tenancy types.
-* [Kubernetes Multi-Tenancy – A Best Practices Guide](https://loft.sh/blog/kubernetes-multi-tenancy-a-best-practices-guide/): Kubernetes multi-tenancy is a topic that more and more organizations are interested in as their Kubernetes usage spreads out. However, since Kubernetes is not a multi-tenant system per se, getting multi-tenancy right comes with some challenges. This article describes these challenges and how to overcome them as well as some useful tools for Kubernetes multi-tenancy. 
+* [Kubernetes Multi-Tenancy – A Best Practices Guide](https://loft.sh/blog/kubernetes-multi-tenancy-a-best-practices-guide/): Kubernetes multi-tenancy is a topic that more and more organizations are interested in as their Kubernetes usage spreads out. However, since Kubernetes is not a multi-tenant system per se, getting multi-tenancy right comes with some challenges. This article describes these challenges and how to overcome them as well as some useful tools for Kubernetes multi-tenancy.
 * [Capsule: Kubernetes multi-tenancy made simple](https://github.com/clastix/capsule): Capsule helps to implement a multi-tenancy and policy-based environment in your Kubernetes cluster. It is not intended to be yet another PaaS, instead, it has been designed as a micro-services-based ecosystem with the minimalist approach, leveraging only on upstream Kubernetes.
 * [Loft: Add Multi-Tenancy To Your Clusters](https://github.com/loft-sh/kiosk): Loft provides lightweight Kubernetes extensions for multi-tenancy.

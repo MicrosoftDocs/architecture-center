@@ -21,7 +21,6 @@ This line-of-business application solution provides a mechanism for monitoring a
 - [Dynamics 365](https://dynamics.microsoft.com)
 - [Microsoft Teams](https://teams.microsoft.com)
 
-
 ## Next steps
 
 - [Matching the architecture to your business needs](../../guide/design-principles/build-for-business.md)

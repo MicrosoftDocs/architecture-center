@@ -2,7 +2,8 @@
 title: Gateway Offloading pattern
 titleSuffix: Cloud Design Patterns
 description: Use the Gateway Offloading design pattern to offload shared or specialized service functionality to a gateway proxy.
-author: dragon119
+author: EdPrice-MSFT
+ms.author: pnp
 ms.date: 06/23/2017
 ms.topic: conceptual
 ms.service: architecture-center

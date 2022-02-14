@@ -1,9 +1,9 @@
 ### YamlMime:Architecture
 metadata:
-  title: Real Time Analytics on Big Data Architecture
+  title: Real-time analytics on big data architecture
   titleSuffix: Azure Solution Ideas
   description: Get deep-learning analytics and insights from live streaming data. Run advanced analytics on IoT device data and website clickstream logs in near real time.
-  author: doodlemania2
+  author: EdPrice-MSFT
   ms.author: pnp
   ms.date: 05/03/2021
   ms.topic: conceptual
@@ -22,7 +22,7 @@ metadata:
     - "https://azure.microsoft.com/solutions/architecture/real-time-analytics/"
     - internal-intro
   social_image_url: /azure/architecture/solution-ideas/articles/media/real-time-analytics.png
-name: Real Time Analytics on Big Data Architecture
+name: Real-time analytics on big data architecture
 azureCategories:
   - analytics
   - databases

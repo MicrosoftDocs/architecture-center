@@ -2,7 +2,8 @@
 title: Scheduler Agent Supervisor pattern
 titleSuffix: Cloud Design Patterns
 description: Explore the Scheduler Agent Supervisor pattern, which coordinates a set of actions across a distributed set of services and other remote resources.
-author: dragon119
+author: EdPrice-MSFT
+ms.author: pnp
 ms.date: 06/23/2017
 ms.topic: conceptual
 ms.service: architecture-center
@@ -44,7 +45,7 @@ The Scheduler maintains information about the progress of the task and the state
 ![Figure 1 - The actors in the Scheduler Agent Supervisor pattern](./_images/scheduler-agent-supervisor-pattern.png)
 
 > [!NOTE]
-> This diagram shows a simplified version of the pattern. In a real implementation, there might be many instances of the Scheduler running concurrently, each a subset of tasks. Similarly, the system could run multiple instances of each Agent, or even multiple Supervisors. In this case, Supervisors must coordinate their work with each other carefully to ensure that they don’t compete to recover the same failed steps and tasks. The [Leader Election pattern](./leader-election.md) provides one possible solution to this problem.
+> This diagram shows a simplified version of the pattern. In a real implementation, there might be many instances of the Scheduler running concurrently, each a subset of tasks. Similarly, the system could run multiple instances of each Agent, or even multiple Supervisors. In this case, Supervisors must coordinate their work with each other carefully to ensure that they don't compete to recover the same failed steps and tasks. The [Leader Election pattern](./leader-election.md) provides one possible solution to this problem.
 
 When the application is ready to run a task, it submits a request to the Scheduler. The Scheduler records initial state information about the task and its steps (for example, step not yet started) in the state store and then starts performing the operations defined by the workflow. As the Scheduler starts each step, it updates the information about the state of that step in the state store (for example, step running).
 

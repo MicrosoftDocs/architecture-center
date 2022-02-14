@@ -33,7 +33,6 @@ products:
   - azure-language-understanding
   - azure-qna-maker
   - azure-application-insights
-  - azure-active-directory-b2c
 thumbnailUrl: /azure/architecture/browse/thumbs/faq-chatbot-with-data-champion-model.png
 content: |
   [!include[](faq-chatbot-with-data-champion-model-content.md)]

@@ -31,7 +31,7 @@ Refactoring on Azure can help organizations to:
 - Common services include program execution, I/O operations, error detection, and protection (**E**).
 - Middleware and utility services manage tape storage, queueing, output, and web services (**F**).
 - Operating systems are the interface between the compute engine and the software (**G**).
-- Partitions run separate workloads or segregate work types within the environment (**H**). 
+- Partitions run separate workloads or segregate work types within the environment (**H**).
 
 ## Refactored Azure architecture
 
@@ -40,39 +40,39 @@ Refactoring on Azure can help organizations to:
 *Download a [Visio file](https://arch-center.azureedge.net/mainframe-general-azure-refactor.vsdx) of this architecture.*
 
 1. Input comes from remote clients via ExpressRoute, or from other Azure users. TCP/IP is the primary way to connect to the system.
-   
+
    - On-premises users can access web-based applications over Transport Layer Security (TLS) port 443. Web applications' presentation layers can remain unchanged, to minimize end user retraining. Or, you can update the presentation layers with modern UX frameworks.
-   
+
    - On-premises administrative access uses Azure Bastion hosts to maximize security by minimizing open ports.
-   
+
    - Azure users connect to the system via virtual network peering.
-   
+
 2. In Azure, Azure Load Balancer manages access to the application compute clusters. Load Balancer supports scale-out compute resources to handle input. You can use a level-7 application level or level-4 network level load balancer, depending on how the application input reaches the compute cluster entry point.
-   
+
 3. Application compute clusters can run on Azure VMs, or run in containers in AKS clusters. Usually, mainframe system emulation for PL/I or COBOL applications uses VMs, and applications refactored to Java or .NET use containers. Some mainframe system emulation software also supports deployment in containers. Compute resources use premium or ultra solid-state drive (SSD) managed disks with Accelerated Networking and Remote Direct Memory Access (RDMA).
-   
+
 4. Application servers in the compute clusters host the applications based on language capability, such as Java classes or COBOL programs. The servers receive application input, and share application state and data by using Azure Cache for Redis or RDMA.
-   
+
 5. Data services in the application clusters support multiple connections to persistent data sources. Azure Private Link provides private connectivity from within the virtual network to Azure services. Data sources can include:
-   
+
    - PaaS data services like Azure SQL Database, Azure Cosmos DB, and Azure Database for PostgreSQL - Hyperscale.
    - Databases on VMs, such as Oracle or Db2.
    - Big data repositories like [Azure Databricks](https://azure.microsoft.com/services/databricks) and Azure Data Lake.
    - Streaming data services like Apache Kafka and [Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics).
-   
+
 6. Data storage can be either local-redundant or geo-redundant, depending on usage. Data storage can use a combination of:
-   
+
    - High-performance storage with ultra or premium SSD disks.
    - File storage with Azure NetApp Files or Azure Files.
    - Standard storage, including blob, archive, and backup storage.
-   
+
 7. Azure PaaS data services provide scalable and highly available data storage that you can share among compute cluster resources. This storage can also be geo-redundant.
-   
+
    - Azure Blob Storage is a common landing zone for external data sources.
    - Azure Data Factory supports data ingestion and synchronization of multiple Azure and external data sources.
-   
+
 8. Azure Site Recovery provides DR for VM and container cluster components.
-   
+
 9. Services like [Azure Active Directory](https://azure.microsoft.com/services/active-directory), [Azure Networking](https://azure.microsoft.com/product-categories/networking), Azure Stream Analytics, Azure Databricks, and [Power BI](https://powerbi.microsoft.com) can easily integrate with the modernized system.
 
 ### Components
@@ -96,28 +96,28 @@ This example features the following Azure components. Several of these component
 - [Azure Cache for Redis](https://azure.microsoft.com/services/cache) adds a quick caching layer to application architecture to handle large volumes at high speed. Azure Cache for Redis scales performance simply and cost-effectively, with the benefits of a fully managed service.
 
 - [Azure Storage](https://azure.microsoft.com/product-categories/storage) offers scalable, secure cloud storage for all your data, applications, and workloads.
-  
+
   - [Azure Disk Storage](https://azure.microsoft.com/services/storage/disks/) is high-performance, durable block storage for business-critical applications. Azure managed disks are block-level storage volumes that are managed by Azure on Azure VMs. The available types of disks are ultra disks, premium SSDs, standard SSDs, and standard hard disk drives (HDDs). This architecture uses either premium SSDs or ultra disk SSDs.
-  
+
   - [Azure Files](https://azure.microsoft.com/services/storage/files) offers fully managed file shares in the cloud that are accessible via the industry standard Server Message Block (SMB) protocol. Cloud and on-premises Windows, Linux, and macOS deployments can mount Azure Files file shares concurrently.
-  
+
   - [Azure NetApp Files](https://azure.microsoft.com/services/netapp) provides enterprise-grade Azure file shares powered by NetApp. NetApp Files makes it easy for enterprises to migrate and run complex, file-based applications with no code changes.
-  
+
   - [Azure Blob Storage](https://azure.microsoft.com/services/storage/blobs) is scalable and secure object storage for archives, data lakes, high-performance computing, machine learning, and cloud-native workloads.
 
 - [Azure databases](https://azure.microsoft.com/product-categories/databases) offer a choice of fully managed relational and NoSQL databases to fit modern application needs. Automated infrastructure management provides scalability, availability, and security.
-  
+
   - [Azure SQL Database](https://azure.microsoft.com/products/azure-sql/database) is a fully managed PaaS database engine. SQL Database always runs on the latest stable version of SQL Server and a patched OS with 99.99 percent availability. Built-in PaaS database management capabilities include upgrading, patching, backups, and monitoring. You can focus on domain-specific, business-critical database administration and optimization.
-  
+
   - [Azure Database for PostgreSQL](https://azure.microsoft.com/services/postgresql) is a fully managed database based on the open-source Postgres relational database engine. The [Hyperscale (Citus) deployment option](/azure/postgresql/hyperscale/) scales queries across multiple machines using sharding, for applications that require greater scale and performance.
-  
+
   - [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db) is a fully managed, fast NoSQL database with open APIs for any scale.
 
 - [Azure Site Recovery](https://azure.microsoft.com/services/site-recovery) mirrors Azure VMs to a secondary Azure region for quick failover and DR if an Azure datacenter fails.
 
 ## Considerations
 
-The following considerations, based on the [Azure Well-Architected Framework](../../framework/index.md), apply to this solution:
+The following considerations, based on the [Azure Well-Architected Framework](/azure/architecture/framework/index), apply to this solution:
 
 ### Availability
 
@@ -143,7 +143,7 @@ Azure Bastion maximizes administrative access security by minimizing open ports.
 
 Azure avoids unnecessary costs by identifying the correct number of resource types, analyzing spending over time, and scaling to meet business needs without overspending.
 
-- Azure provides cost optimization by running on VMs. You can turn off the VMs when not in use, and script a schedule for known usage patterns. See the [Azure Well-Architected Framework](../../framework/index.md) for more information about cost optimization for [VM instances](../../framework/cost/optimize-vm.md).
+- Azure provides cost optimization by running on VMs. You can turn off the VMs when not in use, and script a schedule for known usage patterns. See the [Azure Well-Architected Framework](/azure/architecture/framework/index) for more information about cost optimization for [VM instances](/azure/architecture/framework/cost/optimize-vm).
 
 - The VMs in this architecture use either premium SSDs or ultra disk SSDs. For more information about disk options and pricing, see [Managed Disks pricing](https://azure.microsoft.com/pricing/details/managed-disks).
 

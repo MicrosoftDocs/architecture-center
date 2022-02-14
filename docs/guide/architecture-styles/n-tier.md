@@ -2,11 +2,17 @@
 title: N-tier architecture style
 titleSuffix: Azure Application Architecture Guide
 description: Know the benefits, challenges, and best practices for N-tier architectures on Azure. An N-tier architecture splits an app into logical layers and physical tiers.
-author: doodlemania2
+author: EdPrice-MSFT
 ms.date: 08/30/2018
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: guide
+categories:
+  - web
+products:
+  - azure-storage
+  - azure-cloud-services
+  - azure-virtual-machines
 ms.custom:
   - seojan19
   - guide
@@ -82,8 +88,7 @@ The web and business tiers are stateless. Any VM can handle any request for that
 Network security groups restrict access to each tier. For example, the database tier only allows access from the business tier.
 
 > [!NOTE]
-> The layer labeled "Business Tier" in our reference diagram is a moniker to the business logic tier. Likewise, we also call the presentation tier the "Web Tier." In our example, this is a web application, though multi-tier architectures can be used for other topologies as well (like desktop apps). 
-Name your tiers what works best for your team to communicate the intent of that logical and/or physical tier in your application - you could even express that naming in resources you choose to represent that tier (e.g. vmss-appName-business-layer).
+> The layer labeled "Business Tier" in our reference diagram is a moniker to the business logic tier. Likewise, we also call the presentation tier the "Web Tier." In our example, this is a web application, though multi-tier architectures can be used for other topologies as well (like desktop apps).  Name your tiers what works best for your team to communicate the intent of that logical and/or physical tier in your application - you could even express that naming in resources you choose to represent that tier (e.g. vmss-appName-business-layer).
 
 For more information about running N-tier applications on Azure:
 
@@ -115,7 +120,7 @@ For more information about running N-tier applications on Azure:
 - If you need higher availability than the Azure SLA for VMs provides, replicate the application across two regions and use Azure Traffic Manager for failover. For more information, see [Run Windows VMs in multiple regions][multiregion-windows] or [Run Linux VMs in multiple regions][multiregion-linux].
 
 [autoscaling]: ../../best-practices/auto-scaling.md
-[caching]: ../../best-practices/caching.md
+[caching]: ../../best-practices/caching.yml
 [dmz]: ../../reference-architectures/dmz/secure-vnet-dmz.yml
 [ha-nva]: ../../reference-architectures/dmz/nva-ha.yml
 [hybrid-network]: ../../reference-architectures/hybrid-networking/index.yml

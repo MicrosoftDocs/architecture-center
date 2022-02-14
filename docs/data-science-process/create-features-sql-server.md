@@ -1,16 +1,18 @@
 ---
-title: Create features in SQL Server using SQL and Python - Team Data Science Process
+title: Create features in SQL Server using SQL and Python
 description: Generate features for data stored in a SQL Server VM on Azure using SQL and Python - part of the Team Data Science Process.
-services: machine-learning
 author: marktab
 manager: marktab
 editor: marktab
-ms.service: machine-learning
-ms.subservice: team-data-science-process
+services: architecture-center
+ms.service: architecture-center
+ms.subservice: azure-guide
 ms.topic: article
-ms.date: 01/10/2020
+ms.date: 12/16/2021
 ms.author: tdsp
-ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
+ms.custom:
+  - previous-author=deguhath
+  - previous-ms.author=deguhath
 products:
   - azure-machine-learning
 categories:
@@ -23,8 +25,8 @@ This task is a step in the [Team Data Science Process (TDSP)](/azure/machine-lea
 
 > [!NOTE]
 > For a practical example, you can consult the [NYC Taxi dataset](https://www.andresmh.com/nyctaxitrips/) and refer to the IPNB titled [NYC Data wrangling using IPython Notebook and SQL Server](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/iPythonNotebooks/machine-Learning-data-science-process-sql-walkthrough.ipynb) for an end-to-end walk-through.
-> 
-> 
+>
+>
 
 ## Prerequisites
 This article assumes that you have:
@@ -33,7 +35,7 @@ This article assumes that you have:
 * Stored your data in SQL Server. If you have not, see [Move data to an Azure SQL Database for Azure Machine Learning](move-sql-azure.md) for instructions on how to move the data there.
 
 ## <a name="sql-featuregen"></a>Feature generation with SQL
-In this section, we describe ways of generating features using SQL:  
+In this section, we describe ways of generating features using SQL:
 
 * [Count based Feature Generation](#sql-countfeature)
 * [Binning Feature Generation](#sql-binningfeature)
@@ -41,8 +43,8 @@ In this section, we describe ways of generating features using SQL:
 
 > [!NOTE]
 > Once you generate additional features, you can either add them as columns to the existing table or create a new table with the additional features and primary key, that can be joined with the original table.
-> 
-> 
+>
+>
 
 ### <a name="sql-countfeature"></a>Count based feature generation
 This document demonstrates two ways of generating count features. The first method uses conditional sum and the second method uses the 'where` clause. These new features can then be joined with the original table (using primary key columns) to have count features alongside the original data.
@@ -60,7 +62,6 @@ The following example shows how to generate binned features by binning (using fi
 ```sql
 SELECT <column_name>, NTILE(5) OVER (ORDER BY <column_name>) AS BinNumber from <tablename>
 ```
-
 
 ### <a name="sql-featurerollout"></a>Rolling out the features from a single column
 In this section, we demonstrate how to roll out a single column in a table to generate additional features. The example assumes that there is a latitude or longitude column in the table from which you are trying to generate features.
@@ -98,14 +99,12 @@ These location-based features can be further used to generate additional count f
 > [!TIP]
 > You can programmatically insert the records using your language of choice. You may need to insert the data in chunks to improve write efficiency. [Here is an example of how to do this using pyodbc](https://code.google.com/p/pypyodbc/wiki/A_HelloWorld_sample_to_access_mssql_with_python).
 > Another alternative is to insert data in the database using [BCP utility](/sql/tools/bcp-utility)
-> 
-> 
+>
+>
 
 ### <a name="sql-aml"></a>Connecting to Azure Machine Learning
 
-The newly generated feature can be added as a column to an existing table or stored in a new table and joined with the original table for machine learning. Features can be generated or accessed if already created, using the [Import Data](/azure/machine-learning/studio-module-reference/import-data) module in Azure ML as shown below:
-
-![Azure ML readers](./media/sql-server-virtual-machine/reader-db-featurized-input.png)
+The newly generated feature can be added as a column to an existing table or stored in a new table and joined with the original table for machine learning. The resulting table may be then [saved as a dataset in Azure Machine Learning](/azure/machine-learning/concept-data) and available for data science.
 
 ## <a name="python"></a>Using a programming language like Python
 
@@ -126,4 +125,4 @@ The [Pandas library](https://pandas.pydata.org/) in Python provides a rich set o
 data_frame = pd.read_sql('''select <columnname1>, <columnname2>... from <tablename>''', conn)
 ```
 
-Now you can work with the Pandas data frame as covered in topics [Create features for Azure blob storage data using Panda](./explore-data-blob.md).
+Now you may work with the Pandas data frame as covered in topics [Create features for Azure blob storage data using Panda](./explore-data-blob.md).

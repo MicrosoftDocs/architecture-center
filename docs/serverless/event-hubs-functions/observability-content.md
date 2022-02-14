@@ -8,7 +8,7 @@ This section introduces useful features and insights that you can get from Appli
 
 [Application Map](/azure/azure-monitor/app/app-map) shows how the components in a system are interacting with each other. Because of the dependency telemetry that Application Insights provides, it maps out the flow of events between Azure Functions and Event Hubs, including the average of each function execution and average duration of an event in Event Hubs, as well as showing transactions that contain failures marked in red.
 
-After sending the expected load to your system, you can go to Application Insights in the [Azure portal](https://portal.azure.com), and on the sidebar, choose on **Application Map**. Here’s a map that shows three functions, three event hubs, and apparent failures when writing to a downstream database:
+After sending the expected load to your system, you can go to Application Insights in the [Azure portal](https://portal.azure.com), and on the sidebar, choose on **Application Map**. Here's a map that shows three functions, three event hubs, and apparent failures when writing to a downstream database:
 
 ![Application Map](images/observability-application-map.png)
 
@@ -34,10 +34,10 @@ The following is an example of extra telemetry for Event Hubs triggered function
 
 This information requires that you use Event Hubs extension 4.2.0 or a later version. This data is very useful as it contains information about the message that triggered the function execution and can be used for querying and insights. It includes the following data for each time the function is triggered:
 
-- The **partition ID** (6) 
-- The **partition offset** range (30095894584-30095919248) 
-- The **Enqueue Time range** in UTC (2021-05-06T02:02:59.2490000Z-2021-05-06T02:02:59.2490000Z) 
-- The **sequence number range** 814940-815019 
+- The **partition ID** (6)
+- The **partition offset** range (30095894584-30095919248)
+- The **Enqueue Time range** in UTC (2021-05-06T02:02:59.2490000Z-2021-05-06T02:02:59.2490000Z)
+- The **sequence number range** 814940-815019
 - And the **count of messages** (80)
 
 Refer to the [Example Application Insights queries](#example-application-insights-queries) section for examples on how to use this telemetry.
@@ -175,7 +175,7 @@ traces
 | summarize type = "Executing Instances", Count = dcount(cloud_RoleInstance) by
 bin(timestamp, 60s)
 | union (
-    traces 
+    traces
     | summarize type = "Allocated Instances", Count = dcount(cloud_RoleInstance) by
 bin(timestamp, 60s)
 )
@@ -199,7 +199,7 @@ union isfuzzy=true requests, exceptions, traces, dependencies
 
 ### End-to-End Latency for an Event
 
-As the **enqueueTimeUtc** property in the trigger detail trace shows the enqueue time of only the first event of each batch that the function processed, a more advanced query can be used to calculate the end-to-end latency of events between two functions with Event Hubs in between. This query will expand the operation links (if any) in the second function’s request and map its end time to the same corresponding operation ID of the first function start time.
+As the **enqueueTimeUtc** property in the trigger detail trace shows the enqueue time of only the first event of each batch that the function processed, a more advanced query can be used to calculate the end-to-end latency of events between two functions with Event Hubs in between. This query will expand the operation links (if any) in the second function's request and map its end time to the same corresponding operation ID of the first function start time.
 
 ```kusto
 let start = view(){

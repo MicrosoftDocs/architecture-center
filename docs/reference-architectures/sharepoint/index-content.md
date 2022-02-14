@@ -160,8 +160,7 @@ All inbound traffic is free. All outbound traffic is billed. Internet bandwidth 
 
 ### Virtual Network
 
-Azure Virtual Network is free. Every subscription is allowed to create up to 50 virtual networks across all regions.
-All traffic that originates within the boundaries of a virtual network is free. So, communication between two VMs in the same virtual network is free.
+Azure Virtual Network is free. Every subscription is allowed to create up to 50 virtual networks across all regions. All traffic that originates within the boundaries of a virtual network is free. So, communication between two VMs in the same virtual network is free.
 
 This architecture builds on the architecture deployed in [Run Windows VMs for an N-tier application][windows-n-tier]. See [Cost considerations](../../reference-architectures/n-tier/n-tier-sql-server.yml#cost-considerations) for more information.
 
@@ -177,14 +176,31 @@ Structure your deployment templates following the workload criteria, identify si
 
 Consider using the [Azure Monitor][az-monitor] to Analyze and optimize the performance of your infrastructure, Monitor and diagnose networking issues without logging into your virtual machines.
 
-For more information, see the DevOps section in [Azure Architecture Framework][AAF-devops].
+For more information, see the DevOps section in [Azure Well-Architected Framework][AAF-devops].
 
-**_Contributors to this reference architecture_** &mdash; Joe Davies, Bob Fox, Neil Hodgkinson, Paul Stork
+## Next steps
+
+For more information about the individual pieces of the solution architecture, see the following topics:
+
+- [Availability Sets](/azure/virtual-machines/windows/manage-availability)
+- [Azure VPN Gateway](/azure/vpn-gateway/vpn-gateway-about-vpngateways)
+- [Azure Load Balancer](/azure/load-balancer/load-balancer-internal-overview)
+- [Hardware and software requirements for SharePoint Server 2016](/sharepoint/install/hardware-and-software-requirements)
+- [Overview of MinRole Server Roles in SharePoint Servers 2016 and 2019](/sharepoint/install/overview-of-minrole-server-roles-in-sharepoint-server)
+- [Always On availability groups](/sql/database-engine/availability-groups/windows/always-on-availability-groups-sql-server)
+- [Best practices for SQL Server in a SharePoint Server farm](/sharepoint/administration/best-practices-for-sql-server-in-a-sharepoint-server-farm)
+- [SharePoint Server 2016 in Microsoft Azure](/sharepoint/administration/sharepoint-server-2016-in-microsoft-azure)
+
+## Related resources
+
+- [windows-n-tier](/azure/architecture/reference-architectures/n-tier/n-tier-sql-server)
+- [Highly available SharePoint farm - Azure Solution Ideas](/azure/architecture/solution-ideas/articles/highly-available-sharepoint-farm)
+- [Hybrid SharePoint farm with Microsoft 365](/azure/architecture/solution-ideas/articles/sharepoint-farm-microsoft-365)
 
 <!-- links -->
 
-[AAF-cost]: ../../framework/cost/overview.md
-[AAF-devops]: ../../framework/devops/overview.md
+[AAF-cost]: /azure/architecture/framework/cost/overview
+[AAF-devops]: /azure/architecture/framework/devops/overview
 [arm-template]: /azure/azure-resource-manager/management/overview
 [ADDS-pricing]: https://azure.microsoft.com/pricing/details/active-directory-ds/
 [availability-set]: /azure/virtual-machines/windows/manage-availability

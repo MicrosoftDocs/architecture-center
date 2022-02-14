@@ -1,16 +1,18 @@
 ---
-title: Team Data Science Process project planning 
+title: Team Data Science Process project planning
 description: Microsoft Project and Excel templates that help you plan and manage data science projects.
 author: marktab
 manager: marktab
 editor: marktab
-services: machine-learning
-ms.service: machine-learning
-ms.subservice: team-data-science-process
+services: architecture-center
+ms.service: architecture-center
+ms.subservice: azure-guide
 ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
-ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
+ms.custom:
+  - previous-author=deguhath
+  - previous-ms.author=deguhath
 products:
   - azure-machine-learning
 categories:
@@ -31,10 +33,9 @@ The lifecycle outlines the major stages that projects typically execute, often i
 
 For descriptions of each of these stages, see [The Team Data Science Process lifecycle](./lifecycle.md).
 
- 
 ## Microsoft Project template
 
-The Microsoft Project template for the Team Data Science Process is available from here: [Microsoft Project template](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Team-Data-Science-Process/Project-Planning-and-Governance/Advanced%20Analytics%20Microsoft%20Project%20Plan.mpp) 
+The Microsoft Project template for the Team Data Science Process is available from here: [Microsoft Project template](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Team-Data-Science-Process/Project-Planning-and-Governance/Advanced%20Analytics%20Microsoft%20Project%20Plan.mpp)
 
 When you open the plan, click the link to the far left for the TDSP. Change the name and description and then add in any other team resources you need. Estimate the dates required from your experience.
 
@@ -44,11 +45,9 @@ Each task has a note. Open those tasks to see what resources have already been c
 
 ![2](./media/team-data-science-process-project-templates/ms-project-template-task.png)
 
-
 ## Excel template
 
-If don’t have access to Microsoft Project, an Excel worksheet with all the same data is also available for download here: [Excel template](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Team-Data-Science-Process/Project-Planning-and-Governance/Advanced%20Analytics%20Microsoft%20Project%20Plan.xlsx)
-You can pull it in to whatever tool you prefer to use.
+If don't have access to Microsoft Project, an Excel worksheet with all the same data is also available for download here: [Excel template](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Team-Data-Science-Process/Project-Planning-and-Governance/Advanced%20Analytics%20Microsoft%20Project%20Plan.xlsx) You can pull it in to whatever tool you prefer to use.
 
 Use these templates at your own risk. The [usual disclaimers](https://www.gnu.org/licenses/gpl-3.0.en.html) apply.
 

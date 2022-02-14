@@ -13,7 +13,7 @@ metadata:
     - fasttrack-new
 azureCategories:
   - security
-products: 
+products:
   - azure
   - azure-active-directory
   - azure-app-service

@@ -1,15 +1,19 @@
 [!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
-This solution idea is about real-time inference on [Azure Kubernetes Service (AKS)](/azure/aks/intro-kubernetes). Use AKS when you need high-scale production deployments of your machine learning models. High-scale means capabilities such as fast response time, autoscaling of the deployed service, and logging. For more information, see [Deploy a model to an Azure Kubernetes Service cluster](/azure/machine-learning/how-to-deploy-azure-kubernetes-service).
+This solution idea is about real-time inference on [Azure Kubernetes Service (AKS)](/azure/aks/intro-kubernetes).
 
-In this solution, [Kubeflow](https://www.kubeflow.org/docs/about/kubeflow/) is used to manage the deployment to AKS. Your ML models run on AKS clusters backed by GPU enabled VMs.
+## Potential use cases
 
-## Architecture of deployment to AKS
+Use AKS when you need high-scale production deployments of your machine learning models. High-scale means capabilities such as fast response time, autoscaling of the deployed service, and logging. For more information, see [Deploy a model to an Azure Kubernetes Service cluster](/azure/machine-learning/how-to-deploy-azure-kubernetes-service).
+
+In this solution, [Kubeflow](https://www.kubeflow.org/docs/about/kubeflow) is used to manage the deployment to AKS. Your ML models run on AKS clusters backed by GPU enabled VMs.
+
+## Architecture
 
 ![Architecture diagram: deploying machine learning models to Azure Kubernetes Services (AKS)](../media/machine-learning-model-deployment-to-aks.png)
 *Download an [SVG](../media/machine-learning-model-deployment-to-aks.svg) of this architecture.*
 
-## Data Flow
+### Data flow
 
 1. Package machine learning (ML) model into a container and publish to Azure Container Registry (ACR).
 1. Azure Blob storage hosts training data sets and trained model.
@@ -18,7 +22,7 @@ In this solution, [Kubeflow](https://www.kubeflow.org/docs/about/kubeflow/) is u
 1. AKS supports GPU enabled VM.
 1. Developers build features to query the model running in AKS cluster.
 
-## Components
+### Components
 
 * [Azure Blob Storage](/azure/storage/blobs/)
 * [Azure Container Registry](/azure/container-registry/)
@@ -27,15 +31,17 @@ In this solution, [Kubeflow](https://www.kubeflow.org/docs/about/kubeflow/) is u
 
 ## Next steps
 
-See other Architecture Center articles:
-
-* [Artificial intelligence (AI) - Architectural overview](../../data-guide/big-data/ai-overview.md)
-* [Distributed training of deep learning models on Azure](../../reference-architectures/ai/training-deep-learning.yml)
-* [Training Python models on Azure](../../reference-architectures/ai/training-python-models.yml)
-
 Read product documentation:
 
 * [What is Azure Machine Learning?](/azure/machine-learning/overview-what-is-azure-ml)
 * [Azure Kubernetes Service (AKS)](/azure/aks/intro-kubernetes)
 * [Deploy a model to an Azure Kubernetes Service cluster](/azure/machine-learning/how-to-deploy-azure-kubernetes-service)
-* [Kubeflow on Azure](https://www.kubeflow.org/docs/distributions/azure/)
+* [Kubeflow on Azure](https://www.kubeflow.org/docs/distributions/azure)
+
+## Related resources
+
+See other Architecture Center articles:
+
+* [Artificial intelligence (AI) - Architectural overview](../../data-guide/big-data/ai-overview.md)
+* [Distributed training of deep learning models on Azure](../../reference-architectures/ai/training-deep-learning.yml)
+* [Training Python models on Azure](../../reference-architectures/ai/training-python-models.yml)

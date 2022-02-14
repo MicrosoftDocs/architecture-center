@@ -1,6 +1,6 @@
 [!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
-Dynamics 365 Business Central SaaS is not available in all countries. Therefore, it is important to offer clients a similar model using Business Central running as a VM in Azure. 
+Dynamics 365 Business Central SaaS is not available in all countries. Therefore, it is important to offer clients a similar model using Business Central running as a VM in Azure.
 
 ## Potential use cases
 
@@ -8,7 +8,8 @@ Partners can build their own architecture where they can deploy Business Central
 
 ## Architecture
 
-![Architecture Diagram](../media/business-central-as-a-service.png)
+![Diagram showing the Business Central architecture.](../media/business-central-as-a-service.png)
+
 
 ### Data flow
 
@@ -48,6 +49,11 @@ There are various options for VM sizes depending on the usage and workload. The 
 - [Mounting a tenant database against the specified Business Central Server instance](/powershell/module/microsoft.dynamics.nav.management/mount-navtenant?view=businesscentral-ps-16)
 - [Mounting a tenant database on the specified Business Central Server instance](/powershell/module/microsoft.dynamics.nav.management/mount-navtenantdatabase?view=businesscentral-ps-16)
 - [Creating a normal tenant in a specific tenant database](/powershell/module/microsoft.dynamics.nav.management/new-navtenant?view=businesscentral-ps-16)
-- [Creating a new Business Central Server instance](/powershell/module/microsoft.dynamics.nav.management/new-navserverinstance?view=businesscentral-ps-16) 
-- [Changing the service state of a Business Central Server instance](/powershell/module/microsoft.dynamics.nav.management/set-navserverinstance?view=businesscentral-ps-16) 
+- [Creating a new Business Central Server instance](/powershell/module/microsoft.dynamics.nav.management/new-navserverinstance?view=businesscentral-ps-16)
+- [Changing the service state of a Business Central Server instance](/powershell/module/microsoft.dynamics.nav.management/set-navserverinstance?view=businesscentral-ps-16)
 - [Staring a server instance](/powershell/module/microsoft.dynamics.nav.management/start-navserverinstance?view=businesscentral-ps-16)
+
+## Related resources
+
+- [Architecture - E-commerce front end]((../../example-scenario/apps/ecommerce-scenario.yml)
+- [Architecture - E-commerce website running in secured App Service Environment](./ecommerce-website-running-in-secured-ase.yml)

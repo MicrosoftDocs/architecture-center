@@ -1,16 +1,18 @@
 ---
-title: SQL Server data to SQL Database with Azure Data Factory - Team Data Science Process
+title: SQL Server data to SQL Database with Azure Data Factory 
 description: Set up an ADF pipeline that composes two data migration activities that together move data on a daily basis between databases on-premises and in the cloud.
-services: machine-learning
 author: marktab
 manager: marktab
 editor: marktab
-ms.service: machine-learning
-ms.subservice: team-data-science-process
+services: architecture-center
+ms.service: architecture-center
+ms.subservice: azure-guide
 ms.topic: article
 ms.date: 09/03/2020
 ms.author: tdsp
-ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
+ms.custom:
+  - previous-author=deguhath
+  - previous-ms.author=deguhath
 products:
   - azure-machine-learning
 categories:
@@ -59,9 +61,9 @@ This tutorial assumes you have:
 >
 
 ## <a name="upload-data"></a> Upload the data to your SQL Server instance
-We use the [NYC Taxi dataset](https://chriswhong.com/open-data/foil_nyc_taxi/) to demonstrate the migration process. The NYC Taxi dataset is available, as noted in that post, on Azure blob storage [NYC Taxi Data](https://www.andresmh.com/nyctaxitrips/). The data has two files, the trip_data.csv file, which contains trip details, and the  trip_far.csv file, which contains details of the fare paid for each trip. A sample and description of these files are provided in [NYC Taxi Trips Dataset Description](sql-walkthrough.md#dataset).
+We use the [NYC Taxi dataset](https://chriswhong.com/open-data/foil_nyc_taxi/) to demonstrate the migration process. The NYC Taxi dataset is available, as noted in that post, on Azure blob storage [NYC Taxi Data](https://www.andresmh.com/nyctaxitrips/). The data has two files, the trip_data.csv file, which contains trip details, and the  trip_far.csv file, which contains details of the fare paid for each trip. A sample and description of these files are provided in [NYC Taxi Trips Dataset Description](/azure/architecture/data-science-process/overview#dataset).
 
-You can either adapt the procedure provided here to a set of your own data or follow the steps as described by using the NYC Taxi dataset. To upload the NYC Taxi dataset into your SQL Server database, follow the procedure outlined in [Bulk Import Data into SQL Server database](sql-walkthrough.md#dbload).
+You can either adapt the procedure provided here to a set of your own data or follow the steps as described by using the NYC Taxi dataset. To upload the NYC Taxi dataset into your SQL Server database, follow the procedure outlined in [Bulk Import Data into SQL Server database](/azure/architecture/data-science-process/overview#dbload).
 
 ## <a name="create-adf"></a> Create an Azure Data Factory
 The instructions for creating a new Azure Data Factory and a resource group in the [Azure portal](https://portal.azure.com/) are provided [Create an Azure Data Factory](/azure/data-factory/tutorial-hybrid-copy-portal#create-a-data-factory). Name the new ADF instance *adfdsp* and name the resource group created *adfdsprg*.
@@ -79,7 +81,6 @@ A linked service defines the information needed for Azure Data Factory to connec
 3. Azure SQL Database
 
 The step-by-step procedure for creating linked services is provided in [Create linked services](/azure/data-factory/tutorial-hybrid-copy-portal#create-a-pipeline).
-
 
 ## <a name="adf-tables"></a>Define and create tables to specify how to access the datasets
 Create tables that specify the structure, location, and availability of the datasets with the following script-based procedures. JSON files are used to define the tables. For more information on the structure of these files, see [Datasets](/azure/data-factory/concepts-datasets-linked-services).
@@ -141,7 +142,6 @@ Copy the JSON definition of the table into a file called *onpremtabledef.json* f
 ```azurepowershell
 New-AzureDataFactoryTable -ResourceGroupName ADFdsprg -DataFactoryName ADFdsp –File C:\temp\onpremtabledef.json
 ```
-
 
 ### <a name="adf-table-blob-store"></a>Blob Table
 Definition for the table for the output blob location is in the following (this maps the ingested data from on-premises to Azure blob):
@@ -210,7 +210,6 @@ Copy the JSON definition of the table into a file called *AzureSqlTable.json* fi
 ```azurepowershell
 New-AzureDataFactoryTable -ResourceGroupName adfdsprg -DataFactoryName adfdsp -File C:\temp\AzureSqlTable.json
 ```
-
 
 ## <a name="adf-pipeline"></a>Define and create the pipeline
 Specify the activities that belong to the pipeline and create the pipeline with the following script-based procedures. A JSON file is used to define the pipeline properties.
@@ -298,7 +297,6 @@ Copy this JSON definition of the pipeline into a file called *pipelinedef.json* 
 ```azurepowershell
 New-AzureDataFactoryPipeline  -ResourceGroupName adfdsprg -DataFactoryName adfdsp -File C:\temp\pipelinedef.json
 ```
-
 
 ## <a name="adf-pipeline-start"></a>Start the Pipeline
 The pipeline can now be run using the following command:

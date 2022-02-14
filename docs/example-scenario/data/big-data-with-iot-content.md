@@ -13,7 +13,7 @@ The company wants to build a cloud-based "smart construction" solution. It shoul
 
 Using managed Azure services such as IoT Hub and HDInsight will allow the customer to rapidly build and deploy a comprehensive solution with a lower operating cost. If you have additional data analytics needs, you should review the list of available [fully managed data analytics services in Azure][product-category].
 
-## Relevant use cases
+## Potential use cases
 
 Other relevant use cases include:
 

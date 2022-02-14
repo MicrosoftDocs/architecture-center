@@ -1,6 +1,5 @@
 
 
-
 The Gridwich Azure Storage Service, [Gridwich.SagaParticipants.Storage.AzureStorage][StorageService], provides blob and container operations for Azure Storage Accounts that are configured for Gridwich. Example storage operations are **Create blob**, **Delete container**, **Copy blob**, or **Change storage tier**.
 
 Gridwich requires its storage mechanisms to work for both Azure Storage block blobs and containers. With distinct classes and Storage Service operations for blobs and containers, there's no ambiguity about whether a given storage operation relates to a blob or to a container. This article applies to both blobs and containers, except where noted.
@@ -70,11 +69,11 @@ The `IsMuted` property controls whether the application expects the service to p
 An example is blob copies that an encoder executes to arrange blobs in Azure Storage as input to an encoding task. The external system isn't concerned about these details, but only about the status of the encoding job and where it can retrieve the encoded outputs. To reflect these concerns, the encoder:
 
 1. Creates a non-muted storage context based on the request operation context, for example `ctxNotMuted`.
-   
+
 1. Creates a muted storage context, for example `ctxMuted`, by either using the [context class][SCPC] copy constructor or making a new instance. Either option will have the same operation context value.
-   
+
 1. Specifies `ctxMuted` for storage operations involved in the setup for encoding. The external system doesn't see any indication of these operations occurring.
-   
+
 1. Specifies the `ctxNotMuted` context for storage operations that reflect encoding completion, for example copying an output file to a target container. Gridwich handlers publish the resulting Azure Storage notification events to the external system.
 
 The caller controls the ultimate visibility of operations. Both muted and non-muted operations are based on an equivalent `operationContext` value. The intent of context muting is to make it easier to perform issue diagnosis from event tracing logs, because it's possible to see the storage operations related to a request, regardless of operation muting status.
@@ -178,6 +177,26 @@ Gridwich currently registers the Storage Service as a `Transient` dependency inj
 However, there will be issues if the registration changes to `Singleton`, one instance across the Gridwich Function app. The Gridwich caching mechanism for sleeves and data byte ranges then won't distinguish between different requests. Also, the cache model isn't a check-out one, so Gridwich doesn't remove the instance from the cache while it's in use. Since the SDK client classes aren't guaranteed to be thread-safe, coordination would require a number of changes.
 
 For these reasons, don't change the Gridwich Storage Service, as is, to `Singleton` dependency injection registration. Gridwich follows this rule in [dependency injection registration][StorageServiceDI] and includes a unit test, [CheckThatStorageServiceIsNotASingleton][SSTest], to enforce it.
+
+## Next steps
+
+Product documentation:
+
+- [Gridwich cloud media system](gridwich-architecture.yml)
+- [What is Azure Blob storage?](/azure/storage/blobs/storage-blobs-overview)
+- [What is Azure Pipelines?](/azure/devops/pipelines/get-started/what-is-azure-pipelines)
+
+Microsoft Learn modules:
+
+- [Configure blob storage](/learn/modules/configure-blob-storage)
+- [Explore Azure Storage services](/learn/modules/azure-storage-fundamentals)
+
+## Related resources
+
+- [Gridwich content protection and DRM](gridwich-content-protection-drm.yml)
+- [Gridwich project naming and namespaces](gridwich-project-names.yml)
+- [Logging in Gridwich](gridwich-logging.yml)
+
 
 [StorageService]: https://github.com/mspnp/gridwich/blob/main/src/Gridwich.SagaParticipants.Storage.AzureStorage
 [SCPC]: https://github.com/mspnp/gridwich/blob/main/src/Gridwich.Core/src/Models/StorageClientProviderContext.cs "StorageClientProviderContext.cs"

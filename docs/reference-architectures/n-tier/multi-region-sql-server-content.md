@@ -1,6 +1,5 @@
 
 
-
 This reference architecture shows a set of proven practices for running an N-tier application in multiple Azure regions, in order to achieve availability and a robust disaster recovery infrastructure.
 
 ![Highly available network architecture for Azure N-tier applications"](./images/multi-region-sql-server.png)
@@ -26,6 +25,14 @@ This architecture builds on the one shown in [N-tier application with SQL Server
     >
 
 - **Virtual network peering**. Peer the two virtual networks to allow data replication from the primary region to the secondary region. For more information, see [Virtual network peering](/azure/virtual-network/virtual-network-peering-overview).
+
+### Components
+
+- [Availability sets](/azure/virtual-machines/windows/manage-availability) ensure that the VMs you deploy on Azure are distributed across multiple isolated hardware nodes in a cluster. If a hardware or software failure occurs within Azure, only a subset of your VMs are affected and your entire solution remains available and operational.
+- [Availability zones](/azure/availability-zones/az-overview) protect your applications and data from datacenter failures. Availability zones are separate physical locations within an Azure region. Each zone consists of one or more datacenters equipped with independent power, cooling, and networking.
+- [Azure Traffic Manager](/azure/traffic-manager) is a DNS-based traffic load balancer that distributes traffic optimally, to services across global Azure regions, while providing high availability and responsiveness.
+- [Azure Load Balancer](/azure/load-balancer/load-balancer-overview) distributes inbound traffic, according to defined rules and health probes. A load balancer provides low latency and high throughput, scaling up to millions of flows for all TCP and UDP applications. A public load balancer is used in this scenario, to distribute incoming client traffic to the web tier. An internal load balancer is used in this scenario, to distribute traffic from the business tier to the back-end SQL Server cluster.
+- [Azure Bastion](/azure/bastion/bastion-overview) provides secure RDP and SSH connectivity to all of the VMs, in the virtual network in which it is provisioned. Use Azure Bastion to protect your virtual machines from exposing RDP/SSH ports to the outside world, while still providing secure access using RDP/SSH.
 
 ## Recommendations
 
@@ -176,7 +183,7 @@ For more information, see the cost section in [Microsoft Azure Well-Architected 
 ### VNET-Peering pricing
 A high-availability deployment that leverages multiple Azure Regions will make use of VNET-Peering. There are different charges for VNET-Peering within the same region and for Global VNET-Peering.
 
-For more information, see [Virtual Network Pricing](https://azure.microsoft.com/pricing/details/virtual-network/). 
+For more information, see [Virtual Network Pricing](https://azure.microsoft.com/pricing/details/virtual-network/).
 
 ## DevOps considerations
 
@@ -188,10 +195,14 @@ Consider using the [Azure Monitor][azure-monitor] to Analyze and optimize the pe
 
 Make sure not only to monitor your compute elements supporting your application code, but your data platform as well, in particular your databases, since a low performance of the data tier of an application could have serious consequences.
 
-
 In order to test the Azure environment where the applications are running, it should be version-controlled and deployed through the same mechanisms as application code, then it can be tested and validated using DevOps testing paradigms too.
 
 For more information, see the Operational Excellence section in [Microsoft Azure Well-Architected Framework][WAF-devops].
+
+## Next Steps
+
+- [Deploy Traffic Manager in Azure](/azure/traffic-manager/quickstart-create-traffic-manager-profile)
+- [Deploy Azure Load Balancer](/azure/load-balancer/load-balancer-overview)
 
 
 ## Related resources
@@ -199,6 +210,8 @@ For more information, see the Operational Excellence section in [Microsoft Azure
 The following architecture uses some of the same technologies:
 
 - [Multitier web application built for high availability and disaster recovery on Azure](../../example-scenario/infrastructure/multi-tier-app-disaster-recovery.yml)
+- [Multi-region load balancing](../../high-availability/reference-architecture-traffic-manager-application-gateway.yml)
+- [SQL Server failover cluster in Azure](../../example-scenario/sql-failover/sql-failover-2008r2.yml)
 
 <!-- links -->
 
@@ -226,5 +239,5 @@ The following architecture uses some of the same technologies:
 [visio-download]: https://arch-center.azureedge.net/vm-reference-architectures.vsdx
 [vnet-dns]: /azure/virtual-network/manage-virtual-network#change-dns-servers
 [wsfc]: /sql/sql-server/failover-clusters/windows/windows-server-failover-clustering-wsfc-with-sql-server?view=sql-server-ver15
-[WAF-cost]: ../../framework/cost/overview.md
-[WAF-devops]: ../../framework/devops/overview.md
+[WAF-cost]: /azure/architecture/framework/cost/overview
+[WAF-devops]: /azure/architecture/framework/devops/overview

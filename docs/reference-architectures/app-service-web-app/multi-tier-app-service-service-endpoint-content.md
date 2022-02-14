@@ -15,16 +15,16 @@ This architecture may suit these use cases:
 
 ## Architecture
 
-:::image type="content" source="images/multi-tier-app-service-service-endpoint.svg" lightbox="images/multi-tier-app-service-service-endpoint.png" alt-text="Architecture of a multi-tier app.":::
+:::image type="content" source="images/multi-tier-app-service-service-endpoint.png" lightbox="images/multi-tier-app-service-service-endpoint.png" alt-text="Architecture of a multi-tier app.":::
 
 *Download a [Visio file](https://arch-center.azureedge.net/US-1874703-PR-3830-multi-tier-app-service-service-endpoint.vsdx) of this architecture.*
 
-Here’s the traffic flow and basic configuration of the architecture:
+Here's the traffic flow and basic configuration of the architecture:
 
 1. Requests route from the internet to a front-end app.
 1. The virtual network integration feature of App Service routes all outbound communications from the front-end apps to the integration subnet. For more information about virtual network integration, see [Integrate your app with an Azure virtual network](/azure/app-service/web-sites-integrate-with-vnet).
 1. The API app has service endpoints that restrict inbound communications— they only allow communications from front-end apps on the integration subnet. For more information on service endpoints, see [Virtual Network service endpoints](/azure/virtual-network/virtual-network-service-endpoints-overview).
-1. The API app can’t be accessed from the public internet. Only internal components, or components connected to the virtual network, can reach the API app.
+1. The API app can't be accessed from the public internet. Only internal components, or components connected to the virtual network, can reach the API app.
 1. A resource group is a container that holds related resources for an Azure solution. The resources can include virtual machines, virtual networks, storage accounts, web apps, databases, and database servers. It can be convenient to group resources that have the same lifecycle, so that you can easily deploy, update, and delete them as a group. For more information, see [What is a resource group](/azure/azure-resource-manager/management/manage-resource-groups-portal#what-is-a-resource-group).
 
 ### Components
@@ -51,20 +51,19 @@ Here’s the traffic flow and basic configuration of the architecture:
 - Service endpoints work well at smaller scale, because you can easily enable service endpoints for the API app on the front-end integration subnet.
 - Using Private Link adds complexity because there are two subnets. Also, the private connection is a top-level resource that adds management overhead.
 
-
 ## Considerations
 
 Service endpoints protect the API apps from being accessed by anything other than front-end apps. However front-end apps aren't protected from other front-end apps.
 
 ### Availability
 
-- A system can't be highly available unless it's reliable. For techniques to increase reliability, see [Reliability patterns](../../framework/resiliency/reliability-patterns.md).
+- A system can't be highly available unless it's reliable. For techniques to increase reliability, see [Reliability patterns](/azure/architecture/framework/resiliency/reliability-patterns).
 
 ### Scalability
 
-- Performance efficiency is the ability of your workload to scale to meet the demands placed on it in an efficient manner. Be aware of performance efficiency patterns as you design and build your cloud application. For more information, see [Performance Efficiency patterns](../../framework/scalability/performance-efficiency-patterns.md).
+- Performance efficiency is the ability of your workload to scale to meet the demands placed on it in an efficient manner. Be aware of performance efficiency patterns as you design and build your cloud application. For more information, see [Performance Efficiency patterns](/azure/architecture/framework/scalability/performance-efficiency-patterns).
 - Learn about scaling a basic web app in [Scaling the App Service app](../app-service-web-app/basic-web-app.yml?tabs=cli#scaling-the-app-service-app). Review the other articles in the same section for ideas regarding other architectures.
-- For more performance efficiency ideas, see [Performance efficiency checklist](../../framework/scalability/performance-efficiency.md).
+- For more performance efficiency ideas, see [Performance efficiency checklist](/azure/architecture/framework/scalability/performance-efficiency).
 
 ## Pricing
 
@@ -85,8 +84,8 @@ Some aspects that affect the cost of an implementation are:
 - [Introduction to the App Service Environments](/azure/app-service/environment/intro)
 - [Private link resource](/azure/private-link/private-endpoint-overview#private-link-resource)
 - [App Service overview](/azure/app-service/overview)
-- [Reliability patterns](../../framework/resiliency/reliability-patterns.md)
-- [Performance Efficiency patterns](../../framework/scalability/performance-efficiency-patterns.md)
+- [Reliability patterns](/azure/architecture/framework/resiliency/reliability-patterns)
+- [Performance Efficiency patterns](/azure/architecture/framework/scalability/performance-efficiency-patterns)
 
 ## Related Resources
 

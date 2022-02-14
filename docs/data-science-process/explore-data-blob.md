@@ -1,24 +1,27 @@
 ---
-title: Explore data in Azure Blob storage with pandas - Team Data Science Process
+title: Explore data in Azure Blob storage with pandas
 description: How to explore data that is stored in an Azure blob container using the pandas Python package.
-services: machine-learning
 author: marktab
 manager: marktab
 editor: marktab
-ms.service: machine-learning
-ms.subservice: team-data-science-process
+services: architecture-center
+ms.service: architecture-center
+ms.subservice: azure-guide
 ms.topic: article
 ms.date: 04/30/2021
 ms.author: tdsp
-ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath, fcp
+ms.custom:
+  - previous-author=deguhath
+  - previous-ms.author=deguhath
+  - fcp
 products:
   - azure-machine-learning
 categories:
   - ai-machine-learning
 ---
-# Explore data in Azure Blob storage with pandas
+# Explore data in Azure Blob storage with the pandas Python package
 
-This article covers how to explore data that is stored in Azure blob container using [pandas](https://pandas.pydata.org/) Python package.
+This article covers how to explore data that is stored in Azure blob container using the [pandas](https://pandas.pydata.org/) Python package.
 
 This task is a step in the [Team Data Science Process](overview.md).
 
@@ -61,9 +64,9 @@ To explore and manipulate a dataset, it must first be downloaded from the blob s
     dataframe_blobdata = pd.read_csv(LOCALFILENAME)
     ```
 
-If you need more general information on reading from an Azure Storage Blob, look at our documentation [Azure Storage Blobs client library for Python](/python/api/overview/azure/storage-blob-readme).  
+If you need more general information on reading from an Azure Storage Blob, look at our documentation [Azure Storage Blobs client library for Python](/python/api/overview/azure/storage-blob-readme).
 
-Now you are ready to explore the data and generate features on this dataset.  
+Now you are ready to explore the data and generate features on this dataset.
 
 ## <a name="blob-dataexploration"></a>Examples of data exploration using pandas
 Here are a few examples of ways to explore data using pandas:

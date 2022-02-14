@@ -1,6 +1,5 @@
 
 
-
 This example scenario shows how using a dedicated search service can dramatically increase the relevance of search results for your e-commerce customers.
 
 Search is the primary mechanism through which customers find and ultimately purchase products, making it essential that search results are relevant to the _intent_ of the search query, and that the end-to-end search experience matches that of search giants by providing near-instant results, linguistic analysis, geo-location matching, filtering, faceting, autocomplete, hit highlighting, etc.

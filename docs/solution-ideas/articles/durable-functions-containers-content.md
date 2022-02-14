@@ -6,7 +6,7 @@ You don't always need full-fledged container orchestrators to provision and mana
 
 ## Potential use cases
 - Simple workloads like batch processing jobs that use only one container image.
-- Workloads where computing needs vary depending on each individual job. For example, batch processing job #1 may need 100 container instances with large CPU and memory requirements, and take days to run, whereas job #2 needs only a couple of instances with less CPU and memory, and takes only hours to run. 
+- Workloads where computing needs vary depending on each individual job. For example, batch processing job #1 may need 100 container instances with large CPU and memory requirements, and take days to run, whereas job #2 needs only a couple of instances with less CPU and memory, and takes only hours to run.
 - Multi-tenant scenarios where some tenants need large computing power, while other tenants have small computing requirements.
 
 ## Architecture
@@ -39,7 +39,7 @@ You don't always need full-fledged container orchestrators to provision and mana
 
 ## Considerations
 
-- For long-term, stable workloads, orchestrating containers in a cluster of dedicated virtual machines (VMs) is usually less expensive than using ACI. However, ACI can quickly expand and contract your overall capacity to meet temporary or unexpected usage requirements. Because they start quickly and bill by the second, container instances can be the fastest and most cost effective way to get started and to handle highly variable workloads. 
+- For long-term, stable workloads, orchestrating containers in a cluster of dedicated virtual machines (VMs) is usually less expensive than using ACI. However, ACI can quickly expand and contract your overall capacity to meet temporary or unexpected usage requirements. Because they start quickly and bill by the second, container instances can be the fastest and most cost effective way to get started and to handle highly variable workloads.
 
 - With this solution, rather than scaling out the number of VMs and then deploying more containers onto those VMs, you simply deploy additional containers as needed, and delete them when they're no longer needed. You use Durable Functions to schedule and manage the container deployment and deletion.
 

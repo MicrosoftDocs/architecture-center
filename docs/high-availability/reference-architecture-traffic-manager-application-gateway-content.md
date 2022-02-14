@@ -1,7 +1,7 @@
 
 This reference architecture serves web workloads with resilient multitier applications, and deploys across multiple Azure regions to achieve high availability and robust disaster recovery.
 
-Microsoft Azure Traffic Manager balances the traffic across regions, and there is a regional load balancer based on Azure Application Gateway. This combination gets you the benefits of Traffic Manager's flexible routing, and Application Gateway’s many capabilities, including:
+Microsoft Azure Traffic Manager balances the traffic across regions, and there is a regional load balancer based on Azure Application Gateway. This combination gets you the benefits of Traffic Manager's flexible routing, and Application Gateway's many capabilities, including:
 
 - Web Application Firewall (WAF).
 - Transport Layer Security (TLS) termination.
@@ -10,16 +10,16 @@ Microsoft Azure Traffic Manager balances the traffic across regions, and there i
 
 In this scenario, the application consists of three layers:
 
-- **Web tier** - This is the top layer, and has the user interface. It parses user interactions and passes the actions to the business tier for processing.
-- **Business tier** - Processes the user interactions and determines the next steps. It connects the web and data tiers.
-- **Data tier** - Stores the application data, typically in a database, object storage, or files.
+- **Web tier:** This is the top layer, and has the user interface. It parses user interactions and passes the actions to the business tier for processing.
+- **Business tier:** Processes the user interactions and determines the next steps. It connects the web and data tiers.
+- **Data tier:** Stores the application data, typically in a database, object storage, or files.
 
 :::image type="content" source="images/high-availability-multi-region.png" alt-text="Multi-region load balancing with Application Gateway and Traffic Manager." lightbox="images/high-availability-multi-region.png":::
 
->[!NOTE]
+> [!NOTE]
 > Azure provides a suite of fully managed load-balancing solutions. If you're looking for Transport Layer Security (TLS) protocol termination ("SSL offload") or per-HTTP/HTTPS request, application-layer processing, review [What is Azure Application Gateway?](/azure/application-gateway/overview). If you're looking for regional load balancing, review [Azure Load Balancer](/azure/load-balancer/load-balancer-overview). Your end-to-end scenarios might benefit from combining these solutions as needed.
 >
-> For a comparison of Azure load-balancing options, see [Overview of load-balancing options in Azure](../guide/technology-choices/load-balancing-overview.md).
+> For a comparison of Azure load-balancing options, see [Overview of load-balancing options in Azure](../guide/technology-choices/load-balancing-overview.yml).
 
 ## Architecture
 
@@ -77,13 +77,13 @@ Traffic Manager delivers high availability for your critical applications by mon
 
 Consider the following points when configuring Traffic Manager:
 
-- **Routing** - Traffic Manager supports six traffic-routing methods to determine how to route traffic to the various service endpoints. In this architecture we use performance routing, which routes traffic to the endpoint that has the lowest latency for the user. Traffic Manager adjusts automatically as endpoint latencies change. Also, if you need more granular control—for example, to choose a preferred failover within a region—you can use Traffic Manager in a nested configuration.
+- **Routing:** Traffic Manager supports six traffic-routing methods to determine how to route traffic to the various service endpoints. In this architecture we use performance routing, which routes traffic to the endpoint that has the lowest latency for the user. Traffic Manager adjusts automatically as endpoint latencies change. Also, if you need more granular control—for example, to choose a preferred failover within a region—you can use Traffic Manager in a nested configuration.
 
   For configuration information, see [Configure the performance traffic routing method](/azure/traffic-manager/traffic-manager-configure-performance-routing-method).
 
   For information about the various routing methods, see [Traffic Manager routing methods](/azure/traffic-manager/traffic-manager-routing-methods).
 
-- **Health probe** - Traffic Manager uses an HTTP (or HTTPS) probe to monitor the availability of each region. The probe checks for an HTTP 200 response for a specified URL path. As a best practice, create an endpoint that reports the overall health of the application, and use this endpoint for the health probe. Otherwise, the probe might report a healthy endpoint when critical parts of the application are failing. For more information, see [Health Endpoint Monitoring pattern](../patterns/health-endpoint-monitoring.md).
+- **Health probe:** Traffic Manager uses an HTTP (or HTTPS) probe to monitor the availability of each region. The probe checks for an HTTP 200 response for a specified URL path. As a best practice, create an endpoint that reports the overall health of the application, and use this endpoint for the health probe. Otherwise, the probe might report a healthy endpoint when critical parts of the application are failing. For more information, see [Health Endpoint Monitoring pattern](../patterns/health-endpoint-monitoring.md).
 
   When Traffic Manager fails over there is a period of time when clients cannot reach the application. The duration is affected by the following factors:
 
@@ -92,7 +92,7 @@ Consider the following points when configuring Traffic Manager:
 
   For more details, see [About Traffic Manager Monitoring](/azure/traffic-manager/traffic-manager-monitoring).
 
-- **Traffic View** - Enable Traffic View to understand which regions have a large amount of traffic but suffer from higher latencies. Then you use this information to plan your footprint expansion to new Azure regions. That way your users will have a lower latency experience. See [Traffic Manager Traffic View](/azure/traffic-manager/traffic-manager-traffic-view-overview) for details.
+- **Traffic View:** Enable Traffic View to understand which regions have a large amount of traffic but suffer from higher latencies. Then you use this information to plan your footprint expansion to new Azure regions. That way your users will have a lower latency experience. See [Traffic Manager Traffic View](/azure/traffic-manager/traffic-manager-traffic-view-overview) for details.
 
 ### Application Gateway
 
@@ -117,9 +117,9 @@ For considerations about designing a health probe endpoint, see [Health Endpoint
 
 ## Manageability considerations
 
-- **Resource groups** - Use [Resource groups](/azure/azure-resource-manager/management/overview) to manage Azure resources by lifetime, owner, and other characteristics.
-- **Virtual network peering** - Use [Virtual network peering](/azure/virtual-network/virtual-network-peering-overview) to seamlessly connect two or more virtual networks in Azure. The virtual networks appear as one for connectivity purposes. The traffic between virtual machines in peered virtual networks uses the Microsoft backbone infrastructure. Make sure that the address space of the virtual networks don't overlap. In this scenario, the virtual networks are peered via Global virtual network peering to allow data replication from the primary region to the secondary region.
-- **Virtual network and subnets** - Azure VM and specific Azure resources (such as Application Gateway and Load Balancer) are deployed into a virtual network that can be segmented into subnets. Create a separate subnet for each tier.
+- **Resource groups:** Use [Resource groups](/azure/azure-resource-manager/management/overview) to manage Azure resources by lifetime, owner, and other characteristics.
+- **Virtual network peering:** Use [Virtual network peering](/azure/virtual-network/virtual-network-peering-overview) to seamlessly connect two or more virtual networks in Azure. The virtual networks appear as one for connectivity purposes. The traffic between virtual machines in peered virtual networks uses the Microsoft backbone infrastructure. Make sure that the address space of the virtual networks don't overlap. In this scenario, the virtual networks are peered via Global virtual network peering to allow data replication from the primary region to the secondary region.
+- **Virtual network and subnets:** Azure VM and specific Azure resources (such as Application Gateway and Load Balancer) are deployed into a virtual network that can be segmented into subnets. Create a separate subnet for each tier.
 
 ## Security considerations
 
@@ -162,8 +162,7 @@ For more information, see [Application Gateway pricing](https://azure.microsoft.
 
 ### Traffic Manager
 
-Traffic Manager billing is based on the number of DNS queries received, with a discount for services receiving more than 1 billion monthly queries. You're also charged for each monitored endpoint.
-For pricing information, see [Traffic Manager pricing](https://azure.microsoft.com/pricing/details/traffic-manager/).
+Traffic Manager billing is based on the number of DNS queries received, with a discount for services receiving more than 1 billion monthly queries. You're also charged for each monitored endpoint. For pricing information, see [Traffic Manager pricing](https://azure.microsoft.com/pricing/details/traffic-manager/).
 
 ### Virtual network peering
 

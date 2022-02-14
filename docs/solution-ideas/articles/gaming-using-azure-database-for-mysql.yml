@@ -3,7 +3,7 @@ metadata:
   title: Gaming using Azure Database for MySQL
   titleSuffix: Azure Solution Ideas
   description: Use Azure Database for MySQL for gaming solutions so that databases scale elastically with traffic bursts and deliver low-latency multi-player experiences.
-  author: doodlemania2
+  author: EdPrice-MSFT
   ms.author: pnp
   ms.date: 12/16/2019
   ms.topic: conceptual

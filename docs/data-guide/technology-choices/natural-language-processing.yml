@@ -1,0 +1,24 @@
+### YamlMime:Architecture
+metadata:
+  title: Natural language processing technology
+  description: Choose a natural language processing service for sentiment analysis, topic and language detection, key phrase extraction, and document categorization.
+  author: EdPrice-MSFT
+  ms.author: edprice
+  ms.date: 01/30/2022
+  ms.topic: conceptual
+  ms.service: architecture-center
+  ms.subservice: azure-guide
+  ms.custom: fcp
+azureCategories:
+  - analytics
+products:
+  - azure-hdinsight
+  - azure-databricks
+  - azure-data-lake
+  - azure-storage
+name: Natural language processing technology
+summary: Choose a natural language processing service for sentiment analysis, topic and language detection, key phrase extraction, and document categorization.
+thumbnailUrl: /azure/architecture/browse/thumbs/nlp-pipeline.png
+content: |
+  [!include[](natural-language-processing-content.md)]
+  

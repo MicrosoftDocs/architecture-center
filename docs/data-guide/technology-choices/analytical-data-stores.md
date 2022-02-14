@@ -1,11 +1,17 @@
 ---
 title: Choose an analytical data store
 description: Evaluate analytical data store options for big data in Azure, including key selection criteria and a capability matrix.
-author: zoinerTejada
+author: EdPrice-MSFT
+ms.author: pnp
 ms.date: 5/18/2021
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: azure-guide
+categories:
+  - storage
+products:
+  - azure
+  - azure-data-explorer
 ms.custom:
   - guide
 ---
@@ -35,10 +41,10 @@ There are several options for data serving storage in Azure, depending on your n
 
 These options provide various database models that are optimized for different types of tasks:
 
-- [Key/value](../big-data/non-relational-data.md#keyvalue-data-stores) databases hold a single serialized object for each key value. They're good for storing large volumes of data where you want to get one item for a given key value and you don't have to query based on other properties of the item.
-- [Document](../big-data/non-relational-data.md#document-data-stores) databases are key/value databases in which the values are *documents*. A "document" in this context is a collection of named fields and values. The database typically stores the data in a format such as XML, YAML, JSON, or BSON, but may use plain text. Document databases can query on non-key fields and define secondary indexes to make querying more efficient. This makes a document database more suitable for applications that need to retrieve data based on criteria more complex than the value of the document key. For example, you could query on fields such as product ID, customer ID, or customer name.
-- [Column-family](../big-data/non-relational-data.md#columnar-data-stores) databases are key/value data stores that structure data storage into collections of related columns called column families. For example, a census database might have one group of columns for a person's name (first, middle, last), one group for the person's address, and one group for the person's profile information (data of birth, gender). The database can store each column family in a separate partition, while keeping all of the data for one person related to the same key. An application can read a single column family without reading through all of the data for an entity.
-- [Graph](../big-data/non-relational-data.md#graph-data-stores) databases store information as a collection of objects and relationships. A graph database can efficiently perform queries that traverse the network of objects and the relationships between them. For example, the objects might be employees in a human resources database, and you might want to facilitate queries such as "find all employees who directly or indirectly work for Scott."
+- [Key/value](../big-data/non-relational-data.yml#keyvalue-data-stores) databases hold a single serialized object for each key value. They're good for storing large volumes of data where you want to get one item for a given key value and you don't have to query based on other properties of the item.
+- [Document](../big-data/non-relational-data.yml#document-data-stores) databases are key/value databases in which the values are *documents*. A "document" in this context is a collection of named fields and values. The database typically stores the data in a format such as XML, YAML, JSON, or BSON, but may use plain text. Document databases can query on non-key fields and define secondary indexes to make querying more efficient. This makes a document database more suitable for applications that need to retrieve data based on criteria more complex than the value of the document key. For example, you could query on fields such as product ID, customer ID, or customer name.
+- [Column-family](../big-data/non-relational-data.yml#columnar-data-stores) databases are key/value data stores that structure data storage into collections of related columns called column families. For example, a census database might have one group of columns for a person's name (first, middle, last), one group for the person's address, and one group for the person's profile information (data of birth, gender). The database can store each column family in a separate partition, while keeping all of the data for one person related to the same key. An application can read a single column family without reading through all of the data for an entity.
+- [Graph](../big-data/non-relational-data.yml#graph-data-stores) databases store information as a collection of objects and relationships. A graph database can efficiently perform queries that traverse the network of objects and the relationships between them. For example, the objects might be employees in a human resources database, and you might want to facilitate queries such as "find all employees who directly or indirectly work for Scott."
 - Telemetry and time series databases are an append-only collection of objects. Telemetry databases efficiently index data in a variety of column stores and in-memory structures, making them the optimal choice for storing and analyzing vast quantities of telemetry and time series data.
 
 ## Key selection criteria
@@ -50,7 +56,7 @@ To narrow the choices, start by answering these questions:
 - Do you need massively parallel processing (MPP) support, where queries are automatically distributed across several processes or nodes? If yes, select an option that supports query scale out.
 
 - Do you prefer to use a relational data store? If so, narrow your options to those with a relational database model. However, note that some non-relational stores support SQL syntax for querying, and tools such as PolyBase can be used to query non-relational data stores.
- 
+
 - Do you collect time series data? Do you use append-only data?
 
 ## Capability matrix
@@ -65,7 +71,6 @@ The following tables summarize the key differences in capabilities.
 | Primary database model | Relational (columnar format when using columnstore indexes) | Relational tables with columnar storage | Wide column store | Relational (column store), telemetry, and time series store | Wide column store | Hive/In-Memory | Tabular semantic models | Document store, graph, key-value store, wide column store |
 | SQL language support | Yes | Yes | Yes | Yes | Yes (using [Phoenix](https://phoenix.apache.org/) JDBC driver) | Yes | No | Yes |
 | Optimized for speed serving layer | Yes <sup>2</sup> | Yes <sup>3</sup> |Yes | Yes | Yes | Yes | No | Yes |
-
 
 [1] With manual configuration and scaling.
 

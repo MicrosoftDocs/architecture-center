@@ -34,7 +34,7 @@ The architecture below extends on the [Analytics end-to-end with Azure Synapse](
 1. **Train and deploy model:** [Azure Machine Learning](https://azure.microsoft.com/services/machine-learning) provides an enterprise-grade ML service for building and deploying models faster. It provides users at all skill levels with a low-code designer, automated ML, and a hosted Jupyter notebook environment. Models can be deployed either as real-time endpoints on [Azure Kubernetes Service, or as a Machine Learning managed endpoint](/azure/machine-learning/concept-endpoints). For batch inferencing of ML models, you can use [Machine Learning pipelines](/azure/machine-learning/concept-ml-pipelines).
 1. **Consume:** A model—either batch or real-time—published in Machine Learning can generate a REST endpoint that can be consumed in a [custom application built using the low-code Power Apps platform](/connectors/custom-connectors/use-custom-connector-powerapps). You can also call a [real-time Machine Learning endpoint from a Power BI report](/power-bi/connect-data/service-aml-integrate) to present predictions in business reports.
 
-> [!Note]
+> [!NOTE]
 > Both Machine Learning and Power Platform stack have a range of built-in connectors to help ingest data directly. These may be useful for a one-off minimum viable product (MVP). However, the **Ingest** and **Store** sections of the architecture advise on the role of standardized data pipelines for the sourcing and storage of data from different sources at scale – patterns that are typically implemented and maintained by the enterprise data platform teams.
 
 ### Components
@@ -71,7 +71,7 @@ To create a design that respects these recommendations, consider the following s
 - [Azure Cost Management and Billing](https://azure.microsoft.com/services/cost-management): Financial governance over your Azure workloads.
 - [Azure Key Vault](https://azure.microsoft.com/services/key-vault): Secure credential and certificate management.
 - [Azure Monitor](https://azure.microsoft.com/services/monitor): Collection, analysis, and display of telemetry from your Azure resources. Use Monitor to proactively identify problems, to maximize performance and reliability.
-- [Azure Security Center](https://azure.microsoft.com/services/security-center): Strengthen and monitor the security posture of your Azure workloads.
+- [Microsoft Defender for Cloud](https://azure.microsoft.com/services/security-center): Strengthen and monitor the security posture of your Azure workloads.
 - [Azure DevOps](https://azure.microsoft.com/solutions/devops) & [GitHub](https://azure.microsoft.com/products/github): Implement DevOps practices to enforce automation and compliance of your workload development and deployment pipelines for Azure Synapse and Machine Learning.
 - [Azure Policy](/azure/governance/policy): Implement organizational standards and governance for resource consistency, regulatory compliance, security, cost, and management.
 
@@ -109,7 +109,7 @@ Here's a user interface for the app, created in Power Apps by using the low-code
 
 :::image type="content" source="media/citizen-ai-power-platform-car-price.png" alt-text="The UI provides various controls, such as buttons and drop-down lists, for the user to enter car data. The app predicts a price and displays it when the when the user selects the Predict button." lightbox="media/citizen-ai-power-platform-car-price.png" :::
 
-You can use Power Automate to build a low-code workflow to parse the user’s input, pass it to the Machine Learning endpoint, and retrieve the prediction. You can also use [Power BI to interact with the Machine Learning model](/power-bi/connect-data/service-aml-integrate) and create custom business reports and dashboards.
+You can use Power Automate to build a low-code workflow to parse the user's input, pass it to the Machine Learning endpoint, and retrieve the prediction. You can also use [Power BI to interact with the Machine Learning model](/power-bi/connect-data/service-aml-integrate) and create custom business reports and dashboards.
 
 :::image type="content" source="media/citizen-ai-power-platform-dashboard.png" alt-text="Schematic of the workflow." lightbox="media/citizen-ai-power-platform-dashboard.png" :::
 
@@ -127,7 +127,7 @@ In this example, we configure a Power Automate cloud flow to consume the REST en
 
 ## Pricing
 
-**Azure Pricing:** First party Infrastructure-as-a-Service (IaaS) and Platform-as-a-Service (PaaS) services on Azure use a consumption-based pricing model. They don't require a license or subscription fee. In general, use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator) to estimate costs. For other considerations, see [Cost Optimization](../../framework/cost/index.yml) in the Well-Architected Framework.
+**Azure Pricing:** First party Infrastructure-as-a-Service (IaaS) and Platform-as-a-Service (PaaS) services on Azure use a consumption-based pricing model. They don't require a license or subscription fee. In general, use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator) to estimate costs. For other considerations, see [Cost Optimization](/azure/architecture/framework/cost/index) in the Well-Architected Framework.
 
 **Power Platform Pricing:** [Power Apps](https://powerapps.microsoft.com/pricing), [Power Automate](https://flow.microsoft.com/pricing) and [Power BI](https://powerbi.microsoft.com/pricing) are Software-as-a-Service (SaaS) applications and have their own pricing models, including per app plan, and per user.
 

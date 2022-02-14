@@ -1,6 +1,3 @@
-
-
-
 Microsoft Azure offers a myriad of services and capabilities. Building an end-to-end machine learning pipeline from experimentation to deployment often requires bringing together a set of services from across Azure. While it may be possible to have one pipeline do it all, there are tradeoffs when you don't use the services for what they're best at.
 
 So, then you have to ask the question: When is it worth it to adopt each service for your use case? The answer often depends on different details that are not necessarily related to the functional requirements. The main factors are:
@@ -64,19 +61,19 @@ If you don't want to code your own solutions, a set of tools is available for bu
 
 * For monitoring, use Azure Monitor with Azure Dashboards, which lets you click to pin visuals and set up alerts without code. For more configuration, you can use Power BI to create historical dashboards.
 
-The primary issue you’ll come across here is that you must work within the constraints of the services. However, if your use case fits within these limitations, these services could be a good solution for you. They're always evolving and their capabilities will expand over time. So you should familiarize yourself with their latest features at the time you consider them. This diagram summarizes the process for the No Code option.
+The primary issue you'll come across here is that you must work within the constraints of the services. However, if your use case fits within these limitations, these services could be a good solution for you. They're always evolving and their capabilities will expand over time. So you should familiarize yourself with their latest features at the time you consider them. This diagram summarizes the process for the No Code option.
 
 ![no code option process diagram](./media/dt-no-code-option.png)
 
 ### Code
 
-If you want to code or need the flexibility that a coded solution offers, all of the options described have a “code-like” interface. The options also have a representation of processing logic that you can export to JSON or YAML format and check in the exported files to a code repository. From there, deployment is handled through Azure DevOps or scripts. This diagram summarizes the Code option process.
+If you want to code or need the flexibility that a coded solution offers, all of the options described have a "code-like" interface. The options also have a representation of processing logic that you can export to JSON or YAML format and check in the exported files to a code repository. From there, deployment is handled through Azure DevOps or scripts. This diagram summarizes the Code option process.
 
 ![code option process diagram](./media/dt-code-option.png)
 
 ## Experimentation: Notebooks vs. Python/R scripts
 
-Depending on the skillsets or comfort level of your team’s data scientists/engineers with notebooks or plain scripts, there are choices for experimentation that support both options.
+Depending on the skillsets or comfort level of your team's data scientists/engineers with notebooks or plain scripts, there are choices for experimentation that support both options.
 
 ### Notebooks
 

@@ -1,16 +1,18 @@
 ---
 title: Deployment stage of the Team Data Science Process lifecycle
 description: The goals, tasks, and deliverables for the deployment stage of your data-science projects
-services: machine-learning
 author: marktab
 manager: marktab
 editor: marktab
-ms.service: machine-learning
-ms.subservice: team-data-science-process
+services: architecture-center
+ms.service: architecture-center
+ms.subservice: azure-guide
 ms.topic: article
-ms.date: 01/10/2020
+ms.date: 12/14/2021
 ms.author: tdsp
-ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
+ms.custom:
+  - previous-author=deguhath
+  - previous-ms.author=deguhath
 products:
   - azure-machine-learning
 categories:
@@ -26,13 +28,12 @@ This article outlines the goals, tasks, and deliverables associated with the dep
    4. **Deployment**
    5. **Customer acceptance**
 
-Here is a visual representation of the TDSP lifecycle: 
+Here is a visual representation of the TDSP lifecycle:
 
-![TDSP lifecycle](./media/lifecycle/tdsp-lifecycle2.png) 
-
+![TDSP lifecycle](./media/lifecycle/tdsp-lifecycle2.png)
 
 ## Goal
-Deploy models with a data pipeline to a production or production-like environment for final user acceptance. 
+Deploy models with a data pipeline to a production or production-like environment for final user acceptance.
 
 ## How to do it
 The main task addressed in this stage:
@@ -43,19 +44,18 @@ The main task addressed in this stage:
 After you have a set of models that perform well, you can operationalize them for other applications to consume. Depending on the business requirements, predictions are made either in real time or on a batch basis. To deploy models, you expose them with an open API interface. The interface enables the model to be easily consumed from various applications, such as:
 
    * Online websites
-   * Spreadsheets 
+   * Spreadsheets
    * Dashboards
-   * Line-of-business applications 
-   * Back-end applications 
+   * Line-of-business applications
+   * Back-end applications
 
-For examples of model operationalization with an Machine Learning Studio (classic) web service, see [Deploy an Machine Learning Studio (classic) web service](/azure/machine-learning/classic/deploy-a-machine-learning-web-service). It is a best practice to build telemetry and monitoring into the production model and the data pipeline that you deploy. This practice helps with subsequent system status reporting and troubleshooting.  
+For examples of model operationalization with Azure Machine Learning, see [Deploy machine learning models to Azure](/azure/machine-learning/how-to-deploy-and-where). It is a best practice to build telemetry and monitoring into the production model and the data pipeline that you deploy. This practice helps with subsequent system status reporting and troubleshooting.
 
 ## Artifacts
 
 * A status dashboard that displays the system health and key metrics
 * A final modeling report with deployment details
 * A final solution architecture document
-
 
 ## Next steps
 
@@ -67,6 +67,4 @@ Here are links to each step in the lifecycle of the TDSP:
    4. [Deployment](lifecycle-deployment.md)
    5. [Customer acceptance](lifecycle-acceptance.md)
 
-We provide full walkthroughs that demonstrate all the steps in the process for specific scenarios. The [Example walkthroughs](walkthroughs.md) article provides a list of the scenarios with links and thumbnail descriptions. The walkthroughs illustrate how to combine cloud, on-premises tools, and services into a workflow or pipeline to create an intelligent application. 
-
-For examples of how to execute steps in TDSPs that use Machine Learning Studio (classic), see [Use the TDSP with Azure Machine Learning](/azure/machine-learning/team-data-science-process/).
+For Azure, we recommend applying TDSP using Azure Machine Learning:  for an overview of Azure Machine Learning see [What is Azure Machine Learning?](/azure/machine-learning/overview-what-is-azure-machine-learning).

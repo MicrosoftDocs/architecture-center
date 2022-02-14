@@ -72,7 +72,6 @@ SUSE provides support with:
 - [Plan virtual networks](/azure/virtual-network/virtual-network-vnet-plan-design-arm)
 - [What is Azure Load Balancer?](/azure/load-balancer/load-balancer-overview)
 
-
 ### SUSE
 
 - [SUSE on Azure Marketplace](https://azuremarketplace.microsoft.com/en-us/marketplace/apps?search=SUSE)

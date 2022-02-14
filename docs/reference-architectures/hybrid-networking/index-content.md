@@ -1,6 +1,5 @@
 
 
-
 This article compares options for connecting an on-premises network to an Azure Virtual Network (VNet). For each option, a more detailed reference architecture is available.
 
 ## VPN connection

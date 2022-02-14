@@ -1,0 +1,25 @@
+### YamlMime:Architecture
+metadata:
+  title: CI/CD for Windows desktop apps
+  titleSuffix: Azure Solution Ideas
+  description: This article describes how to use MSIX to enable CI/CD for building, deploying, and updating Windows desktop applications.
+  author: qmatteoq
+  ms.author: mpagani
+  ms.date: 12/2/2021
+  ms.topic: conceptual
+  ms.service: architecture-center
+  ms.subservice: solution-idea
+  ms.custom: fcp
+azureCategories:
+  - devops
+products:
+  - "azure-pipelines"
+  - "azure-storage"
+  - "azure-key-vault"
+  - "azure-devops"
+  - "github"
+name: CI/CD for Windows desktop apps
+summary: This article describes how to use MSIX to enable CI/CD for building, deploying, and updating Windows desktop applications.
+thumbnailUrl: /azure/architecture/browse/thumbs/devops-windows-architecture.png
+content: |
+  [!include[](azure-devops-ci-cd-for-desktop-apps-content.md)]

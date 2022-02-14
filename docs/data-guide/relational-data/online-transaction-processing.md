@@ -1,11 +1,14 @@
 ---
 title: Online transaction processing (OLTP)
 description: Learn about atomicity, consistency, and other features of online transaction processing (OLTP), which manages transactional data while supporting querying.
-author: zoinerTejada
+author: EdPrice-MSFT
+ms.author: pnp
 ms.date: 07/27/2019
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: azure-guide
+categories:
+  - databases
 products:
   - azure-sql-database
 ms.custom:
@@ -60,13 +63,13 @@ Implementing and using an OLTP system can create a few challenges:
 
 - OLTP systems are not always good for handling aggregates over large amounts of data, although there are exceptions, such as a well-planned SQL Server-based solution. Analytics against the data, that rely on aggregate calculations over millions of individual transactions, are very resource intensive for an OLTP system. They can be slow to execute and can cause a slow-down by blocking other transactions in the database.
 - When conducting analytics and reporting on data that is highly normalized, the queries tend to be complex, because most queries need to de-normalize the data by using joins. Also, naming conventions for database objects in OLTP systems tend to be terse and succinct. The increased normalization coupled with terse naming conventions makes OLTP systems difficult for business users to query, without the help of a DBA or data developer.
-- Storing the history of transactions indefinitely and storing too much data in any one table can lead to slow query performance, depending on the number of transactions stored. The common solution is to maintain a relevant window of time (such as the current fiscal year) in the OLTP system and offload historical data to other systems, such as a data mart or [data warehouse](./data-warehousing.md).
+- Storing the history of transactions indefinitely and storing too much data in any one table can lead to slow query performance, depending on the number of transactions stored. The common solution is to maintain a relevant window of time (such as the current fiscal year) in the OLTP system and offload historical data to other systems, such as a data mart or [data warehouse](./data-warehousing.yml).
 
 ## OLTP in Azure
 
 Applications such as websites hosted in [App Service Web Apps](/azure/app-service/app-service-web-overview), REST APIs running in App Service, or mobile or desktop applications communicate with the OLTP system, typically via a REST API intermediary.
 
-In practice, most workloads are not purely OLTP. There tends to be an analytical component as well. In addition, there is an increasing demand for real-time reporting, such as running reports against the operational system. This is also referred to as HTAP (Hybrid Transactional and Analytical Processing). For more information, see [Online Analytical Processing (OLAP)](./online-analytical-processing.md).
+In practice, most workloads are not purely OLTP. There tends to be an analytical component as well. In addition, there is an increasing demand for real-time reporting, such as running reports against the operational system. This is also referred to as HTAP (Hybrid Transactional and Analytical Processing). For more information, see [Online Analytical Processing (OLAP)](./online-analytical-processing.yml).
 
 In Azure, all of the following data stores will meet the core requirements for OLTP and the management of transaction data:
 
@@ -99,15 +102,11 @@ The following tables summarize the key differences in capabilities.
 
 ### General capabilities
 
-<!-- markdownlint-disable MD033 -->
-
 | Capability  | Azure SQL Database | SQL Server in an Azure virtual machine | Azure Database for MySQL | Azure Database for PostgreSQL |
 |------------------------------|--------------------|----------------------------------------|--------------------------|-------------------------------|
 |      Is Managed Service      |        Yes         |                   No                   |           Yes            |              Yes              |
 |       Runs on Platform       |        N/A         |         Windows, Linux, Docker         |           N/A            |              N/A              |
 | Programmability <sup>1</sup> |   T-SQL, .NET, R   |         T-SQL, .NET, R, Python         |           SQL            |              SQL, PL/pgSQL              |
-
-<!-- markdownlint-enable MD033 -->
 
 [1] Not including client driver support, which allows many programming languages to connect to and use the OLTP data store.
 
