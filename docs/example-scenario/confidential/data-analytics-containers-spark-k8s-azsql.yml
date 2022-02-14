@@ -22,4 +22,4 @@ name: Big Data Analytics on confidential computing with Apache Spark on Kubernet
 summary: Use confidential computing on Kubernetes to run Big Data analytics with Apache Spark inside confidential containers that are protected by Intel Software Guard Extensions with data from Azure Data Lake and Azure SQL Database.
 thumbnailUrl: /azure/architecture/browse/thumbs/confidential-data-analytics-with-spark-k8s-azsql.png
 content: |
-  [!include[](data-analytics-containers-spark-k8s-azsql.md)]
+  [!include[](data-analytics-containers-spark-k8s-azsql-content.md)]
