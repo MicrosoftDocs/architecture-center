@@ -2900,7 +2900,7 @@ items:
                 href: reference-architectures/identity/azure-ad.yml
           - name: Solution ideas
             items:
-              - name: Real-time collaboration with Microsoft 365
+              - name: Collaboration with Microsoft 365
                 href: solution-ideas/articles/collaboration-microsoft-365.yml
       - name: Integration
         items:
