@@ -1,4 +1,4 @@
-[!INCLUDE [header_file](../../../includes/sol-header.md)]
+[!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
 Collaboration is critical to business efficiency and productivity. Tools like Microsoft Teams provide a great way to collaborate via chat, audio, and video. Word, Excel, and PowerPoint online make it easy to collaborate on various types of documents and spreadsheets with colleagues and customers around the world.  
 
