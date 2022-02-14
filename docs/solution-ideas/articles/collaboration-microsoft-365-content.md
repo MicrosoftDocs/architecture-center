@@ -29,10 +29,10 @@ This solution applies to companies that build custom application solutions that 
 
 ### Components
 - [Fluid Framework](https://www.fluidframework.com) is a collection of client libraries for distributing and synchronizing shared state. These libraries allow multiple clients to simultaneously create and operate on shared data structures by using coding patterns similar to those used to work with local data.
-- [Fluid Relay](https://docs.microsoft.com/azure/azure-fluid-relay) is a managed service of the Fluid Framework. It helps developers build real-time collaborative experiences and replicate state across connected JavaScript clients in real time.
-- [Azure AD](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-whatis) is the Microsoft cloud-based identity and access management service that helps your employees sign in and access resources.
+- [Fluid Relay](https://azure.microsoft.com/services/fluid-relay) is a managed service of the Fluid Framework. It helps developers build real-time collaborative experiences and replicate state across connected JavaScript clients in real time.
+- [Azure AD](https://azure.microsoft.com/services/active-directory) is the Microsoft cloud-based identity and access management service that helps your employees sign in and access resources.
 - [Microsoft Graph Toolkit](https://docs.microsoft.com/graph/toolkit/overview) is a collection of reusable, framework-agnostic components and authentication providers for accessing and working with Microsoft Graph.
-- [Azure Static Web Apps](https://docs.microsoft.com/azure/static-web-apps/overview) is a service that automatically builds and deploys full stack web apps to Azure from a code repository.
+- [Azure Static Web Apps](https://azure.microsoft.com/services/app-service/static) is a service that automatically builds and deploys full stack web apps to Azure from a code repository.
 
 ## Next steps 
 Get a [code sample](https://github.com/microsoft/brainstorm-fluidframework-m365-azure) that demonstrates this scenario.

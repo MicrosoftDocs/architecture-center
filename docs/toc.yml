@@ -2898,6 +2898,10 @@ items:
                 href: solution-ideas/articles/hybrid-identity.yml
               - name: On-premises AD domains with Azure AD
                 href: reference-architectures/identity/azure-ad.yml
+          - name: Solution ideas
+            items:
+              - name: Real-time collaboration with Microsoft 365
+                href: solution-ideas/articles/collaboration-microsoft-365.yml
       - name: Integration
         items:
           - name: Guides
