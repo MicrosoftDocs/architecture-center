@@ -619,10 +619,12 @@ items:
                 href: reference-architectures/migration/sync-mainframe-data-with-azure.yml
               - name: Scale regulated AI and ML in finance
                 href: example-scenario/ai/scale-ai-and-machine-learning-in-regulated-industries.yml                
-              - name: SWIFT on Azure
+              - name: SWIFT in Azure
                 items: 
-                  - name: SWIFT on Azure Overview
-                    href: example-scenario/finance/swift-on-azure.yml
+                  - name: SWIFT Alliance Connect
+                    href: example-scenario/finance/swift-on-azure-srx.yml
+                  - name: SWIFT Alliance Connect Virtual
+                    href: example-scenario/finance/swift-on-azure-vsrx.yml
                   - name: SWIFT Alliance Messaging Hub
                     href: example-scenario/finance/swift-alliance-messaging-hub.yml
                   - name: SWIFT Alliance Access

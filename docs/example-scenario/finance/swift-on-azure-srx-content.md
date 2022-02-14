@@ -1,51 +1,50 @@
-This series of articles provide guidance on using SWIFT components in Azure. This article discusses the basic components that the architecture examples use in this series.
+This series of articles provide guidance on using SWIFT's components in Azure. This article discusses the basic components that the architecture examples use in this series.
 
 The intended audiences for this article are program managers, architects, and engineers who are implementing SWIFT components in Azure. The article is organized into the following structure:
 
-* A high-level overview of Azure architecture to deploy SWIFT components (this article).
+* A high-level overview of Azure architecture to deploy SWIFT's components (this article).
 * A detailed reference architecture for each of the components (links below).
-* An automated Azure Resource Manager (ARM) template to customize and deploy the solution in Azure (referenced in the individual module pages).
 
 ## Architecture
 
-The following diagram is a high-level Azure reference architecture of connectivity to the SWIFT network based on the Alliance Access and Alliance Messaging Hub (AMH) SWIFT messaging interfaces.
-For more information on the SWIFT components, see [SWIFT Glossary](https://developer.swift.com/glossary).
+The following diagram is a high-level Azure reference architecture of connectivity to the SWIFT network based on the Alliance Access and Alliance Messaging Hub (AMH) messaging interfaces.
+For more information on the SWIFT's components, see [SWIFT Glossary](https://developer.swift.com/glossary).
 
 ![SWIFT Architecture](./media/swift-ref-arch.png)
 
 *Download a [PowerPoint file](https://arch-center.azureedge.net/swift-ref-arch.pptx) of this architecture.*
 
-SWIFT Azure architecture contains various components, and the key ones are explained in the next section.
+A SWIFT deployment in Azure contains various components, and the key ones are explained in the next section.
 
 ### Customer data center or CoLo
 
-This solution area represents the on-premises site from where business users will interact with SWIFT components securely. Any other business processing applications running on-premises can also connect with SWIFT components. There must be network connectivity between this site and Azure where SWIFT components are deployed.
+This solution area represents the on-premises site from where business users will interact with SWIFT's components securely. Any other business processing applications running on-premises can also connect with SWIFT's components. There must be network connectivity between this site and Azure where SWIFT's components are deployed.
 
-#### SWIFT Hardware Security Module (HSM)
+#### SWIFT's Hardware Security Module (HSM)
 
-In accordance with SWIFT’s Customer Security Program (CSP) Control Framework (CSCF), the SWIFT HSM has to be physically hosted (on-premises or in a co-location data center). A network connectivity between site running HSMs and Azure is needed for SWIFT component deployment.
+In accordance with SWIFT’s Customer Security Program (CSP) Control Framework (CSCF), the SWIFT provided Hardware Security Module (HSM) has to be physically hosted (on-premises or in a co-location data center). A network connectivity between site running HSMs and Azure is needed for SWIFT's component deployment.
 
-#### SWIFT VPN (SRX)
+#### Alliance Connect (SWIFT VPN or SRX)
 
-SWIFT VPN (SRX) is the connectivity component part of SWIFT's Alliance Connect offering required to connect to SWIFT. According to SWIFT's Customer Security Programme (CSP) Control Framework (CSCF), the SWIFT VPN needs to be physically hosted (on-premises or in a co-location data center).
+SWIFT's Alliance Connect is the connectivity component of SWIFT's offering required to connect to SWIFT. According to SWIFT's Customer Security Programme (CSP) Control Framework (CSCF), the Alliance Connect Networking solution needs to be physically hosted in on-premises or in a co-location data center).
 
-### SWIFT messaging and connectivity components
+### SWIFT's messaging and connectivity components
 
-SWIFT offers various connectivity components for secure payments and message transfers. Depending on the functional requirements, volume of transactions, and security requirements—customers can choose a specific connectivity module as per SWIFT guidelines. The next section describes the key components available for large banks processing payment message transfers.
+SWIFT offers various connectivity components for secure payments and message transfers. Depending on the functional requirements, volume of transactions, and security requirements—customers can choose a specific connectivity module as per SWIFT's guidelines. The next section describes the key components available for large banks processing payment message transfers.
 
 #### Alliance Access
 
 Customers with an Alliance Access based configuration will need the following:
 
-* Alliance Access, Web Platform, and SAG (SWIFT Alliance Gateway)/SNL (SWIFTNet Link).
-* On-premise SRX and HSM appliance to secure the message sent via SWIFTNet.
+* Alliance Access, Web Platform, and SAG (SWIFT's Alliance Gateway)/SNL (SWIFTNet Link).
+* Alliance Connect and HSM appliance to secure the message sent via SWIFTNet running in on-premises location.
 
 #### Alliance Messaging Hub (AMH)
 
 Customers with an Alliance Messaging Hub (AMH) based configuration will the need following:
 
-* Alliance Messaging Hub (AMH), Workbench and SAG (SWIFT Alliance Gateway)/SNL (SWIFTNet Link).
-* On-premises SRX and HSM appliance to secure the message sent via SWIFTNet.
+* Alliance Messaging Hub (AMH), Workbench and SAG (SWIFT's Alliance Gateway)/SNL (SWIFTNet Link).
+* Alliance Connect and HSM appliance to secure the message sent via SWIFTNet running in on-premises location.
 
 The Azure reference architecture described in this document uses Alliance Access and Alliance Messaging Hub (AMH).
 
@@ -86,5 +85,10 @@ Customers can use a Logic Apps service to process payment transactions quickly, 
 
 Explore each Azure Architecture for the various SWIFT messaging interfaces in detail as provided below.
 
+* [SWIFT Alliance Connect Virtual in Azure](swift-on-azure-vsrx.yml)
 * [Alliance Access](swift-alliance-access-on-azure.yml)
+* [Alliance Access with Alliance Connect Virtual](swift-alliance-access-vsrx-on-azure.yml)
 * [Alliance Messaging Hub (AMH)](swift-alliance-messaging-hub.yml)
+* [Alliance Messaging Hub (AMH) with Alliance Connect Virtual](swift-alliance-messaging-hub-vsrx.yml)
+* [Alliance Lite2](swift-alliance-lite-2-on-azure.yml)
+* [Alliance Cloud](swift-alliance-cloud-on-azure.yml)
