@@ -1,0 +1,23 @@
+### YamlMime:Architecture
+metadata:
+  title: Azure Digital Twins Batch Update
+  titleSuffix: Azure Example Scenarios
+  description: This example architecture shows how to update digital twins data that comes from systems that rely on batch etl processing techniques. 
+  author: howardginsburg
+  ms.author: hoginsbu
+  ms.date: 02/08/2022
+  ms.topic: conceptual
+  ms.service: architecture-center
+  ms.subservice: example-scenario
+azureCategories:
+  - iot
+  - integration
+products:
+  - azure-digital-twins
+  - azure-data-factory
+  - azure-batch
+name: Azure Digital Twins Batch Update
+summary: Use Azure Data Factory to extract data from source systems and update Azure Digital Twins data using batch pipelines.
+thumbnailUrl: /azure/architecture/browse/thumbs/azure-digital-twins-batch-update-diagram.png
+content: |
+  [!include[](azure-digital-twins-batch-update-content.md)]
