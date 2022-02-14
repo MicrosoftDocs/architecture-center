@@ -2763,6 +2763,8 @@ items:
                     href: solution-ideas/articles/transit-hub.yml
       - name: DevOps
         items:
+          - name: Get started
+            href: guide/devops/devops-start-here.md
           - name: Guides
             items:
               - name: DevOps checklist
