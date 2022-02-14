@@ -154,7 +154,7 @@ public static class AsyncProcessingWorkAcceptor
     [FunctionName("AsyncProcessingWorkAcceptor")]
     public static async Task<IActionResult> Run(
         [HttpTrigger(AuthorizationLevel.Anonymous, "post", Route = null)] CustomerPOCO customer,
-        [ServiceBus("outqueue", Connection = "ServiceBusConnectionAppSetting")] IAsyncCollector<Message> OutMessage,
+        [ServiceBus("outqueue", Connection = "ServiceBusConnectionAppSetting")] IAsyncCollector<ServiceBusMessage> OutMessages,
         ILogger log)
     {
         if (String.IsNullOrEmpty(customer.id) || String.IsNullOrEmpty(customer.customername))
@@ -167,12 +167,12 @@ public static class AsyncProcessingWorkAcceptor
         string rqs = $"http://{Environment.GetEnvironmentVariable("WEBSITE_HOSTNAME")}/api/RequestStatus/{reqid}";
 
         var messagePayload = JsonConvert.SerializeObject(customer);
-        Message m = new Message(Encoding.UTF8.GetBytes(messagePayload));
-        m.UserProperties["RequestGUID"] = reqid;
-        m.UserProperties["RequestSubmittedAt"] = DateTime.Now;
-        m.UserProperties["RequestStatusURL"] = rqs;
+        var message = new ServiceBusMessage(messagePayload);
+        message.ApplicationProperties["RequestGUID"] = reqid;
+        message.ApplicationProperties["RequestSubmittedAt"] = DateTime.Now;
+        message.ApplicationProperties["RequestStatusURL"] = rqs;
 
-        await OutMessage.AddAsync(m);  
+        await OutMessages.AddAsync(message);  
 
         return (ActionResult) new AcceptedResult(rqs, $"Request Accepted for Processing{Environment.NewLine}ProxyStatus: {rqs}");
     }
@@ -187,20 +187,20 @@ The `AsyncProcessingBackgroundWorker` function picks up the operation from the q
 public static class AsyncProcessingBackgroundWorker
 {
     [FunctionName("AsyncProcessingBackgroundWorker")]
-    public static void Run(
-        [ServiceBusTrigger("outqueue", Connection = "ServiceBusConnectionAppSetting")]Message myQueueItem,
-        [Blob("data", FileAccess.ReadWrite, Connection = "StorageConnectionAppSetting")] CloudBlobContainer inputBlob,
+    public static async Task RunAsync(
+        [ServiceBusTrigger("outqueue", Connection = "ServiceBusConnectionAppSetting")]ServiceBusMessage myQueueItem,
+        [Blob("data", FileAccess.ReadWrite, Connection = "StorageConnectionAppSetting")] BlobContainerClient inputContainer,
         ILogger log)
     {
         // Perform an actual action against the blob data source for the async readers to be able to check against.
         // This is where your actual service worker processing will be performed.
 
-        var id = myQueueItem.UserProperties["RequestGUID"] as string;
+        var id = myQueueItem.ApplicationProperties["RequestGUID"] as string;
 
-        CloudBlockBlob cbb = inputBlob.GetBlockBlobReference($"{id}.blobdata");
+        BlobClient blob = inputContainer.GetBlobClient($"{id}.blobdata");
 
         // Now write the results to blob storage.
-        cbb.UploadFromByteArrayAsync(myQueueItem.Body, 0, myQueueItem.Body.Length);
+        await blob.UploadAsync(myQueueItem.Body);
     }
 }
 ```
@@ -218,7 +218,7 @@ public static class AsyncOperationStatusChecker
     [FunctionName("AsyncOperationStatusChecker")]
     public static async Task<IActionResult> Run(
         [HttpTrigger(AuthorizationLevel.Anonymous, "get", Route = "RequestStatus/{thisGUID}")] HttpRequest req,
-        [Blob("data/{thisGuid}.blobdata", FileAccess.Read, Connection = "StorageConnectionAppSetting")] CloudBlockBlob inputBlob, string thisGUID,
+        [Blob("data/{thisGuid}.blobdata", FileAccess.Read, Connection = "StorageConnectionAppSetting")] BlockBlobClient inputBlob, string thisGUID,
         ILogger log)
     {
 
@@ -278,7 +278,7 @@ public static class AsyncOperationStatusChecker
         }
     }
 
-    private static async Task<IActionResult> OnCompleted(OnCompleteEnum OnComplete, CloudBlockBlob inputBlob, string thisGUID)
+    private static async Task<IActionResult> OnCompleted(OnCompleteEnum OnComplete, BlockBlobClient inputBlob, string thisGUID)
     {
         switch (OnComplete)
         {
@@ -292,7 +292,7 @@ public static class AsyncOperationStatusChecker
                 {
                     // Download the file and return it directly to the caller.
                     // For larger files, use a stream to minimize RAM usage.
-                    return (ActionResult)new OkObjectResult(await inputBlob.DownloadTextAsync());
+                    return (ActionResult)new OkObjectResult(await inputBlob.DownloadContentAsync());
                 }
 
             default:
