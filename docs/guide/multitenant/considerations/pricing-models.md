@@ -139,19 +139,19 @@ The free tier may also be offered as a time-limited trial, and during the trial 
 
 ### Cost of goods sold pricing
 
-You might choose to offer to cost of good sold pricing model where the tenant only pays the cost of operating their share of the Azure services, with no added profit margin. This model is sometimes used for multitenant solutions that are not intended to be a profit center.
+You might choose to offer price your solution so that each tenant only pays the cost of operating their share of the Azure services, with no added profit margin. This model is sometimes used for multitenant solutions that are not intended to be a profit center.
 
 ![Diagram showing revenue varying over time with amount of use changing to match.](media/pricing-models/cost-of-goods-sold.png)
 
-The cost of goods sold model is a good fit for internally facing multitenant solutions where each organizational units wants their own tenant and the costs need to be spread between them. It might also be appropriate where revenue is derived from sales of other products and services that consume or augment the multitenant solution.
+The cost of goods sold model is a good fit for internally facing multitenant solutions. Each organizational unit corresponds to a tenant, and the costs of your Azure resources need to be spread between them. It might also be appropriate where revenue is derived from sales of other products and services that consume or augment the multitenant solution.
 
-**Benefits:** Because this model does not include any added margin for profit the cost will be lower.
+**Benefits:** Because this model does not include any added margin for profit, the cost to tenants will be lower.
 
-**Complexity and operational cost:** Similar to the consumption model, cost of goods sold pricing relies on accurate measurements of usage and on splitting this usage by tenant. This can be challenging, especially in a solution with many distributed components. You need to keep detailed consumption records for billing and auditing.
+**Complexity and operational cost:** Similar to the consumption model, cost of goods sold pricing relies on [accurate measurements of usage](measure-consumption.md) and on splitting this usage by tenant. Tracking consumption can be challenging, especially in a solution with many distributed components. You need to keep detailed consumption records for billing and auditing.
 
-For internally facing multitenant solutions, tenants may be happier to accept cost estimates and have more relaxed billing audit requirements. These relaxed requirements will potentially reduce complexity and cost.
+For internally facing multitenant solutions, tenants might accept approximate cost estimates and have more relaxed billing audit requirements. These relaxed requirements reduce the complexity and cost of operating your solution.
 
-**Risks:** Cost of goods sold pricing can motivate your tenants to reduce their usage of your system, in order to reduce their costs. However, as this model is used for applications that are not profit centers, reduction in usage may be acceptable.
+**Risks:** Cost of goods sold pricing can motivate your tenants to reduce their usage of your system, in order to reduce their costs. However, because this model is used for applications that are not profit centers, this might not be a concern.
 
 ### Flat-rate pricing
 
