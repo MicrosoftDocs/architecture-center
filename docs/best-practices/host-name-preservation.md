@@ -26,7 +26,7 @@ ms.custom:
 
 ## Summary
 
-We recommend to preserve the original HTTP host name when using a reverse proxy in front of web applications. Having a different host name come in to the reverse proxy than the one which is used to access the backend application can potentially lead to cookies or redirect URLs being broken. These issues can be avoided by preserving the host name of the initial request so that the web application sees the same domain as the web browser.
+We recommend to preserve the original HTTP host name when using a reverse proxy in front of web applications. Having a different host name come in to the reverse proxy than the one which is used to access the backend application server can potentially lead to cookies or redirect URLs being broken. These issues can be avoided by preserving the host name of the initial request so that the application server sees the same domain as the web browser.
 
 This guidance applies especially to applications hosted in Platform-as-a-Service (PaaS) offerings such as [Azure App Service](/azure/app-service/) and [Azure Spring Cloud](/azure/spring-cloud/), and provides [implementation guidance](#implementation-guidance-for-common-azure-services) specifically for [Azure Application Gateway](/azure/application-gateway/), [Azure Front Door](/azure/frontdoor/) and [Azure API Management](/azure/api-management/) as commonly used reverse proxy services.
 
@@ -39,12 +39,12 @@ In case you require end-to-end TLS/SSL (meaning that the connection between the 
 
 ### The host of an HTTP request
 
-In many cases, the web application or some component in the request pipeline wants to know which internet domain name was used by the browser to access it: this is the "host" of the request. It can be an IP address, but usually it's a name such as `contoso.com` (which the browser then resolves to an IP address through DNS). The host value is typically determined from the [host component of the request URI](https://datatracker.ietf.org/doc/html/rfc3986#section-3.2.2) which the browser sends to the application as the [`Host` HTTP header](https://datatracker.ietf.org/doc/html/rfc2616#section-14.23).
+In many cases, the application server or some component in the request pipeline wants to know which internet domain name was used by the browser to access it: this is the "host" of the request. It can be an IP address, but usually it's a name such as `contoso.com` (which the browser then resolves to an IP address through DNS). The host value is typically determined from the [host component of the request URI](https://datatracker.ietf.org/doc/html/rfc3986#section-3.2.2) which the browser sends to the application as the [`Host` HTTP header](https://datatracker.ietf.org/doc/html/rfc2616#section-14.23).
 
 > [!IMPORTANT]
 > This host value cannot be "trusted": it's provided by the browser or some other user agent and can easily be manipulated by an end user. Never treat the host as a security mechanism.
 
-In some scenarios, especially when there is an HTTP reverse proxy in the request chain, the original host header can get changed before it reaches the web application. A reverse proxy terminates the client network session and sets up a new connection towards the backend. In this new session they can either carry over the original host name of the client session, or set a new one. In the latter case, the proxy will often still send the original host value in other HTTP headers such as [`forwarded`](https://www.rfc-editor.org/rfc/rfc7239#section-4) or [`X-Forwarded-Host`](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/X-Forwarded-Host), which allows applications to determine the original host name - *if* they are specifically coded to understand these additional headers.
+In some scenarios, especially when there is an HTTP reverse proxy in the request chain, the original host header can get changed before it reaches the application server. A reverse proxy terminates the client network session and sets up a new connection towards the backend. In this new session they can either carry over the original host name of the client session, or set a new one. In the latter case, the proxy will often still send the original host value in other HTTP headers such as [`forwarded`](https://www.rfc-editor.org/rfc/rfc7239#section-4) or [`X-Forwarded-Host`](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/X-Forwarded-Host), which allows applications to determine the original host name - *if* they are specifically coded to understand these additional headers.
 
 ### Why web platforms use the host name
 
@@ -58,7 +58,7 @@ For production deployments, you wouldn't use these default domains but instead p
 
 ### Why applications use the host name
 
-One of the most common reasons that an application wants to know the host name is to construct absolute URLs and to issue cookies for a specific domain. For example, when the application needs to:
+One of the most common reasons that an application server wants to know the host name is to construct absolute URLs and to issue cookies for a specific domain. For example, when the application code needs to:
 
 - Return an absolute rather than relative URL in its HTTP response (although generally websites do tend to render relative links where possible).
 - Generate a URL to be used *outside of its HTTP response* where relative URLs can't be used, like emailing a link to the website to a user.
@@ -67,7 +67,7 @@ One of the most common reasons that an application wants to know the host name i
 
 This can all be achieved by adding the expected host name in the application's configuration, and using that statically defined value instead of the incoming host name on the request. However, this complicates application development and deployment, and a single installation of the application can in fact serve multiple hosts: for example, a single web app can be used for multiple *application tenants* which all have their own unique host names (for example, `tenant1.contoso.com` and `tenant2.contoso.com`).
 
-Furthermore, sometimes the incoming host name is used by components outside of the application code, or middleware in the application over which you don't have full control. Examples include:
+Furthermore, sometimes the incoming host name is used by components outside of the application code, or middleware in the application server over which you don't have full control. Examples include:
 
 - App Service allows you to [enforce HTTPS](/azure/app-service/configure-ssl-bindings#enforce-https) for your web app, which makes any insecure HTTP request get redirected to HTTPS. In this case the incoming host name is used to generate the absolute URL for the HTTP redirect's `Location` header.
 - Azure Spring Cloud has a similar feature to [enforce HTTPS](/azure/spring-cloud/tutorial-custom-domain#enforce-https), which also uses the incoming host to generate the HTTPS URL.
@@ -92,7 +92,7 @@ The problem with this "easy" solution, however, is that it can result in various
 
 ### Incorrect absolute URLs
 
-If the original host name is not preserved and the application uses the incoming host name to generate absolute URLs, this may lead to the backend domain being disclosed to an end user. These absolute URLs could be generated by the application, or as mentioned above by platform features such as the "HTTP to HTTPS redirection" support in App Service and Azure Spring Cloud.
+If the original host name is not preserved and the application server uses the incoming host name to generate absolute URLs, this may lead to the backend domain being disclosed to an end user. These absolute URLs could be generated by the application code, or as mentioned above by platform features such as the "HTTP to HTTPS redirection" support in App Service and Azure Spring Cloud.
 
 ![Issue with incorrect absolute URLs](images/host-name-preservation/issue-absolute-urls.png)
 
@@ -105,7 +105,7 @@ This may even pose a security risk in the common case where the reverse proxy al
 
 ### Incorrect redirect URLs
 
-A very common and more specific case of the scenario above is when absolute redirect URLs are generated, as required by identity services like Azure AD when using browser-based identity protocols such as OpenID Connect, OAuth 2.0 or SAML 2.0. These redirect URLs could be generated by the application or middleware itself, or as mentioned above by platform features such as App Service's [authentication and authorization capabilities](/azure/app-service/overview-authentication-authorization).
+A very common and more specific case of the scenario above is when absolute redirect URLs are generated, as required by identity services like Azure AD when using browser-based identity protocols such as OpenID Connect, OAuth 2.0 or SAML 2.0. These redirect URLs could be generated by the application server or middleware itself, or as mentioned above by platform features such as App Service's [authentication and authorization capabilities](/azure/app-service/overview-authentication-authorization).
 
 ![Issue with incorrect redirect URLs](images/host-name-preservation/issue-redirect-urls.png)
 
@@ -118,7 +118,7 @@ A very common and more specific case of the scenario above is when absolute redi
 
 ### Broken cookies
 
-Another place where a host name mismatch can lead to issues is when the application issues cookies and uses the incoming host name to construct the [`Domain` attribute of the cookie](https://datatracker.ietf.org/doc/html/rfc6265#section-5.2.3), which ensures that the cookie will only be used for that specific domain. These cookies could be generated by the application, or as mentioned above by platform features such as App Service's ["ARR affinity" setting](/azure/app-service/configure-common#configure-general-settings).
+Another place where a host name mismatch can lead to issues is when the application server issues cookies and uses the incoming host name to construct the [`Domain` attribute of the cookie](https://datatracker.ietf.org/doc/html/rfc6265#section-5.2.3), which ensures that the cookie will only be used for that specific domain. These cookies could be generated by the application code, or as mentioned above by platform features such as App Service's ["ARR affinity" setting](/azure/app-service/configure-common#configure-general-settings).
 
 ![Issue with incorrect cookie domain](images/host-name-preservation/issue-cookies.png)
 
@@ -129,7 +129,7 @@ Another place where a host name mismatch can lead to issues is when the applicat
 
 ## Implementation guidance for common Azure services
 
-To avoid the potential issues discussed above, we recommend that the original host name is preserved in the call between the reverse proxy and the backend web application.
+To avoid the potential issues discussed above, we recommend that the original host name is preserved in the call between the reverse proxy and the backend application server.
 
 ![Configuration with the host name preserved](images/host-name-preservation/configuration-host-preserved.png)
 
@@ -143,7 +143,7 @@ Similarly, when using Azure Spring Cloud, you can [use a custom domain for your 
 
 If you have a reverse proxy in front of Azure API Management (which itself also acts as a reverse proxy), you can [configure a custom domain on your API Management instance](/azure/api-management/configure-custom-domain) to avoid use of the `azure-api.net` host name, and import an existing or free managed certificate if you require end-to-end TLS/SSL. As noted above however, API's are less sensitive to the issues caused by host name mismatches, so this may not be as important.
 
-When you host your applications on other platforms such as Kubernetes or directly on Virtual Machines, there is no built-in functionality that depends on the incoming host name, so you are responsible for how the host name is used within the application itself. The recommendation to preserve the host name typically still applies for any components in your application that depend on it, unless you specifically make your application aware of reverse proxies and respect the [`forwarded`](https://www.rfc-editor.org/rfc/rfc7239#section-4) or [`X-Forwarded-Host`](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/X-Forwarded-Host) headers for example.
+When you host your applications on other platforms such as Kubernetes or directly on Virtual Machines, there is no built-in functionality that depends on the incoming host name, so you are responsible for how the host name is used within the application server itself. The recommendation to preserve the host name typically still applies for any components in your application that depend on it, unless you specifically make your application aware of reverse proxies and respect the [`forwarded`](https://www.rfc-editor.org/rfc/rfc7239#section-4) or [`X-Forwarded-Host`](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/X-Forwarded-Host) headers for example.
 
 ### Reverse proxy configuration
 
