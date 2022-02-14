@@ -1,12 +1,12 @@
 ---
 title: Explore data in a SQL Server virtual machine 
 description: How to explore data that is stored in a SQL Server VM on Azure using SQL or a programming language like Python.
-services: machine-learning
 author: marktab
 manager: marktab
 editor: marktab
-ms.service: machine-learning
-ms.subservice: team-data-science-process
+services: architecture-center
+ms.service: architecture-center
+ms.subservice: azure-guide
 ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp

@@ -2,7 +2,8 @@
 title: Monitor a microservices app in AKS
 description: Learn about best practices for monitoring a microservices application that runs on Azure Kubernetes Service, by collecting telemetry from the application.
 author: EdPrice-MSFT
-ms.date: 04/06/2020
+ms.author: edprice
+ms.date: 02/11/2022
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: azure-guide
@@ -25,9 +26,13 @@ ms.custom:
 
 This article describes best practices for monitoring a microservices application that runs on Azure Kubernetes Service (AKS).
 
-In any complex application, at some point something will go wrong. In a microservices application, you need to track what's happening across dozens or even hundreds of services. To make sense of what's happening, you must collect telemetry from the application. Telemetry can be divided into *logs* and *metrics*.
+In any complex application, at some point something will go wrong. In a microservices application, you need to track what's happening across dozens or even hundreds of services. To make sense of what's happening, you must collect telemetry from the application. Telemetry can be divided into _logs_, _traces_, and _metrics_.
 
 **Logs** are text-based records of events that occur while the application is running. They include things like application logs (trace statements) or web server logs. Logs are primarily useful for forensics and root cause analysis.
+
+**Traces**, also called _Operations_ connect the steps of a single request across multiple calls within and across microservices. They can provide structured observability into the interactions of system components. Traces can begin early in the request process, like within the UI of an application, and can propagate through network services, across a network of microservices that handle the request.
+
+- **Spans** are units of work within a trace. Each span is connected with a single trace and can be nested with other spans. They often correspond to individual _requests_ in a cross-service operation, but they can also define work in individual components within a service. Spans also track outbound calls from one service to another (sometimes these are called _dependency_ records).
 
 **Metrics** are numerical values that can be analyzed. You can use them to observe the system in real time (or close to real time), or to analyze performance trends over time. To understand the system holistically, you must collect metrics at various levels of the architecture, from the physical infrastructure to the application, including:
 
@@ -59,13 +64,15 @@ We recommend using [Azure Monitor][azure-monitor] to collect and view metrics fo
 
 Application Insights has a maximum throughput measured in events/second, and it throttles if the data rate exceeds the limit. For details, see [Application Insights limits](/azure/azure-subscription-service-limits#application-insights). Create different Application Insights instances per environment, so that dev/test environments don't compete against the production telemetry for quota.
 
-A single operation may generate several telemetry events, so if the application experiences a high volume of traffic, it is likely to get throttled. To mitigate this problem, you can perform sampling to reduce the telemetry traffic. The tradeoff is that your metrics will be less precise. For more information, see [Sampling in Application Insights](/azure/application-insights/app-insights-sampling). You can also reduce the data volume by pre-aggregating metrics &mdash; that is, calculating statistical values such as average and standard deviation, and sending those values instead of the raw telemetry. The following blog post describes an approach to using Application Insights at scale: [Azure Monitoring and Analytics at Scale](/archive/blogs/azurecat/azure-monitoring-and-analytics-at-scale).
+A single operation can generate many telemetry events, so if the application experiences a high volume of traffic, its telemetry capture is likely to get throttled. To mitigate this problem, you can perform sampling to reduce the telemetry traffic. The tradeoff is that your metrics will be less precise, unless the instrumentation supports [pre-aggregation](https://opentelemetry.io/docs/reference/specification/overview/#recording-metrics-with-predefined-aggregation) (in which case there will be fewer trace samples for troubleshooting, but the metrics will maintain accuracy). For more information, see [Sampling in Application Insights](/azure/application-insights/app-insights-sampling). You can also reduce the data volume by pre-aggregating metrics &mdash; that is, calculating statistical values, such as the average and standard deviation, and sending those values instead of the raw telemetry. The following blog post describes an approach to using Application Insights at scale: [Azure Monitoring and Analytics at Scale](/archive/blogs/azurecat/azure-monitoring-and-analytics-at-scale).
 
-If your data rate is high enough to trigger throttling, and sampling or aggregation are not acceptable, consider exporting metrics to a time-series database such as **Prometheus** or **InfluxDB** running in the cluster.
+If your data rate is high enough to trigger throttling, and sampling or aggregation are not acceptable, consider exporting metrics to a time-series database, such as **Azure Data Explorer**, **Prometheus**, or **InfluxDB** running in the cluster.
 
-- InfluxDB is a push-based system. An agent needs to push the metrics. You can use [TICK stack][Tick Stack], to setup monitoring of Kubernetes, and push it to InfluxDB using [Telegraf](https://www.influxdata.com/time-series-platform/telegraf/), which is an agent for collecting and reporting metrics. InfluxDB can be used for irregular events and string data types.
+- [Azure Data Explorer](/azure/data-explorer/data-explorer-overview) is an Azure-native highly-scalable data exploration service for log and telemetry data. Data Explorer features support for multiple data formats, a rich query language, and connections to consume data in popular tools like [Jupyter Notebooks](/azure/data-explorer/kqlmagic) and [Grafana](/azure/data-explorer/grafana). Azure Data Explorer has built-in connectors to ingest log and metrics data via Azure Event Hub. See [Ingest and query monitoring data in Azure Data Explorer](/azure/data-explorer/ingest-data-no-code?tabs=diagnostic-metrics).
 
-- Prometheus is a pull-based system. It periodically scrapes metrics from configured locations. Prometheus can scrape metrics generated by cAdvisor or kube-state-metrics. [kube-state-metrics][kube-state-metrics] is a service that collects metrics from the Kubernetes API server and makes them available to Prometheus (or a scraper that is compatible with a Prometheus client endpoint). For system metrics, use [Node exporter](https://github.com/prometheus/node_exporter), which is a Prometheus exporter for system metrics. Prometheus supports floating point data, but not string data, so it is appropriate for system metrics but not logs. [Kubernetes Metrics Server](https://github.com/kubernetes-sigs/metrics-server) is a cluster-wide aggregator of resource usage data.
+- InfluxDB is a push-based system. An agent needs to push the metrics. You can use [TICK stack][tick stack], to setup monitoring of Kubernetes, and push it to InfluxDB using [Telegraf](https://www.influxdata.com/time-series-platform/telegraf/), which is an agent for collecting and reporting metrics. InfluxDB can be used for irregular events and string data types.
+
+- Prometheus is a pull-based system. It periodically scrapes metrics from configured locations. Prometheus can [scrape metrics generated by Azure Monitor](/azure/azure-monitor/containers/container-insights-agent-config#overview-of-configurable-prometheus-scraping-settings) or kube-state-metrics. [kube-state-metrics][kube-state-metrics] is a service that collects metrics from the Kubernetes API server and makes them available to Prometheus (or a scraper that is compatible with a Prometheus client endpoint). For system metrics, use [Node exporter](https://github.com/prometheus/node_exporter), which is a Prometheus exporter for system metrics. Prometheus supports floating point data, but not string data, so it is appropriate for system metrics but not logs. [Kubernetes Metrics Server](https://github.com/kubernetes-sigs/metrics-server) is a cluster-wide aggregator of resource usage data.
 
 ## Logging
 
@@ -98,19 +105,38 @@ Azure Monitor is a managed service, and configuring an AKS cluster to use Azure 
 
 Azure Monitor is billed per gigabyte (GB) of data ingested into the service (see [Azure Monitor pricing](https://azure.microsoft.com/pricing/details/monitor/)). At very high volumes, cost may become a consideration. There are many open-source alternatives available for the Kubernetes ecosystem. For example, many organizations use **Fluentd** with **Elasticsearch**. Fluentd is an open-source data collector, and Elasticsearch is a document database that is for search. A challenge with these options is that they require additional configuration and management of the cluster. For a production workload, you may need to experiment with configuration settings. You'll also need to monitor the performance of the logging infrastructure.
 
+### OpenTelemetry
+
+OpenTelemetry is a cross-industry effort to improve tracing by standardizing the interface between applications, libraries, telemetry, and data collectors. When using a libray and framework that are instrumented with OpenTelemetry, most of the work of tracing traditionally system operations is handled by the underlying libraries, which includes the following common scenarios:
+
+- Logging basic request operations, such as start/exit time and duration
+- Exceptions thrown
+- Context propagation (such as sending a correlation ID across HTTP call boundaries)
+
+Instead, the base libraries and frameworks that handle these operations create rich interrelated span and trace data structures and propagate these across contexts. Before OpenTelemetry, these were usually just injected as special log messages or as proprietary data structures that were specific to the vendor who built the monitoring tools. OpenTelemetry also encourages a richer instrumentation data model than a traditional logging-first approach, and the logs are made more useful since the log messages are linked to the traces and spans where they were generated. This often makes finding logs that are associated with a specific operation or request very easy.
+
+Many of the Azure SDKs have been instrumented with OpenTelemetry or are in the process of implementing it.
+
+An application developer can add manual instrumentation by using the OpenTelemetry SDKs to do the following:
+
+- Add instrumentation where an underlying library does not provide it.
+- Enrich the trace context by adding spans to expose application-specific units of work (such as an order loop that creates a span for the processing of each order line).
+- Enrich existing spans with entity keys, in order to enable easier tracing (for example, add an "OrderID" key/value to the request that processes that order). These are surfaced by the monitoring tools as structured values for querying, filtering, and aggregating (without parsing out log message strings or looking for combinations of log message sequences, as was commmon with a logging-first approach).
+- Propagate trace context by accessing trace and span attributes, injecting traceIds into responses and payloads and/or reading traceIds from incoming messages, in order to create requests and spans.
+
+Read more about instrumentation and the OpenTelemetry SDKs, in the [OpenTelemetry documentation](https://opentelemetry.io/docs/concepts/instrumenting).
+
 ### Application Insights
 
-For richer log data, we recommend instrumenting your code with Application Insights. This requires adding an Application Insights package to your code and configuring your code to send logging statements to Application Insights. The details depend on the platform, such as .NET, Java, or Node.js. The Application Insights package sends telemetry data to Azure Monitor.
+Application Insights collects rich data from OpenTelemetry and its instrumentation libraries, capturing it in an efficient data store to provide rich visualization and query support. The [Application Insights OpenTelemetry-based instrumentation libraries](/azure/azure-monitor/app/opentelemetry-enable), for languages such as .NET, Java, Node.js, or Python, make it easy to send telemetry data to Application Insights.
 
-If you are using .NET Core, we recommend also using the [Application Insights for Kubernetes](https://github.com/microsoft/ApplicationInsights-Kubernetes) library. This library enriches Application Insights traces with additional information such as the container, node, pod, labels, and replica set.
+If you are using .NET Core, we recommend also looking at the [Application Insights for Kubernetes](https://github.com/microsoft/ApplicationInsights-Kubernetes) library. This library enriches Application Insights traces with additional information, such as the container, node, pod, labels, and replica set.
 
-Advantages of this approach include:
+Application Insights maps the OpenTelemetry context to its internal data model:
 
-- Application Insights logs HTTP requests, including latency and result code.
-- Distributed tracing is enabled by default.
-- Traces include an operation ID, so you can match all traces for a particular operation.
-- Traces generated by Application Insights often have additional contextual information. For example, ASP.NET traces are decorated with the action name and a category such as `ControllerActionInvoker`, which give you insights into the ASP.NET request pipeline.
-- Application Insights collects performance metrics for performance troubleshooting and optimization.
+- Trace -> Operation
+- Trace ID -> Operation ID
+- Span -> Request or Dependency
 
 Considerations:
 
@@ -154,55 +180,63 @@ Here is the JSON from this example:
 
 ```json
 {
-    "Id": "36585f2d-c1fa-4a3d-9e06-a7f40b7d04ef",
-    "Owner": {
-        "UserId": "user id for logging",
-        "AccountId": "52dadf0c-0067-43e7-af76-86e32b48bc5e"
-    },
-    "Pickup": {
-        "Altitude": 0.29295161612934972,
-        "Latitude": 0.26815900219052985,
-        "Longitude": 0.79841844309047727
-    },
-    "Dropoff": {
-        "Altitude": 0.31507750848078986,
-        "Latitude": 0.753494655598651,
-        "Longitude": 0.89352830773849423
-    },
-    "Deadline": "string",
-    "Expedited": true,
-    "ConfirmationRequired": 0,
-    "DroneId": "AssignedDroneId01ba4d0b-c01a-4369-ba75-51bde0e76cc9"
+  "Id": "36585f2d-c1fa-4a3d-9e06-a7f40b7d04ef",
+  "Owner": {
+    "UserId": "user id for logging",
+    "AccountId": "52dadf0c-0067-43e7-af76-86e32b48bc5e"
+  },
+  "Pickup": {
+    "Altitude": 0.29295161612934972,
+    "Latitude": 0.26815900219052985,
+    "Longitude": 0.79841844309047727
+  },
+  "Dropoff": {
+    "Altitude": 0.31507750848078986,
+    "Latitude": 0.753494655598651,
+    "Longitude": 0.89352830773849423
+  },
+  "Deadline": "string",
+  "Expedited": true,
+  "ConfirmationRequired": 0,
+  "DroneId": "AssignedDroneId01ba4d0b-c01a-4369-ba75-51bde0e76cc9"
 }
 ```
 
-The previous code snippet used the Serilog library, but structured logging libraries are available for other languages as well. For example, here's an example using the [SLF4J](https://www.slf4j.org/) library for Java:
+Many log messages mark the start or end of a unit of work, or they connect a business entity with a set of messages and operations for traceability. In many cases, enriching OpenTelemetry span and request objects is a better approach than only logging the start and end of that operation. This adds that context to all connected traces and child operations, and it puts that information in the scope of the full operation. The OpenTelemetry SDKs for various langauges support creating spans or adding custom attributes on spans. [Using the Java OpenTelemetry SDK](https://github.com/open-telemetry/opentelemetry-java-instrumentation/blob/main/docs/manual-instrumentation.md#adding-attributes-to-the-current-span) that's ([supported by Application Insights](/azure/azure-monitor/app/java-in-process-agent#add-span-attributes)). An existing parent span (for example, a request span that's associated with a REST controller call and created by the web framework being used) can be enriched with an entity ID that's associated with it. See the following script:
 
 ```java
-MDC.put("DeliveryId", deliveryId);
+import io.opentelemetry.api.trace.Span;
 
-log.info("In schedule delivery action with delivery request {}", externalDelivery.toString());
+// ...
+
+Span.current().setAttribute("A1234", deliveryId);
 ```
+
+This code sets a key or value on the current span, which is connected to operations and log mesages that occur under that span. This appears in the Application Insights request object, as shown in the following code:
+
+```kusto
+requests
+| extend deliveryId = tostring(customDimensions.deliveryId)  // promote to column value (optional)
+| where deliveryId == "A1234"
+| project timestamp, name, url, success, resultCode, duration, operation_Id, deliveryId
+```
+
+This becomes more powerful when used with logs, filtering, and annotating log traces with span context. See the following:
+
+```kusto
+requests
+| extend deliveryId = tostring(customDimensions.deliveryId)  // promote to column value (optional)
+| where deliveryId == "A1234"
+| project deliveryId, operation_Id, requestTimestamp = timestamp, requestDuration = duration  // keep some request info
+| join kind=inner traces on operation_Id   // join logs only for this deliveryId
+| project requestTimestamp, requestDuration, logTimestamp = timestamp, deliveryId, message
+```
+
+By using a library or framework that's already instrumented with OpenTelemetry, it handles creating spans and requests, but the application code might also create units of work. For example, a method that loops through an array of entities that performs work on each one, might create a span for each iteration of the processing loop. See the [OpenTelemery Instrumenting documentation](https://opentelemetry.io/docs/instrumentation/go/instrumentation), on how to add instrumentation to application and library code.
 
 ## Distributed tracing
 
-A significant challenge of microservices is to understand the flow of events across services. A single transaction may involve calls to multiple services. To reconstruct the entire sequence of steps, each service should propagate a *correlation ID* that acts as a unique identifier for that operation. The correlation ID enables [distributed tracing](https://microservices.io/patterns/observability/distributed-tracing.html) across services.
-
-The first service that receives a client request should generate the correlation ID. If the service makes an HTTP call to another service, it puts the correlation ID in a request header. If the service sends an asynchronous message, it puts the correlation ID into the message. Downstream services continue to propagate the correlation ID, so that it flows through the entire system. In addition, all code that writes application metrics or log events should include the correlation ID.
-
-When service calls are correlated, you can calculate operational metrics such as the end-to-end latency for a complete transaction, the number of successful transactions per second, and the percentage of failed transactions. Including correlation IDs in application logs makes it possible to perform root cause analysis. If an operation fails, you can find the log statements for all of the service calls that were part of the same operation.
-
-We recommend using Application Insights for distributed tracing. The Application Insights SDK automatically injects correlation context into HTTP headers, and includes the correlation ID in Application Insights logs. Some services may still need to explicitly propagate the correlation headers, depending on the frameworks and libraries being used. For more information, see [Telemetry correlation in Application Insights](/azure/azure-monitor/app/correlation).
-
-Some additional considerations when implementing distributed tracing:
-
-- There is now a standard HTTP header for correlation IDs, a [W3C proposal](https://w3c.github.io/trace-context/) has been accepted as an official recommendation recently. Your team should standardize on a custom header value. The choice may be decided by your logging framework, such as Application Insights, or choice of service mesh.
-
-- For asynchronous messages, if your messaging infrastructure supports adding metadata to messages, you should include the correlation ID as metadata. Otherwise, include it as part of the message schema. For example, see [Distributed tracing and correlation through Service Bus messaging](/azure/service-bus-messaging/service-bus-end-to-end-tracing).
-
-- Rather than a single opaque identifier, you might send a *correlation context* that includes richer information, such as caller-callee relationships.
-
-- If you are using Istio or linkerd as a service mesh, these technologies automatically generate correlation headers when HTTP calls are routed through the service mesh proxies. Services should forward the relevant headers.
+A significant challenge of microservices is to understand the flow of events across the services. A single transaction can involve calls to multiple services.
 
 ### Example of distributed tracing
 
@@ -271,5 +305,5 @@ For more information about using metrics for performance tuning, see see [Perfor
 <!-- links -->
 
 [azure-monitor]: /azure/azure-monitor
-[Tick stack]: https://github.com/influxdata/kube-influxdb
+[tick stack]: https://github.com/influxdata/kube-influxdb
 [kube-state-metrics]: https://github.com/kubernetes/kube-state-metrics

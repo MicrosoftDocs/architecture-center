@@ -1,0 +1,25 @@
+### YamlMime:Architecture
+metadata:
+  title: Choose an Azure multiparty computing service
+  description: Use this chart and other information to decide which multiparty computing services to use for your solution.
+  author: EdPrice-MSFT
+  ms.author: edprice
+  ms.date: 01/30/2022
+  ms.topic: conceptual
+  ms.service: architecture-center
+  ms.subservice: azure-guide
+  ms.custom: fcp
+azureCategories:
+  - compute
+products:
+  - azure-blob-storage
+  - azure-blockchain-service
+  - azure-kubernetes-service
+  - azure-sql-database
+name: Choose an Azure multiparty computing service
+summary: Use this chart and other information to decide which multiparty computing services to use for your solution.
+thumbnailUrl: /azure/architecture/browse/thumbs/multiparty-compute-options.png
+content: |
+  [!include[](multiparty-computing-service-content.md)]
+
+  
