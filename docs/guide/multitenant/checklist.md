@@ -4,7 +4,7 @@ titleSuffix: Azure Architecture Center
 description: Multitenancy enables you to serve multiple distinct tenants in your Azure-hosted solution. Use this checklist to assess your multitenancy requirements and architecture. 
 author: arsenvlad
 ms.author: arsenv
-ms.date: 02/04/2022
+ms.date: 02/14/2022
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: azure-guide
@@ -21,12 +21,12 @@ ms.custom:
 
 # Checklist for architecting and building multitenant solutions on Azure
 
-When you build your multitenant solution in Azure, there are many elements that you need to consider. Use this checklist as a starting point to help you design and build your multitenant solution. This checklist is a companion resource to the [Architecting multitenant solutions on Azure](./overview.md) series of articles. The checklist is structured around the business considerations and the five pillars of the [Azure Well-Architected Framework](/azure/architecture/framework/).
+When you build your multitenant solution in Azure, there are many elements that you need to consider. Use this checklist as a starting point to help you design and build your multitenant solution. This checklist is a companion resource to the [Architecting multitenant solutions on Azure](./overview.md) series of articles. The checklist is structured around the business and technical considerations, and the five pillars of the [Azure Well-Architected Framework](/azure/architecture/framework/).
 
 ## Business considerations
 
 * Understand what kind of solution you're creating, such as Business-to-Business (B2B), Business-to-Consumer (B2C), or your enterprise software, and [how tenants are different from users](./overview.md).
-* [Define your tenants](./considerations/tenancy-models.md#define-a-tenant), how many you'll have initially, and your growth plans.
+* [Define your tenants](./considerations/tenancy-models.md#define-a-tenant). Understand how many tenants you'll support initially, and your growth plans.
 * [Define your pricing model](./considerations/pricing-models.md) and ensure it aligns with your [tenants’ consumption of Azure resources](./considerations/measure-consumption.md).
 * Understand whether you need to separate your tenants into different [tiers](./considerations/pricing-models.md#feature--and-service-level-based-pricing). Tiers might have different pricing, features, performance promises, geographic locations, and so forth.
 * Based on your customers’ requirements, decide on the [tenancy models](./considerations/tenancy-models.md) appropriate for various parts of your solution.
@@ -46,8 +46,8 @@ When you build your multitenant solution in Azure, there are many elements that 
 * Apply the [Zero Trust](/security/zero-trust/) and Least Privilege principles in all layers of your solution.
 * Ensure that you can [correctly map user requests](./considerations//map-requests.md) to tenants. Consider including the tenant context as part of the identity system, or by using another means like application-level tenant authorization.
 * Design for [tenant isolation](./considerations/tenancy-models.md#tenant-isolation). Continuously [test your isolation model](./approaches/compute.md#isolation).
-* Ensure that your application code prevents any cross-tenant access.
-* Perform ongoing penetration testing and code reviews.
+* Ensure that your application code prevents any cross-tenant access or data leakage.
+* Perform ongoing penetration testing and security code reviews.
 * Understand your tenants' [compliance requirements](./approaches/governance-compliance.md), including data residency and any compliance or regulatory standards that they require that you meet.
 * Correctly [manage domain names](./considerations/domain-names.md) and avoid vulnerabilities like [dangling DNS and subdomain takeover attacks](./considerations/domain-names.md#dangling-dns-and-subdomain-takeover-attacks).
 * Follow [service-specific guidance](./service/overview.md) for multitenancy.
@@ -56,7 +56,7 @@ When you build your multitenant solution in Azure, there are many elements that 
 
 * Review the [Azure Well-Architected Cost Optimization checklist](/azure/architecture/framework/cost/design-checklist), which is applicable to all workloads.
 * Ensure you can adequately [measure per-tenant consumption](./considerations/measure-consumption.md) and correlate it with [your infrastructure costs](./approaches/cost-management-allocation.md).
-* Avoid [antipatterns](./approaches/cost-management-allocation.md#antipatterns-to-avoid) such as not tracking costs, extreme precision, real-time measurement, and using monitoring tools for billing.
+* Avoid [antipatterns](./approaches/cost-management-allocation.md#antipatterns-to-avoid). Antipatterns include failing to track costs, tracking costs with unnecessary precision, real-time measurement, and using monitoring tools for billing.
 
 ## Operational Excellence considerations
 
