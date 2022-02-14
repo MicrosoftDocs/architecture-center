@@ -1,28 +1,3 @@
----
-title: Load-balancing options
-titleSuffix: Azure Application Architecture Guide
-description: Learn about Azure load-balancing services and how you can use them to distribute your workloads across multiple computing resources.
-author: EdPrice-MSFT
-ms.author: pnp
-ms.date: 10/21/2021
-ms.topic: conceptual
-ms.service: architecture-center
-ms.subservice: azure-guide
-ms.category:
-  - web
-  - compute
-products:
-  - azure-load-balancer
-  - azure-front-door
-  - azure-application-gateeway
-  - azure-traffic-manager
-ms.custom:
-  - guide
-  - internal-intro
----
-
-# Understand Azure load balancing
-
 The term *load balancing* refers to the distribution of workloads across multiple computing resources. Load balancing aims to optimize resource use, maximize throughput, minimize response time, and avoid overloading any single resource. It can also improve availability by sharing a workload across redundant computing resources.
 
 Azure provides various load balancing services that you can use to distribute your workloads across multiple computing resources - Application Gateway, Front Door, Load Balancer, and Traffic Manager.
@@ -126,7 +101,7 @@ If your application consists of multiple workloads, evaluate each workload separ
 
 - **Global**. End users or clients are located beyond a small geographical area. For example, users across multiple continents, across countries/regions within a continent, or even across multiple metropolitan areas within a larger country/region.
 
-- **PaaS**. Platform as a service (PaaS) services provide a managed hosting environment, where you can deploy your application without needing to manage VMs or networking resources. In this case, PaaS refers to services that provide integrated load balancing within a region. See [Choosing a compute service &ndash; Scalability](./compute-decision-tree.md#scalability).
+- **PaaS**. Platform as a service (PaaS) services provide a managed hosting environment, where you can deploy your application without needing to manage VMs or networking resources. In this case, PaaS refers to services that provide integrated load balancing within a region. See [Choosing a compute service &ndash; Scalability](./compute-decision-tree.yml#scalability).
 
 - **AKS**. Azure Kubernetes Service enables you to deploy and manage containerized applications. AKS provides serverless Kubernetes, an integrated continuous integration and continuous delivery (CI/CD) experience, and enterprise-grade security and governance. For more information about our AKS architectural resources, see [Azure Kubernetes Service (AKS) architecture design](../../reference-architectures/containers/aks-start-here.md).
 

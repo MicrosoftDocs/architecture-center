@@ -1,29 +1,3 @@
----
-title: Asynchronous messaging options
-titleSuffix: Azure Application Architecture Guide
-description: Learn about asynchronous messaging options in Azure, including the different types of messages and the entities that participate in a messaging infrastructure.
-author: PageWriter-MSFT
-ms.date: 1/27/2022
-ms.topic: conceptual
-ms.service: architecture-center
-ms.subservice: guide
-ms.category:
-  - integration
-  - developer-tools
-categories:
-  - integration
-  - developer-tools
-products:
-  - azure-event-hubs
-  - azure-event-grid
-  - azure-service-bus
-ms.custom:
-  - seonov19
-  - guide
----
-
-# Asynchronous messaging options in Azure
-
 This article describes the different types of messages and the entities that participate in a messaging infrastructure. Based on the requirements of each message type, the article recommends Azure messaging services. The options include [Azure Service Bus](#azure-service-bus), [Event Grid](#azure-event-grid), and [Event Hubs](#azure-event-hubs).
 
 At an architectural level, a message is a datagram created by an entity (_producer_), to distribute information so that other entities (_consumers_) can be aware and act accordingly. The producer and the consumer can communicate directly or optionally through an intermediary entity (_message broker_). This article focuses on asynchronous messaging using a message broker.

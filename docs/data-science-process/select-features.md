@@ -1,12 +1,12 @@
 ---
 title: Feature selection in the Team Data Science Process
 description: Explains the purpose of feature selection and provides examples of their role in the data enhancement process of machine learning.
-services: machine-learning
 author: marktab
 manager: marktab
 editor: marktab
-ms.service: machine-learning
-ms.subservice: team-data-science-process
+services: architecture-center
+ms.service: architecture-center
+ms.subservice: azure-guide
 ms.topic: article
 ms.date: 12/21/2021
 ms.author: tdsp
