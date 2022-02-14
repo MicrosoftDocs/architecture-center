@@ -138,6 +138,8 @@ This diagram summarizes options for the multiparty computing with Azure services
 
 ![Diagram summarizes decisions for choosing a multiparty computing option.](images/multiparty-compute-options.png)
 
+*Download a [Visio file](https://arch-center.azureedge.net/MultiPartyComputeDecisionTree.vsdx) of this architecture.*
+
 ## Next steps
 
 - [Azure Confidential Ledger](https://azure.microsoft.com/services/azure-confidential-ledger)

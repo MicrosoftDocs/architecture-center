@@ -2,7 +2,7 @@
 title: What's New in Azure Architecture Center
 description: New and updated articles in Azure Architecture Center
 author: doodlemania2
-ms.date: 02/07/2022
+ms.date: 02/14/2022
 ms.topic: article
 ms.service: architecture-center
 ---
@@ -27,6 +27,28 @@ New and updated articles in Azure Architecture Center.
 
 ### New Articles
 
+- [Azure and Power Platform scenarios](./solutions/power-platform-scenarios.md)
+- [Architectural approaches for AI and ML in multitenant solutions](./guide/multitenant/approaches/ai-ml.md)
+- [Tiered data for analytics](./example-scenario/hybrid/hybrid-tiered-data-analytics.yml)
+- [Architectural approaches for messaging in multitenant solutions](./guide/multitenant/approaches/messaging.md)
+- [Trusted Internet Connection (TIC) 3.0 compliance](./example-scenario/security/trusted-internet-connections.yml)
+- [Actuarial risk analysis and financial modeling](./industries/finance/actuarial-risk-analysis-financial-model.yml)
+- [Data management in banking](./industries/finance/data-management-banking-overview.yml)
+- [Enable the financial services risk lifecycle with Azure and R](./industries/finance/financial-risk-model.md)
+- [Risk grid computing in banking](./industries/finance/risk-grid-banking-overview.yml)
+- [Risk grid computing solution](./industries/finance/risk-grid-banking-solution-guide.yml)
+- [Implement the Azure healthcare blueprint for AI](./industries/healthcare/healthcare-ai-blueprint.yml)
+- [High-performance computing for manufacturing](./industries/manufacturing/compute-manufacturing-overview.yml)
+- [Extract actionable insights from IoT data](./industries/manufacturing/extract-insights-iot-data.yml)
+- [Introduction to predictive maintenance in manufacturing](./industries/manufacturing/predictive-maintenance-overview.yml)
+- [Predictive maintenance solution](./industries/manufacturing/predictive-maintenance-solution.yml)
+- [Migrate your e-commerce solution to Azure](./industries/retail/migrate-ecommerce-solution.md)
+- [Reuse recommender systems and algorithms from R with Azure](./industries/retail/recommendation-engine-optimization.yml)
+- [Data management in the retail industry](./industries/retail/retail-data-management-overview.md)
+- [SKU optimization for consumer brands](./industries/retail/sku-optimization-solution-guide.yml)
+- [Visual search in retail with Cosmos DB](./industries/retail/visual-search-use-case-overview.yml)
+- [Solutions for the education industry](./industries/education.md)
+- [Security architecture design](./guide/security/security-start-here.yml)
 - [Azure Database for PostgreSQL considerations for multitenancy](./guide/multitenant/service/postgresql.md)
 - [Hybrid geo-distributed architecture](./example-scenario/hybrid/hybrid-geo-distributed.yml)
 - [Cross-cloud scaling with Traffic Manager](./example-scenario/hybrid/hybrid-cross-cloud-scaling.yml)
@@ -36,6 +58,8 @@ New and updated articles in Azure Architecture Center.
 
 ### Updated Articles
 
+- [Real-time fraud detection](./example-scenario/data/fraud-detection.yml)  ([#ce2fecdfd](https://github.com/MicrosoftDocs/architecture-center/commit/ce2fecdfd))
+- [Monitor a microservices app in AKS](./microservices/logging-monitoring.md)  ([#bcb227d09](https://github.com/MicrosoftDocs/architecture-center/commit/bcb227d09))
 - [N-tier architecture style](./guide/architecture-styles/n-tier.md)  ([#4a1bad2c3](https://github.com/MicrosoftDocs/architecture-center/commit/4a1bad2c3))
 - [End-to-end governance in Azure](./example-scenario/governance/end-to-end-governance-in-azure.yml)  ([#d92ed29b2](https://github.com/MicrosoftDocs/architecture-center/commit/d92ed29b2))
 
@@ -83,7 +107,7 @@ New and updated articles in Azure Architecture Center.
 
 - [DevOps checklist](./checklist/dev-ops.md)  ([#8d2302d7b](https://github.com/MicrosoftDocs/architecture-center/commit/8d2302d7b))
 - [Azure resource organization in multitenant solutions](./guide/multitenant/approaches/resource-organization.md)  ([#0bc7de6d9](https://github.com/MicrosoftDocs/architecture-center/commit/0bc7de6d9))
-- [Asynchronous messaging options](./guide/technology-choices/messaging.md)  ([#943e03c78](https://github.com/MicrosoftDocs/architecture-center/commit/943e03c78))
+- [Asynchronous messaging options](./guide/technology-choices/messaging.yml)  ([#943e03c78](https://github.com/MicrosoftDocs/architecture-center/commit/943e03c78))
 - [Analytics end-to-end with Azure Synapse](./example-scenario/dataplate2e/data-platform-end-to-end.yml)  ([#c5e5aed19](https://github.com/MicrosoftDocs/architecture-center/commit/c5e5aed19))
 - [Azure Virtual Desktop for the enterprise](./example-scenario/wvd/windows-virtual-desktop.yml)  ([#79adc0725](https://github.com/MicrosoftDocs/architecture-center/commit/79adc0725))
 - [SAP deployment on Azure using an Oracle database](./example-scenario/apps/sap-production.yml)  ([#f5c527723](https://github.com/MicrosoftDocs/architecture-center/commit/f5c527723))
@@ -134,7 +158,7 @@ New and updated articles in Azure Architecture Center.
 - [Automate multistage DevOps pipelines with Azure Pipelines](./example-scenario/devops/automate-azure-pipelines.yml)
 - [Data analysis for regulated industries](./example-scenario/data/data-analysis-regulated-industries.yml)
 - [Governance of Teams guest users](./example-scenario/governance/governance-teams-guest-users.yml)
-- [Choose an Azure multiparty computing service](./guide/technology-choices/multiparty-computing-service.md)
+- [Choose an Azure multiparty computing service](./guide/technology-choices/multiparty-computing-service.yml)
 - [Azure resource organization in multitenant solutions](./guide/multitenant/approaches/resource-organization.md)
 - [Application data protection for AKS workloads on Azure NetApp Files](./example-scenario/file-storage/data-protection-kubernetes-astra-azure-netapp-files.yml)
 - [SQL Managed Instance with CMK](./example-scenario/data/sql-managed-instance-cmk.yml)

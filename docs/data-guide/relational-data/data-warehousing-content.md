@@ -1,20 +1,4 @@
----
-title: Data warehousing in Microsoft Azure
-description: Learn about data warehousing in Azure. A data warehouse is a repository of integrated data from disparate sources used for reporting and analysis of the data.
-author: EdPrice-MSFT
-ms.date: 11/20/2019
-ms.topic: conceptual
-ms.service: architecture-center
-ms.subservice: azure-guide
-products:
-  - azure-synapse-analytics
-ms.custom:
-  - guide
----
-
 <!-- cSpell:ignore LLAP Oozie DWUs -->
-
-# Data warehousing
 
 A data warehouse is a centralized repository of integrated data from one or more disparate sources. Data warehouses store current and historical data and are used for reporting and analysis of the data.
 
@@ -45,7 +29,7 @@ Other benefits include:
 - A data warehouse can consolidate data from different software.
 - Data mining tools can find hidden patterns in the data using automatic methodologies.
 - Data warehouses make it easier to provide secure access to authorized users, while restricting access to others. Business users don't need access to the source data, removing a potential attack vector.
-- Data warehouses make it easier to create business intelligence solutions, such as [OLAP cubes](online-analytical-processing.md).
+- Data warehouses make it easier to create business intelligence solutions, such as [OLAP cubes](online-analytical-processing.yml).
 
 ## Challenges
 

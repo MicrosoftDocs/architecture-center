@@ -318,6 +318,8 @@ items:
                 href: guide/multitenant/approaches/storage-data.md
               - name: Messaging
                 href: guide/multitenant/approaches/messaging.md
+              - name: AI and ML
+                href: guide/multitenant/approaches/ai-ml.md
           - name: Service-specific guidance
             items:
               - name: Overview
@@ -346,6 +348,13 @@ items:
                     href: guide/multitenant/service/postgresql.md
           - name: Related resources
             href: guide/multitenant/related-resources.md
+      - name: Solutions across Microsoft cloud platforms
+        expanded: true 
+        items:
+          - name: Azure and Power Platform scenarios 
+            items:
+                   - name: Overview
+                     href: solutions/power-platform-scenarios.md
       - name: Cloud comparisons
         items:
           - name: Azure for AWS professionals
@@ -489,8 +498,44 @@ items:
             href: industries/retail.md
           - name: Guides
             items: 
+              - name: Microsoft Cloud for Retail
+                items:
+                  - name: Overview
+                    href: /industry/retail/overview
+                    maintainContext: true
+                  - name: Elevate the shopping experience
+                    href: /industry/retail/elevate-shopping-experience
+                    maintainContext: true
+                  - name: Maximize the value of your data
+                    href: /industry/retail/maximize-data
+                    maintainContext: true
+                  - name: Security
+                    href: /industry/retail/security-overview
+                    maintainContext: true
+                  - name: Compliance
+                    href: /industry/retail/compliance-overview
+                    maintainContext: true
               - name: Data management in retail
                 href: industries/retail/retail-data-management-overview.md
+              - name: IoT in retail
+                items:
+                  - name: Digital distribution center
+                    href: /azure/iot-central/retail/tutorial-iot-central-digital-distribution-center
+                    maintainContext: true
+                  - name: In-store analytics checkout
+                    items:
+                      - name: Create a retail application
+                        href: /azure/iot-central/retail/tutorial-in-store-analytics-create-app
+                        maintainContext: true
+                      - name: Customize the operator dashboard
+                        href: /azure/iot-central/retail/tutorial-in-store-analytics-customize-dashboard
+                        maintainContext: true
+                      - name: Export data and visualize insights
+                        href: /azure/iot-central/retail/tutorial-in-store-analytics-export-data-visualize-insights
+                        maintainContext: true
+                  - name: Smart inventory management
+                    href: /azure/iot-central/retail/tutorial-iot-central-smart-inventory-management
+                    maintainContext: true
               - name: Migrate your e-commerce solution to Azure
                 href: industries/retail/migrate-ecommerce-solution.md
               - name: Optimize and reuse a recommendation system
@@ -503,25 +548,29 @@ items:
             items:
               - name: All retail architectures
                 href: /azure/architecture/browse/?terms=retail
+              - name: AI-based footfall detection
+                href: solution-ideas/articles/hybrid-footfall-detection.yml
               - name: Build a real-time recommendation API
                 href: reference-architectures/ai/real-time-recommendation.yml
+              - name: Buy online, pickup in store (retail)
+                href: example-scenario/iot/vertical-buy-online-pickup-in-store.yml
               - name: Content-based recommendation
                 href: example-scenario/ai/scalable-personalization-with-content-based-recommendation-system.yml
               - name: E-commerce front end
                 href: example-scenario/apps/ecommerce-scenario.yml
-              - name: Hybrid AI footfall detection for retail
-                href: /hybrid/app-solutions/pattern-retail-footfall-detection
-                maintainContext: true
               - name: Intelligent search engine for e-commerce
                 href: example-scenario/apps/ecommerce-search.yml
               - name: Magento e-commerce platform in AKS
                 href: example-scenario/magento/magento-azure.yml
               - name: Movie recommendations on Azure
                 href: example-scenario/ai/movie-recommendations-with-machine-learning.yml
-              - name: Retail - Buy online, pickup in store
-                href: example-scenario/iot/vertical-buy-online-pickup-in-store.yml
+              - name: Out of stock detection (retail)
+                href: /hybrid/app-solutions/pattern-out-of-stock-at-edge
+                maintainContext: true
               - name: Scalable order processing
                 href: example-scenario/data/ecommerce-order-processing.yml
+              - name: Video capture and analytics for retail
+                href: solution-ideas/articles/video-analytics.yml                
       - name: Finance
         items:
           - name: Overview
@@ -587,18 +636,6 @@ items:
                 href: /azure/architecture/reference-architectures/containers/aks-pci/aks-pci-ra-code-assets
               - name: AKS regulated - Protect cardholder data
                 href: /azure/architecture/reference-architectures/containers/aks-pci/aks-pci-data
-              - name: Blueprint - Analytics for PCI DSS
-                href: /previous-versions/azure/security/blueprints/pcidss-analytics-overview
-                maintainContext: true
-              - name: Blueprint - Data warehouse for PCI DSS
-                href: /previous-versions/azure/security/blueprints/pcidss-dw-overview
-                maintainContext: true
-              - name: Blueprint - IaaS web app for PCI DSS
-                href: /previous-versions/azure/security/blueprints/pcidss-iaaswa-overview
-                maintainContext: true
-              - name: Blueprint - PaaS web app for PCI DSS
-                href: /previous-versions/azure/security/blueprints/pcidss-paaswa-overview
-                maintainContext: true
       - name: Healthcare
         items:
           - name: Overview
@@ -684,9 +721,6 @@ items:
                     maintainContext: true
                   - name: HITRUST overview
                     href: /azure/compliance/offerings/offering-hitrust
-                    maintainContext: true
-                  - name: Blueprint - HIPAA/HITRUST data and AI
-                    href: /previous-versions/azure/security/blueprints/azure-health
                     maintainContext: true
                   - name: Implement the healthcare blueprint for AI
                     href: industries/healthcare/healthcare-ai-blueprint.yml
@@ -792,18 +826,6 @@ items:
                 items:                
                   - name: FedRAMP overview
                     href: /azure/compliance/offerings/offering-fedramp
-                    maintainContext: true
-                  - name: Blueprint - Analytics for FedRAMP
-                    href: /previous-versions/azure/security/blueprints/fedramp-analytics-overview
-                    maintainContext: true
-                  - name: Blueprint - Data warehouse for FedRAMP
-                    href: /previous-versions/azure/security/blueprints/fedramp-datawarehouse-overview
-                    maintainContext: true
-                  - name: Blueprint - IaaS web app for FedRAMP
-                    href: /previous-versions/azure/security/blueprints/fedramp-iaaswa-overview
-                    maintainContext: true
-                  - name: Blueprint - PaaS web app for FedRAMP
-                    href: /previous-versions/azure/security/blueprints/fedramp-paaswa-overview
                     maintainContext: true
                   - name: FedRAMP high compliance
                     href: /azure/governance/policy/samples/fedramp-high
@@ -1212,6 +1234,11 @@ items:
                 href: /azure/architecture/example-scenario/data/fraud-detection
               - name: Video capture and analytics 
                 href: /azure/architecture/solution-ideas/articles/video-analytics
+          - name: Compliance solutions
+            items:
+              - name: GSMA overview
+                href: /azure/compliance/offerings/offering-gsma
+                maintainContext: true
       - name: Facilities and Real Estate
         items: 
           - name: Overview
@@ -1265,6 +1292,10 @@ items:
             items:
               - name: All education architectures
                 href: /azure/architecture/browse/?terms=education
+              - name: Governance of Teams guest users
+                href: example-scenario/governance/governance-teams-guest-users.yml
+              - name: Moodle deployment with NetApp Files
+                href: example-scenario/file-storage/moodle-azure-netapp-files.yml
               - name: Secure research for regulated data
                 href: example-scenario/ai/secure-compute-for-research.yml
               - name: Teacher-provisioned virtual labs in Azure
@@ -1404,26 +1435,19 @@ items:
               - name: Industry guidance
                 items:
                   - name: Enable the financial services risk lifecycle
-                    href: /previous-versions/azure/industry-marketing/financial/fsi-risk-modeling
-                    maintainContext: true
+                    href: industries/finance/financial-risk-model.md
                   - name: Healthcare blueprint for AI
-                    href: /previous-versions/azure/industry-marketing/health/sg-healthcare-ai-blueprint
-                    maintainContext: true
+                    href: industries/healthcare/healthcare-ai-blueprint.yml
                   - name: Optimize and reuse recommendations
-                    href: /previous-versions/azure/industry-marketing/retail/recommendation-engine-optimization
-                    maintainContext: true
+                    href: industries/retail/recommendation-engine-optimization.yml
                   - name: Predictive maintenance in manufacturing
-                    href: /previous-versions/azure/industry-marketing/manufacturing/predictive-maintenance-overview
-                    maintainContext: true
+                    href: industries/manufacturing/predictive-maintenance-overview.yml
                   - name: Predictive maintenance solution
-                    href: /previous-versions/azure/industry-marketing/manufacturing/predictive-maintenance-solution
-                    maintainContext: true
+                    href: industries/manufacturing/predictive-maintenance-solution.yml
                   - name: SKU optimization for consumer brands
-                    href: /previous-versions/azure/industry-marketing/retail/sku-optimization-solution-guide
-                    maintainContext: true
+                    href: industries/retail/sku-optimization-solution-guide.yml
                   - name: Visual search for retail
-                    href: /previous-versions/azure/industry-marketing/retail/visual-search-use-case-overview
-                    maintainContext: true
+                    href: industries/retail/visual-search-use-case-overview.yml
               - name: Team Data Science Process
                 items:
                   - name: Overview
@@ -1584,14 +1608,6 @@ items:
                 href: reference-architectures/ai/batch-scoring-R-models.yml
               - name: Batch scoring with Spark on Databricks
                 href: reference-architectures/ai/batch-scoring-databricks.yml
-              - name: Blueprint architectures
-                items:
-                  - name: Blueprint - HIPAA/HITRUST health for AI
-                    href: /previous-versions/azure/security/blueprints/azure-health
-                    maintainContext: true
-                  - name: Implement the healthcare blueprint for AI
-                    href: /previous-versions/azure/industry-marketing/health/sg-healthcare-ai-blueprint
-                    maintainContext: true
               - name: Build content-based recommendations
                 href: example-scenario/ai/scalable-personalization-with-content-based-recommendation-system.yml
               - name: Chatbot for hotel booking
@@ -1614,6 +1630,8 @@ items:
                 href: example-scenario/ai/extract-object-text.yml
               - name: Image classification
                 href: example-scenario/ai/intelligent-apps-image-processing.yml
+              - name: Implement the healthcare blueprint for AI
+                href: industries/healthcare/healthcare-ai-blueprint.yml
               - name: Many models ML with Spark
                 href: example-scenario/ai/many-models-machine-learning-azure-spark.yml
               - name: Many models with Azure Machine Learning
@@ -1741,8 +1759,7 @@ items:
                   - name: Stream processing
                     href: /azure/architecture/data-guide/technology-choices/stream-processing
               - name: Actuarial risk analysis
-                href: /previous-versions/azure/industry-marketing/financial/actuarial-risk-analysis-and-financial-modeling-solution-guide
-                maintainContext: true
+                href: industries/finance/actuarial-risk-analysis-financial-model.yml
               - name: Analytics security baselines
                 items:
                   - name: Security baseline for Azure Data Factory
@@ -1770,14 +1787,6 @@ items:
                 href: example-scenario/data/azure-nifi.yml
               - name: Automated enterprise BI
                 href: reference-architectures/data/enterprise-bi-adf.yml
-              - name: Blueprint architectures
-                items:
-                  - name: Blueprint - Analytics for FedRAMP
-                    href: /previous-versions/azure/security/blueprints/fedramp-analytics-overview
-                    maintainContext: true
-                  - name: Blueprint - Analytics for PCI DSS
-                    href: /previous-versions/azure/security/blueprints/pcidss-analytics-overview
-                    maintainContext: true
               - name: Customer 360 with Azure Synapse and Dynamics 365
                 href: example-scenario/analytics/synapse-customer-insights.yml      
               - name: Data analysis for regulated industries
@@ -1846,7 +1855,7 @@ items:
                 href: solution-ideas/articles/interactive-azure-data-explorer.yml
               - name: IoT analytics with Azure Data Explorer
                 href: solution-ideas/articles/iot-azure-data-explorer.yml
-              - name: Manage data across Azure SQL estate with Azure Purview
+              - name: Manage data across the Azure SQL estate
                 href: solution-ideas/articles/azure-purview-sql-estate-architecture.yml
               - name: Mining equipment monitoring
                 href: solution-ideas/articles/monitor-mining-equipment.yml
@@ -1891,7 +1900,7 @@ items:
                 href: solution-ideas/articles/blockchain-workflow-application.yml
               - name: Supply chain track and trace
                 href: solution-ideas/articles/supply-chain-track-and-trace.yml
-      - name: Compute
+      - name: Compute + HPC
         items:
           - name: Get started with HPC
             href: topics/high-performance-computing.md
@@ -1903,15 +1912,12 @@ items:
                 href: guide/sas/sas-overview.yml
               - name: Industry guidance
                 items:
-                  - name: High-power compute for manufacturing
-                    href: /previous-versions/azure/industry-marketing/manufacturing/compute-in-manufacturing-overview
-                    maintainContext: true
+                  - name: High-performance compute for manufacturing
+                    href: industries/manufacturing/compute-manufacturing-overview.yml
                   - name: Risk grid computing in banking
-                    href: /previous-versions/azure/industry-marketing/financial/risk-grid-banking-overview
-                    maintainContext: true
+                    href: industries/finance/risk-grid-banking-overview.yml
                   - name: Risk grid computing solution
-                    href: /previous-versions/azure/industry-marketing/financial/risk-grid-banking-solution-guide
-                    maintainContext: true
+                    href: industries/finance/risk-grid-banking-solution-guide.yml
               - name: VM security baselines
                 items:
                   - name: Security baseline for VM scale sets
@@ -1927,14 +1933,6 @@ items:
             items:
               - name: 3D video rendering
                 href: example-scenario/infrastructure/video-rendering.yml
-              - name: Blueprint architectures
-                items:
-                  - name: Blueprint - IaaS web app for FedRAMP
-                    href: /previous-versions/azure/security/blueprints/fedramp-iaaswa-overview
-                    maintainContext: true
-                  - name: Blueprint - IaaS web app for PCI DSS
-                    href: /previous-versions/azure/security/blueprints/pcidss-iaaswa-overview
-                    maintainContext: true
               - name: Computer-aided engineering
                 href: example-scenario/apps/hpc-saas.yml
               - name: Digital image modeling
@@ -1947,7 +1945,7 @@ items:
                 href: example-scenario/security/virtual-machine-compliance.yml
               - name: Move Azure resources across regions
                 href: solution-ideas/articles/move-azure-resources-across-regions.yml
-              - name:  Quantum computing solutions
+              - name: Quantum computing solutions
                 items: 
                   - name: Loosely coupled quantum computing on Azure
                     href: example-scenario/quantum/loosely-coupled-quantum-computing-job.yml
@@ -2040,7 +2038,7 @@ items:
                     maintainContext: true
           - name: Architectures
             items:
-              - name: Advanced microservices architecture on AKS
+              - name: Advanced microservices on AKS
                 href: reference-architectures/containers/aks-microservices/aks-microservices-advanced.yml
               - name: AKS baseline cluster
                 href: reference-architectures/containers/aks/secure-baseline-aks.yml
@@ -2123,7 +2121,7 @@ items:
             href: data-guide/databases-architecture-design.yml
           - name: Guides
             items:
-              - name: Get started
+              - name: Overview
                 href: data-guide/index.md
               - name: Relational data
                 items:
@@ -2190,17 +2188,14 @@ items:
               - name: Industry guidance
                 items:
                   - name: Data management in banking
-                    href: /previous-versions/azure/industry-marketing/financial/data-mgmt-in-banking-overview
-                    maintainContext: true
+                    href: industries/finance/data-management-banking-overview.yml
                   - name: Data management in retail
-                    href: /previous-versions/azure/industry-marketing/retail/retail-data-management-overview
-                    maintainContext: true
+                    href: industries/retail/retail-data-management-overview.md
                   - name: Financial institutions with data mesh
                     href: /azure/cloud-adoption-framework/scenarios/data-management/architectures/reference-architecture-data-mesh
                     maintainContext: true
                   - name: Visual search for retail
-                    href: /previous-versions/azure/industry-marketing/retail/visual-search-use-case-overview
-                    maintainContext: true
+                    href: industries/retail/visual-search-use-case-overview.yml
               - name: Transfer data to and from Azure
                 href: data-guide/scenarios/data-transfer.md
               - name: Extend on-premises data solutions to Azure
@@ -2349,17 +2344,6 @@ items:
                 href: example-scenario/data/azure-health-data-consortium.yml
               - name: Build a delta lake for ad hoc queries
                 href: solution-ideas/articles/build-data-lake-support-adhoc-queries-online.yml
-              - name: Blueprint architectures
-                items:
-                  - name: Blueprint - Data warehouse for FedRAMP
-                    href: /previous-versions/azure/security/blueprints/fedramp-datawarehouse-overview
-                    maintainContext: true
-                  - name: Blueprint - Data warehouse for PCI DSS
-                    href: /previous-versions/azure/security/blueprints/pcidss-dw-overview
-                    maintainContext: true
-                  - name: Blueprint - HIPAA/HITRUST health data
-                    href: /previous-versions/azure/security/blueprints/azure-health
-                    maintainContext: true
               - name: Cost savings through HTAP with Azure SQL
                 href: example-scenario/data/azure-sql-htap.yml
               - name: Data governance with Profisee
@@ -2774,14 +2758,14 @@ items:
                 href: solution-ideas/articles/immutable-infrastructure-cicd-using-jenkins-and-terraform-on-azure-virtual-architecture-overview.yml
               - name: DevSecOps in Azure
                 href: solution-ideas/articles/devsecops-in-azure.yml
+              - name: DevSecOps with a rolling main branch
+                href: solution-ideas/articles/devsecops-rolling-branch.yml
               - name: DevTest and DevOps for IaaS
                 href: solution-ideas/articles/dev-test-iaas.yml
               - name: DevTest and DevOps for PaaS
                 href: solution-ideas/articles/dev-test-paas.yml
               - name: DevTest and DevOps with microservices
                 href: solution-ideas/articles/dev-test-microservice.yml
-              - name: DevSecOps with a rolling main branching strategy
-                href: solution-ideas/articles/devsecops-rolling-branch.yml
               - name: DevTest Image Factory
                 href: solution-ideas/articles/dev-test-image-factory.yml
               - name: Hybrid DevOps
@@ -2801,6 +2785,7 @@ items:
                 maintainContext: true
               - name: Hybrid app design considerations
                 href: /hybrid/app-solutions/overview-app-design-considerations
+                maintainContext: true
               - name: Azure Arc guidance
                 items:
                   - name: Administer SQL Server with Azure Arc
@@ -2949,7 +2934,7 @@ items:
                 href: hybrid/gateway-logic-apps.yml
               - name: Run containers in a hybrid environment
                 href: hybrid/hybrid-containers.yml
-              - name: Azure file shares in hybrid environment
+              - name: Use Azure file shares in a hybrid environment
                 href: hybrid/azure-file-share.yml
           - name: Solution ideas
             items:
@@ -3199,7 +3184,7 @@ items:
                     href: guide/iot-edge-vision/alerts.md
                   - name: User interface
                     href: guide/iot-edge-vision/user-interface.md
-              - name: Industrial IoT Analytics
+              - name: Industrial IoT analytics
                 items:
                   - name: Architecture
                     href: guide/iiot-guidance/iiot-architecture.md
@@ -4018,7 +4003,7 @@ items:
             href: reference-architectures/sap/sap-overview.yml
           - name: Guides
             items:
-              - name: Checklist
+              - name: SAP checklist
                 href: /azure/virtual-machines/workloads/sap/sap-deployment-checklist
                 maintainContext: true
               - name: SAP HANA infrastructure configurations
@@ -4137,18 +4122,20 @@ items:
               - name: Storage accounts
                 href: /azure/storage/common/storage-account-overview
                 maintainContext: true                
-              - name: Storage encryption for data at rest
-                href: /azure/storage/common/storage-service-encryption
-                maintainContext: true
-              - name: Azure Policy controls for Storage
-                href: /azure/storage/common/security-controls-policy
-                maintainContext: true
-              - name: Use private endpoints
-                href: /azure/storage/common/storage-private-endpoints
-                maintainContext: true
-              - name: Security baseline for Azure Storage
-                href: /security/benchmark/azure/baselines/storage-security-baseline
-                maintainContext: true
+              - name: Security and compliance
+                items:
+                  - name: Storage encryption for data at rest
+                    href: /azure/storage/common/storage-service-encryption
+                    maintainContext: true
+                  - name: Azure Policy controls for Storage
+                    href: /azure/storage/common/security-controls-policy
+                    maintainContext: true
+                  - name: Use private endpoints
+                    href: /azure/storage/common/storage-private-endpoints
+                    maintainContext: true
+                  - name: Security baseline for Azure Storage
+                    href: /security/benchmark/azure/baselines/storage-security-baseline
+                    maintainContext: true
               - name: Data redundancy
                 href: /azure/storage/common/storage-redundancy
                 maintainContext: true
@@ -4249,6 +4236,26 @@ items:
                     maintainContext: true
                   - name: Create an incremental snapshot
                     href: /azure/virtual-machines/disks-incremental-snapshots
+                    maintainContext: true
+              - name: Azure NetApp Files guidance
+                items:
+                  - name: Solution architectures
+                    href: /azure/azure-netapp-files/azure-netapp-files-solution-architectures
+                    maintainContext: true
+                  - name: Use ANF with Oracle Database
+                    href: /azure/azure-netapp-files/solutions-benefits-azure-netapp-files-oracle-database
+                    maintainContext: true
+                  - name: ANF for electronic design automation
+                    href: /azure/azure-netapp-files/solutions-benefits-azure-netapp-files-electronic-design-automation
+                    maintainContext: true
+                  - name: Use ANF with Virtual Desktop
+                    href: /azure/azure-netapp-files/solutions-windows-virtual-desktop
+                    maintainContext: true
+                  - name: Use ANF with SQL Server
+                    href: /azure/azure-netapp-files/solutions-benefits-azure-netapp-files-sql-server
+                    maintainContext: true
+                  - name: ANF application volume group for SAP HANA
+                    href: /azure/azure-netapp-files/application-volume-group-introduction
                     maintainContext: true
           - name: Architectures
             items:
@@ -4367,14 +4374,6 @@ items:
             items:
               - name: Basic web application
                 href: reference-architectures/app-service-web-app/basic-web-app.yml
-              - name: Blueprint architectures
-                items:
-                 - name: Blueprint - PaaS web app for FedRAMP
-                   href: /previous-versions/azure/security/blueprints/fedramp-paaswa-overview
-                   maintainContext: true
-                 - name: Blueprint - PaaS web app for PCI DSS
-                   href: /previous-versions/azure/security/blueprints/pcidss-paaswa-overview
-                   maintainContext: true
               - name: Clinical insights with Cloud for Healthcare
                 href: example-scenario/mch-health/medical-data-insights.yml
               - name: Common web app architectures

@@ -1,24 +1,3 @@
----
-title: Choose an Azure compute service
-description: Use this chart and other information to decide which compute service, or hosting model for computing resources, best suits your application.
-author: EdPrice-MSFT
-ms.author: pnp
-ms.date: 03/29/2021
-ms.topic: conceptual
-ms.service: architecture-center
-ms.subservice: azure-guide
-categories:
-  - compute
-products:
-  - azure-app-service
-  - azure-kubernetes-service
-ms.custom:
-  - guide
-  - e2e-aks
----
-
-# Choose an Azure compute service for your application
-
 Azure offers a number of ways to host your application code. The term *compute* refers to the hosting model for the computing resources that your application runs on. The following flowchart will help you to choose a compute service for your application.
 
 If your application consists of multiple workloads, evaluate each workload separately. A complete solution may incorporate two or more compute services.
@@ -159,7 +138,7 @@ Perform a more detailed evaluation looking at the following aspects of the servi
 - [Cost](https://azure.microsoft.com/pricing/)
 - [SLA](https://azure.microsoft.com/support/legal/sla/)
 - [Regional availability](https://azure.microsoft.com/global-infrastructure/services/)
-- [Compute comparison tables](./compute-decision-tree.md)
+- [Compute comparison tables](./compute-decision-tree.yml)
 
 ## Next steps
 

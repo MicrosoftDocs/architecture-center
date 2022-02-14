@@ -1,12 +1,12 @@
 ---
 title: Scalable data science with Azure Data Lake
 description: How to use Azure Data Lake to do data exploration and binary classification tasks on a dataset.
-services: machine-learning
 author: marktab
 manager: marktab
 editor: marktab
-ms.service: machine-learning
-ms.subservice: team-data-science-process
+services: architecture-center
+ms.service: architecture-center
+ms.subservice: azure-guide
 ms.topic: article
 ms.date: 01/28/2022
 ms.author: tdsp

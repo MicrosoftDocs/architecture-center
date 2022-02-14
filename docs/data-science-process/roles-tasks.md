@@ -4,9 +4,9 @@ description: An outline of the key components, personnel roles, and associated t
 author: marktab
 manager: marktab
 editor: marktab
-services: machine-learning
-ms.service: machine-learning
-ms.subservice: team-data-science-process
+services: architecture-center
+ms.service: architecture-center
+ms.subservice: azure-guide
 ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
