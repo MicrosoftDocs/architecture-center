@@ -355,6 +355,10 @@ items:
             items:
                    - name: Overview
                      href: solutions/power-platform-scenarios.md
+          - name: Microsoft 365 and Azure
+            items: 
+              - name: Real-time collaboration
+                href: solution-ideas/articles/collaboration-microsoft-365.yml           
       - name: Cloud comparisons
         items:
           - name: Azure for AWS professionals
