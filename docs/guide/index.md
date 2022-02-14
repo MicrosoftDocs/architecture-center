@@ -3,12 +3,16 @@ title: Azure Application Architecture Fundamentals
 description: A structured approach for designing applications on Azure that are scalable, resilient, and highly available
 author: EdPrice-MSFT
 ms.author: pnp
-ms.date: 10/29/2021
+ms.date: 12/13/2021
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: guide
 ms.custom:
   - guide
+products:
+  - azure
+categories:
+  - management-and-governance
 ---
 
 # Azure application architecture fundamentals
@@ -48,11 +52,11 @@ Learn more: [Architecture styles](./architecture-styles/index.md)
 
 Knowing the type of architecture you are building, now you can start to choose the main technology pieces for the architecture. The following technology choices are critical:
 
-- *Compute* refers to the hosting model for the computing resources that your applications run on. For more information, see [Choose a compute service](./technology-choices/compute-decision-tree.md).
+- *Compute* refers to the hosting model for the computing resources that your applications run on. For more information, see [Choose a compute service](./technology-choices/compute-decision-tree.yml).
 
 - *Data stores* include databases but also storage for message queues, caches, logs, and anything else that an application might persist to storage. For more information, see [Choose a data store](./technology-choices/data-store-overview.md).
 
-- *Messaging* technologies enable asynchronous messages between components of the system. For more information, see [Choose a messaging service](./technology-choices/messaging.md).
+- *Messaging* technologies enable asynchronous messages between components of the system. For more information, see [Choose a messaging service](./technology-choices/messaging.yml).
 
 You will probably have to make additional technology choices along the way, but these three elements (compute, data, and messaging) are central to most cloud applications and will determine many aspects of your design.
 
@@ -84,7 +88,7 @@ Our [security best practices](/security/compass/applications-services) describe 
 
 A successful cloud application will focus on five pillars of software quality: Cost optimization, Operational excellence, Performance efficiency, Reliability, and Security.
 
-Leverage the [Microsoft Azure Well-Architected Framework](../framework/index.md) to assess your architecture across these five pillars.
+Leverage the [Microsoft Azure Well-Architected Framework](/azure/architecture/framework) to assess your architecture across these five pillars.
 
 ## Next steps
 

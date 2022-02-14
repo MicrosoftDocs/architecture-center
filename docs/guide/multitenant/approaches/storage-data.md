@@ -4,15 +4,17 @@ titleSuffix: Azure Architecture Center
 description: This article describes approaches to support multitenancy for the storage and data components of your solution.
 author: johndowns
 ms.author: jodowns
-ms.date: 11/03/2021
+ms.date: 12/13/2021
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: azure-guide
 products:
   - azure
+  - azure-sql-database
+  - azure-storage
 categories:
-  - management-and-governance
-  - security
+  - storage
+  - databases
 ms.category:
   - fcp
 ms.custom:
@@ -26,7 +28,7 @@ When planning multitenant storage or data components, you need to decide on an a
 
 ## Key considerations and requirements
 
-It's important to consider the approaches you use for storage and data services from a number of perspectives, which approximately align to the pillars of the [Azure Well-Architected Framework](../../../framework/index.md).
+It's important to consider the approaches you use for storage and data services from a number of perspectives, which approximately align to the pillars of the [Azure Well-Architected Framework](/azure/architecture/framework).
 
 ### Scale
 
@@ -57,7 +59,7 @@ It's important to consider the complexity of your implementation. It's good prac
 
 Similarly, if your solution doesn't need to scale to a large number of tenants, or if you don't have concerns around performance or data isolation, then it's better to keep your solution simple and avoid adding unnecessary complexity.
 
-A particular concern for multitenant data solutions is the level of customization you support. For example, can a tenant extend your data model or apply custom data rules? Ensure you design for this upfront. Avoid forking or providing custom infrastructure for individual tenants, since this inhibits your ability to scale, to test your solution, and to deploy updates. Instead, consider using [feature flags](/azure/devops/migrate/phase-features-with-feature-flags) and other forms of tenant configuration.
+A particular concern for multitenant data solutions is the level of customization you support. For example, can a tenant extend your data model or apply custom data rules? Ensure you design for this upfront. Avoid forking or providing custom infrastructure for individual tenants, since this inhibits your ability to scale, to test your solution, and to deploy updates. Instead, consider using [feature flags](/devops/operate/progressive-experimentation-feature-flags) and other forms of tenant configuration.
 
 ### Complexity of management and operations
 
@@ -76,7 +78,7 @@ Generally, the higher the density of tenants to your deployment infrastructure, 
 
 ## Approaches and patterns to consider
 
-Several design patterns from the Azure Architecture Center are of relevance to mulitenant storage and data services. You might choose to follow one pattern consistently. Or, you could consider mixing and matching patterns. For example, you might use a multitenant database for most of your tenants, but deploy single-tenant stamps for tenants who pay more or who have unusual requirements. Similarly, it's often a good practice to scale by using deployment stamps, even when you use a multitenant database or sharded databases within a stamp.
+Several design patterns from the Azure Architecture Center are of relevance to multitenant storage and data services. You might choose to follow one pattern consistently. Or, you could consider mixing and matching patterns. For example, you might use a multitenant database for most of your tenants, but deploy single-tenant stamps for tenants who pay more or who have unusual requirements. Similarly, it's often a good practice to scale by using deployment stamps, even when you use a multitenant database or sharded databases within a stamp.
 
 ### Deployment Stamps pattern
 
@@ -100,9 +102,9 @@ However, when you work with shared infrastructure, there are several caveats to 
 
 ### Sharding pattern
 
-![Diagram showing a sharded database. One database contains the data for tenants A and B, and the other contains the data for tenant C.](media/storage-data/sharding.png)
-
 The [Sharding pattern](../../../patterns/sharding.md) involves deploying multiple separate databases, called *shards*, that contain one or more tenants' data. Unlike deployment stamps, shards don't imply that the entire infrastructure is duplicated. You might shard databases without also duplicating or sharding other infrastructure in your solution.
+
+![Diagram showing a sharded database. One database contains the data for tenants A and B, and the other contains the data for tenant C.](media/storage-data/sharding.png)
 
 Sharding is closely related to *partitioning*, and the terms are often used interchangeably. Consider the [Horizontal, vertical, and functional data partitioning guidance](../../../best-practices/data-partitioning.md).
 

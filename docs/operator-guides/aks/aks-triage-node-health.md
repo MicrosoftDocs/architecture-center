@@ -7,6 +7,8 @@ ms.date: 10/12/2020
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: azure-guide
+categories:
+  - containers
 products:
   - azure-kubernetes-service
   - azure-monitor
@@ -45,7 +47,7 @@ If worker nodes are healthy, examine the connectivity between the managed AKS co
 **Tools:**
 
 - `kubectl`
-- **Azure Monitor for Containers**
+- **Azure Monitor container insights**
 
 ![Sample aks-link Pod](images/aks-link-pod.png)
 
@@ -67,7 +69,7 @@ If **tunnelfront** or **aks-link** connectivity is not working, establish connec
 
    ![Sample `aks-link` logs](images/aks-link-logs.png)
 
-You can also retrieve those logs by searching the container logs in the logging and monitoring service. This example searches [Azure Monitor for Containers](/azure/azure-monitor/insights/container-insights-log-search) to check for **aks-link** connectivity errors.
+You can also retrieve those logs by searching the container logs in the logging and monitoring service. This example searches [Azure Monitor container insights](/azure/azure-monitor/insights/container-insights-log-search) to check for **aks-link** connectivity errors.
 
 ```kusto
 let ContainerIDs = KubePodInventory
@@ -147,9 +149,9 @@ Check to see that file operations (IOPS) are not getting throttled and impacting
 
 **Tools:**
 
-- **[Azure Monitor for Containers Disk IO Workbook](/azure/azure-monitor/insights/container-insights-analyze#workbooks)**
+- **[Azure Monitor container insights Disk IO Workbook](/azure/azure-monitor/insights/container-insights-analyze#workbooks)**
 
-    ![Azure Monitor for Containers - Disk IO Workbook](images/aks-diskioworkbook.png)
+    ![Azure Monitor container insights - Disk IO Workbook](images/aks-diskioworkbook.png)
 
 - **Prometheus and Grafana Dashboard:** Node Disk Dashboard
     ![Prometheus and Grafana Dashboard - Node Disk](images/node-diskio.png)

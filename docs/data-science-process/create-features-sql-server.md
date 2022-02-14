@@ -1,14 +1,14 @@
 ---
 title: Create features in SQL Server using SQL and Python
 description: Generate features for data stored in a SQL Server VM on Azure using SQL and Python - part of the Team Data Science Process.
-services: machine-learning
 author: marktab
 manager: marktab
 editor: marktab
-ms.service: machine-learning
-ms.subservice: team-data-science-process
+services: architecture-center
+ms.service: architecture-center
+ms.subservice: azure-guide
 ms.topic: article
-ms.date: 01/10/2020
+ms.date: 12/16/2021
 ms.author: tdsp
 ms.custom:
   - previous-author=deguhath
@@ -104,9 +104,7 @@ These location-based features can be further used to generate additional count f
 
 ### <a name="sql-aml"></a>Connecting to Azure Machine Learning
 
-The newly generated feature can be added as a column to an existing table or stored in a new table and joined with the original table for machine learning. Features can be generated or accessed if already created, using the [Import Data](/azure/machine-learning/studio-module-reference/import-data) module in Azure ML as shown below:
-
-![Azure ML readers](./media/sql-server-virtual-machine/reader-db-featurized-input.png)
+The newly generated feature can be added as a column to an existing table or stored in a new table and joined with the original table for machine learning. The resulting table may be then [saved as a dataset in Azure Machine Learning](/azure/machine-learning/concept-data) and available for data science.
 
 ## <a name="python"></a>Using a programming language like Python
 
@@ -127,4 +125,4 @@ The [Pandas library](https://pandas.pydata.org/) in Python provides a rich set o
 data_frame = pd.read_sql('''select <columnname1>, <columnname2>... from <tablename>''', conn)
 ```
 
-Now you can work with the Pandas data frame as covered in topics [Create features for Azure blob storage data using Panda](./explore-data-blob.md).
+Now you may work with the Pandas data frame as covered in topics [Create features for Azure blob storage data using Panda](./explore-data-blob.md).

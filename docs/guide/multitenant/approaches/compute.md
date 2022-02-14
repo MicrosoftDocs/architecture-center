@@ -4,18 +4,18 @@ titleSuffix: Azure Architecture Center
 description: This article describes approaches to support multitenancy for the compute components of your solution.
 author: DixitArora-MSFT
 ms.author: dixitaro
-ms.date: 11/22/2021
+ms.date: 12/13/2021
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: azure-guide
 products:
  - azure
- - azure-app=service
+ - azure-app-service
  - azure-functions
  - azure-kubernetes-service
 categories:
- - management-and-governance
- - security
+ - compute
+ - web
 ms.category:
   - fcp
 ms.custom:
@@ -39,7 +39,7 @@ Systems need to perform adequately under changing demand. As the number of tenan
 
 If you deploy dedicated resources for each tenant, you have the flexibility to scale each tenant's resources independently. In a solution where compute resources are shared between multiple tenants, if you scale those resources, then all of those tenants can make use of the new scale. However, they also will all suffer when the scale is insufficient to handle their overall load. For more information, see the [Noisy Neighbor problem](../../../antipatterns/noisy-neighbor/index.md).
 
-When you build cloud solutions, you can choose whether to [scale horizontally or vertically](../../../framework/scalability/design-scale.md). In a multitenant solution with a growing number of tenants, scaling horizontally typically provides you with greater flexibility and a higher overall scale ceiling.
+When you build cloud solutions, you can choose whether to [scale horizontally or vertically](/azure/architecture/framework/scalability/design-scale). In a multitenant solution with a growing number of tenants, scaling horizontally typically provides you with greater flexibility and a higher overall scale ceiling.
 
 Performance problems often remain undetected until an application is under load. You can use a fully managed service, such as [Azure Load Testing Preview](/azure/load-testing/overview-what-is-azure-load-testing), to learn how your application behaves under stress.
 
@@ -148,7 +148,7 @@ Instead, consider using asynchronous processing by making use of queues or other
 
 Multitenant solutions are often subject to bursty scale patterns. Shared components are particularly susceptible to this issue, because the scope for burst is higher, and the impact is greater when you have more tenants with distinct usage patterns.
 
-Ensure you make good use of the elasticity and scale of the cloud. Consider whether you should use [horizontal or vertical scaling](../../../framework/scalability/design-scale.md), and use autoscaling to automatically handle spikes in load. Test your solution to understand how it behaves under different levels of load. Ensure you include the load volumes that are expected in production, and your expected growth. You can use a fully managed service, such as [Azure Load Testing Preview](/azure/load-testing/overview-what-is-azure-load-testing), to learn how your application behaves under stress.
+Ensure you make good use of the elasticity and scale of the cloud. Consider whether you should use [horizontal or vertical scaling](/azure/architecture/framework/scalability/design-scale), and use autoscaling to automatically handle spikes in load. Test your solution to understand how it behaves under different levels of load. Ensure you include the load volumes that are expected in production, and your expected growth. You can use a fully managed service, such as [Azure Load Testing Preview](/azure/load-testing/overview-what-is-azure-load-testing), to learn how your application behaves under stress.
 
 ### No Caching antipattern
 
@@ -156,7 +156,7 @@ The [No Caching antipattern](../../../antipatterns/no-caching/index.md) is when 
 
 ### Unnecessary statefulness
 
-The corollary to the No Caching antipattern is that you also should avoid storing unnecessary state in your compute tier. Be explicit about where you maintain state and why. Stateful front-end or application tiers can reduce your ability to scale. Stateful compute tiers typically also require session affinity, which can reduce your ability to effictively load balance traffic, across workers or nodes.
+The corollary to the No Caching antipattern is that you also should avoid storing unnecessary state in your compute tier. Be explicit about where you maintain state and why. Stateful front-end or application tiers can reduce your ability to scale. Stateful compute tiers typically also require session affinity, which can reduce your ability to effectively load balance traffic, across workers or nodes.
 
 Consider the tradeoffs for each piece of state you maintain in your compute tier, and whether it impacts your ability to scale or to grow as your tenants' workload patterns change. You can also store state in an external cache, such as Azure Cache for Redis.
 

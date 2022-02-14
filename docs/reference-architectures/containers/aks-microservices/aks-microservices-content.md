@@ -93,7 +93,7 @@ On the other hand, if you need complete control over the settings, you may want 
 
 > For AKS, you can also use Azure Application Gateway, using the [Application Gateway Ingress Controller](https://azure.github.io/application-gateway-kubernetes-ingress/). This option requires [CNI networking](/azure/aks/configure-azure-cni) to be enabled when you configure the AKS cluster, because Application Gateway is deployed into a subnet of the AKS virtual network.  Azure Application Gateway can perform layer-7 routing and SSL termination. It also has built-in support for web application firewall (WAF).
 
-For information about load-balancing services in Azure, see [Overview of load-balancing options in Azure](../../../guide/technology-choices/load-balancing-overview.md).
+For information about load-balancing services in Azure, see [Overview of load-balancing options in Azure](../../../guide/technology-choices/load-balancing-overview.yml).
 
 ### TLS/SSL encryption
 
@@ -285,7 +285,7 @@ To deploy the reference implementation for this architecture, follow the steps i
 [ri]: https://github.com/mspnp/microservices-reference-implementation
 [ri-deploy]: https://github.com/mspnp/microservices-reference-implementation/blob/main/deployment.md
 [visio-download]: https://arch-center.azureedge.net/aks-reference-architecture.vsdx
-[aaf-cost]: ../../../framework/cost/overview.md
+[aaf-cost]: /azure/architecture/framework/cost/overview
 [azure-pricing-calculator]: https://azure.microsoft.com/pricing/calculator
 [DevOps-pricing]: https://azure.microsoft.com/pricing/details/devops/azure-devops-services
 [AppGatewayPricing]: https://azure.microsoft.com/pricing/details/application-gateway

@@ -1,0 +1,27 @@
+### YamlMime:Architecture
+metadata:
+  title: Azure files secured by AD DS
+  titlesuffix: Azure Example Scenarios
+  description: Learn how to provide secure Azure files that are secured by on-premises Windows Server Active Directory domain services (AD DS), and accessed on-premises.
+  author: EdPrice-MSFT
+  ms.author: ruolivei
+  ms.date: 12/17/2021
+  ms.topic: conceptual
+  ms.service: architecture-center
+  ms.subservice: example-scenario
+  ms.custom: fcp
+azureCategories:
+  - hybrid
+  - storage
+  - security
+products:
+  - azure-virtual-network
+  - azure-expressroute
+  - azure-storage-accounts
+  - azure-files
+  - azure-dns
+name: Azure files accessed on-premises and secured by AD DS
+summary: Learn how to provide secure Azure files that are secured by on-premises Windows Server Active Directory domain services (AD DS), and accessed on-premises.
+thumbnailUrl: /azure/architecture/browse/thumbs/azure-files-on-premises-authentication.png
+content: |
+   [!include[](azure-files-on-premises-authentication-content.md)]

@@ -4,7 +4,7 @@ titleSuffix: Performance antipatterns for cloud apps
 description: Learn how the activity of one tenant can impact the performance of other tenants in a multitenant system.
 author: johndowns
 ms.author: jodowns
-ms.date: 08/23/2021
+ms.date: 01/04/2022
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: anti-pattern
@@ -19,7 +19,7 @@ ms.custom:
 
 # Noisy Neighbor antipattern
 
-Multitenant systems share resources between tenants. This means that the activity of one tenant can have a negative impact on another tenant's use of the system.
+Multitenant systems share resources between tenants, which means that the activity of one tenant can have a negative impact on another tenant's use of the system.
 
 ## Problem description
 
@@ -29,7 +29,7 @@ Consider an example multitenant system with two tenants. Tenant A's usage patter
 
 ![Figure showing the resource usage of two tenants. Tenant A consumes the complete set of system resources, meaning tenant B experiences failures.](_images/noisy-neighbor-single.png)
 
-It's likely that whichever tenant's request arrived first will take precedence, and the other tenant will experience a noisy neighbor problem. Alternatively, both tenants may find their performance suffers.
+It's likely that whichever tenant's request that arrived first will take precedence. Then the other tenant will experience a noisy neighbor problem. Alternatively, both tenants may find their performance suffers.
 
 The noisy neighbor problem also occurs even when each individual tenant is consuming relatively small amounts of the system's capacity, but the collective resource usage of many tenants results in a peak in overall usage:
 
@@ -49,15 +49,15 @@ Noisy neighbor problems are an inherent risk in multitenant systems, and it's no
 
 ### Actions that service providers can take
 
-- Monitor the resource usage for your system, both overall and for each tenant. Configure alerts to detect spikes in resource usage, and if possible, configure automation to automatically mitigate known issues by [scaling up or out](../../framework/scalability/design-scale.md).
-- Apply resource governance, to avoid a single tenant that's overwhelming the system and reducing the capacity available to others. This might take the form of quota enforcement, through the [Throttling pattern](../../patterns/throttling.md) or the [Rate Limiting pattern](../../patterns/rate-limiting-pattern.md).
-- Consider provisioning more infrastructure. This might involve scaling up by upgrading some of your solution components, or it might involve scaling out by provisioning additional shards, if you follow the [Sharding pattern](../../patterns/sharding.md), or stamps, if you follow the [Deployment Stamps pattern](../../patterns/deployment-stamp.md).
-- Consider allowing tenants to purchase pre-provisioned or reserved capacity. This provides tenants with more certainty that your solution adequately handles their workload.
+- Monitor the resource usage for your system, both overall and for each tenant. Configure alerts to detect spikes in resource usage, and if possible, configure automation to automatically mitigate known issues by [scaling up or out](/azure/architecture/framework/scalability/design-scale).
+- Apply resource governance, to avoid a single tenant that's overwhelming the system and reducing the capacity available to others. This step might take the form of quota enforcement, through the [Throttling pattern](../../patterns/throttling.md) or the [Rate Limiting pattern](../../patterns/rate-limiting-pattern.md).
+- Consider provisioning more infrastructure. This process might involve scaling up by upgrading some of your solution components, or it might involve scaling out by provisioning additional shards, if you follow the [Sharding pattern](../../patterns/sharding.md), or stamps, if you follow the [Deployment Stamps pattern](../../patterns/deployment-stamp.md).
+- Consider allowing tenants to purchase pre-provisioned or reserved capacity. This capacity provides tenants with more certainty that your solution adequately handles their workload.
 - Consider approaches to smooth out the resource usage:
-  - If you host multiple instances of your solution, consider re-balancing tenants across the instances or stamps. For example, consider placing tenants with predictable and similar usage patterns, across multiple stamps, to flatten the peaks in their usage.
+  - If you host multiple instances of your solution, consider rebalancing tenants across the instances or stamps. For example, consider placing tenants with predictable and similar usage patterns, across multiple stamps, to flatten the peaks in their usage.
   - Consider whether you have background processes or resource-intensive workloads that aren't time-sensitive. Run these asynchronously at off-peak times, to preserve your peak resource capacity for time-sensitive workloads.
 - Consider whether your services provide controls to mitigate noisy neighbor problems. For example, when using Kubernetes, [consider using pod limits](/azure/aks/developer-best-practices-resource-management), and when using Service Fabric, [consider using the built-in governance capabilities](/azure/service-fabric/service-fabric-resource-governance).
-- If applicable, consider restricting the operations that tenants can perform. For example, prevent tenants from executing operations that will run very large database queries. This mitigates the risk of tenants taking actions that might negatively impact other tenants.
+- If applicable, consider restricting the operations that tenants can perform. For example, prevent tenants from executing operations that will run very large database queries. This action mitigates the risk of tenants taking actions that might negatively impact other tenants.
 - If applicable, consider providing a Quality of Service (QoS) system. When you apply QoS, you prioritize some processes or workloads ahead of others. By factoring QoS into your design and architecture, you can ensure that high-priority operations take precedence when there's pressure on your resources.
 
 ## Considerations
@@ -74,7 +74,7 @@ From a client's perspective, the noisy neighbor problem typically manifests as f
 
 From a service's perspective, the noisy neighbor issue may appear in several ways:
 
-- Spikes in resource usage. It's important to have a clear understanding of your normal baseline resource usage, and to configure monitoring and alerts to detect spikes in resource usage. Ensure you consider all of the resources that could affect your service's performance or availability. These include metrics like server CPU and memory usage, disk IO, database usage, network traffic, and metrics that are exposed by managed services, such as the number of requests and the synthetic and abstract performance metrics, such as the Azure Cosmos DB request units.
+- Spikes in resource usage. It's important to have a clear understanding of your normal baseline resource usage, and to configure monitoring and alerts to detect spikes in resource usage. Ensure you consider all of the resources that could affect your service's performance or availability. These resources include metrics like server CPU and memory usage, disk IO, database usage, network traffic, and metrics that are exposed by managed services, such as the number of requests and the synthetic and abstract performance metrics, such as the Azure Cosmos DB request units.
 - Failures when performing an operation for a tenant, even when that tenant isn't using a large portion of the system's resources. Such a pattern may indicate that the tenant is a victim of the noisy neighbor problem. Consider tracking the resource consumption by tenant. For example, when using Azure Cosmos DB, consider logging the request units used for each request, and add the tenant's identifier as a dimension to the telemetry, so that you can aggregate the request unit consumption for each tenant.
 
 ## Related resources

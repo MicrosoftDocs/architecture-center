@@ -75,5 +75,5 @@ Article on availability:
 
 Azure Architecture Center:
 
-- Review the overview article [Principles of the reliability pillar](../../framework/resiliency/principles.md)
+- Review the overview article [Principles of the reliability pillar](/azure/architecture/framework/resiliency/principles)
 - See the related reference architecture [Build an enterprise-grade conversational bot](../../reference-architectures/ai/conversational-bot.yml)
