@@ -1,4 +1,4 @@
-[!INCLUDE [header_file](../../../includes/header.md)]
+[!INCLUDE [header_file](../../../includes/sol-header.md)]
 
 Collaboration is critical to business efficiency and productivity. Tools like Microsoft Teams provide a great way to collaborate via chat, audio, and video. Word, Excel, and PowerPoint online make it easy to collaborate on various types of documents and spreadsheets with colleagues and customers around the world.  
 
@@ -16,7 +16,7 @@ This solution applies to companies that build custom application solutions that 
 
 ## Architecture
 
-![Diagram that shows an architecture for real-time collaboration.](./media/real-time-data-collaboration.png)
+![Diagram that shows an architecture for real-time collaboration.](../media/real-time-data-collaboration.png)
 
 *Download a [PowerPoint file](https://arch-center.azureedge.net/Real-time-data-collaboration.pptx) of this architecture.*
 
