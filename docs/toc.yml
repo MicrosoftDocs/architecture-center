@@ -627,6 +627,8 @@ items:
                     href: example-scenario/finance/swift-alliance-messaging-hub.yml
                   - name: SWIFT Alliance Access
                     href: example-scenario/finance/swift-alliance-access-on-azure.yml
+                  - name: SWIFT's Alliance Cloud
+                    href: example-scenario/finance/swift-alliance-cloud-on-azure.yml
           - name: Compliance solutions
             items:
               - name: PCI DSS overview
