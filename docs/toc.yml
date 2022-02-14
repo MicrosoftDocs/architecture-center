@@ -349,12 +349,12 @@ items:
           - name: Related resources
             href: guide/multitenant/related-resources.md
       - name: Solutions across Microsoft cloud platforms
-        expanded: true 
+        expanded: true
         items:
           - name: Azure and Power Platform scenarios 
             items:
-                   - name: Overview
-                     href: solutions/power-platform-scenarios.md
+               - name: Overview
+                 href: solutions/power-platform-scenarios.md
           - name: Microsoft 365 and Azure
             items: 
               - name: Real-time collaboration
