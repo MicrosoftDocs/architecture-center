@@ -2751,14 +2751,14 @@ items:
                 href: solution-ideas/articles/immutable-infrastructure-cicd-using-jenkins-and-terraform-on-azure-virtual-architecture-overview.yml
               - name: DevSecOps in Azure
                 href: solution-ideas/articles/devsecops-in-azure.yml
+              - name: DevSecOps with a rolling main branch
+                href: solution-ideas/articles/devsecops-rolling-branch.yml
               - name: DevTest and DevOps for IaaS
                 href: solution-ideas/articles/dev-test-iaas.yml
               - name: DevTest and DevOps for PaaS
                 href: solution-ideas/articles/dev-test-paas.yml
               - name: DevTest and DevOps with microservices
                 href: solution-ideas/articles/dev-test-microservice.yml
-              - name: DevSecOps with a rolling main branching strategy
-                href: solution-ideas/articles/devsecops-rolling-branch.yml
               - name: DevTest Image Factory
                 href: solution-ideas/articles/dev-test-image-factory.yml
               - name: Hybrid DevOps
@@ -2927,7 +2927,7 @@ items:
                 href: hybrid/gateway-logic-apps.yml
               - name: Run containers in a hybrid environment
                 href: hybrid/hybrid-containers.yml
-              - name: Azure file shares in hybrid environment
+              - name: Use Azure file shares in a hybrid environment
                 href: hybrid/azure-file-share.yml
           - name: Solution ideas
             items:
@@ -3996,7 +3996,7 @@ items:
             href: reference-architectures/sap/sap-overview.yml
           - name: Guides
             items:
-              - name: Checklist
+              - name: SAP checklist
                 href: /azure/virtual-machines/workloads/sap/sap-deployment-checklist
                 maintainContext: true
               - name: SAP HANA infrastructure configurations
@@ -4115,18 +4115,20 @@ items:
               - name: Storage accounts
                 href: /azure/storage/common/storage-account-overview
                 maintainContext: true                
-              - name: Storage encryption for data at rest
-                href: /azure/storage/common/storage-service-encryption
-                maintainContext: true
-              - name: Azure Policy controls for Storage
-                href: /azure/storage/common/security-controls-policy
-                maintainContext: true
-              - name: Use private endpoints
-                href: /azure/storage/common/storage-private-endpoints
-                maintainContext: true
-              - name: Security baseline for Azure Storage
-                href: /security/benchmark/azure/baselines/storage-security-baseline
-                maintainContext: true
+              - name: Security and compliance
+                items:
+                  - name: Storage encryption for data at rest
+                    href: /azure/storage/common/storage-service-encryption
+                    maintainContext: true
+                  - name: Azure Policy controls for Storage
+                    href: /azure/storage/common/security-controls-policy
+                    maintainContext: true
+                  - name: Use private endpoints
+                    href: /azure/storage/common/storage-private-endpoints
+                    maintainContext: true
+                  - name: Security baseline for Azure Storage
+                    href: /security/benchmark/azure/baselines/storage-security-baseline
+                    maintainContext: true
               - name: Data redundancy
                 href: /azure/storage/common/storage-redundancy
                 maintainContext: true
@@ -4227,6 +4229,26 @@ items:
                     maintainContext: true
                   - name: Create an incremental snapshot
                     href: /azure/virtual-machines/disks-incremental-snapshots
+                    maintainContext: true
+              - name: Azure NetApp Files guidance
+                items:
+                  - name: Solution architectures
+                    href: /azure/azure-netapp-files/azure-netapp-files-solution-architectures
+                    maintainContext: true
+                  - name: Use ANF with Oracle Database
+                    href: /azure/azure-netapp-files/solutions-benefits-azure-netapp-files-oracle-database
+                    maintainContext: true
+                  - name: ANF for electronic design automation
+                    href: /azure/azure-netapp-files/solutions-benefits-azure-netapp-files-electronic-design-automation
+                    maintainContext: true
+                  - name: Use ANF with Virtual Desktop
+                    href: /azure/azure-netapp-files/solutions-windows-virtual-desktop
+                    maintainContext: true
+                  - name: Use ANF with SQL Server
+                    href: /azure/azure-netapp-files/solutions-benefits-azure-netapp-files-sql-server
+                    maintainContext: true
+                  - name: ANF application volume group for SAP HANA
+                    href: /azure/azure-netapp-files/application-volume-group-introduction
                     maintainContext: true
           - name: Architectures
             items:
