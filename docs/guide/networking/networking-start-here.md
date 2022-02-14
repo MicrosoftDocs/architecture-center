@@ -32,7 +32,7 @@ Azure provides a wide range of networking tools and capabilities. These are just
 - [Azure Firewall](https://azure.microsoft.com/services/azure-firewall). Provide protection for your Azure Virtual Network resources.
 - [Azure Application Gateway](https://azure.microsoft.com/services/application-gateway). Build highly secure, scalable, highly available web front ends.
 - [Azure ExpressRoute](https://azure.microsoft.com/services/expressroute). Create a fast, reliable, and private connection to Azure.
-- [Azure Load Balancer](https://azure.microsoft.com/products/azure-load-balancing). Deliver high availability and network performance to your apps.
+- [Azure Load Balancer](https://azure.microsoft.com/services/load-balancer). Deliver high availability and network performance to your apps.
 - [Azure VPN Gateway](https://azure.microsoft.com/services/vpn-gateway). Establish high security cross-premises connectivity.
 
 For information about more Azure networking services, see [Azure networking](https://azure.microsoft.com/product-categories/networking).
@@ -40,7 +40,7 @@ For information about more Azure networking services, see [Azure networking](htt
 ## Introduction to networking on Azure
 If you're new to networking on Azure, the best way to learn more is with [Microsoft Learn](/learn/?WT.mc_id=learnaka), a free online training platform. Microsoft Learn provides interactive training for Microsoft products and more.
 
-Here's a good introduction: 
+Here's a good introduction to Azure networking: 
 - [Explore Azure networking services](/learn/modules/azure-networking-fundamentals)
 
 And here's a comprehensive learning path: 
@@ -50,21 +50,21 @@ And here's a comprehensive learning path:
 Consider these technologies and solutions as you plan and implement your deployment: 
 - [Azure Firewall architecture overview](../../example-scenario/firewalls/index.yml) 
 - [Azure Private Link in a hub-and-spoke network](private-link-hub-spoke-network.yml)
-- [Build solutions with availability zones](../../high-availability/building-solutions-for-high-availability.md) 
+- [Build solutions for high availability by using availability zones](../../high-availability/building-solutions-for-high-availability.md) 
 - [Add IP address spaces to peered virtual networks](../../networking/prefixes/add-ip-space-peered-vnet.md)
 - [Choose between virtual network peering and VPN gateways](../../reference-architectures/hybrid-networking/vnet-peering.yml)
 - [Use Azure ExpressRoute with Microsoft Power Platform](/power-platform/guidance/expressroute/overview?toc=https%3A%2F%2Fdocs.microsoft.com%2Fazure%2Farchitecture%2Ftoc.json&bc=https%3A%2F%2Fdocs.microsoft.com%2Fazure%2Farchitecture%2Fbread%2Ftoc.json)
 
 
 ## Best practices
-The [Azure Well-Architected Framework](/azure/architecture/framework) is a set of guiding tenets, based on five pillars, that you can use to improve the quality of your architectures. These articles provide guidance for each of the pillars: 
+The [Azure Well-Architected Framework](/azure/architecture/framework) is a set of guiding tenets, based on five pillars, that you can use to improve the quality of your architectures. These articles apply the pillars to the use of some Azure networking services: 
 - [Review of Azure Application Gateway](../../networking/guide/waf-application-gateway.md) 
 - [Review of Azure Firewall](../../networking/guide/well-architected-framework-azure-firewall.md) 
 - [Review of an Azure NAT gateway](../../networking/guide/well-architected-network-address-translation-gateway.md) 
 
 The [Cloud Adoption Framework](/azure/cloud-adoption-framework) is a collection of documentation, implementation guidance, best practices, and tools that are designed to accelerate your cloud adoption. You might find these articles helpful as you plan and implement your networking solution: 
-- [Connectivity to other cloud providers](/azure/cloud-adoption-framework/ready/azure-best-practices/connectivity-to-other-providers?view=o365-worldwide&toc=https:%2f%2fdocs.microsoft.com%2fazure%2farchitecture%2ftoc.json&bc=https:%2f%2fdocs.microsoft.com%2fazure%2farchitecture%2fbread%2ftoc.json) 
-- [Connectivity to Oracle Cloud Infrastructure](/azure/cloud-adoption-framework/ready/azure-best-practices/connectivity-to-other-providers-oci?view=o365-worldwide&toc=https:%2f%2fdocs.microsoft.com%2fazure%2farchitecture%2ftoc.json&bc=https:%2f%2fdocs.microsoft.com%2fazure%2farchitecture%2fbread%2ftoc.json) 
+- [Connectivity to other cloud providers](/azure/cloud-adoption-framework/ready/azure-best-practices/connectivity-to-other-providers) 
+- [Connectivity to Oracle Cloud Infrastructure](/azure/cloud-adoption-framework/ready/azure-best-practices/connectivity-to-other-providers-oci) 
 
 ## Networking architectures
 The following sections, organized by category, provide links to sample networking architectures. 
