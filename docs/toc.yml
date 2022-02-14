@@ -182,6 +182,8 @@ items:
             href: best-practices/data-partitioning.md
           - name: Data partitioning strategies (by service)
             href: best-practices/data-partitioning-strategies.md
+          - name: Host name preservation
+            href: best-practices/host-name-preservation.md
           - name: Message encoding considerations
             href: best-practices/message-encode.md
           - name: Monitoring and diagnostics
