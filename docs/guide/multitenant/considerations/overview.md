@@ -4,7 +4,7 @@ titleSuffix: Azure Architecture Center
 description: This article introduces the considerations you need to give when planning a multitenant architecture.
 author: johndowns
 ms.author: jodowns
-ms.date: 12/16/2021
+ms.date: 02/12/2022
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: azure-guide
@@ -41,7 +41,7 @@ In this section, we outline the considerations that you should give, the require
 
 ## Intended audience
 
-The pages in this section are particularly relevant for technical decision-makers, like chief technology officers (CTOs) and architects. The audience also includes independent software vendors (ISVs) and startups who develop SaaS solutions. However, anyone who works with multitenant architectures should have some familiarity with these principles and tradeoffs.
+The pages in this section are particularly relevant for technical decision-makers, like chief technology officers (CTOs) and architects, as well as product managers. The audience also includes independent software vendors (ISVs) and startups who develop SaaS solutions. Additionally, anyone who works with multitenant architectures should have some familiarity with these principles and tradeoffs.
 
 ## Next steps
 
