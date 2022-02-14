@@ -6,7 +6,7 @@ You can use Azure services to add real-time collaborative functionality to custo
 
 In addition to real-time collaboration, the solution supports user presence status. Users can work together in the custom app to collect ideas, see when new ideas are added, modified, or deleted in real time, and avoid data conflicts during collaboration sessions. 
 
-To meet these requirements, the solution uses Fluid Framework and Azure Fluid Relay. It authenticates users against Azure Active Directory by using the Microsoft Graph Toolkit Login component and the Microsoft Authentication Library (MSAL) provider in the application.
+To meet these requirements, the solution uses Fluid Framework and Azure Fluid Relay. It authenticates users against Azure Active Directory (Azure AD) by using the Microsoft Graph Toolkit Login component and the Microsoft Authentication Library (MSAL) provider in the application.
 
 ## Potential use cases
 This solution applies to companies that build custom application solutions that require:
@@ -16,34 +16,38 @@ This solution applies to companies that build custom application solutions that 
 
 ## Architecture
 
-diagram 
+![Diagram that shows an architecture for real-time collaboration.](./media/real-time-data-collaboration.png)
 
-The architecture relies on Azure Active Directory, Microsoft Authentication Library (MSAL), and Microsoft Graph Toolkit for authenticating users. Fluid Framework and Azure Fluid Relay are used for real-time data collaboration.
+*Download a [PowerPoint file](https://arch-center.azureedge.net/Real-time-data-collaboration.pptx) of this architecture.*
 
 ### Workflow
-- A user signs in to the application using the Microsoft Graph Toolkit Login component. It relies on the MSAL provider to validate their credentials against Azure Active Directory.
-- Once a user successfully signs in, the client web app uses the Fluid Framework to connect to Azure Fluid Relay and creates a collaboration session.
-- Additional users sign in to the collaboration session and add their ideas. Fluid Framework handles merging the data sent and received in each client to ensure that it is synchronized properly for all users. This is accomplished using the total order broadcast algorithm and eventual consistency.  
-- As users continue to collaborate, Azure Fluid Relay automatically handles storing the collaboration data. 
-- As additional users join the collaboration session, each user’s client retrieves previously stored data and ensures that the user is synchronized with other users in the session.
+- A user signs in to the application by using the Microsoft Graph Toolkit Login component. It uses the MSAL provider to validate the user's credentials against Azure AD.
+- After the user signs in, the client web app uses Fluid Framework to connect to Fluid Relay and creates a collaboration session.
+- More users sign in and participate in the collaboration session. Fluid Framework merges the data sent and received in each client to ensure that it's synchronized for all users. The total order broadcast algorithm and eventual consistency are used to ensure this synchronization.  
+- As users continue to collaborate, Fluid Relay automatically stores the collaboration data. 
+- As new users join the collaboration session, each user's client retrieves previously stored data and ensures that the user is synchronized with other users in the session.
 
 ### Components
-- [Fluid Framework](https://www.fluidframework.com) is a collection of client libraries for distributing and synchronizing shared state. These libraries allow multiple clients to simultaneously create and operate on shared data structures using coding patterns similar to those used to work with local data.
-- [Azure Fluid Relay](https://docs.microsoft.com/azure/azure-fluid-relay) is a managed offering for the Fluid Framework that helps developers build real-time collaborative experiences and replicate state across connected JavaScript clients in real-time.
-- [Azure Active Directory](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-whatis) is Microsoft’s cloud-based identity and access management service, which helps your employees sign in and access resources.
+- [Fluid Framework](https://www.fluidframework.com) is a collection of client libraries for distributing and synchronizing shared state. These libraries allow multiple clients to simultaneously create and operate on shared data structures by using coding patterns similar to those used to work with local data.
+- [Fluid Relay](https://docs.microsoft.com/azure/azure-fluid-relay) is a managed service of the Fluid Framework. It helps developers build real-time collaborative experiences and replicate state across connected JavaScript clients in real time.
+- [Azure AD](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-whatis) is the Microsoft cloud-based identity and access management service that helps your employees sign in and access resources.
 - [Microsoft Graph Toolkit](https://docs.microsoft.com/graph/toolkit/overview) is a collection of reusable, framework-agnostic components and authentication providers for accessing and working with Microsoft Graph.
 - [Azure Static Web Apps](https://docs.microsoft.com/azure/static-web-apps/overview) is a service that automatically builds and deploys full stack web apps to Azure from a code repository.
 
 ## Next steps 
-A code sample demonstrating this Microsoft Cloud scenario can be found at:
+Get a [code sample](https://github.com/microsoft/brainstorm-fluidframework-m365-azure) that demonstrates this scenario.
 
-https://github.com/microsoft/brainstorm-fluidframework-m365-azure  
+For more information about the technologies used in this solution, see these articles: 
+- [Azure AD](/azure/active-directory/fundamentals)
+- [Azure Fluid Relay](/azure/azure-fluid-relay)
+- [Azure Static Web Apps](/azure/static-web-apps/overview)
+- [Fluid Framework](https://fluidframework.com)
+- [Microsoft Graph](/graph/overview)
+- [Microsoft Graph Toolkit](/graph/toolkit/overview)
+- [Total order broadcast and eventual consistency in Fluid Framework](https://fluidframework.com/docs/concepts/tob)
 
 ## Related resources
-- [Azure Active Directory](https://docs.microsoft.com/azure/active-directory/fundamentals)
-- [Azure Fluid Relay](https://docs.microsoft.com/azure/azure-fluid-relay)
-- [Azure Static Web Apps](https://docs.microsoft.com/azure/static-web-apps/overview)
-- [Fluid Framework](https://fluidframework.com)
-- [Microsoft Graph](https://docs.microsoft.com/graph/overview)
-- [Microsoft Graph Toolkit](https://docs.microsoft.com/graph/toolkit/overview)
-- [Total Order Broadcast and Eventual Consistency in the Fluid Framework](https://fluidframework.com/docs/concepts/tob/)
+- [Enhanced-security hybrid messaging infrastructure—web access](../../example-scenario/hybrid/secure-hybrid-messaging-web.yml)
+- [Enhanced-security hybrid messaging infrastructure—mobile access](../../example-scenario/hybrid/secure-hybrid-messaging-mobile.yml)
+- [Manage Microsoft 365 tenant configuration by using Microsoft365DSC and Azure DevOps](../../example-scenario/devops/manage-microsoft-365-tenant-configuration-microsoft365dsc-devops.yml)
+- [Power Automate deployment at scale](../../example-scenario/power-automate/power-automate.yml)

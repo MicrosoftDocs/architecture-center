@@ -1,0 +1,23 @@
+### YamlMime:Architecture
+metadata:
+  title: Real-time collaboration with Azure and Microsoft 365
+  titleSuffix: Azure Solution Ideas
+  description: Learn about a custom collaboration solution that uses libraries and Azure services. 
+  author: DanWahlin
+  ms.author: dwahlin
+  ms.date: 02/15/2022
+  ms.topic: conceptual
+  ms.service: architecture-center
+  ms.subservice: solution-idea
+  ms.custom: fcp
+azureCategories:
+  - identity 
+  - developer-tools
+products:
+  - azure-active-directory
+  - ms-graph
+name: Real-time collaboration with Azure and Microsoft 365
+summary: Learn about a custom collaboration solution that uses libraries and Azure services. 
+thumbnailUrl: /azure/architecture/browse/thumbs/real-time-data-collaboration.png
+content: |
+  [!include[](collaboration-microsoft-365-content.md)]
