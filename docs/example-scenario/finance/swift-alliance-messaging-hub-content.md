@@ -25,14 +25,14 @@ Azure architecture is built using the same topology that runs in an on-premises 
 
 Next, we'll discuss a typical user journey.
 
-Business users or the application from the customer's on-premises site (Users) connect to SWIFT's AMH using network connectivity. SWIFT's AMH will process the user request by coordinating with SWIFT's SAG/SNL components. SWIFT's SAG/SNL components will connect with the customer's on-premises site (HSM) to securely sign the message. SWIFT's Alliance Connect networking solution deployed at on-premises site will forward the secure message to SWIFTNet. Additional management and operational services will be provided by Azure services running in the customer's Shared Azure Services (optional) subscription.
+Business users or the application from the customer's on-premises site (Users) connect to SWIFT's AMH using network connectivity. SWIFT's AMH will process the user request by coordinating with SWIFT's SAG/SNL components. SWIFT's SAG/SNL components will connect with the customer's on-premises site (HSM) to securely sign the message. SWIFT's Alliance Connect networking solution deployed at an on-premises site will forward the secure message to SWIFTNet. Additional management and operational services will be provided by Azure services running in the customer's Shared Azure Services (optional) subscription.
 
 SWIFT's AMH needs network connectivity with two other SWIFT components listed here:
 
 * SWIFT's Alliance Gateway (SAG)
 * SWIFTNet Link (SNL)
 
-SWIFT's Alliance Gateway (SAG) provides multiple integration points and message concentration between SWIFT modules and SWIFTNet. SWIFTNet Link (SNL) provides API interface between SWIFT modules and SWIFTNet. It's recommended to have SWIFT modules, SAG, and SNL components in the same Azure Virtual Network. They can be deployed across separate subnets in VNet. SAG and SNL should be deployed in a separate Azure Resource Group.
+SWIFT's Alliance Gateway (SAG) provides multiple integration points and message concentration between SWIFT modules and SWIFTNet. SWIFTNet Link (SNL) provides an API interface between SWIFT modules and SWIFTNet. We recommended that you have the SWIFT modules, SAG, and SNL components in the same Azure Virtual Network. They can be deployed across separate subnets in VNet. SAG and SNL should be deployed in a separate Azure Resource Group.
 
 Key SWIFT's AMH technical solution components consist of *AMH node* running user interface, a database, and a messaging system. *AMH node* provides the web front-end running the user interface and the STP messaging processing. *AMH node* runs on [JBoss Enterprise Application Platform (EAP) on Red Hat Enterprise Linux (RHEL)](https://techcommunity.microsoft.com/t5/azure-marketplace/announcing-red-hat-jboss-eap-on-azure-virtual-machines-and-vm/ba-p/2374068).  The database runs on [Oracle](/azure/virtual-machines/workloads/oracle/oracle-overview). The messaging system typically runs on [Websphere MQ](https://azure.microsoft.com/updates/general-availability-enabling-ibm-websphere-application-server-on-azure-virtual-machines), but it can also be any JMS protocol-compliant messaging solution.
 
@@ -107,7 +107,7 @@ The following guidance helps improve the architecture quality for SWIFT's AMH on
 
 ### Security
 
-1. Consider using the latest version of [SWIFT CSP Blueprint](https://azure.microsoft.com/blog/new-azure-blueprint-enables-swift-connect) after consulting Microsoft team working with you.
+1. Consider using the latest version of [SWIFT CSP Blueprint](https://azure.microsoft.com/blog/new-azure-blueprint-enables-swift-connect) after consulting with the Microsoft team that's working with you.
 2. Consider using Microsoft Defender for Cloud for protection from server and application vulnerabilities. Defender for Cloud helps to quickly identify threats, streamline threat investigation, and automate remediation.
 3. Consider using Azure Active Directory (AD) for using Azure AD Role-Based Access Control (RBAC) to limit access to application components.
 4. Consider using Azure Sentinel for analyzing security and other events reported by solution components. Deep investigations and hunting exercises will enable a quick response to any anomaly or potential threat.
