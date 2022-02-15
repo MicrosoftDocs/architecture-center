@@ -1,4 +1,3 @@
-# place holder
 
 Your business can simplify the deployment and management of microservice containers by using Azure Container Apps Preview. Container Apps provides a fully managed serverless environment for building and deploying modern applications.
 
