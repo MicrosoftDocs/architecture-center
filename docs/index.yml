@@ -54,10 +54,6 @@ productDirectory:
           text: Architect multitenant solutions on Azure
         - url: ./microservices/index.md
           text: Build microservices on Azure
-        - url: ./guide/resilience/resilience-overview.md
-          text: Build for resilience
-        - url: ./data-guide/scenarios/build-scalable-database-solutions-azure-services.md
-          text: Build a scalable system for massive data
     # Card
     - title: Optimize your workload
       imageSrc: https://docs.microsoft.com/media/common/i_architecture.svg
@@ -79,20 +75,10 @@ productDirectory:
       links:
         - url: ./guide/technology-choices/compute-decision-tree.yml
           text: Choose a compute service
-        - url: ./microservices/design/compute-options.md
-          text: Choose a compute option for microservices
-        - url: ./guide/technology-choices/multiparty-computing-service.yml
-          text: Choose a multiparty computing service
         - url: ./operator-guides/aks/choose-kubernetes-edge-compute-option.md
           text: Choose a Kubernetes at the edge option
-        - url: ./operator-guides/aks/choose-kubernetes-edge-compute-option.md
-          text: Choose a bare-metal Kubernetes option
         - url: ./guide/technology-choices/data-store-overview.md
           text: Choose a data store
-        - url: ./data-guide/technology-choices/analytical-data-stores.md
-          text: Choose an analytics solution
-        - url: ./data-guide/technology-choices/cognitive-services.md
-          text: Choose an AI service
         - url: ./guide/technology-choices/load-balancing-overview.yml
           text: Choose a load-balancing service
         - url: ./guide/technology-choices/messaging.yml
