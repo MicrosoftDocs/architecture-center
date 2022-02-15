@@ -114,7 +114,7 @@ These are some additional sample networking architectures:
 - [Update route tables by using Azure Route Server](../../example-scenario/networking/manage-routing-azure-route-server.yml)
 
  
-### AWS or GCP professionals
+### AWS or Google Cloud professionals
 These articles provide service mapping and comparison between Azure and other cloud services. They can help you ramp up quickly on Azure.
 - [Compare AWS and Azure networking options](../../aws-professional/networking.md) 
 - [Google Cloud to Azure services comparison - Networking](../../gcp-professional/services.md#networking)
