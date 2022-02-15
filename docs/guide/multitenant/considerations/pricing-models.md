@@ -139,7 +139,7 @@ The free tier may also be offered as a time-limited trial, and during the trial 
 
 ### Cost of goods sold pricing
 
-You might choose to offer price your solution so that each tenant only pays the cost of operating their share of the Azure services, with no added profit margin. This model is sometimes used for multitenant solutions that are not intended to be a profit center.
+You might choose to price your solution so that each tenant only pays the cost of operating their share of the Azure services, with no added profit margin. This model - also called *pass through cost or pricing* - is sometimes used for multitenant solutions that are not intended to be a profit center.
 
 ![Diagram showing revenue varying over time with amount of use changing to match.](media/pricing-models/cost-of-goods-sold.png)
 
