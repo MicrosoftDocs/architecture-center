@@ -64,7 +64,6 @@ items:
                 maintainContext: true
               - name: Multiparty computing
                 href: guide/technology-choices/multiparty-computing-service.yml
-          - name: Choose a Kubernetes edge option
           - name: Choose a container option
             items:
               - name: Container options
