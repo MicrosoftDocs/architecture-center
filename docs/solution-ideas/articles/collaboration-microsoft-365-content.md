@@ -4,7 +4,7 @@ Collaboration is critical to business efficiency and productivity. Tools like Mi
 
 You can use Azure services to add real-time collaborative functionality to custom applications just as you do with  off-the-shelf solutions. This example solution shows how you can use libraries and Azure services to meet custom collaboration requirements. In addition to real-time collaboration, this solution supports user presence status. Users can work together in the custom app to collect ideas, see when new ideas are added, modified, or deleted in real time, and avoid data conflicts during collaboration sessions. 
 
-To meet these requirements, the solution uses Fluid Framework and Azure Fluid Relay. It authenticates users against Azure Active Directory (Azure AD) by using the Microsoft Graph Toolkit Login component and the Microsoft Authentication Library (MSAL) provider in the application.
+To meet these requirements, the solution uses Fluid Framework and Azure Fluid Relay. It authenticates users against Azure Active Directory (Azure AD) by using the Login component of the Microsoft Graph Toolkit and the Microsoft Authentication Library (MSAL) provider.
 
 ## Potential use cases
 This solution applies to companies that build custom application solutions that require:
@@ -19,7 +19,7 @@ This solution applies to companies that build custom application solutions that 
 *Download a [PowerPoint file](https://arch-center.azureedge.net/Real-time-data-collaboration.pptx) of this architecture.*
 
 ### Workflow
-- A user signs in to the application by using the Microsoft Graph Toolkit Login component. It uses the MSAL provider to validate the user's credentials against Azure AD.
+- An application uses the Login component of the Microsoft Graph Toolkit to enable a user to sign in. The Login component uses the MSAL provider to validate the user’s credentials against Azure AD.
 - After the user signs in, the client web app uses Fluid Framework to connect to Fluid Relay and creates a collaboration session.
 - More users sign in and participate in the collaboration session. Fluid Framework merges the data sent and received in each client to ensure that it's synchronized for all users. The [total order broadcast algorithm and eventual consistency](https://fluidframework.com/docs/concepts/tob) are used to ensure this synchronization.  
 - As users continue to collaborate, Fluid Relay automatically stores the collaboration data. 
