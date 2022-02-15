@@ -26,7 +26,7 @@ In accordance with SWIFT’s Customer Security Program (CSP) Control Framework (
 
 #### Alliance Connect (SWIFT VPN or SRX)
 
-SWIFT's Alliance Connect is the connectivity component of SWIFT's offering required to connect to SWIFT. According to SWIFT's Customer Security Programme (CSP) Control Framework (CSCF), the Alliance Connect Networking solution needs to be physically hosted in on-premises or in a co-location data center).
+SWIFT's Alliance Connect is the connectivity component of SWIFT's offering required to connect to SWIFT. According to SWIFT's Customer Security Programme (CSP) Control Framework (CSCF), the Alliance Connect Networking solution needs to be physically hosted on-premises or in a co-location data center).
 
 ### SWIFT's messaging and connectivity components
 
@@ -37,7 +37,7 @@ SWIFT offers various connectivity components for secure payments and message tra
 Customers with an Alliance Access based configuration will need the following:
 
 * Alliance Access, Web Platform, and SAG (SWIFT's Alliance Gateway)/SNL (SWIFTNet Link).
-* Alliance Connect and HSM appliance to secure the message sent via SWIFTNet running in on-premises location.
+* Alliance Connect and HSM appliance to secure the message sent via SWIFTNet running in an on-premises location.
 
 #### Alliance Messaging Hub (AMH)
 
