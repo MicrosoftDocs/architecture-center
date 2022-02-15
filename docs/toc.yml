@@ -357,7 +357,7 @@ items:
           - name: Microsoft 365 and Azure
             expanded: true
             items: 
-                  - name: Real-time presence with Microsoft 365
+                  - name: Real-time presence
                     href: solution-ideas/articles/presence-microsoft-365-power-platform.yml
       - name: Cloud comparisons
         items:

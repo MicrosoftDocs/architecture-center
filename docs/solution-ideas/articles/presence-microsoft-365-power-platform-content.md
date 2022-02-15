@@ -15,7 +15,7 @@ This solution applies to companies that use custom applications that require:
 
 ## Architecture
 
-![Diagram that shows a solution for providing teammate presence information.](.media/real-time-presence.png)
+![Diagram that shows a solution for providing teammate presence information.](../media/real-time-presence.png)
 
 *Download a [PowerPoint file](https://arch-center.azureedge.net/real-time-presence.pptx) of this architecture.*
 
