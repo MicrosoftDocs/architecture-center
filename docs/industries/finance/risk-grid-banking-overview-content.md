@@ -89,7 +89,7 @@ While calculation data often doesn't include any Personally Identifiable Informa
 
 A notable consideration for risk grid computing is to [run the batch processes within an Azure VNet](/azure/batch/batch-virtual-network?WT.mc_id=gridbank-docs-dastarr). This allows pool compute nodes to communicate securely with other compute nodes, or with an on-premises network. Appropriate service accounts and Network Service Groups (NSG) should be created and used by the batch compute nodes. [Azure also has solutions](/azure/security/blueprints/financial-services-regulated-workloads?WT.mc_id=gridbank-docs-dastarr) for data encryption in transit and at rest in Azure storage.
 
-Some areas to consider may be: Active Directory (AD) or non-AD joined compute nodes (for Windows Server nodes?WT.mc_id=gridbank-docs-dastarr), [VM disk encryption](/azure/security/azure-security-disk-encryption?WT.mc_id=gridbank-docs-dastarr), security of calculation input and output data at rest and in transit, Azure network configurations, permissions and more. Authentication may also be handled at the REST API level through a secret key.
+Some areas to consider may be: Active Directory (AD) or non-AD joined compute nodes (for Windows Server nodes?WT.mc_id=gridbank-docs-dastarr), [VM disk encryption](/azure/machine-learning/concept-model-management-and-deployment), security of calculation input and output data at rest and in transit, Azure network configurations, permissions and more. Authentication may also be handled at the REST API level through a secret key.
 
 ## Getting started
 
