@@ -4,7 +4,7 @@ Collaboration tools play a significant role in creating productive workspaces fo
 
 You can also add presence to custom collaboration applications by using Microsoft Cloud services. This solution uses Microsoft Cloud APIs and services to enable real-time presence capabilities in custom applications. As people become available in Microsoft Teams, they can be invited to a collaboration session.
 
-The solution provides presence for a JavaScript front-end application. It uses Microsoft Graph and Azure Active Directory (Active Directory) to provide real-time presence information. It also uses Power Automate, Azure Event Hubs, Azure Functions, and Azure SignalR Service.
+The solution provides presence for a JavaScript front-end application. It uses Microsoft Graph and Azure Active Directory (Azure AD) to provide real-time presence information. It also uses Power Automate, Azure Event Hubs, Azure Functions, and Azure SignalR Service.
 
 ## Potential use cases
 This solution applies to companies that use custom applications that require:
@@ -18,10 +18,6 @@ This solution applies to companies that use custom applications that require:
 ![Diagram that shows a solution for providing teammate presence information.](../media/real-time-presence.png)
 
 *Download a [PowerPoint file](https://arch-center.azureedge.net/real-time-presence.pptx) of this architecture.*
-
-The solution uses the Microsoft Graph API presence resource to detect changes in a given person's presence. It uses Microsoft Graph change notifications that send presence messages to Azure Event Hubs. The messages received in Event Hubs are used as an input to Azure Functions. Azure SignalR Service then sends the data to the browser in real time. 
-
- It uses Azure AD and Power Automate to create a Microsoft Graph API presence subscription.
 
 ### Workflow
 
@@ -37,12 +33,12 @@ The solution uses the Microsoft Graph API presence resource to detect changes in
 
 - [Microsoft Graph](/graph/overview) is the gateway to data and intelligence in Microsoft 365.
 - [Azure AD](https://azure.microsoft.com/services/active-directory) is the Microsoft cloud-based identity and access management service that helps users sign in and access resources.
-- [Power Automate](https://powerautomate.microsoft.com) helps automating repetitive manual tasks by recording mouse clicks, keystrokes and copy paste steps from your desktop.
+- [Power Automate](https://powerautomate.microsoft.com) helps you automate repetitive manual tasks by recording mouse clicks, keystrokes, and copy-and-paste steps from your desktop.
 - [Key Vault](https://azure.microsoft.com/services/key-vault) is a cloud service for storing and accessing secrets with high security.
 - [Event Hubs](https://azure.microsoft.com/services/event-hubs) is a scalable event processing service that ingests and processes large volumes of events and data, with low latency and high reliability.
 - [Azure Functions](https://azure.microsoft.com/services/functions) is a serverless solution that enables you to write less code, maintain less infrastructure, and save money.  
   - [Event Hubs triggers](/azure/azure-functions/functions-bindings-event-hubs-trigger) enable you to respond to an event sent to an event hub event stream. 
-  - [SignalR Service output binding](/azure/azure-functions/functions-bindings-signalr-service-output) enable you to send messages by using Azure SignalR Service.
+  - [SignalR Service output binding](/azure/azure-functions/functions-bindings-signalr-service-output) enables you to send messages by using Azure SignalR Service.
 - [Azure SignalR Service](https://azure.microsoft.com/services/signalr-service) simplifies the process of adding real-time web functionality to applications over HTTP.
 - [Azure Static Web Apps](https://azure.microsoft.com/services/app-service/static) automatically builds and deploys full stack web apps to Azure from a code repository.
 
