@@ -21,7 +21,7 @@ This solution applies to companies that use custom applications that require:
 
 The solution uses the Microsoft Graph API presence resource to detect changes in a given person's presence. It uses Microsoft Graph change notifications that send presence messages to Azure Event Hubs. The messages received in Event Hubs are used as an input to Azure Functions. Azure SignalR Service then sends the data to the browser in real time. 
 
- It uses Azure Active Directory and Power Automate to create a Microsoft Graph API presence subscription.
+ It uses Azure AD and Power Automate to create a Microsoft Graph API presence subscription.
 
 ### Workflow
 
