@@ -64,7 +64,6 @@ items:
                 maintainContext: true
               - name: Multiparty computing
                 href: guide/technology-choices/multiparty-computing-service.yml
-          - name: Choose a Kubernetes edge option
           - name: Choose a container option
             items:
               - name: Container options
@@ -3791,6 +3790,8 @@ items:
                 href: solution-ideas/articles/task-based-consumer-mobile-app.yml
       - name: Networking
         items:
+          - name: Get started
+            href: guide/networking/networking-start-here.md
           - name: Guides
             items:
               - name: Application Gateway framework review
