@@ -44,7 +44,7 @@ Customers with an Alliance Access based configuration will need the following:
 Customers with an Alliance Messaging Hub (AMH) based configuration will the need following:
 
 * Alliance Messaging Hub (AMH), Workbench and SAG (SWIFT's Alliance Gateway)/SNL (SWIFTNet Link).
-* Alliance Connect and HSM appliance to secure the message sent via SWIFTNet running in on-premises location.
+* Alliance Connect and HSM appliance to secure the message sent via SWIFTNet running in an on-premises location.
 
 The Azure reference architecture described in this document uses Alliance Access and Alliance Messaging Hub (AMH).
 
