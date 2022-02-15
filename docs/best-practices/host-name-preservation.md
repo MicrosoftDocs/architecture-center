@@ -14,7 +14,6 @@ products:
   - azure-application-gateway
   - azure-front-door
   - azure-spring-cloud
-  - azure-web-application-firewall
 categories:
   - networking
   - web
@@ -24,11 +23,9 @@ ms.custom:
 
 # Preserve the original HTTP host name between a reverse proxy and its backend web application
 
-## Summary
-
 We recommend to preserve the original HTTP host name when using a reverse proxy in front of web applications. Having a different host name come in to the reverse proxy than the one which is used to access the backend application server can potentially lead to cookies or redirect URLs being broken. These issues can be avoided by preserving the host name of the initial request so that the application server sees the same domain as the web browser.
 
-This guidance applies especially to applications hosted in Platform-as-a-Service (PaaS) offerings such as [Azure App Service](/azure/app-service/) and [Azure Spring Cloud](/azure/spring-cloud/), and provides [implementation guidance](#implementation-guidance-for-common-azure-services) specifically for [Azure Application Gateway](/azure/application-gateway/), [Azure Front Door](/azure/frontdoor/) and [Azure API Management](/azure/api-management/) as commonly used reverse proxy services.
+This guidance applies especially to applications hosted in Platform-as-a-Service (PaaS) offerings such as [Azure App Service](/azure/app-service) and [Azure Spring Cloud](/azure/spring-cloud), and provides [implementation guidance](#implementation-guidance-for-common-azure-services) specifically for [Azure Application Gateway](/azure/application-gateway), [Azure Front Door](/azure/frontdoor) and [Azure API Management](/azure/api-management) as commonly used reverse proxy services.
 
 > [!NOTE]
 > Web API's are generally less sensitive to the issues caused by host name mismatches: they usually don't depend on cookies (except if you [use cookies to secure communications between a Single-Page App and its backend API](https://auth0.com/docs/manage-users/cookies/spa-authenticate-with-cookies) for example, in a pattern known as [Backend for Frontend](/azure/architecture/patterns/backends-for-frontends)), and they often don't return URLs back to themselves (except in certain API styles such as [OData](https://www.odata.org/) and [HATEOAS](https://en.wikipedia.org/wiki/HATEOAS)). In case your API implementation depends on cookies or generates absolute URLs, the guidance provided in this article applies as well.
@@ -165,13 +162,13 @@ Because health probes are sent outside of the context of an incoming request, th
 
 #### Azure Front Door
 
-When using [Azure Front Door](/azure/frontdoor/), you can avoid overriding the host name by leaving the [Backend host header](/azure/frontdoor/front-door-backend-pool#backend-host-header) blank on the backend pool definition. On the [ARM definition of the backend pool](/azure/templates/microsoft.network/frontdoors), this corresponds to setting `backendHostHeader` to `null`.
+When using [Azure Front Door](/azure/frontdoor), you can avoid overriding the host name by leaving the [Backend host header](/azure/frontdoor/front-door-backend-pool#backend-host-header) blank on the backend pool definition. On the [ARM definition of the backend pool](/azure/templates/microsoft.network/frontdoors), this corresponds to setting `backendHostHeader` to `null`.
 
-In case you're using [Azure Front Door Standard/Premium](/azure/frontdoor/standard-premium/), you can preserve the host name by leaving the [Origin host header](/azure/frontdoor/standard-premium/concept-origin#origin-host-header) blank on the origin definition. On the [ARM definition of the origin](/azure/templates/microsoft.cdn/profiles/origingroups/origins#afdoriginproperties), this corresponds to setting `originHostHeader` to `null`.
+In case you're using [Azure Front Door Standard/Premium](/azure/frontdoor/standard-premium), you can preserve the host name by leaving the [Origin host header](/azure/frontdoor/standard-premium/concept-origin#origin-host-header) blank on the origin definition. On the [ARM definition of the origin](/azure/templates/microsoft.cdn/profiles/origingroups/origins#afdoriginproperties), this corresponds to setting `originHostHeader` to `null`.
 
 #### Azure API Management
 
-By default, [Azure API Management](/azure/api-management/) overrides the host name that is sent to the backend with the host component of the API's **Web service URL** (which corresponds to the `serviceUrl` value of the [ARM definition of the API](/azure/templates/microsoft.apimanagement/2021-08-01/service/apis)).
+By default, [Azure API Management](/azure/api-management) overrides the host name that is sent to the backend with the host component of the API's **Web service URL** (which corresponds to the `serviceUrl` value of the [ARM definition of the API](/azure/templates/microsoft.apimanagement/2021-08-01/service/apis)).
 
 You can force API Management to use the host name of the incoming request instead by adding an `inbound` [Set HTTP header](/azure/api-management/api-management-transformation-policies#SetHTTPheader) policy as follows:
 
@@ -185,3 +182,11 @@ You can force API Management to use the host name of the incoming request instea
 ```
 
 As noted above however, API's are less sensitive to the issues caused by host name mismatches, so this may not be as important.
+
+## Next steps
+
+- [Azure App Service](/azure/app-service)
+- [Azure Spring Cloud](/azure/spring-cloud)
+- [Azure Application Gateway](/azure/application-gateway)
+- [Azure Front Door](/azure/frontdoor)
+- [Azure API Management](/azure/api-management)
