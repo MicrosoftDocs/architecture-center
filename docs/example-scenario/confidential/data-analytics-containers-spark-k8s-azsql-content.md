@@ -1,11 +1,11 @@
-There's exponential growth of datasets, which has resulted in growing scrutiny of how data is exposed, from the perspectives of both consumer data privacy and compliance. In this context, confidential computing becomes an important tool to help organizations meet their privacy and security needs for business and consumer data. Organizations can gain new insights on regulated data if the data are processed in a compliant manner, especially in scenarios where the scale of cloud computing is needed to process the data confidentially.
+There's exponential growth of datasets, which has resulted in growing scrutiny of how data is exposed, from the perspectives of both consumer data privacy and compliance. In this context, confidential computing becomes an important tool to help organizations meet their privacy and security needs for business and consumer data. Organizations can gain new insights from regulated data if the data are processed in a compliant manner. Confidential computing is especially helpful in scenarios where the scale that's provided by cloud computing is needed to process the data confidentially.
 
-Confidential computing technology encrypts data in memory and only processes it after the cloud environment is verified, or _attested_, which prevents data access by cloud operators, malicious admins, and privileged software, such as the hypervisor. Confidential computing helps to keep data protected throughout its lifecycle, and in addition to existing solutions for protecting data at rest and in transit, data is now protected while in use.
+Confidential computing technology encrypts data in memory and only processes it after the cloud environment is verified, or _attested_. Confidential computing prevents data access by cloud operators, malicious admins, and privileged software, such as the hypervisor. It also helps to keep data protected throughout its lifecycle—now including while the data is in use, in addition to existing solutions for protecting data at rest and in transit.
 
-[Confidential containers](/azure/confidential-computing/confidential-nodes-aks-overview) on Azure Kubernetes Service (AKS) provides the necessary infrastructure for customers to use popular applications, such as [Apache Spark](https://spark.apache.org/), to perform data cleansing and machine learning (ML) training. This article presents a solution that Azure confidential computing (ACC) offers for running an Apache Spark application on an AKS cluster by using node pools with Intel Software Guard Extensions (Intel SGX) and safely storing the processed data in [Always Encrypted with secure enclaves](/sql/relational-databases/security/encryption/always-encrypted-enclaves?view=sql-server-ver15) in Azure SQL Database.
+[Confidential containers](/azure/confidential-computing/confidential-nodes-aks-overview) on Azure Kubernetes Service (AKS) provide the necessary infrastructure for customers to use popular applications, such as [Apache Spark](https://spark.apache.org), to perform data cleansing and machine learning (ML) training. This article presents a solution that Azure confidential computing (ACC) offers for running an Apache Spark application on an AKS cluster by using node pools with Intel Software Guard Extensions (Intel SGX). The data from that processing is safely stored in [Always Encrypted with secure enclaves](/sql/relational-databases/security/encryption/always-encrypted-enclaves?view=sql-server-ver15) in Azure SQL Database.
 
 > [!NOTE]
-> Confidential data analytics in this context is meant to imply _run analytics on PII data with peace of mind against data exfiltration_. This includes a potential container access breach at the root level, both internally (for example, by a rogue admin) or externally (by system compromise). 
+> Confidential data analytics in this context is meant to imply _run analytics on sensitive data with peace of mind against data exfiltration_. This includes a potential container access breach at the root level, both internally (for example, by a rogue admin) or externally (by system compromise). 
 > 
 > Confidential data analytics helps to meet the highest needs of security and confidentiality by removing from computation the untrusted parties, such as the cloud operator and service or guest admins. This method helps to meet data compliance needs through hardware-backed guarantees.
 
@@ -40,7 +40,7 @@ Many industries, especially financial services, protect their data by using conf
 ## Architecture
 
 :::image type="complex" source="./media/data-analytics-containers-confidential-data-processing.png" alt-text="Diagram of confidential Big Data Analytics with Apache Spark, Azure SQL Always Encrypted, AKS, and Secure Container Environment." lightbox="./media/data-analytics-containers-confidential-data-processing.png":::
-Diagram that shows how sensitive data flows securely from ingestion phase to analytics within the bounds of a confidential computing environment. The problems that this architecture aims to solve is ingestion and storage of sensitive data in the Azure cloud, gathering business insights by processing and storing the data at scale, and ensuring confidentiality through hardware-enforced means.
+Diagram that shows how sensitive data flows securely from ingestion phase to analytics within the bounds of a confidential computing environment. The problems that this architecture aims to solve are: ingestion and storage of sensitive data in the Azure cloud, gathering business insights by processing and storing the data at scale, and ensuring confidentiality through hardware-enforced means.
 :::image-end:::
 
 *Download a [PowerPoint file](https://arch-center.azureedge.net/big-data-azure-confidential-processing.pptx) of this architecture.*
@@ -61,9 +61,9 @@ The solution involves the following steps:
 
 2. Developer persona: A data engineer uses [PySpark](https://spark.apache.org/docs/latest/api/python/index.html) to write an analytics application that is designed to analyze large volumes of data.
 
-3. Data custodian persona: The data and/or security engineer creates a security policy for the PySpark application from a shared repository in the organization (a one-time activity). This policy specifies the expected state of the data and app code, minimum security requirements for the platform, and any environment variables, command-line arguments, or secrets (such as the JDBC string, input blob URI, and a SAS token for access). This configuration can also be made available to the Spark runtime by using Kubernetes [Secrets](https://kubernetes.io/docs/concepts/configuration/secret/) or by using Azure Key Vault. (For more info, see [Use the Azure Key Vault Provider for Secrets Store CSI Driver in an AKS cluster](/azure/aks/csi-secrets-store-driver)). The configuration is injected into the enclave only if the evidence that it provides is validated by an attestation provider. The [attestation provider](https://sgx101.gitbook.io/sgx101/sgx-bootstrap/attestation) (for example, [Azure Attestation Service](/azure/attestation/overview)), is also defined in the security policy.
+3. Data custodian persona: The data and/or security engineer creates a security policy for the PySpark application from a shared repository in the organization (a one-time activity). This policy specifies the expected state of the data and app code, the minimum security requirements for the platform, and any environment variables, command-line arguments, or secrets (such as the JDBC string, input blob URI, and a SAS token for access). This configuration can also be made available to the Spark runtime by using Kubernetes [Secrets](https://kubernetes.io/docs/concepts/configuration/secret) or by using Azure Key Vault. (For more info, see [Use the Azure Key Vault Provider for Secrets Store CSI Driver in an AKS cluster](/azure/aks/csi-secrets-store-driver)). The configuration is injected into the enclave only if the evidence that it provides is validated by an attestation provider. The [attestation provider](https://sgx101.gitbook.io/sgx101/sgx-bootstrap/attestation) (for example, [Azure Attestation Service](/azure/attestation/overview)), is also defined in the security policy.
 
-4. With the help of the SCONE confidential computing software from the Azure ISV partner, the data engineer is able to build a confidential Docker image that contains the encrypted analytics code and a secure version of PySpark. SCONE works within an AKS cluster that has Intel SGX enabled (see [Create an AKS cluster with a system node pool](/azure/confidential-computing/confidential-enclave-nodes-aks-get-started#create-an-aks-cluster-with-a-system-node-pool)), which allows the container to run inside of an enclave. PySpark will provide evidence that the sensitive data and app code is encrypted and isolated in a Trusted Execution Environment (TEE). This means that no humans, no processes, and no logs have access to the plaintext data or the application code.
+4. With the help of the SCONE confidential computing software, the data engineer is builds a confidential Docker image that contains the encrypted analytics code and a secure version of PySpark. SCONE works within an AKS cluster that has Intel SGX enabled (see [Create an AKS cluster with a system node pool](/azure/confidential-computing/confidential-enclave-nodes-aks-get-started#create-an-aks-cluster-with-a-system-node-pool)), which allows the container to run inside of an enclave. PySpark will provide evidence that the sensitive data and app code is encrypted and isolated in a Trusted Execution Environment (TEE)—which means that no humans, no processes, and no logs have access to the plaintext data or the application code.
 
 5. The PySpark application is deployed to the remote AKS cluster. It starts and sends its attestation evidence to the attestation provider. If the evidence is valid, an _attestation token_ is returned. The remote infrastructure accepts the attestation token and verifies it with a public certificate that is found in the Azure Attestation service. If the token is verified, there's near certainty that the enclave is safe and that neither the data nor the app code have been opened outside of the enclave. The configuration in the security policy (environment variables, command-line arguments, and secrets) is then injected into PySpark enclaves.
 
@@ -78,22 +78,22 @@ The solution involves the following steps:
 
 - [Confidential computing nodes](/azure/confidential-computing/confidential-nodes-aks-overview) are hosted on a specific virtual machine series that can run sensitive workloads on AKS within a hardware-based TEE by allowing user-level code to allocate private regions of memory, known as [enclaves](https://sgx101.gitbook.io/sgx101/sgx-bootstrap/enclave). Confidential computing nodes can support confidential containers or enclave-aware containers.
 
-- [SCONE platform](https://azuremarketplace.microsoft.com/marketplace/apps/scontainug1595751515785.scone?tab=Overview) is a solution from Scontain, an Azure Partner independent software vendor (ISV).
+- [SCONE platform](https://azuremarketplace.microsoft.com/marketplace/apps/scontainug1595751515785.scone?tab=Overview) is a solution from Scontain, an independent software vendor and Azure Partner.
 
-- [SCONE](https://sconedocs.github.io/) supports the execution of confidential applications in containers that run inside of a Kubernetes cluster.
+- [SCONE](https://sconedocs.github.io) supports the execution of confidential applications in containers that run inside of a Kubernetes cluster.
 
-- [Apache Spark](https://spark.apache.org/) is an open-source, multi-language engine for executing data engineering, data science, and machine learning on both single-node machines and multi-node clusters, such as Kubernetes Pods.
+- [Apache Spark](https://spark.apache.org) is an open-source, multi-language engine for executing data engineering, data science, and machine learning on both single-node machines and multi-node clusters, such as Kubernetes Pods.
 
 - [Azure SQL Database - Always Encrypted with Secure Enclaves](/sql/relational-databases/security/encryption/always-encrypted-enclaves?view=sql-server-ver15) expands confidential computing capabilities of [SQL Server's Always Encrypted technology](/sql/relational-databases/security/encryption/always-encrypted-database-engine?view=sql-server-ver15) by enabling in-place encryption and richer confidential queries.
 
-- [Azure Attestation](/azure/attestation/) is a unified solution that remotely verifies the trustworthiness of a platform. Azure Attestation also remotely verifies the integrity of the binaries that run in the platform. Use Azure Attestation to establish trust with the confidential application.
+- [Azure Attestation](/azure/attestation) is a unified solution that remotely verifies the trustworthiness of a platform. Azure Attestation also remotely verifies the integrity of the binaries that run in the platform. Use Azure Attestation to establish trust with the confidential application.
 
 
 ### Alternatives
 
-[Occlum]( https://occlum.io/) is a memory-safe, multi-process library OS (LibOS) for Intel SGX. Occlum enables legacy applications to run on Intel SGX with little to no modifications to source code. Occlum transparently protects the confidentiality of user workloads while allowing an easy "lift and shift" to existing Docker applications. Occlum supports Java apps.
+[Occlum]( https://occlum.io) is a memory-safe, multi-process library OS (LibOS) for Intel SGX. Occlum enables legacy applications to run on Intel SGX with little to no modifications to source code. Occlum transparently protects the confidentiality of user workloads while allowing an easy "lift and shift" to existing Docker applications. Occlum supports Java apps.
 
-The SCONE engineering team maintains an [Apache Spark](https://sconedocs.github.io/sconeapps_spark/) Container Image running the latest version of Spark. Some alternatives that are not specific to Apache Spark include:
+The SCONE engineering team maintains an [Apache Spark](https://sconedocs.github.io/sconeapps_spark) Container Image running the latest version of Spark. Some alternatives that aren't specific to Apache Spark include:
 
 - [Fortanix](https://www.fortanix.com) to deploy confidential containers to use with your containerized application. Fortanix provides the flexibility needed to run and manage the broadest set of applications: existing applications, new enclave-native applications, and pre-packaged applications.
 
@@ -108,7 +108,7 @@ Two primary factors in security for this scenario are secure enclaves and attest
 
 #### Enclave assurances
 
-Kubernetes admins, or any privileged user with the highest level of access (for example, _root_), can't inspect the in-memory contents or source code of drivers or executors. Enclave page cache (EPC) is a specialized memory partition in Azure Confidential VMs that enclaves or confidential containers use. DCsv3 and DCdsv3-series VMs also come with regular, unencrypted memory to run apps that do not require the secure enclave. For more information about using Intel SGX for enclaves, see [Build with SGX enclaves](/azure/confidential-computing/confidential-computing-enclaves).
+Kubernetes admins, or any privileged user with the highest level of access (for example, _root_), can't inspect the in-memory contents or source code of drivers or executors. Enclave page cache (EPC) is a specialized memory partition in Azure Confidential VMs that enclaves or confidential containers use. DCsv3 and DCdsv3-series VMs also come with regular, unencrypted memory to run apps that don't require the secure enclave. For more information about using Intel SGX for enclaves, see [Build with SGX enclaves](/azure/confidential-computing/confidential-computing-enclaves).
 
 #### Attestation
 
@@ -118,16 +118,16 @@ To perform remote attestation on a SCONE application (such as Spark Driver and E
 
 - **Local Attestation Service (LAS)**: A local service that runs on the untrusted host (AKS node pool VM) and gathers the attestation evidence that is provided by Intel SGX about the application being attested. This evidence is signed and forwarded to CAS because of SCONE app deployment methods.
 
-- **Configuration and Attestation Service (CAS)**: A central service that manages security policies (called _SCONE sessions_), configuration, and secrets. CAS compares the attestation evidence that is gathered by LAS against the application's security policies (which are defined by the application owner) to decide whether the enclave is trustworthy. If it is, CAS allows the enclave to run, and SCONE securely injects configuration and secrets into it. To learn more about CAS and its features, such as secret generation and access control, see [SCONE Configuration and Attestation Service](https://sconedocs.github.io/CASOverview/).
+- **Configuration and Attestation Service (CAS)**: A central service that manages security policies (called _SCONE sessions_), configuration, and secrets. CAS compares the attestation evidence that is gathered by LAS against the application's security policies (which are defined by the application owner) to decide whether the enclave is trustworthy. If it is, CAS allows the enclave to run, and SCONE securely injects configuration and secrets into it. To learn more about CAS and its features, such as secret generation and access control, see [SCONE Configuration and Attestation Service](https://sconedocs.github.io/CASOverview).
 
-For this scenario, we use a [Public CAS](https://sconedocs.github.io/public-CAS/) provided by SCONE for demonstration and simplicity. We deploy the [LAS](https://sconedocs.github.io/LASIntro/) to run as a [DaemonSet](https://kubernetes.io/docs/concepts/workloads/controllers/daemonset/) per AKS node.
+For this scenario, we use a [Public CAS](https://sconedocs.github.io/public-CAS) provided by SCONE for demonstration and simplicity. We deploy the [LAS](https://sconedocs.github.io/LASIntro) to run as a [DaemonSet](https://kubernetes.io/docs/concepts/workloads/controllers/daemonset) per AKS node.
 
 
 ## Deploy this scenario
 
 Deploying this scenario involves the following high-level steps:
 
-- Get access to the PySpark base image that is used in this scenario from SCONE's container registry: see **registry.scontain.com:5050** on [SCONE curated images](https://sconedocs.github.io/SCONE_Curated_Images/).
+- Get access to the PySpark base image that is used in this scenario from SCONE's container registry: see **registry.scontain.com:5050** on [SCONE curated images](https://sconedocs.github.io/SCONE_Curated_Images).
 
 - Clone the demo project on GitHub, [Confidential Data Analytics with Apache Spark on Intel SGX Confidential Containers](https://github.com/Azure-Samples/confidential-container-samples/tree/main/confidential-big-data-spark). This project contains all the needed resources, deployment steps, and source-code to reproduce the demo.
   
@@ -141,7 +141,7 @@ Deploying this scenario involves the following high-level steps:
 
 - Deploy the Spark application by running the command **spark-submit**. This deploys a driver pod and a configurable number of executor pods (the demo uses three) that run the tasks and report the analysis results to the driver. All communication is encrypted.
 
-Alternatively, [SCONE Confidential PySpark on Kubernetes](https://portal.azure.com/#create/scontainug1595751515785.scone-pysparkstandard), a VM, includes the same demo that can be reproduced in a local [minikube](https://minikube.sigs.k8s.io/docs/start/) cluster. For more information, see the official documentation: [SCONE PySpark virtual machine](https://sconedocs.github.io/azure/scone-pyspark/).
+Alternatively, [SCONE Confidential PySpark on Kubernetes](https://portal.azure.com/#create/scontainug1595751515785.scone-pysparkstandard), a VM, includes the same demo that can be reproduced in a local [minikube](https://minikube.sigs.k8s.io/docs/start) cluster. For more information, see the official documentation: [SCONE PySpark virtual machine](https://sconedocs.github.io/azure/scone-pyspark).
 
 ## Pricing
 
@@ -149,7 +149,7 @@ To explore the cost of running this scenario, use the [Azure pricing calculator]
 
 ## Next steps
 
-- Learn more about [Azure confidential computing](/azure/confidential-computing/).
+- Learn more about [Azure confidential computing](/azure/confidential-computing).
 - [Confidential containers on AKS](/azure/confidential-computing/confidential-containers).
 
 
