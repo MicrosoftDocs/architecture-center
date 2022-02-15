@@ -94,7 +94,7 @@ SWIFT has a policy framework that helps customers enforce a subset of SWIFT CSP-
 
 Customers are recommended to deploy SWIFT components in a separate subscription from any back-office applications. Separate subscriptions ensure SWIFT CSP-CSCF only applies to SWIFT components and not to customer-specific components.
 
-* [Overview of the SWIFT CSP-CSCF v2020 blueprint sample](/azure/governance/blueprints/samples/swift-2020/)
+Consider using the latest version of [SWIFT CSP Blueprint](https://azure.microsoft.com/blog/new-azure-blueprint-enables-swift-connect) after consulting Microsoft team working with you.
 
 ## Next steps
 
