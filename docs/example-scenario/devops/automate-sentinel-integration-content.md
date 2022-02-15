@@ -533,7 +533,95 @@ You first set up the necessary NuGet components in a dedicated repository where 
 
 If your organization chooses a GitHub registry, you can connect it as a NuGet repository, because it's compatible with the feed protocol. For more information, see [Introduction to GitHub packages](https://docs.github.com/en/packages/learn-github-packages/introduction-to-github-packages).
 
-When you have an available NuGet repository, the Azure DevOps Pipeline contains a service connection for NuGet. The configuration for this kind of Service Connection should be like is described in the next illustrations, specifying the name Microsoft Sentinel Nuget Framework Connection 
+When you have an available NuGet repository, the Azure DevOps Pipeline contains a service connection for NuGet. The following screen shots show the configuration for the new service connection that's named Microsoft Sentinel Nuget Framework Connection.
+
+![Create a new service connection](./media/new-service-connection.png)
+
+![Edit a service connection](./media/edit-service-connection.png)
+
+After configuring the feed, you can import the Azure DevOps Pipeline for building the PowerShell framework directly from GitHub in a specific Fork. For more information, see [Build GitHub repositories](/azure/devops/pipelines/repos/github?view=azure-devops&tabs=yaml). In this case, you create a new Pipeline and choose GitHub as the code source.
+
+Another option is to import the Git repository as an Azure DevOps Repository based on Git. In both cases, to import the pipeline, you'd specify the following path.
+
+`src/Build/Framework/ADO/Microsoft.Sentinel.Framework.Build.yml`
+
+Now you can run the Pipeline for first time. Then, the Framework is built and released to the NuGet feed.
+
+### Define your Microsoft Sentinel environment
+
+When starting with Microsoft Sentinel and using these samples, you must define the environment or environments in the organization, for example, Environment as Code or EaC. You specify the different elements that make up the environment for each case.
+
+Microsoft Sentinel architecture includes the following elements on Azure.
+
+* Log Analytics Workspace - This workspace is the base for the solution, is where security-related information is stored, and is the engine for the Kusto Query Language.
+* Sentinel Solution (over Log Analytics Workspace) - This solution extends the capabilities of Log Analytics workspace for getting SIEM and SOAR capabilities.
+* Key Vault - The key vault keeps the secrets and keys that you use during the remediation processes.
+* Automation Account - This account is optional and something you can use for the remediation processes. The remediation process you use is based on the PowerShell and Python Runbooks that include a system-managed identity that works with different resources according to best practices. 
+* User Managed Identity - This feature acts as a Sentinel unified identity layer that manages interactions between Sentinel Playbooks and Runbooks.
+* Logic App Connections - These are connections for Sentinel, the key vault and automation using the User Managed Identity. 
+* Logic App Connections - These are connections for external resources involved in the remediations processes based on the Playbooks.
+* Event Hubs - This feature is optional and handles integration between Sentinel and other solutions in NESTLE, such as Splunk, Databricks/ML, and Resilient.
+* Storage Account - This feature is optional and handles integration between Sentinel and other solutions in NESTLE, such as Splunk, Databricks/ML, and Resilient.
+
+Using examples from the repository, you can see how to define the environment using JSON files to specify the different logical concepts. These are the options available for defining the environment.
+
+The definition can be literal, where you specify the name and the elements for each resource in the environment as shown in this example.
+
+![Literal environment definitions](./media/literal-env-code-definitions.png)
+
+Or the definition can be automatic, where naming the elements is generated automatically based on the naming convention and as shown in this example.
+
+![Automatic environment definitions](./media/automatic-env-code-definitions.png)
+
+You can find samples in the GitHub repository under the Sentinel/environments path and use the samples as a reference in preparing your use cases.
+
+### Deploy your Microsoft Sentinel environment 
+
+When you have at least one environment defined, you can create the Azure Service Connection to integrate with Azure DevOps. Once the Service Connection is created, ensure that the linked Service Principal has an Owner Role or similar permissions level over the target subscription.
+
+1. Import the pipeline for creating the new environment with the following command.
+
+`src/Release/Sentinel Deployment/ADO/Microsoft.Sentinel.Environment.Deployment.yml`
+
+1. Next, enter the name of the Service Connection that represents the environment.
+
+   ![Automatic environment definitions](./media/import-pipeline-to-deploy-sentinel.png)
+
+1. Choose the branch for the environment definition in the repository.  
+1. Enter the name of the Azure DevOps service connection for your subscription in the **Azure Environment Connection** field.
+1. Enter the name of the environment that a service connection can use to resolve multiple environments in the same subscription.
+1. Choose the action to apply to the connectors.
+1. Check **Use PowerShell Pre-Release Artifacts** if you want to use the pre-release versions of the PowerShell framework components.
+
+The Pipeline defines the following steps as part of the Deployment flow.
+
+* Deploy NuGet components
+* Connect using NuGet tools with artifacts repository
+* Resolve the feed
+* Install the required modules
+* Get the environment definition
+* Validate which resources exists in the destination
+* Create log analytics and Microsoft Sentinel if they don't exist 
+* Create Microsoft Sentinel over an existing log analytics (an alternative to the previous step)
+* Create Manage Identity for representing the interaction with Microsoft Sentinel from logic apps
+* Create the Azure Key Vault and set the role assignment for managing secrets and keys to the Manage Identity
+* Create (if applicable) the Azure Automation account and enable the system-assigned managed identity if it doesn't exist
+* Set the role assignment over the key vault for the system-assigned managed identity
+* Create the Azure Event Hubs definitions if they don't exist and set whether the definition includes the integration elements
+* Set the role assignment over the key vault for the system-assigned managed identity
+* Create the storage account definitions if they don't exist and set whether the definition includes the integration elements
+* Set the role assignment over the key vault for the system-assigned managed identity
+* Deploy the connector actions
+* Deploy the Integration Runbook on the automation account
+* Deploy the logic app connections if they're defined as part of the environment
+
+### Destroy a Microsoft Sentinel environment
+
+When the environment is no longer used, as in the case of a development or testing environment, you can destroy it with the following command:
+
+`src/Release/Sentinel Deployment/ADO/Microsoft.Sentinel.Environment.Destroy.yml`
+
+As with the deploying the environment pipeline, you must specify the name of the service connection that represents the environment.
 
 ## Next steps
 
