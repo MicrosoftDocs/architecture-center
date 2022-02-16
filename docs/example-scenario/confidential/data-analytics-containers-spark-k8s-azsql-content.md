@@ -74,19 +74,20 @@ The solution involves the following steps:
 
 ### Components
 
-- [Azure Kubernetes Service](https://azure.microsoft.com/en-us/services/kubernetes-service/#overview) simplifies the process of deploying and managing a Kubernetes cluster.
+- [Azure Attestation](/azure/attestation) is a unified solution that remotely verifies the trustworthiness of a platform. Azure Attestation also remotely verifies the integrity of the binaries that run in the platform. Use Azure Attestation to establish trust with the confidential application.
 
-- [Confidential computing nodes](/azure/confidential-computing/confidential-nodes-aks-overview) are hosted on a specific virtual machine series that can run sensitive workloads on AKS within a hardware-based TEE by allowing user-level code to allocate private regions of memory, known as [enclaves](https://sgx101.gitbook.io/sgx101/sgx-bootstrap/enclave). Confidential computing nodes can support confidential containers or enclave-aware containers.
+- [Azure confidential computing](https://azure.microsoft.com/solutions/confidential-compute/) nodes are hosted on a specific virtual machine series that can run sensitive workloads on AKS within a hardware-based TEE by allowing user-level code to allocate private regions of memory, known as [enclaves](https://sgx101.gitbook.io/sgx101/sgx-bootstrap/enclave). Confidential computing nodes can support confidential containers or enclave-aware containers.
+
+- [Azure Kubernetes Service](https://azure.microsoft.com/services/kubernetes-service) simplifies the process of deploying and managing a Kubernetes cluster.
+
+- [Apache Spark](https://spark.apache.org) is an open-source, multi-language engine for executing data engineering, data science, and machine learning on both single-node machines and multi-node clusters, such as Kubernetes Pods.
+
+- [Azure SQL Database](https://azure.microsoft.com/services/sql-database/campaign/) now offers [Always Encrypted with Secure Enclaves](/azure/azure-sql/database/always-encrypted-with-secure-enclaves-landing), expanding the confidential computing capabilities of [SQL Server's Always Encrypted technology](/sql/relational-databases/security/encryption/always-encrypted-database-engine?view=sql-server-ver15) by enabling in-place encryption and richer confidential queries.
 
 - [SCONE platform](https://azuremarketplace.microsoft.com/marketplace/apps/scontainug1595751515785.scone?tab=Overview) is a solution from Scontain, an independent software vendor and Azure Partner.
 
 - [SCONE](https://sconedocs.github.io) supports the execution of confidential applications in containers that run inside of a Kubernetes cluster.
 
-- [Apache Spark](https://spark.apache.org) is an open-source, multi-language engine for executing data engineering, data science, and machine learning on both single-node machines and multi-node clusters, such as Kubernetes Pods.
-
-- [Azure SQL Database - Always Encrypted with Secure Enclaves](/sql/relational-databases/security/encryption/always-encrypted-enclaves?view=sql-server-ver15) expands confidential computing capabilities of [SQL Server's Always Encrypted technology](/sql/relational-databases/security/encryption/always-encrypted-database-engine?view=sql-server-ver15) by enabling in-place encryption and richer confidential queries.
-
-- [Azure Attestation](/azure/attestation) is a unified solution that remotely verifies the trustworthiness of a platform. Azure Attestation also remotely verifies the integrity of the binaries that run in the platform. Use Azure Attestation to establish trust with the confidential application.
 
 
 ### Alternatives
