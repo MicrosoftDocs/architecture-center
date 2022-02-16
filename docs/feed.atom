@@ -2,12 +2,188 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id/>
     <title>Azure Architecture Center</title>
-    <updated>2022-02-07T18:59:24.247Z</updated>
+    <updated>2022-02-14T19:31:44.180Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <subtitle>Updated articles for Azure Architecture Center</subtitle>
     <rights>https://docs.microsoft.com/legal/termsofuse</rights>
     <category term="new"/>
     <category term="updated"/>
+    <entry>
+        <title type="html"><![CDATA[Azure and Power Platform scenarios]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/solutions/power-platform-scenarios</id>
+        <link href="https://docs.microsoft.com/azure/architecture/solutions/power-platform-scenarios"/>
+        <updated>2022-02-13T09:22:08.000Z</updated>
+        <summary type="html"><![CDATA[Learn about architectures and solutions that use Azure together with Microsoft Power Platform.]]></summary>
+        <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Architectural approaches for AI and ML in multitenant solutions]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/guide/multitenant/approaches/ai-ml</id>
+        <link href="https://docs.microsoft.com/azure/architecture/guide/multitenant/approaches/ai-ml"/>
+        <updated>2022-02-11T23:25:35.000Z</updated>
+        <summary type="html"><![CDATA[This article describes approaches to support multitenancy for the artificial intelligence (AI) and machine learning (ML) components of your solution.]]></summary>
+        <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Tiered data for analytics]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/example-scenario/hybrid/hybrid-tiered-data-analytics</id>
+        <link href="https://docs.microsoft.com/azure/architecture/example-scenario/hybrid/hybrid-tiered-data-analytics"/>
+        <updated>2022-02-10T22:38:50.000Z</updated>
+        <summary type="html"><![CDATA[Learn how to use Azure Stack Hub and Azure to stage, analyze, process, sanitize, and store data across multiple on-premises and cloud locations.]]></summary>
+        <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Architectural approaches for messaging in multitenant solutions]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/guide/multitenant/approaches/messaging</id>
+        <link href="https://docs.microsoft.com/azure/architecture/guide/multitenant/approaches/messaging"/>
+        <updated>2022-02-09T05:06:41.000Z</updated>
+        <summary type="html"><![CDATA[This article describes approaches for messaging in a multitenant solution.]]></summary>
+        <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Trusted Internet Connection (TIC) 3.0 compliance]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/example-scenario/security/trusted-internet-connections</id>
+        <link href="https://docs.microsoft.com/azure/architecture/example-scenario/security/trusted-internet-connections"/>
+        <updated>2022-02-08T19:51:26.000Z</updated>
+        <summary type="html"><![CDATA[Deliver Trusted Internet Connection (TIC) 3.0 compliance for your internet-facing Azure applications and services, and improve the user experience.]]></summary>
+        <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Actuarial risk analysis and financial modeling]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/industries/finance/actuarial-risk-analysis-financial-model</id>
+        <link href="https://docs.microsoft.com/azure/architecture/industries/finance/actuarial-risk-analysis-financial-model"/>
+        <updated>2022-02-08T09:11:02.000Z</updated>
+        <summary type="html"><![CDATA[How an actuarial developer can move an existing solution plus supporting infrastructure to Azure.]]></summary>
+        <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Data management in banking]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/industries/finance/data-management-banking-overview</id>
+        <link href="https://docs.microsoft.com/azure/architecture/industries/finance/data-management-banking-overview"/>
+        <updated>2022-02-08T09:11:02.000Z</updated>
+        <summary type="html"><![CDATA[Describes techniques of managing data in a regulated banking environment using Microsoft Azure.]]></summary>
+        <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Enable the financial services risk lifecycle with Azure and R]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/industries/finance/financial-risk-model</id>
+        <link href="https://docs.microsoft.com/azure/architecture/industries/finance/financial-risk-model"/>
+        <updated>2022-02-08T09:11:02.000Z</updated>
+        <summary type="html"><![CDATA[Learn about risk calculations, which are pivotal at several stages in the lifecycle of key financial services operations.]]></summary>
+        <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Risk grid computing in banking]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/industries/finance/risk-grid-banking-overview</id>
+        <link href="https://docs.microsoft.com/azure/architecture/industries/finance/risk-grid-banking-overview"/>
+        <updated>2022-02-08T09:11:02.000Z</updated>
+        <summary type="html"><![CDATA[Presents the business considerations of implementing risk grid computing in banking on Azure.]]></summary>
+        <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Risk grid computing solution]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/industries/finance/risk-grid-banking-solution-guide</id>
+        <link href="https://docs.microsoft.com/azure/architecture/industries/finance/risk-grid-banking-solution-guide"/>
+        <updated>2022-02-08T09:11:02.000Z</updated>
+        <summary type="html"><![CDATA[Introduces technical aspects of implementing Azure Batch for risk grid computing in banking.]]></summary>
+        <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Implement the Azure healthcare blueprint for AI]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/industries/healthcare/healthcare-ai-blueprint</id>
+        <link href="https://docs.microsoft.com/azure/architecture/industries/healthcare/healthcare-ai-blueprint"/>
+        <updated>2022-02-08T09:11:02.000Z</updated>
+        <summary type="html"><![CDATA[This article provides guidance for the Microsoft Azure blueprint for AI.]]></summary>
+        <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[High-performance computing for manufacturing]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/industries/manufacturing/compute-manufacturing-overview</id>
+        <link href="https://docs.microsoft.com/azure/architecture/industries/manufacturing/compute-manufacturing-overview"/>
+        <updated>2022-02-08T09:11:02.000Z</updated>
+        <summary type="html"><![CDATA[Overview for the high-power compute need in the manufacturing industry.]]></summary>
+        <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Extract actionable insights from IoT data]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/industries/manufacturing/extract-insights-iot-data</id>
+        <link href="https://docs.microsoft.com/azure/architecture/industries/manufacturing/extract-insights-iot-data"/>
+        <updated>2022-02-08T09:11:02.000Z</updated>
+        <summary type="html"><![CDATA[Extract insights from IoT data with Azure services.]]></summary>
+        <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Introduction to predictive maintenance in manufacturing]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/industries/manufacturing/predictive-maintenance-overview</id>
+        <link href="https://docs.microsoft.com/azure/architecture/industries/manufacturing/predictive-maintenance-overview"/>
+        <updated>2022-02-08T09:11:02.000Z</updated>
+        <summary type="html"><![CDATA[Overview of how to develop predictive maintenance (PdM) for manufacturing customers on Azure.]]></summary>
+        <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Predictive maintenance solution]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/industries/manufacturing/predictive-maintenance-solution</id>
+        <link href="https://docs.microsoft.com/azure/architecture/industries/manufacturing/predictive-maintenance-solution"/>
+        <updated>2022-02-08T09:11:02.000Z</updated>
+        <summary type="html"><![CDATA[Solution description of how to develop predictive maintenance for manufacturing customers on Azure.]]></summary>
+        <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Migrate your e-commerce solution to Azure]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/industries/retail/migrate-ecommerce-solution</id>
+        <link href="https://docs.microsoft.com/azure/architecture/industries/retail/migrate-ecommerce-solution"/>
+        <updated>2022-02-08T09:11:02.000Z</updated>
+        <summary type="html"><![CDATA[This article explains the phases of migrating ecommerce infrastructure from on premises to Azure.]]></summary>
+        <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Reuse recommender systems and algorithms from R with Azure]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/industries/retail/recommendation-engine-optimization</id>
+        <link href="https://docs.microsoft.com/azure/architecture/industries/retail/recommendation-engine-optimization"/>
+        <updated>2022-02-08T09:11:02.000Z</updated>
+        <summary type="html"><![CDATA[How to reuse and optimize recommendation apps written in the R language. Relies on Machine Learning Server on Azure VMs.]]></summary>
+        <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Data management in the retail industry]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/industries/retail/retail-data-management-overview</id>
+        <link href="https://docs.microsoft.com/azure/architecture/industries/retail/retail-data-management-overview"/>
+        <updated>2022-02-08T09:11:02.000Z</updated>
+        <summary type="html"><![CDATA[Retailors have large data stores of unused data from which they may gain valuable insights. This article discusses how Microsoft Azure can help effectively use that data.]]></summary>
+        <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[SKU optimization for consumer brands]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/industries/retail/sku-optimization-solution-guide</id>
+        <link href="https://docs.microsoft.com/azure/architecture/industries/retail/sku-optimization-solution-guide"/>
+        <updated>2022-02-08T09:11:02.000Z</updated>
+        <summary type="html"><![CDATA[Retail industry assortment optimization. SKU optimization through insights from AI and ML.]]></summary>
+        <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Visual search in retail with Cosmos DB]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/industries/retail/visual-search-use-case-overview</id>
+        <link href="https://docs.microsoft.com/azure/architecture/industries/retail/visual-search-use-case-overview"/>
+        <updated>2022-02-08T09:11:02.000Z</updated>
+        <summary type="html"><![CDATA[This article explains the phases of migrating ecommerce infrastructure from on premises to Azure.]]></summary>
+        <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Solutions for the education industry]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/industries/education</id>
+        <link href="https://docs.microsoft.com/azure/architecture/industries/education"/>
+        <updated>2022-02-08T09:02:30.000Z</updated>
+        <summary type="html"><![CDATA[Discover architectures and ideas for using Azure services to build solutions in the education industry.]]></summary>
+        <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Security architecture design]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/guide/security/security-start-here</id>
+        <link href="https://docs.microsoft.com/azure/architecture/guide/security/security-start-here"/>
+        <updated>2022-02-07T20:35:20.000Z</updated>
+        <summary type="html"><![CDATA[Get an overview of Azure security technologies, guidance offerings, solution ideas, and reference architectures.]]></summary>
+        <category label="new" term="new"/>
+    </entry>
     <entry>
         <title type="html"><![CDATA[Azure Database for PostgreSQL considerations for multitenancy]]></title>
         <id>https://docs.microsoft.com/azure/architecture/guide/multitenant/service/postgresql</id>
@@ -55,6 +231,22 @@
         <updated>2022-02-01T21:12:02.000Z</updated>
         <summary type="html"><![CDATA[Build an end-to-end Customer 360 solution by using Azure Synapse Analytics and Dynamics 360 Customer Insights.]]></summary>
         <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Real-time fraud detection]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/example-scenario/data/fraud-detection</id>
+        <link href="https://docs.microsoft.com/azure/architecture/example-scenario/data/fraud-detection"/>
+        <updated>2022-02-14T05:29:47.000Z</updated>
+        <summary type="html"><![CDATA[Analyze data in real time to detect fraudulent transactions or other anomalous activity, using Azure Event Hubs and Stream Analytics.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Monitor a microservices app in AKS]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/microservices/logging-monitoring</id>
+        <link href="https://docs.microsoft.com/azure/architecture/microservices/logging-monitoring"/>
+        <updated>2022-02-11T23:49:48.000Z</updated>
+        <summary type="html"><![CDATA[Learn about best practices for monitoring a microservices application that runs on Azure Kubernetes Service, by collecting telemetry from the application.]]></summary>
+        <category label="updated" term="updated"/>
     </entry>
     <entry>
         <title type="html"><![CDATA[N-tier architecture style]]></title>

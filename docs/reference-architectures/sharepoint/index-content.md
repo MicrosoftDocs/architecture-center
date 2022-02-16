@@ -193,7 +193,7 @@ For more information about the individual pieces of the solution architecture, s
 
 ## Related resources
 
-- [windows-n-tier](/azure/architecture/reference-architectures/n-tier/n-tier-sql-server)
+- [Windows N-tier application on Azure](/azure/architecture/reference-architectures/n-tier/n-tier-sql-server)
 - [Highly available SharePoint farm - Azure Solution Ideas](/azure/architecture/solution-ideas/articles/highly-available-sharepoint-farm)
 - [Hybrid SharePoint farm with Microsoft 365](/azure/architecture/solution-ideas/articles/sharepoint-farm-microsoft-365)
 
