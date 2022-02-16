@@ -14,10 +14,10 @@ azureCategories:
   - web
   - identity 
 products:
-   - azure-active-directory
+   - azure-functions
    - ms-graph
    - power-platform
-   - azure-key-vault
+   - azure-signalr
    - azure-event-hubs
 name: Real-time presence with Microsoft 365, Azure, and Power Platform
 summary: Learn about a custom solution that provides real-time presence information by using Microsoft Cloud services.
