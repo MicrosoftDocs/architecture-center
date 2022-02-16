@@ -4,7 +4,7 @@ titleSuffix: Azure Architecture Center
 description: Learn about machine learning data and models in Azure IoT Edge vision AI solutions.
 author: MSKeith
 ms.author: keith
-ms.date: 02/11/2022
+ms.date: 02/16/2022
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: azure-guide

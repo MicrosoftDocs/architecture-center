@@ -4,7 +4,7 @@ titleSuffix: Azure Architecture Center
 description: Explore hardware acceleration for Azure IoT Edge vision solutions. Learn about hardware acceleration capabilities of CPUs, GPUs, FPGAs, and ASIC chips.
 author: MSKeith
 ms.author: keith
-ms.date: 02/11/2022
+ms.date: 02/16/2022
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: azure-guide
@@ -16,7 +16,7 @@ ms.custom:
   - fcp
 ---
 
-# Hardware acceleration for Azure IoT Edge vision
+# Hardware acceleration for Azure IoT Edge vision AI
 
 Computer graphics and artificial intelligence (AI) require large amounts of computing power. A critical factor in designing Azure IoT Edge vision AI projects is the degree of hardware acceleration the solution needs.
 

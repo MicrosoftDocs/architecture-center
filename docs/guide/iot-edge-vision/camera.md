@@ -4,7 +4,7 @@ titleSuffix: Azure Architecture Center
 description: Get information about camera selection in an Azure IoT Edge vision solution. Explore camera features, camera placement, and the communication interface.
 author: MSKeith
 ms.author: keith
-ms.date: 02/04/2022
+ms.date: 02/16/2022
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: azure-guide
@@ -128,7 +128,7 @@ In planning a vision workload, you need to know about the field of view (FOV) of
 
 - Distance to objects. For example, is the object being monitored on a conveyor belt with the camera two feet above it, or across a parking lot? Camera sensors and lens configurations are different for different distances.
 - Area of coverage. Is the area that the computer vision is trying to monitor small or large? This factor directly correlates to the camera's resolution, lens, and sensor type.
-- Direction of the sun. If the computer vision workload is outdoors, will the camera ever point into the sun? If the camera gets direct sunlight in the lens, it might be blinded until the angle of the sun changes. If the sun casts a shadow over the object being monitored, the object might be obscured.
+- Direction of the sun. If the computer vision workload is outdoors, you should consider the direction of the sun throughout the day. The angle of the sun as it moves might impact the computer vision model. If the camera gets direct sunlight in the lens, it might be blinded until the angle of the sun changes. If the sun casts a shadow over the object being monitored, the object might be obscured.
 - Camera angle to the objects. If the camera is too high or too low, it might miss the details that the workload is trying to capture.
 
 ## Communication interface
