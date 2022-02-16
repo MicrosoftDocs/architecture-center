@@ -15,7 +15,7 @@ products:
   - azure-table-storage
 name: Data partitioning strategies
 summary: View guidance on separating data partitions to be managed and accessed separately in different services, such as Azure Search, Azure storage queues, and more.
-thumbnailUrl: /azure/architecture/browse/thumbs/pointShardlet.png
+thumbnailUrl: /azure/architecture/browse/thumbs/point-shardlet.png
 content: |
   [!include[](data-partitioning-strategies-content.md)]
 
