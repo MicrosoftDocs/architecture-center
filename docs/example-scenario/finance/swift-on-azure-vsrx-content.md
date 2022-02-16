@@ -76,7 +76,7 @@ While the proposed architecture recommends using native Azure services, customer
 
 #### Azure policies
 
-In response to the rapidly increasing cyber threat landscape, SWIFT introduced the Customer Security Program (CSP) with a set of mandatory security controls. To simplify and support control implementation and enable continuous monitoring and audit, Microsoft has developed a blueprint for the CSP framework. Azure Blueprint is a free service that enables customers to define a repeatable set of Azure resources and policies that implement and adhere to standards, patterns, and control requirements.  Azure Blueprints allow customers to set up governed Azure environments at scale to aid secure and compliant production implementations. For the latest version of [SWIFT CSP Blueprint](https://azure.microsoft.com/blog/new-azure-blueprint-enables-swift-connect), please contact Microsoft team working with you.
+In response to the rapidly increasing cyber threat landscape, SWIFT introduced the Customer Security Program (CSP) with a set of mandatory security controls. To simplify and support control implementation and enable continuous monitoring and audit, Microsoft has developed a blueprint for the CSP framework. Azure Blueprint is a free service that enables customers to define a repeatable set of Azure resources and policies that implement and adhere to standards, patterns, and control requirements.  Azure Blueprints allow customers to set up governed Azure environments at scale to aid secure and compliant production implementations. Consider using the latest implementation of SWIFT CSP controls in Azure after consulting Microsoft team working with you.
 
 #### Logic Apps
 
