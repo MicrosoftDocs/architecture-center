@@ -107,7 +107,7 @@ The following guidance helps improve the architecture quality for SWIFT's AMH on
 
 ### Security
 
-1. Consider using the latest version of [SWIFT CSP Blueprint](https://azure.microsoft.com/blog/new-azure-blueprint-enables-swift-connect) after consulting Microsoft team working with you.
+1. Consider using the latest implementation of SWIFT CSP controls in Azure after consulting Microsoft team working with you.
 2. Consider using Microsoft Defender for Cloud for protection from server and application vulnerabilities. Defender for Cloud helps to quickly identify threats, streamline threat investigation, and automate remediation.
 3. Consider using Azure Active Directory (AD) for using Azure AD Role-Based Access Control (RBAC) to limit access to application components.
 4. Consider using Azure Sentinel for analyzing security and other events reported by solution components. Deep investigations and hunting exercises will enable a quick response to any anomaly or potential threat.
