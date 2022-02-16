@@ -7,7 +7,7 @@ This line-of-business application solution provides a mechanism for monitoring a
 ![Architecture diagram](../media/modern-customer-support-portal-powered-by-an-agile-business-process.png)
 *Download an [SVG](../media/modern-customer-support-portal-powered-by-an-agile-business-process.svg) of this architecture.*
 
-### Data flow
+### Dataflow
 
 1. Customer submits feedback posted to a web endpoint.
 1. The feedback is posted to Azure Cognitive Services Text Analytics API to extract sentiment and keywords.
