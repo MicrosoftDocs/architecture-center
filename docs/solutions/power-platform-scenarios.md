@@ -3,7 +3,7 @@ title: Azure and Power Platform scenarios
 description: Learn about architectures and solutions that use Azure together with Microsoft Power Platform. 
 author: EdPrice-MSFT
 ms.author: edprice
-ms.date: 02/14/2022
+ms.date: 02/16/2022
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: azure-guide
@@ -43,7 +43,11 @@ Anyone can be a developer with Power Platform. Check out this short video to lea
 
 *Apache®, Apache Ignite, Ignite, and the flame logo are either registered trademarks or trademarks of the Apache Software Foundation in the United States and/or other countries. No endorsement by The Apache Software Foundation is implied by the use of these marks.*
 
-## Power Platform (general)
+## Solutions across Azure and Power Platform
+
+The following articles provide detailed analysis of solutions that feature integration between Azure and Power Platform.
+
+### Power Platform (general)
 
 |Architecture|Summary|Technology focus|
 |--|--|--|
@@ -52,7 +56,7 @@ Anyone can be a developer with Power Platform. Check out this short video to lea
 |[Modern data warehouse for small and medium businesses](../example-scenario/data/small-medium-data-warehouse.yml)|Use Azure Synapse Analytics, Azure SQL Database, and Azure Data Lake Storage to modernize legacy and on-premises data. This solution integrates easily with Power Platform.| Analytics|
 |[Virtual health on Microsoft Cloud for Healthcare](../example-scenario/mch-health/virtual-health-mch.yml)| Develop a virtual health solution by using Microsoft Cloud for Healthcare. This solution uses Power Apps to host a patient portal and store data, Power BI for reporting, and Power Automate to trigger notifications.|Web|
 
-## Power Apps
+### Power Apps
 
 |Architecture|Summary|Technology focus|
 |--|--|--|
@@ -62,7 +66,7 @@ Anyone can be a developer with Power Platform. Check out this short video to lea
 [Line of business extension](../solution-ideas/articles/lob.yml)|Modernize legacy systems by automating processes. Schedule calculations, connect to third-party data sources or legacy systems, and process and share data. Power Apps retrieves the data, and Power BI provides reporting.| Integration|
 [Web and mobile front ends](../solution-ideas/articles/front-end.yml) |Accelerate development by using a visual designer. Use Azure Functions for low-latency processing and Power Apps and Power Automate for out-of-the-box connectors.|Integration|
 
-## Power Automate
+### Power Automate
 
 |Architecture|Summary|Technology focus|
 |--|--|--|
@@ -71,7 +75,7 @@ Anyone can be a developer with Power Platform. Check out this short video to lea
 |[Web and mobile front ends](../solution-ideas/articles/front-end.yml)|Accelerate development by using a visual designer. Use Azure Functions for low-latency processing and Power Apps and Power Automate for out-of-the-box connectors. |Integration|
 
 
-## Power BI
+### Power BI
 
 |Architecture|Summary|Technology focus|
 |--|--|--|
