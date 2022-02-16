@@ -354,8 +354,7 @@ items:
             items:
                    - name: Overview
                      href: solutions/power-platform-scenarios.md
-          - name: Microsoft 365 and Azure
-            expanded: true
+          - name: Azure and Microsoft 365 scenarios
             items: 
                   - name: Real-time presence
                     href: solution-ideas/articles/presence-microsoft-365-power-platform.yml
