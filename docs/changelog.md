@@ -212,7 +212,7 @@ New and updated articles in Azure Architecture Center.
 - [Exploratory data analysis with Azure Synapse serverless and a lakehouse](./example-scenario/data/synapse-exploratory-data-analytics.yml)
 - [Architectural approaches for cost management and allocation in a multitenant solution](./guide/multitenant/approaches/cost-management-allocation.md)
 - [Architectural approaches for compute in multitenant solutions](./guide/multitenant/approaches/compute.md)
-- [Architectural approaches for a multitenant solution](./guide/multitenant/approaches/overview.md)
+- [Architectural approaches for a multitenant solution](./guide/multitenant/approaches/overview.yml)
 - [Architectural approaches for the deployment and configuration of multitenant solutions](./guide/multitenant/approaches/deployment-configuration.yml)
 - [Azure Resource Manager considerations for multitenancy](./guide/multitenant/service/resource-manager.md)
 - [Manage virtual machine compliance](./example-scenario/security/virtual-machine-compliance.yml)

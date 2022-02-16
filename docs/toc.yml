@@ -284,7 +284,7 @@ items:
               - name: Overview
                 href: guide/multitenant/considerations/overview.md
               - name: Tenancy models
-                href: guide/multitenant/considerations/tenancy-models.md
+                href: guide/multitenant/considerations/tenancy-models.yml
               - name: Tenant lifecycle
                 href: guide/multitenant/considerations/tenant-lifecycle.md
               - name: Pricing models
@@ -294,13 +294,13 @@ items:
               - name: Deploy updates
                 href: guide/multitenant/considerations/updates.md
               - name: Map requests to tenants
-                href: guide/multitenant/considerations/map-requests.md
+                href: guide/multitenant/considerations/map-requests.yml
               - name: Domain names
-                href: guide/multitenant/considerations/domain-names.md
+                href: guide/multitenant/considerations/domain-names.yml
           - name: Approaches
             items:
               - name: Overview
-                href: guide/multitenant/approaches/overview.md
+                href: guide/multitenant/approaches/overview.yml
               - name: Resource organization
                 href: guide/multitenant/approaches/resource-organization.md
               - name: Governance and compliance
