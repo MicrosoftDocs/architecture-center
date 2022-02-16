@@ -354,6 +354,10 @@ items:
             items:
                    - name: Overview
                      href: solutions/power-platform-scenarios.md
+          - name: Azure and Microsoft 365 scenarios
+            items: 
+                  - name: Real-time presence
+                    href: solution-ideas/articles/presence-microsoft-365-power-platform.yml
       - name: Cloud comparisons
         items:
           - name: Azure for AWS professionals
@@ -4436,6 +4440,8 @@ items:
                 href: solution-ideas/articles/highly-available-sharepoint-farm.yml
               - name: Hybrid SharePoint farm with Microsoft 365
                 href: solution-ideas/articles/sharepoint-farm-microsoft-365.yml
+              - name: Real-time presence with Microsoft 365
+                href: solution-ideas/articles/presence-microsoft-365-power-platform.yml
               - name: Scalable e-commerce web app
                 href: solution-ideas/articles/scalable-ecommerce-web-app.yml
               - name: Scalable Episerver marketing website
