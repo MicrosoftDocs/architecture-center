@@ -1,0 +1,21 @@
+### YamlMime:Architecture
+metadata:
+  title: Map requests to tenants in a multitenant solution
+  description: This article describes the considerations for mapping requests to tenants in a multitenant solution.
+  author: EdPrice-MSFT
+  ms.author: edprice
+  ms.date: 02/16/2022
+  ms.topic: conceptual
+  ms.service: architecture-center
+  ms.subservice: azure-guide
+  ms.custom: fcp
+azureCategories:
+  - management-and-governance
+  - web
+products:
+  - azure
+name: Map requests to tenants in a multitenant solution
+summary: This article describes the considerations for mapping requests to tenants in a multitenant solution.
+thumbnailUrl: /azure/architecture/browse/thumbs/map-logical-physical.png
+content: |
+   [!include[](map-requests-content.md)]
