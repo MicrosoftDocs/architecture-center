@@ -19,7 +19,7 @@ Azure provides a wide range of security tools and capabilities. These are just s
 For a more comprehensive description of Azure security tools and capabilities, see [End-to-end security in Azure](/azure/security/fundamentals/end-to-end).
 
 ## Introduction to security on Azure
-If you're new to security on Azure, the best way to learn more is with [Microsoft Learn](https://docs.microsoft.com/learn/?WT.mc_id=learnaka), a free online training platform. Microsoft Learn provides interactive training for Microsoft products and more.
+If you're new to security on Azure, the best way to learn more is with [Microsoft Learn](/learn/?WT.mc_id=learnaka), a free online training platform. Microsoft Learn provides interactive training for Microsoft products and more.
 
 Here are two learning paths to get you started:
 

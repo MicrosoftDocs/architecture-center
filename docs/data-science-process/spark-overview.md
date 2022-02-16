@@ -188,8 +188,8 @@ Now you can:
 ## What's next?
 Now that you are set up with an HDInsight Spark cluster and have uploaded the Jupyter notebooks, you are ready to work through the topics that correspond to the three PySpark notebooks. They show how to explore your data and then how to create and consume models. The advanced data exploration and modeling notebook shows how to include cross-validation, hyper-parameter sweeping, and model evaluation.
 
-**Data Exploration and modeling with Spark:** Explore the dataset and create, score, and evaluate the machine learning models by working through the [Create binary classification and regression models for data with the Spark MLlib toolkit](spark-data-exploration-modeling.md) topic.
+**Data Exploration and modeling with Spark:** Explore the dataset and create, score, and evaluate the machine learning models by working through the [Create binary classification and regression models for data with the Spark MLlib toolkit](/azure/architecture/data-science-process/overview) topic.
 
-**Model consumption:** To learn how to score the classification and regression models created in this topic, see [Score and evaluate Spark-built machine learning models](spark-model-consumption.md).
+**Model consumption:** To learn how to score the classification and regression models created in this topic, see [Score and evaluate Spark-built machine learning models](/azure/architecture/data-science-process/overview).
 
-**Cross-validation and hyperparameter sweeping**: See [Advanced data exploration and modeling with Spark](spark-advanced-data-exploration-modeling.md) on how models can be trained using cross-validation and hyper-parameter sweeping
+**Cross-validation and hyperparameter sweeping**: See [Advanced data exploration and modeling with Spark](/azure/architecture/data-science-process/overview) on how models can be trained using cross-validation and hyper-parameter sweeping

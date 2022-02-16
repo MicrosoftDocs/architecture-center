@@ -1130,6 +1130,6 @@ Time to run the cell: 61 seconds.
 ## Consume Spark-built machine learning models automatically with Scala
 For an overview of topics that walk you through the tasks that comprise the Data Science process in Azure, see [Team Data Science Process](/azure/machine-learning/team-data-science-process/).
 
-[Team Data Science Process walkthroughs](walkthroughs.md) describes other end-to-end walkthroughs that demonstrate the steps in the Team Data Science Process for specific scenarios. The walkthroughs also illustrate how to combine cloud and on-premises tools and services into a workflow or pipeline to create an intelligent application.
+[Team Data Science Process walkthroughs](/azure/architecture/data-science-process/overview) describes other end-to-end walkthroughs that demonstrate the steps in the Team Data Science Process for specific scenarios. The walkthroughs also illustrate how to combine cloud and on-premises tools and services into a workflow or pipeline to create an intelligent application.
 
-[Score Spark-built machine learning models](spark-model-consumption.md) shows you how to use Scala code to automatically load and score new data sets with machine learning models built in Spark and saved in Azure Blob storage. You can follow the instructions provided there, and simply replace the Python code with Scala code in this article for automated consumption.
+[Score Spark-built machine learning models](/azure/architecture/data-science-process/overview) shows you how to use Scala code to automatically load and score new data sets with machine learning models built in Spark and saved in Azure Blob storage. You can follow the instructions provided there, and simply replace the Python code with Scala code in this article for automated consumption.

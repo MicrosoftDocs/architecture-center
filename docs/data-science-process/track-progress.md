@@ -52,4 +52,4 @@ Here is a simple example dashboard that tracks the sprint activities of an Agile
 
 ## Next steps
 
-[Walkthroughs executing the Team Data Science Process](walkthroughs.md) lists walkthroughs that demonstrate all the process steps. The linked scenarios illustrate how to manage the cloud and on-premise resources into intelligent applications. 
+[Walkthroughs executing the Team Data Science Process](/azure/architecture/data-science-process/overview) lists walkthroughs that demonstrate all the process steps. The linked scenarios illustrate how to manage the cloud and on-premise resources into intelligent applications.
