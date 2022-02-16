@@ -1,24 +1,3 @@
----
-title: Noisy Neighbor antipattern
-titleSuffix: Performance antipatterns for cloud apps
-description: Learn how the activity of one tenant can impact the performance of other tenants in a multitenant system.
-author: johndowns
-ms.author: jodowns
-ms.date: 01/04/2022
-ms.topic: conceptual
-ms.service: architecture-center
-ms.subservice: anti-pattern
-products:
-  - azure
-categories:
-  - management-and-governance
-  - security
-ms.custom:
-  - article
----
-
-# Noisy Neighbor antipattern
-
 Multitenant systems share resources between tenants, which means that the activity of one tenant can have a negative impact on another tenant's use of the system.
 
 ## Problem description

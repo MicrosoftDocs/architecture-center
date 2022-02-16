@@ -323,5 +323,5 @@ Consider the following points when planning for security.
 - [Design, build, and operate microservices on Azure with Kubernetes](../../../microservices/index.md)
 - [Microservices architecture on AKS](./aks-microservices.yml)
 - [Monitor a microservices architecture in AKS](../../../microservices/logging-monitoring.md)
-- [Performance tuning scenario: Distributed business transactions](../../../performance/distributed-transaction.md)
+- [Performance tuning scenario: Distributed business transactions](../../../performance/distributed-transaction.yml)
 - [Building a CI/CD pipeline for microservices on Kubernetes](../../../microservices/ci-cd-kubernetes.md)

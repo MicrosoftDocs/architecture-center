@@ -178,13 +178,13 @@ items:
           - name: Content Delivery Network
             href: best-practices/cdn.yml
           - name: Data partitioning
-            href: best-practices/data-partitioning.md
+            href: best-practices/data-partitioning.yml
           - name: Data partitioning strategies (by service)
-            href: best-practices/data-partitioning-strategies.md
+            href: best-practices/data-partitioning-strategies.yml
           - name: Message encoding considerations
             href: best-practices/message-encode.md
           - name: Monitoring and diagnostics
-            href: best-practices/monitoring.md
+            href: best-practices/monitoring.yml
           - name: Retry guidance for specific services
             href: best-practices/retry-service-specific.md
           - name: Transient fault handling
@@ -194,11 +194,11 @@ items:
           - name: Introduction
             href: performance/index.md
           - name: Scenario 1 - Distributed transactions
-            href: performance/distributed-transaction.md
+            href: performance/distributed-transaction.yml
           - name: Scenario 2 - Multiple backend services
-            href: performance/backend-services.md
+            href: performance/backend-services.yml
           - name: Scenario 3 - Event streaming
-            href: performance/event-streaming.md
+            href: performance/event-streaming.yml
           - name: Performance antipatterns
             items:
               - name: Overview
@@ -218,7 +218,7 @@ items:
               - name: No Caching
                 href: antipatterns/no-caching/index.md
               - name: Noisy Neighbor
-                href: antipatterns/noisy-neighbor/index.md
+                href: antipatterns/noisy-neighbor/noisy-neighbor.yml
               - name: Retry Storm
                 href: antipatterns/retry-storm/index.md
               - name: Synchronous I/O
