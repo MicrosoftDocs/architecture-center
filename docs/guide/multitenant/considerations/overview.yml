@@ -17,4 +17,4 @@ name: Architectural approaches for a multitenant solution
 summary: This article introduces the approaches you can consider when planning a multitenant architecture.
 thumbnailUrl: /azure/architecture/browse/thumbs/deployment-stamps.png
 content: |
-   [!include[](overview-content.md)]
+  [!include[](overview-content.md)]
