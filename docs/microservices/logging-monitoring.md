@@ -3,7 +3,7 @@ title: Monitor a microservices app in AKS
 description: Learn about best practices for monitoring a microservices application that runs on Azure Kubernetes Service, by collecting telemetry from the application.
 author: EdPrice-MSFT
 ms.author: edprice
-ms.date: 02/11/2022
+ms.date: 02/14/2022
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: azure-guide
@@ -22,7 +22,7 @@ ms.custom:
 
 <!-- cSpell:ignore kusto kube kubelet Backoff Fluentd TICK Serilog Telegraf Dropoff Istio linkerd kubectl -->
 
-# Monitoring a microservices architecture in Azure Kubernetes Service (AKS)
+# Monitor a microservices architecture in Azure Kubernetes Service (AKS)
 
 This article describes best practices for monitoring a microservices application that runs on Azure Kubernetes Service (AKS).
 
@@ -299,6 +299,8 @@ Learn more about features in Azure Monitor that support monitoring of applicatio
 
 - [Azure Monitor container insights overview](/azure/azure-monitor/insights/container-insights-overview)
 - [Understand AKS cluster performance with Azure Monitor container insights](/azure/azure-monitor/insights/container-insights-analyze)
+
+## Related resources
 
 For more information about using metrics for performance tuning, see see [Performance tuning a distributed application](../performance/index.md).
 
