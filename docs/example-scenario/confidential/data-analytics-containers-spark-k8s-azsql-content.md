@@ -84,10 +84,9 @@ The solution involves the following steps:
 
 - [Azure SQL Database](https://azure.microsoft.com/services/sql-database/campaign/) now offers [Always Encrypted with Secure Enclaves](/azure/azure-sql/database/always-encrypted-with-secure-enclaves-landing), expanding the confidential computing capabilities of [SQL Server's Always Encrypted technology](/sql/relational-databases/security/encryption/always-encrypted-database-engine?view=sql-server-ver15) by enabling in-place encryption and richer confidential queries.
 
-- [SCONE platform](https://azuremarketplace.microsoft.com/marketplace/apps/scontainug1595751515785.scone?tab=Overview) is a solution from Scontain, an independent software vendor and Azure Partner.
-
 - [SCONE](https://sconedocs.github.io) supports the execution of confidential applications in containers that run inside of a Kubernetes cluster.
 
+- [SCONE platform](https://azuremarketplace.microsoft.com/marketplace/apps/scontainug1595751515785.scone?tab=Overview) is a solution from Scontain, an independent software vendor and Azure Partner.
 
 
 ### Alternatives
