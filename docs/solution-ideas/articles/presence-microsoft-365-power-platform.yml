@@ -17,7 +17,7 @@ products:
    - azure-functions
    - ms-graph
    - power-platform
-   - azure-signalr
+   - azure-signalr-service
    - azure-event-hubs
 name: Real-time presence with Microsoft 365, Azure, and Power Platform
 summary: Learn about a custom solution that provides real-time presence information by using Microsoft Cloud services.
