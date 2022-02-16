@@ -30,7 +30,7 @@ SWIFT's Alliance Connect Virtual is the connectivity component required to conne
 
 ### SWIFT messaging and connectivity components
 
-SWIFT offers various connectivity components for secure financial message transfers. Depending on the functional requirements, volume of transactions, and security requirements—customers can choose a specific connectivity module as per SWIFT guidelines. The next section describes the key components available for large banks processing payment message transfers.
+SWIFT offers various connectivity components for secure financial message transfers. Depending on the functional requirements, volume of transactions, and security requirements—customers can choose a specific connectivity module as per SWIFT guidelines. The next section describes the key components available to banks processing payment message transfers.
 
 #### Alliance Access
 
@@ -76,13 +76,13 @@ While the proposed architecture recommends using native Azure services, customer
 
 #### Azure policies
 
-In response to the rapidly increasing cyber threat landscape, SWIFT introduced the Customer Security Program (CSP) with a set of mandatory security controls. To simplify and support control implementation and enable continuous monitoring and audit, Microsoft has developed a blueprint for the CSP framework. Azure Blueprint is a free service that enables customers to define a repeatable set of Azure resources and policies that implement and adhere to standards, patterns, and control requirements.  Azure Blueprints allow customers to set up governed Azure environments at scale to aid secure and compliant production implementations. Consider using the latest implementation of SWIFT CSP controls in Azure after consulting Microsoft team working with you.
+In response to the rapidly increasing cyber threat landscape, SWIFT introduced the Customer Security Program (CSP) with a set of mandatory security controls. To simplify and support control implementation and enable continuous monitoring and audit, Microsoft has developed a blueprint for the CSP framework. Azure Blueprint is a free service that enables customers to define a repeatable set of Azure resources and policies that implement and adhere to standards, patterns, and control requirements.  Azure Blueprints allow customers to set up governed Azure environments at scale to aid secure and compliant production implementations. Consider using the latest implementation of SWIFT CSP controls in Azure after consulting the Microsoft team working with you.
 
 #### Logic Apps
 
-Logic Apps is Microsoft Azure’s [integration platform as a service](https://azure.microsoft.com/product-categories/integration/) (iPaaS). It's a flexible, containerized, modern cloud-scale workflow engine you can run anywhere. Logic Apps now provides native understanding of SWIFT messaging, enabling customers to accelerate the modernization of their payments infrastructure by using the cloud. With hybrid VNet-connected integration capabilities to on-premises applications, including a wide array of Azure services, Logic Apps provides more than 400 [connectors](/connectors/connector-reference/connector-reference-logicapps-connectors) for intelligent automation, integration, data movement, and more. The SWIFT connectors transform SWIFT flat file messages into XML and vice versa and validates based on the document schemas.
+Logic Apps is Microsoft Azure's [integration platform as a service](https://azure.microsoft.com/product-categories/integration/) (iPaaS). It's a flexible, containerized, modern cloud-scale workflow engine you can run anywhere. Logic Apps now provides native understanding of SWIFT messaging, enabling customers to accelerate the modernization of their payments infrastructure by using the cloud. With hybrid VNet-connected integration capabilities to on-premises applications, including a wide array of Azure services, Logic Apps provides more than 400 [connectors](/connectors/connector-reference/connector-reference-logicapps-connectors) for intelligent automation, integration, data movement, and more. The SWIFT connectors transform SWIFT flat file messages into XML and vice versa and validates based on the document schemas.
 
-Customers can use a Logic Apps service to process payment transactions quickly, reducing the implementation time from months to weeks. For example, customers can integrate their backend SAP systems via Logic Apps to SWIFT, to process payment transactions and business acknowledgments. As part of this processing, the transactions are validated and checked for duplicates or anomalies using the rich capabilities of Logic Apps.
+Customers can use a Logic Apps service to process payment transactions quickly, reducing the implementation time. For example, customers can integrate their backend SAP systems via Logic Apps to SWIFT, to process payment transactions and business acknowledgments. As part of this processing, the transactions are validated and checked for duplicates or anomalies using the rich capabilities of Logic Apps.
 
 ## Next steps
 

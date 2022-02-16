@@ -30,7 +30,7 @@ SWIFT's Alliance Connect is the connectivity component of SWIFT's offering requi
 
 ### SWIFT's messaging and connectivity components
 
-SWIFT offers various connectivity components for secure payments and message transfers. Depending on the functional requirements, volume of transactions, and security requirements—customers can choose a specific connectivity module as per SWIFT's guidelines. The next section describes the key components available for large banks processing payment message transfers.
+SWIFT offers various connectivity components for secure payments and message transfers. Depending on the functional requirements, volume of transactions, and security requirements—customers can choose a specific connectivity module as per SWIFT's guidelines. The next section describes the key components available to banks processing payment message transfers.
 
 #### Alliance Access
 
@@ -68,9 +68,9 @@ In response to the rapidly increasing cyber threat landscape, SWIFT introduced t
 
 #### Logic Apps
 
-Logic Apps is Microsoft Azure’s [integration platform as a service](https://argonsys.com/microsoft-cloud/glossary/platform-as-a-service) (iPaaS). It's a flexible, containerized, modern cloud-scale workflow engine you can run anywhere. Logic Apps now provides native understanding of SWIFT messaging, enabling customers to accelerate the modernization of their payments infrastructure by using the cloud. With hybrid VNet-connected integration capabilities to on-premises applications, including a wide array of Azure services, Logic Apps provides more than 400 [connectors](/connectors/connector-reference/connector-reference-logicapps-connectors) for intelligent automation, integration, data movement, and more. The SWIFT connectors transform SWIFT flat file messages into XML and vice versa and validates based on the document schemas.
+Logic Apps is Microsoft Azure's [integration platform as a service](https://argonsys.com/microsoft-cloud/glossary/platform-as-a-service) (iPaaS). It's a flexible, containerized, modern cloud-scale workflow engine you can run anywhere. Logic Apps now provides native understanding of SWIFT messaging, enabling customers to accelerate the modernization of their payments infrastructure by using the cloud. With hybrid VNet-connected integration capabilities to on-premises applications, including a wide array of Azure services, Logic Apps provides more than 400 [connectors](/connectors/connector-reference/connector-reference-logicapps-connectors) for intelligent automation, integration, data movement, and more. The SWIFT connectors transform SWIFT flat file messages into XML and vice versa and validates based on the document schemas.
 
-Customers can use a Logic Apps service to process payment transactions quickly, reducing the implementation time from months to weeks. For example, customers can integrate their backend SAP systems via Logic Apps to SWIFT, to process payment transactions and business acknowledgments. As part of this processing, the transactions are validated and checked for duplicates or anomalies using the rich capabilities of Logic Apps.
+Customers can use a Logic Apps service to process payment transactions quickly, reducing the implementation time. For example, customers can integrate their backend SAP systems via Logic Apps to SWIFT, to process payment transactions and business acknowledgments. As part of this processing, the transactions are validated and checked for duplicates or anomalies using the rich capabilities of Logic Apps.
 
 ## Next steps
 
