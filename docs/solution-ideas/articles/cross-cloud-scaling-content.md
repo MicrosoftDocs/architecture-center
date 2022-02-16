@@ -7,7 +7,7 @@ Modern software is increasingly connected and distributed. The consistency of Az
 ![Architecture diagram](../media/cross-cloud-scaling.png)
 *Download an [SVG](../media/cross-cloud-scaling.svg) of this architecture.*
 
-### Data flow
+### Dataflow
 
 1. A large number of users attempt to access a web app.
 1. Traffic manager returns the Azure Stack DNS name.
