@@ -1,33 +1,37 @@
-Azure public MEC is a great platform for hosting low latency applications that can leverage the 5G network, but currently does not support Availability Zones, Availability Sets and other availability options compared to Azure regions. It does not have an automatic method to failover if the resources in the Azure public MEC fail. This solution describes how you can deploy workloads in active/standby to achieve availability and disaster recovery. 
+Azure public multiaccess edge compute is a great platform for hosting low latency applications that can use the 5G network, but it currently doesn't support availability zones, availability sets, or other availability options that are available in Azure regions. It doesn't provide an automatic method for failover if the resources in the public multiaccess edge compute fail. This article describes how to deploy workloads in active/standby mode to achieve high availability and disaster recovery. 
+
+## Potential use cases
 
 ## Architecture 
 
-diagram 
+![Diagram that shows an architecture for deploying workloads in active/standby mode to achieve high availability and disaster recovery.](./media/edge-zones-dr-architecture.png) 
 
-visio link 
+*Download a [Visio file](https://arch-center.azureedge.net/edgezones-DR-architecture.vsdx) of this architecture.*
 
-### Architecture components 
+### Workflow
 
-1. Azure Traffic Manager: The Azure Traffic Manager should be setup to use Priority based routing and the Azure public MEC (Primary) region Load Balancer IP should be set as Priority 1 and the one in the region is set to Priority 2. This will ensure that all traffic in the non-failover case will always be sent to the Azure public MEC. 
+- **Azure Traffic Manager.** Traffic Manager is configured to use Priority routing. The Azure public multiaccess edge compute (primary) region load balancer IP is set to Priority 1. The one in the region is set to Priority 2. This configuration ensures that all traffic in the non-failover case is sent to the public multiaccess edge compute. 
 
-   1. Note: Azure Traffic Manager for Azure public MEC currently does not support Performance based routing, which could have dynamically made the decision based on lowest latency to the endpoint.  
-   1. In the above architecture, failback is automatically achieved once the VMs and/or SLB (Standard Load Balancer) is back online. The Azure Traffic Manager identifies that the workloads are up and will then reroute traffic back to the primary Azure public MEC region 
+   > [!NOTE] 
+   > Traffic Manager for public multiaccess edge compute currently doesn't support Performance routing, which could have dynamically determined the previous routing based on the lowest latency to the endpoint.  
+   - In this architecture, failback is automatically achieved after the virtual machines (VMs) and/or standard load balancer is back online. Traffic Manager determines that the workloads are up and reroutes traffic back to the primary public multiaccess edge compute region. 
 
-1. Load Balancers 
+- **Load balancers.** 
 
-   1. Public Load Balancer: This Load balancer will be fronting the Application tier and will be load balancing traffic to the pool of VMs in the VMSS. 
+   - Public load balancer. This load balancer fronts the application tier and balances traffic to the pool of VMs in the virtual machine scale set. 
 
-   1. Internal Load Balancer: This load balancer will be used to access the Database layer. Note that, depending on the type of database you choose for your application, you might not need a Load balancer, assuming other PaaS services support their own Load Balancer. 
+   - Internal load balancer. This load balancer is used to access the database layer. Depending on the type of database you use for your application, you might not need a load balancer, assuming other platform as a service (PaaS) services have their own load balancer. 
 
-1. Virtual Machine Scale Sets: Most production deployments use VMSS to dynamically scale their workloads based on the traffic load. Azure public MEC also support Azure Kubernetes Service for cloud native and container-based applications. 
+- **Azure Virtual Machine Scale Sets.** Most production deployments use Virtual Machine Scale Sets to dynamically scale their workloads based on traffic load. Azure public MEC also support Azure Kubernetes Service for cloud native and container-based applications. 
 
-1. Database Tier 
+- **Database tier.**
 
-   1. Currently, Azure public MEC does not support Database SQL PaaS offerings (SQL Server, Managed Instance etc.) or NoSQL PaaS offerings (Cosmos DB, Cassandra etc.). 
+   - Currently, Azure public MEC does not support Database SQL PaaS offerings (SQL Server, Managed Instance etc.) or NoSQL PaaS offerings (Cosmos DB, Cassandra etc.). 
 
-   1. You can deploy 3rd party ISVs that support SQL or NoSQL offerings and support replication of data across their geo distributed clusters. 
+   - You can deploy 3rd party ISVs that support SQL or NoSQL offerings and support replication of data across their geo distributed clusters. 
 
 ## Considerations
+
 ### Deployment 
 
 Azure public MEC are primarily used for low latency and real time computation scenarios, and data would be processed by the compute instances running in the Azure public MEC. The above architecture highlights Active/Standby with a hot standby, i.e., all the workloads in the secondary region will not to be used unless in the case of failover. 
