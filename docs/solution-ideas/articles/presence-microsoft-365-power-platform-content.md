@@ -42,10 +42,14 @@ This solution applies to companies that use custom applications that require:
 - [Azure SignalR Service](https://azure.microsoft.com/services/signalr-service) simplifies the process of adding real-time web functionality to applications over HTTP.
 - [Azure Static Web Apps](https://azure.microsoft.com/services/app-service/static) automatically builds and deploys full stack web apps to Azure from a code repository.
 
-## Next steps
+## Deploy this scenario
+
 Get a [code sample](https://github.com/microsoft/brainstorm-fluidframework-m365-azure) that demonstrates this solution.
 
+## Next steps
+
 For more information about the services and products that are used in this solution, see these articles:
+
 - [Microsoft Graph](/graph/overview)
 - [Azure AD](/azure/active-directory/fundamentals/active-directory-whatis)
 - [Power Automate](/power-automate)
@@ -55,6 +59,7 @@ For more information about the services and products that are used in this solut
 - [Azure SignalR Service](/azure/azure-signalr) 
 
 ## Related resources
+
 - [Enhanced-security hybrid messaging infrastructure—web access](../../example-scenario/hybrid/secure-hybrid-messaging-web.yml)
 - [Enhanced-security hybrid messaging infrastructure—mobile access](../../example-scenario/hybrid/secure-hybrid-messaging-mobile.yml)
 - [Manage Microsoft 365 tenant configuration by using Microsoft365DSC and Azure DevOps](../../example-scenario/devops/manage-microsoft-365-tenant-configuration-microsoft365dsc-devops.yml)
