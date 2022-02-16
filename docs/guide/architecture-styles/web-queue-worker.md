@@ -102,6 +102,6 @@ For more details, see [App Service web application reference architecture][scala
 [autoscaling]: ../../best-practices/auto-scaling.md
 [caching]: ../../best-practices/caching.yml
 [cdn]: ../../best-practices/cdn.yml
-[data-partition]: ../../best-practices/data-partitioning.md
+[data-partition]: ../../best-practices/data-partitioning.yml
 [polyglot]: ../design-principles/use-the-best-data-store.md
 [scalable-web-app]: ../../reference-architectures/app-service-web-app/scalable-web-app.yml

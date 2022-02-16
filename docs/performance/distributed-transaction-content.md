@@ -1,26 +1,3 @@
----
-title: Distributed business transaction performance tuning
-titleSuffix: Azure Architecture Center
-description: Use load testing to tune the performance of a distributed business transaction. Tests include increasing the cache size, parallelism, and lock duration.
-author: EdPrice-MSFT
-ms.author: pnp
-ms.date: 09/24/2021
-ms.topic: conceptual
-ms.service: architecture-center
-ms.subservice: cloud-fundamentals
-ms.custom:
-  - article
-categories:
-  - containers
-  - devops
-products:
-  - azure-kubernetes-service
-  - azure-cache-redis
-  - application-insights
----
-
-# Performance tuning scenario: Distributed business transactions
-
 This article describes how a development team used metrics to find bottlenecks and improve the performance of a distributed system. The article is based on actual load testing that we did for a sample application. The application is from the [Azure Kubernetes Service (AKS) Baseline for microservices](../reference-architectures/containers/aks-microservices/aks-microservices-advanced.yml).
 
 *This article is part of a series. Read the first part [here](./index.md).*

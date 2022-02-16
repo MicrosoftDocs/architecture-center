@@ -35,27 +35,27 @@ highlightedContent:
 
 # productDirectory section (optional)
 productDirectory:
-  title: Architecting Applications on Azure # < 60 chars (optional)
+  title: Architecting applications on Azure # < 60 chars (optional)
   summary: Best practices and patterns for building applications on Microsoft Azure # < 160 chars (optional)
   items:
     # Card
-    - title: Designing for the cloud
+    - title: Design for the cloud
       imageSrc: https://docs.microsoft.com/media/common/i_design.svg
       links:
         - url: ./guide/design-principles/index.md
           text: Principles of a well-designed application
+        - url: ./best-practices/index-best-practices.md
+          text: Best practices in cloud applications
         - url: ./guide/responsible-innovation/index.md
-          text: Responsible innovation
-        - url: ./best-practices/api-design.md
-          text: Web API design
-        - url: ./microservices/index.md
-          text: Building microservices on Azure
+          text: Responsible engineering
         - url: ./patterns/index.md
           text: Application design patterns
         - url: ./guide/multitenant/overview.md
-          text: Architecting multitenant solutions on Azure
+          text: Architect multitenant solutions on Azure
+        - url: ./microservices/index.md
+          text: Build microservices on Azure
     # Card
-    - title: Optimizing your workload
+    - title: Optimize your workload
       imageSrc: https://docs.microsoft.com/media/common/i_architecture.svg
       links:
         - url: /azure/architecture/framework
@@ -67,21 +67,24 @@ productDirectory:
         - url: ./antipatterns/index.md
           text: Performance antipatterns
         - url: /azure/architecture/framework/security/overview
-          text: Securing your infrastructure
-
+          text: Secure your infrastructure
     # Card
-    - title: Choosing the right technology
+    - title: Choose the right technology
       # imageSrc should be square in ratio with no whitespace
       imageSrc: https://docs.microsoft.com/media/common/i_overview.svg
       links:
         - url: ./guide/technology-choices/compute-decision-tree.yml
-          text: Choosing a Compute Service
-        - url: ./guide/technology-choices/load-balancing-overview.yml
-          text: Choosing a Load Balancing Service
+          text: Choose a compute service
+        - url: ./operator-guides/aks/choose-kubernetes-edge-compute-option.md
+          text: Choose a Kubernetes at the edge option
         - url: ./guide/technology-choices/data-store-overview.md
-          text: Choosing a data store
+          text: Choose a data store
+        - url: ./guide/technology-choices/load-balancing-overview.yml
+          text: Choose a load-balancing service
         - url: ./guide/technology-choices/messaging.yml
-          text: Choosing a messaging service
+          text: Choose a messaging service
+        - url: ./example-scenario/iot/iot-central-iot-hub-cheat-sheet.yml
+          text: Choose an IoT solution
 
 # conceptualContent section (optional)
 conceptualContent:

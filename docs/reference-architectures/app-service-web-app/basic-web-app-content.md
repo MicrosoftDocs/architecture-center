@@ -191,7 +191,7 @@ When you swap a deployment slot, the app settings are swapped by default. If you
 
 #### Diagnostics and monitoring
 
-Enable [diagnostics logging](/azure/app-service-web/web-sites-enable-diagnostic-log), including application logging and web server logging. Configure logging to use Azure Log Analytics. For more detailed guidance on logging, see [Monitoring and diagnostics guidance](../../best-practices/monitoring.md).
+Enable [diagnostics logging](/azure/app-service-web/web-sites-enable-diagnostic-log), including application logging and web server logging. Configure logging to use Azure Log Analytics. For more detailed guidance on logging, see [Monitoring and diagnostics guidance](../../best-practices/monitoring.yml).
 
 Use a service such as [New Relic](https://newrelic.com) or [Application Insights](/azure/application-insights/app-insights-overview) to monitor application performance and behavior under load. Be aware of the [data rate limits](/azure/application-insights/app-insights-pricing) for Application Insights.
 
