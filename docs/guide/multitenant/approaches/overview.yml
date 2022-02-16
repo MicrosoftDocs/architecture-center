@@ -10,9 +10,9 @@ metadata:
   ms.subservice: azure-guide
   ms.custom: fcp
 azureCategories:
- - management-and-governance
+  - management-and-governance
 products:
- - azure
+  - azure
 name: Architectural approaches for a multitenant solution
 summary: This article introduces the approaches you can consider when planning a multitenant architecture.
 thumbnailUrl: /azure/architecture/browse/thumbs/deployment-stamps.png
