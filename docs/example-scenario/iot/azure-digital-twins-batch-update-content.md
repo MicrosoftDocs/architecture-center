@@ -40,38 +40,38 @@ An alternative to this approach could be to swap Azure Functions for Azure Batch
 ### Availability
 
 - Monitor Azure Data Factory pipelines
-  - https://docs.microsoft.com/en-us/azure/data-factory/monitor-using-azure-monitor
-  - https://docs.microsoft.com/en-us/azure/data-factory/monitor-metrics-alerts
-  - https://docs.microsoft.com/en-us/azure/data-factory/concepts-data-flow-monitoring
-  - https://azurelib.com/how-to-monitor-azure-data-factory-effectively/
+  - [Using Azure Monitor](https://docs.microsoft.com/en-us/azure/data-factory/monitor-using-azure-monitor)
+  - [Azure Monitor Alerts](https://docs.microsoft.com/en-us/azure/data-factory/monitor-metrics-alerts)
+  - [Data Flow Monitoring](https://docs.microsoft.com/en-us/azure/data-factory/concepts-data-flow-monitoring)
+  - [Using Azure Monitor Effectively](https://azurelib.com/how-to-monitor-azure-data-factory-effectively)
 
 - Monitor Azure Batch
-  - https://docs.microsoft.com/en-us/azure/batch/monitoring-overview
-  - https://docs.microsoft.com/en-us/azure/batch/monitor-application-insights
+  - [Azure Batch Monitoring](https://docs.microsoft.com/en-us/azure/batch/monitoring-overview)
+  - [Azure Batch Application Insights](https://docs.microsoft.com/en-us/azure/batch/monitor-application-insights)
 
 ### Operations
 
 - Operational considerations 
-  - Providing SLA: https://docs.microsoft.com/en-us/azure/data-factory/tutorial-operationalize-pipelines
-  - Failure handling: https://docs.microsoft.com/en-us/azure/data-factory/tutorial-pipeline-failure-error-handling
-  - Monitoring pipelines using email alerts: https://docs.microsoft.com/en-us/azure/data-factory/how-to-send-email
-  - Monitoring pipelines using teams alerts: https://docs.microsoft.com/en-us/azure/data-factory/how-to-send-notifications-to-teams?tabs=data-factory
+  - [Providing SLA](https://docs.microsoft.com/en-us/azure/data-factory/tutorial-operationalize-pipelines)
+  - [Failure Handling](https://docs.microsoft.com/en-us/azure/data-factory/tutorial-pipeline-failure-error-handling)
+  - [Monitoring pipelines using email alerts](https://docs.microsoft.com/en-us/azure/data-factory/how-to-send-email)
+  - [Monitoring pipelines using teams alerts](https://docs.microsoft.com/en-us/azure/data-factory/how-to-send-notifications-to-teams?tabs=data-factory)
 
 
 ### Performance
 
 - Performance could be a problem if you need to integrate ADT with large datasets  Consider how to scale Azure Batch appropriately to find the balance you need.
-  - https://docs.microsoft.com/en-us/azure/data-factory/transform-data-using-custom-activity#auto-scaling-of-azure-batch
-  - https://docs.microsoft.com/en-us/azure/architecture/framework/services/compute/azure-batch/performance-efficiency
+  - [Azure Batch Autoscaling](https://docs.microsoft.com/en-us/azure/data-factory/transform-data-using-custom-activity#auto-scaling-of-azure-batch)
+  - [Azure Batch Performance](https://docs.microsoft.com/en-us/azure/architecture/framework/services/compute/azure-batch/performance-efficiency)
 
 - Depending on the complexity and size of data in the source system, consider the scale of your Mapping Data Flow.
-  - https://docs.microsoft.com/en-us/azure/data-factory/concepts-data-flow-performance
+  - [Data Flow Performance](https://docs.microsoft.com/en-us/azure/data-factory/concepts-data-flow-performance)
 
 ### Scalability
 
 - Need to scale for large datasets
-  - Implement SCD pattern(s): https://techcommunity.microsoft.com/t5/azure-data-factory-blog/create-generic-scd-pattern-in-adf-mapping-data-flows/ba-p/918519
-  - Optimize Pipeline: https://docs.microsoft.com/en-us/learn/paths/data-integration-scale-azure-data-factory/
+  - [Implement SCD pattern(s)](https://techcommunity.microsoft.com/t5/azure-data-factory-blog/create-generic-scd-pattern-in-adf-mapping-data-flows/ba-p/918519)
+  - [Optimize Pipeline](https://docs.microsoft.com/en-us/learn/paths/data-integration-scale-azure-data-factory)
 
 ### Security
 
@@ -88,7 +88,7 @@ Resiliency is considered as part of availability, monitoring and operations sect
 
 ## Deploy this scenario
 
-A reference implementation can be found at https://github.com/howardginsburg/digitaltwinsbatch.
+A reference implementation can be found in [GitHub](https://github.com/howardginsburg/digitaltwinsbatch).
 
 ## Pricing
 
