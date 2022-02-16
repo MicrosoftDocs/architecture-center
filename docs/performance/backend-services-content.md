@@ -1,27 +1,3 @@
----
-title: Performance tuning - Multiple backend services
-titleSuffix: Azure Architecture Center
-description: Use load testing to tune the performance of an application with multiple backend services. Increase resource units, run parallel queries, and optimize the query.
-author: EdPrice-MSFT
-ms.author: pnp
-ms.date: 09/24/2021
-ms.topic: conceptual
-ms.service: architecture-center
-ms.subservice: cloud-fundamentals
-ms.custom:
-  - article
-categories:
-  - containers
-  - devops
-products:
-  - azure-kubernetes-service
-  - azure-cosmos-db
-  - vs-devops-test-performance
-  - application-insights
----
-
-# Performance tuning scenario: Multiple backend services
-
 This article describes how a development team used metrics to find bottlenecks and improve the performance of a distributed system. The article is based on actual load testing that was did for a sample application. The application is from the [Azure Kubernetes Service (AKS) Baseline for microservices](../reference-architectures/containers/aks-microservices/aks-microservices-advanced.yml), along with a [Visual Studio load test project](/visualstudio/test/quickstart-create-a-load-test-project) used to generate the results.
 
 *This article is part of a series. Read the first part [here](./index.md).*

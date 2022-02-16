@@ -1,23 +1,4 @@
----
-title: Monitoring and diagnostics guidance
-titleSuffix: Best practices for cloud applications
-description: Learn how to track how users use your distributed applications and services, trace resource utilization, and monitor the health and performance.
-author: EdPrice-MSFT
-ms.author: pnp
-ms.date: 07/13/2016
-ms.topic: conceptual
-ms.service: architecture-center
-ms.subservice: best-practice
-products:
-  - azure-monitor
-ms.custom:
-  - best-practice
-  - internal-intro
----
-
 <!-- cSpell:ignore SIEM HDFS SSDT -->
-
-# Best practices for monitoring cloud applications
 
 Distributed applications and services running in the cloud are, by their nature, complex pieces of software that comprise many moving parts. In a production environment, it's important to be able to track the way in which users use your system, trace resource utilization, and generally monitor the health and performance of your system. You can use this information as a diagnostic aid to detect and correct issues, and also to help spot potential problems and prevent them from occurring.
 

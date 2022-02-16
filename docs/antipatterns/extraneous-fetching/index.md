@@ -240,7 +240,7 @@ Here is the corresponding telemetry for the `AggregateOnDatabaseAsync` method. T
 - [Data partitioning best practices][data-partitioning]
 
 [BusyDatabase]: ../busy-database/index.md
-[data-partitioning]: ../../best-practices/data-partitioning.md
+[data-partitioning]: ../../best-practices/data-partitioning.yml
 [new-relic]: https://newrelic.com/products/application-monitoring
 
 [sample-app]: https://github.com/mspnp/performance-optimization/tree/master/ExtraneousFetching
