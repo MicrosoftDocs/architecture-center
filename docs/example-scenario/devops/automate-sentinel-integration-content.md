@@ -73,11 +73,20 @@ This architecture makes use of the following components:
 A scalable, cloud-native, security information and event management (SIEM) and security orchestration, automation, and response (SOAR) solution.
 * [Azure Automation](https://azure.microsoft.com/services/automation/): An Azure service for simplifying cloud management through process automation. Use Azure Automation to automate long-running, manual, error-prone, and frequently repeated tasks to increase reliability, efficiency, and time to value for your organization.
 
-### Alternatives
+## Threat definition attack scenarios based on MITRE
 
-> Use this section to talk about alternative Azure services or architectures that you might consider for this solution. Include the reasons why you might choose these alternatives. Customers find this valuable because they want to know what other services or technologies they can use as part of this architecture.
+This table shows you the terms, definitions, and details on important aspects of attack scenarios.
 
-> What alternative technologies were considered and why didn't we use them?
+| Data item | Description | Microsoft Sentinel artifacts |
+| -- | --- | --- |
+| Title | Descriptive name for the attack scenario, based on attack vector characteristics or technique descriptions | Mitre Manifest |
+| MITRE ATT&CK tactics | MITRE ATT&CK tactics related to attack scenario | Mitre Manifest |
+| MITRE ATT&CK techniques | MITRE ATT&CK techniques, including the technique or sub-technique ID, related to the attack scenario. | Mitre Manifest |
+| Data connector sources | Source of information collected by a sensor or logging system that might be used to collect information relevant to identifying the action being performed, sequence of actions, or the results of those actions by an adversary. | [Sentinel Data Connector](/azure/sentinel/connect-data-sources) or [Custom Log source](/azure/sentinel/connect-custom-logs?tabs=DCG)|
+| Description | Information about the technique, what it is, what it's typically used for, how an adversary can take advantage of it, and variations on how it could be used. Includes references to authoritative articles describing technical information related to the technique as well as in the wild use references as appropriate. |
+| Detection | High-level analytic process, sensors, data, and detection strategies useful in identifying a technique that's been used by an adversary. This section informs those responsible for detecting adversary behavior, such as network defenders, so they can take an action such as writing an analytic or deploying a sensor. There should be enough information and references to point toward useful defensive methodologies. Detection might not always be possible for a certain technique and should be documented as such. | Analytics Threat Hunting |
+| Mitigation | Configurations, tools, or processes that prevent a technique from working or having the desired outcome for an adversary. This section informs those responsible for mitigating against adversaries, such as network defenders or policymakers, to let them take an action such as changing a policy or deploying a tool. Mitigation might not always be possible for a given technique and should be documented as such. |
+| Mitigation | Configurations, tools, or processes that prevent a technique from working or having the desired outcome for an adversary. This section describes how to lessen the effects of adversary attacks for network defenders or policymakers. It covers steps for changing a policy or deploying a tool. Mitigation might not always be possible for a certain technique and should be documented as such. | Playbooks Automation runbooks |
 
 ## Considerations
 
@@ -515,7 +524,7 @@ The cost of the solution varies with the volume of data your organization feeds 
 
 To calculate pricing, see the [Azure Sentinel pricing calculator](/pricing/details/azure-sentinel/). For more information on the advanced pricing considerations and examples, see [Azure Sentinel billing](/azure/sentinel/azure-sentinel-billing).  
 
-Additional cost might incur if you extend your solution with following components:
+Additional cost can incur if you extend your solution with the following components.
   
 * Playbooks - Logic Apps and Functions runtime. For more information, see [Pricing details](/pricing/details/logic-apps/).  
 * Exporting to external storage like ADX, EventHub, or Storage Account.
@@ -527,13 +536,15 @@ The following section describes the steps for deploying this scenario in the for
 
 ### Build and release the Microsoft Sentinel framework
 
-You first set up the necessary NuGet components in a dedicated repository where different processes can consume the releases that you generate. If you're working with Azure DevOps, you can create a component feed to host the different NuGet packages from the Microsoft Sentinel Framework for PowerShell. For more information, see [Get started with Nuget packages](/azure/devops/artifacts/get-started-nuget?view=azure-devops&tabs=windows).
+You first set up the necessary NuGet components in a dedicated repository where different processes can consume the releases that you generate.
+
+If you're working with Azure DevOps, you can create a component feed to host the different NuGet packages from the Microsoft Sentinel Framework for PowerShell. For more information, see [Get started with Nuget packages](/azure/devops/artifacts/get-started-nuget?view=azure-devops&tabs=windows).
 
 ![Create component feed to host Nuget packages](./media/create-new-feed-to-host-nuget-package.png)
 
 If your organization chooses a GitHub registry, you can connect it as a NuGet repository, because it's compatible with the feed protocol. For more information, see [Introduction to GitHub packages](https://docs.github.com/en/packages/learn-github-packages/introduction-to-github-packages).
 
-When you have an available NuGet repository, the Azure DevOps Pipeline contains a service connection for NuGet. The following screen shots show the configuration for the new service connection that's named Microsoft Sentinel Nuget Framework Connection.
+When you have an available NuGet repository, the Azure DevOps Pipeline contains a service connection for NuGet. These screen shots show the configuration for the new service connection that's named Microsoft Sentinel Nuget Framework Connection.
 
 ![Create a new service connection](./media/new-service-connection.png)
 
@@ -545,47 +556,47 @@ Another option is to import the Git repository as an Azure DevOps Repository bas
 
 `src/Build/Framework/ADO/Microsoft.Sentinel.Framework.Build.yml`
 
-Now you can run the Pipeline for first time. Then, the Framework is built and released to the NuGet feed.
+Now you can run the pipeline for first time. Then, the framework builds and releases to the NuGet feed.
 
 ### Define your Microsoft Sentinel environment
 
 When starting with Microsoft Sentinel and using these samples, you must define the environment or environments in the organization, for example, Environment as Code or EaC. You specify the different elements that make up the environment for each case.
 
-Microsoft Sentinel architecture includes the following elements on Azure.
+The Microsoft Sentinel architecture includes the following elements on Azure.
 
-* Log Analytics Workspace - This workspace is the base for the solution, is where security-related information is stored, and is the engine for the Kusto Query Language.
-* Sentinel Solution (over Log Analytics Workspace) - This solution extends the capabilities of Log Analytics workspace for getting SIEM and SOAR capabilities.
-* Key Vault - The key vault keeps the secrets and keys that you use during the remediation processes.
-* Automation Account - This account is optional and something you can use for the remediation processes. The remediation process you use is based on the PowerShell and Python Runbooks that include a system-managed identity that works with different resources according to best practices. 
+* Log Analytics Workspace - This workspace is the base for the solution. Security-related information is stored here and the workspace is the engine for the Kusto Query Language.
+* Sentinel Solution over the Log Analytics Workspace - This solution extends the capabilities of the Log Analytics workspace for using SIEM and SOAR capabilities.
+* Key Vault - The key vault keeps the secrets and keys used during the remediation processes.
+* Automation Account - This account is optional and used for the remediation processes. The remediation process you use is based on the PowerShell and Python Runbooks. The process includes a system-managed identity that works with different resources according to best practices.
 * User Managed Identity - This feature acts as a Sentinel unified identity layer that manages interactions between Sentinel Playbooks and Runbooks.
-* Logic App Connections - These are connections for Sentinel, the key vault and automation using the User Managed Identity. 
+* Logic App Connections - These are connections for Microsoft Sentinel, the key vault, and automation using the user-managed identity.
 * Logic App Connections - These are connections for external resources involved in the remediations processes based on the Playbooks.
 * Event Hubs - This feature is optional and handles integration between Sentinel and other solutions in NESTLE, such as Splunk, Databricks/ML, and Resilient.
 * Storage Account - This feature is optional and handles integration between Sentinel and other solutions in NESTLE, such as Splunk, Databricks/ML, and Resilient.
 
-Using examples from the repository, you can see how to define the environment using JSON files to specify the different logical concepts. These are the options available for defining the environment.
+Using examples from the repository, you can define the environment using JSON files to specify the different logical concepts. The options available for defining the environment can be literal or automatic.
 
-The definition can be literal, where you specify the name and the elements for each resource in the environment as shown in this example.
+In a literal definition, you specify the name and the elements for each resource in the environment as shown in this example.
 
 ![Literal environment definitions](./media/literal-env-code-definitions.png)
 
-Or the definition can be automatic, where naming the elements is generated automatically based on the naming convention and as shown in this example.
+In an automatic definition, naming the elements generates automatically based on naming conventions as shown in this example.
 
 ![Automatic environment definitions](./media/automatic-env-code-definitions.png)
 
-You can find samples in the GitHub repository under the Sentinel/environments path and use the samples as a reference in preparing your use cases.
+You can find samples in the GitHub repository under the Microsoft Sentinel environments path and use the samples as a reference in preparing your use cases.
 
-### Deploy your Microsoft Sentinel environment 
+### Deploy your Microsoft Sentinel environment
 
-When you have at least one environment defined, you can create the Azure Service Connection to integrate with Azure DevOps. Once the Service Connection is created, ensure that the linked Service Principal has an Owner Role or similar permissions level over the target subscription.
+When you have at least one environment defined, you can create the Azure Service Connection to integrate with Azure DevOps. Once you create the Service Connection, be sure you set the linked Service Principal to the Owner role or similar permissions level over the target subscription.
 
-1. Import the pipeline for creating the new environment with the following command.
+1. Import the pipeline for creating the new environment as defined in this file.
 
-`src/Release/Sentinel Deployment/ADO/Microsoft.Sentinel.Environment.Deployment.yml`
+   `src/Release/Sentinel Deployment/ADO/Microsoft.Sentinel.Environment.Deployment.yml`
 
-1. Next, enter the name of the Service Connection that represents the environment.
+1. Next, enter the name of the service connection that represents the environment.
 
-   ![Automatic environment definitions](./media/import-pipeline-to-deploy-sentinel.png)
+   ![Enter the name of the service connection](./media/import-pipeline-to-deploy-sentinel.png)
 
 1. Choose the branch for the environment definition in the repository.  
 1. Enter the name of the Azure DevOps service connection for your subscription in the **Azure Environment Connection** field.
@@ -593,7 +604,7 @@ When you have at least one environment defined, you can create the Azure Service
 1. Choose the action to apply to the connectors.
 1. Check **Use PowerShell Pre-Release Artifacts** if you want to use the pre-release versions of the PowerShell framework components.
 
-The Pipeline defines the following steps as part of the Deployment flow.
+The pipeline includes the following steps as part of the deployment flow.
 
 * Deploy NuGet components
 * Connect using NuGet tools with artifacts repository
@@ -617,36 +628,114 @@ The Pipeline defines the following steps as part of the Deployment flow.
 
 ### Destroy a Microsoft Sentinel environment
 
-When the environment is no longer used, as in the case of a development or testing environment, you can destroy it with the following command:
+When the environment is no longer needed, like in the case of a development or testing environment, you can destroy it as defined in this file.
 
 `src/Release/Sentinel Deployment/ADO/Microsoft.Sentinel.Environment.Destroy.yml`
 
-As with the deploying the environment pipeline, you must specify the name of the service connection that represents the environment.
+As in deploying the environment pipeline, you must specify the name of the service connection that represents the environment.
+
+### Working with your Microsoft Sentinel environment
+
+Once your environment is ready, you can start creating the artifacts for setting up the different use cases.
+
+1. Export the artifacts from the environment you're working on as defined in this file.
+
+   `src/Release/Artifacts Deployment/ADO/Microsoft.Sentinel.Artifacts.Export.yml`
+
+1. Choose the branch for the environment definition in the repository.
+
+   ![Choose branch for exporting the artifacts](./media/export-artifacts-pipeline.png)
+
+1. Enter the name of the Azure DevOps service connection for the environment being exported in the **Azure Environment Connection** field.
+1. Select **Use PowerShell Pre-Release Artifacts** if you want to use the pre-release versions of the PowerShell framework components.
+1. Choose the format for the analytic and hunting rules.
+
+   The artifacts output file is available in the results. Once you have the artifacts, you can include the output file in the Git repository.
+
+### Build your artifacts in the Microsoft Sentinel environment
+
+Place your artifacts under the Sentinel Mitre use cases path. Set up your folder structure according to the different types of artifacts.
+
+1. Start the build process as defined in this file.
+
+   `src/Build/Artifacts/ADO/Microsoft.Sentinel.Artifacts.Build.yaml`
+
+1. Choose the branch for the environment definition in the repository.
+
+   ![Choose the branch for building the artifacts](./media/build-artifacts-pipeline.png)
+
+1. Select **Use PowerShell Pre-Release Artifacts** if you want to use the pre-release versions of the PowerShell framework components.
+
+The pipeline is made up of these steps.
+
+* Deploy NuGet components
+* Connect the NuGet tools to the NESTLE artifacts Repository
+* Resolve the feed
+* Install the required modules
+* Get the [TTK framework](/azure/azure-resource-manager/templates/test-toolkit) for validating the Azure ARM templates
+* Validate the Azure ARM templates 
+* Validate the PowerShell Runbooks code and do syntax validation
+* Run the Pester unit tests if applicable
+* Validate the KQL syntax in the hunting and analytic rules
+
+### Deploy your artifacts to the Microsoft Sentinel environment
+
+In deploying your artifacts, you can use the Microsoft Sentinel repositories or the deployment pipeline samples on this repository. For more information, see [Deploy custom content from your repository](/azure/sentinel/ci-cd?tabs=github).
+
+#### Microsoft Sentinel repositories
+
+If you use Microsoft Sentinel repositories, you can set up a release process to include the artifacts in the repository connected to each Microsoft Sentinel instance. Once the artifacts are committed in the repository, some of the steps are automatically done as part of creating the pipeline and enabling the Microsoft Sentinel repositories.
+
+Also, you can customize the deployment processes that the Microsoft Sentinel repositories do based on practices described in this document. One important aspect to consider is the release approval, which you can set up following these approaches.
+
+* Pull request approval at the time of committing the artifacts. For more information, see [Create pull requests](/azure/devops/repos/git/pull-requests?view=azure-devops&tabs=browser)
+* Release pipeline approval at the time of running the deployment. For more information, see [Define approvals and checks](/azure/devops/pipelines/process/approvals?view=azure-devops&tabs=check-pass)]
+
+#### Microsoft Sentinel deployment pipeline samples
+
+Using the Microsoft Sentinel deployment pipeline samples, you can set up a release process.
+
+1. Set up your release process as defined in this file.
+
+   `src/Release/Artifacts Deployment/ADO/Microsoft.Sentinel.Artifacts.Deployment.yml`
+
+1. Choose the branch for the environment definition in the repository.
+
+   ![Choose the branch for setting up the release process](./media/set-up-release-pipeline.png)
+
+1. Enter the name of the Azure DevOps service connection for the environment being exported in the **Azure Environment Connection** field.
+1. Select **Use PowerShell Pre-Release Artifacts** if you want to use the pre-release versions of the PowerShell framework components.
 
 ## Next steps
 
-> Link to Docs and Learn articles, along with any third-party documentation.
-> Where should I go next if I want to start building this?
-> Are there any relevant case studies or customers doing something similar?
-> Is there any other documentation that might be useful? Are there product documents that go into more detail on specific technologies that are not already linked?
+Microsoft Sentinel with DevOps for single-tenant architecture
 
-Examples:
-* [Azure Kubernetes Service (AKS) documentation](/azure/aks)
-* [Azure Machine Learning documentation](/azure/machine-learning)
-* [What are Azure Cognitive Services?](/azure/cognitive-services/what-are-cognitive-services)
-* [What is Language Understanding (LUIS)?](/azure/cognitive-services/luis/what-is-luis)
-* [What is the Speech service?](/azure/cognitive-services/speech-service/overview)
-* [What is Azure Active Directory B2C?](/azure/active-directory-b2c/overview)
-* [Introduction to Bot Framework Composer](/composer/introduction)
-* [What is Application Insights](/azure/azure-monitor/app/app-insights-overview)
- 
+* [Deploying and Managing Microsoft Sentinel as Code](https://techcommunity.microsoft.com/t5/azure-sentinel/deploying-and-managing-azure-sentinel-as-code/ba-p/1131928)
+
+For MSSP multi-tenant architecture
+
+* [Combining Azure Lighthouse with Sentinel’s DevOps capabilities](https://techcommunity.microsoft.com/t5/azure-sentinel/combining-azure-lighthouse-with-sentinel-s-devops-capabilities/ba-p/1210966) 
+
+Managed identity with Microsoft Sentinel
+
+* [What’s new: Managed Identity for Microsoft Sentinel Logic Apps connector](https://techcommunity.microsoft.com/t5/azure-sentinel/what-s-new-managed-identity-for-azure-sentinel-logic-apps/ba-p/2068204) 
+
+Microsoft Sentinel repository
+
+* [Deploy custom content from your repository](https://docs.microsoft.com/en-us/azure/sentinel/ci-cd?tabs=github)
+
+Azure DevOps Security considerations
+
+* [Default permissions quick reference](/azure/devops/organizations/security/permissions-access?toc=%2Fazure%2Fdevops%2Fget-started%2Ftoc.json&bc=%2Fazure%2Fdevops%2Fget-started%2Fbreadcrumb%2Ftoc.json&view=azure-devops)
+
+ Protect Azure DevOps repository
+
+* [Add protection to a repository resource](/azure/devops/pipelines/process/repository-resource?view=azure-devops)
+
+Manage Azure DevOps service connection security
+
+* [Service connections in Azure Pipelines](https://docs.microsoft.com/en-us/azure/devops/pipelines/library/service-endpoints?view=azure-devops&tabs=yaml)
+
 ## Related resources
 
-> Use "Related resources" for related architecture guides and architectures (content on the Azure Architecture Center).
-
-Examples:
-  - [Artificial intelligence (AI) - Architectural overview](/azure/architecture/data-guide/big-data/ai-overview)
-  - [Choosing a Microsoft cognitive services technology](/azure/architecture/data-guide/technology-choices/cognitive-services)
-  - [Chatbot for hotel reservations](/azure/architecture/example-scenario/ai/commerce-chatbot)
-  - [Build an enterprise-grade conversational bot](/azure/architecture/reference-architectures/ai/conversational-bot)
-  - [Speech-to-text conversion](/azure/architecture/reference-architectures/ai/speech-ai-ingestion)
+TBD - Need to add links to AAC guides and architecture information.
