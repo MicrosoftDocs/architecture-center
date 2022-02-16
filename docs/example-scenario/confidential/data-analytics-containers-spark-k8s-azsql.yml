@@ -1,8 +1,8 @@
 ### YamlMime:Architecture
 metadata:
-  title: Big Data Analytics on confidential computing
+  title: Big data analytics on confidential computing
   titleSuffix: Azure Example Scenarios
-  description: Use confidential computing on Kubernetes to run Big Data analytics with Apache Spark inside confidential containers that are protected by Intel Software Guard Extensions with data from Azure Data Lake and Azure SQL Database.
+  description: Use confidential computing on Kubernetes to run big data analytics with Apache Spark inside confidential containers that are protected by Intel Software Guard Extensions with data from Azure Data Lake and Azure SQL Database.
   author: mdrakiburrahman
   ms.author: amgowda
   ms.date: 02/15/2022
@@ -18,8 +18,8 @@ products:
   - azure-kubernetes-service
   - azure-sql-database
   - azure-data-lake
-name: Big Data Analytics on confidential computing with Apache Spark on Kubernetes
-summary: Use confidential computing on Kubernetes to run Big Data analytics with Apache Spark inside confidential containers that are protected by Intel Software Guard Extensions with data from Azure Data Lake and Azure SQL Database.
+name: Big data analytics on confidential computing with Apache Spark on Kubernetes
+summary: Use confidential computing on Kubernetes to run big data analytics with Apache Spark inside confidential containers that are protected by Intel Software Guard Extensions with data from Azure Data Lake and Azure SQL Database.
 thumbnailUrl: /azure/architecture/browse/thumbs/confidential-data-analytics-with-spark-k8s-azsql.png
 content: |
   [!include[](data-analytics-containers-spark-k8s-azsql-content.md)]
