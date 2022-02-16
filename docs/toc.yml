@@ -348,16 +348,18 @@ items:
           - name: Related resources
             href: guide/multitenant/related-resources.md
       - name: Solutions across Microsoft cloud platforms
-        expanded: true 
+        expanded: true
         items:
           - name: Azure and Power Platform scenarios 
             items:
-                   - name: Overview
-                     href: solutions/power-platform-scenarios.md
+               - name: Overview
+                 href: solutions/power-platform-scenarios.md
           - name: Azure and Microsoft 365 scenarios
             items: 
-                  - name: Real-time presence
-                    href: solution-ideas/articles/presence-microsoft-365-power-platform.yml
+              - name: Real-time collaboration
+                href: solution-ideas/articles/collaboration-microsoft-365.yml           
+              - name: Real-time presence
+                href: solution-ideas/articles/presence-microsoft-365-power-platform.yml
       - name: Cloud comparisons
         items:
           - name: Azure for AWS professionals
@@ -3106,6 +3108,10 @@ items:
                 href: solution-ideas/articles/hybrid-identity.yml
               - name: On-premises AD domains with Azure AD
                 href: reference-architectures/identity/azure-ad.yml
+          - name: Solution ideas
+            items:
+              - name: Collaboration with Microsoft 365
+                href: solution-ideas/articles/collaboration-microsoft-365.yml
       - name: Integration
         items:
           - name: Guides
