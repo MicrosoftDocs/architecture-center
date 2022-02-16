@@ -8,9 +8,9 @@ By using natural language processing (NLP) with deep learning for content taggin
 
 ## Architecture
 
-![Architecture diagram: overview of using Azure Machine Learning to help suggest content tags for websites.](../media/website-content-tag-suggestion-with-deep-learning-and-nlp.png)
+[![Architecture diagram: overview of using Azure Machine Learning to help suggest content tags for websites.](../media/website-content-tag-suggestion-with-deep-learning-and-nlp.png)](../media/website-content-tag-suggestion-with-deep-learning-and-nlp.png#lightbox)
 
-*Download an [SVG](../media/website-content-tag-suggestion-with-deep-learning-and-nlp.svg) of this architecture.*
+*Download an [SVG file](../media/website-content-tag-suggestion-with-deep-learning-and-nlp.svg) of this architecture.*
 
 ### Workflow
 
