@@ -1,21 +1,3 @@
----
-title: Data partitioning guidance
-titleSuffix: Best practices for cloud applications
-description: View guidance for how to separate data partitions to be managed and accessed separately. Understand horizontal, vertical, and functional partitioning strategies.
-author: EdPrice-MSFT
-ms.author: pnp
-ms.date: 11/04/2018
-ms.topic: conceptual
-ms.service: architecture-center
-ms.subservice: best-practice
-products:
-  - azure-blob-storage
-ms.custom:
-  - best-practice
----
-
-# Horizontal, vertical, and functional data partitioning
-
 In many large-scale solutions, data is divided into *partitions* that can be managed and accessed separately. Partitioning can improve scalability, reduce contention, and optimize performance. It can also provide a mechanism for dividing data by usage pattern. For example, you can archive older data in cheaper data storage.
 
 However, the partitioning strategy must be chosen carefully to maximize the benefits while minimizing adverse effects.
@@ -244,4 +226,4 @@ The following design patterns might be relevant to your scenario:
 
 ## Next steps
 
-- Learn about partitioning strategies for specific Azure services. See [Data partitioning strategies](./data-partitioning-strategies.md)
+- Learn about partitioning strategies for specific Azure services. See [Data partitioning strategies](./data-partitioning-strategies.yml)

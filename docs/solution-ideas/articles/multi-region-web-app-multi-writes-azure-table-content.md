@@ -87,7 +87,7 @@ The architecture may be appropriate for any application that uses massive amount
 - [Web-Queue-Worker architecture style](../../guide/architecture-styles/web-queue-worker.md)
 - [Guidelines for table design](/azure/storage/tables/table-storage-design-guidelines)
 - [Use geo-redundancy to design highly available applications](/azure/storage/common/geo-redundant-design?toc=%2Fazure%2Fstorage%2Ftables%2Ftoc.json&tabs=current)
-- [Data partitioning strategies](../../best-practices/data-partitioning-strategies.md)
+- [Data partitioning strategies](../../best-practices/data-partitioning-strategies.yml)
 
 ## Related resources
 

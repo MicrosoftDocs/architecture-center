@@ -149,7 +149,7 @@ You can consider using these platforms for AI/ML, when you need to scale your ML
 ## Antipatterns to avoid
 
 - **Failure to consider isolation requirements.** It's important to carefully consider how you [isolate tenants' data and models](#tenant-isolation), both for training and inference. Failing to do so might violate legal or contractual requirements. It also might reduce the accuracy of your models to train across multiple tenants' data, if the data is substantially different.
-- **Noisy Neighbors.** Consider whether your training or inference processes could be subject to the [Noisy Neighbor problem](../../../antipatterns/noisy-neighbor/index.md). For example, if you have several large tenants and a single small tenant, ensure that the model training for the large tenants doesn't inadvertently consume all of the compute resources and starve the smaller tenants. Use resource governance and monitoring to mitigate the risk of a tenant's compute workload that's affected by the activity of the other tenants.
+- **Noisy Neighbors.** Consider whether your training or inference processes could be subject to the [Noisy Neighbor problem](../../../antipatterns/noisy-neighbor/noisy-neighbor.yml). For example, if you have several large tenants and a single small tenant, ensure that the model training for the large tenants doesn't inadvertently consume all of the compute resources and starve the smaller tenants. Use resource governance and monitoring to mitigate the risk of a tenant's compute workload that's affected by the activity of the other tenants.
 
 ## Next steps
 
