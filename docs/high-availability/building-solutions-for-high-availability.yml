@@ -1,0 +1,23 @@
+### YamlMime:Architecture
+metadata:
+  title: Build solutions with availability zones
+  description: Learn about the Azure availability zones construct, a software and networking solution for high availability (HA) that protects against datacenter failures.
+  author: EdPrice-MSFT
+  ms.author: edprice
+  ms.date: 12/13/2021
+  ms.topic: conceptual
+  ms.service: architecture-center
+  ms.subservice: azure-guide
+azureCategories:
+  - management-and-governance
+products:
+  - azure
+ms.custom:
+  - high-availability
+  - fasttrack-edit
+  - article
+name: Build solutions for high availability using availability zones
+summary: Learn about the Azure availability zones construct, a software and networking solution for high availability (HA) that protects against datacenter failures.
+thumbnailUrl: /azure/architecture/browse/thumbs/high-availability-availability-zone.png
+content: |
+  [!include[](building-solutions-for-high-availability-content.md)]

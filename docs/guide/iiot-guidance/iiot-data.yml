@@ -1,0 +1,22 @@
+### YamlMime:Architecture
+metadata:
+  title: Azure Industrial IoT data analysis
+  description: Understand data analysis in an Azure Industrial IoT (IIoT) analytics solution. Use visualization, data trends, dashboards, schematic views, and notebooks.
+  author: khilscher
+  ms.author: kehilsch
+  ms.date: 07/17/2020
+  ms.topic: conceptual
+  ms.service: architecture-center
+  ms.subservice: azure-guide
+azureCategories:
+  - fcp
+products:
+  - power-bi
+  - azure-time-series-insights
+ms.custom:
+  - guide
+name: Data analysis in Azure Industrial IoT analytics solution
+summary: Understand data analysis in an Azure Industrial IoT (IIoT) analytics solution. Use visualization, data trends, dashboards, schematic views, and notebooks.
+thumbnailUrl: /azure/architecture/browse/thumbs/warm-cold-data.png
+content: |
+  [!include[](iiot-data-content.md)]

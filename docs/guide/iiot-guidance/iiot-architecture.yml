@@ -1,0 +1,21 @@
+### YamlMime:Architecture
+metadata:
+  title: Azure industrial IoT guidance
+  description: Examine architectural guidance on Azure industrial IoT (IIoT) analytics using platform as a service (PaaS) components.
+  author: khilscher
+  ms.author: kehilsch
+  ms.date: 07/17/2020
+  ms.topic: conceptual
+  ms.service: architecture-center
+  ms.subservice: azure-guide
+azureCategories:
+  - fcp
+products:
+  - azure-iot-edge
+ms.custom:
+  - guide
+name: Azure industrial IoT analytics guidance
+summary: Examine architectural guidance on Azure industrial IoT (IIoT) analytics using platform as a service (PaaS) components.
+thumbnailUrl: /azure/architecture/browse/thumbs/iiot-architecture.png
+content: |
+  [!include[](iiot-architecture-content.md)]
