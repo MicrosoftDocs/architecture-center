@@ -8,9 +8,9 @@ You can even expand the solution to cover more complex organizations that have m
 
 This article serves the following audiences.
 
-* SOC Specialists, as in, Analysts and Threat Hunters
-* SIEM Engineers
-* Cybersecurity Architects
+* SOC specialists, as in, analysts and threat hunters
+* SIEM engineers
+* Cybersecurity architects
 * Developers
 
 ## Potential use cases
@@ -42,18 +42,18 @@ _Download a [Visio file](https://arch-center.azureedge.net/[filename].vsdx) of t
    * The Azure Git repository stores the scripts and the permits to manage Microsoft Sentinel artifacts in the infrastructure as code.
    * Artifacts and Source Control maintain the extensions and update packages or components of the DevSecOps workflow used in our solution, such as Azure Resource Manager Template Toolkit and Powershell Pester.
 2. Sentinel Artifacts:
-   * Policies - SIEM Engineers use Azure policies in the Reference Architecture, to configure and scale the diagnostic settings of the Azure services. The policies help automate deployment of the Microsoft Sentinel data connectors depending on the OMSIntegration API, such as Azure Key Vault.
+   * Policies - SIEM engineers use Azure policies in the Reference Architecture, to configure and scale the diagnostic settings of the Azure services. The policies help automate deployment of the Microsoft Sentinel data connectors depending on the OMSIntegration API, such as Azure Key Vault.
    * Connectors - Microsoft Sentinel uses logical connectors, the Azure Data Connectors to ingest security data, as in, audits or metrics, from supported data sources, such as Azure AD, Azure Resources, Microsoft 365 Defender, or third-party solutions. The main list of Data connectors is managed by the SecurityInsights API; others rely on the OMSIntegration API and are managed with the Azure Policy diagnostic settings.
    * Managed Identity - Microsoft Sentinel uses managed identity to act on behalf of the MSI while interacting with playbooks, logic apps, or automation runbooks and the key vault.
    * Automation - Security Operations Center teams use automation during investigations. SOC teams run digital forensics data acquisition procedures with Azure Automation, such as Azure VM Chain of Custody or Advanced eDiscovery for Microsoft 365.
-   * Analytics - SOC Analysts or Threat Hunters use built-in or custom analytics rules to analyze and correlate data in Microsoft Sentinel or to trigger playbooks if a threat and incident is identified.
+   * Analytics - SOC analysts or threat hunters use built-in or custom analytics rules to analyze and correlate data in Microsoft Sentinel or to trigger playbooks if a threat and incident is identified.
    * Playbooks - Logic apps run the SecOps repeatable actions, such as assigning an incident, updating an incident, or taking remediation actions, like isolating or containing a VM, revoking a token, or resetting a user password.
-   * Threat hunting - Threat Hunters use proactive threat hunting capabilities that can be coupled with Jupyter notebooks for advanced use cases, such as data processing, data manipulation, data visualization, ML, or Deep Learning.
-   * Workbooks - SIEM Engineers use Workbooks Dashboards to visualize trends and statistics and to view the status of a Microsoft Sentinel instance and its sub-components.
+   * Threat hunting - Threat hunters use proactive threat hunting capabilities that can be coupled with Jupyter notebooks for advanced use cases, such as data processing, data manipulation, data visualization, ML, or Deep Learning.
+   * Workbooks - SIEM engineers use Workbooks Dashboards to visualize trends and statistics and to view the status of a Microsoft Sentinel instance and its sub-components.
    * Threat intelligence - A specific data connector that fuses Threat Intelligence Platforms feeds with Microsoft Sentinel. Two connectivity methods are supported, TAXII or Graph API, tiIndicators.
-3. Azure AD - Identity and Access Management capabilities are delivered to components used in the reference architecture, such as Managed Identities, Service Principal, RBACs for Microsoft Sentinel, Logic Apps, and Automation runbooks.
-4. Azure DevOps pipelines - DevOps engineers use pipelines to create service connections for managing the different Azure subscriptions, the Sandbox and Production environments, with CI/CD pipelines. We recommend using approval workflows to prevent unexpected deployments and separated Service Principals if you target multiple subscriptions per Azure environment.
-5. Azure Key Vault - SOC Engineers use the key vault to securely store service principal secrets and certificate. The component of the architecture helps enforce the DevSecOps principle of _no secrets in code_ when used by Azure DevOps Pipeline service connections.
+3. Azure AD - Identity and Access Management capabilities are delivered to components used in the reference architecture, such as managed identities, service principal, RBACs for Microsoft Sentinel, logic apps, and automation runbooks.
+4. Azure DevOps pipelines - DevOps engineers use pipelines to create service connections for managing the different Azure subscriptions, the Sandbox and Production environments, with CI/CD pipelines. We recommend using approval workflows to prevent unexpected deployments and separated service principals if you target multiple subscriptions per Azure environment.
+5. Azure Key Vault - SOC engineers use the key vault to securely store service principal secrets and certificate. The component of the architecture helps enforce the DevSecOps principle of _no secrets in code_ when used by Azure DevOps Pipeline service connections.
 6. Azure Subscription - The SOC teams use two instances of Microsoft Sentinel in this reference architecture, separated within two logical Azure subscriptions to simulate Production and Sandbox environments. You can scale for your needs with other environments, such as Testing, Dev, Preproduction, and so on.
 
 #### Dataflow Example
@@ -92,13 +92,13 @@ This table shows you the terms, definitions, and details on important aspects of
 
 ## Considerations
 
-With security, in general terms, automation increases operations efficiency while saving time for more complex use cases, such as threat detection engineering, threat intelligence, SOC, and SOAR use cases. While saving time, DevOps teams need to know where they can use IaC securely in the context of Microsoft Sentinel CI/CD. This process introduces the use of specific identities used by non-human accounts in Azure AD called [Service Principals](/azure/active-directory/develop/app-objects-and-service-principals) and [Managed Identities](/azure/active-directory/managed-identities-azure-resources/overview).
+With security, in general terms, automation increases operations efficiency while saving time for more complex use cases, such as threat detection engineering, threat intelligence, SOC, and SOAR use cases. While saving time, DevOps teams need to know where they can use IaC securely in the context of Microsoft Sentinel CI/CD. This process introduces the use of specific identities used by non-human accounts in Azure AD called [Service principals](/azure/active-directory/develop/app-objects-and-service-principals) and [Managed identities](/azure/active-directory/managed-identities-azure-resources/overview).
 
 The following table summarizes security considerations for service principals and the main use cases covered by Microsoft Sentinel and Azure DevOps release pipelines.
 
 | Use case | Requirements (least privilege) | Role assignment duration | Permission scope | Trustee| Security considerations |
 | -- | --- | --- | --- | --- | ---------- |
-| Enable Sentinel connectors | Security Administrator** <br><br> Owner* <br><br> Sentinel Contributor <br><br> Reader | JIT (one-time activation) <br><br> On purpose (every time a new subscription and connector deploys) | Tenant | SPN | Use Key Vault to store SPN secrets and certificate. <br><br> Enable SPN auditing. <br><br> Periodically review permission assignment (Azure PIM for SPN) or suspicious activity for SPN. <br><br>Use AAD CA and MFA (when supported) for privileged accounts. <br><br> Use Azure AD Custom Roles for more granularity.  |
+| Enable Sentinel connectors | Security Administrator** <br><br> Owner* <br><br> Sentinel Contributor <br><br> Reader | JIT (one-time activation) <br><br> On purpose (every time a new subscription and connector deploys) | Tenant | SPN | Use the key vault to store SPN secrets and certificate. <br><br> Enable SPN auditing. <br><br> Periodically review permission assignment (Azure PIM for SPN) or suspicious activity for SPN. <br><br>Use AAD CA and MFA (when supported) for privileged accounts. <br><br> Use Azure AD Custom Roles for more granularity.  |
 | Deploy Sentinel artifacts, such as workbooks, analytics, rules, threat hunting queries, notebooks, and playbooks | Sentinel Contributor <br> Logic Apps contributor  | Permanent | Sentinel's Workspace or Resource Group | SPN | Use ADO Workflow approval and checks to secure pipeline deployment with this SPN. |
 | Assign a policy to configure log streaming features to Sentinel|  Resource Policy Contributor ** | On purpose (every time a new subscription and connector deploys) | All subscriptions to be monitored| SPN | Use AAD CA and MFA, when supported, for privileged accounts. |
 
@@ -113,7 +113,7 @@ Privileged access should be the top security priority at every company. Any comp
 
 Security of privileged access is critically important because it's foundational to all other security assurances. An attacker in control of your privileged accounts can undermine all other security assurances.  
 
-For that reason, we recommend logically spreading the service principals into different levels or tiers following a minimum privilege principle. The following illustration shows how to classify the Service Principals, depending on type of access and where the access is required.
+For that reason, we recommend logically spreading the service principals into different levels or tiers following a minimum privilege principle. The following illustration shows how to classify the service principals, depending on type of access and where the access is required.
 
 ![Architecture diagram for automating Microsoft Sentinel pipeline](./media/sentinel-layered-architecture.png)
 
@@ -131,7 +131,7 @@ Level 1 service principals are elevated permissions limited and scoped to Manage
 
 For security reasons and manageability, we recommend that you have only one service principal for this level. The permissions for this service principal persist, so it's highly recommended that you grant only the minimum permissions required and keep the account monitored and secured.
 
-The secret or certificate for this account must be stored securely in the Azure Key Vault. We also strongly recommended that the Key Vault be located in a dedicated administrative subscription if possible.
+The secret or certificate for this account must be stored securely in the Azure Key Vault. We also strongly recommended that the key vault be located in a dedicated administrative subscription if possible.
 
 #### Level 2 service principals
 
@@ -147,7 +147,7 @@ Level 3 service principals are limited to the Workload Administrator. In a typic
 
 For security reasons and manageability, we recommend that you have only one service principal per workload. The permissions for this service principal persist, so it's highly recommended that you grant only the minimum permissions required and keep the account monitored and secured.
 
-The secret or certificate for this account must be stored securely in the Azure Key Vault. We also strongly recommended that the Key Vault be located in a dedicated administrative resource group.
+The secret or certificate for this account must be stored securely in the Azure Key Vault. We also strongly recommended that the key vault be located in a dedicated administrative resource group.
 
 #### Level 4 service principals
 
