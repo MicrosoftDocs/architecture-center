@@ -15,7 +15,7 @@ Use this architecture when you want to deploy workloads in active/standby mode t
 
 ### Workflow
 
-- **Azure Traffic Manager.** Traffic Manager is configured to use priority routing. The load balancer IP in *Azure public MEC (primary)* is set to Priority 1. The one in the secondary region is set to Priority 2. This configuration sends all traffic in the non-failover case to the Azure public MEC. 
+- **Azure Traffic Manager.** Configure Traffic Manager to use priority routing. Set the load balancer IP in *Azure public MEC (primary)* to Priority 1. Set the one in the secondary region to Priority 2. This configuration sends all traffic in the non-failover case to the Azure public MEC. 
 
    > [!NOTE] 
    > Traffic Manager for Azure public MEC doesn't currently support performance routing, which could dynamically determine the previously described routing based on the lowest latency to the endpoint.  
