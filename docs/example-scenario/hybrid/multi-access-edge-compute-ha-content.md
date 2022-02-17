@@ -38,7 +38,14 @@ Use this architecture when you want to deploy workloads in active/standby mode t
 
 ### Alternatives 
 
-[Azure Site Recovery](https://azure.microsoft.com/services/site-recovery) provides another way to support active/standby. The workloads are deployed only if there's a failure. This approach costs less than the one described previously because there are no idle resources. This alternative is suitable only for applications that allow for higher RTOs. 
+[Azure backup and disaster recovery](/azure/architecture/framework/resiliency/backup-and-recovery), which provides [Azure Site Recovery](/azure/site-recovery/site-recovery-overview) and backup features:
+
+- Actively replicates VMs from the Azure public MEC to the parent region and makes them available to fail over and fail back in case of outage.
+- Backs up VMs to prevent data corruption or loss.
+
+This approach costs less than the one described previously because there are no idle resources. This alternative is suitable only for applications that allow for higher RTOs.
+
+ > [!NOTE] Azure backup and disaster recovery for Azure public MEC currently supports only virtual machines.
 
 ## Considerations
 
@@ -51,7 +58,7 @@ Use this architecture when you want to deploy workloads in active/standby mode t
 Data replication and backup are important when you rely on database failovers. Most Azure PaaS services have built-in support for geo-replication and creating read replicas across regions and geographies.  
 
 > [!NOTE]
-> Azure public MEC doesn't currently support PaaS services like SQL Managed Instance, SQL Server on Azure Virtual Machines, Azure Database for MySQL, or Azure Database for PostgreSQL. Third-party ISVs like Couchbase, MongoDB, and Apache can provide infrastructure as a service (IaaS) services that support geo-replication.
+> Azure public MEC doesn't currently support PaaS services like SQL Managed Instance, SQL Server on Azure Virtual Machines, Azure Database for MySQL, or Azure Database for PostgreSQL. Third-party offerings like Couchbase, MongoDB, and Apache Cassandra can provide infrastructure as a service (IaaS) services that support geo-replication.
 
 ### Traffic Manager 
 
