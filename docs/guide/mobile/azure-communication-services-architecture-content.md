@@ -45,6 +45,7 @@ Azure App Services or Azure Functions are straightforward options for operating 
 - **Concept:** [User Identity](https://docs.microsoft.com/azure/communication-services/concepts/identity-model)
 - **Quickstart:** [Create and manage access tokens](https://docs.microsoft.com/azure/communication-services/quickstarts/access-tokens)
 - **Tutorial:** [Build a identity management service use Azure Functions](https://docs.microsoft.com/azure/communication-services/tutorials/trusted-service-tutorial)
+- **Sample:** [Build a identity management service use Azure Functions](https://github.com/Azure-Samples/communication-services-authentication-hero-nodejs)
 
 ## User calling an app or phone number 
 The simplest voice and video calling scenario involves a user calling another user in the foreground without push notifications.
@@ -90,20 +91,21 @@ You may want users to join a call without an explicit invitation. For example yo
 ## Automation sending and receiving SMS messages
 
 ## Extending Microsoft 365 & Teams
-Many organizations use Microsoft 365 and Teams for communication. [Azure Communcication Services and Teams are interoperable](https://docs.microsoft.com/en-us/azure/communication-services/concepts/teams-interop.md) which enables these scenarios:
+Many organizations use Microsoft 365 and Teams for communication. [Azure Communcication Services and Teams are interoperable](https://docs.microsoft.com/azure/communication-services/concepts/teams-interop.md) which enables these scenarios:
 
-2. **Building a custom application for an external user to join a Teams meeting.** This is ideal for virtual visit scenarios where a business using Teams hosts a meeting for consumers using a custom app and a custom identity. Check out the [Virtual Visits tutorial and Sample Builder](https://docs.microsoft.com/en-us/learn/modules/intro-to-azure-communication-services/) to learn more about this specific scenario.
-3. **Building a custom application for an internal user with Teams/AAD credentials.** This is designed for building custom Teams clients for employees. For example [Landis Technologies](https://landistechnologies.com/microsoft-teams-attendant-console/) offers a custom attendant app that answers calls to Teams phone numbers.
+1. **Building a custom application for an external user to join a Teams meeting.** This is ideal for virtual visit scenarios where a business using Teams hosts a meeting for external consumers who are using a custom app and a custom identity. Check out the [Virtual Visits tutorial and Sample Builder](https://review.docs.microsoft.com/en-us/azure/communication-services/tutorials/virtual-visits?branch=pr-en-us-184102) to learn more about this specific scenario.
+2. **Building a custom application for an internal user with Teams/AAD credentials.** This is designed for building custom Teams clients for employees. For example [Landis Technologies](https://landistechnologies.com/microsoft-teams-attendant-console/) offers a custom attendant app that answers calls to Teams phone numbers.
 
-These custom application scenarios combine usage of [Microsoft Graph APIs](https://docs.microsoft.com/en-us/graph/overview?view=graph-rest-1.0) and Azure Communication Services. When building external apps and services that connect to Teams, you use Graph as the *Teams control plane* - configuring who, how, and when users communicate using APIs for:
+These custom application scenarios combine usage of [Microsoft Graph APIs](https://docs.microsoft.com/en-us/graph/overview?view=graph-rest-1.0) and Azure Communication Services. When building external apps and services that connect to Teams, you generally Graph as the *Teams control plane* - configuring who, how, and when users communicate using APIs for:
 
 - [Teams](https://docs.microsoft.com/graph/api/resources/team?view=graph-rest-1.0)
-- [Channels](https://docs.microsoft.com/en-us/graph/api/resources/channel?view=graph-rest-1.0)
 - [Calendar and online meetings](https://docs.microsoft.com/en-us/graph/choose-online-meeting-api?view=graph-rest-1.0)
 
-You use infromation from these control APIs like `meeting URL` and `thread identifier` to connect Azure Communication Service Calling and Chat clients to the Team's data plane. 
+You use information from these control APIs like `meeting URL` and `thread identifier` to connect Azure Communication Service Calling and Chat clients to the Team's data plane.
 
-[Teams has SDKs](https://docs.microsoft.com/en-us/microsoftteams/platform/get-started/get-started-overview) for adding custom experiences *within* the Teams experiences and through the [Teams store](https://docs.microsoft.com/microsoftteams/platform/concepts/deploy-and-publish/appsource/publish) such as tabs, bots, and automation. These scenarios are outside this article's scope.
+[Teams also has SDKs](https://docs.microsoft.com/en-us/microsoftteams/platform/get-started/get-started-overview) for adding custom experiences *within* the Teams experiences and through the [Teams store](https://docs.microsoft.com/microsoftteams/platform/concepts/deploy-and-publish/appsource/publish) such as tabs, bots, and automation. These scenarios are outside this article's scope. 
+
+Azure does not support interoperability with Team channels. Use Graph's [Chat](https://docs.microsoft.com/graph/api/chat-get?view=graph-rest-1.0&tabs=http) and [Channel](https://docs.microsoft.com/en-us/graph/api/channel-get?view=graph-rest-1.0&tabs=http) APIs to build custom clients for employees accessing channels. 
 
 ## Joining a scheduled Teams call
 Azure Communication Service applications can join Teams calls. For external users, they need a link to the Teams meeting, and this is managed using Graph APIs. The complete flow is below:
