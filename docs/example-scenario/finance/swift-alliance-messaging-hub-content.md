@@ -32,7 +32,7 @@ SWIFT's AMH needs network connectivity with two other SWIFT components listed he
 * SWIFT's Alliance Gateway (SAG)
 * SWIFTNet Link (SNL)
 
-SWIFT's Alliance Gateway (SAG) provides multiple integration points and message concentration between SWIFT modules and SWIFTNet. SWIFTNet Link (SNL) provides an API interface between SWIFT modules and SWIFTNet. We recommended that you have the SWIFT modules, SAG, and SNL components in the same Azure Virtual Network. They can be deployed across separate subnets in VNet. SAG and SNL should be deployed in a separate Azure Resource Group.
+SWIFT's Alliance Gateway (SAG) provides multiple integration points and message concentration between SWIFT modules and SWIFTNet. SWIFTNet Link (SNL) provides an API interface between SWIFT modules and SWIFTNet. We recommended that you have the SWIFT modules, SAG, and SNL components in the same Azure Virtual Network. They can be deployed across separate subnets in VNet.
 
 Key SWIFT's AMH technical solution components consist of *AMH node* running user interface, a database, and a messaging system. *AMH node* provides the web front-end running the user interface and the STP messaging processing. *AMH node* runs on [JBoss Enterprise Application Platform (EAP) on Red Hat Enterprise Linux (RHEL)](https://techcommunity.microsoft.com/t5/azure-marketplace/announcing-red-hat-jboss-eap-on-azure-virtual-machines-and-vm/ba-p/2374068).  The database runs on [Oracle](/azure/virtual-machines/workloads/oracle/oracle-overview). The messaging system typically runs on [Websphere MQ](https://azure.microsoft.com/updates/general-availability-enabling-ibm-websphere-application-server-on-azure-virtual-machines), but it can also be any JMS protocol-compliant messaging solution.
 
@@ -40,7 +40,7 @@ Azure infrastructure services running these software components are discussed in
 
 * **Azure subscription**: An Azure subscription is needed to deploy SWIFT's AMH. It's recommended to use a new Azure subscription to manage and scale SWIFT's AMH.
 
-* **Azure resource group**: Customers can deploy SWIFT's AMH in a specific Azure region using an Azure resource group. It's recommended to have SWIFT's AMH, SAG, and SNL in their own separate resource groups.
+* **Azure resource group**: Customers can deploy SWIFT's AMH in a specific Azure region using an Azure resource group. It's recommended to have a single resource group for SWIFT AMH, SAG, and SNL.
 
 * **Azure Virtual Network**: An Azure Virtual Network forms a private network boundary around SWIFT's AMH deployment. Customers should choose a network address space that doesn't conflict with the customer's on-premises site (Users), customer's on-premises site (HSM), and SWIFT's Alliance Connect networking solution.
 
@@ -107,10 +107,10 @@ The following guidance helps improve the architecture quality for SWIFT's AMH on
 
 ### Security
 
-1. Consider using the latest implementation of SWIFT CSP controls in Azure after consulting Microsoft team working with you.
+1. Consider using the latest implementation of SWIFT CSP controls in Azure after consulting the Microsoft team working with you.
 2. Consider using Microsoft Defender for Cloud for protection from server and application vulnerabilities. Defender for Cloud helps to quickly identify threats, streamline threat investigation, and automate remediation.
-3. Consider using Azure Active Directory (AD) for using Azure AD Role-Based Access Control (RBAC) to limit access to application components.
-4. Consider using Azure Sentinel for analyzing security and other events reported by solution components. Deep investigations and hunting exercises will enable a quick response to any anomaly or potential threat.
+3. Consider using Azure Active Directory (AAD) for using Azure AD Role-Based Access Control (RBAC) to limit access to application components.
+4. Consider using Microsoft Sentinel for analyzing security and other events reported by solution components. Deep investigations and hunting exercises will enable a quick response to any anomaly or potential threat.
 
 ### Resiliency
 
@@ -121,7 +121,7 @@ The following guidance helps improve the architecture quality for SWIFT's AMH on
 ### DevOps
 
 1. Consider using Azure DevOps Services based continuous integration and continuous delivery (CI/CD) workflow for zero-touch deployment experience.
-1. Consider using Azure Resource Manager (ARM) script to provision Azure infrastructure components.
+1. Consider using Azure Resource Manager (ARM) template to provision Azure infrastructure components.
 1. Consider using Azure Virtual Machine (VM) Extensions to configure any other solution component on top of Azure infrastructure.
 
 ## Pricing

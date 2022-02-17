@@ -32,7 +32,7 @@ SWIFT's AMH needs network connectivity with two other SWIFT components listed he
 * SWIFT's Alliance Gateway (SAG)
 * SWIFTNet Link (SNL)
 
-SWIFT's Alliance Gateway (SAG) provides multiple integration points and message concentration between SWIFT modules and SWIFTNet. SWIFTNet Link (SNL) provides API interface between SWIFT modules and SWIFTNet. It's recommended to have SWIFT modules, SAG, and SNL components in the same Azure Virtual Network. They can be deployed across separate subnets in VNet. SAG and SNL should be deployed in a separate Azure Resource Group.
+SWIFT's Alliance Gateway (SAG) provides multiple integration points and message concentration between SWIFT modules and SWIFTNet. SWIFTNet Link (SNL) provides API interface between SWIFT modules and SWIFTNet. It's recommended to have SWIFT modules, SAG, and SNL components in the same Azure Virtual Network. They can be deployed across separate subnets in VNet or resource groups.
 
 Key SWIFT's AMH technical solution components consist of *AMH node* running user interface, a database, and a messaging system. *AMH node* provides the web front-end running the user interface and the STP messaging processing. *AMH node* runs on [JBoss Enterprise Application Platform (EAP) on Red Hat Enterprise Linux (RHEL)](https://techcommunity.microsoft.com/t5/azure-marketplace/announcing-red-hat-jboss-eap-on-azure-virtual-machines-and-vm/ba-p/2374068).  The database runs on [Oracle](/azure/virtual-machines/workloads/oracle/oracle-overview). The messaging system typically runs on [Websphere MQ](https://azure.microsoft.com/updates/general-availability-enabling-ibm-websphere-application-server-on-azure-virtual-machines), but it can also be any JMS protocol-compliant messaging service.
 
@@ -40,7 +40,7 @@ Azure infrastructure services running these software components are discussed in
 
 * **Azure subscription**: An Azure subscription is needed to deploy SWIFT's AMH. It's recommended to use a new Azure subscription to manage and scale SWIFT's AMH.
 
-* **Azure resource group**: Customers can deploy SWIFT's AMH in a specific Azure region using an Azure resource group. It's recommended to have SWIFT's AMH, SAG, and SNL in their own separate resource groups.
+* **Azure resource group**: Customers can deploy SWIFT's AMH in a specific Azure region using an Azure resource group. It's recommended to have a separate resource group for SWIFT AMH, SAG, and SNL.
 
 * **Azure Virtual Network**: An Azure Virtual Network forms a private network boundary around SWIFT's AMH deployment. Customers should choose a network address space that doesn't conflict with the customer's on-premises site (Users), customer's on-premises site (HSM), and SWIFT's Alliance Connect Virtual networking solution.
 
@@ -85,8 +85,8 @@ The following guidance helps improve the architecture quality for SWIFT's AMH on
 ### Availability
 
 1. Consider deploying AMH across Azure paired regions so that a regional outage doesn’t affect the workload availability.
-2. Consider using Azure availability zones inside an Azure region. Solution components (like Virtual Machine Scale Sets and Load Balancer) support Availability Zones. Using Availability Zones enables solution to be available even during an outage in an Azure region.
-3. Consider using Azure Alerts for monitoring metrics and activity logs for key solution components (web, database and, messaging).  
+2. Consider using Azure availability zones inside an Azure region. Solution components (like Virtual Machine Scale Sets and Load Balancer) support Availability Zones. Using Availability Zones enables solution to be available even during an outage in an Azure datacenter in that region.
+3. Consider using Azure Alerts for monitoring metrics and activity logs for key solution components (web, database, and messaging).  
 
 ### Operations
 
@@ -107,21 +107,21 @@ The following guidance helps improve the architecture quality for SWIFT's AMH on
 
 ### Security
 
-1. Consider using the latest implementation of SWIFT CSP controls in Azure after consulting Microsoft team working with you.
+1. Consider using the latest implementation of SWIFT CSP controls in Azure after consulting the Microsoft team working with you.
 2. Consider using Microsoft Defender for Cloud for protection from server and application vulnerabilities. Defender for Cloud helps to quickly identify threats, streamline threat investigation, and automate remediation.
-3. Consider using Azure Active Directory (AD) for using Azure AD Role-Based Access Control (RBAC) to limit access to application components.
-4. Consider using Azure Sentinel for analyzing security and other events reported by solution components. Deep investigations and hunting exercises will enable a quick response to any anomaly or potential threat.
+3. Consider using Azure Active Directory (AAD) for using Azure AD Role-Based Access Control (RBAC) to limit access to application components.
+4. Consider using Microsoft Sentinel for analyzing security and other events reported by solution components. Deep investigations and hunting exercises will enable a quick response to any anomaly or potential threat.
 
 ### Resiliency
 
 1. Consider using Azure Load Balancer configured in zone-redundant configuration to route user requests to sustain a zone failure inside Azure region.
 2. Consider using Oracle Active Data Guard for database reliability if there's a single Azure Availability Zone failure.
-3. Consider identifying single point of failure in the solution and plan for remediation.
+3. Always identify the single points of failure in SWIFT AMH and plan for remediation. Such as regional outages of any one or more components.
 
 ### DevOps
 
 1. Consider using Azure DevOps Services based continuous integration and continuous delivery (CI/CD) workflow for zero-touch deployment experience.
-1. Consider using Azure Resource Manager (ARM) script to provision Azure infrastructure components.
+1. Consider using Azure Resource Manager (ARM) templates to provision Azure infrastructure components.
 1. Consider using Azure Virtual Machine (VM) Extensions to configure any other solution component on top of Azure infrastructure.
 
 ## Pricing
