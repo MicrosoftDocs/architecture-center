@@ -36,14 +36,14 @@ SWIFT offers various connectivity components for secure payments and message tra
 
 Customers with an Alliance Access based configuration will need the following:
 
-* Alliance Access, Web Platform, and SAG (SWIFT's Alliance Gateway)/SNL (SWIFTNet Link).
+* Alliance Access, Web Platform, and SAG (SWIFT Alliance Gateway)/SNL (SWIFTNet Link).
 * Alliance Connect and HSM appliance to secure the message sent via SWIFTNet running in an on-premises location.
 
 #### Alliance Messaging Hub (AMH)
 
 Customers with an Alliance Messaging Hub (AMH) based configuration will the need following:
 
-* Alliance Messaging Hub (AMH), Workbench and SAG (SWIFT's Alliance Gateway)/SNL (SWIFTNet Link).
+* Alliance Messaging Hub (AMH), Workbench and SAG (SWIFT Alliance Gateway)/SNL (SWIFTNet Link).
 * Alliance Connect and HSM appliance to secure the message sent via SWIFTNet running in an on-premises location.
 
 The Azure reference architecture described in this document uses Alliance Access and Alliance Messaging Hub (AMH).
@@ -58,7 +58,7 @@ This solution area includes services that compliment all SWIFT components. Share
 * [Azure Logic Apps](https://azure.microsoft.com/services/logic-apps) – supports native SWIFT messaging and can be used to natively process and transform messaging using 400+ connectors.
 * [Azure Monitor](https://azure.microsoft.com/en-us/services/monitor) – can be used to monitor the SWIFT infrastructure running in Azure.
 * [Azure Active Directory](https://azure.microsoft.com/services/active-directory) – can be used to integrate authentication and access control for users accessing SWIFT components.
-* [Azure Key Vault](https://azure.microsoft.com/en-us/services/key-vault) – can be used to store the keys and certificates securely to be used for various SWIFT components.  
+* [Azure Key Vault](https://azure.microsoft.com/en-us/services/key-vault) – can be used to store the keys and certificates securely to be used for various SWIFT components. Azure Key Vault is a mandatory component for running Alliance Connect.
 
 While the proposed architecture recommends using native Azure services, customers can choose to use their existing Azure or partner services that meet the requirements.
 

@@ -36,14 +36,14 @@ SWIFT offers various connectivity components for secure financial message transf
 
 Customers with an Alliance Access based configuration will need the following:
 
-* Alliance Access, Web Platform, SAG (SWIFT's Alliance Gateway)/SNL (SWIFTNet Link), and an Alliance Connect Virtual network connectivity solution.
+* Alliance Access, Web Platform, SAG (SWIFT Alliance Gateway)/SNL (SWIFTNet Link), and an Alliance Connect Virtual network connectivity solution.
 * On-premises HSM appliance to secure the messages sent via SWIFTNet.
 
 #### Alliance Messaging Hub (AMH)
 
 Customers with an Alliance Messaging Hub (AMH) based configuration will the need following:
 
-* Alliance Messaging Hub (AMH), Workbench, SAG (SWIFT's Alliance Gateway)/SNL (SWIFTNet Link) and Alliance Connect Virtual network connectivity solution.
+* Alliance Messaging Hub (AMH), Workbench, SAG (SWIFT Alliance Gateway)/SNL (SWIFTNet Link) and Alliance Connect Virtual network connectivity solution.
 * On-premises HSM appliance to secure the message sent via SWIFTNet.
 
 #### Alliance Lite 2
@@ -70,7 +70,7 @@ This solution area includes services that compliment all of SWIFT's components. 
 * [Azure Logic Apps](https://azure.microsoft.com/services/logic-apps) supports native SWIFT messaging and can be used to natively process and transform messaging, by using 400+ connectors.
 * [Azure Monitor](https://azure.microsoft.com/services/monitor) can be used to monitor the SWIFT infrastructure that's running in Azure.
 * [Azure Active Directory](https://azure.microsoft.com/services/active-directory) can be used to integrate authentication and access control, for users accessing SWIFT components.
-* [Azure Key Vault](https://azure.microsoft.com/services/key-vault) can be used to store the keys and certificates securely, to be used for various SWIFT components.  
+* [Azure Key Vault](https://azure.microsoft.com/services/key-vault) can be used to store the keys and certificates securely, to be used for various SWIFT components. Azure Key Vault is a mandatory component for running Alliance Connect Virtual.
 
 While the proposed architecture recommends using native Azure services, customers can instead choose to use their existing Azure or partner services that meet the requirements.
 
