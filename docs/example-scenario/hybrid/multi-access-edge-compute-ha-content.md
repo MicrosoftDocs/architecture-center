@@ -26,7 +26,7 @@ Use this architecture when you want to deploy workloads in active/standby mode t
    - Public load balancer. This load balancer fronts the application tier and balances traffic to the pool of VMs in the virtual machine scale set. 
    - Internal load balancer. This load balancer is used to access the database layer. Depending on the type of database you use for your application, you might not need a load balancer here, assuming other platform as a service (PaaS) services have their own load balancer. 
 
-- **Azure Virtual Machine Scale Sets.** Most production deployments use Virtual Machine Scale Sets to dynamically scale their workloads based on traffic load. Azure public MEC also supports [Azure Kubernetes Service](/services/kubernetes-service) for cloud-native and container-based applications. 
+- **Azure Virtual Machine Scale Sets.** Most production deployments use Virtual Machine Scale Sets to dynamically scale their workloads based on traffic load. Azure public MEC also supports [Azure Kubernetes Service](https://azure.microsoft.com/services/kubernetes-service) for cloud-native and container-based applications. 
 
 - **Database tier.**
 
