@@ -235,7 +235,7 @@ For models created on HDInsight or Databricks and hence dependent on the Spark e
 
 This has the advantage that the operational model can itself be invoked via a Data Factory pipeline activity for scoring.
 
-To use containers, you can package your models and deploy them on Azure Kubernetes Service. Prototype will require the use of the [Azure Data Science VM](https://azure.microsoft.com/services/virtual-machines/data-science-virtual-machines/?WT.mc_id=invopt-article-gmarchet); you must also install the Azure ML [command line](/azure/machine-learning/desktop-workbench/model-management-service-deploy?WT.mc_id=invopt-article-gmarchet) tools on the VM.
+To use containers, you can package your models and deploy them on Azure Kubernetes Service. Prototype will require the use of the [Azure Data Science VM](https://azure.microsoft.com/services/virtual-machines/data-science-virtual-machines/?WT.mc_id=invopt-article-gmarchet); you must also install the Azure ML [command line](/azure/machine-learning/concept-model-management-and-deployment) tools on the VM.
 
 ## Data output and reporting
 
