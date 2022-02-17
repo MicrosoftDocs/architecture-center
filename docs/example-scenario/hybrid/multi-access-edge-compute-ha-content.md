@@ -45,7 +45,8 @@ Use this architecture when you want to deploy workloads in active/standby mode t
 
 This approach costs less than the one described previously because there are no idle resources. This alternative is suitable only for applications that allow for higher RTOs.
 
- > [!NOTE] Azure backup and disaster recovery for Azure public MEC currently supports only virtual machines.
+ > [!NOTE] 
+ > Azure backup and disaster recovery for Azure public MEC currently supports only virtual machines.
 
 ## Considerations
 
