@@ -8,7 +8,7 @@ editor: marktab
 ms.service: architecture-center
 ms.subservice: azure-guide
 ms.topic: article
-ms.date: 01/10/2020
+ms.date: 02/18/2022
 ms.author: tdsp
 ms.category:
   - ai-machine-learning
@@ -121,5 +121,3 @@ git branch -d script
 ## Next steps
 
 [Execute data science tasks](execute-data-science-tasks.md) shows how to use utilities to complete several common data science tasks, such as interactive data exploration, data analysis, reporting, and model creation.
-
-[Example walkthroughs](/azure/architecture/data-science-process/overview) lists walkthroughs of specific scenarios, with links and thumbnail descriptions. The linked scenarios illustrate how to combine cloud and on-premises tools and services into workflows or pipelines to create intelligent applications.
