@@ -867,7 +867,7 @@ items:
           - name: Guides
             items:
               - name: Industrial IoT analytics
-                href: guide/iiot-guidance/iiot-architecture.md
+                href: guide/iiot-guidance/iiot-architecture.yml
               - name: Upscale ML lifecycle with MLOps framework
                 href: example-scenario/mlops/mlops-technical-paper.yml
               - name: High-performance computing for manufacturing
@@ -3190,7 +3190,7 @@ items:
                   - name: Hardware acceleration
                     href: guide/iot-edge-vision/hardware.md
                   - name: Machine learning
-                    href: guide/iot-edge-vision/machine-learning.md
+                    href: guide/iot-edge-vision/machine-learning.yml
                   - name: Alerting
                     href: guide/iot-edge-vision/alerts.md
                   - name: Image storage
@@ -3200,11 +3200,11 @@ items:
               - name: Industrial IoT analytics
                 items:
                   - name: Architecture
-                    href: guide/iiot-guidance/iiot-architecture.md
+                    href: guide/iiot-guidance/iiot-architecture.yml
                   - name: Recommended services
                     href: guide/iiot-guidance/iiot-services.md
                   - name: Data visualization
-                    href: guide/iiot-guidance/iiot-data.md
+                    href: guide/iiot-guidance/iiot-data.yml
                   - name: Considerations
                     href: guide/iiot-guidance/iiot-considerations.md
               - name: IoT patterns
@@ -3222,11 +3222,11 @@ items:
                   - name: Scale solutions with deployment stamps
                     href: example-scenario/iot/application-stamps.yml
               - name: Azure IoT client SDK support
-                href: guide/iot/azure-iot-client-sdk-support.md
+                href: guide/iot/azure-iot-client-sdk-support.yml
               - name: Choose an IoT solution
                 href: example-scenario/iot/iot-central-iot-hub-cheat-sheet.yml
               - name: Moving from test to production
-                href: example-scenario/iot/iot-move-to-production.md
+                href: example-scenario/iot/iot-move-to-production.yml
           - name: Architectures
             items:
               - name: Azure IoT reference architecture
@@ -3820,13 +3820,13 @@ items:
                     href: /security/benchmark/azure/baselines/firewall-security-baseline
                     maintainContext: true
               - name: NAT gateway framework review
-                href: networking/guide/well-architected-network-address-translation-gateway.md                
+                href: networking/guide/well-architected-network-address-translation-gateway.yml          
               - name: Private Link in hub-and-spoke network
                 href: guide/networking/private-link-hub-spoke-network.yml
               - name: Virtual Network guidance
                 items:
                   - name: Add IP spaces to peered virtual networks
-                    href: networking/prefixes/add-ip-space-peered-vnet.md
+                    href: networking/prefixes/add-ip-space-peered-vnet.yml
                   - name: Segment virtual networks
                     href: reference-architectures/hybrid-networking/network-level-segmentation.yml
                   - name: VNet peering and VPN gateways
@@ -3835,7 +3835,7 @@ items:
                     href: /azure/cloud-adoption-framework/ready/azure-best-practices/limit-cross-tenant-private-endpoint-connections
                     maintainContext: true
               - name: Build solutions with availability zones
-                href: high-availability/building-solutions-for-high-availability.md
+                href: high-availability/building-solutions-for-high-availability.yml
               - name: Use ExpressRoute with Power Platform
                 items:
                   - name: Overview
