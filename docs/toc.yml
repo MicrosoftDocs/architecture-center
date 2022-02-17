@@ -345,6 +345,8 @@ items:
                     href: guide/multitenant/service/cosmos-db.md
                   - name: Azure Database for PostgreSQL
                     href: guide/multitenant/service/postgresql.md
+          - name: Multitenancy checklist
+            href: guide/multitenant/checklist.md
           - name: Related resources
             href: guide/multitenant/related-resources.md
       - name: Solutions across Microsoft cloud platforms
