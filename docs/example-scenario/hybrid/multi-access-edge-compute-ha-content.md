@@ -15,22 +15,19 @@ Use this architecture when you want to deploy workloads in active/standby mode t
 
 ### Workflow
 
-- **Azure Traffic Manager.** Configure Traffic Manager to use priority routing. Set the load balancer IP in *Azure public MEC (primary)* to Priority 1. Set the one in the secondary region to Priority 2. This configuration sends all traffic in the non-failover case to the Azure public MEC. 
+- **Azure Traffic Manager.** Configure Traffic Manager to use priority routing. Set the load balancer IP address in *Azure public MEC (primary)* to **Priority 1**. Set the one in the secondary region to **Priority 2**. This configuration sends all traffic in the non-failover case to the Azure public MEC. 
 
    > [!NOTE] 
    > Traffic Manager for Azure public MEC doesn't currently support performance routing, which could dynamically determine the previously described routing based on the lowest latency to the endpoint.  
-   - In this architecture, failback is automatically achieved after the virtual machines (VMs) and/or standard load balancer is back online. Traffic Manager determines that the workloads are up and reroutes traffic back to the primary Azure public MEC region. 
+   
+   In this architecture, failback is automatically achieved after the virtual machines (VMs) and/or standard load balancer is back online. Traffic Manager determines that the workloads are up and reroutes traffic back to the primary Azure public MEC region. 
 
-- **Load balancers.** 
-
-   - Public load balancer. This load balancer fronts the application tier and balances traffic to the pool of VMs in the virtual machine scale set. 
-   - Internal load balancer. This load balancer is used to access the database layer. Depending on the type of database you use for your application, you might not need a load balancer here, assuming other platform as a service (PaaS) services have their own load balancer. 
+- **Public load balancer.** This load balancer fronts the application tier and balances traffic to the pool of VMs in the virtual machine scale set. 
+- **Internal load balancer.** This load balancer is used to access the database layer. Depending on the type of database you use for your application, you might not need a load balancer here, assuming other platform as a service (PaaS) services have their own load balancer. 
 
 - **Azure Virtual Machine Scale Sets.** Most production deployments use Virtual Machine Scale Sets to dynamically scale their workloads based on traffic load. Azure public MEC also supports [Azure Kubernetes Service](https://azure.microsoft.com/services/kubernetes-service) for cloud-native and container-based applications. 
 
-- **Database tier.**
-
-   - Azure public MEC doesn't currently support SQL database PaaS services like SQL Server on Azure Virtual Machines and Azure SQL Managed Instance. It also doesn't currently support NoSQL PaaS services like Azure Cosmos DB and Azure Managed Instance for Apache Cassandra. You can deploy third-party solutions that support SQL or NoSQL services and replication of data across their geo-distributed clusters. 
+- **Database tier.** Azure public MEC doesn't currently support SQL database PaaS services like SQL Server on Azure Virtual Machines and Azure SQL Managed Instance. It also doesn't currently support NoSQL PaaS services like Azure Cosmos DB and Azure Managed Instance for Apache Cassandra. You can deploy third-party solutions that support SQL or NoSQL services and replication of data across their geo-distributed clusters. 
 
 ### Components
 
@@ -47,7 +44,7 @@ Use this architecture when you want to deploy workloads in active/standby mode t
 
 ### Performance 
 
-Because Azure public MEC is designed to host latency-critical applications, failover to a secondary region increases the latency of the workloads and might not provide the same level of performance. Depending on the application and its sensitivity to this increased latency, you need to decide which of the services, if any, should fail over to the region. 
+ Azure public MEC is designed to host latency-critical applications. Because failover to a secondary region increases the latency of the workloads, it might not provide the same level of performance. Depending on the application and its sensitivity to this increased latency, you need to decide which of the services, if any, should fail over to the region. 
 
 ### Databases 
 
@@ -62,7 +59,7 @@ Data replication and backup are important when you rely on database failovers. M
 
 Traffic Manager supports multiple routing methods: performance, geographic, priority, and more. To best support low latency applications, dynamically send data to the region / Azure public MEC that's closest to the user. Performance routing isn't currently supported on Azure public MEC. The next best option is to statically prioritize the best location for an application. 
 
-For a globally distributed application that has workloads distributed across multiple Azure public MECs and regions, use a nested routing method. Use geographic routing to split traffic to the correct region and then use priority routing to further split the traffic. 
+For a globally distributed application that has workloads distributed across multiple Azure public MECs and regions, use a nested routing method. Use geographic routing to split traffic to the correct region, and then use priority routing to further split the traffic. 
 
 #### Failback 
 
@@ -70,7 +67,7 @@ After the workloads in Azure public MEC are back up, Traffic Manager probes dete
 
 ## Pricing
 
-Azure public MEC is primarily used for low latency and real-time computation scenarios. Data is processed by the compute instances running in Azure public MEC. This architecture uses active/standby with a hot standby. That is, workloads in the secondary region won't be used unless there's a failover. 
+Azure public MEC is primarily used for low latency and real-time computation scenarios. Data is processed by the compute instances that run in Azure public MEC. This architecture uses active/standby with a hot standby. That is, workloads in the secondary region aren't used unless there's a failover. 
 
 This approach to deploying workloads as a standby incurs Azure deployment costs even though the workloads aren't used.
 
@@ -83,7 +80,6 @@ For information about creating a cost-effective workload, see [Overview of the c
 ## Next steps
 
 - [Azure public MEC](https://azure.microsoft.com/solutions/public-multi-access-edge-compute-mec) 
-- [Azure private MEC](https://azure.microsoft.com/solutions/private-multi-access-edge-compute-mec)
 - [What is Traffic Manager?](/azure/traffic-manager/traffic-manager-overview)
 - [What is Azure Load Balancer?](/azure/load-balancer/load-balancer-overview)
 - [What are virtual machine scale sets?](/azure/virtual-machine-scale-sets/overview)
