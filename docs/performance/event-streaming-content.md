@@ -1,20 +1,4 @@
----
-title: Performance tuning - Event streaming
-titleSuffix: Azure Architecture Center
-description: Use load testing to tune the performance of an event streaming application. Fix partitioning issues and do parallel writes.
-author: EdPrice-MSFT
-ms.author: pnp
-ms.date: 08/27/2019
-ms.topic: conceptual
-ms.service: architecture-center
-ms.subservice: cloud-fundamentals
-ms.custom:
-  - article
----
-
 <!--cSpell:ignore upsert upserted -->
-
-# Performance tuning scenario: Event streaming with Azure Functions
 
 This article describes how a development team used metrics to find bottlenecks and improve the performance of a distributed system. The article is based on actual load testing that we did for a sample application.
 

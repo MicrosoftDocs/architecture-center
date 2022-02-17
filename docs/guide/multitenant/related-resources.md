@@ -47,7 +47,7 @@ The following [cloud design patterns](../../patterns/index.md) are frequently us
 
 ## Antipatterns
 
-Consider the [Noisy Neighbor antipattern](../../antipatterns/noisy-neighbor/index.md), in which the activity of one tenant can have a negative impact on another tenant's use of the system.
+Consider the [Noisy Neighbor antipattern](../../antipatterns/noisy-neighbor/noisy-neighbor.yml), in which the activity of one tenant can have a negative impact on another tenant's use of the system.
 
 ## Microsoft Azure Well-Architected Framework
 
@@ -77,8 +77,8 @@ While the entirety of the [Azure Well-Architected Framework](/azure/architecture
 * [Azure SQL Database multitenant SaaS database tenancy patterns](/azure/azure-sql/database/saas-tenancy-app-design-patterns): A set of articles describing various tenancy models that are available for a multitenant SaaS application, using Azure SQL Database.
 * [Running 1 million databases on Azure SQL for a large SaaS provider: Microsoft Dynamics 365 and Power Platform](https://devblogs.microsoft.com/azure-sql/running-1m-databases-on-azure-sql-for-a-large-saas-provider-microsoft-dynamics-365-and-power-platform/): A blog post describing how Dynamics 365 team manages databases at scale.
 * [Design a multitenant database by using Azure Database for PostgreSQL Hyperscale](/azure/postgresql/tutorial-design-database-hyperscale-multi-tenant)
-* [Horizontal, vertical, and functional data partitioning](../../best-practices/data-partitioning.md): In many large-scale and multitenant solutions, data is divided into partitions that can be managed and accessed separately. Partitioning can improve scalability, reduce contention, and optimize performance. It can also provide a mechanism for dividing data, by the usage pattern and by the tenant.
-* [Data partitioning strategies by Azure service](../../best-practices/data-partitioning-strategies.md): This article describes some strategies for partitioning data in various Azure data stores.
+* [Horizontal, vertical, and functional data partitioning](../../best-practices/data-partitioning.yml): In many large-scale and multitenant solutions, data is divided into partitions that can be managed and accessed separately. Partitioning can improve scalability, reduce contention, and optimize performance. It can also provide a mechanism for dividing data, by the usage pattern and by the tenant.
+* [Data partitioning strategies by Azure service](../../best-practices/data-partitioning-strategies.yml): This article describes some strategies for partitioning data in various Azure data stores.
 * [Building multitenant applications with Azure Database for PostgreSQL Hyperscale Citus](https://www.youtube.com/watch?v=7gAW08du6kk) (video)
 * [Multitenant applications with Azure Cosmos DB](https://www.youtube.com/watch?v=fOQoQnQqwwU) (video)
 * [Building a multitenant SaaS with Azure Cosmos DB and Azure](https://www.youtube.com/watch?v=Tht_RV5QPJ0) (video): A real-world case study of how Whally, a multitenant SaaS startup, built a modern platform from scratch on Azure Cosmos DB and Azure. Whally shows the design and implementation decisions they made related to partitioning, data modeling, secure multitenancy, performance, real-time streaming from change feed to SignalR and more, all using ASP.NET Core on Azure App Services.

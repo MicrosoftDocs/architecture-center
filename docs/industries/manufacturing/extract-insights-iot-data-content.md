@@ -185,7 +185,7 @@ Time Series Insights has a data explorer to visualize and query data as well as 
 
 :::image type="content" source="./images/extract-insights-iot-data/client-screen-inline.png" alt-text="Lambda architecture: batch layer highlighted." lightbox="./images/extract-insights-iot-data/client-screen-expanded.png":::
 
-If you require a browser-based user interface that aggregates data from multiple sources, both TSI and Power BI services allow embedding visualization controls. Both also provide REST APIs ([Power BI Rest API](/rest/api/power-bi/?WT.mc_id=iotinsightssoln-docs-ercenk), [TSI REST API](/rest/api/time-series-insights/time-series-insights-reference-queryapi?WT.mc_id=iotinsightssoln-docs-ercenk)) and JavaScript SDKs ([Power BI JavaScript SDK](https://github.com/Microsoft/PowerBI-JavaScript?WT.mc_id=iotinsightssoln-docs-ercenk), [TSI JavaScript SDK](/azure/time-series-insights/tutorial-explore-js-client-lib?WT.mc_id=iotinsightssoln-docs-ercenk)) that allows extensive customizations.
+If you require a browser-based user interface that aggregates data from multiple sources, both TSI and Power BI services allow embedding visualization controls. Both also provide REST APIs ([Power BI Rest API](/rest/api/power-bi/?WT.mc_id=iotinsightssoln-docs-ercenk), [TSI REST API](/rest/api/time-series-insights/)) and JavaScript SDKs ([Power BI JavaScript SDK](https://github.com/Microsoft/PowerBI-JavaScript?WT.mc_id=iotinsightssoln-docs-ercenk), [TSI JavaScript SDK](/azure/time-series-insights/tutorial-explore-js-client-lib?WT.mc_id=iotinsightssoln-docs-ercenk)) that allows extensive customizations.
 
 ## Pillars of software quality (PoSQ)
 
