@@ -190,7 +190,7 @@ Leveraging the parallelism of the MicrosoftML and RevoScaleR libraries built int
 Implementing the infrastructure to support a model pipeline and getting the technology components configured correctly end-to-end can be complex. Here are some references to get your started with your own approach:
 
 - [Machine Learning Server Documentation](/machine-learning-server/)
-- [R Tutorials for Machine Learning Server](/advanced-analytics/tutorials/sql-server-r-tutorials?view=sql-server-2017)
+- [R Tutorials for Machine Learning Server](/sql/machine-learning/tutorials/r-tutorials)
 - [R Samples for Machine Learning Server](/machine-learning-server/r/r-samples)
 - [R Function Library Reference](/machine-learning-server/r-reference/introducing-r-server-r-package-reference)
 
