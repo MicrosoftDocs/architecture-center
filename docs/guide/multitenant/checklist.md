@@ -35,7 +35,7 @@ When you build your multitenant solution in Azure, there are many elements that 
 ## Reliability considerations
 
 * Review the [Azure Well-Architected Reliability checklist](/azure/architecture/framework/resiliency/design-checklist), which is applicable to all workloads.
-* Understand the [Noisy Neighbor antipattern](../../antipatterns/noisy-neighbor/index.md). Prevent individual tenants from impacting the system's availability for other tenants.
+* Understand the [Noisy Neighbor antipattern](../../antipatterns/noisy-neighbor/noisy-neighbor.yml). Prevent individual tenants from impacting the system's availability for other tenants.
 * [Design your multitenant solution](./approaches/overview.md) for the level of growth that you expect. But don't overengineer for unrealistic growth.
 * Define Service Level Objectives (SLOs) and optionally [Service Level Agreements (SLAs)](/learn/modules/choose-azure-services-sla-lifecycle/2-what-are-service-level-agreements) for your solution. SLAs and SLOs should be based on the requirements of your tenants, as well as the [composite SLA of the Azure resources in your architecture](/azure/architecture/framework/resiliency/business-metrics).
 * Test the [scale](./approaches/compute.md#scale) of your solution. Ensure that it performs well under all levels of load, and that it scales correctly as the number of tenants increases.
@@ -71,7 +71,7 @@ When you build your multitenant solution in Azure, there are many elements that 
 ## Performance Efficiency considerations
 
 * Review the [Azure Well-Architected Performance Efficiency checklist](/azure/architecture/framework/scalability/performance-efficiency), which is applicable to all workloads.
-* If you use shared infrastructure, plan for how you'll mitigate [Noisy Neighbor](../../antipatterns/noisy-neighbor/index.md) concerns and ensure that one tenant can't reduce the performance of the system for other tenants.
+* If you use shared infrastructure, plan for how you'll mitigate [Noisy Neighbor](../../antipatterns/noisy-neighbor/noisy-neighbor.yml) concerns and ensure that one tenant can't reduce the performance of the system for other tenants.
 * Determine how you'll scale your [compute](./approaches/compute.md), [storage](./approaches/storage-data.md), [networking](./approaches/networking.md), and other Azure resources to match the demands of your tenants.
 * Consider each Azure resource's scale limits. [Organize your resources](./approaches/resource-organization.md) appropriately to avoid [resource organization antipatterns](./approaches/resource-organization.md#antipatterns-to-avoid). For example, don't over-architect your solution to work within unrealistic scale requirements.
 
