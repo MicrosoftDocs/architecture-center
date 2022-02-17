@@ -1178,6 +1178,8 @@ items:
                 maintainContext: true
       - name: Telecommunications
         items:
+          - name: Overview
+            href: industries/telecommunications.md
           - name: Guides
             items:
               - name: Field and cloud edge gateways
