@@ -8,7 +8,7 @@ services: architecture-center
 ms.service: architecture-center
 ms.subservice: azure-guide
 ms.topic: article
-ms.date: 01/10/2020
+ms.date: 02/18/2022
 ms.author: tdsp
 ms.custom:
   - previous-author=deguhath
@@ -185,11 +185,8 @@ Now you can:
 
 ![Logistic regression ROC curve for generic approach](./media/spark-overview/pyspark-jupyter-autovisualization.png)
 
-## What's next?
-Now that you are set up with an HDInsight Spark cluster and have uploaded the Jupyter notebooks, you are ready to work through the topics that correspond to the three PySpark notebooks. They show how to explore your data and then how to create and consume models. The advanced data exploration and modeling notebook shows how to include cross-validation, hyper-parameter sweeping, and model evaluation.
+## Next steps
 
-**Data Exploration and modeling with Spark:** Explore the dataset and create, score, and evaluate the machine learning models by working through the [Create binary classification and regression models for data with the Spark MLlib toolkit](/azure/architecture/data-science-process/overview) topic.
-
-**Model consumption:** To learn how to score the classification and regression models created in this topic, see [Score and evaluate Spark-built machine learning models](/azure/architecture/data-science-process/overview).
-
-**Cross-validation and hyperparameter sweeping**: See [Advanced data exploration and modeling with Spark](/azure/architecture/data-science-process/overview) on how models can be trained using cross-validation and hyper-parameter sweeping
+- [What is the Team Data Science Process?](/azure/architecture/data-science-process/overview)
+- [Compare the machine learning products and technologies from Microsoft](/azure/architecture/data-guide/technology-choices/data-science-and-machine-learning)
+- [Machine learning at scale](/azure/architecture/data-guide/big-data/machine-learning-at-scale)
