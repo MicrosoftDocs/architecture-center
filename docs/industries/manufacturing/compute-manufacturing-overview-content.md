@@ -112,10 +112,8 @@ families for an all-cloud solution.
 
 If a local cluster is available, another option is to extend it to Azure. This process
 offloads peak workloads and is known as _bursting to Azure_. To do so requires
-using one of the on-premise workload managers that support Azure, such as [Alces
-Flight
-Compute](https://azuremarketplace.microsoft.com/marketplace/apps/alces-flight-limited.alces-flight-compute-solo?tab=Overview?WT.mc_id=computeinmanufacturing-docs-ercenk),
-[TIBCO DataSynapse
+using one of the on-premise workload managers that support Azure, such as Alces
+Flight Compute, [TIBCO DataSynapse
 GridServer](https://azure.microsoft.com/blog/tibco-datasynapse-comes-to-the-azure-marketplace/?WT.mc_id=computeinmanufacturing-docs-ercenk),
 [Bright Cluster
 Manager](http://www.brightcomputing.com/technology-partners/microsoft), [IBM
@@ -136,7 +134,7 @@ optimized VM families. Microsoft also acquired [Cycle
 Computing](https://blogs.microsoft.com/blog/2017/08/15/microsoft-acquires-cycle-computing-accelerate-big-computing-cloud/?WT.mc_id=computeinmanufacturing-docs-ercenk),
 which provides a solution offering a higher level of abstraction for running
 clusters on Azure. Another option is to run [Cray
-supercomputers](https://www.cray.com/solutions/supercomputing-as-a-service/cray-in-azure)
+supercomputers](https://www.hpe.com/us/en/compute/hpc/supercomputing/cray-exascale-supercomputer.html)
 on Azure with seamless access to complementary Azure services such as [Azure
 Storage](/azure/virtual-machines/windows/premium-storage?WT.mc_id=computeinmanufacturing-docs-ercenk)
 and [Azure Data

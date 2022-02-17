@@ -90,7 +90,7 @@ on how to prepare the data and train the machine learning model. There are three
   - **Binary classification** is a machine-learning method that uses data to determine the category, type, or class of an item or row of data, as a member of one of the two classes. There are multiple types of classification algorithms, Microsoft published a set of algorithms available as [Machine Learning studio modules](/azure/machine-learning/studio-module-reference/machine-learning-initialize-model-classification?WT.mc_id=pdmsolution-docs-ercenk).
 - _What is the remaining useful life of the asset?_ Answer: X hours
   - **Regression** is a class of machine learning algorithms that predict the value of a variable, given a set of other variables. Machine Learning studio includes a set of regression algorithms as [modules](/azure/machine-learning/studio-module-reference/machine-learning-initialize-model-regression?WT.mc_id=pdmsolution-docs-ercenk).
-    - **Long Short Term Memory (LSTM):** [LSTM](https://colah.github.io/posts/2015-08-Understanding-LSTMs/?WT.mc_id=pdmsolution-docs-ercenk) networks are a type of deep neural networks (DNN). Inspiration of DNNs comes from modelling the behavior of individual neurons in the brain. Microsoft has published a [step-by-step guide](/azure/machine-learning/desktop-workbench/scenario-deep-learning-for-predictive-maintenance?WT.mc_id=pdmsolution-docs-ercenk) for describing on using an LSTM for Predictive Maintenance
+    - **Long Short Term Memory (LSTM):** [LSTM](https://colah.github.io/posts/2015-08-Understanding-LSTMs/?WT.mc_id=pdmsolution-docs-ercenk) networks are a type of deep neural networks (DNN). Inspiration of DNNs comes from modelling the behavior of individual neurons in the brain. Microsoft has published a [step-by-step guide](https://github.com/Azure-Samples/MachineLearningSamples-DeepLearningforPredictiveMaintenance) for describing on using an LSTM for Predictive Maintenance
 - _Which asset requires servicing most urgently?_ Answer: Asset X
   - **Multi-class classification** is a machine-learning method that uses data to determine the category, type, or class of an item or row of data, as a member of more than two classes.
 
@@ -137,7 +137,7 @@ As for training the ML mode, Microsoft Azure provides many options, which all
 can be used in different combinations.
 
 - [Azure Machine Learning
-    Services](/azure/machine-learning/preview/?WT.mc_id=pdmsolution-docs-ercenk)
+    Services](/azure/machine-learning/)
 
 - [Azure Machine Learning
     Studio](/azure/machine-learning/studio/?WT.mc_id=pdmsolution-docs-ercenk)
@@ -238,7 +238,7 @@ is the most straightforward and uses [Azure Machine Learning
 Studio](/azure/machine-learning/studio/what-is-ml-studio?WT.mc_id=pdmsolution-docs-ercenk)
 as the choice for creating the model. One could also choose [Azure Machine
 Learning Model
-Management](/azure/machine-learning/preview/model-management-overview?WT.mc_id=pdmsolution-docs-ercenk)
+Management](/azure/machine-learning/concept-model-management-and-deployment)
 which provides a comprehensive set of services for managing models, and provides
 REST API endpoints, with authentication, load balancing, automatic scale-out and
 encryption features. The model can be deployed to single machine (e.g. Data
@@ -326,7 +326,7 @@ locally before sending it to the cloud (multitenant cases), and the need to
 perform projections or aggregations on device data. The [Ambassador
 pattern](/azure/architecture/patterns/ambassador?WT.mc_id=pdmsolution-docs-ercenk)
 is a good approach to address these needs. [Microsoft Azure IoT
-Edge](/azure/iot-edge/how-iot-edge-works?WT.mc_id=pdmsolution-docs-ercenk) is an
+Edge](/azure/iot-edge/) is an
 implementation that can act as a proxy to [Microsoft Azure IoT
 Hub](https://azure.microsoft.com/services/iot-hub/?WT.mc_id=pdmsolution-docs-ercenk), as well as provide
 local processing capabilities with remote management.
