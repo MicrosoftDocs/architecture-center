@@ -1,23 +1,3 @@
----
-title: Big data architecture style
-titleSuffix: Azure Application Architecture Guide
-description: Explore the benefits, challenges, and best practices for Big Data architectures on Azure. Examine IoT architecture, a specialized subset of big data solutions.
-author: EdPrice-MSFT
-ms.author: pnp
-ms.date: 11/20/2019
-ms.topic: conceptual
-ms.service: architecture-center
-ms.subservice: azure-guide
-products:
-  - azure-data-lake-analytics
-ms.custom:
-  - seojan19
-  - IoT
-  - guide
----
-
-# Big data architecture style
-
 A big data architecture is designed to handle the ingestion, processing, and analysis of data that is too large or complex for traditional database systems.
 
 ![Logical diagram of a big data architecture style](./images/big-data-logical.svg)
