@@ -253,20 +253,20 @@ items:
               - name: Responsible AI with Cognitive Services
                 href: /azure/cognitive-services/responsible-use-of-ai-overview
                 maintainContext: true
-          - name: Responsible ML
-            items:
-              - name: Overview
-                href: /azure/machine-learning/concept-responsible-ml
-                maintainContext: true
-              - name: Model interpretability
-                href: /azure/machine-learning/how-to-machine-learning-interpretability
-                maintainContext: true
-              - name: ML fairness
-                href: /azure/machine-learning/concept-fairness-ml
-                maintainContext: true
-              - name: Differential privacy
-                href: /azure/machine-learning/concept-differential-privacy
-                maintainContext: true
+              - name: Machine learning
+                items:
+                  - name: Responsible AI and machine learning
+                    href: /azure/machine-learning/concept-responsible-ml
+                    maintainContext: true
+                  - name: Model interpretability
+                    href: /azure/machine-learning/how-to-machine-learning-interpretability
+                    maintainContext: true
+                  - name: ML fairness
+                    href: /azure/machine-learning/concept-fairness-ml
+                    maintainContext: true
+                  - name: Differential privacy
+                    href: /azure/machine-learning/concept-differential-privacy
+                    maintainContext: true
       - name: Architecture for startups
         items:
           - name: Overview
@@ -628,7 +628,7 @@ items:
                 href: example-scenario/ai/scale-ai-and-machine-learning-in-regulated-industries.yml                
               - name: SWIFT on Azure
                 items: 
-                  - name: SWIFT on Azure Overview
+                  - name: Overview
                     href: example-scenario/finance/swift-on-azure.yml
                   - name: SWIFT Alliance Messaging Hub
                     href: example-scenario/finance/swift-alliance-messaging-hub.yml
@@ -1425,14 +1425,14 @@ items:
                   - name: Compare MLflow and Azure ML
                     href: /azure/machine-learning/concept-mlflow
                     maintainContext: true
+                  - name: Machine teaching
+                    href: solution-ideas/articles/machine-teaching.yml
                   - name: Enterprise security and governance
                     href: /azure/machine-learning/concept-enterprise-security
                     maintainContext: true
                   - name: Security baseline for AML
                     href: /security/benchmark/azure/baselines/machine-learning-security-baseline
                     maintainContext: true
-                  - name: Machine teaching
-                    href: solution-ideas/articles/machine-teaching.yml
               - name: MLOps framework
                 items:
                   - name: Upscale ML lifecycle with MLOps
@@ -1663,6 +1663,8 @@ items:
                 href: reference-architectures/ai/realtime-scoring-r.yml
               - name: Scale AI and ML in regulated industries
                 href: example-scenario/ai/scale-ai-and-machine-learning-in-regulated-industries.yml
+              - name: Secure research for regulated data
+                href: example-scenario/ai/secure-compute-for-research.yml
               - name: Speech to text conversion
                 href: reference-architectures/ai/speech-to-text-transcription-pipeline.yml
               - name: Training Python models
@@ -1739,8 +1741,6 @@ items:
                 href: solution-ideas/articles/retail-assistant-or-vacation-planner-with-visual-capabilities.yml
               - name: Retail product recommendations
                 href: solution-ideas/articles/product-recommendations.yml
-              - name: Secure research for regulated data
-                href: example-scenario/ai/secure-compute-for-research.yml
               - name: Speech services
                 href: solution-ideas/articles/speech-services.yml
               - name: Vehicle telematics
@@ -1767,8 +1767,13 @@ items:
                     href: data-guide/technology-choices/batch-processing.md
                   - name: Stream processing
                     href: /azure/architecture/data-guide/technology-choices/stream-processing
-              - name: Actuarial risk analysis
-                href: industries/finance/actuarial-risk-analysis-financial-model.yml
+              - name: Industry guidance
+                items:
+                  - name: Actuarial risk analysis
+                    href: industries/finance/actuarial-risk-analysis-financial-model.yml
+                  - name: Financial institutions with data mesh
+                    href: /azure/cloud-adoption-framework/scenarios/data-management/architectures/reference-architecture-data-mesh
+                    maintainContext: true
               - name: Analytics security baselines
                 items:
                   - name: Security baseline for Azure Data Factory
@@ -2120,6 +2125,8 @@ items:
                 href: solution-ideas/articles/aks-iot-data-streaming.yml
               - name: JBoss deployment with Red Hat on Azure
                 href: solution-ideas/articles/jboss-deployment-red-hat.yml
+              - name: Lift and shift to containers with AKS
+                href: solution-ideas/articles/migrate-existing-applications-with-aks.yml
               - name: Microservices with AKS and Azure DevOps
                 href: solution-ideas/articles/microservices-with-aks.yml
               - name: Secure DevOps for AKS
@@ -2343,8 +2350,6 @@ items:
                     href: databricks-monitoring/dashboards.md
                   - name: Troubleshoot performance bottlenecks
                     href: databricks-monitoring/performance-troubleshooting.md
-                  - name: Observability patterns and metrics
-                    href: databricks-monitoring/databricks-observability.yml
               - name: Run Apache Cassandra
                 href: best-practices/cassandra.md
           - name: Architectures
@@ -2388,6 +2393,8 @@ items:
                 href: example-scenario/sql-failover/app-service-private-sql-multi-region.yml
               - name: N-tier app with Cassandra
                 href: reference-architectures/n-tier/n-tier-cassandra.yml
+              - name: Observability patterns and metrics
+                href: databricks-monitoring/databricks-observability.yml
               - name: Optimize SQL Server with Azure Arc
                 href: hybrid/azure-arc-sql-server.yml
               - name: Optimized storage – time based multi writes
@@ -2636,6 +2643,9 @@ items:
             items:
               - name: DevOps checklist
                 href: checklist/dev-ops.md
+              - name: Operational Excellence patterns
+                href: /azure/architecture/framework/devops/devops-patterns
+                maintainContext: true
               - name: Advanced ARM templates
                 items:
                   - name: Overview
