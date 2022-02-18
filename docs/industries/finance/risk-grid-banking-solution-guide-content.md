@@ -283,7 +283,7 @@ Below are some quick tutorials to help you build a simple application to create
 and run batch compute jobs. Options for building the application are as follows:
 
 - [Batch .NET API](/azure/batch/batch-dotnet-get-started?WT.mc_id=gridbanksg-docs-dastarr)
-- [Batch SDK for Python](/azure/batch/batch-python-tutorial?WT.mc_id=gridbanksg-docs-dastarr)
+- [Batch SDK for Python](/azure/batch/tutorial-parallel-python)
 - [Batch SDK for Node.js](/azure/batch/batch-nodejs-get-started?WT.mc_id=gridbanksg-docs-dastarr)
 - [Batch management with PowerShell](/azure/batch/batch-powershell-cmdlets-get-started?WT.mc_id=gridbanksg-docs-dastarr)
 - [Batch management with the Azure CLI](/azure/batch/batch-cli-get-started?WT.mc_id=gridbanksg-docs-dastarr)
