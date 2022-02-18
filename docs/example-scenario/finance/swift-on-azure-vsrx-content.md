@@ -99,8 +99,6 @@ Explore the following Azure architecture for the various SWIFT messaging interfa
 
 * [SWIFT Alliance Connect in Azure](swift-on-azure-srx.yml)
 * [Alliance Access](swift-alliance-access-on-azure.yml)
-* [Alliance Access with Alliance Connect Virtual](swift-alliance-access-vsrx-on-azure.yml)
+* [Alliance Access with Alliance Connect Virtual](swift-alliance-access-on-azure.yml)
 * [Alliance Messaging Hub (AMH)](swift-alliance-messaging-hub.yml)
-* [Alliance Messaging Hub (AMH) with Alliance Connect Virtual](swift-alliance-messaging-hub-vsrx.yml)
-* [Alliance Lite2](swift-alliance-lite-2-on-azure.yml)
-* [Alliance Cloud](swift-alliance-cloud-on-azure.yml)
+* [Alliance Messaging Hub (AMH) with Alliance Connect Virtual](swift-alliance-messaging-hub.yml)
