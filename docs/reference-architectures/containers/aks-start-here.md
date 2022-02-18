@@ -124,9 +124,9 @@ If you're a managed service provider, you already use Azure Lighthouse to manage
 > [!div class="nextstepaction"]
 > [AKS with Azure Lighthouse](/azure/lighthouse/overview)
 
-### AWS or GCP professionals
+### AWS or Google Cloud professionals
 
 These articles provide service mapping and comparison between Azure and other cloud services. This reference can help you ramp up quickly on Azure.
 
 * [Containers and container orchestrators for AWS Professionals](../../aws-professional/compute.md#containers-and-container-orchestrators)
-* [Containers and container orchestrators for GCP Professionals](../../gcp-professional/services.md#containers-and-container-orchestrators)
+* [Containers and container orchestrators for Google Cloud Professionals](../../gcp-professional/services.md#containers-and-container-orchestrators)
