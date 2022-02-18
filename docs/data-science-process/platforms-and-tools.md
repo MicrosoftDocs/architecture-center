@@ -8,7 +8,7 @@ services: architecture-center
 ms.service: architecture-center
 ms.subservice: azure-guide
 ms.topic: article
-ms.date: 01/28/2022
+ms.date: 02/18/2022
 ms.author: tdsp
 ms.custom:
   - previous-author=deguhath
@@ -145,6 +145,6 @@ If you're using Linux (CentOS) machines to run the git commands, you need to add
 
 ## Next steps
 
-Full end-to-end walkthroughs that demonstrate all the steps in the process for **specific scenarios** are also provided. They're listed and linked with thumbnail descriptions in the [Example walkthroughs](walkthroughs.md) topic. They illustrate how to combine cloud, on-premises tools, and services into a workflow or pipeline to create an intelligent application.
-
-For examples that show how to execute steps in the Team Data Science Process by using Azure Machine Learning studio (classic), see the [With Azure ML](/azure/machine-learning/team-data-science-process/) learning path.
+- [What is the Team Data Science Process?](/azure/architecture/data-science-process/overview)
+- [Compare the machine learning products and technologies from Microsoft](/azure/architecture/data-guide/technology-choices/data-science-and-machine-learning)
+- [Machine learning at scale](/azure/architecture/data-guide/big-data/machine-learning-at-scale)
