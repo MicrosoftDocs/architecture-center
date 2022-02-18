@@ -183,5 +183,5 @@ To increase resilience beyond a single Azure region, deploying in multiple Azure
 
 Explore the functionality and architecture of some other SWIFT modules in detail, as provided below.
 
-* [SWIFT on Azure](swift-on-azure.yml)
+* [SWIFT on Azure](swift-on-azure-srx.yml)
 * [Alliance Messaging Hub (AMH)](swift-alliance-messaging-hub.yml)
