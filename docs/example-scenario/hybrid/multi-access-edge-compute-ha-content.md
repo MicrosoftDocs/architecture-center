@@ -1,4 +1,4 @@
-Azure public multi-access edge compute (MEC) is a great platform for hosting low latency applications that can use the 5G network, but it currently doesn't support availability zones, availability sets, or other availability options that are available in Azure regions. It doesn't provide an automatic method for failover if the resources in the Azure public MEC fail. This article describes how to deploy workloads in active/standby mode to achieve high availability and disaster recovery. 
+Azure public multi-access edge compute (MEC) is a great platform for hosting applications at the edge and can make them more responsive, but it doesn't currently support high availability features. This article describes how to deploy workloads in active/standby mode to achieve high availability and disaster recovery.
 
 
 *Apache®, Apache Ignite, Ignite, and the flame logo are either registered trademarks or trademarks of the Apache Software Foundation in the United States and/or other countries. No endorsement by The Apache Software Foundation is implied by the use of these marks.*
