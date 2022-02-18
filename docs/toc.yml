@@ -1788,7 +1788,7 @@ items:
               - name: Automated enterprise BI
                 href: reference-architectures/data/enterprise-bi-adf.yml
               - name: Big Data analytics on Confidential Computing
-                href: example-scenario/confidential/data-analytics-containers-spark-k8s-azsql.yml
+                href: example-scenario/confidential/data-analytics-containers-spark-kubernetes-azure-sql.yml
               - name: Customer 360 with Azure Synapse and Dynamics 365
                 href: example-scenario/analytics/synapse-customer-insights.yml      
               - name: Data analysis for regulated industries
