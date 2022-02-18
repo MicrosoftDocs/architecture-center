@@ -2,9 +2,9 @@
 metadata:
   title: Scale IoT solutions with deployment stamps
   titleSuffix: Azure Example Scenarios
-  description: Learn about scaling up IoT device populations with deployment stamps and strategies for moving devices and applications between stamps.
+  description: Learn about scaling up IoT device populations with deployment stamps, and see how to move devices and applications between stamps.
   author: wamachine
-  ms.date: 04/22/2021
+  ms.date: 02/17/2022
   ms.topic: conceptual
   ms.service: architecture-center
   ms.subservice: example-scenario
@@ -16,7 +16,7 @@ metadata:
 name: Scale IoT solutions with deployment stamps
 azureCategories:
   - iot
-summary: Learn about scaling up IoT device populations with deployment stamps and strategies for moving devices and applications between stamps.
+summary: Learn about scaling up IoT device populations with deployment stamps, and see how to move devices and applications between stamps.
 products:
   - azure-event-hubs
   - azure-iot-hub
