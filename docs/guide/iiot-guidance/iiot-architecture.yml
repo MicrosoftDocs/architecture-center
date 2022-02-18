@@ -12,7 +12,6 @@ azureCategories:
   - iot
 products:
   - azure-iot-edge
-ms.custom:
 name: Azure industrial IoT analytics guidance
 summary: Examine architectural guidance on Azure industrial IoT (IIoT) analytics using platform as a service (PaaS) components.
 thumbnailUrl: /azure/architecture/browse/thumbs/iiot-architecture.png
