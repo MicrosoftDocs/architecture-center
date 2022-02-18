@@ -12,9 +12,6 @@ azureCategories:
   - networking
 products:
   - azure-virtual-network
-ms.custom:
-  - fcp
-  - article
 name: Add IP address spaces to peered virtual networks
 summary: Learn about automation of IP address space additions to peered vNets. You can add/remove address ranges and delete the peering, then re-create the peering
 thumbnailUrl: /azure/architecture/browse/thumbs/single-subscription.png

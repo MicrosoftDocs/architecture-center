@@ -12,9 +12,6 @@ azureCategories:
   - iot
 products:
   - azure-machine-learning
-ms.custom:
-  - guide
-  - fcp
 name: Machine learning in Azure IoT Edge vision AI
 summary: Learn about machine learning data and models in Azure IoT Edge vision AI solutions.
 thumbnailUrl: /azure/architecture/browse/thumbs/vision-edge-flow.png

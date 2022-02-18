@@ -9,11 +9,10 @@ metadata:
   ms.service: architecture-center
   ms.subservice: azure-guide
 azureCategories:
-  - fcp
+  - iot
 products:
   - azure-iot-edge
 ms.custom:
-  - guide
 name: Azure industrial IoT analytics guidance
 summary: Examine architectural guidance on Azure industrial IoT (IIoT) analytics using platform as a service (PaaS) components.
 thumbnailUrl: /azure/architecture/browse/thumbs/iiot-architecture.png

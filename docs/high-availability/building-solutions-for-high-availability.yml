@@ -12,10 +12,6 @@ azureCategories:
   - management-and-governance
 products:
   - azure
-ms.custom:
-  - high-availability
-  - fasttrack-edit
-  - article
 name: Build solutions for high availability using availability zones
 summary: Learn about the Azure availability zones construct, a software and networking solution for high availability (HA) that protects against datacenter failures.
 thumbnailUrl: /azure/architecture/browse/thumbs/high-availability-availability-zone.png

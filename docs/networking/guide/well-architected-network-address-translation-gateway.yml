@@ -14,8 +14,6 @@ products:
   - azure-application-gateway
   - azure-virtual-network
   - azure-private-link
-ms.custom:
-  - fcp
 name: Azure Well-Architected Framework review of an Azure NAT gateway
 summary: Best practices for an Azure NAT gateway, based on the Azure Well-Architected Framework's five pillars of architecture excellence.
 thumbnailUrl: /azure/architecture/browse/thumbs/az-directions.png

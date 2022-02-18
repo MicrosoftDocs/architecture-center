@@ -74,7 +74,7 @@ IoT architecture guides:
 
 -   [Vision with Azure IoT Edge](../../guide/iot-edge-vision/index.md)
 
--   [Azure Industrial IoT Analytics Guidance](../../guide/iiot-guidance/iiot-architecture.md)
+-   [Azure Industrial IoT Analytics Guidance](../../guide/iiot-guidance/iiot-architecture.yml)
 
 -   [Azure IoT reference architecture](../../reference-architectures/iot.yml)
 

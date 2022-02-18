@@ -1,4 +1,4 @@
-This article shows you how to visualize the data collected by the [Azure Industrial IoT analytics solution](./iiot-architecture.md). You can easily look for data trends using visual elements and dashboards, and use these trends to analyze the effectiveness of your solution.
+This article shows you how to visualize the data collected by the [Azure Industrial IoT analytics solution](./iiot-architecture.yml). You can easily look for data trends using visual elements and dashboards, and use these trends to analyze the effectiveness of your solution.
 
 ## Visualization
 
