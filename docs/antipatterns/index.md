@@ -70,6 +70,10 @@ For more about performance tuning, see [Performance tuning a distributed applica
 [ImproperInstantiation]: ./improper-instantiation/index.md
 [MonolithicPersistence]: ./monolithic-persistence/index.md
 [NoCaching]: ./no-caching/index.md
+<<<<<<< HEAD
 [NoisyNeighbor]: ./noisy-neighbor.yml
+=======
+[NoisyNeighbor]: ./noisy-neighbor/noisy-neighbor.yml
+>>>>>>> 9955865f24d1f030dcaef1b6814c1b19de955e86
 [RetryStorm]: ./retry-storm/index.md
 [SynchronousIO]: ./synchronous-io/index.md

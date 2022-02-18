@@ -114,7 +114,7 @@ The following resources provide practical recommendations and information for sp
 - [Design identity governance][Design identity governance]
 - [Updated Guidance for Microsoft 365 EDU Deployment during COVID-19][Updated Guidance for M365 EDU Deployment during COVID-19]
 
-### Information for Amazon Web Services (AWS) and Google Cloud Platform (GCP) professionals
+### Information for Amazon Web Services (AWS) and Google Cloud professionals
 
 - [Multi-cloud security and identity with Azure and Amazon Web Services (AWS)][Multi-cloud security and identity with Azure and Amazon Web Services (AWS)]
 - [Azure Active Directory identity management and access management for AWS][Azure Active Directory identity management and access management for AWS]

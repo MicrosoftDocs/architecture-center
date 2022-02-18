@@ -15,7 +15,7 @@ products:
   - azure-blob-storage
 name: Data partitioning guidance
 summary: View guidance for how to separate data partitions to be managed and accessed separately. Understand horizontal, vertical, and functional partitioning strategies.
-thumbnailUrl: /azure/architecture/browse/thumbs/datapartitioning03.png
+thumbnailUrl: /azure/architecture/browse/thumbs/data-partitioning-03.png
 content: |
   [!include[](data-partitioning-content.md)]
 ---

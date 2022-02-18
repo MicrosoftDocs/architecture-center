@@ -60,8 +60,8 @@ This table lists various best practices. The **Related pillars or patterns** col
 [Autoscaling]: ./auto-scaling.md
 [Background jobs]: ./background-jobs.md
 [Best practices for monitoring cloud applications]: ./monitoring.yml
-[Best practices for using content delivery networks (CDNs)]: ./cdn.md
-[Caching]: ./caching.md
+[Best practices for using content delivery networks (CDNs)]: ./cdn.yml
+[Caching]: ./caching.yml
 [Cloud Design Patterns]: ../patterns/index.md
 [Data Management patterns]: ../patterns/category/data-management.md
 [Data partitioning strategies]: ./data-partitioning-strategies.yml

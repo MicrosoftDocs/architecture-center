@@ -141,7 +141,9 @@ Data management in retail is complex. But it offers the valuable ability to deli
 
 ## Contributors
 
-_This article is being updated and maintained by Microsoft. It was originally written by the following contributors:_
+_This article is being updated and maintained by Microsoft. It was originally written by the following contributors._
+
+**Principal authors:**
 
 - [David Starr](https://www.linkedin.com/in/davidstarr) | Principal Solutions Architect
 - [Mariya Zorotovich](https://www.linkedin.com/in/mariyazoro) | Head of Customer Experience, HLS & Emerging Technology
