@@ -5,7 +5,7 @@ Azure public multi-access edge compute (MEC) is a great platform for hosting app
 
 ## Potential use cases
 
-Use this architecture when you want to deploy workloads in active/standby mode to achieve high availability and disaster recovery. 
+Use this architecture when you want to deploy workloads in active/standby mode to achieve high availability and disaster recovery. This scenario is ideal for the telecommunications industry.
 
 ## Architecture 
 
