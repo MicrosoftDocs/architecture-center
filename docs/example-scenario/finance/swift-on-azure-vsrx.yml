@@ -24,6 +24,6 @@ products:
   - azure-logic-apps
   - azure-monitor
   - azure-active-directory
-thumbnailUrl: /azure/architecture/browse/thumbs/swift-ref-arch-thumbnail.png
+thumbnailUrl: /azure/architecture/browse/thumbs/swift-ref-arch-vsrx.png
 content: |
    [!include[](swift-on-azure-vsrx-content.md)]
