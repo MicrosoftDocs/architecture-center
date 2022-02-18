@@ -10,9 +10,9 @@ The intended audiences for this article are program managers, architects, and en
 The following diagram is a high-level Azure reference architecture of connectivity to the SWIFT network based on the Alliance Access and Alliance Messaging Hub (AMH) messaging interfaces.
 For more information on the SWIFT's components, see [SWIFT Glossary](https://developer.swift.com/glossary).
 
-![SWIFT Architecture](./media/swift-ref-arch.png)
+![Diagram of the SWIFT SRX architecture.](./media/swift-ref-arch.png)
 
-*Download a [PowerPoint file](https://arch-center.azureedge.net/swift-ref-arch.pptx) of this architecture.*
+*Download a [Visio file](https://arch-center.azureedge.net/swift-main-page-srx-mvp.vsdx) of this architecture.*
 
 A SWIFT deployment in Azure contains various components, and the key ones are explained in the next section.
 
