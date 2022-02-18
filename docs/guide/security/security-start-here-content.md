@@ -79,7 +79,7 @@ Get the latest updates on [Azure security services and features](https://azure.m
 - [Secure your Microsoft Teams channel bot and web app behind a firewall](../../example-scenario/teams/securing-bot-teams-channel.yml)
 - [Web app private connectivity to Azure SQL database](../../example-scenario/private-web-app/private-web-app.yml)
 
-### AWS or GCP professionals
+### AWS or Google Cloud professionals
 
 - [Security and identity with Azure and AWS](../../aws-professional/security-identity.md)
 - [AWS to Azure services comparison - Security](../../aws-professional/services.md#security-identity-and-access)
