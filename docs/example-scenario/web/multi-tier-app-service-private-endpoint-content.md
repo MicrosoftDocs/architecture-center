@@ -12,10 +12,10 @@ For information about using service endpoints to accomplish the same thing, see 
 
 ## Potential use cases
 
-These are some use cases for this architecture:
+Here are some use cases for this architecture:
 - Applications that require private connections to a back-end API app.
 - Restricting app access from resources in a virtual network.
-- Exposing your app on a private IP in virtual network.
+- Exposing your app on a private IP in a virtual network.
 - Connecting from a web app to Azure Storage, Azure Event Grid, Azure Cognitive Search, Azure Cosmos DB, or any other service that supports a [private endpoint](/azure/private-link/private-endpoint-overview#private-link-resource) for inbound connectivity.
 
 ## Architecture 
@@ -83,7 +83,7 @@ After this configuration, you'll be able to reach your web app privately by usin
 
 - Performance efficiency is the ability of your workload to scale to meet the demands placed on it in an efficient way. Be aware of performance efficiency patterns when you design and build your cloud application. For more information, see [Performance Efficiency patterns](/azure/architecture/framework/scalability/performance-efficiency-patterns).
 - For information about scaling a basic web app, see [Scaling the App Service app](../../reference-architectures/app-service-web-app/basic-web-app.yml#scaling-the-app-service-app). 
-- For an Azure Well-Architected Framework checklist, [Performance efficiency](/azure/architecture/framework/scalability/performance-efficiency).
+- For an Azure Well-Architected Framework checklist, see [Performance efficiency](/azure/architecture/framework/scalability/performance-efficiency).
 
 ## Pricing 
 
