@@ -145,8 +145,8 @@ To explore the cost of running this scenario, use the [Azure pricing calculator]
 
 ## Next steps
 
-- [Azure confidential computing](/azure/confidential-computing).
-- [Confidential containers on AKS](/azure/confidential-computing/confidential-containers).
+- [Azure confidential computing](/azure/confidential-computing)
+- [Confidential containers on AKS](/azure/confidential-computing/confidential-containers)
 
 
 ## Related resources
