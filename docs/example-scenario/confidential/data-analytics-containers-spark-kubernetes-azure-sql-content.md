@@ -43,7 +43,7 @@ Many industries, especially financial services, protect their data by using conf
 Diagram that shows how sensitive data flows securely from ingestion phase to analytics within the bounds of a confidential computing environment. The problems that this architecture aims to solve are: ingestion and storage of sensitive data in the Azure cloud, gathering business insights by processing and storing the data at scale, and ensuring confidentiality through hardware-enforced means.
 :::image-end:::
 
-*Download a [PowerPoint file](https://arch-center.azureedge.net/big-data-azure-confidential-processing.pptx) of this architecture.*
+*Download a [PowerPoint file](https://arch-center.azureedge.net/confidential-data-analytics-containers-spark-kubernetes-azure-sql.pptx) of this architecture.*
 
 The preceding diagram outlines the architecture: a scalable pattern for processing larger datasets in a distributed fashion. It also showcases confidential analytics on relational database engines and storing confidential data. In particular, the containerized Spark app can process datasets from two data sources, as illustrated:
 
