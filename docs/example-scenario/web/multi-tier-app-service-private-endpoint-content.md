@@ -76,14 +76,14 @@ After this configuration, you'll be able to reach your web app privately by usin
 
 ### Availability
 
-- A system can't be highly available if it's not reliable. For information about increasing reliability, see [Reliability patterns](/azure/architcture/framework/resiliency/reliability-patterns).
+- A system can't be highly available if it's not reliable. For information about increasing reliability, see [Reliability patterns](/azure/architecture/framework/resiliency/reliability-patterns).
 - Take private link availability into consideration when you evaluate the SLA of the entire architecture. Private Link provides a [high availability SLA](https://azure.microsoft.com/support/legal/sla/private-link/v1_0).
 
 ### Scalability
 
-- Performance efficiency is the ability of your workload to scale to meet the demands placed on it in an efficient way. Be aware of performance efficiency patterns when you design and build your cloud application. For more information, see [Performance Efficiency patterns](/azure/architcture/framework/scalability/performance-efficiency-patterns).
+- Performance efficiency is the ability of your workload to scale to meet the demands placed on it in an efficient way. Be aware of performance efficiency patterns when you design and build your cloud application. For more information, see [Performance Efficiency patterns](/azure/architecture/framework/scalability/performance-efficiency-patterns).
 - For information about scaling a basic web app, see [Scaling the App Service app](../../reference-architectures/app-service-web-app/basic-web-app.yml#scaling-the-app-service-app). 
-- For an Azure Well-Architected Framework checklist, [Performance efficiency](/azure/architcture/framework/scalability/performance-efficiency).
+- For an Azure Well-Architected Framework checklist, [Performance efficiency](/azure/architecture/framework/scalability/performance-efficiency).
 
 ## Pricing 
 
@@ -103,8 +103,8 @@ The cost of your implementation is affected by:
 - [Introduction to the App Service Environments](/azure/app-service/environment/intro)
 - [Private-link resource](/azure/private-link/private-endpoint-overview#private-link-resource)
 - [App Service overview](/azure/app-service/overview)
-- [Reliability patterns](/azure/architcture/framework/resiliency/reliability-patterns)
-- [Performance Efficiency patterns](/azure/architcture/framework/scalability/performance-efficiency-patterns)
+- [Reliability patterns](/azure/architecture/framework/resiliency/reliability-patterns)
+- [Performance Efficiency patterns](/azure/architecture/framework/scalability/performance-efficiency-patterns)
 
 ## Related resources
 - [Multi-tier app service with service endpoints](../../reference-architectures/app-service-web-app/multi-tier-app-service-service-endpoint.yml)
