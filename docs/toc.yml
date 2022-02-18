@@ -4429,7 +4429,7 @@ items:
               - name: Multi-region web app with private database
                 href: example-scenario/sql-failover/app-service-private-sql-multi-region.yml
               - name: Multi-tier app service with private endpoint
-                href: example-scenario/web/multitier-app-service-endpoint.yml
+                href: example-scenario/web/multi-tier-app-service-private-endpoint.yml
               - name: Multi-tier app service with service endpoint
                 href: reference-architectures/app-service-web-app/multi-tier-app-service-service-endpoint.yml
               - name: Multi-tier web app built for HA/DR

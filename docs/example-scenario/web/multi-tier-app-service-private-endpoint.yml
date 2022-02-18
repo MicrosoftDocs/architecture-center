@@ -20,4 +20,4 @@ name: Multi-tier app service with private endpoint
 summary: Learn about an architecture that uses private endpoints to provide highly secure communications between app services in a multi-tier environment.
 thumbnailUrl: /azure/architecture/browse/thumbs/multi-tier-app-service-private-endpoint.png
 content: |
-  [!include[](multi-tier-app-service-endpoint-content.md)]
+  [!include[](multi-tier-app-service-private-endpoint-content.md)]
