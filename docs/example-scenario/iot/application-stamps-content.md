@@ -1,6 +1,6 @@
-This article discusses a *deployment stamping* strategy for adding connected devices to an internet of things (IoT) solution. The article also describes in detail how to move IoT devices and applications between deployment stamps.
+This article discusses a *deployment stamping* strategy for managing and adding connected devices in an internet of things (IoT) solution. The article also describes in detail how to move IoT devices and applications between deployment stamps.
 
-The deployment stamping strategy for IoT solutions is based on the [Deployment Stamp](../../patterns/deployment-stamp.md) design pattern. Deployment stamps are units composed of heterogenous components that support a defined device p. Deployment stamping scales up numbers of connected IoT devices by replicating stamps, rather than independently scaling up different parts of the solution.
+The deployment stamping strategy for IoT solutions is based on the [Deployment Stamp](../../patterns/deployment-stamp.md) design pattern. Deployment stamps are units composed of heterogenous components that support a defined device population. Deployment stamping scales up numbers of connected IoT devices by replicating stamps, rather than independently scaling up different parts of the solution.
 
 Deployment stamping lets you:
 
@@ -15,7 +15,7 @@ Deployment stamping lets you:
 
 ![A diagram showing a deployment stamping strategy for use in Azure IoT.](media/scale-iot-deployment-stamps.svg)
 
-The preceding diagram illustrates a deployment stamping strategy for Azure IoT. This solutions builds atomic stamps that each consist of:
+The preceding diagram illustrates a deployment stamping strategy for Azure IoT. This solution builds atomic stamps that each consist of:
 
 - An [Azure IoT Hub](/azure/iot-hub/about-iot-hub)
 - Routing endpoints like [Azure Event Hubs](/azure/event-hubs/event-hubs-about)
@@ -54,12 +54,12 @@ This fully self-contained strategy is:
 
 The preceding diagram above shows the process of moving a set of devices from Stamp 1 to Stamp 2:
 
-1. Devices acquire IoT Hub endpoint through DPS if it is either unknown or no longer valid.
+1. Devices acquire the IoT Hub endpoint through DPS if it's either unknown or no longer valid.
 1. When devices are moved to Stamp 2, Traffic Manager points the application URL to the Application 2 instance.
 1. DPS moves a whole set of devices from one stamp to another.
 1. Each application stamp contains the application front end and refers to the IoT Hub corresponding to that stamp.
 
-### Move devices between deployment stamps behind a single app gateway
+### Move devices between stamps behind a single app gateway
 
 When a single application front-end supports multiple device stamps, the application front-end must dynamically update its device-to-hub mapping to maintain cloud-to-device communication. To manage devices moving to different stamps and IoT Hubs, gateways can use a caching mechanism for device-to-hub mapping. Service clients can use a shared lookup routine to dynamically detect and migrate device calls to new IoT Hubs.
 
@@ -69,7 +69,7 @@ In this model, the gateway uses a cache to map devices to IoT Hubs, and defaults
 
 Here are some considerations for this strategy:
 
-- While caching in a shared lookup avoids re-negotiating endpoints on every call, it's possible for the cache endpoint to fail. A secondary cache or fallback plan of renegotiating with DPS can improve solution reliability.
+- While caching in a shared lookup avoids renegotiating endpoints on every call, it's possible for the cache endpoint to fail. A secondary cache or fallback plan of renegotiating with DPS can improve solution reliability.
 
 - If device enrollment is in progress, the device isn't reachable. Use a DPS API like [Get Device Registration State](/rest/api/iot-dps/service/device-registration-state/get) to get the device's assigned IoT Hub and its current enrollment status.
 
