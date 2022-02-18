@@ -6,11 +6,11 @@ The following examples are intended for both existing and new SWIFT customers, a
 
 * Migrating Alliance Access from on-premises to Azure
 
-* Establishing an Alliance Access environment in Azure
+* Establishing a new Alliance Access environment in Azure
 
 ## Architecture
 
-[![Architecture for SWIFT Alliance Access](./media/swift-alliance-access-multi-region.png)](./media/swift-alliance-access-multi-region.png#lightbox)
+[![Architecture for SWIFT Alliance Access](./media/swift-alliance-access-vsrx.png)](./media/swift-alliance-access-vsrx.png#lightbox)
 
 _Download a [PowerPoint file](https://arch-center.azureedge.net/swift-alliance-access-multi-region.pptx) that contains this architecture diagram._
 
@@ -32,11 +32,11 @@ Once the Alliance Access infrastructure in Azure is deployed, the customer follo
 
 * **Azure Virtual Network subnet**: Alliance Access components should be deployed in separate subnets. Separate subnets to allow traffic control between them via Azure network security groups.
 
-* **Azure route table**: Network connectivity between Alliance Access and the customer's on-premises sites can be controlled via Azure route table.
+* **Azure route table**: Network connectivity between Alliance Access components' VMs and the customer's on-premises sites can be controlled via Azure route table.
 
-* **Azure Firewall**: Any outbound connectivity from Alliance Access VMs to the internet should be routed via Azure Firewall. Typical examples of such connectivity are time sync, anti-virus definition update, and so on.
+* **Azure Firewall**: Any outbound connectivity from Alliance Access components' VMs to the internet should be routed via Azure Firewall. Typical examples of such connectivity are time sync, anti-virus definition update, and so on.
 
-* **Azure Virtual Machines**: Azure Virtual Machines provides compute services for running Alliance Access. Consider using following general guidelines for choosing the right SKU.
+* **Azure Virtual Machines**: Azure Virtual Machines provides compute services for running Alliance Access components. Consider using following general guidelines for choosing the right SKU.
 
     1. Compute optimized SKU for running Alliance Web Platform front-end.
     2. Memory optimized SKU for running Alliance Access with an embedded Oracle database.
@@ -45,7 +45,7 @@ Once the Alliance Access infrastructure in Azure is deployed, the customer follo
 
 * **Azure proximity placement group**: Customers can consider using Azure [proximity placement groups](/azure/virtual-machines/co-location) (PPG) to ensure all Alliance Access VMs will be placed as close as possible to each other. PPGs will reduce the network latency between Alliance Access components.
 
-The SWIFT customer will establish a secure connectivity from their on-premises/Co-Lo site to Alliance Access Secure Zone subscription.
+The SWIFT customer will establish a secure connectivity from their on-premise/Co-Lo site to Alliance Access Secure Zone subscription.
 
 * ExpressRoute can be used to connect customer premises to Azure via private connectivity.
 * Site-to-site VPN can be used to connect customer premises to Azure via the internet.
@@ -66,11 +66,11 @@ The SWIFT customer's business/application systems can connect with Alliance Acce
 
 ### Alternatives
 
-This Azure architecture shows all SWIFT components running in Azure, except the Hardware Security Module, and Alliance Connect networking solution appliances. It's possible to run SWIFT's [Alliance Access with Alliance Connect Virtual](swift-alliance-access-vsrx-on-azure.yml) networking solution in Azure.
+This Azure architecture shows all SWIFT components running in Azure, except the Hardware Security Module. It's possible to run SWIFT's [Alliance Access with Alliance Connect](swift-alliance-access-on-azure.yml) networking solution in Azure.
 
 ## Considerations
 
-Customers interested in deploying Alliance Access in Azure can contact SWIFT and Microsoft to get further assistance. A customer's account team at Microsoft can be engaged to help guide the Azure implementation.
+A customer's account team at Microsoft can be engaged to help guide the Azure implementation.
 
 ***Separating different environments***
 
@@ -82,7 +82,7 @@ The following guidance will help improve architecture quality for Alliance Acces
 
 Customers have the responsibility for operating both the Alliance Access software and the underlying Azure resources in the Alliance Access subscription.
 
-* Azure provides a comprehensive set of monitoring capabilities in Azure Monitor. These tools focus on the infrastructure deployed in Azure. Monitoring the SWIFT software falls outside these tools. You can use a monitoring agent to collect event logs, performance counters, and other logs, and have these logs and metrics sent to Azure Monitor. For more information, see [Overview of the Azure monitoring agents](/azure/azure-monitor/platform/agents-overview).
+* Azure provides a comprehensive set of monitoring capabilities in Azure Monitor. These tools focus on the infrastructure deployed in Azure. Monitoring the SWIFT's software falls outside these tools. You can use a monitoring agent to collect event logs, performance counters, and other logs, and have these logs and metrics sent to Azure Monitor. For more information, see [Overview of the Azure monitoring agents](/azure/azure-monitor/platform/agents-overview).
 
 * [Azure Alerts](/azure/azure-monitor/alerts/alerts-overview) proactively notifies you when issues are found with your infrastructure or application using your monitoring data in Azure Monitor. They allow you to identify and address issues before the users of your system notice them.
 
@@ -144,13 +144,13 @@ For more detail, see [Availability options for Azure Virtual Machines](/azure/vi
 
 The Alliance Access component uses an embedded Oracle database. To align with the approach of a multi-active Alliance Access deployment, customers can use a path resilient architecture.
 
-Path resilience has all the required SWIFT components combined in one path. You duplicate each path as many times as you need for your resilience and scale needs. On a failure, you would fail over an entire path instead of a single component. The figure shows what this resiliency approach would look like with availability zones (left) or availability sets (right). This architecture is less complex from a SWIFT configuration perspective but does mean a failure in any component in a path requires you to switch to another path. Combining Web Platform and Alliance Access on a single virtual machine reduces the number of infrastructure components that can fail and could be a consideration depending on the usage pattern of the SWIFT components.
+Path resilience has all the required SWIFT's components combined in one path. You duplicate each path as many times as you need for your resilience and scale needs. On a failure, you would fail over an entire path instead of a single component. The figure shows what this resiliency approach would look like with availability zones (left) or availability sets (right). This architecture is less complex from a SWIFT configuration perspective but does mean a failure in any component in a path requires you to switch to another path. Combining Web Platform and Alliance Access on a single virtual machine reduces the number of infrastructure components that can fail and could be a consideration depending on the usage pattern of the SWIFT's components.
 
 [![Conceptual Path Resilience for SWIFT](./media/swift-alliance-access-path-resilience.png)](./media/swift-alliance-access-path-resilience.png#lightbox)
 
 _Download a [PowerPoint file](https://arch-center.azureedge.net/swift-alliance-access-path-resilience.pptx) that contains this architecture diagram._
 
-Because different SWIFT components connect to specific nodes, you can’t use the Azure Load Balancer to automate failover or provide load balancing. Instead, you need to rely on SWIFT software capabilities to detect failure and switch to a secondary node. The actual uptime you achieve depends on how quickly a component can detect failure and failover. Because you are using availability zones or availability sets, the virtual machine uptime SLA for each component is well-defined.
+Because different SWIFT's components connect to specific nodes, you can’t use the Azure Load Balancer to automate failover or provide load balancing. Instead, you need to rely on SWIFT's software capabilities to detect failure and switch to a secondary node. The actual uptime you achieve depends on how quickly a component can detect failure and failover. Because you are using availability zones or availability sets, the virtual machine uptime SLA for each component is well-defined.
 
 ***Multi-region multi-active resilience***
 
@@ -171,7 +171,7 @@ Explore the functionality and architecture of some other SWIFT modules in detail
 
 * [SWIFT Alliance Connect in Azure](swift-on-azure-srx.yml)
 * [SWIFT Alliance Connect Virtual in Azure](swift-on-azure-vsrx.yml)
-* [Alliance Access with Alliance Connect Virtual](swift-alliance-access-vsrx-on-azure.yml)
+* [Alliance Access](swift-alliance-access-on-azure.yml)
 * [Alliance Messaging Hub (AMH)](swift-alliance-messaging-hub.yml)
 * [Alliance Messaging Hub (AMH) with Alliance Connect Virtual](swift-alliance-messaging-hub-vsrx.yml)
 * [Alliance Lite2](swift-alliance-lite-2-on-azure.yml)
