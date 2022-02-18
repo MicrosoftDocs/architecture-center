@@ -4,7 +4,7 @@ titleSuffix: Azure Architecture Center
 description: An overview of Microsoft Azure Kubernetes Service (AKS) guidance offerings ranging from &quot;just starting out&quot;, to production, and through sustained operations.
 author: ckittel
 ms.author: pnp
-ms.date: 02/02/2022
+ms.date: 02/18/2022
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: reference-architecture
