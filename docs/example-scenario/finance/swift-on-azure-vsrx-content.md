@@ -12,7 +12,7 @@ For more information on the SWIFT's components, see [SWIFT Glossary](https://dev
 
 ![Diagram showing the SWIFT architecture.](./media/swift-ref-arch-vsrx.png)
 
-*Download a [PowerPoint file](https://arch-center.azureedge.net/swift-ref-arch.pptx) of this architecture.*
+*Download a [Visio file](https://arch-center.azureedge.net/swift-main-page-vsrx-mvp.vsdx) of this architecture.*
 
 A SWIFT deployment in Azure contains various components, and the key ones are explained in the next section.
 
