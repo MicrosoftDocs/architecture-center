@@ -198,4 +198,21 @@ To set the Media Services *streaming endpoint* infrastructure scale, run:
 
 ## Next steps
 
-The current solution only supports the commercial Azure cloud. For government or other scopes, check the [Azure Media Services documentation](/azure/media-services/), and update the code to use an app setting for the token scope.
+Product documentation:
+
+- [Gridwich cloud media system](gridwich-architecture.yml)
+- [About Azure Key Vault](/azure/key-vault/general/overview)
+- [Azure Media Services v3 overview](/azure/media-services/latest/media-services-overview)
+- [Introduction to Azure Functions](/azure/azure-functions/functions-overview)
+
+Microsoft Learn modules:
+
+- [Configure and manage secrets in Azure Key Vault](/learn/modules/configure-and-manage-azure-key-vault)
+- [Explore Azure Functions](/learn/modules/explore-azure-functions)
+
+## Related resources
+
+- [Gridwich content protection and DRM](gridwich-content-protection-drm.yml)
+- [Gridwich request-response messages](gridwich-message-formats.yml)
+- [Gridwich saga orchestration](gridwich-saga-orchestration.yml)
+- [Gridwich variable flow](variable-group-terraform-flow.yml)

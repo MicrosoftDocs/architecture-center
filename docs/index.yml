@@ -3,7 +3,7 @@ metadata:
   title: Azure Architecture Center
   description: The Azure Architecture Center provides guidance for designing and building solutions on Azure using established patterns and practices.
   ms.topic: hub-page
-  ms.date: 04/22/2020
+  ms.date: 12/13/2021
   ms.collection: collection
   ms.author: adboegli
   google-site-verification: b-xRLveOzJ9oSOh37wgRTRB2lMOoFY8HiHf9_0DIawE
@@ -26,7 +26,7 @@ highlightedContent:
       url: guide/index.md
     # Card
     - title: Assess, optimize, and review your workload
-      url: ./framework/index.md
+      url: /azure/architecture/framework
       itemType: how-to-guide
     # Card
     - title: See what's new
@@ -35,30 +35,30 @@ highlightedContent:
 
 # productDirectory section (optional)
 productDirectory:
-  title: Architecting Applications on Azure # < 60 chars (optional)
+  title: Architecting applications on Azure # < 60 chars (optional)
   summary: Best practices and patterns for building applications on Microsoft Azure # < 160 chars (optional)
   items:
     # Card
-    - title: Designing for the cloud
+    - title: Design for the cloud
       imageSrc: https://docs.microsoft.com/media/common/i_design.svg
       links:
         - url: ./guide/design-principles/index.md
           text: Principles of a well-designed application
+        - url: ./best-practices/index-best-practices.md
+          text: Best practices in cloud applications
         - url: ./guide/responsible-innovation/index.md
-          text: Responsible innovation
-        - url: ./best-practices/api-design.md
-          text: Web API design
-        - url: ./microservices/index.md
-          text: Building microservices on Azure
+          text: Responsible engineering
         - url: ./patterns/index.md
           text: Application design patterns
-        - url: ./multitenant-identity/index.md
-          text: Managing identity in multitenant apps
+        - url: ./guide/multitenant/overview.md
+          text: Architect multitenant solutions on Azure
+        - url: ./microservices/index.md
+          text: Build microservices on Azure
     # Card
-    - title: Optimizing your workload
+    - title: Optimize your workload
       imageSrc: https://docs.microsoft.com/media/common/i_architecture.svg
       links:
-        - url: ./framework/index.md
+        - url: /azure/architecture/framework
           text: Guiding tenets for your architecture
         - url: /assessments/?id=azure-architecture-review
           text: Examine your workload
@@ -66,22 +66,38 @@ productDirectory:
           text: Performance tuning
         - url: ./antipatterns/index.md
           text: Performance antipatterns
-        - url: ./framework/security/overview.md
-          text: Securing your infrastructure
-
+        - url: /azure/architecture/framework/security/overview
+          text: Secure your infrastructure
     # Card
-    - title: Choosing the right technology
+    - title: Choose the right technology
       # imageSrc should be square in ratio with no whitespace
       imageSrc: https://docs.microsoft.com/media/common/i_overview.svg
       links:
-        - url: ./guide/technology-choices/compute-decision-tree.md
-          text: Choosing a Compute Service
-        - url: ./guide/technology-choices/load-balancing-overview.md
-          text: Choosing a Load Balancing Service
+        - url: ./guide/technology-choices/compute-decision-tree.yml
+          text: Choose a compute service
+        - url: ./operator-guides/aks/choose-kubernetes-edge-compute-option.md
+          text: Choose a Kubernetes at the edge option
         - url: ./guide/technology-choices/data-store-overview.md
-          text: Choosing a data store
-        - url: ./guide/technology-choices/messaging.md
-          text: Choosing a messaging service
+          text: Choose a data store
+        - url: ./guide/technology-choices/load-balancing-overview.yml
+          text: Choose a load-balancing service
+        - url: ./guide/technology-choices/messaging.yml
+          text: Choose a messaging service
+        - url: ./example-scenario/iot/iot-central-iot-hub-cheat-sheet.yml
+          text: Choose an IoT solution
+    # Card
+    - title: Essential scenarios
+      # imageSrc should be square in ratio with no whitespace
+      imageSrc: https://docs.microsoft.com/media/common/i_overview.svg
+      links:
+        - url: ./guide/startups/startup-architecture.md
+          text: Architecture for startups
+        - url: ./solutions/power-platform-scenarios.md
+          text: Azure and Power Platform solutions
+        - url: ./aws-professional/services.md
+          text: AWS services comparison
+        - url: ./gcp-professional/services.md
+          text: Google Cloud services comparison
 
 # conceptualContent section (optional)
 conceptualContent:
@@ -104,7 +120,7 @@ conceptualContent:
         url: ./best-practices/api-design.md
         itemType: reference
       - text: Chose your Azure compute service
-        url: ./guide/technology-choices/compute-decision-tree.md
+        url: ./guide/technology-choices/compute-decision-tree.yml
         itemType: reference
       - text: Application Architecture Guide
         url: ./guide/index.md
@@ -135,7 +151,7 @@ conceptualContent:
         url: ./data-guide/technology-choices/data-science-and-machine-learning.md
       - text: Natural language processing
         itemType: concept
-        url: ./data-guide/technology-choices/natural-language-processing.md
+        url: ./data-guide/technology-choices/natural-language-processing.yml
       - text: R developer's guide to Azure
         itemType: concept
         url: ./data-guide/technology-choices/r-developers-guide.md

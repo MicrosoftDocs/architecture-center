@@ -21,7 +21,7 @@ The AKS infrastructure features used in this architecture include:
   - [Azure AD pod-managed identities](/azure/aks/use-azure-ad-pod-identity)
   - [Azure Policy Add-on for AKS](/azure/aks/use-pod-security-on-azure-policy)
   - [Azure Container Networking Interface (CNI)](/azure/aks/configure-azure-cni)
-  - [Azure Monitor for containers](/azure/azure-monitor/insights/container-insights-overview)
+  - [Azure Monitor container insights](/azure/azure-monitor/insights/container-insights-overview)
 
 **[Azure Virtual Networks](https://azure.microsoft.com/services/virtual-network/)** are isolated and highly secure environments for running virtual machines (VMs) and applications. This reference architecture uses a peered hub-spoke virtual network topology. The hub virtual network holds the Azure firewall and Azure Bastion subnets. The spoke virtual network holds the AKS system and user node pool subnets and the Azure Application Gateway subnet.
 
@@ -311,7 +311,7 @@ Consider the following points when planning for security.
 
 ## Pricing
 
-- The [Cost section in the Microsoft Azure Well-Architected Framework](../../../framework/cost/overview.md) describes cost considerations. Use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator) to estimate costs for your specific scenario.
+- The [Cost section in the Microsoft Azure Well-Architected Framework](/azure/architecture/framework/cost/overview) describes cost considerations. Use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator) to estimate costs for your specific scenario.
 
 - AKS has no costs associated with deployment, management, and operations of the Kubernetes cluster. You only pay for the VM instances, storage, and networking resources the cluster consumes. Cluster autoscaling can significantly reduce the cost of the cluster by removing empty or unused nodes.
 
@@ -323,5 +323,5 @@ Consider the following points when planning for security.
 - [Design, build, and operate microservices on Azure with Kubernetes](../../../microservices/index.md)
 - [Microservices architecture on AKS](./aks-microservices.yml)
 - [Monitor a microservices architecture in AKS](../../../microservices/logging-monitoring.md)
-- [Performance tuning scenario: Distributed business transactions](../../../performance/distributed-transaction.md)
+- [Performance tuning scenario: Distributed business transactions](../../../performance/distributed-transaction.yml)
 - [Building a CI/CD pipeline for microservices on Kubernetes](../../../microservices/ci-cd-kubernetes.md)

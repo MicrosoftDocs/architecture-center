@@ -9,9 +9,11 @@ ms.topic: conceptual
 ms.service: architecture-center
 products:
  - azure
+ - azure-cost-management
+ - azure-resource-manager
+ - azure-monitor
 categories:
  - management-and-governance
- - security
 ms.subservice: azure-guide
 ms.category:
   - fcp
@@ -41,7 +43,7 @@ By understanding the goal of measuring the consumption by a tenant, you can dete
 
 ### Shared components
 
-You might be able to reduce the cost of a multitenant solution by moving tenants to shared infrastructure. However, you need to carefully consider the impact of sharing resources, such as whether your tenants will begin to experience the [Noisy Neighbor problem](../../../antipatterns/noisy-neighbor/index.md).
+You might be able to reduce the cost of a multitenant solution by moving tenants to shared infrastructure. However, you need to carefully consider the impact of sharing resources, such as whether your tenants will begin to experience the [Noisy Neighbor problem](../../../antipatterns/noisy-neighbor/noisy-neighbor.yml).
 
 You also need to consider how you measure and allocate the costs of shared components. For example, you can evenly divide the cost between each of the tenants that use the shared component. Or, you can meter each tenant's usage to get a more precise measurement of their consumption of shared components.
 

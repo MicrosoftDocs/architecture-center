@@ -106,12 +106,12 @@ This architecture is ideal for OLTP workloads that have these characteristics:
 - ExpressRoute creates a private connection to Azure from an on-premises environment. You can also use site-to-site VPN.
 - Azure AD can authenticate resources and control access using Azure role-based access control (RBAC).
 - Database services in Azure support various security options like data encryption at rest.
-- For general guidance on designing secure solutions, see [Overview of the security pillar](../../framework/security/overview.md).
+- For general guidance on designing secure solutions, see [Overview of the security pillar](/azure/architecture/framework/security/overview).
 
 ### Resiliency
 
 - This scenario uses Azure Monitor and Application Insights to monitor the health of the Azure resources. You can set alerts for proactive management.
-- For guidance on resiliency in Azure, see [Designing reliable Azure applications](../../framework/resiliency/app-design.md).
+- For guidance on resiliency in Azure, see [Designing reliable Azure applications](/azure/architecture/framework/resiliency/app-design).
 
 ## Pricing
 
@@ -141,4 +141,4 @@ This architecture is ideal for OLTP workloads that have these characteristics:
 - [Azure Monitor overview](/azure/azure-monitor/overview)
 - [Create, view, and manage metric alerts using Azure Monitor](/azure/azure-monitor/alerts/alerts-metric)
 - [Create and share dashboards of Log Analytics data](/azure/azure-monitor/visualize/tutorial-logs-dashboards)
-- [Overview of the security pillar](../../framework/security/overview.md)
+- [Overview of the security pillar](/azure/architecture/framework/security/overview)

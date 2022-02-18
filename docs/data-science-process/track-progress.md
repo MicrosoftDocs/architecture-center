@@ -4,10 +4,11 @@ description: How data science group managers, team leads, and project leads can 
 author: marktab
 manager: marktab
 editor: marktab
-ms.service: machine-learning
-ms.subservice: team-data-science-process
+services: architecture-center
+ms.service: architecture-center
+ms.subservice: azure-guide
 ms.topic: article
-ms.date: 01/10/2020
+ms.date: 02/18/2022
 ms.author: tdsp
 ms.custom:
   - previous-author=deguhath
@@ -24,7 +25,7 @@ Data science group managers, team leads, and project leads can track the progres
 
 ## Azure DevOps dashboards
 
-If you're using Azure DevOps, you can build dashboards to track the activities and work items associated with a given Agile project. For more information about dashboards, see [Dashboards, reports, and widgets](/azure/devops/report/dashboards/).
+If you're using Azure DevOps, you can build dashboards to track the activities and work items associated with a given Agile project. For more information about dashboards, see [Dashboards, reports, and widgets](/azure/devops/report/dashboards/overview).
 
 For instructions on how to create and customize dashboards and widgets in Azure DevOps, see the following quickstarts:
 
@@ -51,4 +52,6 @@ Here is a simple example dashboard that tracks the sprint activities of an Agile
 
 ## Next steps
 
-[Walkthroughs executing the Team Data Science Process](walkthroughs.md) lists walkthroughs that demonstrate all the process steps. The linked scenarios illustrate how to manage the cloud and on-premise resources into intelligent applications. 
+- [What is the Team Data Science Process?](/azure/architecture/data-science-process/overview)
+- [Compare the machine learning products and technologies from Microsoft](/azure/architecture/data-guide/technology-choices/data-science-and-machine-learning)
+- [Machine learning at scale](/azure/architecture/data-guide/big-data/machine-learning-at-scale)

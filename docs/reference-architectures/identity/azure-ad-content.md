@@ -232,7 +232,7 @@ Use the [Azure pricing calculator][azure-pricing-calculator] to estimate costs.
 
 <!-- links -->
 
-[aaf-cost]: ../../framework/cost/overview.md
+[aaf-cost]: /azure/architecture/framework/cost/overview
 [implementing-a-multi-tier-architecture-on-Azure]: ../n-tier/n-tier-sql-server.yml#cost-considerations
 
 [aad-agent-installation]: /azure/active-directory/active-directory-aadconnect-health-agent-install
@@ -256,7 +256,7 @@ Use the [Azure pricing calculator][azure-pricing-calculator] to estimate costs.
 [aad-sync-requirements]: /azure/active-directory/active-directory-hybrid-identity-design-considerations-directory-sync-requirements
 [aad-topologies]: /azure/active-directory/hybrid/plan-connect-topologies
 [aad-user-sign-in]: /azure/active-directory/hybrid/plan-connect-user-signin
-[AAF-devops]: ../../framework/devops/overview.md
+[AAF-devops]: /azure/architecture/framework/devops/overview
 [azure-active-directory]: /azure/active-directory-domain-services/active-directory-ds-overview
 [azure-ad-connect]: /azure/active-directory/hybrid/whatis-hybrid-identity
 [Azure-AD-pricing]: https://azure.microsoft.com/pricing/details/active-directory
@@ -265,7 +265,7 @@ Use the [Azure pricing calculator][azure-pricing-calculator] to estimate costs.
 [sla-aad]: https://azure.microsoft.com/support/legal/sla/active-directory
 [visio-download]: https://arch-center.azureedge.net/identity-architectures.vsdx
 [azure-pricing-calculator]: https://azure.microsoft.com/pricing/calculator
-[AAF-devops]: ../../framework/devops/overview.md
+[AAF-devops]: /azure/architecture/framework/devops/overview
 [hybrid-identity-design]: /azure/active-directory/hybrid/plan-hybrid-identity-design-considerations-overview
 [aad-ca-plan]: /azure/active-directory/conditional-access/plan-conditional-access
 [adds-azure-design]: ./index.yml

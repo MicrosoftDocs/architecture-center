@@ -1,0 +1,22 @@
+### YamlMime:Architecture
+metadata:
+  title: Performance tuning - Event streaming
+  description: Use load testing to tune the performance of an event streaming application. Fix partitioning issues and do parallel writes.
+  author: EdPrice-MSFT
+  ms.author: edprice
+  ms.date: 02/02/2022
+  ms.topic: conceptual
+  ms.service: architecture-center
+  ms.subservice: cloud-fundamentals
+  ms.custom: fcp
+azureCategories:
+  - iot
+products:
+  - azure-functions
+  - azure-iot-hub
+  - azure-cosmos-db
+name: Performance tuning - Event streaming
+summary: Use load testing to tune the performance of an event streaming application. Fix partitioning issues and do parallel writes.
+thumbnailUrl: /azure/architecture/browse/thumbs/event-streaming.png
+content: |
+  [!include[](event-streaming-content.md)]

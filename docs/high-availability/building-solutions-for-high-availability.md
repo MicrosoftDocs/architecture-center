@@ -4,7 +4,7 @@ titleSuffix: High Availability
 description: Learn about the Azure availability zones construct, a software and networking solution for high availability (HA) that protects against datacenter failures.
 author: EdPrice-MSFT
 ms.author: pnp
-ms.date: 04/07/2020
+ms.date: 12/13/2021
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: azure-guide
@@ -15,6 +15,10 @@ ms.custom:
   - high-availability
   - fasttrack-edit
   - article
+products:
+  - azure
+categories:
+  - management-and-governance
 ---
 
 <!-- cSpell:ignore lbrader -->
@@ -126,7 +130,7 @@ Every organization has unique requirements, and you should design your applicati
 
 - Does your application have specific latency requirements?
 
-For additional guidance, see [Principles of the reliability pillar](../framework/resiliency/principles.md).
+For additional guidance, see [Principles of the reliability pillar](/azure/architecture/framework/resiliency/principles).
 
 Depending on the availability needs of an application, the cost and design complexity will vary. When building for a VM workload, there will be a cost associated with each VM. For example, two VMs per zone across three active zones will have a cost for six VMs. For pricing of VM workloads, see the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator/?service=virtual-machines).
 

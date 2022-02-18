@@ -10,9 +10,9 @@ ms.service: architecture-center
 ms.subservice: azure-guide
 products:
   - azure
+  - azure-storage
 categories:
-  - management-and-governance
-  - security
+  - storage
 ms.category:
   - fcp
 ms.custom:

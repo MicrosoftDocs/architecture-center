@@ -9,7 +9,7 @@ The company needs a modern approach to analysis data, so that decisions are made
 - Loading data using a highly parallelized approach that can support thousands of incentive programs, without the high costs of deploying and maintaining on-premises infrastructure.
 - Greatly reducing the time needed to gather and transform data, so you can focus on analyzing the data.
 
-## Relevant use cases
+## Potential use cases
 
 This approach can also be used to:
 
