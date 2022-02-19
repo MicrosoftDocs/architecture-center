@@ -549,6 +549,13 @@ items:
                     maintainContext: true
               - name: Data management in retail
                 href: industries/retail/retail-data-management-overview.md
+              - name: AI and ML in retail
+                items:
+                  - name: Forecast bike rental demand
+                    href: /azure/machine-learning/tutorial-automated-ml-forecast
+                    maintainContext: true
+                  - name: Optimize and reuse a recommendation system
+                    href: industries/retail/recommendation-engine-optimization.yml
               - name: IoT in retail
                 items:
                   - name: Digital distribution center
@@ -570,8 +577,6 @@ items:
                     maintainContext: true
               - name: Migrate your e-commerce solution to Azure
                 href: industries/retail/migrate-ecommerce-solution.md
-              - name: Optimize and reuse a recommendation system
-                href: industries/retail/recommendation-engine-optimization.yml
               - name: SKU optimization for consumer brands
                 href: industries/retail/sku-optimization-solution-guide.yml
               - name: Visual search in retail with Cosmos DB
@@ -602,7 +607,32 @@ items:
               - name: Scalable order processing
                 href: example-scenario/data/ecommerce-order-processing.yml
               - name: Video capture and analytics for retail
-                href: solution-ideas/articles/video-analytics.yml                
+                href: solution-ideas/articles/video-analytics.yml
+          - name: Compliance solutions
+            items:
+              - name: ISO standards
+                items:
+                  - name: ISO 22301
+                    href: /azure/compliance/offerings/offering-iso-22301
+                    maintainContext: true
+                  - name: ISO 27001
+                    href: /azure/compliance/offerings/offering-iso-27001
+                    maintainContext: true
+                  - name: ISO 27017
+                    href: /azure/compliance/offerings/offering-iso-27017
+                    maintainContext: true
+                  - name: ISO 27018
+                    href: /azure/compliance/offerings/offering-iso-27018
+                    maintainContext: true
+              - name: SOC2 Type 2
+                href: /azure/compliance/offerings/offering-soc-2
+                maintainContext: true
+              - name: PCI DSS
+                href: /azure/compliance/offerings/offering-pci-dss
+                maintainContext: true
+              - name: GDPR (EU)
+                href: /compliance/regulatory/gdpr
+                maintainContext: true
       - name: Finance
         items:
           - name: Overview
