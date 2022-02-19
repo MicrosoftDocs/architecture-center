@@ -1,6 +1,6 @@
 This article discusses a *deployment stamping* strategy for managing and adding connected devices in an internet of things (IoT) solution. The article also describes in detail how to move IoT devices and applications between deployment stamps.
 
-The deployment stamping strategy for IoT solutions is based on the [Deployment Stamp](../../patterns/deployment-stamp.md) design pattern. Deployment stamps are units composed of heterogenous components that support a defined device population. Deployment stamping scales up numbers of connected IoT devices by replicating stamps, rather than independently scaling up different parts of the solution.
+The deployment stamping strategy for IoT solutions is based on the [Deployment Stamp](../../patterns/deployment-stamp.md) design pattern. Deployment stamps are units composed of heterogenous components that support a defined device population. Deployment stamping scales up numbers of connected IoT devices by replicating stamps, rather than independently scaling up different parts of a solution.
 
 Deployment stamping lets you:
 
@@ -13,7 +13,7 @@ Deployment stamping lets you:
 
 ## IoT deployment stamping architecture
 
-![A diagram showing a deployment stamping strategy for use in Azure IoT.](media/scale-iot-deployment-stamps.svg)
+![A diagram showing a deployment stamping strategy for use in Azure IoT.](media/stamps.png)
 
 The preceding diagram illustrates a deployment stamping strategy for Azure IoT. This solution builds atomic stamps that each consist of:
 
