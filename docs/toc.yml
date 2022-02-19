@@ -158,6 +158,9 @@ items:
                 href: data-guide/technology-choices/real-time-ingestion.md
           - name: Choose an IoT solution
             href: example-scenario/iot/iot-central-iot-hub-cheat-sheet.yml
+          - name: Choose a mobile development framework
+            href: /azure/developer/mobile-apps/choose-mobile-framework
+            maintainContext: true
           - name: Choose a mixed reality engine
             href: /windows/mixed-reality/develop/choosing-an-engine
             maintainContext: true
@@ -356,12 +359,34 @@ items:
             items:
                - name: Overview
                  href: solutions/power-platform-scenarios.md
+               - name: All Power Platform architectures
+                 href: /azure/architecture/browse/?products=power-platform
+               - name: CI/CD for Power Platform
+                 href: solution-ideas/articles/azure-devops-continuous-integration-for-power-platform.yml
+               - name: Citizen AI with Power Platform
+                 href: example-scenario/ai/citizen-ai-power-platform.yml
+               - name: Eventual consistency with Power Apps
+                 href: reference-architectures/power-platform/eventual-consistency.yml
+               - name: Extract text from objects with Power Automate
+                 href: example-scenario/ai/extract-object-text.yml
+               - name: Power Automate deployment at scale
+                 href: example-scenario/power-automate/power-automate.yml
           - name: Azure and Microsoft 365 scenarios
             items: 
+              - name: All Microsoft 365 architectures
+                href: /azure/architecture/browse/?products=m365
+              - name: Governance of Teams guest users
+                href: example-scenario/governance/governance-teams-guest-users.yml
+              - name: Hybrid SharePoint farm with Microsoft 365
+                href: solution-ideas/articles/sharepoint-farm-microsoft-365.yml
+              - name: Manage Microsoft 365 tenant configuration with Azure DevOps
+                href: example-scenario/devops/manage-microsoft-365-tenant-configuration-microsoft365dsc-devops.yml
               - name: Real-time collaboration
                 href: solution-ideas/articles/collaboration-microsoft-365.yml           
               - name: Real-time presence
                 href: solution-ideas/articles/presence-microsoft-365-power-platform.yml
+              - name: Secure your Microsoft Teams channel bot and web app behind a firewall
+                href: example-scenario/teams/securing-bot-teams-channel.yml
       - name: Cloud comparisons
         items:
           - name: Azure for AWS professionals
