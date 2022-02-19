@@ -1191,20 +1191,29 @@ items:
         items:
           - name: Overview
             href: industries/travel-hospitality.md
-          - name: All travel and hospitality architectures
-            href: /azure/architecture/browse/?terms=travel
-          - name: Build a chatbot for hotel booking
-            href: example-scenario/ai/commerce-chatbot.yml
-          - name: Build a delta lake in leisure and travel booking
-            href: solution-ideas/articles/build-data-lake-support-adhoc-queries-online.yml
-          - name: Commerce chatbot as a hotel concierge
-            href: solution-ideas/articles/commerce-chatbot.yml
-          - name: Custom business processes for airlines
-            href: solution-ideas/articles/custom-business-processes.yml
-          - name: Migrate a travel web app with APIM
-            href: example-scenario/apps/apim-api-scenario.yml
-          - name: Predictive aircraft engine monitoring
-            href: solution-ideas/articles/aircraft-engine-monitoring-for-predictive-maintenance-in-aerospace.yml
+          - name: Guides
+            items:
+              - name: Data science using Spark for airport travel
+                href: data-science-process/spark-overview.md
+              - name: No-code voice assistant for hospitality
+                href: /azure/azure-percept/tutorial-no-code-speech
+                maintainContext: true
+          - name: Architectures
+            items:
+              - name: All travel and hospitality architectures
+                href: /azure/architecture/browse/?terms=travel
+              - name: Build a chatbot for hotel booking
+                href: example-scenario/ai/commerce-chatbot.yml
+              - name: Build a delta lake in leisure and travel booking
+                href: solution-ideas/articles/build-data-lake-support-adhoc-queries-online.yml
+              - name: Commerce chatbot as a hotel concierge
+                href: solution-ideas/articles/commerce-chatbot.yml
+              - name: Custom business processes for airlines
+                href: solution-ideas/articles/custom-business-processes.yml
+              - name: Migrate a travel web app with APIM
+                href: example-scenario/apps/apim-api-scenario.yml
+              - name: Predictive aircraft engine monitoring
+                href: solution-ideas/articles/aircraft-engine-monitoring-for-predictive-maintenance-in-aerospace.yml
       - name: Automotive, Mobility, and Transportation
         items:
           - name: Overview
