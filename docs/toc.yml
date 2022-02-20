@@ -1223,6 +1223,12 @@ items:
               - name: Dynamics 365 automotive accelerator
                 href: /dynamics365/industry/accelerators/automotive
                 maintainContext: true
+              - name: Sample - Customer car reviews
+                href: /samples/azure-samples/customer-car-reviews/customer-car-reviews
+                maintainContext: true
+              - name: Single sign on for car park management
+                href: /azure/active-directory/saas-apps/parkalot-car-park-management-tutorial
+                maintainContext: true
           - name: Architectures
             items:
               - name: All automotive architectures
@@ -1231,10 +1237,14 @@ items:
                 href: example-scenario/iot/automated-guided-vehicles-fleet-control.yml
               - name: Building blocks for autonomous driving
                 href: industries/automotive/building-blocks-autonomous-driving-simulation-environments.yml
+              - name: Machine teaching for autonomous vehicles
+                href: solution-ideas/articles/autonomous-systems
               - name: Predictive insights with vehicle telematics
                 href: solution-ideas/articles/predictive-insights-with-vehicle-telematics.yml
               - name: Process vehicle data using IoT
                 href: example-scenario/data/realtime-analytics-vehicle-iot.yml
+              - name: Real-time asset tracking for vehicles
+                href: solution-ideas/articles/real-time-asset-tracking-mgmt-iot-central
               - name: Run CFD simulations
                 href: example-scenario/infrastructure/hpc-cfd.yml
           - name: Compliance solutions
@@ -1338,6 +1348,17 @@ items:
             href: industries/education.md
           - name: Guides
             items:
+              - name: Azure Education Hub
+                items:
+                  - name: Overview
+                    href: /azure/education-hub/about-education-hub
+                    maintainContext: true
+                  - name: Create a lab with REST APIs
+                    href: /azure/education-hub/create-lab-education-hub
+                    maintainContext: true
+                  - name: Azure Dev Tools for Teaching
+                    href: /azure/education-hub/azure-dev-tools-teaching/about-program
+                    maintainContext: true
               - name: Dynamics 365 education accelerator
                 href: /dynamics365/industry/accelerators/edu-overview 
                 maintainContext: true
