@@ -2567,6 +2567,44 @@ items:
                 href: solution-ideas/articles/serverless-apps-using-cosmos-db.yml
               - name: Streaming using HDInsight
                 href: solution-ideas/articles/streaming-using-hdinsight.yml
+      - name: DataOps
+        items:
+          - name: Guides
+            items:
+              - name: DataOps checklist
+                href: checklist/data-ops.md
+              - name: Analytics and reporting
+                href: data-guide/technology-choices/analysis-visualizations-reporting.md
+              - name: Build a scalable system for massive data
+                href: data-guide/scenarios/build-scalable-database-solutions-azure-services
+          - name: Architectures
+            items:
+              - name: Anomaly detector process
+                href: solution-ideas/articles/anomaly-detector-process.yml
+              - name: Apache NiFi on Azure
+                href: example-scenario/data/azure-nifi.yml
+              - name: Automated enterprise BI
+                href: reference-architectures/data/enterprise-bi-adf.yml
+              - name: Data analysis for regulated industries
+                href: example-scenario/data/data-analysis-regulated-industries.yml
+              - name: Data governance with Profisee
+                href: reference-architectures/data/profisee-master-data-management-purview.yml
+              - name: Data warehousing and analytics
+                href: example-scenario/data/data-warehouse.yml
+              - name: DataOps for modern data warehouse
+                href: example-scenario/data-warehouse/dataops-mdw.yml
+          - name: Solution ideas
+            items:
+              - name: Azure Data Explorer monitoring
+                href: solution-ideas/articles/monitor-azure-data-explorer.yml
+              - name: Data management with Azure Purview
+                href: solution-ideas/articles/azure-purview-data-lake-estate-architecture.yml
+              - name: Discovery Hub for analytics
+                href: solution-ideas/articles/cloud-scale-analytics-with-discovery-hub.yml
+              - name: Ingestion, ETL, and stream processing
+                href: solution-ideas/articles/ingest-etl-stream-with-adb.yml
+              - name: Mining equipment monitoring
+                href: solution-ideas/articles/monitor-mining-equipment.yml
       - name: Developer Options
         items:
           - name: Microservices
