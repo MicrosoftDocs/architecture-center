@@ -1444,6 +1444,8 @@ items:
                 href: /azure/architecture/reference-architectures/containers/aks-microservices/aks-microservices-advanced
               - name: Predictive maintenance for aircraft monitoring
                 href: /azure/architecture/solution-ideas/articles/predictive-maintenance
+              - name: Serverless web app for drone delivery
+                href: reference-architectures/serverless/web-app.yml
               - name: Vision classifier model - simulated drone
                 href: /azure/architecture/example-scenario/dronerescue/vision-classifier-model-with-custom-vision
       - name: Nonprofit
@@ -4127,6 +4129,9 @@ items:
               - name: Supported scenarios for HLI
                 href: /azure/virtual-machines/workloads/sap/hana-supported-scenario
                 maintainContext: true
+              - name: ANF volume group for SAP HANA
+                href: /azure/azure-netapp-files/application-volume-group-introduction
+                maintainContext: true
           - name: Architectures
             items:
               - name: Dev/test for SAP
@@ -4174,10 +4179,16 @@ items:
             href: guide/security/security-start-here.yml
           - name: Guides
             items:
-              - name: Highly-secure IaaS apps
-                href: reference-architectures/n-tier/high-security-iaas.yml
               - name: Security design principles
                 href: /azure/architecture/framework/security/security-principles
+                maintainContext: true
+              - name: SecOps best practices
+                href: /security/compass/security-operations
+                maintainContext: true
+              - name: Highly-secure IaaS apps
+                href: reference-architectures/n-tier/high-security-iaas.yml
+              - name: Microsoft Cybersecurity Reference Architectures
+                href: /security/cybersecurity-reference-architecture/mcra
                 maintainContext: true
               - name: Virtual Network security options
                 href: example-scenario/gateway/firewall-application-gateway.yml
@@ -4219,6 +4230,8 @@ items:
                 href: example-scenario/apps/fully-managed-secure-apps.yml
               - name: Secure a Microsoft Teams channel bot
                 href: example-scenario/teams/securing-bot-teams-channel.yml
+              - name: Secure research for regulated data
+                href: example-scenario/ai/secure-compute-for-research.yml
               - name: SQL Managed Instance with CMK
                 href: example-scenario/data/sql-managed-instance-cmk.yml
               - name: Virtual network integrated microservices
