@@ -78,7 +78,7 @@ This section shares guides and building blocks that are useful when building IoT
 
 * [Scale IoT solutions with deployment stamps](../../example-scenario/iot/application-stamps.yml): The deployment stamping strategy in an Internet-of-Things (IoT) solution supports scaling up the number of connected IoT devices by replicating stamps. Stamps are discrete units of core solution components that optimally support a defined number of devices.
 
-* [Azure IoT client SDK support for third-party token servers](../../guide/iot/azure-iot-client-sdk-support.md): Learn how Azure IoT Hub supports shared access signature (SAS) token authentication in the client SDKs.
+* [Azure IoT client SDK support for third-party token servers](../../guide/iot/azure-iot-client-sdk-support.yml): Learn how Azure IoT Hub supports shared access signature (SAS) token authentication in the client SDKs.
 
 * [Efficient Docker image deployment](../../example-scenario/iot/efficient-docker-image-deployment.yml): Edge devices are typically provisioned by deploying software container images. You can use a reliable and resilient deployment capability for situations that have limited, intermittent, or low bandwidth.
 
@@ -92,9 +92,9 @@ This section shares guides and building blocks that are useful when building IoT
 
 * [Vision with Azure IoT Edge](../../guide/iot-edge-vision/index.md): Artificial intelligence for image analytics spans a wide variety of industries including manufacturing, retail, healthcare, and the public sector.
 
-* [Move an IoT solution from test to production](../../example-scenario/iot/iot-move-to-production.md) provides a list of best practices you should follow when you move from test to production.
+* [Move an IoT solution from test to production](../../example-scenario/iot/iot-move-to-production.yml) provides a list of best practices you should follow when you move from test to production.
 
-* [Azure industrial IoT analytics guidance](../../guide/iiot-guidance/iiot-architecture.md): You can build Industrial Iot (IIoT) analytics solutions using Azure PaaS (Platform as a Service) components. Such an IIoT analytics solution relies on real-time and historical data from industrial devices and control systems.
+* [Azure industrial IoT analytics guidance](../../guide/iiot-guidance/iiot-architecture.yml): You can build Industrial Iot (IIoT) analytics solutions using Azure PaaS (Platform as a Service) components. Such an IIoT analytics solution relies on real-time and historical data from industrial devices and control systems.
 
 ## Next steps
 

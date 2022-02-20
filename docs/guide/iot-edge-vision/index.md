@@ -59,7 +59,7 @@ Vision AI solutions for IoT Edge involve several components and processes. The a
 
 1. Cameras capture the image data for input into the IoT Edge vision AI system. See [Camera selection for Azure IoT Edge vision AI](./camera.md).
 1. Hardware acceleration on IoT Edge devices provides the necessary processing power for computer graphics and AI algorithms. See [Hardware acceleration in Azure IoT Edge vision AI](./hardware.md).
-1. ML models deployed as IoT Edge modules score the incoming image data. See [Machine learning in Azure IoT Edge vision AI](./machine-learning.md).
+1. ML models deployed as IoT Edge modules score the incoming image data. See [Machine learning in Azure IoT Edge vision AI](./machine-learning.yml).
 1. Image scores that need attention trigger automatic alerts. See [Alert persistence in Azure IoT Edge vision AI](./alerts.md).
 1. The IoT Edge device sends relevant image data and metadata to the cloud for storage. Stored data is used for ML retraining, troubleshooting, and analytics. See [Image storage and management for Azure IoT Edge vision AI](./image-storage.md).
 1. Users interact with the system through user interfaces like apps, visualizations, and dashboards. See [User interfaces and scenarios in Azure IoT Edge vision AI](./user-interface.md).
