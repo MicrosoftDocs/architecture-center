@@ -2,6 +2,12 @@ Runbooks in Azure Automation might not have access to resources in other clouds 
 
 ## Potential use cases
 
+- Execute Azure Automation runbooks directly on an existing Azure Virtual Machine or on-premises Arc-enabled server.
+- Overcome the Azure Automation sandbox limitation - common scenarios could be executing long-running operations beyond the three-hour limit for cloud jobs performing the resource-intensive automation operations such as, interacting wiht local services running in on-premise or in a hybrid environment, run scripts that require elevated permissions and so on.
+- Lack of permissions by the organization to keep data in Azure due to governance and security reasons. As the Automation jobs on cloud cannot be executed, you can run it on an on-premise machine onboarded as a Hybrid Runbook Worker.
+- Automate operations on multiple non-Azure resources running on-premises, Hybrid, or multi-cloud environments. You can onboard one of those machines as Hybrid Runbook Worker and target automation on the remaining on-premises machines.
+- Access other services privately from the Azure Virtual Network (VNet) without the need to open an outbound connection to the internet, you can execute runbooks on a Hybrid Worker connected to the Azure VNet.
+
 ## Hybrid Runbook Worker installation approach
 
 Azure Automation provides native integration of the Hybrid Runbook Worker role through the Azure virtual machine (VM) extension framework. The Azure VM agent is responsible for management of the extension on Azure VMs on Windows and Linux VMs, and on non-Azure machines through the Arc-enabled servers connected Machine agent. Now, there are two Hybrid Runbook Workers installation platforms supported by Azure Automation.
