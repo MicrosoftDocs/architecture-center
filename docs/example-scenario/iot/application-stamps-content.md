@@ -36,8 +36,7 @@ Deployment stamps are intended for atomic deployment, but sometimes you need to 
 If the stamp components encompass only device-to-cloud behavior, moving devices between hubs is enough to migrate the devices from one stamp to another. [Azure IoT Device Provisioning Service (DPS)](/azure/iot-dps/) provides a way to move devices between IoT Hub instances. To use DPS in stamping strategy, be sure to understand [IoT Hub Device Provisioning Service (DPS) terminology](/azure/iot-dps/concepts-device) and concepts.
 
 > [!NOTE]
-> DPS uses *registration IDs*, while IoT Hub uses *device IDs*. These IDs are often the same value, but can be different. When querying device status with DPS APIs, be sure to use the device's registration ID.
-
+> DPS uses *registration IDs*, while IoT Hub uses *device IDs*. These IDs are often the same value, but can be different. When you query or manage devices with the DPS APIs, be sure to use the registration IDs.
 
 ### Move devices and applications between self-contained stamps
 
