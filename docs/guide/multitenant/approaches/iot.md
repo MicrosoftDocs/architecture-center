@@ -33,7 +33,7 @@ These considerations and requirements are presented in the order in which they t
 
 ### Governance and compliance
 
-Governance and compliance considerations might require that you use a particular pattern or set of IoT resources. Not all IoT services have the same certifications or capabilities. If you need to meet specific compliance standards, you might need to select specific services. Information on governance and compliance is covered in a [dedicated article on that topic](governance-compliance).
+Governance and compliance considerations might require that you use a particular pattern or set of IoT resources. Not all IoT services have the same certifications or capabilities. If you need to meet specific compliance standards, you might need to select specific services. Information on governance and compliance is covered in a [dedicated article on that topic](governance-compliance.md).
 
 Governance in IoT can also take additional forms such as device ownership and management.  Does the customer own the device or does the solution provider?  Who owns the management of those devices?  These considerations and implications are unique to each solution provider and can lead to different choices in technology, deployment pattern, and multi-tenancy pattern.
 
@@ -62,7 +62,7 @@ You can isolate and distribute tenants across the IoT control, management, and c
 
 #### Data storage, query, usage, and retention
 
-IoT solutions tend to be very data-intensive, both streaming and at rest. For more information on managing data in multitenant solutions, see [Architectural approaches for storage and data in multitenant solutions](storage-data).
+IoT solutions tend to be very data-intensive, both streaming and at rest. For more information on managing data in multitenant solutions, see [Architectural approaches for storage and data in multitenant solutions](storage-data.md).
 
 ## Common approaches
 
@@ -102,7 +102,7 @@ A PaaS-based approach might use the following Azure services:
 * [Azure IoT Device Provisioning Service](/azure/iot-dps/about-iot-dps) as the device deployment and initial configuration platform.
 * [Azure Data Explorer](/azure/data-explorer/) for storing and analyzing warm and cold path time series data from IoT devices.
 * [Azure Stream Analytics](/azure/architecture/reference-architectures/data/stream-processing-stream-analytics) for analyzing hot path data from IoT devices.
-* [Azure IoT Edge](/azure/iot-edge/about-iot-edge?view=iotedge-2020-11) for running artificial intelligence (AI), third-party services, or your own business logic on IoT Edge devices.
+* [Azure IoT Edge](/azure/iot-edge/about-iot-edge) for running artificial intelligence (AI), third-party services, or your own business logic on IoT Edge devices.
 
 :::image type="content" source="media/iot/simple-paas-saas.png" alt-text="TODO":::
 
@@ -144,7 +144,7 @@ Communications to systems outside of IoT Central, such as for longer-term data a
 
 If you compare the *Simple SaaS* approach with the [*Single tenant automated*](#single-tenant-automated) aPaaS model, many characteristics are similar.  The primary difference between the two models is that in the  *Single tenant automated* model, you deploy a distinct IoT Central instance for each tenant, while in the *Simple SaaS with aPaaS* model, you instead deploy a shared instance for multiple customers, and you create an IoT Central organization for each tenant.
 
-As you are sharing a multitenanted data tier in this model, you will need to implement row-level security as described in [Architectural approaches for storage and data in multitenant solutions](storage-data) to isolate customer data.
+As you are sharing a multitenanted data tier in this model, you will need to implement row-level security as described in [Architectural approaches for storage and data in multitenant solutions](storage-data.md) to isolate customer data.
 
 **Benefits**:
 
@@ -247,7 +247,7 @@ When you expand the scale of a solution to very large deployments, there are spe
 
 ## Next steps
 
-* Review guidance for [multitenancy and Azure Cosmos DB](../service/cosmos-db).
+* Review guidance for [multitenancy and Azure Cosmos DB](../service/cosmos-db.md).
 * Learn about [hot, warm, and cold data paths with IoT on Azure](https://techcommunity.microsoft.com/t5/fasttrack-for-azure/hot-warm-and-cold-data-paths-with-iot-on-azure/ba-p/2336035).
 * Refer to the [Azure IoT reference architectures](/azure/architecture/reference-architectures/iot).
-* Review documentation on how to [Scale IoT solutions with deployment stamps](azure/architecture/example-scenario/iot/application-stamps).
+* Review documentation on how to [Scale IoT solutions with deployment stamps](../../../example-scenario/iot/application-stamps.yml).application
