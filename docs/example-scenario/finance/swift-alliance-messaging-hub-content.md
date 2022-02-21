@@ -137,5 +137,5 @@ For SWIFT AMH deployment, calculate your estimated costs [here](https://azure.co
 
 Explore other SWIFT modules functionality and architecture in detail in the following links.
 
-* [SWIFT on Azure](swift-on-azure.yml)
+* [SWIFT on Azure](swift-on-azure-srx.yml)
 * [Alliance Access](swift-alliance-access-on-azure.yml)
