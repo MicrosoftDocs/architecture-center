@@ -68,7 +68,7 @@ IoT solutions tend to be very data-intensive, both streaming and at rest. For mo
 
 All considerations you would normally make in an IoT architecture for all the primary components such as management, ingestion, processing, storage, security etc are all choices you still must make when pursuing a multi-tenant solution.  The primary difference is how you arrange and utilize the components to support multi-tenancy.  For example, common decision points for storage might be SQL Server vs Azure Data Explorer, or perhaps on the Ingestion & Management tier IoT Hub vs IoT Central.
 
-Most IoT solutions fit within a ["root architecture pattern"](#select-a-root-architecture-pattern) which is a combination of the deployment target, tenancy model, and deployment pattern. These factors are determined by the key requirements and considerations described above.
+Most IoT solutions fit within a ["root architecture pattern"](#root-architecture-patterns) which is a combination of the deployment target, tenancy model, and deployment pattern. These factors are determined by the key requirements and considerations described above.
 
 One of the largest decision points needing to be made within the IoT space is to select between Application-Platform-as-a-Service (aPaaS) and Platform-as-a-Service (PaaS) approaches.  For more information, see [Compare Internet of Things (IoT) solution approaches (PaaS vs. aPaaS)](/azure/architecture/example-scenario/iot/iot-central-iot-hub-cheat-sheet).
 
