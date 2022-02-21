@@ -13,7 +13,7 @@ Deployment stamping lets you:
 
 ## IoT deployment stamping architecture
 
-![A diagram showing a deployment stamping strategy for use in Azure IoT.](media/lgtm3.svg)
+![A diagram showing a deployment stamping strategy for use in Azure IoT.](media/scale-iot-deployment-stamps.svg)
 
 The preceding diagram illustrates a deployment stamping strategy for Azure IoT. This solution builds atomic stamps that each consist of:
 
