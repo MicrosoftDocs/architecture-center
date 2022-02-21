@@ -4,7 +4,7 @@ titleSuffix: Azure Architecture Center
 description: Get an overview of Azure Storage technologies, guidance offerings, solution ideas, and reference architectures.  
 author: EdPrice-MSFT
 ms.author: edprice 
-ms.date: 01/20/2022
+ms.date: 02/18/2022
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: azure-guide
@@ -112,7 +112,7 @@ Here are a few sample implementations of storage on Azure:
 
 [See more storage examples in the Azure Architecture Center.](/azure/architecture/browse/?azure_categories=analytics%2Cstorage)
 
-### AWS or GCP professionals
+### AWS or Google Cloud professionals
 
 These articles provide service mapping and comparison between Azure and other cloud services. They can help you ramp up quickly on Azure.  
 - [Compare AWS and Azure Storage services](/azure/architecture/aws-professional/storage)

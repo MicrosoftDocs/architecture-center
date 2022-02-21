@@ -129,7 +129,7 @@ These solution ideas are some of the example approaches that you can adapt to yo
 
 ### Similar database products
 
-If you're familiar with Amazon Web Services (AWS) or Google Cloud Platform (GCP), refer to the following comparisons:
+If you're familiar with Amazon Web Services (AWS) or Google Cloud, refer to the following comparisons:
 
 - [Relational database technologies on Azure and AWS](../aws-professional/databases.md)
 - [Google Cloud to Azure services comparison - Data platform](../gcp-professional/services.md#data-platform)

@@ -1,25 +1,4 @@
----
-title: Azure Industrial IoT data analysis
-titleSuffix: Azure Application Architecture Guide
-description: Understand data analysis in an Azure Industrial IoT (IIoT) analytics solution. Use visualization, data trends, dashboards, schematic views, and notebooks.
-author: khilscher
-ms.author: kehilsch
-ms.date: 07/17/2020
-ms.topic: conceptual
-ms.service: architecture-center
-ms.subservice: azure-guide
-ms.category:
-  - fcp
-products:
-  - power-bi
-  - azure-time-series-insights
-ms.custom:
-  - guide
----
-
-# Data analysis in Azure Industrial IoT analytics solution
-
-This article shows you how to visualize the data collected by the [Azure Industrial IoT analytics solution](./iiot-architecture.md). You can easily look for data trends using visual elements and dashboards, and use these trends to analyze the effectiveness of your solution.
+This article shows you how to visualize the data collected by the [Azure Industrial IoT analytics solution](./iiot-architecture.yml). You can easily look for data trends using visual elements and dashboards, and use these trends to analyze the effectiveness of your solution.
 
 ## Visualization
 
