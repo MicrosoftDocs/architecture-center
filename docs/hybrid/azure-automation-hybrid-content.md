@@ -93,7 +93,7 @@ Maximum number of concurrent jobs that can be run on a single Hybrid Runbook Wor
 
 - A Hybrid Runbook Worker Group with more than one machine configured with Hybrid Worker Role provides high availability because runbooks will start only on servers that are running and healthy.
 - The extension-based (V1) Hybrid Runbook Worker only supports the user Hybrid Runbook Worker type and doesn't include the system Hybrid Runbook Worker required for the Update Management feature.
-- Applicable only for agent-based approach (V1) - Currently, mappings between Log Analytics Workspace and Automation account are supported in several regions. For further information, refer to [Supported regions]([12]) for linked Log Analytics workspace.
+- Applicable only for agent-based approach (V1) - Currently, mappings between Log Analytics Workspace and Automation account are supported in several regions. For further information, refer to [Supported regions for linked Log Analytics workspace][12]
 
 ## Manageability considerations
 
