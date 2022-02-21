@@ -1,37 +1,40 @@
-The problem of employee attrition has grown in prominence since the COVID-19 pandemic. This has resulted in a trend in which employees voluntarily resign from their jobs en masse - known as the Great Resignation. The problem can also be magnified for certain departments in an organization that might lack dedicated advanced analytics teams, for example, Human Resources.
+The problem of employee attrition has grown in prominence since the COVID-19 pandemic. This has resulted in a trend in which employees voluntarily resign from their jobs en masse—known as _the Great Resignation_. The problem can also be magnified for certain departments in an organization that might lack dedicated teams that perform advanced analytics, such as Human Resources.
 
-This example scenario illustrates a centralized machine learning operating model. This comprises of a central team responsible for building and deploying machine learning models for external teams across departments within an organization. This approach is useful when departments are too small to maintain a dedicated machine learning team while the organization aims to infuse advanced analytics into all products and processes.
+This example scenario illustrates an operating model of centralized machine learning. This comprises a central team that is responsible for building and deploying machine-learning models for external teams across departments within an organization. This approach is useful when departments are too small to maintain a team that's dedicated to machine learning while the organization aims to infuse advanced analytics into all products and processes.
 
-This solution demonstrates how a machine learning team can use Azure Databricks and Azure Kubernetes Service to develop and deploy a machine learning model to predict the likelihood of employee attrition as an API. This can be integrated with external applications used by the Human Resources team to provide additional insights into the likelihood of attrition for a given employee within the organization. This information can be used to retain high-impact employees that are likely to leave the organization and hence provide the Human Resources team with the ability to proactively incentivize the employee to stay.
+This solution demonstrates how a machine-learning team can use Azure Databricks and Azure Kubernetes Service to develop and deploy machine learning, as an API, to predict the likelihood of employee attrition. The API can be integrated with external applications that are used by the Human Resources team to provide additional insights into the likelihood of attrition for a given employee within the organization. This information can be used to retain high-impact employees who are likely to leave the organization and provide Human Resources with the ability to proactively incentivize such employees to stay.
 
 ## Potential use cases
 
-Even though this scenario is focused on building an employee attrition machine learning model and integrating it with external applications used by Human Resources teams the design can be generalized to many machine learning workloads built by centralized and  decentralized teams alike.
+Even though this scenario is focused on building a machine-learning model of employee attrition and integrating it with external applications that are used by Human Resources teams, the design can be generalized to many machine-learning workloads that are built by centralized and decentralized teams alike.
 
 This generalized approach is best suited for:
 
-- Machine learning teams that have standardized on Databricks for data engineering or machine learning applications.
-- Machine learning teams that have experience deploying and managing Kubernetes workloads with a preference to apply these skills for operationalizing machine learning workloads.
-- Integrating machine learning workloads with external applications that require low latency and interactive model predictions (for example, real-time inference).
+- Machine-learning teams that have standardized on Databricks for data engineering or machine-learning applications.
+- Machine-learning teams that have experience deploying and managing Kubernetes workloads with a preference to apply these skills for operationalizing machine-learning workloads.
+- Integrating machine-learning workloads with external applications that require low latency and interactive model predictions (for example, real-time inference).
 
 ## Architecture
 
-![design](media/employee-retention-with-databricks-and-kubernetes-design.png)
+:::image type="content" alt-text="Diagram of the architecture that's described in this article, showing development, deployment, exposure of the API, and monitoring of metrics and logs." source="media/employee-retention-with-databricks-and-kubernetes-design.png" lightbox="media/employee-retention-with-databricks-and-kubernetes-design.png":::
 
 ### Workflow
 
-At a high level, this solution design addresses each stage of the machine learning lifecycle:
+At a high level, this solution design addresses each stage of the machine-learning lifecycle:
 
 - Data Preparation: this includes sourcing, cleaning, and transforming the data for processing and analysis. Data can live in a data lake or data warehouse and be stored in a feature store after it's curated.
+
 - Model Development: this includes core components of the model development process such as experiment tracking and model registration using [MLflow](/azure/databricks/applications/mlflow/).
-- Model Deployment: this includes implementing a CI/CD pipeline to containerize machine learning models as API services. These services will be deployed to Azure Kubernetes clusters for end users to consume.
+
+- Model Deployment: this includes implementing a CI/CD pipeline to containerize machine-learning models as API services. These services will be deployed to Azure Kubernetes clusters for end users to consume.
+
 - Model Monitoring: this includes monitoring the API performance and model data drift by analyzing log telemetry with Azure Monitor.
 
-After the  machine learning team has deployed the machine learning model as an API for real-time inference it can be easily integrated with external applications used by external teams, for example, Human Resources. Telemetry is collected when the external team uses the model service. The machine learning team can use this telemetry to determine when the model needs to be redeployed. This approach allows teams to work independently and allows external teams to benefit from the skills of the centralized machine learning team.
+After the  machine-learning team has deployed the machine-learning model as an API for real-time inference, it can be easily integrated with external applications that are used by external teams, such as Human Resources. Telemetry is collected when the external team uses the model service. The machine-learning team can use this telemetry to determine when the model needs to be redeployed. This approach allows teams to work independently and allows external teams to benefit from the skills of the centralized machine-learning team.
 
-> **NOTE:**
+> [!NOTE]
 >
->- When implementing a [CI/CD pipeline](/azure/architecture/microservices/ci-cd) different tools such as Azure DevOps Pipelines or GitHub Actions can be used.
+>- When implementing a [CI/CD pipeline](/azure/architecture/microservices/ci-cd), various tools can be used, such as Azure DevOps Pipelines and GitHub Actions.
 >- The services covered by this architecture are only a subset of a much larger family of Azure services.
 >- Specific business requirements for your analytics use case could require the use of different services or features that are not considered in this design.
 
@@ -44,7 +47,7 @@ The following components are used as part of this design:
 - [Azure Container Registry](https://docs.microsoft.com/en-us/azure/container-registry/container-registry-intro): managed and private Docker registry service based on the open-source Docker.
 - [Azure Data Lake Gen 2](https://docs.microsoft.com/en-us/azure/storage/blobs/data-lake-storage-introduction): scalable solution optimized for storing massive amounts of unstructured data.
 - [Azure Monitor](https://docs.microsoft.com/en-us/azure/azure-monitor/overview): a comprehensive solution for collecting, analyzing, and acting on telemetry from your workloads.
-- [MLflow](https://docs.microsoft.com/en-us/azure/databricks/applications/mlflow): open-source solution integrated within Databricks for managing the end-to-end machine learning life cycle.
+- [MLflow](https://docs.microsoft.com/en-us/azure/databricks/applications/mlflow): open-source solution integrated within Databricks for managing the end-to-end machine-learning lifecycle.
 - [Azure API Management](https://docs.microsoft.com/en-us/azure/api-management/api-management-key-concepts): a fully managed service that enables customers to publish, secure, transform, maintain, and monitor APIs.
 - [Azure Application Gateway](https://docs.microsoft.com/en-us/azure/application-gateway/overview): a web traffic load balancer that enables you to manage traffic to your web applications.
 - [Azure DevOps](https://azure.microsoft.com/solutions/devops/) or [GitHub](https://azure.microsoft.com/products/github/): solutions for implementing DevOps practices to enforce automation and compliance with your workload development and deployment pipelines.
@@ -54,7 +57,7 @@ The following components are used as part of this design:
 Before implementing this solution some factors you might want to consider,  include:
 
 - This solution is designed for teams who require a high degree of customization and have extensive expertise deploying and managing Kubernetes workloads. If your data science team doesn’t have this expertise consider deploying models to another service like [Azure Machine Learning](https://azure.microsoft.com/services/machine-learning).
-- The [Machine Learning DevOps Guide](/azure/cloud-adoption-framework/ready/azure-best-practices/ai-machine-learning-mlops#machine-learning-devops-mlops-best-practices-with-azure-machine-learning) presents best practices and learnings on adopting ML operations (MLOps) in the enterprise with Machine Learning.
+- The [Machine Learning DevOps Guide](/azure/cloud-adoption-framework/ready/azure-best-practices/ai-machine-learning-mlops#machine-learning-devops-mlops-best-practices-with-azure-machine-learning) presents best practices and learnings on adopting ML operations (MLOps) in the enterprise with machine learning.
 - Follow the recommendations and guidelines defined in the [Azure Well-Architected Framework](../../framework/index.md) to improve the quality of your Azure solutions.
 - When implementing a [CI/CD pipeline](/azure/architecture/microservices/ci-cd) different tools such as Azure Pipelines or GitHub Actions can be used.
 - Specific business requirements for your analytics use case could require the use of different services or features that aren’t considered in this design.
@@ -94,7 +97,7 @@ Product documentation:
 Microsoft Learn modules:
 
 - [Perform data science with Azure Databricks](https://docs.microsoft.com/en-us/learn/paths/perform-data-science-azure-databricks/)
-- [Build and operate machine learning solutions with Azure Databricks](https://docs.microsoft.com/en-us/learn/paths/build-operate-machine-learning-solutions-azure-databricks/)
+- [Build and operate machine-learning solutions with Azure Databricks](https://docs.microsoft.com/en-us/learn/paths/build-operate-machine-learning-solutions-azure-databricks/)
 - [Introduction to Kubernetes on Azure](https://docs.microsoft.com/en-us/learn/paths/intro-to-kubernetes-on-azure/)
 - [Develop and deploy applications on Kubernetes](https://docs.microsoft.com/en-us/learn/paths/develop-deploy-applications-kubernetes/)
 - [Automate your workflow with GitHub Actions](https://docs.microsoft.com/en-us/learn/paths/automate-workflow-github-actions/)
