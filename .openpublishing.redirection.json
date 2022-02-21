@@ -2321,6 +2321,11 @@
       "source_path": "docs/data-science-process/predictive-maintenance-technical-guide.md",
       "redirect_url": "/azure/architecture/data-science-process/overview",
       "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/antipatterns/noisy-neighbor/index.md",
+      "redirect_url": "/azure/architecture/antipatterns/noisy-neighbor/noisy-neighbor",
+      "redirect_document_id": false
     }
     
   ]
