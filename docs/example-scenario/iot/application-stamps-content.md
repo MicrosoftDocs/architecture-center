@@ -60,7 +60,7 @@ The preceding diagram above shows the process of moving a set of devices from St
 
 ### Move devices between stamps behind a single app gateway
 
-When a single application front-end supports multiple device stamps, the application front-end must dynamically update its device-to-hub mapping to maintain cloud-to-device communication. To manage devices moving to different stamps and IoT Hubs, gateways can use a caching mechanism for device-to-hub mapping. Service clients can use a shared lookup routine to dynamically detect and migrate device calls to new IoT Hubs.
+When a single application front-end supports multiple device stamps, the application front-end must dynamically update its device-to-hub mapping to maintain cloud-to-device communication. To support devices moving to different stamps and IoT Hubs, gateways can use a caching mechanism for device-to-hub mapping. Service clients can use a shared lookup routine to dynamically detect and migrate device calls to new IoT Hubs.
 
 ![A diagram demonstrating how devices can move from one hub to another using an app gateway.](media/move-devices-behind-gateway.svg)
 
