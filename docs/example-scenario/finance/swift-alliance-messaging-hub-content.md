@@ -29,7 +29,7 @@ SWIFT's AMH needs network connectivity with SAG and SNL.
 - SAG provides multiple integration points and message concentration between SWIFT modules and SWIFTNet.
 - SNL provides an API interface between SWIFT modules and SWIFTNet.
 
-We recommended that you place the SWIFT modules, SAG, and SNL components in the same Azure virtual network. You can deploy them across separate subnets in the virtual network.
+We recommend that you place the SWIFT modules, SAG, and SNL components in the same Azure virtual network. You can deploy them across separate subnets in the virtual network.
 
 A key component in SWIFT's AMH technical solution is the *AMH node*, which runs a user interface, a database, and a messaging system. The AMH node provides the web front end that runs the user interface and the signal transfer point (STP) message processing.
 
@@ -74,7 +74,7 @@ The following Azure infrastructure services are also part of this solution:
 - [Load Balancer](https://azure.microsoft.com/services/load-balancer) distributes inbound traffic to back-end pool instances. Load Balancer directs traffic according to configured load-balancing rules and health probes.
 - [Azure Firewall](https://azure.microsoft.com/services/azure-firewall) enforces application and network connectivity policies. This network security service centrally manages the policies across multiple virtual networks and subscriptions.
 - [ExpressRoute](https://azure.microsoft.com/services/expressroute) extends on-premises networks into the Microsoft cloud. By using a connectivity provider, ExpressRoute establishes private connections to cloud components like Azure services and Microsoft 365.
-- [Virtual Machines](https://azure.microsoft.com/services/virtual-machines) is an infrastructure-as-a-service (IaaS) offer. You can use Virtual Machines to deploy on-demand, scalable computing resources. Virtual Machines provides the flexibility of virtualization but eliminates the maintenance demands of physical hardware.
+- [Virtual Machines](https://azure.microsoft.com/services/virtual-machines) is an infrastructure-as-a-service (IaaS) offering. You can use Virtual Machines to deploy on-demand, scalable computing resources. Virtual Machines provides the flexibility of virtualization but eliminates the maintenance demands of physical hardware.
 - [Azure Disk Storage](https://azure.microsoft.com/services/storage/disks) provides high-performance, highly durable block storage. You can use these managed storage volumes with Virtual Machines.
 
 ### Alternatives
@@ -83,7 +83,7 @@ In this solution, all SWIFT AMH components run in Azure except the HSM and the A
 
 ## Considerations
 
-Follow these guidelines for best performance when you run SWIFT's AMH on Azure.
+Consider these guidelines for best performance when you run SWIFT's AMH on Azure.
 
 ### Availability
 
@@ -138,7 +138,7 @@ For an estimate of the cost of a SWIFT AMH deployment, see [a sample cost profil
 - [What is Azure Virtual Network?](/azure/virtual-network/virtual-networks-overview)
 - [What is Azure Firewall?](/azure/firewall/overview)
 - [What is Azure Load Balancer?](/azure/load-balancer/load-balancer-overview)
-- [Availability Zones](/azure/availability-zones/az-overview)
+- [Availability zones](/azure/availability-zones/az-overview)
 - [Azure virtual machine extensions](/azure/virtual-machines/extensions/overview)
 
 ## Related resources
