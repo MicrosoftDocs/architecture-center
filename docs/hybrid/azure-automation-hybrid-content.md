@@ -4,13 +4,13 @@ Runbooks in Azure Automation might not have access to resources in other clouds 
 
 - To execute Azure Automation runbooks directly on an existing Azure virtual machine (VM) or on-premises Arc-enabled server.
 - To overcome the Azure Automation sandbox limitation - the common scenarios include executing long-running operations beyond three-hour limit for cloud jobs, performing the resource-intensive automation operations, interacting with local services running on-premise or in hybrid environment, run scripts that require elevated permissions and so on.
-- To overcome organization restrictions to keep data in Azure due to governance and security reasons. Since you cannot execute Automation jobs on the cloud, you can run it on an on-premises machine that is onboarded as a Hybrid Runbook Worker.
+- To overcome organization restrictions to keep data in Azure due to governance and security reasons - as you can't execute Automation jobs on the cloud, you can run it on an on-premises machine that is onboarded as a Hybrid Runbook Worker.
 - To automate operations on multiple non-Azure resources running on-premises, Hybrid, or multi-cloud environments. You can onboard one of those machines as Hybrid Runbook Worker and target automation on the remaining on-premises machines.
 - To access other services privately from the Azure Virtual Network (VNet) without the need to open an outbound connection to the internet, you can execute runbooks on a Hybrid Worker connected to the Azure VNet.
 
 ## Hybrid Runbook Worker installation approach
 
-Azure Automation provides native integration of the Hybrid Runbook Worker role through the Azure virtual machine extension framework. The Azure VM agent is responsible for management of the extension on Azure VMs on Windows and Linux VMs, and on non-Azure machines through the Arc-enabled servers connected machine agent. Now, there are two Hybrid Runbook Workers installation platforms that is supported by Azure Automation.
+Azure Automation provides native integration of the Hybrid Runbook Worker role through the Azure virtual machine extension framework. The Azure VM agent is responsible for management of the extension on Azure VMs - Windows and Linux, and on non-Azure machines through the Arc-enabled servers connected machine agent. Now, there are two Hybrid Runbook Workers installation platforms that is supported by Azure Automation.
 
 
 |**Platform** | **Description**
@@ -46,7 +46,7 @@ The architecture consists of the following components:
 - **On-premises machines and VMs**: On-premises computers and VMs with Windows or Linux operating system hosted in a private local-area network.
 - Components applicable for extension-based approach (V2):
     - **Hybrid Runbook Worker VM Extension**: A small application installed on a computer that configures it as a Hybrid Runbook Worker.
-    - **Arc-enabled Server**: Azure Arc-enabled servers enables you to manage your Windows and Linux physical servers and virtual machines hosted outside of Azure, on your corporate network, or other cloud provider. This management experience is designed to be consistent with how you manage native Azure virtual machines. [Learn more][8]
+    - **Arc-enabled Server**: Azure Arc-enabled servers allows you to manage your Windows and Linux physical servers and virtual machines hosted outside of Azure, on your corporate network, or other cloud provider. This management experience is designed to be consistent with how you manage native Azure virtual machines. [Learn more][8]
 - Components applicable for agent-based approach (V1):
     - **Log Analytics Workspace**: A Log Analytics workspace is a data repository for log data collected from resources that run in Azure, on-premises or in another cloud provider.
     - **Automation Hybrid Worker solution**: With this, you can create Hybrid Runbook Workers to run Azure Automation runbooks on your Azure and non-Azure computers.
@@ -76,13 +76,14 @@ When you start a runbook on a user Hybrid Runbook Worker, you specify the group 
 ## Scalability considerations
 
 - A Hybrid Runbook Worker doesn't have many of the [Azure sandbox][9] resource [limits][10] on disk space, memory, or network sockets. The limits on a hybrid worker are only related to the worker's own resources, and they aren't constrained by the [fair share][11] time limit that Azure sandboxes have.
+
 - The following table shows the limits applicable for Hybrid Runbook Workers. If you have more than 4,000 machines to manage, we recommend creating another Automation account.
 
-**Resource** | **Limit**
---- | ---
-Maximum number of system Hybrid Runbook Workers per Automation account| 4000
-Maximum number of user Hybrid Runbook Workers per Automation account | 4000
-Maximum number of concurrent jobs that can be run on a single Hybrid Runbook Worker | 50
+   **Resource** | **Limit**
+  --- | ---
+  Maximum number of system Hybrid Runbook Workers per Automation account| 4000
+  Maximum number of user Hybrid Runbook Workers per Automation account | 4000
+  Maximum number of concurrent jobs that can be run on a single Hybrid Runbook Worker | 50
 
 - Increased demands for processing large number of jobs can be solved by organizing multiple hybrid workers into Hybrid Worker Groups. Runbooks are executed on each hybrid worker using queuing mechanisms. The hybrid worker checks the Automation account once every 30 seconds and picks up four jobs to execute. If the rate of pushing jobs is higher than four jobs per 30 seconds, then there is a high possibility that another hybrid worker in the Hybrid Worker group has picked up the job.
 - Multiple Hybrid Worker Groups can execute runbooks automation tasks using different Run As accounts.
@@ -110,7 +111,7 @@ Maximum number of concurrent jobs that can be run on a single Hybrid Runbook Wor
 
 - Encryption of sensitive assets in Automation: An Azure Automation Account can contain sensitive assets such as credentials, certificate, connection, and encrypted variables that might be used by the runbooks. Each secure asset is encrypted by default using a Data Encryption key that is generated for each Automation Account. These keys are encrypted and stored in Azure Automation with an Account Encryption Key (AEK) that can be stored in the Key vault for customers who want to manage encryption with their own keys. By default, AEK is encrypted using Microsoft-managed keys. Use the following guidelines to apply encryption of secure assets in Azure Automation.
 - Runbook permission: By default, runbook permissions for a Hybrid Runbook Worker run in a system context on the machine where they're deployed. A runbook provides its own authentication to local resources. Authentication can be configured using managed identities for Azure resources or by specifying a Run As account to provide a user context for all runbooks.
-- Network planning: 
+- Network planning:
     - If you use a proxy server for communication between Azure Automation and machines running the Hybrid Runbook Worker, ensure that the appropriate resources are accessible. The timeout for requests from the Hybrid Runbook Worker and Automation services is 30 seconds. After three attempts, the request fails.
     - Hybrid Runbook Worker requires outbound internet access over TCP port 443 to communicate with Automation. If you use a firewall to restrict access to the Internet, you must configure the firewall to permit access. For agent-based (V1) computers with restricted internet access, use Log Analytics gateway to configure communication with Azure Automation and Azure Log Analytics Workspace.
     - There is a CPU quota limit of 5% while configuring extension-based Linux Hybrid Runbook worker. There is no such limit for Windows extension-based Hybrid Runbook Worker.
