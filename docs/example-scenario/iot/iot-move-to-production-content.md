@@ -1,22 +1,3 @@
----
-title: Move an IoT solution from test to production
-titleSuffix: Azure Architecture Center
-description: Learn what to avoid doing when moving from a test environment to a production environment.
-author: mcosner
-manager: lizross
-ms.service: architecture-center
-ms.subservice: example-scenario
-ms.topic: conceptual
-ms.date: 9/10/2021
-ms.author: mcosner
-categories:
-  - iot
-products:
-  - azure-iot-hub
----
-
-# Move an IoT solution from test to production
-
 This article includes a list of items you should consider when moving an IoT solution to a production environment.
 
 ## Use deployment stamps

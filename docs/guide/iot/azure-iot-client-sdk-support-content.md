@@ -1,22 +1,3 @@
----
-title: Azure IoT client SDK support for third-party token servers
-titleSuffix: Azure Architecture Center
-description: Learn about what needs to be done in each SDK for devices to achieve third-party token-server authentication.
-author: EdPrice-MSFT
-ms.author: pnp
-ms.date: 09/17/2021
-ms.topic: conceptual
-ms.service: architecture-center
-ms.subservice: azure-guide
-products:
-  - azure-iot
-  - azure-iot-hub
-categories:
-  - iot
----
-
-# Azure IoT client SDK support for third-party token servers
-
 The article [Control access to IoT Hub](/azure/iot-hub/iot-hub-devguide-security#custom-device-and-module-authentication) illustrates how a third-party token service can be integrated with IoT Hub. This article outlines the support for shared access signature (SAS) token authentication in each of the Azure IoT client SDKs. It also outlines both what needs to be implemented in a device application using the corresponding SDK for each language, and how to use device-scoped or module-scoped tokens for the shared access policies of DeviceConnect or ModuleConnect.
 
 ## Context and problem
