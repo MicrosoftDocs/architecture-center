@@ -27,7 +27,7 @@ ms.custom:
 
 Multitenant IoT solutions come in many different flavors and sizes.  You might have many requirements and constraints, ranging from infrastructure ownership, to customer data isolation, to compliance. It can be challenging to define a pattern that meets all of these design constraints, and doing so often requires considering multiple dimensions. This article describes several approaches commonly used to solve multitenancy considerations for IoT based solutions.  This document includes example multitenant architectures leveraging common components according to the [IoT Reference Architecture](/azure/architecture/reference-architectures/iot).
 
-## Considerations and requirements
+## Key considerations and requirements
 
 These considerations and requirements are presented in the order in which they typically are prioritized for a solution's design.
 
@@ -64,7 +64,7 @@ You can isolate and distribute tenants across the IoT control, management, and c
 
 IoT solutions tend to be very data-intensive, both streaming and at rest. For more information on managing data in multitenant solutions, see [Architectural approaches for storage and data in multitenant solutions](storage-data.md).
 
-## Common approaches
+## Approaches to consider
 
 All considerations you would normally make in an IoT architecture for all the primary components such as management, ingestion, processing, storage, security etc are all choices you still must make when pursuing a multi-tenant solution.  The primary difference is how you arrange and utilize the components to support multi-tenancy.  For example, common decision points for storage might be SQL Server vs Azure Data Explorer, or perhaps on the Ingestion & Management tier IoT Hub vs IoT Central.
 
@@ -108,9 +108,9 @@ A PaaS-based approach might use the following Azure services:
 
 This approach requires more developer effort to create, deploy, and maintain the solution versus an aPaaS approach. Fewer capabilities are prebuilt for the implementer's convenience. This means that this approach also offers more control, because fewer assumptions are embedded in the underlying platform.
 
-## Select a root architecture pattern
+## Root architecture patterns
 
-The following table lists four common patterns for multitenant IoT solutions.  Each pattern includes the following information:
+The following table lists common patterns for multitenant IoT solutions.  Each pattern includes the following information:
 
 * The name of the **Pattern**, which is based on the combination of target, model and deployment type.
 * The **Deployment target**, representing the Azure Subscription to deploy resources to.
