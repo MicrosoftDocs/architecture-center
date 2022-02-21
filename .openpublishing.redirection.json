@@ -2321,7 +2321,11 @@
       "source_path": "docs/data-science-process/predictive-maintenance-technical-guide.md",
       "redirect_url": "/azure/architecture/data-science-process/overview",
       "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/example-scenario/finance/swift-on-azure.yml",
+      "redirect_url": "docs/example-scenario/finance/swift-on-azure-srx.yml",
+      "redirect_document_id": false
     }
-    
   ]
 }
