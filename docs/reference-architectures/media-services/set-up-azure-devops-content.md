@@ -268,6 +268,7 @@ Use this pipeline to delete an environment, like one that the `ci_cd_ext_release
    environment
    RUN_FLAG_SUBSCRIPTIONS_FAIL_GRACEFULLY = false
    RUN_FLAG_SUBSCRIPTIONS_DISABLED = false
+   RUN_FLAG_TERRAFORM = true
    serviceConnectionName = gridwich-connection <or your service connection name>
    applicationName = cl1grw <or your app name>
    ```
