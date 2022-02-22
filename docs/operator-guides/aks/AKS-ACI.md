@@ -1,5 +1,4 @@
-# Bursting the workload in Virtual Node using AKS
-
+# Virtual Node using AKS
 
 
 Sometimes, there are scenarios where you cannot predict the workload that can come over your cluster & that could be related to several events like an Ecommerce website is hosting a Sale or Events bookings & there can be other scenarios as well.
