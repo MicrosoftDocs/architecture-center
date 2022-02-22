@@ -51,7 +51,7 @@ The web application uses Azure Active Directory (Azure AD) to authenticate users
 
 <!-- links -->
 
-[authentication]: ./authenticate.md
+[authentication]: ./authenticate.yml
 
 [ASP.NET Core]: /aspnet/core
 [sample application]: https://github.com/mspnp/multitenant-saas-guidance

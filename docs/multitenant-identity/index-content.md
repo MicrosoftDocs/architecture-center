@@ -69,11 +69,11 @@ In a multitenant app, you must consider users in the context of tenants.
 In this guidance, we'll look specifically at using Azure AD for identity management.
 
 - We assume the customer stores their user profiles in Azure AD (including Office365 and Dynamics CRM tenants)
-- Customers with on-premises Active Directory can use [Azure AD Connect](/azure/active-directory/hybrid/whatis-hybrid-identity) to sync their on-premises Active Directory with Azure AD. If a customer with on-premises Active Directory cannot use Azure AD Connect (due to corporate IT policy or other reasons), the SaaS provider can federate with the customer's directory through Active Directory Federation Services (AD FS). This option is described in [Federating with a customer's AD FS](adfs.md).
+- Customers with on-premises Active Directory can use [Azure AD Connect](/azure/active-directory/hybrid/whatis-hybrid-identity) to sync their on-premises Active Directory with Azure AD. If a customer with on-premises Active Directory cannot use Azure AD Connect (due to corporate IT policy or other reasons), the SaaS provider can federate with the customer's directory through Active Directory Federation Services (AD FS). This option is described in [Federating with a customer's AD FS](adfs.yml).
 
 This guidance does not consider other aspects of multitenancy such as data partitioning, per-tenant configuration, and so forth.
 
-[**Next**](./tailspin.md)
+[**Next**](./tailspin.yml)
 
 <!-- links -->
 

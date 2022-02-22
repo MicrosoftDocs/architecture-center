@@ -228,6 +228,6 @@ At startup, the application reads settings from every registered configuration p
 [tenant sign-up]: ./signup.md
 [Token caching]: ./token-cache.md
 [sample application]: https://github.com/mspnp/multitenant-saas-guidance
-[surveys]: ./tailspin.md
+[surveys]: ./tailspin.yml
 [token-cache]: ./token-cache.md
 [user-secrets]: /aspnet/core/security/app-secrets

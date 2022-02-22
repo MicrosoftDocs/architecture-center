@@ -40,12 +40,12 @@ For additional security, you can use a client certificate instead of a client se
 > [!NOTE]
 > For more information, see [Using certificates with Microsoft.Identity.Web](https://github.com/AzureAD/microsoft-identity-web/wiki/Using-certificates).
 
-[**Next**](./adfs.md)
+[**Next**](./adfs.yml)
 
 <!-- links -->
 
 [configure-web-app]: /azure/app-service-web/web-sites-configure
 [client assertion]: https://tools.ietf.org/html/rfc7521
 [sample application]: https://github.com/mspnp/multitenant-saas-guidance
-[Surveys]: ./tailspin.md
+[Surveys]: ./tailspin.yml
 [using-certs-in-websites]: https://azure.microsoft.com/blog/using-certificates-in-azure-websites-applications

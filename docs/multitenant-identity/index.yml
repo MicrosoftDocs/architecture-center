@@ -13,13 +13,6 @@ azureCategories:
   - web
 products:
   - azure-active-directory
-keywords:
-  - "Multitenancy database"
-  - "multitenancy"
-  - "Azure multi tenant architecture"
-  - "multitenant database"
-  - "multitenant authentication"
-  - "multitenant identity management"
 name: Identity management in multitenant applications
 summary: Learn the best practices for multitenant applications, in terms of authentication, authorization, and identity management.
 thumbnailUrl: /azure/architecture/browse/thumbs/load-balance-multitenancy.png

@@ -18,4 +18,4 @@ name: Authenticate using Azure AD and OpenID Connect
 summary: Learn about how a multitenant application can authenticate users from Azure Active Directory (Azure AD) and the OpenID Connect protocol.
 thumbnailUrl: /azure/architecture/browse/thumbs/<browse-png-filename>.png
 content: |
-  [!include[](authentication-flow.md)]
+  [!include[](authentication-flow-content.md)]
