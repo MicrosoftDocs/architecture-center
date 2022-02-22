@@ -1,22 +1,3 @@
----
-title: About the Tailspin Surveys application
-description: Several examples use the Tailspin scenario about a fictional company that is developing a SaaS application named Surveys to create and publish online surveys.
-author: EdPrice-MSFT
-ms.date: 10/06/2021
-ms.topic: conceptual
-ms.service: architecture-center
-ms.subservice: azure-guide
-categories:
-  - identity
-  - web
-ms.custom:
-  - guide
-products:
-  - azure-active-directory
----
-
-# The Tailspin scenario
-
 [:::image type="icon" source="../_images/github.png" border="false"::: Sample code][sample application]
 
 Tailspin is a fictional company that is developing a SaaS application named Surveys. This application enables organizations to create and publish online surveys.

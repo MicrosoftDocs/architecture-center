@@ -1,24 +1,3 @@
----
-title: Secure development with single-page apps
-description: Learn how to use Azure Active Directory (Azure AD) and Oauth 2.0 to secure single-page Azure applications.
-author: lanallai
-manager: danielke
-products:
-  - azure-active-directory
-  - azure-active-directory-b2c
-categories:
-  - identity
-ms.service: architecture-center
-ms.subservice: azure-guide
-ms.topic: guide
-ms.date: 7/7/2021
-ms.author: lanallai
-ms.custom:
-  - fcp
----
-
-# Secure development with single-page applications (SPAs)
-
 When developing cloud-native distributed systems, securing such systems can introduce a new layer of complexity.
 
 On-premise systems rely on the security boundaries that the internal network provides, and they use the directory services for user security. They can run for many years within this secure environment without problems. Moving to the cloud can present new security risks. This article describes tools that you can use to mitigate these risks.

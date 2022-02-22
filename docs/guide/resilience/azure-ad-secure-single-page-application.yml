@@ -1,0 +1,20 @@
+### YamlMime:Architecture
+metadata:
+  title: Secure development with single-page apps
+  description: Learn how to use Azure Active Directory (Azure AD) and Oauth 2.0 to secure single-page Azure applications.
+  author: lanallai
+  ms.author: lanallai
+  ms.date: 7/7/2021
+  ms.topic: conceptual
+  ms.service: architecture-center
+  ms.subservice: azure-guide
+azureCategories:
+  - identity
+products:
+  - azure-active-directory
+  - azure-active-directory-b2c
+name: Secure development with single-page applications (SPAs)
+summary: Learn how to use Azure Active Directory (Azure AD) and Oauth 2.0 to secure single-page Azure applications.
+thumbnailUrl: /azure/architecture/browse/thumbs/azure-ad-oauth2-flow.png
+content: |
+  [!include[](azure-ad-secure-single-page-application-content.md)]

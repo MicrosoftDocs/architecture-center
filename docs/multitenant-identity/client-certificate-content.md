@@ -1,24 +1,3 @@
----
-title: Client certificate for an Azure AD access token
-description: Learn how to use client certificate to prove the token request is genuine, to the Tailspin Surveys sample application.
-author: EdPrice-MSFT
-ms.author: pnp
-ms.date: 04/02/2020
-ms.topic: conceptual
-ms.service: architecture-center
-ms.subservice: azure-guide
-categories:
-  - identity
-  - web
-ms.custom:
-  - guide
-products:
-  - azure-active-directory
-  - azure-app-service-web
----
-
-# Use client certificate to get access tokens from Azure AD
-
 [:::image type="icon" source="../_images/github.png" border="false"::: Sample code][sample application]
 
 This article describes how to add client certificate to the [Tailspin Surveys][Surveys] sample application.

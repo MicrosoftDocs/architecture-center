@@ -1,24 +1,3 @@
----
-title: Resilient identity and access management with Azure Active Directory (Azure AD)
-description: Read this guide to learn how architects, IT administrators, and developers can build resilience to disruption of their identity systems.
-author: BarbaraSelden
-manager: daveba
-products:
-  - azure-active-directory
-  - azure-active-directory-b2c
-categories:
-  - identity
-ms.service: architecture-center
-ms.subservice: azure-guide
-ms.topic: conceptual
-ms.date: 04/22/2021
-ms.author: baselden
-ms.custom:
-  - fcp
----
-
-# Resilient identity and access management with Azure AD
-
 Identity and access management (IAM) is the process, policy, and technology framework that covers management of identities and what they can access. IAM includes components that support authentication and authorization of user and other accounts in a system.
 
 Any component of an IAM system can cause disruption. IAM resilience is the ability to endure disruption to IAM system components and recover with minimal impact to business, users, customers, and operations. This guide describes ways to build a resilient IAM system.
