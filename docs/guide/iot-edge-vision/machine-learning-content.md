@@ -1,23 +1,3 @@
----
-title: Machine learning in IoT Edge Vision
-titleSuffix: Azure Architecture Center
-description: Learn about machine learning data and models in Azure IoT Edge vision AI solutions.
-author: MSKeith
-ms.author: keith
-ms.date: 02/16/2022
-ms.topic: conceptual
-ms.service: architecture-center
-ms.subservice: azure-guide
-categories: iot
-products:
-  - azure-machine-learning
-ms.custom:
-  - guide
-  - fcp
----
-
-# Machine learning in Azure IoT Edge vision AI
-
 IoT Edge devices have limited memory, compute capacity, and power capabilities. These characteristics present unique challenges and requirements for machine learning (ML) solutions. This article discusses ML data and architectural choices for Azure IoT Edge vision AI solutions. The article also discusses the process of choosing, training, and deploying ML solutions and tools.
 
 Training ML models is an iterative, data-driven process. Choosing the data and architecture to use for an ML solution is also an iterative process. If a chosen ML model performs poorly, you can address issues through experimentation and retraining.
