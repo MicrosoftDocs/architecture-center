@@ -24,7 +24,7 @@ At a high level, this solution design addresses each stage of the machine-learni
 
 - Data Preparation: this includes sourcing, cleaning, and transforming the data for processing and analysis. Data can live in a data lake or data warehouse and be stored in a feature store after it's curated.
 
-- Model Development: this includes core components of the model development process such as experiment tracking and model registration using [MLflow](/azure/databricks/applications/mlflow/).
+- Model Development: this includes core components of the model development process, such as experiment tracking and model registration by using [MLflow](/azure/databricks/applications/mlflow/).
 
 - Model Deployment: this includes implementing a CI/CD pipeline to containerize machine-learning models as API services. These services will be deployed to Azure Kubernetes clusters for end users to consume.
 
@@ -42,15 +42,15 @@ After the  machine-learning team has deployed the machine-learning model as an A
 
 The following components are used as part of this design:
 
-- [Azure Databricks](https://docs.microsoft.com/en-us/azure/databricks/scenarios/what-is-azure-databricks): easy and collaborative Apache Spark-based big data analytics service designed for data science and data engineering.
-- [Azure Kubernetes Service](https://docs.microsoft.com/en-us/azure/aks/intro-kubernetes): simplified deployment and management of Kubernetes by offloading the operational overhead to Azure.
-- [Azure Container Registry](https://docs.microsoft.com/en-us/azure/container-registry/container-registry-intro): managed and private Docker registry service based on the open-source Docker.
-- [Azure Data Lake Gen 2](https://docs.microsoft.com/en-us/azure/storage/blobs/data-lake-storage-introduction): scalable solution optimized for storing massive amounts of unstructured data.
-- [Azure Monitor](https://docs.microsoft.com/en-us/azure/azure-monitor/overview): a comprehensive solution for collecting, analyzing, and acting on telemetry from your workloads.
-- [MLflow](https://docs.microsoft.com/en-us/azure/databricks/applications/mlflow): open-source solution integrated within Databricks for managing the end-to-end machine-learning lifecycle.
-- [Azure API Management](https://docs.microsoft.com/en-us/azure/api-management/api-management-key-concepts): a fully managed service that enables customers to publish, secure, transform, maintain, and monitor APIs.
-- [Azure Application Gateway](https://docs.microsoft.com/en-us/azure/application-gateway/overview): a web traffic load balancer that enables you to manage traffic to your web applications.
-- [Azure DevOps](https://azure.microsoft.com/solutions/devops/) or [GitHub](https://azure.microsoft.com/products/github/): solutions for implementing DevOps practices to enforce automation and compliance with your workload development and deployment pipelines.
+- [Azure Databricks](https://azure.microsoft.com/services/databricks): Easy and collaborative Apache Spark-based big data analytics service designed for data science and data engineering.
+- [Azure Kubernetes Service](https://azure.microsoft.com/services/kubernetes-service): Simplified deployment and management of Kubernetes by offloading the operational overhead to Azure.
+- [Azure Container Registry](https://azure.microsoft.com/services/container-registry): Managed and private Docker registry service based on the open-source Docker.
+- [Azure Data Lake Gen 2](https://azure.microsoft.com/en-us/services/storage/data-lake-storage): Scalable solution optimized for storing massive amounts of unstructured data. [Data Lake Storage Gen2](/azure/storage/blobs/data-lake-storage-introduction) offers file system semantics, file-level security, and scale.
+- [Azure Monitor](https://azure.microsoft.com/services/monitor): A comprehensive solution for collecting, analyzing, and acting on telemetry from your workloads.
+- [MLflow](/azure/databricks/applications/mlflow): An open-source solution integrated within Databricks for managing the end-to-end machine-learning lifecycle.
+- [Azure API Management](https://azure.microsoft.com/services/api-management): A fully managed service that enables customers to publish, secure, transform, maintain, and monitor APIs.
+- [Azure Application Gateway](https://azure.microsoft.com/services/application-gateway): A web traffic load balancer that enables you to manage traffic to your web applications.
+- [Azure DevOps](https://azure.microsoft.com/services/devops) or [GitHub](https://azure.microsoft.com/products/github/): Solutions for implementing DevOps practices to enforce automation and compliance with your workload development and deployment pipelines.
 
 ## Considerations
 
@@ -66,7 +66,8 @@ Before implementing this solution some factors you might want to consider,  incl
 
 A proof-of-concept implementation of this scenario is available at the [Proof-of-Concept: Employee Retention with Databricks and Kubernetes](https://github.com/Azure/employee-retention-databricks-kubernetes-poc) repository.
 
-![design](media/employee-retention-with-databricks-and-kubernetes-workflow.png)
+:::image type="content" alt-text="Diagram of the deployment of the architecture that's described in this article, showing develop, build, deploy, and monitor." source="media/employee-retention-with-databricks-and-kubernetes-workflow.png" lightbox="media/employee-retention-with-databricks-and-kubernetes-workflow.png":::
+
 
 This proof-of-concept illustrates:
 
