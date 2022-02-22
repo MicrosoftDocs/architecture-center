@@ -9,7 +9,6 @@ Deployment stamping benefits:
 - Deploy new features, capabilities, and architectural changes to specific stamps that can support them.
 - Support multi-generational device management by aligning capabilities and services to specified device populations.
 - Provide a scaling and cost model based on stamps to predictably accommodate future growth.
-- Track costs per device.
 
 ## IoT deployment stamping architecture
 
