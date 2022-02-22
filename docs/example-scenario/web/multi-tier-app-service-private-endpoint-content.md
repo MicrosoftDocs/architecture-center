@@ -34,7 +34,7 @@ Here's the traffic flow and basic configuration of the architecture:
 
 ### Components
 
-- [Azure App Service](https://azure.microsoft.com/services/app-service) enables you to build and host web apps and API apps in the programming language you choose without needing to manage infrastructure. 
+- [Azure App Service](https://azure.microsoft.com/services/app-service) enables you to build and host web apps and API apps in the programming language that you choose without needing to manage infrastructure. 
 - [Azure Virtual Network](https://azure.microsoft.com/services/virtual-network) is the fundamental building block for creating your own network in Azure. It provides a highly secure environment for running Azure resources like virtual machines.
 - [Azure Private Link](https://azure.microsoft.com/services/private-link) provides private connectivity that you can use to access Azure PaaS services like Azure Storage and Azure SQL Database, or to access customer or partner services, from a virtual network.
 
@@ -45,9 +45,9 @@ One way to implement this solution is to deploy both the front-end app and the A
 Another method is to deploy the front-end app in the multitenant service and the API app in an ILB ASE. Or you can host both the front-end app and the API app in the multitenant service.
 
 These are some alternative ways to provide security for your web apps:
-- App-assigned addresses.
-- Azure service endpoints.
-- Access restrictions.
+- App-assigned addresses
+- Azure service endpoints
+- Access restrictions
  
 For more information, see [App Service networking features](/azure/app-service/networking-features).
 
