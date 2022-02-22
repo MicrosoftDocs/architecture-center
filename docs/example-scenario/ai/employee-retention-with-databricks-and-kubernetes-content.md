@@ -54,54 +54,58 @@ The following components are used as part of this design:
 
 ## Considerations
 
-Before implementing this solution some factors you might want to consider,  include:
+Before implementing this solution, some factors you might want to consider include:
 
-- This solution is designed for teams who require a high degree of customization and have extensive expertise deploying and managing Kubernetes workloads. If your data science team doesn’t have this expertise consider deploying models to another service like [Azure Machine Learning](https://azure.microsoft.com/services/machine-learning).
-- The [Machine Learning DevOps Guide](/azure/cloud-adoption-framework/ready/azure-best-practices/ai-machine-learning-mlops#machine-learning-devops-mlops-best-practices-with-azure-machine-learning) presents best practices and learnings on adopting ML operations (MLOps) in the enterprise with machine learning.
-- Follow the recommendations and guidelines defined in the [Azure Well-Architected Framework](../../framework/index.md) to improve the quality of your Azure solutions.
-- When implementing a [CI/CD pipeline](/azure/architecture/microservices/ci-cd) different tools such as Azure Pipelines or GitHub Actions can be used.
-- Specific business requirements for your analytics use case could require the use of different services or features that aren’t considered in this design.
+- This solution is designed for teams that require a high degree of customization and have extensive expertise deploying and managing Kubernetes workloads. If your data science team doesn’t have this expertise, consider deploying models to another service, such as [Azure Machine Learning](https://azure.microsoft.com/services/machine-learning).
+
+- [Machine learning DevOps (MLOps) best practices with Azure Machine Learning](/azure/cloud-adoption-framework/ready/azure-best-practices/ai-machine-learning-mlops#machine-learning-devops-mlops-best-practices-with-azure-machine-learning) presents best practices and recommendations for adopting ML operations (MLOps) in the enterprise with machine learning.
+
+- Follow the recommendations and guidelines defined in the [Azure Well-Architected Framework](/azure/architecture/framework) to improve the quality of your Azure solutions.
+
+- When implementing a [CI/CD pipeline](/azure/architecture/microservices/ci-cd), you can use different tools, such as Azure Pipelines and GitHub Actions.
+
+- Specific business requirements for your analytics use case could require the use of services or features that aren’t considered in this design.
 
 ## Deploy this scenario
 
-A proof-of-concept implementation of this scenario is available at the [Proof-of-Concept: Employee Retention with Databricks and Kubernetes](https://github.com/Azure/employee-retention-databricks-kubernetes-poc) repository.
+A proof-of-concept implementation of this scenario is available at the [employee-retention-databricks-kubernetes-poc](https://github.com/Azure/employee-retention-databricks-kubernetes-poc), GitHub repository.
 
 :::image type="content" alt-text="Diagram of the deployment of the architecture that's described in this article, showing develop, build, deploy, and monitor." source="media/employee-retention-with-databricks-and-kubernetes-workflow.png" lightbox="media/employee-retention-with-databricks-and-kubernetes-workflow.png":::
 
 
 This proof-of-concept illustrates:
 
-- How an MLflow model for employee attrition can be trained on Azure Databricks.
-- How to package models as a web service using open-source tools.
-- How to deploy to Kubernetes via CI/CD using GitHub Actions.
-- How to monitor API performance and model data drift within Azure Monitor and Azure Log Analytics Workspaces.
+- How to train an MLflow model for employee attrition on Azure Databricks.
+- How to package models as a web service by using open-source tools.
+- How to deploy to Kubernetes via CI/CD by using GitHub Actions.
+- How to monitor API performance and model data drift within Azure Monitor and Azure Log Analytics workspaces.
 
 ## Pricing
 
-All services deployed in this solution use a consumption-based pricing model. The [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator) can be used to estimate costs for a specific scenario. For other considerations, see [Cost Optimization](../../framework/cost/index.yml) in the Well-Architected Framework.
+All services deployed in this solution use a consumption-based pricing model. The [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator) can be used to estimate costs for a specific scenario. For other considerations, see [Cost Optimization](/azure/architecture/framework/cost) in the Well-Architected Framework.
 
 ## Next steps
 
 Product documentation:
 
-- [What is Azure Databricks?](https://docs.microsoft.com/en-us/azure/databricks/scenarios/what-is-azure-databricks)
-- [What is MLflow?](https://docs.microsoft.com/en-us/azure/databricks/applications/mlflow)
-- [What is Azure Kubernetes Service?](https://docs.microsoft.com/en-us/azure/aks/intro-kubernetes)
-- [What is Azure Container Registry?](https://docs.microsoft.com/en-us/azure/container-registry/container-registry-intro)
-- [What is Azure API Management?](https://docs.microsoft.com/en-us/azure/api-management/api-management-key-concepts)
-- [What is Azure Application Gateway?](https://docs.microsoft.com/en-us/azure/application-gateway/overview)
-- [What is Azure Data Lake Gen 2?](https://docs.microsoft.com/en-us/azure/storage/blobs/data-lake-storage-introduction)
-- [What is Azure Monitor?](https://docs.microsoft.com/en-us/azure/azure-monitor/overview)
+- [What is Azure Databricks?](/azure/databricks/scenarios/what-is-azure-databricks)
+- [What is MLflow?](/azure/databricks/applications/mlflow)
+- [What is Azure Kubernetes Service?](/azure/aks/intro-kubernetes)
+- [What is Azure Container Registry?](/azure/container-registry/container-registry-intro)
+- [What is Azure API Management?](/azure/api-management/api-management-key-concepts)
+- [What is Azure Application Gateway?](/azure/application-gateway/overview)
+- [What is Azure Data Lake Gen 2?](/azure/storage/blobs/data-lake-storage-introduction)
+- [What is Azure Monitor?](/azure/azure-monitor/overview)
 - [What is Azure DevOps?](https://azure.microsoft.com/solutions/devops/)
 - [What is GitHub?](https://azure.microsoft.com/products/github/)
 
 Microsoft Learn modules:
 
-- [Perform data science with Azure Databricks](https://docs.microsoft.com/en-us/learn/paths/perform-data-science-azure-databricks/)
-- [Build and operate machine-learning solutions with Azure Databricks](https://docs.microsoft.com/en-us/learn/paths/build-operate-machine-learning-solutions-azure-databricks/)
-- [Introduction to Kubernetes on Azure](https://docs.microsoft.com/en-us/learn/paths/intro-to-kubernetes-on-azure/)
-- [Develop and deploy applications on Kubernetes](https://docs.microsoft.com/en-us/learn/paths/develop-deploy-applications-kubernetes/)
-- [Automate your workflow with GitHub Actions](https://docs.microsoft.com/en-us/learn/paths/automate-workflow-github-actions/)
+- [Perform data science with Azure Databricks](/learn/paths/perform-data-science-azure-databricks/)
+- [Build and operate machine-learning solutions with Azure Databricks](/learn/paths/build-operate-machine-learning-solutions-azure-databricks/)
+- [Introduction to Kubernetes on Azure](/learn/paths/intro-to-kubernetes-on-azure/)
+- [Develop and deploy applications on Kubernetes](/learn/paths/develop-deploy-applications-kubernetes/)
+- [Automate your workflow with GitHub Actions](/learn/paths/automate-workflow-github-actions/)
 
 ## Related resources
 
