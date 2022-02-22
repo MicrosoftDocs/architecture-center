@@ -99,7 +99,7 @@ The Function App settings use a reference to the Azure Key Vault. The script cre
 
 ## Scale Media Services resources
 
-The Azure Media Services account owner can scale the streaming infrastrucure by calling the Azure command-line interface (Azure CLI) within a YAML pipeline step.
+The Azure Media Services account owner can scale the streaming infrastructure by calling the Azure command-line interface (Azure CLI) within a YAML pipeline step.
 
 The script is in [azcli-last-steps-template.yml](https://github.com/mspnp/gridwich/blob/main/infrastructure/azure-pipelines/templates/steps/azcli-last-steps-template.yml).
 
