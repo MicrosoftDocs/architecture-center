@@ -1,36 +1,22 @@
 # Bursting the workload in Virtual Node using AKS
 
-## Introduction
 
-To rapidly scale application workloads in an AKS cluster, you can use virtual nodes. With virtual nodes, you have quick provisioning of pods, and only pay per second for their execution time. You don't need to wait for Kubernetes cluster autoscaler to deploy VM compute nodes to run the additional pods. Virtual nodes are only supported with Linux pods and nodes. For more details on availability , please visit https://docs.microsoft.com/en-us/azure/aks/virtual-nodes
 
-<br/>
+Sometimes, there are scenarios where you cannot predict the workload that can come over your cluster & that could be related to several events like an Ecommerce website is hosting a Sale or Events bookings & there can be other scenarios as well.
+Therefore , to handle these situations you might need rapid scaling .
 
-## Known Limitations
+To rapidly scale application workloads in an AKS cluster, you can use virtual nodes. With virtual nodes, you have quick provisioning of pods, and only pay per second for their execution time. You don't need to wait for Kubernetes cluster autoscaler to deploy VM compute nodes to run the additional pods. Virtual nodes are only supported with Linux pods and nodes. 
 
-Virtual node is fairly a new concept that is getting developed & is quite helpful when there are burst capabilities to be leveraged. Before taking the decision around whether Virtual Node can be the best-fit for your workload , please also go through https://docs.microsoft.com/en-us/azure/aks/virtual-nodes#known-limitations
+You can deploy the virtual nodes with AKS using the below links
+- [Create virtual nodes using Azure CLI](https://docs.microsoft.com/en-us/azure/aks/virtual-nodes-cli)
+- [Create virtual nodes using the portal in Azure Kubernetes Services (AKS)](https://docs.microsoft.com/en-us/azure/aks/virtual-nodes-portal)
 
-<br/>
 
-## Virtual Node In Action
+Virtual nodes uses ACI instances to rapidly spin up the pods depending upon the conditions that you add in the deployment manifest.
 
-1. Start ahead with creation of virtual nodes 
-    - [Create virtual nodes using Azure CLI](https://docs.microsoft.com/en-us/azure/aks/virtual-nodes-cli)
-    - [Create virtual nodes using the portal in Azure Kubernetes Services (AKS)](https://docs.microsoft.com/en-us/azure/aks/virtual-nodes-portal)
-2. Now verify that your virtaul node is enabled
-```console
-kubectl get nodes
-```
 
-The following example output shows the single VM node created and then the virtual node for Linux, *virtual-node-aci-linux*:
+Adding code for SampleApp that helps in provisioning of the pdos on Virtual nodes (Refer https://docs.microsoft.com/en-us/azure/aks/virtual-nodes-cli)
 
-```output
-NAME                           STATUS    ROLES     AGE       VERSION
-virtual-node-aci-linux         Ready     agent     28m       v1.11.2
-aks-agentpool-14693408-0       Ready     agent     32m       v1.11.2
-```
-
-3. Now, its time to deploy the SampleApp (Refer https://docs.microsoft.com/en-us/azure/aks/virtual-nodes-cli)
 ```yaml
 apiVersion: apps/v1
 kind: Deployment
