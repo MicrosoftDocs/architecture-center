@@ -16,7 +16,7 @@ This generalized approach is best suited for:
 
 ## Architecture
 
-:::image type="content" alt-text="Diagram of the architecture in this article, showing development, deployment, exposure of the API, and monitoring of metrics and logs." source="media/employee-retention-with-databricks-and-kubernetes-design.png" lightbox="media/employee-retention-with-databricks-and-kubernetes-design.png":::
+:::image type="content" alt-text="Diagram of the architecture in this article, showing development, deployment, exposure of the API, and monitoring of metrics and logs." source="media/employee-retention-databricks-kubernetes-design.png" lightbox="media/employee-retention-databricks-kubernetes-design.png":::
 
 ### Workflow
 
@@ -70,7 +70,7 @@ Before implementing this solution, some factors you might want to consider inclu
 
 A proof-of-concept implementation of this scenario is available at the [employee-retention-databricks-kubernetes-poc](https://github.com/Azure/employee-retention-databricks-kubernetes-poc), GitHub repository.
 
-:::image type="content" alt-text="Diagram of the deployment of the architecture in this article, showing develop, build, deploy, and monitor." source="media/employee-retention-with-databricks-and-kubernetes-workflow.png" lightbox="media/employee-retention-with-databricks-and-kubernetes-workflow.png":::
+:::image type="content" alt-text="Diagram of the deployment of the architecture in this article, showing develop, build, deploy, and monitor." source="media/employee-retention-databricks-kubernetes-workflow.png" lightbox="media/employee-retention-databricks-kubernetes-workflow.png":::
 
 
 This proof-of-concept illustrates:
