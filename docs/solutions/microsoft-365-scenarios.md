@@ -34,15 +34,17 @@ Microsoft 365 is a suite of apps that help you stay connected and get things don
 - [Excel](https://www.microsoft.com/microsoft-365/excel). Simplify complex data and create easy-to-read spreadsheets.
 - [PowerPoint](https://www.microsoft.com/microsoft-365/powerpoint). Easily create polished presentations.
 - [Teams](https://www.microsoft.com/microsoft-teams/group-chat-software). Bring everyone together in one place to meet, chat, call, and collaborate.
-- [Outlook](https://www.microsoft.com/microsoft-365/outlook/email-and-calendar-software-microsoft-outlook). Manage your email, calendar, tasks, and contacts together in one place.
-- [OneDrive](https://www.microsoft.com/microsoft-365/onedrive/online-cloud-storage). Save, access, edit, and share files and photos.
+- [Outlook](https://www.microsoft.com/microsoft-365/outlook/email-and-calendar-software-microsoft-outlook). Manage your email, calendar, tasks, and contacts in one place.
+- [OneDrive](https://www.microsoft.com/microsoft-365/onedrive/online-cloud-storage). Save, access, edit, and share files.
 - [Exchange](https://www.microsoft.com/microsoft-365/exchange/email). Work smarter with business-class email and calendaring.
-- [SharePoint](https://www.microsoft.com/microsoft-365/sharepoint/collaboration). Share and manage content, knowledge, and applications to enhance teamwork, make information easy to find, and collaborate across the organization.
-- [Access](https://www.microsoft.com/microsoft-365/access). Create your own database apps easily in formats that serve your business best.
-- [Publisher](https://www.microsoft.com/microsoft-365/publisher). Create polished, professional layouts and publish content in a way that suits your audience.
-- [Intune](https://www.microsoft.com/security/business/microsoft-endpoint-manager). Secure, deploy, and manage all users, apps, and devices without disrupting existing processes.
+- [SharePoint](https://www.microsoft.com/microsoft-365/sharepoint/collaboration). Share and manage content, knowledge, and applications to enhance teamwork, make information easy to find, and collaborate across your organization.
+- [Access](https://www.microsoft.com/microsoft-365/access). Create database apps easily in formats that best serve your business.
+- [Publisher](https://www.microsoft.com/microsoft-365/publisher). Create professional layouts and publish content in a way that suits your audience.
+- [Intune](https://www.microsoft.com/security/business/microsoft-endpoint-manager). Secure, deploy, and manage all users, apps, and devices without disrupting your processes.
 
-Watch this short video to learn how these integrated apps and services can help your organization work, learn, connect, and create: 
+This article provides a summary of architectures and solutions that use Azure together with Microsoft 365.
+
+Watch this short video to learn how Microsoft 365 apps and services can help your organization work, learn, connect, and create: 
 
 <br>
 
@@ -57,7 +59,7 @@ The following articles provide detailed analysis of solutions that feature integ
 |Architecture|Summary|Technology focus|
 |--|--|--|
 |[Azure AD security for AWS](../reference-architectures/aws/aws-azure-ad-security.yml)|Learn how Azure Active Directory (Azure AD) can help secure and protect Amazon Web Services (AWS) identity management and account access. If you already use Azure AD for Microsoft 365, this solution is easy to deploy.| Identity|
-|[Defender for Cloud Apps and Microsoft Sentinel for AWS](../reference-architectures/aws/aws-azure-security-solutions.yml)|Learn how Microsoft Defender for Cloud Apps and Microsoft Sentinel can help secure and protect Amazon Web Services (AWS) account access and environments. If you already use Azure AD for Microsoft 365, this solution is easy to deploy.| Security|
+|[Defender for Cloud Apps and Microsoft Sentinel for AWS](../reference-architectures/aws/aws-azure-security-solutions.yml)|Learn how Microsoft Defender for Cloud Apps and Microsoft Sentinel can help secure and protect AWS account access and environments. If you already use Azure AD for Microsoft 365, this solution is easy to deploy.| Security|
 |[Manage Microsoft 365 tenant configuration with Azure DevOps](../example-scenario/devops/manage-microsoft-365-tenant-configuration-microsoft365dsc-devops.yml)|Learn how to manage Microsoft 365 tenant configuration by using Microsoft365DSC and Azure DevOps.| Web|
 |[Power Automate deployment at scale](../example-scenario/power-automate/power-automate.yml)|Learn how to use a hub-and-spoke architectural model to deploy Power Automate parent and child flows. This architecture is for Power Automate workflows that replace SharePoint 2010 workflows, and for new SharePoint Online sites.| Integration|
 |[Virtual health on Microsoft Cloud for Healthcare](../example-scenario/mch-health/virtual-health-mch.yml) |Learn how to develop a virtual health solution by using Microsoft Cloud for Healthcare. Microsoft Cloud for Healthcare brings together capabilities from Microsoft 365, Azure, and other technologies to help healthcare organizations create fast, efficient, and highly secure healthcare solutions.|Web|
@@ -90,10 +92,10 @@ The following articles provide detailed analysis of solutions that feature integ
 |Architecture|Summary|Technology focus|
 |--|--|--|
 |[Governance of Teams guest users](../example-scenario/governance/governance-teams-guest-users.yml)| Learn how to use Teams and Azure AD entitlement management to collaborate with other organizations while maintaining control over resource use.|Identity|
-|[Secure your Teams channel bot and web app behind a firewall](../example-scenario/teams/securing-bot-teams-channel.yml) |Secure the connection to a Teams channel bot's web app by using Azure Private Link and a private endpoint.|Security|
-|[Teacher-provisioned virtual labs in Azure](../example-scenario/devops/teacher-provisioned-virtual-labs-azure.yml)|Learn how you can use Azure Lab Services to set up identical VMs from templates for use in training, customer demos, and software development. Students can access the VMs via Teams integration.| DevOps|
+|[Provide security for your Teams channel bot and web app behind a firewall](../example-scenario/teams/securing-bot-teams-channel.yml) |Provide security for the connection to a Teams channel bot's web app by using Azure Private Link and a private endpoint.|Security|
+|[Teacher-provisioned virtual labs in Azure](../example-scenario/devops/teacher-provisioned-virtual-labs-azure.yml)|Learn how you can use Azure Lab Services to set up identical VMs from templates for use in training, customer demos, and software development. Students and stakeholders can access the VMs via Teams integration.| DevOps|
 
 
 ## Related resources
 
-- [Browse our Microsoft 365 architectures](../browse/?products=m365)
+- [Browse our Microsoft 365 architectures](azure/architecture/browse/?products=m365)
