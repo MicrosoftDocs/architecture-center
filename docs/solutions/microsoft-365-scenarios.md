@@ -1,6 +1,6 @@
 ---
 title: Azure and Microsoft 365 scenarios
-description: Learn about architectures and solutions that use Azure together with Microsoft 365. 
+description: Read this article to learn about architectures and solutions that use Azure together with Microsoft 365. 
 author: EdPrice-MSFT
 ms.author: edprice
 ms.date: 02/23/2022
