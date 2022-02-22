@@ -16,6 +16,6 @@ products:
   - azure-app-service-web
 name: Authenticate using Azure AD and OpenID Connect
 summary: Learn about how a multitenant application can authenticate users from Azure Active Directory (Azure AD) and the OpenID Connect protocol.
-thumbnailUrl: /azure/architecture/browse/thumbs/<browse-png-filename>.png
+thumbnailUrl: /azure/architecture/browse/thumbs/authentication-flow.png
 content: |
-  [!include[](authentication-flow-content.md)]
+  [!include[](authenticate-content.md)]
