@@ -1,8 +1,8 @@
-This article discusses a *deployment stamping* strategy for managing and adding connected devices in an internet of things (IoT) solution. The article also describes in detail how to move IoT devices and applications between deployment stamps.
+This article discusses a *deployment stamping* strategy to support scaling up the numbers of connected devices in an internet of things (IoT) solution.  The article also describes in detail how to deploy IoT devices and applications between deployment stamps.
 
 The deployment stamping strategy for IoT solutions is based on the [Deployment Stamp](../../patterns/deployment-stamp.md) design pattern. Deployment stamps are units composed of heterogenous components that support a defined device population. Deployment stamping scales up numbers of connected IoT devices by replicating stamps, rather than independently scaling up different parts of a solution.
 
-Deployment stamping lets you:
+Deployment stamping benefits:
 
 - Place and distribute devices by criteria like geo-dependency, lifecycle, or release status.
 - Contain outage or service degradation impacts to specific stamps.
