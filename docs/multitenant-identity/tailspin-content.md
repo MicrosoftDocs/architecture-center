@@ -11,7 +11,7 @@ Tailspin is a fictional company that is developing a SaaS application named Surv
 
 ## Users can create, edit, and view surveys
 
-An authenticated user can view all the surveys that he or she has created or has contributor rights to, and create new surveys. Notice that the user is signed in with his organizational identity, `bob@contoso.com`.
+Authenticated users can view surveys that they created or have contributor rights to. They can create new surveys. Notice that the user is signed in with an organizational identity, `bob@contoso.com`.
 
 ![Surveys app](./images/surveys-screenshot.png)
 
@@ -25,17 +25,17 @@ Users can also view any surveys created by other users within the same tenant.
 
 ## Survey owners can invite contributors
 
-When a user creates a survey, he or she can invite other people to be contributors on the survey. Contributors can edit the survey, but cannot delete or publish it.
+When a user creates a survey, he or she can invite other people to be contributors on the survey. Contributors can edit the survey, but can't delete or publish it.
 
 ![Add contributor](./images/add-contributor.png)
 
-A user can add contributors from other tenants, which enables cross-tenant sharing of resources. In this screenshot, Bob (`bob@contoso.com`) is adding Alice (`alice@fabrikam.com`) as a contributor to a survey that Bob created.
+A user can add contributors from other tenants. Adding contributors enables cross-tenant sharing of resources. In this screenshot, Bob (`bob@contoso.com`) is adding Alice (`alice@fabrikam.com`) as a contributor to a survey that Bob created.
 
 When Alice logs in, she sees the survey listed under "Surveys I can contribute to".
 
 ![Survey contributor](./images/contributor.png)
 
-Note that Alice signs into her own tenant, not as a guest of the Contoso tenant. Alice has contributor permissions only for that survey &mdash; she cannot view other surveys from the Contoso tenant.
+Alice signs into her own tenant, not as a guest of the Contoso tenant. Alice has contributor permissions only for that survey. She can't view other surveys from the Contoso tenant.
 
 ## Architecture
 
