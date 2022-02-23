@@ -25,7 +25,7 @@ OAuth flows cover many use cases, all backed by Azure AD Services. Developers us
 - Guest users can participate through business-to-business transactions.
 - Users can reach out to end consumers through Azure Business to Consumers (Azure B2C).
 
-:::image type="content" source="media/azure-ad-secure-single-page-application/azure-ad-oauth2-flow.png" alt-text="Diagram that shows the secure OAuth 2 flow between a native app and a web API.":::
+:::image type="content" source="media/azure-ad-secure-single-page-application/azure-ad-oauth-2-flow-inline.png" alt-text="Diagram that shows the secure OAuth 2 flow between a native app and a web API." lightbox="media/azure-ad-secure-single-page-application/azure-ad-oauth-2-flow-expanded.png" :::
 
 There are two OAuth flows, implicit grant and authorization code. Implicit grant is the most common, but we recommend using the [authorization code flow](/azure/active-directory/develop/v2-oauth2-auth-code-flow).
 

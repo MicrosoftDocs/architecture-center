@@ -15,6 +15,6 @@ products:
   - azure-active-directory-b2c
 name: Secure development with single-page applications (SPAs)
 summary: Learn how to use Azure Active Directory (Azure AD) and Oauth 2.0 to secure single-page Azure applications.
-thumbnailUrl: /azure/architecture/browse/thumbs/azure-ad-oauth2-flow.png
+thumbnailUrl: /azure/architecture/browse/thumbs/azure-ad-oauth-2-flow.png
 content: |
   [!include[](azure-ad-secure-single-page-application-content.md)]
