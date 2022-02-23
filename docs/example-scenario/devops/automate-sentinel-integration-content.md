@@ -6,7 +6,7 @@ This article shows you how to automate Microsoft Sentinel integration and deploy
 
 You can even expand the solution to cover more complex organizations that have multiple entities, subscriptions, and various operating models. Some of the operating models supported by this solution include Local SOC, Global SOC, Cloud Service Provider (CSP), and Managed Security Service Provider (MSSP).
 
-This article serves the following audiences.
+This article supports the following audiences.
 
 * SOC specialists, as in, analysts and threat hunters
 * SIEM engineers
@@ -24,6 +24,8 @@ Following are the typical use cases for this architecture.
 The following illustration shows a Mitre Att&ck Cloud scenario.
 
 ![Diagram of a Mitre Att&ck Cloud scenario](./media/mitre-att&ck-in-sentinel-artifacts-dev.png)
+
+*Download a [Visio file](https://arch-center.azureedge.net/US-1902821-automate-sentinel-integration-architecture.vsdx) of this architecture.*
 
 ## Architecture
 
@@ -116,6 +118,8 @@ Security of privileged access is critically important because it's foundational 
 For that reason, we recommend logically spreading the service principals into different levels or tiers following a minimum privilege principle. The following illustration shows how to classify the service principals, depending on type of access and where the access is required.
 
 ![Architecture diagram for automating Microsoft Sentinel pipeline](./media/sentinel-layered-architecture.png)
+
+*Download a [PowerPoint file](https://arch-center.azureedge.net/US-1902821-automate-sentinel-integration-architecture.pptx) of this architecture.*
 
 #### Level 0 service principals
 
@@ -325,7 +329,9 @@ By following this practice, your team can evaluate your MITRE coverage based on 
 
 The objective of your build process is to ensure that you generate the highest quality artifacts. The following diagram shows some of the build process actions you can take.
 
-![Microsoft Sentinel build process](./media/build-artifact-process.png)
+:::image type="content" source="./media/build-artifact-process-lightbox.png" alt-text="Microsoft Sentinel build process." lightbox="./media/build-artifact-process-lightbox.png":::
+
+*Download a [Visio file](https://arch-center.azureedge.net/US-1902821-automate-sentinel-integration-architecture.vsdx) of this architecture.*
 
 * You can base your artifact definition on a descriptive schema in JSON or YAML format and then validate the schema to avoid syntax errors.  
   * Validate your ARM templates using [TTK ARM Template Test Toolkit](/azure/azure-resource-manager/templates/test-toolkit).
@@ -341,11 +347,13 @@ The objective of your build process is to ensure that you generate the highest q
 
 #### Export Artifacts
 
-Usually, multiple teams work over several Microsoft Sentinel instances to generate necessary artifacts and validate them. With the goal of reusing existing artifacts, your company can set up automatic processes for getting the artifact definitions from existing environments. Automation can also supply information on any artifacts created by different development teams during setup. 
+Usually, multiple teams work over several Microsoft Sentinel instances to generate necessary artifacts and validate them. With the goal of reusing existing artifacts, your company can set up automatic processes for getting the artifact definitions from existing environments. Automation can also supply information on any artifacts created by different development teams during setup.
 
 The following diagram shows an example artifact extraction process.
 
-![Microsoft Sentinel artifact extraction process](./media/artifact-extraction-process.png)
+:::image type="content" source="./media/artifact-extraction-process-lightbox.png" alt-text="Microsoft Sentinel artifact extraction process." lightbox="./media/artifact-extraction-process-lightbox.png":::
+
+*Download a [Visio file](https://arch-center.azureedge.net/US-1902821-automate-sentinel-integration-architecture.vsdx) of this architecture.*
 
 #### Deploy Artifacts
 
@@ -359,7 +367,9 @@ Development teams use the process to ensure they can deploy, test, and validate 
 
 The following diagram shows the deployment process sequence that ensures your artifacts are deployed in the right order.
 
-![Microsoft Sentinel artifact deployment process](./media/artifact-deployment-process.png)
+:::image type="content" source="./media/artifact-deployment-process-lightbox.png" alt-text="Microsoft Sentinel artifact deployment process." lightbox="./media/artifact-deployment-process-lightbox.png":::
+
+*Download a [Visio file](https://arch-center.azureedge.net/US-1902821-automate-sentinel-integration-architecture.vsdx) of this architecture.*
 
 Managing Sentinel artifacts as code offer you flexible ways to maintain your operations and automate the deployment in a CI/CD DevOps pipeline.
 
@@ -387,7 +397,9 @@ Depending on the automation language you choose, some automation capabilities mi
 
 The following diagram shows the components of simplifying Microsoft Sentinel access with managed service identity.
 
-![Azure Sentinel managed service identity diagram](./media/azure_sentinel-managed-service-identity.png)
+![Azure Sentinel managed service identity diagram](./media/azure-sentinel-managed-service-identity.png)
+
+*Download a [Visio file](https://arch-center.azureedge.net/US-1902821-automate-sentinel-integration-architecture.vsdx) of this architecture.*
 
 If you need to grant access to another resources, using managed identity ensures a unique identity for all critical operations.
 
@@ -568,11 +580,87 @@ Using examples from the repository, you can define the environment using JSON fi
 
 In a literal definition, you specify the name and the elements for each resource in the environment as shown in this example.
 
-![Literal environment definitions](./media/literal-env-code-definitions.png)
+```json
+{
+    {
+        "SubscriptionId": "<subscription-identifier-associated-with-service-connection>",
+        "Name": "<environment-name>",
+        "NamingConvention": "<naming-convention-template-for-automatic-cases>",
+        "Location": "<environment-location>",
+        "ResourceGroup": {
+            "Type": "Literal",
+            "ResourceGroupName": "<resource-group-name>"
+         }
+    },
+    "Resources":
+    {
+        "Sentinel":
+        {
+            "Type": "Literal",
+            "LogAnalyticsWorkspaceName": "<Log-Analytics-workspace-name>",
+            "ManagedIdentityName": "<user-managed-identity-name>",
+            "SentinelConnectionName": "<Sentinel-API-connection-name>",
+            "KeyVaultName": "<Key-Vault-name>",
+            "KeyVaultConnectionName": "<Key-Vault-API-connection-name>"
+        },
+        "Automation":
+        {
+            "Type": "Literal",
+            "AutomationAccountName": "<automation-account-name>",
+            "AutomationAccountConnectionName": "<automation-account-API-connection-name>"
+        },
+        "Integration":
+        {
+            "Type": "Literal",
+            "EventHubNamespaces": [
+                "<Event-Hubs-namespace-1-name>",
+                "<Event-Hubs-namespace-2-name>",
+                "<Event-Hubs-namespace-3-name>",
+                "<Event-Hubs-namespace-4-name>",
+                "<Event-Hubs-namespace-5-name>",
+                "<Event-Hubs-namespace-6-name>",
+                "<Event-Hubs-namespace-7-name>",
+                "<Event-Hubs-namespace-8-name>",
+                "<Event-Hubs-namespace-9-name>",
+                "<Event-Hubs-namespace-10-name>",
+            ],
+            "StorageAccountName": "<storage-account-name>"
+        }
+    }
+}
 
+```
 In an automatic definition, naming the elements generates automatically based on naming conventions as shown in this example.
 
-![Automatic environment definitions](./media/automatic-env-code-definitions.png)
+```json
+{
+    {
+        "SubscriptionId": "<subscription-identifier-associated-with-service-connection>",
+        "Name": "<environment-name>",
+        "NamingConvention": "<naming-convention-template-for-automatic-cases>",
+        "Location": "<environment-location>",
+        "ResourceGroup": {
+            "Type": "Automatic"
+        }
+    },
+    "Resources":
+    {
+        "Sentinel":
+        {
+            "Type": "Automatic"
+        },
+        "Automation":
+        {
+            "Type": "Automatic"
+        },
+        "Integration":
+        {
+            "Type": "Automatic",
+            "MaxEventHubNamespaces": 5
+        }
+    }
+}
+```
 
 You can find samples in the GitHub repository under the Microsoft Sentinel environments path and use the samples as a reference in preparing your use cases.
 
