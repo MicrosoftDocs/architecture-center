@@ -11,11 +11,11 @@ The following examples are intended for both existing and new SWIFT customers, a
 
 ## Architecture
 
-[![Architecture for SWIFT Alliance Access](media/swift-alliance-access-multi-region.png)](media/swift-alliance-access-multi-region.png#lightbox)
+[![Diagram of the architecture for SWIFT Alliance Access.](media/swift-alliance-access-multi-region.png)](media/swift-alliance-access-multi-region.png#lightbox)
 
 *Download a [PowerPoint file](https://arch-center.azureedge.net/swift-alliance-access-multi-region.pptx) that contains this architecture diagram.*
 
-The Alliance Access Secure Zone subscription contains resources managed by the customer. The resources for Alliance Access can be deployed with an Azure Resource Manager template to create the core infrastructure as described in this architecture. An Alliance Access deployment in Azure should adhere to SWIFT’s Customer Security Program (CSP) Control Framework (CSCF). We recommend that customers use the SWIFT CSP-CSCF Azure policies in this subscription.
+The Alliance Access Secure Zone subscription contains resources managed by the customer. The resources for Alliance Access can be deployed with an Azure Resource Manager template to create the core infrastructure as described in this architecture. An Alliance Access deployment in Azure should adhere to SWIFT's Customer Security Program (CSP) Control Framework (CSCF). We recommend that customers use the SWIFT CSP-CSCF Azure policies in this subscription.
 
 Once the Alliance Access infrastructure in Azure is deployed, the customer follows SWIFT's instructions for installing the Alliance Access software.
 
@@ -42,7 +42,7 @@ The SWIFT customer establishes a secure connection from their on-premises or col
 * Site-to-site VPN can be used to connect the customer's on-premises to Azure over the internet.
 * The customer's Azure environment can be peered.
 
-[![SWIFT Alliance Access Customer Connectivity](media/swift-alliance-access-customer-connectivity-2.png)](media/swift-alliance-access-customer-connectivity-2.png#lightbox)
+[![Diagram of SWIFT Alliance Access customer connection options.](media/swift-alliance-access-customer-connectivity-2.png)](media/swift-alliance-access-customer-connectivity-2.png#lightbox)
 
 *Download a [PowerPoint file](https://arch-center.azureedge.net/swift-alliance-access-customer-connectivity-2.pptx) that contains this architecture diagram.*
 
@@ -87,7 +87,7 @@ This Azure architecture shows all SWIFT components running in Azure, except the 
 * [Microsoft Defender for Cloud](https://azure.microsoft.com/services/defender-for-cloud) protects your hybrid data, cloud-native services, and servers. It integrates with your existing security workflows, such as SIEM solutions and Microsoft threat intelligence, to streamline threat mitigation.
 * [Azure Bastion](https://azure.microsoft.com/services/azure-bastion) enables connectivity transparency from the Azure portal to a VM by using RDP or SSH. Because Azure Bastion requires administrators to sign in to the Azure portal, [Azure Active Directory Multi-Factor Authentication](/azure/active-directory/authentication/concept-mfa-howitworks) can be enforced and [Conditional Access](/azure/active-directory/conditional-access/overview) can be used to enforce other restrictions—for example, which public IP address administrators can sign in. Deploying Azure Bastion also enables just-in-time access, which opens required ports on-demand when remote access is required.
 
-***Authentication and authorization***
+#### Authentication and authorization
 
 Administrators managing the SWIFT infrastructure in Azure require an identity in the [Azure Active Directory](https://azure.microsoft.com/services/active-directory) (Azure AD) of the Azure tenant associated with the subscription. Azure AD can be a part of an enterprise hybrid identity configuration that integrates your on-premises enterprise identity system with the cloud. However, SWIFT's CSP-CSCF recommends separating the identity system for SWIFT deployments from your enterprise identity system. If your current tenant is already integrated with your on-premises directory, you can create a separate tenant with a separate Azure AD to follow this recommendation.
 
@@ -95,7 +95,7 @@ Users enrolled in the Azure AD can sign in to the Azure portal, or authenticate 
 
 The Azure AD associated with a subscription enables only the management of Azure services. Azure AD doesn't provide credentials to sign in to VMs that are provisioned in Azure under a subscription unless Azure AD authentication has been explicitly enabled. To see how Azure can help customers use Azure AD for application authentication, see [Migrate application authentication to Azure AD](/azure/active-directory/manage-apps/migrate-application-authentication-to-azure-active-directory).
 
-***Enforcing SWIFT CSP-CSCF policies***
+#### Enforcing SWIFT CSP-CSCF policies
 
 [Azure Policy](https://azure.microsoft.com/services/azure-policy/) enables customers to set policies that need to be enforced within an Azure subscription to meet compliance or security requirements. For example, Azure Policy can be used to block administrators from deploying certain resources, or to enforce network configuration rules that block traffic to the internet. Customers can use built-in policies or create policies themselves.
 
@@ -107,7 +107,7 @@ Consider using the latest implementation of SWIFT CSP controls, but first consul
 
 ### Resilience
 
-When you deploy SWIFT components on-premises, you need to make decisions about resilience. For on-premises resilience, we recommend that you deploy into at least two separate data centers, so that a data center failure doesn’t compromise your business. The same considerations apply in Azure, although some different concepts apply.
+When you deploy SWIFT components on-premises, you need to make decisions about resilience. For on-premises resilience, we recommend that you deploy into at least two separate data centers, so that a data center failure doesn't compromise your business. The same considerations apply in Azure, although some different concepts apply.
 
 #### Azure resilience concepts
 
@@ -121,13 +121,13 @@ The Alliance Access component uses an embedded Oracle database. To align with a 
 
 Path resilience has all the required SWIFT components placed in one path. You duplicate each path as many times as you need for resilience and scaling. If there's a failure, you fail over an entire path instead of a single component. The figure shows what this resiliency approach looks like with availability zones (left) or availability sets (right). This architecture has a simpler SWIFT configuration, but a failure in any component in a path requires that you switch to another path. Combining Web Platform and Alliance Access on a single VM reduces the number of infrastructure components that can fail, which could be a consideration depending on the usage pattern of the SWIFT components.
 
-[![Conceptual Path Resilience for SWIFT](media/swift-alliance-access-path-resilience.png)](media/swift-alliance-access-path-resilience.png#lightbox)
+[![Diagram of resilience options for SWIFT.](media/swift-alliance-access-path-resilience.png)](media/swift-alliance-access-path-resilience.png#lightbox)
 
 *Download a [PowerPoint file](https://arch-center.azureedge.net/swift-alliance-access-path-resilience.pptx) that contains this architecture diagram.*
 
-Because different SWIFT components connect to specific nodes, you can’t use Azure Load Balancer to automate failover or to provide load balancing. Instead, you have to rely on SWIFT's software capabilities to detect failure and switch to a secondary node. The actual uptime you achieve depends on how quickly a component can detect failure and fail over. Because you're using availability zones or availability sets, the VM uptime SLA for each component is well-defined.
+Because different SWIFT components connect to specific nodes, you can't use Azure Load Balancer to automate failover or to provide load balancing. Instead, you have to rely on SWIFT's software capabilities to detect failure and switch to a secondary node. The actual uptime you achieve depends on how quickly a component can detect failure and fail over. Because you're using availability zones or availability sets, the VM uptime SLA for each component is well-defined.
 
-***Multi-region multi-active resilience***
+#### Multi-region multi-active resilience
 
 To increase resilience beyond a single Azure region, we recommend that you deploy in multiple Azure regions by using [Azure Paired Regions](/azure/best-practices-availability-paired-regions). Each Azure region is paired with another region within the same geography, together making a regional pair. Azure serializes platform updates (planned maintenance) across region pairs so that only one paired region is updated at a time. If an outage affects multiple regions, at least one region in each pair will be prioritized for recovery.
 
