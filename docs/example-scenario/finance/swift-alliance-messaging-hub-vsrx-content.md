@@ -4,10 +4,12 @@ This article outlines a solution for hosting AMH on Azure.
 
 ## Potential use cases
 
-The solution can benefit existing and new SWIFT customers. You can use it for:
+This solution is optimal for the finance industry.
 
-- Migrating AMH from on-premises systems to Azure.
-- Establishing a new AMH environment in Azure.
+The solution can benefit existing and new SWIFT customers. You can use it for the following scenarios:
+
+- Migrating AMH from on-premises systems to Azure
+- Establishing a new AMH environment in Azure
 
 ## Architecture
 

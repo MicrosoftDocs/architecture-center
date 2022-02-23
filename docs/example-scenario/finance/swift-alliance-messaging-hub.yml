@@ -4,7 +4,7 @@ metadata:
   description: Run SWIFT Alliance Messaging Hub (AMH) on Azure. This messaging solution helps financial institutions to securely and efficiently bring new services to market.
   author: Mahesh-MSFT
   ms.author: maksh
-  ms.date: 02/22/2022
+  ms.date: 02/23/2022
   ms.topic: conceptual
   ms.service: architecture-center
   ms.subservice: example-scenario
