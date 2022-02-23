@@ -373,6 +373,8 @@ items:
                  href: example-scenario/power-automate/power-automate.yml
           - name: Azure and Microsoft 365 scenarios
             items: 
+              - name: Overview
+                href: solutions/microsoft-365-scenarios.md
               - name: All Microsoft 365 architectures
                 href: /azure/architecture/browse/?products=m365
               - name: Governance of Teams guest users
