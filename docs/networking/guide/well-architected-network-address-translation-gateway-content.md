@@ -1,25 +1,3 @@
----
-title: Azure Well-Architected Framework review of an Azure NAT gateway
-titleSuffix: Azure Architecture Center
-description: Best practices for an Azure NAT gateway, based on the Azure Well-Architected Framework's five pillars of architecture excellence.
-author: jknightly
-ms.author: ethaslet
-ms.date: 09/21/2021
-ms.topic: conceptual
-ms.service: architecture-center
-ms.subservice: azure-guide
-ms.custom:
-  - fcp
-products:
-  - azure-application-gateway
-  - azure-virtual-network
-  - azure-private-link
-categories:
-  - networking
----
-
-# Azure Well-Architected Framework review of an Azure NAT gateway
-
 This article provides best practices for an Azure NAT gateway. The guidance is based on the five pillars of architecture excellence: Cost Optimization, Operational Excellence, Performance Efficiency, Reliability, and Security.
 
 We assume that you have a working knowledge of Azure Virtual Network NAT and Azure NAT gateway and that you are well-versed with the respective features. As a refresher, review the full set of [Azure Virtual Network NAT](/azure/virtual-network/nat-gateway) documentation.
