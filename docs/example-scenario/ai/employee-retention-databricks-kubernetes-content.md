@@ -18,6 +18,8 @@ This generalized approach is best suited for:
 
 :::image type="content" alt-text="Diagram of the architecture in this article, showing development, deployment, exposure of the API, and monitoring of metrics and logs." source="media/employee-retention-databricks-kubernetes-design.png" lightbox="media/employee-retention-databricks-kubernetes-design.png":::
 
+*Download a [PowerPoint file](https://arch-center.azureedge.net/employee-retention-databricks-kubernetes.pptx) of this architecture.*
+
 ### Workflow
 
 At a high level, this solution design addresses each stage of the machine-learning lifecycle:
