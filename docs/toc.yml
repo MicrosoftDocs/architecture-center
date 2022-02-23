@@ -2642,23 +2642,23 @@ items:
                       - name: Container orchestration
                         href: microservices/design/orchestration.md
                       - name: Design patterns for microservices
-                        href: microservices/design/patterns.md
+                        href: microservices/design/patterns.yml
                   - name: Operate microservices in production
                     items:
                       - name: Monitor microservices in AKS
-                        href: microservices/logging-monitoring.md
+                        href: microservices/logging-monitoring.yml
                       - name: CI/CD for microservices
-                        href: microservices/ci-cd.md
+                        href: microservices/ci-cd.yml
                       - name: CI/CD for microservices on Kubernetes
-                        href: microservices/ci-cd-kubernetes.md
+                        href: microservices/ci-cd-kubernetes.yml
                   - name: Migrate to a microservices architecture
                     items:
                       - name: Migrate monolith to microservices
-                        href: microservices/migrate-monolith.md
+                        href: microservices/migrate-monolith.yml
                       - name: Modernize apps with Service Fabric
-                        href: service-fabric/modernize-app-azure-service-fabric.md
+                        href: service-fabric/modernize-app-azure-service-fabric.yml
                       - name: Migrate from Cloud Services to ASF
-                        href: service-fabric/migrate-from-cloud-services.md
+                        href: service-fabric/migrate-from-cloud-services.yml
                   - name: .NET microservices
                     items:
                       - name: Design a microservice-oriented app
@@ -2709,9 +2709,9 @@ items:
                       - name: Serverless Functions app development
                         href: serverless-quest/application-development.md
                       - name: Serverless Functions code walkthrough
-                        href: serverless/code.md
+                        href: serverless/code.yml
                       - name: CI/CD for a serverless frontend
-                        href: serverless/guide/serverless-app-cicd-best-practices.md
+                        href: serverless/guide/serverless-app-cicd-best-practices.yml
                   - name: Monitoring serverless event processing
                     href: serverless/guide/monitoring-serverless-event-processing.md
                   - name: Serverless Functions app operations
@@ -2854,7 +2854,7 @@ items:
                 href: /azure/synapse-analytics/cicd/continuous-integration-delivery
                 maintainContext: true
               - name: DevOps for quantum computing
-                href: guide/quantum/devops-for-quantum-computing.md
+                href: guide/quantum/devops-for-quantum-computing.yml
               - name: Platform automation for VMware Solution
                 href: /azure/cloud-adoption-framework/scenarios/azure-vmware/eslz-platform-automation-and-devops
                 maintainContext: true

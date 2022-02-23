@@ -1,26 +1,3 @@
----
-title: DevOps for quantum computing
-description: Learn about DevOps requirements for quantum-based apps. DevOps provides a repeatable, high-quality process for building, deploying, and monitoring software.
-author: hsirtl
-ms.author: hsirtl
-ms.date: 01/06/2022
-ms.topic: conceptual
-ms.service: architecture-center
-ms.subservice: azure-guide
-products:
-  - azure-quantum
-  - azure-devops
-  - azure-repos
-  - azure-pipelines
-categories:
-  - devops
-  - compute
-  - hybrid
-ms.custom: fcp
----
-
-# DevOps for quantum computing
-
 Quantum computing applies the unique behavior of quantum mechanics to information processing. This approach provides dramatically faster compute than classical computing, especially in areas like optimization, simulation, and machine learning. However, quantum computing components have a different development and operating model than that of classical software. They're not installed and run like classical applications (for example, on physical hardware or virtual machines). Instead, quantum applications are developed as *jobs*. A classical software component (running in a classical environment) orchestrates the [execution of quantum jobs](/azure/quantum/how-to-work-with-jobs) in a target environment at runtime.
 
 A quantum computing application is in fact always a hybrid application that consists of classical (orchestration) and quantum (quantum algorithm) parts. DevOps has specific requirements for both parts. This article discusses the DevOps requirements for hybrid quantum applications. DevOps provides a repeatable, high-quality process for building, deploying, and monitoring software.

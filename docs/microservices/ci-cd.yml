@@ -1,0 +1,19 @@
+### YamlMime:Architecture
+metadata:
+  title: CI/CD for microservices
+  description: Learn about continuous integration and continuous delivery for microservices, including challenges and recommended approaches.
+  author: EdPrice-MSFT
+  ms.author: edprice
+  ms.date: 03/27/2019
+  ms.topic: conceptual
+  ms.service: architecture-center
+  ms.subservice: azure-guide
+azureCategories:
+  - devops
+products:
+  - azure
+name: CI/CD for microservices architectures
+summary: Learn about continuous integration and continuous delivery for microservices, including challenges and recommended approaches.
+thumbnailUrl: /azure/architecture/browse/thumbs/cicd-monolith.png
+content: |
+  [!include[](ci-cd-content.md)]

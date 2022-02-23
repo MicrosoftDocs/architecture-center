@@ -1,0 +1,20 @@
+### YamlMime:Architecture
+metadata:
+  title: CI/CD for a serverless Azure frontend
+  description: Learn best practices for a robust CI/CD pipeline for your serverless frontend on Azure.
+  author: dsk-2015
+  ms.author: dkshir
+  ms.date: 10/20/2019
+  ms.topic: conceptual
+  ms.service: architecture-center
+  ms.subservice: azure-guide
+azureCategories:
+  - devops
+  - developer-tools
+products:
+  - azure-pipelines
+name: CI/CD for serverless application frontend on Azure
+summary: Learn best practices for a robust CI/CD pipeline for your serverless frontend on Azure.
+thumbnailUrl: /azure/architecture/browse/thumbs/cicd-serverless-frontend.png
+content: |
+  [!include[](serverless-app-cicd-best-practices-content.md)]

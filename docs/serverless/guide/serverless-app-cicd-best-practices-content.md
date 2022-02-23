@@ -1,25 +1,4 @@
----
-title: CI/CD for a serverless Azure frontend
-description: Learn best practices for a robust CI/CD pipeline for your serverless frontend on Azure.
-author: dsk-2015
-ms.author: dkshir
-ms.date: 10/20/2019
-ms.topic: conceptual
-ms.service: architecture-center
-ms.subservice: azure-guide
-categories:
-  - devops
-  - developer-tools
-products:
-  - azure-pipelines
-ms.custom:
-  - guide
----
-
 <!-- cSpell:ignore dkshir cicd brotli iname fabrikamdronestatus Jamstack setvariable CDNS -->
-
-# CI/CD for serverless application frontend on Azure
-
 Serverless computing abstracts the servers, infrastructure, and operating systems, allowing developers to focus on application development. A robust *CI/CD* or *Continuous Integration*/*Continuous Delivery* of such applications allows companies to ship fully tested and integrated software versions within minutes of development. It provides a backbone of modern DevOps environment.
 
 What does CI/CD actually stand for?
