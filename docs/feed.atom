@@ -2,12 +2,60 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id/>
     <title>Azure Architecture Center</title>
-    <updated>2022-02-14T19:31:44.180Z</updated>
+    <updated>2022-02-22T20:35:52.352Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <subtitle>Updated articles for Azure Architecture Center</subtitle>
     <rights>https://docs.microsoft.com/legal/termsofuse</rights>
     <category term="new"/>
     <category term="updated"/>
+    <entry>
+        <title type="html"><![CDATA[Big data analytics on confidential computing]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/example-scenario/confidential/data-analytics-containers-spark-kubernetes-azure-sql</id>
+        <link href="https://docs.microsoft.com/azure/architecture/example-scenario/confidential/data-analytics-containers-spark-kubernetes-azure-sql"/>
+        <updated>2022-02-18T20:38:13.000Z</updated>
+        <summary type="html"><![CDATA[Use confidential computing on Kubernetes to run big data analytics with Apache Spark inside confidential containers that are protected by Intel Software Guard Extensions with data from Azure Data Lake and Azure SQL Database.]]></summary>
+        <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Multitenancy checklist on Azure]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/guide/multitenant/checklist</id>
+        <link href="https://docs.microsoft.com/azure/architecture/guide/multitenant/checklist"/>
+        <updated>2022-02-17T10:16:58.000Z</updated>
+        <summary type="html"><![CDATA[Multitenancy enables you to serve multiple distinct tenants in your Azure-hosted solution. Use this checklist to assess your multitenancy requirements and architecture.]]></summary>
+        <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Solutions for the telecommunications industry]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/industries/telecommunications</id>
+        <link href="https://docs.microsoft.com/azure/architecture/industries/telecommunications"/>
+        <updated>2022-02-17T10:11:24.000Z</updated>
+        <summary type="html"><![CDATA[Get an overview  of architectures and ideas for using Azure services to build solutions for the telecommunications industry.]]></summary>
+        <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Real-time collaboration with Azure and Microsoft 365]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/solution-ideas/articles/collaboration-microsoft-365</id>
+        <link href="https://docs.microsoft.com/azure/architecture/solution-ideas/articles/collaboration-microsoft-365"/>
+        <updated>2022-02-16T22:30:22.000Z</updated>
+        <summary type="html"><![CDATA[Learn about a custom collaboration solution that uses libraries and Azure services.]]></summary>
+        <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Real-time presence with Microsoft 365, Azure, and Power Platform]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/solution-ideas/articles/presence-microsoft-365-power-platform</id>
+        <link href="https://docs.microsoft.com/azure/architecture/solution-ideas/articles/presence-microsoft-365-power-platform"/>
+        <updated>2022-02-16T21:19:22.000Z</updated>
+        <summary type="html"><![CDATA[Learn about a custom solution that provides real-time presence information by using Microsoft Cloud services.]]></summary>
+        <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Networking architecture design]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/guide/networking/networking-start-here</id>
+        <link href="https://docs.microsoft.com/azure/architecture/guide/networking/networking-start-here"/>
+        <updated>2022-02-15T09:36:03.000Z</updated>
+        <summary type="html"><![CDATA[Learn about sample architectures, solutions, and guides that can help you explore the various networking services in Azure.]]></summary>
+        <category label="new" term="new"/>
+    </entry>
     <entry>
         <title type="html"><![CDATA[Azure and Power Platform scenarios]]></title>
         <id>https://docs.microsoft.com/azure/architecture/solutions/power-platform-scenarios</id>
@@ -231,6 +279,54 @@
         <updated>2022-02-01T21:12:02.000Z</updated>
         <summary type="html"><![CDATA[Build an end-to-end Customer 360 solution by using Azure Synapse Analytics and Dynamics 360 Customer Insights.]]></summary>
         <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Speech services]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/solution-ideas/articles/speech-services</id>
+        <link href="https://docs.microsoft.com/azure/architecture/solution-ideas/articles/speech-services"/>
+        <updated>2022-02-18T19:21:29.000Z</updated>
+        <summary type="html"><![CDATA[Use Speech services to transcribe calls and then run full-text searches, detect sentiment and language, and create custom language and acoustic models.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Camera selection for Azure IoT Edge vision AI]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/guide/iot-edge-vision/camera</id>
+        <link href="https://docs.microsoft.com/azure/architecture/guide/iot-edge-vision/camera"/>
+        <updated>2022-02-17T18:35:10.000Z</updated>
+        <summary type="html"><![CDATA[Get information about camera selection in an Azure IoT Edge vision solution. Explore camera features, camera placement, and the communication interface.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Computer vision with Azure IoT Edge]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/guide/iot-edge-vision</id>
+        <link href="https://docs.microsoft.com/azure/architecture/guide/iot-edge-vision"/>
+        <updated>2022-02-17T18:35:10.000Z</updated>
+        <summary type="html"><![CDATA[Create a vision AI solution with Azure IoT Edge. Explore computer vision hardware, machine learning and storage requirements, alerting, and user interfaces.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Machine learning in IoT Edge Vision]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/guide/iot-edge-vision/machine-learning</id>
+        <link href="https://docs.microsoft.com/azure/architecture/guide/iot-edge-vision/machine-learning"/>
+        <updated>2022-02-17T18:35:10.000Z</updated>
+        <summary type="html"><![CDATA[Learn about machine learning data and models in Azure IoT Edge vision AI solutions.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Suggest content tags with NLP using deep learning]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/solution-ideas/articles/website-content-tag-suggestion-with-deep-learning-and-nlp</id>
+        <link href="https://docs.microsoft.com/azure/architecture/solution-ideas/articles/website-content-tag-suggestion-with-deep-learning-and-nlp"/>
+        <updated>2022-02-17T00:50:18.000Z</updated>
+        <summary type="html"><![CDATA[Use Microsoft AI to improve website content tagging accuracy by combining deep learning and natural language processing (NLP) with data on site-specific search terms.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Pricing models for a multitenant solution]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/guide/multitenant/considerations/pricing-models</id>
+        <link href="https://docs.microsoft.com/azure/architecture/guide/multitenant/considerations/pricing-models"/>
+        <updated>2022-02-16T04:35:15.000Z</updated>
+        <summary type="html"><![CDATA[This article describes the considerations for planning pricing models for a multitenant solution.]]></summary>
+        <category label="updated" term="updated"/>
     </entry>
     <entry>
         <title type="html"><![CDATA[Real-time fraud detection]]></title>
@@ -605,7 +701,7 @@
         <id>https://docs.microsoft.com/azure/architecture/guide/iot-edge-vision</id>
         <link href="https://docs.microsoft.com/azure/architecture/guide/iot-edge-vision"/>
         <updated>2022-01-16T08:14:47.000Z</updated>
-        <summary type="html"><![CDATA[Create an AI solution using Azure IoT Edge Vision. Explore camera recommendations, hardware acceleration, machine learning, image storage, alerts, and UI.]]></summary>
+        <summary type="html"><![CDATA[Create a vision AI solution with Azure IoT Edge. Explore computer vision hardware, machine learning and storage requirements, alerting, and user interfaces.]]></summary>
         <category label="updated" term="updated"/>
     </entry>
     <entry>
@@ -1465,30 +1561,6 @@
         <category label="new" term="new"/>
     </entry>
     <entry>
-        <title type="html"><![CDATA[Azure VMware Solution capacity planning]]></title>
-        <id>https://docs.microsoft.com/azure/architecture/solution-ideas/articles/azure-vmware-solution-foundation-capacity</id>
-        <link href="https://docs.microsoft.com/azure/architecture/solution-ideas/articles/azure-vmware-solution-foundation-capacity"/>
-        <updated>2021-11-01T19:48:17.000Z</updated>
-        <summary type="html"><![CDATA[Get started with Azure VMware Solution foundation block capacity planning. Understand how to size and plan for capacity needed to run workloads on Azure VMware Solution.]]></summary>
-        <category label="new" term="new"/>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Azure VMware Solution landing zone]]></title>
-        <id>https://docs.microsoft.com/azure/architecture/solution-ideas/articles/azure-vmware-solution-foundation-landing-zone</id>
-        <link href="https://docs.microsoft.com/azure/architecture/solution-ideas/articles/azure-vmware-solution-foundation-landing-zone"/>
-        <updated>2021-11-01T19:48:17.000Z</updated>
-        <summary type="html"><![CDATA[Get started with Azure VMware Solution foundation block landing zone. Understand how Azure VMware Solution fits into a larger landing zone implementation.]]></summary>
-        <category label="new" term="new"/>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Azure VMware Solution networking]]></title>
-        <id>https://docs.microsoft.com/azure/architecture/solution-ideas/articles/azure-vmware-solution-foundation-networking</id>
-        <link href="https://docs.microsoft.com/azure/architecture/solution-ideas/articles/azure-vmware-solution-foundation-networking"/>
-        <updated>2021-11-01T19:48:17.000Z</updated>
-        <summary type="html"><![CDATA[Get started with Azure VMware Solution foundation block networking. Understand what networking solution options exists and how to choose between them.]]></summary>
-        <category label="new" term="new"/>
-    </entry>
-    <entry>
         <title type="html"><![CDATA[Multi-region N-tier application]]></title>
         <id>https://docs.microsoft.com/azure/architecture/reference-architectures/n-tier/multi-region-sql-server</id>
         <link href="https://docs.microsoft.com/azure/architecture/reference-architectures/n-tier/multi-region-sql-server"/>
@@ -1497,7 +1569,7 @@
         <category label="updated" term="updated"/>
     </entry>
     <entry>
-        <title type="html"><![CDATA[Suggest content tags with deep learning and NLP]]></title>
+        <title type="html"><![CDATA[Suggest content tags with NLP using deep learning]]></title>
         <id>https://docs.microsoft.com/azure/architecture/solution-ideas/articles/website-content-tag-suggestion-with-deep-learning-and-nlp</id>
         <link href="https://docs.microsoft.com/azure/architecture/solution-ideas/articles/website-content-tag-suggestion-with-deep-learning-and-nlp"/>
         <updated>2021-11-29T21:28:28.000Z</updated>
