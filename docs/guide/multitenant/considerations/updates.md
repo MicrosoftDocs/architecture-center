@@ -89,7 +89,7 @@ If one of your customers has a problem because of an update, you need to ensure 
 
 ## Deployment strategies to support updates
 
-Consider how you will deploy updates to your infrastructure. This is heavily influenced by the [tenancy model](tenancy-models.md) that you use. Three common approaches for deploying updates are deployment stamps, feature flags, and deployment rings.
+Consider how you will deploy updates to your infrastructure. This is heavily influenced by the [tenancy model](tenancy-models-content.md) that you use. Three common approaches for deploying updates are deployment stamps, feature flags, and deployment rings.
 
 In all cases, ensure that you have sufficient reporting/visibility, so that you know what version of infrastructure, software, or feature each tenant is on, what they are eligible to migrate to, and any time-related data associated those states.
 
@@ -115,5 +115,5 @@ If your service exposes an external API, consider that any updates you apply mig
 
 ## Next steps
 
-- Consider when you would [map requests to tenants, in a multitenant solution](map-requests.md).
+- Consider when you would [map requests to tenants, in a multitenant solution](map-requests-content.md).
 - Review the [DevOps checklist](../../../checklist/dev-ops.md) in Azure Well-Architected Framework.

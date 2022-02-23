@@ -167,8 +167,8 @@ Perform a more detailed evaluation looking at the following aspects of the servi
 [n-tier]: ../architecture-styles/n-tier.md
 [w-q-w]: ../architecture-styles/web-queue-worker.md
 [microservices]: ../architecture-styles/microservices.md
-[event-driven]: ../architecture-styles/event-driven.md
-[big-compute]: ../architecture-styles/big-compute.md
+[event-driven]: ../architecture-styles/event-driven-content.md
+[big-compute]: ../architecture-styles/big-compute-content.md
 
 [app-service-hybrid]: /azure/app-service/app-service-hybrid-connections
 [func-premium]: /azure/azure-functions/functions-premium-plan#private-network-connectivity

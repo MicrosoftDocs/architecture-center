@@ -49,6 +49,6 @@ Try a Microsoft Learn path:
 
 Read other Azure Architecture Center articles:
 
-* [Big data architecture style](../../guide/architecture-styles/big-data.md)
+* [Big data architecture style](../../guide/architecture-styles/big-data-content.md)
 * [Machine learning at scale](../../data-guide/big-data/machine-learning-at-scale.md)
 * [Scalable personalization on Azure](../../example-scenario/ai/scalable-personalization-with-content-based-recommendation-system.yml)

@@ -13,7 +13,7 @@ There are multiple ways you can identify the tenant for an incoming request.
 
 ### Domain names
 
-If you use [tenant-specific domain or subdomain names](./domain-names.md), it's likely that requests can be easily mapped to tenants by using the `Host` header, or another HTTP header that includes the original hostname for each request.
+If you use [tenant-specific domain or subdomain names](./domain-names-content.md), it's likely that requests can be easily mapped to tenants by using the `Host` header, or another HTTP header that includes the original hostname for each request.
 
 However, consider the following questions:
 
@@ -127,4 +127,4 @@ Tenants often need to be moved to new infrastructure as part of the [tenant life
 
 ## Next steps
 
-Learn about [considerations when you work with domain names in a multitenant application](domain-names.md).
+Learn about [considerations when you work with domain names in a multitenant application](domain-names-content.md).

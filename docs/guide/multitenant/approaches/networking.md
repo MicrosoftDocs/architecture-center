@@ -140,7 +140,7 @@ Tenants can deploy a private endpoint within their VNet and configure it to your
 
 ### Domain names, subdomains, and TLS
 
-When you work with domain names and transport-layer security (TLS) in a multitenant solution, there are a number of considerations. [Review the considerations for multitenancy and domain names](../considerations/domain-names.md).
+When you work with domain names and transport-layer security (TLS) in a multitenant solution, there are a number of considerations. [Review the considerations for multitenancy and domain names](../considerations/domain-names-content.md).
 
 ### Gateway Routing and Gateway Offloading patterns
 
@@ -197,4 +197,4 @@ Ensure you test your application's behavior with the gateway configuration that 
 
 ## Next steps
 
-Review [considerations when using domain names in a multitenant solution](../considerations/domain-names.md).
+Review [considerations when using domain names in a multitenant solution](../considerations/domain-names-content.md).

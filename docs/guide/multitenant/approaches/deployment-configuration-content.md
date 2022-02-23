@@ -19,7 +19,7 @@ Consider everything that you need to do when onboarding a tenant, and document t
 - Collection of the information that you need to configure your system for the new tenant.
 - Manual approval steps, for example, to prevent fraud or abuse of your service.
 - The provisioning of resources in Azure.
-- [Creating or configuring domain names](../considerations/domain-names.md).
+- [Creating or configuring domain names](../considerations/domain-names-content.md).
 - Perform post-deployment configuration tasks, such as creating the first user account for the tenant and securely transmit its credentials.
 - Manual configuration changes, such as DNS record changes.
 
