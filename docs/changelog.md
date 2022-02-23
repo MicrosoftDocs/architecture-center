@@ -71,7 +71,7 @@ New and updated articles in Azure Architecture Center.
 - [Suggest content tags with NLP using deep learning](./solution-ideas/articles/website-content-tag-suggestion-with-deep-learning-and-nlp.yml)  ([#eeb4d1f81](https://github.com/MicrosoftDocs/architecture-center/commit/eeb4d1f81))
 - [Pricing models for a multitenant solution](./guide/multitenant/considerations/pricing-models.md)  ([#af94529db](https://github.com/MicrosoftDocs/architecture-center/commit/af94529db))
 - [Real-time fraud detection](./example-scenario/data/fraud-detection.yml)  ([#ce2fecdfd](https://github.com/MicrosoftDocs/architecture-center/commit/ce2fecdfd))
-- [Monitor a microservices app in AKS](./microservices/logging-monitoring.md)  ([#bcb227d09](https://github.com/MicrosoftDocs/architecture-center/commit/bcb227d09))
+- [Monitor a microservices app in AKS](./microservices/logging-monitoring.yml)  ([#bcb227d09](https://github.com/MicrosoftDocs/architecture-center/commit/bcb227d09))
 - [N-tier architecture style](./guide/architecture-styles/n-tier.md)  ([#4a1bad2c3](https://github.com/MicrosoftDocs/architecture-center/commit/4a1bad2c3))
 - [End-to-end governance in Azure](./example-scenario/governance/end-to-end-governance-in-azure.yml)  ([#d92ed29b2](https://github.com/MicrosoftDocs/architecture-center/commit/d92ed29b2))
 
@@ -109,7 +109,7 @@ New and updated articles in Azure Architecture Center.
 - [SWIFT on Azure](./example-scenario/finance/swift-on-azure.yml)
 - [Loosely coupled quantum computing](./example-scenario/quantum/loosely-coupled-quantum-computing-job.yml)
 - [Tightly coupled quantum computing](./example-scenario/quantum/tightly-coupled-quantum-computing-job.yml)
-- [DevOps for quantum computing](./guide/quantum/devops-for-quantum-computing.md)
+- [DevOps for quantum computing](./guide/quantum/devops-for-quantum-computing.yml)
 - [CI/CD for quantum computing jobs](./solution-ideas/articles/cicd-for-quantum-computing-jobs.yml)
 - [Azure digital twins builder](./solution-ideas/articles/azure-digital-twins-builder.yml)
 - [Deploy machine learning models to multiple lines](./example-scenario/ai/multiline-model-deployment.yml)

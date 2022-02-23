@@ -9,7 +9,6 @@ metadata:
   ms.service: architecture-center
   ms.subservice: azure-guide
 azureCategories:
-ms.category:
   - management-and-governance
   - developer-tools
   - containers

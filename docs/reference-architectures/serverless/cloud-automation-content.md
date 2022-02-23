@@ -231,7 +231,7 @@ To deploy the cost center scenario, see the [deployment steps on GitHub](https:/
 
 ## Next steps
 
-Learn more about the [serverless implementations](../../serverless/code.md).
+Learn more about the [serverless implementations](../../serverless/code.yml).
 
 <!-- links -->
 
