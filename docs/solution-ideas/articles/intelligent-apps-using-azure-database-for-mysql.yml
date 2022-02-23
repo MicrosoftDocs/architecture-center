@@ -4,7 +4,7 @@ metadata:
   titleSuffix: Azure Solution Ideas
   description: Use Azure Database for MySQL to develop sophisticated machine learning and visualization apps that provide analytics and information that you can act on.
   author: mattcowen
-  ms.author: pnp
+  ms.author: macowen 
   ms.date: 09/02/2021
   ms.topic: conceptual
   ms.service: architecture-center
