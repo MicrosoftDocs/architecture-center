@@ -2,10 +2,12 @@ This article provides an overview of deploying SWIFT's Alliance Access on Azure,
 
 ## Potential use cases
 
-The following examples are intended for both existing and new SWIFT customers, and can be used for:
+These architectures are optimal for the finance industry. 
 
-* Migrating Alliance Access from on-premises to Azure.
-* Creating a new Alliance Access environment in Azure.
+The following examples are intended for both existing and new SWIFT customers, and can be used for the following scenarios:
+
+* Migrating Alliance Access from on-premises to Azure
+* Creating a new Alliance Access environment in Azure
 
 ## Architecture
 
