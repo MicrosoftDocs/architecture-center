@@ -22,4 +22,4 @@ name: Automate Sentinel integration with Azure DevOps
 summary: Automate your Microsoft Sentinel integration and deployment with Azure DevOps for your Security Operation Center. 
 thumbnailUrl: /azure/architecture/browse/thumbs/mitre-att&ck-in-sentinel-artifacts-dev.png
 content: |
-  [!include[](automate-sentinel-integration.md)]
+  [!include[](automate-sentinel-integration-content.md)]
