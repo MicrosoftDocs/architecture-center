@@ -42,7 +42,9 @@ For information specific to Azure App Service, see these resources:
 - [Security recommendations for App Service](/azure/app-service/security-recommendations?toc=https%3A%2F%2Fdocs.microsoft.com%2Fazure%2Farchitecture%2Ftoc.json&bc=https%3A%2F%2Fdocs.microsoft.com%2Fazure%2Farchitecture%2Fbread%2Ftoc.json)
 - [Azure security baseline for App Service](/security/benchmark/azure/baselines/app-service-security-baseline?toc=https%3A%2F%2Fdocs.microsoft.com%2Fazure%2Farchitecture%2Ftoc.json&bc=https%3A%2F%2Fdocs.microsoft.com%2Fazure%2Farchitecture%2Fbread%2Ftoc.json)
 
-## E-commerce 
+## Web app architectures
+
+### E-commerce 
 
 - [E-commerce front end](/azure/architecture/example-scenario/apps/ecommerce-scenario)
 - [Intelligent product search engine for e-commerce](/azure/architecture/example-scenario/apps/ecommerce-search)
@@ -53,24 +55,24 @@ For information specific to Azure App Service, see these resources:
 - [Scalable Sitecore marketing website](/azure/architecture/solution-ideas/articles/digital-marketing-sitecore)
 - [Simple digital marketing website](/azure/architecture/solution-ideas/articles/digital-marketing-smb)
 
-## Healthcare 
+### Healthcare 
 
 - [Clinical insights with Microsoft Cloud for Healthcare](/azure/architecture/example-scenario/mch-health/medical-data-insights)
 - [Consumer health portal on Azure](/azure/architecture/example-scenario/digital-health/health-portal)
 - [Virtual health on Microsoft Cloud for Healthcare](/azure/architecture/example-scenario/mch-health/virtual-health-mch)
 
-## Multi-tier
+### Multi-tier apps
 
 - [Multi-tier app service with private endpoint](/azure/architecture/example-scenario/web/multi-tier-app-service-private-endpoint)
 - [Multi-tier app service with service endpoint](/azure/architecture/reference-architectures/app-service-web-app/multi-tier-app-service-service-endpoint)
 - [Multi-tier web application built for HA/DR](/azure/architecture/example-scenario/infrastructure/multi-tier-app-disaster-recovery)
 
-## multiregion 
+### Multi-region apps 
 
 - [Highly available multi-region web application](/azure/architecture/reference-architectures/app-service-web-app/multi-region)
 - [Multi-region web app with private connectivity to database](/azure/architecture/example-scenario/sql-failover/app-service-private-sql-multi-region)
 
-## scalability 
+### Scalability 
 
 - [Scalable and secure WordPress on Azure](/azure/architecture/example-scenario/infrastructure/wordpress)
 - [Scalable cloud applications and site reliability engineering (SRE)](/azure/architecture/example-scenario/apps/scalable-apps-performance-modeling-site-reliability)
@@ -78,12 +80,12 @@ For information specific to Azure App Service, see these resources:
 - [Scalable Umbraco CMS web app](/azure/architecture/solution-ideas/articles/medium-umbraco-web-app)
 - [Scalable web apps with Azure Redis Cache](/azure/architecture/solution-ideas/articles/scalable-web-apps)
 
-## security 
+### Security 
 
 - [Improved-security access to multitenant web apps from an on-premises network](/azure/architecture/example-scenario/security/access-multitenant-web-app-from-on-premises)
 - [Protect APIs with Application Gateway and API Management](/azure/architecture/reference-architectures/apis/protect-apis)
 
-## Modernization 
+### Modernization 
 
 - [Choose between traditional web apps and single-page apps](/dotnet/architecture/modern-web-apps-azure/choose-between-traditional-web-and-single-page-apps?toc=https%3A%2F%2Fdocs.microsoft.com%2Fazure%2Farchitecture%2Ftoc.json&bc=https%3A%2F%2Fdocs.microsoft.com%2Fazure%2Farchitecture%2Fbread%2Ftoc.json)
 - [ASP.NET architectural principles](/dotnet/architecture/modern-web-apps-azure/architectural-principles?toc=https%3A%2F%2Fdocs.microsoft.com%2Fazure%2Farchitecture%2Ftoc.json&bc=https%3A%2F%2Fdocs.microsoft.com%2Fazure%2Farchitecture%2Fbread%2Ftoc.json)
@@ -91,18 +93,20 @@ For information specific to Azure App Service, see these resources:
 - [Development process for Azure](https://docs.microsoft.com/dotnet/architecture/modern-web-apps-azure/development-process-for-azure?toc=https%3A%2F%2Fdocs.microsoft.com%2Fazure%2Farchitecture%2Ftoc.json&bc=https%3A%2F%2Fdocs.microsoft.com%2Fazure%2Farchitecture%2Fbread%2Ftoc.json)
 - [Azure hosting recommendations for ASP.NET Core web apps](/dotnet/architecture/modern-web-apps-azure/azure-hosting-recommendations-for-asp-net-web-apps?toc=https%3A%2F%2Fdocs.microsoft.com%2Fazure%2Farchitecture%2Ftoc.json&bc=https%3A%2F%2Fdocs.microsoft.com%2Fazure%2Farchitecture%2Fbread%2Ftoc.json)
 
-## SharePoint
+### SharePoint
 
 - [Highly available SharePoint farm](/azure/architecture/solution-ideas/articles/highly-available-sharepoint-farm)
 - [Hybrid SharePoint farm with Microsoft 365](/azure/architecture/solution-ideas/articles/sharepoint-farm-microsoft-3650)
 
 ## Stay current with web development
 
-https://azure.microsoft.com/updates/?category=web
+Get the latest [updates on Azure web app products and features](https://azure.microsoft.com/updates/?category=web).
 
 ## Additional resources
 
 ### Example solutions
+
+Here are some additional implementations to consider:
 
 - [Simple branded website](/azure/architecture/solution-ideas/articles/simple-branded-website)
 - [Build web and mobile applications](/azure/architecture/solution-ideas/articles/webapps)
