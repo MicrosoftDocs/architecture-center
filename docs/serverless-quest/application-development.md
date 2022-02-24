@@ -32,7 +32,7 @@ To plan app development and deployment:
 
 ### Understand event-driven architecture
 A different event triggers every function in a serverless Functions project. For more information about event-driven architectures, see:
-- [Event-driven architecture style](../guide/architecture-styles/event-driven-content.yml).
+- [Event-driven architecture style](../guide/architecture-styles/event-driven.yml).
 - [Event-driven design patterns to enhance existing applications using Azure Functions](/events/build-2020/bod124)
 
 ### Prepare development environment

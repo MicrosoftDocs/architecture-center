@@ -46,7 +46,7 @@ Azure SQL Database and SQL Server support optimistic concurrency through [snapsh
 
 <!-- links -->
 
-[big-compute]: ../architecture-styles/big-compute-content.yml
+[big-compute]: ../architecture-styles/big-compute.yml
 [compensating-transaction]: ../../patterns/compensating-transaction.md
 [cqrs-pattern]: ../../patterns/cqrs.md
 [cosmos-db-faq]: /azure/cosmos-db/faq

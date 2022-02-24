@@ -16,11 +16,11 @@ items:
           - name: Overview
             href: guide/architecture-styles/index.md
           - name: Big compute
-            href: guide/architecture-styles/big-compute-content.yml
+            href: guide/architecture-styles/big-compute.yml
           - name: Big data
-            href: guide/architecture-styles/big-data-content.yml
+            href: guide/architecture-styles/big-data.yml
           - name: Event-driven architecture
-            href: guide/architecture-styles/event-driven-content.yml
+            href: guide/architecture-styles/event-driven.yml
           - name: Microservices
             href: guide/architecture-styles/microservices.md
           - name: N-tier application
@@ -297,13 +297,13 @@ items:
               - name: Deploy updates
                 href: guide/multitenant/considerations/updates.md
               - name: Map requests to tenants
-                href: guide/multitenant/considerations/map-requests-content.yml
+                href: guide/multitenant/considerations/map-requests.yml
               - name: Domain names
-                href: guide/multitenant/considerations/domain-names-content.yml
+                href: guide/multitenant/considerations/domain-names.yml
           - name: Approaches
             items:
               - name: Overview
-                href: guide/multitenant/approaches/overview-content.yml
+                href: guide/multitenant/approaches/overview.yml
               - name: Resource organization
                 href: guide/multitenant/approaches/resource-organization.md
               - name: Governance and compliance

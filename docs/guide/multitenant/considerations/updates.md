@@ -115,5 +115,5 @@ If your service exposes an external API, consider that any updates you apply mig
 
 ## Next steps
 
-- Consider when you would [map requests to tenants, in a multitenant solution](map-requests-content.yml).
+- Consider when you would [map requests to tenants, in a multitenant solution](map-requests.yml).
 - Review the [DevOps checklist](../../../checklist/dev-ops.md) in Azure Well-Architected Framework.
