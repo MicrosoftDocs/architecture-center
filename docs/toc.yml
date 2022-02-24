@@ -1671,7 +1671,7 @@ items:
                 href: example-scenario/data/small-medium-data-warehouse.yml
               - name: Data warehousing and analytics
                 href: example-scenario/data/data-warehouse.yml
-              - name: Employee Retention with Databricks and Kubernetes
+              - name: Employee retention with Databricks and Kubernetes
                 href: example-scenario/ai/employee-retention-databricks-kubernetes.yml
               - name: Geospatial data processing and analytics
                 href: example-scenario/data/geospatial-data-processing-analytics-azure.yml
