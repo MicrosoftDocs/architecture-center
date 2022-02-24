@@ -29,7 +29,7 @@ As an example, the figure shows the simplified structure of a cloud-hosted solut
 
 Each computational unit consumes chargeable resources, even when it's idle or lightly used. Therefore, this isn't always the most cost-effective solution.
 
-In Azure, this concern applies to App Services, Container Apps and Virtual Machines. These items run in their own virtual environment. Running a collection of separate websites, microservices, or virtual machines that are designed to perform a set of well-defined operations, but that need to communicate and cooperate as part of a single solution, can be an inefficient use of resources.
+In Azure, this concern applies to App Services, Container Apps, and Virtual Machines. These items run in their own environment. Running a collection of separate websites, microservices, or virtual machines that are designed to perform a set of well-defined operations, but that need to communicate and cooperate as part of a single solution, can be an inefficient use of resources.
 
 ## Solution
 
