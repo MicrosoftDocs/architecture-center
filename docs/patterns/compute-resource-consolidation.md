@@ -9,6 +9,11 @@ ms.service: architecture-center
 ms.subservice: design-pattern
 products:
   - azure-app-service
+  - azure-kubernetes-service
+categories:
+  - web
+  - compute
+  - containers
 ms.custom:
   - design-pattern
 keywords:
