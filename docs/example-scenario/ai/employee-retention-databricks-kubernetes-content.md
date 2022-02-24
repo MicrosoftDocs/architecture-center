@@ -1,12 +1,12 @@
-The problem of employee attrition has grown in prominence since the COVID-19 pandemic. This has resulted in a trend in which employees voluntarily resign from their jobs en masse—known as _the Great Resignation_. The problem can also be magnified for certain departments in an organization that might lack dedicated teams that perform advanced analytics, such as Human Resources.
+The problem of employee attrition has grown in prominence since the COVID-19 pandemic. This trend, in which employees voluntarily resign from their jobs en masse, is popularly known as _the Great Resignation_. The problem can also be magnified for certain departments in an organization that might lack dedicated teams that perform advanced analytics, such as Human Resources.
 
-This example scenario illustrates an operating model of centralized machine learning. This comprises a central team that is responsible for building and deploying machine-learning models for external teams across departments within an organization. This approach is useful when departments are too small to maintain a team that's dedicated to machine learning while the organization aims to infuse advanced analytics into all products and processes.
+This example scenario illustrates an operating model of centralized machine learning. This  comprises a central team that is responsible for building and deploying machine-learning models for external teams across departments within an organization. This approach is useful when departments are too small to maintain a team that's dedicated to machine learning while the organization aims to infuse advanced analytics into all products and processes.
 
 This solution demonstrates how a machine-learning team can use Azure Databricks and Azure Kubernetes Service to develop and deploy machine learning, as an API, to predict the likelihood of employee attrition. The API can be integrated with external applications that are used by the Human Resources team to provide additional insights into the likelihood of attrition for a given employee within the organization. This information can be used to retain high-impact employees who are likely to leave the organization and provide Human Resources with the ability to proactively incentivize such employees to stay.
 
 ## Potential use cases
 
-Even though this scenario is focused on building a machine-learning model of employee attrition and integrating it with external applications that are used by Human Resources teams, the design can be generalized to many machine-learning workloads that are built by centralized and decentralized teams alike.
+This scenario is focused on building a machine-learning model of employee attrition and integrating it with external applications that are used by Human Resources teams. However, the design can be generalized to many machine-learning workloads that are built by centralized and decentralized teams alike.
 
 This generalized approach is best suited for:
 
