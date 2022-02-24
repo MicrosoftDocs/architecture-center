@@ -26,17 +26,17 @@ When you build your multitenant solution in Azure, there are many elements that 
 ## Business considerations
 
 * Understand what kind of solution you're creating, such as business-to-business (B2B), business-to-consumer (B2C), or your enterprise software, and [how tenants are different from users](./overview.md).
-* [Define your tenants](./considerations/tenancy-models-content.md#define-a-tenant). Understand how many tenants you'll support initially, and your growth plans.
+* [Define your tenants](./considerations/tenancy-models.yml#define-a-tenant). Understand how many tenants you'll support initially, and your growth plans.
 * [Define your pricing model](./considerations/pricing-models.md) and ensure it aligns with your [tenants’ consumption of Azure resources](./considerations/measure-consumption.md).
 * Understand whether you need to separate your tenants into different [tiers](./considerations/pricing-models.md#feature--and-service-level-based-pricing). Tiers might have different pricing, features, performance promises, geographic locations, and so forth.
-* Based on your customers’ requirements, decide on the [tenancy models](./considerations/tenancy-models-content.md) that are appropriate for various parts of your solution.
+* Based on your customers’ requirements, decide on the [tenancy models](./considerations/tenancy-models.yml) that are appropriate for various parts of your solution.
 * When you're ready, sell your B2B multitenant solution using the [Microsoft Commercial Marketplace](/azure/marketplace/plan-saas-offer).
 
 ## Reliability considerations
 
 * Review the [Azure Well-Architected Reliability checklist](/azure/architecture/framework/resiliency/design-checklist), which is applicable to all workloads.
 * Understand the [Noisy Neighbor antipattern](../../antipatterns/noisy-neighbor/noisy-neighbor.yml). Prevent individual tenants from impacting the system's availability for other tenants.
-* [Design your multitenant solution](./approaches/overview-content.md) for the level of growth that you expect. But don't overengineer for unrealistic growth.
+* [Design your multitenant solution](./approaches/overview-content.yml) for the level of growth that you expect. But don't overengineer for unrealistic growth.
 * Define service-level objectives (SLOs) and optionally [service-level agreements (SLAs)](/learn/modules/choose-azure-services-sla-lifecycle/2-what-are-service-level-agreements) for your solution. SLAs and SLOs should be based on the requirements of your tenants, as well as the [composite SLA of the Azure resources in your architecture](/azure/architecture/framework/resiliency/business-metrics).
 * Test the [scale](./approaches/compute.md#scale) of your solution. Ensure that it performs well under all levels of load, and that it scales correctly as the number of tenants increases.
 * Apply [chaos engineering principles](./approaches/compute.md#isolation) to test the reliability of your solution.
@@ -44,12 +44,12 @@ When you build your multitenant solution in Azure, there are many elements that 
 ## Security considerations
 
 * Apply the [Zero Trust](/security/zero-trust) and least privilege principles in all layers of your solution.
-* Ensure that you can [correctly map user requests](./considerations//map-requests-content.md) to tenants. Consider including the tenant context as part of the identity system, or by using another means, like application-level tenant authorization.
-* Design for [tenant isolation](./considerations/tenancy-models-content.md#tenant-isolation). Continuously [test your isolation model](./approaches/compute.md#isolation).
+* Ensure that you can [correctly map user requests](./considerations//map-requests.yml) to tenants. Consider including the tenant context as part of the identity system, or by using another means, like application-level tenant authorization.
+* Design for [tenant isolation](./considerations/tenancy-models.yml#tenant-isolation). Continuously [test your isolation model](./approaches/compute.md#isolation).
 * Ensure that your application code prevents any cross-tenant access or data leakage.
 * Perform ongoing penetration testing and security code reviews.
 * Understand your tenants' [compliance requirements](./approaches/governance-compliance.md), including data residency and any compliance or regulatory standards that they require you to meet.
-* Correctly [manage domain names](./considerations/domain-names-content.md) and avoid vulnerabilities like [dangling DNS and subdomain takeover attacks](./considerations/domain-names-content.md#dangling-dns-and-subdomain-takeover-attacks).
+* Correctly [manage domain names](./considerations/domain-names.yml) and avoid vulnerabilities like [dangling DNS and subdomain takeover attacks](./considerations/domain-names.yml#dangling-dns-and-subdomain-takeover-attacks).
 * Follow [service-specific guidance](./service/overview.md) for multitenancy.
 
 ## Cost Optimization considerations
@@ -78,6 +78,6 @@ When you build your multitenant solution in Azure, there are many elements that 
 ## Next steps
 
 * Review [architectural considerations for multitenant solutions](./considerations/overview.md).
-* Review [architectural approaches for multitenancy](./approaches/overview.md).
+* Review [architectural approaches for multitenancy](./approaches/overview-content.md).
 * Review [service-specific guidance for multitenancy](./service/overview.md).
 * Review additional [resources for architects and developers of multitenant solutions](related-resources.md).
