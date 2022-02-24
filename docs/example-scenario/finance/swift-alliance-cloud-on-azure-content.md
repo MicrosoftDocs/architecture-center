@@ -45,7 +45,6 @@ The SWIFT customer uses RDP, with one of the three connectivity approaches, to c
 
 The SIL subscription has a single resource group, which contains:
 
-* An Azure Resource Group contains all the resources that follow
 * An Azure VNET
 * An Azure Subnet for the Azure Firewall, with an Azure Network Security Group
 * An Azure Subnet for the SIL, with an Azure Network Security Group
