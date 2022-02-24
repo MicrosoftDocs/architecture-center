@@ -1,4 +1,4 @@
-#
+
 
 This article provides an overview of deploying SWIFT's Alliance Lite2 connectivity stack/footprint in Azure. The solution requires two customer Azure subscriptions. One subscription contains the Alliance Lite2 AutoClient resources. The other subscription contains the resources to connect to SWIFT's network.
 
