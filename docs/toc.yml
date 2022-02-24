@@ -303,7 +303,7 @@ items:
           - name: Approaches
             items:
               - name: Overview
-                href: guide/multitenant/approaches/overview.yml
+                href: guide/multitenant/approaches/overview-content.md
               - name: Resource organization
                 href: guide/multitenant/approaches/resource-organization.md
               - name: Governance and compliance
