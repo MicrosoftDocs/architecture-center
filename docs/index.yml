@@ -260,7 +260,7 @@ conceptualContent:
     - title: Identity
       links:
         - text: Identity in multitenant applications
-          url: multitenant-identity/index.md
+          url: multitenant-identity/index.yml
           itemType: how-to-guide
         - text: Choose an Active Directory integration architecture
           itemType: architecture

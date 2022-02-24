@@ -1,28 +1,4 @@
----
-title: Authentication in multitenant applications
-description: Learn about how a multitenant application can authenticate users from Azure Active Directory (Azure AD) and the OpenID Connect (OIDC) protocol.
-author: EdPrice-MSFT
-ms.date: 10/06/2021
-ms.topic: conceptual
-ms.service: architecture-center
-ms.subservice: azure-guide
-categories:
-  - identity
-  - web
-ms.custom:
-  - guide
-pnp.series.title: Manage Identity in Multitenant Applications
-pnp.series.prev: tailspin
-pnp.series.next: claims
-products:
-  - azure-active-directory
-  - azure-app-service-web
----
-
 <!-- cSpell:ignore OIDC multitenanted openid -->
-
-# Authenticate using Azure AD and OpenID Connect
-
 [:::image type="icon" source="../_images/github.png" border="false"::: Sample code][sample application]
 
 The Surveys application uses the OpenID Connect (OIDC) protocol to authenticate users with Azure Active Directory (Azure AD). The Surveys application uses ASP.NET Core, which has built-in middleware for OIDC. The following diagram shows what happens when the user signs in, at a high level.
