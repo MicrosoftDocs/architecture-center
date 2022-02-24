@@ -152,9 +152,9 @@ More about Azure Automation:
 - [Disaster Recovery for Azure Stack Hub virtual machines](/azure/architecture/hybrid/azure-stack-vm-dr)
 
 
-[architectural-diagram]: ./images/azure-automation-hybrid.svg
+[architectural-diagram]: ./images/azure-automation-hybrid.png
 [architectural-diagram-visio-source]: https://arch-center.azureedge.net/azure-automation-hybrid.vsdx
-[System-architectural-diagram]: ./images/azure-automation-system.svg
+[System-architectural-diagram]: ./images/azure-automation-system.png
 [architectural-diagram-visio-source-system]: https://arch-center.azureedge.net/azure-automation-system.vsdx
 [1]: /azure/automation/extension-based-hybrid-runbook-worker-install?tabs=windows
 [2]: /azure/automation/automation-windows-hrw-install
