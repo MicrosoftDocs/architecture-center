@@ -1225,9 +1225,6 @@ items:
               - name: Dynamics 365 automotive accelerator
                 href: /dynamics365/industry/accelerators/automotive
                 maintainContext: true
-              - name: Sample - Customer car reviews
-                href: /samples/azure-samples/customer-car-reviews/customer-car-reviews
-                maintainContext: true
               - name: Single sign on for car park management
                 href: /azure/active-directory/saas-apps/parkalot-car-park-management-tutorial
                 maintainContext: true
