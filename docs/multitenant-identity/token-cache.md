@@ -114,7 +114,7 @@ Another way is to inject an `ITokenAcquisition` service in the controller. For m
 <!-- links -->
 
 [MSAL]: /azure/active-directory/develop/msal-overview
-[client-certificate]: ./client-certificate.md
+[client-certificate]: ./client-certificate.yml
 [data-protection]: /aspnet/core/security/data-protection
 [distributed-cache]: /aspnet/core/performance/caching/distributed
 [key-management]: /aspnet/core/security/data-protection/configuration/default-settings

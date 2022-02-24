@@ -7,6 +7,8 @@ ms.date: 05/17/2017
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: best-practice
+categories:
+  - compute
 products:
   - azure-vm-scalesets
   - azure-monitor
@@ -29,7 +31,7 @@ There are two main ways that an application can scale:
 Many cloud-based systems, including Microsoft Azure, support automatic horizontal scaling. The rest of this article focuses on horizontal scaling.
 
 > [!NOTE]
-> Autoscaling mostly applies to compute resources. While it's possible to horizontally scale a database or message queue, this usually involves [data partitioning](./data-partitioning.md), which is generally not automated.
+> Autoscaling mostly applies to compute resources. While it's possible to horizontally scale a database or message queue, this usually involves [data partitioning](./data-partitioning.yml), which is generally not automated.
 
 ## Autoscaling components
 
@@ -145,7 +147,7 @@ The following patterns and guidance may also be relevant to your scenario when i
 
 - [Competing Consumers pattern](../patterns/competing-consumers.md). This pattern describes how to implement a pool of service instances that can handle messages from any application instance. Autoscaling can be used to start and stop service instances to match the anticipated workload. This approach enables a system to process multiple messages concurrently to optimize throughput, improve scalability and availability, and balance the workload.
 
-- [Monitoring and diagnostics](./monitoring.md). Instrumentation and telemetry are vital for gathering the information that can drive the autoscaling process.
+- [Monitoring and diagnostics](./monitoring.yml). Instrumentation and telemetry are vital for gathering the information that can drive the autoscaling process.
 
 <!-- links -->
 

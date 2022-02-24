@@ -104,7 +104,7 @@ service from an external service provider,
 [Quandl](https://www.quandl.com/).
 
 > [!NOTE]
-> The example uses the [WIKI Prices dataset](https://www.quandl.com/databases/WIKIP) which can be used for learning concepts. For production usage of US based equities, Quandl recommends using the [End of Day US Stock Prices dataset](https://www.quandl.com/data/EOD-End-of-Day-US-Stock-Prices).
+> The example uses the [WIKI Prices dataset](https://www.quandl.com/databases/WIKIP) which can be used for learning concepts. For production usage of US based equities, Quandl recommends using the [End of Day US Stock Prices dataset](https://www.eoddata.com/).
 
 To process the data and define the risk associated with the equity, we
 need to do the following things:
