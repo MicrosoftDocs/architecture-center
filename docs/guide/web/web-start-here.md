@@ -20,17 +20,17 @@ ms.custom: fcp
 
 # Web architecture design
 
-Modern web applications have higher user expectations and greater demands than ever before. Today's web apps are expected to be available all day, every day from anywhere in the world, and usable from virtually any device or screen size. Web applications must be secure, flexible, and scalable to meet spikes in demand. 
+Today's web apps are expected to be available all day, every day from anywhere in the world, and usable from virtually any device or screen size. Web applications must be secure, flexible, and scalable to meet spikes in demand. 
 
 This article provides an overview of Azure web app technologies, guidance, solution ideas, and reference architectures.
 
 Azure provides a wide range of tools and capabilities for creating, hosting, and monitoring web apps. These are just some of the key web app services available in Azure:
 
-- [Azure App Service](https://azure.microsoft.com/services/app-service) enables you to easily create enterprise-ready web and mobile apps for any platform or device, and deploy them on a scalable cloud infrastructure.
+- [Azure App Service](https://azure.microsoft.com/services/app-service) enables you to easily create enterprise-ready web and mobile apps for any platform or device and deploy them on a scalable cloud infrastructure.
 - [Azure Web Application Firewall](https://azure.microsoft.com/services/web-application-firewall) provides powerful protection for web apps.
 - [Azure Monitor](https://azure.microsoft.com/services/monitor) provides full observability into your applications, infrastructure, and network. Monitor includes [Application Insights](/azure/azure-monitor/app/app-insights-overview), which provides application performance management and monitoring for live web apps.
 - [Azure SignalR Service](https://azure.microsoft.com/services/signalr-service) enables you to easily add real-time web functionalities.
-- [Static Web Apps](https://azure.microsoft.com/services/app-service/static) provides streamlined full-stack development from source code to global high availability.
+- [Static Web Apps](https://azure.microsoft.com/services/app-service/static) provides streamlined full-stack development, from source code to global high availability.
 - [Web App for Containers](https://azure.microsoft.com/services/app-service/containers) enables you to run containerized web apps on Windows and Linux.
 
 ## Introduction to web apps on Azure
@@ -56,7 +56,7 @@ Consider these patterns, guidelines, and architectures as you plan and implement
 
 ## Best practices 
  
-For a good overview, see [Characteristics of modern web applications](/dotnet/architecture/modern-web-apps-azure/modern-web-applications-characteristics)
+For a good overview, see [Characteristics of modern web applications](/dotnet/architecture/modern-web-apps-azure/modern-web-applications-characteristics).
 
 For information specific to Azure App Service, see these resources: 
 - [Azure App Service and operational excellence](/azure/architecture/framework/services/compute/azure-app-service/operational-excellence)  
