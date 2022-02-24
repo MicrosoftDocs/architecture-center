@@ -22,12 +22,11 @@ A hybrid worker can co-exist with both platforms: Agent based (V1) and Extension
 
 ## Runbook worker types
 
-There are two types of Runbook workers - System and User. The following table describes the difference between them.
+There are two types of Runbook workers - System and User.
+ 
+**System** - supports a set of hidden runbooks used by the Update Management feature that are designed to install user-specified updates on Windows and Linux machines. This type of Hybrid Runbook Worker isn't a member of a Hybrid Runbook Worker group, and therefore doesn't run runbooks that target a Runbook Worker group.
 
-**Type** | **Description**
---- | ---
-**System** | Supports a set of hidden runbooks used by the Update Management feature that are designed to install user-specified updates on Windows and Linux machines. This type of Hybrid Runbook Worker isn't a member of a Hybrid Runbook Worker group, and therefore doesn't run runbooks that target a Runbook Worker group.
-**User** | Supports user-defined runbooks intended to run directly on the Windows and Linux machine that are members of one or more Runbook Worker groups.
+**User** - supports user-defined runbooks intended to run directly on the Windows and Linux machine that are members of one or more Runbook Worker groups.
 
 The extension-based Hybrid Runbook Worker only supports the user Hybrid Runbook Worker type and doesn't include the system Hybrid Runbook Worker required for the Update Management feature.
 
@@ -37,11 +36,11 @@ Agent-based (V1) Hybrid Runbook Workers rely on the [Log Analytics agent][4] rep
 
 ### Components
 
-The architecture consists of the following components:
+The Hybrid Runbook Worker architecture consists of the following components:
 
 - **Automation Account**: A cloud service that automates configuration and management across your Azure and non-Azure environments.
 - **Hybrid Runbook Worker**: A computer that is configured with the Hybrid Runbook Worker feature and can execute runbooks directly on the computer and against the resources in the local environment.
-- **Hybrid Runbook Worker Group**: Groups multiple Hybrid runbook workers for higher availability and scale to run a set of runbooks.
+- **Hybrid Runbook Worker Group**: Group with multiple Hybrid runbook workers for higher availability and scale to run a set of runbooks.
 - **Runbook**: A collection of one or more linked activities that together automate a process or operation. [Learn more][7]
 - **On-premises machines and VMs**: On-premises computers and VMs with Windows or Linux operating system hosted in a private local-area network.
 - Components applicable for extension-based approach (V2):
@@ -94,7 +93,7 @@ When you start a runbook on a user Hybrid Runbook Worker, you specify the group 
 
 - A Hybrid Runbook Worker Group with more than one machine configured with Hybrid Worker Role provides high availability because runbooks will start only on servers that are running and healthy.
 - The extension-based (V1) Hybrid Runbook Worker only supports the user Hybrid Runbook Worker type and doesn't include the system Hybrid Runbook Worker required for the Update Management feature.
-- Applicable only for agent-based approach (V1) - Currently, mappings between Log Analytics Workspace and Automation account are supported in several regions. For further information, refer to [Supported regions for linked Log Analytics workspace][12]
+- Applicable only for agent-based approach (V1) - Currently, mappings between Log Analytics Workspace and Automation account are supported in several regions. For more information, see [Supported regions for linked Log Analytics workspace.][12]
 
 ## Manageability considerations
 
@@ -104,7 +103,7 @@ When you start a runbook on a user Hybrid Runbook Worker, you specify the group 
     -	Unified experience for both Azure and non-Azure machines while onboarding and deboarding Hybrid Runbook Workers.
 
 - Applicable only for agent-based approach (V1):
-    - To accelerate deployment of the Log Analytics Agent with Hybrid Worker Role running on Windows machine, use the PowerShell script New-OnPremiseHybridWorker.ps1.
+    - To accelerate deployment of the Log Analytics Agent with Hybrid Worker Role running on Windows machine, use the PowerShell script [New-OnPremiseHybridWorker.ps1][17]
     - Deployment of many agents in on-premises infrastructure can be orchestrated using command line scripts and deployed using Group Policy or System Center Configuration Manager.
 
 ## Security considerations
@@ -126,7 +125,7 @@ When you start a runbook on a user Hybrid Runbook Worker, you specify the group 
 ## Cost considerations
 
 - Azure Automation costs are priced for job execution per minute. Every month, the first 500 minutes of process automation are free. Use the [Azure pricing calculator][14] to estimate costs. Pricing models for Azure Automation are explained [here][15].
-- For agent-based approach (V1) - Azure Log Analytics Workspace might generate additional costs related to the amount of log data stored in the Azure Log Analytics. The pricing model is based on consumption. The costs are associated for data ingestion and data retention. For ingesting data into Azure Log Analytics, use Capacity Reservation or Pay-As-You-Go model that include 5 gigabytes (GB) free per billing account per month. Data retention for the first 31 days are free of charge. The pricing models for Log Analytics are explained[here][16].
+- For agent-based approach (V1) - Azure Log Analytics Workspace might generate additional costs related to the amount of log data stored in the Azure Log Analytics. The pricing model is based on consumption. The costs are associated for data ingestion and data retention. For ingesting data into Azure Log Analytics, use Capacity Reservation or Pay-As-You-Go model that include 5 gigabytes (GB) free per billing account per month. Data retention for the first 31 days are free of charge. The pricing models for Log Analytics are explained [here][16].
 
 
 ## Next steps
@@ -173,3 +172,4 @@ More about Azure Automation:
 [14]:/azure.microsoft.com/pricing/calculator/
 [15]:/azure.microsoft.com/pricing/details/automation/
 [16]:/azure.microsoft.com/pricing/details/monitor/
+[17]:https://www.powershellgallery.com/packages/New-OnPremiseHybridWorker/1.7
