@@ -21,7 +21,7 @@ Consolidate multiple tasks or operations into a single computational unit. This 
 
 ## Context and problem
 
-A cloud application often implements a variety of operations. In some solutions it makes sense to follow the design principle of separation of concerns initially, and divide these operations into separate computational units that are hosted and deployed individually (for example, as separate App Service web apps, separate Virtual Machines, or separate Cloud Service roles). However, although this strategy can help simplify the logical design of the solution, deploying a large number of computational units as part of the same application can increase runtime hosting costs and make management of the system more complex.
+A cloud application often implements a variety of operations. In some solutions it makes sense to follow the design principle of separation of concerns initially, and divide these operations into separate computational units that are hosted and deployed individually (for example, as separate App Service web apps, separate Virtual Machines). However, although this strategy can help simplify the logical design of the solution, deploying a large number of computational units as part of the same application can increase runtime hosting costs and make management of the system more complex.
 
 As an example, the figure shows the simplified structure of a cloud-hosted solution that is implemented using more than one computational unit. Each computational unit runs in its own virtual environment. Each function has been implemented as a separate task (labeled Task A through Task E) running in its own computational unit.
 
@@ -29,13 +29,13 @@ As an example, the figure shows the simplified structure of a cloud-hosted solut
 
 Each computational unit consumes chargeable resources, even when it's idle or lightly used. Therefore, this isn't always the most cost-effective solution.
 
-In Azure, this concern applies to roles in a Cloud Service, App Services, and Virtual Machines. These items run in their own virtual environment. Running a collection of separate roles, websites, or virtual machines that are designed to perform a set of well-defined operations, but that need to communicate and cooperate as part of a single solution, can be an inefficient use of resources.
+In Azure, this concern applies to App Services, Container Apps and Virtual Machines. These items run in their own virtual environment. Running a collection of separate websites, microservices, or virtual machines that are designed to perform a set of well-defined operations, but that need to communicate and cooperate as part of a single solution, can be an inefficient use of resources.
 
 ## Solution
 
 To help reduce costs, increase utilization, improve communication speed, and reduce management it's possible to consolidate multiple tasks or operations into a single computational unit.
 
-Tasks can be grouped according to criteria based on the features provided by the environment and the costs associated with these features. A common approach is to look for tasks that have a similar profile concerning their scalability, lifetime, and processing requirements. Grouping these together allows them to scale as a unit. The elasticity provided by many cloud environments enables additional instances of a computational unit to be started and stopped according to the workload. For example, Azure provides autoscaling that you can apply to roles in a Cloud Service, App Services, and Virtual Machines. For more information, see [Autoscaling Guidance](/previous-versions/msp-n-p/dn589774(v=pandp.10)).
+Tasks can be grouped according to criteria based on the features provided by the environment and the costs associated with these features. A common approach is to look for tasks that have a similar profile concerning their scalability, lifetime, and processing requirements. Grouping these together allows them to scale as a unit. The elasticity provided by many cloud environments enables additional instances of a computational unit to be started and stopped according to the workload. For example, Azure provides autoscaling that you can apply to App Services, and Virtual Machines. For more information, see [Autoscaling Guidance](/previous-versions/msp-n-p/dn589774(v=pandp.10)).
 
 As a counter example to show how scalability can be used to determine which operations shouldn't be grouped together, consider the following two tasks:
 
@@ -79,159 +79,14 @@ Use this pattern for tasks that are not cost effective if they run in their own 
 
 This pattern might not be suitable for tasks that perform critical fault-tolerant operations, or tasks that process highly sensitive or private data and require their own security context. These tasks should run in their own isolated environment, in a separate computational unit.
 
-## Example
+## Application platform choices
 
-When building a cloud service on Azure, it's possible to consolidate the processing performed by multiple tasks into a single role. Typically this is a worker role that performs background or asynchronous processing tasks.
+This pattern can be achieved in different ways, depending on the compute service you use. See the following example services:
 
-> In some cases it's possible to include background or asynchronous processing tasks in the web role. This technique helps to reduce costs and simplify deployment, although it can impact the scalability and responsiveness of the public-facing interface provided by the web role.
-
-The role is responsible for starting and stopping the tasks. When the Azure fabric controller loads a role, it raises the `Start` event for the role. You can override the `OnStart` method of the `WebRole` or `WorkerRole` class to handle this event, perhaps to initialize the data and other resources the tasks in this method depend on.
-
-When the `OnStart` method completes, the role can start responding to requests. You can find more information and guidance about using the `OnStart` and `Run` methods in a role in the [Application Startup Processes](/previous-versions/msp-n-p/ff803371(v=pandp.10)#sec16) section in the patterns & practices guide [Moving Applications to the Cloud](/previous-versions/msp-n-p/ff728592(v=pandp.10)).
-
-> Keep the code in the `OnStart` method as concise as possible. Azure doesn't impose any limit on the time taken for this method to complete, but the role won't be able to start responding to network requests sent to it until this method completes.
-
-When the `OnStart` method has finished, the role executes the `Run` method. At this point, the fabric controller can start sending requests to the role.
-
-Place the code that actually creates the tasks in the `Run` method. Note that the `Run` method defines the lifetime of the role instance. When this method completes, the fabric controller will arrange for the role to be shut down.
-
-When a role shuts down or is recycled, the fabric controller prevents any more incoming requests being received from the load balancer and raises the `Stop` event. You can capture this event by overriding the `OnStop` method of the role and perform any tidying up required before the role terminates.
-
-> Any actions performed in the `OnStop` method must be completed within five minutes (or 30 seconds if you are using the Azure emulator on a local computer). Otherwise the Azure fabric controller assumes that the role has stalled and will force it to stop.
-
-The tasks are started by the `Run` method that waits for the tasks to complete. The tasks implement the business logic of the cloud service, and can respond to messages posted to the role through the Azure load balancer. The figure shows the lifecycle of tasks and resources in a role in an Azure cloud service.
-
-![The lifecycle of tasks and resources in a role in an Azure cloud service](./_images/compute-resource-consolidation-lifecycle.png)
-
-The _WorkerRole.cs_ file in the _ComputeResourceConsolidation.Worker_ project shows an example of how you might implement this pattern in an Azure cloud service.
-
-> The _ComputeResourceConsolidation.Worker_ project is part of the _ComputeResourceConsolidation_ solution available for download from [GitHub](https://github.com/mspnp/cloud-design-patterns/tree/master/compute-resource-consolidation).
-
-The `MyWorkerTask1` and the `MyWorkerTask2` methods illustrate how to perform different tasks within the same worker role. The following code shows `MyWorkerTask1`. This is a simple task that sleeps for 30 seconds and then outputs a trace message. It repeats this process until the task is canceled. The code in `MyWorkerTask2` is similar.
-
-```csharp
-// A sample worker role task.
-private static async Task MyWorkerTask1(CancellationToken ct)
-{
-  // Fixed interval to wake up and check for work and/or do work.
-  var interval = TimeSpan.FromSeconds(30);
-
-  try
-  {
-    while (!ct.IsCancellationRequested)
-    {
-      // Wake up and do some background processing if not canceled.
-      // TASK PROCESSING CODE HERE
-      Trace.TraceInformation("Doing Worker Task 1 Work");
-
-      // Go back to sleep for a period of time unless asked to cancel.
-      // Task.Delay will throw an OperationCanceledException when canceled.
-      await Task.Delay(interval, ct);
-    }
-  }
-  catch (OperationCanceledException)
-  {
-    // Expect this exception to be thrown in normal circumstances or check
-    // the cancellation token. If the role instances are shutting down, a
-    // cancellation request will be signaled.
-    Trace.TraceInformation("Stopping service, cancellation requested");
-
-    // Rethrow the exception.
-    throw;
-  }
-}
-```
-
-> The sample code shows a common implementation of a background process. In a real world application you can follow this same structure, except that you should place your own processing logic in the body of the loop that waits for the cancellation request.
-
-After the worker role has initialized the resources it uses, the `Run` method starts the two tasks concurrently, as shown here.
-
-```csharp
-/// <summary>
-/// The cancellation token source use to cooperatively cancel running tasks
-/// </summary>
-private readonly CancellationTokenSource cts = new CancellationTokenSource();
-
-/// <summary>
-/// List of running tasks on the role instance
-/// </summary>
-private readonly List<Task> tasks = new List<Task>();
-
-// RoleEntry Run() is called after OnStart().
-// Returning from Run() will cause a role instance to recycle.
-public override void Run()
-{
-  // Start worker tasks and add to the task list
-  tasks.Add(MyWorkerTask1(cts.Token));
-  tasks.Add(MyWorkerTask2(cts.Token));
-
-  foreach (var worker in this.workerTasks)
-  {
-      this.tasks.Add(worker);
-  }
-
-  Trace.TraceInformation("Worker host tasks started");
-  // The assumption is that all tasks should remain running and not return,
-  // similar to role entry Run() behavior.
-  try
-  {
-    Task.WaitAll(tasks.ToArray());
-  }
-  catch (AggregateException ex)
-  {
-    Trace.TraceError(ex.Message);
-
-    // If any of the inner exceptions in the aggregate exception
-    // are not cancellation exceptions then re-throw the exception.
-    ex.Handle(innerEx => (innerEx is OperationCanceledException));
-  }
-
-  // If there wasn't a cancellation request, stop all tasks and return from Run()
-  // An alternative to canceling and returning when a task exits would be to
-  // restart the task.
-  if (!cts.IsCancellationRequested)
-  {
-    Trace.TraceInformation("Task returned without cancellation request");
-    Stop(TimeSpan.FromMinutes(5));
-  }
-}
-...
-```
-
-In this example, the `Run` method waits for tasks to be completed. If a task is canceled, the `Run` method assumes that the role is being shut down and waits for the remaining tasks to be canceled before finishing (it waits for a maximum of five minutes before terminating). If a task fails due to an expected exception, the `Run` method cancels the task.
-
-> You could implement more comprehensive monitoring and exception handling strategies in the `Run` method such as restarting tasks that have failed, or including code that enables the role to stop and start individual tasks.
-
-The `Stop` method shown in the following code is called when the fabric controller shuts down the role instance (it's invoked from the `OnStop` method). The code stops each task gracefully by canceling it. If any task takes more than five minutes to complete, the cancellation processing in the `Stop` method ceases waiting and the role is terminated.
-
-```csharp
-// Stop running tasks and wait for tasks to complete before returning
-// unless the timeout expires.
-private void Stop(TimeSpan timeout)
-{
-  Trace.TraceInformation("Stop called. Canceling tasks.");
-  // Cancel running tasks.
-  cts.Cancel();
-
-  Trace.TraceInformation("Waiting for canceled tasks to finish and return");
-
-  // Wait for all the tasks to complete before returning. Note that the
-  // emulator currently allows 30 seconds and Azure allows five
-  // minutes for processing to complete.
-  try
-  {
-    Task.WaitAll(tasks.ToArray(), timeout);
-  }
-  catch (AggregateException ex)
-  {
-    Trace.TraceError(ex.Message);
-
-    // If any of the inner exceptions in the aggregate exception
-    // are not cancellation exceptions then rethrow the exception.
-    ex.Handle(innerEx => (innerEx is OperationCanceledException));
-  }
-}
-```
+- Azure App Service and Azure Functions: Deploy shared App Service plans, which represent the hosting server infrastructure. One or more apps can be configured to run on the same computing resources (or in the same App Service plan).
+- Azure Container Apps: Deploy container apps to the same shared environments; especially in situations when you need to manage related services or you need to deploy different applications to the same virtual network.
+- Azure Kubernetes Service (AKS): Deploy shared pods, with a multitenancy-aware application.
+- Virtual machines: Deploy a single set of virtual machines for all tenants to use, that way the management costs are shared accross the tenants.
 
 ## Related guidance
 
@@ -241,4 +96,4 @@ The following patterns and guidance might also be relevant when implementing thi
 
 - [Compute Partitioning Guidance](/previous-versions/msp-n-p/dn589773(v=pandp.10)). Describes how to allocate the services and components in a cloud service in a way that helps to minimize running costs while maintaining the scalability, performance, availability, and security of the service.
 
-- This pattern includes a downloadable [sample application](https://github.com/mspnp/cloud-design-patterns/tree/master/compute-resource-consolidation).
+- [Architectural approaches for compute in multitenant solutions](/guide/multitenant/approaches/compute#compute-resource-consolidation-pattern). Provides guidance about the considerations and requirements that are essential for solution architects, when they're planning the compute services of a multitenant solution.
