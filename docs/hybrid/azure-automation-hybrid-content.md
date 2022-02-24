@@ -36,7 +36,7 @@ Agent-based (V1) Hybrid Runbook Workers rely on the [Log Analytics agent][4] rep
 
 ### Components
 
-The Hybrid Runbook Worker architecture consists of the following components:
+The Hybrid Runbook Worker architecture consists of the following:
 
 - **Automation Account**: A cloud service that automates configuration and management across your Azure and non-Azure environments.
 - **Hybrid Runbook Worker**: A computer that is configured with the Hybrid Runbook Worker feature and can execute runbooks directly on the computer and against the resources in the local environment.
@@ -64,7 +64,7 @@ Each user Hybrid Runbook Worker is a member of a Hybrid Runbook Worker group tha
 
 ![Azure Automation in a System Hybrid Runbook Worker][System-architectural-diagram]
 
-*Download a [Visio file][architectural-diagram-visio-source] of this architecture.*
+*Download a [Visio file][architectural-diagram-visio-source-system] of this architecture.*
 
 For machines hosting the system Hybrid Runbook Worker managed by Update Management, they can be added to a Hybrid Runbook Worker group. But you must use the same Automation account for both Update Management and the Hybrid Runbook Worker group membership.
 
@@ -100,7 +100,7 @@ When you start a runbook on a user Hybrid Runbook Worker, you specify the group 
 - The extension-based approach (V2) offers ease of manageability as compared to agent-based approach (V1) through:
     - Native integration with ARM identity for Hybrid Runbook Worker and provides the flexibility for governance at scale through policies and templates.
     - Centralized control and management of identities and resource credentials, since it uses VM system assigned-identities provided by Azure AD.
-    -	Unified experience for both Azure and non-Azure machines while onboarding and deboarding Hybrid Runbook Workers.
+    - Unified experience for both Azure and non-Azure machines while onboarding and deboarding Hybrid Runbook Workers.
 
 - Applicable only for agent-based approach (V1):
     - To accelerate deployment of the Log Analytics Agent with Hybrid Worker Role running on Windows machine, use the PowerShell script [New-OnPremiseHybridWorker.ps1][17]
@@ -120,7 +120,7 @@ When you start a runbook on a user Hybrid Runbook Worker, you specify the group 
 ## DevOps considerations
 
 - Azure Automation allows integration with popular source control systems, Azure DevOps, and GitHub. With Source Control, you can integrate the existing development environment that contains your scripts and custom code that have been previously tested in an isolated environment.
-- For information on how to integrate Azure Automation with your Source Control environment, refer to [Use source control integration][13].
+- For information on how to integrate Azure Automation with your Source Control environment, refer [Use source control integration.][13]
 
 ## Cost considerations
 
@@ -155,7 +155,7 @@ More about Azure Automation:
 [architectural-diagram]: ./images/azure-automation-hybrid.png
 [architectural-diagram-visio-source]: https://arch-center.azureedge.net/azure-automation-hybrid.vsdx
 [System-architectural-diagram]: ./images/azure-automation-system.png
-[architectural-diagram-visio-source]: https://arch-center.azureedge.net/azure-automation-system.vsdx
+[architectural-diagram-visio-source-system]: https://arch-center.azureedge.net/azure-automation-system.vsdx
 [1]: /azure/automation/extension-based-hybrid-runbook-worker-install?tabs=windows
 [2]: /azure/automation/automation-windows-hrw-install
 [3]: /azure/automation/extension-based-hybrid-runbook-worker-install
