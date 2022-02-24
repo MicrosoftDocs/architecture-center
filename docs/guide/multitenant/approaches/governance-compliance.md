@@ -117,7 +117,7 @@ Some multitenant solutions incorporate Microsoft 365 and use services like Micro
 
 ### Deployment Stamps pattern
 
-Consider following the [Deployment Stamps pattern](overview.yml#deployment-stamps-pattern) when you need to comply with tenant-specific requirements.
+Consider following the [Deployment Stamps pattern](overview.md#deployment-stamps-pattern) when you need to comply with tenant-specific requirements.
 
 For example, you might deploy stamps of your solution into multiple Azure regions. Then, you can assign new tenants to stamps, based on the regions that they need to have their data located in.
 
