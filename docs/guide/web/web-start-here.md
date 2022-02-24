@@ -31,7 +31,7 @@ Azure provides a wide range of tools and capabilities for creating, hosting, and
 - [Azure Monitor](https://azure.microsoft.com/services/monitor) provides full observability into your applications, infrastructure, and network. Monitor includes [Application Insights](/azure/azure-monitor/app/app-insights-overview), which provides application performance management and monitoring for live web apps.
 - [Azure SignalR Service](https://azure.microsoft.com/services/signalr-service) enables you to easily add real-time web functionalities.
 - [Static Web Apps](https://azure.microsoft.com/services/app-service/static) provides streamlined full-stack development from source code to global high availability.
-- [Web App for Containers](/services/app-service/containers) enables you to run containerized web apps on Windows and Linux.
+- [Web App for Containers](https://azure.microsoft.com/services/app-service/containers) enables you to run containerized web apps on Windows and Linux.
 
 ## Introduction to web apps on Azure
 
@@ -147,5 +147,5 @@ Here are some additional implementations to consider:
 
 ### AWS or Google Cloud professionals
 
-- [AWS to Azure services comparison - Web applications](../../aws-professional/services#web-applications.yml)
-- [Google Cloud to Azure services comparison - Application services](../../gcp-professional/services#application-services.yml)
+- [AWS to Azure services comparison - Web applications](/azure/architecture/aws-professional/services#web-applications)
+- [Google Cloud to Azure services comparison - Application services](/azure/architecture/gcp-professional/services#application-services)
