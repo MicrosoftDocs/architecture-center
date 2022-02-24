@@ -85,7 +85,7 @@ This pattern can be achieved in different ways, depending on the compute service
 
 - Azure App Service and Azure Functions: Deploy shared App Service plans, which represent the hosting server infrastructure. One or more apps can be configured to run on the same computing resources (or in the same App Service plan).
 - Azure Container Apps: Deploy container apps to the same shared environments; especially in situations when you need to manage related services or you need to deploy different applications to the same virtual network.
-- Azure Kubernetes Service (AKS): Deploy shared pods, with a multitenancy-aware application.
+- Azure Kubernetes Service (AKS): AKS is a container-based hosting infrastructure in which multiple applications or application components can be configured to run co-located on the same computing resources (nodes), grouped by computational requirements such as CPU or memory needs (node pools).
 - Virtual machines: Deploy a single set of virtual machines for all tenants to use, that way the management costs are shared accross the tenants.
 
 ## Related guidance
