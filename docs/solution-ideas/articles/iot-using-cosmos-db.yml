@@ -4,7 +4,7 @@ metadata:
   titleSuffix: Azure Solution Ideas
   description: Azure Cosmos DB scales instantly and elastically to accommodate diverse and unpredictable IoT workloads without sacrificing ingestion or query performance.
   author: khilscher
-  ms.author: pnp
+  ms.author: khilsch
   ms.date: 07/16/2021
   ms.topic: conceptual
   ms.service: architecture-center

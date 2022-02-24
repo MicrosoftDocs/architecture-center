@@ -4,7 +4,7 @@ metadata:
   titleSuffix: Azure Solution Ideas
   description: Forecast spikes in demand for energy products and services with Microsoft Azure Machine Learning and give your company a competitive advantage.
   author: cartacios
-  ms.author: pnp
+  ms.author: sacartac
   ms.date: 3/2/2021
   ms.topic: conceptual
   ms.service: architecture-center
