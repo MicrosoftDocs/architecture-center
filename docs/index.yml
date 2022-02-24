@@ -94,6 +94,8 @@ productDirectory:
           text: Architecture for startups
         - url: ./solutions/power-platform-scenarios.md
           text: Azure and Power Platform solutions
+        - url: ./solutions/microsoft-365-scenarios.md
+          text: Azure and Microsoft 365 solutions
         - url: ./aws-professional/services.md
           text: AWS services comparison
         - url: ./gcp-professional/services.md
