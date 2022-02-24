@@ -61,7 +61,7 @@ You can also integrate Azure App Service with Azure AD B2C for authentication of
 More information:
 - [App Service authorization](/azure/app-service/overview-authentication-authorization)
 - [Configure authentication in a sample web app by using Azure AD B2C](/azure/active-directory-b2c/configure-authentication-sample-web-app)
-- [Working with multitenant Azure AD identities](../../../multitenant-identity/index.md)
+- [Working with multitenant Azure AD identities](../../../multitenant-identity/index.yml)
 
 ### Access restrictions
 
@@ -82,7 +82,7 @@ When you work with Azure App Service and Azure Functions, you should be aware of
 
 The strongest level of isolation is to deploy a dedicated plan for a tenant. This dedicated plan ensures that the tenant has full use of all of the server resources that are allocated to that plan.
 
-This approach enables you to scale your solution to provide performance isolation for each tenant, and to avoid the [Noisy Neighbor problem](../../../antipatterns/noisy-neighbor/index.md). However, it also has a higher cost because the resources aren't shared with multiple tenants. Also, you need to consider the [maximum number of plans](/azure/azure-resource-manager/management/azure-subscription-service-limits#app-service-limits) that can be deployed into a single Azure resource group.
+This approach enables you to scale your solution to provide performance isolation for each tenant, and to avoid the [Noisy Neighbor problem](../../../antipatterns/noisy-neighbor/noisy-neighbor.yml). However, it also has a higher cost because the resources aren't shared with multiple tenants. Also, you need to consider the [maximum number of plans](/azure/azure-resource-manager/management/azure-subscription-service-limits#app-service-limits) that can be deployed into a single Azure resource group.
 
 ### Apps per tenant with shared plans
 
@@ -92,7 +92,7 @@ You can also choose to share your plan between multiple tenants, but deploy sepa
 - **Separation of configuration:** Each tenant's app can have its own domain name, TLS certificate, access restrictions, and token authorization policies applied.
 - **Separation of upgrades:** Each tenant's application binaries can be upgraded independently of other apps on the same plan.
 
-However, because the plan's compute resources are shared, the apps might be subject to the [Noisy Neighbor problem](../../../antipatterns/noisy-neighbor/index.md). Additionally, there are [limits to how many apps can be deployed to a single plan](/azure/azure-resource-manager/management/azure-subscription-service-limits#app-service-limits).
+However, because the plan's compute resources are shared, the apps might be subject to the [Noisy Neighbor problem](../../../antipatterns/noisy-neighbor/noisy-neighbor.yml). Additionally, there are [limits to how many apps can be deployed to a single plan](/azure/azure-resource-manager/management/azure-subscription-service-limits#app-service-limits).
 
 ### Shared apps
 

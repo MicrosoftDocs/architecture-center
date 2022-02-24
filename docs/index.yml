@@ -85,6 +85,21 @@ productDirectory:
           text: Choose a messaging service
         - url: ./example-scenario/iot/iot-central-iot-hub-cheat-sheet.yml
           text: Choose an IoT solution
+    # Card
+    - title: Essential scenarios
+      # imageSrc should be square in ratio with no whitespace
+      imageSrc: https://docs.microsoft.com/media/common/i_best-practices.svg
+      links:
+        - url: ./guide/startups/startup-architecture.md
+          text: Architecture for startups
+        - url: ./solutions/power-platform-scenarios.md
+          text: Azure and Power Platform solutions
+        - url: ./solutions/microsoft-365-scenarios.md
+          text: Azure and Microsoft 365 solutions
+        - url: ./aws-professional/services.md
+          text: AWS services comparison
+        - url: ./gcp-professional/services.md
+          text: Google Cloud services comparison
 
 # conceptualContent section (optional)
 conceptualContent:
@@ -247,7 +262,7 @@ conceptualContent:
     - title: Identity
       links:
         - text: Identity in multitenant applications
-          url: multitenant-identity/index.md
+          url: multitenant-identity/index.yml
           itemType: how-to-guide
         - text: Choose an Active Directory integration architecture
           itemType: architecture

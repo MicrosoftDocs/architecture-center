@@ -16,7 +16,7 @@ There are two types of edge gateways, *field* or [IoT Edge](/azure/iot-edge/iot-
     - [Using IoT Edge As a Field Gateway](/azure/iot-edge/iot-edge-as-gateway?view=iotedge-2018-06)
     - How to configure an [IoT Edge Gateway](/azure/iot-edge/how-to-create-transparent-gateway?view=iotedge-2018-06)
 - For detailed documentation using Azure IoT Hub as a Cloud Gateway, refer to the following links:
-	- What is [Azure's Cloud Gateway](../../guide/iiot-guidance/iiot-architecture.md#cloud-gateway)?
+	- What is [Azure's Cloud Gateway](../../guide/iiot-guidance/iiot-architecture.yml#cloud-gateway)?
 	- What is [Azure IoT Hub](/azure/iot-hub/about-iot-hub)?
 	- How do I add [additional protocol support](/azure/iot-hub/iot-hub-protocol-gateway) for Azure IoT Hub?
 - For overall guidance, refer to the following links:

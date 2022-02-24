@@ -7,7 +7,7 @@ Easily migrate existing application to container(s) and run within the Azure man
 ![Architecture Diagram](../media/migrate-existing-applications-with-aks.png)
 *Download an [SVG](../media/migrate-existing-applications-with-aks.svg) of this architecture.*
 
-### Data flow
+### Dataflow
 
 1. User converts existing application to container(s) &amp; publishes container image(s)to the Azure Container Registry
 1. Using Azure Portal or command line, user deploys containers to AKS cluster

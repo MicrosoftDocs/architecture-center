@@ -120,3 +120,7 @@ The following articles provide detailed analysis of solutions that feature integ
 |[Quality assurance](../solution-ideas/articles/quality-assurance.yml)|Build a quality assurance system that collects data and improves productivity by identifying potential problems in a manufacturing pipeline before they occur. Use Power BI to visualize real-time operational dashboards.| AI|
 |[Serverless computing solution for LOB apps](../solution-ideas/articles/onboarding-customers-with-a-cloud-native-serverless-architecture.yml)|Build and run customer onboarding applications without managing or maintaining infrastructure. Improve developer productivity with this serverless architecture. Power BI is used to store customer information.| Serverless|
 |[Use a demand forecasting model for price optimization](../solution-ideas/articles/demand-forecasting-price-optimization-marketing.yml)|Predict future customer demand and optimize pricing by using big-data and advanced-analytics services from Azure. Use Power BI to monitor the results.| Analytics|
+
+## Related resources
+
+- [Browse all our Power Platform architectures](/azure/architecture/browse/?products=power-platform)

@@ -348,7 +348,7 @@ Once your data is hosted in Azure, create a data purge plan for data that has
 outlived its usefulness or lifespan. While long-term (cold) storage is always a
 great option for archiving, clean-up of expired data reduces footprint and
 overall storage costs. The backup and archive [Azure solution
-architectures](https://docs.microsoft.com/en-us/azure/architecture/browse/?terms=backup%20archive)
+architectures](/azure/architecture/browse/?terms=backup+archive)
 are good resources to help plan your overall strategy.
 
 ## Components

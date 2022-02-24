@@ -8,7 +8,7 @@ services: architecture-center
 ms.service: architecture-center
 ms.subservice: azure-guide
 ms.topic: article
-ms.date: 01/10/2020
+ms.date: 02/18/2022
 ms.author: tdsp
 ms.category:
   - ai-machine-learning
@@ -215,12 +215,16 @@ Here is an example of how the data science project work items should appear in *
 
 ## Next steps
 
-[Collaborative coding with Git](collaborative-coding-with-git.md) describes how to do collaborative code development for data science projects using Git as the shared code development framework, and how to link these coding activities to the work planned with the agile process.
-
-[Example walkthroughs](walkthroughs.md) lists walkthroughs of specific scenarios, with links and thumbnail descriptions. The linked scenarios illustrate how to combine cloud and on-premises tools and services into workflows or pipelines to create intelligent applications.
+- [Collaborative coding with Git](collaborative-coding-with-git.md) describes how to do collaborative code development for data science projects using Git as the shared code development framework, and how to link these coding activities to the work planned with the agile process.
 
 Additional resources on agile processes:
 
 - [Agile process](/azure/devops/boards/work-items/guidance/agile-process)
 
 - [Agile process work item types and workflow](/azure/devops/boards/work-items/guidance/agile-process-workflow)
+
+## Related resources
+
+- [What is the Team Data Science Process?](/azure/architecture/data-science-process/overview)
+- [Compare the machine learning products and technologies from Microsoft](/azure/architecture/data-guide/technology-choices/data-science-and-machine-learning)
+- [Machine learning at scale](/azure/architecture/data-guide/big-data/machine-learning-at-scale)

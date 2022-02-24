@@ -4,7 +4,7 @@ metadata:
   titleSuffix: Azure Example Scenarios
   description: Learn how the Microsoft Autonomous Systems platform uses machine teaching, deep reinforcement learning, and simulations to build and deploy autonomous systems with Bonsai.
   author: jocontr
-  ms.author: pnp
+  ms.author: jocontr
   ms.date: 07/05/2020
   ms.topic: conceptual
   ms.service: architecture-center
