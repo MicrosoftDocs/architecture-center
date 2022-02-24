@@ -88,7 +88,7 @@ productDirectory:
     # Card
     - title: Essential scenarios
       # imageSrc should be square in ratio with no whitespace
-      imageSrc: https://docs.microsoft.com/media/common/i_overview.svg
+      imageSrc: https://docs.microsoft.com/media/common/i_best-practices.svg
       links:
         - url: ./guide/startups/startup-architecture.md
           text: Architecture for startups
