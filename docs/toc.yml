@@ -4496,6 +4496,8 @@ items:
                 href: example-scenario/wvd/multi-forest-azure-managed.yml
       - name: Web
         items:
+          - name: Get started
+            href: guide/web/web-start-here.md
           - name: Guides
             items:
               - name: Design principles
