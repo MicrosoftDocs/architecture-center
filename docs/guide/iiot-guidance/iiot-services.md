@@ -19,7 +19,7 @@ ms.custom:
 
 # Services in an Industrial IoT analytics solution
 
-Building on the architectural components in the recommended [Azure Industrial IoT analytics solution](./iiot-architecture.md), this article discusses the subsystems and Azure services that can be used in such a solution. Your solution may not use all these services or may have additional services.
+Building on the architectural components in the recommended [Azure Industrial IoT analytics solution](./iiot-architecture.yml), this article discusses the subsystems and Azure services that can be used in such a solution. Your solution may not use all these services or may have additional services.
 
 ## Time Series Service
 
@@ -254,4 +254,4 @@ For these operations, we recommend using the [Microsoft Graph](https://developer
 
 ## Next steps
 
-Data visualization is the backbone of a well-defined analytics system. Learn about the [data visualization techniques](./iiot-data.md) that you can use with the IIoT analytics solution recommended in this series.
+Data visualization is the backbone of a well-defined analytics system. Learn about the [data visualization techniques](./iiot-data.yml) that you can use with the IIoT analytics solution recommended in this series.

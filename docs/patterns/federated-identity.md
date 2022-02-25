@@ -92,5 +92,5 @@ Tenants won't need to remember separate credentials to access the application, a
 - [Microsoft Azure Active Directory](https://azure.microsoft.com/services/active-directory/)
 - [Active Directory Domain Services](/previous-versions/windows/server-2008/bb897402(v=msdn.10))
 - [Active Directory Federation Services](/previous-versions/windows/server-2008/bb897402(v=msdn.10))
-- [Identity management for multitenant applications in Microsoft Azure](../multitenant-identity/index.md)
+- [Identity management for multitenant applications in Microsoft Azure](../multitenant-identity/index.yml)
 - [Multitenant Applications in Azure](/azure/dotnet-develop-multitenant-applications)
