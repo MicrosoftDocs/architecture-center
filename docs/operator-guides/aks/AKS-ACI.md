@@ -49,7 +49,7 @@ spec:
 
 4. If your workload does not fall under the known limitations today (https://docs.microsoft.com/en-us/azure/aks/virtual-nodes#known-limitations), There could be demands where you're looking to split the workoad across the agentpools & Virtual nodes  , therefore you can also use pod-affinity that can help in the management of the workload
 
-```
+```yaml
 affinity:
         nodeAffinity:
           requiredDuringSchedulingIgnoredDuringExecution:
