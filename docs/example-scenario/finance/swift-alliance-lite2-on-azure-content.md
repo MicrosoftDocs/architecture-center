@@ -23,15 +23,15 @@ The Lite2 AutoClient subscription has a single resource group. It contains:
 * An Azure firewall configured to allow RDP traffic to Alliance Lite2 AutoClient.
 * Azure policies for SWIFT.
 
-You're responsible for establishing secure connectivity to the Alliance Lite2 AutoClient subscription.
+You're responsible for establishing secure connectivity to the Alliance Lite2 AutoClient subscription. You can use one of these methods:
 
-* You can use Azure ExpressRoute to connect your premises to Azure via private connectivity.
-* You can use Azure site-to-site VPN to connect your premises to Azure via the internet.
-* You can use direct RDP over the internet for internet connectivity.
+* Use Azure ExpressRoute to connect your premises to Azure via private connectivity.
+* Use Azure site-to-site VPN to connect your premises to Azure via the internet.
+* Use direct RDP over the internet for internet connectivity.
 
 [![Diagram that shows SWIFT Alliance Lite2 connectivity.](./media/swift-alliance-lite2-customer-connectivity.png)](./media/swift-alliance-lite2-customer-connectivity.png#lightbox)
 
-You use RDP, with one of the three connectivity approaches, to connect to Alliance Lite2 AutoClient software running on the Lite2 AutoClient VM. The recommended Azure firewall and Azure network security group are configured to allow only RDP traffic to pass to the Lite2 AutoClient VM. Lite2 AutoClient software traffic to SWIFTNet flows through the virtual network peer via Juniper vSRX, which has an established VPN tunnel to SWIFTNet over the internet.
+You use RDP, with one of the preceding three connectivity approaches, to connect to Alliance Lite2 AutoClient software running on the Lite2 AutoClient VM. The recommended Azure firewall and Azure network security group are configured to allow only RDP traffic to pass to the Lite2 AutoClient VM. Lite2 AutoClient software traffic to SWIFTNet flows through the virtual network peer via Juniper vSRX, which has an established VPN tunnel to SWIFTNet over the internet.
 
 ### Components
 - [Azure Virtual Network](https://azure.microsoft.com/services/virtual-network) is the fundamental building block for your private network on Azure.
@@ -60,7 +60,7 @@ You're responsible for operating the Alliance Lite2 AutoClient software and the 
 
 In the SWIFT Alliance Connect Virtual subscription, SWIFT is responsible for configuration of Alliance Connect Virtual and network connectivity between Alliance Connect Virtual and SWIFT. You're responsible for operating and monitoring the underlying infrastructure resources.
 
-Azure provides a comprehensive set of monitoring capabilities in Azure Monitor. These tools focus on the infrastructure deployed in Azure. Monitoring of the SWIFT software isn't covered by these tools. You can use a monitoring agent to collect event logs, performance counters, and other logs and have these logs and metrics sent to Azure Monitor. For more information, see [Overview of Azure Monitor agents](/azure/azure-monitor/platform/agents-overview).
+Azure provides a comprehensive set of monitoring capabilities in Azure Monitor. These tools focus on the infrastructure deployed in Azure. Monitoring of the SWIFT software isn't covered by these tools. You can use a monitoring agent to collect event logs, performance counters, and other logs and send these logs and metrics to Azure Monitor. For more information, see [Overview of Azure Monitor agents](/azure/azure-monitor/platform/agents-overview).
 
 [Azure alerts](/azure/azure-monitor/alerts/alerts-overview) notify you when problems are found with your infrastructure or application. These alerts use your data in Azure Monitor. You can use these alerts to identify and address problems before your users notice them.
 
