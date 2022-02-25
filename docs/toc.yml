@@ -689,8 +689,10 @@ items:
                     href: example-scenario/finance/swift-on-azure.yml
                   - name: SWIFT Alliance Messaging Hub
                     href: example-scenario/finance/swift-alliance-messaging-hub.yml
-                  - name: SWIFT Alliance Access
+                  - name: SWIFT Alliance Access with Alliance Connect
                     href: example-scenario/finance/swift-alliance-access-on-azure.yml
+                  - name: SWIFT Alliance Access with Alliance Connect Virtual
+                    href: example-scenario/finance/swift-alliance-access-vsrx-on-azure.yml
                   - name: SWIFT Alliance Lite2
                     href: example-scenario/finance/swift-alliance-lite2-on-azure.yml
           - name: Compliance solutions
@@ -3079,6 +3081,8 @@ items:
                 href: hybrid/hybrid-server-os-mgmt.yml
               - name: On-premises data gateway for Logic Apps
                 href: hybrid/gateway-logic-apps.yml
+              - name: Public multi-access edge compute deployment
+                href: example-scenario/hybrid/public-multi-access-edge-compute-deployment.yml
               - name: Run containers in a hybrid environment
                 href: hybrid/hybrid-containers.yml
               - name: Use Azure file shares in a hybrid environment

@@ -2,7 +2,7 @@ This article provides an overview of deploying SWIFT's Alliance Access on Azure,
 
 ## Potential use cases
 
-These architectures are optimal for the finance industry. 
+This solution is optimal for the finance industry.
 
 The following examples are intended for both existing and new SWIFT customers, and can be used for the following scenarios:
 
@@ -11,9 +11,9 @@ The following examples are intended for both existing and new SWIFT customers, a
 
 ## Architecture
 
-[![Diagram of the architecture for SWIFT Alliance Access.](media/swift-alliance-access-multi-region.png)](media/swift-alliance-access-multi-region.png#lightbox)
+[![Diagram of the architecture for SWIFT Alliance Access.](media/swift-alliance-access-vsrx.png)](media/swift-alliance-access-vsrx.png#lightbox)
 
-*Download a [PowerPoint file](https://arch-center.azureedge.net/swift-alliance-access-multi-region.pptx) that contains this architecture diagram.*
+*Download a [Visio file](https://arch-center.azureedge.net/swift-alliance-access-vsrx-mvp.vsdx) that contains this architecture diagram.*
 
 The Alliance Access Secure Zone subscription contains resources managed by the customer. The resources for Alliance Access can be deployed with an Azure Resource Manager template to create the core infrastructure as described in this architecture. An Alliance Access deployment in Azure should adhere to SWIFT's Customer Security Program (CSP) Control Framework (CSCF). We recommend that customers use the SWIFT CSP-CSCF Azure policies in this subscription.
 
@@ -57,11 +57,11 @@ The SWIFT customer's business and application systems can connect with Alliance 
 
 ### Alternatives
 
-This Azure architecture shows all SWIFT components running in Azure, except the HSM and Alliance Connect networking solution appliances. It's possible to run SWIFT's [Alliance Access with Alliance Connect Virtual](swift-alliance-access-vsrx-on-azure.yml) networking solution in Azure.
+This Azure architecture shows all SWIFT components running in Azure, except the HSM. It's possible to run SWIFT's [Alliance Access with Alliance Connect](swift-alliance-access-on-azure.yml) networking solution in Azure.
 
 ## Considerations
 
-* Customers interested in deploying Alliance Access in Azure can contact SWIFT and Microsoft to get further assistance. A customer's Microsoft account team can be engaged to help guide the Azure implementation.
+* A customer's Microsoft account team can be engaged to help guide the Azure implementation.
 * SWIFT customer resources on Azure should comply with the SWIFT Customer Security Programme-Customer Security Controls Framework. CSP-CSCF control 1.1 mandates separation between production, test, and development environments. The recommended approach is to deploy each environment in a separate subscription. This makes it easier to separate the environments.
 
 ### Operational excellence
@@ -144,10 +144,10 @@ To increase resilience beyond a single Azure region, we recommend that you deplo
 
 Explore the functionality and architecture of some other SWIFT modules in detail, as provided below.
 
-<!-- doesn't exist yet * [SWIFT Alliance Connect in Azure](swift-on-azure-srx.yml) -->
-<!-- doesn't exist yet* [SWIFT Alliance Connect Virtual in Azure](swift-on-azure-vsrx.yml) -->
-* [Alliance Access with Alliance Connect Virtual](swift-alliance-access-vsrx-on-azure.yml)
+<!-- doesn't exist yet * * [SWIFT Alliance Connect in Azure](swift-on-azure-srx.yml) -->
+<!-- doesn't exist yet * * [SWIFT Alliance Connect Virtual in Azure](swift-on-azure-vsrx.yml) -->
+* [Alliance Access](swift-alliance-access-on-azure.yml)
 * [Alliance Messaging Hub (AMH)](swift-alliance-messaging-hub.yml)
-<!-- doesn't exist yet* [Alliance Messaging Hub (AMH) with Alliance Connect Virtual](swift-alliance-messaging-hub-vsrx.yml) -->
-<!-- doesn't exist yet* [Alliance Lite2](swift-alliance-lite-2-on-azure.yml) -->
-<!-- doesn't exist yet* [Alliance Cloud](swift-alliance-cloud-on-azure.yml) -->
+<!-- doesn't exist yet * * [Alliance Messaging Hub (AMH) with Alliance Connect Virtual](swift-alliance-messaging-hub-vsrx.yml) -->
+<!-- doesn't exist yet * * [Alliance Lite2](swift-alliance-lite-2-on-azure.yml) -->
+<!-- doesn't exist yet * * [Alliance Cloud](swift-alliance-cloud-on-azure.yml) -->
