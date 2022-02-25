@@ -4,16 +4,16 @@ In this set of articles, we explore how to build a microservices architecture on
 
 - [Compute options for microservices](./compute-options.md)
 - [Interservice communication](./interservice-communication.yml)
-- [API design](./api-design.md)
-- [API gateways](./gateway.md)
-- [Data considerations](./data-considerations.md)
+- [API design](./api-design.yml)
+- [API gateways](./gateway.yml)
+- [Data considerations](./data-considerations.yml)
 - [Design patterns](./patterns.md)
 
 ## Prerequisites
 
 Before reading these articles, you might start with the following:
 
-- [Introduction to microservices architectures](../index.md). Understand the benefits and challenges of microservices, and when to use this style of architecture.
+- [Introduction to microservices architectures](../index.yml). Understand the benefits and challenges of microservices, and when to use this style of architecture.
 - [Using domain analysis to model microservices](../model/domain-analysis.md). Learn a domain-driven approach to modeling microservices.
 
 ## Reference implementation

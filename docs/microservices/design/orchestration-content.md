@@ -75,15 +75,15 @@ Here are some options for implementing microservices container orchestration in 
 - [Microservices architecture on Azure Kubernetes Service (AKS)](../../reference-architectures/containers/aks-microservices/aks-microservices.yml)
 - [Advanced Azure Kubernetes Service (AKS) microservices architecture](../../reference-architectures/containers/aks-microservices/aks-microservices-advanced.yml)
 - [Microservices with AKS and Azure DevOps](../../solution-ideas/articles/microservices-with-aks.yml)
-- [Use API gateways in microservices](gateway.md)
+- [Use API gateways in microservices](gateway.yml)
 - [Monitor a microservices architecture in AKS](../logging-monitoring.md)
 - [Microservices architecture on Azure Service Fabric](../../reference-architectures/microservices/service-fabric.yml)
 - [Azure Spring Cloud reference architecture](/azure/spring-cloud/reference-architecture)
 
 ## Related resources
 
-- [Build microservices on Azure](../index.md)
-- [Design a microservices architecture](index.md)
+- [Build microservices on Azure](../index.yml)
+- [Design a microservices architecture](index.yml)
 - [Design patterns for microservices](patterns.md)
 - [Microservices architectural style](../../guide/architecture-styles/microservices.md)
 - [Azure Kubernetes Service solution journey](../../reference-architectures/containers/aks-start-here.md)

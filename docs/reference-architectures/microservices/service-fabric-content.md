@@ -89,7 +89,7 @@ For more information, see:
 
 ### API gateway
 
-An [API gateway](../..//microservices/design/gateway.md) (ingress) sits between external clients and the microservices. It acts as a reverse proxy, routing requests from clients to microservices. It may also perform various cross-cutting tasks such as authentication, SSL termination, and rate limiting.
+An [API gateway](../../microservices/design/gateway.yml) (ingress) sits between external clients and the microservices. It acts as a reverse proxy, routing requests from clients to microservices. It may also perform various cross-cutting tasks such as authentication, SSL termination, and rate limiting.
 
 Azure API Management is recommended for most scenarios, but [Traefik](https://docs.traefik.io) is a popular open-source alternative. Both technology options are integrated with Service Fabric.
 
@@ -207,7 +207,7 @@ To secure your interservice communications:
 - Consider enabling HTTPS endpoints in your ASP.NET Core or Java web services.
 - Establish a secure connection between the reverse proxy and services.  For details, see [Connect to a secure service](/azure/service-fabric/service-fabric-reverseproxy-configure-secure-communication).
 
-If you are using an [API gateway](../../microservices/design/gateway.md), you can [offload authentication](../../patterns/gateway-offloading.md) to the gateway. Make sure that the individual services cannot be reached directly (without the API gateway) unless additional security is in place to authenticate messages whether they come from the gateway.
+If you are using an [API gateway](../../microservices/design/gateway.yml), you can [offload authentication](../../patterns/gateway-offloading.md) to the gateway. Make sure that the individual services cannot be reached directly (without the API gateway) unless additional security is in place to authenticate messages whether they come from the gateway.
 
 Do not expose the Service Fabric reverse proxy publicly. Doing so causes all services that expose HTTP endpoints to be addressable from outside the cluster, introducing security vulnerabilities and potentially exposing additional information outside the cluster unnecessarily. If you want to access a service publicly, use an API gateway. Some options are mentioned in the [API gateway](#api-gateway) section.
 
@@ -441,7 +441,7 @@ To deploy the reference implementation for this architecture, follow the steps i
 ## Next steps
 
 - [Using domain analysis to model microservices](../../microservices/model/domain-analysis.md)
-- [Designing a microservices architecture](../../microservices/design/index.md)
+- [Designing a microservices architecture](../../microservices/design/index.yml)
 
 [sfx]: /azure/service-fabric/service-fabric-visualizing-your-cluster
 [service-fabric-tutorial]: /azure/service-fabric/service-fabric-tutorial-deploy-container-app-with-cicd-vsts

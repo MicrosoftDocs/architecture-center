@@ -265,8 +265,8 @@ Consider these factors:
 
 ## Related resources
 - [Microservices architecture style](../../guide/architecture-styles/index.md)
-- [Build microservices on Azure](../../microservices/index.md)
+- [Build microservices on Azure](../../microservices/index.yml)
 - [Microservices architecture on Azure Kubernetes Service](../../reference-architectures/containers/aks-microservices/aks-microservices.yml)
 - [Using domain analysis to model microservices](../../microservices/model/domain-analysis.md)
-- [Using tactical DDD to design microservices](../../microservices/model/tactical-ddd.md)
-- [Design a microservices architecture](../../microservices/design/index.md)
+- [Using tactical DDD to design microservices](../../microservices/model/tactical-ddd.yml)
+- [Design a microservices architecture](../../microservices/design/index.yml)

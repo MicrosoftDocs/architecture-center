@@ -14,7 +14,7 @@ There are two other services: An Ingestion service that accepts client requests 
 
 ![Diagram showing the distributed workflow](../microservices/images/drone-delivery-impl.png)
 
-For more information about this scenario, see [Designing a microservices architecture](../microservices/design/index.md).
+For more information about this scenario, see [Designing a microservices architecture](../microservices/design/index.yml).
 
 ## Test 1: Baseline
 
@@ -226,4 +226,4 @@ To diagnose these issues, the development team relied on the following metrics:
 
 ## Next steps
 
-For more information about the design of this scenario, see [Designing a microservices architecture](../microservices/design/index.md).
+For more information about the design of this scenario, see [Designing a microservices architecture](../microservices/design/index.yml).

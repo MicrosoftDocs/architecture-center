@@ -2,7 +2,7 @@ What is the right size for a microservice? You often hear something to the effec
 
 ![Diagram of bounded contexts](../images/bounded-contexts.png)
 
-This article uses a drone delivery service as a running example. You can read more about the scenario and the corresponding reference implementation [here](../design/index.md).
+This article uses a drone delivery service as a running example. You can read more about the scenario and the corresponding reference implementation [here](../design/index.yml).
 
 ## From domain model to microservices
 
@@ -65,4 +65,4 @@ The following diagram shows the design at this point:
 At this point, you should have a clear understanding of the purpose and functionality of each microservice in your design. Now you can architect the system.
 
 > [!div class="nextstepaction"]
-> [Design a microservices architecture](../design/index.md)
+> [Design a microservices architecture](../design/index.yml)

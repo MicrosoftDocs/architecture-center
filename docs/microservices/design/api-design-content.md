@@ -29,7 +29,7 @@ For a RESTful interface, the most common choice is REST over HTTP using JSON. Fo
 
 **Framework and language support**. HTTP is supported in nearly every framework and language. gRPC, Avro, and Thrift all have libraries for C++, C#, Java, and Python. Thrift and gRPC also support Go.
 
-**Compatibility and interoperability**. If you choose a protocol like gRPC, you may need a protocol translation layer between the public API and the back end. A [gateway](./gateway.md) can perform that function. If you are using a service mesh, consider which protocols are compatible with the service mesh. For example, linkerd has built-in support for HTTP, Thrift, and gRPC.
+**Compatibility and interoperability**. If you choose a protocol like gRPC, you may need a protocol translation layer between the public API and the back end. A [gateway](./gateway.yml) can perform that function. If you are using a service mesh, consider which protocols are compatible with the service mesh. For example, linkerd has built-in support for HTTP, Thrift, and gRPC.
 
 Our baseline recommendation is to choose REST over HTTP unless you need the performance benefits of a binary protocol. REST over HTTP requires no special libraries. It creates minimal coupling, because callers don't need a client stub to communicate with the service. There are rich ecosystems of tools to support schema definitions, testing, and monitoring of RESTful HTTP endpoints. Finally, HTTP is compatible with browser clients, so you don't need a protocol translation layer between the client and the backend.
 
@@ -191,4 +191,4 @@ It's expected that most requests will create a new entity, so the method optimis
 Learn about using an API gateway at the boundary between client applications and microservices.
 
 > [!div class="nextstepaction"]
-> [API gateways](./gateway.md)
+> [API gateways](./gateway.yml)

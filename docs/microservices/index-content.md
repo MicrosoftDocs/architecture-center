@@ -12,7 +12,7 @@ The articles listed here present a structured approach for designing, building, 
 1. [Use tactical DDD to design microservices](./model/tactical-ddd.yml).
 1. [Identify microservice boundaries](./model/microservice-boundaries.yml).
 
-**Design the services**. Microservices require a different approach to designing and building applications. For more information, see [Designing a microservices architecture](./design/index.md).
+**Design the services**. Microservices require a different approach to designing and building applications. For more information, see [Designing a microservices architecture](./design/index.yml).
 
 **Operate in production**. Because microservices architectures are distributed, you must have robust operations for deployment and monitoring.
 
