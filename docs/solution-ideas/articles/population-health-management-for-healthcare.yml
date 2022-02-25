@@ -4,7 +4,7 @@ metadata:
   titleSuffix: Azure Solution Ideas
   description: Use population health management to improve clinical and health outcomes and reduce costs. Track, monitor, and benchmark data with this tool.
   author: krisbock
-  ms.author: pnp
+  ms.author: krbock
   ms.date: 05/07/2021
   ms.topic: conceptual
   ms.service: architecture-center

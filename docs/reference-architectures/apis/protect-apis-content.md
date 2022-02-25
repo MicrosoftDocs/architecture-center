@@ -76,7 +76,7 @@ This article doesn't address the application's underlying services, like App Ser
 
 - For more information about API Management security, see [Azure security baseline for API Management](/security/benchmark/azure/baselines/api-management-security-baseline).
 
-## Deploy the solution
+## Deploy the solution with PowerShell
 
 The following deployment steps use PowerShell. You could also use the [Azure portal](/azure/application-gateway/create-url-route-portal) or [Azure CLI](/azure/application-gateway/tutorial-url-redirect-cli) to get the same results.
 
@@ -432,6 +432,135 @@ The following deployment steps use PowerShell. You could also use the [Azure por
    $appgw = Set-AzApplicationGateway `
        -ApplicationGateway $appgw
    ```
+## Update an existing Application Gateway via the portal
+
+The following deployment steps use the Azure portal to update an existing Azure Application Gateway to route to an existing API Management instance deployed to a private network.
+
+1. Collect information from your API Management service:
+    1. Navigate to your API Management service
+    1. From the **Overview** page note the following:
+        - Your developer portal URL - ``https://<APIM-name>.developer.azure-api.net``, henceforth *backend portal name*.
+        - Your API gateway URL - ``https://<APIM-name>.azure-api.net``, henceforth *backend gateway name*
+        - Your Virtual IP (VIP) addresses for the API Management service by navigating to, specifically the private one, henceforth *Private VIP*.
+
+1. Make sure you have your certificates available.  There are two certificate scenarios to consider:
+    - *Backend certificates*, which will be configured in the Routing Rule, and used for communication between Application Gateway and the APIM endpoint.
+        - If you're using the default domain name of the API management service, you don't need a certificate.  Application Gateway will be able to use the default certificate.
+        - If you're using a custom domain that uses a well known certificate authority, such as GoDaddy, you don't need a certificate.  Application Gateway will be able to use the well known certificate authority.
+        - If you're using a custom domain and a custom certificate authority that isn't well known, such as a Microsoft public key infrastructure implementation, then follow the instructions to [Create backend certificates](https://docs.microsoft.com/azure/application-gateway/certificates-for-backend-authentication) to prepare your certificate in advance
+    - *Frontend certificates*, which will be configured in the Listener, and used for communication between the client and the Application Gateway.  You have two options:
+        - Upload a PFX certificate to the Application Gateway as part of deployment.
+        - Upload ta PFX certificate to a Key Vault as a Secret, accessible by a managed identity, as described in [TLS termination with Key Vault certificates](https://docs.microsoft.com/azure/application-gateway/key-vault-certs).
+
+1. Make sure you have the appropriate DNS setting enabled to direct your domain to your Application Gateway.  
+    - Your public domain should match the front end certificate you're using.
+    - You should have a record for both the API gateway (henceforth *frontend gateway name*) and the portal (henceforth *frontend portal name*).
+    - Both records should point to the **Frontend public IP address** on the **Overview** page of your Application Gateway.
+
+1. Navigate to the Application Gateway resource you wish to change.
+
+1. Prepare the backend pool:
+    1. On the Application gateway menu, navigate to the **Backend pools** and select **Add**.  The **Add backend pool** page appears.
+    1. Name the backend pool as appropriate, such as  *APIM-Backend*.
+    1. In the **IP address or FQDN** target field, provide the *Private VIP* for the APIM service.
+    1. Select **Save**.
+
+1. Configure the HTTP settings for the API Gateway frontend:
+    1. Navigate to **HTTP setting** and select **Add**.  The **Add HTTP setting** page appears.  
+    1. Name the HTTP setting as appropriate, such as *APIM-GW-HTTPSetting*.
+    1. Set the backend protocol to *HTTPS*.
+    1. Under **Trusted root certificate**:
+        - If you're using the default domain name of the API Management service, set **Use well known CA certificate** to *Yes*.
+        - If you're using a custom domain that uses a well known certificate authority, such as GoDaddy, set **Use well known CA certificate** to *Yes*.
+        - If you're using a custom domain and a custom certificate authority that isn't well known, such as a Microsoft public key infrastructure implementation, set **Use well known CA certificate** to *No*, and then upload the certificate
+    1. Under **Host name override**, if you are using a *backend gateway name* that is different from your *frontend gateway name*, select *Override with specific domain name* and place in the domain name of your API gateway - the *backend gateway name*.
+    1. Leave **Use custom probe** as *No* - this setting will be changed in a later step.
+    1. Select **Save** to save the configuration.
+
+1. Configure the HTTP settings for the API Portal frontend by repeating the previous step, with the following differences:
+    1. Navigate to **HTTP setting** and select **Add**.  The **Add HTTP setting** page appears.  
+    1. Name the HTTP setting as appropriate, such as *APIM-Portal-HTTPSetting*.
+    1. Set the backend protocol to *HTTPS*.
+    1. Under **Trusted root certificate**:
+        - If you're using the default domain name of the API Management service, set **Use well known CA certificate** to *Yes*.
+        - If you're using a custom domain that uses a well known certificate authority, such as GoDaddy, set **Use well known CA certificate** to *Yes*.
+        - If you're using a custom domain and a custom certificate authority that isn't well known, such as a Microsoft public key infrastructure implementation, set **Use well known CA certificate** to *No*, and then upload the certificate or use an existing certificate.
+    1. Under **Host name override**, if you are using a *backend portal name* that is different from your *frontend portal name*, select *Override with specific domain name* and place in the domain name of your API gateway - the *backend portal name*.
+    1. Leave **Use custom probe** as *No* - this setting will be changed in a later step.
+    1. Select **Save** to save the configuration.
+
+1. Create a listener for the API Gateway frontend:
+    1. Navigate to **Listeners** and select **Add listener**.  **Add listener** page appears.
+    1. Name the listener something appropriate, such as *APIM-GW-Listener*.
+    1. From the **Frontend IP** dropdown list, select the existing frontend IP.
+    1. Under **Protocol** select HTTPS; this selection will update the **Port** text field.
+    1. If you already have a certificate installed on the application gateway, such as a wildcard cert for your public domain, select it from the **Certificate** drop-down list.  Otherwise, create a new certificate:
+        1. Under **Choose a certificate**, select *Create new*.
+         - If the certificate is already available in a Key Vault, select *Choose a certificate from Key Vault* and fill out the necessary information (as covered in the preparation phase)
+         - If you're uploading the certificate directly, provide it with a cert name, select the PFX file, and provide the password.
+    1. Under *Additional settings* and **Listener type**, select *Multi site*.
+    1. Leave **Host type** as *Single*.
+    1. Enter in the host name - the *frontend gateway name*
+    1. Select **Add** to save the configuration.
+
+1. Create a listener for the API Portal frontend:
+    1. Navigate to **Listeners** and select **Add listener**.  The **Add listener** page appears.
+    1. Name the listener something appropriate, such as *APIM-Portal-Listener*.
+    1. From the **Frontend IP** dropdown list, select the existing frontend IP.
+    1. Under **Protocol** select HTTPS; this selection will update the **Port** text field.
+    1. Select the certificate you used in the previous step from the **Certificate** drop-down list.
+    1. Under *Additional settings* and **Listener type**, select *Multi site*.
+    1. Leave **Host type** as *Single*.
+    1. Enter in the host name - the *frontend portal name*.
+    1. Select **Add** to save the configuration.
+
+1. Create a routing rule for the API Gateway frontend:
+    1. Navigate to **Rules** and select **Request routing rule**.  The **Add a routing rule** page appears.
+    1. In the **Rule name** text box, name the rule appropriately, such as *APIM-Gateway-RoutingRule*
+    1. Under the **Listener** tab and **Listener** dropdown, select the listener you created for the API Gateway.
+    1. Navigate to the **Backend targets** tab.
+    1. From the **Backend target** dropdown, select the backend pool you created for the API Gateway.
+    1. From the **HTTP Settings** dropdown, select the HTTP settings that you made for the API Gateway.
+    1. Select **Add multiple targets to create a path-based rule**.  The **Add a routing rule** page appears.
+    1. In the **Path** field, add ``/external/*``.
+    1. In the **Target Name** field, enter ``External``.
+    1. In the **HTTP settings** drop down, select your gateway HTTP setting.
+    1. In the **Backend target**, select your APIM backend target.
+    1. Select **Add** and then **Add** again to save the configuration.
+
+1. Create a routing rule for the API Portal frontend:
+    1. Navigate to **Rules** and select **Request routing rule**.  The **Add a routing rule** page appears.
+    1. In the **Rule name** text box, name the rule appropriately, such as *APIM-Portal-RoutingRule*
+    1. Under the **Listener** tab and **Listener** dropdown, select the listener you created for the API Portal.
+    1. Navigate to the **Backend targets** tab.
+    1. From the **Backend target** dropdown, select the backend pool you created for the API Portal.
+    1. From the **HTTP Settings** dropdown, select the HTTP settings that you made for the API Portal.
+    1. Select **Add** to save the configuration.
+
+1. Create a health probe for the API Gateway:
+    1. Navigate to **Health probes** and select **Add**.  The **Add health probe** page appears.
+    1. Name the health probe something appropriate, such as *APIM-GW-Probe*.
+    1. At the **Host** field, provide the host name for the API gateway - *backend gateway name*.
+    1. At the **Path** field, provide ``/status-0123456789abcdef`` to direct the probe to check the appropriate path.
+    1. At the **Timeout (seconds)** field, enter 120.
+    1. At the **Unhealthy threshold** field, enter 8.
+    1. From the **HTTP settings** drop down, select the Gateway HTTP setting you made in the previous steps.
+    1. Leaving the check mark for *I want to test the backend health before adding the health probe* checked, select test.
+    1. Select **Test**.
+    1. Once the test completes successfully, select **Add**.
+
+1. Create a health probe for the API Portal:
+    1. Navigate to **Health probes** and select **Add**.  The **Add health probe** page appears.
+    1. Name the health probe something appropriate, such as *APIM-Portal-Probe*.
+    1. At the **Host** field, provide the host name for the API gateway - *backend portal name*.
+    1. At the **Path** field, provide ``/signin`` to direct the probe to check the appropriate path.
+    1. At the **Interval (seconds)** field, enter 60.
+    1. At the **Timeout (seconds)** field, enter 300.
+    1. At the **Unhealthy threshold** field, enter 8.
+    1. From the **HTTP settings** drop down, select the Gateway HTTP setting you made in the previous steps.
+    1. Leaving the check mark for *I want to test the backend health before adding the health probe* checked, select test.
+    1. Select **Test**.
+    1. Once the test completes successfully, select **Add**.
 
 ## Pricing
 

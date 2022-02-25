@@ -86,7 +86,7 @@ IoT architecture guides:
 
 - [IoT concepts](../iot/introduction-to-solutions.yml)
 - [Azure IoT Edge Vision](../../guide/iot-edge-vision/index.md)
-- [Azure industrial IoT analytics guidance](../../guide/iiot-guidance/iiot-architecture.md)
+- [Azure industrial IoT analytics guidance](../../guide/iiot-guidance/iiot-architecture.yml)
 - [IoT patterns](../iot/measure-control-loop.yml)
 
 <!-- links -->

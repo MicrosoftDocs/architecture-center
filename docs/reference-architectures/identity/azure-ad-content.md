@@ -226,7 +226,7 @@ Use the [Azure pricing calculator][azure-pricing-calculator] to estimate costs.
 
 ## Related resources
 
-* [Manage identity in multitenant applications](../../multitenant-identity/index.md)
+* [Manage identity in multitenant applications](../../multitenant-identity/index.yml)
 * [Integrate on-premises AD with Azure](./index.yml)
 * [Extend on-premises AD FS to Azure](./adfs.yml)
 
