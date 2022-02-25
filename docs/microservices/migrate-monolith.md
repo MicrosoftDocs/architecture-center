@@ -105,7 +105,7 @@ The follow diagram shows the presentation layer (UI) split out from the applicat
 
 This diagram also introduces another layer, the API gateway, that sits between the presentation layer and the application logic. The API gateway is a façade layer that provides a consistent and uniform interface for the presentation layer to interact with, while allowing downstream services to evolve independently, without affecting the application. The API Gateway may use a technology such as [Azure API Management](/azure/api-management/), and allows the application to interact in a RESTful manner.
 
-The presentation tier can be developed in any language or framework that the team has expertise in, such as a single page application or an MVC application. These applications interact with the microservices via the gateway, using standard HTTP calls. For more information about API Gateways, see [Using API gateways in microservices](./design/gateway.md).
+The presentation tier can be developed in any language or framework that the team has expertise in, such as a single page application or an MVC application. These applications interact with the microservices via the gateway, using standard HTTP calls. For more information about API Gateways, see [Using API gateways in microservices](./design/gateway.yml).
 
 ## Start to retire the monolith
 

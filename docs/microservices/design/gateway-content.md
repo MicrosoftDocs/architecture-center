@@ -10,7 +10,7 @@ An API gateway sits between clients and services. It acts as a reverse proxy, ro
 - It creates coupling between the client and the backend. The client needs to know how the individual services are decomposed. That makes it harder to maintain the client and also harder to refactor services.
 - A single operation might require calls to multiple services. That can result in multiple network round trips between the client and the server, adding significant latency.
 - Each public-facing service must handle concerns such as authentication, SSL, and client rate limiting.
-- Services must expose a client-friendly protocol such as HTTP or WebSocket. This limits the choice of [communication protocols](./interservice-communication.md).
+- Services must expose a client-friendly protocol such as HTTP or WebSocket. This limits the choice of [communication protocols](./interservice-communication.yml).
 - Services with public endpoints are a potential attack surface, and must be hardened.
 
 A gateway helps to address these issues by decoupling clients from services. Gateways can perform a number of different functions, and you may not need all of them. The functions can be grouped into the following design patterns:

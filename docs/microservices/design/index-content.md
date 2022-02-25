@@ -3,7 +3,7 @@ Microservices have become a popular architectural style for building cloud appli
 In this set of articles, we explore how to build a microservices architecture on Azure. Topics include:
 
 - [Compute options for microservices](./compute-options.md)
-- [Interservice communication](./interservice-communication.md)
+- [Interservice communication](./interservice-communication.yml)
 - [API design](./api-design.md)
 - [API gateways](./gateway.md)
 - [Data considerations](./data-considerations.md)
