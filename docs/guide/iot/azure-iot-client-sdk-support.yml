@@ -1,0 +1,20 @@
+### YamlMime:Architecture
+metadata:
+  title: Azure IoT client SDK support for third-party token servers
+  description: Learn about what needs to be done in each SDK for devices to achieve third-party token-server authentication.
+  author: EdPrice-MSFT
+  ms.author: edprice
+  ms.date: 09/17/2021
+  ms.topic: conceptual
+  ms.service: architecture-center
+  ms.subservice: azure-guide
+azureCategories:
+  - iot
+products:
+  - azure-iot
+  - azure-iot-hub
+name: Azure IoT client SDK support for third-party token servers
+summary: Learn about what needs to be done in each SDK for devices to achieve third-party token-server authentication.
+thumbnailUrl: /azure/architecture/browse/thumbs/azure-iot-client-sdk-support.png
+content: |
+  [!include[](azure-iot-client-sdk-support-content.md)]

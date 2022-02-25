@@ -85,7 +85,7 @@ The architecture uses Azure-managed disks for Azure VM disks and Azure Files or 
 - Azure Files (In Preview), Azure Shared Disk, and Azure NetApp Files can be used for shared file systems.
 - Oracle database is supported on both ASM and Non-ASM File systems on Azure.
 - Be aware of some of the [limitations](/azure/virtual-machines/disks-enable-ultra-ssd?tabs=azure-portal) of Azure Ultra SSD, when using Ultra SSD for database storage.
-- Azure NetApp Files does not currently support Availability Zones, but it does provide highly efficient storage based replication through [Cross region replication](https://docs.microsoft.com/azure/azure-netapp-files/cross-region-replication-introduction).
+- Azure NetApp Files does not currently support Availability Zones, but it does provide highly efficient storage based replication through [Cross region replication](/azure/azure-netapp-files/cross-region-replication-introduction).
 
 ##### Recommendations
 

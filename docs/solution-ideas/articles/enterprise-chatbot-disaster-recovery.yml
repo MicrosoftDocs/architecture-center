@@ -4,7 +4,7 @@ metadata:
   titleSuffix: Azure Solution Ideas
   description: Set up disaster recovery and high availability for an enterprise-grade conversational bot (chatbot) in Azure, with regional and non-regional services.
   author: sowmyans
-  ms.author: pnp
+  ms.author: sowmyans
   ms.date: 06/22/2020
   ms.topic: conceptual
   ms.service: architecture-center
