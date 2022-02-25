@@ -1,7 +1,7 @@
 ---
 title: Host name preservation best practice
 titleSuffix: Azure Architecture Center
-description: Learn why it's important to preserve the original HTTP host name between a reverse proxy and its backend web application, and how to configure this for the most common Azure services.
+description: Learn why it's important to preserve the original HTTP host name between a reverse proxy and its back-end web application, and how to configure this for the most common Azure services.
 author: jelledruyts
 ms.author: jelled
 ms.date: 02/14/2022
