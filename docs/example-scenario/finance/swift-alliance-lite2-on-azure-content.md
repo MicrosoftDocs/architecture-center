@@ -13,7 +13,7 @@ This solution applies to:
 
 _Download a [Visio file](https://arch-center.azureedge.net/swift-lite2-vsrx-mvp.vsdx) of this architecture._
 
-The two-subscription design separates the resources based on who's responsible for them. For more information, see [Two-subscription design](#two-subscription-design) in this article.
+The two-subscription design separates the resources based on who's responsible for them. For more information, see [Two-subscription design](#two-subscription-design) and [Operations](#operations) in this article.
 
 The Lite2 AutoClient subscription has a single resource group. It contains:
 
@@ -31,7 +31,7 @@ You're responsible for establishing secure connectivity to the Alliance Lite2 Au
 
 [![Diagram that shows SWIFT Alliance Lite2 connectivity.](./media/swift-alliance-lite2-customer-connectivity.png)](./media/swift-alliance-lite2-customer-connectivity.png#lightbox)
 
-You use RDP, with one of the three connectivity approaches, to connect to Alliance Lite2 AutoClient software running on the Lite2 AutoClient VM. The recommended Azure firewall and Azure network security group are configured to allow only RDP traffic to pass to the Lite2 AutoClient VM. Alliance Lite2 AutoClient software traffic to SWIFTNet flows through the virtual network peer via Juniper vSRX, which has an established VPN tunnel to SWIFTNet over the internet.
+You use RDP, with one of the three connectivity approaches, to connect to Alliance Lite2 AutoClient software running on the Lite2 AutoClient VM. The recommended Azure firewall and Azure network security group are configured to allow only RDP traffic to pass to the Lite2 AutoClient VM. Lite2 AutoClient software traffic to SWIFTNet flows through the virtual network peer via Juniper vSRX, which has an established VPN tunnel to SWIFTNet over the internet.
 
 ### Components
 - [Azure Virtual Network](https://azure.microsoft.com/services/virtual-network) is the fundamental building block for your private network on Azure.
@@ -44,15 +44,15 @@ Your account team at Microsoft can help you with the Azure implementation.
 
 ### Two-subscription design
 
-You are primarily responsible for the Alliance Lite2 AutoClient resources. SWIFT provides Juniper vSRX as part of the Alliance Connect Virtual managed connectivity service. In this context, SWIFT configures Juniper vSRX and establishes the VPN tunnel from the vSRX to SWIFT. You don't have access or visibility into the vSRX configuration or operation. You do have visibility and operational responsibility for the underlying Azure infrastructure resources. For more information, see [Deploy this scenario](#deploy-this-scenario) in this article.
+The two-subscription design separates the resources based on who's responsible for them. You're primarily responsible for the Alliance Lite2 AutoClient resources. SWIFT provides Juniper vSRX as part of the Alliance Connect Virtual managed connectivity service. In this context, SWIFT configures Juniper vSRX and establishes the VPN tunnel from the vSRX to SWIFT. You don't have access or visibility into the vSRX configuration or operation. You do have visibility and operational responsibility for the underlying Azure infrastructure resources. For more information, see [Deploy this scenario](#deploy-this-scenario) in this article.
 
 ### Segregating environments
 
-SWIFT customer resources on Azure should comply with the SWIFT CSP-CSCF. CSP-CSCF control 1.1 requires segregation of environments (production, test, development). We recommend that you deploy each environment in a separate subscription. Doing so makes it easier to segregate servers and other infrastructure, credentials, and so on.
+SWIFT customer resources on Azure should comply with the SWIFT Customer Security Programme Customer Security Controls Framework (CSP-CSCF). CSP-CSCF control 1.1 requires segregation of environments (production, test, development). We recommend that you deploy each environment in a separate subscription. Doing so makes it easier to segregate servers and other infrastructure, credentials, and so on.
 
 ### Availability
 
-The Alliance Lite2 connectivity stack is single-tenant solution. For each SWIFT customer, there's an instance of Alliance Lite2 AutoClient and Alliance Connect Virtual. To increase resiliency and availability, we recommended that you deploy a second similar configuration in standby mode in a different Azure region.
+The Alliance Lite2 connectivity stack is a single-tenant solution. For each SWIFT customer, there's an instance of Alliance Lite2 AutoClient and Alliance Connect Virtual. To increase resiliency and availability, we recommended that you deploy a second similar configuration in standby mode in a different Azure region.
 
 ### Operations
 
@@ -70,7 +70,7 @@ You can use [Log Analytics in Azure Monitor](/azure/azure-monitor/logs/log-analy
 
 The traffic between Alliance Lite2 AutoClient and Alliance Connect Virtual is limited to specific and known traffic. You can use network security groups with the Azure packet capture capabilities available in Azure Network Watcher, combined with Microsoft Defender for Cloud and Microsoft Sentinel. You can use network security group flow logs in Network Watcher to send flow data to Azure Storage accounts. [Microsoft Sentinel](https://azure.microsoft.com/services/microsoft-sentinel) can collect these logs, detect and investigate threats, and respond to incidents with built-in orchestration and automation of common tasks.
 
-[Azure Bastion](https://azure.microsoft.com/services/azure-bastion) provides connectivity from the Azure portal to a virtual machine via RDP or SSH. Because Azure Bastion requires administrators to sign in to the Azure portal, you can enforce multifactor authentication. You can use Conditional Access to enforce other restrictions. For example, you can restrict the public IP address that administrators can use to sign in.
+[Azure Bastion](https://azure.microsoft.com/services/azure-bastion) provides connectivity from the Azure portal to a virtual machine via RDP or SSH. Because Azure Bastion requires administrators to sign in to the Azure portal, you can enforce multi-factor authentication. You can use Conditional Access to enforce other restrictions. For example, you can restrict the public IP address that administrators can use to sign in.
 
 Azure Bastion requires a dedicated subnet to deploy to and requires a public IP address. Azure Bastion restricts access to this public IP address by using a managed network security group. Azure Bastion also provides just-in-time access, which opens required ports on demand only when remote access is required.
 
@@ -82,13 +82,13 @@ SWIFT has a policy framework that can help you enforce a subset of SWIFT CSP-CSC
 
 We recommend that you deploy SWIFT components in subscription that doesn't contain any back-office applications. Separate subscriptions ensure that SWIFT CSP-CSCF applies only to SWIFT components and not to your own components.
 
-Consider using the latest implementation of SWIFT CSP controls in Azure after you consult with the Microsoft team that your working with.
+Consider using the latest implementation of SWIFT CSP controls in Azure after you consult with the Microsoft team that you're working with.
 
 ## Deploy this scenario
 
-The Lite2 AutoClient subscription contains resources that you manage. You can deploy the resources for the Alliance Lite2 AutoClient by using an Azure Resource Manager (ARM) template to create the core infrastructure, as described in this architecture. You can modify the Alliance Lite2 AutoClient ARM template to meet your needs as long as it adheres to SWIFT's Customer Security Programme Customer Security Controls Framework (CSP-CSCF). We recommend that you use the SWIFT CSP-CSCF Azure policies in this subscription.
+The Lite2 AutoClient subscription contains resources that you manage. You can deploy the resources for the Alliance Lite2 AutoClient by using an Azure Resource Manager (ARM) template to create the core infrastructure, as described in this architecture. You can modify the Alliance Lite2 AutoClient ARM template to meet your needs as long as it adheres to SWIFT's CSP-CSCF. We recommend that you use the SWIFT CSP-CSCF Azure policies in this subscription.
 
-The SWIFT Alliance Connect Virtual customer subscription contains resources that you deploy. You deploy the resources by using an ARM template that's provided by SWIFT. It's known as the Cloud Infrastructure Definition (CID) file. SWIFT manages the configuration and operation of the Juniper vSRX.
+The SWIFT Alliance Connect Virtual customer subscription contains resources that you deploy. You can deploy the resources by using an ARM template that's provided by SWIFT. It's known as the Cloud Infrastructure Definition (CID) file. SWIFT manages the configuration and operation of the Juniper vSRX.
 
 After the SWIFT Alliance Connect Virtual and Alliance Lite2 AutoClient infrastructure is deployed, follow SWIFT's instructions for installing the Alliance Lite2 AutoClient software. These instructions include peering the virtual networks in both subscriptions.
 
