@@ -2681,6 +2681,8 @@ items:
                    - name: Microservices with Azure Spring Cloud
                      href: /azure/spring-cloud/reference-architecture
                      maintainContext: true
+                   - name: Expose Azure Spring Cloud through a reverse proxy
+                     href: reference-architectures/microservices/spring-cloud-reverse-proxy.md
                    - name: Unified logging for microservices apps
                      href: example-scenario/logging/unified-logging.yml     
           - name: Serverless applications
