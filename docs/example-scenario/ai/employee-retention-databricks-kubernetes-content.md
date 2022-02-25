@@ -48,7 +48,7 @@ After the machine-learning team has deployed the machine-learning model as an AP
 
 The following components are used as part of this design:
 
-- [Azure Databricks](https://azure.microsoft.com/services/databricks): An analytics service for big data that' i's easy to use, facilitates collaboration, and is based on Apache Spark. Azure Databricks is designed for data science and data engineering.
+- [Azure Databricks](https://azure.microsoft.com/services/databricks): An analytics service for big data that's easy to use, facilitates collaboration, and is based on Apache Spark. Azure Databricks is designed for data science and data engineering.
 
 - [Azure Kubernetes Service](https://azure.microsoft.com/services/kubernetes-service): A service that provides simplified deployment and management of Kubernetes by offloading the operational overhead to Azure.
 
