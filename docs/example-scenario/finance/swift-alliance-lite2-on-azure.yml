@@ -9,6 +9,7 @@ metadata:
   ms.topic: conceptual
   ms.service: architecture-center
   ms.subservice: example-scenario
+  ms.custom: fcp
 azureCategories:
   - integration
 products:
@@ -19,6 +20,6 @@ products:
   - azure-expressroute
 name: SWIFT Alliance Lite2 on Azure
 summary: Deploy Azure infrastructure for SWIFT Alliance Lite2.
-thumbnailUrl: /azure/architecture/browse/thumbs/swift-alliance-lite2-on-azure.png
+thumbnailUrl: /azure/architecture/browse/thumbs/swift-lite2.png
 content: |
-  [!include[](swift-alliance-lite-2-on-azure-content.md)]
+  [!include[](swift-alliance-lite2-on-azure-content.md)]
