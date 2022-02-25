@@ -35,8 +35,6 @@ You're responsible for establishing secure connectivity to the Alliance Lite2 Au
 
 You use RDP, with one of the three connectivity approaches, to connect to Alliance Lite2 AutoClient software running on the Alliance Lite2 AutoClient VM. The recommended Azure firewall and Azure network security group are configured to allow only RDP traffic to pass to the Alliance Lite2 AutoClient VM. Alliance Lite2 AutoClient software traffic to SWIFTNet flows through the virtual network peer via Juniper vSRX, which has an established VPN tunnel to SWIFTNet over the internet.
 
-### Components
-
 The Alliance Lite2 AutoClient subscription has a single resource group, which contains:
 
 * An Azure virtual network.
@@ -44,6 +42,11 @@ The Alliance Lite2 AutoClient subscription has a single resource group, which co
 * An Azure subnet for Alliance Lite2 AutoClient, with an Azure network security group.
 * An Azure firewall configured to allow RDP traffic to Alliance Lite2 AutoClient.
 * Azure policies for SWIFT.
+
+### Components
+- [Azure Virtual Network](https://azure.microsoft.com/services/virtual-network)
+- [Azure Firewall](https://azure.microsoft.com/services/azure-firewall)
+- [Azure ExpressRoute](https://azure.microsoft.com/services/expressroute)
 
 ## Considerations
 
@@ -79,30 +82,28 @@ Azure Bastion requires a dedicated subnet to deploy to and requires a public IP 
 
 #### Enforcing SWIFT CSP-CSCF policies
 
-You can use [Azure Policy](https://azure.microsoft.com/services/azure-policy) to set policies that need to be enforced within (part of) an Azure subscription to meet compliance or security requirements. For example, Azure Policy can be used to block administrators to deploy certain resources or enforce network configuration rules that block traffic to internet. Customers can use built-in policies or create policies themselves.
+You can use [Azure Policy](https://azure.microsoft.com/services/azure-policy) to set policies that need to be enforced in part of an Azure subscription to meet compliance or security requirements. For example, you can use Azure Policy to block administrators from deploying certain resources or to enforce network configuration rules that block traffic to the internet. You can use built-in policies or create your own policies.
 
-SWIFT has a policy framework that helps customers enforce a subset of SWIFT CSP-CSCF requirements using Azure policies within a the customer subscription. For simplicity, you can create a separate subscription in which you deploy SWIFT Secure Zone components and another subscription for other (potentially related) components. Separate subscriptions enable you to apply the SWIFT CSP-CSCF Azure policies to subscriptions only containing a SWIFT Secure Zone.
+SWIFT has a policy framework that can help you enforce a subset of SWIFT CSP-CSCF requirements by using Azure policies in your subscription. For simplicity, you can create one subscription in which you deploy SWIFT secure zone components and another subscription for other potentially related components. Separate subscriptions enable you to apply the SWIFT CSP-CSCF Azure policies only to subscriptions that contain a SWIFT secure zone.
 
-Customers are recommended to deploy SWIFT components in a separate subscription from any back-office applications. Separate subscriptions ensure SWIFT CSP-CSCF only applies to SWIFT components and not to customer-specific components.
+We recommend that you deploy SWIFT components in subscription that doesn't contain any back-office applications. Separate subscriptions ensure that SWIFT CSP-CSCF applies only to SWIFT components and not to your own components.
 
-Consider using the latest implementation of SWIFT CSP controls in Azure after consulting Microsoft team working with you.
+Consider using the latest implementation of SWIFT CSP controls in Azure after you consult with the Microsoft team that's working with you.
 
 ## Next steps
 
-Explore other SWIFT modules functionality and architecture in detail as provided below.
+* [SWIFT's Alliance Lite2](https://www.swift.com/our-solutions/interfaces-and-integration/alliance-lite2)
+
+## Related resources
 
 * [SWIFT Alliance Connect in Azure](swift-on-azure-srx.yml)
 * [SWIFT Alliance Connect Virtual in Azure](swift-on-azure-vsrx.yml)
 * [Alliance Access](swift-alliance-access-vsrx-on-azure.yml)
-* [Alliance Access with Alliance Connect Virtual](swift-alliance-access-on-azure.yml)
-* [Alliance Messaging Hub (AMH)](swift-alliance-messaging-hub.yml)
+* [SWIFT Alliance Access on Azure](swift-alliance-access-on-azure.yml)
+* [SWIFT Alliance Messaging Hub (AMH) on Azure](swift-alliance-messaging-hub.yml)
 * [Alliance Messaging Hub (AMH) with Alliance Connect Virtual](swift-alliance-messaging-hub-vsrx.yml)
 * [Alliance Cloud](swift-alliance-cloud-on-azure.yml)
 
-## Related resources
-
-* [SWIFT's Alliance Lite2](https://www.swift.com/our-solutions/interfaces-and-integration/alliance-lite2)
-
 <!-- links -->
 
-[calculator]: https://azure.com/e/
+[calculator]: https://azure.com/e

@@ -1,20 +1,24 @@
 ### YamlMime:Architecture
 metadata:
-  title: SWIFT's Alliance Lite2 in Azure
+  title: SWIFT Alliance Lite2 on Azure
   titleSuffix: Azure Example Scenarios
-  description: Deploy Azure infrastructure for SWIFT Alliance Lite 2.
+  description: Deploy SWIFT Alliance Lite2 on Azure. Migrate an existing deployment from on-premises or create a new deployment. 
   author: ehaslett
   ms.author: ethaslet
-  ms.date: 02/14/2022
+  ms.date: 03/01/2022
   ms.topic: conceptual
   ms.service: architecture-center
   ms.subservice: example-scenario
 azureCategories:
   - integration
 products:
-  - azure
-name: SWIFT's Alliance Lite2 in Azure
-summary: Deploy Azure infrastructure for SWIFT Alliance Lite 2.
+  - azure-virtual-network
+  - azure-firewall
+  - azure-policy
+  - azure-bastion
+  - azure-expressroute
+name: SWIFT Alliance Lite2 on Azure
+summary: Deploy Azure infrastructure for SWIFT Alliance Lite2.
 thumbnailUrl: /azure/architecture/browse/thumbs/swift-alliance-lite2-on-azure.png
 content: |
   [!include[](swift-alliance-lite-2-on-azure-content.md)]
