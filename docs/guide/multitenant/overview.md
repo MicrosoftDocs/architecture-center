@@ -57,7 +57,7 @@ The content throughout this series is designed to be useful for technical decisi
 
 The content in this series is composed of three main sections:
 
-* [**Architectural considerations for a multitenant solution:**](considerations/overview.md) This section provides an overview of the key requirements and considerations you need to be aware of when planning and designing a multitenant solution.
+* [**Architectural considerations for a multitenant solution:**](considerations/overview.yml) This section provides an overview of the key requirements and considerations you need to be aware of when planning and designing a multitenant solution.
 
   The pages in this section are particularly relevant for technical decision-makers, like chief technology officers (CTOs) and architects. Product managers will also find it valuable to understand how multitenancy affects their solutions. Additionally, anyone who works with multitenant architectures should have some familiarity with these principles and tradeoffs.
 
@@ -73,4 +73,4 @@ Additionally, we provide a [list of related resources and links](related-resourc
 
 ## Next steps
 
-Review the [architectural considerations for a multitenant solution](considerations/overview.md).
+Review the [architectural considerations for a multitenant solution](considerations/overview.yml).
