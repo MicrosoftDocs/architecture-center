@@ -1,21 +1,3 @@
----
-title: API design
-description: Learn about good API design in a microservices architecture. APIs should be efficient and have well-defined semantics and versioning schemes.
-author: EdPrice-MSFT
-ms.date: 05/23/2019
-ms.topic: conceptual
-ms.service: architecture-center
-ms.subservice: azure-guide
-ms.category:
-  - web
-  - developer-tools
-ms.custom:
-  - microservices
-  - guide
----
-
-# Designing APIs for microservices
-
 Good API design is important in a microservices architecture, because all data exchange between services happens either through messages or API calls. APIs must be efficient to avoid creating [chatty I/O](../../antipatterns/chatty-io/index.md). Because services are designed by teams working independently, APIs must have well-defined semantics and versioning schemes, so that updates don't break other services.
 
 ![API design for microservices](../images/api-design.png)

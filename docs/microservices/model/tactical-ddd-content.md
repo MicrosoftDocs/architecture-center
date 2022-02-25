@@ -1,22 +1,3 @@
----
-title: Using tactical DDD to design microservices
-description: Use domain-driven design in a microservices architecture to identify the entity and aggregate patterns, which help identify natural boundaries for the services.
-author: EdPrice-MSFT
-ms.author: edprice
-ms.date: 02/14/2022
-ms.topic: conceptual
-ms.service: architecture-center
-ms.subservice: azure-guide
-ms.category:
-  - migration
-  - developer-tools
-ms.custom:
-  - microservices
-  - guide
----
-
-# Using tactical DDD to design microservices
-
 During the strategic phase of domain-driven design (DDD), you are mapping out the business domain and defining bounded contexts for your domain models. Tactical DDD is when you define your domain models with more precision. The tactical patterns are applied within a single bounded context. In a microservices architecture, we are particularly interested in the entity and aggregate patterns. Applying these patterns will help us to identify natural boundaries for the services in our application (see the [next article](./microservice-boundaries.md) in this series). As a general principle, a microservice should be no smaller than an aggregate, and no larger than a bounded context. First, we'll review the tactical patterns. Then we'll apply them to the Shipping bounded context in the Drone Delivery application.
 
 ## Overview of the tactical patterns

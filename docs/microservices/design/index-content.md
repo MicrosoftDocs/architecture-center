@@ -1,24 +1,3 @@
----
-title: Design a microservices architecture
-description: Learn how to design and build a microservices architecture on Azure by following a reference implementation that illustrates best practices.
-author: EdPrice-MSFT
-ms.author: pnp
-ms.date: 02/26/2019
-ms.topic: conceptual
-ms.service: architecture-center
-ms.subservice: azure-guide
-ms.category:
-  - developer-tools
-  - featured
-products:
-  - azure-kubernetes-service
-ms.custom:
-  - microservices
-  - guide
----
-
-# Design a microservices architecture
-
 Microservices have become a popular architectural style for building cloud applications that are resilient, highly scalable, independently deployable, and able to evolve quickly. To be more than just a buzzword, however, microservices require a different approach to designing and building applications.
 
 In this set of articles, we explore how to build a microservices architecture on Azure. Topics include:

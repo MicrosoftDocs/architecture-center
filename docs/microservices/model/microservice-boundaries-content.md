@@ -1,22 +1,3 @@
----
-title: Identify microservice boundaries
-description: Learn how to start from a carefully designed domain model to determine the right size for a microservice.
-author: EdPrice-MSFT
-ms.author: edprice
-ms.date: 02/14/2022
-ms.topic: conceptual
-ms.service: architecture-center
-ms.subservice: azure-guide
-ms.category:
-  - integration
-  - developer-tools
-ms.custom:
-  - microservices
-  - guide
----
-
-# Identify microservice boundaries
-
 What is the right size for a microservice? You often hear something to the effect of, "not too big and not too small" &mdash; and while that's certainly correct, it's not very helpful in practice. But if you start from a carefully designed domain model, it's much easier to reason about microservices.
 
 ![Diagram of bounded contexts](../images/bounded-contexts.png)
