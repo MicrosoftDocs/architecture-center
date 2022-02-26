@@ -1,24 +1,3 @@
----
-title: Secure development with single-page apps
-description: Learn how to use Azure Active Directory (Azure AD) and Oauth 2.0 to secure single-page Azure applications.
-author: lanallai
-manager: danielke
-products:
-  - azure-active-directory
-  - azure-active-directory-b2c
-categories:
-  - identity
-ms.service: architecture-center
-ms.subservice: azure-guide
-ms.topic: guide
-ms.date: 7/7/2021
-ms.author: lanallai
-ms.custom:
-  - fcp
----
-
-# Secure development with single-page applications (SPAs)
-
 When developing cloud-native distributed systems, securing such systems can introduce a new layer of complexity.
 
 On-premise systems rely on the security boundaries that the internal network provides, and they use the directory services for user security. They can run for many years within this secure environment without problems. Moving to the cloud can present new security risks. This article describes tools that you can use to mitigate these risks.
@@ -46,7 +25,7 @@ OAuth flows cover many use cases, all backed by Azure AD Services. Developers us
 - Guest users can participate through business-to-business transactions.
 - Users can reach out to end consumers through Azure Business to Consumers (Azure B2C).
 
-:::image type="content" source="media/azure-ad-secure-single-page-application/azure-ad-oauth2-flow.png" alt-text="Diagram that shows the secure OAuth 2 flow between a native app and a web API.":::
+:::image type="content" source="media/azure-ad-secure-single-page-application/azure-ad-oauth-2-flow-inline.png" alt-text="Diagram that shows the secure OAuth 2 flow between a native app and a web API." lightbox="media/azure-ad-secure-single-page-application/azure-ad-oauth-2-flow-expanded.png" :::
 
 There are two OAuth flows, implicit grant and authorization code. Implicit grant is the most common, but we recommend using the [authorization code flow](/azure/active-directory/develop/v2-oauth2-auth-code-flow).
 

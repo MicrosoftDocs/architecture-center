@@ -2,7 +2,7 @@
 title: What's New in Azure Architecture Center
 description: New and updated articles in Azure Architecture Center
 author: doodlemania2
-ms.date: 02/14/2022
+ms.date: 02/22/2022
 ms.topic: article
 ms.service: architecture-center
 products: azure
@@ -33,6 +33,12 @@ New and updated articles in Azure Architecture Center.
 
 ### New Articles
 
+- [Big data analytics on confidential computing](./example-scenario/confidential/data-analytics-containers-spark-kubernetes-azure-sql.yml)
+- [Multitenancy checklist on Azure](./guide/multitenant/checklist.md)
+- [Solutions for the telecommunications industry](./industries/telecommunications.md)
+- [Real-time collaboration with Azure and Microsoft 365](./solution-ideas/articles/collaboration-microsoft-365.yml)
+- [Real-time presence with Microsoft 365, Azure, and Power Platform](./solution-ideas/articles/presence-microsoft-365-power-platform.yml)
+- [Networking architecture design](./guide/networking/networking-start-here.md)
 - [Azure and Power Platform scenarios](./solutions/power-platform-scenarios.md)
 - [Architectural approaches for AI and ML in multitenant solutions](./guide/multitenant/approaches/ai-ml.md)
 - [Tiered data for analytics](./example-scenario/hybrid/hybrid-tiered-data-analytics.yml)
@@ -64,6 +70,12 @@ New and updated articles in Azure Architecture Center.
 
 ### Updated Articles
 
+- [Speech services](./solution-ideas/articles/speech-services.yml)  ([#09941baed](https://github.com/MicrosoftDocs/architecture-center/commit/09941baed))
+- [Camera selection for Azure IoT Edge vision AI](./guide/iot-edge-vision/camera.md)  ([#cc5ff9493](https://github.com/MicrosoftDocs/architecture-center/commit/cc5ff9493))
+- [Computer vision with Azure IoT Edge](./guide/iot-edge-vision/index.md)  ([#cc5ff9493](https://github.com/MicrosoftDocs/architecture-center/commit/cc5ff9493))
+- [Machine learning in IoT Edge Vision](./guide/iot-edge-vision/machine-learning.yml)  ([#cc5ff9493](https://github.com/MicrosoftDocs/architecture-center/commit/cc5ff9493))
+- [Suggest content tags with NLP using deep learning](./solution-ideas/articles/website-content-tag-suggestion-with-deep-learning-and-nlp.yml)  ([#eeb4d1f81](https://github.com/MicrosoftDocs/architecture-center/commit/eeb4d1f81))
+- [Pricing models for a multitenant solution](./guide/multitenant/considerations/pricing-models.md)  ([#af94529db](https://github.com/MicrosoftDocs/architecture-center/commit/af94529db))
 - [Real-time fraud detection](./example-scenario/data/fraud-detection.yml)  ([#ce2fecdfd](https://github.com/MicrosoftDocs/architecture-center/commit/ce2fecdfd))
 - [Monitor a microservices app in AKS](./microservices/logging-monitoring.md)  ([#bcb227d09](https://github.com/MicrosoftDocs/architecture-center/commit/bcb227d09))
 - [N-tier architecture style](./guide/architecture-styles/n-tier.md)  ([#4a1bad2c3](https://github.com/MicrosoftDocs/architecture-center/commit/4a1bad2c3))
@@ -239,14 +251,11 @@ New and updated articles in Azure Architecture Center.
 - [Automated guided vehicles fleet control](./example-scenario/iot/automated-guided-vehicles-fleet-control.yml)
 - [High throughput stream ingestion to Azure Synapse](./example-scenario/data/stream-ingestion-synapse.yml)
 - [Azure AD join for Azure Virtual Desktop](./example-scenario/wvd/azure-virtual-desktop-azure-active-directory-join.md)
-- [Azure VMware Solution capacity planning](./solution-ideas/articles/azure-vmware-solution-foundation-capacity.yml)
-- [Azure VMware Solution landing zone](./solution-ideas/articles/azure-vmware-solution-foundation-landing-zone.yml)
-- [Azure VMware Solution networking](./solution-ideas/articles/azure-vmware-solution-foundation-networking.yml)
 
 ### Updated Articles
 
 - [Multi-region N-tier application](./reference-architectures/n-tier/multi-region-sql-server.yml)  ([#5149847be](https://github.com/MicrosoftDocs/architecture-center/commit/5149847be))
-- [Suggest content tags with deep learning and NLP](./solution-ideas/articles/website-content-tag-suggestion-with-deep-learning-and-nlp.yml)  ([#bc4e6627e](https://github.com/MicrosoftDocs/architecture-center/commit/bc4e6627e))
+- [Suggest content tags with NLP using deep learning](./solution-ideas/articles/website-content-tag-suggestion-with-deep-learning-and-nlp.yml)  ([#bc4e6627e](https://github.com/MicrosoftDocs/architecture-center/commit/bc4e6627e))
 - [Gridwich clean monolith architecture](./reference-architectures/media-services/gridwich-clean-monolith.yml)  ([#8c5bfd20b](https://github.com/MicrosoftDocs/architecture-center/commit/8c5bfd20b))
 - [Multi-tier web application built for HA/DR](./example-scenario/infrastructure/multi-tier-app-disaster-recovery.yml)  ([#f57f293c4](https://github.com/MicrosoftDocs/architecture-center/commit/f57f293c4))
 - [Highly available multi-region web app](./reference-architectures/app-service-web-app/multi-region.yml)  ([#f57f293c4](https://github.com/MicrosoftDocs/architecture-center/commit/f57f293c4))

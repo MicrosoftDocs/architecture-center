@@ -358,6 +358,16 @@ items:
                  href: solutions/power-platform-scenarios.md
           - name: Azure and Microsoft 365 scenarios
             items: 
+              - name: Overview
+                href: solutions/microsoft-365-scenarios.md
+              - name: All Microsoft 365 architectures
+                href: /azure/architecture/browse/?products=m365
+              - name: Governance of Teams guest users
+                href: example-scenario/governance/governance-teams-guest-users.yml
+              - name: Hybrid SharePoint farm with Microsoft 365
+                href: solution-ideas/articles/sharepoint-farm-microsoft-365.yml
+              - name: Manage Microsoft 365 tenant configuration with Azure DevOps
+                href: example-scenario/devops/manage-microsoft-365-tenant-configuration-microsoft365dsc-devops.yml
               - name: Real-time collaboration
                 href: solution-ideas/articles/collaboration-microsoft-365.yml           
               - name: Real-time presence
@@ -633,10 +643,18 @@ items:
                     href: example-scenario/finance/swift-on-azure-srx.yml
                   - name: SWIFT Alliance Connect Virtual
                     href: example-scenario/finance/swift-on-azure-vsrx.yml
-                  - name: SWIFT Alliance Messaging Hub
-                    href: example-scenario/finance/swift-alliance-messaging-hub.yml
-                  - name: SWIFT Alliance Access
+                  - name: SWIFT Alliance Access with Alliance Connect
                     href: example-scenario/finance/swift-alliance-access-on-azure.yml
+                  - name: SWIFT Alliance Access with Alliance Connect Virtual
+                    href: example-scenario/finance/swift-alliance-access-vsrx-on-azure.yml
+                  - name: SWIFT AMH with Alliance Connect
+                    href: example-scenario/finance/swift-alliance-messaging-hub.yml
+                  - name: SWIFT AMH with Alliance Connect Virtual
+                    href: example-scenario/finance/swift-alliance-messaging-hub-vsrx.yml
+                  - name: SWIFT Alliance Lite2
+                    href: example-scenario/finance/swift-alliance-lite2.yml
+                  - name: SWIFT Alliance Cloud
+                    href: example-scenario/finance/swift-alliance-cloud.yml
           - name: Compliance solutions
             items:
               - name: PCI DSS overview
@@ -1162,9 +1180,9 @@ items:
               - name: Dynamics 365 automotive accelerator
                 href: /dynamics365/industry/accelerators/automotive
                 maintainContext: true
+                maintainContext: true
           - name: Architectures
             items:
-              - name: All automotive architectures
                 href: /azure/architecture/browse/?terms=automotive
               - name: Automated guided vehicles fleet control
                 href: example-scenario/iot/automated-guided-vehicles-fleet-control.yml
@@ -2955,6 +2973,10 @@ items:
                 href: hybrid/hybrid-server-os-mgmt.yml
               - name: On-premises data gateway for Logic Apps
                 href: hybrid/gateway-logic-apps.yml
+              - name: Public MEC compute deployment
+                href: example-scenario/hybrid/public-multi-access-edge-compute-deployment.yml
+              - name: Public MEC high availability 
+                href: example-scenario/hybrid/multi-access-edge-compute-high-availability.yml
               - name: Run containers in a hybrid environment
                 href: hybrid/hybrid-containers.yml
               - name: Use Azure file shares in a hybrid environment
@@ -2993,7 +3015,7 @@ items:
                 href: /azure/active-directory-domain-services/compare-identity-solutions
                 maintainContext: true
               - name: Build for resilience
-                href: guide/resilience/resilience-overview.md
+                href: guide/resilience/resilience-overview.yml
               - name: Conditional Access
                 items:
                   - name: Conditional Access for Zero trust
@@ -3007,11 +3029,11 @@ items:
               - name: Identity in multitenant applications
                 items:
                   - name: Introduction
-                    href: multitenant-identity/index.md
+                    href: multitenant-identity/index.yml
                   - name: The Tailspin scenario
-                    href: multitenant-identity/tailspin.md
+                    href: multitenant-identity/tailspin.yml
                   - name: Authentication
-                    href: multitenant-identity/authenticate.md
+                    href: multitenant-identity/authenticate.yml
                   - name: Claims-based identity
                     href: multitenant-identity/claims.md
                   - name: Tenant sign-up
@@ -3021,13 +3043,13 @@ items:
                   - name: Authorization
                     href: multitenant-identity/authorize.md
                   - name: Secure a web API
-                    href: multitenant-identity/web-api.md
+                    href: multitenant-identity/web-api.yml
                   - name: Cache access tokens
                     href: multitenant-identity/token-cache.md
                   - name: Client certificate
-                    href: multitenant-identity/client-certificate.md
+                    href: multitenant-identity/client-certificate.yml
                   - name: Federate with a customer's AD FS
-                    href: multitenant-identity/adfs.md
+                    href: multitenant-identity/adfs.yml
               - name: Integrate on-premises AD with Azure
                 href: reference-architectures/identity/index.yml
               - name: Deployment guidance
@@ -3058,7 +3080,7 @@ items:
               - name: Secure identity
                 items:
                   - name: Secure development with SPAs
-                    href: guide/resilience/azure-ad-secure-single-page-application.md
+                    href: guide/resilience/azure-ad-secure-single-page-application.yml
                   - name: Security baseline for Azure AD
                     href: /security/benchmark/azure/baselines/aad-security-baseline
                     maintainContext: true
@@ -4357,6 +4379,8 @@ items:
                 href: example-scenario/wvd/multi-forest-azure-managed.yml
       - name: Web
         items:
+          - name: Get started
+            href: guide/web/web-start-here.md
           - name: Guides
             items:
               - name: Design principles
@@ -4430,6 +4454,8 @@ items:
                 href: example-scenario/apps/apim-api-scenario.yml
               - name: Multi-region web app with private database
                 href: example-scenario/sql-failover/app-service-private-sql-multi-region.yml
+              - name: Multi-tier app service with private endpoint
+                href: example-scenario/web/multi-tier-app-service-private-endpoint.yml
               - name: Multi-tier app service with service endpoint
                 href: reference-architectures/app-service-web-app/multi-tier-app-service-service-endpoint.yml
               - name: Multi-tier web app built for HA/DR

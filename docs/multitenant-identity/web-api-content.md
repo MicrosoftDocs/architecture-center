@@ -1,27 +1,3 @@
----
-title: Secure a backend web API in a multitenant app
-description: Learn how to secure a backend web API for multitenant applications by using the Tailspin Surveys app, which has a backend API to manage operations on surveys.
-author: EdPrice-MSFT
-ms.author: pnp
-ms.date: 10/06/2021
-ms.topic: conceptual
-ms.service: architecture-center
-ms.subservice: azure-guide
-categories:
-  - identity
-  - web
-ms.custom:
-  - guide
-pnp.series.title: Manage Identity in Multitenant Applications
-pnp.series.prev: authorize
-pnp.series.next: token-cache
-products:
-  - azure-active-directory
-  - azure-app-service-web
----
-
-# Secure a backend web API for multitenant applications
-
 [:::image type="icon" source="../_images/github.png" border="false"::: Sample code][sample application]
 
 The [Tailspin Surveys][surveys] application uses a backend web API to manage CRUD operations on surveys. For example, when a user clicks "My Surveys", the web application sends an HTTP request to the web API:
@@ -252,6 +228,6 @@ At startup, the application reads settings from every registered configuration p
 [tenant sign-up]: ./signup.md
 [Token caching]: ./token-cache.md
 [sample application]: https://github.com/mspnp/multitenant-saas-guidance
-[surveys]: ./tailspin.md
+[surveys]: ./tailspin.yml
 [token-cache]: ./token-cache.md
 [user-secrets]: /aspnet/core/security/app-secrets

@@ -21,7 +21,7 @@ You can run the scripts in any order.
 Connect to Azure and set \<subscriptionID> to the default subscription before running the scripts.
 
 ```azurecli
-az login
+az login --tenant "<tenantID>"
 az account set --subscription "<subscriptionID>"
 ```
 
