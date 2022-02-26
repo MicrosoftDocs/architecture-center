@@ -144,10 +144,10 @@ To increase resilience beyond a single Azure region, we recommend that you deplo
 
 Explore the functionality and architecture of some other SWIFT modules in detail, as provided below.
 
-<!-- doesn't exist yet * * [SWIFT Alliance Connect in Azure](swift-on-azure-srx.yml) -->
-<!-- doesn't exist yet * * [SWIFT Alliance Connect Virtual in Azure](swift-on-azure-vsrx.yml) -->
-* [Alliance Access](swift-alliance-access-on-azure.yml)
-* [Alliance Messaging Hub (AMH)](swift-alliance-messaging-hub.yml)
-<!-- doesn't exist yet * * [Alliance Messaging Hub (AMH) with Alliance Connect Virtual](swift-alliance-messaging-hub-vsrx.yml) -->
-<!-- doesn't exist yet * * [Alliance Lite2](swift-alliance-lite-2-on-azure.yml) -->
-<!-- doesn't exist yet * * [Alliance Cloud](swift-alliance-cloud-on-azure.yml) -->
+* [SWIFT Alliance Connect in Azure](swift-on-azure-srx.yml)
+* [SWIFT Alliance Connect Virtual in Azure](swift-on-azure-vsrx.yml)
+* [Alliance Access with Alliance Connect](swift-alliance-access-on-azure.yml)
+* [Alliance Messaging Hub (AMH) with Alliance Connect](swift-alliance-messaging-hub.yml)
+* [Alliance Messaging Hub (AMH) with Alliance Connect Virtual](swift-alliance-messaging-hub-vsrx.yml)
+* [Alliance Lite2](swift-alliance-lite-2-on-azure.yml)
+* [Alliance Cloud](swift-alliance-cloud-on-azure.yml)
