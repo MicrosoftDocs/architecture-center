@@ -76,7 +76,9 @@ This article doesn't address the application's underlying services, like App Ser
 
 - For more information about API Management security, see [Azure security baseline for API Management](/security/benchmark/azure/baselines/api-management-security-baseline).
 
-## Deploy the solution with PowerShell
+## Deploy the solution 
+
+### Deployment with PowerShell
 
 The following deployment steps use PowerShell. You could also use the [Azure portal](/azure/application-gateway/create-url-route-portal) or [Azure CLI](/azure/application-gateway/tutorial-url-redirect-cli) to get the same results.
 
@@ -432,7 +434,7 @@ The following deployment steps use PowerShell. You could also use the [Azure por
    $appgw = Set-AzApplicationGateway `
        -ApplicationGateway $appgw
    ```
-## Update an existing Application Gateway via the portal
+### Update an existing Application Gateway via the portal
 
 The following deployment steps use the Azure portal to update an existing Azure Application Gateway to route to an existing API Management instance deployed to a private network.
 
