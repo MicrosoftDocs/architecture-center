@@ -4,7 +4,7 @@ metadata:
   titleSuffix: Azure Solution Ideas
   description: Use Azure App Configuration and Azure Key Vault to create a centralized and secured configuration service for apps.
   author: sowmyans
-  ms.author: pnp
+  ms.author: sowmyans
   ms.date: 11/08/2021
   ms.topic: conceptual
   ms.service: architecture-center

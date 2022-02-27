@@ -1,30 +1,3 @@
----
-title: Multitenancy and identity management
-description: Learn the best practices for multitenant applications, in terms of authentication, authorization, and identity management.
-author: EdPrice-MSFT
-ms.date: 10/06/2021
-ms.topic: conceptual
-ms.service: architecture-center
-ms.subservice: azure-guide
-categories:
-  - identity
-  - web
-ms.custom:
-  - guide
-  - seo-aac-fy21q3
-keywords:
-  - "Multitenancy database"
-  - "multitenancy"
-  - "Azure multi tenant architecture"
-  - "multitenant database"
-  - "multitenant authentication"
-  - "multitenant identity management"
-products:
-  - azure-active-directory
----
-
-# Identity management in multitenant applications
-
 This series of articles describes best practices for multitenancy, when using Azure AD for authentication and identity management.
 
 [:::image type="icon" source="../_images/github.png" border="false"::: Sample code][sample-application]
@@ -32,7 +5,7 @@ This series of articles describes best practices for multitenancy, when using Az
 When you're building a multitenant application, one of the first challenges is managing user identities, because now every user belongs to a tenant. For example:
 
 - Users sign in with their organizational credentials.
-- Users should have access to their organization's data, but not data that belongs to other tenants.
+- Users should have access to their organization's data, but not data of other tenants.
 - An organization can sign up for the application, and then assign application roles to its members.
 
 Azure Active Directory (Azure AD) has some great features that support all of these scenarios.
@@ -41,7 +14,7 @@ To accompany this series of articles, we created a complete [end-to-end implemen
 
 ## Introduction
 
-Let's say you're writing an enterprise SaaS application to be hosted in the cloud. Of course, the application will have users:
+Let's say you're writing an enterprise SaaS application to be hosted in the cloud. The application will have users:
 
 ![Diagram showing individual users.](./images/users.png)
 
@@ -52,7 +25,7 @@ But those users belong to organizations:
 Example: Tailspin sells subscriptions to its SaaS application. Contoso and Fabrikam sign up for the app. When Alice (`alice@contoso`) signs in, the application should know that Alice is part of Contoso.
 
 - Alice *should* have access to Contoso data.
-- Alice *should not* have access to Fabrikam data.
+- Alice *shouldn't* have access to Fabrikam data.
 
 This guidance will show you how to manage user identities in a multitenant application, using [Azure Active Directory (Azure AD)](/azure/active-directory) to handle sign-in and authentication.
 
@@ -70,11 +43,11 @@ Compare this architecture with a single-tenant architecture, where each tenant h
 
 ### Multitenancy and horizontal scaling
 
-To achieve scale in the cloud, it's common to add more physical instances. This is known as *horizontal scaling* or *scaling out*. Consider a web app. To handle more traffic, you can add more server VMs and put them behind a load balancer. Each VM runs a separate physical instance of the web app.
+To achieve scale in the cloud, it's common to add more physical instances. This approach is known as *horizontal scaling* or *scaling out*. Consider a web app. To handle more traffic, you can add more server VMs and put them behind a load balancer. Each VM runs a separate physical instance of the web app.
 
 ![Load balancing a web site](./images/load-balancing.png)
 
-Any request can be routed to any instance. Together, the system functions as a single logical instance. You can tear down a VM or spin up a new VM, without affecting users. In this architecture, each physical instance is multitenant, and you scale by adding more instances. If one instance goes down, it should not affect any tenant.
+Any request can be routed to any instance. Together, the system functions as a single logical instance. You can tear down a VM or spin up a new VM, without affecting users. In this architecture, each physical instance is multitenant, and you scale by adding more instances. If one instance goes down, it shouldn't affect any tenant.
 
 ## Identity in a multitenant app
 
@@ -91,16 +64,16 @@ In a multitenant app, you must consider users in the context of tenants.
 - When authorizing a user's actions (say, viewing a resource), the app must take into account the user's tenant.
 - Users might be assigned roles within the application, such as "Admin" or "Standard User". Role assignments should be managed by the customer, not by the SaaS provider.
 
-**Example.** Alice, an employee at Contoso, navigates to the application in her browser and clicks the "Log in" button. She is redirected to a sign-in screen where she enters her corporate credentials (username and password). At this point, she is logged into the app as `alice@contoso.com`. The application also knows that Alice is an admin user for this application. Because she is an admin, she can see a list of all the resources that belong to Contoso. However, she cannot view Fabrikam's resources, because she is an admin only within her tenant.
+**Example.** Alice, an employee at Contoso, navigates to the application in her browser and selects the "Log in" button. She's redirected to a sign-in screen where she enters her corporate credentials (username and password). At this point, she's logged into the app as `alice@contoso.com`. The application also knows that Alice is an admin user for this application. Because she's an admin, she can see a list of all the resources that belong to Contoso. However, she can't view Fabrikam's resources, because she's an admin only within her tenant.
 
 In this guidance, we'll look specifically at using Azure AD for identity management.
 
 - We assume the customer stores their user profiles in Azure AD (including Office365 and Dynamics CRM tenants)
-- Customers with on-premises Active Directory can use [Azure AD Connect](/azure/active-directory/hybrid/whatis-hybrid-identity) to sync their on-premises Active Directory with Azure AD. If a customer with on-premises Active Directory cannot use Azure AD Connect (due to corporate IT policy or other reasons), the SaaS provider can federate with the customer's directory through Active Directory Federation Services (AD FS). This option is described in [Federating with a customer's AD FS](adfs.md).
+- Customers with on-premises Active Directory can use [Azure AD Connect](/azure/active-directory/hybrid/whatis-hybrid-identity) to sync their on-premises Active Directory with Azure AD. If a customer with on-premises Active Directory can't use Azure AD Connect, the SaaS provider can federate with the customer's directory through Active Directory Federation Services (AD FS). This option is described in [Federating with a customer's AD FS](adfs.yml).
 
-This guidance does not consider other aspects of multitenancy such as data partitioning, per-tenant configuration, and so forth.
+This guidance doesn't consider other aspects of multitenancy such as data partitioning, per-tenant configuration, and so forth.
 
-[**Next**](./tailspin.md)
+[**Next**](./tailspin.yml)
 
 <!-- links -->
 
