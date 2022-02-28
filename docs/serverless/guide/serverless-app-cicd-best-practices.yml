@@ -15,6 +15,6 @@ products:
   - azure-pipelines
 name: CI/CD for serverless application frontend on Azure
 summary: Learn best practices for a robust CI/CD pipeline for your serverless frontend on Azure.
-thumbnailUrl: /azure/architecture/browse/thumbs/cicd-serverless-frontend.png
+thumbnailUrl: /azure/architecture/browse/thumbs/ci-cd-serverless-frontend.png
 content: |
   [!include[](serverless-app-cicd-best-practices-content.md)]

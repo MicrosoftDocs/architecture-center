@@ -15,6 +15,6 @@ products:
   - azure-container-registry
 name: Building a CI/CD pipeline for microservices on Kubernetes
 summary: Learn about building a Continuous Integration and Continuous Delivery (CI/CD) pipeline for deploying microservices to Azure Kubernetes Service (AKS).
-thumbnailUrl: /azure/architecture/browse/thumbs/aks-cicd.png
+thumbnailUrl: /azure/architecture/browse/thumbs/aks-ci-cd.png
 content: |
   [!include[](ci-cd-kubernetes-content.md)]

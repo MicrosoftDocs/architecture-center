@@ -14,6 +14,6 @@ products:
   - azure
 name: CI/CD for microservices architectures
 summary: Learn about continuous integration and continuous delivery for microservices, including challenges and recommended approaches.
-thumbnailUrl: /azure/architecture/browse/thumbs/cicd-monolith.png
+thumbnailUrl: /azure/architecture/browse/thumbs/ci-cd-monolith.png
 content: |
   [!include[](ci-cd-content.md)]
