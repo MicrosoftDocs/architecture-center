@@ -9,7 +9,6 @@ metadata:
   ms.service: architecture-center
   ms.subservice: azure-guide
 azureCategories:
-  - analyitics
   - databases
 products:
   - azure-event-hubs

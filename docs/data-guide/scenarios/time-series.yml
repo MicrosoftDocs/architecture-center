@@ -15,6 +15,7 @@ products:
   - azure-iot-hub
   - azure-hdinsight
   - azure-data-explorer
+name: Time series data
 summary: Analyze time series data like sensor data, stock prices, click stream data, or app telemetry for historical trends, real-time alerts, or predictive modeling.
 thumbnailUrl: /azure/architecture/browse/thumbs/time-series-insights.png
 content: |
