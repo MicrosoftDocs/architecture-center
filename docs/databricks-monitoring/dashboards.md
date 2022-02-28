@@ -102,7 +102,7 @@ Next, change the Grafana administrator password by following these steps:
     ```azurecli
     az ad sp create-for-rbac --name http://<service principal name> \
                     --role "Log Analytics Reader" \
-                    --scope /subscriptions/mySubscriptionID
+                    --scopes /subscriptions/mySubscriptionID
     ```
 
 1. Note the values for appId, password, and tenant in the output from this command:
