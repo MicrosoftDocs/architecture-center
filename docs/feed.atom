@@ -2,12 +2,44 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id/>
     <title>Azure Architecture Center</title>
-    <updated>2022-02-22T20:35:52.352Z</updated>
+    <updated>2022-02-28T21:14:40.636Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <subtitle>Updated articles for Azure Architecture Center</subtitle>
     <rights>https://docs.microsoft.com/legal/termsofuse</rights>
     <category term="new"/>
     <category term="updated"/>
+    <entry>
+        <title type="html"><![CDATA[Web architecture design]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/guide/web/web-start-here</id>
+        <link href="https://docs.microsoft.com/azure/architecture/guide/web/web-start-here"/>
+        <updated>2022-02-25T23:06:33.000Z</updated>
+        <summary type="html"><![CDATA[Get an overview of Azure web app technologies, guidance, solution ideas, and reference architectures.]]></summary>
+        <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Azure public multi-access edge compute deployment]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/example-scenario/hybrid/public-multi-access-edge-compute-deployment</id>
+        <link href="https://docs.microsoft.com/azure/architecture/example-scenario/hybrid/public-multi-access-edge-compute-deployment"/>
+        <updated>2022-02-25T19:42:59.000Z</updated>
+        <summary type="html"><![CDATA[Learn how to use Azure public multi-access edge compute to exploit the speed of 5G and unlock key low latency and high bandwidth scenarios.]]></summary>
+        <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Multi-tier app service with private endpoint]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/example-scenario/web/multi-tier-app-service-private-endpoint</id>
+        <link href="https://docs.microsoft.com/azure/architecture/example-scenario/web/multi-tier-app-service-private-endpoint"/>
+        <updated>2022-02-23T18:41:26.000Z</updated>
+        <summary type="html"><![CDATA[Learn about an architecture that uses private endpoints to provide highly secure communications between app services in a multi-tier environment.]]></summary>
+        <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Azure and Microsoft 365 scenarios]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/solutions/microsoft-365-scenarios</id>
+        <link href="https://docs.microsoft.com/azure/architecture/solutions/microsoft-365-scenarios"/>
+        <updated>2022-02-23T17:56:24.000Z</updated>
+        <summary type="html"><![CDATA[Read this article to learn about architectures and solutions that use Azure together with Microsoft 365.]]></summary>
+        <category label="new" term="new"/>
+    </entry>
     <entry>
         <title type="html"><![CDATA[Big data analytics on confidential computing]]></title>
         <id>https://docs.microsoft.com/azure/architecture/example-scenario/confidential/data-analytics-containers-spark-kubernetes-azure-sql</id>
@@ -145,7 +177,7 @@
         <category label="new" term="new"/>
     </entry>
     <entry>
-        <title type="html"><![CDATA[High-performance computing for manufacturing]]></title>
+        <title type="html"><![CDATA[High-performance computing (HPC) for manufacturing]]></title>
         <id>https://docs.microsoft.com/azure/architecture/industries/manufacturing/compute-manufacturing-overview</id>
         <link href="https://docs.microsoft.com/azure/architecture/industries/manufacturing/compute-manufacturing-overview"/>
         <updated>2022-02-08T09:11:02.000Z</updated>
@@ -279,6 +311,14 @@
         <updated>2022-02-01T21:12:02.000Z</updated>
         <summary type="html"><![CDATA[Build an end-to-end Customer 360 solution by using Azure Synapse Analytics and Dynamics 360 Customer Insights.]]></summary>
         <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Protect APIs with Azure Application Gateway and Azure API Management]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/reference-architectures/apis/protect-apis</id>
+        <link href="https://docs.microsoft.com/azure/architecture/reference-architectures/apis/protect-apis"/>
+        <updated>2022-02-25T20:22:21.000Z</updated>
+        <summary type="html"><![CDATA[See how to protect APIs with API Management and Application Gateway.]]></summary>
+        <category label="updated" term="updated"/>
     </entry>
     <entry>
         <title type="html"><![CDATA[Speech services]]></title>
@@ -558,22 +598,6 @@
         <link href="https://docs.microsoft.com/azure/architecture/example-scenario/ai/automate-document-processing-azure-form-recognizer"/>
         <updated>2022-01-06T21:06:00.000Z</updated>
         <summary type="html"><![CDATA[Build an automated document processing pipeline. Use Azure Form Recognizer to extract data and natural language processing models to enrich the data.]]></summary>
-        <category label="new" term="new"/>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[SWIFT Alliance Access on Azure]]></title>
-        <id>https://docs.microsoft.com/azure/architecture/example-scenario/finance/swift-alliance-access-on-azure</id>
-        <link href="https://docs.microsoft.com/azure/architecture/example-scenario/finance/swift-alliance-access-on-azure"/>
-        <updated>2022-01-06T03:36:10.000Z</updated>
-        <summary type="html"><![CDATA[This article provides a reference architecture for deploying and running SWIFT Alliance Access on Azure.]]></summary>
-        <category label="new" term="new"/>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[SWIFT Alliance Messaging Hub (AMH) on Azure]]></title>
-        <id>https://docs.microsoft.com/azure/architecture/example-scenario/finance/swift-alliance-messaging-hub</id>
-        <link href="https://docs.microsoft.com/azure/architecture/example-scenario/finance/swift-alliance-messaging-hub"/>
-        <updated>2022-01-06T03:36:10.000Z</updated>
-        <summary type="html"><![CDATA[This article provides a reference architecture for deploying and running SWIFT Alliance Messaging Hub (AMH) on Azure.]]></summary>
         <category label="new" term="new"/>
     </entry>
     <entry>
