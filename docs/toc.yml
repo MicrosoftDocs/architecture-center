@@ -1240,6 +1240,7 @@ items:
                 maintainContext: true
           - name: Architectures
             items:
+              - name: All automotive architectures
                 href: /azure/architecture/browse/?terms=automotive
               - name: Automated guided vehicles fleet control
                 href: example-scenario/iot/automated-guided-vehicles-fleet-control.yml
