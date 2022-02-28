@@ -1,23 +1,3 @@
----
-title: Microservices CI/CD pipeline on Kubernetes
-description: Learn about building a Continuous Integration and Continuous Delivery (CI/CD) pipeline for deploying microservices to Azure Kubernetes Service (AKS).
-author: EdPrice-MSFT
-ms.date: 04/11/2019
-ms.topic: conceptual
-ms.service: architecture-center
-ms.subservice: azure-guide
-ms.category:
-  - containers
-products:
-  - azure-kubernetes-service
-  - azure-container-registry
-ms.custom:
-  - microservices
-  - guide
----
-
-# Building a CI/CD pipeline for microservices on Kubernetes
-
 It can be challenging to create a reliable CI/CD process for a microservices architecture. Individual teams must be able to release services quickly and reliably, without disrupting other teams or destabilizing the application as a whole.
 
 This article describes an example CI/CD pipeline for deploying microservices to Azure Kubernetes Service (AKS). Every team and project is different, so don't take this article as a set of hard-and-fast rules. Instead, it's meant to be a starting point for designing your own CI/CD process.
@@ -29,7 +9,7 @@ The goals of a CI/CD pipeline for Kubernetes hosted microservices can be summari
 - Quality gates are enforced at each stage of the pipeline.
 - A new version of a service can be deployed side by side with the previous version.
 
-For more background, see [CI/CD for microservices architectures](./ci-cd.md).
+For more background, see [CI/CD for microservices architectures](./ci-cd.yml).
 
 ## Assumptions
 

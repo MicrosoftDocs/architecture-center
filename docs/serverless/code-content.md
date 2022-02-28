@@ -1,27 +1,4 @@
----
-title: Serverless Functions code walkthrough
-titleSuffix: Azure Example Scenarios
-description: Learn about serverless technologies in Azure by walking through an example implementation of a serverless application with Azure Functions.
-author: rogeriohc
-ms.author: pnp
-ms.date: 06/22/2020
-ms.topic: conceptual
-ms.service: architecture-center
-ms.subservice: azure-guide
-categories:
-  - developer-tools
-  - featured
-products:
-  - azure-event-hubs
-  - azure-functions
-ms.custom:
-  - guide
----
-
 <!--cSpell:ignore Gyrometer upsert deadletterqueue -->
-
-# Code walkthrough: Serverless application with Functions
-
 Serverless models abstract code from the underlying compute infrastructure, allowing developers to focus on business logic without extensive setup. Serverless code reduces costs, because you pay only for the code execution resources and duration.
 
 The serverless event-driven model fits situations where a certain event triggers a defined action. For example, receiving an incoming device message triggers storage for later use, or a database update triggers some further processing.

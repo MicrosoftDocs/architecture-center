@@ -31,7 +31,7 @@ Here are some of the main challenges arising from service-to-service communicati
 
 **Load balancing**. When service "A" calls service "B", the request must reach a running instance of service "B". In Kubernetes, the `Service` resource type provides a stable IP address for a group of pods. Network traffic to the service's IP address gets forwarded to a pod by means of iptable rules. By default, a random pod is chosen. A service mesh (see below) can provide more intelligent load balancing algorithms based on observed latency or other metrics.
 
-**Distributed tracing**. A single transaction may span multiple services. That can make it hard to monitor the overall performance and health of the system. Even if every service generates logs and metrics, without some way to tie them together, they are of limited use. The article [Logging and monitoring](../logging-monitoring.md) talks more about distributed tracing, but we mention it here as a challenge.
+**Distributed tracing**. A single transaction may span multiple services. That can make it hard to monitor the overall performance and health of the system. Even if every service generates logs and metrics, without some way to tie them together, they are of limited use. The article [Logging and monitoring](../logging-monitoring.yml) talks more about distributed tracing, but we mention it here as a challenge.
 
 **Service versioning**. When a team deploys a new version of a service, they must avoid breaking any other services or external clients that depend on it. In addition, you might want to run multiple versions of a service side-by-side, and route requests to a particular version. See [API Versioning](./api-design.md#api-versioning) for more discussion of this issue.
 

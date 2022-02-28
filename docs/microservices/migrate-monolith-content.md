@@ -1,25 +1,3 @@
----
-title: Monoliths to microservices using domain-driven design
-titleSuffix: Azure Architecture Center
-description: Use a DDD approach to migrate a monolithic application to microservices
-author: lavann
-ms.author: pnp
-ms.date: 11/04/2019
-ms.topic: conceptual
-ms.service: architecture-center
-ms.subservice: azure-guide
-ms.category:
-  - migration
-  - developer-tools
-products:
-  - aspnet
-ms.custom:
-  - microservices
-  - guide
----
-
-# Migrate a monolith application to microservices using domain-driven design
-
 This article describes how to use domain-driven design (DDD) to migrate a monolithic application to microservices.
 
 A monolithic application is typically an application system in which all of the relevant modules are packaged together as a single deployable unit of execution. For example, it might be a Java Web Application (WAR) running on Tomcat or an ASP<span>.</span>NET application running on IIS. A typical monolithic application uses a layered design, with separate layers for UI, application logic, and data access.
@@ -119,4 +97,4 @@ This approach is an example of the [Strangler Fig pattern](../patterns/strangler
 
 ## Next steps
 
-When the application has been decomposed into constituent microservices, it becomes possible to use modern orchestration tools such as [Azure DevOps](/azure/devops/) to manage the lifecycle of each service. For more information, see [CI/CD for microservices architectures](./ci-cd.md).
+When the application has been decomposed into constituent microservices, it becomes possible to use modern orchestration tools such as [Azure DevOps](/azure/devops/) to manage the lifecycle of each service. For more information, see [CI/CD for microservices architectures](./ci-cd.yml).
