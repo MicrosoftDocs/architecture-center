@@ -12,6 +12,7 @@ metadata:
 azureCategories:
   - iot
   - integration
+  - analytics
 products:
   - azure-digital-twins
   - azure-data-factory
