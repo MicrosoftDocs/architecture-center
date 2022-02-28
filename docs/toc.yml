@@ -687,10 +687,6 @@ items:
                 items: 
                   - name: Overview
                     href: example-scenario/finance/swift-on-azure.yml
-                  - name: SWIFT Alliance Messaging Hub
-                    href: example-scenario/finance/swift-alliance-messaging-hub.yml
-                  - name: SWIFT Alliance Access
-                    href: example-scenario/finance/swift-alliance-access-on-azure.yml
           - name: Compliance solutions
             items:
               - name: PCI DSS overview
@@ -3077,6 +3073,10 @@ items:
                 href: hybrid/hybrid-server-os-mgmt.yml
               - name: On-premises data gateway for Logic Apps
                 href: hybrid/gateway-logic-apps.yml
+              - name: Public MEC compute deployment
+                href: example-scenario/hybrid/public-multi-access-edge-compute-deployment.yml
+              - name: Public MEC high availability 
+                href: example-scenario/hybrid/multi-access-edge-compute-ha.yml
               - name: Run containers in a hybrid environment
                 href: hybrid/hybrid-containers.yml
               - name: Use Azure file shares in a hybrid environment
@@ -4490,6 +4490,8 @@ items:
                 href: example-scenario/wvd/multi-forest-azure-managed.yml
       - name: Web
         items:
+          - name: Get started
+            href: guide/web/web-start-here.md
           - name: Guides
             items:
               - name: Design principles
