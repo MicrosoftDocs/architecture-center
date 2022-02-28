@@ -21,7 +21,7 @@ You can deploy the virtual nodes with AKS using the below links
 Virtual nodes uses ACI instances to rapidly spin up the pods depending upon the conditions that you add in the deployment manifest.
 
 
-Adding code for SampleApp that helps in provisioning of the pdos on Virtual nodes (Refer https://docs.microsoft.com/en-us/azure/aks/virtual-nodes-cli)
+Adding code for SampleApp that helps in provisioning of the pods on Virtual nodes (Refer https://docs.microsoft.com/en-us/azure/aks/virtual-nodes-cli)
 
 ```yaml
 apiVersion: apps/v1
@@ -29,7 +29,7 @@ kind: Deployment
 metadata:
   name: aci-helloworld
 spec:
-  replicas: 1
+  replicas: 10
   selector:
     matchLabels:
       app: aci-helloworld
