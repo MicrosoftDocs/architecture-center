@@ -54,7 +54,7 @@ The following components are used as part of this design:
 
 - [Azure Container Registry](https://azure.microsoft.com/services/container-registry): A private registry service for managing container images and artifacts. This service is based on the open-source Docker.
 
-- [Azure Data Lake](https://azure.microsoft.com/en-us/services/storage/data-lake-storage): A service that provides scalable storage that's optimized for massive amounts of unstructured data. [Data Lake Storage Gen2](/azure/storage/blobs/data-lake-storage-introduction) offers file system semantics, file-level security, and scale.
+- [Azure Data Lake](https://azure.microsoft.com/services/storage/data-lake-storage): A service that provides scalable storage that's optimized for massive amounts of unstructured data. [Data Lake Storage Gen2](/azure/storage/blobs/data-lake-storage-introduction) offers file system semantics, file-level security, and scale.
 
 - [Azure Monitor](https://azure.microsoft.com/services/monitor): A comprehensive solution for collecting, analyzing, and acting on telemetry from your workloads.
 
