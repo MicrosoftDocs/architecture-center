@@ -2,7 +2,7 @@
 title: What's New in Azure Architecture Center
 description: New and updated articles in Azure Architecture Center
 author: doodlemania2
-ms.date: 02/22/2022
+ms.date: 02/28/2022
 ms.topic: article
 ms.service: architecture-center
 ---
@@ -27,6 +27,10 @@ New and updated articles in Azure Architecture Center.
 
 ### New Articles
 
+- [Web architecture design](./guide/web/web-start-here.md)
+- [Azure public multi-access edge compute deployment](./example-scenario/hybrid/public-multi-access-edge-compute-deployment.yml)
+- [Multi-tier app service with private endpoint](./example-scenario/web/multi-tier-app-service-private-endpoint.yml)
+- [Azure and Microsoft 365 scenarios](./solutions/microsoft-365-scenarios.md)
 - [Big data analytics on confidential computing](./example-scenario/confidential/data-analytics-containers-spark-kubernetes-azure-sql.yml)
 - [Multitenancy checklist on Azure](./guide/multitenant/checklist.md)
 - [Solutions for the telecommunications industry](./industries/telecommunications.md)
@@ -44,7 +48,7 @@ New and updated articles in Azure Architecture Center.
 - [Risk grid computing in banking](./industries/finance/risk-grid-banking-overview.yml)
 - [Risk grid computing solution](./industries/finance/risk-grid-banking-solution-guide.yml)
 - [Implement the Azure healthcare blueprint for AI](./industries/healthcare/healthcare-ai-blueprint.yml)
-- [High-performance computing for manufacturing](./industries/manufacturing/compute-manufacturing-overview.yml)
+- [High-performance computing (HPC) for manufacturing](./industries/manufacturing/compute-manufacturing-overview.yml)
 - [Extract actionable insights from IoT data](./industries/manufacturing/extract-insights-iot-data.yml)
 - [Introduction to predictive maintenance in manufacturing](./industries/manufacturing/predictive-maintenance-overview.yml)
 - [Predictive maintenance solution](./industries/manufacturing/predictive-maintenance-solution.yml)
@@ -64,6 +68,7 @@ New and updated articles in Azure Architecture Center.
 
 ### Updated Articles
 
+- [Protect APIs with Azure Application Gateway and Azure API Management](./reference-architectures/apis/protect-apis.yml)  ([#6f273719b](https://github.com/MicrosoftDocs/architecture-center/commit/6f273719b))
 - [Speech services](./solution-ideas/articles/speech-services.yml)  ([#09941baed](https://github.com/MicrosoftDocs/architecture-center/commit/09941baed))
 - [Camera selection for Azure IoT Edge vision AI](./guide/iot-edge-vision/camera.md)  ([#cc5ff9493](https://github.com/MicrosoftDocs/architecture-center/commit/cc5ff9493))
 - [Computer vision with Azure IoT Edge](./guide/iot-edge-vision/index.md)  ([#cc5ff9493](https://github.com/MicrosoftDocs/architecture-center/commit/cc5ff9493))
@@ -104,8 +109,6 @@ New and updated articles in Azure Architecture Center.
 - [Azure NAT Gateway considerations for multitenancy](./guide/multitenant/service/nat-gateway.md)
 - [Teacher-provisioned virtual labs in Azure](./example-scenario/devops/teacher-provisioned-virtual-labs-azure.yml)
 - [Automate document processing by using Azure Form Recognizer](./example-scenario/ai/automate-document-processing-azure-form-recognizer.yml)
-- [SWIFT Alliance Access on Azure](./example-scenario/finance/swift-alliance-access-on-azure.yml)
-- [SWIFT Alliance Messaging Hub (AMH) on Azure](./example-scenario/finance/swift-alliance-messaging-hub.yml)
 - [SWIFT on Azure](./example-scenario/finance/swift-on-azure.yml)
 - [Loosely coupled quantum computing](./example-scenario/quantum/loosely-coupled-quantum-computing-job.yml)
 - [Tightly coupled quantum computing](./example-scenario/quantum/tightly-coupled-quantum-computing-job.yml)
