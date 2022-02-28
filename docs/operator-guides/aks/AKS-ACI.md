@@ -6,6 +6,11 @@ Therefore , to handle these situations you might need rapid scaling .
 
 To rapidly scale application workloads in an AKS cluster, you can use virtual nodes. With virtual nodes, you have quick provisioning of pods, and only pay per second for their execution time. You don't need to wait for Kubernetes cluster autoscaler to deploy VM compute nodes to run the additional pods. Virtual nodes are only supported with Linux pods and nodes. 
 
+Below Architecture can show on how Application pods are scaled
+
+![image](https://user-images.githubusercontent.com/50182145/155970873-da8c5d28-db8b-4a9d-81c1-3814667405ce.png)
+
+
 You can deploy the virtual nodes with AKS using the below links
 - [Create virtual nodes using Azure CLI](https://docs.microsoft.com/en-us/azure/aks/virtual-nodes-cli)
 - [Create virtual nodes using the portal in Azure Kubernetes Services (AKS)](https://docs.microsoft.com/en-us/azure/aks/virtual-nodes-portal)
