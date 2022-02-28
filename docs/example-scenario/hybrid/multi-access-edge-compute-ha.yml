@@ -20,4 +20,4 @@ name: High availability in Azure public MEC
 summary: Learn how to deploy workloads in active/standby mode to achieve high availability and disaster recovery in Azure public MEC. 
 thumbnailUrl: /azure/architecture/browse/thumbs/edge-zones-dr-architecture.png
 content: |
-  [!include[](multi-access-edge-compute-high-availability-content.md)]
+  [!include[](multi-access-edge-compute-ha-content.md)]
