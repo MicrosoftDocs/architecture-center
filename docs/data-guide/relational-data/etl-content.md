@@ -1,26 +1,4 @@
----
-title: Extract, transform, and load (ETL)
-description: Learn about extract-transform-load (ETL) and extract-load-transform (ELT) data transformation pipelines, and how to use control flows and data flows.
-author: raunakjhawar
-ms.author: rajhawar
-ms.date: 11/22/2021
-ms.topic: conceptual
-ms.service: architecture-center
-ms.subservice: azure-guide
-categories:
-  - databases
-  - integration
-products:
-  - azure-synapse-analytics
-  - azure-data-factory
-ms.custom:
-  - guide
----
-
 <!-- cSpell:ignore Oozie HDFS deduplicating -->
-
-# Extract, transform, and load (ETL)
-
 A common problem that organizations face is how to gather data from multiple sources, in multiple formats. Then you'd need to move it to one or more data stores. The destination might not be the same type of data store as the source. Often the format is different, or the data needs to be shaped or cleaned before loading it into its final destination.
 
 Various tools, services, and processes have been developed over the years to help address these challenges. No matter the process used, there's a common need to coordinate the work and apply some level of data transformation within the data pipeline. The following sections highlight the common methods used to perform these tasks.

@@ -1,0 +1,21 @@
+### YamlMime:Architecture
+metadata:
+  title: Time series data
+  description: Analyze time series data like sensor data, stock prices, click stream data, or app telemetry for historical trends, real-time alerts, or predictive modeling.
+  author: EdPrice-MSFT
+  ms.author: edprice
+  ms.date: 04/02/2020
+  ms.topic: conceptual
+  ms.service: architecture-center
+  ms.subservice: azure-guide
+azureCategories:
+  - iot
+  - analytics
+products:
+  - azure-iot-hub
+  - azure-hdinsight
+  - azure-data-explorer
+summary: Analyze time series data like sensor data, stock prices, click stream data, or app telemetry for historical trends, real-time alerts, or predictive modeling.
+thumbnailUrl: /azure/architecture/browse/thumbs/time-series-insights.png
+content: |
+  [!include[](time-series-content.md)]

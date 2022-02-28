@@ -86,7 +86,7 @@ See this other content:
 
 See the related architectural content:
 
-- See the [Real time processing architecture](../../data-guide/big-data/real-time-processing.md) in the [Azure Data Architecture Guide](../../data-guide/index.md).
+- See the [Real time processing architecture](../../data-guide/big-data/real-time-processing.yml) in the [Azure Data Architecture Guide](../../data-guide/index.md).
 - [E-commerce front end](/azure/architecture/example-scenario/apps/ecommerce-scenario)
 - [Architect scalable e-commerce web app](/azure/architecture/solution-ideas/articles/scalable-ecommerce-web-app)
 - [Intelligent product search engine for e-commerce](/azure/architecture/example-scenario/apps/ecommerce-search)

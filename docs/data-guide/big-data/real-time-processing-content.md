@@ -1,20 +1,3 @@
----
-title: Real time processing
-description: Use real-time processing solutions to capture data streams and generate reports or automated responses with minimal latency.
-author: EdPrice-MSFT
-ms.author: pnp
-ms.date: 02/12/2018
-ms.topic: conceptual
-ms.service: architecture-center
-ms.subservice: azure-guide
-products:
-  - azure-event-hubs
-ms.custom:
-  - guide
----
-
-# Real time processing
-
 Real time processing deals with streams of data that are captured in real-time and processed with minimal latency to generate real-time (or near-real-time) reports or automated responses. For example, a real-time traffic monitoring solution might use sensor data to detect high traffic volumes. This data could be used to dynamically update a map to show congestion, or automatically initiate high-occupancy lanes or other traffic management systems.
 
 ![Diagram of a real time processing pipeline](./images/real-time-pipeline.png)
@@ -53,7 +36,7 @@ For more information, see [Real-time message ingestion](../technology-choices/re
 
 ### Data storage
 
-- **Azure Storage Blob Containers** or **Azure Data Lake Store**. Incoming real-time data is usually captured in a message broker (see above), but in some scenarios, it can make sense to monitor a folder for new files and process them as they are created or updated. Additionally, many real-time processing solutions combine streaming data with static reference data, which can be stored in a file store. Finally, file storage may be used as an output destination for captured real-time data for archiving, or for further batch processing in a [lambda architecture](../big-data/index.md#lambda-architecture).
+- **Azure Storage Blob Containers** or **Azure Data Lake Store**. Incoming real-time data is usually captured in a message broker (see above), but in some scenarios, it can make sense to monitor a folder for new files and process them as they are created or updated. Additionally, many real-time processing solutions combine streaming data with static reference data, which can be stored in a file store. Finally, file storage may be used as an output destination for captured real-time data for archiving, or for further batch processing in a [lambda architecture](../big-data/index.yml#lambda-architecture).
 
 For more information, see [Data storage](../technology-choices/data-storage.md).
 
