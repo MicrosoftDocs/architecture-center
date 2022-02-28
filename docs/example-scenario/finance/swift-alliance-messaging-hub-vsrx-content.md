@@ -1,4 +1,4 @@
-SWIFT's Alliance Messaging Hub (AMH) is one of the key messaging solutions in the SWIFT product portfolio. AMH is customizable and meets the messaging needs of financial institutions. With AMH, financial institutions can introduce new services and products in the market quickly and efficiently. SWIFT's AMH meets security and compliance standards that financial messaging requires.
+SWIFT's Alliance Messaging Hub (AMH) is one of the key messaging solutions in the SWIFT product portfolio. AMH is customizable and meets the messaging needs of financial institutions. With [AMH](https://www.swift.com/our-solutions/interfaces-and-integration/alliance-messaging-hub), financial institutions can introduce new services and products in the market quickly and efficiently. SWIFT's AMH meets security and compliance standards that financial messaging requires.
 
 This article outlines a solution for hosting AMH on Azure.
 
@@ -13,39 +13,39 @@ The solution can benefit existing and new SWIFT customers. You can use it for th
 
 ## Architecture
 
-:::image type="content" source="./media/azure-alliance-messaging-hub-architecture.png" alt-text="Architecture diagram that shows how to host a SWIFT Alliance Messaging Hub on Azure." border="false" lightbox="./media/azure-alliance-messaging-hub-architecture.png":::
+:::image type="content" source="./media/azure-alliance-messaging-hub-virtual-architecture.png" alt-text="Architecture diagram that shows how to host a SWIFT Alliance Messaging Hub on Azure." border="false" lightbox="./media/azure-alliance-messaging-hub-virtual-architecture.png":::
 
-*Download a [PowerPoint file](https://arch-center.azureedge.net/amh-on-azure-srxha.pptx) of this architecture.*
+*Download a [Visio file](https://arch-center.azureedge.net/swift-amh-vsrx-mvp.vsdx) of this architecture.*
 
 ### Workflow
 
 This Azure solution uses the same topology that the on-premises environment uses. On-premises environments fall into two categories:
 
-- On-premises site (Users): The location that business users and business applications use to access SWIFT's AMH
+- On-premises site (Business users): The location that business users and business applications use to access SWIFT's AMH
 - On-premises site (Hardware Security Module): The location that hosts the Hardware Security Module (HSM) appliance that SWIFT provides
 
-A business user or an application from the customer's on-premises site (Users) connects to SWIFT's AMH by using network connectivity. SWIFT's AMH processes the user request by coordinating with SWIFT's Alliance Gateway (SAG) and with SWIFTNet Link (SNL). The SAG and SNL components connect with the customer's on-premises site (HSM) to securely sign the message. SWIFT's Alliance Connect networking solution, which is deployed at an on-premises site, forwards the secure message to SWIFTNet. Azure services that run in the customer's optional shared Azure services subscription provide additional management and operational services.
+A business user or an application from the customer's on-premises site (Users) connects to SWIFT's AMH by using network connectivity. SWIFT's AMH processes the user request by coordinating with SWIFT's Alliance Gateway (SAG) and with SWIFTNet Link (SNL). The SAG and SNL components connect with the customer's on-premises site (HSM) to securely sign the message. SWIFT's Alliance Connect Virtual networking solution forwards the secure message to SWIFTNet. Azure services that run in the customer's optional shared Azure services subscription provide additional management and operational services.
 
 SWIFT's AMH needs network connectivity with SAG and SNL.
 
 - SAG provides multiple integration points and message concentration between SWIFT modules and SWIFTNet.
 - SNL provides an API interface between SWIFT modules and SWIFTNet.
 
-We recommend that you place the SWIFT modules, SAG, and SNL components in the same Azure virtual network. You can deploy them across separate subnets in the virtual network.
+We recommend that you place the SWIFT modules, SAG, and SNL components in the same Azure virtual network. You can deploy them across separate subnets in the virtual network or in resource groups.
 
 A key component in SWIFT's AMH technical solution is the *AMH node*, which runs a user interface, a database, and a messaging system. The AMH node provides the web front end that runs the user interface and the signal transfer point (STP) message processing.
 
 - The AMH node runs on [JBoss Enterprise Application Platform (EAP) on Red Hat Enterprise Linux (RHEL)](https://techcommunity.microsoft.com/t5/azure-marketplace/announcing-red-hat-jboss-eap-on-azure-virtual-machines-and-vm/ba-p/2374068).
 - The database runs on [Oracle](/azure/virtual-machines/workloads/oracle/oracle-overview).
-- The messaging system typically runs on [Websphere MQ](https://azure.microsoft.com/updates/general-availability-enabling-ibm-websphere-application-server-on-azure-virtual-machines), but you can use any Java Message Service (JMS) protocol–compliant messaging solution.
+- The messaging system typically runs on [Websphere MQ](https://azure.microsoft.com/updates/general-availability-enabling-ibm-websphere-application-server-on-azure-virtual-machines), but you can use any Java Message Service (JMS) protocol–compliant messaging service.
 
 The following Azure infrastructure services are also part of this solution:
 
 - An Azure subscription is needed to deploy SWIFT's AMH. We recommend that you use a new Azure subscription to manage and scale SWIFT's AMH.
 
-- The solution deploys SWIFT's AMH in a specific Azure region by using an Azure resource group. We recommend that you set up a single resource group for SWIFT AMH, SAG, and SNL.
+- The solution deploys SWIFT's AMH in a specific Azure region by using an Azure resource group. We recommend that you set up a separate resource group for SWIFT AMH, SAG, and SNL.
 
-- Azure Virtual Network forms a private network boundary around SWIFT's AMH deployment. The solution uses a network address space that doesn't conflict with the on-premises site (Users), the on-premises site (HSM), and SWIFT's Alliance Connect networking solution.
+- Azure Virtual Network forms a private network boundary around SWIFT's AMH deployment. The solution uses a network address space that doesn't conflict with the on-premises site (Users), the on-premises site (HSM), and SWIFT's Alliance Connect Virtual networking solution.
 
 - The solution deploys SWIFT's AMH core components—the front-end, the database, and the messaging system—in separate Virtual Network subnets. With this setup, you can control the traffic between them by using network security groups.
 
@@ -58,7 +58,7 @@ The following Azure infrastructure services are also part of this solution:
 
 - Outbound connectivity from SWIFT's AMH VMs to the internet is routed through Azure Firewall. Typical examples of such connectivity include time syncs and anti-virus definition updates.
 
-- ExpressRoute or Azure VPN Gateway connects SWIFT's AMH components with the on-premises site (Users) and the on-premises site (HSM). ExpressRoute provides dedicated, reliable private network connectivity. VPN Gateway uses an internet-based connection.
+- Azure ExpressRoute or Azure VPN Gateway connects SWIFT's AMH components with the on-premises site (Users) and the on-premises site (HSM). ExpressRoute provides dedicated private network connectivity. VPN Gateway uses an internet-based connection.
 
 - Azure Virtual Machines provides compute services for running SWIFT's AMH:
 
@@ -75,13 +75,13 @@ The following Azure infrastructure services are also part of this solution:
 - [Virtual Network](https://azure.microsoft.com/services/virtual-network) is the fundamental building block for private networks in Azure. Through Virtual Network, Azure resources like VMs can securely communicate with each other, the internet, and on-premises networks.
 - [Load Balancer](https://azure.microsoft.com/services/load-balancer) distributes inbound traffic to back-end pool instances. Load Balancer directs traffic according to configured load-balancing rules and health probes.
 - [Azure Firewall](https://azure.microsoft.com/services/azure-firewall) enforces application and network connectivity policies. This network security service centrally manages the policies across multiple virtual networks and subscriptions.
-- [ExpressRoute](https://azure.microsoft.com/services/expressroute) extends on-premises networks into the Microsoft cloud. By using a connectivity provider, ExpressRoute establishes private connections to cloud components like Azure services and Microsoft 365.
+- [Azure ExpressRoute](https://azure.microsoft.com/services/expressroute) extends on-premises networks into the Microsoft cloud. By using a connectivity provider, ExpressRoute establishes private connections to cloud components like Azure services and Microsoft 365.
 - [Virtual Machines](https://azure.microsoft.com/services/virtual-machines) is an infrastructure-as-a-service (IaaS) offering. You can use Virtual Machines to deploy on-demand, scalable computing resources. Virtual Machines provides the flexibility of virtualization but eliminates the maintenance demands of physical hardware.
 - [Azure Disk Storage](https://azure.microsoft.com/services/storage/disks) provides high-performance, highly durable block storage. You can use these managed storage volumes with Virtual Machines.
 
 ### Alternatives
 
-In this solution, all SWIFT AMH components run in Azure except the HSM and the Alliance Connect networking solution appliances. If you prefer to run all components in Azure, use [SWIFT's Alliance Connect Virtual](swift-alliance-messaging-hub-vsrx.yml) networking solution instead of Alliance Connect. You can run Alliance Connect Virtual in Azure.
+This solution runs Alliance Connect Virtual in Azure for SWIFT's AMH. It's also possible to use SWIFT's [Alliance Messaging Hub (AMH) with Alliance Connect](swift-alliance-messaging-hub.yml) instead of Alliance Connect Virtual. With this alternative, you deploy Alliance Connect at an on-premises or colocation site.
 
 ## Considerations
 
@@ -90,7 +90,7 @@ Consider these guidelines for best performance when you run SWIFT's AMH on Azure
 ### Availability
 
 - Deploy AMH across Azure paired regions so that a regional outage doesn't affect the workload availability.
-- Use Azure availability zones inside an Azure region. Solution components like Azure Virtual Machine Scale Sets and Load Balancer support availability zones. When you use availability zones, your solution is available during an outage in the Azure region.
+- Use Azure availability zones inside an Azure region. Solution components like Azure Virtual Machine Scale Sets and Load Balancer support availability zones. When you use availability zones, your solution is available even when an Azure datacenter in the region experiences an outage.
 - Use Azure Alerts to monitor the metrics and activity logs of key components such as web components, the database, and messaging components.  
 
 ### Operations
@@ -101,7 +101,7 @@ Consider these guidelines for best performance when you run SWIFT's AMH on Azure
 
 ### Performance
 
-- Deploy an Azure virtual machine scale set that runs web server VM instances in a proximity placement group. This approach positions VM instances near each other and reduces latency between VMs.
+- Deploy an Azure virtual machine scale set that runs web server VM instances in a proximity placement group. This approach colocates VM instances and reduces latency between VMs.
 - Use Azure VMs with accelerated networking to achieve up to 30 Gbps of network throughput.
 
 ### Scalability
@@ -121,7 +121,7 @@ Consider these guidelines for best performance when you run SWIFT's AMH on Azure
 
 - Use Load Balancer in a zone-redundant configuration. With this setup, you can route user requests so that they aren't affected by a zone failure inside an Azure region.
 - If you have a single Azure availability zone, use Oracle Active Data Guard for database reliability during zone failures.
-- Identify the single points of failure in the solution and plan for remediation.
+- Identify the single points of failure in SWIFT AMH, such as regional outages that affect components. Plan for remediation.
 
 ### DevOps
 
@@ -131,7 +131,7 @@ Consider these guidelines for best performance when you run SWIFT's AMH on Azure
 
 ## Pricing
 
-For an estimate of the cost of a SWIFT AMH deployment, see [a sample cost profile](https://azure.com/e/d2e12d232edb49db85cf330f70ffd636).
+To estimate the cost of the Azure resources that you need to run a SWIFT AMH, see [a sample cost profile](https://azure.com/e/d2e12d232edb49db85cf330f70ffd636).
 
 ## Next steps
 
@@ -145,6 +145,6 @@ For an estimate of the cost of a SWIFT AMH deployment, see [a sample cost profil
 
 ## Related resources
 
-- [SWIFT's Alliance Messaging Hub (AMH) with Alliance Connect Virtual](swift-alliance-messaging-hub-vsrx.yml)
+- [SWIFT's Alliance Messaging Hub (AMH) with Alliance Connect](swift-alliance-messaging-hub.yml)
 - [SWIFT on Azure](swift-on-azure.yml)
 - [Alliance Access](swift-alliance-access-on-azure.yml)
