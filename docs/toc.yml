@@ -3084,7 +3084,7 @@ items:
               - name: Public MEC compute deployment
                 href: example-scenario/hybrid/public-multi-access-edge-compute-deployment.yml
               - name: Public MEC high availability 
-                href: example-scenario/hybrid/multi-access-edge-compute-high-availability.yml
+                href: example-scenario/hybrid/multi-access-edge-compute-ha.yml
               - name: Run containers in a hybrid environment
                 href: hybrid/hybrid-containers.yml
               - name: Use Azure file shares in a hybrid environment
