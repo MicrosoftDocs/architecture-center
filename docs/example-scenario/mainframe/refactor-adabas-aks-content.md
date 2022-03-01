@@ -1,54 +1,56 @@
-## Overview and use cases  
+Legacy applications running on mainframe computers have been at the core of most business operations for almost 50 years. While these mainframe systems have provided remarkable reliability over the years, they've become somewhat problematic because they're rigid and, in some cases, hard to maintain and costly to operate. 
 
-Legacy applications running on mainframe computers have been at the core of most business operations going back almost 50 years.  While these mainframe systems have provided remarkable reliability over the years, they have become somewhat problematic as they are rigid and, in some cases, hard to maintain and costly to operate. 
+Many businesses and government agencies are looking for ways to modernize these critical systems. They're looking for ways to free up the constrained resources required to maintain these systems, control their costs, and gain more flexibility in interactions with these systems.  
 
-Many businesses and government agencies (State, Local and Federal) are looking and planning for ways to modernize these critical system.  They are looking for ways to free up the constrained resources required to maintain these systems, controlling their costs, and providing more flexibility when interacting with these systems.  
+Software AG is a software company that provides a popular 4GL mainframe platform that's based on the Natural programming language and the Adabas database. This article provides an architecture for organizations that are using mainframe computers that run Adabas & Natural and that are looking for ways to modernize these workloads and move them to the cloud. 
 
-Software AG is a software company that provides a 4GL mainframe platform based on the Natural programming language and the Adabas database.  They have many mainframe customers who use this popular platform.  If your mainframe is running Adabas & Natural and you are exploring ways to modernize and move these workloads to the cloud, please read on. 
+There are two patterns that allow you to run Adabas & Natural applications on Azure: rehost and refactor. This article focuses on refactoring an application by using containers that are managed in Azure Kubernetes Service (AKS).
 
-While we have two patterns that allow you to keep running your Adabas & Natural applications in Azure, Re-Host and Re-factor, this article focuses on refactoring the application using Containers that are managed in Azure Kubernetes Service (AKS).   
+To make the most of the flexibility, reliability, and capabilities of Azure, you need to rearchitect your application. We recommend that you rewrite monolithic applications as microservices and use a container-based approach to deployment. A container bundles all the software needed for execution into one executable package. It includes an application's code together with the related configuration files, libraries, and dependencies required to run the app. Containerized applications are quick to deploy and support popular DevOps practices like continuous integration (CI) and continuous deployment (CD).  
 
- To make the most of Azure flexibility, reliability, and future capabilities, you must rearchitect your application. We recommend rewriting monolithic applications as microservices and using a container-based approach to deployment. A container bundles all the software needed for execution into one executable package and includes an application’s code together with the related configuration files, libraries, and the dependencies required for the app to run. Containerized applications are quick to deploy and support popular DevOps practices, such as continuous integration (CI) and continuous deployment.  
+Adabas & Natural containers run in pods, each of which is focused on a task. Pods are units of one or more containers that stay together on the same node and share resources like the host name and IP address. Decoupled from the underlying platform, components in pods scale independently and support higher availability. A containerized application is also portable: it runs uniformly and consistently on any infrastructure.  
 
-Adabas & Natural containers run in pods, each of which is focused on a task. Pods are units of one or more containers that stay together on the same node and share resources such as host name and IP address. Decoupled from the underlying platform, components in pods scale independently and support higher availability. A containerized application is also portable—it runs uniformly and consistently on any infrastructure.  
+Containerized services and their associated networking and storage components need to be orchestrated and managed. We recommend AKS, a managed Kubernetes service that automates cluster and resource management. You designate the number of nodes you need, and AKS fits your containers onto the right nodes to make the best use of resources. AKS also supports automated rollouts and rollbacks, service discovery, load balancing, and storage orchestration. And AKS supports self-healing: if a container fails, AKS starts a new one. In addition, you can safely store secrets and configuration settings outside of the containers. 
 
-Containerized services and their associated networking and storage components need to be orchestrated and managed. We recommend Azure Kubernetes Service (AKS), a managed Kubernetes offering that automates cluster and resource management. You designate the number of nodes you need, and AKS fits your containers onto the right nodes to make the best use of resources. AKS also supports automated rollouts and rollbacks, service discovery, load balancing, storage orchestration, and self-healing—if a container fails, AKS starts a new one. In addition, you can safely store secrets and configuration settings outside of the containers. 
+The architecture diagram in this article shows a container-based implementation of Adabas & Natural. When you set up AKS, you specify the Azure VM size for your nodes, which defines the storage CPUs, memory, and type available, like high-performance solid-state drives (SSDs) or regular hard disk drives (HDDs). In this example, Natural runs on three VM instances (nodes) to boost scalability and availability of the user interface (Natural online plus ApplinX) and the API layer (Natural services plus EntireX).  
 
-The accompanying architecture diagram shows a container-based implementation of Adabas & Natural. When you set up AKS, you specify the Azure VM size for your nodes, which defines the storage CPUs, memory, and type available, such as high-performance solid-state drives (SSDs) or regular hard disk drives (HDDs). In this example, Natural runs on three VM instances (nodes) to boost scalability and availability of the user interface (Natural online plus ApplinX) and the API layer (Natural services plus EntireX).  
+In the data layer, Adabas runs in the AKS cluster, which scales in and out automatically based on resource use. You can run multiple components of Adabas in the same pod or, for greater scale, AKS can distribute them across multiple nodes in the cluster. Adabas uses Azure NetApp Files, a high-performance, metered file storage service, for all persistent data, like database files, protection logs, app data, and backup. 
 
-In the data layer, Adabas runs in the AKS cluster, which scales out and in automatically based on resource use. Multiple components of Adabas can run in the same pod or, for greater scale, AKS can distribute them across multiple nodes in the cluster. Adabas uses Azure NetApp Files for all persistent data such as database files, protection logs, app data, and backup as a high-performance, metered file storage service. 
+## Potential use cases
+ 
+This architecture applies to organizations that are using mainframe computers that run Adabas & Natural and that are looking for ways to modernize these workloads and move them to the cloud. 
 
 ## Architecture 
 
-### Legacy IBM z/OS architecture 
+### Mainframe architecture, before migration 
 
-The following diagram illustrates an example of a mainframe with Software AG’s Adabas & Natural modules installed before migrations to Azure. 
+This diagram illustrates an example of a mainframe with Software AG's Adabas & Natural modules installed, before migration to Azure: 
 
-diagram 
+![Diagram that shows a mainframe architecture that uses Software AG's Adabas & Natural, before migration to Azure.](media/mainframe-pre-migration.png)
 
-download link ?
+download link ? yes
 
-a. Mapping annotations from source IBM z/OS with Adabas & Natural to Azure 
+Mapping annotations from source IBM z/OS with Adabas & Natural to Azure 
 
-b. Input over TCP/IP including TN3270 and HTTP (S). 
+A. Input over TCP/IP including TN3270 and HTTP (S). 
 
-Input into the mainframe using standard mainframe protocols. 
+B. Input into the mainframe using standard mainframe protocols. 
 
-Receiving applications can be either batch or online systems. 
+C. Receiving applications can be either batch or online systems. 
 
-Natural, COBOL, PL/I or Assembler (or compatible languages) run in enabled environment. 
+D. Natural, COBOL, PL/I or Assembler (or compatible languages) run in enabled environment. 
 
-Data and Database services commonly used are hierarchical / network database systems and relational database types. 
+E. Data and Database services commonly used are hierarchical / network database systems and relational database types. 
 
-Common services enabled include program execution, I/O operations, error detection, and protection within the environment. 
+F. Common services enabled include program execution, I/O operations, error detection, and protection within the environment. 
 
-Middleware and utility services manage such services as tapes storage, queueing, output, and web services within the environment. 
+G. Middleware and utility services manage such services as tapes storage, queueing, output, and web services within the environment. 
 
-Operating systems provide the specific interface between the engine and the and the software it’s running. 
+H. Operating systems provide the specific interface between the engine and the and the software it’s running. 
 
-Partitions utilized are needed to run separate workloads or segregate work types within environment. 
+I. Partitions utilized are needed to run separate workloads or segregate work types within environment. 
 
- Postmigration, Azure-based architecture 
+## Postmigration, Azure-based architecture 
 
 This diagram shows how the legacy architecture can be migrated to Azure, taking a refactoring approach to modernize the system. 
 
