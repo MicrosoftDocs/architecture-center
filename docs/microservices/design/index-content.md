@@ -7,7 +7,8 @@ In this set of articles, we explore how to build a microservices architecture on
 - [API design](./api-design.yml)
 - [API gateways](./gateway.yml)
 - [Data considerations](./data-considerations.yml)
-- [Design patterns](./patterns.md)
+- [Design patterns](./patterns.yml)
+
 
 ## Prerequisites
 

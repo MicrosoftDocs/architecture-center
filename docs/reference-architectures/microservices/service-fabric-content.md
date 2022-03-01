@@ -427,7 +427,7 @@ This reference architecture only uses Azure Pipelines. Azure offers the Azure Pi
 
 ### Azure Pipelines
 
-The reference implementation is deployed using Azure Pipelines. For DevOps considerations in a microservices architecture, see [CI/CD for microservices](../../microservices/ci-cd.md)
+The reference implementation is deployed using Azure Pipelines. For DevOps considerations in a microservices architecture, see [CI/CD for microservices](../../microservices/ci-cd.yml)
 
 You can also learn how to deploy a container application with CI/CD to a Service Fabric cluster, in this [tutorial][service-fabric-tutorial].
 

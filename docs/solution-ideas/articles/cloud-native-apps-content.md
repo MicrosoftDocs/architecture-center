@@ -35,6 +35,6 @@ Web and mobile applications are a key part of a successful digital transformatio
 ## Next steps
 
 - Learn more about [building a microservices architecture](../../microservices/index.yml) on Azure
-- Learn more about [building serverless applications](../../serverless/code.md) on Azure
+- Learn more about [building serverless applications](../../serverless/code.yml) on Azure
 - Read about customers that are building cloud-native applications on Azure: [Mars Veterinary Health](https://customers.microsoft.com/story/815549-pet-care-leader-turns-monolith-app-into-a-global-distributed-solution-on-azure) and [Chipotle Mexican Grill](https://customers.microsoft.com/story/787157-chipotle-retailers-azure)
 - Learn more about how [Azure Synapse Link](/azure/cosmos-db/synapse-link) can enable you to run near real-time analytics over operational data in Azure Cosmos DB, and [explore common use cases](/azure/cosmos-db/synapse-link-use-cases) like real-time personalization, predictive maintenance and anomaly detection in IoT scenarios, and supply chain analytics, forecasting, and reporting.
