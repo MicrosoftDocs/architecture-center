@@ -13,6 +13,8 @@ This solution applies to:
 
 _Download a [Visio file](https://arch-center.azureedge.net/swift-lite2-vsrx-mvp.vsdx) of this architecture._
 
+### Workflow
+
 The two-subscription design separates the resources based on who's responsible for them. For more information, see [Two-subscription design](#two-subscription-design) and [Operations](#operations) in this article.
 
 The Lite2 AutoClient subscription has a single resource group. It contains:
