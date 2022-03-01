@@ -43,7 +43,7 @@ categories:
 
 ## Next steps
 
-For detailed guidance about building a microservices architecture on Azure, see [Designing, building, and operating microservices on Azure](../../microservices/index.md).
+For detailed guidance about building a microservices architecture on Azure, see [Designing, building, and operating microservices on Azure](../../microservices/index.yml).
 
 <!-- links -->
 

@@ -97,4 +97,4 @@ For more information, see the following articles:
 
 -   [Kubernetes on your Azure Stack Edge Pro GPU device](/azure/databox-online/azure-stack-edge-gpu-kubernetes-overview)
 
--   [Building a CI/CD pipeline for microservices on Kubernetes](../../microservices/ci-cd-kubernetes.md)
+-   [Building a CI/CD pipeline for microservices on Kubernetes](../../microservices/ci-cd-kubernetes.yml)

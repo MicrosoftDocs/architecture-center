@@ -173,6 +173,6 @@ For more information, see the following articles:
 
 - [AI at the edge with Azure Stack Hub](../../solution-ideas/articles/ai-at-the-edge.yml)
 
-- [Building a CI/CD pipeline for microservices on Kubernetes](../../microservices/ci-cd-kubernetes.md)
+- [Building a CI/CD pipeline for microservices on Kubernetes](../../microservices/ci-cd-kubernetes.yml)
 
 - [Use Kubernetes dashboard to monitor your Azure Stack Edge Pro GPU device](/azure/databox-online/azure-stack-edge-gpu-monitor-kubernetes-dashboard)
