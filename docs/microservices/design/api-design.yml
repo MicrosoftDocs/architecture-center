@@ -1,0 +1,20 @@
+### YamlMime:Architecture
+metadata:
+  title: API design
+  description: Learn about good API design in a microservices architecture. APIs should be efficient and have well-defined semantics and versioning schemes.
+  author: EdPrice-MSFT
+  ms.author: edprice
+  ms.date: 05/23/2019
+  ms.topic: conceptual
+  ms.service: architecture-center
+  ms.subservice: azure-guide
+azureCategories:
+  - web
+  - developer-tools
+products:
+  - azure-devops
+name: Designing APIs for microservices
+summary: Learn about good API design in a microservices architecture. APIs should be efficient and have well-defined semantics and versioning schemes.
+thumbnailUrl: /azure/architecture/browse/thumbs/api-design.png
+content: |
+  [!include[](api-design-content.md)]
