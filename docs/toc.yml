@@ -518,9 +518,9 @@ items:
       - name: Strangler Fig
         href: patterns/strangler-fig.yml
       - name: Throttling
-        href: patterns/throttling.md
+        href: patterns/throttling.yml
       - name: Valet Key
-        href: patterns/valet-key.md
+        href: patterns/valet-key.yml
   - name: Microsoft Azure Well-Architected Framework
     href: /azure/architecture/framework
   - name: Industry solutions with Azure

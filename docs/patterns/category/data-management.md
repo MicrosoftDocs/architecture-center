@@ -29,4 +29,4 @@ Additionally data should be protected at rest, in transit, and via authorized ac
 |      [Materialized View](../materialized-view.md)      | Generate prepopulated views over the data in one or more data stores when the data isn't ideally formatted for required query operations. |
 |               [Sharding](../sharding.yml)               |                                    Divide a data store into a set of horizontal partitions or shards.                                     |
 | [Static Content Hosting](../static-content-hosting.yml) |                   Deploy static content to a cloud-based storage service that can deliver them directly to the client.                    |
-|              [Valet Key](../valet-key.md)              |                 Use a token or key that provides clients with restricted direct access to a specific resource or service.                 |
+|              [Valet Key](../valet-key.yml)              |                 Use a token or key that provides clients with restricted direct access to a specific resource or service.                 |
