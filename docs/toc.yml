@@ -1719,7 +1719,7 @@ items:
                 href: example-scenario/ai/customer-lifecycle-churn.yml
               - name: Distributed deep learning training
                 href: reference-architectures/ai/training-deep-learning.yml
-              - name: End-to-end computer vision at the edge
+              - name: End-to-end computer vision at the edge for manufacturing
                 href: reference-architectures/ai/end-to-end-smart-factory.yml
               - name: Enterprise-grade conversational bot
                 href: reference-architectures/ai/conversational-bot.yml
