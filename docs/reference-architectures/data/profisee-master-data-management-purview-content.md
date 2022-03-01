@@ -247,9 +247,9 @@ Running costs consist of a software license and Azure consumption. For more info
 
 ### Architecture guides
 
-- [Extract, transform, and load (ETL)](../../data-guide/relational-data/etl.md)
+- [Extract, transform, and load (ETL)](../../data-guide/relational-data/etl.yml)
 - [Data warehousing](../../data-guide/relational-data/data-warehousing.yml)
-- [Batch processing](../../data-guide/big-data/batch-processing.md)
+- [Batch processing](../../data-guide/big-data/batch-processing.yml)
 - [Choosing a batch processing technology in Azure](../../data-guide/technology-choices/batch-processing.md)
 
 ### Reference architectures

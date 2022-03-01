@@ -170,7 +170,7 @@ conceptualContent:
 
     - title: Data
       links:
-        - url: ./data-guide/big-data/index.md
+        - url: ./data-guide/big-data/index.yml
           itemType: concept
           text: Big Data architectures
         - url: ./guide/technology-choices/data-store-overview.md
@@ -196,7 +196,7 @@ conceptualContent:
           url: data-guide/scenarios/hybrid-on-premises-and-cloud.md
         - text: Free-form text search
           itemType: get-started
-          url: data-guide/scenarios/search.md
+          url: data-guide/scenarios/search.yml
         - text: IoT for construction
           itemType: get-started
           url: example-scenario/data/big-data-with-iot.yml
@@ -205,7 +205,7 @@ conceptualContent:
           url: example-scenario/data/fraud-detection.yml
         - text: Time series solutions 
           itemType: get-started
-          url: data-guide/scenarios/time-series.md
+          url: data-guide/scenarios/time-series.yml
       # footerLink (optional)
       footerLink:
         url: ./data-guide/index.md

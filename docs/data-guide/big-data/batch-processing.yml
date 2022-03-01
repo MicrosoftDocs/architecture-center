@@ -1,0 +1,19 @@
+### YamlMime:Architecture
+metadata:
+  title: Batch processing
+  description: Learn about big data batch processing solutions to load, transform, and prepare data at rest for analytics and reporting.
+  author: EdPrice-MSFT
+  ms.author: pnp
+  ms.date: 02/12/2018
+  ms.topic: conceptual
+  ms.service: architecture-center
+  ms.subservice: azure-guide
+azureCategories:
+  - storage
+products:
+  - azure-encoding
+name: Batch processing
+summary: Learn about big data batch processing solutions to load, transform, and prepare data at rest for analytics and reporting.
+thumbnailUrl: /azure/architecture/browse/thumbs/batch-pipeline.png
+content: |
+  [!include[](batch-processing-content.md)]

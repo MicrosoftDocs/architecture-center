@@ -1,15 +1,3 @@
----
-title: Processing free-form text for search
-description: Learn how free-form text processing can support search by producing useful, actionable data from large amounts of text.
-author: zoinerTejada
-ms.date: 11/30/2020
-ms.topic: conceptual
-ms.service: architecture-center
-ms.subservice: azure-guide
----
-
-# Processing free-form text for search
-
 To support search, free-form text processing can be performed against documents containing paragraphs of text.
 
 Text search works by constructing a specialized index that is precomputed against a collection of documents. A client application submits a query that contains the search terms. The query returns a result set, consisting of a list of documents sorted by how well each document matches the search criteria. The result set may also include the context in which the document matches the criteria, which enables the application to highlight the matching phrase in the document.

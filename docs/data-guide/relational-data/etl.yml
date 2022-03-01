@@ -1,0 +1,21 @@
+### YamlMime:Architecture
+metadata:
+  title: Extract, transform, and load (ETL)
+  description: Learn about extract-transform-load (ETL) and extract-load-transform (ELT) data transformation pipelines, and how to use control flows and data flows.
+  author: raunakjhawar
+  ms.author: rajhawar
+  ms.date: 11/22/2021
+  ms.topic: conceptual
+  ms.service: architecture-center
+  ms.subservice: azure-guide
+azureCategories:
+  - databases
+  - integration
+products:
+  - azure-synapse-analytics
+  - azure-data-factory
+name: Extract, transform, and load (ETL)
+summary: Learn about extract-transform-load (ETL) and extract-load-transform (ELT) data transformation pipelines, and how to use control flows and data flows.
+thumbnailUrl: /azure/architecture/browse/thumbs/etl.png
+content: |
+  [!include[](etl-content.md)]
