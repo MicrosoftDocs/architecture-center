@@ -1,7 +1,7 @@
 ### YamlMime:Architecture
 metadata:
   title: End-to-end computer vision for manufacturing
-  description: Use Azure Video Analyzer, MLOps, and human-in-the-loop notifications to train and deploy a ML computer vision solution for a smart factory.
+  description: Use Azure Video Analyzer, MLOps, and human-in-the-loop notifications to train and deploy an ML computer vision solution for a smart factory.
   author: EdPrice-MSFT
   ms.author: tinglee
   ms.date: 02/28/2022
@@ -17,7 +17,7 @@ azureCategories:
   - ai-machine-learning
   - devops
   - iot
-summary: Use Azure Video Analyzer, MLOps, and human-in-the-loop notifications to train and deploy a ML computer vision solution for a smart factory.
+summary: Use Azure Video Analyzer, MLOps, and human-in-the-loop notifications to train and deploy an ML computer vision solution for a smart factory.
 products:
   - azure-data-factory
   - azure-iot-edge
