@@ -44,7 +44,7 @@ More information:
 
 ### Elastic database tools
 
-The [Sharding pattern](../../../patterns/sharding.md) enables you to scale your workload across multiple databases. Azure SQL Database provides tools to support sharding. These tools include the management of *shard maps* (a database that tracks the tenants assigned to each shard), as well as initiating and tracking queries and management operations on multiple shards by using *elastic jobs*.
+The [Sharding pattern](../../../patterns/sharding.yml) enables you to scale your workload across multiple databases. Azure SQL Database provides tools to support sharding. These tools include the management of *shard maps* (a database that tracks the tenants assigned to each shard), as well as initiating and tracking queries and management operations on multiple shards by using *elastic jobs*.
 
 More information:
 

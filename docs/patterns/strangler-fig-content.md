@@ -1,21 +1,3 @@
----
-title: Strangler Fig pattern
-titleSuffix: Cloud Design Patterns
-description: Incrementally migrate a legacy system by gradually replacing specific pieces of functionality with new applications and services.
-author: EdPrice-MSFT
-ms.author: pnp
-ms.date: 06/23/2017
-ms.topic: conceptual
-ms.service: architecture-center
-ms.subservice: design-pattern
-ms.custom:
-  - design-pattern
-keywords:
-  - design pattern
----
-
-# Strangler Fig pattern
-
 Incrementally migrate a legacy system by gradually replacing specific pieces of functionality with new applications and services. As features from the legacy system are replaced, the new system eventually replaces all of the old system's features, strangling the old system and allowing you to decommission it.
 
 ## Context and problem

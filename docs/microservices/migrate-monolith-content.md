@@ -93,7 +93,7 @@ At this stage, the team can begin peeling away the monolithic application and sl
 
 As you continue to peel away the monolith, eventually there will come the point when it no longer needs to exist, and the microservices have been successfully extracted from the monolith. At this point, the anti-corruption layer (glue code) can safely be removed.
 
-This approach is an example of the [Strangler Fig pattern](../patterns/strangler-fig.md) and allows for a controlled decomposition of a monolith into a set of microservices. Over time, as existing functionality is moved into microservices, the monolith will shrink in size and complexity, to the point that it no longer exists.
+This approach is an example of the [Strangler Fig pattern](../patterns/strangler-fig.yml) and allows for a controlled decomposition of a monolith into a set of microservices. Over time, as existing functionality is moved into microservices, the monolith will shrink in size and complexity, to the point that it no longer exists.
 
 ## Next steps
 

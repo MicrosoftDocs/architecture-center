@@ -28,4 +28,4 @@ The distributed nature of cloud applications requires a messaging infrastructure
 | [Publisher-Subscriber](../publisher-subscriber.md) | Enable an application to announce events to multiple interested consumers asynchronously, without coupling the senders to the receivers. |
 | [Queue-Based Load Leveling](../queue-based-load-leveling.md) | Use a queue that acts as a buffer between a task and a service that it invokes in order to smooth intermittent heavy loads. |
 | [Scheduler Agent Supervisor](../scheduler-agent-supervisor.md) | Coordinate a set of actions across a distributed set of services and other remote resources. |
-| [Sequential Convoy](../sequential-convoy.md) | Process a set of related messages in a defined order, without blocking processing of other groups of messages. |
+| [Sequential Convoy](../sequential-convoy.yml) | Process a set of related messages in a defined order, without blocking processing of other groups of messages. |
