@@ -2605,7 +2605,7 @@ items:
           - name: Microservices
             items:
               - name: Get started
-                href: microservices/index.md
+                href: microservices/index.yml
               - name: Guides
                 items:
                   - name: Microservices assessment and readiness
@@ -2615,25 +2615,25 @@ items:
                       - name: Domain analysis
                         href: microservices/model/domain-analysis.md
                       - name: Tactical DDD
-                        href: microservices/model/tactical-ddd.md
+                        href: microservices/model/tactical-ddd.yml
                       - name: Identify microservice boundaries
-                        href: microservices/model/microservice-boundaries.md
+                        href: microservices/model/microservice-boundaries.yml
                   - name: Design a microservices architecture
                     items:
                       - name: Introduction
-                        href: microservices/design/index.md
+                        href: microservices/design/index.yml
                       - name: Choose a compute option
                         href: microservices/design/compute-options.md
                       - name: Interservice communication
-                        href: microservices/design/interservice-communication.md
+                        href: microservices/design/interservice-communication.yml
                       - name: API design
-                        href: microservices/design/api-design.md
+                        href: microservices/design/api-design.yml
                       - name: API gateways
-                        href: microservices/design/gateway.md
+                        href: microservices/design/gateway.yml
                       - name: Data considerations
-                        href: microservices/design/data-considerations.md
+                        href: microservices/design/data-considerations.yml
                       - name: Container orchestration
-                        href: microservices/design/orchestration.md
+                        href: microservices/design/orchestration.yml
                       - name: Design patterns for microservices
                         href: microservices/design/patterns.yml
                   - name: Operate microservices in production

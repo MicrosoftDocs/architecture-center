@@ -52,7 +52,7 @@ productDirectory:
           text: Application design patterns
         - url: ./guide/multitenant/overview.md
           text: Architect multitenant solutions on Azure
-        - url: ./microservices/index.md
+        - url: ./microservices/index.yml
           text: Build microservices on Azure
     # Card
     - title: Optimize your workload
@@ -299,13 +299,13 @@ conceptualContent:
           url: microservices/model/domain-analysis.md
         - text: Tactical DDD
           itemType: how-to-guide
-          url: microservices/model/tactical-ddd.md
+          url: microservices/model/tactical-ddd.yml
         - text: Identify microservice boundaries
           itemType: how-to-guide
-          url: microservices/model/microservice-boundaries.md
+          url: microservices/model/microservice-boundaries.yml
         - text: Design a microservices architecture
           itemType: how-to-guide
-          url: microservices/design/index.md
+          url: microservices/design/index.yml
         - text: Monitor microservices in Azure Kubernetes Service (AKS)
           itemType: how-to-guide
           url: microservices/logging-monitoring.yml
@@ -329,7 +329,7 @@ conceptualContent:
           url:  example-scenario/infrastructure/service-fabric-microservices.yml
       footerLink:
         text: Introduction to microservices on Azure
-        url: ./microservices/index.md
+        url: ./microservices/index.yml
 
     - title: Networking
       links:

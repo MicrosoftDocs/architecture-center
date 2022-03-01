@@ -1,22 +1,3 @@
----
-title: Interservice communication in microservices
-description: Learn about the tradeoffs between asynchronous messaging versus synchronous APIs for communication between microservices and some challenges in communication.
-author: EdPrice-MSFT
-ms.author: pnp
-ms.date: 05/23/2019
-ms.topic: conceptual
-ms.service: architecture-center
-ms.subservice: azure-guide
-ms.category:
-  - integration
-  - developer-tools
-ms.custom:
-  - microservices
-  - guide
----
-
-# Designing interservice communication for microservices
-
 Communication between microservices must be efficient and robust. With lots of small services interacting to complete a single business activity, this can be a challenge. In this article, we look at the tradeoffs between asynchronous messaging versus synchronous APIs. Then we look at some of the challenges in designing resilient interservice communication.
 
 ## Challenges
@@ -33,7 +14,7 @@ Here are some of the main challenges arising from service-to-service communicati
 
 **Distributed tracing**. A single transaction may span multiple services. That can make it hard to monitor the overall performance and health of the system. Even if every service generates logs and metrics, without some way to tie them together, they are of limited use. The article [Logging and monitoring](../logging-monitoring.yml) talks more about distributed tracing, but we mention it here as a challenge.
 
-**Service versioning**. When a team deploys a new version of a service, they must avoid breaking any other services or external clients that depend on it. In addition, you might want to run multiple versions of a service side-by-side, and route requests to a particular version. See [API Versioning](./api-design.md#api-versioning) for more discussion of this issue.
+**Service versioning**. When a team deploys a new version of a service, they must avoid breaking any other services or external clients that depend on it. In addition, you might want to run multiple versions of a service side-by-side, and route requests to a particular version. See [API Versioning](./api-design.yml#api-versioning) for more discussion of this issue.
 
 **TLS encryption and mutual TLS authentication**. For security reasons, you may want to encrypt traffic between services with TLS, and use mutual TLS authentication to authenticate callers.
 
@@ -85,7 +66,7 @@ With these considerations in mind, the development team made the following desig
 
 - If any downstream service has a nontransient failure, the entire transaction should be marked as failed. To handle this case, the Scheduler service sends an asynchronous message to the Supervisor, so that the Supervisor can schedule compensating transactions.
 
-- The Delivery service exposes a public API that clients can use to get the status of a delivery. In the article [API gateway](./gateway.md), we discuss how an API gateway can hide the underlying services from the client, so the client doesn't need to know which services expose which APIs.
+- The Delivery service exposes a public API that clients can use to get the status of a delivery. In the article [API gateway](./gateway.yml), we discuss how an API gateway can hide the underlying services from the client, so the client doesn't need to know which services expose which APIs.
 
 - While a drone is in flight, the Drone service sends events that contain the drone's current location and status. The Delivery service listens to these events in order to track the status of a delivery.
 
@@ -138,11 +119,11 @@ The Scheduler service itself might fail (for example, because a node crashes). I
 
 One approach is to save a checkpoint to a durable store after each step in the workflow is completed. If an instance of the Scheduler service crashes in the middle of a transaction, a new instance can use the checkpoint to resume where the previous instance left off. However, writing checkpoints can create a performance overhead.
 
-Another option is to design all operations to be idempotent. An operation is idempotent if it can be called multiple times without producing additional side-effects after the first call. Essentially, the downstream service should ignore duplicate calls, which means the service must be able to detect duplicate calls. It's not always straightforward to implement idempotent methods. For more information, see [Idempotent operations](./api-design.md#idempotent-operations).
+Another option is to design all operations to be idempotent. An operation is idempotent if it can be called multiple times without producing additional side-effects after the first call. Essentially, the downstream service should ignore duplicate calls, which means the service must be able to detect duplicate calls. It's not always straightforward to implement idempotent methods. For more information, see [Idempotent operations](./api-design.yml#idempotent-operations).
 
 ## Next steps
 
 For microservices that talk directly to each other, it's important to create well-designed APIs.
 
 > [!div class="nextstepaction"]
-> [API design](./api-design.md)
+> [API design](./api-design.yml)
