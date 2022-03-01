@@ -4,13 +4,19 @@ This reference architecture shows an end-to-end [stream processing](../../data-g
 
 ![GitHub logo](../../_images/github.png) A reference implementation for this architecture is available on [GitHub][github].
 
-![Reference architecture for stream processing with Azure Databricks](./images/stream-processing-databricks.png)
+## Potential use cases
 
 **Scenario**: A taxi company collects data about each taxi trip. For this scenario, we assume there are two separate devices sending data. The taxi has a meter that sends information about each ride &mdash; the duration, distance, and pickup and drop-off locations. A separate device accepts payments from customers and sends data about fares. To spot ridership trends, the taxi company wants to calculate the average tip per mile driven, in real time, for each neighborhood.
 
+This solution is optimized for the retail industry.
+
 ## Architecture
 
-The architecture consists of the following components.
+![Diagram showing a reference architecture for stream processing with Azure Databricks.](./images/stream-processing-databricks.png)
+
+### Workflow
+
+The architecture consists of the following components:
 
 **Data sources**. In this architecture, there are two data sources that generate data streams in real time. The first stream contains ride information, and the second contains fare information. The reference architecture includes a simulated data generator that reads from a set of static files and pushes the data to Event Hubs. The data sources in a real application would be devices installed in the taxi cabs.
 
