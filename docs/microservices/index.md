@@ -34,9 +34,9 @@ The articles listed here present a structured approach for designing, building, 
 
 **Operate in production**. Because microservices architectures are distributed, you must have robust operations for deployment and monitoring.
 
-- [CI/CD for microservices architectures](./ci-cd.md)
-- [Build a CI/CD pipeline for microservices on Kubernetes](./ci-cd-kubernetes.md)
-- [Monitor microservices running on Azure Kubernetes Service (AKS)](./logging-monitoring.md)
+- [CI/CD for microservices architectures](./ci-cd.yml)
+- [Build a CI/CD pipeline for microservices on Kubernetes](./ci-cd-kubernetes.yml)
+- [Monitor microservices running on Azure Kubernetes Service (AKS)](./logging-monitoring.yml)
 
 ## Microservices reference architectures for Azure
 

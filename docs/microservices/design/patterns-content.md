@@ -1,20 +1,3 @@
----
-title: Design patterns for microservices
-description: Learn how designs that use microservices can increase the velocity of application releases by deploying small, autonomous services independently.
-author: EdPrice-MSFT
-ms.date: 02/25/2019
-ms.topic: conceptual
-ms.service: architecture-center
-ms.subservice: azure-guide
-ms.category:
-  - developer-tools
-ms.custom:
-  - microservices
-  - guide
----
-
-# Design patterns for microservices
-
 The goal of microservices is to increase the velocity of application releases, by decomposing the application into small autonomous services that can be deployed independently. A microservices architecture also brings some challenges. The design patterns shown here can help mitigate these challenges.
 
 ![Microservices design patterns](../images/microservices-patterns.png)

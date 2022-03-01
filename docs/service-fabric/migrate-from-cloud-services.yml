@@ -1,0 +1,20 @@
+### YamlMime:Architecture
+metadata:
+  title: Migrate a Cloud Services app to Service Fabric
+  description: Learn about the architectural decisions and recommended practices for migrating an application from Azure Cloud Services to Azure Service Fabric.
+  author: EdPrice-MSFT
+  ms.author: pnp
+  ms.date: 05/29/2019
+  ms.topic: conceptual
+  ms.service: architecture-center
+  ms.subservice: azure-guide
+azureCategories:
+  - migration
+  - management-and-governance
+products:
+  - azure-service-fabric
+name: Migrate an Azure Cloud Services application to Azure Service Fabric
+summary: Learn about the architectural decisions and recommended practices for migrating an application from Azure Cloud Services to Azure Service Fabric.
+thumbnailUrl: /azure/architecture/browse/thumbs/move-service-fabric.png
+content: |
+  [!include[](migrate-from-cloud-services-content.md)]

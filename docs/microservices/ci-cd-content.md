@@ -1,20 +1,3 @@
----
-title: CI/CD for microservices
-description: Learn about continuous integration and continuous delivery for microservices, including challenges and recommended approaches.
-author: EdPrice-MSFT
-ms.date: 03/27/2019
-ms.topic: conceptual
-ms.service: architecture-center
-ms.subservice: azure-guide
-ms.category:
-  - devops
-ms.custom:
-  - microservices
-  - guide
----
-
-# CI/CD for microservices architectures
-
 Faster release cycles are one of the major advantages of microservices architectures. But without a good CI/CD process, you won't achieve the agility that microservices promise. This article describes the challenges and recommends some approaches to the problem.
 
 ## What is CI/CD?
@@ -122,4 +105,4 @@ A canary release is more complex to manage than either blue-green or rolling upd
 
 Learn specific CI/CD practices for microservices running on Kubernetes.
 
-- [CI/CD for microservices on Kubernetes](./ci-cd-kubernetes.md)
+- [CI/CD for microservices on Kubernetes](./ci-cd-kubernetes.yml)

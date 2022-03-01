@@ -138,7 +138,7 @@ If the app does need code changes, determine the complexity and extent of the ne
 
 - If there are applications serving similar needs in your portfolio, this might be an opportunity to rearchitect or rebuild the entire solution.
 
-- If you want to [implement multi-tier or microservices architecture](../microservices/migrate-monolith.md) for a monolithic app, you must rearchitect or rebuild the app. If you don't mind retaining the monolithic structure, you might be able to rehost or refactor.
+- If you want to [implement multi-tier or microservices architecture](../microservices/migrate-monolith.yml) for a monolithic app, you must rearchitect or rebuild the app. If you don't mind retaining the monolithic structure, you might be able to rehost or refactor.
 
 - Rearchitect or rebuild the app to take advantage of cloud capabilities if you plan to update the app more often than yearly, if the app has peak or variable usage times, or if you expect the app to handle high traffic.
 

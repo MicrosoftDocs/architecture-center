@@ -308,16 +308,16 @@ conceptualContent:
           url: microservices/design/index.md
         - text: Monitor microservices in Azure Kubernetes Service (AKS)
           itemType: how-to-guide
-          url: microservices/logging-monitoring.md
+          url: microservices/logging-monitoring.yml
         - text: CI/CD for microservices
           itemType: how-to-guide
-          url: microservices/ci-cd.md
+          url: microservices/ci-cd.yml
         - text: CI/CD for microservices on Kubernetes
           itemType: how-to-guide
-          url: microservices/ci-cd-kubernetes.md
+          url: microservices/ci-cd-kubernetes.yml
         - text: Migrate from Cloud Services to Service Fabric
           itemType: how-to-guide
-          url: service-fabric/migrate-from-cloud-services.md
+          url: service-fabric/migrate-from-cloud-services.yml
         - text: Azure Kubernetes Service (AKS)
           itemType: architecture
           url: reference-architectures/containers/aks-microservices/aks-microservices.yml
@@ -367,7 +367,7 @@ conceptualContent:
     - title: Serverless applications
       links:
         - text: Code walkthrough
-          url: serverless/code.md
+          url: serverless/code.yml
           itemType: how-to-guide
         - text: Serverless event processing
           itemType: architecture
@@ -377,7 +377,7 @@ conceptualContent:
           url: reference-architectures/serverless/web-app.yml
       footerLink:
         text: Introduction to Serverless Applications on Azure
-        url: ./serverless/code.md
+        url: ./serverless/code.yml
 
     - title: VM workloads
       links:
