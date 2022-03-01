@@ -37,7 +37,7 @@ If you require end-to-end TLS/SSL (the connection between the reverse proxy and 
 
 ### The host of an HTTP request
 
-In many cases, the application server or some component in the request pipeline needs the internet domain name that was used by the browser to access it. This is the host of the request. It can be an IP address, but usually it's a name like `contoso.com` (which the browser then resolves to an IP address by using DNS). The host value is typically determined from the [host component of the request URI](https://datatracker.ietf.org/doc/html/rfc3986#section-3.2.2), which the browser sends to the application as the [`Host` HTTP header](https://datatracker.ietf.org/doc/html/rfc2616#section-14.23).
+In many cases, the application server or some component in the request pipeline needs the internet domain name that was used by the browser to access it. This is the *host* of the request. It can be an IP address, but usually it's a name like `contoso.com` (which the browser then resolves to an IP address by using DNS). The host value is typically determined from the [host component of the request URI](https://datatracker.ietf.org/doc/html/rfc3986#section-3.2.2), which the browser sends to the application as the [`Host` HTTP header](https://datatracker.ietf.org/doc/html/rfc2616#section-14.23).
 
 > [!IMPORTANT]
 > Never use the value of the host in a security mechanism. The value is provided by the browser or some other user agent and can easily be manipulated by an end user.
@@ -56,9 +56,9 @@ For production deployments, you don't use these default domains. You instead pro
 
 ### Why applications use the host name
 
-Two common reasons that an application server needs the host name are to construct absolute URLs or to issue cookies for a specific domain. For example, when the application code needs to:
+Two common reasons that an application server needs the host name are to construct absolute URLs and to issue cookies for a specific domain. For example, when the application code needs to:
 
-- Return an absolute rather than a relative URL in its HTTP response (although generally websites tend to render relative links where possible).
+- Return an absolute rather than a relative URL in its HTTP response (although generally websites tend to render relative links when possible).
 - Generate a URL to be used outside of its HTTP response where relative URLs can't be used, like for emailing a link to the website to a user.
 - Generate an absolute redirect URL for an external service. For example, to an authentication service like Azure Active Directory (Azure AD) to indicate where it should return the user after successful authentication.
 - Issue HTTP cookies that are restricted to a certain host, as defined in the cookie's [`Domain` attribute](https://datatracker.ietf.org/doc/html/rfc6265#section-5.2.3).
@@ -76,7 +76,7 @@ And sometimes the incoming host name is used by components outside of the applic
 
 ### Why you might be tempted to override the host name
 
-Say you create a web application in App Service that has a default domain of `contoso.azurewebsites.net`. (Or for another service like Spring Cloud.) You haven't configured a custom domain on App Service. If you want to put a reverse proxy like Application Gateway (or any similar service) in front of this application, you would set the DNS record for `contoso.com` to resolve to the IP address of Application Gateway. It therefore receives the request for `contoso.com` from the browser and is configured to forward that request to the IP address that `contoso.azurewebsites.net` resolves to: this is the final back-end service for the requested host. In this case, however, App Service doesn't recognize the `contoso.com` custom domain and rejects all incoming requests for this host name. It isn't able to determine where to route the request.
+Say you create a web application in App Service that has a default domain of `contoso.azurewebsites.net`. (Or in another service like Spring Cloud.) You haven't configured a custom domain on App Service. If you want to put a reverse proxy like Application Gateway (or any similar service) in front of this application, you would set the DNS record for `contoso.com` to resolve to the IP address of Application Gateway. It therefore receives the request for `contoso.com` from the browser and is configured to forward that request to the IP address that `contoso.azurewebsites.net` resolves to: this is the final back-end service for the requested host. In this case, however, App Service doesn't recognize the `contoso.com` custom domain and rejects all incoming requests for this host name. It isn't able to determine where to route the request.
 
 It might seem like the easy way to make this configuration work is to override or rewrite the `Host` header of the HTTP request in Application Gateway and set it to the value of `contoso.azurewebsites.net`. If you do, the outgoing request from Application Gateway makes it seem like the original request was really intended for `contoso.azurewebsites.net` instead of `contoso.com`:
 
@@ -95,14 +95,14 @@ If the original host name isn't preserved and the application server uses the in
 ![Diagram that illustrates the problem of incorrect absolute URLs.](images/host-name-preservation/issue-absolute-urls.png)
 
 1. The browser sends a request for `contoso.com` to the reverse proxy.
-2. The reverse proxy rewrites the host name to `contoso.azurewebsites.net` on the request to the back-end web application (or to a similar default domain for another service).
+2. The reverse proxy rewrites the host name to `contoso.azurewebsites.net` in the request to the back-end web application (or to a similar default domain for another service).
 3. The application generates an absolute URL that's based on the incoming `contoso.azurewebsites.net` host name, for example, `https://contoso.azurewebsites.net/`.
 4. The browser follows this URL, which goes directly to the back-end service rather than back to the reverse proxy at `contoso.com`.
 
 This might even pose a security risk in the common case where the reverse proxy also serves as a web application firewall. The user receives a URL that goes straight to the back-end application and bypasses the reverse proxy.
 
 > [!IMPORTANT]
-> Because of this security risk, you need to ensure that the back-end web application only directly accepts network traffic from the reverse proxy (for example, by using [access restrictions in App Service](/azure/app-service/app-service-ip-restrictions)). In that case, even if an incorrect absolute URL is generated, at least it doesn't work and can't be used by a malicious user to bypass the firewall.
+> Because of this security risk, you need to ensure that the back-end web application only directly accepts network traffic from the reverse proxy (for example, by using [access restrictions in App Service](/azure/app-service/app-service-ip-restrictions)). If you do, even if an incorrect absolute URL is generated, at least it doesn't work and can't be used by a malicious user to bypass the firewall.
 
 ### Incorrect redirect URLs
 
@@ -124,7 +124,7 @@ A host name mismatch can also lead to problems when the application server issue
 ![Diagram that illustrates an incorrect cookie domain.](images/host-name-preservation/issue-cookies.png)
 
 1. The browser sends a request for `contoso.com` to the reverse proxy.
-2. The reverse proxy rewrites the host name to be `contoso.azurewebsites.net` on the request to the back-end web application (or to a similar default domain for another service).
+2. The reverse proxy rewrites the host name to be `contoso.azurewebsites.net` in the request to the back-end web application (or to a similar default domain for another service).
 3. The application generates a cookie that uses a domain based on the incoming `contoso.azurewebsites.net` host name. The browser stores the cookie for this specific domain rather than the `contoso.com` domain that the user is actually using.
 4. The browser doesn't include the cookie on any subsequent request for `contoso.com` because the cookie's `contoso.azurewebsites.net` domain doesn't match the domain of the request. The application doesn't receive the cookie it issued earlier. As a consequence, the user might lose state that's supposed to be in the cookie, or features like ARR affinity don't work. Unfortunately, none of these problems generate an error or are directly visible to the end user. That makes them difficult to troubleshoot.
 
