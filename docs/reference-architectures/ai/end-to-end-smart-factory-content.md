@@ -1,10 +1,10 @@
-This example architecture shows an end-to-end approach to internet-of-things (IoT) computer vision in manufacturing, from the edge to the cloud and back. Fully automated smart factories use artificial intelligence (AI) and machine learning (ML) to analyze data, run systems, and improve processes over time. Manufacturing processes use IoT computer vision in safety and quality assurance applications.
+This example architecture shows an end-to-end approach to internet-of-things (IoT) computer vision in manufacturing, from the edge to the cloud and back. Fully automated smart factories use artificial intelligence (AI) and machine learning (ML) to analyze data, run systems, and improve processes over time. 
 
 In this example, cameras send images to an Azure Video Analyzer edge device that runs an ML model. The model calculates inferences, and sends actionable output to the cloud for further processing. Human interventions are part of the intelligence the ML model captures. The ML process is a continuous cycle of training, testing, tuning, and validating the ML algorithms.
 
 ## Potential use cases
 
-In a manufacturing environment, IoT computer vision systems can:
+Manufacturing processes use IoT computer vision in safety and quality assurance applications. IoT computer vision systems can:
 
 - Monitor and troubleshoot equipment and production environments.
 - Help ensure compliance with manufacturing or process guidelines.
@@ -40,7 +40,7 @@ In a manufacturing environment, IoT computer vision systems can:
 
 1. Azure Machine Learning uses the dataset in the Premium data cache to train the model, validate the trained model's performance, score it against the newly trained model, and register the model into the Azure Machine Learning registry.
 
-1. The model orchestration pipeline reviews the performance of the newly trained ML model and determines if it's better than previous models. If the new model performs better, the pipeline downloads the model from Azure Machine Learning and builds a new version of the ML inferencing module to publish in Azure Container Registry.
+1. The Azure Pipelines model orchestrator reviews the performance of the newly trained ML model and determines if it's better than previous models. If the new model performs better, the pipeline downloads the model from Azure Machine Learning and builds a new version of the ML inferencing module to publish in Azure Container Registry.
 
 1. When a new ML inferencing module is ready, Azure Pipelines deploys the module container from Container Registry to the IoT Edge module in IoT Hub.
 
@@ -66,11 +66,11 @@ In a manufacturing environment, IoT computer vision systems can:
 
 - [Azure Machine Learning](/azure/machine-learning) builds, trains, deploys, and manages ML models in a cloud-based environment.
 
-- [Azure Pipelines](), part of [Azure DevOps](/azure/devops/user-guide/what-is-azure-devops) team-based developer services, creates continuous integration (CI) and continuous deployment (CD) pipelines. In this example, Azure Pipelines validates ML code, triggers Azure Machine Learning pipelines with serverless tasks, compares ML models, and builds the inferencing container.
+- [Azure Pipelines](/azure/devops/pipelines/get-started/what-is-azure-pipelines), part of [Azure DevOps](/azure/devops/user-guide/what-is-azure-devops) team-based developer services, creates continuous integration (CI) and continuous deployment (CD) pipelines. In this example, the Azure Pipelines model orchestrator validates ML code, triggers serverless task pipelines, compares ML models, and builds the inferencing container.
 
 - [Container Registry](/azure/container-registry) creates and manages the Docker registry to build, store, and manage Docker container images, including containerized ML models.
 
-- [Azure Monitor](/azure/azure-monitor/overview) collects telemetry from Azure resources so teams can proactively identify problems and maximize performance and reliability.
+- [Azure Monitor](/azure/azure-monitor/overview) collects telemetry from Azure resources, so teams can proactively identify problems and maximize performance and reliability.
 
 ### Alternatives
 
@@ -94,29 +94,29 @@ ML-based applications typically require one set of resources for training and an
 
 This solution is divided into three operational areas:
 
-- In *IoT operations*, an ML model on the edge device uses real-time images from [connected cameras](../../example-scenario/iot/introduction-to-solutions.yml) to inference video frames. The edge device also sends cached video streams to cloud storage to use for auditing and model retraining. After ML retraining, Azure IoT Hub updates the edge device with the new ML inferencing module.
+- In *IoT operations*, an ML model on the edge device uses real-time images from [connected cameras](../../guide/iot-edge-vision/camera.md) to inference video frames. The edge device also sends cached video streams to cloud storage to use for auditing and model retraining. After ML retraining, Azure IoT Hub updates the edge device with the new ML inferencing module.
 
-- [MLOps](/azure/machine-learning/concept-model-management-and-deployment) uses DevOps practices to orchestrate the end-to-end smart factory solution. MLOps is a life cycle management approach that automates the process of using ML models for complex decision-making, or *productionizing* the models. The key to MLOps is tight coordination among the teams who build, train, evaluate, and deploy the ML models.
+- [MLOps](/azure/machine-learning/concept-model-management-and-deployment) uses DevOps practices to orchestrate model training, testing, and deployment operations. MLOps life cycle management automates the process of using ML models for complex decision-making, or *productionizing* the models. The key to MLOps is tight coordination among the teams that build, train, evaluate, and deploy the ML models.
 
-- This example uses a *human-in-the-loop* approach, which notifies people to intervene at certain steps in the automation. In human-in-the-loop transactions, workers check and evaluate the results of the machine learning predictions. Human interventions become part of the intelligence the ML model captures, and help validate the model.
+- *Human-in-the-loop* operations notify people to intervene at certain steps in the automation. In human-in-the-loop transactions, workers check and evaluate the results of the machine learning predictions. Human interventions become part of the intelligence the ML model captures, and help validate the model.
 
   The following human roles are part of this solution:
 
-  - *Data labelers* label data sets for retraining to complete the loop of the end-to-end solution. The data labeling process is especially important for image data, as a first step in creating a reliable model trained through algorithms. In this example, Azure Data Factory organizes the video frames into logical positive and false positive groupings, which makes the data labeler's work easier.
+  - *Site engineers* receive the incident notifications that Logic Apps sends, and manually validate the results or predictions of the ML model. For example, the site engineer might examine a valve that the model predicted had failed.
 
-  - *Data scientists* use the labeled data sets to train the algorithms to make correct real-life predictions. As part of MLOps, data scientists use Azure DevOps with GitHub Actions or Azure Pipelines in a CI process that automatically trains and validates a model. Training can be triggered manually, or automatically by checking in new data or training scripts. Data scientists work in an [Azure Machine Learning workspace](/azure/machine-learning/concept-workspace) that can automatically register, deploy, and manage models.
+  - *Data labelers* label data sets for retraining, to complete the loop of the end-to-end solution. The data labeling process is especially important for image data, as a first step in training a reliable model through algorithms. In this example, Azure Data Factory organizes the video frames into positive and false positive groupings, which makes the data labeler's work easier.
 
-  - *IoT engineers* use [Azure Pipelines](/azure/devops/pipelines/get-started/what-is-azure-pipelines) to publish [IoT Edge modules](/azure/iot-edge/about-iot-edge) in containers to Container Registry. Engineers can deploy and scale the infrastructure on demand by using a CD pipeline.
+  - *Data scientists* use the labeled data sets to train the algorithms to make correct real-life predictions. Data scientists use MLOps with GitHub Actions or Azure Pipelines in a CI process to automatically train and validate a model. Training can be triggered manually, or automatically by checking in new data or training scripts. Data scientists work in an [Azure Machine Learning workspace](/azure/machine-learning/concept-workspace) that can automatically register, deploy, and manage models.
 
-  - *Site engineers* receive the incident notifications sent by Logic Apps, and manually validate the results or predictions of the ML model. For example, the site engineer might examine a valve that the model predicted had failed.
+  - *IoT engineers* use Azure Pipelines to publish [IoT Edge modules](/azure/iot-edge/about-iot-edge#iot-edge-modules) in containers to Container Registry. Engineers can deploy and scale the infrastructure on demand by using a CD pipeline.
 
   - *Safety auditors* review archived video streams to detect anomalies, assess compliance, and confirm results when questions arise about a model's predictions.
 
-  In this solution, Azure Machine Learning sends observability metrics and model telemetry to Azure Monitor, helping the IoT engineers and data scientists to optimize operations. IoT Hub ingests high volumes of telemetry from the cameras and sends the metrics to Azure Monitor, so site engineers can investigate and troubleshoot.
-  
+  In this solution, IoT Hub ingests telemetry from the cameras and sends the metrics to Azure Monitor, so site engineers can investigate and troubleshoot. Azure Machine Learning sends observability metrics and model telemetry to Azure Monitor, helping the IoT engineers and data scientists to optimize operations. 
+
 ### Performance
 
-IoT devices have limited memory and processing power, so it's important to limit the size of the container sent to the device. This example uses an IoT device that can do model inference and produce results in an acceptable amount of time.
+IoT devices have limited memory and processing power, so it's important to limit the size of the model container sent to the device. Be sure to use an IoT device that can do model inference and produce results in an acceptable amount of time.
 
 To optimize performance for training models, this example architecture uses [Azure Premium Blob Storage](https://azure.microsoft.com/services/storage/blobs/). This performance tier is designed for workloads that require very fast response times and high transaction rates, like the human-in-the-loop video labeling scenario.
 
@@ -124,7 +124,7 @@ Performance considerations also apply to the data ingestion pipeline. Data Facto
 
 ### Scalability
 
-Most of the components used in this example scenario are managed services that automatically scale. The [availability of the services](https://azure.microsoft.com/global-infrastructure/services/?products=machine-learning-service,virtual-machines&regions=all) used in this example varies by region.
+Most of the components used in this solution are managed services that automatically scale.
 
 Scalability for the IoT application depends on [IoT Hub quotas and throttling](/azure/iot-hub/iot-hub-devguide-quotas-throttling). Factors to consider include the maximum daily quota of messages into IoT Hub, the quota of connected devices in an IoT Hub instance, and the ingestion and processing throughput.
 
@@ -136,13 +136,15 @@ For general guidance on designing scalable solutions, see the [performance effic
 
 Access management in Dataverse and other Azure services helps ensure that only authorized users can access the environment, data, and reports. This solution uses Azure Key Vault to manage passwords and secrets. Storage is encrypted using [customer-managed keys](/azure/storage/common/customer-managed-keys-overview).
 
-For general guidance on designing secure IoT solutions, see the [Azure Security Documentation](/azure/security) and the [Azure IoT reference architecture](../iot.yml).
+For general guidance on designing secure IoT solutions, see the [Azure Security Documentation](/azure/security) and the [Azure IoT reference architecture](../iot.yml#security).
 
 ## Pricing
 
-In general, use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator) to estimate costs. For other considerations, see [Cost Optimization](/azure/architecture/framework/cost/index).
+In general, use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator) to estimate costs. For other considerations, see [Cost optimization](/azure/architecture/framework/cost/index).
 
-Azure Machine Learning also deploys Container Registry, Azure Storage, and Azure Key Vault services, which incur extra costs. For more information, see [How Azure Machine Learning works: Architecture and concepts](/azure/machine-learning/concept-azure-machine-learning-architecture). Azure Machine Learning pricing includes charges for the virtual machines that are used to train the model in the cloud.
+Azure Machine Learning also deploys Container Registry, Azure Storage, and Azure Key Vault services, which incur extra costs. For more information, see [How Azure Machine Learning works: Architecture and concepts](/azure/machine-learning/concept-azure-machine-learning-architecture).
+
+Azure Machine Learning pricing includes charges for the virtual machines (VMs) used to train the model in the cloud. For information about availability of Azure Machine Learning and VMs per Azure region, see [Products available by region](https://azure.microsoft.com/global-infrastructure/services/?products=machine-learning-service,virtual-machines&regions=all).
 
 ## Next steps
 
@@ -154,6 +156,7 @@ Azure Machine Learning also deploys Container Registry, Azure Storage, and Azure
 
 ## Related resources
 
+- [Vision AI solutions with Azure IoT Edge](../../guide/iot-edge-vision/index.md)
 - [Azure IoT reference architecture](../iot.yml)
 - [Azure Machine Learning decision guide for optimal tool selection](../../example-scenario/mlops/aml-decision-tree.yml)
 - [DevOps Checklist](../../checklist/dev-ops.md)

@@ -945,12 +945,12 @@ items:
                 href: solution-ideas/articles/anomaly-detector-process.yml
               - name: Build a speech-to-text transcription pipeline
                 href: reference-architectures/ai/speech-to-text-transcription-pipeline.yml
-              - name: Computer vision in end-to-end manufacturing
-                href: reference-architectures/ai/end-to-end-smart-factory.yml
               - name: Connected factory hierarchy service
                 href: solution-ideas/articles/connected-factory-hierarchy-service.yml
               - name: Connected factory signal pipeline
                 href: example-scenario/iot/connected-factory-signal-pipeline.yml
+              - name: End-to-end computer vision at the edge for manufacturing
+                href: reference-architectures/ai/end-to-end-smart-factory.yml
               - name: Predictive maintenance with IoT
                 href: example-scenario/predictive-maintenance/iot-predictive-maintenance.yml
               - name: Quality assurance
@@ -1711,8 +1711,6 @@ items:
                 href: example-scenario/ai/commerce-chatbot.yml
               - name: Citizen AI with the Power Platform
                 href: example-scenario/ai/citizen-ai-power-platform.yml
-              - name: Computer vision at the edge
-                href: reference-architectures/ai/end-to-end-smart-factory.yml
               - name: Deploy AI and ML at the edge
                 href: hybrid/deploy-ai-ml-azure-stack-edge.yml
               - name: Deploy models to multiple data sources
@@ -1721,6 +1719,8 @@ items:
                 href: example-scenario/ai/customer-lifecycle-churn.yml
               - name: Distributed deep learning training
                 href: reference-architectures/ai/training-deep-learning.yml
+              - name: End-to-end computer vision at the edge
+                href: reference-architectures/ai/end-to-end-smart-factory.yml
               - name: Enterprise-grade conversational bot
                 href: reference-architectures/ai/conversational-bot.yml
               - name: Extract text from objects using Power Automate and AI Builder
