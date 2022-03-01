@@ -106,7 +106,7 @@ This solution is divided into three operational areas:
 
   - *Data labelers* label data sets for retraining, to complete the loop of the end-to-end solution. The data labeling process is especially important for image data, as a first step in training a reliable model through algorithms. In this example, Azure Data Factory organizes the video frames into positive and false positive groupings, which makes the data labeler's work easier.
 
-  - *Data scientists* use the labeled data sets to train the algorithms to make correct real-life predictions. Data scientists use MLOps with GitHub Actions or Azure Pipelines in a CI process to automatically train and validate a model. Training can be triggered manually, or automatically by checking in new data or training scripts. Data scientists work in an [Azure Machine Learning workspace](/azure/machine-learning/concept-workspace) that can automatically register, deploy, and manage models.
+  - *Data scientists* use the labeled data sets to train the algorithms to make correct real-life predictions. Data scientists use MLOps with GitHub Actions or Azure Pipelines in a CI process to automatically train and validate a model. Training can be triggered manually, or automatically by checking in new training scripts or data. Data scientists work in an [Azure Machine Learning workspace](/azure/machine-learning/concept-workspace) that can automatically register, deploy, and manage models.
 
   - *IoT engineers* use Azure Pipelines to publish [IoT Edge modules](/azure/iot-edge/about-iot-edge#iot-edge-modules) in containers to Container Registry. Engineers can deploy and scale the infrastructure on demand by using a CD pipeline.
 
