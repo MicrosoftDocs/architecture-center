@@ -1,10 +1,10 @@
-Fully automated smart factories use artificial intelligence (AI) and machine learning (ML) to analyze data, run systems, and improve processes over time. Manufacturing processes use computer vision at the internet-of-things (IoT) edge in safety and quality assurance applications. 
+This example architecture shows an end-to-end approach to internet-of-things (IoT) computer vision in manufacturing, from the edge to the cloud and back. Fully automated smart factories use artificial intelligence (AI) and machine learning (ML) to analyze data, run systems, and improve processes over time. Manufacturing processes use IoT computer vision in safety and quality assurance applications.
 
-This example architecture shows an end-to-end approach to IoT computer vision from the edge to the cloud and back. Cameras send images to an Azure Video Analyzer edge device that runs an ML model. The model calculates inferences, and sends actionable output to the cloud for further processing. Human interventions are part of the intelligence the ML model captures. The ML process is a continuous cycle of training, testing, tuning, and validating the ML algorithms.
+In this example, cameras send images to an Azure Video Analyzer edge device that runs an ML model. The model calculates inferences, and sends actionable output to the cloud for further processing. Human interventions are part of the intelligence the ML model captures. The ML process is a continuous cycle of training, testing, tuning, and validating the ML algorithms.
 
 ## Potential use cases
 
-In a manufacturing environment, computer vision systems can:
+In a manufacturing environment, IoT computer vision systems can:
 
 - Monitor and troubleshoot equipment and production environments.
 - Help ensure compliance with manufacturing or process guidelines.
@@ -18,7 +18,7 @@ In a manufacturing environment, computer vision systems can:
 
 1. The Video Analyzer edge module captures the live video stream, breaks it down into frames, and performs inference on the image data to determine if an incident has occurred.
 
-1. The Video Analyzer uploads the raw video files and sends them to Azure Storage, which acts as a raw media store.
+1. Video Analyzer uploads the raw video files and sends them to Azure Storage, which acts as a raw media store.
 
 1. The edge module sends the inferencing results and metadata to Azure IoT Hub, which acts as a central message hub for communications in both directions.
 
@@ -100,9 +100,7 @@ This solution is divided into three operational areas:
 
 - This example uses a *human-in-the-loop* approach, which notifies people to intervene at certain steps in the automation. In human-in-the-loop transactions, workers check and evaluate the results of the machine learning predictions. Human interventions become part of the intelligence the ML model captures, and help validate the model.
 
-  In this example, Azure Machine Learning sends observability metrics and model telemetry to Azure Monitor, enabling the IoT engineers and data scientists to optimize operations. IoT Hub ingests high volumes of telemetry from the cameras, and sends the metrics to Azure Monitor, so the site engineer can investigate and troubleshoot.
-
-  The following human roles are part of this end-to-end smart factory solution:
+  The following human roles are part of this solution:
 
   - *Data labelers* label data sets for retraining to complete the loop of the end-to-end solution. The data labeling process is especially important for image data, as a first step in creating a reliable model trained through algorithms. In this example, Azure Data Factory organizes the video frames into logical positive and false positive groupings, which makes the data labeler's work easier.
 
@@ -114,11 +112,13 @@ This solution is divided into three operational areas:
 
   - *Safety auditors* review archived video streams to detect anomalies, assess compliance, and confirm results when questions arise about a model's predictions.
 
+  In this solution, Azure Machine Learning sends observability metrics and model telemetry to Azure Monitor, helping the IoT engineers and data scientists to optimize operations. IoT Hub ingests high volumes of telemetry from the cameras and sends the metrics to Azure Monitor, so site engineers can investigate and troubleshoot.
+  
 ### Performance
 
 IoT devices have limited memory and processing power, so it's important to limit the size of the container sent to the device. This example uses an IoT device that can do model inference and produce results in an acceptable amount of time.
 
-To optimize performance for training models, this example architecture uses [Azure Premium Blob Storage](https://azure.microsoft.com/services/storage/blobs/). This performance tier is designed for workloads that require very fast response times and high transaction rates like this human-in-the-loop video labeling scenario.
+To optimize performance for training models, this example architecture uses [Azure Premium Blob Storage](https://azure.microsoft.com/services/storage/blobs/). This performance tier is designed for workloads that require very fast response times and high transaction rates, like the human-in-the-loop video labeling scenario.
 
 Performance considerations also apply to the data ingestion pipeline. Data Factory maximizes data movement by providing a highly performant, cost-effective solution.
 
