@@ -1,19 +1,3 @@
----
-title: Tenancy model for SaaS applications
-titleSuffix: Azure Example Scenarios
-description: This article describes the application tenancy models available to Software as a Service (SaaS) application builders.
-author: fredderf204
-ms.date: 09/18/2020
-ms.topic: conceptual
-ms.service: architecture-center
-ms.subservice: example-scenario
-ms.custom:
-  - fcp
-  - example-scenario
----
-
-# Tenancy models for SaaS applications
-
 In a Software as a Service (SaaS) model, each of your customers are a tenant of your application. Each tenant pays for access to the SaaS application by paying a subscription fee. This article describes the application tenancy models available to SaaS application builders.
 
 When designing a SaaS application, you must choose the application tenancy model that best fits the needs of your customers and your business. In general, the application tenancy model doesn't impact the functionality of an application. But it likely impacts other aspects of the overall solution including scale, tenant isolation, cost per tenant and operation complexity.
