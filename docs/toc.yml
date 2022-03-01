@@ -945,7 +945,7 @@ items:
                 href: solution-ideas/articles/anomaly-detector-process.yml
               - name: Build a speech-to-text transcription pipeline
                 href: reference-architectures/ai/speech-to-text-transcription-pipeline.yml
-              - name: Computer vision at the edge
+              - name: Computer vision in end-to-end manufacturing
                 href: reference-architectures/ai/end-to-end-smart-factory.yml
               - name: Connected factory hierarchy service
                 href: solution-ideas/articles/connected-factory-hierarchy-service.yml
