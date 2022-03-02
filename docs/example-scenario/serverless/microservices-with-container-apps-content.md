@@ -18,6 +18,7 @@ The Fabrikam team was able to smoothly port the Fabrikam Drone Delivery legacy a
 
 1. the complexity of the managed service by offering built-in features
 1. the deployment, development and maintenance effort by deploying with Bicep templates rather than AKS Helm charts
+1. development effort because there were no code modifications needed for the services
 1. the operations effort for monitoring and managing in/out cluster infrastructure with these features:
     1. External HTTPS ingress for the **Ingestion service** is managed.  
     1. Service discovery and internal ingress are managed for the rest of the background services.
@@ -30,7 +31,7 @@ You can find a code sample in the [Container Apps Example Scenario](https://gith
 
 In this example solution, the use cases are:
 
-* Move the Fabrikam Drone Delivery legacy app from a full fleshed cluster (AKS) to Container Apps with almost no friction.
+* Deploy a legacy application into a platform as a service (PaaS) offering to avoid the operational complexity of managing a container orchestrator.
 * Run background processing application such as the **workflow service** (consumer messaging app) using the built-in single revision feature.
 
 Other common uses of Container Apps include:
@@ -50,7 +51,8 @@ You can find the code sample in the [Container Apps Example Scenario](https://gi
 
 ![Microservices Deployed with Container Apps](./media/microservices-with-container-apps-deployment.png)
 
-In this scenario, the design decision was made to deploy the **ingestion service** to its own Container App environment and the rest of the services to a single Container App environment.  Since the **ingestion service** communicates with the **workflow service** via Azure Service Bus, it doesn't need to discover the other services.  Deploying it in its own environment minimizes security risks by isolating the external ingress from the rest of the services.
+
+In this scenario, the design decision was made to deploy all of the microservice containers to a single Container Apps environment.  With this option, the services share the same secure environment.
 
 The services sharing the same environment benefit from:
 
@@ -102,7 +104,9 @@ Many of the complexities of the previous AKS architecture are replaced by these 
 
 **[Azure Monitor](/azure/azure-monitor)** collects and stores metrics and logs. Use this data to monitor the application, set up alerts and dashboards, and do root cause analysis of failures.  This scenario uses a Log Analytics workspace for comprehensive monitoring of the application.
 
-**[Azure Resource Manager (ARM) Templates](/azure/azure-resource-manager/templates/overview) to configure and deploy the applications.
+**[Application Insights](/azure/azure-monitor/app/app-insights-overview)** provides extensible application performance management (APM) and monitoring for the services.  each service is instrumented with the Application Insights SDK to monitor the app and direct the telemetry data to Azure Monitor.
+
+**[Azure Resource Manager (ARM) Templates](/azure/azure-resource-manager/templates/overview)** to configure and deploy the applications.
 
 ### Alternatives
 
@@ -150,16 +154,25 @@ Performance monitoring through Log Analytics and Azure Monitor allows you to eva
 
 ### Security
 
-Container Apps allows your application to securely store sensitive configuration values.  Once you define secured values at the application level, they're available to the containers across revisions, and when implemented, inside scale rules.  In this scenario uses application level secrets and environment variable values.
+* Secrets:  Container Apps allows your application to securely store sensitive values as secrets.  Once you define secured values at the application level, they're available to the containers across revisions, and when implemented, inside scale rules.  In this scenario uses application level secrets and environment variable values.  When you change the value of a secret, it will not force a new revision, however, you'll need to restart your container app.
 
-## Deploy this scenario
+* Environment variables: sensitive values can be securely stored at the application level.  When environment variables are changed, the container app will spawn a new revision.
+
+* Network security:  BackEnd services ae not allowing external ingress.  All requests are passed from the **Ingestion service** through the Azure Service Bus.
+
+* Container Apps supports Managed Identities allowing your app to easily authenticate other Azure AD-protected resources such as Azure Key Vault, without managing credentials in your container app.  For services that don't support AD authentication, you can store secrets in Azure Key Vault and use the managed identity to access Key Vault to access the secrets. 
+
+
+## Deploy this scenario 
 
 Follow the steps in the README.md in the [sample repository](https://github.com/mspnp/container-apps-fabrikam-dronedelivery) to deploy this scenario.
 
 ## Pricing
 
 * The [Cost section in the Microsoft Azure Well-Architected Framework](/azure/architecture/framework/cost/overview) describes cost considerations. Use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator) to estimate costs for your specific scenario.
-* Azure Container Apps has no costs associated with deployment, management, and operations of the Container Apps environments. You only pay for the compute and storage resources the applications consume. Autoscaling can significantly reduce costs by removing empty or unused nodes.
+* [Container Apps pricing]().  We can add the link when the document is published.
+* Azure Container Apps has consumption based pricing model.
+* Azure Container Apps supports scale to zero.  When a container app is scaled to zero, there's no charge.
 * In this scenario, the Azure Cosmos DB and Azure Cache for Redis services generate most of the costs.  
 * To avoid accruing charges, don't leave this example running.
 
