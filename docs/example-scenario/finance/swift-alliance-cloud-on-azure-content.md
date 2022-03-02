@@ -39,9 +39,9 @@ You establish secure connectivity to the SIL subscription:
 * You can use Site-to-site VPN to connect customer premises to Azure via the internet.
 * You can use Remote Desktop Protocol (RDP) over the Internet to connect customers that have Internet connectivity.
 
-[![SWIFT Alliance Cloud Customer Connectivity](./media/swift-alliance-cloud-customer-connectivity.png)](./media/swift-alliance-cloud-customer-connectivity.png#lightbox)
+:::image type="content" alt-text="Diagram of connectivity in this example of the Azure accounts that support the SWIFT Integration Layer for SWIFT Alliance Cloud." source="./media/swift-alliance-cloud-on-azure-connectivity.png" lightbox="./media/swift-alliance-cloud-on-azure-connectivity.png":::
 
-_Download a [Visio file](https://arch-center.azureedge.net/swift-alliance-cloud-customer-connectivity.vsdx) that contains this architecture diagram._
+<!-- _Download a [Visio file](https://arch-center.azureedge.net/swift-alliance-cloud-on-azure-connectivity.vsdx) that contains this architecture diagram._ -->
 
 The SWIFT customer uses RDP, with one of the three connectivity approaches, to connect to the SIL software that runs on the SIL VM. The recommended configurations of Azure Firewall and network security groups allow only appropriate traffic to pass to the SIL VM. The traffic from the SIL software to SWIFTNet flows via the virtual network peering with the Juniper vSRX, which has an established VPN tunnel to SWIFTNet over the Internet.
 
