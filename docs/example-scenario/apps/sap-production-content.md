@@ -120,7 +120,7 @@ For  SAP application part, see the details in architecture guide [Run SAP NetWea
 ![Architecture of a production SAP system on Oracle in Azure](./media/architecture-sap-production-avzone-dr.png)
 *Figure - Architecture of a production SAP system on Oracle in Azure with AvZone and DR*
 
-Download a [Visio file](https://arch-center.azureedge.net/sap-oracle-architecture.vsdx) of this architecture.
+Download a [Visio file](https://arch-center.azureedge.net/sap-oracle-architecture-avzone.vsdx) of this architecture.
 
 Every tier in the SAP application stack uses a different DR strategy.
 
