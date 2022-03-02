@@ -1,6 +1,6 @@
 ### YamlMime:Architecture
 metadata:
-  title: SWIFT's Alliance Cloud in Azure
+  title: SWIFT Alliance Cloud in Azure
   titleSuffix: Azure Example Scenarios
   description: Deploy Azure infrastructure for SWIFT Alliance Cloud.
   author: ehaslett
@@ -13,7 +13,7 @@ azureCategories:
   - integration
 products:
   - azure
-name: SWIFT's Alliance Cloud in Azure
+name: SWIFT Alliance Cloud in Azure
 summary: Deploy Azure infrastructure for SWIFT Alliance Cloud.
 thumbnailUrl: /azure/architecture/browse/thumbs/swift-alliance-cloud-on-azure.png
 content: |
