@@ -1,0 +1,26 @@
+### YamlMime:Architecture
+metadata:
+  title: Refactor mainframe computer systems that run Adabas & Natural
+  titleSuffix: Azure Example Scenarios
+  description: Learn now to modernize mainframe computer systems that run Adabas & Natural and move them to the cloud.
+  author: Mvrs
+  ms.author: marlon.johnson 
+  ms.date: 03/03/2022
+  ms.topic: conceptual
+  ms.service: architecture-center
+  ms.subservice: example-scenario
+  ms.custom: fcp 
+azureCategories:
+  - migration
+  - databases
+  - containers
+products:
+  - azure-kubernetes-service
+  - azure-expressroute
+  - azure-managed-disks
+  - azure-netapp-files
+name: Refactor mainframe computer systems that run Adabas & Natural
+summary: Learn now to modernize mainframe computer systems that run Adabas & Natural and move them to the cloud.
+thumbnailUrl: /azure/architecture/browse/thumbs/<browse-png-filename>.png
+content: |
+  [!include[](refactor-adabas-aks-content.md)]
