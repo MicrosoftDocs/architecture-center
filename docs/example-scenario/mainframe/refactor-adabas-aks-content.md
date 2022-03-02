@@ -62,7 +62,7 @@ This diagram shows how you can migrate the legacy architecture to Azure by using
 
 1. **Storage**. Data services use a combination of high performance storage (ultra / premium SSD), file storage (NetApp), and standard storage (Blob, archive, backup) that can be either local redundant or geo-redundant, depending on the use. Managed disk storage is used for node operating systems. Azure NetApp Files is used for all persistent data, like database files, protection logs, application data, and backup. Operating system volumes stored in managed disks are managed by AKS. All business-critical data from the databases, including ASSO, DATA, WORK files, and Adabas protection logs, should be written to separate volumes that can be provided by Azure NetApp Files. 
 
-1. **CONNX**. The CONNX for Adabas module provides highly secure, real-time read/write access to Adabas data sources on OS/390, z/OS, VSE, Linux, Solaris, HP-UX, AIX, and Windows via .NET, ODBC, OLE DB, and JDBC. CONNX connectors provide access to Adabas data sources and expose them to more common databases, like Azure SQL Database, Azure Database for PosgreSQL, and Azure Database for MYSQL.
+1. **CONNX**. The CONNX for Adabas module provides highly secure, real-time read/write access to Adabas data sources on OS/390, z/OS, VSE, Linux, Solaris, HP-UX, AIX, and Windows via .NET, ODBC, OLE DB, and JDBC. CONNX connectors provide access to Adabas data sources and expose them to more common databases, like Azure SQL Database, Azure Database for PosgreSQL, and Azure Database for MySQL.
 
 ### Components  
 
