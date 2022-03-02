@@ -5,6 +5,9 @@ The intended audiences for this article are program managers, architects, and en
 * A high-level overview of the Azure architecture to deploy SWIFT's components (this article).
 * A detailed reference architecture for each of the components (links below).
 
+> [!Note]
+> This article provides an overview with reference architecture for deploying SWIFT's Alliance Connect Virtual solution on Azure. Please note that the new Alliance Connect Virtual solution is not yet available for SWIFT production traffic. The solution is currently being tested with SWIFT customers and will become generally available throughout 2022 as part of a phased launch. For more information about the general availability of the product, refer to [SWIFT.com](https://www.swift.com/our-solutions/interfaces-and-integration/alliance-connect-virtual).
+
 ## Architecture
 
 The following diagram is a high-level Azure reference architecture of connectivity to the SWIFT network.
