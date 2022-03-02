@@ -16,6 +16,6 @@ products:
   - azure-storage
 name: Valet Key pattern
 summary: Use a token or key that provides clients with restricted direct access to a specific resource or service.
-thumbnailUrl: /azure/architecture/browse/thumbs/<browse-png-filename>.png
+thumbnailUrl: /azure/architecture/browse/thumbs/valet-key-pattern.png
 content: |
   [!include[](valet-key-content.md)]
