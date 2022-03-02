@@ -68,7 +68,7 @@ This diagram shows how you can migrate the legacy architecture to Azure by using
 
 - [Azure ExpressRoute](https://azure.microsoft.com/services/expressroute) extends your on-premises networks into the Microsoft cloud over a private connection that's facilitated by a connectivity provider. You can use ExpressRoute to establish connections to Microsoft cloud services like Azure and Office 365. 
 
-- [Azure Kubernetes Service](https://azure.microsoft.com/services/kubernetes-service) is a fully managed Kubernetes service for deploying and managing containerized applications. AKS provides serverless Kubernetes, an integrated continuous integration and continuous delivery (CI/CD) experience, and enterprise-grade security and governance. 
+- [Azure Kubernetes Service](https://azure.microsoft.com/services/kubernetes-service) is a fully managed Kubernetes service for deploying and managing containerized applications. AKS provides serverless Kubernetes, integrated continuous integration and continuous delivery (CI/CD), and enterprise-grade security and governance. 
 
 - [Azure managed disks](/azure/virtual-machines/managed-disks-overview) are block-level storage volumes that are managed by Azure and used with Azure Virtual Machines. Various types are available: ultra disks, premium SSD, standard SSD, and standard HDD. SSD disks are used in this architecture. 
 
@@ -76,13 +76,11 @@ This diagram shows how you can migrate the legacy architecture to Azure by using
 
 ## Considerations 
 
-The following considerations, based on the Azure Well-Architected Framework, apply to this solution.
-
 ### Container-based approach
 
-To make the most of the flexibility, reliability, and capabilities of Azure, you need to rearchitect mainframe applications. We recommend that you rewrite monolithic applications as microservices and use a container-based approach to deployment. A container bundles all the software needed for execution into one executable package. It includes an application's code together with the related configuration files, libraries, and dependencies required to run the app. Containerized applications are quick to deploy and support popular DevOps practices like continuous integration (CI) and continuous deployment (CD).  
+To make the most of the flexibility, reliability, and capabilities of Azure, you need to rearchitect mainframe applications. We recommend that you rewrite monolithic applications as microservices and use a container-based approach to deployment. A container bundles all the software needed for execution into one executable package. It includes an application's code together with the related configuration files, libraries, and dependencies that are required to run the app. Containerized applications are quick to deploy and support popular DevOps practices like continuous integration (CI) and continuous deployment (CD).  
 
-Adabas & Natural containers run in pods, each of which is focused on a task. Pods are units of one or more containers that stay together on the same node and share resources like the host name and IP address. Because they're decoupled from the underlying platform, components in pods scale independently and support higher availability. A containerized application is also portable: it runs uniformly and consistently on any infrastructure.  
+Adabas & Natural containers run in pods, each of which performs a specific task. Pods are units of one or more containers that stay together on the same node and share resources like the host name and IP address. Because they're decoupled from the underlying platform, components in pods scale independently and support higher availability. A containerized application is also portable: it runs uniformly and consistently on any infrastructure.  
 
 Containerized services and their associated networking and storage components need to be orchestrated and managed. We recommend AKS, a managed Kubernetes service that automates cluster and resource management. You designate the number of nodes you need, and AKS fits your containers onto the right nodes to make the best use of resources. AKS also supports automated rollouts and rollbacks, service discovery, load balancing, and storage orchestration. And AKS supports self-healing: if a container fails, AKS starts a new one. In addition, you can safely store secrets and configuration settings outside of the containers. 
 
@@ -92,7 +90,7 @@ In the data layer, Adabas runs in the AKS cluster, which scales in and out autom
 
 ### Operations 
 
-Refactoring supports faster cloud adoption. It also promotes adoption of DevOps and Agile working principles. You have full flexibility in development and production deployment options.
+Refactoring supports faster cloud adoption. It also promotes adoption of DevOps and Agile working principles. You have full flexibility of development and production deployment options.
 
 ### Performance efficiency  
 
