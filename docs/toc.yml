@@ -3485,6 +3485,8 @@ items:
                     href: reference-architectures/zos/refactor-zos-coupling-facility.yml
                   - name: Refactor mainframe apps with Advanced
                     href: example-scenario/mainframe/refactor-mainframe-applications-advanced.yml
+                  - name: Refactor mainframe systems that use Adabas & Natural 
+                    href: example-scenario/mainframe/refactor-adabas-aks-content.yml
                   - name: Refactor mainframe with Raincode
                     href: reference-architectures/app-modernization/raincode-reference-architecture.yml
                   - name: Unisys CPF rehost using virtualization

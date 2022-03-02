@@ -19,8 +19,8 @@ products:
   - azure-expressroute
   - azure-managed-disks
   - azure-netapp-files
-name: Refactor mainframe computer systems that run Adabas & Natural
+name: Refactoring mainframe computer systems that run Adabas & Natural
 summary: Learn now to modernize mainframe computer systems that run Adabas & Natural and move them to the cloud.
-thumbnailUrl: /azure/architecture/browse/thumbs/<browse-png-filename>.png
+thumbnailUrl: /azure/architecture/browse/thumbs/mainframe-software-ag-azure-refactor.png
 content: |
   [!include[](refactor-adabas-aks-content.md)]
