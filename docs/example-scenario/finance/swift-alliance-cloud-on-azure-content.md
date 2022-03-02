@@ -19,9 +19,9 @@ This solution is targeted to:
 
 ## Architecture
 
-[![Architecture for SWIFT Alliance Cloud](./media/swift-alliance-cloud.png)](./media/swift-alliance-cloud.png#lightbox)
+:::image type="content" alt-text="Diagram of the architecture in this example scenario for deploying Azure resources for SWIFT Alliance Cloud." source="./media/swift-alliance-cloud-on-azure-architecture.png" lightbox="./media/swift-alliance-cloud-on-azure-architecture.png":::
 
-_Download a [Visio file](https://arch-center.azureedge.net/swift-alliance-cloud.vsdx) that contains this architecture diagram._
+_Download a [Visio file](https://arch-center.azureedge.net/swift-alliance-cloud-on-azure.vsdx) that contains this architecture diagram._
 
 In this example scenario, deployment of SWIFT's Alliance Cloud in Azure consists of two Azure customer subscriptions. The two-subscription design separates resources based on the primary responsibility for each resource. As the customer, you are primarily responsible for supplying the resources for the SWIFT Integration Layer (SIL). SWIFT provides the virtual firewall, Juniper vSRX, as part of the solution for managed connectivity of Alliance Connect Virtual. In this context, SWIFT configures the Juniper vSRX and establishes the VPN tunnel from the Juniper vSRX to SWIFT. You have no access nor visibility into the Juniper vSRX configuration or operation, but you do have visibility and operational responsibility for the underlying infrastructure resources on Azure.
 
