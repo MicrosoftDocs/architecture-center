@@ -33,6 +33,14 @@ The Alliance Connect Virtual subscription contains resources that you deploy. Yo
 
 After the SIL infrastructure is deployed, follow SWIFT's instructions for installing the SIL software. These instructions include peering the virtual networks in both subscriptions.
 
+The SIL subscription has a single resource group, which contains:
+
+* An Azure virtual network.
+* An Azure subnet for the Azure firewall with an Azure network security group.
+* An Azure subnet for the SIL with an Azure network security group
+* An Azure firewall configured to allow appropriate traffic to SIL.
+* Azure policies for compliance with CSP-CSCF.
+
 You establish secure connectivity to the SIL subscription:
 
 * You can use ExpressRoute to connect on-premises resources to Azure via private connectivity.
@@ -47,13 +55,11 @@ The SWIFT customer uses RDP, with one of the three connectivity approaches, to c
 
 ### Components
 
-The SIL subscription has a single resource group, which contains:
+- [Azure ExpressRoute](https://azure.microsoft.com/services/expressroute) provides fast, reliable, and private connections to Azure.
+- [Azure Firewall](https://azure.microsoft.com/services/azure-firewall) enforces application and network connectivity policies. This network security service centrally manages the policies across multiple virtual networks and subscriptions.
+- [Virtual Network](https://azure.microsoft.com/services/virtual-network) is the fundamental building block for private networks in Azure. Through Virtual Network, Azure resources like VMs can securely communicate with each other, the internet, and on-premises networks.
+- [Virtual Machines](https://azure.microsoft.com/services/virtual-machines) is an infrastructure-as-a-service (IaaS) offering. You can use Virtual Machines to deploy on-demand, scalable computing resources. Virtual Machines provides the flexibility of virtualization but eliminates the maintenance demands of physical hardware.
 
-* An Azure virtual network.
-* An Azure subnet for the Azure firewall with an Azure network security group.
-* An Azure subnet for the SIL with an Azure network security group
-* An Azure firewall configured to allow appropriate traffic to SIL.
-* Azure policies for compliance with CSP-CSCF.
 
 ## Considerations
 
