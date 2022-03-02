@@ -155,7 +155,7 @@ With this design, you might need to modify the routing that the hub advertises t
 [Route Server][What is Azure Route Server (Preview)?] offers another way to inject routes automatically in spokes. With this functionality, you avoid the administrative overhead of maintaining route tables. Route Server combines the Virtual WAN and hub and spoke variants:
 
 - With Route Server, customers manage hub virtual networks. As a result, you can link the hub virtual network to a DNS private zone.
-- Route Server has the same limitation that Virtual WAN has concerning IP address prefixes. You can only inject routes into a spoke if the prefix is shorter than the virtual network prefix. Because of this limitation, Application Gateway and the destination web server need to be in different virtual networks.
+- Route Server has the same limitation that Virtual WAN has concerning IP address prefixes. You can only inject routes into a spoke if the prefix is shorter (less specific) than the virtual network prefix. For example, in the diagrams above the spoke VNet has the prefix 172.16.0.0/16: in this case, Virtual WAN will not be able to inject a route that matches the VNet prefix (172.16.0.0/16) or any of the subnets (172.16.0.0/24, 172.16.1.0/24). In other words, Virtual WAN cannot attract traffic between two subnets that are in the same VNet. Because of this limitation, Application Gateway and the destination web server need to be in different virtual networks.
 
 The following diagram shows the packet flow when Route Server simplifies dynamic routing. Note these points:
 
