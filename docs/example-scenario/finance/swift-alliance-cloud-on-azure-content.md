@@ -63,8 +63,6 @@ You can engage your account team at Microsoft to help guide your Azure implement
 
 SWIFT customer resources on Azure should comply with the CSP-CSCF. CSP-CSCF control version 1.1 mandates segregation between different environments (production, test, development). We recommend that you deploy each environment in a separate subscription. Separate subscriptions make it easier to segregate servers and other infrastructure, credentials, and so on.
 
-We also recommend that you deploy different environments in separate subscriptions.
-
 ### Availability
 
 This example scenario for SWIFT's Alliance Cloud and SIL doesn't provide high availability. However, you can deploy multiple instances of SIL and Alliance Cloud to support higher availability by providing back up locations for SWIFT users.
