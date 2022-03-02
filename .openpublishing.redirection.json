@@ -2344,7 +2344,7 @@
     },
     {
       "source_path": "docs/example-scenario/finance/swift-on-azure.yml",
-      "redirect_url": "docs/example-scenario/finance/swift-on-azure-srx.yml",
+      "redirect_url": "/azure/architecture/example-scenario/finance/swift-on-azure-srx",
       "redirect_document_id": false
     },
     {
