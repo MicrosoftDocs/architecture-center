@@ -23,6 +23,8 @@ This solution is targeted to:
 
 _Download a [Visio file](https://arch-center.azureedge.net/swift-alliance-cloud-on-azure.vsdx) that contains this architecture diagram._
 
+### Workflow
+
 In this example scenario, deployment of SWIFT's Alliance Cloud in Azure consists of two Azure subscriptions. The two-subscription design separates resources based on the primary responsibility for each resource. As the customer, you're primarily responsible for supplying the resources for the SWIFT Integration Layer (SIL). SWIFT provides the virtual firewall, Juniper vSRX, as part of the solution for managed connectivity of Alliance Connect Virtual. In this context, SWIFT configures the Juniper vSRX and establishes the VPN tunnel from the Juniper vSRX to SWIFT. You have no access nor visibility into the Juniper vSRX configuration or operation, but you do have visibility and operational responsibility for the underlying infrastructure resources on Azure.
 
 The footprint of SWIFT's Alliance Cloud is based on a single tenant. To increase resiliency and availability, each customer deploys a second similar configuration (in standby mode) in a different Azure region. For each customer, there's an instance of the SIL and Alliance Connect Virtual.
@@ -56,8 +58,11 @@ The SWIFT customer uses RDP, with one of the three connectivity approaches, to c
 ### Components
 
 - [Azure ExpressRoute](https://azure.microsoft.com/services/expressroute) provides fast, reliable, and private connections to Azure.
+
 - [Azure Firewall](https://azure.microsoft.com/services/azure-firewall) enforces application and network connectivity policies. This network security service centrally manages the policies across multiple virtual networks and subscriptions.
+
 - [Virtual Network](https://azure.microsoft.com/services/virtual-network) is the fundamental building block for private networks in Azure. Through Virtual Network, Azure resources like VMs can securely communicate with each other, the internet, and on-premises networks.
+
 - [Virtual Machines](https://azure.microsoft.com/services/virtual-machines) is an infrastructure-as-a-service (IaaS) offering. You can use Virtual Machines to deploy on-demand, scalable computing resources. Virtual Machines provides the flexibility of virtualization but eliminates the maintenance demands of physical hardware.
 
 
