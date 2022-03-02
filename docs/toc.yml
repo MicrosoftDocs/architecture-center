@@ -486,27 +486,27 @@ items:
       - name: Health Endpoint Monitoring
         href: patterns/health-endpoint-monitoring.md
       - name: Index Table
-        href: patterns/index-table.md
+        href: patterns/index-table.yml
       - name: Leader Election
-        href: patterns/leader-election.md
+        href: patterns/leader-election.yml
       - name: Materialized View
-        href: patterns/materialized-view.md
+        href: patterns/materialized-view.yml
       - name: Pipes and Filters
-        href: patterns/pipes-and-filters.md
+        href: patterns/pipes-and-filters.yml
       - name: Priority Queue
-        href: patterns/priority-queue.md
+        href: patterns/priority-queue.yml
       - name: Publisher/Subscriber
-        href: patterns/publisher-subscriber.md
+        href: patterns/publisher-subscriber.yml
       - name: Queue-Based Load Leveling
-        href: patterns/queue-based-load-leveling.md
+        href: patterns/queue-based-load-leveling.yml
       - name: Rate Limiting
-        href: patterns/rate-limiting-pattern.md
+        href: patterns/rate-limiting-pattern.yml
       - name: Retry
-        href: patterns/retry.md
+        href: patterns/retry.yml
       - name: Saga
         href: reference-architectures/saga/saga.yml
       - name: Scheduler Agent Supervisor
-        href: patterns/scheduler-agent-supervisor.md
+        href: patterns/scheduler-agent-supervisor.yml
       - name: Sequential Convoy
         href: patterns/sequential-convoy.md
       - name: Sharding

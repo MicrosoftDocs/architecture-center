@@ -1,19 +1,3 @@
----
-title: Publisher-Subscriber pattern
-description: Learn about the Publisher-Subscriber pattern, which enables an application to announce events to many interested consumers asynchronously.
-author: alexbuckgit
-ms.date: 12/07/2018
-ms.topic: conceptual
-ms.service: architecture-center
-ms.subservice: design-pattern
-ms.custom:
-  - design-pattern
-keywords:
-  - design pattern
----
-
-# Publisher-Subscriber pattern
-
 Enable an application to announce events to multiple interested consumers asynchronously, without coupling the senders to the receivers.
 
 **Also called**: Pub/sub messaging
@@ -80,7 +64,7 @@ Consider the following points when deciding how to implement this pattern:
 
 - **Message ordering.** The order in which consumer instances receive messages isn't guaranteed, and doesn't necessarily reflect the order in which the messages were created. Design the system to ensure that message processing is idempotent to help eliminate any dependency on the order of message handling.
 
-- **Message priority.** Some solutions may require that messages are processed in a specific order. The [Priority Queue pattern](priority-queue.md) provides a mechanism for ensuring specific messages are delivered before others.
+- **Message priority.** Some solutions may require that messages are processed in a specific order. The [Priority Queue pattern](priority-queue.yml) provides a mechanism for ensuring specific messages are delivered before others.
 
 - **Poison messages.** A malformed message, or a task that requires access to resources that aren't available, can cause a service instance to fail. The system should prevent such messages being returned to the queue. Instead, capture and store the details of these messages elsewhere so that they can be analyzed if necessary.
 

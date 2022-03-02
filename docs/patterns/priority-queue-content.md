@@ -1,26 +1,3 @@
----
-title: Priority Queue pattern
-titleSuffix: Cloud Design Patterns
-description: Prioritize requests sent to services so that requests with a higher priority are received and processed more quickly than those with a lower priority.
-author: EdPrice-MSFT
-ms.author: pnp
-ms.date: 01/05/2022
-ms.topic: conceptual
-ms.service: architecture-center
-ms.subservice: design-pattern
-products:
-  - azure-service-bus
-categories:
-  - compute
-  - web
-ms.custom:
-  - design-pattern
-keywords:
-  - design pattern
----
-
-# Priority Queue pattern
-
 Prioritize requests sent to services so that requests with a higher priority are received and processed more quickly than those with a lower priority. This pattern is useful in applications that offer different service level guarantees to individual clients.
 
 ## Context and problem
