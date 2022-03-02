@@ -16,6 +16,8 @@ Manufacturing processes use IoT computer vision in safety and quality assurance 
 
 [![Diagram showing the end-to-end approach to computer vision from the edge to the cloud and back.](_images/end-to-end-smart-factory-01.png)](_images/end-to-end-smart-factory-01.png#lightbox)
 
+### Dataflow
+
 1. The Video Analyzer edge module captures the live video stream, breaks it down into frames, and performs inference on the image data to determine if an incident has occurred.
 
 1. Video Analyzer uploads the raw video files and sends them to Azure Storage, which acts as a raw media store.
