@@ -15,7 +15,7 @@ This approach can be used for:
 This solution is targeted to:
 
 * Existing SWIFT customers who run SIL on-premises and want to run Alliance Cloud footprint in Azure.
-* New SWIFT customers, who can benefit by deploying directly to Azure.
+* New SWIFT customers who can benefit by deploying directly to Azure.
 
 ## Architecture
 
@@ -23,20 +23,20 @@ This solution is targeted to:
 
 _Download a [Visio file](https://arch-center.azureedge.net/swift-alliance-cloud-on-azure.vsdx) that contains this architecture diagram._
 
-In this example scenario, deployment of SWIFT's Alliance Cloud in Azure consists of two Azure customer subscriptions. The two-subscription design separates resources based on the primary responsibility for each resource. As the customer, you're primarily responsible for supplying the resources for the SWIFT Integration Layer (SIL). SWIFT provides the virtual firewall, Juniper vSRX, as part of the solution for managed connectivity of Alliance Connect Virtual. In this context, SWIFT configures the Juniper vSRX and establishes the VPN tunnel from the Juniper vSRX to SWIFT. You have no access nor visibility into the Juniper vSRX configuration or operation, but you do have visibility and operational responsibility for the underlying infrastructure resources on Azure.
+In this example scenario, deployment of SWIFT's Alliance Cloud in Azure consists of two Azure subscriptions. The two-subscription design separates resources based on the primary responsibility for each resource. As the customer, you're primarily responsible for supplying the resources for the SWIFT Integration Layer (SIL). SWIFT provides the virtual firewall, Juniper vSRX, as part of the solution for managed connectivity of Alliance Connect Virtual. In this context, SWIFT configures the Juniper vSRX and establishes the VPN tunnel from the Juniper vSRX to SWIFT. You have no access nor visibility into the Juniper vSRX configuration or operation, but you do have visibility and operational responsibility for the underlying infrastructure resources on Azure.
 
-The footprint of SWIFT's Alliance Cloud is based on a single tenant. To increase resiliency and availability, each customer deploys a second similar configuration (in standby mode) in a different Azure region. For each customer there's an instance of the SIL and Alliance Connect Virtual.
+The footprint of SWIFT's Alliance Cloud is based on a single tenant. To increase resiliency and availability, each customer deploys a second similar configuration (in standby mode) in a different Azure region. For each customer, there's an instance of the SIL and Alliance Connect Virtual.
 
-The SIL subscription contains resources that are managed by the customer. The resources for the SIL can be deployed by using an Azure Resource Manager template to create the core infrastructure, as described in this architecture. You can modify the template for the SIL to meet your specific needs as long as the configuration adheres to policies that are required by SWIFT's Customer Security Programme – Customer Security Controls Framework (CSP-CSCF). You can use [Azure Policy](https://azure.microsoft.com/services/azure-policy) to apply the necessary policies to comply with CSP-CSCF.
+The SIL subscription contains resources that are managed by the customer. The resources for the SIL can be deployed by using an Azure Resource Manager template to create the core infrastructure, as described in this architecture. You can modify the template for the SIL to meet your specific needs as long as the configuration adheres to policies that are required by SWIFT's Customer Security Programme (CSP) – Customer Security Controls Framework (CSCF). You can use [Azure Policy](https://azure.microsoft.com/services/azure-policy) to apply the necessary policies to comply with CSP-CSCF.
 
-The Alliance Connect Virtual subscription contains resources that you deploy. The resources are deployed by using an Azure Resource Manager template, also known as the Cloud Infrastructure Definition (CID) file, that's provided by SWIFT. SWIFT manages the configuration and operation of the Juniper vSRX.
+The Alliance Connect Virtual subscription contains resources that you deploy. You deploy them by using an Azure Resource Manager template, also known as the Cloud Infrastructure Definition (CID) file, that's provided by SWIFT. SWIFT manages the configuration and operation of the Juniper vSRX.
 
 After the SIL infrastructure is deployed, follow SWIFT's instructions for installing the SIL software. These instructions include peering the virtual networks in both subscriptions.
 
 You establish secure connectivity to the SIL subscription:
 
-* You can use ExpressRoute to connect your on-premises resources to Azure via private connectivity.
-* You can use Site-to-site VPN to connect customer premises to Azure via the internet.
+* You can use ExpressRoute to connect on-premises resources to Azure via private connectivity.
+* You can use site-to-site VPN to connect customer premises to Azure via the internet.
 * You can use Remote Desktop Protocol (RDP) over the Internet to connect customers that have Internet connectivity.
 
 :::image type="content" alt-text="Diagram of connectivity in this example of the Azure accounts that support the SWIFT Integration Layer for SWIFT Alliance Cloud." source="./media/swift-alliance-cloud-on-azure-connectivity.png" lightbox="./media/swift-alliance-cloud-on-azure-connectivity.png":::
@@ -61,13 +61,13 @@ You can engage your account team at Microsoft to help guide your Azure implement
 
 #### Segregating different environments
 
-SWIFT customer resources on Azure should comply with the SWIFT Customer Security Programme Customer Security Controls Framework (CSP-CSCF). CSP-CSCF control 1.1 mandates segregation between different environments (production, test, development). The recommended approach is to deploy each environment in a separate subscription. Separate subscriptions make it easier to segregate servers and other infrastructure, credentials, and so on.
+SWIFT customer resources on Azure should comply with the CSP-CSCF. CSP-CSCF control version 1.1 mandates segregation between different environments (production, test, development). We recommend that you deploy each environment in a separate subscription. Separate subscriptions make it easier to segregate servers and other infrastructure, credentials, and so on.
 
-Customers are recommended to deploy different environment in different subscriptions.
+We also recommend that you deploy different environments in separate subscriptions.
 
 ### Availability
 
-This example scenario for SWIFT's Alliance Cloud and SIL doesn't provide high availability features footprint. You can deploy multiple instances of SIL and Alliance Cloud and redirect users to back up locations to support higher availability.
+This example scenario for SWIFT's Alliance Cloud and SIL doesn't provide high availability. However, you can deploy multiple instances of SIL and Alliance Cloud to support higher availability by providing back up locations for SWIFT users.
 
 ### Operations
 
@@ -98,6 +98,10 @@ SWIFT has a policy framework that helps you enforce a subset of SWIFT CSP-CSCF r
 We recommend deploying SWIFT components in a subscription that's separate from any back-office applications. Separate subscriptions ensure that SWIFT CSP-CSCF only applies to SWIFT components and not to customer-specific components.
 
 Consider using the latest implementation of SWIFT CSP controls in Azure after consulting with the Microsoft team that's working with you.
+
+## Pricing
+
+To explore the cost of running this scenario, use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator), which preconfigures all Azure services.
 
 ## Next steps
 
