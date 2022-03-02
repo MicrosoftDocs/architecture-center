@@ -1,0 +1,19 @@
+### YamlMime:Architecture
+metadata:
+  title: Build microservices on Azure
+  description: Learn about microservices on Azure, an architectural style for applications that are resilient, highly scalable, and independently deployable.
+  author: EdPrice-MSFT
+  ms.author: pnp
+  ms.date: 10/30/2019
+  ms.topic: conceptual
+  ms.service: architecture-center
+  ms.subservice: azure-guide
+azureCategories:
+  - developer-tools
+products:
+  - azure-devops
+name: Build microservices on Azure
+summary: Learn about microservices on Azure, an architectural style for applications that are resilient, highly scalable, and independently deployable.
+thumbnailUrl: /azure/architecture/browse/thumbs/microservices-logical.png
+content: |
+  [!include[](index-content.md)]

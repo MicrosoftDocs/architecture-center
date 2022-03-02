@@ -689,18 +689,6 @@ items:
                     href: example-scenario/finance/swift-on-azure-srx.yml
                   - name: SWIFT Alliance Connect Virtual
                     href: example-scenario/finance/swift-on-azure-vsrx.yml
-                  - name: SWIFT Alliance Access with Alliance Connect
-                    href: example-scenario/finance/swift-alliance-access-on-azure.yml
-                  - name: SWIFT Alliance Access with Alliance Connect Virtual
-                    href: example-scenario/finance/swift-alliance-access-vsrx-on-azure.yml
-                  - name: SWIFT AMH with Alliance Connect
-                    href: example-scenario/finance/swift-alliance-messaging-hub.yml
-                  - name: SWIFT AMH with Alliance Connect Virtual
-                    href: example-scenario/finance/swift-alliance-messaging-hub-vsrx.yml
-                  - name: SWIFT Alliance Lite2
-                    href: example-scenario/finance/swift-alliance-lite2.yml
-                  - name: SWIFT Alliance Cloud
-                    href: example-scenario/finance/swift-alliance-cloud.yml
           - name: Compliance solutions
             items:
               - name: PCI DSS overview
@@ -1909,6 +1897,8 @@ items:
                 href: example-scenario/data/small-medium-data-warehouse.yml
               - name: Data warehousing and analytics
                 href: example-scenario/data/data-warehouse.yml
+              - name: Employee retention with Databricks and Kubernetes
+                href: example-scenario/ai/employee-retention-databricks-kubernetes.yml
               - name: Geospatial data processing and analytics
                 href: example-scenario/data/geospatial-data-processing-analytics-azure.yml
               - name: High throughput stream ingestion
@@ -2240,7 +2230,7 @@ items:
               - name: Relational data
                 items:
                   - name: 'Extract, transform, and load (ETL)'
-                    href: data-guide/relational-data/etl.md
+                    href: data-guide/relational-data/etl.yml
                   - name: Online analytical processing (OLAP)
                     href: data-guide/relational-data/online-analytical-processing.yml
                   - name: Online transaction processing (OLTP)
@@ -2252,9 +2242,9 @@ items:
                   - name: Non-relational data stores
                     href: data-guide/big-data/non-relational-data.yml
                   - name: Free-form text search
-                    href: data-guide/scenarios/search.md
+                    href: data-guide/scenarios/search.yml
                   - name: Time series data
-                    href: data-guide/scenarios/time-series.md
+                    href: data-guide/scenarios/time-series.yml
                   - name: Working with CSV and JSON files
                     href: data-guide/scenarios/csv-and-json.md
               - name: Build a scalable system for massive data
@@ -2262,11 +2252,11 @@ items:
               - name: Big data
                 items:
                   - name: Big data architectures
-                    href: data-guide/big-data/index.md
+                    href: data-guide/big-data/index.yml
                   - name: Batch processing
-                    href: data-guide/big-data/batch-processing.md
+                    href: data-guide/big-data/batch-processing.yml
                   - name: Real-time processing
-                    href: data-guide/big-data/real-time-processing.md
+                    href: data-guide/big-data/real-time-processing.yml
               - name: Technology choices
                 items:
                   - name: Analytical data stores
@@ -2317,7 +2307,7 @@ items:
               - name: Secure data solutions
                 href: data-guide/scenarios/securing-data-solutions.md
               - name: Tenancy models for SaaS databases
-                href: isv/application-tenancy.md
+                href: isv/application-tenancy.yml
               - name: High availability for SQL DB and SQL MI
                 href: /azure/azure-sql/database/high-availability-sla
                 maintainContext: true
@@ -2619,7 +2609,7 @@ items:
           - name: Microservices
             items:
               - name: Get started
-                href: microservices/index.md
+                href: microservices/index.yml
               - name: Guides
                 items:
                   - name: Microservices assessment and readiness
@@ -2629,43 +2619,43 @@ items:
                       - name: Domain analysis
                         href: microservices/model/domain-analysis.md
                       - name: Tactical DDD
-                        href: microservices/model/tactical-ddd.md
+                        href: microservices/model/tactical-ddd.yml
                       - name: Identify microservice boundaries
-                        href: microservices/model/microservice-boundaries.md
+                        href: microservices/model/microservice-boundaries.yml
                   - name: Design a microservices architecture
                     items:
                       - name: Introduction
-                        href: microservices/design/index.md
+                        href: microservices/design/index.yml
                       - name: Choose a compute option
                         href: microservices/design/compute-options.md
                       - name: Interservice communication
-                        href: microservices/design/interservice-communication.md
+                        href: microservices/design/interservice-communication.yml
                       - name: API design
-                        href: microservices/design/api-design.md
+                        href: microservices/design/api-design.yml
                       - name: API gateways
-                        href: microservices/design/gateway.md
+                        href: microservices/design/gateway.yml
                       - name: Data considerations
-                        href: microservices/design/data-considerations.md
+                        href: microservices/design/data-considerations.yml
                       - name: Container orchestration
-                        href: microservices/design/orchestration.md
+                        href: microservices/design/orchestration.yml
                       - name: Design patterns for microservices
-                        href: microservices/design/patterns.md
+                        href: microservices/design/patterns.yml
                   - name: Operate microservices in production
                     items:
                       - name: Monitor microservices in AKS
-                        href: microservices/logging-monitoring.md
+                        href: microservices/logging-monitoring.yml
                       - name: CI/CD for microservices
-                        href: microservices/ci-cd.md
+                        href: microservices/ci-cd.yml
                       - name: CI/CD for microservices on Kubernetes
-                        href: microservices/ci-cd-kubernetes.md
+                        href: microservices/ci-cd-kubernetes.yml
                   - name: Migrate to a microservices architecture
                     items:
                       - name: Migrate monolith to microservices
-                        href: microservices/migrate-monolith.md
+                        href: microservices/migrate-monolith.yml
                       - name: Modernize apps with Service Fabric
-                        href: service-fabric/modernize-app-azure-service-fabric.md
+                        href: service-fabric/modernize-app-azure-service-fabric.yml
                       - name: Migrate from Cloud Services to ASF
-                        href: service-fabric/migrate-from-cloud-services.md
+                        href: service-fabric/migrate-from-cloud-services.yml
                   - name: .NET microservices
                     items:
                       - name: Design a microservice-oriented app
@@ -2716,9 +2706,9 @@ items:
                       - name: Serverless Functions app development
                         href: serverless-quest/application-development.md
                       - name: Serverless Functions code walkthrough
-                        href: serverless/code.md
+                        href: serverless/code.yml
                       - name: CI/CD for a serverless frontend
-                        href: serverless/guide/serverless-app-cicd-best-practices.md
+                        href: serverless/guide/serverless-app-cicd-best-practices.yml
                   - name: Monitoring serverless event processing
                     href: serverless/guide/monitoring-serverless-event-processing.md
                   - name: Serverless Functions app operations
@@ -2861,7 +2851,7 @@ items:
                 href: /azure/synapse-analytics/cicd/continuous-integration-delivery
                 maintainContext: true
               - name: DevOps for quantum computing
-                href: guide/quantum/devops-for-quantum-computing.md
+                href: guide/quantum/devops-for-quantum-computing.yml
               - name: Platform automation for VMware Solution
                 href: /azure/cloud-adoption-framework/scenarios/azure-vmware/eslz-platform-automation-and-devops
                 maintainContext: true
@@ -3090,7 +3080,7 @@ items:
               - name: Public MEC compute deployment
                 href: example-scenario/hybrid/public-multi-access-edge-compute-deployment.yml
               - name: Public MEC high availability 
-                href: example-scenario/hybrid/multi-access-edge-compute-high-availability.yml
+                href: example-scenario/hybrid/multi-access-edge-compute-ha.yml
               - name: Run containers in a hybrid environment
                 href: hybrid/hybrid-containers.yml
               - name: Use Azure file shares in a hybrid environment

@@ -2,7 +2,7 @@
 title: What's New in Azure Architecture Center
 description: New and updated articles in Azure Architecture Center
 author: doodlemania2
-ms.date: 02/22/2022
+ms.date: 02/28/2022
 ms.topic: article
 ms.service: architecture-center
 products: azure
@@ -33,6 +33,10 @@ New and updated articles in Azure Architecture Center.
 
 ### New Articles
 
+- [Web architecture design](./guide/web/web-start-here.md)
+- [Azure public multi-access edge compute deployment](./example-scenario/hybrid/public-multi-access-edge-compute-deployment.yml)
+- [Multi-tier app service with private endpoint](./example-scenario/web/multi-tier-app-service-private-endpoint.yml)
+- [Azure and Microsoft 365 scenarios](./solutions/microsoft-365-scenarios.md)
 - [Big data analytics on confidential computing](./example-scenario/confidential/data-analytics-containers-spark-kubernetes-azure-sql.yml)
 - [Multitenancy checklist on Azure](./guide/multitenant/checklist.md)
 - [Solutions for the telecommunications industry](./industries/telecommunications.md)
@@ -50,7 +54,7 @@ New and updated articles in Azure Architecture Center.
 - [Risk grid computing in banking](./industries/finance/risk-grid-banking-overview.yml)
 - [Risk grid computing solution](./industries/finance/risk-grid-banking-solution-guide.yml)
 - [Implement the Azure healthcare blueprint for AI](./industries/healthcare/healthcare-ai-blueprint.yml)
-- [High-performance computing for manufacturing](./industries/manufacturing/compute-manufacturing-overview.yml)
+- [High-performance computing (HPC) for manufacturing](./industries/manufacturing/compute-manufacturing-overview.yml)
 - [Extract actionable insights from IoT data](./industries/manufacturing/extract-insights-iot-data.yml)
 - [Introduction to predictive maintenance in manufacturing](./industries/manufacturing/predictive-maintenance-overview.yml)
 - [Predictive maintenance solution](./industries/manufacturing/predictive-maintenance-solution.yml)
@@ -70,6 +74,7 @@ New and updated articles in Azure Architecture Center.
 
 ### Updated Articles
 
+- [Protect APIs with Azure Application Gateway and Azure API Management](./reference-architectures/apis/protect-apis.yml)  ([#6f273719b](https://github.com/MicrosoftDocs/architecture-center/commit/6f273719b))
 - [Speech services](./solution-ideas/articles/speech-services.yml)  ([#09941baed](https://github.com/MicrosoftDocs/architecture-center/commit/09941baed))
 - [Camera selection for Azure IoT Edge vision AI](./guide/iot-edge-vision/camera.md)  ([#cc5ff9493](https://github.com/MicrosoftDocs/architecture-center/commit/cc5ff9493))
 - [Computer vision with Azure IoT Edge](./guide/iot-edge-vision/index.md)  ([#cc5ff9493](https://github.com/MicrosoftDocs/architecture-center/commit/cc5ff9493))
@@ -77,7 +82,7 @@ New and updated articles in Azure Architecture Center.
 - [Suggest content tags with NLP using deep learning](./solution-ideas/articles/website-content-tag-suggestion-with-deep-learning-and-nlp.yml)  ([#eeb4d1f81](https://github.com/MicrosoftDocs/architecture-center/commit/eeb4d1f81))
 - [Pricing models for a multitenant solution](./guide/multitenant/considerations/pricing-models.md)  ([#af94529db](https://github.com/MicrosoftDocs/architecture-center/commit/af94529db))
 - [Real-time fraud detection](./example-scenario/data/fraud-detection.yml)  ([#ce2fecdfd](https://github.com/MicrosoftDocs/architecture-center/commit/ce2fecdfd))
-- [Monitor a microservices app in AKS](./microservices/logging-monitoring.md)  ([#bcb227d09](https://github.com/MicrosoftDocs/architecture-center/commit/bcb227d09))
+- [Monitor a microservices app in AKS](./microservices/logging-monitoring.yml)  ([#bcb227d09](https://github.com/MicrosoftDocs/architecture-center/commit/bcb227d09))
 - [N-tier architecture style](./guide/architecture-styles/n-tier.md)  ([#4a1bad2c3](https://github.com/MicrosoftDocs/architecture-center/commit/4a1bad2c3))
 - [End-to-end governance in Azure](./example-scenario/governance/end-to-end-governance-in-azure.yml)  ([#d92ed29b2](https://github.com/MicrosoftDocs/architecture-center/commit/d92ed29b2))
 
@@ -110,12 +115,10 @@ New and updated articles in Azure Architecture Center.
 - [Azure NAT Gateway considerations for multitenancy](./guide/multitenant/service/nat-gateway.md)
 - [Teacher-provisioned virtual labs in Azure](./example-scenario/devops/teacher-provisioned-virtual-labs-azure.yml)
 - [Automate document processing by using Azure Form Recognizer](./example-scenario/ai/automate-document-processing-azure-form-recognizer.yml)
-- [SWIFT Alliance Access on Azure](./example-scenario/finance/swift-alliance-access-on-azure.yml)
-- [SWIFT Alliance Messaging Hub (AMH) on Azure](./example-scenario/finance/swift-alliance-messaging-hub.yml)
-- [SWIFT on Azure](./example-scenario/finance/swift-on-azure-srx.yml)
+- [SWIFT on Azure](./example-scenario/finance/swift-on-azure.yml)
 - [Loosely coupled quantum computing](./example-scenario/quantum/loosely-coupled-quantum-computing-job.yml)
 - [Tightly coupled quantum computing](./example-scenario/quantum/tightly-coupled-quantum-computing-job.yml)
-- [DevOps for quantum computing](./guide/quantum/devops-for-quantum-computing.md)
+- [DevOps for quantum computing](./guide/quantum/devops-for-quantum-computing.yml)
 - [CI/CD for quantum computing jobs](./solution-ideas/articles/cicd-for-quantum-computing-jobs.yml)
 - [Azure digital twins builder](./solution-ideas/articles/azure-digital-twins-builder.yml)
 - [Deploy machine learning models to multiple lines](./example-scenario/ai/multiline-model-deployment.yml)
