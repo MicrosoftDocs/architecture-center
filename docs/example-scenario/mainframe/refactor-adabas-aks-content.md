@@ -104,7 +104,7 @@ This architecture is primarily built on Kubernetes, which includes security comp
 
 ## Next steps  
 
-For more information, contact [legacy2azure@microsoft.com](legacy2azure@microsoft.com).
+For more information, contact [legacy2azure@microsoft.com](mailto:legacy2azure@microsoft.com).
 
 Here are some additional resources: 
 - [Adabas & Natural](https://www.softwareag.com/en_corporate/platform/adabas-natural.html)
