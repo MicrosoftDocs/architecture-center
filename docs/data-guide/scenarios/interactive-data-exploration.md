@@ -57,7 +57,7 @@ Relevant Azure services:
 
 ## Architecture
 
-Although the goal of this scenario is to support interactive data analysis, the data cleansing, sampling, and structuring tasks involved in data science often include long-running processes. That makes a [batch processing](../big-data/batch-processing.md) architecture appropriate.
+Although the goal of this scenario is to support interactive data analysis, the data cleansing, sampling, and structuring tasks involved in data science often include long-running processes. That makes a [batch processing](../big-data/batch-processing.yml) architecture appropriate.
 
 ## Technology choices
 

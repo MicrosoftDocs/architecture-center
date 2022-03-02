@@ -1,0 +1,22 @@
+### YamlMime:Architecture
+metadata:
+  title: Processing free-form text for search
+  description: Learn how free-form text processing can support search by producing useful, actionable data from large amounts of text.
+  author: EdPrice-MSFT
+  ms.author: edprice
+  ms.date: 11/30/2020
+  ms.topic: conceptual
+  ms.service: architecture-center
+  ms.subservice: azure-guide
+azureCategories:
+  - storage
+  - analytics
+products:
+  - azure-hdinsight
+  - azure-storage
+  - azure-data-lake
+name: Processing free-form text for search
+summary: Learn how free-form text processing can support search by producing useful, actionable data from large amounts of text.
+thumbnailUrl: /azure/architecture/browse/thumbs/search-pipeline.png
+content: |
+  [!include[](search-content.md)]

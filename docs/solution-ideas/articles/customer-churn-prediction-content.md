@@ -8,12 +8,14 @@ Keeping existing customers is five times cheaper than the cost of getting new cu
 
 This solution uses [Azure Machine Learning](/azure/machine-learning) to predict churn probability and helps find patterns in existing data associated with the predicted churn rate. This information provides businesses with actionable intelligence to improve customer retention and profit margins.
 
+This solution is optimized for the retail industry.
+
 ## Architecture
 
 ![Architecture diagram: predicting customer churn with machine learning.](../media/customer-churn-prediction.png)
 *Download an [SVG](../media/customer-churn-prediction.svg) of this architecture.*
 
-### Data flow
+### Dataflow
 
 1. Use Azure Event Hub to stream all live data into Azure.
 
