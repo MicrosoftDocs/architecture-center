@@ -14,7 +14,7 @@ This approach can be used for:
 
 This solution is targeted to:
 
-* Existing SWIFT customers who run SIL on-premises and want to run Alliance Cloud footprint in Azure.
+* Existing SWIFT customers who run SIL on-premises and want to run Alliance Cloud in Azure.
 * New SWIFT customers who can benefit by deploying directly to Azure.
 
 ## Architecture
@@ -118,5 +118,3 @@ Explore the functionality and architecture of other SWIFT modules in the followi
 * [SWIFT's Alliance Cloud](https://www.swift.com/our-solutions/interfaces-and-integration/alliance-cloud)
 
 <!-- links -->
-
-[calculator]: https://azure.com/e/
