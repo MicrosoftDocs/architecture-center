@@ -1,7 +1,3 @@
-
-
-# Preserve the original HTTP host name between a reverse proxy and its back-end web application
-
 We recommend that you preserve the original HTTP host name when you use a reverse proxy in front of a web application. Having a different host name at the reverse proxy than the one that's provided to the back-end application server can lead to cookies or redirect URLs that don't work properly. For example, session state can get lost, authentication can fail, or back-end URLs can inadvertently be exposed to end users. You can avoid these problems by preserving the host name of the initial request so that the application server sees the same domain as the web browser.
 
 This guidance applies especially to applications that are hosted in platform as a service (PaaS) offerings like [Azure App Service](/azure/app-service) and [Azure Spring Cloud](/azure/spring-cloud). This article provides specific [implementation guidance](#implementation-guidance-for-common-azure-services) for [Azure Application Gateway](/azure/application-gateway), [Azure Front Door](/azure/frontdoor), and [Azure API Management](/azure/api-management), which are commonly used reverse proxy services.
@@ -172,3 +168,8 @@ As noted previously, however, APIs are less sensitive to the problems caused by 
 - [Application Gateway](/azure/application-gateway)
 - [Azure Front Door](/azure/frontdoor)
 - [API Management](/azure/api-management)
+
+## Related resources 
+- [Zero-trust network for web applications with Azure Firewall and Application Gateway](/azure/architecture/example-scenario/gateway/application-gateway-before-azure-firewall)
+- [Protect APIs with Application Gateway and API Management](/azure/architecture/reference-architectures/apis/protect-apis)
+- [Enterprise deployment using App Services Environment](/azure/architecture/reference-architectures/enterprise-integration/ase-standard-deployment)
