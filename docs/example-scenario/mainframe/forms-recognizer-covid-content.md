@@ -1,0 +1,3 @@
+The rapid and accurate verification of COVID-19 vaccination and test statuses has become a global priority for returning to the workplace. Manual data entry slows and introduces errors to any COVID-19 compliance effort, and many organizations lack the internal expertise to deploy automated solutions with real-time insights.
+
+This architecture helps automate processes and digitize vaccination and test forms quickly. The AI-powered Azure Form Recognizer helps turn forms into usable data that is translated into real-time, actionable insights, visualized in Power BI to help validate compliance and inform evolving health and safety strategies. 
