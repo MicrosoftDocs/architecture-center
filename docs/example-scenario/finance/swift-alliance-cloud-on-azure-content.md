@@ -77,13 +77,13 @@ Azure provides a comprehensive set of monitoring capabilities in Azure Monitor. 
 
 [Azure Alerts](/azure/azure-monitor/alerts/alerts-overview) proactively notify you when issues are found with your infrastructure or application using your monitoring data in Azure Monitor. They allow you to identify and address issues before the users of your system notice them.
 
-[Log Analytics in Azure Monitor](/azure/azure-monitor/logs/log-analytics/overview) allows you to edit run log queries with data in Azure Monitor Logs.
+[Log Analytics in Azure Monitor](/azure/azure-monitor/logs/log-analytics-overview) allows you to edit run log queries with data in Azure Monitor Logs.
 
 ### Security
 
-The traffic between the SIL and the Juniper vSRX is limited to specific and known traffic. You can use network security groups and the packet capture capabilities that are provided by  Network Watcher, and combined with Azure Security Center and Azure Sentinel. Network security group flow logs in Azure Network Watcher can be used to send flow data to Azure Storage accounts. [Azure Sentinel](/services/azure-sentinel/) can collect these logs, detect and investigate threats, and respond to incidents with built-in orchestration and automation of common tasks.
+The traffic between the SIL and the Juniper vSRX is limited to specific and known traffic. You can use network security groups and the packet capture capabilities that are provided by  Network Watcher, and combined with Azure Security Center and Azure Sentinel. Network security group flow logs in Azure Network Watcher can be used to send flow data to Azure Storage accounts. [Azure Sentinel](/azure/sentinel/overview) can collect these logs, detect and investigate threats, and respond to incidents with built-in orchestration and automation of common tasks.
 
-[Azure Bastion](/services/azure-bastion/) enables connectivity transparently from the Azure portal to a virtual machine via RDP or SSH. Because Azure Bastion requires administrators to sign in to the Azure portal, you can use Conditional Access to enforce multi-factor authentication and other access restrictions. For example, you can specify from the public IP address from which administrators can sign in.
+[Azure Bastion](/azure/bastion/bastion-overview) enables connectivity transparently from the Azure portal to a virtual machine via RDP or SSH. Because Azure Bastion requires administrators to sign in to the Azure portal, you can use Conditional Access to enforce multi-factor authentication and other access restrictions. For example, you can specify from the public IP address from which administrators can sign in.
 
 Azure Bastion requires a dedicated subnet to deploy to and requires a public IP address. Access to this public IP address is restricted by Azure Bastion through a network security group that's managed. Deploying Azure Bastion also enables just-in-time access, which only opens required ports on demand when remote access is required.
 
