@@ -6,6 +6,10 @@ This approach can be used for:
 
 * Establishing new SWIFT connectivity by using Azure
 
+> [!NOTE]
+> This article provides an overview with reference architecture for deploying SWIFT's Alliance Connect Virtual solution on Azure. Please note that the new Alliance Connect Virtual solution is not yet available for SWIFT production traffic. The solution is currently being tested with SWIFT customers and will become generally available throughout 2022 as part of a phased launch. For more information about the general availability of the product, refer to [SWIFT.com](https://www.swift.com/our-solutions/interfaces-and-integration/alliance-connect-virtual).
+
+
 ## Potential use cases
 
 This solution is targeted to:
