@@ -100,7 +100,9 @@ Next, change the Grafana administrator password by following these steps:
 1. Create a service principal that allows Grafana to manage access to your Log Analytics workspace. For more information, see [Create an Azure service principal with Azure CLI](/cli/azure/create-an-azure-service-principal-azure-cli)
 
     ```azurecli
-    az ad sp create-for-rbac --name http://<service principal name> --role "Log Analytics Reader"
+    az ad sp create-for-rbac --name http://<service principal name> \
+                    --role "Log Analytics Reader" \
+                    --scopes /subscriptions/mySubscriptionID
     ```
 
 1. Note the values for appId, password, and tenant in the output from this command:

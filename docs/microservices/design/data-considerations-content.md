@@ -1,21 +1,3 @@
----
-title: Data considerations for microservices
-description: Learn about managing data in a microservices architecture. Data integrity and data consistency are critical challenges for microservices.
-author: EdPrice-MSFT
-ms.date: 02/25/2019
-ms.topic: conceptual
-ms.service: architecture-center
-ms.subservice: azure-guide
-ms.category:
-  - databases
-  - developer-tools
-ms.custom:
-  - microservices
-  - guide
----
-
-# Data considerations for microservices
-
 This article describes considerations for managing data in a microservices architecture. Because every microservice manages its own data, data integrity and data consistency are critical challenges.
 
 A basic principle of microservices is that each service manages its own data. Two services should not share a data store. Instead, each service is responsible for its own private data store, which other services cannot access directly.
@@ -57,7 +39,7 @@ There is no single approach that's correct in all cases, but here are some gener
 
 ## Example: Choosing data stores for the Drone Delivery application
 
-The previous articles in this series discuss a drone delivery service as a running example. You can read more about the scenario and the corresponding reference implementation [here](./index.md).
+The previous articles in this series discuss a drone delivery service as a running example. You can read more about the scenario and the corresponding reference implementation [here](./index.yml).
 
 To recap, this application defines several microservices for scheduling deliveries by drone. When a user schedules a new delivery, the client request includes information about the delivery, such as pickup and dropoff locations, and about the package, such as size and weight. This information defines a unit of work.
 

@@ -1,25 +1,3 @@
----
-title: API gateways
-description: An API gateway sits between clients and services and acts as a reverse proxy. Learn how to choose an API gateway technology for a microservice.
-author: EdPrice-MSFT
-ms.date: 10/23/2018
-ms.topic: conceptual
-ms.service: architecture-center
-ms.subservice: azure-guide
-ms.category:
-  - web
-  - developer-tools
-products:
-  - azure-application-gateway
-  - azure-api-management
-ms.custom:
-  - microservices
-  - guide
-  - internal-intro
----
-
-# Using API gateways in microservices
-
 In a microservices architecture, a client might interact with more than one front-end service. Given this fact, how does a client know what endpoints to call? What happens when new services are introduced, or existing services are refactored? How do services handle SSL termination, authentication, and other concerns? An *API gateway* can help to address these challenges.
 
 ![Diagram of an API gateway](../images/gateway.png)
@@ -32,7 +10,7 @@ An API gateway sits between clients and services. It acts as a reverse proxy, ro
 - It creates coupling between the client and the backend. The client needs to know how the individual services are decomposed. That makes it harder to maintain the client and also harder to refactor services.
 - A single operation might require calls to multiple services. That can result in multiple network round trips between the client and the server, adding significant latency.
 - Each public-facing service must handle concerns such as authentication, SSL, and client rate limiting.
-- Services must expose a client-friendly protocol such as HTTP or WebSocket. This limits the choice of [communication protocols](./interservice-communication.md).
+- Services must expose a client-friendly protocol such as HTTP or WebSocket. This limits the choice of [communication protocols](./interservice-communication.yml).
 - Services with public endpoints are a potential attack surface, and must be hardened.
 
 A gateway helps to address these issues by decoupling clients from services. Gateways can perform a number of different functions, and you may not need all of them. The functions can be grouped into the following design patterns:
@@ -96,4 +74,4 @@ Also consider running the gateway on a dedicated set of nodes in the cluster. Be
 The previous articles have looked at the interfaces *between* microservices or between microservices and client applications. By design, these interfaces treat each service as a opaque box. In particular, microservices should never expose implementation details about how they manage data. That has implications for data integrity and data consistency, explored in the next article.
 
 > [!div class="nextstepaction"]
-> [Data considerations for microservices](./data-considerations.md)
+> [Data considerations for microservices](./data-considerations.yml)

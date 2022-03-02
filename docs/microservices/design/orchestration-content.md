@@ -1,30 +1,3 @@
----
-title: Container orchestration for microservices
-description: Learn how container orchestration makes it easy to manage complex multi-container microservice deployments, scaling, and cluster health.
-author: veerashayyagari
-ms.author: veeray
-ms.date: 05/27/2021
-ms.topic: conceptual
-ms.service: architecture-center
-ms.subservice: azure-guide
-ms.category:
-  - web
-  - developer-tools
-products:
-  - azure-kubernetes-service
-  - azure-service-fabric
-  - azure-container-instances
-categories:
-  - containers
-ms.custom:
-  - microservices
-  - guide
-  - internal-intro
-  - fcp
----
-
-# Container orchestration for microservices
-
 Microservices architectures typically package and deploy each microservice instance inside a single container. Many instances of the microservices might be running, each in a separate container.  Containers are lightweight and short-lived, making them easy to create and destroy, but difficult to coordinate and communicate between.
 
 This article discusses the challenges of running a containerized microservices architecture at production scale, and how container orchestration can help. The article presents several Azure container orchestration options.
@@ -102,15 +75,15 @@ Here are some options for implementing microservices container orchestration in 
 - [Microservices architecture on Azure Kubernetes Service (AKS)](../../reference-architectures/containers/aks-microservices/aks-microservices.yml)
 - [Advanced Azure Kubernetes Service (AKS) microservices architecture](../../reference-architectures/containers/aks-microservices/aks-microservices-advanced.yml)
 - [Microservices with AKS and Azure DevOps](../../solution-ideas/articles/microservices-with-aks.yml)
-- [Use API gateways in microservices](gateway.md)
+- [Use API gateways in microservices](gateway.yml)
 - [Monitor a microservices architecture in AKS](../logging-monitoring.yml)
 - [Microservices architecture on Azure Service Fabric](../../reference-architectures/microservices/service-fabric.yml)
 - [Azure Spring Cloud reference architecture](/azure/spring-cloud/reference-architecture)
 
 ## Related resources
 
-- [Build microservices on Azure](../index.md)
-- [Design a microservices architecture](index.md)
+- [Build microservices on Azure](../index.yml)
+- [Design a microservices architecture](index.yml)
 - [Design patterns for microservices](patterns.yml)
 - [Microservices architectural style](../../guide/architecture-styles/microservices.md)
 - [Azure Kubernetes Service solution journey](../../reference-architectures/containers/aks-start-here.md)

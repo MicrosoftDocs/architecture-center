@@ -1,27 +1,8 @@
----
-title: Identify microservice boundaries
-description: Learn how to start from a carefully designed domain model to determine the right size for a microservice.
-author: EdPrice-MSFT
-ms.author: edprice
-ms.date: 02/14/2022
-ms.topic: conceptual
-ms.service: architecture-center
-ms.subservice: azure-guide
-ms.category:
-  - integration
-  - developer-tools
-ms.custom:
-  - microservices
-  - guide
----
-
-# Identify microservice boundaries
-
 What is the right size for a microservice? You often hear something to the effect of, "not too big and not too small" &mdash; and while that's certainly correct, it's not very helpful in practice. But if you start from a carefully designed domain model, it's much easier to reason about microservices.
 
 ![Diagram of bounded contexts](../images/bounded-contexts.png)
 
-This article uses a drone delivery service as a running example. You can read more about the scenario and the corresponding reference implementation [here](../design/index.md).
+This article uses a drone delivery service as a running example. You can read more about the scenario and the corresponding reference implementation [here](../design/index.yml).
 
 ## From domain model to microservices
 
@@ -73,7 +54,7 @@ The details of the Drone and Account bounded contexts are beyond the scope of th
 
 So far, we haven't considered any non-functional requirements. Thinking about the application's throughput requirements, the development team decided to create a separate Ingestion microservice that is responsible for ingesting client requests. This microservice will implement [load leveling](../../patterns/queue-based-load-leveling.md) by putting incoming requests into a buffer for processing. The Scheduler will read the requests from the buffer and execute the workflow.
 
-Non-functional requirements led the team to create one additional service. All of the services so far have been about the process of scheduling and delivering packages in real time. But the system also needs to store the history of every delivery in long-term storage for data analysis. The team considered making this the responsibility of the Delivery service. However, the data storage requirements are quite different for historical analysis versus in-flight operations (see [Data considerations](../design/data-considerations.md)). Therefore, the team decided to create a separate Delivery History service, which will listen for DeliveryTracking events from the Delivery service and write the events into long-term storage.
+Non-functional requirements led the team to create one additional service. All of the services so far have been about the process of scheduling and delivering packages in real time. But the system also needs to store the history of every delivery in long-term storage for data analysis. The team considered making this the responsibility of the Delivery service. However, the data storage requirements are quite different for historical analysis versus in-flight operations (see [Data considerations](../design/data-considerations.yml)). Therefore, the team decided to create a separate Delivery History service, which will listen for DeliveryTracking events from the Delivery service and write the events into long-term storage.
 
 The following diagram shows the design at this point:
 
@@ -84,4 +65,4 @@ The following diagram shows the design at this point:
 At this point, you should have a clear understanding of the purpose and functionality of each microservice in your design. Now you can architect the system.
 
 > [!div class="nextstepaction"]
-> [Design a microservices architecture](../design/index.md)
+> [Design a microservices architecture](../design/index.yml)

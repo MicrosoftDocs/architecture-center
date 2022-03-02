@@ -1895,6 +1895,8 @@ items:
                 href: example-scenario/data/small-medium-data-warehouse.yml
               - name: Data warehousing and analytics
                 href: example-scenario/data/data-warehouse.yml
+              - name: Employee retention with Databricks and Kubernetes
+                href: example-scenario/ai/employee-retention-databricks-kubernetes.yml
               - name: Geospatial data processing and analytics
                 href: example-scenario/data/geospatial-data-processing-analytics-azure.yml
               - name: High throughput stream ingestion
@@ -2226,7 +2228,7 @@ items:
               - name: Relational data
                 items:
                   - name: 'Extract, transform, and load (ETL)'
-                    href: data-guide/relational-data/etl.md
+                    href: data-guide/relational-data/etl.yml
                   - name: Online analytical processing (OLAP)
                     href: data-guide/relational-data/online-analytical-processing.yml
                   - name: Online transaction processing (OLTP)
@@ -2238,9 +2240,9 @@ items:
                   - name: Non-relational data stores
                     href: data-guide/big-data/non-relational-data.yml
                   - name: Free-form text search
-                    href: data-guide/scenarios/search.md
+                    href: data-guide/scenarios/search.yml
                   - name: Time series data
-                    href: data-guide/scenarios/time-series.md
+                    href: data-guide/scenarios/time-series.yml
                   - name: Working with CSV and JSON files
                     href: data-guide/scenarios/csv-and-json.md
               - name: Build a scalable system for massive data
@@ -2248,11 +2250,11 @@ items:
               - name: Big data
                 items:
                   - name: Big data architectures
-                    href: data-guide/big-data/index.md
+                    href: data-guide/big-data/index.yml
                   - name: Batch processing
-                    href: data-guide/big-data/batch-processing.md
+                    href: data-guide/big-data/batch-processing.yml
                   - name: Real-time processing
-                    href: data-guide/big-data/real-time-processing.md
+                    href: data-guide/big-data/real-time-processing.yml
               - name: Technology choices
                 items:
                   - name: Analytical data stores
@@ -2303,7 +2305,7 @@ items:
               - name: Secure data solutions
                 href: data-guide/scenarios/securing-data-solutions.md
               - name: Tenancy models for SaaS databases
-                href: isv/application-tenancy.md
+                href: isv/application-tenancy.yml
               - name: High availability for SQL DB and SQL MI
                 href: /azure/azure-sql/database/high-availability-sla
                 maintainContext: true
@@ -2605,7 +2607,7 @@ items:
           - name: Microservices
             items:
               - name: Get started
-                href: microservices/index.md
+                href: microservices/index.yml
               - name: Guides
                 items:
                   - name: Microservices assessment and readiness
@@ -2615,25 +2617,25 @@ items:
                       - name: Domain analysis
                         href: microservices/model/domain-analysis.md
                       - name: Tactical DDD
-                        href: microservices/model/tactical-ddd.md
+                        href: microservices/model/tactical-ddd.yml
                       - name: Identify microservice boundaries
-                        href: microservices/model/microservice-boundaries.md
+                        href: microservices/model/microservice-boundaries.yml
                   - name: Design a microservices architecture
                     items:
                       - name: Introduction
-                        href: microservices/design/index.md
+                        href: microservices/design/index.yml
                       - name: Choose a compute option
                         href: microservices/design/compute-options.md
                       - name: Interservice communication
-                        href: microservices/design/interservice-communication.md
+                        href: microservices/design/interservice-communication.yml
                       - name: API design
-                        href: microservices/design/api-design.md
+                        href: microservices/design/api-design.yml
                       - name: API gateways
-                        href: microservices/design/gateway.md
+                        href: microservices/design/gateway.yml
                       - name: Data considerations
-                        href: microservices/design/data-considerations.md
+                        href: microservices/design/data-considerations.yml
                       - name: Container orchestration
-                        href: microservices/design/orchestration.md
+                        href: microservices/design/orchestration.yml
                       - name: Design patterns for microservices
                         href: microservices/design/patterns.yml
                   - name: Operate microservices in production

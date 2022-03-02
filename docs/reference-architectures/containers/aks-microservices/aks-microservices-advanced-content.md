@@ -320,7 +320,7 @@ Consider the following points when planning for security.
 ## Next steps
 
 - [Baseline architecture for an Azure Kubernetes Service (AKS) cluster](../aks/secure-baseline-aks.yml)
-- [Design, build, and operate microservices on Azure with Kubernetes](../../../microservices/index.md)
+- [Design, build, and operate microservices on Azure with Kubernetes](../../../microservices/index.yml)
 - [Microservices architecture on AKS](./aks-microservices.yml)
 - [Monitor a microservices architecture in AKS](../../../microservices/logging-monitoring.yml)
 - [Performance tuning scenario: Distributed business transactions](../../../performance/distributed-transaction.yml)
