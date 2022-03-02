@@ -7,7 +7,7 @@ This approach can be used for:
 * Establishing new SWIFT connectivity by using Azure
 
 > [!NOTE]
-> This article provides an overview with reference architecture for deploying SWIFT's Alliance Connect Virtual solution on Azure. Please note that the new Alliance Connect Virtual solution is not yet available for SWIFT production traffic. The solution is currently being tested with SWIFT customers and will become generally available throughout 2022 as part of a phased launch. For more information about the general availability of the product, refer to [SWIFT.com](https://www.swift.com/our-solutions/interfaces-and-integration/alliance-connect-virtual).
+> This article provides an overview with reference architecture for deploying SWIFT's Alliance Connect Virtual solution on Azure. Please note that the new Alliance Connect Virtual solution is not yet available for SWIFT production traffic. The solution is currently being tested with SWIFT customers and will become generally available throughout 2022 as part of a phased launch. For more information about the general availability of the product, see [SWIFT.com](https://www.swift.com/our-solutions/interfaces-and-integration/alliance-connect-virtual).
 
 
 ## Potential use cases
@@ -23,9 +23,9 @@ This solution is targeted to:
 
 _Download a [Visio file](https://arch-center.azureedge.net/swift-alliance-cloud-on-azure.vsdx) that contains this architecture diagram._
 
-In this example scenario, deployment of SWIFT's Alliance Cloud in Azure consists of two Azure customer subscriptions. The two-subscription design separates resources based on the primary responsibility for each resource. As the customer, you are primarily responsible for supplying the resources for the SWIFT Integration Layer (SIL). SWIFT provides the virtual firewall, Juniper vSRX, as part of the solution for managed connectivity of Alliance Connect Virtual. In this context, SWIFT configures the Juniper vSRX and establishes the VPN tunnel from the Juniper vSRX to SWIFT. You have no access nor visibility into the Juniper vSRX configuration or operation, but you do have visibility and operational responsibility for the underlying infrastructure resources on Azure.
+In this example scenario, deployment of SWIFT's Alliance Cloud in Azure consists of two Azure customer subscriptions. The two-subscription design separates resources based on the primary responsibility for each resource. As the customer, you're primarily responsible for supplying the resources for the SWIFT Integration Layer (SIL). SWIFT provides the virtual firewall, Juniper vSRX, as part of the solution for managed connectivity of Alliance Connect Virtual. In this context, SWIFT configures the Juniper vSRX and establishes the VPN tunnel from the Juniper vSRX to SWIFT. You have no access nor visibility into the Juniper vSRX configuration or operation, but you do have visibility and operational responsibility for the underlying infrastructure resources on Azure.
 
-The footprint of SWIFT's Alliance Cloud is based on a single tenant. To increase resiliency and availability, each customer deploys a second similar configuration (in standby mode) in a different Azure region. For each customer there is an instance of the SIL and Alliance Connect Virtual.
+The footprint of SWIFT's Alliance Cloud is based on a single tenant. To increase resiliency and availability, each customer deploys a second similar configuration (in standby mode) in a different Azure region. For each customer there's an instance of the SIL and Alliance Connect Virtual.
 
 The SIL subscription contains resources that are managed by the customer. The resources for the SIL can be deployed by using an Azure Resource Manager template to create the core infrastructure, as described in this architecture. You can modify the template for the SIL to meet your specific needs as long as the configuration adheres to policies that are required by SWIFT's Customer Security Programme – Customer Security Controls Framework (CSP-CSCF). You can use [Azure Policy](https://azure.microsoft.com/services/azure-policy) to apply the necessary policies to comply with CSP-CSCF.
 
@@ -67,7 +67,7 @@ Customers are recommended to deploy different environment in different subscript
 
 ### Availability
 
-This example scenario for SWIFT's Alliance Cloud and SIL does not provide high availability features footprint. You can deploy multiple instances of SIL and Alliance Cloud and redirect users to backup locations to support higher availability.
+This example scenario for SWIFT's Alliance Cloud and SIL doesn't provide high availability features footprint. You can deploy multiple instances of SIL and Alliance Cloud and redirect users to back up locations to support higher availability.
 
 ### Operations
 
@@ -85,7 +85,7 @@ Azure provides a comprehensive set of monitoring capabilities in Azure Monitor. 
 
 The traffic between the SIL and the Juniper vSRX is limited to specific and known traffic. You can use network security groups and the packet capture capabilities that are provided by  Network Watcher, and combined with Azure Security Center and Azure Sentinel. Network security group flow logs in Azure Network Watcher can be used to send flow data to Azure Storage accounts. [Azure Sentinel](/services/azure-sentinel/) can collect these logs, detect and investigate threats, and respond to incidents with built-in orchestration and automation of common tasks.
 
-[Azure Bastion](/services/azure-bastion/) enables connectivity transparently from the Azure portal to a virtual machine via RDP or SSH. Because Azure Bastion requires administrators to sign in to the Azure portal, you can use Conditional Access to enforce multifactor authentication and other access restrictions. For example, you can specify from the public IP address from which administrators can sign in.
+[Azure Bastion](/services/azure-bastion/) enables connectivity transparently from the Azure portal to a virtual machine via RDP or SSH. Because Azure Bastion requires administrators to sign in to the Azure portal, you can use Conditional Access to enforce multi-factor authentication and other access restrictions. For example, you can specify from the public IP address from which administrators can sign in.
 
 Azure Bastion requires a dedicated subnet to deploy to and requires a public IP address. Access to this public IP address is restricted by Azure Bastion through a network security group that's managed. Deploying Azure Bastion also enables just-in-time access, which only opens required ports on demand when remote access is required.
 
