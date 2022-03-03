@@ -23,7 +23,7 @@ Following are the typical use cases for this architecture:
 
 The following illustration shows a MITRE Att&ck cloud scenario.
 
-![Diagram of a MITRE Att&ck cloud scenario.](./media/mitre-att&ck-in-sentinel-artifacts-dev.png)
+![Diagram of a MITRE Att&ck cloud scenario.](./media/mitre-attack-in-sentinel-artifacts-dev.png)
 
 *Download a [Visio file](https://arch-center.azureedge.net/US-1902821-automate-sentinel-integration-architecture.vsdx) of this architecture.*
 
@@ -481,7 +481,7 @@ For more information on how to create an ARM template, see [Create and deploy AR
 
 The following diagram shows the high-level architecture integration between an MSSP tenant and a customer's resource provider tenants with Azure Lighthouse and Microsoft Sentinel.
 
- ![Diagram of a Microsoft Sentinel managed service identity architecture.](./media/azure-lighthouse-for-microsoft-sentinel-architecture.png)
+:::image type="content" source="./media/azure-lighthouse-for-microsoft-sentinel-architecture.png" alt-text="Diagram of a Microsoft Sentinel managed service identity architecture." lightbox="./media/azure-lighthouse-for-microsoft-sentinel-architecture.png":::
 
 1. An MSP offering is integrated through an ARM template or an Azure Marketplace service offering.
 1. Azure delegated resource management checks that the request is from a partner tenant and calls a managed service resource provider.
