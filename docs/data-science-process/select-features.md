@@ -1,14 +1,14 @@
 ---
 title: Feature selection in the Team Data Science Process
 description: Explains the purpose of feature selection and provides examples of their role in the data enhancement process of machine learning.
-services: machine-learning
 author: marktab
 manager: marktab
 editor: marktab
-ms.service: machine-learning
-ms.subservice: team-data-science-process
+services: architecture-center
+ms.service: architecture-center
+ms.subservice: azure-guide
 ms.topic: article
-ms.date: 01/10/2020
+ms.date: 12/21/2021
 ms.author: tdsp
 ms.custom:
   - previous-author=deguhath
@@ -22,7 +22,7 @@ categories:
 
 This article explains the purposes of feature selection and provides examples of its role in the data enhancement process of machine learning. These examples are drawn from Azure Machine Learning Studio.
 
-The engineering and selection of features is one part of the Team Data Science Process (TDSP) outlined in the article [What is the Team Data Science Process?](overview.md). Feature engineering and selection are parts of the **Develop features** step of the TDSP.
+The engineering and selection of features is one part of the Team Data Science Process (TDSP) outlined in the article [What is the Team Data Science Process?](overview.yml). Feature engineering and selection are parts of the **Develop features** step of the TDSP.
 
 * **feature engineering**: This process attempts to create additional relevant features from the existing raw features in the data, and to increase predictive power to the learning algorithm.
 * **feature selection**: This process selects the key subset of original data features in an attempt to reduce the dimensionality of the training problem.
@@ -36,29 +36,18 @@ Feature selection may be used for classification or regression tasks. The goal i
 * First, feature selection often increases classification accuracy by eliminating irrelevant, redundant, or highly correlated features.
 * Second, it decreases the number of features, which makes the model training process more efficient. Efficiency is important for learners that are expensive to train such as support vector machines.
 
-Although feature selection does seek to reduce the number of features in the dataset used to train the model, it is not referred to by the term "dimensionality reduction". Feature selection methods extract a subset of original features in the data without changing them.  Dimensionality reduction methods employ engineered features that can transform the original features and thus modify them. Examples of dimensionality reduction methods include principal component analysis (PCA), canonical correlation analysis, and singular value decomposition (SVD).
+Although feature selection does seek to reduce the number of features in the dataset used to train the model, it is not referred to by the term "dimensionality reduction". Feature selection methods extract a subset of original features in the data without changing them. Dimensionality reduction methods employ engineered features that can transform the original features and thus modify them. Examples of dimensionality reduction methods include principal component analysis (PCA), canonical correlation analysis, and singular value decomposition (SVD).
 
 Among others, one widely applied category of feature selection methods in a supervised context is called "filter-based feature selection". By evaluating the correlation between each feature and the target attribute, these methods apply a statistical measure to assign a score to each feature. The features are then ranked by the score, which may be used to help set the threshold for keeping or eliminating a specific feature. Examples of statistical measures used in these methods include Pearson correlation coefficient (PCC), mutual information (MI), and the chi-squared test.
 
-In Azure Machine Learning Studio, there are modules provided for feature selection. As shown in the following figure, these modules include [Filter-Based Feature Selection][filter-based-feature-selection] and [Fisher Linear Discriminant Analysis][fisher-linear-discriminant-analysis].
+## Azure Machine Learning Designer
 
-![Feature Selection modules](./media/select-features/feature-Selection.png)
+One tool inside Azure Machine Learning is the [designer](/azure/machine-learning/concept-designer). Azure Machine Learning designer is a drag-and-drop interface used to train and deploy models in Azure Machine Learning. To manage features, there are [different tools available inside designer](/azure/machine-learning/how-to-select-algorithms#number-of-features).
 
-Consider, for example, the use of the [Filter-Based Feature Selection][filter-based-feature-selection] module. For convenience, continue using the text mining example. Assume that one wants to build a regression model after a set of 256 features are created through the [Feature Hashing][feature-hashing] module, and that the response variable is the "Col1" that contains book review ratings ranging from 1 to 5. By setting "Feature scoring method" to be "Pearson Correlation", the "Target column" to be "Col1", and the "Number of desired features" to 50. Then the module [Filter-Based Feature Selection][filter-based-feature-selection] produces a dataset containing 50 features together with the target attribute "Col1". The following figure shows the flow of this experiment and the input parameters:
+The [Filter Based Feature Selection component](/azure/machine-learning/component-reference/filter-based-feature-selection) in Azure Machine Learning designer helps you identify the columns in your input dataset that have the greatest predictive power. 
 
-![Filter-Based Feature Selection module properties](./media/select-features/feature-selection-1.png)
+The [Permutation Feature Importance component](/azure/machine-learning/component-reference/permutation-feature-importance) in Azure Machine Learning designer computes a set of feature importance scores for your dataset; you then use these scores to help you determine the best features to use in a model.
 
-The following figure shows the resulting datasets:
-
-![Resulting dataset for Filter Based Feature Selection module](./media/select-features/feature-selection-2.png)
-
-Each feature is scored based on the Pearson correlation coefficient between itself and the target attribute "Col1". The features with top scores are kept.
-
-The corresponding scores of the selected features are shown in the following figure:
-
-![Scores for Filter Based Feature Selection module](./media/select-features/feature-selection-3.png)
-
-By applying this [Filter-Based Feature Selection][filter-based-feature-selection] module, 50 out of 256 features are selected because they have the most correlated features with the target variable "Col1", based on the scoring method "Pearson Correlation".
 
 ## Conclusion
 

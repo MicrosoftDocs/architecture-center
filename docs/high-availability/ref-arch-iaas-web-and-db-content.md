@@ -26,7 +26,7 @@ The Application Gateway is zone-redundant. It isn't affected by the failure of Z
 
 Spreading resources across Availability Zones also protects an application from planned maintenance. When VMs are distributed across three Availability Zones they are, in effect, spread across three update domains. The Azure platform recognizes this distribution across update domains to ensure that VMs in different zones aren't updated at the same time.
 
-By replicating VMs across Availability Zones, you can protect your applications and data from a zone failure. This is how Azure meets the industry-best 99.99% VM uptime service-level agreement (SLA). See [Building solutions for high availability using Availability Zones](./building-solutions-for-high-availability.md).
+By replicating VMs across Availability Zones, you can protect your applications and data from a zone failure. This is how Azure meets the industry-best 99.99% VM uptime service-level agreement (SLA). See [Building solutions for high availability using Availability Zones](./building-solutions-for-high-availability.yml).
 
 The architecture has the following components.
 
@@ -142,7 +142,7 @@ For SQL server VMs pricing options, see [SQL VMs pricing](https://www.microsoft.
 
 You're charged only for the number of configured load-balancing and outbound rules. Inbound NAT rules are free. There's no hourly charge for the Standard Load Balancer when no rules are configured.
 
-For more information, see the cost section in [Azure Architecture Framework](../framework/cost/overview.md).
+For more information, see the cost section in [Azure Architecture Framework](/azure/architecture/framework/cost/overview).
 
 ### Application Gateway
 

@@ -129,7 +129,7 @@ The CluedIn platform has the following characteristics and considerations:
 
 ## Pricing
 
-The pricing for CluedIn is open and transparent. You can see the pricing on their [website](https://www.cluedin.com/pricing).
+The pricing for CluedIn is open and transparent. You can see the pricing on their [website](https://www.cluedin.com/).
 
 ### Azure sizing and starting a trial
 

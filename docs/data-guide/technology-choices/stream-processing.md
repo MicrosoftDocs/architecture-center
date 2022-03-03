@@ -20,7 +20,7 @@ ms.custom:
 
 This article compares technology choices for real-time stream processing in Azure.
 
-Real-time stream processing consumes messages from either queue or file-based storage, processes the messages, and forwards the result to another message queue, file store, or database. Processing may include querying, filtering, and aggregating messages. Stream processing engines must be able to consume endless streams of data and produce results with minimal latency. For more information, see [Real time processing](../big-data/real-time-processing.md).
+Real-time stream processing consumes messages from either queue or file-based storage, processes the messages, and forwards the result to another message queue, file store, or database. Processing may include querying, filtering, and aggregating messages. Stream processing engines must be able to consume endless streams of data and produce results with minimal latency. For more information, see [Real time processing](../big-data/real-time-processing.yml).
 
 ## What are your options when choosing a technology for real-time processing?
 
@@ -77,7 +77,7 @@ The following tables summarize the key differences in capabilities.
 See also:
 
 - [Choosing a real-time message ingestion technology](./real-time-ingestion.md)
-- [Real time processing](../big-data/real-time-processing.md)
+- [Real time processing](../big-data/real-time-processing.yml)
 
 <!-- links -->
 

@@ -1,0 +1,20 @@
+### YamlMime:Architecture
+metadata:
+  title: Monoliths to microservices using domain-driven design
+  description: Learn to use a domain-driven design approach to migrate a monolithic application to microservices.
+  author: lavann
+  ms.author: pnp
+  ms.date: 11/04/2019
+  ms.topic: conceptual
+  ms.service: architecture-center
+  ms.subservice: azure-guide
+azureCategories:
+  - migration
+  - developer-tools
+products:
+  - aspnet
+name: Migrate a monolith application to microservices using domain-driven design
+summary: Learn to use a domain-driven design approach to migrate a monolithic application to microservices.
+thumbnailUrl: /azure/architecture/browse/thumbs/glue-code-communicate-monolith.png
+content: |
+  [!include[](migrate-monolith-content.md)]

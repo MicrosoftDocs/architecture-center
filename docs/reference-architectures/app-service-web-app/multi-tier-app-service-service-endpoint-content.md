@@ -15,7 +15,7 @@ This architecture may suit these use cases:
 
 ## Architecture
 
-:::image type="content" source="images/multi-tier-app-service-service-endpoint.svg" lightbox="images/multi-tier-app-service-service-endpoint.png" alt-text="Architecture of a multi-tier app.":::
+:::image type="content" source="images/multi-tier-app-service-service-endpoint.png" lightbox="images/multi-tier-app-service-service-endpoint.png" alt-text="Architecture of a multi-tier app.":::
 
 *Download a [Visio file](https://arch-center.azureedge.net/US-1874703-PR-3830-multi-tier-app-service-service-endpoint.vsdx) of this architecture.*
 
@@ -57,13 +57,13 @@ Service endpoints protect the API apps from being accessed by anything other tha
 
 ### Availability
 
-- A system can't be highly available unless it's reliable. For techniques to increase reliability, see [Reliability patterns](../../framework/resiliency/reliability-patterns.md).
+- A system can't be highly available unless it's reliable. For techniques to increase reliability, see [Reliability patterns](/azure/architecture/framework/resiliency/reliability-patterns).
 
 ### Scalability
 
-- Performance efficiency is the ability of your workload to scale to meet the demands placed on it in an efficient manner. Be aware of performance efficiency patterns as you design and build your cloud application. For more information, see [Performance Efficiency patterns](../../framework/scalability/performance-efficiency-patterns.md).
+- Performance efficiency is the ability of your workload to scale to meet the demands placed on it in an efficient manner. Be aware of performance efficiency patterns as you design and build your cloud application. For more information, see [Performance Efficiency patterns](/azure/architecture/framework/scalability/performance-efficiency-patterns).
 - Learn about scaling a basic web app in [Scaling the App Service app](../app-service-web-app/basic-web-app.yml?tabs=cli#scaling-the-app-service-app). Review the other articles in the same section for ideas regarding other architectures.
-- For more performance efficiency ideas, see [Performance efficiency checklist](../../framework/scalability/performance-efficiency.md).
+- For more performance efficiency ideas, see [Performance efficiency checklist](/azure/architecture/framework/scalability/performance-efficiency).
 
 ## Pricing
 
@@ -84,8 +84,8 @@ Some aspects that affect the cost of an implementation are:
 - [Introduction to the App Service Environments](/azure/app-service/environment/intro)
 - [Private link resource](/azure/private-link/private-endpoint-overview#private-link-resource)
 - [App Service overview](/azure/app-service/overview)
-- [Reliability patterns](../../framework/resiliency/reliability-patterns.md)
-- [Performance Efficiency patterns](../../framework/scalability/performance-efficiency-patterns.md)
+- [Reliability patterns](/azure/architecture/framework/resiliency/reliability-patterns)
+- [Performance Efficiency patterns](/azure/architecture/framework/scalability/performance-efficiency-patterns)
 
 ## Related Resources
 

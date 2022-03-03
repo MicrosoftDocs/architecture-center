@@ -1,11 +1,19 @@
 [!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
-This solution demonstrates how to build and deploy a machine learning model with SQL Server 2016 with R Services to predict if a Bank loan will need to be charged off within next three months.
+This solution demonstrates how to build and deploy a machine learning model with SQL Server 2016 with R Services to predict if a bank loan will need to be charged off within next three months.
 
 ## Architecture
 
-![Architecture Diagram](../media/loan-chargeoff-prediction-with-sql-server.png)
+![Architecture diagram of building and deploying an ML model to predict a bank loan.](../media/loan-chargeoff-prediction-with-sql-server.png)
 *Download an [SVG](../media/loan-chargeoff-prediction-with-sql-server.svg) of this architecture.*
+
+### Components
+
+Key technologies used to implement this architecture:
+
+- [Power BI Embedded](https://azure.microsoft.com/services/power-bi-embedded)
+- [SQL Server on Azure Virtual Machines](https://azure.microsoft.com/services/virtual-machines/sql-server)
+- [Virtual Machines](https://azure.microsoft.com/services/virtual-machines)
 
 ## Solution details
 
@@ -40,3 +48,28 @@ Your Azure subscription used for the deployment will incur consumption charges o
 Ensure that you stop your VM instance when not actively using the solution. If you run the VM, you will incur higher costs.
 
 Make sure to delete the solution if you are not using it.
+
+## Next steps
+
+Product documentation:
+
+- [Linux virtual machines in Azure](/azure/virtual-machines/linux/overview)
+- [Run SQL Server in the cloud](/sql/linux/quickstart-install-connect-clouds)
+- [What is Power BI?](/power-bi/fundamentals/power-bi-overview)
+- [What is SQL Server on Windows Azure Virtual Machines?](/azure/azure-sql/virtual-machines/windows/sql-server-on-azure-vm-iaas-what-is-overview)
+- [Windows virtual machines in Azure](/azure/virtual-machines/windows/overview)
+
+Microsoft Learn modules:
+
+- [Create a Linux virtual machine in Azure](/learn/modules/create-linux-virtual-machine-in-azure)
+- [Create a Windows virtual machine in Azure](/learn/modules/create-windows-virtual-machine-in-azure)
+- [Create reports and dashboards with Power BI](/learn/modules/explore-power-bi)
+- [Deploy and configure servers, instances, and databases for Azure SQL](/learn/modules/azure-sql-deploy-configure)
+
+## Related resources
+
+- [Azure Kubernetes Service (AKS) architecture design](../../reference-architectures/containers/aks-start-here.md)
+- [Campaign optimization with SQL Server and machine learning](campaign-optimization-with-sql-server.yml)
+- [Finance management apps using Azure Database for PostgreSQL](finance-management-apps-using-azure-database-for-postgresql.yml)
+- [Finance management apps using Azure Database for MySQL](finance-management-apps-using-azure-database-for-mysql.yml)
+- [Loan charge-off prediction with Azure HDInsight Spark clusters](loan-chargeoff-prediction-with-azure-hdinsight-spark-clusters.yml)

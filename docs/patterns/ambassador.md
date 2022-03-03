@@ -4,7 +4,7 @@ titleSuffix: Cloud Design Patterns
 description: Learn about the Ambassador pattern, which creates helper services that send network requests on behalf of a consumer service or application.
 author: EdPrice-MSFT
 ms.author: pnp
-ms.date: 06/23/2017
+ms.date: 12/13/2021
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: design-pattern
@@ -12,13 +12,17 @@ ms.custom:
   - design-pattern
 keywords:
   - design pattern
+products:
+  - azure
+categories:
+  - management-and-governance
 ---
 
 # Ambassador pattern
 
 Create helper services that send network requests on behalf of a consumer service or application. An ambassador service can be thought of as an out-of-process proxy that is co-located with the client.
 
-This pattern can be useful for offloading common client connectivity tasks such as monitoring, logging, routing, security (such as TLS), and [resiliency patterns](../framework/resiliency/reliability-patterns.md) in a language agnostic way. It is often used with legacy applications, or other applications that are difficult to modify, in order to extend their networking capabilities. It can also enable a specialized team to implement those features.
+This pattern can be useful for offloading common client connectivity tasks such as monitoring, logging, routing, security (such as TLS), and [resiliency patterns](/azure/architecture/framework/resiliency/reliability-patterns) in a language agnostic way. It is often used with legacy applications, or other applications that are difficult to modify, in order to extend their networking capabilities. It can also enable a specialized team to implement those features.
 
 ## Context and problem
 
@@ -34,7 +38,7 @@ Put client frameworks and libraries into an external process that acts as a prox
 
 Features that are offloaded to the ambassador can be managed independently of the application. You can update and modify the ambassador without disturbing the application's legacy functionality. It also allows for separate, specialized teams to implement and maintain security, networking, or authentication features that have been moved to the ambassador.
 
-Ambassador services can be deployed as a [sidecar](./sidecar.md) to accompany the lifecycle of a consuming application or service. Alternatively, if an ambassador is shared by multiple separate processes on a common host, it can be deployed as a daemon or Windows service. If the consuming service is containerized, the ambassador should be created as a separate container on the same host, with the appropriate links configured for communication.
+Ambassador services can be deployed as a [sidecar](./sidecar.yml) to accompany the lifecycle of a consuming application or service. Alternatively, if an ambassador is shared by multiple separate processes on a common host, it can be deployed as a daemon or Windows service. If the consuming service is containerized, the ambassador should be created as a separate container on the same host, with the appropriate links configured for communication.
 
 ## Issues and considerations
 
@@ -66,7 +70,7 @@ The following diagram shows an application making a request to a remote service 
 
 ## Related guidance
 
-- [Sidecar pattern](./sidecar.md)
+- [Sidecar pattern](./sidecar.yml)
 
 <!-- links -->
 
