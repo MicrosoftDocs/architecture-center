@@ -109,7 +109,7 @@ Here are some additional resources:
 - [Azure Kubernetes Service](/azure/aks/intro-kubernetes)
 - [Azure NetApp Files documentation](/azure/azure-netapp-files)
 
-## Related sources
+## Related resources
 
 - [Azure mainframe and midrange architecture concepts and patterns](../../mainframe/mainframe-midrange-architecture.md)
 - [Mainframe migration overview](/azure/cloud-adoption-framework/infrastructure/mainframe-migration/?toc=https:%2f%2fdocs.microsoft.com%2fazure%2farchitecture%2ftoc.json&bc=https:%2f%2fdocs.microsoft.com%2fazure%2farchitecture%2fbread%2ftoc.json)
