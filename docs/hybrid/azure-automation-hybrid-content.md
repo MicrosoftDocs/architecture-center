@@ -23,7 +23,7 @@ A hybrid worker can co-exist with both platforms: Agent based (V1) and Extension
 ## Runbook worker types
 
 There are two types of Runbook workers - System and User.
- 
+
 **System** - supports a set of hidden runbooks used by the Update Management feature that are designed to install user-specified updates on Windows and Linux machines. This type of Hybrid Runbook Worker isn't a member of a Hybrid Runbook Worker group, and therefore doesn't run runbooks that target a Runbook Worker group.
 
 **User** - supports user-defined runbooks intended to run directly on the Windows and Linux machine that are members of one or more Runbook Worker groups.
@@ -158,7 +158,7 @@ More about Azure Automation:
 [architectural-diagram-visio-source-system]: https://arch-center.azureedge.net/azure-automation-system.vsdx
 [1]: /azure/automation/extension-based-hybrid-runbook-worker-install?tabs=windows
 [2]: /azure/automation/automation-windows-hrw-install
-[3]: /azure/automation/extension-based-hybrid-runbook-worker-install
+[3]: /azure/automation/extension-based-hybrid-runbook-worker-install?tabs=windows#install-extension-based-v2-on-existing-agent-based-v1-hybrid-worker
 [4]: /azure/azure-monitor/agents/log-analytics-agent
 [5]: /azure/azure-monitor/logs/design-logs-deployment
 [6]: /azure/automation/update-management/overview
