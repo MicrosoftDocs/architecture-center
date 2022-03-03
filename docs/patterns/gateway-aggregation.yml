@@ -1,0 +1,19 @@
+### YamlMime:Architecture
+metadata:
+  title: Gateway Aggregation pattern
+  description: Learn about the Gateway Aggregation pattern, which uses a gateway to aggregate many individual requests into a single request.
+  author: EdPrice-MSFT
+  ms.author: pnp
+  ms.date: 06/23/2017
+  ms.topic: conceptual
+  ms.service: architecture-center
+  ms.subservice: azure-guide
+azureCategories:
+  - networking
+products:
+  - azure-traffic-manager
+name: Gateway Aggregation pattern
+summary: Learn about the Gateway Aggregation pattern, which uses a gateway to aggregate many individual requests into a single request.
+thumbnailUrl: /azure/architecture/browse/thumbs/gateway-aggregation-services.png
+content: |
+  [!include[](gateway-aggregation-content.md)]

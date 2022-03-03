@@ -1,21 +1,3 @@
----
-title: Gateway Aggregation pattern
-titleSuffix: Cloud Design Patterns
-description: Learn about the Gateway Aggregation pattern, which uses a gateway to aggregate many individual requests into a single request.
-author: EdPrice-MSFT
-ms.author: pnp
-ms.date: 06/23/2017
-ms.topic: conceptual
-ms.service: architecture-center
-ms.subservice: design-pattern
-ms.custom:
-  - design-pattern
-keywords:
-  - design pattern
----
-
-# Gateway Aggregation pattern
-
 Use a gateway to aggregate multiple individual requests into a single request. This pattern is useful when a client must make multiple calls to different backend systems to perform an operation.
 
 ## Context and problem
@@ -119,8 +101,8 @@ http {
 ## Related guidance
 
 - [Backends for Frontends pattern](./backends-for-frontends.md)
-- [Gateway Offloading pattern](./gateway-offloading.md)
-- [Gateway Routing pattern](./gateway-routing.md)
+- [Gateway Offloading pattern](./gateway-offloading.yml)
+- [Gateway Routing pattern](./gateway-routing.yml)
 
 [bulkhead]: ./bulkhead.md
 [circuit-breaker]: ./circuit-breaker.md

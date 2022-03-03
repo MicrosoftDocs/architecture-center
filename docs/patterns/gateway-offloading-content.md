@@ -1,21 +1,3 @@
----
-title: Gateway Offloading pattern
-titleSuffix: Cloud Design Patterns
-description: Use the Gateway Offloading design pattern to offload shared or specialized service functionality to a gateway proxy.
-author: EdPrice-MSFT
-ms.author: pnp
-ms.date: 06/23/2017
-ms.topic: conceptual
-ms.service: architecture-center
-ms.subservice: design-pattern
-ms.custom:
-  - design-pattern
-keywords:
-  - design pattern
----
-
-# Gateway Offloading pattern
-
 Offload shared or specialized service functionality to a gateway proxy. This pattern can simplify application development by moving shared service functionality, such as the use of SSL certificates, from other parts of the application into the gateway.
 
 ## Context and problem
@@ -93,5 +75,5 @@ On Azure, this can be achieved by [setting up SSL termination on Application Gat
 ## Related guidance
 
 - [Backends for Frontends pattern](./backends-for-frontends.md)
-- [Gateway Aggregation pattern](./gateway-aggregation.md)
-- [Gateway Routing pattern](./gateway-routing.md)
+- [Gateway Aggregation pattern](./gateway-aggregation.yml)
+- [Gateway Routing pattern](./gateway-routing.yml)

@@ -64,7 +64,7 @@ If you need to use the server-side copy APIs directly from your code, consider u
 
 ### Object replication
 
-The [Object replication](/azure/storage/blobs/object-replication-overview) feature automatically replicates data between a source and destination storage account. Object replication is asynchronous. In a multitenant solution, this feature can be useful when you need to continuously replicate data between deployment stamps, or in an implementation of the [Geode pattern](../../../patterns/geodes.md).
+The [Object replication](/azure/storage/blobs/object-replication-overview) feature automatically replicates data between a source and destination storage account. Object replication is asynchronous. In a multitenant solution, this feature can be useful when you need to continuously replicate data between deployment stamps, or in an implementation of the [Geode pattern](../../../patterns/geodes.yml).
 
 ### Encryption
 

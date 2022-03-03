@@ -1,25 +1,3 @@
----
-title: Health Endpoint Monitoring pattern
-titleSuffix: Cloud Design Patterns
-description: Implement functional checks in an application that external tools can access through exposed endpoints at regular intervals.
-author: magrande
-ms.date: 12/13/2021
-ms.topic: conceptual
-ms.service: architecture-center
-ms.subservice: design-pattern
-products:
-  - azure-traffic-manager
-  - azure-monitor
-categories:
-  - devops
-ms.custom:
-  - design-pattern
-keywords:
-  - design pattern
----
-
-# Health Endpoint Monitoring pattern
-
 Implement functional checks in an application that external tools can access through exposed endpoints at regular intervals. This can help to verify that applications and services are performing correctly.
 
 ## Context and problem
