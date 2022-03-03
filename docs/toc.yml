@@ -508,19 +508,19 @@ items:
       - name: Scheduler Agent Supervisor
         href: patterns/scheduler-agent-supervisor.md
       - name: Sequential Convoy
-        href: patterns/sequential-convoy.md
+        href: patterns/sequential-convoy.yml
       - name: Sharding
-        href: patterns/sharding.md
+        href: patterns/sharding.yml
       - name: Sidecar
-        href: patterns/sidecar.md
+        href: patterns/sidecar.yml
       - name: Static Content Hosting
-        href: patterns/static-content-hosting.md
+        href: patterns/static-content-hosting.yml
       - name: Strangler Fig
-        href: patterns/strangler-fig.md
+        href: patterns/strangler-fig.yml
       - name: Throttling
-        href: patterns/throttling.md
+        href: patterns/throttling.yml
       - name: Valet Key
-        href: patterns/valet-key.md
+        href: patterns/valet-key.yml
   - name: Microsoft Azure Well-Architected Framework
     href: /azure/architecture/framework
   - name: Industry solutions with Azure
@@ -1476,7 +1476,7 @@ items:
             href: /archive/msdn-magazine/2018/november/machine-learning-analyzing-olympic-sports-combining-sensors-and-vision-ai
             maintainContext: true
           - name: Baseball decision analysis with ML.NET
-            href: data-guide/big-data/baseball-ml-workload.md
+            href: data-guide/big-data/baseball-ml-workload.yml
   - name: Azure categories
     expanded: true
     items:
@@ -1542,7 +1542,7 @@ items:
               - name: Team Data Science Process
                 items:
                   - name: Overview
-                    href: data-science-process/overview.md
+                    href: data-science-process/overview.yml
                   - name: Lifecycle
                     items:
                       - name: Overview
@@ -1586,7 +1586,7 @@ items:
                   - name: Operationalization
                     items:
                       - name: DevOps - CI/CD
-                        href: data-science-process/ci-cd-flask.md
+                        href: data-science-process/ci-cd-flask.yml
                   - name: Training
                     items:
                       - name: For data scientists
@@ -1690,7 +1690,7 @@ items:
               - name: Automate document processing
                 href: example-scenario/ai/automate-document-processing-azure-form-recognizer.yml
               - name: Baseball decision analysis with ML.NET
-                href: data-guide/big-data/baseball-ml-workload.md
+                href: data-guide/big-data/baseball-ml-workload.yml
               - name: Batch scoring for deep learning
                 href: reference-architectures/ai/batch-scoring-deep-learning.yml
               - name: Batch scoring with Python

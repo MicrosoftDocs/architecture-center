@@ -70,5 +70,5 @@ For a structured approach to making your applications self healing, see [Design 
 [load-level]: ../../patterns/queue-based-load-leveling.md
 [resiliency-overview]: /azure/architecture/framework/resiliency/principles
 [retry]: ../../patterns/retry.md
-[throttle]: ../../patterns/throttling.md
+[throttle]: ../../patterns/throttling.yml
 [transient-fault-handling]: ../../best-practices/transient-faults.md

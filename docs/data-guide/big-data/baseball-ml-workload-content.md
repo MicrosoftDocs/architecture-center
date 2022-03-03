@@ -1,24 +1,3 @@
----
-title: Baseball decision analysis with ML.NET and Blazor
-description: This scenario describes a web application that provides an interface for on-technical users to use artificial intelligence (AI) and machine learning (ML) to perform decision analysis techniques. These techniques help you rapidly gain insights and make informed predictions.
-author: EdPrice-MSFT
-ms.author: pnp
-ms.date: 01/04/2022
-ms.topic: conceptual
-ms.service: architecture-center
-ms.subservice: azure-guide
-products:
-  - azure-machine-learning
-  - mlnet
-categories:
-  - analysis
-ms.custom:
-  - fcp
-  - guide
----
-
-# Baseball decision analysis with ML.NET and Blazor
-
 This scenario describes a web application, called the Baseball Machine Learning Workbench, which provides an interface for non-technical users to use artificial intelligence (AI) and machine learning (ML) to perform decision analysis techniques. These techniques help you rapidly gain insights and make informed predictions.
 
 This solution uses historical baseball data to generate National Baseball Hall of Fame insights. Machine intelligence powers the what-if analysis, decision thresholding, and improvements over traditional rule-based systems. User-friendly interface controls set adjustable parameters and surface the results in real time, with clear visual cues to highlight positive or negative outcomes.

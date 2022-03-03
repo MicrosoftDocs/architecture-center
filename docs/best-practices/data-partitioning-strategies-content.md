@@ -312,7 +312,7 @@ For considerations about trade-offs between availability and consistency, see [A
 [Service Bus quotas]: /azure/service-bus-messaging/service-bus-quotas
 [service-fabric-reliable-collections]: /azure/service-fabric/service-fabric-reliable-services-reliable-collections
 [Service limits in Azure Search]: /azure/search/search-limits-quotas-capacity
-[Sharding pattern]: ../patterns/sharding.md
+[Sharding pattern]: ../patterns/sharding.yml
 [Supported Data Types (Azure Search)]: /rest/api/searchservice/Supported-data-types
 [Transactions]: https://redis.io/topics/transactions
 [What is Event Hubs?]: /azure/event-hubs/event-hubs-what-is-event-hubs

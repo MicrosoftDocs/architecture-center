@@ -49,7 +49,7 @@ Choose a sharding key that minimizes any future requirements to split large shar
 
 If shards are replicated, it might be possible to keep some of the replicas online while others are split, merged, or reconfigured. However, the system might need to limit the operations that can be performed during the reconfiguration. For example, the data in the replicas might be marked as read-only to prevent data inconsistences.
 
-For more information about horizontal partitioning, see [sharding pattern](../patterns/sharding.md).
+For more information about horizontal partitioning, see [sharding pattern](../patterns/sharding.yml).
 
 ### Vertical partitioning
 
@@ -88,7 +88,7 @@ It's vital to consider size and workload for each partition and balance them so 
 Follow these steps when designing partitions for scalability:
 
 1. Analyze the application to understand the data access patterns, such as the size of the result set returned by each query, the frequency of access, the inherent latency, and the server-side compute processing requirements. In many cases, a few major entities will demand most of the processing resources.
-2. Use this analysis to determine the current and future scalability targets, such as data size and workload. Then distribute the data across the partitions to meet the scalability target. For horizontal partitioning, choosing the right shard key is important to make sure distribution is even. For more information, see the [sharding pattern](../patterns/sharding.md).
+2. Use this analysis to determine the current and future scalability targets, such as data size and workload. Then distribute the data across the partitions to meet the scalability target. For horizontal partitioning, choosing the right shard key is important to make sure distribution is even. For more information, see the [sharding pattern](../patterns/sharding.yml).
 3. Make sure each partition has enough resources to handle the scalability requirements, in terms of data size and throughput. Depending on the data store, there might be a limit on the amount of storage space, processing power, or network bandwidth per partition. If the requirements are likely to exceed these limits, you may need to refine your partitioning strategy or split data out further, possibly combining two or more strategies.
 4. Monitor the system to verify that data is distributed as expected and that the partitions can handle the load. Actual usage does not always match what an analysis predicts. If so, it might be possible to rebalance the partitions, or else redesign some parts of the system to gain the required balance.
 
@@ -218,7 +218,7 @@ Online migration is more complex to perform but less disruptive. The process is 
 
 The following design patterns might be relevant to your scenario:
 
-- The [sharding pattern](../patterns/sharding.md) describes some common strategies for sharding data.
+- The [sharding pattern](../patterns/sharding.yml) describes some common strategies for sharding data.
 
 - The [index table pattern](../patterns/index-table.md) shows how to create secondary indexes over data. An application can quickly retrieve data with this approach, by using queries that do not reference the primary key of a collection.
 

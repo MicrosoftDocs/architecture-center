@@ -1,26 +1,3 @@
----
-title: Valet Key pattern
-titleSuffix: Cloud Design Patterns
-description: Use a token or key that provides clients with restricted direct access to a specific resource or service.
-author: EdPrice-MSFT
-ms.date: 01/19/2022
-ms.topic: conceptual
-ms.service: architecture-center
-ms.subservice: design-pattern
-ms.custom:
-  - design-pattern
-keywords:
-  - design pattern
-categories:
-  - compute
-  - web
-products:
-  - azure
-  - azure-storage
----
-
-# Valet Key pattern
-
 Use a token that provides clients with restricted direct access to a specific resource, in order to offload data transfer from the application. This is particularly useful in applications that use cloud-hosted storage systems or queues, and can minimize cost and maximize scalability and performance.
 
 ## Context and problem
@@ -174,4 +151,4 @@ The following guidance might be relevant when implementing this pattern:
 The following patterns might also be relevant when implementing this pattern:
 
 - [Gatekeeper pattern](./gatekeeper.md). This pattern can be used in conjunction with the Valet Key pattern to protect applications and services by using a dedicated host instance that acts as a broker between clients and the application or service. The gatekeeper validates and sanitizes requests, and passes requests and data between the client and the application. Can provide an additional layer of security, and reduce the attack surface of the system.
-- [Static Content Hosting pattern](./static-content-hosting.md). Describes how to deploy static resources to a cloud-based storage service that can deliver these resources directly to the client to reduce the requirement for expensive compute instances. Where the resources aren't intended to be publicly available, the Valet Key pattern can be used to secure them.
+- [Static Content Hosting pattern](./static-content-hosting.yml). Describes how to deploy static resources to a cloud-based storage service that can deliver these resources directly to the client to reduce the requirement for expensive compute instances. Where the resources aren't intended to be publicly available, the Valet Key pattern can be used to secure them.
