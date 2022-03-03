@@ -23,7 +23,7 @@ categories:
 
 What resources are required for you to create an environment that can perform advanced analytics processing on a dataset? This article suggests a series of questions to ask that can help identify tasks and resources relevant your scenario.
 
-To learn about the order of high-level steps for predictive analytics, see [What is the Team Data Science Process (TDSP)](overview.md). Each step requires specific resources for the tasks relevant to your particular scenario.
+To learn about the order of high-level steps for predictive analytics, see [What is the Team Data Science Process (TDSP)](overview.yml). Each step requires specific resources for the tasks relevant to your particular scenario.
 
 Answer key questions in the following areas to identify your scenario:
 
@@ -161,4 +161,4 @@ After you have answered the questions in the previous section, you are ready to 
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [What is the Team Data Science Process (TDSP)?](overview.md)
+> [What is the Team Data Science Process (TDSP)?](overview.yml)

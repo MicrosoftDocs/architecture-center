@@ -157,7 +157,7 @@ If you plan to deploy a gateway for your solution, a good practice is to first b
 
 ### Static Content Hosting pattern
 
-The [Static Content Hosting pattern](../../../patterns/static-content-hosting.md) involves serving web content from a cloud-native storage service, and using a content delivery network (CDN) to cache the content.
+The [Static Content Hosting pattern](../../../patterns/static-content-hosting.yml) involves serving web content from a cloud-native storage service, and using a content delivery network (CDN) to cache the content.
 
 You can use [Azure Front Door](/azure/frontdoor/front-door-caching) or another CDN for your solution's static components, such as single-page JavaScript applications, and for static content like image files and documents.
 
