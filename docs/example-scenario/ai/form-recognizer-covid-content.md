@@ -1,4 +1,4 @@
-The rapid and accurate verification of COVID-19 vaccination and test statuses has become a global priority that affects efforts to return to the workplace. Manual data entry slows COVID-19 compliance efforts and introduces errors. Many organizations don't have the expertise to deploy automated solutions that provide real-time insights.
+The rapid and accurate verification of COVID-19 vaccination and test statuses has become a global priority that affects efforts to return to the workplace. Manual data entry slows COVID-19 compliance efforts and introduces errors. Many organizations don't have the internal expertise to deploy automated solutions that provide real-time insights.
 
 This architecture can help you automate processes and digitize vaccination and test forms quickly. The AI-powered Azure Form Recognizer helps turn forms into usable data that's translated into real-time, actionable insights and visualized in Power BI. These insights can help you validate compliance and inform your health and safety strategies. 
 
@@ -18,7 +18,7 @@ You can use this solution to modernize your workplace and improve employee and c
 
 1. An Azure logic app ingests raw forms sent as attachments in emails.
 2. Alternatively, an Azure function receives raw forms uploaded to a web application or an app created in Power Apps.
-3. The raw forms are loaded to Azure Data Lake Storage and processed by an Azure Form Recognizer custom model to extract key-value pairs from the forms. Azure Custom Vision is used to validate any logos in the forms to help ensure the authenticity of the forms.
+3. The raw forms are loaded to Azure Data Lake Storage and processed by an Azure Form Recognizer custom model to extract key-value pairs from the forms. Azure Custom Vision validates any logos in the forms to help ensure the authenticity of the forms.
 4. The extracted structured data from unstructured documents is stored in Azure Cosmos DB and Azure Synapse Analytics. 
 5. Power BI ingests the extracted data to visualize the insights from the forms.
 
@@ -26,9 +26,9 @@ You can use this solution to modernize your workplace and improve employee and c
 
 - [Azure Logic Apps](https://azure.microsoft.com/services/logic-apps) helps to automate the workflow for receiving and processing forms sent as email attachments.
 - [Azure Functions](https://azure.microsoft.com/services/functions) helps to orchestrate the workflow for receiving and processing forms uploaded to a web application or an app created in Power Apps.
-- [Form Recognizer](https://azure.microsoft.com/services/form-recognizer) is a cloud-based Azure Applied AI Services product that uses machine-learning models to extract key-value pairs, text, and tables from documents
+- [Form Recognizer](https://azure.microsoft.com/services/form-recognizer) is a cloud-based Azure Applied AI Services product that uses machine-learning models to extract key-value pairs, text, and tables from documents.
 - [Azure Custom Vision](https://azure.microsoft.com/services/cognitive-services/custom-vision-service) helps you build, deploy, and improve an object detection model. It's used here to find and validate logos in the forms.
-- [Data Lake Storage](https://azure.microsoft.com/services/storage/data-lake-storage) provides a massively scalable and secure data lake for high-performance analytics workloads.
+- [Data Lake Storage](https://azure.microsoft.com/services/storage/data-lake-storage) provides a massively scalable and highly secure data lake for high-performance analytics workloads.
 - [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db) is a fully managed NoSQL database service for modern app development. It's used to store the extracted data from documents in JSON format.
 - [Azure Synapse Analytics](https://azure.microsoft.com/services/synapse-analytics) is an analytics service that brings together data integration, enterprise data warehousing, and big data analytics. It's used here for data storage and processing.
 - [Power BI](https://powerbi.microsoft.com) can help you turn your data into coherent, visually immersive, interactive insights. It's used here to visualize insights from processed form data.
