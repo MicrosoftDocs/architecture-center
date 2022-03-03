@@ -2877,6 +2877,8 @@ items:
             items:
               - name: Automate multistage DevOps pipelines
                 href: example-scenario/devops/automate-azure-pipelines.yml
+              - name: Automate Sentinel integration with Azure DevOps
+                href: example-scenario/devops/automate-sentinel-integration.yml
               - name: Automated API deployments using APIOps
                 href: example-scenario/devops/automated-api-deployments-apiops.yml
               - name: Automated Jupyter Notebooks for diagnostics
@@ -4263,6 +4265,8 @@ items:
                 maintainContext: true
           - name: Architectures
             items:
+              - name: Automate Sentinel integration with Azure DevOps
+                href: example-scenario/devops/automate-sentinel-integration.yml
               - name: Azure AD in Security Operations
                 href: example-scenario/aadsec/azure-ad-security.yml
               - name: Cyber threat intelligence
