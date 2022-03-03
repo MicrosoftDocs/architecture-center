@@ -1,21 +1,3 @@
----
-title: Materialized View pattern
-titleSuffix: Cloud Design Patterns
-description: Generate prepopulated views over the data in one or more data stores when the data isn&apos;t ideally formatted for required query operations.
-author: EdPrice-MSFT
-ms.author: pnp
-ms.date: 06/23/2017
-ms.topic: conceptual
-ms.service: architecture-center
-ms.subservice: design-pattern
-ms.custom:
-  - design-pattern
-keywords:
-  - design pattern
----
-
-# Materialized View pattern
-
 Generate prepopulated views over the data in one or more data stores when the data isn't ideally formatted for required query operations. This can help support efficient querying and data extraction, and improve application performance.
 
 ## Context and problem
@@ -89,4 +71,4 @@ The following patterns and guidance might also be relevant when implementing thi
 - [Data Consistency Primer](/previous-versions/msp-n-p/dn589800(v=pandp.10)). The summary information in a materialized view has to be maintained so that it reflects the underlying data values. As the data values change, it might not be practical to update the summary data in real time, and instead you'll have to adopt an eventually consistent approach. Summarizes the issues surrounding maintaining consistency over distributed data, and describes the benefits and tradeoffs of different consistency models.
 - [Command and Query Responsibility Segregation (CQRS) pattern](./cqrs.md). Use to update the information in a materialized view by responding to events that occur when the underlying data values change.
 - [Event Sourcing pattern](./event-sourcing.md). Use in conjunction with the CQRS pattern to maintain the information in a materialized view. When the data values a materialized view is based on are changed, the system can raise events that describe these changes and save them in an event store.
-- [Index Table pattern](./index-table.md). The data in a materialized view is typically organized by a primary key, but queries might need to retrieve information from this view by examining data in other fields. Use to create secondary indexes over data sets for data stores that don't support native secondary indexes.
+- [Index Table pattern](./index-table.yml). The data in a materialized view is typically organized by a primary key, but queries might need to retrieve information from this view by examining data in other fields. Use to create secondary indexes over data sets for data stores that don't support native secondary indexes.

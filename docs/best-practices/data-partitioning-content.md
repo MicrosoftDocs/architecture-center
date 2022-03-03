@@ -220,9 +220,9 @@ The following design patterns might be relevant to your scenario:
 
 - The [sharding pattern](../patterns/sharding.yml) describes some common strategies for sharding data.
 
-- The [index table pattern](../patterns/index-table.md) shows how to create secondary indexes over data. An application can quickly retrieve data with this approach, by using queries that do not reference the primary key of a collection.
+- The [index table pattern](../patterns/index-table.yml) shows how to create secondary indexes over data. An application can quickly retrieve data with this approach, by using queries that do not reference the primary key of a collection.
 
-- The [materialized view pattern](../patterns/materialized-view.md) describes how to generate prepopulated views that summarize data to support fast query operations. This approach can be useful in a partitioned data store if the partitions that contain the data being summarized are distributed across multiple sites.
+- The [materialized view pattern](../patterns/materialized-view.yml) describes how to generate prepopulated views that summarize data to support fast query operations. This approach can be useful in a partitioned data store if the partitions that contain the data being summarized are distributed across multiple sites.
 
 ## Next steps
 

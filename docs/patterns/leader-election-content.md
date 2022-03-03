@@ -1,22 +1,3 @@
----
-title: Leader Election pattern
-titleSuffix: Cloud Design Patterns
-description: Learn how use the Leader Election pattern to coordinate the actions performed by a collection of collaborating task instances in a distributed application.
-author: EdPrice-MSFT
-ms.date: 06/23/2017
-ms.topic: conceptual
-ms.service: architecture-center
-ms.subservice: design-pattern
-products:
-  - azure-hdinsight
-ms.custom:
-  - design-pattern
-keywords:
-  - design pattern
----
-
-# Leader Election pattern
-
 Coordinate the actions performed by a collection of collaborating instances in a distributed application by electing one instance as the leader that assumes responsibility for managing the others. This can help to ensure that instances don't conflict with each other, cause contention for shared resources, or inadvertently interfere with the work that other instances are performing.
 
 ## Context and problem

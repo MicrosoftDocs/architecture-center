@@ -1,21 +1,3 @@
----
-title: Pipes and Filters pattern
-titleSuffix: Cloud Design Patterns
-description: Break down a task that performs complex processing into a series of separate elements that can be reused.
-author: EdPrice-MSFT
-ms.author: pnp
-ms.date: 06/23/2017
-ms.topic: conceptual
-ms.service: architecture-center
-ms.subservice: design-pattern
-ms.custom:
-  - design-pattern
-keywords:
-  - design pattern
----
-
-# Pipes and Filters pattern
-
 Decompose a task that performs complex processing into a series of separate elements that can be reused. This can improve performance, scalability, and reusability by allowing task elements that perform the processing to be deployed and scaled independently.
 
 ## Context and problem

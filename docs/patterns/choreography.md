@@ -38,7 +38,7 @@ The orchestrator pattern reduces point-to-point communication between services b
 
 Let each service decide when and how a business operation is processed, instead of depending on a central orchestrator.
 
-One way to implement choreography is to use the [asynchronous messaging pattern](./publisher-subscriber.md) to coordinate the business operations.
+One way to implement choreography is to use the [asynchronous messaging pattern](./publisher-subscriber.yml) to coordinate the business operations.
 
 ![Processing a request using a choreographer](./_images/choreography-pattern.png)
 
@@ -166,9 +166,9 @@ Consider these patterns in your design for choreography.
 
 - Modularize the business service by using the [ambassador design pattern](./ambassador.md).
 
-- Implement [queue-based load leveling pattern](./queue-based-load-leveling.md) to handle spikes of the workload.
+- Implement [queue-based load leveling pattern](./queue-based-load-leveling.yml) to handle spikes of the workload.
 
-- Use asynchronous distributed messaging through the [publisher-subscriber pattern](./publisher-subscriber.md).
+- Use asynchronous distributed messaging through the [publisher-subscriber pattern](./publisher-subscriber.yml).
 
 - Use [compensating transactions](./compensating-transaction.md) to undo a series of successful operations in case one or more related operation fails.
 
