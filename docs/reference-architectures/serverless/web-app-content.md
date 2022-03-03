@@ -303,7 +303,7 @@ To learn more about the reference implementation, read [Code walkthrough: Server
 Related guidance:
 
 - [Best practices for using CDNs](../../best-practices/cdn.yml)
-- [Static Content Hosting pattern](../../patterns/static-content-hosting.md)
+- [Static Content Hosting pattern](../../patterns/static-content-hosting.yml)
 
 <!-- links -->
 

@@ -184,6 +184,8 @@ items:
             href: best-practices/data-partitioning.yml
           - name: Data partitioning strategies (by service)
             href: best-practices/data-partitioning-strategies.yml
+          - name: Host name preservation
+            href: best-practices/host-name-preservation.yml
           - name: Message encoding considerations
             href: best-practices/message-encode.md
           - name: Monitoring and diagnostics
@@ -381,14 +383,24 @@ items:
                 href: example-scenario/governance/governance-teams-guest-users.yml
               - name: Hybrid SharePoint farm with Microsoft 365
                 href: solution-ideas/articles/sharepoint-farm-microsoft-365.yml
-              - name: Manage Microsoft 365 tenant configuration with Azure DevOps
+              - name: Manage M365 configuration with Azure DevOps
                 href: example-scenario/devops/manage-microsoft-365-tenant-configuration-microsoft365dsc-devops.yml
               - name: Real-time collaboration
                 href: solution-ideas/articles/collaboration-microsoft-365.yml           
               - name: Real-time presence
                 href: solution-ideas/articles/presence-microsoft-365-power-platform.yml
-              - name: Secure your Microsoft Teams channel bot and web app behind a firewall
+              - name: Secure a Teams channel bot with a firewall
                 href: example-scenario/teams/securing-bot-teams-channel.yml
+          - name: Azure and Dynamics 365
+            items:
+              - name: All Dynamics 365 architectures
+                href: /azure/architecture/browse/?products=dynamics-365
+              - name: Customer 360 with Dynamics 365 Customer Insights
+                href: example-scenario/analytics/synapse-customer-insights.yml
+              - name: Dynamics Business Central as a service
+                href: solution-ideas/articles/business-central.yml
+              - name: Enhanced customer dimension with Dynamics 365
+                href: solution-ideas/articles/customer-insights-synapse.yml
       - name: Cloud comparisons
         items:
           - name: Azure for AWS professionals
@@ -508,19 +520,19 @@ items:
       - name: Scheduler Agent Supervisor
         href: patterns/scheduler-agent-supervisor.yml
       - name: Sequential Convoy
-        href: patterns/sequential-convoy.md
+        href: patterns/sequential-convoy.yml
       - name: Sharding
-        href: patterns/sharding.md
+        href: patterns/sharding.yml
       - name: Sidecar
-        href: patterns/sidecar.md
+        href: patterns/sidecar.yml
       - name: Static Content Hosting
-        href: patterns/static-content-hosting.md
+        href: patterns/static-content-hosting.yml
       - name: Strangler Fig
-        href: patterns/strangler-fig.md
+        href: patterns/strangler-fig.yml
       - name: Throttling
-        href: patterns/throttling.md
+        href: patterns/throttling.yml
       - name: Valet Key
-        href: patterns/valet-key.md
+        href: patterns/valet-key.yml
   - name: Microsoft Azure Well-Architected Framework
     href: /azure/architecture/framework
   - name: Industry solutions with Azure
@@ -918,13 +930,13 @@ items:
           - name: Overview
             href: industries/manufacturing.md
           - name: Guides
-            items:
+            items:              
+              - name: HPC for manufacturing
+                href: industries/manufacturing/compute-manufacturing-overview.yml
               - name: Industrial IoT analytics
                 href: guide/iiot-guidance/iiot-architecture.yml
               - name: Upscale ML lifecycle with MLOps framework
                 href: example-scenario/mlops/mlops-technical-paper.yml
-              - name: High-performance computing for manufacturing
-                href: industries/manufacturing/compute-manufacturing-overview.yml
               - name: Predictive maintenance in manufacturing
                 href: industries/manufacturing/predictive-maintenance-overview.yml
               - name: Predictive maintenance solution
@@ -939,12 +951,12 @@ items:
                 href: solution-ideas/articles/anomaly-detector-process.yml
               - name: Build a speech-to-text transcription pipeline
                 href: reference-architectures/ai/speech-to-text-transcription-pipeline.yml
-              - name: Computer vision at the edge
-                href: reference-architectures/ai/end-to-end-smart-factory.yml
               - name: Connected factory hierarchy service
                 href: solution-ideas/articles/connected-factory-hierarchy-service.yml
               - name: Connected factory signal pipeline
                 href: example-scenario/iot/connected-factory-signal-pipeline.yml
+              - name: End-to-end computer vision at the edge for manufacturing
+                href: reference-architectures/ai/end-to-end-smart-factory.yml
               - name: Predictive maintenance with IoT
                 href: example-scenario/predictive-maintenance/iot-predictive-maintenance.yml
               - name: Quality assurance
@@ -969,7 +981,7 @@ items:
           - name: Architectures
             items:
               - name: All media and entertainment architectures
-                href: /azure/architecture/browse/?terms=entertainment
+                href: /azure/architecture/browse/?terms=media
               - name: 3D video rendering
                 href: example-scenario/infrastructure/video-rendering.yml
               - name: Content-based recommendation
@@ -1003,6 +1015,14 @@ items:
                 maintainContext: true
               - name: Sustainability outcomes and benefits
                 href: /azure/cloud-adoption-framework/strategy/business-outcomes/sustainability
+                maintainContext: true
+              - name: Big compute for oil exploration
+                href: guide/architecture-styles/big-compute.md
+              - name: Smart meter energy monitoring
+                href: /azure/iot-central/energy/tutorial-smart-meter-app
+                maintainContext: true
+              - name: Solar panel monitoring
+                href: /azure/iot-central/energy/tutorial-solar-panel-app
                 maintainContext: true
           - name: Architectures
             items:
@@ -1476,7 +1496,7 @@ items:
             href: /archive/msdn-magazine/2018/november/machine-learning-analyzing-olympic-sports-combining-sensors-and-vision-ai
             maintainContext: true
           - name: Baseball decision analysis with ML.NET
-            href: data-guide/big-data/baseball-ml-workload.md
+            href: data-guide/big-data/baseball-ml-workload.yml
   - name: Azure categories
     expanded: true
     items:
@@ -1542,7 +1562,7 @@ items:
               - name: Team Data Science Process
                 items:
                   - name: Overview
-                    href: data-science-process/overview.md
+                    href: data-science-process/overview.yml
                   - name: Lifecycle
                     items:
                       - name: Overview
@@ -1586,7 +1606,7 @@ items:
                   - name: Operationalization
                     items:
                       - name: DevOps - CI/CD
-                        href: data-science-process/ci-cd-flask.md
+                        href: data-science-process/ci-cd-flask.yml
                   - name: Training
                     items:
                       - name: For data scientists
@@ -1690,7 +1710,7 @@ items:
               - name: Automate document processing
                 href: example-scenario/ai/automate-document-processing-azure-form-recognizer.yml
               - name: Baseball decision analysis with ML.NET
-                href: data-guide/big-data/baseball-ml-workload.md
+                href: data-guide/big-data/baseball-ml-workload.yml
               - name: Batch scoring for deep learning
                 href: reference-architectures/ai/batch-scoring-deep-learning.yml
               - name: Batch scoring with Python
@@ -1705,8 +1725,6 @@ items:
                 href: example-scenario/ai/commerce-chatbot.yml
               - name: Citizen AI with the Power Platform
                 href: example-scenario/ai/citizen-ai-power-platform.yml
-              - name: Computer vision at the edge
-                href: reference-architectures/ai/end-to-end-smart-factory.yml
               - name: Deploy AI and ML at the edge
                 href: hybrid/deploy-ai-ml-azure-stack-edge.yml
               - name: Deploy models to multiple data sources
@@ -1715,6 +1733,8 @@ items:
                 href: example-scenario/ai/customer-lifecycle-churn.yml
               - name: Distributed deep learning training
                 href: reference-architectures/ai/training-deep-learning.yml
+              - name: End-to-end computer vision at the edge for manufacturing
+                href: reference-architectures/ai/end-to-end-smart-factory.yml
               - name: Enterprise-grade conversational bot
                 href: reference-architectures/ai/conversational-bot.yml
               - name: Extract text from objects using Power Automate and AI Builder

@@ -1,21 +1,3 @@
----
-title: Throttling pattern
-titleSuffix: Cloud Design Patterns
-description: Control the consumption of resources used by an instance of an application, an individual tenant, or an entire service.
-author: EdPrice-MSFT
-ms.author: pnp
-ms.date: 06/23/2017
-ms.topic: conceptual
-ms.service: architecture-center
-ms.subservice: design-pattern
-ms.custom:
-  - design-pattern
-keywords:
-  - design pattern
----
-
-# Throttling pattern
-
 Control the consumption of resources used by an instance of an application, an individual tenant, or an entire service. This can allow the system to continue to function and meet service level agreements, even when an increase in demand places an extreme load on resources.
 
 ## Context and problem

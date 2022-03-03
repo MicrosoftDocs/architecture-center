@@ -42,8 +42,8 @@ The following [cloud design patterns](../../patterns/index.md) are frequently us
 | [Federated Identity](../../patterns/federated-identity.md) | Delegate authentication to an external identity provider. |
 | [Gatekeeper](../../patterns/gatekeeper.md) | Protect applications and services, by using a dedicated host instance that acts as a broker between clients and the application or service, validates and sanitizes requests, and passes requests and data between them. |
 | [Queue-Based Load Leveling](../../patterns/queue-based-load-leveling.yml) | Use a queue that acts as a buffer between a task and a service that it invokes, in order to smooth intermittent heavy loads. |
-| [Sharding](../../patterns/sharding.md) | Divide a data store into a set of horizontal partitions or shards. |
-| [Throttling](../../patterns/throttling.md) | Control the consumption of resources that are used by an instance of an application, an individual tenant, or an entire service. |
+| [Sharding](../../patterns/sharding.yml) | Divide a data store into a set of horizontal partitions or shards. |
+| [Throttling](../../patterns/throttling.yml) | Control the consumption of resources that are used by an instance of an application, an individual tenant, or an entire service. |
 
 ## Antipatterns
 

@@ -101,4 +101,4 @@ The following patterns and guidance might also be relevant when implementing thi
 
 - [Compute Partitioning Guidance](/previous-versions/msp-n-p/dn589773(v=pandp.10)). Describes how to allocate the services and components in a cloud service in a way that helps to minimize running costs while maintaining the scalability, performance, availability, and security of the service.
 
-- [Architectural approaches for compute in multitenant solutions](/guide/multitenant/approaches/compute#compute-resource-consolidation-pattern). Provides guidance about the considerations and requirements that are essential for solution architects, when they're planning the compute services of a multitenant solution.
+- [Architectural approaches for compute in multitenant solutions](/azure/architecture/guide/multitenant/approaches/compute#compute-resource-consolidation-pattern). Provides guidance about the considerations and requirements that are essential for solution architects, when they're planning the compute services of a multitenant solution.

@@ -1,31 +1,3 @@
----
-title: Create a CI/CD pipeline with Azure Pipelines
-description: Create a continuous integration and continuous delivery pipeline for Artificial Intelligence (AI) applications using Docker and Kubernetes.
-services: architecture-center
-author: marktab
-manager: marktab
-editor: marktab
-ms.service: architecture-center
-ms.subservice: azure-guide
-ms.topic: article
-ms.date: 01/10/2020
-ms.author: tdsp
-ms.category:
-  - ai-machine-learning
-ms.custom:
-  - previous-author=jainr
-  - previous-ms.author=jainr
-  - fcp
-products:
-  - azure
-  - azure-pipelines
-  - azure-machine-learning
-  - azure-kubernetes-service
-categories:
-  - ai-machine-learning
----
-# Create CI/CD pipelines for AI apps using Azure Pipelines, Docker, and Kubernetes
-
 An Artificial Intelligence (AI) application is application code embedded with a pretrained machine learning (ML) model. There are always two streams of work for an AI application: Data scientists build the ML model, and app developers build the app and expose it to end users to consume. This article describes how to implement a continuous integration and continuous delivery (CI/CD) pipeline for an AI application that embeds the ML model into the app source code. The sample code and tutorial use a Python Flask web application, and fetch a pretrained model from a private Azure blob storage account. You could also use an AWS S3 storage account.
 
 > [!NOTE]
