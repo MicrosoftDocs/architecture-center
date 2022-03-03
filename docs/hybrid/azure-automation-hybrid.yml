@@ -25,6 +25,8 @@ products:
   - azure-portal
   - azure-monitor
   - azure-virtual-machines
+  - azure-arc
+  - azure-hybrid
 thumbnailUrl: /azure/architecture/browse/thumbs/azure-automation-hybrid.png
 content: |
    [!include[](azure-automation-hybrid-content.md)]

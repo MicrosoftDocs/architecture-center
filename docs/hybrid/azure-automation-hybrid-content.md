@@ -108,14 +108,14 @@ When you start a runbook on a user Hybrid Runbook Worker, you specify the group 
 
 ## Security considerations
 
-- Encryption of sensitive assets in Automation: An Azure Automation Account can contain sensitive assets such as credentials, certificate, connection, and encrypted variables that might be used by the runbooks. Each secure asset is encrypted by default using a Data Encryption key that is generated for each Automation Account. These keys are encrypted and stored in Azure Automation with an Account Encryption Key (AEK) that can be stored in the Key vault for customers who want to manage encryption with their own keys. By default, AEK is encrypted using Microsoft-managed keys. Use the following guidelines to apply encryption of secure assets in Azure Automation.
+- Encryption of sensitive assets in Automation: An Azure Automation Account can contain sensitive assets such as credentials, certificate, connection, and encrypted variables that might be used by the runbooks. Each secure asset is encrypted by default using a Data Encryption key that is generated for each Automation Account. These keys are encrypted and stored in Azure Automation with an Account Encryption Key (AEK) that can be stored in the Key vault for customers who want to manage encryption with their own keys. By default, AEK is encrypted using Microsoft-managed keys. Use the following guidelines to [apply encryption of secure assets in Azure Automation][18].
 - Runbook permission: By default, runbook permissions for a Hybrid Runbook Worker run in a system context on the machine where they're deployed. A runbook provides its own authentication to local resources. Authentication can be configured using managed identities for Azure resources or by specifying a Run As account to provide a user context for all runbooks.
 - Network planning:
     - If you use a proxy server for communication between Azure Automation and machines running the Hybrid Runbook Worker, ensure that the appropriate resources are accessible. The timeout for requests from the Hybrid Runbook Worker and Automation services is 30 seconds. After three attempts, the request fails.
     - Hybrid Runbook Worker requires outbound internet access over TCP port 443 to communicate with Automation. If you use a firewall to restrict access to the Internet, you must configure the firewall to permit access. For agent-based (V1) computers with restricted internet access, use Log Analytics gateway to configure communication with Azure Automation and Azure Log Analytics Workspace.
     - There is a CPU quota limit of 5% while configuring extension-based Linux Hybrid Runbook worker. There is no such limit for Windows extension-based Hybrid Runbook Worker.
 
-- Azure Security baseline for Automation: The Azure security baseline for Automation contains recommendations on how to increase overall security configuration to protect your asset following the best-practice guidance.
+- Azure Security baseline for Automation: [The Azure security baseline for Automation][19] contains recommendations on how to increase overall security configuration to protect your asset following the best-practice guidance.
 
 ## DevOps considerations
 
@@ -173,3 +173,5 @@ More about Azure Automation:
 [15]:/azure.microsoft.com/pricing/details/automation/
 [16]:/azure.microsoft.com/pricing/details/monitor/
 [17]:https://www.powershellgallery.com/packages/New-OnPremiseHybridWorker/1.7
+[18]:/azure/automation/automation-secure-asset-encryption
+[19]:/security/benchmark/azure/baselines/automation-security-baseline#network-security
