@@ -381,14 +381,24 @@ items:
                 href: example-scenario/governance/governance-teams-guest-users.yml
               - name: Hybrid SharePoint farm with Microsoft 365
                 href: solution-ideas/articles/sharepoint-farm-microsoft-365.yml
-              - name: Manage Microsoft 365 tenant configuration with Azure DevOps
+              - name: Manage M365 configuration with Azure DevOps
                 href: example-scenario/devops/manage-microsoft-365-tenant-configuration-microsoft365dsc-devops.yml
               - name: Real-time collaboration
                 href: solution-ideas/articles/collaboration-microsoft-365.yml           
               - name: Real-time presence
                 href: solution-ideas/articles/presence-microsoft-365-power-platform.yml
-              - name: Secure your Microsoft Teams channel bot and web app behind a firewall
+              - name: Secure a Teams channel bot with a firewall
                 href: example-scenario/teams/securing-bot-teams-channel.yml
+          - name: Azure and Dynamics 365
+            items:
+              - name: All Dynamics 365 architectures
+                href: /azure/architecture/browse/?products=dynamics-365
+              - name: Customer 360 with Dynamics 365 Customer Insights
+                href: example-scenario/analytics/synapse-customer-insights.yml
+              - name: Dynamics Business Central as a service
+                href: solution-ideas/articles/business-central.yml
+              - name: Enhanced customer dimension with Dynamics 365
+                href: solution-ideas/articles/customer-insights-synapse.yml
       - name: Cloud comparisons
         items:
           - name: Azure for AWS professionals
@@ -918,13 +928,13 @@ items:
           - name: Overview
             href: industries/manufacturing.md
           - name: Guides
-            items:
+            items:              
+              - name: HPC for manufacturing
+                href: industries/manufacturing/compute-manufacturing-overview.yml
               - name: Industrial IoT analytics
                 href: guide/iiot-guidance/iiot-architecture.yml
               - name: Upscale ML lifecycle with MLOps framework
                 href: example-scenario/mlops/mlops-technical-paper.yml
-              - name: High-performance computing for manufacturing
-                href: industries/manufacturing/compute-manufacturing-overview.yml
               - name: Predictive maintenance in manufacturing
                 href: industries/manufacturing/predictive-maintenance-overview.yml
               - name: Predictive maintenance solution
@@ -969,7 +979,7 @@ items:
           - name: Architectures
             items:
               - name: All media and entertainment architectures
-                href: /azure/architecture/browse/?terms=entertainment
+                href: /azure/architecture/browse/?terms=media
               - name: 3D video rendering
                 href: example-scenario/infrastructure/video-rendering.yml
               - name: Content-based recommendation
@@ -1003,6 +1013,14 @@ items:
                 maintainContext: true
               - name: Sustainability outcomes and benefits
                 href: /azure/cloud-adoption-framework/strategy/business-outcomes/sustainability
+                maintainContext: true
+              - name: Big compute for oil exploration
+                href: guide/architecture-styles/big-compute.md
+              - name: Smart meter energy monitoring
+                href: /azure/iot-central/energy/tutorial-smart-meter-app
+                maintainContext: true
+              - name: Solar panel monitoring
+                href: /azure/iot-central/energy/tutorial-solar-panel-app
                 maintainContext: true
           - name: Architectures
             items:
