@@ -26,5 +26,5 @@ Cloud applications run in a remote datacenter where you do not have full control
 |           [Gateway Offloading](../gateway-offloading.yml)           |                              Offload shared or specialized service functionality to a gateway proxy.                              |
 |              [Gateway Routing](../gateway-routing.yml)              |                                   Route requests to multiple services using a single endpoint.                                    |
 |   [Health Endpoint Monitoring](../health-endpoint-monitoring.yml)   |   Implement functional checks in an application that external tools can access through exposed endpoints at regular intervals.    |
-|                      [Sidecar](../sidecar.md)                      |         Deploy components of an application into a separate process or container to provide isolation and encapsulation.          |
-|                    [Strangler Fig](../strangler-fig.md)                    | Incrementally migrate a legacy system by gradually replacing specific pieces of functionality with new applications and services. |
+|                      [Sidecar](../sidecar.yml)                      |         Deploy components of an application into a separate process or container to provide isolation and encapsulation.          |
+|                    [Strangler Fig](../strangler-fig.yml)                    | Incrementally migrate a legacy system by gradually replacing specific pieces of functionality with new applications and services. |
