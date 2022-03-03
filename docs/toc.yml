@@ -1709,6 +1709,8 @@ items:
                 href: solution-ideas/articles/cognitive-search-with-skillsets.yml
               - name: Automate document processing
                 href: example-scenario/ai/automate-document-processing-azure-form-recognizer.yml
+              - name: Automate COVID-19 test forms
+                href: form-recognizer-covid.yml 
               - name: Baseball decision analysis with ML.NET
                 href: data-guide/big-data/baseball-ml-workload.yml
               - name: Batch scoring for deep learning
