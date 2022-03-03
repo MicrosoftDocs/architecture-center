@@ -1,20 +1,19 @@
-The rapid and accurate verification of COVID-19 vaccination and test statuses has become a global priority for returning to the workplace. Manual data entry slows and introduces errors to any COVID-19 compliance effort, and many organizations lack the internal expertise to deploy automated solutions with real-time insights.
+The rapid and accurate verification of COVID-19 vaccination and test statuses has become a global priority for efforts to return to the workplace. Manual data entry slows any COVID-19 compliance effort and introduces errorw. Many organizations don't have the expertise to deploy automated solutions that provide real-time insights.
 
-This architecture helps automate processes and digitize vaccination and test forms quickly. The AI-powered Azure Form Recognizer helps turn forms into usable data that is translated into real-time, actionable insights, visualized in Power BI to help validate compliance and inform evolving health and safety strategies. 
+This architecture can help you automate processes and digitize vaccination and test forms quickly. The AI-powered Azure Form Recognizer helps turn forms into usable data that's translated into real-time, actionable insights and visualized in Power BI to help validate compliance and inform evolving health and safety strategies. 
 
 ## Potential use cases
 
-This solution was originally built for a United States Government customer, but it can be applied across many other industries who is trying to create processes to safely return to the workplace.  
+This solution can be applied across many industries for organizations that want to create processes to safely return to the workplace.  
 
-The solution allows you to show how Microsoft can enable organizations to modernize their workplace, facilities and improve employee and customer safety. It helps reduce the development and deployment effort with automated deployment scripts for all Azure Resources and includes Power BI dashboards to present insights to stakeholders.
+The solution allows you to modernize your workplace and improve employee and customer safety. It helps reduce the development and deployment effort with automated deployment scripts for all Azure resources and includes Power BI dashboards to present insights to stakeholders.
 
 ## Architecture
 
-diagram 
+![Diagram that shows an architecture for automating processes and digitizing vaccination and test forms.](./media/forms-recognizer-covid.png)
 
 *Download a [Visio file]() of this architecture.*
 
-The architecture shows different components of the forms automation pipeline as follows: 
 1.	Azure Logic App ingests raw forms sent as attachments in emails.
 2.	Alternatively, an Azure Function receives raw forms uploaded to a Web application or a Power App.
 3.	The raw forms are loaded to Azure Data Lake Storage and processed by Azure Form Recognizer custom model to extract key-value pairs from the forms. Azure Custom Vision model is used to validate any logos in the forms to validate the authenticity of the forms.
@@ -67,7 +66,7 @@ Please read the checklists below for different services:
 
 ## Deploy this scenario
 
-Follow the steps in the [Getting Started Guide](https://github.com/microsoft/Azure-Solution-Accelerator-to-automate-COVID-19-Vaccination-Proof-and-Test-Verification-Forms/#getting-started) (includes a step-by-step Deployment Guide) within the [GitHub Repository](/azure/security/fundamentals/overview) to deploy this solution.  < link seems wrong 
+Follow the steps in the [Getting Started Guide](https://github.com/microsoft/Azure-Solution-Accelerator-to-automate-COVID-19-Vaccination-Proof-and-Test-Verification-Forms/#getting-started) (includes a step-by-step Deployment Guide) within the [GitHub Repository](/azure/security/fundamentals/overview) to deploy this solution.  < link seems wrong . see below 
 
 ## Pricing
 
