@@ -184,6 +184,8 @@ items:
             href: best-practices/data-partitioning.yml
           - name: Data partitioning strategies (by service)
             href: best-practices/data-partitioning-strategies.yml
+          - name: Host name preservation
+            href: best-practices/host-name-preservation.yml
           - name: Message encoding considerations
             href: best-practices/message-encode.md
           - name: Monitoring and diagnostics
