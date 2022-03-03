@@ -10,7 +10,7 @@ A queue is usually a first-in, first-out (FIFO) structure, and consumers typical
 
 ![Figure 1 - Using a queuing mechanism that supports message prioritization](./_images/priority-queue-pattern.png)
 
-> Most message queue implementations support multiple consumers (following the [Competing Consumers pattern](./competing-consumers.md)), and the number of consumer processes can be scaled up or down depending on demand.
+> Most message queue implementations support multiple consumers (following the [Competing Consumers pattern](./competing-consumers.yml)), and the number of consumer processes can be scaled up or down depending on demand.
 
 In systems that don't support priority-based message queues, an alternative solution is to maintain a separate queue for each priority. The application is responsible for posting messages to the appropriate queue. Each queue can have a separate pool of consumers. Higher priority queues can have a larger pool of consumers running on faster hardware than lower priority queues. The next figure illustrates using separate message queues for each priority.
 
@@ -129,6 +129,6 @@ The following guidance might also be relevant when implementing this pattern:
 
 The following patterns might also be relevant when implementing this pattern:
 
-- [Competing Consumers pattern](./competing-consumers.md). To increase the throughput of the queues, it's possible to have multiple consumers that listen on the same queue, and process the tasks in parallel. These consumers will compete for messages, but only one should be able to process each message. Provides more information on the benefits and tradeoffs of implementing this approach.
+- [Competing Consumers pattern](./competing-consumers.yml). To increase the throughput of the queues, it's possible to have multiple consumers that listen on the same queue, and process the tasks in parallel. These consumers will compete for messages, but only one should be able to process each message. Provides more information on the benefits and tradeoffs of implementing this approach.
 
 - [Throttling pattern](./throttling.yml). You can implement throttling by using queues. Priority messaging can be used to ensure that requests from critical applications, or applications being run by high-value customers, are given priority over requests from less important applications.

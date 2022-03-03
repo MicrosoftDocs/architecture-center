@@ -1,0 +1,22 @@
+### YamlMime:Architecture
+metadata:
+  title: Compute Resource Consolidation pattern
+  description: Use the Compute Resource Consolidation design pattern to consolidate multiple tasks or operations into a single computational unit.
+  author: EdPrice-MSFT
+  ms.author: edprice
+  ms.date: 02/24/2021
+  ms.topic: conceptual
+  ms.service: architecture-center
+  ms.subservice: azure-guide
+azureCategories:
+  - web
+  - compute
+  - containers
+products:
+  - azure-app-service
+  - azure-kubernetes-service
+name: Compute Resource Consolidation pattern
+summary: Use the Compute Resource Consolidation design pattern to consolidate multiple tasks or operations into a single computational unit.
+thumbnailUrl: /azure/architecture/browse/thumbs/compute-resource-consolidation-diagram.png
+content: |
+  [!include[](compute-resource-consolidation-content.md)]

@@ -131,7 +131,7 @@ conceptualContent:
         url: ./reference-architectures/hybrid-networking/hub-spoke.yml
         itemType: architecture
       - text: CQRS design pattern
-        url: ./patterns/cqrs.md
+        url: ./patterns/cqrs.yml
         itemType: concept
 
     - title: AI & Machine Learning

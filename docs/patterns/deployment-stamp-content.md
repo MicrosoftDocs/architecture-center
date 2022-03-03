@@ -1,27 +1,4 @@
----
-title: Deployment Stamps pattern
-titleSuffix: Cloud Design Patterns
-description: Learn about the Deployment Stamps pattern, which deploys many independent copies (known as stamps, service units, or scale units) of application components.
-author: johndowns
-ms.date: 12/03/2021
-ms.topic: conceptual
-ms.service: architecture-center
-ms.subservice: design-pattern
-products:
-  - azure-front-door
-  - azure
-categories:
-  - management-and-governance
-  - security
-ms.custom:
-  - fcp
-  - design-pattern
----
-
 <!-- cSpell:ignore johndowns myapi backplane -->
-
-# Deployment Stamps pattern
-
 The deployment stamp pattern involves provisioning, managing, and monitoring a heterogeneous group of resources to host and operate multiple workloads or tenants. Each individual copy is called a *stamp*, or sometimes a *service unit* or *scale unit*. In a multi-tenant environment, every stamp or scale unit can serve a predefined number of tenants. Multiple stamps can be deployed to scale the solution almost linearly and serve an increasing number of tenants. This approach can improve the scalability of your solution, allow you to deploy instances across multiple regions, and separate your customer data.
 
 ## Context and problem

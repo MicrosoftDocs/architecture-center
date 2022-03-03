@@ -223,7 +223,7 @@ Unless you use a third-party service such as Ansible or Terraform, this approach
 [A computer-aided engineering service]: ../apps/hpc-saas.yml#considerations
 [Control and audit your resources by using Azure Policy]: /learn/modules/build-cloud-governance-strategy-azure/6-control-audit-resources-azure-policy
 [Custom Script Extensions]: /azure/virtual-machines/extensions/custom-script-windows
-[Deployment Stamps pattern]: ../../patterns/deployment-stamp.md
+[Deployment Stamps pattern]: ../../patterns/deployment-stamp.yml
 [Designing resilient applications for Azure]: /azure/architecture/framework/resiliency/principles
 [DevSecOps in Azure]: ../../solution-ideas/articles/devsecops-in-azure.yml
 [DevTest and DevOps for IaaS solutions]: ../../solution-ideas/articles/dev-test-iaas.yml

@@ -464,23 +464,23 @@ items:
       - name: Choreography
         href: patterns/choreography.md
       - name: Circuit Breaker
-        href: patterns/circuit-breaker.md
+        href: patterns/circuit-breaker.yml
       - name: Claim Check
-        href: patterns/claim-check.md
+        href: patterns/claim-check.yml
       - name: Compensating Transaction
-        href: patterns/compensating-transaction.md
+        href: patterns/compensating-transaction.yml
       - name: Competing Consumers
-        href: patterns/competing-consumers.md
+        href: patterns/competing-consumers.yml
       - name: Compute Resource Consolidation
-        href: patterns/compute-resource-consolidation.md
+        href: patterns/compute-resource-consolidation.yml
       - name: CQRS
-        href: patterns/cqrs.md
+        href: patterns/cqrs.yml
       - name: Deployment Stamps
-        href: patterns/deployment-stamp.md
+        href: patterns/deployment-stamp.yml
       - name: Edge Workload Configuration
         href: patterns/edge-workload-configuration.md
       - name: Event Sourcing
-        href: patterns/event-sourcing.md
+        href: patterns/event-sourcing.yml
       - name: External Configuration Store
         href: patterns/external-configuration-store.md
       - name: Federated Identity

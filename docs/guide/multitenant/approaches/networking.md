@@ -104,7 +104,7 @@ The [hub and spoke VNet topology](../../../reference-architectures/hybrid-networ
 
 When you use a hub and spoke topology, ensure you plan around limits, [such as the maximum number of peered VNets](/azure/virtual-network/virtual-network-peering-overview), and ensure that you don't use overlapping address spaces for each tenant's VNet.
 
-The hub and spoke topology can be useful when you deploy tenant-specific VNets with IP addresses that you select. Each tenant's VNet becomes a spoke, and can share your common resources in the hub VNet. You can also use the hub and spoke topology when you scale shared resources across multiple VNets for scale purposes, or when you use the [Deployment Stamps pattern](../../../patterns/deployment-stamp.md).
+The hub and spoke topology can be useful when you deploy tenant-specific VNets with IP addresses that you select. Each tenant's VNet becomes a spoke, and can share your common resources in the hub VNet. You can also use the hub and spoke topology when you scale shared resources across multiple VNets for scale purposes, or when you use the [Deployment Stamps pattern](../../../patterns/deployment-stamp.yml).
 
 > [!TIP]
 > If your solution runs across multiple geographic regions, it's usually a good practice to deploy separate hubs and hub resources in each region. While this practice incurs a higher resource cost, it avoids traffic going through multiple Azure regions unnecessarily, which can increase the latency of requests and incur global peering charges.

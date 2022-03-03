@@ -1,22 +1,3 @@
----
-title: Circuit Breaker pattern
-titleSuffix: Cloud Design Patterns
-description: Handle faults that might take a variable amount of time to fix when connecting to a remote service or resource.
-author: EdPrice-MSFT
-ms.date: 06/23/2017
-ms.topic: conceptual
-ms.service: architecture-center
-ms.subservice: design-pattern
-products:
-  - azure
-ms.custom:
-  - design-pattern
-keywords:
-  - design pattern
----
-
-# Circuit Breaker pattern
-
 Handle faults that might take a variable amount of time to recover from, when connecting to a remote service or resource. This can improve the stability and resiliency of an application.
 
 ## Context and problem

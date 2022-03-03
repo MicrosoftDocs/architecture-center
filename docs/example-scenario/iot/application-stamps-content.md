@@ -1,6 +1,6 @@
 This article discusses a *deployment stamping* strategy to support scaling up the numbers of connected devices in an internet of things (IoT) solution.  The article also describes in detail how to deploy IoT devices and applications between deployment stamps.
 
-The deployment stamping strategy for IoT solutions is based on the [Deployment Stamp](../../patterns/deployment-stamp.md) design pattern. Deployment stamps are units composed of heterogenous components that support a defined device population. Deployment stamping scales up numbers of connected IoT devices by replicating stamps, rather than independently scaling up different parts of a solution.
+The deployment stamping strategy for IoT solutions is based on the [Deployment Stamp](../../patterns/deployment-stamp.yml) design pattern. Deployment stamps are units composed of heterogenous components that support a defined device population. Deployment stamping scales up numbers of connected IoT devices by replicating stamps, rather than independently scaling up different parts of a solution.
 
 Deployment stamping benefits:
 
@@ -77,4 +77,4 @@ Here are some considerations for this strategy:
 
 - [IoT devices, platform, and applications](devices-platform-application.yml)
 - [IoT application-to-device commands](cloud-to-device.yml)
-- [Deployment Stamps design pattern](../../patterns/deployment-stamp.md)
+- [Deployment Stamps design pattern](../../patterns/deployment-stamp.yml)
