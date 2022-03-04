@@ -1,9 +1,5 @@
 This article explores a connected factory hierarchy service implementation. A hierarchy service centrally defines the organization of production assets like machines within factories, from both an operational and maintenance point of view. Business stakeholders can use this information as a common data source for monitoring plant conditions or overall equipment effectiveness (OEE).
 
-[Azure Digital Twins](/azure/digital-twins) helps build the hierarchy service by creating a model of nodes, like machines, work centers, and locations, and their relationships. Each node has metadata that includes identifiers from enterprise resource management (ERP) systems. You can use this contextual information in downstream applications to gain insights and help manage production processes.
-
-This architecture uses [Azure Kubernetes Services (AKS)](/azure/aks/intro-kubernetes) for running the microservices that query master data from the various connected services. The hierarchy service is an ASP.NET Core REST API hosted in an AKS cluster.
-
 ## Problem
 
 Production assets like machines are organized within factories in context-specific hierarchies. Machines can be organized by their physical location, maintenance requirements, or products. Individual stakeholders, processes, and IT systems have different definitions for asset hierarchies.
@@ -38,36 +34,32 @@ Potential uses for this solution include:
 
 ## Architecture
 
-[![Infographic of an example hierarchy service.](../media/connected-factory-hierarchy-service-03.png)](../media/connected-factory-hierarchy-service-03.png#lightbox)
+This solution uses [Azure Kubernetes Services (AKS)](/azure/aks/intro-kubernetes) to run the microservices that query master data from the various connected services. The hierarchy service is an ASP.NET Core REST API hosted in an AKS cluster.
 
+[Azure Digital Twins](/azure/digital-twins) helps build the hierarchy service by creating a model of nodes, like machines, work centers, and locations, and their relationships. Each node has metadata that includes identifiers from enterprise resource management (ERP) systems. You can use this contextual information in downstream applications.
+
+![Infographic of an example hierarchy service.](../media/connected-factory-hierarchy-service-03.png)
 
 1. The **web app** lets users manage the hierarchy through a UI.
-1. **Azure Digital Twins Explorer** lets users manage the hierarchy directly against Azure Digital Twins.
+1. **Azure Digital Twins Explorer** allows managing the hierarchy directly against Azure Digital Twins.
 1. The **IO API** supports bulk import and export for manufacturing-specific scenarios.
 1. The **Query API** provides query capabilities for manufacturing-specific data needs.
 1. The **Admin API** supports atomic business operations and validation of business rules.
-
-### Data model
-
-The hierarchy service provides a consolidated data model that supports defining and querying hierarchical views of production assets. The hierarchy service can validate business rules to enforce hierarchy consistency and data integrity.
-
-![Diagram showing a hierarchy service architecture.](../media/connected-factory-hierarchy-service-01.png)
-
-Data is retrieved from either [Azure Digital Twins](/azure/digital-twins), or an in-memory cache when materializing large graphs. The cache improves performance for queries that would have long response times when issued directly against Azure Digital Twins. The in-memory cache improves the speed of a 3,000-node graph traversal from about 10 seconds to less than a second.
 
 ### Supported operations
 
 The hierarchy service lets you filter query operations by node types and node attributes. The service supports the following operations:
 
-**Admin**
+**IO (Bulk) API**
 
 |Operation|Filter|Description|
 |---|---|---|
-|`post`|`/api/v0.1/nodes`|Add new node with relations into hierarchy.|
-|`delete`|`/api/v0.1/nodes/{nodeId}`|Remove a leaf node from hierarchy.|
-|`put`|`/api/v0.1/nodes/{nodeId}`|Update existing node and relationships with parents.|
+|`get`|`/api/v0.1/bulk`|Export hierarchy data.|
+|`post`|`/api/v0.1/bulk`|Import hierarchy data file.|
+|`post`|`/api/v0.1/bulk/validate`|Validate hierarchy data import file.|
+|`get`|`/api/v0.1/bulk/status/{operationId}`|Get the status of a bulk import operation.|
 
-**Query**
+**Query API**
 
 |Operation|Filter|Description|
 |---|---|---|
@@ -77,14 +69,21 @@ The hierarchy service lets you filter query operations by node types and node at
 |`get`|`/api/v0.1/nodes/{nodeId}/children`|Get direct children of a hierarchy node.|
 |`get`|`/api/v0.1/nodes/{nodeId}/parent`|Get parent of a hierarchy node.|
 
-**Bulk**
+**Admin API**
 
 |Operation|Filter|Description|
 |---|---|---|
-|`get`|`/api/v0.1/bulk`|Export hierarchy data.|
-|`post`|`/api/v0.1/bulk`|Import hierarchy data file.|
-|`post`|`/api/v0.1/bulk/validate`|Validate hierarchy data import file.|
-|`get`|`/api/v0.1/bulk/status/{operationId}`|Get the status of a bulk import operation.|
+|`post`|`/api/v0.1/nodes`|Add new node with relations into hierarchy.|
+|`delete`|`/api/v0.1/nodes/{nodeId}`|Remove a leaf node from hierarchy.|
+|`put`|`/api/v0.1/nodes/{nodeId}`|Update existing node and relationships with parents.|
+
+### Data model
+
+The hierarchy service provides a consolidated data model that supports defining and querying hierarchical views of production assets. The hierarchy service can validate business rules to enforce hierarchy consistency and data integrity.
+
+![Diagram showing a hierarchy service architecture.](../media/connected-factory-hierarchy-service-01.png)
+
+Data is retrieved from either [Azure Digital Twins](/azure/digital-twins), or an in-memory cache when materializing large graphs. The cache improves performance for queries that would have long response times when issued directly against Azure Digital Twins. The in-memory cache improves the speed of a 3,000-node graph traversal from about 10 seconds to less than a second.
 
 ### Components
 
