@@ -777,6 +777,8 @@ items:
             items:
               - name: All healthcare architectures
                 href: /azure/architecture/browse/?terms=healthcare
+              - name: Automate COVID-19 test forms
+                href: example-scenario/ai/form-recognizer-covid.yml 
               - name: Build a telehealth system with Azure
                 href: example-scenario/apps/telehealth-system.yml
               - name: Clinical insights with Cloud for Healthcare
@@ -1744,6 +1746,8 @@ items:
                 href: solution-ideas/articles/cognitive-search-with-skillsets.yml
               - name: Automate document processing
                 href: example-scenario/ai/automate-document-processing-azure-form-recognizer.yml
+              - name: Automate COVID-19 test forms
+                href: example-scenario/ai/form-recognizer-covid.yml 
               - name: Baseball decision analysis with ML.NET
                 href: data-guide/big-data/baseball-ml-workload.yml
               - name: Batch scoring for deep learning
