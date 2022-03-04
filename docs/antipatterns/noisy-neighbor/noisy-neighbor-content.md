@@ -29,7 +29,7 @@ Noisy neighbor problems are an inherent risk in multitenant systems, and it's no
 ### Actions that service providers can take
 
 - Monitor the resource usage for your system, both overall and for each tenant. Configure alerts to detect spikes in resource usage, and if possible, configure automation to automatically mitigate known issues by [scaling up or out](/azure/architecture/framework/scalability/design-scale).
-- Apply resource governance, to avoid a single tenant that's overwhelming the system and reducing the capacity available to others. This step might take the form of quota enforcement, through the [Throttling pattern](../../patterns/throttling.yml) or the [Rate Limiting pattern](../../patterns/rate-limiting-pattern.md).
+- Apply resource governance, to avoid a single tenant that's overwhelming the system and reducing the capacity available to others. This step might take the form of quota enforcement, through the [Throttling pattern](../../patterns/throttling.yml) or the [Rate Limiting pattern](../../patterns/rate-limiting-pattern.yml).
 - Consider provisioning more infrastructure. This process might involve scaling up by upgrading some of your solution components, or it might involve scaling out by provisioning additional shards, if you follow the [Sharding pattern](../../patterns/sharding.yml), or stamps, if you follow the [Deployment Stamps pattern](../../patterns/deployment-stamp.md).
 - Consider allowing tenants to purchase pre-provisioned or reserved capacity. This capacity provides tenants with more certainty that your solution adequately handles their workload.
 - Consider approaches to smooth out the resource usage:

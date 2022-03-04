@@ -1,21 +1,3 @@
----
-title: Queue-Based Load Leveling pattern
-titleSuffix: Cloud Design Patterns
-description: Use a queue that acts as a buffer between a task and a service that it invokes in order to smooth intermittent heavy loads.
-author: EdPrice-MSFT
-ms.author: pnp
-ms.date: 01/02/2019
-ms.topic: conceptual
-ms.service: architecture-center
-ms.subservice: design-pattern
-ms.custom:
-  - design-pattern
-keywords:
-  - design pattern
----
-
-# Queue-Based Load Leveling pattern
-
 Use a queue that acts as a buffer between a task and a service it invokes in order to smooth intermittent heavy loads that can cause the service to fail or the task to time out. This can help to minimize the impact of peaks in demand on availability and responsiveness for both the task and the service.
 
 ## Context and problem

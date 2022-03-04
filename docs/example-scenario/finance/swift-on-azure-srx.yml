@@ -1,10 +1,10 @@
 ### YamlMime:Architecture
 metadata:
-  title: SWIFT on Azure
-  description: This article is a landing page for all SWIFT components that can be deployed on Azure.
+  title: SWIFT Alliance Connect in Azure
+  description: This article is a landing page for all SWIFT Alliance Connect components that can be deployed on Azure.
   author: Mahesh-MSFT
   ms.author: maksh
-  ms.date: 02/28/2022
+  ms.date: 02/16/2022
   ms.topic: conceptual
   ms.service: architecture-center
   ms.subservice: azure-guide
@@ -13,11 +13,11 @@ metadata:
   ms.custom:
     - fcp
     - example-scenario
-name: SWIFT on Azure
+name: SWIFT Alliance Connect in Azure
 azureCategories:
   - integration
   - migration
-summary: Use this landing page to understand SWIFT components and their architecture in Azure.
+summary: Use this landing page to understand SWIFT Alliance Connect components and their architecture in Azure.
 products:
   - azure-resource-manager
   - azure-policy
@@ -26,4 +26,4 @@ products:
   - azure-active-directory
 thumbnailUrl: /azure/architecture/browse/thumbs/swift-ref-arch-thumbnail.png
 content: |
-   [!include[](swift-on-azure-content.md)]
+   [!include[](swift-on-azure-srx-content.md)]

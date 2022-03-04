@@ -1,22 +1,3 @@
----
-title: Index Table pattern
-titleSuffix: Cloud Design Patterns
-description: Learn about the Index Table pattern. Create indexes over the fields in data stores that are frequently referenced by queries.
-author: EdPrice-MSFT
-ms.date: 06/23/2017
-ms.topic: conceptual
-ms.service: architecture-center
-ms.subservice: design-pattern
-products:
-  - azure-storage
-ms.custom:
-  - design-pattern
-keywords:
-  - design pattern
----
-
-# Index Table pattern
-
 Create indexes over the fields in data stores that are frequently referenced by queries. This pattern can improve query performance by allowing applications to more quickly locate the data to retrieve from a data store.
 
 ## Context and problem
@@ -108,4 +89,4 @@ The following patterns and guidance might also be relevant when implementing thi
 
 - [Data Consistency Primer](/previous-versions/msp-n-p/dn589800(v=pandp.10)). An index table must be maintained as the data that it indexes changes. In the cloud, it might not be possible or appropriate to perform operations that update an index as part of the same transaction that modifies the data. In that case, an eventually consistent approach is more suitable. Provides information on the issues surrounding eventual consistency.
 - [Sharding pattern](./sharding.yml). The Index Table pattern is frequently used in conjunction with data partitioned by using shards. The Sharding pattern provides more information on how to divide a data store into a set of shards.
-- [Materialized View pattern](./materialized-view.md). Instead of indexing data to support queries that summarize data, it might be more appropriate to create a materialized view of the data. Describes how to support efficient summary queries by generating prepopulated views over data.
+- [Materialized View pattern](./materialized-view.yml). Instead of indexing data to support queries that summarize data, it might be more appropriate to create a materialized view of the data. Describes how to support efficient summary queries by generating prepopulated views over data.
