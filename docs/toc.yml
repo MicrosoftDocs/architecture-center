@@ -395,7 +395,7 @@ items:
             items:
               - name: All Dynamics 365 architectures
                 href: /azure/architecture/browse/?products=dynamics-365
-              - name: Customer 360 with Dynamics 365 Customer Insights
+              - name: Customer 360 with Dynamics 365 CI
                 href: example-scenario/analytics/synapse-customer-insights.yml
               - name: Dynamics Business Central as a service
                 href: solution-ideas/articles/business-central.yml
@@ -1341,22 +1341,43 @@ items:
         items: 
           - name: Overview
             href: industries/facilities-real-estate.md
-          - name: All facilities and real estate architectures
-            href: /azure/architecture/browse/?terms=facilities
-          - name: Cognizant Safe Buildings with IoT
-            href: solution-ideas/articles/safe-buildings.yml
-          - name: COVID-19 IoT safe environments
-            href: solution-ideas/articles/cctv-iot-edge-for-covid-19-safe-environment-and-mask-detection.yml
-          - name: Facilities management with mixed reality
-            href: solution-ideas/articles/facilities-management-powered-by-mixed-reality-and-iot.yml
-          - name: IoT connected light, power, and internet
-            href: solution-ideas/articles/iot-power-management.yml
-          - name: IoT connectivity for healthcare facilities
-            href: solution-ideas/articles/healthcare-network.yml
-          - name: Lighting and disinfection system
-            href: solution-ideas/articles/uven-disinfection.yml
-          - name: Smart places with Azure Digital Twins
-            href: example-scenario/iot/smart-places.yml
+          - name: Guides
+            items:
+              - name: Smart buildings and smart cities ontologies
+                href: /azure/digital-twins/concepts-ontologies-adopt
+                maintainContext: true
+              - name: Azure Maps indoor maps
+                items:
+                  - name: Creator for indoor maps
+                    href: /azure/azure-maps/creator-indoor-maps
+                    maintainContext: true
+                  - name: Make indoor maps
+                    href: /azure/azure-maps/tutorial-creator-indoor-maps
+                    maintainContext: true
+                  - name: Use the Indoor Maps module
+                    href: /azure/azure-maps/how-to-use-indoor-module
+                    maintainContext: true
+              - name: Facility ontology for Azure Maps
+                href: /azure/azure-maps/creator-facility-ontology?pivots=facility-ontology-v1
+                maintainContext: true
+          - name: Architectures
+            items:
+              - name: All facilities and real estate architectures
+                href: /azure/architecture/browse/?terms=facilities
+              - name: Cognizant Safe Buildings with IoT
+                href: solution-ideas/articles/safe-buildings.yml
+              - name: COVID-19 IoT safe environments
+                href: solution-ideas/articles/cctv-iot-edge-for-covid-19-safe-environment-and-mask-detection.yml
+              - name: Facilities management with mixed reality
+                href: solution-ideas/articles/facilities-management-powered-by-mixed-reality-and-iot.yml
+              - name: IoT connected light, power, and internet
+                href: solution-ideas/articles/iot-power-management.yml
+              - name: IoT connectivity for healthcare facilities
+                href: solution-ideas/articles/healthcare-network.yml
+              - name: Lighting and disinfection system
+                href: solution-ideas/articles/uven-disinfection.yml
+              - name: Smart places with Azure Digital Twins
+                href: example-scenario/iot/smart-places.yml
       - name: Education
         items:
           - name: Overview
@@ -1857,8 +1878,6 @@ items:
             href: solution-ideas/articles/analytics-start-here.yml
           - name: Guides
             items:
-              - name: DataOps checklist
-                href: checklist/data-ops.md
               - name: Technology choices
                 items:
                   - name: Analytical data stores
@@ -1905,7 +1924,7 @@ items:
                 href: reference-architectures/data/enterprise-bi-adf.yml
               - name: Big data analytics on confidential computing
                 href: example-scenario/confidential/data-analytics-containers-spark-kubernetes-azure-sql.yml
-              - name: Customer 360 with Azure Synapse and Dynamics 365
+              - name: Customer 360 with Synapse and Dynamics 365
                 href: example-scenario/analytics/synapse-customer-insights.yml      
               - name: Data analysis for regulated industries
                 href: example-scenario/data/data-analysis-regulated-industries.yml
@@ -2594,6 +2613,56 @@ items:
                 href: data-guide/technology-choices/analysis-visualizations-reporting.md
               - name: Build a scalable system for massive data
                 href: data-guide/scenarios/build-scalable-database-solutions-azure-services.md
+              - name: Apache NiFi guidance
+                items:
+                  - name: Apache NiFi monitoring with MonitoFi
+                    href: guide/data/monitor-apache-nifi-monitofi.yml
+                  - name: Helm-based deployments for Apache NiFi
+                    href: guide/data/helm-deployments-apache-nifi.yml
+              - name: Azure Purview
+                items: 
+                  - name: Accounts architectures and best practices
+                    href: /azure/purview/concept-best-practices-accounts
+                    maintainContext: true
+                  - name: Managing data effectively
+                    href: /azure/purview/concept-best-practices-asset-lifecycle
+                    maintainContext: true
+                  - name: Automation best practices
+                    href: /azure/purview/concept-best-practices-automation
+                    maintainContext: true
+                  - name: Backup and recovery for migration
+                    href: /azure/purview/concept-best-practices-migration
+                    maintainContext: true
+                  - name: Classification best practices
+                    href: /azure/purview/concept-best-practices-classification
+                    maintainContext: true
+                  - name: Collections architectures and best practices
+                    href: /azure/purview/concept-best-practices-collections
+                    maintainContext: true
+                  - name: Deployment best practices
+                    href: /azure/purview/deployment-best-practices
+                    maintainContext: true
+                  - name: Glossary best practices
+                    href: /azure/purview/concept-best-practices-glossary
+                    maintainContext: true
+                  - name: Labeling best practices
+                    href: /azure/purview/concept-best-practices-sensitivity-labels
+                    maintainContext: true
+                  - name: Data lineage best practices
+                    href: /azure/purview/concept-best-practices-lineage-azure-data-factory
+                    href: maintainContext: true
+                  - name: Network architecture and best practices
+                    href: /azure/purview/concept-best-practices-network
+                    href: maintainContext: true
+                  - name: Pricing guidelines
+                    href: /azure/purview/concept-guidelines-pricing
+                    href: maintainContext: true
+                  - name: Scanning best practices
+                    href: /azure/purview/concept-best-practices-scanning
+                    href: maintainContext: true
+                  - name: Security best practices
+                    href: /azure/purview/concept-best-practices-security
+                    href: maintainContext: true
           - name: Architectures
             items:
               - name: Anomaly detector process
@@ -2610,6 +2679,14 @@ items:
                 href: example-scenario/data/data-warehouse.yml
               - name: DataOps for modern data warehouse
                 href: example-scenario/data-warehouse/dataops-mdw.yml
+              - name: Geospatial data processing and analytics
+                href: example-scenario/data/geospatial-data-processing-analytics-azure.yml
+              - name: Hybrid ETL with Azure Data Factory
+                href: example-scenario/data/hybrid-etl-with-adf.yml
+              - name: Master data management with CluedIn
+                href: reference-architectures/data/cluedin.yml
+              - name: Modern data warehouse for small business
+                href: example-scenario/data/small-medium-data-warehouse.yml
           - name: Solution ideas
             items:
               - name: Azure Data Explorer monitoring
@@ -2622,6 +2699,10 @@ items:
                 href: solution-ideas/articles/ingest-etl-stream-with-adb.yml
               - name: Mining equipment monitoring
                 href: solution-ideas/articles/monitor-mining-equipment.yml
+              - name: Ops automation using Event Grid
+                href: solution-ideas/articles/ops-automation-using-event-grid.yml
+              - name: Tier applications for analytics
+                href: solution-ideas/articles/tiered-data-for-analytics.yml
       - name: Developer Options
         items:
           - name: Microservices
@@ -3135,6 +3216,12 @@ items:
             href: identity/identity-start-here.yml
           - name: Guides
             items:
+              - name: Azure Active Directory architecture
+                href: /azure/active-directory/fundamentals/active-directory-architecture
+                maintainContext: true
+              - name: Identity and access management in Azure
+                href: /security/compass/identity
+                maintainContext: true
               - name: Compare identity services
                 href: /azure/active-directory-domain-services/compare-identity-solutions
                 maintainContext: true
