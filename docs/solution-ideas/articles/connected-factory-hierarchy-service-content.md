@@ -1,12 +1,14 @@
-[!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
-
 This article explores a connected factory hierarchy service implementation. A hierarchy service centrally defines the organization of production assets like machines within factories, from both an operational and maintenance point of view. Business stakeholders can use this information as a common data source for monitoring plant conditions or overall equipment effectiveness (OEE).
+
+[Azure Digital Twins](/azure/digital-twins) helps build the hierarchy service by creating a model of nodes, like machines, work centers, and locations, and their relationships. Each node has metadata that includes identifiers from enterprise resource management (ERP) systems. You can use this contextual information in downstream applications to gain insights and help manage production processes.
+
+This architecture uses [Azure Kubernetes Services (AKS)](/azure/aks/intro-kubernetes) for running the microservices that query master data from the various connected services. The hierarchy service is an ASP.NET Core REST API hosted in an AKS cluster.
 
 ## Problem
 
-Production assets like machines are organized within factories in context-specific hierarchies. Machines can be organized by their physical location, maintenance requirements, or products. Individual stakeholders, processes, and IT systems define asset organization differently.
+Production assets like machines are organized within factories in context-specific hierarchies. Machines can be organized by their physical location, maintenance requirements, or products. Individual stakeholders, processes, and IT systems have different definitions for asset hierarchies.
 
-Multiple IT systems might define hierarchical structures redundantly. Information from enterprise resource management (ERP) systems might be replicated across multiple applications. These redundancies can lead to inconsistencies, heterogeneous governance concepts, and missing correlations between master data and application-specific hierarchies.
+Multiple IT systems might define hierarchical structures redundantly. Information from ERP systems might be replicated across multiple applications. These redundancies can lead to inconsistencies, heterogeneous governance concepts, and missing correlations between master data and application-specific hierarchies.
 
 Changes to hierarchical structures and the metadata that defines them are very time consuming. If an enterprise adds new machines or reorganizes a production line, it must apply and verify the changes manually in multiple places. Decentralized access control increases the need for manual processes, and makes links between application-specific hierarchies difficult to establish. These issues impact business agility and scalability. 
 
@@ -14,31 +16,27 @@ Another challenge is that individual sites or organizations might use different 
 
 ## Solution
 
-A hierarchy service addresses these problems by providing a centralized, consolidated, and consistent overall hierarchy definition. Anytime an application needs to reference hierarchy data, it retrieves the latest definitions from the hierarchy service. Any changes to the hierarchy always reflect across all applications, without manual steps.
+A hierarchy service addresses these problems by providing a centralized, consolidated, and consistent overall hierarchy definition for assets. Anytime an application needs to reference hierarchy data, it retrieves the latest definitions from the hierarchy service. Any changes to the hierarchy always reflect across all applications, without manual steps.
 
-Every node in the hierarchy contains a system-defined unique identifier issued by the service. This ID uniquely identifies items, such as a specific machine in a specific factory, across applications throughout an entire organization. The ID can also be added to telemetry data sent by machines, to contextualize that data based on the hierarchy.
+The service issues every node in the hierarchy a system-defined unique identifier. This ID uniquely identifies items, such as a specific machine in a specific factory, across applications throughout an entire organization. The ID can also be added to telemetry data sent by machines, to contextualize that data based on the hierarchy.
 
-To maintain a separation of concerns, the hierarchy service only contains information about nodes, relationships, and references to corresponding master data. The system maintains other information, such as actual master data records or application-specific parameters, separately.
+To maintain a separation of concerns, the hierarchy service only contains information about nodes, relationships, and references to corresponding master data. The system maintains actual master data records or application-specific parameters separately. A dedicated master data document service can provide master data records. A shop floor application can maintain parameters that are defined on a machine level. The hierarchy service remains lean and efficient, and avoids evolving into a parallel master data management system.
 
-A dedicated master data document service can provide master data records. A shop floor application can maintain parameters like thresholds or default cavity values that are defined on a machine level. The hierarchy service remains lean and efficient, and avoids evolving into a parallel master data management system.
+A maintenance view and an operational view cover the needs of both perspectives. The service provides access control to govern changes. Business stakeholders can define and maintain the hierarchy by using a graphical UI, without involving IT personnel.
 
-The hierarchy service acts as the single point of integration with ERP systems, decoupling the lifecycle of ERP systems from the hierarchy. You can integrate with ERP systems manually via graphical UI, bulk import, or an API the hierarchy service provides.
-
-A maintenance view and an operational view cover the needs of both perspectives. The service provides access control to govern changes. Business stakeholders can define and maintain the hierarchy by using a graphical UI, without involving IT personnel. 
-
-[Azure Digital Twins](/azure/digital-twins) can help build a hierarchy service by creating a model of nodes, like machines, work centers, and locations, and their relationships. Each node has metadata that includes identifiers from ERP systems. You can use this contextual information in downstream applications to gain insights into production states, aggregate machine data, or identify machines that can fulfill a given order.
+The hierarchy service acts as the single point of integration with ERP systems, decoupling the lifecycle of ERP systems from the hierarchy. You can integrate with ERP systems via graphical UI, bulk import, or an API the hierarchy service provides.
 
 ## Potential use cases
 
 Potential uses for this solution include:
 
-- Standardizing asset organization across IT systems.
-- Easily incorporating new machines or changes to production lines.
-- Centrally managing several different ERP systems within an enterprise.
+- Standardize asset organization across IT systems.
+- Easily incorporate new machines or changes to production lines.
+- Centrally manage different ERP systems within an enterprise.
+- Identify machines that can fulfill a given order.
+- Aggregate machine data.
 
 ## Architecture
-
-The following example hierarchy service is an ASP.NET Core REST API hosted on [Azure Kubernetes Services (AKS)](/azure/aks/intro-kubernetes).
 
 [![Infographic of an example hierarchy service.](../media/connected-factory-hierarchy-service-03.png)](../media/connected-factory-hierarchy-service-03.png#lightbox)
 
@@ -46,7 +44,7 @@ The following example hierarchy service is an ASP.NET Core REST API hosted on [A
 1. The **web app** lets users manage the hierarchy through a UI.
 1. **Azure Digital Twins Explorer** lets users manage the hierarchy directly against Azure Digital Twins.
 1. The **IO API** supports bulk import and export for manufacturing-specific scenarios.
-1. The **Query API** provides query capabilities for manufacturing-specific data needs. The API improves Azure Digital Twins query performance by using an in-memory cache.
+1. The **Query API** provides query capabilities for manufacturing-specific data needs.
 1. The **Admin API** supports atomic business operations and validation of business rules.
 
 ### Data model
@@ -102,7 +100,7 @@ The hierarchy service lets you filter query operations by node types and node at
 
 ### Alternatives
 
-- This solution uses AKS for running the microservices that query master data from the various connected services. You can also run the microservices in [Azure Container Instances (ACI)](https://azure.microsoft.com/services/container-instances). ACI offers the fastest and simplest way to run a container in Azure, without having to adopt a higher-level service like AKS.
+- This solution uses AKS to run the microservices that query master data from the connected services. You can also run the microservices in [Azure Container Instances (ACI)](https://azure.microsoft.com/services/container-instances). ACI offers the fastest and simplest way to run a container in Azure, without having to adopt a higher-level service like AKS.
 
 - Instead of hosting the web application separately from the microservices, you can deploy the web app inside the AKS cluster. Then there's no need to introduce another service such as Azure App Service.
 
