@@ -18,9 +18,9 @@ The service issues every node in the hierarchy a system-defined unique identifie
 
 To maintain a separation of concerns, the hierarchy service only contains information about nodes, relationships, and references to corresponding master data. The system maintains actual master data records or application-specific parameters separately. A dedicated master data document service can provide master data records. A shop floor application can maintain parameters that are defined on a machine level. The hierarchy service remains lean and efficient, and avoids evolving into a parallel master data management system.
 
-A maintenance view and an operational view cover the needs of both perspectives. The service provides access control to govern changes. Business stakeholders can define and maintain the hierarchy by using a graphical UI, without involving IT personnel.
+The service provides access control to govern changes. Different views cover the needs of maintenance and operational perspectives. Business stakeholders can define and maintain the hierarchy by using a graphical UI, without involving IT personnel.
 
-The hierarchy service acts as the single point of integration with ERP systems, decoupling the lifecycle of ERP systems from the hierarchy. You can integrate with ERP systems via graphical UI, bulk import, or an API the hierarchy service provides.
+The hierarchy service acts as the single point of integration with ERP systems, decoupling the lifecycle of ERP systems from the hierarchy. Users can integrate with ERP systems via graphical UI, bulk import, or an API the hierarchy service provides.
 
 ## Potential use cases
 
@@ -36,7 +36,7 @@ Potential uses for this solution include:
 
 This solution uses [Azure Kubernetes Services (AKS)](/azure/aks/intro-kubernetes) to run the microservices that query master data from the various connected services. The hierarchy service is an ASP.NET Core REST API hosted in an AKS cluster.
 
-[Azure Digital Twins](/azure/digital-twins) helps build the hierarchy service by creating a model of nodes, like machines, work centers, and locations, and their relationships. Each node has metadata that includes identifiers from enterprise resource management (ERP) systems. You can use this contextual information in downstream applications.
+[Azure Digital Twins](/azure/digital-twins) helps build the hierarchy service by creating a model of nodes, like machines, work centers, and locations, and their relationships. Each node has metadata that includes identifiers from enterprise resource management (ERP) systems. Downstream applications can use this contextual information.
 
 ![Infographic of an example hierarchy service.](../media/connected-factory-hierarchy-service-03.png)
 
@@ -83,7 +83,7 @@ The hierarchy service provides a consolidated data model that supports defining 
 
 ![Diagram showing a hierarchy service architecture.](../media/connected-factory-hierarchy-service-01.png)
 
-Data is retrieved from either [Azure Digital Twins](/azure/digital-twins), or an in-memory cache when materializing large graphs. The cache improves performance for queries that would have long response times when issued directly against Azure Digital Twins. The in-memory cache improves the speed of a 3,000-node graph traversal from about 10 seconds to less than a second.
+The service retrieves hierarchy data from either [Azure Digital Twins](/azure/digital-twins), or an in-memory cache when materializing large graphs. The cache improves performance for queries that would have long response times when issued directly against Azure Digital Twins. The in-memory cache improves the speed of a 3,000-node graph traversal from about 10 seconds to less than a second.
 
 ### Components
 
@@ -93,13 +93,13 @@ Data is retrieved from either [Azure Digital Twins](/azure/digital-twins), or an
 
 - [Azure Kubernetes Services (AKS)](/azure/aks/intro-kubernetes) offers serverless Kubernetes for running microservices, integrated continuous integration and continuous deployment (CI/CD), and enterprise-grade security and governance.
 
-- [Azure App Service](https://azure.microsoft.com/services/app-service/#overview) is a platform-as-a-service (PaaS) for building and hosting apps on managed virtual machines (VMs). App Service manages the underlying compute infrastructure that runs your apps. App Service monitors resource usage quotas and app metrics, logs diagnostic information, and raises alerts based on metrics.
+- [Azure App Service](https://azure.microsoft.com/services/app-service/#overview) is a platform-as-a-service (PaaS) for building and hosting apps on managed virtual machines (VMs). App Service manages the underlying compute infrastructure that runs your apps.
 
 - [Azure Data Explorer](https://azure.microsoft.com/services/data-explorer/#overview) is a fast, fully managed data analytics service. Azure Data Explorer provides real-time analysis of large data volumes streaming from applications, websites, and IoT devices.
 
 ### Alternatives
 
-- This solution uses AKS to run the microservices that query master data from the connected services. You can also run the microservices in [Azure Container Instances (ACI)](https://azure.microsoft.com/services/container-instances). ACI offers the fastest and simplest way to run a container in Azure, without having to adopt a higher-level service like AKS.
+- This solution uses AKS to run the microservices that query data from the connected services. You can also run the microservices in [Azure Container Instances (ACI)](https://azure.microsoft.com/services/container-instances). ACI offers the fastest and simplest way to run a container in Azure, without having to adopt a higher-level service like AKS.
 
 - Instead of hosting the web application separately from the microservices, you can deploy the web app inside the AKS cluster. Then there's no need to introduce another service such as Azure App Service.
 
@@ -113,7 +113,7 @@ This system design is intentionally simple to avoid the introduction of more ser
 
 - Telemetry data. The example doesn't use the Azure Digital Twins [telemetry data processing capability](/azure/digital-twins/concepts-data-ingress-egress). You can extend the solution to process telemetry data if the resulting data rates are compatible with the [Azure Digital Twins service limits](/azure/digital-twins/reference-service-limits).
 
-- Integration with [Azure Data Explorer](https://azure.microsoft.com/services/data-explorer/#overview). You can ingest data directly into a store that can manage manufacturing data rates. Azure Digital Twins/Azure Data Explorer joint queries via the [Azure Digital Twins query plugin for Azure Data Explorer](/azure/digital-twins/concepts-data-explorer-plugin) provide contextualization.
+- Integration with [Azure Data Explorer](https://azure.microsoft.com/services/data-explorer/#overview). You can ingest data directly into a store that can manage manufacturing data rates. Azure Digital Twins/Azure Data Explorer joint queries via the [Azure Digital Twins query plugin for Azure Data Explorer](/azure/digital-twins/concepts-data-explorer-plugin) can provide contextualization.
 
 ## Considerations
 
