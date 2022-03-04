@@ -16,16 +16,16 @@ You can use this solution to modernize your workplace and improve employee and c
 
 ### Dataflow 
 
-1. An Azure logic app ingests raw forms sent as attachments in emails.
-2. Alternatively, an Azure function receives raw forms uploaded to a web application or an app created in Power Apps.
+1. An Azure logic app ingests raw forms that are sent as attachments in emails.
+2. Alternatively, an Azure function receives raw forms that are uploaded to a web application or that an app created in Power Apps.
 3. The raw forms are loaded to Azure Data Lake Storage and processed by an Azure Form Recognizer custom model to extract key-value pairs from the forms. Azure Custom Vision validates any logos in the forms to help ensure the authenticity of the forms.
 4. The extracted structured data from unstructured documents is stored in Azure Cosmos DB and Azure Synapse Analytics. 
 5. Power BI ingests the extracted data to visualize the insights from the forms.
 
 ### Components
 
-- [Azure Logic Apps](https://azure.microsoft.com/services/logic-apps) helps to automate the workflow for receiving and processing forms sent as email attachments.
-- [Azure Functions](https://azure.microsoft.com/services/functions) helps to orchestrate the workflow for receiving and processing forms uploaded to a web application or an app created in Power Apps.
+- [Azure Logic Apps](https://azure.microsoft.com/services/logic-apps) helps to automate the workflow for receiving and processing forms that are sent as email attachments.
+- [Azure Functions](https://azure.microsoft.com/services/functions) is an event-driven serverless compute platform. Here, it helps to orchestrate the workflow for receiving and processing forms that are uploaded to a web application or an app that's created in Power Apps.
 - [Form Recognizer](https://azure.microsoft.com/services/form-recognizer) is a cloud-based Azure Applied AI Services product that uses machine-learning models to extract key-value pairs, text, and tables from documents.
 - [Azure Custom Vision](https://azure.microsoft.com/services/cognitive-services/custom-vision-service) helps you build, deploy, and improve an object detection model. It's used here to find and validate logos in the forms.
 - [Data Lake Storage](https://azure.microsoft.com/services/storage/data-lake-storage) provides a massively scalable and highly secure data lake for high-performance analytics workloads.
@@ -38,7 +38,7 @@ You can use this solution to modernize your workplace and improve employee and c
 ### Availability
 
 The availability of this solution depends on the availability of its main components:
-- Form Recognizer is an Applied AI Services product. For details, see [SLA of Azure Applied Services](https://azure.microsoft.com/support/legal/sla/azure-applied-ai-services/v1_0). Note that there's no SLA for the Free tier.
+- Form Recognizer is an Applied AI Services product. For details, see [SLA of Azure Applied AI Services](https://azure.microsoft.com/support/legal/sla/azure-applied-ai-services/v1_0). Note that there's no SLA for the Free tier.
 - Azure Cosmos DB provides multiple features and configuration options for high availability. For details, see [High availability in Azure Cosmos DB](/azure/cosmos-db/high-availability#slas-for-availability).
 - Azure functions running on Consumption and Premium plans guarantee high availability. For details, see [SLA for Azure Functions](https://azure.microsoft.com/support/legal/sla/functions/v1_2).
 - Azure Blob Storage provides redundancy options that help ensure high availability. You can use either locally redundant storage (LRS) or availability zones. For details, see [availability parameters](/azure/storage/common/storage-redundancy#durability-and-availability-parameters).
