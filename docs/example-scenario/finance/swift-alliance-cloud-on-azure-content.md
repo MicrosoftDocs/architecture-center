@@ -1,3 +1,6 @@
+> [!NOTE]
+> This article provides an overview with reference architecture for deploying SWIFT's Alliance Connect Virtual solution on Azure. Please note that the new Alliance Connect Virtual solution is not yet available for SWIFT production traffic. The solution is currently being tested with SWIFT customers and will become generally available throughout 2022 as part of a phased launch. For more information about the general availability of the product, see [SWIFT.com](https://www.swift.com/our-solutions/interfaces-and-integration/alliance-connect-virtual).
+
 This article provides an overview of deploying Alliance Cloud connectivity stack in Azure. The solution requires two Azure subscriptions. One subscription contains the SWIFT Integration Layer (SIL) resources. The other subscription contains the resources to connect to SWIFT's network via Alliance Connect Virtual.
 
 This approach can be used for:
@@ -5,10 +8,6 @@ This approach can be used for:
 * Migrating SWIFT connectivity from on-premises to Azure
 
 * Establishing new SWIFT connectivity by using Azure
-
-> [!NOTE]
-> This article provides an overview with reference architecture for deploying SWIFT's Alliance Connect Virtual solution on Azure. Please note that the new Alliance Connect Virtual solution is not yet available for SWIFT production traffic. The solution is currently being tested with SWIFT customers and will become generally available throughout 2022 as part of a phased launch. For more information about the general availability of the product, see [SWIFT.com](https://www.swift.com/our-solutions/interfaces-and-integration/alliance-connect-virtual).
-
 
 ## Potential use cases
 
