@@ -27,9 +27,9 @@ The architecture below extends on the [Analytics end-to-end with Azure Synapse](
 
 :::image type="content" source="media/citizen-ai-power-platform.svg" alt-text="Architecture for Citizen AI with Microsoft Power Platform" lightbox="media/citizen-ai-power-platform.png" :::
 
-*Download a [Visio file](https://arch-center.azureedge.net/US-1870655-PR-3813-citizen-ai-power-platform.vsdx) of this architecture.*
+*Download a [Visio file](media/citizen-ai-power-platform-visiofile.vsdx) of this architecture.*
 
-Architecture flow:
+**Architecture flow:**
 
 **1 - Ingest:** Use [Azure Synapse pipelines](/azure/data-factory/concepts-pipelines-activities) to pull batch data from a wide variety of sources, both on-premises and in the cloud. This is a Lambda Architecture with two data ingestion flows (streaming and batch).
 
