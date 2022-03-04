@@ -1,4 +1,6 @@
-This scenario explores a connected factory hierarchy service implementation. A hierarchy service centrally defines the organization of production assets like machines within factories, from both an operational and maintenance point of view. Business stakeholders can use this information as a common data source for monitoring plant conditions or overall equipment effectiveness (OEE).
+[!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
+
+This article explores a connected factory hierarchy service implementation. A hierarchy service centrally defines the organization of production assets like machines within factories, from both an operational and maintenance point of view. Business stakeholders can use this information as a common data source for monitoring plant conditions or overall equipment effectiveness (OEE).
 
 ## Problem
 
@@ -6,9 +8,7 @@ Production assets like machines are organized within factories in context-specif
 
 Multiple IT systems might define hierarchical structures redundantly. Information from enterprise resource management (ERP) systems might be replicated across multiple applications. These redundancies can lead to inconsistencies, heterogeneous governance concepts, and missing correlations between master data and application-specific hierarchies.
 
-Changes to hierarchical structures and the metadata that defines them are very time consuming. If a new machine is added or a production line is reorganized, changes need to be applied manually in multiple places. The consistency of these changes must be verified manually.
-
-Decentralized access control increases the need for manual processes, and makes links between application-specific hierarchies difficult to establish. These issues impact business agility and scalability. 
+Changes to hierarchical structures and the metadata that defines them are very time consuming. If an enterprise adds new machines or reorganizes a production line, it must apply and verify the changes manually in multiple places. Decentralized access control increases the need for manual processes, and makes links between application-specific hierarchies difficult to establish. These issues impact business agility and scalability. 
 
 Another challenge is that individual sites or organizations might use different ERP systems, often for historical reasons such as acquisitions. Standardizing ERP systems might not be feasible within a reasonable time frame. This heterogeneous ERP landscape adds even more complexity and challenge to the process of integrating shop floor applications with ERP systems.
 
@@ -18,7 +18,7 @@ A hierarchy service addresses these problems by providing a centralized, consoli
 
 Every node in the hierarchy contains a system-defined unique identifier issued by the service. This ID uniquely identifies items, such as a specific machine in a specific factory, across applications throughout an entire organization. The ID can also be added to telemetry data sent by machines, to contextualize that data based on the hierarchy.
 
-To maintain a separation of concerns, the hierarchy service only contains information about nodes, relationships, and references to corresponding master data, such as the ERP ID of a given machine. The system maintains other information, such as actual master data records or application-specific parameters, separately.
+To maintain a separation of concerns, the hierarchy service only contains information about nodes, relationships, and references to corresponding master data. The system maintains other information, such as actual master data records or application-specific parameters, separately.
 
 A dedicated master data document service can provide master data records. A shop floor application can maintain parameters like thresholds or default cavity values that are defined on a machine level. The hierarchy service remains lean and efficient, and avoids evolving into a parallel master data management system.
 
@@ -98,13 +98,13 @@ The hierarchy service lets you filter query operations by node types and node at
 
 - [Azure App Service](https://azure.microsoft.com/services/app-service/#overview) is a platform-as-a-service (PaaS) for building and hosting apps on managed virtual machines (VMs). App Service manages the underlying compute infrastructure that runs your apps. App Service monitors resource usage quotas and app metrics, logs diagnostic information, and raises alerts based on metrics.
 
-- [Azure Data Explorer](https://azure.microsoft.com/services/data-explorer/#overview) is a fast, fully managed data analytics service for real-time analysis of large data volumes streaming from applications, websites, and IoT devices.
+- [Azure Data Explorer](https://azure.microsoft.com/services/data-explorer/#overview) is a fast, fully managed data analytics service. Azure Data Explorer provides real-time analysis of large data volumes streaming from applications, websites, and IoT devices.
 
 ### Alternatives
 
 - This solution uses AKS for running the microservices that query master data from the various connected services. You can also run the microservices in [Azure Container Instances (ACI)](https://azure.microsoft.com/services/container-instances). ACI offers the fastest and simplest way to run a container in Azure, without having to adopt a higher-level service like AKS.
 
-- Instead of hosting the web application separately from the microservices running in AKS, you can deploy the web app inside the AKS cluster. Then there's no need to introduce another service such as Azure App Service.
+- Instead of hosting the web application separately from the microservices, you can deploy the web app inside the AKS cluster. Then there's no need to introduce another service such as Azure App Service.
 
 - Consider hosting [SAP on Azure](https://azure.microsoft.com/solutions/sap), to use all the benefits and integrations with the Azure platform and the [Microsoft 365 ecosystem](https://news.microsoft.com/2021/01/22/sap-and-microsoft-expand-partnership-and-integrate-microsoft-teams-across-solutions).
 
@@ -138,7 +138,7 @@ Azure App Service can also scale up or out, manually or automatically.
 
 ### Security
 
-Use [role-based access control (RBAC)](/azure/role-based-access-control/overview) to restrict who can access and use the connected factory resources, and limit data access based on the user's identity or role. This solution uses [Azure Active Directory (Azure AD)](/azure/active-directory/fundamentals/active-directory-whatis) for identity and access control, and [Azure Key Vault](/azure/key-vault/general/overview) to manage keys and secrets.
+Use [role-based access control (RBAC)](/azure/role-based-access-control/overview) to restrict who can access and use the connected factory resources. Limit data access based on the user's identity or role. This solution uses [Azure Active Directory (Azure AD)](/azure/active-directory/fundamentals/active-directory-whatis) for identity and access control, and [Azure Key Vault](/azure/key-vault/general/overview) to manage keys and secrets.
 
 To improve AKS security, apply and enforce built-in security policies by using [Azure Policy](/azure/governance/policy/overview). Azure Policy helps enforce organizational standards and assess compliance at scale. The [Azure Policy Add-on for AKS](/azure/governance/policy/concepts/policy-for-kubernetes) can apply individual policy definitions or groups of policy definitions called initiatives to your cluster.
 
