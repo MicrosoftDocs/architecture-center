@@ -24,13 +24,13 @@ Noisy neighbor problems are an inherent risk in multitenant systems, and it's no
 
 - Purchase reserved capacity, if available. For example, when using Cosmos DB, purchase [reserved throughput](/azure/cosmos-db/optimize-cost-throughput), and when using ExpressRoute, [provision separate circuits for environments that are sensitive to performance](/azure/cloud-adoption-framework/ready/azure-best-practices/connectivity-to-azure).
 - Migrate to a single-tenant instance of the service, or to a service tier with stronger isolation guarantees. For example, when using Service Bus, [migrate to the premium tier](/azure/service-bus-messaging/service-bus-premium-messaging), and when using Azure Cache for Redis, [provision a standard or premium tier cache](/azure/azure-cache-for-redis/cache-best-practices#configuration-and-concepts).
-- Ensure your application handles [service throttling](../../patterns/throttling.md), to reduce making unnecessary requests to the service.
+- Ensure your application handles [service throttling](../../patterns/throttling.yml), to reduce making unnecessary requests to the service.
 
 ### Actions that service providers can take
 
 - Monitor the resource usage for your system, both overall and for each tenant. Configure alerts to detect spikes in resource usage, and if possible, configure automation to automatically mitigate known issues by [scaling up or out](/azure/architecture/framework/scalability/design-scale).
-- Apply resource governance, to avoid a single tenant that's overwhelming the system and reducing the capacity available to others. This step might take the form of quota enforcement, through the [Throttling pattern](../../patterns/throttling.md) or the [Rate Limiting pattern](../../patterns/rate-limiting-pattern.md).
-- Consider provisioning more infrastructure. This process might involve scaling up by upgrading some of your solution components, or it might involve scaling out by provisioning additional shards, if you follow the [Sharding pattern](../../patterns/sharding.md), or stamps, if you follow the [Deployment Stamps pattern](../../patterns/deployment-stamp.md).
+- Apply resource governance, to avoid a single tenant that's overwhelming the system and reducing the capacity available to others. This step might take the form of quota enforcement, through the [Throttling pattern](../../patterns/throttling.yml) or the [Rate Limiting pattern](../../patterns/rate-limiting-pattern.yml).
+- Consider provisioning more infrastructure. This process might involve scaling up by upgrading some of your solution components, or it might involve scaling out by provisioning additional shards, if you follow the [Sharding pattern](../../patterns/sharding.yml), or stamps, if you follow the [Deployment Stamps pattern](../../patterns/deployment-stamp.md).
 - Consider allowing tenants to purchase pre-provisioned or reserved capacity. This capacity provides tenants with more certainty that your solution adequately handles their workload.
 - Consider approaches to smooth out the resource usage:
   - If you host multiple instances of your solution, consider rebalancing tenants across the instances or stamps. For example, consider placing tenants with predictable and similar usage patterns, across multiple stamps, to flatten the peaks in their usage.

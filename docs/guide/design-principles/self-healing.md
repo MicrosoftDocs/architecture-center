@@ -66,9 +66,9 @@ For a structured approach to making your applications self healing, see [Design 
 
 [circuit-breaker]: ../../patterns/circuit-breaker.md
 [compensating-transactions]: ../../patterns/compensating-transaction.md
-[leader-election]: ../../patterns/leader-election.md
-[load-level]: ../../patterns/queue-based-load-leveling.md
+[leader-election]: ../../patterns/leader-election.yml
+[load-level]: ../../patterns/queue-based-load-leveling.yml
 [resiliency-overview]: /azure/architecture/framework/resiliency/principles
-[retry]: ../../patterns/retry.md
-[throttle]: ../../patterns/throttling.md
+[retry]: ../../patterns/retry.yml
+[throttle]: ../../patterns/throttling.yml
 [transient-fault-handling]: ../../best-practices/transient-faults.md

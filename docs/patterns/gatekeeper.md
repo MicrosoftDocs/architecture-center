@@ -64,4 +64,4 @@ In a cloud-hosted scenario, this pattern can be implemented by decoupling the ga
 
 ## Related guidance
 
-The [Valet Key pattern](./valet-key.md) might also be relevant when implementing the Gatekeeper pattern. When communicating between the Gatekeeper and trusted roles, it's a good practice to enhance security by using keys or tokens that limit permissions for accessing resources. The pattern describes how to use a token or key that provides clients with restricted, direct access to a specific resource or service.
+The [Valet Key pattern](./valet-key.yml) might also be relevant when implementing the Gatekeeper pattern. When communicating between the Gatekeeper and trusted roles, it's a good practice to enhance security by using keys or tokens that limit permissions for accessing resources. The pattern describes how to use a token or key that provides clients with restricted, direct access to a specific resource or service.

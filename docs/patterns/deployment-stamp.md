@@ -119,7 +119,7 @@ This pattern is not suitable for:
 - Simple solutions that do not need to scale to a high degree.
 - Systems that can be easily scaled out or up within a single instance, such as by increasing the size of the application layer or by increasing the reserved capacity for databases and the storage tier.
 - Solutions in which data should be replicated across all deployed instances. Consider the [geode pattern](geodes.md) for this scenario.
-- Solutions in which only some components need to be scaled, but not others. For example, consider whether your solution could be scaled by [sharding the data store](sharding.md) rather than deploying a new copy of all of the solution components.
+- Solutions in which only some components need to be scaled, but not others. For example, consider whether your solution could be scaled by [sharding the data store](sharding.yml) rather than deploying a new copy of all of the solution components.
 - Solutions comprised solely of static content, such as a front-end JavaScript application. Consider storing such content in a [storage account](/azure/storage/blobs/storage-blob-static-website) and using [Azure CDN](/azure/storage/blobs/storage-blob-static-website).
 
 ## Supporting technologies
@@ -151,5 +151,5 @@ Click the link below to deploy the solution.
 
 ## Related guidance
 
-- Sharding can be used as another, simpler, approach to scale out your data tier. Stamps implicitly shard their data, but sharding does not require a Deployment Stamp. For more information, see the [Sharding pattern](sharding.md).
+- Sharding can be used as another, simpler, approach to scale out your data tier. Stamps implicitly shard their data, but sharding does not require a Deployment Stamp. For more information, see the [Sharding pattern](sharding.yml).
 - If a traffic routing service is deployed, the [Gateway Routing](gateway-routing.md) and [Gateway Offloading](gateway-offloading.md) patterns can be used together to make the best use of this component.

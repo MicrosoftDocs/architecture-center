@@ -100,8 +100,8 @@ spec:
 
 - [Designing reliable Azure applications](/azure/architecture/framework/resiliency/app-design)
 - [Circuit Breaker pattern](./circuit-breaker.md)
-- [Retry pattern](./retry.md)
-- [Throttling pattern](./throttling.md)
+- [Retry pattern](./retry.yml)
+- [Throttling pattern](./throttling.yml)
 
 <!-- links -->
 

@@ -124,4 +124,4 @@ http {
 
 [bulkhead]: ./bulkhead.md
 [circuit-breaker]: ./circuit-breaker.md
-[retry]: ./retry.md
+[retry]: ./retry.yml
