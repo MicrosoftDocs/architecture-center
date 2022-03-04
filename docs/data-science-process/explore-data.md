@@ -20,7 +20,7 @@ categories:
 ---
 # Explore data in the Team Data Science Process
 
-Exploring data is a step in the [Team Data Science Process](overview.md).
+Exploring data is a step in the [Team Data Science Process](overview.yml).
 
 The following articles describe how to explore data in three different storage environments that are typically used in the Data Science Process:
 
