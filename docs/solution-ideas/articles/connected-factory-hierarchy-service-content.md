@@ -1,10 +1,10 @@
-This scenario explores an example hierarchy service implementation. A hierarchy service centrally defines the organization of production assets like machines within factories, from both an operational and maintenance point of view. Business stakeholders can use this information as a common data source for monitoring plant conditions or overall equipment effectiveness (OEE).
+This scenario explores a connected factory hierarchy service implementation. A hierarchy service centrally defines the organization of production assets like machines within factories, from both an operational and maintenance point of view. Business stakeholders can use this information as a common data source for monitoring plant conditions or overall equipment effectiveness (OEE).
 
 ## Problem
 
-Production assets like machines are organized within factories in context-specific hierarchies. For example, machines can be organized by physical location, maintenance requirements, or their products. Individual stakeholders, processes, and IT systems define production asset organizations differently.
+Production assets like machines are organized within factories in context-specific hierarchies. Machines can be organized by their physical location, maintenance requirements, or products. Individual stakeholders, processes, and IT systems define asset organization differently.
 
-Multiple IT systems can define hierarchical structures redundantly, or information from enterprise resource management (ERP) systems might be replicated across multiple applications. These redundancies can lead to inconsistencies, heterogeneous governance concepts, and missing correlations between master data and application-specific hierarchies.
+Multiple IT systems might define hierarchical structures redundantly. Information from enterprise resource management (ERP) systems might be replicated across multiple applications. These redundancies can lead to inconsistencies, heterogeneous governance concepts, and missing correlations between master data and application-specific hierarchies.
 
 Changes to hierarchical structures and the metadata that defines them are very time consuming. If a new machine is added or a production line is reorganized, changes need to be applied manually in multiple places. The consistency of these changes must be verified manually.
 
@@ -32,11 +32,9 @@ A maintenance view and an operational view cover the needs of both perspectives.
 
 Potential uses for this solution include:
 
-- Predictive maintenance
-- Enabling connectivity in a plant or factory
-- Sustaining productivity in a plant or factory
-- Monitoring safety and compliance
-- Empowering workers on the shop floor
+- Standardizing asset organization across IT systems.
+- Easily incorporating new machines or changes to production lines.
+- Centrally managing several different ERP systems within an enterprise.
 
 ## Architecture
 
@@ -63,7 +61,7 @@ Data is retrieved from either [Azure Digital Twins](/azure/digital-twins), or an
 
 The hierarchy service lets you filter query operations by node types and node attributes. The service supports the following operations:
 
-#### Admin
+**Admin**
 
 |Operation|Filter|Description|
 |---|---|---|
@@ -71,7 +69,7 @@ The hierarchy service lets you filter query operations by node types and node at
 |`delete`|`/api/v0.1/nodes/{nodeId}`|Remove a leaf node from hierarchy.|
 |`put`|`/api/v0.1/nodes/{nodeId}`|Update existing node and relationships with parents.|
 
-#### Query
+**Query**
 
 |Operation|Filter|Description|
 |---|---|---|
@@ -81,7 +79,7 @@ The hierarchy service lets you filter query operations by node types and node at
 |`get`|`/api/v0.1/nodes/{nodeId}/children`|Get direct children of a hierarchy node.|
 |`get`|`/api/v0.1/nodes/{nodeId}/parent`|Get parent of a hierarchy node.|
 
-#### Bulk
+**Bulk**
 
 |Operation|Filter|Description|
 |---|---|---|
@@ -104,7 +102,7 @@ The hierarchy service lets you filter query operations by node types and node at
 
 ### Alternatives
 
-- This architecture uses AKS for running the microservices that query master data from the various connected services. You can also run the microservices in [Azure Container Instances (ACI)](https://azure.microsoft.com/services/container-instances). ACI offers the fastest and simplest way to run a container in Azure, without having to adopt a higher-level service like AKS.
+- This solution uses AKS for running the microservices that query master data from the various connected services. You can also run the microservices in [Azure Container Instances (ACI)](https://azure.microsoft.com/services/container-instances). ACI offers the fastest and simplest way to run a container in Azure, without having to adopt a higher-level service like AKS.
 
 - Instead of hosting the web application separately from the microservices running in AKS, you can deploy the web app inside the AKS cluster. Then there's no need to introduce another service such as Azure App Service.
 
@@ -114,11 +112,11 @@ The hierarchy service lets you filter query operations by node types and node at
 
 This system design is intentionally simple to avoid the introduction of more services or dependencies. Consider supporting the following functionality:
 
-- Change notifications. This example implements cache synchronization by periodically polling Azure Digital Twins for changes. You can also use [Azure Digital Twins event notifications](/azure/digital-twins/concepts-event-notifications) to initiate a cache refresh and to notify downstream applications.
+- Change notifications. This solution implements cache synchronization by periodically polling Azure Digital Twins for changes. You can also use [Azure Digital Twins event notifications](/azure/digital-twins/concepts-event-notifications) to initiate a cache refresh and to notify downstream applications.
 
 - Telemetry data. The example doesn't use the Azure Digital Twins [telemetry data processing capability](/azure/digital-twins/concepts-data-ingress-egress). You can extend the solution to process telemetry data if the resulting data rates are compatible with the [Azure Digital Twins service limits](/azure/digital-twins/reference-service-limits).
 
-- Integration with [Azure Data Explorer](https://azure.microsoft.com/services/data-explorer/#overview). You can ingest data directly into a store that can manage manufacturing data rates. Provide contextualization with Azure Digital Twins/Azure Data Explorer joint queries via the [Azure Digital Twins query plugin for Azure Data Explorer](/azure/digital-twins/concepts-data-explorer-plugin).
+- Integration with [Azure Data Explorer](https://azure.microsoft.com/services/data-explorer/#overview). You can ingest data directly into a store that can manage manufacturing data rates. Azure Digital Twins/Azure Data Explorer joint queries via the [Azure Digital Twins query plugin for Azure Data Explorer](/azure/digital-twins/concepts-data-explorer-plugin) provide contextualization.
 
 ## Considerations
 
@@ -126,11 +124,11 @@ The following considerations apply to this solution:
 
 ### Availability
 
-Consider [deploying AKS in availability zones](/azure/aks/availability-zones). An AKS cluster distributes resources such as nodes and storage across logical sections of the underlying Azure infrastructure. Deploying AKS in [availability zones](/azure/availability-zones/az-overview) ensures that nodes in one availability zone are physically separated from nodes defined in another availability zone. Multiple availability zones configured across an AKS cluster provide higher availability by minimizing the chances that hardware failure or planned maintenance will disrupt service.
+Consider [deploying AKS in availability zones](/azure/aks/availability-zones). An AKS cluster distributes resources such as nodes and storage across logical sections of the underlying Azure infrastructure. Deploying AKS in [availability zones](/azure/availability-zones/az-overview) ensures that nodes in one availability zone are physically separated from nodes defined in another availability zone. Multiple availability zones configured across an AKS cluster provide high availability by minimizing the chances that hardware failure or planned maintenance will disrupt service.
 
 ### DevOps
 
-Use a solution like [Azure Pipelines](https://azure.microsoft.com/services/devops/pipelines) or [GitHub Actions](https://docs.github.com/actions) to deploy the microservices to the AKS cluster automatically with [CI/CD processes](/azure/architecture/example-scenario/apps/devops-with-aks).
+You can use a solution like [Azure Pipelines](https://azure.microsoft.com/services/devops/pipelines) or [GitHub Actions](https://docs.github.com/actions) to deploy the microservices to the AKS cluster automatically with [CI/CD processes](/azure/architecture/example-scenario/apps/devops-with-aks).
 
 ### Scalability
 
@@ -140,9 +138,9 @@ Azure App Service can also scale up or out, manually or automatically.
 
 ### Security
 
-To improve AKS security, apply and enforce built-in security policies by using [Azure Policy](/azure/governance/policy/overview). Azure Policy helps enforce organizational standards and assess compliance at scale. The [Azure Policy Add-on for AKS](/azure/governance/policy/concepts/policy-for-kubernetes) can apply individual policy definitions or groups of policy definitions called initiatives to your cluster.
-
 Use [role-based access control (RBAC)](/azure/role-based-access-control/overview) to restrict who can access and use the connected factory resources, and limit data access based on the user's identity or role. This solution uses [Azure Active Directory (Azure AD)](/azure/active-directory/fundamentals/active-directory-whatis) for identity and access control, and [Azure Key Vault](/azure/key-vault/general/overview) to manage keys and secrets.
+
+To improve AKS security, apply and enforce built-in security policies by using [Azure Policy](/azure/governance/policy/overview). Azure Policy helps enforce organizational standards and assess compliance at scale. The [Azure Policy Add-on for AKS](/azure/governance/policy/concepts/policy-for-kubernetes) can apply individual policy definitions or groups of policy definitions called initiatives to your cluster.
 
 ## Pricing
 

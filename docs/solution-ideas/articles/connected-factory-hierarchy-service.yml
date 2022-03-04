@@ -5,7 +5,7 @@ metadata:
   description: Implement a hierarchy service so business stakeholders can centrally define the organization of production assets like machines within factories.
   author: EdPrice-MSFT
   ms.author: Maxzeier
-  ms.date: 03/02/2022
+  ms.date: 03/04/2022
   ms.topic: conceptual
   ms.service: architecture-center
   ms.subservice: solution-idea
@@ -16,11 +16,10 @@ azureCategories:
   - storage
 summary: Implement a hierarchy service so business stakeholders can centrally define the organization of production assets like machines within factories.
 products:
-  - azure-active-directory
+  - azure-app-service
   - azure-data-explorer
   - azure-digital-twins
   - azure-kubernetes-service
-  - azure-app-service
 thumbnailUrl: /azure/architecture/browse/thumbs/connected-factory-hierarchy-service-01.png
 content: |
    [!include[](connected-factory-hierarchy-service-content.md)] 
