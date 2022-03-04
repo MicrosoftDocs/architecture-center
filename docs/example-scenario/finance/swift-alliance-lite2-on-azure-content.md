@@ -112,7 +112,7 @@ After the SWIFT Alliance Connect Virtual and Alliance Lite2 AutoClient infrastru
 * [SWIFT Alliance Access on Azure](swift-alliance-access-on-azure.yml)
 * [SWIFT Alliance Messaging Hub (AMH) on Azure](swift-alliance-messaging-hub.yml)
 * [Alliance Messaging Hub (AMH) with Alliance Connect Virtual](swift-alliance-messaging-hub-vsrx.yml)
-* [Alliance Cloud](swift-alliance-cloud-on-azure.yml)
+<!-- * [Alliance Cloud](swift-alliance-cloud-on-azure.yml) -->
 
 <!-- links -->
 
