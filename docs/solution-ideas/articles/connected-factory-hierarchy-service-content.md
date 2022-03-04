@@ -1,5 +1,7 @@
 This scenario explores an example hierarchy service implementation. A hierarchy service centrally defines the organization of production assets like machines within factories, from both an operational and maintenance point of view. Business stakeholders can use this information as a common data source for monitoring plant conditions or overall equipment effectiveness (OEE).
 
+## Problem
+
 Production assets like machines are organized within factories in context-specific hierarchies. For example, machines can be organized by physical location, maintenance requirements, or their products. Individual stakeholders, processes, and IT systems define production asset organizations differently. Multiple IT systems can define hierarchical structures redundantly, or information from enterprise resource management (ERP) systems might be replicated across multiple applications. These redundancies can lead to inconsistencies, heterogeneous governance concepts, and missing correlations between master data and application-specific hierarchies.
 
 Changes to hierarchical structures and the metadata that defines them are very time consuming. If a new machine is added or a production line is reorganized, changes need to be applied manually in multiple places. The consistency of these changes must be verified manually. Decentralized access control increases the need for manual processes, and makes links between application-specific hierarchies difficult to establish. These issues impact business agility and scalability. 
@@ -8,11 +10,11 @@ An additional challenge is that individual sites or organizations might use diff
 
 ## Solution
 
-A hierarchy aervice addresses these problems by providing a centralized, consolidated, and consistent overall hierarchy definition.
+A hierarchy service addresses these problems by providing a centralized, consolidated, and consistent overall hierarchy definition.
 
 Anytime an application needs to reference hierarchy data, it retrieves the latest definitions from the hierarchy service. Any changes to the hierarchy always reflect across all applications, without manual steps.
 
-Every node in the hierarchy contains a system-defined unique identifier issued by the service. This ID uniquely identify items, such as a specific machine in a specific factory, across applications throughout an entire organization. The ID can also be added to telemetry data sent by machines, to contextualize that data based on the hierarchy.
+Every node in the hierarchy contains a system-defined unique identifier issued by the service. This ID uniquely identifies items, such as a specific machine in a specific factory, across applications throughout an entire organization. The ID can also be added to telemetry data sent by machines, to contextualize that data based on the hierarchy.
 
 To maintain a separation of concerns, the hierarchy service only contains information about nodes, relationships, and references to corresponding master data, such as the ERP ID of a given machine. The hierarchy service  maintains other information, like actual master data records or application-specific parameters, separately. Master data records can be provided via a dedicated master data document service. A shop floor application might maintain parameters like thresholds or default cavity values that are defined on a machine level. The hierarchy service remains lean and efficient, and avoids evolving into a parallel master data management system.
 
@@ -42,7 +44,7 @@ The following example hierarchy service is an ASP.NET Core REST API hosted on [A
 1. The **web app** allows users to manage the hierarchy.
 1. **Azure Digital Twins Explorer** allows users to manage the hierarchy directly against Azure Digital Twins.
 1. The **IO API** supports bulk import and export for manufacturing-specific scenarios.
-1. The **Query API** provides query capabilities for manufacturing-specific data needs. The API improves Azure Digital Twins query performance when materializing large graphs by using an in-memory cache. The in-memory cache improves the speed of a 3,000-node graph traversal from  about 10 seconds to under a second.Query API for epics and all consumers of hierarchy.
+1. The **Query API** provides query capabilities for manufacturing-specific data needs. The API improves Azure Digital Twins query performance when materializing large graphs by using an in-memory cache. The in-memory cache improves the speed of a 3,000-node graph traversal from about 10 seconds to less than a second.
 1. The **Admin API** supports atomic business operations and validation of business rules.
 
 ### Data model
@@ -130,7 +132,7 @@ Azure App Service can also scale up or out, manually or automatically.
 
 ### Security
 
-To improve AKS security, apply and enforce built-in security policies by using [Azure Policy](/azure/governance/policy/overview). Azure Policy helps enforce organizational standards and can assess compliance at scale. The [Azure Policy Add-on for AKS](/azure/governance/policy/concepts/policy-for-kubernetes) can apply individual policy definitions or groups of policy definitions called initiatives or policysets to your cluster.
+To improve AKS security, apply and enforce built-in security policies by using [Azure Policy](/azure/governance/policy/overview). Azure Policy helps enforce organizational standards and can assess compliance at scale. The [Azure Policy Add-on for AKS](/azure/governance/policy/concepts/policy-for-kubernetes) can apply individual policy definitions or groups of policy definitions called initiatives to your cluster.
 
 Use [role-based access control (RBAC)](/azure/role-based-access-control/overview) to restrict who can access and use the connected factory resources, and limit data access based on the user's identity or role. This solution uses [Azure Active Directory (Azure AD)](/azure/active-directory/fundamentals/active-directory-whatis) for identity and access control, and [Azure Key Vault](/azure/key-vault/general/overview) to manage keys and secrets.
 
@@ -149,5 +151,5 @@ In general, use the [Azure pricing calculator](https://azure.microsoft.com/prici
 - [Predictive maintenance for Industrial IoT](iot-predictive-maintenance.yml)
 - [Condition monitoring for Industrial IoT](condition-monitoring.yml)
 - [IoT and data analytics](../../example-scenario/data/big-data-with-iot.yml)
-- [Advanced Azure Kubernetes Service (AKS) microservices architecture](../../reference-architectures/containers/aks-microservices/aks-microservices-advanced.md)
-- [Microservices with AKS](microservices-with-aks.md)
+- [Advanced Azure Kubernetes Service (AKS) microservices architecture](../../reference-architectures/containers/aks-microservices/aks-microservices-advanced.yml)
+- [Microservices with AKS](microservices-with-aks.yml)
