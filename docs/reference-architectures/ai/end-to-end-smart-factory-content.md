@@ -1,4 +1,4 @@
-This example architecture shows an end-to-end approach to internet-of-things (IoT) computer vision in manufacturing, from the edge to the cloud and back. Fully automated smart factories use artificial intelligence (AI) and machine learning (ML) to analyze data, run systems, and improve processes over time. 
+This example architecture shows an end-to-end approach to internet-of-things (IoT) computer vision in manufacturing. Fully automated smart factories use artificial intelligence (AI) and machine learning (ML) to analyze data, run systems, and improve processes over time. 
 
 In this example, cameras send images to an Azure Video Analyzer edge device that runs an ML model. The model calculates inferences, and sends actionable output to the cloud for further processing. Human interventions are part of the intelligence the ML model captures. The ML process is a continuous cycle of training, testing, tuning, and validating the ML algorithms.
 
@@ -6,9 +6,8 @@ In this example, cameras send images to an Azure Video Analyzer edge device that
 
 Manufacturing processes use IoT computer vision in safety and quality assurance applications. IoT computer vision systems can:
 
-- Monitor and troubleshoot equipment and production environments.
-- Help ensure compliance with manufacturing or process guidelines.
-- Recognize manufacturing defects such as leaks.
+- Help ensure compliance with manufacturing guidelines like proper labelling.
+- Identify manufacturing defects like surface unevenness.
 - Enhance security by monitoring building or area entrances.
 - Uphold worker safety by detecting personal protective equipment (PPE) usage and other safety practices.
 
