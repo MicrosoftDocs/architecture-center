@@ -56,7 +56,7 @@ Any of these factors can add latency to the response. Some can be mitigated by s
 
 In some scenarios, however, the work done by backend may be long-running, on the order of seconds, or might be a background process that is executed in minutes or even hours. In that case, it isn't feasible to wait for the work to complete before responding to the request. This situation is a potential problem for any synchronous request-reply pattern.
 
-Some architectures solve this problem by using a message broker to separate the request and response stages. This separation is often achieved by use of the [Queue-Based Load Leveling pattern](./queue-based-load-leveling.md). This separation can allow the client process and the backend API to scale independently. But this separation also brings additional complexity when the client requires success notification, as this step needs to become asynchronous.
+Some architectures solve this problem by using a message broker to separate the request and response stages. This separation is often achieved by use of the [Queue-Based Load Leveling pattern](./queue-based-load-leveling.yml). This separation can allow the client process and the backend API to scale independently. But this separation also brings additional complexity when the client requires success notification, as this step needs to become asynchronous.
 
 Many of the same considerations discussed for client applications also apply for server-to-server REST API calls in distributed systems &mdash; for example, in a microservices architecture.
 
@@ -94,7 +94,7 @@ The following diagram shows a typical flow:
 
     | Header | Description | Notes |
     | --- | --- | --- |
-    | Location| A URL the client should poll for a response status. | This URL could be a SAS token with the [Valet Key Pattern](./valet-key.md) being appropriate if this location needs access control. The valet key pattern is also valid when response polling needs offloading to another backend |
+    | Location| A URL the client should poll for a response status. | This URL could be a SAS token with the [Valet Key Pattern](./valet-key.yml) being appropriate if this location needs access control. The valet key pattern is also valid when response polling needs offloading to another backend |
     | Retry-After | An estimate of when processing will complete | This header is designed to prevent polling clients from overwhelming the back-end with retries. |
 
 - You may need to use a processing proxy or facade to manipulate the response headers or payload depending on the underlying services used.
