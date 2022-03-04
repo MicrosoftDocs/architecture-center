@@ -2,21 +2,25 @@ This scenario explores an example hierarchy service implementation. A hierarchy 
 
 ## Problem
 
-Production assets like machines are organized within factories in context-specific hierarchies. For example, machines can be organized by physical location, maintenance requirements, or their products. Individual stakeholders, processes, and IT systems define production asset organizations differently. Multiple IT systems can define hierarchical structures redundantly, or information from enterprise resource management (ERP) systems might be replicated across multiple applications. These redundancies can lead to inconsistencies, heterogeneous governance concepts, and missing correlations between master data and application-specific hierarchies.
+Production assets like machines are organized within factories in context-specific hierarchies. For example, machines can be organized by physical location, maintenance requirements, or their products. Individual stakeholders, processes, and IT systems define production asset organizations differently.
 
-Changes to hierarchical structures and the metadata that defines them are very time consuming. If a new machine is added or a production line is reorganized, changes need to be applied manually in multiple places. The consistency of these changes must be verified manually. Decentralized access control increases the need for manual processes, and makes links between application-specific hierarchies difficult to establish. These issues impact business agility and scalability. 
+Multiple IT systems can define hierarchical structures redundantly, or information from enterprise resource management (ERP) systems might be replicated across multiple applications. These redundancies can lead to inconsistencies, heterogeneous governance concepts, and missing correlations between master data and application-specific hierarchies.
 
-An additional challenge is that individual sites or organizations might use different ERP systems, often for historical reasons such as an acquisition. Standardizing ERP systems might not be feasible within a reasonable amount of time. This heterogeneous ERP landscape adds even more complexity and challenge to the process of integrating shop floor applications with ERP systems.
+Changes to hierarchical structures and the metadata that defines them are very time consuming. If a new machine is added or a production line is reorganized, changes need to be applied manually in multiple places. The consistency of these changes must be verified manually.
+
+Decentralized access control increases the need for manual processes, and makes links between application-specific hierarchies difficult to establish. These issues impact business agility and scalability. 
+
+Another challenge is that individual sites or organizations might use different ERP systems, often for historical reasons such as an acquisition. Standardizing ERP systems might not be feasible within a reasonable amount of time. This heterogeneous ERP landscape adds even more complexity and challenge to the process of integrating shop floor applications with ERP systems.
 
 ## Solution
 
-A hierarchy service addresses these problems by providing a centralized, consolidated, and consistent overall hierarchy definition.
-
-Anytime an application needs to reference hierarchy data, it retrieves the latest definitions from the hierarchy service. Any changes to the hierarchy always reflect across all applications, without manual steps.
+A hierarchy service addresses these problems by providing a centralized, consolidated, and consistent overall hierarchy definition. Anytime an application needs to reference hierarchy data, it retrieves the latest definitions from the hierarchy service. Any changes to the hierarchy always reflect across all applications, without manual steps.
 
 Every node in the hierarchy contains a system-defined unique identifier issued by the service. This ID uniquely identifies items, such as a specific machine in a specific factory, across applications throughout an entire organization. The ID can also be added to telemetry data sent by machines, to contextualize that data based on the hierarchy.
 
-To maintain a separation of concerns, the hierarchy service only contains information about nodes, relationships, and references to corresponding master data, such as the ERP ID of a given machine. The hierarchy service  maintains other information, like actual master data records or application-specific parameters, separately. Master data records can be provided via a dedicated master data document service. A shop floor application might maintain parameters like thresholds or default cavity values that are defined on a machine level. The hierarchy service remains lean and efficient, and avoids evolving into a parallel master data management system.
+To maintain a separation of concerns, the hierarchy service only contains information about nodes, relationships, and references to corresponding master data, such as the ERP ID of a given machine. The system maintains other information, like actual master data records or application-specific parameters, separately.
+
+A dedicated master data document service can provide master data records. A shop floor application can maintain parameters like thresholds or default cavity values that are defined on a machine level. The hierarchy service remains lean and efficient, and avoids evolving into a parallel master data management system.
 
 The hierarchy service acts as the single point of integration with ERP systems, decoupling the lifecycle of ERP systems from the hierarchy. You can integrate with ERP systems manually via graphical UI, bulk import, or an API the hierarchy service provides.
 
@@ -44,7 +48,7 @@ The following example hierarchy service is an ASP.NET Core REST API hosted on [A
 1. The **web app** allows users to manage the hierarchy.
 1. **Azure Digital Twins Explorer** allows users to manage the hierarchy directly against Azure Digital Twins.
 1. The **IO API** supports bulk import and export for manufacturing-specific scenarios.
-1. The **Query API** provides query capabilities for manufacturing-specific data needs. The API improves Azure Digital Twins query performance when materializing large graphs by using an in-memory cache. The in-memory cache improves the speed of a 3,000-node graph traversal from about 10 seconds to less than a second.
+1. The **Query API** provides query capabilities for manufacturing-specific data needs. The API improves Azure Digital Twins query performance by using an in-memory cache.
 1. The **Admin API** supports atomic business operations and validation of business rules.
 
 ### Data model
@@ -53,13 +57,13 @@ The hierarchy service provides a consolidated data model that lets you define an
 
 ![A Hierarchy Service architecture infographic](../media/connected-factory-hierarchy-service-01.png)
 
-Data is retrieved from either [Azure Digital Twins](/azure/digital-twins), or an in-memory cache for queries that would result in long response times when issued directly against Azure Digital Twins. 
+Data is retrieved from either [Azure Digital Twins](/azure/digital-twins), or an in-memory cache when materializing large graphs. The cache improves performance for queries that would have long response times when issued directly against Azure Digital Twins. The in-memory cache improves the speed of a 3,000-node graph traversal from about 10 seconds to less than a second.
 
 ### Supported operations
 
 The hierarchy service lets you filter query operations by node types and node attributes. The service supports the following operations:
 
-Admin
+#### Admin
 
 |Operation|Filter|Description|
 |---|---|---|
@@ -67,7 +71,7 @@ Admin
 |`delete`|`/api/v0.1/nodes/{nodeId}`|Remove a leaf node from hierarchy.|
 |`put`|`/api/v0.1/nodes/{nodeId}`|Update existing node and relationships with parents.|
 
-Query
+#### Query
 
 |Operation|Filter|Description|
 |---|---|---|
@@ -77,7 +81,7 @@ Query
 |`get`|`/api/v0.1/nodes/{nodeId}/children`|Get direct children of a hierarchy node.|
 |`get`|`/api/v0.1/nodes/{nodeId}/parent`|Get parent of a hierarchy node.|
 
-Bulk
+#### Bulk
 
 |Operation|Filter|Description|
 |---|---|---|
