@@ -2,12 +2,16 @@
 
 The retail assistant or vacation planner can help your customers have interactions with your business bot and provide suggestions based on the visual information.
 
+## Potential use cases
+
+This solution is ideal for the retail industry, as well as the travel and hospitality industries.
+
 ## Architecture
 
 ![Architecture diagram](../media/retail-assistant-or-vacation-planner-with-visual-capabilities.png)
 *Download an [SVG](../media/retail-assistant-or-vacation-planner-with-visual-capabilities.svg) of this architecture.*
 
-### Data flow
+### Dataflow
 
 1. Users interact with your business assistant
 1. Assistant understands context from LUIS
