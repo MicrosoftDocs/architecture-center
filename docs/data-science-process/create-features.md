@@ -42,7 +42,7 @@ In this article, you learn about feature engineering and its role in enhancing d
 
 Normally **feature engineering** is applied first to generate additional features, and then **feature selection** is done to eliminate irrelevant, redundant, or highly correlated features.
 
-Feature engineering and selection are part of the [modeling stage](lifecycle-modeling.md) of the Team Data Science Process (TDSP). To learn more about the TDSP and the data science lifecycle, see [What is the TDSP?](overview.md)
+Feature engineering and selection are part of the [modeling stage](lifecycle-modeling.md) of the Team Data Science Process (TDSP). To learn more about the TDSP and the data science lifecycle, see [What is the TDSP?](overview.yml)
 
 ## What is feature engineering?
 

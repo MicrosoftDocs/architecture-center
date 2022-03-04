@@ -22,7 +22,7 @@ categories:
 
 This article provides sample Hive scripts that are used to explore data in Hive tables in an HDInsight Hadoop cluster.
 
-This task is a step in the [Team Data Science Process](overview.md).
+This task is a step in the [Team Data Science Process](overview.yml).
 
 ## Prerequisites
 This article assumes that you have:
