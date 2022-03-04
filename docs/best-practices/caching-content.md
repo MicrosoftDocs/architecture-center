@@ -302,7 +302,7 @@ Partitioning the cache involves splitting the cache across multiple computers. T
 - Spreading the load across servers, thereby improving performance and scalability.
 - Geolocating data close to the users that access it, thus reducing latency.
 
-For a cache, the most common form of partitioning is sharding. In this strategy, each partition (or shard) is a Redis cache in its own right. Data is directed to a specific partition by using sharding logic, which can use a variety of approaches to distribute the data. The [Sharding pattern](../patterns/sharding.md) provides more information about implementing sharding.
+For a cache, the most common form of partitioning is sharding. In this strategy, each partition (or shard) is a Redis cache in its own right. Data is directed to a specific partition by using sharding logic, which can use a variety of approaches to distribute the data. The [Sharding pattern](../patterns/sharding.yml) provides more information about implementing sharding.
 
 To implement partitioning in a Redis cache, you can take one of the following approaches:
 
@@ -880,7 +880,7 @@ The following patterns might also be relevant to your scenario when you implemen
 
 - [Cache-aside pattern](../patterns/cache-aside.md): This pattern describes how to load data on demand into a cache from a data store. This pattern also helps to maintain consistency between data that's held in the cache and the data in the original data store.
 
-- The [Sharding pattern](../patterns/sharding.md) provides information about implementing horizontal partitioning to help improve scalability when storing and accessing large volumes of data.
+- The [Sharding pattern](../patterns/sharding.yml) provides information about implementing horizontal partitioning to help improve scalability when storing and accessing large volumes of data.
 
 ## More information
 

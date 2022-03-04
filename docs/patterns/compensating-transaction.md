@@ -95,6 +95,6 @@ The following patterns and guidance might also be relevant when implementing thi
 
 - [Data Consistency Primer](/previous-versions/msp-n-p/dn589800(v=pandp.10)). The Compensating Transaction pattern is often used to undo operations that implement the eventual consistency model. This primer provides information on the benefits and tradeoffs of eventual consistency.
 
-- [Scheduler-Agent-Supervisor pattern](./scheduler-agent-supervisor.md). Describes how to implement resilient systems that perform business operations that use distributed services and resources. Sometimes, it might be necessary to undo the work performed by an operation by using a compensating transaction.
+- [Scheduler-Agent-Supervisor pattern](./scheduler-agent-supervisor.yml). Describes how to implement resilient systems that perform business operations that use distributed services and resources. Sometimes, it might be necessary to undo the work performed by an operation by using a compensating transaction.
 
-- [Retry pattern](./retry.md). Compensating transactions can be expensive to perform, and it might be possible to minimize their use by implementing an effective policy of retrying failing operations by following the Retry pattern.
+- [Retry pattern](./retry.yml). Compensating transactions can be expensive to perform, and it might be possible to minimize their use by implementing an effective policy of retrying failing operations by following the Retry pattern.

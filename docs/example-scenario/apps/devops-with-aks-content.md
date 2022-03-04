@@ -86,7 +86,9 @@ For general guidance on designing resilient solutions, see [Designing reliable A
 - You need an Azure Active Directory (AD) service principal for the authentication of service and resources. If needed, you can create a service principal with [az ad sp create-for-rbac][createsp]
 
     ```azurecli-interactive
-    az ad sp create-for-rbac --name myDevOpsScenario --role Contributor
+    az ad sp create-for-rbac --name myDevOpsScenario \
+                        --role Contributor \
+                        --scopes /subscriptions/mySubscriptionID
     ```
 
     Make a note of the *appId* and *password* in the output from this command. You provide these values to the template when you deploy the scenario.
