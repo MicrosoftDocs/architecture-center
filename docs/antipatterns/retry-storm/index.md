@@ -101,7 +101,7 @@ Executing this query during a retry storm shows a large number of connection att
 
 ## Related resources
 
- * [Retry pattern](../../patterns/retry.md)
+ * [Retry pattern](../../patterns/retry.yml)
  * [Circuit Breaker pattern](../../patterns/circuit-breaker.md)
  * [Transient fault handling best practices](../../best-practices/transient-faults.md)
  * [Service-specific retry guidance](../../best-practices/retry-service-specific.md)
