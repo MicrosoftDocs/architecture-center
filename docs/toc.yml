@@ -2650,19 +2650,19 @@ items:
                     maintainContext: true
                   - name: Data lineage best practices
                     href: /azure/purview/concept-best-practices-lineage-azure-data-factory
-                    href: maintainContext: true
+                    maintainContext: true
                   - name: Network architecture and best practices
                     href: /azure/purview/concept-best-practices-network
-                    href: maintainContext: true
+                    maintainContext: true
                   - name: Pricing guidelines
                     href: /azure/purview/concept-guidelines-pricing
-                    href: maintainContext: true
+                    maintainContext: true
                   - name: Scanning best practices
                     href: /azure/purview/concept-best-practices-scanning
-                    href: maintainContext: true
+                    maintainContext: true
                   - name: Security best practices
                     href: /azure/purview/concept-best-practices-security
-                    href: maintainContext: true
+                    maintainContext: true
           - name: Architectures
             items:
               - name: Anomaly detector process
