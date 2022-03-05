@@ -78,7 +78,7 @@ This article doesn't address the application's underlying services, like App Ser
 
 - For more information about API Management security, see [Azure security baseline for API Management](/security/benchmark/azure/baselines/api-management-security-baseline).
 
-## Deploy the solution 
+## Deploy this scenario 
 
 ### Deployment with PowerShell
 
