@@ -40,6 +40,8 @@ This solution uses [Azure Kubernetes Services (AKS)](/azure/aks/intro-kubernetes
 
 ![Infographic of an example hierarchy service.](../media/connected-factory-hierarchy-service-03.png)
 
+### Workflow
+
 1. The **web app** lets users manage the hierarchy through a UI.
 1. **Azure Digital Twins Explorer** allows managing the hierarchy directly against Azure Digital Twins.
 1. The **IO API** supports bulk import and export for manufacturing-specific scenarios.
