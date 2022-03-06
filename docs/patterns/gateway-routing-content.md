@@ -1,21 +1,3 @@
----
-title: Gateway Routing pattern
-titleSuffix: Cloud Design Patterns
-description: Use the Gateway Routing design pattern to route requests to multiple services using a single endpoint.
-author: EdPrice-MSFT
-ms.author: pnp
-ms.date: 06/23/2017
-ms.topic: conceptual
-ms.service: architecture-center
-ms.subservice: design-pattern
-ms.custom:
-  - design-pattern
-keywords:
-  - design pattern
----
-
-# Gateway Routing pattern
-
 Route requests to multiple services using a single endpoint. This pattern is useful when you wish to expose multiple services on a single endpoint and route to the appropriate service based on the request.
 
 ## Context and problem
@@ -79,5 +61,5 @@ On Azure, multiple services can be set up behind an [Application Gateway instanc
 ## Related guidance
 
 - [Backends for Frontends pattern](./backends-for-frontends.md)
-- [Gateway Aggregation pattern](./gateway-aggregation.md)
-- [Gateway Offloading pattern](./gateway-offloading.md)
+- [Gateway Aggregation pattern](./gateway-aggregation.yml)
+- [Gateway Offloading pattern](./gateway-offloading.yml)

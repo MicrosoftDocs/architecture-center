@@ -482,21 +482,21 @@ items:
       - name: Event Sourcing
         href: patterns/event-sourcing.md
       - name: External Configuration Store
-        href: patterns/external-configuration-store.md
+        href: patterns/external-configuration-store.yml
       - name: Federated Identity
-        href: patterns/federated-identity.md
+        href: patterns/federated-identity.yml
       - name: Gatekeeper
-        href: patterns/gatekeeper.md
+        href: patterns/gatekeeper.yml
       - name: Gateway Aggregation
-        href: patterns/gateway-aggregation.md
+        href: patterns/gateway-aggregation.yml
       - name: Gateway Offloading
-        href: patterns/gateway-offloading.md
+        href: patterns/gateway-offloading.yml
       - name: Gateway Routing
-        href: patterns/gateway-routing.md
+        href: patterns/gateway-routing.yml
       - name: Geode
-        href: patterns/geodes.md
+        href: patterns/geodes.yml
       - name: Health Endpoint Monitoring
-        href: patterns/health-endpoint-monitoring.md
+        href: patterns/health-endpoint-monitoring.yml
       - name: Index Table
         href: patterns/index-table.yml
       - name: Leader Election

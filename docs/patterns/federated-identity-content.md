@@ -1,22 +1,3 @@
----
-title: Federated Identity pattern
-titleSuffix: Cloud Design Patterns
-description: Use the Federated Identity design pattern to delegate authentication to an external identity provider.
-author: EdPrice-MSFT
-ms.date: 06/23/2017
-ms.topic: conceptual
-ms.service: architecture-center
-ms.subservice: design-pattern
-products:
-  - azure-active-directory
-ms.custom:
-  - design-pattern
-keywords:
-  - design pattern
----
-
-# Federated Identity pattern
-
 Delegate authentication to an external identity provider. This can simplify development, minimize the requirement for user administration, and improve the user experience of the application.
 
 ## Context and problem
