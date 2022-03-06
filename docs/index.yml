@@ -115,27 +115,55 @@ conceptualContent:
       - text: AWS to Azure services comparison
         url: ./aws-professional/services.md
         itemType: reference
+      - text: Google Cloud to Azure services comparison
+        url: ./gcp-professional/services.md
+        itemType: reference
       - text: Cloud Design Patterns
         url: ./patterns/index.md
+        itemType: concept
+      - text: CQRS design pattern
+        url: ./patterns/cqrs.md
+        itemType: concept
+      - text: Best practices in cloud applications
+        url: ./best-practices/index-best-practices.md
         itemType: concept
       - text: Web API design
         url: ./best-practices/api-design.md
         itemType: reference
-      - text: Chose your Azure compute service
+      - text: Performance antipatterns for cloud applications
+        url: ./antipatterns/index.md
+        itemType: concept
+      - text: Choose your Azure compute service
         url: ./guide/technology-choices/compute-decision-tree.yml
         itemType: reference
-      - text: Application Architecture Guide
+      - text: Application architecture fundamentals
         url: ./guide/index.md
         itemType: reference
       - text: Hub-spoke network topology
         url: ./reference-architectures/hybrid-networking/hub-spoke.yml
         itemType: architecture
-      - text: CQRS design pattern
-        url: ./patterns/cqrs.md
+      - text: Architecture for startups
+        url: ./guide/startups/startup-architecture.md
+        itemType: reference
+      - text: Architect multitenant solutions on Azure
+        url: ./guide/multitenant/overview.md
         itemType: concept
+      - text: Analytics end-to-end with Azure Synapse
+        url: ./example-scenario/dataplate2e/data-platform-end-to-end.yml
+        itemType: architecture
+      - text: Advanced analytics architecture
+        url: ./solution-ideas/articles/advanced-analytics-on-big-data.yml
+        itemType: architecture
+      - text: Azure IoT reference architecture
+        url: ./reference-architectures/iot.yml
+        itemType: architecture
+        
 
     - title: AI & Machine Learning
       links:
+      - text: Artificial intelligence (AI) architecture design
+        itemType: concept
+        url: ./data-guide/big-data/ai-overview.md
       - text: Training of Python scikit-learn models
         itemType: architecture
         url: ./reference-architectures/ai/training-python-models.yml
@@ -148,9 +176,15 @@ conceptualContent:
       - text: Conversational bot
         itemType: architecture
         url: ./reference-architectures/ai/conversational-bot.yml
-      - text: Machine learning
-        itemType: concept
+      - text: Machine learning options
+        itemType: reference
         url: ./data-guide/technology-choices/data-science-and-machine-learning.md
+      - text: Machine learning at scale
+        itemType: concept
+        url: ./data-guide/big-data/machine-learning-at-scale.md
+      - text: Machine teaching
+        itemType: reference
+        url: ./solution-ideas/articles/machine-teaching.yml
       - text: Natural language processing
         itemType: concept
         url: ./data-guide/technology-choices/natural-language-processing.yml
@@ -163,6 +197,18 @@ conceptualContent:
       - text: Scalable personalization
         itemType: get-started
         url: ./example-scenario/ai/scalable-personalization-with-content-based-recommendation-system.yml
+      - text: Cognitive services options
+        itemType: concept
+        url: ./data-guide/technology-choices/cognitive-services
+      - text: Upscale ML lifecycle with MLOps
+        itemType: reference
+        url: ./example-scenario/mlops/mlops-technical-paper.yml
+      - text: Team Data Science Process
+        itemType: concept
+        url: ./data-science-process/overview.yml
+      - text: AI enrichment with Cognitive Search
+        itemType: architecture
+        url: ./solution-ideas/articles/cognitive-search-with-skillsets.yml
       # footerLink (optional)
       footerLink:
         url: ./data-guide/big-data/machine-learning-at-scale.md
