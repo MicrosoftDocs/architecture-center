@@ -10,7 +10,7 @@ ms.subservice: azure-guide
 ms.category:
   - management-and-governance
   - databases
-azureCategories:
+categories:
   - management-and-governance
   - databases
 products:
