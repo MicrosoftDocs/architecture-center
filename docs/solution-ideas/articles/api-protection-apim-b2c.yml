@@ -1,0 +1,24 @@
+### YamlMime:Architecture
+metadata:
+  title: Protect Backend APIs using Azure API Management and Azure AD B2C
+  titleSuffix: Azure Solution Ideas
+  description: This article talks about token based protection of backend APIs running in Azure or other environments using API Management and Azure AD B2C.
+  author: arshadazeem
+  ms.author: arazeem, rhudson, rapencha
+  ms.date: 03/07/2022
+  ms.topic: conceptual
+  ms.service: architecture-center
+  ms.subservice: solution-idea
+azureCategories:
+  - integration
+  - identity
+  - hybrid
+products:
+  - azure-api-management
+  - azure-active-directory-b2c
+  - azure-front-door
+name: Protect backend APIs using Azure API Management and Azure AD B2C
+summary: This article talks about token based protection of backend APIs running in Azure or other environments using API Management and Azure AD B2C.
+thumbnailUrl: /azure/architecture/browse/thumbs/api-protection-apim-b2c.png
+content: |
+  [!include[](api-protection-apim-b2c-content.md)]
