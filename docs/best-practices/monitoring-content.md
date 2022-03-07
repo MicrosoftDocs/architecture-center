@@ -420,7 +420,7 @@ The section [Instrumenting an application](#instrumenting-an-application) contai
 
 - **Profiling**. This approach is primarily targeted at monitoring and improving application performance. Rather than operating at the functional level of real and synthetic user monitoring, it captures lower-level information as the application runs. You can implement profiling by using periodic sampling of the execution state of an application (determining which piece of code that the application is running at a given point in time). You can also use instrumentation that inserts probes into the code at important junctures (such as the start and end of a method call) and records which methods were invoked, at what time, and how long each call took. You can then analyze this data to determine which parts of the application might cause performance problems.
 
-- **Endpoint monitoring**. This technique uses one or more diagnostic endpoints that the application exposes specifically to enable monitoring. An endpoint provides a pathway into the application code and can return information about the health of the system. Different endpoints can focus on various aspects of the functionality. You can write your own diagnostics client that sends periodic requests to these endpoints and assimilate the responses. For more information, see the [Health Endpoint Monitoring pattern](../patterns/health-endpoint-monitoring.md).
+- **Endpoint monitoring**. This technique uses one or more diagnostic endpoints that the application exposes specifically to enable monitoring. An endpoint provides a pathway into the application code and can return information about the health of the system. Different endpoints can focus on various aspects of the functionality. You can write your own diagnostics client that sends periodic requests to these endpoints and assimilate the responses. For more information, see the [Health Endpoint Monitoring pattern](../patterns/health-endpoint-monitoring.yml).
 
 For maximum coverage, you should use a combination of these techniques.
 
@@ -717,7 +717,7 @@ In many cases, batch processes can generate reports according to a defined sched
 ## Related patterns and guidance
 
 - [Autoscaling guidance](../best-practices/auto-scaling.md) describes how to decrease management overhead by reducing the need for an operator to continually monitor the performance of a system and make decisions about adding or removing resources.
-- [Health Endpoint Monitoring pattern](../patterns/health-endpoint-monitoring.md) describes how to implement functional checks within an application that external tools can access through exposed endpoints at regular intervals.
+- [Health Endpoint Monitoring pattern](../patterns/health-endpoint-monitoring.yml) describes how to implement functional checks within an application that external tools can access through exposed endpoints at regular intervals.
 - [Priority Queue pattern](../patterns/priority-queue.yml) shows how to prioritize queued messages so that urgent requests are received and can be processed before less urgent messages.
 
 ## Next steps

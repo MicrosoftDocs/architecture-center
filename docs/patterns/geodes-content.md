@@ -1,26 +1,3 @@
----
-title: Geode pattern
-titleSuffix: Cloud Design Patterns
-description: Deploy backend services into a set of geographical nodes, each of which can service any client request in any region.
-author: willeastbury
-ms.author: lucashh
-ms.date: 06/11/2021
-ms.topic: conceptual
-ms.service: architecture-center
-ms.subservice: design-pattern
-products:
-  - azure-cosmos-db
-ms.custom:
-  - fcp
-  - fasttrack-new
-  - fasttrack-edit
-  - design-pattern
-categories:
-  - databases
----
-
-# Geode pattern
-
 The Geode pattern involves deploying a collection of backend services into a set of **ge**ographical n**ode**s, each of which can service any request for any client in any region. This pattern allows serving requests in an _active-active_ style, improving latency and increasing availability by distributing request processing around the globe.
 
 ![Geode map](./_images/geode.jpg)

@@ -1,0 +1,19 @@
+### YamlMime:Architecture
+metadata:
+  title: Gateway Offloading pattern
+  description: Use the Gateway Offloading design pattern to offload shared or specialized service functionality to a gateway proxy.
+  author: EdPrice-MSFT
+  ms.author: pnp
+  ms.date: 06/23/2017
+  ms.topic: conceptual
+  ms.service: architecture-center
+  ms.subservice: azure-guide
+azureCategories:
+  - networking
+products:
+  - azure-application-gateway
+name: Gateway Offloading pattern
+summary: Use the Gateway Offloading design pattern to offload shared or specialized service functionality to a gateway proxy.
+thumbnailUrl: /azure/architecture/browse/thumbs/gateway-offload.png
+content: |
+  [!include[](gateway-offloading-content.md)]

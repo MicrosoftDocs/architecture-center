@@ -227,7 +227,7 @@ Unless you use a third-party service such as Ansible or Terraform, this approach
 [Designing resilient applications for Azure]: /azure/architecture/framework/resiliency/principles
 [DevSecOps in Azure]: ../../solution-ideas/articles/devsecops-in-azure.yml
 [DevTest and DevOps for IaaS solutions]: ../../solution-ideas/articles/dev-test-iaas.yml
-[Geode pattern]: ../../patterns/geodes.md
+[Geode pattern]: ../../patterns/geodes.yml
 [How to find a Marketplace image version]: /azure/virtual-machines/windows/cli-ps-findimage#view-purchase-plan-properties
 [Only allow certain image publishers from the Marketplace]: https://github.com/Azure/azure-policy/tree/master/samples/Compute/allowed-image-publishers
 [Overview of the reliability pillar]: /azure/architecture/framework/resiliency/overview

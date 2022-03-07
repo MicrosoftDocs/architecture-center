@@ -27,7 +27,7 @@ Because stamps run independently from each other, data is implicitly *sharded*. 
 
 The deployment stamp pattern is used internally by many Azure services, including [App Service](/archive/msdn-magazine/2017/february/azure-inside-the-azure-app-service-architecture), [Azure Stack](/azure-stack/operator/azure-stack-capacity-planning-overview), and [Azure Storage](/azure/storage/common/storage-redundancy-zrs).
 
-Deployment stamps are related to, but distinct from, [geodes](geodes.md). In a deployment stamp architecture, multiple independent instances of your system are deployed and contain a subset of your customers and users. In geodes, all instances can serve requests from any users, but this architecture is often more complex to design and build. You might also consider mixing the two patterns within one solution; the [traffic routing approach](#traffic-routing) described below is an example of such a hybrid scenario.
+Deployment stamps are related to, but distinct from, [geodes](geodes.yml). In a deployment stamp architecture, multiple independent instances of your system are deployed and contain a subset of your customers and users. In geodes, all instances can serve requests from any users, but this architecture is often more complex to design and build. You might also consider mixing the two patterns within one solution; the [traffic routing approach](#traffic-routing) described below is an example of such a hybrid scenario.
 
 ### Deployment
 
@@ -59,7 +59,7 @@ Clients are then responsible for connecting to the correct stamp.
 
 If a single ingress point for all traffic is required, a traffic routing service can be used to resolve the stamp for a given request, customer, or tenant. The traffic routing service either directs the client to the relevant URL for the stamp (for example, using an HTTP 302 response status code), or might act as a reverse proxy and forward the traffic to the relevant stamp without the client being aware.
 
-A centralized traffic routing service can be a complex component to design, especially when a solution runs across multiple regions. Consider deploying the traffic routing service into multiple regions (potentially including every region that stamps are deployed into), and then ensuring the data store (mapping tenants to stamps) is synchronized. The traffic routing component might itself by an instance of the [geode pattern](geodes.md).
+A centralized traffic routing service can be a complex component to design, especially when a solution runs across multiple regions. Consider deploying the traffic routing service into multiple regions (potentially including every region that stamps are deployed into), and then ensuring the data store (mapping tenants to stamps) is synchronized. The traffic routing component might itself by an instance of the [geode pattern](geodes.yml).
 
 For example, [Azure API Management](/azure/api-management/) could be deployed to act in the traffic routing service role. It can determine the appropriate stamp for a request by looking up data in a [Cosmos DB](/azure/cosmos-db) collection storing the mapping between tenants and stamps. API Management can then [dynamically set the back-end URL](/azure/api-management/api-management-transformation-policies#SetBackendService) to the relevant stamp's API service.
 
@@ -67,7 +67,7 @@ To enable geo-distribution of requests and geo-redundancy of the traffic routing
 
 ![Example traffic routing architecture](./_images/deployment-stamp/deployment-stamp-traffic-routing.png)
 
-If a traffic routing service is included in your solution, consider whether it acts as a [gateway](gateway-routing.md) and could therefore perform [gateway offloading](gateway-offloading.md) for services such as token validation, throttling, and authorization.
+If a traffic routing service is included in your solution, consider whether it acts as a [gateway](gateway-routing.yml) and could therefore perform [gateway offloading](gateway-offloading.yml) for services such as token validation, throttling, and authorization.
 
 ## Issues and considerations
 
@@ -95,7 +95,7 @@ This pattern is not suitable for:
 
 - Simple solutions that do not need to scale to a high degree.
 - Systems that can be easily scaled out or up within a single instance, such as by increasing the size of the application layer or by increasing the reserved capacity for databases and the storage tier.
-- Solutions in which data should be replicated across all deployed instances. Consider the [geode pattern](geodes.md) for this scenario.
+- Solutions in which data should be replicated across all deployed instances. Consider the [geode pattern](geodes.yml) for this scenario.
 - Solutions in which only some components need to be scaled, but not others. For example, consider whether your solution could be scaled by [sharding the data store](sharding.yml) rather than deploying a new copy of all of the solution components.
 - Solutions comprised solely of static content, such as a front-end JavaScript application. Consider storing such content in a [storage account](/azure/storage/blobs/storage-blob-static-website) and using [Azure CDN](/azure/storage/blobs/storage-blob-static-website).
 
@@ -129,4 +129,4 @@ Click the link below to deploy the solution.
 ## Related guidance
 
 - Sharding can be used as another, simpler, approach to scale out your data tier. Stamps implicitly shard their data, but sharding does not require a Deployment Stamp. For more information, see the [Sharding pattern](sharding.yml).
-- If a traffic routing service is deployed, the [Gateway Routing](gateway-routing.md) and [Gateway Offloading](gateway-offloading.md) patterns can be used together to make the best use of this component.
+- If a traffic routing service is deployed, the [Gateway Routing](gateway-routing.yml) and [Gateway Offloading](gateway-offloading.yml) patterns can be used together to make the best use of this component.

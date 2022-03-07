@@ -178,7 +178,7 @@ For more information about health probes, see:
 - [Load Balancer health probes](/azure/load-balancer/load-balancer-custom-probe-overview)
 - [Application Gateway health monitoring overview](/azure/application-gateway/application-gateway-probe-overview)
 
-For considerations about designing a health probe endpoint, see [Health Endpoint Monitoring pattern](../../patterns/health-endpoint-monitoring.md).
+For considerations about designing a health probe endpoint, see [Health Endpoint Monitoring pattern](../../patterns/health-endpoint-monitoring.yml).
 
 ## Cost considerations
 
