@@ -180,7 +180,7 @@ conceptualContent:
         url: ./example-scenario/ai/movie-recommendations-with-machine-learning.yml
       - text: Cognitive services options
         itemType: concept
-        url: ./data-guide/technology-choices/cognitive-services
+        url: ./data-guide/technology-choices/cognitive-services.md
       - text: Team Data Science Process
         itemType: concept
         url: ./data-science-process/overview.yml
@@ -244,7 +244,7 @@ conceptualContent:
           text: Choose a data store
         - text: Extract, transform, and load (ETL)
           itemType: concept
-          url: ./data-guide/relational-data/etl
+          url: ./data-guide/relational-data/etl.yml
         - text: Online analytical processing (OLAP)
           itemType: concept
           url: ./data-guide/relational-data/online-analytical-processing.yml
