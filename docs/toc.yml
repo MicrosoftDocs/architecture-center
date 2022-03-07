@@ -696,25 +696,27 @@ items:
               - name: Scale regulated AI and ML in finance
                 href: example-scenario/ai/scale-ai-and-machine-learning-in-regulated-industries.yml                
               - name: SWIFT on Azure
-                items: 
-                  - name: Overview
-                    href: example-scenario/finance/swift-on-azure.yml
-                  - name: SWIFT Alliance Access with Alliance Connect
-                    href: example-scenario/finance/swift-alliance-access-on-azure.yml
-                  - name: SWIFT Alliance Access with Alliance Connect Virtual
-                    href: example-scenario/finance/swift-alliance-access-vsrx-on-azure.yml
-                  - name: SWIFT Alliance Cloud in Azure
-                    href: example-scenario/finance/swift-alliance-cloud-on-azure.yml
-                  - name: SWIFT Alliance Connect
-                    href: example-scenario/finance/swift-on-azure-srx.yml
-                  - name: SWIFT Alliance Connect Virtual
-                    href: example-scenario/finance/swift-on-azure-vsrx.yml
-                  - name: SWIFT Alliance Lite2
-                    href: example-scenario/finance/swift-alliance-lite2-on-azure.yml
-                  - name: SWIFT AMH with Alliance Connect
-                    href: example-scenario/finance/swift-alliance-messaging-hub.yml
-                  - name: SWIFT AMH with Alliance Connect Virtual
-                    href: example-scenario/finance/swift-alliance-messaging-hub-vsrx.yml
+                items:
+                  - name: Alliance Connect
+                    items:
+                      - name: SWIFT Alliance Connect
+                        href: example-scenario/finance/swift-on-azure-srx.yml
+                      - name: SWIFT Alliance Access with Alliance Connect
+                        href: example-scenario/finance/swift-alliance-access-on-azure.yml
+                      - name: SWIFT AMH with Alliance Connect
+                        href: example-scenario/finance/swift-alliance-messaging-hub.yml
+                  - name: Alliance Connect Virtual
+                    items:
+                      - name: SWIFT Alliance Connect Virtual
+                        href: example-scenario/finance/swift-on-azure-vsrx.yml
+                      - name: SWIFT Alliance Access with Alliance Connect Virtual
+                        href: example-scenario/finance/swift-alliance-access-vsrx-on-azure.yml
+                      - name: SWIFT AMH with Alliance Connect Virtual
+                        href: example-scenario/finance/swift-alliance-messaging-hub-vsrx.yml
+                      - name: SWIFT Alliance Cloud in Azure
+                        href: example-scenario/finance/swift-alliance-cloud-on-azure.yml
+                      - name: SWIFT Alliance Lite2
+                        href: example-scenario/finance/swift-alliance-lite2-on-azure.yml
           - name: Compliance solutions
             items:
               - name: PCI DSS overview
