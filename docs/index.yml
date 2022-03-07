@@ -142,9 +142,6 @@ conceptualContent:
       - text: Hub-spoke network topology
         url: ./reference-architectures/hybrid-networking/hub-spoke.yml
         itemType: architecture
-      - text: CQRS design pattern
-        url: ./patterns/cqrs.yml
-        itemType: concept
       - text: Architect multitenant solutions on Azure
         url: ./guide/multitenant/overview.md
         itemType: concept        
