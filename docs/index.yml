@@ -216,9 +216,15 @@ conceptualContent:
 
     - title: Data
       links:
+        - url: ./data-guide/databases-architecture-design.yml
+          itemType: get-started
+          text: Databases architecture design
         - url: ./data-guide/big-data/index.yml
           itemType: concept
           text: Big Data architectures
+        - url: ./data-guide/scenarios/build-scalable-database-solutions-azure-services.md
+          itemType: concept
+          text: Build a scalable system for massive data
         - url: ./guide/technology-choices/data-store-overview.md
           itemType: concept
           text: Choosing a data store
@@ -234,6 +240,18 @@ conceptualContent:
         - text: Stream processing with Azure Databricks
           itemType: architecture
           url: reference-architectures/data/stream-processing-databricks.yml
+        - text: Extract, transform, and load (ETL)
+          itemType: concept
+          url: ./data-guide/relational-data/etl
+        - text: Online analytical processing (OLAP)
+          itemType: concept
+          url: ./data-guide/relational-data/online-analytical-processing.yml
+        - text: Online transaction processing (OLTP)
+          itemType: concept
+          url: ./data-guide/relational-data/online-transaction-processing.md
+        - text: Data warehousing in Microsoft Azure
+          itemType: concept
+          url: ./data-guide/relational-data/data-warehousing.yml
         - text: Data lakes
           itemType: get-started
           url: data-guide/scenarios/data-lake.md
