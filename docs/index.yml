@@ -142,22 +142,9 @@ conceptualContent:
       - text: Hub-spoke network topology
         url: ./reference-architectures/hybrid-networking/hub-spoke.yml
         itemType: architecture
-      - text: Architecture for startups
-        url: ./guide/startups/startup-architecture.md
-        itemType: reference
       - text: Architect multitenant solutions on Azure
         url: ./guide/multitenant/overview.md
-        itemType: concept
-      - text: Analytics end-to-end with Azure Synapse
-        url: ./example-scenario/dataplate2e/data-platform-end-to-end.yml
-        itemType: architecture
-      - text: Advanced analytics architecture
-        url: ./solution-ideas/articles/advanced-analytics-on-big-data.yml
-        itemType: architecture
-      - text: Azure IoT reference architecture
-        url: ./reference-architectures/iot.yml
-        itemType: architecture
-        
+        itemType: concept        
 
     - title: AI & Machine Learning
       links:
@@ -182,9 +169,6 @@ conceptualContent:
       - text: Machine learning at scale
         itemType: concept
         url: ./data-guide/big-data/machine-learning-at-scale.md
-      - text: Machine teaching
-        itemType: reference
-        url: ./solution-ideas/articles/machine-teaching.yml
       - text: Natural language processing
         itemType: concept
         url: ./data-guide/technology-choices/natural-language-processing.yml
@@ -194,27 +178,57 @@ conceptualContent:
       - text: Movie recommendation
         itemType: get-started
         url: ./example-scenario/ai/movie-recommendations-with-machine-learning.yml
-      - text: Scalable personalization
-        itemType: get-started
-        url: ./example-scenario/ai/scalable-personalization-with-content-based-recommendation-system.yml
       - text: Cognitive services options
         itemType: concept
         url: ./data-guide/technology-choices/cognitive-services
-      - text: Upscale ML lifecycle with MLOps
-        itemType: reference
-        url: ./example-scenario/mlops/mlops-technical-paper.yml
       - text: Team Data Science Process
         itemType: concept
         url: ./data-science-process/overview.yml
-      - text: AI enrichment with Cognitive Search
-        itemType: architecture
-        url: ./solution-ideas/articles/cognitive-search-with-skillsets.yml
       # footerLink (optional)
       footerLink:
         url: ./data-guide/big-data/machine-learning-at-scale.md
         text: See more
 
-    - title: Data
+    - title: Analytics
+      links:
+        - text: Analytics architecture design
+          itemType: get-started
+          url: ./solution-ideas/articles/analytics-start-here.yml
+        - text: Choose an analytical data store in Azure
+          itemType: concept
+          url: ./data-guide/technology-choices/analytical-data-stores.md
+        - text: Choose a data analytics technology in Azure
+          itemType: concept
+          url: ./data-guide/technology-choices/analysis-visualizations-reporting.md
+        - text: Analytics end-to-end with Azure Synapse 
+          itemType: architecture
+          url: ./example-scenario/dataplate2e/data-platform-end-to-end.yml
+        - text: Automated enterprise BI with Azure Data Factory
+          itemType: architecture
+          url: reference-architectures/data/enterprise-bi-adf.yml
+        - text: Stream processing with Azure Databricks
+          itemType: architecture
+          url: reference-architectures/data/stream-processing-databricks.yml
+        - url: ./databricks-monitoring/index.md
+          itemType: deploy
+          text: Databricks Monitoring
+        - text: Advanced analytics architecture
+          itemType: architecture
+          url: ./solution-ideas/articles/advanced-analytics-on-big-data.yml
+        - text: IoT analytics for construction
+          itemType: get-started
+          url: example-scenario/data/big-data-with-iot.yml
+        - text: Real-time fraud detection
+          itemType: architecture
+          url: example-scenario/data/fraud-detection.yml
+        - text: Mining equipment monitoring
+          itemType: architecture
+          url: ./solution-ideas/articles/monitor-mining-equipment.yml
+        - text: Predict the length of stay in hospitals
+          itemType: architecture
+          url: ./solution-ideas/articles/predicting-length-of-stay-in-hospitals.yml
+          
+    - title: Databases
       links:
         - url: ./data-guide/databases-architecture-design.yml
           itemType: get-started
@@ -227,19 +241,7 @@ conceptualContent:
           text: Build a scalable system for massive data
         - url: ./guide/technology-choices/data-store-overview.md
           itemType: concept
-          text: Choosing a data store
-        - url: ./databricks-monitoring/index.md
-          itemType: deploy
-          text: Databricks Monitoring
-        - text: Automated enterprise BI with Azure Data Factory
-          itemType: architecture
-          url: reference-architectures/data/enterprise-bi-adf.yml
-        - text: Enterprise BI with SQL Data Warehouse
-          itemType: architecture
-          url: ./reference-architectures/data/enterprise-bi-synapse.yml
-        - text: Stream processing with Azure Databricks
-          itemType: architecture
-          url: reference-architectures/data/stream-processing-databricks.yml
+          text: Choose a data store
         - text: Extract, transform, and load (ETL)
           itemType: concept
           url: ./data-guide/relational-data/etl
@@ -255,18 +257,12 @@ conceptualContent:
         - text: Data lakes
           itemType: get-started
           url: data-guide/scenarios/data-lake.md
-        - text: Extending on-premises data solutions to the cloud
+        - text: Extend on-premises data solutions to the cloud
           itemType: get-started
           url: data-guide/scenarios/hybrid-on-premises-and-cloud.md
         - text: Free-form text search
           itemType: get-started
           url: data-guide/scenarios/search.yml
-        - text: IoT for construction
-          itemType: get-started
-          url: example-scenario/data/big-data-with-iot.yml
-        - text: Real-time fraud detection
-          itemType: get-started
-          url: example-scenario/data/fraud-detection.yml
         - text: Time series solutions 
           itemType: get-started
           url: data-guide/scenarios/time-series.yml
@@ -298,6 +294,9 @@ conceptualContent:
         - text: Basic enterprise integration
           itemType: architecture
           url: reference-architectures/enterprise-integration/basic-enterprise-integration.yml
+        - text: Enterprise BI with SQL Data Warehouse
+          itemType: architecture
+          url: ./reference-architectures/data/enterprise-bi-synapse.yml
         - text: Enterprise integration with queues and events
           itemType: architecture
           url: reference-architectures/enterprise-integration/queues-events.yml
