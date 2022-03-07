@@ -122,7 +122,7 @@ conceptualContent:
         url: ./patterns/index.md
         itemType: concept
       - text: CQRS design pattern
-        url: ./patterns/cqrs.md
+        url: ./patterns/cqrs.yml
         itemType: concept
       - text: Best practices in cloud applications
         url: ./best-practices/index-best-practices.md
