@@ -22,14 +22,13 @@ This solution is targeted to:
 
 _Download a [Visio file](https://arch-center.azureedge.net/swift-alliance-cloud-on-azure.vsdx) that contains this architecture diagram._
 
-
 ### Workflow
 
-In this example scenario, deployment of SWIFT's Alliance Cloud in Azure involves using two Azure subscriptions. The two-subscription design separates resources based on the primary responsibility for each resource: 
+In this example scenario, deployment of SWIFT's Alliance Cloud in Azure involves using two Azure subscriptions. The two-subscription design separates resources based on the primary responsibility for each resource:
 
-- SWIFT customers are primarily responsible for supplying the resources for the SIL in one Azure subscription.
-- SWIFT provides the virtual firewall, Juniper vSRX, as part of the solution for managed connectivity of Alliance Connect Virtual in another Azure subscription.
- 
+* SWIFT customers are primarily responsible for supplying the resources for the SIL in one Azure subscription.
+* SWIFT provides the virtual firewall, Juniper vSRX, as part of the solution for managed connectivity of Alliance Connect Virtual in another Azure subscription.
+
 In this context, SWIFT configures the Juniper vSRX and establishes the VPN tunnel from the Juniper vSRX to SWIFT. Customers have no access nor visibility into the Juniper vSRX configuration or operation, but customers do have visibility and operational responsibility for the underlying Azure infrastructure resources.
 
 The footprint of SWIFT's Alliance Cloud is based on a single tenant. To increase resiliency and availability, each customer deploys a second similar configuration, in standby mode, in a different Azure region. For each customer, there's an instance of the SIL and Alliance Connect Virtual.
@@ -60,24 +59,23 @@ The SWIFT customer uses one of the three methods of connectivity to connect to t
 
 ### Components
 
-- [Azure Bastion](https://azure.microsoft.com/services/azure-bastion) is a fully managed service that provides secure and seamless RDP and SSH access to VMs without any exposure through public IP addresses.
+* [Azure Bastion](https://azure.microsoft.com/services/azure-bastion) is a fully managed service that provides secure and seamless RDP and SSH access to VMs without any exposure through public IP addresses.
 
-- [Azure ExpressRoute](https://azure.microsoft.com/services/expressroute) extends your on-premises networks into the Microsoft cloud over a private connection that's facilitated by a connectivity provider. You can use ExpressRoute to establish connections to Microsoft cloud services like Azure and Office 365.
+* [Azure ExpressRoute](https://azure.microsoft.com/services/expressroute) extends your on-premises networks into the Microsoft cloud over a private connection that's facilitated by a connectivity provider. You can use ExpressRoute to establish connections to Microsoft cloud services like Azure and Office 365.
 
-- [Azure Firewall](https://azure.microsoft.com/services/azure-firewall) enforces application and network connectivity policies. This network security service centrally manages the policies across multiple virtual networks and subscriptions.
+* [Azure Firewall](https://azure.microsoft.com/services/azure-firewall) enforces application and network connectivity policies. This network security service centrally manages the policies across multiple virtual networks and subscriptions.
 
-- [Azure Policy](https://azure.microsoft.com/services/azure-policy) helps you to manage policies in a central location, track compliance status, govern resources, and discover the changes that made a resource non-compliant. By using Azure Policy, you can enforce policies on your resources and ensure that future configurations are compliant with standards and regulations.
+* [Azure Policy](https://azure.microsoft.com/services/azure-policy) helps you to manage policies in a central location, track compliance status, govern resources, and discover the changes that made a resource non-compliant. By using Azure Policy, you can enforce policies on your resources and ensure that future configurations are compliant with standards and regulations.
 
-- [Virtual Network](https://azure.microsoft.com/services/virtual-network) is the fundamental building block for private networks in Azure. Through Virtual Network, Azure resources like VMs can securely communicate with each other, the internet, and on-premises networks.
+* [Virtual Network](https://azure.microsoft.com/services/virtual-network) is the fundamental building block for private networks in Azure. Through Virtual Network, Azure resources like VMs can securely communicate with each other, the internet, and on-premises networks.
 
-- [Virtual Machines](https://azure.microsoft.com/services/virtual-machines) is an infrastructure-as-a-service (IaaS) offering. You can use Virtual Machines to deploy on-demand, scalable computing resources. Virtual Machines provides the flexibility of virtualization but eliminates the maintenance demands of physical hardware.
-
+* [Virtual Machines](https://azure.microsoft.com/services/virtual-machines) is an infrastructure-as-a-service (IaaS) offering. You can use Virtual Machines to deploy on-demand, scalable computing resources. Virtual Machines provides the flexibility of virtualization but eliminates the maintenance demands of physical hardware.
 
 ## Considerations
 
 You can engage your account team at Microsoft to help guide your Azure implementation for SWIFT.
 
-#### Segregate different environments
+### Segregate different environments
 
 SWIFT customer resources on Azure should comply with CSP–CSCF. CSP–CSCF control version 1.1 mandates segregation between different environments, like production, test, and development. We recommend that you deploy each environment in a separate subscription. Separate subscriptions make it easier to segregate servers and other infrastructure, credentials, and so on.
 
@@ -128,10 +126,9 @@ To explore the cost of running this scenario, use the [Azure pricing calculator]
 Explore the functionality and architecture of other SWIFT modules in the following articles:
 
 * [SWIFT Alliance Connect in Azure](swift-on-azure-srx.yml)
-* [SWIFT Alliance Connect Virtual in Azure](swift-on-azure-vsrx.yml) 
-* [Alliance Access](swift-alliance-access-vsrx-on-azure.yml)
-* [Alliance Access with Alliance Connect Virtual](swift-alliance-access-on-azure.yml)
-* [Alliance Messaging Hub (AMH)](swift-alliance-messaging-hub.yml)
-* [Alliance Messaging Hub (AMH) with Alliance Connect Virtual](swift-alliance-messaging-hub-vsrx.yml)
-<!-- * [Alliance Lite2](swift-alliance-lite-2-on-azure.yml) -->
-
+* [SWIFT Alliance Connect Virtual in Azure](swift-on-azure-vsrx.yml)
+* [SWIFT Alliance Access in Azure](swift-alliance-access-on-azure.yml)
+* [SWIFT Alliance Access with Alliance Connect Virtual in Azure](swift-alliance-access-vsrx-on-azure.yml)
+* [SWIFT Alliance Lite2 on Azure](swift-alliance-lite2-on-azure.yml)
+* [SWIFT Alliance Messaging Hub (AMH) with Alliance Connect](swift-alliance-messaging-hub.yml)
+* [SWIFT Alliance Messaging Hub (AMH) with Alliance Connect Virtual](swift-alliance-messaging-hub-vsrx.yml)

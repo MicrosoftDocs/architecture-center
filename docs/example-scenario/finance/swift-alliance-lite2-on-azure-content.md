@@ -39,9 +39,10 @@ You're responsible for establishing secure connectivity to the Alliance Lite2 Au
 You use RDP, with one of the preceding three connectivity approaches, to connect to Alliance Lite2 AutoClient software running on the Lite2 AutoClient VM. You also configure the recommended Azure firewall and Azure network security group to allow only RDP traffic to pass to the Lite2 AutoClient VM. Traffic from the Lite2 AutoClient software to SWIFTNet flows through the virtual network peer via Juniper vSRX, which has an established VPN tunnel to SWIFTNet over the internet.
 
 ### Components
-- [Azure Virtual Network](https://azure.microsoft.com/services/virtual-network) is the fundamental building block for your private network on Azure.
-- [Azure Firewall](https://azure.microsoft.com/services/azure-firewall) provides cloud-native, intelligent network firewall security.
-- [Azure ExpressRoute](https://azure.microsoft.com/services/expressroute) provides fast, reliable, and private connections to Azure.
+
+* [Azure Virtual Network](https://azure.microsoft.com/services/virtual-network) is the fundamental building block for your private network on Azure.
+* [Azure Firewall](https://azure.microsoft.com/services/azure-firewall) provides cloud-native, intelligent network firewall security.
+* [Azure ExpressRoute](https://azure.microsoft.com/services/expressroute) provides fast, reliable, and private connections to Azure.
 
 ## Considerations
 
@@ -108,12 +109,8 @@ After the SWIFT Alliance Connect Virtual and Alliance Lite2 AutoClient infrastru
 
 * [SWIFT Alliance Connect in Azure](swift-on-azure-srx.yml)
 * [SWIFT Alliance Connect Virtual in Azure](swift-on-azure-vsrx.yml)
-* [Alliance Access](swift-alliance-access-vsrx-on-azure.yml)
-* [SWIFT Alliance Access on Azure](swift-alliance-access-on-azure.yml)
-* [SWIFT Alliance Messaging Hub (AMH) on Azure](swift-alliance-messaging-hub.yml)
-* [Alliance Messaging Hub (AMH) with Alliance Connect Virtual](swift-alliance-messaging-hub-vsrx.yml)
-<!-- * [Alliance Cloud](swift-alliance-cloud-on-azure.yml) -->
-
-<!-- links -->
-
-[calculator]: https://azure.com/e
+* [SWIFT Alliance Access in Azure](swift-alliance-access-on-azure.yml)
+* [SWIFT Alliance Access with Alliance Connect Virtual in Azure](swift-alliance-access-vsrx-on-azure.yml)
+* [SWIFT Alliance Cloud in Azure](swift-alliance-cloud-on-azure.yml)
+* [SWIFT Alliance Messaging Hub (AMH) with Alliance Connect](swift-alliance-messaging-hub.yml)
+* [SWIFT Alliance Messaging Hub (AMH) with Alliance Connect Virtual](swift-alliance-messaging-hub-vsrx.yml)

@@ -1,12 +1,12 @@
+> [!Note]
+> This article provides an overview with reference architecture for deploying SWIFT's Alliance Connect Virtual solution on Azure. Please note that the new Alliance Connect Virtual solution is not yet available for SWIFT production traffic. The solution is currently being tested with SWIFT customers and will become generally available throughout 2022 as part of a phased launch. For more information about the general availability of the product, refer to [SWIFT.com](https://www.swift.com/our-solutions/interfaces-and-integration/alliance-connect-virtual).
+
 This series of articles provides guidance on using SWIFT's components in Azure. This article discusses the basic components that the architecture examples use in this series.
 
 The intended audiences for this article are program managers, architects, and engineers who are implementing SWIFT's components in Azure. The article is organized into the following structure:
 
 * A high-level overview of the Azure architecture to deploy SWIFT's components (this article).
 * A detailed reference architecture for each of the components (links below).
-
-> [!Note]
-> This article provides an overview with reference architecture for deploying SWIFT's Alliance Connect Virtual solution on Azure. Please note that the new Alliance Connect Virtual solution is not yet available for SWIFT production traffic. The solution is currently being tested with SWIFT customers and will become generally available throughout 2022 as part of a phased launch. For more information about the general availability of the product, refer to [SWIFT.com](https://www.swift.com/our-solutions/interfaces-and-integration/alliance-connect-virtual).
 
 ## Architecture
 
@@ -101,7 +101,9 @@ Customers can use a Logic Apps service to process payment transactions quickly, 
 Explore the following Azure architecture for the various SWIFT messaging interfaces in detail:
 
 * [SWIFT Alliance Connect in Azure](swift-on-azure-srx.yml)
-* [Alliance Access with Alliance Connect](swift-alliance-access-on-azure.yml)
-* [Alliance Access with Alliance Connect Virtual](swift-alliance-access-vsrx-on-azure.yml)
-* [Alliance Messaging Hub (AMH) with Alliance Connect](swift-alliance-messaging-hub.yml)
-* [Alliance Messaging Hub (AMH) with Alliance Connect Virtual](swift-alliance-messaging-hub-vsrx.yml)
+* [SWIFT Alliance Access in Azure](swift-alliance-access-on-azure.yml)
+* [SWIFT Alliance Access with Alliance Connect Virtual in Azure](swift-alliance-access-vsrx-on-azure.yml)
+* [SWIFT Alliance Cloud in Azure](swift-alliance-cloud-on-azure.yml)
+* [SWIFT Alliance Lite2 on Azure](swift-alliance-lite2-on-azure.yml)
+* [SWIFT Alliance Messaging Hub (AMH) with Alliance Connect](swift-alliance-messaging-hub.yml)
+* [SWIFT Alliance Messaging Hub (AMH) with Alliance Connect Virtual](swift-alliance-messaging-hub-vsrx.yml)
