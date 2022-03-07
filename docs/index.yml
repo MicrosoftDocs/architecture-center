@@ -103,7 +103,7 @@ productDirectory:
 
 # conceptualContent section (optional)
 conceptualContent:
-#itemType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
+# itemType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
   title: Technology Areas # < 60 chars (optional)
   summary: Explore architectures and guides for different technologies # < 160 chars (optional)
   items:
