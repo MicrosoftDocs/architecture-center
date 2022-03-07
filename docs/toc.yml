@@ -391,10 +391,10 @@ items:
                 href: solution-ideas/articles/presence-microsoft-365-power-platform.yml
               - name: Secure a Teams channel bot with a firewall
                 href: example-scenario/teams/securing-bot-teams-channel.yml
-          - name: Azure and Dynamics 365
+          - name: Azure and Dynamics 365 scenarios
             items:
               - name: All Dynamics 365 architectures
-                href: /azure/architecture/browse/?products=dynamics-365
+                href: /azure/architecture/browse/?terms=dynamics%20365
               - name: Customer 360 with Dynamics 365 CI
                 href: example-scenario/analytics/synapse-customer-insights.yml
               - name: Dynamics Business Central as a service
@@ -428,7 +428,7 @@ items:
                     href: aws-professional/security-identity.md
                   - name: Storage
                     href: aws-professional/storage.md
-              - name: Service comparison
+              - name: Services comparison
                 href: aws-professional/services.md
           - name: Azure for Google Cloud professionals
             expanded: true
@@ -973,7 +973,7 @@ items:
                 href: solution-ideas/articles/connected-factory-hierarchy-service.yml
               - name: Connected factory signal pipeline
                 href: example-scenario/iot/connected-factory-signal-pipeline.yml
-              - name: End-to-end computer vision at the edge for manufacturing
+              - name: End-to-end computer vision for manufacturing
                 href: reference-architectures/ai/end-to-end-smart-factory.yml
               - name: Predictive maintenance with IoT
                 href: example-scenario/predictive-maintenance/iot-predictive-maintenance.yml
@@ -1259,6 +1259,14 @@ items:
               - name: Dynamics 365 automotive accelerator
                 href: /dynamics365/industry/accelerators/automotive
                 maintainContext: true
+              - name: Azure Maps
+                items:
+                  - name: Azure Maps traffic coverage
+                    href: /azure/azure-maps/traffic-coverage
+                    maintainContext: true
+                  - name: Vehicle consumption model
+                    href: /azure/azure-maps/consumption-model
+                    maintainContext: true
               - name: Single sign on for car park management
                 href: /azure/active-directory/saas-apps/parkalot-car-park-management-tutorial
                 maintainContext: true
@@ -1774,11 +1782,11 @@ items:
                 href: example-scenario/ai/customer-lifecycle-churn.yml
               - name: Distributed deep learning training
                 href: reference-architectures/ai/training-deep-learning.yml
-              - name: End-to-end computer vision at the edge for manufacturing
+              - name: End-to-end computer vision for manufacturing
                 href: reference-architectures/ai/end-to-end-smart-factory.yml
               - name: Enterprise-grade conversational bot
                 href: reference-architectures/ai/conversational-bot.yml
-              - name: Extract text from objects using Power Automate and AI Builder
+              - name: Extract text from objects using Power Automate
                 href: example-scenario/ai/extract-object-text.yml
               - name: Image classification
                 href: example-scenario/ai/intelligent-apps-image-processing.yml
@@ -2024,13 +2032,13 @@ items:
                 href: solution-ideas/articles/monitor-azure-data-explorer.yml
               - name: Oil and Gas tank level forecasting
                 href: solution-ideas/articles/oil-and-gas-tank-level-forecasting.yml
-              - name: Predicting length of stay in hospitals
+              - name: Predict the length of stay in hospitals
                 href: solution-ideas/articles/predicting-length-of-stay-in-hospitals.yml
               - name: Predictive aircraft engine monitoring
                 href: solution-ideas/articles/aircraft-engine-monitoring-for-predictive-maintenance-in-aerospace.yml
               - name: Real-time analytics on big data
                 href: solution-ideas/articles/real-time-analytics.yml
-              - name: Tiering applications & data for analytics
+              - name: Tier applications and data for analytics
                 href: solution-ideas/articles/tiered-data-for-analytics.yml
       - name: Blockchain + Multiparty Compute
         items:
@@ -2639,7 +2647,7 @@ items:
                     href: guide/data/monitor-apache-nifi-monitofi.yml
                   - name: Helm-based deployments for Apache NiFi
                     href: guide/data/helm-deployments-apache-nifi.yml
-              - name: Azure Purview
+              - name: Azure Purview guidance
                 items: 
                   - name: Accounts architectures and best practices
                     href: /azure/purview/concept-best-practices-accounts
@@ -3616,7 +3624,7 @@ items:
                     href: reference-architectures/zos/refactor-zos-coupling-facility.yml
                   - name: Refactor mainframe apps with Advanced
                     href: example-scenario/mainframe/refactor-mainframe-applications-advanced.yml
-                  - name: Refactor mainframe systems that use Adabas & Natural 
+                  - name: Refactor systems that run Adabas & Natural 
                     href: example-scenario/mainframe/refactor-adabas-aks.yml
                   - name: Refactor mainframe with Raincode
                     href: reference-architectures/app-modernization/raincode-reference-architecture.yml
