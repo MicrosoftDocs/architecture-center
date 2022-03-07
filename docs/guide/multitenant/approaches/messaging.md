@@ -207,7 +207,7 @@ With a horizontally partitioned deployment, you need to adopt an automated proce
 
 ### Geodes pattern
 
-The [Geode pattern](../../../patterns/geodes.md) involves deploying a collection of backend services into a set of geographical nodes. Each can service any request for any client in any region. This pattern allows you to serve requests in an active-active style, which improves latency and increases availability, by distributing request processing around the globe.
+The [Geode pattern](../../../patterns/geodes.yml) involves deploying a collection of backend services into a set of geographical nodes. Each can service any request for any client in any region. This pattern allows you to serve requests in an active-active style, which improves latency and increases availability, by distributing request processing around the globe.
 
 ![Diagram showing the Geode pattern, with messaging systems deployed across multiple regions that synchronize together.](media/messaging/geodes.png)
 

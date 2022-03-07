@@ -1819,26 +1819,6 @@
       "redirect_document_id": false
     },
     {
-      "source_path": "docs/example-scenario/finance/swift-alliance-messaging-hub.yml",
-      "redirect_url": "/azure/architecture/example-scenario/finance/swift-on-azure",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "docs/example-scenario/finance/swift-alliance-messaging-hub-vsrx.yml",
-      "redirect_url": "/azure/architecture/example-scenario/finance/swift-on-azure",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "docs/example-scenario/finance/swift-alliance-access-on-azure.yml",
-      "redirect_url": "/azure/architecture/example-scenario/finance/swift-on-azure",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "docs/example-scenario/finance/swift-alliance-access-vsrx-on-azure.yml",
-      "redirect_url": "/azure/architecture/example-scenario/finance/swift-on-azure",
-      "redirect_document_id": false
-    },
-    {
       "source_path": "docs/reference-architectures/hybrid-networking/considerations.md",
       "redirect_url": "/azure/architecture/reference-architectures/hybrid-networking",
       "redirect_document_id": false

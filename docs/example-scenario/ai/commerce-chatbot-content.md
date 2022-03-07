@@ -2,13 +2,19 @@
 
 This example scenario applies generally to businesses that want to integrate a conversational chatbot into applications. Specifically, this scenario shows a C# chatbot for a hotel to allow customers to check availability and book accommodation through a web or mobile application.
 
+## Potential use cases
+
 Beyond hotel booking, this chatbot could be used in a wide range of commerce settings. For example, the chatbot can enable customers to review the take-out menu of restaurant and place an order. Or, the chatbot can enable customers of a photography studio to search for and order prints. Traditionally, businesses hire and train customer service agents to respond to these types of customer requests. As a result, customers wait until a representative is available to provide assistance.
 
 With [Azure Bot Service][botservice-docs] and [Language Understanding][language-understanding] or [Speech][speech-api] services, businesses can use scalable bots to handle common customer requests.
 
-## Architecture for hotel booking bot
+## Architecture
+
+The following architecture is for designing a hotel booking bot.
 
 ![Architecture overview: conversational chatbot and the Azure components involved in a conversational chatbot][architecture]
+
+### Dataflow
 
 This scenario covers a conversational bot that functions as a concierge for a hotel. The data flows through the scenario as follows:
 
@@ -27,6 +33,8 @@ This scenario covers a conversational bot that functions as a concierge for a ho
 - [Cognitive Services][cognitive-docs] lets you use intelligent algorithms to see, hear, speak, understand, and interpret your user needs through natural methods of communication.
 - [SQL Database][sqldatabase-docs] is a fully managed relational cloud database service that provides SQL Server engine compatibility.
 - [Application Insights][appinsights-docs] is an extensible Application Performance Management (APM) service that lets you monitor the performance of applications, such as your chatbot.
+
+### Alternatives
 
 Other components that could be used to enhance this example scenario include:
 
@@ -62,7 +70,7 @@ To monitor the health of your application, this scenario uses Application Insigh
 
 For other resiliency articles, see [Designing reliable Azure applications](/azure/architecture/framework/resiliency/app-design).
 
-## Deploy the scenario
+## Deploy this scenario
 
 You must have an existing Azure account. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
@@ -95,12 +103,6 @@ To explore the cost of running this scenario, use the [Azure pricing calculator]
 
 ## Next steps
 
-Azure Architecture Center articles describing chatbot architectures:
-
-- [Commerce chatbot for customer service](../../solution-ideas/articles/commerce-chatbot.yml)
-- [Build an enterprise-grade conversational bot](../../reference-architectures/ai/conversational-bot.yml)
-- [Speech-to-text conversion](../../reference-architectures/ai/speech-to-text-transcription-pipeline.yml)
-
 Azure Bot Service product documentation:
 
 - [The Bot Framework Composer tutorials][botservice-docs]
@@ -109,6 +111,14 @@ Microsoft Learn modules:
 
 - [Create Intelligent Bots with the Azure Bot Service][learn1]
 - [Build a bot with QnA Maker and Azure Bot Service][learn2]
+
+## Related resources
+
+Azure Architecture Center articles describing chatbot architectures:
+
+- [Commerce chatbot for customer service](../../solution-ideas/articles/commerce-chatbot.yml)
+- [Build an enterprise-grade conversational bot](../../reference-architectures/ai/conversational-bot.yml)
+- [Speech-to-text conversion](../../reference-architectures/ai/speech-to-text-transcription-pipeline.yml)
 
 <!-- links -->
 

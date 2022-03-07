@@ -149,7 +149,6 @@ For NFS Share scenarios, [Azure NetApp Files](/azure/virtual-machines/workloads/
 Azure Storage and Azure NetApp Files both use [Cloud Witness](/windows-server/failover-clustering/deploy-cloud-witness) to maintain quorum in the pacemaker cluster with a device in the same Azure region.
 
 For the backup data store, we recommend using Azure [cool and archive access tiers](/azure/storage/blobs/access-tiers-overview). These storage tiers are cost-effective ways to store long-lived data that is infrequently accessed. You can also consider using [Azure NetApp Files Standard tier](/azure/azure-netapp-files/azure-netapp-files-service-levels#supported-service-levels) as a backup target or [Azure NetApp Files Backup option](/azure/azure-netapp-files/backup-introduction). For Managed disk the recommended backup data tier is the Azure cool or archive access tier.
-![image](https://user-images.githubusercontent.com/86350177/156544849-e4db7bcd-a288-4205-9eab-e256b7f96a99.png)
 
 Both [Ultra SSDs](/azure/virtual-machines/linux/disks-enable-ultra-ssd) and Azure NetApp Files [Ultra performance tier](/azure/azure-netapp-files/azure-netapp-files-service-levels) greatly reduce disk latency and benefit performance-critical applications and the SAP database servers.
 
