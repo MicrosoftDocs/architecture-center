@@ -183,7 +183,7 @@ Tenants may have different requirements for security, intra-region resiliency, d
 
 ### Sharding pattern
 
-The [Sharding pattern](../../../patterns/sharding.md) involves deploying multiple messaging systems, called *shards*, which contain one or more tenants' messaging entities, such as queues and topics. Unlike deployment stamps, shards don't imply that the entire infrastructure is duplicated. You might shard messaging systems without also duplicating or sharding other infrastructure in your solution.
+The [Sharding pattern](../../../patterns/sharding.yml) involves deploying multiple messaging systems, called *shards*, which contain one or more tenants' messaging entities, such as queues and topics. Unlike deployment stamps, shards don't imply that the entire infrastructure is duplicated. You might shard messaging systems without also duplicating or sharding other infrastructure in your solution.
 
 ![Diagram showing a sharded messaging system. One messaging system contains the queues for tenants A and B, and the other contains the queues for tenant C.](media/messaging/sharding.png)
 
@@ -207,7 +207,7 @@ With a horizontally partitioned deployment, you need to adopt an automated proce
 
 ### Geodes pattern
 
-The [Geode pattern](../../../patterns/geodes.md) involves deploying a collection of backend services into a set of geographical nodes. Each can service any request for any client in any region. This pattern allows you to serve requests in an active-active style, which improves latency and increases availability, by distributing request processing around the globe.
+The [Geode pattern](../../../patterns/geodes.yml) involves deploying a collection of backend services into a set of geographical nodes. Each can service any request for any client in any region. This pattern allows you to serve requests in an active-active style, which improves latency and increases availability, by distributing request processing around the globe.
 
 ![Diagram showing the Geode pattern, with messaging systems deployed across multiple regions that synchronize together.](media/messaging/geodes.png)
 

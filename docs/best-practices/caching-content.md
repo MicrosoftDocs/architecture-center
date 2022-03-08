@@ -125,7 +125,7 @@ Avoid using a cache as the primary repository of data; this is the role of the o
 
 Be careful not to introduce critical dependencies on the availability of a shared cache service into your solutions. An application should be able to continue functioning if the service that provides the shared cache is unavailable. The application should not become unresponsive or fail while waiting for the cache service to resume.
 
-Therefore, the application must be prepared to detect the availability of the cache service and fall back to the original data store if the cache is inaccessible. The [Circuit-Breaker pattern](../patterns/circuit-breaker.md) is useful for handling this scenario. The service that provides the cache can be recovered, and once it becomes available, the cache can be repopulated as data is read from the original data store, following a strategy such as the [Cache-aside pattern](../patterns/cache-aside.md).
+Therefore, the application must be prepared to detect the availability of the cache service and fall back to the original data store if the cache is inaccessible. The [Circuit-Breaker pattern](../patterns/circuit-breaker.yml) is useful for handling this scenario. The service that provides the cache can be recovered, and once it becomes available, the cache can be repopulated as data is read from the original data store, following a strategy such as the [Cache-aside pattern](../patterns/cache-aside.md).
 
 However, system scalability may be affected if the application falls back to the original data store when the cache is temporarily unavailable. While the data store is being recovered, the original data store could be swamped with requests for data, resulting in timeouts and failed connections.
 
@@ -302,7 +302,7 @@ Partitioning the cache involves splitting the cache across multiple computers. T
 - Spreading the load across servers, thereby improving performance and scalability.
 - Geolocating data close to the users that access it, thus reducing latency.
 
-For a cache, the most common form of partitioning is sharding. In this strategy, each partition (or shard) is a Redis cache in its own right. Data is directed to a specific partition by using sharding logic, which can use a variety of approaches to distribute the data. The [Sharding pattern](../patterns/sharding.md) provides more information about implementing sharding.
+For a cache, the most common form of partitioning is sharding. In this strategy, each partition (or shard) is a Redis cache in its own right. Data is directed to a specific partition by using sharding logic, which can use a variety of approaches to distribute the data. The [Sharding pattern](../patterns/sharding.yml) provides more information about implementing sharding.
 
 To implement partitioning in a Redis cache, you can take one of the following approaches:
 
@@ -880,7 +880,7 @@ The following patterns might also be relevant to your scenario when you implemen
 
 - [Cache-aside pattern](../patterns/cache-aside.md): This pattern describes how to load data on demand into a cache from a data store. This pattern also helps to maintain consistency between data that's held in the cache and the data in the original data store.
 
-- The [Sharding pattern](../patterns/sharding.md) provides information about implementing horizontal partitioning to help improve scalability when storing and accessing large volumes of data.
+- The [Sharding pattern](../patterns/sharding.yml) provides information about implementing horizontal partitioning to help improve scalability when storing and accessing large volumes of data.
 
 ## More information
 

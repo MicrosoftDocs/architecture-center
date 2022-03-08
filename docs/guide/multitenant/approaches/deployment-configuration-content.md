@@ -68,11 +68,11 @@ Several design patterns from the Azure Architecture Center, and the wider commun
 
 ### Deployment Stamps pattern
 
-The [Deployment Stamps pattern](../../../patterns/deployment-stamp.md) involves deploying dedicated infrastructure for a tenant or group of tenants. A single stamp might contain multiple tenants, or it might be dedicated to a single tenant. You can choose to deploy a single stamp, or you can coordinate a deployment across multiple stamps. If you deploy dedicated stamps for each tenant, you can also consider deploying entire stamps programmatically.
+The [Deployment Stamps pattern](../../../patterns/deployment-stamp.yml) involves deploying dedicated infrastructure for a tenant or group of tenants. A single stamp might contain multiple tenants, or it might be dedicated to a single tenant. You can choose to deploy a single stamp, or you can coordinate a deployment across multiple stamps. If you deploy dedicated stamps for each tenant, you can also consider deploying entire stamps programmatically.
 
 ### Deployment rings
 
-[Deployment rings](/azure/devops/migrate/phase-rollout-with-rings) enable you to roll out updates to different groups of infrastructure at different times. This approach is commonly used with the [Deployment Stamps pattern](../../../patterns/deployment-stamp.md), and groups of stamps are deployed into distinct rings based on tenant preferences, workload types, and other considerations. For more information, see [Deployment rings](../considerations/updates.md#deployment-rings).
+[Deployment rings](/azure/devops/migrate/phase-rollout-with-rings) enable you to roll out updates to different groups of infrastructure at different times. This approach is commonly used with the [Deployment Stamps pattern](../../../patterns/deployment-stamp.yml), and groups of stamps are deployed into distinct rings based on tenant preferences, workload types, and other considerations. For more information, see [Deployment rings](../considerations/updates.md#deployment-rings).
 
 ### Feature flags
 

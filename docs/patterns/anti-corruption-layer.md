@@ -58,4 +58,4 @@ This pattern may not be suitable if there are no significant semantic difference
 
 ## Related guidance
 
-- [Strangler Fig pattern](./strangler-fig.md)
+- [Strangler Fig pattern](./strangler-fig.yml)

@@ -1,0 +1,21 @@
+### YamlMime:Architecture
+metadata:
+  title: Deployment Stamps pattern
+  description: Learn about the Deployment Stamps pattern, which deploys many independent copies (known as stamps, service units, or scale units) of application components.
+  author: johndowns
+  ms.author: jodowns
+  ms.date: 12/03/2021
+  ms.topic: conceptual
+  ms.service: architecture-center
+  ms.subservice: azure-guide
+azureCategories:
+  - management-and-governance
+  - security
+products:
+  - azure-front-door
+  - azure
+name: Deployment Stamps pattern
+summary: Learn about the Deployment Stamps pattern, which deploys many independent copies (known as stamps, service units, or scale units) of application components.
+thumbnailUrl: /azure/architecture/browse/thumbs/deployment-stamp-traffic-routing.png
+content: |
+  [!include[](deployment-stamp-content.md)]

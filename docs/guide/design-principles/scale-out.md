@@ -43,4 +43,4 @@ A primary advantage of the cloud is elastic scaling &mdash; the ability to use a
 
 [autoscaling]: ../../best-practices/auto-scaling.md
 [background-jobs]: ../../best-practices/background-jobs.md
-[pipes-filters-pattern]: ../../patterns/pipes-and-filters.md
+[pipes-filters-pattern]: ../../patterns/pipes-and-filters.yml

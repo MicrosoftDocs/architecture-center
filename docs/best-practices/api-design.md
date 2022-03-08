@@ -182,6 +182,8 @@ If the server cannot match any of the media type(s) listed, it should return HTT
 
 A successful GET method typically returns HTTP status code 200 (OK). If the resource cannot be found, the method should return 404 (Not Found).
 
+If the request was fulfilled but there is no respose body included in the HTTP response, then it should return HTTP status code 204 (No Content); for example, a search operation yielding no matches might be implemented with this behavior.
+
 ### POST methods
 
 If a POST method creates a new resource, it returns HTTP status code 201 (Created). The URI of the new resource is included in the Location header of the response. The response body contains a representation of the resource.

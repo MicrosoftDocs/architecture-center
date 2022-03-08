@@ -298,12 +298,12 @@ To deploy the reference implementation for this architecture, see the [GitHub re
 
 ## Next steps
 
-To learn more about the reference implementation, read [Code walkthrough: Serverless application with Azure Functions](../../serverless/code.md).
+To learn more about the reference implementation, read [Code walkthrough: Serverless application with Azure Functions](../../serverless/code.yml).
 
 Related guidance:
 
 - [Best practices for using CDNs](../../best-practices/cdn.yml)
-- [Static Content Hosting pattern](../../patterns/static-content-hosting.md)
+- [Static Content Hosting pattern](../../patterns/static-content-hosting.yml)
 
 <!-- links -->
 
