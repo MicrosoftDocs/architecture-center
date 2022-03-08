@@ -11,7 +11,7 @@ This reference architecture implements the [Analytics end-to-end with Azure Syna
 ![Architecture diagram for Enterprise BI in Azure with Azure Synapse](./images/aac-scoped-architecture-new-grayed.png)
 <!-- ![Architecture diagram for Enterprise BI in Azure with Azure Synapse](./images/analytics-with-azure-synapse-pbi.png)
 -->
-*Diagram: [Analytics end-to-end with Azure Synapse][e2e-analytics]. Red path denotes the scope of this article.*
+*Diagram: [Analytics end-to-end with Azure Synapse][e2e-analytics].*
 <!--
 TODO - may be grey out the background more and only circle the Synapse Provisioned Pools without ADLS? asterisk? 
 -->
@@ -249,17 +249,11 @@ The views do pre-compute, store, and maintain data in SQL DW just like a table. 
 
 ## Scalability considerations
 
-TODO: overview
+This section provides details on the sizing decisions to accomodate this dataset as well as gives further guidance for you to pick the right size for another workload.
 
-### Synapse Pipelines
-
-todo
+### Azure Synapse Pipelines
 
 ### Azure Synapse Provisioned Pool
-
-With Azure Synapse, you can scale out ([using The Portal, Powershell or T-SQL](/azure/synapse-analytics/sql-data-warehouse/quickstart-scale-compute-portal)) your compute resources on demand. 
-The query engine optimizes queries for parallel processing based on the number of compute nodes, and moves data between nodes as necessary. 
-For more information, see [Manage compute in Azure Synapse](/azure/sql-data-warehouse/sql-data-warehouse-manage-compute-overview).
 
 ### Power BI premium
 
@@ -268,14 +262,6 @@ For more information, see [Manage compute in Azure Synapse](/azure/sql-data-ware
 ### for all components  - private connectivity
 
 ### Authorization
-
-Azure Analysis Services uses Azure Active Directory (Azure AD) to authenticate users who connect to an Analysis Services server. You can restrict what data a particular user is able to view, by creating roles and then assigning Azure AD users or groups to those roles. For each role, you can:
-
-- Protect tables or individual columns.
-- Protect individual rows based on filter expressions.
-
-For more information, see [Manage database roles and users](/azure/analysis-services/analysis-services-database-users).
-*/
 
 ## DevOps considerations
 #### Quick start: ####
@@ -309,52 +295,45 @@ This 1-click deployment allows the user to deploy a Proof-of-Concept environment
 
 For more information, see the DevOps section in [Microsoft Azure Well-Architected Framework][AAF-devops].
 
-## Cost Considerations - Galina
+## Cost Considerations
+
+This section provides information on the pricing for different Services involved in this solution, as well as mentiones decisions made for this usecase with sample dataset. 
 
 ### Azure Synapse
 
-- Choose **Compute Optimized Gen1** for frequent scaling operations. This option is priced as pay-as-you-go, based on Data warehouse units consumption (DWU).
+Azure Synapse Analytics (https://azure.microsoft.com/pricing/details/synapse-analytics/) serverless architecture allows you to scale your compute and storage levels independently. Compute resources are charged based on usage, and you can scale or pause these resources on demand. Storage resources are billed per terabyte, so your costs will increase as you ingest more data.
 
-- Choose **Compute Optimized Gen2** for intensive workloads with higher query performance and compute scalability needs. You can choose the pay-as-you-go model or use reserved plans of one year (37% savings) or 3 years (65% savings).
+### Azure Synapse Pipelines
 
-Data storage is charged separately. Other services such as disaster recovery and threat detection are also charged separately.
+Pricing details for Synapse Pipelines can be found under 'Data Integation' tab on Synapse pricing page above. There are three main componets that incluence the price of Synapse Pipeline: 1. Data Pipelines activities and integration runtime hours, 2. Data Flows cluster size and execution, 3. Operation charges.
+Depending on the componets/activities you choose, frequency and number of Integration Runtime units, the price would vary.
 
-For more information, see [Azure Synapse Pricing][az-synapse-pricing].
+For the sample dataset, we have picked standard Azure Hosted Integration Runtime, Copy Data Activity for the core of the pipeline, which is triggered on a daily schedule for all of the enteties (tables) in the source database. No dataflows. No operational costs, as we have less than one million opeations with Pipelines a month. 
 
-### Azure Analysis Services
+### Azure Analysis Dedicated Pool and Storage
 
-Pricing for Azure Analysis Services depends on the tier. The reference implementation of this architecture uses the **Developer** tier, which is recommended for evaluation, development, and test scenarios. Other tiers include, the **Basic** tier, which is recommended for small production environment; the **Standard** tier for mission-critical production applications. For more information, see [The right tier when you need it](/azure/analysis-services/analysis-services-overview#the-right-tier-when-you-need-it).
+Pricing details for Synapse Dedicated Pool can be found under 'Data Warehousing' tab on Synapse pricing page above. Under Dedicated consumption model, customers are billed per DWU units provisioned, per hour of uptime. Another contributing factors is data storage costs (size of your data at rest + snapshots + reo redundancy if any). 
 
-No charges apply when you pause your instance.
-
-For more information, see [Azure Analysis Services pricing][az-as-pricing].
+For the sameple dataset, we have provisioned 500DWU, which guarantees good experience for Analytical load. We keep compute up and running over business hours of reporting.
+If taken into production, reserved DW capacity is an attractive options for cost management. Different techniques should be leveraged to maximize cost/performance metrics of your DW, which are covered in the sections above. 
 
 ### Blob Storage
 
 Consider using the Azure Storage reserved capacity feature to lower cost on storage. With this model, you get a discount if you can commit to reservation for fixed storage capacity for one or three years. For more information, see [Optimize costs for Blob storage with reserved capacity][az-storage-reserved].
 
-### Power BI Embedded
+There is no persistant storage in this usecase. 
 
-Power BI Embedded is a Platform-as-a-Service (PaaS) solution that offers a set of APIs to enable the integration of Power BI content into custom apps and websites. Users who publish BI content need to be licensed with [Power BI Pro][powerbi-pro-purchase]. For information about pricing, see [Power BI Embedded pricing][powerbi-embedded-pricing].
+### Power BI Premium
 
-For more information, see the Cost section in [Microsoft Azure Well-Architected Framework][aaf-cost].
-*/
+Power BI Premium pricing details can be found on the product pricing page (https://powerbi.microsoft.com/en-us/pricing/). 
+
+This usecase leverages PBI Premium workspaces (https://docs.microsoft.com/en-us/power-bi/admin/service-premium-what-is) with a range of performance enhancements build in to accomodate demanding Analytical requirment.
 
 ## Deploy the solution
 
-/*
-To the deploy and run the reference implementation, follow the steps in the [GitHub readme][github-folder]. It deploys the following resources:
-
-- A Windows VM to simulate an on-premises database server. It includes SQL Server 2017 and related tools, along with Power BI Desktop.
-- An Azure storage account that provides Blob storage to hold data exported from the SQL Server database.
-- An Azure Synapse instance.
-- An Azure Analysis Services instance.
-
-*/
 
 ## Next steps
 
-TODO: write about scaling up consideration here?
 
 ## Related resources
 
@@ -389,3 +368,4 @@ You may want to review the following [Azure example scenarios](/azure/architectu
 [pbi-premium-capacities]: powerbi-docs/admin/service-premium-what-is.md#reserved-capacities
 [synapse-dedicated-pool]:azure/articles/synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md#synapse-sql-pool-in-azure-synapse
 [pbi-what-is-premium] https://docs.microsoft.com/en-us/power-bi/admin/service-premium-what-is#analysis-services-in-power-bi-premium
+
