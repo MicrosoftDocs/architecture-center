@@ -1362,6 +1362,8 @@ items:
                 href: /azure/architecture/example-scenario/ai/customer-lifecycle-churn
               - name: Enterprise-grade conversational bot
                 href: /azure/architecture/reference-architectures/ai/conversational-bot
+              - name: Geospatial analysis for the telecommunications industry
+                href: example-scenario/data/geospatial-analysis-telecommunications-industry.yml
               - name: IoT connected light, power, and internet
                 href: /azure/architecture/solution-ideas/articles/iot-power-management
               - name: IoT device connectivity for industry
@@ -2026,6 +2028,8 @@ items:
                 href: example-scenario/data/data-warehouse.yml
               - name: Employee retention with Databricks and Kubernetes
                 href: example-scenario/ai/employee-retention-databricks-kubernetes.yml
+              - name: Geospatial analysis for the telecommunications industry
+                href: example-scenario/data/geospatial-analysis-telecommunications-industry.yml
               - name: Geospatial data processing and analytics
                 href: example-scenario/data/geospatial-data-processing-analytics-azure.yml
               - name: High throughput stream ingestion
