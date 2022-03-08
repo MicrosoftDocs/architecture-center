@@ -113,9 +113,9 @@ The Saga pattern is less suitable for:
 The following patterns might also be useful when implementing this pattern:
 
 - [Choreography](../../patterns/choreography.md) has each component of the system participate in the decision-making process about the workflow of a business transaction, instead of relying on a central point of control.
-- [Compensating transactions](../../patterns/compensating-transaction.md) undo work performed by a series of steps, and eventually define a consistent operation if one or more steps fail. Cloud-hosted applications that implement complex business processes and workflows often follow this *eventual consistency model*.
+- [Compensating transactions](../../patterns/compensating-transaction.yml) undo work performed by a series of steps, and eventually define a consistent operation if one or more steps fail. Cloud-hosted applications that implement complex business processes and workflows often follow this *eventual consistency model*.
 - [Retry](../../patterns/retry.yml) lets an application handle transient failures when it tries to connect to a service or network resource, by transparently retrying the failed operation. Retry can improve the stability of the application.
-- [Circuit breaker](../../patterns/circuit-breaker.md) handles faults that take a variable amount of time to recover from, when connecting to a remote service or resource. Circuit breaker can improve the stability and resiliency of an application.
+- [Circuit breaker](../../patterns/circuit-breaker.yml) handles faults that take a variable amount of time to recover from, when connecting to a remote service or resource. Circuit breaker can improve the stability and resiliency of an application.
 - [Health endpoint monitoring](../../patterns/health-endpoint-monitoring.yml) implements functional checks in an application that external tools can access through exposed endpoints at regular intervals. Health endpoint monitoring can help verify that applications and services are performing correctly.
 
 ## Related resources

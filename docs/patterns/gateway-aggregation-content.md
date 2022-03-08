@@ -105,5 +105,5 @@ http {
 - [Gateway Routing pattern](./gateway-routing.yml)
 
 [bulkhead]: ./bulkhead.md
-[circuit-breaker]: ./circuit-breaker.md
+[circuit-breaker]: ./circuit-breaker.yml
 [retry]: ./retry.yml

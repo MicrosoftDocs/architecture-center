@@ -23,8 +23,8 @@ Additionally data should be protected at rest, in transit, and via authorized ac
 |                        Pattern                         |                                                                  Summary                                                                  |
 |--------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------|
 |            [Cache-Aside](../cache-aside.md)            |                                            Load data on demand into a cache from a data store                                             |
-|                   [CQRS](../cqrs.md)                   |                    Segregate operations that read data from operations that update data by using separate interfaces.                     |
-|         [Event Sourcing](../event-sourcing.md)         |               Use an append-only store to record the full series of events that describe actions taken on data in a domain.               |
+|                   [CQRS](../cqrs.yml)                   |                    Segregate operations that read data from operations that update data by using separate interfaces.                     |
+|         [Event Sourcing](../event-sourcing.yml)         |               Use an append-only store to record the full series of events that describe actions taken on data in a domain.               |
 |            [Index Table](../index-table.yml)            |                         Create indexes over the fields in data stores that are frequently referenced by queries.                          |
 |      [Materialized View](../materialized-view.yml)      | Generate prepopulated views over the data in one or more data stores when the data isn't ideally formatted for required query operations. |
 |               [Sharding](../sharding.yml)               |                                    Divide a data store into a set of horizontal partitions or shards.                                     |

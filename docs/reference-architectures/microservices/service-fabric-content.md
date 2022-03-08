@@ -281,7 +281,7 @@ For more information about securing Service Fabric, see:
 To recover from failures and maintain a fully functioning state, the application must implement certain resiliency patterns. Here are some common patterns:
 
 - [Retry pattern](../../patterns/retry.yml): To handle errors that are expected to be transient, such as resources being temporarily unavailable.
-- [Circuit breaker](../../patterns/circuit-breaker.md): To address faults that might need longer to fix.
+- [Circuit breaker](../../patterns/circuit-breaker.yml): To address faults that might need longer to fix.
 - [Bulkhead pattern](../../patterns/bulkhead.md): To isolate resources per service.
 
 This reference implementation uses [Polly](https://github.com/App-vNext/Polly), an open-source option, to implement all of those patterns.
