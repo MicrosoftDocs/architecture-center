@@ -88,7 +88,7 @@ Resiliency is considered as part of availability, monitoring and operations sect
 
 ## Deploy this scenario
 
-A reference implementation can be found in [GitHub](https://github.com/howardginsburg/digitaltwinsbatch).
+A reference implementation can be found in [GitHub](https://github.com/Azure-Samples/azuredigitaltwins-batchupdate).
 
 ## Pricing
 
