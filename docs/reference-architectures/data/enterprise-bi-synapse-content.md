@@ -310,7 +310,7 @@ Depending on the componets/activities you choose, frequency and number of Integr
 
 For the sample dataset, we have picked standard Azure Hosted Integration Runtime, Copy Data Activity for the core of the pipeline, which is triggered on a daily schedule for all of the enteties (tables) in the source database. No dataflows. No operational costs, as we have less than one million opeations with Pipelines a month. 
 
-### Azure Analysis Dedicated Pool and Storage
+### Azure Synapse Dedicated Pool and Storage
 
 Pricing details for Synapse Dedicated Pool can be found under 'Data Warehousing' tab on Synapse pricing page above. Under Dedicated consumption model, customers are billed per DWU units provisioned, per hour of uptime. Another contributing factors is data storage costs (size of your data at rest + snapshots + reo redundancy if any). 
 
