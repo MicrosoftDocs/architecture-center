@@ -27,6 +27,6 @@ products:
   - azure-virtual-machines
 name: DevOps with Azure Stack Hub
 summary: Code from a single location and deploy to multiple targets in development, test, and production environments that may be in your local datacenter, private clouds, or the public cloud.
-thumbnailUrl: /azure/architecture/browse/thumbs/hybrid-pattern-cicd-pipeline.png
+thumbnailUrl: /azure/architecture/browse/thumbs/hybrid-continuous-integration.png
 content: |
    [!include[](hybrid-continuous-integration-content.md)]
