@@ -60,6 +60,9 @@ For each scenario, you can find a short summary of how to configure it below. Fo
   - In Spring Cloud Gateway, set the `XForwarded Remote Addr` route predicate to all outbound IP ranges of Front Door (and keep this up to date) and set the `Header` route predicate to ensure the `X-Azure-FDID` HTTP header contains your unique `Front Door ID`.
   - Optionally, in your Spring Framework apps, set the `server.forward-headers-strategy` application property to `FRAMEWORK`.
 
+> [!NOTE]
+> Once the configuration is in place, consider using [Azure Policy](/azure/governance/policy/) or [resource locks](/azure/azure-resource-manager/management/lock-resources) to prevent accidental or malicious changes which could allow the reverse proxy to be bypassed and the application to be exposed directly. This would only apply to the Azure resources (the NSGs specifically), since configuration *within* the Azure Spring Cloud apps isn't visible to the Azure control plane.
+
 ## Azure Spring Cloud deployed in your Virtual Network
 
 When Azure Spring Cloud is deployed in a VNet, it uses [two subnets](/azure/spring-cloud/how-to-deploy-in-azure-virtual-network#virtual-network-requirements): a "service runtime" subnet which contains the relevant network resources, and an "apps" subnet in which your code is hosted. Given that [the "service runtime" subnet contains the load balancer that you use to connect to the apps](/azure/spring-cloud/access-app-virtual-network#find-the-ip-for-your-application), you can define a Network Security Group (NSG) on this "service runtime" subnet to allow only traffic from your reverse proxy. By blocking all other traffic, nobody in the VNet can access your apps without going through the reverse proxy.
@@ -83,7 +86,7 @@ When Application Gateway sits in front of your Azure Spring Cloud instance, you 
 | Allow | IP Addresses | The private IP range of the Application Gateway subnet (for example, `10.1.2.0/24`) | `TCP` | `80, 443` (or other ports as appropriate) |
 | Allow | IP Addresses | The private IP range of the Azure Spring Cloud "apps" subnet (for example, `10.1.1.0/24`) | `TCP` | `*` |
 | Allow | Service Tag | `AzureLoadBalancer` | `Any` | `*` |
-| Deny | Service Tag | `VirtualNetwork` | `Any` | `*` |
+| Deny | Service Tag | `Any` | `Any` | `*` |
 
 This ensures that the "service runtime" subnet only allows traffic from the ([dedicated](/azure/application-gateway/configuration-infrastructure#virtual-network-and-dedicated-subnet)) Application Gateway subnet, the "apps" subnet (bidirectional communication between the two Azure Spring Cloud subnets is required) and the Azure load balancer (which is a general Azure platform requirement), while all other traffic is blocked.
 
