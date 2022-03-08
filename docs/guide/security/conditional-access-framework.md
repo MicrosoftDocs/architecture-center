@@ -51,8 +51,8 @@ To make administration easy, we suggest this numbering scheme:
 |Persona group|Number allocation|
 |-------------|-----------------|
 |CA-Persona-Global|CA001-CA099|
-|CA-Persona-Internals|CA100-CA199|
-|CA-Persona-Admins|CA200-CA299|
+|CA-Persona-Admins|CA100-CA199|
+|CA-Persona-Internals|CA200-CA299|
 |CA-Persona-Externals|CA300-CA399|
 |CA-Persona-GuestUsers|CA400-CA499|
 |CA-Persona-GuestAdmins|CA500-CA599|
