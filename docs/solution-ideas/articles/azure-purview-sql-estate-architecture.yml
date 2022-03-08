@@ -20,8 +20,6 @@ products:
 - power-bi
 name:  Manage data across Azure SQL estate with Azure Purview
 summary: Improve your organization's governance process by using Azure Purview in your Azure SQL estate.
-thumbnailUrl: /docs/browse/thumbs/azure-purview-sql-estate-architecture-thumbnail.png
+thumbnailUrl: /azure/architecture/browse/thumbs/azure-purview-sql-estate-architecture-thumbnail.png
 content: |
   [!include[](azure-purview-sql-estate-architecture-content.md)]
-
-  
