@@ -1,21 +1,3 @@
----
-title: Compensating Transaction pattern
-titleSuffix: Cloud Design Patterns
-description: Undo the work performed by a series of steps, which together define an eventually consistent operation.
-author: EdPrice-MSFT
-ms.author: pnp
-ms.date: 06/23/2017
-ms.topic: conceptual
-ms.service: architecture-center
-ms.subservice: design-pattern
-ms.custom:
-  - design-pattern
-keywords:
-  - design pattern
----
-
-# Compensating Transaction pattern
-
 Undo the work performed by a series of steps, which together define an eventually consistent operation, if one or more of the steps fail. Operations that follow the eventual consistency model are commonly found in cloud-hosted applications that implement complex business processes and workflows.
 
 ## Context and problem

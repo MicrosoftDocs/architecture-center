@@ -111,7 +111,7 @@ The [Microsoft Azure Well-Architected Framework](/azure/architecture/framework) 
 
 The following articles are about best practices that are specific to DevOps and to some DevOps services.
 
-### Devops
+### DevOps
 
 - [How Teams at Microsoft Embraced a DevOps Culture - Azure webinar series](https://info.microsoft.com/ww-ondemand-how-teams-at-microsoft-embraced-a-devops-culture.html)
 - [DevOps checklist](../../checklist/dev-ops.md)

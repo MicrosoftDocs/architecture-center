@@ -69,5 +69,5 @@ In the logical diagram above, each type of consumer is shown as a single box. In
 
  <!-- links -->
 
-[competing-consumers]: ../../patterns/competing-consumers.md
+[competing-consumers]: ../../patterns/competing-consumers.yml
 [minimize-coordination]: ../design-principles/minimize-coordination.yml

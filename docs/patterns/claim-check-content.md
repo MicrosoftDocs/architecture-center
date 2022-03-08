@@ -1,23 +1,3 @@
----
-title: Claim-Check pattern
-titleSuffix: Cloud Design Patterns
-description: Examine the Claim-Check pattern, which splits a large message into a claim check and a payload to avoid overwhelming a message bus.
-author: yorek
-ms.date: 03/05/2019
-ms.topic: conceptual
-ms.service: architecture-center
-ms.subservice: design-pattern
-products:
-  - azure-event-grid
-  - azure-blob-storage
-ms.custom:
-  - design-pattern
-keywords:
-  - design pattern
----
-
-# Claim-Check pattern
-
 Split a large message into a claim check and a payload. Send the claim check to the messaging platform and store the payload to an external service. This pattern allows large messages to be processed, while protecting the message bus and the client from being overwhelmed or slowed down. This pattern also helps to reduce costs, as storage is usually cheaper than resource units used by the messaging platform.
 
 This pattern is also known as Reference-Based Messaging, and was originally [described][enterprise-integration-patterns] in the book *Enterprise Integration Patterns*, by Gregor Hohpe and Bobby Woolf.
