@@ -46,7 +46,7 @@ Solve problems in real time, bring critical information into view, and walk thro
 - **Commerce**
    - [Commerce](https://dynamics.microsoft.com/commerce/overview). Deliver unified and personalized buying experiences for customers and partners.
    - [Connected Spaces](https://dynamics.microsoft.com/connected-spaces/overview). Generate actionable insights from your space by using pre-built AI-powered skills.
-   - [Fraud Protection](https://dynamics.microsoft.com/ai/fraud-protection). Implement adaptive AI that continuously learns to protect you against payment fraud, bots, account takeover, and returns and discounts fraud.
+   - [Fraud Protection](https://dynamics.microsoft.com/ai/fraud-protection). Implement adaptive AI that continuously learns in order to protect you against payment fraud, bots, account takeover, and returns and discounts fraud.
 - **Supply chain**
    - [Supply Chain Management](https://dynamics.microsoft.com/supply-chain-management/overview). Ensure business continuity by using agile distribution and manufacturing processes in the cloud and at the edge.
    - [Supply Chain Insights](https://dynamics.microsoft.com/supply-chain-insights). Make better supply chain decisions by using proactive risk mitigation via AI-powered insights.
