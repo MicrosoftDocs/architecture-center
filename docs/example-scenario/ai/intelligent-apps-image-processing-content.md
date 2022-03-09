@@ -91,8 +91,8 @@ Before deploying this example scenario in a production environment, review recom
 [large-pricing]: https://azure.com/e/cbadbca30f8640d6a061f8457a74ba7d
 [serverless]: /learn/paths/create-serverless-applications/
 [cv-categories]: /azure/cognitive-services/computer-vision/category-taxonomy
-[resiliency]: ../../framework/resiliency/principles.md
+[resiliency]: /azure/architecture/framework/resiliency/principles
 [security]: /azure/security
-[scalability]: ../../framework/scalability/performance-efficiency.md
+[scalability]: /azure/architecture/framework/scalability/performance-efficiency
 [functions-best-practices]: /azure/azure-functions/functions-best-practices
 [msi]: /azure/app-service/app-service-managed-service-identity

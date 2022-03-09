@@ -1,0 +1,20 @@
+### YamlMime:Architecture
+metadata:
+  title: Using tactical DDD to design microservices
+  description: Use domain-driven design in a microservices architecture to identify the entity and aggregate patterns, which help identify natural boundaries for the services.
+  author: EdPrice-MSFT
+  ms.author: edprice
+  ms.date: 02/14/2022
+  ms.topic: conceptual
+  ms.service: architecture-center
+  ms.subservice: azure-guide
+azureCategories:
+  - migration
+  - developer-tools
+products:
+  - azure-migrate
+name: Using tactical DDD to design microservices
+summary: Use domain-driven design in a microservices architecture to identify the entity and aggregate patterns, which help identify natural boundaries for the services.
+thumbnailUrl: /azure/architecture/browse/thumbs/drone-domain-driven-design.png
+content: |
+  [!include[](tactical-ddd-content.md)]

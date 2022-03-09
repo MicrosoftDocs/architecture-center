@@ -1,6 +1,6 @@
 This article provides guidelines for running SAS analytics workloads on Azure. It covers various deployment scenarios. For instance, multiple versions of SAS are available. You can run SAS software on self-managed virtual machines (VMs). You can also deploy container-based versions by using Azure Kubernetes Service (AKS).
 
-Along with discussing different implementations, this guide also aligns with [Microsoft Azure Well-Architected Framework](../../framework/index.md) tenets for achieving excellence in the areas of cost, DevOps, resiliency, scalability, and security. But besides using this guide, consult with a SAS team for additional validation of your particular use case.
+Along with discussing different implementations, this guide also aligns with [Microsoft Azure Well-Architected Framework](/azure/architecture/framework/index) tenets for achieving excellence in the areas of cost, DevOps, resiliency, scalability, and security. But besides using this guide, consult with a SAS team for additional validation of your particular use case.
 
 [As partners](https://news.microsoft.com/2020/06/15/sas-and-microsoft-partner-to-further-shape-the-future-of-analytics-and-ai/), Microsoft and SAS are working to develop a roadmap for organizations that innovate in the cloud. Both companies are committed to ensuring high-quality deployments of SAS products and solutions on Azure.
 

@@ -38,7 +38,7 @@ The orchestrator pattern reduces point-to-point communication between services b
 
 Let each service decide when and how a business operation is processed, instead of depending on a central orchestrator.
 
-One way to implement choreography is to use the [asynchronous messaging pattern](./publisher-subscriber.md) to coordinate the business operations.
+One way to implement choreography is to use the [asynchronous messaging pattern](./publisher-subscriber.yml) to coordinate the business operations.
 
 ![Processing a request using a choreographer](./_images/choreography-pattern.png)
 
@@ -60,7 +60,7 @@ This pattern is a natural model for the serverless architecture where all servic
 
 Decentralizing the orchestrator can cause issues while managing the workflow.
 
-If a service fails to complete a business operation, it can be difficult to recover from that failure. One way is to have the service indicate failure by firing an event. Another service subscribes to those failed events takes necessary actions such as applying [compensating transactions](./compensating-transaction.md) to undo successful operations in a request. The failed service might also fail to fire an event for the failure. In that case, consider using a retry and, or time out mechanism to recognize that operation as a failure. For an example, see the Example section.
+If a service fails to complete a business operation, it can be difficult to recover from that failure. One way is to have the service indicate failure by firing an event. Another service subscribes to those failed events takes necessary actions such as applying [compensating transactions](./compensating-transaction.yml) to undo successful operations in a request. The failed service might also fail to fire an event for the failure. In that case, consider using a retry and, or time out mechanism to recognize that operation as a failure. For an example, see the Example section.
 
 It's simple to implement a workflow when you want to process independent business operations in parallel. You can use a single message bus. However, the workflow can become complicated when choreography needs to occur in a sequence. For instance, Service C can start its operation only after Service A and Service B have completed their operations with success. One approach is to have multiple message buses that get messages in the required order. For more information, see the [Example](#example) section.
 
@@ -166,10 +166,10 @@ Consider these patterns in your design for choreography.
 
 - Modularize the business service by using the [ambassador design pattern](./ambassador.md).
 
-- Implement [queue-based load leveling pattern](./queue-based-load-leveling.md) to handle spikes of the workload.
+- Implement [queue-based load leveling pattern](./queue-based-load-leveling.yml) to handle spikes of the workload.
 
-- Use asynchronous distributed messaging through the [publisher-subscriber pattern](./publisher-subscriber.md).
+- Use asynchronous distributed messaging through the [publisher-subscriber pattern](./publisher-subscriber.yml).
 
-- Use [compensating transactions](./compensating-transaction.md) to undo a series of successful operations in case one or more related operation fails.
+- Use [compensating transactions](./compensating-transaction.yml) to undo a series of successful operations in case one or more related operation fails.
 
-- For information about using a message broker in a messaging infrastructure, see [Asynchronous messaging options in Azure](../guide/technology-choices/messaging.md).
+- For information about using a message broker in a messaging infrastructure, see [Asynchronous messaging options in Azure](../guide/technology-choices/messaging.yml).

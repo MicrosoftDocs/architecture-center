@@ -81,7 +81,7 @@ From the standpoint of your current application, begin to think about its differ
 
 ## Related resources
 
-- [Building Microservices on Azure](../../microservices/index.md)
+- [Building Microservices on Azure](../../microservices/index.yml)
 - [Service Fabric Overview](/azure/service-fabric/service-fabric-overview)
 - [Service Fabric Programming Model](/azure/service-fabric/service-fabric-choose-framework)
 - [Service Fabric Availability](/azure/service-fabric/service-fabric-availability-services)

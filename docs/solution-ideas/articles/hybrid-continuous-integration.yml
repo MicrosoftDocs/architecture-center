@@ -1,0 +1,32 @@
+### YamlMime:Architecture
+metadata:
+  title: DevOps with Azure Stack Hub
+  titleSuffix: Azure Solution Ideas
+  description: Code from a single location and deploy to multiple targets in development, test, and production environments that may be in your local datacenter, private clouds, or the public cloud.
+  author: EdPrice-MSFT
+  ms.author: edprice
+  ms.date: 03/09/2022
+  ms.topic: conceptual
+  ms.service: architecture-center
+  ms.subservice: solution-idea
+  ms.category:
+    - hybrid
+    - devops
+  ms.custom:
+    - acom-architecture
+    - interactive-diagram
+    - hybrid-infrastructure
+    - e2e-hybrid
+  social_image_url: /azure/architecture/solution-ideas/articles/media/hybrid-continuous-integration.png
+azureCategories:
+  - hybrid
+  - devops
+products:
+  - azure-active-directory
+  - azure-stack-hub
+  - azure-virtual-machines
+name: DevOps with Azure Stack Hub
+summary: Code from a single location and deploy to multiple targets in development, test, and production environments that may be in your local datacenter, private clouds, or the public cloud.
+thumbnailUrl: /azure/architecture/browse/thumbs/hybrid-continuous-integration.png
+content: |
+   [!include[](hybrid-continuous-integration-content.md)]

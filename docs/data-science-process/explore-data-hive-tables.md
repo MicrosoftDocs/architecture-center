@@ -1,14 +1,14 @@
 ---
 title: Explore data in Hive tables with Hive queries
 description: Use sample Hive scripts that are used to explore data in Hive tables in an HDInsight Hadoop cluster.
-services: machine-learning
 author: marktab
 manager: marktab
 editor: marktab
-ms.service: machine-learning
-ms.subservice: team-data-science-process
+services: architecture-center
+ms.service: architecture-center
+ms.subservice: azure-guide
 ms.topic: article
-ms.date: 01/10/2020
+ms.date: 12/16/2021
 ms.author: tdsp
 ms.custom:
   - previous-author=deguhath
@@ -22,7 +22,7 @@ categories:
 
 This article provides sample Hive scripts that are used to explore data in Hive tables in an HDInsight Hadoop cluster.
 
-This task is a step in the [Team Data Science Process](overview.md).
+This task is a step in the [Team Data Science Process](overview.yml).
 
 ## Prerequisites
 This article assumes that you have:
@@ -74,4 +74,4 @@ This article assumes that you have:
     ```
 
 ## Additional query scripts for taxi trip data scenarios
-Examples of queries that are specific to [NYC Taxi Trip Data](https://chriswhong.com/open-data/foil_nyc_taxi/) scenarios are also provided in [GitHub repository](https://github.com/Azure/Azure-MachineLearning-DataScience/tree/master/Misc/DataScienceProcess/DataScienceScripts). These queries already have data schema specified and are ready to be submitted to run.
+Examples of queries that are specific to NYC Taxi Trip Data scenarios are also provided in [GitHub repository](https://github.com/Azure/Azure-MachineLearning-DataScience/tree/master/Misc/DataScienceProcess/DataScienceScripts). These queries already have data schema specified and are ready to be submitted to run.  The NYC Taxi Trip data is available through [Azure Open Datasets](/azure/open-datasets/dataset-taxi-yellow?tabs=azureml-opendatasets) or from the source [TLC Trip Record Data](https://www1.nyc.gov/site/tlc/about/tlc-trip-record-data.page).

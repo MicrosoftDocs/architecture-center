@@ -21,7 +21,7 @@ The AKS infrastructure features used in this architecture include:
   - [Azure AD pod-managed identities](/azure/aks/use-azure-ad-pod-identity)
   - [Azure Policy Add-on for AKS](/azure/aks/use-pod-security-on-azure-policy)
   - [Azure Container Networking Interface (CNI)](/azure/aks/configure-azure-cni)
-  - [Azure Monitor for containers](/azure/azure-monitor/insights/container-insights-overview)
+  - [Azure Monitor container insights](/azure/azure-monitor/insights/container-insights-overview)
 
 **[Azure Virtual Networks](https://azure.microsoft.com/services/virtual-network/)** are isolated and highly secure environments for running virtual machines (VMs) and applications. This reference architecture uses a peered hub-spoke virtual network topology. The hub virtual network holds the Azure firewall and Azure Bastion subnets. The spoke virtual network holds the AKS system and user node pool subnets and the Azure Application Gateway subnet.
 
@@ -59,7 +59,7 @@ The AKS infrastructure features used in this architecture include:
 
 The example [Fabrikam Drone Delivery Shipping App](https://github.com/mspnp/aks-fabrikam-dronedelivery) shown in the preceding diagram implements the architectural components and practices discussed in this article. In this example, Fabrikam, Inc., a fictitious company, manages a fleet of drone aircraft. Businesses register with the service, and users can request a drone to pick up goods for delivery. When a customer schedules a pickup, the backend system assigns a drone and notifies the user with an estimated delivery time. While the delivery is in progress, the customer can track the drone's location with a continuously updated ETA.
 
-This request flow implements the [Publisher-Subscriber](../../../patterns/publisher-subscriber.md), [Competing Consumers](../../../patterns/competing-consumers.md), and [Gateway Routing](../../../patterns/gateway-routing.md) cloud design patterns. The messaging flow proceeds as follows:
+This request flow implements the [Publisher-Subscriber](../../../patterns/publisher-subscriber.yml), [Competing Consumers](../../../patterns/competing-consumers.yml), and [Gateway Routing](../../../patterns/gateway-routing.yml) cloud design patterns. The messaging flow proceeds as follows:
 
 1. An HTTPS request is submitted to schedule a drone pickup. The requests pass through Azure Application Gateway into the ingestion web application, which runs as an in-cluster microservice in AKS.
 
@@ -82,7 +82,7 @@ Implement these recommendations when deploying advanced AKS microservices archit
 
 ### Application Gateway Ingress Controller (AGIC)
 
-API [Gateway Routing](../../../patterns/gateway-routing.md) is a general [microservices design pattern](https://microservices.io/patterns/apigateway.html). An API gateway acts as a reverse proxy that routes requests from clients to microservices. The Kubernetes *ingress* resource and the *ingress controller* handle most API gateway functionality by:
+API [Gateway Routing](../../../patterns/gateway-routing.yml) is a general [microservices design pattern](https://microservices.io/patterns/apigateway.html). An API gateway acts as a reverse proxy that routes requests from clients to microservices. The Kubernetes *ingress* resource and the *ingress controller* handle most API gateway functionality by:
 
 Routing client requests to the correct backend services provides a single endpoint for clients and help decouple clients from services.
 - Aggregating multiple requests into a single request to reduce chatter between the client and the backend.
@@ -311,7 +311,7 @@ Consider the following points when planning for security.
 
 ## Pricing
 
-- The [Cost section in the Microsoft Azure Well-Architected Framework](../../../framework/cost/overview.md) describes cost considerations. Use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator) to estimate costs for your specific scenario.
+- The [Cost section in the Microsoft Azure Well-Architected Framework](/azure/architecture/framework/cost/overview) describes cost considerations. Use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator) to estimate costs for your specific scenario.
 
 - AKS has no costs associated with deployment, management, and operations of the Kubernetes cluster. You only pay for the VM instances, storage, and networking resources the cluster consumes. Cluster autoscaling can significantly reduce the cost of the cluster by removing empty or unused nodes.
 
@@ -320,8 +320,8 @@ Consider the following points when planning for security.
 ## Next steps
 
 - [Baseline architecture for an Azure Kubernetes Service (AKS) cluster](../aks/secure-baseline-aks.yml)
-- [Design, build, and operate microservices on Azure with Kubernetes](../../../microservices/index.md)
+- [Design, build, and operate microservices on Azure with Kubernetes](../../../microservices/index.yml)
 - [Microservices architecture on AKS](./aks-microservices.yml)
-- [Monitor a microservices architecture in AKS](../../../microservices/logging-monitoring.md)
-- [Performance tuning scenario: Distributed business transactions](../../../performance/distributed-transaction.md)
-- [Building a CI/CD pipeline for microservices on Kubernetes](../../../microservices/ci-cd-kubernetes.md)
+- [Monitor a microservices architecture in AKS](../../../microservices/logging-monitoring.yml)
+- [Performance tuning scenario: Distributed business transactions](../../../performance/distributed-transaction.yml)
+- [Building a CI/CD pipeline for microservices on Kubernetes](../../../microservices/ci-cd-kubernetes.yml)

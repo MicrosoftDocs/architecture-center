@@ -1,0 +1,26 @@
+### YamlMime:Architecture
+metadata:
+  title: Security architecture design 
+  description: Get an overview of Azure security technologies, guidance offerings, solution ideas, and reference architectures.
+  author: EdPrice-MSFT
+  ms.author: edprice
+  ms.date: 02/18/2022
+  ms.topic: conceptual
+  ms.service: architecture-center
+  ms.subservice: azure-guide
+  ms.custom: fcp
+azureCategories:
+  - security
+  - identity
+  - management-and-governance
+products:
+  - azure-active-directory
+  - azure-firewall
+  - azure-front-door
+  - azure-key-vault
+  - azure-private-link
+name: Security architecture design 
+summary: Get an overview of Azure security technologies, guidance offerings, solution ideas, and reference architectures.
+thumbnailUrl: /azure/architecture/browse/thumbs/security-overview.png
+content: |
+  [!include[](security-start-here-content.md)]

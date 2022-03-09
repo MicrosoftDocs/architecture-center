@@ -51,7 +51,7 @@ There are various options for VM sizes depending on the usage and workload. The 
 - [Creating a normal tenant in a specific tenant database](/powershell/module/microsoft.dynamics.nav.management/new-navtenant?view=businesscentral-ps-16)
 - [Creating a new Business Central Server instance](/powershell/module/microsoft.dynamics.nav.management/new-navserverinstance?view=businesscentral-ps-16)
 - [Changing the service state of a Business Central Server instance](/powershell/module/microsoft.dynamics.nav.management/set-navserverinstance?view=businesscentral-ps-16)
-- [Staring a server instance](/powershell/module/microsoft.dynamics.nav.management/start-navserverinstance?view=businesscentral-ps-16)
+- [Starting a server instance](/powershell/module/microsoft.dynamics.nav.management/start-navserverinstance?view=businesscentral-ps-16)
 
 ## Related resources
 

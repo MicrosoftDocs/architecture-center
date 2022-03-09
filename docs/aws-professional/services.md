@@ -84,8 +84,8 @@ For an overview of Azure for AWS users, see [Introduction to Azure for AWS profe
 
 | AWS service | Azure service | Description |
 | ----------- | ------------- | ----------- |
-| [Redshift](https://aws.amazon.com/redshift) | [Synapse Analytics](https://azure.microsoft.com/services/synapse-analytics/) | Cloud-based Enterprise Data Warehouse (EDW) that uses Massively Parallel Processing (MPP) to quickly run complex queries across petabytes of data. |
-| [Lake Formation](https://aws.amazon.com/lake-formation) | [Data Share](https://azure.microsoft.com/services/data-share/) | A simple and safe service for sharing big data|
+| [Redshift](https://aws.amazon.com/redshift) | [Synapse Analytics](https://azure.microsoft.com/services/synapse-analytics/) | Cloud-based enterprise data warehouse (EDW) that uses massively parallel processing (MPP) to quickly run complex queries across petabytes of data. |
+| [Lake Formation](https://aws.amazon.com/lake-formation) | [Data Share](https://azure.microsoft.com/services/data-share/) | A simple and safe service for sharing big data.|
 
 ### Data warehouse architectures
 
@@ -251,7 +251,7 @@ For an overview of Azure for AWS users, see [Introduction to Azure for AWS profe
 | AWS service | Azure service | Description |
 | ----------- | ------------- | ----------- |
 | [Mobile Hub](https://aws.amazon.com/blogs/aws/aws-mobile-hub-build-test-and-monitor-mobile-applications) | [App Center](https://azure.microsoft.com/services/app-center) <br/><br/>[Xamarin Apps](https://azure.microsoft.com/features/xamarin) | Provides backend mobile services for rapid development of mobile solutions, identity management, data synchronization, and storage and notifications across devices. |
-| [Mobile SDK](https://docs.aws.amazon.com/mobile-sdk) | [App Center](https://azure.microsoft.com/services/app-center) | Provides the technology to rapidly build cross-platform and native apps for mobile devices. |
+| [Mobile SDK](https://www.redfoundry.com/what-is-a-mobile-sdk) | [App Center](https://azure.microsoft.com/services/app-center) | Provides the technology to rapidly build cross-platform and native apps for mobile devices. |
 | [Cognito](https://aws.amazon.com/cognito) | [Azure Active Directory](https://azure.microsoft.com/services/active-directory/) | Provides authentication capabilities for mobile applications. |
 | [Device Farm](https://aws.amazon.com/device-farm) | [App Center](https://azure.microsoft.com/services/app-center) | Provides services to support testing mobile applications. |
 | [Mobile Analytics](https://aws.amazon.com/mobileanalytics) | [App Center](https://azure.microsoft.com/services/app-center) | Supports monitoring, and feedback collection for the debugging and analysis of a mobile application service quality. |
@@ -373,7 +373,7 @@ In addition to front-end testing, the [Azure DevTest Labs](https://azure.microso
 | Enterprise application services | [WorkMail](https://aws.amazon.com/workmail), [WorkDocs](https://aws.amazon.com/workdocs), [Chime](https://aws.amazon.com/chime) | [Microsoft 365](https://products.office.com) | Fully integrated cloud service that provides communications, email, and document management in the cloud and is available on a wide variety of devices. |
 | Gaming | [GameLift](https://aws.amazon.com/gamelift) | [PlayFab](https://playfab.com) | Managed services for hosting dedicated game servers. |
 | Media transcoding | [Elastic Transcoder](https://aws.amazon.com/elastictranscoder) | [Media Services](https://azure.microsoft.com/services/media-services/) | Services that offer broadcast-quality video streaming services, including various transcoding technologies. |
-| Workflow | [Simple Workflow Service (SWF)](https://aws.amazon.com/swf) | [Logic Apps](https://azure.microsoft.com/services/logic-apps) | Serverless technology for connecting apps, data and devices anywhere, whether on-premises or in the cloud for large ecosystems of SaaS and cloud-based connectors. |
+| Workflow | [Step Functions](https://aws.amazon.com/step-functions) | [Logic Apps](https://azure.microsoft.com/services/logic-apps) | Serverless technology for connecting apps, data and devices anywhere, whether on-premises or in the cloud for large ecosystems of SaaS and cloud-based connectors. |
 | Hybrid | [Outposts](https://aws.amazon.com/outposts) | [Stack](https://azure.microsoft.com/overview/azure-stack) | Azure Stack is a hybrid cloud platform that enables you to run Azure services in your company's or service provider's datacenter. As a developer, you can build apps on Azure Stack. You can then deploy them to either Azure Stack or Azure, or you can build truly hybrid apps that take advantage of connectivity between an Azure Stack cloud and Azure. |
 | Media | [Elemental MediaConvert](https://aws.amazon.com/media-services) | [Media Services](https://azure.microsoft.com/services/media-services) | Cloud-based media workflow platform to index, package, protect, and stream video at scale.|
 | Satellite | [Ground Station](https://aws.amazon.com/ground-station) | [Azure Orbital](/azure/networking/azure-orbital-overview) | Fully managed cloud-based ground station as a service.|

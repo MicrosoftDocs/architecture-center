@@ -1,0 +1,19 @@
+### YamlMime:Architecture
+metadata:
+  title: Strangler Fig pattern
+  description: Incrementally migrate a legacy system by gradually replacing specific pieces of functionality with new applications and services.
+  author: EdPrice-MSFT
+  ms.author: edprice
+  ms.date: 06/23/2017
+  ms.topic: conceptual
+  ms.service: architecture-center
+  ms.subservice: azure-guide
+azureCategories:
+  - migration
+products:
+  - azure-migrate
+name: Strangler Fig pattern
+summary: Incrementally migrate a legacy system by gradually replacing specific pieces of functionality with new applications and services.
+thumbnailUrl: /azure/architecture/browse/thumbs/strangler.png
+content: |
+  [!include[](strangler-fig-content.md)]

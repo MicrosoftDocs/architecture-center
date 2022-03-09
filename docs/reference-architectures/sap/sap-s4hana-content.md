@@ -68,7 +68,7 @@ This architecture addresses broad base requirements and assumes that the Embedde
 
 [SAP Fiori Deployment Options and System Landscape Recommendations](https://www.sap.com/documents/2018/02/f0148939-f27c-0010-82c7-eda71af511fa.html) document describes the primary deployment options-either embedded or hub, depending on the scenarios. In achieving simplification and performance, the software releases between the Fiori technology components and the S/4 applications are tightly coupled, making a hub deployment fitting for only a few, narrow use cases.
 
-If you use the FES hub deployment, the FES is an add-on component to the classic SAP NetWeaver ABAP stack. Set up high availability in the same way you protect a three-tier ABAP application stack with clustered or multi-host capability-with a standby server database layer, clustered ASCS layer with high availability NFS for shared storage, and at least two application servers. Traffic is load-balanced via a pair of either clustered or parallel Web Dispatchers. For internet facing Fiori apps a [FES hub deployment](https://blogs.sap.com/2017/12/15/considerations-and-recommendations-for-internet-facing-fiori-apps/) in DMZ would be recommended. Use [Azure Application Gateway/WAF](/azure/application-gateway/) as a critical component to defense traffic with [AAD with SAML](/azure/active-directory/saas-apps/sap-netweaver-tutorial) for user authentication and SSO for [SAP Fiori](/azure/active-directory/saas-apps/sap-fiori-tutorial).
+If you use the FES hub deployment, the FES is an add-on component to the classic SAP NetWeaver ABAP stack. Set up high availability in the same way you protect a three-tier ABAP application stack with clustered or multi-host capability-with a standby server database layer, clustered ASCS layer with high availability NFS for shared storage, and at least two application servers. Traffic is load-balanced via a pair of either clustered or parallel Web Dispatchers. For internet facing Fiori apps a [FES hub deployment](https://blogs.sap.com/2017/12/15/considerations-and-recommendations-for-internet-facing-fiori-apps/) in DMZ would be recommended. Use [Azure Application Gateway/WAF](/azure/application-gateway/) as a critical component to defense traffic with [Azure AD with SAML](/azure/active-directory/saas-apps/sap-netweaver-tutorial) for user authentication and SSO for [SAP Fiori](/azure/active-directory/saas-apps/sap-fiori-tutorial).
 ![Reference architecture for SAP Fiori](./images/fiori.png)
 
 ### Application servers pool
@@ -136,20 +136,21 @@ For traffic from SAP GUI clients connecting an SAP server via DIAG protocol or R
 
 ### Azure Storage
 
-Some customers use standard storage for their application servers. Because standard managed disks are not supported, as stated in SAP note 1928533, we recommend using Premium [Azure Managed Disks](/azure/storage/storage-managed-disks-overview) in all cases. Note that a recent update to [SAP note 2015553](https://launchpad.support.sap.com/#/notes/2015553) excludes the use of Standard HDD Storage and Standard SSD Storage for a few specific use cases.
+Some customers use standard storage for their application servers. Because standard managed disks are not supported, as stated in SAP note 1928533, we recommend using Premium [Azure Managed Disks](/azure/storage/storage-managed-disks-overview) or [Azure NetApp Files](/azure/azure-netapp-files/azure-netapp-files-introduction) in all cases. Note that a recent update to [SAP note 2015553](https://launchpad.support.sap.com/#/notes/2015553) excludes the use of Standard HDD Storage and Standard SSD Storage for a few specific use cases.
 
 Because application servers do not host any business data, you can also use the smaller P4 and P6 Premium disks to help minimize cost and benefit from the
 [single instance VM SLA](https://azure.microsoft.com/support/legal/sla/virtual-machines/v1_6/) in case of a central SAP stack installation.
 
-For High-Availability scenarios [Azure Shared Disks](/azure/virtual-machines/disks-shared) are available on Premium SSD and Ultra SSD [Azure Managed Disks](/azure/storage/storage-managed-disks-overview). Azure Shared Disks can be used with Windows Server, SUSE Enterprise Linux 15 SP 1 and above, or SUSE Enterprise Linux For SAP.
+For High-Availability scenarios [Azure Shared Disks](/azure/virtual-machines/disks-shared) features are available on Premium SSD and Ultra SSD [Azure Managed Disks](/azure/storage/storage-managed-disks-overview). Azure Shared Disks can be used with Windows Server, SUSE Enterprise Linux 15 SP 1 and above, or SUSE Enterprise Linux For SAP. 
+Azure NetApp Files has file sharing functionality built in.
 
-For NFS Share scenarios, [Azure NetApp Files](/azure/virtual-machines/workloads/sap/hana-vm-operations-netapp) provides native NFS shares that can be used for /hana/shared, /hana/data, and /hana/log volumes. Using ANF-based NFS shares for the /hana/data and /hana/log volumes requires the usage of the v4.1 NFS protocol. For the /hana/shared volume the NFS protocol v3 is supported.
+For NFS Share scenarios, [Azure NetApp Files](/azure/virtual-machines/workloads/sap/hana-vm-operations-netapp) provides 99.99% availability (four nines) for NFS shares that can be used for /hana/shared, /hana/data, and /hana/log volumes. Using Azure NetApp Files-based NFS shares for the /hana/data and /hana/log volumes requires the usage of the NFS v4.1 protocol. For the /hana/shared volume the NFS v3 protocol is supported.
 
-Azure Storage is also used by [Cloud Witness](/windows-server/failover-clustering/deploy-cloud-witness) to maintain quorum with a device in a remote Azure region, away from the primary region where the cluster resides.
+Azure Storage and Azure NetApp Files both use [Cloud Witness](/windows-server/failover-clustering/deploy-cloud-witness) to maintain quorum in the pacemaker cluster with a device in the same Azure region.
 
-For the backup data store, we recommend using Azure [cool and archive access tiers](/azure/storage/blobs/access-tiers-overview). These storage tiers are cost-effective ways to store long-lived data that is infrequently accessed.
+For the backup data store, we recommend using Azure [cool and archive access tiers](/azure/storage/blobs/access-tiers-overview). These storage tiers are cost-effective ways to store long-lived data that is infrequently accessed. You can also consider using [Azure NetApp Files Standard tier](/azure/azure-netapp-files/azure-netapp-files-service-levels#supported-service-levels) as a backup target or [Azure NetApp Files Backup option](/azure/azure-netapp-files/backup-introduction). For Managed disk the recommended backup data tier is the Azure cool or archive access tier.
 
-[Ultra SSDs](/azure/virtual-machines/linux/disks-enable-ultra-ssd) greatly reduce disk latency and benefit performance-critical applications and the SAP database servers.
+Both [Ultra SSDs](/azure/virtual-machines/linux/disks-enable-ultra-ssd) and Azure NetApp Files [Ultra performance tier](/azure/azure-netapp-files/azure-netapp-files-service-levels) greatly reduce disk latency and benefit performance-critical applications and the SAP database servers.
 
 ## Performance considerations
 
@@ -171,6 +172,8 @@ We also recommend you consider performance when deploying resources with
 [Availability Zones](/azure/virtual-machines/workloads/sap/sap-ha-availability-zones), which can enhance service availability as described later in this article. Consider creating a clear network latency profile between all zones of a target region. This helps you decide on the resource placement for minimum latency between zones. To create this profile, run a test by deploying small virtual machines in each zone. Recommended tools for the test include
 [PsPing](/sysinternals/downloads/psping) and
 [Iperf](https://sourceforge.net/projects/iperf/). After testing, remove these virtual machines. The [public domain network latency test tool](https://github.com/Azure/SAP-on-Azure-Scripts-and-Utilities/tree/master/AvZone-Latency-Test) is also available for your convenience.
+
+Azure NetApp Files has unique performance features that allow for real time tuning that meet the needs of the most demanding SAP environments.  For performance considerations using Azure NetApp Files see [this article](/azure/virtual-machines/workloads/sap/sap-hana-scale-out-standby-netapp-files-suse#sizing-for-hana-database-on-azure-netapp-files).
 
 ## Scalability considerations
 
@@ -364,12 +367,12 @@ For additional network security, consider implementing a [network DMZ](../../ref
 
 For infrastructure security, data is encrypted in transit and at rest. The "Security considerations" section of the [SAP NetWeaver on Azure Virtual Machines–Planning and Implementation Guide](/azure/virtual-machines/workloads/sap/planning-guide) begins to address network security and applies to S/4HANA. The guide also specifies the network ports you must open on the firewalls to allow application communication.
 
-To encrypt Linux virtual machine disks, you can use [Azure Disk Encryption](/azure/virtual-machines/linux/disk-encryption-overview). It uses the DM-Crypt feature of Linux to provide volume encryption for the operating system and the data disks. The solution also works with Azure Key Vault to help you control and manage the disk-encryption keys and secrets in your key vault subscription. Data on the virtual machine disks are encrypted at rest in your Azure storage.
+To encrypt Linux virtual machine disks, you have various choices, as described in [Disk Encryption Overview](/azure/virtual-machines/disk-encryption-overview). For SAP HANA data-at-rest encryption, we recommend using the SAP HANA native encryption technology. For support of Azure Disk Encryption on specific Linux distros/versions/images check the document [Azure Disk Encryption for Linux VMs](/azure/virtual-machines/linux/disk-encryption-overview).
 
 For SAP HANA data-at-rest encryption, we recommend using the SAP HANA native encryption technology.
 
 > [!NOTE]
-> Do not use the HANA data-at-rest encryption with Azure Disk Encryption on the same storage volume. For HANA, use only HANA data encryption. Also, operating system boot disks for Linux virtual machines do not support Azure Disk Encryption, nor does Azure Site Recovery yet support Azure Disk Encryption-attached data disks on Linux.
+> Do not use the HANA data-at-rest encryption with Azure Disk Encryption or host-based encryption on the same storage volume. For HANA, use only HANA data encryption. Also, the usage of customer managed keys might have an impact on the I/O throughput.
 
 ## Communities
 
@@ -399,7 +402,7 @@ See the following articles for more information and for examples of SAP workload
 
 <!-- links -->
 
-[aaf-cost]: ../../framework/cost/overview.md
+[aaf-cost]: /azure/architecture/framework/cost/overview
 [azure-pricing-calculator]: https://azure.microsoft.com/pricing/calculator
 [linux-vms-pricing]: https://azure.microsoft.com/pricing/details/virtual-machines/linux
 [expressroute-pricing]: https://azure.microsoft.com/pricing/details/expressroute
