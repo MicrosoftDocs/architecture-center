@@ -14,6 +14,8 @@ For a digital enterprise, offering API Services, third party API Developers can 
 
 :::image type="content" alt-text="Diagram of the architecture that's described in this article." source="/media/design-api-developer-experiences-management-github-architecture.png" lightbox="media/design-api-developer-experiences-management-github-architecture.png":::
 
+### Workflow
+
 The solution primarily comprises of the following building blocks:
 
 - **Monetized Backend APIs & API Gateway**—at the core of the solution is the set of Backend APIs that will be monetized. The consumers (users, applications, devices, etc.) will access the API Platform through an API Gateway. The gateway will also apply rate leveling and throttle the requests as applicable.
@@ -70,7 +72,7 @@ The solution is composed of the following Azure and SaaS Services:
 
 This section gives more detailed recommendations on how to commercialize your API Assets, and why building a rich API Developer experience is important in the adoption and use of your API Products.
 
-### The API value chain
+### API value chain
 
 :::image type="content" alt-text="Diagram that describes the API value chain." source="/media/design-api-developer-experiences-management-github-value-chain.png" lightbox="media/design-api-developer-experiences-management-github-value-chain.png":::
 
