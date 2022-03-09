@@ -1,0 +1,27 @@
+### YamlMime:Architecture
+metadata:
+  title: IBM Maximo on Azure architecture
+  titleSuffix: Azure Architecture Center
+  description: Learn how to run IBM Maximo Application Suite on Azure. See guidance for designing and implementing cloud solutions with Maximo 8.5 and up that use Azure.
+  author: ranieuwe
+  ms.author: ronieuwe
+  ms.date: 03/11/2022
+  ms.topic: conceptual
+  ms.service: architecture-center
+  ms.subservice: azure-guide
+  ms.custom:
+    - fcp
+    - guide
+azureCategories:
+  - compute
+  - storage
+  - analytics
+  - iot
+products:
+  - azure-virtual-machines
+  - azure-virtual-network
+name: IBM Maximo on Azure architecture
+summary: Learn how to run IBM Maximo Application Suite on Azure. See guidance for designing and implementing cloud solutions with Maximo 8.5 and up that use Azure.
+thumbnailUrl: /azure/architecture/browse/thumbs/ibm-azure-guide-architecture-diagram-thumbnail.png
+content: |
+  [!include[](ibm-overview-content.md)]
