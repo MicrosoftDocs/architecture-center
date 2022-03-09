@@ -4,6 +4,8 @@ This document will help you will learn about various Azure PaaS components and c
 
 ## Potential use cases
 
+This solution is optimized for the retail industry.
+
 Other relevant use cases include:
 
 - Building an application that needs elastic scale to handle bursts of users at different times.
@@ -11,7 +13,9 @@ Other relevant use cases include:
 
 ## Architecture
 
-![Sample scenario architecture for an e-commerce application][architecture]
+![Diagram that shows a sample scenario architecture for an e-commerce application.][architecture]
+
+### Dataflow
 
 This scenario covers purchasing tickets from an e-commerce site, the data flows through the scenario as follows:
 

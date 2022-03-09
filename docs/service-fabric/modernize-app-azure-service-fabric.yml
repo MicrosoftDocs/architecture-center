@@ -1,0 +1,21 @@
+### YamlMime:Architecture
+metadata:
+  title: Modernize enterprise applications with Azure Service Fabric
+  description: Best practices about moving Windows applications to an Azure compute platform without rewriting. This migration uses container support in Azure Service Fabric.
+  author: colincole
+  ms.author: pnp
+  ms.date: 05/01/2019
+  ms.topic: conceptual
+  ms.service: architecture-center
+  ms.subservice: azure-guide
+azureCategories:
+  - migration
+  - management-and-governance
+products:
+  - azure-load-balancer
+  - azure-service-fabric
+name: Modernize enterprise applications with Azure Service Fabric
+summary: Best practices about moving Windows applications to an Azure compute platform without rewriting. This migration uses container support in Azure Service Fabric.
+thumbnailUrl: /azure/architecture/browse/thumbs/container-service-fabric.png
+content: |
+  [!include[](modernize-app-azure-service-fabric-content.md)]
