@@ -1,8 +1,9 @@
 ### YamlMime:Architecture
 metadata:
-  title: SAP deployment on Azure using an Oracle DB
+  title: SAP deployment on Azure using an Oracle database
   description: This example demonstrates a SAP deployment on virtual machines on Azure, along with a High Availability Oracle database.
   author: DharmeshBhagat
+  ms.author: dharmesh.bhagat
   ms.date: 09/12/2018
   ms.topic: conceptual
   ms.service: architecture-center
@@ -19,7 +20,7 @@ metadata:
     - example-scenario
     - e2e-sap
   social_image_url: /azure/architecture/example-scenario/apps/media/architecture-sap-production.png
-name: SAP deployment on Azure using an Oracle DB
+name: SAP deployment on Azure using an Oracle database
 azureCategories:
   - databases
 summary: This example demonstrates a SAP deployment on virtual machines on Azure, along with a High Availability Oracle database.
