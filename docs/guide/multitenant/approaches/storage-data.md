@@ -82,7 +82,7 @@ Several design patterns from the Azure Architecture Center are of relevance to m
 
 ### Deployment Stamps pattern
 
-For more information about how the [Deployment Stamps pattern](../../../patterns/deployment-stamp.md) can be used to support a multitenant solution, see [Overview](overview.md#deployment-stamps-pattern).
+For more information about how the [Deployment Stamps pattern](../../../patterns/deployment-stamp.yml) can be used to support a multitenant solution, see [Overview](overview.md#deployment-stamps-pattern).
 
 ### Shared multitenant databases and file stores
 
@@ -95,7 +95,7 @@ This approach provides the highest density of tenants to infrastructure, so it t
 However, when you work with shared infrastructure, there are several caveats to consider:
 
 - When you rely on a single resource, consider the supported scale and limits of that resource. For example, the maximum size of one database or file store, or the maximum throughput limits, will eventually become a hard blocker, if your architecture relies on a single database. Carefully consider the maximum scale you need to achieve, and compare it to your current and future limits, before you select this pattern.
-- The [Noisy Neighbor problem](../../../antipatterns/noisy-neighbor/noisy-neighbor.yml) might become a factor, especially if you have tenants that are particularly busy or generate higher workloads than others. Considering applying the [Throttling pattern](../../../patterns/throttling.yml) or the [Rate Limiting pattern](../../../patterns/rate-limiting-pattern.md) to mitigate these effects.
+- The [Noisy Neighbor problem](../../../antipatterns/noisy-neighbor/noisy-neighbor.yml) might become a factor, especially if you have tenants that are particularly busy or generate higher workloads than others. Considering applying the [Throttling pattern](../../../patterns/throttling.yml) or the [Rate Limiting pattern](../../../patterns/rate-limiting-pattern.yml) to mitigate these effects.
 - You might have difficulty monitoring the activity and [measuring the consumption](../considerations/measure-consumption.md) for a single tenant. Some services, such as Azure Cosmos DB, provide reporting on resource usage for each request, so this information can be tracked to measure the consumption for each tenant. Other services don't provide the same level of detail. For example, the Azure Files metrics for file capacity are available per file share dimension, only when you use premium shares. However, the standard tier provides the metrics only at the storage account level.
 - Tenants may have different requirements for security, backup, availability, or storage location. If these don't match your single resource's configuration, you might not be able to accommodate them.
 - When working with a relational database, or another situation where the schema of the data is important, then tenant-level schema customization is difficult.
@@ -128,7 +128,7 @@ It's important to use automated deployment approaches when you provision databas
 
 ### Geodes pattern
 
-The [Geode pattern](../../../patterns/geodes.md) is designed specifically for geographically distributed solutions, including multitenant solutions. It supports high load and high levels of resiliency. When working with the Geode pattern, the data tier must be able to replicate the data across geographic regions, and it should support multi-geography writes.
+The [Geode pattern](../../../patterns/geodes.yml) is designed specifically for geographically distributed solutions, including multitenant solutions. It supports high load and high levels of resiliency. When working with the Geode pattern, the data tier must be able to replicate the data across geographic regions, and it should support multi-geography writes.
 
 ![Diagram showing the Geode pattern, with databases deployed across multiple regions that synchronize together.](media/storage-data/geodes.png)
 

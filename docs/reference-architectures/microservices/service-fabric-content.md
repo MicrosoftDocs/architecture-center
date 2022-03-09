@@ -207,7 +207,7 @@ To secure your interservice communications:
 - Consider enabling HTTPS endpoints in your ASP.NET Core or Java web services.
 - Establish a secure connection between the reverse proxy and services.  For details, see [Connect to a secure service](/azure/service-fabric/service-fabric-reverseproxy-configure-secure-communication).
 
-If you are using an [API gateway](../../microservices/design/gateway.yml), you can [offload authentication](../../patterns/gateway-offloading.md) to the gateway. Make sure that the individual services cannot be reached directly (without the API gateway) unless additional security is in place to authenticate messages whether they come from the gateway.
+If you are using an [API gateway](../../microservices/design/gateway.yml), you can [offload authentication](../../patterns/gateway-offloading.yml) to the gateway. Make sure that the individual services cannot be reached directly (without the API gateway) unless additional security is in place to authenticate messages whether they come from the gateway.
 
 Do not expose the Service Fabric reverse proxy publicly. Doing so causes all services that expose HTTP endpoints to be addressable from outside the cluster, introducing security vulnerabilities and potentially exposing additional information outside the cluster unnecessarily. If you want to access a service publicly, use an API gateway. Some options are mentioned in the [API gateway](#api-gateway) section.
 
@@ -280,8 +280,8 @@ For more information about securing Service Fabric, see:
 
 To recover from failures and maintain a fully functioning state, the application must implement certain resiliency patterns. Here are some common patterns:
 
-- [Retry pattern](../../patterns/retry.md): To handle errors that are expected to be transient, such as resources being temporarily unavailable.
-- [Circuit breaker](../../patterns/circuit-breaker.md): To address faults that might need longer to fix.
+- [Retry pattern](../../patterns/retry.yml): To handle errors that are expected to be transient, such as resources being temporarily unavailable.
+- [Circuit breaker](../../patterns/circuit-breaker.yml): To address faults that might need longer to fix.
 - [Bulkhead pattern](../../patterns/bulkhead.md): To isolate resources per service.
 
 This reference implementation uses [Polly](https://github.com/App-vNext/Polly), an open-source option, to implement all of those patterns.

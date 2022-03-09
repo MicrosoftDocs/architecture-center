@@ -10,11 +10,11 @@ The goal of microservices is to increase the velocity of application releases, b
 
 [**Bulkhead**](../../patterns/bulkhead.md) isolates critical resources, such as connection pool, memory, and CPU, for each workload or service. By using bulkheads, a single workload (or service) can't consume all of the resources, starving others. This pattern increases the resiliency of the system by preventing cascading failures caused by one service.
 
-[**Gateway Aggregation**](../../patterns/gateway-aggregation.md) aggregates requests to multiple individual microservices into a single request, reducing chattiness between consumers and services.
+[**Gateway Aggregation**](../../patterns/gateway-aggregation.yml) aggregates requests to multiple individual microservices into a single request, reducing chattiness between consumers and services.
 
-[**Gateway Offloading**](../../patterns/gateway-offloading.md) enables each microservice to offload shared service functionality, such as the use of SSL certificates, to an API gateway.
+[**Gateway Offloading**](../../patterns/gateway-offloading.yml) enables each microservice to offload shared service functionality, such as the use of SSL certificates, to an API gateway.
 
-[**Gateway Routing**](../../patterns/gateway-routing.md) routes requests to multiple microservices using a single endpoint, so that consumers don't need to manage many separate endpoints.
+[**Gateway Routing**](../../patterns/gateway-routing.yml) routes requests to multiple microservices using a single endpoint, so that consumers don't need to manage many separate endpoints.
 
 [**Sidecar**](../../patterns/sidecar.yml) deploys helper components of an application as a separate container or process to provide isolation and encapsulation.
 

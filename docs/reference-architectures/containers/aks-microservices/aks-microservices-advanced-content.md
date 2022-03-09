@@ -59,7 +59,7 @@ The AKS infrastructure features used in this architecture include:
 
 The example [Fabrikam Drone Delivery Shipping App](https://github.com/mspnp/aks-fabrikam-dronedelivery) shown in the preceding diagram implements the architectural components and practices discussed in this article. In this example, Fabrikam, Inc., a fictitious company, manages a fleet of drone aircraft. Businesses register with the service, and users can request a drone to pick up goods for delivery. When a customer schedules a pickup, the backend system assigns a drone and notifies the user with an estimated delivery time. While the delivery is in progress, the customer can track the drone's location with a continuously updated ETA.
 
-This request flow implements the [Publisher-Subscriber](../../../patterns/publisher-subscriber.md), [Competing Consumers](../../../patterns/competing-consumers.md), and [Gateway Routing](../../../patterns/gateway-routing.md) cloud design patterns. The messaging flow proceeds as follows:
+This request flow implements the [Publisher-Subscriber](../../../patterns/publisher-subscriber.yml), [Competing Consumers](../../../patterns/competing-consumers.yml), and [Gateway Routing](../../../patterns/gateway-routing.yml) cloud design patterns. The messaging flow proceeds as follows:
 
 1. An HTTPS request is submitted to schedule a drone pickup. The requests pass through Azure Application Gateway into the ingestion web application, which runs as an in-cluster microservice in AKS.
 
@@ -82,7 +82,7 @@ Implement these recommendations when deploying advanced AKS microservices archit
 
 ### Application Gateway Ingress Controller (AGIC)
 
-API [Gateway Routing](../../../patterns/gateway-routing.md) is a general [microservices design pattern](https://microservices.io/patterns/apigateway.html). An API gateway acts as a reverse proxy that routes requests from clients to microservices. The Kubernetes *ingress* resource and the *ingress controller* handle most API gateway functionality by:
+API [Gateway Routing](../../../patterns/gateway-routing.yml) is a general [microservices design pattern](https://microservices.io/patterns/apigateway.html). An API gateway acts as a reverse proxy that routes requests from clients to microservices. The Kubernetes *ingress* resource and the *ingress controller* handle most API gateway functionality by:
 
 Routing client requests to the correct backend services provides a single endpoint for clients and help decouple clients from services.
 - Aggregating multiple requests into a single request to reduce chatter between the client and the backend.
