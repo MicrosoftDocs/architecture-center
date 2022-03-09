@@ -696,25 +696,27 @@ items:
               - name: Scale regulated AI and ML in finance
                 href: example-scenario/ai/scale-ai-and-machine-learning-in-regulated-industries.yml                
               - name: SWIFT on Azure
-                items: 
-                  - name: Overview
-                    href: example-scenario/finance/swift-on-azure.yml
-                  - name: SWIFT Alliance Access with Alliance Connect
-                    href: example-scenario/finance/swift-alliance-access-on-azure.yml
-                  - name: SWIFT Alliance Access with Alliance Connect Virtual
-                    href: example-scenario/finance/swift-alliance-access-vsrx-on-azure.yml
-                  - name: SWIFT Alliance Cloud in Azure
-                    href: example-scenario/finance/swift-alliance-cloud-on-azure.yml
-                  - name: SWIFT Alliance Connect
-                    href: example-scenario/finance/swift-on-azure-srx.yml
-                  - name: SWIFT Alliance Connect Virtual
-                    href: example-scenario/finance/swift-on-azure-vsrx.yml
-                  - name: SWIFT Alliance Lite2
-                    href: example-scenario/finance/swift-alliance-lite2-on-azure.yml
-                  - name: SWIFT AMH with Alliance Connect
-                    href: example-scenario/finance/swift-alliance-messaging-hub.yml
-                  - name: SWIFT AMH with Alliance Connect Virtual
-                    href: example-scenario/finance/swift-alliance-messaging-hub-vsrx.yml
+                items:
+                  - name: Alliance Connect
+                    items:
+                      - name: SWIFT Alliance Connect
+                        href: example-scenario/finance/swift-on-azure-srx.yml
+                      - name: SWIFT Alliance Access with Alliance Connect
+                        href: example-scenario/finance/swift-alliance-access-on-azure.yml
+                      - name: SWIFT AMH with Alliance Connect
+                        href: example-scenario/finance/swift-alliance-messaging-hub.yml
+                  - name: Alliance Connect Virtual
+                    items:
+                      - name: SWIFT Alliance Connect Virtual
+                        href: example-scenario/finance/swift-on-azure-vsrx.yml
+                      - name: SWIFT Alliance Access with Alliance Connect Virtual
+                        href: example-scenario/finance/swift-alliance-access-vsrx-on-azure.yml
+                      - name: SWIFT AMH with Alliance Connect Virtual
+                        href: example-scenario/finance/swift-alliance-messaging-hub-vsrx.yml
+                      - name: SWIFT Alliance Cloud in Azure
+                        href: example-scenario/finance/swift-alliance-cloud-on-azure.yml
+                      - name: SWIFT Alliance Lite2
+                        href: example-scenario/finance/swift-alliance-lite2-on-azure.yml
           - name: Compliance solutions
             items:
               - name: PCI DSS overview
@@ -1461,6 +1463,58 @@ items:
               - name: FERPA overview
                 href: /compliance/regulatory/offering-ferpa
                 maintainContext: true
+      - name: Aerospace
+        items:
+          - name: Guides
+            items:
+              - name: Azure Orbital for space communication
+                href: /azure/orbital/overview
+                maintainContext: true
+              - name: Modular Datacenter
+                href: /azure-stack/mdc/mdc-overview
+                maintainContext: true
+              - name: Drone delivery reference implementation
+                items:
+                  - name: Domain-driven design for drone delivery
+                    items:
+                      - name: Domain analysis
+                        href: /azure/architecture/microservices/model/domain-analysis
+                      - name: Tactical DDD
+                        href: /azure/architecture/microservices/model/tactical-ddd
+                      - name: Identify microservice boundaries
+                        href: /azure/architecture/microservices/model/microservice-boundaries
+                  - name: Design a microservices drone solution
+                    items:
+                      - name: Introduction
+                        href: /azure/architecture/microservices/design
+                      - name: Interservice communication
+                        href: /azure/architecture/microservices/design/interservice-communication
+                      - name: API design
+                        href: /azure/architecture/microservices/design/api-design
+                      - name: Data considerations
+                        href: /azure/architecture/microservices/design/data-considerations
+                  - name: Monitor drone delivery in production
+                    href: 
+                  - name: Performance turning for drone delivery
+                    items:
+                      - name: Distributed business transactions
+                        href: /azure/architecture/performance/distributed-transaction
+                      - name: Multiple backend services
+                        href: /azure/architecture/performance/backend-services
+                      - name: Event streaming
+                        href: /azure/architecture/performance/event-streaming
+          - name: Architectures
+            items:
+              - name: All aerospace architectures
+                href: /azure/architecture/browse/?terms=aircraft
+              - name: Advanced (AKS) microservices - drones
+                href: /azure/architecture/reference-architectures/containers/aks-microservices/aks-microservices-advanced
+              - name: Predictive maintenance for aircraft monitoring
+                href: /azure/architecture/solution-ideas/articles/predictive-maintenance
+              - name: Serverless web app for drone delivery
+                href: reference-architectures/serverless/web-app.yml
+              - name: Vision classifier model - simulated drone
+                href: /azure/architecture/example-scenario/dronerescue/vision-classifier-model-with-custom-vision
       - name: Agriculture
         items:
           - name: Guides
@@ -1488,28 +1542,6 @@ items:
                 href: solution-ideas/articles/environment-monitoring-and-supply-chain-optimization.yml
               - name: Low-latency network for farming
                 href: solution-ideas/articles/low-latency-network.yml
-      - name: Aerospace
-        items:
-          - name: Guides
-            items:
-              - name: Azure Orbital for space communication
-                href: /azure/orbital/overview
-                maintainContext: true
-              - name: Modular Datacenter
-                href: /azure-stack/mdc/mdc-overview
-                maintainContext: true
-          - name: Architectures
-            items:
-              - name: All aerospace architectures
-                href: /azure/architecture/browse/?terms=aircraft
-              - name: Advanced (AKS) microservices - drones
-                href: /azure/architecture/reference-architectures/containers/aks-microservices/aks-microservices-advanced
-              - name: Predictive maintenance for aircraft monitoring
-                href: /azure/architecture/solution-ideas/articles/predictive-maintenance
-              - name: Serverless web app for drone delivery
-                href: reference-architectures/serverless/web-app.yml
-              - name: Vision classifier model - simulated drone
-                href: /azure/architecture/example-scenario/dronerescue/vision-classifier-model-with-custom-vision
       - name: Nonprofit
         items:
           - name: Microsoft Cloud for Nonprofit
@@ -3634,7 +3666,7 @@ items:
                     href: example-scenario/mainframe/migrate-unisys-dorado-mainframe-apps-with-astadia-micro-focus.yml
                   - name: Unisys mainframe migration with Asysco
                     href: reference-architectures/migration/unisys-mainframe-migration.yml
-                  - name: Using LzLabs SDM in Azure
+                  - name: Use LzLabs SDM in Azure
                     href: example-scenario/mainframe/lzlabs-software-defined-mainframe-in-azure.yml
               - name: Solution ideas
                 items:

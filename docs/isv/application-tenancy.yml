@@ -16,6 +16,6 @@ products:
   - azure-sql-database
 name: Tenancy models for SaaS applications
 summary: This article describes the application tenancy models available to Software as a Service (SaaS) application builders.
-thumbnailUrl: /azure/architecture/browse/thumbs/mixed-tenant.png
+thumbnailUrl: /azure/architecture/browse/thumbs/mixed-tenant.jpg
 content: |
   [!include[](application-tenancy-content.md)]
