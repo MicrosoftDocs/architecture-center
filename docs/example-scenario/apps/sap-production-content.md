@@ -4,12 +4,12 @@ This reference architecture shows a set of proven practices for running SAP NetW
 
 The first diagram shows a reference architecture for SAP on Oracle in Azure utilizing Availability Sets.
 
-![Architecture of a production SAP system on Oracle in Azure](./media/sap-oracle-avset.png)
+[![Architecture of a production SAP system on Oracle in Azure](./media/sap-oracle-avset.png)](./media/sap-oracle-avset.png#lightbox)
 *Figure - Architecture of a production SAP system on Oracle in Azure with AvSet*
 
 The second diagram shows a reference architecture for SAP on Oracle in Azure using Availability Zones for increased resiliency.
 
-![Architecture of a production SAP system on Oracle in Azure](./media/sap-oracle-avzone.png)
+[![Architecture of a production SAP system on Oracle in Azure](./media/sap-oracle-avzone.png)](./media/sap-oracle-avzone.png#lightbox)
 *Figure - Architecture of a production SAP system on Oracle in Azure with AvZone*
 
 Download a [Visio file](https://arch-center.azureedge.net/sap-oracle-architecture-avzone.vsdx) of this architecture.
@@ -109,9 +109,9 @@ Guides linked within the NFS tier section contain the necessary steps and design
 **SAP application servers pool** Two or more application servers where high availability is achieved by load-balancing requests through SAP message server or web dispatchers. Each application server is independent and there is no network load balancing required for this pool of VMs.
 
 **SAP web dispatcher pool** 
-The Web Dispatcher component is used as a load balancer for SAP traffic among the SAP application servers. To achieve [high availability of the SAP Web Dispatcher](https://help.sap.com/doc/saphelp_nw73ehp1/7.31.19/en-US/48/9a9a6b48c673e8e10000000a42189b/frameset.htm), Azure Load Balancer implements either the failover cluster or the parallel Web Dispatcher setup.
+The Web Dispatcher component is used as a load balancer for SAP traffic among the SAP application servers. To achieve [high availability of the SAP Web Dispatcher](https://help.sap.com/doc/saphelp_nw73ehp1/7.31.19/48/9a9a6b48c673e8e10000000a42189b/frameset.html), Azure Load Balancer implements either the failover cluster or the parallel Web Dispatcher setup.
 
-[Embedded Web Dispatcher](https://help.sap.com/viewer/00b4e4853ef3494da20ebcaceb181d5e/LATEST/en-US/2e708e2d42134b4baabdfeae953b24c5.html) on (A)SCS is a special option. You should take into account proper sizing because of additional workload on (A)SCS.
+[Embedded Web Dispatcher](https://help.sap.com/viewer/00b4e4853ef3494da20ebcaceb181d5e/LATEST/2e708e2d42134b4baabdfeae953b24c5.html) on (A)SCS is a special option. You should take into account proper sizing because of additional workload on (A)SCS.
 
 For internet-facing communications, we recommend a stand-alone solution in the perimeter network (also known as _DMZ_) to satisfy security concerns.
 
@@ -121,7 +121,7 @@ For  SAP application part, see the details in architecture guide [Run SAP NetWea
 
 ## Disaster recovery considerations
 
-![Architecture of a production SAP system on Oracle in Azure](./media/sap-oracle-avzone-dr.png)
+[![Architecture of a production SAP system on Oracle in Azure](./media/sap-oracle-avzone-dr.png)](./media/sap-oracle-avzone-dr.png#lightbox)
 *Figure - Architecture of a production SAP system on Oracle in Azure with AvZone and DR*
 
 Download a [Visio file](https://arch-center.azureedge.net/sap-oracle-architecture-avzone.vsdx) of this architecture.
@@ -150,7 +150,7 @@ The target database VM in the DR region can be of reduced size as it does not re
 
 Backup for Oracle in Azure can be achieved through several means
 - **Azure Backup** [Azure provided and maintained scripts](/azure/backup/backup-azure-linux-database-consistent-enhanced-pre-post) for Oracle Databases, to facilitate Oracle actions pre- and post backup execution. 
-- **Azure Storage** Leveraging file based database backups, for example scheduled with SAP's BR*tools, to be stored and versioned as files/directories on Azure Blob NFS, Azure Blob or Azure Files storage services. See [documented details](/azure/virtual-machines/workloads/oracle/oracle-database-backup-strategies) how to achieve both Oracle data and log backups.
+- **Azure Storage** Leveraging file based database backups, for example scheduled with SAP's BR tools, to be stored and versioned as files/directories on Azure Blob NFS, Azure Blob or Azure Files storage services. See [documented details](/azure/virtual-machines/workloads/oracle/oracle-database-backup-strategies) how to achieve both Oracle data and log backups.
 - **3rd party backup solutions** See architecture of your backup storage provider, supporting Oracle in Azure.
 
 For non-database VMs, [Azure Backup for VM](/azure/backup/backup-azure-vms-introduction) is recommended to protect SAP application VMs and surround infrastructure like SAP Web Dispatcher.
