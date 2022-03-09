@@ -1,21 +1,21 @@
 <!-- cSpell:ignore DharmeshBhagat HANA -->
 
-This reference architecture shows a set of proven practices for running SAP NetWeaver with Oracle Database in Azure, with high availability. The architecture principles are OS agnostic, however unless otherwise specified it is assumed to be based on Linux.
+This reference architecture shows a set of proven practices for running SAP NetWeaver with Oracle Database in Azure, with high availability. The architecture principles are operating system (OS) agnostic, however, unless otherwise specified, it is assumed to be based on Linux.
 
-The first diagram shows a reference architecture for SAP on Oracle in Azure utilizing Availability Sets.
+The first diagram shows a reference architecture for SAP on Oracle in Azure, which utilizes availability sets.
 
-[![Architecture of a production SAP system on Oracle in Azure](./media/sap-oracle-avset.png)](./media/sap-oracle-avset.png#lightbox)
-*Figure - Architecture of a production SAP system on Oracle in Azure with AvSet*
+[![Diagram of the architecture of a production SAP system on Oracle in Azure.](./media/sap-oracle-avset.png)](./media/sap-oracle-avset.png#lightbox)
+*Figure - The architecture of a production SAP system on Oracle, in Azure with availability sets.*
 
-The second diagram shows a reference architecture for SAP on Oracle in Azure using Availability Zones for increased resiliency.
+The second diagram shows a reference architecture for SAP on Oracle in Azure, which uses availability zones for increased resiliency.
 
-[![Architecture of a production SAP system on Oracle in Azure](./media/sap-oracle-avzone.png)](./media/sap-oracle-avzone.png#lightbox)
-*Figure - Architecture of a production SAP system on Oracle in Azure with AvZone*
+[![Diagram of the architecture of a production SAP system on Oracle in Azure.](./media/sap-oracle-avzone.png)](./media/sap-oracle-avzone.png#lightbox)
+*Figure - The architecture of a production SAP system on Oracle, in Azure with availability zones.*
 
-Download a [Visio file](https://arch-center.azureedge.net/sap-oracle-architecture-avzone.vsdx) of this architecture.
+_Download a [Visio file](https://arch-center.azureedge.net/sap-oracle-architecture-avzone.vsdx) of this architecture._
 
 > [!NOTE]
-> To deploy this reference architecture, you need appropriate licensing of SAP products and other non-Microsoft technologies.
+> To deploy this reference architecture, you need the appropriate licensing of SAP products and other non-Microsoft technologies.
 
 ## Components
 
@@ -67,13 +67,13 @@ The above architecture depicts a highly available deployment, with each applicat
 
 **Load Balancers**  [Azure Load Balancer](/azure/load-balancer/load-balancer-overview) are used to distribute traffic to virtual machines in the SAP subnets. When you incorporate Azure Load Balancer in a zonal deployment of SAP, make sure you select the Standard SKU load balancer because the Basic SKU balancer doesn't come with zonal redundancy. In a cluster
 
-**Availability Sets** Availability sets distribute servers through the Azure physical infrastructure, to spread them through different failure and update domains to improve service availability. To meet service-level agreements ([SLAs](https://azure.microsoft.com/support/legal/sla/virtual-machines)), put virtual machines that perform the same role into an availability set. Doing so helps guard against planned and unplanned downtime imposed by Azure infrastructure maintenance or caused by hardware faults. To get a higher SLA, you need to have two or more virtual machines per availability set.
+**Availability sets** Availability sets distribute servers through the Azure physical infrastructure, to spread them through different failure and update domains to improve service availability. To meet service-level agreements ([SLAs](https://azure.microsoft.com/support/legal/sla/virtual-machines)), put virtual machines that perform the same role into an availability set. Doing so helps guard against planned and unplanned downtime imposed by Azure infrastructure maintenance or caused by hardware faults. To get a higher SLA, you need to have two or more virtual machines per availability set.
 
 All virtual machines in a set must perform the same role. Don't mix servers of different roles in the same availability set. For example, don't place an ASCS node in the same availability set with the application servers or databases.
 
 You can deploy Azure availability sets in [Azure Availability Zones](/azure/virtual-machines/workloads/sap/sap-ha-availability-zones) when you use a [proximity placement group](/azure/virtual-machines/workloads/sap/sap-proximity-placement-scenarios).
 
-**Availability Zones** [Availability Zones](/azure/availability-zones/az-overview) are physically separated locations within a specific Azure region. Their purpose is to further enhance service availability. Due to their potential geographic and network placement, administrators need a clear network latency profile between all zones of a target region before they can determine the resource placement with minimum inter-zone latency. To create this profile, deploy small virtual machines in each zone for testing. Recommended tools for these tests include [PsPing](/sysinternals/downloads/psping) and [Iperf](https://sourceforge.net/projects/iperf). When the tests are done, remove the virtual machines that you used for testing. As an alternative, there is also an [Azure inter-zone latency check tool](https://github.com/Azure/SAP-on-Azure-Scripts-and-Utilities/blob/main/AvZone-Latency-Test/AvZone-Latency-Test.ps1) available for your convenience.
+**Availability zones** [Availability zones](/azure/availability-zones/az-overview) are physically separated locations within a specific Azure region. Their purpose is to further enhance service availability. Due to their potential geographic and network placement, administrators need a clear network latency profile between all zones of a target region before they can determine the resource placement with minimum inter-zone latency. To create this profile, deploy small virtual machines in each zone for testing. Recommended tools for these tests include [PsPing](/sysinternals/downloads/psping) and [Iperf](https://sourceforge.net/projects/iperf). When the tests are done, remove the virtual machines that you used for testing. As an alternative, there is also an [Azure inter-zone latency check tool](https://github.com/Azure/SAP-on-Azure-Scripts-and-Utilities/blob/main/AvZone-Latency-Test/AvZone-Latency-Test.ps1) available for your convenience.
 
 Consider the [decision factors](/azure/virtual-machines/workloads/sap/sap-ha-availability-zones#considerations-for-deploying-across-availability-zones) when deploying VMs between availability zones for SAP. Use of [proximity placement groups](/azure/virtual-machines/workloads/sap/sap-proximity-placement-scenarios) with an availability zone deployment needs to be evaluated and used only for application tier VMs.
 
