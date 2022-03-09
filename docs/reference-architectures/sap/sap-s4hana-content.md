@@ -175,8 +175,6 @@ We also recommend you consider performance when deploying resources with
 
 Azure NetApp Files has unique performance features that allow for real time tuning that meet the needs of the most demanding SAP environments.  For performance considerations using Azure NetApp Files see [this article](/azure/virtual-machines/workloads/sap/sap-hana-scale-out-standby-netapp-files-suse#sizing-for-hana-database-on-azure-netapp-files).
 
-![image](https://user-images.githubusercontent.com/86350177/156545409-4d502d42-6d38-47a4-bd0d-eec427d7dafb.png)
-
 ## Scalability considerations
 
 At the SAP application layer, Azure offers a wide range of virtual machine sizes for scaling up and scaling out. For an inclusive list, see [SAP Note
