@@ -124,4 +124,4 @@ The edge component can use either the external configuration controller or inter
 
 ## Related guidance
 
-- [External Configuration Store pattern](external-configuration-store.md)
+- [External Configuration Store pattern](external-configuration-store.yml)

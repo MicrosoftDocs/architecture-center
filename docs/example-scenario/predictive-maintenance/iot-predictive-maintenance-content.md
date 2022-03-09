@@ -50,7 +50,7 @@ The team identified several design considerations:
 - The Edge architecture is currently split into multiple modules, but can be condensed into a single module, depending on solution performance requirements or development team structure.
 - This solution builds on the following previous CSE customer engagements in the manufacturing, oil and gas, and natural resource management industries:
   - [CloudEvents](https://github.com/cloudevents/spec)
-  - [Claim Check Patterns](../../patterns/claim-check.md)
+  - [Claim Check Patterns](../../patterns/claim-check.yml)
   - [Command and Query Responsibility Segregation (CQRS) Pattern](http://udidahan.com/2011/04/22/when-to-avoid-cqrs/)
 
 ## Deployment

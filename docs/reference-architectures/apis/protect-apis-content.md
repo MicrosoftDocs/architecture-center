@@ -6,6 +6,8 @@ This article doesn't address the application's underlying services, like App Ser
 
 ![Diagram showing how Application Gateway and API Management protect APIs.](images/protect-apis.png)
 
+### Workflow
+
 - Application Gateway sets up a URL redirection mechanism that sends the request to the proper [backend pool](/azure/application-gateway/application-gateway-components#backend-pools), depending on the URL format of the API call:
 
   - URLs formatted like `api.<some-domain>/external/*` can reach the back end to interact with the requested APIs.
@@ -76,7 +78,7 @@ This article doesn't address the application's underlying services, like App Ser
 
 - For more information about API Management security, see [Azure security baseline for API Management](/security/benchmark/azure/baselines/api-management-security-baseline).
 
-## Deploy the solution 
+## Deploy this scenario 
 
 ### Deployment with PowerShell
 
@@ -578,7 +580,7 @@ After you assess these aspects, go to the [Azure Pricing Calculator](https://azu
 
 - [Web API design](../../best-practices/api-design.md)
 - [Web API implementation](../../best-practices/api-implementation.md)
-- [Gateway Routing pattern](../../patterns/gateway-routing.md)
+- [Gateway Routing pattern](../../patterns/gateway-routing.yml)
 - [URL path-based routing overview](/azure/application-gateway/url-route-overview)
 - [Tutorial: Create an application gateway with path-based routing rules using the Azure portal](/azure/application-gateway/create-url-route-portal)
 - [Tutorial: Create an application gateway with URL path-based redirection using the Azure CLI](/azure/application-gateway/tutorial-url-redirect-cli)
