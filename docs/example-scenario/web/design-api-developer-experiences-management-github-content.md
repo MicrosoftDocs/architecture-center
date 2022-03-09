@@ -1,7 +1,7 @@
-An API Developer Experience is the overall experience of a third-party developer when using a platform or service. The success and adoption of any API Platform is large dependent on how well it is perceived in the marketplace. API Services and Products, also known as the Digital Assets of an Enterprise, are important accelerators of innovation and revenue thereby boosting the [API economy](/azure/api-management/monetization-overview) for the enterprise.
+An API developer experience is the overall experience of a third-party developer when using a platform or service. The success and adoption of any API platform is largely dependent on how highly it is regarded in the marketplace. API services and products, also known as the _digital assets_ of an enterprise, are important accelerators of innovation and revenue that boost the [API economy](/azure/api-management/monetization-overview) for the enterprise.
 
 <!--
-For a digital enterprise, offering API Services, third party API Developers can have a positive influence in brand promotion resulting in significant opportunities for revenue generation through increase in usage and consumption.
+For a digital enterprise that offers API services, third-party API developers can have a positive influence in promoting a brand. Promotion results in significant opportunities for generating revenue through increased usage and consumption.
 -->
 
 ## Potential use cases
@@ -12,7 +12,7 @@ For a digital enterprise, offering API Services, third party API Developers can 
 
 ## Architecture
 
-:::image type="content" alt-text="Diagram of the architecture that's described in this article." source="/media/design-api-developer-experiences-management-github-architecture.png" lightbox="media/design-api-developer-experiences-management-github-architecture.png":::
+:::image type="content" alt-text="Diagram of the architecture that's described in this article." source="media/design-api-developer-experiences-management-github-architecture.png" lightbox="media/design-api-developer-experiences-management-github-architecture.png":::
 
 ### Workflow
 
@@ -74,7 +74,7 @@ This section gives more detailed recommendations on how to commercialize your AP
 
 ### API value chain
 
-:::image type="content" alt-text="Diagram that describes the API value chain." source="/media/design-api-developer-experiences-management-github-value-chain.png" lightbox="media/design-api-developer-experiences-management-github-value-chain.png":::
+:::image type="content" alt-text="Diagram that describes the API value chain." source="media/design-api-developer-experiences-management-github-value-chain.png" lightbox="media/design-api-developer-experiences-management-github-value-chain.png":::
 
 At the top of the value chain is the API Service provider, followed by the API Consumers or integrators, who design and build the amazing experiences for the eventual target consumers which act as the final beneficiary in the value chain.
 
@@ -94,7 +94,7 @@ learnings.
 
 At a high level, the overall functional requirements for an enterprise scale API Platform can be broadly classified into 3 buckets, namely Productization, Platform Administration and Consumer experiences.
 
-:::image type="content" alt-text="Diagram that shows three broad functional requirements of an enterprise-scale API platform." source="/media/design-api-developer-experiences-management-github-functional-requirements.png" lightbox="media/design-api-developer-experiences-management-github-functional-requirements.png":::
+:::image type="content" alt-text="Diagram that shows three broad functional requirements of an enterprise-scale API platform." source="media/design-api-developer-experiences-management-github-functional-requirements.png" lightbox="media/design-api-developer-experiences-management-github-functional-requirements.png":::
 
 The capabilities within each feature area are further expanded in the following sections.
 
@@ -146,7 +146,7 @@ Consumer experiences comprises of the following capabilities:
 
 #### API Developer Experience {#api-developer-experience}
 
-:::image type="content" alt-text="Diagram of features and capabilities of the enhanced API developer experience." source="/media/design-api-developer-experiences-management-github-basic-features.png" lightbox="media/design-api-developer-experiences-management-github-basic-features.png":::
+:::image type="content" alt-text="Diagram of features and capabilities of the enhanced API developer experience." source="media/design-api-developer-experiences-management-github-basic-features.png" lightbox="media/design-api-developer-experiences-management-github-basic-features.png":::
 
 The API developer experience that must be part of the end-to-end solution, will comprise of the following applications:
 
