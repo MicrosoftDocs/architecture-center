@@ -1,6 +1,6 @@
 ### YamlMime:Architecture
 metadata:
-  title: SAP system on Oracle Database on Azure
+  title: SAP System on Oracle Database on Azure
   description: Examine deployment patterns for SAP systems on Oracle Database that align with the pillars of the Azure Well-Architected Framework.
   author: shekhag
   ms.author: gupta.shekhar
@@ -21,7 +21,7 @@ metadata:
     - example-scenario
     - e2e-sap
   social_image_url: /azure/architecture/example-scenario/apps/media/architecture-sap-production.png
-name: SAP system on Oracle Database on Azure
+name: SAP System on Oracle Database on Azure
 azureCategories:
   - databases
   - compute
