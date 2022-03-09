@@ -19,7 +19,7 @@ metadata:
     - Azure
     - example-scenario
     - e2e-sap
-  social_image_url: /azure/architecture/example-scenario/apps/media/architecture-sap-production-avzone.png
+  social_image_url: /azure/architecture/example-scenario/apps/media/sap-oracle-avzone.png
 name: SAP deployment on Azure using an Oracle database
 azureCategories:
   - databases
@@ -30,6 +30,6 @@ products:
   - azure-virtual-machines
   - azure-virtual-network
   - azure-netapp-files
-thumbnailUrl: /azure/architecture/browse/thumbs/architecture-sap-production-avzone.png
+thumbnailUrl: /azure/architecture/browse/thumbs/sap-oracle-avzone.png
 content: |
    [!include[](sap-production-content.md)]

@@ -4,12 +4,12 @@ This reference architecture shows a set of proven practices for running SAP NetW
 
 The first diagram shows a reference architecture for SAP on Oracle in Azure utilizing Availability Sets.
 
-![Architecture of a production SAP system on Oracle in Azure](./media/architecture-sap-production-avset.png)
+![Architecture of a production SAP system on Oracle in Azure](./media/sap-oracle-avset.png)
 *Figure - Architecture of a production SAP system on Oracle in Azure with AvSet*
 
 The second diagram shows a reference architecture for SAP on Oracle in Azure using Availability Zones for increased resiliency.
 
-![Architecture of a production SAP system on Oracle in Azure](./media/architecture-sap-production-avzone.png)
+![Architecture of a production SAP system on Oracle in Azure](./media/sap-oracle-avzone.png)
 *Figure - Architecture of a production SAP system on Oracle in Azure with AvZone*
 
 Download a [Visio file](https://arch-center.azureedge.net/sap-oracle-architecture-avzone.vsdx) of this architecture.
@@ -121,7 +121,7 @@ For  SAP application part, see the details in architecture guide [Run SAP NetWea
 
 ## Disaster recovery considerations
 
-![Architecture of a production SAP system on Oracle in Azure](./media/architecture-sap-production-avzone-dr.png)
+![Architecture of a production SAP system on Oracle in Azure](./media/sap-oracle-avzone-dr.png)
 *Figure - Architecture of a production SAP system on Oracle in Azure with AvZone and DR*
 
 Download a [Visio file](https://arch-center.azureedge.net/sap-oracle-architecture-avzone.vsdx) of this architecture.
