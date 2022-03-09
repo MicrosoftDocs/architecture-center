@@ -1,6 +1,6 @@
 <!-- cSpell:ignore DharmeshBhagat HANA -->
 
-This reference architecture shows a set of proven practices for running SAP NetWeaver with Oracle database in Azure, with high availability. The architecture principles are OS agnostic, however unless otherwise specified it is assumed to be based on Linux.
+This reference architecture shows a set of proven practices for running SAP NetWeaver with Oracle Database in Azure, with high availability. The architecture principles are OS agnostic, however unless otherwise specified it is assumed to be based on Linux.
 
 The first diagram shows a reference architecture for SAP on Oracle in Azure utilizing Availability Sets.
 
@@ -19,7 +19,7 @@ Download a [Visio file](https://arch-center.azureedge.net/sap-oracle-architectur
 
 ## Components
 
-This reference architecture describes a typical SAP production system running on Oracle database in Azure, in a highly-available deployment to maximize system availability. The architecture and its components can be customized based on business requirements (RTO, RPO, uptime expectations, system role) and potentially reduced to a single VM. The network layout is simplified to demonstrate the architectural principals of such SAP environment and not intended to describe a full enterprise network.
+This reference architecture describes a typical SAP production system running on Oracle Database in Azure, in a highly-available deployment to maximize system availability. The architecture and its components can be customized based on business requirements (RTO, RPO, uptime expectations, system role) and potentially reduced to a single VM. The network layout is simplified to demonstrate the architectural principals of such SAP environment and not intended to describe a full enterprise network.
 
 ### Networking
 
@@ -45,7 +45,7 @@ Azure NICs support multiple IPs. This support conforms with the SAP recommended 
 
 This architecture uses virtual machines (VM). For SAP application tier, VMs are deployed for all instance roles - web dispatcher and application servers - both central services SAP (A)SCS and ERS as well as application servers (PAS, AAS). Adjust the number of virtual machines based on your requirements. The [Azure Virtual Machines planning and implementation guide](/azure/virtual-machines/workloads/sap/planning-guide) includes details about running SAP NetWeaver on virtual machines.
 
-Similarly for all Oracle purposes virtual machines are used, both for the Oracle database as well as Oracle observer VMs. Observer VMs in this architecture are smaller compared to actual database servers.
+Similarly for all Oracle purposes virtual machines are used, both for the Oracle Database as well as Oracle observer VMs. Observer VMs in this architecture are smaller compared to actual database servers.
 
 - **Constrained vCPU VMs** In order to potentially save cost on Oracle licensing, consider utilizing [vCPU constrained VMs](/azure/virtual-machines/constrained-vcpu)
 - **Certified VM families for SAP** For details about SAP support for Azure virtual machine types and throughput metrics (SAPS), see [SAP note 1928533](https://launchpad.support.sap.com/#/notes/1928533). (To access SAP notes, you need an SAP Service Marketplace account.)
@@ -54,10 +54,12 @@ Similarly for all Oracle purposes virtual machines are used, both for the Oracle
 
 ### Storage
 
-This architecture uses [Azure managed disks](/azure/virtual-machines/windows/managed-disks-overview) for virtual machines and [Azure Files NFS](/azure/storage/files/files-nfs-protocol) or [Azure NetApp Files](/azure/azure-netapp-files/azure-netapp-files-introduction) for NFS shared storage. Guidelines for storage deployment with SAP on Azure are in detail within the [Azure Storage types for SAP workload guide](/azure/virtual-machines/workloads/sap/planning-guide-storage)
+This architecture uses [Azure managed disks](/azure/virtual-machines/windows/managed-disks-overview) for virtual machines and [Azure Files NFS](/azure/storage/files/files-nfs-protocol) or [Azure NetApp Files](/azure/azure-netapp-files/azure-netapp-files-introduction) for any NFS shared storage requirements such as sapmnt and SAP transport NFS volumes. Guidelines for storage deployment with SAP on Azure are in detail within the [Azure Storage types for SAP workload guide](/azure/virtual-machines/workloads/sap/planning-guide-storage)
 
 - **Certified storage for SAP** Similar to certified VM types for SAP usage, observe the details in [SAP note 2015553](https://launchpad.support.sap.com/#/notes/2015553) and [SAP note 2039619](https://launchpad.support.sap.com/#/notes/2039619)
 - **Storage design for SAP on Oracle** Recommended storage design for SAP on Oracle in Azure in [following documentation](/azure/virtual-machines/workloads/sap/dbms_guide_oracle) with specific guidances on file system layout, disk sizing recommendations and other storage options.
+- **Storing Oracle Database files** On Linux ext4 or xfs filesystems need to be used for database, NTFS for Windows deployments. [Oracle ASM](/azure/virtual-machines/workloads/oracle/configure-oracle-asm) is also supported for Oracle deployments for Oracle Database 12c Release 2 and higher.
+- **Options to managed disks** is to use [Azure NetApp Files](/azure/azure-netapp-files/azure-netapp-files-introduction) for the Oracle Database as well, the details of which are described in above mentioned [SAP note 2039619](https://launchpad.support.sap.com/#/notes/2039619) and [Oracle on Azure](/azure/virtual-machines/workloads/sap/dbms_guide_oracle) documentation. [**Azure Files NFS**](/azure/storage/files/files-nfs-protocol) volumes are not intended for storing Oracle Database files, unlike Azure NetApp Files.
 
 ### High-Availability
 
@@ -78,7 +80,7 @@ Consider the [decision factors](/azure/virtual-machines/workloads/sap/sap-ha-ava
 > [!NOTE]
 > Availability Zones support intra-region high availability, but they aren't effective for DR. The distances between zones are too short. Typical DR regions should be at least 100 miles away from the primary region.
 
-**Oracle specific components** Oracle database VMs are deployed in an availability set or in different availability zones. Each VM contains its own installation of the database software and VM-local database storage. Set up synchronous database replication through Oracle Data Guard between the databases to ensure consistency and allow low RTO & RPO service times in case if individual failures. Besides the database VMs, additional VMs with Oracle Data Guard Observer are needed for an Oracle Data Guard Fast-Start Failover setup. The Oracle observer VMs monitor the database and replication status and facilitate database failover in an automated way, without the need for any cluster manager. Database replication management can bet performed then using Oracle Data Guard Broker for ease of use.
+**Oracle specific components** Oracle Database VMs are deployed in an availability set or in different availability zones. Each VM contains its own installation of the database software and VM-local database storage. Set up synchronous database replication through Oracle Data Guard between the databases to ensure consistency and allow low RTO & RPO service times in case if individual failures. Besides the database VMs, additional VMs with Oracle Data Guard Observer are needed for an Oracle Data Guard Fast-Start Failover setup. The Oracle observer VMs monitor the database and replication status and facilitate database failover in an automated way, without the need for any cluster manager. Database replication management can bet performed then using Oracle Data Guard Broker for ease of use.
 
 For details on Oracle Data Guard deployment see
 - [SAP whitepaper - Setting up Oracle 12c Data Guard for SAP Customers](https://www.sap.com/documents/2016/12/a67bac51-9a7c-0010-82c7-eda71af511fa.html)
@@ -86,6 +88,8 @@ For details on Oracle Data Guard deployment see
 
 This architecture utilizes native Oracle tooling without any actual cluster setup or the need for a load balancer in the database tier. With Oracle Data Guard Fast-Start Failover and SAP configuration, the failover process is automated and SAP applications re-connect to the new primary database should a failover occur.
 Various 3rd party cluster solutions exist as an alternative, such as SIOS Protection Suite or Veritas InfoScale, details of which deployment can be found in respective 3rd party vendor's documentation respectively.
+
+**Oracle RAC** Oracle Real Application Cluster (RAC) is currently [not certified or supported by Oracle in Azure]((https://launchpad.support.sap.com/#/notes/2039619)). However Oracle Data Guard technologies and architecture for high-availability can provide highly resilient SAP environments with protection against rack, data center, or regional interruptions of service.
 
 **NFS tier** For all highly available SAP deployments, a resilient NFS tier is required to be used, providing NFS volumes for SAP transport directory, sapmnt volume for SAP binaries as well as further volumes for (A)SCS and ERS instances. 
 Options to provide a NFS tier are
@@ -132,20 +136,20 @@ When protecting a clustered environment with ASR, pre-scripted actions would nee
 
 **NFS tier**
 With most business critical data located within central SAP shared NFS volumes such as transport directory and sapmnt, protecting them for an interruption requiring a DR failover is crucial. Depending on the NFS architecture chosen, different solutions are possible
-- **File-based replication** VM bound tools such as rsync can be executed on schedule to keep an asynchronous replication from source region NFS volumes to target region's NFS volumes. For Azure Files NFS, a VM in primary region (e.g. (A)SCS VM) can access an NFS volume located in another region through global vnet peering.
+- **File-based replication** With NFS tiers deployed in different regions but without direct service-driven replication, VM bound tools such as rsync can be executed on schedule to keep an asynchronous replication from source region NFS volumes to target region's NFS volumes. For Azure Files NFS, a VM in primary region (e.g. (A)SCS VM) can access an NFS volume located in another region through global vnet peering. During a DR failover situation a DNS and/or configuration switch needs to be performed to have the SAP systems in DR region connect to the DR located NFS volume(s).
 - **Azure NetApp Files** volumes can be protected with automated, asynchronous storage replication. [Cross-region replication](/azure/azure-netapp-files/cross-region-replication-introduction) is available between select region pairs. An alternative when dealing with regions not in select regions pairs is to use earlier mentioned file-based replication, requiring a VM operational in the target region with mounted NetApp NFS volume from same region, as Azure NetApp Files [does not allow cross-region access](/azure-netapp-files-network-topologies#supported-network-topologies) of NFS volumes. File-based replication is thus VM-to-VM between regions, each mounting respective regions NetApp NFS volume.
 - **3rd party backup tools** Other vendor tooling providing file based replication between NFS volumes of any source and target.
 
 **Database tier**
 
-Oracle Data Guard in asynchronous mode is the recommended way to replicate Oracle database between regions. With asynchronous replication the log changes are committed on the primary region before they arrive on the secondary region's database, the distance between the regions is thus no longer a factor in overall SAP system performance.
+Oracle Data Guard in asynchronous mode is the recommended way to replicate Oracle Database between regions. With asynchronous replication the log changes are committed on the primary region before they arrive on the secondary region's database, the distance between the regions is thus no longer a factor in overall SAP system performance.
 
 The target database VM in the DR region can be of reduced size as it does not require additional CPU power and memory to provide a fast SAP response time, the only load being the application of changes from the database replication. In any recovery plan or process, such VM re-size activity needs to be planned for or outright automated.
 
 ## Backup
 
 Backup for Oracle in Azure can be achieved through several means
-- **Azure Backup** [Azure provided and maintained scripts](/azure/backup/backup-azure-linux-database-consistent-enhanced-pre-post) for Oracle databases, to facilitate Oracle actions pre- and post backup execution. 
+- **Azure Backup** [Azure provided and maintained scripts](/azure/backup/backup-azure-linux-database-consistent-enhanced-pre-post) for Oracle Databases, to facilitate Oracle actions pre- and post backup execution. 
 - **Azure Storage** Leveraging file based database backups, for example scheduled with SAP's BR*tools, to be stored and versioned as files/directories on Azure Blob NFS, Azure Blob or Azure Files storage services. See [documented details](/azure/virtual-machines/workloads/oracle/oracle-database-backup-strategies) how to achieve both Oracle data and log backups.
 - **3rd party backup solutions** See architecture of your backup storage provider, supporting Oracle in Azure.
 
