@@ -372,7 +372,7 @@ Microsoft solutions provide automation workflows for the following artifacts.
 
 | Artifact | Automation workflows |
 | ---- | --- |
-| Watchlists | Code review <br>Schema validation <br><br>[Deployment](/rest/api/securityinsights/watchlists)<br>Create, update, delete watchlists and [items](/rest/api/securityinsights/watchlist-items)|
+| Watchlists | Code review <br>Schema validation <br><br>[Deployment](/rest/api/securityinsights/preview/watchlists)<br>Create, update, delete watchlists and [items](/rest/api/securityinsights/preview/watchlist-items)|
 | Analytics rules fusion<br>Microsoft Security<br>ML behavioral analytics<br>Anomaly<br>Scheduled | [Code review](/azure/security/develop/security-code-analysis-overview)<br>KQL Syntax validation<br>Schema validation<br>Pester<br><br>[Deployment](/rest/api/securityinsights/stable/alert-rules)<br>Create, Enable, Update, Delete, Export<br>[Alert templates support](/rest/api/securityinsights/stable/alert-rule-templates) |
 | Automation rules | [Code review](/azure/security/develop/security-code-analysis-overview) <br>Schema validation<br><br>[Deployment](/rest/api/securityinsights/stable/alert-rules)<br>Create, enable, update, delete, export |
 | Connectors | [Code review](/azure/security/develop/security-code-analysis-overview)<br>Schema validation<br><br>[Deployment](/rest/api/securityinsights/stable/data-connectors)<br>Actions: enable, delete (disable), update |
