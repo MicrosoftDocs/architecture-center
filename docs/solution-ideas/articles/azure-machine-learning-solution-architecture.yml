@@ -30,9 +30,11 @@ summary: Learn how to build, deploy, and manage high-quality models with Azure M
 products:
   - azure-machine-learning
   - azure-synapse-analytics
+  - azure-container-registry
+  - azure-kubernetes-service
+  - azure-monitor
   - power-bi
   - azure-data-lake-storage
-  - azure-kubernetes-service
   
 
 thumbnailUrl: /azure/architecture/browse/thumbs/azure-machine-learning-solution-architecture.png
