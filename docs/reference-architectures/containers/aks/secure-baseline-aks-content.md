@@ -105,6 +105,12 @@ AKS maintains two separate groups of nodes (or node pools). The *system node poo
 
 For additional information, [Hub-spoke network topology in Azure](../../hybrid-networking/hub-spoke.yml).
 
+#### Subnet to host the Private Link endpoints
+
+Private Link connections are created for the Azure Container Registry and Azure Key Vault, so these services can be accessed using Private endpoints within the Spoke virtual network. Private endpoints do not require a dedicated subnet and could also be placed in the Hub virtual network. In the baseline they are deployed to a dedicated subnet within the Spoke virtual network. This reduces traffic passing the peered network connection, keeps the resources belonging to the cluster in the same virtual network, and allows you to apply granular security rules at the subnet level using network security groups.
+
+For additional information, [Private Link deployment options](../../../guide/networking/private-link-hub-spoke-network.yml#decision-tree-for-private-link-deployment).
+
 ## Plan the IP addresses
 
 ![Network topology of the AKS cluster](images/baseline-network-topology.png)
