@@ -18,13 +18,13 @@ products:
   - azure-iot-hub
 ---
 
-# Industry specific Azure IoT solutions and scenarios
+# Industry specific Azure IoT solutions
 
-This article provides an overview of industry-specific Industrial IoT (IIoT) solutions. IIoT is the application of internet-of-things (IoT) technology to manufacturing and other industries. [Azure Industrial IoT](https://azure.github.io/Industrial-IoT) is a suite of Azure cloud microservices, IoT Hub and other Azure services, and Azure IoT Edge modules that integrate the cloud into industrial and manufacturing shop floors.
+This article provides an overview of industry-specific Industrial IoT (IIoT) solutions and scenarios. IIoT is the application of internet-of-things (IoT) technology to manufacturing and other industries. [Azure Industrial IoT](https://azure.github.io/Industrial-IoT) is a suite of Azure IoT Edge and IoT Hub components, Azure microservices, and other Azure services that integrate the cloud into industrial and manufacturing shop floors.
 
-Azure IIoT relies on industry-standard open interfaces such as the [Open Platform Communications Unified Architecture (OPC UA)](https://opcfoundation.org/about/opc-technologies/opc-ua) to integrate device and sensor data into the Azure cloud. Cloud services can use this data to develop transformative business and industrial solutions.
+Azure IIoT relies on industry-standard open interfaces, such as the [Open Platform Communications Unified Architecture (OPC UA)](https://opcfoundation.org/about/opc-technologies/opc-ua), to integrate device and sensor data into the Azure cloud. Cloud services can use this data to develop transformative business and industrial solutions. [Azure industrial IoT analytics guidance](../../guide/iiot-guidance/iiot-architecture.yml) describes an Azure IIoT analytics solution that uses platform-as-a-service (PaaS) components.
 
-For generic IIoT patterns and guides you can use across different industry verticals, see [Get started with Azure IoT solutions](iot-architecture-overview.md). The following Azure IIoT solutions solve unique business challenges in specific industries.
+For overall IIoT patterns and guides to use across industry verticals, see [Get started with Azure IoT solutions](iot-architecture-overview.md). The following Azure IIoT solutions and scenarios address unique business challenges for specific industries.
 
 ## Manufacturing
 
@@ -46,7 +46,7 @@ For generic IIoT patterns and guides you can use across different industry verti
 
 - [Process real-time vehicle data using IoT](../../example-scenario/data/realtime-analytics-vehicle-iot.yml). Vehicle data ingestion, processing, and visualization are key capabilities of connected car solutions. Capturing and analyzing real-time vehicle data provides valuable insights to create new solutions.
 
-- [Predictive maintenance with IoT Edge](../../example-scenario/predictive-maintenance/iot-predictive-maintenance.yml). Azzure IoT Edge brings data processing and storage close to the data source, enabling fast, consistent responses with reduced dependency on cloud connectivity and resources. Edge computing can incorporate artificial intelligence (AI) and machine learning (ML) models to create intelligent edge devices and networks.
+- [Predictive maintenance with IoT Edge](../../example-scenario/predictive-maintenance/iot-predictive-maintenance.yml). Azure IoT Edge brings data processing and storage close to the data source, enabling fast, consistent responses with reduced dependency on cloud connectivity and resources. Edge computing can incorporate artificial intelligence (AI) and machine learning (ML) models to create intelligent edge devices and networks.
 
 ## Cross industry
 
@@ -62,7 +62,3 @@ For generic IIoT patterns and guides you can use across different industry verti
 
 - [What is Azure IIoT?](/azure/industrial-iot/overview-what-is-industrial-iot)
 - [Azure Industrial IoT documentation](/azure/industrial-iot)
-
-## Related resources
-
-- [Azure industrial IoT analytics guidance](../../guide/iiot-guidance/iiot-architecture.md). This article series describes an Azure IIoT analytics solution that uses platform-as-a-service (PaaS) components.
