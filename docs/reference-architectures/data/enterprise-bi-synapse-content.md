@@ -178,7 +178,6 @@ There is a range of [Data Warehouse configurations](https://docs.microsoft.com/e
 |Data warehouse units	|# of compute nodes	 |# of distributions per node|
 |---------------------|--------------------|-------------------------|
 |DW100c             	|1          	       |60                         |
-<tbody></tbody>
 |                     | -- TO --           |                           |
 |DW30000c	            |60	                 |1                        |  
 
