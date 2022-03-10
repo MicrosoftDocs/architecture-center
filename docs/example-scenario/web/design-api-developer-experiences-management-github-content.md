@@ -1,4 +1,4 @@
-An API developer experience is the overall experience of a third-party developer when using a platform or service. The success and adoption of any API platform is largely dependent on how highly it is regarded in the marketplace. API services and products, also known as the _digital assets_ of an enterprise, are important accelerators of innovation and revenue that boost the [API economy](/azure/api-management/monetization-overview) for the enterprise.
+An API developer experience is the overall experience of a third-party developer when using a platform or service. The success and adoption of any API platform is largely dependent on how highly it's regarded in the marketplace. API services and products, also known as the _digital assets_ of an enterprise, are important accelerators of innovation and revenue that boost the [API economy](/azure/api-management/monetization-overview) for the enterprise.
 
 <!--
 For a digital enterprise that offers API services, third-party API developers can have a positive influence in promoting a brand. Promotion results in significant opportunities for generating revenue through increased usage and consumption.
@@ -16,83 +16,81 @@ For a digital enterprise that offers API services, third-party API developers ca
 
 ### Workflow
 
-The solution primarily comprises of the following building blocks:
+The solution primarily consists of the following building blocks:
 
-- **Monetized Backend APIs & API Gateway**—at the core of the solution is the set of Backend APIs that will be monetized. The consumers (users, applications, devices, etc.) will access the API Platform through an API Gateway. The gateway will also apply rate leveling and throttle the requests as applicable.
+- **Monetized backend APIs & API gateway**. At the core of the solution is the set of backend APIs that will be monetized. The consumers (users, applications, devices, etc.) access the API platform through an API gateway. The gateway applies rate leveling and throttles requests as needed.
 
-- **Consumer Portal / Applications**—The consumers of the API Platform will browse the API offerings, register, and then generate subscription keys to access the various API End points. They can update their account and billing related information using the account management features of the solution.
+- **Consumer portal and applications**. The consumers of the API platform browse the API offerings, register, and then generate subscription keys to access the various API end points. They can update information about their accounts and billing by using the account management features of the solution.
 
-- **Administrative Portals / Applications**—Platform administrators will publish the list of API Products, their pricing and rate plans. These portals will also offer rich analytics on the usage of the various API products, assisting in troubleshooting issues or offering support services as may be required.
+- **Administrative portals and Applications**. Platform administrators publish the list of API products, their pricing, and rate plans. These portals also offer rich analytics on the use of the various API products, which help troubleshooting issues and offering support services.
 
-- **Line of Business Services**—These are a list of services that is required to deliver the functionalities of the consumer portals & applications. These are purely required to support the various user journeys supported in the solution.
+- **Line of business services**. These services are required to deliver the functionalities of the consumer portals & applications. These services are required to support the various user journeys that are supported in the solution.
 
-- **API Consumption Tracking and Charges Calculation Engine** - The API consumption reports, captured at the API Gateway layer, will be periodically exported to a separate data store. There would be separate scheduled jobs, that will run on this data to calculate the charges that apply to any consumer account based on its list of subscriptions and associated pricing model.
+- **API Consumption Tracking and Charges Calculation Engine**. The API consumption reports, captured at the API gateway layer, are periodically exported to a separate data store. Scheduled jobs run on this data to calculate the charges that apply to any consumer account, based on its list of subscriptions and associated pricing model.
 
 The processing sequence in this solution flows as follows:
 
-1. API publishers imports the API specification(s) using the Azure Portal, groups them using Products and subsequently publishes them.
+1. The API publisher imports the API specification(s) by using the Azure portal, groups them by product, and publishes them.
 
-2. API Publishers updates the Product related marketing information in the corresponding GitHub repository.
+2. The API publisher updates the product-related marketing information in the corresponding GitHub repository.
 
-3. API consumers access the marketplace portal, browse through the various products and narrow down on a specific API service.
+3. The API consumer accesses the marketplace portal, browses the various products, and selects a specific API service.
 
-4. When attempting to view more details about the API service, consumers are redirected to the Enhanced Developer Portal hosted in GitHub (uses GitHub Pages capability).
+4. When the consumer attempts to view more information about the API service, the consumer portal redirects the consumer to the enhanced developer portal, which is hosted on GitHub and uses GitHub Pages.
 
-5. Consumers can browse through different API specifications, developer related information and even try invoking an endpoint using a sample payload.
+5. The consumer can browse different API specifications, developer-related information, and even try invoking an endpoint by using a sample payload.
 
-6. Consumers register with the platform and then activate a subscription for a particular API service they are interested in using.
+6. The consumer registers with the platform and then activates a subscription for the particular API service that they're interested in using.
 
-7. The consumers make use of the API service in their respective Apps or devices.
+7. The consumer makes use of the API service in their apps or devices.
 
-8. The invocation of the APIs generates consumption related metrics which is stored within the Azure usage and consumption tracking databases.
+8. The invocation of the APIs generates metrics about usage and consumption, which are stored by Azure in tracking databases.
 
 9. The consumption data is periodically exported and saved to a custom database (typically a data lake) for further analysis.
 
 10. A backend job then correlates the consumption data against the various subscriptions and calculates the charges.
 
-11. The invoice and payment related information is stored within the accounting database. This is used for generating revenue for the service.
+11. The invoice and payment-related information is stored within the accounting database, which is used for generating revenue for the service.
 
 ### Components
 
 The solution is composed of the following Azure and SaaS Services:
 
-- [API Management](https://azure.microsoft.com/services/api-management/): Azure API Management is a managed PaaS service that allows organizations to publish APIs to both internal and external consumers. With APIM, you can publish APIs, that may be hosted anywhere. Basically, it allows for decoupling of actual API hosting, from the published gateway that acts as the **single-entry point** ([Gateway Routing Pattern](/azure/architecture/patterns/gateway-routing)) for the full landscape of APIs published by the enterprise. It will also provide a governance layer on top of all published APIs. Using API Management policies, a variety of additional capabilities such as [rate limits and quotas](/azure/api-management/api-management-sample-flexible-throttling) that can throttle API requests, based on a key or subscription. API Management also comes bundled with a [Developer Portal](/azure/api-management/api-management-howto-developer-portal), that provides a fully customizable website to serve as the documentation of the APIs published through it.
+- [API Management](https://azure.microsoft.com/services/api-management/): Azure API Management is a managed PaaS service that allows organizations to publish APIs to both internal and external consumers. With API Management, you can publish APIs that may be hosted anywhere. Basically, it allows for decoupling of actual API hosting from the published gateway that acts as the single-entry point ([Gateway Routing Pattern](/azure/architecture/patterns/gateway-routing)) for the full landscape of APIs that your enterprise publishes. API Management also provides a governance layer on top of all published APIs. By using API Management policies, various other capabilities, such as [rate limits and quotas](/azure/api-management/api-management-sample-flexible-throttling), can throttle API requests based on a key or subscription. API Management also comes bundled with a [developer portal](/azure/api-management/api-management-howto-developer-portal) that provides a fully customizable website to serve as the documentation of the APIs that you publish through it.
 
-- [GitHub](https://docs.github.com/): It is a popular SaaS offering from Microsoft that is frequently used by the developer community to build, ship, and maintain their software projects. Important features of GitHub that can be leveraged for solution:
+- [GitHub](https://docs.github.com/): GitHub is a popular SaaS offering from Microsoft that is frequently used by developers to build, ship, and maintain their software projects. Important features of GitHub that you can use for solutions include:
 
-  - [GitHub Pages](https://docs.github.com/en/pages/getting-started-with-github-pages/about-github-pages) enables enterprises to host a rich [HTML based website](https://pages.github.com/) directly from within a [GitHub repository](https://docs.github.com/repositories).
+  - [GitHub Pages](https://docs.github.com/en/pages/getting-started-with-github-pages/about-github-pages) enables your enterprise to host a rich [HTML-based website](https://pages.github.com/) directly from within a [GitHub repository](https://docs.github.com/repositories).
 
-  - Activate community collaboration through [GitHub Discussions](https://docs.github.com/discussions) and [GitHub Issues](https://docs.github.com/issues).
+  - [GitHub Discussions](https://docs.github.com/discussions) and [GitHub Issues](https://docs.github.com/issues) help you to activate community collaboration.
 
-- [Azure App Service](https://azure.microsoft.com/services/app-service/): Azure App Service is a fully managed compute platform for hosting custom Web Applications.
+- [Azure App Service](https://azure.microsoft.com/services/app-service/): Azure App Service is a fully managed compute platform for hosting custom web applications.
 
-- [Azure AD B2C](https://azure.microsoft.com/services/active-directory/external-identities/b2c/): Azure AD B2C (Business to Customer) is an extension of the Azure AD and preferably used when the application is required to manage External Customer or Partner Identities for access and authorization. You can make use of the [Microsoft Identify Platform](/azure/active-directory/develop/v2-overview) to easily integrate identity and authorization in your custom applications.
+- [Microsoft Azure Active Directory B2C (Azure AD B2C)](https://azure.microsoft.com/services/active-directory/external-identities/b2c/): Azure AD B2C is an extension of Azure Active Directory (Azure AD) that your application can use to manage external customer or partner identities for access and authorization. You can make use of the [Microsoft Identify Platform](/azure/active-directory/develop/v2-overview) to easily integrate identity and authorization in your custom applications.
 
 ## Recommendations
 
-This section gives more detailed recommendations on how to commercialize your API Assets, and why building a rich API Developer experience is important in the adoption and use of your API Products.
+This section gives more detailed recommendations on how to commercialize your API assets, and why building a rich API developer experience is important in the adoption and use of your API products.
 
 ### API value chain
 
 :::image type="content" alt-text="Diagram that describes the API value chain." source="media/design-api-developer-experiences-management-github-value-chain.png" lightbox="media/design-api-developer-experiences-management-github-value-chain.png":::
 
-At the top of the value chain is the API Service provider, followed by the API Consumers or integrators, who design and build the amazing experiences for the eventual target consumers which act as the final beneficiary in the value chain.
+At the top of the value chain is the API service provider, followed by the API consumers or integrators, who design and build the amazing experiences for the eventual target consumers. End users and customers are the final beneficiaries in the value chain.
 
-API Developer experiences is quintessential to the success of this value chain. It primarily revolves around accomplishing the following objectives:
+The API developer experience is quintessential to the success of this value chain. Success primarily revolves around accomplishing the following objectives. The experience should:
 
-- Easy to discover and understand the API product offerings.
+- Make it easy to discover and understand the API product offerings.
 
-- Easy to subscribe and integrate with the various applications and
-channels.
+- Make it easy to subscribe and integrate with the various applications and channels.
 
-- Easy to get help, troubleshoot problems and remediate issues.
+- Make it easy to get help, troubleshoot problems and remediate issues.
 
-- Promote community contribution, as well as exchange ideas and
-learnings.
+- Promote community contribution and the exchange of ideas and lessons learned.
 
 ### Functional requirements
 
-At a high level, the overall functional requirements for an enterprise scale API Platform can be broadly classified into 3 buckets, namely Productization, Platform Administration and Consumer experiences.
+At a high level, the overall functional requirements for an enterprise-scale API platform can be broadly classified into three buckets, namely productization, platform administration, and consumer experiences.
 
 :::image type="content" alt-text="Diagram that shows three broad functional requirements of an enterprise-scale API platform." source="media/design-api-developer-experiences-management-github-functional-requirements.png" lightbox="media/design-api-developer-experiences-management-github-functional-requirements.png":::
 
@@ -100,73 +98,79 @@ The capabilities within each feature area are further expanded in the following 
 
 ### Productization
 
-The goal of productization is to identify and define the monetized APIs, their management and selling strategy as digital products. Hence, it covers capabilities such as identifying variants of the products, and their corresponding mapping to physical assets, definition of the pricing and rate plans, along with the necessary metadata, and content that must be created for driving the consumer experience.
+The goal of productization is to identify and define the monetized APIs, their management, and strategy for selling them as digital products. Hence, it covers capabilities such as identifying variants of the products, and their corresponding mapping to physical assets, definition of the pricing and rate plans, along with the necessary metadata, and content that must be created for driving the consumer experience.
 
-Productization comprises of the following capabilities:
+Productization comprises the following capabilities:
 
-- **API Products**—this refers to the catalogue of APIs that will be made available to the consumers. The products may be chargeable or offered as a free service.
+- **API products**. This catalog of APIs is made available to the consumers. A product may be offered for purchase or as a free service.
 
-- **Variants**—identify the variants of any API product that will be monetized.
+- **Variants**. The developer experience should identify the variants of any API product that's monetized.
 
-- **Pricing Plans** - define the various pricing plans to make it attractive for the consumers.
+- **Pricing plans**. Define the various pricing plans to make it attractive for the consumers.
 
-- **Taxonomy and Content** - define and create the content (textual, PDFs, images, and so on) that is required for the marketing strategy for these API products.
+- **Taxonomy and content**. Define and create the content (textual, PDFs, images, and so on) that is required for the marketing strategy for these API products.
 
-- **Physical Assets**—this comprises of the actual cloud services that is part of the specific API product and their corresponding lifecycle management. The operations cost of maintaining these services must be considered while deriving the pricing plans.
+- **Physical Assets**. This comprises the actual cloud services that are part of the specific API product and their corresponding lifecycle management. The operations cost of maintaining these services must be considered while deriving the pricing plans.
 
 ### Platform administration
 
-Platform Administration feature focuses on the overall hosting, management, and governance of the API platform, along with administration of the various line of business applications / services from an end-to-end solution perspective. The major focus areas under this would be Subscription Management, Billing, and Invoicing, and generating Business Insights & Analytics to present the overall health of the service both from a financial, and operational aspects.
+Platform administration focuses on the overall hosting, management, and governance of the API platform, along with providing an end-to-end solution for administration of the various line-of-business applications and services. Major areas of focus are subscription management, billing, and invoicing. Platform administration also provides generation of business insights & analytics to present the overall health of the service, including its financial and operational aspects.
 
-Platform Administration comprises of the following capabilities:
+Platform administration comprises the following capabilities:
 
-- **User Registration**—identify how users will register with the platform. Define any approval workflows that are necessary depending on the user segment.
+- **User Registration**. Identify how users register with the platform. Define any approval workflows that are necessary, depending on the user segment.
 
-- **API Catalogue**—identify the API assets that will be published through API Management. Apply policies to control access and usage of the APIs. Manage the subscriptions of the users.
+- **API Catalog**. Identify the API assets that will be published through API Management. Apply policies to control access and use of the APIs. Manage the subscriptions of the users.
 
-- **Insights and Analytics**—capture telemetry data to generate the various metrices. Visualize the data using different dashboards (e.g., PowerBI) to derive the various insights that is required for Business and IT decision makers.
+- **Insights and Analytics**. Capture telemetry data to generate the various metrics. Visualize the data by using different dashboards (for example, Power BI) to derive the various insights that are required for business and IT decision makers.
 
-- **Billing and Invoicing**—Define the workflows related to subscriptions, order management, billing, and invoicing.
+- **Billing and Invoicing**. Define the workflows that are related to subscriptions, order management, billing, and invoicing.
 
-- **Support**—Establish tools and processes to handle support requests.
+- **Support**. Establish tools and processes to handle support requests.
 
 ### Consumer experiences
 
-The adoption of the API platform is heavily dependent on the ease with which consumers can discover the APIs they need, review the specification and technical content (by browsing through the developer portal), register to subscribe, and pay for their selected product, and then start using the API in their applications.
+The adoption of the API platform is heavily dependent on how easily consumers can:
 
-Consumer experience is typically delivered through a web portal and/or a mobile app. [Azure AD B2C](/azure/active-directory-b2c/) can be used to facilitate user registration and identity management including support to make use of social OpenID identity providers such as Microsoft, Google, etc.
+- Discover the APIs that they need.
+- Review the specification and technical content (by browsing through the developer portal).
+- Register to subscribe. 
+- Pay for the API products that they selected. 
+- Start using the APIs in their applications.
 
-Consumer experiences comprises of the following capabilities:
+Consumer experience is typically delivered through a web portal and/or a mobile app. You can use [Azure AD B2C](/azure/active-directory-b2c/) to facilitate user registration and identity management. Azure AD B2C includes support for OpenID identity providers, such as Microsoft and Google.
 
-- **Product (API) Catalogue**—create the marketplace experience for the users (both anonymous and registered).
+Consumer experiences comprise the following capabilities:
 
-- **Account & Subscription Management**—establish the procedures for registration and login based on the type of user. Include preferences such to use existing social identify providers. Allow for self-service subscription management, activate/deactivate services and pay charges as invoiced.
+- **Product (API) catalog**. Create the marketplace experience for the users, both anonymous and registered.
 
-- **User Interface (UI) / User Experience (UX)**—Identify and define experience for the channels that will be supported for the end user experience. Include multi device, multi form factor capabilities along with usage of modern UI design. Enrichen the experience through usability studies.
+- **Account & subscription management**. Establish the procedures for registering and signing in based on the type of user. Support user preferences, such to use existing social identity providers. Allow for self-service subscription management, activation and deactivation services, and to pay charges as invoiced.
+
+- **User interface (UI) / User experience (UX)**. Identify and define experience for the channels that will be supported for the end-user experience. Include multi-device, multi-form-factor capabilities, along with modern UI design. Enrich the experience through usability studies.
 
 #### API Developer Experience {#api-developer-experience}
 
 :::image type="content" alt-text="Diagram of features and capabilities of the enhanced API developer experience." source="media/design-api-developer-experiences-management-github-basic-features.png" lightbox="media/design-api-developer-experiences-management-github-basic-features.png":::
 
-The API developer experience that must be part of the end-to-end solution, will comprise of the following applications:
+The API developer experience that must be part of the end-to-end solution consists of the following applications:
 
-- **A Consumer Portal**—this will serve as a digital marketing website showcasing the various API products that is offered by the enterprise.
+- **Consumer portal**. The consumer portal serves as a marketing website that showcases the various API products that are offered by the enterprise.
 
-- **A Developer Portal**—this will offer third party developers review the documentation about the various API services, and how to use them in their applications.
+- **Developer portal**. The developer portal provides third-party developers with documentation about the various API services and how to use them in their applications.
 
-- **An Account Portal --** this will be used by the registered users to manage their subscriptions, along with other account related activities.
+- **Account portal**. Registered users manage their subscriptions and perform other account-related activities by using the account portal.
 
 ## Pricing
 
-The Consumer portal can be developed using the [Team or Enterprise pricing plan](https://github.com/pricing) for GitHub. You can refer to the feature matrix to identify what best suits for your enterprise.
+The consumer portal can be developed by using the _Team_ or _Enterprise_ [pricing plan for GitHub](https://github.com/pricing). You can refer to the feature matrix to identify which plan best suits your enterprise.
 
-For Azure API Management, you can make use of the Standard or the Premium Tier. Explore the [API Management pricing options](https://azure.microsoft.com/pricing/details/api-management/) to better understand the differences.
+For API Management, you can use the _Standard_ or the _Premium_ tiers. Explore the [API Management pricing options](https://azure.microsoft.com/pricing/details/api-management/) to better understand the differences between the tiers.
 
-For Azure App Service, refer the pricing options available for [Windows](https://azure.microsoft.com/pricing/details/app-service/windows/) or [Linux](https://azure.microsoft.com/pricing/details/app-service/linux/) environments for hosting your applications.
+For Azure App Service, refer to the pricing options that are available for [Windows](https://azure.microsoft.com/pricing/details/app-service/windows/) and [Linux](https://azure.microsoft.com/pricing/details/app-service/linux/) environments for hosting your applications.
 
 ## Next steps
 
-For more information on this, please refer the following additional resources:
+For more information on this, see the following additional resources:
 
 - [Monetization with Azure API Management](/azure/api-management/monetization-overview)
 
@@ -180,7 +184,7 @@ For more information on this, please refer the following additional resources:
 
 ## Related resources
 
-Please refer to the following related resources for additional information:
+For additional information, see the following related resources for additional information:
 
 - [Protect APIs with Azure Application Gateway and Azure API Management](/azure/architecture/reference-architectures/apis/protect-apis)
 
