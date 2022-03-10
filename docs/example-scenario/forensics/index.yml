@@ -4,7 +4,7 @@ metadata:
   titleSuffix: Azure Example Scenarios
   description: Create an infrastructure and workflow to ensure a valid digital evidence chain of custody (CoC) for computer forensics in Azure.
   author: simonesavi
-  ms.author: pnp
+  ms.author: simone.savi
   ms.date: 10/23/2020
   ms.topic: conceptual
   ms.service: architecture-center
