@@ -24,16 +24,16 @@ By following the guidance you can maintain full control of your research data, h
 
 4. The dataset in the secure storage account is presented to the data science VMs provisioned in a secure network environment for research work. Much of the data preparation is done on those VMs.
 
-5. The secure environment has Azure Machine Learning compute that can access the dataset through a private endpoint for users for AML capabilities, such as to train, deploy, automate, and manage machine learning models. At this point, models are created that meet regulatory guidelines. All model data is deidentified by removing personal information.
+5. The secure environment has Azure Machine Learning compute that can access the dataset through a private endpoint for users for AML capabilities, such as to train, deploy, automate, and manage machine learning models. At this point, models are created that meet regulatory guidelines. All model data is de-identified by removing personal information.
 
-6. Models or deidentified data is saved to a separate location on the secure storage (export path). When new data is added to the export path, a Logic App is triggered. In this architecture, the Logic App is outside the secure environment because no data is sent to the Logic App. Its only function is to send notification and start the manual approval process.
+6. Models or de-identified data is saved to a separate location on the secure storage (export path). When new data is added to the export path, a Logic App is triggered. In this architecture, the Logic App is outside the secure environment because no data is sent to the Logic App. Its only function is to send notification and start the manual approval process.
 
     The app starts an approval process requesting a review of data that is queued to be exported.  The manual reviewers ensure that sensitive data isn't exported. After the review process, the data is either approved or denied.
 
     > [!NOTE]
     > If an approval step is not required on exfiltration, the Logic App step could be omitted.
 
-7. If the deidentified data is approved, it's sent to the Data Factory instance.
+7. If the de-identified data is approved, it's sent to the Data Factory instance.
 
 8. Data Factory moves the data to the public storage account in a separate container to allow external researchers to have access to their exported data and models. Alternately, you can provision another storage account in a lower security environment.
 
@@ -80,7 +80,7 @@ These components continuously monitor the posture of the workload and its enviro
 ### Alternatives
 
 - This solution uses Data Factory to move the data to the public storage account in a separate container, in order to allow external researchers to have access to their exported data and models. Alternately, you can provision another storage account in a lower security environment.
-- This solution uses Azure Virtual Desktop as a jump box to gain access to the resources in the secure environment, with streaming applications and a full desktop. Alternately, you can use Azure Bastion. But, Virtual Desktop has some advantages, which include the ability to stream an app, to limit copy/paste and screen captures, and to support AAC authentication.
+- This solution uses Azure Virtual Desktop as a jump box to gain access to the resources in the secure environment, with streaming applications and a full desktop. Alternately, you can use Azure Bastion. But, Virtual Desktop has some advantages, which include the ability to stream an app, to limit copy/paste and screen captures, and to support AAC authentication. You can also consider configuring Point to Site VPN for offline training locally. This will also help save costs of having multiple VMs for workstations.
 - To secure data at rest, this solution encrypts all Azure Storage with Microsoft-managed keys using strong cryptography. Alternately, you can use customer-managed keys. The keys must be stored in a managed key store.
 
 ## Considerations
@@ -100,7 +100,13 @@ Azure resources that are used to store, test, and train research data sets are p
 
 The main blob storage in the secure environment is off the public internet. It's only accessible within the VNet through [private endpoint connections](/azure/storage/files/storage-files-networking-endpoints) and Azure Storage Firewalls. It's used to limit the networks from which clients can connect to Azure file shares.
 
-The secure environment has Azure Machine Learning compute that can access the dataset through a private endpoint.
+This architecture uses credential-based authentication for the main data store that is in the secure environment. In this case, the connection information like the subscription ID and token authorization is stored in key vault. Another option is to create identity-based data access, where your azure account is used to confirm if you have access to storage service. In identity-based data access scenario, no authentication credentials are saved. The details on how to use identity-based data access can be accessed [here](/azure/machine-learning/how-to-identity-based-data-access)
+
+For the compute cluster to solely communicate within the virtual network using Azure Private Link Ecosystem and service/private endpoints and not use Public IP for communication, you can enable **No public IP**. The details about this feature which is currently in preview(as of 3/7/2022) can be found [here](/azure/machine-learning/how-to-secure-training-vnet?tabs=azure-studio%2Cipaddress#no-public-ip)
+
+The secure environment has Azure Machine Learning compute that can access the dataset through a private endpoint. Additionally, Azure firewall can be used to control outbound access from Azure Machine learning compute. You can learn about how to configure azure firewall to control access to azure machine learning compute which resides in a machine learning workspace [here](azure/machine-learning/how-to-access-azureml-behind-firewall?tabs=ipaddress%2Cpublic)
+
+One of the ways to secure Azure Machine learning environment is discussed [here](https://techcommunity.microsoft.com/t5/fasttrack-for-azure/secure-azure-machine-learning-service-amls-environment/ba-p/3162297)
 
 For Azure services that cannot be configured effectively with private endpoints or to provide stateful packet inspection, consider using Azure Firewall or a third-party network virtual appliance (NVA).
 
