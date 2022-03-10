@@ -22,13 +22,13 @@ products:
 
 This article provides an overview of industry-specific Industrial IoT (IIoT) solutions and scenarios. IIoT is the application of internet-of-things (IoT) technology to manufacturing and other industries. [Azure Industrial IoT](https://azure.github.io/Industrial-IoT) is a suite of Azure IoT Edge and IoT Hub components, Azure microservices, and other Azure services that integrate the cloud into industrial and manufacturing shop floors.
 
-Azure IIoT relies on industry-standard open interfaces, such as the [Open Platform Communications Unified Architecture (OPC UA)](https://opcfoundation.org/about/opc-technologies/opc-ua), to integrate device and sensor data into the Azure cloud. Cloud services can use this data to develop transformative business and industrial solutions. [Azure industrial IoT analytics guidance](../../guide/iiot-guidance/iiot-architecture.yml) describes an Azure IIoT analytics solution that uses platform-as-a-service (PaaS) components.
+Azure IIoT relies on industry-standard open interfaces, such as the [Open Platform Communications Unified Architecture (OPC UA)](https://opcfoundation.org/about/opc-technologies/opc-ua), to integrate device and sensor data into the Azure cloud. Cloud services can use this data to develop transformative business and industrial solutions. For an IIoT solution that uses Azure platform-as-a-service (PaaS) components, see [Azure industrial IoT analytics guidance](../../guide/iiot-guidance/iiot-architecture.yml).
 
 For overall IIoT patterns and guides to use across industry verticals, see [Get started with Azure IoT solutions](iot-architecture-overview.md). The following Azure IIoT solutions and scenarios address unique business challenges for specific industries.
 
 ## Manufacturing
 
-- [Connected factory hierarchy service](../../solution-ideas/articles/connected-factory-hierarchy-service.yml). A hierarchy service lets businesses centrally define how production assets are organized within factories.
+- [Connected factory hierarchy service](../../solution-ideas/articles/connected-factory-hierarchy-service.yml). A hierarchy service lets businesses centrally define how to organize production assets within factories.
 
 - [Connected factory signal pipeline](../../example-scenario/iot/connected-factory-signal-pipeline.yml). The connected factory signal pipeline uses a common configuration interface based on OPC UA to connect heterogenous legacy and modern devices.
 
@@ -46,19 +46,20 @@ For overall IIoT patterns and guides to use across industry verticals, see [Get 
 
 - [Process real-time vehicle data using IoT](../../example-scenario/data/realtime-analytics-vehicle-iot.yml). Vehicle data ingestion, processing, and visualization are key capabilities of connected car solutions. Capturing and analyzing real-time vehicle data provides valuable insights to create new solutions.
 
-- [Predictive maintenance with IoT Edge](../../example-scenario/predictive-maintenance/iot-predictive-maintenance.yml). Azure IoT Edge brings data processing and storage close to the data source, enabling fast, consistent responses with reduced dependency on cloud connectivity and resources. Edge computing can incorporate artificial intelligence (AI) and machine learning (ML) models to create intelligent edge devices and networks.
+- [Predictive maintenance with IoT Edge](../../example-scenario/predictive-maintenance/iot-predictive-maintenance.yml). An intelligent edge train maintenance and safety solution brings data processing and storage close to the data source. Edge computing enables fast, consistent responses with reduced dependency on cloud connectivity and resources.
 
 ## Cross industry
 
-- [Create smart places by using Azure Digital Twins](../../example-scenario/iot/smart-places.yml). Smart places are physical environments that bring together connected devices and data sources. Smart places can include buildings, campuses, and cities. Azure Digital Twins stores digital representations of these environments to use for monitoring, analysis, and management.
+- [Create smart places by using Azure Digital Twins](../../example-scenario/iot/smart-places.yml). Smart places are physical environments, like buildings, campuses, and cities, that bring together connected devices and data sources. Azure Digital Twins stores digital representations of these environments to use for monitoring, analysis, and management.
 
 - [Environment monitoring and supply chain optimization with IoT](../../solution-ideas/articles/environment-monitoring-and-supply-chain-optimization.yml). Environment monitoring is an important activity in the global supply chain. A warehouse management scenario monitors environmental conditions and processes the data with ML to generate predictions.
 
 - [Real-time asset tracking and management](../../solution-ideas/articles/real-time-asset-tracking-mgmt-iot-central.yml). Azure IoT Central and other Azure services track and manage vehicles and other assets in real time.
 
-- [Project 15 Open Platform IoT sustainability](../../solution-ideas/articles/project-15-iot-sustainability.yml). Open Platform open-source software connects to the cloud and securely manages devices for scientific and conservation projects. The architecture serves as a reference for building end-to-end IoT solutions.
+- [Project 15 Open Platform IoT sustainability](../../solution-ideas/articles/project-15-iot-sustainability.yml). Open Platform open-source software connects to the cloud and securely manages devices for scientific and conservation projects. The architecture is a reference for building open-source, end-to-end IoT solutions.
 
 ## Next steps
 
 - [What is Azure IIoT?](/azure/industrial-iot/overview-what-is-industrial-iot)
+- [Azure Industrial IoT](https://azure.github.io/Industrial-IoT)
 - [Azure Industrial IoT documentation](/azure/industrial-iot)

@@ -30,7 +30,7 @@ For example, an industrial motor collects and sends temperature data to the clou
 
 ## Learn about Azure IoT
 
-You can learn about Azure IoT concepts in detail with this Learning Path and an Azure sandbox subscription. This five-hour learning path has eight training modules.
+You can learn about Azure IoT concepts in detail with this Learning Path and an Azure sandbox subscription. The five-hour learning path has eight training modules.
 
 > [!div class="nextstepaction"]
 > [Introduction to Azure IoT](/learn/paths/introduction-to-azure-iot)
@@ -63,9 +63,9 @@ Compare IoT Central (aPaaS) and Azure PaaS solution approaches based on your sol
 
 ## Start with Azure IoT Central
 
-[Azure IoT Central](/azure/iot-central/core/overview-iot-central) is Microsoft's aPaaS IoT solution, recommended as a starting point for IoT solutions. IoT Central accelerates IoT solution assembly and operations by preassembling the PaaS services that enterprise level solutions need. The platform has all the capabilities needed to connect, manage, and operate fleets of devices at scale.
+[Azure IoT Central](/azure/iot-central/core/overview-iot-central) is Microsoft's aPaaS IoT solution, recommended as a starting point for IoT solutions. IoT Central accelerates IoT solution assembly and operations by preassembling the PaaS services that enterprise level solutions need. The platform has all the necessary capabilities to connect, manage, and operate fleets of devices at scale.
 
-IoT Central provides an out-of-the-box and ready-to-use user interface and API surface area. Iot Central simplifies device connectivity, operations, and management so businesses can spend their time, effort, and budget creating business value with IoT data.
+IoT Central provides an out-of-the-box, ready-to-use user interface and API surface area. Iot Central simplifies device connectivity, operations, and management so businesses can spend their time, effort, and budget creating business value with IoT data.
 
 > [!div class="nextstepaction"]
 > [Azure IoT Central architecture](/azure/iot-central/core/concepts-architecture)
