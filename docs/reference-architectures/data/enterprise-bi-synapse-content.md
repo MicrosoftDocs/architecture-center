@@ -251,6 +251,20 @@ The views do pre-compute, store, and maintain data in SQL DW just like a table. 
 
 This section provides details on the sizing decisions to accomodate this dataset as well as gives further guidance for you to pick the right size for another workload.
 
+To see the performance benefits of scaling out, especially for larger data warehouse units, you want to use at least a 1-TB data set. To find the best number of data warehouse units for your dedicated SQL pool, try scaling up and down. Run a few queries with different numbers of data warehouse units after loading your data. Since scaling is quick, you can try various performance levels in an hour or less.
+
+Recommendations for finding the best number of data warehouse units:
+
+For a dedicated SQL pool in development, begin by selecting a smaller number of data warehouse units. A good starting point is DW400c or DW200c.
+Monitor your application performance, observing the number of data warehouse units selected compared to the performance you observe.
+Assume a linear scale, and determine how much you need to increase or decrease the data warehouse units.
+Continue making adjustments until you reach an optimum performance level for your business requirements.
+**Scaling**
+- [Scale compute for Synapse SQL pool with the Azure portal](https://docs.microsoft.com/en-us/azure/synapse-analytics/sql-data-warehouse/quickstart-scale-compute-portal)
+- [Scale compute for dedicated SQL pool with Azure PowerShell](https://docs.microsoft.com/en-us/azure/synapse-analytics/sql-data-warehouse/quickstart-scale-compute-powershell)
+- [Scale compute for dedicated SQL pool in Azure Synapse Analytics using T-SQL](https://docs.microsoft.com/en-us/azure/synapse-analytics/sql-data-warehouse/quickstart-scale-compute-tsql)
+- Pausing, monitoring and automation(https://docs.microsoft.com/en-us/azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-manage-compute-overview)
+
 ### Azure Synapse Pipelines
 
 ### Azure Synapse Provisioned Pool
