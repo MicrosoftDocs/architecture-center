@@ -266,8 +266,9 @@ This section provides details on the sizing decisions to accomodate this dataset
 ## DevOps considerations
 #### Quick start: ####
 
-[Azure Synapse 1-click POC](https://github.com/Azure/Test-Drive-Azure-Synapse-with-a-1-click-POC) environment with pre-populated dataset, pipeline, notebook
-This 1-click deployment allows the user to deploy a Proof-of-Concept environment of Azure Synapse Analytics with dataset (New York Taxi Trips & Fares data), pipeline to (ingest, merge, aggregate), notebook (Spark ML prediction). 
+Portal - [Azure Synapse Proof-of-Concept](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.synapse/synapse-poc) 
+Azure CLI - [Create an Azure synapse workspace with Azure CLI] (https://docs.microsoft.com/en-us/azure/synapse-analytics/quickstart-create-workspace-cli)
+Terraform - [Modern Data Warehousing with Terraform and Microsoft Azure](https://github.com/terraform-azurerm-examples/example-adf-synapse)
 
 #### General Recommendataions: ####
 
@@ -279,13 +280,11 @@ This 1-click deployment allows the user to deploy a Proof-of-Concept environment
 
   In this architecture, there are three main workloads:
   
-  - The data warehouse server, Analysis Services, and related resources.
-  - Azure Data Factory.
+  - The data warehouse server, and related resources.
+  - Azure Synapse pipelines.
   - An on-premises to cloud simulated scenario.
   
-  Each workload has its own deployment template.
-  
-  The data warehouse server is set up and configured by using Azure CLI commands which follows the imperative approach of the IaC practice. Consider using deployment scripts and integrate them in the automation process.
+  Each workload should have its own deployment template.
 
 - Consider staging your workloads. Deploy to various stages and run validation checks at each stage before moving to the next stage. That way you can push updates to your production environments in a highly controlled way and minimize unanticipated deployment issues. Use [Blue-green deployment][blue-green-dep] and [Canary releases][cannary-releases]  strategies for updating live production environments.
 
