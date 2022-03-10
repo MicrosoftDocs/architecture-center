@@ -178,9 +178,7 @@ There is a range of [Data Warehouse configurations](https://docs.microsoft.com/e
 |Data warehouse units	|# of compute nodes	 |# of distributions per node|
 |-----------------------|--------------------|---------------------------|
 |DW100c             	|1          	     |60                         |
-                            to 
-|Data warehouse units	|# of compute nodes	 |# of distributions per node|
-|-----------------------|--------------------|---------------------------|
+|                            to                                       |
 |DW30000c	            |60	                 |1                          |  
 
 To see the performance benefits of scaling out, especially for larger data warehouse units, you want to use at least a 1-TB data set. To find the best number of data warehouse units for your dedicated SQL pool, try scaling up and down. Run a few queries with different numbers of data warehouse units after loading your data. Since scaling is quick, you can try various performance levels in an hour or less.
