@@ -250,4 +250,4 @@ When you expand the scale of a solution to very large deployments, there are spe
 * Review guidance for [multitenancy and Azure Cosmos DB](../service/cosmos-db.md).
 * Learn about [hot, warm, and cold data paths with IoT on Azure](https://techcommunity.microsoft.com/t5/fasttrack-for-azure/hot-warm-and-cold-data-paths-with-iot-on-azure/ba-p/2336035).
 * Refer to the [Azure IoT reference architectures](/azure/architecture/reference-architectures/iot).
-* Review documentation on how to [Scale IoT solutions with deployment stamps](../../../example-scenario/iot/application-stamps.yml).application
+* Review documentation on how to [Scale IoT solutions with deployment stamps](../../../example-scenario/iot/application-stamps.yml).
