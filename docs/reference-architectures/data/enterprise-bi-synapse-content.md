@@ -301,7 +301,7 @@ Some common security questions include:
 - How is my data protected?
 - What network security technology can I use to protect the integrity, confidentiality, and access of my networks and data?
 - What are the tools that detect and notify me of threats?
-## For awnsers to these questions and more: ##
+### For awnsers to these questions and more: ###
 - [Data protection](https://docs.microsoft.com/en-us/azure/synapse-analytics/guidance/security-white-paper-data-protection)
 - [Access control](https://docs.microsoft.com/en-us/azure/synapse-analytics/guidance/security-white-paper-access-control)
 - [Authentication](https://docs.microsoft.com/en-us/azure/synapse-analytics/guidance/security-white-paper-authentication)
