@@ -4,6 +4,7 @@ metadata:
   titleSuffix: Azure Example Scenarios
   description: Learn about an end-to-end solution for health records management that uses Azure Functions microservices integrated with other services via a virtual network.
   author: hannesne
+  ms.author: hannesne
   ms.date: 08/27/2020
   ms.topic: conceptual
   ms.service: architecture-center

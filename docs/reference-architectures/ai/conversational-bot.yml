@@ -3,7 +3,7 @@ metadata:
   title: Enterprise-grade conversational bot
   description: Learn how to build a robust, secure, and actively learning bot (chatbot) using the Azure Bot Framework.
   author: roalexan
-  ms.author: pnp
+  ms.author: roalexan
   ms.date: 01/24/2019
   ms.topic: conceptual
   ms.service: architecture-center

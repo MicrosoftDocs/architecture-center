@@ -4,7 +4,7 @@ metadata:
   titleSuffix: Azure Reference Architectures
   description: This scenario describes an approach to machine learning operations (MLOps) that involves running model training and batch scoring on Azure Databricks using Databricks Notebook as an orchestrator.
   author: Prabal
-  ms.author: edprice
+  ms.author: prabgup
   ms.date: 08/26/2021
   ms.topic: conceptual
   ms.service: architecture-center

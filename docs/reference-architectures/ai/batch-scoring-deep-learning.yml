@@ -4,7 +4,7 @@ metadata:
   titleSuffix: Azure Reference Architectures
   description: Apply neural style transfer to a video using a convolutional neural network (deep learning) in an Azure Machine Learning pipeline with batch scoring.
   author: jiata
-  ms.author: pnp
+  ms.author: jiata
   ms.date: 02/06/2019
   ms.topic: conceptual
   ms.service: architecture-center
