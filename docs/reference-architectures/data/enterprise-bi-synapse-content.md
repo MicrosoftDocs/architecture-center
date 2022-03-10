@@ -285,11 +285,11 @@ Continue making adjustments until you reach an optimum performance level for you
 - [Scale compute for dedicated SQL pool in Azure Synapse Analytics using T-SQL](https://docs.microsoft.com/en-us/azure/synapse-analytics/sql-data-warehouse/quickstart-scale-compute-tsql)
 - [Pausing, monitoring and automation](https://docs.microsoft.com/en-us/azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-manage-compute-overview)
 
-<-- ### Azure Synapse Pipelines -->
+<!-- ### Azure Synapse Pipelines -->
 
-<-- ### Azure Synapse Provisioned Pool -->
+<!-- ### Azure Synapse Provisioned Pool -->
 
-<-- ### Power BI premium -->
+<!-- ### Power BI premium -->
 
 ## Security considerations
 
