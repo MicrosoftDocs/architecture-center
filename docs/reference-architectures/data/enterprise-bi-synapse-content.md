@@ -266,9 +266,9 @@ This section provides details on the sizing decisions to accomodate this dataset
 ## DevOps considerations
 #### Quick start: ####
 
-Portal - [Azure Synapse Proof-of-Concept](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.synapse/synapse-poc) 
-Azure CLI - [Create an Azure synapse workspace with Azure CLI] (https://docs.microsoft.com/en-us/azure/synapse-analytics/quickstart-create-workspace-cli)
-Terraform - [Modern Data Warehousing with Terraform and Microsoft Azure](https://github.com/terraform-azurerm-examples/example-adf-synapse)
+- Portal - [Azure Synapse Proof-of-Concept](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.synapse/synapse-poc) 
+- Azure CLI - [Create an Azure synapse workspace with Azure CLI] (https://docs.microsoft.com/en-us/azure/synapse-analytics/quickstart-create-workspace-cli)
+- Terraform - [Modern Data Warehousing with Terraform and Microsoft Azure](https://github.com/terraform-azurerm-examples/example-adf-synapse)
 
 #### General Recommendataions: ####
 
