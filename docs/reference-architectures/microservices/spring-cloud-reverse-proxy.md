@@ -1,24 +1,3 @@
----
-title: Expose Azure Spring Cloud apps through a reverse proxy
-description: Learn how to expose your Azure Spring Cloud apps securely using reverse proxy services such as Azure Application Gateway, Azure Front Door and Spring Cloud Gateway.
-author: jelledruyts
-ms.author: jelled
-ms.date: 02/11/2022
-ms.topic: conceptual
-ms.service: architecture-center
-ms.subservice: azure-guide
-products:
-  - azure-spring-cloud
-  - azure-application-gateway
-  - azure-front-door
-categories:
-  - web
-  - networking
-  - security
-ms.custom: fcp
----
-
-# Expose Azure Spring Cloud apps through a reverse proxy
 
 When you host your apps or microservices in [Azure Spring Cloud](/azure/spring-cloud), you don't always want to publish them directly to the internet, but expose them through a reverse proxy instead. This allows you to place a service in front of your apps where you can define cross-cutting functionality such as Web Application Firewall (WAF) capabilities to secure your apps, load balancing, routing, request filtering, rate limiting, etc.
 
