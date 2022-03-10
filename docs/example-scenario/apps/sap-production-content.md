@@ -19,7 +19,7 @@ _Download a [Visio file](https://arch-center.azureedge.net/sap-oracle-architectu
 
 ## Components
 
-This reference architecture describes a typical SAP production system running on Oracle Database in Azure, in a highly-available deployment to maximize system availability. The architecture and its components can be customized based on business requirements (RTO, RPO, uptime expectations, system role) and potentially reduced to a single VM. The network layout is simplified to demonstrate the architectural principals of such SAP environment and not intended to describe a full enterprise network.
+This reference architecture describes a typical SAP production system running on Oracle Database in Azure, in a highly available deployment to maximize system availability. The architecture and its components can be customized based on business requirements (RTO, RPO, uptime expectations, system role) and potentially reduced to a single VM. The network layout is simplified to demonstrate the architectural principals of such SAP environment and not intended to describe a full enterprise network.
 
 ### Networking
 
@@ -61,7 +61,7 @@ This architecture uses [Azure managed disks](/azure/virtual-machines/windows/man
 - **Storing Oracle Database files** On Linux ext4 or xfs filesystems need to be used for database, NTFS for Windows deployments. [Oracle ASM](/azure/virtual-machines/workloads/oracle/configure-oracle-asm) is also supported for Oracle deployments for Oracle Database 12c Release 2 and higher.
 - **Options to managed disks** is to use [Azure NetApp Files](/azure/azure-netapp-files/azure-netapp-files-introduction) for the Oracle Database as well, the details of which are described in above mentioned [SAP note 2039619](https://launchpad.support.sap.com/#/notes/2039619) and [Oracle on Azure](/azure/virtual-machines/workloads/sap/dbms_guide_oracle) documentation. [**Azure Files NFS**](/azure/storage/files/files-nfs-protocol) volumes are not intended for storing Oracle Database files, unlike Azure NetApp Files.
 
-### High-Availability
+### High Availability
 
 The above architecture depicts a highly available deployment, with each application layer contained on 2 or more virtual machines. Following components are used.
 
@@ -92,7 +92,7 @@ Various 3rd party cluster solutions exist as an alternative, such as SIOS Protec
 **Oracle RAC** Oracle Real Application Cluster (RAC) is currently [not certified or supported by Oracle in Azure](https://launchpad.support.sap.com/#/notes/2039619). However Oracle Data Guard technologies and architecture for high-availability can provide highly resilient SAP environments with protection against rack, data center, or regional interruptions of service.
 
 **NFS tier** For all highly available SAP deployments, a resilient NFS tier is required to be used, providing NFS volumes for SAP transport directory, sapmnt volume for SAP binaries as well as further volumes for (A)SCS and ERS instances. 
-Options to provide a NFS tier are
+Options to provide an NFS tier are
 - [Azure Files NFS](/azure/storage/files/files-nfs-protocol) with zonal redundant storage (ZRS) - [SLES](/azure/virtual-machines/workloads/sap/high-availability-guide-suse-nfs-azure-files) and [RHEL](/azure/virtual-machines/workloads/sap/high-availability-guide-rhel-nfs-azure-files) guides
 - [Azure NetApp Files](/azure/azure-netapp-files/azure-netapp-files-introduction) deployment of NFS volumes - [SLES](/azure/virtual-machines/workloads/sap/high-availability-guide-suse-netapp-files) and [RHEL](/azure/virtual-machines/workloads/sap/high-availability-guide-rhel-netapp-files) guides
 - VM based NFS cluster - two additional VMs with local storage, replicated between VMs with DRBD (Distributed Replicated Block Device) - [SLES](/azure/virtual-machines/workloads/sap/high-availability-guide-suse-nfs) and [RHEL](/azure/virtual-machines/workloads/sap/high-availability-guide-rhel) guides
@@ -100,7 +100,7 @@ Options to provide a NFS tier are
 **SAP central services cluster** This reference architecture runs Central Services on discrete VMs. Central Services is a potential single point of failure (SPOF) when it's deployed to a single VM. To implement a highly available solution, cluster management software is needed which automates failover of (A)SCS and ERS instances to the respective VM.
 As this is tied strongly with the chosen NFS solution
 
-Chosen cluster solution requires a mechanism to decide in case of software or infrastructure unavailability which VM should serve the respective service(s). With SAP on Azure, two options are available for Linux based implemenation of STONITH - how to deal with unresponsive VM or application
+Chosen cluster solution requires a mechanism to decide in case of software or infrastructure unavailability which VM should serve the respective service(s). With SAP on Azure, two options are available for Linux based implementation of STONITH - how to deal with unresponsive VM or application
 - _SUSE-Linux-only_ **SBD (STONITH Block Device)** - using one or three additional VMs which serve as iSCSI exports of a small block device, which is accessed regularly by the actual cluster member VMs, two (A)SCS/ERS VMs in this cluster pool. The VMs use these SBD mounts to cast votes and thus achieve quorum for cluster decisions. The architecture contained on this page does NOT contain the 1 or 3 additional SBD VMs. RedHat does not support any SBD implementations in Azure and thus this option is only available to SUSE SLES operating system.
 - **Azure Fence Agent** - without utilizing additional VMs, Azure management API is used for regular checks for VM availability. 
 
