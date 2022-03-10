@@ -393,6 +393,8 @@ items:
                 href: example-scenario/teams/securing-bot-teams-channel.yml
           - name: Azure and Dynamics 365 scenarios
             items:
+              - name: Overview
+                href: solutions/dynamics-365-scenarios.md
               - name: All Dynamics 365 architectures
                 href: /azure/architecture/browse/?terms=dynamics%20365
               - name: Customer 360 with Dynamics 365 CI
