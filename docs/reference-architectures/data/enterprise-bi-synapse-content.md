@@ -249,11 +249,29 @@ The views do pre-compute, store, and maintain data in SQL DW just like a table. 
 
 ## Scalability considerations
 
-This section provides details on the sizing decisions to accomodate this dataset as well as gives further guidance for you to pick the right size for another workload.
+This section provides details on the sizing decisions to accomodate this dataset as well as gives further guidance for you to pick the right size for workload.
+|Data warehouse units	|# of compute nodes	#| of distributions per node|
+|-----------------------------------------------------------------------|
+|DW100c             	|1          	     |60                        |
+|DW200c	                |1          	     |60                        |
+|DW300c	                |1	                 |60                        |
+|DW400c	                |1	                 |60                        |
+|DW500c	                |1	                 |60                        |
+|DW1000c	            |2	                 |30                        |
+|DW1500c	            |3	                 |20                        |
+|DW2000c	            |4	                 |15                        |
+|DW2500c	            |5	                 |12                        |
+|DW3000c	            |6	                 |10                        |
+|DW5000c	            |10	                 |6                         |
+|DW6000c	            |12	                 |5                         |
+|DW7500c	            |15	                 |4                         |
+|DW10000c	            |20	                 |3                         |
+|DW15000c	            |30	                 |2                         |
+|DW30000c	            |60	                 |1                         |
 
 To see the performance benefits of scaling out, especially for larger data warehouse units, you want to use at least a 1-TB data set. To find the best number of data warehouse units for your dedicated SQL pool, try scaling up and down. Run a few queries with different numbers of data warehouse units after loading your data. Since scaling is quick, you can try various performance levels in an hour or less.
 
-Recommendations for finding the best number of data warehouse units:
+**Recommendations for finding the best number of data warehouse units:**
 
 For a dedicated SQL pool in development, begin by selecting a smaller number of data warehouse units. A good starting point is DW400c or DW200c.
 Monitor your application performance, observing the number of data warehouse units selected compared to the performance you observe.
