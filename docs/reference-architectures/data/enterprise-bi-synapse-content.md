@@ -292,17 +292,23 @@ Continue making adjustments until you reach an optimum performance level for you
 <!-- ### Power BI premium -->
 
 ## Security considerations
+Frequent headlines of data breaches, malware infections, and malicious code injection are among an extensive list of security concerns for companies looking to cloud modernization. The enterprise customer requires a cloud provider or service solution that can address their concerns as they can't afford to get it wrong.
 
-### for all components  - private connectivity
+Some common security questions include:
 
-### Authorization
+- How can I control who can see what data?
+- What are the options for verifying a user's identity?
+- How is my data protected?
+- What network security technology can I use to protect the integrity, confidentiality, and access of my networks and data?
+- What are the tools that detect and notify me of threats?
+## For awnsers to these questions and more: ##
+- [Data protection](https://docs.microsoft.com/en-us/azure/synapse-analytics/guidance/security-white-paper-data-protection)
+- [Access control](https://docs.microsoft.com/en-us/azure/synapse-analytics/guidance/security-white-paper-access-control)
+- [Authentication](https://docs.microsoft.com/en-us/azure/synapse-analytics/guidance/security-white-paper-authentication)
+- [Network security](https://docs.microsoft.com/en-us/azure/synapse-analytics/guidance/security-white-paper-network-security)
+- [Threat detection](https://docs.microsoft.com/en-us/azure/synapse-analytics/guidance/security-white-paper-threat-protection)
 
-## DevOps considerations
-#### Quick start: ####
-
-- Portal - [Azure Synapse Proof-of-Concept](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.synapse/synapse-poc) 
-- Azure CLI - [Create an Azure synapse workspace with Azure CLI](https://docs.microsoft.com/en-us/azure/synapse-analytics/quickstart-create-workspace-cli)
-- Terraform - [Modern Data Warehousing with Terraform and Microsoft Azure](https://github.com/terraform-azurerm-examples/example-adf-synapse)
+## DevOps ##
 
 #### General Recommendataions: ####
 
@@ -325,6 +331,12 @@ Continue making adjustments until you reach an optimum performance level for you
     Have a good rollback strategy for handling failed deployments. For example, you can automatically redeploy an earlier, successful deployment from your deployment history. See the --rollback-on-error flag parameter in Azure CLI.
 
 - [Azure Monitor][azure-monitor] is the recommended option for analyzing the performance of your data warehouse and the entire Azure analytics platform for an integrated monitoring experience. [Azure Synapse Analytics][synapse-analytics] provides a monitoring experience within the Azure portal to show insights to your data warehouse workload. The Azure portal is the recommended tool when monitoring your data warehouse because it provides configurable retention periods, alerts, recommendations, and customizable charts and dashboards for metrics and logs.
+
+#### Quick start: ####
+
+- Portal - [Azure Synapse Proof-of-Concept](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.synapse/synapse-poc) 
+- Azure CLI - [Create an Azure synapse workspace with Azure CLI](https://docs.microsoft.com/en-us/azure/synapse-analytics/quickstart-create-workspace-cli)
+- Terraform - [Modern Data Warehousing with Terraform and Microsoft Azure](https://github.com/terraform-azurerm-examples/example-adf-synapse)
 
 For more information, see the DevOps section in [Microsoft Azure Well-Architected Framework][AAF-devops].
 
