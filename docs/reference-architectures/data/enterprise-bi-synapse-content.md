@@ -27,12 +27,11 @@ The architecture consists of the following components.
 
 ### Data source
 
-**SQL Server**. The source data is located in a SQL Server database on premises. To simulate the on-premises environment, the deployment scripts for this architecture provision a VM in Azure with SQL Server installed. The [Adventure Works DW][adventureworksdw-sample-link] is used as the source data schema and sample data. 
-<!--TODO - import the backup, save inside the repo and change variable format? -->
+**SQL Server**. The source data is located in a SQL Server database on premises. To simulate the on-premises environment, the deployment scripts for this architecture provision a VM in Azure with SQL Server installed. The [Adventure Works DW][adventureworksdw-sample-link] is used as the source data schema and sample data.
 
 ### Ingestion and data storage
 
-**Azure Data Lake Gen2 (ADLS)**. [ADLS](/azure/databricks/data/data-sources/azure/adls-gen2/) is used as a temparary 'staging' area during PolyBase copy into Azure Synapse Dedicated SQL Pool.
+**Azure Data Lake Gen2 (ADLS)**. [ADLS](/azure/databricks/data/data-sources/azure/adls-gen2/) is used as a temporary 'staging' area during PolyBase copy into Azure Synapse Dedicated SQL Pool.
 
 **Azure Synapse**. [Azure Synapse](/azure/sql-data-warehouse/) is a distributed system designed to perform analytics on large data. It supports massive parallel processing (MPP), which makes it suitable for running high-performance analytics. Azure Synapse Dedicated SQL Pool is a target for ongoing ingestion from on-premises. It can be used for further processing if required, as well as serving the data for PowerBI over Direct Query mode.
 
@@ -51,7 +50,7 @@ Data modeling approach in this use case is presented by composition of Enterpris
 <!-- TODO: find better place for this -->
 ![Diagram of the enterprise BI pipeline](./images/enterprise-bi-small-architecture.png)
 
-### Incremental loading *TODO review
+### Incremental loading
 
 When you run an automated ETL or ELT process, it's most efficient to load only the data that changed since the previous run. This is called an *incremental load*, as opposed to a full load that loads all the data. To perform an incremental load, you need a way to identify which data has changed. The most common approach is to use a *high water mark* value, which means tracking the latest value of some column in the source table, either a datetime column or a unique integer column.
 
@@ -61,7 +60,7 @@ Starting with SQL Server 2016, you can use [temporal tables](/sql/relational-dat
 > For earlier versions of SQL Server, you can use [Change Data Capture](/sql/relational-databases/track-changes/about-change-data-capture-sql-server) (CDC). This approach is less convenient than temporal tables, because you have to query a separate change table, and changes are tracked by a log sequence number, rather than a timestamp.
 >
 
-Temporal tables are useful for dimension data, which can change over time. Fact tables usually represent an immutable transaction such as a sale, in which case keeping the system version history doesn't make sense. Instead, transactions usually have a column that represents the transaction date, which can be used as the watermark value. For example, in the AdventureWorks Data Warehouse, the `SalesLT.*` tables have a `LastModified` field that defaults to `sysdatetime()`. <!-- Check default-->
+Temporal tables are useful for dimension data, which can change over time. Fact tables usually represent an immutable transaction such as a sale, in which case keeping the system version history doesn't make sense. Instead, transactions usually have a column that represents the transaction date, which can be used as the watermark value. For example, in the AdventureWorks Data Warehouse, the `SalesLT.*` tables have a `LastModified` field.
 
 Here is the general flow for the ELT pipeline:
 
@@ -73,100 +72,26 @@ Here is the general flow for the ELT pipeline:
 
 ## Data pipeline
 
-This reference architecture uses the [Adventure Works DW][adventureworksdw-sample-link] sample database as a data source. The [Incremental Data Load pattern](incremental-load) discussed above is implemented to ensure we only load data that was modified or added after the most recent pipeline run. The data pipeline has the following stages:
+This reference architecture uses the [Adventure Works DW][adventureworksdw-sample-link] sample database as a data source. The [Incremental Data Load pattern](incremental-load) discussed above is implemented to ensure we only load data that was modified or added after the most recent pipeline run.
 
+<!-- insert overview of tools/ architecture-->
 
-<!--
-1. Export the data from SQL Server to flat files (bcp utility).
-2. Copy the flat files to Azure Blob Storage (AzCopy).
-3. Load the data into Azure Synapse (PolyBase).
-4. Transform the data into a star schema (T-SQL).
-5. Load a semantic model into Analysis Services (SQL Server Data Tools). 
--->
+### Metadata-driven copy tool
 
-<!-- Noah TODO: link to copy data tool-->
+This architecture uses the built in [metadata-driven copy tool](metadata-copy) within Synapse Pipelines to incrementally load all tables contained within our relational database. By navigating through the wizard-based experience, we connect the Copy Data tool to our source database, and configure either incremental or full loading for each table. The Copy Data tool will then create both the pipelines, and SQL scripts to generate the control table required to store data for the incremental loading process (e.g. High watermark value/column for each table). Once these scripts are run, the pipeline will be ready to load all tables in the source data warehouse into the Synapse dedicated pool.
 
-1. Most recent watermark entry is retrieved from the control table, located in the SQL DB.
-1. For every table in the SQL DB, the pipeline will:
+![Metadata-driven Copy Tool Wizard in Synapse Analytics](./images/metadata-copy.png)
 
-    1. Find the latest value in the table's watermark column
-    1. Check if a schema for the table exists, and create a schema if one is not found.
-    1. The Copy Data activity in Azure Synapse Pipelines will copy data from the SQL DB into the ADLS staging environment.
-    1. Data from the staging environment is then loaded into the Synapse Provisioned SQL Pool via PolyBase
-    1. The new watermark value to is saved in the control table by a Stored Procedure, in preparation for the next pipeline run. <!-- TODO - Noah: change if condition to appending variable onto list, update stored proc to simplify-->
-1. A stored procedure to update the watermark stored in the SQL DB is executed.
+The tool will create three pipelines to iterate over all the tables in the database, before loading the data.
 
-<!-- synapse data mapping flows, added by eng team TODO: how mapping data flows transform the data-->
-![Diagram of the enterprise BI pipeline](./images/enterprise-bi-watermark-pipeline.png)
+The pipelines generated by this tool will:
 
-The next sections describe these stages in more detail.
-
-<!-- keeping original data for authoring reference - delete before PR merge
-### Export data from SQL Database
-
-The [bcp](/sql/tools/bcp-utility) (bulk copy program) utility is a fast way to create flat text files from SQL tables. In this step, you select the columns that you want to export, but don't transform the data. Any data transformations should happen in Azure Synapse.
-TODO: what to change on source
-
-**Recommendations:**
-TODO: how to make efficient -->
-
-### Using Synapse Pipelines
-
-Azure Synapse Pipelines are used to define the ordered set of activities to complete for our incremental load pattern. TODO: Elaborate.
-
-**Recommendations:**
-
-TODO: how to set up recurrence to deliver HWM
-
-TODO:IR size selection. pricing?
-
-Create the storage account in a region near the location of the source data. Deploy the storage account and the Azure Synapse instance in the same region.
-
-Don't run AzCopy on the same machine that runs your production workloads, because the CPU and I/O consumption can interfere with the production workload.
-
-Test the upload first to see what the upload speed is like. You can use the /NC option in AzCopy to specify the number of concurrent copy operations. Start with the default value, then experiment with this setting to tune the performance. In a low-bandwidth environment, too many concurrent operations can overwhelm the network connection and prevent the operations from completing successfully.
-
-AzCopy moves data to storage over the public internet. If this isn't fast enough, consider setting up an [ExpressRoute](/azure/expressroute/) circuit. ExpressRoute is a service that routes your data through a dedicated private connection to Azure. Another option, if your network connection is too slow, is to physically ship the data on disk to an Azure datacenter. For more information, see [Transferring data to and from Azure](../../data-guide/scenarios/data-transfer.md).
-
-During a copy operation, AzCopy creates a temporary journal file, which enables AzCopy to restart the operation if it gets interrupted (for example, due to a network error). Make sure there is enough disk space to store the journal files. You can use the /Z option to specify where the journal files are written.
-
-<!--
-### Use Azure Synapse Provisioned Pool
-
-TODO
-
-### Transform the data
-
-Transform the data and move it into production tables. In this step, the data is transformed into a star schema with dimension tables and fact tables, suitable for semantic modeling.
-
-Create the production tables with clustered columnstore indexes, which offer the best overall query performance. Columnstore indexes are optimized for queries that scan many records. Columnstore indexes don't perform as well for singleton lookups (that is, looking up a single row). If you need to perform frequent singleton lookups, you can add a non-clustered index to a table. Singleton lookups can run significantly faster using a non-clustered index. However, singleton lookups are typically less common in data warehouse scenarios than OLTP workloads. For more information, see [Indexing tables in Azure Synapse](/azure/sql-data-warehouse/sql-data-warehouse-tables-index).
-
-> [!NOTE]
-> Clustered columnstore tables do not support `varchar(max)`, `nvarchar(max)`, or `varbinary(max)` data types. In that case, consider a heap or clustered index. You might put those columns into a separate table.
-
-Because the sample database is not very large, we created replicated tables with no partitions. For production workloads, using distributed tables is likely to improve query performance. See [Guidance for designing distributed tables in Azure Synapse](/azure/sql-data-warehouse/sql-data-warehouse-tables-distribute). Our example scripts run the queries using a static [resource class](/azure/sql-data-warehouse/resource-classes-for-workload-management).
-
-### Load the semantic model
-
-Load the data into a tabular model in Azure Analysis Services. In this step, you create a semantic data model by using SQL Server Data Tools (SSDT). You can also create a model by importing it from a Power BI Desktop file. Because Azure Synapse does not support foreign keys, you must add the relationships to the semantic model, so that you can join across tables.
-
--->
-
-### Look up previous watermark
-
-The Lookup activity is used to query the control table for the most recent watermark value. The control table will contain the watermark value corresponding to the most recent value in the watermark column from the last data load. This value is updated in the last step of our data pipeline, to ensure we only load data changed since our most recent pipeline run.
-
-**Recommendations:**
-
-This technique works best if the data type of the watermark column is the same across all tables in your Data Warehouse.
-
-### ForEach Table
-
-The ForEach activity is configured to iterate over every table in the Data Warehouse, allowing us to check if any data has been modified, and if so, copy that data into our SQL Pool. <!-- TODO: links for all activities-->
-
-**Recommendations:**
-
-Something about setting the items params/ array
+- Count the number of objects (e.g. tables) to be copied in the pipeline run.
+- For each object to be loaded/copied the pipeline will:
+  - Retrieve the high watermark value from the control table
+  - Copy Data from the source tables into the staging account in ADLS Gen2
+  - !!Load data into the Dedicated SQL pool via Polybase/ Copy command (TBC)
+  - Update the high watermark value in the control table
 
 ### Copy Activity - Loading data into Synapse SQL Pool
 
@@ -178,9 +103,6 @@ Loading the data is a two-step process:
 
 1. Create a set of external tables for the data. An external table is a table definition that points to data stored outside of the warehouse &mdash; in this case, the flat <!--check staging file type--> files in blob storage. This step does not move any data into the warehouse.
 2. Create staging tables, and load the data into the staging tables. This step copies the data into the warehouse.
-
-**Considerations**
-TODO: target schema needs to exist
 
 **Recommendations:**
 
@@ -200,7 +122,7 @@ Be aware of the following limitations:
 
 - Your source data schema might contain data types that are not supported in Azure Synapse.
 
-To work around these limitations, you can create a stored procedure that performs the necessary conversions. Alternatively, [Redgate Data Platform Studio](/azure/sql-data-warehouse/sql-data-warehouse-load-with-redgate) automatically converts data types that aren't supported in Azure Synapse.
+To work around these limitations, you can create a stored procedure that performs the necessary conversions. Alternatively, [Redgate Data Platform Studio](/azure/sql-data-warehouse/sql-data-warehouse-load-with-redgate) automatically converts data types that aren't supported in Azure Synapse. <!-- check -->
 
 For more information, see the following articles:
 
@@ -208,20 +130,20 @@ For more information, see the following articles:
 - [Migrate your schemas to Azure Synapse](/azure/sql-data-warehouse/sql-data-warehouse-migrate-schema)
 - [Guidance for defining data types for tables in Azure Synapse](/azure/sql-data-warehouse/sql-data-warehouse-tables-data-types)
 
-### Stored Procedure = TODO* the new watermark value
+### Using Synapse Pipelines
 
-After copying new records into our SQL pool, we execute the stored procedure defined in the [incremental load pattern](incremental-load). This will update the value of the high watermark in our control table.
+Azure Synapse Pipelines are used to define the ordered set of activities to complete for our incremental load pattern. Triggers are used to start the pipeline, which can be triggered manually or at a time specified. <!-- elaborate -->
 
 ### Transform the data
 
-TODO: No transformation happening here, bringing the model one to one
-Mapping data flow..
+Transform the data and move it into production tables. In this step, the data is transformed into a star schema with dimension tables and fact tables, suitable for semantic modeling. <!-- confirm-->
 
-**Recommendataions:**
+Create the production tables with clustered columnstore indexes, which offer the best overall query performance. Columnstore indexes are optimized for queries that scan many records. Columnstore indexes don't perform as well for singleton lookups (that is, looking up a single row). If you need to perform frequent singleton lookups, you can add a non-clustered index to a table. Singleton lookups can run significantly faster using a non-clustered index. However, singleton lookups are typically less common in data warehouse scenarios than OLTP workloads. For more information, see [Indexing tables in Azure Synapse](/azure/sql-data-warehouse/sql-data-warehouse-tables-index).
 
-TODO: partitioning on MPP if needed
+> [!NOTE]
+> Clustered columnstore tables do not support `varchar(max)`, `nvarchar(max)`, or `varbinary(max)` data types. In that case, consider a heap or clustered index. You might put those columns into a separate table.
 
-// Galina to cover PBI with modelling
+Because the sample database is not very large, we created replicated tables with no partitions. For production workloads, using distributed tables is likely to improve query performance. See [Guidance for designing distributed tables in Azure Synapse](/azure/sql-data-warehouse/sql-data-warehouse-tables-distribute). Our example scripts run the queries using a static [resource class](/azure/sql-data-warehouse/resource-classes-for-workload-management).
 
 ### Use Power BI Premium to access, model and visualize the data - Galina
 
@@ -346,7 +268,7 @@ This section provides information on the pricing for different Services involved
 
 ### Azure Synapse
 
-Azure Synapse Analytics (https://azure.microsoft.com/pricing/details/synapse-analytics/) serverless architecture allows you to scale your compute and storage levels independently. Compute resources are charged based on usage, and you can scale or pause these resources on demand. Storage resources are billed per terabyte, so your costs will increase as you ingest more data.
+[Azure Synapse Analytics](https://azure.microsoft.com/pricing/details/synapse-analytics/) serverless architecture allows you to scale your compute and storage levels independently. Compute resources are charged based on usage, and you can scale or pause these resources on demand. Storage resources are billed per terabyte, so your costs will increase as you ingest more data.
 
 ### Azure Synapse Pipelines
 
@@ -412,5 +334,5 @@ You may want to review the following [Azure example scenarios](/azure/architectu
 [incremental-load]: azure/data-factory/tutorial-incremental-copy-overview
 [pbi-premium-capacities]: powerbi-docs/admin/service-premium-what-is.md#reserved-capacities
 [synapse-dedicated-pool]:azure/articles/synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md#synapse-sql-pool-in-azure-synapse
-[pbi-what-is-premium] https://docs.microsoft.com/en-us/power-bi/admin/service-premium-what-is#analysis-services-in-power-bi-premium
-
+[pbi-what-is-premium]: power-bi/admin/service-premium-what-is#analysis-services-in-power-bi-premium
+[metadata-copy]: azure/data-factory/copy-data-tool-metadata-driven
