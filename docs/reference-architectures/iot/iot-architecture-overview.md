@@ -1,122 +1,115 @@
 ---
-title: Getting started with Azure IoT solutions
+title: Get started with Azure IoT solutions
 titleSuffix: Azure Reference Architectures
-description: An overview of Azure IoT architectures.  Learn basic concepts around getting started with Azure IoT, how to get started building an IoT solution, or understand how to optimize an IoT solution for production.
+description: Learn basic IoT concepts, how to get started building an Azure IoT solution, and how to optimize an IoT solution for production.
 author: mcosner
 manager: lizross
 ms.service: architecture-center
 ms.subservice: reference-architecture
 ms.topic: conceptual
-ms.date: 9/23/2021
+ms.date: 03/09/2022
 ms.author: mcosner
-ms.category:
-  - iot
 ms.custom:
   - internal-intro
 categories:
   - iot
 products:
-  - azure-iot-hub
   - azure-iot-central
+  - azure-iot-hub
 ---
 
-# Getting started with Azure IoT solutions
+# Get started with Azure IoT solutions
 
-IoT (Internet of Things) is a collection of managed and platform services that connect and control IoT assets. For example, consider an industrial motor connected to the cloud. The motor collects and sends temperature data. This data is used to evaluate whether the motor is performing as expected. This information can then be used to prioritize a maintenance schedule for the motor.
+This guide describes basic internet of things (IoT) concepts, discusses how to get started with Azure IoT, and presents links to articles about Azure IoT patterns and solutions.
 
-Azure IoT supports a large range of devices, including industrial equipment, microcontrollers, sensors, and many others. When connected to the cloud, these devices can send data to your IoT solution. You can use the solution to monitor and manage the devices to achieve your objectives more efficiently.
+[Azure IoT](https://azure.microsoft.com/overview/iot) is a collection of managed and platform services that connect and control IoT devices. Azure IoT supports a large range of devices, including industrial equipment, microcontrollers, and sensors. IoT devices can communicate with cloud IoT solutions. Device data can be processed to gain insights about the device. You can use these insights to monitor, manage, and control the environment.
 
-This document links to guides that you can use to accelerate your creation of IoT solutions.
+For example, an industrial motor collects and sends temperature data to the cloud. The data is analyzed to evaluate whether the motor is performing as expected. This information is used to prioritize a maintenance schedule for the motor.
 
-## Industry specific IoT reference architectures
+## Learn about Azure IoT
 
-IoT solutions solve specific business challenges in unique industries. In this section, we provide reference designs for industry-specific scenarios.
+You can learn about Azure IoT concepts in detail with an Azure sandbox subscription. This five-hour learning path has eight training modules.
 
-### Manufacturing and industrial
+> [!div class="nextstepaction"]
+> [Introduction to Azure IoT](/learn/paths/introduction-to-azure-iot)
 
-* [Connected factory hierarchy service](../../solution-ideas/articles/connected-factory-hierarchy-service.yml): A hierarchy service enables your business to centrally define how production assets are organized within factories.
+## Design an IoT architecture
 
-* [Connected factory signal pipeline](../../example-scenario/iot/connected-factory-signal-pipeline.yml): It can be problematic to interconnect the heterogenous legacy and modern devices that often coexist in a factory. The connected factory signal pipeline solves this problem by introducing a common configuration interface to connect heterogenous devices.
+A standard IoT solution architecture consists of five basic elements.
 
-* [Predictive maintenance with IoT Edge](../../example-scenario/predictive-maintenance/iot-predictive-maintenance.yml): The Internet-of-things (IoT) Edge brings data processing and storage close to the data source, enabling fast, consistent responses with reduced dependency on cloud connectivity and resources. Edge computing can incorporate artificial intelligence (AI) and machine learning (ML) models to create intelligent edge devices and networks that can integrate with the cloud.
+- *Devices* are industrial equipment, sensors, and microcontrollers that connect with the cloud to send and receive data.
+- *Provisioning* connects the devices to the cloud.
+- *Processing* analyzes data from devices to gather insights.
+- *Business integration* takes actions based on insights from the device data. You can use services such as [Power BI](https://powerbi.microsoft.com) to visualize and inspect your data, or [Azure Logic Apps](https://azure.microsoft.com/services/logic-apps) or [Microsoft Power Automate](https://powerautomate.microsoft.com) to set up automated actions.
+- *Security monitoring*. [Microsoft Defender for IoT](https://azure.microsoft.com/services/iot-defender) provides an end-to-end security solution for IoT workloads.
 
-* [Condition monitoring for industrial IoT](../../solution-ideas/articles/condition-monitoring.yml): OPC UA (Open Platform Communication Unified Architecture) can be used to monitor equipment parameters to discover anomalies before they become critical issues.
+> [!div class="nextstepaction"]
+> [Azure IoT reference architecture](../iot.yml)
 
-* [End-to-end manufacturing using computer vision on the edge](../../reference-architectures/ai/end-to-end-smart-factory.yml): Fully automated smart factories use artificial intelligence (AI) and machine learning (ML) to analyze data, run systems, and improve processes over time. In manufacturing, computer vision on the edge is an increasingly popular Internet of Things (IoT) application used in safety and quality assurance applications.
+## PaaS and aPaaS IoT solutions
 
-### Smart buildings
+You can create an Azure IoT solution by using individual platform as a service (PaaS) services, or an application platform as a service (aPaaS), [Azure IoT Central](https://azure.microsoft.com/services/iot-central).
 
-* [Create smart places by using Azure Digital Twins](../../example-scenario/iot/smart-places.yml): Smart places are physical environments that bring together connected devices and data sources. They can include buildings, college campuses, corporate campuses, stadiums, and cities. Smart places provide value by helping property owners, facility managers, and occupants operate and maintain sites.
+- The PaaS cloud computing model delivers hardware and software tools that are tailored to a specific task or job function. The PaaS provides the underlying infrastructure as a service (IaaS), but you're responsible for scaling and configuration.
 
-### Retail
+- An aPaaS provides a cloud environment to build, manage, and deliver applications. An aPaaS offering handles scaling and most configuration, but still requires developer input to build a finished solution.
 
-* [Buy online, pickup in store (BOPIS)](../../example-scenario/iot/vertical-buy-online-pickup-in-store.yml): During the COVID-19 pandemic, many customers made fewer trips to the market and many preferred to buy their merchandise online and pick it up in the store (BOPIS) which is also known as curbside pickup.
+Compare IoT Central (aPaaS) and Azure PaaS solution approaches based on your solution needs.
 
-### Automotive
+> [!div class="nextstepaction"]
+> [Compare solution approaches](/azure/architecture/example-scenario/iot/iot-central-iot-hub-cheat-sheet)
 
-* [Process real-time vehicle data using IoT](../../example-scenario/data/realtime-analytics-vehicle-iot.yml): Vehicle data ingestion, processing, and visualization are key capabilities needed to create connected car solutions. By capturing and analyzing this data, we can decipher valuable insights and create new solutions.
+## Start with Azure IoT Central
 
-### Sustainability
+[Azure IoT Central](/azure/iot-central/core/overview-iot-central) is Microsoft's aPaaS IoT solution, recommended as a starting point for all IoT solutions. IoT Central accelerates IoT solution assembly and operations by preassembling the needed PaaS services for enterprise level solutions. The platform has all the capabilities needed to connect, manage, and operate fleets of devices at scale.
 
-* [Project 15 Open Platform IoT sustainability](../../solution-ideas/articles/project-15-iot-sustainability.yml): The mission of Project 15 from Microsoft is to empower scientists and conservationists around the world.
+IoT Central provides an out-of-the-box and ready-to-use UX and API surface area. Iot Central simplifies device connectivity, operations, and management so that you can spend more time and budget using IoT data to create business value.
 
-### Cross industry
-
-* [Automated guided vehicles fleet control](../../example-scenario/iot/automated-guided-vehicles-fleet-control.yml): Automotive manufacturing relies on automated guided vehicles (AGVs) to deliver parts to assembly lines. AGVs are a mission-critical part of just-in-time manufacturing and automated shop-floor logistics.
-
-* [Environment monitoring and supply chain optimization with IoT](../../solution-ideas/articles/environment-monitoring-and-supply-chain-optimization.yml): Environmental monitoring has become an important activity in the global supply chain. It provides key signals that help drive real-time decisions that can impact suppliers and logistics.
-
-* [Real-time asset tracking and management](../../solution-ideas/articles/real-time-asset-tracking-mgmt-iot-central.yml): You can use Azure IoT Central and other Azure services to track and manage assets in real time.
+> [!div class="nextstepaction"]
+> [Azure IoT Central architecture](/azure/iot-central/core/concepts-architecture)
 
 ## IoT architecture patterns and guides
 
-This section shares guides and building blocks that are useful when building IoT solutions. Patterns address key areas of the IoT solution that you should consider. IoT architecture patterns are reusable building blocks that you can leverage to create IoT solutions. They are generic and can be used across different industry verticals.
+This section lists useful patterns and guides for building IoT solutions.
 
 ### Patterns
 
-* [Real-time IoT updates](../../example-scenario/iot/real-time-iot-updates-cloud-apps.yml): Internet of Things (IoT) applications often need real-time data from IoT devices. Unlike traditional polling apps in which a client asks a device for state changes, clients can receive updates from devices in real time.
+IoT architecture patterns are reusable building blocks that address key areas of IoT solutions. Patterns are generic and usable across different industry verticals. For examples of industry-specific IoT solutions, see [Industry specific Azure IoT solutions and scenarios](industrial-iot-hub-page.md).
 
-* [Scale IoT solutions with deployment stamps](../../example-scenario/iot/application-stamps.yml): The deployment stamping strategy in an Internet-of-Things (IoT) solution supports scaling up the number of connected IoT devices by replicating stamps. Stamps are discrete units of core solution components that optimally support a defined number of devices.
+- [Real-time IoT updates](../../example-scenario/iot/real-time-iot-updates-cloud-apps.yml). Unlike traditional polling apps in which a client asks a device for state changes, clients can receive updates from devices in real time. Use Azure SignalR Service to update cloud applications. This service sends real-time IoT data to clients like web pages and mobile apps.
 
-* [Azure IoT client SDK support for third-party token servers](../../guide/iot/azure-iot-client-sdk-support.yml): Learn how Azure IoT Hub supports shared access signature (SAS) token authentication in the client SDKs.
+- [Scale IoT solutions with deployment stamps](../../example-scenario/iot/application-stamps.yml). The deployment stamping strategy in an IoT solution supports scaling up the number of connected IoT devices by replicating stamps. Stamps are discrete units of solution components that optimally support a defined number of devices.
 
-* [Efficient Docker image deployment](../../example-scenario/iot/efficient-docker-image-deployment.yml): Edge devices are typically provisioned by deploying software container images. You can use a reliable and resilient deployment capability for situations that have limited, intermittent, or low bandwidth.
+- [Azure IoT client SDK support for third-party token servers](../../guide/iot/azure-iot-client-sdk-support.yml). Azure IoT Hub supports shared access signature (SAS) token authentication in client SDKs. Learn about what to do in each SDK for devices to achieve third-party token-server authentication.
 
-* [IoT analytics with Azure Data Explorer](../../solution-ideas/articles/iot-azure-data-explorer.yml): Achieve near real-time analytics over fast flowing, high volume streaming data from IoT devices.
+- [Efficient Docker image deployment](../../example-scenario/iot/efficient-docker-image-deployment.yml). Edge devices are typically provisioned by deploying software container images. See how to use a reliable and resilient deployment capability for situations that have limited, intermittent, or low bandwidth.
 
-* [IoT Edge data storage and processing](../../solution-ideas/articles/data-storage-edge.yml): An Internet of Things (IoT) solution might require that an on-premises edge network provide computing and data collecting, rather than the cloud. Edge devices often meet these needs better than the cloud.
+- [IoT analytics with Azure Data Explorer](../../solution-ideas/articles/iot-azure-data-explorer.yml). Use Azure Data Explorer for near real-time IoT telemetry analytics on fast-flowing, high-volume streaming data from a wide variety of IoT devices.
 
-### Guides for building IoT solutions
+- [IoT Edge data storage and processing](../../solution-ideas/articles/data-storage-edge.yml). Some IoT solutions need on-premises edge networks to provide computing and data collecting. See how to use edge devices in an IoT implementation to provide quick responses, high availability, and high bandwidth.
 
-* [Compare IoT solution approaches](../../example-scenario/iot/iot-central-iot-hub-cheat-sheet.yml): There are many options for building and deploying your IoT cloud solutions. The technologies and services you choose depends on your scenario's development, deployment, and management needs. Use the linked article to compare PaaS and aPaaS approaches.
+### Guides
 
-* [Vision with Azure IoT Edge](../../guide/iot-edge-vision/index.md): Artificial intelligence for image analytics spans a wide variety of industries including manufacturing, retail, healthcare, and the public sector.
+IoT architectural guides provide insights into IoT concepts, architectures, and workstreams.
 
-* [Move an IoT solution from test to production](../../example-scenario/iot/iot-move-to-production.yml) provides a list of best practices you should follow when you move from test to production.
+- [IoT solutions conceptual overview](../../example-scenario/iot/introduction-to-solutions.yml). This series provides an overview of the functional interactions between events, insights, and actions in Azure IoT solutions.
 
-* [Azure industrial IoT analytics guidance](../../guide/iiot-guidance/iiot-architecture.yml): You can build Industrial Iot (IIoT) analytics solutions using Azure PaaS (Platform as a Service) components. Such an IIoT analytics solution relies on real-time and historical data from industrial devices and control systems.
+- [Choose an Internet of Things (IoT) solution in Azure](../../example-scenario/iot/iot-central-iot-hub-cheat-sheet.yml). Compare PaaS and aPaaS approaches for building and deploying IoT cloud solutions. The technologies and services you choose depend on your scenario's development, deployment, and management needs.
+
+- [Computer vision with Azure IoT Edge](../../guide/iot-edge-vision/index.md). This series describes an end-to-end computer vision workload that uses Azure IoT Edge, Azure Machine Learning, Azure Storage, Azure App Services, and Power BI.
+
+- [Move an IoT solution from test to production](../../example-scenario/iot/iot-move-to-production.yml). Learn best practices and what to avoid when moving an IoT solution from a test environment to a production environment.
+
+- [Azure industrial IoT analytics guidance](../../guide/iiot-guidance/iiot-architecture.yml). Industrial IoT (IIoT) is the application of IoT to the manufacturing industry. This article series describes an Azure IIoT analytics solution that uses PaaS components.
 
 ## Next steps
 
-Learn about the different Azure IoT services:
+Azure IoT documentation:
 
-* [Azure IoT documentation](/azure/iot-fundamentals)
-* [Azure IoT Central documentation](/azure/iot-central)
-* [Azure IoT Hub](/azure/iot-hub)
-* [Azure IoT Hub Device Provisioning Service](/azure/iot-dps)
-* [Azure IoT Edge documentation](/azure/iot-edge)
+- [Azure IoT](/azure/iot-fundamentals)
+- [Azure IoT Central](/azure/iot-central)
+- [Azure IoT Hub](/azure/iot-hub)
+- [Azure IoT Hub Device Provisioning Service](/azure/iot-dps)
+- [Azure IoT Edge](/azure/iot-edge)
+- [Azure Industrial IoT](/azure/industrial-iot)
 
-## Related resources
-
-See the related IoT architecture guides:
-
-* [Azure IoT reference architecture](../iot.yml)
-* [IoT solutions conceptual overview](../../example-scenario/iot/introduction-to-solutions.yml)
-* [Choose an Internet of Things (IoT) solution in Azure](../../example-scenario/iot/iot-central-iot-hub-cheat-sheet.yml)
-
-See the related IoT solution guides for COVID-19:
-
-* [COVID-19 safe environments with IoT Edge monitoring and alerting](../../solution-ideas/articles/cctv-iot-edge-for-covid-19-safe-environment-and-mask-detection.yml)
-* [IoT connected light, power, and internet for emerging markets](../../solution-ideas/articles/iot-power-management.yml)
-* [UVEN smart and secure disinfection and lighting](../../solution-ideas/articles/uven-disinfection.yml)
-* [Cognizant Safe Buildings with IoT and Azure](../../solution-ideas/articles/safe-buildings.yml)
