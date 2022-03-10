@@ -104,7 +104,7 @@ This architecture uses credential-based authentication for the main data store t
 
 For the compute cluster to solely communicate within the virtual network using Azure Private Link Ecosystem and service/private endpoints and not use Public IP for communication, you can enable **No public IP**. The details about this feature which is currently in preview(as of 3/7/2022) can be found [here](/azure/machine-learning/how-to-secure-training-vnet?tabs=azure-studio%2Cipaddress#no-public-ip)
 
-The secure environment has Azure Machine Learning compute that can access the dataset through a private endpoint. Additionally, Azure firewall can be used to control outbound access from Azure Machine learning compute. You can learn about how to configure azure firewall to control access to azure machine learning compute which resides in a machine learning workspace [here](azure/machine-learning/how-to-access-azureml-behind-firewall?tabs=ipaddress%2Cpublic)
+The secure environment has Azure Machine Learning compute that can access the dataset through a private endpoint. Additionally, Azure firewall can be used to control outbound access from Azure Machine learning compute. You can learn about how to configure azure firewall to control access to azure machine learning compute which resides in a machine learning workspace [here](https://docs.microsoft.com/en-us/azure/machine-learning/how-to-access-azureml-behind-firewall?tabs=ipaddress%2Cpublic)
 
 One of the ways to secure Azure Machine learning environment is discussed [here](https://techcommunity.microsoft.com/t5/fasttrack-for-azure/secure-azure-machine-learning-service-amls-environment/ba-p/3162297)
 
