@@ -74,7 +74,7 @@ This section gives more detailed recommendations on how to commercialize your AP
 
 ### API value chain
 
-:::image type="content" alt-text="Diagram that describes the API value chain." source="media/design-api-developer-experiences-management-github-value-chain.png" lightbox="media/design-api-developer-experiences-management-github-value-chain.png":::
+:::image type="content" alt-text="Diagram that describes the API value chain." source="media/design-api-developer-experiences-management-github-value-chain.png":::
 
 At the top of the value chain is the API service provider, followed by the API consumers or integrators, who design and build the amazing experiences for the eventual target consumers. End users and customers are the final beneficiaries in the value chain.
 
@@ -92,7 +92,7 @@ The API developer experience is quintessential to the success of this value chai
 
 At a high level, the overall functional requirements for an enterprise-scale API platform can be broadly classified into three buckets, namely productization, platform administration, and consumer experiences.
 
-:::image type="content" alt-text="Diagram that shows three broad functional requirements of an enterprise-scale API platform." source="media/design-api-developer-experiences-management-github-functional-requirements.png" lightbox="media/design-api-developer-experiences-management-github-functional-requirements.png":::
+:::image type="content" alt-text="Diagram that shows three broad functional requirements of an enterprise-scale API platform." source="media/design-api-developer-experiences-management-github-functional-requirements.png":::
 
 The capabilities within each feature area are further expanded in the following sections.
 
