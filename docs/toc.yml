@@ -1486,7 +1486,7 @@ items:
                   - name: Design a microservices drone solution
                     items:
                       - name: Introduction
-                        href: /azure/architecture/microservices/design
+                        href: microservices/design/index.yml
                       - name: Interservice communication
                         href: /azure/architecture/microservices/design/interservice-communication
                       - name: API design
@@ -1494,7 +1494,7 @@ items:
                       - name: Data considerations
                         href: /azure/architecture/microservices/design/data-considerations
                   - name: Monitor drone delivery in production
-                    href: 
+                    href: microservices/logging-monitoring.yml
                   - name: Performance turning for drone delivery
                     items:
                       - name: Distributed business transactions
@@ -4119,6 +4119,14 @@ items:
             href: guide/networking/networking-start-here.md
           - name: Guides
             items:
+              - name: Network security
+                items:
+                  - name: Azure network security overview
+                    href: /azure/security/fundamentals/network-overview
+                    maintainContext: true
+                  - name: Best practices for network security
+                    href: /azure/security/fundamentals/network-best-practices
+                    maintainContext: true
               - name: Application Gateway framework review
                 href: networking/guide/waf-application-gateway.md
               - name: Azure Firewall guidance
