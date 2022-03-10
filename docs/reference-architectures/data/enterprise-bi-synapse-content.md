@@ -250,8 +250,9 @@ The views do pre-compute, store, and maintain data in SQL DW just like a table. 
 ## Scalability considerations
 
 This section provides details on the sizing decisions to accomodate this dataset as well as gives further guidance for you to pick the right size for workload.
+
 |Data warehouse units	|# of compute nodes	#| of distributions per node|
-|-----------------------------------------------------------------------|
+|-----------------------|--------------------|--------------------------|
 |DW100c             	|1          	     |60                        |
 |DW200c	                |1          	     |60                        |
 |DW300c	                |1	                 |60                        |
@@ -281,7 +282,7 @@ Continue making adjustments until you reach an optimum performance level for you
 - [Scale compute for Synapse SQL pool with the Azure portal](https://docs.microsoft.com/en-us/azure/synapse-analytics/sql-data-warehouse/quickstart-scale-compute-portal)
 - [Scale compute for dedicated SQL pool with Azure PowerShell](https://docs.microsoft.com/en-us/azure/synapse-analytics/sql-data-warehouse/quickstart-scale-compute-powershell)
 - [Scale compute for dedicated SQL pool in Azure Synapse Analytics using T-SQL](https://docs.microsoft.com/en-us/azure/synapse-analytics/sql-data-warehouse/quickstart-scale-compute-tsql)
-- Pausing, monitoring and automation(https://docs.microsoft.com/en-us/azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-manage-compute-overview)
+- [Pausing, monitoring and automation](https://docs.microsoft.com/en-us/azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-manage-compute-overview)
 
 ### Azure Synapse Pipelines
 
