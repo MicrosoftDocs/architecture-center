@@ -12,7 +12,7 @@ Access to PaaS services should be through Azure Private Link or service endpoint
 
 Each NAT gateway resource provides up to 50 Gbps of throughput. You can split your deployments into multiple subnets, and then you can assign each subnet or groups of subnets a NAT gateway to scale out.
 
-Each NAT gateway public IP address provides 64,512 SNAT ports. Up to 16 IP addresses can be assigned to a NAT gateway. The IP addresses can be individual Standard Public IP addresses, the Public IP prefix, or both. For connections going to the same destination endpoint, NAT gateway can support up to 50,000 confurrent flows for TCP and UDP respectively, per assigned outbound IP address. Review the following section on Source Network Address Translation (SNAT) for details. TCP stands for *Transmission Control Protocol*, and UDP stands for *User Datagram Protocol*.
+Each NAT gateway public IP address provides 64,512 SNAT ports. Up to 16 IP addresses can be assigned to a NAT gateway. The IP addresses can be individual Standard Public IP addresses, the Public IP prefix, or both. For connections going to the same destination endpoint, NAT gateway can support up to 50,000 concurrent flows for TCP and UDP respectively, per assigned outbound IP address. Review the following section on Source Network Address Translation (SNAT) for details. TCP stands for *Transmission Control Protocol*, and UDP stands for *User Datagram Protocol*.
 
 ### SNAT exhaustion
 
