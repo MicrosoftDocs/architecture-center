@@ -2877,6 +2877,8 @@ items:
                       - name: Implement API Gateways with Ocelot
                         href: /dotnet/architecture/microservices/multi-container-microservice-net-applications/implement-api-gateways-with-ocelot
                         maintainContext: true
+                      - name: Expose Azure Spring Cloud via a reverse proxy
+                        href: reference-architectures/microservices/spring-cloud-reverse-proxy.yml
               - name: Architectures
                 items:
                    - name: Decompose apps with Service Fabric
@@ -2888,8 +2890,6 @@ items:
                    - name: Microservices with Azure Spring Cloud
                      href: /azure/spring-cloud/reference-architecture
                      maintainContext: true
-                   - name: Expose Azure Spring Cloud through a reverse proxy
-                     href: reference-architectures/microservices/spring-cloud-reverse-proxy.yml
                    - name: Unified logging for microservices apps
                      href: example-scenario/logging/unified-logging.yml     
           - name: Serverless applications

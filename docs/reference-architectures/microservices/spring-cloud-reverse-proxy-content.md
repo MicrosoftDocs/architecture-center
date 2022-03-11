@@ -58,6 +58,8 @@ Each app that you want to expose through your reverse proxy should have an endpo
 
 ![Diagram that shows the use of Application Gateway with Azure Spring Cloud in a virtual network.](_images/application-gateway-reverse-proxy-virtual-network.png)
 
+*Download a [Visio file](https://arch-center.azureedge.net/scenario1.vsdx) of this architecture.*
+
 When Application Gateway sits in front of your Azure Spring Cloud instance, you use the assigned endpoint of the Spring Cloud Gateway app as the backend pool. (For example, `myspringcloudservice-myapp.private.azuremicroservices.io`.) This resolves to a private IP address in the service runtime subnet. Therefore, to restrict access, you can place an NSG on the service runtime subnet with the following inbound security rules (giving the Deny rule the lowest priority):
 
 | Action | Source type | Source value | Protocol | Destination port ranges |
@@ -79,6 +81,8 @@ This configuration ensures that the service runtime subnet allows traffic only f
 As previously noted, you can't place Azure Front Door directly in front of Azure Spring Cloud because it can't reach into your private virtual network. ([Azure Front Door Standard or Premium can connect to private endpoints in a virtual network](/azure/frontdoor/standard-premium/concept-private-link), but Azure Spring Cloud doesn't currently offer private endpoint support.) If you still want to use Azure Front Door, for example when you require global load balancing across multiple instances of Azure Spring Cloud in different Azure regions, you can expose them via Application Gateway first and then place Azure Front Door in front of Application Gateway.
 
 ![Diagram that shows the use of Azure Front Door and Application Gateway with Azure Spring Cloud in a virtual network.](_images/azure-front-door-application-gateway-reverse-proxy.png)
+
+*Download a [Visio file](https://arch-center.azureedge.net/scenario2.vsdx) of this architecture.*
 
 In this case, the access restrictions between Application Gateway and Azure Spring Cloud are exactly the same as those in [scenario 1](#scenario-1-using-application-gateway-as-the-reverse-proxy): you place an NSG on the service runtime subnet with the appropriate rules.
 
@@ -173,6 +177,8 @@ Spring Cloud Gateway does provide the original host name in the [`Forwarded` hea
 
 ![Diagram that shows the use of Application Gateway with Azure Spring Cloud outside of a virtual network.](_images/application-gateway-reverse-proxy.png)
 
+*Download a [Visio file](https://arch-center.azureedge.net/scenario3.vsdx) of this architecture.*
+
 When Application Gateway sits in front of your Azure Spring Cloud instance, you use the assigned endpoint of the Spring Cloud Gateway app as the back-end pool (for example, `myspringcloudservice-mygateway.azuremicroservices.io`). Because Azure Spring Cloud is deployed outside a of a virtual network, this URL resolves to a public IP address. [When the back-end pool is a public endpoint, Application Gateway uses its front-end public IP address to reach the back-end service](/azure/application-gateway/how-application-gateway-works#how-an-application-gateway-routes-a-request).
 
 Therefore, to allow only requests from your Application Gateway instance to reach Spring Cloud Gateway, you can configure the `XForwarded Remote Addr` route predicate to allow only requests from your Application Gateway dedicated public IP address, as in this example:
@@ -186,6 +192,8 @@ predicates:
 ### Scenario 4: Using Azure Front Door as the reverse proxy
 
 ![Diagram that shows the use of Azure Front Door with Azure Spring Cloud outside of a virtual network.](_images/azure-front-door-reverse-proxy.png)
+
+*Download a [Visio file](https://arch-center.azureedge.net/scenario4.vsdx) of this architecture.* 
 
 Similar to the configuration in the previous scenario, this configuration uses the public URL of the Spring Cloud Gateway app as the back-end pool or origin in Azure Front Door (for example, `https://myspringcloudservice-mygateway.azuremicroservices.io`).
 
