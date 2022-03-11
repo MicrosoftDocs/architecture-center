@@ -2736,6 +2736,17 @@ items:
                   - name: Security best practices
                     href: /azure/purview/concept-best-practices-security
                     maintainContext: true
+              - name: Azure Data Factory guidance
+                items:
+                  - name: Continuous integration in Azure Data Factory
+                    href: /azure/data-factory/continuous-integration-delivery
+                    maintainContext: true
+                  - name: Automated publishing for CI/CD
+                    href: /azure/data-factory/continuous-integration-delivery-improvements
+                    maintainContext: true
+              - name: Continuous integration for Azure Synapse
+                href: /azure/synapse-analytics/cicd/continuous-integration-delivery
+                maintainContext: true
           - name: Architectures
             items:
               - name: Anomaly detector process
@@ -2760,6 +2771,14 @@ items:
                 href: reference-architectures/data/cluedin.yml
               - name: Modern data warehouse for small business
                 href: example-scenario/data/small-medium-data-warehouse.yml
+              - name: Modernize mainframe and midrange data
+                href: reference-architectures/migration/modernize-mainframe-data-to-azure.yml
+              - name: Optimized storage with logical data classification
+                href: solution-ideas/articles/optimized-storage-logical-data-classification.yml
+              - name: Master data management with Profisee
+                href: reference-architectures/data/profisee-master-data-management-data-factory.yml
+              - name: Replicate and sync mainframe data in Azure
+                href: reference-architectures/migration/sync-mainframe-data-with-azure.yml
           - name: Solution ideas
             items:
               - name: Azure Data Explorer monitoring
@@ -4754,6 +4773,9 @@ items:
                   - name: Azure hosting for ASP.NET web apps
                     href: /dotnet/architecture/modern-web-apps-azure/azure-hosting-recommendations-for-asp-net-web-apps
                     maintainContext: true
+              - name: Red Hat JBoss EAP on Azure
+                href: /azure/developer/java/ee/jboss-on-azure
+                maintainContext: true
               - name: Eventual consistency in Power Platform
                 href: reference-architectures/power-platform/eventual-consistency.yml
           - name: Architectures
@@ -4807,6 +4829,8 @@ items:
                 href: reference-architectures/app-service-web-app/scalable-web-app.yml
               - name: Serverless web app
                 href: reference-architectures/serverless/web-app.yml
+              - name: Virtual health on Cloud for Healthcare
+                href: example-scenario/mch-health/virtual-health-mch.yml
               - name: Virtual visits with Cloud for Healthcare
                 href: example-scenario/mch-health/virtual-health-mch.yml
               - name: Web app monitoring on Azure
