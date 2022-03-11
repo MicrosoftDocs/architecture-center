@@ -1040,12 +1040,23 @@ items:
                 maintainContext: true
               - name: Big compute for oil exploration
                 href: guide/architecture-styles/big-compute.md
-              - name: Smart meter energy monitoring
-                href: /azure/iot-central/energy/tutorial-smart-meter-app
-                maintainContext: true
-              - name: Solar panel monitoring
-                href: /azure/iot-central/energy/tutorial-solar-panel-app
-                maintainContext: true
+              - name: IoT scenarios
+                items:
+                  - name: Connected waste management
+                    href: /azure/iot-central/government/tutorial-connected-waste-management
+                    maintainContext: true
+                  - name: Smart meter energy monitoring
+                    href: /azure/iot-central/energy/tutorial-smart-meter-app
+                    maintainContext: true
+                  - name: Solar panel monitoring
+                    href: /azure/iot-central/energy/tutorial-solar-panel-app
+                    maintainContext: true
+                  - name: Water consumption monitoring
+                    href: /azure/iot-central/government/tutorial-water-consumption-monitoring
+                    maintainContext: true
+                  - name: Water quality monitoring
+                    href: /azure/iot-central/government/tutorial-water-quality-monitoring
+                    maintainContext: true
           - name: Architectures
             items:
               - name: All energy and environment architectures
@@ -1054,6 +1065,7 @@ items:
                 href: solution-ideas/articles/environment-monitoring-and-supply-chain-optimization.yml
               - name: Geospatial data processing and analytics
                 href: example-scenario/data/geospatial-data-processing-analytics-azure.yml
+              - name: IoT Edge data processing - Monitor oil rigs
               - name: Mining equipment monitoring
                 href: solution-ideas/articles/monitor-mining-equipment.yml
               - name: Oil and gas tank level forecasting
@@ -1358,6 +1370,10 @@ items:
                 href: /azure/architecture/solution-ideas/articles/low-latency-network
               - name: Predictive maintenance with AI IoT Edge
                 href: /azure/architecture/example-scenario/predictive-maintenance/iot-predictive-maintenance
+              - name: Public MEC deployment
+                href: example-scenario/hybrid/public-multi-access-edge-compute-deployment.yml
+              - name: Public MEC high availability
+                href: example-scenario/hybrid/multi-access-edge-compute-ha.yml
               - name: Real-time fraud detection 
                 href: /azure/architecture/example-scenario/data/fraud-detection
               - name: Video capture and analytics 
