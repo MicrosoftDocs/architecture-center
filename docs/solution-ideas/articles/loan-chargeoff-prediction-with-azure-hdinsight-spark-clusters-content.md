@@ -14,7 +14,7 @@ Download an [SVG](../media/loan-chargeoff-prediction-with-azure-hdinsight-spark-
 1. Run a logistic regression over the data using the local compute (or spark) context to predict loan charge off variable
 1. Use Azure HDInsights spark connector to connect to the table
 1. Use Power BI to interpret this data and create new visualizations
-1. (Optional) Deploy the model as as web service which can be consumed on popular devices such as PC, and mobile
+1. (Optional) Deploy the model as a web service that can be consumed on popular devices such as PC and mobile
 
 ### Components
 
@@ -29,7 +29,7 @@ This solution creates a cluster of type ML Services on Azure HDInsight. This clu
 
 There are multiple benefits for lending institutions to equip with loan chargeoff prediction data. Charging off a loan is the last resort that the bank will do on a severely delinquent loan, with the prediction data at hand, the loan officer could offer personalized incentives like lower interest rate or longer repayment period to help customers to keep making loan payments and thus prevent the loan of getting charged off. To get to this type of prediction data, often credit unions or banks manually handcraft the data based on customers' past payment history and performed simple statistical regression analysis. This method is highly subject to data compilation error and not statistically sound.
 
-This solution template demonstrates a solution end to end to run predictive analytics on loan data and produce scoring on chargeoff probability. A PowerBI report will also walk through the analysis and trend of credit loans and prediction of chargeoff probability.
+This solution template demonstrates a solution end to end to run predictive analytics on loan data and produce scoring on chargeoff probability. A Power BI report will also walk through the analysis and trend of credit loans and prediction of chargeoff probability.
 
 ### Business perspective
 
