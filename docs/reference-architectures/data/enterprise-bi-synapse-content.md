@@ -214,7 +214,7 @@ Some common security questions include:
   -  To secure Azure Synapse, there are a range of network security options to consider *[Network security](https://docs.microsoft.com/en-us/azure/synapse-analytics/guidance/security-white-paper-network-security)*
 - What are the tools that detect and notify me of threats?
   - Azure Synapse provides SQL Auditing, SQL Threat Detection, and Vulnerability Assessment to audit, protect, and monitor databases. *[Threat detection](https://docs.microsoft.com/en-us/azure/synapse-analytics/guidance/security-white-paper-threat-protection)*
-- What can I do to protect my data?
+- What can I do to protect my data in my storage account?
   - Azure Storage Accounts are ideal for workloads that require fast and consistent response times, or that have a high number of input output (IOP) operations per second. Storage accounts contain all your Azure Storage data objects *[Storage security considerations](https://docs.microsoft.com/en-us/azure/architecture/framework/services/storage/storage-accounts/security)*  
 
 ## DevOps ##
