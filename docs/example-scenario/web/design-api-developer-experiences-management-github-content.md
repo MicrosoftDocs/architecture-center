@@ -76,6 +76,8 @@ This section gives more detailed recommendations on how to commercialize your AP
 
 :::image type="content" alt-text="Diagram that describes the API value chain." source="media/design-api-developer-experiences-management-github-value-chain.png":::
 
+_Download a [PowerPoint file](https://arch-center.azureedge.net/design-api-developer-experiences-management-github.pptx) of this architecture._
+
 At the top of the value chain is the API service provider, followed by the API consumers or integrators, who design and build the amazing experiences for the eventual target consumers. End users and customers are the final beneficiaries in the value chain.
 
 The API developer experience is quintessential to the success of this value chain. Success primarily revolves around accomplishing the following objectives. The experience should:
@@ -148,9 +150,11 @@ Consumer experiences comprise the following capabilities:
 
 - **User interface (UI) / User experience (UX)**. Identify and define experience for the channels that will be supported for the end-user experience. Include multi-device, multi-form-factor capabilities, along with modern UI design. Enrich the experience through usability studies.
 
-#### API Developer Experience {#api-developer-experience}
+#### API Developer Experience
 
 :::image type="content" alt-text="Diagram of features and capabilities of the enhanced API developer experience." source="media/design-api-developer-experiences-management-github-basic-features.png" lightbox="media/design-api-developer-experiences-management-github-basic-features.png":::
+
+_Download a [PowerPoint file](https://arch-center.azureedge.net/design-api-developer-experiences-management-github.pptx) of this diagram._
 
 The API developer experience that must be part of the end-to-end solution consists of the following applications:
 
