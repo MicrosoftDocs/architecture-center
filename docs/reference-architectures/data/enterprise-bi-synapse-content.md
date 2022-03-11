@@ -207,6 +207,7 @@ Frequent headlines of data breaches, malware infections, and malicious code inje
 Some common security questions include:
 
 - How can I control who can see what data?
+  - Organizations need to protect their data to comply with federal, local, and company guidelines to mitigate risks of data breach. (https://docs.microsoft.com/en-us/azure/synapse-analytics/guidance/security-white-paper-data-protection)
 - What are the options for verifying a user's identity?
 - How is my data protected?
 - What network security technology can I use to protect the integrity, confidentiality, and access of my networks and data?
