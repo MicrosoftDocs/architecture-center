@@ -22,11 +22,9 @@ products:
 
 This guide describes basic internet of things (IoT) concepts, discusses how to get started with Azure IoT, and presents links to articles about Azure IoT patterns and solutions.
 
-[Azure IoT](https://azure.microsoft.com/overview/iot) is a collection of managed and platform services that connect and control IoT devices. Azure IoT supports a large range of devices, including industrial equipment, microcontrollers, and sensors.
+[Azure IoT](https://azure.microsoft.com/overview/iot) is a collection of managed and platform services that connect and control IoT devices. Azure IoT supports a large range of devices, including industrial equipment, microcontrollers, and sensors. IoT devices communicate with cloud IoT and other services, which process device data to monitor, manage, and control the device environment.
 
-IoT devices communicate with cloud IoT and other services. Cloud services process device data to provide insights about the devices and their environment. IoT solutions use these insights to monitor, manage, and control the environment.
-
-For example, an industrial motor collects and sends temperature data to the cloud. Data analysis determines whether the motor is performing as expected. This information helps prioritize a maintenance schedule for the motor.
+For example, an industrial motor collects and sends temperature data to the cloud. Data analysis determines whether the motor is performing as expected. This information prioritizes a maintenance schedule for the motor.
 
 ## Learn about Azure IoT
 

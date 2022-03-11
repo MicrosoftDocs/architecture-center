@@ -22,9 +22,9 @@ products:
 
 This article provides an overview of industry-specific Industrial IoT (IIoT) solutions and scenarios. IIoT is the application of internet-of-things (IoT) technology to manufacturing and other industries. [Azure Industrial IoT](https://azure.github.io/Industrial-IoT) is a suite of Azure IoT Edge and IoT Hub components, Azure microservices, and other Azure services that integrate the cloud into industrial and manufacturing shop floors.
 
-Azure IIoT relies on industry-standard open interfaces, such as the [Open Platform Communications Unified Architecture (OPC UA)](https://opcfoundation.org/about/opc-technologies/opc-ua), to integrate device and sensor data into the Azure cloud. Cloud services can use this data to develop transformative business and industrial solutions. For an IIoT solution that uses Azure platform-as-a-service (PaaS) components, see [Azure industrial IoT analytics guidance](../../guide/iiot-guidance/iiot-architecture.yml).
+Azure IIoT relies on industry-standard open interfaces, such as the [Open Platform Communications Unified Architecture (OPC UA)](https://opcfoundation.org/about/opc-technologies/opc-ua), to integrate device and sensor data into the Azure cloud. Cloud services can use this data to develop transformative business and industrial solutions. For guidance in using Azure platform-as-a-service (PaaS) components in IIoT solutions, see [Industrial IoT analytics](../../guide/iiot-guidance/iiot-architecture.yml).
 
-For overall IIoT patterns and guides to use across industry verticals, see [Get started with Azure IoT solutions](iot-architecture-overview.md). The following Azure IIoT solutions and scenarios address unique business challenges for specific industries.
+For overall IoT patterns and guides to use across industry verticals, see [Get started with Azure IoT solutions](iot-architecture-overview.md). The following Azure IIoT solutions and scenarios address unique business challenges for specific industries.
 
 ## Manufacturing
 
