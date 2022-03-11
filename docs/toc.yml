@@ -1968,6 +1968,16 @@ items:
                   - name: Security baseline for Azure Purview
                     href: /security/benchmark/azure/baselines/purview-security-baseline
                     maintainContext: true
+              - name: Monitor Azure Databricks jobs
+                items:
+                  - name: Overview
+                    href: databricks-monitoring/index.md
+                  - name: Send Databricks application logs
+                    href: databricks-monitoring/application-logs.md
+                  - name: Use dashboards to visualize Databricks
+                    href: databricks-monitoring/dashboards.md
+                  - name: Troubleshoot performance bottlenecks
+                    href: databricks-monitoring/performance-troubleshooting.md
               - name: Apache NiFi guidance
                 items:
                   - name: Apache NiFi monitoring with MonitoFi
@@ -2527,16 +2537,6 @@ items:
                   - name: Service quotas
                     href: /azure/cosmos-db/concepts-limits
                     maintainContext: true
-              - name: Monitor Azure Databricks jobs
-                items:
-                  - name: Overview
-                    href: databricks-monitoring/index.md
-                  - name: Send Databricks application logs
-                    href: databricks-monitoring/application-logs.md
-                  - name: Use dashboards to visualize Databricks
-                    href: databricks-monitoring/dashboards.md
-                  - name: Troubleshoot performance bottlenecks
-                    href: databricks-monitoring/performance-troubleshooting.md
               - name: Run Apache Cassandra
                 href: best-practices/cassandra.md
           - name: Architectures
