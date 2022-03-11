@@ -538,8 +538,6 @@ items:
   - name: Industry solutions with Azure
     expanded: true
     items:
-      - name: Industry specific IoT solutions
-        href: reference-architectures/iot/industrial-iot-hub-page.md
       - name: Retail
         items:
           - name: Overview
@@ -1578,6 +1576,8 @@ items:
             maintainContext: true
           - name: Baseball decision analysis with ML.NET
             href: data-guide/big-data/baseball-ml-workload.yml
+      - name: Industry specific IoT solutions
+        href: reference-architectures/iot/industrial-iot-hub-page.md
   - name: Azure categories
     expanded: true
     items:
