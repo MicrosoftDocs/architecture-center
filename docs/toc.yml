@@ -538,6 +538,8 @@ items:
   - name: Industry solutions with Azure
     expanded: true
     items:
+      - name: Industry specific IoT solutions
+        href: reference-architectures/iot/industrial-iot-hub-page.md
       - name: Retail
         items:
           - name: Overview
@@ -3476,6 +3478,8 @@ items:
             href: reference-architectures/iot/iot-architecture-overview.md
           - name: Guides
             items:
+              - name: Industry specific solutions
+                href: reference-architectures/iot/industrial-iot-hub-page.md
               - name: IoT concepts
                 items:
                   - name: Introduction to IoT solutions
