@@ -22,9 +22,29 @@ products:
 
 This article provides an overview of industry-specific Industrial IoT (IIoT) solutions and scenarios. IIoT is the application of internet-of-things (IoT) technology to manufacturing and other industries. [Azure Industrial IoT](https://azure.microsoft.com/solutions/industry/manufacturing/iot) is a suite of Azure IoT Edge and IoT Hub components, Azure microservices, and other Azure services that integrate the cloud into industrial and manufacturing shop floors.
 
-Azure IIoT relies on industry-standard open interfaces, such as the [Open Platform Communications Unified Architecture (OPC UA)](https://opcfoundation.org/about/opc-technologies/opc-ua), to bring device and sensor data into the Azure cloud. Cloud platform-as-a-service (PaaS) components use device data to develop transformative business and industrial solutions. For guidance in using Azure PaaS components in IIoT solutions, see the series on [Industrial IoT analytics](../../guide/iiot-guidance/iiot-architecture.yml).
+Azure IIoT relies on industry-standard open interfaces, such as the [Open Platform Communications Unified Architecture (OPC UA)](https://opcfoundation.org/about/opc-technologies/opc-ua), to bring device and sensor data into the Azure cloud. Cloud platform-as-a-service (PaaS) components use device data to develop transformative business and industrial solutions. For guidance in using Azure PaaS components to create IIoT solutions, see the series on [Industrial IoT analytics](../../guide/iiot-guidance/iiot-architecture.yml).
 
 For overall IoT patterns and guides that apply across industry verticals, see [Get started with Azure IoT solutions](iot-architecture-overview.md). The following Azure IIoT solutions and scenarios address unique business challenges for specific industries.
+
+## Automotive and transportation
+
+- [Process real-time vehicle data using IoT](../../example-scenario/data/realtime-analytics-vehicle-iot.yml). Vehicle data ingestion, processing, and visualization are key capabilities of connected car solutions. Capturing and analyzing real-time vehicle data provides valuable insights to create new solutions.
+
+- [Real-time asset tracking for vehicles](../../solution-ideas/articles/real-time-asset-tracking-mgmt-iot-central.yml). Azure IoT Central and other Azure services track and manage vehicles and other assets in real time.
+
+- [Train health system with IoT Edge](../../example-scenario/predictive-maintenance/iot-predictive-maintenance.yml). Edge computing enables fast, consistent responses with reduced dependency on cloud connectivity and resources. The intelligent edge brings data processing and storage close to the data source in a train maintenance and safety solution.
+
+## Energy and environment
+
+- [Environment monitoring and supply chain optimization with IoT](../../solution-ideas/articles/environment-monitoring-and-supply-chain-optimization.yml). Environmental monitoring is an important activity in the global supply chain. A warehouse management scenario monitors environmental conditions and processes the data with ML to generate predictions.
+
+- [Project 15 Open Platform IoT sustainability](../../solution-ideas/articles/project-15-iot-sustainability.yml). Open Platform open-source software connects to the cloud and securely manages devices for scientific and conservation projects. This architecture is a reference for building open-source, end-to-end IoT solutions.
+
+## Facilities and real estate
+
+- [Create smart places by using Azure Digital Twins](../../example-scenario/iot/smart-places.yml). Smart places are physical environments, like buildings, campuses, and cities, that bring together connected devices and data sources. Azure Digital Twins stores digital representations of physical environments to use for monitoring, analysis, and management.
+
+- [COVID-19 safe environments with IoT Edge monitoring and alerting](../../solution-ideas/articles/cctv-iot-edge-for-covid-19-safe-environment-and-mask-detection.yml). Combining existing closed-circuit TV infrastructure with the Azure intelligent edge and other Azure and Microsoft services helps organizations monitor, follow, and improve health and safety practices.
 
 ## Manufacturing
 
@@ -40,27 +60,9 @@ For overall IoT patterns and guides that apply across industry verticals, see [G
 
 ## Retail
 
+- [Video capture and analytics for retail](../../solution-ideas/articles/video-analytics.yml). Retailers like grocery stores can monitor storefront events and take immediate actions to improve customer experience. On-premises IoT Edge devices analyze video data in real time to detect and address issues like empty shelf space or long customer queues.
+
 - [Buy online, pickup in store (BOPIS)](../../example-scenario/iot/vertical-buy-online-pickup-in-store.yml). Azure IoT and cloud components combine to implement a curbside pickup, or buy online and pick up in store (BOPIS), system for retail.
-
-## Automotive and transportation
-
-- [Process real-time vehicle data using IoT](../../example-scenario/data/realtime-analytics-vehicle-iot.yml). Vehicle data ingestion, processing, and visualization are key capabilities of connected car solutions. Capturing and analyzing real-time vehicle data provides valuable insights to create new solutions.
-
-- [Predictive maintenance with IoT Edge](../../example-scenario/predictive-maintenance/iot-predictive-maintenance.yml). Edge computing enables fast, consistent responses with reduced dependency on cloud connectivity and resources. The intelligent edge brings data processing and storage close to the data source in this train maintenance and safety solution.
-
-## Energy and environment
-
-- [Project 15 Open Platform IoT sustainability](../../solution-ideas/articles/project-15-iot-sustainability.yml). Open Platform open-source software connects to the cloud and securely manages devices for scientific and conservation projects. This architecture is a reference for building open-source, end-to-end IoT solutions.
-
-## Facilities and real estate
-
-- [Create smart places by using Azure Digital Twins](../../example-scenario/iot/smart-places.yml). Smart places are physical environments, like buildings, campuses, and cities, that bring together connected devices and data sources. Azure Digital Twins stores digital representations of physical environments to use for monitoring, analysis, and management.
-
-## Cross industry
-
-- [Environment monitoring and supply chain optimization with IoT](../../solution-ideas/articles/environment-monitoring-and-supply-chain-optimization.yml). Environment monitoring is an important activity in the global supply chain. A warehouse management scenario monitors environmental conditions and processes the data with ML to generate predictions.
-
-- [Real-time asset tracking and management](../../solution-ideas/articles/real-time-asset-tracking-mgmt-iot-central.yml). Azure IoT Central and other Azure services track and manage vehicles and other assets in real time.
 
 ## Next steps
 
