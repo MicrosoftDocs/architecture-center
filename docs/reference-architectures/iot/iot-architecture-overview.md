@@ -22,13 +22,13 @@ products:
 
 This guide describes basic internet of things (IoT) concepts, discusses how to get started with Azure IoT, and presents links to articles about Azure IoT patterns and solutions.
 
-[Azure IoT](https://azure.microsoft.com/overview/iot) is a collection of managed and platform services that connect and control IoT devices. Azure IoT supports a large range of devices, including industrial equipment, microcontrollers, and sensors. IoT devices communicate with cloud IoT and other services, which process device data to monitor, manage, and control the device environment.
+[Azure IoT](https://azure.microsoft.com/overview/iot) is a collection of managed and platform services that connect and control IoT devices. Azure IoT supports a large range of devices, including industrial equipment, microcontrollers, and sensors. IoT devices communicate with cloud IoT and other services, which process device data to monitor, manage, and control the devices.
 
 For example, an industrial motor collects and sends temperature data to the cloud. Data analysis determines whether the motor is performing as expected. This information prioritizes a maintenance schedule for the motor.
 
 ## Learn about Azure IoT
 
-You can learn about Azure IoT concepts in detail with this Learning Path and an Azure sandbox subscription. The five-hour learning path has eight training modules.
+You can learn about Azure IoT concepts in detail with this Learning Path that uses an Azure sandbox subscription. The five-hour learning path has eight training modules.
 
 > [!div class="nextstepaction"]
 > [Introduction to Azure IoT](/learn/paths/introduction-to-azure-iot)
@@ -54,7 +54,7 @@ You can create Azure IoT solutions by using individual platform as a service (Pa
 
 - An aPaaS provides a cloud environment to build, manage, and deliver applications. The aPaaS handles scaling and most configuration, but still requires developer input to build a finished solution.
 
-Compare IoT Central (aPaaS) and Azure PaaS solution approaches based on your solution needs.
+Compare IoT Central (aPaaS) and Azure PaaS approaches for building and deploying IoT cloud solutions. The technologies and services you choose depend on your scenario's development, deployment, and management needs.
 
 > [!div class="nextstepaction"]
 > [Compare solution approaches](/azure/architecture/example-scenario/iot/iot-central-iot-hub-cheat-sheet)
@@ -78,7 +78,7 @@ IoT architecture patterns are reusable building blocks that address key IoT solu
 
 - [Real-time IoT updates](../../example-scenario/iot/real-time-iot-updates-cloud-apps.yml). Instead of traditional polling requests, clients can receive updates from devices in real time. Azure SignalR service sends real-time IoT data to clients like web pages and mobile apps.
 
-- [Scale IoT solutions with deployment stamps](../../example-scenario/iot/application-stamps.yml). Deployment stamping supports scaling up the number of connected IoT devices by replicating stamps. Stamps are discrete units of solution components that optimally support a defined number of devices.
+- [Scale IoT solutions with deployment stamps](../../example-scenario/iot/application-stamps.yml). Stamps are discrete units of solution components that optimally support a defined number of devices. Deployment stamping supports scaling up the number of connected IoT devices by replicating stamps.
 
 - [Azure IoT client SDK support for third-party token servers](../../guide/iot/azure-iot-client-sdk-support.yml). Azure IoT Hub supports shared access signature (SAS) token authentication in client SDKs. Learn what to do in each SDK to achieve third-party token server authentication.
 
@@ -93,8 +93,6 @@ IoT architecture patterns are reusable building blocks that address key IoT solu
 IoT architectural guides provide insights into IoT concepts, architectures, and workstreams.
 
 - [IoT solutions conceptual overview](../../example-scenario/iot/introduction-to-solutions.yml). This series provides an overview of the functional interactions between events, insights, and actions in Azure IoT solutions.
-
-- [Choose an Internet of Things (IoT) solution in Azure](../../example-scenario/iot/iot-central-iot-hub-cheat-sheet.yml). Compare PaaS and aPaaS approaches for building and deploying IoT cloud solutions. The technologies and services you choose depend on your scenario's development, deployment, and management needs.
 
 - [Computer vision with Azure IoT Edge](../../guide/iot-edge-vision/index.md). This series describes an end-to-end computer vision workload that uses Azure IoT Edge, Azure Machine Learning, Azure Storage, Azure App Services, and Power BI to deliver quality assurance and safety solutions.
 
