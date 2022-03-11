@@ -4129,6 +4129,18 @@ items:
                   - name: Best practices for network security
                     href: /azure/security/fundamentals/network-best-practices
                     maintainContext: true
+                  - name: Network security and containment
+                    href: /security/compass/network-security-containment
+                    maintainContext: true
+                  - name: DDoS Protection Standard features
+                    href: /azure/ddos-protection/ddos-protection-standard-features
+                    maintainContext: true
+                  - name: DDoS Protection reference architectures
+                    href: /azure/ddos-protection/ddos-protection-reference-architectures
+                    maintainContext: true
+                  - name: Security baseline for DDoS Protection Standard
+                    href: /security/benchmark/azure/baselines/ddos-protection-security-baseline
+                    maintainContext: true
               - name: Application Gateway framework review
                 href: networking/guide/waf-application-gateway.md
               - name: Azure Firewall guidance
@@ -4152,8 +4164,20 @@ items:
                     href: reference-architectures/hybrid-networking/network-level-segmentation.yml
                   - name: VNet peering and VPN gateways
                     href: reference-architectures/hybrid-networking/vnet-peering.yml
+                  - name: Integrate virtual networks for isolation
+                    href: /azure/virtual-network/vnet-integration-for-azure-services
+                    maintainContext: true
+                  - name: Deploy services into virtual networks
+                    href: /azure/virtual-network/virtual-network-for-azure-services
+                    maintainContext: true
+                  - name: Virtual Network service endpoints
+                    href: /azure/virtual-network/virtual-network-service-endpoints-overview
+                    maintainContext: true
                   - name: Limit cross-tenant private endpoints
                     href: /azure/cloud-adoption-framework/ready/azure-best-practices/limit-cross-tenant-private-endpoint-connections
+                    maintainContext: true
+                  - name: Virtual network service tags
+                    href: /azure/virtual-network/service-tags-overview
                     maintainContext: true
               - name: Build solutions with availability zones
                 href: high-availability/building-solutions-for-high-availability.yml
