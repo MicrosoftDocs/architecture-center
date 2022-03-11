@@ -1,62 +1,62 @@
 
-When you host your apps or microservices in [Azure Spring Cloud](/azure/spring-cloud), you don't always want to publish them directly to the internet, but expose them through a reverse proxy instead. This allows you to place a service in front of your apps where you can define cross-cutting functionality such as Web Application Firewall (WAF) capabilities to secure your apps, load balancing, routing, request filtering, rate limiting, etc.
+When you host your apps or microservices in [Azure Spring Cloud](/azure/spring-cloud), you don't always want to publish them directly to the internet. You might want to expose them through a reverse proxy instead. Doing so allows you to place a service in front of your apps where you can define cross-cutting functionality like web application firewall (WAF) capabilities to help secure your apps, load balancing, routing, request filtering, and rate limiting.
 
-When you deploy a common reverse proxy service such as [Azure Application Gateway](/azure/application-gateway) or [Azure Front Door](/azure/frontdoor) in front of Azure Spring Cloud, you should ensure that your apps can *only* be reached through this reverse proxy: this prevents malicious users from attempting to bypass the Web Application Firewall or circumvent throttling limits, for example.
+When you deploy a common reverse proxy service like [Azure Application Gateway](/azure/application-gateway) or [Azure Front Door](/azure/frontdoor) in front of Azure Spring Cloud, you should ensure that your apps can be reached only through this reverse proxy. This safeguard helps to prevent malicious users from trying to bypass the WAF or circumvent throttling limits, for example.
 
-In this article, you will learn how to enforce access restrictions so that your Azure Spring Cloud apps are *only* accessible through your reverse proxy service. The way this can be achieved depends on how you have deployed your Azure Spring Cloud instance and which reverse proxy you use:
+In this article, you'll learn how to enforce access restrictions so that your Azure Spring Cloud apps are accessible only through your reverse proxy service. The recommended way to enforce these restrictions depends on how you've deployed your Azure Spring Cloud instance and which reverse proxy you use:
 
-- When you **[deploy your Azure Spring Cloud instance in a Virtual Network (VNet)](/azure/spring-cloud/how-to-deploy-in-azure-virtual-network)**, you can [access your apps privately from within the network](/azure/spring-cloud/access-app-virtual-network).
-  - In this case, you have control over the VNet in which your apps run, and you can use native Azure networking features such as Network Security Groups (NSGs) to lock down access to just your reverse proxy.
-  - You can [expose the apps publicly to the internet using Application Gateway](/azure/spring-cloud/expose-apps-gateway) and then apply the appropriate access restrictions to lock it down (**[scenario 1](#scenario-1-using-application-gateway-as-the-reverse-proxy)**).
-  - You cannot use Front Door directly however, because it cannot reach the Azure Spring Cloud instance in your private VNet. If required (for example, when you have a multi-region deployment of Azure Spring Cloud and require global load balancing) you can still place Front Door in front of Application Gateway (**[scenario 2](#scenario-2-using-front-door-and-application-gateway-as-the-reverse-proxy)**).
-- When you deploy **Azure Spring Cloud outside of a VNet**, your apps are published to the internet directly if you assign them an endpoint.
-  - In this case, you don't control the network and you can't use NSGs to restrict access. Allowing only the reverse proxy to access your apps therefore requires an approach within Azure Spring Cloud itself.
-  - Given that your apps are reachable publicly, you can use either Application Gateway (**[scenario 3](#scenario-3-using-application-gateway-as-the-reverse-proxy)**) or Front Door (**[scenario 4](#scenario-4-using-front-door-as-the-reverse-proxy)**) as the reverse proxy. You can even use a combination of both, if required, which would then use the same access restrictions between the two reverse proxies as in [scenario 2](#scenario-2-using-front-door-and-application-gateway-as-the-reverse-proxy).
+- When you **[deploy your Azure Spring Cloud instance in an Azure virtual network](/azure/spring-cloud/how-to-deploy-in-azure-virtual-network)**, you can [access your apps privately from within the network](/azure/spring-cloud/access-app-virtual-network).
+  - In this case, you have control over the virtual network in which your apps run, and you can use native Azure networking features like network security groups (NSGs) to lock down access to just your reverse proxy.
+  - You can [expose your apps publicly to the internet by using Application Gateway](/azure/spring-cloud/expose-apps-gateway) and then apply the appropriate access restrictions to lock it down. (**[See scenario 1 in this article.](#scenario-1-using-application-gateway-as-the-reverse-proxy)**)
+  - You can't use Azure Front Door directly, however, because it can't reach the Azure Spring Cloud instance in your private virtual network. If you need to (for example, when you have a multiregion deployment of Azure Spring Cloud and require global load balancing), you can still place Azure Front Door in front of Application Gateway. (**[See scenario 2.](#scenario-2-using-front-door-and-application-gateway-as-the-reverse-proxy)**)
+- When you deploy **Azure Spring Cloud outside of a virtual network**, your apps are published to the internet directly if you assign them an endpoint.
+  - In this case, you don't control the network, and you can't use NSGs to restrict access. Allowing only the reverse proxy to access your apps therefore requires an approach within Azure Spring Cloud itself.
+  - Given that your apps are reachable publicly, you can use either Application Gateway (**[scenario 3](#scenario-3-using-application-gateway-as-the-reverse-proxy)**) or Azure Front Door (**[scenario 4](#scenario-4-using-front-door-as-the-reverse-proxy)**) as the reverse proxy. You can even use a combination of both, if you need to. Using both would use the same access restrictions between the two reverse proxies that are used in [scenario 2](#scenario-2-using-front-door-and-application-gateway-as-the-reverse-proxy).
 
 > [!NOTE]
-> You can of course use other reverse proxy services than Application Gateway or Front Door. For VNet-based regional services, the guidance will then be similar to Application Gateway. When using non-Azure services, the guidance will be similar to using Front Door.
+> You can use other reverse proxy services instead of Application Gateway or Azure Front Door. For regional services that are based in an Azure virtual network, the guidance is similar to the guidance for Application Gateway. If you use non-Azure services, the guidance is similar to the guidance for Azure Front Door.
 
 ## Configuration summary
 
-For each scenario, you can find a short summary of how to configure it below. For full details on each scenario, please refer to the relevant section.
+This section provides a short summary of how to configure each scenario. For full details on each scenario, refer to the appropriate section.
 
-- **[Scenario 1: Application Gateway with Azure Spring Cloud deployed in your VNet](#scenario-1-using-application-gateway-as-the-reverse-proxy)**.
-  - For each app you want to expose, assign it an endpoint and map the appropriate custom domain(s) to that app.
-  - For the backend pool in Application Gateway, use the assigned endpoint of each app.
-  - On the "service runtime" subnet, add an NSG which only allows traffic from the Application Gateway subnet, the "apps" subnet and the Azure load balancer, while all other traffic is blocked.
-- **[Scenario 2: Front Door and Application Gateway with Azure Spring Cloud deployed in your VNet](#scenario-2-using-front-door-and-application-gateway-as-the-reverse-proxy).**
-  - Restrict access between Application Gateway and Azure Spring Cloud exactly like in **scenario 1**.
-  - Create an NSG on the Application Gateway subnet which allows only the `AzureFrontDoor.Backend` Service Tag.
-  - Create a custom WAF rule in Application Gateway which verifies that the `X-Azure-FDID` HTTP header is set to your specific Front Door instance.
-- **[Scenario 3: Application Gateway with Azure Spring Cloud deployed outside of your VNet](#scenario-3-using-application-gateway-as-the-reverse-proxy).**
-  - In this scenario, we assume use of Spring Cloud Gateway to expose the backend apps. This means that only the Spring Cloud Gateway app needs an endpoint assigned, and the custom domain(s) of all backend apps should be mapped to this single Spring Cloud Gateway app.
-  - For the backend pool in Application Gateway, use the assigned endpoint of the Spring Cloud Gateway app.
+- **[Scenario 1: Application Gateway with Azure Spring Cloud, deployed in your virtual network.](#scenario-1-using-application-gateway-as-the-reverse-proxy)**
+  - For each app you want to expose, assign it an endpoint and map the appropriate custom domain or domains to that app.
+  - For the back-end pool in Application Gateway, use the assigned endpoint of each app.
+  - In the service runtime subnet, add an NSG that allows traffic only from the Application Gateway subnet, the apps subnet, and the Azure load balancer, blocking all other traffic.
+- **[Scenario 2: Azure Front Door and Application Gateway with Azure Spring Cloud, deployed in your virtual network.](#scenario-2-using-front-door-and-application-gateway-as-the-reverse-proxy)**
+  - Restrict access between Application Gateway and Azure Spring Cloud exactly like in scenario 1.
+  - On the Application Gateway subnet, create an NSG that allows only the `AzureFrontDoor.Backend` service tag.
+  - Create a custom WAF rule in Application Gateway that verifies that the `X-Azure-FDID` HTTP header is set to your specific Azure Front Door instance.
+- **[Scenario 3: Application Gateway with Azure Spring Cloud, deployed outside your virtual network.](#scenario-3-using-application-gateway-as-the-reverse-proxy)**
+  - In this scenario, we assume that you're using Spring Cloud Gateway to expose the back-end apps. This means that only the Spring Cloud Gateway app needs to have an endpoint assigned. The custom domains of all back-end apps should be mapped to this single Spring Cloud Gateway app.
+  - For the bac-kend pool in Application Gateway, use the assigned endpoint of the Spring Cloud Gateway app.
   - In Spring Cloud Gateway, set the `XForwarded Remote Addr` route predicate to the public IP address of Application Gateway.
   - Optionally, in your Spring Framework apps, set the `server.forward-headers-strategy` application property to `FRAMEWORK`.
-- **[Scenario 4: Front Door with Azure Spring Cloud deployed outside of your VNet](#scenario-4-using-front-door-as-the-reverse-proxy).**
-  - In this scenario, we assume use of Spring Cloud Gateway to expose the backend apps. This means that only the Spring Cloud Gateway app needs an endpoint assigned, and the custom domain(s) of all backend apps should be mapped to this single Spring Cloud Gateway app.
-  - For the backend pool or origin in Front Door, use the assigned endpoint of the Spring Cloud Gateway app.
-  - In Spring Cloud Gateway, set the `XForwarded Remote Addr` route predicate to all outbound IP ranges of Front Door (and keep this up to date) and set the `Header` route predicate to ensure the `X-Azure-FDID` HTTP header contains your unique `Front Door ID`.
+- **[Scenario 4: Azure Front Door with Azure Spring Cloud, deployed outside your virtual network.](#scenario-4-using-front-door-as-the-reverse-proxy)**
+  - In this scenario, we assume that you're using Spring Cloud Gateway to expose the back-end apps. This means that only the Spring Cloud Gateway app needs to have an  endpoint assigned. The custom domains of all back-end apps should be mapped to this single Spring Cloud Gateway app.
+  - For the back-end pool or origin in Azure Front Door, use the assigned endpoint of the Spring Cloud Gateway app.
+  - In Spring Cloud Gateway, set the `XForwarded Remote Addr` route predicate to all outbound IP ranges of Azure Front Door, and keep this up to date. Set the `Header` route predicate to ensure that the `X-Azure-FDID` HTTP header contains your unique Azure Front Door ID.
   - Optionally, in your Spring Framework apps, set the `server.forward-headers-strategy` application property to `FRAMEWORK`.
 
 > [!NOTE]
-> Once the configuration is in place, consider using [Azure Policy](/azure/governance/policy/) or [resource locks](/azure/azure-resource-manager/management/lock-resources) to prevent accidental or malicious changes which could allow the reverse proxy to be bypassed and the application to be exposed directly. This would only apply to the Azure resources (the NSGs specifically), since configuration *within* the Azure Spring Cloud apps isn't visible to the Azure control plane.
+> After your configuration is in place, consider using [Azure Policy](/azure/governance/policy) or [resource locks](/azure/azure-resource-manager/management/lock-resources) to prevent accidental or malicious changes that could allow the reverse proxy to be bypassed and the application to be exposed directly. This applies only to the Azure resources (the NSGs specifically), because configuration *within* the Azure Spring Cloud apps isn't visible to the Azure control plane.
 
-## Azure Spring Cloud deployed in your Virtual Network
+## Azure Spring Cloud deployed in your virtual network
 
-When Azure Spring Cloud is deployed in a VNet, it uses [two subnets](/azure/spring-cloud/how-to-deploy-in-azure-virtual-network#virtual-network-requirements): a "service runtime" subnet which contains the relevant network resources, and an "apps" subnet in which your code is hosted. Given that [the "service runtime" subnet contains the load balancer that you use to connect to the apps](/azure/spring-cloud/access-app-virtual-network#find-the-ip-for-your-application), you can define a Network Security Group (NSG) on this "service runtime" subnet to allow only traffic from your reverse proxy. By blocking all other traffic, nobody in the VNet can access your apps without going through the reverse proxy.
+When Azure Spring Cloud is deployed in a virtual network, it uses [two subnets](/azure/spring-cloud/how-to-deploy-in-azure-virtual-network#virtual-network-requirements): a service runtime subnet that contains the relevant network resources, and an apps subnet in which your code is hosted. Given that [the service runtime subnet contains the load balancer that you use to connect to the apps](/azure/spring-cloud/access-app-virtual-network#find-the-ip-for-your-application), you can define an NSG on this service runtime subnet to allow only traffic from your reverse proxy. When you block all other traffic, nobody in the virtual network can access your apps without going through the reverse proxy.
 
 > [!IMPORTANT]
-> Restricting subnet access to only the reverse proxy may break features that depend on a direct connection from a client device to the app, such as [log streaming](/azure/spring-cloud/how-to-log-streaming). Consider adding NSG rules specifically for those client devices, and only for the period of time during which that direct access is required.
+> Restricting subnet access to only the reverse proxy might break features that depend on a direct connection from a client device to the app, like [log streaming](/azure/spring-cloud/how-to-log-streaming). Consider adding NSG rules specifically for those client devices, and only for the time when that direct access is required.
 
-Each app that you want to expose through your reverse proxy should have an endpoint assigned so that the reverse proxy can reach it in the VNet. For each app you should also [map the custom domain(s)](/azure/spring-cloud/tutorial-custom-domain#map-your-custom-domain-to-azure-spring-cloud-app) it uses, so that you can avoid overriding the HTTP `Host` header in the reverse proxy and keep the original host name intact. This avoids issues such as cookies being broken or redirect URLs not working properly: see the [Host name preservation best practice](../../best-practices/host-name-preservation.yml) guidance for more information.
+Each app that you want to expose through your reverse proxy should have an endpoint assigned so that the reverse proxy can reach it in the virtual network. For each app, you should also [map the custom domains](/azure/spring-cloud/tutorial-custom-domain#map-your-custom-domain-to-azure-spring-cloud-app) it uses so that you can avoid overriding the HTTP `Host` header in the reverse proxy and keep the original host name intact. Doing so avoids issues like broken cookies or redirect URLs that don't work properly. For more information, see [Host name preservation](../../best-practices/host-name-preservation.yml).
 
 > [!NOTE]
-> Alternatively (or, for defense in depth, perhaps even *in addition to* the NSG) you can follow the guidance for when you have [Azure Spring Cloud deployed outside of your Virtual Network](#azure-spring-cloud-deployed-outside-of-your-virtual-network). As explained in that section, access restrictions would then typically be achieved with Spring Cloud Gateway (which also has an impact on the backend apps as they no longer need an assigned endpoint or custom domain).
+> Alternatively (or, for defense in depth, maybe in addition to the NSG) you can follow the guidance for when you have [Azure Spring Cloud deployed outside your virtual network](#azure-spring-cloud-deployed-outside-of-your-virtual-network). As is explained in that section, access restrictions are then typically achieved via Spring Cloud Gateway (which also affects the back-end apps because they no longer need an assigned endpoint or custom domain).
 
 ### Scenario 1: Using Application Gateway as the reverse proxy
 
-![Using Application Gateway with Azure Spring Cloud in a VNet](_images/ra-scrp-scenario-appgw-private-asc.png)
+![Diagram that shows the use of Application Gateway with Azure Spring Cloud in a virtual network.](_images/application-gateway-reverse-proxy.png)
 
 When Application Gateway sits in front of your Azure Spring Cloud instance, you use the assigned endpoint of the Spring Cloud Gateway app as the backend pool (for example, `myspringcloudservice-myapp.private.azuremicroservices.io`). This resolves to a private IP address in the "service runtime" subnet. Therefore, to restrict access, you can place an NSG on the "service runtime" subnet with the following **inbound security rules** (with the "Deny" rule having the least priority):
 
