@@ -207,13 +207,13 @@ Frequent headlines of data breaches, malware infections, and malicious code inje
 Some common security questions include:
 
 - How can I control who can see what data?
-  - Organizations need to protect their data to comply with federal, local, and company guidelines to mitigate risks of data breach. * *[Data protection](https://docs.microsoft.com/en-us/azure/synapse-analytics/guidance/security-white-paper-data-protection)
+  - Organizations need to protect their data to comply with federal, local, and company guidelines to mitigate risks of data breach. *[Data protection](https://docs.microsoft.com/en-us/azure/synapse-analytics/guidance/security-white-paper-data-protection)*
 - What are the options for verifying a user's identity?
-  - Azure Synapse supports a wide range of capabilities to control who can access what data [Access control](https://docs.microsoft.com/en-us/azure/synapse-analytics/guidance/security-white-paper-access-control) and [Authentication](https://docs.microsoft.com/en-us/azure/synapse-analytics/guidance/security-white-paper-authentication)
+  - Azure Synapse supports a wide range of capabilities to control who can access what data *[Access control](https://docs.microsoft.com/en-us/azure/synapse-analytics/guidance/security-white-paper-access-control)* and *[Authentication](https://docs.microsoft.com/en-us/azure/synapse-analytics/guidance/security-white-paper-authentication)*
 - What network security technology can I use to protect the integrity, confidentiality, and access of my networks and data?
-  -  To secure Azure Synapse, there are a range of network security options to consider [Network security](https://docs.microsoft.com/en-us/azure/synapse-analytics/guidance/security-white-paper-network-security)
+  -  To secure Azure Synapse, there are a range of network security options to consider *[Network security](https://docs.microsoft.com/en-us/azure/synapse-analytics/guidance/security-white-paper-network-security)*
 - What are the tools that detect and notify me of threats?
-  - Azure Synapse provides SQL Auditing, SQL Threat Detection, and Vulnerability Assessment to audit, protect, and monitor databases. [Threat detection](https://docs.microsoft.com/en-us/azure/synapse-analytics/guidance/security-white-paper-threat-protection) 
+  - Azure Synapse provides SQL Auditing, SQL Threat Detection, and Vulnerability Assessment to audit, protect, and monitor databases. *[Threat detection](https://docs.microsoft.com/en-us/azure/synapse-analytics/guidance/security-white-paper-threat-protection)*
 
 ## DevOps ##
 
