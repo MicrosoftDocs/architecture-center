@@ -1,12 +1,12 @@
+> [!Note]
+> This article provides an overview with reference architecture for deploying SWIFT's Alliance Connect Virtual solution on Azure. Please note that the new Alliance Connect Virtual solution is not yet available for SWIFT production traffic. The solution is currently being tested with SWIFT customers and will become generally available throughout 2022 as part of a phased launch. For more information about the general availability of the product, refer to [SWIFT.com](https://www.swift.com/our-solutions/interfaces-and-integration/alliance-connect-virtual).
+
 This series of articles provides guidance on using SWIFT's components in Azure. This article discusses the basic components that the architecture examples use in this series.
 
 The intended audiences for this article are program managers, architects, and engineers who are implementing SWIFT's components in Azure. The article is organized into the following structure:
 
 * A high-level overview of the Azure architecture to deploy SWIFT's components (this article).
 * A detailed reference architecture for each of the components (links below).
-
-> [!Note]
-> This article provides an overview with reference architecture for deploying SWIFT's Alliance Connect Virtual solution on Azure. Please note that the new Alliance Connect Virtual solution is not yet available for SWIFT production traffic. The solution is currently being tested with SWIFT customers and will become generally available throughout 2022 as part of a phased launch. For more information about the general availability of the product, refer to [SWIFT.com](https://www.swift.com/our-solutions/interfaces-and-integration/alliance-connect-virtual).
 
 ## Architecture
 
@@ -25,7 +25,7 @@ This solution area represents the on-premises site from where business users wil
 
 #### SWIFT's Hardware Security Module (HSM)
 
-In accordance with SWIFT’s Customer Security Program (CSP) Control Framework (CSCF), the SWIFT's Hardware Security Module (HSM) has to be physically hosted (on-premises or in a co-location data center). A network connectivity, between a site running HSMs and Azure, is needed for SWIFT's component deployment.
+In accordance with SWIFT's Customer Security Program (CSP) Control Framework (CSCF), the SWIFT Hardware Security Module (HSM) has to be physically hosted. It can either be on-premises or in a colocation data center. A network connectivity, between a site running HSMs and Azure, is needed for SWIFT's component deployment.
 
 #### Alliance Connect Virtual (vSRX)
 
@@ -33,39 +33,39 @@ SWIFT's Alliance Connect Virtual is the connectivity component that's required t
 
 ### SWIFT messaging and connectivity components
 
-SWIFT offers various connectivity components for secure financial message transfers. Depending on the functional requirements, volume of transactions, and security requirements, customers can choose a specific connectivity module, as per SWIFT guidelines. The next section describes the key components that are available to banks that process payment message transfers.
+SWIFT offers various connectivity components for secure financial message transfers. Customers can consult SWIFT guidelines to choose a specific connectivity module. Functional requirements, the volume of transactions, and security requirements can influence that choice. The next section describes the key components that are available to banks that process payment message transfers.
 
 #### Alliance Access
 
-Customers with an Alliance Access based configuration will need the following:
+Customers with a configuration that's based on Alliance Access need the following components:
 
 * Alliance Access, Web Platform, SAG (SWIFT Alliance Gateway)/SNL (SWIFTNet Link), and an Alliance Connect Virtual network connectivity solution.
 * On-premises HSM appliance to secure the messages sent via SWIFTNet.
 
 #### Alliance Messaging Hub (AMH)
 
-Customers with an Alliance Messaging Hub (AMH) based configuration will the need following:
+Customers with a configuration that's based on Alliance Messaging Hub (AMH) need the following components:
 
 * Alliance Messaging Hub (AMH), Workbench, SAG (SWIFT Alliance Gateway)/SNL (SWIFTNet Link) and Alliance Connect Virtual network connectivity solution.
 * On-premises HSM appliance to secure the message sent via SWIFTNet.
 
 #### Alliance Lite 2
 
-An Alliance Lite 2 based configuration will the need following:
+A configuration that's based on Alliance Lite 2 needs the following components:
 
 * Alliance Lite 2 AutoClient Virtual Machine and an Alliance Connect Virtual network connectivity solution.
 * Physical token management from on-premises.
 
 #### Alliance Cloud
 
-An Alliance Cloud based configuration will the need following:
+A configuration that's based on Alliance Cloud needs the following components:
 
 * SWIFT Integration Layer (SIL) Virtual Machine and an Alliance Connect Virtual network connectivity solution.
 * Physical token management from on-premises.
 
 ### Customer's shared Azure services (optional)
 
-This solution area includes services that compliment all of SWIFT's components. Shared services can include monitoring, security, compliance, and other key management/operational services. Some of the key services are as shown in following diagram:
+This solution area includes services that complement all of SWIFT's components. Shared services can include monitoring, security, compliance, and other key management/operational services. Some of the key services are as shown in following diagram:
 
 [![Diagram showing the SWIFT shared services architecture.](./media/amh-on-azure-shared.png#lightbox)](./media/amh-on-azure-shared.png#lightbox)
 
@@ -79,13 +79,13 @@ While the proposed architecture recommends using native Azure services, customer
 
 #### Azure policies
 
-In response to the rapidly increasing cyber threat landscape, SWIFT introduced the Customer Security Program (CSP), with a set of mandatory security controls. To simplify and support control implementation and to enable continuous monitoring and auditing, Microsoft has developed a blueprint for the CSP framework. Azure Blueprint is a free service that enables customers to define a repeatable set of Azure resources and policies that implement and adhere to standards, patterns, and control requirements.  Azure Blueprints allow customers to set up governed Azure environments at scale, in order to aid secure and compliant production implementations. Consider using the latest implementation of SWIFT CSP controls in Azure, after consulting the Microsoft team working with you.
+In response to the rapidly increasing cyber threat landscape, SWIFT introduced the Customer Security Program (CSP), with a set of mandatory security controls. Microsoft has developed a blueprint for the CSP framework. Azure Blueprint is a free service that simplifies and supports control implementation. It also enables continuous monitoring and audit. By using Azure Blueprint, customers can define a repeatable set of Azure resources and policies that implement and adhere to standards, patterns, and control requirements. Azure Blueprint allows customers to set up governed Azure environments at scale, in order to aid secure and compliant production implementations. Consider using the latest implementation of SWIFT CSP controls in Azure, after consulting the Microsoft team working with you.
 
 #### Logic Apps
 
 Logic Apps is Microsoft Azure's [integration platform as a service](https://azure.microsoft.com/product-categories/integration) (iPaaS). It's a flexible, containerized, and modern cloud-scale workflow engine that you can run anywhere. Logic Apps now provides native understanding of SWIFT messaging, which enables customers to accelerate the modernization of their payments infrastructure by using the cloud. Hybrid VNet-connected integration capabilities are available to on-premises applications. These capabilities include a wide array of Azure services. Logic Apps provides more than 400 [connectors](/connectors/connector-reference/connector-reference-logicapps-connectors) for intelligent automation, integration, data movement, and more. The SWIFT connectors transform SWIFT flat file messages into XML and vice versa, and they validate based on the document schemas.
 
-Customers can use a Logic Apps service to process payment transactions quickly, which can reduce the implementation time. For example, customers can integrate their backend SAP systems via Logic Apps to SWIFT, to process payment transactions and business acknowledgments. As part of this processing, the transactions are validated and checked for duplicates or anomalies, by using the rich capabilities of Logic Apps.
+Customers can use a Logic Apps service to process payment transactions quickly, which can reduce the implementation time. For example, customers can integrate their backend SAP systems via Logic Apps to SWIFT, to process payment transactions and business acknowledgments. As part of this processing, Logic Apps validates the transactions and checks for duplicates and anomalies.
 
 ## Next steps
 
@@ -101,7 +101,9 @@ Customers can use a Logic Apps service to process payment transactions quickly, 
 Explore the following Azure architecture for the various SWIFT messaging interfaces in detail:
 
 * [SWIFT Alliance Connect in Azure](swift-on-azure-srx.yml)
-* [Alliance Access with Alliance Connect](swift-alliance-access-on-azure.yml)
-* [Alliance Access with Alliance Connect Virtual](swift-alliance-access-vsrx-on-azure.yml)
-* [Alliance Messaging Hub (AMH) with Alliance Connect](swift-alliance-messaging-hub.yml)
-* [Alliance Messaging Hub (AMH) with Alliance Connect Virtual](swift-alliance-messaging-hub-vsrx.yml)
+* [SWIFT Alliance Access with Alliance Connect](swift-alliance-access-on-azure.yml)
+* [SWIFT Alliance Access with Alliance Connect Virtual](swift-alliance-access-vsrx-on-azure.yml)
+* [SWIFT Alliance Messaging Hub (AMH) with Alliance Connect](swift-alliance-messaging-hub.yml)
+* [SWIFT Alliance Messaging Hub (AMH) with Alliance Connect Virtual](swift-alliance-messaging-hub-vsrx.yml)
+* [SWIFT Alliance Cloud in Azure](swift-alliance-cloud-on-azure.yml)
+* [SWIFT Alliance Lite2 on Azure](swift-alliance-lite2-on-azure.yml)

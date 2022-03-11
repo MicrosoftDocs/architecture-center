@@ -372,7 +372,7 @@ Microsoft solutions provide automation workflows for the following artifacts.
 
 | Artifact | Automation workflows |
 | ---- | --- |
-| Watchlists | Code review <br>Schema validation <br><br>[Deployment](/rest/api/securityinsights/watchlists)<br>Create, update, delete watchlists and [items](/rest/api/securityinsights/watchlist-items)|
+| Watchlists | Code review <br>Schema validation <br><br>[Deployment](/rest/api/securityinsights/preview/watchlists)<br>Create, update, delete watchlists and [items](/rest/api/securityinsights/preview/watchlist-items)|
 | Analytics rules fusion<br>Microsoft Security<br>ML behavioral analytics<br>Anomaly<br>Scheduled | [Code review](/azure/security/develop/security-code-analysis-overview)<br>KQL Syntax validation<br>Schema validation<br>Pester<br><br>[Deployment](/rest/api/securityinsights/stable/alert-rules)<br>Create, Enable, Update, Delete, Export<br>[Alert templates support](/rest/api/securityinsights/stable/alert-rule-templates) |
 | Automation rules | [Code review](/azure/security/develop/security-code-analysis-overview) <br>Schema validation<br><br>[Deployment](/rest/api/securityinsights/stable/alert-rules)<br>Create, enable, update, delete, export |
 | Connectors | [Code review](/azure/security/develop/security-code-analysis-overview)<br>Schema validation<br><br>[Deployment](/rest/api/securityinsights/stable/data-connectors)<br>Actions: enable, delete (disable), update |
@@ -576,8 +576,8 @@ The Microsoft Sentinel architecture includes the following elements on Azure:
 * User-managed identity - This feature acts as a Microsoft Sentinel unified identity layer that manages interactions between Microsoft Sentinel playbooks and runbooks.
 * Logic App connections - These are connections for Microsoft Sentinel, the key vault, and automation that use the user-managed identity.
 * External Logic App connections - These are connections for external resources that are involved in the remediations processes and which are based on the playbooks.
-* Azure Event Hubs - This feature is optional and handles integration between Microsoft Sentinel and other solutions in NESTLE, such as Splunk, Azure Databricks and machine learning, and Resilient.
-* Storage account - This feature is optional and handles integration between Microsoft Sentinel and other solutions in NESTLE, such as Splunk, Azure Databricks and machine learning, and Resilient.
+* Azure Event Hubs - This feature is optional and handles integration between Microsoft Sentinel and other solutions, such as Splunk, Azure Databricks and machine learning, and Resilient.
+* Storage account - This feature is optional and handles integration between Microsoft Sentinel and other solutions, such as Splunk, Azure Databricks and machine learning, and Resilient.
 
 By using examples from the repository, you can define the environment with JSON files to specify the different logical concepts. The options that are available for defining the environment can be literal or automatic.
 
@@ -751,7 +751,7 @@ Place your artifacts under the Microsoft Sentinel MITRE use cases path. Set up y
 The pipeline is made up of these steps:
 
 * Deploy NuGet components.
-* Connect the NuGet tools to the NESTLE artifacts repository.
+* Connect the NuGet tools to the artifacts repository.
 * Resolve the feed.
 * Install the required modules.
 * Get the [Test toolkit framework](/azure/azure-resource-manager/templates/test-toolkit) for validating the ARM templates.

@@ -4,7 +4,7 @@ metadata:
   description: This article describes the application tenancy models available to Software as a Service (SaaS) application builders.
   author: fredderf204
   ms.author: mifrie
-  ms.date: 03/07/2022
+  ms.date: 03/09/2022
   ms.topic: conceptual
   ms.service: architecture-center
   ms.subservice: azure-guide
@@ -16,6 +16,6 @@ products:
   - azure-sql-database
 name: Tenancy models for SaaS applications
 summary: This article describes the application tenancy models available to Software as a Service (SaaS) application builders.
-thumbnailUrl: /azure/architecture/browse/thumbs/mixed-tenant.png
+thumbnailUrl: /azure/architecture/browse/thumbs/mixed-tenant.jpg
 content: |
   [!include[](application-tenancy-content.md)]
