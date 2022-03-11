@@ -1,6 +1,6 @@
 [!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
-A charged off loan is a loan that is declared by a creditor (usually a lending institution) that an amount of debt is unlikely to be collected, usually when the loan repayment is severely delinquent by the debtor. Given that high chargeoff has negative impact on lending institutions' year end financials, lending institutions often monitor loan chargeoff risk very closely to prevent loans from getting charged-off. Using ML Services on Azure HDInsight, a lending institution can use machine learning predictive analytics to predict the likelihood of loans getting charged off and run a report on the analytics result stored in HDFS and hive tables.
+A charged off loan is a loan that is declared by a creditor (usually a lending institution) that an amount of debt is unlikely to be collected, usually when the loan repayment is severely delinquent by the debtor. Given that high chargeoff has negative impact on lending institutions' year end financials, lending institutions often monitor loan chargeoff risk very closely to prevent loans from getting charged-off. Using ML Services on Azure HDInsight, a lending institution can use machine learning predictive analytics to predict the likelihood of loans getting charged off and run a report on the analytics result stored in HDFS and Hive tables.
 
 ## Architecture
 
@@ -8,7 +8,7 @@ A charged off loan is a loan that is declared by a creditor (usually a lending i
 
 Download an [SVG](../media/loan-chargeoff-prediction-with-azure-hdinsight-spark-clusters.svg) of this architecture.
 
-### Data flow
+### Dataflow
 
 1. Create some data and define data sources for the ML prediction
 1. Run a logistic regression over the data using the local compute (or spark) context to predict loan charge off variable
