@@ -2139,7 +2139,18 @@ items:
                     maintainContext: true
                   - name: Security baseline for Windows VMs
                     href: /security/benchmark/azure/baselines/virtual-machines-windows-security-baseline
-                    maintainContext: true                 
+                    maintainContext: true
+              - name: Red Hat on Azure guidance
+                items:
+                  - name: Red Hat workloads on Azure
+                    href: /azure/virtual-machines/workloads/redhat/overview
+                    maintainContext: true
+                  - name: Red Hat OpenShift in Azure
+                    href: /azure/virtual-machines/linux/openshift-get-started
+                    maintainContext: true
+                  - name: Red Hat JBoss EAP on Azure
+                    href: /azure/developer/java/ee/jboss-on-azure
+                    maintainContext: true
           - name: Architectures
             items:
               - name: 3D video rendering
