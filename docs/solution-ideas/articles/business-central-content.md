@@ -11,7 +11,7 @@ Partners can build their own architecture where they can deploy Business Central
 ![Diagram showing the Business Central architecture.](../media/business-central-as-a-service.png)
 
 
-### Data flow
+### Dataflow
 
 This scenario demonstrates provisioning an environment ready for adding new tenant databases, new customers, and new demo tenants. The scenario is a complete environment, except for a customer database that will be built only once, and it allows usage for many different customers. For new customers, partners only need to deploy a new customer database and [mount](/dynamics365/business-central/dev-itpro/administration/mount-dismount-tenant) it.
 
@@ -19,7 +19,7 @@ The data flows through the scenario as follows:
 
 1. Customers login using web browser, device (phone or tablet) or through API to access the Dynamics 365 Business Central.
 2. Virtual Machine as a middle-tier, provides Web Server Components and plays roles as a [NST Server](/dynamics365/business-central/dev-itpro/administration/configure-server-instance), connecting customers with databases. One Virtual Machine can be used for multiple customers and the partner just needs to provide different Business Central Server Instance with different ports numbers for each of customers. Using this model, support will be much easier as the partner needs to support only one server at a minimum. With Azure Load balancer, this system will scale applications and create highly available services.
-3. The application and business data reside in separate databases, both using Azure SQL for its databases. App database will be in one single database (S0 will be enough to run application database). The partner maintains the application centrally without affecting the various tenants that use the application. Tenant databases will be placed in an Azure Elastic Database Pool (for starters, S4 pool with 200 DTU's will be enough). Each tenant database contains the business data for one or more specific companies from one client and does not contain all of the application metadata. If customers require more power, it is easy to change service tier on Azure SQL and Elastic Database Pool.
+3. The application and business data reside in separate databases, both using Azure SQL for its databases. App database will be in one single database (S0 will be enough to run application database). The partner maintains the application centrally without affecting the various tenants that use the application. Tenant databases will be placed in an Azure elastic database pool (for starters, S4 pool with 200 DTU's will be enough). Each tenant database contains the business data for one or more specific companies from one client and does not contain all of the application metadata. If customers require more power, it is easy to change service tier on Azure SQL and an elastic database pool.
 4. To provide better sustainability, all resources will be in one resource Group. All external services (Azure Machine Learning, Power Apps, Power Automate and Power BI) will communicate directly with the NST Server through exposed APIs and OData web services.
 
 ### Components
@@ -42,7 +42,7 @@ With [Azure Load Balancer](/azure/load-balancer/load-balancer-overview), you can
 
 It's important to note that the partner doesn't need a virtual machine for each customer. It can significantly reduce costs for middle-tier service (VM) by combining access and just changing ports.
 
-There are various options for VM sizes depending on the usage and workload. The partner will need to track performances and to increase power when needed by scaling up the VM(s). For app databases, you can take the smallest Azure SQL as S0 or eventually S1. The same situation applies with Azure Elastic Database Pool where you have various options and you need to start with smallest as it is easy scalable.
+There are various options for VM sizes depending on the usage and workload. The partner will need to track performances and to increase power when needed by scaling up the VM(s). For app databases, you can take the smallest Azure SQL as S0 or eventually S1. The same situation applies with an Azure elastic database pool, where you have various options and you need to start with smallest as it is easy scalable.
 
 ## Next steps
 
