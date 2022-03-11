@@ -4,7 +4,7 @@ metadata:
   titleSuffix: Azure Example Scenarios
   description: Learn how to architect a solution that processes changes to underlying data within a web view without the need for a page refresh using real-time services.
   author: talhanaveed
-  ms.author: pnp
+  ms.author: natal
   ms.date: 12/09/2019
   ms.topic: conceptual
   ms.service: architecture-center

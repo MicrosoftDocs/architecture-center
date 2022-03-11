@@ -17,6 +17,7 @@ products:
   - azure-active-directory
   - ms-graph
   - azure-app-service
+  - azure-fluid-relay
 name: Real-time collaboration with Azure and Microsoft 365
 summary: Learn about a custom collaboration solution that uses libraries and Azure services. 
 thumbnailUrl: /azure/architecture/browse/thumbs/real-time-data-collaboration.png
