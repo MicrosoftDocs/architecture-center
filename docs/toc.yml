@@ -3590,6 +3590,8 @@ items:
                 href: solution-ideas/articles/data-storage-edge.yml
               - name: Light and power for emerging markets
                 href: solution-ideas/articles/iot-power-management.yml
+              - name: Predictive maintenance
+                href: solution-ideas/articles/predictive-maintenance.yml
               - name: Process real-time vehicle data using IoT
                 href: example-scenario/data/realtime-analytics-vehicle-iot.yml
               - name: Project 15 IoT sustainability

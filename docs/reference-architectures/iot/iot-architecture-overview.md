@@ -20,9 +20,9 @@ products:
 
 # Get started with Azure IoT solutions
 
-This guide describes basic internet of things (IoT) concepts, discusses how to get started with Azure IoT, and presents links to articles about Azure IoT patterns and solutions.
+This guide covers basic internet of things (IoT) concepts, how to get started with Azure IoT, and links to information about Azure IoT patterns and solutions.
 
-[Azure IoT](https://azure.microsoft.com/overview/iot) is a collection of managed and platform services that connect and control IoT devices. Azure IoT supports a large range of devices, including industrial equipment, microcontrollers, and sensors. IoT devices communicate with cloud IoT and other services, which process device data to monitor, manage, and control the devices.
+[Azure IoT](https://azure.microsoft.com/overview/iot) is a collection of managed and platform services that connect and control IoT devices. Azure IoT supports a large range of devices, including industrial equipment, microcontrollers, and sensors. IoT devices communicate with cloud IoT and other services, which process device data to monitor and manage the devices.
 
 For example, an industrial motor collects and sends temperature data to the cloud. Data analysis determines whether the motor is performing as expected. This information prioritizes a maintenance schedule for the motor.
 
@@ -40,7 +40,7 @@ A standard IoT solution architecture consists of five basic elements.
 - *Devices* are industrial equipment, sensors, and microcontrollers that connect with the cloud to send and receive data.
 - *Provisioning* enables devices to take actions and communicate with the cloud.
 - *Processing* analyzes data from devices to gather insights.
-- *Business integration* takes actions based on insights from the device data. You can use services such as [Power BI](https://powerbi.microsoft.com) to visualize and inspect data, or use [Azure Logic Apps](https://azure.microsoft.com/services/logic-apps) or [Microsoft Power Automate](https://powerautomate.microsoft.com) to set up automated actions.
+- *Business integration* takes actions based on insights from the device data. You can use services like [Power BI](https://powerbi.microsoft.com) to inspect and visualize data, or [Azure Logic Apps](https://azure.microsoft.com/services/logic-apps) or [Microsoft Power Automate](https://powerautomate.microsoft.com) to set up automated actions.
 - *Security monitoring*. [Microsoft Defender for IoT](https://azure.microsoft.com/services/iot-defender) provides an end-to-end security solution for IoT workloads.
 
 > [!div class="nextstepaction"]
@@ -94,7 +94,7 @@ IoT architectural guides provide insights into IoT concepts, architectures, and 
 
 - [IoT solutions conceptual overview](../../example-scenario/iot/introduction-to-solutions.yml). This series provides an overview of the functional interactions between events, insights, and actions in Azure IoT solutions.
 
-- [Computer vision with Azure IoT Edge](../../guide/iot-edge-vision/index.md). This series describes an end-to-end computer vision workload that uses Azure IoT Edge, Azure Machine Learning, Azure Storage, Azure App Services, and Power BI to deliver quality assurance and safety solutions.
+- [Computer vision with Azure IoT Edge](../../guide/iot-edge-vision/index.md). This series describes an end-to-end computer vision workload. Azure IoT Edge, Azure Machine Learning, Azure Storage, Azure App Services, and Power BI combine to deliver quality assurance and safety solutions.
 
 - [Move an IoT solution from test to production](../../example-scenario/iot/iot-move-to-production.yml). Learn best practices and what to avoid when moving an IoT solution from a test environment to a production environment.
 
