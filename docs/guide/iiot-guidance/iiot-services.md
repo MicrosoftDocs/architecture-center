@@ -10,9 +10,15 @@ ms.service: architecture-center
 ms.subservice: azure-guide
 ms.category:
   - fcp
+categories:
+  - internet-of-things
+  - integration
 products:
   - azure-functions
   - azure-logic-apps
+  - azure-time-series-insights
+  - azure-iot-hub
+  - azure-event-hubs
 ms.custom:
   - guide
 ---
@@ -57,8 +63,8 @@ You can query your data in Time Series Insights using:
 Your IIoT analytics solution will require a number of microservices to perform functions such as:
 
 - Providing HTTP REST APIs to support your web application.
-  - We recommend creating HTTP-triggered [Azure Functions](/azure/azure-functions/) to implement your APIs.
-  - Alternatively, you can develop and host your REST APIs using Azure Service Fabric or [Azure Kubernetes Service (AKS)](/azure/aks/).
+  - We recommend creating HTTP-triggered [Azure Functions](/azure/azure-functions) to implement your APIs.
+  - Alternatively, you can develop and host your REST APIs using Azure Service Fabric or [Azure Kubernetes Service (AKS)](/azure/aks).
 
 - Providing an HTTP REST API interface to your factory floor OPC UA servers (for example, using Azure industrial IoT components consisting of OPC Publisher, OPC Twin and OPC Vault) to provide discovery, registration, and remote control of industrial devices.
   - For hosting the Azure industrial IoT microservices, we recommend using Azure Kubernetes Service (AKS). See [Deploying Azure Industrial IoT Platform](https://github.com/Azure/Industrial-IoT/blob/master/docs/deploy/readme.md) to understand the various deployment options.
