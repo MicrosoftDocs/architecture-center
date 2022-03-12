@@ -2,7 +2,7 @@
 metadata:
   title: Design great API Developer experiences using API Management and GitHub
   titleSuffix: Azure Example Scenarios
-  description: ______________________________________________
+  description: Create great experiences for developers, support community engagement & contribution, and monetize your API offerings.
   author: SubhajitChatterjee
   ms.author: subhajch
   ms.date: 03/11/2022
@@ -12,12 +12,13 @@ metadata:
   ms.custom: fcp 
 azureCategories:
   - web
+  - devops
 products:
   - azure-app-service
   - azure-private-link
   - azure-virtual-network
 name: Design great API Developer experiences using API Management and GitHub
-summary: ____________________________________________
+summary: Create great experiences for developers, support community engagement & contribution, and monetize your API offerings.
 thumbnailUrl: /azure/architecture/browse/thumbs/design-api-developer-experiences-management-github.png
 content: |
   [!include[](design-api-developer-experiences-management-github-content.md)]
