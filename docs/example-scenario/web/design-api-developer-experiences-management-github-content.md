@@ -1,54 +1,60 @@
 An API developer experience is the overall experience of a third-party developer when using a platform or service. The success and adoption of any API platform is largely dependent on how highly it's regarded in the marketplace. API services and products, also known as the _digital assets_ of an enterprise, are important accelerators of innovation and revenue that boost the [API economy](/azure/api-management/monetization-overview) for the enterprise.
 
 <!--
-For a digital enterprise that offers API services, third-party API developers can have a positive influence in promoting a brand. Promotion results in significant opportunities for generating revenue through increased usage and consumption.
+For a digital enterprise that offers API services, third-party API developers can have a positive influence in promoting a brand. Promotion results in significant opportunities for generating revenue through increased use and consumption.
 -->
 
 ## Potential use cases
 
--   [Self-hosted gateway](/azure/api-management/self-hosted-gateway-overview)
+You can use this solution to make it easy for API developers to:
 
--   [Basic enterprise integration on Azure](/azure/architecture/reference-architectures/enterprise-integration/basic-enterprise-integration)
+- Discover and understand the API product offerings.
+- Subscribe and integrate with the various applications and channels.
+- Get help, troubleshoot problems, and remediate issues.
+- Promote community contribution and exchange ideas and knowledge.
+
 
 ## Architecture
 
 :::image type="content" alt-text="Diagram of the architecture that's described in this article." source="media/design-api-developer-experiences-management-github-architecture.png" lightbox="media/design-api-developer-experiences-management-github-architecture.png":::
 
+_Download a [PowerPoint file](https://arch-center.azureedge.net/design-api-developer-experiences-management-github.pptx) of this architecture._
+
 ### Workflow
 
 The solution primarily consists of the following building blocks:
 
-- **Monetized backend APIs & API gateway**. At the core of the solution is the set of backend APIs that will be monetized. The consumers (users, applications, devices, etc.) access the API platform through an API gateway. The gateway applies rate leveling and throttles requests as needed.
+- **Monetized back-end APIs & API gateway**. At the core of the solution is the set of back-end APIs that will be monetized. The consumers (users, applications, devices, etc.) access the API platform through an API gateway. The gateway applies rate leveling and throttles requests as needed.
 
 - **Consumer portal and applications**. The consumers of the API platform browse the API offerings, register, and then generate subscription keys to access the various API end points. They can update information about their accounts and billing by using the account management features of the solution.
 
-- **Administrative portals and Applications**. Platform administrators publish the list of API products, their pricing, and rate plans. These portals also offer rich analytics on the use of the various API products, which help troubleshooting issues and offering support services.
+- **Administrative portals and applications**. Platform administrators publish the list of API products, their pricing, and rate plans. These portals also offer rich analytics on the use of the various API products, which help troubleshooting issues and offering support services.
 
 - **Line of business services**. These services are required to deliver the functionalities of the consumer portals & applications. These services are required to support the various user journeys that are supported in the solution.
 
-- **API Consumption Tracking and Charges Calculation Engine**. The API consumption reports, captured at the API gateway layer, are periodically exported to a separate data store. Scheduled jobs run on this data to calculate the charges that apply to any consumer account, based on its list of subscriptions and associated pricing model.
+- **API consumption tracking and charges calculation engine**. The API consumption reports, captured at the API gateway layer, are periodically exported to a separate data store. Scheduled jobs run on this data to calculate the charges that apply to any consumer account, based on its list of subscriptions and associated pricing model.
 
 The processing sequence in this solution flows as follows:
 
-1. The API publisher imports the API specification(s) by using the Azure portal, groups them by product, and publishes them.
+1.  The API publisher imports the API specification(s) by using the Azure portal, groups them by product, and publishes them.
 
-2. The API publisher updates the product-related marketing information in the corresponding GitHub repository.
+2.  The API publisher updates the product-related marketing information in the corresponding GitHub repository.
 
-3. The API consumer accesses the marketplace portal, browses the various products, and selects a specific API service.
+3.  The API consumer accesses the marketplace portal, browses the various products, and selects a specific API service.
 
-4. When the consumer attempts to view more information about the API service, the consumer portal redirects the consumer to the enhanced developer portal, which is hosted on GitHub and uses GitHub Pages.
+4.  When the consumer attempts to view more information about the API service, the consumer portal redirects the consumer to the enhanced developer portal, which is hosted on GitHub and uses GitHub Pages.
 
-5. The consumer can browse different API specifications, developer-related information, and even try invoking an endpoint by using a sample payload.
+5.  The consumer can browse different API specifications, developer-related information, and even try invoking an endpoint by using a sample payload.
 
-6. The consumer registers with the platform and then activates a subscription for the particular API service that they're interested in using.
+6.  The consumer registers with the platform and then activates a subscription for the particular API service that they're interested in using.
 
-7. The consumer makes use of the API service in their apps or devices.
+7.  The consumer makes use of the API service in their apps or devices.
 
-8. The invocation of the APIs generates metrics about usage and consumption, which are stored by Azure in tracking databases.
+8.  The invocation of the APIs generates metrics about use and consumption, which are stored by Azure in tracking databases.
 
-9. The consumption data is periodically exported and saved to a custom database (typically a data lake) for further analysis.
+9.  The consumption data is periodically exported and saved to a custom database (typically a data lake) for further analysis.
 
-10. A backend job then correlates the consumption data against the various subscriptions and calculates the charges.
+10. A back-end job then correlates the consumption data against the various subscriptions and calculates the charges.
 
 11. The invoice and payment-related information is stored within the accounting database, which is used for generating revenue for the service.
 
@@ -76,10 +82,9 @@ This section gives more detailed recommendations on how to commercialize your AP
 
 :::image type="content" alt-text="Diagram that describes the API value chain." source="media/design-api-developer-experiences-management-github-value-chain.png":::
 
-_Download a [PowerPoint file](https://arch-center.azureedge.net/design-api-developer-experiences-management-github.pptx) of this architecture._
-
 At the top of the value chain is the API service provider, followed by the API consumers or integrators, who design and build the amazing experiences for the eventual target consumers. End users and customers are the final beneficiaries in the value chain.
 
+<!--
 The API developer experience is quintessential to the success of this value chain. Success primarily revolves around accomplishing the following objectives. The experience should:
 
 - Make it easy to discover and understand the API product offerings.
@@ -89,6 +94,7 @@ The API developer experience is quintessential to the success of this value chai
 - Make it easy to get help, troubleshoot problems and remediate issues.
 
 - Promote community contribution and the exchange of ideas and lessons learned.
+-->
 
 ### Functional requirements
 
@@ -193,3 +199,7 @@ For additional information, see the following related resources for additional i
 - [Protect APIs with Azure Application Gateway and Azure API Management](/azure/architecture/reference-architectures/apis/protect-apis)
 
 - [Highly available multi-region web app - Azure Architecture Center](/azure/architecture/reference-architectures/app-service-web-app/multi-region)
+
+- [Self-hosted gateway](/azure/api-management/self-hosted-gateway-overview)
+
+- [Basic enterprise integration on Azure](/azure/architecture/reference-architectures/enterprise-integration/basic-enterprise-integration)
