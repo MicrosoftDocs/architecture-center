@@ -5,7 +5,7 @@ metadata:
   description: Use interactive analytics in Azure Data Explorer. Examine structured, semi-structured, and unstructured data with improvised, interactive, and fast queries.
   author: orspod
   ms.author: orspodek 
-  ms.date: 08/11/2020
+  ms.date: 03/14/2022
   ms.topic: conceptual
   ms.service: architecture-center
   ms.subservice: solution-idea
