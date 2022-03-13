@@ -76,11 +76,15 @@ The solution is composed of the following software as a service (SaaS) offerings
 
 - [Azure Active Directory B2C (Azure AD B2C)](https://azure.microsoft.com/services/active-directory/external-identities/b2c/): Azure AD B2C is an extension of Azure Active Directory (Azure AD) that your application can use to manage external customer or partner identities for access and authorization. You can make use of the [Microsoft Identify Platform](/azure/active-directory/develop/v2-overview) to easily integrate identity and authorization in your custom applications.
 
-## Recommendations
 
-This section provides more detailed recommendations about how to commercialize your API assets, and why building a rich experience for API developers is important to the adoption and use of your API products.
+## API value chain
 
-### API developer experience
+:::image type="content" alt-text="Diagram that describes the API value chain." source="media/design-api-developer-experiences-management-github-value-chain.png":::
+
+At the top of the value chain is the API service provider. Next are the API consumers or integrators, who design and build the amazing experiences for the eventual target consumers. End users and customers are the final beneficiaries in the value chain.
+
+
+## API developer experience
 
 :::image type="content" alt-text="Diagram of features and capabilities of the enhanced API developer experience." source="media/design-api-developer-experiences-management-github-basic-features.png" lightbox="media/design-api-developer-experiences-management-github-basic-features.png":::
 
@@ -95,14 +99,7 @@ The API developer experience that must be part of the end-to-end solution consis
 - **Account portal**. Registered users manage their subscriptions and perform other account-related activities by using the account portal.
 
 
-### API value chain
-
-:::image type="content" alt-text="Diagram that describes the API value chain." source="media/design-api-developer-experiences-management-github-value-chain.png":::
-
-At the top of the value chain is the API service provider. Next are the API consumers or integrators, who design and build the amazing experiences for the eventual target consumers. End users and customers are the final beneficiaries in the value chain.
-
-
-### Functional requirements
+## Functional requirements
 
 At a high level, the overall functional requirements for an enterprise-scale API platform can be broadly classified into three buckets, namely _productization_, _platform administration_, and _consumer experiences_.
 
