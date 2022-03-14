@@ -189,7 +189,7 @@ To display visual alerts in your web application, we recommend creating an Azure
 
 or,
 
-- **An Azure Functions output:** Then [develop an Azure Function](/azure/azure-signalr/signalr-concept-azure-functions) that sends the events to your web application using [SignalR](/aspnet/core/signalr/introduction?view=aspnetcore-3.1).
+- **An Azure Functions output:** Then [develop an Azure Function](/azure/azure-signalr/signalr-concept-azure-functions) that sends the events to your web application using [SignalR](/aspnet/core/signalr/introduction).
 
 Operational alarms and events triggered on premise can also be ingested into Azure for reporting and to trigger work orders, SMS messages, and emails.
 
