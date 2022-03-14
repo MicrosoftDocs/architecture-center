@@ -21,7 +21,7 @@ azureCategories:
   - containers
 summary: Deploy existing microservice applications with Azure Container Apps
 products:
-  - azure-app-service
+  - azure-container-apps
   - azure-cosmos-db
   - azure-service-bus
 thumbnailUrl: /azure/architecture/browse/thumbs/microservices-with-container-apps-runtime-diagram.png
