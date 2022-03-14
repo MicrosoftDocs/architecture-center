@@ -2,7 +2,7 @@
 title: What's New in Azure Architecture Center
 description: New and updated articles in Azure Architecture Center
 author: doodlemania2
-ms.date: 03/07/2022
+ms.date: 03/14/2022
 ms.topic: article
 ms.service: architecture-center
 ---
@@ -27,6 +27,7 @@ New and updated articles in Azure Architecture Center.
 
 ### New Articles
 
+- [Azure and Dynamics 365 scenarios](./solutions/dynamics-365-scenarios.md)
 - [DevOps architecture design](./guide/devops/devops-start-here.md)
 - [Automation of COVID-19 test forms](./example-scenario/ai/form-recognizer-covid.yml)
 - [SWIFT Alliance Cloud in Azure](./example-scenario/finance/swift-alliance-cloud-on-azure.yml)
@@ -43,6 +44,11 @@ New and updated articles in Azure Architecture Center.
 
 ### Updated Articles
 
+- [Services in an Azure IIoT solution](./guide/iiot-guidance/iiot-services.md)  ([#57e473f06](https://github.com/MicrosoftDocs/architecture-center/commit/57e473f06))
+- [Build cloud native applications](./solution-ideas/articles/cloud-native-apps.yml)  ([#8f791c4fa](https://github.com/MicrosoftDocs/architecture-center/commit/8f791c4fa))
+- [Secure research environment for regulated data](./example-scenario/ai/secure-compute-for-research.yml)  ([#03768497e](https://github.com/MicrosoftDocs/architecture-center/commit/03768497e))
+- [Baseline architecture for an AKS cluster](./reference-architectures/containers/aks/secure-baseline-aks.yml)  ([#743fb9773](https://github.com/MicrosoftDocs/architecture-center/commit/743fb9773))
+- [SAP deployment in Azure using an Oracle database](./example-scenario/apps/sap-production.yml)  ([#76a038d03](https://github.com/MicrosoftDocs/architecture-center/commit/76a038d03))
 - [Tenancy model for SaaS applications](./isv/application-tenancy.yml)  ([#e2c5be9eb](https://github.com/MicrosoftDocs/architecture-center/commit/e2c5be9eb))
 - [Build a chatbot for hotel booking](./example-scenario/ai/commerce-chatbot.yml)  ([#abfbdb23b](https://github.com/MicrosoftDocs/architecture-center/commit/abfbdb23b))
 - [Citizen AI with the Power Platform](./example-scenario/ai/citizen-ai-power-platform.yml)  ([#7636a039e](https://github.com/MicrosoftDocs/architecture-center/commit/7636a039e))
@@ -158,7 +164,7 @@ New and updated articles in Azure Architecture Center.
 - [Asynchronous messaging options](./guide/technology-choices/messaging.yml)  ([#943e03c78](https://github.com/MicrosoftDocs/architecture-center/commit/943e03c78))
 - [Analytics end-to-end with Azure Synapse](./example-scenario/dataplate2e/data-platform-end-to-end.yml)  ([#c5e5aed19](https://github.com/MicrosoftDocs/architecture-center/commit/c5e5aed19))
 - [Azure Virtual Desktop for the enterprise](./example-scenario/wvd/windows-virtual-desktop.yml)  ([#79adc0725](https://github.com/MicrosoftDocs/architecture-center/commit/79adc0725))
-- [SAP deployment on Azure using an Oracle database](./example-scenario/apps/sap-production.yml)  ([#f5c527723](https://github.com/MicrosoftDocs/architecture-center/commit/f5c527723))
+- [SAP deployment in Azure using an Oracle database](./example-scenario/apps/sap-production.yml)  ([#f5c527723](https://github.com/MicrosoftDocs/architecture-center/commit/f5c527723))
 - [Valet Key pattern](./patterns/valet-key.yml)  ([#7a9472004](https://github.com/MicrosoftDocs/architecture-center/commit/7a9472004))
 - [Computer vision with Azure IoT Edge](./guide/iot-edge-vision/index.md)  ([#c79dfeaa5](https://github.com/MicrosoftDocs/architecture-center/commit/c79dfeaa5))
 - [SAP HANA for Linux VMs in scale-up systems](./reference-architectures/sap/run-sap-hana-for-linux-virtual-machines.yml)  ([#b55c5fd90](https://github.com/MicrosoftDocs/architecture-center/commit/b55c5fd90))
