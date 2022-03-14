@@ -121,7 +121,7 @@ For  SAP application part, see the details in architecture guide [Run SAP NetWea
 
 ## Disaster recovery considerations
 
-[![Architecture of a production SAP system on Oracle in Azure](./media/sap-oracle-avzone-dr.png)](./media/sap-oracle-avzone-dr.png#lightbox)
+[![Architecture of a production SAP system on Oracle in Azure](./media/sap-oracle-avzone-disaster-recovery.png)](./media/sap-oracle-avzone-disaster-recovery.png#lightbox)
 *Figure - Architecture of a production SAP system on Oracle in Azure with AvZone and DR*
 
 Download a [Visio file](https://arch-center.azureedge.net/sap-oracle-architecture-avzone.vsdx) of this architecture.
