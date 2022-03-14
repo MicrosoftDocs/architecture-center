@@ -4,8 +4,8 @@ metadata:
   titleSuffix: Azure architecture
   description: Replicate data while modernizing mainframe and midrange systems. Sync on-premises data with Azure data during modernization.
   author: EdPrice-MSFT
-  ms.author: pnp
-  ms.date: 12/29/2020
+  ms.author: edprice
+  ms.date: 03/15/2022
   ms.topic: conceptual
   ms.service: architecture-center
   ms.subservice: reference-architecture
