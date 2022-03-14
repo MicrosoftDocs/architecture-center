@@ -7,7 +7,7 @@ manager: lizross
 ms.service: architecture-center
 ms.subservice: reference-architecture
 ms.topic: conceptual
-ms.date: 03/09/2022
+ms.date: 03/14/2022
 ms.author: mcosner
 ms.custom:
   - internal-intro
@@ -20,9 +20,9 @@ products:
 
 # Industry specific Azure IoT solutions
 
-This article provides an overview of industry-specific Industrial IoT (IIoT) solutions and scenarios. IIoT is the application of internet-of-things (IoT) technology to manufacturing and other industries. [Azure Industrial IoT](https://azure.microsoft.com/solutions/industry/manufacturing/iot) is a suite of IoT Edge and IoT Hub, microservices, and other Azure services that integrate the cloud into manufacturing shop floors and industries and .
+This article provides an overview of industry-specific Industrial IoT (IIoT) solutions and scenarios. IIoT is the application of internet-of-things (IoT) technology to manufacturing and other industries. [Azure Industrial IoT](https://azure.microsoft.com/solutions/industry/manufacturing/iot) is a suite of IoT Edge and IoT Hub, microservices, and other services that integrate the Azure cloud into manufacturing shop floors and other IoT systems.
 
-Azure IIoT relies on industry-standard open interfaces, such as the [Open Platform Communications Unified Architecture (OPC UA)](https://opcfoundation.org/about/opc-technologies/opc-ua), to bring device and sensor data into the Azure cloud. Cloud platform-as-a-service (PaaS) components use device data to develop transformative business and industrial solutions. For guidance in using Azure PaaS components to create IIoT solutions, see the series on [Industrial IoT analytics](../../guide/iiot-guidance/iiot-architecture.yml).
+Azure IIoT relies on industry-standard open interfaces, such as the [Open Platform Communications Unified Architecture (OPC UA)](https://opcfoundation.org/about/opc-technologies/opc-ua), to bring device and sensor data into the Azure cloud. Cloud platform-as-a-service (PaaS) components use device data to develop business and industrial solutions. For guidance in using Azure PaaS components to create IIoT solutions, see the series on [Industrial IoT analytics](../../guide/iiot-guidance/iiot-architecture.yml).
 
 For overall IoT patterns and guides that apply across industry verticals, see [Get started with Azure IoT solutions](iot-architecture-overview.md). The following Azure IIoT solutions and scenarios address unique business challenges for specific industries.
 
@@ -32,13 +32,13 @@ For overall IoT patterns and guides that apply across industry verticals, see [G
 
 - [Real-time asset tracking for vehicles](../../solution-ideas/articles/real-time-asset-tracking-mgmt-iot-central.yml). Azure IoT Central and other Azure services track and manage vehicles and other assets in real time.
 
-- [Railway health system with IoT Edge](../../example-scenario/predictive-maintenance/iot-predictive-maintenance.yml). Edge computing enables fast, consistent responses with reduced dependency on cloud connectivity and resources. The intelligent edge brings data processing and storage close to the data source in a train maintenance and safety solution.
+- [Railway health system with IoT Edge](../../example-scenario/predictive-maintenance/iot-predictive-maintenance.yml). Edge computing enables fast, consistent responses with reduced dependency on cloud connectivity and resources. The intelligent edge brings data processing and storage close to the data source in this train maintenance and safety solution.
 
 - [Automated guided vehicles fleet control](../../example-scenario/iot/automated-guided-vehicles-fleet-control.yml). Automated guided vehicles (AGVs) are an important part of just-in-time manufacturing and automated shop-floor logistics. In this example, AGVs deliver parts to automotive assembly lines.
 
 ## Energy and environment
 
-- [Environmental monitoring and supply chain optimization with IoT](../../solution-ideas/articles/environment-monitoring-and-supply-chain-optimization.yml). Environmental monitoring is an important activity in the global supply chain. A warehouse management scenario monitors environmental conditions and processes the data with ML to generate predictions.
+- [Environmental monitoring and supply chain optimization with IoT](../../solution-ideas/articles/environment-monitoring-and-supply-chain-optimization.yml). Environmental monitoring is an important activity in the global supply chain. A warehouse management scenario monitors environmental conditions and processes the data with machine learning (ML) to generate predictions.
 
 - [Project 15 Open Platform IoT sustainability](../../solution-ideas/articles/project-15-iot-sustainability.yml). Open Platform open-source software connects to the cloud and securely manages devices for scientific and conservation projects. This architecture is a reference for building open-source, end-to-end IoT solutions.
 
@@ -56,9 +56,9 @@ For overall IoT patterns and guides that apply across industry verticals, see [G
 
 - [Condition monitoring for industrial IoT](../../solution-ideas/articles/condition-monitoring.yml). Condition monitoring helps manufacturers discover anomalies before they become critical. In this solution, IoT devices connect to the cloud through OPC UA and Azure industrial IoT components.
 
-- [Predictive maintenance for industrial IoT](../../solution-ideas/articles/iot-predictive-maintenance.yml). Predictive maintenance diagnoses and predicts malfunctions and maintenance needs in OPC UA-connected equipment. This solution uses mixed reality and digital twins technologies to optimize production in real time.
+- [Predictive maintenance for industrial IoT](../../solution-ideas/articles/iot-predictive-maintenance.yml). Predictive maintenance diagnoses and predicts malfunctions and maintenance needs in OPC UA connected equipment. This solution uses mixed reality and digital twins technologies to optimize production in real time.
 
-- [End-to-end computer vision at the edge for manufacturing](../../reference-architectures/ai/end-to-end-smart-factory.yml). Industries use computer vision and machine learning (ML) for safety and quality assurance applications. This example shows an end-to-end approach to IoT computer vision that improves processes over time.
+- [End-to-end computer vision at the edge for manufacturing](../../reference-architectures/ai/end-to-end-smart-factory.yml). Industries use computer vision and ML for safety and quality assurance applications. This example shows an end-to-end approach to IoT computer vision that improves processes over time.
 
 ## Retail
 

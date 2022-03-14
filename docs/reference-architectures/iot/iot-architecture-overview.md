@@ -7,7 +7,7 @@ manager: lizross
 ms.service: architecture-center
 ms.subservice: reference-architecture
 ms.topic: conceptual
-ms.date: 03/09/2022
+ms.date: 03/14/2022
 ms.author: mcosner
 ms.custom:
   - internal-intro
@@ -20,7 +20,7 @@ products:
 
 # Get started with Azure IoT solutions
 
-This guide covers basic internet of things (IoT) concepts, how to get started with Azure IoT, and links to information about Azure IoT patterns and solutions.
+This guide discusses basic internet of things (IoT) concepts, describes how to get started with Azure IoT, and provides links to other articles about Azure IoT patterns and solutions.
 
 [Azure IoT](https://azure.microsoft.com/overview/iot) is a collection of managed and platform services that connect and control IoT devices. Azure IoT supports a large range of devices, including industrial equipment, microcontrollers, and sensors. IoT devices communicate with cloud IoT and other services, which process device data to monitor and manage the devices.
 
@@ -28,7 +28,7 @@ For example, an industrial motor collects and sends temperature data to the clou
 
 ## Learn about Azure IoT
 
-You can learn about Azure IoT concepts in detail with this Learning Path that uses an Azure sandbox subscription. The five-hour learning path has eight training modules.
+You can learn about Azure IoT concepts in detail with a Learning Path that uses an Azure sandbox subscription. The five-hour learning path has eight training modules.
 
 > [!div class="nextstepaction"]
 > [Introduction to Azure IoT](/learn/paths/introduction-to-azure-iot)
