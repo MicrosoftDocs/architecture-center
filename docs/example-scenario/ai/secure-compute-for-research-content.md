@@ -12,7 +12,7 @@ By following the guidance you can maintain full control of your research data, h
 
 ## Architecture
 
-:::image type="content" source="./media/secure-research-env.svg" alt-text="Diagram of a secure research environment.":::
+:::image type="content" source="./media/secure-research-env.png" alt-text="Diagram of a secure research environment.":::
 
 ### Dataflow
 

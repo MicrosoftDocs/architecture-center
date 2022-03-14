@@ -4,7 +4,7 @@ metadata:
   description: Learn about the Deployment Stamps pattern, which deploys many independent copies (known as stamps, service units, or scale units) of application components.
   author: johndowns
   ms.author: jodowns
-  ms.date: 12/03/2021
+  ms.date: 03/14/2022
   ms.topic: conceptual
   ms.service: architecture-center
   ms.subservice: azure-guide
