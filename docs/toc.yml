@@ -3478,8 +3478,8 @@ items:
             href: reference-architectures/iot/iot-architecture-overview.md
           - name: Guides
             items:
-              - name: Industry specific solutions
-                href: reference-architectures/iot/industrial-iot-hub-page.md
+              - name: Industry specific example solutions
+                href: reference-architectures/iot/industry-iot-hub-page.md
               - name: IoT concepts
                 items:
                   - name: Introduction to IoT solutions

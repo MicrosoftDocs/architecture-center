@@ -1,14 +1,14 @@
 ---
-title: Industry specific Azure IoT solutions
+title: Industry specific Azure IoT reference architectures
 titleSuffix: Azure Reference Architectures
-description: See example Azure IoT solutions and scenarios for manufacturing, smart buildings, retail, transportation, and across industries.
-author: mcosner
+description: See example Azure IoT solutions and scenarios for environmental, facilities, manufacturing, retail, and transportation industries.
+author: falloutxay
 manager: lizross
 ms.service: architecture-center
 ms.subservice: reference-architecture
 ms.topic: conceptual
-ms.date: 03/14/2022
-ms.author: mcosner
+ms.date: 03/15/2022
+ms.author: ansyeo
 ms.custom:
   - internal-intro
 categories:
@@ -18,13 +18,11 @@ products:
   - azure-iot-hub
 ---
 
-# Industry specific Azure IoT solutions
+# Industry specific Azure IoT reference architectures
 
-This article provides an overview of industry-specific Industrial IoT (IIoT) solutions and scenarios. IIoT is the application of internet-of-things (IoT) technology to manufacturing and other industries. [Azure Industrial IoT](https://azure.microsoft.com/solutions/industry/manufacturing/iot) is a suite of IoT Edge and IoT Hub, microservices, and other services that integrate the Azure cloud into manufacturing shop floors and other IoT systems.
+This article provides an overview of industry-specific internet-of-things (IoT) reference architectures and example solutions.
 
-Azure IIoT relies on industry-standard open interfaces, such as the [Open Platform Communications Unified Architecture (OPC UA)](https://opcfoundation.org/about/opc-technologies/opc-ua), to bring device and sensor data into the Azure cloud. Cloud platform-as-a-service (PaaS) components use device data to develop business and industrial solutions. For guidance in using Azure PaaS components to create IIoT solutions, see the series on [Industrial IoT analytics](../../guide/iiot-guidance/iiot-architecture.yml).
-
-For overall IoT patterns and guides that apply across industry verticals, see [Get started with Azure IoT solutions](iot-architecture-overview.md). The following Azure IIoT solutions and scenarios address unique business challenges for specific industries.
+The following Azure IIoT solutions and scenarios address unique business challenges for specific industries. For overall IoT patterns and guides that apply across industry verticals, see [Get started with Azure IoT solutions](iot-architecture-overview.md). 
 
 ## Automotive and transportation
 
@@ -38,7 +36,7 @@ For overall IoT patterns and guides that apply across industry verticals, see [G
 
 ## Energy and environment
 
-- [Environmental monitoring and supply chain optimization with IoT](../../solution-ideas/articles/environment-monitoring-and-supply-chain-optimization.yml). Environmental monitoring is an important activity in the global supply chain. A warehouse management scenario monitors environmental conditions and processes the data with machine learning (ML) to generate predictions.
+- [Environmental monitoring and supply chain optimization with IoT](../../solution-ideas/articles/environment-monitoring-and-supply-chain-optimization.yml). Environmental monitoring is crucial for global supply chain management. A warehouse management scenario monitors environmental conditions and processes the data with machine learning (ML) to generate predictions.
 
 - [Project 15 Open Platform IoT sustainability](../../solution-ideas/articles/project-15-iot-sustainability.yml). Open Platform open-source software connects to the cloud and securely manages devices for scientific and conservation projects. This architecture is a reference for building open-source, end-to-end IoT solutions.
 
@@ -52,7 +50,7 @@ For overall IoT patterns and guides that apply across industry verticals, see [G
 
 - [Connected factory hierarchy service](../../solution-ideas/articles/connected-factory-hierarchy-service.yml). A hierarchy service lets businesses centrally define how to organize production assets within factories.
 
-- [Connected factory signal pipeline](../../example-scenario/iot/connected-factory-signal-pipeline.yml). The connected factory signal pipeline uses a common configuration interface based on OPC UA to connect heterogenous legacy and modern devices.
+- [Connected factory signal pipeline](../../example-scenario/iot/connected-factory-signal-pipeline.yml). The signal pipeline uses a common configuration interface based on the [Open Platform Communications Unified Architecture (OPC UA)](https://opcfoundation.org/about/opc-technologies/opc-ua) to connect heterogenous legacy and modern devices.
 
 - [Condition monitoring for industrial IoT](../../solution-ideas/articles/condition-monitoring.yml). Condition monitoring helps manufacturers discover anomalies before they become critical. In this solution, IoT devices connect to the cloud through OPC UA and Azure industrial IoT components.
 
@@ -69,5 +67,4 @@ For overall IoT patterns and guides that apply across industry verticals, see [G
 ## Next steps
 
 - [What is Azure IIoT?](/azure/industrial-iot/overview-what-is-industrial-iot)
-- [Azure Industrial IoT on GitHub](https://azure.github.io/Industrial-IoT)
-- [Azure Industrial IoT documentation](/azure/industrial-iot)
+ Cloud platform-as-a-service (PaaS) components use device data to develop business and industrial solutions. For guidance in using Azure PaaS components to create IIoT solutions, see the series on [Industrial IoT analytics](../../guide/iiot-guidance/iiot-architecture.yml).
