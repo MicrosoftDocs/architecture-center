@@ -41,6 +41,8 @@ After training is complete, engineers deploy these trained agents to the real wo
 
 ## Implementations
 
+The following implementations are example deployments. You can follow the resources to understand how these solutions were designed.
+
 ### Machine teaching service
 
 [Project Bonsai](https://azure.microsoft.com/services/project-bonsai/) is the machine teaching service for the Microsoft Autonomous Systems platform. Bonsai simplifies machine teaching with deep reinforcement learning (DRL) to train and deploy smarter autonomous systems.
