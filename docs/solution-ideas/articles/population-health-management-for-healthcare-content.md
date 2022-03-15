@@ -19,7 +19,7 @@ This solution can be used for the following scenarios:
 ![Architecture diagram](../media/population-health-management-for-healthcare.png)
 *Download an [SVG](../media/population-health-management-for-healthcare.svg) of this architecture.*
 
-### Data flow
+### Dataflow
 
 1. Real-time data generating devices (IoMT) transfer data to a streaming data ingestion sink with device authentication such as IoT Hub.  This sink could be a standalone Azure IoT Hub or it could be included in a fully managed application platform like [Azure IOT Central](/azure/iot-fundamentals/iot-services-and-technologies#azure-iot-central) with solution accelerators such as a [continuous patient monitoring template](/azure/iot-central/healthcare/overview-iot-central-healthcare#what-is-continuous-patient-monitoring-template).
 
@@ -33,7 +33,7 @@ This solution can be used for the following scenarios:
 
 6. Use Azure Databricks to clean and transform the structureless datasets and combine them with structured data from operational databases or data warehouses.  Use scalable machine learning/deep learning techniques, to derive deeper insights from this data using Python, R, or Scala, with inbuilt notebook experiences in Azure Databricks.  In this solution, we use Databricks to bring together related, but disparate datasets for use in the patient length of stay model.
 
-7. Experimentation and model development occurs in Azure Databricks.  Integration with Azure ML through [mlflow](/azure/machine-learning/how-to-use-mlflow-azure-databricks) allows for rapid model experimentation with tracking, model repository, and deployment.
+7. Experimentation and model development occurs in Azure Databricks.  Integration with Azure ML through [MLflow](/azure/machine-learning/how-to-use-mlflow-azure-databricks) allows for rapid model experimentation with tracking, model repository, and deployment.
 
 8. Publish trained models using Azure Machine Learning service for batch scoring through [Azure Databricks endpoints](/azure/machine-learning/how-to-use-mlflow-azure-databricks#deploy-models-to-adb-endpoints-for-batch-scoring), or as a real-time endpoint using an [Azure Container Instance](/azure/machine-learning/how-to-deploy-mlflow-models#deploy-to-azure-container-instance-aci) or [Azure Kubernetes Service](/azure/machine-learning/how-to-deploy-mlflow-models#deploy-to-azure-kubernetes-service-aks).
 
