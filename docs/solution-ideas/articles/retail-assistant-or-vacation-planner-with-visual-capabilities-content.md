@@ -12,13 +12,13 @@ This solution can be used broadly but is ideal for the retail industry, as well 
 
 ### Dataflow
 
-1. The user uses the application, which is hosted on Azure App Service, either via web browser or mobile device
-1. Azure App Service communicates with Azure Bot Service in order to facilitate the user/application interaction
-1. Azure Bot Service leverages Language Understanding (LUIS) in order to understand the user natural by identifying user intents and entities
+1. The user uses the application, which is hosted on [Azure App Service](/azure/app-service/), either via web browser or mobile device
+1. Azure App Service communicates with [Azure Bot Service](/azure/bot-service/) in order to facilitate the user/application interaction
+1. Azure Bot Service leverages [Azure Cognitive Services Language Understanding](/azure/cognitive-services/luis/what-is-luis) in order to understand the user natural by identifying user intents and entities
 1. Language Understanding (LUIS) returns back to the Azure Bot the identified user intent based on conversation made
-1. Azure Bot passes a kind of visual context input (e.g image) to the Bing Visual Search API
+1. Azure Bot passes a kind of visual context input (e.g image) to the [Azure Bing Visual Search API](/azure/cognitive-services/bing-visual-search)
 1. Visual Search returns output back to Azure Bot Service
-1. Optionally, the Azure Bot receives more information for user queries exclusively from the user's domain using the Bing Custom Search API.
+1. Optionally, the Azure Bot receives more information for user queries exclusively from the user's domain using the [Azure Custom Search API](/azure/cognitive-services/bing-custom-search)
 1. Custom Search API returns output back to Bot Service
 
 ### Components
