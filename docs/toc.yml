@@ -1576,8 +1576,8 @@ items:
             maintainContext: true
           - name: Baseball decision analysis with ML.NET
             href: data-guide/big-data/baseball-ml-workload.yml
-      - name: Industry specific IoT solutions
-        href: reference-architectures/iot/industrial-iot-hub-page.md
+      - name: Industry specific IoT example solutions
+        href: reference-architectures/iot/industry-iot-hub-page.md
   - name: Azure categories
     expanded: true
     items:
