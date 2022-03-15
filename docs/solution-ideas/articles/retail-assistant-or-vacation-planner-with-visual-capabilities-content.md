@@ -8,7 +8,7 @@ This solution can be used broadly but is ideal for the retail industry, as well 
 
 ## Architecture
 
-![Architecture diagram] (aajaluwa1/architecture-center-pr/docs/solution-ideas/media/Bot_Assistant_Architecture.png)
+![Architecture diagram](aajaluwa1/architecture-center-pr/docs/solution-ideas/media/Bot_Assistant_Architecture.png)
 
 ### Dataflow
 
