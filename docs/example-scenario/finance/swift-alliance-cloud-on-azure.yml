@@ -20,6 +20,6 @@ products:
   - azure-expressroute
 name: SWIFT Alliance Cloud in Azure
 summary: Deploy Azure infrastructure for SWIFT Alliance Cloud.
-thumbnailUrl: /azure/architecture/browse/thumbs/design-api-developer-experiences-management-github.png
+thumbnailUrl: /azure/architecture/browse/thumbs/swift-alliance-cloud-on-azure.png
 content: |
   [!include[](swift-alliance-cloud-on-azure-content.md)]
