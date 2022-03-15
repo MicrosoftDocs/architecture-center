@@ -22,7 +22,7 @@ products:
 
 This article provides an overview of industry-specific internet-of-things (IoT) reference architectures and example solutions.
 
-The following Azure IIoT solutions and scenarios address unique business challenges for specific industries. For overall IoT patterns and guides that apply across industry verticals, see [Get started with Azure IoT solutions](iot-architecture-overview.md). 
+The following Azure IoT solutions and example scenarios address unique business challenges for specific industries. For overall IoT patterns and guides that apply across industry verticals, see [Get started with Azure IoT solutions](iot-architecture-overview.md). 
 
 ## Automotive and transportation
 
