@@ -1,4 +1,4 @@
-The process of integration centers on connecting applications, data, services, and devices, often in complex ways. Through integration, organizations bring workflows together so they're consistent and scalable. Businesses connect applications, data, and processes in a fast, efficient, and automated manner.
+The purpose of integration is to connect applications, data, services, and devices, often in complex ways. Through integration, organizations bring workflows together so they're consistent and scalable. Businesses connect applications, data, and processes in a fast, efficient, and automated manner.
 
 Connections can run between on-premises, cloud, and edge systems. They can bring together enterprise, partner, third-party, and legacy technologies.
 
@@ -39,12 +39,12 @@ After you've covered the fundamentals of integration, the next step is to design
 
 ### Design patterns
 
-To explore patterns to incorporate into your planning, consult resources in the following areas.
+To explore patterns to incorporate into your design, consult resources in the following areas.
 
 #### Hybrid systems
 
 - [Tiered data for analytics][Tiered data for analytics]: Use Azure Stack Hub for collecting, processing, storing, and distributing local and remote data.
-- [Cross-cloud scaling—on-premises data][Cross-cloud scaling - on-premises data]: See a hybrid app that spans Azure and Azure Stack Hub and uses a single on-premises data source. This configuration is a compliance requirement for some organizations.
+- [Cross-cloud scaling—on-premises data][Cross-cloud scaling - on-premises data]: See a hybrid app that spans Azure and Azure Stack Hub and uses a single on-premises data source, which is a compliance requirement for some organizations.
 - [Cross-cloud scaling with Traffic Manager][Cross-cloud scaling with Traffic Manager]: Use Azure Traffic Manager to extend a local app by connecting it to public cloud resources.
 
 #### Microservice architectures
@@ -81,12 +81,12 @@ To learn about scenario-specific architectures, see the solutions in the followi
 - [Forecast energy and power demand with machine learning][Forecast energy and power demand with machine learning]: Forecast spikes in demand for energy products and services.
 - [Remote patient monitoring solutions][Remote patient monitoring solutions]: Remotely monitor patients and analyze the large volume of data that medical devices generate.
 - [Energy supply optimization][Energy supply optimization]: Accommodate external tools like Pyomo and CBC to solve large-scale numerical optimization problems.
-- [AI-based footfall detection][AI-based footfall detection]: Use AI to analyze visitor traffic in retail stores by detecting footfalls.
+- [AI-based footfall detection][AI-based footfall detection]: Analyze visitor traffic in retail stores by detecting footfalls.
 - [Quality assurance][Quality assurance]: Implement quality assurance in an assembly line by using analytics and machine learning to predict problems.
 
 #### E-commerce
 
-- [Modernize .NET applications][Modernize .NET applications]: Migrate legacy .NET applications to Azure.
+- [Modernize .NET applications][Modernize .NET applications]: Migrate the legacy .NET applications of a retail business to Azure.
 - [Custom business processes][Custom business processes]: Automate workflows and connect to legacy airline systems.
 - [Migrate a web app using Azure APIM][Migrate a web app using Azure APIM]: Modernize the legacy browser-based software stack of an e-commerce company.
 
@@ -100,7 +100,7 @@ To learn about scenario-specific architectures, see the solutions in the followi
 
 - [Elastic Workplace Search on Azure][Elastic Workplace Search on Azure]: Use Workplace Search to capture information from numerous heterogeneous sources and make it searchable.
 - [Power Automate deployment at scale][Power Automate deployment at scale]: Use a hub-and-spoke model to deploy Power Automate parent and child flows.
-- [Line-of-business extension][Line of business extension]: Retrieve data from legacy systems on a regular basis and make it available in Power BI.
+- [Line-of-business extension][Line of business extension]: Retrieve data from legacy systems on an ongoing basis and make it available in Power BI.
 
 #### Architecture, engineering, and construction (AEC)
 
@@ -112,7 +112,7 @@ To learn about scenario-specific architectures, see the solutions in the followi
 
 #### Healthcare
 
-[Health data consortium][Health data consortium]: Share data among members of a health care consortium.	
+[Health data consortium][Health data consortium]: Share data among members of a healthcare consortium.
 
 #### High-performance computing
 
@@ -139,7 +139,7 @@ These resources can help you spot-check your design against current recommended 
 These reference architectures provide baseline implementations for various scenarios:
 
 - [Data analysis workloads for regulated industries][Data analysis workloads for regulated industries]: Run data analytics workloads that take into account regulatory requirements.
-- [Access to Azure virtual networks from Azure Logic Apps using an integration service environment (ISE)][Access to Azure virtual networks from Azure Logic Apps using an integration service environment (ISE)]: Build logic apps that run in integration service environments (ISEs) and access protected resources.
+- [Access to Azure virtual networks from Azure Logic Apps using an integration service environment (ISE)][Access to Azure virtual networks from Azure Logic Apps using an integration service environment (ISE)]: Build logic apps that run in ISEs and access protected resources.
 - [Publish internal APIs to external users][Publish internal APIs to external users]: Consolidate APIs and then expose them to external users.
 - [Basic enterprise integration on Azure][Basic enterprise integration on Azure]: Orchestrate synchronous calls to enterprise backend systems.
 - [Enterprise integration using message broker and events][Enterprise integration using message broker and events]: Orchestrate asynchronous calls to enterprise backend systems by using queues and events.
@@ -241,8 +241,3 @@ The following resources provide practical recommendations and information for sp
 [Tiered data for analytics]: ../example-scenario/hybrid/hybrid-tiered-data-analytics.yml
 [Transactional Outbox pattern with Azure Cosmos DB]: ../best-practices/transactional-outbox-cosmos.yml
 [Web and mobile front ends]: ../solution-ideas/articles/front-end.yml
-
-
-
-
-
