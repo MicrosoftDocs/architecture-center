@@ -226,27 +226,24 @@ apache note
 
 |Azrchitecture|Summary|Technology focus|
 |--|--|--|
-[Batch processing](../data-guide/big-data/batch-processing.yml) (Databases)
-[Big data architectures](../data-guide/big-data/index.yml) (Databases)
-[Choose a data transfer technology](../data-guide/scenarios/data-transfer.md) (Databases)
-[Real time processing](../data-guide/big-data/real-time-processing.yml) (Databases)
+|[Batch processing](../data-guide/big-data/batch-processing.yml)||Databases|
+|[Big data architectures](../data-guide/big-data/index.yml)||Databases
+|[Choose a data transfer technology](../data-guide/scenarios/data-transfer.md)||Databases|
+|[Real time processing](../data-guide/big-data/real-time-processing.yml)||Databases|
 
 #### Apache Storm
 
-[AI at the edge with Azure Stack Hub](../solution-ideas/articles/ai-at-the-edge.yml) (AI)
-[AI at the edge with Azure Stack Hub - disconnected](../solution-ideas/articles/ai-at-the-edge-disconnected.yml) (AI)
+|Azrchitecture|Summary|Technology focus|
+|--|--|--|
+|[AI at the edge with Azure Stack Hub](../solution-ideas/articles/ai-at-the-edge.yml)||AI|
+|[AI at the edge with Azure Stack Hub - disconnected](../solution-ideas/articles/ai-at-the-edge-disconnected.yml)||AI|
+|[Big data architectures](../data-guide/big-data/index.yml)||Databases|
+[Choose a stream processing technology](../data-guide/technology-choices/stream-processing.md)||Analytics|
+|[Interactive querying with HDInsight](../solution-ideas/articles/interactive-querying-with-hdinsight.yml)||Databases|
+|[IoT using Azure Cosmos DB](../solution-ideas/articles/iot-using-cosmos-db.yml)||IoT|
+|[Real time processing](../data-guide/big-data/real-time-processing.yml)||Databases|
 
-[Big data architectures](../data-guide/big-data/index.yml) (Databases)
-
-[Choose a stream processing technology](../data-guide/technology-choices/stream-processing.md) (Analytics)
-
-[Interactive querying with HDInsight](../solution-ideas/articles/interactive-querying-with-hdinsight.yml) (Databases)
-
-[IoT using Azure Cosmos DB](../solution-ideas/articles/iot-using-cosmos-db.yml) (IoT)
-
-[Real time processing](../data-guide/big-data/real-time-processing.yml) (Databases)
-
-    -   Apache Zookeeper
+#### Apache Zookeeper
 
 [Apache NiFi on Azure](../example-scenario/data/azure-nifi.yml) (Analytics)
 
