@@ -392,10 +392,10 @@ apache note
 |[Helm-based deployments for Apache NiFi](/azure/architecture/guide/data/helm-deployments-apache-nifi)||Analytics|
 |[Instant IoT data streaming with AKS](../solution-ideas/articles/aks-iot-data-streaming.yml)||Containers|
 |[Microservices architecture on AKS](../reference-architectures/containers/aks-microservices/aks-microservices.yml)||Containers|
-|[Microservices with AKS and Azure DevOps](../solution-ideas/articles/microservices-with-aks.yml)||Containers
-|[Secure DevOps for AKS](../solution-ideas/articles/secure-devops-for-kubernetes.yml)||Containers|
+|[Microservices with AKS and Azure DevOps](../solution-ideas/articles/microservices-with-aks.yml)||Containers|
 |[Patterns and implementations for a banking cloud transformation](../example-scenario/banking/patterns-and-implementations.yml)||Serverless|
- |[Use Application Gateway Ingress Controller (AGIC) with a multi-tenant Azure Kubernetes Service](../example-scenario/aks-agic/aks-agic.yml)||Containers|
+|[Secure DevOps for AKS](../solution-ideas/articles/secure-devops-for-kubernetes.yml)||Containers|
+|[Use Application Gateway Ingress Controller (AGIC) with a multi-tenant Azure Kubernetes Service](../example-scenario/aks-agic/aks-agic.yml)||Containers|
 |[Use Azure Firewall to help protect an AKS cluster](../example-scenario/aks-firewall/aks-firewall.yml)||Containers|
 
 ### Lustre
@@ -405,6 +405,121 @@ apache note
 [Digital image-based modeling on Azure](../example-scenario/infrastructure/image-modeling.yml)||Media|
 [Run reservoir simulation software on Azure](../example-scenario/infrastructure/reservoir-simulation.yml)||Compute|
 [SAS on Azure architecture](/azure/architecture/guide/sas/sas-overview)||Compute|
+
+### MariaDB
+
+|Azrchitecture|Summary|Technology focus|
+|--|--|--|
+|[Core startup stack architecture](/azure/architecture/example-scenario/startups/core-startup-stack)||Startup|
+|[Mainframe and midrange data replication to Azure using Qlik](/azure/architecture/example-scenario/mainframe/mainframe-midrange-data-replication-azure-qlik)||Mainframe|
+|[Mainframe file replication and sync on Azure](/azure/architecture/solution-ideas/articles/mainframe-azure-file-replication)||Mainframe|
+|[Modernize mainframe and midrange data](/azure/architecture/reference-architectures/migration/modernize-mainframe-data-to-azure)||Mainframe|
+|[Replicate and sync mainframe data in Azure](/azure/architecture/reference-architectures/migration/sync-mainframe-data-with-azure)||Mainframe|
+|[Scalable and secure WordPress on Azure](/azure/architecture/example-scenario/infrastructure/wordpress)||Web|
+|[Understand data store models](/azure/architecture/guide/technology-choices/data-store-overview)||Databases|
+
+### MLflow
+
+|Azrchitecture|Summary|Technology focus|
+|--|--|--|
+|[Azure Machine Learning decision guide for optimal tool selection](/azure/architecture/example-scenario/mlops/aml-decision-tree)||AI|
+|[Data science and machine learning with Azure Databricks](/azure/architecture/solution-ideas/articles/azure-databricks-data-science-machine-learning)||AI|
+|[Determine customer lifetime value and churn with Azure AI services](/azure/architecture/example-scenario/ai/customer-lifecycle-churn)||AI|
+|[Employee retention with Databricks and Kubernetes](/azure/architecture/example-scenario/ai/employee-retention-databricks-kubernetes)||Analytics|
+|[Modern analytics architecture with Azure Databricks](/azure/architecture/solution-ideas/articles/azure-databricks-modern-analytics-architecture)||Analytics|
+|[Orchestrate MLOps on Azure Databricks using Databricks Notebook](/azure/architecture/reference-architectures/ai/orchestrate-mlops-azure-databricks)||AI|
+|[Population health management for healthcare](/azure/architecture/solution-ideas/articles/population-health-management-for-healthcare)||AI|
+
+### Moodle
+
+|Azrchitecture|Summary|Technology focus|
+|--|--|--|
+[Moodle deployment with Azure NetApp Files](/azure/architecture/example-scenario/file-storage/moodle-azure-netapp-files)||Storage|
+
+### MySQL
+
+|Azrchitecture|Summary|Technology focus|
+|--|--|--|
+[Application data protection for AKS workloads on Azure NetApp Files](/azure/architecture/example-scenario/file-storage/data-protection-kubernetes-astra-azure-netapp-files)||Containers|
+[Build CNCF projects by using Azure Kubernetes Service](/azure/architecture/example-scenario/apps/build-cncf-incubated-graduated-projects-aks)||Containers|
+[Build web and mobile applications with MySQL and Redis](/azure/architecture/solution-ideas/articles/webapps)||Web|
+|[Digital marketing using Azure DB for MySQL](/azure/architecture/solution-ideas/articles/digital-marketing-using-azure-database-for-mysql)||Databases|
+|[Finance management apps with Azure DB for MySQL](/azure/architecture/solution-ideas/articles/finance-management-apps-using-azure-database-for-mysql)||Databases|
+| [Gaming using Azure Database for MySQL](/azure/architecture/solution-ideas/articles/gaming-using-azure-database-for-mysql)||Databases|
+|[High availability in Azure public MEC](/azure/architecture/example-scenario/hybrid/multi-access-edge-compute-ha)||Hybrid|
+|[IBM z/OS online transaction processing on Azure](/azure/architecture/example-scenario/mainframe/ibm-zos-online-transaction-processing-azure)||Mainframe|
+|[Intelligent apps using Azure Database for MySQL](/azure/architecture/solution-ideas/articles/intelligent-apps-using-azure-database-for-mysql)||Databases|
+|[Java CI/CD using Jenkins and Azure Web Apps](/azure/architecture/solution-ideas/articles/java-cicd-using-jenkins-and-azure-web-apps)||DevOps|
+|[Lift and shift to containers with AKS](/azure/architecture/solution-ideas/articles/migrate-existing-applications-with-aks)||Containers|
+|[Mainframe file replication and sync on Azure](/azure/architecture/solution-ideas/articles/mainframe-azure-file-replication)||Mainframe|
+|[Microservices with AKS](/azure/architecture/solution-ideas/articles/microservices-with-aks)||Containers|
+|[Online transaction processing (OLTP)](/azure/architecture/data-guide/relational-data/online-transaction-processing)||Databases|
+|[Retail and e-commerce using Azure MySQL](/azure/architecture/solution-ideas/articles/retail-and-ecommerce-using-azure-database-for-mysql)||Databases|
+|[Scalable apps using Azure DB for MySQL](/azure/architecture/solution-ideas/articles/scalable-web-and-mobile-applications-using-azure-database-for-mysql)||Mobile|
+|[Security considerations for highly sensitive IaaS apps in Azure](/azure/architecture/reference-architectures/n-tier/high-security-iaas)||Security|
+|[Stream processing with fully managed open-source data engines](/azure/architecture/example-scenario/data/open-source-data-engine-stream-processing)||Analytics|
+|[Understand data store models](/azure/architecture/guide/technology-choices/data-store-overview)||Databases|
+
+### PostgreSQL
+
+|Azrchitecture|Summary|Technology focus|
+|--|--|--|
+|[Application data protection for AKS workloads on Azure NetApp Files](/azure/architecture/example-scenario/file-storage/data-protection-kubernetes-astra-azure-netapp-files)||Containers|
+|[Azure Database for PostgreSQL intelligent apps](/azure/architecture/solution-ideas/articles/intelligent-apps-using-azure-database-for-postgresql)||Databases|
+|[Build a telehealth system on Azure](/azure/architecture/example-scenario/apps/telehealth-system)||Databases|
+|[Build cloud native applications](/azure/architecture/solution-ideas/articles/cloud-native-apps)||Containers|
+|[Data cache](/azure/architecture/solution-ideas/articles/data-cache-with-redis-cache)||Databases|
+|[Data streaming with AKS](/azure/architecture/solution-ideas/articles/data-streaming-scenario)||Containers|
+|[Digital campaign management](/azure/architecture/solution-ideas/articles/digital-marketing-using-azure-database-for-postgresql)||Databases|
+|[Finance management apps using Azure Database for PostgreSQL](/azure/architecture/solution-ideas/articles/finance-management-apps-using-azure-database-for-postgresql)||Databases|
+|[Geospatial data processing and analytics](/azure/architecture/example-scenario/data/geospatial-data-processing-analytics-azure)||Analytics|
+|[High availability in Azure public MEC](/azure/architecture/example-scenario/hybrid/multi-access-edge-compute-ha)||Hybrid|
+|[IBM z/OS online transaction processing on Azure](/azure/architecture/example-scenario/mainframe/ibm-zos-online-transaction-processing-azure)||Mainframe|
+|[Integrate IBM mainframe and midrange message queues with Azure](/azure/architecture/example-scenario/mainframe/integrate-ibm-message-queues-azure)||Mainframe|
+|[Azure Database for PostgreSQL intelligent apps](/azure/architecture/solution-ideas/articles/intelligent-apps-using-azure-database-for-postgresql)||Databases|
+|[Mainframe file replication and sync on Azure](/azure/architecture/solution-ideas/articles/mainframe-azure-file-replication)||Mainframe|
+|[Online transaction processing (OLTP)](/azure/architecture/data-guide/relational-data/online-transaction-processing)||Databases|
+|[Oracle database migration: Refactor](/azure/architecture/example-scenario/oracle-migrate/oracle-migration-refactor)||Migration|
+|[Overview of Oracle database migration](/azure/architecture/example-scenario/oracle-migrate/oracle-migration-overview)||Migration|
+|[Retail and e-commerce using Azure PostgreSQL](/azure/architecture/solution-ideas/articles/retail-and-ecommerce-using-azure-database-for-postgresql)||Databases|
+|[Scalable apps using Azure DB for PostgreSQL](/azure/architecture/solution-ideas/articles/scalable-web-and-mobile-applications-using-azure-database-for-postgresql)||Mobile|
+|[Stream processing with fully managed open-source data engines](/azure/architecture/example-scenario/data/open-source-data-engine-stream-processing)||Analytics|
+|[Understand data store models](/azure/architecture/guide/technology-choices/data-store-overview)||Databases|
+|[Use LzLabs Software Defined Mainframe (SDM) in an Azure VM deployment](/azure/architecture/example-scenario/mainframe/lzlabs-software-defined-mainframe-in-azure)||Mainframe|
+
+### Prometheus
+
+|Azrchitecture|Summary|Technology focus|
+|--|--|--|
+|[Application data protection for AKS workloads on Azure NetApp Files](/azure/architecture/example-scenario/file-storage/data-protection-kubernetes-astra-azure-netapp-files)||Containers|
+|[Architecture of an AKS regulated cluster for PCI-DSS 3.2.1](/azure/architecture/reference-architectures/containers/aks-pci/aks-pci-ra-code-assets)||Containers|
+|[Banking system cloud transformation on Azure](/azure/architecture/example-scenario/banking/banking-system-cloud-transformation)||Migration|
+|[Baseline architecture for an AKS cluster](/azure/architecture/reference-architectures/containers/aks/secure-baseline-aks)||Containers|
+|[Build CNCF projects by using Azure Kubernetes Service](/azure/architecture/example-scenario/apps/build-cncf-incubated-graduated-projects-aks)||Containers|
+|[JMeter implementation for a load testing pipeline](/azure/architecture/example-scenario/banking/jmeter-load-testing-pipeline-implementation-reference)||Migration|
+|[Microservices architecture on AKS](/azure/architecture/reference-architectures/containers/aks-microservices/aks-microservices)||Containers|
+|[Monitor a microservices app in AKS](/azure/architecture/microservices/logging-monitoring)||Containers|
+|[SAP workload automation using SUSE on Azure](/azure/architecture/solution-ideas/articles/sap-workload-automation-suse)||SAP|
+
+### PyTorch
+
+|Azrchitecture|Summary|Technology focus|
+|--|--|--|
+|[Application data protection for AKS workloads on Azure NetApp Files](/azure/architecture/example-scenario/file-storage/data-protection-kubernetes-astra-azure-netapp-files)||Containers|
+|[Data science and machine learning with Azure Databricks](/azure/architecture/solution-ideas/articles/azure-databricks-data-science-machine-learning) (AI)
+|[Machine learning in IoT Edge Vision](/azure/architecture/guide/iot-edge-vision/machine-learning) (IoT)
+|[Real-time scoring of machine learning models](/azure/architecture/reference-architectures/ai/real-time-scoring-machine-learning-models) (AI)
+
+-   RabbitMQ
+
+    -   [Automated guided vehicles fleet
+        > control](/azure/architecture/example-scenario/iot/automated-guided-vehicles-fleet-control) (Web)
+
+    -   [Publisher-Subscriber
+        > pattern](/azure/architecture/patterns/publisher-subscriber) (Integration)
+
+    -   [Transactional Outbox pattern with Azure Cosmos
+        > DB](/azure/architecture/best-practices/transactional-outbox-cosmos) (Databases)
 
 ## Scenarios featuring third-party technologies on Azure
 
