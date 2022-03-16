@@ -8,9 +8,9 @@ To integrate applications, sometimes direct API calls are suitable. But sometime
 
 :::image type="content" source="./media/four-core-integration-technologies.png" alt-text="Diagram that shows four technologies that integration uses: orchestration, messaging, events, and A P Is." border="false":::
 
-Azure provides a wide range of integration tools and capabilities including these services:
+Azure provides a wide range of integration tools and capabilities, including these services:
 
-- [Azure API Management][API Management ACOM page]. Securely publish your APIs for internal and external developers to use when connecting to backend systems.
+- [Azure API Management][API Management ACOM page]. Securely publish your APIs for internal and external developers to use when connecting to back-end systems.
 - [Azure Logic Apps][Azure Logic Apps ACOM page]. Create workflows to connect hundreds of services in the cloud and on-premises.
 - [Azure Service Bus][Service Bus ACOM page]. Connect on-premises and cloud-based applications and services to implement highly secure messaging workflows.
 - [Azure Event Grid][Event Grid ACOM page]. Connect supported Azure and third-party services while simplifying event-based app development.
@@ -18,6 +18,8 @@ Azure provides a wide range of integration tools and capabilities including thes
 - [Azure Data Factory][Data Factory ACOM page]. Visually integrate data sources to accelerate data transformation and support enterprise workflows.
 
 For information about more Azure networking services, see [Integration Services][Integration Services].
+
+Apache®, Apache NiFi®, and NiFi® are either registered trademarks or trademarks of the Apache Software Foundation in the United States and/or other countries. No endorsement by The Apache Software Foundation is implied by the use of these marks.
 
 ## Introduction to integration on Azure
 
@@ -43,7 +45,7 @@ To explore patterns to incorporate into your design, consult resources in the fo
 
 #### Hybrid systems
 
-- [Tiered data for analytics][Tiered data for analytics]: Use Azure Stack Hub for collecting, processing, storing, and distributing local and remote data.
+- [Tiered data for analytics][Tiered data for analytics]: Use Azure Stack Hub to collect, process, store, and distribute local and remote data.
 - [Cross-cloud scaling—on-premises data][Cross-cloud scaling - on-premises data]: See a hybrid app that spans Azure and Azure Stack Hub and uses a single on-premises data source, which is a compliance requirement for some organizations.
 - [Cross-cloud scaling with Traffic Manager][Cross-cloud scaling with Traffic Manager]: Use Azure Traffic Manager to extend a local app by connecting it to public cloud resources.
 
@@ -96,7 +98,7 @@ To learn about scenario-specific architectures, see the solutions in the followi
 - [SWIFT Alliance Connect Virtual in Azure][SWIFT Alliance Connect Virtual in Azure]: See an article series on connecting to the SWIFT network by using the Alliance Connect Virtual component.
 - [Patterns and implementations for a banking cloud transformation][Patterns and implementations for a banking cloud transformation]: Apply patterns that implement a banking system cloud transformation.
 
-#### Business
+#### Internal business solutions
 
 - [Elastic Workplace Search on Azure][Elastic Workplace Search on Azure]: Use Workplace Search to capture information from numerous heterogeneous sources and make it searchable.
 - [Power Automate deployment at scale][Power Automate deployment at scale]: Use a hub-and-spoke model to deploy Power Automate parent and child flows.
@@ -141,8 +143,8 @@ These reference architectures provide baseline implementations for various scena
 - [Data analysis workloads for regulated industries][Data analysis workloads for regulated industries]: Run data analytics workloads that take into account regulatory requirements.
 - [Access to Azure virtual networks from Azure Logic Apps using an integration service environment (ISE)][Access to Azure virtual networks from Azure Logic Apps using an integration service environment (ISE)]: Build logic apps that run in ISEs and access protected resources.
 - [Publish internal APIs to external users][Publish internal APIs to external users]: Consolidate APIs and then expose them to external users.
-- [Basic enterprise integration on Azure][Basic enterprise integration on Azure]: Orchestrate synchronous calls to enterprise backend systems.
-- [Enterprise integration using message broker and events][Enterprise integration using message broker and events]: Orchestrate asynchronous calls to enterprise backend systems by using queues and events.
+- [Basic enterprise integration on Azure][Basic enterprise integration on Azure]: Orchestrate synchronous calls to enterprise back-end systems.
+- [Enterprise integration using message broker and events][Enterprise integration using message broker and events]: Orchestrate asynchronous calls to enterprise back-end systems by using queues and events.
 - [Enterprise business intelligence][Enterprise business intelligence]: Move data from an on-premises SQL Server database into Azure Synapse Analytics and transform the data for analysis.
 - [Web and mobile front ends][Web and mobile front ends]: Make third-party data available to web users.
 - [Data integration with Logic Apps and SQL Server][Data integration with Logic Apps and SQL Server]: Automate data integration tasks that you perform in response to API calls.
@@ -155,7 +157,7 @@ Deploying your workload is a significant milestone. After your integration proce
 - [About connectors in Azure Logic Apps][About connectors in Azure Logic Apps]: Learn how to take advantage of the hundreds of connectors that Logic Apps offers.
 - [Azure Policy Regulatory Compliance controls for Azure Logic Apps][Azure Policy Regulatory Compliance controls for Azure Logic Apps]: Make Logic Apps compliant with regulatory standards.
 
-## Stay current with identity
+## Stay current with integration
 
 Azure integration receives improvements on an ongoing basis. To stay on top of recent developments, see [Azure updates][Azure updates].
 
@@ -166,15 +168,15 @@ The following resources provide practical recommendations and information for sp
 ### Information for Amazon Web Services (AWS)
 
 - [Messaging services on Azure and AWS][Messaging services on Azure and AWS]
-- [AWS to Azure services comparison—miscellaneous backend process logic][AWS to Azure services comparison—Miscellaneous backend process logic]
+- [AWS to Azure services comparison—miscellaneous back-end process logic][AWS to Azure services comparison—Miscellaneous backend process logic]
 
 ### Information for Google Cloud professionals
 
 - [Google Cloud to Azure services comparison—messaging and eventing][Google Cloud to Azure services comparison—Messaging and eventing]
 - [Google Cloud to Azure services comparison—miscellaneous workflow][Google Cloud to Azure services comparison—Miscellaneous workflow]
 
-[About connectors in Azure Logic Apps]: /azure/connectors/apis-list?toc=https%3A%2F%2Fdocs.microsoft.com%2Fazure%2Farchitecture%2Ftoc.json&bc=https%3A%2F%2Fdocs.microsoft.com%2Fazure%2Farchitecture%2Fbread%2Ftoc.json
-[Access to Azure virtual networks from Azure Logic Apps using an integration service environment (ISE)]: /azure/logic-apps/connect-virtual-network-vnet-isolated-environment-overview?toc=https%3A%2F%2Fdocs.microsoft.com%2Fazure%2Farchitecture%2Ftoc.json&bc=https%3A%2F%2Fdocs.microsoft.com%2Fazure%2Farchitecture%2Fbread%2Ftoc.json
+[About connectors in Azure Logic Apps]: /azure/connectors/apis-list?toc=/azure/architecture/toc.json&bc=/azure/architecture/_bread/toc.json
+[Access to Azure virtual networks from Azure Logic Apps using an integration service environment (ISE)]: /azure/logic-apps/connect-virtual-network-vnet-isolated-environment-overview?toc=/azure/architecture/toc.json&bc=/azure/architecture/_bread/toc.json
 [AI-based footfall detection]: ../solution-ideas/articles/hybrid-footfall-detection.yml
 [Apache NiFi on Azure]: ../example-scenario/data/azure-nifi.yml
 [API Management ACOM page]: https://azure.microsoft.com/services/api-management
@@ -185,11 +187,11 @@ The following resources provide practical recommendations and information for sp
 [Azure digital twins builder]: ../solution-ideas/articles/azure-digital-twins-builder.yml
 [Azure Functions ACOM page]: https://azure.microsoft.com/services/functions
 [Azure Logic Apps ACOM page]: https://azure.microsoft.com/services/logic-apps
-[Azure Policy Regulatory Compliance controls for Azure Logic Apps]: /azure/logic-apps/security-controls-policy?toc=https%3A%2F%2Fdocs.microsoft.com%2Fazure%2Farchitecture%2Ftoc.json&bc=https%3A%2F%2Fdocs.microsoft.com%2Fazure%2Farchitecture%2Fbread%2Ftoc.json
-[Azure security baseline for Logic Apps]: /security/benchmark/azure/baselines/logic-apps-security-baseline?toc=https%3A%2F%2Fdocs.microsoft.com%2Fazure%2Farchitecture%2Ftoc.json&bc=https%3A%2F%2Fdocs.microsoft.com%2Fazure%2Farchitecture%2Fbread%2Ftoc.json
+[Azure Policy Regulatory Compliance controls for Azure Logic Apps]: /azure/logic-apps/security-controls-policy?toc=/azure/architecture/toc.json&bc=/azure/architecture/_bread/toc.json
+[Azure security baseline for Logic Apps]: /security/benchmark/azure/baselines/logic-apps-security-baseline?toc=/azure/architecture/toc.json&bc=/azure/architecture/_bread/toc.json
 [Azure updates]: https://azure.microsoft.com/updates/?category=integration
 [Basic enterprise integration on Azure]: ../reference-architectures/enterprise-integration/basic-enterprise-integration.yml
-[Business continuity and disaster recovery for Azure Logic Apps]: /azure/logic-apps/business-continuity-disaster-recovery-guidance?toc=https%3A%2F%2Fdocs.microsoft.com%2Fazure%2Farchitecture%2Ftoc.json&bc=https%3A%2F%2Fdocs.microsoft.com%2Fazure%2Farchitecture%2Fbread%2Ftoc.json
+[Business continuity and disaster recovery for Azure Logic Apps]: /azure/logic-apps/business-continuity-disaster-recovery-guidance?toc=/azure/architecture/toc.json&bc=/azure/architecture/_bread/toc.json
 [Choose between virtual network peering and VPN gateways]: ../reference-architectures/hybrid-networking/vnet-peering.yml
 [Cross-cloud scaling - on-premises data]: ../example-scenario/hybrid/hybrid-cross-cloud-scale-on-premises-data.yml
 [Cross-cloud scaling with Traffic Manager]: ../example-scenario/hybrid/hybrid-cross-cloud-scaling.yml
