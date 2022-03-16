@@ -23,6 +23,7 @@ products:
   - azure-active-directory
   - azure-active-directory-domain
   - azure-virtual-network
+  - azure-virtual-desktop
 thumbnailUrl: /azure/architecture/browse/thumbs/windows-virtual-desktop.png
 content: |
    [!include[](windows-virtual-desktop-content.md)]
