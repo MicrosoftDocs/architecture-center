@@ -13,7 +13,7 @@ Autonomous systems:
 
 ## Potential use cases
 
-The [Microsoft Autonomous Systems platform](https://www.microsoft.com/ai/autonomous-systems-platform) is an innovative framework for building, training, and deploying models by using machine teaching and simulations. Use the Autonomous Systems platform to help automate systems when:
+Project Bonsai speeds the creation of AI-powered automation to help improve product quality and efficiency while reducing downtime. Now available in preview. Use Project Bonsai to help automate systems when:
 
 - Existing control systems are fragile when deployed.
 - ML logic doesn't adequately cover all scenarios.
@@ -25,9 +25,9 @@ Machine teaching bridges AI science and software with traditional engineering an
 
 ## Architecture
 
-The Microsoft Autonomous Systems platform manages the full end-to-end machine teaching lifecycle. Development and deployment has three phases: Build, Train, and Deploy.
+Project Bonsai speeds the creation of AI-powered automation. Development and deployment has three phases: Build, Train, and Deploy.
 
-![Autonomous Systems Platform](../media/machine-teaching-1-2.png)
+![Diagram showing the architectuer of Project Bonsai.](../media/machine-teaching-1-2.png)
 
 1. The Build phase consists of writing the machine teaching program and connecting to a domain-specific training simulator. Simulators generate sufficient training data for experiments and machine practice.
 1. In the Train phase, the training engine automates DRL model generation and training by combining high-level domain models with appropriate DRL algorithms and neural networks.
@@ -39,11 +39,13 @@ Simulations help train the models across different kinds of environmental condit
 
 After training is complete, engineers deploy these trained agents to the real world, where they use their knowledge to power autonomous systems.
 
-## Implementations
+## Deploy this scenario
+
+The following implementations are example deployments. You can follow the resources to understand how these solutions were designed. Use Project Bonsai to build and deploy your own solution.
 
 ### Machine teaching service
 
-[Project Bonsai](https://azure.microsoft.com/services/project-bonsai/) is the machine teaching service for the Microsoft Autonomous Systems platform. Bonsai simplifies machine teaching with deep reinforcement learning (DRL) to train and deploy smarter autonomous systems.
+[Project Bonsai](https://azure.microsoft.com/services/project-bonsai) is the machine teaching service for the Microsoft autonomous systems. Bonsai simplifies machine teaching with deep reinforcement learning (DRL) to train and deploy smarter autonomous systems.
 
 You can use Bonsai to:
 

@@ -23,6 +23,8 @@ This article showcases a COVID-19 safe solution that is being implemented in wor
 
 *Download the [Visio file][visio-download] of this architecture.*
 
+### Workflow
+
 1. CCTVs send video data to Internet of Things (IoT) edge servers. Edge computing handles device registration, provisioning, and data ingestion.
 2. The Bosch Algorithm Engineering and Model Training Environment uses custom vision analytics to continually retrain machine learning (ML) models, and directly updates edge servers.
 3. Edge servers send data to onboard and cloud stream analytics and blob storage. IoT Edge intelligent devices limit costs by preprocessing and sending only necessary data to the cloud.
@@ -30,7 +32,7 @@ This article showcases a COVID-19 safe solution that is being implemented in wor
 5. Service bus device-to-cloud and cloud-to-device messaging send data and telemetry to and from the cloud.
 6. An interactive visual dashboard app provides near real-time compliance monitoring and alerts.
 7. The Azure cloud provides application logs, monitoring, security, application gateway, and API management for the app.
-8. Redis, mongoDB, and blob storage store cloud data for Power BI analytics and visualizations via a custom connector.
+8. Redis, MongoDB, and blob storage store cloud data for Power BI analytics and visualizations via a custom connector.
 9. The app sends notifications and alerts to stakeholders via Microsoft Teams.
 
 ### Components
@@ -39,7 +41,7 @@ This article showcases a COVID-19 safe solution that is being implemented in wor
 - Bosch video analytics use [Custom Vision](https://azure.microsoft.com/services/cognitive-services/custom-vision-service) skills and [Azure Machine Learning](https://azure.microsoft.com/services/machine-learning) to continually improve monitoring, detection, and real-time alert triggering.
 - [Azure Digital Twins](https://azure.microsoft.com/services/digital-twins/) IoT service creates comprehensive models of physical environments in a spatial intelligence graph. Rather than simply tracking individual devices, Digital Twins can virtually replicate the physical world by modeling the relationships between people, places, and devices.
 - [Azure Stream Analytics (ASA)](https://azure.microsoft.com/services/stream-analytics) provides real-time serverless stream processing that can run the same queries in the cloud and on the edge. ASA on IoT Edge can filter or aggregate data that needs to be sent to the cloud for further processing or storage.
-- [Azure Storage](https://azure.microsoft.com/services/storage) provides flexible, scalable, secure [Blob storage](https://azure.microsoft.com/services/storage/blobs/) for unstructured data in the Azure cloud or on the IoT Edge. The current solution also uses [Redis](https://azure.microsoft.com/services/cache/) and [mongoDB](https://www.mongodb.com/cloud/atlas/azure-mongodb) data storage.
+- [Azure Storage](https://azure.microsoft.com/services/storage) provides flexible, scalable, secure [Blob storage](https://azure.microsoft.com/services/storage/blobs/) for unstructured data in the Azure cloud or on the IoT Edge. The current solution also uses [Redis](https://azure.microsoft.com/services/cache/) and [MongoDB](https://www.mongodb.com/cloud/atlas/azure-mongodb) data storage.
 - [Azure Service Bus](https://azure.microsoft.com/services/service-bus/) messaging through [Azure IoT Hub](https://azure.microsoft.com/services/iot-hub) connects devices to Azure cloud resources, and can use queries to filter data to be sent to the cloud.
 - [Azure Kubernetes Service (AKS)](https://azure.microsoft.com/services/kubernetes-service) is a managed service for developing, deploying, and managing containerized applications. In this solution, AKS manages an interactive visual dashboard app that tracks and analyzes safety violations.
 - By integrating with the Azure cloud, the solution can use services like [Azure Monitor](https://azure.microsoft.com/services/monitor), [Microsoft Defender for Cloud](https://azure.microsoft.com/services/security-center/), and [Azure Active Directory](https://azure.microsoft.com/services/active-directory).

@@ -25,6 +25,6 @@ products:
   - azure-sphere
   - azure-stream-analytics
   - azure-sql-database
-thumbnailUrl: /azure/architecture/browse/thumbs/architecture-realtime-analytics-vehicle-data1.png
+thumbnailUrl: /azure/architecture/browse/thumbs/architecture-realtime-analytics-vehicle-data-1.png
 content: |
    [!include[](realtime-analytics-vehicle-iot-content.md)]

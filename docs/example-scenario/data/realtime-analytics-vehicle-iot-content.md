@@ -17,7 +17,7 @@ Imagine a car manufacturing company that wants to create a solution to:
 
 ## Architecture
 
-![Reference architecture](media/architecture-realtime-analytics-vehicle-data1.png)
+![Reference architecture](media/architecture-realtime-analytics-vehicle-data-1.png)
 
 The data flows through the solution as follows:
 
