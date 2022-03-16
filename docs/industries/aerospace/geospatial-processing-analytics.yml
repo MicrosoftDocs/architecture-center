@@ -3,8 +3,8 @@ metadata:
   title: Geospatial Analysis using Azure Synapse Analytics
   titleSuffix: Azure Reference Architectures
   description: Reference architecture for enterprise to enable geospatial workloads on Azure using Synapse Analytics.
-  author: karthick-rn, senthilkungumaraj, sushilkm , mandarinamdar
-  ms.author: kanarend, kunachim, suskuma, mandari
+  author: karthick-rn
+  ms.author: kanarend
   ms.date: 15 March 2022
   ms.topic: conceptual
   ms.service: architecture-center
