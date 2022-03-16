@@ -42,4 +42,4 @@ This solution can be used broadly but is ideal for the retail industry, as well 
 * [Product recommendations for retail using Azure](./product-recommendations.yml)
 * [Visual assistant](./visual-assistant.yml)
 * [Artificial intelligence (AI) - Architectural overview](../../data-guide/big-data/ai-overview.md)
-* [Choose a Microsoft Cognitive Services technology](../../data-guide/technology-choices/cognitive-services.md)
+* [Choose a Microsoft Azure Cognitive Services technology](../../data-guide/technology-choices/cognitive-services.md)
