@@ -506,21 +506,150 @@ apache note
 |Azrchitecture|Summary|Technology focus|
 |--|--|--|
 |[Application data protection for AKS workloads on Azure NetApp Files](/azure/architecture/example-scenario/file-storage/data-protection-kubernetes-astra-azure-netapp-files)||Containers|
-|[Data science and machine learning with Azure Databricks](/azure/architecture/solution-ideas/articles/azure-databricks-data-science-machine-learning) (AI)
-|[Machine learning in IoT Edge Vision](/azure/architecture/guide/iot-edge-vision/machine-learning) (IoT)
-|[Real-time scoring of machine learning models](/azure/architecture/reference-architectures/ai/real-time-scoring-machine-learning-models) (AI)
+|[Data science and machine learning with Azure Databricks](/azure/architecture/solution-ideas/articles/azure-databricks-data-science-machine-learning)||AI|
+|[Machine learning in IoT Edge Vision](/azure/architecture/guide/iot-edge-vision/machine-learning)||IoT|
+|[Real-time scoring of machine learning models](/azure/architecture/reference-architectures/ai/real-time-scoring-machine-learning-models)||AI|
 
--   RabbitMQ
+### RabbitMQ
 
-    -   [Automated guided vehicles fleet
-        > control](/azure/architecture/example-scenario/iot/automated-guided-vehicles-fleet-control) (Web)
+|Azrchitecture|Summary|Technology focus|
+|--|--|--|
+[Automated guided vehicles fleet control](/azure/architecture/example-scenario/iot/automated-guided-vehicles-fleet-control)||Web|
+[Publisher-Subscriber pattern](/azure/architecture/patterns/publisher-subscriber)||Integration|
+[Transactional Outbox pattern with Azure Cosmos DB](/azure/architecture/best-practices/transactional-outbox-cosmos)||Databases|
 
-    -   [Publisher-Subscriber
-        > pattern](/azure/architecture/patterns/publisher-subscriber) (Integration)
+### Red Hat
 
-    -   [Transactional Outbox pattern with Azure Cosmos
-        > DB](/azure/architecture/best-practices/transactional-outbox-cosmos) (Databases)
+|Azrchitecture|Summary|Technology focus|
+|--|--|--|
+|[AIX UNIX on-premises to Azure Linux migration](/azure/architecture/example-scenario/unix-migration/migrate-aix-azure-linux)||Mainframe|
+|[Banking system cloud transformation on Azure](/azure/architecture/example-scenario/banking/banking-system-cloud-transformation)||Containers|
+|[Container orchestration for microservices](/azure/architecture/microservices/design/orchestration)||Microservices|
+|[JBoss deployment with Red Hat on Azure](/azure/architecture/solution-ideas/articles/jboss-deployment-red-hat)||Containers|
+|[Run a Linux VM on Azure](/azure/architecture/reference-architectures/n-tier/linux-vm)||Compute|
+|[SAP HANA for Linux VMs in scale-up systems](/azure/architecture/reference-architectures/sap/run-sap-hana-for-linux-virtual-machines)||SAP|
+|[SAP S/4HANA in Linux on Azure](/azure/architecture/reference-architectures/sap/sap-s4hana)||SAP|
+|[SAP system on Oracle Database on Azure](/azure/architecture/example-scenario/apps/sap-on-oracle)||SAP|
+|[SAS on Azure architecture](/azure/architecture/guide/sas/sas-overview)||Compute|
+|[SWIFT\'s Alliance Messaging Hub (AMH) with Alliance Connect](/azure/architecture/example-scenario/finance/swift-alliance-messaging-hub)||Networking|
+|[SWIFT\'s Alliance Messaging Hub (AMH) with Alliance Connect Virtual](/azure/architecture/example-scenario/finance/swift-alliance-messaging-hub-vsrx)||Networking|
+
+### Redis
+
+|Azrchitecture|Summary|Technology focus|
+|--|--|--|
+|[Banking system cloud transformation on Azure](/azure/architecture/example-scenario/banking/banking-system-cloud-transformation)||Containers|
+|[Build cloud native applications](/azure/architecture/solution-ideas/articles/cloud-native-apps)||Containers|
+|[Build web and mobile applications](/azure/architecture/solution-ideas/articles/webapps) with MySQL and Redis||Web|
+|[COVID-19 safe solutions with IoT Edge](/azure/architecture/solution-ideas/articles/cctv-iot-edge-for-covid-19-safe-environment-and-mask-detection)||IoT|
+|[Data cache](/azure/architecture/solution-ideas/articles/data-cache-with-redis-cache)||Databases|
+|[Data streaming with AKS](/azure/architecture/solution-ideas/articles/data-streaming-scenario)||Containers|
+|[DevTest and DevOps for PaaS solutions](/azure/architecture/solution-ideas/articles/dev-test-paas)||DevOps|
+|[Digital marketing using Azure DB for MySQL](/azure/architecture/solution-ideas/articles/digital-marketing-using-azure-database-for-mysql)||Databases|
+|[Messaging](/azure/architecture/solution-ideas/articles/messaging)||Databases|
+|[Non-relational data and NoSQL](/azure/architecture/data-guide/big-data/non-relational-data)||Databases|
+|[Personalized offers](/azure/architecture/solution-ideas/articles/personalized-offers)||AI|
+|[Publisher-Subscriber pattern](/azure/architecture/patterns/publisher-subscriber)||Integration|
+|[Rate Limiting pattern](/azure/architecture/patterns/rate-limiting-pattern)||Integration|
+|[Re-engineer mainframe batch applications on Azure](/azure/architecture/example-scenario/mainframe/reengineer-mainframe-batch-apps-azure)||Mainframe|
+|[Run SAP BW/4HANA with Linux VMs](/azure/architecture/reference-architectures/sap/run-sap-bw4hana-with-linux-virtual-machines)||SAP|
+|[Scalable Sitecore marketing website](/azure/architecture/solution-ideas/articles/digital-marketing-sitecore)||Web|
+|[Scalable web apps with Azure Redis Cache](/azure/architecture/solution-ideas/articles/scalable-web-apps)||Web|
+|[Scalable web application](/azure/architecture/reference-architectures/app-service-web-app/scalable-web-app)||Web|
+|[Stream processing with fully managed open-source data engines](/azure/architecture/example-scenario/data/open-source-data-engine-stream-processing)||Analytics|
+|[Supply chain track and trace](/azure/architecture/solution-ideas/articles/supply-chain-track-and-trace)||IoT|
+
+### SUSE
+
+|Azrchitecture|Summary|Technology focus|
+|--|--|--|
+|[Run SAP BW/4HANA with Linux VMs](/azure/architecture/reference-architectures/sap/run-sap-bw4hana-with-linux-virtual-machines)||SAP|
+|[Run SAP HANA Large Instances](/azure/architecture/reference-architectures/sap/hana-large-instances)||SAP|
+|[SAP deployment in Azure using an Oracle database](/azure/architecture/example-scenario/apps/sap-production)||SAP|
+|[SAP HANA for Linux VMs in scale-up systems](/azure/architecture/reference-architectures/sap/run-sap-hana-for-linux-virtual-machines)||SAP|
+|[SAP system on Oracle Database on Azure](/azure/architecture/example-scenario/apps/sap-on-oracle)||SAP|
+|[SAP S/4HANA in Linux on Azure](/azure/architecture/reference-architectures/sap/sap-s4hana)||SAP|
+|[SAP workload automation using SUSE on Azure](/azure/architecture/solution-ideas/articles/sap-workload-automation-suse)||SAP|
+|[SAS on Azure architecture](/azure/architecture/guide/sas/sas-overview)||Compute|
+
+### TensorFlow
+
+|Azrchitecture|Summary|Technology focus|
+|--|--|--|
+|[Application data protection for AKS workloads on Azure NetApp Files](/azure/architecture/example-scenario/file-storage/data-protection-kubernetes-astra-azure-netapp-files)||Containers|
+|[Data science and machine learning with Azure Databricks](/azure/architecture/solution-ideas/articles/azure-databricks-data-science-machine-learning)||AI|
+|[Distributed training, deep learning models](/azure/architecture/reference-architectures/ai/training-deep-learning)||AI|
+|[Machine learning in IoT Edge Vision](/azure/architecture/guide/iot-edge-vision/machine-learning)||IoT|
+|[Real-time scoring of machine learning models](/azure/architecture/reference-architectures/ai/real-time-scoring-machine-learning-models)||AI|
+|[Vision classifier model with Azure Custom Vision Cognitive Service](/azure/architecture/example-scenario/dronerescue/vision-classifier-model-with-custom-vision)||AI|
+
+### Terraform
+
+|Azrchitecture|Summary|Technology focus|
+|--|--|--|
+|[Architectural approaches for the deployment and configuration of multitenant solutions](/azure/architecture/guide/multitenant/approaches/deployment-configuration)||Multitenancy|
+|[Automated guided vehicles fleet control](/azure/architecture/example-scenario/iot/automated-guided-vehicles-fleet-control)||Web|
+|[Banking system cloud transformation on Azure](/azure/architecture/example-scenario/banking/banking-system-cloud-transformation)||Migration|
+|[Deployment Stamps pattern](/azure/architecture/patterns/deployment-stamp)||Networking|
+|[Design a CI/CD pipeline using Azure DevOps](/azure/architecture/example-scenario/apps/devops-dotnet-webapp)||DevOps|
+|[DevOps in a hybrid environment](/azure/architecture/solution-ideas/articles/devops-in-a-hybrid-environment)||DevOps|
+|[DevSecOps in Azure](/azure/architecture/solution-ideas/articles/devsecops-in-azure)||DevOps|
+|[DevTest and DevOps for PaaS solutions](/azure/architecture/solution-ideas/articles/dev-test-paas)||DevOps|
+|[End-to-end governance in Azure](/azure/architecture/example-scenario/governance/end-to-end-governance-in-azure)||Management|
+|[Gridwich cloud media system](/azure/architecture/reference-architectures/media-services/gridwich-architecture)||Media|
+|[Gridwich CI/CD pipeline](/azure/architecture/reference-architectures/media-services/gridwich-cicd)||Media|
+|[Gridwich keys and secrets management](/azure/architecture/reference-architectures/media-services/maintain-keys)||Media|
+|[Gridwich Media Services setup and scaling](/azure/architecture/reference-architectures/media-services/media-services-setup-scale)||Media|
+|[Gridwich pipeline-generated admin scripts](/azure/architecture/reference-architectures/media-services/run-admin-scripts)||Media
+|[Gridwich variable flow](/azure/architecture/reference-architectures/media-services/variable-group-terraform-flow)||Media|
+|[Immutable infrastructure CI/CD using Jenkins and Terraform on Azure](/azure/architecture/solution-ideas/articles/immutable-infrastructure-cicd-using-jenkins-and-terraform-on-azure-virtual-architecture-overview)||DevOps|
+|[JMeter implementation for a load testing pipeline](/azure/architecture/example-scenario/banking/jmeter-load-testing-pipeline-implementation-reference)||Migration|
+|[SAP workload automation using SUSE on Azure](/azure/architecture/solution-ideas/articles/sap-workload-automation-suse)||SAP|
+|[Use Azure Firewall to help protect an AKS cluster](/azure/architecture/example-scenario/aks-firewall/aks-firewall)||Containers|
+|[Virtual network integrated serverless microservices](/azure/architecture/example-scenario/integrated-multiservices/virtual-network-integration)||Security|
+
+### Umbraco
+
+|Azrchitecture|Summary|Technology focus|
+|--|--|--|
+|[Digital marketing using Azure DB for MySQL](/azure/architecture/solution-ideas/articles/digital-marketing-using-azure-database-for-mysql)||Databases|
+|[Scalable Umbraco CMS web app](/azure/architecture/solution-ideas/articles/medium-umbraco-web-app)||Web|
+|[Simple digital marketing website](/azure/architecture/solution-ideas/articles/digital-marketing-smb)||Web|
+
+### WordPress
+
+|Azrchitecture|Summary|Technology focus|
+|--|--|--|
+|[Digital marketing using Azure DB for MySQL](/azure/architecture/solution-ideas/articles/digital-marketing-using-azure-database-for-mysql)||Databases|
+|[Scalable and secure WordPress on Azure](/azure/architecture/example-scenario/infrastructure/wordpress)||Web|
 
 ## Scenarios featuring third-party technologies on Azure
 
+### Advanced
+
+|Azrchitecture|Summary|Technology focus|
+|--|--|--|
+|[Refactor mainframe applications with Advanced](/azure/architecture/example-scenario/mainframe/refactor-mainframe-applications-advanced)||Mainframe|
+
+### Asysco
+
+|Azrchitecture|Summary|Technology focus|
+|--|--|--|
+|[IBM z/OS mainframe migration with Asysco](/azure/architecture/example-scenario/mainframe/asysco-zos-migration)||Mainframe|
+|[Unisys mainframe migration with Asysco](/azure/architecture/reference-architectures/migration/unisys-mainframe-migration)||Mainframe|
+
+### Astadia
+
+    -   [Unisys Dorado mainframe migration to Azure with Astadia & Micro
+        > Focus](/azure/architecture/example-scenario/mainframe/migrate-unisys-dorado-mainframe-apps-with-astadia-micro-focus) (Mainframe)
+
 ## Related resources
+
+- Link to other, similar lists:
+- Scenarios featuring Microsoft on-prem technologies (the other new article)
+- Architecture for startups
+- Azure and Power Platform scenarios
+- Azure and Microsoft 365 scenarios
+- Azure and Dynamics 365 scenarios
+- Azure for AWS professionals
+- Azure for Google Cloud professionals
