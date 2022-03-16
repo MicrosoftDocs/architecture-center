@@ -142,7 +142,7 @@ The [Microsoft Azure Well-Architected Framework][azure-well-architected-framerwo
 > [!CAUTION]
 > To enhance the security of data in transit to Azure, you should [configure servers hosting the SQL Server instances to use Transport Layer Security (TLS) 1.2][server-configure-tls-12].
 
-[architectural-diagram]: images/azure_arc_sql_srvr.png
+[architectural-diagram]: images/administer-sql-server-azure-arc.png
 [architectural-diagram-visio-source]: https://arch-center.azureedge.net/azure_arc_sql_srvr.vsdx
 [azure-well-architected-framerwork]: /azure/architecture/framework/
 [sql-server]: /sql/sql-server/

@@ -8778,8 +8778,8 @@
                 "iot",
                 "analytics"
             ],
-            "image": "/azure/architecture/example-scenario/data/media/architecture-realtime-analytics-vehicle-data1.png",
-            "imagepath": "C:\\jvPnpRepos\\architecture-center-pr\\docs\\example-scenario\\data\\media\\architecture-realtime-analytics-vehicle-data1.png",
+            "image": "/azure/architecture/example-scenario/data/media/architecture-realtime-analytics-vehicle-data-1.png",
+            "imagepath": "C:\\jvPnpRepos\\architecture-center-pr\\docs\\example-scenario\\data\\media\\architecture-realtime-analytics-vehicle-data-1.png",
             "publish_date": "3/10/2020",
             "pricing_calculator": "https://azure.com/e/b798fb70c53e4dd19fdeacea4db78276",
             "pricing_guidance": "pricing",

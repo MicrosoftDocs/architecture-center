@@ -2,12 +2,20 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id/>
     <title>Azure Architecture Center</title>
-    <updated>2022-03-07T18:20:10.824Z</updated>
+    <updated>2022-03-14T15:02:37.878Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <subtitle>Updated articles for Azure Architecture Center</subtitle>
     <rights>https://docs.microsoft.com/legal/termsofuse</rights>
     <category term="new"/>
     <category term="updated"/>
+    <entry>
+        <title type="html"><![CDATA[Azure and Dynamics 365 scenarios]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/solutions/dynamics-365-scenarios</id>
+        <link href="https://docs.microsoft.com/azure/architecture/solutions/dynamics-365-scenarios"/>
+        <updated>2022-03-10T20:32:37.000Z</updated>
+        <summary type="html"><![CDATA[Learn about architectures and solutions that use Azure together with Dynamics 365.]]></summary>
+        <category label="new" term="new"/>
+    </entry>
     <entry>
         <title type="html"><![CDATA[DevOps architecture design]]></title>
         <id>https://docs.microsoft.com/azure/architecture/guide/devops/devops-start-here</id>
@@ -111,6 +119,46 @@
         <updated>2022-03-01T22:37:25.000Z</updated>
         <summary type="html"><![CDATA[Learn how to build, deploy, and monitor a machine learning model for employee attrition that can be integrated with external applications using Databricks and Kubernetes.]]></summary>
         <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Services in an Azure IIoT solution]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/guide/iiot-guidance/iiot-services</id>
+        <link href="https://docs.microsoft.com/azure/architecture/guide/iiot-guidance/iiot-services"/>
+        <updated>2022-03-14T07:21:05.000Z</updated>
+        <summary type="html"><![CDATA[Explore services in an IIoT analytics solution, such as time series service, microservices, rules and calculation engine, notifications, Microsoft 365, and more.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Build cloud native applications]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/solution-ideas/articles/cloud-native-apps</id>
+        <link href="https://docs.microsoft.com/azure/architecture/solution-ideas/articles/cloud-native-apps"/>
+        <updated>2022-03-12T00:26:24.000Z</updated>
+        <summary type="html"><![CDATA[Learn how to build cloud native applications with Azure Cosmos DB, Azure Database for PostgreSQL and Azure Cache for Redis.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Secure research environment for regulated data]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/example-scenario/ai/secure-compute-for-research</id>
+        <link href="https://docs.microsoft.com/azure/architecture/example-scenario/ai/secure-compute-for-research"/>
+        <updated>2022-03-11T08:56:48.000Z</updated>
+        <summary type="html"><![CDATA[Architecture on Azure that shows a regulated environment for researchers to access sensitive data while providing a higher level of control and data protection.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Baseline architecture for an AKS cluster]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/reference-architectures/containers/aks/secure-baseline-aks</id>
+        <link href="https://docs.microsoft.com/azure/architecture/reference-architectures/containers/aks/secure-baseline-aks"/>
+        <updated>2022-03-10T16:12:57.000Z</updated>
+        <summary type="html"><![CDATA[Reference architecture for a baseline infrastructure that deploys an Azure Kubernetes Service (AKS) cluster.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[SAP deployment in Azure using an Oracle database]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/example-scenario/apps/sap-production</id>
+        <link href="https://docs.microsoft.com/azure/architecture/example-scenario/apps/sap-production"/>
+        <updated>2022-03-10T10:53:11.000Z</updated>
+        <summary type="html"><![CDATA[Learn proven practices for running SAP on Oracle in Azure, with high availability.]]></summary>
+        <category label="updated" term="updated"/>
     </entry>
     <entry>
         <title type="html"><![CDATA[Tenancy model for SaaS applications]]></title>
@@ -905,11 +953,11 @@
         <category label="updated" term="updated"/>
     </entry>
     <entry>
-        <title type="html"><![CDATA[SAP deployment on Azure using an Oracle database]]></title>
+        <title type="html"><![CDATA[SAP deployment in Azure using an Oracle database]]></title>
         <id>https://docs.microsoft.com/azure/architecture/example-scenario/apps/sap-production</id>
         <link href="https://docs.microsoft.com/azure/architecture/example-scenario/apps/sap-production"/>
         <updated>2022-01-20T15:38:07.000Z</updated>
-        <summary type="html"><![CDATA[This example demonstrates a SAP deployment on virtual machines on Azure, along with a High Availability Oracle database.]]></summary>
+        <summary type="html"><![CDATA[Learn proven practices for running SAP on Oracle in Azure, with high availability.]]></summary>
         <category label="updated" term="updated"/>
     </entry>
     <entry>
