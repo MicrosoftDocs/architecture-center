@@ -1,6 +1,6 @@
 ### YamlMime:Architecture
 metadata:
-  title: Machine teaching with the Microsoft Autonomous Systems platform
+  title: Machine teaching with Project Bonsai autonomous systems
   titleSuffix: Azure Example Scenarios
   description: Learn how the Microsoft Autonomous Systems platform uses machine teaching, deep reinforcement learning, and simulations to build and deploy autonomous systems with Bonsai.
   author: jocontr
@@ -14,7 +14,7 @@ metadata:
   ms.custom:
     - pcp
     - ai-machine-learning
-name: Machine teaching with the Microsoft Autonomous Systems platform
+name: Machine teaching with Project Bonsai autonomous systems 
 azureCategories:
   - ai-machine-learning
 summary: Learn how the Microsoft Autonomous Systems platform uses machine teaching, deep reinforcement learning, and simulations to build and deploy autonomous systems with Bonsai.
