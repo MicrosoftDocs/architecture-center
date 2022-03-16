@@ -21,6 +21,6 @@ products:
   - azure-storage  
 name: Geospatial Analysis using Azure Synapse Analytics
 summary: Reference architecture for enterprise to enable geospatial workloads on Azure using Synapse Analytics.
-thumbnailUrl: images/geospatial-processing-analytics-arch.png
+thumbnailUrl: /azure/architecture/browse/thumbs/geospatial-processing-analytics-arch.png
 content: |
   [!include[](geospatial-processing-analytics-content.md)]

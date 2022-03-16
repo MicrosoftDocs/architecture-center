@@ -128,7 +128,7 @@ The following article shows how to read/write and apply transformations to raste
   
   Output:
   
-  <pre style="max-height: 500px;">
+  ```
   Driver: GTiff/GeoTIFF
 	Files: /vsiadls/naip/input/sample_image.tiff
 	Size is 6634, 7565
@@ -195,8 +195,7 @@ The following article shows how to read/write and apply transformations to raste
 	  Overviews: 3317x3782, 1658x1891, 829x945, 414x472
 	Band 4 Block=512x512 Type=Byte, ColorInterp=Undefined
 	  Overviews: 3317x3782, 1658x1891, 829x945, 414x472
-	</pre>
-	
+	```	
   
 	> - **/vsiadls/** is a filesystem handler that allows on-the-fly random reading of (primarily non-public) files available in Microsoft Azure Data Lake Storage file systems, without prior download of the entire file. It has similar capabilities as **/vsiaz/**, and in particular uses the same configuration options for authentication. Its advantages over /vsiaz/ are a real management of directory and Unix-style ACL support. Some features require the Azure storage to have hierarchical support turned on. Please refer to its [documentation](https://gdal.org/user/virtual_file_systems.html#vsiadls-microsoft-azure-data-lake-storage-gen2) for more details.
 	
@@ -350,7 +349,7 @@ To support Geospatial workloads on Azure Synapse, it requires libraries like [GD
 
 ### Steps
 
-1. The following libraries/packages are available in the [environment.yml](/transforms/spark-jobs/environment.yml) file. This file will be used to install the libraries to the Spark pools.
+1. The following libraries/packages are available in the [environment.yml](https://github.com/Azure/Azure-Orbital-Analytics-Samples) file. This file will be used to install the libraries to the Spark pools.
 
 	```
 	name: geospatial-pkgs
