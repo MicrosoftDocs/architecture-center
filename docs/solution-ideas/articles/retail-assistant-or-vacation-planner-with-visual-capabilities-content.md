@@ -8,7 +8,7 @@ This solution can be used broadly but is ideal for the retail industry, as well 
 
 ## Architecture
 
-![Architecture diagram of the bot assistant.](../media/bot-assistant-architecture.png)
+![Architecture diagram of the bot assistant.](../media/retail-assistant-or-vacation-planner-with-visual-capabilities.png)
 
 ### Dataflow
 
