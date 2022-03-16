@@ -31,12 +31,12 @@ apache note
 
 |Azrchitecture|Summary|Technology focus|
 |--|--|--|
-|[Data partitioning guidance](/azure/architecture/best-practices/data-partitioning)| |Databases|
+|[Data partitioning guidance](../best-practices/data-partitioning.yml)| |Databases|
 |[High availability in Azure public MEC](../example-scenario/hybrid/multi-access-edge-compute-ha.yml)|| Hybrid|
 |[IoT and data analytics](../example-scenario/data/big-data-with-iot.yml)| |Analytics|
 |[N-tier application with Apache Cassandra](../reference-architectures/n-tier/n-tier-cassandra.yml)|| Databases|
-|[Non-relational data and NoSQL](/azure/architecture/data-guide/big-data/non-relational-data) ||Databases|
-|[Run Apache Cassandra on Azure VMs](/azure/architecture/best-practices/cassandra)|| Databases|
+|[Non-relational data and NoSQL](../data-guide/big-data/non-relational-data.yml) ||Databases|
+|[Run Apache Cassandra on Azure VMs](../best-practices/cassandra.md)|| Databases|
 |[Stream processing with fully managed open-source data engines](../example-scenario/data/open-source-data-engine-stream-processing.yml)|| Analytics|
 
 #### Apache CouchDB
@@ -52,15 +52,15 @@ apache note
 |[Actuarial risk analysis and financial modeling](/azure/architecture/industries/finance/actuarial-risk-analysis-financial-model)|| Analytics|
 |[AI at the edge with Azure Stack Hub](../solution-ideas/articles/ai-at-the-edge.yml)|| AI|
 |[AI at the edge with Azure Stack Hub - disconnected](../solution-ideas/articles/ai-at-the-edge-disconnected.yml)|| AI|
-|[Batch processing](/azure/architecture/data-guide/big-data/batch-processing)|| Databases|
-|[Big data architectures](/azure/architecture/data-guide/big-data)|| Databases|
+|[Batch processing](../data-guide/big-data/batch-processing.yml)|| Databases|
+|[Big data architectures](../data-guide/big-data/index.yml)|| Databases|
 |[Campaign optimization with HDInsight Spark](../solution-ideas/articles/campaign-optimization-with-azure-hdinsight-spark-clusters.yml)|| Databases|
-|[Choose a data transfer technology](/azure/architecture/data-guide/scenarios/data-transfer)|| Databases|
+|[Choose a data transfer technology](../data-guide/scenarios/data-transfer.md)|| Databases|
 |[Citizen AI with the Power Platform](../example-scenario/ai/citizen-ai-power-platform.yml)|| AI|
 |[Data considerations for microservices](/azure/architecture/microservices/design/data-considerations)|| Microservices|
 |[Extend your on-premises big data investments with HDInsight](../solution-ideas/articles/extend-your-on-premises-big-data-investments-with-hdinsight.yml)|| Analytics|
 |[Extract actionable insights from IoT data](/azure/architecture/industries/manufacturing/extract-insights-iot-data)|| Analytics|
-|[Extract, transform, and load (ETL)](/azure/architecture/data-guide/relational-data/etl)|| Analytics|
+|[Extract, transform, and load (ETL)](../data-guide/relational-data/etl.yml)|| Analytics|
 |[Extract, transform, and load (ETL) using HDInsight](../solution-ideas/articles/extract-transform-and-load-using-hdinsight.yml)|| Analytics|
 |[Gaming using Azure Database for MySQL](../solution-ideas/articles/gaming-using-azure-database-for-mysql.yml)|| Databases|
 |[Interactive querying with HDInsight](../solution-ideas/articles/interactive-querying-with-hdinsight.yml)|| Databases|
@@ -78,33 +78,33 @@ apache note
 |--|--|--|
 |[AI at the edge with Azure Stack Hub](../solution-ideas/articles/ai-at-the-edge.yml)|| AI|
 |[AI at the edge with Azure Stack Hub - disconnected](../solution-ideas/articles/ai-at-the-edge-disconnected.yml)|| AI|
-|[Batch processing](/azure/architecture/data-guide/big-data/batch-processing)|| Databases|
-|[Big data architectures](/azure/architecture/data-guide/big-data)|| Databases|
-|[Choose a big data storage technology](/azure/architecture/data-guide/technology-choices/data-storage)|| Databases|
-|[Choose an analytical data store](/azure/architecture/data-guide/technology-choices/analytical-data-stores)|| Analytics|
-|[Data partitioning guidance](/azure/architecture/best-practices/data-partitioning)|| Databases|
-|[Non-relational data and NoSQL](/azure/architecture/data-guide/big-data/non-relational-data)|| Databases|
-|[Real time processing](/azure/architecture/data-guide/big-data/real-time-processing)|| Analytics|
-|[Time series data](/azure/architecture/data-guide/scenarios/time-series)|| Databases|
+|[Batch processing](../data-guide/big-data/batch-processing.yml)|| Databases|
+|[Big data architectures](../data-guide/big-data/index.yml)|| Databases|
+|[Choose a big data storage technology](../data-guide/technology-choices/data-storage.md)|| Databases|
+|[Choose an analytical data store](../data-guide/technology-choices/analytical-data-stores.md)|| Analytics|
+|[Data partitioning guidance](../best-practices/data-partitioning.yml)|| Databases|
+|[Non-relational data and NoSQL](../data-guide/big-data/non-relational-data.yml)|| Databases|
+|[Real time processing](../data-guide/big-data/real-time-processing.yml)|| Analytics|
+|[Time series data](../data-guide/scenarios/time-series.yml)|| Databases|
 
 #### Apache Hive
 
 |Azrchitecture|Summary|Technology focus|
 |--|--|--|
-|[Batch processing](/azure/architecture/data-guide/big-data/batch-processing)|| Analytics|
-|[Big data architectures](/azure/architecture/data-guide/big-data)|| Databases|
+|[Batch processing](../data-guide/big-data/batch-processing.yml)|| Analytics|
+|[Big data architectures](../data-guide/big-data/index.yml)|| Databases|
 |[Campaign optimization with HDInsight Spark](../solution-ideas/articles/campaign-optimization-with-azure-hdinsight-spark-clusters.yml)|| Databases|
-|[Choose a batch processing technology](/azure/architecture/data-guide/technology-choices/batch-processing)|| Analytics|
-|[Choose an analytical data store](/azure/architecture/data-guide/technology-choices/analytical-data-stores)|| Analytics|
-|[Data warehousing in Microsoft Azure](/azure/architecture/data-guide/relational-data/data-warehousing)|| Databases|
-|[Extract, transform, and load (ETL)](/azure/architecture/data-guide/relational-data/etl)|| Databases|
+|[Choose a batch processing technology](../data-guide/technology-choices/batch-processing.md)|| Analytics|
+|[Choose an analytical data store](../data-guide/technology-choices/analytical-data-stores.md)|| Analytics|
+|[Data warehousing in Microsoft Azure](../data-guide/relational-data/data-warehousing.yml)|| Databases|
+|[Extract, transform, and load (ETL)](../data-guide/relational-data/etl.yml)|| Databases|
 |[Extract, transform, and load (ETL) using HDInsight](../solution-ideas/articles/extract-transform-and-load-using-hdinsight.yml)|| Analytics|
 |[Interactive querying with HDInsight](../solution-ideas/articles/interactive-querying-with-hdinsight.yml)|| Databases|
 |[Loan charge-off prediction with HDInsight Spark clusters](../solution-ideas/articles/loan-chargeoff-prediction-with-azure-hdinsight-spark-clusters.yml)|| Analytics|
 |[Predictive aircraft engine monitoring](../solution-ideas/articles/aircraft-engine-monitoring-for-predictive-maintenance-in-aerospace.yml)|| Analytics|
 |[Predictive insights with vehicle telematics](../solution-ideas/articles/predictive-insights-with-vehicle-telematics.yml)|| Analytics|
 |[Predictive maintenance](../solution-ideas/articles/predictive-maintenance.yml)|| Analytics|
-|[Real time processing](/azure/architecture/data-guide/big-data/real-time-processing)|| Analytics|
+|[Real time processing](../data-guide/big-data/real-time-processing.yml)|| Analytics|
 |[Scale AI and machine learning initiatives in regulated industries](../example-scenario/ai/scale-ai-and-machine-learning-in-regulated-industries.yml)|| AI|
 
 #### Apache JMeter
@@ -128,8 +128,8 @@ apache note
 |[Azure Data Explorer interactive analytics](../solution-ideas/articles/interactive-azure-data-explorer.yml)||Analytics|
 |[Azure Data Explorer monitoring](../solution-ideas/articles/monitor-azure-data-explorer.yml)||Analytics|
 |[Banking system cloud transformation on Azure](../example-scenario/banking/banking-system-cloud-transformation.yml)||Containers|
-|[Choose a real-time message ingestion technology](/azure/architecture/data-guide/technology-choices/real-time-ingestion)||Databases|
-|[Choose a stream processing technology](/azure/architecture/data-guide/technology-choices/stream-processing)||Analytics|
+|[Choose a real-time message ingestion technology](../data-guide/technology-choices/real-time-ingestion.md)||Databases|
+|[Choose a stream processing technology](../data-guide/technology-choices/stream-processing.md)||Analytics|
 |[Claim-Check pattern](/azure/architecture/patterns/claim-check)||Integration|
 |[Data streaming with AKS](../solution-ideas/articles/data-streaming-scenario.yml)||Containers|
 |[Extract actionable insights from IoT data](/azure/architecture/industries/manufacturing/extract-insights-iot-data)||Serverless|
@@ -143,19 +143,19 @@ apache note
 |[Patterns and implementations for a banking cloud transformation](../example-scenario/banking/patterns-and-implementations)||Serverless|
 |[Publisher-Subscriber pattern](/azure/architecture/patterns/publisher-subscriber)||Integration|
 |[Rate Limiting pattern](/azure/architecture/patterns/rate-limiting-pattern)||Integration|
-|[Real time processing](/azure/architecture/data-guide/big-data/real-time-processing)||Databases|
+|[Real time processing](../data-guide/big-data/real-time-processing.yml)||Databases|
 |[Refactor mainframe applications with Advanced](../example-scenario/mainframe/refactor-mainframe-applications-advanced.yml)||Mainframe|
 |[Scalable order processing](../example-scenario/data/ecommerce-order-processing.yml)||Databases|
 |[Stream processing with fully managed open-source data engines](../example-scenario/data/open-source-data-engine-stream-processing.yml)||Analytics|
-|[Time series data](/azure/architecture/data-guide/scenarios/time-series)||Databases|
+|[Time series data](../data-guide/scenarios/time-series.yml)||Databases|
 
 #### Apache MapReduce
 
 |Azrchitecture|Summary|Technology focus|
 |--|--|--|
 |[Asynchronous messaging options](/azure/architecture/guide/technology-choices/messaging)||Integration|
-|[Big data architectures](/azure/architecture/data-guide/big-data/)||Databases|
-|[Choose a batch processing technology](/azure/architecture/data-guide/technology-choices/batch-processing)||Analytics|
+|[Big data architectures](../data-guide/big-data/index.yml)||Databases|
+|[Choose a batch processing technology](../data-guide/technology-choices/batch-processing.md)||Analytics|
 |[Extract, transform, and load (ETL) using HDInsight](../solution-ideas/articles/extract-transform-and-load-using-hdinsight.yml)||Analytics|
 |[Geode pattern](/azure/architecture/patterns/geodes)||Databases|
 |[Minimize coordination](/azure/architecture/guide/design-principles/minimize-coordination)||Databases|
@@ -173,18 +173,18 @@ apache note
 
 |Azrchitecture|Summary|Technology focus|
 |--|--|--|
-|[Batch processing](/azure/architecture/data-guide/big-data/batch-processing)||Databases|
-|[Big data architectures](/azure/architecture/data-guide/big-data/)||Databases|
-|[Choose a data pipeline orchestration technology](/azure/architecture/data-guide/technology-choices/pipeline-orchestration-data-movement)||Databases|
-|[Data warehousing in Microsoft Azure](/azure/architecture/data-guide/relational-data/data-warehousing)||Databases|
-|[Real time processing](/azure/architecture/data-guide/big-data/real-time-processing)||Databases|
+|[Batch processing](../data-guide/big-data/batch-processing.yml)||Databases|
+|[Big data architectures](../data-guide/big-data/index.yml)||Databases|
+|[Choose a data pipeline orchestration technology](../data-guide/technology-choices/pipeline-orchestration-data-movement.md)||Databases|
+|[Data warehousing in Microsoft Azure](../data-guide/relational-data/data-warehousing.yml)||Databases|
+|[Real time processing](../data-guide/big-data/real-time-processing.yml)||Databases|
 
 #### Apache Solr
 
 |Azrchitecture|Summary|Technology focus|
 |--|--|--|
-|[Choose a search data store](/azure/architecture/data-guide/technology-choices/search-options)||Databases|
-|[Processing free-form text for search](/azure/architecture/data-guide/scenarios/search)||Databases|
+|[Choose a search data store](../data-guide/technology-choices/search-options.md)||Databases|
+|[Processing free-form text for search](../data-guide/scenarios/search.yml)||Databases|
 
 #### Apache Spark
 
@@ -195,30 +195,30 @@ apache note
 |[AI at the edge with Azure Stack Hub](../solution-ideas/articles/ai-at-the-edge.yml)||AI|
 |[AI at the edge with Azure Stack Hub - disconnected](../solution-ideas/articles/ai-at-the-edge-disconnected.yml)||AI|
 |[Analytics end-to-end with Azure Synapse](../example-scenario/dataplate2e/data-platform-end-to-end.yml)||Analytics|
-|[Batch processing](/azure/architecture/data-guide/big-data/batch-processing)||Databases|
+|[Batch processing](../data-guide/big-data/batch-processing.yml)||Databases|
 |[Batch scoring of Spark on Azure Databricks](../reference-architectures/ai/batch-scoring-databricks.yml)||AI|
 |[Big data analytics on confidential computing](../example-scenario/confidential/data-analytics-containers-spark-kubernetes-azure-sql.yml)||Databases|
-|[Big data architectures](/azure/architecture/data-guide/big-data/)||Databases|
+|[Big data architectures](../data-guide/big-data/index.yml)||Databases|
 |[Build a content-based recommendation system](../example-scenario/ai/scalable-personalization-with-content-based-recommendation-system.yml)||Analytics|
 |[Build cloud native applications](../solution-ideas/articles/cloud-native-apps.yml)||Containers|
 |[Campaign optimization with HDInsight Spark](../solution-ideas/articles/campaign-optimization-with-azure-hdinsight-spark-clusters.yml)||Databases|
-|[Choose a batch processing technology](/azure/architecture/data-guide/technology-choices/batch-processing)||Analytics|
-|[Choose a stream processing technology](/azure/architecture/data-guide/technology-choices/stream-processing)||Analytics|
-|[Choose an analytical data store](/azure/architecture/data-guide/technology-choices/analytical-data-stores)||Analytics|
+|[Choose a batch processing technology](../data-guide/technology-choices/batch-processing.md)||Analytics|
+|[Choose a stream processing technology](../data-guide/technology-choices/stream-processing.md)||Analytics|
+|[Choose an analytical data store](../data-guide/technology-choices/analytical-data-stores.md)||Analytics|
 |[Customer 360 with Azure Synapse and Dynamics 365 Customer Insights](../example-scenario/analytics/synapse-customer-insights.yml)||Analytics|
 |[Data science and machine learning with Azure Databricks](../solution-ideas/articles/azure-databricks-data-science-machine-learning.yml)||AI|
-|[Extract, transform, and load (ETL)](/azure/architecture/data-guide/relational-data/etl)||Databases|
+|[Extract, transform, and load (ETL)](../data-guide/relational-data/etl.yml)||Databases|
 |[Extract, transform, and load (ETL) using HDInsight](../solution-ideas/articles/extract-transform-and-load-using-hdinsight.yml)||Analytics|
 |[IoT and data analytics](../example-scenario/data/big-data-with-iot.yml)||Analytics|
 |[IoT using Cosmos DB](../solution-ideas/articles/iot-using-cosmos-db.yml)||IoT|
 |[Loan charge-off predictions with HDInsight Spark](../solution-ideas/articles/loan-chargeoff-prediction-with-azure-hdinsight-spark-clusters.yml)||Databases|
 |[Many models machine learning with Spark](../example-scenario/ai/many-models-machine-learning-azure-spark.yml)||AI|
-|[Microsoft machine learning products](/azure/architecture/data-guide/technology-choices/data-science-and-machine-learning)||AI|
+|[Microsoft machine learning products](../data-guide/technology-choices/data-science-and-machine-learning.md)||AI|
 |[Modern data warehouse for small and medium business](../example-scenario/data/small-medium-data-warehouse.yml)||Analytics|
-|[Natural language processing technology](/azure/architecture/data-guide/technology-choices/natural-language-processing)||AI|
+|[Natural language processing technology](../data-guide/technology-choices/natural-language-processing.yml)||AI|
 |[Observability patterns and metrics](/azure/architecture/databricks-monitoring/databricks-observability)||Databases|
 |[Real-time analytics on big data architecture](../solution-ideas/articles/real-time-analytics.yml)||Analytics|
-|[Real time processing](/azure/architecture/data-guide/big-data/real-time-processing)||Analytics|
+|[Real time processing](../data-guide/big-data/real-time-processing.yml)||Analytics|
 |[Stream processing with fully managed open-source data engines](../example-scenario/data/open-source-data-engine-stream-processing.yml)||Analytics|
 |[Streaming using HDInsight](../solution-ideas/articles/streaming-using-hdinsight.yml)||Databases|
 
@@ -226,28 +226,25 @@ apache note
 
 |Azrchitecture|Summary|Technology focus|
 |--|--|--|
-[Batch processing](/azure/architecture/data-guide/big-data/batch-processing) (Databases)
-[Big data architectures](/azure/architecture/data-guide/big-data/) (Databases)
-[Choose a data transfer technology](/azure/architecture/data-guide/scenarios/data-transfer) (Databases)
-[Real time processing](/azure/architecture/data-guide/big-data/real-time-processing) (Databases)
+[Batch processing](../data-guide/big-data/batch-processing.yml) (Databases)
+[Big data architectures](../data-guide/big-data/index.yml) (Databases)
+[Choose a data transfer technology](../data-guide/scenarios/data-transfer.md) (Databases)
+[Real time processing](../data-guide/big-data/real-time-processing.yml) (Databases)
 
 #### Apache Storm
 
 [AI at the edge with Azure Stack Hub](../solution-ideas/articles/ai-at-the-edge.yml) (AI)
 [AI at the edge with Azure Stack Hub - disconnected](../solution-ideas/articles/ai-at-the-edge-disconnected.yml) (AI)
 
-        -   [Big data
-            > architectures](/azure/architecture/data-guide/big-data/) (Databases)
+[Big data architectures](../data-guide/big-data/index.yml) (Databases)
 
-        -   [Choose a stream processing
-            > technology](/azure/architecture/data-guide/technology-choices/stream-processing) (Analytics)
+[Choose a stream processing technology](../data-guide/technology-choices/stream-processing.md) (Analytics)
 
 [Interactive querying with HDInsight](../solution-ideas/articles/interactive-querying-with-hdinsight.yml) (Databases)
 
 [IoT using Azure Cosmos DB](../solution-ideas/articles/iot-using-cosmos-db.yml) (IoT)
 
-        -   [Real time
-            > processing](/azure/architecture/data-guide/big-data/real-time-processing) (Databases)
+[Real time processing](../data-guide/big-data/real-time-processing.yml) (Databases)
 
     -   Apache Zookeeper
 
