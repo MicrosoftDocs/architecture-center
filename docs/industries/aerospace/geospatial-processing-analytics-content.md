@@ -42,7 +42,7 @@ The below workflow will walk-through the different stages of the end-to-end arch
  - Azure Synapse Analytics is capable of executing such AI models through its *custom activity* that runs code in Azure Batch Pools as executables or as Docker containers. The sample solution demonstrates how to execute a [Custom Vision AI model](https://azure.microsoft.com/services/cognitive-services/custom-vision-service/#overview) as part of an Azure Synapse Analytics pipeline for object detection over a specific geospatial area of interest.
 
 #### Post-analysis and Visualization
- - Output from analysis and execution of the AI models can then be stored in either Azure Data Lake Storage or data-aware databases like Azure Database for Postgres, or Azure CosmosDB for further analysis and visualization. The sample solution showcases how to transform AI model output and store it as [GeoJSON](https://tools.ietf.org/html/rfc7946) data in Azure Data Lake Storage and Azure Database for PostgresSQL, from where it can be subsequently retrieved and queried.
+ - Output from analysis and execution of the AI models can then be stored in either Azure Data Lake Storage or data-aware databases like Azure Database for Postgres, or Azure CosmosDB for further analysis and visualization. The sample solution showcases how to transform AI model output and store it as [GeoJSON](https://tools.ietf.org/html/rfc7946) data in Azure Data Lake Storage and Azure Database for PostgresSQL, from where it can be later retrieved and queried.
  - Licensed tools like ArcGIS Desktop or open source tools like QGIS are available to be used for visualizing the data.
  - Power BI provides the visualization capabilities to access GeoJSON from various data sources to visualize the GIS data.
  - Client side geospatial javascript based libraries are available to visualize this data in web applications.
@@ -72,7 +72,7 @@ The architecture consist of the following components & categories
 - [Azure Key Vault](https://docs.microsoft.com/azure/key-vault/) stores and controls access to secrets such as tokens, passwords, and API keys. Key Vault also creates and controls encryption keys and manages security certificates.
 
 #### Data transformation
-The below geospatial libraries/packages are applied in combination to transformations. These libraries/packages are installed to a serverless Spark pool which will then be attached to a Synapse Notebook. Instructions on how to install the libraries is documented [here](#install-geospatial-packages-into-synapse-spark-pool). 
+The below geospatial libraries/packages are applied in combination to transformations. These libraries/packages are installed to a serverless Spark pool, which will then be attached to a Synapse Notebook. Instructions on how to install the libraries is documented [here](#install-geospatial-packages-into-a-synapse-spark-pool). 
 
 - Geospatial libraries
 	- [GDAL](https://gdal.org/) is a library of tools used for manipulating spaceborne data. GDAL works on both raster and vector data types, and is an incredible useful tool to be familiar with when working with spaceborne data.
@@ -111,15 +111,13 @@ The below geospatial libraries/packages are applied in combination to transforma
 ### Alternatives
 
 - [Azure Kubernetes Service](https://docs.microsoft.com/azure/aks/), [Azure Container Instances](https://docs.microsoft.com/azure/container-instances/), [Azure Container Apps](https://azure.microsoft.com/services/container-apps/) provide alternatives to run containerized AI models which can be called from Azure Synapse Analytics.
-
 - [Azure Databricks](https://docs.microsoft.com/azure/databricks/) provides a viable alternative option to host an end-to-end analytics pipeline.
+- [Azure HDInsight Spark](https://docs.microsoft.com/azure/hdinsight/spark/apache-spark-overview)
 
 Some other alternative geospatial libraries / frameworks that can be used for geospatial processing are:
 - [Apache Sedona](https://sedona.apache.org/) was formerly called GeoSpark, is a cluster computing system for processing large-scale spatial data. Sedona extends Apache Spark / SparkSQL with a set of out-of-the-box Spatial Resilient Distributed Datasets / SpatialSQL that efficiently load, process, and analyze large-scale spatial data across machines.
-
 - [Dask for Python](https://tutorial.dask.org/00_overview.html) is a parallel computing library that scales the existing Python ecosystem.
 
-- [Azure HDInsight Spark](https://docs.microsoft.com/azure/hdinsight/spark/apache-spark-overview)
 
 ## Considerations
 
@@ -163,9 +161,9 @@ This reference architecture showcases the functional working of an end-to-end ge
 
 ### Sample code
 
-The following article shows how to read/write and apply transformations to raster data that is stored in Azure Data Lake Storage using Synapse Notebook. The intention is more to showcase the usage of libraries in Synapse notebooks rather than the actual transformation itself. 
+The following article shows how to read, write and apply transformations to raster data that is stored in Azure Data Lake Storage using Synapse Notebook. The intention is more to showcase the usage of libraries in Synapse notebooks rather than the actual transformation itself. 
 
-**Note:** Before running the sample code, ensure the required libraries are installed. Instructions on how to install the libraries is documented [here](#install-geospatial-packages-into-synapse-spark-pool)
+**Note:** Before running the sample code, ensure the required libraries are installed. Instructions on how to install the libraries is documented [here](#install-geospatial-packages-into-a-synapse-spark-pool)
 
 - Print information from the raster data 
  
@@ -257,7 +255,7 @@ The following article shows how to read/write and apply transformations to raste
 	from osgeo import gdal
 	gdal.UseExceptions()	
 	gdal.SetConfigOption('AZURE_STORAGE_ACCOUNT', '<storage_account_name>')
-   gdal.SetConfigOption('AZURE_STORAGE_ACCESS_KEY', '<access_key>') 
+    gdal.SetConfigOption('AZURE_STORAGE_ACCESS_KEY', '<access_key>') 
 	tiff_in = "/vsiadls/aoa/input/sample_image.tiff"	#/vsiadls/<container_name>/path/to/image
 	png_out = "/vsiadls/aoa/input/sample_image.png"	#/vsiadls/<container_name>/path/to/image
 	options = gdal.TranslateOptions(format='PNG')
@@ -280,17 +278,17 @@ The following article shows how to read/write and apply transformations to raste
     	{"linkedService":"<linked_service_name>"} 
 	)
 	
-   gdal.SetConfigOption('AZURE_STORAGE_ACCOUNT', '<storage_account_name>')
-   gdal.SetConfigOption('AZURE_STORAGE_ACCESS_KEY', '<access_key>') 
+    gdal.SetConfigOption('AZURE_STORAGE_ACCOUNT', '<storage_account_name>')
+    gdal.SetConfigOption('AZURE_STORAGE_ACCESS_KEY', '<access_key>') 
 
-   options = gdal.WarpOptions(options=['tr'], xRes=1000, yRes=1000)
-   gdal.Warp('dst_img.tiff', '/vsiadls/<container_name>/path/to/src_img.tiff', options=options)
+    options = gdal.WarpOptions(options=['tr'], xRes=1000, yRes=1000)
+    gdal.Warp('dst_img.tiff', '/vsiadls/<container_name>/path/to/src_img.tiff', options=options)
 
-   jobId = mssparkutils.env.getJobId()
+    jobId = mssparkutils.env.getJobId()
 	
-   shutil.copy("dst_img.tiff", f"/synfs/{jobId}/<mount_path>/path/to/dst_img.tiff")
+    shutil.copy("dst_img.tiff", f"/synfs/{jobId}/<mount_path>/path/to/dst_img.tiff")
 	```	
-   > 	Azure Synapse Analytics allows you to add Azure Data Lake Storage Gen2 as one of the linked services. This can be done using the UI as documented [here](https://docs.microsoft.com/azure/data-factory/concepts-linked-services?context=%2Fazure%2Fsynapse-analytics%2Fcontext%2Fcontext&tabs=synapse-analytics#linked-service-with-ui)
+    > Azure Synapse Analytics allows you to add Azure Data Lake Storage Gen2 as one of the linked services. This can be done using the UI as documented [here](https://docs.microsoft.com/azure/data-factory/concepts-linked-services?context=%2Fazure%2Fsynapse-analytics%2Fcontext%2Fcontext&tabs=synapse-analytics#linked-service-with-ui)
 	
 ### Sample solution
 
