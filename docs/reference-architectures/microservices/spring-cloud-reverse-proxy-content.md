@@ -14,7 +14,7 @@ In this article, you'll learn how to enforce access restrictions so that your Az
   - Given that your apps are reachable publicly, you can use either Application Gateway (**[scenario 3](#scenario-3-using-application-gateway-as-the-reverse-proxy)**) or Azure Front Door (**[scenario 4](#scenario-4-using-azure-front-door-as-the-reverse-proxy)**) as the reverse proxy. You can even use a combination of both, if you need to. If you use both, use the same access restrictions between the two reverse proxies that are used in [scenario 2](#scenario-2-using-azure-front-door-and-application-gateway-as-the-reverse-proxy).
 
 > [!NOTE]
-> You can use other reverse proxy services instead of Application Gateway or Azure Front Door. For regional services that are based in an Azure virtual network, the guidance is similar to the guidance for Application Gateway. If you use non-Azure services, the guidance is similar to the guidance for Azure Front Door.
+> You can use other reverse proxy services instead of Application Gateway or Azure Front Door. For regional services that are based in an Azure virtual network, like Azure API Management, the guidance is similar to the guidance for Application Gateway. If you use non-Azure services, the guidance is similar to the guidance for Azure Front Door.
 
 ## Configuration summary
 
@@ -34,7 +34,7 @@ This section provides a short summary of how to configure each scenario. For ful
   - In Spring Cloud Gateway, set the `XForwarded Remote Addr` route predicate to the public IP address of Application Gateway.
   - Optionally, in your Spring Framework apps, set the `server.forward-headers-strategy` application property to `FRAMEWORK`.
 - **[Scenario 4: Azure Front Door with Azure Spring Cloud, deployed outside your virtual network.](#scenario-4-using-azure-front-door-as-the-reverse-proxy)**
-  - In this scenario, we assume that you're using Spring Cloud Gateway to expose the back-end apps. So only the Spring Cloud Gateway app needs to have an  endpoint assigned to it. The custom domains of all back-end apps should be mapped to this single Spring Cloud Gateway app.
+  - In this scenario, we assume that you're using Spring Cloud Gateway to expose your back-end apps. So only the Spring Cloud Gateway app needs to have an  endpoint assigned to it. The custom domains of all back-end apps should be mapped to this single Spring Cloud Gateway app.
   - For the back-end pool or origin in Azure Front Door, use the assigned endpoint of the Spring Cloud Gateway app.
   - In Spring Cloud Gateway, set the `XForwarded Remote Addr` route predicate to all outbound IP ranges of Azure Front Door, and keep this setting up to date. Set the `Header` route predicate to ensure that the `X-Azure-FDID` HTTP header contains your unique Azure Front Door ID.
   - Optionally, in your Spring Framework apps, set the `server.forward-headers-strategy` application property to `FRAMEWORK`.
