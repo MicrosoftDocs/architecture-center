@@ -1,13 +1,12 @@
-
 <!-- cSpell:ignore infiniband haswell cuda -->
 
 3D video rendering is a time consuming process that requires a significant amount of CPU time to complete. On a single machine, the process of generating a video file from static assets can take hours or even days depending on the length and complexity of the video you are producing. Many companies will purchase either expensive high end desktop computers to perform these tasks, or invest in large render farms that they can submit jobs to. However, by taking advantage of Azure Batch, that power is available to you when you need it and shuts itself down when you don't, all without any capital investment.
 
 Batch gives you a consistent management experience and job scheduling, whether you select Windows Server or Linux compute nodes. With Batch, you can use your existing Windows or Linux applications, including AutoDesk Maya and Blender, to run large-scale render jobs in Azure.
 
-## Relevant use cases
+## Potential use cases
 
-Other relevant use cases include:
+This solution is ideal for the media and entertainment industries. Other relevant use cases include:
 
 - 3D modeling
 - Visual FX (VFX) rendering
@@ -17,6 +16,8 @@ Other relevant use cases include:
 ## Architecture
 
 ![Architecture overview of the components involved in a cloud-native HPC solution using Azure Batch][architecture]
+
+### Dataflow
 
 This scenario shows a workflow that uses Azure Batch. The data flows as follows:
 
@@ -37,6 +38,12 @@ Azure Batch builds on the following Azure technologies:
 - [Azure Storage accounts](/azure/storage/common/storage-introduction) are used for synchronization and data retention.
 - [Virtual machine scale sets][vmss] are used by CycleCloud for compute resources.
 
+### Alternatives
+
+If you require more control over your rendering environment in Azure or need a hybrid implementation, then CycleCloud computing can help orchestrate an IaaS grid in the cloud. Using the same underlying Azure technologies as Azure Batch, it makes building and maintaining an IaaS grid an efficient process. To find out more, see [What is Azure CycleCloud?](/azure/cyclecloud/overview).
+
+For a complete overview of all the HPC solutions that are available to you in Azure, see the article [HPC, Batch, and Big Compute solutions using Azure VMs][hpc-alt-solutions].
+
 ## Considerations
 
 ### Machine Sizes available for Azure Batch
@@ -55,12 +62,6 @@ Azure has a wide range of VM sizes that can address each and every one of the ab
 - NC, NCv2, NCv3, and ND sizes are optimized for compute-intensive and network-intensive applications and algorithms, including CUDA and OpenCL-based applications and simulations, AI, and Deep Learning. NV sizes are optimized and designed for remote visualization, streaming, gaming, encoding, and VDI scenarios using frameworks such as OpenGL and DirectX.
 - [Memory optimized VM sizes][compute-memory] When more memory is required, the memory optimized VM sizes offer a higher memory-to-CPU ratio.
 - [General purposes VM sizes][compute-general] General-purpose VM sizes are also available and provide balanced CPU-to-memory ratio.
-
-### Alternatives
-
-If you require more control over your rendering environment in Azure or need a hybrid implementation, then CycleCloud computing can help orchestrate an IaaS grid in the cloud. Using the same underlying Azure technologies as Azure Batch, it makes building and maintaining an IaaS grid an efficient process. To find out more and learn about the design principles use the following link:
-
-For a complete overview of all the HPC solutions that are available to you in Azure, see the article [HPC, Batch, and Big Compute solutions using Azure VMs][hpc-alt-solutions]
 
 ### Availability
 
@@ -84,7 +85,7 @@ While there is currently no failover capability in Azure Batch, we recommend usi
 - Ensure Applications are created and updated to the alternate Storage Account
 - Upload input files and submit jobs to the alternate Azure Batch account
 
-## Deploy the scenario
+## Deploy this scenario
 
 ### Create an Azure Batch account and pools manually
 
@@ -133,13 +134,11 @@ Azure Batch also supports the use of low-priority VMs in the node pools, which c
 > [!NOTE]
 > Low-priority VMs are only suitable for certain applications and workloads.
 
-## Related resources
+## Next steps
 
-[Azure Batch Overview][batch-overview]
-
-[Azure Batch Documentation][batch-doc]
-
-[Using containers on Azure Batch][batch-containers]
+- [Azure Batch Overview][batch-overview]
+- [Azure Batch Documentation][batch-doc]
+- [Using containers on Azure Batch][batch-containers]
 
 <!-- links -->
 
