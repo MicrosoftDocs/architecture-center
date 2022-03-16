@@ -6,6 +6,8 @@ A reference implementation of this architecture is available on [GitHub](https:/
 
 ## Potential use cases
 
+This solution is ideal for the aerospace industry, and it addresses the following scenarios:
+
 - Raster data ingestion and processing
 - Object detection using pre trained AI models
 - Classification of land masses using AI models
@@ -16,9 +18,9 @@ A reference implementation of this architecture is available on [GitHub](https:/
 
 ## Architecture
 
-![](./images/geospatial-processing-analytics/geospatial-processing-analytics-arch.png)
+![Diagram that shows the geospatial processing analytics solution.](./images/geospatial-processing-analytics/geospatial-processing-analytics-arch.png)
 
-### Data pipeline
+### Dataflow
 
 The below workflow will walk-through the different stages of the end-to-end architecture:
 
@@ -69,7 +71,6 @@ The architecture consist of the following components & categories
   - Azure Synapse custom activity runs your customized code logic on an Azure Batch pool of virtual machines or docker containers.
 - [Azure Key Vault](https://docs.microsoft.com/azure/key-vault/) stores and controls access to secrets such as tokens, passwords, and API keys. Key Vault also creates and controls encryption keys and manages security certificates.
 
-
 #### Data transformation
 The below geospatial libraries/packages are applied in combination to transformations. These libraries/packages are installed to a serverless Spark pool which will then be attached to a Synapse Notebook. Instructions on how to install the libraries is documented [here](#install-geospatial-packages-into-synapse-spark-pool). 
 
@@ -99,7 +100,6 @@ The below geospatial libraries/packages are applied in combination to transforma
 - Microsoft Partner AI models like [blackshark.ai](https://blackshark.ai/)
 - Bring Your Own AI Models(BYOM)
 
-
 #### Post-analysis and Visualization
 
 - [Azure Database for PostgreSQL](https://docs.microsoft.com/azure/postgresql/) A fully-managed relational database service designed for hyperscale workloads with support for spaceborne data through [PostGIS](https://www.postgis.net/) extension.
@@ -108,8 +108,60 @@ The below geospatial libraries/packages are applied in combination to transforma
 - [QGIS](https://www.qgis.org/) A free and open source GIS to create, edit, visualise, analyse and publish geospatial information.
 - [ArcGIS Desktop](https://www.esri.com/arcgis/products/arcgis-desktop/overview) is a licensed software provided by Esri to create, analyze, manage and share geographic information.
 
+### Alternatives
 
-#### Sample code
+- [Azure Kubernetes Service](https://docs.microsoft.com/azure/aks/), [Azure Container Instances](https://docs.microsoft.com/azure/container-instances/), [Azure Container Apps](https://azure.microsoft.com/services/container-apps/) provide alternatives to run containerized AI models which can be called from Azure Synapse Analytics.
+
+- [Azure Databricks](https://docs.microsoft.com/azure/databricks/) provides a viable alternative option to host an end-to-end analytics pipeline.
+
+Some other alternative geospatial libraries / frameworks that can be used for geospatial processing are:
+- [Apache Sedona](https://sedona.apache.org/) was formerly called GeoSpark, is a cluster computing system for processing large-scale spatial data. Sedona extends Apache Spark / SparkSQL with a set of out-of-the-box Spatial Resilient Distributed Datasets / SpatialSQL that efficiently load, process, and analyze large-scale spatial data across machines.
+
+- [Dask for Python](https://tutorial.dask.org/00_overview.html) is a parallel computing library that scales the existing Python ecosystem.
+
+- [Azure HDInsight Spark](https://docs.microsoft.com/azure/hdinsight/spark/apache-spark-overview)
+
+## Considerations
+
+### Operational excellence
+
+[Azure Devops and Azure Synapse Analytics](https://docs.microsoft.com/azure/synapse-analytics/cicd/source-control#:~:text=Already%20connected%20to%20GitHub%20using%20a%20personal%20account,Synapse%20and%20grant%20the%20access%20to%20your%20organization.)
+
+### Performance
+
+[Speed up your data workloads with performance updates to Apache Spark 3.1.2 in Azure Synapse](https://techcommunity.microsoft.com/t5/azure-synapse-analytics-blog/speed-up-your-data-workloads-with-performance-updates-to-apache/ba-p/2769467#:~:text=In%20the%20new%20release%20of%20Spark%20on%20Azure,your%20data%2C%20faster%20and%20at%20a%20lower%20cost.)
+
+[Spark pools in Azure Synapse Analytics](https://docs.microsoft.com/azure/synapse-analytics/spark/apache-spark-pool-configurations)
+
+### Reliability
+
+[Azure Synapse SLA](https://www.azure.com/support/sla/synapse-analytics/index.html)
+
+### Security
+
+[Azure Synapse Analytics security](https://docs.microsoft.com/azure/synapse-analytics/guidance/security-white-paper-introduction)
+
+[Azure Synapse Analytics security white paper: Data protection](https://docs.microsoft.com/azure/synapse-analytics/guidance/security-white-paper-data-protection)
+
+[Azure Synapse Analytics security white paper: Access control](https://docs.microsoft.com/azure/synapse-analytics/guidance/security-white-paper-access-control)
+
+[Azure Synapse Analytics security white paper: Authentication](https://docs.microsoft.com/azure/synapse-analytics/guidance/security-white-paper-authentication)
+
+[Azure Synapse Analytics Network security](https://docs.microsoft.com/azure/synapse-analytics/guidance/security-white-paper-network-security)
+
+## Deploy this scenario
+
+A deployment of the sample solution is available using [Bicep](https://docs.microsoft.com/azure/azure-resource-manager/bicep/overview?tabs=bicep) files. Instructions on how to get started with this deployment can be accessed [here](https://github.com/Azure/Azure-Orbital-Analytics-Samples).
+
+![Diagram that demonstrates the architecture of the deployed sample solution.](./images/geospatial-processing-analytics/geospatial-processing-analytics-deploy.png)
+
+- [Azure Orbital Analytics Samples](https://github.com/Azure/Azure-Orbital-Analytics-Samples)
+
+### Limitations
+
+This reference architecture showcases the functional working of an end-to-end geoprocessing and analytics solution that uses Azure Synapse Analytics. This sample implementation is targeted for small to medium area of interest and a limited concurrent geoprocessing of raster data.
+
+### Sample code
 
 The following article shows how to read/write and apply transformations to raster data that is stored in Azure Data Lake Storage using Synapse Notebook. The intention is more to showcase the usage of libraries in Synapse notebooks rather than the actual transformation itself. 
 
@@ -199,8 +251,6 @@ The following article shows how to read/write and apply transformations to raste
   
 	> - **/vsiadls/** is a filesystem handler that allows on-the-fly random reading of (primarily non-public) files available in Microsoft Azure Data Lake Storage file systems, without prior download of the entire file. It has similar capabilities as **/vsiaz/**, and in particular uses the same configuration options for authentication. Its advantages over /vsiaz/ are a real management of directory and Unix-style ACL support. Some features require the Azure storage to have hierarchical support turned on. Please refer to its [documentation](https://gdal.org/user/virtual_file_systems.html#vsiadls-microsoft-azure-data-lake-storage-gen2) for more details.
 	
-
-
 - Convert GeoTiff to PNG using GDAL
 
 	```
@@ -242,15 +292,13 @@ The following article shows how to read/write and apply transformations to raste
 	```	
    > 	Azure Synapse Analytics allows you to add Azure Data Lake Storage Gen2 as one of the linked services. This can be done using the UI as documented [here](https://docs.microsoft.com/azure/data-factory/concepts-linked-services?context=%2Fazure%2Fsynapse-analytics%2Fcontext%2Fcontext&tabs=synapse-analytics#linked-service-with-ui)
 	
-
-#### Sample solution:
+### Sample solution
 
 A reference implementation of this architecture is available on [GitHub](https://github.com/Azure/Azure-Orbital-Analytics-Samples) as a sample solution.
 
 The sequence diagram below shows the steps of the sample solution.
 
-![](./images/geospatial-processing-analytics/geospatial-processing-analytics-sequence-diagram.png)
-
+![Diagram that demonstrates the steps of the sample solution.](./images/geospatial-processing-analytics/geospatial-processing-analytics-sequence-diagram.png)
 
 1. Azure Synapse pipeline reads the spaceborne data from Azure Data Lake Storage
 	- This spaceborne data data is pulled from spaceborne data sources and copied to Azure Data Lake Storage, this data ingestion is not part of reference implementation.
@@ -264,90 +312,19 @@ The sequence diagram below shows the steps of the sample solution.
 7. This GeoJSON data is read from Azure Data Lake Storage and stored to PostGresSQL database
 8. This data is read from PostGresSQL database and can be visualized further in tools like ArcGIS Pro, QGIS, and PowerBI
 
-
-### Alternatives
-
-- [Azure Kubernetes Service](https://docs.microsoft.com/azure/aks/), [Azure Container Instances](https://docs.microsoft.com/azure/container-instances/), [Azure Container Apps](https://azure.microsoft.com/services/container-apps/) provide alternatives to run containerized AI models which can be called from Azure Synapse Analytics.
-
-- [Azure Databricks](https://docs.microsoft.com/azure/databricks/) provides a viable alternative option to host an end-to-end analytics pipeline.
-
-Some other alternative geospatial libraries / frameworks that can be used for geospatial processing are:
-- [Apache Sedona](https://sedona.apache.org/) was formerly called GeoSpark, is a cluster computing system for processing large-scale spatial data. Sedona extends Apache Spark / SparkSQL with a set of out-of-the-box Spatial Resilient Distributed Datasets / SpatialSQL that efficiently load, process, and analyze large-scale spatial data across machines.
-
-- [Dask for Python](https://tutorial.dask.org/00_overview.html) is a parallel computing library that scales the existing Python ecosystem.
-
-- [Azure HDInsight Spark](https://docs.microsoft.com/azure/hdinsight/spark/apache-spark-overview)
-
-
-### Operational excellence
-
-[Azure Devops and Azure Synapse Analytics](https://docs.microsoft.com/azure/synapse-analytics/cicd/source-control#:~:text=Already%20connected%20to%20GitHub%20using%20a%20personal%20account,Synapse%20and%20grant%20the%20access%20to%20your%20organization.)
-### Performance
-
-[Speed up your data workloads with performance updates to Apache Spark 3.1.2 in Azure Synapse](https://techcommunity.microsoft.com/t5/azure-synapse-analytics-blog/speed-up-your-data-workloads-with-performance-updates-to-apache/ba-p/2769467#:~:text=In%20the%20new%20release%20of%20Spark%20on%20Azure,your%20data%2C%20faster%20and%20at%20a%20lower%20cost.)
-
-[Spark pools in Azure Synapse Analytics](https://docs.microsoft.com/azure/synapse-analytics/spark/apache-spark-pool-configurations)
-### Reliability
-
-[Azure Synapse SLA](https://www.azure.com/support/sla/synapse-analytics/index.html)
-
-### Security
-
-[Azure Synapse Analytics security](https://docs.microsoft.com/azure/synapse-analytics/guidance/security-white-paper-introduction)
-
-[Azure Synapse Analytics security white paper: Data protection](https://docs.microsoft.com/azure/synapse-analytics/guidance/security-white-paper-data-protection)
-
-[Azure Synapse Analytics security white paper: Access control](https://docs.microsoft.com/azure/synapse-analytics/guidance/security-white-paper-access-control)
-
-[Azure Synapse Analytics security white paper: Authentication](https://docs.microsoft.com/azure/synapse-analytics/guidance/security-white-paper-authentication)
-
-[Azure Synapse Analytics Network security](https://docs.microsoft.com/azure/synapse-analytics/guidance/security-white-paper-network-security)
-
-
-## Deploy this scenario
-
-A deployment of the sample solution is available using [Bicep](https://docs.microsoft.com/azure/azure-resource-manager/bicep/overview?tabs=bicep) files. Instructions on how to get started with this deployment can be accessed [here](https://github.com/Azure/Azure-Orbital-Analytics-Samples).
-
-![](./images/geospatial-processing-analytics/geospatial-processing-analytics-deploy.png)
-
-
-
-- [Azure Orbital Analytics Samples](https://github.com/Azure/Azure-Orbital-Analytics-Samples)
-
-## Limitations
-
-This reference architecture showcases functional working of an end-to-end geoprocessing and analytics using Azure Synapse Analytics. This sample implementation is targeted for small to medium area of interest and limited concurrent geoprocessing of raster data.
-
-
-## Pricing
-
-[Azure Synapse - use Azure Pricing calculator](https://azure.microsoft.com/pricing/calculator/?service=synapse-analytics)
-
-[Azure Batch - use Azure Pricing calculator](https://azure.microsoft.com/pricing/calculator/?service=batch)
-
-## Related resources
- 
-  - [Geospatial data processing and analytics](https://docs.microsoft.com/azure/architecture/example-scenario/data/geospatial-data-processing-analytics-azure)
-- [Azure Maps Geospatial Services](https://microsoft.github.io/SynapseML/docs/features/geospatial_services/GeospatialServices%20-%20Overview/)
-- [Getting geospatial insides in big data using SynapseML](https://techcommunity.microsoft.com/t5/azure-maps-blog/getting-geospatial-insides-in-big-data-using-synapseml/ba-p/3154717)
-  
-
-## Appendix A
-
-# Install Geospatial packages into Synapse Spark pool
+### Install Geospatial packages into a Synapse Spark pool
 
 In this tutorial, we will show how to install packages into Synapse Spark pool using the package management feature. For more information, visit [Synapse Package Management](https://docs.microsoft.com/en-us/azure/synapse-analytics/spark/apache-spark-azure-portal-add-libraries).
 
 To support Geospatial workloads on Azure Synapse, it requires libraries like [GDAL](https://gdal.org/), [Rasterio](https://rasterio.readthedocs.io/en/latest/intro.html), [Geopandas](https://geopandas.org/en/stable/), just to name a few. These libraries are installed on a given serverless Apache Spark pool using a yaml file. The Spark pool comes with [Anaconda](https://docs.continuum.io/anaconda/) libraries pre-installed.
 
-
-### Pre-requisites
+#### Pre-requisites
 
 - [Create a Synapse workspace](https://docs.microsoft.com/en-us/azure/synapse-analytics/get-started-create-workspace)
 
 - [Create the Apache Spark pool in Synapse Studio](https://docs.microsoft.com/en-us/azure/synapse-analytics/quickstart-create-apache-spark-pool-studio#create-the-apache-spark-pool-in-synapse-studio)
 
-### Steps
+#### Steps
 
 1. The following libraries/packages are available in the [environment.yml](https://github.com/Azure/Azure-Orbital-Analytics-Samples) file. This file will be used to install the libraries to the Spark pools.
 
@@ -396,3 +373,20 @@ To support Geospatial workloads on Azure Synapse, it requires libraries like [GD
     ```
 
 In this tutorial, we have seen how to install libraries using the package management feature available in Azure Synapse. For more information, please visit [Manage packages](https://docs.microsoft.com/en-us/azure/synapse-analytics/spark/apache-spark-manage-python-packages) on Azure Synapse.
+
+## Pricing
+
+Review the following resources for cost optimization:
+
+- [Azure Synapse - use Azure Pricing calculator](https://azure.microsoft.com/pricing/calculator/?service=synapse-analytics)
+
+- [Azure Batch - use Azure Pricing calculator](https://azure.microsoft.com/pricing/calculator/?service=batch)
+
+## Next steps
+
+- [Azure Maps Geospatial Services](https://microsoft.github.io/SynapseML/docs/features/geospatial_services/GeospatialServices%20-%20Overview/)
+- [Getting geospatial insides in big data using SynapseML](https://techcommunity.microsoft.com/t5/azure-maps-blog/getting-geospatial-insides-in-big-data-using-synapseml/ba-p/3154717)
+
+## Related resources
+ 
+- [Geospatial data processing and analytics](/architecture/example-scenario/data/geospatial-data-processing-analytics-azure)
