@@ -1,5 +1,3 @@
-
-
 Customer care centers are an integral part of the success of many businesses. You can improve the efficiency of your call centers by using speech AI. Speech recognition and the analysis of high volumes of recorded customer calls can provide your business with valuable information about current trends, product shortcomings, and successes. Enterprise solutions that use the Speech APIs of [Azure Cognitive Services](/azure/cognitive-services/speech-service/overview) can be implemented to consume and process such high volumes of discrete data.
 
 The reference architecture described in this article shows how to build an audio ingestion and speech-to-text transcription pipeline for customer care centers. This pipeline processes batches of recorded audio files and stores the transcribed text files in Azure Blob storage. This architecture doesn't implement real-time speech processing.
@@ -12,6 +10,8 @@ The reference implementation for this architecture is available on [GitHub](http
 
 ![Architecture diagram: ingest and convert speech to text using Azure Cognitive Services](./_images/speech-to-text-audio-files-upload.png)
 
+### Workflow
+
 You can implement this architecture by using your Azure account and allow client applications access to the pipeline through REST APIs. The application goes through a three-step process to upload an audio file:
 
 1. Authenticates by using Azure Active Directory (Azure AD). This step is required for the first file upload.
@@ -19,6 +19,8 @@ You can implement this architecture by using your Azure account and allow client
 3. Uploads the audio files to a blob container.
 
 The reference client application uses JavaScript to upload the files, as shown in [this blob upload example](/azure/storage/blobs/storage-quickstart-blobs-nodejs#upload-blobs-to-a-container). After the file is uploaded, an Azure Event Grid trigger is generated that invokes an Azure function. The function processes the file by using the Azure Cognitive Services Speech APIs. The transcribed text is stored in a separate blob container, ready for consumption into the next phase of the pipeline: speech analysis and storage in a database.
+
+### Components
 
 The architecture uses these Azure services:
 
