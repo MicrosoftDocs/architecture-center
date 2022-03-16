@@ -1,11 +1,11 @@
 ### YamlMime:Architecture
 metadata:
-  title: Bot Assistant with Visual Search Integration
+  title: Bot assistant with visual search integration
   titleSuffix: Azure Solution Ideas
   description: Use Azure services with a bot assistant to improve interactions with customers and provide suggestions based on visual information.
   author: EdPrice-MSFT
   ms.author: edprice
-  ms.date: 03/15/2022
+  ms.date: 03/16/2022
   ms.topic: conceptual
   ms.service: architecture-center
   ms.subservice: solution-idea
@@ -25,7 +25,7 @@ metadata:
     - "https://azure.microsoft.com/solutions/architecture/retail-assistant-or-vacation-planner-with-visual-capabilities/"
     - ai-machine-learning
   social_image_url: aajaluwa1/architecture-center-pr/docs/solution-ideas/media/Bot_Assistant_Architecture.png
-name: Bot Assistant with Visual Search Integration
+name: Bot assistant with visual search integration
 azureCategories:
   - ai-machine-learning
   - web
