@@ -8,7 +8,7 @@ This solution can be used broadly but is ideal for the retail industry, as well 
 
 ## Architecture
 
-![Architecture diagram](aajaluwa1/architecture-center-pr/docs/solution-ideas/media/Bot_Assistant_Architecture.png)
+![Architecture diagram of the bot assistant.](../media/bot-assistant-architecture.png)
 
 ### Dataflow
 
@@ -23,8 +23,8 @@ This solution can be used broadly but is ideal for the retail industry, as well 
 
 ### Components
 
-* [Azure App Service](/azure/app-service/)
-* [Azure Bot Service](/azure/bot-service/)
+* [Azure App Service](/azure/app-service)
+* [Azure Bot Service](/azure/bot-service)
 * [Azure Cognitive Services Language Understanding](/azure/cognitive-services/luis/what-is-luis)
 * [Azure Bing Visual Search API](/azure/cognitive-services/bing-visual-search)
 * [Azure Custom Search API](/azure/cognitive-services/bing-custom-search)
