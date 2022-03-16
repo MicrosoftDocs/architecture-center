@@ -2837,6 +2837,8 @@ items:
                         href: microservices/design/index.yml
                       - name: Choose a compute option
                         href: microservices/design/compute-options.md
+                      - name: Expose Azure Spring Cloud via a reverse proxy
+                        href: reference-architectures/microservices/spring-cloud-reverse-proxy.yml
                       - name: Interservice communication
                         href: microservices/design/interservice-communication.yml
                       - name: API design
@@ -2879,8 +2881,6 @@ items:
                       - name: Implement API Gateways with Ocelot
                         href: /dotnet/architecture/microservices/multi-container-microservice-net-applications/implement-api-gateways-with-ocelot
                         maintainContext: true
-                      - name: Expose Azure Spring Cloud via a reverse proxy
-                        href: reference-architectures/microservices/spring-cloud-reverse-proxy.yml
               - name: Architectures
                 items:
                    - name: Decompose apps with Service Fabric
