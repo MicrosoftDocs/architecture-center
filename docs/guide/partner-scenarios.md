@@ -123,26 +123,26 @@ apache note
 |--|--|--|
 |[Anomaly detector process](../solution-ideas/articles/anomaly-detector-process.yml)||Analytics|
 |[Application data protection for AKS workloads on Azure NetApp Files](../example-scenario/file-storage/data-protection-kubernetes-astra-azure-netapp-files.yml)||Containers|
-|[Asynchronous messaging options](/azure/architecture/guide/technology-choices/messaging)||Integration|
+|[Asynchronous messaging options](../guide/technology-choices/messaging)||Integration|
 |[Automated guided vehicles fleet control](../example-scenario/iot/automated-guided-vehicles-fleet-control.yml)||Web|
 |[Azure Data Explorer interactive analytics](../solution-ideas/articles/interactive-azure-data-explorer.yml)||Analytics|
 |[Azure Data Explorer monitoring](../solution-ideas/articles/monitor-azure-data-explorer.yml)||Analytics|
 |[Banking system cloud transformation on Azure](../example-scenario/banking/banking-system-cloud-transformation.yml)||Containers|
 |[Choose a real-time message ingestion technology](../data-guide/technology-choices/real-time-ingestion.md)||Databases|
 |[Choose a stream processing technology](../data-guide/technology-choices/stream-processing.md)||Analytics|
-|[Claim-Check pattern](/azure/architecture/patterns/claim-check)||Integration|
+|[Claim-Check pattern](../patterns/claim-check)||Integration|
 |[Data streaming with AKS](../solution-ideas/articles/data-streaming-scenario.yml)||Containers|
-|[Extract actionable insights from IoT data](/azure/architecture/industries/manufacturing/extract-insights-iot-data)||Serverless|
+|[Extract actionable insights from IoT data](../industries/manufacturing/extract-insights-iot-data.yml)||Serverless|
 |[Ingestion, ETL, and stream processing pipelines with Azure Databricks](../solution-ideas/articles/ingest-etl-stream-with-adb.yml)||Analytics|
 |[Instant IoT data streaming with AKS](../solution-ideas/articles/aks-iot-data-streaming.yml)||Containers|
-|[Integrate Event Hubs with Azure Functions](/azure/architecture/serverless/event-hubs-functions/event-hubs-functions)||Serverless|
+|[Integrate Event Hubs with Azure Functions](../serverless/event-hubs-functions/event-hubs-functions.yml)||Serverless|
 |[IoT analytics with Azure Data Explorer](../solution-ideas/articles/iot-azure-data-explorer.yml)||Analytics|
 |[JMeter implementation for a load testing pipeline](../example-scenario/banking/jmeter-load-testing-pipeline-implementation-reference.yml)||Migration|
 |[Mainframe and midrange data replication to Azure using Qlik](../example-scenario/mainframe/mainframe-midrange-data-replication-azure-qlik.yml)||Mainframe|
 |[Partitioning in Event Hubs and Kafka](../reference-architectures/event-hubs/partitioning-in-event-hubs-and-kafka.yml)||Analytics|
-|[Patterns and implementations for a banking cloud transformation](../example-scenario/banking/patterns-and-implementations)||Serverless|
-|[Publisher-Subscriber pattern](/azure/architecture/patterns/publisher-subscriber)||Integration|
-|[Rate Limiting pattern](/azure/architecture/patterns/rate-limiting-pattern)||Integration|
+|[Patterns and implementations for a banking cloud transformation](../example-scenario/banking/patterns-and-implementations.yml)||Serverless|
+|[Publisher-Subscriber pattern](../patterns/publisher-subscriber)||Integration|
+|[Rate Limiting pattern](../patterns/rate-limiting-pattern.yml)||Integration|
 |[Real time processing](../data-guide/big-data/real-time-processing.yml)||Databases|
 |[Refactor mainframe applications with Advanced](../example-scenario/mainframe/refactor-mainframe-applications-advanced.yml)||Mainframe|
 |[Scalable order processing](../example-scenario/data/ecommerce-order-processing.yml)||Databases|
@@ -153,20 +153,20 @@ apache note
 
 |Azrchitecture|Summary|Technology focus|
 |--|--|--|
-|[Asynchronous messaging options](/azure/architecture/guide/technology-choices/messaging)||Integration|
+|[Asynchronous messaging options](../guide/technology-choices/messaging)||Integration|
 |[Big data architectures](../data-guide/big-data/index.yml)||Databases|
 |[Choose a batch processing technology](../data-guide/technology-choices/batch-processing.md)||Analytics|
 |[Extract, transform, and load (ETL) using HDInsight](../solution-ideas/articles/extract-transform-and-load-using-hdinsight.yml)||Analytics|
-|[Geode pattern](/azure/architecture/patterns/geodes)||Databases|
-|[Minimize coordination](/azure/architecture/guide/design-principles/minimize-coordination)||Databases|
+|[Geode pattern](../patterns/geodes.yml)||Databases|
+|[Minimize coordination](../guide/design-principles/minimize-coordination.yml)||Databases|
 
 #### Apache NiFi
 
 |Azrchitecture|Summary|Technology focus|
 |--|--|--|
-|[Apache NiFi monitoring with MonitoFi](/azure/architecture/guide/data/monitor-apache-nifi-monitofi)||Analytics|
+|[Apache NiFi monitoring with MonitoFi](../guide/data/monitor-apache-nifi-monitofi.yml)||Analytics|
 |[Apache NiFi on Azure](../example-scenario/data/azure-nifi.yml)||Analytics|
-|[Helm-based deployments for Apache NiFi](/azure/architecture/guide/data/helm-deployments-apache-nifi)||Analytics|
+|[Helm-based deployments for Apache NiFi](../guide/data/helm-deployments-apache-nifi.yml)||Analytics|
 |[Azure Data Explorer monitoring](../solution-ideas/articles/monitor-azure-data-explorer.yml)||Analytics|
 
 #### Apache Oozie
@@ -190,7 +190,7 @@ apache note
 
 |Azrchitecture|Summary|Technology focus|
 |--|--|--|
-|[Actuarial risk analysis and financial modeling](/azure/architecture/industries/finance/actuarial-risk-analysis-financial-model)||Analytics|
+|[Actuarial risk analysis and financial modeling](../industries/finance/actuarial-risk-analysis-financial-model.yml)||Analytics|
 |[Advanced analytics](../solution-ideas/articles/advanced-analytics-on-big-data.yml)||Analytics|
 |[AI at the edge with Azure Stack Hub](../solution-ideas/articles/ai-at-the-edge.yml)||AI|
 |[AI at the edge with Azure Stack Hub - disconnected](../solution-ideas/articles/ai-at-the-edge-disconnected.yml)||AI|
@@ -245,16 +245,166 @@ apache note
 
 #### Apache Zookeeper
 
-[Apache NiFi on Azure](../example-scenario/data/azure-nifi.yml) (Analytics)
+|Azrchitecture|Summary|Technology focus|
+|--|--|--|
+|[Apache NiFi on Azure](../example-scenario/data/azure-nifi.yml)||Analytics|
+|[Helm-based deployments for Apache NiFi](/azure/architecture/guide/data/helm-deployments-apache-nifi)||Analytics|
+|[Leader Election pattern](/azure/architecture/patterns/leader-election)||Analytics|
+|[Rate Limiting pattern](/azure/architecture/patterns/rate-limiting-pattern)||Integration|
 
-        -   [Helm-based deployments for Apache
-            > NiFi](/azure/architecture/guide/data/helm-deployments-apache-nifi) (Analytics)
+### BeeGFS
 
-        -   [Leader Election
-            > pattern](/azure/architecture/patterns/leader-election) (Analytics)
+|Azrchitecture|Summary|Technology focus|
+|--|--|--|
+|[Digital image-based modeling on Azure](../example-scenario/infrastructure/image-modeling.yml)||Media|
+|[Run reservoir simulation software on Azure](../example-scenario/infrastructure/reservoir-simulation.yml)||Compute|
 
-        -   [Rate Limiting
-            > pattern](/azure/architecture/patterns/rate-limiting-pattern) (Integration)
+### Chef
+
+|Azrchitecture|Summary|Technology focus|
+|--|--|--|
+|[Building blocks for autonomous-driving simulation environments](/azure/architecture/industries/automotive/building-blocks-autonomous-driving-simulation-environments)||Containers|
+|[Design a CI/CD pipeline using Azure DevOps](../example-scenario/apps/devops-dotnet-webapp.yml)||DevOps
+|[End-to-end governance in Azure](../example-scenario/governance/end-to-end-governance-in-azure.yml)||Management|
+
+### CNCF
+
+|Azrchitecture|Summary|Technology focus|
+|--|--|--|
+|[Azure Arc hybrid management and deployment for Kubernetes clusters](/azure/architecture/hybrid/arc-hybrid-kubernetes)||Hybrid|
+|[Build CNCF projects by using Azure Kubernetes Service](../example-scenario/apps/build-cncf-incubated-graduated-projects-aks.yml)||Containers|
+|[Multi-cloud blockchain distributed ledger technology (DLT)](../example-scenario/blockchain/multi-cloud-blockchain.yml)||Blockchain|
+
+### Elastic
+
+|Azrchitecture|Summary|Technology focus|
+|--|--|--|
+|[Application data protection for AKS workloads on Azure NetApp Files](../example-scenario/file-storage/data-protection-kubernetes-astra-azure-netapp-files.yml)||Containers|
+|[Choose a search data store](../data-guide/technology-choices/search-options.md)||Databases|
+|[Elastic Workplace Search on Azure](../solution-ideas/articles/elastic-workplace-search.yml)||Integration|
+|[Microservices architecture on AKS](../reference-architectures/containers/aks-microservices/aks-microservices.yml)||Containers|
+|[Monitor a microservices app in AKS](/azure/architecture/microservices/logging-monitoring)||Containers|
+|[Monitoring and diagnostics guidance](../best-practices/monitoring.yml)||Management|
+|[Processing free-form text for search](../data-guide/scenarios/search.yml)||Databases|
+
+### GlusterFS
+
+|Azrchitecture|Summary|Technology focus|
+|--|--|--|
+|[Digital image-based modeling on Azure](../example-scenario/infrastructure/image-modeling.yml)||Media|
+|[SAP S/4HANA in Linux on Azure](../reference-architectures/sap/sap-s4hana.yml)||SAP|
+
+### Grafana
+
+|Azrchitecture|Summary|Technology focus|
+|--|--|--|
+|[Apache NiFi monitoring with MonitoFi](/azure/architecture/guide/data/monitor-apache-nifi-monitofi)||Analytics|
+|[Azure Data Explorer interactive analytics](../solution-ideas/articles/interactive-azure-data-explorer.yml)||Analytics|
+|[Banking system cloud transformation on Azure](../example-scenario/banking/banking-system-cloud-transformation.yml)||Migration|
+|[Baseline architecture for an AKS cluster](../reference-architectures/containers/aks/secure-baseline-aks.yml)||Containers|
+|[Build CNCF projects by using Azure Kubernetes Service](../example-scenario/apps/build-cncf-incubated-graduated-projects-aks.yml)||Containers|
+|[CI/CD pipeline for container-based workloads](../example-scenario/apps/devops-with-aks)||Containers|
+|[Container CI/CD using Jenkins and Kubernetes on AKS](../solution-ideas/articles/container-cicd-using-jenkins-and-kubernetes-on-azure-container-service.yml)||DevOps|
+|[Content Delivery Network analytics](../solution-ideas/articles/content-delivery-network-azure-data-explorer.yml)||Analytics|
+|[Enterprise monitoring with Azure Monitor](../example-scenario/monitoring/enterprise-monitoring.yml)||DevOps|
+|[IoT analytics with Azure Data Explorer](../solution-ideas/articles/iot-azure-data-explorer.yml)||Analytics|
+|[JMeter implementation for a load testing pipeline](../example-scenario/banking/jmeter-load-testing-pipeline-implementation-reference.yml)||Migration|
+|[Long-term security log retention with Azure Data Explorer](../example-scenario/security/security-log-retention-azure-data-explorer.yml)||Analytics|
+|[Optimize administration of SQL Server instances in on-premises and multi-cloud environments by using Azure Arc](/azure/architecture/hybrid/azure-arc-sql-server)||Databases|
+|[SAP workload automation using SUSE on Azure](../solution-ideas/articles/sap-workload-automation-suse.yml)||SAP|
+|[Web application monitoring on Azure](../reference-architectures/app-service-web-app/app-monitoring.yml)||Web|
+
+### InfluxDB
+
+|Azrchitecture|Summary|Technology focus|
+|--|--|--|
+|[Apache NiFi monitoring with MonitoFi](/azure/architecture/guide/data/monitor-apache-nifi-monitofi)||Analytics|
+|[Monitor a microservices app in AKS](/azure/architecture/microservices/logging-monitoring)||Microservices|
+
+### Jenkins
+
+|Azrchitecture|Summary|Technology focus|
+|--|--|--|
+|[Application data protection for AKS workloads on Azure NetApp Files](../example-scenario/file-storage/data-protection-kubernetes-astra-azure-netapp-files.yml)||Containers|
+|[Banking system cloud transformation on Azure](../example-scenario/banking/banking-system-cloud-transformation.yml)||Migration|
+|[Big data architectures](../data-guide/big-data/index.yml)||Databases|
+|[Building blocks for autonomous-driving simulation environments](/azure/architecture/industries/automotive/building-blocks-autonomous-driving-simulation-environments)||Compute|
+|[CI/CD pipeline for container-based workloads](../example-scenario/apps/devops-with-aks.yml)||Containers|
+|[Container CI/CD using Jenkins and Kubernetes on AKS](../solution-ideas/articles/container-cicd-using-jenkins-and-kubernetes-on-azure-container-service.yml)||DevOps|
+|[Design a CI/CD pipeline using Azure DevOps](../example-scenario/apps/devops-dotnet-webapp.yml)||DevOps|
+|[DevSecOps with a rolling main branching strategy](../solution-ideas/articles/devsecops-rolling-branch.yml)||DevOps|
+|[DevTest Image Factory](../solution-ideas/articles/dev-test-image-factory.yml)||DevOps|
+|[End-to-end governance in Azure](../example-scenario/governance/end-to-end-governance-in-azure.yml)||Management|
+|[Immutable infrastructure CI/CD using Jenkins and Terraform on Azure](../solution-ideas/articles/immutable-infrastructure-cicd-using-jenkins-and-terraform-on-azure-virtual-architecture-overview.yml)||DevOps|
+|[Java CI/CD using Jenkins and Azure Web Apps](../solution-ideas/articles/java-cicd-using-jenkins-and-azure-web-apps.yml)||DevOps|
+|[MLOps for Python with Azure Machine Learning](../reference-architectures/ai/mlops-python.yml)||AI|
+|[Run a Jenkins server on Azure](../example-scenario/apps/jenkins.yml)||DevOps|
+
+### Jupyter
+
+|Azrchitecture|Summary|Technology focus|
+|--|--|--|
+[Automating diagnostic Jupyter Notebook execution](../example-scenario/data/automating-diagnostic-jupyter-notebook.yml)||DevOps|
+[Azure Data Explorer interactive analytics](../solution-ideas/articles/interactive-azure-data-explorer.yml)||Analytics|
+[Azure Machine Learning decision guide for optimal tool selection](../example-scenario/mlops/aml-decision-tree.yml)||AI|
+[Choose a data analytics and reporting technology](../data-guide/technology-choices/analysis-visualizations-reporting.md)||Databases|
+[Citizen AI with the Power Platform](../example-scenario/ai/citizen-ai-power-platform.yml)||AI|
+[Data analysis in Azure Industrial IoT analytics solution](/azure/architecture/guide/iiot-guidance/iiot-data)||IoT|
+[DevOps for quantum computing](/azure/architecture/guide/quantum/devops-for-quantum-computing)||DevOps|
+[IoT analytics with Azure Data Explorer](../solution-ideas/articles/iot-azure-data-explorer.yml)||Analytics|
+[Machine learning operations (MLOps) framework to upscale machine learning lifecycle with Azure Machine Learning](../example-scenario/mlops/mlops-technical-paper.yml)||AI|
+[Many models machine learning with Spark](../example-scenario/ai/many-models-machine-learning-azure-spark.yml)||AI|
+[Precision medicine pipeline with genomics](../example-scenario/precision-medicine/genomic-analysis-reporting.yml)||Analytics|
+[Tune hyperparameters for ML models in Python](../reference-architectures/ai/training-python-models.yml)||AI|
+
+### KEDA
+
+|Azrchitecture|Summary|Technology focus|
+|--|--|--|
+|[Azure Functions in a hybrid environment](/azure/architecture/hybrid/azure-functions-hybrid)||Serverless|
+|[Azure Kubernetes in event stream processing](../solution-ideas/articles/serverless-event-processing-aks.yml)||Containers|
+|[Banking system cloud transformation on Azure](../example-scenario/banking/banking-system-cloud-transformation.yml)||Containers|
+|[Baseline architecture for an AKS cluster](../reference-architectures/containers/aks/secure-baseline-aks.yml)||Containers|
+|[Integrate Event Hubs with Azure Functions](/azure/architecture/serverless/event-hubs-functions/event-hubs-functions)||Serverless|
+|[Patterns and implementations for a banking cloud transformation](../example-scenario/banking/patterns-and-implementations.yml)||Serverless|
+
+### Kubernetes
+
+|Azrchitecture|Summary|Technology focus|
+|--|--|--|
+|[Advanced Azure Kubernetes Service (AKS) microservices architecture](../reference-architectures/containers/aks-microservices/aks-microservices-advanced.yml)||Continers|
+|[Application data protection for AKS workloads on Azure NetApp Files](../example-scenario/file-storage/data-protection-kubernetes-astra-azure-netapp-files.yml)||Containers|
+|[Azure Arc hybrid management and deployment for Kubernetes clusters](/azure/architecture/hybrid/arc-hybrid-kubernetes)||Hybrid|
+|[Azure Kubernetes in event stream processing](../solution-ideas/articles/serverless-event-processing-aks.yml)||Containers|
+|[Banking system cloud transformation on Azure](../example-scenario/banking/banking-system-cloud-transformation.yml)||Containers|
+|[Baseline architecture for an AKS cluster](../reference-architectures/containers/aks/secure-baseline-aks.yml)||Containers|
+|[Big data analytics on confidential computing](../example-scenario/confidential/data-analytics-containers-spark-kubernetes-azure-sql.yml)||Analytics|
+|[Build a CI/CD pipeline for microservices on Kubernetes](/azure/architecture/microservices/ci-cd-kubernetes)||Microservices|
+|[Build CNCF projects by using Azure Kubernetes Service](../example-scenario/apps/build-cncf-incubated-graduated-projects-aks.yml)||Containers|
+|[Choose a bare-metal Kubernetes at the edge platform option](/azure/architecture/operator-guides/aks/choose-bare-metal-kubernetes)||Containers|
+|[Choose a Kubernetes at the edge compute option](/azure/architecture/operator-guides/aks/choose-kubernetes-edge-compute-option)||Containers|
+|[Choose an Azure multiparty computing service](/azure/architecture/guide/technology-choices/multiparty-computing-service)||Blockchain|
+|[Container CI/CD using Jenkins and Kubernetes on AKS](../solution-ideas/articles/container-cicd-using-jenkins-and-kubernetes-on-azure-container-service.yml)||DevOps|
+|[Container orchestration for microservices](/azure/architecture/microservices/design/orchestration)||Microservices|
+|[Create a CI/CD pipeline for AI apps using Azure Pipelines, Docker, and Kubernetes](/azure/architecture/data-science-process/ci-cd-flask)||AI|
+|[Employee retention with Databricks and Kubernetes](../example-scenario/ai/employee-retention-databricks-kubernetes.yml)||Analytics|
+|[GitOps for Azure Kubernetes Service](../example-scenario/gitops-aks/gitops-blueprint-aks.yml)||Containers|
+|[Helm-based deployments for Apache NiFi](/azure/architecture/guide/data/helm-deployments-apache-nifi)||Analytics|
+|[Instant IoT data streaming with AKS](../solution-ideas/articles/aks-iot-data-streaming.yml)||Containers|
+|[Microservices architecture on AKS](../reference-architectures/containers/aks-microservices/aks-microservices.yml)||Containers|
+|[Microservices with AKS and Azure DevOps](../solution-ideas/articles/microservices-with-aks.yml)||Containers
+|[Secure DevOps for AKS](../solution-ideas/articles/secure-devops-for-kubernetes.yml)||Containers|
+|[Patterns and implementations for a banking cloud transformation](../example-scenario/banking/patterns-and-implementations.yml)||Serverless|
+ |[Use Application Gateway Ingress Controller (AGIC) with a multi-tenant Azure Kubernetes Service](../example-scenario/aks-agic/aks-agic.yml)||Containers|
+|[Use Azure Firewall to help protect an AKS cluster](../example-scenario/aks-firewall/aks-firewall.yml)||Containers|
+
+### Lustre
+
+|Azrchitecture|Summary|Technology focus|
+|--|--|--|
+[Digital image-based modeling on Azure](../example-scenario/infrastructure/image-modeling.yml)||Media|
+[Run reservoir simulation software on Azure](../example-scenario/infrastructure/reservoir-simulation.yml)||Compute|
+[SAS on Azure architecture](/azure/architecture/guide/sas/sas-overview)||Compute|
 
 ## Scenarios featuring third-party technologies on Azure
 
