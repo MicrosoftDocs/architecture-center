@@ -16,9 +16,9 @@ A reference implementation of this architecture is available on [GitHub](https:/
 
 ## Architecture
 
-_Download a [Visio file](images/geospatial-processing-analytics-arch.vsdx) of this architecture._
+_Download a [Visio file](./images/geospatial-processing-analytics/geospatial-processing-analytics-arch.vsdx) of this architecture._
 
-![](images/geospatial-processing-analytics-arch.png)
+![](./images/geospatial-processing-analytics/geospatial-processing-analytics-arch.png)
 
 ### Data pipeline
 
@@ -251,9 +251,9 @@ The following article shows how to read/write and apply transformations to raste
 A reference implementation of this architecture is available on [GitHub](https://github.com/Azure/Azure-Orbital-Analytics-Samples) as a sample solution.
 
 The sequence diagram below shows the steps of the sample solution.
-_Download a [Visio file](images/geospatial-processing-analytics-sequence-diagram.vsdx) of this deployment architecture._
+_Download a [Visio file](./images/geospatial-processing-analytics/geospatial-processing-analytics-sequence-diagram.vsdx) of this deployment architecture._
 
-![](images/geospatial-processing-analytics-sequence-diagram.png)
+![](./images/geospatial-processing-analytics/geospatial-processing-analytics-sequence-diagram.png)
 
 
 1. Azure Synapse pipeline reads the spaceborne data from Azure Data Lake Storage
@@ -312,9 +312,9 @@ Some other alternative geospatial libraries / frameworks that can be used for ge
 
 A deployment of the sample solution is available using [Bicep](https://docs.microsoft.com/azure/azure-resource-manager/bicep/overview?tabs=bicep) files. Instructions on how to get started with this deployment can be accessed [here](https://github.com/Azure/Azure-Orbital-Analytics-Samples).
 
-_Download a [Visio file](images/geospatial-processing-analytics-deploy.vsdx) of this deployment architecture._
+_Download a [Visio file](./images/geospatial-processing-analytics/geospatial-processing-analytics-deploy.vsdx) of this deployment architecture._
 
-![](images/geospatial-processing-analytics-deploy.png)
+![](./images/geospatial-processing-analytics/geospatial-processing-analytics-deploy.png)
 
 
 
