@@ -130,22 +130,22 @@ intro
 |[Banking system cloud transformation on Azure](../example-scenario/banking/banking-system-cloud-transformation.yml)||Containers|
 |[Choose a real-time message ingestion technology](../data-guide/technology-choices/real-time-ingestion.md)|Choose an Azure message ingestion store to support message buffering, scale-out processing, reliable delivery, and queuing semantics.|Databases|
 |[Choose a stream processing technology](../data-guide/technology-choices/stream-processing.md)|Compare options for real-time message stream processing in Azure, with key selection criteria and a capability matrix.|Analytics|
-|[Claim-Check pattern](../patterns/claim-check.yml)||Integration|
-|[Data streaming with AKS](../solution-ideas/articles/data-streaming-scenario.yml)||Containers|
-|[Extract actionable insights from IoT data](../industries/manufacturing/extract-insights-iot-data.yml)||Serverless|
-|[Ingestion, ETL, and stream processing pipelines with Azure Databricks](../solution-ideas/articles/ingest-etl-stream-with-adb.yml)||Analytics|
-|[Instant IoT data streaming with AKS](../solution-ideas/articles/aks-iot-data-streaming.yml)||Containers|
-|[Integrate Event Hubs with Azure Functions](../serverless/event-hubs-functions/event-hubs-functions.yml)||Serverless|
-|[IoT analytics with Azure Data Explorer](../solution-ideas/articles/iot-azure-data-explorer.yml)||Analytics|
+|[Claim-Check pattern](../patterns/claim-check.yml)|Examine the Claim-Check pattern, which splits a large message into a claim check and a payload to avoid overwhelming a message bus.|Integration|
+|[Data streaming with AKS](../solution-ideas/articles/data-streaming-scenario.yml)|Use AKS to easily ingest and process a real-time data stream, with millions of data points collected via sensors.|Containers|
+|[Extract actionable insights from IoT data](../industries/manufacturing/extract-insights-iot-data.yml)|Extract insights from IoT data with Azure services.|Serverless|
+|[Ingestion, ETL, and stream processing pipelines with Azure Databricks](../solution-ideas/articles/ingest-etl-stream-with-adb.yml)|Create ETL pipelines for batch and streaming data with Azure Databricks to simplify data lake ingestion at any scale.|Analytics|
+|[Instant IoT data streaming with AKS](../solution-ideas/articles/aks-iot-data-streaming.yml)|Learn how to ingest and analyze high volumes of IoT data and generate real-time recommendations and insights.|Containers|
+|[Integrate Event Hubs with Azure Functions](../serverless/event-hubs-functions/event-hubs-functions.yml)|Learn how to architect, develop, and deploy efficient and scalable code that runs on Azure Functions and responds to Event Hubs events.|Serverless|
+|[IoT analytics with Azure Data Explorer](../solution-ideas/articles/iot-azure-data-explorer.yml)|Use Azure Data Explorer for near real-time IoT telemetry analytics on fast-flowing, high-volume streaming data from a wide variety of IoT devices.|Analytics|
 |[JMeter implementation for a load testing pipeline](../example-scenario/banking/jmeter-load-testing-pipeline-implementation-reference.yml)||Migration|
-|[Mainframe and midrange data replication to Azure using Qlik](../example-scenario/mainframe/mainframe-midrange-data-replication-azure-qlik.yml)||Mainframe|
-|[Partitioning in Event Hubs and Kafka](../reference-architectures/event-hubs/partitioning-in-event-hubs-and-kafka.yml)||Analytics|
+|[Mainframe and midrange data replication to Azure using Qlik](../example-scenario/mainframe/mainframe-midrange-data-replication-azure-qlik.yml)|See how Qlik Replication is a valuable tool for migrating mainframe and midrange systems to the cloud, or for extending such systems with cloud applications.|Mainframe|
+|[Partitioning in Event Hubs and Kafka](../reference-architectures/event-hubs/partitioning-in-event-hubs-and-kafka.yml)|Learn about partitioning in Kafka and Event Hubs with Kafka, see how many partitions to use in ingestion pipelines, and also see how to assign events to partitions.|Analytics|
 |[Patterns and implementations for a banking cloud transformation](../example-scenario/banking/patterns-and-implementations.yml)||Serverless|
-|[Publisher-Subscriber pattern](../patterns/publisher-subscriber.yml)||Integration|
-|[Rate Limiting pattern](../patterns/rate-limiting-pattern.yml)||Integration|
+|[Publisher-Subscriber pattern](../patterns/publisher-subscriber.yml)|Learn about the Publisher-Subscriber pattern, which enables an application to announce events to many interested consumers asynchronously.|Integration|
+|[Rate Limiting pattern](../patterns/rate-limiting-pattern.yml)|You can use a rate limiting pattern to help you avoid or minimize throttling errors.|Integration|
 |[Real time processing](../data-guide/big-data/real-time-processing.yml)||Databases|
-|[Refactor mainframe applications with Advanced](../example-scenario/mainframe/refactor-mainframe-applications-advanced.yml)||Mainframe|
-|[Scalable order processing](../example-scenario/data/ecommerce-order-processing.yml)||Databases|
+|[Refactor mainframe applications with Advanced](../example-scenario/mainframe/refactor-mainframe-applications-advanced.yml)|Learn how to use the Automated COBOL Refactoring solution from Advanced to modernize your mainframe COBOL applications, run them on Azure, and reduce costs.|Mainframe|
+|[Scalable order processing](../example-scenario/data/ecommerce-order-processing.yml)|This example demonstrates a highly scalable, resilient architecture for e-commerce order processing, using managed Azure services such as Cosmos DB and HDInsight.|Databases|
 |[Stream processing with fully managed open-source data engines](../example-scenario/data/open-source-data-engine-stream-processing.yml)||Analytics|
 |[Time series data](../data-guide/scenarios/time-series.yml)||Databases|
 
@@ -157,16 +157,16 @@ intro
 |[Big data architectures](../data-guide/big-data/index.yml)||Databases|
 |[Choose a batch processing technology](../data-guide/technology-choices/batch-processing.md)||Analytics|
 |[Extract, transform, and load (ETL) using HDInsight](../solution-ideas/articles/extract-transform-and-load-using-hdinsight.yml)||Analytics|
-|[Geode pattern](../patterns/geodes.yml)||Databases|
-|[Minimize coordination](../guide/design-principles/minimize-coordination.yml)||Databases|
+|[Geode pattern](../patterns/geodes.yml)|Deploy backend services into a set of geographical nodes, each of which can service any client request in any region.|Databases|
+|[Minimize coordination](../guide/design-principles/minimize-coordination.yml)|Follow these recommendations to improve scalability by minimizing coordination between application services.|Databases|
 
 #### Apache NiFi
 
 |Azrchitecture|Summary|Technology focus|
 |--|--|--|
-|[Apache NiFi monitoring with MonitoFi](../guide/data/monitor-apache-nifi-monitofi.yml)||Analytics|
-|[Apache NiFi on Azure](../example-scenario/data/azure-nifi.yml)||Analytics|
-|[Helm-based deployments for Apache NiFi](../guide/data/helm-deployments-apache-nifi.yml)||Analytics|
+|[Apache NiFi monitoring with MonitoFi](../guide/data/monitor-apache-nifi-monitofi.yml)|Monitor deployments of Apache NiFi on Azure by using MonitoFi. This tool sends alerts and displays health and performance information in dashboards.|Analytics|
+|[Apache NiFi on Azure](../example-scenario/data/azure-nifi.yml)|Automate data flows with Apache NiFi on Azure. Use a scalable, highly available solution to move data into the cloud or storage and between cloud systems.|Analytics|
+|[Helm-based deployments for Apache NiFi](../guide/data/helm-deployments-apache-nifi.yml)|Use Helm charts when you deploy NiFi on Azure Kubernetes Service (AKS). Helm streamlines the process of installing and managing Kubernetes applications.|Analytics|
 |[Azure Data Explorer monitoring](../solution-ideas/articles/monitor-azure-data-explorer.yml)||Analytics|
 
 #### Apache Oozie
@@ -175,7 +175,7 @@ intro
 |--|--|--|
 |[Batch processing](../data-guide/big-data/batch-processing.yml)||Databases|
 |[Big data architectures](../data-guide/big-data/index.yml)||Databases|
-|[Choose a data pipeline orchestration technology](../data-guide/technology-choices/pipeline-orchestration-data-movement.md)||Databases|
+|[Choose a data pipeline orchestration technology](../data-guide/technology-choices/pipeline-orchestration-data-movement.md)|Choose an Azure data pipeline orchestration technology to automate pipeline orchestration, control flow, and data movement workflows.|Databases|
 |[Data warehousing in Microsoft Azure](../data-guide/relational-data/data-warehousing.yml)||Databases|
 |[Real time processing](../data-guide/big-data/real-time-processing.yml)||Databases|
 
@@ -183,41 +183,41 @@ intro
 
 |Azrchitecture|Summary|Technology focus|
 |--|--|--|
-|[Choose a search data store](../data-guide/technology-choices/search-options.md)||Databases|
-|[Processing free-form text for search](../data-guide/scenarios/search.yml)||Databases|
+|[Choose a search data store](../data-guide/technology-choices/search-options.md)|Learn about the capabilities of search data stores in Azure and the key criteria for choosing one that best matches your needs.|Databases|
+|[Processing free-form text for search](../data-guide/scenarios/search.yml)|Learn how free-form text processing can support search by producing useful, actionable data from large amounts of text.|Databases|
 
 #### Apache Spark
 
 |Azrchitecture|Summary|Technology focus|
 |--|--|--|
-|[Actuarial risk analysis and financial modeling](../industries/finance/actuarial-risk-analysis-financial-model.yml)||Analytics|
-|[Advanced analytics](../solution-ideas/articles/advanced-analytics-on-big-data.yml)||Analytics|
+|[Actuarial risk analysis and financial modeling](../industries/finance/actuarial-risk-analysis-financial-model.yml)|How an actuarial developer can move an existing solution plus supporting infrastructure to Azure.|Analytics|
+|[Advanced analytics](../solution-ideas/articles/advanced-analytics-on-big-data.yml)|This architecture allows you to combine any data at any scale with custom machine learning and get near real-time data analytics on streaming services.|Analytics|
 |[AI at the edge with Azure Stack Hub](../solution-ideas/articles/ai-at-the-edge.yml)||AI|
 |[AI at the edge with Azure Stack Hub - disconnected](../solution-ideas/articles/ai-at-the-edge-disconnected.yml)||AI|
-|[Analytics end-to-end with Azure Synapse](../example-scenario/dataplate2e/data-platform-end-to-end.yml)||Analytics|
+|[Analytics end-to-end with Azure Synapse](../example-scenario/dataplate2e/data-platform-end-to-end.yml)|Learn how to use Azure Data Services to build a modern analytics platform capable of handling the most common data challenges in an organization.|Analytics|
 |[Batch processing](../data-guide/big-data/batch-processing.yml)||Databases|
-|[Batch scoring of Spark on Azure Databricks](../reference-architectures/ai/batch-scoring-databricks.yml)||AI|
-|[Big data analytics on confidential computing](../example-scenario/confidential/data-analytics-containers-spark-kubernetes-azure-sql.yml)||Databases|
+|[Batch scoring of Spark on Azure Databricks](../reference-architectures/ai/batch-scoring-databricks.yml)|Build a scalable solution for batch scoring an Apache Spark classification model on a schedule using Azure Databricks.|AI|
+|[Big data analytics on confidential computing](../example-scenario/confidential/data-analytics-containers-spark-kubernetes-azure-sql.yml)|Use confidential computing on Kubernetes to run big data analytics with Apache Spark inside confidential containers that are protected by Intel Software Guard Extensions with data from Azure Data Lake and Azure SQL Database.|Databases|
 |[Big data architectures](../data-guide/big-data/index.yml)||Databases|
-|[Build a content-based recommendation system](../example-scenario/ai/scalable-personalization-with-content-based-recommendation-system.yml)||Analytics|
-|[Build cloud native applications](../solution-ideas/articles/cloud-native-apps.yml)||Containers|
+|[Build a content-based recommendation system](../example-scenario/ai/scalable-personalization-with-content-based-recommendation-system.yml)|Create content-based recommendation systems that can deliver personalized recommendations to your customers with Azure Machine Learning and Databricks.|Analytics|
+|[Build cloud native applications](../solution-ideas/articles/cloud-native-apps.yml)|Learn how to build cloud native applications with Azure Cosmos DB, Azure Database for PostgreSQL and Azure Cache for Redis.|Containers|
 |[Campaign optimization with HDInsight Spark](../solution-ideas/articles/campaign-optimization-with-azure-hdinsight-spark-clusters.yml)||Databases|
 |[Choose a batch processing technology](../data-guide/technology-choices/batch-processing.md)||Analytics|
 |[Choose a stream processing technology](../data-guide/technology-choices/stream-processing.md)||Analytics|
 |[Choose an analytical data store](../data-guide/technology-choices/analytical-data-stores.md)||Analytics|
-|[Customer 360 with Azure Synapse and Dynamics 365 Customer Insights](../example-scenario/analytics/synapse-customer-insights.yml)||Analytics|
-|[Data science and machine learning with Azure Databricks](../solution-ideas/articles/azure-databricks-data-science-machine-learning.yml)||AI|
+|[Customer 360 with Azure Synapse and Dynamics 365 Customer Insights](../example-scenario/analytics/synapse-customer-insights.yml)|Build an end-to-end Customer 360 solution by using Azure Synapse Analytics and Dynamics 360 Customer Insights.|Analytics|
+|[Data science and machine learning with Azure Databricks](../solution-ideas/articles/azure-databricks-data-science-machine-learning.yml)|Improve operations by using Azure Databricks, Delta Lake, and MLflow for data science and machine learning. Develop, train, and deploy machine learning models.|AI|
 |[Extract, transform, and load (ETL)](../data-guide/relational-data/etl.yml)||Databases|
 |[Extract, transform, and load (ETL) using HDInsight](../solution-ideas/articles/extract-transform-and-load-using-hdinsight.yml)||Analytics|
 |[IoT and data analytics](../example-scenario/data/big-data-with-iot.yml)||Analytics|
-|[IoT using Cosmos DB](../solution-ideas/articles/iot-using-cosmos-db.yml)||IoT|
+|[IoT using Cosmos DB](../solution-ideas/articles/iot-using-cosmos-db.yml)|Azure Cosmos DB scales instantly and elastically to accommodate diverse and unpredictable IoT workloads without sacrificing ingestion or query performance.|IoT|
 |[Loan charge-off predictions with HDInsight Spark](../solution-ideas/articles/loan-chargeoff-prediction-with-azure-hdinsight-spark-clusters.yml)||Databases|
-|[Many models machine learning with Spark](../example-scenario/ai/many-models-machine-learning-azure-spark.yml)||AI|
-|[Microsoft machine learning products](../data-guide/technology-choices/data-science-and-machine-learning.md)||AI|
-|[Modern data warehouse for small and medium business](../example-scenario/data/small-medium-data-warehouse.yml)||Analytics|
-|[Natural language processing technology](../data-guide/technology-choices/natural-language-processing.yml)||AI|
-|[Observability patterns and metrics](/azure/architecture/databricks-monitoring/databricks-observability)||Databases|
-|[Real-time analytics on big data architecture](../solution-ideas/articles/real-time-analytics.yml)||Analytics|
+|[Many models machine learning with Spark](../example-scenario/ai/many-models-machine-learning-azure-spark.yml)|Many machine learning (ML) problems are too complex for a single ML model to solve. Learn about many models machine learning at scale in Azure with Spark.|AI|
+|[Microsoft machine learning products](../data-guide/technology-choices/data-science-and-machine-learning.md)|Compare options for building, deploying, and managing your machine learning models. Decide which Microsoft products to choose for your solution.|AI|
+|[Modern data warehouse for small and medium business](../example-scenario/data/small-medium-data-warehouse.yml)|Use Azure Synapse Analytics, SQL Database, and Data Lake Storage to modernize SMB legacy and on-premises data. Easily integrate fused data with other services.|Analytics|
+|[Natural language processing technology](../data-guide/technology-choices/natural-language-processing.yml)|Choose a natural language processing service for sentiment analysis, topic and language detection, key phrase extraction, and document categorization.|AI|
+|[Observability patterns and metrics](/azure/architecture/databricks-monitoring/databricks-observability)|Learn how to use observability patterns and metrics to improve the processing performance of a big data system using Azure Databricks.|Databases|
+|[Real-time analytics on big data architecture](../solution-ideas/articles/real-time-analytics.yml)|Get deep-learning analytics and insights from live streaming data. Run advanced analytics on IoT device data and website clickstream logs in near real time.|Analytics|
 |[Real time processing](../data-guide/big-data/real-time-processing.yml)||Analytics|
 |[Stream processing with fully managed open-source data engines](../example-scenario/data/open-source-data-engine-stream-processing.yml)||Analytics|
 |[Streaming using HDInsight](../solution-ideas/articles/streaming-using-hdinsight.yml)||Databases|
@@ -256,24 +256,24 @@ intro
 
 |Azrchitecture|Summary|Technology focus|
 |--|--|--|
-|[Digital image-based modeling on Azure](../example-scenario/infrastructure/image-modeling.yml)||Media|
-|[Run reservoir simulation software on Azure](../example-scenario/infrastructure/reservoir-simulation.yml)||Compute|
+|[Digital image-based modeling on Azure](../example-scenario/infrastructure/image-modeling.yml)|Learn how to perform image-based modeling on Azure infrastructure-as-a-service (IaaS) by following the architecture and design guidance in an example scenario.|Media|
+|[Run reservoir simulation software on Azure](../example-scenario/infrastructure/reservoir-simulation.yml)|Run OPM Flow reservoir simulation software and OPM ResInsight visualization software on an Azure HPC compute cluster and visualization VM.|Compute|
 
 ### Chef
 
 |Azrchitecture|Summary|Technology focus|
 |--|--|--|
-|[Building blocks for autonomous-driving simulation environments](/azure/architecture/industries/automotive/building-blocks-autonomous-driving-simulation-environments)||Containers|
-|[Design a CI/CD pipeline using Azure DevOps](../example-scenario/apps/devops-dotnet-webapp.yml)||DevOps
-|[End-to-end governance in Azure](../example-scenario/governance/end-to-end-governance-in-azure.yml)||Management|
+|[Building blocks for autonomous-driving simulation environments](/azure/architecture/industries/automotive/building-blocks-autonomous-driving-simulation-environments)|To assess autonomous driving (AD), function engineers need to simulate the behavior of vehicles with AD capabilities.|Containers|
+|[Design a CI/CD pipeline using Azure DevOps](../example-scenario/apps/devops-dotnet-webapp.yml)|This architecture and design provides guidance for building a continuous integration and deployment pipeline for a two-tier .NET web application to the Azure App Service.|DevOps
+|[End-to-end governance in Azure](../example-scenario/governance/end-to-end-governance-in-azure.yml)|When using CI/CD pipelines to automate deployments, apply RBAC not just on the ARM side, but also earlier in the process as developers check in their code.|Management|
 
 ### CNCF
 
 |Azrchitecture|Summary|Technology focus|
 |--|--|--|
-|[Azure Arc hybrid management and deployment for Kubernetes clusters](/azure/architecture/hybrid/arc-hybrid-kubernetes)||Hybrid|
-|[Build CNCF projects by using Azure Kubernetes Service](../example-scenario/apps/build-cncf-incubated-graduated-projects-aks.yml)||Containers|
-|[Multi-cloud blockchain distributed ledger technology (DLT)](../example-scenario/blockchain/multi-cloud-blockchain.yml)||Blockchain|
+|[Azure Arc hybrid management and deployment for Kubernetes clusters](/azure/architecture/hybrid/arc-hybrid-kubernetes)|Learn how Azure Arc extends Kubernetes cluster management and configuration across customer data centers, edge locations, and multiple cloud environments.|Hybrid|
+|[Build CNCF projects by using Azure Kubernetes Service](../example-scenario/apps/build-cncf-incubated-graduated-projects-aks.yml)|This article demonstrates how to conceptualize, architect, build, and deploy an application that uses projects from the CNCF after deployment of AKS.|Containers|
+|[Multi-cloud blockchain distributed ledger technology (DLT)](../example-scenario/blockchain/multi-cloud-blockchain.yml)|See how the open-source Blockchain Automation Framework (BAF) and Azure Arc-enabled Kubernetes work with multi-party DLTs to build a cross-cloud blockchain solution.|Blockchain|
 
 ### Elastic
 
@@ -281,10 +281,10 @@ intro
 |--|--|--|
 |[Application data protection for AKS workloads on Azure NetApp Files](../example-scenario/file-storage/data-protection-kubernetes-astra-azure-netapp-files.yml)||Containers|
 |[Choose a search data store](../data-guide/technology-choices/search-options.md)||Databases|
-|[Elastic Workplace Search on Azure](../solution-ideas/articles/elastic-workplace-search.yml)||Integration|
-|[Microservices architecture on AKS](../reference-architectures/containers/aks-microservices/aks-microservices.yml)||Containers|
-|[Monitor a microservices app in AKS](/azure/architecture/microservices/logging-monitoring)||Containers|
-|[Monitoring and diagnostics guidance](../best-practices/monitoring.yml)||Management|
+|[Elastic Workplace Search on Azure](../solution-ideas/articles/elastic-workplace-search.yml)|Elastic Workplace Search streamlines search for all work documents and data. Learn how to deploy it and optimize productivity.|Integration|
+|[Microservices architecture on AKS](../reference-architectures/containers/aks-microservices/aks-microservices.yml)|Learn about the infrastructure and DevOps considerations of deploying and running a microservices architecture on Azure Kubernetes Service (AKS).|Containers|
+|[Monitor a microservices app in AKS](/azure/architecture/microservices/logging-monitoring)|Learn about best practices for monitoring a microservices application that runs on Azure Kubernetes Service, by collecting telemetry from the application.|Containers|
+|[Monitoring and diagnostics guidance](../best-practices/monitoring.yml)|Learn how to track how users use your distributed applications and services, trace resource utilization, and monitor the health and performance.|Management|
 |[Processing free-form text for search](../data-guide/scenarios/search.yml)||Databases|
 
 ### GlusterFS
@@ -292,7 +292,7 @@ intro
 |Azrchitecture|Summary|Technology focus|
 |--|--|--|
 |[Digital image-based modeling on Azure](../example-scenario/infrastructure/image-modeling.yml)||Media|
-|[SAP S/4HANA in Linux on Azure](../reference-architectures/sap/sap-s4hana.yml)||SAP|
+|[SAP S/4HANA in Linux on Azure](../reference-architectures/sap/sap-s4hana.yml)|Review proven practices for running SAP S/4HANA in a Linux environment on Azure, with high availability.|SAP|
 
 ### Grafana
 
@@ -301,18 +301,18 @@ intro
 |[Apache NiFi monitoring with MonitoFi](/azure/architecture/guide/data/monitor-apache-nifi-monitofi)||Analytics|
 |[Azure Data Explorer interactive analytics](../solution-ideas/articles/interactive-azure-data-explorer.yml)||Analytics|
 |[Banking system cloud transformation on Azure](../example-scenario/banking/banking-system-cloud-transformation.yml)||Migration|
-|[Baseline architecture for an AKS cluster](../reference-architectures/containers/aks/secure-baseline-aks.yml)||Containers|
+|[Baseline architecture for an AKS cluster](../reference-architectures/containers/aks/secure-baseline-aks.yml)|Reference architecture for a baseline infrastructure that deploys an Azure Kubernetes Service (AKS) cluster.|Containers|
 |[Build CNCF projects by using Azure Kubernetes Service](../example-scenario/apps/build-cncf-incubated-graduated-projects-aks.yml)||Containers|
-|[CI/CD pipeline for container-based workloads](../example-scenario/apps/devops-with-aks.yml)||Containers|
-|[Container CI/CD using Jenkins and Kubernetes on AKS](../solution-ideas/articles/container-cicd-using-jenkins-and-kubernetes-on-azure-container-service.yml)||DevOps|
-|[Content Delivery Network analytics](../solution-ideas/articles/content-delivery-network-azure-data-explorer.yml)||Analytics|
-|[Enterprise monitoring with Azure Monitor](../example-scenario/monitoring/enterprise-monitoring.yml)||DevOps|
+|[CI/CD pipeline for container-based workloads](../example-scenario/apps/devops-with-aks.yml)|Build a DevOps CI/CD pipeline for a Node.js web app with Jenkins, Azure Container Registry, Azure Kubernetes Service, Cosmos DB, and Grafana.|Containers|
+|[Container CI/CD using Jenkins and Kubernetes on AKS](../solution-ideas/articles/container-cicd-using-jenkins-and-kubernetes-on-azure-container-service.yml)|By orchestrating the deployment of containers using AKS, you can achieve replicable, manageable clusters of containers.|DevOps|
+|[Content Delivery Network analytics](../solution-ideas/articles/content-delivery-network-azure-data-explorer.yml)|This architecture pattern demonstrates low-latency high throughput ingestion for large volumes of Content Delivery Network (CDN) logs for building near real-time analytics dashboards.|Analytics|
+|[Enterprise monitoring with Azure Monitor](../example-scenario/monitoring/enterprise-monitoring.yml)|See an enterprise monitoring solution that uses Azure Monitor to collect and manage data from cloud, on-premises, and hybrid resources.|DevOps|
 |[IoT analytics with Azure Data Explorer](../solution-ideas/articles/iot-azure-data-explorer.yml)||Analytics|
 |[JMeter implementation for a load testing pipeline](../example-scenario/banking/jmeter-load-testing-pipeline-implementation-reference.yml)||Migration|
-|[Long-term security log retention with Azure Data Explorer](../example-scenario/security/security-log-retention-azure-data-explorer.yml)||Analytics|
-|[Optimize administration of SQL Server instances in on-premises and multi-cloud environments by using Azure Arc](/azure/architecture/hybrid/azure-arc-sql-server)||Databases|
-|[SAP workload automation using SUSE on Azure](../solution-ideas/articles/sap-workload-automation-suse.yml)||SAP|
-|[Web application monitoring on Azure](../reference-architectures/app-service-web-app/app-monitoring.yml)||Web|
+|[Long-term security log retention with Azure Data Explorer](../example-scenario/security/security-log-retention-azure-data-explorer.yml)|Store security logs in Azure Data Explorer on a long-term basis. This solution minimizes costs and provides easy access when you need to query the data.|Analytics|
+|[Optimize administration of SQL Server instances in on-premises and multi-cloud environments by using Azure Arc](/azure/architecture/hybrid/azure-arc-sql-server)|Learn how to leverage Azure Arc for management, maintenance, and monitoring of SQL Server instances in on-premises and multi-cloud environments.|Databases|
+|[SAP workload automation using SUSE on Azure](../solution-ideas/articles/sap-workload-automation-suse.yml)|The SUSE SAP automation solution speeds deployment of SAP infrastructure on Azure. Use it to bolster productivity and facilitate innovation.|SAP|
+|[Web application monitoring on Azure](../reference-architectures/app-service-web-app/app-monitoring.yml)|Learn about the monitoring services you can use on Azure by following a reference architecture that uses a dataflow model for use with multiple data sources.|Web|
 
 ### InfluxDB
 
@@ -332,37 +332,37 @@ intro
 |[CI/CD pipeline for container-based workloads](../example-scenario/apps/devops-with-aks.yml)||Containers|
 |[Container CI/CD using Jenkins and Kubernetes on AKS](../solution-ideas/articles/container-cicd-using-jenkins-and-kubernetes-on-azure-container-service.yml)||DevOps|
 |[Design a CI/CD pipeline using Azure DevOps](../example-scenario/apps/devops-dotnet-webapp.yml)||DevOps|
-|[DevSecOps with a rolling main branching strategy](../solution-ideas/articles/devsecops-rolling-branch.yml)||DevOps|
-|[DevTest Image Factory](../solution-ideas/articles/dev-test-image-factory.yml)||DevOps|
+|[DevSecOps with a rolling main branching strategy](../solution-ideas/articles/devsecops-rolling-branch.yml)|Improve developer velocity and security with DevSecOps and GitHub during the entire development process using a shift-left strategy.|DevOps|
+|[DevTest Image Factory](../solution-ideas/articles/dev-test-image-factory.yml)|Create, maintain, and distribute custom images with the DevTest Image Factory, an automated image development and management solution from Azure DevTest Labs.|DevOps|
 |[End-to-end governance in Azure](../example-scenario/governance/end-to-end-governance-in-azure.yml)||Management|
-|[Immutable infrastructure CI/CD using Jenkins and Terraform on Azure](../solution-ideas/articles/immutable-infrastructure-cicd-using-jenkins-and-terraform-on-azure-virtual-architecture-overview.yml)||DevOps|
-|[Java CI/CD using Jenkins and Azure Web Apps](../solution-ideas/articles/java-cicd-using-jenkins-and-azure-web-apps.yml)||DevOps|
-|[MLOps for Python with Azure Machine Learning](../reference-architectures/ai/mlops-python.yml)||AI|
-|[Run a Jenkins server on Azure](../example-scenario/apps/jenkins.yml)||DevOps|
+|[Immutable infrastructure CI/CD using Jenkins and Terraform on Azure](../solution-ideas/articles/immutable-infrastructure-cicd-using-jenkins-and-terraform-on-azure-virtual-architecture-overview.yml)|When you develop apps, use a continuous integration and continuous deployment (CI/CD) pipeline to automatically push changes to Azure virtual machines.|DevOps|
+|[Java CI/CD using Jenkins and Azure Web Apps](../solution-ideas/articles/java-cicd-using-jenkins-and-azure-web-apps.yml)|Create web apps in Azure App Service. Use the continuous integration and continuous deployment (CI/CD) pipeline to deliver value to customers faster.|DevOps|
+|[MLOps for Python with Azure Machine Learning](../reference-architectures/ai/mlops-python.yml)|Implement a continuous integration (CI), continuous delivery (CD), and retraining pipeline for an AI application using Azure DevOps and Azure Machine Learning.|AI|
+|[Run a Jenkins server on Azure](../example-scenario/apps/jenkins.yml)|This scenario explains the architecture and considerations to take into account when installing and configuring Jenkins.|DevOps|
 
 ### Jupyter
 
 |Azrchitecture|Summary|Technology focus|
 |--|--|--|
-[Automating diagnostic Jupyter Notebook execution](../example-scenario/data/automating-diagnostic-jupyter-notebook.yml)||DevOps|
+[Automating diagnostic Jupyter Notebook execution](../example-scenario/data/automating-diagnostic-jupyter-notebook.yml)|Learn now to automate diagnostic or routine notebooks by using an Azure serverless architecture.|DevOps|
 [Azure Data Explorer interactive analytics](../solution-ideas/articles/interactive-azure-data-explorer.yml)||Analytics|
-[Azure Machine Learning decision guide for optimal tool selection](../example-scenario/mlops/aml-decision-tree.yml)||AI|
-[Choose a data analytics and reporting technology](../data-guide/technology-choices/analysis-visualizations-reporting.md)||Databases|
+[Azure Machine Learning decision guide for optimal tool selection](../example-scenario/mlops/aml-decision-tree.yml)|Learn how to choose the best services for building an end-to-end machine learning pipeline from experimentation to deployment.|AI|
+[Choose a data analytics and reporting technology](../data-guide/technology-choices/analysis-visualizations-reporting.md)|Evaluate big data analytics technology options for Azure, including key selection criteria and a capability matrix.|Databases|
 [Citizen AI with the Power Platform](../example-scenario/ai/citizen-ai-power-platform.yml)||AI|
-[Data analysis in Azure Industrial IoT analytics solution](/azure/architecture/guide/iiot-guidance/iiot-data)||IoT|
-[DevOps for quantum computing](/azure/architecture/guide/quantum/devops-for-quantum-computing)||DevOps|
+[Data analysis in Azure Industrial IoT analytics solution](/azure/architecture/guide/iiot-guidance/iiot-data)|Understand data analysis in an Azure Industrial IoT (IIoT) analytics solution. Use visualization, data trends, dashboards, schematic views, and notebooks.|IoT|
+[DevOps for quantum computing](/azure/architecture/guide/quantum/devops-for-quantum-computing)|Learn about DevOps requirements for quantum-based apps. DevOps provides a repeatable, high-quality process for building, deploying, and monitoring software.|DevOps|
 [IoT analytics with Azure Data Explorer](../solution-ideas/articles/iot-azure-data-explorer.yml)||Analytics|
-[Machine learning operations (MLOps) framework to upscale machine learning lifecycle with Azure Machine Learning](../example-scenario/mlops/mlops-technical-paper.yml)||AI|
+[Machine learning operations (MLOps) framework to upscale machine learning lifecycle with Azure Machine Learning](../example-scenario/mlops/mlops-technical-paper.yml)|Learn how to apply the machine learning operations (MLOps) maturity model to implement a machine learning solution for predicting product shipping levels.|AI|
 [Many models machine learning with Spark](../example-scenario/ai/many-models-machine-learning-azure-spark.yml)||AI|
-[Precision medicine pipeline with genomics](../example-scenario/precision-medicine/genomic-analysis-reporting.yml)||Analytics|
-[Tune hyperparameters for ML models in Python](../reference-architectures/ai/training-python-models.yml)||AI|
+[Precision medicine pipeline with genomics](../example-scenario/precision-medicine/genomic-analysis-reporting.yml)|Build a precision medicine pipeline for genomic analysis and reporting. Use Microsoft Genomics for efficient secondary and tertiary analysis.|Analytics|
+[Tune hyperparameters for ML models in Python](../reference-architectures/ai/training-python-models.yml)|Shows recommended practices for tuning hyperparameters (training parameters) of scikit-learn and deep learning machine learning models in Python.|AI|
 
 ### KEDA
 
 |Azrchitecture|Summary|Technology focus|
 |--|--|--|
-|[Azure Functions in a hybrid environment](/azure/architecture/hybrid/azure-functions-hybrid)||Serverless|
-|[Azure Kubernetes in event stream processing](../solution-ideas/articles/serverless-event-processing-aks.yml)||Containers|
+|[Azure Functions in a hybrid environment](/azure/architecture/hybrid/azure-functions-hybrid)|This reference architecture illustrates Azure Functions being utilized from on-premises virtual machines.|Serverless|
+|[Azure Kubernetes in event stream processing](../solution-ideas/articles/serverless-event-processing-aks.yml)|A serverless event-driven architecture running on Azure Kubernetes with KEDA scaler that ingests and processes a stream of data, then writes the results to a DB.|Containers|
 |[Banking system cloud transformation on Azure](../example-scenario/banking/banking-system-cloud-transformation.yml)||Containers|
 |[Baseline architecture for an AKS cluster](../reference-architectures/containers/aks/secure-baseline-aks.yml)||Containers|
 |[Integrate Event Hubs with Azure Functions](/azure/architecture/serverless/event-hubs-functions/event-hubs-functions)||Serverless|
@@ -372,31 +372,31 @@ intro
 
 |Azrchitecture|Summary|Technology focus|
 |--|--|--|
-|[Advanced Azure Kubernetes Service (AKS) microservices architecture](../reference-architectures/containers/aks-microservices/aks-microservices-advanced.yml)||Continers|
+|[Advanced Azure Kubernetes Service (AKS) microservices architecture](../reference-architectures/containers/aks-microservices/aks-microservices-advanced.yml)|Learn about a scalable, secure AKS microservices architecture that builds on recommended AKS microservices baseline architectures and implementations.|Continers|
 |[Application data protection for AKS workloads on Azure NetApp Files](../example-scenario/file-storage/data-protection-kubernetes-astra-azure-netapp-files.yml)||Containers|
 |[Azure Arc hybrid management and deployment for Kubernetes clusters](/azure/architecture/hybrid/arc-hybrid-kubernetes)||Hybrid|
 |[Azure Kubernetes in event stream processing](../solution-ideas/articles/serverless-event-processing-aks.yml)||Containers|
 |[Banking system cloud transformation on Azure](../example-scenario/banking/banking-system-cloud-transformation.yml)||Containers|
 |[Baseline architecture for an AKS cluster](../reference-architectures/containers/aks/secure-baseline-aks.yml)||Containers|
 |[Big data analytics on confidential computing](../example-scenario/confidential/data-analytics-containers-spark-kubernetes-azure-sql.yml)||Analytics|
-|[Build a CI/CD pipeline for microservices on Kubernetes](/azure/architecture/microservices/ci-cd-kubernetes)||Microservices|
+|[Build a CI/CD pipeline for microservices on Kubernetes](/azure/architecture/microservices/ci-cd-kubernetes)|Learn about building a continuous integration and continuous delivery (CI/CD) pipeline for deploying microservices to Azure Kubernetes Service (AKS).|Microservices|
 |[Build CNCF projects by using Azure Kubernetes Service](../example-scenario/apps/build-cncf-incubated-graduated-projects-aks.yml)||Containers|
-|[Choose a bare-metal Kubernetes at the edge platform option](/azure/architecture/operator-guides/aks/choose-bare-metal-kubernetes)||Containers|
-|[Choose a Kubernetes at the edge compute option](/azure/architecture/operator-guides/aks/choose-kubernetes-edge-compute-option)||Containers|
-|[Choose an Azure multiparty computing service](/azure/architecture/guide/technology-choices/multiparty-computing-service)||Blockchain|
+|[Choose a bare-metal Kubernetes at the edge platform option](/azure/architecture/operator-guides/aks/choose-bare-metal-kubernetes)|Find the best available option for your use case when configuring Kubernetes clusters at the edge.|Containers|
+|[Choose a Kubernetes at the edge compute option](/azure/architecture/operator-guides/aks/choose-kubernetes-edge-compute-option)|Learn about trade-offs for various options available for extending compute on the edge.|Containers|
+|[Choose an Azure multiparty computing service](/azure/architecture/guide/technology-choices/multiparty-computing-service)|Use this chart and other information to decide which multiparty computing services to use for your solution.|Blockchain|
 |[Container CI/CD using Jenkins and Kubernetes on AKS](../solution-ideas/articles/container-cicd-using-jenkins-and-kubernetes-on-azure-container-service.yml)||DevOps|
-|[Container orchestration for microservices](/azure/architecture/microservices/design/orchestration)||Microservices|
-|[Create a CI/CD pipeline for AI apps using Azure Pipelines, Docker, and Kubernetes](/azure/architecture/data-science-process/ci-cd-flask)||AI|
-|[Employee retention with Databricks and Kubernetes](../example-scenario/ai/employee-retention-databricks-kubernetes.yml)||Analytics|
-|[GitOps for Azure Kubernetes Service](../example-scenario/gitops-aks/gitops-blueprint-aks.yml)||Containers|
+|[Container orchestration for microservices](/azure/architecture/microservices/design/orchestration)|Learn how container orchestration makes it easy to manage complex multi-container microservice deployments, scaling, and cluster health.|Microservices|
+|[Create a CI/CD pipeline for AI apps using Azure Pipelines, Docker, and Kubernetes](/azure/architecture/data-science-process/ci-cd-flask)|Create a continuous integration and continuous delivery pipeline for Artificial Intelligence (AI) applications using Docker and Kubernetes.|AI|
+|[Employee retention with Databricks and Kubernetes](../example-scenario/ai/employee-retention-databricks-kubernetes.yml)|Learn how to build, deploy, and monitor a machine learning model for employee attrition that can be integrated with external applications using Databricks and Kubernetes.|Analytics|
+|[GitOps for Azure Kubernetes Service](../example-scenario/gitops-aks/gitops-blueprint-aks.yml)|See a GitOps solution for an Azure Kubernetes Services (AKS) cluster. This solution provides full audit capabilities, policy enforcement, and early feedback.|Containers|
 |[Helm-based deployments for Apache NiFi](/azure/architecture/guide/data/helm-deployments-apache-nifi)||Analytics|
 |[Instant IoT data streaming with AKS](../solution-ideas/articles/aks-iot-data-streaming.yml)||Containers|
 |[Microservices architecture on AKS](../reference-architectures/containers/aks-microservices/aks-microservices.yml)||Containers|
 |[Microservices with AKS and Azure DevOps](../solution-ideas/articles/microservices-with-aks.yml)||Containers|
 |[Patterns and implementations for a banking cloud transformation](../example-scenario/banking/patterns-and-implementations.yml)||Serverless|
 |[Secure DevOps for AKS](../solution-ideas/articles/secure-devops-for-kubernetes.yml)||Containers|
-|[Use Application Gateway Ingress Controller (AGIC) with a multi-tenant Azure Kubernetes Service](../example-scenario/aks-agic/aks-agic.yml)||Containers|
-|[Use Azure Firewall to help protect an AKS cluster](../example-scenario/aks-firewall/aks-firewall.yml)||Containers|
+|[Use Application Gateway Ingress Controller (AGIC) with a multi-tenant Azure Kubernetes Service](../example-scenario/aks-agic/aks-agic.yml)|Learn how to use the Application Gateway Ingress Controller (AGIC) with your Azure Kubernetes Service (AKS) cluster to expose microservice-based applications to the internet.|Containers|
+|[Use Azure Firewall to help protect an AKS cluster](../example-scenario/aks-firewall/aks-firewall.yml)|Deploy an AKS cluster in a hub-and-spoke network topology by using Terraform and Azure DevOps. Help protect the inbound and outbound traffic by using Azure Firewall.|Containers|
 
 ### Lustre
 
@@ -404,26 +404,26 @@ intro
 |--|--|--|
 [Digital image-based modeling on Azure](../example-scenario/infrastructure/image-modeling.yml)||Media|
 [Run reservoir simulation software on Azure](../example-scenario/infrastructure/reservoir-simulation.yml)||Compute|
-[SAS on Azure architecture](/azure/architecture/guide/sas/sas-overview)||Compute|
+[SAS on Azure architecture](/azure/architecture/guide/sas/sas-overview)|Learn how to run SAS analytics products on Azure. See guidelines for designing and implementing cloud solutions for SAS Viya and SAS Grid that use Azure.|Compute|
 
 ### MariaDB
 
 |Azrchitecture|Summary|Technology focus|
 |--|--|--|
-|[Core startup stack architecture](/azure/architecture/example-scenario/startups/core-startup-stack)||Startup|
-|[Mainframe and midrange data replication to Azure using Qlik](/azure/architecture/example-scenario/mainframe/mainframe-midrange-data-replication-azure-qlik)||Mainframe|
-|[Mainframe file replication and sync on Azure](/azure/architecture/solution-ideas/articles/mainframe-azure-file-replication)||Mainframe|
-|[Modernize mainframe and midrange data](/azure/architecture/reference-architectures/migration/modernize-mainframe-data-to-azure)||Mainframe|
-|[Replicate and sync mainframe data in Azure](/azure/architecture/reference-architectures/migration/sync-mainframe-data-with-azure)||Mainframe|
-|[Scalable and secure WordPress on Azure](/azure/architecture/example-scenario/infrastructure/wordpress)||Web|
-|[Understand data store models](/azure/architecture/guide/technology-choices/data-store-overview)||Databases|
+|[Core startup stack architecture](/azure/architecture/example-scenario/startups/core-startup-stack)|See an example and understand the components of a simple core startup stack architecture for an initial MVP or prototype.|Startup|
+|[Mainframe and midrange data replication to Azure using Qlik](/azure/architecture/example-scenario/mainframe/mainframe-midrange-data-replication-azure-qlik)|See how Qlik Replication is a valuable tool for migrating mainframe and midrange systems to the cloud, or for extending such systems with cloud applications.|Mainframe|
+|[Mainframe file replication and sync on Azure](/azure/architecture/solution-ideas/articles/mainframe-azure-file-replication)|Learn about several options for moving, converting, transforming, and storing mainframe and midrange file system data on-premises and in Azure.|Mainframe|
+|[Modernize mainframe and midrange data](/azure/architecture/reference-architectures/migration/modernize-mainframe-data-to-azure)|Learn how to modernize IBM mainframe and midrange data and see how to use a data-first approach to migrate this data to Azure.|Mainframe|
+|[Replicate and sync mainframe data in Azure](/azure/architecture/reference-architectures/migration/sync-mainframe-data-with-azure)|Replicate data while modernizing mainframe and midrange systems. Sync on-premises data with Azure data during modernization.|Mainframe|
+|[Scalable and secure WordPress on Azure](/azure/architecture/example-scenario/infrastructure/wordpress)|This example shows how to use Azure Content Delivery Network and other Azure services to deploy a highly scalable and secure installation of WordPress.|Web|
+|[Understand data store models](/azure/architecture/guide/technology-choices/data-store-overview)|Learn about the high-level differences between the various data storage models found in Azure data services.|Databases|
 
 ### MLflow
 
 |Azrchitecture|Summary|Technology focus|
 |--|--|--|
-|[Azure Machine Learning decision guide for optimal tool selection](/azure/architecture/example-scenario/mlops/aml-decision-tree)||AI|
-|[Data science and machine learning with Azure Databricks](/azure/architecture/solution-ideas/articles/azure-databricks-data-science-machine-learning)||AI|
+|[Azure Machine Learning decision guide for optimal tool selection](/azure/architecture/example-scenario/mlops/aml-decision-tree)|Learn how to choose the best services for building an end-to-end machine learning pipeline from experimentation to deployment.|AI|
+|[Data science and machine learning with Azure Databricks](/azure/architecture/solution-ideas/articles/azure-databricks-data-science-machine-learning)|Improve operations by using Azure Databricks, Delta Lake, and MLflow for data science and machine learning. Develop, train, and deploy machine learning models.|AI|
 |[Determine customer lifetime value and churn with Azure AI services](/azure/architecture/example-scenario/ai/customer-lifecycle-churn)||AI|
 |[Employee retention with Databricks and Kubernetes](/azure/architecture/example-scenario/ai/employee-retention-databricks-kubernetes)||Analytics|
 |[Modern analytics architecture with Azure Databricks](/azure/architecture/solution-ideas/articles/azure-databricks-modern-analytics-architecture)||Analytics|
