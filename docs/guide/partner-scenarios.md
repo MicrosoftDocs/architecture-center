@@ -21,7 +21,7 @@ ms.custom: fcp
 
 intro 
 
-apache note
+*Apache®, Apache Ignite, Ignite, and the flame logo are either registered trademarks or trademarks of the Apache Software Foundation in the United States and/or other countries. No endorsement by The Apache Software Foundation is implied by the use of these marks.*
 
 ## Scenarios featuring open-source technologies on Azure
 
@@ -31,61 +31,61 @@ apache note
 
 |Azrchitecture|Summary|Technology focus|
 |--|--|--|
-|[Data partitioning guidance](../best-practices/data-partitioning.yml)| |Databases|
-|[High availability in Azure public MEC](../example-scenario/hybrid/multi-access-edge-compute-ha.yml)|| Hybrid|
-|[IoT and data analytics](../example-scenario/data/big-data-with-iot.yml)| |Analytics|
-|[N-tier application with Apache Cassandra](../reference-architectures/n-tier/n-tier-cassandra.yml)|| Databases|
-|[Non-relational data and NoSQL](../data-guide/big-data/non-relational-data.yml) ||Databases|
-|[Run Apache Cassandra on Azure VMs](../best-practices/cassandra.md)|| Databases|
-|[Stream processing with fully managed open-source data engines](../example-scenario/data/open-source-data-engine-stream-processing.yml)|| Analytics|
+|[Data partitioning guidance](../best-practices/data-partitioning.yml)|View guidance for how to separate data partitions to be managed and accessed separately. Understand horizontal, vertical, and functional partitioning strategies. |Databases|
+|[High availability in Azure public MEC](../example-scenario/hybrid/multi-access-edge-compute-ha.yml)|Learn how to deploy workloads in active/standby mode to achieve high availability and disaster recovery in Azure public MEC.| Hybrid|
+|[IoT and data analytics](../example-scenario/data/big-data-with-iot.yml)| Build solutions that integrate data from many IoT devices into a comprehensive data analysis architecture to improve and automate decision making.|Analytics|
+|[N-tier application with Apache Cassandra](../reference-architectures/n-tier/n-tier-cassandra.yml)|Deploy Linux virtual machines and a virtual network configured for an N-tier architecture with Apache Cassandra in Microsoft Azure.| Databases|
+|[Non-relational data and NoSQL](../data-guide/big-data/non-relational-data.yml) |Learn about non-relational databases that store data as key/value pairs, graphs, time series, objects, and other storage models, based on data requirements.|Databases|
+|[Run Apache Cassandra on Azure VMs](../best-practices/cassandra.md)|Examine performance considerations for running Apache Cassandra on Azure virtual machines. Use these recommendations as a baseline to test against your workload.| Databases|
+|[Stream processing with fully managed open-source data engines](../example-scenario/data/open-source-data-engine-stream-processing.yml)|Stream events by using fully managed Azure data services. Use open-source technologies like Kafka, Kubernetes, Cassandra, PostgreSQL, and Redis components.| Analytics|
 
 #### Apache CouchDB
 
 |Azrchitecture|Summary|Technology focus|
 |--|--|--|
-|[Scalable web application](../reference-architectures/app-service-web-app/scalable-web-app.yml) ||Web
+|[Scalable web application](../reference-architectures/app-service-web-app/scalable-web-app.yml) |Use the proven practices in this reference architecture to improve scalability and performance in an Azure App Service web application.|Web
 
 #### Apache Hadoop
 
 |Azrchitecture|Summary|Technology focus|
 |--|--|--|
-|[Actuarial risk analysis and financial modeling](/azure/architecture/industries/finance/actuarial-risk-analysis-financial-model)|| Analytics|
-|[AI at the edge with Azure Stack Hub](../solution-ideas/articles/ai-at-the-edge.yml)|| AI|
-|[AI at the edge with Azure Stack Hub - disconnected](../solution-ideas/articles/ai-at-the-edge-disconnected.yml)|| AI|
-|[Batch processing](../data-guide/big-data/batch-processing.yml)|| Databases|
-|[Big data architectures](../data-guide/big-data/index.yml)|| Databases|
-|[Campaign optimization with HDInsight Spark](../solution-ideas/articles/campaign-optimization-with-azure-hdinsight-spark-clusters.yml)|| Databases|
-|[Choose a data transfer technology](../data-guide/scenarios/data-transfer.md)|| Databases|
-|[Citizen AI with the Power Platform](../example-scenario/ai/citizen-ai-power-platform.yml)|| AI|
-|[Data considerations for microservices](/azure/architecture/microservices/design/data-considerations)|| Microservices|
-|[Extend your on-premises big data investments with HDInsight](../solution-ideas/articles/extend-your-on-premises-big-data-investments-with-hdinsight.yml)|| Analytics|
-|[Extract actionable insights from IoT data](/azure/architecture/industries/manufacturing/extract-insights-iot-data)|| Analytics|
-|[Extract, transform, and load (ETL)](../data-guide/relational-data/etl.yml)|| Analytics|
-|[Extract, transform, and load (ETL) using HDInsight](../solution-ideas/articles/extract-transform-and-load-using-hdinsight.yml)|| Analytics|
-|[Gaming using Azure Database for MySQL](../solution-ideas/articles/gaming-using-azure-database-for-mysql.yml)|| Databases|
-|[Interactive querying with HDInsight](../solution-ideas/articles/interactive-querying-with-hdinsight.yml)|| Databases|
-|[IoT analyze and optimize loops](../example-scenario/iot/analyze-optimize-loop.yml)|| IoT|
-|[Leader Election pattern](/azure/architecture/patterns/leader-election)|| Analytics|
-|[Master data management with Azure and CluedIn](../reference-architectures/data/cluedin.yml)|| Databases|
-|[Materialized View pattern](/azure/architecture/patterns/materialized-view)|| Databases|
-|[Predict loan charge-offs with HDInsight Spark](../solution-ideas/articles/loan-chargeoff-prediction-with-azure-hdinsight-spark-clusters.yml)|| Databases|
-|[Predictive maintenance for industrial IoT](../solution-ideas/articles/iot-predictive-maintenance.yml)|| IoT|
-|[Streaming using HDInsight](../solution-ideas/articles/streaming-using-hdinsight.yml)|| Databases|
+|[Actuarial risk analysis and financial modeling](/azure/architecture/industries/finance/actuarial-risk-analysis-financial-model)|How an actuarial developer can move an existing solution plus supporting infrastructure to Azure.| Analytics|
+|[AI at the edge with Azure Stack Hub](../solution-ideas/articles/ai-at-the-edge.yml)|Bring your trained AI model to the edge with Azure Stack Hub and integrate it with your applications for low-latency intelligence.| AI|
+|[AI at the edge with Azure Stack Hub - disconnected](../solution-ideas/articles/ai-at-the-edge-disconnected.yml)|Harness the power of edge AI when disconnected from the internet and move your AI models to the edge with a solution architecture that includes Azure Stack Hub.| AI|
+|[Batch processing](../data-guide/big-data/batch-processing.yml)|Learn about big data batch processing solutions to load, transform, and prepare data at rest for analytics and reporting.| Databases|
+|[Big data architectures](../data-guide/big-data/index.yml)|Learn about big data architectures that handle the ingestion, processing, and analysis of data too large or complex for traditional database systems.| Databases|
+|[Campaign optimization with HDInsight Spark](../solution-ideas/articles/campaign-optimization-with-azure-hdinsight-spark-clusters.yml)|Build and deploy a machine learning model to maximize the purchase rate of leads that are targeted by a marketing campaign using Microsoft Machine Learning Server.| Databases|
+|[Choose a data transfer technology](../data-guide/scenarios/data-transfer.md)|Learn about Azure data transfer options like Import/Export, Data Box, Data Factory, and command line and graphical interface tools.| Databases|
+|[Citizen AI with the Power Platform](../example-scenario/ai/citizen-ai-power-platform.yml)|Learn how to user Azure Machine Learning and Microsoft Power Platform to quickly create a machine learning (ML) proof of concept, and a production version.| AI|
+|[Data considerations for microservices](/azure/architecture/microservices/design/data-considerations)|Learn about managing data in a microservices architecture. Data integrity and data consistency are critical challenges for microservices.| Microservices|
+|[Extend your on-premises big data investments with HDInsight](../solution-ideas/articles/extend-your-on-premises-big-data-investments-with-hdinsight.yml)|Extend your on-premises big data investments to the cloud. Transform your business by using the advanced analytics capabilities of Azure HDInsight.| Analytics|
+|[Extract actionable insights from IoT data](/azure/architecture/industries/manufacturing/extract-insights-iot-data)|Extract insights from IoT data with Azure services.| Analytics|
+|[Extract, transform, and load (ETL)](../data-guide/relational-data/etl.yml)|Learn about extract-transform-load (ETL) and extract-load-transform (ELT) data transformation pipelines, and how to use control flows and data flows.| Analytics|
+|[Extract, transform, and load (ETL) using HDInsight](../solution-ideas/articles/extract-transform-and-load-using-hdinsight.yml)|Extract, transform, and load (ETL) big data clusters on demand by using Azure HDInsight, Hadoop MapReduce, and Apache Spark.| Analytics|
+|[Gaming using Azure Database for MySQL](../solution-ideas/articles/gaming-using-azure-database-for-mysql.yml)|Use Azure Database for MySQL for gaming solutions so that databases scale elastically with traffic bursts and deliver low-latency multi-player experiences.| Databases|
+|[Interactive querying with HDInsight](../solution-ideas/articles/interactive-querying-with-hdinsight.yml)|Use Apache Hive Live Long And Process (LLAP) to perform fast, interactive SQL queries at scale, over structured or unstructured data.| Databases|
+|[IoT analyze and optimize loops](../example-scenario/iot/analyze-optimize-loop.yml)|Learn about analyze and optimize loops, an IoT pattern for generating and applying optimization insights based on the entire business context.| IoT|
+|[Leader Election pattern](/azure/architecture/patterns/leader-election)|Learn how use the Leader Election pattern to coordinate the actions performed by a collection of collaborating task instances in a distributed application.| Analytics|
+|[Master data management with Azure and CluedIn](../reference-architectures/data/cluedin.yml)|Use CluedIn eventual connectivity data integration to blend data from many siloed data sources and prepare it for analytics and business operations.| Databases|
+|[Materialized View pattern](/azure/architecture/patterns/materialized-view)|Generate prepopulated views over the data in one or more data stores when the data isn't ideally formatted for required query operations.| Databases|
+|[Predict loan charge-offs with HDInsight Spark](../solution-ideas/articles/loan-chargeoff-prediction-with-azure-hdinsight-spark-clusters.yml)|By using Azure HDInsight, a lending institution can use machine learning to predict the likelihood of loans getting charged off.| Databases|
+|[Predictive maintenance for industrial IoT](../solution-ideas/articles/iot-predictive-maintenance.yml)|Connect devices that use the Open Platform Communication Unified Architecture standard to the cloud, and use predictive maintenance to optimize production.| IoT|
+|[Streaming using HDInsight](../solution-ideas/articles/streaming-using-hdinsight.yml)|Ingest and process millions of streaming events per second with Apache Kafka, Apache Storm, and Apache Spark Streaming.| Databases|
 
 #### Apache HBase
 
 |Azrchitecture|Summary|Technology focus|
 |--|--|--|
-|[AI at the edge with Azure Stack Hub](../solution-ideas/articles/ai-at-the-edge.yml)|| AI|
-|[AI at the edge with Azure Stack Hub - disconnected](../solution-ideas/articles/ai-at-the-edge-disconnected.yml)|| AI|
-|[Batch processing](../data-guide/big-data/batch-processing.yml)|| Databases|
-|[Big data architectures](../data-guide/big-data/index.yml)|| Databases|
-|[Choose a big data storage technology](../data-guide/technology-choices/data-storage.md)|| Databases|
-|[Choose an analytical data store](../data-guide/technology-choices/analytical-data-stores.md)|| Analytics|
-|[Data partitioning guidance](../best-practices/data-partitioning.yml)|| Databases|
-|[Non-relational data and NoSQL](../data-guide/big-data/non-relational-data.yml)|| Databases|
-|[Real time processing](../data-guide/big-data/real-time-processing.yml)|| Analytics|
-|[Time series data](../data-guide/scenarios/time-series.yml)|| Databases|
+|[AI at the edge with Azure Stack Hub](../solution-ideas/articles/ai-at-the-edge.yml)|Bring your trained AI model to the edge with Azure Stack Hub and integrate it with your applications for low-latency intelligence.| AI|
+|[AI at the edge with Azure Stack Hub - disconnected](../solution-ideas/articles/ai-at-the-edge-disconnected.yml)|Harness the power of edge AI when disconnected from the internet and move your AI models to the edge with a solution architecture that includes Azure Stack Hub.| AI|
+|[Batch processing](../data-guide/big-data/batch-processing.yml)|Learn about big data batch processing solutions to load, transform, and prepare data at rest for analytics and reporting.| Databases|
+|[Big data architectures](../data-guide/big-data/index.yml)|Learn about big data architectures that handle the ingestion, processing, and analysis of data too large or complex for traditional database systems.| Databases|
+|[Choose a big data storage technology](../data-guide/technology-choices/data-storage.md)|Compare big data storage technology options in Azure, including key selection criteria and a capability matrix.| Databases|
+|[Choose an analytical data store](../data-guide/technology-choices/analytical-data-stores.md)|Evaluate analytical data store options for big data in Azure, including key selection criteria and a capability matrix.| Analytics|
+|[Data partitioning guidance](../best-practices/data-partitioning.yml)|View guidance for how to separate data partitions to be managed and accessed separately. Understand horizontal, vertical, and functional partitioning strategies. | Databases|
+|[Non-relational data and NoSQL](../data-guide/big-data/non-relational-data.yml)|Learn about non-relational databases that store data as key/value pairs, graphs, time series, objects, and other storage models, based on data requirements.| Databases|
+|[Real time processing](../data-guide/big-data/real-time-processing.yml)|Use real-time processing solutions to capture data streams and generate reports or automated responses with minimal latency.| Analytics|
+|[Time series data](../data-guide/scenarios/time-series.yml)|Analyze time series data like sensor data, stock prices, click stream data, or app telemetry for historical trends, real-time alerts, or predictive modeling.| Databases|
 
 #### Apache Hive
 
@@ -94,43 +94,43 @@ apache note
 |[Batch processing](../data-guide/big-data/batch-processing.yml)|| Analytics|
 |[Big data architectures](../data-guide/big-data/index.yml)|| Databases|
 |[Campaign optimization with HDInsight Spark](../solution-ideas/articles/campaign-optimization-with-azure-hdinsight-spark-clusters.yml)|| Databases|
-|[Choose a batch processing technology](../data-guide/technology-choices/batch-processing.md)|| Analytics|
+|[Choose a batch processing technology](../data-guide/technology-choices/batch-processing.md)|Compare technology choices for big data batch processing in Azure, including key selection criteria and a capability matrix.| Analytics|
 |[Choose an analytical data store](../data-guide/technology-choices/analytical-data-stores.md)|| Analytics|
-|[Data warehousing in Microsoft Azure](../data-guide/relational-data/data-warehousing.yml)|| Databases|
+|[Data warehousing in Microsoft Azure](../data-guide/relational-data/data-warehousing.yml)|Learn about data warehousing in Azure. A data warehouse is a repository of integrated data from disparate sources used for reporting and analysis of the data.| Databases|
 |[Extract, transform, and load (ETL)](../data-guide/relational-data/etl.yml)|| Databases|
 |[Extract, transform, and load (ETL) using HDInsight](../solution-ideas/articles/extract-transform-and-load-using-hdinsight.yml)|| Analytics|
 |[Interactive querying with HDInsight](../solution-ideas/articles/interactive-querying-with-hdinsight.yml)|| Databases|
 |[Loan charge-off prediction with HDInsight Spark clusters](../solution-ideas/articles/loan-chargeoff-prediction-with-azure-hdinsight-spark-clusters.yml)|| Analytics|
-|[Predictive aircraft engine monitoring](../solution-ideas/articles/aircraft-engine-monitoring-for-predictive-maintenance-in-aerospace.yml)|| Analytics|
+|[Predictive aircraft engine monitoring](../solution-ideas/articles/aircraft-engine-monitoring-for-predictive-maintenance-in-aerospace.yml)|Demonstrates how to combine real-time aircraft data with analytics to create a solution for predictive aircraft engine monitoring and health.| Analytics|
 |[Predictive insights with vehicle telematics](../solution-ideas/articles/predictive-insights-with-vehicle-telematics.yml)|| Analytics|
-|[Predictive maintenance](../solution-ideas/articles/predictive-maintenance.yml)|| Analytics|
+|[Predictive maintenance](../solution-ideas/articles/predictive-maintenance.yml)|Car dealerships, manufacturers, and insurance companies can use Microsoft Azure to gain predictive insights on vehicle health and driving habits.| Analytics|
 |[Real time processing](../data-guide/big-data/real-time-processing.yml)|| Analytics|
-|[Scale AI and machine learning initiatives in regulated industries](../example-scenario/ai/scale-ai-and-machine-learning-in-regulated-industries.yml)|| AI|
+|[Scale AI and machine learning initiatives in regulated industries](../example-scenario/ai/scale-ai-and-machine-learning-in-regulated-industries.yml)|Learn about scaling Azure AI and machine learning environments that must comply with extensive security policies.| AI|
 
 #### Apache JMeter
 
 |Azrchitecture|Summary|Technology focus|
 |--|--|--|
-|[Banking system cloud transformation on Azure](../example-scenario/banking/banking-system-cloud-transformation.yml)||Migration|
-|[JMeter implementation for a load testing pipeline](../example-scenario/banking/jmeter-load-testing-pipeline-implementation-reference.yml)||Migration|
-[Patterns and implementations for a banking cloud transformation](../example-scenario/banking/patterns-and-implementations.yml)||Migration|
-[Scalable cloud applications and SRE](../example-scenario/apps/scalable-apps-performance-modeling-site-reliability.yml)||Web|
-|[Unified logging for microservices apps](../example-scenario/logging/unified-logging.yml)||Microservices|
+|[Banking system cloud transformation on Azure](../example-scenario/banking/banking-system-cloud-transformation.yml)|Use simulated and actual applications and existing workloads to monitor the reaction of the solution infrastructure for scalability and performance.|Migration|
+|[JMeter implementation for a load testing pipeline](../example-scenario/banking/jmeter-load-testing-pipeline-implementation-reference.yml)|This article provides an overview of an implementation for a scalable cloud load testing pipeline.|Migration|
+[Patterns and implementations for a banking cloud transformation](../example-scenario/banking/patterns-and-implementations.yml)|Details about the patterns and implementations used when the commercial software engineer team created the banking system cloud transformation solution.|Migration|
+[Scalable cloud applications and SRE](../example-scenario/apps/scalable-apps-performance-modeling-site-reliability.yml)|Build scalable cloud applications by using performance modeling and other principles and practices of site reliability engineering (SRE).|Web|
+|[Unified logging for microservices apps](../example-scenario/logging/unified-logging.yml)|Learn about logging, tracing, and monitoring for microservices apps and learn how to run synthetic logging for testing and create structured logs for analysis.|Microservices|
 
 #### Apache Kafka
  
 |Azrchitecture|Summary|Technology focus|
 |--|--|--|
-|[Anomaly detector process](../solution-ideas/articles/anomaly-detector-process.yml)||Analytics|
-|[Application data protection for AKS workloads on Azure NetApp Files](../example-scenario/file-storage/data-protection-kubernetes-astra-azure-netapp-files.yml)||Containers|
-|[Asynchronous messaging options](../guide/technology-choices/messaging)||Integration|
-|[Automated guided vehicles fleet control](../example-scenario/iot/automated-guided-vehicles-fleet-control.yml)||Web|
-|[Azure Data Explorer interactive analytics](../solution-ideas/articles/interactive-azure-data-explorer.yml)||Analytics|
-|[Azure Data Explorer monitoring](../solution-ideas/articles/monitor-azure-data-explorer.yml)||Analytics|
+|[Anomaly detector process](../solution-ideas/articles/anomaly-detector-process.yml)|Learn about Anomaly Detector and see how anomaly detection models are selected with time-series data.|Analytics|
+|[Application data protection for AKS workloads on Azure NetApp Files](../example-scenario/file-storage/data-protection-kubernetes-astra-azure-netapp-files.yml)|Deploy Astra Control Service with Azure NetApp Files for data protection, disaster recovery, and mobility for Azure Kubernetes Service (AKS) applications.|Containers|
+|[Asynchronous messaging options](../guide/technology-choices/messaging.yml)|Learn about asynchronous messaging options in Azure, including the different types of messages and the entities that participate in a messaging infrastructure.|Integration|
+|[Automated guided vehicles fleet control](../example-scenario/iot/automated-guided-vehicles-fleet-control.yml)|This example architecture shows an end-to-end approach for an automotive original equipment manufacturer (OEM) and includes a reference architecture and several published supporting open-source libraries that can be reused.|Web|
+|[Azure Data Explorer interactive analytics](../solution-ideas/articles/interactive-azure-data-explorer.yml)|Use interactive analytics in Azure Data Explorer. Examine structured, semi-structured, and unstructured data with improvised, interactive, and fast queries.|Analytics|
+|[Azure Data Explorer monitoring](../solution-ideas/articles/monitor-azure-data-explorer.yml)|Use Azure Data Explorer in a hybrid monitoring solution that includes Microsoft Sentinel and Azure Monitor to ingest streamed and batched logs from diverse sources.|Analytics|
 |[Banking system cloud transformation on Azure](../example-scenario/banking/banking-system-cloud-transformation.yml)||Containers|
-|[Choose a real-time message ingestion technology](../data-guide/technology-choices/real-time-ingestion.md)||Databases|
-|[Choose a stream processing technology](../data-guide/technology-choices/stream-processing.md)||Analytics|
-|[Claim-Check pattern](../patterns/claim-check)||Integration|
+|[Choose a real-time message ingestion technology](../data-guide/technology-choices/real-time-ingestion.md)|Choose an Azure message ingestion store to support message buffering, scale-out processing, reliable delivery, and queuing semantics.|Databases|
+|[Choose a stream processing technology](../data-guide/technology-choices/stream-processing.md)|Compare options for real-time message stream processing in Azure, with key selection criteria and a capability matrix.|Analytics|
+|[Claim-Check pattern](../patterns/claim-check.yml)||Integration|
 |[Data streaming with AKS](../solution-ideas/articles/data-streaming-scenario.yml)||Containers|
 |[Extract actionable insights from IoT data](../industries/manufacturing/extract-insights-iot-data.yml)||Serverless|
 |[Ingestion, ETL, and stream processing pipelines with Azure Databricks](../solution-ideas/articles/ingest-etl-stream-with-adb.yml)||Analytics|
@@ -141,7 +141,7 @@ apache note
 |[Mainframe and midrange data replication to Azure using Qlik](../example-scenario/mainframe/mainframe-midrange-data-replication-azure-qlik.yml)||Mainframe|
 |[Partitioning in Event Hubs and Kafka](../reference-architectures/event-hubs/partitioning-in-event-hubs-and-kafka.yml)||Analytics|
 |[Patterns and implementations for a banking cloud transformation](../example-scenario/banking/patterns-and-implementations.yml)||Serverless|
-|[Publisher-Subscriber pattern](../patterns/publisher-subscriber)||Integration|
+|[Publisher-Subscriber pattern](../patterns/publisher-subscriber.yml)||Integration|
 |[Rate Limiting pattern](../patterns/rate-limiting-pattern.yml)||Integration|
 |[Real time processing](../data-guide/big-data/real-time-processing.yml)||Databases|
 |[Refactor mainframe applications with Advanced](../example-scenario/mainframe/refactor-mainframe-applications-advanced.yml)||Mainframe|
@@ -153,7 +153,7 @@ apache note
 
 |Azrchitecture|Summary|Technology focus|
 |--|--|--|
-|[Asynchronous messaging options](../guide/technology-choices/messaging)||Integration|
+|[Asynchronous messaging options](../guide/technology-choices/messaging.yml)||Integration|
 |[Big data architectures](../data-guide/big-data/index.yml)||Databases|
 |[Choose a batch processing technology](../data-guide/technology-choices/batch-processing.md)||Analytics|
 |[Extract, transform, and load (ETL) using HDInsight](../solution-ideas/articles/extract-transform-and-load-using-hdinsight.yml)||Analytics|
@@ -303,7 +303,7 @@ apache note
 |[Banking system cloud transformation on Azure](../example-scenario/banking/banking-system-cloud-transformation.yml)||Migration|
 |[Baseline architecture for an AKS cluster](../reference-architectures/containers/aks/secure-baseline-aks.yml)||Containers|
 |[Build CNCF projects by using Azure Kubernetes Service](../example-scenario/apps/build-cncf-incubated-graduated-projects-aks.yml)||Containers|
-|[CI/CD pipeline for container-based workloads](../example-scenario/apps/devops-with-aks)||Containers|
+|[CI/CD pipeline for container-based workloads](../example-scenario/apps/devops-with-aks.yml)||Containers|
 |[Container CI/CD using Jenkins and Kubernetes on AKS](../solution-ideas/articles/container-cicd-using-jenkins-and-kubernetes-on-azure-container-service.yml)||DevOps|
 |[Content Delivery Network analytics](../solution-ideas/articles/content-delivery-network-azure-data-explorer.yml)||Analytics|
 |[Enterprise monitoring with Azure Monitor](../example-scenario/monitoring/enterprise-monitoring.yml)||DevOps|
@@ -640,8 +640,242 @@ apache note
 
 ### Astadia
 
-    -   [Unisys Dorado mainframe migration to Azure with Astadia & Micro
-        > Focus](/azure/architecture/example-scenario/mainframe/migrate-unisys-dorado-mainframe-apps-with-astadia-micro-focus) (Mainframe)
+|Azrchitecture|Summary|Technology focus|
+|--|--|--|
+|[Unisys Dorado mainframe migration to Azure with Astadia & Micro Focus](/azure/architecture/example-scenario/mainframe/migrate-unisys-dorado-mainframe-apps-with-astadia-micro-focus)||Mainframe|
+
+### CluedIn
+
+|Azrchitecture|Summary|Technology focus|
+|--|--|--|
+|[Master Data Management with Azure and CluedIn](/azure/architecture/reference-architectures/data/cluedin)||Databases|
+|[Migrate master data services to Azure with CluedIn and Azure Purview](/azure/architecture/reference-architectures/data/migrate-master-data-services-with-cluedin)||Databases|
+
+### Confluent
+
+|Azrchitecture|Summary|Technology focus|
+|--|--|--|
+|[Banking system cloud transformation on Azure](/azure/architecture/example-scenario/banking/banking-system-cloud-transformation)||Migration|
+|[Partitioning in Event Hubs and Kafka](/azure/architecture/reference-architectures/event-hubs/partitioning-in-event-hubs-and-kafka)||Analytics|
+|[Real time processing](/azure/architecture/data-guide/big-data/real-time-processing)||Databases|
+
+### Couchbase
+
+|Azrchitecture|Summary|Technology focus|
+|--|--|--|
+|[High availability in Azure public MEC](/azure/architecture/example-scenario/hybrid/multi-access-edge-compute-ha)||Hybrid|
+
+### Double-Take
+
+|Azrchitecture|Summary|Technology focus|
+|--|--|--|
+|[SMB disaster recovery with Azure Site Recovery](/azure/architecture/solution-ideas/articles/disaster-recovery-smb-azure-site-recovery)||Management|
+|[SMB disaster recovery with Double-Take DR](/azure/architecture/solution-ideas/articles/disaster-recovery-smb-double-take-dr)||Management|
+
+### Episerver
+
+|Azrchitecture|Summary|Technology focus|
+|--|--|--|
+|[Scalable Episerver marketing website](/azure/architecture/solution-ideas/articles/digital-marketing-episerver)||Web|
+
+### Gremlin
+
+|Azrchitecture|Summary|Technology focus|
+|--|--|--|
+|[Build web and mobile applications](/azure/architecture/solution-ideas/articles/webapps)||Web|
+|[Stream processing with fully managed open-source data engines](/azure/architecture/example-scenario/data/open-source-data-engine-stream-processing)||Analytics|
+
+### Initinite i
+
+|Azrchitecture|Summary|Technology focus|
+|--|--|--|
+|[IBM System i (AS/400) to Azure using Infinite i](/azure/architecture/example-scenario/mainframe/ibm-system-i-azure-infinite-i)||Mainframe|
+
+### LzLabs
+
+|Azrchitecture|Summary|Technology focus|
+|--|--|--|
+|[Use LzLabs Software Defined Mainframe (SDM) in an Azure VM deployment](/azure/architecture/example-scenario/mainframe/lzlabs-software-defined-mainframe-in-azure)||Mainframe|
+
+### Micro Focus
+
+|Azrchitecture|Summary|Technology focus|
+|--|--|--|
+|[Micro Focus Enterprise Server on Azure VMs](/azure/architecture/example-scenario/mainframe/micro-focus-server)||Mainframe|
+|[Unisys Dorado mainframe migration to Azure with Astadia & Micro Focus](/azure/architecture/example-scenario/mainframe/migrate-unisys-dorado-mainframe-apps-with-astadia-micro-focus)||Mainframe|
+
+
+### MongoDB
+
+|Azrchitecture|Summary|Technology focus|
+|--|--|--|
+|[Advanced Azure Kubernetes Service (AKS) microservices architecture](/azure/architecture/reference-architectures/containers/aks-microservices/aks-microservices-advanced)||Containers|
+|[Application data protection for AKS workloads on Azure NetApp Files](/azure/architecture/example-scenario/file-storage/data-protection-kubernetes-astra-azure-netapp-files)||Containers|
+|[Core startup stack architecture](/azure/architecture/example-scenario/startups/core-startup-stack)||Startup|
+|[COVID-19 safe solutions with IoT Edge](/azure/architecture/solution-ideas/articles/cctv-iot-edge-for-covid-19-safe-environment-and-mask-detection)||IoT|
+|[Data considerations for microservices](/azure/architecture/microservices/design/data-considerations)||Microservices|
+|[High availability in Azure public MEC](/azure/architecture/example-scenario/hybrid/multi-access-edge-compute-ha)||Hybrid|
+|[Scalable web application](/azure/architecture/reference-architectures/app-service-web-app/scalable-web-app)||Web|
+|[Stream processing with fully managed open-source data engines](/azure/architecture/example-scenario/data/open-source-data-engine-stream-processing)||Analytics|
+|[Virtual network integrated serverless microservices](/azure/architecture/example-scenario/integrated-multiservices/virtual-network-integration)||Security|
+
+### NetApp
+
+|Azrchitecture|Summary|Technology focus|
+|--|--|--|
+|[AIX UNIX on-premises to Azure Linux migration](/azure/architecture/example-scenario/unix-migration/migrate-aix-azure-linux)||Mainframe|
+|[Application data protection for AKS workloads on Azure NetApp Files](/azure/architecture/example-scenario/file-storage/data-protection-kubernetes-astra-azure-netapp-files)||Storage|
+|[SAP workload development and test settings](/azure/architecture/example-scenario/apps/sap-dev-test)||SAP|
+|[Enterprise file shares with disaster recovery](/azure/architecture/example-scenario/file-storage/enterprise-file-shares-disaster-recovery)||Storage|
+|[FSLogix for the enterprise](/azure/architecture/example-scenario/wvd/windows-virtual-desktop-fslogix)||Hybrid|
+|[General mainframe refactor to Azure](/azure/architecture/example-scenario/mainframe/general-mainframe-refactor)||Mainframe|
+|[Moodle deployment with Azure NetApp Files](/azure/architecture/example-scenario/file-storage/moodle-azure-netapp-files)||Storage|
+|[Multiple forests with AD DS and Azure AD](/azure/architecture/example-scenario/wvd/multi-forest)||Virtual Desktop|
+|[Oracle Database with Azure NetApp Files](/azure/architecture/example-scenario/file-storage/oracle-azure-netapp-files)||Storage|
+|[Refactor mainframe computer systems that run Adabas & Natural](/azure/architecture/example-scenario/mainframe/refactor-adabas-aks)||Mainframe|
+|[Run SAP BW/4HANA with Linux VMs](/azure/architecture/reference-architectures/sap/run-sap-bw4hana-with-linux-virtual-machines)||SAP|
+|[SAP deployment in Azure using an Oracle database](/azure/architecture/example-scenario/apps/sap-production)||SAP|
+|[SAP HANA for Linux VMs in scale-up systems](/azure/architecture/reference-architectures/sap/run-sap-hana-for-linux-virtual-machines)||SAP|
+|[SAP S/4HANA in Linux on Azure](/azure/architecture/reference-architectures/sap/sap-s4hana)||SAP|
+|[SAP system on Oracle Database on Azure](/azure/architecture/example-scenario/apps/sap-on-oracle)||SAP|
+|[SAS on Azure architecture](/azure/architecture/guide/sas/sas-overview)||Compute|
+|[SQL Server on Azure Virtual Machines with Azure NetApp Files](/azure/architecture/example-scenario/file-storage/sql-server-azure-netapp-files)||Storage|
+
+### Oracle
+
+|Azrchitecture|Summary|Technology focus|
+|--|--|--|
+|[Master data management with Azure and CluedIn](/azure/architecture/reference-architectures/data/cluedin)||Databases|
+|[Migrate IBM mainframe apps to Azure with TmaxSoft OpenFrame](/azure/architecture/solution-ideas/articles/migrate-mainframe-apps-with-tmaxsoft-openframe)||Mainframe|
+|[Oracle database migration to Azure](/azure/architecture/solution-ideas/articles/reference-architecture-for-oracle-database-migration-to-azure)||Oracle|
+|[Oracle database migration: Cross-cloud connectivity](/azure/architecture/example-scenario/oracle-migrate/oracle-migration-cross-cloud)||Oracle|
+|[Oracle database migration: Lift and shift](/azure/architecture/example-scenario/oracle-migrate/oracle-migration-lift-shift)||Oracle|
+|[Oracle database migration: Refactor](/azure/architecture/example-scenario/oracle-migrate/oracle-migration-refactor)||Oracle|
+ |[Oracle database migration: Rearchitect](/azure/architecture/example-scenario/oracle-migrate/oracle-migration-rearchitect)||Oracle|
+|[Oracle Database with Azure NetApp Files](/azure/architecture/example-scenario/file-storage/oracle-azure-netapp-files)||Storage|
+|[Overview of Oracle database migration](/azure/architecture/example-scenario/oracle-migrate/oracle-migration-overview)||Oracle|
+|[Refactor mainframe applications with Advanced](/azure/architecture/example-scenario/mainframe/refactor-mainframe-applications-advanced)||Mainframe|
+|[Run Oracle databases on Azure](/azure/architecture/solution-ideas/articles/reference-architecture-for-oracle-database-on-azure)||Oracle|
+|[Run SAP NetWeaver in Windows on Azure](/azure/architecture/reference-architectures/sap/sap-netweaver)||SAP|
+|[SAP deployment on Azure using an Oracle database](/azure/architecture/example-scenario/apps/sap-production)||Oracle|
+|[SAP system on Oracle Database on Azure](/azure/architecture/example-scenario/apps/sap-on-oracle)||Oracle|
+|[Security considerations for highly sensitive IaaS apps in Azure](/azure/architecture/reference-architectures/n-tier/high-security-iaas)||Security|
+|[SWIFT\'s Alliance Access in Azure](/azure/architecture/example-scenario/finance/swift-alliance-access-on-azure)||Networking|
+|[SWIFT\'s Alliance Access with Alliance Connect Virtual in Azure](/azure/architecture/example-scenario/finance/swift-alliance-access-vsrx-on-azure)||Networking|
+|[SWIFT\'s Alliance Messaging Hub (AMH) with Alliance Connect Virtual](/azure/architecture/example-scenario/finance/swift-alliance-messaging-hub-vsrx)||Networking|
+
+### Postman
+
+|Azrchitecture|Summary|Technology focus|
+|--|--|--|
+|[Design APIs for microservices](/azure/architecture/microservices/design/api-design)||Microservices|
+|[Gridwich local development environment setup](/azure/architecture/reference-architectures/media-services/set-up-local-environment)||Media|
+|[Unified logging for microservices apps](/azure/architecture/example-scenario/logging/unified-logging)||Microservices|
+
+### Profisee
+
+|Azrchitecture|Summary|Technology focus|
+|--|--|--|
+|[Data governance with Profisee and Azure Purview](/azure/architecture/reference-architectures/data/profisee-master-data-management-purview)||Databases|
+|[Master data management with Profisee and Azure Data Factory](/azure/architecture/reference-architectures/data/profisee-master-data-management-data-factory)||Databases|
+
+### Qlik
+
+|Azrchitecture|Summary|Technology focus|
+|--|--|--|
+|[Mainframe and midrange data replication to Azure using Qlik](/azure/architecture/example-scenario/mainframe/mainframe-midrange-data-replication-azure-qlik)||Mainframe|
+
+### Raincode
+
+|Azrchitecture|Summary|Technology focus|
+|--|--|--|
+|[Refactor mainframe applications to Azure with Raincode compilers](/azure/architecture/reference-architectures/app-modernization/raincode-reference-architecture)||Mainframe|
+
+### SAP
+
+|Azrchitecture|Summary|Technology focus|
+|--|--|--|
+|[Add a mobile front end to a legacy app](/azure/architecture/solution-ideas/articles/adding-a-modern-web-and-mobile-frontend-to-a-legacy-claims-processing-application)||Mobile|
+|[Custom mobile workforce app](/azure/architecture/solution-ideas/articles/custom-mobile-workforce-app)||Mobile|
+|[Development and test environments for SAP workloads on Azure](/azure/architecture/example-scenario/apps/sap-dev-test)||SAP|
+|[Master data management with Azure and CluedIn](/azure/architecture/reference-architectures/data/cluedin)||Databases|
+|[Multi-tier web application built for HA/DR](/azure/architecture/example-scenario/infrastructure/multi-tier-app-disaster-recovery)||Networking|
+|[Run SAP BW/4HANA with Linux VMs](/azure/architecture/reference-architectures/sap/run-sap-bw4hana-with-linux-virtual-machines)||SAP|
+|[Run SAP HANA for Linux VMs in scale-up systems](/azure/architecture/reference-architectures/sap/run-sap-hana-for-linux-virtual-machines)||SAP|
+|[Run SAP HANA Large Instances](/azure/architecture/reference-architectures/sap/hana-large-instances)||SAP|
+|[Run SAP NetWeaver in Windows on Azure](/azure/architecture/reference-architectures/sap/sap-netweaver)||SAP|
+|[SAP deployment on Azure using an Oracle database](/azure/architecture/example-scenario/apps/sap-production)||SAP|
+|[SAP on Azure architecture design](/azure/architecture/reference-architectures/sap/sap-overview)||SAP|
+|[SAP NetWeaver on SQL Server](/azure/architecture/solution-ideas/articles/sap-netweaver-on-sql-server)||SAP|
+|[SAP S/4 HANA for Large Instances](/azure/architecture/solution-ideas/articles/sap-s4-hana-on-hli-with-ha-and-dr)||SAP|
+|[SAP S/4HANA in Linux on Azure](/azure/architecture/reference-architectures/sap/sap-s4hana)||SAP|
+|[SAP system on Oracle Database on Azure](/azure/architecture/example-scenario/apps/sap-on-oracle)||SAP|
+|[SAP workload automation using SUSE on Azure](/azure/architecture/solution-ideas/articles/sap-workload-automation-suse)||SAP|
+
+### SAS
+
+|Azrchitecture|Summary|Technology focus|
+|--|--|--|
+|[SAS on Azure architecture](/azure/architecture/guide/sas/sas-overview)||Compute|
+
+### Sitecore
+
+|Azrchitecture|Summary|Technology focus|
+|--|--|--|
+|[Scalable Sitecore marketing website](/azure/architecture/solution-ideas/articles/digital-marketing-sitecore)||Web|
+
+### Skytap
+
+|Azrchitecture|Summary|Technology focus|
+|--|--|--|
+|[Migrate AIX workloads to Skytap on Azure](/azure/architecture/example-scenario/mainframe/migrate-aix-workloads-to-skytap)||Mainframe|
+|[Migrate IBM i series to Azure with Skytap](/azure/architecture/example-scenario/mainframe/migrate-ibm-i-series-to-azure-with-skytap)||Mainframe|
+
+### Software AG
+
+|Azrchitecture|Summary|Technology focus|
+|--|--|--|
+|[Refactor mainframe computer systems that run Adabas & Natural](/azure/architecture/example-scenario/mainframe/refactor-adabas-aks)||Mainframe|
+
+### Stromasys
+
+|Azrchitecture|Summary|Technology focus|
+|--|--|--|
+|[Stromasys Charon-SSP Solaris emulator on Azure VMs](/azure/architecture/solution-ideas/articles/solaris-azure)||Mainframe|
+
+
+### SWIFT
+
+|Azrchitecture|Summary|Technology focus|
+|--|--|--|
+|[SWIFT\'s Alliance Access in Azure](/azure/architecture/example-scenario/finance/swift-alliance-access-on-azure)||Networking|
+|[SWIFT\'s Alliance Access with Alliance Connect Virtual in Azure](/azure/architecture/example-scenario/finance/swift-alliance-access-vsrx-on-azure)||Networking|
+|[SWIFT Alliance Cloud in Azure](/azure/architecture/example-scenario/finance/swift-alliance-cloud-on-azure)||Networking|
+|[SWIFT Alliance Connect in Azure](/azure/architecture/example-scenario/finance/swift-on-azure-srx)||Security|
+|[SWIFT Alliance Connect Virtual in Azure](/azure/architecture/example-scenario/finance/swift-on-azure-vsrx)||Security|
+|[SWIFT Alliance Lite2 on Azure](/azure/architecture/example-scenario/finance/swift-alliance-lite2-on-azure)||Networking|
+|[SWIFT\'s Alliance Messaging Hub (AMH) with Alliance Connect](/azure/architecture/example-scenario/finance/swift-alliance-messaging-hub)||Networking|
+|[SWIFT\'s Alliance Messaging Hub (AMH) with Alliance Connect Virtual](/azure/architecture/example-scenario/finance/swift-alliance-messaging-hub-vsrx)||Networking|
+
+### Syncier
+
+|Azrchitecture|Summary|Technology focus|
+|--|--|--|
+|[GitOps for Azure Kubernetes Service](/azure/architecture/example-scenario/gitops-aks/gitops-blueprint-aks)||Containers|
+
+### TmaxSoft
+
+|Azrchitecture|Summary|Technology focus|
+|--|--|--|
+|[Migrate IBM mainframe apps to Azure with TmaxSoft OpenFrame](/azure/architecture/solution-ideas/articles/migrate-mainframe-apps-with-tmaxsoft-openframe)||Mainframe|
+
+### Unisys
+
+|Azrchitecture|Summary|Technology focus|
+|--|--|--|
+|[Unisys ClearPath Forward mainframe rehost to Azure using Unisys virtualization](/azure/architecture/example-scenario/mainframe/unisys-clearpath-forward-mainframe-rehost)||Mainframe|
+|[Unisys Dorado mainframe migration to Azure with Astadia and Micro Focus](/azure/architecture/example-scenario/mainframe/migrate-unisys-dorado-mainframe-apps-with-astadia-micro-focus)||Mainframe|
+|[Unisys mainframe migration with Asysco](/azure/architecture/reference-architectures/migration/unisys-mainframe-migration)||Mainframe|
 
 ## Related resources
 
