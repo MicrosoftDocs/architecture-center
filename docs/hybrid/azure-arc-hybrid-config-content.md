@@ -99,7 +99,7 @@ You can use [Microsoft Sentinel](/azure/sentinel/overview) to deliver intelligen
 The Connected Machine agent for Linux and Windows communicates outbound securely to Azure Arc over TCP port **443**. If the machine connects through a firewall or proxy server to communicate over the internet, review the required URLs and service tags found on the Azure Arc Agent [Networking configuration][networking configuration] page.
 
 
-**TODO:** - align RA "considerations" sections w/WAF "pillars" (Reliability, Security, Cost Optimization, Operational excellence, Performance efficiency). Also note the RA Performance and Scalability considerations sections are missing below.
+**TODO:** align the following RA "considerations" sections w/WAF "pillars" (Reliability, Security, Cost Optimization, Operational excellence, Performance efficiency). Also note the RA Performance and Scalability considerations sections are missing below.
 
 ## Availability considerations
 
