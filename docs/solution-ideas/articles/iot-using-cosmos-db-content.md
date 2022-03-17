@@ -6,9 +6,9 @@ This article describes an internet-of-things (IoT) workload that features the Az
 - Has wire protocol–compatible API endpoints for Cassandra, MongoDB, SQL, Gremlin, etcd, and table databases.
 - Has built-in support for Jupyter Notebook files.
 
-Azure Cosmos DB is a multi-model database with global distribution and horizontal scale at its core. Global distribution across Azure regions transparently scales and replicates data. You can elastically scale throughput and storage worldwide, and pay only for the throughput and storage you need to use.
+Azure Cosmos DB is a multi-model database with global distribution and horizontal scale at its core. Global distribution across Azure regions transparently scales and replicates data. You can elastically scale throughput and storage worldwide, and pay only for the throughput and storage you need to use. Azure Cosmos DB can scale instantly and elastically to accommodate diverse and unpredictable IoT workloads, without sacrificing ingestion or query performance.
 
-Azure Cosmos DB can scale instantly and elastically to accommodate diverse and unpredictable IoT workloads, without sacrificing ingestion or query performance.
+In this solution, Azure Cosmos DB stores messages from IoT devices. The Azure Cosmos DB change feed feature triggers an Azure Functions function whenever a new or updated device message arrives. The function determines whether the message contents require a device action, and if so, connects to Azure IoT Hub to initiate the device action.
 
 ## Architecture
 
