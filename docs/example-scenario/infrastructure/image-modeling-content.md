@@ -2,7 +2,7 @@
 
 This example scenario provides architecture and design guidance for any organization that wants to perform image-based modeling on Azure infrastructure-as-a-service (IaaS). The scenario is designed for running photogrammetry software on Azure Virtual Machines (VMs) using high-performance storage that accelerates processing time. The environment can be scaled up and down as needed and supports terabytes of storage without sacrificing performance.
 
-## Relevant use cases
+## Potential use cases
 
 Relevant use cases include:
 
@@ -19,6 +19,8 @@ The concepts in this article apply to any high-performance computing (HPC) workl
 This architecture also includes Active Directory domain controllers to control access to Azure resources and provide internal name resolution through the Domain Name System (DNS). Jump boxes provide administrator access to the Windows and Linux VMs that run the solution.
 
 ![architecture diagram](./media/architecture-image-modeling.png)
+
+### Workflow
 
 1. User submits a number of images to PhotoScan.
 2. The PhotoScan Scheduler runs on a Windows VM that serves as the head node and directs processing of the user's images.
@@ -89,16 +91,16 @@ The following sample cost profile in the [Azure pricing calculator](https://azur
 
 For details about this architecture, see the [e-book](https://azure.microsoft.com/resources/deploy-agisoft-photoscan-on-azure-with-azere-vfxt-for-azure-or-beegfs/). To see how the pricing would change for your particular use case, choose different VM sizes in the pricing calculator to match your expected deployment.
 
-## Deployment
+## Deploy this scenario
 
 For step-by-step instructions for deploying this architecture, including all the prerequisites for using either Avere FxT or BeeGFS, download the e-book [Deploy Agisoft PhotoScan on Azure With Avere vFXT for Azure or BeeGFS](https://azure.microsoft.com/resources/deploy-agisoft-photoscan-on-azure-with-azere-vfxt-for-azure-or-beegfs/).
 
-## Related resources
+## Next steps
 
 The following resources will provide more information on the components used in this scenario, along with alternative approaches for batch computing on Azure.
 
 - Overview of [Avere vFXT for Azure](/azure/avere-vfxt/avere-vfxt-overview)
-- [Agisoft PhotoScan](https://www.agisoft.com/) home page
+- [Agisoft PhotoScan](https://www.agisoft.com) home page
 - [Azure Storage Performance and Scalability Checklist](/azure/storage/common/storage-performance-checklist)
 - [Parallel Virtual File Systems on Microsoft Azure: Performance tests of Lustre, GlusterFS, and BeeGFS](https://azure.microsoft.com/mediahandler/files/resourcefiles/parallel-virtual-file-systems-on-microsoft-azure/Parallel_Virtual_File_Systems_on_Microsoft_Azure.pdf) (PDF)
 - An example scenario for [computer-aided engineering (CAE) on Azure](../../example-scenario/apps/hpc-saas.yml)

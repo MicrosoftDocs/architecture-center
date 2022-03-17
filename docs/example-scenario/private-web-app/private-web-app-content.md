@@ -164,7 +164,10 @@ A slightly more advanced version of this scenario is available as an [Azure Reso
 
 ![Architectural diagram showing the QuickStart Template solution architecture, where a web app in one Virtual Network accesses both a SQL Database and a Storage Account in a peered Virtual Network.](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/demos/web-app-regional-vnet-private-endpoint-sql-storage/images/solution-architecture.png)
 
-## Related resources
+## Next steps
 
 - For more information on inbound and outbound scenarios for App Service, and which features to use in which cases, see the [App Service networking features overview](/azure/app-service/networking-features).
+
+## Related resources
+
 - For a highly available solution that achieves private connectivity between a web app and a SQL database, see [Multi-region web app with private connectivity to database](../sql-failover/app-service-private-sql-multi-region.yml).

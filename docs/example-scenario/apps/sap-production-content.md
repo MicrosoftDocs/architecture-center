@@ -124,7 +124,7 @@ For  SAP application part, see the details in architecture guide [Run SAP NetWea
 [![Architecture of a production SAP system on Oracle in Azure](./media/sap-oracle-avzone-disaster-recovery.png)](./media/sap-oracle-avzone-disaster-recovery.png#lightbox)
 *Figure - Architecture of a production SAP system on Oracle in Azure with AvZone and DR*
 
-Download a [Visio file](https://arch-center.azureedge.net/sap-oracle-architecture-avzone.vsdx) of this architecture.
+Download a [Visio file](https://arch-center.azureedge.net/sap-oracle-architecture-avset.vsdx) of this architecture.
 
 Every tier in the SAP application stack uses a different DR strategy.
 
@@ -137,7 +137,7 @@ When protecting a clustered environment with ASR, pre-scripted actions would nee
 **NFS tier**
 With most business critical data located within central SAP shared NFS volumes such as transport directory and sapmnt, protecting them for an interruption requiring a DR failover is crucial. Depending on the NFS architecture chosen, different solutions are possible
 - **File-based replication** With NFS tiers deployed in different regions but without direct service-driven replication, VM bound tools such as rsync can be executed on schedule to keep an asynchronous replication from source region NFS volumes to target region's NFS volumes. For Azure Files NFS, a VM in primary region (e.g. (A)SCS VM) can access an NFS volume located in another region through global vnet peering. During a DR failover situation a DNS and/or configuration switch needs to be performed to have the SAP systems in DR region connect to the DR located NFS volume(s).
-- **Azure NetApp Files** volumes can be protected with automated, asynchronous storage replication. [Cross-region replication](/azure/azure-netapp-files/cross-region-replication-introduction) is available between select region pairs. An alternative when dealing with regions not in select regions pairs is to use earlier mentioned file-based replication, requiring a VM operational in the target region with mounted NetApp NFS volume from same region, as Azure NetApp Files [does not allow cross-region access](/azure-netapp-files-network-topologies#supported-network-topologies) of NFS volumes. File-based replication is thus VM-to-VM between regions, each mounting respective regions NetApp NFS volume.
+- **Azure NetApp Files** volumes can be protected with automated, asynchronous storage replication. [Cross-region replication](/azure/azure-netapp-files/cross-region-replication-introduction) is available between select region pairs. An alternative when dealing with regions not in select regions pairs is to use earlier mentioned file-based replication, requiring a VM operational in the target region with mounted NetApp NFS volume from same region, as Azure NetApp Files [does not allow cross-region access](/azure/azure-netapp-files/azure-netapp-files-network-topologies#supported-network-topologies) of NFS volumes. File-based replication is thus VM-to-VM between regions, each mounting respective regions NetApp NFS volume.
 - **3rd party backup tools** Other vendor tooling providing file based replication between NFS volumes of any source and target.
 
 **Database tier**

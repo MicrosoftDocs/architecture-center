@@ -160,13 +160,13 @@ You must have an existing Azure account. If you do not have an Azure subscriptio
 
 3.  [Create a basic bot](/azure/bot-service/bot-builder-tutorial-create-basic-bot?view=azure-bot-service-4.0&tabs=csharp%2Cvs).
 
-4.  [Deploy the basic bot](/azure/bot-service/bot-builder-tutorial-deploy-basic-bot?view=azure-bot-service-4.0&tabs=csharp) that you created in step 3 into the resource group you created in step 1. As part of this process, you'll create an app registration, which you need to interact with the bot via channels. During this process, you'll also deploy the necessary App Service plan (Note: *Select an App Service plan that supports Private Link*), App Service, and the web app bot.
+4.  [Deploy the basic bot](/azure/bot-service/bot-builder-deploy-az-cli) that you created in step 3 into the resource group you created in step 1. As part of this process, you'll create an app registration, which you need to interact with the bot via channels. During this process, you'll also deploy the necessary App Service plan (Note: *Select an App Service plan that supports Private Link*), App Service, and the web app bot.
 
 5.  [Map a custom domain](/azure/app-service/app-service-web-tutorial-custom-domain?tabs=cname) to the App Service that was deployed to the resource group in step 3. This step requires access to your domain registrar, and it requires you to add an A-record to the custom domain pointing to the public IP of the firewall you created in step 2.
 
 6.  You need to secure the mapped custom domain by either uploading an existing certificate for the domain or purchasing an App Service Certificate in Azure and importing it. You can do this by following the steps outlined in the tutorial: [Secure a custom DNS name with a TLS/SSL binding in Azure App Service](/azure/app-service/configure-ssl-bindings).
 
-7.  You should now have a fully functional bot that you can add to a channel in Teams or test through Web Chat using the directions found in the [Bot Framework SDK documentation](/azure/bot-service/bot-builder-tutorial-deploy-basic-bot?view=azure-bot-service-4.0&tabs=csharp#test-in-web-chat).
+7.  You should now have a fully functional bot that you can add to a channel in Teams or test through Web Chat using the directions found in the [Bot Framework SDK documentation](/azure/bot-service/bot-builder-deploy-az-cli#test-in-web-chat).
 
     Note that at this point the bot's App Service is still publicly accessible over both the azurewebsites.net URL and over the custom URL you configured. In the next steps, you'll use private endpoints to disable public access. You'll also configure the firewall to only allow the bot service to communicate with Teams clients.
 
