@@ -2837,6 +2837,8 @@ items:
                         href: microservices/design/index.yml
                       - name: Choose a compute option
                         href: microservices/design/compute-options.md
+                      - name: Expose Azure Spring Cloud via a reverse proxy
+                        href: reference-architectures/microservices/spring-cloud-reverse-proxy.yml
                       - name: Interservice communication
                         href: microservices/design/interservice-communication.yml
                       - name: API design
@@ -3477,6 +3479,8 @@ items:
                 href: solution-ideas/articles/collaboration-microsoft-365.yml
       - name: Integration
         items:
+          - name: Get started
+            href: integration/integration-start-here.yml
           - name: Guides
             items:
               - name: Connectors in Azure Logic Apps
@@ -3934,8 +3938,6 @@ items:
                     href: example-scenario/banking/patterns-and-implementations.yml
                   - name: JMeter implementation reference
                     href: example-scenario/banking/jmeter-load-testing-pipeline-implementation-reference.yml
-              - name: Lift and shift LOB apps
-                href: solution-ideas/articles/modern-customer-support-portal-powered-by-an-agile-business-process.yml
               - name: Oracle database migration
                 items:
                   - name: Migration decision process
@@ -3948,6 +3950,12 @@ items:
                     href: example-scenario/oracle-migrate/oracle-migration-refactor.yml
                   - name: Rearchitect
                     href: example-scenario/oracle-migrate/oracle-migration-rearchitect.yml
+          - name: Solution ideas
+            items:
+              - name: Lift and shift LOB apps
+                href: solution-ideas/articles/modern-customer-support-portal-powered-by-an-agile-business-process.yml
+              - name: Migrate .NET applications
+                href: solution-ideas/articles/net-app-modernization.yml
       - name: Mixed Reality
         items:
           - name: Guides
