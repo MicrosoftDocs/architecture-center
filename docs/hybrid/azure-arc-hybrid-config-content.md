@@ -2,7 +2,7 @@
 
 This reference architecture illustrates how Azure Arc enables you to manage, govern, and secure servers across on-premises, multiple cloud, and edge scenarios.
 
-[![An Azure Arc hybrid server topology diagram with Arc-enabled servers connected to Azure.][architectural-diagram]]([architectural-diagram-lightbox])
+:::image type="content" source="./images/azure-arc-hybrid-config.png" alt-text="An Azure Arc hybrid server topology diagram with Arc-enabled servers connected to Azure." lightbox="./images/azure-arc-hybrid-config.png" :::
 
 *Download a [Visio file][architectural-diagram-visio-source] of this architecture.*
 
@@ -137,7 +137,6 @@ Deployment assets will come from [Jumpstart ArcBox for IT Pros](https://azurearc
 - [Overview of Azure Arc-enabled servers agent][agent-overview]
 
 [architectural-diagram]: ./images/azure-arc-hybrid-config.png
-[architectural-diagram-lightbox]: ./images/azure-arc-hybrid-config.png#lightbox
 [architectural-diagram-visio-source]: https://arch-center.azureedge.net/azure-arc-hybrid-config.vsdx
 [Azure Arc]: /azure/azure-arc/
 [Azure Arc-enabled servers]: /azure/azure-arc/servers/overview
