@@ -140,9 +140,6 @@ items:
                 maintainContext: true
           - name: Choose a networking service
             items:
-              - name: Networking options
-                href: /azure/cloud-adoption-framework/ready/considerations/networking-options
-                maintainContext: true
               - name: Load balancing options
                 href: guide/technology-choices/load-balancing-overview.yml
               - name: VNet peering and VPN gateways
@@ -1362,6 +1359,8 @@ items:
                 href: /azure/architecture/example-scenario/ai/customer-lifecycle-churn
               - name: Enterprise-grade conversational bot
                 href: /azure/architecture/reference-architectures/ai/conversational-bot
+              - name: Geospatial analysis for telecommunications
+                href: example-scenario/data/geospatial-analysis-telecommunications-industry.yml
               - name: IoT connected light, power, and internet
                 href: /azure/architecture/solution-ideas/articles/iot-power-management
               - name: IoT device connectivity for industry
@@ -1513,7 +1512,7 @@ items:
                         href: /azure/architecture/microservices/design/data-considerations
                   - name: Monitor drone delivery in production
                     href: microservices/logging-monitoring.yml
-                  - name: Performance turning for drone delivery
+                  - name: Performance tuning for drone delivery
                     items:
                       - name: Distributed business transactions
                         href: /azure/architecture/performance/distributed-transaction
@@ -1594,7 +1593,7 @@ items:
             maintainContext: true
           - name: Baseball decision analysis with ML.NET
             href: data-guide/big-data/baseball-ml-workload.yml
-      - name: IoT-specific industry example solutions
+      - name: IoT-specific industry solutions
         href: reference-architectures/iot/industry-iot-hub-page.md
   - name: Azure categories
     expanded: true
@@ -2026,6 +2025,8 @@ items:
                 href: example-scenario/data/data-warehouse.yml
               - name: Employee retention with Databricks and Kubernetes
                 href: example-scenario/ai/employee-retention-databricks-kubernetes.yml
+              - name: Geospatial analysis for telecommunications
+                href: example-scenario/data/geospatial-analysis-telecommunications-industry.yml
               - name: Geospatial data processing and analytics
                 href: example-scenario/data/geospatial-data-processing-analytics-azure.yml
               - name: High throughput stream ingestion
@@ -3923,8 +3924,7 @@ items:
           - name: Guides
             items:
               - name: Migrate an e-commerce solution to Azure
-                href: /previous-versions/azure/industry-marketing/retail/migrating-ecommerce-solution-to-azure
-                maintainContext: true
+                href: industries/retail/migrate-ecommerce-solution.md
               - name: Migrate with Azure VMware Solution
                 href: /azure/cloud-adoption-framework/scenarios/azure-vmware/migrate
                 maintainContext: true
