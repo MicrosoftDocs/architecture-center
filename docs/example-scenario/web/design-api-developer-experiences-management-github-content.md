@@ -188,12 +188,12 @@ For Azure App Service, refer to the pricing options that are available for [Wind
 - [Monetization with Azure API Management](/azure/api-management/monetization-overview)
 - [Overview of the developer portal](/azure/api-management/api-management-howto-developer-portal) in Azure API Management
 - [Self-host the API Management developer portal](/azure/api-management/developer-portal-self-host)
-- [API-first SaaS business model](../../solution-ideas/articles/aks-api-first.yml)
+- [Self-hosted gateway](/azure/api-management/self-hosted-gateway-overview)
 - [Getting started with GitHub Pages](https://docs.github.com/pages/getting-started-with-github-pages)
 
 ## Related resources
 
 - [Protect APIs with Azure Application Gateway and Azure API Management](../../reference-architectures/apis/protect-apis.yml)
 - [Highly available multi-region web app - Azure Architecture Center](../../reference-architectures/app-service-web-app/multi-region.yml)
-- [Self-hosted gateway](/azure/api-management/self-hosted-gateway-overview)
+- [API-first SaaS business model](../../solution-ideas/articles/aks-api-first.yml)
 - [Basic enterprise integration on Azure](../../reference-architectures/enterprise-integration/basic-enterprise-integration.yml)
