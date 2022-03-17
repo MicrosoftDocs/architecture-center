@@ -21,7 +21,7 @@ Typical uses for this architecture include:
 
 The architecture consists of the following components:
 
-- **[Azure Arc][Azure Arc]**. Azure Arc enables you to connect Azure to your Windows and Linux machines hosted outside of Azure on your corporate network. When a server is connected to Azure, it becomes an Arc-enabled server and is treated as a resource in Azure. Each Arc-enabled server has a Resource ID, a managed system identity, and is managed as part of a resource group inside a subscription. Arc-enabled servers benefit from standard Azure constructs such as inventory, policy, tags, and Azure Lighthouse.
+- **[Azure Arc-enabled servers][Azure Arc-enabled servers] **. Azure Arc-enabled servers enables you to connect Azure to your Windows and Linux machines hosted outside of Azure on your corporate network. When a server is connected to Azure, it becomes an Arc-enabled server and is treated as a resource in Azure. Each Arc-enabled server has a Resource ID, a managed system identity, and is managed as part of a resource group inside a subscription. Arc-enabled servers benefit from standard Azure constructs such as inventory, policy, tags, and Azure Lighthouse.
 - **[Azure Policy Guest Configuration][Azure Policy Guest Configuration]**. Azure Policy Guest Configuration can audit operating systems and machine configuration both for machines running in Azure and Arc-enabled servers running on-premises or in other clouds.
 - **[Azure Monitor][Azure Monitor]**. Azure Monitor enables you to track performance and events for systems running in Azure, on-premises, or in other clouds.
 
@@ -141,6 +141,7 @@ Deployment assets will come from [Jumpstart ArcBox for IT Pros](https://azurearc
 [architectural-diagram]: ./images/azure-arc-hybrid-config.png
 [architectural-diagram-visio-source]: https://arch-center.azureedge.net/azure-arc-hybrid-config.vsdx
 [Azure Arc]: /azure/azure-arc/
+[Azure Arc-enabled servers]: /azure/azure-arc/servers/overview
 [Azure Policy Guest Configuration]: /azure/governance/policy/concepts/guest-configuration
 [Azure Monitor]: /azure/azure-monitor/
 [Azure virtual machines]: /azure/virtual-machines/
