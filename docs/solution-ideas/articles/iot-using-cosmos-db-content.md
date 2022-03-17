@@ -11,7 +11,7 @@ Azure Cosmos DB can scale instantly and elastically to accommodate diverse and u
 
 ## Architecture
 
-![Diagram that shows the role of Azure Cosmos DB in an Azure IoT solution architecture.](../media/iot-using-cosmos-db.svg)
+![Diagram that shows the role of Azure Cosmos DB in an Azure IoT solution architecture.](../media/iot-using-cosmos-db.png)
 
 ### Data flow
 
