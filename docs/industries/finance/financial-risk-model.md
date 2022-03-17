@@ -522,7 +522,7 @@ Figure 5 - Potential future exposure for MSFT equity forward - Calculated with a
 
 _This article is being updated and maintained by Microsoft. It was originally written by the following contributors._
 
-Principal authors:
+**Principal authors:**
 
 - [Dr. Darko Mocelj](https://www.linkedin.com/in/darko-mocelj) | HPC Global Blackbelt & AI Sr. Technology Specialist
 - [Rupert Nicolay](https://www.linkedin.com/in/rupert-nicolay) | Financial Services Industry Solutions Lead
