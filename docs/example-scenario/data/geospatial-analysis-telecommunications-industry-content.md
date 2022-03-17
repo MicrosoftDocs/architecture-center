@@ -12,6 +12,8 @@ The focus of this article is to showcase a practical architecture that uses Azur
 
 ## Potential use cases
 
+This solution is ideal for the telecommunications industry, and it applies to the following scenarios:
+
 - Analyzing signal information across locations to assess network quality
 - Analyzing real-time network infrastructure data to guide maintenance and repair
 - Analyzing market segmentation and market demand
