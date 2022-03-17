@@ -113,7 +113,7 @@ The following example deploys multiple stamps of a simple PaaS solution, with an
 
 Click the link below to deploy the solution.
 
-[![Deploy to Azure](https://azuredeploy.net/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fmspnp%2Fsolution-architectures%2Fmaster%2Fapps%2Fdeployment-stamp%2Fdeployment-stamp.json)
+[![Deploy to Azure](../_images/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fmspnp%2Fsolution-architectures%2Fmaster%2Fapps%2Fdeployment-stamp%2Fdeployment-stamp.json)
 
 > [!NOTE]
 > There are alternative approaches to deploying stamps with a Resource Manager template, including using [nested templates](/azure/azure-resource-manager/resource-group-linked-templates#nested-template) or [linked templates](/azure/azure-resource-manager/resource-group-linked-templates#linked-template) to decouple the definition of each stamp from the iteration required to deploy multiple copies.
@@ -124,7 +124,7 @@ The following example deploys an implementation of a traffic routing solution th
 
 Click the link below to deploy the solution.
 
-[![Deploy to Azure](https://azuredeploy.net/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fmspnp%2Fsolution-architectures%2Fmaster%2Fapps%2Fdeployment-stamp%2Ftraffic-routing.json)
+[![Deploy to Azure](../../_images/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fmspnp%2Fsolution-architectures%2Fmaster%2Fapps%2Fdeployment-stamp%2Ftraffic-routing.json)
 
 ## Related guidance
 
