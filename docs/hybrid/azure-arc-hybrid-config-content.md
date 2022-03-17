@@ -4,6 +4,8 @@ This reference architecture illustrates how Azure Arc enables you to manage, gov
 
 ![An Azure Arc hybrid server topology diagram with Arc-enabled servers connected to Azure.][architectural-diagram]
 
+:::image type="content" source="[architectural-diagram]" alt-text="An Azure Arc hybrid server topology diagram with Arc-enabled servers connected to Azure." lightbox="[architectural-diagram]" :::
+
 *Download a [Visio file][architectural-diagram-visio-source] of this architecture.*
 
 **TODO** - update Visio file (https://arch-center.azureedge.net/azure-arc-hybrid-config.vsdx) to reflect revised Jumpstart ArcBox for IT Pros image 
