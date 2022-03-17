@@ -15,7 +15,7 @@ metadata:
     - fcp
     - reference-architecture
     - e2e-hybrid
-name: Manage configurations for Azure Arc enabled servers
+name: Manage configurations for Azure Arc-enabled servers
 azureCategories:
   - hybrid
   - management-and-governance
