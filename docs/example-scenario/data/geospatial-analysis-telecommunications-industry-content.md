@@ -22,7 +22,7 @@ This solution is ideal for the telecommunications industry, and it applies to th
 
 ## Architecture
 
-:::image type="content" border="false" source="media/geospatial-analysis-telecommunications-industry.png" alt-text="Diagram that shows an architecture that provides a practical and manageable solution for the telecommunications industry. It uses Azure Cloud Services to process large volumes of geospatial data." lightbox="media/geospatial-analysis-telecommunications-industry.png":::
+:::image type="content" border="false" source="media/geospatial-analysis-telecommunications-industry.png" alt-text="Diagram for an architecture that uses Azure Cloud Services to process large volumes of geospatial data." lightbox="media/geospatial-analysis-telecommunications-industry.png":::
 
 *Download a [Visio file](https://arch-center.azureedge.net/US-1925417-geospatial-analysis-telecommunications-industry.vsdx) of this architecture.*
 
