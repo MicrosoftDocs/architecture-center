@@ -13,7 +13,7 @@ You can use this solution to make it easy for API developers to:
 
 ## Architecture
 
-:::image type="content" alt-text="Diagram of the components of this architecture and the workflow through the internet portals and Azure services that constitute the solution, including Azure AD B2C, Azure API Management, the API gateway, and line-of-business services." source="media/design-api-developer-experiences-management-github-architecture.png" lightbox="media/design-api-developer-experiences-management-github-architecture.png":::
+:::image type="content" alt-text="Diagram of the components of this architecture and the workflow through the internet portals and Azure services that constitute the solution, including Azure A D  B 2 C, Azure A P I Management, the A P I gateway, and line-of-business services." source="media/design-api-developer-experiences-management-github-architecture.png" lightbox="media/design-api-developer-experiences-management-github-architecture.png":::
 
 _Download a [PowerPoint file](https://arch-center.azureedge.net/design-api-developer-experiences-management-github.pptx) of this architecture._
 
@@ -76,14 +76,14 @@ The solution is composed of the following software as a service (SaaS) offerings
 
 ## API value chain
 
-:::image type="content" alt-text="Diagram that describes the API value chain." source="media/design-api-developer-experiences-management-github-value-chain.png":::
+:::image type="content" alt-text="Diagram that describes the A P I value chain." source="media/design-api-developer-experiences-management-github-value-chain.png":::
 
 At the top of the value chain is the API service provider. Next are the API consumers or integrators, who design and build the experiences for the eventual target consumers. End users and customers are the final beneficiaries in the value chain.
 
 
 ## API developer experience
 
-:::image type="content" alt-text="Diagram of features and capabilities of the enhanced API developer experience." source="media/design-api-developer-experiences-management-github-basic-features.png" lightbox="media/design-api-developer-experiences-management-github-basic-features.png":::
+:::image type="content" alt-text="Diagram of features and capabilities of the enhanced A P I developer experience." source="media/design-api-developer-experiences-management-github-basic-features.png" lightbox="media/design-api-developer-experiences-management-github-basic-features.png":::
 
 _Download a [PowerPoint file](https://arch-center.azureedge.net/design-api-developer-experiences-management-github.pptx) of this diagram._
 
@@ -100,7 +100,7 @@ The API developer experience features three portals:
 
 At a high level, the functional requirements for an enterprise-scale API platform fit into three categories, namely _productization_, _platform administration_, and _consumer experiences_.
 
-:::image type="content" alt-text="Diagram that shows three broad functional requirements of an enterprise-scale API platform." source="media/design-api-developer-experiences-management-github-functional-requirements.png":::
+:::image type="content" alt-text="Diagram that shows three broad functional requirements of an enterprise-scale A P I platform." source="media/design-api-developer-experiences-management-github-functional-requirements.png":::
 
 The following sections further describe the capabilities within each feature area.
 
