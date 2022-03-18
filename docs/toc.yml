@@ -1063,6 +1063,7 @@ items:
               - name: Geospatial data processing and analytics
                 href: example-scenario/data/geospatial-data-processing-analytics-azure.yml
               - name: IoT Edge data processing - Monitor oil rigs
+                href: solution-ideas/articles/data-storage-edge.yml
               - name: Mining equipment monitoring
                 href: solution-ideas/articles/monitor-mining-equipment.yml
               - name: Oil and gas tank level forecasting
