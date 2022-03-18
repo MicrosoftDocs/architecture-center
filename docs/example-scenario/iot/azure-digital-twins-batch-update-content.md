@@ -1,11 +1,11 @@
-This scenario is relevant to organizations that need to integrate data from systems that require traditional ETL techniques with Azure Digital Twins. It allows you to integrate Azure Digital Twins into line of business systems by synchoronizing or updating your Azure Digital Twins graph with data so that you can have a 360 view of your entire environment/system. Synchronization frequency should be determined per source system basis depending on solution requirements.
+This scenario is relevant to organizations that need to integrate data from systems that require traditional ETL techniques with Azure Digital Twins. It allows you to integrate Azure Digital Twins into line of business systems by synchronizing or updating your Azure Digital Twins graph with data so that you can have a 360 view of your entire environment/system. Synchronization frequency should be determined per source system basis depending on solution requirements.
 
 ## Relevant use cases
 
 These other uses cases have similar design patterns:
 
-- You have an ADT graph of moving assets in a warehouse (forklifts etc), you may want to receive "current processing order" data for each asset by integrating with the WMS or Sales LOB application every 10 minutes. The same ADT graph can be synced with asset management solution every day to receive inventory of assets available that day for use in the warehouse.
-- You have a fleet of vehicles that belong to a hierarchy that contains data that does not change often.  You could use this solution to keep that data updated as needed.
+- You have an ADT graph of moving assets in a warehouse (forklifts etc.), you may want to receive "current processing order" data for each asset by integrating with the WMS or Sales LOB application every 10 minutes. The same ADT graph can be synced with asset management solution every day to receive inventory of assets available that day for use in the warehouse.
+- You have a fleet of vehicles that belong to a hierarchy that contains data that doesn't change often.  You could use this solution to keep that data updated as needed.
 
 ## Architecture
 
@@ -18,7 +18,7 @@ _Download a [Visio file](https://arch-center.azureedge.net/azure-digital-twins-b
 1. Azure Data Factory uses either a Copy Data Activity or a Mapping Data Flow source to connect to the business system and copy the data to a temporary location.
 2. A Mapping Dataflow handles any transformations and outputs a file for each twin that needs to be processed.
 3. A Metadata Activity retrieves the list of files, loops through them, and calls a Custom Activity.
-4. Azure Batch creates a task for each file which executes the custom code to interface with Azure Digital Twins.
+4. Azure Batch creates a task for each file that executes the custom code to interface with Azure Digital Twins.
 
 ### Components
 
@@ -26,16 +26,16 @@ _Download a [Visio file](https://arch-center.azureedge.net/azure-digital-twins-b
 - [Azure Data Factory](https://azure.microsoft.com/services/data-factory) handles the connectivity and orchestration between the source system and Azure Digital Twins.
 - [Azure Storage](https://azure.microsoft.com/services/storage) stores the code for the custom activity and the data files that we generate that need to be processed.
 - [Azure Batch](https://azure.microsoft.com/services/batch) executes the custom activity code.
-- [Azure Managed Identity](https://azure.microsoft.com/services/active-directory) securely connect from the custom activity to azure digital twins.
+- [Azure Managed Identity](https://azure.microsoft.com/services/active-directory) securely connect from the custom activity to Azure digital twins.
 
 ### Alternatives
 
-An alternative to this approach could be to swap Azure Functions for Azure Batch.  We chose not to use Functions for this architecture since there is a timeout window for execution.  If the update to Digital Twins requires complex logic, or if the API gets throttled, the Function could timeout before completing.  Azure Batch does not have this restriction, and we can also configure the number of virtual machines that are active to process the files to find a balance of scale and speed of updates.
+An alternative to this approach could be to swap Azure Functions for Azure Batch.  We chose not to use Functions for this architecture since there's a timeout window for execution.  If the update to Digital Twins requires complex logic, or if the API gets throttled, the Function could time out before completing.  Azure Batch doesn't have this restriction, and we can also configure the number of virtual machines that are active to process the files to find a balance of scale and speed of updates.
 
 ## Considerations
 
 - Custom Activities are essentially console applications.  We took some of the best practices outlined in this [blog](https://mrpaulandrew.com/2018/11/12/creating-an-azure-data-factory-v2-custom-activity/) to use as a foundation to be able to run and debug locally.
-- Consider archiving the files after they have been processed for historical purposes.
+- Consider archiving the files after they've been processed for historical purposes.
 - Consider implementing a change-data-capture pattern so that you only update the twins that are necessary.
 
 ### Availability
@@ -76,7 +76,7 @@ An alternative to this approach could be to swap Azure Functions for Azure Batch
 
 ### Security
 
-This pattern relies on Managed Identities for security, so it is very safe.  Azure Data Factory requires the storage account key to generate SAS keys.  To protect that key, we store it in Azure Key Vault and grant the ADF managed identity access to it.
+This pattern relies on Managed Identities for security, so it's safe.  Azure Data Factory requires the storage account key to generate SAS keys.  To protect that key, we store it in Azure Key Vault and grant the ADF managed identity access to it.
 
 ### Resiliency
 
