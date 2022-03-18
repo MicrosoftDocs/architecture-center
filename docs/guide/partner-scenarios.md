@@ -32,10 +32,10 @@ intro
 |Azrchitecture|Summary|Technology focus|
 |--|--|--|
 |[Data partitioning guidance](../best-practices/data-partitioning.yml)|View guidance for how to separate data partitions to be managed and accessed separately. Understand horizontal, vertical, and functional partitioning strategies. |Databases|
-|[High availability in Azure public MEC](../example-scenario/hybrid/multi-access-edge-compute-ha.yml)|Learn how to deploy workloads in active/standby mode to achieve high availability and disaster recovery in Azure public MEC.| Hybrid|
+|[High availability in Azure public MEC](../example-scenario/hybrid/multi-access-edge-compute-ha.yml)|Learn how to deploy workloads in active-standby mode to achieve high availability and disaster recovery in Azure public multiaccess edge compute.| Hybrid|
 |[IoT and data analytics](../example-scenario/data/big-data-with-iot.yml)| Build solutions that integrate data from many IoT devices into a comprehensive data analysis architecture to improve and automate decision making.|Analytics|
-|[N-tier application with Apache Cassandra](../reference-architectures/n-tier/n-tier-cassandra.yml)|Deploy Linux virtual machines and a virtual network configured for an N-tier architecture with Apache Cassandra in Microsoft Azure.| Databases|
-|[Non-relational data and NoSQL](../data-guide/big-data/non-relational-data.yml) |Learn about non-relational databases that store data as key/value pairs, graphs, time series, objects, and other storage models, based on data requirements.|Databases|
+|[N-tier application with Apache Cassandra](../reference-architectures/n-tier/n-tier-cassandra.yml)|Deploy Linux virtual machines and a virtual network configured for an N-tier architecture with Apache Cassandra in Azure.| Databases|
+|[Non-relational data and NoSQL](../data-guide/big-data/non-relational-data.yml) |Learn about non-relational databases that store data as key-value pairs, graphs, time series, objects, and other storage models, based on data requirements.|Databases|
 |[Run Apache Cassandra on Azure VMs](../best-practices/cassandra.md)|Examine performance considerations for running Apache Cassandra on Azure virtual machines. Use these recommendations as a baseline to test against your workload.| Databases|
 |[Stream processing with fully managed open-source data engines](../example-scenario/data/open-source-data-engine-stream-processing.yml)|Stream events by using fully managed Azure data services. Use open-source technologies like Kafka, Kubernetes, Cassandra, PostgreSQL, and Redis components.| Analytics|
 
@@ -49,8 +49,8 @@ intro
 
 |Azrchitecture|Summary|Technology focus|
 |--|--|--|
-|[Actuarial risk analysis and financial modeling](/azure/architecture/industries/finance/actuarial-risk-analysis-financial-model)|How an actuarial developer can move an existing solution plus supporting infrastructure to Azure.| Analytics|
-|[AI at the edge with Azure Stack Hub](../solution-ideas/articles/ai-at-the-edge.yml)|Bring your trained AI model to the edge with Azure Stack Hub and integrate it with your applications for low-latency intelligence.| AI|
+|[Actuarial risk analysis and financial modeling](/azure/architecture/industries/finance/actuarial-risk-analysis-financial-model)|Learn how an actuarial developer can move an existing solution, with its supporting infrastructure, to Azure.| Analytics|
+|[AI at the edge with Azure Stack Hub](../solution-ideas/articles/ai-at-the-edge.yml)|Bring your trained AI model to the edge with Azure Stack Hub. Integrate it with your applications for low-latency intelligence.| AI|
 |[AI at the edge with Azure Stack Hub - disconnected](../solution-ideas/articles/ai-at-the-edge-disconnected.yml)|Harness the power of edge AI when disconnected from the internet and move your AI models to the edge with a solution architecture that includes Azure Stack Hub.| AI|
 |[Batch processing](../data-guide/big-data/batch-processing.yml)|Learn about big data batch processing solutions to load, transform, and prepare data at rest for analytics and reporting.| Databases|
 |[Big data architectures](../data-guide/big-data/index.yml)|Learn about big data architectures that handle the ingestion, processing, and analysis of data too large or complex for traditional database systems.| Databases|
@@ -424,75 +424,74 @@ intro
 |--|--|--|
 |[Azure Machine Learning decision guide for optimal tool selection](/azure/architecture/example-scenario/mlops/aml-decision-tree)|Learn how to choose the best services for building an end-to-end machine learning pipeline from experimentation to deployment.|AI|
 |[Data science and machine learning with Azure Databricks](/azure/architecture/solution-ideas/articles/azure-databricks-data-science-machine-learning)|Improve operations by using Azure Databricks, Delta Lake, and MLflow for data science and machine learning. Develop, train, and deploy machine learning models.|AI|
-|[Determine customer lifetime value and churn with Azure AI services](/azure/architecture/example-scenario/ai/customer-lifecycle-churn)||AI|
-|[Employee retention with Databricks and Kubernetes](/azure/architecture/example-scenario/ai/employee-retention-databricks-kubernetes)||Analytics|
-|[Modern analytics architecture with Azure Databricks](/azure/architecture/solution-ideas/articles/azure-databricks-modern-analytics-architecture)||Analytics|
-|[Orchestrate MLOps on Azure Databricks using Databricks Notebook](/azure/architecture/reference-architectures/ai/orchestrate-mlops-azure-databricks)||AI|
-|[Population health management for healthcare](/azure/architecture/solution-ideas/articles/population-health-management-for-healthcare)||AI|
+|[Determine customer lifetime value and churn with Azure AI services](/azure/architecture/example-scenario/ai/customer-lifecycle-churn)|Learn how to create a solution for predicting customer lifetime value and churn using Azure Machine Learning.|AI|
+|[Employee retention with Databricks and Kubernetes](/azure/architecture/example-scenario/ai/employee-retention-databricks-kubernetes)|Learn how to build, deploy, and monitor a machine learning model for employee attrition that can be integrated with external applications using Databricks and Kubernetes.|Analytics|
+|[Modern analytics architecture with Azure Databricks](/azure/architecture/solution-ideas/articles/azure-databricks-modern-analytics-architecture)|Create a modern analytics architecture with Azure Databricks, Data Lake Storage, and other Azure services. Unify data, analytics, and AI workloads at any scale.|Analytics|
+|[Orchestrate MLOps on Azure Databricks using Databricks Notebook](/azure/architecture/reference-architectures/ai/orchestrate-mlops-azure-databricks)|This scenario describes an approach to machine learning operations (MLOps) that involves running model training and batch scoring on Azure Databricks using Databricks Notebook as an orchestrator.|AI|
+|[Population health management for healthcare](/azure/architecture/solution-ideas/articles/population-health-management-for-healthcare)|Use population health management to improve clinical and health outcomes and reduce costs. Track, monitor, and benchmark data with this tool.|AI|
 
 ### Moodle
 
 |Azrchitecture|Summary|Technology focus|
 |--|--|--|
-[Moodle deployment with Azure NetApp Files](/azure/architecture/example-scenario/file-storage/moodle-azure-netapp-files)||Storage|
+[Moodle deployment with Azure NetApp Files](/azure/architecture/example-scenario/file-storage/moodle-azure-netapp-files)|Deploy Moodle with Azure NetApp Files for a resilient solution that offers high-throughput, low-latency access to scalable shared storage.|Storage|
 
 ### MySQL
 
 |Azrchitecture|Summary|Technology focus|
 |--|--|--|
-[Application data protection for AKS workloads on Azure NetApp Files](/azure/architecture/example-scenario/file-storage/data-protection-kubernetes-astra-azure-netapp-files)||Containers|
-[Build CNCF projects by using Azure Kubernetes Service](/azure/architecture/example-scenario/apps/build-cncf-incubated-graduated-projects-aks)||Containers|
-[Build web and mobile applications with MySQL and Redis](/azure/architecture/solution-ideas/articles/webapps)||Web|
-|[Digital marketing using Azure DB for MySQL](/azure/architecture/solution-ideas/articles/digital-marketing-using-azure-database-for-mysql)||Databases|
-|[Finance management apps with Azure DB for MySQL](/azure/architecture/solution-ideas/articles/finance-management-apps-using-azure-database-for-mysql)||Databases|
-| [Gaming using Azure Database for MySQL](/azure/architecture/solution-ideas/articles/gaming-using-azure-database-for-mysql)||Databases|
-|[High availability in Azure public MEC](/azure/architecture/example-scenario/hybrid/multi-access-edge-compute-ha)||Hybrid|
-|[IBM z/OS online transaction processing on Azure](/azure/architecture/example-scenario/mainframe/ibm-zos-online-transaction-processing-azure)||Mainframe|
-|[Intelligent apps using Azure Database for MySQL](/azure/architecture/solution-ideas/articles/intelligent-apps-using-azure-database-for-mysql)||Databases|
-|[Java CI/CD using Jenkins and Azure Web Apps](/azure/architecture/solution-ideas/articles/java-cicd-using-jenkins-and-azure-web-apps)||DevOps|
-|[Lift and shift to containers with AKS](/azure/architecture/solution-ideas/articles/migrate-existing-applications-with-aks)||Containers|
+[Application data protection for AKS workloads on Azure NetApp Files](/azure/architecture/example-scenario/file-storage/data-protection-kubernetes-astra-azure-netapp-files)|Deploy Astra Control Service with Azure NetApp Files for data protection, disaster recovery, and mobility for AKS applications.|Containers|
+[Build CNCF projects by using Azure Kubernetes Service](/azure/architecture/example-scenario/apps/build-cncf-incubated-graduated-projects-aks)|This article demonstrates how to conceptualize, architect, build, and deploy an application that uses projects from the CNCF after deployment of AKS.|Containers|
+[Build web and mobile applications with MySQL and Redis](/azure/architecture/solution-ideas/articles/webapps)|Build web and mobile applications with an Azure microservices-based architecture. Use this solution inspired by PayMe for Business in e-commerce platforms.|Web|
+|[Digital marketing using Azure DB for MySQL](/azure/architecture/solution-ideas/articles/digital-marketing-using-azure-database-for-mysql)|Use Azure Database for MySQL to engage with customers around the world with rich, personalized digital marketing experiences.|Databases|
+|[Finance management apps with Azure DB for MySQL](/azure/architecture/solution-ideas/articles/finance-management-apps-using-azure-database-for-mysql)|Use Azure Database for MySQL to securely store critical data and provide users with high-value analytics and insights over aggregated data.|Databases|
+| [Gaming using Azure Database for MySQL](/azure/architecture/solution-ideas/articles/gaming-using-azure-database-for-mysql)|Use Azure Database for MySQL for gaming solutions so that databases scale elastically with traffic bursts and deliver low-latency multi-player experiences.|Databases|
+|[High availability in Azure public MEC](/azure/architecture/example-scenario/hybrid/multi-access-edge-compute-ha)|Learn how to deploy workloads in active/standby mode to achieve high availability and disaster recovery in Azure public MEC.|Hybrid|
+|[IBM z/OS online transaction processing on Azure](/azure/architecture/example-scenario/mainframe/ibm-zos-online-transaction-processing-azure)|Migrate a z/OS online transaction processing (OLTP) workload to an Azure application that is cost-effective, responsive, scalable, and adaptable.|Mainframe|
+|[Intelligent apps using Azure Database for MySQL](/azure/architecture/solution-ideas/articles/intelligent-apps-using-azure-database-for-mysql)|Use Azure Database for MySQL to develop sophisticated machine learning and visualization apps that provide analytics and information that you can act on.|Databases|
+|[Java CI/CD using Jenkins and Azure Web Apps](/azure/architecture/solution-ideas/articles/java-cicd-using-jenkins-and-azure-web-apps)|Create web apps in Azure App Service. Use the continuous integration and continuous deployment (CI/CD) pipeline to deliver value to customers faster.|DevOps|
+|[Lift and shift to containers with AKS](/azure/architecture/solution-ideas/articles/migrate-existing-applications-with-aks)|Migrate existing applications to containers in AKS. Use Open Service Broker for Azure (OSBA) to access Azure databases.|Containers|
 |[Mainframe file replication and sync on Azure](/azure/architecture/solution-ideas/articles/mainframe-azure-file-replication)||Mainframe|
-|[Microservices with AKS](/azure/architecture/solution-ideas/articles/microservices-with-aks)||Containers|
-|[Online transaction processing (OLTP)](/azure/architecture/data-guide/relational-data/online-transaction-processing)||Databases|
-|[Retail and e-commerce using Azure MySQL](/azure/architecture/solution-ideas/articles/retail-and-ecommerce-using-azure-database-for-mysql)||Databases|
-|[Scalable apps using Azure DB for MySQL](/azure/architecture/solution-ideas/articles/scalable-web-and-mobile-applications-using-azure-database-for-mysql)||Mobile|
-|[Security considerations for highly sensitive IaaS apps in Azure](/azure/architecture/reference-architectures/n-tier/high-security-iaas)||Security|
-|[Stream processing with fully managed open-source data engines](/azure/architecture/example-scenario/data/open-source-data-engine-stream-processing)||Analytics|
+|[Microservices with AKS](/azure/architecture/solution-ideas/articles/microservices-with-aks)|AKS simplifies the deployment and management of microservices-based architecture.|Containers|
+|[Online transaction processing (OLTP)](/azure/architecture/data-guide/relational-data/online-transaction-processing)|Learn about atomicity, consistency, and other features of online transaction processing (OLTP), which manages transactional data while supporting querying.|Databases|
+|[Retail and e-commerce using Azure MySQL](/azure/architecture/solution-ideas/articles/retail-and-ecommerce-using-azure-database-for-mysql)|Build secure and scalable e-commerce solutions that meet customer and business demands by using Azure Database for MySQL.|Databases|
+|[Scalable apps using Azure DB for MySQL](/azure/architecture/solution-ideas/articles/scalable-web-and-mobile-applications-using-azure-database-for-mysql)|Use Azure Database for MySQL to rapidly build engaging, performant, and scalable cross-platform and native apps for iOS, Android, Windows, or Mac.|Mobile|
+|[Security considerations for highly sensitive IaaS apps in Azure](/azure/architecture/reference-architectures/n-tier/high-security-iaas)|Learn about VM security, encryption, NSGs, DMZs, access control, and other security considerations for highly sensitive IaaS and hybrid apps.|Security|
+|[Stream processing with fully managed open-source data engines](/azure/architecture/example-scenario/data/open-source-data-engine-stream-processing)|Stream events by using fully managed Azure data services. Use open-source technologies like Kafka, Kubernetes, Cassandra, PostgreSQL, and Redis components.|Analytics|
 |[Understand data store models](/azure/architecture/guide/technology-choices/data-store-overview)||Databases|
 
 ### PostgreSQL
 
 |Azrchitecture|Summary|Technology focus|
 |--|--|--|
-|[Application data protection for AKS workloads on Azure NetApp Files](/azure/architecture/example-scenario/file-storage/data-protection-kubernetes-astra-azure-netapp-files)||Containers|
-|[Azure Database for PostgreSQL intelligent apps](/azure/architecture/solution-ideas/articles/intelligent-apps-using-azure-database-for-postgresql)||Databases|
-|[Build a telehealth system on Azure](/azure/architecture/example-scenario/apps/telehealth-system)||Databases|
-|[Build cloud native applications](/azure/architecture/solution-ideas/articles/cloud-native-apps)||Containers|
-|[Data cache](/azure/architecture/solution-ideas/articles/data-cache-with-redis-cache)||Databases|
-|[Data streaming with AKS](/azure/architecture/solution-ideas/articles/data-streaming-scenario)||Containers|
-|[Digital campaign management](/azure/architecture/solution-ideas/articles/digital-marketing-using-azure-database-for-postgresql)||Databases|
-|[Finance management apps using Azure Database for PostgreSQL](/azure/architecture/solution-ideas/articles/finance-management-apps-using-azure-database-for-postgresql)||Databases|
-|[Geospatial data processing and analytics](/azure/architecture/example-scenario/data/geospatial-data-processing-analytics-azure)||Analytics|
+|[Application data protection for AKS workloads on Azure NetApp Files](/azure/architecture/example-scenario/file-storage/data-protection-kubernetes-astra-azure-netapp-files)|Deploy Astra Control Service with Azure NetApp Files for data protection, disaster recovery, and mobility for AKS applications.|Containers|
+|[Azure Database for PostgreSQL intelligent apps](/azure/architecture/solution-ideas/articles/intelligent-apps-using-azure-database-for-postgresql)|Use Azure Database for PostgreSQL to develop sophisticated machine learning and visualization apps that provide analytics and information that you can act on.|Databases|
+|[Build a telehealth system on Azure](/azure/architecture/example-scenario/apps/telehealth-system)|Learn how to build a telehealth system, using Azure cloud services, that connects a professional healthcare organization to its remote patients.|Databases|
+|[Build cloud native applications](/azure/architecture/solution-ideas/articles/cloud-native-apps)|Learn how to build cloud native applications with Azure Cosmos DB, Azure Database for PostgreSQL and Azure Cache for Redis.|Containers|
+|[Data cache](/azure/architecture/solution-ideas/articles/data-cache-with-redis-cache)|Store and share database query results, session states, static contents, and more, by using a common cache-aside pattern.|Databases|
+|[Data streaming with AKS](/azure/architecture/solution-ideas/articles/data-streaming-scenario)|Use AKS to easily ingest and process a real-time data stream, with millions of data points collected via sensors.|Containers|
+|[Digital campaign management](/azure/architecture/solution-ideas/articles/digital-marketing-using-azure-database-for-postgresql)|Use Azure Database for PostgreSQL to engage with customers around the world with rich, personalized digital marketing experiences.|Databases|
+|[Finance management apps using Azure Database for PostgreSQL](/azure/architecture/solution-ideas/articles/finance-management-apps-using-azure-database-for-postgresql)|Use Azure Database for PostgreSQL to securely store critical data and provide users with high-value analytics and insights over aggregated data.|Databases|
+|[Geospatial data processing and analytics](/azure/architecture/example-scenario/data/geospatial-data-processing-analytics-azure)|Collect, process, and store geospatial data by using managed Azure services. Make the data available through web apps. Visualize, explore, and analyze the data.|Analytics|
 |[High availability in Azure public MEC](/azure/architecture/example-scenario/hybrid/multi-access-edge-compute-ha)||Hybrid|
 |[IBM z/OS online transaction processing on Azure](/azure/architecture/example-scenario/mainframe/ibm-zos-online-transaction-processing-azure)||Mainframe|
-|[Integrate IBM mainframe and midrange message queues with Azure](/azure/architecture/example-scenario/mainframe/integrate-ibm-message-queues-azure)||Mainframe|
-|[Azure Database for PostgreSQL intelligent apps](/azure/architecture/solution-ideas/articles/intelligent-apps-using-azure-database-for-postgresql)||Databases|
+|[Integrate IBM mainframe and midrange message queues with Azure](/azure/architecture/example-scenario/mainframe/integrate-ibm-message-queues-azure)|This example describes a data-first approach to middleware integration that enables IBM message queues (MQs).|Mainframe|
 |[Mainframe file replication and sync on Azure](/azure/architecture/solution-ideas/articles/mainframe-azure-file-replication)||Mainframe|
 |[Online transaction processing (OLTP)](/azure/architecture/data-guide/relational-data/online-transaction-processing)||Databases|
-|[Oracle database migration: Refactor](/azure/architecture/example-scenario/oracle-migrate/oracle-migration-refactor)||Migration|
-|[Overview of Oracle database migration](/azure/architecture/example-scenario/oracle-migrate/oracle-migration-overview)||Migration|
-|[Retail and e-commerce using Azure PostgreSQL](/azure/architecture/solution-ideas/articles/retail-and-ecommerce-using-azure-database-for-postgresql)||Databases|
-|[Scalable apps using Azure DB for PostgreSQL](/azure/architecture/solution-ideas/articles/scalable-web-and-mobile-applications-using-azure-database-for-postgresql)||Mobile|
+|[Oracle database migration: Refactor](/azure/architecture/example-scenario/oracle-migrate/oracle-migration-refactor)|Refactor your Oracle database with Azure Database Migration Service and move it to PostgreSQL.|Migration|
+|[Overview of Oracle database migration](/azure/architecture/example-scenario/oracle-migrate/oracle-migration-overview)|Learn about Oracle database migration paths and the methods you use to migrate your schema to SQL or PostgreSQL.|Migration|
+|[Retail and e-commerce using Azure PostgreSQL](/azure/architecture/solution-ideas/articles/retail-and-ecommerce-using-azure-database-for-postgresql)|Build secure and scalable e-commerce solutions that meet customer and business demands by using Azure Database for PostgreSQL.|Databases|
+|[Scalable apps using Azure DB for PostgreSQL](/azure/architecture/solution-ideas/articles/scalable-web-and-mobile-applications-using-azure-database-for-postgresql)|Use Azure Database for PostgreSQL to rapidly build engaging, performant, and scalable cross-platform and native apps for iOS, Android, Windows, or Mac.|Mobile|
 |[Stream processing with fully managed open-source data engines](/azure/architecture/example-scenario/data/open-source-data-engine-stream-processing)||Analytics|
 |[Understand data store models](/azure/architecture/guide/technology-choices/data-store-overview)||Databases|
-|[Use LzLabs Software Defined Mainframe (SDM) in an Azure VM deployment](/azure/architecture/example-scenario/mainframe/lzlabs-software-defined-mainframe-in-azure)||Mainframe|
+|[Use LzLabs Software Defined Mainframe (SDM) in an Azure VM deployment](/azure/architecture/example-scenario/mainframe/lzlabs-software-defined-mainframe-in-azure)|An approach for rehosting mainframe legacy applications in Azure using the LzLabs Software Defined Mainframe platform.|Mainframe|
 
 ### Prometheus
 
 |Azrchitecture|Summary|Technology focus|
 |--|--|--|
 |[Application data protection for AKS workloads on Azure NetApp Files](/azure/architecture/example-scenario/file-storage/data-protection-kubernetes-astra-azure-netapp-files)||Containers|
-|[Architecture of an AKS regulated cluster for PCI-DSS 3.2.1](/azure/architecture/reference-architectures/containers/aks-pci/aks-pci-ra-code-assets)||Containers|
+|[Architecture of an AKS regulated cluster for PCI-DSS 3.2.1](/azure/architecture/reference-architectures/containers/aks-pci/aks-pci-ra-code-assets)|Learn about architectural recommendations and code assets from the accompanying reference implementation.|Containers|
 |[Banking system cloud transformation on Azure](/azure/architecture/example-scenario/banking/banking-system-cloud-transformation)||Migration|
 |[Baseline architecture for an AKS cluster](/azure/architecture/reference-architectures/containers/aks/secure-baseline-aks)||Containers|
 |[Build CNCF projects by using Azure Kubernetes Service](/azure/architecture/example-scenario/apps/build-cncf-incubated-graduated-projects-aks)||Containers|
@@ -507,8 +506,8 @@ intro
 |--|--|--|
 |[Application data protection for AKS workloads on Azure NetApp Files](/azure/architecture/example-scenario/file-storage/data-protection-kubernetes-astra-azure-netapp-files)||Containers|
 |[Data science and machine learning with Azure Databricks](/azure/architecture/solution-ideas/articles/azure-databricks-data-science-machine-learning)||AI|
-|[Machine learning in IoT Edge Vision](/azure/architecture/guide/iot-edge-vision/machine-learning)||IoT|
-|[Real-time scoring of machine learning models](/azure/architecture/reference-architectures/ai/real-time-scoring-machine-learning-models)||AI|
+|[Machine learning in IoT Edge Vision](/azure/architecture/guide/iot-edge-vision/machine-learning)|Learn about machine learning data and models in Azure IoT Edge vision AI solutions.|IoT|
+|[Real-time scoring of machine learning models](/azure/architecture/reference-architectures/ai/real-time-scoring-machine-learning-models)|Deploy Python machine learning models as web services to make real-time predictions using Azure Machine Learning and AKS.|AI|
 
 ### RabbitMQ
 
@@ -516,23 +515,23 @@ intro
 |--|--|--|
 [Automated guided vehicles fleet control](/azure/architecture/example-scenario/iot/automated-guided-vehicles-fleet-control)||Web|
 [Publisher-Subscriber pattern](/azure/architecture/patterns/publisher-subscriber)||Integration|
-[Transactional Outbox pattern with Azure Cosmos DB](/azure/architecture/best-practices/transactional-outbox-cosmos)||Databases|
+[Transactional Outbox pattern with Azure Cosmos DB](/azure/architecture/best-practices/transactional-outbox-cosmos)|How to use Azure Cosmos DB, change feed, and Azure Service Bus for reliable messaging and guaranteed delivery of domain events in distributed applications.|Databases|
 
 ### Red Hat
 
 |Azrchitecture|Summary|Technology focus|
 |--|--|--|
-|[AIX UNIX on-premises to Azure Linux migration](/azure/architecture/example-scenario/unix-migration/migrate-aix-azure-linux)||Mainframe|
+|[AIX UNIX on-premises to Azure Linux migration](/azure/architecture/example-scenario/unix-migration/migrate-aix-azure-linux)|Migrate an on-premises IBM AIX system and web application to a highly-available, secure RedHat Enterprise Linux solution in Azure.|Mainframe|
 |[Banking system cloud transformation on Azure](/azure/architecture/example-scenario/banking/banking-system-cloud-transformation)||Containers|
 |[Container orchestration for microservices](/azure/architecture/microservices/design/orchestration)||Microservices|
-|[JBoss deployment with Red Hat on Azure](/azure/architecture/solution-ideas/articles/jboss-deployment-red-hat)||Containers|
-|[Run a Linux VM on Azure](/azure/architecture/reference-architectures/n-tier/linux-vm)||Compute|
+|[JBoss deployment with Red Hat on Azure](/azure/architecture/solution-ideas/articles/jboss-deployment-red-hat)|Learn how the Red Hat JBoss Enterprise Application Platform (EAP) streamlines and simplifies the development and deployment of a diverse range of applications.|Containers|
+|[Run a Linux VM on Azure](/azure/architecture/reference-architectures/n-tier/linux-vm)|Learn the best practices for running a Linux virtual machine on Azure, which requires some additional components, including networking and storage resources.|Compute|
 |[SAP HANA for Linux VMs in scale-up systems](/azure/architecture/reference-architectures/sap/run-sap-hana-for-linux-virtual-machines)||SAP|
 |[SAP S/4HANA in Linux on Azure](/azure/architecture/reference-architectures/sap/sap-s4hana)||SAP|
-|[SAP system on Oracle Database on Azure](/azure/architecture/example-scenario/apps/sap-on-oracle)||SAP|
+|[SAP system on Oracle Database on Azure](/azure/architecture/example-scenario/apps/sap-on-oracle)|Examine deployment patterns for SAP systems on Oracle Database that align with the pillars of the Azure Well-Architected Framework.|SAP|
 |[SAS on Azure architecture](/azure/architecture/guide/sas/sas-overview)||Compute|
-|[SWIFT\'s Alliance Messaging Hub (AMH) with Alliance Connect](/azure/architecture/example-scenario/finance/swift-alliance-messaging-hub)||Networking|
-|[SWIFT\'s Alliance Messaging Hub (AMH) with Alliance Connect Virtual](/azure/architecture/example-scenario/finance/swift-alliance-messaging-hub-vsrx)||Networking|
+|[SWIFT\'s Alliance Messaging Hub (AMH) with Alliance Connect](/azure/architecture/example-scenario/finance/swift-alliance-messaging-hub)|Run SWIFT Alliance Messaging Hub (AMH) on Azure. This messaging solution helps financial institutions to securely and efficiently bring new services to market.|Networking|
+|[SWIFT\'s Alliance Messaging Hub (AMH) with Alliance Connect Virtual](/azure/architecture/example-scenario/finance/swift-alliance-messaging-hub-vsrx)|Run SWIFT Alliance Messaging Hub (AMH) on Azure. Use this messaging solution with the Alliance Connect Virtual networking solution, which also runs on Azure.|Networking|
 
 ### Redis
 
@@ -540,33 +539,33 @@ intro
 |--|--|--|
 |[Banking system cloud transformation on Azure](/azure/architecture/example-scenario/banking/banking-system-cloud-transformation)||Containers|
 |[Build cloud native applications](/azure/architecture/solution-ideas/articles/cloud-native-apps)||Containers|
-|[Build web and mobile applications](/azure/architecture/solution-ideas/articles/webapps) with MySQL and Redis||Web|
-|[COVID-19 safe solutions with IoT Edge](/azure/architecture/solution-ideas/articles/cctv-iot-edge-for-covid-19-safe-environment-and-mask-detection)||IoT|
+|[Build web and mobile applications with MySQL and Redis](/azure/architecture/solution-ideas/articles/webapps)||Web|
+|[COVID-19 safe solutions with IoT Edge](/azure/architecture/solution-ideas/articles/cctv-iot-edge-for-covid-19-safe-environment-and-mask-detection)|Create a COVID-19 safe environment that monitors social distance, mask/PPE use, and occupancy requirements with CCTVs and Azure IoT Edge, Stream Analytics, and Machine Learning.|IoT|
 |[Data cache](/azure/architecture/solution-ideas/articles/data-cache-with-redis-cache)||Databases|
 |[Data streaming with AKS](/azure/architecture/solution-ideas/articles/data-streaming-scenario)||Containers|
-|[DevTest and DevOps for PaaS solutions](/azure/architecture/solution-ideas/articles/dev-test-paas)||DevOps|
-|[Digital marketing using Azure DB for MySQL](/azure/architecture/solution-ideas/articles/digital-marketing-using-azure-database-for-mysql)||Databases|
-|[Messaging](/azure/architecture/solution-ideas/articles/messaging)||Databases|
+|[DevTest and DevOps for PaaS solutions](/azure/architecture/solution-ideas/articles/dev-test-paas)|Combine Azure platform as a service (PaaS) resources with DevTest and DevOps practices to support rapid iteration cycles and reduced overhead.|DevOps|
+|[Digital marketing using Azure DB for MySQL](/azure/architecture/solution-ideas/articles/digital-marketing-using-azure-database-for-mysql)|Use Azure Database for MySQL to engage with customers around the world with rich, personalized digital marketing experiences.|Databases|
+|[Messaging](/azure/architecture/solution-ideas/articles/messaging)|Azure Cache for Redis routes real-time messages in publish and subscribe systems. It also scales up web communication frameworks like Azure SignalR Service.|Databases|
 |[Non-relational data and NoSQL](/azure/architecture/data-guide/big-data/non-relational-data)||Databases|
-|[Personalized offers](/azure/architecture/solution-ideas/articles/personalized-offers)||AI|
+|[Personalized offers](/azure/architecture/solution-ideas/articles/personalized-offers)|Build intelligent marketing systems that provide customer-tailored content by using machine learning models that analyze data from multiple sources.|AI|
 |[Publisher-Subscriber pattern](/azure/architecture/patterns/publisher-subscriber)||Integration|
 |[Rate Limiting pattern](/azure/architecture/patterns/rate-limiting-pattern)||Integration|
-|[Re-engineer mainframe batch applications on Azure](/azure/architecture/example-scenario/mainframe/reengineer-mainframe-batch-apps-azure)||Mainframe|
-|[Run SAP BW/4HANA with Linux VMs](/azure/architecture/reference-architectures/sap/run-sap-bw4hana-with-linux-virtual-machines)||SAP|
+|[Re-engineer mainframe batch applications on Azure](/azure/architecture/example-scenario/mainframe/reengineer-mainframe-batch-apps-azure)|Use Azure services to re-engineer mainframe batch applications. This architecture change can reduce costs and improve scalability.|Mainframe|
+|[Run SAP BW/4HANA with Linux VMs](/azure/architecture/reference-architectures/sap/run-sap-bw4hana-with-linux-virtual-machines)|Learn about the SAP BW/4HANA application tier and how it&amp;apos;s suitable for a high availability, small-scale production environment of SAP BW/4HANA on Azure.|SAP|
 |[Scalable Sitecore marketing website](/azure/architecture/solution-ideas/articles/digital-marketing-sitecore)||Web|
-|[Scalable web apps with Azure Redis Cache](/azure/architecture/solution-ideas/articles/scalable-web-apps)||Web|
+|[Scalable web apps with Azure Redis Cache](/azure/architecture/solution-ideas/articles/scalable-web-apps)|The Sitecore Experience Platform (xP) provides the data, integrated tools, and automation needed to engage customers throughout an iterative life cycle.|Web|
 |[Scalable web application](/azure/architecture/reference-architectures/app-service-web-app/scalable-web-app)||Web|
 |[Stream processing with fully managed open-source data engines](/azure/architecture/example-scenario/data/open-source-data-engine-stream-processing)||Analytics|
-|[Supply chain track and trace](/azure/architecture/solution-ideas/articles/supply-chain-track-and-trace)||IoT|
+|[Supply chain track and trace](/azure/architecture/solution-ideas/articles/supply-chain-track-and-trace)|Use Azure Blockchain Workbench to build an application for a supply chain that can track assets and trigger remediating events downstream.|IoT|
 
 ### SUSE
 
 |Azrchitecture|Summary|Technology focus|
 |--|--|--|
-|[Run SAP BW/4HANA with Linux VMs](/azure/architecture/reference-architectures/sap/run-sap-bw4hana-with-linux-virtual-machines)||SAP|
-|[Run SAP HANA Large Instances](/azure/architecture/reference-architectures/sap/hana-large-instances)||SAP|
-|[SAP deployment in Azure using an Oracle database](/azure/architecture/example-scenario/apps/sap-production)||SAP|
-|[SAP HANA for Linux VMs in scale-up systems](/azure/architecture/reference-architectures/sap/run-sap-hana-for-linux-virtual-machines)||SAP|
+|[Run SAP BW/4HANA with Linux VMs](/azure/architecture/reference-architectures/sap/run-sap-bw4hana-with-linux-virtual-machines)|Learn about the SAP BW/4HANA application tier and how it's suitable for a high availability, small-scale production environment of SAP BW/4HANA on Azure.|SAP|
+|[Run SAP HANA Large Instances](/azure/architecture/reference-architectures/sap/hana-large-instances)|Learn proven practices for running SAP HANA in a high availability environment on Azure Large Instances.|SAP|
+|[SAP deployment in Azure using an Oracle database](/azure/architecture/example-scenario/apps/sap-production)|Learn proven practices for running SAP on Oracle in Azure, with high availability.|SAP|
+|[SAP HANA for Linux VMs in scale-up systems](/azure/architecture/reference-architectures/sap/run-sap-hana-for-linux-virtual-machines)|Proven practices for running SAP HANA in a high-availability, scale-up environment that supports disaster recovery on Azure.|SAP|
 |[SAP system on Oracle Database on Azure](/azure/architecture/example-scenario/apps/sap-on-oracle)||SAP|
 |[SAP S/4HANA in Linux on Azure](/azure/architecture/reference-architectures/sap/sap-s4hana)||SAP|
 |[SAP workload automation using SUSE on Azure](/azure/architecture/solution-ideas/articles/sap-workload-automation-suse)||SAP|
@@ -578,43 +577,43 @@ intro
 |--|--|--|
 |[Application data protection for AKS workloads on Azure NetApp Files](/azure/architecture/example-scenario/file-storage/data-protection-kubernetes-astra-azure-netapp-files)||Containers|
 |[Data science and machine learning with Azure Databricks](/azure/architecture/solution-ideas/articles/azure-databricks-data-science-machine-learning)||AI|
-|[Distributed training, deep learning models](/azure/architecture/reference-architectures/ai/training-deep-learning)||AI|
+|[Distributed training, deep learning models](/azure/architecture/reference-architectures/ai/training-deep-learning)|This reference architecture shows how to conduct distributed training of deep learning models across clusters of GPU-enabled VMs using Azure Machine Learning.|AI|
 |[Machine learning in IoT Edge Vision](/azure/architecture/guide/iot-edge-vision/machine-learning)||IoT|
 |[Real-time scoring of machine learning models](/azure/architecture/reference-architectures/ai/real-time-scoring-machine-learning-models)||AI|
-|[Vision classifier model with Azure Custom Vision Cognitive Service](/azure/architecture/example-scenario/dronerescue/vision-classifier-model-with-custom-vision)||AI|
+|[Vision classifier model with Azure Custom Vision Cognitive Service](/azure/architecture/example-scenario/dronerescue/vision-classifier-model-with-custom-vision)|Create an image classifier with a solution architecture that includes Microsoft AirSim Drone simulator and Azure Custom Vision Cognitive Service.|AI|
 
 ### Terraform
 
 |Azrchitecture|Summary|Technology focus|
 |--|--|--|
-|[Architectural approaches for the deployment and configuration of multitenant solutions](/azure/architecture/guide/multitenant/approaches/deployment-configuration)||Multitenancy|
+|[Architectural approaches for the deployment and configuration of multitenant solutions](/azure/architecture/guide/multitenant/approaches/deployment-configuration)|This article describes approaches to consider when deploying and configuring a multitenant solution.|Multitenancy|
 |[Automated guided vehicles fleet control](/azure/architecture/example-scenario/iot/automated-guided-vehicles-fleet-control)||Web|
 |[Banking system cloud transformation on Azure](/azure/architecture/example-scenario/banking/banking-system-cloud-transformation)||Migration|
-|[Deployment Stamps pattern](/azure/architecture/patterns/deployment-stamp)||Networking|
+|[Deployment Stamps pattern](/azure/architecture/patterns/deployment-stamp)|Learn about the Deployment Stamps pattern, which deploys many independent copies (known as stamps, service units, or scale units) of application components.|Networking|
 |[Design a CI/CD pipeline using Azure DevOps](/azure/architecture/example-scenario/apps/devops-dotnet-webapp)||DevOps|
-|[DevOps in a hybrid environment](/azure/architecture/solution-ideas/articles/devops-in-a-hybrid-environment)||DevOps|
-|[DevSecOps in Azure](/azure/architecture/solution-ideas/articles/devsecops-in-azure)||DevOps|
+|[DevOps in a hybrid environment](/azure/architecture/solution-ideas/articles/devops-in-a-hybrid-environment)|The tools provided in Azure allow for the implementation of a DevOps strategy that capably manages both cloud and on-premises environments in tandem.|DevOps|
+|[DevSecOps in Azure](/azure/architecture/solution-ideas/articles/devsecops-in-azure)|Learn about DevSecOps, a solution that utilizes security best practices from the beginning of development.|DevOps|
 |[DevTest and DevOps for PaaS solutions](/azure/architecture/solution-ideas/articles/dev-test-paas)||DevOps|
 |[End-to-end governance in Azure](/azure/architecture/example-scenario/governance/end-to-end-governance-in-azure)||Management|
-|[Gridwich cloud media system](/azure/architecture/reference-architectures/media-services/gridwich-architecture)||Media|
-|[Gridwich CI/CD pipeline](/azure/architecture/reference-architectures/media-services/gridwich-cicd)||Media|
-|[Gridwich keys and secrets management](/azure/architecture/reference-architectures/media-services/maintain-keys)||Media|
-|[Gridwich Media Services setup and scaling](/azure/architecture/reference-architectures/media-services/media-services-setup-scale)||Media|
-|[Gridwich pipeline-generated admin scripts](/azure/architecture/reference-architectures/media-services/run-admin-scripts)||Media
-|[Gridwich variable flow](/azure/architecture/reference-architectures/media-services/variable-group-terraform-flow)||Media|
+|[Gridwich cloud media system](/azure/architecture/reference-architectures/media-services/gridwich-architecture)|Learn about a stateless action execution workflow that ingests, processes, and delivers media assets using Terraform Sandwiches and Event Grid Sandwiches.|Media|
+|[Gridwich CI/CD pipeline](/azure/architecture/reference-architectures/media-services/gridwich-cicd)|Learn about the guiding principles and considerations for the Gridwich continuous integration and continuous delivery (CD/CD) pipeline.|Media|
+|[Gridwich keys and secrets management](/azure/architecture/reference-architectures/media-services/maintain-keys)|Learn about the two types of keys Gridwich uses, storage keys and third-party keys, and the Logic Apps that add, change, or rotate the keys.|Media|
+|[Gridwich Media Services setup and scaling](/azure/architecture/reference-architectures/media-services/media-services-setup-scale)|Learn how Gridwich uses Azure Media Services V2 and V3 SDKs to set up authentication and authorization, and how to scale Media Services resources for media processing.|Media|
+|[Gridwich pipeline-generated admin scripts](/azure/architecture/reference-architectures/media-services/run-admin-scripts)|Learn about the Gridwich pipeline-generated admin scripts and how to run them.|Media
+|[Gridwich variable flow](/azure/architecture/reference-architectures/media-services/variable-group-terraform-flow)|Learn how Gridwich converts Azure Pipelines pipeline variable group variables to Terraform variables.|Media|
 |[Immutable infrastructure CI/CD using Jenkins and Terraform on Azure](/azure/architecture/solution-ideas/articles/immutable-infrastructure-cicd-using-jenkins-and-terraform-on-azure-virtual-architecture-overview)||DevOps|
 |[JMeter implementation for a load testing pipeline](/azure/architecture/example-scenario/banking/jmeter-load-testing-pipeline-implementation-reference)||Migration|
 |[SAP workload automation using SUSE on Azure](/azure/architecture/solution-ideas/articles/sap-workload-automation-suse)||SAP|
 |[Use Azure Firewall to help protect an AKS cluster](/azure/architecture/example-scenario/aks-firewall/aks-firewall)||Containers|
-|[Virtual network integrated serverless microservices](/azure/architecture/example-scenario/integrated-multiservices/virtual-network-integration)||Security|
+|[Virtual network integrated serverless microservices](/azure/architecture/example-scenario/integrated-multiservices/virtual-network-integration)|Learn about an end-to-end solution for health records management that uses Azure Functions microservices integrated with other services via a virtual network.|Security|
 
 ### Umbraco
 
 |Azrchitecture|Summary|Technology focus|
 |--|--|--|
 |[Digital marketing using Azure DB for MySQL](/azure/architecture/solution-ideas/articles/digital-marketing-using-azure-database-for-mysql)||Databases|
-|[Scalable Umbraco CMS web app](/azure/architecture/solution-ideas/articles/medium-umbraco-web-app)||Web|
-|[Simple digital marketing website](/azure/architecture/solution-ideas/articles/digital-marketing-smb)||Web|
+|[Scalable Umbraco CMS web app](/azure/architecture/solution-ideas/articles/medium-umbraco-web-app)|Run an Umbraco content management system on the Web Apps feature of Azure App Service. Use Azure managed services for a high-availability environment.|Web|
+|[Simple digital marketing website](/azure/architecture/solution-ideas/articles/digital-marketing-smb)|Use an Azure-based content management system to easily maintain messaging on your website in real time, from a browser, with no coding skills.|Web|
 
 ### WordPress
 
@@ -635,21 +634,21 @@ intro
 
 |Azrchitecture|Summary|Technology focus|
 |--|--|--|
-|[IBM z/OS mainframe migration with Asysco](/azure/architecture/example-scenario/mainframe/asysco-zos-migration)||Mainframe|
-|[Unisys mainframe migration with Asysco](/azure/architecture/reference-architectures/migration/unisys-mainframe-migration)||Mainframe|
+|[IBM z/OS mainframe migration with Asysco](/azure/architecture/example-scenario/mainframe/asysco-zos-migration)|See how to use the Asysco Automated Migration Technology (AMT) framework to migrate IBM z/OS mainframe workloads to Azure.|Mainframe|
+|[Unisys mainframe migration with Asysco](/azure/architecture/reference-architectures/migration/unisys-mainframe-migration)|Learn about options for using the Asysco Automated Migration Technology (AMT) Framework to migrate Unisys mainframe workloads to Azure.|Mainframe|
 
 ### Astadia
 
 |Azrchitecture|Summary|Technology focus|
 |--|--|--|
-|[Unisys Dorado mainframe migration to Azure with Astadia & Micro Focus](/azure/architecture/example-scenario/mainframe/migrate-unisys-dorado-mainframe-apps-with-astadia-micro-focus)||Mainframe|
+|[Unisys Dorado mainframe migration to Azure with Astadia & Micro Focus](/azure/architecture/example-scenario/mainframe/migrate-unisys-dorado-mainframe-apps-with-astadia-micro-focus)|Migrate Unisys Dorado mainframe systems with Astadia and Micro Focus products. Move to Azure without rewriting code, switching data models, or updating screens.|Mainframe|
 
 ### CluedIn
 
 |Azrchitecture|Summary|Technology focus|
 |--|--|--|
 |[Master Data Management with Azure and CluedIn](/azure/architecture/reference-architectures/data/cluedin)||Databases|
-|[Migrate master data services to Azure with CluedIn and Azure Purview](/azure/architecture/reference-architectures/data/migrate-master-data-services-with-cluedin)||Databases|
+|[Migrate master data services to Azure with CluedIn and Azure Purview](/azure/architecture/reference-architectures/data/migrate-master-data-services-with-cluedin)|Use CluedIn to migrate your master data services solution to Azure, by using CluedIn and Azure Purview.|Databases|
 
 ### Confluent
 
@@ -669,14 +668,14 @@ intro
 
 |Azrchitecture|Summary|Technology focus|
 |--|--|--|
-|[SMB disaster recovery with Azure Site Recovery](/azure/architecture/solution-ideas/articles/disaster-recovery-smb-azure-site-recovery)||Management|
-|[SMB disaster recovery with Double-Take DR](/azure/architecture/solution-ideas/articles/disaster-recovery-smb-double-take-dr)||Management|
+|[SMB disaster recovery with Azure Site Recovery](/azure/architecture/solution-ideas/articles/disaster-recovery-smb-azure-site-recovery)|Small and medium-sized businesses can inexpensively implement cloud-based disaster recovery solutions by using Azure Site Recovery or Double-Take DR.|Management|
+|[SMB disaster recovery with Double-Take DR](/azure/architecture/solution-ideas/articles/disaster-recovery-smb-double-take-dr)|Small and medium-sized businesses can inexpensively implement cloud-based disaster recovery solutions by using a partner solution like Double-Take DR.|Management|
 
 ### Episerver
 
 |Azrchitecture|Summary|Technology focus|
 |--|--|--|
-|[Scalable Episerver marketing website](/azure/architecture/solution-ideas/articles/digital-marketing-episerver)||Web|
+|[Scalable Episerver marketing website](/azure/architecture/solution-ideas/articles/digital-marketing-episerver)|Run multi-channel digital marketing websites on one platform. Start and stop campaigns on demand. Manage site and campaign performance with Episerver.|Web|
 
 ### Gremlin
 
@@ -689,7 +688,7 @@ intro
 
 |Azrchitecture|Summary|Technology focus|
 |--|--|--|
-|[IBM System i (AS/400) to Azure using Infinite i](/azure/architecture/example-scenario/mainframe/ibm-system-i-azure-infinite-i)||Mainframe|
+|[IBM System i (AS/400) to Azure using Infinite i](/azure/architecture/example-scenario/mainframe/ibm-system-i-azure-infinite-i)|Use Infinite i to easily migrate your IBM System i (AS/400) workloads to Azure. You can lower costs, improve performance, improve availability, and modernize.|Mainframe|
 
 ### LzLabs
 
@@ -701,8 +700,8 @@ intro
 
 |Azrchitecture|Summary|Technology focus|
 |--|--|--|
-|[Micro Focus Enterprise Server on Azure VMs](/azure/architecture/example-scenario/mainframe/micro-focus-server)||Mainframe|
-|[Unisys Dorado mainframe migration to Azure with Astadia & Micro Focus](/azure/architecture/example-scenario/mainframe/migrate-unisys-dorado-mainframe-apps-with-astadia-micro-focus)||Mainframe|
+|[Micro Focus Enterprise Server on Azure VMs](/azure/architecture/example-scenario/mainframe/micro-focus-server)|Optimize, modernize, and streamline IBM z/OS mainframe applications by using Micro Focus Enterprise Server 6.0 on Azure VMs.|Mainframe|
+|[Unisys Dorado mainframe migration to Azure with Astadia & Micro Focus](/azure/architecture/example-scenario/mainframe/migrate-unisys-dorado-mainframe-apps-with-astadia-micro-focus)|Migrate Unisys Dorado mainframe systems with Astadia and Micro Focus products. Move to Azure without rewriting code, switching data models, or updating screens.|Mainframe|
 
 
 ### MongoDB
@@ -725,59 +724,59 @@ intro
 |--|--|--|
 |[AIX UNIX on-premises to Azure Linux migration](/azure/architecture/example-scenario/unix-migration/migrate-aix-azure-linux)||Mainframe|
 |[Application data protection for AKS workloads on Azure NetApp Files](/azure/architecture/example-scenario/file-storage/data-protection-kubernetes-astra-azure-netapp-files)||Storage|
-|[SAP workload development and test settings](/azure/architecture/example-scenario/apps/sap-dev-test)||SAP|
-|[Enterprise file shares with disaster recovery](/azure/architecture/example-scenario/file-storage/enterprise-file-shares-disaster-recovery)||Storage|
-|[FSLogix for the enterprise](/azure/architecture/example-scenario/wvd/windows-virtual-desktop-fslogix)||Hybrid|
-|[General mainframe refactor to Azure](/azure/architecture/example-scenario/mainframe/general-mainframe-refactor)||Mainframe|
+|[SAP workload development and test settings](/azure/architecture/example-scenario/apps/sap-dev-test)|Learn how to establish non-production development and test environments for SAP NetWeaver in a Windows or Linux environment on Azure.|SAP|
+|[Enterprise file shares with disaster recovery](/azure/architecture/example-scenario/file-storage/enterprise-file-shares-disaster-recovery)|Learn how to implement resilient NetApp file shares. Failure of the primary Azure region causes automatic failover to the secondary Azure region.|Storage|
+|[FSLogix for the enterprise](/azure/architecture/example-scenario/wvd/windows-virtual-desktop-fslogix)|Learn to build virtual desktop infrastructure solutions at enterprise scale using Microsoft FSLogix.|Hybrid|
+|[General mainframe refactor to Azure](/azure/architecture/example-scenario/mainframe/general-mainframe-refactor)|See how to refactor general mainframe applications to run more cost-effectively and efficiently on Azure.|Mainframe|
 |[Moodle deployment with Azure NetApp Files](/azure/architecture/example-scenario/file-storage/moodle-azure-netapp-files)||Storage|
-|[Multiple forests with AD DS and Azure AD](/azure/architecture/example-scenario/wvd/multi-forest)||Virtual Desktop|
-|[Oracle Database with Azure NetApp Files](/azure/architecture/example-scenario/file-storage/oracle-azure-netapp-files)||Storage|
-|[Refactor mainframe computer systems that run Adabas & Natural](/azure/architecture/example-scenario/mainframe/refactor-adabas-aks)||Mainframe|
+|[Multiple forests with AD DS and Azure AD](/azure/architecture/example-scenario/wvd/multi-forest)|This article describes an example workload of creating multiple Active Directory forests with Azure Virtual Desktop.|Virtual Desktop|
+|[Oracle Database with Azure NetApp Files](/azure/architecture/example-scenario/file-storage/oracle-azure-netapp-files)|Implement a high-bandwidth, low-latency solution for Oracle Database workloads. Use Azure NetApp Files for enterprise-scale performance and reduced costs.|Storage|
+|[Refactor mainframe computer systems that run Adabas & Natural](/azure/architecture/example-scenario/mainframe/refactor-adabas-aks)|Learn how to modernize mainframe computer systems that run Adabas &amp; Natural and move them to the cloud.|Mainframe|
 |[Run SAP BW/4HANA with Linux VMs](/azure/architecture/reference-architectures/sap/run-sap-bw4hana-with-linux-virtual-machines)||SAP|
 |[SAP deployment in Azure using an Oracle database](/azure/architecture/example-scenario/apps/sap-production)||SAP|
 |[SAP HANA for Linux VMs in scale-up systems](/azure/architecture/reference-architectures/sap/run-sap-hana-for-linux-virtual-machines)||SAP|
 |[SAP S/4HANA in Linux on Azure](/azure/architecture/reference-architectures/sap/sap-s4hana)||SAP|
 |[SAP system on Oracle Database on Azure](/azure/architecture/example-scenario/apps/sap-on-oracle)||SAP|
 |[SAS on Azure architecture](/azure/architecture/guide/sas/sas-overview)||Compute|
-|[SQL Server on Azure Virtual Machines with Azure NetApp Files](/azure/architecture/example-scenario/file-storage/sql-server-azure-netapp-files)||Storage|
+|[SQL Server on Azure Virtual Machines with Azure NetApp Files](/azure/architecture/example-scenario/file-storage/sql-server-azure-netapp-files)|Implement a high-bandwidth, low-latency solution for SQL Server workloads. Use Azure NetApp Files for enterprise-scale performance and reduced costs.|Storage|
 
 ### Oracle
 
 |Azrchitecture|Summary|Technology focus|
 |--|--|--|
 |[Master data management with Azure and CluedIn](/azure/architecture/reference-architectures/data/cluedin)||Databases|
-|[Migrate IBM mainframe apps to Azure with TmaxSoft OpenFrame](/azure/architecture/solution-ideas/articles/migrate-mainframe-apps-with-tmaxsoft-openframe)||Mainframe|
-|[Oracle database migration to Azure](/azure/architecture/solution-ideas/articles/reference-architecture-for-oracle-database-migration-to-azure)||Oracle|
-|[Oracle database migration: Cross-cloud connectivity](/azure/architecture/example-scenario/oracle-migrate/oracle-migration-cross-cloud)||Oracle|
-|[Oracle database migration: Lift and shift](/azure/architecture/example-scenario/oracle-migrate/oracle-migration-lift-shift)||Oracle|
+|[Migrate IBM mainframe apps to Azure with TmaxSoft OpenFrame](/azure/architecture/solution-ideas/articles/migrate-mainframe-apps-with-tmaxsoft-openframe)|Migrate IBM zSeries mainframe applications to Azure. Use a no-code approach that TmaxSoft OpenFrame offers for this lift and shift operation.|Mainframe|
+|[Oracle database migration to Azure](/azure/architecture/solution-ideas/articles/reference-architecture-for-oracle-database-migration-to-azure)|Migrate an Oracle database and its applications to Azure. Use Oracle Active Data Guard for the database, and use Azure Load Balancer for the application tier.|Oracle|
+|[Oracle database migration: Cross-cloud connectivity](/azure/architecture/example-scenario/oracle-migrate/oracle-migration-cross-cloud)|Create a connection between your existing Oracle database and your Azure applications.|Oracle|
+|[Oracle database migration: Lift and shift](/azure/architecture/example-scenario/oracle-migrate/oracle-migration-lift-shift)|Lift and shift your Oracle database from an Oracle environment to Azure Virtual Machines.|Oracle|
 |[Oracle database migration: Refactor](/azure/architecture/example-scenario/oracle-migrate/oracle-migration-refactor)||Oracle|
- |[Oracle database migration: Rearchitect](/azure/architecture/example-scenario/oracle-migrate/oracle-migration-rearchitect)||Oracle|
+ |[Oracle database migration: Rearchitect](/azure/architecture/example-scenario/oracle-migrate/oracle-migration-rearchitect)|Rearchitect your Oracle database with Azure SQL Managed Instance.|Oracle|
 |[Oracle Database with Azure NetApp Files](/azure/architecture/example-scenario/file-storage/oracle-azure-netapp-files)||Storage|
 |[Overview of Oracle database migration](/azure/architecture/example-scenario/oracle-migrate/oracle-migration-overview)||Oracle|
 |[Refactor mainframe applications with Advanced](/azure/architecture/example-scenario/mainframe/refactor-mainframe-applications-advanced)||Mainframe|
-|[Run Oracle databases on Azure](/azure/architecture/solution-ideas/articles/reference-architecture-for-oracle-database-on-azure)||Oracle|
-|[Run SAP NetWeaver in Windows on Azure](/azure/architecture/reference-architectures/sap/sap-netweaver)||SAP|
+|[Run Oracle databases on Azure](/azure/architecture/solution-ideas/articles/reference-architecture-for-oracle-database-on-azure)|Use a canonical architecture to achieve high availability for Oracle Database Enterprise Edition in Azure.|Oracle|
+|[Run SAP NetWeaver in Windows on Azure](/azure/architecture/reference-architectures/sap/sap-netweaver)|Learn proven practices for running SAP NetWeaver in a Windows environment on Azure, with high availability.|SAP|
 |[SAP deployment on Azure using an Oracle database](/azure/architecture/example-scenario/apps/sap-production)||Oracle|
 |[SAP system on Oracle Database on Azure](/azure/architecture/example-scenario/apps/sap-on-oracle)||Oracle|
 |[Security considerations for highly sensitive IaaS apps in Azure](/azure/architecture/reference-architectures/n-tier/high-security-iaas)||Security|
-|[SWIFT\'s Alliance Access in Azure](/azure/architecture/example-scenario/finance/swift-alliance-access-on-azure)||Networking|
-|[SWIFT\'s Alliance Access with Alliance Connect Virtual in Azure](/azure/architecture/example-scenario/finance/swift-alliance-access-vsrx-on-azure)||Networking|
+|[SWIFT\'s Alliance Access in Azure](/azure/architecture/example-scenario/finance/swift-alliance-access-on-azure)|This article provides a reference architecture for deploying and running SWIFT Alliance Access on Azure.|Networking|
+|[SWIFT\'s Alliance Access with Alliance Connect Virtual in Azure](/azure/architecture/example-scenario/finance/swift-alliance-access-vsrx-on-azure)|This article provides a reference architecture for deploying and running SWIFT Alliance Access with Alliance Connect Virtual on Azure.|Networking|
 |[SWIFT\'s Alliance Messaging Hub (AMH) with Alliance Connect Virtual](/azure/architecture/example-scenario/finance/swift-alliance-messaging-hub-vsrx)||Networking|
 
 ### Postman
 
 |Azrchitecture|Summary|Technology focus|
 |--|--|--|
-|[Design APIs for microservices](/azure/architecture/microservices/design/api-design)||Microservices|
-|[Gridwich local development environment setup](/azure/architecture/reference-architectures/media-services/set-up-local-environment)||Media|
+|[Design APIs for microservices](/azure/architecture/microservices/design/api-design)|Learn about good API design in a microservices architecture. APIs should be efficient and have well-defined semantics and versioning schemes.|Microservices|
+|[Gridwich local development environment setup](/azure/architecture/reference-architectures/media-services/set-up-local-environment)|Set up a local development environment to work with Gridwich.|Media|
 |[Unified logging for microservices apps](/azure/architecture/example-scenario/logging/unified-logging)||Microservices|
 
 ### Profisee
 
 |Azrchitecture|Summary|Technology focus|
 |--|--|--|
-|[Data governance with Profisee and Azure Purview](/azure/architecture/reference-architectures/data/profisee-master-data-management-purview)||Databases|
-|[Master data management with Profisee and Azure Data Factory](/azure/architecture/reference-architectures/data/profisee-master-data-management-data-factory)||Databases|
+|[Data governance with Profisee and Azure Purview](/azure/architecture/reference-architectures/data/profisee-master-data-management-purview)|Integrate Profisee master data management with Azure Purview to build a foundation for data governance and management. Produce and deliver high-quality, trusted data.|Databases|
+|[Master data management with Profisee and Azure Data Factory](/azure/architecture/reference-architectures/data/profisee-master-data-management-data-factory)|Integrate Profisee master data management with Azure Data Factory to deliver high-quality, trusted data for Azure Synapse, and all analytic applications.|Databases|
 
 ### Qlik
 
@@ -789,25 +788,25 @@ intro
 
 |Azrchitecture|Summary|Technology focus|
 |--|--|--|
-|[Refactor mainframe applications to Azure with Raincode compilers](/azure/architecture/reference-architectures/app-modernization/raincode-reference-architecture)||Mainframe|
+|[Refactor mainframe applications to Azure with Raincode compilers](/azure/architecture/reference-architectures/app-modernization/raincode-reference-architecture)|This architecture shows how the Raincode COBOL compiler modernizes mainframe legacy applications.|Mainframe|
 
 ### SAP
 
 |Azrchitecture|Summary|Technology focus|
 |--|--|--|
-|[Add a mobile front end to a legacy app](/azure/architecture/solution-ideas/articles/adding-a-modern-web-and-mobile-frontend-to-a-legacy-claims-processing-application)||Mobile|
-|[Custom mobile workforce app](/azure/architecture/solution-ideas/articles/custom-mobile-workforce-app)||Mobile|
+|[Add a mobile front end to a legacy app](/azure/architecture/solution-ideas/articles/adding-a-modern-web-and-mobile-frontend-to-a-legacy-claims-processing-application)|This solution consolidates data from multiple business systems and then surfaces the data through web and mobile front ends. This consolidation helps improve employee productivity and helps speed up decision making.|Mobile|
+|[Custom mobile workforce app](/azure/architecture/solution-ideas/articles/custom-mobile-workforce-app)|Learn how the custom mobile workforce management app architecture is built and implemented with a step-by-step diagram that illustrates the integration of Active Directory, SAP, and Azure App Service.|Mobile|
 |[Development and test environments for SAP workloads on Azure](/azure/architecture/example-scenario/apps/sap-dev-test)||SAP|
 |[Master data management with Azure and CluedIn](/azure/architecture/reference-architectures/data/cluedin)||Databases|
-|[Multi-tier web application built for HA/DR](/azure/architecture/example-scenario/infrastructure/multi-tier-app-disaster-recovery)||Networking|
+|[Multi-tier web application built for HA/DR](/azure/architecture/example-scenario/infrastructure/multi-tier-app-disaster-recovery)|Learn how to create a resilient multitier web application built for high availability and disaster recovery on Azure.|Networking|
 |[Run SAP BW/4HANA with Linux VMs](/azure/architecture/reference-architectures/sap/run-sap-bw4hana-with-linux-virtual-machines)||SAP|
 |[Run SAP HANA for Linux VMs in scale-up systems](/azure/architecture/reference-architectures/sap/run-sap-hana-for-linux-virtual-machines)||SAP|
 |[Run SAP HANA Large Instances](/azure/architecture/reference-architectures/sap/hana-large-instances)||SAP|
 |[Run SAP NetWeaver in Windows on Azure](/azure/architecture/reference-architectures/sap/sap-netweaver)||SAP|
 |[SAP deployment on Azure using an Oracle database](/azure/architecture/example-scenario/apps/sap-production)||SAP|
-|[SAP on Azure architecture design](/azure/architecture/reference-architectures/sap/sap-overview)||SAP|
-|[SAP NetWeaver on SQL Server](/azure/architecture/solution-ideas/articles/sap-netweaver-on-sql-server)||SAP|
-|[SAP S/4 HANA for Large Instances](/azure/architecture/solution-ideas/articles/sap-s4-hana-on-hli-with-ha-and-dr)||SAP|
+|[SAP on Azure architecture design](/azure/architecture/reference-architectures/sap/sap-overview)|This article describes a set of guiding tenets that are used to help ensure the quality of SAP workloads running on Azure.|SAP|
+|[SAP NetWeaver on SQL Server](/azure/architecture/solution-ideas/articles/sap-netweaver-on-sql-server)|Build an SAP landscape on NetWeaver by using Azure Virtual Machines to host SAP applications and a SQL Server database.|SAP|
+|[SAP S/4 HANA for Large Instances](/azure/architecture/solution-ideas/articles/sap-s4-hana-on-hli-with-ha-and-dr)|With large SAP HANA instances, use Azure Virtual Machines, OS clustering, and NFS storage for scalability, performance, high reliability, and disaster recovery.|SAP|
 |[SAP S/4HANA in Linux on Azure](/azure/architecture/reference-architectures/sap/sap-s4hana)||SAP|
 |[SAP system on Oracle Database on Azure](/azure/architecture/example-scenario/apps/sap-on-oracle)||SAP|
 |[SAP workload automation using SUSE on Azure](/azure/architecture/solution-ideas/articles/sap-workload-automation-suse)||SAP|
@@ -828,8 +827,8 @@ intro
 
 |Azrchitecture|Summary|Technology focus|
 |--|--|--|
-|[Migrate AIX workloads to Skytap on Azure](/azure/architecture/example-scenario/mainframe/migrate-aix-workloads-to-skytap)||Mainframe|
-|[Migrate IBM i series to Azure with Skytap](/azure/architecture/example-scenario/mainframe/migrate-ibm-i-series-to-azure-with-skytap)||Mainframe|
+|[Migrate AIX workloads to Skytap on Azure](/azure/architecture/example-scenario/mainframe/migrate-aix-workloads-to-azure-with-skytap)|This example illustrates a migration of AIX logical partitions (LPARs) to Skytap on Azure.|Mainframe|
+|[Migrate IBM i series to Azure with Skytap](/azure/architecture/example-scenario/mainframe/migrate-ibm-i-series-to-azure-with-skytap)|This example architecture shows how to use the native IBM i backup and recovery services with Microsoft Azure components.|Mainframe|
 
 ### Software AG
 
@@ -841,7 +840,7 @@ intro
 
 |Azrchitecture|Summary|Technology focus|
 |--|--|--|
-|[Stromasys Charon-SSP Solaris emulator on Azure VMs](/azure/architecture/solution-ideas/articles/solaris-azure)||Mainframe|
+|[Stromasys Charon-SSP Solaris emulator on Azure VMs](/azure/architecture/solution-ideas/articles/solaris-azure)|Charon-SSP cross-platform hypervisor emulates legacy Sun SPARC systems on industry standard x86-64 computer systems and VMs.|Mainframe|
 
 
 ### SWIFT
@@ -850,10 +849,10 @@ intro
 |--|--|--|
 |[SWIFT\'s Alliance Access in Azure](/azure/architecture/example-scenario/finance/swift-alliance-access-on-azure)||Networking|
 |[SWIFT\'s Alliance Access with Alliance Connect Virtual in Azure](/azure/architecture/example-scenario/finance/swift-alliance-access-vsrx-on-azure)||Networking|
-|[SWIFT Alliance Cloud in Azure](/azure/architecture/example-scenario/finance/swift-alliance-cloud-on-azure)||Networking|
-|[SWIFT Alliance Connect in Azure](/azure/architecture/example-scenario/finance/swift-on-azure-srx)||Security|
-|[SWIFT Alliance Connect Virtual in Azure](/azure/architecture/example-scenario/finance/swift-on-azure-vsrx)||Security|
-|[SWIFT Alliance Lite2 on Azure](/azure/architecture/example-scenario/finance/swift-alliance-lite2-on-azure)||Networking|
+|[SWIFT Alliance Cloud in Azure](/azure/architecture/example-scenario/finance/swift-alliance-cloud-on-azure)|Deploy Azure infrastructure for SWIFT Alliance Cloud.|Networking|
+|[SWIFT Alliance Connect in Azure](/azure/architecture/example-scenario/finance/swift-on-azure-srx)|This article is a landing page for all SWIFT Alliance Connect components that can be deployed on Azure.|Security|
+|[SWIFT Alliance Connect Virtual in Azure](/azure/architecture/example-scenario/finance/swift-on-azure-vsrx)|This article is a landing page for all SWIFT Alliance Connect Virtual components that can be deployed on Azure.|Security|
+|[SWIFT Alliance Lite2 on Azure](/azure/architecture/example-scenario/finance/swift-alliance-lite2-on-azure)|Deploy SWIFT Alliance Lite2 on Azure. Migrate an existing deployment from on-premises or create a new deployment.|Networking|
 |[SWIFT\'s Alliance Messaging Hub (AMH) with Alliance Connect](/azure/architecture/example-scenario/finance/swift-alliance-messaging-hub)||Networking|
 |[SWIFT\'s Alliance Messaging Hub (AMH) with Alliance Connect Virtual](/azure/architecture/example-scenario/finance/swift-alliance-messaging-hub-vsrx)||Networking|
 
@@ -873,17 +872,15 @@ intro
 
 |Azrchitecture|Summary|Technology focus|
 |--|--|--|
-|[Unisys ClearPath Forward mainframe rehost to Azure using Unisys virtualization](/azure/architecture/example-scenario/mainframe/unisys-clearpath-forward-mainframe-rehost)||Mainframe|
+|[Unisys ClearPath Forward mainframe rehost to Azure using Unisys virtualization](/azure/architecture/example-scenario/mainframe/unisys-clearpath-forward-mainframe-rehost)|Use virtualization technologies from Unisys and Microsoft Azure to migrate from an Unisys ClearPath Forward Libra (legacy Burroughs A Series/MCP) mainframe.|Mainframe|
 |[Unisys Dorado mainframe migration to Azure with Astadia and Micro Focus](/azure/architecture/example-scenario/mainframe/migrate-unisys-dorado-mainframe-apps-with-astadia-micro-focus)||Mainframe|
 |[Unisys mainframe migration with Asysco](/azure/architecture/reference-architectures/migration/unisys-mainframe-migration)||Mainframe|
 
 ## Related resources
-
-- Link to other, similar lists:
 - Scenarios featuring Microsoft on-prem technologies (the other new article)
-- Architecture for startups
-- Azure and Power Platform scenarios
-- Azure and Microsoft 365 scenarios
-- Azure and Dynamics 365 scenarios
-- Azure for AWS professionals
-- Azure for Google Cloud professionals
+- [Architecture for startups](/azure/architecture/guide/startups/startup-architecture)
+- [Azure and Power Platform scenarios](/azure/architecture/solutions/power-platform-scenarios)
+- [Azure and Microsoft 365 scenarios](/azure/architecture/solutions/microsoft-365-scenarios)
+- [Azure and Dynamics 365 scenarios](/azure/architecture/solutions/dynamics-365-scenarios)
+- [Azure for AWS professionals](/azure/architecture/aws-professional)
+- [Azure for Google Cloud professionals](/azure/architecture/gcp-professional)
