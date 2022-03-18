@@ -1,6 +1,6 @@
 ### YamlMime:Architecture
 metadata:
-  title: Azure Cosmos DB in an IoT workload solution
+  title: Azure Cosmos DB in IoT workloads
   titleSuffix: Azure Solution Ideas
   description: See how Azure Cosmos DB scales instantly and elastically to accommodate diverse and unpredictable IoT workloads, without sacrificing ingestion or query performance.
   author: khilscher
@@ -14,7 +14,7 @@ metadata:
     - iot
     - Azure Cosmos DB
     - "https://azure.microsoft.com/solutions/architecture/iot-using-cosmos-db/"
-name: Azure Cosmos DB in an IoT workload solution
+name: Azure Cosmos DB in IoT workloads
 azureCategories:
   - iot
   - databases

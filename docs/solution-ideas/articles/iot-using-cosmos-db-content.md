@@ -1,21 +1,21 @@
 <!-- cSpell:ignore khilscher Etcd Jupyter eventhubs -->
 
-This article describes an internet-of-things (IoT) solution that relies on several features of the Azure Cosmos DB database service.
+This article describes an internet-of-things (IoT) solution that relies on several features of the Azure Cosmos DB database service. Azure Cosmos DB is a multi-model database built for global distribution and horizontal scale.
 
-Azure Cosmos DB is a multi-model database built for global distribution and horizontal scale. Global distribution transparently scales and replicates data across Azure regions. You can scale throughput and storage worldwide, and pay for only the throughput and storage you need to use. Instant elastic scaling can accommodate diverse and unpredictable IoT workloads, without sacrificing ingestion or query performance.
+Global distribution transparently scales and replicates data across Azure regions. You can scale throughput and storage worldwide, and pay for only the throughput and storage you need to use. Instant elastic scaling accommodates diverse and unpredictable IoT workloads, without sacrificing ingestion or query performance.
 
-The following capabilities also make Azure Cosmos DB ideal for IoT workloads:
+Azure Cosmos DB is ideal for IoT workloads because it can:
 
-- Ingests device telemetry data at high rates, and returns indexed queries with low latency and high availability.
-- Stores JSON schemas from different device vendors, or converts device messages to a canonical JSON schema.
-- Has wire protocol–compatible API endpoints for Cassandra, MongoDB, SQL, Gremlin, etcd, and table databases, and built-in support for Jupyter Notebook files.
+- Ingest device telemetry data at high rates, and return indexed queries with low latency and high availability.
+- Store JSON schemas from different device vendors, or convert device messages to a canonical JSON schema.
+- Use wire protocol–compatible API endpoints for Cassandra, MongoDB, SQL, Gremlin, etcd, and table databases, and built-in support for Jupyter Notebook files.
 
-This IoT solution uses the following Azure Cosmos DB features:
+This IoT workload highlights the following Azure Cosmos DB features:
 
-- Database containers store messages from IoT devices as JSON documents in a *hot data store*.
-- The change feed feature triggers an Azure Functions function whenever a new or updated device message arrives. The function identifies messages that require device actions, and initiates the actions.
-- Time-to-live (TTL) and change feed features automatically move older data to cold storage, improving performance and reducing costs.
-- Five available consistency levels allow prioritizing stronger consistency against higher availability, lower latency, and higher throughput.
+- Containers store messages from IoT devices as JSON documents in a *hot data store*.
+- *Change feed* triggers an Azure Functions function whenever a new or updated device message arrives. The function identifies messages that require device actions, and initiates the actions.
+- *Time-to-live (TTL)* and change feed features automatically move older data to cold storage, improving performance and reducing costs.
+- Five available *consistency levels* allow prioritizing stronger read consistency against higher availability, lower latency, and higher throughput.
 
 ## Architecture
 
@@ -46,7 +46,7 @@ This IoT solution uses the following Azure Cosmos DB features:
 
 This solution highlights [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db), a globally distributed, multi-model database. The solution relies on the following Azure Cosmos DB features:
 
-- Consistency levels. Azure Cosmos DB supports five read consistency levels, from strongest to weakest: Strong, bounded staleness, session, consistent prefix, and eventual. Weaker consistency means higher availability, shorter latency, and higher throughput. You can choose a consistency level based on solution requirements.
+- Consistency levels. Azure Cosmos DB supports five read consistency levels, from strongest to weakest: Strong, bounded staleness, session, consistent prefix, and eventual. In general, stronger consistency leads to lower availability, longer latency, and lower throughput. You can choose a consistency level based on your workload requirements.
 
 - Time to live (TTL). Azure Cosmos DB can delete items automatically from a container after a certain time period. This capability lets Azure Cosmos DB act as a hot data store for recent data, with long-term data stored in Azure Blob cold storage.
 
@@ -76,9 +76,9 @@ The solution also uses the following Azure components:
 
 - [Power BI](https://powerbi.microsoft.com) is a suite of business analytics tools for analyzing data and sharing insights. Power BI can query a semantic model stored in Azure Analysis Services, or can query Synapse Analytics directly.
 
-- [Azure App Services](/azure/app-service/app-service-web-overview) builds web and mobile applications. [Azure API App](https://azure.microsoft.com/services/app-service/api) lets third-party apps use data from the serving layer.
+- [Azure App Services](/azure/app-service/app-service-web-overview) builds web and mobile applications. [Azure API App](https://azure.microsoft.com/services/app-service/api) lets third-party apps consume APIs based on data from the serving layer.
 
-- [Azure Functions](https://azure.microsoft.com/services/functions) is an event-driven, serverless compute platform. Azure Functions can operate at scale in the cloud, and integrate services by using triggers and bindings. Azure Functions can translate IoT message formats, or trigger actions when connected to Azure Cosmos DB change feed.
+- [Azure Functions](https://azure.microsoft.com/services/functions) is an event-driven, serverless compute platform that can operate at scale in the cloud, and integrate services by using triggers and bindings. Azure Functions can translate IoT message formats, or trigger actions when connected to Azure Cosmos DB change feed.
 
 ### Alternatives
 
@@ -106,5 +106,5 @@ Azure Cosmos DB has a [20-GB limit](/azure/cosmos-db/partitioning-overview) for 
 ## Related resources
 
 - [Azure IoT reference architecture](../../reference-architectures/iot.yml)
-- [IoT and data analytics](../../example-scenario/data/big-data-with-iot.yml
+- [IoT and data analytics](../../example-scenario/data/big-data-with-iot.yml)
 - [IoT analytics with Azure Data Explorer](iot-azure-data-explorer.yml)
