@@ -21,7 +21,7 @@ The example workload discussed below describes building out a simulation that ru
 
 ## Potential use cases
 
-Typical uses for this workload include:
+This solution is ideal for the automotive and transportation industries. Typical uses for this workload include:
 
 -   Automating driving tests.
 
@@ -42,7 +42,11 @@ The developer will only interact with this layer. It contains the developer work
 ### Orchestration layer
 
 "Orchestration" has a broad meaning: some of the problems described by the word are trivially solved; others are much more complex. For example, the
-"orchestration" problem of creating, monitoring, and destroying containers and VMs is solved by many tools—the Azure API itself is a sufficient "orchestrator" for that! However, it's important to break down the black box of "orchestration" into smaller components.
+"orchestration" problem of creating, monitoring, and destroying containers and VMs is solved by many tools—the Azure API itself is a sufficient "orchestrator" for that! 
+
+#### Workflow
+
+However, it's important to break down the black box of "orchestration" into smaller components.
 
 -   Simulation API: This API receives a specification file and is the entry point for controlling simulation environments and simulation runs with the Orchestration Layer.
 
@@ -151,14 +155,6 @@ In general, use the [Azure pricing calculator](https://azure.microsoft.com/prici
 
 ## Next steps
 
-Azure Architecture Center overview articles:
-
--   [Choose an Azure compute service for your application](/azure/architecture/guide/technology-choices/compute-decision-tree)
-
--   [Select an Azure data store for your application](/azure/architecture/guide/technology-choices/data-store-decision-tree)
-
--   [Big compute architecture style](/azure/architecture/guide/architecture-styles/big-compute)
-
 Product documentation:
 
 -   [Azure Container Registry](/azure/container-registry/container-registry-intro)
@@ -191,6 +187,16 @@ Microsoft Learn learning paths:
 -   [Monitor and back up resources for Azure administrators](/learn/paths/azure-administrator-monitor-backup-resources)
 
 ## Related resources
+
+Azure Architecture Center overview articles:
+
+-   [Choose an Azure compute service for your application](/azure/architecture/guide/technology-choices/compute-decision-tree)
+
+-   [Select an Azure data store for your application](/azure/architecture/guide/technology-choices/data-store-decision-tree)
+
+-   [Big compute architecture style](/azure/architecture/guide/architecture-styles/big-compute)
+
+Relevant architectures:
 
 -   [Process real-time vehicle data using IoT](/azure/architecture/example-scenario/data/realtime-analytics-vehicle-iot)
 
