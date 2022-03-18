@@ -6,9 +6,9 @@ This article describes an internet-of-things (IoT) workload that features the Az
 - Has wire protocol–compatible API endpoints for Cassandra, MongoDB, SQL, Gremlin, etcd, and table databases.
 - Has built-in support for Jupyter Notebook files.
 
-Azure Cosmos DB is a multi-model database with global distribution and horizontal scale at its core. Global distribution across Azure regions transparently scales and replicates data. You can elastically scale throughput and storage worldwide, and pay only for the throughput and storage you need to use. Azure Cosmos DB can scale instantly and elastically to accommodate diverse and unpredictable IoT workloads, without sacrificing ingestion or query performance.
+Azure Cosmos DB is a multi-model database with global distribution and horizontal scale at its core. Global distribution transparently scales and replicates data across Azure regions. You can elastically scale throughput and storage worldwide, and pay for only the throughput and storage you need to use. Azure Cosmos DB can scale instantly and elastically to accommodate diverse and unpredictable IoT workloads, without sacrificing ingestion or query performance.
 
-In this solution, Azure Cosmos DB stores messages from IoT devices. The Azure Cosmos DB change feed feature triggers an Azure Functions function whenever a new or updated device message arrives. The function determines whether the message contents require a device action, and if so, connects to Azure IoT Hub to initiate the device action.
+In this solution, Azure Cosmos DB stores messages from IoT devices. The Azure Cosmos DB change feed feature triggers an Azure Functions function whenever a new or updated device message arrives. The function determines whether the message contents require a device action. If so, the function connects to Azure IoT Hub to initiate the action.
 
 ## Architecture
 
@@ -31,15 +31,15 @@ In this solution, Azure Cosmos DB stores messages from IoT devices. The Azure Co
 
 1. The presentation layer uses data from the storage layer to build web, mobile, and API apps for third-party users.
 
-1. Azure Cosmos DB change feed triggers an Azure Functions function whenever a device message is added or updated.
+1. Azure Cosmos DB change feed triggers an Azure Functions function whenever a new or updated device message arrives.
 
-1. Some messages, like fault codes, require device actions like reboots. The function determines whether the message requires a device action. If so, the function connects to IoT Hub by using the IoT Hub Service API, and initiates the device action. The function can initiate the action by using device twins, cloud to device messages, or direct methods.
+1. Some messages, like fault codes, require device actions, like reboots. The function determines whether the message requires a device action. If so, the function connects to IoT Hub by using the IoT Hub Service API, and initiates the device action. The function can initiate the action by using device twins, cloud to device messages, or direct methods.
 
-### Components
+### Azure Cosmos DB features
 
 This solution highlights [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db), a globally distributed, multi-model database. The solution relies on the following Azure Cosmos DB features:
 
-- Consistency levels. Azure Cosmos DB supports five consistency levels: Strong, Bounded Staleness, Session, Consistent Prefix, and Eventual. This feature lets you determine the tradeoff between read consistency and availability, latency, and throughput.
+- Consistency levels. Azure Cosmos DB supports five consistency levels: Strong, Bounded Staleness, Session, Consistent Prefix, and Eventual. This feature lets you decide the tradeoff between read consistency and availability, latency, and throughput.
 
 - Time to live (TTL). Azure Cosmos DB can delete items automatically from a container after a certain time period. This capability lets Azure Cosmos DB act as a hot data store for recent data, with long-term data stored in Azure Blob cold storage.
 
@@ -47,7 +47,9 @@ This solution highlights [Azure Cosmos DB](https://azure.microsoft.com/services/
 
 - Request unit (RU). RUs are compute units that measure Azure Cosmos DB throughput. You can use RUs to dynamically scale Azure Cosmos DB up and down, while maintaining availability and optimizing for cost and performance.
 
-- Partitioning. The partition key determines how Azure Cosmos DB routes data in partitions. The IoT Device ID is usually the partition key for IoT applications.
+- Partitioning. The partition key determines how Azure Cosmos DB routes data in partitions. The IoT Device ID is the usual partition key for IoT applications.
+
+### Other Azure components
 
 The solution also uses the following Azure components:
 
