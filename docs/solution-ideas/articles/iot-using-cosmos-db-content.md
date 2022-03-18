@@ -1,14 +1,21 @@
 <!-- cSpell:ignore khilscher Etcd Jupyter eventhubs -->
 
-This article describes an internet-of-things (IoT) workload that features the Azure Cosmos DB database service. Azure Cosmos DB is ideally suited for IoT solutions, because it:
+This article describes an internet-of-things (IoT) solution that relies on several features of the Azure Cosmos DB database service.
 
-- Can ingest device telemetry data at high rates, and return indexed queries with low latency and high availability.
-- Has wire protocol–compatible API endpoints for Cassandra, MongoDB, SQL, Gremlin, etcd, and table databases.
-- Has built-in support for Jupyter Notebook files.
+Azure Cosmos DB is a multi-model database built for global distribution and horizontal scale. Global distribution transparently scales and replicates data across Azure regions. You can scale throughput and storage worldwide, and pay for only the throughput and storage you need to use. Instant elastic scaling can accommodate diverse and unpredictable IoT workloads, without sacrificing ingestion or query performance.
 
-Azure Cosmos DB is a multi-model database with global distribution and horizontal scale at its core. Global distribution transparently scales and replicates data across Azure regions. You can elastically scale throughput and storage worldwide, and pay for only the throughput and storage you need to use. Azure Cosmos DB can scale instantly and elastically to accommodate diverse and unpredictable IoT workloads, without sacrificing ingestion or query performance.
+The following capabilities also make Azure Cosmos DB ideal for IoT workloads:
 
-In this solution, Azure Cosmos DB stores messages from IoT devices. The Azure Cosmos DB change feed feature triggers an Azure Functions function whenever a new or updated device message arrives. The function determines whether the message contents require a device action. If so, the function connects to Azure IoT Hub to initiate the action.
+- Ingests device telemetry data at high rates, and returns indexed queries with low latency and high availability.
+- Stores JSON schemas from different device vendors, or converts device messages to a canonical JSON schema.
+- Has wire protocol–compatible API endpoints for Cassandra, MongoDB, SQL, Gremlin, etcd, and table databases, and built-in support for Jupyter Notebook files.
+
+This IoT solution uses the following Azure Cosmos DB features:
+
+- Database containers store messages from IoT devices as JSON documents in a *hot data store*.
+- The change feed feature triggers an Azure Functions function whenever a new or updated device message arrives. The function identifies messages that require device actions, and initiates the actions.
+- Time-to-live (TTL) and change feed features automatically move older data to cold storage, improving performance and reducing costs.
+- Five available consistency levels allow prioritizing stronger consistency against higher availability, lower latency, and higher throughput.
 
 ## Architecture
 
@@ -16,11 +23,11 @@ In this solution, Azure Cosmos DB stores messages from IoT devices. The Azure Co
 
 ### Data flow
 
-1. IoT sensors and Edge devices send events as message streams through Azure IoT Hub to the analyze and transform layer. IoT Hub can store data streams in partitions for a specified durations.
+1. IoT sensors and Edge devices send events as message streams through Azure IoT Hub to the analyze and transform layer. IoT Hub can store data streams in partitions for a specified duration.
 
 1. Azure Databricks with Apache Spark Structured Streaming picks up messages from IoT Hub in real time, processes the data based on business logic, and sends the data to the storage server. Structured Streaming can provide real time analytics, such as calculating moving averages or minimum and maximum values over time periods.
 
-1. The Azure Cosmos DB *hot data store* stores device messages as JSON documents. Azure Cosmos DB can store JSON schemas from different device vendors, or convert messages to a canonical JSON schema.
+1. Azure Cosmos DB hot data storage stores device messages as JSON documents. Stores JSON schemas from different device vendors, or converts device messages to a canonical JSON schema.
 
    The storage layer also consists of:
    - Azure Blob Storage. IoT Hub [message routing](/azure/iot-hub/tutorial-routing) saves raw device messages to Blob storage, providing an inexpensive, long-term *cold data store*.
@@ -29,7 +36,7 @@ In this solution, Azure Cosmos DB stores messages from IoT devices. The Azure Co
 
 1. Microsoft Power BI analyzes the warehoused data.
 
-1. The presentation layer uses data from the storage layer to build web, mobile, and API apps for third-party users.
+1. The presentation layer uses data from the storage layer to build web, mobile, and API apps.
 
 1. Azure Cosmos DB change feed triggers an Azure Functions function whenever a new or updated device message arrives.
 
@@ -39,7 +46,7 @@ In this solution, Azure Cosmos DB stores messages from IoT devices. The Azure Co
 
 This solution highlights [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db), a globally distributed, multi-model database. The solution relies on the following Azure Cosmos DB features:
 
-- Consistency levels. Azure Cosmos DB supports five consistency levels: Strong, Bounded Staleness, Session, Consistent Prefix, and Eventual. This feature lets you decide the tradeoff between read consistency and availability, latency, and throughput.
+- Consistency levels. Azure Cosmos DB supports five read consistency levels, from strongest to weakest: Strong, bounded staleness, session, consistent prefix, and eventual. Weaker consistency means higher availability, shorter latency, and higher throughput. You can choose a consistency level based on solution requirements.
 
 - Time to live (TTL). Azure Cosmos DB can delete items automatically from a container after a certain time period. This capability lets Azure Cosmos DB act as a hot data store for recent data, with long-term data stored in Azure Blob cold storage.
 
