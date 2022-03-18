@@ -29,6 +29,8 @@ Project Bonsai speeds the creation of AI-powered automation. Development and dep
 
 ![Diagram showing the architectuer of Project Bonsai.](../media/machine-teaching-1-2.png)
 
+### Workflow
+
 1. The Build phase consists of writing the machine teaching program and connecting to a domain-specific training simulator. Simulators generate sufficient training data for experiments and machine practice.
 1. In the Train phase, the training engine automates DRL model generation and training by combining high-level domain models with appropriate DRL algorithms and neural networks.
 1. The Deploy phase deploys the trained _brain_ to the target application in the cloud, on-premises, or embedded on site. Specific SDKs and deployment APIs deploy trained AI systems to various target applications, perform machine tuning, and control the physical systems.
