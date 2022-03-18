@@ -1,8 +1,8 @@
 <!-- cSpell:ignore khilscher Etcd Jupyter eventhubs -->
 
-This article describes an internet-of-things (IoT) solution that relies on several features of the Azure Cosmos DB database service. Azure Cosmos DB is a multi-model database built for global distribution and horizontal scale.
+This article describes an internet-of-things (IoT) workload that relies on several features of the Azure Cosmos DB database service. Azure Cosmos DB is a multi-model database built for global distribution and horizontal scale.
 
-Global distribution transparently scales and replicates data across Azure regions. You can scale throughput and storage worldwide, and pay for only the throughput and storage you need to use. Instant elastic scaling accommodates diverse and unpredictable IoT workloads, without sacrificing ingestion or query performance.
+Global distribution transparently scales and replicates data across Azure regions. You can scale throughput and storage worldwide, and pay for only the amount you need. Instant elastic scaling accommodates diverse and unpredictable IoT workloads, without sacrificing ingestion or query performance.
 
 Azure Cosmos DB is ideal for IoT workloads because it can:
 
@@ -14,7 +14,7 @@ This IoT workload highlights the following Azure Cosmos DB features:
 
 - Containers store messages from IoT devices as JSON documents in a *hot data store*.
 - *Change feed* triggers an Azure Functions function whenever a new or updated device message arrives. The function identifies messages that require device actions, and initiates the actions.
-- *Time-to-live (TTL)* and change feed features automatically move older data to cold storage, improving performance and reducing costs.
+- *Time-to-live (TTL)* and change feed automatically move older data to cold storage, improving performance and reducing costs.
 - Five available *consistency levels* allow prioritizing stronger read consistency against higher availability, lower latency, and higher throughput.
 
 ## Architecture
@@ -44,17 +44,17 @@ This IoT workload highlights the following Azure Cosmos DB features:
 
 ### Azure Cosmos DB features
 
-This solution highlights [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db), a globally distributed, multi-model database. The solution relies on the following Azure Cosmos DB features:
+This IoT workload spotlights [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db), a globally distributed, multi-model database. The workload uses the following Azure Cosmos DB features:
 
-- Consistency levels. Azure Cosmos DB supports five read consistency levels, from strongest to weakest: Strong, bounded staleness, session, consistent prefix, and eventual. In general, stronger consistency leads to lower availability, longer latency, and lower throughput. You can choose a consistency level based on your workload requirements.
+- [Consistency levels](/azure/cosmos-db/consistency-levels). Azure Cosmos DB supports five read consistency levels, from strongest to weakest: Strong, bounded staleness, session, consistent prefix, and eventual. In general, stronger consistency leads to lower availability, longer latency, and lower throughput. You can choose a consistency level based on your workload requirements.
 
-- Time to live (TTL). Azure Cosmos DB can delete items automatically from a container after a certain time period. This capability lets Azure Cosmos DB act as a hot data store for recent data, with long-term data stored in Azure Blob cold storage.
+- [Time to live (TTL)](/azure/cosmos-db/time-to-live). Azure Cosmos DB can delete items automatically from a container after a certain time period. This capability lets Azure Cosmos DB act as a hot data store for recent data, with long-term data stored in Azure Blob cold storage.
 
-- Change feed. The change feed feature outputs a sorted list of changed documents, in the order in which they were modified. Each new event in the Azure Cosmos DB container's change feed automatically triggers a small reactive Azure Functions function. Depending on the contents of the JSON document, the function can connect to Azure IoT Hub Service API and execute an action on the device.
+- [Change feed](/azure/cosmos-db/change-feed). The change feed feature outputs a sorted list of changed documents, in the order in which they were modified. Each new event in the Azure Cosmos DB container's change feed automatically triggers a small reactive Azure Functions function. Depending on the contents of the JSON document, the function can connect to Azure IoT Hub Service API and execute an action on the device.
 
-- Request unit (RU). RUs are compute units that measure Azure Cosmos DB throughput. You can use RUs to dynamically scale Azure Cosmos DB up and down, while maintaining availability and optimizing for cost and performance.
+- [Request units (RUs)](/azure/cosmos-db/request-units). RUs are compute units that measure Azure Cosmos DB throughput. You can use RUs to dynamically scale Azure Cosmos DB up and down, while maintaining availability and optimizing for cost and performance.
 
-- Partitioning. The partition key determines how Azure Cosmos DB routes data in partitions. The IoT Device ID is the usual partition key for IoT applications.
+- [Partitioning](/azure/cosmos-db/partition-data). The partition key determines how Azure Cosmos DB routes data in partitions. The IoT Device ID is the usual partition key for IoT applications.
 
 ### Other Azure components
 
@@ -97,11 +97,8 @@ Azure Cosmos DB has a [20-GB limit](/azure/cosmos-db/partitioning-overview) for 
 ## Next steps
 
 - [IoT solutions and Cosmos DB](https://techcommunity.microsoft.com/t5/internet-of-things/iot-solutions-and-azure-cosmos-db/ba-p/1015605)
-- [Change feed in Azure Cosmos DB](/azure/cosmos-db/change-feed)
-- [Time to Live (TTL) in Azure Cosmos DB](/azure/cosmos-db/time-to-live)
-- [Consistency levels in Azure Cosmos DB](/azure/cosmos-db/consistency-levels)
-- [Request Units in Azure Cosmos DB](/azure/cosmos-db/request-units)
 - [Partitioning and horizontal scaling in Azure Cosmos DB](/azure/cosmos-db/partition-data)
+- [Order device connection events from Azure IoT Hub using Azure Cosmos DB](/azure/iot-hub/iot-hub-how-to-order-connection-state-events)
 
 ## Related resources
 
