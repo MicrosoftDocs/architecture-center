@@ -52,7 +52,7 @@ The 'Deploy' button will launch a workflow that will deploy an instance of the s
 
 After deployment, see the post deployment instructions in GitHub.
 
-## Next steps
+## Related resources
 
 * [Choosing a data analytics technology in Azure](../../data-guide/technology-choices/analysis-visualizations-reporting.md)
 * [Stream processing with Azure Stream Analytics](../../reference-architectures/data/stream-processing-stream-analytics.yml)
