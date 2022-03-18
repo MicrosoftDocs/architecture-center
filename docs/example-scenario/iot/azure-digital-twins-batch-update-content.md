@@ -10,7 +10,8 @@ These other uses cases have similar design patterns:
 ## Architecture
 
 ![Azure Digital Twins Batch Update Architecture](media/azure-digital-twins-batch-update-diagram.png)
-_Download an [Visio file](media/azure-digital-twins-batch-update-diagram.vsdx) of this architecture._
+
+_Download a [Visio file](https://arch-center.azureedge.net/azure-digital-twins-batch-update-diagram.vsdx) of this architecture._
 
 ### Dataflow
 

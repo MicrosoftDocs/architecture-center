@@ -19,6 +19,6 @@ products:
   - azure-batch
 name: Azure Digital Twins Batch Update
 summary: Use Azure Data Factory to extract data from source systems and update Azure Digital Twins data using batch pipelines.
-thumbnailUrl: /azure/architecture/browse/thumbs/azure-digital-twins-batch-update-diagram.png
+thumbnailUrl: /azure/architecture/browse/thumbs/azure-digital-twins-batch-update-thumbnail.png
 content: |
   [!include[](azure-digital-twins-batch-update-content.md)]
