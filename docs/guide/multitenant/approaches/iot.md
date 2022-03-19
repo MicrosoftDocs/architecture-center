@@ -4,7 +4,7 @@ titleSuffix: Azure Architecture Center
 description: This articles describes approaches for supporting multitenancy in your IoT solution.
 author: drcrook1
 ms.author: dacrook
-ms.date: 03/02/2022
+ms.date: 03/21/2022
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: azure-guide
@@ -25,11 +25,11 @@ ms.custom:
 
 # Architectural approaches for IoT in a multitenant solution
 
-Multitenant IoT solutions come in many different flavors and sizes.  You might have many requirements and constraints, ranging from infrastructure ownership, to customer data isolation, to compliance. It can be challenging to define a pattern that meets all of these design constraints, and doing so often requires considering multiple dimensions. This article describes several approaches commonly used to solve multitenancy considerations for IoT based solutions.  This document includes example multitenant architectures leveraging common components according to the [IoT Reference Architecture](/azure/architecture/reference-architectures/iot).
+Multitenant IoT solutions come in many different flavors and sizes. You might have many requirements and constraints, ranging from infrastructure ownership, to customer data isolation, to compliance. It can be challenging to define a pattern that meets all of these design constraints, and doing so often requires considering multiple dimensions. This article describes several approaches commonly used to solve multitenancy considerations for IoT-based solutions. This document includes example multitenant architectures that leverage common components, according to the [IoT Reference Architecture](/azure/architecture/reference-architectures/iot).
 
 ## Key considerations and requirements
 
-These considerations and requirements are presented in the order in which they typically are prioritized for a solution's design.
+These considerations and requirements are presented in the order in which they're typically prioritized for a solution's design.
 
 ### Governance and compliance
 
