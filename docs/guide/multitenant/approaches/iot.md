@@ -35,7 +35,7 @@ These considerations and requirements are presented in the order in which they'r
 
 Governance and compliance considerations might require that you use a particular pattern or set of IoT resources. Not all IoT services have the same certifications or capabilities. If you need to meet specific compliance standards, you might need to select specific services. Information on governance and compliance is covered in a [dedicated article on that topic](governance-compliance.md).
 
-Governance in IoT can also take additional forms such as device ownership and management.  Does the customer own the device or does the solution provider?  Who owns the management of those devices?  These considerations and implications are unique to each solution provider and can lead to different choices in technology, deployment pattern, and multi-tenancy pattern.
+Governance in IoT can also take additional forms, such as device ownership and management. Does the customer own the device or does the solution provider?  Who owns the management of those devices?  These considerations and implications are unique to each solution provider and can lead to different choices in the technology, deployment pattern, and multi-tenancy pattern that you use.
 
 ### Scale
 
@@ -44,11 +44,11 @@ It's important to plan your solution's scale. Scale is often considered across t
 * **Quantity of devices**: All Azure device management services - [Azure IoT Central](/azure/iot-central/core/concepts-quotas-limits), [Azure IoT Hub Device Provisioning Service (DPS)](/azure/iot-dps/about-iot-dps#quotas-and-limits), and [Azure IoT Hub](/azure/iot-hub/iot-hub-devguide-quotas-throttling) - have limitations on the number of devices supported in a single instance.
 
    > [!TIP]
-   > Refer to the [high scale documentation](https://aka.ms/ScalingIoT) if you plan to deploy a very large number of devices.
+   > Refer to the [high scale documentation](https://aka.ms/ScalingIoT), if you plan to deploy a very large number of devices.
 
-* **Device throughput**: Different devices, even in the same solution, may have different throughput requirements.  "Throughput" in this context refers to both the number of messages over a period of time and the size of the messages.  For example, in a smart building solution, thermostats will likely report data at a lower frequency than elevators, while in a connected vehicle solution, vehicle camera recording data messages will likely be larger than navigation telemetry messages.  If your messages are throttled with respect to frequency, you might need to scale out to more instances of a particular service, but if they are throttled with respect to size, you might need to scale up to larger instances of a particular service.
+* **Device throughput**: Different devices, even in the same solution, might have different throughput requirements. "Throughput" in this context refers to both the number of messages over a period of time and the size of the messages. For example, in a smart-building solution, thermostats will likely report data at a lower frequency than elevators, while in a connected-vehicle solution, vehicle camera recording data messages will likely be larger than navigation telemetry messages. If your messages are throttled with respect to frequency, you might need to scale out to more instances of a particular service, but if they are throttled with respect to size, you might need to scale up to larger instances of a particular service.
 
-* **Tenants**: A single tenant's scale may be small, but when multiplied by the number of tenants, it can quickly grow.
+* **Tenants**: A single tenant's scale might be small, but when multiplied by the number of tenants, it can quickly grow.
 
 ### Performance and reliability
 
