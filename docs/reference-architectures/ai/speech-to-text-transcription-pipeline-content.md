@@ -60,7 +60,7 @@ Cognitive Services APIs might have request limits based on the subscription tier
 
 ## Security considerations
 
-Many of the [security considerations for a serverless web applications](../../reference-architectures/serverless/web-app.yml#security-considerations) apply to this reference architecture. The following sections discuss considerations specific to this architecture.
+Many of the [security considerations for a serverless web applications](../../reference-architectures/serverless/web-app.yml#security) apply to this reference architecture. The following sections discuss considerations specific to this architecture.
 
 ### Azure Active Directory
 
