@@ -174,44 +174,48 @@ Within an IoT solution, there are many components that can be horizontally parti
 
 #### Example horizontal SaaS
 
-The below architectural example partitions IoT Central per end customer which serves as the device management, device communications & administrations portal.  This is often done such that the end customer consuming the solution has full control over adding, removing and updating devices themselves without the intervention of the software vendor.  The rest of the solution follows a standard shared infrastructure pattern, solving for hot path analysis, business integrations, SaaS management & device analysis needs.
+The below architectural example partitions IoT Central per end customer, which serves as the device management, device communications, and administrations portal.  This is often done in such a way that the end customer who consumes the solution has full control over adding, removing, and updating devices themselves, without the intervention of the software vendor. The rest of the solution follows a standard shared infrastructure pattern, which solves for hot path analysis, business integrations, SaaS management, and device analysis needs.
 
 :::image type="content" source="media/iot/horizontal-saas.png" alt-text="Diagram of an I O T solution. Each tenant has their own I O T Central organization, which sends telemetry to a shared function app and makes it available to the tenants' business users through a web app." border="false":::
+
+Each tenant has their own IoT Central organization, which sends telemetry to a shared function app and makes it available to the tenants' business users through a web app.
 
 **Benefits**:
 
 * Generally easy to manage and operate, although additional management might be required for single-tenant components.
 * Flexible scaling options, because layers are scaled as necessary.
-* Impact of component failures is reduced. While a failure of a shared component impacts all customers, horizontally-scaled components only impact the customers associated with specific scale instances.
-* Improved per tenant consumption insights for partitioned components.
+* Impact of component failures is reduced. While a failure of a shared component impacts all customers, horizontally-scaled components only impact the customers that are associated with specific scale instances.
+* Improved per-tenant consumption insights for partitioned components.
 * Partitioned components provide easier per-tenant customizations.
 
 **Risks**:
 
 * Consider the [scale](#scale) of the solution, especially for any shared components.
-* Reliability and high availability are potentially impacted. A single failure in the shared components might affect all tenants at once.
-* Per-tenant partitioned component customization requires long-term DevOps and management considerations.
+* Reliability and high availability are potentially impacted. A single failure in the shared components might affect all the tenants at once.
+* The per-tenant partitioned component customization requires long-term DevOps and management considerations.
 
 **Below are the most common components that are typically suitable for horizontal partitioning.**
 
 #### Databases
 
-You might choose to partition the databases.  Often it is the telemetry and device data stores which are partitioned.  Frequently there are multiple data stores used for different specific purposes such as warm vs archival storage or tenancy subscription status information.  Separating databases for each tenant can see the following benefits:
+You might choose to partition the databases. Often it's the telemetry and device data stores that are partitioned. Frequently, multiple data stores are used for different specific purposes, such as warm versus archival storage,or for tenancy subscription status information. 
 
-* Supports compliance standards. Each tenant's data is isolated across instances of the data store.
-* Remediates noisy neighbor issues.
+Separate the databases for each tenant, for the following benefits:
+
+* Support compliance standards. Each tenant's data is isolated across instances of the data store.
+* Remediate noisy neighbor issues.
 
 #### Device management, communications, and administration
 
-Device Provisioning Services, IoT Hub, and IoT Central applications can often be deployed as horizontally partitioned components. If you follow this approach, you need to have an additional service to redirect devices to the appropriate Device Provisioning Service for that particular tenant's management, control, and telemetry plane. For more information, see [Scaling Out an Azure IoT Solution to Support Millions of Devices](https://aka.ms/ScalingIoT).
+Azure IoT Hub Device Provisioning Service, IoT Hub, and IoT Central applications can often be deployed as horizontally partitioned components. If you follow this approach, you need to have an additional service to redirect devices to the appropriate Device Provisioning Service for that particular tenant's management, control, and telemetry plane. For more information, see the whitepaper, [Scaling out an Azure IoT solution to support millions of devices](https://aka.ms/ScalingIoT).
 
-This is often done to enable the end customers to manage and control their own fleets of devices more directly and fully isolated.
+This is often done to enable the end customers to manage and control their own fleets of devices that are more directly and fully isolated.
 
-If the device communications plane is horizontally partitioned, telemetry data must be enriched with data regarding the source tenant such that the stream processor knows which tenant rules to apply to the data stream.  For example, if a telemetry message generates a notification in the stream processor, the stream processor will need to determine the proper notification path for the associated tenant.
+If the device communications plane is horizontally partitioned, telemetry data must be enriched with data for the source tenant, such that the stream processor knows which tenant rules to apply to the data stream. For example, if a telemetry message generates a notification in the stream processor, the stream processor will need to determine the proper notification path for the associated tenant.
 
 #### Stream processing
 
-Partitioning stream processing enables per tenant customizations of the analysis within the stream processors.
+By partitioning stream processing, you enable per-tenant customizations of the analysis within the stream processors.
 
 ### Single-tenant automated
 
@@ -219,19 +223,21 @@ A single-tenant automated approach is based on a similar decision process and de
 
 :::image type="content" source="media/iot/single-tenant-automated.png" alt-text="Diagram that shows an I O T architecture for three tenants. Each tenant has their own identical, isolated environment with an I O T Central organization and other components dedicated to them." border="false":::
 
+Each tenant has its own identical, isolated environment, with an IoT Central organization and other components dedicated to them.
+
 | Deployment Target | Tenancy Model | Deployment Pattern |
 |---|---|---|
 | Either service provider's or customer's subscription | Single tenant per customer | Simple |
 
-A critical decision point in this approach is choosing which Azure subscription the components should be deployed to.  If the components are deployed to your subscription, you have more control and better visibility into the cost of the solution, but requires you to own more of the solution's security and governance concerns.  Conversely, if the solution is deployed in your customer's subscription, the customer is ultimately responsible for the security and governance of the deployment.
+A critical decision point in this approach is choosing which Azure subscription the components should be deployed to. If the components are deployed to your subscription, you have more control and better visibility into the cost of the solution, but it requires you to own more of the solution's security and governance concerns. Conversely, if the solution is deployed in your customer's subscription, the customer is ultimately responsible for the security and governance of the deployment.
 
-This pattern supports a high degree of scalability.  This is because tenant and subscription limits are generally the limiting factors in most solutions. Therefore, isolating each tenant gives a large scope for scaling each tenant's workload, without substantial effort on the part of the solution developer.
+This pattern supports a high degree of scalability. This is because tenant and subscription requirements are generally the limiting factors in most solutions. Therefore, isolate each tenant to give a large scope for scaling each tenant's workload, without substantial effort on your part, as the solution developer.
 
-This pattern also generally has low latency compared to other patterns, because you are able to deploy the solution components based on your customers' geography.  Geographical affinity allows for shorter network paths between an IoT device and your Azure deployment.
+This pattern also generally has low latency, when compared to other patterns, because you are able to deploy the solution components based on your customers' geography. Geographical affinity allows for shorter network paths between an IoT device and your Azure deployment.
 
-If necessary, the automated deployment can be extended to support improved latency or scale, by allowing quick deployment of extra instances of the solution for a customer in existing or new geographies.
+If necessary, you can extend the automated deployment to support improved latency or scale, by allowing the quick deployment of extra instances of the solution, for a customer in existing or new geographies.
 
-The *Single-tenant automated* approach is similar to the [*Simple SaaS*](#simple-saas) aPaaS model.  The primary difference between the two models is that in the *Single-tenant automated* approach, you deploy a distinct IoT Central instance for each tenant, while in the *Simple SaaS* with aPaaS model, you deploy a shared instance of IoT Central with multiple IoT Central organizations.
+The *single-tenant automated* approach is similar to the [*simple SaaS*](#simple-saas) aPaaS model. The primary difference between the two models is that in the *single-tenant automated* approach, you deploy a distinct IoT Central instance for each tenant, while in the *simple SaaS* with aPaaS model, you deploy a shared instance of IoT Central with multiple IoT Central organizations.
 
 **Benefits**:
 
@@ -241,9 +247,9 @@ The *Single-tenant automated* approach is similar to the [*Simple SaaS*](#simple
 **Risks**:
 
 * Initial automation can be complicated for new development staff.
-* Security of cross-customer credentials for higher-level deployment management must be enforced, or compromises can extend across customers.
-* Costs are expected to be higher, because the scale benefits of shared infrastructure across customers are not available.
-* If the solution provider is owning the maintenance of each instance, there can become many instances to have to maintain.
+* Security of cross-customer credentials for higher-level deployment management must be enforced, or the compromises can extend across customers.
+* Costs are expected to be higher, because the scale benefits of a shared infrastructure across customers are not available.
+* If the solution provider owns the maintenance of each instance, you might have many instances to maintain.
 
 ### Increase the scale of SaaS
 
