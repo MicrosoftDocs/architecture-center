@@ -116,10 +116,10 @@ This approach requires more developer effort to create, deploy, and maintain the
 
 The following table lists common patterns for multitenant IoT solutions.  Each pattern includes the following information:
 
-* The name of the **Pattern**, which is based on the combination of target, model and deployment type.
+* The name of the **Pattern**, which is based on the combination of the target, model, and deployment type.
 * The **Deployment target**, representing the Azure Subscription to deploy resources to.
-* The **Tenancy model** being referenced by the pattern, as described at [Multitenancy Models](/azure/architecture/guide/multitenant/considerations/tenancy-models)
-* The **Deployment pattern**, referring to a simple deployment with minimal deployment considerations, a [geode](/azure/architecture/patterns/geodes) pattern, or a [deployment stamp](/azure/architecture/patterns/deployment-stamp) pattern.
+* The **Tenancy model** being referenced by the pattern, as described at [Multitenancy models](/azure/architecture/guide/multitenant/considerations/tenancy-models)
+* The **Deployment pattern**, referring to a simple deployment with minimal deployment considerations, a [Geode pattern](/azure/architecture/patterns/geodes), or a [Deployment Stamp pattern](/azure/architecture/patterns/deployment-stamp).
 
 | Pattern | Deployment target | Tenancy model | Deployment pattern |
 |---|---|---|---|
@@ -135,20 +135,20 @@ The following table lists common patterns for multitenant IoT solutions.  Each p
 |---|---|---|
 | Service provider's subscription | Fully multitenant | Simple |
 
-The *Simple SaaS* approach is the simplest implementation for a SaaS IoT Solution.  All of the infrastructure is shared, and the infrastructure has no geographic or scale stamping applied.  Often, the infrastructure resides within a single Azure subscription.
+The *Simple SaaS* approach is the simplest implementation for a SaaS IoT Solution.  As the previous diagram shows, all of the infrastructure is shared, and the infrastructure has no geographic or scale stamping applied. Often, the infrastructure resides within a single Azure subscription.
 
-[Azure IoT Central](/azure/iot-central/core/overview-iot-central) supports the concept of [organizations](/azure/iot-central/core/howto-create-organizations). Organizations enable a solution provider to easily segregate tenants in a secure, hierarchical manner, while sharing the basic application design across all tenants.
+[Azure IoT Central](/azure/iot-central/core/overview-iot-central) supports the concept of [organizations](/azure/iot-central/core/howto-create-organizations). Organizations enable a solution provider to easily segregate tenants in a secure, hierarchical manner, while sharing the basic application design across all the tenants.
 
-Communications to systems outside of IoT Central, such as for longer-term data analysis along a cold path or connectivity with business operations, is done through other Microsoft PaaS and aPaaS offerings. These additional offerings might include the following services:
+Communications to systems outside of IoT Central, such as for longer-term data analysis, along a cold path or connectivity with business operations, is done through other Microsoft PaaS and aPaaS offerings. These additional offerings might include the following services:
 
 * [Azure Event Hub](/azure/event-hubs/event-hubs-about) as a cross-platform, enterprise-grade messaging and data flow engine.
-* [Azure Logic Apps](/azure/logic-apps/logic-apps-overview) as an Integration Platform-as-a-Service, or iPaaS.
+* [Azure Logic Apps](/azure/logic-apps/logic-apps-overview) as an integration platform-as-a-service, or iPaaS.
 * [Azure Data Explorer](/azure/data-explorer/data-explorer-overview) as a data analytics platform.
 * [Power BI](/power-bi/fundamentals/power-bi-overview) as a visualization and reporting platform.
 
 If you compare the *Simple SaaS* approach with the [*Single tenant automated*](#single-tenant-automated) aPaaS model, many characteristics are similar.  The primary difference between the two models is that in the  *Single tenant automated* model, you deploy a distinct IoT Central instance for each tenant, while in the *Simple SaaS with aPaaS* model, you instead deploy a shared instance for multiple customers, and you create an IoT Central organization for each tenant.
 
-As you are sharing a multitenanted data tier in this model, you will need to implement row-level security as described in [Architectural approaches for storage and data in multitenant solutions](storage-data.md) to isolate customer data.
+As you're sharing a multitenanted data tier in this model, you'll need to implement row-level security, as described in [Architectural approaches for storage and data in multitenant solutions](storage-data.md), in order to isolate the customer data.
 
 **Benefits**:
 
@@ -160,7 +160,7 @@ As you are sharing a multitenanted data tier in this model, you will need to imp
 
 * Because all of the services and components are shared, a failure in any component might affect all of your tenants. This is a risk to your solution's reliability and high availability.
 
-* It's important to consider how you manage compliance, operations, tenant lifecycle, and security of sub-fleets of devices. These considerations become important because of the shared nature of this solution type at the control, management, and communications planes.
+* It's important to consider how you manage the compliance, operations, tenant lifecycle, and security of sub-fleets of devices. These considerations become important because of the shared nature of this solution type at the control, management, and communications planes.
 
 ### Horizontal SaaS
 
@@ -168,9 +168,9 @@ As you are sharing a multitenanted data tier in this model, you will need to imp
 |---|---|---|
 | Service provider's subscription | Horizontally partitioned | Deployment Stamp |
 
-A common scalability approach is to [horizontally partition the solution](../considerations/tenancy-models.md#horizontally-partitioned-deployments).  This means you have some shared components and some per-customer components.
+A common scalability approach is to [horizontally partition the solution](../considerations/tenancy-models.md#horizontally-partitioned-deployments). This means you have some shared components and some per-customer components.
 
-Within an IoT solution, there are many components which can be horizontally partitioned.  The horizontally partitioned subsystems are typically arranged using a [deployment stamp pattern](/azure/architecture/patterns/deployment-stamp) which integrates with the greater solution.
+Within an IoT solution, there are many components that can be horizontally partitioned. The horizontally partitioned subsystems are typically arranged using a [deployment stamp pattern](/azure/architecture/patterns/deployment-stamp) which integrates with the greater solution.
 
 #### Example horizontal SaaS
 
