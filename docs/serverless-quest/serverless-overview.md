@@ -1,19 +1,22 @@
 ---
-title: Serverless Functions architecture
+title: Serverless functions architecture design
 titleSuffix: Azure Architecture Center
 description: Learn about serverless architecture with Azure Functions, and how to implement serverless Functions adoption.
 author: rogeriohc
-ms.date: 06/22/2020
+ms.author: pnp
+ms.date: 03/04/2022
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: azure-guide
+categories:
+  - compute
 products:
   - azure-functions
 ms.custom:
   - fcp
   - guide
 ---
-# Serverless Functions overview
+# Serverless functions architecture design
 
 *Serverless* architecture evolves cloud platforms toward pure cloud-native code by abstracting code from the infrastructure that it needs to run. [Azure Functions](/azure/azure-functions) is a serverless compute option that supports *functions*, small pieces of code that do single things.
 
@@ -53,4 +56,4 @@ Successful implementation of serverless technologies with Azure Functions requir
 ## Related resources
 - To learn more about serverless technology, see the [Azure serverless documentation](https://azure.microsoft.com/solutions/serverless/).
 - To learn more about Azure Functions, see the [Azure Functions documentation](/azure/azure-functions/).
-- For help with choosing a compute technology, see [Choose an Azure compute service for your application](../guide/technology-choices/compute-decision-tree.md).
+- For help with choosing a compute technology, see [Choose an Azure compute service for your application](../guide/technology-choices/compute-decision-tree.yml).

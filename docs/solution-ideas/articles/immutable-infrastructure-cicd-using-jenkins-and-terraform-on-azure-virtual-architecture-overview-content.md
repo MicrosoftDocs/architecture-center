@@ -7,7 +7,7 @@ Azure is a world-class cloud for hosting virtual machines running Windows or Lin
 ![Architecture diagram](../media/immutable-infrastructure-cicd-using-jenkins-and-terraform-on-azure-virtual-architecture-overview.png)
 *Download an [SVG](../media/immutable-infrastructure-cicd-using-jenkins-and-terraform-on-azure-virtual-architecture-overview.svg) of this architecture.*
 
-### Data flow
+### Dataflow
 
 1. Change application source code.
 1. Commit code to GitHub.

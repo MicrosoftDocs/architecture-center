@@ -86,7 +86,9 @@ For general guidance on designing resilient solutions, see [Designing reliable A
 - You need an Azure Active Directory (AD) service principal for the authentication of service and resources. If needed, you can create a service principal with [az ad sp create-for-rbac][createsp]
 
     ```azurecli-interactive
-    az ad sp create-for-rbac --name myDevOpsScenario --role Contributor
+    az ad sp create-for-rbac --name myDevOpsScenario \
+                        --role Contributor \
+                        --scopes /subscriptions/mySubscriptionID
     ```
 
     Make a note of the *appId* and *password* in the output from this command. You provide these values to the template when you deploy the scenario.
@@ -103,7 +105,7 @@ To deploy this scenario with an Azure Resource Manager template, perform the fol
 
 1. Click the link below to deploy the solution.
 
-    [![Deploy to Azure](https://azuredeploy.net/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fmspnp%2Fsolution-architectures%2Fmaster%2Fapps%2Fdevops-with-aks%2Fazuredeploy.json)
+    [![Deploy to Azure](../../_images/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fmspnp%2Fsolution-architectures%2Fmaster%2Fapps%2Fdevops-with-aks%2Fazuredeploy.json)
 
 2. Wait for the template deployment to open in the Azure portal, then complete the following steps:
    - Choose to **Create new** resource group, then provide a name such as *myAKSDevOpsScenario* in the text box.

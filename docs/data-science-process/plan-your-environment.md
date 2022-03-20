@@ -1,12 +1,12 @@
 ---
 title: Identify scenarios and plan the analytics process
 description: Identify scenarios and plan for advanced analytics data processing by considering a series of key questions.
-services: machine-learning
 author: marktab
 manager: marktab
 editor: marktab
-ms.service: machine-learning
-ms.subservice: team-data-science-process
+services: architecture-center
+ms.service: architecture-center
+ms.subservice: azure-guide
 ms.topic: article
 ms.date: 12/14/2021
 ms.author: tdsp
@@ -23,7 +23,7 @@ categories:
 
 What resources are required for you to create an environment that can perform advanced analytics processing on a dataset? This article suggests a series of questions to ask that can help identify tasks and resources relevant your scenario.
 
-To learn about the order of high-level steps for predictive analytics, see [What is the Team Data Science Process (TDSP)](overview.md). Each step requires specific resources for the tasks relevant to your particular scenario.
+To learn about the order of high-level steps for predictive analytics, see [What is the Team Data Science Process (TDSP)](overview.yml). Each step requires specific resources for the tasks relevant to your particular scenario.
 
 Answer key questions in the following areas to identify your scenario:
 
@@ -156,9 +156,9 @@ Azure Machine Learning uses [Jupyter notebooks for data analysis](/azure/machine
 
 ## Identify your advanced analytics scenario
 
-After you have answered the questions in the previous section, you are ready to determine which scenario best fits your case. The sample scenarios are outlined in [Scenarios for advanced analytics in Azure Machine Learning](plan-sample-scenarios.md).
+After you have answered the questions in the previous section, you are ready to determine which scenario best fits your case. The sample scenarios are outlined in [Scenarios for advanced analytics in Azure Machine Learning](/azure/architecture/data-science-process/overview).
 
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [What is the Team Data Science Process (TDSP)?](overview.md)
+> [What is the Team Data Science Process (TDSP)?](overview.yml)

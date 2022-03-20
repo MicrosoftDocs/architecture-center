@@ -7,6 +7,8 @@ ms.date: 06/05/2017
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: anti-pattern
+categories:
+  - databases
 products:
   - azure-cache-redis
 ms.custom:
@@ -220,8 +222,8 @@ The volume of successful tests still reaches a plateau, but at a higher user loa
 
 [sample-app]: https://github.com/mspnp/performance-optimization/tree/master/NoCaching
 [cache-aside-pattern]: ../../patterns/cache-aside.md
-[caching-guidance]: ../../best-practices/caching.md
-[circuit-breaker]: ../../patterns/circuit-breaker.md
+[caching-guidance]: ../../best-practices/caching.yml
+[circuit-breaker]: ../../patterns/circuit-breaker.yml
 [api-implementation]: ../../best-practices/api-implementation.md#optimizing-client-side-data-access
 [NewRelic]: https://newrelic.com/partner/azure
 [NewRelic-server-requests]: ./_images/New-Relic.jpg

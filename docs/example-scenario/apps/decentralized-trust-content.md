@@ -6,7 +6,7 @@ With DLTs (distributed ledger technology), a consortium of banks can establish a
 
 This example will show you how Azure services such as virtual machine scale sets, Virtual Network, Key Vault, Storage, Load Balancer, and Monitor can be quickly provisioned for the deployment of an efficient private Ethereum PoA blockchain where member banks can establish their own nodes.
 
-## Relevant use cases
+## Potential use cases
 
 Other relevant use cases include:
 
@@ -20,7 +20,11 @@ Other relevant use cases include:
 
 ![Decentralized Bank Trust Architecture Diagram](./media/architecture-decentralized-trust.png)
 
-This scenario covers the back-end components that are necessary to create a scalable, secure, and monitored private, enterprise blockchain network within a consortium of two or more members. Details of how these components are provisioned (that is, within different subscriptions and resource groups), as well as the connectivity requirements (that is, VPN or ExpressRoute), that are left for your consideration, based on your organization's policy requirements. Here's how data flows:
+This scenario covers the back-end components that are necessary to create a scalable, secure, and monitored private, enterprise blockchain network within a consortium of two or more members. Details of how these components are provisioned (that is, within different subscriptions and resource groups), as well as the connectivity requirements (that is, VPN or ExpressRoute), that are left for your consideration, are based on your organization's policy requirements. 
+
+### Dataflow
+
+Here's how the data flows:
 
 1. Bank A creates/updates an individual's credit record by sending a transaction to the blockchain network via JSON-RPC.
 2. Data flows from Bank A's private application server to the Azure load balancer, and then to a validating node VM on the virtual machine scale set.

@@ -117,7 +117,7 @@
       "redirect_url": "/azure/architecture/data-guide/relational-data/data-warehousing"
     },
     {
-      "source_path": "docs/data-guide/scenarios/online-analytical-processing.md",
+      "source_path": "docs/data-guide/scenarios/online-analytical-processing.yml",
       "redirect_url": "/azure/architecture/data-guide/relational-data/online-analytical-processing"
     },
     {
@@ -2261,7 +2261,76 @@
       "source_path": "docs/data-science-process/sql-walkthrough.md",
       "redirect_url": "/azure/architecture/data-science-process/overview",
       "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/data-science-process/walkthroughs.md",
+      "redirect_url": "/azure/architecture/data-science-process/overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/data-science-process/walkthroughs-spark.md",
+      "redirect_url": "/azure/architecture/data-science-process/overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/data-science-process/spark-data-exploration-modeling.md",
+      "redirect_url": "/azure/architecture/data-science-process/overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/data-science-process/spark-advanced-data-exploration-modeling.md",
+      "redirect_url": "/azure/architecture/data-science-process/overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/data-science-process/spark-model-consumption.md",
+      "redirect_url": "/azure/architecture/data-science-process/overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/data-science-process/walkthroughs-hdinsight-hadoop.md",
+      "redirect_url": "/azure/architecture/data-science-process/overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/data-science-process/walkthroughs-azure-data-lake.md",
+      "redirect_url": "/azure/architecture/data-science-process/overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/data-science-process/walkthroughs-sql-server.md",
+      "redirect_url": "/azure/architecture/data-science-process/overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/data-science-process/walkthroughs-sql-data-warehouse.md",
+      "redirect_url": "/azure/architecture/data-science-process/overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/data-science-process/apps-anomaly-detection-api.md",
+      "redirect_url": "/azure/architecture/data-science-process/overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/data-science-process/predictive-maintenance-playbook.md",
+      "redirect_url": "/azure/architecture/data-science-process/overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/data-science-process/predictive-maintenance-technical-guide.md",
+      "redirect_url": "/azure/architecture/data-science-process/overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/example-scenario/finance/swift-on-azure.yml",
+      "redirect_url": "/azure/architecture/example-scenario/finance/swift-on-azure-srx",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/antipatterns/noisy-neighbor/index.md",
+      "redirect_url": "/azure/architecture/antipatterns/noisy-neighbor/noisy-neighbor",
+      "redirect_document_id": false
     }
-
   ]
 }

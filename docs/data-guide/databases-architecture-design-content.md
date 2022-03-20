@@ -37,17 +37,17 @@ Here are some Learn modules you might find useful:
 
 To find options helpful for dealing with relational data, consider these resources:
 
-- To learn about resources for gathering data from multiple sources and how to and apply data transformations within the data pipeline, see [Extract, transform, and load (ETL)](../data-guide/relational-data/etl.md).
-- To learn about Online analytical processing (OLAP), which organizes large business databases and supports complex analysis, see [Online analytical processing](../data-guide/relational-data/online-analytical-processing.md).
+- To learn about resources for gathering data from multiple sources and how to and apply data transformations within the data pipeline, see [Extract, transform, and load (ETL)](../data-guide/relational-data/etl.yml).
+- To learn about Online analytical processing (OLAP), which organizes large business databases and supports complex analysis, see [Online analytical processing](../data-guide/relational-data/online-analytical-processing.yml).
 - Online transaction processing systems record business interactions as they occur. For more information, see [Online transaction processing (OLTP)](../data-guide/relational-data/online-transaction-processing.md).
 
-A *non-relational database* doesn't use the tabular schema of rows and columns. For more information, see [Non-relational data and NoSQL](../data-guide/big-data/non-relational-data.md).
+A *non-relational database* doesn't use the tabular schema of rows and columns. For more information, see [Non-relational data and NoSQL](../data-guide/big-data/non-relational-data.yml).
 
 To learn about data lakes, which hold a large amount of data in its native, raw format, see [Data lakes](../data-guide/scenarios/data-lake.md).
 
 A big data architecture can handle ingestion, processing, and analysis of data that is too large or too complex for traditional database systems.
 
-- For more information, see [Big data architectures](../data-guide/big-data/index.md).
+- For more information, see [Big data architectures](../data-guide/big-data/index.yml).
 - To learn about designing a system that scales well as data grows, see [Build a scalable system for massive data](../data-guide/scenarios/build-scalable-database-solutions-azure-services.md).
 - To learn more about Azure Databricks, an Apache Spark–based analytics service for big data analytics and AI solutions, see [Monitoring Azure Databricks](../databricks-monitoring/index.md).
 
@@ -71,14 +71,14 @@ Review these best practices when designing your solutions.
 | [Secure data solutions](../data-guide/scenarios/securing-data-solutions.md) | Address concerns around increased accessibility to data in the cloud and how to secure it. |
 | [Continuous backup with point-in-time restore in Azure Cosmos DB](/azure/cosmos-db/continuous-backup-restore-introduction) | Learn about Azure Cosmos DB's point-in-time restore feature. |
 | [Achieve high availability with Cosmos DB](/azure/cosmos-db/high-availability) | Cosmos DB provides multiple features and configuration options to achieve high availability. |
-| [High availability for Azure SQL Database and SQL Managed Instance](/azure/azure-sql/database/high-availability-sla.yml) | The database shouldn't be a single point of failure in your architecture. |
+| [High availability for Azure SQL Database and SQL Managed Instance](/azure/azure-sql/database/high-availability-sla) | The database shouldn't be a single point of failure in your architecture. |
 
 ## Azure SQL Database security baselines
 
 Security is a vital part of any database solution.
 
-- [Azure security baseline for Azure SQL Database](https://docs.microsoft.com/security/benchmark/azure/baselines/sql-database-security-baseline)
-- [Azure security baseline for Azure Database Migration Service](https://docs.microsoft.com/security/benchmark/azure/baselines/database-migration-security-baseline)
+- [Azure security baseline for Azure SQL Database](/security/benchmark/azure/baselines/sql-database-security-baseline)
+- [Azure security baseline for Azure Database Migration Service](/security/benchmark/azure/baselines/database-migration-security-baseline)
 
 ## Technology choices
 
@@ -111,7 +111,7 @@ Here are some other resources:
 - [Adatum Corporation scenario for data management and analytics in Azure](/azure/cloud-adoption-framework/scenarios/data-management/architectures/reference-architecture-adatum)
 - [Lamna Healthcare scenario for data management and analytics in Azure](/azure/cloud-adoption-framework/scenarios/data-management/architectures/reference-architecture-lamna)
 - [Optimize administration of SQL Server instances](../hybrid/azure-arc-sql-server.yml)
-- [Processing free-form text for search](../data-guide/scenarios/search.md)
+- [Processing free-form text for search](../data-guide/scenarios/search.yml)
 - [Relecloud scenario for data management and analytics in Azure](/azure/cloud-adoption-framework/scenarios/data-management/architectures/reference-architecture-relecloud)
 - [Working with CSV and JSON files for data solutions](../data-guide/scenarios/csv-and-json.md)
 
@@ -129,7 +129,7 @@ These solution ideas are some of the example approaches that you can adapt to yo
 
 ### Similar database products
 
-If you're familiar with Amazon Web Services (AWS) or Google Cloud Platform (GCP), refer to the following comparisons:
+If you're familiar with Amazon Web Services (AWS) or Google Cloud, refer to the following comparisons:
 
 - [Relational database technologies on Azure and AWS](../aws-professional/databases.md)
 - [Google Cloud to Azure services comparison - Data platform](../gcp-professional/services.md#data-platform)

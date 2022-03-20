@@ -3,7 +3,8 @@ title: Solutions for the government industry
 titleSuffix: Azure Architecture Center
 description: Architectures and ideas to use Azure services for building efficient, scalable, and reliable government solutions.
 author: dsk-2015
-ms.date: 06/04/2021
+ms.author: edprice
+ms.date: 03/07/2022
 ms.topic: article
 ms.service: architecture-center
 ms.subservice: azure-guide

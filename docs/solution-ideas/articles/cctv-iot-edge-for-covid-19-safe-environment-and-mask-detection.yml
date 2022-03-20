@@ -4,8 +4,8 @@ metadata:
   titleSuffix: Azure Solution Ideas
   description: Create a COVID-19 safe environment that monitors social distance, mask/PPE use, and occupancy requirements with CCTVs and Azure IoT Edge, Stream Analytics, and Machine Learning.
   author: EdPrice-MSFT
-  ms.author: pnp
-  ms.date: 11/18/2021
+  ms.author: edprice
+  ms.date: 03/15/2022
   ms.topic: conceptual
   ms.service: architecture-center
   ms.subservice: solution-idea

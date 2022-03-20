@@ -4,7 +4,7 @@ titleSuffix: Azure Architecture Center
 description: Learn about trade-offs for various options available for extending compute on the edge.
 author: edprice-msft
 ms.author: prkau
-ms.date: 05/05/2021
+ms.date: 03/21/2022
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: azure-guide
@@ -171,8 +171,10 @@ For more information, see the following articles:
 
 - [Deploy a Kubernetes stateless application via kubectl on your Azure Stack Edge Pro GPU device](/azure/databox-online/azure-stack-edge-gpu-deploy-stateless-application-kubernetes)
 
+- [Use Kubernetes dashboard to monitor your Azure Stack Edge Pro GPU device](/azure/databox-online/azure-stack-edge-gpu-monitor-kubernetes-dashboard)
+
+## Related resources
+
 - [AI at the edge with Azure Stack Hub](../../solution-ideas/articles/ai-at-the-edge.yml)
 
-- [Building a CI/CD pipeline for microservices on Kubernetes](../../microservices/ci-cd-kubernetes.md)
-
-- [Use Kubernetes dashboard to monitor your Azure Stack Edge Pro GPU device](/azure/databox-online/azure-stack-edge-gpu-monitor-kubernetes-dashboard)
+- [Building a CI/CD pipeline for microservices on Kubernetes](../../microservices/ci-cd-kubernetes.yml)

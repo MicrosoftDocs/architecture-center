@@ -105,6 +105,12 @@ AKS maintains two separate groups of nodes (or node pools). The *system node poo
 
 For additional information, [Hub-spoke network topology in Azure](../../hybrid-networking/hub-spoke.yml).
 
+#### Subnet to host the Private Link endpoints
+
+Private Link connections are created for the Azure Container Registry and Azure Key Vault, so these services can be accessed using Private Endpoints within the spoke virtual network. Private Link endpoints don't require a dedicated subnet and could also be placed in the hub virtual network. In the baseline implementation, they're deployed to a dedicated subnet within the spoke virtual network. This approach reduces traffic passing the peered network connection, keeps the resources that belong to the cluster in the same virtual network and allows you to apply granular security rules at the subnet level using network security groups.
+
+For additional information, [Private Link deployment options](../../../guide/networking/private-link-hub-spoke-network.yml#decision-tree-for-private-link-deployment).
+
 ## Plan the IP addresses
 
 ![Network topology of the AKS cluster](images/baseline-network-topology.png)
@@ -409,7 +415,7 @@ The manual or programmatic way requires you to monitor and set alerts on CPU uti
 
 Autoscaling is the approach because some of those manual mechanisms are built into the autoscaler.
 
-As a general approach, start by performance testing with a minimum number of pods and nodes. Use those values to establish the baseline expectation. Then use a combination of performance metrics and manual scaling to locate bottlenecks and understand the application's response to scaling. Finally, use this data to set the parameters for autoscaling. For information about a performance tuning scenario using AKS, see [Performance tuning scenario: Distributed business transactions](../../../performance/distributed-transaction.md).
+As a general approach, start by performance testing with a minimum number of pods and nodes. Use those values to establish the baseline expectation. Then use a combination of performance metrics and manual scaling to locate bottlenecks and understand the application's response to scaling. Finally, use this data to set the parameters for autoscaling. For information about a performance tuning scenario using AKS, see [Performance tuning scenario: Distributed business transactions](../../../performance/distributed-transaction.yml).
 
 ### Horizontal Pod Autoscaler
 
@@ -488,7 +494,7 @@ Enabling availability zones won't be enough if the entire region goes down. To h
 
 -   If an Azure resource supports geo-redundancy, provide the location where the redundant service will have its secondary. For example, enabling geo-replication for Azure Container Registry will automatically replicate images to the selected Azure regions, and will provide continued access to images even if a region were experiencing an outage.
 
--   Choose a traffic router that can distribute traffic across zones or regions, depending on your requirement. This architecture deploys Azure Load Balancer because it can distribute non-web traffic across zones. If you need to distribute traffic across regions, Azure Front Door should be considered. For other considerations, see [Choose a load balancer](../../../guide/technology-choices/load-balancing-overview.md).
+-   Choose a traffic router that can distribute traffic across zones or regions, depending on your requirement. This architecture deploys Azure Load Balancer because it can distribute non-web traffic across zones. If you need to distribute traffic across regions, Azure Front Door should be considered. For other considerations, see [Choose a load balancer](../../../guide/technology-choices/load-balancing-overview.yml).
 
 > [!NOTE]
 > We've extended this reference architecture to include multiple regions in an active/active and highly available configuration. For information about that reference architecture, see [AKS baseline for multiregion clusters](../aks-multi-region/aks-multi-cluster.yml).

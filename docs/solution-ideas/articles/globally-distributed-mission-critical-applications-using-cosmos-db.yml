@@ -4,7 +4,7 @@ metadata:
   titleSuffix: Azure Example Scenarios
   description: Guarantee access to users around the world with the high-availability and low-latency capabilities built into Microsoft global datacenters.
   author: t2kx
-  ms.author: pnp
+  ms.author: mimar
   ms.date: 02/09/2021
   ms.topic: conceptual
   ms.service: architecture-center

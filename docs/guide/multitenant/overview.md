@@ -4,7 +4,7 @@ titleSuffix: Azure Architecture Center
 description: This article introduces how to build multitenant solutions on Azure and the guidance we provide throughout this series.
 author: johndowns
 ms.author: jodowns
-ms.date: 01/04/2022
+ms.date: 03/07/2022
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: azure-guide
@@ -19,7 +19,7 @@ ms.custom:
   - guide
 ---
 
-# Architecting multitenant solutions on Azure
+# Architect multitenant solutions on Azure
 
 A multitenant solution is one used by multiple customers, or *tenants*. Tenants are distinct from users. Multiple users from a single organization, company, or group form a single tenant. Examples of multitenant applications include:
 
@@ -59,7 +59,7 @@ The content in this series is composed of three main sections:
 
 * [**Architectural considerations for a multitenant solution:**](considerations/overview.md) This section provides an overview of the key requirements and considerations you need to be aware of when planning and designing a multitenant solution.
 
-  The pages in this section are particularly relevant for technical decision-makers, like chief technology officers (CTOs) and architects. However, anyone who works with multitenant architectures should have some familiarity with these principles and tradeoffs.
+  The pages in this section are particularly relevant for technical decision-makers, like chief technology officers (CTOs) and architects. Product managers will also find it valuable to understand how multitenancy affects their solutions. Additionally, anyone who works with multitenant architectures should have some familiarity with these principles and tradeoffs.
 
 * [**Architectural approaches for multitenancy:**](approaches/overview.md) This section describes the approaches you can consider when designing and building multitenant solutions, by using key cloud resource types. The section includes a discussion how to build multitenant solutions with compute, networking, storage, and data components, as well as deployment, configuration, governance, and cost management.
 

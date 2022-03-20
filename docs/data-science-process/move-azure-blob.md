@@ -1,12 +1,12 @@
 ---
 title: Move data to and from Azure Blob storage 
 description: Move Data to and from Azure Blob storage using Azure Storage Explorer, AzCopy, Python, and SSIS.
-services: machine-learning
 author: marktab
 manager: marktab
 editor: marktab
-ms.service: machine-learning
-ms.subservice: team-data-science-process
+services: architecture-center
+ms.service: architecture-center
+ms.subservice: azure-guide
 ms.topic: article
 ms.date: 12/16/2021
 ms.author: tdsp
@@ -31,7 +31,7 @@ The following articles describe how to move data to and from Azure Blob storage 
 * [Python](/azure/storage/blobs/storage-quickstart-blobs-python)
 * [SSIS](move-data-to-azure-blob-using-ssis.md)
 
-Which method is best for you depends on your scenario. The [Scenarios for advanced analytics in Azure Machine Learning](plan-sample-scenarios.md) article helps you determine the resources you need for a variety of data science workflows used in the advanced analytics process.
+Which method is best for you depends on your scenario. The [Scenarios for advanced analytics in Azure Machine Learning](/azure/architecture/data-science-process/overview) article helps you determine the resources you need for a variety of data science workflows used in the advanced analytics process.
 
 > [!NOTE]
 > For a complete introduction to Azure blob storage, refer to [Azure Blob Basics](/azure/storage/blobs/storage-quickstart-blobs-dotnet) and to [Azure Blob Service](/rest/api/storageservices/Blob-Service-Concepts).

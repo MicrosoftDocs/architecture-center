@@ -1,0 +1,22 @@
+### YamlMime:Architecture
+metadata:
+  title: Data partitioning strategies
+  description: View guidance on separating data partitions to be managed and accessed separately in different services, such as Azure Search, Azure storage queues, and more.
+  author: EdPrice-MSFT
+  ms.author: edprice
+  ms.date: 02/07/2022
+  ms.topic: conceptual
+  ms.service: architecture-center
+  ms.subservice: best-practice
+  ms.custom: fcp
+azureCategories:
+  - storage
+products:
+  - azure-table-storage
+name: Data partitioning strategies
+summary: View guidance on separating data partitions to be managed and accessed separately in different services, such as Azure Search, Azure storage queues, and more.
+thumbnailUrl: /azure/architecture/browse/thumbs/point-shardlet.png
+content: |
+  [!include[](data-partitioning-strategies-content.md)]
+
+  

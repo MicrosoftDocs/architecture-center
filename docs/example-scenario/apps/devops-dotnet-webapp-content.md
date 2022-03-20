@@ -49,7 +49,7 @@ You could consider these alternatives to hosting in Azure Web Apps:
 
 - [Azure Functions][azure-functions] provides an effective serverless approach if the workload architecture is centered around fine grained distributed components, requiring minimal dependencies, where individual components are only required to run on demand (not continuously) and orchestration of components is not required.
 
-This [decision tree for Azure compute services](../../guide/technology-choices/compute-decision-tree.md) may help when choosing the right path to take for a migration.
+This [decision tree for Azure compute services](../../guide/technology-choices/compute-decision-tree.yml) may help when choosing the right path to take for a migration.
 
 ## Management and Security Considerations
 
@@ -116,7 +116,7 @@ Review the following resources to learn more about CI/CD and Azure DevOps:
 [download-keyvault-secrets]: /vsts/pipelines/tasks/deploy/azure-key-vault?view=vsts
 [vsts]: /azure/devops
 [web-apps]: /azure/app-service/app-service-web-overview
-[vsts-account-create]: /azure/devops/organizations/accounts/create-organization-msa-or-work-student?view=vsts
+[vsts-account-create]: /azure/devops/organizations/accounts/create-organization
 [vsts-approvals]: /vsts/pipelines/release/approvals/approvals?view=vsts
 [vsts-deployment-gates]: /vsts/pipelines/release/approvals/gates?view=vsts
 [vsts-pricing-calculator]: https://azure.com/e/498aa024454445a8a352e75724f900b1

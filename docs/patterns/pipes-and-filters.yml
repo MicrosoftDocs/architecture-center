@@ -1,0 +1,19 @@
+### YamlMime:Architecture
+metadata:
+  title: Pipes and Filters pattern
+  description: Break down a task that performs complex processing into a series of separate elements that can be reused.
+  author: EdPrice-MSFT
+  ms.author: pnp
+  ms.date: 06/23/2017
+  ms.topic: conceptual
+  ms.service: architecture-center
+  ms.subservice: azure-guide
+azureCategories:
+  - devops
+products:
+  - azure-devops
+name: Pipes and Filters pattern
+summary: Break down a task that performs complex processing into a series of separate elements that can be reused.
+thumbnailUrl: /azure/architecture/browse/thumbs/pipes-filters-solution.png
+content: |
+  [!include[](pipes-and-filters-content.md)]

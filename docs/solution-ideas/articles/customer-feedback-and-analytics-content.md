@@ -6,6 +6,8 @@ For many companies, customer support is costly and doesn't always operate effici
 
 ## Potential use cases
 
+This solution is optimized for the retail industry.
+
 [Azure Cognitive Search](/azure/search/search-what-is-azure-search) is a key part of knowledge mining solutions. Cognitive Search creates a search index over aggregated and analyzed content.
 
 With queries using the search index, companies can discover trends about what customers are saying and use that information to improve products and services.
@@ -16,7 +18,7 @@ There are three steps in knowledge mining: ingest, enrich, and explore.
 
 ![Architecture diagram: knowledge mining for customer feedback and analytics with 3 steps: ingest, enrich, explore.](../media/knowledge-mining-customer-feedback-and-analytics.png)
 
-### Data flow
+### Dataflow
 
 - **Ingest**
 
@@ -34,7 +36,7 @@ The explore step is explorer data via search, existing business applications, or
 
 Key technologies used to implement tools for technical content review and research
 
-- [Azure Cognitive Search](/azure/search/)
+- [Azure Cognitive Search](/azure/search)
 - [Microsoft Text Analytics API](https://azure.microsoft.com/services/cognitive-services/text-analytics)
 - [Microsoft Translator Text API](https://azure.microsoft.com/services/cognitive-services/translator-text-api)
 - [Web API custom skill interface](/azure/search/cognitive-search-custom-skill-interface)
