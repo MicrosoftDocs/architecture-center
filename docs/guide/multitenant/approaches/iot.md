@@ -54,45 +54,47 @@ It's important to plan your solution's scale. Scale is often considered across t
 
 #### Tenant isolation
 
-Fully shared solutions can have [noisy neighbors](/azure/architecture/antipatterns/noisy-neighbor).  In the cases of IoT Hub and IoT Central, this can result in HTTP 429 ("Too Many Requests") response codes, which are hard failures that can cause a cascading effect.  For more information, see [Quotas and Throttling](/azure/iot-hub/iot-hub-devguide-quotas-throttling).
+Fully shared solutions can have [noisy neighbors](/azure/architecture/antipatterns/noisy-neighbor). In the cases of IoT Hub and IoT Central, this can result in HTTP 429 ("Too Many Requests") response codes, which are hard failures that can cause a cascading effect. For more information, see [Quotas and Throttling](/azure/iot-hub/iot-hub-devguide-quotas-throttling).
 
-In fully multitenant solutions, these effects can cascade. When customers share IoT Hubs or IoT Central applications, then all customers on the shared infrastructure will begin receiving errors.  Because IoT Hub and IoT Central are commonly the entry points for data to the cloud, other downstream systems that depend on this data are likely to fail as well.  Often, the most common occurrence for this to happen is a message quota limit exceeded. In this situation, the fastest and simplest fix for IoT Hub solutions is to upgrade the IoT Hub SKU, increase the number of IoT Hub units, or both.  For IoT Central solutions, the solution automatically scales as necessary up to the [documented number of messages supported](/azure/iot-central/core/concepts-quotas-limits).
+In fully multitenant solutions, these effects can cascade. When customers share IoT Hubs or IoT Central applications, then all customers on the shared infrastructure will begin receiving errors. Because IoT Hub and IoT Central are commonly the entry points for data to the cloud, other downstream systems that depend on this data are likely to fail as well. Often, the most common occurrence for this to happen is when a message quota limit has been exceeded. In this situation, the fastest and simplest fix for IoT Hub solutions is to upgrade the IoT Hub SKU, increase the number of IoT Hub units, or both. For IoT Central solutions, the solution automatically scales as necessary, up to the [documented number of messages supported](/azure/iot-central/core/concepts-quotas-limits).
 
 You can isolate and distribute tenants across the IoT control, management, and communications planes by using DPS's [custom allocation policies](/azure/iot-dps/tutorial-custom-allocation-policies). Further, when you follow the guidance for [high-scale IoT solutions](https://aka.ms/ScalingIoT), you can manage additional allocation distribution at the DPS load-balancer level.
 
 #### Data storage, query, usage, and retention
 
-IoT solutions tend to be very data-intensive, both streaming and at rest. For more information on managing data in multitenant solutions, see [Architectural approaches for storage and data in multitenant solutions](storage-data.md).
+IoT solutions tend to be very data-intensive, both when streaming and at rest. For more information on managing data in multitenant solutions, see [Architectural approaches for storage and data in multitenant solutions](storage-data.md).
 
 ## Approaches to consider
 
-All considerations you would normally make in an IoT architecture for all the primary components such as management, ingestion, processing, storage, security etc are all choices you still must make when pursuing a multi-tenant solution.  The primary difference is how you arrange and utilize the components to support multi-tenancy.  For example, common decision points for storage might be SQL Server vs Azure Data Explorer, or perhaps on the Ingestion & Management tier IoT Hub vs IoT Central.
+All the considerations that you'd normally make in an IoT architecture, for all the primary components (such as management, ingestion, processing, storage, security, and so on), are all choices you still must make when pursuing a multi-tenant solution. The primary difference is how you arrange and utilize the components to support multi-tenancy. For example, common decision points for storage might be deciding whether to use SQL Server or Azure Data Explorer, or perhaps on the ingestion and management tier, you'd choose between IoT Hub and IoT Central.
 
-Most IoT solutions fit within a ["root architecture pattern"](#root-architecture-patterns) which is a combination of the deployment target, tenancy model, and deployment pattern. These factors are determined by the key requirements and considerations described above.
+Most IoT solutions fit within a [root architecture pattern](#root-architecture-patterns), which is a combination of the deployment target, tenancy model, and deployment pattern. These factors are determined by the key requirements and considerations described above.
 
-One of the largest decision points needing to be made within the IoT space is to select between Application-Platform-as-a-Service (aPaaS) and Platform-as-a-Service (PaaS) approaches.  For more information, see [Compare Internet of Things (IoT) solution approaches (PaaS vs. aPaaS)](/azure/architecture/example-scenario/iot/iot-central-iot-hub-cheat-sheet).
+One of the largest decision points needing to be made, within the IoT space, is to select between an application-platform-as-a-service (aPaaS) and platform-as-a-service (PaaS) approaches.  For more information, see [Compare Internet of Things (IoT) solution approaches (PaaS vs. aPaaS)](/azure/architecture/example-scenario/iot/iot-central-iot-hub-cheat-sheet).
 
-This is the common "build vs. buy" dilemma that many organizations face in many projects.  It's important to evaluate the advantages and disadvantages of both options.
+This is the common "build vs. buy" dilemma that many organizations face in many projects. It's important to evaluate the advantages and disadvantages of both options.
 
 ### Concepts and considerations for aPaaS solutions
 
-A typical aPaaS solution using [Azure IoT Central](/azure/iot-central/core/overview-iot-central) as the core of the solution might use the following Azure PaaS and aPaaS services:
+A typical aPaaS solution using [Azure IoT Central](/azure/iot-central/core/overview-iot-central), as the core of the solution, might use the following Azure PaaS and aPaaS services:
 
-* [Azure Event Hubs](/azure/event-hubs/event-hubs-about) as a cross-platform, enterprise-grade messaging and data flow engine.
-* [Azure Logic Apps](/azure/logic-apps/logic-apps-overview) as an Integration Platform-as-a-Service, or iPaaS, offering.
+* [Azure Event Hubs](/azure/event-hubs/event-hubs-about) as a cross-platform, enterprise-grade messaging and data-flow engine.
+* [Azure Logic Apps](/azure/logic-apps/logic-apps-overview) as an integration platform-as-a-service, or iPaaS, offering.
 * [Azure Data Explorer](/azure/data-explorer/data-explorer-overview) as a data analytics platform.
 * [Power BI](/power-bi/fundamentals/power-bi-overview) as a visualization and reporting platform.
 
 :::image type="content" source="media/iot/simple-saas.png" alt-text="An I O T architecture showing tenants sharing an I O T Central environment, Azure Data Explorer, Power B I, and Azure Logic Apps." border="false":::
 
+In the previous diagram, the tenants share an IoT Central environment, Azure Data Explorer, Power BI, and Azure Logic Apps.
+
 This approach is generally the fastest way to get a solution to market. It's a high scale service that supports multitenancy by using [organizations](/azure/iot-central/core/howto-create-organizations).
 
-It is important to understand that because IoT Central is an aPaaS offering, there are certain decisions that are outside of an implementer's control. These decisions include:
+It's important to understand that because IoT Central is an aPaaS offering, there are certain decisions that are outside of an implementer's control. These decisions include:
 
 * IoT Central uses Azure Active Directory as its identity provider.
-* IoT Central deployments are achieved using both control and data plane operations, combining declarative documents with imperative code.
-* In a multitenant pattern, both the IoT Central [maximum node limit](/azure/iot-central/core/howto-create-organizations#limits) (which applies to both parents and leaves) and the maximum tree depth might force a service provider to have multiple IoT Central instances. In that case, you should consider following the [Deployment Stamp pattern](/azure/architecture/patterns/deployment-stamp).
-* IoT Central imposes [api call limits](/azure/iot-central/core/howto-query-with-rest-api#limits), which might impact large implementations.
+* IoT Central deployments are achieved using both control and data plane operations, which combines declarative documents with imperative code.
+* In a multitenant pattern, both the IoT Central [maximum node limit](/azure/iot-central/core/howto-create-organizations#limits) (which applies to both parents and leaves) and the maximum tree depth, might force a service provider to have multiple IoT Central instances. In that case, you should consider following the [Deployment Stamp pattern](/azure/architecture/patterns/deployment-stamp).
+* IoT Central imposes [API call limits](/azure/iot-central/core/howto-query-with-rest-api#limits), which might impact large implementations.
 
 ### Concepts and considerations for PaaS solutions
 
@@ -106,7 +108,9 @@ A PaaS-based approach might use the following Azure services:
 
 :::image type="content" source="media/iot/simple-paas-saas.png" alt-text="Diagram that shows an I O T solution. Each tenant connects to a shared web app, which receives data from I O T Hubs and a function app. Devices connect to the Device Provisioning Service and to I O T Hubs." border="false":::
 
-This approach requires more developer effort to create, deploy, and maintain the solution versus an aPaaS approach. Fewer capabilities are prebuilt for the implementer's convenience. This means that this approach also offers more control, because fewer assumptions are embedded in the underlying platform.
+In the previous diagram, each tenant connects to a shared web app, which receives data from IoT Hubs and a function app. Devices connect to the Device Provisioning Service and to IoT Hubs.
+
+This approach requires more developer effort to create, deploy, and maintain the solution (versus an aPaaS approach). Fewer capabilities are prebuilt for the implementer's convenience. This means that this approach also offers more control, because fewer assumptions are embedded in the underlying platform.
 
 ## Root architecture patterns
 
