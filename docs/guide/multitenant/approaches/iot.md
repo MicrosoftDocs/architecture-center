@@ -92,7 +92,7 @@ This approach is generally the fastest way to get a solution to market. It's a h
 It's important to understand that because IoT Central is an aPaaS offering, there are certain decisions that are outside of an implementer's control. These decisions include:
 
 * IoT Central uses Azure Active Directory as its identity provider.
-* IoT Central deployments are achieved using both control and data plane operations, which combines declarative documents with imperative code.
+* IoT Central deployments are achieved using both control and data plane operations, which combine declarative documents with imperative code.
 * In a multitenant pattern, both the IoT Central [maximum node limit](/azure/iot-central/core/howto-create-organizations#limits) (which applies to both parents and leaves) and the maximum tree depth, might force a service provider to have multiple IoT Central instances. In that case, you should consider following the [Deployment Stamp pattern](/azure/architecture/patterns/deployment-stamp).
 * IoT Central imposes [API call limits](/azure/iot-central/core/howto-query-with-rest-api#limits), which might impact large implementations.
 
@@ -141,7 +141,7 @@ The *Simple SaaS* approach is the simplest implementation for a SaaS IoT Solutio
 
 Communications to systems outside of IoT Central, such as for longer-term data analysis, along a cold path or connectivity with business operations, is done through other Microsoft PaaS and aPaaS offerings. These additional offerings might include the following services:
 
-* [Azure Event Hub](/azure/event-hubs/event-hubs-about) as a cross-platform, enterprise-grade messaging and data flow engine.
+* [Azure Event Hubs](/azure/event-hubs/event-hubs-about) as a cross-platform, enterprise-grade messaging and data flow engine.
 * [Azure Logic Apps](/azure/logic-apps/logic-apps-overview) as an integration platform-as-a-service, or iPaaS.
 * [Azure Data Explorer](/azure/data-explorer/data-explorer-overview) as a data analytics platform.
 * [Power BI](/power-bi/fundamentals/power-bi-overview) as a visualization and reporting platform.
@@ -184,7 +184,7 @@ Each tenant has their own IoT Central organization, which sends telemetry to a s
 
 * Generally easy to manage and operate, although additional management might be required for single-tenant components.
 * Flexible scaling options, because layers are scaled as necessary.
-* Impact of component failures is reduced. While a failure of a shared component impacts all customers, horizontally-scaled components only impact the customers that are associated with specific scale instances.
+* Impact of component failures is reduced. While a failure of a shared component impacts all customers, horizontally scaled components only impact the customers that are associated with specific scale instances.
 * Improved per-tenant consumption insights for partitioned components.
 * Partitioned components provide easier per-tenant customizations.
 
