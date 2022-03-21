@@ -2,7 +2,7 @@
 title: What's New in Azure Architecture Center
 description: New and updated articles in Azure Architecture Center
 author: doodlemania2
-ms.date: 03/14/2022
+ms.date: 03/21/2022
 ms.topic: article
 ms.service: architecture-center
 ---
@@ -27,6 +27,12 @@ New and updated articles in Azure Architecture Center.
 
 ### New Articles
 
+- [Architectural approaches for IoT in a multitenant solution](./guide/multitenant/approaches/iot.md)
+- [Design great API developer experiences using API Management and GitHub](./example-scenario/web/design-api-developer-experiences-management-github.yml)
+- [Geospatial analysis for telecom](./example-scenario/data/geospatial-analysis-telecommunications-industry.yml)
+- [Expose Azure Spring Cloud apps through a reverse proxy](./reference-architectures/microservices/spring-cloud-reverse-proxy.yml)
+- [Integration architecture design](./integration/integration-start-here.yml)
+- [Industry specific Azure IoT reference architectures](./reference-architectures/iot/industry-iot-hub-page.md)
 - [Azure and Dynamics 365 scenarios](./solutions/dynamics-365-scenarios.md)
 - [DevOps architecture design](./guide/devops/devops-start-here.md)
 - [Automation of COVID-19 test forms](./example-scenario/ai/form-recognizer-covid.yml)
@@ -36,7 +42,7 @@ New and updated articles in Azure Architecture Center.
 - [SWIFT&#x27;s Alliance Messaging Hub (AMH) with Alliance Connect](./example-scenario/finance/swift-alliance-messaging-hub.yml)
 - [SWIFT&#x27;s Alliance Messaging Hub (AMH) with Alliance Connect Virtual](./example-scenario/finance/swift-alliance-messaging-hub-vsrx.yml)
 - [SWIFT Alliance Lite2 on Azure](./example-scenario/finance/swift-alliance-lite2-on-azure.yml)
-- [SWIFT Alliance Connect Virtual in Azure](./example-scenario/finance/swift-on-azure-vsrx.yml)
+- [SWIFT&#x27;s Alliance Connect Virtual in Azure](./example-scenario/finance/swift-on-azure-vsrx.yml)
 - [Automate Sentinel integration with Azure DevOps](./example-scenario/devops/automate-sentinel-integration.yml)
 - [Refactor mainframe computer systems that run Adabas &amp; Natural](./example-scenario/mainframe/refactor-adabas-aks.yml)
 - [Host name preservation](./best-practices/host-name-preservation.yml)
@@ -44,6 +50,10 @@ New and updated articles in Azure Architecture Center.
 
 ### Updated Articles
 
+- [Enterprise-grade conversational bot](./reference-architectures/ai/conversational-bot.yml)  ([#d29669374](https://github.com/MicrosoftDocs/architecture-center/commit/d29669374))
+- [Building blocks for autonomous-driving simulation environments](./industries/automotive/building-blocks-autonomous-driving-simulation-environments.yml)  ([#4a3b27ee3](https://github.com/MicrosoftDocs/architecture-center/commit/4a3b27ee3))
+- [Automated guided vehicles fleet control](./example-scenario/iot/automated-guided-vehicles-fleet-control.yml)  ([#cda2de5cf](https://github.com/MicrosoftDocs/architecture-center/commit/cda2de5cf))
+- [Azure and Power Platform scenarios](./solutions/power-platform-scenarios.md)  ([#7bbec0458](https://github.com/MicrosoftDocs/architecture-center/commit/7bbec0458))
 - [Services in an Azure IIoT solution](./guide/iiot-guidance/iiot-services.md)  ([#57e473f06](https://github.com/MicrosoftDocs/architecture-center/commit/57e473f06))
 - [Build cloud native applications](./solution-ideas/articles/cloud-native-apps.yml)  ([#8f791c4fa](https://github.com/MicrosoftDocs/architecture-center/commit/8f791c4fa))
 - [Secure research environment for regulated data](./example-scenario/ai/secure-compute-for-research.yml)  ([#03768497e](https://github.com/MicrosoftDocs/architecture-center/commit/03768497e))
@@ -246,7 +256,7 @@ New and updated articles in Azure Architecture Center.
 - [Analytics end-to-end with Azure Synapse](./example-scenario/dataplate2e/data-platform-end-to-end.yml)  ([#faaf3d26b](https://github.com/MicrosoftDocs/architecture-center/commit/faaf3d26b))
 - [Feature engineering in machine learning](./data-science-process/create-features.md)  ([#ea2e85f88](https://github.com/MicrosoftDocs/architecture-center/commit/ea2e85f88))
 - [Scalable order processing](./example-scenario/data/ecommerce-order-processing.yml)  ([#861fef949](https://github.com/MicrosoftDocs/architecture-center/commit/861fef949))
-- [Getting started with Azure IoT solutions](./reference-architectures/iot/iot-architecture-overview.md)  ([#28785d0ac](https://github.com/MicrosoftDocs/architecture-center/commit/28785d0ac))
+- [Get started with Azure IoT solutions](./reference-architectures/iot/iot-architecture-overview.md)  ([#28785d0ac](https://github.com/MicrosoftDocs/architecture-center/commit/28785d0ac))
 - [SAP system on Oracle Database on Azure](./example-scenario/apps/sap-on-oracle.yml)  ([#bbd15b5f6](https://github.com/MicrosoftDocs/architecture-center/commit/bbd15b5f6))
 - [Securely managed web applications](./example-scenario/apps/fully-managed-secure-apps.yml)  ([#ac2473f81](https://github.com/MicrosoftDocs/architecture-center/commit/ac2473f81))
 - [E-commerce front end](./example-scenario/apps/ecommerce-scenario.yml)  ([#1e6701dea](https://github.com/MicrosoftDocs/architecture-center/commit/1e6701dea))
