@@ -18,4 +18,3 @@ summary: View guidance for how to separate data partitions to be managed and acc
 thumbnailUrl: /azure/architecture/browse/thumbs/datapartitioning03.png
 content: |
   [!include[](data-partitioning-content.md)]
----

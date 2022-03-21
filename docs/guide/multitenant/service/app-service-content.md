@@ -1,28 +1,3 @@
----
-title: Azure App Service and Azure Functions considerations for multitenancy
-titleSuffix: Azure Architecture Center
-description: This article describes the features of Azure App Service and Azure Functions that are useful when working with multitenanted systems, and links to guidance and examples for how to use Azure App Service and Azure Functions in a multitenant solution.
-author: johndowns
-ms.author: jodowns
-ms.date: 12/06/2021
-ms.topic: conceptual
-ms.service: architecture-center
-products:
- - azure
- - azure-app-service
- - azure-functions
-categories:
- - web
- - compute
-ms.category:
-  - fcp
-ms.custom:
-  - guide
-  - fcp
----
-
-# Multitenancy for Azure App Service and Azure Functions
-
 Azure App Service is a powerful web application hosting platform. Azure Functions, built on top of the App Service infrastructure, enables you to easily build serverless and event-driven compute workloads. Both services are frequently used in multitenant solutions.
 
 ## Features of Azure App Service and Azure Functions that support multitenancy

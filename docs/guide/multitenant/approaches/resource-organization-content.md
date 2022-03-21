@@ -1,28 +1,3 @@
----
-title: Azure resource organization in multitenant solutions
-titleSuffix: Azure Architecture Center
-description: This article describes how to organize your Azure resources in a multitenant solution.
-author: johndowns
-ms.author: jodowns
-ms.date: 1/4/2022
-ms.topic: conceptual
-ms.service: architecture-center
-ms.subservice: azure-guide
-products:
-  - azure
-  - azure-active-directory
-categories:
-  - management-and-governance
-  - security
-ms.category:
-  - fcp
-ms.custom:
-  - guide
-  - fcp
----
-
-# Azure resource organization in multitenant solutions
-
 Azure provides many options for organizing your resources. In a multitenant solution, there are specific tradeoffs to consider, when you plan your resource organization strategy. In this article, we review two core elements of organizing your Azure resources: tenant isolation and scale-out across multiple resources. We also describe how to work with Azure's resource limits and quotas, and how to scale your solution beyond these limits.
 
 ## Key considerations and requirements

@@ -1,29 +1,3 @@
----
-title: Architectural approaches for cost management and allocation in a multitenant solution
-titleSuffix: Azure Architecture Center
-description: This article describes approaches to consider for cost management and cost allocation in a multitenant solution.
-author: johndowns
-ms.author: jodowns
-ms.date: 11/22/2021
-ms.topic: conceptual
-ms.service: architecture-center
-products:
- - azure
- - azure-cost-management
- - azure-resource-manager
- - azure-monitor
-categories:
- - management-and-governance
-ms.subservice: azure-guide
-ms.category:
-  - fcp
-ms.custom:
-  - guide
-  - fcp
----
-
-# Architectural approaches for cost management and allocation in a multitenant solution
-
 Multitenant solutions often require special consideration when you measure and allocate costs, and when you optimize costs. On this page, we describe some key guidance for solution architects to consider about the measurement, allocation, and optimization of costs for a multitenant application.
 
 ## Key considerations and requirements
