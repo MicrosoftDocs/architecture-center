@@ -49,7 +49,7 @@ intro
 
 |Azrchitecture|Summary|Technology focus|
 |--|--|--|
-|[Actuarial risk analysis and financial modeling](../industries/finance/actuarial-risk-analysis-financial-model.md)|Learn how an actuarial developer can move an existing solution and its supporting infrastructure to Azure.| Analytics|
+|[Actuarial risk analysis and financial modeling](../industries/finance/actuarial-risk-analysis-financial-model.yml)|Learn how an actuarial developer can move an existing solution and its supporting infrastructure to Azure.| Analytics|
 |[AI at the edge with Azure Stack Hub](../solution-ideas/articles/ai-at-the-edge.yml)|Bring your trained AI model to the edge with Azure Stack Hub. Integrate it with your applications for low-latency intelligence.| AI|
 |[AI at the edge with Azure Stack Hub - disconnected](../solution-ideas/articles/ai-at-the-edge-disconnected.yml)|Take advantage of edge AI when disconnected from the internet and move your AI models to the edge with a solution that includes Azure Stack Hub.| AI|
 |[Batch processing](../data-guide/big-data/batch-processing.yml)|Learn about big data batch processing solutions to load, transform, and prepare data at rest for analytics and reporting.| Databases|
@@ -350,7 +350,7 @@ intro
 [Choose a data analytics and reporting technology](../data-guide/technology-choices/analysis-visualizations-reporting.md)|Evaluate big-data analytics technology options for Azure.|Databases|
 [Citizen AI with Power Platform](../example-scenario/ai/citizen-ai-power-platform.yml)|Learn how to user Azure Machine Learning and Power Platform to quickly create a machine learning proof of concept and production version.|AI|
 [Data analysis in Azure industrial IoT analytics solution](../guide/iiot-guidance/iiot-data.yml)|View an Azure industrial IoT (IIoT) analytics solution. Use visualization, data trends, dashboards, schematic views, and notebooks.|IoT|
-[DevOps for quantum computing](../guide/quantum/devops-for-quantum-computing.yml)|Learn about DevOps requirements for quantum-based apps. DevOps provides a repeatable, high-quality process for building, deploying, and monitoring software.|DevOps|
+[DevOps for quantum computing](../guide/quantum/devops-for-quantum-computing.yml)|Learn about DevOps requirements for quantum-based apps. DevOps provides a repeatable, high quality process for building, deploying, and monitoring software.|DevOps|
 [IoT analytics with Azure Data Explorer](../solution-ideas/articles/iot-azure-data-explorer.yml)|Use Azure Data Explorer for near real-time IoT telemetry analytics on fast-flowing, high-volume streaming data from a wide variety of IoT devices.|Analytics|
 [Machine learning operations (MLOps) framework to upscale machine learning lifecycle with Azure Machine Learning](../example-scenario/mlops/mlops-technical-paper.yml)|Learn how to apply the MLOps maturity model to implement a machine learning solution for predicting product shipping levels.|AI|
 [Many models machine learning with Spark](../example-scenario/ai/many-models-machine-learning-azure-spark.yml)|Learn about many models machine learning in Azure.|AI|
@@ -474,7 +474,7 @@ intro
 |[Finance management apps using Azure Database for PostgreSQL](../solution-ideas/articles/finance-management-apps-using-azure-database-for-postgresql.yml)|Use Azure Database for PostgreSQL to store critical data with high security and provide users with high-value analytics and insights on aggregated data.|Databases|
 |[Geospatial data processing and analytics](../example-scenario/data/geospatial-data-processing-analytics-azure.yml)|Collect, process, and store geospatial data by using managed Azure services. Make the data available through web apps. Visualize, explore, and analyze the data.|Analytics|
 |[High availability in Azure public MEC](../example-scenario/hybrid/multi-access-edge-compute-ha.yml)|Learn how to deploy workloads in active-standby mode to achieve high availability and disaster recovery in Azure public multiaccess edge compute.|Hybrid|
-|[IBM z/OS online transaction processing on Azure](../example-scenario/mainframe/ibm-zos-online-transaction-processing-azure.md)|Migrate a z/OS OLTP workload to an Azure application that's cost-effective, responsive, scalable, and adaptable.|Mainframe|
+|[IBM z/OS online transaction processing on Azure](../example-scenario/mainframe/ibm-zos-online-transaction-processing-azure.yml)|Migrate a z/OS OLTP workload to an Azure application that's cost-effective, responsive, scalable, and adaptable.|Mainframe|
 |[Integrate IBM mainframe and midrange message queues with Azure](../example-scenario/mainframe/integrate-ibm-message-queues-azure.yml)|Learn about a data-first approach to middleware integration that enables IBM message queues.|Mainframe|
 |[Mainframe file replication and sync on Azure](../solution-ideas/articles/mainframe-azure-file-replication.yml)|Learn about several options for moving, converting, transforming, and storing mainframe and midrange file system data on-premises and in Azure.|Mainframe|
 |[Online transaction processing (OLTP)](../data-guide/relational-data/online-transaction-processing.md)|Learn about atomicity, consistency, and other features of OLTP, which manages transactional data and supports querying.|Databases|
@@ -521,14 +521,14 @@ intro
 
 |Azrchitecture|Summary|Technology focus|
 |--|--|--|
-|[AIX UNIX on-premises to Azure Linux migration](../example-scenario/unix-migration/migrate-aix-azure-linux.yml)|Migrate an on-premises IBM AIX system and web application to a highly available, highly secure RedHat Enterprise Linux solution in Azure.|Mainframe|
+|[AIX UNIX on-premises to Azure Linux migration](../example-scenario/unix-migration/migrate-aix-azure-linux.yml)|Migrate an on-premises IBM AIX system and web application to a highly available, highly secure Red Hat Enterprise Linux solution in Azure.|Mainframe|
 |[Banking system cloud transformation on Azure](../example-scenario/banking/banking-system-cloud-transformation.yml)|Use simulated and actual applications and existing workloads to monitor the reaction of a solution infrastructure for scalability and performance.|Containers|
 |[Container orchestration for microservices](../microservices/design/orchestration.yml)|Learn how container orchestration makes it easy to manage complex multi-container microservice deployments, scaling, and cluster health.|Microservices|
-|[JBoss deployment with Red Hat on Azure](../solution-ideas/articles/jboss-deployment-red-hat.yml)|Learn how the Red Hat JBoss Enterprise Application Platform (EAP) streamlines and simplifies the development and deployment of a diverse range of applications.|Containers|
+|[JBoss deployment with Red Hat on Azure](../solution-ideas/articles/jboss-deployment-red-hat.yml)|Learn how the Red Hat JBoss Enterprise Application Platform (JBoss EAP) streamlines and simplifies the development and deployment of a range of applications.|Containers|
 |[Run a Linux VM on Azure](../reference-architectures/n-tier/linux-vm.yml)|Learn best practices for running a Linux virtual machine on Azure.|Compute|
-|[SAP HANA for Linux VMs in scale-up systems](../reference-architectures/sap/run-sap-hana-for-linux-virtual-machines.yml)||SAP|
-|[SAP S/4HANA in Linux on Azure](../reference-architectures/sap/sap-s4hana.yml)|Review proven practices for running SAP S/4HANA in a Linux environment on Azure, with high availability.|SAP|
-|[SAP system on Oracle Database](../example-scenario/apps/sap-on-oracle.yml)|Examine deployment patterns for SAP systems on Oracle that align with the pillars of the Azure Well-Architected Framework.|SAP|
+|[SAP HANA for Linux VMs in scale-up systems](../reference-architectures/sap/run-sap-hana-for-linux-virtual-machines.yml)|Learn proven practices for running SAP HANA in a high-availability, scale-up environment that supports disaster recovery.|SAP|
+|[SAP S/4HANA in Linux on Azure](../reference-architectures/sap/sap-s4hana.yml)|Learn proven practices for running SAP S/4HANA in a Linux environment on Azure, with high availability.|SAP|
+|[SAP system on Oracle Database](../example-scenario/apps/sap-on-oracle.yml)|Examine deployment patterns for SAP systems on Oracle Database that align with the pillars of the Azure Well-Architected Framework.|SAP|
 |[SAS on Azure](../guide/sas/sas-overview.yml)|Learn how to run SAS analytics products on Azure. See guidelines for designing and implementing cloud solutions for SAS Viya and SAS Grid.|Compute|
 |[SWIFT\'s Alliance Messaging Hub (AMH) with Alliance Connect](../example-scenario/finance/swift-alliance-messaging-hub.yml)|Run SWIFT AMH on Azure. This messaging solution helps financial institutions securely and efficiently bring new services to market.|Networking|
 |[SWIFT\'s AMH with Alliance Connect Virtual](../example-scenario/finance/swift-alliance-messaging-hub-vsrx.yml)|Run SWIFT AMH on Azure. Use this messaging solution with the Alliance Connect Virtual networking solution, which also runs on Azure.|Networking|
@@ -540,7 +540,7 @@ intro
 |[Banking system cloud transformation on Azure](../example-scenario/banking/banking-system-cloud-transformation.yml)|Use simulated and actual applications and existing workloads to monitor the reaction of a solution infrastructure for scalability and performance.|Containers|
 |[Build cloud-native applications](../solution-ideas/articles/cloud-native-apps.yml)|Learn how to build cloud-native applications with Azure Cosmos DB, Azure Database for PostgreSQL, and Azure Cache for Redis.|Containers|
 |[Build web and mobile applications with MySQL and Redis](../solution-ideas/articles/webapps.yml)|Build web and mobile applications with an Azure microservices-based architecture. Use this solution, inspired by PayMe, for e-commerce platforms and more.|Web|
-|[COVID-19 safe solutions with IoT Edge](../solution-ideas/articles/cctv-iot-edge-for-covid-19-safe-environment-and-mask-detection.yml)|Create a COVID-19 safe environment that monitors social distance, mask/PPE use, and occupancy requirements with CCTVs and Azure IoT Edge, Stream Analytics, and Machine Learning.|IoT|
+|[COVID-19 safe solutions with IoT Edge](../solution-ideas/articles/cctv-iot-edge-for-covid-19-safe-environment-and-mask-detection.yml)|Create a COVID-19 safe environment that monitors social distance, mask/PPE use, and occupancy requirements with CCTVs and Azure IoT Edge, Azure Stream Analytics, and Azure Machine Learning.|IoT|
 |[Data cache](../solution-ideas/articles/data-cache-with-redis-cache.yml)|Store and share database query results, session states, static contents, and more by using a common cache-aside pattern.|Databases|
 |[Data streaming with AKS](../solution-ideas/articles/data-streaming-scenario.yml)|Use AKS to easily ingest and process a real-time data stream with millions of data points collected via sensors.|Containers|
 |[DevTest and DevOps for PaaS solutions](../solution-ideas/articles/dev-test-paas.yml)|Combine Azure platform as a service (PaaS) resources with DevTest and DevOps practices to support rapid iteration cycles and reduced overhead.|DevOps|
@@ -552,8 +552,8 @@ intro
 |[Rate Limiting pattern](../patterns/rate-limiting-pattern.yml)|Use a rate limiting pattern to avoid or minimize throttling errors.|Integration|
 |[Re-engineer mainframe batch applications on Azure](../example-scenario/mainframe/reengineer-mainframe-batch-apps-azure.yml)|Use Azure services to re-engineer mainframe batch applications. This architecture change can reduce costs and improve scalability.|Mainframe|
 |[Run SAP BW/4HANA with Linux VMs](../reference-architectures/sap/run-sap-bw4hana-with-linux-virtual-machines.yml)|Learn about the SAP BW/4HANA application tier and how it's suitable for a high availability, small-scale production environment of SAP BW/4HANA on Azure.|SAP|
-|[Scalable Sitecore marketing website](../solution-ideas/articles/digital-marketing-sitecore.yml)||Web|
-|[Scalable web apps with Azure Redis Cache](../solution-ideas/articles/scalable-web-apps.yml)|Learn how the Sitecore Experience Platform (xP) provides the data, integrated tools, and automation you need to engage customers throughout an iterative lifecycle.|Web|
+|[Scalable Sitecore marketing website](../solution-ideas/articles/digital-marketing-sitecore.yml)|Learn how the Sitecore Experience Platform (XP) provides the data, integrated tools, and automation you need to engage customers throughout an iterative lifecycle.|Web|
+|[Scalable web apps with Azure Redis Cache](../solution-ideas/articles/scalable-web-apps.yml)|Improve app performance by using Azure Cache for Redis to improve responsiveness and handle increasing loads with fewer web-compute resources.|Web|
 |[Scalable web application](../reference-architectures/app-service-web-app/scalable-web-app.yml)|Use the proven practices in this reference architecture to improve scalability and performance in an Azure App Service web application.|Web|
 |[Stream processing with fully managed open-source data engines](../example-scenario/data/open-source-data-engine-stream-processing.yml)|Stream events by using fully managed Azure data services. Use open-source technologies like Kafka, Kubernetes, Cassandra, PostgreSQL, and Redis components.|Analytics|
 |[Supply chain track and trace](../solution-ideas/articles/supply-chain-track-and-trace.yml)|Use Azure Blockchain Workbench to build a supply chain application that can track assets and trigger remediating events downstream.|IoT|
@@ -564,9 +564,9 @@ intro
 |--|--|--|
 |[Run SAP BW/4HANA with Linux VMs](../reference-architectures/sap/run-sap-bw4hana-with-linux-virtual-machines.yml)|Learn about the SAP BW/4HANA application tier and how it's suitable for a high availability, small-scale production environment of SAP BW/4HANA on Azure.|SAP|
 |[Run SAP HANA Large Instances](../reference-architectures/sap/hana-large-instances.yml)|Learn proven practices for running SAP HANA in a high availability environment on Azure Large Instances.|SAP|
-|[SAP deployment in Azure using an Oracle database](../example-scenario/apps/sap-production.yml)|Learn proven practices for running SAP on Oracle on Azure, with high availability.|SAP|
+|[SAP deployment in Azure using an Oracle database](../example-scenario/apps/sap-production.yml)|Learn proven practices for running SAP on Oracle in Azure, with high availability.|SAP|
 |[SAP HANA for Linux VMs in scale-up systems](../reference-architectures/sap/run-sap-hana-for-linux-virtual-machines.yml)|Learn proven practices for running SAP HANA in a high availability, scale-up environment that supports disaster recovery on Azure.|SAP|
-|[SAP system on Oracle Database](../example-scenario/apps/sap-on-oracle.yml)|Examine deployment patterns for SAP systems on Oracle that align with the pillars of the Azure Well-Architected Framework.|SAP|
+|[SAP system on Oracle Database](../example-scenario/apps/sap-on-oracle.yml)|Examine deployment patterns for SAP systems on Oracle Database that align with the pillars of the Azure Well-Architected Framework.|SAP|
 |[SAP S/4HANA in Linux on Azure](../reference-architectures/sap/sap-s4hana.yml)|Review proven practices for running SAP S/4HANA in a Linux environment on Azure, with high availability.|SAP|
 |[SAP workload automation using SUSE on Azure](../solution-ideas/articles/sap-workload-automation-suse.yml)|Use this solution to bolster productivity and facilitate innovation.|SAP|
 |[SAS on Azure architecture](../guide/sas/sas-overview.yml)|Learn how to run SAS analytics products on Azure. See guidelines for designing and implementing cloud solutions for SAS Viya and SAS Grid.|Compute|
@@ -711,10 +711,10 @@ intro
 |[Advanced AKS microservices architecture](../reference-architectures/containers/aks-microservices/aks-microservices-advanced.yml)|Learn about a scalable, highly secure AKS microservices architecture that builds on recommended AKS microservices baseline architectures and implementations.|Containers|
 |[Application data protection for AKS workloads on Azure NetApp Files](../example-scenario/file-storage/data-protection-kubernetes-astra-azure-netapp-files.yml)|Deploy Astra Control Service with Azure NetApp Files for data protection, disaster recovery, and mobility for AKS applications.|Containers|
 |[Core startup stack architecture](../example-scenario/startups/core-startup-stack.yml)|Review the components of a simple core startup stack architecture.|Startup|
-|[COVID-19 safe solutions with IoT Edge](../solution-ideas/articles/cctv-iot-edge-for-covid-19-safe-environment-and-mask-detection.yml)|Create a COVID-19 safe environment that monitors social distance, mask/PPE use, and occupancy requirements with CCTVs and Azure IoT Edge, Stream Analytics, and Machine Learning.|IoT|
+|[COVID-19 safe solutions with IoT Edge](../solution-ideas/articles/cctv-iot-edge-for-covid-19-safe-environment-and-mask-detection.yml)|Create a COVID-19 safe environment that monitors social distance, mask/PPE use, and occupancy requirements with CCTVs and IoT Edge, Stream Analytics, and Azure Machine Learning.|IoT|
 |[Data considerations for microservices](../microservices/design/data-considerations.yml)|Learn about managing data in a microservices architecture.|Microservices|
 |[High availability in Azure public MEC](../example-scenario/hybrid/multi-access-edge-compute-ha.yml)|Learn how to deploy workloads in active-standby mode to achieve high availability and disaster recovery in Azure public multiaccess edge compute.|Hybrid|
-|[Scalable web application](../reference-architectures/app-service-web-app/scalable-web-app.yml)|Use the proven practices in this reference architecture to improve scalability and performance in an Azure App Service web application.|Web|
+|[Scalable web application](../reference-architectures/app-service-web-app/scalable-web-app.yml)|Use the proven practices in this reference architecture to improve scalability and performance in an App Service web application.|Web|
 |[Stream processing with fully managed open-source data engines](../example-scenario/data/open-source-data-engine-stream-processing.yml)|Stream events by using fully managed Azure data services. Use open-source technologies like Kafka, Kubernetes, Cassandra, PostgreSQL, and Redis components.|Analytics|
 |[Virtual network integrated serverless microservices](../example-scenario/integrated-multiservices/virtual-network-integration.yml)|Learn about an end-to-end solution for health records management that uses Azure Functions microservices integrated with other services via a virtual network.|Security|
 
@@ -722,21 +722,21 @@ intro
 
 |Azrchitecture|Summary|Technology focus|
 |--|--|--|
-|[AIX UNIX on-premises to Azure Linux migration](../example-scenario/unix-migration/migrate-aix-azure-linux.yml)|Migrate an on-premises IBM AIX system and web application to a highly available, highly secure RedHat Enterprise Linux solution in Azure.|Mainframe|
+|[AIX UNIX on-premises to Azure Linux migration](../example-scenario/unix-migration/migrate-aix-azure-linux.yml)|Migrate an on-premises IBM AIX system and web application to a highly available, highly secure Red Hat Enterprise Linux solution in Azure.|Mainframe|
 |[Application data protection for AKS workloads on Azure NetApp Files](../example-scenario/file-storage/data-protection-kubernetes-astra-azure-netapp-files.yml)|Deploy Astra Control Service with Azure NetApp Files for data protection, disaster recovery, and mobility for AKS applications.|Storage|
 |[SAP workload development and test settings](../example-scenario/apps/sap-dev-test.yml)|Learn how to establish non-production development and test environments for SAP NetWeaver in a Windows or Linux environment on Azure.|SAP|
 |[Enterprise file shares with disaster recovery](../example-scenario/file-storage/enterprise-file-shares-disaster-recovery.yml)|Learn how to implement resilient NetApp file shares. Failure of the primary Azure region causes automatic failover to the secondary Azure region.|Storage|
-|[FSLogix for the enterprise](../example-scenario/wvd/windows-virtual-desktop-fslogix.yml)|Learn how to build virtual desktop infrastructure solutions at enterprise scale by using Microsoft FSLogix.|Hybrid|
-|[General mainframe refactor to Azure](../example-scenario/mainframe/general-mainframe-refactor.yml)|Learn how to refactor general mainframe applications to run more cost-effectively and efficiently on Azure.|Mainframe|
+|[FSLogix for the enterprise](../example-scenario/wvd/windows-virtual-desktop-fslogix.yml)|Learn how to build virtual desktop infrastructure solutions at enterprise scale by using FSLogix.|Hybrid|
+|[General mainframe refactor to Azure](../example-scenario/mainframe/general-mainframe-refactor.yml)|Learn how to refactor mainframe applications to run more cost-effectively and efficiently on Azure.|Mainframe|
 |[Moodle deployment with Azure NetApp Files](../example-scenario/file-storage/moodle-azure-netapp-files.yml)|Deploy Moodle with Azure NetApp Files for a resilient solution that offers high-throughput, low-latency access to scalable shared storage.|Storage|
 |[Multiple forests with AD DS and Azure AD](../example-scenario/wvd/multi-forest.yml)|Learn how to create multiple Active Directory forests with Azure Virtual Desktop.|Virtual Desktop|
 |[Oracle Database with Azure NetApp Files](../example-scenario/file-storage/oracle-azure-netapp-files.yml)|Implement a high-bandwidth, low-latency solution for Oracle Database workloads. Use Azure NetApp Files to get enterprise-scale performance and to reduce costs.|Storage|
 |[Refactor mainframe computer systems that run Adabas & Natural](../example-scenario/mainframe/refactor-adabas-aks.yml)|Learn how to modernize mainframe computer systems that run Adabas & Natural and move them to the cloud.|Mainframe|
 |[Run SAP BW/4HANA with Linux VMs](../reference-architectures/sap/run-sap-bw4hana-with-linux-virtual-machines.yml)|Learn about the SAP BW/4HANA application tier and how it's suitable for a high-availability, small-scale production environment of SAP BW/4HANA on Azure.|SAP|
-|[SAP deployment in Azure using an Oracle database](../example-scenario/apps/sap-production.yml)|Learn proven practices for running SAP on Oracle on Azure, with high availability.|SAP|
+|[SAP deployment in Azure using an Oracle database](../example-scenario/apps/sap-production.yml)|Learn proven practices for running SAP on Oracle in Azure, with high availability.|SAP|
 |[SAP HANA for Linux VMs in scale-up systems](../reference-architectures/sap/run-sap-hana-for-linux-virtual-machines.yml)|Learn proven practices for running SAP HANA in a high availability, scale-up environment that supports disaster recovery.|SAP|
-|[SAP S/4HANA in Linux on Azure](../reference-architectures/sap/sap-s4hana.yml)|Review proven practices for running SAP S/4HANA in a Linux environment on Azure, with high availability.|SAP|
-|[SAP system on Oracle Database](../example-scenario/apps/sap-on-oracle.yml)|Examine deployment patterns for SAP systems on Oracle that align with the pillars of the Azure Well-Architected Framework.|SAP|
+|[SAP S/4HANA in Linux on Azure](../reference-architectures/sap/sap-s4hana.yml)|Learn proven practices for running SAP S/4HANA in a Linux environment on Azure, with high availability.|SAP|
+|[SAP system on Oracle Database](../example-scenario/apps/sap-on-oracle.yml)|Examine deployment patterns for SAP systems on Oracle Database that align with the pillars of the Azure Well-Architected Framework.|SAP|
 |[SAS on Azure architecture](../guide/sas/sas-overview.yml)|Learn how to run SAS analytics products on Azure. See guidelines for designing and implementing cloud solutions for SAS Viya and SAS Grid.|Compute|
 |[SQL Server on Azure Virtual Machines with Azure NetApp Files](../example-scenario/file-storage/sql-server-azure-netapp-files.yml)|Implement a high-bandwidth, low-latency solution for SQL Server workloads. Use Azure NetApp Files to get enterprise-scale performance and to reduce costs.|Storage|
 
@@ -750,17 +750,17 @@ intro
 |[Oracle database migration: Cross-cloud connectivity](../example-scenario/oracle-migrate/oracle-migration-cross-cloud.yml)|Create a connection between your existing Oracle database and your Azure applications.|Oracle|
 |[Oracle database migration: Lift and shift](../example-scenario/oracle-migrate/oracle-migration-lift-shift.yml)|Lift and shift your Oracle database from an Oracle environment to Azure Virtual Machines.|Oracle|
 |[Oracle database migration: Refactor](../example-scenario/oracle-migrate/oracle-migration-refactor.yml)|Refactor your Oracle database by using Azure Database Migration Service, and move it to PostgreSQL.|Oracle|
- |[Oracle database migration: Rearchitect](../example-scenario/oracle-migrate/oracle-migration-rearchitect.yml)|Rearchitect your Oracle database with Azure SQL Managed Instance.|Oracle|
+ |[Oracle database migration: Rearchitect](../example-scenario/oracle-migrate/oracle-migration-rearchitect.yml)|Rearchitect your Oracle database by using Azure SQL Managed Instance.|Oracle|
 |[Oracle Database with Azure NetApp Files](../example-scenario/file-storage/oracle-azure-netapp-files.yml)|Implement a high-bandwidth, low-latency solution for Oracle Database workloads. Use Azure NetApp Files to get enterprise-scale performance and to reduce costs.|Storage|
-|[Overview of Oracle database migration](../example-scenario/oracle-migrate/oracle-migration-overview.yml)|Learn about Oracle database migration paths and the methods you can use to migrate your schema to SQL or PostgreSQL.|Oracle|
+|[Overview of Oracle Database migration](../example-scenario/oracle-migrate/oracle-migration-overview.yml)|Learn about Oracle Database migration paths and the methods you can use to migrate your schema to SQL or PostgreSQL.|Oracle|
 |[Refactor mainframe applications with Advanced](../example-scenario/mainframe/refactor-mainframe-applications-advanced.yml)|Learn how to use the automated COBOL refactoring solution from Advanced to modernize your mainframe COBOL applications, run them on Azure, and reduce costs.|Mainframe|
 |[Run Oracle databases on Azure](../solution-ideas/articles/reference-architecture-for-oracle-database-on-azure.yml)|Use a canonical architecture to achieve high availability for Oracle Database Enterprise Edition in Azure.|Oracle|
 |[Run SAP NetWeaver in Windows on Azure](../reference-architectures/sap/sap-netweaver.yml)|Learn proven practices for running SAP NetWeaver in a Windows environment on Azure, with high availability.|SAP|
-|[SAP deployment on Azure using an Oracle database](../example-scenario/apps/sap-production.yml)|Learn proven practices for running SAP on Oracle on Azure, with high availability.|Oracle|
-|[SAP system on Oracle Database](../example-scenario/apps/sap-on-oracle.yml)|Examine deployment patterns for SAP systems on Oracle that align with the pillars of the Azure Well-Architected Framework.|Oracle|
+|[SAP deployment on Azure using an Oracle database](../example-scenario/apps/sap-production.yml)|Learn proven practices for running SAP on Oracle in Azure, with high availability.|Oracle|
+|[SAP system on Oracle Database](../example-scenario/apps/sap-on-oracle.yml)|Examine deployment patterns for SAP systems on Oracle Database that align with the pillars of the Azure Well-Architected Framework.|Oracle|
 |[Security considerations for highly sensitive IaaS apps in Azure](../reference-architectures/n-tier/high-security-iaas.yml)|Learn about VM security, encryption, NSGs, perimeter networks (also known as DMZs), access control, and other security considerations for highly sensitive IaaS and hybrid apps.|Security|
-|[SWIFT\'s Alliance Access in Azure](../example-scenario/finance/swift-alliance-access-on-azure.yml)|View a reference architecture for deploying and running SWIFT Alliance Access on Azure.|Networking|
-|[SWIFT\'s Alliance Access with Alliance Connect Virtual in Azure](../example-scenario/finance/swift-alliance-access-vsrx-on-azure.yml)|View a reference architecture for deploying and running SWIFT Alliance Access with Alliance Connect Virtual on Azure.|Networking|
+|[SWIFT\'s Alliance Access on Azure](../example-scenario/finance/swift-alliance-access-on-azure.yml)|View a reference architecture for deploying and running SWIFT Alliance Access on Azure.|Networking|
+|[SWIFT\'s Alliance Access with Alliance Connect Virtual on Azure](../example-scenario/finance/swift-alliance-access-vsrx-on-azure.yml)|View a reference architecture for deploying and running SWIFT Alliance Access with Alliance Connect Virtual on Azure.|Networking|
 |[SWIFT\'s Alliance Messaging Hub (AMH) with Alliance Connect Virtual](../example-scenario/finance/swift-alliance-messaging-hub-vsrx.yml)|Run SWIFT AMH on Azure. This messaging solution helps financial institutions securely and efficiently bring new services to market.|Networking|
 
 ### Postman
@@ -776,7 +776,7 @@ intro
 |Azrchitecture|Summary|Technology focus|
 |--|--|--|
 |[Data governance with Profisee and Azure Purview](../reference-architectures/data/profisee-master-data-management-purview.yml)|Integrate Profisee master data management with Azure Purview to build a foundation for data governance and management.|Databases|
-|[Master data management with Profisee and Azure Data Factory](../reference-architectures/data/profisee-master-data-management-data-factory.yml)|Integrate Profisee master data management with Azure Data Factory to deliver high-quality, trusted data for Azure Synapse and all analytics applications.|Databases|
+|[Master data management with Profisee and Azure Data Factory](../reference-architectures/data/profisee-master-data-management-data-factory.yml)|Integrate Profisee master data management with Data Factory to deliver high quality, trusted data for Azure Synapse and all analytics applications.|Databases|
 
 ### Qlik
 
@@ -795,20 +795,20 @@ intro
 |Azrchitecture|Summary|Technology focus|
 |--|--|--|
 |[Add a mobile front end to a legacy app](../solution-ideas/articles/adding-a-modern-web-and-mobile-frontend-to-a-legacy-claims-processing-application.yml)|Learn about a solution that consolidates data from multiple business systems and then surfaces the data through web and mobile front ends. This consolidation helps improve employee productivity.|Mobile|
-|[Custom mobile workforce app](../solution-ideas/articles/custom-mobile-workforce-app.yml)|Learn how the custom mobile workforce management app architecture is built and implemented with a step-by-step diagram that illustrates the integration of Active Directory, SAP, and Azure App Service.|Mobile|
+|[Custom mobile workforce app](../solution-ideas/articles/custom-mobile-workforce-app.yml)|Learn about a mobile workforce app architecture that uses Active Directory to secure corporate data from an SAP back-end system.|Mobile|
 |[Development and test environments for SAP workloads on Azure](../example-scenario/apps/sap-dev-test.yml)|Learn how to establish non-production development and test environments for SAP NetWeaver in a Windows or Linux environment on Azure.|SAP|
 |[Master data management with Azure and CluedIn](../reference-architectures/data/cluedin.yml)|Use CluedIn eventual connectivity data integration to blend data from many siloed data sources and prepare it for analytics and business operations.|Databases|
 |[Multi-tier web application built for HA/DR](../example-scenario/infrastructure/multi-tier-app-disaster-recovery.yml)|Learn how to create a resilient multitier web application built for high availability and disaster recovery on Azure.|Networking|
-|[Run SAP BW/4HANA with Linux VMs](../reference-architectures/sap/run-sap-bw4hana-with-linux-virtual-machines.yml)|Learn about the SAP BW/4HANA application tier and how it's suitable for a high-availability, small-scale production environment of SAP BW/4HANA on Azure.|SAP|
+|[Run SAP BW/4HANA with Linux VMs](../reference-architectures/sap/run-sap-bw4hana-with-linux-virtual-machines.yml)|Learn about the SAP BW/4HANA application tier and how it's suitable for a high availability, small-scale production environment of SAP BW/4HANA on Azure.|SAP|
 |[Run SAP HANA for Linux VMs in scale-up systems](../reference-architectures/sap/run-sap-hana-for-linux-virtual-machines.yml)|Learn proven practices for running SAP HANA in a high availability, scale-up environment that supports disaster recovery.|SAP|
 |[Run SAP HANA Large Instances](../reference-architectures/sap/hana-large-instances.yml)|Learn proven practices for running SAP HANA in a high availability environment on Azure Large Instances.|SAP|
 |[Run SAP NetWeaver in Windows on Azure](../reference-architectures/sap/sap-netweaver.yml)|Learn proven practices for running SAP NetWeaver in a Windows environment on Azure, with high availability.|SAP|
-|[SAP deployment on Azure using an Oracle database](../example-scenario/apps/sap-production.yml)|Learn proven practices for running SAP on Oracle on Azure, with high availability.|SAP|
-|[SAP on Azure architecture design](../reference-architectures/sap/sap-overview.yml)|Review a set of guiding tenets to help ensure the quality of SAP workloads that are running on Azure.|SAP|
+|[SAP deployment on Azure using an Oracle database](../example-scenario/apps/sap-production.yml)|Learn proven practices for running SAP on Oracle in Azure, with high availability.|SAP|
+|[SAP on Azure architecture design](../reference-architectures/sap/sap-overview.yml)|Review a set of guiding tenets to help ensure the quality of SAP workloads that run on Azure.|SAP|
 |[SAP NetWeaver on SQL Server](../solution-ideas/articles/sap-netweaver-on-sql-server.yml)|Build an SAP landscape on NetWeaver by using Azure Virtual Machines to host SAP applications and a SQL Server database.|SAP|
-|[SAP S/4 HANA for Large Instances](../solution-ideas/articles/sap-s4-hana-on-hli-with-ha-and-dr.yml)|With large SAP HANA instances, use Azure Virtual Machines, OS clustering, and NFS storage for scalability, performance, high reliability, and disaster recovery.|SAP|
+|[SAP S/4HANA for Large Instances](../solution-ideas/articles/sap-s4-hana-on-hli-with-ha-and-dr.yml)|With large SAP HANA instances, use Azure Virtual Machines, OS clustering, and NFS storage for scalability, performance, high reliability, and disaster recovery.|SAP|
 |[SAP S/4HANA in Linux on Azure](../reference-architectures/sap/sap-s4hana.yml)|Review proven practices for running SAP S/4HANA in a Linux environment on Azure, with high availability.|SAP|
-|[SAP system on Oracle Database on Azure](../example-scenario/apps/sap-on-oracle.yml)|Examine deployment patterns for SAP systems on Oracle that align with the pillars of the Azure Well-Architected Framework.|SAP|
+|[SAP system on Oracle Database](../example-scenario/apps/sap-on-oracle.yml)|Examine deployment patterns for SAP systems on Oracle Database that align with the pillars of the Azure Well-Architected Framework.|SAP|
 |[SAP workload automation using SUSE on Azure](../solution-ideas/articles/sap-workload-automation-suse.yml)|Use this solution to bolster productivity and facilitate innovation.|SAP|
 
 ### SAS
@@ -821,7 +821,7 @@ intro
 
 |Azrchitecture|Summary|Technology focus|
 |--|--|--|
-|[Scalable Sitecore marketing website](../solution-ideas/articles/digital-marketing-sitecore.yml)||Web|
+|[Scalable Sitecore marketing website](../solution-ideas/articles/digital-marketing-sitecore.yml)|Learn how the Sitecore Experience Platform (XP) provides the data, integrated tools, and automation you need to engage customers throughout an iterative lifecycle.|Web|
 
 ### Skytap
 
@@ -840,18 +840,18 @@ intro
 
 |Azrchitecture|Summary|Technology focus|
 |--|--|--|
-|[Stromasys Charon-SSP Solaris emulator on Azure VMs](../solution-ideas/articles/solaris-azure.yml)|Learn about how Charon-SSP cross-platform hypervisor emulates legacy Sun SPARC systems on industry standard x86-64 computer systems and VMs.|Mainframe|
+|[Stromasys Charon-SSP Solaris emulator on Azure VMs](../solution-ideas/articles/solaris-azure.yml)|Learn how the Charon-SSP cross-platform hypervisor emulates legacy Sun SPARC systems on industry standard x86-64 computer systems and VMs.|Mainframe|
 
 
 ### SWIFT
 
 |Azrchitecture|Summary|Technology focus|
 |--|--|--|
-|[SWIFT\'s Alliance Access in Azure](../example-scenario/finance/swift-alliance-access-on-azure.yml)|View a reference architecture for deploying and running SWIFT Alliance Access on Azure.|Networking|
-|[SWIFT\'s Alliance Access with Alliance Connect Virtual in Azure](../example-scenario/finance/swift-alliance-access-vsrx-on-azure.yml)|View a reference architecture for deploying and running SWIFT Alliance Access with Alliance Connect Virtual on Azure.|Networking|
-|[SWIFT Alliance Cloud in Azure](../example-scenario/finance/swift-alliance-cloud-on-azure.yml)|Deploy Azure infrastructure for SWIFT Alliance Cloud.|Networking|
-|[SWIFT Alliance Connect in Azure](../example-scenario/finance/swift-on-azure-srx.yml)|View a list of articles for all SWIFT Alliance Connect components that can be deployed on Azure.|Security|
-|[SWIFT Alliance Connect Virtual in Azure](../example-scenario/finance/swift-on-azure-vsrx.yml)|View a list of articles for all SWIFT Alliance Connect Virtual components that can be deployed on Azure.|Security|
+|[SWIFT\'s Alliance Access on Azure](../example-scenario/finance/swift-alliance-access-on-azure.yml)|View a reference architecture for deploying and running SWIFT Alliance Access on Azure.|Networking|
+|[SWIFT\'s Alliance Access with Alliance Connect Virtual on Azure](../example-scenario/finance/swift-alliance-access-vsrx-on-azure.yml)|View a reference architecture for deploying and running SWIFT Alliance Access with Alliance Connect Virtual on Azure.|Networking|
+|[SWIFT Alliance Cloud on Azure](../example-scenario/finance/swift-alliance-cloud-on-azure.yml)|Deploy Azure infrastructure for SWIFT Alliance Cloud.|Networking|
+|[SWIFT Alliance Connect on Azure](../example-scenario/finance/swift-on-azure-srx.yml)|View a series of articles about SWIFT Alliance Connect components that can be deployed on Azure.|Security|
+|[SWIFT Alliance Connect Virtual on Azure](../example-scenario/finance/swift-on-azure-vsrx.yml)|View a series of articles about SWIFT Alliance Connect Virtual components that can be deployed on Azure.|Security|
 |[SWIFT Alliance Lite2 on Azure](../example-scenario/finance/swift-alliance-lite2-on-azure.yml)|Deploy SWIFT Alliance Lite2 on Azure. Migrate an existing deployment from on-premises or create a new deployment.|Networking|
 |[SWIFT\'s Alliance Messaging Hub (AMH) with Alliance Connect](../example-scenario/finance/swift-alliance-messaging-hub.yml)|Run SWIFT AMH on Azure. This messaging solution helps financial institutions securely and efficiently bring new services to market.|Networking|
 |[SWIFT\'s AMH with Alliance Connect Virtual](../example-scenario/finance/swift-alliance-messaging-hub-vsrx.yml)|Run SWIFT AMH on Azure. Use this messaging solution with the Alliance Connect Virtual networking solution, which also runs on Azure.|Networking|
@@ -860,7 +860,7 @@ intro
 
 |Azrchitecture|Summary|Technology focus|
 |--|--|--|
-|[GitOps for Azure Kubernetes Service](../example-scenario/gitops-aks/gitops-blueprint-aks.yml)|See a GitOps solution for an AKS cluster. This solution provides full audit capabilities, policy enforcement, and early feedback.|Containers|
+|[GitOps for Azure Kubernetes Service](../example-scenario/gitops-aks/gitops-blueprint-aks.yml)|View a GitOps solution for an AKS cluster. This solution provides full audit capabilities, policy enforcement, and early feedback.|Containers|
 
 ### TmaxSoft
 
@@ -873,7 +873,7 @@ intro
 |Azrchitecture|Summary|Technology focus|
 |--|--|--|
 |[Unisys ClearPath Forward mainframe rehost to Azure using Unisys virtualization](../example-scenario/mainframe/unisys-clearpath-forward-mainframe-rehost.yml)|Use virtualization technologies from Unisys and Azure to migrate from a Unisys ClearPath Forward Libra (legacy Burroughs A Series/MCP) mainframe.|Mainframe|
-|[Unisys Dorado mainframe migration to Azure with Astadia and Micro Focus](../example-scenario/mainframe/migrate-unisys-dorado-mainframe-apps-with-astadia-micro-focus.yml)|Migrate Unisys Dorado mainframe systems with Astadia and Micro Focus products. Move to Azure without rewriting code, switching data models, or updating screens.|Mainframe|
+|[Unisys Dorado mainframe migration to Azure with Astadia and Micro Focus](../example-scenario/mainframe/migrate-unisys-dorado-mainframe-apps-with-astadia-micro-focus.yml)|Migrate Unisys Dorado mainframe systems by using Astadia and Micro Focus products. Move to Azure without rewriting code, switching data models, or updating screens.|Mainframe|
 |[Unisys mainframe migration with Asysco](../reference-architectures/migration/unisys-mainframe-migration.yml)|Learn options for using the AMT framework to migrate Unisys mainframe workloads to Azure.|Mainframe|
 
 ## Related resources
@@ -882,5 +882,5 @@ intro
 - [Azure and Power Platform scenarios](../solutions/power-platform-scenarios.md)
 - [Azure and Microsoft 365 scenarios](../solutions/microsoft-365-scenarios.md)
 - [Azure and Dynamics 365 scenarios](../solutions/dynamics-365-scenarios.md)
-- [Azure for AWS professionals](azure/architecture/aws-professional)
-- [Azure for Google Cloud professionals](azure/architecture/gcp-professional)
+- [Azure for AWS professionals](../aws-professional/index.md)
+- [Azure for Google Cloud professionals](../gcp-professional/index.md)
