@@ -82,7 +82,7 @@ In an automated single-tenant deployment model, you deploy a dedicated set of in
 
 ![Diagram showing three tenants, each with separate deployments.](media/tenancy-models/automated-single-tenant-deployments.png)
 
-Your application is responsible for initiating and coordinating the deployment of each tenant's resources. Typically, solutions built using this model make extensive use of infrastructure as code (IaC) or the Azure Resource Manager APIs. You might use this approach when you need to provision entirely separate infrastructures for each of your customers. Consider the [Deployment Stamps pattern](../../../patterns/deployment-stamp.md) when planning your deployment.
+Your application is responsible for initiating and coordinating the deployment of each tenant's resources. Typically, solutions built using this model make extensive use of infrastructure as code (IaC) or the Azure Resource Manager APIs. You might use this approach when you need to provision entirely separate infrastructures for each of your customers. Consider the [Deployment Stamps pattern](../../../patterns/deployment-stamp.yml) when planning your deployment.
 
 **Benefits:** A key benefit of this approach is that data for each tenant is isolated, which reduces the risk of accidental leakage. This can be important to some customers with high regulatory compliance overhead. Additionally, tenants are unlikely to affect each other's system performance, which is sometimes called the _noisy neighbor_ problem. Updates and changes can be rolled out progressively across tenants, which reduces the likelihood of a system-wide outage.
 
@@ -133,7 +133,7 @@ You can also consider horizontally partitioning your deployments. This means you
 
 ## Test your isolation model
 
-Whichever isolation model you select, ensure you test your solution to verify that one tenant's data isn't accidentally leaked to another and that any [noisy neighbor](../../../antipatterns/noisy-neighbor.yml) effects are acceptable. Consider using [Azure Chaos Studio](/azure/chaos-studio/chaos-studio-overview) to deliberately introduce faults that simulate real-world outages and verify the resiliency of your solution even when components are malfunctioning.
+Whichever isolation model you select, ensure you test your solution to verify that one tenant's data isn't accidentally leaked to another and that any [noisy neighbor](../../../antipatterns/noisy-neighbor/noisy-neighbor.yml) effects are acceptable. Consider using [Azure Chaos Studio](/azure/chaos-studio/chaos-studio-overview) to deliberately introduce faults that simulate real-world outages and verify the resiliency of your solution even when components are malfunctioning.
 
 ## Next steps
 

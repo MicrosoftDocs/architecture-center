@@ -104,7 +104,7 @@ The [hub and spoke VNet topology](../../../reference-architectures/hybrid-networ
 
 When you use a hub and spoke topology, ensure you plan around limits, [such as the maximum number of peered VNets](/azure/virtual-network/virtual-network-peering-overview), and ensure that you don't use overlapping address spaces for each tenant's VNet.
 
-The hub and spoke topology can be useful when you deploy tenant-specific VNets with IP addresses that you select. Each tenant's VNet becomes a spoke, and can share your common resources in the hub VNet. You can also use the hub and spoke topology when you scale shared resources across multiple VNets for scale purposes, or when you use the [Deployment Stamps pattern](../../../patterns/deployment-stamp.md).
+The hub and spoke topology can be useful when you deploy tenant-specific VNets with IP addresses that you select. Each tenant's VNet becomes a spoke, and can share your common resources in the hub VNet. You can also use the hub and spoke topology when you scale shared resources across multiple VNets for scale purposes, or when you use the [Deployment Stamps pattern](../../../patterns/deployment-stamp.yml).
 
 > [!TIP]
 > If your solution runs across multiple geographic regions, it's usually a good practice to deploy separate hubs and hub resources in each region. While this practice incurs a higher resource cost, it avoids traffic going through multiple Azure regions unnecessarily, which can increase the latency of requests and incur global peering charges.
@@ -144,7 +144,7 @@ When you work with domain names and transport-layer security (TLS) in a multiten
 
 ### Gateway Routing and Gateway Offloading patterns
 
-The [Gateway Routing pattern](../../../patterns/gateway-routing.md) and the [Gateway Offloading pattern](../../../patterns/gateway-offloading.md) involve deploying a layer 7 reverse proxy or *gateway*. Gateways are useful to provide core services for a multitenant application, including the following capabilities:
+The [Gateway Routing pattern](../../../patterns/gateway-routing.yml) and the [Gateway Offloading pattern](../../../patterns/gateway-offloading.yml) involve deploying a layer 7 reverse proxy or *gateway*. Gateways are useful to provide core services for a multitenant application, including the following capabilities:
 
 - Routing requests to tenant-specific backends or deployment stamps.
 - Handling tenant-specific domain names and TLS certificates.
@@ -157,7 +157,7 @@ If you plan to deploy a gateway for your solution, a good practice is to first b
 
 ### Static Content Hosting pattern
 
-The [Static Content Hosting pattern](../../../patterns/static-content-hosting.md) involves serving web content from a cloud-native storage service, and using a content delivery network (CDN) to cache the content.
+The [Static Content Hosting pattern](../../../patterns/static-content-hosting.yml) involves serving web content from a cloud-native storage service, and using a content delivery network (CDN) to cache the content.
 
 You can use [Azure Front Door](/azure/frontdoor/front-door-caching) or another CDN for your solution's static components, such as single-page JavaScript applications, and for static content like image files and documents.
 
@@ -189,7 +189,7 @@ In modern networks, it's important to combine network-layer security with other 
 
 ### Rewriting host headers without testing
 
-When you use the [Gateway Offloading pattern](../../../patterns/gateway-offloading.md), you might consider rewriting the `Host` header of HTTP requests. This practice can simplify the configuration of your backend web application service by offloading the custom domain and TLS management to the gateway.
+When you use the [Gateway Offloading pattern](../../../patterns/gateway-offloading.yml), you might consider rewriting the `Host` header of HTTP requests. This practice can simplify the configuration of your backend web application service by offloading the custom domain and TLS management to the gateway.
 
 However, `Host` header rewrites can cause problems for some backend services. If your application issues HTTP redirects or cookies, the mismatch in host names can break the application's functionality. In particular, this issue can arise when you use backend services that are themselves multitenant, like Azure App Service, Azure Functions, and Azure Spring Cloud.
 

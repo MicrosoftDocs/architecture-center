@@ -5,7 +5,7 @@ description: Learn how to design your workload configuration processes to contro
 keywords: edge, workload, configuration
 author: microsoftCSE
 ms.author: hecamm
-ms.date: 01/19/2022
+ms.date: 03/21/2022
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: design-pattern
@@ -122,6 +122,6 @@ The edge component can use either the external configuration controller or inter
 - [Azure Blob Storage](https://azure.microsoft.com/services/storage/blobs)
 - [Introduction to Azure Blob storage](/azure/storage/blobs/storage-blobs-introduction)
 
-## Related guidance
+## Related resources
 
-- [External Configuration Store pattern](external-configuration-store.md)
+- [External Configuration Store pattern](external-configuration-store.yml)

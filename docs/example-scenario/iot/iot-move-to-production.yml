@@ -1,0 +1,19 @@
+### YamlMime:Architecture
+metadata:
+  title: Move an IoT solution from test to production
+  description: Learn what to avoid doing when moving from a test environment to a production environment.
+  author: mcosner
+  ms.author: mcosner
+  ms.date: 09/10/2021
+  ms.topic: conceptual
+  ms.service: architecture-center
+  ms.subservice: azure-guide
+azureCategories:
+  - iot
+products:
+  - azure-iot-hub
+name: Move an IoT solution from test to production
+summary: Learn what to avoid doing when moving from a test environment to a production environment.
+thumbnailUrl: /azure/architecture/browse/thumbs/late-binding-dps.png
+content: |
+  [!include[](iot-move-to-production-content.md)]

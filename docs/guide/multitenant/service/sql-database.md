@@ -34,7 +34,7 @@ Azure SQL Database includes a number of features that support multitenancy.
 
 ### Elastic pools
 
-Elastic pools enable you to share compute resources between a number of databases on the same server. By using elastic pools, you can achieve performance elasticity for each database, while also achieving cost efficiency by sharing your provisioned resources across databases. Elastic pools provide built-in protections against the [Noisy Neighbor problem](../../../antipatterns/noisy-neighbor.yml).
+Elastic pools enable you to share compute resources between a number of databases on the same server. By using elastic pools, you can achieve performance elasticity for each database, while also achieving cost efficiency by sharing your provisioned resources across databases. Elastic pools provide built-in protections against the [Noisy Neighbor problem](../../../antipatterns/noisy-neighbor/noisy-neighbor.yml).
 
 More information:
 
@@ -44,7 +44,7 @@ More information:
 
 ### Elastic database tools
 
-The [Sharding pattern](../../../patterns/sharding.md) enables you to scale your workload across multiple databases. Azure SQL Database provides tools to support sharding. These tools include the management of *shard maps* (a database that tracks the tenants assigned to each shard), as well as initiating and tracking queries and management operations on multiple shards by using *elastic jobs*.
+The [Sharding pattern](../../../patterns/sharding.yml) enables you to scale your workload across multiple databases. Azure SQL Database provides tools to support sharding. These tools include the management of *shard maps* (a database that tracks the tenants assigned to each shard), as well as initiating and tracking queries and management operations on multiple shards by using *elastic jobs*.
 
 More information:
 

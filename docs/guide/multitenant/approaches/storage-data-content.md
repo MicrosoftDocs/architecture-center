@@ -12,7 +12,7 @@ Consider the extent to which you plan to scale, and clearly plan your data stora
 
 ### Performance predictability
 
-Multitenant data and storage services are particularly susceptible to the [Noisy Neighbor problem](../../../antipatterns/noisy-neighbor.yml). It's important to consider whether your tenants could affect each other's performance. For example, do your tenants have overlapping peaks in their usage patterns over time? Do all of your customers use your solution at the same time each day, or are requests distributed evenly? Those factors will impact the level of isolation you need to design for, the amount of resources you need to provision, and the degree to which resources can be shared between tenants.
+Multitenant data and storage services are particularly susceptible to the [Noisy Neighbor problem](../../../antipatterns/noisy-neighbor/noisy-neighbor.yml). It's important to consider whether your tenants could affect each other's performance. For example, do your tenants have overlapping peaks in their usage patterns over time? Do all of your customers use your solution at the same time each day, or are requests distributed evenly? Those factors will impact the level of isolation you need to design for, the amount of resources you need to provision, and the degree to which resources can be shared between tenants.
 
 It's important to consider [Azure's resource and request quotas](/azure/azure-resource-manager/management/azure-subscription-service-limits) as part of this decision. For example, suppose you deploy a single storage account to contain all of your tenants' data. If you exceed a specific number of storage operations per second, Azure Storage will reject your application's requests, and all of your tenants will be impacted. This is called _throttling_ behavior. It's important that you monitor for throttled requests. See [Retry guidance for Azure services](../../../best-practices/retry-service-specific.md) for further information.
 
@@ -25,7 +25,7 @@ When designing a solution that contains multitenant data services, there are usu
 - When using Azure SQL, you can use separate tables in shared databases, or you can deploy separate databases or servers for each tenant.
 - In all Azure services, you can consider deploying resources within a single shared Azure subscription, or you can use multiple Azure subscriptions--perhaps even one per tenant.
 
-There is no single solution that works for every situation. The option you choose depends on a number of factors and the requirements of your tenants. For example, if your tenants need to meet specific compliance or regulatory standards, you might need to apply a higher level of isolation. Similarly, you might have commercial requirements to physically isolate your customers' data, or you might need to enforce isolation to avoid the [Noisy Neighbor problem](../../../antipatterns/noisy-neighbor.yml). Additionally, if tenants need to use their own encryption keys, they have individual backup and restore policies, or they need to have their data stored in different geographical locations, you might need to isolate them from other tenants, or group them with tenants that have similar policies.
+There is no single solution that works for every situation. The option you choose depends on a number of factors and the requirements of your tenants. For example, if your tenants need to meet specific compliance or regulatory standards, you might need to apply a higher level of isolation. Similarly, you might have commercial requirements to physically isolate your customers' data, or you might need to enforce isolation to avoid the [Noisy Neighbor problem](../../../antipatterns/noisy-neighbor/noisy-neighbor.yml). Additionally, if tenants need to use their own encryption keys, they have individual backup and restore policies, or they need to have their data stored in different geographical locations, you might need to isolate them from other tenants, or group them with tenants that have similar policies.
 
 ### Complexity of implementation
 
@@ -48,7 +48,7 @@ Consider how you plan to operate your solution, and how your multitenancy approa
 
 ### Cost
 
-Generally, the higher the density of tenants to your deployment infrastructure, the lower the cost to provision that infrastructure. However, shared infrastructure increases the likelihood of issues like the [Noisy Neighbor problem](../../../antipatterns/noisy-neighbor.yml), so consider the tradeoffs carefully.
+Generally, the higher the density of tenants to your deployment infrastructure, the lower the cost to provision that infrastructure. However, shared infrastructure increases the likelihood of issues like the [Noisy Neighbor problem](../../../antipatterns/noisy-neighbor/noisy-neighbor.yml), so consider the tradeoffs carefully.
 
 ## Approaches and patterns to consider
 
@@ -56,7 +56,7 @@ Several design patterns from the Azure Architecture Center are of relevance to m
 
 ### Deployment Stamps pattern
 
-For more information about how the [Deployment Stamps pattern](../../../patterns/deployment-stamp.md) can be used to support a multitenant solution, see [Overview](overview.md#deployment-stamps-pattern).
+For more information about how the [Deployment Stamps pattern](../../../patterns/deployment-stamp.yml) can be used to support a multitenant solution, see [Overview](overview.md#deployment-stamps-pattern).
 
 ### Shared multitenant databases and file stores
 
@@ -69,14 +69,14 @@ This approach provides the highest density of tenants to infrastructure, so it t
 However, when you work with shared infrastructure, there are several caveats to consider:
 
 - When you rely on a single resource, consider the supported scale and limits of that resource. For example, the maximum size of one database or file store, or the maximum throughput limits, will eventually become a hard blocker, if your architecture relies on a single database. Carefully consider the maximum scale you need to achieve, and compare it to your current and future limits, before you select this pattern.
-- The [Noisy Neighbor problem](../../../antipatterns/noisy-neighbor.yml) might become a factor, especially if you have tenants that are particularly busy or generate higher workloads than others. Considering applying the [Throttling pattern](../../../patterns/throttling.md) or the [Rate Limiting pattern](../../../patterns/rate-limiting-pattern.md) to mitigate these effects.
+- The [Noisy Neighbor problem](../../../antipatterns/noisy-neighbor/noisy-neighbor.yml) might become a factor, especially if you have tenants that are particularly busy or generate higher workloads than others. Considering applying the [Throttling pattern](../../../patterns/throttling.yml) or the [Rate Limiting pattern](../../../patterns/rate-limiting-pattern.yml) to mitigate these effects.
 - You might have difficulty monitoring the activity and [measuring the consumption](../considerations/measure-consumption.md) for a single tenant. Some services, such as Azure Cosmos DB, provide reporting on resource usage for each request, so this information can be tracked to measure the consumption for each tenant. Other services don't provide the same level of detail. For example, the Azure Files metrics for file capacity are available per file share dimension, only when you use premium shares. However, the standard tier provides the metrics only at the storage account level.
 - Tenants may have different requirements for security, backup, availability, or storage location. If these don't match your single resource's configuration, you might not be able to accommodate them.
 - When working with a relational database, or another situation where the schema of the data is important, then tenant-level schema customization is difficult.
 
 ### Sharding pattern
 
-The [Sharding pattern](../../../patterns/sharding.md) involves deploying multiple separate databases, called *shards*, that contain one or more tenants' data. Unlike deployment stamps, shards don't imply that the entire infrastructure is duplicated. You might shard databases without also duplicating or sharding other infrastructure in your solution.
+The [Sharding pattern](../../../patterns/sharding.yml) involves deploying multiple separate databases, called *shards*, that contain one or more tenants' data. Unlike deployment stamps, shards don't imply that the entire infrastructure is duplicated. You might shard databases without also duplicating or sharding other infrastructure in your solution.
 
 ![Diagram showing a sharded database. One database contains the data for tenants A and B, and the other contains the data for tenant C.](media/storage-data/sharding.png)
 
@@ -102,7 +102,7 @@ It's important to use automated deployment approaches when you provision databas
 
 ### Geodes pattern
 
-The [Geode pattern](../../../patterns/geodes.md) is designed specifically for geographically distributed solutions, including multitenant solutions. It supports high load and high levels of resiliency. When working with the Geode pattern, the data tier must be able to replicate the data across geographic regions, and it should support multi-geography writes.
+The [Geode pattern](../../../patterns/geodes.yml) is designed specifically for geographically distributed solutions, including multitenant solutions. It supports high load and high levels of resiliency. When working with the Geode pattern, the data tier must be able to replicate the data across geographic regions, and it should support multi-geography writes.
 
 ![Diagram showing the Geode pattern, with databases deployed across multiple regions that synchronize together.](media/storage-data/geodes.png)
 
@@ -134,7 +134,7 @@ Additionally, when working with relational databases or other schema-based datab
 
 Consider the approach you use to isolate data within a storage account. For example, you might deploy separate storage accounts for each tenant, or you might share storage accounts and deploy individual containers. Alternatively, you might create shared blob containers, and then you can use the blob path to separate data for each tenant. Consider [Azure subscription limits and quotas](/azure/azure-resource-manager/management/azure-subscription-service-limits), and carefully plan your growth to ensure your Azure resources scale to support your future needs.
 
-If you use shared containers, plan your authentication and authorization strategy carefully, to ensure that tenants can't access each other's data. Consider the [Valet Key pattern](../../../patterns/valet-key.md), when you provide clients with access to Azure Storage resources.
+If you use shared containers, plan your authentication and authorization strategy carefully, to ensure that tenants can't access each other's data. Consider the [Valet Key pattern](../../../patterns/valet-key.yml), when you provide clients with access to Azure Storage resources.
 
 ## Cost allocation
 

@@ -1,6 +1,6 @@
 [!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
-A charged off loan is a loan that is declared by a creditor (usually a lending institution) that an amount of debt is unlikely to be collected, usually when the loan repayment is severely delinquent by the debtor. Given that high chargeoff has negative impact on lending institutions' year end financials, lending institutions often monitor loan chargeoff risk very closely to prevent loans from getting charged-off. Using ML Services on Azure HDInsight, a lending institution can use machine learning predictive analytics to predict the likelihood of loans getting charged off and run a report on the analytics result stored in HDFS and hive tables.
+A charged off loan is a loan that is declared by a creditor (usually a lending institution) that an amount of debt is unlikely to be collected, usually when the loan repayment is severely delinquent by the debtor. Given that high chargeoff has negative impact on lending institutions' year end financials, lending institutions often monitor loan chargeoff risk very closely to prevent loans from getting charged-off. Using ML Services on Azure HDInsight, a lending institution can use machine learning predictive analytics to predict the likelihood of loans getting charged off and run a report on the analytics result stored in HDFS and Hive tables.
 
 ## Architecture
 
@@ -8,13 +8,13 @@ A charged off loan is a loan that is declared by a creditor (usually a lending i
 
 Download an [SVG](../media/loan-chargeoff-prediction-with-azure-hdinsight-spark-clusters.svg) of this architecture.
 
-### Data flow
+### Dataflow
 
 1. Create some data and define data sources for the ML prediction
 1. Run a logistic regression over the data using the local compute (or spark) context to predict loan charge off variable
 1. Use Azure HDInsights spark connector to connect to the table
 1. Use Power BI to interpret this data and create new visualizations
-1. (Optional) Deploy the model as as web service which can be consumed on popular devices such as PC, and mobile
+1. (Optional) Deploy the model as a web service that can be consumed on popular devices such as PC and mobile
 
 ### Components
 
@@ -29,7 +29,7 @@ This solution creates a cluster of type ML Services on Azure HDInsight. This clu
 
 There are multiple benefits for lending institutions to equip with loan chargeoff prediction data. Charging off a loan is the last resort that the bank will do on a severely delinquent loan, with the prediction data at hand, the loan officer could offer personalized incentives like lower interest rate or longer repayment period to help customers to keep making loan payments and thus prevent the loan of getting charged off. To get to this type of prediction data, often credit unions or banks manually handcraft the data based on customers' past payment history and performed simple statistical regression analysis. This method is highly subject to data compilation error and not statistically sound.
 
-This solution template demonstrates a solution end to end to run predictive analytics on loan data and produce scoring on chargeoff probability. A PowerBI report will also walk through the analysis and trend of credit loans and prediction of chargeoff probability.
+This solution template demonstrates a solution end to end to run predictive analytics on loan data and produce scoring on chargeoff probability. A Power BI report will also walk through the analysis and trend of credit loans and prediction of chargeoff probability.
 
 ### Business perspective
 

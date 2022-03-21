@@ -2,7 +2,7 @@ This example scenario shows how businesses can use machine learning to automate 
 
 Personalized recommendations can be useful in various industries from retail to news to media. Potential applications include providing product recommendations in a virtual store, providing news or post recommendations, or providing music recommendations. Instead of hiring staff to make personalized recommendations to customers, businesses can provide customized recommendations at scale by using Azure to train models to understand customer preferences.
 
-## Relevant use cases
+## Potential use cases
 
 Consider this scenario for the following use cases:
 
@@ -13,6 +13,8 @@ Consider this scenario for the following use cases:
 ## Architecture of a movie recommendation system
 
 ![Architecture of a machine learning model for training movie recommendations][architecture]
+
+### Workflow
 
 This scenario covers the training and evaluating of the machine learning model using the Spark [alternating least squares][als] (ALS) algorithm on a dataset of movie ratings. The steps for this scenario are:
 
@@ -42,9 +44,9 @@ For an in-depth guide to building and scaling a recommender service, see the art
 
 - [Azure Container Instances][aci] is used to deploy the trained models to web or app services, optionally using [Azure Kubernetes Service][aks].
 
-### Alternative to DSVM
+### Alternatives
 
-[Azure Databricks][databricks] is a managed Spark cluster where model training and evaluating is performed. You can set up a managed Spark environment in minutes, and [autoscale][autoscale] up and down to help reduce the resources and costs associated with scaling clusters manually. Another resource-saving option is to configure inactive [clusters][clusters] to terminate automatically.
+As an alternative to DSVM, [Azure Databricks][databricks] is a managed Spark cluster where model training and evaluating is performed. You can set up a managed Spark environment in minutes, and [autoscale][autoscale] up and down to help reduce the resources and costs associated with scaling clusters manually. Another resource-saving option is to configure inactive [clusters][clusters] to terminate automatically.
 
 ## Considerations
 
@@ -87,15 +89,17 @@ Follow these steps to run the [ALS quickstart notebook](https://github.com/micro
 
 ## Next steps
 
-See other Azure Architecture Center articles:
-
-- [Build a real-time recommendation API on Azure][ref-arch] - An in-depth guide to building and scaling a recommender service.
-- [Product recommendations for retail using Azure][ref-sol-idea] - An example of developing predictive insights on customer behavior.
-
 Try some code:
 
 - [Microsoft Recommenders repository][github] - Contains tutorials and examples of recommendation systems.
 - [Create and connect to a Data Science Virtual Machine][ms-learn] - A Microsoft Learn module.
+
+## Related resources
+
+See these other Azure Architecture Center articles:
+
+- [Build a real-time recommendation API on Azure][ref-arch] - An in-depth guide to building and scaling a recommender service.
+- [Product recommendations for retail using Azure][ref-sol-idea] - An example of developing predictive insights on customer behavior.
 
 [architecture]: ./media/architecture-movie-recommender.png
 [aci]: /azure/container-instances/container-instances-overview

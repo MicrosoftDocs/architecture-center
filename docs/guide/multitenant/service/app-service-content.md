@@ -36,7 +36,7 @@ You can also integrate Azure App Service with Azure AD B2C for authentication of
 More information:
 - [App Service authorization](/azure/app-service/overview-authentication-authorization)
 - [Configure authentication in a sample web app by using Azure AD B2C](/azure/active-directory-b2c/configure-authentication-sample-web-app)
-- [Working with multitenant Azure AD identities](../../../multitenant-identity/index.md)
+- [Working with multitenant Azure AD identities](../../../multitenant-identity/index.yml)
 
 ### Access restrictions
 
@@ -57,7 +57,7 @@ When you work with Azure App Service and Azure Functions, you should be aware of
 
 The strongest level of isolation is to deploy a dedicated plan for a tenant. This dedicated plan ensures that the tenant has full use of all of the server resources that are allocated to that plan.
 
-This approach enables you to scale your solution to provide performance isolation for each tenant, and to avoid the [Noisy Neighbor problem](../../../antipatterns/noisy-neighbor.yml). However, it also has a higher cost because the resources aren't shared with multiple tenants. Also, you need to consider the [maximum number of plans](/azure/azure-resource-manager/management/azure-subscription-service-limits#app-service-limits) that can be deployed into a single Azure resource group.
+This approach enables you to scale your solution to provide performance isolation for each tenant, and to avoid the [Noisy Neighbor problem](../../../antipatterns/noisy-neighbor/noisy-neighbor.yml). However, it also has a higher cost because the resources aren't shared with multiple tenants. Also, you need to consider the [maximum number of plans](/azure/azure-resource-manager/management/azure-subscription-service-limits#app-service-limits) that can be deployed into a single Azure resource group.
 
 ### Apps per tenant with shared plans
 
@@ -67,7 +67,7 @@ You can also choose to share your plan between multiple tenants, but deploy sepa
 - **Separation of configuration:** Each tenant's app can have its own domain name, TLS certificate, access restrictions, and token authorization policies applied.
 - **Separation of upgrades:** Each tenant's application binaries can be upgraded independently of other apps on the same plan.
 
-However, because the plan's compute resources are shared, the apps might be subject to the [Noisy Neighbor problem](../../../antipatterns/noisy-neighbor.yml). Additionally, there are [limits to how many apps can be deployed to a single plan](/azure/azure-resource-manager/management/azure-subscription-service-limits#app-service-limits).
+However, because the plan's compute resources are shared, the apps might be subject to the [Noisy Neighbor problem](../../../antipatterns/noisy-neighbor/noisy-neighbor.yml). Additionally, there are [limits to how many apps can be deployed to a single plan](/azure/azure-resource-manager/management/azure-subscription-service-limits#app-service-limits).
 
 ### Shared apps
 
@@ -87,7 +87,7 @@ You can host APIs on both Azure App Service and Azure Functions. Your choice of 
 Whichever platform you use to host your API, consider using [Azure API Management](/azure/api-management) in front of your API application. API Management provides many features that can be helpful for multitenant solutions, including the following:
 
 - A centralized point for all [authentication](/azure/api-management/api-management-access-restriction-policies). This might include determining the tenant identifier from a token claim or other request metadata.
-- [Routing requests to different API backends](/azure/api-management/api-management-transformation-policies#SetBackendService), which might be based on the request's tenant identifier. This can be helpful when you host multiple [deployment stamps](../../../patterns/deployment-stamp.md), with their own independent API applications, but you need to have a single API URL for all requests.
+- [Routing requests to different API backends](/azure/api-management/api-management-transformation-policies#SetBackendService), which might be based on the request's tenant identifier. This can be helpful when you host multiple [deployment stamps](../../../patterns/deployment-stamp.yml), with their own independent API applications, but you need to have a single API URL for all requests.
 
 ## Networking and multitenancy
 
@@ -105,7 +105,7 @@ Because App Service is itself a multitenant service, you need to take care about
 
 If your application connects to a large number of databases or external services, then your app might be at risk of [SNAT port exhaustion](/azure/app-service/troubleshoot-intermittent-outbound-connection-errors). In general, SNAT port exhaustion indicates that your code isn't correctly reusing TCP connections, and even in a multitenant solution, you should ensure you follow the recommended practices for reusing connections.
 
-However, in some multitenant solutions, the number of outbound connections to distinct IP addresses can result in SNAT port exhaustion, even when you follow good coding practices. In these scenarios, [consider deploying NAT Gateway](/azure/app-service/networking/nat-gateway-integration) to increase the number of SNAT ports that are available for your application to use, or use [service endpoints](/azure/virtual-network/virtual-network-service-endpoints-overview) when you connect to Azure services, to bypass load balancer limits. Even with these controls in place, you might approach limits with a large number of tenants, so you should plan to scale to additional App Service plans or [deployment stamps](../../../patterns/deployment-stamp.md).
+However, in some multitenant solutions, the number of outbound connections to distinct IP addresses can result in SNAT port exhaustion, even when you follow good coding practices. In these scenarios, [consider deploying NAT Gateway](/azure/app-service/networking/nat-gateway-integration) to increase the number of SNAT ports that are available for your application to use, or use [service endpoints](/azure/virtual-network/virtual-network-service-endpoints-overview) when you connect to Azure services, to bypass load balancer limits. Even with these controls in place, you might approach limits with a large number of tenants, so you should plan to scale to additional App Service plans or [deployment stamps](../../../patterns/deployment-stamp.yml).
 
 ## Next steps
 

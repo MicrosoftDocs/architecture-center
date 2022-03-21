@@ -268,7 +268,7 @@ At this point:
 [Create a Private Endpoint]: /azure/private-link/create-private-endpoint-portal#create-a-private-endpoint
 [Create the SQL failover group]: /azure/azure-sql/database/failover-group-add-single-database-tutorial#2---create-the-failover-group
 [Deploy this scenario single-region version]: ../private-web-app/private-web-app.yml#deploy-this-scenario
-[Deployment stamps]: ../../patterns/deployment-stamp.md
+[Deployment stamps]: ../../patterns/deployment-stamp.yml
 [Do I require a dedicated subnet for private endpoints?]: /azure/private-link/private-link-faq#do-i-require-a-dedicated-subnet-for-private-endpoints
 [Fail over to a geo-replicated secondary database]: /azure/azure-sql/database/business-continuity-high-availability-disaster-recover-hadr-overview#fail-over-to-a-geo-replicated-secondary-database
 [Global peering limitation]: ../private-web-app/private-web-app.yml#global-peering

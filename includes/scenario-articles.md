@@ -467,7 +467,7 @@ ms.subservice: example-scenario
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="~/example-scenario/data/media/architecture-realtime-analytics-vehicle-data1.png" alt="Architecture diagram for Ingestion and processing of real-time automotive IoT data" height="140px" />
+                            <img src="~/example-scenario/data/media/architecture-realtime-analytics-vehicle-data-1.png" alt="Architecture diagram for Ingestion and processing of real-time automotive IoT data" height="140px" />
                         </div>
                     </div>
                     <div class="cardText">

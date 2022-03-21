@@ -14,11 +14,15 @@ This article describes a Connected Platform solution to help provide COVID-19 de
 ## Potential use cases
 
 - Large, high-usage spaces with controlled entry and access.
-- Facilities like offices, factories, theaters, stadiums, malls, transportation centers, and tourist attractions.
+- Facilities like offices, factories, theaters, stadiums, malls, transportation centers, theme parks, and tourist attractions.
+
+This solution is ideal for the healthcare and facilities industries.
 
 ## Architecture
 
-![Insight Connected Platform architecture](../media/insight-connected-platform.png)
+![Diagram showing the Insight Connected Platform architecture.](../media/insight-connected-platform.png)
+
+### Workflow
 
 1. Thermal cameras and other sensors provide temperature and visual data through various network protocols like Bluetooth and WiFi to the Internet of Things (IoT) Edge gateway.
 2. The IoT Edge gateway preprocesses data and can respond quickly using onboard resources.
@@ -45,8 +49,8 @@ This article describes a Connected Platform solution to help provide COVID-19 de
 
 - For more information, please contact [iotcovidsupport@microsoft.com](mailto:iotcovidsupport@microsoft.com), and see [Connected Platform for Detection and Prevention](https://www.insight.com/en_US/what-we-do/digital-innovation/solutions/connected-platform-for-detection-and-prevention.html).
 - For more information about the Insight Connected Platform, see [Connected Platform](https://www.insight.com/en_US/what-we-do/digital-innovation/connected-platform.html).
+- [Anomaly detection in Azure Stream Analytics](/azure/stream-analytics/stream-analytics-machine-learning-anomaly-detection)
 
 ## Related resources
 
-- [Anomaly detection in Azure Stream Analytics](/azure/stream-analytics/stream-analytics-machine-learning-anomaly-detection)
 - [Microservices architecture on Azure Kubernetes Service (AKS)](../../reference-architectures/containers/aks-microservices/aks-microservices.yml)

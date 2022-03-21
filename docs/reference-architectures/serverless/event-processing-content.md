@@ -181,7 +181,7 @@ Use the [Cosmos DB capacity calculator][Cosmos-Calculator] to get a quick estima
 
 ## Next steps
 
-- [Code walkthrough: Serverless application with Azure Functions](../../serverless/code.md)
+- [Code walkthrough: Serverless application with Azure Functions](../../serverless/code.yml)
 - [Monitoring serverless event processing](../../serverless/guide/monitoring-serverless-event-processing.md)
 - [De-batching and filtering in serverless event processing with Event Hubs](../../solution-ideas/articles/serverless-event-processing-filtering.yml)
 - [Private link scenario in event stream processing](../../solution-ideas/articles/serverless-event-processing-private-link.yml)

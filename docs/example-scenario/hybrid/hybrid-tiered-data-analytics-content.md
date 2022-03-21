@@ -81,6 +81,10 @@ The manageability of this solution depends on the authoring tools that you're us
 
 Azure functions and storage solutions scale to meet data volume and processing demands. For Azure Storage scalability information and targets, see the [Azure Storage scalability documentation](/azure/storage/common/scalability-targets-standard-account).
 
+## Deploy this scenario
+
+When you're ready to deploy this solution, use the [Deploy a Staged Data Analytics Solution](https://aka.ms/tiereddatadeploy) repo, on Azure Samples. It provides step-by-step instructions for deploying and testing the solution's components.
+
 ## Next steps
 
 To learn more about the topics introduced in this article:
@@ -89,15 +93,12 @@ To learn more about the topics introduced in this article:
 - See [Hybrid application design considerations](/hybrid/app-solutions/overview-app-design-considerations) to learn more about best practices.
 - Learn about the entire [Azure Stack portfolio](/azure-stack) of products and solutions.
 - See the [Azure Stack Development Kit (ASDK)](/azure-stack/asdk) documentation. The ASDK is a single-node deployment of Azure Stack Hub that you can use for free. The ASDK provides an environment in which you can evaluate Azure Stack Hub.
-- When you're ready to deploy this solution, use the [Tiered data for analytics solution deployment guide](https://aka.ms/tiereddatadeploy). It provides step-by-step instructions for deploying and testing the solution's components.
 
 ## Related resources
 
 - [Extend on-premises data solutions to the cloud](../../data-guide/scenarios/hybrid-on-premises-and-cloud.md)
 - [Serverless web application](../../reference-architectures/serverless/web-app.yml)
 - [Azure Data Architecture Guide](../../data-guide/index.md)
-- [Overview of a hybrid workload](https://docs.microsoft.com/en-us/azure/architecture/framework/hybrid/hybrid-overview)
+- [Overview of a hybrid workload](/azure/architecture/framework/hybrid/hybrid-overview)
 - [Hybrid Security Monitoring using Microsoft Defender for Cloud and Microsoft Sentinel](../../hybrid/hybrid-security-monitoring.yml)
-- [Hybrid identity](https://docs.microsoft.com/azure/architecture/solution-ideas/articles/hybrid-identity)
-
-
+- [Hybrid identity](/azure/architecture/solution-ideas/articles/hybrid-identity)

@@ -36,7 +36,7 @@ When using this approach, you should consider the following questions:
 
 - Will users know how to access the service? For example, if you use a query string to identify tenants, will a central landing page need to direct users to the correct tenant, by adding the query string?
 - Do you have a central entry point, like a landing page or login page, that all tenants use? If you do, how will users identify the tenant that they need to access?
-- Does your application provide APIs? For example, is your web application a single-page application (SPA) or a mobile application with an API backend? If it is, you might be able to use an [API gateway](../../../microservices/design/gateway.md) or [reverse proxy](#reverse-proxies) to perform tenant mapping.
+- Does your application provide APIs? For example, is your web application a single-page application (SPA) or a mobile application with an API backend? If it is, you might be able to use an [API gateway](../../../microservices/design/gateway.yml) or [reverse proxy](#reverse-proxies) to perform tenant mapping.
 
 ### Token claims
 

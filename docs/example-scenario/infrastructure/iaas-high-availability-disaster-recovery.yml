@@ -4,6 +4,7 @@ metadata:
   titleSuffix: Azure Example Scenarios
   description: Learn about high-availability (HA) and disaster recovery (DR) options when deploying multitier infrastructure-as-a-service (IaaS) apps to Azure.
   author: shcrouch
+  ms.author: shcrouch
   ms.date: 04/06/2020
   ms.topic: conceptual
   ms.service: architecture-center

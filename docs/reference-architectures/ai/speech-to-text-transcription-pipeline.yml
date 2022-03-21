@@ -4,8 +4,8 @@ metadata:
   titleSuffix: Azure reference architectures
   description: Build an audio ingestion and speech-to-text transcription pipeline with Azure Cognitive Services. Speech recognition can be used for analyzing customer calls.
   author: dsk-2015
-  ms.author: pnp
-  ms.date: 03/25/2020
+  ms.author: dkshir
+  ms.date: 03/17/2022
   ms.topic: conceptual
   ms.service: architecture-center
   ms.subservice: reference-architecture
