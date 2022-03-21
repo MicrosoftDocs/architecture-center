@@ -160,7 +160,7 @@ When you're designing encryption for data at rest, consider storage disks, AKS a
 
 By default, Azure Storage disks are encrypted at rest with Microsoft-managed keys. If you use non-ephemeral operating system disks, or add data disks, we recommend that you use customer-managed keys for control over the encryption keys. Encrypt outside of the storage layer and only write encrypted data into the storage medium. Also, make sure that the keys are never adjacent to the storage layer.
 
-For more information, see [Bing your own keys (BYOK) with Azure disks](/azure/aks/azure-disk-customer-managed-keys).
+For more information, see [Bring your own keys (BYOK) with Azure disks](/azure/aks/azure-disk-customer-managed-keys).
 
 Consider using BYOK for any other disks that might interact with the cluster, such as your Azure Bastion-fronted jump boxes. If you choose BYOK, the SKU choice for VMs and regional availability will be limited because this feature is not supported on all SKUs or regions.
 
