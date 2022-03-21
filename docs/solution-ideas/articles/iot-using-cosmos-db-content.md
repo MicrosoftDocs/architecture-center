@@ -10,12 +10,11 @@ Azure Cosmos DB is ideal for IoT workloads because it can:
 - Store JSON schemas from different device vendors, or convert device messages to a canonical JSON schema.
 - Use wire protocol–compatible API endpoints for Cassandra, MongoDB, SQL, Gremlin, etcd, and table databases, and built-in support for Jupyter Notebook files.
 
-This IoT workload highlights the following Azure Cosmos DB features:
+## Potential use cases
 
-- Containers store messages from IoT devices as JSON documents in a *hot data store*.
-- *Change feed* triggers an Azure Functions function whenever a new or updated device message arrives. The function identifies messages that require device actions, and initiates the actions.
-- *Time-to-live (TTL)* and change feed automatically move older data to cold storage, improving performance and reducing costs.
-- Five available *consistency levels* allow prioritizing stronger read consistency against higher availability, lower latency, and higher throughput.
+- Quickly respond to device issues by automatically initiating device actions, like reboots.
+- Save costs by selecting appropriate read consistency levels and automatically moving data to cold storage.
+- Handle data from a wide variety of device vendors and database types.
 
 ## Architecture
 
@@ -27,20 +26,20 @@ This IoT workload highlights the following Azure Cosmos DB features:
 
 1. Azure Databricks with Apache Spark Structured Streaming picks up messages from IoT Hub in real time, processes the data based on business logic, and sends the data to the storage server. Structured Streaming can provide real time analytics, such as calculating moving averages or minimum and maximum values over time periods.
 
-1. Azure Cosmos DB hot data storage stores device messages as JSON documents. Stores JSON schemas from different device vendors, or converts device messages to a canonical JSON schema.
+1. Azure Cosmos DB stores device messages as JSON documents in the *hot data store*. Azure Cosmos DB can validate against JSON schemas from different device vendors, or convert device messages to a canonical JSON schema.
 
    The storage layer also consists of:
    - Azure Blob Storage. IoT Hub [message routing](/azure/iot-hub/tutorial-routing) saves raw device messages to Blob storage, providing an inexpensive, long-term *cold data store*.
    - Azure SQL Database, to store transactional and relational data, such as billing data and user roles.
-   - Azure Synapse Analytics data warehouse, populated by [Azure Data Factory](https://azure.microsoft.com/services/data-factory) with aggregated data from Azure Cosmos DB and Azure SQL DB.
+   - Azure Synapse Analytics data warehouse, populated by [Azure Data Factory](https://azure.microsoft.com/services/data-factory), which aggregates data from Azure Cosmos DB and Azure SQL DB.
 
 1. Microsoft Power BI analyzes the warehoused data.
 
 1. The presentation layer uses data from the storage layer to build web, mobile, and API apps.
 
-1. Azure Cosmos DB change feed triggers an Azure Functions function whenever a new or updated device message arrives.
+1. Whenever a new or updated device message arrives, Azure Cosmos DB change feed triggers an Azure Functions function.
 
-1. Some messages, like fault codes, require device actions, like reboots. The function determines whether the message requires a device action. If so, the function connects to IoT Hub by using the IoT Hub Service API, and initiates the device action. The function can initiate the action by using device twins, cloud to device messages, or direct methods.
+1. The function determines whether the message requires a device action, like a reboot. If so, the function connects to IoT Hub by using the IoT Hub Service API, and initiates the device action. The function can initiate the action by using device twins, cloud to device messages, or direct methods.
 
 ### Azure Cosmos DB features
 
