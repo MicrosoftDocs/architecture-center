@@ -284,7 +284,7 @@ items:
           - name: Considerations
             items:
               - name: Overview
-                href: guide/multitenant/considerations/overview.md
+                href: guide/multitenant/considerations/overview.yml
               - name: Tenancy models
                 href: guide/multitenant/considerations/tenancy-models.yml
               - name: Tenant lifecycle

@@ -22,4 +22,4 @@ The pages in this section are particularly relevant for technical decision-maker
 
 ## Next steps
 
-Consider different [tenancy models](tenancy-models.md) for your solution.
+Consider different [tenancy models](tenancy-models.yml) for your solution.

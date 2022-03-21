@@ -112,4 +112,4 @@ Several Azure services support automatic management of certificates for custom d
 
 ## Next steps
 
-Return to the [architectural considerations overview](overview.md). Or, review the [Microsoft Azure Well-Architected Framework](/azure/architecture/framework).
+Return to the [architectural considerations overview](overview.yml). Or, review the [Microsoft Azure Well-Architected Framework](/azure/architecture/framework).
