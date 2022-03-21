@@ -127,7 +127,7 @@ Azure provides services to all customers to monitor and alert on anomalies invol
 
 For compliance, some standards or regulations require evidence and all support infrastructure to be maintained in the same Azure region.
 
-## Implementation
+## Deploy this scenario
 
 The following PowerShell code samples of the Copy-VmDigitalEvidence runbook are available in GitHub:
 
