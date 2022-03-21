@@ -6,9 +6,9 @@ Azure App Service and Azure Functions include many features that support multite
 
 ### Custom domain names
 
-Azure App Service enables you to use [wildcard DNS](/azure/app-service/app-service-web-tutorial-custom-domain?tabs=wildcard) and to add your own [wildcard TLS certificates](/azure/app-service/configure-ssl-certificate). When you use [tenant-specific subdomains](../considerations/domain-names.md#subdomains), wildcard DNS and TLS certificates enable you to easily scale your solution to a large number of tenants, without requiring a manual reconfiguration for each new tenant.
+Azure App Service enables you to use [wildcard DNS](/azure/app-service/app-service-web-tutorial-custom-domain?tabs=wildcard) and to add your own [wildcard TLS certificates](/azure/app-service/configure-ssl-certificate). When you use [tenant-specific subdomains](../considerations/domain-names.yml#subdomains), wildcard DNS and TLS certificates enable you to easily scale your solution to a large number of tenants, without requiring a manual reconfiguration for each new tenant.
 
-When you use [tenant-specific custom domain names](../considerations/domain-names.md#custom-domain-names), you might have a large number of custom domain names that need to be added to your app. It can become cumbersome to manage a lot of custom domain names, especially when they require individual TLS certificates. App Service provides [managed TLS certificates](/azure/app-service/configure-ssl-certificate), which reduces the work required when you work with custom domains. However, there are [limits to consider](/azure/azure-resource-manager/management/azure-subscription-service-limits#app-service-limits), such as how many custom domains can be applied to a single app.
+When you use [tenant-specific custom domain names](../considerations/domain-names.yml#custom-domain-names), you might have a large number of custom domain names that need to be added to your app. It can become cumbersome to manage a lot of custom domain names, especially when they require individual TLS certificates. App Service provides [managed TLS certificates](/azure/app-service/configure-ssl-certificate), which reduces the work required when you work with custom domains. However, there are [limits to consider](/azure/azure-resource-manager/management/azure-subscription-service-limits#app-service-limits), such as how many custom domains can be applied to a single app.
 
 ### Integration with Azure Front Door
 
@@ -18,7 +18,7 @@ Azure Front Door enables you to add a web application firewall (WAF) and edge ca
 
 ![Diagram showing requests coming into Front Door using a variety of host names. The requests are passed to the App Service app using a single host name.](media/app-service/host-front-door.png)
 
-As in the above example, [Azure Front Door can be configured to modify the request's `Host` header](/azure/frontdoor/front-door-backend-pool#backend-host-header). The original `Host` header sent by the client is propagated through the `X-Forwarded-Host` header, and your application code can use this header to [map the request to the correct tenant](../considerations/map-requests.md).
+As in the above example, [Azure Front Door can be configured to modify the request's `Host` header](/azure/frontdoor/front-door-backend-pool#backend-host-header). The original `Host` header sent by the client is propagated through the `X-Forwarded-Host` header, and your application code can use this header to [map the request to the correct tenant](../considerations/map-requests.yml).
 
 > [!TIP]
 > If your application sends cookies or redirection responses, you need to take special care. Changes in the request's `Host` headers might invalidate these responses.
@@ -46,7 +46,7 @@ When you work with a multitenant solution, be aware of the maximum number of acc
 
 ## Isolation models
 
-When working with a multitenant system using Azure App Service or Azure Functions, you need to make a decision about the level of isolation that you want to use. Refer to the [tenancy models to consider for a multitenant solution](../considerations/tenancy-models.md) and to the guidance provided in the [architectural approaches for compute in multitenant solutions](../approaches/compute.md), to help you select the best isolation model for your scenario.
+When working with a multitenant system using Azure App Service or Azure Functions, you need to make a decision about the level of isolation that you want to use. Refer to the [tenancy models to consider for a multitenant solution](../considerations/tenancy-models.yml) and to the guidance provided in the [architectural approaches for compute in multitenant solutions](../approaches/compute.md), to help you select the best isolation model for your scenario.
 
 When you work with Azure App Service and Azure Functions, you should be aware of the following key concepts:
 

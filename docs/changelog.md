@@ -160,7 +160,7 @@ New and updated articles in Azure Architecture Center.
 ### Updated Articles
 
 - [DevOps checklist](./checklist/dev-ops.md)  ([#8d2302d7b](https://github.com/MicrosoftDocs/architecture-center/commit/8d2302d7b))
-- [Azure resource organization in multitenant solutions](./guide/multitenant/approaches/resource-organization.md)  ([#0bc7de6d9](https://github.com/MicrosoftDocs/architecture-center/commit/0bc7de6d9))
+- [Azure resource organization in multitenant solutions](./guide/multitenant/approaches/resource-organization.yml)  ([#0bc7de6d9](https://github.com/MicrosoftDocs/architecture-center/commit/0bc7de6d9))
 - [Asynchronous messaging options](./guide/technology-choices/messaging.yml)  ([#943e03c78](https://github.com/MicrosoftDocs/architecture-center/commit/943e03c78))
 - [Analytics end-to-end with Azure Synapse](./example-scenario/dataplate2e/data-platform-end-to-end.yml)  ([#c5e5aed19](https://github.com/MicrosoftDocs/architecture-center/commit/c5e5aed19))
 - [Azure Virtual Desktop for the enterprise](./example-scenario/wvd/windows-virtual-desktop.yml)  ([#79adc0725](https://github.com/MicrosoftDocs/architecture-center/commit/79adc0725))
@@ -213,7 +213,7 @@ New and updated articles in Azure Architecture Center.
 - [Data analysis for regulated industries](./example-scenario/data/data-analysis-regulated-industries.yml)
 - [Governance of Teams guest users](./example-scenario/governance/governance-teams-guest-users.yml)
 - [Choose an Azure multiparty computing service](./guide/technology-choices/multiparty-computing-service.yml)
-- [Azure resource organization in multitenant solutions](./guide/multitenant/approaches/resource-organization.md)
+- [Azure resource organization in multitenant solutions](./guide/multitenant/approaches/resource-organization.yml)
 - [Application data protection for AKS workloads on Azure NetApp Files](./example-scenario/file-storage/data-protection-kubernetes-astra-azure-netapp-files.yml)
 - [SQL Managed Instance with CMK](./example-scenario/data/sql-managed-instance-cmk.yml)
 - [Enhanced-security hybrid messaging — client access](./example-scenario/hybrid/secure-hybrid-messaging-client.yml)
@@ -228,7 +228,7 @@ New and updated articles in Azure Architecture Center.
 - [Enterprise file shares with disaster recovery](./example-scenario/file-storage/enterprise-file-shares-disaster-recovery.yml)
 - [Blue/green app deployments](./example-scenario/blue-green-spring/blue-green-spring.yml)
 - [Solutions for the energy and environment industries](./industries/energy-environment.md)
-- [Azure App Service and Azure Functions considerations for multitenancy](./guide/multitenant/service/app-service.md)
+- [Azure App Service and Azure Functions considerations for multitenancy](./guide/multitenant/service/app-service.yml)
 - [Azure Machine Learning architecture](./solution-ideas/articles/azure-machine-learning-solution-architecture.yml)
 - [Enhanced customer dimension with Dynamics 365 Customer Insights](./solution-ideas/articles/customer-insights-synapse.yml)
 - [Scalable cloud applications and SRE](./example-scenario/apps/scalable-apps-performance-modeling-site-reliability.yml)

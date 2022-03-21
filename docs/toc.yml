@@ -16,11 +16,11 @@ items:
           - name: Overview
             href: guide/architecture-styles/index.md
           - name: Big compute
-            href: guide/architecture-styles/big-compute.md
+            href: guide/architecture-styles/big-compute.yml
           - name: Big data
-            href: guide/architecture-styles/big-data.md
+            href: guide/architecture-styles/big-data.yml
           - name: Event-driven architecture
-            href: guide/architecture-styles/event-driven.md
+            href: guide/architecture-styles/event-driven.yml
           - name: Microservices
             href: guide/architecture-styles/microservices.md
           - name: N-tier application
@@ -286,7 +286,7 @@ items:
               - name: Overview
                 href: guide/multitenant/considerations/overview.md
               - name: Tenancy models
-                href: guide/multitenant/considerations/tenancy-models.md
+                href: guide/multitenant/considerations/tenancy-models.yml
               - name: Tenant lifecycle
                 href: guide/multitenant/considerations/tenant-lifecycle.md
               - name: Pricing models
@@ -296,19 +296,19 @@ items:
               - name: Deploy updates
                 href: guide/multitenant/considerations/updates.md
               - name: Map requests to tenants
-                href: guide/multitenant/considerations/map-requests.md
+                href: guide/multitenant/considerations/map-requests.yml
               - name: Domain names
-                href: guide/multitenant/considerations/domain-names.md
+                href: guide/multitenant/considerations/domain-names.yml
           - name: Approaches
             items:
               - name: Overview
-                href: guide/multitenant/approaches/overview.md
+                href: guide/multitenant/approaches/overview.yml
               - name: Resource organization
-                href: guide/multitenant/approaches/resource-organization.md
+                href: guide/multitenant/approaches/resource-organization.yml
               - name: Governance and compliance
                 href: guide/multitenant/approaches/governance-compliance.md
               - name: Cost management and allocation
-                href: guide/multitenant/approaches/cost-management-allocation.md
+                href: guide/multitenant/approaches/cost-management-allocation.yml
               - name: Deployment and configuration
                 href: guide/multitenant/approaches/deployment-configuration.yml
               - name: Compute
@@ -316,7 +316,7 @@ items:
               - name: Networking
                 href: guide/multitenant/approaches/networking.md
               - name: Storage and data
-                href: guide/multitenant/approaches/storage-data.md
+                href: guide/multitenant/approaches/storage-data.yml
               - name: Messaging
                 href: guide/multitenant/approaches/messaging.md
               - name: IoT
@@ -334,7 +334,7 @@ items:
               - name: Compute
                 items:
                   - name: App Service and Functions
-                    href: guide/multitenant/service/app-service.md
+                    href: guide/multitenant/service/app-service.yml
               - name: Networking
                 items:
                   - name: NAT Gateway
@@ -1038,7 +1038,7 @@ items:
                 href: /azure/cloud-adoption-framework/strategy/business-outcomes/sustainability
                 maintainContext: true
               - name: Big compute for oil exploration
-                href: guide/architecture-styles/big-compute.md
+                href: guide/architecture-styles/big-compute.yml
               - name: IoT scenarios
                 items:
                   - name: Connected waste management
