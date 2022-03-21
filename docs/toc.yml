@@ -319,6 +319,8 @@ items:
                 href: guide/multitenant/approaches/storage-data.md
               - name: Messaging
                 href: guide/multitenant/approaches/messaging.md
+              - name: IoT
+                href: guide/multitenant/approaches/iot.md
               - name: AI and ML
                 href: guide/multitenant/approaches/ai-ml.md
           - name: Service-specific guidance

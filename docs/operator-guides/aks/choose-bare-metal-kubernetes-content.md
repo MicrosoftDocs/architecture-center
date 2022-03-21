@@ -83,18 +83,18 @@ For more information, see the following articles:
 
 -   [What is Azure IoT Edge](/azure/iot-edge/about-iot-edge)
 
--   [Choosing a Kubernetes at the edge compute option](./choose-kubernetes-edge-compute-option.md)
+-   [Introduction to Kubernetes on Azure](/learn/paths/intro-to-kubernetes-on-azure/)
+
+-   [Kubernetes on your Azure Stack Edge Pro GPU device](/azure/databox-online/azure-stack-edge-gpu-kubernetes-overview)
 
 ## Related resources
 
--   [Introduction to Kubernetes on Azure](/learn/paths/intro-to-kubernetes-on-azure/)
+-   [Choosing a Kubernetes at the edge compute option](./choose-kubernetes-edge-compute-option.md)
 
 -   [Baseline architecture for an Azure Kubernetes Service (AKS) cluster](../../reference-architectures/containers/aks/secure-baseline-aks.yml)
 
 -   [Microservices architecture on Azure Kubernetes Service (AKS)](../../reference-architectures/containers/aks-microservices/aks-microservices.yml)
 
 -   [AI at the edge with Azure Stack Hub](../../solution-ideas/articles/ai-at-the-edge.yml)
-
--   [Kubernetes on your Azure Stack Edge Pro GPU device](/azure/databox-online/azure-stack-edge-gpu-kubernetes-overview)
 
 -   [Building a CI/CD pipeline for microservices on Kubernetes](../../microservices/ci-cd-kubernetes.yml)
