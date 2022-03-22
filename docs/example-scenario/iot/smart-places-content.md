@@ -318,7 +318,7 @@ Use the [Azure pricing calculator][Azure pricing calculator] to estimate the cos
 [Azure Digital Twins Explorer (preview)]: /azure/digital-twins/concepts-azure-digital-twins-explorer
 [Azure Digital Twins tools repository]: https://github.com/Azure/opendigitaltwins-tools
 [Azure Functions]: /azure/digital-twins/how-to-create-azure-function?tabs=cli
-[Azure Industrial IoT Analytics Guidance]: ../../guide/iiot-guidance/iiot-architecture.md
+[Azure Industrial IoT Analytics Guidance]: ../../guide/iiot-guidance/iiot-architecture.yml
 [Azure IoT Edge]: https://azure.microsoft.com/services/iot-edge
 [Azure IoT Hub]: https://azure.microsoft.com/services/iot-hub
 [Azure IoT reference architecture]: ../../reference-architectures/iot.yml

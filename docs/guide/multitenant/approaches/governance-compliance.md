@@ -57,7 +57,7 @@ Tenants sometimes request direct access to the data you store on their behalf. F
 
 Plan how you'll respond to these requests. Consider whether any of the tenants' data is kept in shared data stores. If it is, plan how you'll avoid tenants accessing other tenants' data.
 
-Avoid providing direct access to databases or storage accounts unless you designed for this requirement, such as by using the [Valet Key pattern](../../../patterns/valet-key.md). Consider creating an API or automated data export process for integration purposes.
+Avoid providing direct access to databases or storage accounts unless you designed for this requirement, such as by using the [Valet Key pattern](../../../patterns/valet-key.yml). Consider creating an API or automated data export process for integration purposes.
 
 ### Your access to tenants' data
 

@@ -4,45 +4,62 @@ Social sites, forums, and other text-heavy Q&A services rely heavily on content 
 
 ## Potential use cases
 
-By combining deep learning and natural language processing (NLP) with data on site-specific search terms, this solution helps greatly improve content tagging accuracy on a site. As users type content, this solution offers highly used terms as suggested content tags, which makes it easier for others to find the information.
+By using natural language processing (NLP) with deep learning for content tagging, you enable a scalable solution to create tags across content. As users search for content by keywords, this multi-class classification process enriches untagged content with labels that will allow you to search on substantial portions of text, which improves the information retrieval processes. New incoming content will be appropriately tagged by running NLP inference.
 
 ## Architecture
 
-![Architecture diagram: overview of using Azure Machine Learning to help suggest content tags for websites.](../media/website-content-tag-suggestion-with-deep-learning-and-nlp.png)
+[![Architecture diagram: overview of using Azure Machine Learning to help suggest content tags for websites.](../media/website-content-tag-suggestion-with-deep-learning-and-nlp.png)](../media/website-content-tag-suggestion-with-deep-learning-and-nlp.png#lightbox)
 
-*Download an [SVG](../media/website-content-tag-suggestion-with-deep-learning-and-nlp.svg) of this architecture.*
+*Download an [SVG file](../media/website-content-tag-suggestion-with-deep-learning-and-nlp.svg) of this architecture.*
 
 ### Workflow
 
-* Data is stored, structured, and indexed using Microsoft SQL Server.
-* Model training, including hyperparameter tuning, and deployment of the final model, including scaling out to a Kubernetes-managed Azure cluster.
-* The core development environment for this solution is a customized VM image on the Azure cloud platform built specifically for doing data science.
-* Jupyter Notebooks can be used as the base integrated development environment (IDE) for the model.
-* Stores real-time web services as Docker containers. These containers are uploaded and registered via Azure Container Registry.
-* Deployment for this solution uses Azure Kubernetes Service running a Kubernetes-managed cluster. The containers are deployed from images stored in Azure Container Registry.
+1. Data is stored in various formats, depending on its original source. Data can be stored as files within Azure Data Lake Storage or in tabular form in Azure Synapse or Azure SQL Database. 
+
+2. Azure Machine Learning (ML) can connect and read from such sources, to ingest the data into the NLP pipeline for pre-processing, model training, and post-processing. 
+
+3. NLP pre-processing includes several steps to consume data, with the purpose of text generalization. Once the text is broken up into sentences, NLP techniques, such as lemmatization or stemming, allow the language to be tokenized in a general form. 
+
+4. As NLP models are already available pre-trained, the transfer learning approach recommends that you download language-specific embeddings and use an industry standard model, for multi-class text classification, such as variations of [BERT](https://arxiv.org/abs/1810.04805).
+
+5. NLP post-processing recommends storing the model in a model register in Azure ML, to track model metrics. Furthermore, text can be post-processed with specific business rules that are deterministically defined, based on the business goals. Microsoft recommends using ethical AI tools to detect biased language, which ensures the fair training of a language model. 
+
+6. The model can be deployed through Azure Kubernetes Service, while running a Kubernetes-managed cluster where the containers are deployed from images that are stored in Azure Container Registry. Endpoints can be made available to a front-end application. The model can be deployed through Azure Kubernetes Service as real-time endpoints.
+
+7. Model results can be written to a storage option in file or tabular format, then properly indexed by Azure Cognitive Search. The model would run as batch inference and store the results in the respective datastore. 
 
 ### Components
 
-* [Microsoft SQL Server](/sql/)
-* [Azure Machine Learning](https://azure.microsoft.com/en-us/services/machine-learning/)
-* [Azure Data Science Virtual Machine](/azure/machine-learning/data-science-virtual-machine/)
-* [Jupyter Notebooks on Azure Data Science VM](/azure/machine-learning/data-science-virtual-machine/reference-ubuntu-vm)
-* [Azure Container Registry](/azure/container-registry/)
+* [Data Lake Storage for Big Data Analytics](https://azure.microsoft.com/services/storage/data-lake-storage)
+* [Azure Machine Learning](https://azure.microsoft.com/services/machine-learning)
+* [Azure Cognitive Search](https://azure.microsoft.com/services/search)
+* [Azure Container Registry](https://docs.microsoft.com/azure/container-registry)
 * [Azure Kubernetes Service (AKS)](https://azure.microsoft.com/services/kubernetes-service)
 
 ## Next steps
 
-See product documentation:
+See the product documentation:
 
+* [Azure Data Lake Storage Gen2 Introduction](/azure/storage/blobs/data-lake-storage-introduction)
 * [Azure Machine Learning](/azure/machine-learning)
-* [Azure Kubernetes Service](/azure/aks/intro-kubernetes)
+* [Azure Cognitive Search documentation](/azure/search)
 * [Learn more about Azure Container Registry](/azure/container-registry/container-registry-intro)
-* [Microsoft SQL Server](https://www.microsoft.com/sql-server/sql-server-2017)
-* [Learn more about Jupyter Notebooks](https://jupyter.org)
+* [Azure Kubernetes Service](/azure/aks/intro-kubernetes)
 
 Try these Microsoft Learn modules:
 
 * [Introduction to Natural Language Processing with PyTorch](/learn/modules/intro-natural-language-processing-pytorch/)
 * [Train and evaluate deep learning models](/learn/modules/train-evaluate-deep-learn-models/)
-* [Create and connect to a Data Science Virtual Machine](/learn/modules/intro-to-azure-data-science-virtual-machine/)
 * [Implement knowledge mining with Azure Cognitive Search](/learn/paths/implement-knowledge-mining-azure-cognitive-search/)
+
+## Related resources
+
+See the following related architectural articles:
+
+* [Natural language processing technology](/azure/architecture/data-guide/technology-choices/natural-language-processing)
+* [Build a delta lake to support ad hoc queries in online leisure and travel booking](/azure/architecture/solution-ideas/articles/build-data-lake-support-adhoc-queries-online)
+* [Query a data lake or lakehouse by using Azure Synapse serverless](/azure/architecture/example-scenario/data/synapse-exploratory-data-analytics)
+* [Machine learning operations (MLOps) framework to upscale machine learning lifecycle with Azure Machine Learning](/azure/architecture/example-scenario/mlops/mlops-technical-paper)
+* [High-performance computing for manufacturing](/azure/architecture/industries/manufacturing/compute-manufacturing-overview)
+* [Introduction to predictive maintenance in manufacturing](/azure/architecture/industries/manufacturing/predictive-maintenance-overview)
+* [Predictive maintenance solution](/azure/architecture/industries/manufacturing/predictive-maintenance-solution)

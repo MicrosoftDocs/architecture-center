@@ -1,12 +1,14 @@
 This reference architecture shows proven practices for deploying a highly available SharePoint Server 2016 farm on Azure, using MinRole topology and SQL Server Always On availability groups. The SharePoint farm is deployed in a secured virtual network with no Internet-facing endpoint or presence.
 
+## Architecture
+
 ![Reference architecture for a highly available SharePoint Server 2016 farm in Azure](./images/sharepoint-ha.png)
 
 *Download a [Visio file][visio-download] of this architecture.*
 
-## Architecture
-
 This architecture builds on the one shown in [Run Windows VMs for an N-tier application][windows-n-tier]. It deploys a SharePoint Server 2016 farm with high availability inside an Azure virtual network (VNet). This architecture is suitable for a test or production environment, a SharePoint hybrid infrastructure with Microsoft 365, or as the basis for a disaster recovery scenario.
+
+### Workflow
 
 The architecture consists of the following components:
 

@@ -23,10 +23,10 @@ Additionally data should be protected at rest, in transit, and via authorized ac
 |                        Pattern                         |                                                                  Summary                                                                  |
 |--------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------|
 |            [Cache-Aside](../cache-aside.md)            |                                            Load data on demand into a cache from a data store                                             |
-|                   [CQRS](../cqrs.md)                   |                    Segregate operations that read data from operations that update data by using separate interfaces.                     |
-|         [Event Sourcing](../event-sourcing.md)         |               Use an append-only store to record the full series of events that describe actions taken on data in a domain.               |
-|            [Index Table](../index-table.md)            |                         Create indexes over the fields in data stores that are frequently referenced by queries.                          |
-|      [Materialized View](../materialized-view.md)      | Generate prepopulated views over the data in one or more data stores when the data isn't ideally formatted for required query operations. |
-|               [Sharding](../sharding.md)               |                                    Divide a data store into a set of horizontal partitions or shards.                                     |
-| [Static Content Hosting](../static-content-hosting.md) |                   Deploy static content to a cloud-based storage service that can deliver them directly to the client.                    |
-|              [Valet Key](../valet-key.md)              |                 Use a token or key that provides clients with restricted direct access to a specific resource or service.                 |
+|                   [CQRS](../cqrs.yml)                   |                    Segregate operations that read data from operations that update data by using separate interfaces.                     |
+|         [Event Sourcing](../event-sourcing.yml)         |               Use an append-only store to record the full series of events that describe actions taken on data in a domain.               |
+|            [Index Table](../index-table.yml)            |                         Create indexes over the fields in data stores that are frequently referenced by queries.                          |
+|      [Materialized View](../materialized-view.yml)      | Generate prepopulated views over the data in one or more data stores when the data isn't ideally formatted for required query operations. |
+|               [Sharding](../sharding.yml)               |                                    Divide a data store into a set of horizontal partitions or shards.                                     |
+| [Static Content Hosting](../static-content-hosting.yml) |                   Deploy static content to a cloud-based storage service that can deliver them directly to the client.                    |
+|              [Valet Key](../valet-key.yml)              |                 Use a token or key that provides clients with restricted direct access to a specific resource or service.                 |

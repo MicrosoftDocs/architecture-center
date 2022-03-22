@@ -1,0 +1,19 @@
+### YamlMime:Architecture
+metadata:
+  title: Sharding pattern
+  description: Use the Sharding design pattern to divide a data store into a set of horizontal partitions or shards.
+  author: EdPrice-MSFT
+  ms.author: edprice
+  ms.date: 06/23/2017
+  ms.topic: conceptual
+  ms.service: architecture-center
+  ms.subservice: azure-guide
+azureCategories:
+  - storage
+products:
+  - azure-disk-storage
+name: Sharding pattern
+summary: Use the Sharding design pattern to divide a data store into a set of horizontal partitions or shards.
+thumbnailUrl: /azure/architecture/browse/thumbs/sharding-data-hash.png
+content: |
+  [!include[](sharding-content.md)]

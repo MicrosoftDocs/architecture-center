@@ -84,11 +84,11 @@ Azure compute services provide different capabilities to scale your workloads. [
 
 ### Deployment Stamps pattern
 
-For more information about how the [Deployment Stamps pattern](../../../patterns/deployment-stamp.md) can be used to support a multitenant solution, see [Overview](overview.yml#deployment-stamps-pattern).
+For more information about how the [Deployment Stamps pattern](../../../patterns/deployment-stamp.yml) can be used to support a multitenant solution, see [Overview](overview.yml#deployment-stamps-pattern).
 
 ### Compute Resource Consolidation pattern
 
-The [Compute Resource Consolidation pattern](../../../patterns/compute-resource-consolidation.md) helps you achieve a higher density of tenants to compute infrastructure, by sharing the underlying compute resources. By sharing compute resources, you are often able to reduce the direct cost of those resources. Additionally, your management costs are often lower because there are fewer components to manage.
+The [Compute Resource Consolidation pattern](../../../patterns/compute-resource-consolidation.yml) helps you achieve a higher density of tenants to compute infrastructure, by sharing the underlying compute resources. By sharing compute resources, you are often able to reduce the direct cost of those resources. Additionally, your management costs are often lower because there are fewer components to manage.
 
 However, compute resource consolidation increases the likelihood of the [Noisy Neighbor problem](../../../antipatterns/noisy-neighbor/noisy-neighbor.yml). Any tenant's workload might consume a disproportionate amount of the compute capacity that's available. You can often mitigate this risk by ensuring you scale your solution appropriately, and by applying controls like quotas and API limits, to avoid tenants that consume more than their fair share of the capacity.
 

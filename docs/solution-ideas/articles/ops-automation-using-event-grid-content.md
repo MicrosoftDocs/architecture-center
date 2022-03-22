@@ -1,14 +1,18 @@
 [!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
-Azure Event Grid can be used as an essential building block in the automation of cloud operations. One scenario is to simplify the management of resources, such as policy enforcement or tagging. For example, Event Grid can notify an Azure Automation account when a virtual machine is created. These events can be used to automatically check that the service configurations are compliant, put metadata into operations tools, tag virtual machines, or file work items. Event Grid can consume topics from [multiple services](/azure/event-grid/system-topics) in Azure. In this scenario, the Azure subscription is a source for the Event Grid.
+Azure Event Grid can be used as an essential building block in the automation of cloud operations. 
+
+## Potential use cases
+
+One scenario is to simplify the management of resources, such as policy enforcement or tagging. For example, Event Grid can notify an Azure Automation account when a virtual machine is created. These events can be used to automatically check that the service configurations are compliant, put metadata into operations tools, tag virtual machines, or file work items. Event Grid can consume topics from [multiple services](/azure/event-grid/system-topics) in Azure. In this scenario, the Azure subscription is a source for the Event Grid.
 
 ## Architecture
 
 ![Architecture Diagram](../media/ops-automation-using-event-grid.png)
 
-*Download an [SVG](../media/ops-automation-using-event-grid.svg) of this architecture.*
+*Download an [SVG file](../media/ops-automation-using-event-grid.svg) of this architecture.*
 
-### Data flow
+### Dataflow
 
 1. A user deploys a new resource in Azure.
 2. The deployment creates the resource (in this sample, a VM).

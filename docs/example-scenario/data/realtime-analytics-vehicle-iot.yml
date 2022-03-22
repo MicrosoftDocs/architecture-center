@@ -5,7 +5,7 @@ metadata:
   description: This example builds a real-time data ingestion/processing pipeline to ingest and process messages from IoT devices into a big data analytic platform in Azure.
   author: khilscher
   ms.author: kehilsch
-  ms.date: 07/16/2021
+  ms.date: 03/21/2022
   ms.topic: conceptual
   ms.service: architecture-center
   ms.subservice: example-scenario
@@ -25,6 +25,6 @@ products:
   - azure-sphere
   - azure-stream-analytics
   - azure-sql-database
-thumbnailUrl: /azure/architecture/browse/thumbs/architecture-realtime-analytics-vehicle-data1.png
+thumbnailUrl: /azure/architecture/browse/thumbs/architecture-realtime-analytics-vehicle-data-1.png
 content: |
    [!include[](realtime-analytics-vehicle-iot-content.md)]

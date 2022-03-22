@@ -4,6 +4,8 @@ This document will help you will learn about various Azure PaaS components and c
 
 ## Potential use cases
 
+This solution is optimized for the retail industry.
+
 Other relevant use cases include:
 
 - Building an application that needs elastic scale to handle bursts of users at different times.
@@ -11,7 +13,9 @@ Other relevant use cases include:
 
 ## Architecture
 
-![Sample scenario architecture for an e-commerce application][architecture]
+![Diagram that shows a sample scenario architecture for an e-commerce application.][architecture]
+
+### Dataflow
 
 This scenario covers purchasing tickets from an e-commerce site, the data flows through the scenario as follows:
 
@@ -121,7 +125,7 @@ We have provided three sample cost profiles based on amount of traffic you expec
 [large-pricing]: https://azure.com/e/f07f99b6c3134803a14c9b43fcba3e2f
 [app-service-reference-architecture]: ../../reference-architectures/app-service-web-app/basic-web-app.yml
 [availability]: /azure/architecture/framework/resiliency/reliability-patterns
-[circuit-breaker]: ../../patterns/circuit-breaker.md
+[circuit-breaker]: ../../patterns/circuit-breaker.yml
 [design-patterns-availability]: /azure/architecture/framework/resiliency/reliability-patterns
 [design-patterns-resiliency]: /azure/architecture/framework/resiliency/reliability-patterns
 [design-patterns-performance efficiency]: /azure/architecture/framework/scalability/performance-efficiency-patterns

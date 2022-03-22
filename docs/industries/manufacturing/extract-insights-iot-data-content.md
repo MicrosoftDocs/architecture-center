@@ -68,7 +68,6 @@ If the data is available externally and is accessible from internet, several Azu
 - [Azure Logic Apps](/azure/logic-apps/?WT.mc_id=iotinsightssoln-docs-ercenk)
 - [Pipelines and activities in Azure Data Factory](/azure/data-factory/copy-activity-overview/?WT.mc_id=iotinsightssoln-docs-ercenk)
 - [Azure Functions](/azure/azure-functions/functions-overview)
-- [BizTalk Services](https://azure.microsoft.com/services/biztalk-services/)
 
 Each of the services above have their own benefits and costs, depending on the scenario. For example, Logic Apps provide a means for [transforming XML documents](/azure/logic-apps/logic-apps-enterprise-integration-transform?WT.mc_id=iotinsightssoln-docs-ercenk). However, the data can be an overly complex XML document, so it may not be practical to develop a large XSLT script to transform the data. In this case, one might develop a hybrid solution using multiple microservices from different Azure services. For example, a microservice, implemented in Azure Logic Apps, can poll an HTTP endpoint, store the raw result temporarily, and notify another microservice. The other microservice—which transforms the message—can be custom code hosted on [Azure Functions Host](https://github.com/Azure/azure-functions-host).  
 
@@ -185,7 +184,7 @@ Time Series Insights has a data explorer to visualize and query data as well as 
 
 :::image type="content" source="./images/extract-insights-iot-data/client-screen-inline.png" alt-text="Lambda architecture: batch layer highlighted." lightbox="./images/extract-insights-iot-data/client-screen-expanded.png":::
 
-If you require a browser-based user interface that aggregates data from multiple sources, both TSI and Power BI services allow embedding visualization controls. Both also provide REST APIs ([Power BI Rest API](/rest/api/power-bi/?WT.mc_id=iotinsightssoln-docs-ercenk), [TSI REST API](/rest/api/time-series-insights/time-series-insights-reference-queryapi?WT.mc_id=iotinsightssoln-docs-ercenk)) and JavaScript SDKs ([Power BI JavaScript SDK](https://github.com/Microsoft/PowerBI-JavaScript?WT.mc_id=iotinsightssoln-docs-ercenk), [TSI JavaScript SDK](/azure/time-series-insights/tutorial-explore-js-client-lib?WT.mc_id=iotinsightssoln-docs-ercenk)) that allows extensive customizations.
+If you require a browser-based user interface that aggregates data from multiple sources, both TSI and Power BI services allow embedding visualization controls. Both also provide REST APIs ([Power BI Rest API](/rest/api/power-bi/?WT.mc_id=iotinsightssoln-docs-ercenk), [TSI REST API](/rest/api/time-series-insights/)) and JavaScript SDKs ([Power BI JavaScript SDK](https://github.com/Microsoft/PowerBI-JavaScript?WT.mc_id=iotinsightssoln-docs-ercenk), [TSI JavaScript SDK](/azure/time-series-insights/tutorial-explore-js-client-lib?WT.mc_id=iotinsightssoln-docs-ercenk)) that allows extensive customizations.
 
 ## Pillars of software quality (PoSQ)
 

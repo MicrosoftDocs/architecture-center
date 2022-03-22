@@ -19,7 +19,8 @@ Azure provides a wide range of security tools and capabilities. These are just s
 For a more comprehensive description of Azure security tools and capabilities, see [End-to-end security in Azure](/azure/security/fundamentals/end-to-end).
 
 ## Introduction to security on Azure
-If you're new to security on Azure, the best way to learn more is with [Microsoft Learn](https://docs.microsoft.com/learn/?WT.mc_id=learnaka), a free online training platform. Microsoft Learn provides interactive training for Microsoft products and more.
+
+If you're new to security on Azure, the best way to learn more is with [Microsoft Learn](/learn/?WT.mc_id=learnaka), a free online training platform. Microsoft Learn provides interactive training for Microsoft products and more.
 
 Here are two learning paths to get you started:
 
@@ -28,6 +29,7 @@ Here are two learning paths to get you started:
 - [Microsoft Security, Compliance, and Identity Fundamentals: Describe the capabilities of Microsoft security solutions](/learn/paths/describe-capabilities-of-microsoft-security-solutions)
 
 ## Path to production
+
 - To secure Azure application workloads, you use protective measures like authentication and encryption in the applications themselves. You can also add security layers to the virtual machine (VM) networks that host the applications. See [Firewall and Application Gateway for virtual networks](../../example-scenario/gateway/firewall-application-gateway.yml) for an overview.
 - Zero Trust is a proactive, integrated approach to security across all layers of the digital estate. It explicitly and continuously verifies every transaction, asserts least privilege, and relies on intelligence, advanced detection, and real-time response to threats.
    - For an implementation strategy for web apps, see [Zero Trust network for web applications with Azure Firewall and Application Gateway](../../example-scenario/gateway/application-gateway-before-azure-firewall.yml). 
@@ -35,6 +37,7 @@ Here are two learning paths to get you started:
 - Azure governance establishes the tooling needed to support cloud governance, compliance auditing, and automated guardrails. See [Azure governance design area guidance](/azure/cloud-adoption-framework/ready/landing-zone/design-area/governance) for information about governing your Azure environment. 
 
 ## Best practices
+
 The Azure Well-Architected Framework is a set of guiding tenets, based on five pillars, that you can use to improve the quality of your architectures. For information, see [Overview of the security pillar](/azure/architecture/framework/security/overview) and [Security design principles in Azure](/azure/architecture/framework/security/security-principles).
 
 The Well-Architected Framework also provides these checklists:
@@ -50,22 +53,28 @@ For information about security for sensitive IaaS workloads, see [Security consi
 ## Security architectures
  
 ### Identity and access management
+
 - [Secure OAuth 2.0 On-Behalf-Of refresh tokens for web services](../../example-scenario/secrets/secure-refresh-tokens.yml)
-### Threat protection 
+
+### Threat protection
+
 - [Threat indicators for cyber threat intelligence in Microsoft Sentinel](../../example-scenario/data/sentinel-threat-intelligence.yml)
 - [Multilayered protection for Azure virtual machine access](../../solution-ideas/articles/multilayered-protection-azure-vm.yml)
 - [Real-time fraud detection](../../example-scenario/data/fraud-detection.yml)
 
 ### Information protection
+
 - [Confidential computing on a healthcare platform](../../example-scenario/confidential/healthcare-inference.yml)
 - [Homomorphic encryption with SEAL](../../solution-ideas/articles/homomorphic-encryption-seal.yml)
 - [SQL Managed Instance with customer-managed keys](../../example-scenario/data/sql-managed-instance-cmk.yml)
 - [Virtual network integrated serverless microservices](../../example-scenario/integrated-multiservices/virtual-network-integration.yml)
 
 ### Discover and respond
+
 - [Long-term security log retention with Azure Data Explorer](../../example-scenario/security/security-log-retention-azure-data-explorer.yml)
 
-## Stay current with security 
+## Stay current with security
+
 Get the latest updates on [Azure security services and features](https://azure.microsoft.com/updates/?category=security).
 
 ## Additional resources
@@ -79,7 +88,7 @@ Get the latest updates on [Azure security services and features](https://azure.m
 - [Secure your Microsoft Teams channel bot and web app behind a firewall](../../example-scenario/teams/securing-bot-teams-channel.yml)
 - [Web app private connectivity to Azure SQL database](../../example-scenario/private-web-app/private-web-app.yml)
 
-### AWS or GCP professionals
+### AWS or Google Cloud professionals
 
 - [Security and identity with Azure and AWS](../../aws-professional/security-identity.md)
 - [AWS to Azure services comparison - Security](../../aws-professional/services.md#security-identity-and-access)

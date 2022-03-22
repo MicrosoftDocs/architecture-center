@@ -8,7 +8,7 @@ services: architecture-center
 ms.service: architecture-center
 ms.subservice: azure-guide
 ms.topic: article
-ms.date: 01/28/2022
+ms.date: 02/18/2022
 ms.author: tdsp
 ms.custom:
   - previous-author=deguhath
@@ -21,7 +21,7 @@ categories:
 
 # Platforms and tools for data science projects
 
-Microsoft provides a full spectrum of analytics resources for both cloud or on-premises platforms. They can be deployed to make the execution of your data science projects efficient and scalable. Guidance for teams implementing data science projects in a trackable, version controlled, and collaborative way is provided by the [Team Data Science Process](overview.md) (TDSP). See [Team Data Science Process roles and tasks](roles-tasks.md), for an outline of the personnel roles, and their associated tasks that are handled by a data science team standardizing on this process.
+Microsoft provides a full spectrum of analytics resources for both cloud or on-premises platforms. They can be deployed to make the execution of your data science projects efficient and scalable. Guidance for teams implementing data science projects in a trackable, version controlled, and collaborative way is provided by the [Team Data Science Process](overview.yml) (TDSP). See [Team Data Science Process roles and tasks](roles-tasks.md), for an outline of the personnel roles, and their associated tasks that are handled by a data science team standardizing on this process.
 
 The main recommended Azure resource for TDSP is [Azure Machine Learning](/azure/machine-learning).  Examples in this Azure Architecture Center may show Azure Machine Learning used with other Azure resources.  These other analytics resources available to data science teams using the TDSP include:
 
@@ -145,6 +145,6 @@ If you're using Linux (CentOS) machines to run the git commands, you need to add
 
 ## Next steps
 
-Full end-to-end walkthroughs that demonstrate all the steps in the process for **specific scenarios** are also provided. They're listed and linked with thumbnail descriptions in the [Example walkthroughs](walkthroughs.md) topic. They illustrate how to combine cloud, on-premises tools, and services into a workflow or pipeline to create an intelligent application.
-
-For examples that show how to execute steps in the Team Data Science Process by using Azure Machine Learning studio (classic), see the [With Azure ML](/azure/machine-learning/team-data-science-process/) learning path.
+- [What is the Team Data Science Process?](/azure/architecture/data-science-process/overview)
+- [Compare the machine learning products and technologies from Microsoft](/azure/architecture/data-guide/technology-choices/data-science-and-machine-learning)
+- [Machine learning at scale](/azure/architecture/data-guide/big-data/machine-learning-at-scale)
