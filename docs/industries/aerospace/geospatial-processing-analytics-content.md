@@ -153,8 +153,6 @@ A deployment of the sample solution is available using [Bicep](https://docs.micr
 
 ![Diagram that demonstrates the architecture of the deployed sample solution.](./images/geospatial-processing-analytics/geospatial-processing-analytics-deploy.png)
 
-- [Azure Orbital Analytics Samples](https://github.com/Azure/Azure-Orbital-Analytics-Samples)
-
 ### Limitations
 
 This architecture showcases the functional working of an end-to-end geoprocessing and analytics solution that uses Azure Synapse Analytics. This sample implementation is targeted for small to medium area of interest and a limited concurrent geoprocessing of raster data.
