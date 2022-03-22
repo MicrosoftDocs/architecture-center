@@ -369,11 +369,15 @@ For more information on managing packages, please visit [Manage packages](https:
 
 ## Pricing
 
-Review the following resources for cost optimization:
+Review the following resources for pricing and cost optimization:
 
+- [Plan to manage costs for Azure Synapse Analytics](https://docs.microsoft.com/azure/synapse-analytics/plan-manage-costs?msclkid=af63ba3caa2111ec86673cc969d7ed5e#monitor-costs)
 - [Azure Synapse - use Azure Pricing calculator](https://azure.microsoft.com/pricing/calculator/?service=synapse-analytics)
-
+- [Apache Spark pool in Azure Synapse Analytics](https://docs.microsoft.com/azure/synapse-analytics/spark/apache-spark-pool-configurations?msclkid=3fe55d68aa2111ec9c3fdac2368fec1a#autoscale)
+- [Nodes and pools in Azure Batch](https://docs.microsoft.com/azure/batch/nodes-and-pools?msclkid=5bf9ea8caa2111eca300073ea3740fa6#pool-and-compute-node-lifetime)
 - [Azure Batch - use Azure Pricing calculator](https://azure.microsoft.com/pricing/calculator/?service=batch)
+
+**Note:** Please refer the AI model partners documentation for the pricing and license terms of using their AI models in the solution.
 
 ## Related resources
  
