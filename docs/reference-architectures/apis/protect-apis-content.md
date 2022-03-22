@@ -451,10 +451,10 @@ The following deployment steps use the Azure portal to update an existing Azure 
     - *Backend certificates*, which will be configured in the Routing Rule, and used for communication between Application Gateway and the APIM endpoint.
         - If you're using the default domain name of the API management service, you don't need a certificate.  Application Gateway will be able to use the default certificate.
         - If you're using a custom domain that uses a well known certificate authority, such as GoDaddy, you don't need a certificate.  Application Gateway will be able to use the well known certificate authority.
-        - If you're using a custom domain and a custom certificate authority that isn't well known, such as a Microsoft public key infrastructure implementation, then follow the instructions to [Create backend certificates](https://docs.microsoft.com/azure/application-gateway/certificates-for-backend-authentication) to prepare your certificate in advance
+        - If you're using a custom domain and a custom certificate authority that isn't well known, such as a Microsoft public key infrastructure implementation, then follow the instructions to [Create backend certificates](/azure/application-gateway/certificates-for-backend-authentication) to prepare your certificate in advance
     - *Frontend certificates*, which will be configured in the Listener, and used for communication between the client and the Application Gateway.  You have two options:
         - Upload a PFX certificate to the Application Gateway as part of deployment.
-        - Upload ta PFX certificate to a Key Vault as a Secret, accessible by a managed identity, as described in [TLS termination with Key Vault certificates](https://docs.microsoft.com/azure/application-gateway/key-vault-certs).
+        - Upload ta PFX certificate to a Key Vault as a Secret, accessible by a managed identity, as described in [TLS termination with Key Vault certificates](/azure/application-gateway/key-vault-certs).
 
 1. Make sure you have the appropriate DNS setting enabled to direct your domain to your Application Gateway.  
     - Your public domain should match the front end certificate you're using.
