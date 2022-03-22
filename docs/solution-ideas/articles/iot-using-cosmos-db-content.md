@@ -20,7 +20,7 @@ Azure Cosmos DB is ideal for IoT workloads because it can:
 
 ![Diagram that shows the role of Azure Cosmos DB in an Azure IoT solution architecture.](../media/iot-using-cosmos-db.png)
 
-### Data flow
+### Dataflow
 
 1. IoT sensors and Edge devices send events as message streams through Azure IoT Hub to the analyze and transform layer. IoT Hub can store data streams in partitions for a specified duration.
 
@@ -41,7 +41,11 @@ Azure Cosmos DB is ideal for IoT workloads because it can:
 
 1. The function determines whether the message requires a device action, like a reboot. If so, the function connects to IoT Hub by using the IoT Hub Service API, and initiates the device action. The function can initiate the action by using device twins, cloud to device messages, or direct methods.
 
-### Azure Cosmos DB features
+### Components
+
+This workload uses the following Azure components:
+
+#### Azure Cosmos DB
 
 This IoT workload spotlights [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db), a globally distributed, multi-model database. The workload uses the following Azure Cosmos DB features:
 
@@ -55,7 +59,7 @@ This IoT workload spotlights [Azure Cosmos DB](https://azure.microsoft.com/servi
 
 - [Partitioning](/azure/cosmos-db/partition-data). The partition key determines how Azure Cosmos DB routes data in partitions. The IoT Device ID is the usual partition key for IoT applications.
 
-### Other Azure components
+#### Other Azure components
 
 The solution also uses the following Azure components:
 
