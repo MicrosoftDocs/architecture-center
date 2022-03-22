@@ -1038,7 +1038,7 @@ items:
                 href: /azure/cloud-adoption-framework/strategy/business-outcomes/sustainability
                 maintainContext: true
               - name: Big compute for oil exploration
-                href: guide/architecture-styles/big-compute.md
+                href: guide/architecture-styles/big-compute.yml
               - name: IoT scenarios
                 items:
                   - name: Connected waste management
