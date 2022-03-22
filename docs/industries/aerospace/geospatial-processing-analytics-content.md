@@ -310,7 +310,7 @@ The sequence diagram below shows the steps of the sample solution.
 
 ### Install Geospatial packages into a Synapse Spark pool
 
-In this tutorial, we will show how to install packages into Synapse Spark pool using the package management feature. For more information, visit [Synapse Package Management](https://docs.microsoft.com/en-us/azure/synapse-analytics/spark/apache-spark-azure-portal-add-libraries).
+You'll need to install packages into Synapse Spark pool using the package management feature. For more information, visit [Synapse Package Management](https://docs.microsoft.com/en-us/azure/synapse-analytics/spark/apache-spark-azure-portal-add-libraries).
 
 To support Geospatial workloads on Azure Synapse, it requires libraries like [GDAL](https://gdal.org/), [Rasterio](https://rasterio.readthedocs.io/en/latest/intro.html), [Geopandas](https://geopandas.org/en/stable/), just to name a few. These libraries are installed on a given serverless Apache Spark pool using a yaml file. The Spark pool comes with [Anaconda](https://docs.continuum.io/anaconda/) libraries pre-installed.
 
