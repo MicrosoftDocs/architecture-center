@@ -365,7 +365,7 @@ To support Geospatial workloads on Azure Synapse, it requires libraries like [GD
      	print(d)
     ```
 
-In this tutorial, we have seen how to install libraries using the package management feature available in Azure Synapse. For more information, please visit [Manage packages](https://docs.microsoft.com/en-us/azure/synapse-analytics/spark/apache-spark-manage-python-packages) on Azure Synapse.
+For more information on managing packages, please visit [Manage packages](https://docs.microsoft.com/en-us/azure/synapse-analytics/spark/apache-spark-manage-python-packages) on Azure Synapse.
 
 ## Pricing
 
