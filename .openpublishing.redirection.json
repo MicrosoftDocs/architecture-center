@@ -2323,10 +2323,14 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "docs/example-scenario/finance/swift-on-azure.yml",
+      "redirect_url": "/azure/architecture/example-scenario/finance/swift-on-azure-srx",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "docs/antipatterns/noisy-neighbor/index.md",
       "redirect_url": "/azure/architecture/antipatterns/noisy-neighbor/noisy-neighbor",
       "redirect_document_id": false
     }
-    
   ]
 }

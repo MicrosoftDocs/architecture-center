@@ -125,7 +125,7 @@ Site Reliability Engineering (SRE) is a proven approach to maintaining crucial s
 ## Next steps
 
 For hands-on serverless Functions app development and deployment walkthroughs, see:
-- [Serverless Functions code walkthrough](../serverless/code.md)
-- [CI/CD for a serverless frontend](../serverless/guide/serverless-app-cicd-best-practices.md)
+- [Serverless Functions code walkthrough](../serverless/code.yml)
+- [CI/CD for a serverless frontend](../serverless/guide/serverless-app-cicd-best-practices.yml)
 
 For an engineering playbook to help teams and customers successfully implement serverless Functions projects, see the [Code-With Customer/Partner Engineering Playbook](https://github.com/microsoft/code-with-engineering-playbook).

@@ -26,7 +26,7 @@ Throughout this section, we discuss the main categories of Azure services that c
 
 ## Deployment Stamps pattern
 
-The [Deployment Stamps pattern](../../../patterns/deployment-stamp.md) is frequently used in multitenant solutions. It involves deploying dedicated infrastructure for a tenant or for a group of tenants. A single stamp might contain multiple tenants or might be dedicated to a single tenant.
+The [Deployment Stamps pattern](../../../patterns/deployment-stamp.yml) is frequently used in multitenant solutions. It involves deploying dedicated infrastructure for a tenant or for a group of tenants. A single stamp might contain multiple tenants or might be dedicated to a single tenant.
 
 ![Diagram showing the Deployment Stamps pattern. Each tenant has their own stamp containing a database.](media/overview/deployment-stamps.png)
 

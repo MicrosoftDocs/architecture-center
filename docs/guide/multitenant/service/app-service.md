@@ -112,7 +112,7 @@ You can host APIs on both Azure App Service and Azure Functions. Your choice of 
 Whichever platform you use to host your API, consider using [Azure API Management](/azure/api-management) in front of your API application. API Management provides many features that can be helpful for multitenant solutions, including the following:
 
 - A centralized point for all [authentication](/azure/api-management/api-management-access-restriction-policies). This might include determining the tenant identifier from a token claim or other request metadata.
-- [Routing requests to different API backends](/azure/api-management/api-management-transformation-policies#SetBackendService), which might be based on the request's tenant identifier. This can be helpful when you host multiple [deployment stamps](../../../patterns/deployment-stamp.md), with their own independent API applications, but you need to have a single API URL for all requests.
+- [Routing requests to different API backends](/azure/api-management/api-management-transformation-policies#SetBackendService), which might be based on the request's tenant identifier. This can be helpful when you host multiple [deployment stamps](../../../patterns/deployment-stamp.yml), with their own independent API applications, but you need to have a single API URL for all requests.
 
 ## Networking and multitenancy
 
@@ -130,7 +130,7 @@ Because App Service is itself a multitenant service, you need to take care about
 
 If your application connects to a large number of databases or external services, then your app might be at risk of [SNAT port exhaustion](/azure/app-service/troubleshoot-intermittent-outbound-connection-errors). In general, SNAT port exhaustion indicates that your code isn't correctly reusing TCP connections, and even in a multitenant solution, you should ensure you follow the recommended practices for reusing connections.
 
-However, in some multitenant solutions, the number of outbound connections to distinct IP addresses can result in SNAT port exhaustion, even when you follow good coding practices. In these scenarios, [consider deploying NAT Gateway](/azure/app-service/networking/nat-gateway-integration) to increase the number of SNAT ports that are available for your application to use, or use [service endpoints](/azure/virtual-network/virtual-network-service-endpoints-overview) when you connect to Azure services, to bypass load balancer limits. Even with these controls in place, you might approach limits with a large number of tenants, so you should plan to scale to additional App Service plans or [deployment stamps](../../../patterns/deployment-stamp.md).
+However, in some multitenant solutions, the number of outbound connections to distinct IP addresses can result in SNAT port exhaustion, even when you follow good coding practices. In these scenarios, [consider deploying NAT Gateway](/azure/app-service/networking/nat-gateway-integration) to increase the number of SNAT ports that are available for your application to use, or use [service endpoints](/azure/virtual-network/virtual-network-service-endpoints-overview) when you connect to Azure services, to bypass load balancer limits. Even with these controls in place, you might approach limits with a large number of tenants, so you should plan to scale to additional App Service plans or [deployment stamps](../../../patterns/deployment-stamp.yml).
 
 ## Next steps
 

@@ -8,12 +8,12 @@ In this solution, a model will be created and registered to an Azure Machine Lea
 
 Through machine learning informed by historical campaign data, this solution helps predict customer responses. The solution recommends an optimized plan for connecting with your leads, including the best channel to use (by email, SMS, a cold call, and so on), the best day of the week, and the best time of the day.
 
-Optimizing your campaigns with machine learning helps improve both sales leads and revenue generation and can provide strong ROI for your marketing investment.
+Optimizing your campaigns with machine learning helps improve both sales leads and revenue generation and can provide strong ROI for your marketing investment. This solution is ideal for the retail industry.
 
 ## Architecture
 
-![Architecture Diagram][architecture-png]
-*Download an [SVG][architecture-svg]*
+![Diagram of this marekting optimization architecture.][architecture-png]
+*Download an [SVG file][architecture-svg] of this architecture.*
 
 ### Components
 

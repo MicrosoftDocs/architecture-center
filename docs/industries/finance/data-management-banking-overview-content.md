@@ -70,7 +70,7 @@ applications. This process is especially true when using Microsoft [Azure SQL
 Database](/azure/sql-database/?WT.mc_id=bankdm-docs-dastarr), but through the
 [Azure
 Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/category/databases?WT.mc_id=bankdm-docs-dastarr)
-solutions can be found for Oracle, TeraData MongoDB and others.
+solutions can be found for Oracle, Teradata, MongoDB, and others.
 
 Different data migration strategies exist for moving data from on-premises to
 Azure and have varying degrees of latency. All the techniques referenced below
@@ -397,7 +397,9 @@ of rarely-accessed data and it can be deleted on a rolling cycle as needed.
 
 ## Contributors
 
-_This article is being updated and maintained by Microsoft. It was originally written by the following contributors:_
+_This article is being updated and maintained by Microsoft. It was originally written by the following contributors._
+
+**Principal authors:**
 
 - [Howard Bush](https://www.linkedin.com/in/howardbush) | 
 Banking and Capital Markets Cloud & AI, Consulting Services

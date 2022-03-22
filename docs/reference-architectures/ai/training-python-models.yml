@@ -3,7 +3,7 @@ metadata:
   title: Tune hyperparameters for ML models in Python
   description: Shows recommended practices for tuning hyperparameters (training parameters) of scikit-learn and deep learning machine learning models in Python.
   author: fboylu
-  ms.author: pnp
+  ms.author: fboylu
   ms.date: 07/17/2019
   ms.topic: conceptual
   ms.service: architecture-center

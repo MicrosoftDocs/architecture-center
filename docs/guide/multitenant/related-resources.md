@@ -38,12 +38,12 @@ The following [cloud design patterns](../../patterns/index.md) are frequently us
 
 | Pattern | Summary |
 | ------- | ------- |
-| [Deployment Stamps pattern](../../patterns/deployment-stamp.md) | Deploy multiple independent copies (scale units) of application components, including data stores. |
-| [Federated Identity](../../patterns/federated-identity.md) | Delegate authentication to an external identity provider. |
-| [Gatekeeper](../../patterns/gatekeeper.md) | Protect applications and services, by using a dedicated host instance that acts as a broker between clients and the application or service, validates and sanitizes requests, and passes requests and data between them. |
-| [Queue-Based Load Leveling](../../patterns/queue-based-load-leveling.md) | Use a queue that acts as a buffer between a task and a service that it invokes, in order to smooth intermittent heavy loads. |
-| [Sharding](../../patterns/sharding.md) | Divide a data store into a set of horizontal partitions or shards. |
-| [Throttling](../../patterns/throttling.md) | Control the consumption of resources that are used by an instance of an application, an individual tenant, or an entire service. |
+| [Deployment Stamps pattern](../../patterns/deployment-stamp.yml) | Deploy multiple independent copies (scale units) of application components, including data stores. |
+| [Federated Identity](../../patterns/federated-identity.yml) | Delegate authentication to an external identity provider. |
+| [Gatekeeper](../../patterns/gatekeeper.yml) | Protect applications and services, by using a dedicated host instance that acts as a broker between clients and the application or service, validates and sanitizes requests, and passes requests and data between them. |
+| [Queue-Based Load Leveling](../../patterns/queue-based-load-leveling.yml) | Use a queue that acts as a buffer between a task and a service that it invokes, in order to smooth intermittent heavy loads. |
+| [Sharding](../../patterns/sharding.yml) | Divide a data store into a set of horizontal partitions or shards. |
+| [Throttling](../../patterns/throttling.yml) | Control the consumption of resources that are used by an instance of an application, an individual tenant, or an entire service. |
 
 ## Antipatterns
 
@@ -55,7 +55,8 @@ While the entirety of the [Azure Well-Architected Framework](/azure/architecture
 
 ## Multitenant architectural guidance
 
-* [Accelerate and De-Risk Your Journey to SaaS](https://myignite.microsoft.com/sessions/99bb894b-4b43-4831-ae63-4cf74b711630) (video): This video provides guidance for transitioning to the "software as a service" (SaaS) delivery model - whether you're starting by lifting-and-shifting an existing solution from on-premises to Azure, considering a multitenant architecture, or looking to modernize an existing SaaS web application.
+* [Architecting multitenant solutions on Azure](https://www.youtube.com/watch?v=aem8elgN7iI) (video): This video discusses how to design, architect, and build multitenant solutions on Azure. If you're building a SaaS product or another multitenant service, there's a lot to consider to ensure high performance, tenant isolation, and to manage deployments. This session is aimed at developers and architects who are building multitenant or SaaS applications, including startups and ISVs.
+* [Accelerate and De-Risk Your Journey to SaaS](https://www.youtube.com/watch?v=B8dPAFIG1xA) (video): This video provides guidance for transitioning to the "software as a service" (SaaS) delivery model - whether you're starting by lifting-and-shifting an existing solution from on-premises to Azure, considering a multitenant architecture, or looking to modernize an existing SaaS web application.
 
 ## Resources for Azure services
 

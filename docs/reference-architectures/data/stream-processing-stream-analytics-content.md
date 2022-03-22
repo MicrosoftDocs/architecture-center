@@ -1,16 +1,20 @@
-
-
-This reference architecture shows an end-to-end [stream processing](../../data-guide/big-data/real-time-processing.md) pipeline. The pipeline ingests data from two sources, correlates records in the two streams, and calculates a rolling average across a time window. The results are stored for further analysis.
+This reference architecture shows an end-to-end [stream processing](../../data-guide/big-data/real-time-processing.yml) pipeline. The pipeline ingests data from two sources, correlates records in the two streams, and calculates a rolling average across a time window. The results are stored for further analysis.
 
 ![GitHub logo](../../_images/github.png) A reference implementation for this architecture is available on [GitHub][github].
 
-![Reference architecture for creating a stream processing pipeline with Azure Stream Analytics](./images/stream-processing-asa/stream-processing-asa.png)
+## Potential use cases
 
 **Scenario**: A taxi company collects data about each taxi trip. For this scenario, we assume there are two separate devices sending data. The taxi has a meter that sends information about each ride &mdash; the duration, distance, and pickup and dropoff locations. A separate device accepts payments from customers and sends data about fares. The taxi company wants to calculate the average tip per mile driven, in real time, in order to spot trends.
 
+This solution is optimized for the retail scenario.
+
 ## Architecture
 
-The architecture consists of the following components.
+![Reference architecture for creating a stream processing pipeline with Azure Stream Analytics](./images/stream-processing-asa/stream-processing-asa.png)
+
+### Workflow
+
+The architecture consists of the following components:
 
 **Data sources**. In this architecture, there are two data sources that generate data streams in real time. The first stream contains ride information, and the second contains fare information. The reference architecture includes a simulated data generator that reads from a set of static files and pushes the data to Event Hubs. In a real application, the data sources would be devices installed in the taxi cabs.
 

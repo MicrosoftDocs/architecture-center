@@ -5,13 +5,13 @@ metadata:
   description: Learn how Gridwich converts Azure Pipelines pipeline variable group variables to Terraform variables.
   author: EdPrice-MSFT
   ms.author: pnp
-  ms.date: 11/12/2020
+  ms.date: 03/18/2022
   ms.topic: conceptual
   ms.service: architecture-center
   ms.subservice: reference-architecture
   ms.custom:
     - fcp
-name: Gridwich variable flow
+name: Gridwich variable flow using Terraform and Azure Pipelines
 summary: Learn how Gridwich converts Azure Pipelines pipeline variable group variables to Terraform variables.
 products:
   - azure-key-vault

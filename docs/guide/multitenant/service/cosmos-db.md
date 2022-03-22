@@ -28,7 +28,7 @@ On this page, we describe some of the features of Azure Cosmos DB that are usefu
 
 ### Partitioning
 
-By using partitions with your Cosmos DB containers, you can create containers that are shared across multiple tenants. Typically you use the tenant identifier as a partition key, but you might also consider using multiple partition keys for a single tenant. A well-planned partitioning strategy effectively implements the [Sharding pattern](../../../patterns/sharding.md). With large containers, Cosmos DB spreads your tenants across multiple physical nodes to achieve a high degree of scale.
+By using partitions with your Cosmos DB containers, you can create containers that are shared across multiple tenants. Typically you use the tenant identifier as a partition key, but you might also consider using multiple partition keys for a single tenant. A well-planned partitioning strategy effectively implements the [Sharding pattern](../../../patterns/sharding.yml). With large containers, Cosmos DB spreads your tenants across multiple physical nodes to achieve a high degree of scale.
 
 More information:
 

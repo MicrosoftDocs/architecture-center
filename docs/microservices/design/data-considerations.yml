@@ -1,0 +1,20 @@
+### YamlMime:Architecture
+metadata:
+  title: Data considerations for microservices
+  description: Learn about managing data in a microservices architecture. Data integrity and data consistency are critical challenges for microservices.
+  author: EdPrice-MSFT
+  ms.author: edprice
+  ms.date: 02/25/2019
+  ms.topic: conceptual
+  ms.service: architecture-center
+  ms.subservice: azure-guide
+azureCategories:
+  - databases
+  - developer-tools
+products:
+  - azure-devops
+name: Data considerations for microservices
+summary: Learn about managing data in a microservices architecture. Data integrity and data consistency are critical challenges for microservices.
+thumbnailUrl: /azure/architecture/browse/thumbs/data-considerations.png
+content: |
+  [!include[](data-considerations-content.md)]
