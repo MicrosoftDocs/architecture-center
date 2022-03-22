@@ -2,7 +2,7 @@ Spaceborne data collection is growing at an exponential rate. New use cases are 
 
 This reference architecture demonstrates how Azure Synapse Analytics can be used for geospatial analysis and for running AI models against the spaceborne data. The intended audience for this document are users with intermediate skill levels in the Geospatial space.
 
-A reference implementation of this architecture is available on [GitHub](https://github.com/Azure/Azure-Orbital-Analytics-Samples).
+An implementation of this architecture is available on [GitHub](https://github.com/Azure/Azure-Orbital-Analytics-Samples).
 
 ## Potential use cases
 
