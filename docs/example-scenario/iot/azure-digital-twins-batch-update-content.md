@@ -1,16 +1,16 @@
-This scenario is relevant to organizations that need to integrate data from systems that require traditional extract, transform, and load (ETL) techniques with Azure Digital Twins. In this example, you integrate Azure Digital Twins into line-of-business systems by synchronizing or updating your Azure Digital Twins graph with data so that you can have a 360-degree view of your entire environment and system. You determine the frequency of synchronization based on your source system and the requirements of your solution.
+This scenario is relevant to organizations that need to integrate data from systems that require traditional extract, transform, and load (ETL) techniques with Azure Digital Twins. In this example, you integrate Azure Digital Twins into line-of-business (LOB) systems by synchronizing or updating your Azure Digital Twins graph with data so that you can have a 360-degree view of your entire environment and system. You determine the frequency of synchronization based on your source system and the requirements of your solution.
 
 ## Relevant use cases
 
 These other use cases have similar design patterns:
 
-- You have a graph in Azure Digital Twins of moving assets in a warehouse (for example, forklifts). You might want to receive data about the order that's currently being processed for each asset by integrating with the warehouse management system or the sales line-of-business (LOB) application every 10 minutes. The same graph in Azure Digital Twins can be synchronized with asset management solutions every day to receive inventory of assets that are available that day for use in the warehouse.
+- You have a graph in Azure Digital Twins of moving assets in a warehouse (for example, forklifts). You might want to receive data about the order that's currently being processed for each asset by integrating with the warehouse management system or the sales LOB application every 10 minutes. The same graph in Azure Digital Twins can be synchronized with asset management solutions every day to receive inventory of assets that are available that day for use in the warehouse.
 
 - You have a fleet of vehicles that belong to a hierarchy that contains data that doesn't change often.  You could use this solution to keep that data updated as needed.
 
 ## Architecture
 
-![Azure Digital Twins batch update architecture.](media/azure-digital-twins-batch-update-diagram.png)
+:::image type="content" alt-text="Azure Digital Twins batch update architecture." source="media/azure-digital-twins-batch-update-diagram.png" lightbox="media/azure-digital-twins-batch-update-diagram.png":::
 
 _Download a [Visio file](https://arch-center.azureedge.net/azure-digital-twins-batch-update-diagram.vsdx) of this architecture._
 
