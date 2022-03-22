@@ -359,10 +359,10 @@ To support Geospatial workloads on Azure Synapse, it requires libraries like [GD
 
 6. Finally, run the following code to verify the installed libraries and the respective version. This will also display all the pre-installed libraries that Conda installs.
 
-	```
-	import pkg_resources
-	for d in pkg_resources.working_set:
-     	print(d)
+    ```python
+    import pkg_resources
+    for d in pkg_resources.working_set:
+       print(d)
     ```
 
 For more information on managing packages, please visit [Manage packages](https://docs.microsoft.com/en-us/azure/synapse-analytics/spark/apache-spark-manage-python-packages) on Azure Synapse.
