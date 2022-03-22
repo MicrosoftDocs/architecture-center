@@ -290,7 +290,7 @@ The following article shows how to read, write and apply transformations to rast
 	
 ### Sample solution
 
-A reference implementation of this architecture is available on [GitHub](https://github.com/Azure/Azure-Orbital-Analytics-Samples) as a sample solution.
+An implementation of this architecture is available on [GitHub](https://github.com/Azure/Azure-Orbital-Analytics-Samples).
 
 The sequence diagram below shows the steps of the sample solution.
 
