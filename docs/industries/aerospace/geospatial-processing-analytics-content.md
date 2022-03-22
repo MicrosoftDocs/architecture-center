@@ -32,7 +32,7 @@ The below workflow will walk-through the different stages of the end-to-end arch
 #### Spaceborne data tranformation
 
  - The spaceborne data is then processed and transformed into a format that can be consumed by the Analysts and the AI Models. There are various geospatial libraries available to perform the transformation like GDAL, OGR, Rasterio, GeoPandas, etc.
- - Azure Synapse Analytics Spark Pools provide the ability to configure and use these libraries to perform such data transformations. In addition to Spark Pools, Azure Synapse Analytics also provides a *Custom Activity* that leverages Azure Batch Pools which can be used. In our [sample code](#sample-code), data transformations are performed using the **GDAL** library in a Spark Pool. Please refer the sample code section for more details
+ - Azure Synapse Analytics Spark Pools provide the ability to configure and use these libraries to perform such data transformations. In addition to Spark Pools, Azure Synapse Analytics also provides a *Custom Activity* that leverages Azure Batch Pools which can be used. In the [sample code](#sample-code), data transformations are performed using the **GDAL** library in a Spark Pool. Please refer the sample code section for more details.
  - Sample solution implements this pipeline from this step of data transformation and expects data to be copied in Azure Data Lake Storage by above data ingestion methods. It demonstrates end to end implementation of this pipeline for raster data processing.
 
 #### Analysis and Execution of AI Models
