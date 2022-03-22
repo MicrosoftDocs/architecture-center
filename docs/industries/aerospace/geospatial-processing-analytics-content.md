@@ -344,8 +344,6 @@ To support Geospatial workloads on Azure Synapse, it requires libraries like [GD
 
 2. Go to [https://web.azuresynapse.net](https://web.azuresynapse.net) and sign in to your workspace. 
 
-	![](https://docs.microsoft.com/en-us/azure/synapse-analytics/security/media/common/login-workspace.png)
-
 3. Select **Manage** from the main navigation panel and then select **Apache Spark pools**
 4. Select **Packages** by clicking `...` on the specific Spark pool, upload the `environment.yml` file from local and apply the package settings.
 
