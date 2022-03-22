@@ -355,8 +355,6 @@ To support Geospatial workloads on Azure Synapse, it requires libraries like [GD
 	1. Navigate to the Spark applications list in the **Monitor** tab.
 	2. Select **SystemReservedJob-LibraryManagement** that corresponds to your pool update.
 	
-		![](https://docs.microsoft.com/en-us/azure/synapse-analytics/spark/media/apache-spark-azure-portal-add-libraries/system-reserved-library-job.png) 
-	
 	3. View the driver logs 
 
 6. Finally, run the following code to verify the installed libraries and the respective version. This will also display all the pre-installed libraries that Conda installs.
