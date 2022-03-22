@@ -176,7 +176,7 @@ The following article shows how to read, write and apply transformations to rast
   
   Output:
   
-  ```
+  ```output
   Driver: GTiff/GeoTIFF
 	Files: /vsiadls/naip/input/sample_image.tiff
 	Size is 6634, 7565
