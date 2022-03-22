@@ -157,7 +157,7 @@ A deployment of the sample solution is available using [Bicep](https://docs.micr
 
 ### Limitations
 
-This reference architecture showcases the functional working of an end-to-end geoprocessing and analytics solution that uses Azure Synapse Analytics. This sample implementation is targeted for small to medium area of interest and a limited concurrent geoprocessing of raster data.
+This architecture showcases the functional working of an end-to-end geoprocessing and analytics solution that uses Azure Synapse Analytics. This sample implementation is targeted for small to medium area of interest and a limited concurrent geoprocessing of raster data.
 
 ### Sample code
 
