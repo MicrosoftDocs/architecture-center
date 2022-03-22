@@ -20,11 +20,11 @@ ms.custom:
 
 Branding is important for industries globally, sometimes company value is based on the image that the market has about the company.  As companies move to making predictive data driven decision as opposed to reactive decisions, the need exists to be able to monitor and understand what is happening in real time.  In order to gain competitive advantages, companies need to use social media analysis to identify and understand public opinion.  Along with identifying the sentiment in Tweets, companies might choose to recognize the faces and pictures in these Tweets.
 
-This pattern provides the solution across industries as monitoring social networks is not limited to one industry vertical.  The goal of this solution is to create a transformation pipeline that outputs clusters of comments and trending topics.
-
 This solution showcases how companies using open source solutions can seamlessly integrate with Azure Sentiment Analysis and Face Recognition to deliver value.
 
 ## Potential use cases
+
+This solution is ideal for the manufacturing industry, but it can also be used effectively across industries, as monitoring social networks is not limited to one industry vertical. The goal of this solution is to create a transformation pipeline that outputs clusters of comments and trending topics.
 
 NiFi works well for moving data and managing the flow of data:
 
@@ -32,7 +32,7 @@ NiFi works well for moving data and managing the flow of data:
 *	Moving data in and out of Azure Storage and other data stores
 *	Integrating edge-to-cloud and hybrid-cloud applications with Azure IoT, Azure Stack, and Azure Kubernetes Service (AKS)
 
-This solution is ideal for the manufacturing industry. It applies to the following scenarios:
+This solution applies to the following scenarios:
 
 *	Modern data warehouses (MDWs) bring structured and unstructured data together at scale. They collect and store data from various sources, sinks, and formats. NiFi excels at ingesting data into Azure-based MDWs for the following reasons:
     * Over 200 processors are available for reading, writing, and manipulating data.
