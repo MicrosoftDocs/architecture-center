@@ -351,9 +351,6 @@ To support Geospatial workloads on Azure Synapse, it requires libraries like [GD
 3. Select **Manage** from the main navigation panel and then select **Apache Spark pools**
 4. Select **Packages** by clicking `...` on the specific Spark pool, upload the `environment.yml` file from local and apply the package settings.
 
-
-	![](https://docs.microsoft.com/en-us/azure/synapse-analytics/spark/media/apache-spark-azure-portal-add-libraries/studio-update-libraries.png)
-
 5. The notification section of the portal notifies you once the installation has been completed. You can also track the installation progress by following the below steps:
 	1. Navigate to the Spark applications list in the **Monitor** tab.
 	2. Select **SystemReservedJob-LibraryManagement** that corresponds to your pool update.
