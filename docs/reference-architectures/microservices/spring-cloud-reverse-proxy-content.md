@@ -64,8 +64,8 @@ When Application Gateway sits in front of your Azure Spring Cloud instance, you 
 
 | Action | Source type | Source value | Protocol | Destination port ranges |
 | - | - | - | - | - |
-| Allow | IP dddresses | The private IP range of the Application Gateway subnet (for example, `10.1.2.0/24`) | `TCP` | `80, 443` (or other ports as appropriate) |
-| Allow | IP dddresses | The private IP range of the Azure Spring Cloud apps subnet (for example, `10.1.1.0/24`) | `TCP` | `*` |
+| Allow | IP Addresses | The private IP range of the Application Gateway subnet (for example, `10.1.2.0/24`) | `TCP` | `80, 443` (or other ports as appropriate) |
+| Allow | IP Addresses | The private IP range of the Azure Spring Cloud apps subnet (for example, `10.1.1.0/24`) | `TCP` | `*` |
 | Allow | Service tag | `AzureLoadBalancer` | `Any` | `*` |
 | Deny | Service tag | `Any` | `Any` | `*` |
 

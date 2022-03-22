@@ -1,5 +1,3 @@
-
-
 The *Internet-of-things (IoT) Edge* brings data processing and storage close to the data source, enabling fast, consistent responses with reduced dependency on cloud connectivity and resources. Edge computing can incorporate artificial intelligence (AI) and machine learning (ML) models to create *intelligent edge* devices and networks, which can integrate with the cloud for further processing and security.
 
 This article describes a collaboration between the Microsoft Commercial Software Engineering (CSE) team and a major railway company to create an [intelligent cloud and intelligent edge](https://azure.microsoft.com/overview/future-of-cloud/) train maintenance and safety solution. The railway company wants to improve railroad safety and efficiency by proactively identifying defective components, predictively scheduling maintenance and repair, and continuously improving their findings and predictions. The pilot project for the *ML on Edge* solution is a train wheel health analysis system.
@@ -12,10 +10,12 @@ The wheel health analysis system provides early identification of potential equi
 
 ## Potential use cases
 
-IoT Edge implementations are most relevant when large amounts of data captured in real time need action or decisions with little or no latency. The example system had to maintain 99.999% uptime, process data from up to 24 trains and 35 million readings per day, and guarantee one-hour delivery of alerts and notifications.
+This solution is ideal for the Telecommunications industry. IoT Edge implementations are most relevant when large amounts of data captured in real time need action or decisions with little or no latency. The example system had to maintain 99.999% uptime, process data from up to 24 trains and 35 million readings per day, and guarantee one-hour delivery of alerts and notifications.
 
 ## Architecture
 [ ![Solution architecture diagram showing the IoT Edge modules in the trackside bungalows. The Edge modules use machine learning to identify failure risks. The alert handler module uploads image data to Azure Blob Storage. Azure Edge Hub uploads associated metadata and messages through Azure IoT Hub to Azure Cosmos DB storage.](./media/iot-predictive-maintenance.svg) ](./media/iot-predictive-maintenance.svg#lightbox)
+
+### Dataflow
 
 1. An image file server (NAS) in a bungalow serves processed and categorized train wheel images. Three pictures of each wheel create a stitched image.
 2. The polling module alerts the Edge device that new images are available for processing.
@@ -53,7 +53,7 @@ The team identified several design considerations:
   - [Claim Check Patterns](../../patterns/claim-check.yml)
   - [Command and Query Responsibility Segregation (CQRS) Pattern](http://udidahan.com/2011/04/22/when-to-avoid-cqrs/)
 
-## Deployment
+## Deploy this scenario
 
 The railway company hosts the *continuous integration/continuous deployment (CI/CD)* system on-premises. The following diagram shows the DevOps architecture for deployment:
 
@@ -70,14 +70,13 @@ Building and deploying the solution also uses:
 - For development, Visual Studio or Visual Studio Code with the Docker, Azure IoT, and relevant language extensions
 
 ## Next steps
-- [The future of computing: intelligent cloud and intelligent edge](https://azure.microsoft.com/overview/future-of-cloud/)
-- [Azure IoT Edge documentation](/azure/iot-edge/)
+
+- [The future of computing: intelligent cloud and intelligent edge](https://azure.microsoft.com/overview/future-of-cloud)
+- [Azure IoT Edge documentation](/azure/iot-edge)
 - [Build IoT Edge modules](/azure/iot-edge/how-to-vs-code-develop-module)
 - [End-to-end solution using Azure Machine Learning and IoT Edge](/azure/iot-edge/tutorial-machine-learning-edge-01-intro)
 - [Continuous integration and continuous deployment to Azure IoT Edge](/azure/iot-edge/how-to-continuous-integration-continuous-deployment)
 - [Deploy Azure IoT Edge modules from the Azure portal](/azure/iot-edge/how-to-deploy-modules-portal)
-
-## Related resources
 
 **GitHub code projects**
 

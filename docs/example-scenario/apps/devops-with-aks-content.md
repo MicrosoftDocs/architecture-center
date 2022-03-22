@@ -105,7 +105,7 @@ To deploy this scenario with an Azure Resource Manager template, perform the fol
 
 1. Click the link below to deploy the solution.
 
-    [![Deploy to Azure](https://azuredeploy.net/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fmspnp%2Fsolution-architectures%2Fmaster%2Fapps%2Fdevops-with-aks%2Fazuredeploy.json)
+    [![Deploy to Azure](../../_images/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fmspnp%2Fsolution-architectures%2Fmaster%2Fapps%2Fdevops-with-aks%2Fazuredeploy.json)
 
 2. Wait for the template deployment to open in the Azure portal, then complete the following steps:
    - Choose to **Create new** resource group, then provide a name such as *myAKSDevOpsScenario* in the text box.

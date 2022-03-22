@@ -1,5 +1,3 @@
-
-
 This reference architecture shows a [serverless](https://azure.microsoft.com/solutions/serverless/) web application. The application serves static content from Azure Blob Storage, and implements an API using Azure Functions. The API reads data from Cosmos DB and returns the results to the web app.
 
 ![GitHub logo](../../_images/github.png) Two reference implementations for this architecture are available on GitHub: [Drone Delivery App (ARM & Azure Pipelines)][drone-delivery] and [To Do App (Bicep & GitHub Actions)][todo].
@@ -102,7 +100,9 @@ public static Task<IActionResult> Run(
 
 By using bindings, you don't need to write code that talks directly to the service, which makes the function code simpler and also abstracts the details of the data source or sink. In some cases, however, you may need more complex logic than the binding provides. In that case, use the Azure client SDKs directly.
 
-## Scalability considerations
+## Considerations
+
+### Scalability
 
 **Functions**. For the consumption plan, the HTTP trigger scales based on the traffic. There is a limit to the number of concurrent function instances, but each instance can process more than one request at a time. For an App Service plan, the HTTP trigger scales according to the number of VM instances, which can be a fixed value or can autoscale based on a set of autoscaling rules. For information, see [Azure Functions scale and hosting][functions-scale].
 
@@ -110,7 +110,7 @@ By using bindings, you don't need to write code that talks directly to the servi
 
 **API Management**. API Management can scale out and supports rule-based autoscaling. The scaling process takes at least 20 minutes. If your traffic is bursty, you should provision for the maximum burst traffic that you expect. However, autoscaling is useful for handling hourly or daily variations in traffic. For more information, see [Automatically scale an Azure API Management instance][apim-scale].
 
-## Disaster recovery considerations
+### Disaster recovery
 
 The deployment shown here resides in a single Azure region. For a more resilient approach to disaster-recovery, take advantage of the geo-distribution features in the various services:
 
@@ -120,9 +120,9 @@ The deployment shown here resides in a single Azure region. For a more resilient
 
 - Cosmos DB supports [multiple write regions][cosmosdb-geo], which enables writes to any region that you add to your Cosmos DB account. If you don't enable multi-write, you can still fail over the primary write region. The Cosmos DB client SDKs and the Azure Function bindings automatically handle the failover, so you don't need to update any application configuration settings.
 
-## Security considerations
+### Security
 
-### Authentication
+#### Authentication
 
 The `GetStatus` API in the reference implementation uses Azure AD to authenticate requests. Azure AD supports the OpenID Connect protocol, which is an authentication protocol built on top of the OAuth 2 protocol.
 
@@ -149,7 +149,7 @@ It's recommended to create separate app registrations in Azure AD for the client
 
 Within an API, use [scopes][scopes] to give applications fine-grained control over what permissions they request from a user. For example, an API might have `Read` and `Write` scopes, and a particular client app might ask the user to authorize `Read` permissions only.
 
-### Authorization
+#### Authorization
 
 In many applications, the back-end API must check whether a user has permission to perform a given action. It's recommended to use [claims-based authorization][claims], where information about the user is conveyed by the identity provider (in this case, Azure AD) and used to make authorization decisions. For example, when you register an application in Azure AD, you can define a set of application roles. When a user signs into the application, Azure AD includes a `roles` claim for each role that the user has been granted, including roles that are inherited through group membership.
 
@@ -158,7 +158,7 @@ The ID token that Azure AD returns to the client contains some of the user's cla
 For more information, see [Working with client identities](/azure/azure-functions/functions-bindings-http-webhook-trigger#working-with-client-identities
 ).
 
-### CORS
+#### CORS
 
 In this reference architecture, the web application and the API do not share the same origin. That means when the application calls the API, it is a cross-origin request. Browser security prevents a web page from making AJAX requests to another domain. This restriction is called the *same-origin policy* and prevents a malicious site from reading sensitive data from another site. To enable a cross-origin request, add a Cross-Origin Resource Sharing (CORS) [policy][cors-policy] to the API Management gateway:
 
@@ -181,7 +181,7 @@ In this example, the **allow-credentials** attribute is **true**. This authorize
 > [!NOTE]
 > Be very careful about setting **allow-credentials** to **true**, because it means a website can send the user's credentials to your API on the user's behalf, without the user being aware. You must trust the allowed origin.
 
-### Enforce HTTPS
+#### Enforce HTTPS
 
 For maximum security, require HTTPS throughout the request pipeline:
 
@@ -211,7 +211,7 @@ For maximum security, require HTTPS throughout the request pipeline:
 
 - **Azure Functions**. Enable the "[HTTPS Only][functions-https]" setting.
 
-### Lock down the function app
+#### Lock down the function app
 
 All calls to the function should go through the API gateway. You can achieve this as follows:
 
@@ -219,15 +219,15 @@ All calls to the function should go through the API gateway. You can achieve thi
 
 - The API Management gateway has a [static IP address][apim-ip]. Restrict the Azure Function to allow only calls from that static IP address. For more information, see [Azure App Service Static IP Restrictions][app-service-ip-restrictions]. (This feature is available for Standard tier services only.)
 
-### Protect application secrets
+#### Protect application secrets
 
 Don't store application secrets, such as database credentials, in your code or configuration files. Instead, use App settings, which are stored encrypted in Azure. For more information, see [Security in Azure App Service and Azure Functions][app-service-security].
 
 Alternatively, you can store application secrets in Key Vault. This allows you to centralize the storage of secrets, control their distribution, and monitor how and when secrets are being accessed. For more information, see [Configure an Azure web application to read a secret from Key Vault][key-vault-web-app]. However, note that Functions triggers and bindings load their configuration settings from app settings. There is no built-in way to configure the triggers and bindings to use Key Vault secrets.
 
-## DevOps considerations
+### DevOps
 
-### Front-end deployment
+#### Front-end deployment
 
 The front end of this reference architecture is a single page application, with JavaScript accessing the serverless back-end APIs, and static content providing a fast user experience. The following are some important considerations for such an application:
 
@@ -238,11 +238,11 @@ The front end of this reference architecture is a single page application, with 
 - A different cache strategy such as versioning using directories, may not require a purge by the CDN. The build pipeline in this front-end application creates a new directory for each newly built version. This version is uploaded as an atomic unit to the Blob storage. The Azure CDN points to this new version only after a completed deployment.
 - Increase the cache TTL by caching resource files for a longer duration, spanning months. To make sure the cached files are updated when they do change, fingerprint the filenames when they are rebuilt. This front-end application fingerprints all files except for public-facing files such as *index.html*. Since the index.html is updated frequently, it reflects the changed filenames causing a cache refresh. See the [Manage expiration of web content in Azure CDN](/azure/cdn/cdn-manage-expiration-of-cloud-service-content) for more information.
 
-### Back-end deployment
+#### Back-end deployment
 
 To deploy the function app, we recommend using [package files][functions-run-from-package] ("Run from package"). Using this approach, you upload a zip file to a Blob Storage container and the Functions runtime mounts the zip file as a read-only file system. This is an atomic operation, which reduces the chance that a failed deployment will leave the application in an inconsistent state. It can also improve cold start times, especially for Node.js apps, because all of the files are swapped at once.
 
-### API versioning
+#### API versioning
 
 An API is a contract between a service and clients. In this architecture, the API contract is defined at the API Management layer. API Management supports two distinct but complementary [versioning concepts][apim-versioning]:
 
@@ -254,11 +254,11 @@ If you make a breaking change in an API, publish a new version in API Management
 
 For updates that are not breaking API changes, deploy the new version to a staging slot in the same Function App. Verify the deployment succeeded and then swap the staged version with the production version. Publish a revision in API Management.
 
-## Cost considerations
+### Cost optimization
 
 Use the [Azure pricing calculator][azure-pricing-calculator] to estimate costs. Consider these points to optimize cost of this architecture.
 
-### Azure Functions
+#### Azure Functions
 
 Azure Functions supports two hosting models.
 
@@ -272,7 +272,7 @@ Azure Functions supports two hosting models.
 
 In this architecture, a function is invoked when a client makes an HTTP request. Because a constant high-volume throughput is not expected in this use case, **consumption plan** is recommended because you pay only for the compute resources you use.
 
-### Azure Cosmos DB
+#### Azure Cosmos DB
 
 Azure Cosmos DB bills for provisioned throughput and consumed storage by hour. Provisioned throughput is expressed in Request Units per second (RU/s), which can be used for typical database operations, such as inserts, reads. The price is based on the capacity in RU/s that you reserve.
 
@@ -282,7 +282,7 @@ See [Cosmos DB pricing model][cosmosdb-pricing] for more information.
 
 In this architecture, the function application fetches documents from Cosmos DB in response to HTTP GET requests from the client. Cosmos DB is cost effective in this case because reading operations are significantly cheaper than write operations expressed on RU/s.
 
-### Content Delivery Network
+#### Content Delivery Network
 
 Billing rate may differ depending on the billing region based on the location of the source server delivering the content to the end user. The physical location of the client is not the billing region. Any HTTP or HTTPS request that hits the CDN is a billable event, which includes all response types: success, failure, or other. Different responses may generate different traffic amounts.
 
@@ -292,11 +292,11 @@ To lower costs, consider increasing the cache TTL by caching resource files for 
 
 For more information, see the Cost section in [Microsoft Azure Well-Architected Framework][aaf-cost].
 
-## Deploy the solution
+## Deploy this scenario
 
 To deploy the reference implementation for this architecture, see the [GitHub readme][readme].
 
-## Next steps
+## Related resources
 
 To learn more about the reference implementation, read [Code walkthrough: Serverless application with Azure Functions](../../serverless/code.yml).
 
