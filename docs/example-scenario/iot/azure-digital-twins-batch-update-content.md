@@ -20,7 +20,7 @@ _Download a [Visio file](https://arch-center.azureedge.net/azure-digital-twins-b
 
 2. A mapping data flow handles any transformations and outputs a file for each twin that must be processed.
 
-3. A [get metadata activity](/azure/data-factory/control-flow-get-metadata-activity) retrieves the list of files, loops through them, and calls a custom activity.
+3. A [get metadata activity](/azure/data-factory/control-flow-get-metadata-activity) retrieves the list of files, loops through them, and calls a [custom activity](/azure/data-factory/transform-data-using-custom-activity).
 
 4. Azure Batch creates a task for each file that executes the custom code to interface with Azure Digital Twins.
 
@@ -34,16 +34,18 @@ _Download a [Visio file](https://arch-center.azureedge.net/azure-digital-twins-b
 
 - [Azure Batch](https://azure.microsoft.com/services/batch) executes the custom activity code.
 
-- [Azure Managed Identity](https://azure.microsoft.com/services/active-directory) securely connect from the custom activity to Azure Digital Twins.
+- [Azure Active Directory](https://azure.microsoft.com/services/active-directory) provides [managed identities](/azure/active-directory/managed-identities-azure-resources/overview) for securely connecting from the custom activity to Azure Digital Twins.
 
 ### Alternatives
 
-An alternative to this approach could be to swap Azure Functions for Azure Batch.  We chose not to use Functions for this architecture because there's a timeout window for execution.  If the update to Digital Twins requires complex logic, or if the API gets throttled, the function could time out before completing.  Azure Batch doesn't have this restriction, and we can also configure the number of virtual machines that are active to process the files to find a balance of scale and speed of updates.
+An alternative to this approach is to use [Azure Functions](https://azure.microsoft.com/services/functions/) instead of Azure Batch. We chose not to use Azure Functions for this architecture, because Functions has a timeout for execution. A timeout could be a problem if the update to Digital Twins requires complex logic, or if the API gets throttled. In such a case, the function could time out before execution is complete. Azure Batch doesn't have this restriction. Also, when using Batch, you can configure the number of virtual machines that are active to process the files. This flexibility helps you to find a balance of scale and speed of updates.
 
 ## Considerations
 
-- Custom Activities are essentially console applications.  We took some of the best practices outlined in [Creating an Azure Data Factory v2 Custom Activity](https://mrpaulandrew.com/2018/11/12/creating-an-azure-data-factory-v2-custom-activity/), a blog post by Paul Andrew, Microsoft MVP, to use as a foundation to be able to run and debug locally.
-- Consider archiving the files after they've been processed for historical purposes.
+- Custom Activities are essentially console applications.  We took some of the best practices that are outlined in [Creating an Azure Data Factory v2 Custom Activity](https://mrpaulandrew.com/2018/11/12/creating-an-azure-data-factory-v2-custom-activity/), a post by Paul Andrew on his blog, as a foundation to be able to run and debug locally.
+
+- Consider archiving the files, after they've been processed, for historical purposes.
+
 - Consider implementing a change-data-capture pattern so that you only update the twins that are necessary.
 
 ### Availability
@@ -102,7 +104,25 @@ A reference implementation can be found in [GitHub](https://github.com/Azure-Sam
 ## Pricing
 
 Leverage the [Azure Pricing Calculator](https://azure.microsoft.com/pricing/calculator/) to get accurate pricing on Azure Digital Twins, Azure Data Factory, and Azure Batch.
- 
+
+## Contributors
+
+_This article is being updated and maintained by Microsoft. It was originally written by the following contributors._
+
+**Principal authors:** 
+
+ * [Howard Ginsburg](https://www.linkedin.com/in/howardginsburg) | Senior Cloud Solutions Architect
+
+## Next steps
+
+> Link to Docs and Learn articles, along with any third-party documentation.
+> Where should I go next if I want to start building this?
+> Are there any relevant case studies or customers doing something similar?
+> Is there any other documentation that might be useful? Are there product documents that go into more detail on specific technologies that are not already linked?
+
+
+
+
 ## Related resources
 
 - [Pipeline Orchestration](https://docs.microsoft.com/en-us/azure/architecture/data-guide/technology-choices/pipeline-orchestration-data-movement)
