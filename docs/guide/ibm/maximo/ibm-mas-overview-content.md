@@ -1,18 +1,91 @@
 ## Introduction to IBM Maximo Application Suite
 
+The Maximo Application Suite (MAS) is an Enterprise Asset Management platform focused on operational resiliency and reliability that leverages condition-based asset maintenance. The suite has several core components:
+
+- Manage - Reduce downtime and costs through asset management to improve operational performance.
+- Monitor - Advanced AI-powered remote asset monitoring at scale.
+- Health - Manage the health of assets using IoT data from sensors, asset data and maintenance history.
+- Visual Inspection - Inspection of assets using mobile devices that focuses on identification of emerging issues.
+- Predict - Machine learning and data analytics focused on predicting future failures.
+- Mobile - Capability to integrate the various asset and facility management solutions.
+
+The following components have been tested on Azure:
+
+- MAS Core
+- Manage
+- Monitor
+
+This guide provides general information for running MAS on Azure and assumes you will have support from an IBM Partner for installation. MAS 8.x runs on OpenShift and it is beneficial to familiarize yourself with the suggested patterns for [Preparing to install on Azure](https://docs.openshift.com/container-platform/4.8/installing/installing_azure/preparing-to-install-on-azure.html). For this guide, we will be focusing on the IPI pattern.
+
+> [!NOTE]
+> Air gapped patterns have not been tested but would require using the [User Provided Infrastructure (UPI)](https://github.com/openshift/installer/blob/master/docs/user/azure/install_upi.md) as a starting point.
+
 ## Architecture
 
-:::image type="complex" source="./images/ibm-azure-guide-architecture-diagram.png" alt-text="Architecture diagram showing how to deploy IBM Maximo Application Suite on Azure." border="false":::
-   The diagram contains a large rectangle with the label Azure Virtual Network. Inside it, another large rectangle. 
+:::image type="complex" source="./../images/ibm-azure-guide-architecture-diagram.png" alt-text="Architecture diagram showing how to deploy IBM Maximo Application Suite on Azure." border="false":::
+   The diagram contains a large rectangle with the label Azure Virtual Network. Inside it, another large rectangle.
 :::image-end:::
+
+The IPI install pattern along with a `install-config.yaml` file will produce the above architecture minus the following:
+
+- Domain Name with DNS Zone
+- BYO Virtual Network (Optional)
+- Premium Storage (NFS) with a Private Endpoint
+- Standard Storage (SMB) with a Private Endpoint
+- JumpBox (used for access / installation)
+- SQL Server (Optional)
+- Virtual Network Gateway and other services outside of the Virtual Network
+
+> [!NOTE]
+> Example of a install-config-yaml file can be found in the official [QuickStart Guide: Maximo Application Suite on Azure](https://github.com/Azure/maximo) under the path `/src/ocp/install-config.yaml`
 
 ## Prerequisites
 
+1. Access to an Azure Subscription with User Access Administrator privileges
+1. Application Registration (SPN) that has Contributor and User Access Administrator privileges
+1. Domain or delegated Sub Domain to a Azure DNS Zone
+1. RedHat OpenShift Service Agreement (Pull Secret and other keys)
+1. IBM MAS Entitlement Key
+1. IBM MAS License File
+1. Determine if you will provide an existing VNet or let the IPI create one
+1. Determine what your HA/DR requirements are
+
+For a step-by-step guide for installing OpenShift or MAS on Azure, pleas see our official [QuickStart Guide](https://github.com/Azure/maximo) on GitHub.
+
 ## Design recommendations
+
+At this time, MAS 8.7 supports OpenShift versions 4.8. It is recommended to use these version to avoid falling out of the official support for either IBM MAS or RedHat OpenShift. Before, building out your own deployment, we strongly recommend trying out our [QuickStart Guide](https://github.com/Azure/maximo) so that you have a clear understanding of how the deployment and configuration occurs. This will most likely speed up the process of building design requirements for your implementation.
+
+We work closely with IBM and other Partners to ensure the guidance found in this document will give you the best experience on Azure. Please do not hesitate to reach out to your Account Team for support beyond this documentation.
 
 ## Sizing recommendations
 
+Recommended sizing should be done by your IBM Team based on your existing installation or planned size. Once this is complete, you can calculate the number of control and worker nodes you will need for your cluster. Generally, we recommend using the following:
+
+### Dsv4 Series
+
+- Control nodes, you will want at minimum 1 Node per Availability Zone within the selected region. In our diagram above, we suggest 3 - D8s_v4 nodes.
+- Worker nodes, you will want a minimum of 2 Nodes per Availability Zone within the selected region. In our diagram above, we suggest 6 - D8s_v4 nodes.
+
+> [!NOTE]
+> Sizing for the worker nodes will vary based on which MAS services are deployed and the expected load on your environment.
+
+If you will be provisioning a JumpBox to do your installation, you should be able to get by with a `Standard_B2ms` running RHEL 8.4.
+
 ## Network and placement considerations
+
+If OpenShift is being deployed to support a MAS installation then considerations will most likely want to look at considerations for OpenShift as well since MAS runs inside of OpenShift making Azure specific considerations less applicable. If there is already an existing support strategy in place for OpenShift then you can skip over the specific OpenShift considerations and focus on MAS.
+
+### OpenShift
+
+Considerations:
+
+- **Region Selection** - Inside the OpenShift platform, it attempts to load balance workloads across all available nodes. When configuring the IPI for deployment, it will attempt to provision nodes across zones, when possible. In the event of a zone outage, OpenShift can still function by having other nodes (control and worker) running in another zone (Assuming those nodes have enough room to schedule the pods). List of [Availability Zones](/azure/availability-zones/az-overview#azure-regions-with-availability-zones).
+- **Backup & Recover** - Although ARO is not currently supported by MAS, you can review our [guidance](/azure/openshift/howto-create-a-backup) for our Managed OpenShift (ARO) offering.
+- **Failover** - Consider deploying OpenShift into 2 region and placing either Azure Front Door or Azure Traffic Manager in front of them to redirect traffic in the event of an outage. In this situation, you would need to migrate your applications state and persistent volumes as well.
+
+### MAS
+
 
 ## Data sources
 
