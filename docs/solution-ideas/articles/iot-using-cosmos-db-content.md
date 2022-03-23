@@ -7,14 +7,13 @@ Global distribution transparently scales and replicates data across Azure region
 Azure Cosmos DB is ideal for IoT workloads because it can:
 
 - Ingest device telemetry data at high rates, and return indexed queries with low latency and high availability.
-- Store JSON schemas from different device vendors, or convert device messages to a canonical JSON schema.
+- Store JSON format from different device vendors, which provides flexibility in payload schema.
 - Use wire protocol–compatible API endpoints for Cassandra, MongoDB, SQL, Gremlin, etcd, and table databases, and built-in support for Jupyter Notebook files.
 
 ## Potential use cases
 
-- Quickly respond to device issues by automatically initiating device actions, like reboots.
-- Save costs by selecting appropriate read consistency levels and automatically moving data to cold storage.
-- Handle data from a wide variety of device vendors and database types.
+- Use built-in, globally distributed Cosmos DB capabilities to enable low latency read-writes for highly responsive IoT applications.
+- Handle data from a wide variety of device vendors and data types.
 
 ## Architecture
 
@@ -24,16 +23,16 @@ Azure Cosmos DB is ideal for IoT workloads because it can:
 
 1. IoT sensors and Edge devices send events as message streams through Azure IoT Hub to the analyze and transform layer. IoT Hub can store data streams in partitions for a specified duration.
 
-1. Azure Databricks with Apache Spark Structured Streaming picks up messages from IoT Hub in real time, processes the data based on business logic, and sends the data to the storage server. Structured Streaming can provide real time analytics, such as calculating moving averages or minimum and maximum values over time periods.
+1. Azure Databricks with Apache Spark Structured Streaming picks up messages from IoT Hub in real time, processes the data based on business logic, and sends the data to storage. Structured Streaming can provide real time analytics, such as calculating moving averages or minimum and maximum values over time periods.
 
-1. Azure Cosmos DB stores device messages as JSON documents in the *hot data store*. Azure Cosmos DB can validate against JSON schemas from different device vendors, or convert device messages to a canonical JSON schema.
+1. Azure Cosmos DB stores device messages as JSON documents in the *hot data store*. Azure Cosmos DB can validate against JSON schemas from different device vendors.
 
    The storage layer also consists of:
    - Azure Blob Storage. IoT Hub [message routing](/azure/iot-hub/tutorial-routing) saves raw device messages to Blob storage, providing an inexpensive, long-term *cold data store*.
    - Azure SQL Database, to store transactional and relational data, such as billing data and user roles.
    - Azure Synapse Analytics data warehouse, populated by [Azure Data Factory](https://azure.microsoft.com/services/data-factory), which aggregates data from Azure Cosmos DB and Azure SQL DB.
 
-1. Microsoft Power BI analyzes the warehoused data.
+1. Microsoft Power BI analyzes the data warehouse.
 
 1. The presentation layer uses data from the storage layer to build web, mobile, and API apps.
 
@@ -87,15 +86,15 @@ The solution also uses the following Azure components:
 
 - Instead of Azure Databricks, the transformation and analytics layer could use [HDInsight Storm](/azure/hdinsight/storm/apache-storm-overview), [HDInsight Spark](/azure/hdinsight/spark/apache-spark-overview) or [Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics) to do streaming analytics, and use Azure Functions to transform the message payloads.
 
-- The service storage layer could use [Azure Data Explorer](https://azure.microsoft.com/services/data-explorer) and [Time Series Insights](https://azure.microsoft.com/services/time-series-insights) for storing IoT messages. Both of these services also have rich analytics capabilities.
+- The service storage layer could use [Azure Data Explorer](https://azure.microsoft.com/services/data-explorer) for storing IoT messages. This service also has rich analytics capabilities.
 
 ## Considerations
 
 Azure Cosmos DB has a [20-GB limit](/azure/cosmos-db/partitioning-overview) for a single logical partition. For most IoT solutions, this size is sufficient. If not, you can:
 
-  - Set the partition key to an artificial field, and assign the field a composite value, such as **Device ID + Current Month and Year**. This strategy assures high value cardinality.
+  - Set the partition key to an artificial field, and assign the field a composite value, such as **Device ID + Current Month and Year**. This strategy assures high value cardinality for a good partition design. For more information, see [Choose a partition key](/azure/cosmos-db/partitioning-overview##choose-partitionkey).
   
-  - Move old Azure Cosmos DB data to cold storage, such as Azure Blob Storage, by using a combination of TTL to automatically prune data, and change feed to replicate the data to cold storage.
+  - Based on data lifecycle, you can move older Azure Cosmos DB data to cold storage, such as Azure Blob Storage. You can use a combination of change feed to replicate the data to cold storage, and TTL to delete data automatically from a container after a certain time period.
 
 ## Next steps
 
