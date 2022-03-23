@@ -193,7 +193,7 @@ The following sections list other serverless and Azure Functions-related referen
 - [Azure IoT reference (Cosmos DB)](../reference-architectures/iot.yml)
 - [IoT using Cosmos DB](../solution-ideas/articles/iot-using-cosmos-db.yml)
 - [Facilities management powered by mixed reality and IoT](../solution-ideas/articles/facilities-management-powered-by-mixed-reality-and-iot.yml)
-- [Complementary Code Pattern for Azure IoT Edge Modules & Cloud Applications](/samples/azure-samples/iot-edge-complementary-code/complementary-code-pattern-for-azure-iot-edge-modules--cloud-applications/)
+- [Complementary Code Pattern for Azure IoT Edge Modules & Cloud Applications](https://github.com/Azure-Samples/iot-edge-complementary-code/blob/master/csharp/cloud/README.md)
 
 ### Gaming
 

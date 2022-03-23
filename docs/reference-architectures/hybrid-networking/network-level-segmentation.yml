@@ -4,7 +4,7 @@ metadata:
   titleSuffix: Azure Reference Architectures
   description: Learn how to use network level segmentation to secure virtual networks by using the wide and diverse set of segmentation options available in Microsoft Azure.
   author: tremansdoerfer
-  ms.author: pnp
+  ms.author: rimansdo
   ms.date: 4/30/2020
   ms.topic: conceptual
   ms.service: architecture-center

@@ -125,10 +125,10 @@ To explore the cost of running this scenario, use the [Azure pricing calculator]
 
 Explore the functionality and architecture of other SWIFT modules in the following articles:
 
-* [SWIFT Alliance Connect in Azure](swift-on-azure-srx.yml)
-* [SWIFT Alliance Connect Virtual in Azure](swift-on-azure-vsrx.yml)
-* [SWIFT Alliance Access with Alliance Connect](swift-alliance-access-on-azure.yml)
-* [SWIFT Alliance Access with Alliance Connect Virtual](swift-alliance-access-vsrx-on-azure.yml)
-* [SWIFT Alliance Messaging Hub (AMH) with Alliance Connect](swift-alliance-messaging-hub.yml)
-* [SWIFT Alliance Messaging Hub (AMH) with Alliance Connect Virtual](swift-alliance-messaging-hub-vsrx.yml)
+* [SWIFT's Alliance Connect in Azure](swift-on-azure-srx.yml)
+* [SWIFT's Alliance Connect Virtual in Azure](swift-on-azure-vsrx.yml)
+* [SWIFT's Alliance Access with Alliance Connect](swift-alliance-access-on-azure.yml)
+* [SWIFT's Alliance Access with Alliance Connect Virtual](swift-alliance-access-vsrx-on-azure.yml)
+* [SWIFT's Alliance Messaging Hub (AMH) with Alliance Connect](swift-alliance-messaging-hub.yml)
+* [SWIFT's Alliance Messaging Hub (AMH) with Alliance Connect Virtual](swift-alliance-messaging-hub-vsrx.yml)
 * [SWIFT Alliance Lite2 on Azure](swift-alliance-lite2-on-azure.yml)

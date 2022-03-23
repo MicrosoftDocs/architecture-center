@@ -12,7 +12,7 @@ Most demand for enterprise virtual desktop solutions comes from:
 ## Architecture
 
 ![Diagram of an Azure Virtual Desktop service architecture](images/windows-virtual-desktop.png)
-Download a [Visio file](https://arch-center.azureedge.net/wvdatscale.vsdx) of this architecture.
+_Download a [Visio file](https://arch-center.azureedge.net/wvdatscale.vsdx) of this architecture._
 
 ### Dataflow
 
@@ -167,7 +167,7 @@ Architect your Azure Virtual Desktop solution to realize cost savings. Here are 
 - [Active Directory Domain Services](/windows-server/identity/ad-ds/active-directory-domain-services)
 - [What is Azure AD Connect?](/azure/active-directory/hybrid/whatis-azure-ad-connect)
 
-## Additional resources
+## Related resources
 
 - [FSLogix for the enterprise - best practices documentation](./windows-virtual-desktop-fslogix.yml)
 - For multiple AD forests architecture, read [Multiple AD Forests Architecture in Azure Virtual Desktop](./multi-forest.yml).
