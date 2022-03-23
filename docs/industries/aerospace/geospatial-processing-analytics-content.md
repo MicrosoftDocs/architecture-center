@@ -165,7 +165,7 @@ The following article shows how to read, write and apply transformations to rast
 
 - Print information from the raster data 
  
-  ```
+  ```python
   from osgeo import gdal  
   gdal.UseExceptions()  
   gdal.SetConfigOption('AZURE_STORAGE_ACCOUNT', '<storage_account_name>')
@@ -249,7 +249,7 @@ The following article shows how to read, write and apply transformations to rast
 	
 - Convert GeoTiff to PNG using GDAL
 
-	```
+	```python
 	from osgeo import gdal
 	gdal.UseExceptions()	
 	gdal.SetConfigOption('AZURE_STORAGE_ACCOUNT', '<storage_account_name>')
@@ -264,7 +264,7 @@ The following article shows how to read, write and apply transformations to rast
 	
 	> Due to the nature of how data is stored in cloud and the fact the file handlers `/vsiaz/` or `/vsiadls/` support only sequential writes, we leverage the file mount feature available in [mssparkutils package](https://docs.microsoft.com/azure/synapse-analytics/spark/synapse-file-mount-api). Once the output is written to a mount location,  copy it to ADLS Gen2 as shown in the below sample transformation.
 	
-	```
+	```python
 	import shutil
 	import sys
 	from osgeo import gdal
@@ -322,10 +322,10 @@ To support Geospatial workloads on Azure Synapse, it requires libraries like [GD
 
 #### Steps
 
-1. The following libraries/packages are available in the [environment.yml](https://github.com/Azure/Azure-Orbital-Analytics-Samples) file. This file will be used to install the libraries to the Spark pools.
+1. The following libraries/packages are available in the [environment.yml](https://github.com/Azure/Azure-Orbital-Analytics-Samples/deploy/environment.yml) file. This file will be used to install the libraries to the Spark pools.
 
-	```
-	name: geospatial-pkgs
+	```yaml
+	name: aoi-env
 	channels:
   	  - conda-forge
   	  - defaults
