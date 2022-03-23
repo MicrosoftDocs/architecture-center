@@ -81,7 +81,7 @@ Azure public MEC supports AKS and [Azure Virtual Machine Scale Sets](https://azu
 
 ### Load balancing options
 
-AKS internally supports multiple options to load balance incoming traffic. The [NGINX Ingress Controller](https://docs.nginx.com/nginx-ingress-controller) is shown in the architecture diagram, but there are other load balancers that you can use with AKS. For more information, see [Use an internal load balancer with Azure Kubernetes Service (AKS)](https://docs.microsoft.com/azure/aks/internal-lb).
+AKS internally supports multiple options to load balance incoming traffic. The [NGINX Ingress Controller](https://docs.nginx.com/nginx-ingress-controller) is shown in the architecture diagram, but there are other load balancers that you can use with AKS. For more information, see [Use an internal load balancer with Azure Kubernetes Service (AKS)](/azure/aks/internal-lb).
 
 ### Performance
 
@@ -99,9 +99,9 @@ Azure public MEC doesn’t support Azure Storage accounts, so the blob Storage c
 ## Next steps
 
 - [Azure public multi-access edge compute (MEC)](https://azure.microsoft.com/solutions/public-multi-access-edge-compute-mec)
-- [Azure Kubernetes Service (AKS) documentation](https://docs.microsoft.com/azure/aks)
-- [Azure Machine Learning documentation](https://docs.microsoft.com/azure/machine-learning)
-- [Azure CDN documentation](https://docs.microsoft.com/azure/cdn)
+- [Azure Kubernetes Service (AKS) documentation](/azure/aks)
+- [Azure Machine Learning documentation](/azure/machine-learning)
+- [Azure CDN documentation](/azure/cdn)
 
 ## Related resources
 
