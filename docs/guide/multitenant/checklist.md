@@ -77,7 +77,7 @@ When you build your multitenant solution in Azure, there are many elements that 
 
 ## Next steps
 
-* Review [architectural considerations for multitenant solutions](./considerations/overview.md).
+* Review [architectural considerations for multitenant solutions](./considerations/overview.yml).
 * Review [architectural approaches for multitenancy](./approaches/overview.yml).
 * Review [service-specific guidance for multitenancy](./service/overview.md).
 * Review additional [resources for architects and developers of multitenant solutions](related-resources.md).
