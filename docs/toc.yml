@@ -665,6 +665,17 @@ items:
                   - name: Compliance
                     href: /industry/financial-services/compliance-overview
                     maintainContext: true
+              - name: Dynamics 365 Finance and Operations
+                items:
+                  - name: Export to Azure Data Lake overview
+                    href: /dynamics365/fin-ops-core/dev-itpro/data-entities/azure-data-lake-ga-version-overview
+                    maintainContext: true
+                  - name: Export in Finance and Operations apps
+                    href: /dynamics365/fin-ops-core/dev-itpro/data-entities/finance-data-azure-data-lake
+                    maintainContext: true
+                  - name: Change data in Azure Data Lake
+                    href: /dynamics365/fin-ops-core/dev-itpro/data-entities/azure-data-lake-change-feeds
+                    maintainContext: true
               - name: Risk grid computing in banking
                 href: industries/finance/risk-grid-banking-overview.yml
               - name: Risk grid computing solution
@@ -674,6 +685,8 @@ items:
               - name: Financial institutions with data mesh
                 href: /azure/cloud-adoption-framework/scenarios/data-management/architectures/reference-architecture-data-mesh
                 maintainContext: true
+              - name: Big compute for financial risk modeling
+                href: guide/architecture-styles/big-compute.md
               - name: Actuarial risk analysis
                 href: industries/finance/actuarial-risk-analysis-financial-model.yml
               - name: Financial services risk lifecycle
@@ -3939,8 +3952,6 @@ items:
                     href: example-scenario/banking/banking-system-cloud-transformation.yml
                   - name: Patterns and implementations
                     href: example-scenario/banking/patterns-and-implementations.yml
-                  - name: JMeter implementation reference
-                    href: example-scenario/banking/jmeter-load-testing-pipeline-implementation-reference.yml
               - name: Oracle database migration
                 items:
                   - name: Migration decision process
@@ -3955,6 +3966,8 @@ items:
                     href: example-scenario/oracle-migrate/oracle-migration-rearchitect.yml
           - name: Solution ideas
             items:
+              - name: JMeter implementation reference
+                href: example-scenario/banking/jmeter-load-testing-pipeline-implementation-reference.yml
               - name: Lift and shift LOB apps
                 href: solution-ideas/articles/modern-customer-support-portal-powered-by-an-agile-business-process.yml
               - name: Migrate .NET applications
