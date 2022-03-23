@@ -33,14 +33,14 @@ NiFi works well for moving data and managing the flow of data:
 This solution applies to many areas:
 
 * Modern data warehouses (MDWs) bring structured and unstructured data together at scale. They collect and store data from various sources, sinks, and formats. NiFi excels at ingesting data into Azure-based MDWs for the following reasons:
-        o	Over 200 processors are available for reading, writing, and manipulating data.
-        o	The system supports Storage services such as Azure Blob Storage, Azure Data Lake Storage, Azure Event Hubs, Azure Queue Storage, Azure Cosmos DB, and Azure Synapse Analytics.
-        o	Robust data provenance capabilities make it possible to implement compliant solutions. For information about capturing data provenance in the Log Analytics feature of Azure Monitor, see Reporting considerations later in this article.
+  * Over 200 processors are available for reading, writing, and manipulating data.
+  *  The system supports Storage services such as Azure Blob Storage, Azure Data Lake Storage, Azure Event Hubs, Azure Queue Storage, Azure Cosmos DB, and Azure Synapse Analytics.
+  * Robust data provenance capabilities make it possible to implement compliant solutions. For information about capturing data provenance in the Log Analytics feature of Azure Monitor, see Reporting considerations later in this article.
 * NiFi can run on a standalone basis on small-footprint devices. In such cases, NiFi makes it possible to process edge data and move that data to larger NiFi instances or clusters in the cloud. NiFi helps filter, transform, and prioritize edge data in motion, ensuring reliable and efficient data flows.
 * Industrial IoT (IIoT) solutions manage the flow of data from the edge to the data center. That flow starts with data acquisition from industrial control systems and equipment. The data then moves to data management solutions and MDWs. NiFi offers capabilities that make it well suited for data acquisition and movement:
-        o	Edge data processing functionality
-        o	Support for protocols that IoT gateways and devices use
-        o	Integration with Event Hubs and Storage services
+  * Edge data processing functionality
+  * Support for protocols that IoT gateways and devices use
+  * Integration with Event Hubs and Storage services
 * IoT applications in the areas of predictive maintenance and supply chain management can make use of this functionality.
 
 
