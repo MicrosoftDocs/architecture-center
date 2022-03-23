@@ -28,11 +28,13 @@ The below workflow will walk-through the different stages of the end-to-end arch
 
   - Spaceborne data is pulled from various data sources like [Airbus](https://oneatlas.airbus.com/home), [NAIP / USDA (via Planetary Computer API)](https://planetarycomputer.microsoft.com/dataset/naip), [Maxar](https://www.maxar.com/), [Capella](https://www.capellaspace.com/), [HEAD Aerospace](https://www.head-aerospace.eu/satellite-imagery), etc and ingested into [Azure Data Lake Storage](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-introduction). 
   - Azure Synapse Analytics provides various pipelines & activities like Web Activity, Data flow Activity and Custom Activity to connect to these sources and copy the data into Azure Data Lake Storage.
+    - Azure Synapse custom activity runs your customized code logic on an [Azure Batch](https://docs.microsoft.com/azure/batch/batch-technical-overview) pool of virtual machines or [Docker-compatible containers](https://docs.microsoft.com/azure/batch/batch-docker-container-workloads).
   
 #### Spaceborne data tranformation
 
  - The spaceborne data is then processed and transformed into a format that can be consumed by the Analysts and the AI Models. There are various geospatial libraries available to perform the transformation like GDAL, OGR, Rasterio, GeoPandas, etc.
- - Azure Synapse Analytics Spark Pools provide the ability to configure and use these libraries to perform such data transformations. In addition to Spark Pools, Azure Synapse Analytics also provides a *Custom Activity* that leverages Azure Batch Pools which can be used. In the [sample code](#sample-code), data transformations are performed using the **GDAL** library in a Spark Pool. Please refer the sample code section for more details.
+ - Azure Synapse Analytics Spark Pools provide the ability to configure and use these libraries to perform such data transformations. In addition to Spark Pools, Azure Synapse Analytics also provides a *Custom Activity* that leverages Azure Batch Pools which can be used. 
+ - [Azure Synapse Analytics notebooks](https://docs.microsoft.com/azure/synapse-analytics/spark/apache-spark-notebook-concept) is a web interface to create files that contain live code, visualizations, and narrative text. Notebooks are a good place to validate ideas, define transformations and use quick experiments to get insights from your data and build a pipeline. In the [sample code](#sample-code), data transformations are performed using the **GDAL** library in a Spark Pool. Please refer the sample code section for more details.
  - Sample solution implements this pipeline from this step of data transformation and expects data to be copied in Azure Data Lake Storage by above data ingestion methods. It demonstrates end to end implementation of this pipeline for raster data processing.
 
 #### Analysis and Execution of AI Models
@@ -81,8 +83,8 @@ The below geospatial libraries/packages are applied in combination to transforma
 	- [Shapely](https://shapely.readthedocs.io/en/stable/manual.html#introduction) is a Python package for set-theoretic analysis and manipulation of planar features using (via Python's ctypes module) functions from the well known and widely deployed GEOS library.
 	- [pyproj](https://pyproj4.github.io/pyproj/stable/examples.html) Performs cartographic transformations. Converts from longitude, latitude to native map projection x,y coordinates and vice versa using [PROJ](https://proj.org).
 
-- [Azure Batch](https://docs.microsoft.com/azure/batch/batch-technical-overview) to run large-scale parallel and high-performance computing (HPC) batch jobs efficiently in Azure. 
-  - Azure Synapse custom activity runs your customized code logic on an Azure Batch pool of virtual machines or docker containers.
+- [Azure Batch](https://docs.microsoft.com/azure/batch/batch-technical-overview) lets you run and scale large number of batch computing jobs on Azure. Batch tasks can run directly on virtual machines (nodes) in a Batch pool, but you can also set up a Batch pool to run tasks in [Docker-compatible containers](https://docs.microsoft.com/azure/batch/batch-docker-container-workloads) on the nodes.
+  - Azure Synapse custom activity runs your customized code logic on an Azure Batch pool of virtual machines or docker containers. 
 - [Azure Synapse Analytics notebooks](https://docs.microsoft.com/azure/synapse-analytics/spark/apache-spark-notebook-concept) is a web interface for you to create files that contain live code, visualizations, and narrative text. Notebooks are a good place to validate ideas and use quick experiments to get insights from your data. 
   - Existing Synapse notebooks can be added to Synapse pipeline using the Notebook activity.
 
@@ -91,8 +93,9 @@ The below geospatial libraries/packages are applied in combination to transforma
 #### Analysis and AI Modeling
 
 - [Azure Synapse Analytics](https://docs.microsoft.com/azure/synapse-analytics/machine-learning/what-is-machine-learning) for Machine Learning capabilities
-- [Azure Batch](https://docs.microsoft.com/azure/batch/batch-technical-overview) to run large-scale parallel and high-performance computing (HPC) batch jobs efficiently in Azure. 
+-  [Azure Batch](https://docs.microsoft.com/azure/batch/batch-technical-overview) lets you run and scale large number of batch computing jobs on Azure. Batch tasks can run directly on virtual machines (nodes) in a Batch pool, but you can also set up a Batch pool to run tasks in [Docker-compatible containers](https://docs.microsoft.com/azure/batch/batch-docker-container-workloads) on the nodes.
   - Azure Synapse custom activity runs your customized code logic on an Azure Batch pool of virtual machines or docker containers.
+  - In this solution, we use Azure Synapse Custom activity to execute docker based AI models on Azure Batch pools. 
 
 - [Azure Cognitive services](https://docs.microsoft.com/azure/cognitive-services/what-are-cognitive-services)
 	- [Custom vision](https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/overview)
@@ -112,7 +115,7 @@ The below geospatial libraries/packages are applied in combination to transforma
 
 - [Azure Kubernetes Service](https://docs.microsoft.com/azure/aks/), [Azure Container Instances](https://docs.microsoft.com/azure/container-instances/), [Azure Container Apps](https://azure.microsoft.com/services/container-apps/) provide alternatives to run containerized AI models which can be called from Azure Synapse Analytics.
 - [Azure Databricks](https://docs.microsoft.com/azure/databricks/) provides a viable alternative option to host an end-to-end analytics pipeline.
-- [Azure HDInsight Spark](https://docs.microsoft.com/azure/hdinsight/spark/apache-spark-overview)
+- [Azure HDInsight Spark](https://docs.microsoft.com/azure/hdinsight/spark/apache-spark-overview) provides a viable alternative option to use geospatial libraries in the Apache Spark environment.
 
 Some other alternative geospatial libraries / frameworks that can be used for geospatial processing are:
 - [Apache Sedona](https://sedona.apache.org/) was formerly called GeoSpark, is a cluster computing system for processing large-scale spatial data. Sedona extends Apache Spark / SparkSQL with a set of out-of-the-box Spatial Resilient Distributed Datasets / SpatialSQL that efficiently load, process, and analyze large-scale spatial data across machines.
@@ -123,29 +126,31 @@ Some other alternative geospatial libraries / frameworks that can be used for ge
 
 ### Operational excellence
 
-[Azure Devops and Azure Synapse Analytics](https://docs.microsoft.com/azure/synapse-analytics/cicd/source-control#:~:text=Already%20connected%20to%20GitHub%20using%20a%20personal%20account,Synapse%20and%20grant%20the%20access%20to%20your%20organization.)
+- [Azure Devops and Azure Synapse Analytics](https://docs.microsoft.com/en-us/azure/synapse-analytics/cicd/source-control#:~:text=The%20configuration%20pane%20shows%20the%20following%20Azure%20DevOps,%3Cyour%20organization%20name%3E%20%206%20more%20rows%20?msclkid=f10ed11caab011ec9afb89a6db3e1e9f) if you have a need for collaboration using Git for source control, Synapse Studio allows you to associate your workspace with a Git repository, Azure DevOps, or GitHub. 
+  - In an Azure Synapse Analytics workspace, CI/CD moves all entities from one environment (development, test, production) to another environment. 
+  - You can use Azure DevOps release pipeline and GitHub Actions to automate the deployment of an Azure Synapse workspace to multiple environments.
 
 ### Performance
 
-[Speed up your data workloads with performance updates to Apache Spark 3.1.2 in Azure Synapse](https://techcommunity.microsoft.com/t5/azure-synapse-analytics-blog/speed-up-your-data-workloads-with-performance-updates-to-apache/ba-p/2769467#:~:text=In%20the%20new%20release%20of%20Spark%20on%20Azure,your%20data%2C%20faster%20and%20at%20a%20lower%20cost.)
+- [Speed up your data workloads with performance updates to Apache Spark 3.1.2 in Azure Synapse](https://techcommunity.microsoft.com/t5/azure-synapse-analytics-blog/speed-up-your-data-workloads-with-performance-updates-to-apache/ba-p/2769467#:~:text=In%20the%20new%20release%20of%20Spark%20on%20Azure,your%20data%2C%20faster%20and%20at%20a%20lower%20cost.) Azure Synapse Analytics supports Apache Spark 3.1.2, that is more performant than its predecessors. 
+- [Spark pools in Azure Synapse Analytics](https://docs.microsoft.com/azure/synapse-analytics/spark/apache-spark-pool-configurations)
+- [Azure Batch](https://docs.microsoft.com/azure/batch/batch-technical-overview) provides capability to scale out intrinsically parallel for transformations submitted as Azure Synapse Custom activity. For running the AI models, Azure Batch supports specialized GPU-optimized VM sizes.
 
-[Spark pools in Azure Synapse Analytics](https://docs.microsoft.com/azure/synapse-analytics/spark/apache-spark-pool-configurations)
 
 ### Reliability
 
-[Azure Synapse SLA](https://www.azure.com/support/sla/synapse-analytics/index.html)
+- [Azure Synapse SLA](https://azure.microsoft.com/support/legal/sla/synapse-analytics/v1_1/)
+   - This architecture is based on Azure Synapse Analytics. Please refer the SLA for more information.
 
 ### Security
 
-[Azure Synapse Analytics security](https://docs.microsoft.com/azure/synapse-analytics/guidance/security-white-paper-introduction)
+Please refer the following security best practices 
 
-[Azure Synapse Analytics security white paper: Data protection](https://docs.microsoft.com/azure/synapse-analytics/guidance/security-white-paper-data-protection)
-
-[Azure Synapse Analytics security white paper: Access control](https://docs.microsoft.com/azure/synapse-analytics/guidance/security-white-paper-access-control)
-
-[Azure Synapse Analytics security white paper: Authentication](https://docs.microsoft.com/azure/synapse-analytics/guidance/security-white-paper-authentication)
-
-[Azure Synapse Analytics Network security](https://docs.microsoft.com/azure/synapse-analytics/guidance/security-white-paper-network-security)
+- [Azure Synapse Analytics security](https://docs.microsoft.com/azure/synapse-analytics/guidance/security-white-paper-introduction)
+- [Azure Synapse Analytics security white paper: Data protection](https://docs.microsoft.com/azure/synapse-analytics/guidance/security-white-paper-data-protection)
+- [Azure Synapse Analytics security white paper: Access control](https://docs.microsoft.com/azure/synapse-analytics/guidance/security-white-paper-access-control)
+- [Azure Synapse Analytics security white paper: Authentication](https://docs.microsoft.com/azure/synapse-analytics/guidance/security-white-paper-authentication)
+- [Azure Synapse Analytics Network security](https://docs.microsoft.com/azure/synapse-analytics/guidance/security-white-paper-network-security)
 
 ## Deploy this scenario
 
