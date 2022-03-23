@@ -82,10 +82,15 @@ Considerations:
 
 - **Region Selection** - Inside the OpenShift platform, it attempts to load balance workloads across all available nodes. When configuring the IPI for deployment, it will attempt to provision nodes across zones, when possible. In the event of a zone outage, OpenShift can still function by having other nodes (control and worker) running in another zone (Assuming those nodes have enough room to schedule the pods). List of [Availability Zones](/azure/availability-zones/az-overview#azure-regions-with-availability-zones).
 - **Backup & Recover** - Although ARO is not currently supported by MAS, you can review our [guidance](/azure/openshift/howto-create-a-backup) for our Managed OpenShift (ARO) offering.
-- **Failover** - Consider deploying OpenShift into 2 region and placing either Azure Front Door or Azure Traffic Manager in front of them to redirect traffic in the event of an outage. In this situation, you would need to migrate your applications state and persistent volumes as well.
+- **Failover** - Consider deploying OpenShift into 2 region and leveraging [RedHat's Advanced Cluster Management platform](https://www.redhat.com/en/technologies/management/advanced-cluster-management). If your solution has public endpoints, you can either place Azure Front Door or Azure Traffic Manager in front of them to redirect traffic to the appropriate cluster in the event of an outage. In this situation, you would need to migrate your applications state and persistent volumes as well.
 
 ### MAS
 
+Considerations:
+
+- **External Dependencies** - If MAS takes dependencies on any external services (databases; kafka brokers...etc) this should be a performance consideration in case the OpenShift cluster is deployed within another region. Consider reviewing that services HA/DR options as well.
+- **Backup and Restore** - For state based services running inside of the OpenShift cluster, it is necessary to frequently perform backups and move them into another region.
+- **State** - For services that retain state, when possible, leverage external Azure PaaS offerings to improve upon the supportability in the event of an outage.
 
 ## Data sources
 
