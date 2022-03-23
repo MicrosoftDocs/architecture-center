@@ -92,7 +92,7 @@ The solution also uses the following Azure components:
 
 Azure Cosmos DB has a [20-GB limit](/azure/cosmos-db/partitioning-overview) for a single logical partition. For most IoT solutions, this size is sufficient. If not, you can:
 
-  - Set the partition key to an artificial field, and assign the field a composite value, such as **Device ID + Current Month and Year**. This strategy assures high value cardinality for a good partition design. For more information, see [Choose a partition key](/azure/cosmos-db/partitioning-overview##choose-partitionkey).
+  - Set the partition key to an artificial field, and assign the field a composite value, such as **Device ID + Current Month and Year**. This strategy assures high value cardinality for a good partition design. For more information, see [Choose a partition key](/azure/cosmos-db/partitioning-overview#choose-partitionkey).
   
   - Based on data lifecycle, you can move older Azure Cosmos DB data to cold storage, such as Azure Blob Storage. You can use a combination of change feed to replicate the data to cold storage, and TTL to delete data automatically from a container after a certain time period.
 
