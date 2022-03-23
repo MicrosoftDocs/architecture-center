@@ -1,4 +1,4 @@
-This scenario is relevant to organizations that need to integrate data from systems that require traditional extract, transform, and load (ETL) techniques with Azure Digital Twins. In this example, you integrate Azure Digital Twins into line-of-business (LOB) systems by synchronizing or updating your Azure Digital Twins graph with data so that you can have a 360-degree view of your entire environment and system. You determine the frequency of synchronization based on your source system and the requirements of your solution.
+This scenario is relevant to organizations that need to integrate data from systems that require traditional extract, transform, and load (ETL) techniques with Azure Digital Twins. In this example, you integrate Azure Digital Twins into line-of-business (LOB) systems by synchronizing or updating your Azure Digital Twins graph with data so that you can have a 360-degree view of your environment and system. You determine the frequency of synchronization based on your source system and the requirements of your solution.
 
 ## Relevant use cases
 
@@ -16,11 +16,11 @@ _Download a [Visio file](https://arch-center.azureedge.net/azure-digital-twins-b
 
 ### Dataflow
 
-1. Azure Data Factory uses either a Copy Data Activity or a Mapping Data Flow source to connect to the business system and copy the data to a temporary location.
+1. Azure Data Factory uses either a [copy activity](/azure/data-factory/copy-activity-overview) or a [mapping data flow](/azure/data-factory/concepts-data-flow-overview) to connect to the business system and copy the data to a temporary location.
 
-2. A Mapping Dataflow handles any transformations and outputs a file for each twin that needs to be processed.
+2. A mapping data flow handles any transformations and outputs a file for each twin that must be processed.
 
-3. A Metadata Activity retrieves the list of files, loops through them, and calls a custom activity.
+3. A [get metadata activity](/azure/data-factory/control-flow-get-metadata-activity) retrieves the list of files, loops through them, and calls a custom activity.
 
 4. Azure Batch creates a task for each file that executes the custom code to interface with Azure Digital Twins.
 
