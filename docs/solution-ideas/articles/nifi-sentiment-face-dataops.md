@@ -47,11 +47,11 @@ This solution applies to many areas:
 
 ## Architecture
 
-![Architecture diagram for scenario NiFi Sentiment Analysis and Face Recognition](./media/nifi-sentiment-face-arch.png)
+![Architecture diagram for scenario NiFi Sentiment Analysis and Face Recognition](../media/nifi-sentiment-face-arch.png)
 
 ## DataFlow
 There are three main parts to this DataFlow:
-![DataFlow diagram for scenario NiFi Sentiment Analysis and Face Recognition](./media/nifi-sentiment-face-dataflow.png)
+![DataFlow diagram for scenario NiFi Sentiment Analysis and Face Recognition](../media/nifi-sentiment-face-dataflow.png)
 
 
 **Tweets Ingestion**: Transformation of the JSON file into a CSV; extracting attributes from the JSON to use in the CSV composition as variables.
@@ -61,7 +61,7 @@ There are three main parts to this DataFlow:
 **Image Processing**: The sentiment analysis runs against tweets that have any pictures; these pictures are collected; human face detection is run; if a human face is recognized, it is stored in HDInsight.
 
 ## Components
-![Components diagram for scenario NiFi Sentiment Analysis and Face Recognition](./media/nifi-sentiment-face-components.png)
+![Components diagram for scenario NiFi Sentiment Analysis and Face Recognition](../media/nifi-sentiment-face-components.png)
 
 • [Azure Data Factory](/azure/data-factory/introduction) is used for different types of batch transformation from the different sources to the different sinks. Big data processing is a critical task for every organization. that are built to simplify ETL as well as handle the complexities and scale challenges of big data integration.
 
