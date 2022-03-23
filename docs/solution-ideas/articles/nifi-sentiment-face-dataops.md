@@ -2,7 +2,7 @@
 title: Face Recognition and Sentiment Analysis on Azure
 titleSuffix: Azure Design Review Framework
 description: This solution showcases how companies using open source solutions can seamlessly integrate with Azure Sentiment Analysis and Facial Recognition to deliver value.
-author: jmendezde, Katie-Novotny
+author: jmendezde
 ms.date: 03/17/2022
 ms.topic: conceptual
 ms.service: architecture-center
@@ -26,23 +26,22 @@ This solution showcases how companies using open source solutions can seamlessly
 
 ## Potential use cases
 NiFi works well for moving data and managing the flow of data:
-
-    •	Connecting decoupled systems in the cloud
-    •	Moving data in and out of Azure Storage and other data stores
-    •	Integrating edge-to-cloud and hybrid-cloud applications with Azure IoT, Azure Stack, and Azure Kubernetes Service (AKS)
+* Connecting decoupled systems in the cloud
+* Moving data in and out of Azure Storage and other data stores
+* Integrating edge-to-cloud and hybrid-cloud applications with Azure IoT, Azure Stack, and Azure Kubernetes Service (AKS)
 
 This solution applies to many areas:
 
-    •	Modern data warehouses (MDWs) bring structured and unstructured data together at scale. They collect and store data from various sources, sinks, and formats. NiFi excels at ingesting data into Azure-based MDWs for the following reasons:
+* Modern data warehouses (MDWs) bring structured and unstructured data together at scale. They collect and store data from various sources, sinks, and formats. NiFi excels at ingesting data into Azure-based MDWs for the following reasons:
         o	Over 200 processors are available for reading, writing, and manipulating data.
         o	The system supports Storage services such as Azure Blob Storage, Azure Data Lake Storage, Azure Event Hubs, Azure Queue Storage, Azure Cosmos DB, and Azure Synapse Analytics.
         o	Robust data provenance capabilities make it possible to implement compliant solutions. For information about capturing data provenance in the Log Analytics feature of Azure Monitor, see Reporting considerations later in this article.
-    •	NiFi can run on a standalone basis on small-footprint devices. In such cases, NiFi makes it possible to process edge data and move that data to larger NiFi instances or clusters in the cloud. NiFi helps filter, transform, and prioritize edge data in motion, ensuring reliable and efficient data flows.
-    •	Industrial IoT (IIoT) solutions manage the flow of data from the edge to the data center. That flow starts with data acquisition from industrial control systems and equipment. The data then moves to data management solutions and MDWs. NiFi offers capabilities that make it well suited for data acquisition and movement:
+* NiFi can run on a standalone basis on small-footprint devices. In such cases, NiFi makes it possible to process edge data and move that data to larger NiFi instances or clusters in the cloud. NiFi helps filter, transform, and prioritize edge data in motion, ensuring reliable and efficient data flows.
+* Industrial IoT (IIoT) solutions manage the flow of data from the edge to the data center. That flow starts with data acquisition from industrial control systems and equipment. The data then moves to data management solutions and MDWs. NiFi offers capabilities that make it well suited for data acquisition and movement:
         o	Edge data processing functionality
         o	Support for protocols that IoT gateways and devices use
         o	Integration with Event Hubs and Storage services
-    •   IoT applications in the areas of predictive maintenance and supply chain management can make use of this functionality.
+* IoT applications in the areas of predictive maintenance and supply chain management can make use of this functionality.
 
 
 ## Architecture
@@ -67,15 +66,15 @@ There are three main parts to this DataFlow:
 
 • [Apache Nifi](https://nifi.apache.org/) handles multiple sources and multiples sinks with different types of processors in order to doing streaming transformations. Designed to automate the flow of data between software systems. 
 
-• [Azure Synapse](azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is) centralizes data in the cloud for easy access.
+• [Azure Synapse](/azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is) centralizes data in the cloud for easy access.
 
 • [Azure Cognitive Services Language Understanding & Vision](https://azure/services/cognitive-services/) are cloud-based services with REST APIs and client library SDKs available to help build cognitive intelligence into applications. Cognitive features can be added to applications without having artificial intelligence (AI) or data science skills.
 
 • [Azure HDInsight](https://azure/services/hdinsight/) is a Hadoop Platform for data and analytics for on-premise environments,  to ingest, store and process data in real time and batch time. Is an open source framework for distributed storage and processing of large, multi-source data sets. HDP modernizes IT infrastructure and keeps data secure
 
-• [Azure CosmosDB](azure/cosmos-db/introduction) is a fully managed NoSQL database for modern app development. Single-digit millisecond response times, and automatic and instant scalability, guarantee speed at any scale. Business continuity is assured with SLA-backed availability and enterprise-grade security.
+• [Azure CosmosDB](/azure/cosmos-db/introduction) is a fully managed NoSQL database for modern app development. Single-digit millisecond response times, and automatic and instant scalability, guarantee speed at any scale. Business continuity is assured with SLA-backed availability and enterprise-grade security.
 
-• [Power BI](power-bi/fundamentals/power-bi-overview) is a business analytics service by Microsoft. It aims to provide interactive visualizations and business intelligence capabilities with an interface simple enough for end users to create their own reports and dashboards. It is part of the Microsoft Power Platform.
+• [Power BI](/power-bi/fundamentals/power-bi-overview) is a business analytics service by Microsoft. It aims to provide interactive visualizations and business intelligence capabilities with an interface simple enough for end users to create their own reports and dashboards. It is part of the Microsoft Power Platform.
 
 ## Alternatives
 Most of the pieces can be interchanged, as an example use a Cloudera cluster instead of an HDInsight cluster.
