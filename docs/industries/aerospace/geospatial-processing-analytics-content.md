@@ -166,15 +166,21 @@ This architecture showcases the functional working of an end-to-end geoprocessin
 
 The following article shows how to read, write and apply transformations to raster data that is stored in Azure Data Lake Storage using Synapse Notebook. The intention is more to showcase the usage of libraries in Synapse notebooks rather than the actual transformation itself. 
 
-**Note:** Before running the sample code, ensure the required libraries are installed. Instructions on how to install the libraries is documented [here](#install-geospatial-packages-into-a-synapse-spark-pool)
+#### Pre-requisites
+
+  - [Install geospatial libraries](#install-geospatial-packages-into-a-synapse-spark-pool)
+  - [Create an Azure Key Vault](https://docs.microsoft.com/en-us/azure/key-vault/general/quick-create-portal#create-a-vault) to store secrets. In this case, we will store the access key of the storage account in the Key Vault. Instructions on how to do this is available [here](https://docs.microsoft.com/bs-latn-ba/azure/data-factory/store-credentials-in-key-vault).
+  - [Create a linked service](https://docs.microsoft.com/en-us/azure/data-factory/concepts-linked-services?tabs=synapse-analytics#linked-service-with-ui) for Azure Key Vault using Azure Synapse Aalytics via `Manage` hub.
+  
 
 - Print information from the raster data 
  
   ```python
   from osgeo import gdal  
-  gdal.UseExceptions()  
+  gdal.UseExceptions()
+  access_key = TokenLibrary.getSecret('<key-vault-name>','<secret-name>')
   gdal.SetConfigOption('AZURE_STORAGE_ACCOUNT', '<storage_account_name>')
-  gdal.SetConfigOption('AZURE_STORAGE_ACCESS_KEY', '<access_key>')  
+  gdal.SetConfigOption('AZURE_STORAGE_ACCESS_KEY', access_key)  
   dataset_info = gdal.Info('/vsiadls/aoa/input/sample_image.tiff')  #/vsiadls/<container_name>/path/to/image
   print(dataset_info)
   ```
@@ -256,9 +262,10 @@ The following article shows how to read, write and apply transformations to rast
 
 	```python
 	from osgeo import gdal
-	gdal.UseExceptions()	
+	gdal.UseExceptions()
+	access_key = TokenLibrary.getSecret('<key-vault-name>','<secret-name>')
 	gdal.SetConfigOption('AZURE_STORAGE_ACCOUNT', '<storage_account_name>')
-    gdal.SetConfigOption('AZURE_STORAGE_ACCESS_KEY', '<access_key>') 
+	gdal.SetConfigOption('AZURE_STORAGE_ACCESS_KEY', access_key) 
 	tiff_in = "/vsiadls/aoa/input/sample_image.tiff"	#/vsiadls/<container_name>/path/to/image
 	png_out = "/vsiadls/aoa/input/sample_image.png"	#/vsiadls/<container_name>/path/to/image
 	options = gdal.TranslateOptions(format='PNG')
@@ -281,8 +288,9 @@ The following article shows how to read, write and apply transformations to rast
     	{"linkedService":"<linked_service_name>"} 
 	)
 	
+	access_key = TokenLibrary.getSecret('<key-vault-name>','<secret-name>')
     gdal.SetConfigOption('AZURE_STORAGE_ACCOUNT', '<storage_account_name>')
-    gdal.SetConfigOption('AZURE_STORAGE_ACCESS_KEY', '<access_key>') 
+    gdal.SetConfigOption('AZURE_STORAGE_ACCESS_KEY', access_key) 
 
     options = gdal.WarpOptions(options=['tr'], xRes=1000, yRes=1000)
     gdal.Warp('dst_img.tiff', '/vsiadls/<container_name>/path/to/src_img.tiff', options=options)
