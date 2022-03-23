@@ -2,7 +2,7 @@ This scenario explains the architecture and considerations to take into account 
 
 ![Jenkins server running on Azure][0]
 
-*Download a [Visio file](https://arch-center.azureedge.net/Jenkins-architecture.vsdx) that contains this architecture diagram.*
+*Access the [Visio diagram](https://office.live.com/start/Visio.aspx?omkt=en-us&templatetitle=Jenkins%20Server%20on%20Azure&templateid=TM66956692) online, through Microsoft 365. Or, download a [Visio file](https://arch-center.azureedge.net/Jenkins-architecture.vsdx) that contains a version of this architecture diagram.*
 
 This architecture supports disaster recovery with Azure services but does not cover more advanced scale-out scenarios involving multiple primaries or high availability (HA) with no downtime. For general insights about the various Azure components, including a step-by-step tutorial about building out a CI/CD pipeline on Azure, see [Jenkins on Azure][jenkins-on-azure].
 
