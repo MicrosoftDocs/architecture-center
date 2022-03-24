@@ -8,7 +8,7 @@ Azure IoT solutions involve **things** (typically **devices**) that generate dat
 
 If you want to see IoT reference architectures that address solutions that are specific to industry verticals, you can start here:
 > [!div class="nextstepaction"]
-> [Industry Specific IoT reference architectures](/azure/architecture/reference-architectures/iot/iot-architecture-overview)
+> [Industry specific IoT reference architectures](iot/industry-iot-hub-page.md)
 
 ## Devices
 

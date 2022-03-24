@@ -16,7 +16,7 @@ Since bandwidth is limited and expensive in emerging markets, analyzing usage pa
 
 ## Potential use cases
 
-A solar-powered Connect device in a customer's home or business can provide:
+This solution is ideal for the telecommunications, facilities, and energy industries. A solar-powered Connect device in a customer's home or business can provide:
 - LED light to replace kerosene lanterns
 - USB device charging
 - Telemedicine support
@@ -32,6 +32,8 @@ The basic Connect device provides light, electricity, internet connectivity, and
 
 ![Diagram showing data stream coming from the power subsystem to Azure IoT edge and cloud components.](../media/iot-power-architecture.png)
 
+### Workflow
+
 1. Field sales and service agents use a mobile platform to interact with the cloud application via Azure Application Gateway. End users use a built-in device or mobile interface to access and control their devices and interact with content.
 1. Application Gateway uses messaging protocols to interact with users and operators.
 1. The cloud app consists of containerized microservices that provide functions and interfaces like identity and access management, device upgrades, notifications, and commerce services.
@@ -44,7 +46,7 @@ The Connect devices also send streaming telemetry and user data to the cloud via
 1. Azure Synapse, a SQL big-data warehouse, performs analytics and stores the transformed data.
 1. The analyzed data populates Power BI reports for system evaluation and future planning.
 
-### Analytics and machine learning data flow
+#### Analytics and machine learning data flow
 
 The system includes the following data analysis and control loop:
 

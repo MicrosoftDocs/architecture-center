@@ -1,0 +1,19 @@
+### YamlMime:Architecture
+metadata:
+  title: Gateway Routing pattern
+  description: Use the Gateway Routing design pattern to route requests to multiple services using a single endpoint.
+  author: EdPrice-MSFT
+  ms.author: pnp
+  ms.date: 06/23/2017
+  ms.topic: conceptual
+  ms.service: architecture-center
+  ms.subservice: azure-guide
+azureCategories:
+  - networking
+products:
+  - azure-application-gateway
+name: Gateway Routing pattern
+summary: Use the Gateway Routing design pattern to route requests to multiple services using a single endpoint.
+thumbnailUrl: /azure/architecture/browse/thumbs/gateway-routing.png
+content: |
+  [!include[](gateway-routing-content.md)]

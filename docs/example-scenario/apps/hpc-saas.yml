@@ -4,6 +4,7 @@ metadata:
   titleSuffix: Azure Example Scenarios
   description: This example scenario demonstrates delivery of a software-as-a-service (SaaS) platform built on the high-performance computing (HPC) capabilities of Azure.
   author: alexbuckgit
+  ms.author: alex.buck
   ms.date: 08/22/2018
   ms.topic: conceptual
   ms.service: architecture-center

@@ -2,7 +2,7 @@ This scenario explains the architecture and considerations to take into account 
 
 ![Jenkins server running on Azure][0]
 
-*Download a [Visio file](https://arch-center.azureedge.net/Jenkins-architecture.vsdx) that contains this architecture diagram.*
+*Access the [Visio diagram](https://office.live.com/start/Visio.aspx?omkt=en-us&templatetitle=Jenkins%20Server%20on%20Azure&templateid=TM66956692) online, through Microsoft 365. Note that you must have a Visio license to access this diagram. Or, download a [Visio file](https://arch-center.azureedge.net/Jenkins-architecture.vsdx) that contains a version of this architecture diagram.*
 
 This architecture supports disaster recovery with Azure services but does not cover more advanced scale-out scenarios involving multiple primaries or high availability (HA) with no downtime. For general insights about the various Azure components, including a step-by-step tutorial about building out a CI/CD pipeline on Azure, see [Jenkins on Azure][jenkins-on-azure].
 
@@ -135,7 +135,7 @@ To create a VM and install Jenkins, follow the instructions in the article, [Qui
 [managed-disk]: /azure/virtual-machines/linux/managed-disks-overview
 [matrix]: https://plugins.jenkins.io/matrix-auth
 [monitor]: /azure/monitoring-and-diagnostics
-[monitoring-diag]: ../../best-practices/monitoring.md
+[monitoring-diag]: ../../best-practices/monitoring.yml
 [multi-primary]: https://jenkins.io/doc/book/architecting-for-scale
 [nginx]: https://www.digitalocean.com/community/tutorials/how-to-create-an-ssl-certificate-on-nginx-for-ubuntu-14-04
 [nsg]: /azure/virtual-network/virtual-networks-nsg

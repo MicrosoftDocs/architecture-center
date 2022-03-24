@@ -37,7 +37,7 @@ Here are some Learn modules you might find useful:
 
 To find options helpful for dealing with relational data, consider these resources:
 
-- To learn about resources for gathering data from multiple sources and how to and apply data transformations within the data pipeline, see [Extract, transform, and load (ETL)](../data-guide/relational-data/etl.md).
+- To learn about resources for gathering data from multiple sources and how to and apply data transformations within the data pipeline, see [Extract, transform, and load (ETL)](../data-guide/relational-data/etl.yml).
 - To learn about Online analytical processing (OLAP), which organizes large business databases and supports complex analysis, see [Online analytical processing](../data-guide/relational-data/online-analytical-processing.yml).
 - Online transaction processing systems record business interactions as they occur. For more information, see [Online transaction processing (OLTP)](../data-guide/relational-data/online-transaction-processing.md).
 
@@ -47,7 +47,7 @@ To learn about data lakes, which hold a large amount of data in its native, raw 
 
 A big data architecture can handle ingestion, processing, and analysis of data that is too large or too complex for traditional database systems.
 
-- For more information, see [Big data architectures](../data-guide/big-data/index.md).
+- For more information, see [Big data architectures](../data-guide/big-data/index.yml).
 - To learn about designing a system that scales well as data grows, see [Build a scalable system for massive data](../data-guide/scenarios/build-scalable-database-solutions-azure-services.md).
 - To learn more about Azure Databricks, an Apache Spark–based analytics service for big data analytics and AI solutions, see [Monitoring Azure Databricks](../databricks-monitoring/index.md).
 
@@ -111,7 +111,7 @@ Here are some other resources:
 - [Adatum Corporation scenario for data management and analytics in Azure](/azure/cloud-adoption-framework/scenarios/data-management/architectures/reference-architecture-adatum)
 - [Lamna Healthcare scenario for data management and analytics in Azure](/azure/cloud-adoption-framework/scenarios/data-management/architectures/reference-architecture-lamna)
 - [Optimize administration of SQL Server instances](../hybrid/azure-arc-sql-server.yml)
-- [Processing free-form text for search](../data-guide/scenarios/search.md)
+- [Processing free-form text for search](../data-guide/scenarios/search.yml)
 - [Relecloud scenario for data management and analytics in Azure](/azure/cloud-adoption-framework/scenarios/data-management/architectures/reference-architecture-relecloud)
 - [Working with CSV and JSON files for data solutions](../data-guide/scenarios/csv-and-json.md)
 
@@ -129,7 +129,7 @@ These solution ideas are some of the example approaches that you can adapt to yo
 
 ### Similar database products
 
-If you're familiar with Amazon Web Services (AWS) or Google Cloud Platform (GCP), refer to the following comparisons:
+If you're familiar with Amazon Web Services (AWS) or Google Cloud, refer to the following comparisons:
 
 - [Relational database technologies on Azure and AWS](../aws-professional/databases.md)
 - [Google Cloud to Azure services comparison - Data platform](../gcp-professional/services.md#data-platform)
