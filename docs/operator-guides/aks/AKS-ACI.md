@@ -54,7 +54,7 @@ spec:
         effect: NoSchedule
 ```
 
-If your workload does not fall under the [known limitations](https://docs.microsoft.com/en-us/azure/aks/virtual-nodes#known-limitations) today , you might want to consider to spliting the workoad across the agentpools & Virtual nodes. Node-affinity can help in the management of the workload across these options. See [Provide dedicated nodes using taints and tolerations](https://docs.microsoft.com/en-us/azure/aks/operator-best-practices-advanced-scheduler#provide-dedicated-nodes-using-taints-and-tolerations) for more details on how to usenode-affinity.
+If your workload does not fall under the [known limitations](https://docs.microsoft.com/en-us/azure/aks/virtual-nodes#known-limitations) today , you might want to consider to spliting the workoad across the agentpools & Virtual nodes. Node-affinity can help in the management of the workload across these options. See [Provide dedicated nodes using taints and tolerations](https://docs.microsoft.com/en-us/azure/aks/operator-best-practices-advanced-scheduler#provide-dedicated-nodes-using-taints-and-tolerations) for more details on how to use node-affinity.
 
 ## Next steps
 
