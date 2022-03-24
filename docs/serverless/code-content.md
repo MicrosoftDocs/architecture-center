@@ -605,7 +605,7 @@ namespace DroneStatusFunctionApp
 }
 ```
 
-For more information about authentication and authorization in this application, see the [Security considerations](../reference-architectures/serverless/web-app.yml#security-considerations) section of the reference architecture.
+For more information about authentication and authorization in this application, see the [Security considerations](../reference-architectures/serverless/web-app.yml#security) section of the reference architecture.
 
 ## Next steps
 

@@ -32,7 +32,7 @@ This solution applies to companies that build custom application solutions that 
 - [Fluid Framework](https://www.fluidframework.com) is a collection of client libraries for distributing and synchronizing shared state. These libraries allow multiple clients to simultaneously create and operate on shared data structures by using coding patterns similar to those used to work with local data.
 - [Fluid Relay](https://azure.microsoft.com/services/fluid-relay) is a managed service of Fluid Framework. It helps developers build real-time collaborative experiences and replicate state across connected JavaScript clients in real time.
 - [Azure AD](https://azure.microsoft.com/services/active-directory) is the Microsoft cloud-based identity and access management service that helps your employees sign in and access resources.
-- [Microsoft Graph Toolkit](https://docs.microsoft.com/graph/toolkit/overview) is a collection of reusable, framework-agnostic components and authentication providers for accessing and working with Microsoft Graph.
+- [Microsoft Graph Toolkit](/graph/toolkit/overview) is a collection of reusable, framework-agnostic components and authentication providers for accessing and working with Microsoft Graph.
 - [Azure Static Web Apps](https://azure.microsoft.com/services/app-service/static) is a service that automatically builds and deploys full stack web apps to Azure from a code repository.
 
 ## Deploy this scenario

@@ -204,7 +204,7 @@ When choosing options for the agents and runners in your Microsoft Sentinel solu
 
 ### Orchestration and automation of release processes
 
-You can set up the deployment process with Azure DevOps or GitHub. Azure DevOps supports using a YAML pipeline or a release pipeline. For more information on using a YAML pipeline in Azure DevOps, see [Use Azure Pipelines](https://docs.microsoft.com/en-us/azure/devops/pipelines/get-started/pipelines-get-started?view=azure-devops). For more information on using a release pipeline in Azure DevOps, see [Release pipelines](https://docs.microsoft.com/en-us/azure/devops/pipelines/release/?view=azure-devops). For more information on using GitHub with GitHub Actions, see [Understanding GitHub Actions](https://docs.github.com/en/actions/learn-github-actions/understanding-github-actions).
+You can set up the deployment process with Azure DevOps or GitHub. Azure DevOps supports using a YAML pipeline or a release pipeline. For more information on using a YAML pipeline in Azure DevOps, see [Use Azure Pipelines](/azure/devops/pipelines/get-started/pipelines-get-started?view=azure-devops). For more information on using a release pipeline in Azure DevOps, see [Release pipelines](/azure/devops/pipelines/release/?view=azure-devops). For more information on using GitHub with GitHub Actions, see [Understanding GitHub Actions](https://docs.github.com/en/actions/learn-github-actions/understanding-github-actions).
 
 #### Azure DevOps
 
@@ -337,7 +337,7 @@ The objective of your build process is to ensure that you generate the highest q
 * Integrate the [KQL inline validation](https://github.com/Azure/Azure-Sentinel/blob/master/.azure-pipelines/kqlValidations.yaml) tool in the DevOps pipeline.
 * If you're implementing logic that's based on PowerShell for Azure Automation, you can include syntax validation and unit testing by using the following elements:
   * [Pester](https://devblogs.microsoft.com/scripting/what-is-pester-and-why-should-i-care/)
-  * [PSScriptAnalyzer](https://docs.microsoft.com/en-us/powershell/module/psscriptanalyzer/?view=ps-modules)  
+  * [PSScriptAnalyzer](/powershell/module/psscriptanalyzer/?view=ps-modules)  
 * Generate the MITRE manifest metadata report based on the metadata files that are included with the artifacts.
 
 #### Export artifacts
@@ -793,10 +793,10 @@ By using the Microsoft Sentinel deployment pipeline samples, you can set up a re
 * To learn about Microsoft Sentinel with DevOps for single-tenant architecture, see [Deploying and managing Microsoft Sentinel as code](https://techcommunity.microsoft.com/t5/azure-sentinel/deploying-and-managing-azure-sentinel-as-code/ba-p/1131928).
 * To learn about MSSP multi-tenant architecture, see [Combining Azure Lighthouse with Microsoft Sentinel's DevOps capabilities](https://techcommunity.microsoft.com/t5/azure-sentinel/combining-azure-lighthouse-with-sentinel-s-devops-capabilities/ba-p/1210966).
 * For information on Managed identity with Microsoft Sentinel, see [What's new: Managed identity for Microsoft Sentinel Logic Apps connector](https://techcommunity.microsoft.com/t5/azure-sentinel/what-s-new-managed-identity-for-azure-sentinel-logic-apps/ba-p/2068204).
-* To learn how to deploy content from a Microsoft Sentinel repository, see [Deploy custom content from your repository](https://docs.microsoft.com/en-us/azure/sentinel/ci-cd?tabs=github).
+* To learn how to deploy content from a Microsoft Sentinel repository, see [Deploy custom content from your repository](/azure/sentinel/ci-cd?tabs=github).
 * To learn about Azure DevOps Security considerations, see:[Default permissions quick reference](/azure/devops/organizations/security/permissions-access?toc=%2Fazure%2Fdevops%2Fget-started%2Ftoc.json&bc=%2Fazure%2Fdevops%2Fget-started%2Fbreadcrumb%2Ftoc.json&view=azure-devops).
 * To learn how to protect an Azure DevOps repository, see [Add protection to a repository resource](/azure/devops/pipelines/process/repository-resource?view=azure-devops).
-* For information on how to manage Azure DevOps service connection security, see [Service connections in Azure Pipelines](https://docs.microsoft.com/en-us/azure/devops/pipelines/library/service-endpoints?view=azure-devops&tabs=yaml).
+* For information on how to manage Azure DevOps service connection security, see [Service connections in Azure Pipelines](/azure/devops/pipelines/library/service-endpoints?tabs=yaml&view=azure-devops).
 
 ## Related resources
 

@@ -35,7 +35,7 @@ and the [OPC Twin edge module](https://azure.github.io/Industrial-IoT/modules/tw
 
 ## Potential use cases
 
-Typical uses for this architecture workload:
+This solution is ideal for the manufacturing industry. Typical uses for this architecture workload:
 
 -   Empowering workers by tracking the status of all connected machines and
     devices on the shop floor
@@ -49,6 +49,8 @@ Typical uses for this architecture workload:
 ## Architecture
 
 [ ![Screenshot of architecture.](./media/connected-factory-signal-pipeline-01.png) ](./media/connected-factory-signal-pipeline-01.png#lightbox)
+
+### Workflow
 
 This architecture leverages a pipeline configuration that contains the details
 of machines, leaf devices, and signals of interest:
@@ -104,55 +106,55 @@ consists of the following parts:
     Configuration API using a library generated from the built-in KEPServerEX
     API documentation.
 
-## Components
+### Components
 
-[Azure Data Explorer](https://azure.microsoft.com/services/data-explorer/#overview) is
+[Azure Data Explorer](https://azure.microsoft.com/services/data-explorer) is
 a fast, fully managed data analytics service for real-time analysis on large
 volumes of data streaming from applications, websites, IoT devices, and more.
 
-[Azure Data Lake](https://azure.microsoft.com/solutions/data-lake/)
+[Azure Data Lake](https://azure.microsoft.com/solutions/data-lake)
 includes all the capabilities required to make it easy for developers, data
 scientists, and analysts to store data of any size, shape, and speed, and do all
 types of processing and analytics across platforms and languages. It removes the
 complexities of ingesting and storing all of your data while making it faster to
 get up and running with batch, streaming, and interactive analytics.
 
-[Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/#overview) is a
+[Azure Event Hubs](https://azure.microsoft.com/services/event-hubs) is a
 fully managed, real-time data ingestion service that’s simple, trusted, and
 scalable. Stream millions of events per second from any source to build dynamic
 data pipelines and immediately respond to business challenges.
 
-[Azure IoT Edge](https://azure.microsoft.com/services/iot-edge/#iotedge-overview)
+[Azure IoT Edge](https://azure.microsoft.com/services/iot-edge)
 intelligent devices recognize and respond to sensor input by using onboard
 processing. These devices can respond rapidly, or even offline. Intelligent edge
 devices limit costs by preprocessing and sending only necessary data to the
 cloud.
 
-[Azure IoT Hub](https://azure.microsoft.com/services/iot-hub/#overview)
+[Azure IoT Hub](https://azure.microsoft.com/services/iot-hub)
 provides a cloud-hosted solution back end to connect virtually any device.
 Extend your solution from the cloud to the edge with per-device authentication,
 built-in device management, and scaled provisioning.
 
-[Azure Kubernetes Service (AKS)](https://azure.microsoft.com/services/kubernetes-service/#overview)
+[Azure Kubernetes Service (AKS)](https://azure.microsoft.com/services/kubernetes-service)
 is a managed, serverless Kubernetes platform for microservices apps. Kubernetes
 is open-source orchestration software for deploying, managing, and scaling
 containerized apps.
 
-[Azure Service Bus](https://azure.microsoft.com/services/service-bus/#overview) is a
+[Azure Service Bus](https://azure.microsoft.com/services/service-bus) is a
 fully managed enterprise message broker with message queues and
 publish-subscribe topics. Service Bus is used to decouple applications and
 services from each other.
 
-[Azure Storage](https://azure.microsoft.com/services/storage/) offers a durable,
+[Azure Storage](https://azure.microsoft.com/services/storage) offers a durable,
 highly available, and massively scalable cloud storage solution. It includes
 object, file, disk, queue, and table storage capabilities.
 
-[Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics/#features)
+[Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics)
 is a real-time analytics and complex event-processing engine that is designed to
 analyze and process high volumes of fast-streaming data from multiple sources
 simultaneously.
 
-[PTC/Kepware's KEPServerEX](https://www.kepware.com/products/kepserverex/)
+[PTC/Kepware's KEPServerEX](https://www.kepware.com/products/kepserverex)
 is an industry leader in industrial and manufacturing device connectivity. It
 has connectivity libraries for a vast array of equipment and is a popular choice
 for unlocking data from both new and legacy industrial devices. Kepware provides
@@ -236,12 +238,7 @@ section in [Microsoft Azure Well-Architected Framework](/azure/architecture/fram
 
 ## Next steps
 
-Azure Architecture Center overview articles:
-
--   [Predictive maintenance](/azure/architecture/solution-ideas/articles/predictive-maintenance)
--   [Advanced Azure Kubernetes Service (AKS) microservices architecture](/azure/architecture/reference-architectures/containers/aks-microservices/aks-microservices-advanced)
--   [Microservices with AKS](/azure/architecture/solution-ideas/articles/microservices-with-aks)
--   [Stream processing with Azure Stream Analytics](/azure/architecture/reference-architectures/data/stream-processing-stream-analytics)
+-   [Industrial Services on Azure Kubernetes](https://github.com/Azure/Industrial-IoT/tree/master/docs/services)
 
 Product documentation:
 
@@ -267,8 +264,14 @@ Microsoft Learn learning paths:
 
 ## Related resources
 
--   [Industrial Services on Azure Kubernetes](https://github.com/Azure/Industrial-IoT/tree/master/docs/services)
 -   [Connected Factory – Hierarchy Service](/azure/architecture/solution-ideas/articles/connected-factory-hierarchy-service)
 -   [Predictive maintenance for industrial IoT](/azure/architecture/solution-ideas/articles/iot-predictive-maintenance)
 -   [Condition monitoring for Industrial IoT](/azure/architecture/solution-ideas/articles/condition-monitoring)
 -   [IoT and data analytics](/azure/architecture/example-scenario/data/big-data-with-iot)
+
+Azure Architecture Center overview articles:
+
+-   [Predictive maintenance](/azure/architecture/solution-ideas/articles/predictive-maintenance)
+-   [Advanced Azure Kubernetes Service (AKS) microservices architecture](/azure/architecture/reference-architectures/containers/aks-microservices/aks-microservices-advanced)
+-   [Microservices with AKS](/azure/architecture/solution-ideas/articles/microservices-with-aks)
+-   [Stream processing with Azure Stream Analytics](/azure/architecture/reference-architectures/data/stream-processing-stream-analytics)
