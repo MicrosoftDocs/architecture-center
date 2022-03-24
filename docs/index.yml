@@ -3,9 +3,9 @@ metadata:
   title: Azure Architecture Center
   description: The Azure Architecture Center provides guidance for designing and building solutions on Azure using established patterns and practices.
   ms.topic: hub-page
-  ms.date: 12/13/2021
+  ms.date: 03/07/2022
   ms.collection: collection
-  ms.author: adboegli
+  ms.author: edprice
   google-site-verification: b-xRLveOzJ9oSOh37wgRTRB2lMOoFY8HiHf9_0DIawE
 
 title: Azure Architecture Center # < 60 chars
@@ -35,27 +35,27 @@ highlightedContent:
 
 # productDirectory section (optional)
 productDirectory:
-  title: Architecting Applications on Azure # < 60 chars (optional)
+  title: Architecting applications on Azure # < 60 chars (optional)
   summary: Best practices and patterns for building applications on Microsoft Azure # < 160 chars (optional)
   items:
     # Card
-    - title: Designing for the cloud
+    - title: Design for the cloud
       imageSrc: https://docs.microsoft.com/media/common/i_design.svg
       links:
         - url: ./guide/design-principles/index.md
           text: Principles of a well-designed application
+        - url: ./best-practices/index-best-practices.md
+          text: Best practices in cloud applications
         - url: ./guide/responsible-innovation/index.md
-          text: Responsible innovation
-        - url: ./best-practices/api-design.md
-          text: Web API design
-        - url: ./microservices/index.md
-          text: Building microservices on Azure
+          text: Responsible engineering
         - url: ./patterns/index.md
           text: Application design patterns
         - url: ./guide/multitenant/overview.md
-          text: Architecting multitenant solutions on Azure
+          text: Architect multitenant solutions on Azure
+        - url: ./microservices/index.yml
+          text: Build microservices on Azure
     # Card
-    - title: Optimizing your workload
+    - title: Optimize your workload
       imageSrc: https://docs.microsoft.com/media/common/i_architecture.svg
       links:
         - url: /azure/architecture/framework
@@ -67,25 +67,43 @@ productDirectory:
         - url: ./antipatterns/index.md
           text: Performance antipatterns
         - url: /azure/architecture/framework/security/overview
-          text: Securing your infrastructure
-
+          text: Secure your infrastructure
     # Card
-    - title: Choosing the right technology
+    - title: Choose the right technology
       # imageSrc should be square in ratio with no whitespace
       imageSrc: https://docs.microsoft.com/media/common/i_overview.svg
       links:
         - url: ./guide/technology-choices/compute-decision-tree.yml
-          text: Choosing a Compute Service
-        - url: ./guide/technology-choices/load-balancing-overview.yml
-          text: Choosing a Load Balancing Service
+          text: Choose a compute service
+        - url: ./operator-guides/aks/choose-kubernetes-edge-compute-option.md
+          text: Choose a Kubernetes at the edge option
         - url: ./guide/technology-choices/data-store-overview.md
-          text: Choosing a data store
+          text: Choose a data store
+        - url: ./guide/technology-choices/load-balancing-overview.yml
+          text: Choose a load-balancing service
         - url: ./guide/technology-choices/messaging.yml
-          text: Choosing a messaging service
+          text: Choose a messaging service
+        - url: ./example-scenario/iot/iot-central-iot-hub-cheat-sheet.yml
+          text: Choose an IoT solution
+    # Card
+    - title: Essential scenarios
+      # imageSrc should be square in ratio with no whitespace
+      imageSrc: https://docs.microsoft.com/media/common/i_best-practices.svg
+      links:
+        - url: ./guide/startups/startup-architecture.md
+          text: Architecture for startups
+        - url: ./solutions/power-platform-scenarios.md
+          text: Azure and Power Platform solutions
+        - url: ./solutions/microsoft-365-scenarios.md
+          text: Azure and Microsoft 365 solutions
+        - url: ./aws-professional/services.md
+          text: AWS services comparison
+        - url: ./gcp-professional/services.md
+          text: Google Cloud services comparison
 
 # conceptualContent section (optional)
 conceptualContent:
-#itemType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
+# itemType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
   title: Technology Areas # < 60 chars (optional)
   summary: Explore architectures and guides for different technologies # < 160 chars (optional)
   items:
@@ -97,27 +115,41 @@ conceptualContent:
       - text: AWS to Azure services comparison
         url: ./aws-professional/services.md
         itemType: reference
+      - text: Google Cloud to Azure services comparison
+        url: ./gcp-professional/services.md
+        itemType: reference
       - text: Cloud Design Patterns
         url: ./patterns/index.md
+        itemType: concept
+      - text: CQRS design pattern
+        url: ./patterns/cqrs.yml
+        itemType: concept
+      - text: Best practices in cloud applications
+        url: ./best-practices/index-best-practices.md
         itemType: concept
       - text: Web API design
         url: ./best-practices/api-design.md
         itemType: reference
-      - text: Chose your Azure compute service
+      - text: Performance antipatterns for cloud applications
+        url: ./antipatterns/index.md
+        itemType: concept
+      - text: Choose your Azure compute service
         url: ./guide/technology-choices/compute-decision-tree.yml
         itemType: reference
-      - text: Application Architecture Guide
+      - text: Application architecture fundamentals
         url: ./guide/index.md
         itemType: reference
       - text: Hub-spoke network topology
         url: ./reference-architectures/hybrid-networking/hub-spoke.yml
         itemType: architecture
-      - text: CQRS design pattern
-        url: ./patterns/cqrs.md
-        itemType: concept
-
+      - text: Architect multitenant solutions on Azure
+        url: ./guide/multitenant/overview.md
+        itemType: concept        
     - title: AI & Machine Learning
       links:
+      - text: Artificial intelligence (AI) architecture design
+        itemType: concept
+        url: ./data-guide/big-data/ai-overview.md
       - text: Training of Python scikit-learn models
         itemType: architecture
         url: ./reference-architectures/ai/training-python-models.yml
@@ -130,9 +162,12 @@ conceptualContent:
       - text: Conversational bot
         itemType: architecture
         url: ./reference-architectures/ai/conversational-bot.yml
-      - text: Machine learning
-        itemType: concept
+      - text: Machine learning options
+        itemType: reference
         url: ./data-guide/technology-choices/data-science-and-machine-learning.md
+      - text: Machine learning at scale
+        itemType: concept
+        url: ./data-guide/big-data/machine-learning-at-scale.md
       - text: Natural language processing
         itemType: concept
         url: ./data-guide/technology-choices/natural-language-processing.yml
@@ -142,52 +177,94 @@ conceptualContent:
       - text: Movie recommendation
         itemType: get-started
         url: ./example-scenario/ai/movie-recommendations-with-machine-learning.yml
-      - text: Scalable personalization
-        itemType: get-started
-        url: ./example-scenario/ai/scalable-personalization-with-content-based-recommendation-system.yml
+      - text: Cognitive services options
+        itemType: concept
+        url: ./data-guide/technology-choices/cognitive-services.md
+      - text: Team Data Science Process
+        itemType: concept
+        url: ./data-science-process/overview.yml
       # footerLink (optional)
       footerLink:
         url: ./data-guide/big-data/machine-learning-at-scale.md
         text: See more
 
-    - title: Data
+    - title: Analytics
       links:
-        - url: ./data-guide/big-data/index.md
+        - text: Analytics architecture design
+          itemType: get-started
+          url: ./solution-ideas/articles/analytics-start-here.yml
+        - text: Choose an analytical data store in Azure
           itemType: concept
-          text: Big Data architectures
-        - url: ./guide/technology-choices/data-store-overview.md
+          url: ./data-guide/technology-choices/analytical-data-stores.md
+        - text: Choose a data analytics technology in Azure
           itemType: concept
-          text: Choosing a data store
-        - url: ./databricks-monitoring/index.md
-          itemType: deploy
-          text: Databricks Monitoring
+          url: ./data-guide/technology-choices/analysis-visualizations-reporting.md
+        - text: Analytics end-to-end with Azure Synapse 
+          itemType: architecture
+          url: ./example-scenario/dataplate2e/data-platform-end-to-end.yml
         - text: Automated enterprise BI with Azure Data Factory
           itemType: architecture
           url: reference-architectures/data/enterprise-bi-adf.yml
-        - text: Enterprise BI with SQL Data Warehouse
-          itemType: architecture
-          url: ./reference-architectures/data/enterprise-bi-synapse.yml
         - text: Stream processing with Azure Databricks
           itemType: architecture
           url: reference-architectures/data/stream-processing-databricks.yml
+        - url: ./databricks-monitoring/index.md
+          itemType: deploy
+          text: Databricks Monitoring
+        - text: Advanced analytics architecture
+          itemType: architecture
+          url: ./solution-ideas/articles/advanced-analytics-on-big-data.yml
+        - text: IoT analytics for construction
+          itemType: get-started
+          url: example-scenario/data/big-data-with-iot.yml
+        - text: Real-time fraud detection
+          itemType: architecture
+          url: example-scenario/data/fraud-detection.yml
+        - text: Mining equipment monitoring
+          itemType: architecture
+          url: ./solution-ideas/articles/monitor-mining-equipment.yml
+        - text: Predict the length of stay in hospitals
+          itemType: architecture
+          url: ./solution-ideas/articles/predicting-length-of-stay-in-hospitals.yml
+          
+    - title: Databases
+      links:
+        - url: ./data-guide/databases-architecture-design.yml
+          itemType: get-started
+          text: Databases architecture design
+        - url: ./data-guide/big-data/index.yml
+          itemType: concept
+          text: Big Data architectures
+        - url: ./data-guide/scenarios/build-scalable-database-solutions-azure-services.md
+          itemType: concept
+          text: Build a scalable system for massive data
+        - url: ./guide/technology-choices/data-store-overview.md
+          itemType: concept
+          text: Choose a data store
+        - text: Extract, transform, and load (ETL)
+          itemType: concept
+          url: ./data-guide/relational-data/etl.yml
+        - text: Online analytical processing (OLAP)
+          itemType: concept
+          url: ./data-guide/relational-data/online-analytical-processing.yml
+        - text: Online transaction processing (OLTP)
+          itemType: concept
+          url: ./data-guide/relational-data/online-transaction-processing.md
+        - text: Data warehousing in Microsoft Azure
+          itemType: concept
+          url: ./data-guide/relational-data/data-warehousing.yml
         - text: Data lakes
           itemType: get-started
           url: data-guide/scenarios/data-lake.md
-        - text: Extending on-premises data solutions to the cloud
+        - text: Extend on-premises data solutions to the cloud
           itemType: get-started
           url: data-guide/scenarios/hybrid-on-premises-and-cloud.md
         - text: Free-form text search
           itemType: get-started
-          url: data-guide/scenarios/search.md
-        - text: IoT for construction
-          itemType: get-started
-          url: example-scenario/data/big-data-with-iot.yml
-        - text: Real-time fraud detection
-          itemType: get-started
-          url: example-scenario/data/fraud-detection.yml
+          url: data-guide/scenarios/search.yml
         - text: Time series solutions 
           itemType: get-started
-          url: data-guide/scenarios/time-series.md
+          url: data-guide/scenarios/time-series.yml
       # footerLink (optional)
       footerLink:
         url: ./data-guide/index.md
@@ -216,6 +293,9 @@ conceptualContent:
         - text: Basic enterprise integration
           itemType: architecture
           url: reference-architectures/enterprise-integration/basic-enterprise-integration.yml
+        - text: Enterprise BI with SQL Data Warehouse
+          itemType: architecture
+          url: ./reference-architectures/data/enterprise-bi-synapse.yml
         - text: Enterprise integration with queues and events
           itemType: architecture
           url: reference-architectures/enterprise-integration/queues-events.yml
@@ -244,7 +324,7 @@ conceptualContent:
     - title: Identity
       links:
         - text: Identity in multitenant applications
-          url: multitenant-identity/index.md
+          url: multitenant-identity/index.yml
           itemType: how-to-guide
         - text: Choose an Active Directory integration architecture
           itemType: architecture
@@ -281,25 +361,25 @@ conceptualContent:
           url: microservices/model/domain-analysis.md
         - text: Tactical DDD
           itemType: how-to-guide
-          url: microservices/model/tactical-ddd.md
+          url: microservices/model/tactical-ddd.yml
         - text: Identify microservice boundaries
           itemType: how-to-guide
-          url: microservices/model/microservice-boundaries.md
+          url: microservices/model/microservice-boundaries.yml
         - text: Design a microservices architecture
           itemType: how-to-guide
-          url: microservices/design/index.md
+          url: microservices/design/index.yml
         - text: Monitor microservices in Azure Kubernetes Service (AKS)
           itemType: how-to-guide
-          url: microservices/logging-monitoring.md
+          url: microservices/logging-monitoring.yml
         - text: CI/CD for microservices
           itemType: how-to-guide
-          url: microservices/ci-cd.md
+          url: microservices/ci-cd.yml
         - text: CI/CD for microservices on Kubernetes
           itemType: how-to-guide
-          url: microservices/ci-cd-kubernetes.md
+          url: microservices/ci-cd-kubernetes.yml
         - text: Migrate from Cloud Services to Service Fabric
           itemType: how-to-guide
-          url: service-fabric/migrate-from-cloud-services.md
+          url: service-fabric/migrate-from-cloud-services.yml
         - text: Azure Kubernetes Service (AKS)
           itemType: architecture
           url: reference-architectures/containers/aks-microservices/aks-microservices.yml
@@ -311,7 +391,7 @@ conceptualContent:
           url:  example-scenario/infrastructure/service-fabric-microservices.yml
       footerLink:
         text: Introduction to microservices on Azure
-        url: ./microservices/index.md
+        url: ./microservices/index.yml
 
     - title: Networking
       links:
@@ -349,7 +429,7 @@ conceptualContent:
     - title: Serverless applications
       links:
         - text: Code walkthrough
-          url: serverless/code.md
+          url: serverless/code.yml
           itemType: how-to-guide
         - text: Serverless event processing
           itemType: architecture
@@ -359,7 +439,7 @@ conceptualContent:
           url: reference-architectures/serverless/web-app.yml
       footerLink:
         text: Introduction to Serverless Applications on Azure
-        url: ./serverless/code.md
+        url: ./serverless/code.yml
 
     - title: VM workloads
       links:

@@ -1,0 +1,20 @@
+### YamlMime:Architecture
+metadata:
+  title: Queue-Based Load Leveling pattern
+  description: Use a queue that acts as a buffer between a task and a service that it invokes in order to smooth intermittent heavy loads.
+  author: EdPrice-MSFT
+  ms.author: pnp
+  ms.date: 01/02/2019
+  ms.topic: conceptual
+  ms.service: architecture-center
+  ms.subservice: azure-guide
+azureCategories:
+  - networking
+products:
+  - azure-functions
+  - azure-service-bus
+name: Queue-Based Load Leveling pattern
+summary: Use a queue that acts as a buffer between a task and a service that it invokes in order to smooth intermittent heavy loads.
+thumbnailUrl: /azure/architecture/browse/thumbs/queue-based-load-leveling-function.png
+content: |
+  [!include[](queue-based-load-leveling-content.md)]

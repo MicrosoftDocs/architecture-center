@@ -69,6 +69,6 @@ This pattern may not be suitable:
 
 ## Related guidance
 
-- [Gateway Aggregation pattern](./gateway-aggregation.md)
-- [Gateway Offloading pattern](./gateway-offloading.md)
-- [Gateway Routing pattern](./gateway-routing.md)
+- [Gateway Aggregation pattern](./gateway-aggregation.yml)
+- [Gateway Offloading pattern](./gateway-offloading.yml)
+- [Gateway Routing pattern](./gateway-routing.yml)

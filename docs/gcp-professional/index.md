@@ -146,7 +146,7 @@ Like Google Cloud, Azure regions can have Availability zones. An [Availability Z
 
 Zone redundant VM deployment on Azure
 
-For more information, see [Build solutions for high availability using Availability Zones](../high-availability/building-solutions-for-high-availability.md).
+For more information, see [Build solutions for high availability using Availability Zones](../high-availability/building-solutions-for-high-availability.yml).
 
 ### Paired regions
 

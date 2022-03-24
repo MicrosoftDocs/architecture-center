@@ -150,7 +150,7 @@ Similarly, the maximum DTU utilization of the log database only reaches about 70
 [cosmos-db]: https://azure.microsoft.com/services/cosmos-db
 [azure-cache]: /azure/azure-cache-for-redis/cache-overview
 [Data-Access-Guide]: /previous-versions/msp-n-p/dn271399(v=pandp.10)
-[DataPartitioningGuidance]: ../../best-practices/data-partitioning.md
+[DataPartitioningGuidance]: ../../best-practices/data-partitioning.yml
 [data-store-overview]: ../../guide/technology-choices/data-store-overview.md
 [data-store-comparison]: ../../guide/technology-choices/data-store-considerations.md
 

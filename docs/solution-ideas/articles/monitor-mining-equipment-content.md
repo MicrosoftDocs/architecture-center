@@ -65,8 +65,8 @@ See the following related database architectural guidance:
 
 - [Azure Data Architecture Guide](../../data-guide/index.md)
 - [Non-relational data and NoSQL](../../data-guide/big-data/non-relational-data.yml)
-- [Big data architectures](../../data-guide/big-data/index.md)
-- [Batch processing](../../data-guide/big-data/batch-processing.md)
+- [Big data architectures](../../data-guide/big-data/index.yml)
+- [Batch processing](../../data-guide/big-data/batch-processing.yml)
 - [Choosing a batch processing technology in Azure](../../data-guide/technology-choices/batch-processing.md)
 - [Data lakes](../../data-guide/scenarios/data-lake.md)
 - [Choosing a big data storage technology in Azure](../../data-guide/technology-choices/data-storage.md)
@@ -81,6 +81,6 @@ See the following related IoT architectural guidance:
 
 - [IoT solutions conceptual overview](../../example-scenario/data/big-data-with-iot.yml)
 - [Vision with Azure IoT Edge](../../guide/iot-edge-vision/index.md)
-- [Azure Industrial IoT Analytics Guidance](../../guide/iiot-guidance/iiot-architecture.md)
+- [Azure Industrial IoT Analytics Guidance](../../guide/iiot-guidance/iiot-architecture.yml)
 - [Azure IoT reference architecture](../../reference-architectures/iot.yml)
 - [IoT and data analytics](../../example-scenario/data/big-data-with-iot.yml)

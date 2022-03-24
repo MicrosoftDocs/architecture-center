@@ -96,7 +96,7 @@ It is up to the user to create the data lake folder structure and the Azure Syna
 
 Deploy the ARM template directly by clicking this button:
 
-[![Deploy to Azure](https://aka.ms/deploytoazurebutton)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fvsuopys%2FSecureSynapse%2Fmaster%2FSecureSynapseARM%2Fazuredeploy.json)
+[![Deploy to Azure](../../_images/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fvsuopys%2FSecureSynapse%2Fmaster%2FSecureSynapseARM%2Fazuredeploy.json)
 
 ## Next steps
 

@@ -5,7 +5,7 @@ author: EdPrice-MSFT
 ms.author: edprice
 ms.service: industry
 ms.topic: overview
-ms.date: 02/05/2022
+ms.date: 03/18/2022
 categories:
   - management-and-governance
 products:
@@ -104,7 +104,7 @@ service from an external service provider,
 [Quandl](https://www.quandl.com/).
 
 > [!NOTE]
-> The example uses the [WIKI Prices dataset](https://www.quandl.com/databases/WIKIP) which can be used for learning concepts. For production usage of US based equities, Quandl recommends using the [End of Day US Stock Prices dataset](https://www.quandl.com/data/EOD-End-of-Day-US-Stock-Prices).
+> The example uses the [WIKI Prices dataset](https://www.quandl.com/databases/WIKIP) which can be used for learning concepts. For production usage of US based equities, Quandl recommends using the [End of Day US Stock Prices dataset](https://www.eoddata.com/).
 
 To process the data and define the risk associated with the equity, we
 need to do the following things:
@@ -520,7 +520,9 @@ Figure 5 - Potential future exposure for MSFT equity forward - Calculated with a
 
 ## Contributors
 
-_This article is being updated and maintained by Microsoft. It was originally written by the following contributors:_
+_This article is being updated and maintained by Microsoft. It was originally written by the following contributors._
+
+**Principal authors:**
 
 - [Dr. Darko Mocelj](https://www.linkedin.com/in/darko-mocelj) | HPC Global Blackbelt & AI Sr. Technology Specialist
 - [Rupert Nicolay](https://www.linkedin.com/in/rupert-nicolay) | Financial Services Industry Solutions Lead

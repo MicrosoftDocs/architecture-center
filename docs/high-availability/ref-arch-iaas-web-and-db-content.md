@@ -26,7 +26,7 @@ The Application Gateway is zone-redundant. It isn't affected by the failure of Z
 
 Spreading resources across Availability Zones also protects an application from planned maintenance. When VMs are distributed across three Availability Zones they are, in effect, spread across three update domains. The Azure platform recognizes this distribution across update domains to ensure that VMs in different zones aren't updated at the same time.
 
-By replicating VMs across Availability Zones, you can protect your applications and data from a zone failure. This is how Azure meets the industry-best 99.99% VM uptime service-level agreement (SLA). See [Building solutions for high availability using Availability Zones](./building-solutions-for-high-availability.md).
+By replicating VMs across Availability Zones, you can protect your applications and data from a zone failure. This is how Azure meets the industry-best 99.99% VM uptime service-level agreement (SLA). See [Building solutions for high availability using Availability Zones](./building-solutions-for-high-availability.yml).
 
 The architecture has the following components.
 
@@ -120,7 +120,7 @@ For more information about health probes, see:
 - [Load Balancer health probes](/azure/load-balancer/load-balancer-custom-probe-overview)
 - [Application Gateway health monitoring overview](/azure/application-gateway/application-gateway-probe-overview)
 
-For considerations about designing a health probe endpoint, see [Health Endpoint Monitoring pattern](../patterns/health-endpoint-monitoring.md).
+For considerations about designing a health probe endpoint, see [Health Endpoint Monitoring pattern](../patterns/health-endpoint-monitoring.yml).
 
 ## Cost considerations
 

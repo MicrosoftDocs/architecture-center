@@ -42,7 +42,7 @@ The resources listed in this section are all found in the GitHub repository.
 
 Review the following primary resources:
 
-- [PowerShell](/powershell/scripting/powershell-scripting?WT.mc_id=ms-docs-dastarr) scripts for deployment, configuration, and other tasks.
+- [PowerShell](/powershell/scripting/overview) scripts for deployment, configuration, and other tasks.
 - [Detailed instructions for installation](https://github.com/Azure/Health-Data-and-AI-Blueprint/blob/master/deployment.md) include how to use the install script.
 - [A comprehensive FAQ](https://github.com/Azure/Health-Data-and-AI-Blueprint/blob/master/faq.md)
 

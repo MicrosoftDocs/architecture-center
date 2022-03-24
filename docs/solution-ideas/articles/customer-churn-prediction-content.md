@@ -8,12 +8,14 @@ Keeping existing customers is five times cheaper than the cost of getting new cu
 
 This solution uses [Azure Machine Learning](/azure/machine-learning) to predict churn probability and helps find patterns in existing data associated with the predicted churn rate. This information provides businesses with actionable intelligence to improve customer retention and profit margins.
 
+This solution is optimized for the retail industry.
+
 ## Architecture
 
 ![Architecture diagram: predicting customer churn with machine learning.](../media/customer-churn-prediction.png)
 *Download an [SVG](../media/customer-churn-prediction.svg) of this architecture.*
 
-### Data flow
+### Dataflow
 
 1. Use Azure Event Hub to stream all live data into Azure.
 
@@ -34,9 +36,9 @@ This solution uses [Azure Machine Learning](/azure/machine-learning) to predict 
 * [Azure Machine Learning](/azure/machine-learning/) can be used for any supervised and unsupervised machine learning, whether you prefer to write Python of R code. You can build, train, and track machine learning models in an Azure Machine Leaning workspace.
 * [Power BI](https://powerbi.microsoft.com/) is a suite of tools that delivers powerful insights to organizations. Power BI connects to various data sources, simplify data prep and model creation from disparate sources. Enhance team collaboration across the organization to produce analytical reports and dashboard to support the business decisions and publish them to the web and mobile devices for users to consume.
 
-## Solution details
+## Deploy this scenario
 
-For more details on how this solution is built, visit the [solution guide in GitHub](https://github.com/Azure/cortana-intelligence-churn-prediction-solution).
+For more details on how to build and deploy this solution, visit the [solution guide in GitHub](https://github.com/Azure/cortana-intelligence-churn-prediction-solution).
 
 The objective of this guide is to demonstrate predictive data pipelines for retailers to predict customer churn. Retailers can use these predictions to prevent customer churn by using their domain knowledge and proper marketing strategies to address at-risk customers. The guide also shows how customer churn models can be retrained to use more data as it becomes available.
 

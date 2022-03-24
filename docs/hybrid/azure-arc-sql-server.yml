@@ -25,6 +25,6 @@ products:
   - azure-kubernetes-service
   - azure-resource-manager
   - azure-sql-managed-instance
-thumbnailUrl: /azure/architecture/browse/thumbs/azure_arc_sql_srvr.png
+thumbnailUrl: /azure/architecture/browse/thumbs/administer-sql-server-azure-arc.png
 content: |
    [!include[](azure-arc-sql-server-content.md)]

@@ -47,7 +47,7 @@ Azure provides several solutions for working with CSV and JSON files, depending 
 
 You can also query JSON files directly from Azure Blob Storage without importing them into Azure SQL. For a complete example of this approach, see [Work with JSON files with Azure SQL](https://medium.com/@mauridb/work-with-json-files-with-azure-sql-8946f066ddd4). Currently this option isn't available for CSV files.
 
-Depending on the scenario, you may perform [batch processing](../big-data/batch-processing.md) or [real-time processing](../big-data/real-time-processing.md) of the data.
+Depending on the scenario, you may perform [batch processing](../big-data/batch-processing.yml) or [real-time processing](../big-data/real-time-processing.yml) of the data.
 
 ## Challenges
 

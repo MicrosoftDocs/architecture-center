@@ -4,7 +4,7 @@ metadata:
   description: This reference architecture describes the services that must be deployed in Azure to provide automated management and configuration across on-premises or other cloud providers.
   author: t2kx
   ms.author: mimar
-  ms.date: 04/16/2021
+  ms.date: 02/09/2022
   ms.topic: conceptual
   ms.service: architecture-center
   ms.subservice: reference-architecture
@@ -25,6 +25,7 @@ products:
   - azure-portal
   - azure-monitor
   - azure-virtual-machines
+  - azure-arc
 thumbnailUrl: /azure/architecture/browse/thumbs/azure-automation-hybrid.png
 content: |
    [!include[](azure-automation-hybrid-content.md)]

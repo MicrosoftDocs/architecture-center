@@ -4,7 +4,7 @@ metadata:
   titleSuffix: Azure Example Scenarios
   description: Transform latent information in your image and text data into full text searchable content with Azure Cognitive Search pre-built and custom skills.
   author: jocontr
-  ms.author: pnp
+  ms.author: jocontr
   ms.date: 06/01/2020
   ms.topic: conceptual
   ms.service: architecture-center

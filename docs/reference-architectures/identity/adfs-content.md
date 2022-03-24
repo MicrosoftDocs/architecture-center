@@ -193,7 +193,7 @@ For information about the editions offered by Azure Active Directory, see [Azure
 ## Next Steps
 
 * [Azure Activity Directory Documentation](/azure/active-directory)
-* [Manage Identity in multitenant applications](../../multitenant-identity/index.md)
+* [Manage Identity in multitenant applications](../../multitenant-identity/index.yml)
 * [Identity Management Security](/azure/security/fundamentals/identity-management-overview)
 * [Azure Firewall](/azure/firewall/overview)
 

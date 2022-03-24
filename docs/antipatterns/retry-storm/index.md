@@ -46,7 +46,7 @@ Client applications should follow some best practices to avoid causing a retry s
 - Cap the number of retry attempts, and don't keep retrying for a long period of time. While it might seem easy to write a `while(true)` loop, you almost certainly don't want to actually retry for a long period of time, since the situation that led to the request being initiated has probably changed. In most applications, retrying for a few seconds or minutes is sufficient.
 - Pause between retry attempts. If a service is unavailable, retrying immediately is unlikely to succeed. Gradually increase the amount of time you wait between attempts, for example by using an [exponential backoff strategy](../../best-practices/retry-service-specific.md#examples-2).
 - Gracefully handle errors. If the service isn't responding, consider whether it makes sense to abort the attempt and return an error back to the user or caller of your component. Consider these failure scenarios when designing your application.
-- Consider using the [Circuit Breaker pattern](../../patterns/circuit-breaker.md), which is designed specifically to help avoid retry storms.
+- Consider using the [Circuit Breaker pattern](../../patterns/circuit-breaker.yml), which is designed specifically to help avoid retry storms.
 - If the server provides a `retry-after` response header, make sure you don't attempt to retry until the specified time period has elapsed.
 - Use official SDKs when communicating to Azure services. These SDKs generally have built-in retry policies and protections against causing or contributing to retry storms. If you're communicating with a service that doesn't have an SDK, or where the SDK doesn't handle retry logic correctly, consider using a library like [Polly](https://github.com/App-vNext/Polly) (for .NET) or [retry](https://www.npmjs.com/package/retry) (for JavaScript) to handle your retry logic correctly and avoid writing the code yourself.
 - If you're running in an environment that supports it, use a service mesh (or another abstraction layer) to send outbound calls. Typically these tools, such as [Dapr](https://docs.dapr.io/developing-applications/building-blocks/service-invocation/service-invocation-overview/#retries), support retry policies and automatically follow best practices, like backing off after repeated attempts. This approach means you don't have to write retry code yourself.
@@ -101,7 +101,7 @@ Executing this query during a retry storm shows a large number of connection att
 
 ## Related resources
 
- * [Retry pattern](../../patterns/retry.md)
- * [Circuit Breaker pattern](../../patterns/circuit-breaker.md)
+ * [Retry pattern](../../patterns/retry.yml)
+ * [Circuit Breaker pattern](../../patterns/circuit-breaker.yml)
  * [Transient fault handling best practices](../../best-practices/transient-faults.md)
  * [Service-specific retry guidance](../../best-practices/retry-service-specific.md)

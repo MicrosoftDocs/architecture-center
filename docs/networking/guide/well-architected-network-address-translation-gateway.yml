@@ -1,0 +1,21 @@
+### YamlMime:Architecture
+metadata:
+  title: Azure Well-Architected Framework review of an Azure NAT gateway
+  description: Best practices for an Azure NAT gateway, based on the Azure Well-Architected Framework's five pillars of architecture excellence.
+  author: jknightly
+  ms.author: ethaslet
+  ms.date: 09/21/2021
+  ms.topic: conceptual
+  ms.service: architecture-center
+  ms.subservice: azure-guide
+azureCategories:
+  - networking
+products:
+  - azure-application-gateway
+  - azure-virtual-network
+  - azure-private-link
+name: Azure Well-Architected Framework review of an Azure NAT gateway
+summary: Best practices for an Azure NAT gateway, based on the Azure Well-Architected Framework's five pillars of architecture excellence.
+thumbnailUrl: /azure/architecture/browse/thumbs/az-directions.png
+content: |
+  [!include[](well-architected-network-address-translation-gateway-content.md)]
