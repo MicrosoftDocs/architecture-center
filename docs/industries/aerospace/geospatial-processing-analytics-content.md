@@ -1,113 +1,109 @@
-Spaceborne data collection is growing at an exponential rate. New use cases are discovered every day. With the application of artificial intelligence, stored archives of data are a necessity for machine learning. The need to build a cloud-based end-to-end solution for geospatial analysis has become more important than ever for enterprise and government customers to drive better-informed, business and tactical decisions. This architecture is designed to show an end-to-end implementation that involves extracting, loading, transforming and analyzing spaceborne data using geospatial libraries and AI models with [Azure Synapse Analytics](https://docs.microsoft.com/en-us/azure/synapse-analytics/overview-what-is). This article also shows how to integrate geospatial specific [Azure Cognitive services](https://docs.microsoft.com/azure/cognitive-services/) models, AI models from partners, Bring Your Own Data (BYOD) and AI models using Azure Synapse Analytics.
+Spaceborne data collection is growing at an exponential rate. For the application of artificial intelligence, stored archives of data are necessary for machine learning. The need to build a cloud-based, end-to-end solution for geospatial analysis has become more important so enterprises and governments can drive better-informed business and tactical decisions. 
 
-This architecture demonstrates how Azure Synapse Analytics can be used for geospatial analysis and for running AI models against the spaceborne data. The intended audience for this document are users with intermediate skill levels in the Geospatial space.
+This architecture is designed to show an end-to-end implementation that involves extracting, loading, transforming, and analyzing spaceborne data by using geospatial libraries and AI models with [Azure Synapse Analytics](/azure/synapse-analytics/overview-what-is). This article also shows how to integrate geospatial-specific [Azure Cognitive Services](/azure/cognitive-services) models, AI models from partners, bring-your-own-data, and AI models that use Azure Synapse Analytics.
+
+The architecture demonstrates how you can use Azure Synapse Analytics for geospatial analysis and for running AI models against spaceborne data. The intended audience for this document is users with intermediate skill levels in the geospatial space.
 
 An implementation of this architecture is available on [GitHub](https://github.com/Azure/Azure-Orbital-Analytics-Samples).
 
+apache note
+
 ## Potential use cases
 
-This solution is ideal for the aerospace industry, and it addresses the following scenarios:
+This solution is ideal for the aerospace industry. It addresses these scenarios:
 
 - Raster data ingestion and processing
-- Object detection using pre trained AI models
-- Classification of land masses using AI models
-- Monitor changes in the environment using AI models
+- Object detection via pre-trained AI models
+- Classification of land masses via AI models
+- Monitoring changes in the environment via AI models
 - Derived datasets from preprocessed imagery sets
-- Vector visualization/small area consumption
+- Vector visualization / small-area consumption
 - Vector data filtering and cross-data joins
 
 ## Architecture
 
-![Diagram that shows the geospatial processing analytics solution.](./images/geospatial-processing-analytics/geospatial-processing-analytics-arch.png)
+:::image type="content" border="false" source="./images/geospatial-processing-analytics/geospatial-processing-analytics-architecture.png" alt-text="Diagram that shows the geospatial processing analytics solution." lightbox="./images/geospatial-processing-analytics/geospatial-processing-analytics-architecture.png":::
 
 ### Dataflow
 
-The below workflow will walk-through the different stages of the end-to-end architecture:
+The following sections describe the stages of the architecture.
 
-#### Spaceborne data ingestion
+#### Data ingestion
 
-  - Spaceborne data is pulled from various data sources like [Airbus](https://oneatlas.airbus.com/home), [NAIP / USDA (via Planetary Computer API)](https://planetarycomputer.microsoft.com/dataset/naip), [Maxar](https://www.maxar.com/), [Capella](https://www.capellaspace.com/), [HEAD Aerospace](https://www.head-aerospace.eu/satellite-imagery), etc and ingested into [Azure Data Lake Storage](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-introduction). 
-  - Azure Synapse Analytics provides various pipelines & activities like Web Activity, Data flow Activity and Custom Activity to connect to these sources and copy the data into Azure Data Lake Storage.
-    - Azure Synapse custom activity runs your customized code logic on an [Azure Batch](https://docs.microsoft.com/azure/batch/batch-technical-overview) pool of virtual machines or [Docker-compatible containers](https://docs.microsoft.com/azure/batch/batch-docker-container-workloads).
+- Spaceborne data is pulled from data sources like [Airbus](https://oneatlas.airbus.com/home), [NAIP/USDA (via the Planetary Computer API)](https://planetarycomputer.microsoft.com/dataset/naip), [Maxar](https://www.maxar.com), [Capella](https://www.capellaspace.com/), and [HEAD Aerospace](https://www.head-aerospace.eu/satellite-imagery). Data is ingested into [Azure Data Lake Storage](/azure/storage/blobs/data-lake-storage-introduction). 
+
+   Azure Synapse Analytics provides various pipelines and activities, like Web activity, Data Flow activity, and custom activities, to connect to these sources and copy the data into Data Lake Storage.
+
+   Azure Synapse custom activities run your customized code logic on an [Azure Batch](/azure/batch/batch-technical-overview) pool of virtual machines or [Docker-compatible containers](/azure/batch/batch-docker-container-workloads).
   
-#### Spaceborne data tranformation
+#### Data transformation
 
- - The spaceborne data is then processed and transformed into a format that can be consumed by the Analysts and the AI Models. There are various geospatial libraries available to perform the transformation like GDAL, OGR, Rasterio, GeoPandas, etc.
- - Azure Synapse Analytics Spark Pools provide the ability to configure and use these libraries to perform such data transformations. In addition to Spark Pools, Azure Synapse Analytics also provides a *Custom Activity* that leverages Azure Batch Pools which can be used. 
- - [Azure Synapse Analytics notebooks](https://docs.microsoft.com/azure/synapse-analytics/spark/apache-spark-notebook-concept) is a web interface to create files that contain live code, visualizations, and narrative text. Notebooks are a good place to validate ideas, define transformations and use quick experiments to get insights from your data and build a pipeline. In the [sample code](#sample-code), data transformations are performed using the **GDAL** library in a Spark Pool. Please refer the sample code section for more details.
- - Sample solution implements this pipeline from this step of data transformation and expects data to be copied in Azure Data Lake Storage by above data ingestion methods. It demonstrates end to end implementation of this pipeline for raster data processing.
+ - The data is processed and transformed into a format that can be consumed by analysts and AI models. Various geospatial libraries are available to perform the transformation, including GDAL, OGR, Rasterio, and GeoPandas.
+ - Azure Synapse Spark pools provide the ability to configure and use these libraries to perform such data transformations. You can also use Azure Synapse custom activities, which use Batch pools. 
+ - An [Azure Synapse notebook](/azure/synapse-analytics/spark/apache-spark-notebook-concept) is a web interface that you can use to create files that contain live code, visualizations, and narrative text. Notebooks are a good place to validate ideas, define transformations, and do quick experiments to get insights from your data and build a pipeline. In the sample code, the GDAL library is used in a Spark pool to perform data transformations. See the [sample code](#sample-code) section of this article for more details.
+ - The sample solution implements this pipeline from this step of data transformation. It expects data to be copied in Data Lake Storage by the data ingestion methods described earlier. It demonstrates end-to-end implementation of this pipeline for raster data processing.
 
-#### Analysis and Execution of AI Models
- - Azure Synapse Analytics provides a notebook environment for analysis and the execution of AI models 
- - AI models developed using services like Azure Cognitive Services custom vision model, trained in their own environment and packaged as Docker containers are available to be consumed in the Azure Synapse Analytics environment.
- - AI models available from partners for various capabilities like object detection, change detection, land classification, trained in their own environment and packaged as Docker containers can also be consumed and executed in an Azure Synapse Analytics environment.
- - Azure Synapse Analytics is capable of executing such AI models through its *custom activity* that runs code in Azure Batch Pools as executables or as Docker containers. The sample solution demonstrates how to execute a [Custom Vision AI model](https://azure.microsoft.com/services/cognitive-services/custom-vision-service/#overview) as part of an Azure Synapse Analytics pipeline for object detection over a specific geospatial area of interest.
+#### Analysis and execution of AI models
 
-#### Post-analysis and Visualization
- - Output from analysis and execution of the AI models can then be stored in either Azure Data Lake Storage or data-aware databases like Azure Database for Postgres, or Azure CosmosDB for further analysis and visualization. The sample solution showcases how to transform AI model output and store it as [GeoJSON](https://tools.ietf.org/html/rfc7946) data in Azure Data Lake Storage and Azure Database for PostgresSQL, from where it can be later retrieved and queried.
- - Licensed tools like ArcGIS Desktop or open source tools like QGIS are available to be used for visualizing the data.
- - Power BI provides the visualization capabilities to access GeoJSON from various data sources to visualize the GIS data.
- - Client side geospatial javascript based libraries are available to visualize this data in web applications.
+ - The Azure Synapse notebook environment analyzes and runs AI models. 
+ - AI models developed with services like the Cognitive Services Custom Vision model, trained in their own environment, and packaged as Docker containers are available in the Azure Synapse environment.
+ - From the Azure Synapse environment, you can also run AI models that are available from partners for various capabilities like object detection, change detection, and land classification. These models are trained in their own environment and packaged as Docker containers.
+ - Azure Synapse can run such AI models via a custom activity that runs code in Batch pools as executables or Docker containers. The sample solution demonstrates how to run a [Custom Vision AI model](/azure/cognitive-services/custom-vision-service/overview) as part of an Azure Synapse pipeline for object detection over a specific geospatial area.
+
+#### Post-analysis and visualization
+
+ - Output from analysis and execution of the AI models can be stored in Data Lake Storage, data-aware databases like Azure Database for PostgreSQL, or Azure Cosmos DB for further analysis and visualization. The sample solution shows how to transform AI model output and store it as [GeoJSON](https://tools.ietf.org/html/rfc7946) data in Data Lake Storage and Azure Database for PostgreSQL. You can retrieve and query it from there.
+ - You can use licensed tools like ArcGIS Desktop or open source tools like QGIS to visualize the data.
+ - You can use Power BI to access GeoJSON from various data sources and visualize the geographic information system (GIS) data.
+ - You can use client-side geospatial JavaScript-based libraries to visualize the data in web applications.
 
 ### Components
 
-The architecture consist of the following components & categories
-
 #### Data sources
-- Imagery providers
-	- [Airbus](https://oneatlas.airbus.com/home)
-	- [NAIP / USDA (via Planetary Computer API)](https://planetarycomputer.microsoft.com/dataset/naip)
-	- [Maxar](https://www.maxar.com/)
-	- [Capella](https://www.capellaspace.com/)
-	- [HEAD Aerospace](https://www.head-aerospace.eu/satellite-imagery)
-- BYOD (Bring your own data) Users bring their own data and copy it to Azure Data Lake Storage
+
+- **Imagery providers**
+	- [Airbus](https://oneatlas.airbus.com/home).
+	- [NAIP/USDA (via the Planetary Computer API)](https://planetarycomputer.microsoft.com/dataset/naip).
+	- [Maxar](https://www.maxar.com).
+	- [Capella](https://www.capellaspace.com).
+	- [HEAD Aerospace](https://www.head-aerospace.eu/satellite-imagery).
+- **Bring your own data.** Copy your own data to Data Lake Storage.
 
 #### Data ingestion
-- [Azure Synapse Analytics](https://docs.microsoft.com/azure/synapse-analytics/overview-what-is) is a limitless analytics service that brings together data integration, enterprise data warehousing, and big data analytics. Azure Synapse contains the same Data Integration engine and experiences as Azure Data Factory, allowing you to create rich at-scale ETL pipelines without leaving Azure Synapse Analytics.
-  	- Ingest data from 90+ data sources
-   - Code-Free ETL with Data flow activities
-   - Orchestrate notebooks, Spark jobs, stored procedures, SQL scripts, and more
-   - Data movement, transformation and custom pipeline activities
-- [Azure Data Lake Storage Gen2](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-introduction) is a set of capabilities dedicated to big data analytics, built on [Azure Blob Storage](https://docs.microsoft.com/azure/storage/blobs/storage-blobs-introduction)
-- [Azure Batch](https://docs.microsoft.com/azure/batch/batch-technical-overview) lets you run and scale large number of batch computing jobs on Azure. Batch tasks can run directly on virtual machines (nodes) in a Batch pool, but you can also set up a Batch pool to run tasks in [Docker-compatible containers](https://docs.microsoft.com/azure/batch/batch-docker-container-workloads) on the nodes.
-  - Azure Synapse custom activity runs your customized code logic on an Azure Batch pool of virtual machines or docker containers.
-- [Azure Key Vault](https://docs.microsoft.com/azure/key-vault/) stores and controls access to secrets such as tokens, passwords, and API keys. Key Vault also creates and controls encryption keys and manages security certificates.
+
+- [Azure Synapse Analytics](https://azure.microsoft.com/services/synapse-analytics) is a limitless analytics service that brings together data integration, enterprise data warehousing, and big data analytics. Azure Synapse contains the same Data Integration engine and experiences as Azure Data Factory, so you can to create rich, at-scale ETL pipelines without leaving Azure Synapse.
+- [Azure Data Lake Storage](https://azure.microsoft.com/services/storage/data-lake-storage) is dedicated to big data analytics, and is built on [Azure Blob Storage](https://azure.microsoft.com/services/storage/blobs).
+- [Azure Batch](https://azure.microsoft.com/services/batch) enables you to run and scale a large number of batch computing jobs on Azure. Batch tasks can run directly on virtual machines (nodes) in a Batch pool, but you can also set up a Batch pool to run tasks in [Docker-compatible containers](/azure/batch/batch-docker-container-workloads) on the nodes.
+  - An Azure Synapse custom activity runs customized code logic on an Azure Batch pool of virtual machines or docker containers.
+- [Azure Key Vault](https://azure.microsoft.com/services/key-vault) stores and controls access to secrets like tokens, passwords, and API keys. Key Vault also creates and controls encryption keys and manages security certificates.
 
 #### Data transformation
-The below geospatial libraries/packages are applied in combination to transformations. These libraries/packages are installed to a serverless Spark pool, which will then be attached to a Synapse Notebook. Instructions on how to install the libraries is documented [here](#install-geospatial-packages-into-a-synapse-spark-pool). 
 
-- Geospatial libraries
-	- [GDAL](https://gdal.org/) is a library of tools used for manipulating spaceborne data. GDAL works on both raster and vector data types, and is an incredible useful tool to be familiar with when working with spaceborne data.
-	- [Rasterio](https://rasterio.readthedocs.io/en/latest/intro.html) is a highly useful module for raster processing which you can use for reading and writing several different raster formats in Python. Rasterio is based on GDAL and Python automatically registers all known GDAL drivers for reading supported formats when importing the module
-	- [Geopandas](https://geopandas.org/en/stable/) is an open source project to make working with spaceborne data in python easier. GeoPandas extends the datatypes used by pandas to allow spatial operations on geometric types.
-	- [Shapely](https://shapely.readthedocs.io/en/stable/manual.html#introduction) is a Python package for set-theoretic analysis and manipulation of planar features using (via Python's ctypes module) functions from the well known and widely deployed GEOS library.
-	- [pyproj](https://pyproj4.github.io/pyproj/stable/examples.html) Performs cartographic transformations. Converts from longitude, latitude to native map projection x,y coordinates and vice versa using [PROJ](https://proj.org).
+The following geospatial libraries and packages are applied in combination to transformations. These libraries and packages are installed to a serverless Spark pool, which is then attached to an Azure Synapse notebook. For information on installing the libraries, see [Install Geospatial packages into a Synapse Spark pool](#install-geospatial-packages-into-a-synapse-spark-pool), later in this article. 
 
-- [Azure Batch](https://docs.microsoft.com/azure/batch/batch-technical-overview) lets you run and scale large number of batch computing jobs on Azure. Batch tasks can run directly on virtual machines (nodes) in a Batch pool, but you can also set up a Batch pool to run tasks in [Docker-compatible containers](https://docs.microsoft.com/azure/batch/batch-docker-container-workloads) on the nodes.
-  - Azure Synapse custom activity runs your customized code logic on an Azure Batch pool of virtual machines or docker containers. 
-- [Azure Synapse Analytics notebooks](https://docs.microsoft.com/azure/synapse-analytics/spark/apache-spark-notebook-concept) is a web interface for you to create files that contain live code, visualizations, and narrative text. Notebooks are a good place to validate ideas and use quick experiments to get insights from your data. 
-  - Existing Synapse notebooks can be added to Synapse pipeline using the Notebook activity.
+- **Geospatial libraries**
+	- [GDAL](https://gdal.org) is a library of tools for manipulating spaceborne data. GDAL works on raster and vector data types. It's a good tool to know if you're working with spaceborne data.
+	- [Rasterio](https://rasterio.readthedocs.io/en/latest/intro.html) is a module for raster processing. You can use it to read and write several different raster formats in Python. Rasterio is based on GDAL. Python automatically registers all known GDAL drivers for reading supported formats when importing the module.
+	- [GeoPandas](https://geopandas.org/en/stable) is an open source project that can make it easier to work with spaceborne data in Python. GeoPandas extends the data types used by Pandas to allow spatial operations on geometric types.
+	- [Shapely](https://shapely.readthedocs.io/en/stable/manual.html#introduction) is a Python package for set-theoretic analysis and manipulation of planar features using (via Python's ctypes module) functions from the widely deployed GEOS library.
+	- [pyproj](https://pyproj4.github.io/pyproj/stable/examples.html) performs cartographic transformations. It converts from longitude and latitude to native map projection x, y coordinates, and vice versa, by using [PROJ](https://proj.org).
+- [Azure Batch](https://azure.microsoft.com/services/batch).
+- [Azure Synapse notebooks](https://docs.microsoft.com/azure/synapse-analytics/spark/apache-spark-notebook-concept) is a web interface for creating files that contain live code, visualizations, and narrative text. You can add existing Azure Synapse notebooks to an Azure Synapse pipeline by using the Notebook activity.
+- [Apache Spark pool](https://docs.microsoft.com/azure/synapse-analytics/spark/apache-spark-overview#spark-pool-architecture). You can add existing Spark jobs to an Azure Synapse pipeline by using the Spark Job Definition activity.
 
-- [Apache Spark pool](https://docs.microsoft.com/azure/synapse-analytics/spark/apache-spark-overview#spark-pool-architecture) Existing Spark jobs can be added to the Synapse pipeline using Spark job definition activity.
+#### Analysis and AI modeling
 
-#### Analysis and AI Modeling
+- [Azure Synapse](https://azure.microsoft.com/services/synapse-analytics) provides Machine Learning capabilities.
+-  [Azure Batch](https://azure.microsoft.com/services/batch). In this solution, the Azure Synapse Custom activity is used to run Docker-based AI models on Azure Batch pools. 
+- [Azure Cognitive Services](https://azure.microsoft.com/services/cognitive-services) enables you to embed the ability to see, hear, speak, search, understand, and accelerate advanced decision-making in your apps. You can use [Custom Vision](https://azure.microsoft.com/services/cognitive-services/custom-vision-service), a component of Cognitive Services, to customize and embed state-of-the-art computer vision image analysis for specific domains. 
+- Microsoft Partner AI models like [blackshark.ai](https://blackshark.ai/).
+- Bring-your-own AI models.
 
-- [Azure Synapse Analytics](https://docs.microsoft.com/azure/synapse-analytics/machine-learning/what-is-machine-learning) for Machine Learning capabilities
--  [Azure Batch](https://docs.microsoft.com/azure/batch/batch-technical-overview) lets you run and scale large number of batch computing jobs on Azure. Batch tasks can run directly on virtual machines (nodes) in a Batch pool, but you can also set up a Batch pool to run tasks in [Docker-compatible containers](https://docs.microsoft.com/azure/batch/batch-docker-container-workloads) on the nodes.
-  - Azure Synapse custom activity runs your customized code logic on an Azure Batch pool of virtual machines or docker containers.
-  - In this solution, we use Azure Synapse Custom activity to execute docker based AI models on Azure Batch pools. 
+#### Post-analysis and visualization
 
-- [Azure Cognitive services](https://docs.microsoft.com/azure/cognitive-services/what-are-cognitive-services)
-	- [Custom vision](https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/overview)
-
-- Microsoft Partner AI models like [blackshark.ai](https://blackshark.ai/)
-- Bring Your Own AI Models(BYOM)
-
-#### Post-analysis and Visualization
-
-- [Azure Database for PostgreSQL](https://docs.microsoft.com/azure/postgresql/) A fully-managed relational database service designed for hyperscale workloads with support for spaceborne data through [PostGIS](https://www.postgis.net/) extension.
-- [Azure Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/introduction) supports indexing and querying of geospatial point data that's represented using the [GeoJSON specification](https://tools.ietf.org/html/rfc7946).
-- [Power BI](https://docs.microsoft.com/power-bi/fundamentals/power-bi-overview) An interactive data visualization tool to build reports and dashboards through visuals to provide insights to data including spaceborne data through Esri [ArcGIS Maps](https://powerbi.microsoft.com/power-bi-esri-arcgis/)
+- [Azure Database for PostgreSQL](https://azure.microsoft.com/services/postgresql). A fully managed relational database service designed for hyperscale workloads. Supports spaceborne data via the [PostGIS](https://www.postgis.net) extension.
+- [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db) supports indexing and querying of geospatial point data that's represented in [GeoJSON](https://tools.ietf.org/html/rfc7946).
+- [Power BI](https://powerbi.microsoft.com). An interactive data visualization tool to build reports and dashboards through visuals to provide insights to data including spaceborne data through Esri [ArcGIS Maps](https://powerbi.microsoft.com/power-bi-esri-arcgis/)
 - [QGIS](https://www.qgis.org/) A free and open source GIS to create, edit, visualise, analyse and publish geospatial information.
 - [ArcGIS Desktop](https://www.esri.com/arcgis/products/arcgis-desktop/overview) is a licensed software provided by Esri to create, analyze, manage and share geographic information.
 
@@ -166,7 +162,7 @@ This architecture showcases the functional working of an end-to-end geoprocessin
 
 The following article shows how to read, write and apply transformations to raster data that is stored in Azure Data Lake Storage using Synapse Notebook. The intention is more to showcase the usage of libraries in Synapse notebooks rather than the actual transformation itself. 
 
-#### Pre-requisites
+#### Prerequisites
 
   - [Install geospatial libraries](#install-geospatial-packages-into-a-synapse-spark-pool)
   - [Create an Azure Key Vault](https://docs.microsoft.com/en-us/azure/key-vault/general/quick-create-portal#create-a-vault) to store secrets. In this case, we will store the access key of the storage account in the Key Vault. Instructions on how to do this is available [here](https://docs.microsoft.com/bs-latn-ba/azure/data-factory/store-credentials-in-key-vault).
@@ -327,7 +323,7 @@ You'll need to install packages into Synapse Spark pool using the package manage
 
 To support Geospatial workloads on Azure Synapse, it requires libraries like [GDAL](https://gdal.org/), [Rasterio](https://rasterio.readthedocs.io/en/latest/intro.html), [Geopandas](https://geopandas.org/en/stable/), just to name a few. These libraries are installed on a given serverless Apache Spark pool using a yaml file. The Spark pool comes with [Anaconda](https://docs.continuum.io/anaconda/) libraries pre-installed.
 
-#### Pre-requisites
+#### Prerequisites
 
 - [Create a Synapse workspace](https://docs.microsoft.com/en-us/azure/synapse-analytics/get-started-create-workspace)
 
