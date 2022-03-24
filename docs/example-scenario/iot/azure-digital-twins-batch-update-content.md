@@ -6,7 +6,7 @@ In this example scenario, you integrate Azure Digital Twins into line-of-busines
 
 These other use cases have similar design patterns:
 
-- You have a graph in Azure Digital Twins of moving assets in a warehouse (for example, forklifts). You might want to receive data about the order that's currently being processed for each asset by integrating with the warehouse management system or the sales LOB application every 10 minutes. The same graph in Azure Digital Twins can be synchronized with asset management solutions every day to receive inventory of assets that are available that day for use in the warehouse.
+- You have a graph in Azure Digital Twins of moving assets in a warehouse (for example, forklifts). You might want to receive data about the order that's currently being processed for each asset. To do so, you could integrate data from the warehouse management system or the sales LOB application every 10 minutes. The same graph in Azure Digital Twins can be synchronized with asset management solutions every day to receive inventory of assets that are available that day for use in the warehouse.
 
 - You have a fleet of vehicles that belong to a hierarchy that contains data that doesn't change often.  You could use this solution to keep that data updated as needed.
 
@@ -52,19 +52,19 @@ An alternative to this approach is to use [Azure Functions](https://azure.micros
 
 ### Availability
 
-Monitor Azure Data Factory pipelines:
+For information about monitoring Data Factory pipelines, see the following resources:
 - [Monitor and Alert Data Factory by using Azure Monitor](/azure/data-factory/monitor-using-azure-monitor)
 - [Data Factory metrics and alerts](/azure/data-factory/monitor-metrics-alerts)
 - [Monitoring data flows](/azure/data-factory/concepts-data-flow-monitoring)
 - [Using Azure Monitor Effectively](https://azurelib.com/how-to-monitor-azure-data-factory-effectively)
 
-- Monitor Azure Batch:
+For information about monitoring Azure Batch, see the following resources:
 - [Monitor Batch solutions](/azure/batch/monitoring-overview)
 - [Monitor and debug an Azure Batch .NET application with Application Insights](/azure/batch/monitor-application-insights)
 
 ### Operations
 
-Operational considerations:
+For issues related to operations, see the following resources:
 - [Deliver service level agreement for data pipelines](/azure/data-factory/tutorial-operationalize-pipelines)
 - [Understanding pipeline failure](/azure/data-factory/tutorial-pipeline-failure-error-handling)
 - [Send an email with an Azure Data Factory or Azure Synapse pipeline](/azure/data-factory/how-to-send-email)
@@ -73,39 +73,34 @@ Operational considerations:
 
 ### Performance
 
-Performance could be a problem if you need to integrate ADT with large datasets  Consider how to scale Azure Batch appropriately to find the balance you need:
+Performance could be a problem if you need to integrate Azure Digital Twins with large datasets. Consider how to scale Azure Batch appropriately to find the balance you need. For help with scaling, see the following resources:
 - [Auto-scaling of Azure Batch](/azure/data-factory/transform-data-using-custom-activity#auto-scaling-of-azure-batch)
 - [Azure Batch and performance efficiency](/azure/architecture/framework/services/compute/azure-batch/performance-efficiency)
 
-Depending on the complexity and size of data in the source system, consider the scale of your Mapping Data Flow:
-- [Mapping data flows performance and tuning guide](/azure/data-factory/concepts-data-flow-performance)
+Depending on the complexity and size of data in the source system, consider the scale of your mapping data flow. For help with addressing performance, see [Mapping data flows performance and tuning guide](/azure/data-factory/concepts-data-flow-performance).
 
 ### Scalability
 
-Need to scale for large datasets:
+The following resources may be helpful if you need to integrate large datasets:
 - [Create Generic SCD Pattern in ADF Mapping Data Flows](https://techcommunity.microsoft.com/t5/azure-data-factory-blog/create-generic-scd-pattern-in-adf-mapping-data-flows/ba-p/918519)
 - [Data integration at scale with Azure Data Factory or Azure Synapse Pipeline](/learn/paths/data-integration-scale-azure-data-factory)
 
 ### Security
 
-This pattern relies on Managed Identities for security, so it's safe.  Azure Data Factory requires the storage account key to generate SAS keys.  To protect that key, store it in Azure Key Vault and grant the ADF managed identity access to it.
-
-### Resiliency
-
-Resiliency is considered to be part of availability, monitoring and operations sections above. 
+This scenario relies on managed identities for security of the data.  Data Factory requires the storage account key to generate shared access signatures.  To protect that key, store it in [Azure Key Vault](https://azure.microsoft.com/services/key-vault/), and grant the data factory access to it through managed identity.
 
 ### DevOps
 
-- The custom activity code is a zip file that gets placed in Azure Storage.  A devops pipeline can manage the deployment of that.
-- Azure Data Factory supports devops, giving you an end-to-end devops lifecycle.
+- The custom activity code is contained in a .zip file that is placed in Azure Storage.  A devops pipeline can manage the deployment of that code.
+- Data Factory supports an end-to-end devops lifecycle.
 
 ## Deploy this scenario
 
-A reference implementation can be found on GitHub: [Azure Digital Twins Batch Update Prototype](https://github.com/Azure-Samples/azuredigitaltwins-batchupdate).
+You can find a reference implementation on GitHub: [Azure Digital Twins Batch Update Prototype](https://github.com/Azure-Samples/azuredigitaltwins-batchupdate).
 
 ## Pricing
 
-Leverage the [Azure Pricing Calculator](https://azure.microsoft.com/pricing/calculator/) to get accurate pricing on Azure Digital Twins, Azure Data Factory, and Azure Batch.
+Use the [Azure Pricing Calculator](https://azure.microsoft.com/pricing/calculator/) to get accurate pricing on Azure Digital Twins, Data Factory, and Azure Batch.
 
 ## Contributors
 
