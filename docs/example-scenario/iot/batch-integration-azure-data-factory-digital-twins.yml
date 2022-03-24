@@ -2,7 +2,7 @@
 metadata:
   title: Batch integration with Azure Data Factory for Azure Digital Twins
   titleSuffix: Azure Example Scenarios
-  description: This example architecture shows how to update data in Azure Digital Twins that comes from systems that rely on batch processing and extract, transform, and load (ETL) techniques. 
+  description: Use Azure Data Factory to extract data from source systems and update data in Azure Digital Twins by using batch pipelines. 
   author: howardginsburg
   ms.author: hoginsbu
   ms.date: 02/08/2022
