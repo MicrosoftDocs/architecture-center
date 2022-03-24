@@ -1158,6 +1158,8 @@ items:
                 href: /azure/architecture/browse/?terms=automotive
               - name: Automated guided vehicles fleet control
                 href: example-scenario/iot/automated-guided-vehicles-fleet-control.yml
+              - name: Batch integration with Azure Data Factory for Azure Digital Twins
+                href: example-scenario/iot/azure-digital-twins-batch-update.yml
               - name: Building blocks for autonomous driving
                 href: industries/automotive/building-blocks-autonomous-driving-simulation-environments.yml
               - name: Predictive insights with vehicle telematics
