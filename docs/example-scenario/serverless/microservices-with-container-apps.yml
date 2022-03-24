@@ -2,10 +2,10 @@
 metadata:
   title: Deploy microservices with Azure Container Apps
   titleSuffix: Azure Example Scenarios
-  description: Deploy existing microservice applications with Azure Container Apps
+  description: Deploy existing microservice applications with Azure Container Apps.
   author: cebundy
   ms.author: v-bcatherine
-  ms.date: 03/15/2022
+  ms.date: 03/25/2022
   ms.topic: conceptual
   ms.service: architecture-center
   ms.subservice: example-scenario
@@ -19,7 +19,7 @@ name: Deploy microservices with Azure Container Apps
 azureCategories:
   - developer-tools
   - containers
-summary: Deploy existing microservice applications with Azure Container Apps
+summary: Deploy existing microservice applications with Azure Container Apps.
 products:
   - azure-container-apps
   - azure-cosmos-db
