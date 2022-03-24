@@ -117,16 +117,16 @@ _This article is being updated and maintained by Microsoft. It was originally wr
 
 ## Next steps
 
-> Link to Docs and Learn articles, along with any third-party documentation.
-> Where should I go next if I want to start building this?
-> Are there any relevant case studies or customers doing something similar?
-> Is there any other documentation that might be useful? Are there product documents that go into more detail on specific technologies that are not already linked?
-
-
-
+- [Azure Data Factory documentation](/azure/data-factory)
+- [Azure Digital Twins documentation](/azure/digital-twins)
+- [Explore Azure Digital Twins implementation](/learn/modules/explore-azure-digital-twins-implementation)
+- [Examine the components of an Azure Digital Twins solution](/learn/modules/examine-components-azure-digital-twins-solution)
+- [Examine the Azure Digital Twins solution development tools and processes](/learn/modules/examine-azure-digital-twins-solution-development-tools-processes)
+- [Integrate data with Azure Data Factory or Azure Synapse Pipeline](/learn/modules/data-integration-azure-data-factory)
+- [Introduction to Azure Data Factory](/learn/modules/intro-to-azure-data-factory)
 
 ## Related resources
 
-- [Pipeline Orchestration](https://docs.microsoft.com/en-us/azure/architecture/data-guide/technology-choices/pipeline-orchestration-data-movement)
-- [ETL](https://docs.microsoft.com/en-us/azure/architecture/data-guide/relational-data/etl)
-- [Azure Digital Twins Builder](https://docs.microsoft.com/en-us/azure/architecture/solution-ideas/articles/azure-digital-twins-builder)
+- [Azure Digital Twins builder](/azure/architecture/solution-ideas/articles/azure-digital-twins-builder)
+- [Choose a data pipeline orchestration technology in Azure](/azure/architecture/data-guide/technology-choices/pipeline-orchestration-data-movement)
+- [Extract, transform, and load (ETL)](/azure/architecture/data-guide/relational-data/etl)
