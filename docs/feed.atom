@@ -2,12 +2,60 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id/>
     <title>Azure Architecture Center</title>
-    <updated>2022-03-14T15:02:37.878Z</updated>
+    <updated>2022-03-21T15:03:02.302Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <subtitle>Updated articles for Azure Architecture Center</subtitle>
     <rights>https://docs.microsoft.com/legal/termsofuse</rights>
     <category term="new"/>
     <category term="updated"/>
+    <entry>
+        <title type="html"><![CDATA[Architectural approaches for IoT in a multitenant solution]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/guide/multitenant/approaches/iot</id>
+        <link href="https://docs.microsoft.com/azure/architecture/guide/multitenant/approaches/iot"/>
+        <updated>2022-03-21T08:38:45.000Z</updated>
+        <summary type="html"><![CDATA[This articles describes approaches for supporting multitenancy in your IoT solution.]]></summary>
+        <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Design great API developer experiences using API Management and GitHub]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/example-scenario/web/design-api-developer-experiences-management-github</id>
+        <link href="https://docs.microsoft.com/azure/architecture/example-scenario/web/design-api-developer-experiences-management-github"/>
+        <updated>2022-03-17T20:05:32.000Z</updated>
+        <summary type="html"><![CDATA[Create great experiences for developers, support community engagement & contribution, and monetize your API offerings.]]></summary>
+        <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Geospatial analysis for telecom]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/example-scenario/data/geospatial-analysis-telecommunications-industry</id>
+        <link href="https://docs.microsoft.com/azure/architecture/example-scenario/data/geospatial-analysis-telecommunications-industry"/>
+        <updated>2022-03-17T17:50:23.000Z</updated>
+        <summary type="html"><![CDATA[See an architecture that provides a solution for the telecommunications industry that uses Azure Cloud Services to process large volumes of geospatial data.]]></summary>
+        <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Expose Azure Spring Cloud apps through a reverse proxy]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/reference-architectures/microservices/spring-cloud-reverse-proxy</id>
+        <link href="https://docs.microsoft.com/azure/architecture/reference-architectures/microservices/spring-cloud-reverse-proxy"/>
+        <updated>2022-03-16T20:13:23.000Z</updated>
+        <summary type="html"><![CDATA[Expose your Azure Spring Cloud apps with improved security by using reverse proxy services like Application Gateway, Azure Front Door, and Spring Cloud Gateway.]]></summary>
+        <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Integration architecture design]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/integration/integration-start-here</id>
+        <link href="https://docs.microsoft.com/azure/architecture/integration/integration-start-here"/>
+        <updated>2022-03-16T18:28:16.000Z</updated>
+        <summary type="html"><![CDATA[Bring workflows together and automate processes by connecting apps, data, services, and devices. See resources with integration guidelines and recommendations.]]></summary>
+        <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Industry specific Azure IoT reference architectures]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/reference-architectures/iot/industry-iot-hub-page</id>
+        <link href="https://docs.microsoft.com/azure/architecture/reference-architectures/iot/industry-iot-hub-page"/>
+        <updated>2022-03-15T22:41:37.000Z</updated>
+        <summary type="html"><![CDATA[See example Azure IoT solutions and scenarios for environmental, facilities, manufacturing, retail, and transportation industries.]]></summary>
+        <category label="new" term="new"/>
+    </entry>
     <entry>
         <title type="html"><![CDATA[Azure and Dynamics 365 scenarios]]></title>
         <id>https://docs.microsoft.com/azure/architecture/solutions/dynamics-365-scenarios</id>
@@ -81,7 +129,7 @@
         <category label="new" term="new"/>
     </entry>
     <entry>
-        <title type="html"><![CDATA[SWIFT Alliance Connect Virtual in Azure]]></title>
+        <title type="html"><![CDATA[SWIFT's Alliance Connect Virtual in Azure]]></title>
         <id>https://docs.microsoft.com/azure/architecture/example-scenario/finance/swift-on-azure-vsrx</id>
         <link href="https://docs.microsoft.com/azure/architecture/example-scenario/finance/swift-on-azure-vsrx"/>
         <updated>2022-03-04T15:46:47.000Z</updated>
@@ -119,6 +167,38 @@
         <updated>2022-03-01T22:37:25.000Z</updated>
         <summary type="html"><![CDATA[Learn how to build, deploy, and monitor a machine learning model for employee attrition that can be integrated with external applications using Databricks and Kubernetes.]]></summary>
         <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Enterprise-grade conversational bot]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/reference-architectures/ai/conversational-bot</id>
+        <link href="https://docs.microsoft.com/azure/architecture/reference-architectures/ai/conversational-bot"/>
+        <updated>2022-03-18T18:18:47.000Z</updated>
+        <summary type="html"><![CDATA[Learn how to build a robust, secure, and actively learning bot (chatbot) using the Azure Bot Framework.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Building blocks for autonomous-driving simulation environments]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/industries/automotive/building-blocks-autonomous-driving-simulation-environments</id>
+        <link href="https://docs.microsoft.com/azure/architecture/industries/automotive/building-blocks-autonomous-driving-simulation-environments"/>
+        <updated>2022-03-18T16:09:13.000Z</updated>
+        <summary type="html"><![CDATA[To assess autonomous driving (AD), function engineers need to simulate the behavior of vehicles with AD capabilities.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Automated guided vehicles fleet control]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/example-scenario/iot/automated-guided-vehicles-fleet-control</id>
+        <link href="https://docs.microsoft.com/azure/architecture/example-scenario/iot/automated-guided-vehicles-fleet-control"/>
+        <updated>2022-03-18T07:03:20.000Z</updated>
+        <summary type="html"><![CDATA[This example architecture shows an end-to-end approach for an automotive original equipment manufacturer (OEM) and includes a reference architecture and several published supporting open-source libraries that can be reused.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Azure and Power Platform scenarios]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/solutions/power-platform-scenarios</id>
+        <link href="https://docs.microsoft.com/azure/architecture/solutions/power-platform-scenarios"/>
+        <updated>2022-03-15T21:17:35.000Z</updated>
+        <summary type="html"><![CDATA[Learn about architectures and solutions that use Azure together with Microsoft Power Platform.]]></summary>
+        <category label="updated" term="updated"/>
     </entry>
     <entry>
         <title type="html"><![CDATA[Services in an Azure IIoT solution]]></title>
@@ -1545,11 +1625,11 @@
         <category label="updated" term="updated"/>
     </entry>
     <entry>
-        <title type="html"><![CDATA[Getting started with Azure IoT solutions]]></title>
+        <title type="html"><![CDATA[Get started with Azure IoT solutions]]></title>
         <id>https://docs.microsoft.com/azure/architecture/reference-architectures/iot/iot-architecture-overview</id>
         <link href="https://docs.microsoft.com/azure/architecture/reference-architectures/iot/iot-architecture-overview"/>
         <updated>2021-12-20T20:22:25.000Z</updated>
-        <summary type="html"><![CDATA[An overview of Azure IoT architectures.  Learn basic concepts around getting started with Azure IoT, how to get started building an IoT solution, or understand how to optimize an IoT solution for production.]]></summary>
+        <summary type="html"><![CDATA[Learn basic IoT concepts, how to get started building an Azure IoT solution, and how to optimize an IoT solution for production.]]></summary>
         <category label="updated" term="updated"/>
     </entry>
     <entry>
