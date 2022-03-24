@@ -84,7 +84,7 @@ Depending on the complexity and size of data in the source system, consider the 
 
 Need to scale for large datasets:
 - [Create Generic SCD Pattern in ADF Mapping Data Flows](https://techcommunity.microsoft.com/t5/azure-data-factory-blog/create-generic-scd-pattern-in-adf-mapping-data-flows/ba-p/918519)
-- [Data integration at scale with Azure Data Factory or Azure Synapse Pipeline](learn/paths/data-integration-scale-azure-data-factory)
+- [Data integration at scale with Azure Data Factory or Azure Synapse Pipeline](/learn/paths/data-integration-scale-azure-data-factory)
 
 ### Security
 
