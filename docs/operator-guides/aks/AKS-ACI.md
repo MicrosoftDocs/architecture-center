@@ -1,4 +1,4 @@
-# Virtual Node using AKS
+# Scaling AKS using Virtual Nodes
 
 
 Sometimes, there are scenarios where you cannot predict or anticipate the the workload that is going to be scheduled for your cluster & that could be related to several events like an Ecommerce website is hosting a <i>Sale</i> or <i>Events booking</i>s & there can be other scenarios as well.
@@ -54,4 +54,4 @@ spec:
         effect: NoSchedule
 ```
 
-4. If your workload does not fall under the known limitations today (https://docs.microsoft.com/en-us/azure/aks/virtual-nodes#known-limitations), There could be demands where you're looking to split the workoad across the agentpools & Virtual nodes  , therefore you can also use node-affinity that can help in the management of the workload across them
+If your workload does not fall under the known limitations today (https://docs.microsoft.com/en-us/azure/aks/virtual-nodes#known-limitations), you might want to consider to spliting the workoad across the agentpools & Virtual nodes. Node-affinity can help in the management of the workload across these options. 
