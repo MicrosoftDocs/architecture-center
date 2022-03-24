@@ -106,9 +106,22 @@ Use the [Azure Pricing Calculator](https://azure.microsoft.com/pricing/calculato
 
 _This article is being updated and maintained by Microsoft. It was originally written by the following contributors._
 
-**Principal authors:** 
 
- * [Howard Ginsburg](https://www.linkedin.com/in/howardginsburg) | Senior Cloud Solutions Architect
+**Main contributor:** 
+
+- [Howard Ginsburg](https://www.linkedin.com/in/howardginsburg) | Senior Cloud Solution Architect
+
+
+**Additional contributors:**
+
+- [Onder Yildirim](https://www.linkedin.com/in/%C3%B6nder-yildirim-0044601/) | Senior Cloud Solution Architect 
+- [Mike Downs](https://www.linkedin.com/in/mike-downs-4373a66/) | Senior Cloud Solution Architect 
+
+
+**Reviewer:**
+
+- [José Escrich](https://www.linkedin.com/in/jescrich/) 
+
 
 ## Next steps
 
