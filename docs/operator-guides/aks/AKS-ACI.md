@@ -54,4 +54,25 @@ spec:
         effect: NoSchedule
 ```
 
-If your workload does not fall under the known limitations today (https://docs.microsoft.com/en-us/azure/aks/virtual-nodes#known-limitations), you might want to consider to spliting the workoad across the agentpools & Virtual nodes. Node-affinity can help in the management of the workload across these options. 
+If your workload does not fall under the known limitations today (https://docs.microsoft.com/en-us/azure/aks/virtual-nodes#known-limitations), you might want to consider to spliting the workoad across the agentpools & Virtual nodes. Node-affinity can help in the management of the workload across these options. See [Provide dedicated nodes using taints and tolerations](https://docs.microsoft.com/en-us/azure/aks/operator-best-practices-advanced-scheduler#provide-dedicated-nodes-using-taints-and-tolerations) for more details on how to usenode-affinity.
+
+## Next steps
+
+This article focused on scaling clusters using Virtual Nodes. For more information about cluster operations in AKS, see the following best practices:
+
+* [Multi-tenancy and cluster isolation][aks-best-practices-scheduler]
+* [Basic Kubernetes scheduler features][aks-best-practices-scheduler]
+* [Authentication and authorization][aks-best-practices-identity]
+
+<!-- EXTERNAL LINKS -->
+[k8s-taints-tolerations]: https://kubernetes.io/docs/concepts/configuration/taint-and-toleration/
+[k8s-node-selector]: https://kubernetes.io/docs/concepts/configuration/assign-pod-node/
+[k8s-affinity]: https://kubernetes.io/docs/concepts/configuration/assign-pod-node/#affinity-and-anti-affinity
+[k8s-pod-affinity]: https://kubernetes.io/docs/concepts/configuration/assign-pod-node/#always-co-located-in-the-same-node
+
+<!-- INTERNAL LINKS -->
+[aks-best-practices-scheduler]: operator-best-practices-scheduler.md
+[aks-best-practices-cluster-isolation]: operator-best-practices-cluster-isolation.md
+[aks-best-practices-identity]: operator-best-practices-identity.md
+[use-multiple-node-pools]: use-multiple-node-pools.md
+[taint-node-pool]: use-multiple-node-pools.md#specify-a-taint-label-or-tag-for-a-node-pool
