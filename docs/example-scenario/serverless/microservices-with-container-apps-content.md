@@ -1,4 +1,3 @@
-
 Your business can simplify the deployment and management of microservice containers by using Azure Container Apps Preview. Container Apps provides a fully managed serverless environment for building and deploying modern applications.
 
 This example scenario demonstrates how to deploy microservice containers without needing to manage complex infrastructure and container orchestration.  
@@ -22,13 +21,12 @@ You can find a code sample in the [Container Apps Example Scenario](https://gith
 In this example solution, the use cases are:
 
 - Deploy a brownfield microservice-based application into a platform as a service (PaaS) offering to avoid the operational complexity of managing a container orchestrator.
-- Optimize operations and management by migrating containerized services to a platform that supports native scale-to-zero
-  - Execute a long running background process such as the workflow service in single revision mode**
-  
+- Optimize operations and management by migrating containerized services to a platform that supports native scale-to-zero.
+  - Execute a long-running background process, such as the workflow service in single revision mode.
   
 Other common uses of Container Apps include:
 
-- Running containerized workloads on a serverless, consumption-based platform
+- Running containerized workloads on a serverless, consumption-based platform.
 - Autoscaling applications based on HTTP/HTTPS traffic and/or Event-driven triggers supported by KEDA
 - Minimizing maintenance overhead for containerized applications
 - Deploying API endpoints
@@ -37,22 +35,19 @@ Other common uses of Container Apps include:
 
 ## Architecture
 
-
-
-![Microservices Deployed with Container Apps](./media/microservices-with-container-apps-deployment.png)
-
+![Diagram showing microservices deployed with Azure Container Apps.](./media/microservices-with-container-apps-deployment.png)
 
 In this scenario, the container images are sourced from Azure Container Registry and deployed to a Container Apps environment.  
 
 The services sharing the same environment benefit from:
 
-- internal ingress and service discovery
-- a single Log Analytics workspace for runtime logging
-- secure management of secrets and certificates
+- Internal ingress and service discovery
+- A single Log Analytics workspace for runtime logging
+- Secure management of secrets and certificates
 
 The containers apps are running in single revision mode.  A container app running in single revision mode will have a single revision that is backed by zero-many replicas. A replica is composed of the application container and any required sidecar containers. This example isn't making use of sidecar containers, therefore each container app replica represents a single container.  Since this example doesn't employ scaling, there will be only one replica running for each container app.
 
-![Microservices Deployed with Container Apps](./media/microservices-with-container-apps-runtime-diagram.png)
+![Diagram showing the runtime architecture for the solution.](./media/microservices-with-container-apps-runtime-diagram.png)
 
 This diagram illustrates the runtime architecture for the solution.  
 
@@ -99,7 +94,7 @@ Many of the complexities of the previous AKS architecture are replaced by these 
 
 ### Alternatives
 
-An alternative scenario of this example is the Fabrikam Drone Delivery application using Kubernetes is available on GitHub in the [Azure Kubernetes Service (AKS) Fabrikam Drone Delivery](https://github.com/mspnp/aks-fabrikam-dronedelivery) repository.
+An alternative scenario of this example is the Fabrikam Drone Delivery application using Kubernetes, which is available on GitHub in the [Azure Kubernetes Service (AKS) Fabrikam Drone Delivery](https://github.com/mspnp/aks-fabrikam-dronedelivery) repository.
 
 ## Considerations
 
@@ -169,7 +164,7 @@ Follow the steps in the README.md in the [sample repository](https://github.com/
 ## Next steps
 
 - [Azure Container Apps Documentation](/azure/container-apps/?branch=release-ignite-container-apps)
-- [Build microservices on Azure](/azure/architecture/microservices/)
+- [Azure Kubernetes Service (AKS) Fabrikam Drone Delivery GitHub repo](https://github.com/mspnp/aks-fabrikam-dronedelivery)
 
 ## Related resources
 
