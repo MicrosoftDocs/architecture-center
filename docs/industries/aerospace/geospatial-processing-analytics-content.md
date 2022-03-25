@@ -97,8 +97,8 @@ The following geospatial libraries and packages are used together for transforma
 	- [Shapely](https://shapely.readthedocs.io/en/stable/manual.html#introduction) is a Python package for set-theoretic analysis and manipulation of planar features. It uses (via Python's ctypes module) functions from the widely deployed GEOS library.
 	- [pyproj](https://pyproj4.github.io/pyproj/stable/examples.html) performs cartographic transformations. It converts from longitude and latitude to native map projection x, y coordinates, and vice versa, by using [PROJ](https://proj.org).
 - [Azure Batch](https://azure.microsoft.com/services/batch) enables you to run and scale a large number of batch computing jobs on Azure. 
-- [Azure Synapse notebooks](https://docs.microsoft.com/azure/synapse-analytics/spark/apache-spark-notebook-concept) is a web interface for creating files that contain live code, visualizations, and narrative text. You can add existing Azure Synapse notebooks to an Azure Synapse pipeline by using the Notebook activity.
-- [Apache Spark pool](https://docs.microsoft.com/azure/synapse-analytics/spark/apache-spark-overview#spark-pool-architecture) provides the ability to configure and use libraries to perform data transformations. You can add existing Spark jobs to an Azure Synapse pipeline by using the Spark Job Definition activity.
+- [Azure Synapse notebooks](/azure/synapse-analytics/spark/apache-spark-notebook-concept) is a web interface for creating files that contain live code, visualizations, and narrative text. You can add existing Azure Synapse notebooks to an Azure Synapse pipeline by using the Notebook activity.
+- [Apache Spark pool](/azure/synapse-analytics/spark/apache-spark-overview#spark-pool-architecture) provides the ability to configure and use libraries to perform data transformations. You can add existing Spark jobs to an Azure Synapse pipeline by using the Spark Job Definition activity.
 
 #### Analysis and AI modeling
 
@@ -127,8 +127,9 @@ Here are some alternative libraries and frameworks that you can use for geospati
 - [Apache Sedona](https://sedona.apache.org), formerly named GeoSpark, is a cluster computing system for processing large-scale spatial data. Sedona extends Spark and Spark SQL with out-of-the-box Spatial Resilient Distributed Datasets and SpatialSQL that efficiently loads, processes, and analyzes large-scale spatial data across machines.
 - [Dask for Python](https://tutorial.dask.org/00_overview.html) is a parallel computing library that scales the existing Python ecosystem.
 
-
 ## Considerations
+
+These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/architecture/framework).
 
 ### Operational excellence
 
@@ -156,9 +157,23 @@ See these articles for security best practices:
 - [Azure Synapse Analytics security: Authentication](/azure/synapse-analytics/guidance/security-white-paper-authentication)
 - [Azure Synapse Analytics: Network security](/azure/synapse-analytics/guidance/security-white-paper-network-security)
 
+### Cost optimization
+
+These resources provide information about pricing and cost optimization:
+
+- [Plan and manage costs for Azure Synapse](/azure/synapse-analytics/plan-manage-costs?msclkid=af63ba3caa2111ec86673cc969d7ed5e#monitor-costs)
+- [Azure Synapse in the Azure pricing calculator](https://azure.microsoft.com/pricing/calculator/?service=synapse-analytics)
+- [Apache Spark pool in Azure Synapse](/azure/synapse-analytics/spark/apache-spark-pool-configurations?msclkid=3fe55d68aa2111ec9c3fdac2368fec1a#autoscale)
+- [Nodes and pools in Azure Batch](/azure/batch/nodes-and-pools?msclkid=5bf9ea8caa2111eca300073ea3740fa6#pool-and-compute-node-lifetime)
+- [Azure Batch in the Azure pricing calculator](https://azure.microsoft.com/pricing/calculator/?service=batch)
+
+> [!NOTE] 
+>
+> For pricing and license terms for partner AI models, see the partner's documentation.
+
 ## Deploy this scenario
 
-A [Bicep](https://docs.microsoft.com/azure/azure-resource-manager/bicep/overview?tabs=bicep) deployment of the sample solution is available. To get started with this deployment, see [these instructions](https://github.com/Azure/Azure-Orbital-Analytics-Samples). 
+A [Bicep](/azure/azure-resource-manager/bicep/overview?tabs=bicep) deployment of the sample solution is available. To get started with this deployment, see [these instructions](https://github.com/Azure/Azure-Orbital-Analytics-Samples). 
 
 :::image type="content" border="false" source="./images/geospatial-processing-analytics/geospatial-processing-analytics-deploy.png" alt-text="Diagram that demonstrates the architecture of the deployed sample solution." lightbox="./images/geospatial-processing-analytics/geospatial-processing-analytics-deploy.png":::
 
@@ -174,7 +189,7 @@ The following instructions describe how to read, write, and apply transformation
 
 #### Prerequisites
 
-  - [Install the geospatial libraries.](#install-geospatial-packages-into-a-synapse-spark-pool)
+  - [Install the geospatial libraries.](#install-geospatial-packages-in-an-azure-synapse-spark-pool)
   - [Create an Azure key vault](/azure/key-vault/general/quick-create-portal#create-a-vault) to store secrets. In this scenario, we'll store the access key of the storage account in the key vault. For instructions, see [Store credentials in Azure Key Vault](/azure/data-factory/store-credentials-in-key-vault).
   - [Create a linked service](https://docs.microsoft.com/en-us/azure/data-factory/concepts-linked-services?tabs=synapse-analytics#linked-service-with-ui) for Azure Key Vault by using Azure Synapse.
   
@@ -387,22 +402,31 @@ To support geospatial workloads on Azure Synapse, you need libraries like [GDAL]
 
 For more information, see [Manage packages](/azure/synapse-analytics/spark/apache-spark-manage-python-packages).
 
-## Pricing
+## Contributors
 
-These resources provide information about pricing and cost optimization:
+_This article is being updated and maintained by Microsoft. It was originally written by the following contributors._
 
-- [Plan and manage costs for Azure Synapse](/azure/synapse-analytics/plan-manage-costs?msclkid=af63ba3caa2111ec86673cc969d7ed5e#monitor-costs)
-- [Azure Synapse in the Azure pricing calculator](https://azure.microsoft.com/pricing/calculator/?service=synapse-analytics)
-- [Apache Spark pool in Azure Synapse](/azure/synapse-analytics/spark/apache-spark-pool-configurations?msclkid=3fe55d68aa2111ec9c3fdac2368fec1a#autoscale)
-- [Nodes and pools in Azure Batch](/azure/batch/nodes-and-pools?msclkid=5bf9ea8caa2111eca300073ea3740fa6#pool-and-compute-node-lifetime)
-- [Azure Batch in the Azure pricing calculator](https://azure.microsoft.com/pricing/calculator/?service=batch)
+**Principal author:** 
+ * [Mandar Inamdar](https://www.linkedin.com/in/mandarinamdar) | Principal Engineering Manager
 
-> [!NOTE] 
->
-> For pricing and license terms for partner AI models, see the partner's documentation.
+**Additional contributors:** 
+ * [Karthick Narendran](https://www.linkedin.com/in/karthick-r-narendran-1b540314) | Senior Software Engineer
+ * [Kungumaraj Nachimuthu](https://www.linkedin.com/in/kungumarajnachimuthu) | Senior Software Engineer
+ * [Nikhil Manchanda](https://www.linkedin.com/in/nikman) | Principal Engineering Manager
+ * [Sushil Kumar](https://www.linkedin.com/in/sushil-kumar-01692310) | Senior Software Engineer
+ * [Mick Alberts](https://www.linkedin.com/in/mick-alberts-a24a1414) | Technical Writer
+
+## Next steps
+
+- [Azure Maps Geospatial Services](https://microsoft.github.io/SynapseML/docs/features/geospatial_services/GeospatialServices%20-%20Overview)
+- [Getting geospatial insights from big data using SynapseML](https://techcommunity.microsoft.com/t5/azure-maps-blog/getting-geospatial-insides-in-big-data-using-synapseml/ba-p/3154717)
+- [Get started with Azure Synapse Analytics](/azure/synapse-analytics/get-started)
+- [Microsoft Learn: Explore Azure Synapse Studio](/learn/modules/explore-azure-synapse-studio)
+- [Microsoft Learn: Create and consume Cognitive Services](/learn/modules/create-manage-cognitive-services)
 
 ## Related resources
  
-- [Geospatial data processing and analytics](/azure/architecture/example-scenario/data/geospatial-data-processing-analytics-azure)
-- [Azure Maps Geospatial Services](https://microsoft.github.io/SynapseML/docs/features/geospatial_services/GeospatialServices%20-%20Overview/)
-- [Getting geospatial insights from big data using SynapseML](https://techcommunity.microsoft.com/t5/azure-maps-blog/getting-geospatial-insides-in-big-data-using-synapseml/ba-p/3154717)
+- [Geospatial data processing and analytics](../../example-scenario/data/geospatial-data-processing-analytics-azure.yml)
+- [Geospatial analysis for the telecommunications industry](../../example-scenario/data/geospatial-analysis-telecommunications-industry.yml)
+- [Big data architectures](/azure/architecture/data-guide/big-data)
+- [End-to-end computer vision at the edge for manufacturing](../../reference-architectures/ai/end-to-end-smart-factory.yml)
