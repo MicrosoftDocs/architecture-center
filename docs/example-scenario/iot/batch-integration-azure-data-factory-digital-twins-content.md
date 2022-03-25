@@ -18,13 +18,13 @@ _Download a [Visio file](https://arch-center.azureedge.net/batch-integration-azu
 
 ### Dataflow
 
-1. Azure Data Factory uses either a [copy activity](/azure/data-factory/copy-activity-overview) or a [mapping data flow](/azure/data-factory/concepts-data-flow-overview) to connect to the business system and copy the data to a temporary location.
+1. Azure Data Factory uses either a [Copy activity](/azure/data-factory/copy-activity-overview) or a [mapping data flow](/azure/data-factory/concepts-data-flow-overview) to connect to the business system and copy the data to a temporary location.
 
 2. A mapping data flow handles any transformations and outputs a file for each twin that must be processed.
 
-3. A [get metadata activity](/azure/data-factory/control-flow-get-metadata-activity) retrieves the list of files, loops through them, and calls a [custom activity](/azure/data-factory/transform-data-using-custom-activity).
+3. A [Get Metadata activity](/azure/data-factory/control-flow-get-metadata-activity) retrieves the list of files, loops through them, and calls a [Custom activity](/azure/data-factory/transform-data-using-custom-activity).
 
-4. Azure Batch creates a task for each file that executes the custom code to interface with Azure Digital Twins.
+4. Azure Batch creates a task for each file that runs the custom code to interface with Azure Digital Twins.
 
 ### Components
 
@@ -32,19 +32,19 @@ _Download a [Visio file](https://arch-center.azureedge.net/batch-integration-azu
 
 - [Azure Data Factory](https://azure.microsoft.com/services/data-factory) handles the connectivity and orchestration between the source system and Azure Digital Twins.
 
-- [Azure Storage](https://azure.microsoft.com/services/storage) stores the code for the custom activity and the data files that we generate that need to be processed.
+- [Azure Storage](https://azure.microsoft.com/services/storage) stores the code for the Custom activity and the data files that need to be processed.
 
-- [Azure Batch](https://azure.microsoft.com/services/batch) executes the custom activity code.
+- [Azure Batch](https://azure.microsoft.com/services/batch) runs the Custom activity code.
 
-- [Azure Active Directory](https://azure.microsoft.com/services/active-directory) provides [managed identities](/azure/active-directory/managed-identities-azure-resources/overview) for securely connecting from the custom activity to Azure Digital Twins.
+- [Azure Active Directory](https://azure.microsoft.com/services/active-directory) provides [managed identities](/azure/active-directory/managed-identities-azure-resources/overview) for securely connecting from the Custom activity to Azure Digital Twins.
 
 ### Alternatives
 
-An alternative to this approach is to use [Azure Functions](https://azure.microsoft.com/services/functions/) instead of Azure Batch. We chose not to use Azure Functions for this architecture, because Functions has a timeout for execution. A timeout could be a problem if the update to Digital Twins requires complex logic, or if the API gets throttled. In such a case, the function could time out before execution is complete. Azure Batch doesn't have this restriction. Also, when using Batch, you can configure the number of virtual machines that are active to process the files. This flexibility helps you to find a balance of scale and speed of updates.
+An alternative to this approach is to use [Azure Functions](https://azure.microsoft.com/services/functions) instead of Azure Batch. We chose not to use Azure Functions for this architecture because Functions has a timeout for execution. A timeout could be a problem if the update to Azure Digital Twins requires complex logic, or if the API gets throttled. In such a case, the function could time out before execution is complete. Azure Batch doesn't have this restriction. Also, when using Batch, you can configure the number of virtual machines that are active to process the files. This flexibility helps you to find a balance between the scale and the speed of updates.
 
 ## Considerations
 
-- Custom Activities are essentially console applications.  We took some of the best practices that are outlined in [Creating an Azure Data Factory v2 Custom Activity](https://mrpaulandrew.com/2018/11/12/creating-an-azure-data-factory-v2-custom-activity/), a post by Paul Andrew on his blog, as a foundation to be able to run and debug locally.
+- Custom activities are essentially console applications.  We took some of the best practices that are outlined in [Creating an Azure Data Factory v2 Custom Activity](https://mrpaulandrew.com/2018/11/12/creating-an-azure-data-factory-v2-custom-activity), a post by Paul Andrew on his blog, as a foundation to be able to run and debug locally.
 
 - Consider archiving the files, after they've been processed, for historical purposes.
 
@@ -64,7 +64,7 @@ For information about monitoring Azure Batch, see the following resources:
 
 ### Operations
 
-For issues related to operations, see the following resources:
+For information related to operations, see the following resources:
 - [Deliver service level agreement for data pipelines](/azure/data-factory/tutorial-operationalize-pipelines)
 - [Understanding pipeline failure](/azure/data-factory/tutorial-pipeline-failure-error-handling)
 - [Send an email with an Azure Data Factory or Azure Synapse pipeline](/azure/data-factory/how-to-send-email)
@@ -76,23 +76,19 @@ For issues related to operations, see the following resources:
 Performance could be a problem if you need to integrate Azure Digital Twins with large datasets. Consider how to scale Azure Batch appropriately to find the balance you need. For help with scaling, see the following resources:
 - [Auto-scaling of Azure Batch](/azure/data-factory/transform-data-using-custom-activity#auto-scaling-of-azure-batch)
 - [Azure Batch and performance efficiency](/azure/architecture/framework/services/compute/azure-batch/performance-efficiency)
-
-Depending on the complexity and size of data in the source system, consider the scale of your mapping data flow. For help with addressing performance, see [Mapping data flows performance and tuning guide](/azure/data-factory/concepts-data-flow-performance).
-
-### Scalability
-
-The following resources may be helpful if you need to integrate large datasets:
 - [Create Generic SCD Pattern in ADF Mapping Data Flows](https://techcommunity.microsoft.com/t5/azure-data-factory-blog/create-generic-scd-pattern-in-adf-mapping-data-flows/ba-p/918519)
 - [Data integration at scale with Azure Data Factory or Azure Synapse Pipeline](/learn/paths/data-integration-scale-azure-data-factory)
 
+Depending on the complexity and size of data in the source system, consider the scale of your mapping data flow. For help with addressing performance, see [Mapping data flows performance and tuning guide](/azure/data-factory/concepts-data-flow-performance).
+
 ### Security
 
-This scenario relies on managed identities for security of the data.  Data Factory requires the storage account key to generate shared access signatures.  To protect that key, store it in [Azure Key Vault](https://azure.microsoft.com/services/key-vault/), and grant the data factory access to it through managed identity.
+This scenario relies on managed identities for security of the data.  Data Factory requires the storage account key to generate shared access signatures.  To help protect that key, store it in [Azure Key Vault](https://azure.microsoft.com/services/key-vault), and grant the data factory access to it through managed identity.
 
 ### DevOps
 
-- The custom activity code is contained in a .zip file that is placed in Azure Storage.  A devops pipeline can manage the deployment of that code.
-- Data Factory supports an end-to-end devops lifecycle.
+- The Custom activity code is contained in a .zip file that's placed in Azure Storage.  A DevOps pipeline can manage the deployment of that code.
+- Data Factory supports an end-to-end DevOps lifecycle.
 
 ## Deploy this scenario
 
@@ -100,7 +96,7 @@ You can find a reference implementation on GitHub: [Azure Digital Twins Batch Up
 
 ## Pricing
 
-Use the [Azure Pricing Calculator](https://azure.microsoft.com/pricing/calculator/) to get accurate pricing on Azure Digital Twins, Data Factory, and Azure Batch.
+Use the [Azure Pricing Calculator](https://azure.microsoft.com/pricing/calculator) to get accurate pricing on Azure Digital Twins, Data Factory, and Azure Batch.
 
 ## Contributors
 
@@ -114,13 +110,17 @@ _This article is being updated and maintained by Microsoft. It was originally wr
 
 **Additional contributors:**
 
-- [Onder Yildirim](https://www.linkedin.com/in/%C3%B6nder-yildirim-0044601/) | Senior Cloud Solution Architect 
-- [Mike Downs](https://www.linkedin.com/in/mike-downs-4373a66/) | Senior Cloud Solution Architect 
+- [Onder Yildirim](https://www.linkedin.com/in/%C3%B6nder-yildirim-0044601) | Senior Cloud Solution Architect 
+- [Mike Downs](https://www.linkedin.com/in/mike-downs-4373a66) | Senior Cloud Solution Architect 
 
 
 **Reviewer:**
 
-- [José Escrich](https://www.linkedin.com/in/jescrich/) 
+- [José Escrich](https://www.linkedin.com/in/jescrich) 
+ 
+
+**Other contributors:**
+- [Gary Moore](https://www.linkedin.com/in/gwmoore)
 
 
 ## Next steps
