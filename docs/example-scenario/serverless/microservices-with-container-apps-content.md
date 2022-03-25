@@ -63,7 +63,9 @@ This diagram illustrates the runtime architecture for the solution.
 
 The drone delivery service uses a series of Azure services in concert with one another.
 
-**[Azure Container Apps](https://azure.microsoft.com/services/container-apps)
+#### Azure Container Apps
+
+[Azure Container Apps](https://azure.microsoft.com/services/container-apps) is the primary component.
 
 Many of the complexities of the previous AKS architecture are replaced by these features:
 
@@ -74,7 +76,7 @@ Many of the complexities of the previous AKS architecture are replaced by these 
 - Autoscaling based on HTTP traffic or events powered by KEDA
 - Application upgrades and versioning
 
-### External storage and other components
+#### External storage and other components
 
 **[Azure Key Vault](https://azure.microsoft.com/services/key-vault)** service for securely storing and accessing secrets, such as API keys, passwords, and certificates.
 
