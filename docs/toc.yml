@@ -697,8 +697,12 @@ items:
                 href: /azure/architecture/browse/?terms=finance
               - name: Banking system cloud transformation
                 href: example-scenario/banking/banking-system-cloud-transformation.yml
+              - name: Data analysis for finance
+                href: example-scenario/data/data-analysis-regulated-industries.yml
               - name: Decentralized trust between banks
                 href: example-scenario/apps/decentralized-trust.yml
+              - name: Finance management apps using PostgreSQL
+                href: solution-ideas/articles/finance-management-apps-using-azure-database-for-postgresql.yml
               - name: Modernize mainframe & midrange data
                 href: reference-architectures/migration/modernize-mainframe-data-to-azure.yml
               - name: Patterns and implementations in banking
@@ -723,7 +727,7 @@ items:
                     items:
                       - name: SWIFT Alliance Connect Virtual
                         href: example-scenario/finance/swift-on-azure-vsrx.yml
-                      - name: SWIFT Alliance Access with Alliance Connect Virtual
+                      - name: SWIFT AA with Alliance Connect Virtual
                         href: example-scenario/finance/swift-alliance-access-vsrx-on-azure.yml
                       - name: SWIFT AMH with Alliance Connect Virtual
                         href: example-scenario/finance/swift-alliance-messaging-hub-vsrx.yml
