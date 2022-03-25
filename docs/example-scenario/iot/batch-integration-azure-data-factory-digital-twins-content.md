@@ -12,7 +12,7 @@ These other use cases have similar design patterns:
 
 ## Architecture
 
-:::image type="content" alt-text="Azure Digital Twins batch update architecture." source="media/batch-integration-azure-data-factory-digital-twins-diagram.png" lightbox="media/batch-integration-azure-data-factory-digital-twins-diagram.png":::
+:::image type="content" alt-text="Diagram that shows the architecture of this example, including business systems, Azure Data Factory, Azure Batch, Azure Digital Twins, Azure Storage, data pipelines, and activities." source="media/batch-integration-azure-data-factory-digital-twins-diagram.png" lightbox="media/batch-integration-azure-data-factory-digital-twins-diagram.png":::
 
 _Download a [Visio file](https://arch-center.azureedge.net/batch-integration-azure-data-factory-digital-twins-diagram.vsdx) of this architecture._
 
