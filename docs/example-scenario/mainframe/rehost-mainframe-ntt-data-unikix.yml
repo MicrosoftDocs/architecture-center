@@ -1,0 +1,24 @@
+### YamlMime:Architecture
+metadata:
+  title: Rehost mainframe applications by using NTT DATA UniKix
+  description: Improve efficiency and cut costs by running mainframe applications and workloads on Azure. Use UniKix software from NTT DATA to rehost legacy assets.
+  author: EdPrice-MSFT
+  ms.author: richard.berry
+  ms.date: 03/29/2022
+  ms.topic: conceptual
+  ms.service: architecture-center
+  ms.subservice: example-scenario
+  ms.custom: fcp
+name: Rehost mainframe applications by using NTT DATA UniKix
+azureCategories:
+  - migration
+summary: Improve efficiency and cut costs by running mainframe applications and workloads on Azure. Use UniKix software from NTT DATA to rehost legacy assets.
+products:
+  - azure-expressroute
+  - azure-load-balancer
+  - azure-site-recovery
+  - azure-sql-database
+  - azure-storage
+thumbnailUrl: /azure/architecture/browse/thumbs/rehost-mainframe-ntt-data-unikix-thumbnail.png
+content: |
+   [!include[](rehost-mainframe-ntt-data-unikix-content.md)]

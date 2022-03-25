@@ -1,70 +1,78 @@
-UniKix is a mainframe-rehosting software suite from NTT DATA. UniKix provides a way to run migrated legacy assets on Azure, including:
+UniKix is a mainframe-rehosting software suite that NTT DATA offers. Through a collaboration with Microsoft, this suite provides a way to run migrated legacy assets on Azure. Example assets include IBM CICS transactions, IBM IMS applications, batch workloads, and JCL workloads.
 
-- IBM CICS transactions.
-- IBM IMS applications.
-- Batch workloads.
-- JCL workloads.
+The NTT DATA software offers many useful features:
 
-NTT DATA also offers solutions for converting Integrated Database Management System (IDMS), Natural, and related application environments so that they operate within UniKix. The robust, logically threaded NTT DATA engine provides a rich online transaction processing environment (TPE). A complete, native batch processing environment (BPE) supports the migration of batch workloads. The suite also includes:
+- A means for converting Integrated Database Management System (IDMS), Natural, and other application environments so that they operate within UniKix
+- A robust, logically threaded NTT DATA engine that provides a rich online transaction processing environment (TPE)
+- A complete, native batch processing environment (BPE)
+- A powerful COBOL compiler
+- A streamlined runtime environment
+- A graphical source-level debugger
+- A completely portable indexed file system
 
-- A powerful COBOL compiler.
-- A streamlined runtime environment.
-- A graphical source-level debugger.
-- A completely portable indexed file system.
+By using UniKix to rehost mainframe applications, you can take advantage of these features. You can also:
 
-Most mainframe applications are unique and custom-tailored to their business. Universal one-size-fits-all architectures are rare. But this solution outlines an approach for rehosting a mainframe application on Azure. The solution offers high availability and disaster recovery.
+- Avoid licensing fees for mainframe software.
+- Reduce infrastructure maintenance and operating costs.
+- Minimize risk and disruption by retaining existing user interfaces and business logic.
+- Modernize your IT environment.
+- Capitalize on Azure solutions for scalability, high availability, and disaster recovery.
+- Implement a modern DevOps workflow with NTT DATA tools and select Azure tools.
+
+This solution outlines an approach for rehosting mainframe applications on Azure. Besides UniKix, the architecture's core components include Azure ExpressRoute, Azure Site Recovery, and Azure storage and database services.
 
 ## Potential use cases
 
-- Lower total cost of ownership (TCO):
+Industries that use mainframes can benefit from UniKix rehosting solutions. Sectors that process large volumes of transactions on a daily basis are possibilities:
 
-  - Eliminate annual mainframe software licensing fees.
-  - Eliminate proprietary hardware costs.
-
-- Accommodate growing workloads and new demands with a simplified IT environment.
-- Make rapid migration possible and lower risk by keeping application business logic intact.
-- Minimize disruption by reusing existing application development skills and user interfaces.
-- Extend and evolve legacy assets on the flexible Azure platform.
-- Implement a modern DevOps workflow with NTT DATA tools and select Azure tools.
+- Banking
+- Insurance
+- Healthcare
+- The military
+- E-commerce
 
 ## Mainframe architecture
 
-![Diagram showing the Original Mainframe Architecture](../media/rehost-mainframe-ntt-data-unikix-original-architecture.png)
+The following diagram shows a legacy mainframe system before it's rehosted to the cloud:
 
 :::image type="content" source="media/rehost-mainframe-ntt-data-unikix-original-architecture.png" alt-text="Architecture diagram that shows a mainframe system. Components include middleware, monitoring systems, applications, and data." border="false":::
 
 *Download a [Visio file](https://arch-center.azureedge.net/mainframe-NTTDATA-azure-rehost.vsdx) of this architecture.*
+
+### Workflow
 
 - On-premises users interact with the mainframe by using TCP/IP (A):
 
   - Admin users interact through a TN3270 terminal emulator.
   - Web interface users interact via a web browser over TLS 1.3 port 443.
 
-- Mainframes use communication protocols such as LU 6.2, TN3270, FTP, and Sockets (**B**).
+- Mainframes use communication protocols such as LU 6.2, TN3270, FTP, and Sockets to receive input (**B**).
 
-- Receiving applications can be either batch or online systems (**C**).
+- Batch and online applications process the input (**C**).
 
-- Mainframe applications are in COBOL, PL.I, Assembler, and 4GL. These languages and compatible ones run in an enabled environment (**D**).
+- Mainframe applications are in COBOL, PL/I, Assembler, and 4GL. These languages and compatible ones run in an enabled environment (**D**).
 
 - Mainframes use relational and hierarchical database systems, including network database systems (**E**).
 
-- Common services that run include program execution, I/O operations, error detection, and environment security (**F**).
+- Services perform tasks for the applications. Services that typically run include program execution, I/O operations, error detection, and protection. (**F**).
 
-- Middleware and utility services manage tape storage, queueing, output, and web services within the environment (**G**).
+- Middleware and utility services manage tasks like tape storage, queueing, output, and web support (**G**).
 
 - Operating systems provide an interface between the engine and the software that it runs (**H**).
 
 - Partitions run separate workloads or segregate work types within the environment (**I**).
 
-## NTT DATA UniKix Rehost Azure Architecture
+## Rehosted Azure architecture
 
 :::image type="content" source="media/rehost-mainframe-ntt-data-unikix-azure-architecture.png" alt-text="Architecture diagram that shows a mainframe system rehosted on Azure by using N T T DATA UniKix." lightbox="media/rehost-mainframe-ntt-data-unikix-azure-architecture.svg" border="false":::
 
 *Download a [Visio file](https://arch-center.azureedge.net/US-1930988-rehost-mainframe-ntt-data-unikix-azure-architecture.vsdx) of this architecture.*
 
-1. Azure ExpressRoute connects an on-premises corporate network to NTT DATA's UniKix mainframe rehosting doftware suite. Traffic from users and external interfaces that aren't on the Azure platform flows through this ExpressRoute connection to the Azure instances.
+### Workflow
 
-1. Azure Load Balancer distributes online transactions across two or more Azure virtual machines (VMs).
+1. Azure ExpressRoute connects an on-premises corporate network to NTT DATA's UniKix mainframe rehosting software suite. Traffic from users and external interfaces that aren't on the Azure platform flows through this ExpressRoute connection to the Azure instances.
+
+1. Azure Load Balancer distributes online transactions across two or more Azure virtual machines (VMs). For a single-host alternative, see [Alternatives](#alternatives).
 
 1. The application server runs the following NTT DATA products:
 
@@ -85,17 +93,17 @@ Most mainframe applications are unique and custom-tailored to their business. Un
 
    - NTT DATA VDSO. This mechanism provides a way to store VSAM key-sequenced data set (KSDS) data in a SQL database rather than local disk files. NTT DATA VDSO supports many database technologies such as SQL Server, DB2, Oracle, and MySQL.
 
-1. Shared sequential files are placed on a Lustre file system or MongoDB.
+1. Azure managed disks provide storage for shared files.
 
 1. UniKix Secure uses Azure Active Directory (Azure AD) to provide authentication. This security manager replaces security systems like Resource Access Control Facility (RACF), Access Control Facility 2 (ACF2), and Top Secret.
 
-1. The solution stores database tables and optionally, VSAM files, in SQL Server. This data is replicated to another Azure region for disaster recovery (DR) purposes.
+1. The solution stores database tables and optionally, VSAM files, in SQL Server. This data is replicated to another Azure region for disaster recovery purposes.
 
-1. Azure Site Recovery replicates the production application Azure VMs. Site Recovery also provides a way to test DR plans that doesn't impact production.
+1. Azure Site Recovery replicates the production application Azure VMs. Site Recovery also provides a way to test disaster recovery plans that doesn't impact production.
 
-1. The second Azure region mirrors the configuration of the primary Azure region for DR purposes.
+1. The second Azure region mirrors the configuration of the primary Azure region for disaster recovery purposes.
   
-## Components
+### Components
 
 This example features the following Azure components. Several of these components and workflows are interchangeable or optional depending on your scenario.
 
@@ -117,6 +125,12 @@ This example features the following Azure components. Several of these component
 
 - [Azure Site Recovery](https://azure.microsoft.com/services/site-recovery) mirrors Azure VMs to a secondary Azure region for quick failover and disaster recovery during datacenter failures.
 
+### Alternatives
+
+- Sometimes scaling isn't possible, due to licensing constraints or your application's design. In those cases, you can mirror the mainframe setup with a single host.
+- For disaster recovery, the solution replicates the SQL Server data to another region. As another option, you can use the the Always On availability groups feature of SQL Server as a disaster recovery solution.
+- In some scenarios, some of the solution's components and workflows are optional or interchangeable.
+
 ## Considerations
 
 The following considerations, based on the [Azure Well-Architected Framework](../../framework/index.md), apply to this solution:
@@ -132,7 +146,7 @@ By refactoring legacy systems, you can take advantage of cloud-computing benefit
 ### Resiliency
 
 - Azure Load Balancer provides built-in resiliency in this solution. By using health probes and rules, Load Balancer monitors the status of the back-end pool. If one presentation or transaction server fails, Load Balancer runs workloads on other servers.
-- Use availability sets and geo-redundant storage for increased resiliency.
+- For increased resiliency, use availability sets and geo-redundant storage.
 
 ### Security
 
@@ -154,12 +168,32 @@ Azure avoids unnecessary costs by identifying the correct number of resource typ
 
 Use the [Pricing calculator](https://azure.microsoft.com/pricing/calculator) to estimate the cost of implementing this solution.
 
+## Contributors
+
+*This article is being updated and maintained by Microsoft. It was originally written by the following contributors.*
+
+**Principal authors:**
+
+- [Richard Berry](https://www.linkedin.com/in/richardberryjr/) | Senior Program Manager
+
+**Additional contributors:**
+
+- [Bhaskar Bandam](https://www.linkedin.com/in/bhaskar-bandam-75202a9/) | Senior Program Manager
+- [Jonathon Frost](https://www.linkedin.com/in/jjfrost/) | Principal Program Manager
+
 ## Next steps
 
-- For more information, please contact [legacy2azure@microsoft.com](mailto:legacy2azure@microsoft.com).
-- Contact [NTTReHost.Cloud@nttdata.com](mailto:NTTReHost.Cloud@nttdata.com) for more information.
+- For more information about rehosting on Azure, contact [legacy2azure@microsoft.com](mailto:legacy2azure@microsoft.com).
+- For more information about using NTT DATA software for rehosting, contact [NTTReHost.Cloud@nttdata.com](mailto:NTTReHost.Cloud@nttdata.com).
+- [NTT DATA UniKix solution on Azure Marketplace](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/nttdata.unikix)
+- [Deploying NTT DATA UniKix in Azure, Part 1](https://techcommunity.microsoft.com/t5/azure-global/deploying-ntt-data-unikix-in-azure-part-1-deploying-the-vm/ba-p/775840)
+- [Deploying NTT DATA UniKix in Azure, Part 2](https://techcommunity.microsoft.com/t5/azure-global/deploying-ntt-data-unikix-in-azure-part-2-configure-tpe-and/ba-p/779142)
 
 ## Related resources
 
-- See NTT DATA UniKix solution on Azure Marketplace(https://azuremarketplace.microsoft.com/en-us/marketplace/apps/nttdata.unikix).
-- Read Deploying NTT DATA UniKix in Azure, Part 1 (https://techcommunity.microsoft.com/t5/azure-global/deploying-ntt-data-unikix-in-azure-part-1-deploying-the-vm/ba-p/775840) and Part 2 (https://techcommunity.microsoft.com/t5/azure-global/deploying-ntt-data-unikix-in-azure-part-2-configure-tpe-and/ba-p/779142).
+- [Azure mainframe and midrange architecture concepts and patterns](https://docs.microsoft.com/en-us/azure/architecture/mainframe/mainframe-midrange-architecture)
+- [Mainframe migration overview](https://docs.microsoft.com/en-us/azure/cloud-adoption-framework/infrastructure/mainframe-migration?toc=/azure/architecture/toc.json&bc=/azure/architecture/_bread/toc.json)
+- [Mainframe rehosting on Azure virtual machines](https://docs.microsoft.com/en-us/azure/virtual-machines/workloads/mainframe-rehosting/overview?toc=/azure/architecture/toc.json&bc=/azure/architecture/_bread/toc.json)
+- [Move mainframe compute to Azure](https://docs.microsoft.com/en-us/azure/virtual-machines/workloads/mainframe-rehosting/concepts/mainframe-compute-azure?toc=/azure/architecture/toc.json&bc=/azure/architecture/_bread/toc.json)
+- [General mainframe refactor to Azure](https://docs.microsoft.com/en-us/azure/architecture/example-scenario/mainframe/general-mainframe-refactor)
+- [AIX UNIX on-premises to Azure Linux migration](https://docs.microsoft.com/en-us/azure/architecture/example-scenario/unix-migration/migrate-aix-azure-linux)
