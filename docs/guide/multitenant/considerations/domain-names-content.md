@@ -1,27 +1,3 @@
----
-title: Considerations when using domain names in a multitenant solution
-titleSuffix: Azure Architecture Center
-description: This article describes the considerations you need to give to domain names when building multitenant web applications.
-author: johndowns
-ms.author: jodowns
-ms.date: 12/13/2021
-ms.topic: conceptual
-ms.service: architecture-center
-ms.subservice: azure-guide
-products:
-  - azure
-categories:
-  - management-and-governance
-  - networking
-  - web
-ms.category:
-  - fcp
-ms.custom:
-  - guide
----
-
-# Considerations when using domain names in a multitenant solution
-
 In many multitenant web applications, a domain name can be used as a way to identify a tenant, to help with routing requests, and to provide a branded experience to your customers. Two common approaches are to use subdomains and custom domain names. On this page, we provide guidance for technical decision-makers about the approaches you can consider and their tradeoffs.
 
 ## Subdomains
@@ -136,4 +112,4 @@ Several Azure services support automatic management of certificates for custom d
 
 ## Next steps
 
-Return to the [architectural considerations overview](overview.md). Or, review the [Microsoft Azure Well-Architected Framework](/azure/architecture/framework).
+Return to the [architectural considerations overview](overview.yml). Or, review the [Microsoft Azure Well-Architected Framework](/azure/architecture/framework).
