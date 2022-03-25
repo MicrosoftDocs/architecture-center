@@ -328,7 +328,7 @@ An implementation of this architecture is available on [GitHub](https://github.c
 
 This diagram shows the steps in the sample solution:
 
-![Diagram that shows the steps in the sample solution.](./images/geospatial-processing-analytics/geospatial-processing-analytics-sequence-diagram.png)
+:::image type="content" border="false" source="./images/geospatial-processing-analytics/geospatial-processing-analytics-sequence-diagram.png" alt-text="Diagram that shows the steps in the sample solution." lightbox="./images/geospatial-processing-analytics/geospatial-processing-analytics-sequence-diagram.png":::
 
 *Download a [Visio file](https://arch-center.azureedge.net/geospatial-processing-analytics-sequence-diagram.vsdx) of this architecture.*
 
