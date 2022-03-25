@@ -115,7 +115,7 @@ _This article is being updated and maintained by Microsoft. It was originally wr
  
 
 **Other contributors:**
-- [Gary Moore](https://www.linkedin.com/in/gwmoore)
+- [Gary Moore](https://www.linkedin.com/in/gwmoore) | Programmer/Writer
 
 
 ## Next steps
