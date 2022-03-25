@@ -686,7 +686,7 @@ items:
                 href: /azure/cloud-adoption-framework/scenarios/data-management/architectures/reference-architecture-data-mesh
                 maintainContext: true
               - name: Big compute for financial risk modeling
-                href: guide/architecture-styles/big-compute.md
+                href: guide/architecture-styles/big-compute.yml
               - name: Actuarial risk analysis
                 href: industries/finance/actuarial-risk-analysis-financial-model.yml
               - name: Financial services risk lifecycle
