@@ -1,21 +1,21 @@
-The Anomaly Detector API enables you to monitor and detect abnormalities in your time series data without having to know machine learning. The Anomaly Detector API's algorithms adapt by automatically identifying and applying the best-fitting models to your data, regardless of industry, scenario, or data volume. Using your time series data, the API determines boundaries for anomaly detection, expected values, and which data points are anomalies. The architecture provides an overview on the near real-time implementation of anomaly detection process.
+The Anomaly Detector API enables you to monitor and detect abnormalities in your time series data without having to know machine learning. The Anomaly Detector API's algorithms adapt by automatically identifying and applying the best-fitting models to your data, regardless of industry, scenario, or data volume. Using your time series data, the API determines boundaries for anomaly detection, expected values, and which data points are anomalies. The architecture provides an overview of the near real-time implementation of an anomaly detection process.
 
 ## Architecture
 
-![Architecture diagram](/azure/architecture/solution-ideas/media/anomaly-detector.png)
+![Diagram of the anomaly detector process architecture.](/azure/architecture/solution-ideas/media/anomaly-detector.png)
 
-*Download an [SVG](/azure/architecture/solution-ideas/media/anomaly-detector.svg) of this architecture.*
+*Download an [SVG file](/azure/architecture/solution-ideas/media/anomaly-detector.svg) of this architecture.*
 
-### Data flow
+### Dataflow
 
-1. Time-series data can comprise of multiple sources like Azure Database for MySQL, Blob, Event Hubs, Cosmos DB, SQL Database, Azure Database for PostgreSQL.
+1. Time-series data can comprise of multiple sources, such as Azure Database for MySQL, Blob storage, Event Hubs, Cosmos DB, SQL Database, and Azure Database for PostgreSQL.
 2. Data is ingested into compute from various storage sources to be monitored by Anomaly Detector.
 3. Databricks helps aggregate, sample, and compute the raw data to generate the time with the detected results. Databricks is capable of processing stream and static data. Stream analytics and Azure Synapse can be alternatives based on the requirements.
-4. Anomaly detector API detects anomalies returns the results to compute.
-5. Queue the anomaly-related metadata.
-6. The application insights picks the message from the message queue based on the anomaly-related metadata and sends the alert about the anomaly.
-7. Stores the results in Azure Data Lake Service gen2. 
-8. Visualize the results of the time series anomaly detection.
+4. The anomaly detector API detects anomalies and returns the results to compute.
+5. We queue the anomaly-related metadata.
+6. Application Insights picks the message from the message queue based on the anomaly-related metadata and sends the alert about the anomaly.
+7. Stores the results in Azure Data Lake Service Gen2. 
+8. Visualizes the results of the time-series anomaly detection.
 
 ### Components
 
@@ -27,14 +27,14 @@ Key technologies used to implement this architecture:
 * [Storage Accounts](https://azure.microsoft.com/services/storage): Durable, highly available, and massively scalable cloud storage
 * [Cognitive Services](/azure/cognitive-services): cloud-based services with REST APIs and client library SDKs available to help you build cognitive intelligence into your applications
 * [Logic Apps][logic-apps]: Serverless platform for building enterprise workflows that integrate applications, data, and services. In this architecture, the logic apps are triggered by HTTP requests.
-* [ADLS Gen2](https://docs.microsoft.com/en-us/azure/storage/blobs/data-lake-storage-introduction): Azure Data Lake Storage Gen2 provides file system semantics, file-level security, and scale.
-* [Application Insights](https://docs.microsoft.com/en-us/azure/azure-monitor/app/app-insights-overview): Application Insights is a feature of Azure Monitor that provides extensible application performance management (APM) and monitoring for live web apps.
+* [Azure Data Lake Storage Gen2](https://azure.microsoft.com/services/storage/data-lake-storage): Azure Data Lake Storage Gen2 provides file system semantics, file-level security, and scale.
+* [Application Insights](/azure/azure-monitor/app/app-insights-overview): Application Insights is a feature of Azure Monitor that provides extensible application performance management (APM) and monitoring for live web apps.
 
 ### Alternatives
 
 * [Event Hubs with Kafka][event-hubs]: An alternative to running your own Kafka cluster. This Event Hubs feature provides an endpoint that is compatible with Kafka APIs.
 * [Azure Synapse Analytics][synapse-analytics]: Analytics service that brings together enterprise data warehousing and Big Data analytics
-* [Azure Machine Learning](/azure/machine-learning/): lets you build, train, deploy, and manage custom machine learning / anomaly detection models in a cloud-based environment.
+* [Azure Machine Learning](/azure/machine-learning): lets you build, train, deploy, and manage custom machine learning / anomaly detection models in a cloud-based environment.
 
 ## Considerations
 
@@ -74,6 +74,18 @@ We have provided three sample cost profiles based on the amount of traffic (we a
 * [Azure Databricks Documentation](/azure/azure-databricks)
 * [Power BI Documentation](/power-bi)
 * [Storage Documentation](/azure/storage)
+
+## Related resources
+
+* [Quality assurance](/azure/architecture/solution-ideas/articles/quality-assurance)
+* [Supply chain track and trace](/azure/architecture/solution-ideas/articles/supply-chain-track-and-trace)
+* [Introduction to predictive maintenance in manufacturing](/azure/architecture/industries/manufacturing/predictive-maintenance-overview)
+* [Predictive maintenance solution](/azure/architecture/industries/manufacturing/predictive-maintenance-solution)
+* [Predictive maintenance](/azure/architecture/solution-ideas/articles/predictive-maintenance)
+* [Predictive maintenance with the intelligent IoT Edge](/azure/architecture/example-scenario/predictive-maintenance/iot-predictive-maintenance)
+* [Stream processing with fully managed open-source data engines](/azure/architecture/example-scenario/data/open-source-data-engine-stream-processing)
+* [Connected factory hierarchy service](/azure/architecture/solution-ideas/articles/connected-factory-hierarchy-service)
+* [Connected factory signal pipeline](/azure/architecture/example-scenario/iot/connected-factory-signal-pipeline)
 
 <!-- Links -->
 [Event Grid]: https://azure.microsoft.com/services/event-grid/
