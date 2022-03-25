@@ -2,7 +2,7 @@ Azure Digital Twins can help you build virtual representations of your systems a
 
 In this example scenario, you integrate Azure Digital Twins into line-of-business (LOB) systems by synchronizing or updating your Azure Digital Twins graph with data. With your model and the data pipelines established, you can have a 360-degree view of your environment and system. You determine the frequency of synchronization based on your source systems and the requirements of your solution.
 
-## Relevant use cases
+## Potential use cases
 
 These other use cases have similar design patterns:
 
@@ -102,21 +102,15 @@ Use the [Azure Pricing Calculator](https://azure.microsoft.com/pricing/calculato
 
 _This article is being updated and maintained by Microsoft. It was originally written by the following contributors._
 
-
-**Main contributor:** 
+**Principal author:** 
 
 - [Howard Ginsburg](https://www.linkedin.com/in/howardginsburg) | Senior Cloud Solution Architect
 
-
 **Additional contributors:**
 
-- [Onder Yildirim](https://www.linkedin.com/in/%C3%B6nder-yildirim-0044601) | Senior Cloud Solution Architect 
 - [Mike Downs](https://www.linkedin.com/in/mike-downs-4373a66) | Senior Cloud Solution Architect 
- 
-
-**Other contributors:**
 - [Gary Moore](https://www.linkedin.com/in/gwmoore) | Programmer/Writer
-
+- [Onder Yildirim](https://www.linkedin.com/in/%C3%B6nder-yildirim-0044601) | Senior Cloud Solution Architect 
 
 ## Next steps
 
