@@ -4,7 +4,7 @@ In this example scenario, you integrate Azure Digital Twins into line-of-busines
 
 ## Potential use cases
 
-These other use cases have similar design patterns:
+This solution is ideal for the manufacturing, automotive, and transportation industries. These other use cases have similar design patterns:
 
 - You have a graph in Azure Digital Twins of moving assets in a warehouse (for example, forklifts). You might want to receive data about the order that's currently being processed for each asset. To do so, you could integrate data from the warehouse management system or the sales LOB application every 10 minutes. The same graph in Azure Digital Twins can be synchronized with asset management solutions every day to receive inventory of assets that are available that day for use in the warehouse.
 
