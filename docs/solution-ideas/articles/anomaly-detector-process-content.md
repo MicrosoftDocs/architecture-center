@@ -8,7 +8,7 @@ The Anomaly Detector API enables you to monitor and detect abnormalities in your
 
 ### Dataflow
 
-1. Time-series data can comprise of multiple sources, such as Azure Database for MySQL, Blob storage, Event Hubs, Cosmos DB, SQL Database, and Azure Database for PostgreSQL.
+1. Time-series data can comprise multiple sources, such as Azure Database for MySQL, Blob storage, Event Hubs, Cosmos DB, SQL Database, and Azure Database for PostgreSQL.
 2. Data is ingested into compute from various storage sources to be monitored by Anomaly Detector.
 3. Databricks helps aggregate, sample, and compute the raw data to generate the time with the detected results. Databricks is capable of processing stream and static data. Stream analytics and Azure Synapse can be alternatives based on the requirements.
 4. The anomaly detector API detects anomalies and returns the results to compute.
