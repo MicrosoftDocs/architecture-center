@@ -5,13 +5,10 @@ metadata:
   description: Use Azure Data Explorer for near real-time IoT telemetry analytics on fast-flowing, high-volume streaming data from a wide variety of IoT devices.
   author: orspod
   ms.author: orspodek
-  ms.date: 07/16/2021
+  ms.date: 03/25/2022
   ms.topic: conceptual
   ms.service: architecture-center
   ms.subservice: solution-idea
-  ms.category:
-    - analytics
-    - iot
   ms.custom:
     - fcp
 name: IoT analytics with Azure Data Explorer
@@ -20,8 +17,8 @@ azureCategories:
   - iot
 summary: Use Azure Data Explorer for near real-time IoT telemetry analytics on fast-flowing, high-volume streaming data from a wide variety of IoT devices.
 products:
-  - azure-data-explorer
   - azure-cosmos-db
+  - azure-data-explorer
   - azure-digital-twins
 thumbnailUrl: /azure/architecture/browse/thumbs/iot-azure-data-explorer.png
 content: |
