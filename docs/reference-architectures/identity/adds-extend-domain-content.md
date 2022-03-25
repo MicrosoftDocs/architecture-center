@@ -127,6 +127,17 @@ Azure Virtual Network is free. Every subscription is allowed to create up to 50 
 
 ## Next steps
 
+- [What is Azure Active Directory?](/azure/active-directory/fundamentals/active-directory-whatis)
+- [Azure DevOps][az-devops]
+- [Azure Pipelines][az-pipelines]
+- [Azure Monitor][azure-monitor]
+- [Active Directory and Active Directory Domain Services Port Requirements][ad-ds-ports]
+- [Desired State Configuration (DSC)][dsc-overview]
+
+## Related resources
+
+- [Choose a solution for integrating on-premises Active Directory with Azure][considerations]
+- [Connect an on-premises network to Azure using a VPN gateway](../hybrid-networking/vpn.yml)
 - Learn the best practices for [creating an AD DS resource forest][adds-resource-forest] in Azure.
 - Learn the best practices for [creating an Active Directory Federation Services (AD FS) infrastructure][adfs] in Azure.
 
