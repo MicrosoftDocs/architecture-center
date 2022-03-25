@@ -1,0 +1,22 @@
+### YamlMime:Architecture
+metadata:
+  title: Azure App Service and Azure Functions considerations for multitenancy
+  description: This article describes the features of Azure App Service and Azure Functions that are useful when working with multitenanted systems, and links to guidance and examples for how to use Azure App Service and Azure Functions in a multitenant solution.
+  author: EdPrice-MSFT
+  ms.author: edprice
+  ms.date: 03/18/2022
+  ms.topic: conceptual
+  ms.service: architecture-center
+  ms.custom: fcp
+azureCategories:
+ - web
+ - compute
+products:
+ - azure
+ - azure-app-service
+ - azure-functions
+name: Azure App Service and Azure Functions considerations for multitenancy
+summary: This article describes the features of Azure App Service and Azure Functions that are useful when working with multitenanted systems, and links to guidance and examples for how to use Azure App Service and Azure Functions in a multitenant solution.
+thumbnailUrl: /azure/architecture/browse/thumbs/host-front-door.png
+content: |
+  [!include[](app-service-content.md)]
