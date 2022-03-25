@@ -53,8 +53,6 @@ We recommend that you create an AD DS site including the subnets defined for you
 
 The operations masters role can be assigned to AD DS domain controllers to support consistency checking between instances of replicated AD DS databases. There are five operations master roles: schema master, domain naming master, relative identifier master, primary domain controller master emulator, and infrastructure master. For more information about these roles, see [Planning Operations Master Role Placement][ad-ds-operations-masters].
 
-We recommend you do not assign operations masters roles to the domain controllers deployed in Azure.
-
 ### Monitoring
 
 Monitor the resources of the domain controller VMs as well as the AD DS Services and create a plan to quickly correct any problems. For more information, see [Monitoring Active Directory][monitoring_ad]. You can also install tools such as [Microsoft Systems Center][microsoft_systems_center] on the monitoring server (see the architecture diagram) to help perform these tasks.
