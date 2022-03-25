@@ -12,7 +12,7 @@ The Anomaly Detector API enables you to monitor and detect abnormalities in your
 2. Data is ingested into compute from various storage sources to be monitored by Anomaly Detector.
 3. Databricks helps aggregate, sample, and compute the raw data to generate the time with the detected results. Databricks is capable of processing stream and static data. Stream analytics and Azure Synapse can be alternatives based on the requirements.
 4. The anomaly detector API detects anomalies and returns the results to compute.
-5. We queue the anomaly-related metadata.
+5. We queue the anomaly related metadata.
 6. Application Insights picks the message from the message queue based on the anomaly related metadata and sends the alert about the anomaly.
 7. Stores the results in Azure Data Lake Service Gen2. 
 8. Visualizes the results of the time-series anomaly detection.
