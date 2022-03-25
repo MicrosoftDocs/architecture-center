@@ -1,0 +1,22 @@
+### YamlMime:Architecture
+metadata:
+  title: Architectural approaches for cost management and allocation in a multitenant solution
+  description: This article describes approaches to consider for cost management and cost allocation in a multitenant solution.
+  author: EdPrice-MSFT
+  ms.author: edprice
+  ms.date: 03/18/2022
+  ms.topic: conceptual
+  ms.service: architecture-center
+  ms.custom: fcp
+azureCategories:
+ - management-and-governance
+products:
+ - azure
+ - azure-cost-management
+ - azure-resource-manager
+ - azure-monitor
+name: Architectural approaches for cost management and allocation in a multitenant solution
+summary: This article describes approaches to consider for cost management and cost allocation in a multitenant solution.
+thumbnailUrl: /azure/architecture/browse/thumbs/tags.png
+content: |
+  [!include[](cost-management-allocation-content.md)]

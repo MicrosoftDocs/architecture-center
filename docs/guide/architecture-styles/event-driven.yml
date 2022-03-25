@@ -1,0 +1,23 @@
+### YamlMime:Architecture
+metadata:
+  title: Event-driven architecture style
+  description: Explore the benefits, challenges, and best practices for event-driven and IoT architectures on Azure.
+  author: EdPrice-MSFT
+  ms.author: edprice
+  ms.date: 02/17/2022
+  ms.topic: conceptual
+  ms.service: architecture-center
+  ms.subservice: guide
+  ms.custom: fcp
+azureCategories:
+  - iot
+products:
+  - azure-iot
+  - azure-stream-analytics
+name: Event-driven architecture style
+summary: Explore the benefits, challenges, and best practices for event-driven and IoT architectures on Azure.
+thumbnailUrl: /azure/architecture/browse/thumbs/event-driven.svg
+content: |
+  [!include[](event-driven-content.md)]
+
+  
