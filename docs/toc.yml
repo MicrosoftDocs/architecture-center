@@ -3602,7 +3602,7 @@ items:
                 href: reference-architectures/iot.yml
               - name: Automated guided vehicles fleet control
                 href: example-scenario/iot/automated-guided-vehicles-fleet-control.yml
-              - name: Batch integration with Azure Data Factory for Azure Digital Twins
+              - name: Batch integration with Azure Digital Twins
                 href: example-scenario/iot/batch-integration-azure-data-factory-digital-twins.yml
               - name: Computer vision at the edge
                 href: reference-architectures/ai/end-to-end-smart-factory.yml
