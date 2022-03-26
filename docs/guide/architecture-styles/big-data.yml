@@ -1,0 +1,21 @@
+### YamlMime:Architecture
+metadata:
+  title: Big data architecture style
+  description: Explore the benefits, challenges, and best practices for Big Data architectures on Azure. Examine IoT architecture, a specialized subset of big data solutions.
+  author: EdPrice-MSFT
+  ms.author: edprice
+  ms.date: 02/17/2022
+  ms.topic: conceptual
+  ms.service: architecture-center
+  ms.subservice: azure-guide
+  ms.custom: fcp
+azureCategories:
+  - storage 
+products:
+  - azure-data-lake-analytics
+  - azure-iot
+name: Big data architecture style
+summary: Explore the benefits, challenges, and best practices for Big Data architectures on Azure. Examine IoT architecture, a specialized subset of big data solutions.
+thumbnailUrl: /azure/architecture/browse/thumbs/iot.png
+content: |
+  [!include[](big-data-content.md)]

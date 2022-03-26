@@ -43,7 +43,7 @@ In some solutions, you might choose to write custom code to dynamically provisio
 
 ### Tags
 
-[Tags](/azure/azure-resource-manager/management/tag-resources) enable you to add custom metadata to your Azure resources, resource groups, and subscriptions. Consider tagging your tenant-specific resources with the tenant's identifier so that you can easily [track and allocate your Azure costs](../approaches/cost-management-allocation.md), and to simplify your resource management.
+[Tags](/azure/azure-resource-manager/management/tag-resources) enable you to add custom metadata to your Azure resources, resource groups, and subscriptions. Consider tagging your tenant-specific resources with the tenant's identifier so that you can easily [track and allocate your Azure costs](../approaches/cost-management-allocation.yml), and to simplify your resource management.
 
 ### Azure resource quotas
 
@@ -64,7 +64,7 @@ The mitigations you select need to be appropriate for the specific limit you enc
 
 ## Isolation models
 
-In some multitenant solutions, you might decide to deploy separate or dedicated resources for each tenant. Resource Manager provides several models that you can use to isolate resources, depending on your requirements and the reason you choose to isolate the resources. See [Azure resource organization in multitenant solutions](../approaches/resource-organization.md) for guidance about how to isolate your Azure resources.
+In some multitenant solutions, you might decide to deploy separate or dedicated resources for each tenant. Resource Manager provides several models that you can use to isolate resources, depending on your requirements and the reason you choose to isolate the resources. See [Azure resource organization in multitenant solutions](../approaches/resource-organization.yml) for guidance about how to isolate your Azure resources.
 
 ## Next steps
 

@@ -55,8 +55,8 @@ When you build your multitenant solution in Azure, there are many elements that 
 ## Cost Optimization considerations
 
 * Review the [Azure Well-Architected Cost Optimization checklist](/azure/architecture/framework/cost/design-checklist), which is applicable to all workloads.
-* Ensure you can adequately [measure per-tenant consumption](./considerations/measure-consumption.md) and correlate it with [your infrastructure costs](./approaches/cost-management-allocation.md).
-* Avoid [antipatterns](./approaches/cost-management-allocation.md#antipatterns-to-avoid). Antipatterns include failing to track costs, tracking costs with unnecessary precision, real-time measurement, and using monitoring tools for billing.
+* Ensure you can adequately [measure per-tenant consumption](./considerations/measure-consumption.md) and correlate it with [your infrastructure costs](./approaches/cost-management-allocation.yml).
+* Avoid [antipatterns](./approaches/cost-management-allocation.yml#antipatterns-to-avoid). Antipatterns include failing to track costs, tracking costs with unnecessary precision, real-time measurement, and using monitoring tools for billing.
 
 ## Operational Excellence considerations
 
@@ -65,15 +65,15 @@ When you build your multitenant solution in Azure, there are many elements that 
 * Find the right balance for [deploying service updates](./considerations/updates.md). Consider both your tenants' requirements and your own operational requirements.
 * Monitor the health of the overall system, as well as each tenant.
 * Configure and test alerts to notify you when specific tenants are experiencing issues or are exceeding their consumption limits.
-* [Organize your Azure resources](./approaches/resource-organization.md) for isolation and scale.
+* [Organize your Azure resources](./approaches/resource-organization.yml) for isolation and scale.
 * Avoid [deployment and configuration antipatterns](./approaches/deployment-configuration.yml#antipatterns-to-avoid). Antipatterns include running separate versions of the solution for each tenant, hardcoding tenant-specific configurations or logic, and manual deployments.
 
 ## Performance Efficiency considerations
 
 * Review the [Azure Well-Architected Performance Efficiency checklist](/azure/architecture/framework/scalability/performance-efficiency), which is applicable to all workloads.
 * If you use shared infrastructure, plan for how you'll mitigate [Noisy Neighbor](../../antipatterns/noisy-neighbor/noisy-neighbor.yml) concerns. Ensure that one tenant can't reduce the performance of the system for other tenants.
-* Determine how you'll scale your [compute](./approaches/compute.md), [storage](./approaches/storage-data.md), [networking](./approaches/networking.md), and other Azure resources to match the demands of your tenants.
-* Consider each Azure resource's scale limits. [Organize your resources](./approaches/resource-organization.md) appropriately, in order to avoid [resource organization antipatterns](./approaches/resource-organization.md#antipatterns-to-avoid). For example, don't over-architect your solution to work within unrealistic scale requirements.
+* Determine how you'll scale your [compute](./approaches/compute.md), [storage](./approaches/storage-data.yml), [networking](./approaches/networking.md), and other Azure resources to match the demands of your tenants.
+* Consider each Azure resource's scale limits. [Organize your resources](./approaches/resource-organization.yml) appropriately, in order to avoid [resource organization antipatterns](./approaches/resource-organization.yml#antipatterns-to-avoid). For example, don't over-architect your solution to work within unrealistic scale requirements.
 
 ## Next steps
 

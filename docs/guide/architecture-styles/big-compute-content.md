@@ -1,26 +1,3 @@
----
-title: Big compute architecture style
-titleSuffix: Azure Application Architecture Guide
-description: Understand the benefits, challenges, and best practices of the Big Compute architecture style on Azure.
-author: EdPrice-MSFT
-ms.author: pnp
-ms.date: 08/30/2018
-ms.topic: conceptual
-ms.service: architecture-center
-ms.subservice: guide
-categories:
-  - compute
-products:
-  - azure
-  - azure-batch
-ms.custom:
-  - seojan19
-  - HPC
-  - guide
----
-
-# Big compute architecture style
-
 The term *big compute* describes large-scale workloads that require a large number of cores, often numbering in the hundreds or thousands. Scenarios include image rendering, fluid dynamics, financial risk modeling, oil exploration, drug design, and engineering stress analysis, among others.
 
 ![Logical diagram for big compute architecture style](./images/big-compute-logical.png)

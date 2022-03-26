@@ -1,28 +1,3 @@
----
-title: Azure resource organization in multitenant solutions
-titleSuffix: Azure Architecture Center
-description: This article describes how to organize your Azure resources in a multitenant solution.
-author: johndowns
-ms.author: jodowns
-ms.date: 1/4/2022
-ms.topic: conceptual
-ms.service: architecture-center
-ms.subservice: azure-guide
-products:
-  - azure
-  - azure-active-directory
-categories:
-  - management-and-governance
-  - security
-ms.category:
-  - fcp
-ms.custom:
-  - guide
-  - fcp
----
-
-# Azure resource organization in multitenant solutions
-
 Azure provides many options for organizing your resources. In a multitenant solution, there are specific tradeoffs to consider, when you plan your resource organization strategy. In this article, we review two core elements of organizing your Azure resources: tenant isolation and scale-out across multiple resources. We also describe how to work with Azure's resource limits and quotas, and how to scale your solution beyond these limits.
 
 ## Key considerations and requirements
@@ -70,7 +45,7 @@ You can also deploy dedicated resources for each tenant. You might deploy an ent
 
 We recommend that you use resource groups to manage resources with the same lifecycle. In some multitenant systems, it makes sense to deploy resources for multiple tenants into a single resource group or a set of resource groups.
 
-It's important that you consider how you deploy and manage these resources, including [whether the deployment of tenant-specific resources is initiated by your deployment pipeline or your application](deployment-configuration.yml#resource-management-responsibility). You also need to determine how you'll [clearly identify that specific resources relate to specific tenants](cost-management-allocation.md). Consider using a clear [naming convention strategy](/azure/cloud-adoption-framework/ready/azure-best-practices/naming-and-tagging), [resource tags](cost-management-allocation.md#allocate-costs-by-using-resource-tags), or a tenant catalog database.
+It's important that you consider how you deploy and manage these resources, including [whether the deployment of tenant-specific resources is initiated by your deployment pipeline or your application](deployment-configuration.yml#resource-management-responsibility). You also need to determine how you'll [clearly identify that specific resources relate to specific tenants](cost-management-allocation.yml). Consider using a clear [naming convention strategy](/azure/cloud-adoption-framework/ready/azure-best-practices/naming-and-tagging), [resource tags](cost-management-allocation.yml#allocate-costs-by-using-resource-tags), or a tenant catalog database.
 
 It's a good practice to use separate resource groups for the resources you share between multiple tenants and the resources that you deploy for individual tenants. However, for some resources, [Azure limits the number of resources of a single type that can be deployed into a resource group](/azure/azure-resource-manager/management/resources-without-resource-group-limit). This limit means you might need to [scale across multiple resource groups](#resource-group-and-subscription-limits) as you grow.
 
@@ -183,7 +158,7 @@ By planning your scale-out strategy, you can scale to extremely large numbers of
 
 ### Tags
 
-Resource tags enable you to add custom metadata to your Azure resources, which can be useful for management and tracking costs. For more details, see [Allocate costs by using resource tags](cost-management-allocation.md#allocate-costs-by-using-resource-tags).
+Resource tags enable you to add custom metadata to your Azure resources, which can be useful for management and tracking costs. For more details, see [Allocate costs by using resource tags](cost-management-allocation.yml#allocate-costs-by-using-resource-tags).
 
 ## Antipatterns to avoid
 
@@ -196,4 +171,4 @@ Resource tags enable you to add custom metadata to your Azure resources, which c
 
 ## Next steps
 
-Review [Cost management and allocation](cost-management-allocation.md) approaches.
+Review [Cost management and allocation](cost-management-allocation.yml) approaches.

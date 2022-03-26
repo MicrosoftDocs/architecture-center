@@ -331,7 +331,7 @@ Related guidance:
 [cosmosdb-pricing]: https://azure.microsoft.com/pricing/details/cosmos-db
 [cosmosdb-scale]: /azure/cosmos-db/partition-data
 [azure-pricing-calculator]: https://azure.microsoft.com/pricing/calculator
-[event-driven]: ../../guide/architecture-styles/event-driven.md
+[event-driven]: ../../guide/architecture-styles/event-driven.yml
 [functions]: /azure/azure-functions/functions-overview
 [functions-bindings]: /azure/azure-functions/functions-triggers-bindings
 [functions-cold-start]: https://blogs.msdn.microsoft.com/appserviceteam/2018/02/07/understanding-serverless-cold-start

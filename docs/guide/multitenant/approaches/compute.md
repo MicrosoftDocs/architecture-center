@@ -162,4 +162,4 @@ Consider the tradeoffs for each piece of state you maintain in your compute tier
 
 ## Next steps
 
-Consider [architectural approaches for storage and data](storage-data.md).
+Consider [architectural approaches for storage and data](storage-data.yml).

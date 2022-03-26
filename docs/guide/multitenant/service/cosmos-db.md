@@ -113,7 +113,7 @@ You can consider a combination of the above approaches to suit different tenants
 
 ## Next steps
 
-Review [storage and data approaches for multitenancy](../approaches/storage-data.md).
+Review [storage and data approaches for multitenancy](../approaches/storage-data.yml).
 
 ## Related resources
 

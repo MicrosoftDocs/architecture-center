@@ -16,11 +16,11 @@ items:
           - name: Overview
             href: guide/architecture-styles/index.md
           - name: Big compute
-            href: guide/architecture-styles/big-compute.md
+            href: guide/architecture-styles/big-compute.yml
           - name: Big data
-            href: guide/architecture-styles/big-data.md
+            href: guide/architecture-styles/big-data.yml
           - name: Event-driven architecture
-            href: guide/architecture-styles/event-driven.md
+            href: guide/architecture-styles/event-driven.yml
           - name: Microservices
             href: guide/architecture-styles/microservices.md
           - name: N-tier application
@@ -304,11 +304,11 @@ items:
               - name: Overview
                 href: guide/multitenant/approaches/overview.yml
               - name: Resource organization
-                href: guide/multitenant/approaches/resource-organization.md
+                href: guide/multitenant/approaches/resource-organization.yml
               - name: Governance and compliance
                 href: guide/multitenant/approaches/governance-compliance.md
               - name: Cost management and allocation
-                href: guide/multitenant/approaches/cost-management-allocation.md
+                href: guide/multitenant/approaches/cost-management-allocation.yml
               - name: Deployment and configuration
                 href: guide/multitenant/approaches/deployment-configuration.yml
               - name: Compute
@@ -316,7 +316,7 @@ items:
               - name: Networking
                 href: guide/multitenant/approaches/networking.md
               - name: Storage and data
-                href: guide/multitenant/approaches/storage-data.md
+                href: guide/multitenant/approaches/storage-data.yml
               - name: Messaging
                 href: guide/multitenant/approaches/messaging.md
               - name: IoT
@@ -334,7 +334,7 @@ items:
               - name: Compute
                 items:
                   - name: App Service and Functions
-                    href: guide/multitenant/service/app-service.md
+                    href: guide/multitenant/service/app-service.yml
               - name: Networking
                 items:
                   - name: NAT Gateway
@@ -665,6 +665,17 @@ items:
                   - name: Compliance
                     href: /industry/financial-services/compliance-overview
                     maintainContext: true
+              - name: Dynamics 365 Finance and Operations
+                items:
+                  - name: Export to Azure Data Lake overview
+                    href: /dynamics365/fin-ops-core/dev-itpro/data-entities/azure-data-lake-ga-version-overview
+                    maintainContext: true
+                  - name: Export in Finance and Operations apps
+                    href: /dynamics365/fin-ops-core/dev-itpro/data-entities/finance-data-azure-data-lake
+                    maintainContext: true
+                  - name: Change data in Azure Data Lake
+                    href: /dynamics365/fin-ops-core/dev-itpro/data-entities/azure-data-lake-change-feeds
+                    maintainContext: true
               - name: Risk grid computing in banking
                 href: industries/finance/risk-grid-banking-overview.yml
               - name: Risk grid computing solution
@@ -674,6 +685,8 @@ items:
               - name: Financial institutions with data mesh
                 href: /azure/cloud-adoption-framework/scenarios/data-management/architectures/reference-architecture-data-mesh
                 maintainContext: true
+              - name: Big compute for financial risk modeling
+                href: guide/architecture-styles/big-compute.yml
               - name: Actuarial risk analysis
                 href: industries/finance/actuarial-risk-analysis-financial-model.yml
               - name: Financial services risk lifecycle
@@ -684,8 +697,12 @@ items:
                 href: /azure/architecture/browse/?terms=finance
               - name: Banking system cloud transformation
                 href: example-scenario/banking/banking-system-cloud-transformation.yml
+              - name: Data analysis for finance
+                href: example-scenario/data/data-analysis-regulated-industries.yml
               - name: Decentralized trust between banks
                 href: example-scenario/apps/decentralized-trust.yml
+              - name: Finance management apps using PostgreSQL
+                href: solution-ideas/articles/finance-management-apps-using-azure-database-for-postgresql.yml
               - name: Modernize mainframe & midrange data
                 href: reference-architectures/migration/modernize-mainframe-data-to-azure.yml
               - name: Patterns and implementations in banking
@@ -710,7 +727,7 @@ items:
                     items:
                       - name: SWIFT Alliance Connect Virtual
                         href: example-scenario/finance/swift-on-azure-vsrx.yml
-                      - name: SWIFT Alliance Access with Alliance Connect Virtual
+                      - name: SWIFT AA with Alliance Connect Virtual
                         href: example-scenario/finance/swift-alliance-access-vsrx-on-azure.yml
                       - name: SWIFT AMH with Alliance Connect Virtual
                         href: example-scenario/finance/swift-alliance-messaging-hub-vsrx.yml
@@ -720,13 +737,54 @@ items:
                         href: example-scenario/finance/swift-alliance-lite2-on-azure.yml
           - name: Compliance solutions
             items:
-              - name: PCI DSS overview
-                href: /azure/compliance/offerings/offering-pci-dss
+              - name: FFIEC
+                href: /compliance/regulatory/offering-ffiec-us
                 maintainContext: true
-              - name: AKS regulated cluster for PCI
-                href: /azure/architecture/reference-architectures/containers/aks-pci/aks-pci-ra-code-assets
-              - name: AKS regulated - Protect cardholder data
-                href: /azure/architecture/reference-architectures/containers/aks-pci/aks-pci-data
+              - name: FINRA 4511
+                href: /compliance/regulatory/offering-finra-4511
+                maintainContext: true
+              - name: IRS 1075
+                items:
+                  - name: IRS 1075 overview
+                    href: /azure/compliance/offerings/offering-irs-1075
+                    maintainContext: true
+                  - name: IRS 1075 regulatory compliance
+                    href: /azure/governance/policy/samples/irs-1075-sept2016
+                    maintainContext: true
+              - name: PCI 3DS
+                href: /azure/compliance/offerings/offering-pci-3ds
+                maintainContext: true
+              - name: PCI DSS
+                items:
+                  - name: PCI DSS overview
+                    href: /azure/compliance/offerings/offering-pci-dss
+                    maintainContext: true
+                  - name: PCI DSS 3.2.1 regulatory compliance
+                    href: /azure/governance/policy/samples/pci-dss-3-2-1
+                    maintainContext: true
+                  - name: AKS regulated cluster for PCI
+                    href: /azure/architecture/reference-architectures/containers/aks-pci/aks-pci-ra-code-assets
+                  - name: AKS regulated - Protect cardholder data
+                    href: /azure/architecture/reference-architectures/containers/aks-pci/aks-pci-data
+              - name: SEC
+                items:
+                  - name: SEC 17a-4
+                    href: /compliance/regulatory/offering-sec-17a-4 
+                    maintainContext: true
+                  - name: SEC Regulation SCI
+                    href: /compliance/offerings/offering-sec-reg-sci-us
+                    maintainContext: true
+              - name: SWIFT CSP v2020 blueprint
+                items:
+                  - name: Overview
+                    href: /azure/governance/blueprints/samples/swift-2020
+                    maintainContext: true
+                  - name: Control mapping
+                    href: /azure/governance/blueprints/samples/swift-2020/control-mapping
+                    maintainContext: true
+                  - name: Deployment
+                    href: /azure/governance/blueprints/samples/swift-2020/deploy
+                    maintainContext: true
       - name: Healthcare
         items:
           - name: Overview
@@ -1038,7 +1096,7 @@ items:
                 href: /azure/cloud-adoption-framework/strategy/business-outcomes/sustainability
                 maintainContext: true
               - name: Big compute for oil exploration
-                href: guide/architecture-styles/big-compute.md
+                href: guide/architecture-styles/big-compute.yml
               - name: IoT scenarios
                 items:
                   - name: Connected waste management
@@ -1239,6 +1297,37 @@ items:
                   - name: LAMP architectures for gaming
                     href: /gaming/azure/reference-architectures/general-purpose-lamp
                     maintainContext: true
+          - name: Compliance solutions
+            items:
+              - name: GDPR (EU)
+                items:
+                  - name: GDPR overview
+                    href: /compliance/regulatory/gdpr
+                    maintainContext: true
+                  - name: Delete and export player data
+                    href: /gaming/playfab/features/data/playerdata/playfab-gdpr-deleting-and-exporting-player-data
+                    maintainContext: true
+                  - name: Accountability with Azure logs
+                    href: /compliance/regulatory/gdpr-arc
+                    maintainContext: true
+                  - name: Azure breach response
+                    href: /compliance/regulatory/gdpr-breach-azure-dynamics-windows
+                    maintainContext: true
+                  - name: Azure DSRs
+                    href: /compliance/regulatory/gdpr-dsr-azure
+                    maintainContext: true
+                  - name: Azure DevOps DSRs
+                    href: /compliance/regulatory/gdpr-dsr-vsts
+                    maintainContext: true
+                  - name: Data controllers with Azure
+                    href: /compliance/regulatory/gdpr-dpia-azure
+                    maintainContext: true
+                  - name: Identity protection
+                    href: /compliance/regulatory/gdpr-information-protection
+                    maintainContext: true
+              - name: FERPA, COPPA, and CIPA
+                href: /compliance/regulatory/offering-FERPA
+                maintainContext: true
       - name: Travel and Hospitality
         items:
           - name: Overview
@@ -2889,6 +2978,8 @@ items:
                 items:
                    - name: Decompose apps with Service Fabric
                      href: example-scenario/infrastructure/service-fabric-microservices.yml
+                   - name: Deploy microservices with Azure Container Apps
+                     href: example-scenario/serverless/microservices-with-container-apps.yml
                    - name: High-availability blue/green deployment
                      href: example-scenario/blue-green-spring/blue-green-spring.yml
                    - name: Microservices on Azure Service Fabric
@@ -3602,6 +3693,8 @@ items:
                 href: reference-architectures/iot.yml
               - name: Automated guided vehicles fleet control
                 href: example-scenario/iot/automated-guided-vehicles-fleet-control.yml
+              - name: Batch integration with Azure Digital Twins
+                href: example-scenario/iot/batch-integration-azure-data-factory-digital-twins.yml
               - name: Computer vision at the edge
                 href: reference-architectures/ai/end-to-end-smart-factory.yml
               - name: Connected factory hierarchy service
@@ -3939,8 +4032,6 @@ items:
                     href: example-scenario/banking/banking-system-cloud-transformation.yml
                   - name: Patterns and implementations
                     href: example-scenario/banking/patterns-and-implementations.yml
-                  - name: JMeter implementation reference
-                    href: example-scenario/banking/jmeter-load-testing-pipeline-implementation-reference.yml
               - name: Oracle database migration
                 items:
                   - name: Migration decision process
@@ -3955,6 +4046,8 @@ items:
                     href: example-scenario/oracle-migrate/oracle-migration-rearchitect.yml
           - name: Solution ideas
             items:
+              - name: JMeter implementation reference
+                href: example-scenario/banking/jmeter-load-testing-pipeline-implementation-reference.yml
               - name: Lift and shift LOB apps
                 href: solution-ideas/articles/modern-customer-support-portal-powered-by-an-agile-business-process.yml
               - name: Migrate .NET applications
