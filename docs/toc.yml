@@ -1042,103 +1042,6 @@ items:
                 href: solution-ideas/articles/quality-assurance.yml
               - name: Supply chain track and trace
                 href: solution-ideas/articles/supply-chain-track-and-trace.yml
-      - name: Media and Entertainment
-        items:
-          - name: Overview
-            href: industries/media.md
-          - name: Guides
-            items:
-              - name: Dynamics 365 media accelerator
-                href: /dynamics365/industry/accelerators/media
-                maintainContext: true
-              - name: Content Production solution
-                href: /dynamics365/industry/accelerators/content-production
-                maintainContext: true
-              - name: Configure the accelerator with Azure AD
-                href: /dynamics365/industry/accelerators/configure-media
-                maintainContext: true
-          - name: Architectures
-            items:
-              - name: All media and entertainment architectures
-                href: /azure/architecture/browse/?terms=media
-              - name: 3D video rendering
-                href: example-scenario/infrastructure/video-rendering.yml
-              - name: Content-based recommendation
-                href: example-scenario/ai/scalable-personalization-with-content-based-recommendation-system.yml
-              - name: Digital image-based modeling on Azure
-                href: example-scenario/infrastructure/image-modeling.yml
-              - name: Gridwich cloud media system
-                href: reference-architectures/media-services/gridwich-architecture.yml
-              - name: Image classification on Azure
-                href: example-scenario/ai/intelligent-apps-image-processing.yml
-              - name: Live streaming digital media
-                href: solution-ideas/articles/digital-media-live-stream.yml
-              - name: Movie recommendations on Azure
-                href: example-scenario/ai/movie-recommendations-with-machine-learning.yml
-          - name: Compliance solutions
-            items:
-              - name: CDSA overview
-                href: /azure/compliance/offerings/offering-cdsa
-                maintainContext: true
-              - name: MPA overview
-                href: /azure/compliance/offerings/offering-mpa
-                maintainContext: true
-      - name: Energy and Environment
-        items:
-          - name: Overview
-            href: industries/energy-environment.md
-          - name: Guides
-            items:
-              - name: Microsoft Cloud for Sustainability
-                href: /industry/sustainability/overview
-                maintainContext: true
-              - name: Sustainability outcomes and benefits
-                href: /azure/cloud-adoption-framework/strategy/business-outcomes/sustainability
-                maintainContext: true
-              - name: Big compute for oil exploration
-                href: guide/architecture-styles/big-compute.yml
-              - name: IoT scenarios
-                items:
-                  - name: Connected waste management
-                    href: /azure/iot-central/government/tutorial-connected-waste-management
-                    maintainContext: true
-                  - name: Smart meter energy monitoring
-                    href: /azure/iot-central/energy/tutorial-smart-meter-app
-                    maintainContext: true
-                  - name: Solar panel monitoring
-                    href: /azure/iot-central/energy/tutorial-solar-panel-app
-                    maintainContext: true
-                  - name: Water consumption monitoring
-                    href: /azure/iot-central/government/tutorial-water-consumption-monitoring
-                    maintainContext: true
-                  - name: Water quality monitoring
-                    href: /azure/iot-central/government/tutorial-water-quality-monitoring
-                    maintainContext: true
-          - name: Architectures
-            items:
-              - name: All energy and environment architectures
-                href: /azure/architecture/browse/?terms=energy
-              - name: Environmental monitoring
-                href: solution-ideas/articles/environment-monitoring-and-supply-chain-optimization.yml
-              - name: Geospatial data processing and analytics
-                href: example-scenario/data/geospatial-data-processing-analytics-azure.yml
-              - name: IoT Edge data processing - Monitor oil rigs
-                href: solution-ideas/articles/data-storage-edge.yml
-              - name: Mining equipment monitoring
-                href: solution-ideas/articles/monitor-mining-equipment.yml
-              - name: Oil and gas tank level forecasting
-                href: solution-ideas/articles/oil-and-gas-tank-level-forecasting.yml
-              - name: Project 15 sustainability
-                href: solution-ideas/articles/project-15-iot-sustainability.yml
-              - name: Run CFD simulations
-                href: example-scenario/infrastructure/hpc-cfd.yml
-              - name: Run reservoir simulations
-                href: example-scenario/infrastructure/reservoir-simulation.yml
-          - name: Compliance solutions
-            items:
-              - name: NERC (US) overview
-                href: /azure/compliance/offerings/offering-nerc
-                maintainContext: true
       - name: Game Development
         items:
           - name: Overview
@@ -1327,6 +1230,103 @@ items:
                     maintainContext: true
               - name: FERPA, COPPA, and CIPA
                 href: /compliance/regulatory/offering-FERPA
+                maintainContext: true
+      - name: Media and Entertainment
+        items:
+          - name: Overview
+            href: industries/media.md
+          - name: Guides
+            items:
+              - name: Dynamics 365 media accelerator
+                href: /dynamics365/industry/accelerators/media
+                maintainContext: true
+              - name: Content Production solution
+                href: /dynamics365/industry/accelerators/content-production
+                maintainContext: true
+              - name: Configure the accelerator with Azure AD
+                href: /dynamics365/industry/accelerators/configure-media
+                maintainContext: true
+          - name: Architectures
+            items:
+              - name: All media and entertainment architectures
+                href: /azure/architecture/browse/?terms=media
+              - name: 3D video rendering
+                href: example-scenario/infrastructure/video-rendering.yml
+              - name: Content-based recommendation
+                href: example-scenario/ai/scalable-personalization-with-content-based-recommendation-system.yml
+              - name: Digital image-based modeling on Azure
+                href: example-scenario/infrastructure/image-modeling.yml
+              - name: Gridwich cloud media system
+                href: reference-architectures/media-services/gridwich-architecture.yml
+              - name: Image classification on Azure
+                href: example-scenario/ai/intelligent-apps-image-processing.yml
+              - name: Live streaming digital media
+                href: solution-ideas/articles/digital-media-live-stream.yml
+              - name: Movie recommendations on Azure
+                href: example-scenario/ai/movie-recommendations-with-machine-learning.yml
+          - name: Compliance solutions
+            items:
+              - name: CDSA overview
+                href: /azure/compliance/offerings/offering-cdsa
+                maintainContext: true
+              - name: MPA overview
+                href: /azure/compliance/offerings/offering-mpa
+                maintainContext: true
+      - name: Energy and Environment
+        items:
+          - name: Overview
+            href: industries/energy-environment.md
+          - name: Guides
+            items:
+              - name: Microsoft Cloud for Sustainability
+                href: /industry/sustainability/overview
+                maintainContext: true
+              - name: Sustainability outcomes and benefits
+                href: /azure/cloud-adoption-framework/strategy/business-outcomes/sustainability
+                maintainContext: true
+              - name: Big compute for oil exploration
+                href: guide/architecture-styles/big-compute.yml
+              - name: IoT scenarios
+                items:
+                  - name: Connected waste management
+                    href: /azure/iot-central/government/tutorial-connected-waste-management
+                    maintainContext: true
+                  - name: Smart meter energy monitoring
+                    href: /azure/iot-central/energy/tutorial-smart-meter-app
+                    maintainContext: true
+                  - name: Solar panel monitoring
+                    href: /azure/iot-central/energy/tutorial-solar-panel-app
+                    maintainContext: true
+                  - name: Water consumption monitoring
+                    href: /azure/iot-central/government/tutorial-water-consumption-monitoring
+                    maintainContext: true
+                  - name: Water quality monitoring
+                    href: /azure/iot-central/government/tutorial-water-quality-monitoring
+                    maintainContext: true
+          - name: Architectures
+            items:
+              - name: All energy and environment architectures
+                href: /azure/architecture/browse/?terms=energy
+              - name: Environmental monitoring
+                href: solution-ideas/articles/environment-monitoring-and-supply-chain-optimization.yml
+              - name: Geospatial data processing and analytics
+                href: example-scenario/data/geospatial-data-processing-analytics-azure.yml
+              - name: IoT Edge data processing - Monitor oil rigs
+                href: solution-ideas/articles/data-storage-edge.yml
+              - name: Mining equipment monitoring
+                href: solution-ideas/articles/monitor-mining-equipment.yml
+              - name: Oil and gas tank level forecasting
+                href: solution-ideas/articles/oil-and-gas-tank-level-forecasting.yml
+              - name: Project 15 sustainability
+                href: solution-ideas/articles/project-15-iot-sustainability.yml
+              - name: Run CFD simulations
+                href: example-scenario/infrastructure/hpc-cfd.yml
+              - name: Run reservoir simulations
+                href: example-scenario/infrastructure/reservoir-simulation.yml
+          - name: Compliance solutions
+            items:
+              - name: NERC (US) overview
+                href: /azure/compliance/offerings/offering-nerc
                 maintainContext: true
       - name: Travel and Hospitality
         items:
