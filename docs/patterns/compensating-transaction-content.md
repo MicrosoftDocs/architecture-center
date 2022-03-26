@@ -30,7 +30,7 @@ Consider the following points when deciding how to implement this pattern:
 
 It might not be easy to determine when a step in an operation that implements eventual consistency has failed. A step might not fail immediately, but instead could block. It might be necessary to implement some form of time-out mechanism.
 
--Compensation logic isn't easily generalized. A compensating transaction is application-specific. It relies on the application having sufficient information to be able to undo the effects of each step in a failed operation.
+Compensation logic isn't easily generalized. A compensating transaction is application-specific. It relies on the application having sufficient information to be able to undo the effects of each step in a failed operation.
 
 Define the steps in a compensating transaction as idempotent commands. Then the steps can be repeated if the compensating transaction itself fails.
 
