@@ -1,12 +1,12 @@
 [!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
-This solution idea demonstrates near real-time analytics for fast flowing, high volume streaming data from internet of things (IoT) devices and sensors. The analytics workload is part of an overall solution that integrates operational and analytical workloads by using Azure Cosmos DB and Azure Data Explorer.
+This solution idea describes how Azure Data Explorer provides near real-time analytics for fast flowing, high volume streaming data from internet of things (IoT) devices and sensors. This overall IoT solution integrates operational and analytical workloads with Azure Cosmos DB and Azure Data Explorer.
 
 ## Potential use cases
 
 - In fleet management, for predictive maintenance of vehicle parts.
 - In facilities management, for energy and environment optimization.
-- [Combine real-time road conditions with weather data for safer autonomous driving](https://customers.microsoft.com/story/816933-bosch-automotive-azure-germany)
+- [Combining real-time road conditions with weather data for safer autonomous driving](https://customers.microsoft.com/story/816933-bosch-automotive-azure-germany)
 
 ## Architecture
 
@@ -14,31 +14,32 @@ This solution idea demonstrates near real-time analytics for fast flowing, high 
 
 ### Dataflow
 
-1. Azure Event Hub, Azure IoT Hub, or Kafka ingest a wide variety of fast-flowing streaming data such as logs, business events, and user activities.
+1. Azure Event Hubs, Azure IoT Hub, or Kafka ingest a wide variety of fast-flowing streaming data such as logs, business events, and user activities.
 
 1. Azure Functions or Azure Stream Analytics process the data in near real time.
 
-1. Azure Cosmos DB stores streamed messages in JSON format to serve a real-time operational application. For more information about such an application, see [Azure Cosmos DB in IoT workloads](iot-using-cosmos-db.md).
+1. Azure Cosmos DB stores streamed messages in JSON format to serve a real-time operational application. For an example, see [Azure Cosmos DB in IoT workloads](iot-using-cosmos-db.yml).
 
-1. For analytics purposes, Azure Data Explorer ingests data with low latency and high throughput by using its [Azure Event Hub](/azure/data-explorer/ingest-data-event-hub), [Azure IoT Hub](/azure/data-explorer/ingest-data-iot-hub), or [Kafka](/azure/data-explorer/ingest-data-kafka) connectors.
+1. Azure Data Explorer ingests data for analytics, using its [Azure Event Hubs](/azure/data-explorer/ingest-data-event-hub), [Azure IoT Hub](/azure/data-explorer/ingest-data-iot-hub), or [Kafka](/azure/data-explorer/ingest-data-kafka) connectors for low latency and high throughput.
 
-   Alternatively, [Azure Event Grid](/azure/data-explorer/ingest-data-event-grid) can trigger the Azure Data Explorer ingestion pipeline through Azure Blob Storage or Azure Data Lake Storage.
+   Alternatively, [Azure Event Grid](/azure/data-explorer/ingest-data-event-grid) can trigger the Azure Data Explorer ingestion pipeline through [Azure Blob Storage](https://azure.microsoft.com/services/storage/blobs) or [Azure Data Lake Storage](https://azure.microsoft.com/services/storage/data-lake-storage).
    
-   You can also continuously export data to Azure Storage in compressed, partitioned Apache Parquet format, and seamlessly query the data. For details, see [Continuous data export overview](/azure/data-explorer/kusto/management/data-export/continuous-data-export).
+   You can also continuously export data to Azure Storage in compressed, partitioned [Apache Parquet](https://parquet.apache.org) format, and seamlessly query the data. For details, see [Continuous data export overview](/azure/data-explorer/kusto/management/data-export/continuous-data-export).
 
 1. To serve both operational and analytical use cases, data can either route to Azure Data Explorer and Azure Cosmos DB in parallel, or from Azure Cosmos DB to Azure Data Explorer.
 
-   - Azure Cosmos DB transactions can trigger Azure Functions via change feed. A function streams data to Event Hub for ingestion into Azure Data Explorer.
-   - Azure Functions can invoke Azure Digital Twin APIs. Azure Digital Twins streams data to Event Hub for ingestion into Azure Data Explorer.
+   - Azure Cosmos DB transactions can trigger Azure Functions via change feed. A function streams data to Event Hubs for ingestion into Azure Data Explorer.
+     or
+   - Azure Functions can invoke Azure Digital Twin APIs. Azure Digital Twins streams data to Event Hubs for ingestion into Azure Data Explorer.
 
-1. The following methods provide insights from data stored in Azure Data Explorer:
+1. The following interfaces use data from Azure Data Explorer:
 
-   - A custom analytics app that invokes Azure Digital Twins and Azure Data Explorer APIs to blend the data from both sources.
-   - Near real-time analytics dashboards that use [Azure Data Explorer dashboards](/azure/data-explorer/azure-data-explorer-dashboards), [Power BI](/power-bi/transform-model/service-dataflows-best-practices), or [Grafana](/azure/data-explorer/grafana).
-   - Alerts and notifications from the [Azure Data Explorer connector for Azure Logic Apps](/azure/data-explorer/kusto/tools/logicapps).
-   - Data analysis using the [Azure Data Explorer Web UI](/azure/data-explorer/web-query-data), [Kusto.Explorer](/azure/data-explorer/kusto/tools/kusto-explorer), or [Jupyter notebooks](/azure/data-explorer/kqlmagic).
+   - Custom analytics apps that use Azure Digital Twins and Azure Data Explorer APIs to blend data from both sources
+   - Near real-time analytics dashboards that use Azure Data Explorer dashboards, [Power BI](/power-bi/transform-model/service-dataflows-best-practices), or [Grafana](/azure/data-explorer/grafana)
+   - Alerts and notifications from the [Azure Data Explorer connector for Azure Logic Apps](/azure/data-explorer/kusto/tools/logicapps)
+   - The Azure Data Explorer Web UI, [Kusto.Explorer](/azure/data-explorer/kusto/tools/kusto-explorer), and [Jupyter notebooks](/azure/data-explorer/kqlmagic)
 
-1. Azure Data Explorer integrates with Azure Databricks and Azure Machine Learning to provide machine learning (ML) services. You can build ML models using other tools and services, and export them to Azure Data Explorer for scoring data.
+1. Azure Data Explorer integrates with [Azure Databricks](https://azure.microsoft.com/services/databricks) and [Azure Machine Learning](https://azure.microsoft.com/services/machine-learning) to provide machine learning (ML) services. You can also build ML models using other tools and services, and export them to Azure Data Explorer for scoring data.
 
 ### Components
 
@@ -61,7 +62,7 @@ The [Azure Data Explorer Web UI](/azure/data-explorer/web-query-data) connects t
 
 - [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db) is a fully managed, fast NoSQL database service for modern app development with open APIs for any scale.
 - [Azure Digital Twins](https://azure.microsoft.com/services/digital-twins) stores digital models of physical environments. Digital Twins helps create next-generation IoT solutions that model the real world.
-- [Azure Event Hub](https://azure.microsoft.com/services/event-hubs) is a fully-managed, real-time data ingestion service.
+- [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs) is a fully managed, real-time data ingestion service.
 - [Azure IoT Hub](https://azure.microsoft.com/services/iot-hub) enables bi-directional communication between IoT devices and the Azure cloud.
 - [Azure Synapse Link for Azure Cosmos DB](/azure/cosmos-db/synapse-link) runs near real-time analytics over operational data in Azure Cosmos DB, without any performance or cost impact on transactional workloads. Synapse Link uses the [SQL Serverless](/azure/synapse-analytics/sql/on-demand-workspace-overview) and [Spark Pools](/azure/synapse-analytics/spark/apache-spark-overview) analytics engines from the Azure Synapse workspace.
 - [Kafka on HDInsight](/azure/hdinsight/kafka/apache-kafka-introduction) is an easy, cost-effective, enterprise-grade service for open-source analytics with Apache Kafka.
