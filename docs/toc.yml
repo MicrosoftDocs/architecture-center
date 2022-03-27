@@ -772,12 +772,12 @@ items:
                     href: /compliance/regulatory/offering-sec-17a-4 
                     maintainContext: true
                   - name: SEC Regulation SCI
-                    href: /compliance/offerings/offering-sec-reg-sci-us
+                    href: /azure/compliance/offerings/offering-sec-reg-sci-us
                     maintainContext: true
               - name: SWIFT CSP v2020 blueprint
                 items:
                   - name: Overview
-                    href: /azure/governance/blueprints/samples/swift-2020
+                    href: /azure/governance/blueprints/samples/swift-2020/index
                     maintainContext: true
                   - name: Control mapping
                     href: /azure/governance/blueprints/samples/swift-2020/control-mapping
