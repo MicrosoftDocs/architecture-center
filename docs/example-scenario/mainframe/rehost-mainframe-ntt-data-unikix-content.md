@@ -8,7 +8,7 @@ The NTT DATA software offers many useful features:
 - A powerful COBOL compiler
 - A streamlined runtime environment
 - A graphical source-level debugger
-- A completely portable indexed file system
+- A portable indexed file system
 
 By using UniKix to rehost mainframe applications, you can take advantage of these features. You can also:
 
@@ -44,7 +44,7 @@ The following diagram shows a legacy mainframe system before it's rehosted to th
   - Admin users interact through a TN3270 terminal emulator.
   - Web interface users interact via a web browser over TLS 1.3 port 443.
 
-- Mainframes use communication protocols such as LU 6.2, TN3270, FTP, and Sockets to receive input (**B**).
+- Mainframes use communication protocols such as LU 6.2, TN3270, FTP, Sockets, and Fortran to receive input (**B**).
 
 - Batch and online applications process the input (**C**).
 
@@ -68,26 +68,26 @@ The following diagram shows a legacy mainframe system before it's rehosted to th
 
 ### Workflow
 
-1. Azure ExpressRoute connects an on-premises corporate network to NTT DATA's UniKix mainframe rehosting software suite. Traffic from users and external interfaces that aren't on the Azure platform flows through this ExpressRoute connection to the Azure instances.
+1. ExpressRoute connects an on-premises corporate network to NTT DATA's UniKix mainframe rehosting software suite. Traffic from users and external interfaces that aren't on the Azure platform flows through this ExpressRoute connection to the Azure instances.
 
 1. Azure Load Balancer distributes online transactions across two or more Azure virtual machines (VMs). Port 4444 is used to connect with x3270. For a single-host alternative, see [Alternatives](#alternatives).
 
 1. The application server runs the following NTT DATA products:
 
-   - Transaction Processing Environment (TPE). This environment runs:
+   - TPE. This environment runs:
 
      - Rehosted online IBM CICS transactions.
      - IBM IMS/TM applications.
      - Transformed IDMS DC programs.
      - Related resources.
 
-   These workloads run on industry-standard servers and operating systems such as Red Hat Linux.
+     These workloads run on industry-standard servers and operating systems such as Red Hat Linux.
 
-   - Batch Processing Environment (BPE). This environment provides a complete job entry subsystem (JES) environment for the administration, execution, and management of batch workloads.
+   - BPE. This environment provides a complete job entry subsystem (JES) environment for the administration, execution, and management of batch workloads.
 
-   - UniKix Secure, which was previously known as Transaction Security Facility (TSF). This external security manager provides role-based access control (RBAC) that's based on security for online TPE–based transactions.
+   - UniKix Secure, which was previously known as Transaction Security Facility (TSF). This external security manager provides role-based access control that's based on security for online TPE-based transactions.
 
-   - NTT DATA COBOL. This technology produces optimized, portable object code that you can deploy in Azure and supports ANSI-85 standard and legacy COBOL dialects.
+   - NTT DATA COBOL. This technology produces optimized, portable object code that you can deploy in Azure. NTT DATA COBOL supports ANSI-85 standard and legacy COBOL dialects.
 
    - NTT DATA VDSO. This mechanism provides a way to store VSAM key-sequenced data set (KSDS) data in a SQL database rather than local disk files. NTT DATA VDSO supports many database technologies such as SQL Server, DB2, Oracle, and MySQL.
 
@@ -95,38 +95,36 @@ The following diagram shows a legacy mainframe system before it's rehosted to th
 
 1. UniKix Secure uses Azure Active Directory (Azure AD) to provide authentication. This security manager replaces security systems like Resource Access Control Facility (RACF), Access Control Facility 2 (ACF2), and Top Secret.
 
-1. The solution stores database tables and optionally, VSAM files, in SQL Server. This data is replicated to another Azure region for disaster recovery purposes.
+1. The solution stores database tables and optionally, VSAM files, in Azure SQL Database. This data is replicated to another Azure region for disaster recovery purposes.
 
-1. Azure Site Recovery replicates the production application Azure VMs. Site Recovery also provides a way to test disaster recovery plans that doesn't impact production.
+1. Site Recovery replicates the production application Azure VMs. Site Recovery also provides a way to test disaster recovery plans that doesn't impact production.
 
 1. The second Azure region mirrors the configuration of the primary Azure region for disaster recovery purposes.
   
 ### Components
 
-This example features the following Azure components. Several of these components and workflows are interchangeable or optional depending on your scenario.
+- [ExpressRoute](https://azure.microsoft.com/services/expressroute) extends on-premises networks into Azure over a private, dedicated fiber connection from a connectivity provider. ExpressRoute establishes connections to Microsoft cloud services like Azure and Microsoft 365.
 
-- [Azure ExpressRoute](https://azure.microsoft.com/services/expressroute/) extends on-premises networks into Azure over a private, dedicated fiber connection from a connectivity provider. ExpressRoute establishes connections to Microsoft cloud services like Azure and Microsoft 365.
+- [Load Balancer](https://azure.microsoft.com/services/load-balancer) distributes incoming traffic to compute resource clusters. You can define rules and other criteria to distribute the traffic.
 
-- [Azure Load Balancer](https://azure.microsoft.com/services/load-balancer) distributes incoming traffic to compute resource clusters. You can define rules and other criteria to distribute the traffic.
-
-- [Azure Virtual Machines](https://azure.microsoft.com/services/virtual-machines/) offers many sizes and types of on-demand, scalable computing resources. With Azure VMs, you get the flexibility of virtualization without having to buy and maintain physical hardware.
+- [Azure Virtual Machines](https://azure.microsoft.com/services/virtual-machines) offers many sizes and types of on-demand, scalable computing resources. With Azure VMs, you get the flexibility of virtualization without having to buy and maintain physical hardware.
 
 - [Azure Storage](https://azure.microsoft.com/product-categories/storage) offers scalable, secure cloud storage for all your data, applications, and workloads:
 
-  - Azure Disk Storage is high-performance, durable block storage for business-critical applications. Azure managed disks are block-level storage volumes that are managed by Azure on Azure VMs. The available types of disks are ultra disks, premium SSDs, standard SSDs, and standard hard disk drives (HDDs). This solution uses either premium SSDs or ultra disk SSDs.
-  - Azure Files offers fully managed file shares in the cloud that are accessible via the industry standard Server Message Block (SMB) protocol. Cloud and on-premises Windows, Linux, and macOS deployments can mount Azure Files file shares concurrently.
-  - Azure Blob Storage provides scalable and secure object storage. It can manage large amounts of unstructured data, such as archives and data lakes. Blob Storage is a good fit for high-performance computing, machine learning, and cloud-native workloads.
+  - [Azure Disk Storage](https://azure.microsoft.com/services/storage/disks) is high-performance, durable block storage for business-critical applications. Azure managed disks are block-level storage volumes that are managed by Azure on Azure VMs. The available types of disks are ultra disks, premium SSDs, standard SSDs, and standard hard disk drives (HDDs). This solution uses either premium SSDs or ultra disk SSDs.
+  - [Azure Files](https://azure.microsoft.com/services/storage/files) offers fully managed file shares in the cloud that are accessible via the industry standard Server Message Block (SMB) protocol. Cloud and on-premises Windows, Linux, and macOS deployments can mount Azure Files file shares concurrently.
+  - [Azure Blob Storage](https://azure.microsoft.com/services/storage/blobs) provides scalable and secure object storage. It can manage large amounts of unstructured data, such as archives and data lakes. Blob Storage is a good fit for high-performance computing, machine learning, and cloud-native workloads.
 
-- [Azure databases](https://azure.microsoft.com/product-categories/databases/) offer a choice of fully managed relational and NoSQL databases to fit modern application needs. Automated infrastructure management provides scalability, availability, and security.
+- [Azure databases](https://azure.microsoft.com/product-categories/databases) offer a choice of fully managed relational and NoSQL databases to fit modern application needs. Automated infrastructure management provides scalability, availability, and security.
 
-- [Azure SQL Database](https://azure.microsoft.com/products/azure-sql/database) is a fully managed platform as a service (PaaS) database engine. SQL Database runs on the latest stable version of SQL Server and a patched operating system. Automated functionality includes upgrading, patching, backups, and monitoring. Because SQL Database offers built-in PaaS capabilities, you can focus on domain-specific, business-critical database administration and optimization.
+- [SQL Database](https://azure.microsoft.com/products/azure-sql/database) is a fully managed platform as a service (PaaS) database engine. SQL Database runs on the latest stable version of SQL Server and a patched operating system. Automated functionality includes upgrading, patching, backups, and monitoring. Because SQL Database offers built-in PaaS capabilities, you can focus on domain-specific, business-critical database administration and optimization.
 
-- [Azure Site Recovery](https://azure.microsoft.com/services/site-recovery) mirrors Azure VMs to a secondary Azure region for quick failover and disaster recovery during datacenter failures.
+- [Site Recovery](https://azure.microsoft.com/services/site-recovery) mirrors Azure VMs to a secondary Azure region for quick failover and disaster recovery during datacenter failures.
 
 ### Alternatives
 
 - Sometimes scaling isn't possible, due to licensing constraints or your application's design. In those cases, you can mirror the mainframe setup with a single host.
-- For disaster recovery, the solution replicates the SQL Server data to another region. As another option, you can use the the Always On availability groups feature of SQL Server as a disaster recovery solution.
+- For disaster recovery, the solution replicates the SQL Server data to another region. As another option, you can use the Always On availability groups feature of SQL Server as a disaster recovery solution.
 - In some scenarios, some of the solution's components and workflows are optional or interchangeable.
 
 ## Considerations
@@ -135,7 +133,7 @@ The following considerations, based on the [Azure Well-Architected Framework](..
 
 ### Reliability
 
-The solution uses Azure Site Recovery to mirror Azure VMs to a secondary Azure region for quick failover and disaster recovery during datacenter failures.
+The solution uses Site Recovery to mirror Azure VMs to a secondary Azure region for quick failover and disaster recovery during datacenter failures.
 
 ### Security
 
@@ -145,7 +143,7 @@ This solution uses an Azure network security group to manage traffic between Azu
 
 - Azure provides cost optimization by running on VMs. You can turn off the VMs when not in use, and script a schedule for known usage patterns. For more information about cost optimization for [VM instances](../../framework/cost/optimize-vm.md), see the [Azure Well-Architected Framework](../../framework/index.md).
 
-- The VMs in this solution use either premium SSDs or ultra disk SSDs. For more information about disk options and pricing, see [Managed Disks pricing](https://azure.microsoft.com/pricing/details/managed-disks).
+- The VMs in this solution use either premium SSDs or ultra disk SSDs. For more information about disk options and pricing, see [Managed disks pricing](https://azure.microsoft.com/pricing/details/managed-disks).
 
 - To estimate the cost of implementing this solution, use the [Pricing calculator](https://azure.microsoft.com/pricing/calculator).
 
@@ -155,12 +153,12 @@ This solution uses an Azure network security group to manage traffic between Azu
 
 **Principal authors:**
 
-- [Richard Berry](https://www.linkedin.com/in/richardberryjr/) | Senior Program Manager
+- [Richard Berry](https://www.linkedin.com/in/richardberryjr) | Senior Program Manager
 
 **Additional contributors:**
 
-- [Bhaskar Bandam](https://www.linkedin.com/in/bhaskar-bandam-75202a9/) | Senior Program Manager
-- [Jonathon Frost](https://www.linkedin.com/in/jjfrost/) | Principal Program Manager
+- [Bhaskar Bandam](https://www.linkedin.com/in/bhaskar-bandam-75202a9) | Senior Program Manager
+- [Jonathon Frost](https://www.linkedin.com/in/jjfrost) | Principal Program Manager
 
 ## Next steps
 
@@ -174,16 +172,16 @@ This solution uses an Azure network security group to manage traffic between Azu
 - To learn more about components in the solution, see these articles:
 
   - [Azure ExpressRoute](/azure/expressroute/expressroute-introduction)
-  - [What is Azure Load Balancer?](https://docs.microsoft.com/en-us/azure/load-balancer/load-balancer-overview)
-  - [Introduction to Azure managed disks](https://docs.microsoft.com/en-us/azure/virtual-machines/managed-disks-overview)
-  - [What is Azure SQL Database?](https://docs.microsoft.com/en-us/azure/azure-sql/database/sql-database-paas-overview)
-  - [About Site Recovery](https://docs.microsoft.com/en-us/azure/site-recovery/site-recovery-overview)
+  - [What is Azure Load Balancer?](/azure/load-balancer/load-balancer-overview)
+  - [Introduction to Azure managed disks](/azure/virtual-machines/managed-disks-overview)
+  - [What is Azure SQL Database?](/azure/azure-sql/database/sql-database-paas-overview)
+  - [About Site Recovery](/azure/site-recovery/site-recovery-overview)
 
 ## Related resources
 
-- [Azure mainframe and midrange architecture concepts and patterns](https://docs.microsoft.com/en-us/azure/architecture/mainframe/mainframe-midrange-architecture)
-- [Mainframe migration overview](https://docs.microsoft.com/en-us/azure/cloud-adoption-framework/infrastructure/mainframe-migration?toc=/azure/architecture/toc.json&bc=/azure/architecture/_bread/toc.json)
-- [Mainframe rehosting on Azure virtual machines](https://docs.microsoft.com/en-us/azure/virtual-machines/workloads/mainframe-rehosting/overview?toc=/azure/architecture/toc.json&bc=/azure/architecture/_bread/toc.json)
-- [Move mainframe compute to Azure](https://docs.microsoft.com/en-us/azure/virtual-machines/workloads/mainframe-rehosting/concepts/mainframe-compute-azure?toc=/azure/architecture/toc.json&bc=/azure/architecture/_bread/toc.json)
-- [General mainframe refactor to Azure](https://docs.microsoft.com/en-us/azure/architecture/example-scenario/mainframe/general-mainframe-refactor)
-- [AIX UNIX on-premises to Azure Linux migration](https://docs.microsoft.com/en-us/azure/architecture/example-scenario/unix-migration/migrate-aix-azure-linux)
+- [Azure mainframe and midrange architecture concepts and patterns](../../mainframe/mainframe-midrange-architecture.md)
+- [Mainframe migration overview](/azure/cloud-adoption-framework/infrastructure/mainframe-migration?toc=/azure/architecture/toc.json&bc=/azure/architecture/_bread/toc.json)
+- [Mainframe rehosting on Azure virtual machines](/azure/virtual-machines/workloads/mainframe-rehosting/overview?toc=/azure/architecture/toc.json&bc=/azure/architecture/_bread/toc.json)
+- [Move mainframe compute to Azure](/azure/virtual-machines/workloads/mainframe-rehosting/concepts/mainframe-compute-azure?toc=/azure/architecture/toc.json&bc=/azure/architecture/_bread/toc.json)
+- [General mainframe refactor to Azure](./general-mainframe-refactor.yml)
+- [AIX UNIX on-premises to Azure Linux migration](../unix-migration/migrate-aix-azure-linux.yml)
