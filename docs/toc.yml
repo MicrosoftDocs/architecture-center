@@ -4600,8 +4600,14 @@ items:
               - name: Security design principles
                 href: /azure/architecture/framework/security/security-principles
                 maintainContext: true
+              - name: Security patterns
+                href: /azure/architecture/framework/security/security-patterns
+                maintainContext: true
               - name: SecOps best practices
                 href: /security/compass/security-operations
+                maintainContext: true
+              - name: Application security in Azure
+                href: /security/compass/applications-services#follow-devops-security-guidance
                 maintainContext: true
               - name: Highly-secure IaaS apps
                 href: reference-architectures/n-tier/high-security-iaas.yml
