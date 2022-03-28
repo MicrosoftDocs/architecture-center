@@ -2,12 +2,28 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id/>
     <title>Azure Architecture Center</title>
-    <updated>2022-03-21T15:03:02.302Z</updated>
+    <updated>2022-03-28T22:06:29.134Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <subtitle>Updated articles for Azure Architecture Center</subtitle>
     <rights>https://docs.microsoft.com/legal/termsofuse</rights>
     <category term="new"/>
     <category term="updated"/>
+    <entry>
+        <title type="html"><![CDATA[Batch integration with Azure Data Factory for Azure Digital Twins]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/example-scenario/iot/batch-integration-azure-data-factory-digital-twins</id>
+        <link href="https://docs.microsoft.com/azure/architecture/example-scenario/iot/batch-integration-azure-data-factory-digital-twins"/>
+        <updated>2022-03-25T18:47:38.000Z</updated>
+        <summary type="html"><![CDATA[Use Azure Data Factory to extract data from source systems and update data in Azure Digital Twins by using batch pipelines.]]></summary>
+        <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Deploy microservices with Azure Container Apps]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/example-scenario/serverless/microservices-with-container-apps</id>
+        <link href="https://docs.microsoft.com/azure/architecture/example-scenario/serverless/microservices-with-container-apps"/>
+        <updated>2022-03-25T07:00:35.000Z</updated>
+        <summary type="html"><![CDATA[Deploy existing microservice applications with Azure Container Apps.]]></summary>
+        <category label="new" term="new"/>
+    </entry>
     <entry>
         <title type="html"><![CDATA[Architectural approaches for IoT in a multitenant solution]]></title>
         <id>https://docs.microsoft.com/azure/architecture/guide/multitenant/approaches/iot</id>
@@ -167,6 +183,30 @@
         <updated>2022-03-01T22:37:25.000Z</updated>
         <summary type="html"><![CDATA[Learn how to build, deploy, and monitor a machine learning model for employee attrition that can be integrated with external applications using Databricks and Kubernetes.]]></summary>
         <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Deploy AD DS in an Azure virtual network]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/reference-architectures/identity/adds-extend-domain</id>
+        <link href="https://docs.microsoft.com/azure/architecture/reference-architectures/identity/adds-extend-domain"/>
+        <updated>2022-03-25T22:44:36.000Z</updated>
+        <summary type="html"><![CDATA[Use this reference architecture to extend an on-premises Active Directory domain to Azure to provide distributed authentication services.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Anomaly detector process in near-real-time]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/solution-ideas/articles/anomaly-detector-process</id>
+        <link href="https://docs.microsoft.com/azure/architecture/solution-ideas/articles/anomaly-detector-process"/>
+        <updated>2022-03-25T03:54:07.000Z</updated>
+        <summary type="html"><![CDATA[Learn about Anomaly Detector and see how anomaly detection models are selected with time-series data.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Azure Cosmos DB in IoT workloads]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/solution-ideas/articles/iot-using-cosmos-db</id>
+        <link href="https://docs.microsoft.com/azure/architecture/solution-ideas/articles/iot-using-cosmos-db"/>
+        <updated>2022-03-24T23:04:09.000Z</updated>
+        <summary type="html"><![CDATA[See how Azure Cosmos DB uses features like change feed and time-to-live (TTL) to support diverse IoT workloads without sacrificing performance.]]></summary>
+        <category label="updated" term="updated"/>
     </entry>
     <entry>
         <title type="html"><![CDATA[Enterprise-grade conversational bot]]></title>
