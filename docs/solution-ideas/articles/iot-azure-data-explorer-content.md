@@ -4,8 +4,8 @@ This solution idea describes how Azure Data Explorer provides near real-time ana
 
 ## Potential use cases
 
-- In fleet management, for predictive maintenance of vehicle parts.
-- In facilities management, for energy and environment optimization.
+- Fleet management, for predictive maintenance of vehicle parts.
+- Facilities management, for energy and environment optimization.
 - [Combining real-time road conditions with weather data for safer autonomous driving](https://customers.microsoft.com/story/816933-bosch-automotive-azure-germany)
 
 ## Architecture
@@ -32,7 +32,7 @@ This solution idea describes how Azure Data Explorer provides near real-time ana
      or
    - Azure Functions can invoke Azure Digital Twin APIs. Azure Digital Twins streams data to Event Hubs for ingestion into Azure Data Explorer.
 
-1. The following interfaces use data from Azure Data Explorer:
+1. The following interfaces get insights from data stored in Azure Data Explorer:
 
    - Custom analytics apps that use Azure Digital Twins and Azure Data Explorer APIs to blend data from both sources
    - Near real-time analytics dashboards that use Azure Data Explorer dashboards, [Power BI](/power-bi/transform-model/service-dataflows-best-practices), or [Grafana](/azure/data-explorer/grafana)
