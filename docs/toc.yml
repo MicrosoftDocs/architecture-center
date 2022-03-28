@@ -772,12 +772,12 @@ items:
                     href: /compliance/regulatory/offering-sec-17a-4 
                     maintainContext: true
                   - name: SEC Regulation SCI
-                    href: /compliance/offerings/offering-sec-reg-sci-us
+                    href: /azure/compliance/offerings/offering-sec-reg-sci-us
                     maintainContext: true
               - name: SWIFT CSP v2020 blueprint
                 items:
                   - name: Overview
-                    href: /azure/governance/blueprints/samples/swift-2020
+                    href: /azure/governance/blueprints/samples/swift-2020/index
                     maintainContext: true
                   - name: Control mapping
                     href: /azure/governance/blueprints/samples/swift-2020/control-mapping
@@ -1042,103 +1042,6 @@ items:
                 href: solution-ideas/articles/quality-assurance.yml
               - name: Supply chain track and trace
                 href: solution-ideas/articles/supply-chain-track-and-trace.yml
-      - name: Media and Entertainment
-        items:
-          - name: Overview
-            href: industries/media.md
-          - name: Guides
-            items:
-              - name: Dynamics 365 media accelerator
-                href: /dynamics365/industry/accelerators/media
-                maintainContext: true
-              - name: Content Production solution
-                href: /dynamics365/industry/accelerators/content-production
-                maintainContext: true
-              - name: Configure the accelerator with Azure AD
-                href: /dynamics365/industry/accelerators/configure-media
-                maintainContext: true
-          - name: Architectures
-            items:
-              - name: All media and entertainment architectures
-                href: /azure/architecture/browse/?terms=media
-              - name: 3D video rendering
-                href: example-scenario/infrastructure/video-rendering.yml
-              - name: Content-based recommendation
-                href: example-scenario/ai/scalable-personalization-with-content-based-recommendation-system.yml
-              - name: Digital image-based modeling on Azure
-                href: example-scenario/infrastructure/image-modeling.yml
-              - name: Gridwich cloud media system
-                href: reference-architectures/media-services/gridwich-architecture.yml
-              - name: Image classification on Azure
-                href: example-scenario/ai/intelligent-apps-image-processing.yml
-              - name: Live streaming digital media
-                href: solution-ideas/articles/digital-media-live-stream.yml
-              - name: Movie recommendations on Azure
-                href: example-scenario/ai/movie-recommendations-with-machine-learning.yml
-          - name: Compliance solutions
-            items:
-              - name: CDSA overview
-                href: /azure/compliance/offerings/offering-cdsa
-                maintainContext: true
-              - name: MPA overview
-                href: /azure/compliance/offerings/offering-mpa
-                maintainContext: true
-      - name: Energy and Environment
-        items:
-          - name: Overview
-            href: industries/energy-environment.md
-          - name: Guides
-            items:
-              - name: Microsoft Cloud for Sustainability
-                href: /industry/sustainability/overview
-                maintainContext: true
-              - name: Sustainability outcomes and benefits
-                href: /azure/cloud-adoption-framework/strategy/business-outcomes/sustainability
-                maintainContext: true
-              - name: Big compute for oil exploration
-                href: guide/architecture-styles/big-compute.yml
-              - name: IoT scenarios
-                items:
-                  - name: Connected waste management
-                    href: /azure/iot-central/government/tutorial-connected-waste-management
-                    maintainContext: true
-                  - name: Smart meter energy monitoring
-                    href: /azure/iot-central/energy/tutorial-smart-meter-app
-                    maintainContext: true
-                  - name: Solar panel monitoring
-                    href: /azure/iot-central/energy/tutorial-solar-panel-app
-                    maintainContext: true
-                  - name: Water consumption monitoring
-                    href: /azure/iot-central/government/tutorial-water-consumption-monitoring
-                    maintainContext: true
-                  - name: Water quality monitoring
-                    href: /azure/iot-central/government/tutorial-water-quality-monitoring
-                    maintainContext: true
-          - name: Architectures
-            items:
-              - name: All energy and environment architectures
-                href: /azure/architecture/browse/?terms=energy
-              - name: Environmental monitoring
-                href: solution-ideas/articles/environment-monitoring-and-supply-chain-optimization.yml
-              - name: Geospatial data processing and analytics
-                href: example-scenario/data/geospatial-data-processing-analytics-azure.yml
-              - name: IoT Edge data processing - Monitor oil rigs
-                href: solution-ideas/articles/data-storage-edge.yml
-              - name: Mining equipment monitoring
-                href: solution-ideas/articles/monitor-mining-equipment.yml
-              - name: Oil and gas tank level forecasting
-                href: solution-ideas/articles/oil-and-gas-tank-level-forecasting.yml
-              - name: Project 15 sustainability
-                href: solution-ideas/articles/project-15-iot-sustainability.yml
-              - name: Run CFD simulations
-                href: example-scenario/infrastructure/hpc-cfd.yml
-              - name: Run reservoir simulations
-                href: example-scenario/infrastructure/reservoir-simulation.yml
-          - name: Compliance solutions
-            items:
-              - name: NERC (US) overview
-                href: /azure/compliance/offerings/offering-nerc
-                maintainContext: true
       - name: Game Development
         items:
           - name: Overview
@@ -1328,14 +1231,124 @@ items:
               - name: FERPA, COPPA, and CIPA
                 href: /compliance/regulatory/offering-FERPA
                 maintainContext: true
+      - name: Media and Entertainment
+        items:
+          - name: Overview
+            href: industries/media.md
+          - name: Guides
+            items:
+              - name: Dynamics 365 media accelerator
+                href: /dynamics365/industry/accelerators/media
+                maintainContext: true
+              - name: Content Production solution
+                href: /dynamics365/industry/accelerators/content-production
+                maintainContext: true
+              - name: Configure the accelerator with Azure AD
+                href: /dynamics365/industry/accelerators/configure-media
+                maintainContext: true
+          - name: Architectures
+            items:
+              - name: All media and entertainment architectures
+                href: /azure/architecture/browse/?terms=media
+              - name: 3D video rendering
+                href: example-scenario/infrastructure/video-rendering.yml
+              - name: Content-based recommendation
+                href: example-scenario/ai/scalable-personalization-with-content-based-recommendation-system.yml
+              - name: Digital image-based modeling on Azure
+                href: example-scenario/infrastructure/image-modeling.yml
+              - name: Gridwich cloud media system
+                href: reference-architectures/media-services/gridwich-architecture.yml
+              - name: Image classification on Azure
+                href: example-scenario/ai/intelligent-apps-image-processing.yml
+              - name: Live streaming digital media
+                href: solution-ideas/articles/digital-media-live-stream.yml
+              - name: Movie recommendations on Azure
+                href: example-scenario/ai/movie-recommendations-with-machine-learning.yml
+          - name: Compliance solutions
+            items:
+              - name: CDSA overview
+                href: /azure/compliance/offerings/offering-cdsa
+                maintainContext: true
+              - name: MPA overview
+                href: /azure/compliance/offerings/offering-mpa
+                maintainContext: true
+      - name: Energy and Environment
+        items:
+          - name: Overview
+            href: industries/energy-environment.md
+          - name: Guides
+            items:
+              - name: Microsoft Cloud for Sustainability
+                href: /industry/sustainability/overview
+                maintainContext: true
+              - name: Sustainability outcomes and benefits
+                href: /azure/cloud-adoption-framework/strategy/business-outcomes/sustainability
+                maintainContext: true
+              - name: Big compute for oil exploration
+                href: guide/architecture-styles/big-compute.yml
+              - name: IoT scenarios
+                items:
+                  - name: Connected waste management
+                    href: /azure/iot-central/government/tutorial-connected-waste-management
+                    maintainContext: true
+                  - name: Smart meter energy monitoring
+                    href: /azure/iot-central/energy/tutorial-smart-meter-app
+                    maintainContext: true
+                  - name: Solar panel monitoring
+                    href: /azure/iot-central/energy/tutorial-solar-panel-app
+                    maintainContext: true
+                  - name: Water consumption monitoring
+                    href: /azure/iot-central/government/tutorial-water-consumption-monitoring
+                    maintainContext: true
+                  - name: Water quality monitoring
+                    href: /azure/iot-central/government/tutorial-water-quality-monitoring
+                    maintainContext: true
+          - name: Architectures
+            items:
+              - name: All energy and environment architectures
+                href: /azure/architecture/browse/?terms=energy
+              - name: Environmental monitoring
+                href: solution-ideas/articles/environment-monitoring-and-supply-chain-optimization.yml
+              - name: Geospatial data processing and analytics
+                href: example-scenario/data/geospatial-data-processing-analytics-azure.yml
+              - name: IoT Edge data processing - Monitor oil rigs
+                href: solution-ideas/articles/data-storage-edge.yml
+              - name: Mining equipment monitoring
+                href: solution-ideas/articles/monitor-mining-equipment.yml
+              - name: Oil and gas tank level forecasting
+                href: solution-ideas/articles/oil-and-gas-tank-level-forecasting.yml
+              - name: Project 15 sustainability
+                href: solution-ideas/articles/project-15-iot-sustainability.yml
+              - name: Run CFD simulations
+                href: example-scenario/infrastructure/hpc-cfd.yml
+              - name: Run reservoir simulations
+                href: example-scenario/infrastructure/reservoir-simulation.yml
+          - name: Compliance solutions
+            items:
+              - name: NERC (US) overview
+                href: /azure/compliance/offerings/offering-nerc
+                maintainContext: true
       - name: Travel and Hospitality
         items:
           - name: Overview
             href: industries/travel-hospitality.md
           - name: Guides
             items:
-              - name: Data science using Spark for airport travel
-                href: data-science-process/spark-overview.md
+              - name: AI scenarios
+                items:
+                  - name: Create a Cognitive Search index for hotel data
+                    href: /azure/search/search-get-started-portal
+                    maintainContext: true
+                  - name: Data science using Spark for airport travel
+                    href: data-science-process/spark-overview.md
+              - name: IoT scenarios
+                items:
+                  - name: IoT spatial analytics - Car rental tracking
+                    href: /azure/azure-maps/tutorial-iot-hub-maps
+                    maintainContext: true
+                  - name: Observer pattern - Airport baggage claims
+                    href: /dotnet/standard/events/observer-design-pattern
+                    maintainContext: true
               - name: No-code voice assistant for hospitality
                 href: /azure/azure-percept/tutorial-no-code-speech
                 maintainContext: true
@@ -1364,13 +1377,16 @@ items:
               - name: Dynamics 365 automotive accelerator
                 href: /dynamics365/industry/accelerators/automotive
                 maintainContext: true
-              - name: Azure Maps
+              - name: Azure Maps guidance
                 items:
                   - name: Azure Maps traffic coverage
                     href: /azure/azure-maps/traffic-coverage
                     maintainContext: true
                   - name: Vehicle consumption model
                     href: /azure/azure-maps/consumption-model
+                    maintainContext: true
+                  - name: Best practices for Route Service
+                    href: /azure/azure-maps/how-to-use-best-practices-for-routing
                     maintainContext: true
               - name: Single sign on for car park management
                 href: /azure/active-directory/saas-apps/parkalot-car-park-management-tutorial
@@ -2978,7 +2994,7 @@ items:
                 items:
                    - name: Decompose apps with Service Fabric
                      href: example-scenario/infrastructure/service-fabric-microservices.yml
-                   - name: Deploy microservices with Azure Container Apps
+                   - name: Deploy microservices with Container Apps
                      href: example-scenario/serverless/microservices-with-container-apps.yml
                    - name: High-availability blue/green deployment
                      href: example-scenario/blue-green-spring/blue-green-spring.yml
@@ -4584,8 +4600,14 @@ items:
               - name: Security design principles
                 href: /azure/architecture/framework/security/security-principles
                 maintainContext: true
+              - name: Security patterns
+                href: /azure/architecture/framework/security/security-patterns
+                maintainContext: true
               - name: SecOps best practices
                 href: /security/compass/security-operations
+                maintainContext: true
+              - name: Application security in Azure
+                href: /security/compass/applications-services#follow-devops-security-guidance
                 maintainContext: true
               - name: Highly-secure IaaS apps
                 href: reference-architectures/n-tier/high-security-iaas.yml
@@ -4921,7 +4943,7 @@ items:
                     href: reference-architectures/enterprise-integration/ase-standard-deployment.yml
                   - name: High availability deployment
                     href: reference-architectures/enterprise-integration/ase-high-availability-deployment.yml
-              - name: Design great API developer experiences using API Management and GitHub
+              - name: Design great API developer experiences
                 href: example-scenario/web/design-api-developer-experiences-management-github.yml
               - name: E-commerce front end
                 href: example-scenario/apps/ecommerce-scenario.yml
