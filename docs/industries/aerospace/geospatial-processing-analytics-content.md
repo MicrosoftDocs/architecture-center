@@ -1,4 +1,4 @@
-Spaceborne data collection is becoming increasingly common. For the application of artificial intelligence, stored archives of data are necessary for machine learning. The need to build a cloud-based solution for geospatial analysis has become more important to enable enterprises and governments to drive better-informed business and tactical decisions. 
+Spaceborne data collection is increasingly common. For the application of artificial intelligence, stored archives of data are necessary for machine learning. The need to build a cloud-based solution for geospatial analysis has become more important to enable enterprises and governments to drive better-informed business and tactical decisions. 
 
 This architecture is designed to show an end-to-end implementation that involves extracting, loading, transforming, and analyzing spaceborne data by using geospatial libraries and AI models with [Azure Synapse Analytics](/azure/synapse-analytics/overview-what-is). This article also shows how to integrate geospatial-specific [Azure Cognitive Services](/azure/cognitive-services) models, AI models from partners, bring-your-own-data, and AI models that use Azure Synapse Analytics.
 
@@ -113,7 +113,7 @@ The following geospatial libraries and packages are used together for transforma
 - [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db) supports indexing and querying of geospatial point data that's represented in [GeoJSON](https://tools.ietf.org/html/rfc7946).
 - [Power BI](https://powerbi.microsoft.com) is an interactive data visualization tool for building reports and dashboards. You can get insights on spaceborne data from Esri [ArcGIS Maps](https://powerbi.microsoft.com/power-bi-esri-arcgis).
 - [QGIS](https://www.qgis.org) is a free open-source GIS for creating, editing, visualizing, analyzing, and publishing geospatial information.
-- [ArcGIS Desktop](https://www.esri.com/arcgis/products/arcgis-desktop/overview) is licensed product provided by Esri. You can use it to create, analyze, manage, and share geographic information.
+- [ArcGIS Desktop](https://www.esri.com/en-us/arcgis/products/arcgis-desktop/overview) is licensed product provided by Esri. You can use it to create, analyze, manage, and share geographic information.
 
 ### Alternatives
 
@@ -151,7 +151,7 @@ For SLA information, see [Azure Synapse SLA](https://azure.microsoft.com/support
 
 See these articles for security best practices: 
 
-- [Azure Synapse Analytics security](/azure/synapse-analytics/guidance/security-white-paper-introduction)
+- [Azure Synapse Analytics security: Introduction](/azure/synapse-analytics/guidance/security-white-paper-introduction)
 - [Azure Synapse Analytics security: Data protection](/azure/synapse-analytics/guidance/security-white-paper-data-protection)
 - [Azure Synapse Analytics security: Access control](/azure/synapse-analytics/guidance/security-white-paper-access-control)
 - [Azure Synapse Analytics security: Authentication](/azure/synapse-analytics/guidance/security-white-paper-authentication)
