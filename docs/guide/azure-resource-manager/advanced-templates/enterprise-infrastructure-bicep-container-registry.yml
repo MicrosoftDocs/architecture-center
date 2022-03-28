@@ -1,0 +1,22 @@
+### YamlMime:Architecture
+metadata:
+  title: Enterprise infrastructure as code using Bicep and Azure Container Registry
+  description: <Write a 100-160 character description that ends with a period and ideally starts with a call to action. This becomes the browse card description.>
+  author: <Contributor's GitHub username. If no GitHub account, use EdPrice-MSFT>
+  ms.author: <Contributor's Microsoft alias. Can include multiple contributors, separated by commas. If no alias, use edprice.>
+  ms.date: <Publish or major update date - mm/dd/yyyy>
+  ms.topic: conceptual
+  ms.service: architecture-center
+  ms.subservice: azure-guide
+azureCategories:
+  - <Choose at least one category from the list at https://review.docs.microsoft.com/en-us/help/contribute/architecture-center/aac-browser-authoring#azure-categories>
+  - <There can be more than one category>
+products:
+  - <Choose 1-5 products from the list at https://review.docs.microsoft.com/en-us/help/contribute/architecture-center/aac-browser-authoring#products>
+  - <1-5 products>
+  - <1-5 products>
+name: Enterprise infrastructure as code using Bicep and Azure Container Registry
+summary: <Write a summary. Can be same as description.>
+thumbnailUrl: /azure/architecture/browse/thumbs/<browse-png-filename>.png
+content: |
+  [!include[](enterprise-infrastructure-bicep-container-registry-content.md)]

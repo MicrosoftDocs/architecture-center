@@ -2999,6 +2999,8 @@ items:
                     href: guide/azure-resource-manager/advanced-templates/objects-as-parameters.md
                   - name: Property transformer and collector
                     href: guide/azure-resource-manager/advanced-templates/collector.md
+                  - name: Enterprise infrastructure as code using Bicep and Azure Container Registry
+                    href: guide/azure-resource-manager/advanced-templates/
               - name: DevTest Labs guidance
                 items:
                   - name: Deliver a proof of concept
