@@ -37,11 +37,9 @@ The following diagram shows a legacy mainframe system before it's rehosted to th
 
 :::image type="content" source="media/rehost-mainframe-ntt-data-unikix-original-architecture.png" alt-text="Architecture diagram that shows a mainframe system. Components include middleware, monitoring systems, applications, and data." border="false":::
 
-*Download a [Visio file](https://arch-center.azureedge.net/mainframe-NTTDATA-azure-rehost.vsdx) of this architecture.*
-
 ### Workflow
 
-- On-premises users interact with the mainframe by using TCP/IP (A):
+- On-premises users interact with the mainframe by using TCP/IP (**A**):
 
   - Admin users interact through a TN3270 terminal emulator.
   - Web interface users interact via a web browser over TLS 1.3 port 443.
@@ -72,7 +70,7 @@ The following diagram shows a legacy mainframe system before it's rehosted to th
 
 1. Azure ExpressRoute connects an on-premises corporate network to NTT DATA's UniKix mainframe rehosting software suite. Traffic from users and external interfaces that aren't on the Azure platform flows through this ExpressRoute connection to the Azure instances.
 
-1. Azure Load Balancer distributes online transactions across two or more Azure virtual machines (VMs). For a single-host alternative, see [Alternatives](#alternatives).
+1. Azure Load Balancer distributes online transactions across two or more Azure virtual machines (VMs). Port 4444 is used to connect with x3270. For a single-host alternative, see [Alternatives](#alternatives).
 
 1. The application server runs the following NTT DATA products:
 
@@ -83,7 +81,7 @@ The following diagram shows a legacy mainframe system before it's rehosted to th
      - Transformed IDMS DC programs.
      - Related resources.
 
-   These workloads run on industry-standard server and operating systems such as Red Hat Linux.
+   These workloads run on industry-standard servers and operating systems such as Red Hat Linux.
 
    - Batch Processing Environment (BPE). This environment provides a complete job entry subsystem (JES) environment for the administration, execution, and management of batch workloads.
 
@@ -107,7 +105,7 @@ The following diagram shows a legacy mainframe system before it's rehosted to th
 
 This example features the following Azure components. Several of these components and workflows are interchangeable or optional depending on your scenario.
 
-- [Azure ExpressRoute](/azure/expressroute/expressroute-introduction) extends on-premises networks into Azure over a private, dedicated fiber connection from a connectivity provider. ExpressRoute establishes connections to Microsoft cloud services like Azure and Microsoft 365.
+- [Azure ExpressRoute](https://azure.microsoft.com/services/expressroute/) extends on-premises networks into Azure over a private, dedicated fiber connection from a connectivity provider. ExpressRoute establishes connections to Microsoft cloud services like Azure and Microsoft 365.
 
 - [Azure Load Balancer](https://azure.microsoft.com/services/load-balancer) distributes incoming traffic to compute resource clusters. You can define rules and other criteria to distribute the traffic.
 
@@ -115,7 +113,7 @@ This example features the following Azure components. Several of these component
 
 - [Azure Storage](https://azure.microsoft.com/product-categories/storage) offers scalable, secure cloud storage for all your data, applications, and workloads:
 
-  - Azure Disk Storage is high-performance, durable block storage for business-critical applications. Azure managed disks are block-level storage volumes that are managed by Azure on Azure VMs. The available types of disks are ultra disks, premium SSDs, standard SSDs, and standard hard disk drives (HDDs). This architecture uses either premium SSDs or ultra disk SSDs.
+  - Azure Disk Storage is high-performance, durable block storage for business-critical applications. Azure managed disks are block-level storage volumes that are managed by Azure on Azure VMs. The available types of disks are ultra disks, premium SSDs, standard SSDs, and standard hard disk drives (HDDs). This solution uses either premium SSDs or ultra disk SSDs.
   - Azure Files offers fully managed file shares in the cloud that are accessible via the industry standard Server Message Block (SMB) protocol. Cloud and on-premises Windows, Linux, and macOS deployments can mount Azure Files file shares concurrently.
   - Azure Blob Storage provides scalable and secure object storage. It can manage large amounts of unstructured data, such as archives and data lakes. Blob Storage is a good fit for high-performance computing, machine learning, and cloud-native workloads.
 
@@ -135,38 +133,21 @@ This example features the following Azure components. Several of these component
 
 The following considerations, based on the [Azure Well-Architected Framework](../../framework/index.md), apply to this solution:
 
-### Availability
+### Reliability
 
-The architecture uses Azure Site Recovery to mirror Azure VMs to a secondary Azure region for quick failover and disaster recovery during datacenter failures. Azure auto-failover group replication provides data protection by managing the database replication and failover to the secondary region.
-
-### Operations
-
-By refactoring legacy systems, you can take advantage of cloud-computing benefits. You can adopt DevOps and agile working principles, which provide full flexibility in development and production deployment options.
-
-### Resiliency
-
-- Azure Load Balancer provides built-in resiliency in this solution. By using health probes and rules, Load Balancer monitors the status of the back-end pool. If one presentation or transaction server fails, Load Balancer runs workloads on other servers.
-- For increased resiliency, use availability sets and geo-redundant storage.
+The solution uses Azure Site Recovery to mirror Azure VMs to a secondary Azure region for quick failover and disaster recovery during datacenter failures.
 
 ### Security
 
-- This solution uses an Azure network security group to manage traffic between Azure resources. For more information, see [Network security groups](/azure/virtual-network/network-security-groups-overview).
+This solution uses an Azure network security group to manage traffic between Azure resources. For more information, see [Network security groups](/azure/virtual-network/network-security-groups-overview).
 
-- Private Link provides private, direct connections between Azure VMs and Azure services. These connections are isolated to the Azure networking backbone.
+### Cost optimization
 
-- Azure Bastion maximizes administrative access security by minimizing open ports. Bastion provides secure and seamless RDP and SSH connectivity to virtual network VMs. Instead of using a public IP address, users connect to the VMs directly from the Azure portal over TLS.
+- Azure provides cost optimization by running on VMs. You can turn off the VMs when not in use, and script a schedule for known usage patterns. For more information about cost optimization for [VM instances](../../framework/cost/optimize-vm.md), see the [Azure Well-Architected Framework](../../framework/index.md).
 
-## Pricing
+- The VMs in this solution use either premium SSDs or ultra disk SSDs. For more information about disk options and pricing, see [Managed Disks pricing](https://azure.microsoft.com/pricing/details/managed-disks).
 
-Azure avoids unnecessary costs by identifying the correct number of resource types, analyzing spending over time, and scaling to meet business needs without overspending.
-
-- Azure provides cost optimization by running on VMs. You can turn off the VMs when not in use, and script a schedule for known usage patterns. See the [Azure Well-Architected Framework](../../framework/index.md) for more information about cost optimization for [VM instances](../../framework/cost/optimize-vm.md).
-
-- The VMs in this architecture use either premium SSDs or ultra disk SSDs. For more information about disk options and pricing, see [Managed Disks pricing](https://azure.microsoft.com/pricing/details/managed-disks).
-
-- SQL Database optimizes costs with serverless compute and Hyperscale storage resources that automatically scale. For more information about SQL Database options and pricing, see [Azure SQL Database pricing](https://azure.microsoft.com/pricing/details/azure-sql-database/single).
-
-Use the [Pricing calculator](https://azure.microsoft.com/pricing/calculator) to estimate the cost of implementing this solution.
+- To estimate the cost of implementing this solution, use the [Pricing calculator](https://azure.microsoft.com/pricing/calculator).
 
 ## Contributors
 
@@ -185,9 +166,18 @@ Use the [Pricing calculator](https://azure.microsoft.com/pricing/calculator) to 
 
 - For more information about rehosting on Azure, contact [legacy2azure@microsoft.com](mailto:legacy2azure@microsoft.com).
 - For more information about using NTT DATA software for rehosting, contact [NTTReHost.Cloud@nttdata.com](mailto:NTTReHost.Cloud@nttdata.com).
-- [NTT DATA UniKix solution on Azure Marketplace](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/nttdata.unikix)
-- [Deploying NTT DATA UniKix in Azure, Part 1](https://techcommunity.microsoft.com/t5/azure-global/deploying-ntt-data-unikix-in-azure-part-1-deploying-the-vm/ba-p/775840)
-- [Deploying NTT DATA UniKix in Azure, Part 2](https://techcommunity.microsoft.com/t5/azure-global/deploying-ntt-data-unikix-in-azure-part-2-configure-tpe-and/ba-p/779142)
+- To see how to deploy UniKix in Azure, see these resources:
+
+  - [Deploying NTT DATA UniKix in Azure, Part 1](https://techcommunity.microsoft.com/t5/azure-global/deploying-ntt-data-unikix-in-azure-part-1-deploying-the-vm/ba-p/775840)
+  - [Deploying NTT DATA UniKix in Azure, Part 2](https://techcommunity.microsoft.com/t5/azure-global/deploying-ntt-data-unikix-in-azure-part-2-configure-tpe-and/ba-p/779142)
+
+- To learn more about components in the solution, see these articles:
+
+  - [Azure ExpressRoute](/azure/expressroute/expressroute-introduction)
+  - [What is Azure Load Balancer?](https://docs.microsoft.com/en-us/azure/load-balancer/load-balancer-overview)
+  - [Introduction to Azure managed disks](https://docs.microsoft.com/en-us/azure/virtual-machines/managed-disks-overview)
+  - [What is Azure SQL Database?](https://docs.microsoft.com/en-us/azure/azure-sql/database/sql-database-paas-overview)
+  - [About Site Recovery](https://docs.microsoft.com/en-us/azure/site-recovery/site-recovery-overview)
 
 ## Related resources
 
