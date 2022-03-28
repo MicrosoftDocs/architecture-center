@@ -1,7 +1,7 @@
 ### YamlMime:Architecture
 metadata:
   title: Enterprise infrastructure as code using Bicep and Azure Container Registry
-  description: <Write a 100-160 character description that ends with a period and ideally starts with a call to action. This becomes the browse card description.>
+  description: Reduce repetition, model best practices, and have consistent standard deployments by modularizing your Azure Resource Manager templates.
   author: tjsullivan1
   ms.author: tisulliv
   ms.date: 04/01/2022
@@ -19,7 +19,7 @@ products:
   - azure-resource-manager
   - azure-policy
 name: Enterprise infrastructure as code using Bicep and Azure Container Registry
-summary: <Write a summary. Can be same as description.>
+summary: Reduce repetition, model best practices, and have consistent standard deployments by modularizing your Azure Resource Manager templates.
 thumbnailUrl: /azure/architecture/browse/thumbs/enterprise-infrastructure-bicep-container-registry-thumbnail.png
 content: |
   [!include[](enterprise-infrastructure-bicep-container-registry-content.md)]
