@@ -2322,6 +2322,38 @@ items:
                   - name: Security baseline for Windows VMs
                     href: /security/benchmark/azure/baselines/virtual-machines-windows-security-baseline
                     maintainContext: true
+              - name: SQ Server on Azure VMs
+                items:
+                  - name: SQL Server on Windows VMs
+                    href: /azure/azure-sql/virtual-machines/windows/sql-server-on-azure-vm-iaas-what-is-overview
+                    maintainContext: true
+                  - name: SQL Server on Linux VMs
+                    href: /azure/azure-sql/virtual-machines/linux/sql-server-on-linux-vm-what-is-iaas-overview
+                    maintainContext: true
+                  - name: BC and HADR
+                    href: /azure/azure-sql/virtual-machines/windows/business-continuity-high-availability-disaster-recovery-hadr-overview
+                    maintainContext: true
+                  - name: Best practices checklist
+                    href: /azure/azure-sql/virtual-machines/windows/performance-guidelines-best-practices-vm-size
+                    maintainContext: true
+                  - name: VM size
+                    href: /azure/azure-sql/virtual-machines/windows/performance-guidelines-best-practices-vm-size
+                    maintainContext: true
+                  - name: Storage
+                    href: /azure/azure-sql/virtual-machines/windows/performance-guidelines-best-practices-storage
+                    maintainContext: true
+                  - name: Security
+                    href: /azure/azure-sql/virtual-machines/windows/security-considerations-best-practices
+                    maintainContext: true
+                  - name: HADR configuration
+                    href: /azure/azure-sql/virtual-machines/windows/hadr-cluster-best-practices
+                    maintainContext: true
+                  - name: Application patterns
+                    href: /azure/azure-sql/virtual-machines/windows/application-patterns-development-strategies
+                    maintainContext: true
+                  - name: Performance baseline
+                    href: /azure/azure-sql/virtual-machines/windows/performance-guidelines-best-practices-collect-baseline
+                    maintainContext: true
               - name: Red Hat on Azure guidance
                 items:
                   - name: Red Hat workloads on Azure
