@@ -1,5 +1,3 @@
-# Versioned ARM Templates (Bicep and GitHub Actions)
-
 Modularizing your ARM template management will enable infrastructure developers to reduce repetition, model best practices, and have consistent standard deployments. 
 
 An example use case for this would be standardizing a Virtual Machine deployment with “t-shirt” sizes. If you have deployed dozens or hundreds of machines using version 1.0.0 of your templates with a standard medium size of an older series, and you want to transition to a new series, that could require a brief outage. By building version 1.5.0, you can deploy new infrastructure with the updated standard, while keeping the old infrastructure in a deployable state. This then allows your product and application teams to have a known good configuration for the old infrastructure and the ability to upgrade on their own time.
