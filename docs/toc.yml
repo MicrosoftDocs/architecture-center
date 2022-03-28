@@ -814,6 +814,35 @@ items:
                   - name: Compliance in Cloud for Healthcare
                     href: /industry/healthcare/compliance-overview
                     maintainContext: true
+              - name: Azure Health Bot
+                items:
+                  - name: Overview
+                    href: /azure/health-bot/overview
+                    maintainContext: true
+                  - name: Built-in medical intelligence
+                    href: /azure/health-bot/bot_docs/triage_symptom_checking
+                    maintainContext: true
+                  - name: Debugging
+                    href: /azure/health-bot/scenario-authoring/debugging
+                    maintainContext: true
+                  - name: Advanced functionality
+                    href: /azure/health-bot/scenario-authoring/advanced_functionality
+                    maintainContext: true
+                  - name: Langauge models
+                    href: /azure/health-bot/language_models
+                    maintainContext: true
+                  - name: Handoff to a live agent
+                    href: /azure/health-bot/handoff
+                    maintainContext: true
+                  - name: Handoff using Microsoft Teams
+                    href: /azure/health-bot/handoff-teams
+                    maintainContext: true
+                  - name: Dynamics 365 Omnichannel integration
+                    href: /azure/health-bot/omnichannel
+                    maintainContext: true
+                  - name: Health Bot custom telemetry
+                    href: /azure/health-bot/custom_telemetry
+                    maintainContext: true
               - name: Healthcare APIs
                 items:
                   - name: Overview
@@ -836,6 +865,17 @@ items:
                   - name: Assertion detection
                     href: /azure/cognitive-services/language-service/text-analytics-for-health/concepts/assertion-detection
                     maintainContext: true
+              - name: IoT scenarios
+                items:
+                  - name: Continuous patient monitoring
+                    href: /azure/iot-central/healthcare/tutorial-continuous-patient-monitoring
+                    maintainContext: true
+                  - name: Health triage dashboard
+                    href: /azure/iot-central/healthcare/tutorial-health-data-triage
+                    maintainContext: true
+              - name: Healthcare for data management and analytics
+                href: /azure/cloud-adoption-framework/scenarios/data-management/architectures/reference-architecture-lamna
+                maintainContext: true
           - name: Architectures
             items:
               - name: All healthcare architectures
@@ -852,18 +892,27 @@ items:
                 href: example-scenario/digital-health/health-portal.yml
               - name: Health data consortium
                 href: example-scenario/data/azure-health-data-consortium.yml
+              - name: IoT Connected Platform for COVID-19 detection
+                href: solution-ideas/articles/iot-connected-platform.yml
               - name: Population health management
                 href: solution-ideas/articles/population-health-management-for-healthcare.yml
               - name: Predict hospital readmissions with ML
                 href: example-scenario/ai/predict-hospital-readmissions-machine-learning.yml
+              - name: Predict the length of stay in hospitals
+                href: solution-ideas/articles/predicting-length-of-stay-in-hospitals.yml
               - name: Precision medicine pipeline
                 href: example-scenario/precision-medicine/genomic-analysis-reporting.yml
+              - name: Virtual network integration for patient records
+                href: example-scenario/integrated-multiservices/virtual-network-integration.yml
               - name: Virtual visits with Cloud for Healthcare
                 href: example-scenario/mch-health/virtual-health-mch.yml
           - name: Compliance solutions
             items:
-              - name: EPCS (US) overview
+              - name: EPCS (US)
                 href: /azure/compliance/offerings/offering-epcs-us
+                maintainContext: true
+              - name: FDA 21
+                href: /azure/compliance/offerings/offering-gxp
                 maintainContext: true
               - name: HIPAA and HITRUST
                 items:
@@ -877,6 +926,12 @@ items:
                     href: industries/healthcare/healthcare-ai-blueprint.yml
                   - name: HIPAA/HITRUST compliant health data
                     href: solution-ideas/articles/security-compliance-blueprint-hipaa-hitrust-health-data-ai.yml
+                  - name: HIPAA HITRUST 9.2 regulatory compliance
+                    href: /azure/governance/policy/samples/hipaa-hitrust-9-2
+                    maintainContext: true
+              - name: MARS-E (US)
+                href: /azure/compliance/offerings/offering-mars-e-us
+                maintainContext: true
       - name: Government
         items:
           - name: Overview
@@ -4607,7 +4662,7 @@ items:
                 href: /security/compass/security-operations
                 maintainContext: true
               - name: Application security in Azure
-                href: /security/compass/applications-services#follow-devops-security-guidance
+                href: /security/compass/applications-services
                 maintainContext: true
               - name: Highly-secure IaaS apps
                 href: reference-architectures/n-tier/high-security-iaas.yml
@@ -4951,7 +5006,7 @@ items:
                 href: reference-architectures/app-service-web-app/multi-region.yml
               - name: "IaaS: Web app with relational database"
                 href: high-availability/ref-arch-iaas-web-and-db.yml
-              - name: Improved-security access to multitenant web apps from on-premises 
+              - name: Improved-security access to multitenant web apps
                 href: example-scenario/security/access-multitenant-web-app-from-on-premises.yml
               - name: Intelligent search engine for e-commerce
                 href: example-scenario/apps/ecommerce-search.yml
