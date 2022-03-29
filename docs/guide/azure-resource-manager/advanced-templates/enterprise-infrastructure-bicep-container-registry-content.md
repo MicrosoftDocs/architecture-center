@@ -111,8 +111,8 @@ Finally, though you may not have an index of all repositories and the code withi
 
 See Also
 
-- Platform automation and DevOps design area - Cloud Adoption Framework | Microsoft Docs
-- Mature team structures - Cloud Adoption Framework | Microsoft Docs
-- What is Infrastructure as Code? - Azure DevOps | Microsoft Docs
-- Azure/ResourceModules: This repository includes a CI platform for and collection of mature and curated Bicep modules. The platform supports both ARM and Bicep and can be leveraged using GitHub actions as well as Azure DevOps pipelines.
-- Create private registry for Bicep module - Azure Resource Manager | Microsoft Docs
+- [Design area: Platform automation and DevOps](/azure/cloud-adoption-framework/ready/landing-zone/design-area/platform-automation-devops)
+- [Mature team structures](/azure/cloud-adoption-framework/organize/organization-structures)
+- [What is Infrastructure as Code?](/devops/deliver/what-is-infrastructure-as-code)
+- [Azure/ResourceModules](https://github.com/Azure/ResourceModules): This repository includes a CI platform for and collection of mature and curated Bicep modules. The platform supports both ARM and Bicep and can be leveraged using GitHub actions as well as Azure DevOps pipelines.
+- [Create private registry for Bicep module](https://docs.microsoft.com/en-us/azure/azure-resource-manager/bicep/private-module-registry?tabs=azure-powershell)
