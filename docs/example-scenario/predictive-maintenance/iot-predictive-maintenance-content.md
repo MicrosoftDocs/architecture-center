@@ -10,7 +10,7 @@ The wheel health analysis system provides early identification of potential equi
 
 ## Potential use cases
 
-This solution is ideal for the Telecommunications industry. IoT Edge implementations are most relevant when large amounts of data captured in real time need action or decisions with little or no latency. The example system had to maintain 99.999% uptime, process data from up to 24 trains and 35 million readings per day, and guarantee one-hour delivery of alerts and notifications.
+This solution is ideal for the manufacturing, telecommunications, and the automotive and transportation industries. IoT Edge implementations are most relevant when large amounts of data captured in real time need action or decisions with little or no latency. The example system had to maintain 99.999% uptime, process data from up to 24 trains and 35 million readings per day, and guarantee one-hour delivery of alerts and notifications.
 
 ## Architecture
 [ ![Solution architecture diagram showing the IoT Edge modules in the trackside bungalows. The Edge modules use machine learning to identify failure risks. The alert handler module uploads image data to Azure Blob Storage. Azure Edge Hub uploads associated metadata and messages through Azure IoT Hub to Azure Cosmos DB storage.](./media/iot-predictive-maintenance.svg) ](./media/iot-predictive-maintenance.svg#lightbox)
@@ -50,8 +50,9 @@ The team identified several design considerations:
 - The Edge architecture is currently split into multiple modules, but can be condensed into a single module, depending on solution performance requirements or development team structure.
 - This solution builds on the following previous CSE customer engagements in the manufacturing, oil and gas, and natural resource management industries:
   - [CloudEvents](https://github.com/cloudevents/spec)
-  - [Claim Check Patterns](../../patterns/claim-check.yml)
-  - [Command and Query Responsibility Segregation (CQRS) Pattern](http://udidahan.com/2011/04/22/when-to-avoid-cqrs/)
+  - [Claim Check pattern](../../patterns/claim-check.yml)
+  - [Command and Query Responsibility Segregation (CQRS) pattern](../../patterns/cqrs.yml)
+  - [When to avoid CQRS](http://udidahan.com/2011/04/22/when-to-avoid-cqrs/)
 
 ## Deploy this scenario
 
@@ -95,3 +96,15 @@ Building and deploying the solution also uses:
 - [React to Blob storage events](/azure/storage/blobs/storage-blob-event-overview)
 - [Azure Blob storage bindings for Azure Functions](/azure/azure-functions/functions-bindings-storage-blob)
 - [Serverless Streaming At Scale with Cosmos DB](https://medium.com/streaming-at-scale-in-azure/serverless-streaming-at-scale-with-cosmos-db-e0e26cacd27d)
+
+## Related resources
+
+  - [Introduction to predictive maintenance in manufacturing](/azure/architecture/industries/manufacturing/predictive-maintenance-overview)
+  - [Predictive maintenance solution](/azure/architecture/industries/manufacturing/predictive-maintenance-solution)
+  - [Predictive aircraft engine monitoring](/azure/architecture/solution-ideas/articles/aircraft-engine-monitoring-for-predictive-maintenance-in-aerospace)
+  - [Defect prevention with predictive maintenance using analytics and machine learning](/azure/architecture/solution-ideas/articles/defect-prevention-with-predictive-maintenance)
+  - [Anomaly detector process](/azure/architecture/solution-ideas/articles/anomaly-detector-process)
+  - [Quality assurance](/azure/architecture/solution-ideas/articles/quality-assurance)
+  - [Connected factory signal pipeline](/azure/architecture/example-scenario/iot/connected-factory-signal-pipeline)
+  - [Claim Check pattern](../../patterns/claim-check.yml)
+  - [Command and Query Responsibility Segregation (CQRS) pattern](../../patterns/cqrs.yml)
