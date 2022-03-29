@@ -1,6 +1,6 @@
 Modularizing your ARM template management will enable infrastructure developers to reduce repetition, model best practices, and have consistent standard deployments. 
 
-An example use case for this would be standardizing a Virtual Machine deployment with “t-shirt” sizes. If you have deployed dozens or hundreds of machines using version 1.0.0 of your templates with a standard medium size of an older series, and you want to transition to a new series, that could require a brief outage. By building version 1.5.0, you can deploy new infrastructure with the updated standard, while keeping the old infrastructure in a deployable state. This then allows your product and application teams to have a known good configuration for the old infrastructure and the ability to upgrade on their own time.
+An example use case for this would be standardizing a Virtual Machine deployment with "t-shirt" sizes. If you have deployed dozens or hundreds of machines using version 1.0.0 of your templates with a standard medium size of an older series, and you want to transition to a new series, that could require a brief outage. By building version 1.5.0, you can deploy new infrastructure with the updated standard, while keeping the old infrastructure in a deployable state. This then allows your product and application teams to have a known good configuration for the old infrastructure and the ability to upgrade on their own time.
 
 ## The Layer Cake of Repositories (An Example for Enterprises)
 
@@ -22,13 +22,13 @@ The proposed model is one that stacks. As you move up the stack, you have more f
 
 Layers
 
-:::image type="content" alt-text="Diagram that shows the layers of development, ordered by development frequency. From layer 0 to 3 are global library, global infrastructure (globally shared services), product platform (shared services), and applications." source="media/enterprise-infrastructure-bicep-container-registry-layers.png" lightbox="media/enterprise-infrastructure-bicep-container-registry-layers.png":::
+:::image type="content" alt-text="Diagram that shows the layers of development, ordered by development frequency. From layer 0 to 3 are global library, global infrastructure (globally shared services), product platform (shared services), and applications." source="media/enterprise-infrastructure-bicep-container-registry-layers.png":::
 
 #### Layer 0 - Global Library
 
-:::image type="content" alt-text="Screen shot of the folder structure of layer 0, global infrastructure library, with the 'arm' folder selected." source="media/enterprise-infrastructure-bicep-container-registry-layer-0.png" lightbox="media/enterprise-infrastructure-bicep-container-registry-layer-0.png":::
+:::image type="content" alt-text="Screen shot of the folder structure of layer 0, global infrastructure library, with the 'arm' folder selected." source="media/enterprise-infrastructure-bicep-container-registry-layer-0.png":::
      
-The bottom layer is the “global library”, which is a repository of useful tidbits that aren't deployed into production. From an access control perspective, read access should be provided to anyone at the company who requests it. For changes, suggestions, etc. your Cloud CoE would approve pull requests and manage a backlog as if this were any other product.
+The bottom layer is the _global library_, which is a repository of useful tidbits that aren't deployed into production. From an access control perspective, read access should be provided to anyone at the company who requests it. For changes, suggestions, etc. your Cloud CoE would approve pull requests and manage a backlog as if this were any other product.
 
 This layer should not contain:
 - Templates deployed in production
@@ -45,7 +45,7 @@ An example of this would be a sample architecture for how your company would wri
 
 In addition, this layer could link to other known good sources of sample code (e.g., the Terraform Registry or [Azure Resource Modules](https://aka.ms/carml)). If the organization is going to start adopting code or a pattern from either of those sources, it would be recommended to pull into your own Layer 0 instead of pulling directly from the public sources. This would allow you to write your own tests, tweaks, and security configurations as well as reducing the risk of something being deleted.
 
-To be considered “good” sample code, your templates and modules should follow good development practices, including input validation for security as well as organizational requirements. To maintain this level of rigor, branch policies should be added to the main branch to require pull requests and code review before merging changes that would result in changes flowing to the main ACR. 
+To be considered good sample code, your templates and modules should follow good development practices, including input validation for security as well as organizational requirements. To maintain this level of rigor, branch policies should be added to the main branch to require pull requests and code review before merging changes that would result in changes flowing to the main ACR. 
 
     
 This layer will feed into Azure DevOps pipelines or GitHub Actions to automatically create versioned artifacts in the Azure Container Registry. Automation can be built around git commit messages to implement [Semantic Versioning](https://semver.org) of the artifacts. In order for this to work correctly, you will need to have a deterministic naming standard (such as \<service\>.bicep) to make the automation maintainable over time. As discussed above, with proper branch policies, we can also add integration tests as a prerequisite before code reviews. This can be instrumented through tools like Pester.
@@ -56,7 +56,7 @@ With this in place, ACR can then become the source of truth for all ready to use
 
 #### Layer 1 - Global Infrastructure (Globally Shared Services)
 
-:::image type="content" alt-text="Screen shot of the contents of the 'infrastructure' and 'policy' folders in layer 1, global infrastructure (globally shared services)." source="media/enterprise-infrastructure-bicep-container-registry-layer-1.png" lightbox="media/enterprise-infrastructure-bicep-container-registry-layer-1.png":::
+:::image type="content" alt-text="Screen shot of the contents of the 'infrastructure' and 'policy' folders in layer 1, global infrastructure (globally shared services)." source="media/enterprise-infrastructure-bicep-container-registry-layer-1.png":::
 
 This layer is as your repository for YOUR Azure landing zone constructs. While Microsoft supplies templates for the deployment of Azure landing zones, you will undoubtedly want to tweak certain components as well as supply a parameters file. This is analogous to the way we pulled public registry/module repositories into Layer 0 above.
 
@@ -76,7 +76,7 @@ These files should consume the modules in our container registry for standard co
     
 #### Layer 2 - Product Platform (Shared Services)
 
-:::image type="content" alt-text="Screen shot of the contents of the 'infrastructure' and 'platform-code' folders in layer 2, product platform (shared services)." source="media/enterprise-infrastructure-bicep-container-registry-layer-2.png" lightbox="media/enterprise-infrastructure-bicep-container-registry-layer-2.png":::
+:::image type="content" alt-text="Screen shot of the contents of the 'infrastructure' and 'platform-code' folders in layer 2, product platform (shared services)." source="media/enterprise-infrastructure-bicep-container-registry-layer-2.png":::
 
 The product platform layer can be seen as the shared services for a particular product line or business unit. These components are not universal across the organization, but are meant to fit a particular business need. This would be a fitting space for a virtual network that peers back to the hub in the global shared services layer. Another example would be a key vault with shared secrets to a storage account or database that is shared by the different applications within this platform.
 
@@ -89,7 +89,7 @@ Permissions will be restricted for the ability to push changes to this repositor
     
 ####  Layer 3 - Application
 
-:::image type="content" alt-text="Screen shot of the contents of the 'app' and 'infrastructure' folders in layer 3, applications." source="media/enterprise-infrastructure-bicep-container-registry-layer-3.png" lightbox="media/enterprise-infrastructure-bicep-container-registry-layer-3.png":::
+:::image type="content" alt-text="Screen shot of the contents of the 'app' and 'infrastructure' folders in layer 3, applications." source="media/enterprise-infrastructure-bicep-container-registry-layer-3.png":::
 
 The application layer is the components built on top of the product platform that deliver features requested by the business. As an example, if we made a streaming platform, the search feature could be its own app and the recommendation feature could be a separate application. 
 
