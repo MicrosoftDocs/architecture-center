@@ -404,17 +404,18 @@ For more information, see [Manage packages](/azure/synapse-analytics/spark/apach
 
 _This article is being updated and maintained by Microsoft. It was originally written by the following contributors._
 
-**Principal author:** 
- * [Mandar Inamdar](https://www.linkedin.com/in/mandarinamdar) | Principal Engineering Manager
+**Principal authors:** 
+ * [Kungumaraj Nachimuthu](https://www.linkedin.com/in/kungumarajnachimuthu) | Senior Software Engineer
+ * [Karthick Narendran](https://www.linkedin.com/in/karthick-r-narendran-1b540314) | Senior Software Engineer
 
 **Additional contributors:** 
  * [Mick Alberts](https://www.linkedin.com/in/mick-alberts-a24a1414) | Technical Writer
  * [Taylor Corbett](https://www.linkedin.com/in/gtcorbett) | Senior Data Scientist
  * [Tushar Dhadiwal](https://www.linkedin.com/in/tushar-dhadiwal) | Senior Software Engineer
+ * [Mandar Inamdar](https://www.linkedin.com/in/mandarinamdar) | Principal Engineering Manager
  * [Sushil Kumar](https://www.linkedin.com/in/sushil-kumar-01692310) | Senior Software Engineer
  * [Nikhil Manchanda](https://www.linkedin.com/in/nikman) | Principal Engineering Manager
- * [Kungumaraj Nachimuthu](https://www.linkedin.com/in/kungumarajnachimuthu) | Senior Software Engineer
- * [Karthick Narendran](https://www.linkedin.com/in/karthick-r-narendran-1b540314) | Senior Software Engineer
+ * [Safiyah Sadiq](https://www.linkedin.com/in/safiyah-s-2768632a) | Software Engineer II
  * [Xiaoyuan Yang](https://www.linkedin.com/in/xiaoyuan-yang-970bab8) | Principal Data Science Manager
 
 ## Next steps
