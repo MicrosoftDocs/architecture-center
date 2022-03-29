@@ -1,0 +1,23 @@
+### YamlMime:Architecture
+metadata:
+  title: Architectural approaches for storage and data in multitenant solutions
+  description: This article describes approaches to support multitenancy for the storage and data components of your solution.
+  author: EdPrice-MSFT
+  ms.author: edprice
+  ms.date: 03/18/2022
+  ms.topic: conceptual
+  ms.service: architecture-center
+  ms.subservice: azure-guide
+  ms.category: fcp
+azureCategories:
+  - storage
+  - databases
+products:
+  - azure
+  - azure-sql-database
+  - azure-storage
+name: Architectural approaches for storage and data in multitenant solutions
+summary: This article describes approaches to support multitenancy for the storage and data components of your solution.
+thumbnailUrl: /azure/architecture/browse/thumbs/shared-database.png
+content: |
+  [!include[](storage-data-content.md)]

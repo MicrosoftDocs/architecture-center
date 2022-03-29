@@ -62,7 +62,7 @@ You can isolate and distribute tenants across the IoT control, management, and c
 
 #### Data storage, query, usage, and retention
 
-IoT solutions tend to be very data-intensive, both when streaming and at rest. For more information on managing data in multitenant solutions, see [Architectural approaches for storage and data in multitenant solutions](storage-data.md).
+IoT solutions tend to be very data-intensive, both when streaming and at rest. For more information on managing data in multitenant solutions, see [Architectural approaches for storage and data in multitenant solutions](storage-data.yml).
 
 ## Approaches to consider
 
@@ -148,7 +148,7 @@ Communications to systems outside of IoT Central, such as for longer-term data a
 
 If you compare the *Simple SaaS* approach with the [*Single tenant automated*](#single-tenant-automated) aPaaS model, many characteristics are similar.  The primary difference between the two models is that in the  *Single tenant automated* model, you deploy a distinct IoT Central instance for each tenant, while in the *Simple SaaS with aPaaS* model, you instead deploy a shared instance for multiple customers, and you create an IoT Central organization for each tenant.
 
-As you're sharing a multitenanted data tier in this model, you'll need to implement row-level security, as described in [Architectural approaches for storage and data in multitenant solutions](storage-data.md), in order to isolate the customer data.
+As you're sharing a multitenanted data tier in this model, you'll need to implement row-level security, as described in [Architectural approaches for storage and data in multitenant solutions](storage-data.yml), in order to isolate the customer data.
 
 **Benefits**:
 

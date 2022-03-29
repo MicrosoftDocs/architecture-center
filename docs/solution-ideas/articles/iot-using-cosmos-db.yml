@@ -1,27 +1,24 @@
 ### YamlMime:Architecture
 metadata:
-  title: IoT using Cosmos DB
+  title: Azure Cosmos DB in IoT workloads
   titleSuffix: Azure Solution Ideas
-  description: Azure Cosmos DB scales instantly and elastically to accommodate diverse and unpredictable IoT workloads without sacrificing ingestion or query performance.
+  description: See how Azure Cosmos DB uses features like change feed and time-to-live (TTL) to support diverse IoT workloads without sacrificing performance.
   author: khilscher
   ms.author: khilsch
-  ms.date: 07/16/2021
+  ms.date: 03/25/2022
   ms.topic: conceptual
   ms.service: architecture-center
   ms.subservice: solution-idea
-  ms.category:
-    - iot
-    - databases
   ms.custom:
     - acom-architecture
     - iot
-    - Cosmos DB
+    - Azure Cosmos DB
     - "https://azure.microsoft.com/solutions/architecture/iot-using-cosmos-db/"
-name: IoT using Cosmos DB
+name: Azure Cosmos DB in IoT workloads
 azureCategories:
   - iot
   - databases
-summary: Azure Cosmos DB scales instantly and elastically to accommodate diverse and unpredictable IoT workloads without sacrificing ingestion or query performance.
+summary: See how Azure Cosmos DB uses features like change feed and time-to-live (TTL) to support diverse IoT workloads without sacrificing performance.
 products:
   - azure-cosmos-db
   - azure-databricks

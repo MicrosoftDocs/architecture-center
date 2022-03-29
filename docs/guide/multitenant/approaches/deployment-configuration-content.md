@@ -134,7 +134,7 @@ However, this approach is often much more time-consuming to build, and the effor
 
 ### Example
 
-Contoso runs a multitenant solution for their customers. Currently, they have six tenants, and they expect to grow to 300 tenants within the next 18 months. Contoso follows the [Multitenant app with dedicated databases for each tenant](storage-data.md#multitenant-app-with-dedicated-databases-for-each-tenant) approach. They have deployed a single set of App Service resources and an Azure SQL logical server that are shared between all of their tenants, and they deploy a dedicated Azure SQL database for each tenant, as shown in the following diagram.
+Contoso runs a multitenant solution for their customers. Currently, they have six tenants, and they expect to grow to 300 tenants within the next 18 months. Contoso follows the [Multitenant app with dedicated databases for each tenant](storage-data.yml#multitenant-app-with-dedicated-databases-for-each-tenant) approach. They have deployed a single set of App Service resources and an Azure SQL logical server that are shared between all of their tenants, and they deploy a dedicated Azure SQL database for each tenant, as shown in the following diagram.
 
 ![Architecture diagram showing shared resources and dedicated resources for each tenant.](media/deployment-configuration/example-architecture.png)
 
@@ -172,5 +172,5 @@ Ongoing database schema updates are initiated by their application tier.
 ## Next steps
 
 - Review the [considerations for updating a multitenant solution](../considerations/updates.md).
-- Consider [architectural approaches for storage and data](storage-data.md).
+- Consider [architectural approaches for storage and data](storage-data.yml).
 - Consider [how to use Azure Resource Manager in a multitenant solution](../service/resource-manager.md).

@@ -78,7 +78,7 @@ Use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculato
 
 [Logic Apps](https://azure.microsoft.com/pricing/details/logic-apps) provides various plans that are based on the scale of the solution. For this solution, you can start with the Consumption plan, which offers pay-as-you-go pricing. 
 
-[Form Recognizer](https://azure.microsoft.com/pricing/details/form-recognizer) provides pay-as-you-go and Commitment tier pricing options. Note that access is limited for Commitment tier pricing. [Apply here](https://aka.ms/commitment-tier-pricing) to request approval.
+[Form Recognizer](https://azure.microsoft.com/pricing/details/form-recognizer) provides pay-as-you-go and Commitment tier pricing options. Note that access is limited for Commitment tier pricing. [Apply here](/azure/cognitive-services/commitment-tier) to request approval.
 
 [Custom Vision](https://azure.microsoft.com/pricing/details/cognitive-services/custom-vision-service) supports Free and Standard instances. You need to use Standard for this solution.
 

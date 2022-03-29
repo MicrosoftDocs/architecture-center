@@ -163,7 +163,7 @@ Several [Cloud Design Patterns](/azure/architecture/patterns) from the Azure Arc
 
 ### Deployment Stamps pattern
 
-For more information about the Deployment Stamps pattern and multitenancy, see [the Deployment Stamps pattern section of Architectural approaches for multitenancy](overview.md#deployment-stamps-pattern). For more information about tenancy models, see [Tenancy models to consider for a multitenant solution](../considerations/tenancy-models.yml).
+For more information about the Deployment Stamps pattern and multitenancy, see [the Deployment Stamps pattern section of Architectural approaches for multitenancy](overview.yml#deployment-stamps-pattern). For more information about tenancy models, see [Tenancy models to consider for a multitenant solution](../considerations/tenancy-models.yml).
 
 ### Shared messaging system
 
