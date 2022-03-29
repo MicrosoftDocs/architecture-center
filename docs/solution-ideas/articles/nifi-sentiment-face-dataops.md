@@ -55,7 +55,7 @@ There are three main parts to this DataFlow:
 
 **Tweets Ingestion**: Transformation of the JSON file into a CSV; extracting attributes from the JSON to use in the CSV composition as variables.
 
-**Sentiment Analysis**: Apply an NLTK algorithm on the ingested messages; do sentiment analysis of the text in the tweets; then store CSV-converted results on a Hive table and store the JSON on CosmosDB.controls. 
+**Sentiment Analysis**: Apply an NLTK algorithm on the ingested messages; do sentiment analysis of the text in the tweets; then store CSV-converted results on a Hive table and store the JSON on Cosmos DB. 
 
 **Image Processing**: The sentiment analysis runs against tweets that have any pictures; these pictures are collected; human face detection is run; if a human face is recognized, it is stored in HDInsight.
 
@@ -72,7 +72,7 @@ There are three main parts to this DataFlow:
 
 • [Azure HDInsight](https://azure/services/hdinsight/) is a Hadoop Platform for data and analytics for on-premise environments,  to ingest, store and process data in real time and batch time. Is an open source framework for distributed storage and processing of large, multi-source data sets. HDP modernizes IT infrastructure and keeps data secure
 
-• [Azure CosmosDB](/azure/cosmos-db/introduction) is a fully managed NoSQL database for modern app development. Single-digit millisecond response times, and automatic and instant scalability, guarantee speed at any scale. Business continuity is assured with SLA-backed availability and enterprise-grade security.
+• [Azure Cosmos DB](/azure/cosmos-db/introduction) is a fully managed NoSQL database for modern app development. Single-digit millisecond response times, and automatic and instant scalability, guarantee speed at any scale. Business continuity is assured with SLA-backed availability and enterprise-grade security.
 
 • [Power BI](/power-bi/fundamentals/power-bi-overview) is a business analytics service by Microsoft. It aims to provide interactive visualizations and business intelligence capabilities with an interface simple enough for end users to create their own reports and dashboards. It is part of the Microsoft Power Platform.
 
@@ -83,7 +83,7 @@ ADF can be swapped out for Azure Databricks.  Often solutions using ADF also mak
 
 Instead of Nifi use Airflow where it can also be used as a workflow tool running ETL scripts.
 
-For CosmosDB use ElasticSearch as a main repository of the files.
+For Cosmos DB use ElasticSearch as a main repository of the files.
 
 Use Kibana as dashboard instead of Power BI.
 
