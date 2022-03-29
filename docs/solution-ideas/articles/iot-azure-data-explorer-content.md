@@ -18,21 +18,21 @@ This solution idea describes how Azure Data Explorer provides near real-time ana
 
 1. Azure Functions or Azure Stream Analytics process the data in near real time.
 
-1. Azure Cosmos DB stores streamed messages in JSON format to serve a real-time operational application. For an example app that initiates a device action, see [Azure Cosmos DB in IoT workloads](iot-using-cosmos-db.yml).
+1. Azure Cosmos DB stores streamed messages in JSON format to serve a real-time operational application.
 
-1. Azure Data Explorer ingests data for analytics, using its [Azure Event Hubs](/azure/data-explorer/ingest-data-event-hub), [Azure IoT Hub](/azure/data-explorer/ingest-data-iot-hub), or [Kafka](/azure/data-explorer/ingest-data-kafka) connectors for low latency and high throughput.
+1. Azure Data Explorer ingests data for analytics, using its connectors for [Azure Event Hubs](/azure/data-explorer/ingest-data-event-hub), [Azure IoT Hub](/azure/data-explorer/ingest-data-iot-hub), or [Kafka](/azure/data-explorer/ingest-data-kafka) for low latency and high throughput.
 
-   Alternatively, [Azure Event Grid](/azure/data-explorer/ingest-data-event-grid) can trigger the Azure Data Explorer ingestion pipeline through [Azure Blob Storage](https://azure.microsoft.com/services/storage/blobs) or [Azure Data Lake Storage](https://azure.microsoft.com/services/storage/data-lake-storage).
+   Alternatively, you can ingest blobs from your [Azure Blob Storage](https://azure.microsoft.com/services/storage/blobs) or [Azure Data Lake Storage](https://azure.microsoft.com/services/storage/data-lake-storage) account into Azure Data Explorer by using an [Event Grid data connection](/azure/data-explorer/ingest-data-event-grid).
    
    You can also continuously export data to Azure Storage in compressed, partitioned [Apache Parquet](https://parquet.apache.org) format, and seamlessly query the data with Azure Data Explorer. For details, see [Continuous data export overview](/azure/data-explorer/kusto/management/data-export/continuous-data-export).
 
 1. To serve both the operational and analytical use cases, data can either route to Azure Data Explorer and Azure Cosmos DB in parallel, or from Azure Cosmos DB to Azure Data Explorer.
 
-   - Azure Cosmos DB transactions can trigger Azure Functions via change feed. A function can stream data to Event Hubs for ingestion into Azure Data Explorer.
+   - Azure Cosmos DB transactions can trigger Azure Functions via change feed. Functions will stream data to Event Hubs for ingestion into Azure Data Explorer.
 
      or
 
-   - Azure Functions can invoke Azure Digital Twins. Azure Digital Twins APIs can stream data to Event Hubs for ingestion into Azure Data Explorer.
+   - Azure Functions can invoke Azure Digital Twins through its API, which then streams data to Event Hubs for ingestion into Azure Data Explorer.
 
 1. The following interfaces get insights from data stored in Azure Data Explorer:
 
@@ -76,6 +76,7 @@ The [Azure Data Explorer Web UI](/azure/data-explorer/web-query-data) connects t
 
 ## Related resources
 
+- [Azure Cosmos DB in IoT workloads](iot-using-cosmos-db.yml)
 - [Big data analytics with Azure Data Explorer](big-data-azure-data-explorer.yml)
 - [IoT and data analytics](../../example-scenario/data/big-data-with-iot.yml)
 - [Real-time analytics on big data architecture](real-time-analytics.yml)
