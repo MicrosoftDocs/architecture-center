@@ -587,24 +587,24 @@ intro
 |[Gridwich pipeline-generated admin scripts](../reference-architectures/media-services/run-admin-scripts.yml)|Learn about Gridwich pipeline-generated admin scripts and how to run them. The pipelines use Terraform to generate and publish the scripts. |Media
 |[Gridwich variable flow](../reference-architectures/media-services/variable-group-terraform-flow.yml)|Learn how Gridwich converts Azure Pipelines pipeline variable group variables to Terraform variables.|Media|
 |[Immutable infrastructure CI/CD using Jenkins and Terraform on Azure](../solution-ideas/articles/immutable-infrastructure-cicd-using-jenkins-and-terraform-on-azure-virtual-architecture-overview.yml)|When you develop apps, use a continuous integration and continuous deployment (CI/CD) pipeline to automatically push changes to Azure virtual machines.|DevOps|
-|[JMeter implementation for a load-testing pipeline](../example-scenario/banking/jmeter-load-testing-pipeline-implementation-reference.yml)|Get an overview of an implementation for a scalable cloud load-testing pipeline.|Migration|
-|[SAP workload automation using SUSE on Azure](../solution-ideas/articles/sap-workload-automation-suse.yml)|Use this solution to bolster productivity and facilitate innovation.|SAP|
+|[JMeter implementation for a load-testing pipeline](../example-scenario/banking/jmeter-load-testing-pipeline-implementation-reference.yml)|Get an overview of an implementation for a scalable cloud load-testing pipeline. The implementation uses JMeter and Terraform to provision and remove the required infrastructure.|Migration|
+|[SAP workload automation using SUSE on Azure](../solution-ideas/articles/sap-workload-automation-suse.yml)|Use this solution to bolster productivity and facilitate innovation. Terraform is used to deploy the SAP infrastructure into Azure.|SAP|
 |[Use Azure Firewall to help protect an AKS cluster](../example-scenario/aks-firewall/aks-firewall.yml)|Deploy an AKS cluster in a hub-and-spoke network topology by using Terraform and Azure DevOps. Help protect inbound and outbound traffic by using Azure Firewall.|Containers|
-|[Virtual network integrated serverless microservices](../example-scenario/integrated-multiservices/virtual-network-integration.yml)|Learn about an end-to-end solution for health records management that uses Azure Functions microservices integrated with other services via a virtual network.|Security|
+|[Virtual network integrated serverless microservices](../example-scenario/integrated-multiservices/virtual-network-integration.yml)|Learn about an end-to-end solution for health records management that uses Azure Functions microservices integrated with other services via a virtual network. Terrraform automates all code and infrastructure deployments.|Security|
 
 ### Umbraco
 
 |Architecture|Summary|Technology focus|
 |--|--|--|
-|[Digital marketing using Azure Database for MySQL](../solution-ideas/articles/digital-marketing-using-azure-database-for-mysql.yml)|Use Azure Database for MySQL to engage with customers around the world with personalized digital marketing experiences.|Databases|
+|[Digital marketing using Azure Database for MySQL](../solution-ideas/articles/digital-marketing-using-azure-database-for-mysql.yml)|Use Azure Database for MySQL to engage with customers around the world with personalized digital marketing experiences. Azure App Service supports Umbraco.|Databases|
 |[Scalable Umbraco CMS web app](../solution-ideas/articles/medium-umbraco-web-app.yml)|Run an Umbraco content management system on the Web Apps feature of App Service. Use Azure managed services for a high availability environment.|Web|
-|[Simple digital marketing website](../solution-ideas/articles/digital-marketing-smb.yml)|Use an Azure-based content management system to easily maintain messaging on your website in real time, from a browser, with no coding skills.|Web|
+|[Simple digital marketing website](../solution-ideas/articles/digital-marketing-smb.yml)|Use an Azure-based content management system to easily maintain messaging on your website in real time, from a browser, with no coding skills. Umbraco manages content and deploy it to the website.|Web|
 
 ### WordPress
 
 |Architecture|Summary|Technology focus|
 |--|--|--|
-|[Digital marketing using Azure Database for MySQL](../solution-ideas/articles/digital-marketing-using-azure-database-for-mysql.yml)|Use Azure Database for MySQL to engage with customers around the world with personalized digital marketing experiences.|Databases|
+|[Digital marketing using Azure Database for MySQL](../solution-ideas/articles/digital-marketing-using-azure-database-for-mysql.yml)|Use Azure Database for MySQL to engage with customers around the world with personalized digital marketing experiences. Azure App Service supports WordPress.|Databases|
 |[Scalable and secure WordPress on Azure](../example-scenario/infrastructure/wordpress.yml)|Learn how to use Azure Content Delivery Network and other Azure services to deploy a highly scalable and highly secure installation of WordPress.|Web|
 
 ## Scenarios featuring third-party technologies on Azure
@@ -639,15 +639,14 @@ intro
 
 |Architecture|Summary|Technology focus|
 |--|--|--|
-|[Banking system cloud transformation on Azure](../example-scenario/banking/banking-system-cloud-transformation.yml)|Use simulated and actual applications and existing workloads to monitor the reaction of a solution infrastructure for scalability and performance.|Migration|
-|[Partitioning in Event Hubs and Kafka](../reference-architectures/event-hubs/partitioning-in-event-hubs-and-kafka.yml)|Learn about partitioning in Kafka and Event Hubs for Kafka. Learn how many partitions to use in ingestion pipelines and how to assign events to partitions.|Analytics|
-|[Real-time processing](../data-guide/big-data/real-time-processing.yml)|Use real-time processing solutions to capture data streams and generate reports or automated responses with minimal latency.|Databases|
+|[Banking system cloud transformation on Azure](../example-scenario/banking/banking-system-cloud-transformation.yml)|Use simulated and actual applications and existing workloads to monitor the reaction of a solution infrastructure for scalability and performance. Kafka is used with Confluent Schema Registry for streaming.|Migration|
+|[Real-time processing](../data-guide/big-data/real-time-processing.yml)|Use real-time processing solutions to capture data streams and generate reports or automated responses with minimal latency. Kafka, which is available via ConfluentCloud, is recommened for real-time message ingestion.  |Databases|
 
 ### Couchbase
 
 |Architecture|Summary|Technology focus|
 |--|--|--|
-|[High availability in Azure public MEC](../example-scenario/hybrid/multi-access-edge-compute-ha.yml)|Learn how to deploy workloads in active-standby mode to achieve high availability and disaster recovery in Azure public multi-access edge compute.|Hybrid|
+|[High availability in Azure public MEC](../example-scenario/hybrid/multi-access-edge-compute-ha.yml)|Learn how to deploy workloads in active-standby mode to achieve high availability and disaster recovery in Azure public multi-access edge compute. Couchbase can provide IaaS services that support geo-replication.|Hybrid|
 
 ### Double-Take
 
@@ -666,8 +665,8 @@ intro
 
 |Architecture|Summary|Technology focus|
 |--|--|--|
-|[Build web and mobile applications](../solution-ideas/articles/webapps.yml)|Build web and mobile applications with an Azure microservices-based architecture. Use this solution, inspired by PayMe, for e-commerce platforms and more.|Web|
-|[Stream processing with fully managed open-source data engines](../example-scenario/data/open-source-data-engine-stream-processing.yml)|Stream events by using fully managed Azure data services. Use open-source technologies like Kafka, Kubernetes, Cassandra, PostgreSQL, and Redis components.|Analytics|
+|[Build web and mobile applications](../solution-ideas/articles/webapps.yml)|Build web and mobile applications with an Azure microservices-based architecture. Use this solution, inspired by PayMe, for e-commerce platforms and more. The Gremlin API is used to store graphical data in Azure Cosmos DB.|Web|
+|[Stream processing with fully managed open-source data engines](../example-scenario/data/open-source-data-engine-stream-processing.yml)|Stream events by using fully managed Azure data services. Use technologies like Kafka, Kubernetes, Gremlin, PostgreSQL, and Redis components.|Analytics|
 
 ### Initinite i
 
@@ -693,12 +692,12 @@ intro
 
 |Architecture|Summary|Technology focus|
 |--|--|--|
-|[Advanced AKS microservices architecture](../reference-architectures/containers/aks-microservices/aks-microservices-advanced.yml)|Learn about a scalable, highly secure AKS microservices architecture that builds on recommended AKS microservices baseline architectures and implementations.|Containers|
-|[Application data protection for AKS workloads on Azure NetApp Files](../example-scenario/file-storage/data-protection-kubernetes-astra-azure-netapp-files.yml)|Deploy Astra Control Service with Azure NetApp Files for data protection, disaster recovery, and mobility for AKS applications.|Containers|
-|[Core startup stack architecture](../example-scenario/startups/core-startup-stack.yml)|Review the components of a simple core startup stack architecture.|Startup|
-|[COVID-19 safe solutions with IoT Edge](../solution-ideas/articles/cctv-iot-edge-for-covid-19-safe-environment-and-mask-detection.yml)|Create a COVID-19 safe environment that monitors social distance, mask/PPE use, and occupancy requirements with CCTVs and IoT Edge, Stream Analytics, and Azure Machine Learning.|IoT|
-|[Data considerations for microservices](../microservices/design/data-considerations.yml)|Learn about managing data in a microservices architecture.|Microservices|
-|[High availability in Azure public MEC](../example-scenario/hybrid/multi-access-edge-compute-ha.yml)|Learn how to deploy workloads in active-standby mode to achieve high availability and disaster recovery in Azure public multiaccess edge compute.|Hybrid|
+|[Advanced AKS microservices architecture](../reference-architectures/containers/aks-microservices/aks-microservices-advanced.yml)|Learn about a scalable, highly secure AKS microservices architecture that builds on recommended AKS microservices baseline architectures and implementations. In this architecture, Azure Cosmos DB stores data by using the open-source Azure Cosmos DB API for MongoDB. |Containers|
+|[Application data protection for AKS workloads on Azure NetApp Files](../example-scenario/file-storage/data-protection-kubernetes-astra-azure-netapp-files.yml)|Deploy Astra Control Service with Azure NetApp Files for data protection, disaster recovery, and mobility for AKS applications. This solution applies to systems that run MongoDB database workloads.|Containers|
+|[Core startup stack architecture](../example-scenario/startups/core-startup-stack.yml)|Review the components of a simple core startup stack architecture. MongoDB is recommended for uses cases that require a NoSQL database.|Startup|
+|[COVID-19 safe solutions with IoT Edge](../solution-ideas/articles/cctv-iot-edge-for-covid-19-safe-environment-and-mask-detection.yml)|Create a COVID-19 safe environment that monitors social distance, mask/PPE use, and occupancy requirements with CCTVs and IoT Edge, Stream Analytics, and Azure Machine Learning. MongoDB is used to store cloud data for Power BI analytics and visualizations.|IoT|
+|[Data considerations for microservices](../microservices/design/data-considerations.yml)|Learn about managing data in a microservices architecture. The MongoDB API is used with Azure Cosmos DB in an example scenario.|Microservices|
+|[High availability in Azure public MEC](../example-scenario/hybrid/multi-access-edge-compute-ha.yml)|Learn how to deploy workloads in active-standby mode to achieve high availability and disaster recovery in Azure public multiaccess edge compute. MongoDB can provide IaaS services that support geo-replication.|Hybrid|
 |[Scalable web application](../reference-architectures/app-service-web-app/scalable-web-app.yml)|Use the proven practices in this reference architecture to improve scalability and performance in an App Service web application.|Web|
 |[Stream processing with fully managed open-source data engines](../example-scenario/data/open-source-data-engine-stream-processing.yml)|Stream events by using fully managed Azure data services. Use open-source technologies like Kafka, Kubernetes, Cassandra, PostgreSQL, and Redis components.|Analytics|
 |[Virtual network integrated serverless microservices](../example-scenario/integrated-multiservices/virtual-network-integration.yml)|Learn about an end-to-end solution for health records management that uses Azure Functions microservices integrated with other services via a virtual network.|Security|
