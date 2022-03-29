@@ -4,7 +4,7 @@ This solution idea describes how Azure Data Explorer provides near real-time ana
 
 ## Potential use cases
 
-- Fleet management, for predictive maintenance of vehicle parts.
+- Fleet management, for predictive maintenance of vehicle parts. This solution is ideal for the automotive and transportation industry.
 - Facilities management, for energy and environment optimization.
 - [Combining real-time road conditions with weather data for safer autonomous driving](https://customers.microsoft.com/story/816933-bosch-automotive-azure-germany).
 
