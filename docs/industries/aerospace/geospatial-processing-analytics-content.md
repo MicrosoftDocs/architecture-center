@@ -412,6 +412,9 @@ _This article is being updated and maintained by Microsoft. It was originally wr
  * [Kungumaraj Nachimuthu](https://www.linkedin.com/in/kungumarajnachimuthu) | Senior Software Engineer
  * [Nikhil Manchanda](https://www.linkedin.com/in/nikman) | Principal Engineering Manager
  * [Sushil Kumar](https://www.linkedin.com/in/sushil-kumar-01692310) | Senior Software Engineer
+ * [Taylor Corbett](https://www.linkedin.com/in/gtcorbett) | Senior Data Scientist
+ * [Tushar Dhadiwal](https://www.linkedin.com/in/tushar-dhadiwal) | Senior Software Engineer
+ * [Xiaoyuan Yang](https://www.linkedin.com/in/xiaoyuan-yang-970bab8) | Principal Data Science Manager
  * [Mick Alberts](https://www.linkedin.com/in/mick-alberts-a24a1414) | Technical Writer
 
 ## Next steps
