@@ -2,7 +2,7 @@
 title: What's New in Azure Architecture Center
 description: New and updated articles in Azure Architecture Center
 author: doodlemania2
-ms.date: 03/28/2022
+ms.date: 03/29/2022
 ms.topic: article
 ms.service: architecture-center
 ---
