@@ -129,7 +129,7 @@ The following diagram shows a legacy mainframe system before it's rehosted to th
 
 ## Considerations
 
-The following considerations, based on the [Azure Well-Architected Framework](../../framework/index.md), apply to this solution:
+The following considerations, based on the [Azure Well-Architected Framework](/azure/architecture/framework/), apply to this solution:
 
 ### Reliability
 
@@ -141,7 +141,7 @@ This solution uses an Azure network security group to manage traffic between Azu
 
 ### Cost optimization
 
-- Azure provides cost optimization by running on VMs. You can turn off the VMs when not in use, and script a schedule for known usage patterns. For more information about cost optimization for [VM instances](../../framework/cost/optimize-vm.md), see the [Azure Well-Architected Framework](../../framework/index.md).
+- Azure provides cost optimization by running on VMs. You can turn off the VMs when not in use, and script a schedule for known usage patterns. For more information about cost optimization for [VM instances](/azure/architecture/framework/cost/optimize-vm), see the [Azure Well-Architected Framework](/azure/architecture/framework/).
 
 - The VMs in this solution use either premium SSDs or ultra disk SSDs. For more information about disk options and pricing, see [Managed disks pricing](https://azure.microsoft.com/pricing/details/managed-disks).
 
