@@ -2,7 +2,7 @@
 title: What's New in Azure Architecture Center
 description: New and updated articles in Azure Architecture Center
 author: doodlemania2
-ms.date: 03/21/2022
+ms.date: 03/29/2022
 ms.topic: article
 ms.service: architecture-center
 ---
@@ -27,6 +27,8 @@ New and updated articles in Azure Architecture Center.
 
 ### New Articles
 
+- [Batch integration with Azure Data Factory for Azure Digital Twins](./example-scenario/iot/batch-integration-azure-data-factory-digital-twins.yml)
+- [Deploy microservices with Azure Container Apps](./example-scenario/serverless/microservices-with-container-apps.yml)
 - [Architectural approaches for IoT in a multitenant solution](./guide/multitenant/approaches/iot.md)
 - [Design great API developer experiences using API Management and GitHub](./example-scenario/web/design-api-developer-experiences-management-github.yml)
 - [Geospatial analysis for telecom](./example-scenario/data/geospatial-analysis-telecommunications-industry.yml)
@@ -50,6 +52,9 @@ New and updated articles in Azure Architecture Center.
 
 ### Updated Articles
 
+- [Deploy AD DS in an Azure virtual network](./reference-architectures/identity/adds-extend-domain.yml)  ([#50b747488](https://github.com/MicrosoftDocs/architecture-center/commit/50b747488))
+- [Anomaly detector process in near-real-time](./solution-ideas/articles/anomaly-detector-process.yml)  ([#85d2f9814](https://github.com/MicrosoftDocs/architecture-center/commit/85d2f9814))
+- [Azure Cosmos DB in IoT workloads](./solution-ideas/articles/iot-using-cosmos-db.yml)  ([#cfb2f5a3d](https://github.com/MicrosoftDocs/architecture-center/commit/cfb2f5a3d))
 - [Enterprise-grade conversational bot](./reference-architectures/ai/conversational-bot.yml)  ([#d29669374](https://github.com/MicrosoftDocs/architecture-center/commit/d29669374))
 - [Building blocks for autonomous-driving simulation environments](./industries/automotive/building-blocks-autonomous-driving-simulation-environments.yml)  ([#4a3b27ee3](https://github.com/MicrosoftDocs/architecture-center/commit/4a3b27ee3))
 - [Automated guided vehicles fleet control](./example-scenario/iot/automated-guided-vehicles-fleet-control.yml)  ([#cda2de5cf](https://github.com/MicrosoftDocs/architecture-center/commit/cda2de5cf))
