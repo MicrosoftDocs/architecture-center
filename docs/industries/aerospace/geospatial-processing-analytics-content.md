@@ -32,7 +32,7 @@ The following sections describe the stages in the architecture.
 
 #### Data ingestion
 
-Spaceborne data is pulled from data sources like [Airbus](https://oneatlas.airbus.com/home), [NAIP/USDA (via the Planetary Computer API)](https://planetarycomputer.microsoft.com/dataset/naip), [Maxar](https://www.maxar.com). Data is ingested into [Azure Data Lake Storage](/azure/storage/blobs/data-lake-storage-introduction). 
+Spaceborne data is pulled from data sources like [Airbus](https://oneatlas.airbus.com/home), [NAIP/USDA (via the Planetary Computer API)](https://planetarycomputer.microsoft.com/dataset/naip), and [Maxar](https://www.maxar.com). Data is ingested into [Azure Data Lake Storage](/azure/storage/blobs/data-lake-storage-introduction). 
 
 Azure Synapse Analytics provides various pipelines and activities, like Web activity, Data Flow activity, and Custom activities, to connect to these sources and copy the data into Data Lake Storage.
 
