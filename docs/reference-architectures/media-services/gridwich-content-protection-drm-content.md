@@ -163,7 +163,7 @@ Gridwich processes and ingests the FairPlay package from Apple as settings. Hand
 
 #### FairPlay certificate
 
-1. Follow the [Azure Media Services documentation](/azure/media-services/latest/fairplay-license-overview#requirements) to create a PFX certificate with a private key from the files that Apple delivers.
+1. Follow the [Azure Media Services documentation](/azure/media-services/latest/drm-fairplay-license-overview#requirements) to create a PFX certificate with a private key from the files that Apple delivers.
    1. Install OpenSSL.
    1. Convert the *FairPlay.cer* file to a *.pem* file.
    1. Convert the *.pem* file to a *.pfx* file with a password-protected private key.
@@ -206,4 +206,4 @@ Microsoft Learn modules:
 - [Gridwich request-response messages](gridwich-message-formats.yml)
 - [Gridwich variable flow](variable-group-terraform-flow.yml)
 
-For more information about Media Services content protection, see [Content protection overview](/azure/media-services/latest/content-protection-overview).
+For more information about Media Services content protection, see [Content protection overview](/azure/media-services/previous/media-services-content-protection-overview).

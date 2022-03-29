@@ -1,35 +1,10 @@
----
-title: Azure resource organization in multitenant solutions
-titleSuffix: Azure Architecture Center
-description: This article describes how to organize your Azure resources in a multitenant solution.
-author: johndowns
-ms.author: jodowns
-ms.date: 1/4/2022
-ms.topic: conceptual
-ms.service: architecture-center
-ms.subservice: azure-guide
-products:
-  - azure
-  - azure-active-directory
-categories:
-  - management-and-governance
-  - security
-ms.category:
-  - fcp
-ms.custom:
-  - guide
-  - fcp
----
-
-# Azure resource organization in multitenant solutions
-
 Azure provides many options for organizing your resources. In a multitenant solution, there are specific tradeoffs to consider, when you plan your resource organization strategy. In this article, we review two core elements of organizing your Azure resources: tenant isolation and scale-out across multiple resources. We also describe how to work with Azure's resource limits and quotas, and how to scale your solution beyond these limits.
 
 ## Key considerations and requirements
 
 ### Tenant isolation requirements
 
-When you deploy a multitenant solution in Azure, you need to decide whether you dedicate resources to each tenant or share resources between multiple tenants. Throughout the multitenancy approaches and [service-specific guidance](../service/overview.md) sections of this series, we describe the options and trade-offs for many categories of resources. In general, there are a range of options for *tenant isolation*. Review [Tenancy models to consider for a multitenant solution](../considerations/tenancy-models.md) for more guidance about how to decide on your isolation model.
+When you deploy a multitenant solution in Azure, you need to decide whether you dedicate resources to each tenant or share resources between multiple tenants. Throughout the multitenancy approaches and [service-specific guidance](../service/overview.md) sections of this series, we describe the options and trade-offs for many categories of resources. In general, there are a range of options for *tenant isolation*. Review [Tenancy models to consider for a multitenant solution](../considerations/tenancy-models.yml) for more guidance about how to decide on your isolation model.
 
 ### Scale
 
@@ -70,7 +45,7 @@ You can also deploy dedicated resources for each tenant. You might deploy an ent
 
 We recommend that you use resource groups to manage resources with the same lifecycle. In some multitenant systems, it makes sense to deploy resources for multiple tenants into a single resource group or a set of resource groups.
 
-It's important that you consider how you deploy and manage these resources, including [whether the deployment of tenant-specific resources is initiated by your deployment pipeline or your application](deployment-configuration.yml#resource-management-responsibility). You also need to determine how you'll [clearly identify that specific resources relate to specific tenants](cost-management-allocation.md). Consider using a clear [naming convention strategy](/azure/cloud-adoption-framework/ready/azure-best-practices/naming-and-tagging), [resource tags](cost-management-allocation.md#allocate-costs-by-using-resource-tags), or a tenant catalog database.
+It's important that you consider how you deploy and manage these resources, including [whether the deployment of tenant-specific resources is initiated by your deployment pipeline or your application](deployment-configuration.yml#resource-management-responsibility). You also need to determine how you'll [clearly identify that specific resources relate to specific tenants](cost-management-allocation.yml). Consider using a clear [naming convention strategy](/azure/cloud-adoption-framework/ready/azure-best-practices/naming-and-tagging), [resource tags](cost-management-allocation.yml#allocate-costs-by-using-resource-tags), or a tenant catalog database.
 
 It's a good practice to use separate resource groups for the resources you share between multiple tenants and the resources that you deploy for individual tenants. However, for some resources, [Azure limits the number of resources of a single type that can be deployed into a resource group](/azure/azure-resource-manager/management/resources-without-resource-group-limit). This limit means you might need to [scale across multiple resource groups](#resource-group-and-subscription-limits) as you grow.
 
@@ -80,7 +55,7 @@ Suppose Contoso has three customers: Adventure Works, Fabrikam, and Tailwind. Th
 
 #### Separate resource groups in a subscription
 
-When you deploy a set of resources for each tenant, consider using dedicated tenant-specific resource groups. For example, when you follow the [Deployment Stamps pattern](overview.md#deployment-stamps-pattern), each stamp should be deployed into its own resource group. You can consider deploying multiple tenant-specific resource groups into a shared Azure subscription, which enables you to easily configure policies and access control rules.
+When you deploy a set of resources for each tenant, consider using dedicated tenant-specific resource groups. For example, when you follow the [Deployment Stamps pattern](overview.yml#deployment-stamps-pattern), each stamp should be deployed into its own resource group. You can consider deploying multiple tenant-specific resource groups into a shared Azure subscription, which enables you to easily configure policies and access control rules.
 
 You might choose to create a set of resource groups for each tenant, and also shared resource groups for any shared resources.
 
@@ -132,7 +107,7 @@ An Azure AD tenant is configured for each of Contoso's tenants, which contains a
 Regardless of your resource isolation model, it's important to consider when and how your solution will scale out across multiple resources. You might need to scale your resources, as the load on your system increases, or as the number of tenants grows. Consider *bin packing* to deploy an optimal number of resources for your requirements.
 
 > [!TIP]
-> In many solutions, it's easier to scale your entire set of resources together, instead of scaling resources individually. Consider following the [Deployment Stamps pattern](overview.md#deployment-stamps-pattern).
+> In many solutions, it's easier to scale your entire set of resources together, instead of scaling resources individually. Consider following the [Deployment Stamps pattern](overview.yml#deployment-stamps-pattern).
 
 #### Resource limits
 
@@ -183,17 +158,17 @@ By planning your scale-out strategy, you can scale to extremely large numbers of
 
 ### Tags
 
-Resource tags enable you to add custom metadata to your Azure resources, which can be useful for management and tracking costs. For more details, see [Allocate costs by using resource tags](cost-management-allocation.md#allocate-costs-by-using-resource-tags).
+Resource tags enable you to add custom metadata to your Azure resources, which can be useful for management and tracking costs. For more details, see [Allocate costs by using resource tags](cost-management-allocation.yml#allocate-costs-by-using-resource-tags).
 
 ## Antipatterns to avoid
 
 - **Not planning for scale.** Ensure you have a clear understanding of the limits of the resources you'll deploy, and which limits might become important, as your load or number of tenants increase. Plan how you'll deploy additional resources as you scale, and test the plan.
 - **Not planning to bin pack.** Even if you don't need to grow immediately, plan to scale your Azure resources across multiple resources, resource groups, and subscriptions over time. Avoid making assumptions in your application code, like there being a single resource when you might need to scale to multiple resources in the future.
-- **Scaling many individual resources.** If you have a complex resource topology, it can become difficult to scale individual components, one by one. It's often simpler to scale your solution as a unit, by following the [Deployment Stamps pattern](overview.md#deployment-stamps-pattern).
+- **Scaling many individual resources.** If you have a complex resource topology, it can become difficult to scale individual components, one by one. It's often simpler to scale your solution as a unit, by following the [Deployment Stamps pattern](overview.yml#deployment-stamps-pattern).
 - **Deploying isolated resources for each tenant, when not required.** In many solutions, it's more cost effective and efficient to deploy shared resources for multiple tenants.
 - **Using separate Azure AD tenants.** In general, it's inadvisable to provision multiple Azure AD tenants. Managing resources across Azure AD tenants is complex. It's simpler to scale across subscriptions linked to a single Azure AD tenant.
 - **Overarchitecting when you don't need to scale.** In some solutions, you know with certainty that you'll never grow beyond a certain level of scale. In these scenarios, there's no need to build complex scaling logic. However, if your organization plans to grow, then you will need to be prepared to scale&mdash;potentially at short notice.
 
 ## Next steps
 
-Review [Cost management and allocation](cost-management-allocation.md) approaches.
+Review [Cost management and allocation](cost-management-allocation.yml) approaches.

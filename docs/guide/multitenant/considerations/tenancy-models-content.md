@@ -1,27 +1,3 @@
----
-title: Tenancy models to consider for a multitenant solution
-titleSuffix: Azure Architecture Center
-description: This article describes the considerations you need to give to different models of multitenancy.
-author: johndowns
-ms.author: jodowns
-ms.date: 11/24/2021
-ms.topic: conceptual
-ms.service: architecture-center
-ms.subservice: azure-guide
-products:
-  - azure
-categories:
-  - management-and-governance
-  - security
-ms.category:
-  - fcp
-ms.custom:
-  - guide
-  - fcp
----
-
-# Tenancy models to consider for a multitenant solution
-
 There are many different ways that you can design a solution to be multitenanted. Mostly this decision hinges on whether and how you share resources between your tenants. Intuitively, you might want to avoid sharing *any* resources, but this quickly becomes expensive, as your business scales and as you onboard more and more tenants.
 
 It's helpful to think about the different models of multitenancy, by first understanding how you define tenants for your specific organization, what business drivers you have, and how you plan to scale your solution. On this page, we provide guidance for technical decision-makers about the tenancy models you can consider and their tradeoffs.
