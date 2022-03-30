@@ -1,4 +1,4 @@
-UniKix is a mainframe-rehosting software suite that NTT DATA offers. Through a collaboration with Microsoft, this suite provides a way to run migrated legacy assets on Azure. Example assets include IBM CICS transactions, IBM IMS applications, batch workloads, and JCL workloads.
+UniKix is a mainframe-rehosting software suite from NTT DATA. This suite provides a way to run migrated legacy assets on Azure. Example assets include IBM CICS transactions, IBM IMS applications, batch workloads, and JCL workloads.
 
 The NTT DATA software offers many useful features:
 
@@ -19,7 +19,7 @@ By using UniKix to rehost mainframe applications, you can take advantage of thes
 - Capitalize on Azure solutions for scalability, high availability, and disaster recovery.
 - Implement a modern DevOps workflow with NTT DATA tools and select Azure tools.
 
-This solution outlines an approach for rehosting mainframe applications on Azure. Besides UniKix, the architecture's core components include Azure ExpressRoute, Azure Site Recovery, and Azure storage and database services.
+This article outlines a solution for rehosting mainframe applications on Azure. Besides UniKix, the solution's core components include Azure ExpressRoute, Azure Site Recovery, and Azure storage and database services.
 
 ## Potential use cases
 
@@ -35,7 +35,7 @@ Industries that use mainframes can benefit from UniKix rehosting solutions. Sect
 
 The following diagram shows a legacy mainframe system before it's rehosted to the cloud:
 
-:::image type="content" source="media/rehost-mainframe-ntt-data-unikix-original-architecture.png" alt-text="Architecture diagram that shows a mainframe system. Components include middleware, monitoring systems, applications, and data." border="false":::
+:::image type="content" source="media/rehost-mainframe-ntt-data-unikix-original-architecture.png" alt-text="Architecture diagram that shows a mainframe system. Components include middleware, monitoring systems, applications, and data." lightbox="media/rehost-mainframe-ntt-data-unikix-original-architecture.png" border="false":::
 
 ### Workflow
 
@@ -44,13 +44,13 @@ The following diagram shows a legacy mainframe system before it's rehosted to th
   - Admin users interact through a TN3270 terminal emulator.
   - Web interface users interact via a web browser over TLS 1.3 port 443.
 
-- Mainframes use communication protocols such as LU 6.2, TN3270, FTP, Sockets, and Fortran to receive input (**B**).
+- Mainframes use communication protocols such as LU 6.2, TN3270, FTP, Sockets, and UTS to receive input (**B**).
 
 - Batch and online applications process the input (**C**).
 
-- Mainframe applications are in COBOL, PL/I, Assembler, and 4GL. These languages and compatible ones run in an enabled environment (**D**).
+- Mainframe applications are in COBOL, PL/I, Assembler, 4GL, and Fortran. These languages and compatible ones run in an enabled environment (**D**).
 
-- Mainframes use relational and hierarchical database systems, including network database systems (**E**).
+- Mainframes use hierarchical, network, and relational databases (**E**).
 
 - Services perform tasks for the applications. Services that typically run include program execution, I/O operations, error detection, and protection. (**F**).
 
@@ -89,17 +89,17 @@ The following diagram shows a legacy mainframe system before it's rehosted to th
 
    - NTT DATA COBOL. This technology produces optimized, portable object code that you can deploy in Azure. NTT DATA COBOL supports ANSI-85 standard and legacy COBOL dialects.
 
-   - NTT DATA VDSO. This mechanism provides a way to store VSAM key-sequenced data set (KSDS) data in a SQL database rather than local disk files. NTT DATA VDSO supports many database technologies such as SQL Server, DB2, Oracle, and MySQL.
+   - NTT DATA VDSO. This mechanism provides a way to store VSAM key-sequenced dataset (KSDS) data in a SQL database rather than local disk files. NTT DATA VDSO supports many database technologies such as SQL Server, DB2, Oracle, and MySQL.
 
 1. Azure managed disks provide storage for shared files.
 
 1. UniKix Secure uses Azure Active Directory (Azure AD) to provide authentication. This security manager replaces security systems like Resource Access Control Facility (RACF), Access Control Facility 2 (ACF2), and Top Secret.
 
-1. The solution stores database tables and optionally, VSAM files, in Azure SQL Database. This data is replicated to another Azure region for disaster recovery purposes.
+1. The solution stores database tables and, optionally, VSAM files, in Azure SQL Database. This data is replicated to another Azure region for disaster recovery purposes.
 
-1. Site Recovery replicates the production application Azure VMs. Site Recovery also provides a way to test disaster recovery plans that doesn't impact production.
+1. Site Recovery replicates the Azure production application VMs. This replication helps ensure business continuity by keeping business apps and workloads running during outages.
 
-1. The second Azure region mirrors the configuration of the primary Azure region for disaster recovery purposes.
+1. The second Azure region mirrors the configuration of the primary Azure region for disaster recovery.
   
 ### Components
 
@@ -111,7 +111,7 @@ The following diagram shows a legacy mainframe system before it's rehosted to th
 
 - [Azure Storage](https://azure.microsoft.com/product-categories/storage) offers scalable, secure cloud storage for all your data, applications, and workloads:
 
-  - [Azure Disk Storage](https://azure.microsoft.com/services/storage/disks) is high-performance, durable block storage for business-critical applications. Azure managed disks are block-level storage volumes that are managed by Azure on Azure VMs. The available types of disks are ultra disks, premium SSDs, standard SSDs, and standard hard disk drives (HDDs). This solution uses either premium SSDs or ultra disk SSDs.
+  - [Azure Disk Storage](https://azure.microsoft.com/services/storage/disks) is high-performance, durable block storage for business-critical applications. Azure managed disks are block-level storage volumes that are managed by Azure on Azure VMs. The available types of disks are Ultra Disk Storage, Premium SSD, Standard SSD, and Standard HDD. This solution uses either Premium SSD or Ultra Disk Storage.
   - [Azure Files](https://azure.microsoft.com/services/storage/files) offers fully managed file shares in the cloud that are accessible via the industry standard Server Message Block (SMB) protocol. Cloud and on-premises Windows, Linux, and macOS deployments can mount Azure Files file shares concurrently.
   - [Azure Blob Storage](https://azure.microsoft.com/services/storage/blobs) provides scalable and secure object storage. It can manage large amounts of unstructured data, such as archives and data lakes. Blob Storage is a good fit for high-performance computing, machine learning, and cloud-native workloads.
 
@@ -119,7 +119,7 @@ The following diagram shows a legacy mainframe system before it's rehosted to th
 
 - [SQL Database](https://azure.microsoft.com/products/azure-sql/database) is a fully managed platform as a service (PaaS) database engine. SQL Database runs on the latest stable version of SQL Server and a patched operating system. Automated functionality includes upgrading, patching, backups, and monitoring. Because SQL Database offers built-in PaaS capabilities, you can focus on domain-specific, business-critical database administration and optimization.
 
-- [Site Recovery](https://azure.microsoft.com/services/site-recovery) mirrors Azure VMs to a secondary Azure region for quick failover and disaster recovery during datacenter failures.
+- [Site Recovery](https://azure.microsoft.com/services/site-recovery) mirrors Azure VMs to a secondary Azure region. If the primary datacenter fails, the secondary region provides quick failover and disaster recovery.
 
 ### Alternatives
 
@@ -133,7 +133,7 @@ The following considerations, based on the [Azure Well-Architected Framework](/a
 
 ### Reliability
 
-The solution uses Site Recovery to mirror Azure VMs to a secondary Azure region for quick failover and disaster recovery during datacenter failures.
+The solution uses Site Recovery to mirror Azure VMs to a secondary Azure region. If the primary datacenter fails, the secondary region provides quick failover and disaster recovery.
 
 ### Security
 
@@ -143,7 +143,7 @@ This solution uses an Azure network security group to manage traffic between Azu
 
 - Azure provides cost optimization by running on VMs. You can turn off the VMs when not in use, and script a schedule for known usage patterns. For more information about cost optimization for [VM instances](/azure/architecture/framework/cost/optimize-vm), see the [Azure Well-Architected Framework](/azure/architecture/framework/).
 
-- The VMs in this solution use either premium SSDs or ultra disk SSDs. For more information about disk options and pricing, see [Managed disks pricing](https://azure.microsoft.com/pricing/details/managed-disks).
+- For managed disks, the VMs in this solution use either Premium SSD or Ultra Disk Storage. For more information about disk options and pricing, see [Managed disks pricing](https://azure.microsoft.com/pricing/details/managed-disks).
 
 - To estimate the cost of implementing this solution, use the [Pricing calculator](https://azure.microsoft.com/pricing/calculator).
 
@@ -155,7 +155,7 @@ This solution uses an Azure network security group to manage traffic between Azu
 
 - [Richard Berry](https://www.linkedin.com/in/richardberryjr) | Senior Program Manager
 
-**Additional contributors:**
+**Other contributors:**
 
 - [Bhaskar Bandam](https://www.linkedin.com/in/bhaskar-bandam-75202a9) | Senior Program Manager
 - [Jonathon Frost](https://www.linkedin.com/in/jjfrost) | Principal Program Manager
