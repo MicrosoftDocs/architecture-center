@@ -4,58 +4,13 @@ This architecture builds on the [AKS Baseline architecture](../aks/secure-baseli
 
 ![GitHub logo](../../../_images/github.png) A reference implementation of this architecture is available on [GitHub](https://github.com/mspnp/aks-fabrikam-dronedelivery).
 
+## Architecture
+
 ![Network diagram showing the hub-spoke network with two peered virtual networks and the Azure resources this implementation uses.](images/aks-production-deployment.png)
 
-If you would prefer to start with a more basic microservices example on AKS, see [Microservices architecture on AKS](./aks-microservices.yml)
+If you would prefer to start with a more basic microservices example on AKS, see [Microservices architecture on AKS](./aks-microservices.yml).
 
-## Components
-
-This architecture uses the following Azure components:
-
-**[Azure Kubernetes Service](https://azure.microsoft.com/services/kubernetes-service/)** is an Azure offering that provides a managed Kubernetes cluster. When using AKS, the Kubernetes API server is managed by Azure. The Kubernetes nodes or node pools are accessible and can be managed by the cluster operator.
-
-The AKS infrastructure features used in this architecture include:
-
-  - [System and user node pool separation](/azure/aks/use-system-pools#system-and-user-node-pools)
-  - [AKS-managed Azure AD for role-based access control (RBAC)](/azure/aks/managed-aad)
-  - [Azure AD pod-managed identities](/azure/aks/use-azure-ad-pod-identity)
-  - [Azure Policy Add-on for AKS](/azure/aks/use-pod-security-on-azure-policy)
-  - [Azure Container Networking Interface (CNI)](/azure/aks/configure-azure-cni)
-  - [Azure Monitor container insights](/azure/azure-monitor/insights/container-insights-overview)
-
-**[Azure Virtual Networks](https://azure.microsoft.com/services/virtual-network/)** are isolated and highly secure environments for running virtual machines (VMs) and applications. This reference architecture uses a peered hub-spoke virtual network topology. The hub virtual network holds the Azure firewall and Azure Bastion subnets. The spoke virtual network holds the AKS system and user node pool subnets and the Azure Application Gateway subnet.
-
-**[Azure Private Link](https://azure.microsoft.com/services/private-link/)** allocates specific private IP addresses to access Azure Container Registry and Key Vault from [Private Endpoints](/azure/private-link/private-endpoint-overview) within the AKS system and user node pool subnet.
-
-**[Azure Application Gateway](https://azure.microsoft.com/services/application-gateway/)** with web application firewall (WAF) exposes HTTP(S) routes to the AKS cluster and load balances web traffic to the web application. This architecture uses [Azure Application Gateway Ingress Controller](https://github.com/Azure/application-gateway-kubernetes-ingress) (AGIC) as the Kubernetes ingress controller.
-
-**[Azure Bastion](https://azure.microsoft.com/services/azure-bastion)** provides secure remote desktop protocol (RDP) and secure shell (SSH) access to VMs in the virtual networks by using a secure socket layer (SSL), without the need to expose the VMs through public IP addresses.
-
-**[Azure Firewall](https://azure.microsoft.com/services/azure-firewall/)** is a network security service that protects all the Azure Virtual Network resources. The firewall allows only approved services and fully qualified domain names (FQDNs) as egress traffic.
-
-**External storage and other components:**
-
-**[Azure Key Vault](https://azure.microsoft.com/services/key-vault/)** stores and manages security keys for AKS services.
-
-**[Azure Container Registry](https://azure.microsoft.com/services/container-registry/)** stores private container images that can be run in the AKS cluster. AKS authenticates with Container Registry using its Azure AD managed identity. You can also use other container registries like Docker Hub.
-
-**[Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/)** stores data using the open-source [Azure Cosmos DB API for MongoDB](/azure/cosmos-db/mongodb-introduction). Microservices are typically stateless and write their state to external data stores. Azure Cosmos DB is a NoSQL database with open-source APIs for MongoDB and Cassandra.
-
-**[Azure Service Bus](https://azure.microsoft.com/services/service-bus/)** offers reliable cloud messaging as a service and simple hybrid integration. Service Bus supports asynchronous messaging patterns that are common with microservices applications.
-
-**[Azure Cache for Redis](https://azure.microsoft.com/services/cache/)** adds a caching layer to the application architecture to improve speed and performance for heavy traffic loads.
-
-**[Azure Monitor](https://azure.microsoft.com/services/monitor/)** collects and stores metrics and logs, including application telemetry and Azure platform and service metrics. You can use this data to monitor the application, set up alerts and dashboards, and perform root cause analysis of failures.
-
-**Other operations support system (OSS) components:**
-
-**[Helm](https://helm.sh/)**, a package manager for Kubernetes that bundles Kubernetes objects into a single unit that you can publish, deploy, version, and update.
-
-**[Azure Key Vault Secret Store CSI provider](https://github.com/Azure/secrets-store-csi-driver-provider-azure)**, gets secrets stored in Azure Key Vault and uses the [Secret Store CSI driver](https://github.com/kubernetes-sigs/secrets-store-csi-driver) interface to mount them into Kubernetes pods.
-
-**[Flux](https://fluxcd.io)**, an open and extensible continuous delivery solution for Kubernetes, powered by the GitOps Toolkit.
-
-## Request flow
+### Workflow
 
 The example [Fabrikam Drone Delivery Shipping App](https://github.com/mspnp/aks-fabrikam-dronedelivery) shown in the preceding diagram implements the architectural components and practices discussed in this article. In this example, Fabrikam, Inc., a fictitious company, manages a fleet of drone aircraft. Businesses register with the service, and users can request a drone to pick up goods for delivery. When a customer schedules a pickup, the backend system assigns a drone and notifies the user with an estimated delivery time. While the delivery is in progress, the customer can track the drone's location with a continuously updated ETA.
 
@@ -75,6 +30,53 @@ This request flow implements the [Publisher-Subscriber](../../../patterns/publis
 1. An HTTPS GET request is used to return delivery status. This request passes through the Application Gateway into the Delivery microservice.
 
 1. The delivery microservice reads data from Azure Cache for Redis.
+
+### Components
+
+This architecture uses the following Azure components:
+
+**[Azure Kubernetes Service](https://azure.microsoft.com/services/kubernetes-service)** is an Azure offering that provides a managed Kubernetes cluster. When using AKS, the Kubernetes API server is managed by Azure. The Kubernetes nodes or node pools are accessible and can be managed by the cluster operator.
+
+The AKS infrastructure features used in this architecture include:
+
+  - [System and user node pool separation](/azure/aks/use-system-pools#system-and-user-node-pools)
+  - [AKS-managed Azure AD for role-based access control (RBAC)](/azure/aks/managed-aad)
+  - [Azure AD pod-managed identities](/azure/aks/use-azure-ad-pod-identity)
+  - [Azure Policy Add-on for AKS](/azure/aks/use-pod-security-on-azure-policy)
+  - [Azure Container Networking Interface (CNI)](/azure/aks/configure-azure-cni)
+  - [Azure Monitor container insights](/azure/azure-monitor/insights/container-insights-overview)
+
+**[Azure Virtual Networks](https://azure.microsoft.com/services/virtual-network)** are isolated and highly secure environments for running virtual machines (VMs) and applications. This reference architecture uses a peered hub-spoke virtual network topology. The hub virtual network holds the Azure firewall and Azure Bastion subnets. The spoke virtual network holds the AKS system and user node pool subnets and the Azure Application Gateway subnet.
+
+**[Azure Private Link](https://azure.microsoft.com/services/private-link)** allocates specific private IP addresses to access Azure Container Registry and Key Vault from [Private Endpoints](/azure/private-link/private-endpoint-overview) within the AKS system and user node pool subnet.
+
+**[Azure Application Gateway](https://azure.microsoft.com/services/application-gateway)** with web application firewall (WAF) exposes HTTP(S) routes to the AKS cluster and load balances web traffic to the web application. This architecture uses [Azure Application Gateway Ingress Controller](https://github.com/Azure/application-gateway-kubernetes-ingress) (AGIC) as the Kubernetes ingress controller.
+
+**[Azure Bastion](https://azure.microsoft.com/services/azure-bastion)** provides secure remote desktop protocol (RDP) and secure shell (SSH) access to VMs in the virtual networks by using a secure socket layer (SSL), without the need to expose the VMs through public IP addresses.
+
+**[Azure Firewall](https://azure.microsoft.com/services/azure-firewall)** is a network security service that protects all the Azure Virtual Network resources. The firewall allows only approved services and fully qualified domain names (FQDNs) as egress traffic.
+
+**External storage and other components:**
+
+**[Azure Key Vault](https://azure.microsoft.com/services/key-vault)** stores and manages security keys for AKS services.
+
+**[Azure Container Registry](https://azure.microsoft.com/services/container-registry)** stores private container images that can be run in the AKS cluster. AKS authenticates with Container Registry using its Azure AD managed identity. You can also use other container registries like Docker Hub.
+
+**[Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db)** stores data using the open-source [Azure Cosmos DB API for MongoDB](/azure/cosmos-db/mongodb-introduction). Microservices are typically stateless and write their state to external data stores. Azure Cosmos DB is a NoSQL database with open-source APIs for MongoDB and Cassandra.
+
+**[Azure Service Bus](https://azure.microsoft.com/services/service-bus/)** offers reliable cloud messaging as a service and simple hybrid integration. Service Bus supports asynchronous messaging patterns that are common with microservices applications.
+
+**[Azure Cache for Redis](https://azure.microsoft.com/services/cache)** adds a caching layer to the application architecture to improve speed and performance for heavy traffic loads.
+
+**[Azure Monitor](https://azure.microsoft.com/services/monitor)** collects and stores metrics and logs, including application telemetry and Azure platform and service metrics. You can use this data to monitor the application, set up alerts and dashboards, and perform root cause analysis of failures.
+
+**Other operations support system (OSS) components:**
+
+**[Helm](https://helm.sh/)**, a package manager for Kubernetes that bundles Kubernetes objects into a single unit that you can publish, deploy, version, and update.
+
+**[Azure Key Vault Secret Store CSI provider](https://github.com/Azure/secrets-store-csi-driver-provider-azure)**, gets secrets stored in Azure Key Vault and uses the [Secret Store CSI driver](https://github.com/kubernetes-sigs/secrets-store-csi-driver) interface to mount them into Kubernetes pods.
+
+**[Flux](https://fluxcd.io)**, an open and extensible continuous delivery solution for Kubernetes, powered by the GitOps Toolkit.
 
 ## Recommendations
 
@@ -268,7 +270,9 @@ The following diagram shows an example of the application dependency map that Ap
 
 For more information on options for instrumenting common languages for application insights integration, see [Application monitoring for Kubernetes](/azure/azure-monitor/app/kubernetes-codeless).
 
-## Scalability considerations
+## Considerations
+
+### Scalability
 
 Consider the following points when planning for scalability.
 
@@ -283,7 +287,7 @@ Consider the following points when planning for scalability.
 
 - Multi-tenant or other advanced workloads might have node pool isolation requirements that demand more and likely smaller subnets. For more information about creating node pools with unique subnets, currently in public preview, see [Add a node pool with a unique subnet (preview)](/azure/aks/use-multiple-node-pools#add-a-node-pool-with-a-unique-subnet-preview). Organizations have different standards for their hub-spoke implementations. Be sure to follow your organizational guidelines.
 
-## Manageability considerations
+### Manageability
 
 Consider the following points when planning for manageability.
 
@@ -293,7 +297,7 @@ Consider the following points when planning for manageability.
 
 - Consider your workflow as a mechanism to deploy to another region if there is a regional failure. Build the pipeline so that you can deploy a new cluster in a new region with parameter and input alterations.
 
-## Security considerations
+### Security
 
 Consider the following points when planning for security.
 
@@ -317,7 +321,7 @@ Consider the following points when planning for security.
 
 - To estimate the cost of the required resources, see the [Container Services calculator](https://azure.microsoft.com/pricing/calculator/?service=kubernetes-service).
 
-## Next steps
+## Related resources
 
 - [Baseline architecture for an Azure Kubernetes Service (AKS) cluster](../aks/secure-baseline-aks.yml)
 - [Design, build, and operate microservices on Azure with Kubernetes](../../../microservices/index.yml)

@@ -605,7 +605,7 @@ namespace DroneStatusFunctionApp
 }
 ```
 
-For more information about authentication and authorization in this application, see the [Security considerations](../reference-architectures/serverless/web-app.yml#security-considerations) section of the reference architecture.
+For more information about authentication and authorization in this application, see the [Security considerations](../reference-architectures/serverless/web-app.yml#security) section of the reference architecture.
 
 ## Next steps
 
@@ -618,4 +618,4 @@ Azure Functions is just one Azure compute option. For help with choosing a compu
 ## Related resources
 
 - For in-depth discussion on developing serverless solutions on premises as well as in the cloud, read [Serverless apps: Architecture, patterns, and Azure implementation](/dotnet/standard/serverless-architecture).
-- Read more about the [Event-driven architecture style](../guide/architecture-styles/event-driven.md).
+- Read more about the [Event-driven architecture style](../guide/architecture-styles/event-driven.yml).

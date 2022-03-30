@@ -1,26 +1,3 @@
----
-title: Map requests to tenants in a multitenant solution
-titleSuffix: Azure Architecture Center
-description: This article describes the considerations for mapping requests to tenants in a multitenant solution.
-author: PlagueHO
-ms.author: dascottr
-ms.date: 12/13/2021
-ms.topic: conceptual
-ms.service: architecture-center
-ms.subservice: azure-guide
-products:
-  - azure
-categories:
-  - management-and-governance
-  - web
-ms.category:
-  - fcp
-ms.custom:
-  - guide
----
-
-# Map requests to tenants in a multitenant solution
-
 Whenever a request arrives into your application, you need to determine the tenant that the request is intended for. When you have tenant-specific infrastructure that may even be hosted in different geographic regions, you need to match the incoming request to a tenant. Then, you must forward the request to the physical infrastructure that hosts that tenant's resources, as illustrated below:
 
 ![Diagram showing mapping a request from a logical tenant to physical tenant infrastructure.](media/map-requests/map-logical-physical.png)
@@ -36,7 +13,7 @@ There are multiple ways you can identify the tenant for an incoming request.
 
 ### Domain names
 
-If you use [tenant-specific domain or subdomain names](./domain-names.md), it's likely that requests can be easily mapped to tenants by using the `Host` header, or another HTTP header that includes the original hostname for each request.
+If you use [tenant-specific domain or subdomain names](./domain-names.yml), it's likely that requests can be easily mapped to tenants by using the `Host` header, or another HTTP header that includes the original hostname for each request.
 
 However, consider the following questions:
 
@@ -150,4 +127,4 @@ Tenants often need to be moved to new infrastructure as part of the [tenant life
 
 ## Next steps
 
-Learn about [considerations when you work with domain names in a multitenant application](domain-names.md).
+Learn about [considerations when you work with domain names in a multitenant application](domain-names.yml).

@@ -1,6 +1,6 @@
 ### YamlMime:Architecture
 metadata:
-  title: SWIFT Alliance Connect Virtual in Azure
+  title: SWIFT's Alliance Connect Virtual in Azure
   description: This article is a landing page for all SWIFT Alliance Connect Virtual components that can be deployed on Azure.
   author: Mahesh-MSFT
   ms.author: maksh
@@ -13,7 +13,7 @@ metadata:
   ms.custom:
     - fcp
     - example-scenario
-name: SWIFT Alliance Connect Virtual in Azure
+name: SWIFT's Alliance Connect Virtual in Azure
 azureCategories:
   - integration
   - migration

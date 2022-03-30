@@ -374,7 +374,7 @@ Aided with this understanding of different data storage models, the next step is
 [databricks]: https://azure.microsoft.com/free/databricks/
 [analysissvc]: /azure/analysis-services/analysis-services-overview
 [datalakegen2]: /azure/storage/blobs/data-lake-storage-introduction
-[prq]: https://parquet.apache.org/documentation/latest/
+[prq]: https://parquet.apache.org/docs/
 [orc]: https://orc.apache.org/docs/
 [synapseexternal]: /azure/synapse-analytics/sql/develop-tables-external-tables?tabs=sql-pool
 [cassandra]: /azure/cosmos-db/cassandra-introduction

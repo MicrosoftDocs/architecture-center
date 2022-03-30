@@ -8,15 +8,17 @@ To simplify the creation, management, and optimization of HPC clusters, Azure Cy
 
 Other relevant industries for CFD applications include:
 
-- Aeronautics
+- Aeronautics and aerospace
 - Automotive
 - Building HVAC
-- Oil and gas
-- Life sciences
+- Oil and gas (Energy)
+- Life sciences and healthcare
 
 ## Architecture
 
 ![Architecture diagram][architecture]
+
+### Workflow
 
 This diagram shows a high-level overview of a typical hybrid design providing job monitoring of the on-demand nodes in Azure:
 
@@ -95,10 +97,11 @@ Review this [price estimate][pricing] for the hardware listed above.
 
 Once you've deployed the sample, learn more about [Azure CycleCloud][cyclecloud].
 
-## Related resources
+See the following virtual machine articles:
 
 - [RDMA Capable Machine Instances][rdma]
 - [Customizing an RDMA Instance VM][rdma-custom]
+
 
 <!-- links -->
 [architecture]: ./media/architecture-hpc-cfd.png
