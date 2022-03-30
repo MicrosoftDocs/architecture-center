@@ -60,7 +60,7 @@ We work closely with IBM and other Partners to ensure the guidance found in this
 
 ## Sizing recommendations
 
-Recommended sizing should be done by your IBM Team based on your existing installation or planned size. Once this is complete, you can calculate the number of control and worker nodes you will need for your cluster. Generally, we recommend using the following:
+Recommended sizing should be done by your IBM Team based on your existing installation or planned size. Once this is complete, you can calculate the number of control and worker nodes you will need for your cluster. Generally, we recommend using the following VM SKUs:
 
 ### Dsv4 Series
 
@@ -82,7 +82,7 @@ Considerations:
 
 - **Region Selection** - Inside the OpenShift platform, it attempts to load balance workloads across all available nodes. When configuring the IPI for deployment, it will attempt to provision nodes across zones, when possible. In the event of a zone outage, OpenShift can still function by having other nodes (control and worker) running in another zone (Assuming those nodes have enough room to schedule the pods). List of [Availability Zones](/azure/availability-zones/az-overview#azure-regions-with-availability-zones).
 - **Backup & Recover** - Although ARO is not currently supported by MAS, you can review our [guidance](/azure/openshift/howto-create-a-backup) for our Managed OpenShift (ARO) offering.
-- **Failover** - Consider deploying OpenShift into 2 region and leveraging [RedHat's Advanced Cluster Management platform](https://www.redhat.com/en/technologies/management/advanced-cluster-management). If your solution has public endpoints, you can either place Azure Front Door or Azure Traffic Manager in front of them to redirect traffic to the appropriate cluster in the event of an outage. In this situation, you would need to migrate your applications state and persistent volumes as well.
+- **Failover** - Consider deploying OpenShift into 2 regions and use [RedHat's Advanced Cluster Management platform](https://www.redhat.com/en/technologies/management/advanced-cluster-management). If your solution has public endpoints, you can either place Azure Front Door or Azure Traffic Manager in front of them to redirect traffic to the appropriate cluster in the event of an outage. In this situation, you would need to migrate your applications state and persistent volumes as well.
 
 ### MAS
 
@@ -90,17 +90,63 @@ Considerations:
 
 - **External Dependencies** - If MAS takes dependencies on any external services (databases; kafka brokers...etc) this should be a performance consideration in case the OpenShift cluster is deployed within another region. Consider reviewing that services HA/DR options as well.
 - **Backup and Restore** - For state based services running inside of the OpenShift cluster, it is necessary to frequently perform backups and move them into another region.
-- **State** - For services that retain state, when possible, leverage external Azure PaaS offerings to improve upon the supportability in the event of an outage.
+- **State** - For services that retain state, when possible, use external Azure PaaS offerings to improve upon the supportability in the event of an outage.
 
 ## Data sources
 
+There are several data source requirements for MAS. Depending on your requirements, consider the following:
+
+- **Azure Storage** ([CSI Driver Install Instructions](https://github.com/azure/maximo#azure-files-csi-drivers))
+  - **Standard** - Provisions SMB shares for lower throughput / rwo workloads
+  - **Premium** - Provisions NFS shares for higher throughput / rwx workloads
+    - This can be used in place of the OpenShift Data Foundation (previously OCS)
+- **SQL Server 2019** on a VM
+- **Db2 Warehouse** on IBM CloudPak for Data (CP4D)
+- **Azure CosmosDB** Mongo API (coming soon) or **Mongo Atlas on Azure**
+
 ## Deployment
+
+It's best to deploy workloads using an infrastructure as code (IaC) process. IBM workloads can be sensitive to misconfigurations that often occur in manual deployments and reduce productivity.
+
+When building your environment, review the quickstart reference material in the below repository:
+
+- [QuickStart Guide: Maximo Application Suite on Azure](https://github.com/azure/maximo#getting-started)
 
 ## Security
 
+Maintaining access and visibility into yours assets maintenance lifecycle can be one of your organization's greatest opportunity to operate efficiently and maintain uptime. It's important, then, to secure access to your MAS architecture. To achieve this goal, use secure authentication and address network vulnerabilities. Use encryption to protect all data moving in and out of your architecture.
+
+Azure delivers MAS by using an infrastructure as a service (IaaS) cloud model. Microsoft builds security protections into the service at the following levels:
+
+- Physical datacenter
+- Physical network
+- Physical host
+- Hypervisor
+
+Carefully evaluate the services and technologies that you select for the areas above the hypervisor, such as the latest patched version of OpenShift for a major release. Make sure to provide the proper security controls for your architecture.
+
+> [!NOTE]
+> Once OpenShift has been installed, the control plane will be responsible for maintaining and scaling the worker nodes on Azure. You increase the cluster size through the admin console using MachineSets, not the Azure portal.
+
+Use [network security groups](/azure/virtual-network/security-overview) to filter network traffic to and from resources in your [virtual network](/azure/virtual-network/virtual-networks-overview). With these groups, you can define rules that grant or deny access to your SAS services. Examples include:
+
+- Allow SSH access into the OpenShift nodes for troubleshooting
+- Blocking access to parts of the cluster
+
+[Server-side encryption (SSE) of Azure Disk Storage](/azure/virtual-machines/disk-encryption) protects your data. It also helps you meet organizational security and compliance commitments. With Azure managed disks, SSE encrypts the data at rest when persisting it to the cloud. This behavior applies by default to both OS and data disks.
+
 ### Identity management
 
+MAS currently supports the use of SAML via Azure Active Directory (Azure AD). You can find more information at the following locations: [IBM configuration](https://www.ibm.com/docs/en/mas83/8.3.0?topic=administration-configuring-suite#saml) and [Azure configuration](https://docs.microsoft.com/en-us/azure/active-directory/manage-apps/add-application-portal-setup-sso). When managing IaaS resources, you can use Azure AD for authentication and authorization to the Azure portal.
+
 ### Protect your infrastructure
+
+Control access to the Azure resources that you deploy. Every Azure subscription has a [trust relationship](/azure/active-directory/active-directory-how-subscriptions-associated-directory) with an Azure AD tenant. Use [Azure role-based access control (Azure RBAC)](/azure/role-based-access-control/overview) to grant users within your organization the correct permissions to Azure resources. Grant access by assigning Azure roles to users or groups at a certain scope. The scope can be a subscription, a resource group, or a single resource. Make sure to [audit all changes to infrastructure](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-audit).
+
+Manage remote access to your VMs through [Azure Bastion](/azure/bastion/bastion-overview). Don't expose any of these components to the internet:
+
+- VMs
+- Secure Shell Protocol (SSH) ports
 
 ## Contributors
 
@@ -115,7 +161,6 @@ _This article is being updated and maintained by Microsoft. It was originally wr
 
  * [David Baumgarten](https://www.linkedin.com/in/baumgarten-david/) | Senior Cloud Solution Architect
  * [Roeland Nieuwenhuis](https://www.linkedin.com/in/roelandnieuwenhuis/) | Principal Cloud Solution Architect
- 
 <!-- * > Continue for each primary author (even if there are 10 of them). -->
 
 <!-- 
