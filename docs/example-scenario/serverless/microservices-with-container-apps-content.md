@@ -43,9 +43,11 @@ The services sharing the same environment benefit from:
 
 - Internal ingress and service discovery
 - A single Log Analytics workspace for runtime logging
+<!--  Add when MI feature is complete and integrated
 - Secure management of secrets and certificates
+-->
 
-The containers apps are running in single revision mode.  A container app running in single revision mode will have a single revision that is backed by zero-many replicas. A replica is composed of the application container and any required sidecar containers. This example isn't making use of sidecar containers, therefore each container app replica represents a single container.  Since this example doesn't employ scaling, there will be only one replica running for each container app.
+The workflow service container app is running in single revision mode.  A container app running in single revision mode will have a single revision that is backed by zero-many replicas. A replica is composed of the application container and any required sidecar containers. This example isn't making use of sidecar containers, therefore each container app replica represents a single container.  Since this example doesn't employ scaling, there will be only one replica running for each container app.
 
 ![Diagram showing the runtime architecture for the solution.](./media/microservices-with-container-apps-runtime-diagram.png)
 
@@ -77,8 +79,9 @@ Many of the complexities of the previous AKS architecture are replaced by these 
 - Application upgrades and versioning
 
 #### External storage and other components
-
+<!--  Add when MI feature is complete and integrated
 **[Azure Key Vault](https://azure.microsoft.com/services/key-vault)** service for securely storing and accessing secrets, such as API keys, passwords, and certificates.
+-->
 
 **[Azure Container Registry](https://azure.microsoft.com/services/container-registry)** stores private container images. You can also use other container registries like Docker Hub.
 
@@ -104,11 +107,11 @@ An alternative scenario of this example is the Fabrikam Drone Delivery applicati
 
 Container Apps allows you to more easily deploy, manage, maintain and monitor the applications.
 
-Container updates automatically trigger revisions for zero downtime between application updates.  These revisions can be managed and traffic split between the revisions to support blue/green deployments and A/B testing.
+Container updates automatically trigger revisions for zero downtime between application updates.  These revisions can be managed and traffic split between the revisions to support blue/green deployments and A/B testing (not currently used in this example workload).
 
 Integration with Azure Monitor allows you to track container app execution. You can set alerts on these metrics to monitor problems that arise.  When an app unexpectedly terminates, the Container Apps service automatically restarts it.  
 
-You can enable autoscaling rules to meet demand as workloads increase. When the application scales, more replicas spawn to ensure availability.  Performance is optimized by the dynamic load balancing features of Container Apps.
+You can enable autoscaling rules to meet demand as workloads increase. When the application scales, more replicas spawn to ensure availability.  Performance is optimized by the dynamic load balancing features of Container Apps (not currently used in this example workload).
 
 
 ### Operational excellence
@@ -144,7 +147,7 @@ Performance monitoring through Log Analytics and Azure Monitor allows you to eva
 
 - Network security:  Backend services in the drone delivery app aren't exposed via external ingress. All requests are passed from the **Ingestion service** through the Azure Service Bus.
 
-<!--  Add when feature is complete
+<!--  Add when MI feature is complete and integrated
 - Container Apps supports Managed Identities allowing your app to easily authenticate other Azure AD-protected resources such as Azure Key Vault, without managing credentials in your container app.  For services that don't support AD authentication, you can store secrets in Azure Key Vault and use the managed identity to access Key Vault to access the secrets. 
 -->
 
