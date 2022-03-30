@@ -40,11 +40,11 @@ ms.custom: fcp
 
 Microsoft partners make up a community of organizations that work with Microsoft to create innovative solutions for you. Driven by the opportunities of the intelligent cloud, Microsoft is prioritizing investments that support these opportunities.
 
-The [Azure Sponsorship for ISVs program](https://partner.microsoft.com/asset/collection/azure-sponsorship-for-isvs#) helps  independent software vendor (ISVs) use Azure services to drive platform innovation and develop new solutions that can accelerate your digital transformation. 
+The [Azure Sponsorship for ISVs program](https://partner.microsoft.com/asset/collection/azure-sponsorship-for-isvs#) helps independent software vendors (ISVs) use Azure services to drive platform innovation and develop new solutions that can accelerate your digital transformation. 
 
 Microsoft is proud to support open-source projects, initiatives, and foundations and contribute to thousands of open-source communities. By using open-source technologies on Azure, you can run applications your way while optimizing your investments. 
 
-Visit the [Azure Marketplace](https://azuremarketplace.microsoft.com) to discover, try, and deploy Microsoft and Microsoft partner cloud software.
+Visit [Azure Marketplace](https://azuremarketplace.microsoft.com) to discover, try, and deploy cloud software from Microsoft and Microsoft partners.
 
 This article provides a summary of architectures and solutions that use Azure together with partner and third-party solutions.
 
@@ -888,7 +888,7 @@ This article provides a summary of architectures and solutions that use Azure to
 |[Unisys mainframe migration with Asysco](../reference-architectures/migration/unisys-mainframe-migration.yml)|Learn options for using the AMT framework to migrate Unisys mainframe workloads to Azure.|Mainframe|
 
 ## Related resources
-- [Scenarios featuring Microsoft on-premises technologies](../guide/on-premises-scenarios.yml)
+- [Scenarios featuring Microsoft on-premises technologies](../guide/on-premises-microsoft-technologies.md)
 - [Architecture for startups](../guide/startups/startup-architecture.md)
 - [Azure and Power Platform scenarios](../solutions/power-platform-scenarios.md)
 - [Azure and Microsoft 365 scenarios](../solutions/microsoft-365-scenarios.md)
