@@ -3083,6 +3083,8 @@ items:
                      href: example-scenario/infrastructure/service-fabric-microservices.yml
                    - name: Deploy microservices with Container Apps
                      href: example-scenario/serverless/microservices-with-container-apps.yml
+                   - name: Deploy microservices with Container Apps and Dapr
+                     href: example-scenario/serverless/microservices-with-container-apps-dapr.yml
                    - name: High-availability blue/green deployment
                      href: example-scenario/blue-green-spring/blue-green-spring.yml
                    - name: Microservices on Azure Service Fabric

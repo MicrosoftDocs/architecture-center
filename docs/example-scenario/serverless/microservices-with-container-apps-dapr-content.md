@@ -1,5 +1,3 @@
-# Microservices architecture on Azure Container Apps with Dapr
-
 Microservices are an increasingly popular architecture style that can have many benefits including high scalability, shorter development cycles, and increased simplicity. Containers are often used as a mechanism to deploy microservices applications and a container orchestrator such as Kubernetes becomes more useful as the number of services in the solution grows. However, there are a number of factors that must be considered for large scale microservices architectures and typically the infrastructure platform requires significant understanding of complex technologies such as container orchestrators.
 
 [Azure Container Apps](https://azure.microsoft.com/services/container-apps/) (Preview) is a fully managed serverless container service for running modern applications at scale. It enables developers to deploy containerized apps without managing complicated infrastructure through abstraction of the underlying platform and is powered by open-source technologies.
@@ -25,7 +23,7 @@ These other uses cases have similar design patterns:
 
 ## Architecture
 
-![Architecture Diagram](./media/microservices-containerapps-with-dapr.png)
+![Architecture Diagram](./media/microservices-with-container-apps-dapr.png)
 
 This solution leverages Bicep templates to execute the deployment of the Reddog Order Management System and its supporting Azure infrastructure. The architecture is comprised of a single Container Apps Environment that hosts ten .NET Core microservice applications. The .NET Core Dapr SDK is used to integrate with Azure resources through PubSub, State and Binding building blocks and while Dapr typically provides flexibility around the component implementations, this solution is opinionated. The services also make use of KEDA scale rules to allow for scaling based on event triggers as well as scale to zero scenarios.
 
@@ -104,7 +102,7 @@ ContainerAppConsoleLogs_CL |
 
 The Application Map in App Insights also showcases how the services are communicating in real time and can be used for debugging scenarios. Navigate to the Application Map under the Application Insights resource to view something similar to the following.
 
-![Application Map](./media/microservices-containerapps-with-dapr-appmap.png)
+![Application Map](./media/microservices-with-container-apps-dapr-appmap.png)
 
 For more information on monitoring Container Apps, see [Monitor an app in Azure Container Apps](/azure/container-apps/monitor).
 
