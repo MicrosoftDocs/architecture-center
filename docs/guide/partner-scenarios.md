@@ -1,25 +1,52 @@
 ---
 title: Microsoft partner and third-party scenarios on Azure
-description: <Write a 100-160 character description that ends with a period and ideally starts with a call to action. This becomes the browse card description.>
-author: <contributor's GitHub username. If no GitHub account, use EdPrice-MSFT>
-ms.author: <contributor's Microsoft alias. If no alias, use edprice>
-ms.date: <publish or major update date - mm/dd/yyyy>
+description: Review an extensive list of architectures and solutions that use Microsoft partner and third-party solutions.
+author: EdPrice-MSFT
+ms.author: edprice
+ms.date: 04/05/2022 
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: azure-guide
 products:
-  - <choose 1-5 products from the list at https://review.docs.microsoft.com/en-us/help/contribute/architecture-center/aac-browser-authoring#products>
-  - <1-5 products>
-  - <1-5 products>
+  - azure-kubernetes-service
+  - azure-netapp-files
+  - azure-database-mariadb
+  - azure-database-mysql
+  - azure-database-postgresql
 categories:
-  - <choose at least one category from the list at https://review.docs.microsoft.com/en-us/help/contribute/architecture-center/aac-browser-authoring#azure-categories>
-  - <there can be more than one category>
+  - ai-machine-learning
+  - databases
+  - hybrid
+  - analytics
+  - web
+  - iot
+  - migration 
+  - containers
+  - integration 
+  - media
+  - compute
+  - devops
+  - management-and-governance
+  - blockchain
+  - storage
+  - mobile
+  - security
+  - networking
+  - windows-virtual-desktop
 ms.custom: fcp
 ---
 
 # Microsoft partner and third-party scenarios on Azure
 
-intro 
+Microsoft partners make up a community of organizations that work with Microsoft to create innovative solutions for you. Driven by the opportunities of the intelligent cloud and intelligent devices, Microsoft is prioritizing investments that support these opportunities.
+
+The [Azure Sponsorship for ISVs program](https://partner.microsoft.com/asset/collection/azure-sponsorship-for-isvs#) helps  independent software vendor (ISVs) use Azure services to drive platform innovation and develop new solutions that can accelerate your digital transformation. 
+
+Microsoft is proud to support open source projects, initiatives, and foundations and contribute to thousands of open source communities. By using open source technologies on Azure, you can run applications your way while optimizing your investments. 
+
+Visit the [Azure Marketplace](https://azuremarketplace.microsoft.com) to discover, try, and deploy Microsoft and Microsoft partner cloud software.
+
+This article provides a summary of architectures and solutions that use Azure together with partner and third-party solutions.
 
 *Apache®, Apache Ignite, Ignite, and the flame logo are either registered trademarks or trademarks of the Apache Software Foundation in the United States and/or other countries. No endorsement by The Apache Software Foundation is implied by the use of these marks.*
 
@@ -190,7 +217,7 @@ intro
 |[Advanced analytics](../solution-ideas/articles/advanced-analytics-on-big-data.yml)|Learn how you can combine any data at any scale with custom machine learning and get near real-time data analytics on streaming services. Use Spark pools to clean and transform structureless datasets and combine them with structured data.|Analytics|
 |[AI at the edge with Azure Stack Hub](../solution-ideas/articles/ai-at-the-edge.yml)|Bring your trained AI model to the edge with Azure Stack Hub. Integrate it with your applications for low-latency intelligence. Use Spark to store data.|AI|
 |[AI at the edge with Azure Stack Hub - disconnected](../solution-ideas/articles/ai-at-the-edge-disconnected.yml)|Take advantage of edge AI when disconnected from the internet and move your AI models to the edge with a solution that includes Azure Stack Hub. Use Spark to store data.|AI|
-|[Analytics end-to-end with Azure Synapse](../example-scenario/dataplate2e/data-platform-end-to-end.yml)|Learn how to use Azure Data Services to build a modern analytics platform capable of handling the most common data challenges in an organization. The Spark Pools analytics engine is available form your Azure Synapse workspace. |Analytics|
+|[Analytics end-to-end with Azure Synapse](../example-scenario/dataplate2e/data-platform-end-to-end.yml)|Learn how to use Azure Data Services to build a modern analytics platform capable of handling the most common data challenges in an organization. The Spark Pools analytics engine is available from your Azure Synapse workspace. |Analytics|
 |[Batch processing](../data-guide/big-data/batch-processing.yml)|Learn about big data batch processing solutions to load, transform, and prepare data at rest for analytics and reporting. The Spark engine supports batch processing programs written in a range of languages.|Databases|
 |[Batch scoring of Spark on Azure Databricks](../reference-architectures/ai/batch-scoring-databricks.yml)|Build a scalable solution for batch scoring an Apache Spark classification model on a schedule using Azure Databricks.|AI|
 |[Big data analytics on confidential computing](../example-scenario/confidential/data-analytics-containers-spark-kubernetes-azure-sql.yml)|Use confidential computing on Kubernetes to run big data analytics with Apache Spark inside confidential containers that are protected by Intel Software Guard Extensions.|Databases|
@@ -496,7 +523,7 @@ intro
 |Architecture|Summary|Technology focus|
 |--|--|--|
 |[Application data protection for AKS workloads on Azure NetApp Files](../example-scenario/file-storage/data-protection-kubernetes-astra-azure-netapp-files.yml)|Deploy Astra Control Service with Azure NetApp Files for data protection, disaster recovery, and mobility for AKS applications. This solution applies to systems that run AI and machine-learning components like PyTorch.|Containers|
-|[Data science and machine learning with Azure Databricks](../solution-ideas/articles/azure-databricks-data-science-machine-learning.yml)|Improve operations by using Azure Databricks, Delta Lake, and MLflow for data science and machine learning. Azure Databricks uses uses pre-installed, optimized machine learning frameworks, including PyTorch. |AI|
+|[Data science and machine learning with Azure Databricks](../solution-ideas/articles/azure-databricks-data-science-machine-learning.yml)|Improve operations by using Azure Databricks, Delta Lake, and MLflow for data science and machine learning. Azure Databricks uses pre-installed, optimized machine learning frameworks, including PyTorch. |AI|
 |[Machine learning in IoT Edge vision](../guide/iot-edge-vision/machine-learning.yml)|Learn about machine learning data and models in Azure IoT Edge vision AI solutions. Includes information about PyTorch.|IoT|
 |[Real-time scoring of machine learning models](../reference-architectures/ai/real-time-scoring-machine-learning-models.yml)|Deploy Python machine learning models as web services to make real-time predictions by using Azure Machine Learning and AKS. Learn about an image classification scenario that uses PyTorch.|AI|
 
@@ -560,8 +587,8 @@ intro
 
 |Architecture|Summary|Technology focus|
 |--|--|--|
-|[Application data protection for AKS workloads on Azure NetApp Files](../example-scenario/file-storage/data-protection-kubernetes-astra-azure-netapp-files.yml)|Deploy Astra Control Service with Azure NetApp Files for data protection, disaster recovery, and mobility for AKS applications. This solution applies to systems that run AI and machine-learning components like TensorFlow.|
-|[Data science and machine learning with Azure Databricks](../solution-ideas/articles/azure-databricks-data-science-machine-learning.yml)|Improve operations by using Databricks, Delta Lake, and MLflow for data science and machine learning. Develop, train, and deploy machine learning models. Azure Databricks uses uses pre-installed, optimized machine learning frameworks, including TensorFlow.|AI|
+|[Application data protection for AKS workloads on Azure NetApp Files](../example-scenario/file-storage/data-protection-kubernetes-astra-azure-netapp-files.yml)|Deploy Astra Control Service with Azure NetApp Files for data protection, disaster recovery, and mobility for AKS applications. This solution applies to systems that run AI and machine-learning components like TensorFlow.|Containers|
+|[Data science and machine learning with Azure Databricks](../solution-ideas/articles/azure-databricks-data-science-machine-learning.yml)|Improve operations by using Databricks, Delta Lake, and MLflow for data science and machine learning. Develop, train, and deploy machine learning models. Azure Databricks uses pre-installed, optimized machine learning frameworks, including TensorFlow.|AI|
 |[Distributed training, deep learning models](../reference-architectures/ai/training-deep-learning.yml)|Learn how to conduct distributed training of deep learning models across clusters of GPU-enabled VMs. In this scenario, TensorFlow is used to train a CNN model.|AI|
 |[Machine learning in IoT Edge vision](../guide/iot-edge-vision/machine-learning.yml)|Learn about machine learning data and models in Azure IoT Edge vision AI solutions. Includes information about TensorFlow.|IoT|
 |[Real-time scoring of machine learning models](../reference-architectures/ai/real-time-scoring-machine-learning-models.yml)|Deploy Python machine learning models as web services to make real-time predictions by using Azure Machine Learning and AKS. Learn about an image classification scenario that uses TensorFlow.|AI|
@@ -598,7 +625,7 @@ intro
 |--|--|--|
 |[Digital marketing using Azure Database for MySQL](../solution-ideas/articles/digital-marketing-using-azure-database-for-mysql.yml)|Use Azure Database for MySQL to engage with customers around the world with personalized digital marketing experiences. Azure App Service supports Umbraco.|Databases|
 |[Scalable Umbraco CMS web app](../solution-ideas/articles/medium-umbraco-web-app.yml)|Run an Umbraco content management system on the Web Apps feature of App Service. Use Azure managed services for a high availability environment.|Web|
-|[Simple digital marketing website](../solution-ideas/articles/digital-marketing-smb.yml)|Use an Azure-based content management system to easily maintain messaging on your website in real time, from a browser, with no coding skills. Umbraco manages content and deploy it to the website.|Web|
+|[Simple digital marketing website](../solution-ideas/articles/digital-marketing-smb.yml)|Use an Azure-based content management system to easily maintain messaging on your website in real time, from a browser, with no coding skills. Umbraco manages content and deploys it to the website.|Web|
 
 ### WordPress
 
@@ -640,7 +667,7 @@ intro
 |Architecture|Summary|Technology focus|
 |--|--|--|
 |[Banking system cloud transformation on Azure](../example-scenario/banking/banking-system-cloud-transformation.yml)|Use simulated and actual applications and existing workloads to monitor the reaction of a solution infrastructure for scalability and performance. Kafka is used with Confluent Schema Registry for streaming.|Migration|
-|[Real-time processing](../data-guide/big-data/real-time-processing.yml)|Use real-time processing solutions to capture data streams and generate reports or automated responses with minimal latency. Kafka, which is available via ConfluentCloud, is recommened for real-time message ingestion.  |Databases|
+|[Real-time processing](../data-guide/big-data/real-time-processing.yml)|Use real-time processing solutions to capture data streams and generate reports or automated responses with minimal latency. Kafka, which is available via ConfluentCloud, is recommended for real-time message ingestion.  |Databases|
 
 ### Couchbase
 
@@ -668,7 +695,7 @@ intro
 |[Build web and mobile applications](../solution-ideas/articles/webapps.yml)|Build web and mobile applications with an Azure microservices-based architecture. Use this solution, inspired by PayMe, for e-commerce platforms and more. The Gremlin API is used to store graphical data in Azure Cosmos DB.|Web|
 |[Stream processing with fully managed open-source data engines](../example-scenario/data/open-source-data-engine-stream-processing.yml)|Stream events by using fully managed Azure data services. Use technologies like Kafka, Kubernetes, Gremlin, PostgreSQL, and Redis components.|Analytics|
 
-### Initinite i
+### Infinite i
 
 |Architecture|Summary|Technology focus|
 |--|--|--|
@@ -760,7 +787,7 @@ intro
 |Architecture|Summary|Technology focus|
 |--|--|--|
 |[Data governance with Profisee and Azure Purview](../reference-architectures/data/profisee-master-data-management-purview.yml)|Integrate Profisee master data management with Azure Purview to build a foundation for data governance and management.|Databases|
-|[Master data management with Profisee and Azure Data Factory](../reference-architectures/data/profisee-master-data-management-data-factory.yml)|Integrate Profisee master data management with Data Factory to deliver high quality, trusted data for Azure Synapse and all analytics applications. Postman is recommded for synthetic logging.|Databases|
+|[Master data management with Profisee and Azure Data Factory](../reference-architectures/data/profisee-master-data-management-data-factory.yml)|Integrate Profisee master data management with Data Factory to deliver high quality, trusted data for Azure Synapse and all analytics applications. Postman is recommended for synthetic logging.|Databases|
 
 ### Qlik
 
