@@ -273,7 +273,7 @@ Here's an example from this architecture:
 Traefik uses the Kubernetes provider to configure routes. The `annotations`, `tls`, and `entrypoints` indicate that routes will be served over HTTPS. The `middlewares` specifies that only traffic from the Azure Application Gateway subnet is allowed. The responses will use gzip encoding if the client accepts. Because Traefik does TLS termination, communication with the backend services is over HTTP.
 
 ```yaml
-apiVersion:networking.k8s.io/v1beta1
+apiVersion:networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: aspnetapp-ingress
@@ -295,8 +295,10 @@ spec:
       paths:
       - path: /
         backend:
-          serviceName: aspnetapp-service
-          servicePort: http
+          service
+            name: aspnetapp-service
+            port: 
+              name: http
 ```
 
 ## Secure the network flow
