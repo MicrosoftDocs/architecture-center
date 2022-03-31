@@ -31,10 +31,10 @@ ms.custom: fcp
 
 # Scenarios featuring Microsoft on-premises technologies on Azure
 
-This article describes scenarios that feature Microsoft on-premises technologies on Azure. These on-premises technologies are frequently used in Azure solutions: 
+This article describes scenarios that feature Microsoft on-premises technologies on Azure. The following on-premises technologies are frequently used in Azure solutions: 
 - [Windows Server 2022](https://www.microsoft.com/windows-server). The foundation of the Microsoft ecosystem. It continues to power the hybrid cloud network.
 - [SQL Server 2019](https://www.microsoft.com/sql-server/sql-server-2019). The data platform known for performance, security, and availability.
-- [Exchange Sever](/exchange/new-features/new-features?view=exchserver-2019). The messaging platform that provides email, scheduling, and tools for custom collaboration and messaging service applications.
+- [Exchange Sever](/exchange/new-features/new-features). The messaging platform that provides email, scheduling, and tools for custom collaboration and messaging service applications.
 - [Active Directory Domain Services in Windows Server 2016](/windows-server/identity/whats-new-active-directory-domain-services). The service that stores information about user accounts and enables other authorized users on the same network to access it. Security is integrated with Active Directory through sign-in authentication and access control to objects in the directory.
 - [Host Integration Server](/host-integration-server/what-is-his). Technologies and tools that enable enterprise organizations to integrate existing IBM host systems, programs, messages, and data with new Microsoft server applications. 
 
@@ -50,10 +50,10 @@ For information about solutions in which Azure services integrate with the other
 |Architecture|Summary|Technology focus|
 |--|--|--|
 |[Azure files secured by AD DS](../example-scenario/hybrid/azure-files-on-premises-authentication.yml)|Learn how to provide high-security file access with on-premises Windows Server Active Directory Domain Services (AD DS) and DNS.| Hybrid|
-|[Create an AD DS resource forest](../reference-architectures/identity/adds-forest.yml)|Learn how to create a separate Active Directory domain in Azure that's trusted by domains in your on-premises Active Directory forest.| Identity|
+|[Create an AD DS resource forest](../reference-architectures/identity/adds-forest.yml)|Learn how to create a separate Active Directory domain on Azure that's trusted by domains in your on-premises Active Directory forest.| Identity|
 |[Deploy AD DS in an Azure virtual network](../reference-architectures/identity/adds-extend-domain.yml)|Use this reference architecture to extend an on-premises Active Directory domain to Azure to provide distributed authentication services.| Identity|
-|[Disaster recovery for Azure Stack Hub VMs](../hybrid/azure-stack-vm-dr.yml) |Learn about an optimized approach to disaster recovery of VM-based user workloads hosted on Azure Stack Hub. Azure Site Recovery integrates with Windows Server-based apps and roles, including Active Directory Domain Services.|Hybrid|
-|[Extend on-premises AD FS to Azure](../reference-architectures/identity/adfs.yml) |Implement a highly secure hybrid network architecture by using Active Directory Federation Services (AD FS) authorization in Azure.|Identity|
+|[Disaster recovery for Azure Stack Hub VMs](../hybrid/azure-stack-vm-dr.yml) |Learn about an optimized approach to disaster recovery of VM-based user workloads that are hosted on Azure Stack Hub. Azure Site Recovery integrates with Windows Server-based apps and roles, including Active Directory Domain Services.|Hybrid|
+|[Extend on-premises AD FS to Azure](../reference-architectures/identity/adfs.yml) |Implement a highly secure hybrid network architecture by using Active Directory Federation Services (AD FS) authorization on Azure.|Identity|
 |[Federate with a customer's AD FS](../multitenant-identity/adfs.yml) |Learn how a multitenant SaaS application can federate with a customer's AD FS.|Identity|
 |[Hybrid SharePoint farm with Microsoft 365](../solution-ideas/articles/sharepoint-farm-microsoft-365.yml)|Deliver highly available intranet capability and share hybrid workloads with Microsoft 365 by using SharePoint servers, Azure Active Directory (Azure AD), and SQL Server. Windows Server hosts Active Directory services for service and machine accounts.| Hybrid|
 |[Integrate on-premises Active Directory with Azure](../reference-architectures/identity/index.yml) |Compare options for integrating your on-premises Active Directory environment with an Azure network.|Identity|
@@ -77,7 +77,7 @@ For information about solutions in which Azure services integrate with the other
 |Architecture|Summary|Technology focus|
 |--|--|--|
 |[Integrate IBM mainframe and midrange message queues with Azure](../example-scenario/mainframe/integrate-ibm-message-queues-azure.yml) |Learn about a data-first approach to middleware integration that enables IBM message queues. HIS is used in a VM-based IaaS approach.|Mainframe|
-|[Mainframe file replication and sync on Azure](../solution-ideas/articles/mainframe-azure-file-replication.yml) |Learn several options for moving, converting, transforming, and storing mainframe and midrange file system data on-premises and in Azure. HIS is used to convert EBCDIC files to make them compatible with Azure.|Mainframe|
+|[Mainframe file replication and sync on Azure](../solution-ideas/articles/mainframe-azure-file-replication.yml) |Learn several options for moving, converting, transforming, and storing mainframe and midrange file system data on-premises and on Azure. HIS is used to convert EBCDIC files to make them compatible with Azure.|Mainframe|
 
 ### SharePoint Server
 
@@ -100,7 +100,7 @@ For information about solutions in which Azure services integrate with the other
 |[Campaign optimization with SQL Server](../solution-ideas/articles/campaign-optimization-with-sql-server.yml)|Use machine learning and SQL Server 2016 with R Services to optimize when and how to contact potential customers to improve success rates for marketing campaigns.| Databases|
 |[Data integration with Logic App and SQL Server](../example-scenario/integration/logic-apps-data-integration.yml) |Automate data integration tasks by using Azure Logic Apps. Configure API calls to trigger tasks like storing data in an on-premises SQL Server database.|Integration|
 |[Disaster recovery for Azure Stack Hub VMs](../hybrid/azure-stack-vm-dr.yml) |Learn about an optimized approach to disaster recovery of VM-based user workloads that are hosted on Azure Stack Hub. Includes information about disaster recovery for SQL Server workloads.|Hybrid|
-|[Enterprise business intelligence](../reference-architectures/data/enterprise-bi-synapse.yml) |Learn how to implement an ELT pipeline that moves data from an on-premises SQL Server database into Azure Synapse and transforms the data for analysis.|Integration|
+|[Enterprise business intelligence](../reference-architectures/data/enterprise-bi-synapse.yml) |Learn how to implement an ELT pipeline that moves data from an on-premises SQL Server database into Azure Synapse Analytics and transforms the data for analysis.|Integration|
 |[Hybrid ETL with Azure Data Factory](../example-scenario/data/hybrid-etl-with-adf.yml) |Use Azure Data Factory to create a hybrid ETL for existing on-premises SQL Server Integration Services (SSIS) deployments.|Databases|
 |[Hybrid SharePoint farm with Microsoft 365](../solution-ideas/articles/sharepoint-farm-microsoft-365.yml) |Deliver highly available intranet capability and share hybrid workloads with Microsoft 365 by using SharePoint servers, Azure AD, and SQL Server.|Hybrid|
 |[IaaS: Web app with relational database](../high-availability/ref-arch-iaas-web-and-db.yml) |Learn best practices for applying availability zones to a web application and SQL Server database hosted on VMs.|Databases|
