@@ -358,7 +358,7 @@ To support geospatial workloads on Azure Synapse, you need libraries like [GDAL]
 
 #### Instructions
 
-1. The following libraries and packages are available in the [environment.yml](https://github.com/Azure/Azure-Orbital-Analytics-Samples/deploy/environment.yml) file. You can use this file to install the libraries in the Spark pools.
+1. The following libraries and packages are available in the [environment.yml](https://github.com/Azure/Azure-Orbital-Analytics-Samples/blob/main/deploy/environment.yml) file. You can use this file to install the libraries in the Spark pools.
 
 	```yaml
 	name: aoi-env
