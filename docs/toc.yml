@@ -1689,6 +1689,8 @@ items:
                 href: /azure/architecture/browse/?terms=aircraft
               - name: Advanced (AKS) microservices - drones
                 href: /azure/architecture/reference-architectures/containers/aks-microservices/aks-microservices-advanced
+              - name: Geospatial analysis of spaceborne data
+                href: industries/aerospace/geospatial-processing-analytics.yml
               - name: Predictive maintenance for aircraft monitoring
                 href: /azure/architecture/solution-ideas/articles/predictive-maintenance
               - name: Serverless web app for drone delivery
@@ -2190,6 +2192,8 @@ items:
                 href: example-scenario/ai/employee-retention-databricks-kubernetes.yml
               - name: Geospatial analysis for telecommunications
                 href: example-scenario/data/geospatial-analysis-telecommunications-industry.yml
+              - name: Geospatial analysis with Azure Synapse
+                href: industries/aerospace/geospatial-processing-analytics.yml
               - name: Geospatial data processing and analytics
                 href: example-scenario/data/geospatial-data-processing-analytics-azure.yml
               - name: High throughput stream ingestion
