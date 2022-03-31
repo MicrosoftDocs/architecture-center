@@ -4408,8 +4408,8 @@ items:
                   - name: Security baseline for DDoS Protection Standard
                     href: /security/benchmark/azure/baselines/ddos-protection-security-baseline
                     maintainContext: true
-              - name: Application Gateway framework review
-                href: networking/guide/waf-application-gateway.md
+              - name: Application Gateway v2 framework review
+                href: services/networking/azure-application-gateway.md#security
               - name: Azure Firewall guidance
                 items:
                   - name: Azure Firewall architecture overview
