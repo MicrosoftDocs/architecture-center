@@ -21,7 +21,7 @@ Azure Front Door enables you to add a web application firewall (WAF) and edge ca
 As in the above example, [Azure Front Door can be configured to modify the request's `Host` header](/azure/frontdoor/front-door-backend-pool#backend-host-header). The original `Host` header sent by the client is propagated through the `X-Forwarded-Host` header, and your application code can use this header to [map the request to the correct tenant](../considerations/map-requests.yml).
 
 > [!TIP]
-> If your application sends cookies or redirection responses, you need to take special care. Changes in the request's `Host` headers might invalidate these responses.
+> If your application sends cookies or redirection responses, you need to take special care. Changes in the request's `Host` headers might invalidate these responses. For more information, see the [host name preservation best practice](../../../best-practices/host-name-preservation.yml).
 
 You can use [private endpoints](/azure/frontdoor/standard-premium/concept-private-link) or App Service [access restrictions](https://techcommunity.microsoft.com/t5/azure-architecture-blog/permit-access-only-from-azure-front-door-to-azure-app-service-as/ba-p/2000173) to ensure that traffic has flowed through Front Door before reaching your app.
 

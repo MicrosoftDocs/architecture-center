@@ -3912,12 +3912,16 @@ items:
                     href: example-scenario/mainframe/migrate-ibm-i-series-to-azure-with-skytap.yml
                   - name: Refactor IBM z/OS mainframe CF
                     href: reference-architectures/zos/refactor-zos-coupling-facility.yml
+                  - name: Refactor mainframe applications with Astadia
+                    href: example-scenario/mainframe/refactor-mainframe-applications-astadia.yml
                   - name: Refactor mainframe apps with Advanced
                     href: example-scenario/mainframe/refactor-mainframe-applications-advanced.yml
                   - name: Refactor systems that run Adabas & Natural 
                     href: example-scenario/mainframe/refactor-adabas-aks.yml
                   - name: Refactor mainframe with Raincode
                     href: reference-architectures/app-modernization/raincode-reference-architecture.yml
+                  - name: Rehost mainframe apps with NTT DATA UniKix
+                    href: example-scenario/mainframe/rehost-mainframe-ntt-data-unikix.yml
                   - name: Unisys CPF rehost using virtualization
                     href: example-scenario/mainframe/unisys-clearpath-forward-mainframe-rehost.yml
                   - name: Unisys Dorado migration
