@@ -1,10 +1,10 @@
-This article describes a collaboration between Microsoft and a major railway company to create an [intelligent cloud and intelligent edge](https://azure.microsoft.com/overview/future-of-cloud) train maintenance and safety solution. The *internet-of-things (IoT) edge* brings data processing and storage closer to the data source. IoT edge processing enables fast, consistent responses with less dependency on cloud connectivity and resources.
+This article describes a collaboration between Microsoft and a major railroad company to create an [intelligent cloud and intelligent edge](https://azure.microsoft.com/overview/future-of-cloud) train maintenance and safety solution. The *internet-of-things (IoT) edge* brings data processing and storage closer to the data source. IoT Edge processing enables fast, consistent responses with less dependency on cloud connectivity and resources.
 
 Bringing machine learning (ML) and business logic closer to the data sources means devices can react faster to local changes and critical events. Devices can operate reliably offline or when connectivity is limited.
 
 Edge computing can incorporate artificial intelligence (AI) and ML models to create *intelligent edge* devices and networks. The edge network can determine which data to send to the cloud for further processing, and prioritize urgent and important data.
 
-The railway company wanted to use Azure IoT Edge to improve railroad safety and efficiency by providing:
+The railroad company wanted to use Azure IoT Edge to improve safety and efficiency by providing:
 
 - Proactive identification of defective components.
 - Predictive scheduling of maintenance and repair.
@@ -30,7 +30,7 @@ The wheel health analysis system provides early identification of potential equi
 - A telecommunications network that has to maintain 99% or better uptime.
 - Production quality control, equipment repair, and predictive maintenance in a factory.
 - A transportation safety system that must process real-time streaming data with little or no latency.
-- A transit system that needs to provide timely notifications and alerts.
+- Transit systems that need to provide timely schedule notifications and alerts.
 
 ## Architecture
 [ ![Solution architecture diagram showing the IoT Edge modules in the trackside bungalows. The Edge modules use machine learning to identify failure risks. The alert handler module uploads image data to Azure Blob Storage. Azure Edge Hub uploads associated metadata and messages through Azure IoT Hub to Azure Cosmos DB storage.](./media/iot-predictive-maintenance.svg) ](./media/iot-predictive-maintenance.svg#lightbox)
@@ -42,7 +42,7 @@ The wheel health analysis system provides early identification of potential equi
 1. The IoT Edge ML module runs a third-party ML model that processes the images and identifies wheel areas that need more inspection.
 1. The IoT Edge Alert Handler uploads all images into Azure Blob Storage, starting with images that have potential defects, and returns the image blob URIs.
 1. The IoT Edge Hub module associates the image URIs with image metadata, like Equipment or Car Number, Axle, Timestamp, and Detector Location. The module uploads the metadata and alerts to Azure IoT Hub.
-1. IoT Hub sends the metadata via Event Hub and Azure Functions to an Azure Cosmos DB database.
+1. IoT Hub sends the metadata via Event Hubs and Azure Functions to an Azure Cosmos DB database.
 1. The Azure Cosmos DB database associates the image metadata with the URIs of the images stored in Azure Blob Storage. The system can use the data from Azure Cosmos DB for defect recognition, trend analysis, predictive maintenance, and ML model retraining.
 
 ### Components

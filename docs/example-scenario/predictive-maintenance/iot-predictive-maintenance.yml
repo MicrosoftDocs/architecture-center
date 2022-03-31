@@ -1,6 +1,6 @@
 ### YamlMime:Architecture
 metadata:
-  title: Intelligent IoT Edge maintenance and safety solution
+  title: IoT Edge railroad maintenance and safety system
   description: Learn how a railway company implemented an intelligent IoT Edge train safety solution for fast, reliable defect identification and predictive maintenance.
   author: tmmarshall
   ms.author: v-tamarshall
@@ -12,7 +12,7 @@ metadata:
     - fcp
     - cse
     - example-scenario
-name: Intelligent IoT Edge train maintenance and safety solution
+name: IoT Edge railroad maintenance and safety system
 azureCategories:
   - iot
 summary: Learn how a railway company implemented an intelligent IoT Edge train safety solution for fast, reliable defect identification and predictive maintenance.
