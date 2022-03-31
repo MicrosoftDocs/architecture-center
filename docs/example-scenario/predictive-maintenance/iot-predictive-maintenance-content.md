@@ -4,7 +4,7 @@ Bringing machine learning (ML) and business logic closer to the data sources mea
 
 Edge computing can incorporate artificial intelligence (AI) and ML models to create *intelligent edge* devices and networks. The edge network can determine which data to send to the cloud for further processing, and prioritize urgent and important data.
 
-The railway company wanted to use Azure IoT Edge to improve railroad safety and efficiency with:
+The railway company wanted to use Azure IoT Edge to improve railroad safety and efficiency by providing:
 
 - Proactive identification of defective components.
 - Predictive scheduling of maintenance and repair.
@@ -39,8 +39,8 @@ The wheel health analysis system provides early identification of potential equi
 
 1. A Network Attached Storage (NAS) image file server in a trackside bungalow serves processed and categorized train wheel images. Three pictures of each wheel create a stitched image.
 1. On the IoT Edge device, the polling module alerts the device that new images are available for processing.
-1. The IoT Edge device ML module runs a third-party ML model that processes the images and identifies wheel areas that need more inspection.
-1. The alert handler on the IoT Edge device uploads all images into Azure Blob Storage, starting with images that have potential defects, and returns the image blob URIs.
+1. The IoT Edge ML module runs a third-party ML model that processes the images and identifies wheel areas that need more inspection.
+1. The IoT Edge Alert Handler uploads all images into Azure Blob Storage, starting with images that have potential defects, and returns the image blob URIs.
 1. The IoT Edge Hub module associates the image URIs with image metadata, like Equipment or Car Number, Axle, Timestamp, and Detector Location. The module uploads the metadata and alerts to Azure IoT Hub.
 1. IoT Hub sends the metadata via Event Hub and Azure Functions to an Azure Cosmos DB database.
 1. The Azure Cosmos DB database associates the image metadata with the URIs of the images stored in Azure Blob Storage. The system can use the data from Azure Cosmos DB for defect recognition, trend analysis, predictive maintenance, and ML model retraining.
@@ -59,7 +59,7 @@ IoT Edge is made up of three components:
 
 - A cloud-based interface enables remote monitoring and management.
 
-The system uses the following Azure cloud components:
+The system also uses the following Azure cloud components:
 
 - [Azure IoT Hub](https://azure.microsoft.com/services/iot-hub) enables secure bi-directional cloud communication, management, and monitoring of IoT Edge modules.
 
