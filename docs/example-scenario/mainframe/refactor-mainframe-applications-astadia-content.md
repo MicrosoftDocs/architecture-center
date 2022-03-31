@@ -153,19 +153,19 @@ This solution supports deployment in containers, VMs, or Virtual Machine Scale S
 
 - For more information, write to legacy2azure@microsoft.com.
 
-### Azure
+#### Azure
 
 - [What is Accelerated Networking?](/azure/virtual-network/accelerated-networking-overview)
 - [How network security groups filter network traffic](/azure/virtual-network/network-security-group-how-it-works).
 - [Types of Databases on Azure](https://azure.microsoft.com/product-categories/databases)
 
-### Astadia website
+#### Astadia website
 
 - [Migrating Mainframe Applications to Azure](https://www.astadia.com/technologies/azure-cloud-migration)
 - [United States Air Force (case study)](https://www.astadia.com/case-studies/united-states-air-force)
 - [Jefferson County (case study)](https://www.astadia.com/case-studies/jefferson-county)
 
-### Other
+#### Other
 
 - [Automated Data Migration](https://modernsystems.oneadvanced.com/services/automated-data-migration)
 
