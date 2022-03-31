@@ -3912,6 +3912,8 @@ items:
                     href: example-scenario/mainframe/migrate-ibm-i-series-to-azure-with-skytap.yml
                   - name: Refactor IBM z/OS mainframe CF
                     href: reference-architectures/zos/refactor-zos-coupling-facility.yml
+                  - name: Refactor mainframe applications with Astadia
+                    href: example-scenario/mainframe/refactor-mainframe-applications-astadia.yml
                   - name: Refactor mainframe apps with Advanced
                     href: example-scenario/mainframe/refactor-mainframe-applications-advanced.yml
                   - name: Refactor systems that run Adabas & Natural 
