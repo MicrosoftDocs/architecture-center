@@ -4409,7 +4409,7 @@ items:
                     href: /security/benchmark/azure/baselines/ddos-protection-security-baseline
                     maintainContext: true
               - name: Application Gateway v2 framework review
-                href: /services/networking/azure-application-gateway.md#security
+                href: /services/networking/azure-application-gateway.md
               - name: Azure Firewall guidance
                 items:
                   - name: Azure Firewall architecture overview
