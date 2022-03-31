@@ -69,7 +69,7 @@ The system also uses the following Azure cloud components:
 
 ### Alternatives
 
-- The IoT Edge architecture is split into multiple modules, but could be condensed into a single module, depending on solution performance requirements or development team structure.
+- The IoT Edge architecture uses multiple modules, but could be condensed into a single module, depending on solution performance requirements or development team structure.
 
 - The railway company only owns the inferencing system, and relies on a third-party vendor for ML model generation. The black-box nature of the ML module poses some risk of dependency. Long-term solution maintenance requires understanding how the third party governs and shares assets. The system might be able to use placeholder ML modules for future engagements when ML assets aren't available.
 

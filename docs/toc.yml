@@ -1091,7 +1091,7 @@ items:
                 href: example-scenario/iot/connected-factory-signal-pipeline.yml
               - name: End-to-end computer vision for manufacturing
                 href: reference-architectures/ai/end-to-end-smart-factory.yml
-              - name: Intelligent IoT Edge safety and maintenance system
+              - name: IoT Edge safety and maintenance system
                 href: example-scenario/predictive-maintenance/iot-predictive-maintenance.yml
               - name: Quality assurance
                 href: solution-ideas/articles/quality-assurance.yml
@@ -1524,12 +1524,12 @@ items:
                 href: /azure/architecture/reference-architectures/ai/conversational-bot
               - name: Geospatial analysis for telecommunications
                 href: example-scenario/data/geospatial-analysis-telecommunications-industry.yml
-              - name: Intelligent IoT Edge safety and maintenance system
-                href: /azure/architecture/example-scenario/predictive-maintenance/iot-predictive-maintenance
               - name: IoT connected light, power, and internet
                 href: /azure/architecture/solution-ideas/articles/iot-power-management
               - name: IoT device connectivity for industry
                 href: /azure/architecture/solution-ideas/articles/healthcare-network
+              - name: IoT Edge safety and maintenance system
+                href: /azure/architecture/example-scenario/predictive-maintenance/iot-predictive-maintenance
               - name: Low-latency network connections for industry 
                 href: /azure/architecture/solution-ideas/articles/low-latency-network
               - name: Public MEC deployment
@@ -3806,10 +3806,10 @@ items:
                 href: example-scenario/iot/connected-factory-signal-pipeline.yml
               - name: Efficient Docker image deployment
                 href: example-scenario/iot/efficient-docker-image-deployment.yml
-              - name: Intelligent IoT Edge safety and maintenance system
-                href: example-scenario/predictive-maintenance/iot-predictive-maintenance.yml
               - name: IoT and data analytics
                 href: example-scenario/data/big-data-with-iot.yml
+              - name: IoT Edge safety and maintenance system
+                href: example-scenario/predictive-maintenance/iot-predictive-maintenance.yml
               - name: IoT using Cosmos DB
                 href: solution-ideas/articles/iot-using-cosmos-db.yml
               - name: Smart places with Azure Digital Twins
