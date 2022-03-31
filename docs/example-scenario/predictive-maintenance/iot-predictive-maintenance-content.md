@@ -1,8 +1,16 @@
 This article describes a collaboration between Microsoft and a major railway company to create an [intelligent cloud and intelligent edge](https://azure.microsoft.com/overview/future-of-cloud) train maintenance and safety solution. The *internet-of-things (IoT) edge* brings data processing and storage closer to the data source, enabling fast, consistent responses with less dependency on cloud connectivity and resources.
 
-Bringing machine learning (ML) and business logic closer to the data sources means devices can react faster to local changes and critical events. Devices can operate reliably offline or when connectivity is limited. Edge computing can incorporate artificial intelligence (AI) and ML models to create *intelligent edge* devices and networks. The edge network can determine which data to send to the cloud for further processing, and prioritize urgent and important data.
+Bringing machine learning (ML) and business logic closer to the data sources means devices can react faster to local changes and critical events. Devices can operate reliably offline or when connectivity is limited.
 
-In their IoT Edge solution, the railway company wanted to improve railroad safety and efficiency by proactively identifying defective components, predictively scheduling maintenance and repair, and continuously improving analysis and predictions. The pilot project for the ML Edge solution was a train wheel health analysis system.
+Edge computing can incorporate artificial intelligence (AI) and ML models to create *intelligent edge* devices and networks. The edge network can determine which data to send to the cloud for further processing, and prioritize urgent and important data.
+
+The railway company wanted to use Azure IoT Edge to improve railroad safety and efficiency by:
+
+- Proactively identifying defective components.
+- Predictively scheduling maintenance and repair.
+- Continuously improving analysis and predictions.
+
+The pilot project for the IoT Edge solution was a train wheel health analysis system.
 
 In this system, over 4,000 trackside detectors continuously monitor and stream wheel data from the company's trains. The detectors:
 
@@ -23,7 +31,7 @@ The wheel health analysis system provides early identification of potential equi
 
 - A telecommunications network that must maintain 99% or better uptime.
 - Production quality control, equipment repair, and predictive maintenance in a factory.
-- An transportation safety system that must process real-time streaming data with little or no latency.
+- A transportation safety system that must process real-time streaming data with little or no latency.
 - A transit system that must provide timely notifications and alerts.
 
 ## Architecture
@@ -31,7 +39,7 @@ The wheel health analysis system provides early identification of potential equi
 
 ### Dataflow
 
-1. An Network Attached Storage (NAS) image file server in a trackside bungalow serves processed and categorized train wheel images. Three pictures of each wheel create a stitched image.
+1. A Network Attached Storage (NAS) image file server in a trackside bungalow serves processed and categorized train wheel images. Three pictures of each wheel create a stitched image.
 1. On the IoT Edge device, the polling module alerts the device that new images are available for processing.
 1. The IoT Edge device ML module runs a third-party ML model that processes the images and identifies wheel areas that need more inspection.
 1. The alert handler on the IoT Edge device uploads all images into Azure Blob Storage, starting with images that have potential defects, and returns the image blob URIs.
@@ -41,11 +49,9 @@ The wheel health analysis system provides early identification of potential equi
 
 ### Components
 
-The IoT Edge-based system uses the following components:
+This example deploys [Azure IoT Edge](/azure/iot-edge/about-iot-edge) devices in trackside bungalows, using server-class hardware with customized industrial automation cards and graphics processing units (GPUs) for performance.
 
-#### Edge components
-
-The current example deploys [Azure IoT Edge](/azure/iot-edge/about-iot-edge) devices in trackside bungalows, using server-class hardware with customized industrial automation cards and graphics processing units (GPUs) for performance. IoT Edge is made up of three components:
+IoT Edge is made up of three components:
 
 - IoT Edge *modules* are containers that can run Azure, third-party, or custom components.
 
@@ -55,13 +61,13 @@ The current example deploys [Azure IoT Edge](/azure/iot-edge/about-iot-edge) dev
 
 - A cloud-based interface enables remote monitoring and management.
 
-#### Cloud components
+The system uses the following Azure cloud components:
 
 - [Azure IoT Hub](https://azure.microsoft.com/services/iot-hub) enables secure bi-directional cloud communication, management, and monitoring of IoT Edge modules.
 
 - [Azure Blob Storage](https://azure.microsoft.com/services/storage/blobs) is object storage for the cloud. Blob storage is optimized for storing massive amounts of unstructured data like the image data in this example.
 
-- [Azure Cosmos DB](/azure/cosmos-db/introduction) is a fully-managed, NoSQL database service with low response times and high availability and scalability.
+- [Azure Cosmos DB](/azure/cosmos-db/introduction) is a fully managed, NoSQL database service with low response times and high availability and scalability.
 
 ### Alternatives
 
@@ -117,15 +123,9 @@ Security and monitoring are considerations for IoT Edge systems. For this exampl
 - [Continuous integration and continuous deployment to Azure IoT Edge](/azure/iot-edge/how-to-continuous-integration-continuous-deployment)
 - [Deploy Azure IoT Edge modules from the Azure portal](/azure/iot-edge/how-to-deploy-modules-portal)
 
-This solution builds on the following Microsoft customer engagements in the manufacturing, oil and gas, and natural resource management industries:
+**GitHub projects:**
 
 - [CloudEvents](https://github.com/cloudevents/spec)
-- [Claim Check pattern](../../patterns/claim-check.yml)
-- [Command and Query Responsibility Segregation (CQRS) pattern](../../patterns/cqrs.yml)
-- [When to avoid CQRS](http://udidahan.com/2011/04/22/when-to-avoid-cqrs/)
-
-GitHub code projects:
-
 - [NVIDIA Container Toolkit](https://github.com/nvidia/nvidia-docker/wiki)
 - [Azure IoT Edge and RabbitMQ](https://github.com/idavis/iot-edge-rabbitmq)
 - [Cookiecutter Template for Azure IoT Edge Python Module](https://github.com/Azure/cookiecutter-azure-iot-edge-module)
@@ -133,7 +133,7 @@ GitHub code projects:
 - [ServiceBusExplorer](https://github.com/paolosalvatori/ServiceBusExplorer)
 - [DASH for Azure Storage](https://github.com/MicrosoftDX/Dash)
 
-Solution learning resources:
+**Solution learning resources:**
 
 - [Docker Compatibility Matrix](https://success.docker.com/article/compatibility-matrix)
 - [Jenkins Azure IoT Edge plugin](https://github.com/Microsoft/azure-iot-edge-jenkins-plugin)
@@ -141,16 +141,17 @@ Solution learning resources:
 - [React to Blob storage events](/azure/storage/blobs/storage-blob-event-overview)
 - [Azure Blob storage bindings for Azure Functions](/azure/azure-functions/functions-bindings-storage-blob)
 - [Serverless Streaming At Scale with Cosmos DB](https://medium.com/streaming-at-scale-in-azure/serverless-streaming-at-scale-with-cosmos-db-e0e26cacd27d)
+- [When to avoid CQRS](http://udidahan.com/2011/04/22/when-to-avoid-cqrs/)
 
 ## Related resources
 
-  - [Introduction to predictive maintenance in manufacturing](../../industries/manufacturing/predictive-maintenance-overview.yml)
-  - [Predictive maintenance](../../solution-ideas/articles/predictive-maintenance.yml
-  - [Predictive maintenance solution](../../industries/manufacturing/predictive-maintenance-solution.yml)
-  - [Predictive aircraft engine monitoring](../../solution-ideas/articles/aircraft-engine-monitoring-for-predictive-maintenance-in-aerospace.yml)
-  - [Defect prevention with predictive maintenance using analytics and machine learning](../../solution-ideas/articles/defect-prevention-with-predictive-maintenance.yml)
-  - [Anomaly detector process](../../solution-ideas/articles/anomaly-detector-process.yml)
-  - [Quality assurance](../../solution-ideas/articles/quality-assurance.yml)
-  - [Connected factory signal pipeline](../iot/connected-factory-signal-pipeline.yml)
-  - [Claim Check pattern](../../patterns/claim-check.yml)
-  - [Command and Query Responsibility Segregation (CQRS) pattern](../../patterns/cqrs.yml)
+- [Introduction to predictive maintenance in manufacturing](../../industries/manufacturing/predictive-maintenance-overview.yml)
+- [Predictive maintenance for industrial IoT](../../solution-ideas/articles/predictive-maintenance.yml)
+- [Predictive maintenance solution](../../industries/manufacturing/predictive-maintenance-solution.yml)
+- [Predictive aircraft engine monitoring](../../solution-ideas/articles/aircraft-engine-monitoring-for-predictive-maintenance-in-aerospace.yml)
+- [Defect prevention with predictive maintenance using analytics and machine learning](../../solution-ideas/articles/defect-prevention-with-predictive-maintenance.yml)
+- [Anomaly detector process](../../solution-ideas/articles/anomaly-detector-process.yml)
+- [Quality assurance](../../solution-ideas/articles/quality-assurance.yml)
+- [Connected factory signal pipeline](../iot/connected-factory-signal-pipeline.yml)
+- [Claim Check pattern](../../patterns/claim-check.yml)
+- [Command and Query Responsibility Segregation (CQRS) pattern](../../patterns/cqrs.yml)
