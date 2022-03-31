@@ -21,30 +21,30 @@ ms.custom: fcp
 
 intro 
 
-For solutions where Azure services integrate with the other Microsoft Cloud platforms, see the following articles:
+For solutions where Azure services integrate with the other Microsoft Cloud platforms, see these articles:
 - [Azure and Power Platform scenarios](../solutions/power-platform-scenarios.md)
 - [Azure and Microsoft 365 scenarios](../solutions/microsoft-365-scenarios.md)
 - [Azure and Dynamics 365 scenarios](../example-scenario/analytics/synapse-customer-insights.yml)
 
-### Active Directory
+## Active Directory
 
 |Architecture|Summary|Technology focus|
 |--|--|--|
-|[Add a mobile front end to a legacy app](../solution-ideas/articles/adding-a-modern-web-and-mobile-frontend-to-a-legacy-claims-processing-application.yml) |This solution consolidates data from multiple business systems and then surfaces the data through web and mobile front ends. This consolidation helps improve employee productivity and helps speed up decision making.|Mobile|
-|[Azure files secured by AD DS](../example-scenario/hybrid/azure-files-on-premises-authentication.yml)|Learn how to provide secure Azure files that are secured by on-premises Windows Server Active Directory domain services (AD DS), and accessed on-premises.| Hybrid|
-|[Create an AD DS resource forest](../reference-architectures/identity/adds-forest.yml)|Understand how to create a separate Active Directory domain in Azure that's trusted by domains in your on-premises AD forest.| Identity|
+|[Add a mobile front end to a legacy app](../solution-ideas/articles/adding-a-modern-web-and-mobile-frontend-to-a-legacy-claims-processing-application.yml) |Learn about a solution that consolidates data from multiple business systems and then surfaces the data through web and mobile front ends. This consolidation helps improve employee productivity and speed up decision making.|Mobile|
+|[Azure files secured by AD DS](../example-scenario/hybrid/azure-files-on-premises-authentication.yml)|Learn how provide cloud files to your on-premises users at low cost and provide high-security file access with your on-premises Active Directory Domain Services (AD DS) and DNS.| Hybrid|
+|[Create an AD DS resource forest](../reference-architectures/identity/adds-forest.yml)|Learn how to create a separate Active Directory domain in Azure that's trusted by domains in your on-premises Active Directory forest.| Identity|
 |[Deploy AD DS in an Azure virtual network](../reference-architectures/identity/adds-extend-domain.yml)|Use this reference architecture to extend an on-premises Active Directory domain to Azure to provide distributed authentication services.| Identity|
-|[Disaster recovery for Azure Stack Hub VMs](../hybrid/azure-stack-vm-dr.yml) |This solution delivers an optimized approach to disaster recovery of virtual machine (VM)-based user workloads hosted on Azure Stack Hub.|Hybrid|
-|[Extend on-premises AD FS to Azure](../reference-architectures/identity/adfs.yml) |Implement a secure hybrid network architecture with Active Directory Federation Service authorization in Azure.|Identity|
-|[Federate with a customer\'s AD FS](../multitenant-identity/adfs.yml) |Learn how a multitenant SaaS application can support authentication by using Active Directory Federation Services, in order to federate with a customer AD FS.|Identity|
-|[Hybrid SharePoint farm with Microsoft 365](../solution-ideas/articles/sharepoint-farm-microsoft-365.yml)|Deliver highly available intranet capability and share hybrid workloads with Microsoft 365 by using SharePoint servers, Azure Active Directory, and SQL Server.| Hybrid|
-|[Integrate on-premises AD with Azure](../reference-architectures/identity/index.yml) |Compare options for integrating your on-premises Active Directory (AD) environment with an Azure network.|Identity|
-|[Multiple forests with AD DS and Azure AD](../example-scenario/wvd/multi-forest.yml)| This article describes an example workload of creating multiple Active Directory forests with Azure Virtual Desktop.|Virtual Desktop|
-|[Multiple forests with AD DS, Azure AD, and Azure AD DS](../example-scenario/wvd/multi-forest-azure-managed.yml) |This is a solution idea that builds on the multiple forests scenario, using Azure Virtual Desktop and Azure Active Directory Domain Services.|Virtual Desktop|
+|[Disaster recovery for Azure Stack Hub VMs](../hybrid/azure-stack-vm-dr.yml) |Learn about an optimized approach to disaster recovery of VM-based user workloads hosted on Azure Stack Hub.|Hybrid|
+|[Extend on-premises AD FS to Azure](../reference-architectures/identity/adfs.yml) |Implement a highly secure hybrid network architecture by using Active Directory Federation Services (AD FS) authorization in Azure.|Identity|
+|[Federate with a customer\'s AD FS](../multitenant-identity/adfs.yml) |Learn how a multitenant SaaS application can federate with a customer's AD FS.|Identity|
+|[Hybrid SharePoint farm with Microsoft 365](../solution-ideas/articles/sharepoint-farm-microsoft-365.yml)|Deliver highly available intranet capability and share hybrid workloads with Microsoft 365 by using SharePoint servers, Azure Active Directory (Azure AD), and SQL Server.| Hybrid|
+|[Integrate on-premises Active Directory with Azure](../reference-architectures/identity/index.yml) |Compare options for integrating your on-premises Active Directory environment with an Azure network.|Identity|
+|[Multiple forests with AD DS and Azure AD](../example-scenario/wvd/multi-forest.yml)|Learn how to create multiple Active Directory forests by using Azure Virtual Desktop.|Virtual Desktop|
+|[Multiple forests with AD DS, Azure AD, and Azure AD DS](../example-scenario/wvd/multi-forest-azure-managed.yml) |Learn how to create multiple Active Directory forests by using Azure Virtual Desktop and AD DS.|Virtual Desktop|
 |[On-premises AD domains with Azure AD](../reference-architectures/identity/azure-ad.yml) |Learn how to implement a secure hybrid network architecture that integrates on-premises Active Directory domains with Azure Active Directory (Azure AD).|Identity|
 |[Use Azure file shares in a hybrid environment](../hybrid/azure-file-share.yml) |With identity-based authentication, you can control access to Azure file shares by using Active Directory Directory Services users and groups.|Hybrid|
 
-### Exchange Server
+## Exchange Server
 
 |Architecture|Summary|Technology focus|
 |--|--|--|
@@ -54,14 +54,14 @@ For solutions where Azure services integrate with the other Microsoft Cloud plat
 |[Enhanced-security hybrid messaging - mobile access](../example-scenario/hybrid/secure-hybrid-messaging-mobile.yml)|This article describes an architecture to enhance your security in a mobile access scenario by using Azure AD Multi-Factor Authentication.|Hybrid|
 |[Enhanced-security hybrid messaging - web access](../example-scenario/hybrid/secure-hybrid-messaging-web.yml) |This article describes an architecture to help you enhance your security in a web access scenario by using Azure AD Multi-Factor Authentication.|Hybrid|
 
-### Host Integration Server (HIS)
+## Host Integration Server (HIS)
 
 |Architecture|Summary|Technology focus|
 |--|--|--|
 |[Integrate IBM mainframe and midrange message queues with Azure](../example-scenario/mainframe/integrate-ibm-message-queues-azure.yml) |This example describes a data-first approach to middleware integration that enables IBM message queues (MQs).|Mainframe|
 |[Mainframe file replication and sync on Azure](../solution-ideas/articles/mainframe-azure-file-replication.yml) |Learn about several options for moving, converting, transforming, and storing mainframe and midrange file system data on-premises and in Azure.|Mainframe|
 
-### SharePoint Server
+## SharePoint Server
 
 |Architecture|Summary|Technology focus|
 |--|--|--|
@@ -74,7 +74,7 @@ For solutions where Azure services integrate with the other Microsoft Cloud plat
 |[Run a highly available SharePoint Server 2016 farm in Azure](../reference-architectures/sharepoint/index.yml) |This reference architecture shows proven practices for deploying a highly available SharePoint Server 2016 farm on Azure, using MinRole topology and SQL Server Always On availability groups.|Management|
 |[SharePoint farm for development testing](../solution-ideas/articles/sharepoint-farm-devtest.yml)|Deploy a SharePoint farm for development testing. Use Azure Active Directory, SQL Server, and SharePoint resources for this agile development architecture.|DevOps|
 
-### SQL Server
+## SQL Server
 
 |Architecture|Summary|Technology focus|
 |--|--|--|
@@ -104,7 +104,7 @@ For solutions where Azure services integrate with the other Microsoft Cloud plat
 |[Web app private connectivity to Azure SQL Database](../example-scenario/private-web-app/private-web-app.yml) |Lock down access to an Azure SQL Database with Azure Private Link connectivity from a multi-tenant Azure App Service through regional VNet Integration.|Web|
 |[Windows N-tier application on Azure](../reference-architectures/n-tier/n-tier-sql-server.yml) |Implement a multi-tier architecture on Azure for availability, security, scalability, and manageability.|Databases|
 
-### Windows Server
+## Windows Server
 
 |Architecture|Summary|Technology focus|
 |--|--|--|
